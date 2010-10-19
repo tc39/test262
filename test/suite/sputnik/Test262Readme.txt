@@ -1,0 +1,1 @@
+Taken from Sputnik's Subversion repository on 2010_09_08 (trunk).

@@ -1,0 +1,481 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<excludeList>
+  <test id="S7.5.3_A1.1">
+    problem, abstract is not a reserved word in ES5
+  </test>
+  <test id="S7.5.3_A1.2">
+    problem, boolean is not a reserved word in ES5
+  </test>
+  <test id="S7.5.3_A1.3">
+    problem, byte is not a reserved word in ES5
+  </test>
+  <test id="S7.5.3_A1.4">
+    problem, char is not a reserved word in ES5
+  </test>
+  <test id="S7.5.3_A1.8">
+    problem, double is not a reserved word in ES5
+  </test>
+  <test id="S7.5.3_A1.12">
+    problem, final is not a reserved word in ES5
+  </test>
+  <test id="S7.5.3_A1.13">
+    problem, float is not a reserved word in ES5
+  </test>
+  <test id="S7.5.3_A1.14">
+    problem, goto is not a reserved word in ES5
+  </test>
+  <test id="S7.5.3_A1.17">
+    problem, implements is not a reserved word in ES5
+  </test>
+  <test id="S7.5.3_A1.18">
+    problem, interface is not a reserved word in ES5
+  </test>
+  <test id="S7.5.3_A1.19">
+    problem, long is not a reserved word in ES5
+  </test>
+  <test id="S7.5.3_A1.20">
+    problem, native is not a reserved word in ES5
+  </test>
+  <test id="S7.5.3_A1.21">
+    problem, package is not a reserved word in ES5
+  </test>
+  <test id="S7.5.3_A1.22">
+    problem, private is not a reserved word in ES5
+  </test>
+  <test id="S7.5.3_A1.23">
+    problem, protected is not a reserved word in ES5
+  </test>
+  <test id="S7.5.3_A1.24">
+    problem, public is not a reserved word in ES5
+  </test>
+  <test id="S7.5.3_A1.25">
+    problem, short is not a reserved word in ES5
+  </test>
+  <test id="S7.5.3_A1.26">
+    problem, static is not a reserved word in ES5
+  </test>
+  <test id="S7.5.3_A1.28">
+    problem, synchronized is not a reserved word in ES5
+  </test>
+  <test id="S7.5.3_A1.29">
+    problem, throws is not a reserved word in ES5
+  </test>
+  <test id="S7.5.3_A1.30">
+    problem, transient is not a reserved word in ES5
+  </test>
+  <test id="S7.5.3_A1.31">
+    problem, volatile is not a reserved word in ES5
+  </test>
+  <test id="15.4.4.15-3-14">
+    <!-- reason for the exclusion-->
+  </test>
+  <test id="15.4.4.15-3-29">
+    <!-- reason for the exclusion-->
+  </test>
+  <test id="15.4.4.15-3-8">
+    <!-- reason for the exclusion-->
+  </test>
+  <test id="15.4.4.20-3-14">
+    <!-- reason for the exclusion-->
+  </test>
+  <test id="15.4.4.20-3-28">
+    <!-- reason for the exclusion-->
+  </test>
+  <test id="15.4.4.20-3-29">
+    <!-- reason for the exclusion-->
+  </test>
+  <test id="15.4.4.20-3-8">
+    <!-- reason for the exclusion-->
+  </test>
+  <test id="15.4.4.21-3-14">
+    <!-- reason for the exclusion-->
+  </test>
+  <test id="15.4.4.21-3-28">
+    <!-- reason for the exclusion-->
+  </test>
+  <test id="15.4.4.21-3-29">
+    <!-- reason for the exclusion-->
+  </test>
+  <test id="15.4.4.21-3-8">
+    <!-- reason for the exclusion-->
+  </test>
+  <test id="15.4.4.22-3-14">
+    <!-- reason for the exclusion-->
+  </test>
+  <test id="15.4.4.22-3-28">
+    <!-- reason for the exclusion-->
+  </test>
+  <test id="15.4.4.22-3-29">
+    <!-- reason for the exclusion-->
+  </test>
+  <test id="15.4.4.22-3-8">
+    <!-- reason for the exclusion-->
+  </test>
+  <test id="S15.3.4_A1">
+    problem, should be replaced or run in an iframe
+  </test>
+  <test id="S15.5.4_A1">
+    problem, should be replaced or run in an iframe
+  </test>
+  <test id="S15.3.4_A3_T1">
+    problem, should replace with different test
+  </test>
+  <test id="S15.3.5_A1_T1">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.3.5_A1_T2">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.3.4.1_A1_T2">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.3.4.1_A1_T2">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.4.3_A1.1_T2">
+    deletes function.tostring() function so [source] window does not work
+  </test>
+  <test id="S15.4.4_A1.1_T2">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.4.4.10_A4_T1">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.4.4.11_A6_T2">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.4.4.12_A4_T1">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.4.4.12_A4_T2">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.4.4.12_A4_T3">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.4.4.13_A4_T1">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.4.4.13_A4_T2">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.4.4.2_A3_T1">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.4.4.3_A3_T1">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.4.4.4_A3_T1">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.4.4.5_A5_T1">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.4.4.6_A4_T1">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.4.4.6_A4_T2">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.4.4.8_A4_T1">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.4.4.8_A4_T2">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.4.4.9_A4_T1">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.4.4.9_A4_T2">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.4.5.1_A1.2_T2">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.4.5.1_A1.2_T3">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.4.4.7_A5_T1">
+    problem, bad test should be rewritten
+  </test>
+  <test id="S15.2.4_A1_T2">
+    problem, bad test should be rewritten
+  </test>
+  <test id="10.4.2-2-c-1">
+    problem, missing right brace. revised
+  </test>
+  <test id="S15.5.4.8_A1_T1">
+    problem, bad var syntax.  revised
+  </test>
+  <test id="S7.8.5_A3.1_T7">
+    problem, syntax validation needs to use eval.  revised
+  </test>
+  <test id="S7.8.5_A3.1_T8">
+    problem, syntax validation needs to use eval.  revised
+  </test>
+  <test id="S7.8.5_A3.1_T9">
+    problem, syntax validation needs to use eval.  revised
+  </test>
+  <test id="S15.9.5.2_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.3_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.4_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.5_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.6_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.7_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.8_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.9_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.10_A1_T2">
+    problem, deletes Date.prototype.getFullYear
+  </test>
+  <test id="S15.9.5.11_A1_T2">
+    problem, deletes Date.prototype.getUTCFullYear
+  </test>
+  <test id="S15.9.5.12_A1_T2">
+    problem, deletes Date.prototype.getMonth
+  </test>
+  <test id="S15.9.5.13_A1_T2">
+    problem, deletes Date.prototype.getUTCMonth
+  </test>
+  <test id="S15.9.5.14_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.15_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.16_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.17_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.18_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.19_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.20_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.21_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.22_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.23_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.24_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.25_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.26_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.27_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.28_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.29_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.30_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.31_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.32_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.33_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.34_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.35_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.36_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.37_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.38_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.39_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.40_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.41_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.5.42_A1_T2">
+    problem, deletes built-in methodh
+  </test>
+  <test id="S15.9.4.2_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.4.3_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.4.2_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.4.3_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.1_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.2_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.3_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.4_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.5_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.6_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.7_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.8_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.9_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.10_A1_T1">
+    problem, over-writes Date.prototype.getFullYear
+  </test>
+  <test id="S15.9.5.11_A1_T1">
+    problem, over-writes Date.prototype.getUTCFullYear
+  </test>
+  <test id="S15.9.5.12_A1_T1">
+    problem, over-writes Date.prototype.getMonth
+  </test>
+  <test id="S15.9.5.13_A1_T1">
+    problem, over-writes Date.prototype.getUTCMonth
+  </test>
+  <test id="S15.9.5.14_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.15_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.16_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.17_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.18_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.19_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.20_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.21_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.22_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.23_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.24_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.25_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.26_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.27_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.28_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.29_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.30_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.31_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.32_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.33_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.34_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.35_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.36_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.37_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.38_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.39_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.40_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.41_A1_T1">
+    problem, over-writes built-in method
+  </test>
+  <test id="S15.9.5.42_A1_T1">
+    problem, over-writes built-in method
+  </test>
+
+</excludeList>

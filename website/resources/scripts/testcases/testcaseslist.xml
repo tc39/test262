@@ -1,0 +1,15 @@
+<testSuite numTests="7336">
+  <testGroup>resources/scripts/testcases/07_Lexical_Conventions.xml</testGroup>
+  <testGroup>resources/scripts/testcases/08_Types.xml</testGroup>
+  <testGroup>resources/scripts/testcases/09_Type_Conversion.xml</testGroup>
+  <testGroup>resources/scripts/testcases/10_Execution_Contexts.xml</testGroup>
+  <testGroup>resources/scripts/testcases/11_Expressions.xml</testGroup>
+  <testGroup>resources/scripts/testcases/12_Statement.xml</testGroup>
+  <testGroup>resources/scripts/testcases/13_Function_Definition.xml</testGroup>
+  <testGroup>resources/scripts/testcases/14_Program.xml</testGroup>
+  <testGroup>resources/scripts/testcases/15_Native.xml</testGroup>
+  <testGroup>resources/scripts/testcases/chapter10.xml</testGroup>
+  <testGroup>resources/scripts/testcases/chapter11.xml</testGroup>
+  <testGroup>resources/scripts/testcases/chapter12.xml</testGroup>
+  <testGroup>resources/scripts/testcases/chapter15.xml</testGroup>
+</testSuite>

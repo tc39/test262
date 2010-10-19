@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Browser Report</title>
+    <link href="resources/styles/style.css" media="screen" rel="stylesheet" title="CSS" type="text/css" />
+    <script src="resources/scripts/global/reports.js" type="text/javascript"></script>
+    <script type="text/javascript" src="resources/scripts/global/jquery-1.4.1.min.js"></script>
+</head>
+<body>
+<div id="spinner" class="loading">
+    <div style="display:none;">
+    <h2>Official ECMAScript Test262 Conformance Results</h2>
+    <p>Below is a summary of the offical approved ECMAScript Test262 tests that have been agreed upon by the TC39 WG as vaild per the ES5 specification. The tests are executed and submitted by each browser vendor.
+    If you have feedback about the tests please send email to &lt;TBD&gt;.
+    </p>
+ </div>
+    <div class="CrumbContainer" style="display:none;">
+        <div style="float:right;"><a class="setBlue" id="backBrowserReportDiv" style="display: none;" href="javascript:buildTable();"><< back</a></div>
+        <div style="clear : both;"></div>
+    </div>
+    <div class="ResultsTableHolder ReportTableHolder" style="display:none;" id="report"></div>
+    <br />
+ 
+ </div>
+    <div id="legend1">
+        <label style="background-color:#63be00;color:white">Green:</label>&nbsp;100%&nbsp;
+        <label style="background-color:#63be7b;color:white">Green:</label>&nbsp;75% to 99.9%&nbsp;
+        <label style="background-color:#f7ba44;color:white">Yellow:</label>&nbsp;50% to 75% &nbsp;
+        <label style="background-color:#f85050;color:White">Red:</label>&nbsp;less than 50%
+    </div>		
+ </body>
+</html>

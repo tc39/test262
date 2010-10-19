@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<formats>
+  <format id="1" sequence="1">\s*CHECK#[0-9]\r\n(.*(\r\n)?.)+</format>
+</formats>

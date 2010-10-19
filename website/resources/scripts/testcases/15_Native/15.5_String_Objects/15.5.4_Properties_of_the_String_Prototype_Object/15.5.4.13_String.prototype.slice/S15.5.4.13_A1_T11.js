@@ -1,0 +1,45 @@
+// Copyright 2009 the Sputnik authors.  All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/**
+* @name: S15.5.4.13_A1_T11;
+* @section: 15.5.4.13;
+* @assertion: String.prototype.slice (start, end);
+* @description: Arguments are objects, and instance is string, objects have overrided valueOf function, that return exception;
+*/
+
+
+// Converted for Test262 from original Sputnik source
+
+ES5Harness.registerTest( {
+id: "S15.5.4.13_A1_T11",
+
+path: "15.5.4.13",
+
+description: "Arguments are objects, and instance is string, objects have overrided valueOf function, that return exception",
+
+test: function testcase() {
+   var __obj = {valueOf:function(){throw "instart";}};
+var __obj2 = {valueOf:function(){throw "inend";}};
+var __str = {str__:"ABB\u0041BABAB"};
+
+//////////////////////////////////////////////////////////////////////////////
+//CHECK#1
+with(__str){
+    with(str__){
+        try {
+          var x = slice(__obj,__obj2);
+          $FAIL('#1: "var x = slice(__obj,__obj2)" lead to throwing exception');
+        } catch (e) {
+          if (e!=="instart") {
+            $ERROR('#1.1: Exception === "instart". Actual: '+e);
+          }
+        }
+    }
+}
+//
+//////////////////////////////////////////////////////////////////////////////
+
+ }
+});
+
