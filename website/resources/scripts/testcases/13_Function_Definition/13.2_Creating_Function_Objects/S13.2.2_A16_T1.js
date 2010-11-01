@@ -21,13 +21,13 @@ description: "Using \"is __obj = new function __func(){this.prop=1;}\" as Functi
 test: function testcase() {
    //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (typeof __func !== "undefined") {
-	$ERROR('#1: typeof __func === "undefined". Actual: typeof __func ==='+typeof __func);
+if (typeof S13_2_2_A16_T1_func !== "undefined") {
+    $ERROR('#1: typeof S13_2_2_A16_T1_func === "undefined". Actual: typeof S13_2_2_A16_T1_func ===' + typeof S13_2_2_A16_T1_func);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
 
-var __obj = new function __func(){this.prop=1;};
+var __obj = new function S13_2_2_A16_T1_func() { this.prop = 1; };
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
@@ -39,8 +39,8 @@ if (__obj.prop !== 1) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#5
-if (typeof __func !== "undefined") {
-	$ERROR('#5: typeof __func === "undefined". Actual: typeof __func ==='+typeof __func);
+if (typeof S13_2_2_A16_T1_func !== "undefined") {
+    $ERROR('#5: typeof S13_2_2_A16_T1_func === "undefined". Actual: typeof S13_2_2_A16_T1_func ===' + typeof S13_2_2_A16_T1_func);
 }
 //
 //////////////////////////////////////////////////////////////////////////////

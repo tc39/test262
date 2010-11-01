@@ -1,32 +1,164 @@
-//constants
-var XML_TARGETTESTSUITENAME = 'ECMAScript Test262 Site';
-var XML_TARGETTESTSUITEVERSION = '';
-var XML_TARGETTESTSUITEDATE = '';
 
-(function() {
+$(function () {
+    pageHelper.init();
+    $('.content-home').show();
+    // Adding attribute to the tabs (e.g. Home, Run etc.) and attaching the click event on buttons (e.g. Reset, Start etc.)
+    $('.nav-link').each(function (index) {
+        //Adding "targetDiv" attribute to the header tab and on that basis the div related to header tabs are displayed
+        if (index === 0) {
+            $(this).attr('targetDiv', '.content-home');
+        } else if (index === 1) {
+            $(this).attr('targetDiv', '.content-tests');
+        } else if (index === 2) {
+            $(this).attr('targetDiv', '.content-results');
+            $(this).attr('testRunning', 'false');
+        } else if (index === 3) {
+            $(this).attr('targetDiv', '.content-dev');
+        }
+        else {
+            $(this).attr('targetDiv', '.content-browsers');
+        }
 
-    window.PageHelper = {};
+        //Attaching the click event to the header tab that shows the respective div of header            
+        $(this).click(function () {
+            var target = $(this).attr('targetDiv');
+            //If clicked tab is Result, it generates the results.
+            if ($(target).hasClass('content-results')) {
+                if ($(this).attr('testRunning') === 'true') { return; }
+                pageHelper.generateReportTable();
+            }
+            $('#contentContainer > div:visible').hide();
+            $('.navBar .selected').toggleClass('selected');
+            $(this).addClass('selected');
+            $(target).show();
+            //If clicked tab is Browsers Report, it shows the reports
+            if (target === '.content-browsers') {
+                $("body").addClass("busy");
+                setTimeout(function () {
+                    buildTable();
+                }, 500);
+            }
+        });
+    });
 
-    window.TestConstants = {
-        PAUSED: 'PAUSED',
-        RUNNING: 'RUNNING',
-        STOPPED: 'STOPPED',
-        RESET: 'RESET',
-        RESUME: 'RESUME'
+    //Attach the click event to the start button. It starts, stops and pauses the tests
+    $('.button-start').click(function () {
+        $('#testsToRun').text(ES5Harness.getTotalTestsToRun());
+        $('#totalCounter').text(0);
+        $('#Pass').text(0);
+        $('#Fail').text(0);
+        $('#totalFailedCounter').text(0);
+        $('#failedToLoadCounter1').text(0);
+        $('#failedToLoadCounter').text(0);
+        //It stores the state of the test case in the data of button, whether running, paused or stopped. That is used later to get the present state
+        var testStatus = $(this).data('testStatus');
+
+        switch (testStatus) {
+            case undefined:
+            case "stopped":
+                ES5Harness.stop("stopped");
+                pageHelper.logger.find('tr').remove();
+                if (!ES5Harness.setChapter(pageHelper.update)) {
+                    return false;
+                }
+                $(this).data('testStatus', "running");
+                ES5Harness.startTesting(pageHelper.update, "reset");
+                $(this).attr('src', 'resources/images/pause.png');
+                pageHelper.configureReportLink(true);
+                break;
+            case "running":
+                $(this).data('testStatus', "paused");
+                ES5Harness.stop("paused");
+                $(this).attr('src', 'resources/images/resume.png');
+                pageHelper.configureReportLink(false);
+                break;
+            case "paused":
+                $(this).data('testStatus', "running");
+                $(this).attr('src', 'resources/images/pause.png');
+                ES5Harness.startTesting(pageHelper.update, "resume");
+                pageHelper.configureReportLink(true);
+                break;
+        }
+    });
+
+    //Attach the click event to the reset button. It reset all the test to zero
+    $('.button-reset').click(
+    /*function () {
+    pageHelper.configureReportLink(false);
+    $('.button-start').data('testStatus', "stopped").attr('src', 'resources/images/start.png');
+    pageHelper.logger.find('tr').remove();
+    ES5Harness.stop("reset");
+    ES5Harness.resetSections();
+    $('#failedToLoadCounter1').text(0);
+    $('#failedToLoadCounter').text(0);
+    $('#totalFailedCounter').text(0);
+    pageHelper.failedToLoad = 0;
+    resetResults();
+    $('#nextActivity').text("");
+    } */
+    function () {
+        location.replace(location.protocol + '//' + location.host + '/default.html?run');
     }
+    );
 
+    //Attaching the click event to the "Download results as XML" link
+    $('#ancGenXMLReport').click(function (e) {
+        pageHelper.generateReportXml();
+        return false;
+    });
 
-    var logger = null;
-    var loggerParent = null;
-    var progressBar = null;
-    var failedToLoad = 0;
+    //load xml testcase path list when page loads
+    ES5Harness && ES5Harness.loadTestList();
+    pageHelper.selectTab();
+});
 
+var pageHelper = {
 
-    function getDomain() {
-        return window.location.protocol + '//' + document.domain + '/';
-    }
+    //constants
+    XML_TARGETTESTSUITENAME: 'ECMAScript Test262 Site',
+    XML_TARGETTESTSUITEVERSION: '',
+    XML_TARGETTESTSUITEDATE: '',
+    RED_LIMIT: 50,
+    YELLOW_LIMIT: 75,
+    GREEN_LIMIT: 99.9,
 
-    function configureReportLink(executing) {
+    logger: undefined,
+    loggerParent: undefined,
+    progressBar: undefined,
+    failedToLoad: 0,
+
+    init: function () {
+        this.logger = $('#tableLogger');
+        this.loggerParent = this.logger.parent();
+        this.progressBar = $('#progressbar');
+        this.failedToLoad = 0;
+    },
+
+    //It sets the tab on the basis of url e.g. if URL is <domain name>\default.html?result, Result tab will be selected
+    selectTab: function () {
+        var queryStr = location.search.toLowerCase();
+        if (queryStr.indexOf("run") > 0) {
+            $("#run").click();
+        }
+        else if (queryStr.indexOf("result") > 0) {
+            $("#results").click();
+        }
+        else if (queryStr.indexOf("development") > 0) {
+            $("#development").click();
+        }
+        else if (queryStr.indexOf("browser") > 0) {
+            $("#browsers").click();
+        }
+    },
+
+    setVersionAndDate: function () {
+        //Set the version and date
+        $(".targetTestSuiteVersion").text(pageHelper.XML_TARGETTESTSUITEVERSION);
+        $(".targetTestSuiteDate").text(pageHelper.XML_TARGETTESTSUITEDATE);
+    },
+
+    //It sets title to the Results tab when tests are running
+    configureReportLink: function (executing) {
         var reportLink = $('.test-report-link');
         if (executing) {
             reportLink.attr('testRunning', 'true');
@@ -35,134 +167,29 @@ var XML_TARGETTESTSUITEDATE = '';
             reportLink.parent().attr('title', '');
             reportLink.attr('testRunning', 'false');
         }
-    }
+    },
 
-    function init() {
-        $('.content-home').show();
-
-        logger = $('#tableLogger');
-        loggerParent = logger.parent();
-        progressBar = $('#progressbar');
-        failedToLoad = 0;
-
-        $('.nav-link').each(function(index) {
-            if (index === 0) {
-                $(this).attr('targetDiv', '.content-home');
-            } else if (index === 1) {
-                $(this).attr('targetDiv', '.content-tests');
-            } else if (index === 2) {
-                $(this).attr('targetDiv', '.content-results');
-                $(this).attr('testRunning', 'false');
-            } else if (index === 3) {
-                $(this).attr('targetDiv', '.content-dev');
-            }
-            else {
-                $(this).attr('targetDiv', '.content-browsers');
-            }
-
-            $(this).click(function() {
-                var target = $(this).attr('targetDiv');
-                //Report page call here
-                if ($(target).hasClass('content-results')) {
-                    if ($(this).attr('testRunning') === 'true') { return; }
-                    generateReportTable();
-                }
-                $('#contentContainer > div:visible').hide();
-                $('.navBar .selected').toggleClass('selected');
-                $(this).addClass('selected');
-                $(target).show();
-
-                if (target === '.content-browsers') {
-                    $("body").addClass("busy");
-                    setTimeout(function() {
-                        buildTable();
-                    }, 500);
-                }
-            });
-        });
-
-        //attach the start button event
-        $('.button-start').click(function() {
-            $('#testsToRun').text(ES5Harness.getTotalTestsToRun());
-            $('#totalCounter').text(0);
-            $('#Pass').text(0);
-            $('#Fail').text(0);
-            $('#totalFailedCounter').text(0);
-            $('#failedToLoadCounter1').text(0);
-            $('#failedToLoadCounter').text(0);
-
-            var testStatus = $(this).data('testStatus');
-
-            switch (testStatus) {
-                case undefined:
-                case TestConstants.STOPPED:
-                    ES5Harness.stop(TestConstants.STOPPED);
-                    logger.find('tr').remove();
-                    $(this).data('testStatus', TestConstants.RUNNING);
-                    ES5Harness.startTesting(update, TestConstants.RESET);
-                    $(this).attr('src', 'resources/images/pause.png');
-                    configureReportLink(true);
-                    break;
-                case TestConstants.RUNNING:
-                    $(this).data('testStatus', TestConstants.PAUSED);
-                    ES5Harness.stop(TestConstants.PAUSED);
-                    $(this).attr('src', 'resources/images/resume.png');
-                    configureReportLink(false);
-                    break;
-                case TestConstants.PAUSED:
-                    $(this).data('testStatus', TestConstants.RUNNING);
-                    $(this).attr('src', 'resources/images/pause.png');
-                    ES5Harness.startTesting(update, TestConstants.RESUME);
-                    configureReportLink(true);
-                    break;
-            }
-        });
-
-        //attach the start button event
-        $('.button-reset').click(function() {
-            configureReportLink(false);
-            $('.button-start').data('testStatus', TestConstants.STOPPED).attr('src', 'resources/images/start.png'); ;
-            logger.find('tr').remove();
-            ES5Harness.stop(TestConstants.RESET);
-            $('#failedToLoadCounter1').text(0);
-            $('#failedToLoadCounter').text(0);
-            $('#totalFailedCounter').text(0);
-            failedToLoad = 0;
-        });
-
-        $('#ancGenXMLReport').click(function(e) {
-            //e.preventDefault();
-            generateReportXml();
-            return false;
-        });
-
-        //delete all the below lines later
-        //$('#btnSetTimerValue').click(function(){
-        // ES5Harness.TIMER_PERIOD = parseInt($('#txtTimerValue').val());
-        //})
-
-        //load xml testcase path list
-        ES5Harness && ES5Harness.loadTestList();
-    }
-
-    function update(detailsObj) {
+    //This is used as callback function for passing in sth.js
+    update: function (detailsObj) {
+        $('#testsToRun').text(detailsObj.totalTestsToRun);
         if (!isNaN(detailsObj.totalTestsRun)) {
             $('#totalCounter').text(detailsObj.totalTestsRun);
-        }
-        if (detailsObj.completed) {
-            var btnStart = $('#btnStart').attr('src', 'resources/images/start.png');
-            btnStart.data('testStatus', TestConstants.STOPPED);
-            $('#totalFailedCounter').text(failedToLoad);
-            configureReportLink(false);
         }
 
         $('#Pass').text(detailsObj.totalTestsPassed);
         $('#Fail').text(detailsObj.totalTestsFailed);
-        $('#failedToLoadCounter1').text(failedToLoad);
-        $('#failedToLoadCounter').text(failedToLoad);
+        $('#failedToLoadCounter1').text(pageHelper.failedToLoad);
+        $('#failedToLoadCounter').text(pageHelper.failedToLoad);
         $('#nextActivity').text(detailsObj.nextActivity);
+        if (detailsObj.completed) {
+            var btnStart = $('#btnStart').attr('src', 'resources/images/start.png');
+            btnStart.data('testStatus', "stopped");
+            $('#totalFailedCounter').text(pageHelper.failedToLoad);
+            pageHelper.configureReportLink(false);
+            $('#nextActivity').text("");
+        }
 
-        var altStyle = (logger.children().length % 2) === 0 ? ' ' : 'alternate';
+        var altStyle = (pageHelper.logger.children().length % 2) === 0 ? ' ' : 'alternate';
         var appendStr = '';
         var length = 0;
         if (detailsObj.failedTestCases && detailsObj.failedTestCases.length > 0) {
@@ -173,7 +200,7 @@ var XML_TARGETTESTSUITEDATE = '';
                 testObj = detailsObj.failedTestCases.shift();
                 appendStr += '<tbody><tr class=\"' + altStyle + '\"><td width=\"20%\">' + testObj.id + '</td><td>' + testObj.description + '</td><td align="right"><span class=\"Fail\">Fail</span></td></tr></tbody>';
             }
-            logger.append(appendStr);
+            pageHelper.logger.append(appendStr);
         }
 
         var testCasesPaths = this.ES5Harness.getFailToLoad();
@@ -184,20 +211,20 @@ var XML_TARGETTESTSUITEDATE = '';
                 testObj = testCasesPaths.shift();
                 altStyle = (altStyle !== ' ') ? ' ' : 'alternate';
                 appendStr += '<tbody><tr class=\"' + altStyle + '\"><td width=\"20%\">' + testObj + '</td><td>' + '' + '</td><td align="right"><span class=\"Fail\">Not Loaded</span></td></tr></tbody>';
-                failedToLoad++;
+                pageHelper.failedToLoad++;
             }
-            logger.append(appendStr);
+            pageHelper.logger.append(appendStr);
         }
-        loggerParent.attr("scrollTop", loggerParent.attr("scrollHeight"));
-        progressBar.reportprogress(detailsObj.totalTestsRun, detailsObj.totalTestCasesForProgressBar);
-    }
+        pageHelper.loggerParent.attr("scrollTop", pageHelper.loggerParent.attr("scrollHeight"));
+        pageHelper.progressBar.reportprogress(detailsObj.totalTestsRun, detailsObj.totalTestCasesForProgressBar);
+    },
 
-    function generateReportXml() {
-
-        var reportWindow, //window that will output the xml data
-			xmlData,      //array instead of string concatenation
-			dateNow,
-			xml;  // stop condition of for loop stored in a local variable to improve performance
+    //This is used to generate the xml for the results
+    generateReportXml: function () {
+        var reportWindow; //window that will output the xml data
+        var xmlData;      //array instead of string concatenation
+        var dateNow;
+        var xml;  // stop condition of for loop stored in a local variable to improve performance
 
         dateNow = new Date();
 
@@ -213,39 +240,45 @@ var XML_TARGETTESTSUITEDATE = '';
 
         reportWindow = window.open();
         reportWindow.document.writeln("<title>ECMAScript Test262 XML</title>");
-        reportWindow.document.writeln("<div>Instructions:  Update the BROWSERNAME value and submit to Hg. Send email to the <a href='mailto:body@ecmascript.org' >list</a> for assistance.</div>");
-        reportWindow.document.write("<textarea id='results' style='width: 100%; height: 800px;'>");
-        reportWindow.document.write(xml);
-        xml = "";
-        function parseSection(section) {
-            xml += "<section id='" + section.id + "' name='" + section.name + "'>\r\n";
-            for (var i = 0; i < section.testCaseArray.length; i++) {
-                xml += '<test>\r\n' +
+        if (ES5Harness.getTotalTestsRun() !== parseInt(ES5Harness.getTotalTestsToRun())) {
+            reportWindow.document.writeln("<div><b>Test Results file cannot be generated because execution is not completed</b></div>");
+
+        }
+        else {
+            reportWindow.document.writeln("<div><br/></div>");
+            reportWindow.document.write("<textarea id='results' style='width: 100%; height: 800px;'>");
+            reportWindow.document.write(xml);
+            xml = "";
+            function parseSection(section) {
+                xml += "<section id='" + section.id + "' name='" + section.name + "'>\r\n";
+                for (var i = 0; i < section.testCaseArray.length; i++) {
+                    xml += '<test>\r\n' +
                           '  <testId>' + section.testCaseArray[i].id + '</testId>\r\n' +
                           '  <res>' + section.testCaseArray[i].res + '</res>\r\n' +
                           '</test>\r\n';
-            }
-            if (section.subSections !== undefined) {
-                for (var i = 0; i < section.subSections.length; i++) {
-                    parseSection(section.subSections[i]);
-                    xml += '</section>\r\n';
+                }
+                if (section.subSections !== undefined) {
+                    for (var i = 0; i < section.subSections.length; i++) {
+                        parseSection(section.subSections[i]);
+                        xml += '</section>\r\n';
+                    }
                 }
             }
+            for (var index = 0; index < sections.length; index++) {
+                parseSection(sections[index]);
+                xml += '</section>\r\n';
+            }
+            reportWindow.document.write(xml);
+            reportWindow.document.write('</Tests>\r\n</testRun>\r\n</textarea>\r\n');
+            reportWindow.document.close();
         }
-        for (var index = 0; index < sections.length; index++) {
-            parseSection(sections[index]);
-            xml += '</section>\r\n';
-        }
-        reportWindow.document.write(xml);
-        reportWindow.document.write('</Tests>\r\n</testRun>\r\n</textarea>\r\n');
-        reportWindow.document.close();
-    }
+    },
 
-    function htmlEscape(str) {
+    htmlEscape: function (str) {
         return str.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    }
+    },
 
-    function numTests(section) {
+    numTests: function (section) {
         nTest = 0;
         for (var subSectionIndex = 0; subSectionIndex < section.subSections.length; subSectionIndex++) {
             if (section.subSections[subSectionIndex].total !== 0) {
@@ -253,13 +286,10 @@ var XML_TARGETTESTSUITEDATE = '';
             }
         }
         return nTest;
-    }
+    },
 
-
-    var RED_LIMIT = 50;
-    var YELLOW_LIMIT = 75;
-    var GREEN_LIMIT = 99.9;
-    function generateReportTable() {
+    //It generates the report that is displayed in results tab
+    generateReportTable: function () {
         var bResultsdisplayed = false;
 
         $('#backlinkDiv').hide();
@@ -267,119 +297,167 @@ var XML_TARGETTESTSUITEDATE = '';
         var sections = window.sections;
         var dataTable = $('.results-data-table');
         $('.results-data-table').find("tr").remove();
+
         //set the total, pass and fail count
         $('.totalCases').text(ES5Harness.getTotalTestsRun());
         $('.passedCases').text(ES5Harness.getTotalTestsPassed());
         $('.failedCases').text(ES5Harness.getTotalTestsFailed());
-        $('#failedToLoadCounterDetails').text(failedToLoad);
-        $('.crumbs #link1').remove();
-        $('.crumbs #link2').remove();
-        $('.crumbs #link3').remove();
+        $('#failedToLoadCounterDetails').text(pageHelper.failedToLoad);
+        try {
+            $('.crumbs #link1').remove();
+            $('.crumbs #link2').remove();
+            $('.crumbs #link3').remove();
+        }
+        catch (e) {
+            $('.crumbs #link1').text("");
+            $('.crumbs #link2').text("");
+            $('.crumbs #link3').text("");
+        }
+
         //set the navigation bar
         var anc1 = $('<a id="link1">Test Report ></a>');
-        anc1.attr('href', 'javascript:PageHelper.generateReportTable();');
+        anc1.attr('href', 'javascript:pageHelper.generateReportTable();');
         $('.crumbs').append(anc1);
         $('.crumbs #link1').removeClass().addClass("setBlack");
+
         var totalSubSectionPassed = 0;
         for (var sectionIndex = 0; sectionIndex < sections.length; sectionIndex++) {
-            if (numTests(sections[sectionIndex]) !== 0) {
+            if (pageHelper.numTests(sections[sectionIndex]) !== 0) {
                 bResultsdisplayed = true;
                 dataTable.append('<tbody><tr><td class="tblHeader" colspan="2">' + 'Chapter ' + sections[sectionIndex].id + '- ' + sections[sectionIndex].name + '</td></tr></tbody>');
                 var mainSectionPercentageStyle = "reportRed";
                 // if there are any cases directly inside the chapter instead of in subsections
                 if (sections[sectionIndex].testCaseArray.length > 0) {
+
                     for (var index = 0; index < sections[sectionIndex].subSections.length; index++) {
                         totalSubSectionPassed = totalSubSectionPassed + sections[sectionIndex].subSections[index].passed;
                     }
+
                     var calculatedLimit = (sections[sectionIndex].passed - totalSubSectionPassed) / sections[sectionIndex].testCaseArray.length * 100;
-                    if (calculatedLimit >= GREEN_LIMIT) {
+                    if (calculatedLimit >= pageHelper.GREEN_LIMIT) {
                         mainSectionPercentageStyle = "reportGreen";
                     }
-                    else if (Math.round(calculatedLimit) >= YELLOW_LIMIT) {
+                    else if (Math.round(calculatedLimit) >= pageHelper.YELLOW_LIMIT) {
                         mainSectionPercentageStyle = "reportLightGreen";
                     }
-                    else if (Math.round(calculatedLimit) >= RED_LIMIT) {
+                    else if (Math.round(calculatedLimit) >= pageHelper.RED_LIMIT) {
                         mainSectionPercentageStyle = "reportYellow";
                     }
                     else {
                         mainSectionPercentageStyle = "reportRed";
                     }
 
-                    dataTable.append('<tbody><tr><td><a href="javascript:PageHelper.generateDetailedReportTable(' + sectionIndex + ',-1);">' + "In Chapter " + sections[sectionIndex].id + '</a></td><td class="' + mainSectionPercentageStyle + '">' + (Math.round(calculatedLimit)) + '%' + '</td></tr></tbody>');
+                    dataTable.append('<tbody><tr><td><a href="javascript:pageHelper.generateDetailedReportTable(' + sectionIndex + ',-1);">' + "In Chapter " + sections[sectionIndex].id + '</a></td><td class="' + mainSectionPercentageStyle + '">' + (Math.round(calculatedLimit)) + '%' + '</td></tr></tbody>');
                 }
             }
 
             for (var subSectionIndex = 0; subSectionIndex < sections[sectionIndex].subSections.length; subSectionIndex++) {
                 var styleClass;
                 if (sections[sectionIndex].subSections[subSectionIndex].total !== 0) {
-                    var passedPercentage = sections[sectionIndex].subSections[subSectionIndex].getPassPercentage();
-                    if (passedPercentage >= GREEN_LIMIT) {
+
+                    var passedPercentage = 0;
+                    //If there are subsections in subsection along with direct test cases, calculation is done like below
+                    if (sections[sectionIndex].subSections[subSectionIndex].subSections) {
+                        var totalPassedSubSections = sections[sectionIndex].subSections[subSectionIndex].passed;
+                        var totalSubSections = sections[sectionIndex].subSections[subSectionIndex].total;
+                        for (var subSubSectionIndex = 0; subSubSectionIndex < sections[sectionIndex].subSections[subSectionIndex].subSections.length; subSubSectionIndex++) {
+                            totalPassedSubSections = totalPassedSubSections + sections[sectionIndex].subSections[subSectionIndex].subSections[subSubSectionIndex].passed;
+                            totalSubSections = totalSubSections + sections[sectionIndex].subSections[subSectionIndex].subSections[subSubSectionIndex].total;
+                        }
+
+                        passedPercentage = totalPassedSubSections / totalSubSections * 100;
+                    }
+                    else {
+                        passedPercentage = sections[sectionIndex].subSections[subSectionIndex].getPassPercentage();
+                    }
+                    if (passedPercentage >= pageHelper.GREEN_LIMIT) {
                         styleClass = "reportGreen";
                     }
-                    else if (passedPercentage >= YELLOW_LIMIT) {
+                    else if (passedPercentage >= pageHelper.YELLOW_LIMIT) {
                         styleClass = "reportLightGreen";
                     }
-                    else if (passedPercentage >= RED_LIMIT) {
+                    else if (passedPercentage >= pageHelper.RED_LIMIT) {
                         styleClass = "reportYellow";
                     }
                     else {
                         styleClass = "reportRed";
                     }
 
-                    dataTable.append('<tbody><tr><td class="sectionName"><a href="javascript:PageHelper.generateSubSectionReportTable(' + sectionIndex + ',' + subSectionIndex + ');">' + sections[sectionIndex].subSections[subSectionIndex].name + '</a></td><td class="' + styleClass + '">' + (Math.round(passedPercentage)) + '%' + '</td></tr></tbody>');
+                    dataTable.append('<tbody><tr><td class="sectionName"><a href="javascript:pageHelper.generateSubSectionReportTable(' + sectionIndex + ',' + subSectionIndex + ');">' + sections[sectionIndex].subSections[subSectionIndex].name + '</a></td><td class="' + styleClass + '">' + (Math.round(passedPercentage)) + '%' + '</td></tr></tbody>');
                     bResultsdisplayed = true;
                 }
             }
 
             totalSubSectionPassed = 0;
-
         }
+
         // append the legend if results have been displayed
         if (bResultsdisplayed) {
             $('#legend').show();
         }
-    }
 
-    function generateSubSectionReportTable(sectionIndex, subSectionIndex) {
+        //Disappear the note if there are records in the result
+        if ($.trim(dataTable.text()) !== "")
+            $("#resultMessage").hide();
+        else
+            $("#resultMessage").show();
+    },
+
+    //It shows the sub section of the results
+    generateSubSectionReportTable: function (sectionIndex, subSectionIndex) {
         var sections = window.sections;
         var dataTable = $('.results-data-table');
         $('.results-data-table').find("tr").remove();
 
         var styleClass;
         var totalSubSectionPassed = 0;
-
+        var totalSubSectionFailed = 0;
 
         // if there is no subsections under a section(say 7.1) then directly display the detailed test report
         if (!sections[sectionIndex].subSections[subSectionIndex].subSections) {
-            generateDetailedReportTable(sectionIndex, subSectionIndex);
+            pageHelper.generateDetailedReportTable(sectionIndex, subSectionIndex);
         }
         else {
-
-            $('.crumbs #link2').remove();
-            var anc2 = $('<a id="link2">' + " Chapter " + sections[sectionIndex].id + ": " + sections[sectionIndex].name + ": " + sections[sectionIndex].subSections[subSectionIndex].name + " > " + '</a>');
-            anc2.attr('href', 'javascript:PageHelper.generateSubSectionReportTable(' + sectionIndex + ',' + subSectionIndex + ');');
+            try {
+                $('.crumbs #link2').remove();
+            }
+            catch (e) {
+                $('.crumbs #link2').text("");
+            }
+            var anc2 = $("<a id='link2'>" + " Chapter " + sections[sectionIndex].id.toString() + ": " + sections[sectionIndex].name + ": " + sections[sectionIndex].subSections[subSectionIndex].name + " > " + "</a>");
+            anc2.attr('href', 'javascript:pageHelper.generateSubSectionReportTable(' + sectionIndex + ',' + subSectionIndex + ');');
             $('.crumbs').append(anc2);
 
             $('.crumbs #link2').removeClass().addClass("setBlack");
             $('.crumbs #link1').removeClass().addClass("setBlue");
 
             var anc = $('.crumbs').find('a');
-            anc.click(function() {
+            anc.click(function () {
                 $(this).next('a').remove();
-
             });
-            $('.crumbs #link3').remove();
+            try {
+                $('.crumbs #link3').remove();
+            }
+            catch (e) {
+                $('.crumbs #link3').text("");
+            }
 
+            for (var index = 0; index < sections[sectionIndex].subSections[subSectionIndex].subSections.length; index++) {
+                totalSubSectionPassed = totalSubSectionPassed + sections[sectionIndex].subSections[subSectionIndex].subSections[index].passed;
+                totalSubSectionFailed = totalSubSectionFailed + sections[sectionIndex].subSections[subSectionIndex].subSections[index].failed;
+            }
+
+            var totalCasesInSection = sections[sectionIndex].subSections[subSectionIndex].total - totalSubSectionPassed - totalSubSectionFailed;
+            var totalPassedCasesInSection = sections[sectionIndex].subSections[subSectionIndex].passed - totalSubSectionPassed;
+            var totalFailedCasesInSection = sections[sectionIndex].subSections[subSectionIndex].failed - totalSubSectionFailed;
             $('.totalCases').text(sections[sectionIndex].subSections[subSectionIndex].total);
             $('.passedCases').text(sections[sectionIndex].subSections[subSectionIndex].passed);
             $('.failedCases').text(sections[sectionIndex].subSections[subSectionIndex].failed);
 
-            for (var index = 0; index < sections[sectionIndex].subSections[subSectionIndex].subSections.length; index++) {
-                totalSubSectionPassed = totalSubSectionPassed + sections[sectionIndex].subSections[subSectionIndex].subSections[index].passed;
-            }
-
             if (sections[sectionIndex].subSections[subSectionIndex].testCaseArray.length > 0) {
-                var calculatedLimit = Math.round((sections[sectionIndex].subSections[subSectionIndex].passed - totalSubSectionPassed) / sections[sectionIndex].subSections[subSectionIndex].testCaseArray.length * 100);
+
+                // var calculatedLimit = Math.round((sections[sectionIndex].subSections[subSectionIndex].passed) / sections[sectionIndex].subSections[subSectionIndex].testCaseArray.length * 100);
+                var calculatedLimit = Math.round((totalPassedCasesInSection / totalCasesInSection) * 100);
                 if (calculatedLimit >= 75) {
                     styleClass = "reportGreen";
                 }
@@ -390,41 +468,33 @@ var XML_TARGETTESTSUITEDATE = '';
                     styleClass = "reportRed";
                 }
 
-                dataTable.append('<tr><td class="tblSectionHeader"><a href="javascript:PageHelper.generateDetailedReportTable(' + sectionIndex + ',' + subSectionIndex + ');">' + "Section: " + sections[sectionIndex].subSections[subSectionIndex].id + " cases" + '</a></td><td class="' + styleClass + '">' + calculatedLimit + '%' + '</td></tr>');
+                dataTable.append('<tbody><tr><td class="tblSectionHeader"><a href="javascript:pageHelper.generateDetailedReportTable(' + sectionIndex + ',' + subSectionIndex + ');">' + "Section: " + sections[sectionIndex].subSections[subSectionIndex].id + " cases" + '</a></td><td class="' + styleClass + '">' + calculatedLimit + '%' + '</td></tr></tbody>');
             }
 
             if (sections[sectionIndex].subSections[subSectionIndex].subSections) {
-
                 for (var objIndex = 0; objIndex < sections[sectionIndex].subSections[subSectionIndex].subSections.length; objIndex++) {
                     if (sections[sectionIndex].subSections[subSectionIndex].subSections[objIndex].total !== 0) {
+
                         var passedPercentage = sections[sectionIndex].subSections[subSectionIndex].subSections[objIndex].getPassPercentage();
-                        if (passedPercentage >= YELLOW_LIMIT) {
+                        if (passedPercentage >= pageHelper.YELLOW_LIMIT) {
                             styleClass = "reportGreen";
                         }
-                        else if (passedPercentage >= RED_LIMIT) {
+                        else if (passedPercentage >= pageHelper.RED_LIMIT) {
                             styleClass = "reportYellow";
                         }
                         else {
                             styleClass = "reportRed";
                         }
+                        dataTable.append('<tbody><tr><td class="tblSectionHeader"><a href="javascript:pageHelper.generateDetailedReportTable(' + sectionIndex + ',' + subSectionIndex + ',' + objIndex + ');">' + sections[sectionIndex].subSections[subSectionIndex].subSections[objIndex].name + '</a></td><td class="' + styleClass + '">' + (Math.round(passedPercentage)) + '%' + '</td></tr></tbody>');
 
-                        dataTable.append('<tr><td class="tblSectionHeader"><a href="javascript:PageHelper.generateDetailedReportTable(' + sectionIndex + ',' + subSectionIndex + ',' + objIndex + ');">' + sections[sectionIndex].subSections[subSectionIndex].subSections[objIndex].name + '</a></td><td class="' + styleClass + '">' + (Math.round(passedPercentage)) + '%' + '</td></tr>');
                     }
                 }
             }
         }
+        pageHelper.doBackButtonTasks();
+    },
 
-        doBackButtonTasks();
-    }
-
-    function doBackButtonTasks() {
-        $('#backlinkDiv').show();
-        var anchors = $('.crumbs a');
-        var contextAnchor = anchors[anchors.length - 2];
-        $('#backlinkDiv').attr('href', contextAnchor.href);
-    }
-
-    function generateDetailedReportTable(sectionIndex, subSectionIndex, subInnerSectionIndex) {
+    generateDetailedReportTable: function (sectionIndex, subSectionIndex, subInnerSectionIndex) {
         var sections = window.sections;
         var dataTable = $('.results-data-table');
 
@@ -460,19 +530,11 @@ var XML_TARGETTESTSUITEDATE = '';
             // cases directly under subsections example: 7.1 
             else if (sections[sectionIndex].subSections[subSectionIndex].testCaseArray.length > 0) {
                 subSectionObj = sections[sectionIndex].subSections[subSectionIndex];
-                for (var index = 0; index < sections[sectionIndex].subSections[subSectionIndex].subSections.length; index++) {
-                    subSectionPassed = subSectionPassed + sections[sectionIndex].subSections[subSectionIndex].subSections[index].passed;
-                    subSectionfailed = subSectionfailed + sections[sectionIndex].subSections[subSectionIndex].subSections[index].failed;
-                }
-
-                $('.totalCases').text(subSectionObj.testCaseArray.length);
-                $('.passedCases').text(subSectionObj.passed - subSectionPassed);
-                $('.failedCases').text(subSectionObj.failed - subSectionfailed);
+                $('.totalCases').text(subSectionObj.total);
+                $('.passedCases').text(subSectionObj.passed);
+                $('.failedCases').text(subSectionObj.failed);
             }
 
-
-
-            // $('#backlinkDiv').remove();
             var anc3 = $('<a id="link3">' + " Section: " + subSectionObj.id + " " + subSectionObj.name + '</a>');
             $('.crumbs').append(anc3);
             $('.crumbs #link3').removeClass().addClass("setBlack");
@@ -491,7 +553,6 @@ var XML_TARGETTESTSUITEDATE = '';
                 dataTable.append('<tbody><tr><td>' + subSectionObj.testCaseArray[objIndex].id + '</td><td>' + subSectionObj.testCaseArray[objIndex].description + '</td><td class="' + resultStyle + '">' + subSectionObj.testCaseArray[objIndex].res + '</td><td><a href="javascript:ES5Harness.openSourceWindow(' + subSectionObj.testCaseArray[objIndex].registrationIndex + ');">[source]</a></td></tr></tbody>');
             }
         }
-
         // testcases directly under a chapter when there are no sections in a chapter
         else {
             anc3 = $('<a id="link3">' + " Chapter: " + sections[sectionIndex].id + ": " + sections[sectionIndex].name + '</a>');
@@ -502,11 +563,12 @@ var XML_TARGETTESTSUITEDATE = '';
             $('.crumbs #link1').removeClass().addClass("setBlue");
 
             $('.sectionId').text("section: " + sections[sectionIndex].id);
-            for (subSectionIndex = 0; subSectionIndex < sections[sectionIndex].subSections.length; subSectionIndex++) {
+
+            for (var subSectionIndex = 0; subSectionIndex < sections[sectionIndex].subSections.length; subSectionIndex++) {
                 mainSectionPassed = mainSectionPassed + sections[sectionIndex].subSections[subSectionIndex].passed;
                 mainSectionfailed = mainSectionfailed + sections[sectionIndex].subSections[subSectionIndex].failed;
             }
-            $('.totalCases').text(sections[sectionIndex].testCaseArray.length);
+            $('.totalCases').text(sections[sectionIndex].total - mainSectionPassed - mainSectionfailed);
             $('.passedCases').text(sections[sectionIndex].passed - mainSectionPassed);
             $('.failedCases').text(sections[sectionIndex].failed - mainSectionfailed);
 
@@ -523,39 +585,43 @@ var XML_TARGETTESTSUITEDATE = '';
             }
         }
 
-        doBackButtonTasks();
+        pageHelper.doBackButtonTasks();
+    },
+
+    //It shows the back link
+    doBackButtonTasks: function () {
+        $('#backlinkDiv').show();
+        //The below logic is applied because .remove() is giving object error in the function "generateReportTable" that I could not find the reason.
+        //That is why I am keeping the links (#link1, #link2 and #link3) blank if any error .
+        var anchors = [];
+        $('.crumbs a').each(function (index, anchor) {
+            if ($(anchor).text() !== "") {
+                anchors[anchors.length] = anchor;
+            }
+        });
+        var contextAnchor = anchors[anchors.length - 2];
+        $('#backlinkDiv').attr('href', contextAnchor.href);
     }
-
-    //Register the variables in the namespce
-    window.PageHelper.init = init;
-    //    window.$ERROR = $ERROR;
-    window.PageHelper.generateReportXml = generateReportXml;
-    window.PageHelper.generateDetailedReportTable = generateDetailedReportTable;
-    //window.PageHelper.logger = this.logger;
-    //window.PageHelper.loggerParent = this.loggerParent;
-    window.PageHelper.generateSubSectionReportTable = generateSubSectionReportTable;
-    window.PageHelper.generateReportTable = generateReportTable;
-    window.PageHelper.progressBar = this.progressBar;
-})()
-
-
-$(window).ready(function() {
-    PageHelper.init();
-});
+};
 
 //Extend the array type
-Array.prototype.getCloneOfObject = function(oldObject) {
+getArrayCloneOfObject = function (oldObject) 
+{
     var tempClone = {};
-
-    if (typeof (oldObject) === "object") {
-        for (prop in oldObject) {
-            if ((typeof (oldObject[prop]) === "object") && (oldObject[prop]).__isArray) {
-                tempClone[prop] = this.getCloneOfArray(oldObject[prop]);
+    if (typeof (oldObject) === "object")
+    {
+        for (prop in oldObject) 
+        {
+            if ((typeof (oldObject[prop]) === "object") && (oldObject[prop]).__isArray) 
+            {
+                tempClone[prop] = getArrayCloneOfObject(oldObject[prop]);
             }
-            else if (typeof (oldObject[prop]) === "object") {
-                tempClone[prop] = this.getCloneOfObject(oldObject[prop]);
+            else if (typeof (oldObject[prop]) === "object") 
+            {
+                tempClone[prop] = getArrayCloneOfObject(oldObject[prop]);
             }
-            else {
+            else 
+            {
                 tempClone[prop] = oldObject[prop];
             }
         }
@@ -563,16 +629,18 @@ Array.prototype.getCloneOfObject = function(oldObject) {
     return tempClone;
 }
 
-Array.prototype.clone = function() {
+CloneArray = function (arrayObj) 
+{
     var tempClone = [];
-
-    for (var arrIndex = 0; arrIndex <= this.length; arrIndex++) {
-        if (typeof (this[arrIndex]) === "object") {
-            tempClone.push(this.getCloneOfObject(this[arrIndex]));
-        } else {
-            tempClone.push(this[arrIndex]);
+    for (var arrIndex = 0; arrIndex <= arrayObj.length; arrIndex++) 
+    {
+        if (typeof (arrayObj[arrIndex]) === "object") 
+        {
+            tempClone.push(getArrayCloneOfObject(arrayObj[arrIndex]));
+        } else 
+        {
+            tempClone.push(arrayObj[arrIndex]);
         }
     }
     return tempClone;
 }
-

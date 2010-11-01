@@ -21,13 +21,13 @@ description: "Using \"is __obj = new function __func(arg){this.prop=arg; return 
 test: function testcase() {
    //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (typeof __func !== "undefined") {
-	$ERROR('#1: typeof __func === "undefined"');
+if (typeof S13_2_2_A16_T3_func !== "undefined") {
+    $ERROR('#1: typeof S13_2_2_A16_T3_func === "undefined"');
 }
 //
 //////////////////////////////////////////////////////////////////////////////
 
-var __obj = new function __func(arg){this.prop=arg; return {feat: ++arg}}(5);
+var __obj = new function S13_2_2_A16_T3_func(arg) { this.prop = arg; return { feat: ++arg} } (5);
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
@@ -47,8 +47,8 @@ if (__obj.feat !== 6) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#4
-if (typeof __func !== "undefined") {
-	$ERROR('#4: typeof __func === "undefined". Actual: typeof __func ==='+typeof __func);
+if (typeof S13_2_2_A16_T3_func !== "undefined") {
+    $ERROR('#4: typeof S13_2_2_A16_T3_func === "undefined". Actual: typeof S13_2_2_A16_T3_func ===' + typeof S13_2_2_A16_T3_func);
 }
 //
 //////////////////////////////////////////////////////////////////////////////

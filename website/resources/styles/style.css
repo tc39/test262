@@ -1,303 +1,372 @@
 ﻿/* CSS Document */
 
-body{
-	background-color: #fff;
-	font-family: Tahoma, Arial, Helvetica, sans-serif;
-	font-size: 1em;
-	color: #333;
-	margin-top: 20px;
+body
+{
+    background-color: #fff;
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    color: #333;
+    margin-top: 20px;
 }
 
-a{
-	text-decoration: none;
-	color: blue;
-	cursor : hand;	
+a
+{
+    text-decoration: none;
+    color: #0000FF;
+    cursor: hand;
 }
 
-.wrapper, .content-container{
-	width: 800px;
-	max-width: 800px;
-	margin : 0px auto;
+.wrapper, .content-container
+{
+    width: 800px;
+    max-width: 800px;
+    margin: 0px auto;
 }
 
-.logoBg{
-	text-align: left;
-	margin-bottom: 5px;	
+.logoHeader
+{
+	display:block;
+	height:50px;
 }
 
-.NavBar {
-        height:60px;
-		font-size: 1.3em;
-		background-color: #868686;
-		padding: 0;
-		margin: 0;
-		width: 800px;
-		margin-bottom : 20px;
-
- }
- 
-.NavBar UL{
-	list-style: none;
-	display: block;
-	margin: 0;
-	padding: 0;
+.ecmascriptlogoBg
+{
+    margin-bottom: 5px; 
+    width:700px;
+    float:left;
 }
 
-.NavBar LI{
-	float: left;
-	margin: 0;
+.logoBg
+{
+    text-align: left;
+    margin-bottom: 5px;
+    width:600px;
+    height:36px;
+    float:left;
+}
+.ecmascriptbacklink
+{
+	position:relative;
+}
+.ecmascriptbacklink p 
+{
+	position:absolute;
+	right:0px;
+}
+.ecmascriptbacklink a
+{
+ font-weight:bold;
+ font-size:0.9em;	
+} 
+
+.navBar
+{
+    height: 60px;
+    font-size: 1.3em;
+    background-color: #868686;
+    padding: 0;
+    margin: 0;
+    width: 800px;
+    margin-bottom : 20px;
 }
 
-.NavBar LI a{
-	height: 60px;
-	/*display: block; */
-	float: left;
-	line-height: 60px;
-	padding-left:20px;
-	padding-right:20px;
-/*	min-width: 160px; */
-	color: #fff;
-	text-decoration: none;
-	text-align: center;
+.navBar ul
+{
+    list-style: none;
+    display: block;
+    margin: 0;
+    padding: 0;
 }
 
-.NavBar a:visited{
-	text-decoration: none;
-	color: #fff;
+.navBar li
+{
+    float: left;
+    margin: 0;
 }
 
-.NavBar a:hover{
-	text-decoration: none;
-	color: #f5be51;
-	background-color: #666;
+.navBar li a
+{
+    height: 60px;
+    /*display: block; */
+    float: left;
+    line-height: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+    /*	min-width: 160px; */
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
 }
 
-.NavBar LI a.selected{
-	background-color: #434343;
-	color: #f5be51;
+.navBar a:visited
+{
+    text-decoration: none;
+    color: #fff;
 }
 
-.Tab1{
-	margin:40px auto;
-	color:#444;
-	text-align:left;
-
+.navBar a:hover
+{
+    text-decoration: none;
+    color: #f5be51;
+    background-color: #666;
 }
 
-P.Headers{
-	color:#f2a612;
-	margin: 0;
-	font-size: 2em;
+.navBar li a.selected
+{
+    background-color: #434343;
+    color: #f5be51;
 }
 
-P.Content{
-	font-size:0.9em;
-    color:#444;
-	margin-top: 5px;
+
+p.headers
+{
+    color: #f2a612;
+    margin: 0;
+    font-size: 2em;
 }
 
-.Footer{
-	font-size:0.7em;
-	border-top: 1px solid #f2a612;
-	padding: 5px;
-	text-align: left;
+p.content
+{
+    font-size: 0.9em;
+    color: #444;
+    margin-top: 5px;
 }
 
-.Footer a, #footer a:visited, #footer a:active {
-     color:blue;   
-     text-decoration:none;
+li.content
+{
+    font-size: 0.9em;
+    color: #444;
 }
 
-.Footer div.Links{
-	float: left;	
+.footer
+{
+    font-size: 0.7em;
+    border-top: 1px solid #f2a612;
+    padding: 5px;
+    text-align: left;
+    margin-top: 15px;
 }
 
-.Footer div.Copyright{
-	float: right;	
+.footer a, #footer a:visited, #footer a:active
+{
+    color: #0000FF;
+    text-decoration: none;
+}
+
+.footer div.links
+{
+    float: left;
+}
+
+.footer div.copyright
+{
+    float: right;
 }
 
 /* Progress Bar Styles - Begin */
 /* progress bar container */
 
-.ProgressBarHolder{
-	text-align: left;	
-	height: 25px;
-	margin-bottom: 5px;
-	position: relative;
+.progressBarHolder
+{
+    text-align: left;
+    height: 25px;
+    margin-bottom: 5px;
+    position: relative;
 }
 
-#progressbar{
-		border: 1px solid #F93;
-        position:relative;
-        color:black; 
-		text-align: center;
-		width: 602px;
-		height: 23px;
-		margin-bottom: 5px;
-		float:left;
-		padding : 1px;
+#progressbar
+{
+    border: 1px solid #F93;
+    position: relative;
+    color: black; 
+    text-align: left;
+    width: 602px;
+    height: 23px;
+    margin-bottom: 5px;
+    float: left;
+    padding: 1px;
 }
 /* color bar */
-#progressbar div.progress{
-        height:100%;
-        overflow:hidden;
-        background-image: url(../images/progressbarbg.png);
-		background-repeat: repeat-x;
+#progressbar div.progress
+{
+    height: 100%;
+    overflow: hidden;
+    background-image: url(../images/progressbarbg.png);
+    background-repeat: repeat-x;
 }
 /* text on bar */
-#progressbar div.progress .text{
-    
+#progressbar div.progress .text
+{
 }
 /* text off bar */
-#progressbar .text{
-        width:100%;
-        position:absolute;
-        height:100%;
-        text-align:center;
-		top : 3px;
-		vertical-align : middle;
-		font-size: 0.8em;
-		left:0;
-		z-index : 999;
+#progressbar .text
+{
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    text-align: center;
+    top: 3px;
+    vertical-align: middle;
+    font-size: 0.8em;
+    left: 0;
+    z-index: 999;
 }
 /* Progress Bar Styles - End */
 
-
-.ProgressBarButtons{
-	display: inline;
-	float: left;
-	margin-left : 20px;
-}
-
-.ProgressBarButtons img{
-	cursor: pointer;	
-}
-
-.ProgressBarCounter{
-	
-}
-
-.ResultsHeader{
-	text-align: left;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	font-size: 1em;
-}
-
-.ResultsHeader .Separator{
-	color: #999;	
-}
-
-.Pass, .passedCases{
-	color: #36a812;
-}
-
-.Fail, .failedCases{
-	color: #ff0000;
-}
-
-.ResultsTableHolder{
-	text-align: left;
-	font-size: 0.8em;
-	height: 300px;
-	border: 1px solid #CCC;
-	overflow: auto;
-	margin-bottom: 20px;
-}
-
-.ReportTableHolder
+.progressBarButtons
 {
-	height:auto;
-}
-.reportTblHeader{
-	padding: 5px;
-	border-bottom: 1px dotted #999;	
-	background-image: url(../images/tblreportheaderbg.png);
-	background-repeat: repeat-x;
-	color: #fff;
+    display: inline;
+    float: left;
+    margin-left: 20px;
 }
 
-.ResultsTableHolder a, a:visited{
-	color: blue;	
-	text-decoration: none;
+.progressBarButtons img
+{
+    cursor: pointer;
 }
 
-.ResultsTableHolder td{
-	padding: 5px;
-	border-bottom: 1px dotted #999;	
+/*ToDo: to be deleted*/
+.ProgressBarCounter
+{}
+
+.resultsHeader
+{
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1em;
 }
 
-.ResultsTableHolder  tr.Alternate td{
-	padding: 5px;
-	border-bottom: 1px dotted #999;
-	background-color: #f2f2f2;	
+.resultsHeader .separator
+{
+    color: #999;
 }
 
-.ResultsTableHolder td.tblHeader{
-	padding: 5px;
-	border-bottom: 1px dotted #999;	
-	background-image: url(../images/tblheaderbg.png);
-	background-repeat: repeat-x;
-	color: #fff;
+.pass, .passedCases
+{
+    color: #36a812;
 }
 
-.ResultsTableHolder td.tblSectionHeader{
-	padding: 5px;
-	border-bottom: 1px dotted #999;	
-	background-image: url(images/tblsectionheader.png);
-	background-repeat: repeat-x;
-	color: #f2a612;
+.fail, .failedCases
+{
+    color: #ff0000;
 }
 
-.ReportRed{
-	background-color: #f85050;
-	color: #FFF;
+.resultsTableHolder
+{
+    text-align: left;
+    font-size: 0.8em;
+    height: 300px;
+    border: 1px solid #CCC;
+    overflow: auto;
+    margin-bottom: 20px;
 }
 
-.ReportGreen{
-	background-color: #63be00;
-	color: #fff;
-}
-.ReportLightGreen{
-	background-color: #63be7b;
-	color: #fff;
+.reportTableHolder
+{
+    height: auto;
 }
 
-.ReportYellow{
-	background-color: #f7ba44;
-	color: #fff;
+.reportTblHeader
+{
+    padding: 5px;
+    border-bottom: 1px dotted #999;	
+    background-image: url(../images/tblreportheaderbg.png);
+    background-repeat: repeat-x;
+    color: #444;
 }
 
-.downloadLinks, #nextActivity{
-	font-size: 0.8em;
-	
+.resultsTableHolder a, a:visited
+{
+    color: #0000FF;
+    text-decoration: none;
+}
+
+.resultsTableHolder td
+{
+    padding: 5px;
+    border-bottom: 1px dotted #999;
+}
+
+.resultsTableHolder tr.alternate td
+{
+    padding: 5px;
+    border-bottom: 1px dotted #999;
+    background-color: #f2f2f2;
+}
+
+.resultsTableHolder td.tblHeader
+{
+    padding: 5px;
+    border-bottom: 1px dotted #999;
+    background-image: url(../images/tblheaderbg.png);
+    background-repeat: repeat-x;
+    color: #fff;
+}
+
+.resultsTableHolder td.tblSectionHeader
+{
+    padding: 5px;
+    border-bottom: 1px dotted #999;	
+    background-image: url(images/tblsectionheader.png);
+    background-repeat: repeat-x;
+    color: #f2a612;
+}
+
+.reportRed
+{
+    background-color: #f85050;
+    color: #fff;
+}
+
+.reportGreen
+{
+    background-color: #63be00;
+    color: #fff;
+}
+
+.reportLightGreen
+{
+    background-color: #63be7b;
+    color: #fff;
+}
+
+.reportYellow
+{
+    background-color: #f7ba44;
+    color: #fff;
+}
+
+.downloadLinks, #nextActivity
+{
+    font-size: 0.8em;
 }
 
 /* New Styles - End */
 .content-container { color: #444;} 
-.content-home, .content-dev, .content-tests, .content-results, .content-results-detailed, .content-browsers { display : none; }
-.nav-link { cursor : pointer;} 
+.content-home, .content-dev, .content-tests, .content-results, .content-results-detailed, .content-browsers { display: none; }
+.nav-link { cursor: pointer;} 
 .button-start {  }
-.table-logger { overflow : scroll; }
-#ResultsTableHolder { overflow:auto; }
-.log-row{ width : 100%; }
-.log-row-leftcol { width: 104px; font-weight:bold; }
-.log-row-midcol { font-weight:bold; padding-right:10px; }
-.log-row-rightcol { color: red;font-weight:bold; }
-.result-fail{ color: red;font-weight:bold}
-.result-pass{ color: green;font-weight:bold}
-
+.table-logger { overflow: scroll; }
+#resultsTableHolder { overflow: auto; }
+.log-row{ width: 100%; }
+.log-row-leftcol { width: 104px; font-weight: bold; }
+.log-row-midcol { font-weight: bold; padding-right: 10px; }
+.log-row-rightcol { color: #ff0000;font-weight: bold; }
+.result-fail{ color: #ff0000;font-weight: bold}
+.result-pass{ color: #008000;font-weight: bold}
 
 .chaptername
 {
-font-weight:bold; 
-color: white;
-background-color:#6699CC;
+    font-weight: bold; 
+    color: #ffffff;
+    background-color: #6699CC;
 }
+
 #resultTable
 {
-overflow:scroll;
-height: 460px;    
+    overflow: scroll;
+    height: 460px;
 }
 
 .sectionName
@@ -306,46 +375,45 @@ height: 460px;
 .results-detailed-data-table
 {
     border: 0px;
-    border-style:solid;
-    width:100%;
- }
+    border-style: solid;
+    width: 100%;
+}
 
 .results-detailed-data-table td
-{
-    
- }
+{}
 
 .sectionId
 {}
 
 .detailedResult
-{font-weight:bold;}
+{
+    font-weight: bold;
+}
 
 #resultDetailTable
 {
-    width:100%;
-    height:450px;
-    overflow:scroll;
+    width: 100%;
+    height: 450px;
+    overflow: scroll;
 }
 
 .passedTestCases
 {
-  color: Green;
+  color: #008000;
 }
 
 .failedTestCases
 {
-   color: Red;
+   color: #ff0000;
 }
 
 .content-results-subSections
-{
-}
+{}
 
 .results-SubSections-data-table
 {
-border-collapse: collapse;
-	width: 700px; 
+    border-collapse: collapse;
+    width: 700px; 
 }
 
 .results-SubSections-data-table .alignBottom
@@ -354,7 +422,7 @@ border-collapse: collapse;
 }
 .results-SubSections-data-table td
 {
-    border: 1px solid black;
+    border: 1px solid #000000;
     padding: 3px;
     vertical-align: middle;
 }
@@ -368,30 +436,121 @@ border-collapse: collapse;
 .reportNav
 {}
 
-.CrumbContainer, .setBlack, .setBlue{
-	margin-bottom: 0px;
-	font-size: 0.85em;
+.crumbContainer, .setBlack, .setBlue{
+    margin-bottom: 0px;
+    font-size: 0.85em;
 }
 
 .setBlack
 {
-color: Black;    
+    color: #000000;
 }
-
 
 .setBlue
 {
-color: Blue;    
+    color: #0000FF;
 }
 
 .backlink
 {
-    float:right;
- text-align:right;
- }
- 
-.Crumbs { width: 680px;float: left;}
+    float: right;
+    text-align: right;
+}
 
-.downloadLinks a { cursor : pointer;}
+.crumbs
+{
+    width: 680px;
+    float: left;
+}
 
-.loading  {min-height:300px; background: url(../images/spinner.gif) no-repeat center center;}
+.downloadLinks a
+{
+      cursor: pointer;
+}
+
+.loading
+{
+    min-height: 300px;
+    background: url(../images/spinner.gif) no-repeat center center;
+}
+
+/* <Loading Indicator> */
+.indicatorContainer
+{
+    display: none;
+}
+
+.busy .indicatorContainer
+{
+    display: block;
+}
+
+.disabledBackground
+{
+    width: 98%;
+    min-height: 97%;
+    opacity: 0.1;
+    filter: alpha(opacity=10);
+    background-color: #ffffff;
+    position: absolute;
+}
+
+#loadingIndicator
+{
+    bottom: 50%;
+    display: block;
+    position: fixed;
+    right: 50%;
+}
+
+#loadingIndicator img
+{
+    vertical-align: middle;
+}
+
+#loadingIndicator div
+{
+    background-color: #ECECEB;
+    border: 1px solid gray;
+    left: 50%;
+    padding: 8px;   
+    top: 50%;
+    z-index: 100;
+}
+
+#loadingIndicator span
+{
+    padding: 10px;
+}
+/* </Loading Indicator> */
+
+.hide
+{
+    display: none;
+}
+
+#report table
+{    
+    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    color: #333;    
+}
+
+#resultMessage
+{
+    position: relative; 
+    top: 50%;
+    text-align: center;
+    width: 99%
+}
+
+.targetTestSuiteVersion, .targetTestSuiteDate
+{
+    font-weight: bold;
+}
+.projectSection
+{
+	border-top:1px none #444;
+	border-top-color: #444;
+	border-top-style:solid;
+}

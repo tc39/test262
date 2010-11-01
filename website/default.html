@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
 <html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
-<!-- #BeginTemplate "master.dwt" -->
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 <script type="text/javascript" src="resources/scripts/global/sections.js"></script>
@@ -8,7 +7,7 @@
 <script type="text/javascript" src="resources/scripts/global/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="resources/scripts/global/jqueryprogressbar.js"></script>
 <script type="text/javascript" src="resources/scripts/global/helper.js"></script>
-<script type="text/javascript" src="resources/scripts/global/jquery.base64.min.js"></script>
+<script type="text/javascript" src="resources/scripts/global/jquery.base64.js"></script>
 <script type="text/javascript" src="resources/scripts/global/reports.js"></script>
 <script type="text/javascript" src="resources/scripts/global/sputnikLib.js"></script>
 <script language="javascript" type="text/javascript">
@@ -18,13 +17,16 @@
     function ResizeLoadIndicator() {
         $(".indicatorContainer .disabledBackground").css({ height: ($(window).height() - 20) + "px" });
     }
+    
+    $(".indicatorContainer").click(function(e) {
+        if (!e) { var e = window.event; }
+        e.cancelBubble = true;
+        if (e.stopPropagation) { e.stopPropagation(); }
+    });
 </script>
 
-<!-- #BeginEditable "doctitle" -->
 <title>ECMAScript Test262</title>
-<!-- #EndEditable -->
 <link href="resources/styles/style.css" media="screen" rel="stylesheet" title="CSS" type="text/css" />
-<!-- #BeginEditable "Links" -->
 </head>
 <body>
     <div class="indicatorContainer" oncontextmenu="return false;">
@@ -40,15 +42,20 @@
 
     <div class="wrapper"> 
         <!-- This Container holds the Logo -->
-        <div class="logoBg"><img src="resources/images/logo.png" /></div>
+        <div class="logoHeader"> 
+            <div class="logoBg"><img src="resources/images/logo.png" /></div>
+            <div class="ecmascriptbacklink">
+            <p><a href="http://www.ecmascript.org/">ECMAScript.org</a></p>
+            </div>
+        </div>
         <!-- This Container holds the Navigation -->
         <div class="navBar">
             <ul>
-                <li><a href="#" class="selected nav-link">Home</a></li>
-                <li><a href="#" class="nav-link">Run</a></li>
-                <li><a href="#" class="nav-link test-report-link">Results</a></li>
-                <li><a href="#" class="nav-link">Development</a></li>
-                <li><a href="#" class="nav-link">Browsers Report</a></li>
+                <li><a href="#" class="selected nav-link" id="home">Home</a></li>
+                <li><a href="#" class="nav-link" id="run">Run</a></li>
+                <li><a href="#" class="nav-link test-report-link" id="results">Results</a></li>
+                <li><a href="#" class="nav-link" id="development">Development</a></li>
+                <li><a href="#" class="nav-link" id="browsers">Browsers Report</a></li>
             </ul>
         </div>
         <div class="content-container" id="contentContainer">
@@ -77,7 +84,11 @@
             <div class="content-tests">
                 <!-- This is the Main Content Container -->
                 <p class="content">Please click on the Start button to start the test. Once you start the test you may pause the test anytime by clicking on the Pause button. You can click on Test Reports menu once the test is completed or after pausing the test. The Reset button is for restarting the test run.</p>
-
+<!--
+                <div class="progressBarHolder">
+                    Chapter Index: <input type="text" size="2" maxlength="2" value="" id="chapterId" onkeypress="if(event.keyCode < 48 || event.keyCode > 57){return false;}"/> 
+                </div>
+-->
                 <!-- This is the Progress Bar Holder -->
                 <div class="progressBarHolder">
                     <div id="progressbar"></div>
@@ -86,7 +97,7 @@
                     </div>
                     <div style="clear: both;"></div>
                 </div>
-                <p style="display: none;">>
+                <p class="hide">>
                     Timer Value(ms) : <input id="txtTimerValue" value="50" /> <input id="btnSetTimerValue" value="Set Timer Value" type="button"/>
                 </p>
                 <!-- This is the Results Text Holder -->
@@ -98,15 +109,18 @@
                     <p><span id="nextActivity"></span></p>
                 </div>
                 <!-- This is the Table -->
-                <div class="resultsTableHolder" id="tableLoggerParent">
+                <div class="resultsTableHolder" id="tableLoggerParent">                    
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table-logger" id="tableLogger"></table>
+                </div>
+                <div>
+                    Test Suite Ver.: <span class="targetTestSuiteVersion"></span>&nbsp;<span class="separator">|</span>&nbsp;Test Suite Date: <span class="targetTestSuiteDate"></span>
                 </div>
             </div>
 
             <div class="content-results">
                 <div class="crumbContainer">
                     <div class="crumbs"></div>
-                    <div style="float:right;"><a class="setBlue" id="backlinkDiv" style="display: none;"><< back</a></div>
+                    <div style="float:right;"><a class="setBlue hide" id="backlinkDiv" ><< back</a></div>
                     <div style="clear : both;"></div>
                 </div>
                 <div class="resultsHeader"> <strong>Total Tests:<span class="totalCases"></span></strong><br />
@@ -114,18 +128,21 @@
                     Failed To Load: <strong><span id="failedToLoadCounter"></span></strong>
                 </div>
                 <!-- This is the Table -->
-                <div class="resultsTableHolder">
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="results-data-table"> </table>
+               <div class="resultsTableHolder">
+                    <table width="100%" cellspacing="0" cellpadding="0" border="0" class="results-data-table"> </table>
+                    <div id="resultMessage">Test results will be displayed after the tests are executed using the Run page.</div>
                 </div>
-
+                <div>
+                    Test Suite Ver.: <span class="targetTestSuiteVersion"></span>&nbsp;<span class="separator">|</span>&nbsp;Test Suite Date: <span class="targetTestSuiteDate"></span>
+                </div>
                 <div class="downloadLinks">
                     <p><a class="anchor-download-xml" id="ancGenXMLReport"><strong>Download results as XML</strong></a></p> <!--| <strong><a href="resources/scripts/testcases.zip">Download Source</a></strong></p>-->
                 </div>
-                <div id="legend" style="display: none;">
-                    <label style="background-color:#63be00;color:white">Green:</label>&nbsp;100%&nbsp;
-                    <label style="background-color:#63be7b;color:white">Green:</label>&nbsp;75% to 99.9%&nbsp;
-                    <label style="background-color:#f7ba44;color:white">Yellow:</label>&nbsp;50% to 75% &nbsp;
-                    <label style="background-color:#f85050;color:White">Red:</label>&nbsp;less than 50%
+                <div id="legend" class="hide">
+                    <label class="reportGreen">Green:</label>&nbsp;100%&nbsp;
+                    <label class="reportLightGreen">Green:</label>&nbsp;75% to 99.9%&nbsp;
+                    <label class="reportYellow">Yellow:</label>&nbsp;50% to 75% &nbsp;
+                    <label class="reportRed">Red:</label>&nbsp;less than 50%
                 </div>
             </div>
             
@@ -137,15 +154,15 @@
                     <p>Below are Test262 test results that have been submitted by various browser vendors. Note that slightly different versions of Test262 may have been used for each result set. Because tests are being actively added and modified, detail test results from different Test262 versions may not be directly comparable.</p>
                 </div>
                 <div class="crumbContainer">
-                    <div style="float:right;"><a class="setBlue" id="backBrowserReportDiv" style="display: none;" href="javascript:buildTable();"><< back</a></div>
+                    <div style="float:right;"><a class="setBlue hide" id="backBrowserReportDiv" href="javascript:buildTable();"><< back</a></div>
                     <div style="clear : both;"></div>
                 </div>
                 <div class="resultsTableHolder reportTableHolder" id="report"></div>
                 <div id="legend1">
-                    <label style="background-color:#63be00;color:white">Green:</label>&nbsp;100%&nbsp;
-                    <label style="background-color:#63be7b;color:white">Green:</label>&nbsp;75% to 99.9%&nbsp;
-                    <label style="background-color:#f7ba44;color:white">Yellow:</label>&nbsp;50% to 75% &nbsp;
-                    <label style="background-color:#f85050;color:White">Red:</label>&nbsp;less than 50%
+                    <label class="reportGreen">Green:</label>&nbsp;100%&nbsp;
+                    <label class="reportLightGreen">Green:</label>&nbsp;75% to 99.9%&nbsp;
+                    <label class="reportYellow">Yellow:</label>&nbsp;50% to 75% &nbsp;
+                    <label class="reportRed">Red:</label>&nbsp;less than 50%
                 </div>
             </div>
         </div>
@@ -156,7 +173,6 @@
         <div class="links">Ver. 1.0 5-Oct-2010</div>
         <div class="copyright"> &copy; <a href="http://www.ecma-international.org">ECMA International</a> </div>
     </div>
-    <iframe id="scriptLoader" style="display: none;"></iframe>
-    <!-- #EndEditable -->
+    <iframe id="scriptLoader" class="hide"></iframe>
 </body>
 </html>

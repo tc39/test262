@@ -19,7 +19,7 @@ path: "13",
 description: "Defining function body with \"return arg + arguments[1]\"",
 
 test: function testcase() {
-   var x = (function __func(arg){return arg + arguments[1]})(1,"1");
+   var x = (function S13_A2_T2_func(arg) { return arg + arguments[1] })(1, "1");
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -32,8 +32,8 @@ if (x !== "11") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (typeof __func !== 'undefined') {
-	$ERROR('#2: typeof __func === \'undefined\'. Actual: typeof __func ==='+typeof __func);
+if (typeof S13_A2_T2_func !== 'undefined') {
+    $ERROR('#2: typeof S13_A2_T2_func === \'undefined\'. Actual: typeof S13_A2_T2_func ===' + typeof S13_A2_T2_func);
 }
 //
 //////////////////////////////////////////////////////////////////////////////

@@ -132,9 +132,6 @@
   <test id="S15.3.4.1_A1_T2">
     problem, bad test should be rewritten
   </test>
-  <test id="S15.4.3_A1.1_T2">
-    deletes function.tostring() function so [source] window does not work
-  </test>
   <test id="S15.4.4_A1.1_T2">
     problem, bad test should be rewritten
   </test>
@@ -216,266 +213,200 @@
   <test id="S7.8.5_A3.1_T9">
     problem, syntax validation needs to use eval.  revised
   </test>
-  <test id="S15.9.5.2_A1_T2">
-    problem, deletes built-in methodh
+  <test id="S12.2_A11">
+    Uses this.
   </test>
-  <test id="S15.9.5.3_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.4_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.5_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.6_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.7_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.8_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.9_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.10_A1_T2">
-    problem, deletes Date.prototype.getFullYear
-  </test>
-  <test id="S15.9.5.11_A1_T2">
-    problem, deletes Date.prototype.getUTCFullYear
-  </test>
-  <test id="S15.9.5.12_A1_T2">
-    problem, deletes Date.prototype.getMonth
-  </test>
-  <test id="S15.9.5.13_A1_T2">
-    problem, deletes Date.prototype.getUTCMonth
-  </test>
-  <test id="S15.9.5.14_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.15_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.16_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.17_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.18_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.19_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.20_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.21_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.22_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.23_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.24_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.25_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.26_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.27_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.28_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.29_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.30_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.31_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.32_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.33_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.34_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.35_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.36_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.37_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.38_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.39_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.40_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.41_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.42_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.4.2_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.4.3_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.4.2_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.4.3_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.1_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.2_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.3_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.4_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.5_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.6_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.7_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.8_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.9_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.10_A1_T1">
-    problem, over-writes Date.prototype.getFullYear
-  </test>
-  <test id="S15.9.5.11_A1_T1">
-    problem, over-writes Date.prototype.getUTCFullYear
-  </test>
-  <test id="S15.9.5.12_A1_T1">
-    problem, over-writes Date.prototype.getMonth
-  </test>
-  <test id="S15.9.5.13_A1_T1">
-    problem, over-writes Date.prototype.getUTCMonth
-  </test>
-  <test id="S15.9.5.14_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.15_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.16_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.17_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.18_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.19_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.20_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.21_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.22_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.23_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.24_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.25_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.26_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.27_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.28_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.29_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.30_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.31_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.32_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.33_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.34_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.35_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.36_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.37_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.38_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.39_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.40_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.41_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.42_A1_T1">
-    problem, over-writes built-in method
-  </test>
-
-</excludeList>
+  <test id="S12.2_A2">
+    Uses this.
+  </test>
+  <test id="S15.3.4.3_A7_T10">
+    Uses this.
+  </test>
+  <test id="S15.3.4.3_A7_T3">
+    Uses this.
+  </test>
+  <test id="S15.3.4.3_A7_T4">
+    Uses this.
+  </test>
+  <test id="S15.3.4.3_A7_T6">
+    Uses this.
+  </test>
+  <test id="S15.3.4.3_A7_T9">
+    Uses this.
+  </test>
+  <test id="S15.3.4.4_A6_T3">
+    Uses this.
+  </test>
+  <test id="S15.3.4.4_A6_T4">
+    Uses this.
+  </test>
+  <test id="S15.3.4.4_A6_T6">
+    Uses this.
+  </test>
+  <test id="S15.3.4.4_A6_T9">
+    Uses this.
+  </test>
+  <test id="S15.3_A3_T1">
+    Uses this.
+  </test>
+  <test id="S15.3_A3_T2">
+    Uses this.
+  </test>
+  <test id="S15.3_A3_T3">
+    Uses this.
+  </test>
+  <test id="S15.3_A3_T4">
+    Uses this.
+  </test>
+  <test id="S15.3_A3_T5">
+    Uses this.
+  </test>
+  <test id="S15.3_A3_T6">
+    Uses this.
+  </test>
+  <test id="S7.8.3_A4.1_T3">
+    Uses this.
+  </test>
+  <test id="S7.8.3_A4.1_T4">
+    Uses this.
+  </test>
+  <test id="S7.8.3_A4.1_T5">
+    Uses this.
+  </test>
+  <test id="S7.8.3_A4.1_T6">
+    Uses this.
+  </test>
+  <test id="S7.9_A7_T7">
+    Uses this.
+  </test>
+  <test id="S8.3_A1_T1">
+    Uses this.
+  </test>
+  <test id="S8.7.2_A3">
+    Uses this.
+  </test>
+  <test id="S8.7_A5_T2">
+    Uses this.
+  </test>
+  <test id="S11.8.7_A2.4_T1">
+    Uses this.
+  </test>
+  <!-- -->
+  <test id="S15.10.6_A2">Modified RegExp.prototype.toString</test>
+  <test id="S15.11.1.1_A3_T1">Modified Error.prototype.toString</test>
+  <test id="S15.11.1_A1_T1">Modified Error.prototype.toString</test>
+  <test id="S15.11.2.1_A3_T1">Modified Error.prototype.toString</test>
+  <test id="S15.11.4.1_A1_T2">Modified Error.prototype.toString</test>
+  <test id="S15.11.4_A2">Modified Error.prototype.toString</test>
+  <test id="S15.4.2.1_A1.1_T2">Modified Array.prototype.toString</test>
+  <test id="S15.4.2.2_A1.1_T2">Modified Array.prototype.toString</test>
+  <test id="S15.4.3_A1.1_T2">Modified Function.prototype.toString</test>
+  <test id="S15.6.2.1_A4">Modified Boolean.prototype.toString</test>
+  <test id="S15.6.3.1_A1">Modified Boolean.prototype.toString</test>
+  <test id="S15.6.4_A1">Modified Boolean.prototype.toString</test>
+  <test id="S15.7.2.1_A4">Modified Number.prototype.toString</test>
+  <test id="S15.7.3.1_A2_T1">Modified Number.prototype.toString</test>
+  <test id="S15.7.3.1_A2_T2">Modified Number.prototype.toString</test>
+  <test id="S15.7.4_A1">Modified Number.prototype.toString</test>
+  <test id="S15.9.3.1_A3_T1.2">Modified Date.prototype.toString</test>
+  <test id="S15.9.3.1_A3_T2.2">Modified Date.prototype.toString</test>
+  <test id="S15.9.3.1_A3_T3.2">Modified Date.prototype.toString</test>
+  <test id="S15.9.3.1_A3_T4.2">Modified Date.prototype.toString</test>
+  <test id="S15.9.3.1_A3_T5.2">Modified Date.prototype.toString</test>
+  <test id="S15.9.3.1_A3_T6.2">Modified Date.prototype.toString</test>
+  <test id="S15.9.3.2_A3_T1.2">Modified Date.prototype.toString</test>
+  <test id="S15.9.4.2_A1_T1">Modified Date.parse</test>
+  <test id="S15.9.4.2_A1_T2">Modified Date.parse</test>
+  <test id="S15.9.4.3_A1_T1">Modified Date.UTC</test>
+  <test id="S15.9.4.3_A1_T2">Modified Date.UTC</test>
+  <test id="S15.9.5.10_A1_T1">Modified Date.prototype.getFullYear</test>
+  <test id="S15.9.5.10_A1_T2">Modified Date.prototype.getFullYear</test>
+  <test id="S15.9.5.11_A1_T1">Modified Date.prototype.getUTCFullYear</test>
+  <test id="S15.9.5.11_A1_T2">Modified Date.prototype.getUTCFullYear</test>
+  <test id="S15.9.5.12_A1_T1">Modified Date.prototype.getMonth</test>
+  <test id="S15.9.5.12_A1_T2">Modified Date.prototype.getMonth</test>
+  <test id="S15.9.5.13_A1_T1">Modified Date.prototype.getUTCMonth</test>
+  <test id="S15.9.5.13_A1_T2">Modified Date.prototype.getUTCMonth</test>
+  <test id="S15.9.5.14_A1_T1">Modified Date.prototype.getDate</test>
+  <test id="S15.9.5.14_A1_T2">Modified Date.prototype.getDate</test>
+  <test id="S15.9.5.15_A1_T1">Modified Date.prototype.getUTCDate</test>
+  <test id="S15.9.5.15_A1_T2">Modified Date.prototype.getUTCDate</test>
+  <test id="S15.9.5.16_A1_T1">Modified Date.prototype.getDay</test>
+  <test id="S15.9.5.16_A1_T2">Modified Date.prototype.getDay</test>
+  <test id="S15.9.5.17_A1_T1">Modified Date.prototype.getUTCDay</test>
+  <test id="S15.9.5.17_A1_T2">Modified Date.prototype.getUTCDay</test>
+  <test id="S15.9.5.18_A1_T1">Modified Date.prototype.getHours</test>
+  <test id="S15.9.5.18_A1_T2">Modified Date.prototype.getHours</test>
+  <test id="S15.9.5.19_A1_T1">Modified Date.prototype.getUTCHours</test>
+  <test id="S15.9.5.19_A1_T2">Modified Date.prototype.getUTCHours</test>
+  <test id="S15.9.5.1_A1_T1">Modified Date.prototype.constructor</test>
+  <test id="S15.9.5.1_A1_T2">Modified Date.prototype.constructor</test>
+  <test id="S15.9.5.20_A1_T1">Modified Date.prototype.getMinutes</test>
+  <test id="S15.9.5.20_A1_T2">Modified Date.prototype.getMinutes</test>
+  <test id="S15.9.5.21_A1_T1">Modified Date.prototype.getUTCMinutes</test>
+  <test id="S15.9.5.21_A1_T2">Modified Date.prototype.getUTCMinutes</test>
+  <test id="S15.9.5.22_A1_T1">Modified Date.prototype.getSeconds</test>
+  <test id="S15.9.5.22_A1_T2">Modified Date.prototype.getSeconds</test>
+  <test id="S15.9.5.23_A1_T1">Modified Date.prototype.getUTCSeconds</test>
+  <test id="S15.9.5.23_A1_T2">Modified Date.prototype.getUTCSeconds</test>
+  <test id="S15.9.5.24_A1_T1">Modified Date.prototype.getMilliseconds</test>
+  <test id="S15.9.5.24_A1_T2">Modified Date.prototype.getMilliseconds</test>
+  <test id="S15.9.5.25_A1_T1">Modified Date.prototype.getUTCMilliseconds</test>
+  <test id="S15.9.5.25_A1_T2">Modified Date.prototype.getUTCMilliseconds</test>
+  <test id="S15.9.5.26_A1_T1">Modified Date.prototype.getTimezoneOffset</test>
+  <test id="S15.9.5.26_A1_T2">Modified Date.prototype.getTimezoneOffset</test>
+  <test id="S15.9.5.27_A1_T1">Modified Date.prototype.setTime</test>
+  <test id="S15.9.5.27_A1_T2">Modified Date.prototype.setTime</test>
+  <test id="S15.9.5.28_A1_T1">Modified Date.prototype.setMilliseconds</test>
+  <test id="S15.9.5.28_A1_T2">Modified Date.prototype.setMilliseconds</test>
+  <test id="S15.9.5.29_A1_T1">Modified Date.prototype.setUTCMilliseconds</test>
+  <test id="S15.9.5.29_A1_T2">Modified Date.prototype.setUTCMilliseconds</test>
+  <test id="S15.9.5.2_A1_T1">Modified Date.prototype.toString</test>
+  <test id="S15.9.5.2_A1_T2">Modified Date.prototype.toString</test>
+  <test id="S15.9.5.30_A1_T1">Modified Date.prototype.setSeconds</test>
+  <test id="S15.9.5.30_A1_T2">Modified Date.prototype.setSeconds</test>
+  <test id="S15.9.5.31_A1_T1">Modified Date.prototype.setUTCSeconds</test>
+  <test id="S15.9.5.31_A1_T2">Modified Date.prototype.setUTCSeconds</test>
+  <test id="S15.9.5.32_A1_T1">Modified Date.prototype.setMinutes</test>
+  <test id="S15.9.5.32_A1_T2">Modified Date.prototype.setMinutes</test>
+  <test id="S15.9.5.33_A1_T1">Modified Date.prototype.setUTCMinutes</test>
+  <test id="S15.9.5.33_A1_T2">Modified Date.prototype.setUTCMinutes</test>
+  <test id="S15.9.5.34_A1_T1">Modified Date.prototype.setHours</test>
+  <test id="S15.9.5.34_A1_T2">Modified Date.prototype.setHours</test>
+  <test id="S15.9.5.35_A1_T1">Modified Date.prototype.setUTCHours</test>
+  <test id="S15.9.5.35_A1_T2">Modified Date.prototype.setUTCHours</test>
+  <test id="S15.9.5.36_A1_T1">Modified Date.prototype.setDate</test>
+  <test id="S15.9.5.36_A1_T2">Modified Date.prototype.setDate</test>
+  <test id="S15.9.5.37_A1_T1">Modified Date.prototype.setUTCDate</test>
+  <test id="S15.9.5.37_A1_T2">Modified Date.prototype.setUTCDate</test>
+  <test id="S15.9.5.38_A1_T1">Modified Date.prototype.setMonth</test>
+  <test id="S15.9.5.38_A1_T2">Modified Date.prototype.setMonth</test>
+  <test id="S15.9.5.39_A1_T1">Modified Date.prototype.setUTCMonth</test>
+  <test id="S15.9.5.39_A1_T2">Modified Date.prototype.setUTCMonth</test>
+  <test id="S15.9.5.3_A1_T1">Modified Date.prototype.toDateString</test>
+  <test id="S15.9.5.3_A1_T2">Modified Date.prototype.toDateString</test>
+  <test id="S15.9.5.40_A1_T1">Modified Date.prototype.setFullYear</test>
+  <test id="S15.9.5.40_A1_T2">Modified Date.prototype.setFullYear</test>
+  <test id="S15.9.5.41_A1_T1">Modified Date.prototype.setUTCFullYear</test>
+  <test id="S15.9.5.41_A1_T2">Modified Date.prototype.setUTCFullYear</test>
+  <test id="S15.9.5.42_A1_T1">Modified Date.prototype.toUTCString</test>
+  <test id="S15.9.5.42_A1_T2">Modified Date.prototype.toUTCString</test>
+  <test id="S15.9.5.4_A1_T1">Modified Date.prototype.toTimeString</test>
+  <test id="S15.9.5.4_A1_T2">Modified Date.prototype.toTimeString</test>
+  <test id="S15.9.5.5_A1_T1">Modified Date.prototype.toLocaleString</test>
+  <test id="S15.9.5.5_A1_T2">Modified Date.prototype.toLocaleString</test>
+  <test id="S15.9.5.7_A1_T1">Modified Date.prototype.toLocaleTimeString</test>
+  <test id="S15.9.5.7_A1_T2">Modified Date.prototype.toLocaleTimeString</test>
+  <test id="S15.9.5.8_A1_T1">Modified Date.prototype.valueOf</test>
+  <test id="S15.9.5.8_A1_T2">Modified Date.prototype.valueOf</test>
+  <test id="S15.9.5.9_A1_T1">Modified Date.prototype.getTime</test>
+  <test id="S15.9.5.9_A1_T2">Modified Date.prototype.getTime</test>
+  <test id="S10.2.1_A1_T1">Used this</test>
+  <test id="S11.4.1_A3.1">Used this</test>
+  <test id="S15.3.4.4_A6_T10">Used this</test>
+  <test id="S12.2_A9">Used this</test>
+  <test id="S15.9.5.6_A1_T2">Deleting library function</test>
+  <test id="S15.5.1.1_A1_T9">Using this pointer</test>
+  <test id="S7.5.1_A2">Assigning values to toString, making it Not a function</test>
+  <test id="S10.1.7_A1_T1">Using this pointer, intented for Global object</test>
+ </excludeList>

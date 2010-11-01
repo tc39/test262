@@ -21,11 +21,11 @@ description: "Syntax check if \"x = x\" throws ReferenceError",
 test: function testcase() {
    //CHECK#1
 try {
-  x = x;
-  $ERROR('#1.1: x = x throw ReferenceError. Actual: ' + (x = x));
+    S11_13_1_A4_T2_x = S11_13_1_A4_T2_x;
+    $ERROR('#1.1: S11_13_1_A4_T2_x = S11_13_1_A4_T2_x throw ReferenceError. Actual: ' + (S11_13_1_A4_T2_x = S11_13_1_A4_T2_x));
 } catch(e) {
   if ((e instanceof ReferenceError) !== true) {
-    $ERROR('#1.2: x = x throw ReferenceError. Actual: ' + (e));  
+      $ERROR('#1.2: S11_13_1_A4_T2_x = S11_13_1_A4_T2_x throw ReferenceError. Actual: ' + (e));  
   }
 }
 

@@ -21,12 +21,12 @@ description: "If GetBase(LeftHandSideExpression) is null, throw ReferenceError. 
 test: function testcase() {
    //CHECK#1
 try {
-  var z = (x /= 1);
-  $ERROR('#1.1: x /= 1 throw ReferenceError. Actual: ' + (z));  
+    var z = (S11_13_2_A2_1_T3_2_x /= 1);
+    $ERROR('#1.1: S11_13_2_A2_1_T3_2_x /= 1 throw ReferenceError. Actual: ' + (z));  
 }
 catch (e) {
   if ((e instanceof ReferenceError) !== true) {
-    $ERROR('#1.2: x /= 1 throw ReferenceError. Actual: ' + (e));  
+      $ERROR('#1.2: S11_13_2_A2_1_T3_2_x /= 1 throw ReferenceError. Actual: ' + (e));  
   }
 }
 

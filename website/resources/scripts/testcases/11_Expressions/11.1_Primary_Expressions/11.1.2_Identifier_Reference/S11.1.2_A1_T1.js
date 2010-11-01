@@ -20,8 +20,8 @@ description: "Creating variables without defining it",
 
 test: function testcase() {
    //CHECK#1
-if (this.x !== undefined) {
-  $ERROR('#1: this.x === undefined. Actual: ' + (this.x));
+if (this.S11_1_2_A1_T1_x !== undefined) {
+    $ERROR('#1: this.S11_1_2_A1_T1_x === undefined. Actual: ' + (this.S11_1_2_A1_T1_x));
 }
 
 //CHECK#2
@@ -31,9 +31,9 @@ if (object.prop !== undefined) {
 }
 
 //CHECK#3
-this.y++;
-if (isNaN(y) !== true) {
-  $ERROR('#3: this.y++; y === Not-a-Number. Actual: ' + (y));
+this.S11_1_2_A1_T1_y++;
+if (isNaN(S11_1_2_A1_T1_y) !== true) {
+    $ERROR('#3: this.S11_1_2_A1_T1_y++; S11_1_2_A1_T1_y === Not-a-Number. Actual: ' + (S11_1_2_A1_T1_y));
 }
 
  }

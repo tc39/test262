@@ -60,7 +60,7 @@
             </td>
             <xsl:variable name="id" select="@id"/>
             <xsl:for-each select="//testRun/Tests/section[@id = $id]">
-              <xsl:variable name="passRate" select="round((count(descendant::test/res[text() ='pass'])) div (count(descendant::test)) * 100)"/>
+              <xsl:variable name="passRate" select="floor((count(descendant::test/res[text() ='pass'])) div (count(descendant::test)) * 100)"/>
               <xsl:variable name="tdClass" select="'reportGreen'"/>
               <xsl:call-template name="passRateCell">
                 <xsl:with-param name="passRate" select="$passRate"/>
@@ -84,6 +84,10 @@
           <xsl:attribute name="class">
             <xsl:value-of select="'reportGreen'"/>
           </xsl:attribute>
+          <!--CSS class are not reflecting in Chrome and Safari because of dynamic generation of table that is why inline style attribute is used-->
+          <xsl:attribute name="style">
+            <xsl:value-of select="' background-color: #63be00;color: #fff;'"/>
+          </xsl:attribute>
           <xsl:value-of select="$passRate"/> % - 
           <xsl:value-of select="$pass"/>/<xsl:value-of select="$total"/>
         </xsl:element>
@@ -91,7 +95,11 @@
       <xsl:when test="$passRate &gt;= $YELLOW_LIMIT">
         <xsl:element name="td">
           <xsl:attribute name="class">
-            <xsl:value-of select="'reportLightGreen'"/>
+            <xsl:value-of select="'reportLightGreen'" />
+          </xsl:attribute>
+          <!--CSS class are not reflecting in Chrome and Safari because of dynamic generation of table that is why inline style attribute is used-->
+          <xsl:attribute name="style">
+            <xsl:value-of select="' background-color: #63be7b;color: #fff;'"/>
           </xsl:attribute>
           <xsl:value-of select="$passRate"/> % - 
           <xsl:value-of select="$pass"/>/<xsl:value-of select="$total"/>
@@ -102,6 +110,10 @@
           <xsl:attribute name="class">
             <xsl:value-of select="'reportYellow'"/>
           </xsl:attribute>
+          <!--CSS class are not reflecting in Chrome and Safari because of dynamic generation of table that is why inline style attribute is used-->
+          <xsl:attribute name="style">
+            <xsl:value-of select="'background-color: #f7ba44;color: #fff;'"/>
+          </xsl:attribute>
           <xsl:value-of select="$passRate"/> % - 
           <xsl:value-of select="$pass"/>/<xsl:value-of select="$total"/>
         </xsl:element>
@@ -110,6 +122,10 @@
           <xsl:element name="td">
             <xsl:attribute name="class">
               <xsl:value-of select="'reportRed'"/>
+            </xsl:attribute>
+            <!--CSS class are not reflecting in Chrome and Safari because of dynamic generation of table that is why inline style attribute is used-->
+            <xsl:attribute name="style">
+              <xsl:value-of select="'background-color: #f85050;color: #fff;'"/>
             </xsl:attribute>
             <xsl:value-of select="$passRate"/> % - 
             <xsl:value-of select="$pass"/>/<xsl:value-of select="$total"/>

@@ -23,7 +23,7 @@ test: function testcase() {
 var c1=0;
 try {
   c1+=1;
-  y;
+  S12_14_A6_y;
   $ERROR('#1.1: "y" lead to throwing exception');
 }
 catch (e) {
@@ -49,7 +49,7 @@ if (c2!==2){
 var c3=0;
 try{
   c3=1;
-  z;
+  S12_14_A6_z;
 }
 catch(err){
   c3*=2;

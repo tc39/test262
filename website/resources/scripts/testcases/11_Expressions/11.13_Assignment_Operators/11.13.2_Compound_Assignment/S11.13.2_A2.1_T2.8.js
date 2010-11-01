@@ -22,12 +22,12 @@ test: function testcase() {
    //CHECK#1
 try {
   var x = 1;
-  var z = (x >>>= y);
-  $ERROR('#1.1: var x = 1; x >>>= y throw ReferenceError. Actual: ' + (z));  
+  var z = (x >>>= S11_13_2_A2_1_T2_8_y);
+  $ERROR('#1.1: var x = 1; x >>>= S11_13_2_A2_1_T2_8_y throw ReferenceError. Actual: ' + (z));  
 }
 catch (e) {
   if ((e instanceof ReferenceError) !== true) {
-    $ERROR('#1.2: var x = 1; x >>>= y throw ReferenceError. Actual: ' + (e));  
+      $ERROR('#1.2: var x = 1; x >>>= S11_13_2_A2_1_T2_8_y throw ReferenceError. Actual: ' + (e));  
   }
 }
 

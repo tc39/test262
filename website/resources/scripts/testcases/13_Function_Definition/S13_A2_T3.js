@@ -19,7 +19,7 @@ path: "13",
 description: "Defining function body with \"return arguments[0] +\"-\"+ arguments[1]\"",
 
 test: function testcase() {
-   var x = (function __func(){return arguments[0] +"-"+ arguments[1]})("Obi","Wan");
+   var x = (function S13_A2_T3_func() { return arguments[0] + "-" + arguments[1] })("Obi", "Wan");
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -32,8 +32,8 @@ if (x !== "Obi-Wan") {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (typeof __func !== 'undefined') {
-	$ERROR('#2: typeof __func === \'undefined\'. Actual: typeof __func ==='+typeof __func);
+if (typeof S13_A2_T3_func !== 'undefined') {
+    $ERROR('#2: typeof S13_A2_T3_func === \'undefined\'. Actual: typeof S13_A2_T3_func ===' + typeof S13_A2_T3_func);
 }
 //
 //////////////////////////////////////////////////////////////////////////////

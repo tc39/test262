@@ -21,19 +21,19 @@ description: "Declaring a function within an \"if\" Expression",
 test: function testcase() {
    //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (typeof f !== 'undefined') {
-	$ERROR('#1: typeof f === \'undefined\'. Actual:  typeof f ==='+ typeof f  );
+if (typeof S14_A2_f !== 'undefined') {
+    $ERROR('#1: typeof S14_A2_f === \'undefined\'. Actual:  typeof S14_A2_f ===' + typeof S14_A2_f);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (function f(arg){
+if (function S14_A2_f(arg) {
 	if (arg===0)
 	   return 1;
 	else
-	   return f(arg-1)*arg;
+	    return S14_A2_f(arg - 1) * arg;
 }(3)!==6) {
 	$ERROR('#2: FunctionDeclaration cannot be localed inside an Expression');
 };

@@ -24,7 +24,7 @@ test: function testcase() {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (typeof obj !== "undefined") {
+if (typeof S13_2_2_A15_T1_obj !== "undefined") {
 	$ERROR('#1: typeof obj === "undefined". Actual: typeof obj ==='+typeof obj);
 }
 //
@@ -48,10 +48,10 @@ if (__obj.slot.prop !==1) {
 
 function __FACTORY(){
     this.prop = 1;
-    var obj = {};
-    obj.prop = "A";
-    obj.slot = this;
-    return obj;
+    var S13_2_2_A15_T1_obj = {};
+    S13_2_2_A15_T1_obj.prop = "A";
+    S13_2_2_A15_T1_obj.slot = this;
+    return S13_2_2_A15_T1_obj;
 }
 
  }

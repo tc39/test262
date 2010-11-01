@@ -21,12 +21,12 @@ description: "If GetBase(x) is null, throw ReferenceError",
 test: function testcase() {
    //CHECK#1
 try {
-  x && true;
-  $ERROR('#1.1: x && true throw ReferenceError. Actual: ' + (x && true));  
+  S11_11_1_A2_1_T2_x && true;
+  $ERROR('#1.1: S11_11_1_A2_1_T2_x && true throw ReferenceError. Actual: ' + (S11_11_1_A2_1_T2_x && true));  
 }
 catch (e) {
   if ((e instanceof ReferenceError) !== true) {
-    $ERROR('#1.2: x && true throw ReferenceError. Actual: ' + (e));  
+      $ERROR('#1.2: S11_11_1_A2_1_T2_x && true throw ReferenceError. Actual: ' + (e));  
   }
 }
 

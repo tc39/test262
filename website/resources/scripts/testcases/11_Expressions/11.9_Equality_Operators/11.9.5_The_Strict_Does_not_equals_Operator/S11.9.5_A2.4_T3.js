@@ -21,8 +21,8 @@ description: "Checking undeclarated variables",
 test: function testcase() {
    //CHECK#1
 try {
-  x !== (x = 1);
-  $ERROR('#1.1: x !== (x = 1) throw ReferenceError. Actual: ' + (x !== (x = 1)));  
+    S11_9_5_A2_4_T3_x !== (S11_9_5_A2_4_T3_x = 1);
+    $ERROR('#1.1: S11_9_5_A2_4_T3_x !== (S11_9_5_A2_4_T3_x = 1) throw ReferenceError. Actual: ' + (S11_9_5_A2_4_T3_x !== (S11_9_5_A2_4_T3_x = 1)));  
 }
 catch (e) {
   if ((e instanceof ReferenceError) !== true) {
@@ -31,8 +31,8 @@ catch (e) {
 }
 
 //CHECK#2
-if ((y = 1) !== y) {
-  $ERROR('#2: (y = 1) === y');
+if ((S11_9_5_A2_4_T3_y = 1) !== S11_9_5_A2_4_T3_y) {
+    $ERROR('#2: (S11_9_5_A2_4_T3_y = 1) === S11_9_5_A2_4_T3_y');
 }
 
 

@@ -27,12 +27,12 @@ test: function testcase() {
 
 //CHECK#1
 try {
-  f_arg(x,x=1);
-  $ERROR('#1.1: function f_arg() {} f_arg(x,x=1) throw ReferenceError. Actual: ' + (f_arg(x,x=1)));  
+    f_arg(S11_2_4_A1_4_T2_x, S11_2_4_A1_4_T2_x = 1);
+    $ERROR('#1.1: function f_arg() {} f_arg(S11_2_4_A1_4_T2_x,S11_2_4_A1_4_T2_x=1) throw ReferenceError. Actual: ' + (f_arg(S11_2_4_A1_4_T2_x, S11_2_4_A1_4_T2_x = 1)));  
 }
 catch (e) {
   if ((e instanceof ReferenceError) !== true) {
-    $ERROR('#1.2: function f_arg() {} f_arg(x,x=1) throw ReferenceError. Actual: ' + (e));  
+      $ERROR('#1.2: function f_arg() {} f_arg(S11_2_4_A1_4_T2_x,S11_2_4_A1_4_T2_x=1) throw ReferenceError. Actual: ' + (e));  
   }
 }
 

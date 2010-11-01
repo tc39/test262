@@ -22,9 +22,9 @@ description: "Function declared at the end of the program and \"obj\" property i
 test: function testcase() {
    __FACTORY = function (){
     this.prop = 1;
-    var obj = {};
-    obj.prop = "A";
-    obj.slot = this;
+    var S13_2_2_A15_T3_obj = {};
+    S13_2_2_A15_T3_obj.prop = "A";
+    S13_2_2_A15_T3_obj.slot = this;
     return obj;
 }
 
@@ -32,8 +32,8 @@ __obj = new __FACTORY();
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (typeof obj !== "undefined") {
-	$ERROR('#1: typeof obj === "undefined". Actual: typeof obj ==='+typeof obj);
+if (typeof S13_2_2_A15_T3_obj !== "undefined") {
+    $ERROR('#1: typeof S13_2_2_A15_T3_obj === "undefined". Actual: typeof S13_2_2_A15_T3_obj ===' + typeof obj);
 }
 //
 //////////////////////////////////////////////////////////////////////////////

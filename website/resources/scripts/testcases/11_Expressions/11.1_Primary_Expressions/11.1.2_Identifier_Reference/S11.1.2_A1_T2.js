@@ -21,12 +21,12 @@ description: "Trying to generate ReferenceError",
 test: function testcase() {
    //CHECK#1
 try {
-  this.z;
-  z;
-  $ERROR('#1.1: this.z; z === undefined throw ReferenceError. Actual: ' + (z));
+    this.S11_1_2_A1_T2_z;
+    S11_1_2_A1_T2_z;
+    $ERROR('#1.1: this.S11_1_2_A1_T2_z; S11_1_2_A1_T2_z === undefined throw ReferenceError. Actual: ' + (S11_1_2_A1_T2_z));
 } catch(e) {
   if ((e instanceof ReferenceError) !== true) {
-    $ERROR('#1.2: this.z; z === undefined throw ReferenceError. Actual: ' + (e));
+      $ERROR('#1.2: this.S11_1_2_A1_T2_z; S11_1_2_A1_T2_z === undefined throw ReferenceError. Actual: ' + (e));
   }
 }
 

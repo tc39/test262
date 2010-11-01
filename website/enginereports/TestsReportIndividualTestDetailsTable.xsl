@@ -67,11 +67,19 @@
           <xsl:when test="$test/res = 'pass'">        
               <xsl:attribute name="class">
                 <xsl:value-of select="'reportGreen'"/>
-              </xsl:attribute>        
-          </xsl:when>      
+              </xsl:attribute>
+              <!--CSS class are not reflecting in Chrome and Safari because of dynamic generation of table that is why inline style attribute is used-->
+              <xsl:attribute name="style">
+                <xsl:value-of select="' background-color: #63be00;color: #fff;'"/>
+              </xsl:attribute>
+          </xsl:when>
           <xsl:otherwise>
             <xsl:attribute name="class">
               <xsl:value-of select="'reportRed'"/>
+            </xsl:attribute>
+            <!--CSS class are not reflecting in Chrome and Safari because of dynamic generation of table that is why inline style attribute is used-->
+            <xsl:attribute name="style">
+              <xsl:value-of select="'background-color: #f85050;color: #fff;'"/>
             </xsl:attribute>
           </xsl:otherwise>      
         </xsl:choose>
