@@ -10,7 +10,7 @@ var fileList = [];
 var xslReportDetails = loadXMLDoc(TEST_REPORT_DETAILS_TABLE_XSL);
 var xslTestList = loadXMLDoc(TEST_REPORT_INDIV_TESTS_TABLE_XSL);
 
-// Populate fileList array by reading all xml files in "enginereports/testresults" directory on server
+// Populate fileList array by reading all xml files in "/enginereports/testresults" directory on server
 function loadTestResultList() {
     if (fileList.length === 0) {
         var httpRequest = new XMLHttpRequest();
@@ -25,7 +25,7 @@ function loadTestResultList() {
         var linkElements = tempDiv.getElementsByTagName("a");
         for (var i = 0; i < linkElements.length; i++) {
             if (linkElements[i].pathname.match(".xml$")) {
-                fileList.push(linkElements[i].pathname);
+                fileList.push(TEST_RESULT_PATH + linkElements[i].innerText);
             }
         }
     }
