@@ -18,697 +18,284 @@
 /// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
 
+
 /*
-sth: Simple Test Harness
-*/
-sth.prototype.matchTestPath = function (filePath) {
-    var cannonicalPath = filePath.slice(filePath.indexOf('TestCases'));
-    var possibleMatch = this.testsByPath[cannonicalPath];
-    if (possibleMatch) return possibleMatch;
-    var pathId = filePath.slice(filePath.lastIndexOf('/') + 1, -3);
-    possibleMatch = this.testsById[pathId];
-    if (possibleMatch) return possibleMatch;
-    return null;
+ * Run a test in the browser. Works by injecting an iframe with the test code.
+ *
+ * Public Methods:
+ * * run(id, test): Runs the test specified.
+ *
+ * Callbacks:
+ * * onComplete(test): Called when the test is run. Test object contains result and error strings describing how the
+ *                     test ran.
+ */
+function BrowserRunner() {
+    var iframe,             // injected iframe
+        currentTest,        // Current test being run.
+        scriptCache = {},   // Holds the various includes required to run certain sputnik tests.
+        instance    = this;
+
+    /* Called by the child window to notify that the test has finished. This function call is put in a separate script
+     * block at the end of the page so errors in the test script block should not prevent this function from being
+     * called.
+     */
+    function testFinished() {
+        if(typeof currentTest.result === "undefined") {
+            // We didn't get a call to testRun, which likely means the test failed to load.
+            currentTest.result = "fail";
+            currentTest.error  = "Failed to Load";
+        } else if(typeof currentTest.error !== "undefined") {
+            // We have an error logged from testRun.
+            if(currentTest.error instanceof SputnikError) {
+                currentTest.error = currentTest.message;
+            } else {
+                currentTest.error = currentTest.error.name + ": " + currentTest.error.message
+            }
+        }
+
+        document.body.removeChild(iframe);
+
+        instance.onComplete(currentTest);
+    }
+
+    /* Called from the child window after the test has run. */
+    function testRun(id, path, description, codeString, preconditionString, result, error) {
+        currentTest.id = id;
+        currentTest.path = path;
+        currentTest.description = description;
+        currentTest.result = result;
+        currentTest.error = error;
+        currentTest.code = codeString;
+        currentTest.pre = preconditionString;
+    }
+
+
+    /* Run the test. */
+    this.run = function(id, code) {
+        var includes = code.match(/\$INCLUDE\(([^\)]+)\)/g), // find all of the $INCLUDE statements
+            include;
+
+        currentTest = {id: id}; // default test, in case it doesn't get registered.
+
+        iframe = document.createElement("iframe");
+        iframe.setAttribute("style", "display:none");
+        iframe.setAttribute("id", "runnerIframe");
+
+        document.body.appendChild(iframe);
+
+        var win = window.frames[window.frames.length - 1];
+        var doc = win.document;
+
+        doc.open();
+
+        // Set up some globals.
+        win.testRun = testRun;
+        win.testFinished = testFinished;
+        win.fnSupportsStrict = fnSupportsStrict;
+        win.fnExists = fnExists;
+        win.ConvertToFileUrl = ConvertToFileUrl;
+        win.fnSupportsArrayIndexGettersOnObjects = fnSupportsArrayIndexGettersOnObjects;
+        win.fnSupportsArrayIndexGettersOnArrays  = fnSupportsArrayIndexGettersOnArrays;
+        win.arrayContains = arrayContains;
+        win.compareArray = compareArray;
+        win.SputnikError = SputnikError;
+        win.$ERROR = $ERROR;
+        win.$FAIL  = $FAIL;
+        win.$PRINT = function () {};
+        win.$INCLUDE = function() {};
+
+
+        if(includes !== null) {
+            // We have some includes, so loop through each include and pull in the dependencies.
+            for(var i = 0; i < includes.length; i++) {
+                include = includes[i].replace(/.*\(('|")(.*)('|")\)/, "$2");
+
+                // First check to see if we have this script cached already, and if not, grab it.
+                if(typeof scriptCache[include] === "undefined") {
+                    $.ajax({
+                        async: false,
+                        url: 'resources/scripts/global/' + include,
+                        success: function(s) { scriptCache[include] = s }
+                    })
+                }
+
+                // Finally, write the required script to the window.
+                doc.writeln("<script type='text/javascript'>" + scriptCache[include] + "</script>");
+            }
+        }
+           
+        // Write ES5Harness.registerTest and fnGlobalObject, which returns the global object, and the testFinished call.
+        doc.writeln("<script type='text/javascript'>ES5Harness = {};" +
+                    "function fnGlobalObject() { return window; }" +
+                    "ES5Harness.registerTest = function(test) {" +
+                    "  var error;" +
+                    "  if(test.precondition && !test.precondition()) {" +
+                    "    testRun(test.id, test.path, test.description, test.test.toString(),typeof test.precondition !== 'undefined' ? test.precondition.toString() : undefined, 'fail', 'Precondition Failed');" +
+                    "  } else {" +
+                    "    try { var res = test.test.call(window); } catch(e) { res = 'fail'; error = e; }" +
+                    "    testRun(test.id, test.path, test.description, test.test.toString(), typeof test.precondition !== 'undefined' ? test.precondition.toString() : undefined, res === true || typeof res === 'undefined' ? 'pass' : 'fail', error);" +
+                    "  }" +
+                    "}</script>" +
+                    "<script type='text/javascript'>" + code + "</script>" +
+                    "<script type='text/javascript'>testFinished();</script>")
+        doc.close();
+    }
 }
 
-function sth(globalObj) {
-    //constants
-    var LOAD_TIMER_PERIOD = 20,
-        RUN_TIMER_PERIOD = 20,
-        DEFER_STOP_COUNT = 10,
-        DEFER_CHECK_TIMER_PERIOD = 50,
-        TEST_LIST_PATH = "resources/scripts/testcases/testcaseslist.xml";
-	  
-    //private variables of this object/class
-    var callback,
-        scriptLoadTimer,
-        testRunTimer,
-        toublesomeTest,
-        requestPending,
-        globalState;
-    var stopCommand = false;
-    //It is an array that stores all the chapters' test cases when registerTest function is called.
-    //It is used later to retrieve the count of total test cases.
-    var tests = [];
-    //It is an array that stores all the chapters' test cases when registerTest function is called.
-    //It is used later to retrieve the test case to run unit test on it.
-    var buffer = [];
-    var cachedGlobal = globalObj;
-    var totalTestsRun = 0;
-    var totalTestsPassed = 0;
-    var totalTestsFailed = 0;
-    var failedTestCases = [];
-    var allScriptTagsInjected = false;
-    var testCasePaths = [];
-    var possibleTestScripts = 0;
-    var totalTestCases = 0;
-    var executionCount = 0;
-    var failedToLoad = 0;
-    var loaderIframe = null;
-    var xmlListLoaded = false;
-    var xmlTestsLoaded = false;
-    var aryTestCasePaths = [];
-    //It stores all the main xml path
-    var aryTestGroups = [];
-    //It also stores all the main xml path for buffer
-    var aryTestGroupsBuffer = [];
-    var failToLoadTests = [];
+/* Loads tests from the sections specified in testcaseslist.xml.
+ * Public Methods:
+ * * getNextTest() - Start loading the next test.
+ * * reset() - Start over at the first test.
+ *
+ * Callbacks:
+ * * onLoadingNextSection(path): Called after a request is sent for the next section xml, with the path to that xml.
+ * * onInitialized(totalTests, version, date): Called after the testcaseslist.xml is loaded and parsed.
+ * * onTestReady(id, code): Called when a test is ready with the test's id and code.
+ * * onTestsExhausted(): Called when there are no more tests to run.
+ */
+function TestLoader() {
+    var TEST_LIST_PATH   = "resources/scripts/testcases/testcaseslist.xml",
+        testGroups       = [],
+        testGroupIndex   = 0,
+        currentTestIndex = 0,
+        loader           = this;
 
-    var cachedProperties = [
-        'undefined',
-        'NaN',
-        'Infinity',
-        'Object',
-        'Object.prototype',
-        'Object.prototype.toString',
-        'Array',
-        'Array.prototype',
-        'Array.prototype.toString',
-        'Function',
-        'Function.prototype',
-        'Function.prototype.toString',
-        'String',
-        'String.prototype',
-        'String.prototype.toString',
-        'String.fromCharCode',
-        'Number',
-        'Number.prototype.toString',
-        'Boolean',
-        'Boolean.prototype.toString',
-        'RegExp',
-        'RegExp.prototype',
-        'RegExp.prototype.toString',
-        'Math',
-        'Error',
-        'Error.prototype',
-        'Error.prototype.toString',
-        'eval',
-        'parseInt',
-        'parseFloat',
-        'isNaN',
-        'isFinite',
-        'EvalError',
-        'RangeError',
-        'ReferenceError',
-        'SyntaxError',
-        'TypeError',
-        'URIError',
-        'Date',
-        'Date.prototype',
-        'Date.UTC',
-        'Date.parse',
-        'Date.prototype.toLocaleTimeString',
-        'Date.prototype.toTimeString',
-        'Date.prototype.toTimeString',
-        'Date.prototype.valueOf',
-        'Date.prototype.toString',
-        'Date.prototype.toLocaleString',
-        'Date.prototype.toDateString',
-        'Date.prototype.constructor',
-        'Date.prototype.getFullYear',
-        'Date.prototype.getUTCFullYear',
-        'Date.prototype.getMonth',
-        'Date.prototype.getUTCMonth',
-        'Date.prototype.getTime',
-        'Date.prototype.getDate',
-        'Date.prototype.getUTCDate',
-        'Date.prototype.getUTCDay',
-        'Date.prototype.getDay',
-        'Date.prototype.getUTCHours',
-        'Date.prototype.getHours',
-        'Date.prototype.getMinutes',
-        'Date.prototype.getUTCMinutes',
-        'Date.prototype.getSeconds',
-        'Date.prototype.getUTCSeconds',
-        'Date.prototype.getMilliseconds',
-        'Date.prototype.getUTCMilliseconds',
-        'Date.prototype.getTimezoneOffset',
-        'Date.prototype.setFullYear',
-        'Date.prototype.setUTCFullYear',
-        'Date.prototype.setMonth',
-        'Date.prototype.setUTCMonth',
-        'Date.prototype.setTime',
-        'Date.prototype.setDate',
-        'Date.prototype.setUTCDate',
-        'Date.prototype.setUTCDay',
-        'Date.prototype.setDay',
-        'Date.prototype.setUTCHours',
-        'Date.prototype.setHours',
-        'Date.prototype.setMinutes',
-        'Date.prototype.setUTCMinutes',
-        'Date.prototype.setSeconds',
-        'Date.prototype.setUTCSeconds',
-        'Date.prototype.setMilliseconds',
-        'Date.prototype.setUTCMilliseconds',
-        'Date.prototype.toUTCString',
-        'Date.prototype.toISOString',
-        'Date.prototype.toJSON',
-        'Date.prototype.toLocaleDateString'
-    ]
+    this.version    = undefined;
+    this.date       = undefined;
+    this.totalTests = 0;
 
-    globalState = {};
+    /* Get the XML for the next section */
+    function getNextXML() {
+        var group = testGroups[testGroupIndex];
+        currentTestIndex = 0;
 
-    var tokens;
-    var base;
-    var prop;
-
-    for (var i = 0; i < cachedProperties.length; i++) {
-        tokens = cachedProperties[i].split(".");
-        base = cachedGlobal;
-
-        while (tokens.length > 1)
-            base = base[tokens.shift()];
-
-        prop = tokens.shift();
-
-        globalState[cachedProperties[i]] = base[prop];
-    }
-    
-    //private methods
-    function clearTimers() {
-        window.clearTimeout(scriptLoadTimer);
-        window.clearTimeout(testRunTimer);
-    }
-
-
-    var currentTestId;
-
-    function restoreGlobals() {
-        var tokens;
-        var base;
-        var prop;
-
-        for (var key in globalState) {
-            tokens = key.split(".");
-            base = cachedGlobal;
-
-            while (tokens.length > 1) {
-                prop = tokens.shift();
-                base = base[prop];
-            }
-
-            prop = tokens.shift();
-
-            if (base[prop] === base[prop] && base[prop] !== globalState[key])
-            {
-                base[prop] = globalState[key];
-            }
-        }
-
-    }
-
-    function htmlEscape(str) {
-        str = str.replace(/</g, '&lt;');
-        return str.replace(/>/g, '&gt;');
-    }
-
-    //public methods
-    this.getTotalTestsRun = function() {
-        return totalTestsRun;
-    }
-
-    this.getTotalTestsPassed = function() {
-        return totalTestsPassed;
-    }
-
-    this.getTotalTestsToRun = function() {
-        return aryTestGroups.numTests;
-    }
-
-    this.getTotalTestsFailed = function() {
-        return totalTestsFailed;
-    }
-
-    this.registerTest = function(to) {
-        var t = new sth_test(to);
-        t.registrationIndex = tests.length;
-        tests.push(t);
-        buffer.push(t);       
-    }
-
-    //If user enters chapter index, it sets the aryTestGroups, tests, buffer and initialize the subsections
-    //If user enters nothing, it executes all the test cases
-    this.setChapter = function () {
-        aryTestGroups = CloneArray(aryTestGroupsBuffer);
-        aryTestGroups.numTests = aryTestGroupsBuffer.numTests;
-        var userInputChapterIndex = $.trim($("#chapterId").val());
-
-        tests = [];
-        buffer = [];
-
-        //Initialize the subSections
-        for (var secInd = 0; secInd < sections.length; secInd++) {
-            for (var subSecInd = 0; subSecInd < sections[secInd].subSections.length; subSecInd++) {
-                sections[secInd].subSections[subSecInd].total = 0;
-                sections[secInd].subSections[subSecInd].passed = 0;
-                sections[secInd].subSections[subSecInd].failed = 0;
-            }
-        }
-        $(".results-data-table").html("");
-        stopCommand = false;
-
-        if (callback) {
-            //It executes a callback function with an object that contains all the information like total test cases to run, left test cases to run etc.
-            //That updates the information on the UI
-            callback(
-                        {
-                            totalTestsRun: 0,
-                            totalTestsFailed: 0,
-                            totalTestsPassed: 0,
-                            totalTestsToRun: 0,
-                            failedTestCases: 0,
-                            totalTestsLoaded: 0,
-                            failedToLoad: 0,
-                            totalTestCasesForProgressBar: 0,
-                            nextActivity: ""
-                        });
-        }
-
-        if (userInputChapterIndex !== "") {
-            var mapedChapterIndex = null;
-            for (var chapterIndex = 0; chapterIndex < aryTestGroups.length; chapterIndex++) {
-                if (chapterIndex === parseInt(userInputChapterIndex)) {                    
-                    mapedChapterIndex = chapterIndex;
-                }
-            }
-
-            if (mapedChapterIndex !== null) {
-                aryTestGroups = [];
-                aryTestGroups[0] = aryTestGroupsBuffer[mapedChapterIndex];
-                aryTestGroups.numTests = aryTestGroupsBuffer.numTests;
-            }
-            else {               
-                $("#resultMessage").show();
-                alert("Chapter index is not valid. Please keep blank for execution of all the test cases or enter correct index");
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    this.run = function ()
-    {
-        var ut = undefined;   // a particular unittest
-        var res = false;       // the result of running the unittest
-        var prereq = undefined;   // any prerequisite specified by the unittest
-        var pres = true;        // the result of running that prerequite
-        var alphaNumericWithDot = /^[sS]?[0-9]{1,2}([.]?[0-9]{1,2}){0,2}/gi;
-        var holdArray;
-        var subsectionId;
-        var chapterId;
-
-        ut = buffer.shift();
-        if (!ut)
-        {
+        if(group.tests.length > 0) {
+            // already loaded this section.
+            loader.getNextTest();
             return;
         }
-        executionCount++;
-        //this.currentTest = ut;
+        
+        $.ajax({url: group.path, dataType: 'xml', success: function(data) {
+            group.tests = data.getElementsByTagName("test");
+            loader.getNextTest();
+        }});
 
-
-        if (callback)
-        {
-            //It executes a callback function with an object that contains all the information like total test cases to run, left test cases to run etc.
-            //That updates the information on the UI
-            callback(
-                { totalTestsRun: totalTestsRun, //Total run 
-                    //totalRun : sth.tests.length, 
-                    totalTestsFailed: totalTestsFailed,
-                    totalTestsPassed: totalTestsPassed,
-                    totalTestsToRun: totalTestCases,
-                    failedTestCases: failedTestCases,
-                    totalTestsLoaded: tests.length,
-                    failedToLoad: failedToLoad,
-                    totalTestCasesForProgressBar: ((totalTestsRun / totalTestCases) * 100) < 99 ? totalTestCases : tests.length,
-                    nextActivity: "executing ... " + ut.id
-                });
-        }
-
-        // if the test specifies a prereq, run that.
-        pre = ut.pre;
-        pres = true;
-        currentTestId = ut.id;
-        if (pre !== undefined)
-        {
-            try
-            {
-                pres = pre.call(ut);
-                restoreGlobals();
-                if (pres !== true)
-                {
-                    ut.res = 'Precondition failed';
-                }
-            } catch (e)
-            {
-                restoreGlobals();
-                pres = false;
-                var errDes = (e.message) ? e.message : e.description;
-                ut.res = 'Precondition failed with exception: ' + errDes;
-            }
-        }
-
-        //read the chapter id and sub section id by spliting the testcase id
-        match2 = ut.id.match(alphaNumericWithDot);
-        subsectionId = match2[0];
-        if (match2[0].toLowerCase().indexOf('s') != -1)
-        {
-            subsectionId = subsectionId.substring(1);
-        }
-        holdArray = subsectionId.split(".");
-        chapterId = holdArray[0] - SECTION_TOC_OFFSET;
-        addCountToSection(subsectionId, "total");
-        // if the prereq is met, run the testcase now.
-        if (pres === true)
-        {
-            try
-            {
-                res = ut.theTestcase.call(ut.testObj);
-                restoreGlobals();
-                if (res === true || res === undefined)
-                {
-                    ut.res = 'pass';
-                    totalTestsPassed++;
-                    addCountToSection(subsectionId, "passed");
-                }
-                else
-                {
-                    ut.res = 'fail';
-                    totalTestsFailed++;
-                    failedTestCases[failedTestCases.length] = ut;
-                    addCountToSection(subsectionId, "failed");
-                }
-            }
-            catch (e)
-            {
-                restoreGlobals();
-                var errDes = (e.message) ? e.message : e.description;
-                ut.res = 'failed with exception: ' + errDes;
-                totalTestsFailed++;
-                failedTestCases[failedTestCases.length] = ut;
-                addCountToSection(subsectionId, "failed");
-            }
-        }
-        else
-        {
-            totalTestsFailed++;
-            failedTestCases[failedTestCases.length] = ut;
-            addCountToSection(subsectionId, "failed");
-        }
-        if (holdArray.length > 1)
-        {
-            if (holdArray.length === 3 & existsSection(subsectionId))
-            {
-                sections[chapterId].subSections[holdArray[1] - 1].subSections[holdArray[2] - 1].testCaseArray[sections[chapterId].subSections[holdArray[1] - 1].subSections[holdArray[2] - 1].testCaseArray.length] = ut;
-            }
-            else
-            {
-                sections[chapterId].subSections[holdArray[1] - 1].testCaseArray[sections[chapterId].subSections[holdArray[1] - 1].testCaseArray.length] = ut;
-            }
-        }
-        else
-            sections[chapterId].testCaseArray[sections[chapterId].testCaseArray.length] = ut;
-
-        totalTestsRun++;
+        loader.onLoadingNextSection(group.path);
     }
 
-
-    this.startTesting = function (pageCallback, command) {
-        if (!xmlListLoaded) {
-            this.loadTestList();
-            return;
-        }
-        stopCommand = false;
-
-        var scriptLoader = new XMLHttpRequest();
-        function loadNextTest() {
-            testPath = aryTestGroups.shift();
-            if (!testPath) {
-                allScriptTagsInjected = true;
-                scriptLoader = null;
-            }
-            else {
-                scriptLoader.onreadystatechange = function () {
-                    if (scriptLoader.readyState == 4) {
-                        if (callback) {
-                            //It executes a callback function with an object that contains all the information like total test cases to run, left test cases to run etc.
-                            //That updates the information on the UI
-                            callback(
-                               { totalTestsRun: totalTestsRun, //Total run 
-                                   totalTestsFailed: totalTestsFailed,
-                                   totalTestsPassed: totalTestsPassed,
-                                   totalTestsToRun: totalTestCases,
-                                   failedTestCases: failedTestCases,
-                                   totalTestsLoaded: tests.length,
-                                   failedToLoad: failedToLoad,
-                                   totalTestCasesForProgressBar: ((totalTestsRun / totalTestCases) * 100) < 99 ? totalTestCases : tests.length,
-                                   nextActivity: "loading... " + scriptLoader.responseXML.getElementsByTagName("section")[0].getAttribute("name")
-                               });
-                        }
-                        try {
-                            var j = aryTestCasePaths.length;
-                            var newTests = scriptLoader.responseXML.getElementsByTagName("test");
-
-                            for (var i = 0; i < newTests.length; i++) {
-                                var scriptCode = (newTests[i].firstChild.text != undefined) ? newTests[i].firstChild.text : newTests[i].firstChild.textContent;
-                                loaderIframe.append('<script>' + $.base64Decode(scriptCode) + '</script>');
-                                aryTestCasePaths[j++] = newTests[i].getAttribute("id");
-                                if (tests[tests.length - 1].id != newTests[i].getAttribute("id")) {
-                                    failToLoadTests[failToLoadTests.length] = newTests[i].getAttribute("id");
-                                }
-                            }
-                            requestPending = false;
-                            xmlTestsLoaded = true;
-                            if (!stopCommand)
-                                loadNextTest();
-                        } catch (e) { requestPending = false; }
-                    }
-                };
-                scriptLoader.open("GET", testPath, true);
-                scriptLoader.send(null);
-                requestPending = true;
-            }
-        }
-        scriptLoadTimer = setTimeout(loadNextTest, 0);
-
-        totalTestCases = possibleTestScripts = aryTestGroups.numTests;
-
-        switch (command) {
-            case "running":
-            case "reset":
-                if (!testCasePaths.length > 0 && !allScriptTagsInjected) {
-                    testCasePaths = aryTestCasePaths.slice(0, aryTestCasePaths.length);
-                } else {
-                    buffer = CloneArray(tests);
-                }
-                break;
-        }
-
-        callback = pageCallback;
-
-        var sth = this,
-        loaderIframe = $('head'),
-        testPath;
-
-        function runNextTest() {
-            if (!xmlTestsLoaded) {
-                testRunTimer = setTimeout(runNextTest, RUN_TIMER_PERIOD);
-                return;
-            }
-
-            if (buffer.length === 0 && !allScriptTagsInjected) {
-                testRunTimer = setTimeout(runNextTest, RUN_TIMER_PERIOD);
-                return;
-            }
-            if ($("#chapterId").val() !== "") {
-                totalTestCases = tests.length;
-            }
-            //It executes a callback function with an object that contains all the information like total test cases to run, left test cases to run etc.
-            //That updates the information on the UI
-            callback(
-                { totalTestsRun: totalTestsRun, //Total run 
-                    //totalRun : sth.tests.length, 
-                    totalTestsFailed: totalTestsFailed,
-                    totalTestsPassed: totalTestsPassed,
-                    totalTestsToRun: totalTestCases,
-                    failedTestCases: failedTestCases,
-                    totalTestsLoaded: tests.length,
-                    failedToLoad: failedToLoad,
-                    totalTestCasesForProgressBar: ((totalTestsRun / totalTestCases) * 100) < 99 ? totalTestCases : tests.length
-                });
-
-            sth.run();
-            if (allScriptTagsInjected
-			&& executionCount === tests.length
-			&& buffer.length === 0
-			&& !requestPending) {
-
-                //Give the browser time to load the scripts, even if all the script tags have been injected,
-                //browser might be having a lot of them in the queue that are yet to load
-                if (DEFER_STOP_COUNT-- !== 0) {
-                    testRunTimer = setTimeout(runNextTest, DEFER_CHECK_TIMER_PERIOD);
-                    return;
-                }
-                //It executes a callback function with an object that contains all the information like total test cases to run, left test cases to run etc.
-                //That updates the information on the UI
-                callback(
-				    { totalTestsRun: totalTestsRun,
-				        //totalRun : sth.tests.length,
-				        totalTestsFailed: totalTestsFailed,
-				        totalTestsPassed: totalTestsPassed,
-				        totalTestsToRun: totalTestCases,
-				        failedTestCases: failedTestCases,
-				        completed: true,
-				        failedToLoad: failedToLoad,
-				        totalTestCasesForProgressBar: tests.length,
-				        totalTestsLoaded: tests.length
-				    });
-                sth.stop();
-            }
-            else if (!stopCommand) {
-                testRunTimer = setTimeout(runNextTest, RUN_TIMER_PERIOD);
-                DEFER_STOP_COUNT = 10;
-            }
-        }
-        testRunTimer = setTimeout(runNextTest, 0);
-    }
-
-    //This function stops, resets and pauses on the basis of parameter passed to it. 
-    this.stop = function(testStatus) {
-        clearTimers();
-        stopCommand = true;
-        var totalTestCasesForProgressBar = tests.length;
-
-        switch (testStatus) {
-            case "paused":
-                totalTestsRun = totalTestsRun; //Total run 
-                totalTestsFailed = totalTestsFailed;
-                totalTestsPassed = totalTestsPassed;
-                totalTestsToRun = totalTestCases;
-                failedTestCases = failedTestCases;
-                totalTestsLoaded = tests.length;
-                totalTestCasesForProgressBar = ((totalTestsRun / totalTestCases) * 100) < 99 ? totalTestCases : tests.length;
-                break;
-            case "reset":
-                totalTestsRun = 0; //Total run 
-                totalTestsFailed = 0;
-                totalTestsPassed = 0;
-                totalTestsLoaded = tests.length
-                global = window;
-                failedTestCases = [];
-                possibleTestScripts = totalTestCases;
-                loadSections();
-                break;
-            case "stopped":
-                totalTestsRun = 0;
-                totalTestsPassed = 0;
-                totalTestsFailed = 0;
-                executionCount = 0
-                totalTestCasesForProgressBar = tests.length;
-        }
-
-        if (typeof callback !== 'undefined' && callback !== null) {
-            //It executes a callback function with an object that contains all the information like total test cases to run, left test cases to run etc.
-            //That updates the information on the UI
-            callback(
-				{ totalTestsRun: totalTestsRun, //Total run 
-				    totalTestsFailed: totalTestsFailed,
-				    totalTestsPassed: totalTestsPassed,
-				    failedTestCases: failedTestCases,
-				    totalTestsToRun: totalTestCases,
-				    totalTestsLoaded: tests.length,
-				    failedToLoad: failedToLoad,
-				    totalTestCasesForProgressBar: totalTestCasesForProgressBar
-				});
-        }
-    }
-
-    this.getAllTests = function() {
-        return tests;
-    }
-    
-    this.getFailToLoad = function() {
-        return failToLoadTests;
-    }
-    
-    this.decrementTotalScriptCount = function() {
-        failedToLoad++;
-    }
-
-    //It opens the source code for the test case that is run 
-    this.openSourceWindow = function(idx) {
-        var ut = tests[idx];
-        var popWnd = window.open("", "", "scrollbars=1, resizable=1");
-        var innerHTML = '';
-
-        innerHTML += '<b>Test </b>';
-        if (ut.id) {
-            innerHTML += '<b>' + ut.id + '</b> <br /><br />';
-        }
-
-        if (ut.description) {
-            innerHTML += '<b>Description</b>';
-            innerHTML += '<pre>' + ut.description.replace(/</g, '&lt;').replace(/>/g, '&gt;'); +' </pre>';
-        }
-
-        innerHTML += '<br /><br /><br /><b>Testcase</b>';
-        innerHTML += '<pre>' + ut.theTestcase + '</pre>';
-
-        if (ut.pre) {
-            innerHTML += '<b>Precondition</b>';
-            innerHTML += '<pre>' + ut.pre + '</pre>';
-        }
-
-        innerHTML += '<b>Path</b>';
-        innerHTML += '<pre>' + ut.path + ' </pre>&nbsp';
-        popWnd.document.write(innerHTML);
-    }
-
-    //It loads all the chapters' xml that contains the informations of test cases
-    this.loadTestList = function(startTest) {
+    /* Get the test list xml */
+    function loadTestXML() {
         var testsListLoader = new XMLHttpRequest();
-        var sth = this;
-        testsListLoader.onreadystatechange = function(sth) {
-            if (testsListLoader.readyState == 4) {
-                oTests = testsListLoader.responseXML.getElementsByTagName('testGroup');
-                var testSuite = testsListLoader.responseXML.getElementsByTagName('testSuite');
-                pageHelper.XML_TARGETTESTSUITEVERSION = testSuite[0].getAttribute("version");
-                pageHelper.XML_TARGETTESTSUITEDATE = testSuite[0].getAttribute("date");
-                //It sets version and date in Run and Result tab. It is called from here so that if user goes directly to Run or Results tab, version and date should reflect.
-                pageHelper.setVersionAndDate();
-                for (var i = 0; i < oTests.length; i++) {
-                    aryTestGroups[i] = (oTests[i].text != undefined) ? oTests[i].text : oTests[i].textContent;
-                    aryTestGroupsBuffer[i] = (oTests[i].text != undefined) ? oTests[i].text : oTests[i].textContent;
+
+        $.ajax({url: TEST_LIST_PATH, dataType: 'xml', success: function(data) {
+            var oTests    = data.getElementsByTagName('testGroup');
+            var testSuite = data.getElementsByTagName('testSuite');
+
+            loader.version    = testSuite[0].getAttribute("version");
+            loader.date       = testSuite[0].getAttribute("date");
+            loader.totalTests = testSuite[0].getAttribute("numTests");               
+
+            for (var i = 0; i < oTests.length; i++) {
+                testGroups[i] = {
+                    path: (oTests[i].text != undefined) ? oTests[i].text : oTests[i].textContent,
+                    tests: []
                 }
-                xmlListLoaded = true;
-                aryTestGroupsBuffer.numTests = aryTestGroups.numTests = testsListLoader.responseXML.getElementsByTagName('testSuite')[0].getAttribute("numTests");               
-                startTest && sth.startTesting();
             }
-        };
-        testsListLoader.open("GET", TEST_LIST_PATH, true);
-        testsListLoader.send(null);
+
+            loader.onInitialized(loader.totalTests, loader.version, loader.date);
+            getNextXML();
+        }});
+    }
+
+    /* Move on to the next test */
+    this.getNextTest = function() {
+        if(testGroups.length == 0) {
+            // Initialize.
+            loadTestXML();
+        } else if(currentTestIndex < testGroups[testGroupIndex].tests.length) {
+            // We have tests left in this test group.
+            var test = testGroups[testGroupIndex].tests[currentTestIndex++];
+            var scriptCode = (test.firstChild.text != undefined) ? test.firstChild.text : test.firstChild.textContent;
+
+            loader.onTestReady(test.getAttribute("id"), $.base64Decode(scriptCode));
+        } else if(testGroupIndex < testGroups.length - 1) {
+            // We don't have tests left in this test group, so move on to the next.
+            testGroupIndex++;
+            getNextXML();
+        } else {
+            // We're done.
+            loader.onTestsExhausted();
+        }
+    }
+
+    /* Start over at the beginning */
+    this.reset = function() {
+        currentTestIndex = 0;
+        testGroupIndex = 0;
     }
 }
 
+/* Controls test generation and running, and sends results to the presenter. */
+function Controller() {
+    var state  = 'stopped';
+    var runner = new BrowserRunner();
+    var loader = new TestLoader();
+    var controller = this;
 
+    runner.onComplete = function(test) {
+        presenter.addTestResult(test);
 
-function sth_test(to, path) {
-    //Stores information in sth_test from a test definition object, and path
-    //TODO:  Update sth framework to work more directly with test definitiion objects.
-    //this.testObj     = to;
-    this.id = to.id;
-    this.description = to.description;
-    this.theTestcase = to.test;
-    this.path = to.path;
-    this.res = undefined;
-    this.pre = to.precondition;
+        if(state === 'running')
+            setTimeout(loader.getNextTest, 10);
+    }
+
+    loader.onInitialized = function(totalTests, version, date) {
+        presenter.setVersion(version);
+        presenter.setDate(date);
+        presenter.setTotalTests(totalTests);
+    }
+
+    loader.onLoadingNextSection = function(path) {
+        presenter.updateStatus("Loading: " + path);
+    }
+
+    loader.onTestReady = function(id, test) {
+        presenter.updateStatus("Executing Test: " + id);
+        runner.run(id, test);
+    }
+
+    loader.onTestsExhausted = function() {
+        state = 'stopped';
+        presenter.finished();
+    }
+
+    this.start = function() {
+        state = 'running';
+        loader.getNextTest();
+        presenter.started();
+    }
+    
+    this.pause = function() {
+        state = 'paused';
+        presenter.paused();
+    }
+
+    this.reset = function() {
+        loader.reset();
+        presenter.reset();
+    }
+
+    this.toggle = function() {
+        if(state === 'running') {
+            controller.pause();
+        } else {
+            controller.start();
+        }
+    }
 }
 
- 
-//define 
-activeSth = new sth(window);
-ES5Harness = activeSth;
-loadSections();
+var controller = new Controller()
+
 
 function compareArray(aExpected, aActual) {
     if (aActual.length != aExpected.length) {
@@ -824,3 +411,56 @@ function fnGlobalObject() {
     return (function() { return this }).call(null);
 }
 
+$(function () {
+    presenter.setup();
+
+    $('.content-home').show();
+    // Adding attribute to the tabs (e.g. Home, Run etc.) and attaching the click event on buttons (e.g. Reset, Start etc.)
+    $('.nav-link').each(function (index) {
+        //Adding "targetDiv" attribute to the header tab and on that basis the div related to header tabs are displayed
+        if (index === 0) {
+            $(this).attr('targetDiv', '.content-home');
+        } else if (index === 1) {
+            $(this).attr('targetDiv', '.content-tests');
+        } else if (index === 2) {
+            $(this).attr('targetDiv', '.content-results');
+            $(this).attr('testRunning', 'false');
+        } else if (index === 3) {
+            $(this).attr('targetDiv', '.content-dev');
+        }
+        else {
+            $(this).attr('targetDiv', '.content-browsers');
+        }
+
+        //Attaching the click event to the header tab that shows the respective div of header            
+        $(this).click(function () {
+            var target = $(this).attr('targetDiv');
+            $('#contentContainer > div:visible').hide();
+            $('.navBar .selected').toggleClass('selected');
+            $(this).addClass('selected');
+            $(target).show();
+
+            //If clicked tab is Result, it generates the results.
+            if ($(target).hasClass('content-results')) {
+                presenter.refresh();
+            }
+            //If clicked tab is Browsers Report, it shows the reports
+            if (target === '.content-browsers') {
+                $("body").addClass("busy");
+                setTimeout(function () {
+                    buildTable();
+                }, 500);
+            }
+        });
+    });
+
+    //Attach the click event to the start button. It starts, stops and pauses the tests
+    $('.button-start').click(function () {
+        controller.toggle();
+    });
+
+    //Attach the click event to the reset button. It reset all the test to zero
+    $('.button-reset').click(function () {
+        controller.reset();
+    });
+});

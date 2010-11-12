@@ -1,4 +1,4 @@
-<testSuite numTests="7400" version="0.1" date="10/31/2010">
+<testSuite numTests="7511" version="0.1" date="11/08/2010">
   <testGroup>resources/scripts/testcases/07_Lexical_Conventions.xml</testGroup>
   <testGroup>resources/scripts/testcases/08_Types.xml</testGroup>
   <testGroup>resources/scripts/testcases/09_Type_Conversion.xml</testGroup>
@@ -7,7 +7,7 @@
   <testGroup>resources/scripts/testcases/12_Statement.xml</testGroup>
   <testGroup>resources/scripts/testcases/13_Function_Definition.xml</testGroup>
   <testGroup>resources/scripts/testcases/14_Program.xml</testGroup>
-  <testGroup>resources/scripts/testcases/15_Native_ECMA_Script_Objects.xml</testGroup>
+  <testGroup>resources/scripts/testcases/15_Native.xml</testGroup>
   <testGroup>resources/scripts/testcases/chapter10.xml</testGroup>
   <testGroup>resources/scripts/testcases/chapter11.xml</testGroup>
   <testGroup>resources/scripts/testcases/chapter12.xml</testGroup>

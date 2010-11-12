@@ -111,12 +111,6 @@
   <test id="15.4.4.22-3-8">
     <!-- reason for the exclusion-->
   </test>
-  <test id="S15.3.4_A1">
-    problem, should be replaced or run in an iframe
-  </test>
-  <test id="S15.5.4_A1">
-    problem, should be replaced or run in an iframe
-  </test>
   <test id="S15.3.4_A3_T1">
     problem, should replace with different test
   </test>
@@ -131,9 +125,6 @@
   </test>
   <test id="S15.3.4.1_A1_T2">
     problem, bad test should be rewritten
-  </test>
-  <test id="S15.4.3_A1.1_T2">
-    deletes function.tostring() function so [source] window does not work
   </test>
   <test id="S15.4.4_A1.1_T2">
     problem, bad test should be rewritten
@@ -216,266 +207,89 @@
   <test id="S7.8.5_A3.1_T9">
     problem, syntax validation needs to use eval.  revised
   </test>
-  <test id="S15.9.5.2_A1_T2">
-    problem, deletes built-in methodh
+  <test id="S12.2_A11">
+    Uses this.
   </test>
-  <test id="S15.9.5.3_A1_T2">
-    problem, deletes built-in methodh
+  <test id="S12.2_A2">
+    Uses this.
   </test>
-  <test id="S15.9.5.4_A1_T2">
-    problem, deletes built-in methodh
+  <test id="S15.3.4.3_A7_T10">
+    Uses this.
   </test>
-  <test id="S15.9.5.5_A1_T2">
-    problem, deletes built-in methodh
+  <test id="S15.3.4.3_A7_T3">
+    Uses this.
   </test>
-  <test id="S15.9.5.6_A1_T2">
-    problem, deletes built-in methodh
+  <test id="S15.3.4.3_A7_T4">
+    Uses this.
   </test>
-  <test id="S15.9.5.7_A1_T2">
-    problem, deletes built-in methodh
+  <test id="S15.3.4.3_A7_T6">
+    Uses this.
   </test>
-  <test id="S15.9.5.8_A1_T2">
-    problem, deletes built-in methodh
+  <test id="S15.3.4.3_A7_T9">
+    Uses this.
   </test>
-  <test id="S15.9.5.9_A1_T2">
-    problem, deletes built-in methodh
+  <test id="S15.3.4.4_A6_T3">
+    Uses this.
   </test>
-  <test id="S15.9.5.10_A1_T2">
-    problem, deletes Date.prototype.getFullYear
+  <test id="S15.3.4.4_A6_T4">
+    Uses this.
   </test>
-  <test id="S15.9.5.11_A1_T2">
-    problem, deletes Date.prototype.getUTCFullYear
+  <test id="S15.3.4.4_A6_T6">
+    Uses this.
   </test>
-  <test id="S15.9.5.12_A1_T2">
-    problem, deletes Date.prototype.getMonth
+  <test id="S15.3.4.4_A6_T9">
+    Uses this.
   </test>
-  <test id="S15.9.5.13_A1_T2">
-    problem, deletes Date.prototype.getUTCMonth
+  <test id="S15.3_A3_T1">
+    Uses this.
   </test>
-  <test id="S15.9.5.14_A1_T2">
-    problem, deletes built-in methodh
+  <test id="S15.3_A3_T2">
+    Uses this.
   </test>
-  <test id="S15.9.5.15_A1_T2">
-    problem, deletes built-in methodh
+  <test id="S15.3_A3_T3">
+    Uses this.
   </test>
-  <test id="S15.9.5.16_A1_T2">
-    problem, deletes built-in methodh
+  <test id="S15.3_A3_T4">
+    Uses this.
   </test>
-  <test id="S15.9.5.17_A1_T2">
-    problem, deletes built-in methodh
+  <test id="S15.3_A3_T5">
+    Uses this.
   </test>
-  <test id="S15.9.5.18_A1_T2">
-    problem, deletes built-in methodh
+  <test id="S15.3_A3_T6">
+    Uses this.
   </test>
-  <test id="S15.9.5.19_A1_T2">
-    problem, deletes built-in methodh
+  <test id="S7.8.3_A4.1_T3">
+    Uses this.
   </test>
-  <test id="S15.9.5.20_A1_T2">
-    problem, deletes built-in methodh
+  <test id="S7.8.3_A4.1_T4">
+    Uses this.
   </test>
-  <test id="S15.9.5.21_A1_T2">
-    problem, deletes built-in methodh
+  <test id="S7.8.3_A4.1_T5">
+    Uses this.
   </test>
-  <test id="S15.9.5.22_A1_T2">
-    problem, deletes built-in methodh
+  <test id="S7.8.3_A4.1_T6">
+    Uses this.
   </test>
-  <test id="S15.9.5.23_A1_T2">
-    problem, deletes built-in methodh
+  <test id="S7.9_A7_T7">
+    Uses this.
   </test>
-  <test id="S15.9.5.24_A1_T2">
-    problem, deletes built-in methodh
+  <test id="S8.3_A1_T1">
+    Uses this.
   </test>
-  <test id="S15.9.5.25_A1_T2">
-    problem, deletes built-in methodh
+  <test id="S8.7.2_A3">
+    Uses this.
   </test>
-  <test id="S15.9.5.26_A1_T2">
-    problem, deletes built-in methodh
+  <test id="S8.7_A5_T2">
+    Uses this.
   </test>
-  <test id="S15.9.5.27_A1_T2">
-    problem, deletes built-in methodh
+  <test id="S11.8.7_A2.4_T1">
+    Uses this.
   </test>
-  <test id="S15.9.5.28_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.29_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.30_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.31_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.32_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.33_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.34_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.35_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.36_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.37_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.38_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.39_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.40_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.41_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.5.42_A1_T2">
-    problem, deletes built-in methodh
-  </test>
-  <test id="S15.9.4.2_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.4.3_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.4.2_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.4.3_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.1_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.2_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.3_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.4_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.5_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.6_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.7_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.8_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.9_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.10_A1_T1">
-    problem, over-writes Date.prototype.getFullYear
-  </test>
-  <test id="S15.9.5.11_A1_T1">
-    problem, over-writes Date.prototype.getUTCFullYear
-  </test>
-  <test id="S15.9.5.12_A1_T1">
-    problem, over-writes Date.prototype.getMonth
-  </test>
-  <test id="S15.9.5.13_A1_T1">
-    problem, over-writes Date.prototype.getUTCMonth
-  </test>
-  <test id="S15.9.5.14_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.15_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.16_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.17_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.18_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.19_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.20_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.21_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.22_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.23_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.24_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.25_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.26_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.27_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.28_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.29_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.30_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.31_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.32_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.33_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.34_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.35_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.36_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.37_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.38_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.39_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.40_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.41_A1_T1">
-    problem, over-writes built-in method
-  </test>
-  <test id="S15.9.5.42_A1_T1">
-    problem, over-writes built-in method
-  </test>
+  <test id="S10.2.1_A1_T1">Used this</test>
+  <test id="S11.4.1_A3.1">Used this</test>
+  <test id="S15.3.4.4_A6_T10">Used this</test>
+  <test id="S12.2_A9">Used this</test>
+  <test id="S15.5.1.1_A1_T9">Using this pointer</test>
+  <test id="S10.1.7_A1_T1">Using this pointer, intented for Global object</test>
+ </excludeList>
 
-</excludeList>
