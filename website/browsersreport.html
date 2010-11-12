@@ -52,7 +52,10 @@
         <div class="navBar">
             <ul>
                 <li><a href="#" class="selected nav-link" id="home">Home</a></li>
-                <li><a href="#" class="nav-link" id="browsers">Browsers Report</a></li>
+                <li><a href="#" class="nav-link" id="run">Run</a></li>
+                <li><a href="#" class="nav-link test-report-link" id="results">Results</a></li>
+                <li><a href="#" class="nav-link" id="development">Development</a></li>
+		<li><a href="#" class="nav-link" id="browsers">Browsers Report</a></li>
             </ul>
         </div>
         <div class="content-container" id="contentContainer">
@@ -146,17 +149,9 @@
             <div class="content-browsers">
                 <div>
                     <h2>ECMAScript Test262 Results For Browsers</h2>
-                    <p>Test262 is a test suite that may be used to check how closely a JavaScript implementation follows the standard 
-                    ECMAScript 5th Edition Specification. The test suite contains thousands of individual tests, each of which tests some 
-                    specific requirements of the ECMAScript specification.
-                    <b style="color:Red;"><p>Test262 is not yet complete, and is still undergoing active development. Please do not read too much
-                    into the test results below at this time.</p>
-                    <p>Some portions of the ES5 specification have very complete test coverage while other portions of the specification have only 
-                    partial test coverage. Some tests may be invalid or may yield false positive or false negative results. A perfect passing score 
-                    on Test262 does not guarantee that a JavaScript implementation perfectly supports ES5.</p> </b>
-                    <p>Below are Test262 test results that have been submitted by various browser vendors. Note that slightly different versions 
-                    of Test262 may have been used for each result set. Because tests are being actively added and modified, detail test results 
-                    from different Test262 versions may not be directly comparable.</p>
+                    <p>Test262 is a test suite that may be used to check how closely a JavaScript implementation follows the standard ECMAScript 5th Edition Specification. The test suite contains thousands of individual tests, each of which tests some specific requirements of the ECMAScript specification.
+                    <p><b style="color:Red;">Test262 is not yet complete. It is still undergoing active development.</b></p><p>Some portions of the ES5 specification have very complete test coverage while other portions of the specification have only partial test coverage. Some tests may be invalid or may yield false positive or false negative results. A perfect passing score on Test262 does not guarantee that a JavaScript implementation perfectly supports ES5.</p> 
+                    <p>Below are Test262 test results that have been submitted by various browser vendors. Note that slightly different versions of Test262 may have been used for each result set. Because tests are being actively added and modified, detail test results from different Test262 versions may not be directly comparable.</p>
                 </div>
                 <div class="crumbContainer">
                     <div style="float:right;"><a class="setBlue hide" id="backBrowserReportDiv" href="javascript:buildTable();"><< back</a></div>
