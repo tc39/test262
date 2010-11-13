@@ -93,7 +93,7 @@ function Presenter() {
         var current = currentSection;
 
         // Walk backwards until we reach the global section.
-        while(current !== globalSection) {
+        while(current !== globalSection && current.parentSection !== globalSection) {
             sectionChain.push(current);
             current = current.parentSection;
         }
@@ -185,6 +185,7 @@ function Presenter() {
         e.preventDefault();
         currentSection = getSectionById(e.target.href.match(/#(.+)$/)[1]);
         renderCurrentSection();
+        table.attr("scrollTop", 0);
     }
 
     /* Go back to the previous section */
@@ -195,6 +196,12 @@ function Presenter() {
             return;
 
         currentSection = currentSection.parentSection;
+
+        // Since users click directly on sub-chapters of the main chapters, don't go back to main
+        // chapters.
+        if(currentSection.parentSection === globalSection)
+            currentSection = globalSection;
+
         renderCurrentSection();
     }
 
