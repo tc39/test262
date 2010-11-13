@@ -45,7 +45,7 @@ test: function testcase() {
       }
   } finally {
     if (desc) Object.defineProperty(JSON, 'stringify', desc)
-	else JSON.stringify = o  /* this branch screws up the attributes */;
+	else JSON.stringify = o  /* this branch messes up the attributes */;
   }
  }
 });
