@@ -13,6 +13,15 @@ var xslTestList = loadXMLDoc(TEST_REPORT_INDIV_TESTS_TABLE_XSL);
 // Populate fileList array by reading all xml files in "/enginereports/testresults" directory on server
 function loadTestResultList() {
     if (fileList.length === 0) {
+        var tempList = ["chrome.xml", "firefox.xml", "ie.xml", "safari.xml"];
+        for (var i = 0; i < tempList.length; i++) {
+            fileList.push(TEST_RESULT_PATH + tempList[i]);
+        }
+    }
+    /*TODO - fix this once we have nginx.conf setup properly for TEST_RESULT_PATH listings
+    on the deployment server
+    
+    if (fileList.length === 0) {
         var httpRequest = new XMLHttpRequest();
         httpRequest.open("GET", TEST_RESULT_PATH, false);
         httpRequest.send();
@@ -29,6 +38,7 @@ function loadTestResultList() {
             }
         }
     }
+    */
 }
 
 function createTestReportFile(fileList) {

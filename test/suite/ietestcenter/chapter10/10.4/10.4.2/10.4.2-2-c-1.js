@@ -34,8 +34,6 @@ test: function testcase() {
         return true;
      } ();
    }
-//Test262 Change
-} // added, missing
 
 });
 

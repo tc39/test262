@@ -1,226 +1,158 @@
+/// Copyright (c) 2009 Microsoft Corporation 
+/// 
+/// Redistribution and use in source and binary forms, with or without modification, are permitted provided
+/// that the following conditions are met: 
+///    * Redistributions of source code must retain the above copyright notice, this list of conditions and
+///      the following disclaimer. 
+///    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and 
+///      the following disclaimer in the documentation and/or other materials provided with the distribution.  
+///    * Neither the name of Microsoft nor the names of its contributors may be used to
+///      endorse or promote products derived from this software without specific prior written permission.
+/// 
+/// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR
+/// IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+/// FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE
+/// FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+/// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+/// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+/// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+/// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
 
-$(function () {
-    pageHelper.init();
-    $('.content-home').show();
-    // Adding attribute to the tabs (e.g. Home, Run etc.) and attaching the click event on buttons (e.g. Reset, Start etc.)
-    $('.nav-link').each(function (index) {
-        //Adding "targetDiv" attribute to the header tab and on that basis the div related to header tabs are displayed
-        if (index === 0) {
-            $(this).attr('targetDiv', '.content-home');
-        } else if (index === 1) {
-            $(this).attr('targetDiv', '.content-tests');
-        } else if (index === 2) {
-            $(this).attr('targetDiv', '.content-results');
-            $(this).attr('testRunning', 'false');
-        } else if (index === 3) {
-            $(this).attr('targetDiv', '.content-dev');
-        }
-        else {
-            $(this).attr('targetDiv', '.content-browsers');
-        }
+/* Handles updating the page with information from the runner. */
+function Presenter() {
+    var altStyle = '',
+        logger,
+        progressBar,
+        date,
+        version,
+        table,
+        backLink,
 
-        //Attaching the click event to the header tab that shows the respective div of header            
-        $(this).click(function () {
-            var target = $(this).attr('targetDiv');
-            //If clicked tab is Result, it generates the results.
-            if ($(target).hasClass('content-results')) {
-                if ($(this).attr('testRunning') === 'true') { return; }
-                pageHelper.generateReportTable();
-            }
-            $('#contentContainer > div:visible').hide();
-            $('.navBar .selected').toggleClass('selected');
-            $(this).addClass('selected');
-            $(target).show();
-            //If clicked tab is Browsers Report, it shows the reports
-            if (target === '.content-browsers') {
-                $("body").addClass("busy");
-                setTimeout(function () {
-                    buildTable();
-                }, 500);
-            }
-        });
-    });
+        globalSection = new Section(null, "0", "ECMA-262"),
+        currentSection = globalSection,
+        tests = {},
+        totalTests = 0;
 
-    //Attach the click event to the start button. It starts, stops and pauses the tests
-    $('.button-start').click(function () {
-        $('#testsToRun').text(ES5Harness.getTotalTestsToRun());
-        $('#totalCounter').text(0);
-        $('#Pass').text(0);
-        $('#Fail').text(0);
-        $('#totalFailedCounter').text(0);
-        $('#failedToLoadCounter1').text(0);
-        $('#failedToLoadCounter').text(0);
-        //It stores the state of the test case in the data of button, whether running, paused or stopped. That is used later to get the present state
-        var testStatus = $(this).data('testStatus');
+        TOCFILEPATH = "resources/scripts/global/ecma-262-toc.xml";
 
-        switch (testStatus) {
-            case undefined:
-            case "stopped":
-                ES5Harness.stop("stopped");
-                pageHelper.logger.find('tr').remove();
-                if (!ES5Harness.setChapter(pageHelper.update)) {
-                    return false;
-                }
-                $(this).data('testStatus', "running");
-                ES5Harness.startTesting(pageHelper.update, "reset");
-                $(this).attr('src', 'resources/images/pause.png');
-                pageHelper.configureReportLink(true);
-                break;
-            case "running":
-                $(this).data('testStatus', "paused");
-                ES5Harness.stop("paused");
-                $(this).attr('src', 'resources/images/resume.png');
-                pageHelper.configureReportLink(false);
-                break;
-            case "paused":
-                $(this).data('testStatus', "running");
-                $(this).attr('src', 'resources/images/pause.png');
-                ES5Harness.startTesting(pageHelper.update, "resume");
-                pageHelper.configureReportLink(true);
-                break;
-        }
-    });
+  
+    /* Load the table of contents xml to populate the sections. */
+    function loadSections() {
+        var sectionsLoader = new XMLHttpRequest();
+        sectionsLoader.open("GET", TOCFILEPATH, false);
+        sectionsLoader.send();
+        var xmlDoc = sectionsLoader.responseXML;
+        var nodes = xmlDoc.documentElement.childNodes;
 
-    //Attach the click event to the reset button. It reset all the test to zero
-    $('.button-reset').click(
-    /*function () {
-    pageHelper.configureReportLink(false);
-    $('.button-start').data('testStatus', "stopped").attr('src', 'resources/images/start.png');
-    pageHelper.logger.find('tr').remove();
-    ES5Harness.stop("reset");
-    ES5Harness.resetSections();
-    $('#failedToLoadCounter1').text(0);
-    $('#failedToLoadCounter').text(0);
-    $('#totalFailedCounter').text(0);
-    pageHelper.failedToLoad = 0;
-    resetResults();
-    $('#nextActivity').text("");
-    } */
-    function () {
-        location.replace(location.protocol + '//' + location.host + '/default.html?run');
+        addSectionsFromXML(nodes, globalSection);
     }
-    );
 
-    //Attaching the click event to the "Download results as XML" link
-    $('#ancGenXMLReport').click(function (e) {
-        pageHelper.generateReportXml();
-        return false;
-    });
 
-    //load xml testcase path list when page loads
-    ES5Harness && ES5Harness.loadTestList();
-    pageHelper.selectTab();
-});
+    /* Recursively parses the TOC xml, producing nested sections. */
+    function addSectionsFromXML(nodes, parentSection){
+        var subsection;
 
-var pageHelper = {
-
-    //constants
-    XML_TARGETTESTSUITENAME: 'ECMAScript Test262 Site',
-    XML_TARGETTESTSUITEVERSION: '',
-    XML_TARGETTESTSUITEDATE: '',
-    RED_LIMIT: 50,
-    YELLOW_LIMIT: 75,
-    GREEN_LIMIT: 99.9,
-
-    logger: undefined,
-    loggerParent: undefined,
-    progressBar: undefined,
-    failedToLoad: 0,
-
-    init: function () {
-        this.logger = $('#tableLogger');
-        this.loggerParent = this.logger.parent();
-        this.progressBar = $('#progressbar');
-        this.failedToLoad = 0;
-    },
-
-    //It sets the tab on the basis of url e.g. if URL is <domain name>\default.html?result, Result tab will be selected
-    selectTab: function () {
-        var queryStr = location.search.toLowerCase();
-        if (queryStr.indexOf("run") > 0) {
-            $("#run").click();
+        for (var i = 0; i < nodes.length; i++) {
+            if (nodes[i].nodeName === "sec") {
+                subsection = new Section(parentSection, nodes[i].getAttribute('id'), nodes[i].getAttribute('name'));
+                parentSection.subsections[subsection.id.match(/\d+$/)] = subsection;
+                addSectionsFromXML(nodes[i].childNodes, subsection);
+            }
         }
-        else if (queryStr.indexOf("result") > 0) {
-            $("#results").click();
-        }
-        else if (queryStr.indexOf("development") > 0) {
-            $("#development").click();
-        }
-        else if (queryStr.indexOf("browser") > 0) {
-            $("#browsers").click();
-        }
-    },
+    }
 
-    setVersionAndDate: function () {
-        //Set the version and date
-        $(".targetTestSuiteVersion").text(pageHelper.XML_TARGETTESTSUITEVERSION);
-        $(".targetTestSuiteDate").text(pageHelper.XML_TARGETTESTSUITEDATE);
-    },
 
-    //It sets title to the Results tab when tests are running
-    configureReportLink: function (executing) {
-        var reportLink = $('.test-report-link');
-        if (executing) {
-            reportLink.attr('testRunning', 'true');
-            reportLink.parent().attr('title', 'Please wait till the test run is completed or stop the test run before viewing the report.');
+    /* Renders the current section into the report window. */
+    function renderCurrentSection() {
+        renderBreadcrumbs();
+
+        if(globalSection.totalTests === 0) {
+            $('#resultMessage').show();
         } else {
-            reportLink.parent().attr('title', '');
-            reportLink.attr('testRunning', 'false');
-        }
-    },
-
-    //This is used as callback function for passing in sth.js
-    update: function (detailsObj) {
-        $('#testsToRun').text(detailsObj.totalTestsToRun);
-        if (!isNaN(detailsObj.totalTestsRun)) {
-            $('#totalCounter').text(detailsObj.totalTestsRun);
+            $('#resultMessage').hide();
         }
 
-        $('#Pass').text(detailsObj.totalTestsPassed);
-        $('#Fail').text(detailsObj.totalTestsFailed);
-        $('#failedToLoadCounter1').text(pageHelper.failedToLoad);
-        $('#failedToLoadCounter').text(pageHelper.failedToLoad);
-        $('#nextActivity').text(detailsObj.nextActivity);
-        if (detailsObj.completed) {
-            var btnStart = $('#btnStart').attr('src', 'resources/images/start.png');
-            btnStart.data('testStatus', "stopped");
-            $('#totalFailedCounter').text(pageHelper.failedToLoad);
-            pageHelper.configureReportLink(false);
-            $('#nextActivity').text("");
+        $('.totalCases').text(currentSection.totalTests);
+        $('.passedCases').text(currentSection.totalPassed);
+        $('.failedCases').text(currentSection.totalFailed);
+        $('#failedToLoadCounterDetails').text(currentSection.totalFailedToLoad);
+
+        table.empty();
+        table.append(currentSection.toHTML());
+
+        // Observe section selection and show source links
+        $('a.section', table).click(sectionSelected);
+        $('a.showSource', table).click(openSourceWindow);
+    }
+
+    /* Renders the breadcrumbs for report navigation. */
+    function renderBreadcrumbs() {
+        var container = $('div.crumbContainer div.crumbs');
+        var sectionChain = [];
+
+        var current = currentSection;
+
+        // Walk backwards until we reach the global section.
+        while(current !== globalSection && current.parentSection !== globalSection) {
+            sectionChain.push(current);
+            current = current.parentSection;
         }
 
-        var altStyle = (pageHelper.logger.children().length % 2) === 0 ? ' ' : 'alternate';
-        var appendStr = '';
-        var length = 0;
-        if (detailsObj.failedTestCases && detailsObj.failedTestCases.length > 0) {
-            length = detailsObj.failedTestCases.length;
-            var testObj;
-            while (length--) {
-                altStyle = (altStyle !== ' ') ? ' ' : 'alternate';
-                testObj = detailsObj.failedTestCases.shift();
-                appendStr += '<tbody><tr class=\"' + altStyle + '\"><td width=\"20%\">' + testObj.id + '</td><td>' + testObj.description + '</td><td align="right"><span class=\"Fail\">Fail</span></td></tr></tbody>';
-            }
-            pageHelper.logger.append(appendStr);
+        // Reverse the array since we want to print earlier sections first.
+        sectionChain.reverse();
+
+        // Empty any existing breadcrumbs.
+        container.empty();
+
+        // Static first link to go back to the root.
+        var link = $("<a href='#0' class='setBlack'>Test Report &gt; </a>");
+        link.bind('click', {sectionId: 0}, sectionSelected)
+        container.append(link);
+
+        for(var i = 0; i < sectionChain.length;i++) {
+            link = $("<a href='#" + sectionChain[i].id + "' class='setBlack'>Section " + sectionChain[i].id + ": " + sectionChain[i].name + " &gt; </a>");
+            link.bind('click', sectionSelected)
+            container.append(link);
         }
 
-        var testCasesPaths = this.ES5Harness.getFailToLoad();
-        appendStr = '';
-        if (testCasesPaths.length > 0) {
-            length = testCasesPaths.length;
-            while (length--) {
-                testObj = testCasesPaths.shift();
-                altStyle = (altStyle !== ' ') ? ' ' : 'alternate';
-                appendStr += '<tbody><tr class=\"' + altStyle + '\"><td width=\"20%\">' + testObj + '</td><td>' + '' + '</td><td align="right"><span class=\"Fail\">Not Loaded</span></td></tr></tbody>';
-                pageHelper.failedToLoad++;
-            }
-            pageHelper.logger.append(appendStr);
+        // If we can go back, show the back link.
+        if(sectionChain.length > 0) {
+            backLink.show();
+        } else {
+            backLink.hide();
         }
-        pageHelper.loggerParent.attr("scrollTop", pageHelper.loggerParent.attr("scrollHeight"));
-        pageHelper.progressBar.reportprogress(detailsObj.totalTestsRun, detailsObj.totalTestCasesForProgressBar);
-    },
+    }
 
-    //This is used to generate the xml for the results
-    generateReportXml: function () {
+    /* Opens a window with a test's source code. */
+    function openSourceWindow(e) {
+        var test = tests[e.target.href.match(/#(.+)$/)[1]],
+            popWnd = window.open("", "", "scrollbars=1, resizable=1"),
+            innerHTML = '';
+
+        innerHTML += '<b>Test </b>';
+        innerHTML += '<b>' + test.id + '</b> <br /><br />';
+
+        if (test.description) {
+            innerHTML += '<b>Description</b>';
+            innerHTML += '<pre>' + test.description.replace(/</g, '&lt;').replace(/>/g, '&gt;'); +' </pre>';
+        }
+
+        innerHTML += '<br /><br /><br /><b>Testcase</b>';
+        innerHTML += '<pre>' + test.code + '</pre>';
+
+        if (test.pre) {
+            innerHTML += '<b>Precondition</b>';
+            innerHTML += '<pre>' + test.pre + '</pre>';
+        }
+
+        innerHTML += '<b>Path</b>';
+        innerHTML += '<pre>' + test.path + ' </pre>&nbsp';
+
+        popWnd.document.write(innerHTML);
+    }
+    
+    /* Pops up a window with an xml dump of the results of a test. */
+    function createXMLReportWindow() {
         var reportWindow; //window that will output the xml data
         var xmlData;      //array instead of string concatenation
         var dateNow;
@@ -233,414 +165,157 @@ var pageHelper = {
 			  '<browserName>REPLACE WITH BROWSERNAME BEFORE PUSHING TO HG</browserName>\r\n' +
 			  '<Date>' + dateNow.toDateString() + '</Date>\r\n' +
 			  '<Submitter> ADD SUBMITTER</Submitter>\r\n' +
-			  '<targetTestSuiteName>' + this.XML_TARGETTESTSUITENAME + '</targetTestSuiteName>\r\n' +
-			  '<targetTestSuiteVersion>' + this.XML_TARGETTESTSUITEVERSION + '</targetTestSuiteVersion>\r\n' +
-			  '<targetTestSuiteDate>' + this.XML_TARGETTESTSUITEDATE + '</targetTestSuiteDate>\r\n' +
+			  '<targetTestSuiteName>ECMAScript Test262 Site</targetTestSuiteName>\r\n' +
+			  '<targetTestSuiteVersion>' + version + '</targetTestSuiteVersion>\r\n' +
+			  '<targetTestSuiteDate>' + date + '</targetTestSuiteDate>\r\n' +
 			  ' <Tests>\r\n\r\n';
 
         reportWindow = window.open();
         reportWindow.document.writeln("<title>ECMAScript Test262 XML</title>");
-        if (ES5Harness.getTotalTestsRun() !== parseInt(ES5Harness.getTotalTestsToRun())) {
-            reportWindow.document.writeln("<div><b>Test Results file cannot be generated because execution is not completed</b></div>");
-
-        }
-        else {
-            reportWindow.document.writeln("<div><br/></div>");
-            reportWindow.document.write("<textarea id='results' style='width: 100%; height: 800px;'>");
-            reportWindow.document.write(xml);
-            xml = "";
-            function parseSection(section) {
-                xml += "<section id='" + section.id + "' name='" + section.name + "'>\r\n";
-                for (var i = 0; i < section.testCaseArray.length; i++) {
-                    xml += '<test>\r\n' +
-                          '  <testId>' + section.testCaseArray[i].id + '</testId>\r\n' +
-                          '  <res>' + section.testCaseArray[i].res + '</res>\r\n' +
-                          '</test>\r\n';
-                }
-                if (section.subSections !== undefined) {
-                    for (var i = 0; i < section.subSections.length; i++) {
-                        parseSection(section.subSections[i]);
-                        xml += '</section>\r\n';
-                    }
-                }
-            }
-            for (var index = 0; index < sections.length; index++) {
-                parseSection(sections[index]);
-                xml += '</section>\r\n';
-            }
-            reportWindow.document.write(xml);
-            reportWindow.document.write('</Tests>\r\n</testRun>\r\n</textarea>\r\n');
-            reportWindow.document.close();
-        }
-    },
-
-    htmlEscape: function (str) {
-        return str.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    },
-
-    numTests: function (section) {
-        nTest = 0;
-        for (var subSectionIndex = 0; subSectionIndex < section.subSections.length; subSectionIndex++) {
-            if (section.subSections[subSectionIndex].total !== 0) {
-                nTest++;
-            }
-        }
-        return nTest;
-    },
-
-    //It generates the report that is displayed in results tab
-    generateReportTable: function () {
-        var bResultsdisplayed = false;
-
-        $('#backlinkDiv').hide();
-        //define local scope to sections array
-        var sections = window.sections;
-        var dataTable = $('.results-data-table');
-        $('.results-data-table').find("tr").remove();
-
-        //set the total, pass and fail count
-        $('.totalCases').text(ES5Harness.getTotalTestsRun());
-        $('.passedCases').text(ES5Harness.getTotalTestsPassed());
-        $('.failedCases').text(ES5Harness.getTotalTestsFailed());
-        $('#failedToLoadCounterDetails').text(pageHelper.failedToLoad);
-        try {
-            $('.crumbs #link1').remove();
-            $('.crumbs #link2').remove();
-            $('.crumbs #link3').remove();
-        }
-        catch (e) {
-            $('.crumbs #link1').text("");
-            $('.crumbs #link2').text("");
-            $('.crumbs #link3').text("");
-        }
-
-        //set the navigation bar
-        var anc1 = $('<a id="link1">Test Report ></a>');
-        anc1.attr('href', 'javascript:pageHelper.generateReportTable();');
-        $('.crumbs').append(anc1);
-        $('.crumbs #link1').removeClass().addClass("setBlack");
-
-        var totalSubSectionPassed = 0;
-        for (var sectionIndex = 0; sectionIndex < sections.length; sectionIndex++) {
-            if (pageHelper.numTests(sections[sectionIndex]) !== 0) {
-                bResultsdisplayed = true;
-                dataTable.append('<tbody><tr><td class="tblHeader" colspan="2">' + 'Chapter ' + sections[sectionIndex].id + '- ' + sections[sectionIndex].name + '</td></tr></tbody>');
-                var mainSectionPercentageStyle = "reportRed";
-                // if there are any cases directly inside the chapter instead of in subsections
-                if (sections[sectionIndex].testCaseArray.length > 0) {
-
-                    for (var index = 0; index < sections[sectionIndex].subSections.length; index++) {
-                        totalSubSectionPassed = totalSubSectionPassed + sections[sectionIndex].subSections[index].passed;
-                    }
-
-                    var calculatedLimit = (sections[sectionIndex].passed - totalSubSectionPassed) / sections[sectionIndex].testCaseArray.length * 100;
-                    if (calculatedLimit >= pageHelper.GREEN_LIMIT) {
-                        mainSectionPercentageStyle = "reportGreen";
-                    }
-                    else if (Math.round(calculatedLimit) >= pageHelper.YELLOW_LIMIT) {
-                        mainSectionPercentageStyle = "reportLightGreen";
-                    }
-                    else if (Math.round(calculatedLimit) >= pageHelper.RED_LIMIT) {
-                        mainSectionPercentageStyle = "reportYellow";
-                    }
-                    else {
-                        mainSectionPercentageStyle = "reportRed";
-                    }
-
-                    dataTable.append('<tbody><tr><td><a href="javascript:pageHelper.generateDetailedReportTable(' + sectionIndex + ',-1);">' + "In Chapter " + sections[sectionIndex].id + '</a></td><td class="' + mainSectionPercentageStyle + '">' + (Math.round(calculatedLimit)) + '%' + '</td></tr></tbody>');
-                }
-            }
-
-            for (var subSectionIndex = 0; subSectionIndex < sections[sectionIndex].subSections.length; subSectionIndex++) {
-                var styleClass;
-                if (sections[sectionIndex].subSections[subSectionIndex].total !== 0) {
-
-                    var passedPercentage = 0;
-                    //If there are subsections in subsection along with direct test cases, calculation is done like below
-                    if (sections[sectionIndex].subSections[subSectionIndex].subSections) {
-                        var totalPassedSubSections = sections[sectionIndex].subSections[subSectionIndex].passed;
-                        var totalSubSections = sections[sectionIndex].subSections[subSectionIndex].total;
-                        for (var subSubSectionIndex = 0; subSubSectionIndex < sections[sectionIndex].subSections[subSectionIndex].subSections.length; subSubSectionIndex++) {
-                            totalPassedSubSections = totalPassedSubSections + sections[sectionIndex].subSections[subSectionIndex].subSections[subSubSectionIndex].passed;
-                            totalSubSections = totalSubSections + sections[sectionIndex].subSections[subSectionIndex].subSections[subSubSectionIndex].total;
-                        }
-
-                        passedPercentage = totalPassedSubSections / totalSubSections * 100;
-                    }
-                    else {
-                        passedPercentage = sections[sectionIndex].subSections[subSectionIndex].getPassPercentage();
-                    }
-                    if (passedPercentage >= pageHelper.GREEN_LIMIT) {
-                        styleClass = "reportGreen";
-                    }
-                    else if (passedPercentage >= pageHelper.YELLOW_LIMIT) {
-                        styleClass = "reportLightGreen";
-                    }
-                    else if (passedPercentage >= pageHelper.RED_LIMIT) {
-                        styleClass = "reportYellow";
-                    }
-                    else {
-                        styleClass = "reportRed";
-                    }
-
-                    dataTable.append('<tbody><tr><td class="sectionName"><a href="javascript:pageHelper.generateSubSectionReportTable(' + sectionIndex + ',' + subSectionIndex + ');">' + sections[sectionIndex].subSections[subSectionIndex].name + '</a></td><td class="' + styleClass + '">' + (Math.round(passedPercentage)) + '%' + '</td></tr></tbody>');
-                    bResultsdisplayed = true;
-                }
-            }
-
-            totalSubSectionPassed = 0;
-        }
-
-        // append the legend if results have been displayed
-        if (bResultsdisplayed) {
-            $('#legend').show();
-        }
-
-        //Disappear the note if there are records in the result
-        if ($.trim(dataTable.text()) !== "")
-            $("#resultMessage").hide();
-        else
-            $("#resultMessage").show();
-    },
-
-    //It shows the sub section of the results
-    generateSubSectionReportTable: function (sectionIndex, subSectionIndex) {
-        var sections = window.sections;
-        var dataTable = $('.results-data-table');
-        $('.results-data-table').find("tr").remove();
-
-        var styleClass;
-        var totalSubSectionPassed = 0;
-        var totalSubSectionFailed = 0;
-
-        // if there is no subsections under a section(say 7.1) then directly display the detailed test report
-        if (!sections[sectionIndex].subSections[subSectionIndex].subSections) {
-            pageHelper.generateDetailedReportTable(sectionIndex, subSectionIndex);
-        }
-        else {
-            try {
-                $('.crumbs #link2').remove();
-            }
-            catch (e) {
-                $('.crumbs #link2').text("");
-            }
-            var anc2 = $("<a id='link2'>" + " Chapter " + sections[sectionIndex].id.toString() + ": " + sections[sectionIndex].name + ": " + sections[sectionIndex].subSections[subSectionIndex].name + " > " + "</a>");
-            anc2.attr('href', 'javascript:pageHelper.generateSubSectionReportTable(' + sectionIndex + ',' + subSectionIndex + ');');
-            $('.crumbs').append(anc2);
-
-            $('.crumbs #link2').removeClass().addClass("setBlack");
-            $('.crumbs #link1').removeClass().addClass("setBlue");
-
-            var anc = $('.crumbs').find('a');
-            anc.click(function () {
-                $(this).next('a').remove();
-            });
-            try {
-                $('.crumbs #link3').remove();
-            }
-            catch (e) {
-                $('.crumbs #link3').text("");
-            }
-
-            for (var index = 0; index < sections[sectionIndex].subSections[subSectionIndex].subSections.length; index++) {
-                totalSubSectionPassed = totalSubSectionPassed + sections[sectionIndex].subSections[subSectionIndex].subSections[index].passed;
-                totalSubSectionFailed = totalSubSectionFailed + sections[sectionIndex].subSections[subSectionIndex].subSections[index].failed;
-            }
-
-            var totalCasesInSection = sections[sectionIndex].subSections[subSectionIndex].total - totalSubSectionPassed - totalSubSectionFailed;
-            var totalPassedCasesInSection = sections[sectionIndex].subSections[subSectionIndex].passed - totalSubSectionPassed;
-            var totalFailedCasesInSection = sections[sectionIndex].subSections[subSectionIndex].failed - totalSubSectionFailed;
-            $('.totalCases').text(sections[sectionIndex].subSections[subSectionIndex].total);
-            $('.passedCases').text(sections[sectionIndex].subSections[subSectionIndex].passed);
-            $('.failedCases').text(sections[sectionIndex].subSections[subSectionIndex].failed);
-
-            if (sections[sectionIndex].subSections[subSectionIndex].testCaseArray.length > 0) {
-
-                // var calculatedLimit = Math.round((sections[sectionIndex].subSections[subSectionIndex].passed) / sections[sectionIndex].subSections[subSectionIndex].testCaseArray.length * 100);
-                var calculatedLimit = Math.round((totalPassedCasesInSection / totalCasesInSection) * 100);
-                if (calculatedLimit >= 75) {
-                    styleClass = "reportGreen";
-                }
-                else if (calculatedLimit >= 50) {
-                    styleClass = "reportYellow";
-                }
-                else {
-                    styleClass = "reportRed";
-                }
-
-                dataTable.append('<tbody><tr><td class="tblSectionHeader"><a href="javascript:pageHelper.generateDetailedReportTable(' + sectionIndex + ',' + subSectionIndex + ');">' + "Section: " + sections[sectionIndex].subSections[subSectionIndex].id + " cases" + '</a></td><td class="' + styleClass + '">' + calculatedLimit + '%' + '</td></tr></tbody>');
-            }
-
-            if (sections[sectionIndex].subSections[subSectionIndex].subSections) {
-                for (var objIndex = 0; objIndex < sections[sectionIndex].subSections[subSectionIndex].subSections.length; objIndex++) {
-                    if (sections[sectionIndex].subSections[subSectionIndex].subSections[objIndex].total !== 0) {
-
-                        var passedPercentage = sections[sectionIndex].subSections[subSectionIndex].subSections[objIndex].getPassPercentage();
-                        if (passedPercentage >= pageHelper.YELLOW_LIMIT) {
-                            styleClass = "reportGreen";
-                        }
-                        else if (passedPercentage >= pageHelper.RED_LIMIT) {
-                            styleClass = "reportYellow";
-                        }
-                        else {
-                            styleClass = "reportRed";
-                        }
-                        dataTable.append('<tbody><tr><td class="tblSectionHeader"><a href="javascript:pageHelper.generateDetailedReportTable(' + sectionIndex + ',' + subSectionIndex + ',' + objIndex + ');">' + sections[sectionIndex].subSections[subSectionIndex].subSections[objIndex].name + '</a></td><td class="' + styleClass + '">' + (Math.round(passedPercentage)) + '%' + '</td></tr></tbody>');
-
-                    }
-                }
-            }
-        }
-        pageHelper.doBackButtonTasks();
-    },
-
-    generateDetailedReportTable: function (sectionIndex, subSectionIndex, subInnerSectionIndex) {
-        var sections = window.sections;
-        var dataTable = $('.results-data-table');
-
-        $('.results-data-table').find("tr").remove();
-        var mainSectionPassed = 0;
-        var mainSectionfailed = 0;
-
-        var subSectionPassed = 0;
-        var subSectionfailed = 0;
-
-        var resultStyle = "pass";
-        var subSectionObj;
-        // sub sections
-        if (subSectionIndex !== -1) {
-            // if there is only one level of subsections example: 7.1
-            if (!sections[sectionIndex].subSections[subSectionIndex].subSections) {
-                subSectionObj = sections[sectionIndex].subSections[subSectionIndex];
-
-                $('.totalCases').text(subSectionObj.total);
-                $('.passedCases').text(subSectionObj.passed);
-                $('.failedCases').text(subSectionObj.failed);
-
-            }
-            // cases directly under sub-subsections example: 7.1.1
-            else if (sections[sectionIndex].subSections[subSectionIndex].subSections.length > 0 && subInnerSectionIndex !== undefined) {
-
-                subSectionObj = sections[sectionIndex].subSections[subSectionIndex].subSections[subInnerSectionIndex];
-                $('.sectionId').text("section: " + subSectionObj.id);
-                $('.totalCases').text(subSectionObj.total);
-                $('.passedCases').text(subSectionObj.passed);
-                $('.failedCases').text(subSectionObj.failed);
-            }
-            // cases directly under subsections example: 7.1 
-            else if (sections[sectionIndex].subSections[subSectionIndex].testCaseArray.length > 0) {
-                subSectionObj = sections[sectionIndex].subSections[subSectionIndex];
-                $('.totalCases').text(subSectionObj.total);
-                $('.passedCases').text(subSectionObj.passed);
-                $('.failedCases').text(subSectionObj.failed);
-            }
-
-            var anc3 = $('<a id="link3">' + " Section: " + subSectionObj.id + " " + subSectionObj.name + '</a>');
-            $('.crumbs').append(anc3);
-            $('.crumbs #link3').removeClass().addClass("setBlack");
-            $('.crumbs #link2').removeClass().addClass("setBlue");
-            $('.crumbs #link1').removeClass().addClass("setBlue");
-
-
-            for (var objIndex = 0; objIndex < subSectionObj.testCaseArray.length; objIndex++) {
-                if (subSectionObj.testCaseArray[objIndex].res.toLowerCase() === 'pass') {
-                    resultStyle = "pass";
-                }
-                else {
-                    resultStyle = "fail";
-                }
-                var path = subSectionObj.testCaseArray[objIndex].path.indexOf('resources/') === -1 ? 'resources/scripts/' + subSectionObj.testCaseArray[objIndex].path : subSectionObj.testCaseArray[objIndex].path;
-                dataTable.append('<tbody><tr><td>' + subSectionObj.testCaseArray[objIndex].id + '</td><td>' + subSectionObj.testCaseArray[objIndex].description + '</td><td class="' + resultStyle + '">' + subSectionObj.testCaseArray[objIndex].res + '</td><td><a href="javascript:ES5Harness.openSourceWindow(' + subSectionObj.testCaseArray[objIndex].registrationIndex + ');">[source]</a></td></tr></tbody>');
-            }
-        }
-        // testcases directly under a chapter when there are no sections in a chapter
-        else {
-            anc3 = $('<a id="link3">' + " Chapter: " + sections[sectionIndex].id + ": " + sections[sectionIndex].name + '</a>');
-            $('.crumbs').append(anc3);
-
-            $('.crumbs #link3').removeClass().addClass("setBlack");
-            $('.crumbs #link2').removeClass().addClass("setBlue");
-            $('.crumbs #link1').removeClass().addClass("setBlue");
-
-            $('.sectionId').text("section: " + sections[sectionIndex].id);
-
-            for (var subSectionIndex = 0; subSectionIndex < sections[sectionIndex].subSections.length; subSectionIndex++) {
-                mainSectionPassed = mainSectionPassed + sections[sectionIndex].subSections[subSectionIndex].passed;
-                mainSectionfailed = mainSectionfailed + sections[sectionIndex].subSections[subSectionIndex].failed;
-            }
-            $('.totalCases').text(sections[sectionIndex].total - mainSectionPassed - mainSectionfailed);
-            $('.passedCases').text(sections[sectionIndex].passed - mainSectionPassed);
-            $('.failedCases').text(sections[sectionIndex].failed - mainSectionfailed);
-
-            $('.detailedResult').text("Total tests: " + sections[sectionIndex].testCaseArray.length + " Passed: " + (sections[sectionIndex].passed - mainSectionPassed) + " Failed: " + (sections[sectionIndex].failed - mainSectionfailed));
-            for (var arrayIndex = 0; arrayIndex < sections[sectionIndex].testCaseArray.length; arrayIndex++) {
-                if (sections[sectionIndex].testCaseArray[arrayIndex].res.toLowerCase() === 'pass') {
-                    resultStyle = "pass";
-                }
-                else {
-                    resultStyle = "fail";
-                }
-                path = sections[sectionIndex].testCaseArray[arrayIndex].path.indexOf('resources/') === -1 ? 'resources/scripts/' + sections[sectionIndex].testCaseArray[arrayIndex].path : sections[sectionIndex].testCaseArray[arrayIndex].path;
-                dataTable.append('<tbody><tr><td>' + sections[sectionIndex].testCaseArray[arrayIndex].id + '</td><td>' + sections[sectionIndex].testCaseArray[arrayIndex].description + '</td><td class="' + resultStyle + '">' + sections[sectionIndex].testCaseArray[arrayIndex].res + '</td><td><a href="javascript:ES5Harness.openSourceWindow(' + sections[sectionIndex].testCaseArray[arrayIndex].registrationIndex + ');">[source]</a></td></tr></tbody>');
-            }
-        }
-
-        pageHelper.doBackButtonTasks();
-    },
-
-    //It shows the back link
-    doBackButtonTasks: function () {
-        $('#backlinkDiv').show();
-        //The below logic is applied because .remove() is giving object error in the function "generateReportTable" that I could not find the reason.
-        //That is why I am keeping the links (#link1, #link2 and #link3) blank if any error .
-        var anchors = [];
-        $('.crumbs a').each(function (index, anchor) {
-            if ($(anchor).text() !== "") {
-                anchors[anchors.length] = anchor;
-            }
-        });
-        var contextAnchor = anchors[anchors.length - 2];
-        $('#backlinkDiv').attr('href', contextAnchor.href);
+        reportWindow.document.writeln("<div>Instructions:  Update the BROWSERNAME value and submit to Hg. Send email to the <a href='mailto:body@ecmascript.org' >list</a> for assistance.</div>");
+        reportWindow.document.write("<textarea id='results' style='width: 100%; height: 800px;'>");
+        reportWindow.document.write(xml);
+        reportWindow.document.write(globalSection.toXML());
+        reportWindow.document.write('</Tests>\r\n</testRun>\r\n</textarea>\r\n');
+        reportWindow.document.close();
     }
-};
 
-//Extend the array type
-getArrayCloneOfObject = function (oldObject) 
-{
-    var tempClone = {};
-    if (typeof (oldObject) === "object")
-    {
-        for (prop in oldObject) 
-        {
-            if ((typeof (oldObject[prop]) === "object") && (oldObject[prop]).__isArray) 
-            {
-                tempClone[prop] = getArrayCloneOfObject(oldObject[prop]);
-            }
-            else if (typeof (oldObject[prop]) === "object") 
-            {
-                tempClone[prop] = getArrayCloneOfObject(oldObject[prop]);
-            }
-            else 
-            {
-                tempClone[prop] = oldObject[prop];
+    /* Callback for when the user clicks on a section in the report table. */
+    function sectionSelected(e) {
+        e.preventDefault();
+        currentSection = getSectionById(e.target.href.match(/#(.+)$/)[1]);
+        renderCurrentSection();
+        table.attr("scrollTop", 0);
+    }
+
+    /* Go back to the previous section */
+    function goBack(e) {
+        e.preventDefault();
+
+        if(currentSection === globalSection)
+            return;
+
+        currentSection = currentSection.parentSection;
+
+        // Since users click directly on sub-chapters of the main chapters, don't go back to main
+        // chapters.
+        if(currentSection.parentSection === globalSection)
+            currentSection = globalSection;
+
+        renderCurrentSection();
+    }
+
+    /* Returns the section object for the specified section id (eg. "7.1" or "15.4.4.12"). */
+    function getSectionById(id) {
+        if(id == 0)
+            return globalSection;
+
+        var match = id.match(/\d+/g);
+        var section = globalSection;
+
+        for(var i = 0; i < match.length; i++) {
+            if(typeof section.subsections[match[i]] !== "undefined") {
+                section = section.subsections[match[i]];
+            } else {
+                break;
             }
         }
+
+        return section;
     }
-    return tempClone;
+
+    /* Update the page with current status */
+    function updateCounts() {
+        $('#Pass').text(globalSection.totalPassed);
+        $('#Fail').text(globalSection.totalFailed);
+        $('#totalCounter').text(globalSection.totalTests);
+        $('#failedToLoadCounter1').text(globalSection.totalFailedToLoad);
+        $('#failedToLoadCounter').text(globalSection.totalFailedToLoad);
+
+        progressBar.reportprogress(globalSection.totalTests, totalTests);
+    }
+
+    /* Append a result to the run page's result log. */
+    function logResult(test) {
+        altStyle = (altStyle !== ' ') ? ' ' : 'alternate';
+        var appendStr = '<tbody><tr class=\"' + altStyle + '\"><td width=\"20%\">' + test.id + '</td><td>' + test.description + '</td><td align="right"><span class=\"Fail\">' + test.result + '</span></td></tr></tbody>';
+        logger.append(appendStr);
+        logger.parent().attr("scrollTop", logger.parent().attr("scrollHeight"));
+    }
+
+    // Load the sections.
+    loadSections();
+
+    this.setTotalTests = function(tests) {
+        totalTests = tests;
+        $('#testsToRun').text(tests);
+    }
+
+    this.setVersion = function(v) {
+        version = v;
+        $(".targetTestSuiteVersion").text(v);
+    }
+
+    this.setDate = function(d) {
+        date = d;
+        $(".targetTestSuiteDate").text(d);
+    }
+
+    /* Updates progress with the given test, which should have its results in it as well. */
+    this.addTestResult = function(test) {
+        tests[test.id] = test;
+        getSectionById(test.id).addTest(test);
+
+        updateCounts();
+
+        if(test.result === 'fail')
+            logResult(test);
+
+    }
+
+    this.started = function () {
+        $('.button-start').attr('src', 'resources/images/pause.png');
+    }
+
+    this.paused = function () {
+        $('.button-start').attr('src', 'resources/images/resume.png');
+    }
+
+    this.reset = function() {
+        globalSection.reset();
+        updateCounts();
+        logger.empty();
+
+        currentSection = globalSection;
+        renderCurrentSection();
+    }
+
+    this.finished = function() {
+        $('.button-start').attr('src', 'resources/images/start.png');
+        activityBar.text('');
+    }
+
+    /* Refresh display of the report */
+    this.refresh = function() {
+        renderCurrentSection();
+    }
+
+    /* Write status to the activity bar. */
+    this.updateStatus = function(str) {
+        activityBar.text(str);
+    }
+
+    /* Do some setup tasks. */
+    this.setup = function() {
+        backLink = $('#backlinkDiv');
+        backLink.click(goBack);
+        table = $('.results-data-table');
+        logger = $("#tableLogger");
+        progressBar = $('#progressbar');
+        activityBar = $('#nextActivity');
+
+        $('#ancGenXMLReport').click(createXMLReportWindow);
+    }
 }
 
-CloneArray = function (arrayObj) 
-{
-    var tempClone = [];
-    for (var arrIndex = 0; arrIndex <= arrayObj.length; arrIndex++) 
-    {
-        if (typeof (arrayObj[arrIndex]) === "object") 
-        {
-            tempClone.push(getArrayCloneOfObject(arrayObj[arrIndex]));
-        } else 
-        {
-            tempClone.push(arrayObj[arrIndex]);
-        }
-    }
-    return tempClone;
-}
+var presenter = new Presenter();
