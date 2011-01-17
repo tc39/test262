@@ -162,7 +162,7 @@ function Presenter() {
 
         xml = '<testRun>\r\n' +
               '<userAgent>' + window.navigator.userAgent + '</userAgent>\r\n' +
-			  '<browserName>REPLACE WITH BROWSERNAME BEFORE PUSHING TO HG</browserName>\r\n' +
+			  '<browserName>REPLACE WITH BROWSERNAME</browserName>\r\n' +
 			  '<Date>' + dateNow.toDateString() + '</Date>\r\n' +
 			  '<Submitter> ADD SUBMITTER</Submitter>\r\n' +
 			  '<targetTestSuiteName>ECMAScript Test262 Site</targetTestSuiteName>\r\n' +
@@ -172,7 +172,6 @@ function Presenter() {
 
         reportWindow = window.open();
         reportWindow.document.writeln("<title>ECMAScript Test262 XML</title>");
-        reportWindow.document.writeln("<div>Instructions:  Update the BROWSERNAME value and submit to Hg. Send email to the <a href='mailto:body@ecmascript.org' >list</a> for assistance.</div>");
         reportWindow.document.write("<textarea id='results' style='width: 100%; height: 800px;'>");
         reportWindow.document.write(xml);
         reportWindow.document.write(globalSection.toXML());

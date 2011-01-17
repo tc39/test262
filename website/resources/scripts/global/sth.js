@@ -444,13 +444,6 @@ $(function () {
             if ($(target).hasClass('content-results')) {
                 presenter.refresh();
             }
-            //If clicked tab is Browsers Report, it shows the reports
-            if (target === '.content-browsers') {
-                $("body").addClass("busy");
-                setTimeout(function () {
-                    buildTable();
-                }, 500);
-            }
         });
     });
 
