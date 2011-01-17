@@ -130,10 +130,11 @@ function BrowserRunner() {
                     "ES5Harness.registerTest = function(test) {" +
                     "  var error;" +
                     "  if(test.precondition && !test.precondition()) {" +
-                    "    testRun(test.id, test.path, test.description, test.test.toString(),typeof test.precondition !== 'undefined' ? test.precondition.toString() : undefined, 'fail', 'Precondition Failed');" +
+                    "    testRun(test.id, test.path, test.description, test.test.toString(),typeof test.precondition !== 'undefined' ? test.precondition.toString() : '', 'fail', 'Precondition Failed');" +
                     "  } else {" +
                     "    try { var res = test.test.call(window); } catch(e) { res = 'fail'; error = e; }" +
-                    "    testRun(test.id, test.path, test.description, test.test.toString(), typeof test.precondition !== 'undefined' ? test.precondition.toString() : undefined, res === true || typeof res === 'undefined' ? 'pass' : 'fail', error);" +
+                    "    var retVal = /^s/i.test(test.id) ? (res === true || typeof res === 'undefined' ? 'pass' : 'fail') : (res === true ? 'pass' : 'fail');" +
+                    "    testRun(test.id, test.path, test.description, test.test.toString(), typeof test.precondition !== 'undefined' ? test.precondition.toString() : '', retVal, error);" +
                     "  }" +
                     "}</script>" +
                     "<script type='text/javascript'>" + code + "</script>" +
