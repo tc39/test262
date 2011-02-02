@@ -27,7 +27,6 @@ path: "TestCases/chapter15/15.10/15.10.7/15.10.7.3/15.10.7.3-1.js",
 description: "RegExp.prototype.ignoreCase is of type Boolean",
 
 test: function testcase() {
-  if((typeof(RegExp.prototype.ignoreCase)) === 'boolean')
-    return true;
+  return (typeof(RegExp.prototype.ignoreCase)) === 'boolean';
  }
 });

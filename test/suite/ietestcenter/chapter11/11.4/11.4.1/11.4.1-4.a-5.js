@@ -41,5 +41,6 @@ test: function testcase() {
   if (d === false && typeof(o) === 'object' && o.x === 1) {
     return true;
   }
+  return false;
  }
 });

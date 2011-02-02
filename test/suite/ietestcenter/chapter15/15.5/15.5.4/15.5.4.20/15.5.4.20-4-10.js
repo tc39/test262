@@ -27,9 +27,7 @@ path: "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-10.js",
 description: "String.prototype.trim handles whitepace and lineterminators (\\uFEFFabc)",
 
 test: function testcase() {
-  if ("\uFEFFabc".trim() === "abc") {
-    return true;
-  }
+  return "\uFEFFabc".trim() === "abc";
  },
 
 precondition: function prereq() {

@@ -28,8 +28,6 @@ description: "RegExp.prototype is itself a RegExp",
 
 test: function testcase() {
   var s = Object.prototype.toString.call(RegExp.prototype);
-  if (s === '[object RegExp]') {
-    return true;
-  }
+  return s === '[object RegExp]';
  }
 });

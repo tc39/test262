@@ -28,9 +28,12 @@ path: "TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-1-2.js",
 description: "Array.prototype.indexOf applied to null throws a TypeError",
 
 test: function testcase() {
-  try {Array.prototype.indexOf.call(null)}
+  try {
+     Array.prototype.indexOf.call(null);
+     return false;
+  }
   catch (e) {
-     if (e instanceof TypeError) return true;
+     return e instanceof TypeError;
      }
  },
 

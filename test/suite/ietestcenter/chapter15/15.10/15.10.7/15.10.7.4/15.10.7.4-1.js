@@ -27,7 +27,6 @@ path: "TestCases/chapter15/15.10/15.10.7/15.10.7.4/15.10.7.4-1.js",
 description: "RegExp.prototype.multiline is of type Boolean",
 
 test: function testcase() {
-  if((typeof(RegExp.prototype.multiline)) === 'boolean')
-    return true;
+  return (typeof(RegExp.prototype.multiline)) === 'boolean';
  }
 });

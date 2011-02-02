@@ -27,7 +27,6 @@ path: "TestCases/chapter15/15.10/15.10.7/15.10.7.5/15.10.7.5-1.js",
 description: "RegExp.prototype.lastIndex is of type Number",
 
 test: function testcase() {
-  if((typeof(RegExp.prototype.lastIndex)) === 'number')
-    return true;
+  return (typeof(RegExp.prototype.lastIndex)) === 'number';
  }
 });
