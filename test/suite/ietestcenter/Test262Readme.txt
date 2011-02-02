@@ -1,1 +1,1 @@
-Corresponds to IE9 PPB 5 release.
+Corresponds to IE9 RC1 release.
