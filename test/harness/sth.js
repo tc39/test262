@@ -91,20 +91,12 @@ function BrowserRunner() {
         // Set up some globals.
         win.testRun = testRun;
         win.testFinished = testFinished;
-        win.fnSupportsStrict = fnSupportsStrict;
-        win.fnExists = fnExists;
-        win.ConvertToFileUrl = ConvertToFileUrl;
-        win.fnSupportsArrayIndexGettersOnObjects = fnSupportsArrayIndexGettersOnObjects;
-        win.fnSupportsArrayIndexGettersOnArrays  = fnSupportsArrayIndexGettersOnArrays;
-        win.arrayContains = arrayContains;
-        win.compareArray = compareArray;
+        //TODO: these should be moved to sta.js
         win.SputnikError = SputnikError;
         win.$ERROR = $ERROR;
         win.$FAIL  = $FAIL;
         win.$PRINT = function () {};
         win.$INCLUDE = function() {};
-        win.dataPropertyAttributesAreCorrect = dataPropertyAttributesAreCorrect;
-        win.accessorPropertyAttributesAreCorrect = accessorPropertyAttributesAreCorrect;
 
         if(includes !== null) {
             // We have some includes, so loop through each include and pull in the dependencies.
@@ -125,6 +117,10 @@ function BrowserRunner() {
             }
         }
            
+        //Write out all of our helper functions
+        doc.writeln("<script type='text/javascript'>" + PickledSimpleTestAPIs + "</script>");
+        
+        
         // Write ES5Harness.registerTest and fnGlobalObject, which returns the global object, and the testFinished call.
         doc.writeln("<script type='text/javascript'>ES5Harness = {};" +
                     "function fnGlobalObject() { return window; }" +
@@ -243,6 +239,8 @@ function Controller() {
     var runner = new BrowserRunner();
     var loader = new TestLoader();
     var controller = this;
+    var startTime;
+    var elapsed = 0;
 
     runner.onComplete = function(test) {
         presenter.addTestResult(test);
@@ -268,21 +266,28 @@ function Controller() {
 
     loader.onTestsExhausted = function() {
         state = 'stopped';
-        presenter.finished();
+        elapsed += new Date() - startTime;
+        elapsed = elapsed/(1000*60);  //minutes
+        elapsed = elapsed.toFixed(1);
+        presenter.finished(elapsed);
     }
 
     this.start = function() {
         state = 'running';
+        startTime = new Date();
         loader.getNextTest();
         presenter.started();
     }
     
     this.pause = function() {
+        elapsed += new Date() - startTime;
         state = 'paused';
         presenter.paused();
     }
 
     this.reset = function() {
+        startTime = new Date();
+        elapsed = 0;
         loader.reset();
         presenter.reset();
     }

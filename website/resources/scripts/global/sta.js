@@ -38,7 +38,7 @@ function compareArray(aExpected, aActual) {
     }
     return true;
 }
-SimpleTestAPIs.append(compareArray);
+SimpleTestAPIs.push(compareArray);
 
 //-----------------------------------------------------------------------------
 function arrayContains(arr, expected) {
@@ -57,7 +57,7 @@ function arrayContains(arr, expected) {
     }
     return true;
 }
-SimpleTestAPIs.append(arrayContains);
+SimpleTestAPIs.push(arrayContains);
 
 //-----------------------------------------------------------------------------
 var supportsArrayIndexGettersOnArrays = undefined;
@@ -81,7 +81,7 @@ function fnSupportsArrayIndexGettersOnArrays() {
 
     return supportsArrayIndexGettersOnArrays;
 }
-SimpleTestAPIs.append(fnSupportsArrayIndexGettersOnArrays);
+SimpleTestAPIs.push(fnSupportsArrayIndexGettersOnArrays);
 
 //-----------------------------------------------------------------------------
 var supportsArrayIndexGettersOnObjects = undefined;
@@ -104,13 +104,13 @@ function fnSupportsArrayIndexGettersOnObjects() {
 
     return supportsArrayIndexGettersOnObjects;
 }
-SimpleTestAPIs.append(fnSupportsArrayIndexGettersOnObjects);
+SimpleTestAPIs.push(fnSupportsArrayIndexGettersOnObjects);
 
 //-----------------------------------------------------------------------------
 function ConvertToFileUrl(pathStr) {
     return "file:" + pathStr.replace(/\\/g, "/");
 }
-SimpleTestAPIs.append(ConvertToFileUrl);
+SimpleTestAPIs.push(ConvertToFileUrl);
 
 //-----------------------------------------------------------------------------
 function fnExists(/*arguments*/) {
@@ -119,7 +119,7 @@ function fnExists(/*arguments*/) {
     }
     return true;
 }
-SimpleTestAPIs.append(fnExists);
+SimpleTestAPIs.push(fnExists);
 
 //-----------------------------------------------------------------------------
 var supportsStrict = undefined;
@@ -137,13 +137,13 @@ function fnSupportsStrict() {
     }
     return supportsStrict;
 }
-SimpleTestAPIs.append(fnSupportsStrict);
+SimpleTestAPIs.push(fnSupportsStrict);
 
 //-----------------------------------------------------------------------------
 function fnGlobalObject() {
     return (function() { return this }).call(null);
 }
-SimpleTestAPIs.append(fnGlobalObject);
+SimpleTestAPIs.push(fnGlobalObject);
 
 //-----------------------------------------------------------------------------
 //Verify all attributes specified data property of given object: value, writable, enumerable, configurable
@@ -207,7 +207,7 @@ function dataPropertyAttributesAreCorrect(obj, name, value, writable, enumerable
 
     return attributesCorrect;
 }
-SimpleTestAPIs.append(dataPropertyAttributesAreCorrect);
+SimpleTestAPIs.push(dataPropertyAttributesAreCorrect);
 
 //-----------------------------------------------------------------------------
 //Verify all attributes specified accessor property of given object: get, set, enumerable, configurable
@@ -273,4 +273,6 @@ function accessorPropertyAttributesAreCorrect(obj, name, get, set, setVerifyHelp
 
     return attributesCorrect;
 }
-SimpleTestAPIs.append(accessorPropertyAttributesAreCorrect);
+SimpleTestAPIs.push(accessorPropertyAttributesAreCorrect);
+//-----------------------------------------------------------------------------
+var PickledSimpleTestAPIs = SimpleTestAPIs.join(" ");

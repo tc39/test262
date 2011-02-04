@@ -289,9 +289,9 @@ function Presenter() {
         renderCurrentSection();
     }
 
-    this.finished = function() {
+    this.finished = function(elapsed) {
         $('.button-start').attr('src', 'resources/images/start.png');
-        activityBar.text('');
+        activityBar.text('Overall Execution Time: ' + elapsed + ' minutes');
     }
 
     /* Refresh display of the report */
