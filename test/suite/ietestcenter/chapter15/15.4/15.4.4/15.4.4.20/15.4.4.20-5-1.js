@@ -24,11 +24,11 @@ ES5Harness.registerTest({
 
     path: "TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-5-1.js",
 
-    description: "Array.prototype.filter - thisArg not passed",
+    description: "Array.prototype.filter - thisArg is passed",
 
     test: function testcase() {
-        this._15_4_4_17_5_1 = true;
-        var _15_4_4_17_5_1 = false;
+        this._15_4_4_17_5_1 = false;
+        var _15_4_4_17_5_1 = true;
 
         function callbackfn(val, idx, obj) {
             return this._15_4_4_17_5_1;

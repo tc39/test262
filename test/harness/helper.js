@@ -291,7 +291,11 @@ function Presenter() {
 
     this.finished = function(elapsed) {
         $('.button-start').attr('src', 'resources/images/start.png');
-        activityBar.text('Overall Execution Time: ' + elapsed + ' minutes');
+        if (isSiteDebugMode()) {
+            activityBar.text('Overall Execution Time: ' + elapsed + ' minutes');
+        } else {
+            activityBar.text('');
+        }
     }
 
     /* Refresh display of the report */

@@ -303,6 +303,20 @@ function Controller() {
 
 var controller = new Controller()
 
+/* Helper function which shows if we're in the 'debug' mode of the Test262 site.
+   This mode is only useful for debugging issues with the test harness and 
+   website. */
+function isSiteDebugMode() {
+    var str=window.location.href.substring(window.location.href.indexOf("?")+1)
+    if(str.indexOf("sitedebug") > -1) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+
 $(function () {
     presenter.setup();
 
