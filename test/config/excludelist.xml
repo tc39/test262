@@ -293,5 +293,11 @@
   <test id="S10.1.7_A1_T1">Using this pointer, intented for Global object</test>
   <test id="S7.9_A9_T3">https://bugs.ecmascript.org/show_bug.cgi?id=7</test>
   <test id="S7.9_A9_T4">https://bugs.ecmascript.org/show_bug.cgi?id=7</test>
+  <test id="S15.9.3.1_A5_T1">https://bugs.ecmascript.org/show_bug.cgi?id=11</test>
+  <test id="S15.9.3.1_A5_T2">https://bugs.ecmascript.org/show_bug.cgi?id=11</test>
+  <test id="S15.9.3.1_A5_T3">https://bugs.ecmascript.org/show_bug.cgi?id=11</test>
+  <test id="S15.9.3.1_A5_T4">https://bugs.ecmascript.org/show_bug.cgi?id=11</test>
+  <test id="S15.9.3.1_A5_T5">https://bugs.ecmascript.org/show_bug.cgi?id=11</test>
+  <test id="S15.9.3.1_A5_T6">https://bugs.ecmascript.org/show_bug.cgi?id=11</test>
  </excludeList>
 
