@@ -37,6 +37,7 @@ test: function testcase() {
       desc.hasOwnProperty('set') === false) {
     return true;
   }
+  return false;
  },
 
 precondition: function prereq() {

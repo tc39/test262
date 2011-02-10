@@ -38,11 +38,11 @@ test: function testcase() {
   try
   {
     eval("({set foo(x){}, foo : 1});");
+    return false;
   }
   catch(e)
   {
-    if(e instanceof SyntaxError)
-      return true;
+    return e instanceof SyntaxError;
   }
  },
 

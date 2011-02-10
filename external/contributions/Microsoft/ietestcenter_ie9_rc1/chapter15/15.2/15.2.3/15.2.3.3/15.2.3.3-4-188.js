@@ -34,6 +34,7 @@ test: function testcase() {
   if (desc === undefined) {
     return true;
   }
+  return false;
  },
 
 precondition: function prereq() {

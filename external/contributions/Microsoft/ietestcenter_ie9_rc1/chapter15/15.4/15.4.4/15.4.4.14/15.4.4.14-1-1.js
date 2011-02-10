@@ -28,13 +28,16 @@ path: "TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-1-1.js",
 description: "Array.prototype.indexOf applied to undefined throws a TypeError",
 
 test: function testcase() {
-  try {Array.prototype.indexOf.call(undefined)}
+  try {
+     Array.prototype.indexOf.call(undefined);
+     return false;
+  }
   catch (e) {
-     if (e instanceof TypeError) return true;
-     }
+     return e instanceof TypeError;
+  }
  },
 
 precondition: function prereq() {
   return fnExists(Array.prototype.indexOf);
- }
+}
 });

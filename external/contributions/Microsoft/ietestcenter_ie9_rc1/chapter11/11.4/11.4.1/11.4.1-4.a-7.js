@@ -36,5 +36,6 @@ test: function testcase() {
   if (d === false && x === 1) {
     return true;
   }
+  return false;
  }
 });

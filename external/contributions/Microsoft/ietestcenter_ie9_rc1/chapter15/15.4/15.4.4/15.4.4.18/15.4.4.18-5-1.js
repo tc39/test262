@@ -24,11 +24,11 @@ ES5Harness.registerTest({
 
     path: "TestCases/chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-5-1.js",
 
-    description: "Array.prototype.forEach - thisArg not passed",
+    description: "Array.prototype.forEach - thisArg is passed",
 
     test: function testcase() {
-        this._15_4_4_18_5_1 = true;
-        var _15_4_4_18_5_1 = false;
+        this._15_4_4_18_5_1 = false;
+        var _15_4_4_18_5_1 = true;
         var result;
         function callbackfn(val, idx, obj) {
             result = this._15_4_4_18_5_1;

@@ -29,12 +29,12 @@ description: "String.prototype.trim throws TypeError when string is undefined",
 test: function testcase() {
   try
   {
-    String.prototype.trim.call(undefined);  
+    String.prototype.trim.call(undefined); 
+    return false; 
   }
   catch(e)
   {
-    if(e instanceof TypeError)
-      return true;
+    return e instanceof TypeError;
   }
  },
 

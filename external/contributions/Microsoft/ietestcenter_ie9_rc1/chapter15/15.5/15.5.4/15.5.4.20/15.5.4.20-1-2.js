@@ -30,11 +30,11 @@ test: function testcase() {
   try
   {
     String.prototype.trim.call(null);  
+    return false;
   }
   catch(e)
   {
-    if(e instanceof TypeError)
-      return true;
+    return e instanceof TypeError;
   }
  },
 

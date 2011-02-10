@@ -27,7 +27,6 @@ path: "TestCases/chapter15/15.10/15.10.7/15.10.7.2/15.10.7.2-1.js",
 description: "RegExp.prototype.global is of type Boolean",
 
 test: function testcase() {
-  if((typeof(RegExp.prototype.global)) === 'boolean')
-    return true;
+  return (typeof(RegExp.prototype.global)) === 'boolean';
  }
 });
