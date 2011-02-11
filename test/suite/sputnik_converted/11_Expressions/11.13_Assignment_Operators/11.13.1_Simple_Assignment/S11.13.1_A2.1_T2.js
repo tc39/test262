@@ -21,12 +21,12 @@ description: "If GetBase(AssigmentExpression) is null, throw ReferenceError",
 test: function testcase() {
    //CHECK#1
 try {
-    S11_13_1_A2_1_T2_x = S11_13_1_A2_1_T2_y;
-    $ERROR('#1.1: S11_13_1_A2_1_T2_x = S11_13_1_A2_1_T2_y throw ReferenceError. Actual: ' + (S11_13_1_A2_1_T2_x = S11_13_1_A2_1_T2_y));  
+  x = y;
+  $ERROR('#1.1: x = y throw ReferenceError. Actual: ' + (x = y));  
 }
 catch (e) {
   if ((e instanceof ReferenceError) !== true) {
-      $ERROR('#1.2: S11_13_1_A2_1_T2_x = S11_13_1_A2_1_T2_y throw ReferenceError. Actual: ' + (e));  
+    $ERROR('#1.2: x = y throw ReferenceError. Actual: ' + (e));  
   }
 }
 

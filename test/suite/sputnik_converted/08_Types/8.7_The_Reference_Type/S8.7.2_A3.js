@@ -22,16 +22,16 @@ description: "Execute this.x++, where this.x is undefined",
 test: function testcase() {
    //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (this.S8_7_2_A3_x !== undefined) {
-    $ERROR('#1: this.S8_7_2_A3_x === undefined. Actual: ' + (this.S8_7_2_A3_x));
+if (this.x !== undefined) {
+  $ERROR('#1: this.x === undefined. Actual: ' + (this.x));
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-this.S8_7_2_A3_x++;
+this.x++;
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (S8_7_2_A3_x === undefined) {
-    $ERROR('#2: this.S8_7_2_A3_x; this.S8_7_2_A3_x++; S8_7_2_A3_x !== undefined');
+if (x === undefined) {
+  $ERROR('#2: this.x; this.x++; x !== undefined');
 }
 //
 //////////////////////////////////////////////////////////////////////////////

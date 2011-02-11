@@ -21,18 +21,18 @@ description: "Checking with undeclarated variables",
 test: function testcase() {
    //CHECK#1
 try {
-    S11_11_1_A2_4_T3_x && (S11_11_1_A2_4_T3_x = true);
-    $ERROR('#1.1: x && (S11_11_1_A2_4_T3_x = true) throw ReferenceError. Actual: ' + (S11_11_1_A2_4_T3_x && (S11_11_1_A2_4_T3_x = true)));  
+  x && (x = true);
+  $ERROR('#1.1: x && (x = true) throw ReferenceError. Actual: ' + (x && (x = true)));  
 }
 catch (e) {
   if ((e instanceof ReferenceError) !== true) {
-      $ERROR('#1.2: S11_11_1_A2_4_T3_x && (S11_11_1_A2_4_T3_x = true) throw ReferenceError. Actual: ' + (e));  
+    $ERROR('#1.2: x && (x = true) throw ReferenceError. Actual: ' + (e));  
   }
 }
 
 //CHECK#2
-if (((S11_11_1_A2_4_T3_y = true) && S11_11_1_A2_4_T3_y) !== true) {
-    $ERROR('#2: ((S11_11_1_A2_4_T3_y = true) && S11_11_1_A2_4_T3_y) === true');
+if (((y = true) && y) !== true) {
+  $ERROR('#2: ((y = true) && y) === true');
 }
 
 

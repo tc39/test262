@@ -19,14 +19,14 @@ path: "8.3",
 description: "Assign true and false to variables",
 
 test: function testcase() {
-   if (S8_3_A1_T1_x == undefined) {
-    $ERROR("S8_3_A1_T1_x == undefined, but actual is " + S8_3_A1_T1_x);
+   if (x == undefined) {
+    $ERROR("x == undefined, but actual is "+ x);
 }   
 
 ////////////////////////////////////////////////////////////////////////
 // CHECK#1
-var S8_3_A1_T1_x = true;
-var S8_3_A1_T1_y = false;
+var x = true;
+var y = false;
 //
 ////////////////////////////////////////////////////////////////////////
 

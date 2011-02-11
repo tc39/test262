@@ -21,12 +21,12 @@ description: "If ToBoolean(x) is false and GetBase(z) is null, throw ReferenceEr
 test: function testcase() {
    //CHECK#1
 try {
-    false ? true : S11_12_A2_1_T4_z;
-    $ERROR('#1.1: false ? true : S11_12_A2_1_T4_z throw ReferenceError. Actual: ' + (false ? true : S11_12_A2_1_T4_z));  
+  false ? true : z;
+  $ERROR('#1.1: false ? true : z throw ReferenceError. Actual: ' + (false ? true : z));  
 }
 catch (e) {
   if ((e instanceof ReferenceError) !== true) {
-      $ERROR('#1.2: false ? true : S11_12_A2_1_T4_z throw ReferenceError. Actual: ' + (e));  
+    $ERROR('#1.2: false ? true : z throw ReferenceError. Actual: ' + (e));  
   }
 }
 

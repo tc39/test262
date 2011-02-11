@@ -20,7 +20,13 @@ description: "IdentifierPart :: \\u0069 (i)",
 
 test: function testcase() {
    //CHECK#1
-var regexp = /(?:)/\u0069; 
+
+//Test262 Change
+//var regexp = /(?:)/\u0069; 
+
+var regexp;
+eval('regexp = /(?:)/\\u0069;');
+
 if (regexp.ignoreCase !== true) {
   $ERROR('#1: var regexp = /(?:)/\\u0069; regexp.ignoreCase === true. Actual: ' + (regexp.ignoreCase));
 }                         

@@ -20,7 +20,7 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
             source = args[0];
             destination = args[1];
 
-            string root = "tests";
+            string root = "Conformance";
 
             int countInputFiles = 0;
             try
@@ -46,11 +46,6 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
                 Console.WriteLine(ResourceClass.PressExit);
                 Logger.WriteToLog("End Time : {0}", DateTime.Now.ToShortDateString());
                 Console.ReadLine();
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine(ResourceClass.Unexpected_Error + ex.Message + ex.StackTrace);
             }
             finally
             {

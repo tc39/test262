@@ -82,11 +82,20 @@
   <ItemGroup>
     <Content Include="InputFormats.xml">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="testNegativePrereqTemplate.js" />
-    <Content Include="testNegativeTemplate.js" />
-    <Content Include="testTemplate.js" />
-    <Content Include="testPrereqTemplate.js" />
+    <Content Include="testNegativePrereqTemplate.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="testNegativeTemplate.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="testTemplate.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="testPrereqTemplate.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ResourceClass.resx">

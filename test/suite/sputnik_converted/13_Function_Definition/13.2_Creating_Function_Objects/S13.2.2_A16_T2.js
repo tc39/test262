@@ -21,13 +21,13 @@ description: "Using \"var __obj = new function __func(arg){this.prop=arg;}(5)\" 
 test: function testcase() {
    //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (typeof S13_2_2_A16_T2_func !== "undefined") {
-    $ERROR('#1: typeof S13_2_2_A16_T2_func === "undefined". Actual: typeof S13_2_2_A16_T2_func ===' + typeof S13_2_2_A16_T2_func);
+if (typeof __func !== "undefined") {
+	$ERROR('#1: typeof __func === "undefined". Actual: typeof __func ==='+typeof __func);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
 
-var __obj = new function S13_2_2_A16_T2_func(arg) { this.prop = arg; } (5);
+var __obj = new function __func(arg){this.prop=arg;}(5);
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
@@ -39,8 +39,8 @@ if (__obj.prop !== 5) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#3
-if (typeof S13_2_2_A16_T2_func !== "undefined") {
-    $ERROR('#3: typeof S13_2_2_A16_T2_func === "undefined". Actual: typeof S13_2_2_A16_T2_func ===' + typeof __func);
+if (typeof __func !== "undefined") {
+	$ERROR('#3: typeof __func === "undefined". Actual: typeof __func ==='+typeof __func);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
