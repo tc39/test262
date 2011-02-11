@@ -299,5 +299,12 @@
   <test id="S15.9.3.1_A5_T4">https://bugs.ecmascript.org/show_bug.cgi?id=11</test>
   <test id="S15.9.3.1_A5_T5">https://bugs.ecmascript.org/show_bug.cgi?id=11</test>
   <test id="S15.9.3.1_A5_T6">https://bugs.ecmascript.org/show_bug.cgi?id=11</test>
+  <test id="S7.5.3_A1.15">https://bugs.ecmascript.org/show_bug.cgi?id=12</test>
+  <test id="S9.9_A1">https://bugs.ecmascript.org/show_bug.cgi?id=13</test>
+  <test id="S9.9_A2">https://bugs.ecmascript.org/show_bug.cgi?id=13</test>
+  <test id="S11.1.5_A4.1">https://bugs.ecmascript.org/show_bug.cgi?id=14</test>
+  <test id="S11.1.5_A4.2">https://bugs.ecmascript.org/show_bug.cgi?id=14</test>
+  <test id="S11.8.2_A2.3_T1">https://bugs.ecmascript.org/show_bug.cgi?id=15</test>
+  <test id="S11.8.3_A2.3_T1">https://bugs.ecmascript.org/show_bug.cgi?id=15</test>
  </excludeList>
 
