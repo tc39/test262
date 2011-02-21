@@ -330,5 +330,31 @@
   <test id="15.2.3.6-3-98">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
   <test id="15.2.3.6-4-45">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
   <test id="15.4.4.19-5-1">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
+  
+  <test id="S15.10.6_A2">https://bugs.ecmascript.org/show_bug.cgi?id=22</test>
+  
+  <test id="S8.6.2_A5_T1">https://bugs.ecmascript.org/show_bug.cgi?id=24</test>
+  
+  <test id="S12.6.4_A14_T1">https://bugs.ecmascript.org/show_bug.cgi?id=25</test>
+  
+  <test id="S15.1.1.1_A2_T1">https://bugs.ecmascript.org/show_bug.cgi?id=27</test>
+  <test id="S15.1.1.2_A2_T1">https://bugs.ecmascript.org/show_bug.cgi?id=27</test>
+  <test id="S15.1.1.1_A2_T2">https://bugs.ecmascript.org/show_bug.cgi?id=27</test>
+  <test id="S15.1.1.3_A2_T1">https://bugs.ecmascript.org/show_bug.cgi?id=27</test>
+  <test id="S15.1.1.3_A2_T2">https://bugs.ecmascript.org/show_bug.cgi?id=27</test>
+  
+  <test id="S15.3.4.3_A6_T1">https://bugs.ecmascript.org/show_bug.cgi?id=28</test>
+  <test id="S15.3.4.3_A6_T4">https://bugs.ecmascript.org/show_bug.cgi?id=28</test>
+  
+  <test id="S15.4.4.2_A2_T1">https://bugs.ecmascript.org/show_bug.cgi?id=29</test>
+  <test id="S15.4.4.3_A2_T1">https://bugs.ecmascript.org/show_bug.cgi?id=29</test>
+  
+  <test id="S15.5.4.8_A1_T11">https://bugs.ecmascript.org/show_bug.cgi?id=30</test>  
+  
+  <!--Sputnik to Test262 Converter Tool issues-->
+  <test id="S13.2.2_A18_T1">https://bugs.ecmascript.org/show_bug.cgi?id=26</test>
+  <test id="S13.2.2_A18_T2">https://bugs.ecmascript.org/show_bug.cgi?id=26</test>
+  <test id="S13.2.2_A19_T7">https://bugs.ecmascript.org/show_bug.cgi?id=26</test>
+  <test id="S15.2.2.1_A2_T4">https://bugs.ecmascript.org/show_bug.cgi?id=26</test>
  </excludeList>
 
