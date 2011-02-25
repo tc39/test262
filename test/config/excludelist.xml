@@ -307,29 +307,6 @@
   <test id="S11.8.2_A2.3_T1">https://bugs.ecmascript.org/show_bug.cgi?id=15</test>
   <test id="S11.8.3_A2.3_T1">https://bugs.ecmascript.org/show_bug.cgi?id=15</test>
   <test id="15.2.3.3-4-188">https://bugs.ecmascript.org/show_bug.cgi?id=16</test>
-  <test id="15.2.3.6-3-150">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
-  <test id="15.2.3.6-3-176">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
-  <test id="15.2.3.6-3-229">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
-  <test id="15.2.3.6-3-233">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
-  <test id="15.2.3.6-3-259">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
-  <test id="15.2.3.6-3-263">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
-  <test id="15.2.3.6-3-44">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
-  <test id="15.2.3.6-3-97">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
-  <test id="15.2.3.6-4-44">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
-  <test id="15.4.4.14-1-16">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
-  <test id="15.4.4.14-2-16">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
-  <test id="15.4.4.14-9-b-i-24">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
-  <test id="15.4.4.15-1-16">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
-  <test id="15.4.4.15-2-16">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
-  <test id="15.4.4.15-8-b-i-24">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
-  <test id="15.2.3.6-3-151">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
-  <test id="15.2.3.6-3-177">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
-  <test id="15.2.3.6-3-230">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
-  <test id="15.2.3.6-3-260">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
-  <test id="15.2.3.6-3-45">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
-  <test id="15.2.3.6-3-98">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
-  <test id="15.2.3.6-4-45">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
-  <test id="15.4.4.19-5-1">https://bugs.ecmascript.org/show_bug.cgi?id=10</test>
   
   <test id="S15.10.6_A2">https://bugs.ecmascript.org/show_bug.cgi?id=22</test>
   
