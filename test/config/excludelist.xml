@@ -351,6 +351,8 @@
   
   <test id="S15.5.4.8_A1_T11">https://bugs.ecmascript.org/show_bug.cgi?id=30</test>  
   
+  <test id="S15.3.4.2_A1_T1">https://bugs.ecmascript.org/show_bug.cgi?id=31</test>
+  
   <!--Sputnik to Test262 Converter Tool issues-->
   <test id="S13.2.2_A18_T1">https://bugs.ecmascript.org/show_bug.cgi?id=26</test>
   <test id="S13.2.2_A18_T2">https://bugs.ecmascript.org/show_bug.cgi?id=26</test>

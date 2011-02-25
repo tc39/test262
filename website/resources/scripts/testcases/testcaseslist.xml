@@ -1,4 +1,4 @@
-<testSuite numTests="8504" version="0.3.4" date="02/21/2011">
+<testSuite numTests="8503" version="0.3.5" date="02/24/2011">
   <testGroup>resources/scripts/testcases/07_Lexical_Conventions.xml</testGroup>
   <testGroup>resources/scripts/testcases/08_Types.xml</testGroup>
   <testGroup>resources/scripts/testcases/09_Type_Conversion.xml</testGroup>
