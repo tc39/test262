@@ -1,4 +1,4 @@
-<testSuite numTests="8503" version="0.3.5" date="02/24/2011">
+<testSuite numTests="9702" version="0.5" date="02/25/2011">
   <testGroup>resources/scripts/testcases/07_Lexical_Conventions.xml</testGroup>
   <testGroup>resources/scripts/testcases/08_Types.xml</testGroup>
   <testGroup>resources/scripts/testcases/09_Type_Conversion.xml</testGroup>
@@ -8,8 +8,10 @@
   <testGroup>resources/scripts/testcases/13_Function_Definition.xml</testGroup>
   <testGroup>resources/scripts/testcases/14_Program.xml</testGroup>
   <testGroup>resources/scripts/testcases/15_Native.xml</testGroup>
+  <testGroup>resources/scripts/testcases/chapter07.xml</testGroup>
   <testGroup>resources/scripts/testcases/chapter10.xml</testGroup>
   <testGroup>resources/scripts/testcases/chapter11.xml</testGroup>
   <testGroup>resources/scripts/testcases/chapter12.xml</testGroup>
+  <testGroup>resources/scripts/testcases/chapter13.xml</testGroup>
   <testGroup>resources/scripts/testcases/chapter15.xml</testGroup>
 </testSuite>
