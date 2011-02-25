@@ -308,6 +308,35 @@
   <test id="S11.8.3_A2.3_T1">https://bugs.ecmascript.org/show_bug.cgi?id=15</test>
   <test id="15.2.3.3-4-188">https://bugs.ecmascript.org/show_bug.cgi?id=16</test>
   
+  <!-- FunctionDeclaration inside a Statement context-->
+  <test id="12.14-5">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S12.10_A3.3_T4">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S12.10_A3.3_T5">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S12.7_A3">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S12.7_A4_T1">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S12.7_A4_T2">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S12.7_A4_T3">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S12.8_A3">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S12.8_A4_T1">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S12.8_A4_T2">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S12.8_A4_T3">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S13.2.2_A17_T1">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S13.2.2_D20_T2">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S13.2.2_D20_T3">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S13.2.2_D20_T4">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S13.2.2_D20_T5">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S13.2.2_D20_T6">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S13.2.2_D20_T7">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S13.2.2_D20_T8">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S13_D1_T1">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S14_D1_T1">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S14_D4_T1">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S14_D4_T2">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S14_D4_T3">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S14_D6_T1">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S14_D6_T2">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  <test id="S14_D7">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
+  
   <test id="S15.10.6_A2">https://bugs.ecmascript.org/show_bug.cgi?id=22</test>
   
   <test id="S8.6.2_A5_T1">https://bugs.ecmascript.org/show_bug.cgi?id=24</test>
