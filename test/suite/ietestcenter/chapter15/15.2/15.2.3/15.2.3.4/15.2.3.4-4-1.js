@@ -35,7 +35,7 @@ ES5Harness.registerTest({
         }
 
         for (var p1 in expResult) {
-            if (!result1[expResult[p]]) {
+            if (!result1[expResult[p1]]) {
                 return false;
             }
         }
