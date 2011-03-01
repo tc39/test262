@@ -306,7 +306,6 @@
   <test id="S11.1.5_A4.2">https://bugs.ecmascript.org/show_bug.cgi?id=14</test>
   <test id="S11.8.2_A2.3_T1">https://bugs.ecmascript.org/show_bug.cgi?id=15</test>
   <test id="S11.8.3_A2.3_T1">https://bugs.ecmascript.org/show_bug.cgi?id=15</test>
-  <test id="15.2.3.3-4-188">https://bugs.ecmascript.org/show_bug.cgi?id=16</test>
   
   <!-- FunctionDeclaration inside a Statement context-->
   <test id="12.14-5">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>

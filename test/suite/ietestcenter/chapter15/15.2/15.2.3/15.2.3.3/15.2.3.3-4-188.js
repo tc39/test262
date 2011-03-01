@@ -28,13 +28,8 @@ description: "Object.getOwnPropertyDescriptor returns undefined for non-existent
 
 test: function testcase() {
   var f = Function('return 42;');
-
-  var desc = Object.getOwnPropertyDescriptor(f, "name");
-
-  if (desc === undefined) {
-    return true;
-  }
-  return false;
+  var desc = Object.getOwnPropertyDescriptor(f, "functionNameHopefullyDoesNotExist");
+  return desc === undefined;
  },
 
 precondition: function prereq() {

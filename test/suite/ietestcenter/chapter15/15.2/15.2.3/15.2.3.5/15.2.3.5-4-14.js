@@ -31,10 +31,9 @@ ES5Harness.registerTest({
         var props = new Error("test");
         var result = false;
 
-        props.description = { value: 11 };
-        props.message = { value: 11 };
-        props.name = { value: 11 };
-
+        (Object.getOwnPropertyNames(props)).forEach(function(name){
+            props[name] = {value:11, configurable:true}
+        });
 
         Object.defineProperty(props, "prop", {
             get: function () {
@@ -48,6 +47,6 @@ ES5Harness.registerTest({
     },
 
     precondition: function prereq() {
-        return fnExists(Object.create) && fnExists(Object.defineProperty);
+        return fnExists(Object.create) && fnExists(Object.defineProperty) && fnExists(Array.prototype.forEach) && fnExists(Object.getOwnPropertyNames);
     }
 });
