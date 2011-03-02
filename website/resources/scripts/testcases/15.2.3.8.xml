@@ -1,0 +1,10 @@
+<testCollection>
+  <!-- adding section element if in the future we want to store information about the -->
+  <!-- spec structure in this file, for now the section structure is defined in the   -->
+  <!-- sections.js file                                                               -->
+  <section name="Chapter - 15.2.3.8" numTests="3">
+    <test id="15.2.3.8-0-1"><![CDATA[RVM1SGFybmVzcy5yZWdpc3RlclRlc3QoIHsNCmlkOiAiMTUuMi4zLjgtMC0xIiwNCg0KcGF0aDogIlRlc3RDYXNlcy9jaGFwdGVyMTUvMTUuMi8xNS4yLjMvMTUuMi4zLjgvMTUuMi4zLjgtMC0xLmpzIiwNCg0KZGVzY3JpcHRpb246ICJPYmplY3Quc2VhbCBtdXN0IGV4aXN0IGFzIGEgZnVuY3Rpb24iLA0KDQp0ZXN0OiBmdW5jdGlvbiB0ZXN0Y2FzZSgpIHsNCiAgdmFyIGYgPSBPYmplY3Quc2VhbDsNCiAgaWYgKHR5cGVvZihmKSA9PT0gImZ1bmN0aW9uIikgew0KICAgIHJldHVybiB0cnVlOw0KICB9DQogfQ0KfSk7DQo=]]></test>
+    <test id="15.2.3.8-0-2"><![CDATA[RVM1SGFybmVzcy5yZWdpc3RlclRlc3QoIHsNCmlkOiAiMTUuMi4zLjgtMC0yIiwNCg0KcGF0aDogIlRlc3RDYXNlcy9jaGFwdGVyMTUvMTUuMi8xNS4yLjMvMTUuMi4zLjgvMTUuMi4zLjgtMC0yLmpzIiwNCg0KZGVzY3JpcHRpb246ICJPYmplY3Quc2VhbCBtdXN0IGV4aXN0IGFzIGEgZnVuY3Rpb24gdGFraW5nIDEgcGFyYW1ldGVyIiwNCg0KdGVzdDogZnVuY3Rpb24gdGVzdGNhc2UoKSB7DQogIGlmIChPYmplY3Quc2VhbC5sZW5ndGggPT09IDEpIHsNCiAgICByZXR1cm4gdHJ1ZTsNCiAgfQ0KIH0sDQoNCnByZWNvbmRpdGlvbjogZnVuY3Rpb24gcHJlcmVxKCkgew0KICByZXR1cm4gZm5FeGlzdHMoT2JqZWN0LnNlYWwpOw0KIH0NCn0pOw0K]]></test>
+    <test id="15.2.3.8-1"><![CDATA[RVM1SGFybmVzcy5yZWdpc3RlclRlc3QoIHsNCmlkOiAiMTUuMi4zLjgtMSIsDQoNCnBhdGg6ICJUZXN0Q2FzZXMvY2hhcHRlcjE1LzE1LjIvMTUuMi4zLzE1LjIuMy44LzE1LjIuMy44LTEuanMiLA0KDQpkZXNjcmlwdGlvbjogIk9iamVjdC5zZWFsIHRocm93cyBUeXBlRXJyb3IgaWYgdHlwZSBvZiBmaXJzdCBwYXJhbSBpcyBub3QgT2JqZWN0IiwNCg0KdGVzdDogZnVuY3Rpb24gdGVzdGNhc2UoKSB7DQogICAgdHJ5IHsNCiAgICAgIE9iamVjdC5zZWFsKDApOw0KICAgIH0NCiAgICBjYXRjaCAoZSkgew0KICAgICAgaWYgKGUgaW5zdGFuY2VvZiBUeXBlRXJyb3IpIHsNCiAgICAgICAgcmV0dXJuIHRydWU7DQogICAgICB9DQogICAgfQ0KIH0sDQoNCnByZWNvbmRpdGlvbjogZnVuY3Rpb24gcHJlcmVxKCkgew0KICByZXR1cm4gZm5FeGlzdHMoT2JqZWN0LnNlYWwpOw0KIH0NCn0pOw0K]]></test>
+  </section>
+</testCollection>

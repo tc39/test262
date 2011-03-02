@@ -1,0 +1,10 @@
+<testCollection>
+  <!-- adding section element if in the future we want to store information about the -->
+  <!-- spec structure in this file, for now the section structure is defined in the   -->
+  <!-- sections.js file                                                               -->
+  <section name="Chapter - 15.2.3.9" numTests="3">
+    <test id="15.2.3.9-0-1"><![CDATA[RVM1SGFybmVzcy5yZWdpc3RlclRlc3QoIHsNCmlkOiAiMTUuMi4zLjktMC0xIiwNCg0KcGF0aDogIlRlc3RDYXNlcy9jaGFwdGVyMTUvMTUuMi8xNS4yLjMvMTUuMi4zLjkvMTUuMi4zLjktMC0xLmpzIiwNCg0KZGVzY3JpcHRpb246ICJPYmplY3QuZnJlZXplIG11c3QgZXhpc3QgYXMgYSBmdW5jdGlvbiIsDQoNCnRlc3Q6IGZ1bmN0aW9uIHRlc3RjYXNlKCkgew0KICB2YXIgZiA9IE9iamVjdC5mcmVlemU7DQogIGlmICh0eXBlb2YoZikgPT09ICJmdW5jdGlvbiIpIHsNCiAgICByZXR1cm4gdHJ1ZTsNCiAgfQ0KIH0NCn0pOw0K]]></test>
+    <test id="15.2.3.9-0-2"><![CDATA[RVM1SGFybmVzcy5yZWdpc3RlclRlc3QoIHsNCmlkOiAiMTUuMi4zLjktMC0yIiwNCg0KcGF0aDogIlRlc3RDYXNlcy9jaGFwdGVyMTUvMTUuMi8xNS4yLjMvMTUuMi4zLjkvMTUuMi4zLjktMC0yLmpzIiwNCg0KZGVzY3JpcHRpb246ICJPYmplY3QuZnJlZXplIG11c3QgZXhpc3QgYXMgYSBmdW5jdGlvbiB0YWtpbmcgMSBwYXJhbWV0ZXIiLA0KDQp0ZXN0OiBmdW5jdGlvbiB0ZXN0Y2FzZSgpIHsNCiAgaWYgKE9iamVjdC5mcmVlemUubGVuZ3RoID09PSAxKSB7DQogICAgcmV0dXJuIHRydWU7DQogIH0NCiB9LA0KDQpwcmVjb25kaXRpb246IGZ1bmN0aW9uIHByZXJlcSgpIHsNCiAgcmV0dXJuIGZuRXhpc3RzKE9iamVjdC5mcmVlemUpOw0KIH0NCn0pOw0K]]></test>
+    <test id="15.2.3.9-1"><![CDATA[RVM1SGFybmVzcy5yZWdpc3RlclRlc3Qoew0KICAgIGlkOiAiMTUuMi4zLjktMSIsDQoNCiAgICBwYXRoOiAiVGVzdENhc2VzL2NoYXB0ZXIxNS8xNS4yLzE1LjIuMy8xNS4yLjMuOS8xNS4yLjMuOS0xLmpzIiwNCg0KICAgIGRlc2NyaXB0aW9uOiAiT2JqZWN0LmZyZWV6ZSB0aHJvd3MgVHlwZUVycm9yIGlmIHR5cGUgb2YgZmlyc3QgcGFyYW0gaXMgbm90IE9iamVjdCIsDQoNCiAgICB0ZXN0OiBmdW5jdGlvbiB0ZXN0Y2FzZSgpIHsNCiAgICAgICAgdHJ5IHsNCiAgICAgICAgICAgIE9iamVjdC5mcmVlemUoMCk7DQogICAgICAgICAgICByZXR1cm4gZmFsc2U7DQogICAgICAgIH0gY2F0Y2ggKGUpIHsNCiAgICAgICAgICAgIHJldHVybiBlIGluc3RhbmNlb2YgVHlwZUVycm9yOw0KICAgICAgICB9DQogICAgfSwNCg0KICAgIHByZWNvbmRpdGlvbjogZnVuY3Rpb24gcHJlcmVxKCkgew0KICAgICAgICByZXR1cm4gZm5FeGlzdHMoT2JqZWN0LmZyZWV6ZSk7DQogICAgfQ0KfSk7DQo=]]></test>
+  </section>
+</testCollection>
