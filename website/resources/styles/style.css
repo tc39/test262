@@ -158,6 +158,12 @@ li.content
     float: left;
 }
 
+.footer div.siteversion
+{
+    font-size: 1.5em;
+    float: left;
+}
+
 .footer div.copyright
 {
     float: right;
