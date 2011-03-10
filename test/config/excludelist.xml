@@ -1,290 +1,104 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <excludeList>
-  <test id="S7.5.3_A1.1">
-    problem, abstract is not a reserved word in ES5
-  </test>
-  <test id="S7.5.3_A1.2">
-    problem, boolean is not a reserved word in ES5
-  </test>
-  <test id="S7.5.3_A1.3">
-    problem, byte is not a reserved word in ES5
-  </test>
-  <test id="S7.5.3_A1.4">
-    problem, char is not a reserved word in ES5
-  </test>
-  <test id="S7.5.3_A1.8">
-    problem, double is not a reserved word in ES5
-  </test>
-  <test id="S7.5.3_A1.12">
-    problem, final is not a reserved word in ES5
-  </test>
-  <test id="S7.5.3_A1.13">
-    problem, float is not a reserved word in ES5
-  </test>
-  <test id="S7.5.3_A1.14">
-    problem, goto is not a reserved word in ES5
-  </test>
-  <test id="S7.5.3_A1.17">
-    problem, implements is not a reserved word in ES5
-  </test>
-  <test id="S7.5.3_A1.18">
-    problem, interface is not a reserved word in ES5
-  </test>
-  <test id="S7.5.3_A1.19">
-    problem, long is not a reserved word in ES5
-  </test>
-  <test id="S7.5.3_A1.20">
-    problem, native is not a reserved word in ES5
-  </test>
-  <test id="S7.5.3_A1.21">
-    problem, package is not a reserved word in ES5
-  </test>
-  <test id="S7.5.3_A1.22">
-    problem, private is not a reserved word in ES5
-  </test>
-  <test id="S7.5.3_A1.23">
-    problem, protected is not a reserved word in ES5
-  </test>
-  <test id="S7.5.3_A1.24">
-    problem, public is not a reserved word in ES5
-  </test>
-  <test id="S7.5.3_A1.25">
-    problem, short is not a reserved word in ES5
-  </test>
-  <test id="S7.5.3_A1.26">
-    problem, static is not a reserved word in ES5
-  </test>
-  <test id="S7.5.3_A1.28">
-    problem, synchronized is not a reserved word in ES5
-  </test>
-  <test id="S7.5.3_A1.29">
-    problem, throws is not a reserved word in ES5
-  </test>
-  <test id="S7.5.3_A1.30">
-    problem, transient is not a reserved word in ES5
-  </test>
-  <test id="S7.5.3_A1.31">
-    problem, volatile is not a reserved word in ES5
-  </test>
-  <test id="15.4.4.15-3-14">
-    <!-- reason for the exclusion-->
-  </test>
-  <test id="15.4.4.15-3-29">
-    <!-- reason for the exclusion-->
-  </test>
-  <test id="15.4.4.15-3-8">
-    <!-- reason for the exclusion-->
-  </test>
-  <test id="15.4.4.20-3-14">
-    <!-- reason for the exclusion-->
-  </test>
-  <test id="15.4.4.20-3-28">
-    <!-- reason for the exclusion-->
-  </test>
-  <test id="15.4.4.20-3-29">
-    <!-- reason for the exclusion-->
-  </test>
-  <test id="15.4.4.20-3-8">
-    <!-- reason for the exclusion-->
-  </test>
-  <test id="15.4.4.21-3-14">
-    <!-- reason for the exclusion-->
-  </test>
-  <test id="15.4.4.21-3-28">
-    <!-- reason for the exclusion-->
-  </test>
-  <test id="15.4.4.21-3-29">
-    <!-- reason for the exclusion-->
-  </test>
-  <test id="15.4.4.21-3-8">
-    <!-- reason for the exclusion-->
-  </test>
-  <test id="15.4.4.22-3-14">
-    <!-- reason for the exclusion-->
-  </test>
-  <test id="15.4.4.22-3-28">
-    <!-- reason for the exclusion-->
-  </test>
-  <test id="15.4.4.22-3-29">
-    <!-- reason for the exclusion-->
-  </test>
-  <test id="15.4.4.22-3-8">
-    <!-- reason for the exclusion-->
-  </test>
-  <test id="S15.3.4_A3_T1">
-    problem, should replace with different test
-  </test>
-  <test id="S15.3.5_A1_T1">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.3.5_A1_T2">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.3.4.1_A1_T2">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.3.4.1_A1_T2">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.4.4_A1.1_T2">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.4.4.10_A4_T1">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.4.4.11_A6_T2">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.4.4.12_A4_T1">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.4.4.12_A4_T2">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.4.4.12_A4_T3">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.4.4.13_A4_T1">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.4.4.13_A4_T2">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.4.4.2_A3_T1">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.4.4.3_A3_T1">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.4.4.4_A3_T1">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.4.4.5_A5_T1">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.4.4.6_A4_T1">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.4.4.6_A4_T2">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.4.4.8_A4_T1">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.4.4.8_A4_T2">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.4.4.9_A4_T1">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.4.4.9_A4_T2">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.4.5.1_A1.2_T2">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.4.5.1_A1.2_T3">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.4.4.7_A5_T1">
-    problem, bad test should be rewritten
-  </test>
-  <test id="S15.2.4_A1_T2">
-    problem, bad test should be rewritten
-  </test>
-  <test id="10.4.2-2-c-1">
-    problem, missing right brace. revised
-  </test>
-  <test id="S15.5.4.8_A1_T1">
-    problem, bad var syntax.  revised
-  </test>
-  <test id="S7.8.5_A3.1_T7">
-    problem, syntax validation needs to use eval.  revised
-  </test>
-  <test id="S7.8.5_A3.1_T8">
-    problem, syntax validation needs to use eval.  revised
-  </test>
-  <test id="S7.8.5_A3.1_T9">
-    problem, syntax validation needs to use eval.  revised
-  </test>
-  <test id="S12.2_A11">
-    Uses this.
-  </test>
-  <test id="S12.2_A2">
-    Uses this.
-  </test>
-  <test id="S15.3.4.3_A7_T10">
-    Uses this.
-  </test>
-  <test id="S15.3.4.3_A7_T3">
-    Uses this.
-  </test>
-  <test id="S15.3.4.3_A7_T4">
-    Uses this.
-  </test>
-  <test id="S15.3.4.3_A7_T6">
-    Uses this.
-  </test>
-  <test id="S15.3.4.3_A7_T9">
-    Uses this.
-  </test>
-  <test id="S15.3.4.4_A6_T3">
-    Uses this.
-  </test>
-  <test id="S15.3.4.4_A6_T4">
-    Uses this.
-  </test>
-  <test id="S15.3.4.4_A6_T6">
-    Uses this.
-  </test>
-  <test id="S15.3.4.4_A6_T9">
-    Uses this.
-  </test>
-  <test id="S15.3_A3_T1">
-    Uses this.
-  </test>
-  <test id="S15.3_A3_T2">
-    Uses this.
-  </test>
-  <test id="S15.3_A3_T3">
-    Uses this.
-  </test>
-  <test id="S15.3_A3_T4">
-    Uses this.
-  </test>
-  <test id="S15.3_A3_T5">
-    Uses this.
-  </test>
-  <test id="S15.3_A3_T6">
-    Uses this.
-  </test>
-  <test id="S7.8.3_A4.1_T3">
-    Uses this.
-  </test>
-  <test id="S7.8.3_A4.1_T4">
-    Uses this.
-  </test>
-  <test id="S7.8.3_A4.1_T5">
-    Uses this.
-  </test>
-  <test id="S7.8.3_A4.1_T6">
-    Uses this.
-  </test>
-  <test id="S7.9_A7_T7">
-    Uses this.
-  </test>
-  <test id="S8.3_A1_T1">
-    Uses this.
-  </test>
-  <test id="S8.7.2_A3">
-    Uses this.
-  </test>
-  <test id="S8.7_A5_T2">
-    Uses this.
-  </test>
-  <test id="S11.8.7_A2.4_T1">
-    Uses this.
-  </test>
+  <test id="S7.5.3_A1.1">problem, abstract is not a reserved word in ES5</test>
+  <test id="S7.5.3_A1.2">problem, boolean is not a reserved word in ES5</test>
+  <test id="S7.5.3_A1.3">problem, byte is not a reserved word in ES5</test>
+  <test id="S7.5.3_A1.4">problem, char is not a reserved word in ES5</test>
+  <test id="S7.5.3_A1.8">problem, double is not a reserved word in ES5</test>
+  <test id="S7.5.3_A1.12">problem, final is not a reserved word in ES5</test>
+  <test id="S7.5.3_A1.13">problem, float is not a reserved word in ES5</test>
+  <test id="S7.5.3_A1.14">problem, goto is not a reserved word in ES5</test>
+  <test id="S7.5.3_A1.17">problem, implements is not a reserved word in ES5</test>
+  <test id="S7.5.3_A1.18">problem, interface is not a reserved word in ES5</test>
+  <test id="S7.5.3_A1.19">problem, long is not a reserved word in ES5</test>
+  <test id="S7.5.3_A1.20">problem, native is not a reserved word in ES5</test>
+  <test id="S7.5.3_A1.21">problem, package is not a reserved word in ES5</test>
+  <test id="S7.5.3_A1.22">problem, private is not a reserved word in ES5</test>
+  <test id="S7.5.3_A1.23">problem, protected is not a reserved word in ES5</test>
+  <test id="S7.5.3_A1.24">problem, public is not a reserved word in ES5</test>
+  <test id="S7.5.3_A1.25">problem, short is not a reserved word in ES5</test>
+  <test id="S7.5.3_A1.26">problem, static is not a reserved word in ES5</test>
+  <test id="S7.5.3_A1.28">problem, synchronized is not a reserved word in ES5</test>
+  <test id="S7.5.3_A1.29">problem, throws is not a reserved word in ES5</test>
+  <test id="S7.5.3_A1.30">problem, transient is not a reserved word in ES5</test>
+  <test id="S7.5.3_A1.31">problem, volatile is not a reserved word in ES5</test>
+  
+  <test id="15.4.4.15-3-14"><!-- reason for the exclusion--></test>
+  <test id="15.4.4.15-3-29"><!-- reason for the exclusion--></test>
+  <test id="15.4.4.15-3-8"><!-- reason for the exclusion--></test>
+  <test id="15.4.4.20-3-14"><!-- reason for the exclusion--></test>
+  <test id="15.4.4.20-3-28"><!-- reason for the exclusion--></test>
+  <test id="15.4.4.20-3-29"><!-- reason for the exclusion--></test>
+  <test id="15.4.4.20-3-8"><!-- reason for the exclusion--></test>
+  <test id="15.4.4.21-3-14"><!-- reason for the exclusion--></test>
+  <test id="15.4.4.21-3-28"><!-- reason for the exclusion--></test>
+  <test id="15.4.4.21-3-29"><!-- reason for the exclusion--></test>
+  <test id="15.4.4.21-3-8"><!-- reason for the exclusion--></test>
+  <test id="15.4.4.22-3-14"><!-- reason for the exclusion--></test>
+  <test id="15.4.4.22-3-28"><!-- reason for the exclusion--></test>
+  <test id="15.4.4.22-3-29"><!-- reason for the exclusion--></test>
+  <test id="15.4.4.22-3-8"><!-- reason for the exclusion--></test>
+  
+  <test id="10.4.2-2-c-1">JS to XML conversion issue</test>
+  
+  <test id="S15.3.4_A3_T1">problem, should replace with different test</test>
+  <test id="S15.3.5_A1_T1">problem, bad test should be rewritten</test>
+  <test id="S15.3.5_A1_T2">problem, bad test should be rewritten</test>
+  <test id="S15.3.4.1_A1_T2">problem, bad test should be rewritten</test>
+  <test id="S15.3.4.1_A1_T2">problem, bad test should be rewritten</test>
+  <test id="S15.4.4_A1.1_T2">problem, bad test should be rewritten</test>
+  <test id="S15.4.4.10_A4_T1">problem, bad test should be rewritten</test>
+  <test id="S15.4.4.11_A6_T2">problem, bad test should be rewritten</test>
+  <test id="S15.4.4.12_A4_T1">problem, bad test should be rewritten</test>
+  <test id="S15.4.4.12_A4_T2">problem, bad test should be rewritten</test>
+  <test id="S15.4.4.12_A4_T3">problem, bad test should be rewritten</test>
+  <test id="S15.4.4.13_A4_T1">problem, bad test should be rewritten</test>
+  <test id="S15.4.4.13_A4_T2">problem, bad test should be rewritten</test>
+  <test id="S15.4.4.2_A3_T1">problem, bad test should be rewritten</test>
+  <test id="S15.4.4.3_A3_T1">problem, bad test should be rewritten</test>
+  <test id="S15.4.4.4_A3_T1">problem, bad test should be rewritten</test>
+  <test id="S15.4.4.5_A5_T1">problem, bad test should be rewritten</test>
+  <test id="S15.4.4.6_A4_T1">problem, bad test should be rewritten</test>
+  <test id="S15.4.4.6_A4_T2">problem, bad test should be rewritten</test>
+  <test id="S15.4.4.8_A4_T1">problem, bad test should be rewritten</test>
+  <test id="S15.4.4.8_A4_T2">problem, bad test should be rewritten</test>
+  <test id="S15.4.4.9_A4_T1">problem, bad test should be rewritten</test>
+  <test id="S15.4.4.9_A4_T2">problem, bad test should be rewritten</test>
+  <test id="S15.4.5.1_A1.2_T2">problem, bad test should be rewritten</test>
+  <test id="S15.4.5.1_A1.2_T3">problem, bad test should be rewritten</test>
+  <test id="S15.4.4.7_A5_T1">problem, bad test should be rewritten</test>
+  <test id="S15.2.4_A1_T2">problem, bad test should be rewritten</test>
+  
+  <test id="S15.5.4.8_A1_T1">problem, bad var syntax.  revised</test>
+  <test id="S7.8.5_A3.1_T7">problem, syntax validation needs to use eval.  revised</test>
+  <test id="S7.8.5_A3.1_T8">problem, syntax validation needs to use eval.  revised</test>
+  <test id="S7.8.5_A3.1_T9">problem, syntax validation needs to use eval.  revised</test>
+  <test id="S12.2_A11">Uses this.</test>
+  <test id="S12.2_A2">Uses this.</test>
+  <test id="S15.3.4.3_A7_T10">Uses this.</test>
+  <test id="S15.3.4.3_A7_T3">Uses this.</test>
+  <test id="S15.3.4.3_A7_T4">Uses this.</test>
+  <test id="S15.3.4.3_A7_T6">Uses this.</test>
+  <test id="S15.3.4.3_A7_T9">Uses this.</test>
+  <test id="S15.3.4.4_A6_T3">Uses this.</test>
+  <test id="S15.3.4.4_A6_T4">Uses this.</test>
+  <test id="S15.3.4.4_A6_T6">Uses this.</test>
+  <test id="S15.3.4.4_A6_T9">Uses this.</test>
+  <test id="S15.3_A3_T1">Uses this.</test>
+  <test id="S15.3_A3_T2">Uses this.</test>
+  <test id="S15.3_A3_T3">Uses this.</test>
+  <test id="S15.3_A3_T4">Uses this.</test>
+  <test id="S15.3_A3_T5">Uses this.</test>
+  <test id="S15.3_A3_T6">Uses this.</test>
+  <test id="S7.8.3_A4.1_T3">Uses this.</test>
+  <test id="S7.8.3_A4.1_T4">Uses this.</test>
+  <test id="S7.8.3_A4.1_T5">Uses this.</test>
+  <test id="S7.8.3_A4.1_T6">Uses this.</test>
+  <test id="S7.9_A7_T7">Uses this.</test>
+  <test id="S8.3_A1_T1">Uses this.</test>
+  <test id="S8.7.2_A3">Uses this.</test>
+  <test id="S8.7_A5_T2">Uses this.</test>
+  <test id="S11.8.7_A2.4_T1">Uses this.</test>
   <test id="S10.2.1_A1_T1">Used this</test>
   <test id="S11.4.1_A3.1">Used this</test>
   <test id="S15.3.4.4_A6_T10">Used this</test>
