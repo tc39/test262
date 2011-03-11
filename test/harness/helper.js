@@ -105,12 +105,12 @@ function Presenter() {
         container.empty();
 
         // Static first link to go back to the root.
-        var link = $("<a href='#0' class='setBlack'>Test Report &gt; </a>");
+        var link = $("<a href='#0' class='setBlack'>Test Sections &gt; </a>");
         link.bind('click', {sectionId: 0}, sectionSelected)
         container.append(link);
 
         for(var i = 0; i < sectionChain.length;i++) {
-            link = $("<a href='#" + sectionChain[i].id + "' class='setBlack'>Section " + sectionChain[i].id + ": " + sectionChain[i].name + " &gt; </a>");
+            link = $("<a href='#" + sectionChain[i].id + "' class='setBlack'>" + sectionChain[i].id + ": " + sectionChain[i].name + " &gt; </a>");
             link.bind('click', sectionSelected)
             container.append(link);
         }
@@ -162,9 +162,7 @@ function Presenter() {
 
         xml = '<testRun>\r\n' +
               '<userAgent>' + window.navigator.userAgent + '</userAgent>\r\n' +
-			  '<browserName>REPLACE WITH BROWSERNAME</browserName>\r\n' +
 			  '<Date>' + dateNow.toDateString() + '</Date>\r\n' +
-			  '<Submitter> ADD SUBMITTER</Submitter>\r\n' +
 			  '<targetTestSuiteName>ECMAScript Test262 Site</targetTestSuiteName>\r\n' +
 			  '<targetTestSuiteVersion>' + version + '</targetTestSuiteVersion>\r\n' +
 			  '<targetTestSuiteDate>' + date + '</targetTestSuiteDate>\r\n' +
