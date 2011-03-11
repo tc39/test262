@@ -1,8 +1,0 @@
-<testCollection>
-  <!-- adding section element if in the future we want to store information about the -->
-  <!-- spec structure in this file, for now the section structure is defined in the   -->
-  <!-- sections.js file                                                               -->
-  <section name="Chapter - 15.2.3.1" numTests="1">
-    <test id="15.2.3.1"><![CDATA[RVM1SGFybmVzcy5yZWdpc3RlclRlc3QoIHsNCmlkOiAiMTUuMi4zLjEiLA0KDQpwYXRoOiAiVGVzdENhc2VzL2NoYXB0ZXIxNS8xNS4yLzE1LjIuMy8xNS4yLjMuMS8xNS4yLjMuMS5qcyIsDQoNCmRlc2NyaXB0aW9uOiAiT2JqZWN0LnByb3RvdHlwZSBpcyBhIGRhdGEgcHJvcGVydHkgd2l0aCBkZWZhdWx0IGF0dHJpYnV0ZSB2YWx1ZXMgKGZhbHNlKSIsDQoNCnRlc3Q6IGZ1bmN0aW9uIHRlc3RjYXNlKCkgew0KICB2YXIgZGVzYyA9IE9iamVjdC5nZXRPd25Qcm9wZXJ0eURlc2NyaXB0b3IoT2JqZWN0LCAncHJvdG90eXBlJyk7DQogIGlmIChkZXNjLndyaXRhYmxlID09PSBmYWxzZSAmJg0KICAgICAgZGVzYy5lbnVtZXJhYmxlID09PSBmYWxzZSAmJg0KICAgICAgZGVzYy5jb25maWd1cmFibGUgPT09IGZhbHNlKSB7DQogICAgcmV0dXJuIHRydWU7DQogIH0NCiB9LA0KDQpwcmVjb25kaXRpb246IGZ1bmN0aW9uIHByZXJlcSgpIHsNCiAgcmV0dXJuIGZuRXhpc3RzKE9iamVjdC5nZXRPd25Qcm9wZXJ0eURlc2NyaXB0b3IpOw0KIH0NCn0pOw0K]]></test>
-  </section>
-</testCollection>

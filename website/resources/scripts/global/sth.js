@@ -140,7 +140,7 @@ function BrowserRunner() {
     }
 }
 
-/* Loads tests from the sections specified in testcaseslist.xml.
+/* Loads tests from the sections specified in testcaseslist.json.
  * Public Methods:
  * * getNextTest() - Start loading the next test.
  * * reset() - Start over at the first test.
@@ -152,7 +152,7 @@ function BrowserRunner() {
  * * onTestsExhausted(): Called when there are no more tests to run.
  */
 function TestLoader() {
-    var TEST_LIST_PATH   = "resources/scripts/testcases/testcaseslist.xml",
+    var TEST_LIST_PATH   = "resources/scripts/testcases/testcaseslist.json",
         testGroups       = [],
         testGroupIndex   = 0,
         currentTestIndex = 0,
@@ -172,11 +172,15 @@ function TestLoader() {
             loader.getNextTest();
             return;
         }
-        
-        $.ajax({url: group.path, dataType: 'xml', success: function(data) {
-            group.tests = data.getElementsByTagName("test");
+        $.ajax({url: group.path, dataType: 'json', success: function(data) {
+            group.tests = data.testsCollection.tests;
             loader.getNextTest();
-        }});
+        },	
+	error: function (XMLHttpRequest, textStatus, errorThrown) {
+		//alert(XMLHttpRequest); 
+	}
+
+	});
 
         loader.onLoadingNextSection(group.path);
     }
@@ -185,21 +189,19 @@ function TestLoader() {
     function loadTestXML() {
         var testsListLoader = new XMLHttpRequest();
 
-        $.ajax({url: TEST_LIST_PATH, dataType: 'xml', success: function(data) {
-            var oTests    = data.getElementsByTagName('testGroup');
-            var testSuite = data.getElementsByTagName('testSuite');
+        $.ajax({url: TEST_LIST_PATH, dataType: 'json', success: function(data) {
+            var testSuite = data.testSuite;
 
-            loader.version    = testSuite[0].getAttribute("version");
-            loader.date       = testSuite[0].getAttribute("date");
-            loader.totalTests = testSuite[0].getAttribute("numTests");               
+            loader.version    = data.version;
+            loader.date       = data.date;
+            loader.totalTests = data.numTests;               
 
-            for (var i = 0; i < oTests.length; i++) {
+            for (var i = 0; i < testSuite.length; i++) {
                 testGroups[i] = {
-                    path: (oTests[i].text != undefined) ? oTests[i].text : oTests[i].textContent,
+                    path: testSuite[i],
                     tests: []
                 }
             }
-
             loader.onInitialized(loader.totalTests, loader.version, loader.date);
             getNextXML();
         }});
@@ -213,9 +215,10 @@ function TestLoader() {
         } else if(currentTestIndex < testGroups[testGroupIndex].tests.length) {
             // We have tests left in this test group.
             var test = testGroups[testGroupIndex].tests[currentTestIndex++];
-            var scriptCode = (test.firstChild.text != undefined) ? test.firstChild.text : test.firstChild.textContent;
+	    var scriptCode = test.code;
+            //var scriptCode = (test.firstChild.text != undefined) ? test.firstChild.text : test.firstChild.textContent;
 
-            loader.onTestReady(test.getAttribute("id"), $.base64Decode(scriptCode));
+            loader.onTestReady(test.id, $.base64Decode(scriptCode));
         } else if(testGroupIndex < testGroups.length - 1) {
             // We don't have tests left in this test group, so move on to the next.
             testGroupIndex++;
