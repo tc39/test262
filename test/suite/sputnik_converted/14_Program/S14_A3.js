@@ -12,9 +12,9 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S14_A3",
+id: "S14.0_A3",
 
-path: "14",
+path: "14.0",
 
 description: "Declaring a function within the body of another function",
 

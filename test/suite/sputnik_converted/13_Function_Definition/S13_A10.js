@@ -12,9 +12,9 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S13_A10",
+id: "S13.0_A10",
 
-path: "13",
+path: "13.0",
 
 description: "Using function as a property of an object",
 

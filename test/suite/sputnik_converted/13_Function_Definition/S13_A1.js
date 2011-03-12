@@ -12,9 +12,9 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S13_A1",
+id: "S13.0_A1",
 
-path: "13",
+path: "13.0",
 
 description: "Checking the type of y",
 

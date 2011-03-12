@@ -12,9 +12,9 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S13_A13_T2",
+id: "S13.0_A13_T2",
 
-path: "13",
+path: "13.0",
 
 description: "Changing arguments value and then deleting the argument",
 

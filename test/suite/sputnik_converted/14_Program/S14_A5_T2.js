@@ -12,9 +12,9 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S14_A5_T2",
+id: "S14.0_A5_T2",
 
-path: "14",
+path: "14.0",
 
 description: "Declaring a function with \"function \\u005f\\u005f\\u0066\\u0075\\u006e\\u0063(){return \"unicode\"}\"",
 

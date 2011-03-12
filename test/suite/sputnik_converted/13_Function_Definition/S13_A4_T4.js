@@ -12,9 +12,9 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S13_A4_T4",
+id: "S13.0_A4_T4",
 
-path: "13",
+path: "13.0",
 
 description: "Declaring a function that uses strings concatenaion opeator within its \"return\" Expression",
 

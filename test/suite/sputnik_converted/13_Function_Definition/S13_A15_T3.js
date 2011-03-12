@@ -12,9 +12,9 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S13_A15_T3",
+id: "S13.0_A15_T3",
 
-path: "13",
+path: "13.0",
 
 description: "Declaring a variable named with \"arguments\" without a function",
 

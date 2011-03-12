@@ -12,9 +12,9 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S13_A17_T1",
+id: "S13.0_A17_T1",
 
-path: "13",
+path: "13.0",
 
 description: "Trying to call a function before the FunctionExpression appears",
 

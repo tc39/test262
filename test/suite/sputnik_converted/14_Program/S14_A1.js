@@ -12,9 +12,9 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S14_A1",
+id: "S14.0_A1",
 
-path: "14",
+path: "14.0",
 
 description: "Declaring a function within an \"if\" Expression",
 

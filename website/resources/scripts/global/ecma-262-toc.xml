@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <esSpec name="ECMA-262" version="5">
   <sec id="7" name="Lexical Conventions">
+    <sec id="7.0" name="Introduction"/>
     <sec id="7.1" name="Unicode Format-Control Characters"/>
     <sec id="7.2" name="White Space"/>
     <sec id="7.3" name="Line Terminators"/>
@@ -23,6 +24,7 @@
     </sec>
   </sec>
   <sec id="8" name="Types">
+    <sec id="8.0" name="Introduction"/>
     <sec id="8.1" name="The Undefined Type"/>
     <sec id="8.2" name="The Null Type"/>
     <sec id="8.3" name="The Boolean Type"/>
@@ -59,6 +61,7 @@
     </sec>
   </sec>
   <sec id="9" name="Type Conversion and Testing">
+    <sec id="9.0" name="Introduction"/>
     <sec id="9.1" name="ToPrimitive"/>
     <sec id="9.2" name="ToBoolean"/>
     <sec id="9.3" name="ToNumber">
@@ -77,6 +80,7 @@
     <sec id="9.12" name="The SameValue Algorithm"/>
   </sec>
   <sec id="10" name="Executable Code and Execution Contexts">
+    <sec id="10.0" name="Introduction"/>
     <sec id="10.1" name="Types of Executable Code">
       <sec id="10.1.1" name="Strict Mode Code"/>
     </sec>
@@ -97,6 +101,7 @@
     <sec id="10.6" name="Arguments Object"/>
   </sec>
   <sec id="11" name="Expressions">
+      <sec id="11.0" name="Introduction"/>
       <sec id="11.1" name="Primary Expressions">
         <sec id="11.1.1" name="The this Keyword"/>
         <sec id="11.1.2" name="Identifier Reference"/>
@@ -169,6 +174,7 @@
       <sec id="11.14" name="Comma Operator ( , )"/>
     </sec>
     <sec id="12" name="Statements">
+      <sec id="12.0" name="Introduction"/>
       <sec id="12.1" name="Block"/>
       <sec id="12.2" name="Variable Statement">
       <sec id="12.2.1" name="Strict Mode Restrictions"/>
@@ -198,6 +204,7 @@
       </sec>
     </sec>
     <sec id="13" name="Function Definition">
+      <sec id="13.0" name="Introduction"/>
       <sec id="13.1" name="Strict Mode Restrictions"/>
       <sec id="13.2" name="Creating Function Objects">
         <sec id="13.2.1" name="[[Call]]"/>
@@ -206,9 +213,11 @@
       </sec>
     </sec>
     <sec id="14" name="Program">
+      <sec id="14.0" name="Introduction"/>
       <sec id="14.1" name="Directive Prologues and the Use Strict Directive"/>
     </sec>
     <sec id="15" name="Standard Built-in ECMAScript Objects">
+      <sec id="15.0" name="Introduction"/>
       <sec id="15.1" name="The Global Object">
         <sec id="15.1.1" name="Value Properties of the Global Object"/>
         <sec id="15.1.2" name="Function Properties of the Global Object"/>

@@ -12,7 +12,7 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S13_A19_T2",
+id: "S13.0_A19_T2",
 
 path: "13,13.2",
 
