@@ -150,6 +150,23 @@
   <test id="S14_D6_T2">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
   <test id="S14_D7">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
   
+  <!-- Invalid early error tests-->
+  <test id="S12.1_A1">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
+  <test id="S12.5_A9_T1">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
+  <test id="S12.5_A9_T2">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
+  <test id="S12.6.1_A13_T1">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
+  <test id="S12.6.1_A13_T2">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
+  <test id="S12.6.2_A13_T1">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
+  <test id="S12.6.2_A13_T2">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
+  <test id="S12.6.4_A13_T1">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
+  <test id="S12.6.4_A13_T2">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
+  <test id="S7.8.4_A4.3_T3">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
+  <test id="S7.8.4_A4.3_T4">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
+  
+  <!--Google to make these Strict Mode tests-->
+  <test id="S7.8.4_A4.3_T1">https://bugs.ecmascript.org/show_bug.cgi?id=59</test>
+  <test id="S7.8.4_A4.3_T2">https://bugs.ecmascript.org/show_bug.cgi?id=59</test>
+  
   <test id="S15.10.6_A2">https://bugs.ecmascript.org/show_bug.cgi?id=22</test>
   
   <test id="S8.6.2_A5_T1">https://bugs.ecmascript.org/show_bug.cgi?id=24</test>
@@ -176,6 +193,8 @@
   <test id="S7.8.4_A6.4_T2">https://bugs.ecmascript.org/show_bug.cgi?id=58</test>
   <test id="S7.8.4_A7.4_T1">https://bugs.ecmascript.org/show_bug.cgi?id=58</test>
   <test id="S7.8.4_A7.4_T2">https://bugs.ecmascript.org/show_bug.cgi?id=58</test>
+  
+  
   
   <!--Sputnik to Test262 Converter Tool issues-->
   <test id="S13.2.2_A18_T1">https://bugs.ecmascript.org/show_bug.cgi?id=26</test>
