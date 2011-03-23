@@ -55,6 +55,16 @@ TEST_CONTRIB_DIRS = ["sputnik_converted", "ietestcenter"]
 #a list of all ES5 test chapter directories
 TEST_SUITE_SECTIONS = []
 
+#total number of tests accross the entire set of tests.
+TOTAL_TEST_COUNT = 0
+
+#global which states whether the test case we're currently processing is in 
+#the midst of a "/* ... */" style comment
+IS_MULTILINE_COMMENT = False
+
+#List of all *.json files containing encoded test cases
+SECTIONS_LIST = []
+
 #--Sanity checks--------------------------------------------------------------#
 if not os.path.exists(TEST262_CASES_DIR):
     print "Cannot generate (JSON) test262 tests when the path containing said tests, %s, does not exist!" % TEST262_CASES_DIR
@@ -95,6 +105,10 @@ def getJSCount(dirName):
 
 #------------------------------------------------------------------------------
 def dirWalker(dirName):
+    '''
+    Populates TEST_SUITE_SECTIONS with ES5 test directories based
+    upon the number of test files per directory.
+    '''
     global TEST_SUITE_SECTIONS
     #First check to see if it has test files directly inside it
     temp = [os.path.join(dirName, x) for x in os.listdir(dirName) if not os.path.isdir(os.path.join(dirName, x))]
@@ -118,34 +132,23 @@ def dirWalker(dirName):
             dirWalker(os.path.join(dirName, tempSubdir))
 
 #------------------------------------------------------------------------------
-for tempDirName in TEST_CONTRIB_DIRS:
-    if not os.path.exists(os.path.join(TEST262_CASES_DIR, tempDirName)):
-        print "The expected ES5 test directory, TEST262_CASES_DIR\$tempDirName, did not exist!"
-        sys.exit(1)
-    dirWalker(os.path.join(TEST262_CASES_DIR, tempDirName))
-
-NUM_TESTS = 0
-#total number of tests accross the entire set of tests.
-TOTAL_TEST_COUNT = 0
-
-
-
-#--HELPERS---------------------------------------------------------------------
-multilineComment = False
-
 def isTestStarted(line):
-    #Note this is a naive approach on the sense that "/*abc*/" could be on one
-    #line.  However, we know for a fact this is not the case in IE Test Center
-    #or Sputnik tests.
-    global multilineComment
+    '''
+    Used to detect if we've gone past extraneous test comments in a test case.
+    
+    Note this is a naive approach on the sense that "/*abc*/" could be on one
+    line.  However, we know for a fact this is not the case in IE Test Center
+    or Sputnik tests.
+    '''
+    global IS_MULTILINE_COMMENT
 
-    if multilineComment and ("*/" in line): #End of a newline comment
-        multilineComment = False
+    if IS_MULTILINE_COMMENT and ("*/" in line): #End of a newline comment
+        IS_MULTILINE_COMMENT = False
         return False
     elif "/*" in line:  #Beginning of a newline comment
-        multilineComment = True
+        IS_MULTILINE_COMMENT = True
         return False
-    elif multilineComment: #//we're already in a multi-line comment that hasn't ended
+    elif IS_MULTILINE_COMMENT: #//we're already in a multi-line comment that hasn't ended
         return False
     elif "//" in line:     #//blah
         return False
@@ -155,15 +158,20 @@ def isTestStarted(line):
         return True
     return True
 
-#--MAIN------------------------------------------------------------------------
-testSuite = []
-count = 0
-
+#------------------------------------------------------------------------------
 def getAllJSFiles(dirName):
     retVal = []
     for fullPath,dontCare,files in os.walk(dirName):
         retVal += [os.path.join(fullPath,b) for b in files if b.endswith(".js")]
     return retVal
+
+#--MAIN------------------------------------------------------------------------
+for temp in TEST_CONTRIB_DIRS:
+    temp = os.path.join(TEST262_CASES_DIR, temp)
+    if not os.path.exists(temp):
+        print "The expected ES5 test directory,", temp, "did not exist!"
+        sys.exit(1)
+    dirWalker(temp)
 
 for chapter in TEST_SUITE_SECTIONS:
     chapterName = chapter.rsplit(os.path.sep, 1)[1]
@@ -171,17 +179,17 @@ for chapter in TEST_SUITE_SECTIONS:
     #create dictionaries for all our tests and a section
     testsList = {}
     sect = {}
+    sect["name"] = "Chapter - " + chapterName
     
-    sectionName ="Chapter - " + chapterName
-    sect["name"] = sectionName
     #create an array for tests in a chapter
     tests = []
     sourceFiles = getAllJSFiles(chapter)
+    
     if len(sourceFiles)!=0:
-        excluded=0
+        excluded = 0
         testCount = 0
         for test in sourceFiles:
-            testName=test.rsplit(".", 1)[0] #12.4.6
+            testName=test.rsplit(".", 1)[0] 
             testName=testName.rsplit(os.path.sep, 1)[1]
             if EXCLUDE_LIST.count(testName)==0:
                 # dictionary for each test
@@ -194,7 +202,7 @@ for chapter in TEST_SUITE_SECTIONS:
                 scriptCodeContent=""
                 #Rip out license headers that add unnecessary bytes to the JSON'ized test cases
                 inBeginning = True
-                multilineComment = False
+                IS_MULTILINE_COMMENT = False
 
                 for line in scriptCode:
                     if inBeginning:
@@ -220,42 +228,30 @@ for chapter in TEST_SUITE_SECTIONS:
                 excluded = excluded + 1
 
         #we have completed our tests
-        NUM_TESTS = str(len(sourceFiles)-excluded)
-
         # add section node, number of tests and the tests themselves.
-        sect["numTests"] = NUM_TESTS
+        sect["numTests"] = str(len(sourceFiles)-excluded)
         sect["tests"] = tests
 
         #create a node for the tests and add it to our testsLists
         testsList["testsCollection"] = sect
-        
-        testGroupPathname = TEST262_WEB_CASES_DIR + os.path.sep + chapterName + ".json"
-
-        #if you want to use jsmin to minimize the .json file, use the 2nd line. Otherwise 1st
-        with open(testGroupPathname, "w") as f:
+        with open(os.path.join(TEST262_WEB_CASES_DIR, chapterName + ".json"), "w") as f:
             json.dump(testsList, f, separators=(',',':'), sort_keys=True)
 
         #add the name of the chapter test to our complete list
-        filename = WEBSITE_CASES_PATH + chapterName + ".json"
-        testSuite.append(filename)
-        count += 1
-        TOTAL_TEST_COUNT += len(sourceFiles) - excluded
+        SECTIONS_LIST.append(WEBSITE_CASES_PATH + chapterName + ".json")
+        TOTAL_TEST_COUNT += int(sect["numTests"])
+
 
 #we now have the list of files for each chapter
 #create a root node for our suite
-testSuiteRoot = {}
-#create suiteversion node
-#create a date node
-dateStr = str(datetime.datetime.now().date())
-#add the nodes to our suites dictionary
-testSuiteRoot["numTests"] = TOTAL_TEST_COUNT
-testSuiteRoot["version"] = ARGS.version
-testSuiteRoot["date"] = dateStr
-testSuiteRoot["testSuite"] = testSuite
-testcaseslistPathName = TEST262_WEB_CASES_DIR + os.path.sep + "testcaseslist.json"
+TEST_CASES_JSON = {}
+TEST_CASES_JSON["numTests"] = TOTAL_TEST_COUNT
+TEST_CASES_JSON["version"] = ARGS.version
+TEST_CASES_JSON["date"] = str(datetime.datetime.now().date())
+TEST_CASES_JSON["testSuite"] = SECTIONS_LIST
+with open(os.path.join(TEST262_WEB_CASES_DIR, "testcaseslist.json"), "w") as f:
+    json.dump(TEST_CASES_JSON, f, separators=(',',':'), sort_keys=True)
 
-with open(testcaseslistPathName, "w") as f:
-    json.dump(testSuiteRoot, f, separators=(',',':'), sort_keys=True)
 
 #Deploy test harness to website as well
 print ""
@@ -263,4 +259,5 @@ print "Deploying test harness files to 'TEST262_WEB_HARNESS_DIR'..."
 for filename in [x for x in os.listdir(TEST262_HARNESS_DIR) if x.endswith(".js")]:
     shutil.copy(os.path.join(TEST262_HARNESS_DIR, filename),
                 os.path.join(TEST262_WEB_HARNESS_DIR, filename))
+
 print "Done."
