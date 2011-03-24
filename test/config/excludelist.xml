@@ -196,6 +196,9 @@
   <test id="S7.8.4_A4.3_T1">https://bugs.ecmascript.org/show_bug.cgi?id=59</test>
   <test id="S7.8.4_A4.3_T2">https://bugs.ecmascript.org/show_bug.cgi?id=59</test>
   
+  <test id="S15.10.2.12_A1_T1">https://bugs.ecmascript.org/show_bug.cgi?id=60</test>
+  <test id="S15.10.2.12_A2_T1">https://bugs.ecmascript.org/show_bug.cgi?id=60</test>
+  
   <!--Sputnik to Test262 Converter Tool issues-->
   <test id="S13.2.2_A18_T1">https://bugs.ecmascript.org/show_bug.cgi?id=26</test>
   <test id="S13.2.2_A18_T2">https://bugs.ecmascript.org/show_bug.cgi?id=26</test>
