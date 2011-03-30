@@ -22,7 +22,7 @@
 ES5Harness.registerTest( {
 id: "15.12.1.1-0-2",
 
-path: "TestCases/chapter15/15.12/15.12.1/25.12.1.1/15.12.1.1-0-2.js",
+path: "TestCases/chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-0-2.js",
 
 description: "<VT> is not valid JSON whitespace as specified by the production JSONWhitespace.",
 

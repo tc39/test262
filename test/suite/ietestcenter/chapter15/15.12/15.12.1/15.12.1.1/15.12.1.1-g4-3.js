@@ -22,7 +22,7 @@
 ES5Harness.registerTest( {
 id: "15.12.1.1-g4-3",
 
-path: "TestCases/chapter15/15.12/15.12.1/25.12.1.1/15.12.1.1-g4-3.js",
+path: "TestCases/chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g4-3.js",
 
 description: "The JSON lexical grammar does not allow a JSONStringCharacter to be any of the Unicode characters U+0010 thru U+0017",
 

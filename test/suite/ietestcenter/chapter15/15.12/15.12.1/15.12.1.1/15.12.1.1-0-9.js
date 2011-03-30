@@ -22,7 +22,7 @@
 ES5Harness.registerTest( {
 id: "15.12.1.1-0-9",
 
-path: "TestCases/chapter15/15.12/15.12.1/25.12.1.1/15.12.1.1-0-9.js",
+path: "TestCases/chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-0-9.js",
 
 description: "Whitespace characters can appear before/after any JSONtoken",
 

@@ -22,7 +22,7 @@
 ES5Harness.registerTest( {
 id: "15.12.1.1-g6-6",
 
-path: "TestCases/chapter15/15.12/15.12.1/25.12.1.1/15.12.1.1-g6-6.js",
+path: "TestCases/chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g6-6.js",
 
 description: "The JSON lexical grammer allows 'r' as a JSONEscapeCharacter after '\' in a JSONString",
 

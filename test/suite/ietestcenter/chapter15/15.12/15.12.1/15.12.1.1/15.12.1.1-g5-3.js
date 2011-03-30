@@ -22,7 +22,7 @@
 ES5Harness.registerTest( {
 id: "15.12.1.1-g5-3",
 
-path: "TestCases/chapter15/15.12/15.12.1/25.12.1.1/15.12.1.1-g5-3.js",
+path: "TestCases/chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g5-3.js",
 
 description: "A JSONStringCharacter UnicodeEscape may not include any non=hex characters",
 

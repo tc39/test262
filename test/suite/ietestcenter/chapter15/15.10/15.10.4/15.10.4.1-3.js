@@ -22,7 +22,7 @@
 ES5Harness.registerTest({
     id: "15.10.4.1-3",
 
-    path: "TestCases/chapter15/15.10/15.10.4.1/15.10.4.1-3.js",
+    path: "TestCases/chapter15/15.10/15.10.4/15.10.4.1-3.js",
 
     description: "RegExp - the thrown error is SyntaxError instead of RegExpError when 'F' contains any character other than 'g', 'i', or 'm' ",
 

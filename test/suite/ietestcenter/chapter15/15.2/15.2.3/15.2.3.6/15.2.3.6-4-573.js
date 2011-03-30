@@ -21,7 +21,7 @@
 ES5Harness.registerTest({
     id: "15.2.3.6-4-573",
 
-    path: "TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-573",
+    path: "TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-573.js",
 
     description: "ES5 Attributes - [[Set]] attribute is a function which has one argument",
 

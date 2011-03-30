@@ -22,7 +22,7 @@
 ES5Harness.registerTest({
     id: "15.10.4.1-1",
 
-    path: "TestCases/chapter15/15.10/15.10.4.1/15.10.4.1-1.js",
+    path: "TestCases/chapter15/15.10/15.10.4/15.10.4.1-1.js",
 
     description: "RegExp - the thrown error is TypeError instead of RegExpError when pattern is an object whose [[Class]] property is 'RegExp' and flags is not undefined ",
 

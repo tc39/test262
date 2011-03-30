@@ -21,7 +21,7 @@
 ES5Harness.registerTest({
     id: "15.10.2.15-6-1",
 
-    path: "TestCases/15.10.2.15-6-1.js",
+    path: "TestCases/chapter15/15.10/15.10.2/15.10.2.15-6-1.js",
 
     description: "Pattern - SyntaxError was thrown when one character in CharSet 'A' greater than one character in CharSet 'B' (15.10.2.15 CharacterRange step 6)",
 

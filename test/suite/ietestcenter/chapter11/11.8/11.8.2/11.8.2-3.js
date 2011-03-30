@@ -21,7 +21,7 @@
 ES5Harness.registerTest({
     id: "11.8.2-3",
 
-    path: "TestCases/chapter11/11.8/11.8.2-3.js",
+    path: "TestCases/chapter11/11.8/11.8.2/11.8.2-3.js",
 
     description: "11.8.2 Greater-than Operator - Partial left to right order enforced when using Greater-than operator: toString > valueOf",
 

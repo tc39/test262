@@ -22,7 +22,7 @@
 ES5Harness.registerTest( {
 id: "15.12.1.1-g2-4",
 
-path: "TestCases/chapter15/15.12/15.12.1/25.12.1.1/15.12.1.1-g2-4.js",
+path: "TestCases/chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g2-4.js",
 
 description: "A JSONString must both begin and end with double quotes",
 

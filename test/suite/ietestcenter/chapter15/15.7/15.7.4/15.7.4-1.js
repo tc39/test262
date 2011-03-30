@@ -22,7 +22,7 @@
 ES5Harness.registerTest( {
 id: "15.7.4-1",
 
-path: "TestCases/chapter15/15.7/15.7.3/15.7.4/15.7.4-1.js",
+path: "TestCases/chapter15/15.7/15.7.4/15.7.4-1.js",
 
 description: "Number prototype object: its [[Class]] must be 'Number'",
 

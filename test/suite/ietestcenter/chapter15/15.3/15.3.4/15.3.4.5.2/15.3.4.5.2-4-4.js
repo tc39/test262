@@ -22,7 +22,7 @@
 ES5Harness.registerTest({
     id: "15.3.4.5.2-4-4",
 
-    path: "TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5.2/15.3.4.5.2-4-4.js",
+    path: "TestCases/chapter15/15.3/15.3.4/15.3.4.5.2/15.3.4.5.2-4-4.js",
 
     description: "[[Construct]] - length of parameters of 'target' is 0, length of 'boundArgs' is 0, length of 'ExtraArgs' is 1, and without 'boundThis'",
 

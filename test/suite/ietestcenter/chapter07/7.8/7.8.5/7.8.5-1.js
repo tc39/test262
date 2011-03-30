@@ -22,7 +22,7 @@
 ES5Harness.registerTest({
     id: "7.8.5-1",
 
-    path: "TestCases/chapter7/7.8.5/7.8.5-1.js",
+    path: "TestCases/chapter07/7.8/7.8.5/7.8.5-1.js",
 
     description: "Literal RegExp Objects - SyntaxError exception is thrown if the RegularExpressionNonTerminator position of a RegularExpressionBackslashSequence is a LineTerminator.",
 

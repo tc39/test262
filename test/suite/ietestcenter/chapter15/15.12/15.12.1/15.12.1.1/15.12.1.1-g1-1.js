@@ -22,7 +22,7 @@
 ES5Harness.registerTest( {
 id: "15.12.1.1-g1-1",
 
-path: "TestCases/chapter15/15.12/15.12.1/25.12.1.1/15.12.1.1-g1-1.js",
+path: "TestCases/chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g1-1.js",
 
 description: "The JSON lexical grammar treats <TAB> as a whitespace character",
 

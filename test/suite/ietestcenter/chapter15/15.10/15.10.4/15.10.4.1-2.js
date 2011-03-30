@@ -22,7 +22,7 @@
 ES5Harness.registerTest({
     id: "15.10.4.1-2",
 
-    path: "TestCases/chapter15/15.10/15.10.4.1/15.10.4.1-2.js",
+    path: "TestCases/chapter15/15.10/15.10.4/15.10.4.1-2.js",
 
     description: "RegExp - the thrown error is SyntaxError instead of RegExpError when the characters of 'P' do not have the syntactic form Pattern",
 

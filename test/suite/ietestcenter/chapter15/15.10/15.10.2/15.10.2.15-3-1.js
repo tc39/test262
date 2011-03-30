@@ -21,7 +21,7 @@
 ES5Harness.registerTest({
     id: "15.10.2.15-3-1",
 
-    path: "TestCases/15.10.2.15-3-1.js",
+    path: "TestCases/chapter15/15.10/15.10.2/15.10.2.15-3-1.js",
 
     description: "Pattern - SyntaxError was thrown when 'A' does not contain exactly one character (15.10.2.5 step 3)",
 

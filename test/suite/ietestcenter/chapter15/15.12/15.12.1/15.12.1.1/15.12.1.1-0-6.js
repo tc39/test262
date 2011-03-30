@@ -22,7 +22,7 @@
 ES5Harness.registerTest( {
 id: "15.12.1.1-0-6",
 
-path: "TestCases/chapter15/15.12/15.12.1/25.12.1.1/15.12.1.1-0-6.js",
+path: "TestCases/chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-0-6.js",
 
 description: "<BOM> is not valid JSON whitespace as specified by the production JSONWhitespace.",
 

@@ -22,7 +22,7 @@
 ES5Harness.registerTest({
     id: "15.3.4.5.2-4-1",
 
-    path: "TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5.2/15.3.4.5.2-4-1.js",
+    path: "TestCases/chapter15/15.3/15.3.4/15.3.4.5.2/15.3.4.5.2-4-1.js",
 
     description: "[[Construct]] - 'F''s [[BoundArgs]] is used as the former part of arguments of calling the [[Construct]] internal method of 'F''s [[TargetFunction]] when 'F' is called as constructor",
 

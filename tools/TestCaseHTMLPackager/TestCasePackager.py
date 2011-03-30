@@ -99,8 +99,8 @@ def getJSCount(dirName):
         tempList = [os.path.join(dirName, x) for x in os.listdir(dirName)]
         for x in tempList:
             retVal += getJSCount(x)
-    else:
-        raise Exception("getJSCount: encountered a non-file/non-dir!")
+    #else:
+    #    raise Exception("getJSCount: encountered a non-file/non-dir!")
     return retVal
 
 #------------------------------------------------------------------------------

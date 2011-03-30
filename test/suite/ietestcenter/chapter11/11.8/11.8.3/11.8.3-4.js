@@ -21,7 +21,7 @@
 ES5Harness.registerTest({
     id: "11.8.3-4",
 
-    path: "TestCases/chapter11/11.8/11.8.3-4.js",
+    path: "TestCases/chapter11/11.8/11.8.3/11.8.3-4.js",
 
     description: "11.8.3 Less-than-or-equal Operator - Partial left to right order enforced when using Less-than-or-equal operator: toString <= toString",
 

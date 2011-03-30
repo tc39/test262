@@ -21,7 +21,7 @@
 ES5Harness.registerTest({
     id: "15.10.2.5-3-1",
 
-    path: "TestCases/15.10.2.5-3-1.js",
+    path: "TestCases/chapter15/15.10/15.10.2/15.10.2.5-3-1.js",
 
     description: "Term - SyntaxError was thrown when max is finite and less than min (15.10.2.5 step 3)",
 

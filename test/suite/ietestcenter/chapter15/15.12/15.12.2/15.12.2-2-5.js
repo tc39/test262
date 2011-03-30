@@ -21,7 +21,7 @@
 ES5Harness.registerTest({
     id: "15.12.2-2-5",
 
-    path: "TestCases/chapter15/15.12/15.12.2/15.12.2-5.js",
+    path: "TestCases/chapter15/15.12/15.12.2/15.12.2-2-5.js",
 
     description: "JSON.parse - parsing an object where property name middles with a null character",
 
