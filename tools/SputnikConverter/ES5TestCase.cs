@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Configuration;
 using System.IO;
+using System.Runtime.Serialization.Json;
+using System.Runtime.Serialization.Formatters;
 
 //this version has been modified to not split each #check into an individual test
 
@@ -11,8 +14,12 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
 {
     public static class ES5TestScript
     {
-        private static int fileCounter;
+        private static int fileCounter;        
+        private static StringBuilder negativeTestCases;
+
         private static string[] templates = {
+
+
            ES5TestScript.GetTemplateFile(ResourceClass.BasicTemplate_FileName),
            ES5TestScript.GetTemplateFile(ResourceClass.BasicPrereqTemplate_FileName),
            ES5TestScript.GetTemplateFile(ResourceClass.BasicNegativeTemplate_FileName),
@@ -43,6 +50,8 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
             int indexOfRoot = script.FullPath.IndexOf(root, StringComparison.InvariantCulture);
             string pathFromRoot = script.FullPath.Substring(indexOfRoot, script.FullPath.Length - indexOfRoot);
             string destDir = Path.Combine(destinationPath, Path.GetDirectoryName(pathFromRoot));
+            string positiveDestDir = destDir.Replace("conformance", "");
+            string negativeDestDir = destDir.Replace("conformance", "GlobalScope");
  //           int fileCounter = 0;
             string buildContent = string.Empty;
             string destFullPath = string.Empty;
@@ -52,7 +61,12 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
             if (script.IsNegative)
             {
                 templateIndex += 2;
-                if (!body.Contains("eval(")) body = WrapWithEval(body);
+                destDir = negativeDestDir;                
+                //if (!body.Contains("eval(")) body = WrapWithEval(body);
+            }
+            else
+            {
+                destDir = positiveDestDir;
             }
             string template = templates[templateIndex];
             Logger.WriteToLog("=====================================================================================");
@@ -69,7 +83,8 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
   //          OutputFileCounter = OutputFileCounter + script.ConvertedFileCount;
   //          foreach (string check in script.Checks)
   //          {
-                string[] args = { script.Header,script.Id, script.SectionName, InsertStringEscapes(script.Description), script.ReplicationCode, body, preCondition };
+            
+                string[] args = { script.Header, script.Id, script.SectionName, InsertStringEscapes(script.Assertion), InsertStringEscapes(script.Description), script.ReplicationCode, body, preCondition, script.InitialComment };
  //               ++fileCounter;
 //                if (script.Checks.Length > 1)
  //               {
@@ -93,6 +108,29 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
                         writeTestCase.Close();
                         OutputFileCounter++;
                     }
+
+                    if (script.IsNegative)
+                    {
+                        //Add details in stringbuilder.
+                        string folderPath = GetPartialPath(destFullPath,3);
+                        StringBuilder sb = new StringBuilder();
+                        sb.Append("\"GlobalScope/" + script.SectionName + "/" + script.Id + ".js\"");
+                        //negativeTestCases.Append("\""+folderPath+"\"");
+                        sb.Append(":");
+                        string s = GetSerializedSputnikTestScript(new SputnikTestScript()
+                                                                        {
+                                                                            Description = script.Description,
+                                                                            Assertion = script.Assertion,
+                                                                        });
+                        sb.Append(s.Substring(0, s.LastIndexOf('}')) + ",\"negative\":\"syntax\"}");
+
+                        if (negativeTestCases == null)
+                            negativeTestCases = new StringBuilder();
+                        else
+                            negativeTestCases.Append(",");
+                        negativeTestCases.Append(sb.ToString());
+                    }
+
                     Logger.WriteToLog(destFullPath);
                 }
                 catch (ArgumentException ex)
@@ -105,6 +143,55 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
                 }
  //           }
         }
+
+        /// <summary>
+        /// Method to initialize the negative test record.
+        /// </summary>
+        /// <param name="destination">Is the destination folder path</param>
+        public static void InitGlobals(string destination)
+        {            
+            //Insert inital var name in Globals.js file.
+            //FileStream fs = new FileStream("c:\\ecmascript\\GlobalScope.js", FileMode.Create, FileAccess.Write);
+            if (!Directory.Exists(destination))
+            {
+                Directory.CreateDirectory(destination);
+            }
+            FileStream fs = new FileStream(destination + "\\GlobalScope.js", FileMode.Create, FileAccess.Write);
+            StreamWriter sw = new StreamWriter(fs);
+            sw.Write("var GlobalScopeTests =");
+            sw.Flush();
+            sw.Close();
+            fs.Close();
+            //negativeTestCases = new StringBuilder();
+        }
+
+        /// <summary>
+        /// Method to update the GlobalScope.js
+        /// </summary>
+        /// <param name="destination">Is the destination folder path</param>
+        public static void UpdateGlobals(string destination)
+        {
+            //Replace the last comma by closing curly brace and semi-colon.
+            //negativeTestCases.Replace(",", "};", negativeTestCases.Length - 2, 2);
+            //negativeTestCases.Append(";");
+            //File.AppendAllText("c:\\temp\\GlobalScope.js", "{"+negativeTestCases.ToString()+"};");
+            File.AppendAllText(destination +"\\GlobalScope.js", "{" + negativeTestCases.ToString() + "};");
+
+            negativeTestCases.Clear();
+        }
+
+
+        private static string GetSerializedSputnikTestScript(SputnikTestScript sputnikTestScript)
+        {
+            MemoryStream stream = new MemoryStream();
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(SputnikTestScript));
+            ser.WriteObject(stream, sputnikTestScript);
+
+            stream.Position = 0;
+            StreamReader sr = new StreamReader(stream);
+
+            return sr.ReadToEnd();
+        }       
 
         private static string WrapWithEval(string s)
         {
@@ -160,6 +247,26 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
         {
             string inputTemplatePath = ConfigurationManager.AppSettings[configSetting].ToString();
             return  (new StreamReader(inputTemplatePath)).ReadToEnd();
+        }
+
+        private static string GetPartialPath(string fullPath, int levelsRequired)
+        {
+            string remainingString = fullPath;
+            string[] partialPaths = new string[levelsRequired];
+            string finalPath = "GlobalScope";
+
+            for (int iterator = 0; iterator < levelsRequired; iterator++)
+            {
+                partialPaths[iterator] = remainingString.Substring(remainingString.LastIndexOf(@"\"));
+                remainingString = remainingString.Substring(0, remainingString.LastIndexOf(@"\"));
+            }
+
+            for (int iterator = partialPaths.Length - 1; iterator >= 0; iterator--)
+            {
+                finalPath += partialPaths[iterator];                
+            }
+            //finalPath = finalPath.Replace(@"\/", "/");
+            return finalPath;
         }
     }
 }

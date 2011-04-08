@@ -189,4 +189,7 @@
   <data name="LookFor_NegativeStrictMode" xml:space="preserve">
     <value>strict_mode_negative</value>
   </data>
+  <data name="LookFor_Assertion" xml:space="preserve">
+    <value>assertion</value>
+  </data>
 </root>

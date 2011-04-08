@@ -160,6 +160,15 @@ namespace Microsoft.Sputnik.Interop.ParserEngine {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to assertion.
+        /// </summary>
+        internal static string LookFor_Assertion {
+            get {
+                return ResourceManager.GetString("LookFor_Assertion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to description.
         /// </summary>
         internal static string LookFor_Description {

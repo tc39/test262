@@ -7,14 +7,17 @@ using System.Text.RegularExpressions;
 using System.Xml;
 using System.Configuration;
 using System.Xml.Linq;
+using System.Runtime.Serialization;
 
 namespace Microsoft.Sputnik.Interop.ParserEngine
 {
+    [DataContract]
     public class SputnikTestScript
     {
         private string testScriptID = string.Empty;
         private string testScriptSection = string.Empty;
         private string testScriptDescription = string.Empty;
+        private string testScriptAssertion = string.Empty;
         private string replicationCode = string.Empty;
         private int actualFileConvertedCount = 0;
         private bool negativeTest = false;
@@ -26,11 +29,12 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
 
         public string Header = string.Empty;
         public string Body = string.Empty;
+        public string InitialComment = string.Empty;
 
         /// <summary>
         /// Gets or sets the ID.
         /// </summary>
-        /// <value>The ID.</value>
+        /// <value>The ID.</value>       
         public string Id
         {
             get
@@ -102,9 +106,12 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
                 actualFileConvertedCount = value;
             }
         }
+
+
         /// <summary>
         /// Gets or sets the testScriptDescription
         /// </summary>
+        [DataMember]
         public string Description
         {
             get
@@ -115,6 +122,23 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
             {
                 if (value != null)
                 testScriptDescription = value.Trim();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the testScriptAssersion
+        /// </summary>
+        [DataMember]
+        public string Assertion
+        {
+            get
+            {
+                return testScriptAssertion;
+            }
+            set
+            {
+                if (value != null)
+                    testScriptAssertion = value.Trim();
             }
         }
 
@@ -271,6 +295,11 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
             Match matchCommentTail = commentTailRegex.Match(fullFile);
 
             this.Header = fullFile.Substring(0,matchCommentTail.Index+matchCommentTail.Length);
+
+            Regex csharpCommentRegx = new Regex("\\/\\*");
+            Match matchCSharpCommentHead = csharpCommentRegx.Match(this.Header);
+            this.InitialComment = this.Header.Substring(0, matchCSharpCommentHead.Index);
+
             this.Body = fullFile.Substring(matchCommentTail.Index+matchCommentTail.Length);
 
 //            string commentFormat = ConfigurationManager.AppSettings[ResourceClass.CommentsRegexSettingKey].ToString();
@@ -290,11 +319,15 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
                 string commentKey = arrComments[0].ToLower();
                 if (commentKey.Contains(ResourceClass.LookFor_Name))
                 {
-                    this.Id = arrComments[arrComments.Length - 1].Trim(trimDelimit);
+                    this.Id = GetRealId(arrComments[arrComments.Length - 1].Trim(trimDelimit));
                 }
                 if (commentKey.Contains(ResourceClass.LookFor_Section))
                 {
-                    this.SectionName = arrComments[arrComments.Length - 1].Trim(trimDelimit);
+                    this.SectionName = GetRealSectionName(arrComments[arrComments.Length - 1].Trim(trimDelimit));
+                }
+                if (commentKey.Contains(ResourceClass.LookFor_Assertion))
+                {
+                    this.Assertion = arrComments[arrComments.Length - 1].Trim(trimDelimit);
                 }
                 if (commentKey.Contains(ResourceClass.LookFor_Description))
                 {
@@ -340,16 +373,17 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
 
                 if (arrComments[0].Contains(ResourceClass.LookFor_Name))
                 {
-                    this.Id = arrComments[arrComments.Length - 1];
+                    this.Id = GetRealId(arrComments[arrComments.Length - 1]);
                 }
                 if (arrComments[0].Contains(ResourceClass.LookFor_Section))
                 {
-                    this.SectionName = arrComments[arrComments.Length - 1];
+                    this.SectionName = GetRealSectionName(arrComments[arrComments.Length - 1]);
                 }
                 if (arrComments[0].Contains(ResourceClass.LookFor_Description))
                 {
                     this.Description = arrComments[arrComments.Length - 1];
                 }
+                
             }
 
             //string holdGlobalCode = matchGlobalCode.Value;
@@ -362,6 +396,20 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
             this.PossibleChecksCount = checks.Count;
         }
 
+        private static string GetRealId(string id)
+        {
+            Regex regx = new Regex("^ S([0-9]+)_");
+            return regx.Replace(id, " S$1.0_", 1);
+        }
+        private static string GetRealSectionName(string sectionName)
+        {
+            //Regex regx = new Regex("/S([0-9]+)_([^/]+)$");
+            Regex regx = new Regex("^ ([0-9]+)$");
+            if (! regx.IsMatch(sectionName)) {
+                return sectionName;
+            }
 
+            return regx.Replace(sectionName, " $1.0", 1);
+        }
     }
 }
