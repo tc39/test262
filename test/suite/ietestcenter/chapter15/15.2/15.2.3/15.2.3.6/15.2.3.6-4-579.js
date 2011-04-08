@@ -38,7 +38,7 @@ ES5Harness.registerTest({
                 enumerable: true,
                 configurable: true
             });
-            var arrObj = new Array();
+            var arrObj = [];
             arrObj.prop = "myOwnProperty";
 
             return !arrObj.hasOwnProperty("prop") && arrObj.prop === "myOwnProperty" && data === "myOwnProperty";

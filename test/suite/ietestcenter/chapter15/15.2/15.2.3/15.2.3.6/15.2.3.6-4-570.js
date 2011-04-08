@@ -37,9 +37,8 @@ ES5Harness.registerTest({
         });
 
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
-        var tempVariable = obj.prop;
 
-        return obj.hasOwnProperty("prop") && desc.get === getFunc && verifyExecute && typeof obj.prop === "undefined";
+        return obj.hasOwnProperty("prop") && desc.get === getFunc && typeof obj.prop === "undefined" && verifyExecute;
     },
 
     precondition: function prereq() {

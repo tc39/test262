@@ -23,7 +23,7 @@ ES5Harness.registerTest({
 
     path: "TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-587.js",
 
-    description: "ES5 Attributes - Inherited property is unenumerable (Math)",
+    description: "ES5 Attributes - Inherited property is non-enumerable (Math)",
 
     test: function testcase() {
         var data = "data";

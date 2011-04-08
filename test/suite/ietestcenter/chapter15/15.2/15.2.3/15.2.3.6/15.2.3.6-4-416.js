@@ -23,7 +23,7 @@ ES5Harness.registerTest({
 
     path: "TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-416.js",
 
-    description: "ES5 Attributes - Inherited properties whose [[Enumerable]] attribute is set to false is unenumerable (Object.create)",
+    description: "ES5 Attributes - Inherited properties whose [[Enumerable]] attribute is set to false is non-enumerable (Object.create)",
 
     test: function testcase() {
         var appointment = {};

@@ -23,7 +23,7 @@ ES5Harness.registerTest({
 
     path: "TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-514.js",
 
-    description: "ES5 Attributes - property ([[Get]] is a Function, [[Set]] is undefined, [[Enumerable]] is false, [[Configurable]] is true) is unenumerable",
+    description: "ES5 Attributes - property ([[Get]] is a Function, [[Set]] is undefined, [[Enumerable]] is false, [[Configurable]] is true) is non-enumerable",
 
     test: function testcase() {
         var obj = {};

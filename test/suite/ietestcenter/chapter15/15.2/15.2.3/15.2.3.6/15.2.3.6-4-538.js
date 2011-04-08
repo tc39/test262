@@ -50,7 +50,9 @@ ES5Harness.registerTest({
         });
         var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return desc1.hasOwnProperty("get") && desc2.hasOwnProperty("value");
+        return desc1.hasOwnProperty("get") && desc2.hasOwnProperty("value") &&
+            typeof desc2.get === "undefined" && typeof desc2.get === "undefined" &&
+            dataPropertyAttributesAreCorrect(obj, "prop", 1001, false, true, true);
     },
 
     precondition: function prereq() {
