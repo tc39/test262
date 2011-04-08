@@ -141,9 +141,21 @@ SimpleTestAPIs.push(fnSupportsStrict);
 
 //-----------------------------------------------------------------------------
 function fnGlobalObject() {
-    return (function() { return this }).call(null);
+     return Function("return this")();
 }
 SimpleTestAPIs.push(fnGlobalObject);
+
+//-----------------------------------------------------------------------------
+function fnSupportsStrict() {
+    "use strict";
+    try { 
+        eval('with ({}) {}'); 
+        return false;
+    } catch (e) { 
+        return true;
+    }
+}
+SimpleTestAPIs.push(fnSupportsStrict);
 
 //-----------------------------------------------------------------------------
 //Verify all attributes specified data property of given object: value, writable, enumerable, configurable

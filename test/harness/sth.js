@@ -123,7 +123,6 @@ function BrowserRunner() {
         
         // Write ES5Harness.registerTest and fnGlobalObject, which returns the global object, and the testFinished call.
         doc.writeln("<script type='text/javascript'>ES5Harness = {};" +
-                    "function fnGlobalObject() { return window; }" +
                     "ES5Harness.registerTest = function(test) {" +
                     "  var error;" +
                     "  if(test.precondition && !test.precondition()) {" +
