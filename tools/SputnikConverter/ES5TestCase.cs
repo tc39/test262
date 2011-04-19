@@ -14,8 +14,10 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
 {
     public static class ES5TestScript
     {
-        private static int fileCounter;        
+        private static int fileCounter;
         private static StringBuilder negativeTestCases;
+        private static string globalScopeFileName = "\\SputnikGlobalScope.js";
+
 
         private static string[] templates = {
 
@@ -47,12 +49,7 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
         /// <param name="destinationPath">Is the destination folder path</param>
         public static void Save(SputnikTestScript script, string root, string destinationPath)
         {
-            int indexOfRoot = script.FullPath.IndexOf(root, StringComparison.InvariantCulture);
-            string pathFromRoot = script.FullPath.Substring(indexOfRoot, script.FullPath.Length - indexOfRoot);
-            string destDir = Path.Combine(destinationPath, Path.GetDirectoryName(pathFromRoot));
-            string positiveDestDir = destDir.Replace("conformance", "");
-            string negativeDestDir = destDir.Replace("conformance", "GlobalScope");
- //           int fileCounter = 0;
+            string destDir = Path.Combine(destinationPath, Path.GetDirectoryName(script.pathFromRoot));
             string buildContent = string.Empty;
             string destFullPath = string.Empty;
             string preCondition = string.IsNullOrEmpty(script.PreConditionCode) ? String.Empty : script.PreConditionCode;
@@ -61,18 +58,10 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
             if (script.IsNegative)
             {
                 templateIndex += 2;
-                destDir = negativeDestDir;                
-                //if (!body.Contains("eval(")) body = WrapWithEval(body);
-            }
-            else
-            {
-                destDir = positiveDestDir;
             }
             string template = templates[templateIndex];
             Logger.WriteToLog("=====================================================================================");
             Logger.WriteToLog("Source file={0}\n", script.FullPath);
- //           Logger.WriteToLog("Possible CHECK#s={0}\n", script.PossibleChecksCount.ToString());
- //           Logger.WriteToLog("Actual CHECK#s found={0}\n", script.Checks.Length.ToString());
             Logger.WriteToLog("Destination(s)=");
             if (script.Id == "")
             {
@@ -80,68 +69,59 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
                 Console.WriteLine();
             }
 
-  //          OutputFileCounter = OutputFileCounter + script.ConvertedFileCount;
-  //          foreach (string check in script.Checks)
-  //          {
-            
-                string[] args = { script.Header, script.Id, script.SectionName, InsertStringEscapes(script.Assertion), InsertStringEscapes(script.Description), script.ReplicationCode, body, preCondition, script.InitialComment };
- //               ++fileCounter;
-//                if (script.Checks.Length > 1)
- //               {
- //                   destFullPath = Path.Combine(destDir, string.Format(@"{0}-{1}.js", script.Id, fileCounter.ToString()));
- //                   args[0] = args[0] + "-" + fileCounter.ToString();
-//                }
-//                else
-//                {
-                    destFullPath = Path.Combine(destDir, string.Format(@"{0}.js", script.Id));
-//                }
-                try
+            string[] args = { script.Header, script.Id, script.SectionName, InsertStringEscapes(script.Assertion), InsertStringEscapes(script.Description), script.ReplicationCode, body, preCondition, script.InitialComment };
+            destFullPath = Path.Combine(destDir, string.Format(@"{0}.js", script.Id));
+
+            try
+            {
+                buildContent = string.Format(template, args);
+                string dirPath = Path.GetDirectoryName(destFullPath);
+                if (!Directory.Exists(dirPath))
+                    Directory.CreateDirectory(dirPath);
+                using (TextWriter writeTestCase = File.CreateText(destFullPath))
                 {
-                    buildContent = string.Format(template, args);
-                    string dirPath = Path.GetDirectoryName(destFullPath);
-                    if (!Directory.Exists(dirPath))
-                        Directory.CreateDirectory(dirPath);
-                    using (TextWriter writeTestCase = File.CreateText(destFullPath))
+                    writeTestCase.WriteLine(buildContent);
+                    writeTestCase.Flush();
+                    writeTestCase.Close();
+                    OutputFileCounter++;
+                }
+
+                if (script.IsNegative)
+                {
+                    //Add details in stringbuilder.
+                    string folderPath = GetPartialPath(destFullPath, 3);
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append("GlobalScopeTests[\"GlobalScope/" + script.pathFromRoot.Replace("\\", "/") + "\"]");
+                    sb.Append("=");
+                    string s = GetSerializedSputnikTestScript(new SputnikTestScript()
+                                                                    {
+                                                                        Description = script.Description,
+                                                                        Assertion = script.Assertion,
+                                                                    });
+                    sb.Append(s.Substring(0, s.LastIndexOf('}')) + ",\"negative\":\"syntax\"};");
+
+                    if (negativeTestCases == null)
                     {
-                        writeTestCase.WriteLine(buildContent);
-                        writeTestCase.Flush();
-                        writeTestCase.Close();
-                        OutputFileCounter++;
+                        negativeTestCases = new StringBuilder();
                     }
-
-                    if (script.IsNegative)
+                    else
                     {
-                        //Add details in stringbuilder.
-                        string folderPath = GetPartialPath(destFullPath,3);
-                        StringBuilder sb = new StringBuilder();
-                        sb.Append("\"GlobalScope/" + script.SectionName + "/" + script.Id + ".js\"");
-                        //negativeTestCases.Append("\""+folderPath+"\"");
-                        sb.Append(":");
-                        string s = GetSerializedSputnikTestScript(new SputnikTestScript()
-                                                                        {
-                                                                            Description = script.Description,
-                                                                            Assertion = script.Assertion,
-                                                                        });
-                        sb.Append(s.Substring(0, s.LastIndexOf('}')) + ",\"negative\":\"syntax\"}");
-
-                        if (negativeTestCases == null)
-                            negativeTestCases = new StringBuilder();
-                        else
-                            negativeTestCases.Append(",");
-                        negativeTestCases.Append(sb.ToString());
+                        negativeTestCases.Append("\n");
                     }
+                    negativeTestCases.Append(sb.ToString());
+                }
 
-                    Logger.WriteToLog(destFullPath);
-                }
-                catch (ArgumentException ex)
-                {
-                    Logger.WriteToLog(ResourceClass.IOException, ex.Message);
-                }
-                catch (IOException ex)
-                {
-                    Logger.WriteToLog(ResourceClass.IOException, ex.Message);
-                }
- //           }
+                Logger.WriteToLog(destFullPath);
+            }
+            catch (ArgumentException ex)
+            {
+                Logger.WriteToLog(ResourceClass.IOException, ex.Message);
+            }
+            catch (IOException ex)
+            {
+                Logger.WriteToLog(ResourceClass.IOException, ex.Message);
+            }
+            //           }
         }
 
         /// <summary>
@@ -149,20 +129,18 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
         /// </summary>
         /// <param name="destination">Is the destination folder path</param>
         public static void InitGlobals(string destination)
-        {            
+        {
             //Insert inital var name in Globals.js file.
-            //FileStream fs = new FileStream("c:\\ecmascript\\GlobalScope.js", FileMode.Create, FileAccess.Write);
             if (!Directory.Exists(destination))
             {
                 Directory.CreateDirectory(destination);
             }
-            FileStream fs = new FileStream(destination + "\\GlobalScope.js", FileMode.Create, FileAccess.Write);
+            FileStream fs = new FileStream(destination.Remove(destination.LastIndexOf("\\")) + globalScopeFileName, FileMode.Create, FileAccess.Write);
             StreamWriter sw = new StreamWriter(fs);
-            sw.Write("var GlobalScopeTests =");
+            sw.Write("this.GlobalScopeTests = this.GlobalScopeTests || new Array();\n");
             sw.Flush();
             sw.Close();
             fs.Close();
-            //negativeTestCases = new StringBuilder();
         }
 
         /// <summary>
@@ -172,11 +150,7 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
         public static void UpdateGlobals(string destination)
         {
             //Replace the last comma by closing curly brace and semi-colon.
-            //negativeTestCases.Replace(",", "};", negativeTestCases.Length - 2, 2);
-            //negativeTestCases.Append(";");
-            //File.AppendAllText("c:\\temp\\GlobalScope.js", "{"+negativeTestCases.ToString()+"};");
-            File.AppendAllText(destination +"\\GlobalScope.js", "{" + negativeTestCases.ToString() + "};");
-
+            File.AppendAllText(destination.Remove(destination.LastIndexOf("\\")) + globalScopeFileName, negativeTestCases.ToString());
             negativeTestCases.Clear();
         }
 
@@ -191,16 +165,16 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
             StreamReader sr = new StreamReader(stream);
 
             return sr.ReadToEnd();
-        }       
+        }
 
         private static string WrapWithEval(string s)
         {
             return InsertStringEscapes(s, true);
         }
 
-        private static string InsertStringEscapes(string s, bool wrapWithEval=false)
+        private static string InsertStringEscapes(string s, bool wrapWithEval = false)
         {
-            StringReader rdr=new StringReader(s);
+            StringReader rdr = new StringReader(s);
             StringWriter wtr = new StringWriter();
             int intChar;
             char nextChar;
@@ -246,7 +220,7 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
         private static string GetTemplateFile(string configSetting)
         {
             string inputTemplatePath = ConfigurationManager.AppSettings[configSetting].ToString();
-            return  (new StreamReader(inputTemplatePath)).ReadToEnd();
+            return (new StreamReader(inputTemplatePath)).ReadToEnd();
         }
 
         private static string GetPartialPath(string fullPath, int levelsRequired)
@@ -263,9 +237,8 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
 
             for (int iterator = partialPaths.Length - 1; iterator >= 0; iterator--)
             {
-                finalPath += partialPaths[iterator];                
+                finalPath += partialPaths[iterator];
             }
-            //finalPath = finalPath.Replace(@"\/", "/");
             return finalPath;
         }
     }

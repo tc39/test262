@@ -20,7 +20,7 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
         private string testScriptAssertion = string.Empty;
         private string replicationCode = string.Empty;
         private int actualFileConvertedCount = 0;
-        private bool negativeTest = false;
+        public bool negativeTest = false;
         private bool strictModeNegativeTest = false;
         private const string xmlNode = "format";
         private const string xmlAttribute = "sequence";
@@ -30,6 +30,7 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
         public string Header = string.Empty;
         public string Body = string.Empty;
         public string InitialComment = string.Empty;
+        public string pathFromRoot = string.Empty;
 
         /// <summary>
         /// Gets or sets the ID.
@@ -235,7 +236,7 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
         /// Loads the sputnik testscript file and extracts the required details from it
         /// </summary>
         /// <param name="filePath">Path to the source file</param>
-        public void Load(string filePath)
+        public void Load(string filePath, string root)
         {
             string[] regexTrimDelimiter = { "\n","\r"};            
             String fullFile = string.Empty;
@@ -245,39 +246,11 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
                 fullFile = txtReader.ReadToEnd();
             }
             this.FullPath = filePath;
-//            ReadTestCaseEpilogue(fullFile);    
+            int indexOfRoot = this.FullPath.IndexOf(root, StringComparison.InvariantCulture) + root.Length + 1;
+            this.pathFromRoot = this.FullPath.Substring(indexOfRoot, this.FullPath.Length - indexOfRoot);
+
+
             ReadSimpleTestCase(fullFile);
-
-/*
-            //read input format from xml
-            foreach (KeyValuePair<string, string> regxFormat in testScriptFormats)
-            {
-                Regex regxCode = new Regex(regxFormat.Value.Trim(), RegexOptions.IgnoreCase);
-                MatchCollection matchCode = regxCode.Matches(fullFile);
-                this.checkSections = new string[matchCode.Count];
-                int counter = 0;
-
-                //Read the code section
-                foreach (Match codeSection in matchCode)
-                {
-                    if (codeSection.Value.ToLower().Contains("check"))
-                    {
-                        this.checkSections[counter] = codeSection.Value.Remove(0, codeSection.Value.IndexOf("\r"));
-                    }
-                    else
-                    {
-                        this.checkSections[counter] = codeSection.Value;
-                    }
-                    counter++;
-                }
-
-                if (checkSections.Length > 0)
-                {
-                    this.actualFileConvertedCount++;
-                    break;
-                }
-            }
-*/
         }
 
         /// <summary>
@@ -302,14 +275,9 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
 
             this.Body = fullFile.Substring(matchCommentTail.Index+matchCommentTail.Length);
 
-//            string commentFormat = ConfigurationManager.AppSettings[ResourceClass.CommentsRegexSettingKey].ToString();
             string commentFormat = "@[a-zA-Z0-9_]+(:\\s*[^\\r\\n]*)?;?\\s*(\\r|\\n)";
             Regex regx = new Regex(commentFormat);
             MatchCollection matchComments = regx.Matches(this.Header);
-
-//            string globalCode = ConfigurationManager.AppSettings[ResourceClass.GlobalCodeRegexKey].ToString();
-//            Regex gobalRegx = new Regex(globalCode);
-//            Match matchGlobalCode = gobalRegx.Match(fullFile);
 
             foreach (Match comment in matchComments)
             {
@@ -319,11 +287,12 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
                 string commentKey = arrComments[0].ToLower();
                 if (commentKey.Contains(ResourceClass.LookFor_Name))
                 {
-                    this.Id = GetRealId(arrComments[arrComments.Length - 1].Trim(trimDelimit));
+                    this.Id = this.pathFromRoot.Substring(this.pathFromRoot.LastIndexOf("\\") + 1);
+                    this.Id = GetRealId(this.Id.Remove(this.Id.Length - 3));
                 }
                 if (commentKey.Contains(ResourceClass.LookFor_Section))
                 {
-                    this.SectionName = GetRealSectionName(arrComments[arrComments.Length - 1].Trim(trimDelimit));
+                    this.SectionName = GetRealSectionName(this.pathFromRoot);
                 }
                 if (commentKey.Contains(ResourceClass.LookFor_Assertion))
                 {
@@ -347,54 +316,7 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
             this.PossibleChecksCount = 1;
         }
 
-        /// <summary>
-        /// Reads the Epilogue from the sputnik testscript file
-        /// </summary>
-        /// <param name="fullFile">Input file content</param>
-        private void ReadTestCaseEpilogue(string fullFile)
-        {
-            char[] delimiter = { ':' };
-            char[] trimDelimit = { ';' };
-            string holdStr = string.Empty;
-            string[] arrComments;
-
-            string commentFormat = ConfigurationManager.AppSettings[ResourceClass.CommentsRegexSettingKey].ToString();
-            Regex regx = new Regex(commentFormat);
-            MatchCollection matchComments = regx.Matches(fullFile);
-
-            string globalCode = ConfigurationManager.AppSettings[ResourceClass.GlobalCodeRegexKey].ToString();
-            Regex gobalRegx = new Regex(globalCode);
-            Match matchGlobalCode = gobalRegx.Match(fullFile);
-
-            foreach (Match comment in matchComments)
-            {
-                holdStr = comment.Value.ToLower();
-                arrComments = holdStr.Trim(trimDelimit).Trim().Split(delimiter);
-
-                if (arrComments[0].Contains(ResourceClass.LookFor_Name))
-                {
-                    this.Id = GetRealId(arrComments[arrComments.Length - 1]);
-                }
-                if (arrComments[0].Contains(ResourceClass.LookFor_Section))
-                {
-                    this.SectionName = GetRealSectionName(arrComments[arrComments.Length - 1]);
-                }
-                if (arrComments[0].Contains(ResourceClass.LookFor_Description))
-                {
-                    this.Description = arrComments[arrComments.Length - 1];
-                }
-                
-            }
-
-            //string holdGlobalCode = matchGlobalCode.Value;
-            //if(holdGlobalCode.StartsWith("*/"))
-            //ReplicationCode = holdGlobalCode.Remove(0, holdGlobalCode.IndexOf("*/")).Trim();
-
-            //Get a hint on possible CHECK#'s contained in the file.
-            regx = new Regex(ConfigurationManager.AppSettings[ResourceClass.ChecksRegexSettingKey].ToString());
-            MatchCollection checks = regx.Matches(fullFile);
-            this.PossibleChecksCount = checks.Count;
-        }
+        
 
         private static string GetRealId(string id)
         {
@@ -403,7 +325,6 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
         }
         private static string GetRealSectionName(string sectionName)
         {
-            //Regex regx = new Regex("/S([0-9]+)_([^/]+)$");
             Regex regx = new Regex("^ ([0-9]+)$");
             if (! regx.IsMatch(sectionName)) {
                 return sectionName;
