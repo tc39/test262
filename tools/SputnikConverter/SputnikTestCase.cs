@@ -251,7 +251,13 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
             int indexOfRoot = this.FullPath.IndexOf(root, StringComparison.InvariantCulture) + root.Length + 1;
             this.pathFromRoot = this.FullPath.Substring(indexOfRoot, this.FullPath.Length - indexOfRoot);
 
-
+            Regex regx = new Regex("\\\\S([0-9]+)_([^\\\\]+)\\.js$");
+            if (regx.IsMatch(this.pathFromRoot))
+            {
+                Match tempMatch = regx.Match(this.pathFromRoot);
+                String tempDir = "\\" + tempMatch.Groups[1].Value + ".0_Chapter";
+                this.pathFromRoot = regx.Replace(this.pathFromRoot, tempDir + "\\S$1.0_$2.js");
+            }
             ReadSimpleTestCase(fullFile);
         }
 
@@ -290,11 +296,11 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
                 if (commentKey.Contains(ResourceClass.LookFor_Name))
                 {
                     this.id = this.pathFromRoot.Substring(this.pathFromRoot.LastIndexOf("\\") + 1);
-                    this.id = GetRealId(this.id.Remove(this.id.Length - 3));
+                    this.id = this.id.Remove(this.id.Length - 3);
                 }
                 if (commentKey.Contains(ResourceClass.LookFor_Section))
                 {
-                    this.path = GetRealSectionName(this.pathFromRoot);
+                    this.path = this.pathFromRoot;
                 }
                 if (commentKey.Contains(ResourceClass.LookFor_Assertion))
                 {
@@ -316,23 +322,6 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
 
 
             this.PossibleChecksCount = 1;
-        }
-
-        
-
-        private static string GetRealId(string id)
-        {
-            Regex regx = new Regex("^ S([0-9]+)_");
-            return regx.Replace(id, " S$1.0_", 1);
-        }
-        private static string GetRealSectionName(string sectionName)
-        {
-            Regex regx = new Regex("^ ([0-9]+)$");
-            if (! regx.IsMatch(sectionName)) {
-                return sectionName;
-            }
-
-            return regx.Replace(sectionName, " $1.0", 1);
         }
     }
 }
