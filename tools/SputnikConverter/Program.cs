@@ -12,7 +12,6 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
         {
             string source = string.Empty;
             string destination = string.Empty;
-            string globalScopeDestination = string.Empty;
 
             if (args == null || args.Length < 2)
             {
@@ -20,13 +19,6 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
             }
             source = args[0];
             destination = args[1];
-            if (!Directory.Exists(destination))
-            {
-                Directory.CreateDirectory(destination);
-            }
-
-
-            globalScopeDestination = destination.Remove(destination.LastIndexOf("\\") + 1) + "GlobalScope";
 
             string root = "conformance";
 
@@ -37,24 +29,17 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
                 if (Directory.Exists(source))
                 {
                     string[] filePaths = Directory.GetFiles(source, "*.js", SearchOption.AllDirectories);
-                    ES5TestScript.InitGlobals(globalScopeDestination);
+                    ES5TestScript.InitGlobals(destination);
 
                     foreach (string filePath in filePaths)
                     {
                         SputnikTestScript testScript = new SputnikTestScript();
                         testScript.Load(filePath, root);
-                        if (testScript.IsNegative)
-                        {
-                            ES5TestScript.Save(testScript, root, globalScopeDestination);
-                        }
-                        else
-                        {
-                            ES5TestScript.Save(testScript, root, destination);
-                        }
+                        ES5TestScript.Save(testScript, root, destination);
                         countInputFiles++;
                     }
 
-                    ES5TestScript.UpdateGlobals(globalScopeDestination);
+                    ES5TestScript.UpdateGlobals(destination);
                 }
                 Logger.WriteToLog(ResourceClass.Total_Input_Files, countInputFiles.ToString());
                 Logger.WriteToLog(ResourceClass.Total_Output_Files, ES5TestScript.OutputFileCounter.ToString());

@@ -14,7 +14,7 @@ MAX_CASES_PER_JSON = 1000
 
 #Directories under "test\suite\" containing ES5 test chapter directories
 #with *.js tests underneath them
-TEST_CONTRIB_DIRS = ["sputnik_converted", "ietestcenter", "globalscope"]
+TEST_CONTRIB_DIRS = ["sputnik_converted", "ietestcenter"]
 
 #Global scope source files found directly under "test\suite\".
 GLOBAL_SCOPE_FILES = ["SputnikGlobalScope.js"]
@@ -200,9 +200,6 @@ for chapter in TEST_SUITE_SECTIONS:
             if EXCLUDE_LIST.count(testName)==0:
                 # dictionary for each test
                 testDict = {}
-                #if chapterName=='globalscope':
-                #    testDict["path"] = test[test.lower().index("globalscope"):]
-                #else:
                 testDict["id"] = testName
                 
                 tempFile = open(test, "r")
@@ -271,6 +268,8 @@ for filename in [x for x in os.listdir(TEST262_HARNESS_DIR) if x.endswith(".js")
 
 #Copying the global scope files over as well
 #TODO: really the HTML harness file should be generated as well...
+print ""
+print "Deploying global scope metadata files to 'TEST262_WEB_HARNESS_DIR'..."
 for gsf in GLOBAL_SCOPE_FILES:
     shutil.copy(os.path.join(TEST262_CASES_DIR, gsf),
                 os.path.join(TEST262_WEB_CASES_DIR, gsf))

@@ -89,9 +89,8 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
                 if (script.IsNegative)
                 {
                     //Add details in stringbuilder.
-                    string folderPath = GetPartialPath(destFullPath, 3);
                     StringBuilder sb = new StringBuilder();
-                    //sb.Append("GlobalScopeTests[\"GlobalScope/" + script.pathFromRoot.Replace("\\", "/") + "\"]");
+                    //sb.Append("GlobalScopeTests[script.pathFromRoot.Replace("\\", "/") + "\"]");
                     sb.Append("GlobalScopeTests[\"" + script.id + "\"]");
                     sb.Append("=");
                     string s = GetSerializedSputnikTestScript(new SputnikTestScript()
@@ -147,7 +146,7 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
         }
 
         /// <summary>
-        /// Method to update the GlobalScope.js
+        /// Method to update the SputnikGlobalScope.js
         /// </summary>
         /// <param name="destination">Is the destination folder path</param>
         public static void UpdateGlobals(string destination)
@@ -224,25 +223,6 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
         {
             string inputTemplatePath = ConfigurationManager.AppSettings[configSetting].ToString();
             return (new StreamReader(inputTemplatePath)).ReadToEnd();
-        }
-
-        private static string GetPartialPath(string fullPath, int levelsRequired)
-        {
-            string remainingString = fullPath;
-            string[] partialPaths = new string[levelsRequired];
-            string finalPath = "GlobalScope";
-
-            for (int iterator = 0; iterator < levelsRequired; iterator++)
-            {
-                partialPaths[iterator] = remainingString.Substring(remainingString.LastIndexOf(@"\"));
-                remainingString = remainingString.Substring(0, remainingString.LastIndexOf(@"\"));
-            }
-
-            for (int iterator = partialPaths.Length - 1; iterator >= 0; iterator--)
-            {
-                finalPath += partialPaths[iterator];
-            }
-            return finalPath;
         }
     }
 }
