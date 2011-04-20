@@ -91,7 +91,7 @@ function BrowserRunner() {
         // Set up some globals.
         win.testRun = testRun;
         win.testFinished = testFinished;
-        win.iframeError = undefined;
+        
         //TODO: these should be moved to sta.js
         win.SputnikError = SputnikError;
         win.$ERROR = $ERROR;
@@ -125,16 +125,23 @@ function BrowserRunner() {
         
         //--Scenario 1: we're dealing with a global scope test case
         if (GlobalScopeTests[id]!==undefined) {
+            win.iframeError = undefined;
+            win.onerror = undefined;
+            win.onErrorHack = undefined;
             var testDescrip = GlobalScopeTests[id];
-            
+                
             //Add an error handler
             doc.writeln("<script type='text/javascript'>window.onerror = function(errorMsg, url, lineNumber) {window.iframeError = errorMsg;};" + "</script>");
             //Parse and execute the code
-            doc.writeln("<script type='text/javascript'>try{" + code + "}catch(test262RuntimeError){window.iframeError=test262RuntimeError.message || \"None\";}</script>");
+            doc.writeln("<script type='text/javascript'>onErrorHack = true;try{" + code + "}catch(test262RuntimeError){window.iframeError=test262RuntimeError.message || \"None\";}</script>");
             
             //validation
             if (testDescrip.negative!==undefined) {  //An exception is expected
-                if (win.iframeError===undefined) { //no exception was thrown
+                if (win.onErrorHack===undefined) {  //Hack for browsers not supporting window.onerror WRT early parse errors
+                    testRun(testDescrip.id, testDescrip.path, testDescrip.description, code, typeof testDescrip.precondition !== 'undefined' ? testDescrip.precondition.toString() : '', 
+                            'pass', 'Not parsable');
+                }
+                else if (win.iframeError===undefined) { //no exception was thrown
                     testRun(testDescrip.id, testDescrip.path, testDescrip.description, code, typeof testDescrip.precondition !== 'undefined' ? testDescrip.precondition.toString() : '', 
                             'fail', 'No Exception Thrown');
                 } else if(! (new RegExp(testDescrip.negative, "i").test(win.iframeError))) {  //wrong type of exception thrown
@@ -150,7 +157,7 @@ function BrowserRunner() {
             } else {
                 testRun(testDescrip.id, testDescrip.path, testDescrip.description, code, typeof testDescrip.precondition !== 'undefined' ? testDescrip.precondition.toString() : '', 
                         'pass', undefined);
-            }
+            }   
         }
         //--Scenario 2:  we're dealing with a normal positive(?) test case
         else {
