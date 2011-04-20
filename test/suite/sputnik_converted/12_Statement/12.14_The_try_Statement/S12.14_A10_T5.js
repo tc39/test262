@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.14_A10_T5",
 
-path: "12.14",
+path: "12_Statement\12.14_The_try_Statement\S12.14_A10_T5.js",
+
+assertion: "Using \"try\" with \"catch\" or \"finally\" statement within/without a \"while\" statement",
 
 description: "Throw some exceptions from different place of loop body",
 

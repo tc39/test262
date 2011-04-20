@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S9.8_A5_T2",
 
-path: "9.8",
+path: "09_Type_Conversion\9.8_ToString\S9.8_A5_T2.js",
+
+assertion: "Result of String conversion from Object value is conversion",
 
 description: "Some objects convert to String by implicit transformation",
 

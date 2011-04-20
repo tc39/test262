@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.3.5_A1_T2",
 
-path: "15.3.5",
+path: "15_Native\15.3_Function_Objects\15.3.5_Properties_of_Function_Instances\S15.3.5_A1_T2.js",
+
+assertion: "The value of the [[Class]] property is \"Function\"",
 
 description: "We delete Function.prototype.toString method to access Object.prototype.toString method",
 

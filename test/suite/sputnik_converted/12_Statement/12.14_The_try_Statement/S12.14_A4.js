@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.14_A4",
 
-path: "12.14",
+path: "12_Statement\12.14_The_try_Statement\S12.14_A4.js",
+
+assertion: "Sanity test for \"catch(Indetifier) statement\"",
 
 description: "Checking if deleting an exception fails",
 

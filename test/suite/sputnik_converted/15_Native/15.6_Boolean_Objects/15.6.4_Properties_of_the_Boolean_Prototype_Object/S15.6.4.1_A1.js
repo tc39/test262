@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.6.4.1_A1",
 
-path: "15.6.4.1",
+path: "15_Native\15.6_Boolean_Objects\15.6.4_Properties_of_the_Boolean_Prototype_Object\S15.6.4.1_A1.js",
+
+assertion: "The initial value of Boolean.prototype.constructor is the",
 
 description: "Compare Boolean.prototype.constructor with Boolean",
 

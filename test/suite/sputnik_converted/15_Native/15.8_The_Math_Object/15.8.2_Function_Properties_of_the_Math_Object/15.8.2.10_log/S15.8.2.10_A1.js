@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.8.2.10_A1",
 
-path: "15.8.2.10",
+path: "15_Native\15.8_The_Math_Object\15.8.2_Function_Properties_of_the_Math_Object\15.8.2.10_log\S15.8.2.10_A1.js",
+
+assertion: "If x is NaN, Math.log(x) is NaN",
 
 description: "Checking if Math.log(NaN) is NaN",
 

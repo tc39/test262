@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.3_A3_T2",
 
-path: "15.3",
+path: "15_Native\15.3_Function_Objects\S15.3_A3_T2.js",
+
+assertion: "Since when call is used for Function constructor themself new function instance creates",
 
 description: "First argument is string and null",
 

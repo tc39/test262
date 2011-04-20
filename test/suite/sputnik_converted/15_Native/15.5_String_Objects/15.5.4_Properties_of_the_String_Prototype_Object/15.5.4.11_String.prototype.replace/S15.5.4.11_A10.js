@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.11_A10",
 
-path: "15.5.4.11",
+path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\15.5.4.11_String.prototype.replace\S15.5.4.11_A10.js",
+
+assertion: "The String.prototype.replace.length property has the attribute ReadOnly",
 
 description: "Checking if varying the String.prototype.replace.length property fails",
 

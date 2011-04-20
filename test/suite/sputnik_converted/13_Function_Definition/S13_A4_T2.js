@@ -12,9 +12,11 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S13.0_A4_T2",
+id: "S13_A4_T2",
 
-path: "13.0",
+path: "13_Function_Definition\S13_A4_T2.js",
+
+assertion: "The production FunctionDeclaration: \"function Identifier ( FormalParameterList_opt ) { FunctionBody }\" is processed by function declarations",
 
 description: "Declaring a function that uses prefix increment operator within its \"return\" Expression",
 

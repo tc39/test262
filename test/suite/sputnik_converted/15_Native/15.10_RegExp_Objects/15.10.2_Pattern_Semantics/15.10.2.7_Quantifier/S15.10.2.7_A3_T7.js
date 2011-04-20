@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.7_A3_T7",
 
-path: "15.10.2.7",
+path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.7_Quantifier\S15.10.2.7_A3_T7.js",
+
+assertion: "The production QuantifierPrefix :: + evaluates by returning the two results 1 and \\infty",
 
 description: "Execute /[a-z]+(\\d+)/.exec(\"x 2 ff 55 x2 as1 z12 abc12.0\") and check results",
 

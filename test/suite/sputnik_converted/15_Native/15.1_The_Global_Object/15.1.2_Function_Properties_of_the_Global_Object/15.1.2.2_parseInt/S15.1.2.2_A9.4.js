@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.1.2.2_A9.4",
 
-path: "15.1.2.2",
+path: "15_Native\15.1_The_Global_Object\15.1.2_Function_Properties_of_the_Global_Object\15.1.2.2_parseInt\S15.1.2.2_A9.4.js",
+
+assertion: "The length property of parseInt is 2",
 
 description: "parseInt.length === 2",
 

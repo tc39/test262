@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S7.6_A1.3_T3",
 
-path: "7.6",
+path: "07_Lexical_Conventions\7.6_Identifiers\S7.6_A1.3_T3.js",
+
+assertion: "IdentifierStart :: _",
 
 description: "The _ as unicode character \\u005F",
 

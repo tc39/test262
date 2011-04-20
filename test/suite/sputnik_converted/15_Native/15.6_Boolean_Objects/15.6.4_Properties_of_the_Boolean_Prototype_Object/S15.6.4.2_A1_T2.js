@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S15.6.4.2_A1_T2",
 
-path: "15.6.4.2",
+path: "15_Native\15.6_Boolean_Objects\15.6.4_Properties_of_the_Boolean_Prototype_Object\S15.6.4.2_A1_T2.js",
+
+assertion: "toString: If this boolean value is true, then the string \"true\"",
 
 description: "with some argument",
 

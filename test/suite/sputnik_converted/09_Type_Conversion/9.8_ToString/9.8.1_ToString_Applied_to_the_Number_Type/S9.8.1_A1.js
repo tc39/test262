@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S9.8.1_A1",
 
-path: "9.8.1",
+path: "09_Type_Conversion\9.8_ToString\9.8.1_ToString_Applied_to_the_Number_Type\S9.8.1_A1.js",
+
+assertion: "If m is NaN, return the string \"NaN\"",
 
 description: "NaN convert to String by explicit transformation",
 

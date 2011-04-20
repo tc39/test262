@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.7_A2_T4",
 
-path: "15.5.4.7",
+path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\15.5.4.7_String.prototype.indexOf\S15.5.4.7_A2_T4.js",
+
+assertion: "When length of searchString less than length of ToString(this) -1 returns",
 
 description: "Call \"abcd\".indexOf(\"abcdab\",NaN) and check result",
 

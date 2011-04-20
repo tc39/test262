@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S12.10_A3.5_T5",
 
-path: "12.10",
+path: "12_Statement\12.10_The_with_Statement\S12.10_A3.5_T5.js",
+
+assertion: "No matter how control leaves the embedded \'Statement\',",
 
 description: "Using \"with\" statement within \"for-in\" statement, leading to completion by break",
 

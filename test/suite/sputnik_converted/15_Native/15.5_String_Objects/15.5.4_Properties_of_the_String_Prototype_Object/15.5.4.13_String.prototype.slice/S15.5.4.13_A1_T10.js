@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.13_A1_T10",
 
-path: "15.5.4.13",
+path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\15.5.4.13_String.prototype.slice\S15.5.4.13_A1_T10.js",
+
+assertion: "String.prototype.slice (start, end)",
 
 description: "Arguments are object and function call, and instance is String, object have overrided valueOf function",
 

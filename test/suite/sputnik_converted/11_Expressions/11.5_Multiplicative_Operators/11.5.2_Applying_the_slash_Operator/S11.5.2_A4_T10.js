@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S11.5.2_A4_T10",
 
-path: "11.5.2",
+path: "11_Expressions\11.5_Multiplicative_Operators\11.5.2_Applying_the_slash_Operator\S11.5.2_A4_T10.js",
+
+assertion: "The result of division is determined by the specification of IEEE 754 arithmetics",
 
 description: "If both operands are finite and nonzero, the quotient is computed and rounded using IEEE 754 round-to-nearest mode.",
 

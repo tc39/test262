@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.6.2_A8",
 
-path: "15.10.6.2",
+path: "15_Native\15.10_RegExp_Objects\15.10.6_Properties_of_the_RegExp_Prototype_Object\15.10.6.2_RegExp.prototype.exec\S15.10.6.2_A8.js",
+
+assertion: "The RegExp.prototype.exec.length property has the attribute DontEnum",
 
 description: "Checking if enumerating the RegExp.prototype.exec.length property fails",
 

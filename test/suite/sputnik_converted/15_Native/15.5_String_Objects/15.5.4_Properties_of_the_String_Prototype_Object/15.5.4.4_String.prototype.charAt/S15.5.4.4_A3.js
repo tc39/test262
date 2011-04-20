@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.4_A3",
 
-path: "15.5.4.4",
+path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\15.5.4.4_String.prototype.charAt\S15.5.4.4_A3.js",
+
+assertion: "When String.prototype.charAt(pos) calls if ToInteger(pos) not less than ToString(this value) the empty string returns",
 
 description: "pos is bigger of string length",
 

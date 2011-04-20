@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S7.2_A2.4_T1",
 
-path: "7.2, 7.8.4",
+path: "07_Lexical_Conventions\7.2_White_Space\S7.2_A2.4_T1.js",
+
+assertion: "SPACE (U+0020) may occur within strings",
 
 description: "Use SPACE(\\u0020)",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.4.3_A3.1",
 
-path: "11.4.3",
+path: "11_Expressions\11.4_Unary_Operators\11.4.3_The_typeof_Operator\S11.4.3_A3.1.js",
+
+assertion: "Result of applying \"typeof\" operator to undefined is \"undefined\"",
 
 description: "typeof undefined === \"undefined\"",
 

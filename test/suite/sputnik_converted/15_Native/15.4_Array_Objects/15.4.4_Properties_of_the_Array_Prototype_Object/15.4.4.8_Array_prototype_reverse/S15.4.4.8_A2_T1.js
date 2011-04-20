@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.4.4.8_A2_T1",
 
-path: "15.4.4.8",
+path: "15_Native\15.4_Array_Objects\15.4.4_Properties_of_the_Array_Prototype_Object\15.4.4.8_Array_prototype_reverse\S15.4.4.8_A2_T1.js",
+
+assertion: "The reverse function is intentionally generic.",
 
 description: "Checking this for Object object, elements are objects and primitives, length is integer",
 

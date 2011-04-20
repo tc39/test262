@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S9.4_A3_T2",
 
-path: "9.4, 15.9",
+path: "09_Type_Conversion\9.4_ToInteger\S9.4_A3_T2.js",
+
+assertion: "Result of ToInteger(value) conversion is the result of computing",
 
 description: "For testing constructor Date(NaN, Infinity, Infinity, +0 and -0) is used",
 

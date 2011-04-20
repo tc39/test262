@@ -18,7 +18,9 @@
 ES5Harness.registerTest( {
 id: "S15.4.4.11_A2.1_T1",
 
-path: "15.4.4.11",
+path: "15_Native\15.4_Array_Objects\15.4.4_Properties_of_the_Array_Prototype_Object\15.4.4.11_Array_prototype_sort\S15.4.4.11_A2.1_T1.js",
+
+assertion: "* If ToString([[Get]] ToString(j)) < ToString([[Get]] ToString(k)), return -1.",
 
 description: "Checking ENGLISH ALPHABET",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.9.5_A8_T2",
 
-path: "11.9.5, 11.9.6",
+path: "11_Expressions\11.9_Equality_Operators\11.9.5_The_Strict_Does_not_equals_Operator\S11.9.5_A8_T2.js",
+
+assertion: "If Type(x) is different from Type(y), return true",
 
 description: "x or y is primitive number",
 

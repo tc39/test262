@@ -12,9 +12,11 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S13.0_A15_T2",
+id: "S13_A15_T2",
 
-path: "13.0",
+path: "13_Function_Definition\S13_A15_T2.js",
+
+assertion: "\'\'arguments\'\' variable overrides ActivationObject.arguments",
 
 description: "Overriding arguments within functions body",
 

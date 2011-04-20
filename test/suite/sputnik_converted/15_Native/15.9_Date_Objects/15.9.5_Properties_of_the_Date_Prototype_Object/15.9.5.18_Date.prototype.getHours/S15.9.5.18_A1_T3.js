@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.9.5.18_A1_T3",
 
-path: "15.9.5.18",
+path: "15_Native\15.9_Date_Objects\15.9.5_Properties_of_the_Date_Prototype_Object\15.9.5.18_Date.prototype.getHours\S15.9.5.18_A1_T3.js",
+
+assertion: "The Date.prototype property \"getHours\" has { DontEnum } attributes",
 
 description: "Checking DontEnum attribute",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.14_A12_T1",
 
-path: "12.14",
+path: "12_Statement\12.14_The_try_Statement\S12.14_A12_T1.js",
+
+assertion: "Using \"try\" with \"catch\" or \"finally\" statement within/without a \"for-in\" statement",
 
 description: "Loop inside try Block, where throw exception",
 

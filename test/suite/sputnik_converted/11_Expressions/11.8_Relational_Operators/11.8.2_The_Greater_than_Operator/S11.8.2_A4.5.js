@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.8.2_A4.5",
 
-path: "11.8.2, 11.8.5",
+path: "11_Expressions\11.8_Relational_Operators\11.8.2_The_Greater_than_Operator\S11.8.2_A4.5.js",
+
+assertion: "If x is +Infinity and x !== y, return true",
 
 description: "y is number primitive",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S7.4_A4_T6",
 
-path: "7.4",
+path: "07_Lexical_Conventions\7.4_Comments\S7.4_A4_T6.js",
+
+assertion: "Single and Multi line comments are used together",
 
 description: "Insert Multi line comment with two closed tags into Single line comment",
 

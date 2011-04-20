@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.6.2_A6",
 
-path: "15.10.6.2, 13.2",
+path: "15_Native\15.10_RegExp_Objects\15.10.6_Properties_of_the_RegExp_Prototype_Object\15.10.6.2_RegExp.prototype.exec\S15.10.6.2_A6.js",
+
+assertion: "RegExp.prototype.exec has not prototype property",
 
 description: "Checking RegExp.prototype.exec.prototype",
 

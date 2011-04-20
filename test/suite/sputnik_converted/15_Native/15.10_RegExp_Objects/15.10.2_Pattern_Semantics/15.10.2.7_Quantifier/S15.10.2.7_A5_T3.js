@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.7_A5_T3",
 
-path: "15.10.2.7",
+path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.7_Quantifier\S15.10.2.7_A5_T3.js",
+
+assertion: "The production QuantifierPrefix :: ? evaluates by returning the two results 0 and 1",
 
 description: "Execute /java(script)?/.test(\"state: both Java and JavaScript used in web development\") and check results",
 

@@ -12,9 +12,11 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S13.0_A12_T2",
+id: "S13_A12_T2",
 
-path: "13.0",
+path: "13_Function_Definition\S13_A12_T2.js",
+
+assertion: "Function declarations in global or function scope are {DontDelete}",
 
 description: "Checking if deleting a function that is declared in function scope fails",
 

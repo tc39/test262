@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.2.1_A2_T1",
 
-path: "15.5.2.1, 15.5.3.1",
+path: "15_Native\15.5_String_Objects\15.5.2_The_String_Constructor\S15.5.2.1_A2_T1.js",
+
+assertion: "The [[Prototype]] property of the newly constructed object is set to the original String prototype object",
 
 description: "Creating string object with \"new String(string)\" to check prototype",
 

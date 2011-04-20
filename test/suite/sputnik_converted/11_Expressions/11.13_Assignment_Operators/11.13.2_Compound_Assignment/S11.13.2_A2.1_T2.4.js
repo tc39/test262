@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.13.2_A2.1_T2.4",
 
-path: "11.13.2",
+path: "11_Expressions\11.13_Assignment_Operators\11.13.2_Compound_Assignment\S11.13.2_A2.1_T2.4.js",
+
+assertion: "Operator uses GetValue",
 
 description: "If GetBase(AssigmentExpression) is null, throw ReferenceError. Check operator is \"x += y\"",
 

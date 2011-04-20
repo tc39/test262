@@ -17,7 +17,9 @@
 ES5Harness.registerTest( {
 id: "S10.1.3_A4_T2",
 
-path: "10.1.3",
+path: "10_Execution_Contexts\10.1_Definitions\10.1.3_Variable_Instantiation\S10.1.3_A4_T2.js",
+
+assertion: "Function declaration in function code - If the variable object",
 
 description: "Checking existence of a function with declared variable",
 

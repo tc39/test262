@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.8.2.8_A6",
 
-path: "15.8.2.8",
+path: "15_Native\15.8_The_Math_Object\15.8.2_Function_Properties_of_the_Math_Object\15.8.2.8_exp\S15.8.2.8_A6.js",
+
+assertion: "Math.exp, recommended that implementations use the approximation algorithms for IEEE 754 arithmetic contained in fdlibm",
 
 description: "Checking if Math.exp is approximately equals to its mathematical values on the set of 64 argument values; all the sample values is calculated with LibC",
 

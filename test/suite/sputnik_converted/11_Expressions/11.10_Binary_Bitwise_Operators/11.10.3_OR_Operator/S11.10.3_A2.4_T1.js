@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.10.3_A2.4_T1",
 
-path: "11.10.3",
+path: "11_Expressions\11.10_Binary_Bitwise_Operators\11.10.3_OR_Operator\S11.10.3_A2.4_T1.js",
+
+assertion: "First expression is evaluated first, and then second expression",
 
 description: "Checking with \"=\"",
 

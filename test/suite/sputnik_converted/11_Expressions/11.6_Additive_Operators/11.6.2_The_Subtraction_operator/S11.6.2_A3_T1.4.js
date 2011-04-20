@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.6.2_A3_T1.4",
 
-path: "11.6.2",
+path: "11_Expressions\11.6_Additive_Operators\11.6.2_The_Subtraction_operator\S11.6.2_A3_T1.4.js",
+
+assertion: "Operator x - y returns ToNumber(x) - ToNumber(y)",
 
 description: "Type(x) and Type(y) vary between Null and Undefined",
 

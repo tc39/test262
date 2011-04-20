@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S9.3.1_A2",
 
-path: "9.3.1, 15.7.1",
+path: "09_Type_Conversion\9.3_ToNumber\9.3.1_ToNumber_from_String\S9.3.1_A2.js",
+
+assertion: "The MV of StringNumericLiteral ::: StrWhiteSpace is 0",
 
 description: "Strings with various WhiteSpaces convert to Number by explicit transformation",
 

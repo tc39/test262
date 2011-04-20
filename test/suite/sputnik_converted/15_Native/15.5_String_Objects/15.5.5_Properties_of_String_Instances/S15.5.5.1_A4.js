@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.5.1_A4",
 
-path: "15.5.5.1",
+path: "15_Native\15.5_String_Objects\15.5.5_Properties_of_String_Instances\S15.5.5.1_A4.js",
+
+assertion: "length property has the attributes {ReadOnly}",
 
 description: "Checking if varying the length property of String fails",
 

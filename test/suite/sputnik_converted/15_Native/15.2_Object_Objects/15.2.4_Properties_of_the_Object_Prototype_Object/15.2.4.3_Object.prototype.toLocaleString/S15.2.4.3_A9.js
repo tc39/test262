@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.2.4.3_A9",
 
-path: "15.2.4.3",
+path: "15_Native\15.2_Object_Objects\15.2.4_Properties_of_the_Object_Prototype_Object\15.2.4.3_Object.prototype.toLocaleString\S15.2.4.3_A9.js",
+
+assertion: "The Object.prototype.toLocaleString.length property has the attribute DontDelete",
 
 description: "Checknig if deleting of the Object.prototype.toLocaleString.length property fails",
 

@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.1.2.4_A2.5",
 
-path: "15.1.2.4, 15.2.4.7, 12.6.4",
+path: "15_Native\15.1_The_Global_Object\15.1.2_Function_Properties_of_the_Global_Object\15.1.2.4_isNaN\S15.1.2.4_A2.5.js",
+
+assertion: "The isNaN property has the attribute DontEnum",
 
 description: "Checking use propertyIsEnumerable, for-in",
 

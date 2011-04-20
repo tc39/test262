@@ -22,7 +22,9 @@
 ES5Harness.registerTest( {
 id: "S15.3.2.1_A3_T10",
 
-path: "15.3.2.1, 13.2",
+path: "15_Native\15.3_Function_Objects\15.3.2_The_Function_Constructor\S15.3.2.1_A3_T10.js",
+
+assertion: "When the Function constructor is called with arguments p, body the following steps are taken:",
 
 description: "Values of the function constructor arguments are \"{toString:function(){return \"z;x\"}}\" and \"return this;\"",
 

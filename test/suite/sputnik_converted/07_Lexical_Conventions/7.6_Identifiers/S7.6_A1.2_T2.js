@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S7.6_A1.2_T2",
 
-path: "7.6",
+path: "07_Lexical_Conventions\7.6_Identifiers\S7.6_A1.2_T2.js",
+
+assertion: "IdentifierStart :: $",
 
 description: "The $ as unicode character \\u0024",
 

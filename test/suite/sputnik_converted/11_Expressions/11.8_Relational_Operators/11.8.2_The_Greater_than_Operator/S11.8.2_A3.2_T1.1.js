@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.8.2_A3.2_T1.1",
 
-path: "11.8.2",
+path: "11_Expressions\11.8_Relational_Operators\11.8.2_The_Greater_than_Operator\S11.8.2_A3.2_T1.1.js",
+
+assertion: "If Type(Primitive(x)) is String and Type(Primitive(y)) is String, then operator x > y returns ToString(x) > ToString(y)",
 
 description: "Type(Primitive(x)) and Type(Primitive(y)) vary between primitive string and String object",
 

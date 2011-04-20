@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.9.3.1_A1_T1",
 
-path: "15.9.3.1",
+path: "15_Native\15.9_Date_Objects\15.9.3_The_Date_Constructor\S15.9.3.1_A1_T1.js",
+
+assertion: "When Date is called as part of a new expression it is",
 
 description: "2 arguments, (year, month)",
 

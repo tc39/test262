@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S9.7_A3.2_T1",
 
-path: "9.7",
+path: "09_Type_Conversion\9.7_ToUint16\S9.7_A3.2_T1.js",
+
+assertion: "Operator uses floor, abs",
 
 description: "For testing use String.fromCharCode(Number).charCodeAt(0) construction",
 

@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.1.1.3_A3.1",
 
-path: "15.1.1.3, 11.4.1",
+path: "15_Native\15.1_The_Global_Object\15.1.1_Value_Properties_of_the_Global_Object\15.1.1.3_undefined\S15.1.1.3_A3.1.js",
+
+assertion: "The undefined is DontDelete",
 
 description: "Use delete",
 

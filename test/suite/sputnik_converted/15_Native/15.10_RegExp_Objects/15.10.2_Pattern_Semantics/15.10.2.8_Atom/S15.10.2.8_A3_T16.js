@@ -17,7 +17,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.8_A3_T16",
 
-path: "15.10.2.8",
+path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.8_Atom\S15.10.2.8_A3_T16.js",
+
+assertion: "Parentheses of the form ( Disjunction ) serve both to group the components of the Disjunction pattern together and to save the result of the match.",
 
 description: "see bug http:bugzilla.mozilla.org/show_bug.cgi?id=119909",
 

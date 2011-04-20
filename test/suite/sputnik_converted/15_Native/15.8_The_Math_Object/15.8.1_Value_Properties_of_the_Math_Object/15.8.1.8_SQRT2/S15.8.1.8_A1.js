@@ -13,7 +13,9 @@
 ES5Harness.registerTest( {
 id: "S15.8.1.8_A1",
 
-path: "15.8.1.8",
+path: "15_Native\15.8_The_Math_Object\15.8.1_Value_Properties_of_the_Math_Object\15.8.1.8_SQRT2\S15.8.1.8_A1.js",
+
+assertion: "Math.SQRT2 is approximately 1.4142135623730951",
 
 description: "Comparing Math.SQRT2 with 1.4142135623730951",
 

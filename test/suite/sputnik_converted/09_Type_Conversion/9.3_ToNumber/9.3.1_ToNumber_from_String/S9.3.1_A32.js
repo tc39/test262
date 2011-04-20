@@ -17,7 +17,9 @@
 ES5Harness.registerTest( {
 id: "S9.3.1_A32",
 
-path: "9.3.1",
+path: "09_Type_Conversion\9.3_ToNumber\9.3.1_ToNumber_from_String\S9.3.1_A32.js",
+
+assertion: "Once the exact MV for a string numeric literal has been",
 
 description: "Use various long numbers, for example, 1234567890.1234567890",
 

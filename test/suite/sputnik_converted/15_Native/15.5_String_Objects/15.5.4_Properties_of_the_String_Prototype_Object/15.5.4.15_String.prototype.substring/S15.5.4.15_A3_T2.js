@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.15_A3_T2",
 
-path: "15.5.4.15",
+path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\15.5.4.15_String.prototype.substring\S15.5.4.15_A3_T2.js",
+
+assertion: "String.prototype.substring (start, end) can be applied to non String object instance and",
 
 description: "Apply String.prototype.substring to Array instance. Start is 9, end is -Infinity",
 

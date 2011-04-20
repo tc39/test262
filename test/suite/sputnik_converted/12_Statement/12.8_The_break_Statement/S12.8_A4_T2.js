@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.8_A4_T2",
 
-path: "12.8",
+path: "12_Statement\12.8_The_break_Statement\S12.8_A4_T2.js",
+
+assertion: "When \"break Identifier\" is evaluated, (break, empty, Identifier) is returned",
 
 description: "Using embedded and labeled loops, breaking to nested loop",
 

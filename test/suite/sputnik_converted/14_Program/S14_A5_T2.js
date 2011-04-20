@@ -12,9 +12,11 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S14.0_A5_T2",
+id: "S14_A5_T2",
 
-path: "14.0",
+path: "14_Program\S14_A5_T2.js",
+
+assertion: "The Identifer within a FunctionDeclaration can be written in both letters and unicode",
 
 description: "Declaring a function with \"function \\u005f\\u005f\\u0066\\u0075\\u006e\\u0063(){return \"unicode\"}\"",
 

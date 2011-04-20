@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S13.2.2_A19_T8",
 
-path: "13.2.2",
+path: "13_Function_Definition\13.2_Creating_Function_Objects\S13.2.2_A19_T8.js",
+
+assertion: "Function\'s scope chain is started when it is declared",
 
 description: "Function is declared multiply times",
 

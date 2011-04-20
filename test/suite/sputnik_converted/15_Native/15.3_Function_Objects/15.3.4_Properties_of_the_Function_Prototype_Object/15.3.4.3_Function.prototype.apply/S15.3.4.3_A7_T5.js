@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.3.4.3_A7_T5",
 
-path: "15.3.4.3",
+path: "15_Native\15.3_Function_Objects\15.3.4_Properties_of_the_Function_Prototype_Object\15.3.4.3_Function.prototype.apply\S15.3.4.3_A7_T5.js",
+
+assertion: "If argArray is either an array or an arguments object,",
 
 description: "argArray is (null, arguments), inside function declaration used",
 

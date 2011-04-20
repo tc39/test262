@@ -13,7 +13,9 @@
 ES5Harness.registerTest( {
 id: "S7.3_A1.2_T2",
 
-path: "7.3",
+path: "07_Lexical_Conventions\7.3_Line_Terminators\S7.3_A1.2_T2.js",
+
+assertion: "CARRIAGE RETURN (U+000D) may occur between any two tokens",
 
 description: "Insert real CARRIAGE RETURN between tokens of var x=1",
 

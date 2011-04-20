@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.5_A1_T3",
 
-path: "15.5.4.5",
+path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\15.5.4.5_String.prototype.charCodeAt\S15.5.4.5_A1_T3.js",
+
+assertion: "String.prototype.charCodeAt(pos)",
 
 description: "Use numbers and strings as pos",
 

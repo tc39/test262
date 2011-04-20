@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.6.1_A3.1_T1.2",
 
-path: "11.6.1",
+path: "11_Expressions\11.6_Additive_Operators\11.6.1_The_Addition_operator\S11.6.1_A3.1_T1.2.js",
+
+assertion: "If Type(Primitive(x)) is not String and Type(Primitive(y)) is not String, then operator x + y returns ToNumber(x) + ToNumber(y)",
 
 description: "Type(Primitive(x)) and Type(Primitive(y)) vary between primitive number and Number object",
 

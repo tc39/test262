@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.3.1_A1_T1",
 
-path: "15.3.1",
+path: "15_Native\15.3_Function_Objects\S15.3.1_A1_T1.js",
+
+assertion: "The function call Function(…) is equivalent to the object creation expression",
 
 description: "Create simple functions and check returned values",
 

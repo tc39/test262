@@ -13,7 +13,9 @@
 ES5Harness.registerTest( {
 id: "S12.6.3_A1",
 
-path: "12.6.3",
+path: "12_Statement\12.6_Iteration_Statements\12.6.3_The_for_Statement\S12.6.3_A1.js",
+
+assertion: "The \"for {;;}\" for Statement with empty expressions is allowed and leads to performing an infinite loop",
 
 description: "Breaking an infinite loop by throwing exception",
 

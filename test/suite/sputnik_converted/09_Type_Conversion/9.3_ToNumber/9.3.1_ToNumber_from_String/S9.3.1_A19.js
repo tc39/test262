@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S9.3.1_A19",
 
-path: "9.3.1, 15.7.1",
+path: "09_Type_Conversion\9.3_ToNumber\9.3.1_ToNumber_from_String\S9.3.1_A19.js",
+
+assertion: "The MV of DecimalDigit ::: 3 or of HexDigit ::: 3 is 3",
 
 description: "Compare Number(\'0x3\') and Number(\'0X3\') with 3",
 

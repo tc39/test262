@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S13.2_A1_T2",
 
-path: "13.2",
+path: "13_Function_Definition\13.2_Creating_Function_Objects\S13.2_A1_T2.js",
+
+assertion: "A \"prototype\" property is automatically created for every function",
 
 description: "Using \"var __func = function(){}\" as a FunctionDeclaration",
 

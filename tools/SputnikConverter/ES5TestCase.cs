@@ -63,14 +63,14 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
             Logger.WriteToLog("=====================================================================================");
             Logger.WriteToLog("Source file={0}\n", script.FullPath);
             Logger.WriteToLog("Destination(s)=");
-            if (script.Id == "")
+            if (script.id == "")
             {
                 Console.Write(script.Header);
                 Console.WriteLine();
             }
 
-            string[] args = { script.Header, script.Id, script.SectionName, InsertStringEscapes(script.Assertion), InsertStringEscapes(script.Description), script.ReplicationCode, body, preCondition, script.InitialComment };
-            destFullPath = Path.Combine(destDir, string.Format(@"{0}.js", script.Id));
+            string[] args = { script.Header, script.id, script.path, InsertStringEscapes(script.assertion), InsertStringEscapes(script.description), script.ReplicationCode, body, preCondition, script.InitialComment };
+            destFullPath = Path.Combine(destDir, string.Format(@"{0}.js", script.id));
 
             try
             {
@@ -91,14 +91,17 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
                     //Add details in stringbuilder.
                     string folderPath = GetPartialPath(destFullPath, 3);
                     StringBuilder sb = new StringBuilder();
-                    sb.Append("GlobalScopeTests[\"GlobalScope/" + script.pathFromRoot.Replace("\\", "/") + "\"]");
+                    //sb.Append("GlobalScopeTests[\"GlobalScope/" + script.pathFromRoot.Replace("\\", "/") + "\"]");
+                    sb.Append("GlobalScopeTests[\"" + script.id + "\"]");
                     sb.Append("=");
                     string s = GetSerializedSputnikTestScript(new SputnikTestScript()
                                                                     {
-                                                                        Description = script.Description,
-                                                                        Assertion = script.Assertion,
+                                                                        id = script.id,
+                                                                        path = script.path,
+                                                                        description = script.description,
+                                                                        assertion = script.assertion,
                                                                     });
-                    sb.Append(s.Substring(0, s.LastIndexOf('}')) + ",\"negative\":\"syntax\"};");
+                    sb.Append(s.Substring(0, s.LastIndexOf('}')) + ",\"negative\":\".\"};");
 
                     if (negativeTestCases == null)
                     {

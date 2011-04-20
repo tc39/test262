@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S8.4_A4",
 
-path: "8.4",
+path: "08_Types\8.4_The_String_Type\S8.4_A4.js",
+
+assertion: "Empty string variable has a length property",
 
 description: "Try read length property of empty string variable",
 

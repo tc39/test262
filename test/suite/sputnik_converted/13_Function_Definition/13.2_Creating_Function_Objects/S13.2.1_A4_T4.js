@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S13.2.1_A4_T4",
 
-path: "13.2.1",
+path: "13_Function_Definition\13.2_Creating_Function_Objects\S13.2.1_A4_T4.js",
+
+assertion: "Objects as arguments are passed by reference",
 
 description: "Adding new number property to a function argument within the function body,",
 

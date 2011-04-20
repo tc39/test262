@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.4.1_A2_T1",
 
-path: "15.10.4.1",
+path: "15_Native\15.10_RegExp_Objects\15.10.4_The_RegExp_Constructor\S15.10.4.1_A2_T1.js",
+
+assertion: "If pattern is an object R whose [[Class]] property is \"RegExp\" and flags is not undefined, then throw a TypeError exception",
 
 description: "Checking if execution of \"new RegExp(pattern, \"i\")\", where the pattern is \"/\\u0042/i\", fails",
 

@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.2.1_A1_T19",
 
-path: "15.5.2.1",
+path: "15_Native\15.5_String_Objects\15.5.2_The_String_Constructor\S15.5.2.1_A1_T19.js",
+
+assertion: "When \"String\" is called as part of a new expression, it is a constructor: it initialises the newly created object and",
 
 description: "Creating string object with \"new String()\" initialized with Array of numbers",
 

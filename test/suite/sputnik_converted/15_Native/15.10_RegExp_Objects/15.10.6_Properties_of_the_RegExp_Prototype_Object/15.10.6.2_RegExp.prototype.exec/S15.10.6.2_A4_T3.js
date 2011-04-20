@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.6.2_A4_T3",
 
-path: "15.10.6.2, 13.2",
+path: "15_Native\15.10_RegExp_Objects\15.10.6_Properties_of_the_RegExp_Prototype_Object\15.10.6.2_RegExp.prototype.exec\S15.10.6.2_A4_T3.js",
+
+assertion: "RegExp.prototype.exec behavior depends on global property.",
 
 description: "Call first exec, then set re.lastIndex = void 0 and again call exec",
 

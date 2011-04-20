@@ -12,9 +12,11 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S13.0_A6_T2",
+id: "S13_A6_T2",
 
-path: "13.0",
+path: "13_Function_Definition\S13_A6_T2.js",
+
+assertion: "FunctionDeclaration can be overrided by other FunctionDeclaration with the same Identifier",
 
 description: "Calling a function before it is declared one more time",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.1.1.1_A3.2",
 
-path: "15.1.1.1, 12.6.4",
+path: "15_Native\15.1_The_Global_Object\15.1.1_Value_Properties_of_the_Global_Object\15.1.1.1_NaN\S15.1.1.1_A3.2.js",
+
+assertion: "The NaN is DontEnum",
 
 description: "Use for-in statement",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.1.3.2_A5.7",
 
-path: "15.1.3.2, 11.2.2",
+path: "15_Native\15.1_The_Global_Object\15.1.3_URI_Handling_Function_Properties\15.1.3.2_decodeURIComponent\S15.1.3.2_A5.7.js",
+
+assertion: "The decodeURIComponent property can\'t be used as constructor",
 
 description: "If property does not implement the internal [[Construct]] method, throw a TypeError exception",
 

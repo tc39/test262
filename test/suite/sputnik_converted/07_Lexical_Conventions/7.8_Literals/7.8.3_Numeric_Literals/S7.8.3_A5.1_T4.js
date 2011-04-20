@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S7.8.3_A5.1_T4",
 
-path: "7.8.3",
+path: "07_Lexical_Conventions\7.8_Literals\7.8.3_Numeric_Literals\S7.8.3_A5.1_T4.js",
+
+assertion: "DecimalLiteral :: HexIntegerLiteral",
 
 description: "HexIntegerLiteral :: 0X NonZeroDigit Digits",
 

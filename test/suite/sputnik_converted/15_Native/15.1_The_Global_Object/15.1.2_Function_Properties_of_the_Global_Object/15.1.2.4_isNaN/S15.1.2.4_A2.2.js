@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.1.2.4_A2.2",
 
-path: "15.1.2.4, 15.2.4.5, 11.4.1",
+path: "15_Native\15.1_The_Global_Object\15.1.2_Function_Properties_of_the_Global_Object\15.1.2.4_isNaN\S15.1.2.4_A2.2.js",
+
+assertion: "The length property of isNaN has the attribute DontDelete",
 
 description: "Checking use hasOwnProperty, delete",
 

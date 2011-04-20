@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S9.3.1_A10",
 
-path: "9.3.1, 15.7.1",
+path: "09_Type_Conversion\9.3_ToNumber\9.3.1_ToNumber_from_String\S9.3.1_A10.js",
+
+assertion: "The MV of StrUnsignedDecimalLiteral:::. DecimalDigits is the",
 
 description: "Compare Number(\'.12345\') with +(\'12345\')*1e-5",
 

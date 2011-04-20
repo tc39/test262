@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S8.6.1_A1",
 
-path: "8.6.1, 15.2.2, 15.8",
+path: "08_Types\8.6_The_Object_Type\8.6.1_Property_Attributes\S8.6.1_A1.js",
+
+assertion: "A property can have attribute ReadOnly like E in Math",
 
 description: "Try change Math.E property",
 

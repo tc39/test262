@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.6_A1_T5",
 
-path: "15.5.4.6",
+path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\15.5.4.6_String.prototype.concat\S15.5.4.6_A1_T5.js",
+
+assertion: "String.prototype.concat([,[...]])",
 
 description: "Call concat([,[...]]) function with null argument of function object",
 

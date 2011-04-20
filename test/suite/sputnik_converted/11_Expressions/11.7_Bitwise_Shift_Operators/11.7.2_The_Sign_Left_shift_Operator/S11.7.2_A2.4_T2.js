@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.7.2_A2.4_T2",
 
-path: "11.7.2",
+path: "11_Expressions\11.7_Bitwise_Shift_Operators\11.7.2_The_Sign_Left_shift_Operator\S11.7.2_A2.4_T2.js",
+
+assertion: "First expression is evaluated first, and then second expression",
 
 description: "Checking with \"throw\"",
 

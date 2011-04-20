@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.7.3_A3_T2.8",
 
-path: "11.7.3",
+path: "11_Expressions\11.7_Bitwise_Shift_Operators\11.7.3_The_Unsigned_Right_Shift_Operator\S11.7.3_A3_T2.8.js",
+
+assertion: "Operator x >>> y returns ToNumber(x) >>> ToNumber(y)",
 
 description: "Type(x) is different from Type(y) and both types vary between Boolean (primitive or object) and Undefined",
 

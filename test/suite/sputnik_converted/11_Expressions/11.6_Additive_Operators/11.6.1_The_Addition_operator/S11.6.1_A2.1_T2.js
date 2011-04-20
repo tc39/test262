@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.6.1_A2.1_T2",
 
-path: "11.6.1",
+path: "11_Expressions\11.6_Additive_Operators\11.6.1_The_Addition_operator\S11.6.1_A2.1_T2.js",
+
+assertion: "Operator x + y uses GetValue",
 
 description: "If GetBase(x) is null, throw ReferenceError",
 

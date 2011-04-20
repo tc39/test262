@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.11.1.1_A1_T1",
 
-path: "15.11.1.1, 16",
+path: "15_Native\15.11_Error_Objects\15.11.1_The_Error_Constructor_Called_as_a_Function\S15.11.1.1_A1_T1.js",
+
+assertion: "If the argument \"message\" is not undefined, the message property of the newly constructed object is",
 
 description: "Checking message property of different error objects",
 

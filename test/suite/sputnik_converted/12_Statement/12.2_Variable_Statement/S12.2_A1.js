@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S12.2_A1",
 
-path: "12.2",
+path: "12_Statement\12.2_Variable_Statement\S12.2_A1.js",
+
+assertion: "Variables are created when the program is entered. Variables are initialised to \"undefined\"",
 
 description: "Creating variables after entering the execution scope",
 

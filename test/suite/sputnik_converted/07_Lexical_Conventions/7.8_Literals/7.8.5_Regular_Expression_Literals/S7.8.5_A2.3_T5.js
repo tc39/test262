@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S7.8.5_A2.3_T5",
 
-path: "7.8.5",
+path: "07_Lexical_Conventions\7.8_Literals\7.8.5_Regular_Expression_Literals\S7.8.5_A2.3_T5.js",
+
+assertion: "RegularExpressionChar :: LineTerminator is incorrect",
 
 description: "Line separator, with eval",
 

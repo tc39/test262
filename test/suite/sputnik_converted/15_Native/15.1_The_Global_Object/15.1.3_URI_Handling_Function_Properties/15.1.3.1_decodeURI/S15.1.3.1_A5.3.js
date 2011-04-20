@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.1.3.1_A5.3",
 
-path: "15.1.3.1",
+path: "15_Native\15.1_The_Global_Object\15.1.3_URI_Handling_Function_Properties\15.1.3.1_decodeURI\S15.1.3.1_A5.3.js",
+
+assertion: "The length property of decodeURI has the attribute ReadOnly",
 
 description: "Checking if varying the length property fails",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S7.6_A2.1_T1",
 
-path: "7.6",
+path: "07_Lexical_Conventions\7.6_Identifiers\S7.6_A2.1_T1.js",
+
+assertion: "IdentifierPart :: IdentifierStart",
 
 description: "IdentifierStart :: UnicodeLetter",
 

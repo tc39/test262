@@ -36,7 +36,8 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
         /// Gets or sets the ID.
         /// </summary>
         /// <value>The ID.</value>       
-        public string Id
+        [DataMember]
+        public string id
         {
             get
             {
@@ -80,7 +81,8 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
         /// <summary>
         /// Gets or sets the testScriptSection
         /// </summary>
-        public string SectionName
+        [DataMember]
+        public string path
         {
             get
             {
@@ -113,7 +115,7 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
         /// Gets or sets the testScriptDescription
         /// </summary>
         [DataMember]
-        public string Description
+        public string description
         {
             get
             {
@@ -130,7 +132,7 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
         /// Gets or sets the testScriptAssersion
         /// </summary>
         [DataMember]
-        public string Assertion
+        public string assertion
         {
             get
             {
@@ -287,20 +289,20 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
                 string commentKey = arrComments[0].ToLower();
                 if (commentKey.Contains(ResourceClass.LookFor_Name))
                 {
-                    this.Id = this.pathFromRoot.Substring(this.pathFromRoot.LastIndexOf("\\") + 1);
-                    this.Id = GetRealId(this.Id.Remove(this.Id.Length - 3));
+                    this.id = this.pathFromRoot.Substring(this.pathFromRoot.LastIndexOf("\\") + 1);
+                    this.id = GetRealId(this.id.Remove(this.id.Length - 3));
                 }
                 if (commentKey.Contains(ResourceClass.LookFor_Section))
                 {
-                    this.SectionName = GetRealSectionName(this.pathFromRoot);
+                    this.path = GetRealSectionName(this.pathFromRoot);
                 }
                 if (commentKey.Contains(ResourceClass.LookFor_Assertion))
                 {
-                    this.Assertion = arrComments[arrComments.Length - 1].Trim(trimDelimit);
+                    this.assertion = arrComments[arrComments.Length - 1].Trim(trimDelimit);
                 }
                 if (commentKey.Contains(ResourceClass.LookFor_Description))
                 {
-                    this.Description = arrComments[arrComments.Length - 1].Trim(trimDelimit);
+                    this.description = arrComments[arrComments.Length - 1].Trim(trimDelimit);
                 }
                 if (commentKey.Contains(ResourceClass.LookFor_NegativeStrictMode))
                 {

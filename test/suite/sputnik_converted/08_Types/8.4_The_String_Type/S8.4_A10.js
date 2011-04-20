@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S8.4_A10",
 
-path: "8.4, 7.8.4",
+path: "08_Types\8.4_The_String_Type\S8.4_A10.js",
+
+assertion: "Both unicode and ascii chars are allowed",
 
 description: "Create string using both unicode and ascii chars",
 

@@ -12,9 +12,11 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S13.0_A5",
+id: "S13_A5",
 
-path: "13, 10.1.2",
+path: "13_Function_Definition\S13_A5.js",
+
+assertion: "Only FormalParameterList as arguments list is allowed",
 
 description: "Trying to use [arg1, arg2, arg3], (arg1, arg2, arg3), etc. as a FormalParameterList",
 

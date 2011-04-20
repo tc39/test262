@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S15.4.2.2_A2.3_T1",
 
-path: "15.4.2.2",
+path: "15_Native\15.4_Array_Objects\15.4.2_The_Array_Constructor\15.4.2.2_new_Array_len\S15.4.2.2_A2.3_T1.js",
+
+assertion: "If the argument len is not a Number, then the length property of",
 
 description: "Checking for null and undefined",
 

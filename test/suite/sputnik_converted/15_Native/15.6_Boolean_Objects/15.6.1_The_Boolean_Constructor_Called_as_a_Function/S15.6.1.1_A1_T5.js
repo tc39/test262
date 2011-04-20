@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.6.1.1_A1_T5",
 
-path: "15.6.1.1",
+path: "15_Native\15.6_Boolean_Objects\15.6.1_The_Boolean_Constructor_Called_as_a_Function\S15.6.1.1_A1_T5.js",
+
+assertion: "Returns a boolean value (not a Boolean object) computed by",
 
 description: "Used various assigning values to any variable as argument",
 

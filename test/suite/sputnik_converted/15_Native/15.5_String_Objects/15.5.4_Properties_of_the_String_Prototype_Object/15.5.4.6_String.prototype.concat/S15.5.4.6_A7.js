@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.6_A7",
 
-path: "15.5.4.6, 13.2",
+path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\15.5.4.6_String.prototype.concat\S15.5.4.6_A7.js",
+
+assertion: "String.prototype.concat can\'t be used as constructor",
 
 description: "Checking if creating the String.prototype.concat object fails",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.1.5_A1.1",
 
-path: "11.1.5",
+path: "11_Expressions\11.1_Primary_Expressions\11.1.5_Object_Initializer\S11.1.5_A1.1.js",
+
+assertion: "Evaluate the production ObjectLiteral: { }",
 
 description: "Checking various properteis of the object defined with \"var object = {}\"",
 

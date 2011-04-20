@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.8_A7",
 
-path: "12.8",
+path: "12_Statement\12.8_The_break_Statement\S12.8_A7.js",
+
+assertion: "Appearing of \"break\" within eval statement that is nested in an IterationStatement yields SyntaxError",
 
 description: "Using eval \"eval(\"break LABEL1\")\"",
 

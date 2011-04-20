@@ -12,6 +12,14 @@ import json
 #--Globals---------------------------------------------------------------------
 MAX_CASES_PER_JSON = 1000
 
+#Directories under "test\suite\" containing ES5 test chapter directories
+#with *.js tests underneath them
+TEST_CONTRIB_DIRS = ["sputnik_converted", "ietestcenter", "globalscope"]
+
+#Global scope source files found directly under "test\suite\".
+GLOBAL_SCOPE_FILES = ["SputnikGlobalScope.js"]
+
+
 __parser = argparse.ArgumentParser(description='Tool used to generate the test262 website')
 __parser.add_argument('version', action='store',
                     help='Version of the test suite.')
@@ -48,9 +56,7 @@ EXCLUDE_LIST = xml.dom.minidom.parse(EXCLUDED_FILENAME)
 EXCLUDE_LIST = EXCLUDE_LIST.getElementsByTagName("test")
 EXCLUDE_LIST = [x.getAttribute("id") for x in EXCLUDE_LIST]
 
-#Directories under "test\suite\" containing ES5 test chapter directories
-#with *.js tests underneath them
-TEST_CONTRIB_DIRS = ["sputnik_converted", "ietestcenter"]
+
 
 #a list of all ES5 test chapter directories
 TEST_SUITE_SECTIONS = []
@@ -194,6 +200,9 @@ for chapter in TEST_SUITE_SECTIONS:
             if EXCLUDE_LIST.count(testName)==0:
                 # dictionary for each test
                 testDict = {}
+                #if chapterName=='globalscope':
+                #    testDict["path"] = test[test.lower().index("globalscope"):]
+                #else:
                 testDict["id"] = testName
                 
                 tempFile = open(test, "r")
@@ -259,5 +268,12 @@ print "Deploying test harness files to 'TEST262_WEB_HARNESS_DIR'..."
 for filename in [x for x in os.listdir(TEST262_HARNESS_DIR) if x.endswith(".js")]:
     shutil.copy(os.path.join(TEST262_HARNESS_DIR, filename),
                 os.path.join(TEST262_WEB_HARNESS_DIR, filename))
+
+#Copying the global scope files over as well
+#TODO: really the HTML harness file should be generated as well...
+for gsf in GLOBAL_SCOPE_FILES:
+    shutil.copy(os.path.join(TEST262_CASES_DIR, gsf),
+                os.path.join(TEST262_WEB_CASES_DIR, gsf))
+
 
 print "Done."

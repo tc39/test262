@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.2_A2",
 
-path: "12.2",
+path: "12_Statement\12.2_Variable_Statement\S12.2_A2.js",
+
+assertion: "Variables are defined with global scope (that is, they are created as members of the global object, as described in 10.1.3) using property attributes { DontDelete}",
 
 description: "Checking if deleting global variables that have the attributes {DontDelete} fails",
 

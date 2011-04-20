@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.10_A5.1_T1",
 
-path: "15.10.2.10",
+path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.10_CharacterEscape\S15.10.2.10_A5.1_T1.js",
+
+assertion: "CharacterEscape :: IdentityEscapeSequence :: SourceCharacter but not IdentifierPart",
 
 description: "Tested string is \"~`!@#$%^&*()-+={[}]|\\\\:;\'<,>./?\" + \'\"\'",
 

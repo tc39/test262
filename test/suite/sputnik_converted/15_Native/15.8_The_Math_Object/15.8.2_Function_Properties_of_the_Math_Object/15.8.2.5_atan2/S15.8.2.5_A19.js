@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.8.2.5_A19",
 
-path: "15.8.2.5",
+path: "15_Native\15.8_The_Math_Object\15.8.2_Function_Properties_of_the_Math_Object\15.8.2.5_atan2\S15.8.2.5_A19.js",
+
+assertion: "If y is -Infinity and x is finite, Math.atan2(y,x) is an implementation-dependent approximation to -PI/2",
 
 description: "Checking if Math.atan2(y,x) is an approximation to -PI/2, where y is -Infinity and x is finite",
 

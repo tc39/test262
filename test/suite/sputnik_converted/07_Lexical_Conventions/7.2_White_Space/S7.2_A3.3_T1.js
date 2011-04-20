@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S7.2_A3.3_T1",
 
-path: "7.2, 7.4",
+path: "07_Lexical_Conventions\7.2_White_Space\S7.2_A3.3_T1.js",
+
+assertion: "Single line comment can contain FORM FEED (U+000C)",
 
 description: "Use FORM FEED(\\u000C)",
 

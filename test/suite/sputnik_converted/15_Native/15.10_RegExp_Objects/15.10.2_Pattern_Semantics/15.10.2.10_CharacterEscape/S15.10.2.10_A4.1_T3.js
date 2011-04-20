@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.10_A4.1_T3",
 
-path: "15.10.2.10",
+path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.10_CharacterEscape\S15.10.2.10_A4.1_T3.js",
+
+assertion: "CharacterEscape :: UnicodeEscapeSequence :: u HexDigit HexDigit HexDigit HexDigit",
 
 description: "Tested string include RUSSIAN CAPITAL ALPHABET and russian small alphabet in unicode notation",
 

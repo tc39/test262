@@ -91,6 +91,7 @@ function BrowserRunner() {
         // Set up some globals.
         win.testRun = testRun;
         win.testFinished = testFinished;
+        win.iframeError = undefined;
         //TODO: these should be moved to sta.js
         win.SputnikError = SputnikError;
         win.$ERROR = $ERROR;
@@ -121,21 +122,55 @@ function BrowserRunner() {
         doc.writeln("<script type='text/javascript'>" + PickledSimpleTestAPIs + "</script>");
         
         
-        // Write ES5Harness.registerTest and fnGlobalObject, which returns the global object, and the testFinished call.
-        doc.writeln("<script type='text/javascript'>ES5Harness = {};" +
-                    "ES5Harness.registerTest = function(test) {" +
-                    "  var error;" +
-                    "  if(test.precondition && !test.precondition()) {" +
-                    "    testRun(test.id, test.path, test.description, test.test.toString(),typeof test.precondition !== 'undefined' ? test.precondition.toString() : '', 'fail', 'Precondition Failed');" +
-                    "  } else {" +
-                    "    var testThis = test.strict===undefined ? window : undefined;" +
-                    "    try { var res = test.test.call(testThis); } catch(e) { res = 'fail'; error = e; }" +
-                    "    var retVal = /^s/i.test(test.id) ? (res === true || typeof res === 'undefined' ? 'pass' : 'fail') : (res === true ? 'pass' : 'fail');" +
-                    "    testRun(test.id, test.path, test.description, test.test.toString(), typeof test.precondition !== 'undefined' ? test.precondition.toString() : '', retVal, error);" +
-                    "  }" +
-                    "}</script>" +
-                    "<script type='text/javascript'>" + code + "</script>" +
-                    "<script type='text/javascript'>testFinished();</script>")
+        
+        //--Scenario 1: we're dealing with a global scope test case
+        if (GlobalScopeTests[id]!==undefined) {
+            var testDescrip = GlobalScopeTests[id];
+            
+            //Add an error handler
+            doc.writeln("<script type='text/javascript'>window.onerror = function(errorMsg, url, lineNumber) {window.iframeError = errorMsg;};" + "</script>");
+            //Parse and execute the code
+            doc.writeln("<script type='text/javascript'>try{" + code + "}catch(test262RuntimeError){window.iframeError=test262RuntimeError.message || \"None\";}</script>");
+            
+            //validation
+            if (testDescrip.negative!==undefined) {  //An exception is expected
+                if (win.iframeError===undefined) { //no exception was thrown
+                    testRun(testDescrip.id, testDescrip.path, testDescrip.description, code, typeof testDescrip.precondition !== 'undefined' ? testDescrip.precondition.toString() : '', 
+                            'fail', 'No Exception Thrown');
+                } else if(! (new RegExp(testDescrip.negative, "i").test(win.iframeError))) {  //wrong type of exception thrown
+                    testRun(testDescrip.id, testDescrip.path, testDescrip.description, code, typeof testDescrip.precondition !== 'undefined' ? testDescrip.precondition.toString() : '', 
+                            'fail', 'Wrong Type of Exception Thrown');
+                } else {
+                    testRun(testDescrip.id, testDescrip.path, testDescrip.description, code, typeof testDescrip.precondition !== 'undefined' ? testDescrip.precondition.toString() : '', 
+                            'pass', undefined);
+                }
+            } else if (win.iframeError!==undefined) {  //Exception was not expected to be thrown
+                testRun(testDescrip.id, testDescrip.path, testDescrip.description, code, typeof testDescrip.precondition !== 'undefined' ? testDescrip.precondition.toString() : '', 
+                        'fail', 'Unexpected Exception');
+            } else {
+                testRun(testDescrip.id, testDescrip.path, testDescrip.description, code, typeof testDescrip.precondition !== 'undefined' ? testDescrip.precondition.toString() : '', 
+                        'pass', undefined);
+            }
+        }
+        //--Scenario 2:  we're dealing with a normal positive(?) test case
+        else {
+        
+            // Write ES5Harness.registerTest and fnGlobalObject, which returns the global object, and the testFinished call.
+            doc.writeln("<script type='text/javascript'>ES5Harness = {};" +
+                        "ES5Harness.registerTest = function(test) {" +
+                        "  var error;" +
+                        "  if(test.precondition && !test.precondition()) {" +
+                        "    testRun(test.id, test.path, test.description, test.test.toString(),typeof test.precondition !== 'undefined' ? test.precondition.toString() : '', 'fail', 'Precondition Failed');" +
+                        "  } else {" +
+                        "    var testThis = test.strict===undefined ? window : undefined;" +
+                        "    try { var res = test.test.call(testThis); } catch(e) { res = 'fail'; error = e; }" +
+                        "    var retVal = /^s/i.test(test.id) ? (res === true || typeof res === 'undefined' ? 'pass' : 'fail') : (res === true ? 'pass' : 'fail');" +
+                        "    testRun(test.id, test.path, test.description, test.test.toString(), typeof test.precondition !== 'undefined' ? test.precondition.toString() : '', retVal, error);" +
+                        "  }" +
+                        "}</script>" +
+                        "<script type='text/javascript'>" + code + "</script>");
+        }
+        doc.writeln("<script type='text/javascript'>testFinished();</script>");
         doc.close();
     }
 }

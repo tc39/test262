@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S10.1.7_A1_T1",
 
-path: "10.1.7",
+path: "10_Execution_Contexts\10.1_Definitions\S10.1.7_A1_T1.js",
+
+assertion: "The this value associated with an executioncontext is immutable",
 
 description: "Checking if deleting \"this\" fails",
 

@@ -12,9 +12,11 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S13.0_A18",
+id: "S13_A18",
 
-path: "13.0",
+path: "13_Function_Definition\S13_A18.js",
+
+assertion: "Closures are admitted",
 
 description: "Using a function declaration as a function parameter",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.6.3_A9.1",
 
-path: "12.6.3",
+path: "12_Statement\12.6_Iteration_Statements\12.6.3_The_for_Statement\S12.6.3_A9.1.js",
+
+assertion: "The result of evaluating \"for( ExpNoIn;Exp;Exp)\" loop is returning (normal, evalValue, empty)",
 
 description: "Using eval",
 

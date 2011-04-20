@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.2.3_A2",
 
-path: "15.2.3, 15.2.4",
+path: "15_Native\15.2_Object_Objects\15.2.3_Properties_of_the_Object_Constructor\S15.2.3_A2.js",
+
+assertion: "The value of the internal [[Prototype]] property of the Object constructor",
 
 description: "Checking Function.prototype.isPrototypeOf(Object)",
 

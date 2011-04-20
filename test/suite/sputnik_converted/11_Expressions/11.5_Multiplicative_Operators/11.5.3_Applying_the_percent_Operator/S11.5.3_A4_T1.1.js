@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.5.3_A4_T1.1",
 
-path: "11.5.3",
+path: "11_Expressions\11.5_Multiplicative_Operators\11.5.3_Applying_the_percent_Operator\S11.5.3_A4_T1.1.js",
+
+assertion: "The result of a ECMAScript floating-point remainder operation is determined by the rules of IEEE arithmetics",
 
 description: "If either operand is NaN, the result is NaN",
 

@@ -18,7 +18,9 @@
 ES5Harness.registerTest( {
 id: "S13.2_A4_T1",
 
-path: "13.2",
+path: "13_Function_Definition\13.2_Creating_Function_Objects\S13.2_A4_T1.js",
+
+assertion: "When Function object(F) is constructed the following steps from 9 to 11 take place",
 
 description: "Checking prototype, prototype.constructor properties and {DontEnum} property of a constructor.",
 

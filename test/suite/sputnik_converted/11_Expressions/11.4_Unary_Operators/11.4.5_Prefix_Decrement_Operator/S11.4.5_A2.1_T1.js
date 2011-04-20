@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.4.5_A2.1_T1",
 
-path: "11.4.5, 11.6.3",
+path: "11_Expressions\11.4_Unary_Operators\11.4.5_Prefix_Decrement_Operator\S11.4.5_A2.1_T1.js",
+
+assertion: "Operator --x uses GetValue and PutValue",
 
 description: "Type(x) is Reference and GetBase(x) is not null",
 

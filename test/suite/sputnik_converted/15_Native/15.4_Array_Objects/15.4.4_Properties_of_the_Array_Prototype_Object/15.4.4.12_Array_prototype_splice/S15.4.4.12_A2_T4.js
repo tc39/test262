@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S15.4.4.12_A2_T4",
 
-path: "15.4.4.12",
+path: "15_Native\15.4_Array_Objects\15.4.4_Properties_of_the_Array_Prototype_Object\15.4.4.12_Array_prototype_splice\S15.4.4.12_A2_T4.js",
+
+assertion: "The splice function is intentionally generic.",
 
 description: "If start is negative, use max(start + length, 0).",
 

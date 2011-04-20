@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.6.2.1_A3",
 
-path: "15.6.2.1",
+path: "15_Native\15.6_Boolean_Objects\15.6.2_The_Boolean_Constructor\S15.6.2.1_A3.js",
+
+assertion: "The [[Value]] property of the newly constructed object",
 
 description: "Checking value of the newly created object",
 

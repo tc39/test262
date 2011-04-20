@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.3.2_A4_T2",
 
-path: "11.3.2, 11.6.3",
+path: "11_Expressions\11.3_PostfixExpressions\11.3.2_Postfix_Decrement_Operator\S11.3.2_A4_T2.js",
+
+assertion: "Operator x-- returns ToNumber(x)",
 
 description: "Type(x) is number primitive or Number object",
 

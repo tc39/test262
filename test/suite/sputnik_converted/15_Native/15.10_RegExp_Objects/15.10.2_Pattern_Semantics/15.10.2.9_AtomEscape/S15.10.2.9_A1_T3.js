@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.9_A1_T3",
 
-path: "15.10.2.9, 15.10.2.11",
+path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.9_AtomEscape\S15.10.2.9_A1_T3.js",
+
+assertion: "An escape sequence of the form \\ followed by a nonzero decimal number n matches the result of the nth set of capturing parentheses (see 15.10.2.11)",
 
 description: "Execute /([xu]\\d{2}([A-H]{2})?)\\1/.exec(\"x09x12x01x05u00FFu00FFx04x04x23\") and check results",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.8.2.6_A7",
 
-path: "15.8.2.6",
+path: "15_Native\15.8_The_Math_Object\15.8.2_Function_Properties_of_the_Math_Object\15.8.2.6_ceil\S15.8.2.6_A7.js",
+
+assertion: "The value of Math.ceil(x) is the same as the value of -Math.floor(-x)",
 
 description: "Checking if Math.ceil(x) equals to -Math.floor(-x) on 2000 floating point argument values",
 

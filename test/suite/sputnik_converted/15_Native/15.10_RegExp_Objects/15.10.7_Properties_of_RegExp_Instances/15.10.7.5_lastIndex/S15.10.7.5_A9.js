@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.7.5_A9",
 
-path: "15.10.7.5",
+path: "15_Native\15.10_RegExp_Objects\15.10.7_Properties_of_RegExp_Instances\15.10.7.5_lastIndex\S15.10.7.5_A9.js",
+
+assertion: "The RegExp instance lastIndex property has the attribute DontDelete",
 
 description: "Checking if deleting the lastIndex property fails",
 

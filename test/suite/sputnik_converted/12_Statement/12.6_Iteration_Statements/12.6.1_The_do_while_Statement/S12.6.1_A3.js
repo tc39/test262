@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.6.1_A3",
 
-path: "12.6.1",
+path: "12_Statement\12.6_Iteration_Statements\12.6.1_The_do_while_Statement\S12.6.1_A3.js",
+
+assertion: "When the production \"do Statement while ( Expression )\" is evaluated, then (normal, V, empty) is returned",
 
 description: "Using eval \"eval(\"do __in__do=1; while (false)\")\"",
 

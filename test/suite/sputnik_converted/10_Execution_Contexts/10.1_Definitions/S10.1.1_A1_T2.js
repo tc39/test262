@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S10.1.1_A1_T2",
 
-path: "10.1.1",
+path: "10_Execution_Contexts\10.1_Definitions\S10.1.1_A1_T2.js",
+
+assertion: "Program functions are defined in source text by a FunctionDeclaration or created dynamically either",
 
 description: "Creating function dynamically by using a FunctionExpression",
 

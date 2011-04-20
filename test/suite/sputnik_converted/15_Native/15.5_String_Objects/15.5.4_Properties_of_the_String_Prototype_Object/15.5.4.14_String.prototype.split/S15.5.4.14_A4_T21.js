@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.14_A4_T21",
 
-path: "15.5.4.14",
+path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\15.5.4.14_String.prototype.split\S15.5.4.14_A4_T21.js",
+
+assertion: "String.prototype.split (separator, limit) returns an Array object into which substrings of the result of converting this object to a string have",
 
 description: "Argument is regexp /\\X/, and instance is String(\"a b c de f\")",
 

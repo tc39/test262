@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.12_A3_T1",
 
-path: "15.10.2.12",
+path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.12_CharacterClassEscape\S15.10.2.12_A3_T1.js",
+
+assertion: "The production CharacterClassEscape :: w evaluates by returning the set of characters containing the sixty-three characters:",
 
 description: "A - Z",
 

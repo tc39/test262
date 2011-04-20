@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S13.2.1_A1_T1",
 
-path: "13.2.1",
+path: "13_Function_Definition\13.2_Creating_Function_Objects\S13.2.1_A1_T1.js",
+
+assertion: "The depth of nested function calls reaches 32",
 
 description: "Creating function calls 32 elements depth",
 

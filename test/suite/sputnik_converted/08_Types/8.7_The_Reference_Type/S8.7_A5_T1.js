@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S8.7_A5_T1",
 
-path: "8.7",
+path: "08_Types\8.7_The_Reference_Type\S8.7_A5_T1.js",
+
+assertion: "Delete unary operator can\'t delete object to be referenced",
 
 description: "Delete referenced object, var __ref = obj",
 

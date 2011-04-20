@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.8.7_A4",
 
-path: "11.8.7, 9.8",
+path: "11_Expressions\11.8_Relational_Operators\11.8.7_The_in_operator\S11.8.7_A4.js",
+
+assertion: "Operator \"in\" calls ToString(ShiftExpression)",
 
 description: "Checking ToString coversion",
 

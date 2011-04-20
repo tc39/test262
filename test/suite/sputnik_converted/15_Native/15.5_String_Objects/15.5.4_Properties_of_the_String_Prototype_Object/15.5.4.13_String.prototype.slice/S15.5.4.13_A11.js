@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.13_A11",
 
-path: "15.5.4.13",
+path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\15.5.4.13_String.prototype.slice\S15.5.4.13_A11.js",
+
+assertion: "The length property of the slice method is 2",
 
 description: "Checking String.prototype.slice.length",
 

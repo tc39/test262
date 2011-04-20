@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.4.6_A3_T2",
 
-path: "11.4.6",
+path: "11_Expressions\11.4_Unary_Operators\11.4.6_Unary_plus_Operator\S11.4.6_A3_T2.js",
+
+assertion: "Operator +x returns ToNumber(x)",
 
 description: "Type(x) is number primitive or Number object",
 

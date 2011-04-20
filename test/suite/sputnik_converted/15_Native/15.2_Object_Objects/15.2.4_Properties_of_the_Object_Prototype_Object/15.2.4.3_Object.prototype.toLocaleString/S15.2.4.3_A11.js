@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.2.4.3_A11",
 
-path: "15.2.4.3",
+path: "15_Native\15.2_Object_Objects\15.2.4_Properties_of_the_Object_Prototype_Object\15.2.4.3_Object.prototype.toLocaleString\S15.2.4.3_A11.js",
+
+assertion: "The length property of the toLocaleString method is 0",
 
 description: "Checking the Object.prototype.toLocaleString.length",
 

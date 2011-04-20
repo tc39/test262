@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S10.1.8_A5_T4",
 
-path: "10.1.8",
+path: "10_Execution_Contexts\10.1_Definitions\10.1.8_Arguments_Object\S10.1.8_A5_T4.js",
+
+assertion: "A property is created with name length with property",
 
 description: "Overriding arguments.length property",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.2_A12",
 
-path: "12.2",
+path: "12_Statement\12.2_Variable_Statement\S12.2_A12.js",
+
+assertion: "VariableDeclaration within \"do-while\" loop is allowed",
 
 description: "Declaring variable within \"do-while\" statement",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.5_A5",
 
-path: "12.5",
+path: "12_Statement\12.5_The_if_Statement\S12.5_A5.js",
+
+assertion: "FunctionDeclaration inside the \"if\" Expression is evaluated as true and function will not be declarated",
 
 description: "The \"if\" Expression is \"function __func(){throw \"FunctionExpression\";}\"",
 

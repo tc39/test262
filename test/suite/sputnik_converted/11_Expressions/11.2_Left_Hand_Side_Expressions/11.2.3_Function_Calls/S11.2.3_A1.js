@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.2.3_A1",
 
-path: "11.2.3, 7.2, 7.3",
+path: "11_Expressions\11.2_Left_Hand_Side_Expressions\11.2.3_Function_Calls\S11.2.3_A1.js",
+
+assertion: "White Space and Line Terminator between MemberExpression and Arguments are allowed",
 
 description: "Checking by using eval",
 

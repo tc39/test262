@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.8.6_A2.1_T2",
 
-path: "11.8.6",
+path: "11_Expressions\11.8_Relational_Operators\11.8.6_The_instanceof_operator\S11.8.6_A2.1_T2.js",
+
+assertion: "Operator \"instanceof\" uses GetValue",
 
 description: "If GetBase(RelationalExpression) is null, throw ReferenceError",
 

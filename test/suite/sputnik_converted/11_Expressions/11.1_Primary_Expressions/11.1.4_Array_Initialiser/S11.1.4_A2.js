@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.1.4_A2",
 
-path: "11.1.4",
+path: "11_Expressions\11.1_Primary_Expressions\11.1.4_Array_Initialiser\S11.1.4_A2.js",
+
+assertion: "Create multi dimensional array",
 
 description: "Checking various properteis and contents of the arrya defined with \"var array = [[1,2], [3], []]\"",
 

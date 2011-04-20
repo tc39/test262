@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.1.3.2_A1.7_T1",
 
-path: "15.1.3.2",
+path: "15_Native\15.1_The_Global_Object\15.1.3_URI_Handling_Function_Properties\15.1.3.2_decodeURIComponent\S15.1.3.2_A1.7_T1.js",
+
+assertion: "If B = 110xxxxx (n = 2) and string.charAt(k + 3) not equal \"%\", throw URIError",
 
 description: "Complex tests. B = [0xC0 - 0xDF]",
 

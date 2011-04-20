@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.11.4.4_A2",
 
-path: "15.11.4.4, 16",
+path: "15_Native\15.11_Error_Objects\15.11.4_Properties_of_the_Error_Prototype_Object\S15.11.4.4_A2.js",
+
+assertion: "The Error.prototype.toString returns an implementation defined string",
 
 description: "Checking if call of Error.prototype.toSting() fails",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.10.2_A3_T2.2",
 
-path: "11.10.2",
+path: "11_Expressions\11.10_Binary_Bitwise_Operators\11.10.2_XOR_Operator\S11.10.2_A3_T2.2.js",
+
+assertion: "Operator x ^ y returns ToNumber(x) ^ ToNumber(y)",
 
 description: "Type(x) is different from Type(y) and both types vary between Number (primitive or object) and String (primitive and object)",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.1.6_A3_T6",
 
-path: "11.1.6",
+path: "11_Expressions\11.1_Primary_Expressions\11.1.6_The_Grouping_Operator\S11.1.6_A3_T6.js",
+
+assertion: "\"This\" operator only evaluates Expression",
 
 description: "Applying grouping operator to delete and typeof operators",
 

@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.4_A1.1_T5",
 
-path: "15.4, 11.2.1",
+path: "15_Native\15.4_Array_Objects\S15.4_A1.1_T5.js",
+
+assertion: "A property name P (in the form of a string value) is an array index",
 
 description: "Checking for null and undefined",
 

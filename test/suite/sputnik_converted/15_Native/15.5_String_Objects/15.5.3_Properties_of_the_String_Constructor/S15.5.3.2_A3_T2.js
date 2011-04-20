@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.3.2_A3_T2",
 
-path: "15.5.3.2",
+path: "15_Native\15.5_String_Objects\15.5.3_Properties_of_the_String_Constructor\S15.5.3.2_A3_T2.js",
+
+assertion: "String.fromCharCode ( [ char0 [ , char1 [ , ... ] ] ] )",
 
 description: "Create function variable, that equal String.fromCharCode, delete original String.fromCharCode and use created variable",
 

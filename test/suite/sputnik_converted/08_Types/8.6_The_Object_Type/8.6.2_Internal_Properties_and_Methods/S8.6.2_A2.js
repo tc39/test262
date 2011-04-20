@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S8.6.2_A2",
 
-path: "8.6.2, 15.2.4",
+path: "08_Types\8.6_The_Object_Type\8.6.2_Internal_Properties_and_Methods\S8.6.2_A2.js",
+
+assertion: "Properties of the [[Prototype]] object",
 
 description: "Check visibility properties of the child object for the purposes of get access, but not for put access",
 

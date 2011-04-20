@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.14_A2.1_T1",
 
-path: "11.14",
+path: "11_Expressions\11.14_Comma_Operator\S11.14_A2.1_T1.js",
+
+assertion: "Operator uses GetValue",
 
 description: "Either Expression is not Reference or GetBase is not null",
 

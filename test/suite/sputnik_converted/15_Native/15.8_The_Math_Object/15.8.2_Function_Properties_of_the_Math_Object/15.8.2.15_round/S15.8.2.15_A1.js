@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.8.2.15_A1",
 
-path: "15.8.2.15",
+path: "15_Native\15.8_The_Math_Object\15.8.2_Function_Properties_of_the_Math_Object\15.8.2.15_round\S15.8.2.15_A1.js",
+
+assertion: "If x is NaN, Math.round(x) is NaN",
 
 description: "Checking if Math.round(x) is NaN, where x is NaN",
 

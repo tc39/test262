@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.9_A5",
 
-path: "12.9",
+path: "12_Statement\12.9_The_return_Statement\S12.9_A5.js",
+
+assertion: "Code after ReturnStatement is not evaluated",
 
 description: "Using code after Return statement",
 

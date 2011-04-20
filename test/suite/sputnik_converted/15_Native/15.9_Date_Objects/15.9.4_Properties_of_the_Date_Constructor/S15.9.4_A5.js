@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.9.4_A5",
 
-path: "15.9.4",
+path: "15_Native\15.9_Date_Objects\15.9.4_Properties_of_the_Date_Constructor\S15.9.4_A5.js",
+
+assertion: "Date constructor has length property whose value is 7",
 
 description: "Checking Date.length property",
 

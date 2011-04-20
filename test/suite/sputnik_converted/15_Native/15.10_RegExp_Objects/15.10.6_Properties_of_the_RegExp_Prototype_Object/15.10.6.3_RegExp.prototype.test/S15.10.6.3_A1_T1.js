@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.6.3_A1_T1",
 
-path: "15.10.6.3",
+path: "15_Native\15.10_RegExp_Objects\15.10.6_Properties_of_the_RegExp_Prototype_Object\15.10.6.3_RegExp.prototype.test\S15.10.6.3_A1_T1.js",
+
+assertion: "Equivalent to the expression RegExp.prototype.exec(string) != null",
 
 description: "RegExp is /1|12/ and tested string is \"123\"",
 

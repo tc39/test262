@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S10.1.8_A7",
 
-path: "10.1.8",
+path: "10_Execution_Contexts\10.1_Definitions\10.1.8_Arguments_Object\S10.1.8_A7.js",
+
+assertion: "Get arguments of function",
 
 description: "Use property arguments",
 

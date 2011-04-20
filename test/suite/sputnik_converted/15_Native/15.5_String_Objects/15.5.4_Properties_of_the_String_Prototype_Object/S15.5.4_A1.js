@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.4_A1",
 
-path: "15.5.4",
+path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\S15.5.4_A1.js",
+
+assertion: "The String prototype object is itself a String object (its [[Class]] is \"String\")",
 
 description: "first we delete String.prototype.toString cause it overrides Object prototype toString.",
 

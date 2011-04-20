@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.11.2_A2.4_T3",
 
-path: "11.11.2",
+path: "11_Expressions\11.11_Binary_Logical_Operators\11.11.2_Logical_OR_Operator\S11.11.2_A2.4_T3.js",
+
+assertion: "First expression is evaluated first, and then second expression",
 
 description: "Checking with undeclarated variables",
 

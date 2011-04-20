@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.1.3.3_A1.1_T2",
 
-path: "15.1.3.3",
+path: "15_Native\15.1_The_Global_Object\15.1.3_URI_Handling_Function_Properties\15.1.3.3_encodeURI\S15.1.3.3_A1.1_T2.js",
+
+assertion: "If string.charAt(k) in [0xDC00 - 0xDFFF], throw URIError",
 
 description: "Complex tests",
 

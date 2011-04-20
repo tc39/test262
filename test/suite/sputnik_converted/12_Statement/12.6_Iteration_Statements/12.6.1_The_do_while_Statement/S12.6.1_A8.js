@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.6.1_A8",
 
-path: "12.6.1",
+path: "12_Statement\12.6_Iteration_Statements\12.6.1_The_do_while_Statement\S12.6.1_A8.js",
+
+assertion: "\"continue\" statement within a \"do-while\" Statement is allowed",
 
 description: "Using eval",
 

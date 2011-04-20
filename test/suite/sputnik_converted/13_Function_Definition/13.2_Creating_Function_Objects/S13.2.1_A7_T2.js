@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S13.2.1_A7_T2",
 
-path: "13.2.1",
+path: "13_Function_Definition\13.2_Creating_Function_Objects\S13.2.1_A7_T2.js",
+
+assertion: "When the [[Call]] property for a Function object F is called, the following steps are taken:",
 
 description: "Returning null. Declaring a function with \"var __func = function ()\"",
 

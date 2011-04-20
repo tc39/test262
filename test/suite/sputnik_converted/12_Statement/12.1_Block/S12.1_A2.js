@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S12.1_A2",
 
-path: "12.1",
+path: "12_Statement\12.1_Block\S12.1_A2.js",
+
+assertion: "The production StatementList  Statement is evaluated as follows",
 
 description: "Throwing exception within a Block",
 

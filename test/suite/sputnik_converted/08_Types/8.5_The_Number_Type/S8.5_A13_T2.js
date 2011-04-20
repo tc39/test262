@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S8.5_A13_T2",
 
-path: "8.5, 7.8.3",
+path: "08_Types\8.5_The_Number_Type\S8.5_A13_T2.js",
+
+assertion: "Finite nonzero values  that are Normalised having the form s*m*2**e",
 
 description: "Finite Non zero values where e is 971",
 

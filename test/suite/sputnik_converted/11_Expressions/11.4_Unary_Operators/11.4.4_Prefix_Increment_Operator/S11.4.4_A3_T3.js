@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.4.4_A3_T3",
 
-path: "11.4.4, 11.6.3",
+path: "11_Expressions\11.4_Unary_Operators\11.4.4_Prefix_Increment_Operator\S11.4.4_A3_T3.js",
+
+assertion: "Operator ++x returns x = ToNumber(x) + 1",
 
 description: "Type(x) is string primitive or String object",
 

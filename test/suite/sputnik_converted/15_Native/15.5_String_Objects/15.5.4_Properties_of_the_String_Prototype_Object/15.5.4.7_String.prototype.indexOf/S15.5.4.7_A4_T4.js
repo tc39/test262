@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.7_A4_T4",
 
-path: "15.5.4.7",
+path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\15.5.4.7_String.prototype.indexOf\S15.5.4.7_A4_T4.js",
+
+assertion: "when String.prototype.indexOf(searchString, position) is called first Call ToString, giving it the this value as its argument.",
 
 description: "Override toString and valueOf functions, and they throw exceptions",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S8.5_A11_T2",
 
-path: "8.5, 7.8.3",
+path: "08_Types\8.5_The_Number_Type\S8.5_A11_T2.js",
+
+assertion: "The integer 0 has two representations, +0 and -0",
 
 description: "Compare positive_zero and negative_zero",
 

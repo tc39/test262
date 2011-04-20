@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.7_A4_T2",
 
-path: "12.7",
+path: "12_Statement\12.7_The_continue_Statement\S12.7_A4_T2.js",
+
+assertion: "When \"continue Identifier\" is evaluated (continue, empty, Identifier) is returned",
 
 description: "Using embedded and labeled loops, continue to nested loop",
 

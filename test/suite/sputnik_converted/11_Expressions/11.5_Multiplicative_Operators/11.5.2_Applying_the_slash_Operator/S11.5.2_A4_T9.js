@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.5.2_A4_T9",
 
-path: "11.5.2",
+path: "11_Expressions\11.5_Multiplicative_Operators\11.5.2_Applying_the_slash_Operator\S11.5.2_A4_T9.js",
+
+assertion: "The result of division is determined by the specification of IEEE 754 arithmetics",
 
 description: "If the magnitude is too large to represent, the result is then an infinity of appropriate sign",
 

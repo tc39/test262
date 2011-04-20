@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S12.10_A5_T1",
 
-path: "12.10",
+path: "12_Statement\12.10_The_with_Statement\S12.10_A5_T1.js",
+
+assertion: "Deleting property using \"eval\" statement containing \"with\" statement",
 
 description: "Deleting string property",
 

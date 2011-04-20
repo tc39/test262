@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.12_A2.1_T1",
 
-path: "11.12, 8.7.1",
+path: "11_Expressions\11.12_Conditional_Operator\S11.12_A2.1_T1.js",
+
+assertion: "Operator x ? y : z uses GetValue",
 
 description: "Either Type is not Reference or GetBase is not null",
 

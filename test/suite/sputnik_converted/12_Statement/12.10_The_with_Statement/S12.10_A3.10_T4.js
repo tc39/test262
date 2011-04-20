@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S12.10_A3.10_T4",
 
-path: "12.10",
+path: "12_Statement\12.10_The_with_Statement\S12.10_A3.10_T4.js",
+
+assertion: "No matter how control leaves the embedded \'Statement\',",
 
 description: "Using iteration statement within \"with\" statement, leading completion be break",
 

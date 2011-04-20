@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S15.4.4.13_A1_T2",
 
-path: "15.4.4.13",
+path: "15_Native\15.4_Array_Objects\15.4.4_Properties_of_the_Array_Prototype_Object\15.4.4.13_Array_prototype_unshift\S15.4.4.13_A1_T2.js",
+
+assertion: "The arguments are prepended to the start of the array, such that",
 
 description: "Checking case when unsift is given many arguments",
 

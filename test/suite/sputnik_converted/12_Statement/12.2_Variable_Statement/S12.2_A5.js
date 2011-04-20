@@ -13,7 +13,9 @@
 ES5Harness.registerTest( {
 id: "S12.2_A5",
 
-path: "12.2",
+path: "12_Statement\12.2_Variable_Statement\S12.2_A5.js",
+
+assertion: "VariableDeclaration within Eval statement is initialized as the program reaches the eval statement",
 
 description: "Executing eval(\"var x\")",
 

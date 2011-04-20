@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S7.8.4_A6.3_T1",
 
-path: "7.8.4",
+path: "07_Lexical_Conventions\7.8_Literals\7.8.4_String_Literals\S7.8.4_A6.3_T1.js",
+
+assertion: "\\x HexDigit HexDigit SingleStringCharacter",
 
 description: "Check similar to (\'\\x01F\' === String.fromCharCode(\'1\') + \'F\')",
 

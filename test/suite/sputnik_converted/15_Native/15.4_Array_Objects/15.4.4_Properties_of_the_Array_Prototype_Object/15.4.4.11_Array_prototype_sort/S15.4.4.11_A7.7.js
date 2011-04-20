@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.4.4.11_A7.7",
 
-path: "15.4.4.11, 11.2.2",
+path: "15_Native\15.4_Array_Objects\15.4.4_Properties_of_the_Array_Prototype_Object\15.4.4.11_Array_prototype_sort\S15.4.4.11_A7.7.js",
+
+assertion: "The sort property of Array can\'t be used as constructor",
 
 description: "If property does not implement the internal [[Construct]] method, throw a TypeError exception",
 

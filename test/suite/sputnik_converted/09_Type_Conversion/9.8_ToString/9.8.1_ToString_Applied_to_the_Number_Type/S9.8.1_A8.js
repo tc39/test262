@@ -17,7 +17,9 @@
 ES5Harness.registerTest( {
 id: "S9.8.1_A8",
 
-path: "9.8.1",
+path: "09_Type_Conversion\9.8_ToString\9.8.1_ToString_Applied_to_the_Number_Type\S9.8.1_A8.js",
+
+assertion: "If 1 > s > -1, and -6 < n <= 0, return the string consisting of the",
 
 description: "Various float numbers convert to String by explicit transformation",
 

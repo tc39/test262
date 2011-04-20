@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.1.1.1_A2_T1",
 
-path: "15.1.1.1, 15.5.1, 15.6.1, 15.7.1",
+path: "15_Native\15.1_The_Global_Object\15.1.1_Value_Properties_of_the_Global_Object\15.1.1.1_NaN\S15.1.1.1_A2_T1.js",
+
+assertion: "The NaN is not ReadOnly",
 
 description: "Checking Boolean, Number, String Functions",
 

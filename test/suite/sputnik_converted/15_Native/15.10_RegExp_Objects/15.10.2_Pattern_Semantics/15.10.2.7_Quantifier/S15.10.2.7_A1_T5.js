@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.7_A1_T5",
 
-path: "15.10.2.7",
+path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.7_Quantifier\S15.10.2.7_A1_T5.js",
+
+assertion: "The production QuantifierPrefix :: { DecimalDigits , DecimalDigits } evaluates as ...",
 
 description: "Execute /\\d{2,4}/.exec(\"the 1984 novel\") and check results",
 

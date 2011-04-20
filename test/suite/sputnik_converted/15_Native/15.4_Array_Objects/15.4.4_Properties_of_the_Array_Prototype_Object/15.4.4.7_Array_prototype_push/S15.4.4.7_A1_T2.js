@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S15.4.4.7_A1_T2",
 
-path: "15.4.4.7",
+path: "15_Native\15.4_Array_Objects\15.4.4_Properties_of_the_Array_Prototype_Object\15.4.4.7_Array_prototype_push\S15.4.4.7_A1_T2.js",
+
+assertion: "The arguments are appended to the end of the array, in",
 
 description: "Checking case when push is given many arguments",
 

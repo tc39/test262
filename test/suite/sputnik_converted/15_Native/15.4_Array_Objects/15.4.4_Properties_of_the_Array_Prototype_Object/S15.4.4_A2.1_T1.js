@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S15.4.4_A2.1_T1",
 
-path: "15.4.4, 15.2.4.5",
+path: "15_Native\15.4_Array_Objects\15.4.4_Properties_of_the_Array_Prototype_Object\S15.4.4_A2.1_T1.js",
+
+assertion: "The Array prototype object does not have a valueOf property of",
 
 description: "Checking use hasOwnProperty",
 

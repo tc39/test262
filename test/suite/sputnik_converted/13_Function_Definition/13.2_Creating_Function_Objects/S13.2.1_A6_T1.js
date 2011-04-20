@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S13.2.1_A6_T1",
 
-path: "13.2.1",
+path: "13_Function_Definition\13.2_Creating_Function_Objects\S13.2.1_A6_T1.js",
+
+assertion: "Primitive types are passed by value",
 
 description: "Declaring a function with \"function __func(arg1, arg2)\"",
 

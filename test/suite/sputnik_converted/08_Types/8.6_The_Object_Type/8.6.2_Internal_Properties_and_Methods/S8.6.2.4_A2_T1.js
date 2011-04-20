@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S8.6.2.4_A2_T1",
 
-path: "8.6.2.4, 12.6.4",
+path: "08_Types\8.6_The_Object_Type\8.6.2_Internal_Properties_and_Methods\S8.6.2.4_A2_T1.js",
+
+assertion: "When the [[HasProperty]] method of O is called with property name P and if O has not a property with name P",
 
 description: "Try find not existent property of any Object",
 

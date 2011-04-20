@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.5.3_A4_T7",
 
-path: "11.5.3, 15.8.2.9",
+path: "11_Expressions\11.5_Multiplicative_Operators\11.5.3_Applying_the_percent_Operator\S11.5.3_A4_T7.js",
+
+assertion: "The result of a ECMAScript floating-point remainder operation is determined by the rules of IEEE arithmetics",
 
 description: "If operands neither an infinity, nor a zero, nor NaN, return x - truncate(x / y) * y",
 

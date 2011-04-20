@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.4.7_A3_T5",
 
-path: "11.4.7",
+path: "11_Expressions\11.4_Unary_Operators\11.4.7_Unary_minus_Operator\S11.4.7_A3_T5.js",
+
+assertion: "Operator -x returns -ToNumber(x)",
 
 description: "Type(x) is Object object or Function object",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.18_A1_T10",
 
-path: "15.5.4.18",
+path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\15.5.4.18_String.prototype.toUpperCase\S15.5.4.18_A1_T10.js",
+
+assertion: "String.prototype.toUpperCase()",
 
 description: "Call toUpperCase() function of object with overrode toString function",
 

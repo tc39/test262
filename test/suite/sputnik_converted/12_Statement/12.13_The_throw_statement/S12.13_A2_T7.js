@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.13_A2_T7",
 
-path: "12.13",
+path: "12_Statement\12.13_The_throw_statement\S12.13_A2_T7.js",
+
+assertion: "\"throw Expression\" returns (throw, GetValue(Result(1)), empty), where 1 evaluates Expression",
 
 description: "Throwing Array",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.4.4.5_A1.2_T2",
 
-path: "15.4.4.5",
+path: "15_Native\15.4_Array_Objects\15.4.4_Properties_of_the_Array_Prototype_Object\15.4.4.5_Array_prototype_join\S15.4.4.5_A1.2_T2.js",
+
+assertion: "If separator is undefined, a single comma is used as the separator",
 
 description: "Checking this use new Array() and []",
 

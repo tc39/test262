@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.4.1_A2.2_T2",
 
-path: "11.4.1",
+path: "11_Expressions\11.4_Unary_Operators\11.4.1_The_delete_Operator\S11.4.1_A2.2_T2.js",
+
+assertion: "If GetBase(x) doesn\'t have a property GetPropertyName(x), return true",
 
 description: "Checking Object object and Function object cases",
 

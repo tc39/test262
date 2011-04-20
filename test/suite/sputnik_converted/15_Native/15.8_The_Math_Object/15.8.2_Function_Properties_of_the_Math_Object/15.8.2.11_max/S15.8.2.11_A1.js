@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.8.2.11_A1",
 
-path: "15.8.2.11",
+path: "15_Native\15.8_The_Math_Object\15.8.2_Function_Properties_of_the_Math_Object\15.8.2.11_max\S15.8.2.11_A1.js",
+
+assertion: "If no arguments are given, Math.max() is -Infinity",
 
 description: "Checking if Math.max() equals to -Infinity",
 

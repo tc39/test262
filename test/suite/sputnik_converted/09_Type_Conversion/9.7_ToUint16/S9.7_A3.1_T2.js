@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S9.7_A3.1_T2",
 
-path: "9.7",
+path: "09_Type_Conversion\9.7_ToUint16\S9.7_A3.1_T2.js",
+
+assertion: "Operator uses ToNumber",
 
 description: "Type(x) is Number",
 

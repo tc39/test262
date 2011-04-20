@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S15.6.4.3_A2_T1",
 
-path: "15.6.4.3",
+path: "15_Native\15.6_Boolean_Objects\15.6.4_Properties_of_the_Boolean_Prototype_Object\S15.6.4.3_A2_T1.js",
+
+assertion: "The valueOf function is not generic, it cannot be transferred",
 
 description: "transferring to the String objects",
 

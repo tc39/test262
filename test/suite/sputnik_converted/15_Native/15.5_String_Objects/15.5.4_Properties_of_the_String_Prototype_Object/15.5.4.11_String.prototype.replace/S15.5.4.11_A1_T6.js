@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.11_A1_T6",
 
-path: "15.5.4.11",
+path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\15.5.4.11_String.prototype.replace\S15.5.4.11_A1_T6.js",
+
+assertion: "String.prototype.replace (searchValue, replaceValue)",
 
 description: "Call replace (searchValue, replaceValue) function with x and Function(\"return arguments[1]+42;\") arguments of new String object. x is undefined variable",
 

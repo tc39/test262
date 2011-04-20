@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S7.9_A2",
 
-path: "7.9, 12.8, 12.12",
+path: "07_Lexical_Conventions\7.9_Automatic_Semicolon_Insertion\S7.9_A2.js",
+
+assertion: "Check Break Statement for automatic semicolon insertion",
 
 description: "Try use break \\n Label construction",
 

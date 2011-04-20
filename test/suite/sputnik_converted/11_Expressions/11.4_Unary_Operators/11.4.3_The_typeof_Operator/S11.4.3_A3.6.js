@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.4.3_A3.6",
 
-path: "11.4.3",
+path: "11_Expressions\11.4_Unary_Operators\11.4.3_The_typeof_Operator\S11.4.3_A3.6.js",
+
+assertion: "Result of applying \"typeof\" operator to the object that is native and doesn\'t implement [[Call]] is \"object\"",
 
 description: "typeof (object without [[Call]]) === \"object\"",
 

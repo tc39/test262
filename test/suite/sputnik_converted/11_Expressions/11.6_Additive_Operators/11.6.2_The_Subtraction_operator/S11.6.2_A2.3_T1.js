@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.6.2_A2.3_T1",
 
-path: "11.6.2",
+path: "11_Expressions\11.6_Additive_Operators\11.6.2_The_Subtraction_operator\S11.6.2_A2.3_T1.js",
+
+assertion: "ToNumber(first expression) is called first, and then ToNumber(second expression)",
 
 description: "Checking with \"throw\"",
 

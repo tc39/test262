@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.3.1_A3",
 
-path: "15.5.3.1, 15.5.4",
+path: "15_Native\15.5_String_Objects\15.5.3_Properties_of_the_String_Constructor\S15.5.3.1_A3.js",
+
+assertion: "The String.prototype property has the attribute DontDelete",
 
 description: "Checking if deleting the String.prototype property fails",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.8_A1_T6",
 
-path: "15.5.4.8",
+path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\15.5.4.8_String.prototype.lastIndexOf\S15.5.4.8_A1_T6.js",
+
+assertion: "String.prototype.lastIndexOf(searchString, position)",
 
 description: "Call lastIndexOf(searchString, position) function with x argument of new String object, where x is undefined variable",
 

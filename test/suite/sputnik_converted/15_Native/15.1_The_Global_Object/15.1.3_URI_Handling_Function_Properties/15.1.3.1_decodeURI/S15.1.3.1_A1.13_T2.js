@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.1.3.1_A1.13_T2",
 
-path: "15.1.3.1",
+path: "15_Native\15.1_The_Global_Object\15.1.3_URI_Handling_Function_Properties\15.1.3.1_decodeURI\S15.1.3.1_A1.13_T2.js",
+
+assertion: "If B = 110xxxxx (n = 2) and C != 10xxxxxx (C - first of octets after B), throw URIError",
 
 description: "Complex tests. B = [0xC0 - 0xDF], C = [0xC0, 0xFF]",
 

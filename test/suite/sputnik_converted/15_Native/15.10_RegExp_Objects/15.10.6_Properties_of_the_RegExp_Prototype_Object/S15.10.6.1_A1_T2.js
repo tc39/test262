@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.6.1_A1_T2",
 
-path: "15.10.6.1",
+path: "15_Native\15.10_RegExp_Objects\15.10.6_Properties_of_the_RegExp_Prototype_Object\S15.10.6.1_A1_T2.js",
+
+assertion: "The initial value of RegExp.prototype.constructor is the built-in RegExp constructor",
 
 description: "Compare instance.constructor !== RegExp, where instance is new RegExp.prototype.constructor",
 

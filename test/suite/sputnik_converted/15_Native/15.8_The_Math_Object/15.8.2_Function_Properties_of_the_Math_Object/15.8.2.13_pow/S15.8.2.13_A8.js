@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.8.2.13_A8",
 
-path: "15.8.2.13",
+path: "15_Native\15.8_The_Math_Object\15.8.2_Function_Properties_of_the_Math_Object\15.8.2.13_pow\S15.8.2.13_A8.js",
+
+assertion: "If abs(x)==1 and y is -Infinity, Math.pow(x,y) is NaN",
 
 description: "Checking if Math.pow(x,y) is NaN, where abs(x)==1 and y is -Infinity",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.1.3.4_A2.3_T1",
 
-path: "15.1.3.4",
+path: "15_Native\15.1_The_Global_Object\15.1.3_URI_Handling_Function_Properties\15.1.3.4_encodeURIComponent\S15.1.3.4_A2.3_T1.js",
+
+assertion: "If string.charAt(k) in [0x0800 - 0xD7FF], return 3 octets (xxxxyyyy yyzzzzzz -> 1110xxxx 10yyyyyy 10zzzzzz)",
 
 description: "Complex tests, use RFC 3629",
 

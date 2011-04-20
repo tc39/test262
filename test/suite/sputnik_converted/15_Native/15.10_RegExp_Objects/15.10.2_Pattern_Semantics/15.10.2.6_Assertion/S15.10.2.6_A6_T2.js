@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.6_A6_T2",
 
-path: "15.10.2.6",
+path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.6_Assertion\S15.10.2.6_A6_T2.js",
+
+assertion: "Assertions in combination",
 
 description: "Execute /^.*?/.exec(\"Hello World\") and check results",
 

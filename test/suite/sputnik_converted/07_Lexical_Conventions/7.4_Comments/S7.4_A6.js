@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S7.4_A6",
 
-path: "7.4",
+path: "07_Lexical_Conventions\7.4_Comments\S7.4_A6.js",
+
+assertion: "If multi line comments csn not nest, they can contain any Unicode character",
 
 description: "\"var\"+ yy+ \"xx = 1\", insert instead of yy all Unicode characters",
 

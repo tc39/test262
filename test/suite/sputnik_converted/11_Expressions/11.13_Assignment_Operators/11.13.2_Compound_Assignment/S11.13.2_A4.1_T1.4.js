@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.13.2_A4.1_T1.4",
 
-path: "11.13.2, 11.5.1",
+path: "11_Expressions\11.13_Assignment_Operators\11.13.2_Compound_Assignment\S11.13.2_A4.1_T1.4.js",
+
+assertion: "The production x *= y is the same as the production x = x * y",
 
 description: "Type(x) and Type(y) vary between Null and Undefined",
 

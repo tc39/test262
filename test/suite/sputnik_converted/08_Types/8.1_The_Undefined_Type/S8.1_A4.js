@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S8.1_A4",
 
-path: "8.1",
+path: "08_Types\8.1_The_Undefined_Type\S8.1_A4.js",
+
+assertion: "If property of object not exist, return undefined",
 
 description: "Check value of not existed property",
 

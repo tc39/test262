@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.8.7_A1",
 
-path: "11.8.7, 7.2, 7.3",
+path: "11_Expressions\11.8_Relational_Operators\11.8.7_The_in_operator\S11.8.7_A1.js",
+
+assertion: "White Space and Line Terminator between RelationalExpression and \"in\" and between \"in\" and ShiftExpression are allowed",
 
 description: "Checking by using eval",
 

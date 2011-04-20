@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.1.3.2_A5.2",
 
-path: "15.1.3.2, 15.2.4.5, 11.4.1",
+path: "15_Native\15.1_The_Global_Object\15.1.3_URI_Handling_Function_Properties\15.1.3.2_decodeURIComponent\S15.1.3.2_A5.2.js",
+
+assertion: "The length property of decodeURIComponent has the attribute DontDelete",
 
 description: "Checking use hasOwnProperty, delete",
 

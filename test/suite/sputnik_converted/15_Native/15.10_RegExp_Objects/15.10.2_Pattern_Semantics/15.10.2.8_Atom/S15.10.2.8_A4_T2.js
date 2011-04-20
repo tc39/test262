@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.8_A4_T2",
 
-path: "15.10.2.8",
+path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.8_Atom\S15.10.2.8_A4_T2.js",
+
+assertion: "The production Atom :: . evaluates as follows:",
 
 description: "Execute /.+/.exec(\"line 1\\nline 2\") and check results",
 

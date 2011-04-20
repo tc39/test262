@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.2_A1_T1",
 
-path: "15.10.2",
+path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\S15.10.2_A1_T1.js",
+
+assertion: "XML Shallow Parsing with Regular Expressions",
 
 description: "See bug http://bugzilla.mozilla.org/show_bug.cgi?id=103087",
 

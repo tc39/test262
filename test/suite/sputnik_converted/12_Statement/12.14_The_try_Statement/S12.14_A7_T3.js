@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.14_A7_T3",
 
-path: "12.14",
+path: "12_Statement\12.14_The_try_Statement\S12.14_A7_T3.js",
+
+assertion: "Evaluating the nested productions TryStatement",
 
 description: "Checking if the production of nested TryStatement statements evaluates correct",
 

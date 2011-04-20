@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.3_A1_T5",
 
-path: "15.10.2.3",
+path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.3_Disjunction\S15.10.2.3_A1_T5.js",
+
+assertion: "The | regular expression operator separates two alternatives.",
 
 description: "Execute /\\d{3}|[a-z]{4}/.test(\"2, 12 and 23 AND 0.00.1\") and check results",
 

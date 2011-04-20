@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S9.5_A3.2_T1",
 
-path: "9.5",
+path: "09_Type_Conversion\9.5_ToInt32\S9.5_A3.2_T1.js",
+
+assertion: "Operator uses floor, abs",
 
 description: "Use operator <<0",
 

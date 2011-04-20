@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.8.1_A2.1_T2",
 
-path: "11.8.1, 11.8.5",
+path: "11_Expressions\11.8_Relational_Operators\11.8.1_The_Less_than_Operator\S11.8.1_A2.1_T2.js",
+
+assertion: "Operator x < y uses GetValue",
 
 description: "If GetBase(x) is null, throw ReferenceError",
 

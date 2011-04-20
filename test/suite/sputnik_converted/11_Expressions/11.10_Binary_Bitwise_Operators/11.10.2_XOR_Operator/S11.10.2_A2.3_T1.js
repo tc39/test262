@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.10.2_A2.3_T1",
 
-path: "11.10.2",
+path: "11_Expressions\11.10_Binary_Bitwise_Operators\11.10.2_XOR_Operator\S11.10.2_A2.3_T1.js",
+
+assertion: "ToInt32(first expression) is called first, and then ToInt32(second expression)",
 
 description: "Checking with \"throw\"",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.8.2.12_A4",
 
-path: "15.8.2.12",
+path: "15_Native\15.8_The_Math_Object\15.8.2_Function_Properties_of_the_Math_Object\15.8.2.12_min\S15.8.2.12_A4.js",
+
+assertion: "The length property of the Math.min method is 2",
 
 description: "Checking if Math.min.length property is defined and equals to 2",
 

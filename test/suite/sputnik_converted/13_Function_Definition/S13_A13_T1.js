@@ -12,9 +12,11 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S13.0_A13_T1",
+id: "S13_A13_T1",
 
-path: "13.0",
+path: "13_Function_Definition\S13_A13_T1.js",
+
+assertion: "Deleting arguments[i] leads to breaking the connection to local reference",
 
 description: "Deleting arguments[i]",
 

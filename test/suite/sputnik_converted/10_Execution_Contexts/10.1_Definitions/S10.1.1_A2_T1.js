@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S10.1.1_A2_T1",
 
-path: "10.1.1",
+path: "10_Execution_Contexts\10.1_Definitions\S10.1.1_A2_T1.js",
+
+assertion: "There are two types of Function objects. Internal functions",
 
 description: "Checking types of parseInt and Math.exp",
 

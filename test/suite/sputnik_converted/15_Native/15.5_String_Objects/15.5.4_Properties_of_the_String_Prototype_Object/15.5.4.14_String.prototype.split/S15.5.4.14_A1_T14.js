@@ -20,7 +20,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.14_A1_T14",
 
-path: "15.5.4.14",
+path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\15.5.4.14_String.prototype.split\S15.5.4.14_A1_T14.js",
+
+assertion: "String.prototype.split(separator, limit):",
 
 description: "Arguments are objects, and instance is string.",
 

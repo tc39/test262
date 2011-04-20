@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S9.9_A3",
 
-path: "9.9",
+path: "09_Type_Conversion\9.9_ToObject\S9.9_A3.js",
+
+assertion: "ToObject conversion from Boolean: create a new Boolean object",
 
 description: "Trying to convert from Boolean to Object",
 

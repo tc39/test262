@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.6.4_A3",
 
-path: "12.6.4",
+path: "12_Statement\12.6_Iteration_Statements\12.6.4_The_for_in_Statement\S12.6.4_A3.js",
+
+assertion: "The production IterationStatement: \"for (var VariableDeclarationNoIn in Expression) Statement\"",
 
 description: "Using an array as an Expression is appropriate. Here Expression is an array of numbers. Eval is used",
 

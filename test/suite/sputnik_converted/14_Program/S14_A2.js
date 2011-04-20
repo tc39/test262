@@ -12,9 +12,11 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S14.0_A2",
+id: "S14_A2",
 
-path: "14.0",
+path: "14_Program\S14_A2.js",
+
+assertion: "FunctionDeclaration cannot be localed inside an Expression",
 
 description: "Declaring a function within an \"if\" Expression",
 

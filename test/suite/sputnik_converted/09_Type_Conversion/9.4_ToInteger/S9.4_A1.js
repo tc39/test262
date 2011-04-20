@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S9.4_A1",
 
-path: "9.4, 15.5",
+path: "09_Type_Conversion\9.4_ToInteger\S9.4_A1.js",
+
+assertion: "If ToNumber(value) is NaN, ToInteger(value) returns +0",
 
 description: "Check what position is defined by Number.NaN in string \"abc\": \"abc\".charAt(Number.NaN)",
 

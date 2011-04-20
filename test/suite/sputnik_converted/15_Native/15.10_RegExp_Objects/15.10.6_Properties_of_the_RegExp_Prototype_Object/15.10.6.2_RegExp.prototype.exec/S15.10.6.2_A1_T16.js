@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.6.2_A1_T16",
 
-path: "15.10.6.2",
+path: "15_Native\15.10_RegExp_Objects\15.10.6_Properties_of_the_RegExp_Prototype_Object\15.10.6.2_RegExp.prototype.exec\S15.10.6.2_A1_T16.js",
+
+assertion: "RegExp.prototype.exec(string) Performs a regular expression match of ToString(string) against the regular expression and",
 
 description: "RegExp is /undefined/ and call exec() without arguments",
 

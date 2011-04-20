@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.3.5.1_A3_T2",
 
-path: "15.3.5.1",
+path: "15_Native\15.3_Function_Objects\15.3.5_Properties_of_Function_Instances\S15.3.5.1_A3_T2.js",
+
+assertion: "the length property has the attributes { ReadOnly }",
 
 description: "Checking if varying the length property of Function(\"arg1,arg2,arg3\", null) fails",
 

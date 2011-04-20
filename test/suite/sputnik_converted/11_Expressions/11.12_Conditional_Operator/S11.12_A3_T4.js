@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.12_A3_T4",
 
-path: "11.12",
+path: "11_Expressions\11.12_Conditional_Operator\S11.12_A3_T4.js",
+
+assertion: "If ToBoolean(x) is false, return z",
 
 description: "Type(x) or Type(y) is changed between null and undefined",
 

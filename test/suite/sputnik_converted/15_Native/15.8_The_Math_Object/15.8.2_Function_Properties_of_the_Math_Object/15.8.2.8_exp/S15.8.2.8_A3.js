@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.8.2.8_A3",
 
-path: "15.8.2.8",
+path: "15_Native\15.8_The_Math_Object\15.8.2_Function_Properties_of_the_Math_Object\15.8.2.8_exp\S15.8.2.8_A3.js",
+
+assertion: "If x is -0, Math.exp(x) is 1",
 
 description: "Checking if Math.exp(-0) is 1",
 

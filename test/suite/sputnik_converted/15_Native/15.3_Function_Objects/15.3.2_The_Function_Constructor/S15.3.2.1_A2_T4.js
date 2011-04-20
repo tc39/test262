@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.3.2.1_A2_T4",
 
-path: "15.3.2.1",
+path: "15_Native\15.3_Function_Objects\15.3.2_The_Function_Constructor\S15.3.2.1_A2_T4.js",
+
+assertion: "It is permissible but not necessary to have one argument for each formal parameter to be specified",
 
 description: "Values of the function constructor arguments are \"return\"-s of various results",
 

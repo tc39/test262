@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.1.2.1_A4.7",
 
-path: "15.1.2.1, 11.2.2",
+path: "15_Native\15.1_The_Global_Object\15.1.2_Function_Properties_of_the_Global_Object\15.1.2.1_eval\S15.1.2.1_A4.7.js",
+
+assertion: "The eval property can\'t be used as constructor",
 
 description: "If property does not implement the internal [[Construct]] method, throw a TypeError exception",
 

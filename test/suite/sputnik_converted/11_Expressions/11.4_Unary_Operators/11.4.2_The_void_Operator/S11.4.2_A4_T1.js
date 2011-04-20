@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.4.2_A4_T1",
 
-path: "11.4.2",
+path: "11_Expressions\11.4_Unary_Operators\11.4.2_The_void_Operator\S11.4.2_A4_T1.js",
+
+assertion: "Operator \"void\" evaluates UnaryExpression and returns undefined",
 
 description: "Type(x) is boolean primitive or Boolean object",
 

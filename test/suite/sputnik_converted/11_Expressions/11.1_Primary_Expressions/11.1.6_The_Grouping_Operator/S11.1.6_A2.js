@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.1.6_A2",
 
-path: "11.1.6",
+path: "11_Expressions\11.1_Primary_Expressions\11.1.6_The_Grouping_Operator\S11.1.6_A2.js",
+
+assertion: "\"This\" operator doesn\'t use GetValue. The operators \"delete\" and \"typeof\" can be applied to parenthesised expressions",
 
 description: "Applying \"delete\" and \"typeof\" operators to an undefined variable and a property of an object",
 

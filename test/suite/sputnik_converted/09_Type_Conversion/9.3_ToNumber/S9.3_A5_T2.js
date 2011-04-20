@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S9.3_A5_T2",
 
-path: "9.3, 11.6.1",
+path: "09_Type_Conversion\9.3_ToNumber\S9.3_A5_T2.js",
+
+assertion: "Result of number conversion from object value is the result",
 
 description: "new Number(), new Number(0), new Number(Number.NaN), new Number(null),",
 

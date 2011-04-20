@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.1_A1_T2",
 
-path: "15.5.4.1",
+path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\S15.5.4.1_A1_T2.js",
+
+assertion: "The initial value of String.prototype.constructor is the built-in String constructor",
 
 description: "Create new String.prototype.constructor object and check it",
 

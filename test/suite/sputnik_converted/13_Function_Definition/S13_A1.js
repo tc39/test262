@@ -12,9 +12,11 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S13.0_A1",
+id: "S13_A1",
 
-path: "13.0",
+path: "13_Function_Definition\S13_A1.js",
+
+assertion: "\"x=function y(){}\" statement does not store a reference to the new function in the varaible y(Identifier)",
 
 description: "Checking the type of y",
 

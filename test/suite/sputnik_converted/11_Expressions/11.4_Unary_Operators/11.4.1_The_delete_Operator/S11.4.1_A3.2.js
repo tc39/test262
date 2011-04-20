@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.4.1_A3.2",
 
-path: "11.4.1",
+path: "11_Expressions\11.4_Unary_Operators\11.4.1_The_delete_Operator\S11.4.1_A3.2.js",
+
+assertion: "If the property doesn\'t have the DontDelete attribute, return true",
 
 description: "Checking declared variable",
 

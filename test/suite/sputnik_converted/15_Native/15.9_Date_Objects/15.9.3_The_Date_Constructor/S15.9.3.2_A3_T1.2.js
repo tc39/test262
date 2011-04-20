@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.9.3.2_A3_T1.2",
 
-path: "15.9.3.2",
+path: "15_Native\15.9_Date_Objects\15.9.3_The_Date_Constructor\S15.9.3.2_A3_T1.2.js",
+
+assertion: "The [[Class]] property of the newly constructed object",
 
 description: "Test based on overwriting prototype.toString",
 

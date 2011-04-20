@@ -12,9 +12,11 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S13.0_A8_T2",
+id: "S13_A8_T2",
 
-path: "13.0",
+path: "13_Function_Definition\S13_A8_T2.js",
+
+assertion: "Arguments property of activation object contains real params to be passed",
 
 description: "Creating a function with no parameters and using arguments.length property in order to perform the test",
 

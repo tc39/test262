@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.6.2_A14_T1",
 
-path: "12.6.2",
+path: "12_Statement\12.6_Iteration_Statements\12.6.2_The_while_statement\S12.6.2_A14_T1.js",
+
+assertion: "FunctionExpression within a \"while\" Expression is allowed",
 
 description: "Using \"function __func(){return 0;}\" as an Expression",
 

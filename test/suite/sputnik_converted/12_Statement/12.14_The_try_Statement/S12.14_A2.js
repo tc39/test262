@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.14_A2",
 
-path: "12.14",
+path: "12_Statement\12.14_The_try_Statement\S12.14_A2.js",
+
+assertion: "Throwing exception with \"throw\" and catching it with \"try\" statement",
 
 description: "Checking if execution of \"catch\" catches an exception thrown with \"throw\"",
 

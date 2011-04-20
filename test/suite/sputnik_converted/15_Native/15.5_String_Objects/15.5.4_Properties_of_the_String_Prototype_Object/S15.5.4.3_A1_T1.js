@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.3_A1_T1",
 
-path: "15.5.4.3",
+path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\S15.5.4.3_A1_T1.js",
+
+assertion: "String.prototype.valueOf() returns this string value",
 
 description: "Create String object as new String(1) and check it`s valueOf()",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S9.5_A1_T1",
 
-path: "9.5, 11.7.1",
+path: "09_Type_Conversion\9.5_ToInt32\S9.5_A1_T1.js",
+
+assertion: "If value is NaN, +0, -0, +Infinity, or -Infinity, return +0",
 
 description: "For testing use operator <<0",
 

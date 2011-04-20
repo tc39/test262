@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S9.3.1_A29",
 
-path: "9.3.1, 15.7.1",
+path: "09_Type_Conversion\9.3_ToNumber\9.3.1_ToNumber_from_String\S9.3.1_A29.js",
+
+assertion: "The MV of HexDigit ::: d or of HexDigit ::: D is 13",
 
 description: "Compare Number(\'0xD\'), Number(\'0XD\'), Number(\'0xd\') and Number(\'0Xd\') with 13",
 

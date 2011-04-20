@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.6_A5_T2",
 
-path: "15.10.2.6",
+path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.6_Assertion\S15.10.2.6_A5_T2.js",
+
+assertion: "Since assertion evaluating do not change endIndex repetition of assertion does the same result",
 
 description: "Execute /\\B\\B\\B\\B\\B\\Bbot\\b\\b\\b\\b\\b\\b\\b/.exec(\"robot wall-e\") and check results",
 

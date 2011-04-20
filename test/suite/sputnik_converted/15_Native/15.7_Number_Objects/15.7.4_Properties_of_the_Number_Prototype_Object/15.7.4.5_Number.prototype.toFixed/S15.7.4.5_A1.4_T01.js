@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.7.4.5_A1.4_T01",
 
-path: "15.7.4.5",
+path: "15_Native\15.7_Number_Objects\15.7.4_Properties_of_the_Number_Prototype_Object\15.7.4.5_Number.prototype.toFixed\S15.7.4.5_A1.4_T01.js",
+
+assertion: "Step 9: If x >= 10^21, let m = ToString(x)",
 
 description: "x is 10^21",
 

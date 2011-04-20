@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.4.2.1_A1.3_T1",
 
-path: "15.4.2.1",
+path: "15_Native\15.4_Array_Objects\15.4.2_The_Array_Constructor\15.4.2.1_new_Array\S15.4.2.1_A1.3_T1.js",
+
+assertion: "This description of Array constructor applies if and only if",
 
 description: "Checking case when Array constructor is given one argument",
 

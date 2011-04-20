@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.15_A1_T5",
 
-path: "15.5.4.15",
+path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\15.5.4.15_String.prototype.substring\S15.5.4.15_A1_T5.js",
+
+assertion: "String.prototype.substring (start, end)",
 
 description: "Arguments are null and Function(), and instance is function object, that have overrided valueOf function",
 

@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.1.2.3_A3_T2",
 
-path: "15.1.2.3, 9.3.1",
+path: "15_Native\15.1_The_Global_Object\15.1.2_Function_Properties_of_the_Global_Object\15.1.2.3_parseFloat\S15.1.2.3_A3_T2.js",
+
+assertion: "If neither Result(2) nor any prefix of Result(2) satisfies the syntax of a",
 
 description: "parseFloat(\"wrong number format with ExponentIndicator\") return NaN",
 

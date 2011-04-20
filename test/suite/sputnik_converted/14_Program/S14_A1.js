@@ -12,9 +12,11 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S14.0_A1",
+id: "S14_A1",
 
-path: "14.0",
+path: "14_Program\S14_A1.js",
+
+assertion: "FunctionExpression must be localed in a reacheable fragment of the program",
 
 description: "Declaring a function within an \"if\" Expression",
 

@@ -17,7 +17,9 @@
 ES5Harness.registerTest( {
 id: "S10.1.3_A5.1_T1",
 
-path: "10.1.3",
+path: "10_Execution_Contexts\10.1_Definitions\10.1.3_Variable_Instantiation\S10.1.3_A5.1_T1.js",
+
+assertion: "For each VariableDeclaration or VariableDeclarationNoIn in the",
 
 description: "Checking variable existence only",
 

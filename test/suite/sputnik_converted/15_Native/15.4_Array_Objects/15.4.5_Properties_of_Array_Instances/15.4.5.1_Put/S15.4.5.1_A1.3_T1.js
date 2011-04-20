@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.4.5.1_A1.3_T1",
 
-path: "15.4.5.1, 15.4",
+path: "15_Native\15.4_Array_Objects\15.4.5_Properties_of_Array_Instances\15.4.5.1_Put\S15.4.5.1_A1.3_T1.js",
+
+assertion: "Set the value of property length of A to Uint32(length)",
 
 description: "length is object or primitve",
 

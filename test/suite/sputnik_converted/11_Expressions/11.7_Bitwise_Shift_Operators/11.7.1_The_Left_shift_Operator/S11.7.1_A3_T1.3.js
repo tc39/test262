@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.7.1_A3_T1.3",
 
-path: "11.7.1",
+path: "11_Expressions\11.7_Bitwise_Shift_Operators\11.7.1_The_Left_shift_Operator\S11.7.1_A3_T1.3.js",
+
+assertion: "Operator x << y returns ToNumber(x) << ToNumber(y)",
 
 description: "Type(x) and Type(y) vary between primitive string and String object",
 

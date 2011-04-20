@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.5_A1.1_T1",
 
-path: "12.5",
+path: "12_Statement\12.5_The_if_Statement\S12.5_A1.1_T1.js",
+
+assertion: "0, null, undefined, false, empty string, NaN in expression is evaluated to false",
 
 description: "Using \"if\" without \"else\" construction",
 

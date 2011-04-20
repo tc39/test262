@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S7.8.1_A1_T1",
 
-path: "7.8.1",
+path: "07_Lexical_Conventions\7.8_Literals\7.8.1_Null_Literals\S7.8.1_A1_T1.js",
+
+assertion: "Literal :: NullLiteral",
 
 description: "Check null === null",
 

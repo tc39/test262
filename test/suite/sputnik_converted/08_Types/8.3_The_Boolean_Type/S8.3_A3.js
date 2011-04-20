@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S8.3_A3",
 
-path: "8.3",
+path: "08_Types\8.3_The_Boolean_Type\S8.3_A3.js",
+
+assertion: "Applaing negation to boolean works well",
 
 description: "Check not false equals true, not true equals false",
 

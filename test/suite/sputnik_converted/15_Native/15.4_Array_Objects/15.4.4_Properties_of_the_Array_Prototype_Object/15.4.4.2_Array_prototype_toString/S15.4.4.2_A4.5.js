@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.4.4.2_A4.5",
 
-path: "15.4.4.2, 15.2.4.7, 12.6.4",
+path: "15_Native\15.4_Array_Objects\15.4.4_Properties_of_the_Array_Prototype_Object\15.4.4.2_Array_prototype_toString\S15.4.4.2_A4.5.js",
+
+assertion: "The toString property of Array has the attribute DontEnum",
 
 description: "Checking use propertyIsEnumerable, for-in",
 

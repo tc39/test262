@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.2.2_A1.1",
 
-path: "11.2.2, 7.2, 7.3",
+path: "11_Expressions\11.2_Left_Hand_Side_Expressions\11.2.2_The_new_Operator\S11.2.2_A1.1.js",
+
+assertion: "White Space and Line Terminator between \"new\" and NewExpression are allowed",
 
 description: "Checking by using eval",
 

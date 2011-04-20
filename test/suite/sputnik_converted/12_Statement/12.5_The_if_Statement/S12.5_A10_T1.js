@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.5_A10_T1",
 
-path: "12.5",
+path: "12_Statement\12.5_The_if_Statement\S12.5_A10_T1.js",
+
+assertion: "Function expession inside the \"if\" expression is allowed",
 
 description: "Using function expession(function __func(){return 0;}) inside the \"if\" expression",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.9.4.3_A3_T2",
 
-path: "15.9.4.3",
+path: "15_Native\15.9_Date_Objects\15.9.4_Properties_of_the_Date_Constructor\15.9.4.3_Date.UTC\S15.9.4.3_A3_T2.js",
+
+assertion: "The Date.UTC property \"length\" has { ReadOnly, DontDelete, DontEnum } attributes",
 
 description: "Checking DontDelete attribute",
 

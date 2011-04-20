@@ -13,7 +13,9 @@
 ES5Harness.registerTest( {
 id: "S15.8.1.6_A1",
 
-path: "15.8.1.6",
+path: "15_Native\15.8_The_Math_Object\15.8.1_Value_Properties_of_the_Math_Object\15.8.1.6_PI\S15.8.1.6_A1.js",
+
+assertion: "Math.PI is approximately 3.1415926535897932",
 
 description: "Comparing Math.PI with 3.1415926535897932",
 

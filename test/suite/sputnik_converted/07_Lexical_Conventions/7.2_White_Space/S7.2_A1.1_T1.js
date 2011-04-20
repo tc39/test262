@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S7.2_A1.1_T1",
 
-path: "7.2, 7.5",
+path: "07_Lexical_Conventions\7.2_White_Space\S7.2_A1.1_T1.js",
+
+assertion: "HORIZONTAL TAB (U+0009) between any two tokens is allowed",
 
 description: "Insert HORIZONTAL TAB(\\u0009 and \\t) between tokens of var x=1",
 

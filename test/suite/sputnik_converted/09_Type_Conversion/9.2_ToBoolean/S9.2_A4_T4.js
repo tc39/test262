@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S9.2_A4_T4",
 
-path: "9.2, 11.4.9",
+path: "09_Type_Conversion\9.2_ToBoolean\S9.2_A4_T4.js",
+
+assertion: "Result of boolean conversion from number value is false if the argument is +0, -0, or NaN; otherwise, is true",
 
 description: "Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY,",
 

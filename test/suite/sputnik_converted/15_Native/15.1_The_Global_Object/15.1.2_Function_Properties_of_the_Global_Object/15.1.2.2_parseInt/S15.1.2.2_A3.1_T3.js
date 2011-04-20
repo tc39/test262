@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.1.2.2_A3.1_T3",
 
-path: "15.1.2.2, 9.3",
+path: "15_Native\15.1_The_Global_Object\15.1.2_Function_Properties_of_the_Global_Object\15.1.2.2_parseInt\S15.1.2.2_A3.1_T3.js",
+
+assertion: "Operator use ToNumber",
 
 description: "Checking for undefined and null",
 

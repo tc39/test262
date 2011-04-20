@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S9.7_A2.1",
 
-path: "9.7, 11.7.3",
+path: "09_Type_Conversion\9.7_ToUint16\S9.7_A2.1.js",
+
+assertion: "ToUint16 returns values between 0 and 2^16-1",
 
 description: "Converting numbers, which are in\\outside of Uint16 scopes, with String.fromCharCode(Number).charCodeAt(0) construction",
 

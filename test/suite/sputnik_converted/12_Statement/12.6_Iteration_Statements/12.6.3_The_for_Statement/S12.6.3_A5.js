@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.6.3_A5",
 
-path: "12.6.3",
+path: "12_Statement\12.6_Iteration_Statements\12.6.3_The_for_Statement\S12.6.3_A5.js",
+
+assertion: "\"in\"-expression wrapped into \"eval\" statement is allowed as a ExpressionNoIn in \"for (ExpressionNoIn; FirstExpression; SecondExpression) Statement\" IterationStatement",
 
 description: "Using eval \"for(eval(\"i in arr\");1;)\"",
 

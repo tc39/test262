@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S9.3_A2_T1",
 
-path: "9.3, 15.7.1",
+path: "09_Type_Conversion\9.3_ToNumber\S9.3_A2_T1.js",
+
+assertion: "Result of number conversion from null value is +0",
 
 description: "null convert to Number by explicit transformation",
 

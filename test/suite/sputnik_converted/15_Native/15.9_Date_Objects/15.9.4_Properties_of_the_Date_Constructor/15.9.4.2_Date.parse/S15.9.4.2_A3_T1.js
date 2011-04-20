@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.9.4.2_A3_T1",
 
-path: "15.9.4.2",
+path: "15_Native\15.9_Date_Objects\15.9.4_Properties_of_the_Date_Constructor\15.9.4.2_Date.parse\S15.9.4.2_A3_T1.js",
+
+assertion: "The Date.parse property \"length\" has { ReadOnly, DontDelete, DontEnum } attributes",
 
 description: "Checking ReadOnly attribute",
 

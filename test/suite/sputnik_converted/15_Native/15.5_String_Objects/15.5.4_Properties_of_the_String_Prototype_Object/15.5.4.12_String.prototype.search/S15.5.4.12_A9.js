@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.12_A9",
 
-path: "15.5.4.12",
+path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\15.5.4.12_String.prototype.search\S15.5.4.12_A9.js",
+
+assertion: "The String.prototype.search.length property has the attribute DontDelete",
 
 description: "Checking if deleting the String.prototype.search.length property fails",
 

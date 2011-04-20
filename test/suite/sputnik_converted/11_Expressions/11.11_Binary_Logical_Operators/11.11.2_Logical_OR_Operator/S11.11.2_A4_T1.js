@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.11.2_A4_T1",
 
-path: "11.11.2",
+path: "11_Expressions\11.11_Binary_Logical_Operators\11.11.2_Logical_OR_Operator\S11.11.2_A4_T1.js",
+
+assertion: "If ToBoolean(x) is true, return x",
 
 description: "Type(x) and Type(y) vary between primitive boolean and Boolean object",
 

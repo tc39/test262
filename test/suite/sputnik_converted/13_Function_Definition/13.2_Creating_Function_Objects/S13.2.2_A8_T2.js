@@ -18,7 +18,9 @@
 ES5Harness.registerTest( {
 id: "S13.2.2_A8_T2",
 
-path: "13.2.2",
+path: "13_Function_Definition\13.2_Creating_Function_Objects\S13.2.2_A8_T2.js",
+
+assertion: "When the [[Construct]] property for a Function object F is called:",
 
 description: "Creating a function whose prototype contains declaration of another function declared as a variable",
 

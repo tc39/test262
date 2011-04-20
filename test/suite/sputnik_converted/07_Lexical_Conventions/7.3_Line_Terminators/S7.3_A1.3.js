@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S7.3_A1.3",
 
-path: "7.3",
+path: "07_Lexical_Conventions\7.3_Line_Terminators\S7.3_A1.3.js",
+
+assertion: "LINE SEPARATOR (U+2028) may occur between any two tokens",
 
 description: "Insert LINE SEPARATOR (\\u2028) between tokens of var x=1",
 

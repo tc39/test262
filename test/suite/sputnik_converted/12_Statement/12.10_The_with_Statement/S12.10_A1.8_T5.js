@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S12.10_A1.8_T5",
 
-path: "12.10",
+path: "12_Statement\12.10_The_with_Statement\S12.10_A1.8_T5.js",
+
+assertion: "The with statement adds a computed object to the front of the",
 
 description: "Declaring function constructor within \"with\" statement, leading to completion by exception",
 

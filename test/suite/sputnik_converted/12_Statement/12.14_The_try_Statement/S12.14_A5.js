@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.14_A5",
 
-path: "12.14",
+path: "12_Statement\12.14_The_try_Statement\S12.14_A5.js",
+
+assertion: "The production TryStatement: \"try Block Finally\" and the production TryStatement: \"try Block Catch Finally\"",
 
 description: "Checking \"catch\" catches the Identifier in appropriate way",
 

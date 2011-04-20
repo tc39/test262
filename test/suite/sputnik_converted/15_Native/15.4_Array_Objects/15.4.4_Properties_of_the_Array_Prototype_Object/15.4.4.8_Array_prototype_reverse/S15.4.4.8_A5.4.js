@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.4.4.8_A5.4",
 
-path: "15.4.4.8",
+path: "15_Native\15.4_Array_Objects\15.4.4_Properties_of_the_Array_Prototype_Object\15.4.4.8_Array_prototype_reverse\S15.4.4.8_A5.4.js",
+
+assertion: "The length property of reverse is 0",
 
 description: "reverse.length === 1",
 

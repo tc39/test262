@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S12.10_A1.6_T1",
 
-path: "12.10",
+path: "12_Statement\12.10_The_with_Statement\S12.10_A1.6_T1.js",
+
+assertion: "The with statement adds a computed object to the front of the",
 
 description: "Using \"with\" statement within another \"with\" statement, leading to normal completion",
 

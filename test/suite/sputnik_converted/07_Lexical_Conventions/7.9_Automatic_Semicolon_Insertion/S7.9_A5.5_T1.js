@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S7.9_A5.5_T1",
 
-path: "7.9, 12.4, 11.2.5",
+path: "07_Lexical_Conventions\7.9_Automatic_Semicolon_Insertion\S7.9_A5.5_T1.js",
+
+assertion: "Check Function Expression for automatic semicolon insertion",
 
 description: "Try use 1 + function_name\\n(2 + 3) construction",
 

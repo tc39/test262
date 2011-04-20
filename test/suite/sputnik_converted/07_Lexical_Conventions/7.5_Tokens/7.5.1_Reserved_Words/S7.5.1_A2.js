@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S7.5.1_A2",
 
-path: "7.5.1",
+path: "07_Lexical_Conventions\7.5_Tokens\7.5.1_Reserved_Words\S7.5.1_A2.js",
+
+assertion: "List of words that are not reserved",
 
 description: "Try assign 1 for not reserved words",
 

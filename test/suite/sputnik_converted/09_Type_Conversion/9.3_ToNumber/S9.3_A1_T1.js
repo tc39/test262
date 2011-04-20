@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S9.3_A1_T1",
 
-path: "9.3, 15.7.1",
+path: "09_Type_Conversion\9.3_ToNumber\S9.3_A1_T1.js",
+
+assertion: "Result of number conversion from undefined value is NaN",
 
 description: "Undefined convert to Number by explicit transformation",
 

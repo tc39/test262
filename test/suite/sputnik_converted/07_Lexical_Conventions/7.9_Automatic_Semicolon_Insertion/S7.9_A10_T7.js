@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S7.9_A10_T7",
 
-path: "7.9",
+path: "07_Lexical_Conventions\7.9_Automatic_Semicolon_Insertion\S7.9_A10_T7.js",
+
+assertion: "Check {} for automatic semicolon insertion",
 
 description: "Checking if execution of \"{1} 2\" passes",
 

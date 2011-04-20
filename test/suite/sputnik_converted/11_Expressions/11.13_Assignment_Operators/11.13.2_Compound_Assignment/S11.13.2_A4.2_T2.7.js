@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.13.2_A4.2_T2.7",
 
-path: "11.13.2, 11.5.2",
+path: "11_Expressions\11.13_Assignment_Operators\11.13.2_Compound_Assignment\S11.13.2_A4.2_T2.7.js",
+
+assertion: "The production x /= y is the same as x = x / y",
 
 description: "Type(x) is different from Type(y) and both types vary between String (primitive or object) and Null",
 

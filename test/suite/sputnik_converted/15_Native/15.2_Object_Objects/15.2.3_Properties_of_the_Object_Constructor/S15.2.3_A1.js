@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.2.3_A1",
 
-path: "15.2.3",
+path: "15_Native\15.2_Object_Objects\15.2.3_Properties_of_the_Object_Constructor\S15.2.3_A1.js",
+
+assertion: "The Object constructor has the property \"prototype\"",
 
 description: "Checking existence of the property \"prototype\"",
 

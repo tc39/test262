@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.2.2.1_A2_T3",
 
-path: "15.2.2.1",
+path: "15_Native\15.2_Object_Objects\15.2.2_The_Object_Constructor\S15.2.2.1_A2_T3.js",
+
+assertion: "When the Object constructor is called with one argument value and",
 
 description: "The value is an array",
 

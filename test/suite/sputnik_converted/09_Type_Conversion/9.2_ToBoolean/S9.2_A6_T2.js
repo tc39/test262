@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S9.2_A6_T2",
 
-path: "9.2, 11.4.9",
+path: "09_Type_Conversion\9.2_ToBoolean\S9.2_A6_T2.js",
+
+assertion: "Result of boolean conversion from object is true",
 
 description: "Different objects convert to Boolean by implicit transformation",
 

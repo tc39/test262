@@ -12,9 +12,11 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S13.0_A11_T4",
+id: "S13_A11_T4",
 
-path: "13.0",
+path: "13_Function_Definition\S13_A11_T4.js",
+
+assertion: "Since arguments property has attribute { DontDelete }, only its elements can be deleted",
 
 description: "Deleting arguments[i] and checking the type of arguments[i]",
 

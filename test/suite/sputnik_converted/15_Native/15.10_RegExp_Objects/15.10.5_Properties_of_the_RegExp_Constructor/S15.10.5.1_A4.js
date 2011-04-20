@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.5.1_A4",
 
-path: "15.10.5.1",
+path: "15_Native\15.10_RegExp_Objects\15.10.5_Properties_of_the_RegExp_Constructor\S15.10.5.1_A4.js",
+
+assertion: "The RegExp.prototype property has the attribute ReadOnly",
 
 description: "Checking if varying the RegExp.prototype property fails",
 

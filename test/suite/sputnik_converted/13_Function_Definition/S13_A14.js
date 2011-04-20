@@ -12,9 +12,11 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S13.0_A14",
+id: "S13_A14",
 
-path: "13.0",
+path: "13_Function_Definition\S13_A14.js",
+
+assertion: "Unicode symbols in function name are allowed",
 
 description: "Defining function name with unicode symbols",
 

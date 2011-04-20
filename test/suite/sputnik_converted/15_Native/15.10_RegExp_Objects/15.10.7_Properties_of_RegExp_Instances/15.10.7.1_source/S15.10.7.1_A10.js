@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.7.1_A10",
 
-path: "15.10.7.1",
+path: "15_Native\15.10_RegExp_Objects\15.10.7_Properties_of_RegExp_Instances\15.10.7.1_source\S15.10.7.1_A10.js",
+
+assertion: "The RegExp instance source property has the attribute ReadOnly",
 
 description: "Checking if varying the source property fails",
 

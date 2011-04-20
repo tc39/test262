@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S7.9_A8_T4",
 
-path: "7.9, 12.4",
+path: "07_Lexical_Conventions\7.9_Automatic_Semicolon_Insertion\S7.9_A8_T4.js",
+
+assertion: "Check Empty Statement for automatic semicolon insertion",
 
 description: "Checking if execution of some semicolons with LineTerminators and numbers passes",
 

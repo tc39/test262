@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S7.2_A1.3_T1",
 
-path: "7.2, 7.5",
+path: "07_Lexical_Conventions\7.2_White_Space\S7.2_A1.3_T1.js",
+
+assertion: "FORM FEED (U+000C) between any two tokens is allowed",
 
 description: "Insert FORM FEED(\\u000C and \\f) between tokens of var x=1",
 

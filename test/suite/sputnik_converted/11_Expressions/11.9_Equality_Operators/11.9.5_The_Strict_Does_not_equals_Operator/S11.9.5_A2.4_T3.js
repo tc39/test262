@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.9.5_A2.4_T3",
 
-path: "11.9.5",
+path: "11_Expressions\11.9_Equality_Operators\11.9.5_The_Strict_Does_not_equals_Operator\S11.9.5_A2.4_T3.js",
+
+assertion: "First expression is evaluated first, and then second expression",
 
 description: "Checking undeclarated variables",
 

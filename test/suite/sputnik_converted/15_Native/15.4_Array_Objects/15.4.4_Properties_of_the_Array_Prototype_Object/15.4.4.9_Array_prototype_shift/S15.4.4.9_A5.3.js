@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.4.4.9_A5.3",
 
-path: "15.4.4.9",
+path: "15_Native\15.4_Array_Objects\15.4.4_Properties_of_the_Array_Prototype_Object\15.4.4.9_Array_prototype_shift\S15.4.4.9_A5.3.js",
+
+assertion: "The length property of shift has the attribute ReadOnly",
 
 description: "Checking if varying the length property fails",
 

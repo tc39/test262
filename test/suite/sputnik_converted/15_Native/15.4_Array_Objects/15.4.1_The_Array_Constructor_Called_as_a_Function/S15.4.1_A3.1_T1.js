@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.4.1_A3.1_T1",
 
-path: "15.4.1, 11.4.3, 11.8.6",
+path: "15_Native\15.4_Array_Objects\15.4.1_The_Array_Constructor_Called_as_a_Function\S15.4.1_A3.1_T1.js",
+
+assertion: "When Array is called as a function rather than as a constructor,",
 
 description: "Checking use typeof, instanceof",
 

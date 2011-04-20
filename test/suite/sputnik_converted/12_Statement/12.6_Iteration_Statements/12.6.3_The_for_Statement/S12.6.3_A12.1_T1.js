@@ -13,7 +13,9 @@
 ES5Harness.registerTest( {
 id: "S12.6.3_A12.1_T1",
 
-path: "12.6.3",
+path: "12_Statement\12.6_Iteration_Statements\12.6.3_The_for_Statement\S12.6.3_A12.1_T1.js",
+
+assertion: "If (Evaluate Statement).type is \"break\" and (Evaluate Statement).target is in the current label set, (normal, (Evaluate Statement), empty) is returned while evaluating a \"var-loop\"",
 
 description: "Breaking a loop with \"break\"",
 

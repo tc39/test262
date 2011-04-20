@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.7.2_A5.2_T1",
 
-path: "11.7.2, 9.5",
+path: "11_Expressions\11.7_Bitwise_Shift_Operators\11.7.2_The_Sign_Left_shift_Operator\S11.7.2_A5.2_T1.js",
+
+assertion: "Operator x >> y uses ToUint32(AdditiveExpression) & 31",
 
 description: "Checking distinct points",
 

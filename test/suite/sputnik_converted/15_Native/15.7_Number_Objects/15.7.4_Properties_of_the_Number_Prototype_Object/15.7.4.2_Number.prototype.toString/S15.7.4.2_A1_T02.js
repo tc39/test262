@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S15.7.4.2_A1_T02",
 
-path: "15.7.4.2",
+path: "15_Native\15.7_Number_Objects\15.7.4_Properties_of_the_Number_Prototype_Object\15.7.4.2_Number.prototype.toString\S15.7.4.2_A1_T02.js",
+
+assertion: "toString: If radix is the number 10 or undefined, then this",
 
 description: "radix is 10",
 

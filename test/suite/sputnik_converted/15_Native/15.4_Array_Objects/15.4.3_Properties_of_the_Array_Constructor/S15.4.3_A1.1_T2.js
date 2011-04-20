@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.4.3_A1.1_T2",
 
-path: "15.4.3, 15.2.4.2",
+path: "15_Native\15.4_Array_Objects\15.4.3_Properties_of_the_Array_Constructor\S15.4.3_A1.1_T2.js",
+
+assertion: "The value of the internal [[Prototype]] property of",
 
 description: "Function.prototype.toString = Object.prototype.toString",
 

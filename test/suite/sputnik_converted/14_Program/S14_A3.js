@@ -12,9 +12,11 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S14.0_A3",
+id: "S14_A3",
 
-path: "14.0",
+path: "14_Program\S14_A3.js",
+
+assertion: "Global FunctionDeclaration cannot be defined within the body of another FunctionDeclaration",
 
 description: "Declaring a function within the body of another function",
 

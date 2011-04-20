@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S9.6_A2.2",
 
-path: "9.6, 11.7.3",
+path: "09_Type_Conversion\9.6_ToUint32\S9.6_A2.2.js",
+
+assertion: "Compute result modulo 2^32",
 
 description: "Use operator >>>0",
 

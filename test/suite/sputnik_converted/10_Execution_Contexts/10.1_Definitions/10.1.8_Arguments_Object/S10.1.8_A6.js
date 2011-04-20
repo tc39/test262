@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S10.1.8_A6",
 
-path: "10.1.8",
+path: "10_Execution_Contexts\10.1_Definitions\10.1.8_Arguments_Object\S10.1.8_A6.js",
+
+assertion: "The initial value of the created property length is the number",
 
 description: "Create function, that returned arguments.length",
 

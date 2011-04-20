@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.7.3.1_A3",
 
-path: "15.7.3.1",
+path: "15_Native\15.7_Number_Objects\15.7.3_Properties_of_Number_Constructor\15.7.3.1_Number.prototype\S15.7.3.1_A3.js",
+
+assertion: "Number.prototype value is +0",
 
 description: "Checking value of Number.prototype property",
 

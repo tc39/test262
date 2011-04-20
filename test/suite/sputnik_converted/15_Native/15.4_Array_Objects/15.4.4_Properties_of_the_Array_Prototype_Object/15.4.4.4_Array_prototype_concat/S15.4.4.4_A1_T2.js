@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S15.4.4.4_A1_T2",
 
-path: "15.4.4.4",
+path: "15_Native\15.4_Array_Objects\15.4.4_Properties_of_the_Array_Prototype_Object\15.4.4.4_Array_prototype_concat\S15.4.4.4_A1_T2.js",
+
+assertion: "When the concat method is called with zero or more arguments item1, item2,",
 
 description: "Checking this algorithm, items are objects and primitives",
 

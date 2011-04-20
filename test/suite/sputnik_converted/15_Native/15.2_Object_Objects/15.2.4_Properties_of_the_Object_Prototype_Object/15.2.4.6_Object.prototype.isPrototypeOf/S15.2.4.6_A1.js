@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S15.2.4.6_A1",
 
-path: "15.2.4.6",
+path: "15_Native\15.2_Object_Objects\15.2.4_Properties_of_the_Object_Prototype_Object\15.2.4.6_Object.prototype.isPrototypeOf\S15.2.4.6_A1.js",
+
+assertion: "When the isPrototypeOf method is called with argument V and when O and",
 
 description: "Creating two objects with the same prototype",
 

@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S12.12_A1_T1",
 
-path: "12.12",
+path: "12_Statement\12.12_Labelled_Statements\S12.12_A1_T1.js",
+
+assertion: "Labelled statements are only used in conjunction with labelled",
 
 description: "Checking if labelled break works. See continue and break sections",
 

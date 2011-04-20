@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.6.2_A1",
 
-path: "11.6.2, 7.2, 7.3",
+path: "11_Expressions\11.6_Additive_Operators\11.6.2_The_Subtraction_operator\S11.6.2_A1.js",
+
+assertion: "White Space and Line Terminator between AdditiveExpression and \"-\" or between \"-\" and MultiplicativeExpression are allowed",
 
 description: "Checking by using eval",
 

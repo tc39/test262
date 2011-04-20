@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S9.6_A3.2_T1",
 
-path: "9.6",
+path: "09_Type_Conversion\9.6_ToUint32\S9.6_A3.2_T1.js",
+
+assertion: "Operator uses floor, abs",
 
 description: "Use operator >>>0",
 

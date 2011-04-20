@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.4.7_A4.1",
 
-path: "11.4.7",
+path: "11_Expressions\11.4_Unary_Operators\11.4.7_Unary_minus_Operator\S11.4.7_A4.1.js",
+
+assertion: "If x is NaN, operator -x returns NaN",
 
 description: "Checking NaN",
 

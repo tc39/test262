@@ -17,7 +17,9 @@
 ES5Harness.registerTest( {
 id: "S8.6.2.6_A2",
 
-path: "8.6.2.6, 8.6.2, 9.8",
+path: "08_Types\8.6_The_Object_Type\8.6.2_Internal_Properties_and_Methods\S8.6.2.6_A2.js",
+
+assertion: "This should generate no TypeError,",
 
 description: "Try to overload toString, that returned new Object, and valueOf methods",
 

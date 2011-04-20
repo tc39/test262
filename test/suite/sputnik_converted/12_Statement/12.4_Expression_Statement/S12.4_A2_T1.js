@@ -17,7 +17,9 @@
 ES5Harness.registerTest( {
 id: "S12.4_A2_T1",
 
-path: "12.4",
+path: "12_Statement\12.4_Expression_Statement\S12.4_A2_T1.js",
+
+assertion: "The production ExpressionStatement : [lookahead \\notin {{, function}] Expression; is evaluated as follows:",
 
 description: "Checking by using eval \"(eval(\"x+1+x==1\"))\"",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S9.9_A2",
 
-path: "9.9",
+path: "09_Type_Conversion\9.9_ToObject\S9.9_A2.js",
+
+assertion: "ToObject conversion from null value must throw TypeError",
 
 description: "Trying to convert null to Object",
 

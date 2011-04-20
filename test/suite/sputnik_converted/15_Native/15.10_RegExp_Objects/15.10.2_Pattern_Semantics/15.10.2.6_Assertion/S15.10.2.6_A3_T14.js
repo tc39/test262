@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.6_A3_T14",
 
-path: "15.10.2.6",
+path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.6_Assertion\S15.10.2.6_A3_T14.js",
+
+assertion: "The production Assertion :: \\b evaluates by returning an internal AssertionTester closure that takes a State argument x and performs the ...",
 
 description: "Execute /e\\b/.exec(\"pilot\\nsoviet robot\\topenoffic\\u0065\") and check results",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.1.5_A2",
 
-path: "11.1.5",
+path: "11_Expressions\11.1_Primary_Expressions\11.1.5_Object_Initializer\S11.1.5_A2.js",
+
+assertion: "Evaluate the production ObjectLiteral: { PropertyName : AssignmentExpression }",
 
 description: "Creating property \"prop\" of various types(boolean, number and etc.)",
 

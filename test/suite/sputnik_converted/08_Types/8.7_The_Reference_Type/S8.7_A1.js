@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S8.7_A1",
 
-path: "8.7",
+path: "08_Types\8.7_The_Reference_Type\S8.7_A1.js",
+
+assertion: "Multiple Variables should Referring to a Single Object",
 
 description: "Create object and refers to the other object, modify a property in the original object.",
 

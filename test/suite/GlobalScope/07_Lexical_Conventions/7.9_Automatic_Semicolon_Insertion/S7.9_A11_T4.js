@@ -1,0 +1,11 @@
+// Copyright 2009 the Sputnik authors.  All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+
+// Converted for Test262 from original Sputnik source
+
+ //CHECK#1
+x = 0;
+if (false) x = 1 else x = -1
+ 
+

@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.4.2.1_A2.1_T1",
 
-path: "15.4.2.1",
+path: "15_Native\15.4_Array_Objects\15.4.2_The_Array_Constructor\15.4.2.1_new_Array\S15.4.2.1_A2.1_T1.js",
+
+assertion: "The length property of the newly constructed object",
 
 description: "Array constructor is given no arguments or at least two arguments",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.8.2.11_A3",
 
-path: "15.8.2.11",
+path: "15_Native\15.8_The_Math_Object\15.8.2_Function_Properties_of_the_Math_Object\15.8.2.11_max\S15.8.2.11_A3.js",
+
+assertion: "+0 is considered to be larger than -0",
 
 description: "Checking if Math.max(-0,+0) and Math.max(+0,-0) equals to +0",
 

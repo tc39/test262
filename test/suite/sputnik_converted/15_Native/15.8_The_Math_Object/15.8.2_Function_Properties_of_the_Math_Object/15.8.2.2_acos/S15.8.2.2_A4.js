@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.8.2.2_A4",
 
-path: "15.8.2.2",
+path: "15_Native\15.8_The_Math_Object\15.8.2_Function_Properties_of_the_Math_Object\15.8.2.2_acos\S15.8.2.2_A4.js",
+
+assertion: "If x is exactly 1, Math.acos(x) is +0",
 
 description: "Checking if Math.acos(1) equals to +0",
 

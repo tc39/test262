@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.7.1_A2.1_T1",
 
-path: "11.7.1",
+path: "11_Expressions\11.7_Bitwise_Shift_Operators\11.7.1_The_Left_shift_Operator\S11.7.1_A2.1_T1.js",
+
+assertion: "Operator x << y uses GetValue",
 
 description: "Either Type is not Reference or GetBase is not null",
 

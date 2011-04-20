@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.2.2.1_A6_T3",
 
-path: "15.2.2.1",
+path: "15_Native\15.2_Object_Objects\15.2.2_The_Object_Constructor\S15.2.2.1_A6_T3.js",
+
+assertion: "Since calling Object as a function is identical to calling a function, list of arguments bracketing is allowed",
 
 description: "Creating an object with \"new Object((null,2,3),2,3)\"",
 

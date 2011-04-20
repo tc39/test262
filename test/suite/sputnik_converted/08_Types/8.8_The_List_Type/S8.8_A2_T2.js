@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S8.8_A2_T2",
 
-path: "8.8",
+path: "08_Types\8.8_The_List_Type\S8.8_A2_T2.js",
+
+assertion: "Values of the List type are simply ordered sequences of values",
 
 description: "Call function __mFunc([,,]) with 1 arguments",
 

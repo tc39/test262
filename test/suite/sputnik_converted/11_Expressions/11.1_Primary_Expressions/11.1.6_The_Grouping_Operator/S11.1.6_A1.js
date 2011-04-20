@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.1.6_A1",
 
-path: "11.1.6, 7.2, 7.3",
+path: "11_Expressions\11.1_Primary_Expressions\11.1.6_The_Grouping_Operator\S11.1.6_A1.js",
+
+assertion: "White Space and Line Terminator inside \"grouping\" operator are allowed",
 
 description: "Inserting WhiteSpaces and LineTerminators into grouping operator. Eval is used",
 

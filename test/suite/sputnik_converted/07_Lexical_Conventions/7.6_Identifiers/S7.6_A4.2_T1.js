@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S7.6_A4.2_T1",
 
-path: "7.6",
+path: "07_Lexical_Conventions\7.6_Identifiers\S7.6_A4.2_T1.js",
+
+assertion: "Correct interpretation of RUSSIAN ALPHABET",
 
 description: "Check RUSSIAN CAPITAL ALPHABET",
 

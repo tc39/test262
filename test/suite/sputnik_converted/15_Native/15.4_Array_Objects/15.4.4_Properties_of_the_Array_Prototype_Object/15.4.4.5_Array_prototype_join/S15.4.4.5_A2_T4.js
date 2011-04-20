@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S15.4.4.5_A2_T4",
 
-path: "15.4.4.5",
+path: "15_Native\15.4_Array_Objects\15.4.4_Properties_of_the_Array_Prototype_Object\15.4.4.5_Array_prototype_join\S15.4.4.5_A2_T4.js",
+
+assertion: "The join function is intentionally generic.",
 
 description: "Operator use ToNumber from length.",
 

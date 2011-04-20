@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.1.2.3_A1_T1",
 
-path: "15.1.2.3, 9.8",
+path: "15_Native\15.1_The_Global_Object\15.1.2_Function_Properties_of_the_Global_Object\15.1.2.3_parseFloat\S15.1.2.3_A1_T1.js",
+
+assertion: "Operator use ToString",
 
 description: "Checking for boolean primitive",
 

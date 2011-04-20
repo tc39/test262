@@ -17,7 +17,9 @@
 ES5Harness.registerTest( {
 id: "S9.8.1_A7",
 
-path: "9.8.1",
+path: "09_Type_Conversion\9.8_ToString\9.8.1_ToString_Applied_to_the_Number_Type\S9.8.1_A7.js",
+
+assertion: "If 1 <= s < 1e21 or -1e21 s < -1 and s has a fractional",
 
 description: "1.0000001 and -1.0000001 convert to String by explicit transformation",
 

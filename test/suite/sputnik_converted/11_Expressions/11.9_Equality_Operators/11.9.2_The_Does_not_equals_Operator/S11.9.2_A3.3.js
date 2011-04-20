@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S11.9.2_A3.3",
 
-path: "11.9.2, 11.9.3",
+path: "11_Expressions\11.9_Equality_Operators\11.9.2_The_Does_not_equals_Operator\S11.9.2_A3.3.js",
+
+assertion: "If Type(y) is Number and Type(y) is Boolean,",
 
 description: "x is primitive number, y is primitive boolean",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.6.2_A3",
 
-path: "12.6.2",
+path: "12_Statement\12.6_Iteration_Statements\12.6.2_The_while_statement\S12.6.2_A3.js",
+
+assertion: "When \"while\" IterationStatement is evaluated, (normal, V, empty) is returned",
 
 description: "Using eval",
 

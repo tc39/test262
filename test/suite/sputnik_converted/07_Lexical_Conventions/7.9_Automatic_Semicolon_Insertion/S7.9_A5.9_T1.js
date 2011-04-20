@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S7.9_A5.9_T1",
 
-path: "7.9",
+path: "07_Lexical_Conventions\7.9_Automatic_Semicolon_Insertion\S7.9_A5.9_T1.js",
+
+assertion: "Additive/Substract Operator(A/SO) in combination with itself separated by LT or white spaces",
 
 description: "Try use Variable1 (different combinations of three +) Variable2 construction",
 

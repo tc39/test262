@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S8.6.1_A3",
 
-path: "8.6.1, 15.7",
+path: "08_Types\8.6_The_Object_Type\8.6.1_Property_Attributes\S8.6.1_A3.js",
+
+assertion: "A property can have attribute DontDelete like NaN propertie of Number object",
 
 description: "Try to delete Number.NaN",
 

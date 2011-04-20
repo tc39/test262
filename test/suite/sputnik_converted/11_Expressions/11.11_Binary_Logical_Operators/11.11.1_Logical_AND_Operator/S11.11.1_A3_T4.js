@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.11.1_A3_T4",
 
-path: "11.11.1",
+path: "11_Expressions\11.11_Binary_Logical_Operators\11.11.1_Logical_AND_Operator\S11.11.1_A3_T4.js",
+
+assertion: "If ToBoolean(x) is false, return x",
 
 description: "Type(x) or Type(y) is changed between null and undefined",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.5.1_A1",
 
-path: "11.5.1, 7.2, 7.3",
+path: "11_Expressions\11.5_Multiplicative_Operators\11.5.1_Applying_the_asterisk_Operator\S11.5.1_A1.js",
+
+assertion: "White Space and Line Terminator between MultiplicativeExpression and \"*\" or between \"*\" and UnaryExpression are allowed",
 
 description: "Checking by using eval",
 

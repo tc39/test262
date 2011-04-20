@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S9.3.1_A13",
 
-path: "9.3.1, 15.7.1",
+path: "09_Type_Conversion\9.3_ToNumber\9.3.1_ToNumber_from_String\S9.3.1_A13.js",
+
+assertion: "The MV of DecimalDigits ::: DecimalDigits DecimalDigit is",
 
 description: "Compare \'12\' with Number(\"1\")*10+Number(\"2\") and analogous",
 

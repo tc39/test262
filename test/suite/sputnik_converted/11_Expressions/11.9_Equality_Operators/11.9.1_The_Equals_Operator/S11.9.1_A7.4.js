@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S11.9.1_A7.4",
 
-path: "11.9.1, 11.9.3",
+path: "11_Expressions\11.9_Equality_Operators\11.9.1_The_Equals_Operator\S11.9.1_A7.4.js",
+
+assertion: "If Type(x) is Object and Type(y) is Number,",
 
 description: "x is object, y is primitive number",
 

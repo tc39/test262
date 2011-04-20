@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.5.1_A4_T2",
 
-path: "11.5.1",
+path: "11_Expressions\11.5_Multiplicative_Operators\11.5.1_Applying_the_asterisk_Operator\S11.5.1_A4_T2.js",
+
+assertion: "The result of a floating-point multiplication is governed by the rules of IEEE 754 double-precision arithmetics",
 
 description: "The sign of the result is positive if both operands have the same sign, negative if the operands have different signs",
 

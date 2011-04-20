@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.7.3_A7",
 
-path: "15.7.3",
+path: "15_Native\15.7_Number_Objects\15.7.3_Properties_of_Number_Constructor\S15.7.3_A7.js",
+
+assertion: "The value of the internal [[Prototype]] property of the Number",
 
 description: "Checking Function.prototype.isPrototypeOf(Number)",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S13.2.2_A10",
 
-path: "13.2.2",
+path: "13_Function_Definition\13.2_Creating_Function_Objects\S13.2.2_A10.js",
+
+assertion: "Calling a function as a constructor is possible as long as this.any_Function is declared",
 
 description: "Calling a function as a constructor after it has been declared",
 

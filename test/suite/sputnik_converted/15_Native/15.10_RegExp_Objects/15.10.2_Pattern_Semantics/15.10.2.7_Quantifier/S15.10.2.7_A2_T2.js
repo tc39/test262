@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.7_A2_T2",
 
-path: "15.10.2.7",
+path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.7_Quantifier\S15.10.2.7_A2_T2.js",
+
+assertion: "i) The production QuantifierPrefix :: { DecimalDigits } evaluates...",
 
 description: "Execute /\\w{3}\\d?/.exec(\"CELL\\uFFDDbox127\") and check results",
 

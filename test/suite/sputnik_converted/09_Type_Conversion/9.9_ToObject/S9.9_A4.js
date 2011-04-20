@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S9.9_A4",
 
-path: "9.9",
+path: "09_Type_Conversion\9.9_ToObject\S9.9_A4.js",
+
+assertion: "ToObject conversion from Number: create a new Number object",
 
 description: "Converting from various numbers to Object",
 

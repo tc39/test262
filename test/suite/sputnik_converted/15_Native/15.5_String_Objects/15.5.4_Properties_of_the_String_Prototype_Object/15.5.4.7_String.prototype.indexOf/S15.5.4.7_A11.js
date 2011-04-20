@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.7_A11",
 
-path: "15.5.4.7",
+path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\15.5.4.7_String.prototype.indexOf\S15.5.4.7_A11.js",
+
+assertion: "The length property of the indexOf method is 1",
 
 description: "Checking String.prototype.indexOf.length",
 

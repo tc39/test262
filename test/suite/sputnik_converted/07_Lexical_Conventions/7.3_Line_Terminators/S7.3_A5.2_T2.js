@@ -13,7 +13,9 @@
 ES5Harness.registerTest( {
 id: "S7.3_A5.2_T2",
 
-path: "7.3, 7.4",
+path: "07_Lexical_Conventions\7.3_Line_Terminators\S7.3_A5.2_T2.js",
+
+assertion: "Multi line comment can contain CARRIAGE RETURN (U+000D)",
 
 description: "Insert real CARRIAGE RETURN into multi line comment",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.14_A18_T7",
 
-path: "12.14, 12.13",
+path: "12_Statement\12.14_The_try_Statement\S12.14_A18_T7.js",
+
+assertion: "Catching objects with try/catch/finally statement",
 
 description: "Catching Array",
 

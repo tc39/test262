@@ -18,7 +18,9 @@
 ES5Harness.registerTest( {
 id: "S15.2.4.5_A1_T2",
 
-path: "15.2.4.5",
+path: "15_Native\15.2_Object_Objects\15.2.4_Properties_of_the_Object_Prototype_Object\15.2.4.5_Object.prototype.hasOwnProperty\S15.2.4.5_A1_T2.js",
+
+assertion: "When the hasOwnProperty method is called with argument V, the following steps are taken:",
 
 description: "Argument of the hasOwnProperty method is a custom boolean property",
 

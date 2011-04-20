@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.4.1_A1_T2",
 
-path: "15.10.4.1",
+path: "15_Native\15.10_RegExp_Objects\15.10.4_The_RegExp_Constructor\S15.10.4.1_A1_T2.js",
+
+assertion: "If pattern is an object R whose [[Class]] property is \"RegExp\" and flags is undefined, then let P be",
 
 description: "Pattern is /\\t/m and RegExp is new RegExp(pattern,x), where x is undefined variable",
 

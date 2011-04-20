@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.2.4.2_A8",
 
-path: "15.2.4.2",
+path: "15_Native\15.2_Object_Objects\15.2.4_Properties_of_the_Object_Prototype_Object\15.2.4.2_Object.prototype.toString\S15.2.4.2_A8.js",
+
+assertion: "The Object.prototype.toString.length property has the attribute DontEnum",
 
 description: "Checking if enumerating the Object.prototype.toString.length property fails",
 

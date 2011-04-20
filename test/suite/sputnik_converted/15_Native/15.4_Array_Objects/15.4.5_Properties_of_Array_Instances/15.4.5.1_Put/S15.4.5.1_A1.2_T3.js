@@ -17,7 +17,9 @@
 ES5Harness.registerTest( {
 id: "S15.4.5.1_A1.2_T3",
 
-path: "15.4.5.1, 15.4, 15.2.4.5",
+path: "15_Native\15.4_Array_Objects\15.4.5_Properties_of_Array_Instances\15.4.5.1_Put\S15.4.5.1_A1.2_T3.js",
+
+assertion: "For every integer k that is less than the value of",
 
 description: "Checking an inherited property",
 

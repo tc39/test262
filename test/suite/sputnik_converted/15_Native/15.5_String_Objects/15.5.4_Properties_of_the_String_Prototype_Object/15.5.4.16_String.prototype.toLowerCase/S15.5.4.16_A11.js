@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.16_A11",
 
-path: "15.5.4.16",
+path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\15.5.4.16_String.prototype.toLowerCase\S15.5.4.16_A11.js",
+
+assertion: "The length property of the toLowerCase method is 0",
 
 description: "Checking String.prototype.toLowerCase.length",
 

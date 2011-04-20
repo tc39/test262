@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.8.2.7_A6",
 
-path: "15.8.2.7",
+path: "15_Native\15.8_The_Math_Object\15.8.2_Function_Properties_of_the_Math_Object\15.8.2.7_cos\S15.8.2.7_A6.js",
+
+assertion: "Cosine is a periodic function with period 2*PI",
 
 description: "Checking if Math.cos(x) equals to Math.cos(x+n*2*Math.PI) with precision 0.000000000003, where n is an integer from 1 to 100 and x is one of 10 float point values from -Math.PI to +Math.PI",
 

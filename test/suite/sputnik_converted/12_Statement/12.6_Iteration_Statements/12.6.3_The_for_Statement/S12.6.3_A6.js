@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.6.3_A6",
 
-path: "12.6.3",
+path: "12_Statement\12.6_Iteration_Statements\12.6.3_The_for_Statement\S12.6.3_A6.js",
+
+assertion: "While evaluating \"for ( ;  ; Expression) Statement\", Statement is evaluated first and then Expression is evaluated",
 
 description: "Using \"(function(){throw \"SecondExpression\";})()\" as an Expression",
 

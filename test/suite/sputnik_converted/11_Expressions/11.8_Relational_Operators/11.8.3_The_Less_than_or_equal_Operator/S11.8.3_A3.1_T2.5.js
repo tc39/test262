@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.8.3_A3.1_T2.5",
 
-path: "11.8.3",
+path: "11_Expressions\11.8_Relational_Operators\11.8.3_The_Less_than_or_equal_Operator\S11.8.3_A3.1_T2.5.js",
+
+assertion: "Operator x <= y returns ToNumber(x) <= ToNumber(y), if Type(Primitive(x)) is not String or Type(Primitive(y)) is not String",
 
 description: "Type(Primitive(x)) is different from Type(Primitive(y)) and both types vary between String (primitive or object) and Boolean (primitive and object)",
 

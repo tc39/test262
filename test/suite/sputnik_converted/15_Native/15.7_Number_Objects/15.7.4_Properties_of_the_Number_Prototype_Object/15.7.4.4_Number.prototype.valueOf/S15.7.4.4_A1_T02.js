@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.7.4.4_A1_T02",
 
-path: "15.7.4.4",
+path: "15_Native\15.7_Number_Objects\15.7.4_Properties_of_the_Number_Prototype_Object\15.7.4.4_Number.prototype.valueOf\S15.7.4.4_A1_T02.js",
+
+assertion: "Number.prototype.valueOf() returns this number value",
 
 description: "calling with argument",
 

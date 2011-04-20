@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S13.2.2_A18_T2",
 
-path: "13.2.2",
+path: "13_Function_Definition\13.2_Creating_Function_Objects\S13.2.2_A18_T2.js",
+
+assertion: "Using arguments object within a \"with\" Expression that is nested in a function is admitted",
 
 description: "Object is declared with \"__obj={callee:\"a\"}\"",
 

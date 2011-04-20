@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.1.1_A4.2",
 
-path: "11.1.1",
+path: "11_Expressions\11.1_Primary_Expressions\11.1.1_The_this_Keyword\S11.1.1_A4.2.js",
+
+assertion: "Being in anonymous code, \"this\" and eval(\"this\"), called as a constructor, return the object",
 
 description: "Creating function by using new Function() constructor. It has the property, which returns \"this\"",
 

@@ -13,9 +13,11 @@
 // Converted for Test262 from original Sputnik source
 
 ES5Harness.registerTest( {
-id: "S13.0_A3_T1",
+id: "S13_A3_T1",
 
-path: "13.0",
+path: "13_Function_Definition\S13_A3_T1.js",
+
+assertion: "The Identifier in a FunctionExpression can be referenced from inside the FunctionExpression\'s FunctionBody to allow the function calling itself recursively",
 
 description: "Creating a recursive function that calculates factorial, as a variable.",
 

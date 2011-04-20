@@ -13,7 +13,9 @@
 ES5Harness.registerTest( {
 id: "S15.8.1.2_A1",
 
-path: "15.8.1.2",
+path: "15_Native\15.8_The_Math_Object\15.8.1_Value_Properties_of_the_Math_Object\15.8.1.2_LN10\S15.8.1.2_A1.js",
+
+assertion: "Math.LN10 is approximately 2.302585092994046",
 
 description: "Comparing Math.LN10 with 2.302585092994046",
 

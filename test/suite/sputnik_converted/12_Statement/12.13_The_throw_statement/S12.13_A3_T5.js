@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S12.13_A3_T5",
 
-path: "12.13",
+path: "12_Statement\12.13_The_throw_statement\S12.13_A3_T5.js",
+
+assertion: "1. Evaluate Expression",
 
 description: "Evaluating equation expression",
 

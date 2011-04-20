@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S11.9.1_A4.3",
 
-path: "11.9.1, 11.9.3",
+path: "11_Expressions\11.9_Equality_Operators\11.9.1_The_Equals_Operator\S11.9.1_A4.3.js",
+
+assertion: "Type(x) and Type(y) are Number-s minus NaN, +0, -0.",
 
 description: "x and y are primitive numbers",
 

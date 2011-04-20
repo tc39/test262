@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S11.3.2_A2.1_T2",
 
-path: "11.3.2, 11.6.3",
+path: "11_Expressions\11.3_PostfixExpressions\11.3.2_Postfix_Decrement_Operator\S11.3.2_A2.1_T2.js",
+
+assertion: "Operator x-- uses GetValue and PutValue",
 
 description: "If GetBase(x) is null, throw ReferenceError",
 

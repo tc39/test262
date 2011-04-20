@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.9.4.1_A1_T3",
 
-path: "15.9.4.1",
+path: "15_Native\15.9_Date_Objects\15.9.4_Properties_of_the_Date_Constructor\15.9.4.1_Date.prototype\S15.9.4.1_A1_T3.js",
+
+assertion: "The Date property \"prototype\" has { DontEnum, DontDelete, ReadOnly } attributes",
 
 description: "Checking DontEnum attribute",
 

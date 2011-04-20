@@ -15,7 +15,9 @@
 ES5Harness.registerTest( {
 id: "S10.1.8_A4",
 
-path: "10.1.8",
+path: "10_Execution_Contexts\10.1_Definitions\10.1.8_Arguments_Object\S10.1.8_A4.js",
+
+assertion: "The initial value of the created property callee is the",
 
 description: "Checking that arguments.callee === function object",
 

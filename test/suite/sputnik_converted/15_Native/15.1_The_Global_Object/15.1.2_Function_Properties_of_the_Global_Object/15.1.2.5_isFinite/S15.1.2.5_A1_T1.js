@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.1.2.5_A1_T1",
 
-path: "15.1.2.5",
+path: "15_Native\15.1_The_Global_Object\15.1.2_Function_Properties_of_the_Global_Object\15.1.2.5_isFinite\S15.1.2.5_A1_T1.js",
+
+assertion: "isFinite applies ToNumber to its argument, then return false if the result is NaN, +Infinity, -Infinity, and otherwise return true",
 
 description: "Checking all primitive",
 

@@ -14,7 +14,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.11_A1_T1",
 
-path: "15.10.2.11",
+path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.11_DecimalEscape\S15.10.2.11_A1_T1.js",
+
+assertion: "DecimalEscape :: DecimalIntegerLiteral [lookahead not in DecimalDigit]",
 
 description: "DecimalEscape :: 0. If i is zero, return the EscapeValue consisting of a <NUL> character (Unicodevalue0000)",
 

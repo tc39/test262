@@ -16,7 +16,9 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.12_A2_T2",
 
-path: "15.10.2.12, 7.2, 7.3",
+path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.12_CharacterClassEscape\S15.10.2.12_A2_T2.js",
+
+assertion: "The production CharacterClassEscape :: S evaluates by returning",
 
 description: "LineTerminator",
 
