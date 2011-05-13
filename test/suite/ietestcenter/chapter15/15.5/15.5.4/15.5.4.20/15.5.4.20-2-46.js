@@ -28,7 +28,7 @@ ES5Harness.registerTest({
 
     test: function testcase() {
         var funObj = function () { return arguments; };
-        return String.prototype.trim.call(funObj) === "function () { return arguments; }";
+        return typeof(String.prototype.trim.call(funObj)) === "string";
     },
 
     precondition: function prereq() {

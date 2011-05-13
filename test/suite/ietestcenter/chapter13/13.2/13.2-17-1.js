@@ -46,7 +46,7 @@ ES5Harness.registerTest({
             var fun = function () {};
 
             var verifyValue = false;
-	    verifyValue = (fun.prototype.constructor == "function () {}" && typeof fun.prototype.constructor === "function");
+            verifyValue = typeof fun.prototype.constructor === "function";
 
             var verifyEnumerable = false;
             for (var p in fun.prototype) {

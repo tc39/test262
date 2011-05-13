@@ -36,8 +36,7 @@ ES5Harness.registerTest({
             var argObj = (function () { return arguments })();
 
             var verifyValue = false;
-            var expectedValue = "function () { return arguments }";
-            verifyValue = argObj.callee.toString() === expectedValue && typeof argObj.callee === "function";
+            verifyValue = typeof argObj.callee === "function";
             
             var verifyWritable = false;
             argObj.callee = 1001;
