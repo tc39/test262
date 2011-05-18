@@ -35,8 +35,10 @@ ES5Harness.registerTest({
 
             var newArr = Array.prototype.concat.call(101);
 
-            return newArr.hasOwnProperty("0") && newArr[0] === 101;
+            var hasProperty = newArr.hasOwnProperty("0");
 
+	    var instanceOfVerify = newArr[0] instanceof Number;
+            
             var verifyValue = false;
             verifyValue = newArr[0] === 101;
 
@@ -55,7 +57,8 @@ ES5Harness.registerTest({
             delete newArr[0];
             verifyConfigurable = newArr.hasOwnProperty("0");
 
-            return verifyValue && !verifyConfigurable && verifyEnumerable && verifyWritable;
+            return hasProperty && instanceOfVerify && verifyValue && !verifyConfigurable && verifyEnumerable && verifyWritable;
+	
 
         } finally {
             delete Array.prototype[0];
