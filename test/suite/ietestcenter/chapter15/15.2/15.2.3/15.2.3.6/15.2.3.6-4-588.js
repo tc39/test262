@@ -62,7 +62,7 @@ ES5Harness.registerTest({
 
         var hasOwnProperty = !teamMeeting.hasOwnProperty("name") &&
             !teamMeeting.hasOwnProperty("startTime") &&
-            !teamMeeting.hasOwnProperty('startTime');
+            !teamMeeting.hasOwnProperty('conferenceCall');
 
         return hasOwnProperty && teamMeeting.name === "NAME" &&
             teamMeeting.startTime === 1001 &&
