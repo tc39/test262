@@ -33,12 +33,12 @@ ES5Harness.registerTest({
             props[name] = {value:11, configurable:true}
         });
 
-        props.prop = {
+        props.prop15_2_3_5_4_37 = {
             value: 12,
             enumerable: true
         };
         var newObj = Object.create({}, props);
-        return newObj.hasOwnProperty("prop");
+        return newObj.hasOwnProperty("prop15_2_3_5_4_37");
     },
 
     precondition: function prereq() {

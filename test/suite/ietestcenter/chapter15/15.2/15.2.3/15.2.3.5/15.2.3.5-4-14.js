@@ -35,7 +35,7 @@ ES5Harness.registerTest({
             props[name] = {value:11, configurable:true}
         });
 
-        Object.defineProperty(props, "prop", {
+        Object.defineProperty(props, "prop15_2_3_5_4_14", {
             get: function () {
                 result = this instanceof Error;
                 return {};
@@ -43,7 +43,7 @@ ES5Harness.registerTest({
             enumerable: true
         });
         var newObj = Object.create({}, props);
-        return result && newObj.hasOwnProperty("prop");
+        return result && newObj.hasOwnProperty("prop15_2_3_5_4_14");
     },
 
     precondition: function prereq() {
