@@ -194,8 +194,7 @@ function BrowserRunner() {
  * * onTestsExhausted(): Called when there are no more tests to run.
  */
 function TestLoader() {
-    var TEST_LIST_PATH   = "resources/scripts/testcases/testcaseslist.json",
-        testGroups       = [],
+    var testGroups       = [],
         testGroupIndex   = 0,
         currentTestIndex = 0,
         loader           = this;
