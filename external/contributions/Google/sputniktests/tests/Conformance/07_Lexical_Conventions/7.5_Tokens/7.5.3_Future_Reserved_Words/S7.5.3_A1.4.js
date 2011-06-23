@@ -4,9 +4,8 @@
 /**
  * @name: S7.5.3_A1.4;
  * @section: 7.5.3;
- * @assertion: The "char" token can not be used as identifier;
- * @description: Checking if execution of "char=1" fails;  
- * @negative
-*/
+ * @assertion: The "char" token can be used as identifier;
+ * @description: Checking if execution of "char=1" succeeds;
+ */
 
 char = 1;

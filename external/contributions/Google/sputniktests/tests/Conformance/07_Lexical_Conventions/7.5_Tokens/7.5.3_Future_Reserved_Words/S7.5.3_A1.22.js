@@ -4,9 +4,11 @@
 /**
  * @name: S7.5.3_A1.22;
  * @section: 7.5.3;
- * @assertion: The "private" token can not be used as identifier;
- * @description: Checking if execution of "private=1" fails;  
+ * @assertion: The "private" token can not be used as identifier in
+ *             strict code;
+ * @description: Checking if execution of "private=1" fails in strict code;
  * @negative
-*/
+ */
 
+"use strict";
 private = 1;

@@ -4,7 +4,9 @@
 /**
 * @name: S15.3.5.1_A1_T1;
 * @section: 15.3.5.1;
-* @assertion: The value of the length property is usually an integer that indicates the 'typical' number of arguments expected by the function;
+* @assertion: The value of the length property is usually an integer
+*             that indicates the 'typical' number of arguments
+*             expected by the function;
 * @description: Checking length property of Function("arg1,arg2,arg3", null);
 */
 

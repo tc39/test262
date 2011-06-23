@@ -4,9 +4,8 @@
 /**
  * @name: S7.5.3_A1.3;
  * @section: 7.5.3;
- * @assertion: The "byte" token can not be used as identifier;
- * @description: Checking if execution of "byte=1" fails;  
- * @negative
-*/
+ * @assertion: The "byte" token can be used as identifier;
+ * @description: Checking if execution of "byte=1" succeeds;
+ */
 
 byte = 1;
