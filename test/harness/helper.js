@@ -235,7 +235,7 @@ function Presenter() {
     /* Append a result to the run page's result log. */
     function logResult(test) {
         altStyle = (altStyle !== ' ') ? ' ' : 'alternate';
-        var appendStr = '<tbody><tr class=\"' + altStyle + '\"><td width=\"20%\">' + test.id + '</td><td>' + test.description + '</td><td align="right"><span class=\"Fail\">' + test.result + '</span></td></tr></tbody>';
+        var appendStr = '<tbody><tr class=\"' + altStyle + '\"><td width=\"20%\">' + "<a class='showSource' href='#" + test.id + "'>" + test.id + "</a>" + '</td><td>' + test.description + '</td><td align="right"><span class=\"Fail\">' + test.result + '</span></td></tr></tbody>';
         logger.append(appendStr);
         logger.parent().attr("scrollTop", logger.parent().attr("scrollHeight"));
     }
@@ -314,7 +314,7 @@ function Presenter() {
         logger = $("#tableLogger");
         progressBar = $('#progressbar');
         activityBar = $('#nextActivity');
-
+        $('a.showSource', logger).live("click", openSourceWindow);
         $('#ancGenXMLReport').click(createXMLReportWindow);
     }
 }
