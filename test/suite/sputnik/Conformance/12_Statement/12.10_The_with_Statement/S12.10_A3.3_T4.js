@@ -4,37 +4,39 @@
 /**
  * @name: S12.10_A3.3_T4;
  * @section: 12.10;
- * @assertion: No matter how control leaves the embedded 'Statement', 
- * the scope chain is always restored to its former state;
- * @description: Declaring "with" statement within a function constructor, leading to completion by exception;
+ * @assertion: No matter how control leaves the embedded 'Statement',
+ *             the scope chain is always restored to its former state;
+ * @description: Declaring "with" statement within a function
+ *               constructor, leading to completion by exception;
  * @strict_mode_negative
  */
- 
+
 this.p1 = 1;
 
 var result = "result";
 
 var myObj = {
-    p1: 'a', 
-    value: 'myObj_value',
-    valueOf : function(){return 'obj_valueOf';}
+  p1: 'a',
+  value: 'myObj_value',
+  valueOf : function(){return 'obj_valueOf';}
+};
+
+function __FACTORY(){
+  with(myObj){
+    var p1 = 'x1';
+    throw value;
+  }
 }
 
 try {
-    function __FACTORY(){
-        with(myObj){
-            p1 = 'x1';
-            throw value;
-        }
-    }
-    var obj = new __FACTORY();
+  var obj = new __FACTORY();
 } catch(e){
-    result = p1;
+  result = p1;
 }
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if(result !== 1){
+if (result !== 1) {
   $ERROR('#1: result === 1. Actual:  result ==='+ result  );
 }
 //
@@ -42,7 +44,7 @@ if(result !== 1){
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if(p1 !== 1){
+if (p1 !== 1) {
   $ERROR('#2: p1 === 1. Actual:  p1 ==='+ p1  );
 }
 //
@@ -50,7 +52,7 @@ if(p1 !== 1){
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#3
-if(myObj.p1 !== "x1"){
+if (myObj.p1 !== "x1") {
   $ERROR('#3: myObj.p1 === "x1". Actual:  myObj.p1 ==='+ myObj.p1  );
 }
 //

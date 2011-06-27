@@ -4,9 +4,8 @@
 /**
  * @name: S7.5.3_A1.28;
  * @section: 7.5.3;
- * @assertion: The "synchronized" token can not be used as identifier;
- * @description: Checking if execution of "synchronized=1" fails;  
- * @negative
+ * @assertion: The "synchronized" token can be used as identifier;
+ * @description: Checking if execution of "synchronized=1" succeeds;
 */
 
 synchronized = 1;

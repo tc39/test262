@@ -4,14 +4,12 @@
 /**
 * @name: S15.3.4_A1;
 * @section: 15.3.4;
-* @assertion: The Function prototype object is itself a Function object (its [[Class]] is "Function");
-* @description: first we delete Function.prototype.toString cause it overrides Object prototype toString. 
-* Object.prototype.toString returns [object+[[class]]+];
+* @assertion: The Function prototype object is itself a Function
+*             object (its [[Class]] is "Function");
+* @description: Object.prototype.toString returns [object+[[Class]]+];
 */
 
-delete Function.prototype.toString;
-
-//CHECK#1
-if (Function.prototype.toString() !== "[object "+"Function"+"]") {
-  $ERROR('#1: The Function prototype object is itself a Function object (its [[Class]] is "Function")');
+if (Object.prototype.toString.call(Function.prototype) !== "[object Function]") {
+  $ERROR('#2: The Function prototype object is itself a Function ' +
+         'object (its [[Class]] is "Function") (15.3.4)');
 }

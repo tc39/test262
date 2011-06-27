@@ -4,9 +4,8 @@
 /**
  * @name: S7.5.3_A1.31;
  * @section: 7.5.3;
- * @assertion: The "volatile" token can not be used as identifier;
- * @description: Checking if execution of "volatile=1" fails;  
- * @negative
-*/
+ * @assertion: The "volatile" token can be used as identifier;
+ * @description: Checking if execution of "volatile=1" succeeds;
+ */
 
 volatile = 1;

@@ -8,6 +8,8 @@
 * @description: Evaluating various Expressions;
 */
 
+var __in__do;
+
 do __in__do=1; while ( false );
 
 //////////////////////////////////////////////////////////////////////////////

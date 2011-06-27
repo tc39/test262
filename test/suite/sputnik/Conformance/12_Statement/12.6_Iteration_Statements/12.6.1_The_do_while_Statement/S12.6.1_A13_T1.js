@@ -4,10 +4,14 @@
 /**
 * @name: S12.6.1_A13_T1;
 * @section: 12.6.1, 13;
-* @assertion: FunctionDeclaration within a "do-while" Block is not allowed;
+* @assertion: FunctionDeclaration within a "do-while" Block in strict
+*             code is not allowed;
 * @description: Declaring function within a "do-while" loop;
-* @negative;
+* @negative SyntaxError;
 */
+
+"use strict";
+if (!strict_mode) { throw new SyntaxError('unspecified case'); }
 
 do{
     function __func(){};

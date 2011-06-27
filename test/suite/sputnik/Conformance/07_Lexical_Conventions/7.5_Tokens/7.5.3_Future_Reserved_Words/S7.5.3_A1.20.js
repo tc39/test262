@@ -4,9 +4,8 @@
 /**
  * @name: S7.5.3_A1.20;
  * @section: 7.5.3;
- * @assertion: The "native" token can not be used as identifier;
- * @description: Checking if execution of "native=1" fails;  
- * @negative
-*/
+ * @assertion: The "native" token can be used as identifier;
+ * @description: Checking if execution of "native=1" succeeds;
+ */
 
 native = 1;

@@ -4,9 +4,8 @@
 /**
  * @name: S7.5.3_A1.1;
  * @section: 7.5.3;
- * @assertion: The "abstract" token can not be used as identifier;
- * @description: Checking if execution of "abstract=1" fails;  
- * @negative
-*/
+ * @assertion: The "abstract" token can be used as identifier;
+ * @description: Checking if execution of "abstract=1" succeeds;
+ */
 
 abstract = 1;

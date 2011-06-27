@@ -4,9 +4,8 @@
 /**
  * @name: S7.5.3_A1.30;
  * @section: 7.5.3;
- * @assertion: The "transient" token can not be used as identifier;
- * @description: Checking if execution of "transient=1" fails;  
- * @negative
-*/
+ * @assertion: The "transient" token can be used as identifier;
+ * @description: Checking if execution of "transient=1" succeeds;
+ */
 
 transient = 1;
