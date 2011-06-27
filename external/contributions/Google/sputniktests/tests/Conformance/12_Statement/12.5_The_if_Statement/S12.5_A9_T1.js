@@ -4,10 +4,14 @@
 /**
 * @name: S12.5_A9_T1;
 * @section: 12.5;
-* @assertion: Function declaration within an "if" statement is not allowed;
+* @assertion: Function declaration within an "if" statement in strict
+*             code is not allowed;
 * @description: Declaring function within an "if" statement;
-* @negative;
+* @negative SyntaxError;
 */
+
+"use strict";
+if (!strict_mode) { throw new SyntaxError('unspecified case'); }
 
 if (true) {
     function __func(){};

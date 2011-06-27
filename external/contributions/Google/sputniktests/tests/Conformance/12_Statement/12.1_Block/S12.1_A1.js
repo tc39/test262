@@ -4,10 +4,15 @@
 /**
 * @name: S12.1_A1;
 * @section: 12.1;
-* @assertion: The production Block  { } can't contain function declaration;
+* @assertion: The production Block { } in strict code can't contain
+*             function declaration;
 * @description: Trying to declare function at the Block statement;
-* @negative;
+* @negative SyntaxError;
 */
+
+"use strict";
+if (!strict_mode) { throw new SyntaxError('unspecified case'); }
+
 {
     function __func(){}
 }

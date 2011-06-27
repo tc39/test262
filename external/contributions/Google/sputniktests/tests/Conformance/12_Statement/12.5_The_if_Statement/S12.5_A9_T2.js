@@ -4,12 +4,15 @@
 /**
 * @name: S12.5_A9_T2;
 * @section: 12.5;
-* @assertion: Function declaration within an "if" statement is not allowed;
-* @description: Declaring function within and "if" that is declared within the function call;
-* @negative;
+* @assertion: Function declaration within an "if" statement in strict
+*             code is not allowed;
+* @description: Declaring function within an "if" that is declared
+*               within the strict function;
+* @negative SyntaxError;
 */
 
 (function(){
+"use strict";
 
 if (true) {
     function __func(){};
@@ -17,4 +20,4 @@ if (true) {
     function __func(){};
 }
 
-})();
+});

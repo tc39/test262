@@ -8,9 +8,9 @@
 * @description: For testing use Function.prototype.toString() function;
 */
 
-f = function(x) {
+var f = function(x) {
   return x*x;
-}
+};
 
 //CHECK#1
 if (eval(f.toString())(10) !== f(10)) {

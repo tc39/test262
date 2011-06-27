@@ -9,4 +9,4 @@
 * @negative
 */
 
-Object.prototype.toLocaleString.call(null);
+Object.prototype.valueOf.call(null);
