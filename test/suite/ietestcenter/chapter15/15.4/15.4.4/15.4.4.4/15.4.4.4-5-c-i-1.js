@@ -37,7 +37,7 @@ ES5Harness.registerTest({
 
             var hasProperty = newArr.hasOwnProperty("0");
 
-	    var instanceOfVerify = newArr[0] instanceof Number;
+	    var instanceOfVerify = typeof newArr[0]==="number";
             
             var verifyValue = false;
             verifyValue = newArr[0] === 101;

@@ -24,33 +24,25 @@ id: "12.2.1-13-s",
 
 path: "TestCases/chapter12/12.2/12.2.1/12.2.1-13-s.js",
 
-description: "arguments as global var identifier throws SyntaxError in strict mode",
+description: "arguments assignment throws SyntaxError in strict mode",
 
 test: function testcase() {
+  'use strict';
 
-    var indirectEval = eval;
-	
-    try {
-	    indirectEval("'use strict'; var arguments;");
-        return false;
-	}
-    catch (e) {
-        return (e instanceof SyntaxError);
-	}
+  try {
+    eval('function foo() { arguments = 42; }; foo()');
+    return false;
+  }
+  catch (e) {
+    return (e instanceof SyntaxError);
+  }
  },
 
 strict:1,
 
-precondition: function () {
-   //indirect eval must be globally scoped
-   var localVar = "12.2.1-13-s";
-   var indirectEval = eval;
-   try {
-	if (indirectEval("localVar;")==="12.2.1-13-s" ) 
-		return false;
-   } catch (e) {
-   }
-   return fnSupportsStrict();
-}
+precondition: function prereq() {
+  return fnSupportsStrict();
+ }
+
 
 });

@@ -27,14 +27,15 @@ path: "TestCases/chapter12/12.2/12.2.1/12.2.1-12-s.js",
 description: "arguments as local var identifier throws SyntaxError in strict mode",
 
 test: function testcase() {
-    
-    try {
-	    eval("(function (){'use strict'; var arguments;});");
-        return false;
-	}
-    catch (e) {
-        return (e instanceof SyntaxError);
-	}
+  'use strict';
+
+  try {
+    eval('function foo() { var arguments;}');
+    return false;
+  }
+  catch (e) {
+    return (e instanceof SyntaxError);
+  }
  },
 
 strict:1,
@@ -42,5 +43,6 @@ strict:1,
 precondition: function prereq() {
   return fnSupportsStrict();
  }
+
 
 });
