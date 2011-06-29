@@ -4,8 +4,7 @@
 /**
 * @name: S15.3.4_A1;
 * @section: 15.3.4;
-* @assertion: The Function prototype object is itself a Function
-*             object (its [[Class]] is "Function");
+* @assertion: The Function prototype object is itself a Function object (its [[Class]] is "Function");
 * @description: Object.prototype.toString returns [object+[[Class]]+];
 */
 

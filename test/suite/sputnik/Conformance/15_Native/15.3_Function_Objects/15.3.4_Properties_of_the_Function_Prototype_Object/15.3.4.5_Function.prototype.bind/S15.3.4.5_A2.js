@@ -5,8 +5,7 @@
 * @name: S15.3.4.5_A1;
 * @section: 15.3.4.5;
 * @assertion: "arguments" of bound function is poisoned (step 21);
-* @description a bound function should fail to find the bound function
-*              "arguments";
+* @description a bound function should fail to find the bound function "arguments";
 * @negative TypeError;
 */
 

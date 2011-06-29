@@ -4,9 +4,7 @@
 /**
 * @name: S15.3.4.2_A14;
 * @section: 15.3.4.2;
-* @assertion: The toString function is not generic; it throws a
-*             TypeError exception if its this value is not a Function
-*             object.
+* @assertion: The toString function is not generic; it throws a TypeError exception if its this value is not a Function object.
 * @negative TypeError;
 */
 

@@ -4,10 +4,8 @@
 /**
  * @name: S12.10_A3.3_T4;
  * @section: 12.10;
- * @assertion: No matter how control leaves the embedded 'Statement',
- *             the scope chain is always restored to its former state;
- * @description: Declaring "with" statement within a function
- *               constructor, leading to completion by exception;
+ * @assertion: No matter how control leaves the embedded 'Statement', the scope chain is always restored to its former state;
+ * @description: Declaring "with" statement within a function constructor, leading to completion by exception;
  * @strict_mode_negative
  */
 

@@ -4,8 +4,7 @@
 /**
 * @name: S15.4.4.11_A8;
 * @section: 15.4.4.11;
-* @assertion: Call the comparefn passing undefined as the this value
-*             (step 13b);
+* @assertion: Call the comparefn passing undefined as the this value (step 13b);
 * @description: comparefn tests that its this value is undefined;
 */
 

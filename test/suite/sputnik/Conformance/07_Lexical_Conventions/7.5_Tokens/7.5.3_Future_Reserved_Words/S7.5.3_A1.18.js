@@ -4,8 +4,7 @@
 /**
  * @name: S7.5.3_A1.18;
  * @section: 7.5.3;
- * @assertion: The "interface" token can not be used as identifier in
- *             strict code;
+ * @assertion: The "interface" token can not be used as identifier in strict code;
  * @description: Checking if execution of "interface = 1" fails in
  *               strict code;
  * @negative

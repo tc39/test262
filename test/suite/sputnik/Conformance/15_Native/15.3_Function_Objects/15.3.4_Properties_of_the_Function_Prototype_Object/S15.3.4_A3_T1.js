@@ -4,9 +4,7 @@
 /**
 * @name: S15.3.4_A3_T1;
 * @section: 15.3.4;
-* @assertion: The value of the internal [[Prototype]] property of the
-*             Function prototype object is the Object prototype object
-*             (15.3.4);
+* @assertion: The value of the internal [[Prototype]] property of the Function prototype object is the Object prototype object (15.3.4);
 * @description: Checking prototype of Function.prototype;
 */
 

@@ -4,10 +4,8 @@
 /**
  * @name: S7.5.3_A1.23;
  * @section: 7.5.3;
- * @assertion: The "protected" token can be used as identifier in
- *             non-strict code;
- * @description: Checking if execution of "protected=1" succeeds in
- *               non-strict code;
+ * @assertion: The "protected" token can be used as identifier in non-strict code;
+ * @description: Checking if execution of "protected=1" succeeds in non-strict code;
  */
 
 new Function('protected = 1');

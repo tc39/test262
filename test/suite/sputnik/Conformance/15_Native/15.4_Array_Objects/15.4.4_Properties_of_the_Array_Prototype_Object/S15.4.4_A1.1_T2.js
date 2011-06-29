@@ -4,8 +4,7 @@
 /**
  * @name: S15.4.4_A1.1_T2;
  * @section: 15.4.4;
- * @assertion:The Array prototype object is itself an array; its
-*             [[Class]] is "Array",
+ * @assertion:The Array prototype object is itself an array; its [[Class]] is "Array",
 */
 
 //CHECK#1

@@ -4,8 +4,7 @@
 /**
 * @name: S15.2.4.6_A13;
 * @section: 15.2.4.6;
-* @assertion: Let O be the result of calling ToObject passing the this
-*             value as the argument.
+* @assertion: Let O be the result of calling ToObject passing the this value as the argument.
 * @negative
 */
 

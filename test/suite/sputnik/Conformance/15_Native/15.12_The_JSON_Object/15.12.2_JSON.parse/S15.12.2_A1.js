@@ -4,10 +4,8 @@
 /**
  * @name: S15.12.2_A1;
  * @section: 15.12.2;
- * @assertion: JSON.parse must create a property with the given
- *             property name;
- * @description: Tests that JSON.parse treats "__proto__" as a regular
- *               property name;
+ * @assertion: JSON.parse must create a property with the given property name;
+ * @description: Tests that JSON.parse treats "__proto__" as a regular property name;
  */
 
 var x = JSON.parse('{"__proto__":[]}');

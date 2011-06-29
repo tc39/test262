@@ -4,10 +4,8 @@
 /**
  * @name: S7.5.3_A1.22;
  * @section: 7.5.3;
- * @assertion: The "private" token can be used as identifier in
- *             non-strict code;
- * @description: Checking if execution of "private=1" succeeds in
- *               non-strict code;
+ * @assertion: The "private" token can be used as identifier in non-strict code;
+ * @description: Checking if execution of "private=1" succeeds in non-strict code;
  */
 
 new Function('private = 1');

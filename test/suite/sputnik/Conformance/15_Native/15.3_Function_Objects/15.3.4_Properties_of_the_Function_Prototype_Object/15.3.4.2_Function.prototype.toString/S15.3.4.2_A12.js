@@ -4,9 +4,7 @@
 /**
 * @name: S15.3.4.2_A12;
 * @section: 15.3.4.2;
-* @assertion: The Function.prototype.toString function is not generic;
-*             it throws a TypeError exception if its this value is not
-*             a Function object.
+* @assertion: The Function.prototype.toString function is not generic; it throws a TypeError exception if its this value is not a Function object.
 * @negative TypeError;
 */
 

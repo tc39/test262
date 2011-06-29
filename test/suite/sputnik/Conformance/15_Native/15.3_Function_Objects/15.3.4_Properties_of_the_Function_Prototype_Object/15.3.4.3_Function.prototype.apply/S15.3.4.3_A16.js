@@ -5,10 +5,7 @@
 * @name: S15.3.4.3_A16;
 * @section: 15.3.4.3;
 * @assertion: If IsCallable(func) is false, then throw a TypeError exception.
-* @description: A RegExp is not a function, but it may be
-*               callable. Iff it is, it's typeof should be 'function',
-*               in which case apply should accept it as a valid this
-*               value.
+* @description: A RegExp is not a function, but it may be callable. Iff it is, it's typeof should be 'function', in which case apply should accept it as a valid this value.
 */
 
 var re = (/x/);
