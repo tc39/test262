@@ -6,7 +6,7 @@
  * @section: 7.4;
  * @assertion: Multi line comments cannot nest; 
  * @description: Try use nested comments;
- * @negative 
+ * @negative
 */
 
 /*CHECK#1*/

@@ -5,7 +5,8 @@
 * @name: S15.3.4.4_A13;
 * @section: 15.3.4.4;
 * @assertion: If IsCallable(func) is false, then throw a TypeError exception.
-* @negative TypeError;
+* @negative
+* @errortype: TypeError;
 */
 
 Function.prototype.call.call(undefined, {});

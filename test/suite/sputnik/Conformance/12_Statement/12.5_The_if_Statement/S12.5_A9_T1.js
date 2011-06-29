@@ -6,7 +6,8 @@
 * @section: 12.5;
 * @assertion: Function declaration within an "if" statement in strict code is not allowed;
 * @description: Declaring function within an "if" statement;
-* @negative SyntaxError;
+* @negative
+* @errortype: SyntaxError;
 */
 
 "use strict";

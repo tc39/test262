@@ -6,7 +6,8 @@
 * @section: 12.6.1, 13;
 * @assertion: FunctionDeclaration within a "do-while" Block in strict code is not allowed;
 * @description: Declaring function within a "do-while" loop;
-* @negative SyntaxError;
+* @negative
+* @errortype: SyntaxError;
 */
 
 "use strict";

@@ -6,7 +6,8 @@
 * @section: 15.3.4.2;
 * @assertion: The toString function is not generic; it throws a TypeError exception if its this value is not a Function object.
 * @description: The String constructor, given an object, should invoke that object's toString method as a method, i.e., with its this value bound to that object.
-* @negative TypeError;
+* @negative
+* @errortype: TypeError;
 */
 
 var obj = {toString: Function.prototype.toString};

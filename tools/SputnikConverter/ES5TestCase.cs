@@ -69,7 +69,7 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
                 Console.WriteLine();
             }
 
-            string[] args = { script.Header, script.id, script.path, InsertStringEscapes(script.assertion), InsertStringEscapes(script.description), script.ReplicationCode, body, preCondition, script.InitialComment };
+            string[] args = { script.Header, script.id, script.path.Replace("\\", "/"), InsertStringEscapes(script.assertion), InsertStringEscapes(script.description), script.ReplicationCode, body, preCondition, script.InitialComment };
             destFullPath = Path.Combine(destDir, string.Format(@"{0}.js", script.id));
 
             try

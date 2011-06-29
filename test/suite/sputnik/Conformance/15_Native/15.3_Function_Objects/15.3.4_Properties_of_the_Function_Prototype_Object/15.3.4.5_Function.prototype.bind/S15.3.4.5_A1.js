@@ -6,7 +6,8 @@
 * @section: 15.3.4.5;
 * @assertion: "caller" of bound function is poisoned (step 20);
 * @description A bound function should fail to find its "caller";
-* @negative TypeError;
+* @negative
+* @errortype: TypeError;
 */
 
 function foo() { return bar.caller; }

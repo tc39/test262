@@ -4,7 +4,7 @@
 ES5Harness.registerTest( {{
 id: "{1}",
 
-path: "{2}",
+path: "TestCases/{2}",
 
 assertion: "{3}",
 

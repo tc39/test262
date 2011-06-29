@@ -15,6 +15,7 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
 
             if (args == null || args.Length < 2)
             {
+                System.Console.WriteLine("You must specify the source directory and the destination directory!");
                 return;
             }
             source = args[0];

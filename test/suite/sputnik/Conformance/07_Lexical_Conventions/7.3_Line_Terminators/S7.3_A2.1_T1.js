@@ -6,7 +6,7 @@
  * @section: 7.3;
  * @assertion: LINE FEED (U+000A) within strings is not allowed;
  * @description: Insert LINE FEED (\u000A) into string;
- * @negative 
+ * @negative
 */
 
 // CHECK#1

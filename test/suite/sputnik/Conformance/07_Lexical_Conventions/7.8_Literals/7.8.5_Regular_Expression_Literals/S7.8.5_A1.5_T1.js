@@ -6,7 +6,7 @@
  * @section: 7.8.5;
  * @assertion: RegularExpressionFirstChar :: BackslashSequence :: \LineTerminator is incorrect;  
  * @description: Line Feed, without eval;
- * @negative  
+ * @negative
 */
 
 //CHECK#1

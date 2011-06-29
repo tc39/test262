@@ -6,7 +6,7 @@
  * @section: 7.4;
  * @assertion: Single and Multi line comments are used together;
  * @description: Try to open Multi line comment at the end of Single comment;
- * @negative  
+ * @negative
 */
 
 /*CHECK#1*/

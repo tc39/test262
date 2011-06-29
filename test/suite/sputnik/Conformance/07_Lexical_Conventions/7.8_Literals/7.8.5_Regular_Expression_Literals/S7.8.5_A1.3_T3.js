@@ -6,7 +6,7 @@
  * @section: 7.8.5;
  * @assertion: RegularExpressionFirstChar :: LineTerminator is incorrect;
  * @description: Carriage Return, without eval;
- * @negative  
+ * @negative
 */
 
 //CHECK#1

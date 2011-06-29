@@ -6,7 +6,7 @@
  * @section: 7.4;
  * @assertion: Single and Multi line comments are used together; 
  * @description: Try use 2 close comment tags; 
- * @negative 
+ * @negative
 */
 
 /*CHECK#1*/

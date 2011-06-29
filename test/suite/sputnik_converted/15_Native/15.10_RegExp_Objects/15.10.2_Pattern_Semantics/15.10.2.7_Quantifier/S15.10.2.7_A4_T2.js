@@ -5,7 +5,7 @@
 * @name: S15.10.2.7_A4_T2;
 * @section: 15.10.2.7;
 * @assertion: The production QuantifierPrefix :: * evaluates by returning the two results 0 and \infty;
-* @description: Execute /[^"S15.10.2.7_A4_T2"don\'t"') and check results;
+* @description: Execute /[^"]* /.exec('alice said: "don\'t"') and check results;
 */
 
 

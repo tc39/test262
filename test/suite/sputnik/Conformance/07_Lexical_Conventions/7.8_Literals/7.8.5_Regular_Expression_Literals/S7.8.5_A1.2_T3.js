@@ -6,7 +6,7 @@
  * @section: 7.8.5;
  * @assertion: RegularExpressionFirstChar :: * or \ or / or [empty] is incorrect; 
  * @description: /; 
- * @negative 
+ * @negative
 */
 
 //CHECK#1

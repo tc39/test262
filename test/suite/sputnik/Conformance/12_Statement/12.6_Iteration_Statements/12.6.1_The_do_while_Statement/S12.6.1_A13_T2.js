@@ -6,7 +6,8 @@
 * @section: 12.6.1, 13;
 * @assertion: FunctionDeclaration within a "do-while" Block in strict code is not allowed;
 * @description: Declaring a function within a "do-while" loop that is within a strict function;
-* @negative SyntaxError;
+* @negative
+* @errortype: SyntaxError;
 */
 
 (function(){

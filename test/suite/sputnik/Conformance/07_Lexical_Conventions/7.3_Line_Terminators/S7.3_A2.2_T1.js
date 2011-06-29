@@ -6,7 +6,7 @@
  * @section: 7.3;
  * @assertion: CARRIAGE RETURN (U+000D) within strings is not allowed;
  * @description: Insert CARRIAGE RETURN (\u000D) into string; 
- * @negative 
+ * @negative
 */
 
 // CHECK#1

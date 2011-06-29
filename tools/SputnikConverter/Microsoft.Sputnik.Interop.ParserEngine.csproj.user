@@ -14,6 +14,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <StartWorkingDirectory>
     </StartWorkingDirectory>
-    <StartArguments>E:\test262-msft\test\suite\sputnik\conformance E:\test262-msft\test\suite\sputnik_new01</StartArguments>
+    <StartArguments>G:\262\test262\test\suite\sputnik\conformance G:\262\test262\test\suite\sputnik_new01</StartArguments>
   </PropertyGroup>
 </Project>

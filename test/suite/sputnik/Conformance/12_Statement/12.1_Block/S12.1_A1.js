@@ -6,7 +6,8 @@
 * @section: 12.1;
 * @assertion: The production Block { } in strict code can't contain function declaration;
 * @description: Trying to declare function at the Block statement;
-* @negative SyntaxError;
+* @negative 
+* @errortype: SyntaxError;
 */
 
 "use strict";
