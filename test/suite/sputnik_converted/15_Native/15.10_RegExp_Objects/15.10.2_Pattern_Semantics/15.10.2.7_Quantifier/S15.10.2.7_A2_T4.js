@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.7_A2_T4",
 
-path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.7_Quantifier\S15.10.2.7_A2_T4.js",
+path: "TestCases/15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.7_Quantifier/S15.10.2.7_A2_T4.js",
 
 assertion: "i) The production QuantifierPrefix :: { DecimalDigits } evaluates...",
 

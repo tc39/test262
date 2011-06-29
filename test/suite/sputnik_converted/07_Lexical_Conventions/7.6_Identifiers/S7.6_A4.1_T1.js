@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S7.6_A4.1_T1",
 
-path: "07_Lexical_Conventions\7.6_Identifiers\S7.6_A4.1_T1.js",
+path: "TestCases/07_Lexical_Conventions/7.6_Identifiers/S7.6_A4.1_T1.js",
 
 assertion: "Correct interpretation of ENGLISH ALPHABET",
 

@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.12_A4_T5",
 
-path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.12_CharacterClassEscape\S15.10.2.12_A4_T5.js",
+path: "TestCases/15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.12_CharacterClassEscape/S15.10.2.12_A4_T5.js",
 
 assertion: "The production CharacterClassEscape :: W evaluates by returning the set of all characters not",
 

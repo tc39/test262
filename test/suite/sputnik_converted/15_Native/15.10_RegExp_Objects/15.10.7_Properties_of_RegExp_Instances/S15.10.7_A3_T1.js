@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.10.7_A3_T1",
 
-path: "15_Native\15.10_RegExp_Objects\15.10.7_Properties_of_RegExp_Instances\S15.10.7_A3_T1.js",
+path: "TestCases/15_Native/15.10_RegExp_Objects/15.10.7_Properties_of_RegExp_Instances/S15.10.7_A3_T1.js",
 
 assertion: "RegExp instance type is RegExp",
 

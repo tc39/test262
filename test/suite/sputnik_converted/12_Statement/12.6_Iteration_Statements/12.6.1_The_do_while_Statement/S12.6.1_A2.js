@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.6.1_A2",
 
-path: "12_Statement\12.6_Iteration_Statements\12.6.1_The_do_while_Statement\S12.6.1_A2.js",
+path: "TestCases/12_Statement/12.6_Iteration_Statements/12.6.1_The_do_while_Statement/S12.6.1_A2.js",
 
 assertion: "While evaluating \"do Statement while ( Expression )\", Statement is evaluated first and only after it is done Expression is checked",
 

@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S10.2.1_A1_T2",
 
-path: "10_Execution_Contexts\10.2_Entering_An_Execution_Context\10.2.1_Global_Code\S10.2.1_A1_T2.js",
+path: "TestCases/10_Execution_Contexts/10.2_Entering_An_Execution_Context/10.2.1_Global_Code/S10.2.1_A1_T2.js",
 
 assertion: "Variable instantiation is performed using the global object as",
 

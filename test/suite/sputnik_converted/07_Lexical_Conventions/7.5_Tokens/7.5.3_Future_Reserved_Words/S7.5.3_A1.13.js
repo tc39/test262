@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S7.5.3_A1.13",
 
-path: "07_Lexical_Conventions\7.5_Tokens\7.5.3_Future_Reserved_Words\S7.5.3_A1.13.js",
+path: "TestCases/07_Lexical_Conventions/7.5_Tokens/7.5.3_Future_Reserved_Words/S7.5.3_A1.13.js",
 
 assertion: "The \"float\" token can be used as identifier",
 

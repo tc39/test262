@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.8.1_A4.9",
 
-path: "11_Expressions\11.8_Relational_Operators\11.8.1_The_Less_than_Operator\S11.8.1_A4.9.js",
+path: "TestCases/11_Expressions/11.8_Relational_Operators/11.8.1_The_Less_than_Operator/S11.8.1_A4.9.js",
 
 assertion: "If x is less than y and these values are both finite non-zero, return true; otherwise, return false",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S9.7_A2.1",
 
-path: "09_Type_Conversion\9.7_ToUint16\S9.7_A2.1.js",
+path: "TestCases/09_Type_Conversion/9.7_ToUint16/S9.7_A2.1.js",
 
 assertion: "ToUint16 returns values between 0 and 2^16-1",
 

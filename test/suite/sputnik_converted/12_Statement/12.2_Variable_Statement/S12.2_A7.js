@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.2_A7",
 
-path: "12_Statement\12.2_Variable_Statement\S12.2_A7.js",
+path: "TestCases/12_Statement/12.2_Variable_Statement/S12.2_A7.js",
 
 assertion: "VariableDeclaration within \"for\" statement is allowed",
 

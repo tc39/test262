@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.2.4.3_A1",
 
-path: "15_Native\15.2_Object_Objects\15.2.4_Properties_of_the_Object_Prototype_Object\15.2.4.3_Object.prototype.toLocaleString\S15.2.4.3_A1.js",
+path: "TestCases/15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/15.2.4.3_Object.prototype.toLocaleString/S15.2.4.3_A1.js",
 
 assertion: "toLocaleString function returns the result of calling toString()",
 

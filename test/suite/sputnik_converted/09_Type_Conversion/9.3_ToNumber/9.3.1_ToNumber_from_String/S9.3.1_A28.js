@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S9.3.1_A28",
 
-path: "09_Type_Conversion\9.3_ToNumber\9.3.1_ToNumber_from_String\S9.3.1_A28.js",
+path: "TestCases/09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A28.js",
 
 assertion: "The MV of HexDigit ::: c or of HexDigit ::: C is 12",
 

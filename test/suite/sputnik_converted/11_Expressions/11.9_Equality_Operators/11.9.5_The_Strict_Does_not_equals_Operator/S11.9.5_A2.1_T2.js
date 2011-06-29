@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.9.5_A2.1_T2",
 
-path: "11_Expressions\11.9_Equality_Operators\11.9.5_The_Strict_Does_not_equals_Operator\S11.9.5_A2.1_T2.js",
+path: "TestCases/11_Expressions/11.9_Equality_Operators/11.9.5_The_Strict_Does_not_equals_Operator/S11.9.5_A2.1_T2.js",
 
 assertion: "Operator x !== y uses GetValue",
 

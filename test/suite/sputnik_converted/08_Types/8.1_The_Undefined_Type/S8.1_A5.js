@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S8.1_A5",
 
-path: "08_Types\8.1_The_Undefined_Type\S8.1_A5.js",
+path: "TestCases/08_Types/8.1_The_Undefined_Type/S8.1_A5.js",
 
 assertion: "Function argument that isn\'t provided has a value of undefined",
 

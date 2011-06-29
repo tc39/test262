@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.8.2.6_A6",
 
-path: "15_Native\15.8_The_Math_Object\15.8.2_Function_Properties_of_the_Math_Object\15.8.2.6_ceil\S15.8.2.6_A6.js",
+path: "TestCases/15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.6_ceil/S15.8.2.6_A6.js",
 
 assertion: "If x is less than 0 but greater than -1, Math.ceil(x) is -0",
 

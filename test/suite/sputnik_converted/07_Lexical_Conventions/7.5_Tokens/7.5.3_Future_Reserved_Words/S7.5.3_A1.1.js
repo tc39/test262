@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S7.5.3_A1.1",
 
-path: "07_Lexical_Conventions\7.5_Tokens\7.5.3_Future_Reserved_Words\S7.5.3_A1.1.js",
+path: "TestCases/07_Lexical_Conventions/7.5_Tokens/7.5.3_Future_Reserved_Words/S7.5.3_A1.1.js",
 
 assertion: "The \"abstract\" token can be used as identifier",
 

@@ -16,7 +16,7 @@
 ES5Harness.registerTest( {
 id: "S15.6.4.2_A2_T2",
 
-path: "15_Native\15.6_Boolean_Objects\15.6.4_Properties_of_the_Boolean_Prototype_Object\S15.6.4.2_A2_T2.js",
+path: "TestCases/15_Native/15.6_Boolean_Objects/15.6.4_Properties_of_the_Boolean_Prototype_Object/S15.6.4.2_A2_T2.js",
 
 assertion: "The toString function is not generic, it cannot be transferred",
 

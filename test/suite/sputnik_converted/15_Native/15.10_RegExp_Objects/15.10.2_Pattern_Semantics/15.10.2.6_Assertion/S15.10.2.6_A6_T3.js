@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.6_A6_T3",
 
-path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.6_Assertion\S15.10.2.6_A6_T3.js",
+path: "TestCases/15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.6_Assertion/S15.10.2.6_A6_T3.js",
 
 assertion: "Assertions in combination",
 

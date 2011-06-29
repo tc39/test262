@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S7.3_A7_T1",
 
-path: "07_Lexical_Conventions\7.3_Line_Terminators\S7.3_A7_T1.js",
+path: "TestCases/07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A7_T1.js",
 
 assertion: "Line Terminators between operators are allowed",
 

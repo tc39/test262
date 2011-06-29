@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S7.8.3_A1.2_T2",
 
-path: "07_Lexical_Conventions\7.8_Literals\7.8.3_Numeric_Literals\S7.8.3_A1.2_T2.js",
+path: "TestCases/07_Lexical_Conventions/7.8_Literals/7.8.3_Numeric_Literals/S7.8.3_A1.2_T2.js",
 
 assertion: "DecimalLiteral :: DecimalIntegerLiteral ExponentPart",
 

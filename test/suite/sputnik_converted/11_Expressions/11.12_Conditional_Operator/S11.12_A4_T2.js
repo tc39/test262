@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.12_A4_T2",
 
-path: "11_Expressions\11.12_Conditional_Operator\S11.12_A4_T2.js",
+path: "TestCases/11_Expressions/11.12_Conditional_Operator/S11.12_A4_T2.js",
 
 assertion: "If ToBoolean(x) is true, return y",
 

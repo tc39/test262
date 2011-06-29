@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.14_A13_T3",
 
-path: "12_Statement\12.14_The_try_Statement\S12.14_A13_T3.js",
+path: "TestCases/12_Statement/12.14_The_try_Statement/S12.14_A13_T3.js",
 
 assertion: "Using \"try\" with \"catch\" or \"finally\" statement with a \"return\" statement",
 

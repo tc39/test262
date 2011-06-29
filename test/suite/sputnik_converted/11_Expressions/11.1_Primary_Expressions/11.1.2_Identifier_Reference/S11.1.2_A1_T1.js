@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.1.2_A1_T1",
 
-path: "11_Expressions\11.1_Primary_Expressions\11.1.2_Identifier_Reference\S11.1.2_A1_T1.js",
+path: "TestCases/11_Expressions/11.1_Primary_Expressions/11.1.2_Identifier_Reference/S11.1.2_A1_T1.js",
 
 assertion: "The result of evaluating an Identifier is always a value of type Reference",
 

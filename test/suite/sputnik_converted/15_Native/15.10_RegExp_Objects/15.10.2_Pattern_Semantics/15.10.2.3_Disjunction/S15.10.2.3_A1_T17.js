@@ -16,7 +16,7 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.3_A1_T17",
 
-path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.3_Disjunction\S15.10.2.3_A1_T17.js",
+path: "TestCases/15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.3_Disjunction/S15.10.2.3_A1_T17.js",
 
 assertion: "The | regular expression operator separates two alternatives.",
 

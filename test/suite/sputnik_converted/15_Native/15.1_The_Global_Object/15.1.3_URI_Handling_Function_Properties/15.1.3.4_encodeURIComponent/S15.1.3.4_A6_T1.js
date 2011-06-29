@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.1.3.4_A6_T1",
 
-path: "15_Native\15.1_The_Global_Object\15.1.3_URI_Handling_Function_Properties\15.1.3.4_encodeURIComponent\S15.1.3.4_A6_T1.js",
+path: "TestCases/15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.4_encodeURIComponent/S15.1.3.4_A6_T1.js",
 
 assertion: "Operator use ToString",
 

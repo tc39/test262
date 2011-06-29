@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.9.1_A1",
 
-path: "11_Expressions\11.9_Equality_Operators\11.9.1_The_Equals_Operator\S11.9.1_A1.js",
+path: "TestCases/11_Expressions/11.9_Equality_Operators/11.9.1_The_Equals_Operator/S11.9.1_A1.js",
 
 assertion: "White Space and Line Terminator between EqualityExpression and \"==\" or between \"==\" and RelationalExpression are allowed",
 

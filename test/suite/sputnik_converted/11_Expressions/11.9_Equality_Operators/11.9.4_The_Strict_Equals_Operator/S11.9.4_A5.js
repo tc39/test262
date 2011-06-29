@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S11.9.4_A5",
 
-path: "11_Expressions\11.9_Equality_Operators\11.9.4_The_Strict_Equals_Operator\S11.9.4_A5.js",
+path: "TestCases/11_Expressions/11.9_Equality_Operators/11.9.4_The_Strict_Equals_Operator/S11.9.4_A5.js",
 
 assertion: "Type(x) and Type(y) are String-s.",
 

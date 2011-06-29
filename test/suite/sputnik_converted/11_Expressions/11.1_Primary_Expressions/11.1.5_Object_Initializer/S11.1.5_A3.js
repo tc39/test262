@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.1.5_A3",
 
-path: "11_Expressions\11.1_Primary_Expressions\11.1.5_Object_Initializer\S11.1.5_A3.js",
+path: "TestCases/11_Expressions/11.1_Primary_Expressions/11.1.5_Object_Initializer/S11.1.5_A3.js",
 
 assertion: "Evaluate the production ObjectLiteral: { PropertyNameAndValueList }",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.2.4.1_A1_T1",
 
-path: "15_Native\15.2_Object_Objects\15.2.4_Properties_of_the_Object_Prototype_Object\S15.2.4.1_A1_T1.js",
+path: "TestCases/15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/S15.2.4.1_A1_T1.js",
 
 assertion: "The initial value of Object.prototype.constructor is the built-in Object constructor",
 

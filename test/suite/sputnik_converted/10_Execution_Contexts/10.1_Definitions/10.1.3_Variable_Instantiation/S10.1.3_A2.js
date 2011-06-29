@@ -16,7 +16,7 @@
 ES5Harness.registerTest( {
 id: "S10.1.3_A2",
 
-path: "10_Execution_Contexts\10.1_Definitions\10.1.3_Variable_Instantiation\S10.1.3_A2.js",
+path: "TestCases/10_Execution_Contexts/10.1_Definitions/10.1.3_Variable_Instantiation/S10.1.3_A2.js",
 
 assertion: "If two or more formal parameters share the same name, hence",
 

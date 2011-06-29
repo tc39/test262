@@ -17,7 +17,7 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.15_A1_T39",
 
-path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.15_NonemptyClassRanges\S15.10.2.15_A1_T39.js",
+path: "TestCases/15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.15_NonemptyClassRanges/S15.10.2.15_A1_T39.js",
 
 assertion: "The internal helper function CharacterRange takes two CharSet parameters A and B and performs the",
 

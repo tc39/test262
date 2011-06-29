@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.2_A9",
 
-path: "12_Statement\12.2_Variable_Statement\S12.2_A9.js",
+path: "TestCases/12_Statement/12.2_Variable_Statement/S12.2_A9.js",
 
 assertion: "When using property attributes, {DontEnum} is not used",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.1.3.1_A2.3_T1",
 
-path: "15_Native\15.1_The_Global_Object\15.1.3_URI_Handling_Function_Properties\15.1.3.1_decodeURI\S15.1.3.1_A2.3_T1.js",
+path: "TestCases/15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.1_decodeURI/S15.1.3.1_A2.3_T1.js",
 
 assertion: "If B1 = 110xxxxx ([0xC0 - 0xDF]), B2 = 10xxxxxx ([0x80 - 0xBF), without B1 = [0xC0, 0xC1], return UTF8(B1, B2)",
 

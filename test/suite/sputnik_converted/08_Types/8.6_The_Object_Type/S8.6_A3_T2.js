@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S8.6_A3_T2",
 
-path: "08_Types\8.6_The_Object_Type\S8.6_A3_T2.js",
+path: "TestCases/08_Types/8.6_The_Object_Type/S8.6_A3_T2.js",
 
 assertion: "Do not crash with pefixincrement custom property",
 

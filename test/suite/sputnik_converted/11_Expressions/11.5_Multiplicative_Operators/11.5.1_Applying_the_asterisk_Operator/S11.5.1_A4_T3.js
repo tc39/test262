@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.5.1_A4_T3",
 
-path: "11_Expressions\11.5_Multiplicative_Operators\11.5.1_Applying_the_asterisk_Operator\S11.5.1_A4_T3.js",
+path: "TestCases/11_Expressions/11.5_Multiplicative_Operators/11.5.1_Applying_the_asterisk_Operator/S11.5.1_A4_T3.js",
 
 assertion: "The result of a floating-point multiplication is governed by the rules of IEEE 754 double-precision arithmetics",
 

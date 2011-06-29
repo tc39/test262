@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.4.4.12_A5.5",
 
-path: "15_Native\15.4_Array_Objects\15.4.4_Properties_of_the_Array_Prototype_Object\15.4.4.12_Array_prototype_splice\S15.4.4.12_A5.5.js",
+path: "TestCases/15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.12_Array_prototype_splice/S15.4.4.12_A5.5.js",
 
 assertion: "The splice property of Array has the attribute DontEnum",
 

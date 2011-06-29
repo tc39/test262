@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.1.2.1_A1.2_T1",
 
-path: "15_Native\15.1_The_Global_Object\15.1.2_Function_Properties_of_the_Global_Object\15.1.2.1_eval\S15.1.2.1_A1.2_T1.js",
+path: "TestCases/15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.1_eval/S15.1.2.1_A1.2_T1.js",
 
 assertion: "If the eval function is called with some argument, then use a first argument",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.11_A1_T8",
 
-path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.11_DecimalEscape\S15.10.2.11_A1_T8.js",
+path: "TestCases/15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.11_DecimalEscape/S15.10.2.11_A1_T8.js",
 
 assertion: "DecimalEscape :: DecimalIntegerLiteral [lookahead not in DecimalDigit]",
 

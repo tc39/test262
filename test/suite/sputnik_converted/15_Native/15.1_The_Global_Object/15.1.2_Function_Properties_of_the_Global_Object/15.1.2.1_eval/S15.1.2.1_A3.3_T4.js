@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.1.2.1_A3.3_T4",
 
-path: "15_Native\15.1_The_Global_Object\15.1.2_Function_Properties_of_the_Global_Object\15.1.2.1_eval\S15.1.2.1_A3.3_T4.js",
+path: "TestCases/15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.1_eval/S15.1.2.1_A3.3_T4.js",
 
 assertion: "If Result(3).type is not normal, then Result(3).type must be throw.",
 

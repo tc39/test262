@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S12.12_A1_T1",
 
-path: "12_Statement\12.12_Labelled_Statements\S12.12_A1_T1.js",
+path: "TestCases/12_Statement/12.12_Labelled_Statements/S12.12_A1_T1.js",
 
 assertion: "Labelled statements are only used in conjunction with labelled",
 

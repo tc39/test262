@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S13.0_A2_T3",
 
-path: "13_Function_Definition\13.0_Chapter\S13.0_A2_T3.js",
+path: "TestCases/13_Function_Definition/13.0_Chapter/S13.0_A2_T3.js",
 
 assertion: "function must be evaluated inside the expression",
 

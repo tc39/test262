@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S7.5.3_A1.21ns",
 
-path: "07_Lexical_Conventions\7.5_Tokens\7.5.3_Future_Reserved_Words\S7.5.3_A1.21ns.js",
+path: "TestCases/07_Lexical_Conventions/7.5_Tokens/7.5.3_Future_Reserved_Words/S7.5.3_A1.21ns.js",
 
 assertion: "The \"package\" token can be used as identifier in non-strict code",
 

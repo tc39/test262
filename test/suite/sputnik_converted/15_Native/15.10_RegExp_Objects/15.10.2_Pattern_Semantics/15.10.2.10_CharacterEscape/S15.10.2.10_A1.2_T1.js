@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.10_A1.2_T1",
 
-path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.10_CharacterEscape\S15.10.2.10_A1.2_T1.js",
+path: "TestCases/15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.10_CharacterEscape/S15.10.2.10_A1.2_T1.js",
 
 assertion: "The production CharacterEscape :: n evaluates by returning",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.10.1_A1_T15",
 
-path: "15_Native\15.10_RegExp_Objects\15.10.1_Patterns\S15.10.1_A1_T15.js",
+path: "TestCases/15_Native/15.10_RegExp_Objects/15.10.1_Patterns/S15.10.1_A1_T15.js",
 
 assertion: "RegExp syntax errors must be caught when matcher(s) compiles",
 

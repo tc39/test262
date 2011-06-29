@@ -16,7 +16,7 @@
 ES5Harness.registerTest( {
 id: "S15.9.2.1_A2",
 
-path: "15_Native\15.9_Date_Objects\15.9.2_The_Date_Constructor_Called_as_a_Function\S15.9.2.1_A2.js",
+path: "TestCases/15_Native/15.9_Date_Objects/15.9.2_The_Date_Constructor_Called_as_a_Function/S15.9.2.1_A2.js",
 
 assertion: "All of the arguments are optional, any arguments supplied are",
 

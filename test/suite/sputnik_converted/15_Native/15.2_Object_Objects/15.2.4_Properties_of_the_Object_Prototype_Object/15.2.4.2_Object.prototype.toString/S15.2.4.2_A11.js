@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.2.4.2_A11",
 
-path: "15_Native\15.2_Object_Objects\15.2.4_Properties_of_the_Object_Prototype_Object\15.2.4.2_Object.prototype.toString\S15.2.4.2_A11.js",
+path: "TestCases/15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/15.2.4.2_Object.prototype.toString/S15.2.4.2_A11.js",
 
 assertion: "The length property of the toString method is 0",
 

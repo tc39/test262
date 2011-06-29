@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S9.8.1_A2",
 
-path: "09_Type_Conversion\9.8_ToString\9.8.1_ToString_Applied_to_the_Number_Type\S9.8.1_A2.js",
+path: "TestCases/09_Type_Conversion/9.8_ToString/9.8.1_ToString_Applied_to_the_Number_Type/S9.8.1_A2.js",
 
 assertion: "If m is +0 or -0, return the string \"0\"",
 

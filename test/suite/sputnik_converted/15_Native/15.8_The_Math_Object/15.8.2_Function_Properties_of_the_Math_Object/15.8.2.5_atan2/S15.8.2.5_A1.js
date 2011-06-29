@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.8.2.5_A1",
 
-path: "15_Native\15.8_The_Math_Object\15.8.2_Function_Properties_of_the_Math_Object\15.8.2.5_atan2\S15.8.2.5_A1.js",
+path: "TestCases/15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.5_atan2/S15.8.2.5_A1.js",
 
 assertion: "If either x or y is NaN, Math(x,y) is NaN",
 

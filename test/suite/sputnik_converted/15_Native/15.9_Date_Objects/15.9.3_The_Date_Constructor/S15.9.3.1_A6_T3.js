@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.9.3.1_A6_T3",
 
-path: "15_Native\15.9_Date_Objects\15.9.3_The_Date_Constructor\S15.9.3.1_A6_T3.js",
+path: "TestCases/15_Native/15.9_Date_Objects/15.9.3_The_Date_Constructor/S15.9.3.1_A6_T3.js",
 
 assertion: "The [[Value]] property of the newly constructed object",
 

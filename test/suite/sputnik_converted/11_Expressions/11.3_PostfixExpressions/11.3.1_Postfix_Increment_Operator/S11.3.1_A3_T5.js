@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.3.1_A3_T5",
 
-path: "11_Expressions\11.3_PostfixExpressions\11.3.1_Postfix_Increment_Operator\S11.3.1_A3_T5.js",
+path: "TestCases/11_Expressions/11.3_PostfixExpressions/11.3.1_Postfix_Increment_Operator/S11.3.1_A3_T5.js",
 
 assertion: "Operator x++ returns x = ToNumber(x) + 1",
 

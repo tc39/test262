@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.3.5_A3_T2",
 
-path: "15_Native\15.3_Function_Objects\15.3.5_Properties_of_Function_Instances\S15.3.5_A3_T2.js",
+path: "TestCases/15_Native/15.3_Function_Objects/15.3.5_Properties_of_Function_Instances/S15.3.5_A3_T2.js",
 
 assertion: "every function instance has a [[Construct]] property",
 

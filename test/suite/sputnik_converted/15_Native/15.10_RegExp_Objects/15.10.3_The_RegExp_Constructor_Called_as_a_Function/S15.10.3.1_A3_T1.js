@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.10.3.1_A3_T1",
 
-path: "15_Native\15.10_RegExp_Objects\15.10.3_The_RegExp_Constructor_Called_as_a_Function\S15.10.3.1_A3_T1.js",
+path: "TestCases/15_Native/15.10_RegExp_Objects/15.10.3_The_RegExp_Constructor_Called_as_a_Function/S15.10.3.1_A3_T1.js",
 
 assertion: "If pattern and flags are defined, then",
 

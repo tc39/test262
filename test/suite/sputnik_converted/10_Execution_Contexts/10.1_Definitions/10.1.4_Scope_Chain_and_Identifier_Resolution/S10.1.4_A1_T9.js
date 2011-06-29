@@ -16,7 +16,7 @@
 ES5Harness.registerTest( {
 id: "S10.1.4_A1_T9",
 
-path: "10_Execution_Contexts\10.1_Definitions\10.1.4_Scope_Chain_and_Identifier_Resolution\S10.1.4_A1_T9.js",
+path: "TestCases/10_Execution_Contexts/10.1_Definitions/10.1.4_Scope_Chain_and_Identifier_Resolution/S10.1.4_A1_T9.js",
 
 assertion: "Every execution context has associated with it a scope chain.",
 

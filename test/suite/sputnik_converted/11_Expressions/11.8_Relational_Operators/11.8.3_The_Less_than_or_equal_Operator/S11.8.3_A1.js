@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.8.3_A1",
 
-path: "11_Expressions\11.8_Relational_Operators\11.8.3_The_Less_than_or_equal_Operator\S11.8.3_A1.js",
+path: "TestCases/11_Expressions/11.8_Relational_Operators/11.8.3_The_Less_than_or_equal_Operator/S11.8.3_A1.js",
 
 assertion: "White Space and Line Terminator between RelationalExpression and \"<=\" or between \"<=\" and ShiftExpression are allowed",
 

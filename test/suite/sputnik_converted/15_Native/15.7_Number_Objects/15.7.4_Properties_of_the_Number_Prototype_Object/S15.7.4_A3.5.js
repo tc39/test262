@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.7.4_A3.5",
 
-path: "15_Native\15.7_Number_Objects\15.7.4_Properties_of_the_Number_Prototype_Object\S15.7.4_A3.5.js",
+path: "TestCases/15_Native/15.7_Number_Objects/15.7.4_Properties_of_the_Number_Prototype_Object/S15.7.4_A3.5.js",
 
 assertion: "The Number prototype object has the property toFixed",
 

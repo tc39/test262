@@ -13,7 +13,7 @@
 ES5Harness.registerTest( {
 id: "S12.6.3_A11.1_T1",
 
-path: "12_Statement\12.6_Iteration_Statements\12.6.3_The_for_Statement\S12.6.3_A11.1_T1.js",
+path: "TestCases/12_Statement/12.6_Iteration_Statements/12.6.3_The_for_Statement/S12.6.3_A11.1_T1.js",
 
 assertion: "If (Evaluate Statement).type is \"continue\" and (Evaluate Statement).target is in the current label set, iteration of labeled \"var-loop\" breaks",
 

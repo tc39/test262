@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.2_A1",
 
-path: "15_Native\15.2_Object_Objects\S15.2_A1.js",
+path: "TestCases/15_Native/15.2_Object_Objects/S15.2_A1.js",
 
 assertion: "Object is the property of global",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.6.3.1_A2",
 
-path: "15_Native\15.6_Boolean_Objects\15.6.3_Properties_of_the_Boolean_Constructor\15.6.3.1_Boolean.prototype\S15.6.3.1_A2.js",
+path: "TestCases/15_Native/15.6_Boolean_Objects/15.6.3_Properties_of_the_Boolean_Constructor/15.6.3.1_Boolean.prototype/S15.6.3.1_A2.js",
 
 assertion: "Boolean.prototype has the attribute ReadOnly",
 

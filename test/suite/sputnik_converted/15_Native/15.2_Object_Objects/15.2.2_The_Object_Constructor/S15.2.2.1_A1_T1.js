@@ -20,7 +20,7 @@
 ES5Harness.registerTest( {
 id: "S15.2.2.1_A1_T1",
 
-path: "15_Native\15.2_Object_Objects\15.2.2_The_Object_Constructor\S15.2.2.1_A1_T1.js",
+path: "TestCases/15_Native/15.2_Object_Objects/15.2.2_The_Object_Constructor/S15.2.2.1_A1_T1.js",
 
 assertion: "When the Object constructor is called with no arguments the following steps are taken:",
 

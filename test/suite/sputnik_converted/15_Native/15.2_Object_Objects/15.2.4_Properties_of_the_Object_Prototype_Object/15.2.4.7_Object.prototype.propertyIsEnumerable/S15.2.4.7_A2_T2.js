@@ -19,7 +19,7 @@
 ES5Harness.registerTest( {
 id: "S15.2.4.7_A2_T2",
 
-path: "15_Native\15.2_Object_Objects\15.2.4_Properties_of_the_Object_Prototype_Object\15.2.4.7_Object.prototype.propertyIsEnumerable\S15.2.4.7_A2_T2.js",
+path: "TestCases/15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/15.2.4.7_Object.prototype.propertyIsEnumerable/S15.2.4.7_A2_T2.js",
 
 assertion: "When the propertyIsEnumerable method is called with argument V, the following steps are taken:",
 

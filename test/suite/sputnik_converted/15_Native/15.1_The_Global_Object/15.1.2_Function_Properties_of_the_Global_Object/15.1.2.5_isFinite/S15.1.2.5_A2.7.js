@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.1.2.5_A2.7",
 
-path: "15_Native\15.1_The_Global_Object\15.1.2_Function_Properties_of_the_Global_Object\15.1.2.5_isFinite\S15.1.2.5_A2.7.js",
+path: "TestCases/15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.5_isFinite/S15.1.2.5_A2.7.js",
 
 assertion: "The isFinite property can\'t be used as constructor",
 

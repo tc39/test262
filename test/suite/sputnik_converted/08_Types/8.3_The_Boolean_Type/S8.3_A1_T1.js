@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S8.3_A1_T1",
 
-path: "08_Types\8.3_The_Boolean_Type\S8.3_A1_T1.js",
+path: "TestCases/08_Types/8.3_The_Boolean_Type/S8.3_A1_T1.js",
 
 assertion: "The Boolean type have two values, called true and false",
 

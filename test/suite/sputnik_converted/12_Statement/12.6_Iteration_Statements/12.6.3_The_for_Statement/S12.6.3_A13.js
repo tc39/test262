@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.6.3_A13",
 
-path: "12_Statement\12.6_Iteration_Statements\12.6.3_The_for_Statement\S12.6.3_A13.js",
+path: "TestCases/12_Statement/12.6_Iteration_Statements/12.6.3_The_for_Statement/S12.6.3_A13.js",
 
 assertion: "VariableDeclaration in \"var VariableDeclarationListNoIn\" of for IterationStatement is allowed",
 

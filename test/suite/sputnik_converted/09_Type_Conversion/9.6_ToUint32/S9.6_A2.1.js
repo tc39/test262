@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S9.6_A2.1",
 
-path: "09_Type_Conversion\9.6_ToUint32\S9.6_A2.1.js",
+path: "TestCases/09_Type_Conversion/9.6_ToUint32/S9.6_A2.1.js",
 
 assertion: "ToUint32 returns values between 0 and 2^32-1",
 

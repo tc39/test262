@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.5.1_A3_T2.2",
 
-path: "11_Expressions\11.5_Multiplicative_Operators\11.5.1_Applying_the_asterisk_Operator\S11.5.1_A3_T2.2.js",
+path: "TestCases/11_Expressions/11.5_Multiplicative_Operators/11.5.1_Applying_the_asterisk_Operator/S11.5.1_A3_T2.2.js",
 
 assertion: "Operator x * y returns ToNumber(x) * ToNumber(y)",
 

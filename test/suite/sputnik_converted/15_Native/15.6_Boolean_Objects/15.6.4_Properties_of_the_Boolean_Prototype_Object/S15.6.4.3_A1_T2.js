@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.6.4.3_A1_T2",
 
-path: "15_Native\15.6_Boolean_Objects\15.6.4_Properties_of_the_Boolean_Prototype_Object\S15.6.4.3_A1_T2.js",
+path: "TestCases/15_Native/15.6_Boolean_Objects/15.6.4_Properties_of_the_Boolean_Prototype_Object/S15.6.4.3_A1_T2.js",
 
 assertion: "Boolean.prototype.valueOf() returns this boolean value",
 

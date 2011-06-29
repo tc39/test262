@@ -18,7 +18,7 @@
 ES5Harness.registerTest( {
 id: "S12.9_A4",
 
-path: "12_Statement\12.9_The_return_Statement\S12.9_A4.js",
+path: "TestCases/12_Statement/12.9_The_return_Statement/S12.9_A4.js",
 
 assertion: "The production ReturnStatement : return Expression; is evaluated as:",
 

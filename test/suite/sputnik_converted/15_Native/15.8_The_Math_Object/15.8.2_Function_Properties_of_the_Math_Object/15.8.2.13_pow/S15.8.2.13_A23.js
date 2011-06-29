@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.8.2.13_A23",
 
-path: "15_Native\15.8_The_Math_Object\15.8.2_Function_Properties_of_the_Math_Object\15.8.2.13_pow\S15.8.2.13_A23.js",
+path: "TestCases/15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.13_pow/S15.8.2.13_A23.js",
 
 assertion: "If x<0 and x is finite and y is finite and y is not an integer, Math.pow(x,y) is NaN",
 

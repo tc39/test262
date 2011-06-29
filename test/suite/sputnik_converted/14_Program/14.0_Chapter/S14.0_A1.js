@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S14.0_A1",
 
-path: "14_Program\14.0_Chapter\S14.0_A1.js",
+path: "TestCases/14_Program/14.0_Chapter/S14.0_A1.js",
 
 assertion: "FunctionExpression must be localed in a reacheable fragment of the program",
 

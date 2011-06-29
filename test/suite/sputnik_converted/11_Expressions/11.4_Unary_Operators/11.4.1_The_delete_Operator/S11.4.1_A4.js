@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.4.1_A4",
 
-path: "11_Expressions\11.4_Unary_Operators\11.4.1_The_delete_Operator\S11.4.1_A4.js",
+path: "TestCases/11_Expressions/11.4_Unary_Operators/11.4.1_The_delete_Operator/S11.4.1_A4.js",
 
 assertion: "\"Delete\" operator removes property, which is reference to the object, not the object",
 

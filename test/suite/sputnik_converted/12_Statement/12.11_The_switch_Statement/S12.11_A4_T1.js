@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.11_A4_T1",
 
-path: "12_Statement\12.11_The_switch_Statement\S12.11_A4_T1.js",
+path: "TestCases/12_Statement/12.11_The_switch_Statement/S12.11_A4_T1.js",
 
 assertion: "Embedded syntax constructions of switch statement",
 

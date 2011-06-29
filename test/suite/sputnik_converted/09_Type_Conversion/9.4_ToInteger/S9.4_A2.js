@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S9.4_A2",
 
-path: "09_Type_Conversion\9.4_ToInteger\S9.4_A2.js",
+path: "TestCases/09_Type_Conversion/9.4_ToInteger/S9.4_A2.js",
 
 assertion: "If ToNumber(value) is +0, -0, +Infinity, or -Infinity,",
 

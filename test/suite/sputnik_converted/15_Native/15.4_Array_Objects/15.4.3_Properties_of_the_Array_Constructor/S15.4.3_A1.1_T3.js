@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.4.3_A1.1_T3",
 
-path: "15_Native\15.4_Array_Objects\15.4.3_Properties_of_the_Array_Constructor\S15.4.3_A1.1_T3.js",
+path: "TestCases/15_Native/15.4_Array_Objects/15.4.3_Properties_of_the_Array_Constructor/S15.4.3_A1.1_T3.js",
 
 assertion: "The value of the internal [[Prototype]] property of",
 

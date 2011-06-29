@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.5.4_A2",
 
-path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\S15.5.4_A2.js",
+path: "TestCases/15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/S15.5.4_A2.js",
 
 assertion: "The String prototype object is itself a String object whose value is an empty string",
 

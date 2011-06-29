@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S8.7_A4",
 
-path: "08_Types\8.7_The_Reference_Type\S8.7_A4.js",
+path: "TestCases/08_Types/8.7_The_Reference_Type/S8.7_A4.js",
 
 assertion: "Object Modification Resulting in a New Object for Not a Self-Modified Object leads to loss of integrity",
 

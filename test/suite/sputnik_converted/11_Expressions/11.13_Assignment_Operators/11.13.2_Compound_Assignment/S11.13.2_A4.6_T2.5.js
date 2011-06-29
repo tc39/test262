@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.13.2_A4.6_T2.5",
 
-path: "11_Expressions\11.13_Assignment_Operators\11.13.2_Compound_Assignment\S11.13.2_A4.6_T2.5.js",
+path: "TestCases/11_Expressions/11.13_Assignment_Operators/11.13.2_Compound_Assignment/S11.13.2_A4.6_T2.5.js",
 
 assertion: "The production x <<= y is the same as x = x << y",
 

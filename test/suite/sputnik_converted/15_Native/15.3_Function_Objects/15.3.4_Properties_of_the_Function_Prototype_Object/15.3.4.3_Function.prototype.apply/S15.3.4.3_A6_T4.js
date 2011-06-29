@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.3.4.3_A6_T4",
 
-path: "15_Native\15.3_Function_Objects\15.3.4_Properties_of_the_Function_Prototype_Object\15.3.4.3_Function.prototype.apply\S15.3.4.3_A6_T4.js",
+path: "TestCases/15_Native/15.3_Function_Objects/15.3.4_Properties_of_the_Function_Prototype_Object/15.3.4.3_Function.prototype.apply/S15.3.4.3_A6_T4.js",
 
 assertion: "if argArray is neither an array nor an arguments object (see 10.1.8), a TypeError exception is thrown",
 

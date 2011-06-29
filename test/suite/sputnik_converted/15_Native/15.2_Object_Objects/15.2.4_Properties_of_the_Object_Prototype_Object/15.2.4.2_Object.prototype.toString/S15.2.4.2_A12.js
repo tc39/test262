@@ -13,7 +13,7 @@
 ES5Harness.registerTest( {
 id: "S15.2.4.2_A12",
 
-path: "15_Native\15.2_Object_Objects\15.2.4_Properties_of_the_Object_Prototype_Object\15.2.4.2_Object.prototype.toString\S15.2.4.2_A12.js",
+path: "TestCases/15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/15.2.4.2_Object.prototype.toString/S15.2.4.2_A12.js",
 
 assertion: "If the this value is undefined, return \"[object Undefined]\".",
 

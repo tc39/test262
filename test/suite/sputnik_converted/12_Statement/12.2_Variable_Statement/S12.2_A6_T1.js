@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.2_A6_T1",
 
-path: "12_Statement\12.2_Variable_Statement\S12.2_A6_T1.js",
+path: "TestCases/12_Statement/12.2_Variable_Statement/S12.2_A6_T1.js",
 
 assertion: "VariableDeclaration within \"try-catch\" statement is allowed",
 

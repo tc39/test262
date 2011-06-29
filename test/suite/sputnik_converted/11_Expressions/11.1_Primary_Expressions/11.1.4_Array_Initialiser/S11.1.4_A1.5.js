@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.1.4_A1.5",
 
-path: "11_Expressions\11.1_Primary_Expressions\11.1.4_Array_Initialiser\S11.1.4_A1.5.js",
+path: "TestCases/11_Expressions/11.1_Primary_Expressions/11.1.4_Array_Initialiser/S11.1.4_A1.5.js",
 
 assertion: "Evaluate the production ArrayLiteral: [ AssignmentExpression, Elision ]",
 

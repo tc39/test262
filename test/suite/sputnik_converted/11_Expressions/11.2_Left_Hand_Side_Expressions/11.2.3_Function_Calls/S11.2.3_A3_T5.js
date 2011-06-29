@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.2.3_A3_T5",
 
-path: "11_Expressions\11.2_Left_Hand_Side_Expressions\11.2.3_Function_Calls\S11.2.3_A3_T5.js",
+path: "TestCases/11_Expressions/11.2_Left_Hand_Side_Expressions/11.2.3_Function_Calls/S11.2.3_A3_T5.js",
 
 assertion: "If MemberExpression is not Object, throw TypeError",
 

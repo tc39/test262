@@ -16,7 +16,7 @@
 ES5Harness.registerTest( {
 id: "S15.1.2.2_A6.1_T4",
 
-path: "15_Native\15.1_The_Global_Object\15.1.2_Function_Properties_of_the_Global_Object\15.1.2.2_parseInt\S15.1.2.2_A6.1_T4.js",
+path: "TestCases/15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.2_parseInt/S15.1.2.2_A6.1_T4.js",
 
 assertion: "If S contains any character that is not a radix-R digit,",
 

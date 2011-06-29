@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.5_A4",
 
-path: "12_Statement\12.5_The_if_Statement\S12.5_A4.js",
+path: "TestCases/12_Statement/12.5_The_if_Statement/S12.5_A4.js",
 
 assertion: "When the production \"IfStatement: if ( Expression ) Statement else Statement\" is evaluated, Statement(s) is(are) evaluated second",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S13.0_A6_T1",
 
-path: "13_Function_Definition\13.0_Chapter\S13.0_A6_T1.js",
+path: "TestCases/13_Function_Definition/13.0_Chapter/S13.0_A6_T1.js",
 
 assertion: "FunctionDeclaration can be overrided by other FunctionDeclaration with the same Identifier",
 

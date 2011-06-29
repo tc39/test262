@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.4.4.8_A4_T1",
 
-path: "15_Native\15.4_Array_Objects\15.4.4_Properties_of_the_Array_Prototype_Object\15.4.4.8_Array_prototype_reverse\S15.4.4.8_A4_T1.js",
+path: "TestCases/15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.8_Array_prototype_reverse/S15.4.4.8_A4_T1.js",
 
 assertion: "[[Get]], [[Delete]] from not an inherited property",
 

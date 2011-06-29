@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.8_A9_T2",
 
-path: "12_Statement\12.8_The_break_Statement\S12.8_A9_T2.js",
+path: "TestCases/12_Statement/12.8_The_break_Statement/S12.8_A9_T2.js",
 
 assertion: "Using \"break\" within \"try/catch\" statement that is nested in a loop is allowed",
 

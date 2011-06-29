@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.6.2_A4_T4",
 
-path: "11_Expressions\11.6_Additive_Operators\11.6.2_The_Subtraction_operator\S11.6.2_A4_T4.js",
+path: "TestCases/11_Expressions/11.6_Additive_Operators/11.6.2_The_Subtraction_operator/S11.6.2_A4_T4.js",
 
 assertion: "Operator x - y produces the same result as x + (-y)",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.6.2_A4_T1",
 
-path: "12_Statement\12.6_Iteration_Statements\12.6.2_The_while_statement\S12.6.2_A4_T1.js",
+path: "TestCases/12_Statement/12.6_Iteration_Statements/12.6.2_The_while_statement/S12.6.2_A4_T1.js",
 
 assertion: "\"break\" within a \"while\" Statement is allowed and performed as described in 12.8",
 

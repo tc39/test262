@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S13.0_A19_T2",
 
-path: "13_Function_Definition\13.0_Chapter\S13.0_A19_T2.js",
+path: "TestCases/13_Function_Definition/13.0_Chapter/S13.0_A19_T2.js",
 
 assertion: "\"var\" does not override function declaration",
 

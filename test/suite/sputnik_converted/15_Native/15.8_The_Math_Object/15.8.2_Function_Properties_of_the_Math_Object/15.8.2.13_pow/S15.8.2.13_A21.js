@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.8.2.13_A21",
 
-path: "15_Native\15.8_The_Math_Object\15.8.2_Function_Properties_of_the_Math_Object\15.8.2.13_pow\S15.8.2.13_A21.js",
+path: "TestCases/15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.13_pow/S15.8.2.13_A21.js",
 
 assertion: "If x is -0 and y<0 and y is an odd integer, Math.pow(x,y) is -Infinity",
 

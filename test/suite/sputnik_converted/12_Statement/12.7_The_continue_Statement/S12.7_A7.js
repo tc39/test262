@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.7_A7",
 
-path: "12_Statement\12.7_The_continue_Statement\S12.7_A7.js",
+path: "TestCases/12_Statement/12.7_The_continue_Statement/S12.7_A7.js",
 
 assertion: "Appearing of continue within eval statement that is within an IterationStatement yields SyntaxError",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.1.3.4_A2.1_T1",
 
-path: "15_Native\15.1_The_Global_Object\15.1.3_URI_Handling_Function_Properties\15.1.3.4_encodeURIComponent\S15.1.3.4_A2.1_T1.js",
+path: "TestCases/15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.4_encodeURIComponent/S15.1.3.4_A2.1_T1.js",
 
 assertion: "If string.charAt(k) in [0x0000 - 0x007F]\\[uriUnescaped], return 1 octet (00000000 0zzzzzzz -> 0zzzzzzz)",
 

@@ -5,7 +5,7 @@
 * @name: S15.10.2.7_A4_T2;
 * @section: 15.10.2.7;
 * @assertion: The production QuantifierPrefix :: * evaluates by returning the two results 0 and \infty;
-* @description: Execute /[^"]* /.exec('alice said: "don\'t"') and check results;
+* @description: Execute /[^"S15.10.2.7_A4_T2"don\'t"') and check results;
 */
 
 
@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.7_A4_T2",
 
-path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.7_Quantifier\S15.10.2.7_A4_T2.js",
+path: "TestCases/15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.7_Quantifier/S15.10.2.7_A4_T2.js",
 
 assertion: "The production QuantifierPrefix :: * evaluates by returning the two results 0 and \\infty",
 

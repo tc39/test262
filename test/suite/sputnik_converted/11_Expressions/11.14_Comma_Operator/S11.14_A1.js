@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.14_A1",
 
-path: "11_Expressions\11.14_Comma_Operator\S11.14_A1.js",
+path: "TestCases/11_Expressions/11.14_Comma_Operator/S11.14_A1.js",
 
 assertion: "White Space and Line Terminator between Expression and , or between , and AssignmentExpression are allowed",
 

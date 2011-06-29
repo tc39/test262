@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S10.2.2_A1.2_T9",
 
-path: "10_Execution_Contexts\10.2_Entering_An_Execution_Context\10.2.2_Eval_Code\S10.2.2_A1.2_T9.js",
+path: "TestCases/10_Execution_Contexts/10.2_Entering_An_Execution_Context/10.2.2_Eval_Code/S10.2.2_A1.2_T9.js",
 
 assertion: "The scope chain is initialised to contain the same objects,",
 

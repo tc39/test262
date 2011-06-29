@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.12.2_A1",
 
-path: "15_Native\15.12_The_JSON_Object\15.12.2_JSON.parse\S15.12.2_A1.js",
+path: "TestCases/15_Native/15.12_The_JSON_Object/15.12.2_JSON.parse/S15.12.2_A1.js",
 
 assertion: "JSON.parse must create a property with the given property name",
 

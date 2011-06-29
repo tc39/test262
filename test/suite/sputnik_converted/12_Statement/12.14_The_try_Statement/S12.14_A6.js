@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.14_A6",
 
-path: "12_Statement\12.14_The_try_Statement\S12.14_A6.js",
+path: "TestCases/12_Statement/12.14_The_try_Statement/S12.14_A6.js",
 
 assertion: "The production TryStatement: \"try Block Catch Finally\"",
 

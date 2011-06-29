@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.9.4_A4.1_T1",
 
-path: "11_Expressions\11.9_Equality_Operators\11.9.4_The_Strict_Equals_Operator\S11.9.4_A4.1_T1.js",
+path: "TestCases/11_Expressions/11.9_Equality_Operators/11.9.4_The_Strict_Equals_Operator/S11.9.4_A4.1_T1.js",
 
 assertion: "If x or y is NaN, return false",
 

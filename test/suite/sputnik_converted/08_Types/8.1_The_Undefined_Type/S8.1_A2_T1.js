@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S8.1_A2_T1",
 
-path: "08_Types\8.1_The_Undefined_Type\S8.1_A2_T1.js",
+path: "TestCases/08_Types/8.1_The_Undefined_Type/S8.1_A2_T1.js",
 
 assertion: "Any variable that has not been assigned a value has the value undefined",
 

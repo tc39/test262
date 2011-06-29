@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.1.3.3_A5.7",
 
-path: "15_Native\15.1_The_Global_Object\15.1.3_URI_Handling_Function_Properties\15.1.3.3_encodeURI\S15.1.3.3_A5.7.js",
+path: "TestCases/15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.3_encodeURI/S15.1.3.3_A5.7.js",
 
 assertion: "The encodeURI property can\'t be used as constructor",
 

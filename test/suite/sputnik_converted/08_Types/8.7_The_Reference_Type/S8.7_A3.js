@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S8.7_A3",
 
-path: "08_Types\8.7_The_Reference_Type\S8.7_A3.js",
+path: "TestCases/08_Types/8.7_The_Reference_Type/S8.7_A3.js",
 
 assertion: "Changing the Reference of an Object While Maintaining Integrity",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.9.1_A2.4_T1",
 
-path: "11_Expressions\11.9_Equality_Operators\11.9.1_The_Equals_Operator\S11.9.1_A2.4_T1.js",
+path: "TestCases/11_Expressions/11.9_Equality_Operators/11.9.1_The_Equals_Operator/S11.9.1_A2.4_T1.js",
 
 assertion: "First expression is evaluated first, and then second expression",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.8.2.16_A6",
 
-path: "15_Native\15.8_The_Math_Object\15.8.2_Function_Properties_of_the_Math_Object\15.8.2.16_sin\S15.8.2.16_A6.js",
+path: "TestCases/15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.16_sin/S15.8.2.16_A6.js",
 
 assertion: "Sine is a periodic function with period 2*PI",
 

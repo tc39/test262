@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S8.2_A1_T2",
 
-path: "08_Types\8.2_The_Null_Type\S8.2_A1_T2.js",
+path: "TestCases/08_Types/8.2_The_Null_Type/S8.2_A1_T2.js",
 
 assertion: "The Null Type has one value, called null",
 

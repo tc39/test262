@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.8.2_A4.11",
 
-path: "11_Expressions\11.8_Relational_Operators\11.8.2_The_Greater_than_Operator\S11.8.2_A4.11.js",
+path: "TestCases/11_Expressions/11.8_Relational_Operators/11.8.2_The_Greater_than_Operator/S11.8.2_A4.11.js",
 
 assertion: "If y is a prefix of x and x !== y, return true",
 

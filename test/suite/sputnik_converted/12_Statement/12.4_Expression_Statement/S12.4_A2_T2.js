@@ -17,7 +17,7 @@
 ES5Harness.registerTest( {
 id: "S12.4_A2_T2",
 
-path: "12_Statement\12.4_Expression_Statement\S12.4_A2_T2.js",
+path: "TestCases/12_Statement/12.4_Expression_Statement/S12.4_A2_T2.js",
 
 assertion: "The production ExpressionStatement : [lookahead \\notin {{, function}] Expression; is evaluated as follows:",
 

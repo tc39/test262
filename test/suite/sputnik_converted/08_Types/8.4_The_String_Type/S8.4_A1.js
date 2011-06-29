@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S8.4_A1",
 
-path: "08_Types\8.4_The_String_Type\S8.4_A1.js",
+path: "TestCases/08_Types/8.4_The_String_Type/S8.4_A1.js",
 
 assertion: "Any variable that has been assigned with string literal has the type string",
 

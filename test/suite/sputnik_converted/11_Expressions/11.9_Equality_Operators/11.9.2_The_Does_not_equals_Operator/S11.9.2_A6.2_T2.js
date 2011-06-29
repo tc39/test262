@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.9.2_A6.2_T2",
 
-path: "11_Expressions\11.9_Equality_Operators\11.9.2_The_Does_not_equals_Operator\S11.9.2_A6.2_T2.js",
+path: "TestCases/11_Expressions/11.9_Equality_Operators/11.9.2_The_Does_not_equals_Operator/S11.9.2_A6.2_T2.js",
 
 assertion: "If one expression is undefined or null and another is not, return false",
 

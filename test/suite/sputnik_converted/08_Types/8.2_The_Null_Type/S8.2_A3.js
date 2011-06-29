@@ -19,7 +19,7 @@
 ES5Harness.registerTest( {
 id: "S8.2_A3",
 
-path: "08_Types\8.2_The_Null_Type\S8.2_A3.js",
+path: "TestCases/08_Types/8.2_The_Null_Type/S8.2_A3.js",
 
 assertion: "For the keyword null the typeof operator returns the \"object\"",
 

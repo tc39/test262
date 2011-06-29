@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S7.6_A1.2_T2",
 
-path: "07_Lexical_Conventions\7.6_Identifiers\S7.6_A1.2_T2.js",
+path: "TestCases/07_Lexical_Conventions/7.6_Identifiers/S7.6_A1.2_T2.js",
 
 assertion: "IdentifierStart :: $",
 

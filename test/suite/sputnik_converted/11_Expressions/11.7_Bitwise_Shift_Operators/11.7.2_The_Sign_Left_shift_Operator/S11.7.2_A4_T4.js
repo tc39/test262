@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.7.2_A4_T4",
 
-path: "11_Expressions\11.7_Bitwise_Shift_Operators\11.7.2_The_Sign_Left_shift_Operator\S11.7.2_A4_T4.js",
+path: "TestCases/11_Expressions/11.7_Bitwise_Shift_Operators/11.7.2_The_Sign_Left_shift_Operator/S11.7.2_A4_T4.js",
 
 assertion: "Check x >> y operator in distinct points",
 

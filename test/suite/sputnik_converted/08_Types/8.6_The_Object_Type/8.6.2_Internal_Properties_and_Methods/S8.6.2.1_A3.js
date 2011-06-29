@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S8.6.2.1_A3",
 
-path: "08_Types\8.6_The_Object_Type\8.6.2_Internal_Properties_and_Methods\S8.6.2.1_A3.js",
+path: "TestCases/08_Types/8.6_The_Object_Type/8.6.2_Internal_Properties_and_Methods/S8.6.2.1_A3.js",
 
 assertion: "When the [[Get]] method of O is called with property name P value of P returns",
 

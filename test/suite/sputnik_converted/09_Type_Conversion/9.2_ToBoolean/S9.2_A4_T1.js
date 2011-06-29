@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S9.2_A4_T1",
 
-path: "09_Type_Conversion\9.2_ToBoolean\S9.2_A4_T1.js",
+path: "TestCases/09_Type_Conversion/9.2_ToBoolean/S9.2_A4_T1.js",
 
 assertion: "Result of boolean conversion from number value is false if the argument is +0, -0, or NaN; otherwise, is true",
 

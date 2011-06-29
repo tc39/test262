@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S13.0_A14",
 
-path: "13_Function_Definition\13.0_Chapter\S13.0_A14.js",
+path: "TestCases/13_Function_Definition/13.0_Chapter/S13.0_A14.js",
 
 assertion: "Unicode symbols in function name are allowed",
 

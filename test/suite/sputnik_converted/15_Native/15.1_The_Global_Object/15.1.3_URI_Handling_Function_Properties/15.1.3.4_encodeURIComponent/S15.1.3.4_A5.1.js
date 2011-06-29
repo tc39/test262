@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.1.3.4_A5.1",
 
-path: "15_Native\15.1_The_Global_Object\15.1.3_URI_Handling_Function_Properties\15.1.3.4_encodeURIComponent\S15.1.3.4_A5.1.js",
+path: "TestCases/15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.4_encodeURIComponent/S15.1.3.4_A5.1.js",
 
 assertion: "The length property of encodeURIComponent has the attribute DontEnum",
 

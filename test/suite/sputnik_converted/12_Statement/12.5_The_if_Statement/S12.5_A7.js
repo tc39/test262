@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S12.5_A7",
 
-path: "12_Statement\12.5_The_if_Statement\S12.5_A7.js",
+path: "TestCases/12_Statement/12.5_The_if_Statement/S12.5_A7.js",
 
 assertion: "In the \"if\" statement empty statement is allowed and is evaluated to \"undefined\"",
 

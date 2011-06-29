@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.6.3_A14",
 
-path: "12_Statement\12.6_Iteration_Statements\12.6.3_The_for_Statement\S12.6.3_A14.js",
+path: "TestCases/12_Statement/12.6_Iteration_Statements/12.6.3_The_for_Statement/S12.6.3_A14.js",
 
 assertion: "The production IterationStatement: \"for (var VariableDeclarationListNoIn; Expression; Expression) Statement\"",
 

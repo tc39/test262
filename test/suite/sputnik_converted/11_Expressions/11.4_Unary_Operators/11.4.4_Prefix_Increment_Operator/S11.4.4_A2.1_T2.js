@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.4.4_A2.1_T2",
 
-path: "11_Expressions\11.4_Unary_Operators\11.4.4_Prefix_Increment_Operator\S11.4.4_A2.1_T2.js",
+path: "TestCases/11_Expressions/11.4_Unary_Operators/11.4.4_Prefix_Increment_Operator/S11.4.4_A2.1_T2.js",
 
 assertion: "Operator ++x uses GetValue and PutValue",
 

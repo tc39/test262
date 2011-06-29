@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.11.2_A2.4_T1",
 
-path: "11_Expressions\11.11_Binary_Logical_Operators\11.11.2_Logical_OR_Operator\S11.11.2_A2.4_T1.js",
+path: "TestCases/11_Expressions/11.11_Binary_Logical_Operators/11.11.2_Logical_OR_Operator/S11.11.2_A2.4_T1.js",
 
 assertion: "First expression is evaluated first, and then second expression",
 

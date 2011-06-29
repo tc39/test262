@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.8_A2",
 
-path: "12_Statement\12.8_The_break_Statement\S12.8_A2.js",
+path: "TestCases/12_Statement/12.8_The_break_Statement/S12.8_A2.js",
 
 assertion: "Since LineTerminator between \"break\" and Identifier is not allowed, \"break\" is evaluated without label",
 

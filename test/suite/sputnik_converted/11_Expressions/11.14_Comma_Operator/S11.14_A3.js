@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.14_A3",
 
-path: "11_Expressions\11.14_Comma_Operator\S11.14_A3.js",
+path: "TestCases/11_Expressions/11.14_Comma_Operator/S11.14_A3.js",
 
 assertion: "Comma Operator evaluates all Expressions and returns the last of them",
 

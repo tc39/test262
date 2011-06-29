@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.8.2.7_A1",
 
-path: "15_Native\15.8_The_Math_Object\15.8.2_Function_Properties_of_the_Math_Object\15.8.2.7_cos\S15.8.2.7_A1.js",
+path: "TestCases/15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.7_cos/S15.8.2.7_A1.js",
 
 assertion: "If x is NaN, Math.cos(x) is NaN",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.4.5_A3_T4",
 
-path: "11_Expressions\11.4_Unary_Operators\11.4.5_Prefix_Decrement_Operator\S11.4.5_A3_T4.js",
+path: "TestCases/11_Expressions/11.4_Unary_Operators/11.4.5_Prefix_Decrement_Operator/S11.4.5_A3_T4.js",
 
 assertion: "Operator --x returns x = ToNumber(x) - 1",
 

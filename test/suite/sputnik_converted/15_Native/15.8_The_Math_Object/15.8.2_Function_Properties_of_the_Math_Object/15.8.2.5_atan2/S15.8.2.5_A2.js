@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.8.2.5_A2",
 
-path: "15_Native\15.8_The_Math_Object\15.8.2_Function_Properties_of_the_Math_Object\15.8.2.5_atan2\S15.8.2.5_A2.js",
+path: "TestCases/15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.5_atan2/S15.8.2.5_A2.js",
 
 assertion: "If y>0 and x is +0, Math.atan2(y,x) is an implementation-dependent approximation to +PI/2",
 

@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S10.1.5_A1.1_T1",
 
-path: "10_Execution_Contexts\10.1_Definitions\10.1.5_Global_Object\S10.1.5_A1.1_T1.js",
+path: "TestCases/10_Execution_Contexts/10.1_Definitions/10.1.5_Global_Object/S10.1.5_A1.1_T1.js",
 
 assertion: "Global object has properties such as built-in objects such as",
 

@@ -16,7 +16,7 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.8_A1_T4",
 
-path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.8_Atom\S15.10.2.8_A1_T4.js",
+path: "TestCases/15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.8_Atom/S15.10.2.8_A1_T4.js",
 
 assertion: "The form (?= Disjunction ) specifies a zero-width positive lookahead.",
 

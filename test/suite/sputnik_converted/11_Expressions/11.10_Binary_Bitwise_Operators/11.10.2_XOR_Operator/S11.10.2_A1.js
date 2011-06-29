@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.10.2_A1",
 
-path: "11_Expressions\11.10_Binary_Bitwise_Operators\11.10.2_XOR_Operator\S11.10.2_A1.js",
+path: "TestCases/11_Expressions/11.10_Binary_Bitwise_Operators/11.10.2_XOR_Operator/S11.10.2_A1.js",
 
 assertion: "White Space and Line Terminator between BitwiseXORExpression and \"^\" or between \"^\" and BitwiseANDExpression are allowed",
 

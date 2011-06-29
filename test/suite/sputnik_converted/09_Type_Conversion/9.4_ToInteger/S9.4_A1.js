@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S9.4_A1",
 
-path: "09_Type_Conversion\9.4_ToInteger\S9.4_A1.js",
+path: "TestCases/09_Type_Conversion/9.4_ToInteger/S9.4_A1.js",
 
 assertion: "If ToNumber(value) is NaN, ToInteger(value) returns +0",
 

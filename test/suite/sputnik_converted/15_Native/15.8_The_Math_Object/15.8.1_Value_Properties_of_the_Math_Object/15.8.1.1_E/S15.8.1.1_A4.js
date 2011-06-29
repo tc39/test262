@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.8.1.1_A4",
 
-path: "15_Native\15.8_The_Math_Object\15.8.1_Value_Properties_of_the_Math_Object\15.8.1.1_E\S15.8.1.1_A4.js",
+path: "TestCases/15_Native/15.8_The_Math_Object/15.8.1_Value_Properties_of_the_Math_Object/15.8.1.1_E/S15.8.1.1_A4.js",
 
 assertion: "Value Property E of the Math Object has the attribute ReadOnly",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.6.3_A3",
 
-path: "12_Statement\12.6_Iteration_Statements\12.6.3_The_for_Statement\S12.6.3_A3.js",
+path: "TestCases/12_Statement/12.6_Iteration_Statements/12.6.3_The_for_Statement/S12.6.3_A3.js",
 
 assertion: "While evaluating \"for (ExpressionNoIn; FirstExpression; SecondExpression) Statement\", ExpressionNoIn is evaulated first, FirstExpressoin is evaluated second",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.7.4.5_A2_T01",
 
-path: "15_Native\15.7_Number_Objects\15.7.4_Properties_of_the_Number_Prototype_Object\15.7.4.5_Number.prototype.toFixed\S15.7.4.5_A2_T01.js",
+path: "TestCases/15_Native/15.7_Number_Objects/15.7.4_Properties_of_the_Number_Prototype_Object/15.7.4.5_Number.prototype.toFixed/S15.7.4.5_A2_T01.js",
 
 assertion: "The length property of the toFixed method is 1",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S8.6.1_A2",
 
-path: "08_Types\8.6_The_Object_Type\8.6.1_Property_Attributes\S8.6.1_A2.js",
+path: "TestCases/08_Types/8.6_The_Object_Type/8.6.1_Property_Attributes/S8.6.1_A2.js",
 
 assertion: "A property can have attribute DontEnum like all properties of Number",
 

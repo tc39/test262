@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.4.2_A4_T6",
 
-path: "11_Expressions\11.4_Unary_Operators\11.4.2_The_void_Operator\S11.4.2_A4_T6.js",
+path: "TestCases/11_Expressions/11.4_Unary_Operators/11.4.2_The_void_Operator/S11.4.2_A4_T6.js",
 
 assertion: "Operator \"void\" evaluates UnaryExpression and returns undefined",
 

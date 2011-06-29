@@ -18,7 +18,7 @@
 ES5Harness.registerTest( {
 id: "S15.4.2.1_A2.2_T1",
 
-path: "15_Native\15.4_Array_Objects\15.4.2_The_Array_Constructor\15.4.2.1_new_Array\S15.4.2.1_A2.2_T1.js",
+path: "TestCases/15_Native/15.4_Array_Objects/15.4.2_The_Array_Constructor/15.4.2.1_new_Array/S15.4.2.1_A2.2_T1.js",
 
 assertion: "The 0 property of the newly constructed object is set to item0",
 

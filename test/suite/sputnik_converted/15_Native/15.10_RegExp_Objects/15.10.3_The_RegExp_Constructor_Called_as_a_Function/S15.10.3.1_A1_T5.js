@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.10.3.1_A1_T5",
 
-path: "15_Native\15.10_RegExp_Objects\15.10.3_The_RegExp_Constructor_Called_as_a_Function\S15.10.3.1_A1_T5.js",
+path: "TestCases/15_Native/15.10_RegExp_Objects/15.10.3_The_RegExp_Constructor_Called_as_a_Function/S15.10.3.1_A1_T5.js",
 
 assertion: "If pattern is an object R whose [[Class]] property is \"RegExp\" and flags is undefined, then return R unchanged",
 

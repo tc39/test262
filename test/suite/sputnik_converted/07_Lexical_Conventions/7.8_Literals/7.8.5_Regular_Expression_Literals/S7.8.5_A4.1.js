@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S7.8.5_A4.1",
 
-path: "07_Lexical_Conventions\7.8_Literals\7.8.5_Regular_Expression_Literals\S7.8.5_A4.1.js",
+path: "TestCases/07_Lexical_Conventions/7.8_Literals/7.8.5_Regular_Expression_Literals/S7.8.5_A4.1.js",
 
 assertion: "A regular expression literal is an input element that is converted to",
 

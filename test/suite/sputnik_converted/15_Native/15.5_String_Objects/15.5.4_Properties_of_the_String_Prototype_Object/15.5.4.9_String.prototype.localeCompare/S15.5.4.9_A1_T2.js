@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.9_A1_T2",
 
-path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\15.5.4.9_String.prototype.localeCompare\S15.5.4.9_A1_T2.js",
+path: "TestCases/15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.9_String.prototype.localeCompare/S15.5.4.9_A1_T2.js",
 
 assertion: "String.prototype.localeCompare(that)",
 

@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S9.4_A3_T1",
 
-path: "09_Type_Conversion\9.4_ToInteger\S9.4_A3_T1.js",
+path: "TestCases/09_Type_Conversion/9.4_ToInteger/S9.4_A3_T1.js",
 
 assertion: "Result of ToInteger(value) conversion is the result of computing",
 

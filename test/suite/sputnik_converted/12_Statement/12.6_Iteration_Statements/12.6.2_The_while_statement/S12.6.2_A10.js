@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.6.2_A10",
 
-path: "12_Statement\12.6_Iteration_Statements\12.6.2_The_while_statement\S12.6.2_A10.js",
+path: "TestCases/12_Statement/12.6_Iteration_Statements/12.6.2_The_while_statement/S12.6.2_A10.js",
 
 assertion: "FunctionExpression within a \"while\" IterationStatement is allowed, but no function with the given name will appear in the global context",
 

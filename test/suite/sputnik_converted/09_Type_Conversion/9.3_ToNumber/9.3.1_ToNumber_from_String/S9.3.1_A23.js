@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S9.3.1_A23",
 
-path: "09_Type_Conversion\9.3_ToNumber\9.3.1_ToNumber_from_String\S9.3.1_A23.js",
+path: "TestCases/09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A23.js",
 
 assertion: "The MV of DecimalDigit ::: 7 or of HexDigit ::: 7 is 7",
 

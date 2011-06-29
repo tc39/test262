@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.6_A1_T1",
 
-path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.6_Assertion\S15.10.2.6_A1_T1.js",
+path: "TestCases/15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.6_Assertion/S15.10.2.6_A1_T1.js",
 
 assertion: "The production Assertion :: $ evaluates by returning an internal AssertionTester closure that takes a State argument x and performs the ...",
 

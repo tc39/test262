@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.1.5_A4.3",
 
-path: "11_Expressions\11.1_Primary_Expressions\11.1.5_Object_Initializer\S11.1.5_A4.3.js",
+path: "TestCases/11_Expressions/11.1_Primary_Expressions/11.1.5_Object_Initializer/S11.1.5_A4.3.js",
 
 assertion: "The PropertyName is undefined, ToString(BooleanLiteral), ToString(nullLiteral)",
 

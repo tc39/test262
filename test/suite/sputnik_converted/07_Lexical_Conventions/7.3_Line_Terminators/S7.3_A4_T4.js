@@ -7,7 +7,7 @@
 ES5Harness.registerTest( {
 id: "S7.3_A4_T4",
 
-path: "07_Lexical_Conventions\7.3_Line_Terminators\S7.3_A4_T4.js",
+path: "TestCases/07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A4_T4.js",
 
 assertion: "Single line comments can contain Line Terminator at the end of line",
 

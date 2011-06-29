@@ -22,7 +22,7 @@
 ES5Harness.registerTest( {
 id: "S15.3.2.1_A3_T11",
 
-path: "15_Native\15.3_Function_Objects\15.3.2_The_Function_Constructor\S15.3.2.1_A3_T11.js",
+path: "TestCases/15_Native/15.3_Function_Objects/15.3.2_The_Function_Constructor/S15.3.2.1_A3_T11.js",
 
 assertion: "When the Function constructor is called with arguments p, body the following steps are taken:",
 

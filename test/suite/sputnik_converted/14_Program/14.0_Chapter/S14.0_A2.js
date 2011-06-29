@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S14.0_A2",
 
-path: "14_Program\14.0_Chapter\S14.0_A2.js",
+path: "TestCases/14_Program/14.0_Chapter/S14.0_A2.js",
 
 assertion: "FunctionDeclaration cannot be localed inside an Expression",
 

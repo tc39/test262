@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.5_A12_T4",
 
-path: "12_Statement\12.5_The_if_Statement\S12.5_A12_T4.js",
+path: "TestCases/12_Statement/12.5_The_if_Statement/S12.5_A12_T4.js",
 
 assertion: "Embedded \"if/else\" constructions are allowed",
 

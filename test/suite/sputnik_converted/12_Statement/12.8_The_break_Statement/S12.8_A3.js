@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.8_A3",
 
-path: "12_Statement\12.8_The_break_Statement\S12.8_A3.js",
+path: "TestCases/12_Statement/12.8_The_break_Statement/S12.8_A3.js",
 
 assertion: "When \"break\" is evaluated, (break, empty, empty) is returned",
 

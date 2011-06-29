@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.5.3.1_A1",
 
-path: "15_Native\15.5_String_Objects\15.5.3_Properties_of_the_String_Constructor\S15.5.3.1_A1.js",
+path: "TestCases/15_Native/15.5_String_Objects/15.5.3_Properties_of_the_String_Constructor/S15.5.3.1_A1.js",
 
 assertion: "The String has property prototype",
 

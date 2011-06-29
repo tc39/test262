@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S14.0_A3",
 
-path: "14_Program\14.0_Chapter\S14.0_A3.js",
+path: "TestCases/14_Program/14.0_Chapter/S14.0_A3.js",
 
 assertion: "Global FunctionDeclaration cannot be defined within the body of another FunctionDeclaration",
 

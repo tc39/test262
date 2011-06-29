@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.2.4_A1.1_T2",
 
-path: "11_Expressions\11.2_Left_Hand_Side_Expressions\11.2.4_Argument_Lists\S11.2.4_A1.1_T2.js",
+path: "TestCases/11_Expressions/11.2_Left_Hand_Side_Expressions/11.2.4_Argument_Lists/S11.2.4_A1.1_T2.js",
 
 assertion: "Arguments : ()",
 

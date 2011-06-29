@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.10.3_A3_T2.2",
 
-path: "11_Expressions\11.10_Binary_Bitwise_Operators\11.10.3_OR_Operator\S11.10.3_A3_T2.2.js",
+path: "TestCases/11_Expressions/11.10_Binary_Bitwise_Operators/11.10.3_OR_Operator/S11.10.3_A3_T2.2.js",
 
 assertion: "Operator x | y returns ToNumber(x) | ToNumber(y)",
 

@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.9.2.1_A1",
 
-path: "15_Native\15.9_Date_Objects\15.9.2_The_Date_Constructor_Called_as_a_Function\S15.9.2.1_A1.js",
+path: "TestCases/15_Native/15.9_Date_Objects/15.9.2_The_Date_Constructor_Called_as_a_Function/S15.9.2.1_A1.js",
 
 assertion: "When Date is called as a function rather than as a constructor,",
 

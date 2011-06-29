@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S7.9_A11_T5",
 
-path: "07_Lexical_Conventions\7.9_Automatic_Semicolon_Insertion\S7.9_A11_T5.js",
+path: "TestCases/07_Lexical_Conventions/7.9_Automatic_Semicolon_Insertion/S7.9_A11_T5.js",
 
 assertion: "Check If Statement for automatic semicolon insertion",
 

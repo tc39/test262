@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.2.4.5_A9",
 
-path: "15_Native\15.2_Object_Objects\15.2.4_Properties_of_the_Object_Prototype_Object\15.2.4.5_Object.prototype.hasOwnProperty\S15.2.4.5_A9.js",
+path: "TestCases/15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/15.2.4.5_Object.prototype.hasOwnProperty/S15.2.4.5_A9.js",
 
 assertion: "The Object.prototype.hasOwnProperty.length property has the attribute DontDelete",
 

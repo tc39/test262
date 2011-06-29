@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.3.5.3_A1_T1",
 
-path: "15_Native\15.3_Function_Objects\15.3.5_Properties_of_Function_Instances\S15.3.5.3_A1_T1.js",
+path: "TestCases/15_Native/15.3_Function_Objects/15.3.5_Properties_of_Function_Instances/S15.3.5.3_A1_T1.js",
 
 assertion: "Assume F is a Function object. When the [[HasInstance]] method of F is called with value V, the following steps are taken: i) If V is not an object, return false",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S7.4_A1_T1",
 
-path: "07_Lexical_Conventions\7.4_Comments\S7.4_A1_T1.js",
+path: "TestCases/07_Lexical_Conventions/7.4_Comments/S7.4_A1_T1.js",
 
 assertion: "Correct interpretation of single line comments",
 

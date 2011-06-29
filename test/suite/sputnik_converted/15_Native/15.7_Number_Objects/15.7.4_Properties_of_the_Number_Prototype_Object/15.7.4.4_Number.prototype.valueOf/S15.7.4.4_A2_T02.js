@@ -16,7 +16,7 @@
 ES5Harness.registerTest( {
 id: "S15.7.4.4_A2_T02",
 
-path: "15_Native\15.7_Number_Objects\15.7.4_Properties_of_the_Number_Prototype_Object\15.7.4.4_Number.prototype.valueOf\S15.7.4.4_A2_T02.js",
+path: "TestCases/15_Native/15.7_Number_Objects/15.7.4_Properties_of_the_Number_Prototype_Object/15.7.4.4_Number.prototype.valueOf/S15.7.4.4_A2_T02.js",
 
 assertion: "The valueOf function is not generic, it cannot be transferred",
 

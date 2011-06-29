@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.10.2.5_A1_T2",
 
-path: "15_Native\15.10_RegExp_Objects\15.10.2_Pattern_Semantics\15.10.2.5_Term\S15.10.2.5_A1_T2.js",
+path: "TestCases/15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.5_Term/S15.10.2.5_A1_T2.js",
 
 assertion: "An Atom followed by a Quantifier is repeated the number of times specified by the Quantifier",
 

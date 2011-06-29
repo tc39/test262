@@ -18,7 +18,7 @@
 ES5Harness.registerTest( {
 id: "S15.2.4.5_A1_T1",
 
-path: "15_Native\15.2_Object_Objects\15.2.4_Properties_of_the_Object_Prototype_Object\15.2.4.5_Object.prototype.hasOwnProperty\S15.2.4.5_A1_T1.js",
+path: "TestCases/15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/15.2.4.5_Object.prototype.hasOwnProperty/S15.2.4.5_A1_T1.js",
 
 assertion: "When the hasOwnProperty method is called with argument V, the following steps are taken:",
 

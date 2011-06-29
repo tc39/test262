@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S13.0_A16",
 
-path: "13_Function_Definition\13.0_Chapter\S13.0_A16.js",
+path: "TestCases/13_Function_Definition/13.0_Chapter/S13.0_A16.js",
 
 assertion: "Any separators are admitted between declaration chunks",
 

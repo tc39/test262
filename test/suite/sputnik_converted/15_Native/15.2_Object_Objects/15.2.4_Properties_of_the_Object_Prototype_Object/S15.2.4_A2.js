@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.2.4_A2",
 
-path: "15_Native\15.2_Object_Objects\15.2.4_Properties_of_the_Object_Prototype_Object\S15.2.4_A2.js",
+path: "TestCases/15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/S15.2.4_A2.js",
 
 assertion: "The value of the internal [[Class]] property of Object prototype object is \"Object\"",
 

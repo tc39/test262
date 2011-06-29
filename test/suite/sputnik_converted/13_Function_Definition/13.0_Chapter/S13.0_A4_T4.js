@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S13.0_A4_T4",
 
-path: "13_Function_Definition\13.0_Chapter\S13.0_A4_T4.js",
+path: "TestCases/13_Function_Definition/13.0_Chapter/S13.0_A4_T4.js",
 
 assertion: "The production FunctionDeclaration: \"function Identifier ( FormalParameterList_opt ) { FunctionBody }\" is processed by function declarations",
 

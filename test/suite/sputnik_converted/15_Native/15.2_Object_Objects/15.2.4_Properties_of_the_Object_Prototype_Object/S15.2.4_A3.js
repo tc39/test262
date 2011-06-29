@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.2.4_A3",
 
-path: "15_Native\15.2_Object_Objects\15.2.4_Properties_of_the_Object_Prototype_Object\S15.2.4_A3.js",
+path: "TestCases/15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/S15.2.4_A3.js",
 
 assertion: "Since the Object prototype object is not a function, it has not [[call]] method",
 

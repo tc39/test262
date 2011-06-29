@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S8.5_A7",
 
-path: "08_Types\8.5_The_Number_Type\S8.5_A7.js",
+path: "TestCases/08_Types/8.5_The_Number_Type/S8.5_A7.js",
 
 assertion: "+Infinity expression has a type Number",
 

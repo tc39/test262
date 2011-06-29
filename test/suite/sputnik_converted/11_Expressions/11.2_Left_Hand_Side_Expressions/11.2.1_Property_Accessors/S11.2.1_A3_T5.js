@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.2.1_A3_T5",
 
-path: "11_Expressions\11.2_Left_Hand_Side_Expressions\11.2.1_Property_Accessors\S11.2.1_A3_T5.js",
+path: "TestCases/11_Expressions/11.2_Left_Hand_Side_Expressions/11.2.1_Property_Accessors/S11.2.1_A3_T5.js",
 
 assertion: "MemberExpression calls ToObject(MemberExpression) and ToString(Expression). CallExpression calls ToObject(CallExpression) and ToString(Expression)",
 

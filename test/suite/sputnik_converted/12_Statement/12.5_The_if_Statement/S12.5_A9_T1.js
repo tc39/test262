@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S12.5_A9_T1",
 
-path: "12_Statement\12.5_The_if_Statement\S12.5_A9_T1.js",
+path: "TestCases/12_Statement/12.5_The_if_Statement/S12.5_A9_T1.js",
 
 assertion: "Function declaration within an \"if\" statement in strict code is not allowed",
 

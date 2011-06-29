@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.5.3_A3_T2.5",
 
-path: "11_Expressions\11.5_Multiplicative_Operators\11.5.3_Applying_the_percent_Operator\S11.5.3_A3_T2.5.js",
+path: "TestCases/11_Expressions/11.5_Multiplicative_Operators/11.5.3_Applying_the_percent_Operator/S11.5.3_A3_T2.5.js",
 
 assertion: "Operator x % y returns ToNumber(x) % ToNumber(y)",
 

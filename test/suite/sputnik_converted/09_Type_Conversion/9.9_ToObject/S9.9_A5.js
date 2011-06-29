@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S9.9_A5",
 
-path: "09_Type_Conversion\9.9_ToObject\S9.9_A5.js",
+path: "TestCases/09_Type_Conversion/9.9_ToObject/S9.9_A5.js",
 
 assertion: "ToObject conversion from String: create a new String object",
 

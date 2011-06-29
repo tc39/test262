@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.7.1.1_A2",
 
-path: "15_Native\15.7_Number_Objects\15.7.1_The_Number_Constructor_Called_as_a_Function\S15.7.1.1_A2.js",
+path: "TestCases/15_Native/15.7_Number_Objects/15.7.1_The_Number_Constructor_Called_as_a_Function/S15.7.1.1_A2.js",
 
 assertion: "Number() returns +0",
 

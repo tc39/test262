@@ -16,7 +16,7 @@
 ES5Harness.registerTest( {
 id: "S10.1.3_A5.2_T1",
 
-path: "10_Execution_Contexts\10.1_Definitions\10.1.3_Variable_Instantiation\S10.1.3_A5.2_T1.js",
+path: "TestCases/10_Execution_Contexts/10.1_Definitions/10.1.3_Variable_Instantiation/S10.1.3_A5.2_T1.js",
 
 assertion: "If there is already a property of the variable object with the",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S14.0_A5_T1",
 
-path: "14_Program\14.0_Chapter\S14.0_A5_T1.js",
+path: "TestCases/14_Program/14.0_Chapter/S14.0_A5_T1.js",
 
 assertion: "The Identifer within a FunctionDeclaration can be written in both letters and unicode",
 

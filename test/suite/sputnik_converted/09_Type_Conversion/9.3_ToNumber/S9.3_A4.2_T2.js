@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S9.3_A4.2_T2",
 
-path: "09_Type_Conversion\9.3_ToNumber\S9.3_A4.2_T2.js",
+path: "TestCases/09_Type_Conversion/9.3_ToNumber/S9.3_A4.2_T2.js",
 
 assertion: "Result of number conversion from number value equals to the input argument (no conversion)",
 

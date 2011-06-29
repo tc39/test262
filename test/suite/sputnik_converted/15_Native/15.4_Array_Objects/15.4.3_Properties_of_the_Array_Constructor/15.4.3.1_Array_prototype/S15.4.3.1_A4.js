@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.4.3.1_A4",
 
-path: "15_Native\15.4_Array_Objects\15.4.3_Properties_of_the_Array_Constructor\15.4.3.1_Array_prototype\S15.4.3.1_A4.js",
+path: "TestCases/15_Native/15.4_Array_Objects/15.4.3_Properties_of_the_Array_Constructor/15.4.3.1_Array_prototype/S15.4.3.1_A4.js",
 
 assertion: "The Array.prototype property has the attribute ReadOnly",
 

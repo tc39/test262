@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.9.2_A4.2",
 
-path: "11_Expressions\11.9_Equality_Operators\11.9.2_The_Does_not_equals_Operator\S11.9.2_A4.2.js",
+path: "TestCases/11_Expressions/11.9_Equality_Operators/11.9.2_The_Does_not_equals_Operator/S11.9.2_A4.2.js",
 
 assertion: "If x is +0(-0) and y is -0(+0), return false",
 

@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S11.10.2_A2.1_T2",
 
-path: "11_Expressions\11.10_Binary_Bitwise_Operators\11.10.2_XOR_Operator\S11.10.2_A2.1_T2.js",
+path: "TestCases/11_Expressions/11.10_Binary_Bitwise_Operators/11.10.2_XOR_Operator/S11.10.2_A2.1_T2.js",
 
 assertion: "Operator x ^ y uses GetValue",
 

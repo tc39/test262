@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S8.6_A2_T1",
 
-path: "08_Types\8.6_The_Object_Type\S8.6_A2_T1.js",
+path: "TestCases/08_Types/8.6_The_Object_Type/S8.6_A2_T1.js",
 
 assertion: "Do not crash with postincrement custom property",
 

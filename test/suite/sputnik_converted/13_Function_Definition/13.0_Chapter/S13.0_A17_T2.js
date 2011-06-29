@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S13.0_A17_T2",
 
-path: "13_Function_Definition\13.0_Chapter\S13.0_A17_T2.js",
+path: "TestCases/13_Function_Definition/13.0_Chapter/S13.0_A17_T2.js",
 
 assertion: "Function call cannot appear in the program before the FunctionExpression appears",
 

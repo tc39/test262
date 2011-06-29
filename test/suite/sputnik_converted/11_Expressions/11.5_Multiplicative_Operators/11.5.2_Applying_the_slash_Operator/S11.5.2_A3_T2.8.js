@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.5.2_A3_T2.8",
 
-path: "11_Expressions\11.5_Multiplicative_Operators\11.5.2_Applying_the_slash_Operator\S11.5.2_A3_T2.8.js",
+path: "TestCases/11_Expressions/11.5_Multiplicative_Operators/11.5.2_Applying_the_slash_Operator/S11.5.2_A3_T2.8.js",
 
 assertion: "Operator x / y returns ToNumber(x) / ToNumber(y)",
 

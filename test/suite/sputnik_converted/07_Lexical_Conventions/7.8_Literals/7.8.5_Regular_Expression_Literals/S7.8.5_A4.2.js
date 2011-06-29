@@ -16,7 +16,7 @@
 ES5Harness.registerTest( {
 id: "S7.8.5_A4.2",
 
-path: "07_Lexical_Conventions\7.8_Literals\7.8.5_Regular_Expression_Literals\S7.8.5_A4.2.js",
+path: "TestCases/07_Lexical_Conventions/7.8_Literals/7.8.5_Regular_Expression_Literals/S7.8.5_A4.2.js",
 
 assertion: "Two regular expression literals in a program evaluate to",
 

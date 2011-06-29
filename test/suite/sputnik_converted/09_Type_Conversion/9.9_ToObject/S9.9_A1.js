@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S9.9_A1",
 
-path: "09_Type_Conversion\9.9_ToObject\S9.9_A1.js",
+path: "TestCases/09_Type_Conversion/9.9_ToObject/S9.9_A1.js",
 
 assertion: "ToObject conversion from undefined value must throw TypeError",
 

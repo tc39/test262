@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.10.6_A1_T1",
 
-path: "15_Native\15.10_RegExp_Objects\15.10.6_Properties_of_the_RegExp_Prototype_Object\S15.10.6_A1_T1.js",
+path: "TestCases/15_Native/15.10_RegExp_Objects/15.10.6_Properties_of_the_RegExp_Prototype_Object/S15.10.6_A1_T1.js",
 
 assertion: "The value of the internal [[Prototype]] property of the RegExp prototype object is the Object prototype",
 

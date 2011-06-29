@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S13.0_A10",
 
-path: "13_Function_Definition\13.0_Chapter\S13.0_A10.js",
+path: "TestCases/13_Function_Definition/13.0_Chapter/S13.0_A10.js",
 
 assertion: "Function is a data",
 

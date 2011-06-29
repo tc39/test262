@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.13.1_A3.1",
 
-path: "11_Expressions\11.13_Assignment_Operators\11.13.1_Simple_Assignment\S11.13.1_A3.1.js",
+path: "TestCases/11_Expressions/11.13_Assignment_Operators/11.13.1_Simple_Assignment/S11.13.1_A3.1.js",
 
 assertion: "Operator x = y PutValue(x, y)",
 

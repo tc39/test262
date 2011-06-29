@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S10.2_A1.1_T1",
 
-path: "10_Execution_Contexts\10.2_Entering_An_Execution_Context\S10.2_A1.1_T1.js",
+path: "TestCases/10_Execution_Contexts/10.2_Entering_An_Execution_Context/S10.2_A1.1_T1.js",
 
 assertion: "Every function call enters a new execution context",
 

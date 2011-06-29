@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S9.7_A2.2",
 
-path: "09_Type_Conversion\9.7_ToUint16\S9.7_A2.2.js",
+path: "TestCases/09_Type_Conversion/9.7_ToUint16/S9.7_A2.2.js",
 
 assertion: "Compute result modulo 2^16",
 

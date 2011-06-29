@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.4.4.10_A1.1_T4",
 
-path: "15_Native\15.4_Array_Objects\15.4.4_Properties_of_the_Array_Prototype_Object\15.4.4.10_Array_prototype_slice\S15.4.4.10_A1.1_T4.js",
+path: "TestCases/15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.10_Array_prototype_slice/S15.4.4.10_A1.1_T4.js",
 
 assertion: "If start is positive, use min(start, length).",
 

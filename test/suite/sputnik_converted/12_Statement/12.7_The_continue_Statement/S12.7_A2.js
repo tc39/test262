@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.7_A2",
 
-path: "12_Statement\12.7_The_continue_Statement\S12.7_A2.js",
+path: "TestCases/12_Statement/12.7_The_continue_Statement/S12.7_A2.js",
 
 assertion: "Since LineTerminator between \"continue\" and Identifier is not allowed, \"continue\" is evaluated without label",
 

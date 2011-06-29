@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.6.2.1_A1",
 
-path: "15_Native\15.6_Boolean_Objects\15.6.2_The_Boolean_Constructor\S15.6.2.1_A1.js",
+path: "TestCases/15_Native/15.6_Boolean_Objects/15.6.2_The_Boolean_Constructor/S15.6.2.1_A1.js",
 
 assertion: "When Boolean is called as part of a new expression it is",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.6.3_A1",
 
-path: "15_Native\15.6_Boolean_Objects\15.6.3_Properties_of_the_Boolean_Constructor\S15.6.3_A1.js",
+path: "TestCases/15_Native/15.6_Boolean_Objects/15.6.3_Properties_of_the_Boolean_Constructor/S15.6.3_A1.js",
 
 assertion: "The Boolean constructor has the property \"prototype\"",
 

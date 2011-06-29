@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.5.3_A1",
 
-path: "11_Expressions\11.5_Multiplicative_Operators\11.5.3_Applying_the_percent_Operator\S11.5.3_A1.js",
+path: "TestCases/11_Expressions/11.5_Multiplicative_Operators/11.5.3_Applying_the_percent_Operator/S11.5.3_A1.js",
 
 assertion: "White Space and Line Terminator between MultiplicativeExpression and \"%\" or between \"%\" and UnaryExpression are allowed",
 

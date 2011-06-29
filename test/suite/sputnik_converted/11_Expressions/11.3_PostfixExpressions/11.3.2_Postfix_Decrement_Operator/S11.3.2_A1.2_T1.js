@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.3.2_A1.2_T1",
 
-path: "11_Expressions\11.3_PostfixExpressions\11.3.2_Postfix_Decrement_Operator\S11.3.2_A1.2_T1.js",
+path: "TestCases/11_Expressions/11.3_PostfixExpressions/11.3.2_Postfix_Decrement_Operator/S11.3.2_A1.2_T1.js",
 
 assertion: "White Space between LeftHandSideExpression and \"--\" are allowed",
 

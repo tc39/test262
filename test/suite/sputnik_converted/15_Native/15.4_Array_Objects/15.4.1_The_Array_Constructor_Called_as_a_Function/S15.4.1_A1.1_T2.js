@@ -16,7 +16,7 @@
 ES5Harness.registerTest( {
 id: "S15.4.1_A1.1_T2",
 
-path: "15_Native\15.4_Array_Objects\15.4.1_The_Array_Constructor_Called_as_a_Function\S15.4.1_A1.1_T2.js",
+path: "TestCases/15_Native/15.4_Array_Objects/15.4.1_The_Array_Constructor_Called_as_a_Function/S15.4.1_A1.1_T2.js",
 
 assertion: "The [[Prototype]] property of the newly constructed object",
 

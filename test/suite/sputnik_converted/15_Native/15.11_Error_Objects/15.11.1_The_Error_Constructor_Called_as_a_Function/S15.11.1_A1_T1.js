@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.11.1_A1_T1",
 
-path: "15_Native\15.11_Error_Objects\15.11.1_The_Error_Constructor_Called_as_a_Function\S15.11.1_A1_T1.js",
+path: "TestCases/15_Native/15.11_Error_Objects/15.11.1_The_Error_Constructor_Called_as_a_Function/S15.11.1_A1_T1.js",
 
 assertion: "The function call Error(...) is equivalent to the object creation expression new",
 

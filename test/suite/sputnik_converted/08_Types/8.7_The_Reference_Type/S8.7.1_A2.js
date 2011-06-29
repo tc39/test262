@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S8.7.1_A2",
 
-path: "08_Types\8.7_The_Reference_Type\S8.7.1_A2.js",
+path: "TestCases/08_Types/8.7_The_Reference_Type/S8.7.1_A2.js",
 
 assertion: "Delete operator can\'t delete reference, so it returns false to be applyed to reference",
 

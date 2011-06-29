@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.6.2_A7",
 
-path: "12_Statement\12.6_Iteration_Statements\12.6.2_The_while_statement\S12.6.2_A7.js",
+path: "TestCases/12_Statement/12.6_Iteration_Statements/12.6.2_The_while_statement/S12.6.2_A7.js",
 
 assertion: "The \"while\" Statement is evaluted according to 12.6.2 and returns (normal, V, empty)",
 

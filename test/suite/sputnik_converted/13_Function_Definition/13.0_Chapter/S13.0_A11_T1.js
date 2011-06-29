@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S13.0_A11_T1",
 
-path: "13_Function_Definition\13.0_Chapter\S13.0_A11_T1.js",
+path: "TestCases/13_Function_Definition/13.0_Chapter/S13.0_A11_T1.js",
 
 assertion: "Since arguments property has attribute { DontDelete }, only its elements can be deleted",
 

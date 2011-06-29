@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.5.2_A2.1_T1",
 
-path: "11_Expressions\11.5_Multiplicative_Operators\11.5.2_Applying_the_slash_Operator\S11.5.2_A2.1_T1.js",
+path: "TestCases/11_Expressions/11.5_Multiplicative_Operators/11.5.2_Applying_the_slash_Operator/S11.5.2_A2.1_T1.js",
 
 assertion: "Operator x / y uses GetValue",
 

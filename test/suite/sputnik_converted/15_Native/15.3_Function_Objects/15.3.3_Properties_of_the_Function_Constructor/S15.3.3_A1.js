@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.3.3_A1",
 
-path: "15_Native\15.3_Function_Objects\15.3.3_Properties_of_the_Function_Constructor\S15.3.3_A1.js",
+path: "TestCases/15_Native/15.3_Function_Objects/15.3.3_Properties_of_the_Function_Constructor/S15.3.3_A1.js",
 
 assertion: "The Function constructor has the property \"prototype\"",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.10.6.3_A2_T10",
 
-path: "15_Native\15.10_RegExp_Objects\15.10.6_Properties_of_the_RegExp_Prototype_Object\15.10.6.3_RegExp.prototype.test\S15.10.6.3_A2_T10.js",
+path: "TestCases/15_Native/15.10_RegExp_Objects/15.10.6_Properties_of_the_RegExp_Prototype_Object/15.10.6.3_RegExp.prototype.test/S15.10.6.3_A2_T10.js",
 
 assertion: "A TypeError exception is thrown if the this value is not an object for which the value of the internal [[Class]] property is \"RegExp\"",
 

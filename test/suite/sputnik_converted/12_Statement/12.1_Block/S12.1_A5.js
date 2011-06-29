@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.1_A5",
 
-path: "12_Statement\12.1_Block\S12.1_A5.js",
+path: "TestCases/12_Statement/12.1_Block/S12.1_A5.js",
 
 assertion: "StatementList: StatementList Statement inside the Block is evaluated from left to right",
 

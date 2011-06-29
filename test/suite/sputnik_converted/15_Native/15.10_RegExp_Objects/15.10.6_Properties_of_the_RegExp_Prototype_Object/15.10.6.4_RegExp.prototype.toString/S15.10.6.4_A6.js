@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.10.6.4_A6",
 
-path: "15_Native\15.10_RegExp_Objects\15.10.6_Properties_of_the_RegExp_Prototype_Object\15.10.6.4_RegExp.prototype.toString\S15.10.6.4_A6.js",
+path: "TestCases/15_Native/15.10_RegExp_Objects/15.10.6_Properties_of_the_RegExp_Prototype_Object/15.10.6.4_RegExp.prototype.toString/S15.10.6.4_A6.js",
 
 assertion: "RegExp.prototype.toString has not prototype property",
 

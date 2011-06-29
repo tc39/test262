@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.10.1_A2.2_T1",
 
-path: "11_Expressions\11.10_Binary_Bitwise_Operators\11.10.1_AND_Operator\S11.10.1_A2.2_T1.js",
+path: "TestCases/11_Expressions/11.10_Binary_Bitwise_Operators/11.10.1_AND_Operator/S11.10.1_A2.2_T1.js",
 
 assertion: "Operator x & y uses [[Default Value]]",
 

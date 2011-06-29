@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S10.1.8_A3_T4",
 
-path: "10_Execution_Contexts\10.1_Definitions\10.1.8_Arguments_Object\S10.1.8_A3_T4.js",
+path: "TestCases/10_Execution_Contexts/10.1_Definitions/10.1.8_Arguments_Object/S10.1.8_A3_T4.js",
 
 assertion: "A property is created with name callee with property",
 

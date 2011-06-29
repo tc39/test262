@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.8.4_A3.1_T2.6",
 
-path: "11_Expressions\11.8_Relational_Operators\11.8.4_The_Grater_than_or_equal_Operator\S11.8.4_A3.1_T2.6.js",
+path: "TestCases/11_Expressions/11.8_Relational_Operators/11.8.4_The_Grater_than_or_equal_Operator/S11.8.4_A3.1_T2.6.js",
 
 assertion: "If Type(Primitive(x)) is not String or Type(Primitive(y)) is not String, then operator x >= y returns ToNumber(x) >= ToNumber(y)",
 

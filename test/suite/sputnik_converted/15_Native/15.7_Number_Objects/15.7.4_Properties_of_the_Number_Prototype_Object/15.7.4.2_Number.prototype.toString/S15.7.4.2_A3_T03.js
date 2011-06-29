@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.7.4.2_A3_T03",
 
-path: "15_Native\15.7_Number_Objects\15.7.4_Properties_of_the_Number_Prototype_Object\15.7.4.2_Number.prototype.toString\S15.7.4.2_A3_T03.js",
+path: "TestCases/15_Native/15.7_Number_Objects/15.7.4_Properties_of_the_Number_Prototype_Object/15.7.4.2_Number.prototype.toString/S15.7.4.2_A3_T03.js",
 
 assertion: "toString: radix should be an integer between 2 and 36",
 

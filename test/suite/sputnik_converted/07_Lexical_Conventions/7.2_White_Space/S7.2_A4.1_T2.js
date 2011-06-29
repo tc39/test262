@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S7.2_A4.1_T2",
 
-path: "07_Lexical_Conventions\7.2_White_Space\S7.2_A4.1_T2.js",
+path: "TestCases/07_Lexical_Conventions/7.2_White_Space/S7.2_A4.1_T2.js",
 
 assertion: "Multi line comment can contain HORIZONTAL TAB (U+0009)",
 

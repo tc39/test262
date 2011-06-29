@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.1.6_A3_T4",
 
-path: "11_Expressions\11.1_Primary_Expressions\11.1.6_The_Grouping_Operator\S11.1.6_A3_T4.js",
+path: "TestCases/11_Expressions/11.1_Primary_Expressions/11.1.6_The_Grouping_Operator/S11.1.6_A3_T4.js",
 
 assertion: "\"This\" operator only evaluates Expression",
 

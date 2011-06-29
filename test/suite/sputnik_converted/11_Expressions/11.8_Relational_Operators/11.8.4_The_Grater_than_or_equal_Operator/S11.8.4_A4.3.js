@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.8.4_A4.3",
 
-path: "11_Expressions\11.8_Relational_Operators\11.8.4_The_Grater_than_or_equal_Operator\S11.8.4_A4.3.js",
+path: "TestCases/11_Expressions/11.8_Relational_Operators/11.8.4_The_Grater_than_or_equal_Operator/S11.8.4_A4.3.js",
 
 assertion: "If x and y are the same number value, return true",
 

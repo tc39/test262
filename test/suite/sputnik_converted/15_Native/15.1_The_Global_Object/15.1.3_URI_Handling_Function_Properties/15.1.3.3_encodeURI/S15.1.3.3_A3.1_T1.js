@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.1.3.3_A3.1_T1",
 
-path: "15_Native\15.1_The_Global_Object\15.1.3_URI_Handling_Function_Properties\15.1.3.3_encodeURI\S15.1.3.3_A3.1_T1.js",
+path: "TestCases/15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.3_encodeURI/S15.1.3.3_A3.1_T1.js",
 
 assertion: "unescapedURISet containing one instance of each character valid in uriReserved",
 

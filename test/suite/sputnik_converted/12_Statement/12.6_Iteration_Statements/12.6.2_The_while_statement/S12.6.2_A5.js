@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.6.2_A5",
 
-path: "12_Statement\12.6_Iteration_Statements\12.6.2_The_while_statement\S12.6.2_A5.js",
+path: "TestCases/12_Statement/12.6_Iteration_Statements/12.6.2_The_while_statement/S12.6.2_A5.js",
 
 assertion: "While using \"while\" within an eval statement, source \"break\" is allowed and (normal, V, empty) is returned",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S13.0_A1",
 
-path: "13_Function_Definition\13.0_Chapter\S13.0_A1.js",
+path: "TestCases/13_Function_Definition/13.0_Chapter/S13.0_A1.js",
 
 assertion: "\"x=function y(){}\" statement does not store a reference to the new function in the varaible y(Identifier)",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.4.2.2_A1.2_T1",
 
-path: "15_Native\15.4_Array_Objects\15.4.2_The_Array_Constructor\15.4.2.2_new_Array_len\S15.4.2.2_A1.2_T1.js",
+path: "TestCases/15_Native/15.4_Array_Objects/15.4.2_The_Array_Constructor/15.4.2.2_new_Array_len/S15.4.2.2_A1.2_T1.js",
 
 assertion: "The [[Class]] property of the newly constructed object is set to \"Array\"",
 

@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S13.2_A5",
 
-path: "13_Function_Definition\13.2_Creating_Function_Objects\S13.2_A5.js",
+path: "TestCases/13_Function_Definition/13.2_Creating_Function_Objects/S13.2_A5.js",
 
 assertion: "When Function object(F) is constructed",
 

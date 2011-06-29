@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.2_A4",
 
-path: "12_Statement\12.2_Variable_Statement\S12.2_A4.js",
+path: "TestCases/12_Statement/12.2_Variable_Statement/S12.2_A4.js",
 
 assertion: "Unicode characters in variable Identifier are allowed",
 

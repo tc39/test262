@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.8.2.18_A6",
 
-path: "15_Native\15.8_The_Math_Object\15.8.2_Function_Properties_of_the_Math_Object\15.8.2.18_tan\S15.8.2.18_A6.js",
+path: "TestCases/15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.18_tan/S15.8.2.18_A6.js",
 
 assertion: "Tangent is a periodic function with period PI",
 

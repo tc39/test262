@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.5.2_A2.4_T3",
 
-path: "11_Expressions\11.5_Multiplicative_Operators\11.5.2_Applying_the_slash_Operator\S11.5.2_A2.4_T3.js",
+path: "TestCases/11_Expressions/11.5_Multiplicative_Operators/11.5.2_Applying_the_slash_Operator/S11.5.2_A2.4_T3.js",
 
 assertion: "First expression is evaluated first, and then second expression",
 

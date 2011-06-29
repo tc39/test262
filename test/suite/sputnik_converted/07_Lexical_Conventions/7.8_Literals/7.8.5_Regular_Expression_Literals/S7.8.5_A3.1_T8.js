@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S7.8.5_A3.1_T8",
 
-path: "07_Lexical_Conventions\7.8_Literals\7.8.5_Regular_Expression_Literals\S7.8.5_A3.1_T8.js",
+path: "TestCases/07_Lexical_Conventions/7.8_Literals/7.8.5_Regular_Expression_Literals/S7.8.5_A3.1_T8.js",
 
 assertion: "RegularExpressionFlags :: IdentifierPart",
 

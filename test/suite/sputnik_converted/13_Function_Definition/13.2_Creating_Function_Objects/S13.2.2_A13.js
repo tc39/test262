@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S13.2.2_A13",
 
-path: "13_Function_Definition\13.2_Creating_Function_Objects\S13.2.2_A13.js",
+path: "TestCases/13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A13.js",
 
 assertion: "Calling a function as a constructor is inadmissible as long as this.any_Function is declared by eval and called",
 

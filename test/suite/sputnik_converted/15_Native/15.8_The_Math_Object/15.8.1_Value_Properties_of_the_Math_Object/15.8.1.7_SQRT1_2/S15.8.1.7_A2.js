@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.8.1.7_A2",
 
-path: "15_Native\15.8_The_Math_Object\15.8.1_Value_Properties_of_the_Math_Object\15.8.1.7_SQRT1_2\S15.8.1.7_A2.js",
+path: "TestCases/15_Native/15.8_The_Math_Object/15.8.1_Value_Properties_of_the_Math_Object/15.8.1.7_SQRT1_2/S15.8.1.7_A2.js",
 
 assertion: "Value Property SQRT1_2 of the Math Object has the attribute DontEnum",
 

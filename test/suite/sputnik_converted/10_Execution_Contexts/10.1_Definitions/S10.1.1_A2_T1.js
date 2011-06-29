@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S10.1.1_A2_T1",
 
-path: "10_Execution_Contexts\10.1_Definitions\S10.1.1_A2_T1.js",
+path: "TestCases/10_Execution_Contexts/10.1_Definitions/S10.1.1_A2_T1.js",
 
 assertion: "There are two types of Function objects. Internal functions",
 

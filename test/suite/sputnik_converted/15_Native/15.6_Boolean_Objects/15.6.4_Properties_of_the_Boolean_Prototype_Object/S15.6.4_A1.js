@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.6.4_A1",
 
-path: "15_Native\15.6_Boolean_Objects\15.6.4_Properties_of_the_Boolean_Prototype_Object\S15.6.4_A1.js",
+path: "TestCases/15_Native/15.6_Boolean_Objects/15.6.4_Properties_of_the_Boolean_Prototype_Object/S15.6.4_A1.js",
 
 assertion: "The Boolean prototype object is itself a Boolean object",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.8.2.15_A6",
 
-path: "15_Native\15.8_The_Math_Object\15.8.2_Function_Properties_of_the_Math_Object\15.8.2.15_round\S15.8.2.15_A6.js",
+path: "TestCases/15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.15_round/S15.8.2.15_A6.js",
 
 assertion: "If x is equal to 0 or greater than 0, or if x is less than -0.5, Math.round(x) is equal to Math.floor(x+0.5)",
 

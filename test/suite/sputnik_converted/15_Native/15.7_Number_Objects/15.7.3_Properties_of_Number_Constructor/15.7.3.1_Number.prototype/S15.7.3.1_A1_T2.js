@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.7.3.1_A1_T2",
 
-path: "15_Native\15.7_Number_Objects\15.7.3_Properties_of_Number_Constructor\15.7.3.1_Number.prototype\S15.7.3.1_A1_T2.js",
+path: "TestCases/15_Native/15.7_Number_Objects/15.7.3_Properties_of_Number_Constructor/15.7.3.1_Number.prototype/S15.7.3.1_A1_T2.js",
 
 assertion: "The Number property \"prototype\" has { DontEnum, DontDelete, ReadOnly } attributes",
 

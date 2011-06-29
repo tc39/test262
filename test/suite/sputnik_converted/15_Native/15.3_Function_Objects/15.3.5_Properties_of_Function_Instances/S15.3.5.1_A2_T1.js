@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.3.5.1_A2_T1",
 
-path: "15_Native\15.3_Function_Objects\15.3.5_Properties_of_Function_Instances\S15.3.5.1_A2_T1.js",
+path: "TestCases/15_Native/15.3_Function_Objects/15.3.5_Properties_of_Function_Instances/S15.3.5.1_A2_T1.js",
 
 assertion: "the length property has the attributes { DontDelete }",
 

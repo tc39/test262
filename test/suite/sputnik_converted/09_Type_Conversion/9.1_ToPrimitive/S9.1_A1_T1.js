@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S9.1_A1_T1",
 
-path: "09_Type_Conversion\9.1_ToPrimitive\S9.1_A1_T1.js",
+path: "TestCases/09_Type_Conversion/9.1_ToPrimitive/S9.1_A1_T1.js",
 
 assertion: "Result of primitive conversion from object is a default value for the Object",
 

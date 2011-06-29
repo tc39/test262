@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.5.5_A1_T2",
 
-path: "15_Native\15.5_String_Objects\15.5.5_Properties_of_String_Instances\S15.5.5_A1_T2.js",
+path: "TestCases/15_Native/15.5_String_Objects/15.5.5_Properties_of_String_Instances/S15.5.5_A1_T2.js",
 
 assertion: "String instance has not [[call]] property",
 

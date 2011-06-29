@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S12.1_A1",
 
-path: "12_Statement\12.1_Block\S12.1_A1.js",
+path: "TestCases/12_Statement/12.1_Block/S12.1_A1.js",
 
 assertion: "The production Block { } in strict code can\'t contain function declaration",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.3.2_A3_T3",
 
-path: "11_Expressions\11.3_PostfixExpressions\11.3.2_Postfix_Decrement_Operator\S11.3.2_A3_T3.js",
+path: "TestCases/11_Expressions/11.3_PostfixExpressions/11.3.2_Postfix_Decrement_Operator/S11.3.2_A3_T3.js",
 
 assertion: "Operator x-- returns x = ToNumber(x) - 1",
 

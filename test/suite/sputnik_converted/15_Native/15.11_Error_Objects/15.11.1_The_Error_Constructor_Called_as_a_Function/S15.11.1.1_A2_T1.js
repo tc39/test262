@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.11.1.1_A2_T1",
 
-path: "15_Native\15.11_Error_Objects\15.11.1_The_Error_Constructor_Called_as_a_Function\S15.11.1.1_A2_T1.js",
+path: "TestCases/15_Native/15.11_Error_Objects/15.11.1_The_Error_Constructor_Called_as_a_Function/S15.11.1.1_A2_T1.js",
 
 assertion: "The [[Prototype]] property of the newly constructed object is set to the original Error prototype",
 

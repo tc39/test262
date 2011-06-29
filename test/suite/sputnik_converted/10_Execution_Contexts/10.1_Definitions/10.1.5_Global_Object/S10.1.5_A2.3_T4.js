@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S10.1.5_A2.3_T4",
 
-path: "10_Execution_Contexts\10.1_Definitions\10.1.5_Global_Object\S10.1.5_A2.3_T4.js",
+path: "TestCases/10_Execution_Contexts/10.1_Definitions/10.1.5_Global_Object/S10.1.5_A2.3_T4.js",
 
 assertion: "Global object properties have attributes { DontEnum }",
 

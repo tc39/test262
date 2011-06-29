@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.14_A10",
 
-path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\15.5.4.14_String.prototype.split\S15.5.4.14_A10.js",
+path: "TestCases/15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.14_String.prototype.split/S15.5.4.14_A10.js",
 
 assertion: "The String.prototype.split.length property has the attribute ReadOnly",
 

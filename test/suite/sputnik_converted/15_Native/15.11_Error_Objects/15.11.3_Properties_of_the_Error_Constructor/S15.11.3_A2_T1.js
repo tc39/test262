@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.11.3_A2_T1",
 
-path: "15_Native\15.11_Error_Objects\15.11.3_Properties_of_the_Error_Constructor\S15.11.3_A2_T1.js",
+path: "TestCases/15_Native/15.11_Error_Objects/15.11.3_Properties_of_the_Error_Constructor/S15.11.3_A2_T1.js",
 
 assertion: "The length property value is 1",
 

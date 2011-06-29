@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.8.2.5_A24",
 
-path: "15_Native\15.8_The_Math_Object\15.8.2_Function_Properties_of_the_Math_Object\15.8.2.5_atan2\S15.8.2.5_A24.js",
+path: "TestCases/15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.5_atan2/S15.8.2.5_A24.js",
 
 assertion: "Math.atan2, recommended that implementations use the approximation algorithms for IEEE 754 arithmetic contained in fdlibm",
 

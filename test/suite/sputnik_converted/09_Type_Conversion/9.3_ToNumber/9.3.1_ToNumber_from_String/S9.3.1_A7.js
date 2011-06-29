@@ -16,7 +16,7 @@
 ES5Harness.registerTest( {
 id: "S9.3.1_A7",
 
-path: "09_Type_Conversion\9.3_ToNumber\9.3.1_ToNumber_from_String\S9.3.1_A7.js",
+path: "TestCases/09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A7.js",
 
 assertion: "The MV of StrUnsignedDecimalLiteral::: DecimalDigits. DecimalDigits",
 

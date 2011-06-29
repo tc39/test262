@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.5_A1.2_T2",
 
-path: "12_Statement\12.5_The_if_Statement\S12.5_A1.2_T2.js",
+path: "TestCases/12_Statement/12.5_The_if_Statement/S12.5_A1.2_T2.js",
 
 assertion: "1, true, non-empty string and others in expression is evaluated to true when using operator \"new\"",
 

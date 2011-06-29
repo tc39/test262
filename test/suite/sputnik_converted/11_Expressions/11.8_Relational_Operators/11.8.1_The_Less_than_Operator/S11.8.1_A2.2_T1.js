@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.8.1_A2.2_T1",
 
-path: "11_Expressions\11.8_Relational_Operators\11.8.1_The_Less_than_Operator\S11.8.1_A2.2_T1.js",
+path: "TestCases/11_Expressions/11.8_Relational_Operators/11.8.1_The_Less_than_Operator/S11.8.1_A2.2_T1.js",
 
 assertion: "Operator x < y uses [[Default Value]]",
 

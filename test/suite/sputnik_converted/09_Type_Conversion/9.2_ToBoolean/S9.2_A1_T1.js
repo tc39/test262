@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S9.2_A1_T1",
 
-path: "09_Type_Conversion\9.2_ToBoolean\S9.2_A1_T1.js",
+path: "TestCases/09_Type_Conversion/9.2_ToBoolean/S9.2_A1_T1.js",
 
 assertion: "Result of boolean conversion from undefined value is false",
 

@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S12.10_A4_T5",
 
-path: "12_Statement\12.10_The_with_Statement\S12.10_A4_T5.js",
+path: "TestCases/12_Statement/12.10_The_with_Statement/S12.10_A4_T5.js",
 
 assertion: "Changing property using \"eval\" statement containing \"with\" statement",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.5.4.10_A2_T7",
 
-path: "15_Native\15.5_String_Objects\15.5.4_Properties_of_the_String_Prototype_Object\15.5.4.10_String.prototype.match\S15.5.4.10_A2_T7.js",
+path: "TestCases/15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.10_String.prototype.match/S15.5.4.10_A2_T7.js",
 
 assertion: "match returns array as specified in 15.10.6.2",
 

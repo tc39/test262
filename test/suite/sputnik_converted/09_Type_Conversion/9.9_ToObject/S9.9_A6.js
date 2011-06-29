@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S9.9_A6",
 
-path: "09_Type_Conversion\9.9_ToObject\S9.9_A6.js",
+path: "TestCases/09_Type_Conversion/9.9_ToObject/S9.9_A6.js",
 
 assertion: "ToObject conversion from Object: The result is the input",
 

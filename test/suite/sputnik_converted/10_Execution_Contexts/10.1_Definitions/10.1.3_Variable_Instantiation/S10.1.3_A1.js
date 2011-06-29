@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S10.1.3_A1",
 
-path: "10_Execution_Contexts\10.1_Definitions\10.1.3_Variable_Instantiation\S10.1.3_A1.js",
+path: "TestCases/10_Execution_Contexts/10.1_Definitions/10.1.3_Variable_Instantiation/S10.1.3_A1.js",
 
 assertion: "If the caller supplies fewer parameter values than there are",
 

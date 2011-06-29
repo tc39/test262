@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.1.2.2_A5.1_T1",
 
-path: "15_Native\15.1_The_Global_Object\15.1.2_Function_Properties_of_the_Global_Object\15.1.2.2_parseInt\S15.1.2.2_A5.1_T1.js",
+path: "TestCases/15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.2_parseInt/S15.1.2.2_A5.1_T1.js",
 
 assertion: "If the length of S is at least 1 and the first character of S is 0,",
 

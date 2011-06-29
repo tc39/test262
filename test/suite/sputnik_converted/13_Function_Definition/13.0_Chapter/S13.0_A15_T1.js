@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S13.0_A15_T1",
 
-path: "13_Function_Definition\13.0_Chapter\S13.0_A15_T1.js",
+path: "TestCases/13_Function_Definition/13.0_Chapter/S13.0_A15_T1.js",
 
 assertion: "\'\'arguments\'\' variable overrides ActivationObject.arguments",
 

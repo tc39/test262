@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.6.1_A14_T1",
 
-path: "12_Statement\12.6_Iteration_Statements\12.6.1_The_do_while_Statement\S12.6.1_A14_T1.js",
+path: "TestCases/12_Statement/12.6_Iteration_Statements/12.6.1_The_do_while_Statement/S12.6.1_A14_T1.js",
 
 assertion: "FunctionExpression within a \"do-while\" Expression is allowed",
 

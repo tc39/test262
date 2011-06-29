@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.4.5.1_A2.3_T1",
 
-path: "15_Native\15.4_Array_Objects\15.4.5_Properties_of_Array_Instances\15.4.5.1_Put\S15.4.5.1_A2.3_T1.js",
+path: "TestCases/15_Native/15.4_Array_Objects/15.4.5_Properties_of_Array_Instances/15.4.5.1_Put/S15.4.5.1_A2.3_T1.js",
 
 assertion: "If ToUint32(P) is less than the value of",
 

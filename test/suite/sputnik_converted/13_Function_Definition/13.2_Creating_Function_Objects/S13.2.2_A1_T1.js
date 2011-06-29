@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S13.2.2_A1_T1",
 
-path: "13_Function_Definition\13.2_Creating_Function_Objects\S13.2.2_A1_T1.js",
+path: "TestCases/13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A1_T1.js",
 
 assertion: "Since a function is an object, it might be set to [[Prototype]] property of a new created object through [[Construct]] property",
 

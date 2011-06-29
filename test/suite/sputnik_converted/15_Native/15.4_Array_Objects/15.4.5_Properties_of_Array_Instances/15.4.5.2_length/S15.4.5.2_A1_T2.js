@@ -16,7 +16,7 @@
 ES5Harness.registerTest( {
 id: "S15.4.5.2_A1_T2",
 
-path: "15_Native\15.4_Array_Objects\15.4.5_Properties_of_Array_Instances\15.4.5.2_length\S15.4.5.2_A1_T2.js",
+path: "TestCases/15_Native/15.4_Array_Objects/15.4.5_Properties_of_Array_Instances/15.4.5.2_length/S15.4.5.2_A1_T2.js",
 
 assertion: "Every Array object has a length property whose value is",
 

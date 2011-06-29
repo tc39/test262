@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S13.0_A3_T2",
 
-path: "13_Function_Definition\13.0_Chapter\S13.0_A3_T2.js",
+path: "TestCases/13_Function_Definition/13.0_Chapter/S13.0_A3_T2.js",
 
 assertion: "The Identifier in a FunctionExpression can be referenced from inside the FunctionExpression\'s FunctionBody to allow the function calling itself recursively",
 

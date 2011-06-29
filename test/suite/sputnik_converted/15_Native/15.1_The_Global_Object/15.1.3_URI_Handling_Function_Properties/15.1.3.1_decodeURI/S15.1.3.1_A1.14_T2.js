@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.1.3.1_A1.14_T2",
 
-path: "15_Native\15.1_The_Global_Object\15.1.3_URI_Handling_Function_Properties\15.1.3.1_decodeURI\S15.1.3.1_A1.14_T2.js",
+path: "TestCases/15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.1_decodeURI/S15.1.3.1_A1.14_T2.js",
 
 assertion: "If B = 1110xxxx (n = 3) and C != 10xxxxxx (C - first of octets after B), throw URIError",
 

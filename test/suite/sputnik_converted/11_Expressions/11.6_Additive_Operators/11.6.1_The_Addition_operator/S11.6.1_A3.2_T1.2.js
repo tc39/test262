@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.6.1_A3.2_T1.2",
 
-path: "11_Expressions\11.6_Additive_Operators\11.6.1_The_Addition_operator\S11.6.1_A3.2_T1.2.js",
+path: "TestCases/11_Expressions/11.6_Additive_Operators/11.6.1_The_Addition_operator/S11.6.1_A3.2_T1.2.js",
 
 assertion: "If Type(Primitive(x)) is String or Type(Primitive(y)) is String, then operator x + y returns the result of concatenating ToString(x) followed by ToString(y)",
 

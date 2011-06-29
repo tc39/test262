@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S13.2_A3",
 
-path: "13_Function_Definition\13.2_Creating_Function_Objects\S13.2_A3.js",
+path: "TestCases/13_Function_Definition/13.2_Creating_Function_Objects/S13.2_A3.js",
 
 assertion: "When Function object(F) is constructed the length property of F is set to the number of formal properties specified in FormalParameterList",
 

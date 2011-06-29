@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.4.3_A2.1",
 
-path: "15_Native\15.4_Array_Objects\15.4.3_Properties_of_the_Array_Constructor\S15.4.3_A2.1.js",
+path: "TestCases/15_Native/15.4_Array_Objects/15.4.3_Properties_of_the_Array_Constructor/S15.4.3_A2.1.js",
 
 assertion: "The length property of Array has the attribute DontEnum",
 

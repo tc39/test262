@@ -15,7 +15,7 @@
 ES5Harness.registerTest( {
 id: "S15.2.1.1_A1_T2",
 
-path: "15_Native\15.2_Object_Objects\15.2.1_The_Object_Constructor_Called_as_a_Function\S15.2.1.1_A1_T2.js",
+path: "TestCases/15_Native/15.2_Object_Objects/15.2.1_The_Object_Constructor_Called_as_a_Function/S15.2.1.1_A1_T2.js",
 
 assertion: "When the Object(value) is called and the value is null, undefined or not supplied,",
 

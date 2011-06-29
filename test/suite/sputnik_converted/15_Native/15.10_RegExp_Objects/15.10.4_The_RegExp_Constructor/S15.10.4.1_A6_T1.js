@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.10.4.1_A6_T1",
 
-path: "15_Native\15.10_RegExp_Objects\15.10.4_The_RegExp_Constructor\S15.10.4.1_A6_T1.js",
+path: "TestCases/15_Native/15.10_RegExp_Objects/15.10.4_The_RegExp_Constructor/S15.10.4.1_A6_T1.js",
 
 assertion: "The [[Class]] property of the newly constructed object is set to \"RegExp\"",
 

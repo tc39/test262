@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S10.1.6_A1_T3",
 
-path: "10_Execution_Contexts\10.1_Definitions\S10.1.6_A1_T3.js",
+path: "TestCases/10_Execution_Contexts/10.1_Definitions/S10.1.6_A1_T3.js",
 
 assertion: "The activation object is initialised with a property with name arguments and attributes {DontDelete}",
 

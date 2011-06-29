@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S15.9.5.6_A2_T1",
 
-path: "15_Native\15.9_Date_Objects\15.9.5_Properties_of_the_Date_Prototype_Object\15.9.5.6_Date.prototype.toLocaleDateString\S15.9.5.6_A2_T1.js",
+path: "TestCases/15_Native/15.9_Date_Objects/15.9.5_Properties_of_the_Date_Prototype_Object/15.9.5.6_Date.prototype.toLocaleDateString/S15.9.5.6_A2_T1.js",
 
 assertion: "The \"length\" property of the \"toLocaleDateString\" is 0",
 

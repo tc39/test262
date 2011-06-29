@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S9.3.1_A14",
 
-path: "09_Type_Conversion\9.3_ToNumber\9.3.1_ToNumber_from_String\S9.3.1_A14.js",
+path: "TestCases/09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A14.js",
 
 assertion: "The MV of SignedInteger ::: + DecimalDigits is the MV of DecimalDigits",
 

@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S13.2.2_A16_T3",
 
-path: "13_Function_Definition\13.2_Creating_Function_Objects\S13.2.2_A16_T3.js",
+path: "TestCases/13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A16_T3.js",
 
 assertion: "FunctionExpression within a new statement is admitted",
 

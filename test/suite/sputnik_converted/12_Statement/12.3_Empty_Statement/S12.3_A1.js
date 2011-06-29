@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S12.3_A1",
 
-path: "12_Statement\12.3_Empty_Statement\S12.3_A1.js",
+path: "TestCases/12_Statement/12.3_Empty_Statement/S12.3_A1.js",
 
 assertion: "The production EmptyStatement ; is evaluated as follows Return (normal, empty, empty)",
 

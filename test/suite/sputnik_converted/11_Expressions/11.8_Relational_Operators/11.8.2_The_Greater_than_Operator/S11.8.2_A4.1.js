@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S11.8.2_A4.1",
 
-path: "11_Expressions\11.8_Relational_Operators\11.8.2_The_Greater_than_Operator\S11.8.2_A4.1.js",
+path: "TestCases/11_Expressions/11.8_Relational_Operators/11.8.2_The_Greater_than_Operator/S11.8.2_A4.1.js",
 
 assertion: "If x is NaN, return false (if result in 11.8.5 is undefined, return false)",
 

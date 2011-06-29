@@ -14,7 +14,7 @@
 ES5Harness.registerTest( {
 id: "S9.7_A1",
 
-path: "09_Type_Conversion\9.7_ToUint16\S9.7_A1.js",
+path: "TestCases/09_Type_Conversion/9.7_ToUint16/S9.7_A1.js",
 
 assertion: "If value is NaN, +0, -0, +Infinity, or -Infinity, return +0",
 
