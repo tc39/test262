@@ -5,6 +5,7 @@
 * @name: S15.2.4.4_A12;
 * @section: 15.2.4.4;
 * @assertion: Let O be the result of calling ToObject passing the this value as the argument.
+* @description: Checking Object.prototype.valueOf invoked by the 'call' property.
 * @negative
 */
 
