@@ -22,12 +22,7 @@ description: "IdentifierPart :: \\u006D (m)",
 
 test: function testcase() {
    //CHECK#1
-
-//Test262 Change
-//var regexp = /(?:)/\u006D; 
-var regexp;
-eval('regexp = /(?:)/\\u006D;');
-
+var regexp = /(?:)/\u006D; 
 if (regexp.multiline !== true) {
   $ERROR('#1: var regexp = /(?:)/\\u006D; regexp.multiline === true. Actual: ' + (regexp.multiline));
 }                             

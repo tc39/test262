@@ -21,7 +21,9 @@ assertion: "When the production \"do Statement while ( Expression )\" is evaluat
 description: "Evaluating various Expressions",
 
 test: function testcase() {
-   do __in__do=1; while ( false );
+   var __in__do;
+
+do __in__do=1; while ( false );
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1

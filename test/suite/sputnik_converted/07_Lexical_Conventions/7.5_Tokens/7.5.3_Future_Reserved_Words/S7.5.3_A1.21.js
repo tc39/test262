@@ -4,6 +4,7 @@
 
 // Converted for Test262 from original Sputnik source
 
- package = 1;
+ "use strict";
+package = 1;
  
 

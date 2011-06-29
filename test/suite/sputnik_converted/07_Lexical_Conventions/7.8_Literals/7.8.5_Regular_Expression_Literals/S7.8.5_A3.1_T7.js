@@ -22,12 +22,7 @@ description: "IdentifierPart :: \\u0067 (g)",
 
 test: function testcase() {
    //CHECK#1
-
-//Test262 Change
-//var regexp = /(?:)/\u0067; 
-var regexp;
-eval('regexp = /(?:)/\\u0067;'); 
-
+var regexp = /(?:)/\u0067; 
 if (regexp.global !== true) {
   $ERROR('#1: var regexp = /(?:)/\\u0067; regexp.global === true. Actual: ' + (regexp.global));
 }                        

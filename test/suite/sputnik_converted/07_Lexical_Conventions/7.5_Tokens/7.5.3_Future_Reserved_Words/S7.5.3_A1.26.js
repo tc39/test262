@@ -4,6 +4,7 @@
 
 // Converted for Test262 from original Sputnik source
 
- static = 1;
+ "use strict";
+static = 1;
  
 

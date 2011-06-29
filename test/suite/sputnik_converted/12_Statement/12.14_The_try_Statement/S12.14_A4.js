@@ -6,7 +6,8 @@
  * @section: 12.14;
  * @assertion: Sanity test for "catch(Indetifier) statement";
  * @description: Checking if deleting an exception fails;
-  */
+ * @strict_mode_negative SyntaxError;
+ */
 
 
 // Converted for Test262 from original Sputnik source
@@ -23,7 +24,7 @@ description: "Checking if deleting an exception fails",
 test: function testcase() {
    // CHECK#1
 try {
-  throw "catchme";	
+  throw "catchme";
   $ERROR('#1.1: throw "catchme" lead to throwing exception');
 }
 catch (e) {
@@ -37,7 +38,7 @@ catch (e) {
 
 // CHECK#2
 try {
-  throw "catchme";	
+  throw "catchme";
   $ERROR('#2.1: throw "catchme" lead to throwing exception');
 }
 catch(e){}

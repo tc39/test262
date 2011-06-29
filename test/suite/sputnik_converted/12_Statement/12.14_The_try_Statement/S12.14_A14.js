@@ -6,6 +6,7 @@
  * @section: 12.14;
  * @assertion: Using "try" with "catch" or "finally" statement within/without a "with" statement;
  * @description: Using try/catch/finally in With and With in try/catch/finally;
+ * @strict_mode_negative SyntaxError;
  */
 
 
@@ -21,8 +22,8 @@ assertion: "Using \"try\" with \"catch\" or \"finally\" statement within/without
 description: "Using try/catch/finally in With and With in try/catch/finally",
 
 test: function testcase() {
-   var myObj = {p1: 'a', 
-             p2: 'b', 
+   var myObj = {p1: 'a',
+             p2: 'b',
              p3: 'c',
              value: 'myObj_value',
              valueOf : function(){return 'obj_valueOf';},
@@ -42,7 +43,7 @@ try{
   }
 }
 catch(e){
-  if (e!=="ex") $ERROR('#1: Exception ==="ex". Actual:  Exception ==='+ e  );	
+  if (e!=="ex") $ERROR('#1: Exception ==="ex". Actual:  Exception ==='+ e  );
 }
 
 // CHECK#2

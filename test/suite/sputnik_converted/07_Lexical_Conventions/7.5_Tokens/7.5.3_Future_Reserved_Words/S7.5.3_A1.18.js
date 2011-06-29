@@ -4,6 +4,7 @@
 
 // Converted for Test262 from original Sputnik source
 
- interface = 1;
+ "use strict";
+interface = 1;
  
 

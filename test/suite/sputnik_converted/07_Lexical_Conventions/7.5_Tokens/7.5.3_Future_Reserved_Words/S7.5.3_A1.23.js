@@ -4,6 +4,7 @@
 
 // Converted for Test262 from original Sputnik source
 
- protected = 1;
+ "use strict";
+protected = 1;
  
 

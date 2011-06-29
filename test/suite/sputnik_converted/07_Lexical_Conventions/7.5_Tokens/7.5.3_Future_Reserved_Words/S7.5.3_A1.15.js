@@ -4,6 +4,6 @@
 
 // Converted for Test262 from original Sputnik source
 
- implements = 1;
- 
+ "use strict";
+implements = 1; 
 

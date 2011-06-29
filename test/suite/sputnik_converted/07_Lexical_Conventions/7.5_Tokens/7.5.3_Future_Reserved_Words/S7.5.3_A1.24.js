@@ -4,6 +4,7 @@
 
 // Converted for Test262 from original Sputnik source
 
- public = 1;
+ "use strict";
+public = 1;
  
 

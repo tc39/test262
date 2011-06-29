@@ -4,9 +4,8 @@
 /**
 * @name: S15.3.5_A1_T1;
 * @section: 15.3.5;
-* @assertion: The value of the [[Class]] property is "Function" ;
-* @description: We delete Function.prototype.toString method to access Object.prototype.toString method. 
-* For testing use variable f = new Function;
+* @assertion: The value of the [[Class]] property is "Function";
+* @description: For testing use variable f = new Function;
 */
 
 
@@ -19,18 +18,14 @@ path: "15_Native\15.3_Function_Objects\15.3.5_Properties_of_Function_Instances\S
 
 assertion: "The value of the [[Class]] property is \"Function\"",
 
-description: "We delete Function.prototype.toString method to access Object.prototype.toString method.",
+description: "For testing use variable f = new Function",
 
 test: function testcase() {
-   f = new Function;
+   var f = new Function;
 
-delete Function.prototype.toString;
-
-//CHECK#1
-if (f.toString() !== "[object "+"Function"+"]") {
+if (Object.prototype.toString.call(f) !== "[object Function]") {
   $ERROR('#1: The value of the [[Class]] property is "Function"');
 }
- 
 
  }
 });
