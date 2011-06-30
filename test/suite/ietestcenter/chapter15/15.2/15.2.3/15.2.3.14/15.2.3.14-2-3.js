@@ -27,7 +27,7 @@ path: "TestCases/chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-2-3.js",
 description: "Object.keys returns the standard built-in Array (Array overridden)",
 
 test: function testcase() {
-  function Array() { alert("helloe"); }
+  function Array() { }
 
   var o = { x: 1, y: 2};
 
