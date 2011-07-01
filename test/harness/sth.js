@@ -19,6 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
 
 
+//Do not cache any JSON files - see https://bugs.ecmascript.org/show_bug.cgi?id=87
+$.ajaxSetup( {cache:false});
+
 /*
  * Run a test in the browser. Works by injecting an iframe with the test code.
  *
