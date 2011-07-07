@@ -122,7 +122,6 @@
   <test id="S11.8.3_A2.3_T1">https://bugs.ecmascript.org/show_bug.cgi?id=15</test>
   
   <!-- FunctionDeclaration inside a Statement context-->
-  <test id="12.14-5">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
   <test id="S12.10_A3.3_T4">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
   <test id="S12.10_A3.3_T5">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
   <test id="S12.7_A3">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
