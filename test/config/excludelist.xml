@@ -1,11 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <excludeList>
-  <test id="S7.5.3_A1.18">problem, interface is not a reserved word in ES5</test>
-  <test id="S7.5.3_A1.21">problem, package is not a reserved word in ES5</test>
-  <test id="S7.5.3_A1.22">problem, private is not a reserved word in ES5</test>
-  <test id="S7.5.3_A1.23">problem, protected is not a reserved word in ES5</test>
-  <test id="S7.5.3_A1.24">problem, public is not a reserved word in ES5</test>
-  <test id="S7.5.3_A1.26">problem, static is not a reserved word in ES5</test>
+  <!-- There might also be a SputnikConverter harness issue here now as the converter
+        hasn't been made aware of strict mode yet -->
+  <test id="S7.5.3_A1.18">problem, test needs 'var' prior to interface in strict mode</test>
+  <test id="S7.5.3_A1.21">problem, test needs 'var' prior to package in strict mode</test>
+  <test id="S7.5.3_A1.22">problem, test needs 'var' prior to private in strict mode</test>
+  <test id="S7.5.3_A1.23">problem, test needs 'var' prior to protected in strict mode</test>
+  <test id="S7.5.3_A1.24">problem, test needs 'var' prior to public in strict mode</test>
+  <test id="S7.5.3_A1.26">problem, test needs 'var' prior to static in strict mode</test>
   
   <test id="15.4.4.15-3-14"><!-- reason for the exclusion--></test>
   <test id="15.4.4.15-3-29"><!-- reason for the exclusion--></test>
@@ -23,14 +25,10 @@
   <test id="15.4.4.22-3-29"><!-- reason for the exclusion--></test>
   <test id="15.4.4.22-3-8"><!-- reason for the exclusion--></test>
   
-  <test id="10.4.2-2-c-1">JS to XML conversion issue</test>
+  <test id="10.4.2-2-c-1">JS to JSON conversion issue</test>
   
-  <test id="S15.3.4_A3_T1">problem, should replace with different test</test>
-  <test id="S15.3.5_A1_T1">problem, bad test should be rewritten</test>
-  <test id="S15.3.5_A1_T2">problem, bad test should be rewritten</test>
   <test id="S15.3.4.1_A1_T2">problem, bad test should be rewritten</test>
   <test id="S15.3.4.1_A1_T2">problem, bad test should be rewritten</test>
-  <test id="S15.4.4_A1.1_T2">problem, bad test should be rewritten</test>
   <test id="S15.4.4.10_A4_T1">problem, bad test should be rewritten</test>
   <test id="S15.4.4.11_A6_T2">problem, bad test should be rewritten</test>
   <test id="S15.4.4.12_A4_T1">problem, bad test should be rewritten</test>
