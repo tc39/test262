@@ -1,27 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <excludeList>
-  <test id="S7.5.3_A1.1">problem, abstract is not a reserved word in ES5</test>
-  <test id="S7.5.3_A1.2">problem, boolean is not a reserved word in ES5</test>
-  <test id="S7.5.3_A1.3">problem, byte is not a reserved word in ES5</test>
-  <test id="S7.5.3_A1.4">problem, char is not a reserved word in ES5</test>
-  <test id="S7.5.3_A1.8">problem, double is not a reserved word in ES5</test>
-  <test id="S7.5.3_A1.12">problem, final is not a reserved word in ES5</test>
-  <test id="S7.5.3_A1.13">problem, float is not a reserved word in ES5</test>
-  <test id="S7.5.3_A1.14">problem, goto is not a reserved word in ES5</test>
-  <test id="S7.5.3_A1.17">problem, implements is not a reserved word in ES5</test>
   <test id="S7.5.3_A1.18">problem, interface is not a reserved word in ES5</test>
-  <test id="S7.5.3_A1.19">problem, long is not a reserved word in ES5</test>
-  <test id="S7.5.3_A1.20">problem, native is not a reserved word in ES5</test>
   <test id="S7.5.3_A1.21">problem, package is not a reserved word in ES5</test>
   <test id="S7.5.3_A1.22">problem, private is not a reserved word in ES5</test>
   <test id="S7.5.3_A1.23">problem, protected is not a reserved word in ES5</test>
   <test id="S7.5.3_A1.24">problem, public is not a reserved word in ES5</test>
-  <test id="S7.5.3_A1.25">problem, short is not a reserved word in ES5</test>
   <test id="S7.5.3_A1.26">problem, static is not a reserved word in ES5</test>
-  <test id="S7.5.3_A1.28">problem, synchronized is not a reserved word in ES5</test>
-  <test id="S7.5.3_A1.29">problem, throws is not a reserved word in ES5</test>
-  <test id="S7.5.3_A1.30">problem, transient is not a reserved word in ES5</test>
-  <test id="S7.5.3_A1.31">problem, volatile is not a reserved word in ES5</test>
   
   <test id="15.4.4.15-3-14"><!-- reason for the exclusion--></test>
   <test id="15.4.4.15-3-29"><!-- reason for the exclusion--></test>
