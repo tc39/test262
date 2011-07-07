@@ -211,6 +211,10 @@
   <test id="S15.5.4.5_A1_T3">https://bugs.ecmascript.org/show_bug.cgi?id=117</test>
   <test id="S15.5.4.6_A1_T3">https://bugs.ecmascript.org/show_bug.cgi?id=117</test>
   
+  <!-- Extension clause -->
+  <test id="S15.10.2.11_A1_T2">https://bugs.ecmascript.org/show_bug.cgi?id=120</test>
+  <test id="S15.10.2.11_A1_T3">https://bugs.ecmascript.org/show_bug.cgi?id=120</test>
+  
   <!--Google to make these Strict Mode test changes-->
   <test id="S7.8.4_A4.3_T1">https://bugs.ecmascript.org/show_bug.cgi?id=59</test>
   <test id="S7.8.4_A4.3_T2">https://bugs.ecmascript.org/show_bug.cgi?id=59</test>
@@ -223,5 +227,6 @@
   <test id="S13.2.2_A18_T2">https://bugs.ecmascript.org/show_bug.cgi?id=26</test>
   <test id="S13.2.2_A19_T7">https://bugs.ecmascript.org/show_bug.cgi?id=26</test>
   <test id="S15.2.2.1_A2_T4">https://bugs.ecmascript.org/show_bug.cgi?id=26</test>
+  
  </excludeList>
 
