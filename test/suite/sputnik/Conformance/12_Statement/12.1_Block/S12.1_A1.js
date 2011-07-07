@@ -11,8 +11,6 @@
 */
 
 "use strict";
-if (!strict_mode) { throw new SyntaxError('unspecified case'); }
-
 {
     function __func(){}
 }

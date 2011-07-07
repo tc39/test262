@@ -4,9 +4,7 @@
 
 // Converted for Test262 from original Sputnik source
 
- "use strict";
-if (!strict_mode) { throw new SyntaxError('unspecified case'); }
-
+"use strict";
 {
     function __func(){}
 }
