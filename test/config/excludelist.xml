@@ -104,7 +104,6 @@
   <test id="S11.8.3_A2.3_T1">https://bugs.ecmascript.org/show_bug.cgi?id=15</test>
   
   <!-- FunctionDeclaration inside a Statement context-->
-  <test id="S12.10_A3.3_T4">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
   <test id="S12.10_A3.3_T5">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
   <test id="S12.7_A3">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
   <test id="S12.7_A4_T1">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
@@ -130,13 +129,15 @@
   <test id="S14_D6_T1">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
   <test id="S14_D6_T2">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
   <test id="S14_D7">https://bugs.ecmascript.org/show_bug.cgi?id=18</test>
-  
-  <!-- Invalid early error tests-->
-  <test id="S12.1_A1">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
+    
+  <!-- Still invalid after a fix from Google. ES5 doesn't state Chapter 16 extensions
+       regarding FunctionDeclaration are invalid per-se -->
+  <test id="S12.1_A1">https://bugs.ecmascript.org/show_bug.cgi?id=80</test> 
   <test id="S12.5_A9_T1">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
   <test id="S12.5_A9_T2">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
   <test id="S12.6.1_A13_T1">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
   <test id="S12.6.1_A13_T2">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
+  <!-- Invalid early error tests-->
   <test id="S12.6.2_A13_T1">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
   <test id="S12.6.2_A13_T2">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
   <test id="S12.6.4_A13_T1">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
