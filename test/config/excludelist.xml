@@ -9,9 +9,9 @@
   <test id="S7.5.3_A1.24">problem, test needs 'var' prior to public in strict mode</test>
   <test id="S7.5.3_A1.26">problem, test needs 'var' prior to static in strict mode</test>
   
-  <test id="15.4.4.15-3-14"><!-- reason for the exclusion--></test>
-  <test id="15.4.4.15-3-29"><!-- reason for the exclusion--></test>
-  <test id="15.4.4.15-3-8"><!-- reason for the exclusion--></test>
+  
+  
+  
   <test id="15.4.4.20-3-14"><!-- reason for the exclusion--></test>
   <test id="15.4.4.20-3-28"><!-- reason for the exclusion--></test>
   <test id="15.4.4.20-3-29"><!-- reason for the exclusion--></test>
