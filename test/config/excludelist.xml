@@ -197,6 +197,7 @@
   <test id="S15.10.2.11_A1_T2">https://bugs.ecmascript.org/show_bug.cgi?id=120</test>
   <test id="S15.10.2.11_A1_T3">https://bugs.ecmascript.org/show_bug.cgi?id=120</test>
   <test id="S13.0_A5">https://bugs.ecmascript.org/show_bug.cgi?id=133</test>
+  <test id="S15.10.4.1_A5_T5">https://bugs.ecmascript.org/show_bug.cgi?id=128</test>
   
   <!--Google to make these Strict Mode test changes-->
   <test id="S7.8.4_A4.3_T1">https://bugs.ecmascript.org/show_bug.cgi?id=59</test>
