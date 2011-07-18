@@ -199,6 +199,33 @@
   <test id="S13.0_A5">https://bugs.ecmascript.org/show_bug.cgi?id=133</test>
   <test id="S15.10.4.1_A5_T5">https://bugs.ecmascript.org/show_bug.cgi?id=128</test>
   
+  <!-- Numerical precision -->
+  <!-- sin -->
+  <test id="S15.8.2.16_A6">https://bugs.ecmascript.org/show_bug.cgi?id=126</test>
+  <test id="S15.8.2.16_A7">https://bugs.ecmascript.org/show_bug.cgi?id=126</test>
+  <!-- sqrt -->
+  <test id="S15.8.2.17_A6">https://bugs.ecmascript.org/show_bug.cgi?id=126</test>
+  <!-- tan -->
+  <test id="S15.8.2.18_A6">https://bugs.ecmascript.org/show_bug.cgi?id=126</test>
+  <test id="S15.8.2.18_A7">https://bugs.ecmascript.org/show_bug.cgi?id=126</test>
+  <!-- pow -->
+  <test id="S15.8.2.13_A24">https://bugs.ecmascript.org/show_bug.cgi?id=126</test>
+  <!-- log -->
+  <test id="S15.8.2.10_A6">https://bugs.ecmascript.org/show_bug.cgi?id=126</test>
+  <!-- exp -->
+  <test id="S15.8.2.8_A6">https://bugs.ecmascript.org/show_bug.cgi?id=126</test>
+  <!-- cos -->
+  <test id="S15.8.2.7_A6">https://bugs.ecmascript.org/show_bug.cgi?id=126</test>
+  <test id="S15.8.2.7_A7">https://bugs.ecmascript.org/show_bug.cgi?id=126</test>
+  <!-- atan2 -->
+  <test id="S15.8.2.5_A24">https://bugs.ecmascript.org/show_bug.cgi?id=126</test>
+  <!-- atan -->
+  <test id="S15.8.2.4_A6">https://bugs.ecmascript.org/show_bug.cgi?id=126</test>
+  <!-- asin -->
+  <test id="S15.8.2.3_A6">https://bugs.ecmascript.org/show_bug.cgi?id=126</test>
+  <!-- acos -->
+  <test id="S15.8.2.2_A5">https://bugs.ecmascript.org/show_bug.cgi?id=126</test>
+  
   <!--Google to make these Strict Mode test changes-->
   <test id="S7.8.4_A4.3_T1">https://bugs.ecmascript.org/show_bug.cgi?id=59</test>
   <test id="S7.8.4_A4.3_T2">https://bugs.ecmascript.org/show_bug.cgi?id=59</test>
