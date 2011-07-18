@@ -16,7 +16,7 @@
 /// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
 /// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 /// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-/// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+/// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 ES5Harness.registerTest( {
@@ -27,13 +27,11 @@ path: "TestCases/chapter10/10.4/10.4.2/10.4.2-2-c-1.js",
 description: "Direct val code in non-strict mode - can instantiate variable in calling context",
 
 test: function testcase() {
-  var x = 0;
-  return function inner() {
+  var x = 0;
+  return function inner() {
      eval("var x = 1");
      if (x === 1)
         return true;
      } ();
    }
-
 });
-
