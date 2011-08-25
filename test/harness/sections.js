@@ -75,7 +75,7 @@ function Section(parentSection, id, name) {
         else
             this.totalFailed++;
 
-        if(test.error === 'Failed to Load')
+        if (test.error === 'Failed to load test case (probable parse error).')
             this.totalFailedToLoad++;
 
         if(this.parentSection !== null)

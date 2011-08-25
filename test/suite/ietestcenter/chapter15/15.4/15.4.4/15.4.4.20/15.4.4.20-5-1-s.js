@@ -22,7 +22,7 @@
 ES5Harness.registerTest( {
 id: "15.4.4.20-5-1-s",
 
-path: "TestCases/chapter15/15.4/15.4.4/15.4.4.20-5-1-s.js",
+path: "TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-5-1-s.js",
 
 description: "Array.prototype.filter - thisArg not passed to strict callbackfn",
 

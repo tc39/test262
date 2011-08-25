@@ -227,6 +227,7 @@ function Presenter() {
         logger.append(appendStr);
         logger.parent().attr("scrollTop", logger.parent().attr("scrollHeight"));
     }
+    //*************************************************************************
 }
 
 var presenter = new Presenter();

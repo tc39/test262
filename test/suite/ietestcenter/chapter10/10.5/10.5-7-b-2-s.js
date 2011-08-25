@@ -23,7 +23,7 @@ ES5Harness.registerTest({
 
     path: "TestCases/chapter10/10.5/10.5-7-b-2-s.js",
 
-    description: "Strict Mode - arguments object index assignment is disallowed",
+    description: "Strict Mode - arguments object index assignment is allowed",
     
     test: function testcase() {
         "use strict";

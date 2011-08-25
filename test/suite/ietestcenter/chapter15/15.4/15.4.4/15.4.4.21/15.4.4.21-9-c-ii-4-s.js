@@ -23,7 +23,7 @@
 ES5Harness.registerTest( {
 id: "15.4.4.21-9-c-ii-4-s",
 
-path: "TestCases/chapter15/15.4/15.4.4/15.4.4.21-9-c-ii-4-s.js",
+path: "TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-c-ii-4-s.js",
 
 description: "Array.prototype.reduce - undefined passed as thisValue to strict callbackfn",
 //ES5 Errata, undefined in step 9.c.ii as thisValue is supposed to be undefined

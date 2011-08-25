@@ -28,7 +28,14 @@ import datetime
 import shutil
 import re
 import json
+import stat
 
+#--Stubs-----------------------------------------------------------------------
+def generateHarness(harnessType, jsonFile, description):
+    pass
+
+
+#------------------------------------------------------------------------------
 from TestCasePackagerConfig import *
 
 #--Globals---------------------------------------------------------------------
@@ -36,6 +43,8 @@ from TestCasePackagerConfig import *
 __parser = argparse.ArgumentParser(description='Tool used to generate the test262 website')
 __parser.add_argument('version', action='store',
                     help='Version of the test suite.')
+__parser.add_argument('--type', action='store', default='test262',
+                    help='Type of test case runner to generate.')
 ARGS = __parser.parse_args()
 
 if not os.path.exists(EXCLUDED_FILENAME):
@@ -58,6 +67,9 @@ IS_MULTILINE_COMMENT = False
 #List of all *.json files containing encoded test cases
 SECTIONS_LIST = []
 
+ONE_JSON_PER_CHAPTER = False
+TESTCASELIST_PER_JSON = False
+
 #--Sanity checks--------------------------------------------------------------#
 if not os.path.exists(TEST262_CASES_DIR):
     print "Cannot generate (JSON) test262 tests when the path containing said tests, %s, does not exist!" % TEST262_CASES_DIR
@@ -68,12 +80,10 @@ if not os.path.exists(TEST262_HARNESS_DIR):
     sys.exit(1)
 
 if not os.path.exists(TEST262_WEB_CASES_DIR):
-    print "Cannot generate (JSON) test262 test cases to %s when it does not exist!" % TEST262_WEB_CASES_DIR
-    sys.exit(1)
+    os.mkdir(TEST262_WEB_CASES_DIR)
 
 if not os.path.exists(TEST262_WEB_HARNESS_DIR):
-    print "Cannot copy test262 test harness to %s when it does not exist!" % TEST262_WEB_HARNESS_DIR
-    sys.exit(1)
+    os.mkdir(TEST262_WEB_HARNESS_DIR)
 
 if not hasattr(ARGS, "version"):
     print "A test262 suite version must be specified from the command-line to run this script!"
@@ -143,7 +153,7 @@ def isTestStarted(line):
         return False
     elif IS_MULTILINE_COMMENT: #//we're already in a multi-line comment that hasn't ended
         return False
-    elif "//" in line:     #//blah
+    elif re.match("^\s*//", line)!=None:     #//blah
         return False
     elif re.match("^\s*$", line)!=None: #newlines
         return False
@@ -164,7 +174,13 @@ for temp in TEST_CONTRIB_DIRS:
     if not os.path.exists(temp):
         print "The expected ES5 test directory,", temp, "did not exist!"
         sys.exit(1)
-    dirWalker(temp)
+    
+    if not ONE_JSON_PER_CHAPTER:
+        dirWalker(temp)
+    else:
+        for tempSubdir in os.listdir(temp): 
+            TEST_SUITE_SECTIONS.append(os.path.join(temp, tempSubdir))
+        
 
 for chapter in TEST_SUITE_SECTIONS:
     chapterName = chapter.rsplit(os.path.sep, 1)[1]
@@ -182,12 +198,15 @@ for chapter in TEST_SUITE_SECTIONS:
         excluded = 0
         testCount = 0
         for test in sourceFiles:
+            #TODO - use something other than the hard-coded 'TestCases' below
+            testPath =  "TestCases" + test.split(TEST262_CASES_DIR, 1)[1].replace("\\", "/")
             testName=test.rsplit(".", 1)[0] 
             testName=testName.rsplit(os.path.sep, 1)[1]
             if EXCLUDE_LIST.count(testName)==0:
                 # dictionary for each test
                 testDict = {}
                 testDict["id"] = testName
+                testDict["path"] = testPath.replace("/ietestcenter", "").replace("/sputnik_converted", "")
                 
                 tempFile = open(test, "r")
                 scriptCode = tempFile.readlines()
@@ -218,6 +237,7 @@ for chapter in TEST_SUITE_SECTIONS:
                 tests.append(testDict)
                 testCount += 1
             else:
+                print "Excluded:", testName
                 excluded = excluded + 1
 
         #we have completed our tests
@@ -229,6 +249,17 @@ for chapter in TEST_SUITE_SECTIONS:
         testsList["testsCollection"] = sect
         with open(os.path.join(TEST262_WEB_CASES_DIR, chapterName + ".json"), "w") as f:
             json.dump(testsList, f, separators=(',',':'), sort_keys=True)
+
+
+        if TESTCASELIST_PER_JSON:
+            CHAPTER_TEST_CASES_JSON = {}
+            CHAPTER_TEST_CASES_JSON["numTests"] = int(sect["numTests"])
+            CHAPTER_TEST_CASES_JSON["version"] = ARGS.version
+            CHAPTER_TEST_CASES_JSON["date"] = str(datetime.datetime.now().date())
+            CHAPTER_TEST_CASES_JSON["testSuite"] = [WEBSITE_CASES_PATH + chapterName + ".json"]
+            with open(os.path.join(TEST262_WEB_CASES_DIR, "testcases_%s.json" % chapterName), "w") as f:
+                json.dump(CHAPTER_TEST_CASES_JSON, f, separators=(',',':'), sort_keys=True)
+            generateHarness(ARGS.type, "testcases_%s.json" % chapterName, chapterName.replace("chapter", "Chapter "))
 
         #add the name of the chapter test to our complete list
         SECTIONS_LIST.append(WEBSITE_CASES_PATH + chapterName + ".json")
@@ -242,24 +273,36 @@ TEST_CASES_JSON["numTests"] = TOTAL_TEST_COUNT
 TEST_CASES_JSON["version"] = ARGS.version
 TEST_CASES_JSON["date"] = str(datetime.datetime.now().date())
 TEST_CASES_JSON["testSuite"] = SECTIONS_LIST
-with open(os.path.join(TEST262_WEB_CASES_DIR, "testcaseslist.json"), "w") as f:
+with open(os.path.join(TEST262_WEB_CASES_DIR, "default.json"), "w") as f:
     json.dump(TEST_CASES_JSON, f, separators=(',',':'), sort_keys=True)
-
+generateHarness(ARGS.type, "default.json", "Chapters 1-16")
 
 #Deploy test harness to website as well
 print ""
 print "Deploying test harness files to 'TEST262_WEB_HARNESS_DIR'..."
-for filename in [x for x in os.listdir(TEST262_HARNESS_DIR) if x.endswith(".js")]:
-    shutil.copy(os.path.join(TEST262_HARNESS_DIR, filename),
-                os.path.join(TEST262_WEB_HARNESS_DIR, filename))
+if TEST262_HARNESS_DIR!=TEST262_WEB_HARNESS_DIR:
+    for filename in [x for x in os.listdir(TEST262_HARNESS_DIR) if x.endswith(".js")]:
+        toFilename = os.path.join(TEST262_WEB_HARNESS_DIR, filename)
+        fileExists = os.path.exists(toFilename)
+        if fileExists:
+            SC_HELPER.edit(toFilename)
+        shutil.copy(os.path.join(TEST262_HARNESS_DIR, filename),
+                    toFilename)
+        if not fileExists:
+            SC_HELPER.add(toFilename)
 
 #Copying the global scope files over as well
 #TODO: really the HTML harness file should be generated as well...
 print ""
 print "Deploying global scope metadata files to 'TEST262_WEB_HARNESS_DIR'..."
 for gsf in GLOBAL_SCOPE_FILES:
+    toFilename = os.path.join(TEST262_WEB_CASES_DIR, gsf)
+    fileExists = os.path.exists(toFilename)
+    if fileExists:
+        SC_HELPER.edit(toFilename)
     shutil.copy(os.path.join(TEST262_CASES_DIR, gsf),
-                os.path.join(TEST262_WEB_CASES_DIR, gsf))
-
+                toFilename)
+    if not fileExists:
+        SC_HELPER.add(toFilename)
 
 print "Done."

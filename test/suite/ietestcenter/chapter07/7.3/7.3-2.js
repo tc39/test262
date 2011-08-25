@@ -27,8 +27,8 @@ ES5Harness.registerTest({
     description: "7.3 - ES5 recognizes the character <PS> (\\u2029) as line terminators when parsing statements",
 
     test: function testcase() {
-        eval("var test\u2029prop = 66;");
-        return prop === 66 && !this.hasOwnProperty("test") && typeof test === "undefined";
+        eval("var test7_3_2\u2029prop = 66;");
+        return (prop===66) && ((typeof test7_3_2) === "undefined");
     },
 
     precondition: function prereq() {

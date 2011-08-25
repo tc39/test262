@@ -20,7 +20,6 @@
 
 
 
-var global = this;
 
 
 ES5Harness.registerTest( {
@@ -31,7 +30,7 @@ path: "TestCases/chapter15/15.1/15.1.1/15.1.1.3/15.1.1.3-0.js",
 description: "Global.undefined is a data property with default attribute values (false)",
 
 test: function testcase() {
-  var desc = Object.getOwnPropertyDescriptor(global, 'undefined');
+    var desc = Object.getOwnPropertyDescriptor(fnGlobalObject(), 'undefined');
   if (desc.writable === false &&
       desc.enumerable === false &&
       desc.configurable === false) {
