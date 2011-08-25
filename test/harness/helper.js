@@ -72,7 +72,7 @@ function Presenter() {
         if (isSiteDebugMode()) {
             this.activityBar.text('Overall Execution Time: ' + elapsed + ' minutes');
         } else {
-            activityBar.text('');
+            this.activityBar.text('');
         }
     }
   
