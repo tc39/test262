@@ -23,7 +23,7 @@ description: "Arguments are false and true, and instance is object",
 test: function testcase() {
    var __instance = new Object(true);
 
-var __instance.lastIndexOf = String.prototype.lastIndexOf;
+  __instance.lastIndexOf = String.prototype.lastIndexOf;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1

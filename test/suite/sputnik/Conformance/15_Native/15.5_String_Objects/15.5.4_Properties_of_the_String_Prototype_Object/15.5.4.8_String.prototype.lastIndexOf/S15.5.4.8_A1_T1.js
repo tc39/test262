@@ -10,7 +10,7 @@
 
 var __instance = new Object(true);
 
-var __instance.lastIndexOf = String.prototype.lastIndexOf;
+__instance.lastIndexOf = String.prototype.lastIndexOf;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1

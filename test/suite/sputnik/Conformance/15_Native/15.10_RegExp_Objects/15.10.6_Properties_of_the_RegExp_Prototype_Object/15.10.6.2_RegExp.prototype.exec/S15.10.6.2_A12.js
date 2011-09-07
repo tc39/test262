@@ -5,7 +5,7 @@
 * @name: S15.10.6.2_A12;
 * @section: 15.10.6.2;
 * @assertion: regExp exec() acts like regExp.exec('undefined') (step 2);
-* @description: Checking RegExp.prototype.exec.length;
+* @description: Checking RegExp.prototype.exec
 */
 
 (/foo/).test('xfoox');
