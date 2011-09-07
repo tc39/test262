@@ -1,0 +1,50 @@
+{
+ "testCollection": {
+  "name": "15.7.4.4_Number.prototype.valueOf",
+  "numTests": 7,
+  "tests": [
+   {
+    "section": "15.7.4.4",
+    "description": "Call without argument",
+    "test": "//CHECK#1\nif(Number.prototype.valueOf() !== 0){\n  $ERROR('#1: Number.prototype.valueOf() === 0');\n}\n\n//CHECK#2\nif((new Number()).valueOf() !== 0){\n  $ERROR('#2: (new Number()).valueOf() === 0');\n}\n\n//CHECK#3\nif((new Number(0)).valueOf() !== 0){\n  $ERROR('#3: (new Number(0)).valueOf() === 0');\n}\n\n//CHECK#4\nif((new Number(-1)).valueOf() !== -1){\n  $ERROR('#4: (new Number(-1)).valueOf() === -1');\n}\n\n//CHECK#5\nif((new Number(1)).valueOf() !== 1){\n  $ERROR('#5: (new Number(1)).valueOf() === 1');\n}\n\n//CHECK#6\nif(!isNaN((new Number(Number.NaN)).valueOf())){\n  $ERROR('#6: (new Number(Number.NaN)).valueOf() === NaN');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).valueOf() !== Number.POSITIVE_INFINITY){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).valueOf() === Infinity');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).valueOf() !== Number.NEGATIVE_INFINITY){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).valueOf() === -Infinity');\n}\n",
+    "id": "S15.7.4.4_A1_T01"
+   },
+   {
+    "section": "15.7.4.4",
+    "description": "calling with argument",
+    "test": "//CHECK#1\nif(Number.prototype.valueOf(\"argument\") !== 0){\n  $ERROR('#1: Number.prototype.valueOf(\"argument\") === 0');\n}\n\n//CHECK#2\nif((new Number()).valueOf(\"argument\") !== 0){\n  $ERROR('#2: (new Number()).valueOf(\"argument\") === 0');\n}\n\n//CHECK#3\nif((new Number(0)).valueOf(\"argument\") !== 0){\n  $ERROR('#3: (new Number(0)).valueOf(\"argument\") === 0');\n}\n\n//CHECK#4\nif((new Number(-1)).valueOf(\"argument\") !== -1){\n  $ERROR('#4: (new Number(-1)).valueOf(\"argument\") === -1');\n}\n\n//CHECK#5\nif((new Number(1)).valueOf(\"argument\") !== 1){\n  $ERROR('#5: (new Number(1)).valueOf(\"argument\") === 1');\n}\n\n//CHECK#6\nif(!isNaN((new Number(Number.NaN)).valueOf(\"argument\"))){\n  $ERROR('#6: (new Number(Number.NaN)).valueOf(\"argument\") === NaN');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).valueOf(\"argument\") !== Number.POSITIVE_INFINITY){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).valueOf(\"argument\") === Infinity');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).valueOf(\"argument\") !== Number.NEGATIVE_INFINITY){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).valueOf(\"argument\") === -Infinity');\n}\n",
+    "id": "S15.7.4.4_A1_T02"
+   },
+   {
+    "section": "15.7.4.4",
+    "description": "transferring to the String objects",
+    "test": "//CHECK#1\ntry{\n  var s1 = new String();\n  s1.valueOf = Number.prototype.valueOf;\n  var v1 = s1.valueOf(); \n  $ERROR('#1: Number.prototype.valueOf on not a Number object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#1: Number.prototype.valueOf on not a Number object should throw TypeError, not '+e);\n  }\n}\n\n//CHECK#2\ntry{\n  var s2 = new String();\n  s2.myValueOf = Number.prototype.valueOf;\n  var v2 = s2.myValueOf(); \n  $ERROR('#2: Number.prototype.valueOf on not a Number object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#2: Number.prototype.valueOf on not a Number object should throw TypeError, not '+e);\n  }\n}\n\n",
+    "id": "S15.7.4.4_A2_T01"
+   },
+   {
+    "section": "15.7.4.4",
+    "description": "transferring to the Boolean objects",
+    "test": "//CHECK#1\ntry{\n  var s1 = new Boolean();\n  s1.valueOf = Number.prototype.valueOf;\n  var v1 = s1.valueOf(); \n  $ERROR('#1: Number.prototype.valueOf on not a Number object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#1: Number.prototype.valueOf on not a Number object should throw TypeError, not '+e);\n  }\n}\n\n//CHECK#2\ntry{\n  var s2 = new Boolean();\n  s2.myValueOf = Number.prototype.valueOf;\n  var v2 = s2.myValueOf(); \n  $ERROR('#2: Number.prototype.valueOf on not a Number object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#2: Number.prototype.valueOf on not a Number object should throw TypeError, not '+e);\n  }\n}\n\n",
+    "id": "S15.7.4.4_A2_T02"
+   },
+   {
+    "section": "15.7.4.4",
+    "description": "transferring to the Date objects",
+    "test": "//CHECK#1\ntry{\n  var s1 = new Date();\n  s1.valueOf = Number.prototype.valueOf;\n  var v1 = s1.valueOf(); \n  $ERROR('#1: Number.prototype.valueOf on not a Number object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#1: Number.prototype.valueOf on not a Number object should throw TypeError, not '+e);\n  }\n}\n\n//CHECK#2\ntry{\n  var s2 = new Date();\n  s2.myValueOf = Number.prototype.valueOf;\n  var v2 = s2.myValueOf(); \n  $ERROR('#2: Number.prototype.valueOf on not a Number object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#2: Number.prototype.valueOf on not a Number object should throw TypeError, not '+e);\n  }\n}\n\n",
+    "id": "S15.7.4.4_A2_T03"
+   },
+   {
+    "section": "15.7.4.4",
+    "description": "transferring to the Object objects",
+    "test": "//CHECK#1\ntry{\n  var s1 = new Object();\n  s1.valueOf = Number.prototype.valueOf;\n  var v1 = s1.valueOf(); \n  $ERROR('#1: Number.prototype.valueOf on not a Number object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#1: Number.prototype.valueOf on not a Number object should throw TypeError, not '+e);\n  }\n}\n\n//CHECK#2\ntry{\n  var s2 = new Object();\n  s2.myValueOf = Number.prototype.valueOf;\n  var v2 = s2.myValueOf(); \n  $ERROR('#2: Number.prototype.valueOf on not a Number object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#2: Number.prototype.valueOf on not a Number object should throw TypeError, not '+e);\n  }\n}\n\n",
+    "id": "S15.7.4.4_A2_T04"
+   },
+   {
+    "section": "15.7.4.4",
+    "description": "transferring to the other objects",
+    "test": "//CHECK#1\ntry{\n  var s1 = {x: 1};\n  s1.valueOf = Number.prototype.valueOf;\n  var v1 = s1.valueOf(); \n  $ERROR('#1: Number.prototype.valueOf on not a Number object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#1: Number.prototype.valueOf on not a Number object should throw TypeError, not '+e);\n  }\n}\n\n//CHECK#2\ntry{\n  var s2 = {x: 1};\n  s2.myValueOf = Number.prototype.valueOf;\n  var v2 = s2.myValueOf(); \n  $ERROR('#2: Number.prototype.valueOf on not a Number object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#2: Number.prototype.valueOf on not a Number object should throw TypeError, not '+e);\n  }\n}\n\n",
+    "id": "S15.7.4.4_A2_T05"
+   }
+  ]
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "testCollection": {
+  "name": "15.3.4.4",
+  "numTests": 3,
+  "tests": [
+   {
+    "id": "15.3.4.4-1-s",
+    "path": "TestCases/chapter15/15.3/15.3.4/15.3.4.4/15.3.4.4-1-s.js",
+    "description": "Strict Mode - 'this' value is a string which cannot be converted to wrapper objects when the function is called without an array of arguments",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        function fun() {\n            return (this instanceof String);\n        }\n        return !fun.call(\"\");\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "15.3.4.4-2-s",
+    "path": "TestCases/chapter15/15.3/15.3.4/15.3.4.4/15.3.4.4-2-s.js",
+    "description": "Strict Mode - 'this' value is a number which cannot be converted to wrapper objects  when the function is called without an array argument",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        function fun() {\n            return (this instanceof Number);\n        }\n        return !fun.call(-12);\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "15.3.4.4-3-s",
+    "path": "TestCases/chapter15/15.3/15.3.4/15.3.4.4/15.3.4.4-3-s.js",
+    "description": "Strict Mode - 'this' value is a boolean which cannot be converted to wrapper objects when the function is called without an array of arguments",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        function fun() {\n            return (this instanceof Boolean);\n        }\n        return !fun.call(false);\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   }
+  ]
+ }
+}

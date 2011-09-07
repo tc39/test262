@@ -1,0 +1,68 @@
+{
+ "testCollection": {
+  "name": "15.4.5.1_Put",
+  "numTests": 10,
+  "tests": [
+   {
+    "section": "15.4.5.1, 15.4",
+    "description": "length in [4294967296, -1, 1.5]",
+    "test": "//CHECK#1\ntry {\n  var x = [];\n  x.length = 4294967296;\n  $ERROR('#1.1: x = []; x.length = 4294967296 throw RangeError. Actual: x.length === ' + (x.length));\n} catch(e) {    \n  if ((e instanceof RangeError) !== true) {\n    $ERROR('#1.2: x = []; x.length = 4294967296 throw RangeError. Actual: ' + (e));\n  }    \n}\n\n//CHECK#2\ntry {\n  x = [];\n  x.length = -1;\n  $ERROR('#2.1: x = []; x.length = -1 throw RangeError. Actual: x.length === ' + (x.length));\n} catch(e) {    \n  if ((e instanceof RangeError) !== true) {\n    $ERROR('#2.2: x = []; x.length = -1 throw RangeError. Actual: ' + (e));\n  }    \n}\n\n//CHECK#3\ntry {\n  x = [];\n  x.length = 1.5;\n  $ERROR('#3.1: x = []; x.length = 1.5 throw RangeError. Actual: x.length === ' + (x.length));\n} catch(e) {    \n  if ((e instanceof RangeError) !== true) {\n    $ERROR('#3.2: x = []; x.length = 1.5 throw RangeError. Actual: ' + (e));\n  }    \n}\n",
+    "id": "S15.4.5.1_A1.1_T1"
+   },
+   {
+    "section": "15.4.5.1, 15.4",
+    "description": "length in [NaN, Infinity, -Infinity, undefined]",
+    "test": "//CHECK#1\ntry {\n  var x = [];\n  x.length = NaN;\n  $ERROR('#1.1: x = []; x.length = NaN throw RangeError. Actual: x.length === ' + (x.length));\n} catch(e) {    \n  if ((e instanceof RangeError) !== true) {\n    $ERROR('#1.2: x = []; x.length = NaN throw RangeError. Actual: ' + (e));\n  }    \n}\n\n//CHECK#2\ntry {\n  x = [];\n  x.length = Number.POSITIVE_INFINITY;\n  $ERROR('#2.1: x = []; x.length = Number.POSITIVE_INFINITY throw RangeError. Actual: x.length === ' + (x.length));\n} catch(e) {    \n  if ((e instanceof RangeError) !== true) {\n    $ERROR('#2.2: x = []; x.length = Number.POSITIVE_INFINITY throw RangeError. Actual: ' + (e));\n  }    \n}\n\n//CHECK#3\ntry {\n  x = [];\n  x.length = Number.NEGATIVE_INFINITY;\n  $ERROR('#3.1: x = []; x.length = Number.NEGATIVE_INFINITY throw RangeError. Actual: x.length === ' + (x.length));\n} catch(e) {    \n  if ((e instanceof RangeError) !== true) {\n    $ERROR('#3.2: x = []; x.length = Number.NEGATIVE_INFINITY throw RangeError. Actual: ' + (e));\n  }    \n}\n\n//CHECK#4\ntry {\n  x = [];\n  x.length = undefined;\n  $ERROR('#4.1: x = []; x.length = undefined throw RangeError. Actual: x.length === ' + (x.length));\n} catch(e) {    \n  if ((e instanceof RangeError) !== true) {\n    $ERROR('#4.2: x = []; x.length = undefined throw RangeError. Actual: ' + (e));\n  }    \n}\n",
+    "id": "S15.4.5.1_A1.1_T2"
+   },
+   {
+    "section": "15.4.5.1, 15.4",
+    "description": "Change length of array",
+    "test": "//CHECK#1\nvar x = [0,,2,,4];\nx.length = 4;\nif (x[4] !== undefined) {  \n  $ERROR('#1: x = [0,,2,,4]; x.length = 4; x[4] === undefined. Actual: ' + (x[4]));    \n}\n\n//CHECK#2\nx.length = 3;\nif (x[3] !== undefined) {  \n  $ERROR('#2: x = [0,,2,,4]; x.length = 4; x.length = 3; x[3] === undefined. Actual: ' + (x[3]));    \n}\n\n//CHECK#3\nif (x[2] !== 2) {  \n  $ERROR('#3: x = [0,,2,,4]; x.length = 4; x.length = 3; x[2] === 2. Actual: ' + (x[2]));    \n}\n",
+    "id": "S15.4.5.1_A1.2_T1"
+   },
+   {
+    "section": "15.4.5.1, 15.4",
+    "description": "Checking an inherited property",
+    "test": "//CHECK#1\nArray.prototype[2] = -1;\nvar x = [0,1,2];\nif (x[2] !== 2) {  \n  $ERROR('#1: Array.prototype[2] = -1; x = [0,1,3]; x[2] === 2. Actual: ' + (x[2]));    \n}\n\n//CHECK#2\nx.length = 2;\nif (x[2] !== -1) {  \n  $ERROR('#2: Array.prototype[2] = -1; x = [0,1,3]; x.length = 2; x[2] === -1. Actual: ' + (x[2]));    \n}\n",
+    "id": "S15.4.5.1_A1.2_T2"
+   },
+   {
+    "section": "15.4.5.1, 15.4, 15.2.4.5",
+    "description": "Checking an inherited property",
+    "test": "//CHECK#1\nArray.prototype[2] = 2;\nvar x = [0,1];\nx.length = 3;\nif (x.hasOwnProperty('2') !== false) {  \n  $ERROR('#1: Array.prototype[2] = 2; x = [0,1]; x.length = 3; x.hasOwnProperty(\\'2\\') === false. Actual: ' + (x.hasOwnProperty('2')));    \n}\n\n//CHECK#2\nx.length = 2;\nif (x[2] !== 2) {  \n  $ERROR('#2: Array.prototype[2] = 2; x = [0,1]; x.length = 3; x.length = 2; x[2] === 2. Actual: ' + (x[2]));    \n}\n",
+    "id": "S15.4.5.1_A1.2_T3"
+   },
+   {
+    "section": "15.4.5.1, 15.4",
+    "description": "length is object or primitve",
+    "test": "//CHECK#1\nvar x = [];\nx.length = true;\nif (x.length !== 1) {  \n  $ERROR('#1: x = []; x.length = true; x.length === 1. Actual: ' + (x.length));    \n}\n\n//CHECK#2\nx = [0];\nx.length = null;\nif (x.length !== 0) {  \n  $ERROR('#2: x = [0]; x.length = null; x.length === 0. Actual: ' + (x.length));    \n}\n\n//CHECK#3\nx = [0];\nx.length = new Boolean(false);\nif (x.length !== 0) {  \n  $ERROR('#3: x = [0]; x.length = new Boolean(false); x.length === 0. Actual: ' + (x.length));    \n}\n\n//CHECK#4\nx = [];\nx.length = new Number(1);\nif (x.length !== 1) {  \n  $ERROR('#4: x = []; x.length = new Number(1); x.length === 1. Actual: ' + (x.length));    \n}\n\n//CHECK#5\nx = [];\nx.length = \"1\";\nif (x.length !== 1) {  \n  $ERROR('#5: x = []; x.length = \"1\"; x.length === 1. Actual: ' + (x.length));    \n}\n\n//CHECK#6\nx = [];\nx.length = new String(\"1\");\nif (x.length !== 1) {  \n  $ERROR('#6: x = []; x.length = new String(\"1\"); x.length === 1. Actual: ' + (x.length));    \n}\n",
+    "id": "S15.4.5.1_A1.3_T1"
+   },
+   {
+    "section": "15.4.5.1, 15.4",
+    "description": "Uint32 use ToNumber and ToPrimitve",
+    "test": "//CHECK#1\nvar x = [];\nx.length = {valueOf: function() {return 2}};\nif (x.length !== 2) {\n  $ERROR('#1: x = []; x.length = {valueOf: function() {return 2}};  x.length === 2. Actual: ' + (x.length));\n}\n\n//CHECK#2\nx = [];\nx.length = {valueOf: function() {return 2}, toString: function() {return 1}};\nif (x.length !== 2) {\n  $ERROR('#0: x = []; x.length = {valueOf: function() {return 2}, toString: function() {return 1}};  x.length === 2. Actual: ' + (x.length));\n} \n\n//CHECK#3\nx = [];\nx.length = {valueOf: function() {return 2}, toString: function() {return {}}};\nif (x.length !== 2) {\n  $ERROR('#3: x = []; x.length = {valueOf: function() {return 2}, toString: function() {return {}}};  x.length === 2. Actual: ' + (x.length));\n}\n\n//CHECK#4\ntry {  \n  x = [];\n  x.length = {valueOf: function() {return 2}, toString: function() {throw \"error\"}};  \n  if (x.length !== 2) {\n    $ERROR('#4.1: x = []; x.length = {valueOf: function() {return 2}, toString: function() {throw \"error\"}}; x.length === \",\". Actual: ' + (x.length));\n  }\n}\ncatch (e) {\n  if (e === \"error\") {\n    $ERROR('#4.2: x = []; x.length = {valueOf: function() {return 2}, toString: function() {throw \"error\"}}; x.length not throw \"error\"');\n  } else {\n    $ERROR('#4.3: x = []; x.length = {valueOf: function() {return 2}, toString: function() {throw \"error\"}}; x.length not throw Error. Actual: ' + (e));\n  }\n}\n\n//CHECK#5\nx = [];\nx.length = {toString: function() {return 1}};\nif (x.length !== 1) {\n  $ERROR('#5: x = []; x.length = {toString: function() {return 1}};  x.length === 1. Actual: ' + (x.length));\n}\n\n//CHECK#6\nx = [];\nx.length = {valueOf: function() {return {}}, toString: function() {return 1}}\nif (x.length !== 1) {\n  $ERROR('#6: x = []; x.length = {valueOf: function() {return {}}, toString: function() {return 1}};  x.length === 1. Actual: ' + (x.length));\n}\n\n//CHECK#7\ntry {\n  x = [];\n  x.length = {valueOf: function() {throw \"error\"}, toString: function() {return 1}};  \n  x.length;\n  $ERROR('#7.1: x = []; x.length = {valueOf: function() {throw \"error\"}, toString: function() {return 1}}; x.length throw \"error\". Actual: ' + (x.length));\n}  \ncatch (e) {\n  if (e !== \"error\") {\n    $ERROR('#7.2: x = []; x.length = {valueOf: function() {throw \"error\"}, toString: function() {return 1}}; x.length throw \"error\". Actual: ' + (e));\n  } \n}\n\n//CHECK#8\ntry {\n  x = [];\n  x.length = {valueOf: function() {return {}}, toString: function() {return {}}};\n  x.length;\n  $ERROR('#8.1: x = []; x.length = {valueOf: function() {return {}}, toString: function() {return {}}}  x.length throw TypeError. Actual: ' + (x.length));\n}  \ncatch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#8.2: x = []; x.length = {valueOf: function() {return {}}, toString: function() {return {}}}  x.length throw TypeError. Actual: ' + (e));\n  } \n}\n",
+    "id": "S15.4.5.1_A1.3_T2"
+   },
+   {
+    "section": "15.4.5.1, 15.4",
+    "description": "P in [4294967295, -1, true]",
+    "test": "//CHECK#1\nvar x = [];\nx[4294967295] = 1;\nif (x.length !== 0) {  \n  $ERROR('#1.1: x = []; x[4294967295] = 1; x.length === 0. Actual: ' + (x.length));    \n}\n\nif (x[4294967295] !== 1) {  \n  $ERROR('#1.2: x = []; x[4294967295] = 1; x[4294967295] === 1. Actual: ' + (x[4294967295]));    \n}\n\n//CHECK#2\nx = [];\nx[-1] = 1;\nif (x.length !== 0) {  \n  $ERROR('#2.1: x = []; x[-1] = 1; x.length === 0. Actual: ' + (x.length));    \n}\n\nif (x[-1] !== 1) {  \n  $ERROR('#2.2: x = []; x[-1] = 1; x[-1] === 1. Actual: ' + (x[-1]));    \n}\n\n//CHECK#3\nx = [];\nx[true] = 1;\nif (x.length !== 0) {  \n  $ERROR('#3.1: x = []; x[true] = 1; x.length === 0. Actual: ' + (x.length));    \n}\n\nif (x[true] !== 1) {  \n  $ERROR('#3.2: x = []; x[true] = 1; x[true] === 1. Actual: ' + (x[true]));    \n}\n",
+    "id": "S15.4.5.1_A2.1_T1"
+   },
+   {
+    "section": "15.4.5.1, 15.4",
+    "description": "length === 100, P in [0, 98, 99]",
+    "test": "//CHECK#1\nvar x = Array(100);\nx[0] = 1;\nif (x.length !== 100) {  \n  $ERROR('#1: x = Array(100); x[0] = 1; x.length === 100. Actual: ' + (x.length));    \n}\n\n//CHECK#2\nx[98] = 1;\nif (x.length !== 100) {  \n  $ERROR('#2: x = Array(100); x[0] = 1; x[98] = 1; x.length === 100. Actual: ' + (x.length));    \n}\n\n//CHECK#3\nx[99] = 1;\nif (x.length !== 100) {  \n  $ERROR('#3: x = Array(100); x[0] = 1; x[98] = 1; x[99] = 1; x.length === 100. Actual: ' + (x.length));    \n}\n",
+    "id": "S15.4.5.1_A2.2_T1"
+   },
+   {
+    "section": "15.4.5.1, 15.4",
+    "description": "length = 100, P in [100, 199]",
+    "test": "//CHECK#1\nvar x = Array(100);\nx[100] = 1;\nif (x.length !== 101) {  \n  $ERROR('#1: x = Array(100); x[100] = 1; x.length === 101. Actual: ' + (x.length));    \n}\n\n//CHECK#2\nx[199] = 1;\nif (x.length !== 200) {  \n  $ERROR('#2: x = Array(100); x[100] = 1; x[199] = 1; x.length === 100. Actual: ' + (x.length));    \n}\n",
+    "id": "S15.4.5.1_A2.3_T1"
+   }
+  ]
+ }
+}

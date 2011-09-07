@@ -1,0 +1,62 @@
+{
+ "testCollection": {
+  "name": "11.4.9_Logical_NOT_Operator",
+  "numTests": 9,
+  "tests": [
+   {
+    "section": "11.4.9, 7.2, 7.3",
+    "description": "Checking by using eval",
+    "test": "//CHECK#1\nif (eval(\"!\\u0009true\") !== false) {\n  $ERROR('#true: !\\\\u0009true === false');\n}\n\n//CHECK#2\nif (eval(\"!\\u000Btrue\") !== false) {\n  $ERROR('#2: !\\\\u000Btrue === false');  \n}\n\n//CHECK#3\nif (eval(\"!\\u000Ctrue\") !== false) {\n  $ERROR('#3: !\\\\u000Ctrue === false');\n}\n\n//CHECK#4\nif (eval(\"!\\u0020true\") !== false) {\n  $ERROR('#4: !\\\\u0020 === false');\n}\n\n//CHECK#5\nif (eval(\"!\\u00A0true\") !== false) {\n  $ERROR('#5: !\\\\u00A0true === false');\n}\n\n//CHECK#6\nif (eval(\"!\\u000Atrue\") !== false) {\n  $ERROR('#6: !\\\\u000Atrue === false');  \n}\n\n//CHECK#7\nif (eval(\"!\\u000Dtrue\") !== false) {\n  $ERROR('#7: !\\\\u000Dtrue === false');\n}\n\n//CHECK#8\nif (eval(\"!\\u2028true\") !== false) {\n  $ERROR('#8: !\\\\u2028true === false');\n}\n\n//CHECK#9\nif (eval(\"!\\u2029true\") !== false) {\n  $ERROR('#9: !\\\\u2029true === false');\n}\n\n//CHECK#10\nif (eval(\"!\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029true\") !== false) {\n  $ERROR('#10: !\\\\u0009\\\\u000B\\\\u000C\\\\u0020\\\\u00A0\\\\u000A\\\\u000D\\\\u2028\\\\u2029true === false');\n}\n",
+    "id": "S11.4.9_A1"
+   },
+   {
+    "section": "11.4.9",
+    "description": "Either Type(x) is not Reference or GetBase(x) is not null",
+    "test": "//CHECK#1\nif (!true !== false) {\n  $ERROR('#1: !true === false');\n}\n\n//CHECK#2\nif (!(!true) !== true) {\n  $ERROR('#2: !(!true) === true');\n}\n\n//CHECK#3\nvar x = true;\nif (!x !== false) {\n  $ERROR('#3: var x = true; !x === false');\n}\n\n//CHECK#4\nvar x = true;\nif (!(!x) !== true) {\n  $ERROR('#4: var x = true; !(!x) === true');\n}\n\n//CHECK#5\nvar object = new Object();\nobject.prop = true;\nif (!object.prop !== false) {\n  $ERROR('#5: var object = new Object(); object.prop = true; !object.prop === false');\n}\n",
+    "id": "S11.4.9_A2.1_T1"
+   },
+   {
+    "section": "11.4.9",
+    "description": "If GetBase(x) is null, throw ReferenceError",
+    "test": "//CHECK#1\ntry {\n  !x;\n  $ERROR('#1.1: !x throw ReferenceError. Actual: ' + (!x));  \n}\ncatch (e) {\n  if ((e instanceof ReferenceError) !== true) {\n    $ERROR('#1.2: !x throw ReferenceError. Actual: ' + (e));  \n  }\n}\n\n",
+    "id": "S11.4.9_A2.1_T2"
+   },
+   {
+    "section": "11.4.9, 8.6.2.6",
+    "description": "If Type(value) is Object, return false",
+    "test": "//CHECK#1\nvar object = {valueOf: function() {return 1}};\nif (!object !== false) {\n  $ERROR('#1: var object = {valueOf: function() {return 1}}; !object === false. Actual: ' + (!object));\n}\n\n//CHECK#2\nvar object = {valueOf: function() {return 1}, toString: function() {return 0}};\nif (!object !== false) {\n  $ERROR('#2: var object = {valueOf: function() {return 1}, toString: function() {return 0}}; !object === false. Actual: ' + (!object));\n} \n\n//CHECK#3\nvar object = {valueOf: function() {return 1}, toString: function() {return {}}};\nif (!object !== false) {\n  $ERROR('#3: var object = {valueOf: function() {return 1}, toString: function() {return {}}}; !object === false. Actual: ' + (!object));\n}\n\n//CHECK#4\nvar object = {valueOf: function() {return 1}, toString: function() {throw \"error\"}};\nif (!object !== false) {\n  $ERROR('#4: var object = {valueOf: function() {return 1}, toString: function() {throw \"error\"}}; !object === false. Actual: ' + (!object));\n}\n\n//CHECK#5\nvar object = {toString: function() {return 1}};\nif (!object !== false) {\n  $ERROR('#5: var object = {toString: function() {return 1}}; !object === false. Actual: ' + (!object));\n}\n\n//CHECK#6\nvar object = {valueOf: function() {return {}}, toString: function() {return 1}}\nif (!object !== false) {\n  $ERROR('#6: var object = {valueOf: function() {return {}}, toString: function() {return 1}}; !object === false. Actual: ' + (!object));\n}\n\n//CHECK#7\nvar object = {valueOf: function() {throw \"error\"}, toString: function() {return 1}};\nif (!object !== false) {\n  $ERROR('#7: var object = {valueOf: function() {throw \"error\"}, toString: function() {return 1}}; !object === false. Actual: ' + (!object));\n}  \n\n//CHECK#8\nvar object = {valueOf: function() {return {}}, toString: function() {return {}}};\nif (!object !== false) {\n  $ERROR('#8: var object = {valueOf: function() {return {}}, toString: function() {return {}}}; !object === false. Actual: ' + (!object));\n}  \n",
+    "id": "S11.4.9_A2.2_T1"
+   },
+   {
+    "section": "11.4.9",
+    "description": "Type(x) is boolean primitive or Boolean object",
+    "test": "//CHECK#1\nif (!false !== true) {\n  $ERROR('#1: !false === true');\n}\n\n//CHECK#2\nif (!new Boolean(true) !== false) {\n  $ERROR('#2: !new Boolean(true) === false');\n}\n\n//CHECK#3\nif (!new Boolean(false) !== false) {\n  $ERROR('#3: !new Boolean(false) === false');\n}\n",
+    "id": "S11.4.9_A3_T1"
+   },
+   {
+    "section": "11.4.9",
+    "description": "Type(x) is number primitive or Number object",
+    "test": "//CHECK#1\nif (!0.1 !== false) {\n  $ERROR('#1: !0.1 === false');\n}\n\n//CHECK#2\nif (!new Number(-0.1) !== false) {\n  $ERROR('#2: !new Number(-0.1) === false');\n}\n\n//CHECK#3\nif (!NaN !== true) {\n  $ERROR('#3: !NaN === true');\n}\n\n//CHECK#4\nif (!new Number(NaN) !== false) {\n  $ERROR('#4: !new Number(NaN) === false');\n}\n\n//CHECK#5\nif (!0 !== true) {\n  $ERROR('#5: !0 === true');\n}\n\n//CHECK#6\nif (!new Number(0) !== false) {\n  $ERROR('#6: !new Number(0) === false');\n}\n\n//CHECK#7\nif (!Infinity !== false) {\n  $ERROR('#7: !Infinity === false');\n}\n",
+    "id": "S11.4.9_A3_T2"
+   },
+   {
+    "section": "11.4.9",
+    "description": "Type(x) is string primitive or String object",
+    "test": "//CHECK#1\nif (!\"1\" !== false) {\n  $ERROR('#1: !\"1\" === false');\n}\n\n//CHECK#2\nif (!new String(\"0\") !== false) {\n  $ERROR('#2: !new String(\"0\") === false');\n}\n\n//CHECK#3\nif (!\"x\" !== false) {\n  $ERROR('#3: !\"x\" === false');\n}\n\n//CHECK#4\nif (!\"\" !== true) {\n  $ERROR('#4: !\"\" === true');\n}\n\n//CHECK#5\nif (!new String(\"\") !== false) {\n  $ERROR('#5: !new String(\"\") === false');\n}\n",
+    "id": "S11.4.9_A3_T3"
+   },
+   {
+    "section": "11.4.9",
+    "description": "Type(x) is undefined or null",
+    "test": "//CHECK#1\nif (!void 0 !== true) {\n  $ERROR('#1: !void 0 === true');\n}\n\n//CHECK#2\nif (!null !== true) {\n  $ERROR('#2: !null === true');\n}\n",
+    "id": "S11.4.9_A3_T4"
+   },
+   {
+    "section": "11.4.9",
+    "description": "Type(x) is Object object or Function object",
+    "test": "//CHECK#1\nif ((!{}) !== false) {\n  $ERROR('#1: !({}) === false');\n}\n\n//CHECK#2  \nif (!(function(){return 1}) !== false) {\n  $ERROR('#2: !(function(){return 1}) === false');\n}\n",
+    "id": "S11.4.9_A3_T5"
+   }
+  ]
+ }
+}

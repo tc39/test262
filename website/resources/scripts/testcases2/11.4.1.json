@@ -1,0 +1,470 @@
+{
+ "testCollection": {
+  "name": "11.4.1",
+  "numTests": 65,
+  "tests": [
+   {
+    "id": "11.4.1-0-1",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-0-1.js",
+    "description": "delete operator as UnaryExpression",
+    "test": "assertTrue((function testcase() {\n  var x = 1;\n  var y = 2;\n  var z = 3;\n  \n  if( (!delete x || delete y) &&\n      delete delete z)\n  {\n    return true;\n  }  \n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-2-1",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-2-1.js",
+    "description": "delete operator returns true when deleting a non-reference (number)",
+    "test": "assertTrue((function testcase() {\n  var d = delete 42;\n  if (d === true) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-2-2",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-2-2.js",
+    "description": "delete operator returns true when deleting returned value from a function",
+    "test": "assertTrue((function testcase() {\n  var bIsFooCalled = false;\n  var foo = function(){bIsFooCalled = true;};\n\n  var d = delete foo();\n  if(d === true && bIsFooCalled === true)\n    return true;\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-2-3",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-2-3.js",
+    "description": "delete operator returns true when deleting a non-reference (boolean)",
+    "test": "assertTrue((function testcase() {\n  var d = delete true;\n  if (d === true) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-2-4",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-2-4.js",
+    "description": "delete operator returns true when deleting a non-reference (string)",
+    "test": "assertTrue((function testcase() {\n  var d = delete \"abc\";\n  if (d === true) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-2-5",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-2-5.js",
+    "description": "delete operator returns true when deleting a non-reference (obj)",
+    "test": "assertTrue((function testcase() {\n  var d = delete {a:0} ;\n  if (d === true) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-2-6",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-2-6.js",
+    "description": "delete operator returns true when deleting a non-reference (null)",
+    "test": "assertTrue((function testcase() {\n  var d = delete null;\n  if (d === true) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-3-1",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-3-1.js",
+    "description": "delete operator returns true when deleting an unresolvable reference",
+    "test": "assertTrue((function testcase() {\n  // just cooking up a long/veryLikely unique name\n  var d = delete __ES3_1_test_suite_test_11_4_1_3_unique_id_0__;\n  if (d === true) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-3-2",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-3-2.js",
+    "description": "delete operator throws ReferenceError when deleting an explicitly qualified yet unresolvable reference (base obj undefined)",
+    "test": "assertTrue((function testcase() {\n  // just cooking up a long/veryLikely unique name\n  try\n  {\n    var d = delete __ES3_1_test_suite_test_11_4_1_3_unique_id_2__.x;\n  }\n  catch(e)\n  {\n    if (e instanceof ReferenceError)\n      return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-3-3",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-3-3.js",
+    "description": "delete operator returns true when deleting an explicitly qualified yet unresolvable reference (property undefined for base obj)",
+    "test": "assertTrue((function testcase() {\n  var __ES3_1_test_suite_test_11_4_1_3_unique_id_3__ = {};\n  var d = delete __ES3_1_test_suite_test_11_4_1_3_unique_id_3__.x;\n  if (d === true) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-3-a-1-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-3-a-1-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting an un-resolvable reference",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"delete obj\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-4-a-1-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4-a-1-s.js",
+    "description": "Strict Mode - TypeError is thrown when deleting non-configurable data property",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            value: \"abc\",\n            configurable: false\n        });\n\n        try {\n            delete obj.prop;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === \"abc\";\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-4-a-2-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4-a-2-s.js",
+    "description": "Strict Mode - TypeError is thrown when deleting non-configurable accessor property",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            get: function () {\n                return \"abc\"; \n            },\n            configurable: false\n        });\n\n        try {\n            delete obj.prop;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === \"abc\";\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-4-a-3-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4-a-3-s.js",
+    "description": "Strict Mode - TypeError isn't thrown when deleting configurable data property",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            value: \"abc\",\n            configurable: true\n        });\n\n        delete obj.prop;\n        return !obj.hasOwnProperty(\"prop\");\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-4-a-4-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4-a-4-s.js",
+    "description": "Strict Mode - TypeError isn't thrown when deleting configurable accessor property",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            get: function () {\n                return \"abc\"; \n            },\n            configurable: true\n        });\n\n        delete obj.prop;\n        return !obj.hasOwnProperty(\"prop\");\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-4.a-1",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-1.js",
+    "description": "delete operator returns true when deleting a configurable data property",
+    "test": "assertTrue((function testcase() {\n  var o = {};\n\n  var desc = { value: 1, configurable: true };\n  Object.defineProperty(o, \"foo\", desc);\n\n  var d = delete o.foo;\n  if (d === true && o.hasOwnProperty(\"foo\") === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "((fnExists(Object.defineProperty) && fnExists(Object.hasOwnProperty)))"
+   },
+   {
+    "id": "11.4.1-4.a-10",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-10.js",
+    "description": "delete operator returns true for property (stringify) defined on built-in object (JSON)",
+    "test": "assertTrue((function testcase() {\n  try {\n      var o = JSON.stringify;\n\t  var desc;\n\t  try {\n\t  \tdesc = Object.getOwnPropertyDescriptor(JSON, 'stringify')\n\t  } \n\t  catch (e) {\n\t  };\n      var d = delete JSON.stringify;\n      if (d === true && JSON.stringify === undefined) {\n        return true;\n      }\n  } finally {\n    if (desc) Object.defineProperty(JSON, 'stringify', desc)\n\telse JSON.stringify = o  /* this branch messes up the attributes */;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-4.a-11",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-11.js",
+    "description": "delete operator returns true on deleting arguments propterties(arguments.callee)",
+    "test": "assertTrue((function testcase() {\n  function foo(a,b)\n  {\n    return (delete arguments.callee); \n  }\n  var d = delete arguments.callee;\n  if(d === true && arguments.callee === undefined)\n    return true;\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-4.a-12",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-12.js",
+    "description": "delete operator returns false when deleting a property(length)",
+    "test": "assertTrue((function testcase() {\n\n  var a = [1,2,3]\n  a.x = 10;\n  var d = delete a.length\n  if(d === false && a.length === 3)\n    return true;\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-4.a-13",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-13.js",
+    "description": "delete operator returns false when deleting Array object",
+    "test": "assertTrue((function testcase() {\n\n  var a = [1,2,3]\n  a.x = 10;\n\n  var d = delete a \n\n  if(d === false && Array.isArray(a) === true)\n    return true;\n }).call(this));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   },
+   {
+    "id": "11.4.1-4.a-14",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-14.js",
+    "description": "delete operator returns true when deleting Array elements",
+    "test": "assertTrue((function testcase() {\n\n  var a = [1,2,3]\n  a.x = 10;\n  var d = delete a[1]\n  if(d === true && a[1] === undefined)\n    return true;\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-4.a-15",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-15.js",
+    "description": "delete operator returns true when deleting Array expandos",
+    "test": "assertTrue((function testcase() {\n\n  var a = [1,2,3]\n  a.x = 10;\n  var d = delete a.x;\n  if( d === true && a.x === undefined)\n    return true;\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-4.a-16",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-16.js",
+    "description": "delete operator returns false on deleting arguments object",
+    "test": "assertTrue((function testcase() {\n\n  if(delete arguments === false && arguments !== undefined)\n    return true;\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-4.a-17",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-17.js",
+    "description": "delete operator returns true on deleting a arguments element",
+    "test": "assertTrue((function testcase() {\n  function foo(a,b)\n  {\n    var d = delete arguments[0];\n    return (d === true && arguments[0] === undefined);  \n  }\n\n  if(foo(1,2) === true)\n    return true;\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-4.a-2",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-2.js",
+    "description": "delete operator returns true when deleting a configurable accessor property",
+    "test": "assertTrue((function testcase() {\n  var o = {};\n\n  // define an accessor\n  // dummy getter\n  var getter = function () { return 1; }\n  var desc = { get: getter, configurable: true };\n  Object.defineProperty(o, \"foo\", desc);\n    \n  var d = delete o.foo;\n  if (d === true && o.hasOwnProperty(\"foo\") === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "((fnExists(Object.defineProperty) && fnExists(Object.hasOwnProperty)))"
+   },
+   {
+    "id": "11.4.1-4.a-3-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-3-s.js",
+    "description": "delete operator throws TypeError when deleting a non-configurable data property in strict mode",
+    "test": "assertTrue((function testcase() {\n  'use strict';\n\n  var o = {};\n  var desc = { value : 1 }; // all other attributes default to false\n  Object.defineProperty(o, \"foo\", desc);\n  \n  // Now, deleting o.foo should throw TypeError because [[Configurable]] on foo is false.\n  try {\n    delete o.foo;\n    return false;\n  }\n  catch (e) {\n    return (e instanceof TypeError);\n  }\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-4.a-3",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-3.js",
+    "description": "delete operator returns false when deleting a non-configurable data property",
+    "test": "assertTrue((function testcase() {\n  var o = {};\n  var desc = { value : 1, configurable: false }; // all other attributes default to false\n  Object.defineProperty(o, \"foo\", desc);\n  \n  // Now, deleting o.foo should fail because [[Configurable]] on foo is false.\n  var d = delete o.foo;\n  if (d === false && o.hasOwnProperty(\"foo\") === true) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "((fnExists(Object.defineProperty) && fnExists(Object.hasOwnProperty)))"
+   },
+   {
+    "id": "11.4.1-4.a-4",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-4.js",
+    "description": "delete operator returns false when deleting a non-configurable data property (NaN)",
+    "test": "assertTrue((function testcase() {\n  // NaN (15.1.1.1) has [[Configurable]] set to false.\n  var d = delete NaN;\n  if (d === false) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-4.a-5",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-5.js",
+    "description": "delete operator returns false when deleting the environment object inside 'with'",
+    "test": "assertTrue((function testcase() {\n  var o = new Object();\n  o.x = 1;\n  var d;\n  with(o)\n  {\n    d = delete o;\n  }\n  if (d === false && typeof(o) === 'object' && o.x === 1) {\n    return true;\n  }\n  return false;\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-4.a-6",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-6.js",
+    "description": "delete operator returns true when deleting a property inside 'with'",
+    "test": "assertTrue((function testcase() {\n  var o = new Object();\n  o.x = 1;\n  var d;\n  with(o)\n  {\n    d = delete x;\n  }\n  if (d === true && o.x === undefined) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-4.a-7",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-7.js",
+    "description": "delete operator inside 'eval'",
+    "test": "assertTrue((function testcase() {\n  var x = 1;\n  var d = eval(\"delete x\");\n  if (d === false && x === 1) {\n    return true;\n  }\n  return false;\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-4.a-8-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-8-s.js",
+    "description": "delete operator throws TypeError when deleting a non-configurable data property in strict mode",
+    "test": "assertTrue((function testcase() {\n  'use strict';\n  \n  // NaN (15.1.1.1) has [[Configurable]] set to false.\n  try {\n    delete fnGlobalObject().NaN;\n    return false;\n  }\n  catch (e) {\n    return (e instanceof TypeError);\n  }\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-4.a-8",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-8.js",
+    "description": "delete operator returns true for built-in objects (JSON)",
+    "test": "assertTrue((function testcase() {\n  try {\n      var o = JSON;\n      var d = delete JSON;  \n      if (d === true) {\t    \n        return true;\n      }\n  } finally {\n    JSON = o;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-4.a-9-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-9-s.js",
+    "description": "delete operator throws TypeError when deleting a non-configurable data property (Math.LN2) in strict mode ",
+    "test": "assertTrue((function testcase() {\n  'use strict';\n  \n  try {\n    delete Math.LN2;\n    return false;\n  }\n  catch (e) {\n    return (e instanceof TypeError); \n  }\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-4.a-9",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-9.js",
+    "description": "delete operator returns false when deleting a non-configurable data property (Math.LN2)",
+    "test": "assertTrue((function testcase() {\n  var d = delete Math.LN2;\n  if (d === false) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-5-1",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-1.js",
+    "description": "delete operator returns false when deleting a direct reference to a var",
+    "test": "assertTrue((function testcase() {\n  var x = 1;\n\n  // Now, deleting 'x' directly should fail;\n  var d = delete x;\n  if(d === false && x === 1)\n    return true;\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-5-2",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-2.js",
+    "description": "delete operator returns false when deleting a direct reference to a function argument",
+    "test": "assertTrue((function testcase() {\n  \n  function foo(a,b) {\n  \n    // Now, deleting 'a' directly should fail\n    // because 'a' is direct reference to a function argument;\n    var d = delete a;\n    return (d === false && a === 1);\n  }\n  return foo(1,2);  \n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-5-3",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-3.js",
+    "description": "delete operator returns false when deleting a direct reference to a function name",
+    "test": "assertTrue((function testcase() {\n  var foo = function(){};\n\n  // Now, deleting 'foo' directly should fail;\n  var d = delete foo;\n  if(d === false && fnExists(foo))\n    return true;\n }).call(this));\n"
+   },
+   {
+    "id": "11.4.1-5-a-1-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-1-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a variable which is a primitive value type (number)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var _11_4_1_5 = 5;\n\n        try {\n            eval(\"delete _11_4_1_5;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-10-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-10-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a variable of type Array",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var arrObj = [1,2,3];\n\n        try {\n            eval(\"delete arrObj;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-11-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-11-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a variable of type String",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var strObj = new String(\"abc\");\n\n        try {\n            eval(\"delete strObj;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-12-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-12-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a variable of type Boolean",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var boolObj = new Boolean(false);\n\n        try {\n            eval(\"delete boolObj;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-13-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-13-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a variable of type Number",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var numObj = new Number(0);\n\n        try {\n            eval(\"delete numObj;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-14-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-14-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a variable of type Date",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var dateObj = new Date();\n\n        try {\n            eval(\"delete dateObj;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-15-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-15-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a variable of type RegExp",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var regObj = new RegExp();\n\n        try {\n            eval(\"delete regObj;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-16-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-16-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a variable of type Error",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var errObj = new Error();\n\n        try {\n            eval(\"delete errObj;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-17-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-17-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a variable of type Arguments",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n       try {\n            eval(\"var argObj = (function (a, b) { delete arguments; }(1, 2));\");\n\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-18-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-18-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a built-in (Object)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"delete Object;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-19-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-19-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a built-in (Function)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"delete Function;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-2-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-2-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a function parameter",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        function funObj(x) {\n            eval(\"delete x;\");\n        }\n\n        try {\n            funObj(1);\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-20-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-20-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a built-in (Array)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"delete Array;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-21-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-21-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a built-in (String)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"delete String;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-22-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-22-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a built-in (Boolean)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"delete Boolean;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-23-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-23-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a built-in (Number)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"delete Number;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-24-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-24-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a built-in (Date)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"delete Date;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-25-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-25-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a built-in (RegExp)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"delete RegExp;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-26-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-26-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a built-in (Error)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"delete Error;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-3-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-3-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a function name",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        function funObj () { }\n\n        try {\n            eval(\"delete funObj\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-4-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-4-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a function parameter",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        function funObj(x, y, z) {\n            eval(\"delete y;\");\n        }\n\n        try {\n            funObj(1);\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-5-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-5-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a variable which is a primitive type (boolean)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var _11_4_1_5 = true;\n\n        try {\n            eval(\"delete _11_4_1_5;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-6-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-6-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a variable which is a primitive type (string)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var _11_4_1_5 = \"abc\";\n\n        try {\n            eval(\"delete _11_4_1_5;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-7-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-7-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a variable of type Object",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = new Object();\n\n        try {\n            eval(\"delete obj;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-8-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-8-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a function object",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var funObj = function () { };\n\n        try {\n            eval(\"delete funObj;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.1-5-a-9-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-9-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when deleting a variable of type function (declaration)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        function funObj () { };\n\n        try {\n            eval(\"delete funObj;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.4-4.a-3-s",
+    "path": "TestCases/chapter11/11.4/11.4.1/11.4.4-4.a-3-s.js",
+    "description": "delete operator throws TypeError when deleting a non-configurable data property in strict mode",
+    "test": "assertTrue((function testcase() {\n  'use strict';\n\n  var o = {};\n  var desc = { value : 1 }; // all other attributes default to false\n  Object.defineProperty(o, \"foo\", desc);\n  \n  // Now, deleting o.foo should throw TypeError because [[Configurable]] on foo is false.\n  try {\n    delete o.foo;\n    return false;\n  }\n  catch (e) {\n    return (e instanceof TypeError);\n  }\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   }
+  ]
+ }
+}

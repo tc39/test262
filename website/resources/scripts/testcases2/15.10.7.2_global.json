@@ -1,0 +1,26 @@
+{
+ "testCollection": {
+  "name": "15.10.7.2_global",
+  "numTests": 3,
+  "tests": [
+   {
+    "section": "15.10.7.2",
+    "description": "Checking if varying the global property fails",
+    "test": "__re = /^|^/;\n\n//CHECK#1\nif (__re.hasOwnProperty('global') !== true) {\n  $FAIL('#1: __re = /^|^/; __re.hasOwnProperty(\\'global\\') === true');\n}\n\n__obj = __re.global;\n\n__re.global = \"shifted\";\n\n//CHECK#2\nif (__re.global !== __obj) {\n  $ERROR('#2: __re = /^|^/; __obj = __re.global; __re.global = \"shifted\"; __re.global === __obj. Actual: ' + (__re.global));\n}\n\n",
+    "id": "S15.10.7.2_A10"
+   },
+   {
+    "section": "15.10.7.2",
+    "description": "Checking if enumerating the global property of RegExp instance fails",
+    "test": "__re = new RegExp(\"[o-o]\",\"m\");\n\n//CHECK#0\nif (__re.hasOwnProperty('global') !== true) {\n  $FAIL('#0: __re = new RegExp(\"[o-o]\",\"m\"); __re.hasOwnProperty(\\'global\\') === true');\n}\n\n //CHECK#1\nif (__re.propertyIsEnumerable('global') !== false) {\n  $ERROR('#1: __re = new RegExp(\"[o-o]\",\"m\"); __re.propertyIsEnumerable(\\'global\\') === false');\n}\n\n //CHECK#2\ncount = 0\nfor (p in __re){\n  if (p===\"global\") count++   \n}\n\nif (count !== 0) {\n  $ERROR('#2: count = 0; __re = new RegExp(\"[o-o]\",\"m\"); for (p in __re){ if (p===\"global\") count++; } count === 0. Actual: ' + (count));\n} \n\n",
+    "id": "S15.10.7.2_A8"
+   },
+   {
+    "section": "15.10.7.2",
+    "description": "Checking if deleting the global property fails",
+    "test": "__re = new RegExp;\n\n//CHECK#0\nif (__re.hasOwnProperty('global') !== true) {\n  $FAIL('#0: __re = new RegExp; __re.hasOwnProperty(\\'global\\') === true');\n}\n\n//CHECK#1\nif ((delete __re.global) !== false) {\n  $ERROR('#1: __re = new RegExp; (delete __re.global) === false');\n}\n\n//CHECK#2\nif (__re.hasOwnProperty('global') !== true) {\n  $ERROR('#2: __re = new RegExp;delete __re.global === true; __re.hasOwnProperty(\\'global\\') === true');\n}\n\n",
+    "id": "S15.10.7.2_A9"
+   }
+  ]
+ }
+}

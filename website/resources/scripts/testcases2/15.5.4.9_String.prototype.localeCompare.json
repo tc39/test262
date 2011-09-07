@@ -1,0 +1,56 @@
+{
+ "testCollection": {
+  "name": "15.5.4.9_String.prototype.localeCompare",
+  "numTests": 8,
+  "tests": [
+   {
+    "section": "15.5.4.9",
+    "description": "Checking if varying the String.prototype.localeCompare.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(String.prototype.localeCompare.hasOwnProperty('length'))) {\n  $ERROR('#1: String.prototype.localeCompare.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.localeCompare.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar __obj = String.prototype.localeCompare.length;\n\nString.prototype.localeCompare.length = function(){return \"shifted\";};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (String.prototype.localeCompare.length !== __obj) {\n  $ERROR('#2: __obj = String.prototype.localeCompare.length; String.prototype.localeCompare.length = function(){return \"shifted\";}; String.prototype.localeCompare.length === __obj. Actual: '+String.prototype.localeCompare.length );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.9_A10"
+   },
+   {
+    "section": "15.5.4.9",
+    "description": "Checking String.prototype.localeCompare.length",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(String.prototype.localeCompare.hasOwnProperty(\"length\"))) {\n  $ERROR('#1: String.prototype.localeCompare.hasOwnProperty(\"length\") return true. Actual: '+String.prototype.localeCompare.hasOwnProperty(\"length\"));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (String.prototype.localeCompare.length !== 1) {\n  $ERROR('#2: String.prototype.localeCompare.length === 1. Actual: '+String.prototype.localeCompare.length );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.9_A11"
+   },
+   {
+    "section": "15.5.4.9",
+    "description": "This string is symbol and arguments are symbols",
+    "test": "var str1 = new String(\"h\"); \n//CHECK#1\nvar str2 = new String (\"\\x68\");\nif  (str1.localeCompare(str2)!==0){\n  $ERROR('#1: var str1 = new String(\"h\"); var str2 = new String (\"\\\\x68\"); str1.localeCompare(str2)===0. Actual: '+str1.localeCompare(str2));\n}\n\n//CHECK#2\nvar str2 = new String (\"\\u0068\");\nif  (str1.localeCompare(str2)!==0){\n  $ERROR('#2: var str1 = new String(\"h\"); var str2 = new String (\"\\\\u0068\"); str1.localeCompare(str2)===0. Actual: '+str1.localeCompare(str2));\n}\n\n//CHECK#3\nvar str2 = new String (\"h\");\nif  (str1.localeCompare(str2)!==0){\n  $ERROR('#3: var str1 = new String(\"h\"); var str2 = new String (\"h\"); str1.localeCompare(str2)===0. Actual: '+str1.localeCompare(str2));\n}\n",
+    "id": "S15.5.4.9_A1_T1"
+   },
+   {
+    "section": "15.5.4.9",
+    "description": "Call string_1.localeCompare(string_2) is equal -string_2.localeCompare(string_1)",
+    "test": "//CHECK#1\nvar str1 = \"h\";\nvar str2 = \"H\";\nif (str1.localeCompare(str2)!==-str2.localeCompare(str1)){\n  $ERROR('#1.1: var str1 = \"h\"; var str2 = \"H\"; str1.localeCompare(str2)===-str2.localeCompare(str1). Actual: '+str1.localeCompare(str2));\n}\n",
+    "id": "S15.5.4.9_A1_T2"
+   },
+   {
+    "section": "15.5.4.9, 13.2",
+    "description": "Checking String.prototype.localeCompare.prototype",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (String.prototype.localeCompare.prototype !== undefined) {\n  $ERROR('#1: String.prototype.localeCompare.prototype === undefined. Actual: '+String.prototype.localeCompare.prototype );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.9_A6"
+   },
+   {
+    "section": "15.5.4.9, 13.2",
+    "description": "Checking if creating the String.prototype.localeCompare object fails",
+    "test": "var __FACTORY = String.prototype.localeCompare;\n\ntry {\n  var __instance = new __FACTORY;\n  $FAIL('#1: __FACTORY = String.prototype.localeCompare; __instance = new __FACTORY lead to throwing exception');\n} catch (e) {}\n",
+    "id": "S15.5.4.9_A7"
+   },
+   {
+    "section": "15.5.4.9",
+    "description": "Checking if enumerating the String.prototype.localeCompare.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#0\nif (!(String.prototype.localeCompare.hasOwnProperty('length'))) {\n  $ERROR('#0: String.prototype.localeCompare.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.localeCompare.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n//////////////////////////////////////////////////////////////////////////////\n// CHECK#1\nif (String.prototype.localeCompare.propertyIsEnumerable('length')) {\n  $ERROR('#1: String.prototype.localeCompare.propertyIsEnumerable(\\'length\\') return false');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n// CHECK#2\nvar count=0;\n\nfor (p in String.prototype.localeCompare){\n  if (p===\"length\") count++;\n}\n\nif (count !== 0) {\n  $ERROR('#2: count=0; for (p in String.prototype.localeCompare){if (p===\"length\") count++;}; count === 0. Actual: '+count );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.9_A8"
+   },
+   {
+    "section": "15.5.4.9",
+    "description": "Checking if deleting the String.prototype.localeCompare.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#0\nif (!(String.prototype.localeCompare.hasOwnProperty('length'))) {\n  $ERROR('#0: String.prototype.localeCompare.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.localeCompare.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (delete String.prototype.localeCompare.length) {\n  $ERROR('#1: delete String.prototype.localeCompare.length return false');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (!(String.prototype.localeCompare.hasOwnProperty('length'))) {\n  $ERROR('#2: delete String.prototype.localeCompare.length; String.prototype.localeCompare.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.localeCompare.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.9_A9"
+   }
+  ]
+ }
+}

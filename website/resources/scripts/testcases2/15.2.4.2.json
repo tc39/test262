@@ -1,0 +1,32 @@
+{
+ "testCollection": {
+  "name": "15.2.4.2",
+  "numTests": 4,
+  "tests": [
+   {
+    "id": "15.2.4.2-1-1",
+    "path": "TestCases/chapter15/15.2/15.2.4/15.2.4.2/15.2.4.2-1-1.js",
+    "description": "Object.prototype.toString - '[object Undefined]' will be returned when 'this' value is undefined",
+    "test": "assertTrue((Object.prototype.toString.call(undefined) === \"[object Undefined]\"));\n"
+   },
+   {
+    "id": "15.2.4.2-1-2",
+    "path": "TestCases/chapter15/15.2/15.2.4/15.2.4.2/15.2.4.2-1-2.js",
+    "description": "Object.prototype.toString - '[object Undefined]' will be returned when 'this' value is undefined",
+    "test": "assertTrue((Object.prototype.toString.apply(undefined, []) === \"[object Undefined]\"));\n"
+   },
+   {
+    "id": "15.2.4.2-2-1",
+    "path": "TestCases/chapter15/15.2/15.2.4/15.2.4.2/15.2.4.2-2-1.js",
+    "description": "Object.prototype.toString - '[object Null]' will be returned when 'this' value is null",
+    "test": "assertTrue((Object.prototype.toString.call(null) === \"[object Null]\"));\n"
+   },
+   {
+    "id": "15.2.4.2-2-2",
+    "path": "TestCases/chapter15/15.2/15.2.4/15.2.4.2/15.2.4.2-2-2.js",
+    "description": "Object.prototype.toString - '[object Null]' will be returned when 'this' value is null",
+    "test": "assertTrue((Object.prototype.toString.apply(null, []) === \"[object Null]\"));\n"
+   }
+  ]
+ }
+}

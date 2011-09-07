@@ -1,0 +1,889 @@
+{
+ "testCollection": {
+  "name": "15.5.4.20",
+  "numTests": 126,
+  "tests": [
+   {
+    "id": "15.5.4.20-0-1",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-0-1.js",
+    "description": "String.prototype.trim must exist as a function",
+    "test": "assertTrue((function testcase() {\n  var f = String.prototype.trim;\n  if (typeof(f) === \"function\") {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "15.5.4.20-0-2",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-0-2.js",
+    "description": "String.prototype.trim must exist as a function taking 0 parameters",
+    "test": "assertTrue((String.prototype.trim.length === 0));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-1-1",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-1-1.js",
+    "description": "String.prototype.trim throws TypeError when string is undefined",
+    "test": "assertTrue((function testcase() {\n  try\n  {\n    String.prototype.trim.call(undefined); \n    return false; \n  }\n  catch(e)\n  {\n    return e instanceof TypeError;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-1-2",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-1-2.js",
+    "description": "String.prototype.trim throws TypeError when string is null",
+    "test": "assertTrue((function testcase() {\n  try\n  {\n    String.prototype.trim.call(null);  \n    return false;\n  }\n  catch(e)\n  {\n    return e instanceof TypeError;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-1-3",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-1-3.js",
+    "description": "String.prototype.trim works for primitive type boolean",
+    "test": "assertTrue((function testcase() {\n  try\n  {\n    if(String.prototype.trim.call(true) == \"true\")\n      return true;\n  }\n  catch(e)\n  {\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-1-4",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-1-4.js",
+    "description": "String.prototype.trim works for primitive type number",
+    "test": "assertTrue((function testcase() {\n  try\n  {\n    if(String.prototype.trim.call(0) == \"0\") \n      return true;\n  }\n  catch(e)\n  {\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-1-5",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-1-5.js",
+    "description": "String.prototype.trim works for an Object",
+    "test": "assertTrue((function testcase() {\n  try\n  {\n    if(String.prototype.trim.call({})==\"[object Object]\")\n      return true;\n  }\n  catch(e)\n  {\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-1-6",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-1-6.js",
+    "description": "String.prototype.trim works for an String",
+    "test": "assertTrue((function testcase() {\n  try\n  {\n    if(String.prototype.trim.call(new String()) == \"\")\n      return true;\n  }\n  catch(e)\n  {\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-1-7",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-1-7.js",
+    "description": "String.prototype.trim works for a primitive string",
+    "test": "assertTrue((function testcase() {\n  try\n  {\n    if(String.prototype.trim.call(\"abc\") === \"abc\")  \n      return true;\n  }\n  catch(e)\n  {\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-1-8",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-1-8.js",
+    "description": "String.prototype.trim works for a primitive string (value is '    abc') ",
+    "test": "assertTrue((function testcase() {\n        var strObj = String(\"    abc\");\n        return \"abc\" === strObj.trim() && strObj.toString() === \"    abc\";\n    }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-1-9",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-1-9.js",
+    "description": "String.prototype.trim works for a String object which value is undefined",
+    "test": "assertTrue((function testcase() {\n        var strObj = new String(undefined);\n        return strObj.trim() === \"undefined\";\n    }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-1",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-1.js",
+    "description": "String.prototype.trim - argument 'this' is a boolean whose value is false",
+    "test": "assertTrue((String.prototype.trim.call(false) === \"false\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-10",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-10.js",
+    "description": "String.prototype.trim - argument 'this' is a number that converts to a string (value is +Infinity)",
+    "test": "assertTrue((String.prototype.trim.call(+Infinity) === \"Infinity\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-11",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-11.js",
+    "description": "String.prototype.trim - argument 'this' is a number that converts to a string (value is -Infinity)",
+    "test": "assertTrue((String.prototype.trim.call(-Infinity) === \"-Infinity\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-12",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-12.js",
+    "description": "String.prototype.trim - argument 'this' is a number that converts to a string (value is 1(following 20 zeros))",
+    "test": "assertTrue((String.prototype.trim.call(100000000000000000000) === \"100000000000000000000\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-13",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-13.js",
+    "description": "String.prototype.trim - argument 'this' is a number that converts to a string (value is 1(following 21 zeros))",
+    "test": "assertTrue((String.prototype.trim.call(1000000000000000000000) === \"1e+21\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-14",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-14.js",
+    "description": "String.prototype.trim - argument 'this' is a number that converts to a string (value is 1(following 22 zeros))",
+    "test": "assertTrue((String.prototype.trim.call(10000000000000000000000) === \"1e+22\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-15",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-15.js",
+    "description": "String.prototype.trim - argument 'this' is a number that converts to a string (value is 1e+20)",
+    "test": "assertTrue((String.prototype.trim.call(1e+20) === \"100000000000000000000\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-16",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-16.js",
+    "description": "String.prototype.trim - argument 'this' is a number that converts to string (value is 1e+21)",
+    "test": "assertTrue((String.prototype.trim.call(1e+21) === \"1e+21\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-17",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-17.js",
+    "description": "String.prototype.trim - argument 'this' is a number that converts to string (value is 1e+22)",
+    "test": "assertTrue((String.prototype.trim.call(1e+22) === \"1e+22\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-18",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-18.js",
+    "description": "String.prototype.trim - argument 'this' is a number that converts to a string (value is 0.000001)",
+    "test": "assertTrue((String.prototype.trim.call(0.000001) === \"0.000001\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-19",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-19.js",
+    "description": "String.prototype.trim - argument argument 'this' is a number that converts to a string (value is 0.0000001)",
+    "test": "assertTrue((String.prototype.trim.call(0.0000001) === \"1e-7\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-2",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-2.js",
+    "description": "String.prototype.trim - argument 'this' is a boolean whose value is true",
+    "test": "assertTrue((String.prototype.trim.call(true) === \"true\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-20",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-20.js",
+    "description": "String.prototype.trim - argument 'this' is a number that converts to a string (value is 0.00000001)",
+    "test": "assertTrue((String.prototype.trim.call(0.00000001) === \"1e-8\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-21",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-21.js",
+    "description": "String.prototype.trim - argument 'this' is a number that converts to a string (value is 1e-7)",
+    "test": "assertTrue((String.prototype.trim.call(1e-7) === \"1e-7\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-22",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-22.js",
+    "description": "String.prototype.trim - argument 'this' is a number that converts to a string (value is 1e-6)",
+    "test": "assertTrue((String.prototype.trim.call(1e-6) === \"0.000001\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-23",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-23.js",
+    "description": "String.prototype.trim - argument 'this' is a number that converts to a string (value is 1e-5)",
+    "test": "assertTrue((String.prototype.trim.call(1e-5) === \"0.00001\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-24",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-24.js",
+    "description": "String.prototype.trim - argument 'this' is an integer that converts to a string (value is 123)",
+    "test": "assertTrue((String.prototype.trim.call(123) === \"123\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-25",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-25.js",
+    "description": "String.prototype.trim - argument 'this' is a decimal that converts to a string (value is 123.456)",
+    "test": "assertTrue((String.prototype.trim.call(123.456) === \"123.456\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-26",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-26.js",
+    "description": "String.prototype.trim - argument 'this' is a number that converts to a string (value is 1(following 20 zeros).123)",
+    "test": "assertTrue((String.prototype.trim.call(100000000000000000000.123) === \"100000000000000000000\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-27",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-27.js",
+    "description": "String.prototype.trim - argument 'this' is a number that converts to a string (value is 123.1234567)",
+    "test": "assertTrue((String.prototype.trim.call(123.1234567) === \"123.1234567\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-28",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-28.js",
+    "description": "String.prototype.trim - argument 'this' is an empty string ",
+    "test": "assertTrue((String.prototype.trim.call(\"\") === \"\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-29",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-29.js",
+    "description": "String.prototype.trim - argument 'this' is a string(value is 'AB\n\\cd')",
+    "test": "assertTrue((String.prototype.trim.call(\"AB\\n\\\\cd\") === \"AB\\n\\\\cd\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-3",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-3.js",
+    "description": "String.prototype.trim - argument 'this' is a number that converts to a string (value is NaN)",
+    "test": "/// Copyright (c) 2009 Microsoft Corporation \n/// \n/// Redistribution and use in source and binary forms, with or without modification, are permitted provided\n/// that the following conditions are met: \n///    * Redistributions of source code must retain the above copyright notice, this list of conditions and\n///      the following disclaimer. \n///    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and \n///      the following disclaimer in the documentation and/or other materials provided with the distribution.  \n///    * Neither the name of Microsoft nor the names of its contributors may be used to\n///      endorse or promote products derived from this software without specific prior written permission.\n/// \n/// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\" AND ANY EXPRESS OR\n/// IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS\n/// FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE\n/// FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT\n/// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS\n/// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\n/// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF\n/// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.assertTrue((String.prototype.trim.call(NaN) === \"NaN\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-30",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-30.js",
+    "description": "String.prototype.trim - argument 'this' is a string(value is 'undefined') ",
+    "test": "assertTrue((String.prototype.trim.call(\"undefined\") === \"undefined\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-31",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-31.js",
+    "description": "String.prototype.trim - argument 'this' is a string(value is 'null') ",
+    "test": "assertTrue((String.prototype.trim.call(\"null\") === \"null\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-32",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-32.js",
+    "description": "String.prototype.trim - argument 'this' is a string(value is '123#$%abc')",
+    "test": "assertTrue((String.prototype.trim.call(\"123#$%abc\") === \"123#$%abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-33",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-33.js",
+    "description": "String.prototype.trim - argument 'this' is a string(value is '1')",
+    "test": "assertTrue((String.prototype.trim.call(\"1\") === \"1\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-34",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-34.js",
+    "description": "String.prototype.trim - 'this' is an array that converts to a string",
+    "test": "assertTrue(((String.prototype.trim.call([1]) === '1')));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-35",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-35.js",
+    "description": "String.prototype.trim - 'this' is a String Object that converts to a string",
+    "test": "assertTrue(((String.prototype.trim.call(new String(\"abc\")) === \"abc\")));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-36",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-36.js",
+    "description": "String.prototype.trim - 'this' is a Boolean Object that converts to a string",
+    "test": "assertTrue(((String.prototype.trim.call(new Boolean(false)) === \"false\")));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-37",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-37.js",
+    "description": "String.prototype.trim - 'this' is a Number Object that converts to a string",
+    "test": "assertTrue(((String.prototype.trim.call(new Number(123)) === \"123\")));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-38",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-38.js",
+    "description": "String.prototype.trim - 'this' is an object which has an own toString method",
+    "test": "assertTrue((function testcase() {\n        var obj = {\n            toString: function () {\n                return \"abc\";\n            }\n        };\n\n        return (String.prototype.trim.call(obj) === \"abc\");\n    }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-39",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-39.js",
+    "description": "String.prototype.trim - 'this' is an object which has an own valueOf method",
+    "test": "assertTrue((function testcase() {\n        var obj = {\n            valueOf: function () {\n                return \"abc\";\n            }\n        };\n\n        return (String.prototype.trim.call(obj) === \"[object Object]\");\n    }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-4",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-4.js",
+    "description": "String.prototype.trim - argument 'this' is a number that converts to a string (value is 0)",
+    "test": "assertTrue((String.prototype.trim.call(0) === \"0\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-40",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-40.js",
+    "description": "String.prototype.trim - 'this' is an object that has an own toString method that returns an object and valueOf method that returns a primitive value",
+    "test": "assertTrue((function testcase() {\n        var toStringAccessed = false;\n        var valueOfAccessed = false;\n        var obj = {\n            toString: function () {\n                toStringAccessed = true;\n                return {};\n            },\n            valueOf: function () {\n                valueOfAccessed = true;\n                return \"abc\";\n            }\n        };\n        return (String.prototype.trim.call(obj) === \"abc\") && valueOfAccessed && toStringAccessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-41",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-41.js",
+    "description": "String.prototype.trim - 'this' is an object which has an own toString and valueOf method.",
+    "test": "assertTrue((function testcase() {\n        var toStringAccessed = false;\n        var valueOfAccessed = false;\n        var obj = {\n            toString: function () {\n                toStringAccessed = true;\n                return \"abc\";\n            },\n            valueOf: function () {\n                valueOfAccessed = true;\n                return \"cef\";\n            }\n        };\n        return (String.prototype.trim.call(obj) === \"abc\") && !valueOfAccessed && toStringAccessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-42",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-42.js",
+    "description": "String.prototype.trim - TypeError exception was thrown  when 'this' is an object that both toString and valueOf wouldn't return primitive value.",
+    "test": "assertTrue((function testcase() {\n        var toStringAccessed = false;\n        var valueOfAccessed = false;\n        var obj = {\n            toString: function () {\n                toStringAccessed = true;\n                return {};\n            },\n            valueOf: function () {\n                valueOfAccessed = true;\n                return {};\n            }\n        };\n        try {\n            String.prototype.trim.call(obj);\n            return false;\n        } catch (e) {\n            return valueOfAccessed && toStringAccessed && (e instanceof TypeError);\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-43",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-43.js",
+    "description": "String.prototype.trim - 'this' is an object with an own valueOf and inherited toString methods with hint string, verify inherited toString method will be called first",
+    "test": "assertTrue((function testcase() {\n\n        var toStringAccessed = false;\n        var valueOfAccessed = false;\n\n        var proto = {\n            toString: function () {\n                toStringAccessed = true;\n                return \"abc\";\n            }\n        };\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n        child.valueOf = function () {\n            valueOfAccessed = true;\n            return \"efg\";\n        };\n        return (String.prototype.trim.call(child) === \"abc\") && toStringAccessed && !valueOfAccessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-44",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-44.js",
+    "description": "String.prototype.trim - 'this' is a string that contains east Asian characters (value is 'SD咕噜')",
+    "test": "assertTrue((function testcase() {\n        var str = \"SD咕噜\";\n        return str.trim() === str;\n    }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-45",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-45.js",
+    "description": "String.prototype.trim - 'this' is a string that contains white space, character, number, object and null characters",
+    "test": "assertTrue((function testcase() {\n        var str = \"abc\" + \"   \" + 123 + \"   \" + {} + \"    \" + \"\\u0000\";\n        var str1 = \"    \" + str + \"    \";\n        return str1.trim() === str;\n    }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-46",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-46.js",
+    "description": "String.prototype.trim - 'this' is a Function Object that converts to a string",
+    "test": "assertTrue((function testcase() {\n        var funObj = function () { return arguments; };\n        return typeof(String.prototype.trim.call(funObj)) === \"string\";\n    }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-47",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-47.js",
+    "description": "String.prototype.trim - 'this' is a object Object that converts to a string",
+    "test": "assertTrue((String.prototype.trim.call({}) === \"[object Object]\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-49",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-49.js",
+    "description": "String.prototype.trim - 'this' is a RegExp Object that converts to a string",
+    "test": "assertTrue((function testcase() {\n        var regObj = new RegExp(/test/);\n        return String.prototype.trim.call(regObj) === \"/test/\";\n    }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-5",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-5.js",
+    "description": "String.prototype.trim - argument 'this' is a number that converts to a string (value is +0)",
+    "test": "assertTrue((String.prototype.trim.call(+0) === \"0\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-50",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-50.js",
+    "description": "String.prototype.trim - 'this' is a Error Object that converts to a string",
+    "test": "assertTrue((function testcase() {\n        var errObj = new Error(\"test\");\n        return String.prototype.trim.call(errObj) === \"Error: test\";\n    }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-51",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-51.js",
+    "description": "String.prototype.trim - 'this' is a Arguments Object that converts to a string",
+    "test": "assertTrue((function testcase() {\n        var argObj = function () { return arguments; } (1, 2, true);\n        return String.prototype.trim.call(argObj) === \"[object Arguments]\";\n    }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-6",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-6.js",
+    "description": "String.prototype.trim - argument 'this' is a number that converts to a string (value is -0)",
+    "test": "assertTrue((String.prototype.trim.call(-0) === \"0\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-7",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-7.js",
+    "description": "String.prototype.trim - argument 'this' is a number that converts to a string (value is positive number)",
+    "test": "assertTrue((String.prototype.trim.call(30) === \"30\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-8",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-8.js",
+    "description": "String.prototype.trim - argument 'this' is a number that converts to a string (value is negative number)",
+    "test": "assertTrue((String.prototype.trim.call(-20) === \"-20\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-2-9",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-9.js",
+    "description": "String.prototype.trim - argument 'this' is a number that converts to a string (value is Infinity)",
+    "test": "assertTrue((String.prototype.trim.call(Infinity) === \"Infinity\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-3-1",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-3-1.js",
+    "description": "String.prototype.trim - 'S' is a string with all LineTerminator",
+    "test": "assertTrue((function testcase() {\n\n        var lineTerminatorsStr = \"\\u000A\\u000D\\u2028\\u2029\";\n        return (lineTerminatorsStr.trim() === \"\");\n    }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-3-10",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-3-10.js",
+    "description": "String.prototype.trim - 'S' is a string with null character ('\\u0000')",
+    "test": "assertTrue((\"\\u0000\".trim() === \"\\u0000\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-3-11",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-3-11.js",
+    "description": "String.prototype.trim - 'S' is a string that starts with null character",
+    "test": "assertTrue((\"\\0\\u0000abc\".trim() === \"\\0\\u0000abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-3-12",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-3-12.js",
+    "description": "String.prototype.trim - 'S' is a string that ends with null character",
+    "test": "assertTrue((\"abc\\0\\u0000\".trim() === \"abc\\0\\u0000\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-3-13",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-3-13.js",
+    "description": "String.prototype.trim - 'S' is a string that starts with null character and ends with null character",
+    "test": "assertTrue((\"\\0\\u0000abc\\0\\u0000\".trim() === \"\\0\\u0000abc\\0\\u0000\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-3-14",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-3-14.js",
+    "description": "String.prototype.trim - 'S' is a string that has null character in the middle",
+    "test": "assertTrue((\"a\\0\\u0000bc\".trim() === \"a\\0\\u0000bc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-3-2",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-3-2.js",
+    "description": "String.prototype.trim - 'S' is a string with all WhiteSpace",
+    "test": "assertTrue((function testcase() {\n\n        var whiteSpacesStr = \"\\u0009\\u000A\\u000B\\u000C\\u000D\\u0020\\u00A0\\u1680\\u180E\\u2000\\u2001\\u2002\\u2003\\u2004\\u2005\\u2006\\u2007\\u2008\\u2009\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF\";\n        return (whiteSpacesStr.trim() === \"\");\n    }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-3-3",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-3-3.js",
+    "description": "String.prototype.trim - 'S' is a string with all union of WhiteSpace and LineTerminator",
+    "test": "assertTrue((function testcase() {\n        var lineTerminatorsStr = \"\\u000A\\u000D\\u2028\\u2029\";\n        var whiteSpacesStr = \"\\u0009\\u000A\\u000B\\u000C\\u000D\\u0020\\u00A0\\u1680\\u180E\\u2000\\u2001\\u2002\\u2003\\u2004\\u2005\\u2006\\u2007\\u2008\\u2009\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF\";\n        var str = whiteSpacesStr + lineTerminatorsStr;\n\n        return (str.trim() === \"\");\n    }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-3-4",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-3-4.js",
+    "description": "String.prototype.trim - 'S' is a string start with union of all LineTerminator and all WhiteSpace",
+    "test": "assertTrue((function testcase() {\n        var lineTerminatorsStr = \"\\u000A\\u000D\\u2028\\u2029\";\n        var whiteSpacesStr = \"\\u0009\\u000A\\u000B\\u000C\\u000D\\u0020\\u00A0\\u1680\\u180E\\u2000\\u2001\\u2002\\u2003\\u2004\\u2005\\u2006\\u2007\\u2008\\u2009\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF\";\n        var str = whiteSpacesStr + lineTerminatorsStr + \"abc\";\n\n        return (str.trim() === \"abc\");\n    }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-3-5",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-3-5.js",
+    "description": "String.prototype.trim - 'S' is a string end with union of all LineTerminator and all WhiteSpace",
+    "test": "assertTrue((function testcase() {\n        var lineTerminatorsStr = \"\\u000A\\u000D\\u2028\\u2029\";\n        var whiteSpacesStr = \"\\u0009\\u000A\\u000B\\u000C\\u000D\\u0020\\u00A0\\u1680\\u180E\\u2000\\u2001\\u2002\\u2003\\u2004\\u2005\\u2006\\u2007\\u2008\\u2009\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF\";\n        var str = \"abc\" + whiteSpacesStr + lineTerminatorsStr ;\n\n        return (str.trim() === \"abc\");\n    }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-3-6",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-3-6.js",
+    "description": "String.prototype.trim - 'S' is a string start with union of all LineTerminator and all WhiteSpace and end with union of all LineTerminator and all WhiteSpace",
+    "test": "assertTrue((function testcase() {\n        var lineTerminatorsStr = \"\\u000A\\u000D\\u2028\\u2029\";\n        var whiteSpacesStr = \"\\u0009\\u000A\\u000B\\u000C\\u000D\\u0020\\u00A0\\u1680\\u180E\\u2000\\u2001\\u2002\\u2003\\u2004\\u2005\\u2006\\u2007\\u2008\\u2009\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF\";\n        var str = whiteSpacesStr + lineTerminatorsStr + \"abc\" + whiteSpacesStr + lineTerminatorsStr;\n\n        return (str.trim() === \"abc\");\n    }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-3-7",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-3-7.js",
+    "description": "String.prototype.trim - 'S' is a string that union of LineTerminator and WhiteSpace in the middle",
+    "test": "assertTrue((function testcase() {\n        var lineTerminatorsStr = \"\\u000A\\u000D\\u2028\\u2029\";\n        var whiteSpacesStr = \"\\u0009\\u000A\\u000B\\u000C\\u000D\\u0020\\u00A0\\u1680\\u180E\\u2000\\u2001\\u2002\\u2003\\u2004\\u2005\\u2006\\u2007\\u2008\\u2009\\u200A\\u2028\\u2029\\u202F\\u205F\\u3000\\uFEFF\";\n        var str = \"ab\" + whiteSpacesStr + lineTerminatorsStr + \"cd\";\n\n        return (str.trim() === str);\n    }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-3-8",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-3-8.js",
+    "description": "String.prototype.trim - 'S' is a string with all null character",
+    "test": "assertTrue((\"\\0\\u0000\".trim() === \"\\0\\u0000\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-3-9",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-3-9.js",
+    "description": "String.prototype.trim - 'S' is a string with null character ('\\0')",
+    "test": "assertTrue((\"\\0\".trim() === \"\\0\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-1",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-1.js",
+    "description": "String.prototype.trim handles multiline string with whitepace and lineterminators",
+    "test": "assertTrue((function testcase() {\nvar s = \"\\u0009a b\\\nc \\u0009\"\n\n            \n  if (s.trim() === \"a bc\") {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-10",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-10.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\uFEFFabc)",
+    "test": "assertTrue((\"\\uFEFFabc\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-11",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-11.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (abc\\u0009)",
+    "test": "assertTrue((\"abc\\u0009\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-12",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-12.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (abc\\u000B)",
+    "test": "assertTrue((\"abc\\u000B\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-13",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-13.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (abc\\u000C)",
+    "test": "assertTrue((\"abc\\u000C\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-14",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-14.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (abc\\u0020)",
+    "test": "assertTrue((\"abc\\u0020\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-16",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-16.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (abc\\u00A0)",
+    "test": "assertTrue((\"abc\\u00A0\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-18",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-18.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (abc\\uFEFF)",
+    "test": "assertTrue((\"abc\\uFEFF\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-19",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-19.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u0009abc\\u0009)",
+    "test": "assertTrue((\"\\u0009abc\\u0009\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-2",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-2.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators ( \\u0009abc \\u0009)",
+    "test": "assertTrue((\" \\u0009abc \\u0009\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-20",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-20.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u000Babc\\u000B)",
+    "test": "assertTrue((\"\\u000Babc\\u000B\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-21",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-21.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u000Cabc\\u000C)",
+    "test": "assertTrue((\"\\u000Cabc\\u000C\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-22",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-22.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u0020abc\\u0020)",
+    "test": "assertTrue((\"\\u0020abc\\u0020\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-24",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-24.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u00A0abc\\u00A0)",
+    "test": "assertTrue((\"\\u00A0abc\\u00A0\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-27",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-27.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u0009\\u0009)",
+    "test": "assertTrue((\"\\u0009\\u0009\".trim() === \"\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-28",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-28.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u000B\\u000B)",
+    "test": "assertTrue((\"\\u000B\\u000B\".trim() === \"\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-29",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-29.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u000C\\u000C)",
+    "test": "assertTrue((\"\\u000C\\u000C\".trim() === \"\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-3",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-3.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u0009abc)",
+    "test": "assertTrue((\"\\u0009abc\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-30",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-30.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u0020\\u0020)",
+    "test": "assertTrue((\"\\u0020\\u0020\".trim() === \"\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-32",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-32.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u00A0\\u00A0)",
+    "test": "assertTrue((\"\\u00A0\\u00A0\".trim() === \"\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-34",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-34.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\uFEFF\\uFEFF)",
+    "test": "assertTrue((\"\\uFEFF\\uFEFF\".trim() === \"\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-35",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-35.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (ab\\u0009c)",
+    "test": "assertTrue((\"ab\\u0009c\".trim() === \"ab\\u0009c\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-36",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-36.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (ab\\u000Bc)",
+    "test": "assertTrue((\"ab\\u000Bc\".trim() === \"ab\\u000Bc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-37",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-37.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (ab\\u000Cc)",
+    "test": "assertTrue((\"ab\\u000Cc\".trim() === \"ab\\u000Cc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-38",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-38.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (ab\\u0020c)",
+    "test": "assertTrue((\"ab\\u0020c\".trim() === \"ab\\u0020c\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-39",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-39.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (ab\\u0085c)",
+    "test": "assertTrue((\"ab\\u0085c\".trim() === \"ab\\u0085c\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-4",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-4.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u000Babc)",
+    "test": "assertTrue((\"\\u000Babc\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-40",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-40.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (ab\\u00A0c)",
+    "test": "assertTrue((\"ab\\u00A0c\".trim() === \"ab\\u00A0c\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-41",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-41.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (ab\\u200Bc)",
+    "test": "assertTrue((\"ab\\u200Bc\".trim() === \"ab\\u200Bc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-42",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-42.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (ab\\uFEFFc)",
+    "test": "assertTrue((\"ab\\uFEFFc\".trim() === \"ab\\uFEFFc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-43",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-43.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u000Aabc)",
+    "test": "assertTrue((\"\\u000Aabc\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-44",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-44.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u000Dabc)",
+    "test": "assertTrue((\"\\u000Dabc\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-45",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-45.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u2028abc)",
+    "test": "assertTrue((\"\\u2028abc\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-46",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-46.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u2029abc)",
+    "test": "assertTrue((\"\\u2029abc\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-47",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-47.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (abc\\u000A)",
+    "test": "assertTrue((\"abc\\u000A\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-48",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-48.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (abc\\u000D)",
+    "test": "assertTrue((\"abc\\u000D\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-49",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-49.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (abc\\u2028)",
+    "test": "assertTrue((\"abc\\u2028\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-5",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-5.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u000Cabc)",
+    "test": "assertTrue((\"\\u000Cabc\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-50",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-50.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (abc\\u2029)",
+    "test": "assertTrue((\"abc\\u2029\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-51",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-51.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u000Aabc\\u000A)",
+    "test": "assertTrue((\"\\u000Aabc\\u000A\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-52",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-52.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u000Dabc\\u000D)",
+    "test": "assertTrue((\"\\u000Dabc\\u000D\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-53",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-53.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u2028abc\\u2028)",
+    "test": "assertTrue((\"\\u2028abc\\u2028\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-54",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-54.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u2029abc\\u2029)",
+    "test": "assertTrue((\"\\u2029abc\\u2029\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-55",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-55.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u000A\\u000A)",
+    "test": "assertTrue((\"\\u000A\\u000A\".trim() === \"\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-56",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-56.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u000D\\u000D)",
+    "test": "assertTrue((\"\\u000D\\u000D\".trim() === \"\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-57",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-57.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u2028\\u2028)",
+    "test": "assertTrue((\"\\u2028\\u2028\".trim() === \"\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-58",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-58.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u2029\\u2029)",
+    "test": "assertTrue((\"\\u2029\\u2029\".trim() === \"\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-59",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-59.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u2029abc as a multiline string)",
+    "test": "assertTrue((function testcase() {\n  var s = \"\\u2029\\\n           abc\";\n  if (s.trim() === \"abc\") {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-6",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-6.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u0020abc)",
+    "test": "assertTrue((\"\\u0020abc\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-60",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-60.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (string with just blanks)",
+    "test": "assertTrue((\"    \".trim() === \"\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   },
+   {
+    "id": "15.5.4.20-4-8",
+    "path": "TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-8.js",
+    "description": "String.prototype.trim handles whitepace and lineterminators (\\u00A0abc)",
+    "test": "assertTrue((\"\\u00A0abc\".trim() === \"abc\"));\n",
+    "precondition": "(fnExists(String.prototype.trim))"
+   }
+  ]
+ }
+}

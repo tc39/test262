@@ -1,0 +1,246 @@
+{
+ "testCollection": {
+  "name": "15.1.2.3_parseFloat",
+  "numTests": 39,
+  "tests": [
+   {
+    "section": "15.1.2.3, 9.8",
+    "description": "Checking for boolean primitive",
+    "test": "//CHECK#1\nif (!(isNaN(parseFloat(true)) && isNaN(parseFloat(\"NaN\")))) {\n  $ERROR('#1: parseFloat(true) === Not-a-Number; parseFloat(\"NaN\") === Not-a-Number. Actual: ' + (parseFloat(\"NaN\")));\n}\n\n//CHECK#2\nif (String(parseFloat(false)) !== \"NaN\") {\n  $ERROR('#2: String(parseFloat(false)) === \"NaN\". Actual: ' + (String(parseFloat(false))));\n}\n",
+    "id": "S15.1.2.3_A1_T1"
+   },
+   {
+    "section": "15.1.2.3, 9.8",
+    "description": "Checking for number primitive",
+    "test": "//CHECK#1\nif (parseFloat(-1.1) !== parseFloat(\"-1.1\")) {\n  $ERROR('#1: parseFloat(-1.1) === parseFloat(\"-1.1\"). Actual: ' + (parseFloat(-1.1)));\n}\n\n//CHECK#2\nif (parseFloat(Infinity) !== parseFloat(\"Infinity\")) {\n  $ERROR('#2: parseFloat(Infinity) === parseFloat(\"Infinity\"). Actual: ' + (parseFloat(Infinity)));\n}\n\n//CHECK#3\nif (String(parseFloat(NaN)) !== \"NaN\") {\n  $ERROR('#3: String(parseFloat(NaN)) === \"NaN\". Actual: ' + (String(parseFloat(NaN))));\n}\n\n//CHECK#4\nif (parseFloat(.01e+2) !== parseFloat(\".01e+2\")) {\n  $ERROR('#4: parseFloat(.01e+2) === parseFloat(\".01e+2\"). Actual: ' + (parseFloat(.01e+2)));\n}\n\n//CHECK#5\nif (parseFloat(-0) !== 0) {\n  $ERROR('#5: parseFloat(-0) === 0. Actual: ' + (parseFloat(-0)));\n} else {\n  if (1 / parseFloat(-0) !== Number.POSITIVE_INFINITY) {\n    $ERROR('#5: parseFloat(-0) === +0. Actual: ' + (parseFloat(-0)));\n  }\n}    \n",
+    "id": "S15.1.2.3_A1_T2"
+   },
+   {
+    "section": "15.1.2.3, 9.8",
+    "description": "Checking for undefined and null",
+    "test": "//CHECK#1\nif (!(isNaN(parseFloat(undefined)) && isNaN(parseFloat(\"NaN\")))) {\n  $ERROR('#1: parseFloat(undefined) === Not-a-Number; parseFloat(\"NaN\") === Not-a-Number. Actual: ' + (parseFloat(\"NaN\")));\n}\n\n//CHECK#2\nif (!(isNaN(parseFloat(null)) && isNaN(parseFloat(\"NaN\")))) {\n  $ERROR('#2: parseFloat(null) === Not-a-Number; parseFloat(\"NaN\") === Not-a-Number. Actual: ' + (parseFloat(\"NaN\")));\n}\n\n\n//CHECK#3\nif (String(parseFloat(undefined)) !== \"NaN\") {\n  $ERROR('#3: String(parseFloat(undefined)) === \"NaN\". Actual: ' + (String(parseFloat(undefined))));\n}\n\n//CHECK#4\nif (String(parseFloat(null)) !== \"NaN\") {\n  $ERROR('#4: String(parseFloat(null)) === \"NaN\". Actual: ' + (String(parseFloat(null))));\n}\n",
+    "id": "S15.1.2.3_A1_T3"
+   },
+   {
+    "section": "15.1.2.3, 9.8",
+    "description": "Checking for Boolean object",
+    "test": "//CHECK#1\nif (!(isNaN(parseFloat(new Boolean(true))) && isNaN(parseFloat(\"NaN\")))) {\n  $ERROR('#1: parseFloat(new Boolean(true)) === Not-a-Number; parseFloat(\"NaN\") === Not-a-Number. Actual: ' + (parseFloat(\"NaN\")));\n}\n\n//CHECK#2\nif (String(parseFloat(new Boolean(false))) !== \"NaN\") {\n  $ERROR('#2: String(parseFloat(new Boolean(false))) === \"NaN\". Actual: ' + (String(parseFloat(new Boolean(false)))));\n}\n",
+    "id": "S15.1.2.3_A1_T4"
+   },
+   {
+    "section": "15.1.2.3, 9.8",
+    "description": "Checking for Number object",
+    "test": "//CHECK#1\nif (parseFloat(new Number(-1.1)) !== parseFloat(\"-1.1\")) {\n  $ERROR('#1: parseFloat(new Number(-1.1)) === parseFloat(\"-1.1\"). Actual: ' + (parseFloat(new Number(-1.1))));\n}\n\n//CHECK#2\nif (parseFloat(new Number(Infinity)) !== parseFloat(\"Infinity\")) {\n  $ERROR('#2: parseFloat(new Number(Infinity)) === parseFloat(\"Infinity\"). Actual: ' + (parseFloat(new Number(Infinity))));\n}\n\n//CHECK#3\nif (String(parseFloat(new Number(NaN))) !== \"NaN\") {\n  $ERROR('#3: String(parseFloat(new Number(NaN))) === \"NaN\". Actual: ' + (String(parseFloat(new Number(NaN)))));\n}\n\n//CHECK#4\nif (parseFloat(new Number(.01e+2)) !== parseFloat(\".01e+2\")) {\n  $ERROR('#4: parseFloat(new Number(.01e+2)) === parseFloat(\".01e+2\"). Actual: ' + (parseFloat(new Number(.01e+2))));\n}\n",
+    "id": "S15.1.2.3_A1_T5"
+   },
+   {
+    "section": "15.1.2.3, 9.8",
+    "description": "Checking for String object",
+    "test": "//CHECK#1\nif (parseFloat(new String(\"-1.1\")) !== parseFloat(\"-1.1\")) {\n  $ERROR('#1: parseFloat(new String(\"-1.1\")) === parseFloat(\"-1.1\"). Actual: ' + (parseFloat(new String(\"-1.1\"))));\n}\n\n//CHECK#2\nif (parseFloat(new String(\"Infinity\")) !== parseFloat(\"Infinity\")) {\n  $ERROR('#2: parseFloat(new String(\"Infinity\")) === parseFloat(\"Infinity\"). Actual: ' + (parseFloat(new String(\"Infinity\"))));\n}\n\n//CHECK#3\nif (String(parseFloat(new String(\"NaN\"))) !== \"NaN\") {\n  $ERROR('#3: String(parseFloat(new String(\"NaN\"))) === \"NaN\". Actual: ' + (String(parseFloat(new String(\"NaN\")))));\n}\n\n//CHECK#4\nif (parseFloat(new String(\".01e+2\")) !== parseFloat(\".01e+2\")) {\n  $ERROR('#4: parseFloat(new String(\".01e+2\")) === parseFloat(\".01e+2\"). Actual: ' + (parseFloat(new String(\".01e+2\"))));\n}\n\n//CHECK#5\nif (String(parseFloat(new String(\"false\"))) !== \"NaN\") {\n  $ERROR('#5: String(parseFloat(new String(\"false\"))) === \"NaN\". Actual: ' + (String(parseFloat(new String(\"false\")))));\n}\n",
+    "id": "S15.1.2.3_A1_T6"
+   },
+   {
+    "section": "15.1.2.3, 9.8, 8.6.2.6",
+    "description": "If Type(value) is Object, evaluate ToPrimitive(value, String)",
+    "test": "//CHECK#1\nvar object = {valueOf: function() {return 1}};\nif (isNaN(parseFloat(object)) !== true) {\n  $ERROR('#1: var object = {valueOf: function() {return 1}}; parseFloat(object) === Not-a-Number. Actual: ' + (parseFloat(object)));\n}\n\n//CHECK#2\nvar object = {valueOf: function() {return 1}, toString: function() {return 0}};\nif (parseFloat(object) !== 0) {\n  $ERROR('#2: var object = {valueOf: function() {return 1}, toString: function() {return 0}}; parseFloat(object) === 0. Actual: ' + (parseFloat(object)));\n} \n\n//CHECK#3\nvar object = {valueOf: function() {return 1}, toString: function() {return {}}};\nif (parseFloat(object) !== 1) {\n  $ERROR('#3: var object = {valueOf: function() {return 1}, toString: function() {return {}}}; parseFloat(object) === 1. Actual: ' + (parseFloat(object)));\n}\n\n//CHECK#4\ntry {\n  var object = {valueOf: function() {throw \"error\"}, toString: function() {return 1}};\n  if (parseFloat(object) !== 1) {\n    $ERROR('#4.1: var object = {valueOf: function() {throw \"error\"}, toString: function() {return 1}}; parseFloat(object) === 1. Actual: ' + (parseFloat(object)));\n  }\n}\ncatch (e) {\n  if (e === \"error\") {\n    $ERROR('#4.2: var object = {valueOf: function() {throw \"error\"}, toString: function() {return 1}}; parseFloat(object) not throw \"error\"');\n  } else {\n    $ERROR('#4.3: var object = {valueOf: function() {throw \"error\"}, toString: function() {return 1}}; parseFloat(object) not throw Error. Actual: ' + (e));\n  }\n}\n\n//CHECK#5\nvar object = {toString: function() {return 1}};\nif (parseFloat(object) !== 1) {\n  $ERROR('#5: var object = {toString: function() {return 1}}; parseFloat(object) === 1. Actual: ' + (parseFloat(object)));\n}\n\n//CHECK#6\nvar object = {valueOf: function() {return {}}, toString: function() {return 1}}\nif (parseFloat(object) !== 1) {\n  $ERROR('#6: var object = {valueOf: function() {return {}}, toString: function() {return 1}}; parseFloat(object) === 1. Actual: ' + (parseFloat(object)));\n}\n\n//CHECK#7\ntry {\n  var object = {valueOf: function() {return 1}, toString: function() {throw \"error\"}};\n  parseFloat(object);\n  $ERROR('#7.1: var object = {valueOf: function() {return 1}, toString: function() {throw \"error\"}}; parseFloat(object) throw \"error\". Actual: ' + (parseFloat(object)));\n}  \ncatch (e) {\n  if (e !== \"error\") {\n    $ERROR('#7.2: var object = {valueOf: function() {return 1}, toString: function() {throw \"error\"}}; parseFloat(object) throw \"error\". Actual: ' + (e));\n  } \n}\n\n//CHECK#8\ntry {\n  var object = {valueOf: function() {return {}}, toString: function() {return {}}};\n  parseFloat(object);\n  $ERROR('#8.1: var object = {valueOf: function() {return {}}, toString: function() {return {}}}; parseFloat(object) throw TypeError. Actual: ' + (parseFloat(object)));\n}  \ncatch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#8.2: var object = {valueOf: function() {return {}}, toString: function() {return {}}}; parseFloat(object) throw TypeError. Actual: ' + (e));\n  } \n}\n",
+    "id": "S15.1.2.3_A1_T7"
+   },
+   {
+    "section": "15.1.2.3",
+    "description": "StrWhiteSpaceChar :: TAB (U+0009)",
+    "test": "//CHECK#1\nif (parseFloat(\"\\u00091.1\") !== parseFloat(\"1.1\")) {\n  $ERROR('#1: parseFloat(\"\\\\u00091.1\") === parseFloat(\"1.1\"). Actual: ' + (parseFloat(\"\\u00091.1\")));\n}\n\n//CHECK#2\nif (parseFloat(\"\\u0009\\u0009-1.1\") !== parseFloat(\"-1.1\")) {\n  $ERROR('#2: parseFloat(\"\\\\u0009\\\\u0009-1.1\") === parseFloat(\"-1.1\"). Actual: ' + (parseFloat(\"\\u0009\\u0009-1.1\")));\n}\n\n//CHECK#3\nif (parseFloat(\"\t1.1\") !== parseFloat(\"1.1\")) {\n  $ERROR('#3: parseFloat(\"\t1.1\") === parseFloat(\"1.1\"). Actual: ' + (parseFloat(\"\t1.1\")));\n}\n\n//CHECK#4\nif (parseFloat(\"\t\t\t1.1\") !== parseFloat(\"1.1\")) {\n  $ERROR('#4: parseFloat(\"\t\t\t1.1\") === parseFloat(\"1.1\"). Actual: ' + (parseFloat(\"\t\t\t1.1\")));\n}\n\n//CHECK#5\nif (parseFloat(\"\t\t\t\\u0009\t\t\t\\u0009-1.1\") !== parseFloat(\"-1.1\")) {\n  $ERROR('#5: parseFloat(\"\t\t\t\\\\u0009\t\t\t\\\\u0009-1.1\") === parseFloat(\"-1.1\"). Actual: ' + (parseFloat(\"\t\t\t\\u0009\t\t\t\\u0009-1.1\")));\n}\n\n//CHECK#6\nif (isNaN(parseFloat(\"\\u0009\")) !== true) {\n  $ERROR('#6: parseFloat(\"\\\\u0009\") === Not-a-Number. Actual: ' + (parseFloat(\"\\u0009\")));\n}\n",
+    "id": "S15.1.2.3_A2_T1"
+   },
+   {
+    "section": "15.1.2.3",
+    "description": "StrWhiteSpaceChar :: USP",
+    "test": "//CHECK#\nvar count = 0;\nvar errorCount = 0;\nvar uspU = [\"\\u1680\", \"\\u180E\", \"\\u2000\", \"\\u2001\", \"\\u2002\", \"\\u2003\", \"\\u2004\", \"\\u2005\", \"\\u2006\", \"\\u2007\", \"\\u2008\", \"\\u2009\", \"\\u200A\", \"\\u202F\", \"\\u205F\", \"\\u3000\"];\nvar uspS = [\"1680\", \"180E\", \"2000\", \"2001\", \"2002\", \"2003\", \"2004\", \"2005\", \"2006\", \"2007\", \"2008\", \"2009\", \"200A\", \"202F\", \"205F\", \"3000\"];\nfor (var index = 0; index < uspU.length; index++) {\n  var result = true;  \n  if (parseFloat(uspU[index] + \"1.1\") !== parseFloat(\"1.1\")) {\n    $ERROR('#1.' +  uspS[index] + ' ');\n    result = false;\n  }\n   if (parseFloat(uspU[index] + uspU[index] + uspU[index] + \"1.1\") !== parseFloat(\"1.1\")) {\n    $ERROR('#2.' +  uspS[index] + ' ');\n    result = false;\n  }\n  if (isNaN(parseFloat(uspU[index])) !== true) {\n    $ERROR('#3.' +  uspS[index] + ' ');\n    result = false;\n  }\n  if (result !== true) {\n      errorCount++;\n  }\n  count++;\n}\n\nif (errorCount > 0) {  \n  $ERROR('Total error: ' + errorCount + ' bad Unicode character in ' + count);\n}\n",
+    "id": "S15.1.2.3_A2_T10"
+   },
+   {
+    "section": "15.1.2.3",
+    "description": "StrWhiteSpaceChar :: SP (U+0020)",
+    "test": "//CHECK#1\nif (parseFloat(\"\\u00201.1\") !== parseFloat(\"1.1\")) {\n  $ERROR('#1: parseFloat(\"\\\\u00201.1\") === parseFloat(\"1.1\"). Actual: ' + (parseFloat(\"\\u00201.1\")));\n}\n\n//CHECK#2\nif (parseFloat(\"\\u0020\\u0020-1.1\") !== parseFloat(\"-1.1\")) {\n  $ERROR('#2: parseFloat(\"\\\\u0020\\\\u0020-1.1\") === parseFloat(\"-1.1\"). Actual: ' + (parseFloat(\"\\u0020\\u0020-1.1\")));\n}\n\n//CHECK#3\nif (parseFloat(\" 1.1\") !== parseFloat(\"1.1\")) {\n  $ERROR('#3: parseFloat(\" 1.1\") === parseFloat(\"1.1\"). Actual: ' + (parseFloat(\" 1.1\")));\n}\n\n//CHECK#4\nif (parseFloat(\"       1.1\") !== parseFloat(\"1.1\")) {\n  $ERROR('#4: parseFloat(\"       1.1\") === parseFloat(\"1.1\"). Actual: ' + (parseFloat(\"       1.1\")));\n}\n\n//CHECK#5\nif (parseFloat(\"       \\u0020       \\u0020-1.1\") !== parseFloat(\"-1.1\")) {\n  $ERROR('#5: parseFloat(\"       \\\\u0020       \\\\u0020-1.1\") === parseFloat(\"-1.1\"). Actual: ' + (parseFloat(\"       \\u0020       \\u0020-1.1\")));\n}\n\n//CHECK#6\nif (isNaN(parseFloat(\"\\u0020\")) !== true) {\n  $ERROR('#6: parseFloat(\"\\\\u0020\") === Not-a-Number. Actual: ' + (parseFloat(\"\\u0020\")));\n}\n",
+    "id": "S15.1.2.3_A2_T2"
+   },
+   {
+    "section": "15.1.2.3",
+    "description": "StrWhiteSpaceChar :: NBSB (U+00A0)",
+    "test": "//CHECK#1\nif (parseFloat(\"\\u00A01.1\") !== parseFloat(\"1.1\")) {\n  $ERROR('#1: parseFloat(\"\\\\u00A01.1\") === parseFloat(\"1.1\"). Actual: ' + (parseFloat(\"\\u00A01.1\")));\n}\n\n//CHECK#2\nif (parseFloat(\"\\u00A0\\u00A0-1.1\") !== parseFloat(\"-1.1\")) {\n  $ERROR('#2: parseFloat(\"\\\\u00A0\\\\u00A0-1.1\") === parseFloat(\"-1.1\"). Actual: ' + (parseFloat(\"\\u00A0\\u00A0-1.1\")));\n}\n\n//CHECK#3\nif (isNaN(parseFloat(\"\\u00A0\")) !== true) {\n  $ERROR('#3: parseFloat(\"\\\\u00A0\") === Not-a-Number. Actual: ' + (parseFloat(\"\\u00A0\")));\n}\n",
+    "id": "S15.1.2.3_A2_T3"
+   },
+   {
+    "section": "15.1.2.3",
+    "description": "StrWhiteSpaceChar :: FF (U+000C)",
+    "test": "//CHECK#1\nif (parseFloat(\"\\u000C1.1\") !== parseFloat(\"1.1\")) {\n  $ERROR('#1: parseFloat(\"\\\\u000C1.1\") === parseFloat(\"1.1\"). Actual: ' + (parseFloat(\"\\u000C1.1\")));\n}\n\n//CHECK#2\nif (parseFloat(\"\\u000C\\u000C-1.1\") !== parseFloat(\"-1.1\")) {\n  $ERROR('#2: parseFloat(\"\\\\u000C\\\\u000C-1.1\") === parseFloat(\"-1.1\"). Actual: ' + (parseFloat(\"\\u000C\\u000C-1.1\")));\n}\n\n//CHECK#3\nif (isNaN(parseFloat(\"\\u000C\")) !== true) {\n  $ERROR('#3: parseFloat(\"\\\\u000C\") === Not-a-Number. Actual: ' + (parseFloat(\"\\u000C\")));\n}\n",
+    "id": "S15.1.2.3_A2_T4"
+   },
+   {
+    "section": "15.1.2.3",
+    "description": "StrWhiteSpaceChar :: VT (U+000B)",
+    "test": "//CHECK#1\nif (parseFloat(\"\\u000B1.1\") !== parseFloat(\"1.1\")) {\n  $ERROR('#1: parseFloat(\"\\\\u000B1.1\") === parseFloat(\"1.1\"). Actual: ' + (parseFloat(\"\\u000B1.1\")));\n}\n\n//CHECK#2\nif (parseFloat(\"\\u000B\\u000B-1.1\") !== parseFloat(\"-1.1\")) {\n  $ERROR('#2: parseFloat(\"\\\\u000B\\\\u000B-1.1\") === parseFloat(\"-1.1\"). Actual: ' + (parseFloat(\"\\u000B\\u000B-1.1\")));\n}\n\n//CHECK#3\nif (isNaN(parseFloat(\"\\u000B\")) !== true) {\n  $ERROR('#3: parseFloat(\"\\\\u000B\") === Not-a-Number. Actual: ' + (parseFloat(\"\\u000B\")));\n}\n",
+    "id": "S15.1.2.3_A2_T5"
+   },
+   {
+    "section": "15.1.2.3",
+    "description": "StrWhiteSpaceChar :: CR (U+000D)",
+    "test": "//CHECK#1\nif (parseFloat(\"\\u000D1.1\") !== parseFloat(\"1.1\")) {\n  $ERROR('#1: parseFloat(\"\\\\u000D1.1\") === parseFloat(\"1.1\"). Actual: ' + (parseFloat(\"\\u000D1.1\")));\n}\n\n//CHECK#2\nif (parseFloat(\"\\u000D\\u000D-1.1\") !== parseFloat(\"-1.1\")) {\n  $ERROR('#2: parseFloat(\"\\\\u000D\\\\u000D-1.1\") === parseFloat(\"-1.1\"). Actual: ' + (parseFloat(\"\\u000D\\u000D-1.1\")));\n}\n\n//CHECK#3\nif (isNaN(parseFloat(\"\\u000D\")) !== true) {\n  $ERROR('#3: parseFloat(\"\\\\u000D\") === Not-a-Number. Actual: ' + (parseFloat(\"\\u000D\")));\n}\n",
+    "id": "S15.1.2.3_A2_T6"
+   },
+   {
+    "section": "15.1.2.3",
+    "description": "StrWhiteSpaceChar :: LF (U+000A)",
+    "test": "//CHECK#1\nif (parseFloat(\"\\u000A1.1\") !== parseFloat(\"1.1\")) {\n  $ERROR('#1: parseFloat(\"\\\\u000A1.1\") === parseFloat(\"1.1\"). Actual: ' + (parseFloat(\"\\u000A1.1\")));\n}\n\n//CHECK#2\nif (parseFloat(\"\\u000A\\u000A-1.1\") !== parseFloat(\"-1.1\")) {\n  $ERROR('#2: parseFloat(\"\\\\u000A\\\\u000A-1.1\") === parseFloat(\"-1.1\"). Actual: ' + (parseFloat(\"\\u000A\\u000A-1.1\")));\n}\n\n//CHECK#3\nif (isNaN(parseFloat(\"\\u000A\")) !== true) {\n  $ERROR('#3: parseFloat(\"\\\\u000A\") === Not-a-Number. Actual: ' + (parseFloat(\"\\u000A\")));\n}\n",
+    "id": "S15.1.2.3_A2_T7"
+   },
+   {
+    "section": "15.1.2.3",
+    "description": "StrWhiteSpaceChar :: LS (U+2028)",
+    "test": "//CHECK#1\nif (parseFloat(\"\\u20281.1\") !== parseFloat(\"1.1\")) {\n  $ERROR('#1: parseFloat(\"\\\\u20281.1\") === parseFloat(\"1.1\"). Actual: ' + (parseFloat(\"\\u20281.1\")));\n}\n\n//CHECK#2\nif (parseFloat(\"\\u2028\\u2028-1.1\") !== parseFloat(\"-1.1\")) {\n  $ERROR('#2: parseFloat(\"\\\\u2028\\\\u2028-1.1\") === parseFloat(\"-1.1\"). Actual: ' + (parseFloat(\"\\u2028\\u2028-1.1\")));\n}\n\n//CHECK#3\nif (isNaN(parseFloat(\"\\u2028\")) !== true) {\n  $ERROR('#3: parseFloat(\"\\\\u2028\") === Not-a-Number. Actual: ' + (parseFloat(\"\\u2028\")));\n}\n",
+    "id": "S15.1.2.3_A2_T8"
+   },
+   {
+    "section": "15.1.2.3",
+    "description": "StrWhiteSpaceChar :: PS (U+2029)",
+    "test": "//CHECK#1\nif (parseFloat(\"\\u20291.1\") !== parseFloat(\"1.1\")) {\n  $ERROR('#1: parseFloat(\"\\\\u20291.1\") === parseFloat(\"1.1\"). Actual: ' + (parseFloat(\"\\u20291.1\")));\n}\n\n//CHECK#2\nif (parseFloat(\"\\u2029\\u2029-1.1\") !== parseFloat(\"-1.1\")) {\n  $ERROR('#2: parseFloat(\"\\\\u2029\\\\u2029-1.1\") === parseFloat(\"-1.1\"). Actual: ' + (parseFloat(\"\\u2029\\u2029-1.1\")));\n}\n\n//CHECK#3\nif (isNaN(parseFloat(\"\\u2029\")) !== true) {\n  $ERROR('#3: parseFloat(\"\\\\u2029\") === Not-a-Number. Actual: ' + (parseFloat(\"\\u2029\")));\n}\n",
+    "id": "S15.1.2.3_A2_T9"
+   },
+   {
+    "section": "15.1.2.3, 9.3.1",
+    "description": "parseFloat(\"some string\") return NaN",
+    "test": "//CHECK#1\nif (isNaN(parseFloat(\"str\")) !== true) {\n  $ERROR('#1: parseFloat(\"str\") === Not-a-Number. Actual: ' + (parseFloat(\"str\")));\n}\n\n//CHECK#2\nif (isNaN(parseFloat(\"s1\")) !== true) {\n  $ERROR('#2: parseFloat(\"s1\") === Not-a-Number. Actual: ' + (parseFloat(\"s1\")));\n}\n\n//CHECK#3\nif (isNaN(parseFloat(\"\")) !== true) {\n  $ERROR('#3: parseFloat(\"\") === Not-a-Number. Actual: ' + (parseFloat(\"\")));\n}\n\n//CHECK#4\nif (String(parseFloat(\"str\")) !== \"NaN\") {\n  $ERROR('#4: String(parseFloat(\"str\")) === \"NaN\". Actual: ' + (String(parseFloat(\"str\"))));\n}\n\n//CHECK#5\nif (String(parseFloat(\"s1\")) !== \"NaN\") {\n  $ERROR('#5: String(parseFloat(\"s1\")) === \"NaN\". Actual: ' + (String(parseFloat(\"s1\"))));\n}\n\n//CHECK#6\nif (String(parseFloat(\"\")) !== \"NaN\") {\n  $ERROR('#6: String(parseFloat(\"\")) === \"NaN\". Actual: ' + (String(parseFloat(\"\"))));\n}\n\n//CHECK#7\nif (String(parseFloat(\"+\")) !== \"NaN\") {\n  $ERROR('#7: String(parseFloat(\"+\")) === \"NaN\". Actual: ' + (String(parseFloat(\"+\"))));\n}\n",
+    "id": "S15.1.2.3_A3_T1"
+   },
+   {
+    "section": "15.1.2.3, 9.3.1",
+    "description": "parseFloat(\"wrong number format with ExponentIndicator\") return NaN",
+    "test": "//CHECK#1\nif (isNaN(parseFloat(\"e1\")) !== true) {\n  $ERROR('#1: parseFloat(\"e1\") === Not-a-Number. Actual: ' + (parseFloat(\"e1\")));\n}\n\n//CHECK#2\nif (isNaN(parseFloat(\"e-1\")) !== true) {\n  $ERROR('#2: parseFloat(\"e-1\") === Not-a-Number. Actual: ' + (parseFloat(\"e-1\")));\n}\n\n//CHECK#3\nif (isNaN(parseFloat(\"E+1\")) !== true) {\n  $ERROR('#3: parseFloat(\"E+1\") === Not-a-Number. Actual: ' + (parseFloat(\"E+1\")));\n}\n\n//CHECK#4\nif (isNaN(parseFloat(\"E0\")) !== true) {\n  $ERROR('#4: parseFloat(\"E0\") === Not-a-Number. Actual: ' + (parseFloat(\"E0\")));\n}\n\n//CHECK#5\nif (String(parseFloat(\"e1\")) !== \"NaN\") {\n  $ERROR('#5: String(parseFloat(\"e1\")) === \"NaN\". Actual: ' + (String(parseFloat(\"e1\"))));\n}\n\n//CHECK#6\nif (String(parseFloat(\"e-1\")) !== \"NaN\") {\n  $ERROR('#6: String(parseFloat(\"e-1\")) === \"NaN\". Actual: ' + (String(parseFloat(\"e-1\"))));\n}\n\n//CHECK#7\nif (String(parseFloat(\"E+1\")) !== \"NaN\") {\n  $ERROR('#73: String(parseFloat(\"E+1\")) === \"NaN\". Actual: ' + (String(parseFloat(\"E+1\"))));\n}\n\n//CHECK#8\nif (String(parseFloat(\"E0\")) !== \"NaN\") {\n  $ERROR('#8: String(parseFloat(\"E0\")) === \"NaN\". Actual: ' + (String(parseFloat(\"E0\"))));\n}\n\n//CHECK#9\nif (isNaN(parseFloat(\"-.e-1\")) !== true) {\n  $ERROR('#9: parseFloat(\"-.e-1\") === Not-a-Number. Actual: ' + (parseFloat(\"-.e-1\")));\n}\n\n//CHECK#10\nif (isNaN(parseFloat(\".e1\")) !== true) {\n  $ERROR('#10: parseFloat(\".e1\") === Not-a-Number. Actual: ' + (parseFloat(\".e1\")));\n}\n",
+    "id": "S15.1.2.3_A3_T2"
+   },
+   {
+    "section": "15.1.2.3, 9.3.1",
+    "description": "parseFloat(\"wrong numbr format\") return NaN",
+    "test": "//CHECK#1\nif (isNaN(parseFloat(\".x\")) !== true) {\n  $ERROR('#1: parseFloat(\".x\") === Not-a-Number. Actual: ' + (parseFloat(\".x\")));\n}\n\n//CHECK#2\nif (isNaN(parseFloat(\"+x\")) !== true) {\n  $ERROR('#2: parseFloat(\"+x\") === Not-a-Number. Actual: ' + (parseFloat(\"+x\")));\n}\n\n//CHECK#3\nif (isNaN(parseFloat(\"infinity\")) !== true) {\n  $ERROR('#3: parseFloat(\"infinity\") === Not-a-Number. Actual: ' + (parseFloat(\"infinity\")));\n}\n\n//CHECK#4\nif (isNaN(parseFloat(\"A\")) !== true) {\n  $ERROR('#4: parseFloat(\"A\") === Not-a-Number. Actual: ' + (parseFloat(\"A\")));\n}\n\n//CHECK#5\nif (String(parseFloat(\".s\")) !== \"NaN\") {\n  $ERROR('#5: String(parseFloat(\".s\")) === \"NaN\". Actual: ' + (String(parseFloat(\".s\"))));\n}\n\n//CHECK#6\nif (String(parseFloat(\"+x\")) !== \"NaN\") {\n  $ERROR('#6: String(parseFloat(\"+x\")) === \"NaN\". Actual: ' + (String(parseFloat(\"+x\"))));\n}\n\n//CHECK#7\nif (String(parseFloat(\"infinity\")) !== \"NaN\") {\n  $ERROR('#73: String(parseFloat(\"infinity\")) === \"NaN\". Actual: ' + (String(parseFloat(\"infinity\"))));\n}\n\n//CHECK#8\nif (String(parseFloat(\"A\")) !== \"NaN\") {\n  $ERROR('#8: String(parseFloat(\"A\")) === \"NaN\". Actual: ' + (String(parseFloat(\"A\"))));\n}\n",
+    "id": "S15.1.2.3_A3_T3"
+   },
+   {
+    "section": "15.1.2.3, 9.3.1",
+    "description": "Some wrong number",
+    "test": "//CHECK#1\nif (parseFloat(\"0x\") !== 0) {\n  $ERROR('#1: parseFloat(\"0x\") === 0. Actual: ' + (parseFloat(\"0x\")));\n}\n\n//CHECK#2\nif (parseFloat(\"11x\") !== 11) {\n  $ERROR('#2: parseFloat(\"11x\") === 11. Actual: ' + (parseFloat(\"11x\")));\n}\n\n//CHECK#3\nif (parseFloat(\"11s1\") !== 11) {\n  $ERROR('#3: parseFloat(\"11s1\") === 11. Actual: ' + (parseFloat(\"11s1\")));\n}\n\n//CHECK#4\nif (parseFloat(\"11.s1\") !== 11) {\n  $ERROR('#4: parseFloat(\"11.s1\") === 11. Actual: ' + (parseFloat(\"11.s1\")));\n}\n\n//CHECK#5\nif (parseFloat(\".0s1\") !== 0) {\n  $ERROR('#5: parseFloat(\".0s1\") === 0. Actual: ' + (parseFloat(\".0s1\")));\n}\n\n//CHECK#6\nif (parseFloat(\"1.s1\") !== 1) {\n  $ERROR('#6: parseFloat(\"1.s1\") === 1. Actual: ' + (parseFloat(\"1.s1\")));\n}\n\n//CHECK#7\nif (parseFloat(\"1..1\") !== 1) {\n  $ERROR('#7: parseFloat(\"1..1\") === 1. Actual: ' + (parseFloat(\"1..1\")));\n}\n\n//CHECK#8\nif (parseFloat(\"0.1.1\") !== 0.1) {\n  $ERROR('#8: parseFloat(\"0.1.1\") === 0.1. Actual: ' + (parseFloat(\"0.1.1\")));\n}\n\n//CHECK#9\nif (parseFloat(\"0. 1\") !== 0) {\n  $ERROR('#9: parseFloat(\"0. 1\") === 0. Actual: ' + (parseFloat(\"0. 1\")));\n}\n",
+    "id": "S15.1.2.3_A4_T1"
+   },
+   {
+    "section": "15.1.2.3, 9.3.1",
+    "description": "With ExponentIndicator",
+    "test": "//CHECK#1\nif (parseFloat(\"1ex\") !== 1) {\n  $ERROR('#1: parseFloat(\"1ex\") === 1. Actual: ' + (parseFloat(\"1ex\")));\n}\n\n//CHECK#2\nif (parseFloat(\"1e-x\") !== 1) {\n  $ERROR('#2: parseFloat(\"1e-x\") === 1. Actual: ' + (parseFloat(\"1e-x\")));\n}\n\n//CHECK#3\nif (parseFloat(\"1e1x\") !== 10) {\n  $ERROR('#3: parseFloat(\"1e1x\") === 10. Actual: ' + (parseFloat(\"1e1x\")));\n}\n\n//CHECK#4\nif (parseFloat(\"1e-1x\") !== 0.1) {\n  $ERROR('#4: parseFloat(\"1e-1x\") === 0.1. Actual: ' + (parseFloat(\"1e-1x\")));\n}\n\n//CHECK#5\nif (parseFloat(\"0.1e-1x\") !== 0.01) {\n  $ERROR('#5: parseFloat(\"0.1e-1x\") === 0.01. Actual: ' + (parseFloat(\"0.1e-1x\")));\n}\n",
+    "id": "S15.1.2.3_A4_T2"
+   },
+   {
+    "section": "15.1.2.3, 9.3.1",
+    "description": "StrDecimalLiteral not contain HexIntegerLiteral",
+    "test": "//CHECK#0\nif (parseFloat(\"0x0\") !== 0) {\n  $ERROR('#0: parseFloat(\"0x0\") === 0. Actual: ' + (parseFloat(\"0x0\")));\n}\n\n//CHECK#1\nif (parseFloat(\"0x1\") !== 0) {\n  $ERROR('#1: parseFloat(\"0x1\") === 0. Actual: ' + (parseFloat(\"0x1\")));\n}\n\n//CHECK#2\nif (parseFloat(\"0x2\") !== 0) {\n  $ERROR('#2: parseFloat(\"0x2\") === 0. Actual: ' + (parseFloat(\"0x2\")));\n}\n\n//CHECK#3\nif (parseFloat(\"0x3\") !== 0) {\n  $ERROR('#3: parseFloat(\"0x3\") === 0. Actual: ' + (parseFloat(\"0x3\")));\n}\n\n//CHECK#4\nif (parseFloat(\"0x4\") !== 0) {\n  $ERROR('#4: parseFloat(\"0x4\") === 0. Actual: ' + (parseFloat(\"0x4\")));\n}\n\n//CHECK#5\nif (parseFloat(\"0x5\") !== 0) {\n  $ERROR('#5: parseFloat(\"0x5\") === 0. Actual: ' + (parseFloat(\"0x5\")));\n}\n\n//CHECK#6\nif (parseFloat(\"0x6\") !== 0) {\n  $ERROR('#6: parseFloat(\"0x6\") === 0. Actual: ' + (parseFloat(\"0x6\")));\n}\n\n//CHECK#7\nif (parseFloat(\"0x7\") !== 0) {\n  $ERROR('#7: parseFloat(\"0x7\") === 0. Actual: ' + (parseFloat(\"0x7\")));\n}\n\n//CHECK#8\nif (parseFloat(\"0x8\") !== 0) {\n  $ERROR('#8: parseFloat(\"0x8\") === 0. Actual: ' + (parseFloat(\"0x8\")));\n}\n\n//CHECK#9\nif (parseFloat(\"0x9\") !== 0) {\n  $ERROR('#9: parseFloat(\"0x9\") === 0. Actual: ' + (parseFloat(\"0x9\")));\n}\n\n//CHECK#A\nif (parseFloat(\"0xA\") !== 0) {\n  $ERROR('#A: parseFloat(\"0xA\") === 0. Actual: ' + (parseFloat(\"0xA\")));\n}\n\n//CHECK#B\nif (parseFloat(\"0xB\") !== 0) {\n  $ERROR('#B: parseFloat(\"0xB\") === 0. Actual: ' + (parseFloat(\"0xB\")));\n}\n\n//CHECK#C\nif (parseFloat(\"0xC\") !== 0) {\n  $ERROR('#C: parseFloat(\"0xC\") === 0. Actual: ' + (parseFloat(\"0xC\")));\n}\n\n//CHECK#D\nif (parseFloat(\"0xD\") !== 0) {\n  $ERROR('#D: parseFloat(\"0xD\") === 0. Actual: ' + (parseFloat(\"0xD\")));\n}\n\n//CHECK#E\nif (parseFloat(\"0xE\") !== 0) {\n  $ERROR('#E: parseFloat(\"0xE\") === 0. Actual: ' + (parseFloat(\"0xE\")));\n}\n\n//CHECK#F\nif (parseFloat(\"0xF\") !== 0) {\n  $ERROR('#F: parseFloat(\"0xF\") === 0. Actual: ' + (parseFloat(\"0xF\")));\n}\n",
+    "id": "S15.1.2.3_A4_T3"
+   },
+   {
+    "section": "15.1.2.3, 9.3.1",
+    "description": "\"Infinity\"+\"some string\"",
+    "test": "//CHECK#1\nif (parseFloat(\"Infinity1\") !== Number.POSITIVE_INFINITY) {\n  $ERROR('#1: parseFloat(\"Infinity1\") === Number.POSITIVE_INFINITY. Actual: ' + (parseFloat(\"Infinity1\")));\n}\n\n//CHECK#2\nif (parseFloat(\"Infinityx\") !== Number.POSITIVE_INFINITY) {\n  $ERROR('#2: parseFloat(\"Infinityx\") === Number.POSITIVE_INFINITY. Actual: ' + (parseFloat(\"Infinityx\")));\n}\n\n//CHECK#3\nif (parseFloat(\"Infinity+1\") !== Number.POSITIVE_INFINITY) {\n  $ERROR('#3: parseFloat(\"Infinity+1\") === Number.POSITIVE_INFINITY. Actual: ' + (parseFloat(\"Infinity+1\")));\n}\n",
+    "id": "S15.1.2.3_A4_T4"
+   },
+   {
+    "section": "15.1.2.3, 9.3.1",
+    "description": "Checking DecimalDigits . DecimalDigits_opt ExponentPart_opt",
+    "test": "//CHECK#1\nif (parseFloat(\"-11.string\") !== -11) {\n  $ERROR('#1: parseFloat(\"-11.string\") === -11. Actual: ' + (parseFloat(\"-11.string\")));\n}\n\n//CHECK#2\nif (parseFloat(\"01.string\") !== 1) {\n  $ERROR('#2: parseFloat(\"01.string\") === 1. Actual: ' + (parseFloat(\"01.string\")));\n}\n\n//CHECK#3\nif (parseFloat(\"+11.1string\") !== 11.1) {\n  $ERROR('#3: parseFloat(\"+11.1string\") === 11.1. Actual: ' + (parseFloat(\"+11.1string\")));\n}\n\n//CHECK#4\nif (parseFloat(\"01.1string\") !== 1.1) {\n  $ERROR('#4: parseFloat(\"01.1string\") === 1.1. Actual: ' + (parseFloat(\"01.1string\")));\n}\n\n//CHECK#5\nif (parseFloat(\"-11.e-1string\") !== -1.1) {\n  $ERROR('#5: parseFloat(\"-11.e-1string\") === -1.1. Actual: ' + (parseFloat(\"-11.e-1string\")));\n}\n\n//CHECK#6\nif (parseFloat(\"01.e1string\") !== 10) {\n  $ERROR('#6: parseFloat(\"01.e1string\") === 10. Actual: ' + (parseFloat(\"01.e1string\")));\n}\n\n//CHECK#7\nif (parseFloat(\"+11.22e-1string\") !== 1.122) {\n  $ERROR('#7: parseFloat(\"+11.22e-1string\") === 1.122. Actual: ' + (parseFloat(\"+11.22e-1string\")));\n}\n\n//CHECK#8\nif (parseFloat(\"01.01e1string\") !== 10.1) {\n  $ERROR('#8: parseFloat(\"01.01e1string\") === 10.1. Actual: ' + (parseFloat(\"01.01e1string\")));\n}\n\n//CHECK#9\nif (parseFloat(\"001.string\") !== 1) {\n  $ERROR('#9: parseFloat(\"001.string\") === 1. Actual: ' + (parseFloat(\"001.string\")));\n}\n\n//CHECK#10\nif (parseFloat(\"010.string\") !== 10) {\n  $ERROR('#10: parseFloat(\"010.string\") === 10. Actual: ' + (parseFloat(\"010.string\")));\n}\n",
+    "id": "S15.1.2.3_A4_T5"
+   },
+   {
+    "section": "15.1.2.3, 9.3.1",
+    "description": "Checking . DecimalDigits ExponentPart_opt",
+    "test": "//CHECK#1\nif (parseFloat(\"+.1string\") !== 0.1) {\n  $ERROR('#1: parseFloat(\"+.1string\") === 0.1. Actual: ' + (parseFloat(\"+.1string\")));\n}\n\n//CHECK#2\nif (parseFloat(\".01string\") !== 0.01) {\n  $ERROR('#2: parseFloat(\".01string\") === 0.01. Actual: ' + (parseFloat(\".01string\")));\n}\n\n//CHECK#3\nif (parseFloat(\"+.22e-1string\") !== 0.022) {\n  $ERROR('#3: parseFloat(\"+.22e-1string\") === 0.022. Actual: ' + (parseFloat(\"+.22e-1string\")));\n}\n",
+    "id": "S15.1.2.3_A4_T6"
+   },
+   {
+    "section": "15.1.2.3, 9.3.1",
+    "description": "Checking DecimalDigits ExponentPart_opt",
+    "test": "//CHECK#1\nif (parseFloat(\"-11string\") !== -11) {\n  $ERROR('#1: parseFloat(\"-11string\") === -11. Actual: ' + (parseFloat(\"-11string\")));\n}\n\n//CHECK#2\nif (parseFloat(\"01string\") !== 1) {\n  $ERROR('#2: parseFloat(\"01string\") === 1. Actual: ' + (parseFloat(\"01string\")));\n}\n\n//CHECK#3\nif (parseFloat(\"-11e-1string\") !== -1.1) {\n  $ERROR('#3: parseFloat(\"-11e-1string\") === -1.1. Actual: ' + (parseFloat(\"-11e-1string\")));\n}\n\n//CHECK#4\nif (parseFloat(\"01e1string\") !== 10) {\n  $ERROR('#4: parseFloat(\"01e1string\") === 10. Actual: ' + (parseFloat(\"01e1string\")));\n}\n\n//CHECK#5\nif (parseFloat(\"001string\") !== 1) {\n  $ERROR('#5: parseFloat(\"001string\") === 1. Actual: ' + (parseFloat(\"001string\")));\n}\n\n//CHECK#6\nif (parseFloat(\"1e001string\") !== 10) {\n  $ERROR('#6: parseFloat(\"1e001string\") === 10. Actual: ' + (parseFloat(\"1e001string\")));\n}\n\n//CHECK#7\nif (parseFloat(\"010string\") !== 10) {\n  $ERROR('#7: parseFloat(\"010string\") === 10. Actual: ' + (parseFloat(\"010string\")));\n}\n",
+    "id": "S15.1.2.3_A4_T7"
+   },
+   {
+    "section": "15.1.2.3, 9.3.1",
+    "description": "Checking Infinity",
+    "test": "//CHECK#1\nif (parseFloat(\"Infinity\") !== Number.POSITIVE_INFINITY) {\n  $ERROR('#1: parseFloat(\"Infinity\") === Number.POSITIVE_INFINITY. Actual: ' + (parseFloat(\"Infinity\")));\n}\n\n//CHECK#2\nif (parseFloat(\"+Infinity\") !== Number.POSITIVE_INFINITY) {\n  $ERROR('#2: parseFloat(\"+Infinity\") === Number.POSITIVE_INFINITY. Actual: ' + (parseFloat(\"+Infinity\")));\n}\n\n//CHECK#3\nif (parseFloat(\"-Infinity\") !== Number.NEGATIVE_INFINITY) {\n  $ERROR('#3: parseFloat(\"-Infinity\") === Number.NEGATIVE_INFINITY. Actual: ' + (parseFloat(\"-Infinity\")));\n}\n",
+    "id": "S15.1.2.3_A5_T1"
+   },
+   {
+    "section": "15.1.2.3, 9.3.1",
+    "description": "Checking DecimalDigits . DecimalDigits_opt ExponentPart_opt",
+    "test": "//CHECK#1\nif (parseFloat(\"-11.\") !== -11) {\n  $ERROR('#1: parseFloat(\"-11.\") === -11. Actual: ' + (parseFloat(\"-11.\")));\n}\n\n//CHECK#2\nif (parseFloat(\"01.\") !== 1) {\n  $ERROR('#2: parseFloat(\"01.\") === 1. Actual: ' + (parseFloat(\"01.\")));\n}\n\n//CHECK#3\nif (parseFloat(\"+11.1\") !== 11.1) {\n  $ERROR('#3: parseFloat(\"+11.1\") === 11.1. Actual: ' + (parseFloat(\"+11.1\")));\n}\n\n//CHECK#4\nif (parseFloat(\"01.1\") !== 1.1) {\n  $ERROR('#4: parseFloat(\"01.1\") === 1.1. Actual: ' + (parseFloat(\"01.1\")));\n}\n\n//CHECK#5\nif (parseFloat(\"-11.e-1\") !== -1.1) {\n  $ERROR('#5: parseFloat(\"-11.e-1\") === -1.1. Actual: ' + (parseFloat(\"-11.e-1\")));\n}\n\n//CHECK#6\nif (parseFloat(\"01.e1\") !== 10) {\n  $ERROR('#6: parseFloat(\"01.e1\") === 10. Actual: ' + (parseFloat(\"01.e1\")));\n}\n\n//CHECK#7\nif (parseFloat(\"+11.22e-1\") !== 1.122) {\n  $ERROR('#7: parseFloat(\"+11.22e-1\") === 1.122. Actual: ' + (parseFloat(\"+11.22e-1\")));\n}\n\n//CHECK#8\nif (parseFloat(\"01.01e1\") !== 10.1) {\n  $ERROR('#8: parseFloat(\"01.01e1\") === 10.1. Actual: ' + (parseFloat(\"01.01e1\")));\n}\n\n//CHECK#9\nif (parseFloat(\"001.\") !== 1) {\n  $ERROR('#9: parseFloat(\"001.\") === 1. Actual: ' + (parseFloat(\"001.\")));\n}\n\n//CHECK#10\nif (parseFloat(\"010.\") !== 10) {\n  $ERROR('#10: parseFloat(\"010.\") === 10. Actual: ' + (parseFloat(\"010.\")));\n}\n",
+    "id": "S15.1.2.3_A5_T2"
+   },
+   {
+    "section": "15.1.2.3, 9.3.1",
+    "description": "Checking . DecimalDigits ExponentPart_opt",
+    "test": "//CHECK#1\nif (parseFloat(\"+.1\") !== 0.1) {\n  $ERROR('#1: parseFloat(\"+.1\") === 0.1. Actual: ' + (parseFloat(\"+.1\")));\n}\n\n//CHECK#2\nif (parseFloat(\".01\") !== 0.01) {\n  $ERROR('#2: parseFloat(\".01\") === 0.01. Actual: ' + (parseFloat(\".01\")));\n}\n\n//CHECK#3\nif (parseFloat(\"+.22e-1\") !== 0.022) {\n  $ERROR('#3: parseFloat(\"+.22e-1\") === 0.022. Actual: ' + (parseFloat(\"+.22e-1\")));\n}\n",
+    "id": "S15.1.2.3_A5_T3"
+   },
+   {
+    "section": "15.1.2.3, 9.3.1",
+    "description": "Checking DecimalDigits ExponentPart_opt",
+    "test": "//CHECK#1\nif (parseFloat(\"-11\") !== -11) {\n  $ERROR('#1: parseFloat(\"-11\") === -11. Actual: ' + (parseFloat(\"-11\")));\n}\n\n//CHECK#2\nif (parseFloat(\"01\") !== 1) {\n  $ERROR('#2: parseFloat(\"01\") === 1. Actual: ' + (parseFloat(\"01\")));\n}\n\n//CHECK#3\nif (parseFloat(\"-11e-1\") !== -1.1) {\n  $ERROR('#3: parseFloat(\"-11e-1\") === -1.1. Actual: ' + (parseFloat(\"-11e-1\")));\n}\n\n//CHECK#4\nif (parseFloat(\"01e1\") !== 10) {\n  $ERROR('#4: parseFloat(\"01e1\") === 10. Actual: ' + (parseFloat(\"01e1\")));\n}\n\n//CHECK#5\nif (parseFloat(\"001\") !== 1) {\n  $ERROR('#5: parseFloat(\"001\") === 1. Actual: ' + (parseFloat(\"001\")));\n}\n\n//CHECK#6\nif (parseFloat(\"1e001\") !== 10) {\n  $ERROR('#6: parseFloat(\"1e001\") === 10. Actual: ' + (parseFloat(\"1e001\")));\n}\n\n//CHECK#7\nif (parseFloat(\"010\") !== 10) {\n  $ERROR('#7: parseFloat(\"010\") === 10. Actual: ' + (parseFloat(\"010\")));\n}\n",
+    "id": "S15.1.2.3_A5_T4"
+   },
+   {
+    "section": "15.1.2.3, 9.3.1",
+    "description": "Complex test without eval",
+    "test": "//CHECK\nvar errorCount = 0;\nvar count = 0;\nvar indexP;\nvar indexO = 0;\nfor (var index = 0; index <= 65535; index++) {  \n  if ((index < 0x0030) || (index > 0x0039)) {    \n    var hex = decimalToHexString(index);\n    if (parseFloat(\"0.1e1\" + String.fromCharCode(index)) !== 1) {       \n      if (indexO === 0) { \n        indexO = index;\n      } else {\n        if ((index - indexP) !== 1) {             \n          if ((indexP - indexO) !== 0) {\n            var hexP = decimalToHexString(indexP);\n            var hexO = decimalToHexString(indexO);\n            $ERROR('#' + hexO + '-' + hexP + ' ');\n          } \n          else {\n            var hexP = decimalToHexString(indexP);\n            $ERROR('#' + hexP + ' ');\n          }  \n          indexO = index;\n        }         \n      }\n      indexP = index;\n      errorCount++;    \n    }   \n    count++;\n  }  \n}\n\nif (errorCount > 0) {\n  if ((indexP - indexO) !== 0) {\n    var hexP = decimalToHexString(indexP);\n    var hexO = decimalToHexString(indexO);\n    $ERROR('#' + hexO + '-' + hexP + ' ');\n  } else {\n    var hexP = decimalToHexString(indexP);\n    $ERROR('#' + hexP + ' ');\n  }     \n  $ERROR('Total error: ' + errorCount + ' bad Unicode character in ' + count + ' ');\n}\n\nfunction decimalToHexString(n) {\n  n = Number(n);\n  var h = \"\";\n  for (var i = 3; i >= 0; i--) {\n    if (n >= Math.pow(16, i)) {\n      var t = Math.floor(n / Math.pow(16, i));\n      n -= t * Math.pow(16, i);\n      if ( t >= 10 ) {\n        if ( t == 10 ) { h += \"A\"; }\n        if ( t == 11 ) { h += \"B\"; }\n        if ( t == 12 ) { h += \"C\"; }\n        if ( t == 13 ) { h += \"D\"; }\n        if ( t == 14 ) { h += \"E\"; }\n        if ( t == 15 ) { h += \"F\"; }\n      } else {\n        h += String(t);\n      }\n    } else {\n      h += \"0\";\n    }\n  }\n  return h;\n}\n",
+    "id": "S15.1.2.3_A6"
+   },
+   {
+    "section": "15.1.2.3, 15.2.4.7, 12.6.4",
+    "description": "Checking use propertyIsEnumerable, for-in",
+    "test": "//CHECK#1\nif (parseFloat.propertyIsEnumerable('length') !== false) {\n  $ERROR('#1: parseFloat.propertyIsEnumerable(\\'length\\') === false. Actual: ' + (parseFloat.propertyIsEnumerable('length')));\n}\n\n//CHECK#2\nvar result = true;\nfor (var p in parseFloat){\n  if (p === \"length\") {\n    result = false;\n  }  \n}\n\nif (result !== true) {\n  $ERROR('#2: result = true; for (p in parseFloat) { if (p === \"length\") result = false; }  result === true;');\n}\n",
+    "id": "S15.1.2.3_A7.1"
+   },
+   {
+    "section": "15.1.2.3, 15.2.4.5, 11.4.1",
+    "description": "Checking use hasOwnProperty, delete",
+    "strict_mode_negative": "",
+    "test": "//CHECK#1\nif (parseFloat.hasOwnProperty('length') !== true) {\n  $FAIL('#1: parseFloat.hasOwnProperty(\\'length\\') === true. Actual: ' + (parseFloat.hasOwnProperty('length')));\n}\n\ndelete parseFloat.length;\n\n//CHECK#2\nif (parseFloat.hasOwnProperty('length') !== true) {\n  $ERROR('#2: delete parseFloat.length; parseFloat.hasOwnProperty(\\'length\\') === true. Actual: ' + (parseFloat.hasOwnProperty('length')));\n}\n\n//CHECK#3\nif (parseFloat.length === undefined) {\n  $ERROR('#3: delete parseFloat.length; parseFloat.length !== undefined');\n}\n",
+    "id": "S15.1.2.3_A7.2",
+    "strict_only": ""
+   },
+   {
+    "section": "15.1.2.3",
+    "description": "Checking if varying the length property fails",
+    "strict_mode_negative": "",
+    "test": "//CHECK#1\nvar x = parseFloat.length;\nparseFloat.length = Infinity;\nif (parseFloat.length !== x) {\n  $ERROR('#1: x = parseFloat.length; parseFloat.length = Infinity; parseFloat.length === x. Actual: ' + (parseFloat.length));\n}\n\n",
+    "id": "S15.1.2.3_A7.3",
+    "strict_only": ""
+   },
+   {
+    "section": "15.1.2.3",
+    "description": "parseFloat.length === 1",
+    "test": "//CHECK#1\nif (parseFloat.length !== 1) {\n  $ERROR('#1: parseFloat.length === 1. Actual: ' + (parseFloat.length));\n} \n\n",
+    "id": "S15.1.2.3_A7.4"
+   },
+   {
+    "section": "15.1.2.3, 15.2.4.7, 12.6.4",
+    "description": "Checking use propertyIsEnumerable, for-in",
+    "test": "//CHECK#1\nif (this.propertyIsEnumerable('parseFloat') !== false) {\n  $ERROR('#1:this.propertyIsEnumerable(\\'parseFloat\\') === false. Actual: ' + (this.propertyIsEnumerable('parseFloat')));\n}\n\n//CHECK#2\nvar result = true;\nfor (var p in this){\n  if (p === \"parseFloat\") {\n    result = false;\n  }  \n}\n\nif (result !== true) {\n  $ERROR('#2: result = true; for (p in this) { if (p === \"parseFloat\") result = false; }  result === true;');\n}\n",
+    "id": "S15.1.2.3_A7.5"
+   },
+   {
+    "section": "15.1.2.3",
+    "description": "Checking parseFloat.prototype",
+    "test": "//CHECK#1\nif (parseFloat.prototype !== undefined) {\n  $ERROR('#1: parseFloat.prototype === undefined. Actual: ' + (parseFloat.prototype));\n}\n",
+    "id": "S15.1.2.3_A7.6"
+   },
+   {
+    "section": "15.1.2.3, 11.2.2",
+    "description": "If property does not implement the internal [[Construct]] method, throw a TypeError exception",
+    "test": "//CHECK#1\n\ntry {\n  new parseFloat();\n  $ERROR('#1.1: new parseFloat() throw TypeError. Actual: ' + (new parseFloat()));\n} catch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#1.2: new parseFloat() throw TypeError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.1.2.3_A7.7"
+   }
+  ]
+ }
+}

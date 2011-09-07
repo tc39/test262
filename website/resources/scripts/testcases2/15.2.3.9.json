@@ -1,0 +1,315 @@
+{
+ "testCollection": {
+  "name": "15.2.3.9",
+  "numTests": 44,
+  "tests": [
+   {
+    "id": "15.2.3.9-0-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-0-1.js",
+    "description": "Object.freeze must exist as a function",
+    "test": "assertTrue((function testcase() {\n  var f = Object.freeze;\n  if (typeof(f) === \"function\") {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "15.2.3.9-0-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-0-2.js",
+    "description": "Object.freeze must exist as a function taking 1 parameter",
+    "test": "assertTrue((Object.freeze.length === 1));\n",
+    "precondition": "(fnExists(Object.freeze))"
+   },
+   {
+    "id": "15.2.3.9-1-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-1-1.js",
+    "description": "Object.freeze throws TypeError if type of first param is undefined",
+    "test": "assertTrue((function testcase() {\n        try {\n            Object.freeze(undefined);\n            return false;\n        } catch (e) {\n            return e instanceof TypeError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze))"
+   },
+   {
+    "id": "15.2.3.9-1-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-1-2.js",
+    "description": "Object.freeze throws TypeError if type of first param is null",
+    "test": "assertTrue((function testcase() {\n        try {\n            Object.freeze(null);\n            return false;\n        } catch (e) {\n            return e instanceof TypeError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze))"
+   },
+   {
+    "id": "15.2.3.9-1-3",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-1-3.js",
+    "description": "Object.freeze throws TypeError if type of first param is boolean primitive",
+    "test": "assertTrue((function testcase() {\n        var result = false;\n        try {\n            Object.freeze(false);\n\n            return false;\n        } catch (e) {\n            result = e instanceof TypeError;\n        }\n        try {\n            Object.freeze(true);\n\n            return false;\n        } catch (e) {\n            return result && e instanceof TypeError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze))"
+   },
+   {
+    "id": "15.2.3.9-1-4",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-1-4.js",
+    "description": "Object.freeze throws TypeError if type of first param is string primitive",
+    "test": "assertTrue((function testcase() {\n        try {\n            Object.freeze(\"abc\");\n            return false;\n        } catch (e) {\n            return e instanceof TypeError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze))"
+   },
+   {
+    "id": "15.2.3.9-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-1.js",
+    "description": "Object.freeze throws TypeError if type of first param is not Object",
+    "test": "assertTrue((function testcase() {\n        try {\n            Object.freeze(0);\n            return false;\n        } catch (e) {\n            return e instanceof TypeError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze))"
+   },
+   {
+    "id": "15.2.3.9-2-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-1.js",
+    "description": "Object.freeze - extensible of 'O' is set as false even if 'O' has no own property",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n\n        Object.freeze(obj);\n\n        return !Object.isExtensible(obj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.9-2-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-2.js",
+    "description": "Object.freeze - inherited data properties are not frozen",
+    "test": "assertTrue((function testcase() {\n        var proto = {};\n\n        Object.defineProperty(proto, \"Father\", {\n            value: 10,\n            configurable: true\n        });\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n        Object.freeze(child);\n\n        var beforeDeleted = proto.hasOwnProperty(\"Father\");\n        delete proto.Father;\n        var afterDeleted = proto.hasOwnProperty(\"Father\");\n\n        return beforeDeleted && !afterDeleted;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.defineProperty))"
+   },
+   {
+    "id": "15.2.3.9-2-3",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-3.js",
+    "description": "Object.freeze - inherited accessor properties are not frozen",
+    "test": "assertTrue((function testcase() {\n        var proto = {};\n\n        Object.defineProperty(proto, \"Father\", {\n            get: function () {\n                return 10;\n            },\n            configurable: true\n        });\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n        Object.freeze(child);\n\n        var beforeDeleted = proto.hasOwnProperty(\"Father\");\n        delete proto.Father;\n        var afterDeleted = proto.hasOwnProperty(\"Father\");\n\n        return beforeDeleted && !afterDeleted;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.defineProperty))"
+   },
+   {
+    "id": "15.2.3.9-2-4",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-4.js",
+    "description": "Object.freeze - Non-enumerable own properties of 'O' are frozen",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n\n        Object.defineProperty(obj, \"foo\", {\n            value: 10,\n            enumerable: false,\n            configurable: true\n        });\n\n        Object.freeze(obj);\n\n        var desc = Object.getOwnPropertyDescriptor(obj, \"foo\");\n\n        var beforeDeleted = obj.hasOwnProperty(\"foo\");\n        delete obj.foo;\n        var afterDeleted = obj.hasOwnProperty(\"foo\");\n\n        return beforeDeleted && afterDeleted && desc.configurable === false && desc.writable === false;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "15.2.3.9-2-a-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-1.js",
+    "description": "Object.freeze - 'P' is own data property",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n\n        obj.foo = 10; // default [[Configurable]] attribute value of foo: true\n\n        Object.freeze(obj);\n\n        var desc = Object.getOwnPropertyDescriptor(obj, \"foo\");\n\n        delete obj.foo;\n        return obj.foo === 10 && desc.configurable === false && desc.writable === false;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "15.2.3.9-2-a-10",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-10.js",
+    "description": "Object.freeze - 'P' is own named property of an Array object that uses Object's [[GetOwnProperty]]",
+    "test": "assertTrue((function testcase() {\n        var arrObj = [];\n\n        arrObj.foo = 10; // default [[Configurable]] attribute value of foo: true\n\n        Object.freeze(arrObj);\n\n        var desc = Object.getOwnPropertyDescriptor(arrObj, \"foo\");\n\n        delete arrObj.foo;\n        return arrObj.foo === 10 && desc.configurable === false && desc.writable === false;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "15.2.3.9-2-a-11",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-11.js",
+    "description": "Object.freeze - 'P' is own index property of the Arguments object that implements its own [[GetOwnProperty]]",
+    "test": "assertTrue((function testcase() {\n\n        // default [[Configurable]] attribute value of \"0\": true\n        var argObj = (function () { return arguments; }(1, 2, 3));\n\n        Object.freeze(argObj);\n\n        var desc = Object.getOwnPropertyDescriptor(argObj, \"0\");\n\n        delete argObj[0];\n        return argObj[0] === 1 && desc.configurable === false && desc.writable === false;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "15.2.3.9-2-a-12",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-12.js",
+    "description": "Object.freeze - 'P' is own index property of a String object that implements its own [[GetOwnProperty]]",
+    "test": "assertTrue((function testcase() {\n\n        // default [[Configurable]] attribute value of \"0\": true\n        var strObj = new String(\"abc\");\n\n        Object.freeze(strObj);\n\n        var desc = Object.getOwnPropertyDescriptor(strObj, \"0\");\n\n        delete strObj[0];\n        return strObj[0] === \"a\" && desc.configurable === false && desc.writable === false;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "15.2.3.9-2-a-13",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-13.js",
+    "description": "Object.freeze - 'P' is own index property of the Object",
+    "test": "assertTrue((function testcase() {\n\n        // default [[Configurable]] attribute value of \"0\": true\n        var obj = { 0: 0, 1: 1, length: 2};\n\n        Object.freeze(obj);\n\n        var desc = Object.getOwnPropertyDescriptor(obj, \"0\");\n\n        delete obj[0];\n        return obj[0] === 0 && desc.configurable === false && desc.writable === false;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "15.2.3.9-2-a-14",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-14.js",
+    "description": "Object.freeze - 'P' is own index property of an Array object that uses Object's [[GetOwnProperty]]",
+    "test": "assertTrue((function testcase() {\n\n        // default [[Configurable]] attribute value of \"0\": true\n        var arrObj = [0, 1, 2];\n\n        Object.freeze(arrObj);\n\n        var desc = Object.getOwnPropertyDescriptor(arrObj, \"0\");\n\n        delete arrObj[0];\n        return arrObj[0] === 0 && desc.configurable === false && desc.writable === false;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "15.2.3.9-2-a-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-2.js",
+    "description": "Object.freeze - 'P' is own data property that overrides an inherited data property",
+    "test": "assertTrue((function testcase() {\n\n        var proto = { foo: 0 }; // default [[Configurable]] attribute value of foo: true\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n\n        child.foo = 10; // default [[Configurable]] attribute value of foo: true\n \n        Object.freeze(child);\n\n        var desc = Object.getOwnPropertyDescriptor(child, \"foo\");\n\n        delete child.foo;\n        return child.foo === 10 && desc.configurable === false && desc.writable === false;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "15.2.3.9-2-a-3",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-3.js",
+    "description": "Object.freeze - 'P' is own data property that overrides an inherited accessor property",
+    "test": "assertTrue((function testcase() {\n        var proto = {};\n\n        Object.defineProperty(proto, \"foo\", {\n            get: function () {\n                return 0;\n            },\n            configurable: true\n        });\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n        Object.defineProperty(child, \"foo\", {\n            value: 10,\n            configurable: true\n        });\n\n        Object.freeze(child);\n\n        var desc = Object.getOwnPropertyDescriptor(child, \"foo\");\n\n        delete child.foo;\n        return child.foo === 10 && desc.configurable === false && desc.writable === false;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "15.2.3.9-2-a-4",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-4.js",
+    "description": "Object.freeze - 'P' is own accessor property",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n\n        Object.defineProperty(obj, \"foo\", {\n            get: function () {\n                return 10;\n            },\n            configurable: true\n        });\n\n        Object.freeze(obj);\n\n        var desc = Object.getOwnPropertyDescriptor(obj, \"foo\");\n\n        delete obj.foo;\n        return obj.foo === 10 && desc.configurable === false;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "15.2.3.9-2-a-5",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-5.js",
+    "description": "Object.freeze - 'P' is own accessor property that overrides an inherited data property",
+    "test": "assertTrue((function testcase() {\n\n        var proto = {};\n\n        proto.foo = 0; // default [[Configurable]] attribute value of foo: true\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n\n        Object.defineProperty(child, \"foo\", {\n            get: function () {\n                return 10;\n            },\n            configurable: true\n        });\n\n        Object.freeze(child);\n\n        var desc = Object.getOwnPropertyDescriptor(child, \"foo\");\n\n        delete child.foo;\n        return child.foo === 10 && desc.configurable === false;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "15.2.3.9-2-a-6",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-6.js",
+    "description": "Object.freeze - 'P' is own accessor property that overrides an inherited accessor property",
+    "test": "assertTrue((function testcase() {\n        var proto = {};\n\n        Object.defineProperty(proto, \"foo\", {\n            get: function () {\n                return 0;\n            },\n            configurable: true\n        });\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n\n        Object.defineProperty(child, \"foo\", {\n            get: function () {\n                return 10;\n            },\n            configurable: true\n        });\n\n        Object.freeze(child);\n\n        var desc = Object.getOwnPropertyDescriptor(child, \"foo\");\n\n        delete child.foo;\n        return child.foo === 10 && desc.configurable === false;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "15.2.3.9-2-a-7",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-7.js",
+    "description": "Object.freeze - 'P' is own named property of an Arguments object that implements its own [[GetOwnProperty]]",
+    "test": "assertTrue((function testcase() {\n        var argObj = (function () { return arguments; }());\n\n        argObj.foo = 10; // default [[Configurable]] attribute value of foo: true\n\n        Object.freeze(argObj);\n\n        var desc = Object.getOwnPropertyDescriptor(argObj, \"foo\");\n\n        delete argObj.foo;\n        return argObj.foo === 10 && desc.configurable === false && desc.writable === false;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "15.2.3.9-2-a-8",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-8.js",
+    "description": "Object.freeze - 'P' is own named property of the String object that implements its own [[GetOwnProperty]]",
+    "test": "assertTrue((function testcase() {\n        var strObj = new String(\"abc\");\n\n        strObj.foo = 10; // default [[Configurable]] attribute value of foo: true\n\n        Object.freeze(strObj);\n\n        var desc = Object.getOwnPropertyDescriptor(strObj, \"foo\");\n\n        delete strObj.foo;\n        return strObj.foo === 10 && desc.configurable === false && desc.writable === false;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "15.2.3.9-2-a-9",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-9.js",
+    "description": "Object.freeze - 'P' is own property of the Function object that uses Object's [[GetOwnProperty]]",
+    "test": "assertTrue((function testcase() {\n        var funObj = function () { };\n\n        funObj.foo = 10; // default [[Configurable]] attribute value of foo: true\n\n        Object.freeze(funObj);\n\n        var desc = Object.getOwnPropertyDescriptor(funObj, \"foo\");\n\n        delete funObj.foo;\n        return funObj.foo === 10 && desc.configurable === false && desc.writable === false;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "15.2.3.9-2-b-i-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-b-i-1.js",
+    "description": "Object.freeze - The [[Wrtiable]] attribute of own data property of 'O' is set to false while other attributes are unchanged",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n\n        Object.defineProperty(obj, \"foo\", {\n            value: 10,\n            writable: true,\n            enumerable: true,\n            configurable: false\n        });\n\n        Object.freeze(obj);\n        var desc = Object.getOwnPropertyDescriptor(obj, \"foo\");\n\n        return dataPropertyAttributesAreCorrect(obj, \"foo\", 10, false, true, false) &&\n            desc.writable === false && desc.configurable === false;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "15.2.3.9-2-b-i-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-b-i-2.js",
+    "description": "Object.freeze - The [[Wrtiable]] attribute of all own data property of 'O' is set to false while other attributes are unchanged",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n\n        Object.defineProperty(obj, \"foo1\", {\n            value: 10,\n            writable: false,\n            enumerable: true,\n            configurable: false\n        });\n\n        Object.defineProperty(obj, \"foo2\", {\n            value: 20,\n            writable: true,\n            enumerable: false,\n            configurable: false\n        });\n\n        Object.freeze(obj);\n\n        var desc1 = Object.getOwnPropertyDescriptor(obj, \"foo1\");\n        var desc2 = Object.getOwnPropertyDescriptor(obj, \"foo2\");\n\n        return dataPropertyAttributesAreCorrect(obj, \"foo1\", 10, false, true, false) &&\n            dataPropertyAttributesAreCorrect(obj, \"foo2\", 20, false, false, false) &&\n            desc1.configurable === false && desc1.writable === false &&\n            desc2.configurable === false && desc2.writable === false;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "15.2.3.9-2-c-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-c-1.js",
+    "description": "Object.freeze - The [[Configurable]] attribute of own data property of 'O' is set to false while other attributes are unchanged",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n\n        Object.defineProperty(obj, \"foo\", {\n            value: 10,\n            writable: false,\n            enumerable: true,\n            configurable: true\n        });\n\n        Object.freeze(obj);\n        var desc = Object.getOwnPropertyDescriptor(obj, \"foo\");\n\n        return dataPropertyAttributesAreCorrect(obj, \"foo\", 10, false, true, false) &&\n            desc.configurable === false && desc.writable === false;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "15.2.3.9-2-c-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-c-2.js",
+    "description": "Object.freeze - The [[Configurable]] attribute of own accessor property of 'O' is set to false while other attributes are unchanged",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n\n        function get_func() {\n            return 10;\n        }\n\n        var resultSetFun = false;\n        function set_func() {\n            resultSetFun = true;\n        }\n\n        Object.defineProperty(obj, \"foo\", {\n            get: get_func,\n            set: set_func,\n            enumerable: true,\n            configurable: true\n        });\n\n        Object.freeze(obj);\n        var res1 = obj.hasOwnProperty(\"foo\");\n        delete obj.foo;\n        var res2 = obj.hasOwnProperty(\"foo\");\n        var resultConfigurable = (res1 && res2);\n\n        var resultGetFun = (obj.foo === 10);\n        obj.foo = 12;\n\n        var resultEnumerable = false;\n        for (var prop in obj) {\n            if (prop === \"foo\") {\n                resultEnumerable = true;\n            }\n        }\n\n        var desc = Object.getOwnPropertyDescriptor(obj, \"foo\");\n        var result = resultConfigurable && resultEnumerable && resultGetFun && resultSetFun;\n\n        return desc.configurable === false && result;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "15.2.3.9-2-c-3",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-c-3.js",
+    "description": "Object.freeze - The [[Configurable]] attribute of all own data property of 'O' is set to false while other attributes are unchanged",
+    "test": "assertTrue((function testcase() {\n\n        var obj = {};\n        var resultSetFun = false;\n\n        Object.defineProperty(obj, \"foo1\", {\n            value: 10,\n            writable: false,\n            enumerable: true,\n            configurable: true\n        });\n\n        function get_func() {\n            return 10;\n        }\n\n        function set_func() {\n            resultSetFun = true;\n        }\n\n        Object.defineProperty(obj, \"foo2\", {\n            get: get_func,\n            set: set_func,\n            enumerable: true,\n            configurable: true\n        });\n\n        Object.freeze(obj);\n\n        var res1 = obj.hasOwnProperty(\"foo2\");\n        delete obj.foo2;\n        var res2 = obj.hasOwnProperty(\"foo2\");\n        var resultConfigurable = (res1 && res2);\n\n        var resultGetFun = (obj.foo2 === 10);\n        obj.foo2 = 12;\n\n        var resultEnumerable = false;\n        for (var prop in obj) {\n            if (prop === \"foo2\") {\n                resultEnumerable = true;\n            }\n        }\n\n        var desc1 = Object.getOwnPropertyDescriptor(obj, \"foo1\");\n        var desc2 = Object.getOwnPropertyDescriptor(obj, \"foo2\");\n\n        var result = resultConfigurable && resultEnumerable && resultGetFun && resultSetFun;\n\n        return dataPropertyAttributesAreCorrect(obj, \"foo1\", 10, false, true, false) && result &&\n            desc1.configurable === false && desc1.writable === false && desc2.configurable === false;\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "15.2.3.9-2-c-4",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-c-4.js",
+    "description": "Object.freeze - all own properties of 'O' are not writable and not configurable",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n        var resultSetFun = false;\n\n        Object.defineProperty(obj, \"foo1\", {\n            value: 10,\n            writable: false,\n            enumerable: true,\n            configurable: false\n        });\n\n        function get_func() {\n            return 10;\n        }\n\n        function set_func() {\n            resultSetFun = true;\n        }\n\n        Object.defineProperty(obj, \"foo2\", {\n            get: get_func,\n            set: set_func,\n            enumerable: true,\n            configurable: true\n        });\n\n        Object.freeze(obj);\n\n        var res1 = obj.hasOwnProperty(\"foo2\");\n        delete obj.foo2;\n        var res2 = obj.hasOwnProperty(\"foo2\");\n        var resultConfigurable = (res1 && res2);\n\n        var resultGetFun = (obj.foo2 === 10);\n        obj.foo2 = 12;\n\n        var resultEnumerable = false;\n        for (var prop in obj) {\n            if (prop === \"foo2\") {\n                resultEnumerable = true;\n            }\n        }\n\n        var desc1 = Object.getOwnPropertyDescriptor(obj, \"foo1\");\n        var desc2 = Object.getOwnPropertyDescriptor(obj, \"foo2\");\n\n        var result = resultConfigurable && resultEnumerable && resultGetFun && resultSetFun;\n\n        return dataPropertyAttributesAreCorrect(obj, \"foo1\", 10, false, true, false) &&\n            result && desc1.configurable === false && desc1.writable === false && desc2.configurable === false;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "15.2.3.9-2-d-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-d-1.js",
+    "description": "Object.freeze - 'O' is a Function object",
+    "test": "assertTrue((function testcase() {\n        var funObj = function () { };\n\n        Object.freeze(funObj);\n\n        return Object.isFrozen(funObj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.9-2-d-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-d-2.js",
+    "description": "Object.freeze - 'O' is an Array object",
+    "test": "assertTrue((function testcase() {\n        var arrObj = [0, 1];\n\n        Object.freeze(arrObj);\n\n        return Object.isFrozen(arrObj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.9-2-d-3",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-d-3.js",
+    "description": "Object.freeze - 'O' is a String object",
+    "test": "assertTrue((function testcase() {\n        var strObj = new String(\"a\");\n\n        Object.freeze(strObj);\n\n        return Object.isFrozen(strObj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.9-2-d-4",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-d-4.js",
+    "description": "Object.freeze - 'O' is a Boolean object",
+    "test": "assertTrue((function testcase() {\n        var boolObj = new Boolean(false);\n\n        Object.freeze(boolObj);\n\n        return Object.isFrozen(boolObj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.9-2-d-5",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-d-5.js",
+    "description": "Object.freeze - 'O' is a Number object",
+    "test": "assertTrue((function testcase() {\n        var numObj = new Number(3);\n\n        Object.freeze(numObj);\n\n        return Object.isFrozen(numObj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.9-2-d-6",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-d-6.js",
+    "description": "Object.freeze - 'O' is a Date object",
+    "test": "assertTrue((function testcase() {\n        var dateObj = new Date();\n\n        Object.freeze(dateObj);\n\n        return Object.isFrozen(dateObj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.9-2-d-7",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-d-7.js",
+    "description": "Object.freeze - 'O' is a RegExp object",
+    "test": "assertTrue((function testcase() {\n        var regObj = new RegExp();\n\n        Object.freeze(regObj);\n\n        return Object.isFrozen(regObj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.9-2-d-8",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-d-8.js",
+    "description": "Object.freeze - 'O' is an Error object",
+    "test": "assertTrue((function testcase() {\n        var errObj = new SyntaxError();\n\n        Object.freeze(errObj);\n\n        return Object.isFrozen(errObj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.9-2-d-9",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-d-9.js",
+    "description": "Object.freeze - 'O' is the Arguments object",
+    "test": "assertTrue((function testcase() {\n        var argObj = (function () { return arguments; } ());\n\n        Object.freeze(argObj);\n\n        return Object.isFrozen(argObj);\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.9-3-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-3-1.js",
+    "description": "Object.freeze - returned object is not extensible",
+    "test": "assertTrue((function testcase() {\n\n        var obj = {};\n        Object.freeze(obj);\n        return !Object.isExtensible(obj);\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.9-4-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-4-1.js",
+    "description": "Object.freeze - 'O' is sealed already",
+    "test": "assertTrue((function testcase() {\n\n        var obj = {};\n\n        obj.foo = 10; // default value of attributes: writable: true, enumerable: true\n\n        Object.seal(obj);\n\n        Object.freeze(obj);\n        return Object.isFrozen(obj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.seal) && fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.9-4-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-4-2.js",
+    "description": "Object.freeze - 'O' is frozen already",
+    "test": "assertTrue((function testcase() {\n\n        var obj = {};\n\n        obj.foo = 10; // default value of attributes: writable: true, enumerable: true\n\n        Object.freeze(obj);\n\n        Object.freeze(obj);\n        return Object.isFrozen(obj);\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.9-4-3",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-4-3.js",
+    "description": "Object.freeze - the extensions of 'O' is prevented already",
+    "test": "assertTrue((function testcase() {\n\n        var obj = {};\n\n        obj.foo = 10; // default value of attributes: writable: true, enumerable: true\n\n        Object.preventExtensions(obj);\n\n        Object.freeze(obj);\n        return Object.isFrozen(obj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.freeze) && fnExists(Object.isFrozen) && fnExists(Object.preventExtensions))"
+   }
+  ]
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "testCollection": {
+  "name": "15.7.3.1",
+  "numTests": 2,
+  "tests": [
+   {
+    "id": "15.7.3.1-1",
+    "path": "TestCases/chapter15/15.7/15.7.3/15.7.3.1/15.7.3.1-1.js",
+    "description": "Number.prototype is a data property with default attribute values (false)",
+    "test": "assertTrue((function testcase() {\n  var d = Object.getOwnPropertyDescriptor(Number, 'prototype');\n  \n  if (d.writable === false &&\n      d.enumerable === false &&\n      d.configurable === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "15.7.3.1-2",
+    "path": "TestCases/chapter15/15.7/15.7.3/15.7.3.1/15.7.3.1-2.js",
+    "description": "Number.prototype, initial value is the Number prototype object",
+    "test": "assertTrue((function testcase() {\n  // assume that Number.prototype has not been modified.\n  return Object.getPrototypeOf(new Number(42))===Number.prototype;\n }).call(this));\n",
+    "precondition": "(fnExists(Object.getPrototypeOf))"
+   }
+  ]
+ }
+}

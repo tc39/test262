@@ -1,0 +1,83 @@
+{
+ "testCollection": {
+  "name": "10.4.2",
+  "numTests": 11,
+  "tests": [
+   {
+    "id": "10.4.2-1-1",
+    "path": "TestCases/chapter10/10.4/10.4.2/10.4.2-1-1.js",
+    "description": "Indirect call to eval has context set to global context",
+    "test": "var __10_4_2_1_1_1 = \"str\";assertTrue((function testcase() {\n  try {\n\n    var _eval = eval;\n    var __10_4_2_1_1_1 = \"str1\";\n    if(_eval(\"\\'str\\' === __10_4_2_1_1_1\") === true &&  // indirect eval\n       eval(\"\\'str1\\' === __10_4_2_1_1_1\") === true) {   // direct eval\n       return true;\n    }\n    return false;\n  } finally {\n    delete this.__10_4_2_1_1_1;\n  }\n}).call(this));\n"
+   },
+   {
+    "id": "10.4.2-1-2",
+    "path": "TestCases/chapter10/10.4/10.4.2/10.4.2-1-2.js",
+    "description": "Indirect call to eval has context set to global context (nested function)",
+    "test": "var __10_4_2_1_2 = \"str\";assertTrue((function testcase() {\n        try {\n\n            var _eval = eval;\n            var __10_4_2_1_2 = \"str1\";\n            function foo() {\n                var __10_4_2_1_2 = \"str2\";\n                if(_eval(\"\\'str\\' === __10_4_2_1_2\") === true &&  // indirect eval\n                    eval(\"\\'str2\\' === __10_4_2_1_2\") === true) {   // direct eval\n                    return true;\n                } else {\n                    return false;\n                }\n            }\n            return foo();\n        } finally {\n            delete this.__10_4_2_1_1_2;\n        }\n    }).call(this));\n"
+   },
+   {
+    "id": "10.4.2-1-3",
+    "path": "TestCases/chapter10/10.4/10.4.2/10.4.2-1-3.js",
+    "description": "Indirect call to eval has context set to global context (catch block)",
+    "test": "var __10_4_2_1_3 = \"str\";assertTrue((function testcase() {\n\n        try {\n\n            var _eval = eval;\n            var __10_4_2_1_3 = \"str1\";\n            try {\n                throw \"error\";\n            }\n            catch (e) {\n                var __10_4_2_1_3 = \"str2\";\n                if (_eval(\"\\'str\\' === __10_4_2_1_3\") === true &&  // indirect eval\n                    eval(\"\\'str2\\' === __10_4_2_1_3\") === true) {  // direct eval\n                    return true;\n                } else {\n                    return false;\n                }\n            }\n        } finally {\n            delete this.__10_4_2_1_3;\n        }\n    }).call(this));\n"
+   },
+   {
+    "id": "10.4.2-1-4",
+    "path": "TestCases/chapter10/10.4/10.4.2/10.4.2-1-4.js",
+    "description": "Indirect call to eval has context set to global context (with block)",
+    "test": "var __10_4_2_1_4 = \"str\";assertTrue((function testcase() {\n        try {\n            var o = new Object();\n            o.__10_4_2_1_4 = \"str2\";\n            var _eval = eval;\n            var __10_4_2_1_4 = \"str1\";\n            with (o) {\n                if (_eval(\"\\'str\\' === __10_4_2_1_4\") === true &&  // indirect eval\n                    eval(\"\\'str2\\' === __10_4_2_1_4\") === true) {  // direct eval\n                    return true;\n                }\n            }\n            return false;\n        } finally {\n            delete this.__10_4_2_1_4;\n        }\n    }).call(this));\n"
+   },
+   {
+    "id": "10.4.2-1-5",
+    "path": "TestCases/chapter10/10.4/10.4.2/10.4.2-1-5.js",
+    "description": "Indirect call to eval has context set to global context (inside another eval)",
+    "test": "var __10_4_2_1_5 = \"str\";assertTrue((function testcase() {\n        try {\n\n            var __10_4_2_1_5 = \"str1\";\n            var r = eval(\"\\\n                          var _eval = eval; \\\n                          var __10_4_2_1_5 = \\'str2\\'; \\\n                          _eval(\\\"\\'str\\' === __10_4_2_1_5 \\\") && \\\n                          eval(\\\"\\'str2\\' === __10_4_2_1_5\\\")\\\n                        \");\n            return r;\n        } finally {\n            delete this.__10_4_2_1_5;\n        }\n    }).call(this));\n"
+   },
+   {
+    "id": "10.4.2-2-c-1",
+    "path": "TestCases/chapter10/10.4/10.4.2/10.4.2-2-c-1.js",
+    "description": "Direct val code in non-strict mode - can instantiate variable in calling context",
+    "test": "assertTrue((function testcase() {\n  var x = 0;\n  return function inner() {\n     eval(\"var x = 1\");\n     if (x === 1)\n        return true;\n     } ();\n   }).call(this));\n"
+   },
+   {
+    "id": "10.4.2-2-s",
+    "path": "TestCases/chapter10/10.4/10.4.2/10.4.2-2-s.js",
+    "description": "Strict Mode - Strict mode eval code cannot instantiate functions in the variable environment of the caller to eval",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        eval(\"(function fun(x){ return x })(10)\");\n        return typeof (fun) === \"undefined\";\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "10.4.2-3-c-1-s",
+    "path": "TestCases/chapter10/10.4/10.4.2/10.4.2-3-c-1-s.js",
+    "description": "Direct eval code in strict mode - cannot instantiate variable in the variable environment of the calling context",
+    "test": "assertTrue((function testcase() {\n  var _10_4_2_3_c_1_s = 0;\n  function _10_4_2_3_c_1_sFunc() {\n     eval(\"'use strict';var _10_4_2_3_c_1_s = 1\");\n     return _10_4_2_3_c_1_s===0;\n  } \n  return _10_4_2_3_c_1_sFunc();\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.4.2-3-c-2-s",
+    "path": "TestCases/chapter10/10.4/10.4.2/10.4.2-3-c-2-s.js",
+    "description": "Calling code in strict mode - eval cannot instantiate variable in the variable environment of the calling context",
+    "test": "assertTrue((function testcase() {\n  var _10_4_2_3_c_2_s = 0;\n  function _10_4_2_3_c_2_sFunc() {\n     'use strict';\n     eval(\"var _10_4_2_3_c_2_s = 1\");\n     return _10_4_2_3_c_2_s===0;\n  }\n  return _10_4_2_3_c_2_sFunc();\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.4.2.1-2-s",
+    "path": "TestCases/chapter10/10.4/10.4.2/10.4.2.1-2-s.js",
+    "description": "Strict Mode - Strict mode eval code cannot instantiate functions in the variable environment of the caller to eval",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        eval(\"function _10_4_2_1_2_fun(){}\");\n        return typeof _10_4_2_1_2_fun === \"undefined\";\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.4.2.1-4-s",
+    "path": "TestCases/chapter10/10.4/10.4.2/10.4.2.1-4-s.js",
+    "description": "Strict Mode - Strict mode eval code cannot instantiate functions in the variable environment of the caller to eval which is contained in strict mode code",
+    "test": "assertTrue((function testcase() {\n\n        eval(\"'use strict'; function _10_4_2_1_4_fun(){}\");\n        return typeof _10_4_2_1_4_fun === \"undefined\";\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   }
+  ]
+ }
+}

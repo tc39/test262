@@ -1,0 +1,26 @@
+{
+ "testCollection": {
+  "name": "15.8.2.1_abs",
+  "numTests": 3,
+  "tests": [
+   {
+    "section": "15.8.2.1",
+    "description": "Checking if Math.abs(NaN) is NaN",
+    "test": "// CHECK#1\nvar x = NaN;\nif (!isNaN(Math.abs(x)))\n{\n\t$ERROR(\"#1: 'var x=NaN; isNaN(Math.abs(x)) === false'\");\n}\n",
+    "id": "S15.8.2.1_A1"
+   },
+   {
+    "section": "15.8.2.1",
+    "description": "Checking if Math.abs(-0) equals to +0",
+    "test": "// CHECK#1\nvar x = -0;\nif (Math.abs(x) !== +0)\n{\n\t$ERROR(\"#1: 'var x=-0; Math.abs(x) !== +0'\");\n}\n",
+    "id": "S15.8.2.1_A2"
+   },
+   {
+    "section": "15.8.2.1",
+    "description": "Checking if Math.abs(-Infinity) equals to +Infinity",
+    "test": "// CHECK#1\nvar x = -Infinity;\nif (Math.abs(x) !== +Infinity)\n{\n\t$ERROR(\"#1: 'var x=-Infinity; Math.abs(x) !== +Infinity'\");\n}\n",
+    "id": "S15.8.2.1_A3"
+   }
+  ]
+ }
+}

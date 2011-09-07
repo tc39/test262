@@ -1,0 +1,66 @@
+{
+ "testCollection": {
+  "name": "7.6.1.2",
+  "numTests": 8,
+  "tests": [
+   {
+    "id": "7.6.1-17-s",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1.2/7.6.1-17-s.js",
+    "description": "7.6 - SyntaxError expected: reserved words used as Identifier Names in UTF8: implements (implements)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"var \\u0069mplements = 123;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "7.6.1.2-1-s",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1.2/7.6.1.2-1-s.js",
+    "description": "Strict Mode - SyntaxError is thrown when FutureReservedWord 'implements' occurs in strict mode code",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"var implements = 1;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "7.6.1.2-10-s",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1.2/7.6.1.2-10-s.js",
+    "description": "Strict Mode - SyntaxError isn't thrown when 'IMPLEMENTS' occurs in strict mode code",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var IMPLEMENTS = 1;\n        return IMPLEMENTS === 1;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "7.6.1.2-11-s",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1.2/7.6.1.2-11-s.js",
+    "description": "Strict Mode - SyntaxError isn't thrown when 'Implements' occurs in strict mode code",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var Implements = 1;\n        return Implements === 1;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "7.6.1.2-12-s",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1.2/7.6.1.2-12-s.js",
+    "description": "Strict Mode - SyntaxError isn't thrown when 'implement' occurs in strict mode code",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var implement = 1;\n        return implement === 1;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "7.6.1.2-13-s",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1.2/7.6.1.2-13-s.js",
+    "description": "Strict Mode - SyntaxError isn't thrown when 'implementss' occurs in strict mode code",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var implementss = 1;\n        return implementss === 1;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "7.6.1.2-14-s",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1.2/7.6.1.2-14-s.js",
+    "description": "Strict Mode - SyntaxError isn't thrown when 'implements0' occurs in strict mode code",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var implements0 = 1;\n        return implements0 === 1;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "7.6.1.2-16-s",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1.2/7.6.1.2-16-s.js",
+    "description": "Strict Mode - SyntaxError isn't thrown when '_implements' occurs in strict mode code",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var _implements = 1;\n        return _implements === 1;\n    }).call(this));\n",
+    "strict_only": ""
+   }
+  ]
+ }
+}

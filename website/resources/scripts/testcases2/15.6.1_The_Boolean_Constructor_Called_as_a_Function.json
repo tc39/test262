@@ -1,0 +1,44 @@
+{
+ "testCollection": {
+  "name": "15.6.1_The_Boolean_Constructor_Called_as_a_Function",
+  "numTests": 6,
+  "tests": [
+   {
+    "section": "15.6.1.1",
+    "description": "Used values 1, new String(\"1\"), new Object(1) and called without argument",
+    "test": "//CHECK#1\nif( typeof Boolean() !== \"boolean\" ) {\n  $ERROR('#1: typeof Boolean() should be \"boolean\", actual is \"'+typeof Boolean()+'\"');\n}\n\n//CHECK#2\nif( typeof Boolean(1) !== \"boolean\" ) {\n  $ERROR('#2: typeof Boolean(1) should be \"boolean\", actual is \"'+typeof Boolean(1)+'\"');\n}\n\n//CHECK#3\nif( typeof Boolean(new String(\"1\")) !== \"boolean\" ) {\n  $ERROR('#3: typeof Boolean(new String(\"1\")) should be \"boolean\", actual is \"'+typeof Boolean(new String(\"1\"))+'\"');\n}\n\n//CHECK#4\nif( typeof Boolean(new Object(1)) !== \"boolean\" ) {\n  $ERROR('#4: typeof Boolean(new Object(1)) should be \"boolean\", actual is \"'+typeof Boolean(new Object(1))+'\"');\n}\n\n",
+    "id": "S15.6.1.1_A1_T1"
+   },
+   {
+    "section": "15.6.1.1",
+    "description": "Used various number values as argument",
+    "test": "//CHECK#1\nif( typeof Boolean(0) !== \"boolean\" ) {\n  $ERROR('#1.1: typeof Boolean(0) should be \"boolean\", actual is \"'+typeof Boolean(0)+'\"');\n}\nif( Boolean(0) !== false ) {\n  $ERROR('#1.2: Boolean(0) should be false, actual is '+Boolean(0));\n}\n\n//CHECK#2\nif( typeof Boolean(-1) !== \"boolean\" ) {\n  $ERROR('#2.1: typeof Boolean(-1) should be \"boolean\", actual is \"'+typeof Boolean(-1)+'\"');\n}\nif( Boolean(-1) !== true ) {\n  $ERROR('#2.2: Boolean(-1) should be true, actual is '+Boolean(-1));\n}\n\n//CHECK#3\nif( typeof Boolean(-Infinity) !== \"boolean\" ) {\n  $ERROR('#3.1: typeof Boolean(-Infinity) should be \"boolean\", actual is \"'+typeof Boolean(-Infinity)+'\"');\n}\nif( Boolean(-Infinity) !== true ) {\n  $ERROR('#3.2: Boolean(-Infinity) should be true, actual is '+Boolean(-Infinity));\n}\n\n//CHECK#4\nif( typeof Boolean(NaN) !== \"boolean\" ) {\n  $ERROR('#4.1: typeof Boolean(NaN) should be \"boolean\", actual is \"'+typeof Boolean(NaN)+'\"');\n}\nif( Boolean(NaN) !== false ) {\n  $ERROR('#4.2: Boolean(NaN) should be false, actual is '+Boolean(NaN));\n}\n",
+    "id": "S15.6.1.1_A1_T2"
+   },
+   {
+    "section": "15.6.1.1",
+    "description": "Used various string values as argument",
+    "test": "//CHECK#1\nif( typeof Boolean(\"0\") !== \"boolean\" ) {\n  $ERROR('#1.1: typeof Boolean(\"0\") should be \"boolean\", actual is \"'+typeof Boolean(\"0\")+'\"');\n}\nif( Boolean(\"0\") !== true ) {\n  $ERROR('#1.2: Boolean(\"0\") should be true');\n}\n\n//CHECK#2\nif( typeof Boolean(\"-1\") !== \"boolean\" ) {\n  $ERROR('#2.1: typeof Boolean(\"-1\") should be \"boolean\", actual is \"'+typeof Boolean(\"-1\")+'\"');\n}\nif( Boolean(\"-1\") !== true ) {\n  $ERROR('#2.2: Boolean(\"-1\") should be true');\n}\n\n//CHECK#3\nif( typeof Boolean(\"1\") !== \"boolean\" ) {\n  $ERROR('#3.1: typeof Boolean(\"1\") should be \"boolean\", actual is \"'+typeof Boolean(\"1\")+'\"');\n}\nif( Boolean(\"1\") !== true ) {\n  $ERROR('#3.2: Boolean(\"1\") should be true');\n}\n\n//CHECK#4\nif( typeof Boolean(\"false\") !== \"boolean\" ) {\n  $ERROR('#4.1: typeof Boolean(\"false\") should be \"boolean\", actual is \"'+typeof Boolean(\"false\")+'\"');\n}\nif( Boolean(\"false\") !== true ) {\n  $ERROR('#4.2: Boolean(\"false\") should be true');\n}\n\n//CHECK#5\nif( typeof Boolean(\"true\") !== \"boolean\" ) {\n  $ERROR('#5.1: typeof Boolean(\"true\") should be \"boolean\", actual is \"'+typeof Boolean(\"true\")+'\"');\n}\nif( Boolean(\"true\") !== true ) {\n  $ERROR('#5.2: Boolean(\"true\") should be true');\n}\n",
+    "id": "S15.6.1.1_A1_T3"
+   },
+   {
+    "section": "15.6.1.1",
+    "description": "Used various undefined values and null as argument",
+    "test": "//CHECK#1\nif( typeof Boolean(undefined) !== \"boolean\" ) {\n  $ERROR('#1.1: typeof Boolean(undefined) should be \"boolean\", actual is \"'+typeof Boolean(undefined)+'\"');\n}\nif( Boolean(undefined) !== false ) {\n  $ERROR('#1.2: Boolean(undefined) should be false');\n}\n\n//CHECK#2\nif( typeof Boolean(void 0) !== \"boolean\" ) {\n  $ERROR('#2.1: typeof Boolean(void 0) should be \"boolean\", actual is \"'+typeof Boolean(void 0)+'\"');\n}\nif( Boolean(void 0) !== false ) {\n  $ERROR('#2.2: Boolean(void 0) should be false');\n}\n\n//CHECK#3\nif( typeof Boolean(function(){}()) !== \"boolean\" ) {\n  $ERROR('#3.1: typeof Boolean(function(){}()) should be \"boolean\", actual is \"'+typeof Boolean(function(){}())+'\"');\n}\nif( Boolean(function(){}()) !== false ) {\n  $ERROR('#3.2: Boolean(function(){}()) should be false');\n}\n\n//CHECK#4\nif( typeof Boolean(null) !== \"boolean\" ) {\n  $ERROR('#4.1: typeof Boolean(null) should be \"boolean\", actual is \"'+typeof Boolean(null)+'\"');\n}\nif( Boolean(null) !== false ) {\n  $ERROR('#4.2: Boolean(null) should be false');\n}\n\n//CHECK#5\nif( typeof Boolean(x) !== \"boolean\" ) {\n  $ERROR('#5.1: var x; typeof Boolean(x) should be \"boolean\", actual is \"'+typeof Boolean(x)+'\"');\n}\nif( Boolean(x) !== false ) {\n  $ERROR('#5.2: var x; Boolean(x) should be false');\n}\nvar x;\n",
+    "id": "S15.6.1.1_A1_T4"
+   },
+   {
+    "section": "15.6.1.1",
+    "description": "Used various assigning values to any variable as argument",
+    "test": "//CHECK#1\nif( typeof Boolean(x=0) !== \"boolean\" ) {\n  $ERROR('#1.1: typeof Boolean(x=0) should be \"boolean\", actual is \"'+typeof Boolean(x=0)+'\"');\n}\nif( Boolean(x=0) !== false ) {\n  $ERROR('#1.2: Boolean(x=0) should be false');\n}\n\n//CHECK#2\nif( typeof Boolean(x=1) !== \"boolean\" ) {\n  $ERROR('#2.1: typeof Boolean(x=1) should be \"boolean\", actual is \"'+typeof Boolean(x=1)+'\"');\n}\nif( Boolean(x=1) !== true ) {\n  $ERROR('#2.2: Boolean(x=1) should be true');\n}\n\n//CHECK#3\nif( typeof Boolean(x=false) !== \"boolean\" ) {\n  $ERROR('#3.1: typeof Boolean(x=false) should be \"boolean\", actual is \"'+typeof Boolean(x=false)+'\"');\n}\nif( Boolean(x=false) !== false ) {\n  $ERROR('#3.2: Boolean(x=false) should be false');\n}\n\n//CHECK#4\nif( typeof Boolean(x=true) !== \"boolean\" ) {\n  $ERROR('#4.1: typeof Boolean(x=true) should be \"boolean\", actual is \"'+typeof Boolean(x=true)+'\"');\n}\nif( Boolean(x=true) !== true ) {\n  $ERROR('#4.2: Boolean(x=true) should be true');\n}\n\n//CHECK#5\nif( typeof Boolean(x=null) !== \"boolean\" ) {\n  $ERROR('#5.1: typeof Boolean(x=null) should be \"boolean\", actual is \"'+typeof Boolean(x=null)+'\"');\n}\nif( Boolean(x=null) !== false ) {\n  $ERROR('#5.2: Boolean(x=null) should be false');\n}\n",
+    "id": "S15.6.1.1_A1_T5"
+   },
+   {
+    "section": "15.6.1.1",
+    "description": "Call Boolean() and check result",
+    "test": "//CHECK#1\nif( typeof Boolean() !== \"boolean\" ) {\n  $ERROR('#1: typeof Boolean() should be \"boolean\", actual is \"'+typeof Boolean()+'\"');\n}\n\n//CHECK#2\nif( Boolean() !== false ) {\n  $ERROR('#2: Boolean() should be false');\n}\n",
+    "id": "S15.6.1.1_A2"
+   }
+  ]
+ }
+}

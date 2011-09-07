@@ -1,0 +1,21 @@
+{
+ "testCollection": {
+  "name": "15.10.7.2",
+  "numTests": 2,
+  "tests": [
+   {
+    "id": "15.10.7.2-1",
+    "path": "TestCases/chapter15/15.10/15.10.7/15.10.7.2/15.10.7.2-1.js",
+    "description": "RegExp.prototype.global is of type Boolean",
+    "test": "assertTrue(((typeof(RegExp.prototype.global)) === 'boolean'));\n"
+   },
+   {
+    "id": "15.10.7.2-2",
+    "path": "TestCases/chapter15/15.10/15.10.7/15.10.7.2/15.10.7.2-2.js",
+    "description": "RegExp.prototype.global is a data property with default attribute values (false)",
+    "test": "assertTrue((function testcase() {\n  var desc = Object.getOwnPropertyDescriptor(RegExp.prototype, 'global');\n  \n  if (desc.writable === false &&\n      desc.enumerable === false &&\n      desc.configurable === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.getOwnPropertyDescriptor))"
+   }
+  ]
+ }
+}

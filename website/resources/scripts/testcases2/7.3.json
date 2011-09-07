@@ -1,0 +1,98 @@
+{
+ "testCollection": {
+  "name": "7.3",
+  "numTests": 15,
+  "tests": [
+   {
+    "id": "7.3-1",
+    "path": "TestCases/chapter07/7.3/7.3-1.js",
+    "description": "7.3 - ES5 recognizes the character <LS> (\\u2028) as line terminators when parsing statements",
+    "test": "assertTrue((function testcase() {\n        eval(\"var test\\u2028prop = 66;\");\n        return prop === 66 && !this.hasOwnProperty(\"test\") && typeof test === \"undefined\";\n    }).call(this));\n"
+   },
+   {
+    "id": "7.3-10",
+    "path": "TestCases/chapter07/7.3/7.3-10.js",
+    "description": "7.3 - ES5 recognizes the character <PS> (\\u2029) as a NonEscapeCharacter",
+    "test": "assertTrue((function testcase() {\n        try {\n            eval(\"var prop = \\\\u2029;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n"
+   },
+   {
+    "id": "7.3-11",
+    "path": "TestCases/chapter07/7.3/7.3-11.js",
+    "description": "7.3 - ES5 specifies that a multiline comment that contains a line terminator character <LS> (\\u2028) must be treated as a single line terminator for the purposes of semicolon insertion",
+    "test": "assertTrue((function testcase() {\n        /*MultiLine\n        Comments \n        \\u2028 var = ;\n        */\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.3-12",
+    "path": "TestCases/chapter07/7.3/7.3-12.js",
+    "description": "7.3 - ES5 specifies that a multiline comment that contains a line terminator character <PS> (\\u2029) must be treated as a single line terminator for the purposes of semicolon insertion",
+    "test": "assertTrue((function testcase() {\n        /*MultiLine\n        Comments \n        \\u2029 var = ;\n        */\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.3-13",
+    "path": "TestCases/chapter07/7.3/7.3-13.js",
+    "description": "7.3 - ES5 specifies that a multiline comment that contains a line terminator character <CR> (\\u000D) must be treated as a single line terminator for the purposes of semicolon insertion",
+    "test": "assertTrue((function testcase() {\n        /*MultiLine\n        Comments \n        \\u000D var = ;\n        */\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.3-14",
+    "path": "TestCases/chapter07/7.3/7.3-14.js",
+    "description": "7.3 - ES5 specifies that a multiline comment that contains a line terminator character <LF> (\\u000A) must be treated as a single line terminator for the purposes of semicolon insertion",
+    "test": "assertTrue((function testcase() {\n        /*MultiLine\n        Comments \n        \\u000A var = ;\n        */\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.3-15",
+    "path": "TestCases/chapter07/7.3/7.3-15.js",
+    "description": "7.3 - ES5 recognize <BOM> (\\uFFFF) as a whitespace character",
+    "test": "assertTrue((function testcase() {\n        var prop = \"a\\uFFFFa\";\n        return prop.length === 3 && prop !== \"aa\" && prop[1] === \"\\uFFFF\";\n    }).call(this));\n"
+   },
+   {
+    "id": "7.3-2",
+    "path": "TestCases/chapter07/7.3/7.3-2.js",
+    "description": "7.3 - ES5 recognizes the character <PS> (\\u2029) as line terminators when parsing statements",
+    "test": "assertTrue((function testcase() {\n        eval(\"var test\\u2029prop = 66;\");\n        return prop === 66 && !this.hasOwnProperty(\"test\") && typeof test === \"undefined\";\n    }).call(this));\n"
+   },
+   {
+    "id": "7.3-3",
+    "path": "TestCases/chapter07/7.3/7.3-3.js",
+    "description": "7.3 - ES5 recognizes the character <LS> (\\u2028) as terminating SingleLineComments",
+    "test": "assertTrue((function testcase() {\n        try {\n            eval(\"//Single Line Comments\\u2028 var =;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n"
+   },
+   {
+    "id": "7.3-4",
+    "path": "TestCases/chapter07/7.3/7.3-4.js",
+    "description": "7.3 - ES5 recognizes the character <PS> (\\u2029) as terminating SingleLineComments",
+    "test": "assertTrue((function testcase() {\n        try {\n            eval(\"//Single Line Comments\\u2029 var =;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n"
+   },
+   {
+    "id": "7.3-5",
+    "path": "TestCases/chapter07/7.3/7.3-5.js",
+    "description": "7.3 - ES5 recognizes the character <LS> (\\u2028) as terminating string literal",
+    "test": "assertTrue((function testcase() {\n        var prop = \"66\\u2028123\";\n        return prop === \"66\\u2028123\" && prop[2] === \"\\u2028\" && prop.length === 6;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.3-6",
+    "path": "TestCases/chapter07/7.3/7.3-6.js",
+    "description": "7.3 - ES5 recognizes the character <PS> (\\u2029) as terminating string literal",
+    "test": "assertTrue((function testcase() {\n        var prop = \"66\\u2029123\";\n        return prop === \"66\\u2029123\" && prop[2] === \"\\u2029\" && prop.length === 6;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.3-7",
+    "path": "TestCases/chapter07/7.3/7.3-7.js",
+    "description": "7.3 - ES5 recognizes the character <LS> (\\u2028) as terminating regular expression literals",
+    "test": "assertTrue((function testcase() {\n        try {\n            eval(\"var regExp =  /[\\u2028]/\");\n            regExp.test(\"\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n"
+   },
+   {
+    "id": "7.3-8",
+    "path": "TestCases/chapter07/7.3/7.3-8.js",
+    "description": "7.3 - ES5 recognizes the character <PS> (\\u2029) as terminating regular expression literals",
+    "test": "assertTrue((function testcase() {\n        try {\n            eval(\"var regExp =  /[\\u2029]/\");\n            regExp.test(\"\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n"
+   },
+   {
+    "id": "7.3-9",
+    "path": "TestCases/chapter07/7.3/7.3-9.js",
+    "description": "7.3 - ES5 recognizes the character <LS> (\\u2028) as a NonEscapeCharacter",
+    "test": "assertTrue((function testcase() {\n        try {\n            eval(\"var prop = \\\\u2028;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n"
+   }
+  ]
+ }
+}

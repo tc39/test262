@@ -1,0 +1,80 @@
+{
+ "testCollection": {
+  "name": "12.11_The_switch_Statement",
+  "numTests": 11,
+  "tests": [
+   {
+    "section": "12.11",
+    "description": "Simple test using switch statement",
+    "test": "function SwitchTest(value){\n  var result = 0;\n  \n  switch(value) {\n    case 0:\n      result += 2;\n    case 1:\n      result += 4;\n      break;\n    case 2:\n      result += 8;\n    case 3:\n      result += 16;\n    default:\n      result += 32;\n      break;\n    case 4:\n      result += 64;\n  }\n  \n  return result;\n}\n        \nif(!(SwitchTest(0) === 6)){\n  $ERROR(\"#1: SwitchTest(0) === 6. Actual:  SwitchTest(0) ===\"+ SwitchTest(0)  );\n}\n\nif(!(SwitchTest(1) === 4)){\n  $ERROR(\"#2: SwitchTest(1) === 4. Actual:  SwitchTest(1) ===\"+ SwitchTest(1)  );\n}\n\nif(!(SwitchTest(2) === 56)){\n  $ERROR(\"#3: SwitchTest(2) === 56. Actual:  SwitchTest(2) ===\"+ SwitchTest(2)  );\n}\n\nif(!(SwitchTest(3) === 48)){\n  $ERROR(\"#4: SwitchTest(3) === 48. Actual:  SwitchTest(3) ===\"+ SwitchTest(3)  );\n}\n\nif(!(SwitchTest(4) === 64)){\n  $ERROR(\"#5: SwitchTest(4) === 64. Actual:  SwitchTest(4) ===\"+ SwitchTest(4)  );\n}\n\nif(!(SwitchTest(true) === 32)){\n  $ERROR(\"#6: SwitchTest(true) === 32. Actual:  SwitchTest(true) ===\"+ SwitchTest(true)  );\n}\n\nif(!(SwitchTest(false) === 32)){\n  $ERROR(\"#7: SwitchTest(false) === 32. Actual:  SwitchTest(false) ===\"+ SwitchTest(false)  );\n}\n\nif(!(SwitchTest(null) === 32)){\n  $ERROR(\"#8: SwitchTest(null) === 32. Actual:  SwitchTest(null) ===\"+ SwitchTest(null)  );\n}\n\nif(!(SwitchTest(void 0) === 32)){\n  $ERROR(\"#9: SwitchTest(void 0) === 32. Actual:  SwitchTest(void 0) ===\"+ SwitchTest(void 0)  );\n}\n\nif(!(SwitchTest('0') === 32)){\n  $ERROR(\"#10: SwitchTest('0') === 32. Actual:  SwitchTest('0') ===\"+ SwitchTest('0')  );\n}\n",
+    "id": "S12.11_A1_T1"
+   },
+   {
+    "section": "12.11",
+    "description": "Switch with different types of variables",
+    "test": "var x = new Number(2);\n\nfunction SwitchTest(value){\n  var result = 0;\n  \n  switch(value) {\n    case 0:\n      result += 2;\n    case '1':\n      result += 4;\n      break;\n    case new Number(2):\n      result += 8;\n    case 3:\n      result += 16;\n    default:\n      result += 32;\n      break;\n    case 4:\n      result += 64;\n      break;\n    case x:\n      result += 128;\n      break;\n    case 0:\n      result += 256;\n    case 1:\n      result += 512;\n  }\n  \n  return result;\n}\n        \nif(!(SwitchTest(0) === 6)){\n  $ERROR(\"#1: SwitchTest(0) === 6. Actual:  SwitchTest(0) ===\"+ SwitchTest(0)  );\n}\n\nif(!(SwitchTest(1) === 512)){\n  $ERROR(\"#2: SwitchTest(1) === 512. Actual:  SwitchTest(1) ===\"+ SwitchTest(1)  );\n}\n\nif(!(SwitchTest(2) === 32)){\n  $ERROR(\"#3: SwitchTest(2) === 32. Actual:  SwitchTest(2) ===\"+ SwitchTest(2)  );\n}\n\nif(!(SwitchTest(3) === 48)){\n  $ERROR(\"#4: SwitchTest(3) === 48. Actual:  SwitchTest(3) ===\"+ SwitchTest(3)  );\n}\n\nif(!(SwitchTest(4) === 64)){\n  $ERROR(\"#5: SwitchTest(4) === 64. Actual:  SwitchTest(4) ===\"+ SwitchTest(4)  );\n}\n\nif(!(SwitchTest(true) === 32)){\n  $ERROR(\"#6: SwitchTest(true) === 32. Actual:  SwitchTest(true) ===\"+ SwitchTest(true)  );\n}\n\nif(!(SwitchTest(false) === 32)){\n  $ERROR(\"#7: SwitchTest(false) === 32. Actual:  SwitchTest(false) ===\"+ SwitchTest(false)  );\n}\n\nif(!(SwitchTest(null) === 32)){\n  $ERROR(\"#8: SwitchTest(null) === 32. Actual:  SwitchTest(null) ===\"+ SwitchTest(null)  );\n}\n\nif(!(SwitchTest(void 0) === 32)){\n  $ERROR(\"#9: SwitchTest(void 0) === 32. Actual:  SwitchTest(void 0) ===\"+ SwitchTest(void 0)  );\n}\n\nif(!(SwitchTest('0') === 32)){\n  $ERROR(\"#10: SwitchTest('0') === 32. Actual:  SwitchTest('0') ===\"+ SwitchTest('0')  );\n}\n\nif(!(SwitchTest(x) === 128)){\n  $ERROR(\"#10: SwitchTest(x) === 128. Actual:  SwitchTest(x) ===\"+ SwitchTest(x)  );\n}\n",
+    "id": "S12.11_A1_T2"
+   },
+   {
+    "section": "12.11",
+    "description": "Using case with null, NaN, Infinity",
+    "test": "function SwitchTest(value){\n  var result = 0;\n  \n  switch(value) {\n    case 0:\n      result += 2;\n    case 1:\n      result += 4;\n      break;\n    case 2:\n      result += 8;\n    case 3:\n      result += 16;\n    default:\n      result += 32;\n      break;\n    case null:\n      result += 64;\n    case NaN:\n      result += 128;\n      break;\n    case Infinity:\n      result += 256;\n    case 2+3:\n      result += 512;\n      break;\n    case undefined:\n      result += 1024;\n  }\n  \n  return result;\n}\n        \nif(!(SwitchTest(0) === 6)){\n  $ERROR(\"#1: SwitchTest(0) === 6. Actual:  SwitchTest(0) ===\"+ SwitchTest(0)  );\n}\n\nif(!(SwitchTest(1) === 4)){\n  $ERROR(\"#2: SwitchTest(1) === 4. Actual:  SwitchTest(1) ===\"+ SwitchTest(1)  );\n}\n\nif(!(SwitchTest(2) === 56)){\n  $ERROR(\"#3: SwitchTest(2) === 56. Actual:  SwitchTest(2) ===\"+ SwitchTest(2)  );\n}\n\nif(!(SwitchTest(3) === 48)){\n  $ERROR(\"#4: SwitchTest(3) === 48. Actual:  SwitchTest(3) ===\"+ SwitchTest(3)  );\n}\n\nif(!(SwitchTest(4) === 32)){\n  $ERROR(\"#5: SwitchTest(4) === 32. Actual:  SwitchTest(4) ===\"+ SwitchTest(4)  );\n}\n\nif(!(SwitchTest(5) === 512)){\n  $ERROR(\"#5: SwitchTest(5) === 512. Actual:  SwitchTest(5) ===\"+ SwitchTest(5)  );\n}\n\nif(!(SwitchTest(true) === 32)){\n  $ERROR(\"#6: SwitchTest(true) === 32. Actual:  SwitchTest(true) ===\"+ SwitchTest(true)  );\n}\n\nif(!(SwitchTest(false) === 32)){\n  $ERROR(\"#7: SwitchTest(false) === 32. Actual:  SwitchTest(false) ===\"+ SwitchTest(false)  );\n}\n\nif(!(SwitchTest(null) === 192)){\n  $ERROR(\"#8: SwitchTest(null) === 192. Actual:  SwitchTest(null) ===\"+ SwitchTest(null)  );\n}\n\nif(!(SwitchTest(void 0) === 1024)){\n  $ERROR(\"#9: SwitchTest(void 0) === 1024. Actual:  SwitchTest(void 0) ===\"+ SwitchTest(void 0)  );\n}\n\nif(!(SwitchTest(NaN) === 32)){\n  $ERROR(\"#10: SwitchTest(NaN) === 32. Actual:  SwitchTest(NaN) ===\"+ SwitchTest(NaN)  );\n}\n\nif(!(SwitchTest(Infinity) === 768)){\n  $ERROR(\"#10: SwitchTest(NaN) === 768. Actual:  SwitchTest(NaN) ===\"+ SwitchTest(NaN)  );\n}\n",
+    "id": "S12.11_A1_T3"
+   },
+   {
+    "section": "12.11",
+    "description": "Using case with isNaN and isNaN(value)",
+    "test": "function SwitchTest(value){\n  var result = 0;\n  \n  switch(value) {\n    case 0:\n      result += 2;\n    case 1:\n      result += 4;\n      break;\n    case 2:\n      result += 8;\n    case isNaN(value):\n      result += 16;\n    default:\n      result += 32;\n      break;\n    case null:\n      result += 64;\n    case isNaN:\n      result += 128;\n      break;\n    case Infinity:\n      result += 256;\n    case 2+3:\n      result += 512;\n      break;\n    case undefined:\n      result += 1024;\n  }\n  \n  return result;\n}\n        \nif(!(SwitchTest(eval('Number(false)')) === 6)){\n  $ERROR(\"#1: SwitchTest(0) === 6. Actual:  SwitchTest(0) ===\"+ SwitchTest(0)  );\n}\n\nif(!(SwitchTest(parseInt) === 32)){\n  $ERROR(\"#2: SwitchTest(parseInt) === 32. Actual:  SwitchTest(parseInt) ===\"+ SwitchTest(parseInt)  );\n}\n\nif(!(SwitchTest(isNaN) === 128)){\n  $ERROR(\"#3: SwitchTest(isNaN) === 128. Actual:  SwitchTest(isNaN) ===\"+ SwitchTest(isNaN)  );\n}\n\nif(!(SwitchTest(true) === 32)){\n  $ERROR(\"#6: SwitchTest(true) === 32. Actual:  SwitchTest(true) ===\"+ SwitchTest(true)  );\n}\n\nif(!(SwitchTest(false) === 48)){\n  $ERROR(\"#7: SwitchTest(false) === 48. Actual:  SwitchTest(false) ===\"+ SwitchTest(false)  );\n}\n\nif(!(SwitchTest(null) === 192)){\n  $ERROR(\"#8: SwitchTest(null) === 192. Actual:  SwitchTest(null) ===\"+ SwitchTest(null)  );\n}\n\nif(!(SwitchTest(void 0) === 1024)){\n  $ERROR(\"#9: SwitchTest(void 0) === 1024. Actual:  SwitchTest(void 0) ===\"+ SwitchTest(void 0)  );\n}\n\nif(!(SwitchTest(NaN) === 32)){\n  $ERROR(\"#10: SwitchTest(NaN) === 32. Actual:  SwitchTest(NaN) ===\"+ SwitchTest(NaN)  );\n}\n\nif(!(SwitchTest(Infinity) === 768)){\n  $ERROR(\"#10: SwitchTest(NaN) === 768. Actual:  SwitchTest(NaN) ===\"+ SwitchTest(NaN)  );\n}\n",
+    "id": "S12.11_A1_T4"
+   },
+   {
+    "section": "12.11",
+    "description": "Duplicate DefaultClause",
+    "negative": "",
+    "test": "function SwitchTest(value){\n  var result = 0;\n  \n  switch(value) {\n    case 0:\n      result += 2;\n    default:\n      result += 32;\n      break;\n    default:\n      result += 32;\n      break;\n  }\n  \n  return result;\n}\n\nvar x = SwitchTest(0);\n",
+    "id": "S12.11_A2_T1"
+   },
+   {
+    "section": "12.11",
+    "description": "Checking if execution of \"switch() {}\" fails",
+    "negative": "",
+    "test": "function SwitchTest(value){\n  var result = 0;\n  \n  switch() {\n    case 0:\n      result += 2;\n    default:\n      result += 32;\n      break;\n  }\n  \n  return result;\n}\n\nvar x = SwitchTest(0);\n",
+    "id": "S12.11_A3_T1"
+   },
+   {
+    "section": "12.11",
+    "description": "Checking if execution of \"switch {}\" fails",
+    "negative": "",
+    "test": "function SwitchTest(value){\n  var result = 0;\n  \n  switch {\n    case 0:\n      result += 2;\n    default:\n      result += 32;\n      break;\n  }\n  \n  return result;\n}\n\nvar x = SwitchTest(0);\n",
+    "id": "S12.11_A3_T2"
+   },
+   {
+    "section": "12.11",
+    "description": "Checking if execution of \"switch(value)\" fails",
+    "negative": "",
+    "test": "switch(value);\n",
+    "id": "S12.11_A3_T3"
+   },
+   {
+    "section": "12.11",
+    "description": "Using \"case\" that has no Expresson after it. \"CaseClause: case Expression : [StatementList]\"",
+    "negative": "",
+    "test": "function SwitchTest(value){\n  var result = 0;\n  \n  switch(value) {\n    case:\n      result += 2;\n    default:\n      result += 32;\n      break;\n  }\n  \n  return result;\n}\n\nvar x = SwitchTest(0);\n",
+    "id": "S12.11_A3_T4"
+   },
+   {
+    "section": "12.11",
+    "description": "Introducing statement not followed by \"case\" keyword",
+    "negative": "",
+    "test": "function SwitchTest(value){\n  var result = 0;\n  \n  switch(value) {\n  \tresult =2;\n    case 0:\n      result += 2;\n    default:\n      result += 32;\n      break;\n  }\n  \n  return result;\n}\n\nvar x = SwitchTest(0);\n",
+    "id": "S12.11_A3_T5"
+   },
+   {
+    "section": "12.11",
+    "description": "Nesting one \"switch\" statement into StatementList of the other's",
+    "test": "function SwitchTest(value){\n  var result = 0;\n  \n  switch(value) {\n    case 0:\n      switch(value) {\n        case 0:\n         result += 3;\n        break;\n        default:\n          result += 32;\n          break;\n        }\n      result *= 2;\n      break;\n      result=3;\n    default:\n      result += 32;\n      break;\n  }\n  return result;\n}\n\nvar x = SwitchTest(0);\nif(x!==6) $ERROR(\"#1: SwitchTest(0) === 6. Actual:  SwitchTest(0) ===\"+ SwitchTest(0)  );\n",
+    "id": "S12.11_A4_T1"
+   }
+  ]
+ }
+}

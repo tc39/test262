@@ -1,0 +1,14 @@
+{
+ "testCollection": {
+  "name": "15.8.2.14_random",
+  "numTests": 1,
+  "tests": [
+   {
+    "section": "15.8.2.14",
+    "description": "Checking if Math.random() is a number between 0 and 1, calling Math.random() 100 times",
+    "test": "// CHECK#1\nfor (i = 0; i < 100; i++)\n{\n\tval = Math.random();\n\tif (val < 0 || val >= 1)\n\t{\n\t\t$ERROR(\"#1: Math.random() = \" + val);\n\t}\n}\n",
+    "id": "S15.8.2.14_A1"
+   }
+  ]
+ }
+}

@@ -1,0 +1,259 @@
+{
+ "testCollection": {
+  "name": "12.6.3_The_for_Statement",
+  "numTests": 39,
+  "tests": [
+   {
+    "section": "12.6.3",
+    "description": "Breaking an infinite loop by throwing exception",
+    "test": "var __in__for = 0;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n\tfor (;;){\n    //__in__for++;\n    if(++__in__for>100)throw 1;\n}\n} catch (e) {\n\tif (e !== 1) {\n\t\t$ERROR('#1: for {;;} is admitted and leads to infinite loop');\n\t}\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__in__for !== 101) {\n\t$ERROR('#2: __in__for === 101. Actual:  __in__for ==='+ __in__for  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n",
+    "id": "S12.6.3_A1"
+   },
+   {
+    "section": "12.6.3",
+    "description": "Checking if executing nested \"var-loops\" nine blocks depth is evaluated properly",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n\t__in__deepest__loop=__in__deepest__loop;\n} catch (e) {\n\t$ERROR('#1: \"__in__deepest__loop=__in__deepest__loop\" does not lead to throwing exception');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\ntry {\n\tindex0=index0;\n} catch (e) {\n\t$ERROR('#2: \"index0=index0\" does not lead to throwing exception');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\ntry {\n\tindex1=index1;\n} catch (e) {\n\t$ERROR('#3: \"index1=index1\" does not lead to throwing exception');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\ntry {\n\tindex4=index4;\n} catch (e) {\n\t$ERROR('#4: \"index4=index4\" does not lead to throwing exception');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#5\ntry {\n\tindex5=index5;\n} catch (e) {\n\t$ERROR('#4: \"index5=index5\" does not lead to throwing exception');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#6\ntry {\n\tindex7=index7;\n} catch (e) {\n\t$ERROR('#6: \"index7=index7\" does not lead to throwing exception');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#7\ntry {\n\tindex8=index8;\n} catch (e) {\n\t$ERROR('#7: \"index8=index8\" does not lead to throwing exception');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n__str=\"\";\n\nfor( var index0=0; index0<=1; index0++) {\n\tfor(var index1=0; index1<=index0; index1++) {\n\t\tfor( index2=0; index2<=index1; index2++) {\n\t\t\tfor( index3=0; index3<=index2; index3++) {\n\t\t\t\tfor(var index4=0; index4<=index3; index4++) {\n\t\t\t\t\tfor(var index5=0; index5<=index4; index5++) {\n\t\t\t\t\t\tfor( index6=0; index6<=index5; index6++) {\n\t\t\t\t\t\t\tfor(var index7=0; index7<=index6; index7++) {\n\t\t\t\t\t\t\t\tfor(var index8=0; index8<=index1; index8++) {\n\t\t\t\t\t\t\t\t\tvar __in__deepest__loop;\n\t\t\t\t\t\t\t\t\t__str+=\"\"+index0+index1+index2+index3+index4+index5+index6+index7+index8+'\\n';\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__str!== \"000000000\\n100000000\\n110000000\\n110000001\\n111000000\\n111000001\\n111100000\\n111100001\\n111110000\\n111110001\\n111111000\\n111111001\\n111111100\\n111111101\\n111111110\\n111111111\\n\") {\n\t$ERROR('#2: __str === \"000000000\\\\n100000000\\\\n110000000\\\\n110000001\\\\n111000000\\\\n111000001\\\\n111100000\\\\n111100001\\\\n111110000\\\\n111110001\\\\n111111000\\\\n111111001\\\\n111111100\\\\n111111101\\\\n111111110\\\\n111111111\\\\n\". Actual:  __str ==='+ __str  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.6.3_A10.1"
+   },
+   {
+    "section": "12.6.3",
+    "description": "Checking if executing nested \"var-loops\" nine blocks depth is evaluated properly",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#\ntry {\n\t__in__deepest__loop=__in__deepest__loop;\n} catch (e) {\n\t$ERROR('#1: \"__in__deepest__loop=__in__deepest__loop\" does not lead to throwing exception');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n__str=\"\";\n\nfor( index0=0; index0<=1; index0++) {\n\tfor( index1=0; index1<=index0; index1++) {\n\t\tfor( index2=0; index2<=index1; index2++) {\n\t\t\tfor( index3=0; index3<=index2; index3++) {\n\t\t\t\tfor( index4=0; index4<=index3; index4++) {\n\t\t\t\t\tfor( index5=0; index5<=index4; index5++) {\n\t\t\t\t\t\tfor( index6=0; index6<=index5; index6++) {\n\t\t\t\t\t\t\tfor( index7=0; index7<=index6; index7++) {\n\t\t\t\t\t\t\t\tfor( index8=0; index8<=index1; index8++) {\n\t\t\t\t\t\t\t\t\tvar __in__deepest__loop;\n\t\t\t\t\t\t\t\t\t__str+=\"\"+index0+index1+index2+index3+index4+index5+index6+index7+index8+'\\n';\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__str!== \"000000000\\n100000000\\n110000000\\n110000001\\n111000000\\n111000001\\n111100000\\n111100001\\n111110000\\n111110001\\n111111000\\n111111001\\n111111100\\n111111101\\n111111110\\n111111111\\n\") {\n\t$ERROR('#2: __str === \"000000000\\\\n100000000\\\\n110000000\\\\n110000001\\\\n111000000\\\\n111000001\\\\n111100000\\\\n111100001\\\\n111110000\\\\n111110001\\\\n111111000\\\\n111111001\\\\n111111100\\\\n111111101\\\\n111111110\\\\n111111111\\\\n\". Actual:  __str ==='+ __str  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.6.3_A10"
+   },
+   {
+    "section": "12.6.3",
+    "description": "Using \"continue\" in order to continue a loop",
+    "test": "__str=\"\"\n\nfor(var index=0; index<10; index+=1) {\n\tif (index<5)continue;\n\t__str+=index;\n}\n\nif (__str!==\"56789\") {\n\t$ERROR('#1: __str === \"56789\". Actual:  __str ==='+ __str  );\n}\n",
+    "id": "S12.6.3_A11.1_T1"
+   },
+   {
+    "section": "12.6.3",
+    "description": "Embedded loops",
+    "test": "__str=\"\";\n\nouter : for(var index=0; index<4; index+=1) {\n    nested : for(var index_n=0; index_n<=index; index_n++) {\n\tif (index*index_n == 6)continue nested;\n\t__str+=\"\"+index+index_n;\n    } \n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__str !== \"001011202122303133\") {\n\t$ERROR('#1: __str === \"001011202122303133\". Actual:  __str ==='+ __str  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n__str=\"\";\n\nouter : for(var index=0; index<4; index+=1) {\n    nested : for(var index_n=0; index_n<=index; index_n++) {\n\tif (index*index_n == 6)continue outer;\n\t__str+=\"\"+index+index_n;\n    } \n}\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__str !== \"0010112021223031\") {\n\t$ERROR('#2: __str === \"0010112021223031\". Actual:  __str ==='+ __str  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n__str=\"\";\n\nouter : for(var index=0; index<4; index+=1) {\n    nested : for(var index_n=0; index_n<=index; index_n++) {\n\tif (index*index_n == 6)continue ;\n\t__str+=\"\"+index+index_n;\n    } \n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__str !== \"001011202122303133\") {\n\t$ERROR('#3: __str === \"001011202122303133\". Actual:  __str ==='+ __str  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n\n",
+    "id": "S12.6.3_A11.1_T2"
+   },
+   {
+    "section": "12.6.3",
+    "description": "Trying to continue non-existent label",
+    "negative": "",
+    "test": "__str=\"\";\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nouter:for(var index=0;index<4;index+=1){\n    nested:for(var index_n=0;index_n<=index;index_n++){\n        if(index*index_n == 6)continue nonexist;\n        __str+=\"\"+index+index_n;\n    }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n\n",
+    "id": "S12.6.3_A11.1_T3"
+   },
+   {
+    "section": "12.6.3",
+    "description": "Simple test of continue loop with using \"continue\"",
+    "test": "__str=\"\"\n\nfor(index=0; index<10; index+=1) {\n\tif (index<5)continue;\n\t__str+=index;\n}\n\nif (__str!==\"56789\") {\n\t$ERROR('#1: __str === \"56789\". Actual:  __str ==='+ __str  );\n}\n",
+    "id": "S12.6.3_A11_T1"
+   },
+   {
+    "section": "12.6.3",
+    "description": "Embedded loops",
+    "test": "__str=\"\";\n\nouter : for(index=0; index<4; index+=1) {\n    nested : for(index_n=0; index_n<=index; index_n++) {\n\tif (index*index_n == 6)continue nested;\n\t__str+=\"\"+index+index_n;\n    } \n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__str !== \"001011202122303133\") {\n\t$ERROR('#1: __str === \"001011202122303133\". Actual:  __str ==='+ __str  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n__str=\"\";\n\nouter : for(index=0; index<4; index+=1) {\n    nested : for(index_n=0; index_n<=index; index_n++) {\n\tif (index*index_n == 6)continue outer;\n\t__str+=\"\"+index+index_n;\n    } \n}\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__str !== \"0010112021223031\") {\n\t$ERROR('#2: __str === \"0010112021223031\". Actual:  __str ==='+ __str  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n__str=\"\";\n\nouter : for(index=0; index<4; index+=1) {\n    nested : for(index_n=0; index_n<=index; index_n++) {\n\tif (index*index_n == 6)continue ;\n\t__str+=\"\"+index+index_n;\n    } \n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__str !== \"001011202122303133\") {\n\t$ERROR('#3: __str === \"001011202122303133\". Actual:  __str ==='+ __str  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n\n",
+    "id": "S12.6.3_A11_T2"
+   },
+   {
+    "section": "12.6.3",
+    "description": "Trying to continue non-existent label",
+    "negative": "",
+    "test": "__str=\"\";\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#\nouter:for(index=0;index<4;index+=1){\n    nested:for(index_n=0;index_n<=index;index_n++){\n        if(index*index_n == 6)continue nonexist;\n        __str+=\"\"+index+index_n;\n    }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n\n",
+    "id": "S12.6.3_A11_T3"
+   },
+   {
+    "section": "12.6.3",
+    "description": "Breaking a loop with \"break\"",
+    "test": "__str=\"\"\n\nfor(var index=0; index<10; index+=1) {\n\tif (index>5)break;\n\t__str+=index;\n}\n\nif (__str!==\"012345\") {\n\t$ERROR('#1: __str === \"012345\". Actual:  __str ==='+ __str  );\n}\n",
+    "id": "S12.6.3_A12.1_T1"
+   },
+   {
+    "section": "12.6.3",
+    "description": "Embedded loops",
+    "test": "__str=\"\";\n\nouter : for(var index=0; index<4; index+=1) {\n    nested : for(var index_n=0; index_n<=index; index_n++) {\n\tif (index*index_n >= 4)break nested;\n\t__str+=\"\"+index+index_n;\n    } \n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__str !== \"00101120213031\") {\n\t$ERROR('#1: __str === \"00101120213031\". Actual:  __str ==='+ __str  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n__str=\"\";\n\nouter : for(var index=0; index<4; index+=1) {\n    nested : for(var index_n=0; index_n<=index; index_n++) {\n\tif (index*index_n >= 4)break outer;\n\t__str+=\"\"+index+index_n;\n    } \n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__str !== \"0010112021\") {\n\t$ERROR('#2: __str === \"0010112021\". Actual:  __str ==='+ __str  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n__str=\"\";\n\nouter : for(var index=0; index<4; index+=1) {\n    nested : for(var index_n=0; index_n<=index; index_n++) {\n\tif (index*index_n >= 4)break ;\n\t__str+=\"\"+index+index_n;\n    } \n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__str !== \"00101120213031\") {\n\t$ERROR('#3: __str === \"00101120213031\". Actual:  __str ==='+ __str  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n\n",
+    "id": "S12.6.3_A12.1_T2"
+   },
+   {
+    "section": "12.6.3",
+    "description": "Trying to break non-existent label",
+    "negative": "",
+    "test": "__str=\"\";\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nouter:for(var index=0;index<4;index+=1){\n    nested:for(var index_n=0;index_n<=index;index_n++){\n        if(index*index_n >= 4)break nonexist;\n        __str+=\"\"+index+index_n;\n    }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.6.3_A12.1_T3"
+   },
+   {
+    "section": "12.6.3",
+    "description": "Breaking a loop with \"break\"",
+    "test": "__str=\"\"\n\nfor(index=0; index<10; index+=1) {\n\tif (index>5)break;\n\t__str+=index;\n}\n\nif (__str!==\"012345\") {\n\t$ERROR('#1:__str === \"012345\". Actual: __str ==='+__str  );\n}\n",
+    "id": "S12.6.3_A12_T1"
+   },
+   {
+    "section": "12.6.3",
+    "description": "Embedded loops",
+    "test": "__str=\"\";\n\nouter : for(index=0; index<4; index+=1) {\n    nested : for(index_n=0; index_n<=index; index_n++) {\n\tif (index*index_n >= 4)break nested;\n\t__str+=\"\"+index+index_n;\n    } \n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__str !== \"00101120213031\") {\n\t$ERROR('#1: __str === \"00101120213031\". Actual:  __str ==='+ __str  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n__str=\"\";\n\nouter : for(index=0; index<4; index+=1) {\n    nested : for(index_n=0; index_n<=index; index_n++) {\n\tif (index*index_n >= 4)break outer;\n\t__str+=\"\"+index+index_n;\n    } \n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__str !== \"0010112021\") {\n\t$ERROR('#2: __str === \"0010112021\". Actual:  __str ==='+ __str  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n__str=\"\";\n\nouter : for(index=0; index<4; index+=1) {\n    nested : for(index_n=0; index_n<=index; index_n++) {\n\tif (index*index_n >= 4)break ;\n\t__str+=\"\"+index+index_n;\n    } \n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__str !== \"00101120213031\") {\n\t$ERROR('#3: __str === \"00101120213031\". Actual:  __str ==='+ __str  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n\n",
+    "id": "S12.6.3_A12_T2"
+   },
+   {
+    "section": "12.6.3",
+    "description": "Trying to break non-existent label",
+    "negative": "",
+    "test": "__str=\"\";\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\nouter:for(index=0;index<4;index+=1){\n    nested:for(index_n=0;index_n<=index;index_n++){\n        if(index*index_n >= 4)break nonexist;\n        __str+=\"\"+index+index_n;\n    }\n};\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n\n",
+    "id": "S12.6.3_A12_T3"
+   },
+   {
+    "section": "12.6.3",
+    "description": "Declaring variable in \"for\" ExpressionNoIn",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n\tindex = index;\n} catch (e) {\n\t$ERROR('#1: VariableDeclaration in \"var VariableDeclarationListNoIn\" of for IterationStatement is allowed');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\nfor(var index=0; index<6; index++) {\n\t;\n}\n",
+    "id": "S12.6.3_A13"
+   },
+   {
+    "section": "12.6.3",
+    "description": "Using +,*,/, as the second Expression",
+    "test": "//CHECK#1\nfor(var i=0;i<10;i++){}\nif (i!==10)\t$ERROR('#1: i === 10. Actual:  i ==='+ i  );\n\n//CHECK#2\nvar j=0;\nfor(var i=1;i<10;i*=2){\n\tj++;\n}\nif (i!==16)  $ERROR('#2.1: i === 16. Actual:  i ==='+ i  );\nif (j!==4)  $ERROR('#2.2: j === 4. Actual:  j ==='+ j  );\n\n//CHECK#3\nvar j=0;\nfor(var i=16;i>1;i=i/2){\n  j++;\n}\nif (i!==1)  $ERROR('#3.1: i === 1. Actual:  i ==='+ i  );\nif (j!==4)  $ERROR('#3.2: j === 4. Actual:  j ==='+ j  );\n\n//CHECK#4\nvar j=0;\nfor(var i=10;i>1;i--){\n  j++;\n}\nif (i!==1)  $ERROR('#4.1: i === 1. Actual:  i ==='+ i  );\nif (j!==9)  $ERROR('#4.2: j === 9. Actual:  j ==='+ j  );\n\n//CHECK#5\nvar j=0;\nfor(var i=2;i<10;i*=i){\n  j++;\n}\nif (i!==16)  $ERROR('#5.1: i === 16. Actual:  i ==='+ i  );\nif (j!==2)  $ERROR('#5.2: j === 2. Actual:  j ==='+ j  );\n",
+    "id": "S12.6.3_A14"
+   },
+   {
+    "section": "12.6.3",
+    "description": "Statement must be evaluated before second Expression is evaluated",
+    "test": "//CHECK#1\nfor(var i=0;i<10;i++){\n\ti*=2;\n  break;\t\n}\nif (i!==0)  $ERROR('#1: i === 0. Actual:  i ==='+ i  );\n\n//CHECK#2\nfor(var i=0;i<10;i++){\n  i*=2;\n  if (i===3)  $ERROR('#2: i !== 3');\n}\n\n",
+    "id": "S12.6.3_A15"
+   },
+   {
+    "section": "12.6.3",
+    "description": "Using \"(function(){throw \"NoInExpression\"})()\" as ExpressionNoIn",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n\tfor((function(){throw \"NoInExpression\"})(); ;(function(){throw \"SecondExpression\"})()) {\n\t\tthrow \"Statement\";\n\t}\n\t$ERROR('#1: (function(){throw \"NoInExpression\"})() lead to throwing exception');\n} catch (e) {\n\tif (e !== \"NoInExpression\") {\n\t\t$ERROR('#2: When for (ExpressionNoIn ;  ; Expression) Statement is evaluated NoInExpression evaluates first');\n\t}\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.6.3_A2.1"
+   },
+   {
+    "section": "12.6.3",
+    "description": "Using \"(function(){throw \"NoInExpression\"})()\" as ExpressionNoIn",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n\tfor((function(){throw \"NoInExpression\"})();;) {\n\t\tthrow \"Statement\";\n\t}\n\t$ERROR('#1: (function(){throw \"NoInExpression\"})() lead to throwing exception');\n} catch (e) {\n\tif (e !== \"NoInExpression\") {\n\t\t$ERROR('#1: When for (ExpressionNoIn ;  ; ) Statement is evaluated NoInExpression evaluates first');\n\t}\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.6.3_A2.2"
+   },
+   {
+    "section": "12.6.3",
+    "description": "Using \"(function(){throw \"NoInExpression\"})()\" as ExpressionNoIn",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n\tfor((function(){throw \"NoInExpression\";})(); (function(){throw \"FirstExpression\";})(); (function(){throw \"SecondExpression\";})()) {\n\t\tvar in_for = \"reached\";\n\t}\n\t$ERROR('#1: (function(){throw \"NoInExpression\";})() lead to throwing exception');\n} catch (e) {\n\tif (e !== \"NoInExpression\") {\n\t\t$ERROR('#1: When for (ExpressionNoIn ; Expression ; Expression) Statement is evaluated ExpressionNoIn evaluates first');\n\t}\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (in_for !== undefined) {\n\t$ERROR('#2: in_for === undefined. Actual:  in_for ==='+ in_for  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.6.3_A2"
+   },
+   {
+    "section": "12.6.3",
+    "description": "Using \"(function(){throw \"FirstExpression\"})()\" as FirstExpression",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n\tfor((function(){__in__NotInExpression__ = \"checked\";__in__NotInExpression__2 = \"passed\";})(); (function(){throw \"FirstExpression\"})(); (function(){throw \"SecondExpression\"})()) {\n\t\t__in__for=\"reached\";\n\t}\n\t$ERROR('#1: (function(){throw \"SecondExpression\"} lead to throwing exception');\n} catch (e) {\n\tif (e !== \"FirstExpression\") {\n\t\t$ERROR('#1: When for (ExpressionNoIn ; FirstExpression ; SecondExpression) Statement is evaluated first evaluates ExpressionNoIn then FirstExpression');\n\t}\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif ((__in__NotInExpression__ !== \"checked\")&(__in__NotInExpression__2!==\"passed\")) {\n\t$ERROR('#2: (__in__NotInExpression__ === \"checked\")&(__in__NotInExpression__2===\"passed\")');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (typeof __in__for !== \"undefined\") {\n\t$ERROR('#3: typeof __in__for === \"undefined\". Actual:  typeof __in__for ==='+ typeof __in__for  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.6.3_A3"
+   },
+   {
+    "section": "12.6.3",
+    "description": ": Checking if execution of \"for (var a in arr;1;){}\" fails;",
+    "negative": "",
+    "test": "arr = [1,2,3,4,5];\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nfor (var a in arr;1;){\n    break;\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n",
+    "id": "S12.6.3_A4.1"
+   },
+   {
+    "section": "12.6.3",
+    "description": ": Checking if execution of \"for (a in arr;1;){}\" fails;",
+    "negative": "",
+    "test": "arr = [1,2,3,4,5];\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nfor (a in arr;1;){\n    break;\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n",
+    "id": "S12.6.3_A4_T1"
+   },
+   {
+    "section": "12.6.3",
+    "description": ": Checking if execution of \"for (1 in arr;1;){}\" fails;",
+    "negative": "",
+    "test": "arr = [1,2,3,4,5];\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nfor(1 in arr;1;) {\n    break;\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n",
+    "id": "S12.6.3_A4_T2"
+   },
+   {
+    "section": "12.6.3",
+    "description": ": Using eval \"for(eval(\"i in arr\");1;)\";",
+    "test": "arr = [1,2,3,4,5];\ni = 1;\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n\tfor(eval(\"i in arr\");1;) {break;};\t\n} catch (e) {\t\n\t\t$ERROR('#1.1: for(eval(\"i in arr\");1;) {break;}; does not lead to throwing exception');\t\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\ntry {\n\tfor(eval(\"var i = 1 in arr\");1;) {break;};\t\n} catch (e) {\t\n\t\t$ERROR('#2.1: for(eval(\"var i = 1 in arr\");1;) {break;}; does not lead to throwing exception');\t\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\ntry {\n\tfor(eval(\"1 in arr\");1;) {break;};\n} catch (e) {\t\n\t\t$ERROR('#3.1: for(eval(\"1 in arr\");1;) {break;}; does not lead to throwing exception');\t\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.6.3_A5"
+   },
+   {
+    "section": "12.6.3",
+    "description": ": Using \"(function(){throw \"SecondExpression\";})()\" as an Expression;",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n\tfor(;;(function(){throw \"SecondExpression\";})()){\n        var __in__for = \"reached\";\n    }\n    $ERROR('#1: (function(){throw \"SecondExpression\"}() lead to throwing exception');\n} catch (e) {\n\tif (e !== \"SecondExpression\") {\n\t\t$ERROR('#1: When for ( ;  ; Expression) Statement is evaluated Statement evaluates first then Expression evaluates');\n\t}\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__in__for !== \"reached\") {\n\t$ERROR('#2: __in__for === \"reached\". Actual:  __in__for ==='+ __in__for  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.6.3_A6"
+   },
+   {
+    "section": "12.6.3",
+    "description": ": Checking if execution of \"for(var index=0; index<10; index++; index--)\" fails;",
+    "negative": "",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nfor(var index=0; index<10; index++; index--);\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.6.3_A7.1_T1"
+   },
+   {
+    "section": "12.6.3",
+    "description": ": Checking if execution of \"for(var index=0; index<10; index+=4; index++; index--)\" fails ;",
+    "negative": "",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nfor(var index=0; index<10; index+=4; index++; index--) ;\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.6.3_A7.1_T2"
+   },
+   {
+    "section": "12.6.3",
+    "description": ": Checking if execution of \"for(index=0; index<10; index++; index--)\" fails;",
+    "negative": "",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nfor(index=0; index<10; index++; index--) ;\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.6.3_A7_T1"
+   },
+   {
+    "section": "12.6.3",
+    "description": ": Checking if execution of \"for(index=0; index<10; index+=4; index++; index--)\" fails ;",
+    "negative": "",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nfor(index=0; index<10; index+=4; index++; index--) ;\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.6.3_A7_T2"
+   },
+   {
+    "section": "12.6.3",
+    "description": ": Checking if execution of \"for(var index=0; index<100; {index++; index*2;}) {  arr.add(\"\"+index);}\" fails;",
+    "negative": "",
+    "test": "var arr = [];\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nfor(var index=0; index<100; {index++; index*2;}) {\tarr.add(\"\"+index);};\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.6.3_A8.1_T1"
+   },
+   {
+    "section": "12.6.3",
+    "description": ": Checking if execution of \"for(var index=0; {index++;index<100;}; index*2;) {  arr.add(\"\"+index);}\" fails;",
+    "negative": "",
+    "test": "var arr = [];\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nfor(var index=0; {index++;index<100;}; index*2;) {\tarr.add(\"\"+index);};\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n\n",
+    "id": "S12.6.3_A8.1_T2"
+   },
+   {
+    "section": "12.6.3",
+    "description": ": Checking if execution of \"for({var index=0; index+=1;} index++<=10; index*2;) { arr.add(\"\"+index);}\" fails;",
+    "negative": "",
+    "test": "var arr = [];\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nfor({var index=0; index+=1;} index++<=10; index*2;) {\tarr.add(\"\"+index);};\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n\n",
+    "id": "S12.6.3_A8.1_T3"
+   },
+   {
+    "section": "12.6.3",
+    "description": ": Checking if execution of \"for(index=0; index<100; {index++; index*2;}) {  arr.add(\"\"+index);}\" fails;",
+    "negative": "",
+    "test": "var arr = [];\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nfor(index=0; index<100; {index++; index*2;}) {\tarr.add(\"\"+index);};\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.6.3_A8_T1"
+   },
+   {
+    "section": "12.6.3",
+    "description": ": Checking if execution of \"for(index=0; {index++;index<100;}; index*2;) {  arr.add(\"\"+index);}\" fails;",
+    "negative": "",
+    "test": "var arr = [];\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nfor(index=0; {index++;index<100;}; index*2;) {\tarr.add(\"\"+index);};\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.6.3_A8_T2"
+   },
+   {
+    "section": "12.6.3",
+    "description": ": Checking if execution of \"for({index=0; index+=1;} index++<=10; index*2;) { arr.add(\"\"+index);}\" fails;",
+    "negative": "",
+    "test": "var arr = [];\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nfor({index=0; index+=1;} index++<=10; index*2;) {\tarr.add(\"\"+index);};\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n\n",
+    "id": "S12.6.3_A8_T3"
+   },
+   {
+    "section": "12.6.3",
+    "description": "Using eval",
+    "test": "supreme=5;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#\ntry {\n\tvar __evaluated =  eval(\"for(count=0;;) {if (count===supreme)break;else count++; }\");\n\tif (__evaluated !== 4) {\n\t\t$ERROR('#1: __evaluated === 4. Actual:  __evaluated ==='+ __evaluated  );\n\t}\n} catch (e) {\n\t$ERROR('#1: var __evaluated =  eval(\"for(count=0;;) {if (count===supreme)break;else count++; }\"); does not lead to throwing exception');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.6.3_A9.1"
+   },
+   {
+    "section": "12.6.3",
+    "description": "Using eval",
+    "test": "supreme=5;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#\ntry {\n\tvar __evaluated =  eval(\"for(var count=0;;) {if (count===supreme)break;else count++; }\");\n\tif (__evaluated !== 4) {\n\t\t$ERROR('#1: __evaluated === 4. Actual:  __evaluated ==='+ __evaluated  );\n\t}\n} catch (e) {\n\t$ERROR('#1: var __evaluated =  eval(\"for(var count=0;;) {if (count===supreme)break;else count++; }\"); does not lead to throwing exception');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.6.3_A9"
+   }
+  ]
+ }
+}

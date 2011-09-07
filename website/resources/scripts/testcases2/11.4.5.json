@@ -1,0 +1,24 @@
+{
+ "testCollection": {
+  "name": "11.4.5",
+  "numTests": 2,
+  "tests": [
+   {
+    "id": "11.4.5-2-1-s",
+    "path": "TestCases/chapter11/11.4/11.4.5/11.4.5-2-1-s.js",
+    "description": "Strict Mode - SyntaxError is thrown for --eval",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = eval;\n        try {\n            eval(\"--eval;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === eval;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.4.5-2-2-s",
+    "path": "TestCases/chapter11/11.4/11.4.5/11.4.5-2-2-s.js",
+    "description": "Strict Mode - SyntaxError is thrown for --arguments",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = arguments;\n        try {\n            eval(\"--arguments;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === arguments;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   }
+  ]
+ }
+}

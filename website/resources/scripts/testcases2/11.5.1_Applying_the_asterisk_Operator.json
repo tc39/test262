@@ -1,0 +1,200 @@
+{
+ "testCollection": {
+  "name": "11.5.1_Applying_the_asterisk_Operator",
+  "numTests": 32,
+  "tests": [
+   {
+    "section": "11.5.1, 7.2, 7.3",
+    "description": "Checking by using eval",
+    "test": "//CHECK#1\nif (eval(\"1\\u0009*\\u00091\") !== 1) {\n  $ERROR('#1: 1\\\\u0009*\\\\u00091 === 1');\n}\n\n//CHECK#2\nif (eval(\"1\\u000B*\\u000B1\") !== 1) {\n  $ERROR('#2: 1\\\\u000B*\\\\u000B1 === 1');  \n}\n\n//CHECK#3\nif (eval(\"1\\u000C*\\u000C1\") !== 1) {\n  $ERROR('#3: 1\\\\u000C*\\\\u000C1 === 1');\n}\n\n//CHECK#4\nif (eval(\"1\\u0020*\\u00201\") !== 1) {\n  $ERROR('#4: 1\\\\u0020*\\\\u00201 === 1');\n}\n\n//CHECK#5\nif (eval(\"1\\u00A0*\\u00A01\") !== 1) {\n  $ERROR('#5: 1\\\\u00A0*\\\\u00A01 === 1');\n}\n\n//CHECK#6\nif (eval(\"1\\u000A*\\u000A1\") !== 1) {\n  $ERROR('#6: 1\\\\u000A*\\\\u000A1 === 1');  \n}\n\n//CHECK#7\nif (eval(\"1\\u000D*\\u000D1\") !== 1) {\n  $ERROR('#7: 1\\\\u000D*\\\\u000D1 === 1');\n}\n\n//CHECK#8\nif (eval(\"1\\u2028*\\u20281\") !== 1) {\n  $ERROR('#8: 1\\\\u2028*\\\\u20281 === 1');\n}\n\n//CHECK#9\nif (eval(\"1\\u2029*\\u20291\") !== 1) {\n  $ERROR('#9: 1\\\\u2029*\\\\u20291 === 1');\n}\n\n//CHECK#10\nif (eval(\"1\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029*\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u20291\") !== 1) {\n  $ERROR('#10: 1\\\\u0009\\\\u000B\\\\u000C\\\\u0020\\\\u00A0\\\\u000A\\\\u000D\\\\u2028\\\\u2029*\\\\u0009\\\\u000B\\\\u000C\\\\u0020\\\\u00A0\\\\u000A\\\\u000D\\\\u2028\\\\u20291 === 1');\n}\n",
+    "id": "S11.5.1_A1"
+   },
+   {
+    "section": "11.5.1",
+    "description": "Either Type is not Reference or GetBase is not null",
+    "test": "//CHECK#1\nif (1 * 1 !== 1) {\n  $ERROR('#1: 1 * 1 === 1. Actual: ' + (1 * 1));\n}\n\n//CHECK#2\nvar x = 1;\nif (x * 1 !== 1) {\n  $ERROR('#2: var x = 1; x * 1 === 1. Actual: ' + (x * 1));\n}\n\n//CHECK#3\nvar y = 1;\nif (1 * y !== 1) {\n  $ERROR('#3: var y = 1; 1 * y === 1. Actual: ' + (1 * y));\n}\n\n//CHECK#4\nvar x = 1;\nvar y = 1;\nif (x * y !== 1) {\n  $ERROR('#4: var x = 1; var y = 1; x * y === 1. Actual: ' + (x * y));\n}\n\n//CHECK#5\nvar objectx = new Object();\nvar objecty = new Object();\nobjectx.prop = 1;\nobjecty.prop = 1;\nif (objectx.prop * objecty.prop !== 1) {\n  $ERROR('#5: var objectx = new Object(); var objecty = new Object(); objectx.prop = 1; objecty.prop = 1; objectx.prop * objecty.prop === 1. Actual: ' + (objectx.prop * objecty.prop));\n}\n",
+    "id": "S11.5.1_A2.1_T1"
+   },
+   {
+    "section": "11.5.1",
+    "description": "If GetBase(x) is null, throw ReferenceError",
+    "test": "//CHECK#1\ntry {\n  x * 1;\n  $ERROR('#1.1: x * 1 throw ReferenceError. Actual: ' + (x * 1));  \n}\ncatch (e) {\n  if ((e instanceof ReferenceError) !== true) {\n    $ERROR('#1.2: x * 1 throw ReferenceError. Actual: ' + (e));  \n  }\n}\n\n",
+    "id": "S11.5.1_A2.1_T2"
+   },
+   {
+    "section": "11.5.1",
+    "description": "If GetBase(y) is null, throw ReferenceError",
+    "test": "//CHECK#1\ntry {\n  1 * y;\n  $ERROR('#1.1: 1 * y throw ReferenceError. Actual: ' + (1 * y));  \n}\ncatch (e) {\n  if ((e instanceof ReferenceError) !== true) {\n    $ERROR('#1.2: 1 * y throw ReferenceError. Actual: ' + (e));  \n  }\n}\n\n",
+    "id": "S11.5.1_A2.1_T3"
+   },
+   {
+    "section": "11.5.1, 8.6.2.6",
+    "description": "If Type(value) is Object, evaluate ToPrimitive(value, Number)",
+    "test": "//CHECK#1\nif ({valueOf: function() {return 1}} * 1 !== 1) {\n  $ERROR('#1: {valueOf: function() {return 1}} * 1 === 1. Actual: ' + ({valueOf: function() {return 1}} * 1));\n}\n\n//CHECK#2\nif ({valueOf: function() {return 1}, toString: function() {return 0}} * 1 !== 1) {\n  $ERROR('#2: {valueOf: function() {return 1}, toString: function() {return 0}} * 1 === 1. Actual: ' + ({valueOf: function() {return 1}, toString: function() {return 0}} * 1));\n}\n\n//CHECK#3\nif ({valueOf: function() {return 1}, toString: function() {return {}}} * 1 !== 1) {\n  $ERROR('#3: {valueOf: function() {return 1}, toString: function() {return {}}} * 1 === 1. Actual: ' + ({valueOf: function() {return 1}, toString: function() {return {}}} * 1));\n}\n\n//CHECK#4\ntry {\n  if ({valueOf: function() {return 1}, toString: function() {throw \"error\"}} * 1 !== 1) {\n    $ERROR('#4.1: {valueOf: function() {return 1}, toString: function() {throw \"error\"}} * 1 === 1. Actual: ' + ({valueOf: function() {return 1}, toString: function() {throw \"error\"}} * 1));\n  }\n}\ncatch (e) {\n  if (e === \"error\") {\n    $ERROR('#4.2: {valueOf: function() {return 1}, toString: function() {throw \"error\"}} * 1 not throw \"error\"');\n  } else {\n    $ERROR('#4.3: {valueOf: function() {return 1}, toString: function() {throw \"error\"}} * 1 not throw Error. Actual: ' + (e));\n  }\n}\n\n//CHECK#5\nif (1 * {toString: function() {return 1}} !== 1) {\n  $ERROR('#5: 1 * {toString: function() {return 1}} === 1. Actual: ' + (1 * {toString: function() {return 1}}));\n}\n\n//CHECK#6\nif (1 * {valueOf: function() {return {}}, toString: function() {return 1}} !== 1) {\n  $ERROR('#6: 1 * {valueOf: function() {return {}}, toString: function() {return 1}} === 1. Actual: ' + (1 * {valueOf: function() {return {}}, toString: function() {return 1}}));\n}\n\n//CHECK#7\ntry {\n  1 * {valueOf: function() {throw \"error\"}, toString: function() {return 1}};\n  $ERROR('#7.1: 1 * {valueOf: function() {throw \"error\"}, toString: function() {return 1}} throw \"error\". Actual: ' + (1 * {valueOf: function() {throw \"error\"}, toString: function() {return 1}}));\n}  \ncatch (e) {\n  if (e !== \"error\") {\n    $ERROR('#7.2: 1 * {valueOf: function() {throw \"error\"}, toString: function() {return 1}} throw \"error\". Actual: ' + (e));\n  } \n}\n\n//CHECK#8\ntry {\n  1 * {valueOf: function() {return {}}, toString: function() {return {}}};\n  $ERROR('#8.1: 1 * {valueOf: function() {return {}}, toString: function() {return {}}} throw TypeError. Actual: ' + (1 * {valueOf: function() {return {}}, toString: function() {return {}}}));\n}  \ncatch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#8.2: 1 * {valueOf: function() {return {}}, toString: function() {return {}}} throw TypeError. Actual: ' + (e));\n  } \n}\n",
+    "id": "S11.5.1_A2.2_T1"
+   },
+   {
+    "section": "11.5.1",
+    "description": "Checking with \"throw\"",
+    "test": "//CHECK#1\nvar x = { valueOf: function () { throw \"x\"; } };\nvar y = { valueOf: function () { throw \"y\"; } };\ntry {\n   x * y;\n   $ERROR('#1.1: var x = { valueOf: function () { throw \"x\"; } }; var y = { valueOf: function () { throw \"y\"; } }; x * y throw \"x\". Actual: ' + (x * y));\n} catch (e) {\n   if (e === \"y\") {\n     $ERROR('#1.2: ToNumber(first expression) is called first, and then ToNumber(second expression)');\n   } else {\n     if (e !== \"x\") {\n       $ERROR('#1.3: var x = { valueOf: function () { throw \"x\"; } }; var y = { valueOf: function () { throw \"y\"; } }; x * y throw \"x\". Actual: ' + (e));\n     }\n   }\n}\n",
+    "id": "S11.5.1_A2.3_T1"
+   },
+   {
+    "section": "11.5.1",
+    "description": "Checking with \"=\"",
+    "test": "//CHECK#1\nvar x = 0; \nif ((x = 1) * x !== 1) {\n  $ERROR('#1: var x = 0; (x = 1) * x === 1. Actual: ' + ((x = 1) * x));\n}\n\n//CHECK#2\nvar x = 0; \nif (x * (x = 1) !== 0) {\n  $ERROR('#2: var x = 0; x * (x = 1) === 0. Actual: ' + (x * (x = 1)));\n}\n\n",
+    "id": "S11.5.1_A2.4_T1"
+   },
+   {
+    "section": "11.5.1",
+    "description": "Checking with \"throw\"",
+    "test": "//CHECK#1\nvar x = function () { throw \"x\"; };\nvar y = function () { throw \"y\"; };\ntry {\n   x() * y();\n   $ERROR('#1.1: var x = function () { throw \"x\"; }; var y = function () { throw \"y\"; }; x() * y() throw \"x\". Actual: ' + (x() * y()));\n} catch (e) {\n   if (e === \"y\") {\n     $ERROR('#1.2: First expression is evaluated first, and then second expression');\n   } else {\n     if (e !== \"x\") {\n       $ERROR('#1.3: var x = function () { throw \"x\"; }; var y = function () { throw \"y\"; }; x() * y() throw \"x\". Actual: ' + (e));\n     }\n   }\n}\n",
+    "id": "S11.5.1_A2.4_T2"
+   },
+   {
+    "section": "11.5.1",
+    "description": "Checking with undeclarated variables",
+    "test": "//CHECK#1\ntry {\n  x * (x = 1);\n  $ERROR('#1.1: x * (x = 1) throw ReferenceError. Actual: ' + (x * (x = 1)));  \n}\ncatch (e) {\n  if ((e instanceof ReferenceError) !== true) {\n    $ERROR('#1.2: x * (x = 1) throw ReferenceError. Actual: ' + (e));  \n  }\n}\n\n//CHECK#2\nif ((y = 1) * y !== 1) {\n  $ERROR('#2: (y = 1) * y === 1. Actual: ' + ((y = 1) * y));\n}\n\n",
+    "id": "S11.5.1_A2.4_T3"
+   },
+   {
+    "section": "11.5.1",
+    "description": "Type(x) and Type(y) vary between primitive boolean and Boolean object",
+    "test": "//CHECK#1\nif (true * true !== 1) {\n  $ERROR('#1: true * true === 1. Actual: ' + (true * true));\n}\n\n//CHECK#2\nif (new Boolean(true) * true !== 1) {\n  $ERROR('#2: new Boolean(true) * true === 1. Actual: ' + (new Boolean(true) * true));\n}\n\n//CHECK#3\nif (true * new Boolean(true) !== 1) {\n  $ERROR('#3: true * new Boolean(true) === 1. Actual: ' + (true * new Boolean(true)));\n}\n\n//CHECK#4\nif (new Boolean(true) * new Boolean(true) !== 1) {\n  $ERROR('#4: new Boolean(true) * new Boolean(true) === 1. Actual: ' + (new Boolean(true) * new Boolean(true)));\n}\n",
+    "id": "S11.5.1_A3_T1.1"
+   },
+   {
+    "section": "11.5.1",
+    "description": "Type(x) and Type(y) vary between primitive number and Number object",
+    "test": "//CHECK#1\nif (1 * 1 !== 1) {\n  $ERROR('#1: 1 * 1 === 1. Actual: ' + (1 * 1));\n}\n\n//CHECK#2\nif (new Number(1) * 1 !== 1) {\n  $ERROR('#2: new Number(1) * 1 === 1. Actual: ' + (new Number(1) * 1));\n}\n\n//CHECK#3\nif (1 * new Number(1) !== 1) {\n  $ERROR('#3: 1 * new Number(1) === 1. Actual: ' + (1 * new Number(1)));\n}\n\n//CHECK#4\nif (new Number(1) * new Number(1) !== 1) {\n  $ERROR('#4: new Number(1) * new Number(1) === 1. Actual: ' + (new Number(1) * new Number(1)));\n}\n\n",
+    "id": "S11.5.1_A3_T1.2"
+   },
+   {
+    "section": "11.5.1",
+    "description": "Type(x) and Type(y) vary between primitive string and String object",
+    "test": "//CHECK#1\nif (\"1\" * \"1\" !== 1) {\n  $ERROR('#1: \"1\" * \"1\" === 1. Actual: ' + (\"1\" * \"1\"));\n}\n\n//CHECK#2\nif (new String(\"1\") * \"1\" !== 1) {\n  $ERROR('#2: new String(\"1\") * \"1\" === 1. Actual: ' + (new String(\"1\") * \"1\"));\n}\n\n//CHECK#3\nif (\"1\" * new String(\"1\") !== 1) {\n  $ERROR('#3: \"1\" * new String(\"1\") === 1. Actual: ' + (\"1\" * new String(\"1\")));\n}\n\n//CHECK#4\nif (new String(\"1\") * new String(\"1\") !== 1) {\n  $ERROR('#4: new String(\"1\") * new String(\"1\") === 1. Actual: ' + (new String(\"1\") * new String(\"1\")));\n}\n\n//CHECK#5\nif (isNaN(\"x\" * \"1\") !== true) {\n  $ERROR('#5: \"x\" * \"1\" === Not-a-Number. Actual: ' + (\"x\" * \"1\"));\n}\n\n//CHECK#6\nif (isNaN(\"1\" * \"x\") !== true) {\n  $ERROR('#6: \"1\" * \"x\" === Not-a-Number. Actual: ' + (\"1\" * \"x\"));\n}\n",
+    "id": "S11.5.1_A3_T1.3"
+   },
+   {
+    "section": "11.5.1",
+    "description": "Type(x) and Type(y) vary between Null and Undefined",
+    "test": "//CHECK#1\nif (isNaN(null * undefined) !== true) {\n  $ERROR('#1: null * undefined === Not-a-Number. Actual: ' + (null * undefined));\n}\n\n//CHECK#2\nif (isNaN(undefined * null) !== true) {\n  $ERROR('#2: undefined * null === Not-a-Number. Actual: ' + (undefined * null));\n}\n\n//CHECK#3\nif (isNaN(undefined * undefined) !== true) {\n  $ERROR('#3: undefined * undefined === Not-a-Number. Actual: ' + (undefined * undefined));\n}\n\n//CHECK#4\nif (null * null !== 0) {\n  $ERROR('#4: null * null === 0. Actual: ' + (null * null));\n}\n",
+    "id": "S11.5.1_A3_T1.4"
+   },
+   {
+    "section": "11.5.1",
+    "description": "Type(x) and Type(y) vary between Object object and Function object",
+    "test": "//CHECK#1\nif (isNaN({} * function(){return 1}) !== true) {\n  $ERROR('#1: {} * function(){return 1} === Not-a-Number. Actual: ' + ({} * function(){return 1}));\n}\n\n//CHECK#2\nif (isNaN(function(){return 1} * {}) !== true) {\n  $ERROR('#2: function(){return 1} * {} === Not-a-Number. Actual: ' + (function(){return 1} * {}));\n}\n\n//CHECK#3\nif (isNaN(function(){return 1} * function(){return 1}) !== true) {\n  $ERROR('#3: function(){return 1} * function(){return 1} === Not-a-Number. Actual: ' + (function(){return 1} * function(){return 1}));\n}\n\n//CHECK#4\nif (isNaN({} * {}) !== true) {\n  $ERROR('#4: {} * {} === Not-a-Number. Actual: ' + ({} * {}));\n}\n",
+    "id": "S11.5.1_A3_T1.5"
+   },
+   {
+    "section": "11.5.1",
+    "description": "Type(x) is different from Type(y) and both types vary between Boolean (primitive or object) and Number (primitive and object)",
+    "test": "//CHECK#1\nif (true * 1 !== 1) {\n  $ERROR('#1: true * 1 === 1. Actual: ' + (true * 1));\n}\n\n//CHECK#2\nif (1 * true !== 1) {\n  $ERROR('#2: 1 * true === 1. Actual: ' + (1 * true));\n}\n\n//CHECK#3\nif (new Boolean(true) * 1 !== 1) {\n  $ERROR('#3: new Boolean(true) * 1 === 1. Actual: ' + (new Boolean(true) * 1));\n}\n\n//CHECK#4\nif (1 * new Boolean(true) !== 1) {\n  $ERROR('#4: 1 * new Boolean(true) === 1. Actual: ' + (1 * new Boolean(true)));\n}\n\n//CHECK#5\nif (true * new Number(1) !== 1) {\n  $ERROR('#5: true * new Number(1) === 1. Actual: ' + (true * new Number(1)));\n}\n\n//CHECK#6\nif (new Number(1) * true !== 1) {\n  $ERROR('#6: new Number(1) * true === 1. Actual: ' + (new Number(1) * true));\n}\n\n//CHECK#7\nif (new Boolean(true) * new Number(1) !== 1) {\n  $ERROR('#7: new Boolean(true) * new Number(1) === 1. Actual: ' + (new Boolean(true) * new Number(1)));\n}\n\n//CHECK#8\nif (new Number(1) * new Boolean(true) !== 1) {\n  $ERROR('#8: new Number(1) * new Boolean(true) === 1. Actual: ' + (new Number(1) * new Boolean(true)));\n}\n",
+    "id": "S11.5.1_A3_T2.1"
+   },
+   {
+    "section": "11.5.1",
+    "description": "Type(x) is different from Type(y) and both types vary between Number (primitive or object) and String (primitive and object)",
+    "test": "//CHECK#1\nif (\"1\" * 1 !== 1) {\n  $ERROR('#1: \"1\" * 1 === 1. Actual: ' + (\"1\" * 1));\n}\n\n//CHECK#2\nif (1 * \"1\" !== 1) {\n  $ERROR('#2: 1 * \"1\" === 1. Actual: ' + (1 * \"1\"));\n}\n\n//CHECK#3\nif (new String(\"1\") * 1 !== 1) {\n  $ERROR('#3: new String(\"1\") * 1 === 1. Actual: ' + (new String(\"1\") * 1));\n}\n\n//CHECK#4\nif (1 * new String(\"1\") !== 1) {\n  $ERROR('#4: 1 * new String(\"1\") === 1. Actual: ' + (1 * new String(\"1\")));\n}\n\n//CHECK#5\nif (\"1\" * new Number(1) !== 1) {\n  $ERROR('#5: \"1\" * new Number(1) === 1. Actual: ' + (\"1\" * new Number(1)));\n}\n\n//CHECK#6\nif (new Number(1) * \"1\" !== 1) {\n  $ERROR('#6: new Number(1) * \"1\" === 1. Actual: ' + (new Number(1) * \"1\"));\n}\n\n//CHECK#7\nif (new String(\"1\") * new Number(1) !== 1) {\n  $ERROR('#7: new String(\"1\") * new Number(1) === 1. Actual: ' + (new String(\"1\") * new Number(1)));\n}\n\n//CHECK#8\nif (new Number(1) * new String(\"1\") !== 1) {\n  $ERROR('#8: new Number(1) * new String(\"1\") === 1. Actual: ' + (new Number(1) * new String(\"1\")));\n}\n\n//CHECK#9\nif (isNaN(\"x\" * 1) !== true) {\n  $ERROR('#9: \"x\" * 1 === Not-a-Number. Actual: ' + (\"x\" * 1));\n}\n\n//CHECK#10\nif (isNaN(1 * \"x\") !== true) {\n  $ERROR('#10: 1 * \"x\" === Not-a-Number. Actual: ' + (1 * \"x\"));\n}\n",
+    "id": "S11.5.1_A3_T2.2"
+   },
+   {
+    "section": "11.5.1",
+    "description": "Type(x) is different from Type(y) and both types vary between Number (primitive or object) and Null",
+    "test": "//CHECK#1\nif (1 * null !== 0) {\n  $ERROR('#1: 1 * null === 0. Actual: ' + (1 * null));\n}\n\n//CHECK#2\nif (null * 1 !== 0) {\n  $ERROR('#2: null * 1 === 0. Actual: ' + (null * 1));\n}\n\n//CHECK#3\nif (new Number(1) * null !== 0) {\n  $ERROR('#3: new Number(1) * null === 0. Actual: ' + (new Number(1) * null));\n}\n\n//CHECK#4\nif (null * new Number(1) !== 0) {\n  $ERROR('#4: null * new Number(1) === 0. Actual: ' + (null * new Number(1)));\n}\n",
+    "id": "S11.5.1_A3_T2.3"
+   },
+   {
+    "section": "11.5.1",
+    "description": "Type(x) is different from Type(y) and both types vary between Number (primitive or object) and Undefined",
+    "test": "//CHECK#1\nif (isNaN(1 * undefined) !== true) {\n  $ERROR('#1: 1 * undefined === Not-a-Number. Actual: ' + (1 * undefined));\n}\n\n//CHECK#2\nif (isNaN(undefined * 1) !== true) {\n  $ERROR('#2: undefined * 1 === Not-a-Number. Actual: ' + (undefined * 1));\n}\n\n//CHECK#3\nif (isNaN(new Number(1) * undefined) !== true) {\n  $ERROR('#3: new Number(1) * undefined === Not-a-Number. Actual: ' + (new Number(1) * undefined));\n}\n\n//CHECK#4\nif (isNaN(undefined * new Number(1)) !== true) {\n  $ERROR('#4: undefined * new Number(1) === Not-a-Number. Actual: ' + (undefined * new Number(1)));\n}\n",
+    "id": "S11.5.1_A3_T2.4"
+   },
+   {
+    "section": "11.5.1",
+    "description": "Type(x) is different from Type(y) and both types vary between String (primitive or object) and Boolean (primitive and object)",
+    "test": "//CHECK#1\nif (true * \"1\" !== 1) {\n  $ERROR('#1: true * \"1\" === 1. Actual: ' + (true * \"1\"));\n}\n\n//CHECK#2\nif (\"1\" * true !== 1) {\n  $ERROR('#2: \"1\" * true === 1. Actual: ' + (\"1\" * true));\n}\n\n//CHECK#3\nif (new Boolean(true) * \"1\" !== 1) {\n  $ERROR('#3: new Boolean(true) * \"1\" === 1. Actual: ' + (new Boolean(true) * \"1\"));\n}\n\n//CHECK#4\nif (\"1\" * new Boolean(true) !== 1) {\n  $ERROR('#4: \"1\" * new Boolean(true) === 1. Actual: ' + (\"1\" * new Boolean(true)));\n}\n\n//CHECK#5\nif (true * new String(\"1\") !== 1) {\n  $ERROR('#5: true * new String(\"1\") === 1. Actual: ' + (true * new String(\"1\")));\n}\n\n//CHECK#6\nif (new String(\"1\") * true !== 1) {\n  $ERROR('#6: new String(\"1\") * true === 1. Actual: ' + (new String(\"1\") * true));\n}\n\n//CHECK#7\nif (new Boolean(true) * new String(\"1\") !== 1) {\n  $ERROR('#7: new Boolean(true) * new String(\"1\") === 1. Actual: ' + (new Boolean(true) * new String(\"1\")));\n}\n\n//CHECK#8\nif (new String(\"1\") * new Boolean(true) !== 1) {\n  $ERROR('#8: new String(\"1\") * new Boolean(true) === 1. Actual: ' + (new String(\"1\") * new Boolean(true)));\n}\n",
+    "id": "S11.5.1_A3_T2.5"
+   },
+   {
+    "section": "11.5.1",
+    "description": "Type(x) is different from Type(y) and both types vary between primitive String (primitive or object) and Undefined",
+    "test": "//CHECK#1\nif (isNaN(\"1\" * undefined) !== true) {\n  $ERROR('#1: \"1\" * undefined === Not-a-Number. Actual: ' + (\"1\" * undefined));\n}\n\n//CHECK#2\nif (isNaN(undefined * \"1\") !== true) {\n  $ERROR('#2: undefined * \"1\" === Not-a-Number. Actual: ' + (undefined * \"1\"));\n}\n\n//CHECK#3\nif (isNaN(new String(\"1\") * undefined) !== true) {\n  $ERROR('#3: new String(\"1\") * undefined === Not-a-Number. Actual: ' + (new String(\"1\") * undefined));\n}\n\n//CHECK#4\nif (isNaN(undefined * new String(\"1\")) !== true) {\n  $ERROR('#4: undefined * new String(\"1\") === Not-a-Number. Actual: ' + (undefined * new String(\"1\")));\n}\n",
+    "id": "S11.5.1_A3_T2.6"
+   },
+   {
+    "section": "11.5.1",
+    "description": "Type(x) is different from Type(y) and both types vary between String (primitive or object) and Null",
+    "test": "//CHECK#1\nif (\"1\" * null !== 0) {\n  $ERROR('#1: \"1\" * null === 0. Actual: ' + (\"1\" * null));\n}\n\n//CHECK#2\nif (null * \"1\" !== 0) {\n  $ERROR('#2: null * \"1\" === 0. Actual: ' + (null * \"1\"));\n}\n\n//CHECK#3\nif (new String(\"1\") * null !== 0) {\n  $ERROR('#3: new String(\"1\") * null === 0. Actual: ' + (new String(\"1\") * null));\n}\n\n//CHECK#4\nif (null * new String(\"1\") !== 0) {\n  $ERROR('#4: null * new String(\"1\") === 0. Actual: ' + (null * new String(\"1\")));\n}\n",
+    "id": "S11.5.1_A3_T2.7"
+   },
+   {
+    "section": "11.5.1",
+    "description": "Type(x) is different from Type(y) and both types vary between Boolean (primitive or object) and Undefined",
+    "test": "//CHECK#1\nif (isNaN(true * undefined) !== true) {\n  $ERROR('#1: true * undefined === Not-a-Number. Actual: ' + (true * undefined));\n}\n\n//CHECK#2\nif (isNaN(undefined * true) !== true) {\n  $ERROR('#2: undefined * true === Not-a-Number. Actual: ' + (undefined * true));\n}\n\n//CHECK#3\nif (isNaN(new Boolean(true) * undefined) !== true) {\n  $ERROR('#3: new Boolean(true) * undefined === Not-a-Number. Actual: ' + (new Boolean(true) * undefined));\n}\n\n//CHECK#4\nif (isNaN(undefined * new Boolean(true)) !== true) {\n  $ERROR('#4: undefined * new Boolean(true) === Not-a-Number. Actual: ' + (undefined * new Boolean(true)));\n}\n",
+    "id": "S11.5.1_A3_T2.8"
+   },
+   {
+    "section": "11.5.1",
+    "description": "Type(x) is different from Type(y) and both types vary between Boolean (primitive or object) and Null",
+    "test": "//CHECK#1\nif (true * null !== 0) {\n  $ERROR('#1: true * null === 0. Actual: ' + (true * null));\n}\n\n//CHECK#2\nif (null * true !== 0) {\n  $ERROR('#2: null * true === 0. Actual: ' + (null * true));\n}\n\n//CHECK#3\nif (new Boolean(true) * null !== 0) {\n  $ERROR('#3: new Boolean(true) * null === 0. Actual: ' + (new Boolean(true) * null));\n}\n\n//CHECK#4\nif (null * new Boolean(true) !== 0) {\n  $ERROR('#4: null * new Boolean(true) === 0. Actual: ' + (null * new Boolean(true)));\n}\n",
+    "id": "S11.5.1_A3_T2.9"
+   },
+   {
+    "section": "11.5.1",
+    "description": "If left operand is NaN, the result is NaN",
+    "test": "//CHECK#1\nif (isNaN(Number.NaN * Number.NaN) !== true) {\n  $ERROR('#1: NaN * NaN === Not-a-Number. Actual: ' + (NaN * NaN));\n}  \n\n//CHECK#2\nif (isNaN(Number.NaN * +0) !== true) {\n  $ERROR('#2: NaN * +0 === Not-a-Number. Actual: ' + (NaN * +0)); \n} \n\n//CHECK#3\nif (isNaN(Number.NaN * -0) !== true) {\n  $ERROR('#3: NaN * -0 === Not-a-Number. Actual: ' + (NaN * -0)); \n} \n\n//CHECK#4\nif (isNaN(Number.NaN * Number.POSITIVE_INFINITY) !== true) {\n  $ERROR('#4: NaN * Infinity === Not-a-Number. Actual: ' + (NaN * Infinity));\n} \n\n//CHECK#5\nif (isNaN(Number.NaN * Number.NEGATIVE_INFINITY) !== true) {\n  $ERROR('#5: NaN * -Infinity === Not-a-Number. Actual: ' + (NaN * -Infinity)); \n} \n\n//CHECK#6\nif (isNaN(Number.NaN * Number.MAX_VALUE) !== true) {\n  $ERROR('#6: NaN * Number.MAX_VALUE === Not-a-Number. Actual: ' + (NaN * Number.MAX_VALUE));\n} \n\n//CHECK#7\nif (isNaN(Number.NaN * Number.MIN_VALUE) !== true) {\n  $ERROR('#7: NaN * Number.MIN_VALUE === Not-a-Number. Actual: ' + (NaN * Number.MIN_VALUE)); \n}\n\n//CHECK#8\nif (isNaN(Number.NaN * 1) !== true) {\n  $ERROR('#8: NaN * 1 === Not-a-Number. Actual: ' + (NaN * 1));  \n} \n",
+    "id": "S11.5.1_A4_T1.1"
+   },
+   {
+    "section": "11.5.1",
+    "description": "If right operand is NaN, the result is NaN",
+    "test": "//CHECK#1\nif (isNaN(Number.NaN * Number.NaN) !== true) {\n  $ERROR('#1: NaN * NaN === Not-a-Number. Actual: ' + (NaN * NaN));\n}  \n\n//CHECK#2\nif (isNaN(+0 * Number.NaN) !== true) {\n  $ERROR('#2: +0 * NaN === Not-a-Number. Actual: ' + (+0 * NaN)); \n} \n\n//CHECK#3\nif (isNaN(-0 * Number.NaN) !== true) {\n  $ERROR('#3: -0 * NaN === Not-a-Number. Actual: ' + (-0 * NaN)); \n} \n\n//CHECK#4\nif (isNaN(Number.POSITIVE_INFINITY * Number.NaN) !== true) {\n  $ERROR('#4: Infinity * NaN === Not-a-Number. Actual: ' + (Infinity * NaN));\n} \n\n//CHECK#5\nif (isNaN(Number.NEGATIVE_INFINITY * Number.NaN) !== true) {\n  $ERROR('#5:  -Infinity * NaN === Not-a-Number. Actual: ' + ( -Infinity * NaN)); \n} \n\n//CHECK#6\nif (isNaN(Number.MAX_VALUE * Number.NaN) !== true) {\n  $ERROR('#6: Number.MAX_VALUE * NaN === Not-a-Number. Actual: ' + (Number.MAX_VALUE * NaN));\n} \n\n//CHECK#7\nif (isNaN(Number.MIN_VALUE * Number.NaN) !== true) {\n  $ERROR('#7: Number.MIN_VALUE * NaN === Not-a-Number. Actual: ' + (Number.MIN_VALUE * NaN)); \n}\n\n//CHECK#8\nif (isNaN(1 * Number.NaN) !== true) {\n  $ERROR('#8: 1 * NaN === Not-a-Number. Actual: ' + (1 * NaN));  \n}\n",
+    "id": "S11.5.1_A4_T1.2"
+   },
+   {
+    "section": "11.5.1",
+    "description": "The sign of the result is positive if both operands have the same sign, negative if the operands have different signs",
+    "test": "//CHECK#1\nif (1 * 1 !== 1) {\n  $ERROR('#1: 1 * 1 === 1. Actual: ' + (1 * 1));\n}\n\n//CHECK#2\nif (1 * -1 !== -1) {\n  $ERROR('#2: 1 * -1 === -1. Actual: ' + (1 * -1));\n}\n\n//CHECK#3\nif (-1 * 1 !== -1) {\n  $ERROR('#3: -1 * 1 === -1. Actual: ' + (-1 * 1));\n}\n\n//CHECK#4\nif (-1 * -1 !== 1) {\n  $ERROR('#4: -1 * -1 === 1. Actual: ' + (-1 * -1));\n}\n\n//CHECK#5\nif (0 * 0 !== 0) {\n  $ERROR('#5.1: 0 * 0 === 0. Actual: ' + (0 * 0));\n} else {\n  if (1 / (0 * 0) !== Number.POSITIVE_INFINITY) {\n    $ERROR('#5.2: 0 * 0 === + 0. Actual: -0');\n  }\n}\n\n//CHECK#6\nif (0 * -0 !== -0) {\n  $ERROR('#6.1: 0 * -0 === 0. Actual: ' + (0 * -0));\n} else {\n  if (1 / (0 * -0) !== Number.NEGATIVE_INFINITY) {\n    $ERROR('#6.2: 0 * -0 === - 0. Actual: +0');\n  }\n}\n\n//CHECK#7\nif (-0 * 0 !== -0) {\n  $ERROR('#7.1: -0 * 0 === 0. Actual: ' + (-0 * 0));\n} else {\n  if (1 / (-0 * 0) !== Number.NEGATIVE_INFINITY) {\n    $ERROR('#7.2: -0 * 0 === - 0. Actual: +0');\n  }\n}\n\n//CHECK#8\nif (-0 * -0 !== 0) {\n  $ERROR('#8.1: -0 * -0 === 0. Actual: ' + (-0 * -0));\n} else {\n  if (1 / (-0 * -0) !== Number.POSITIVE_INFINITY) {\n    $ERROR('#8.2: 0 * -0 === - 0. Actual: +0');\n  }\n}\n",
+    "id": "S11.5.1_A4_T2"
+   },
+   {
+    "section": "11.5.1",
+    "description": "Multiplication of an infinity by a zero results in NaN",
+    "test": "//CHECK#1\nif (isNaN(Number.NEGATIVE_INFINITY * 0) !== true) {\n  $ERROR('#1: Infinity * 0 === Not-a-Number. Actual: ' + (Infinity * 0));\n}\n\n//CHECK#2\nif (isNaN(-0 * Number.NEGATIVE_INFINITY) !== true) {\n  $ERROR('#2: -0 * -Infinity === Not-a-Number. Actual: ' + (-0 * -Infinity));\n}\n\n//CHECK#3\nif (isNaN(Number.POSITIVE_INFINITY * -0) !== true) {\n  $ERROR('#3: Infinity * -0 === Not-a-Number. Actual: ' + (Infinity * -0));\n}\n\n//CHECK#4\nif (isNaN(0 * Number.POSITIVE_INFINITY) !== true) {\n  $ERROR('#4: 0 * Infinity === Not-a-Number. Actual: ' + (0 * Infinity));\n}\n\n//CHECK#5\nif (isNaN(Number.NEGATIVE_INFINITY * -0) !== true) {\n  $ERROR('#5: Infinity * -0 === Not-a-Number. Actual: ' + (Infinity * -0));\n}\n\n//CHECK#6\nif (isNaN(0 * Number.NEGATIVE_INFINITY) !== true) {\n  $ERROR('#6: 0 * -Infinity === Not-a-Number. Actual: ' + (0 * -Infinity));\n}\n\n//CHECK#7\nif (isNaN(Number.POSITIVE_INFINITY * 0) !== true) {\n  $ERROR('#7: Infinity * 0 === Not-a-Number. Actual: ' + (Infinity * 0));\n}\n\n//CHECK#8\nif (isNaN(-0 * Number.POSITIVE_INFINITY) !== true) {\n  $ERROR('#8: -0 * Infinity === Not-a-Number. Actual: ' + (-0 * Infinity));\n}\n",
+    "id": "S11.5.1_A4_T3"
+   },
+   {
+    "section": "11.5.1",
+    "description": "Multiplication of an infinity by an infinity results in an infinity of appropriate sign",
+    "test": "//CHECK#1\nif (Number.NEGATIVE_INFINITY * Number.NEGATIVE_INFINITY !== Number.POSITIVE_INFINITY) {\n  $ERROR('#1: -Infinity * -Infinity === Infinity. Actual: ' + (-Infinity * -Infinity));\n}\n\n//CHECK#2\nif (Number.POSITIVE_INFINITY * Number.POSITIVE_INFINITY !== Number.POSITIVE_INFINITY) {\n  $ERROR('#2: Infinity * Infinity === Infinity. Actual: ' + (Infinity * Infinity));\n}\n\n//CHECK#3\nif (Number.NEGATIVE_INFINITY * Number.POSITIVE_INFINITY !== Number.NEGATIVE_INFINITY) {\n  $ERROR('#3: -Infinity * Infinity === -Infinity. Actual: ' + (-Infinity * Infinity));\n}\n\n//CHECK#4\nif (Number.POSITIVE_INFINITY * Number.NEGATIVE_INFINITY !== Number.NEGATIVE_INFINITY) {\n  $ERROR('#4: Infinity * -Infinity === -Infinity. Actual: ' + (Infinity * -Infinity));\n}\n",
+    "id": "S11.5.1_A4_T4"
+   },
+   {
+    "section": "11.5.1",
+    "description": "Multiplication of an infinity by a finite non-zero value results in a signed infinity",
+    "test": "//CHECK#1\nif (Number.NEGATIVE_INFINITY * -1 !== Number.POSITIVE_INFINITY) {\n  $ERROR('#1: -Infinity * -1 === Infinity. Actual: ' + (-Infinity * -1));\n}\n\n//CHECK#2\nif (-1 * Number.NEGATIVE_INFINITY !== Number.POSITIVE_INFINITY) {\n  $ERROR('#2: -1 * -Infinity === Infinity. Actual: ' + (-1 * -Infinity));\n}\n\n//CHECK#3\nif (Number.POSITIVE_INFINITY * -1 !== Number.NEGATIVE_INFINITY) {\n  $ERROR('#3: Infinity * -1 === -Infinity. Actual: ' + (Infinity * -1));\n}\n\n//CHECK#4\nif (-1 * Number.POSITIVE_INFINITY !== Number.NEGATIVE_INFINITY) {\n  $ERROR('#4: -1 * Infinity === -Infinity. Actual: ' + (-1 * Infinity));\n}  \n\n//CHECK#5\nif (Number.POSITIVE_INFINITY * Number.MAX_VALUE !== Number.POSITIVE_INFINITY) {\n  $ERROR('#5: Infinity * Number.MAX_VALUE === Infinity. Actual: ' + (Infinity * Number.MAX_VALUE));\n}\n\n//CHECK#6\nif (Number.POSITIVE_INFINITY * Number.MAX_VALUE !== Number.MAX_VALUE * Number.POSITIVE_INFINITY) {\n  $ERROR('#6: Infinity * Number.MAX_VALUE === Number.MAX_VALUE * Infinity. Actual: ' + (Infinity * Number.MAX_VALUE));\n}\n\n//CHECK#7\nif (Number.NEGATIVE_INFINITY * Number.MIN_VALUE !== Number.NEGATIVE_INFINITY) {\n  $ERROR('#7: -Infinity * Number.MIN_VALUE === -Infinity. Actual: ' + (-Infinity * Number.MIN_VALUE));\n}\n\n//CHECK#8\nif (Number.NEGATIVE_INFINITY * Number.MIN_VALUE !== Number.MIN_VALUE * Number.NEGATIVE_INFINITY) {\n  $ERROR('#8: -Infinity * Number.MIN_VALUE === Number.MIN_VALUE * -Infinity. Actual: ' + (-Infinity * Number.MIN_VALUE));\n}  \n",
+    "id": "S11.5.1_A4_T5"
+   },
+   {
+    "section": "11.5.1",
+    "description": "If the magnitude is too large to represent, the result is then an infinity of appropriate sign",
+    "test": "//CHECK#1\nif (Number.MAX_VALUE * 1.1 !== Number.POSITIVE_INFINITY) {\n  $ERROR('#1: Number.MAX_VALUE * 1.1 === Number.POSITIVE_INFINITY. Actual: ' + (Number.MAX_VALUE * 1.1));\n}\n\n//CHECK#2\nif (-1.1 * Number.MAX_VALUE !== Number.NEGATIVE_INFINITY) {\n  $ERROR('#2: -1.1 * Number.MAX_VALUE === Number.NEGATIVE_INFINITY. Actual: ' + (-1.1 * Number.MAX_VALUE));\n} \n\n//CHECK#3\nif (Number.MAX_VALUE * 1 !== Number.MAX_VALUE) {\n  $ERROR('#3: Number.MAX_VALUE * 1 === Number.MAX_VALUE. Actual: ' + (Number.MAX_VALUE * 1));\n}\n\n//CHECK#4\nif (-1 * Number.MAX_VALUE !== -Number.MAX_VALUE) {\n  $ERROR('#4: -1 * Number.MAX_VALUE === -Number.MAX_VALUE. Actual: ' + (-1 * Number.MAX_VALUE));\n} \n",
+    "id": "S11.5.1_A4_T6"
+   },
+   {
+    "section": "11.5.1",
+    "description": "If the magnitude is too small to represent, the result is then a zero of appropriate sign",
+    "test": "//CHECK#1\nif (Number.MIN_VALUE * 0.1 !== 0) {\n  $ERROR('#1: Number.MIN_VALUE * 0.1 === 0. Actual: ' + (Number.MIN_VALUE * 0.1));\n}\n\n//CHECK#2\nif (-0.1 * Number.MIN_VALUE !== -0) {\n  $ERROR('#2.1: -0.1 * Number.MIN_VALUE === -0. Actual: ' + (-0.1 * Number.MIN_VALUE));\n} else {\n  if (1 / (-0.1 * Number.MIN_VALUE) !== Number.NEGATIVE_INFINITY) {\n    $ERROR('#2.2: -0.1 * Number.MIN_VALUE === -0. Actual: +0');\n  }\n}\n\n//CHECK#3\nif (Number.MIN_VALUE * 0.5 !== 0) {\n  $ERROR('#3: Number.MIN_VALUE * 0.5 === 0. Actual: ' + (Number.MIN_VALUE * 0.5));\n}\n\n//CHECK#4\nif (-0.5 * Number.MIN_VALUE !== -0) {\n  $ERROR('#4.1: -0.5 * Number.MIN_VALUE === -0. Actual: ' + (-0.5 * Number.MIN_VALUE));\n} else {\n  if (1 / (-0.5 * Number.MIN_VALUE) !== Number.NEGATIVE_INFINITY) {\n    $ERROR('#4.2: -0.5 * Number.MIN_VALUE === -0. Actual: +0');\n  }\n}\n\n//CHECK#5\nif (Number.MIN_VALUE * 0.51 !== Number.MIN_VALUE) {\n  $ERROR('#5: Number.MIN_VALUE * 0.51 === Number.MIN_VALUE. Actual: ' + (Number.MIN_VALUE * 0.51));\n}\n\n//CHECK#6\nif (-0.51 * Number.MIN_VALUE !== -Number.MIN_VALUE) {\n  $ERROR('#6: -0.51 * Number.MIN_VALUE === -Number.MIN_VALUE. Actual: ' + (-0.51 * Number.MIN_VALUE));\n}\n\n//CHECK#7\nif (Number.MIN_VALUE * 0.9 !== Number.MIN_VALUE) {\n  $ERROR('#7: Number.MIN_VALUE * 0.9 === Number.MIN_VALUE. Actual: ' + (Number.MIN_VALUE * 0.9));\n}\n\n//CHECK#8\nif (-0.9 * Number.MIN_VALUE !== -Number.MIN_VALUE) {\n  $ERROR('#8: -0.9 * Number.MIN_VALUE === -Number.MIN_VALUE. Actual: ' + (-0.9 * Number.MIN_VALUE));\n} \n",
+    "id": "S11.5.1_A4_T7"
+   },
+   {
+    "section": "11.5.1",
+    "description": "Multiplication is not always associative (x * y * z is the same as (x * y) * z, not x * (y * z))",
+    "test": "//CHECK#1\nif (Number.MAX_VALUE * 1.1 * 0.9 !== (Number.MAX_VALUE * 1.1) * 0.9) {\n  $ERROR('#1: Number.MAX_VALUE * 1.1 * 0.9 === (Number.MAX_VALUE * 1.1) * 0.9. Actual: ' + (Number.MAX_VALUE * 1.1 * 0.9));\n} \n\n//CHECK#2\nif ((Number.MAX_VALUE * 1.1) * 0.9 === Number.MAX_VALUE * (1.1 * 0.9)) {\n  $ERROR('#2: (Number.MAX_VALUE * 1.1) * 0.9 !== Number.MAX_VALUE * (1.1 * 0.9)');\n}\n",
+    "id": "S11.5.1_A4_T8"
+   }
+  ]
+ }
+}

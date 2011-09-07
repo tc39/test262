@@ -1,0 +1,98 @@
+{
+ "testCollection": {
+  "name": "12.14",
+  "numTests": 15,
+  "tests": [
+   {
+    "id": "12.14-1",
+    "path": "TestCases/chapter12/12.14/12.14-1.js",
+    "description": "catch doesn't change declaration scope - var initializer in catch with same name as catch parameter changes parameter",
+    "test": "assertTrue((function testcase() {\n  foo = \"prior to throw\";\n  try {\n    throw new Error();\n  }\n  catch (foo) {\n    var foo = \"initializer in catch\";\n  }\n return foo === \"prior to throw\";\n  \n }).call(this));\n"
+   },
+   {
+    "id": "12.14-10",
+    "path": "TestCases/chapter12/12.14/12.14-10.js",
+    "description": "catch introduces scope - name lookup finds function parameter",
+    "test": "assertTrue((function testcase() {\n  function f(o) {\n\n    function innerf(o, x) {\n      try {\n        throw o;\n      }\n      catch (e) {\n        return x;\n      }\n    }\n\n    return innerf(o, 42);\n  }\n  \n  if (f({}) === 42) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "12.14-11",
+    "path": "TestCases/chapter12/12.14/12.14-11.js",
+    "description": "catch introduces scope - name lookup finds inner variable",
+    "test": "assertTrue((function testcase() {\n  function f(o) {\n\n    function innerf(o) {\n      var x = 42;\n\n      try {\n        throw o;\n      }\n      catch (e) {\n        return x;\n      }\n    }\n\n    return innerf(o);\n  }\n  \n  if (f({}) === 42) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "12.14-12",
+    "path": "TestCases/chapter12/12.14/12.14-12.js",
+    "description": "catch introduces scope - name lookup finds property",
+    "test": "assertTrue((function testcase() {\n  function f(o) {\n\n    function innerf(o) {\n      try {\n        throw o;\n      }\n      catch (e) {\n        return e.x;\n      }\n    }\n\n    return innerf(o);\n  }\n  \n  if (f({x:42}) === 42) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "12.14-13",
+    "path": "TestCases/chapter12/12.14/12.14-13.js",
+    "description": "catch introduces scope - updates are based on scope",
+    "test": "assertTrue((function testcase() {\n        var res1 = false;\n        var res2 = false;\n        var res3 = false;\n\n        var x_12_14_13 = 'local';\n        try {\n            function foo() {\n                this.x_12_14_13 = 'instance';\n            }\n\n            try {\n                throw foo;\n            }\n            catch (e) {\n                res1 = (x_12_14_13 === 'local');\n                e();\n                res2 = (x_12_14_13 === 'local');\n            }\n            res3 = (x_12_14_13 === 'local');\n\n            if (res1 === true &&\n                res2 === true &&\n                res3 === true) {\n                return true;\n            }\n        } finally {\n            delete this.x_12_14_13;\n        }\n    }).call(this));\n"
+   },
+   {
+    "id": "12.14-14",
+    "path": "TestCases/chapter12/12.14/12.14-14.js",
+    "description": "Exception object is a function, when an exception parameter is called as a function in catch block, global object is passed as the this value",
+    "test": "assertTrue((function testcase() {\n        try {\n            throw function () {\n                this._12_14_14_foo = \"test\";\n            };\n            return false;\n        } catch (e) {\n            e();\n            return fnGlobalObject()._12_14_14_foo === \"test\";\n        }\n        finally {\n           delete fnGlobalObject()._12_14_14_foo;\n        }\n    }).call(this));\n"
+   },
+   {
+    "id": "12.14-15",
+    "path": "TestCases/chapter12/12.14/12.14-15.js",
+    "description": "Exception object is a function which is a property of an object, when an exception parameter is called as a function in catch block, global object is passed as the this value",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n        obj.test = function () {\n            this._12_14_15_foo = \"test\";\n        };\n        try {\n            throw obj.test;\n            return false;\n        } catch (e) {\n            e();\n            return  fnGlobalObject()._12_14_15_foo === \"test\";\n        }\n        finally {\n            delete fnGlobalObject()._12_14_15_foo;\n        }\n    }).call(this));\n"
+   },
+   {
+    "id": "12.14-16",
+    "path": "TestCases/chapter12/12.14/12.14-16.js",
+    "description": "Exception object is a function which update in catch block, when an exception parameter is called as a function in catch block, global object is passed as the this value",
+    "test": "assertTrue((function testcase() {\n        try {\n            throw function () {\n                this._12_14_16_foo = \"test\";\n            };\n            return false;\n        } catch (e) {\n            var obj = {};\n            obj.test = function () {\n                this._12_14_16_foo = \"test1\";\n            };\n            e = obj.test;\n            e();\n            return fnGlobalObject()._12_14_16_foo === \"test1\";\n        }\n        finally {\n            delete fnGlobalObject()._12_14_16_foo;\n        }\n\n    }).call(this));\n"
+   },
+   {
+    "id": "12.14-2",
+    "path": "TestCases/chapter12/12.14/12.14-2.js",
+    "description": "catch doesn't change declaration scope - var initializer in catch with same name as catch parameter changes parameter",
+    "test": "assertTrue((function testcase() {\n  function capturedFoo() {return foo};\n  foo = \"prior to throw\";\n  try {\n    throw new Error();\n  }\n  catch (foo) {\n    var foo = \"initializer in catch\";\n    return capturedFoo() !== \"initializer in catch\";\n  }\n  \n }).call(this));\n"
+   },
+   {
+    "id": "12.14-3",
+    "path": "TestCases/chapter12/12.14/12.14-3.js",
+    "description": "catch doesn't change declaration scope - var declaration are visible outside when name different from catch parameter",
+    "test": "assertTrue((function testcase() {\n  try {\n    throw new Error();\n  }\n  catch (e) {\n    var foo = \"declaration in catch\";\n  }\n  \n  return foo === \"declaration in catch\";\n }).call(this));\n"
+   },
+   {
+    "id": "12.14-4",
+    "path": "TestCases/chapter12/12.14/12.14-4.js",
+    "description": "catch introduces scope - block-local vars must shadow outer vars",
+    "test": "assertTrue((function testcase() {\n  var o = { foo : 42};\n\n  try {\n    throw o;\n  }\n  catch (e) {\n    var foo;\n\n    if (foo === undefined) {\n      return true;\n    }\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "12.14-6",
+    "path": "TestCases/chapter12/12.14/12.14-6.js",
+    "description": "catch introduces scope - block-local function expression must shadow outer function expression",
+    "test": "assertTrue((function testcase() {\n  var o = {foo : function () { return 42;}};\n\n  try {\n    throw o;\n  }\n  catch (e) {\n    var foo = function () {};\n    if (foo() === undefined) {\n      return true;\n    }\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "12.14-7",
+    "path": "TestCases/chapter12/12.14/12.14-7.js",
+    "description": "catch introduces scope - scope removed when exiting catch block",
+    "test": "assertTrue((function testcase() {\n      var o = {foo: 1};\n      var catchAccessed = false;\n      \n      try {\n        throw o;\n      }\n      catch (expObj) {\n        catchAccessed = (expObj.foo == 1);\n      }\n\n      try {\n        expObj;\n      }\n      catch (e) {\n        return catchAccessed && e instanceof ReferenceError\n      }\n      return false;\n    }).call(this));\n"
+   },
+   {
+    "id": "12.14-8",
+    "path": "TestCases/chapter12/12.14/12.14-8.js",
+    "description": "catch introduces scope - scope removed when exiting catch block (properties)",
+    "test": "assertTrue((function testcase() {\n  var o = {foo: 42};\n\n  try {\n    throw o;\n  }\n  catch (e) {\n    var foo = 1;\n  }\n\n  if (o.foo === 42) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "12.14-9",
+    "path": "TestCases/chapter12/12.14/12.14-9.js",
+    "description": "catch introduces scope - name lookup finds outer variable",
+    "test": "assertTrue((function testcase() {\n  function f(o) {\n    var x = 42;\n\n    function innerf(o) {\n      try {\n        throw o;\n      }\n      catch (e) {\n        return x;\n      }\n    }\n\n    return innerf(o);\n  }\n  \n  if (f({}) === 42) {\n    return true;\n  }\n }).call(this));\n"
+   }
+  ]
+ }
+}

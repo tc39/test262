@@ -1,0 +1,32 @@
+{
+ "testCollection": {
+  "name": "15.8.2.12_min",
+  "numTests": 4,
+  "tests": [
+   {
+    "section": "15.8.2.12",
+    "description": "Checking if Math.min() equals to +Infinity",
+    "test": "// CHECK#1\nif (Math.min() != +Infinity)\n{\n\t$ERROR(\"#1: 'Math.min() != +Infinity'\");\n}\n",
+    "id": "S15.8.2.12_A1"
+   },
+   {
+    "section": "15.8.2.12",
+    "description": "The script tests Math.min giving 1, 2 and 3 arguments to the function where at least one of the arguments is NaN",
+    "test": "// CHECK#1\nif (!isNaN(Math.min(NaN)))\n{\n\t$ERROR(\"#1: 'isNaN(Math.min(NaN)) === false\");\n}\n\n// CHECK#2\nvals = new Array();\nvals[0] = -Infinity;\nvals[1] = -0.000000000000001;\nvals[2] = -0;\nvals[3] = +0\nvals[4] = 0.000000000000001;\nvals[5] = +Infinity;\nvals[6] = NaN;\nvalnum = 7;\n\nargs = new Array();\nfor (i = 0; i <= 1; i++)\n{\n\targs[i] = NaN;\n\tfor (j = 0; j < valnum; j++)\n\t{\n\t\targs[1-i] = vals[j];\n\t\tif (!isNaN(Math.min(args[0], args[1])))\n\t\t{\n\t\t\t$ERROR(\"#2: 'isNaN(Math.min(\" + args[0] + \", \" + args[1] + \")) === false\");\n\t\t}\t\n\t}\n}\n\n// CHECK #3\nvar k = 1;\nvar l = 2;\nfor (i = 0; i <= 2; i++)\n{\n\targs[i] = NaN;\n\tif (i === 1)\n\t{\n\t\tk = 0;\n\t} else if (i === 2)\n\t{\n\t \tl = 1;\t\n\t}\n\tfor (j = 0; j < valnum; j++)\n\t{\n\t\tfor (jj = 0; jj < valnum; jj++)\n\t\t{\n\t\t\targs[k] = vals[j];\n\t\t\targs[l] = vals[jj];\n\t\t\tif (!isNaN(Math.min(args[0], args[1], args[2])))\n\t\t\t{\n\t\t\t\t$ERROR(\"#3: 'isNaN(Math.min(\" + args[0] + \", \" + args[1] + \", \" + args[2] + \")) === false\");\n\t\t\t}\t\n\t\t}\n\t}\n}\n",
+    "id": "S15.8.2.12_A2"
+   },
+   {
+    "section": "15.8.2.12",
+    "description": "Checking if Math.max(-0,+0) and Math.max(+0,-0) equals to -0",
+    "test": "// CHECK#1\nif (Math.max(-0, +0) !== -0)\n{\n\t$ERROR(\"#1: 'Math.max(-0, +0) !== -0'\");\n}\n\n// CHECK#1\nif (Math.max(+0, -0) !== -0)\n{\n\t$ERROR(\"#2: 'Math.max(+0, -0) !== -0'\");\n}\n",
+    "id": "S15.8.2.12_A3"
+   },
+   {
+    "section": "15.8.2.12",
+    "description": "Checking if Math.min.length property is defined and equals to 2",
+    "test": "// CHECK#1\nif (typeof Math.min !== \"function\") {\n\t$ERROR('#1: Math.min method is not defined');\n}\n\n// CHECK#2\nif (typeof Math.min.length === \"undefined\") {\n\t$ERROR('#2: length property of Math.min method is undefined');\n}\n\n// CHECK#3\nif (Math.min.length !== 2) {\n\t$ERROR('#3: The length property of the Math.min method is not 2');\n}\n",
+    "id": "S15.8.2.12_A4"
+   }
+  ]
+ }
+}

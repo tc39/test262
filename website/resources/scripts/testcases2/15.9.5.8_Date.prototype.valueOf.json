@@ -1,0 +1,50 @@
+{
+ "testCollection": {
+  "name": "15.9.5.8_Date.prototype.valueOf",
+  "numTests": 7,
+  "tests": [
+   {
+    "section": "15.9.5.8",
+    "description": "Checking absence of ReadOnly attribute",
+    "test": "x = Date.prototype.valueOf;\nif(x === 1)\n  Date.prototype.valueOf = 2;\nelse\n  Date.prototype.valueOf = 1;\nif (Date.prototype.valueOf === x) {\n  $ERROR('#1: The Date.prototype.valueOf has not the attribute ReadOnly');\n}\n\n",
+    "id": "S15.9.5.8_A1_T1"
+   },
+   {
+    "section": "15.9.5.8",
+    "description": "Checking absence of DontDelete attribute",
+    "test": "if (delete Date.prototype.valueOf  === false) {\n  $ERROR('#1: The Date.prototype.valueOf property has not the attributes DontDelete');\n}\n\nif (Date.prototype.hasOwnProperty('valueOf')) {\n  $FAIL('#2: The Date.prototype.valueOf property has not the attributes DontDelete');\n}\n\n",
+    "id": "S15.9.5.8_A1_T2"
+   },
+   {
+    "section": "15.9.5.8",
+    "description": "Checking DontEnum attribute",
+    "test": "if (Date.prototype.propertyIsEnumerable('valueOf')) {\n  $ERROR('#1: The Date.prototype.valueOf property has the attribute DontEnum');\n}\n\nfor(x in Date.prototype) {\n  if(x === \"valueOf\") {\n    $ERROR('#2: The Date.prototype.valueOf has the attribute DontEnum');\n  }\n}\n\n",
+    "id": "S15.9.5.8_A1_T3"
+   },
+   {
+    "section": "15.9.5.8",
+    "description": "The \"length\" property of the \"valueOf\" is 0",
+    "test": "if(Date.prototype.valueOf.hasOwnProperty(\"length\") !== true){\n  $ERROR('#1: The valueOf has a \"length\" property');\n}\n\nif(Date.prototype.valueOf.length !== 0){\n  $ERROR('#2: The \"length\" property of the valueOf is 0');\n}\n\n",
+    "id": "S15.9.5.8_A2_T1"
+   },
+   {
+    "section": "15.9.5.8",
+    "description": "Checking ReadOnly attribute",
+    "test": "x = Date.prototype.valueOf.length;\nDate.prototype.valueOf.length = 1;\nif (Date.prototype.valueOf.length !== x) {\n  $ERROR('#1: The Date.prototype.valueOf.length has the attribute ReadOnly');\n}\n\n",
+    "id": "S15.9.5.8_A3_T1"
+   },
+   {
+    "section": "15.9.5.8",
+    "description": "Checking DontDelete attribute",
+    "test": "if (delete Date.prototype.valueOf.length  !== false) {\n  $ERROR('#1: The Date.prototype.valueOf.length property has the attributes DontDelete');\n}\n\nif (!Date.prototype.valueOf.hasOwnProperty('length')) {\n  $FAIL('#2: The Date.prototype.valueOf.length property has the attributes DontDelete');\n}\n\n",
+    "id": "S15.9.5.8_A3_T2"
+   },
+   {
+    "section": "15.9.5.8",
+    "description": "Checking DontEnum attribute",
+    "test": "if (Date.prototype.valueOf.propertyIsEnumerable('length')) {\n  $ERROR('#1: The Date.prototype.valueOf.length property has the attribute DontEnum');\n}\n\nfor(x in Date.prototype.valueOf) {\n  if(x === \"length\") {\n    $ERROR('#2: The Date.prototype.valueOf.length has the attribute DontEnum');\n  }\n}\n\n",
+    "id": "S15.9.5.8_A3_T3"
+   }
+  ]
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "testCollection": {
+  "name": "15.9.5.12_Date.prototype.getMonth",
+  "numTests": 7,
+  "tests": [
+   {
+    "section": "15.9.5.12",
+    "description": "Checking absence of ReadOnly attribute",
+    "test": "x = Date.prototype.getMonth;\nif(x === 1)\n  Date.prototype.getMonth = 2;\nelse\n  Date.prototype.getMonth = 1;\nif (Date.prototype.getMonth === x) {\n  $ERROR('#1: The Date.prototype.getMonth has not the attribute ReadOnly');\n}\n\n",
+    "id": "S15.9.5.12_A1_T1"
+   },
+   {
+    "section": "15.9.5.12",
+    "description": "Checking absence of DontDelete attribute",
+    "test": "if (delete Date.prototype.getMonth  === false) {\n  $ERROR('#1: The Date.prototype.getMonth property has not the attributes DontDelete');\n}\n\nif (Date.prototype.hasOwnProperty('getMonth')) {\n  $FAIL('#2: The Date.prototype.getMonth property has not the attributes DontDelete');\n}\n\n",
+    "id": "S15.9.5.12_A1_T2"
+   },
+   {
+    "section": "15.9.5.12",
+    "description": "Checking DontEnum attribute",
+    "test": "if (Date.prototype.propertyIsEnumerable('getMonth')) {\n  $ERROR('#1: The Date.prototype.getMonth property has the attribute DontEnum');\n}\n\nfor(x in Date.prototype) {\n  if(x === \"getMonth\") {\n    $ERROR('#2: The Date.prototype.getMonth has the attribute DontEnum');\n  }\n}\n\n",
+    "id": "S15.9.5.12_A1_T3"
+   },
+   {
+    "section": "15.9.5.12",
+    "description": "The \"length\" property of the \"getMonth\" is 0",
+    "test": "if(Date.prototype.getMonth.hasOwnProperty(\"length\") !== true){\n  $ERROR('#1: The getMonth has a \"length\" property');\n}\n\nif(Date.prototype.getMonth.length !== 0){\n  $ERROR('#2: The \"length\" property of the getMonth is 0');\n}\n\n",
+    "id": "S15.9.5.12_A2_T1"
+   },
+   {
+    "section": "15.9.5.12",
+    "description": "Checking ReadOnly attribute",
+    "test": "x = Date.prototype.getMonth.length;\nDate.prototype.getMonth.length = 1;\nif (Date.prototype.getMonth.length !== x) {\n  $ERROR('#1: The Date.prototype.getMonth.length has the attribute ReadOnly');\n}\n\n",
+    "id": "S15.9.5.12_A3_T1"
+   },
+   {
+    "section": "15.9.5.12",
+    "description": "Checking DontDelete attribute",
+    "test": "if (delete Date.prototype.getMonth.length  !== false) {\n  $ERROR('#1: The Date.prototype.getMonth.length property has the attributes DontDelete');\n}\n\nif (!Date.prototype.getMonth.hasOwnProperty('length')) {\n  $FAIL('#2: The Date.prototype.getMonth.length property has the attributes DontDelete');\n}\n\n",
+    "id": "S15.9.5.12_A3_T2"
+   },
+   {
+    "section": "15.9.5.12",
+    "description": "Checking DontEnum attribute",
+    "test": "if (Date.prototype.getMonth.propertyIsEnumerable('length')) {\n  $ERROR('#1: The Date.prototype.getMonth.length property has the attribute DontEnum');\n}\n\nfor(x in Date.prototype.getMonth) {\n  if(x === \"length\") {\n    $ERROR('#2: The Date.prototype.getMonth.length has the attribute DontEnum');\n  }\n}\n\n",
+    "id": "S15.9.5.12_A3_T3"
+   }
+  ]
+ }
+}

@@ -1,0 +1,92 @@
+{
+ "testCollection": {
+  "name": "15.5.5.2",
+  "numTests": 14,
+  "tests": [
+   {
+    "id": "15.5.5.5.2-1-1",
+    "path": "TestCases/chapter15/15.5/15.5.5/15.5.5.2/15.5.5.5.2-1-1.js",
+    "description": "String object supports bracket notation to lookup of data properties",
+    "test": "assertTrue((function testcase() {\n  var s = new String(\"hello world\");\n  s.foo = 1;\n  \n  if (s[\"foo\"] === 1) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "15.5.5.5.2-1-2",
+    "path": "TestCases/chapter15/15.5/15.5.5/15.5.5.2/15.5.5.5.2-1-2.js",
+    "description": "String value supports bracket notation to lookup data properties",
+    "test": "assertTrue((function testcase() {\n  var s = String(\"hello world\");\n  \n  if (s[\"foo\"] === undefined) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "15.5.5.5.2-3-1",
+    "path": "TestCases/chapter15/15.5/15.5.5/15.5.5.2/15.5.5.5.2-3-1.js",
+    "description": "String object indexing returns undefined for missing data properties",
+    "test": "assertTrue((function testcase() {\n  var s = new String(\"hello world\");\n  \n  if (s[\"foo\"] === undefined) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "15.5.5.5.2-3-2",
+    "path": "TestCases/chapter15/15.5/15.5.5/15.5.5.2/15.5.5.5.2-3-2.js",
+    "description": "String value indexing returns undefined for missing data properties",
+    "test": "assertTrue((function testcase() {\n  var s = String(\"hello world\");\n  \n  if (s[\"foo\"] === undefined) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "15.5.5.5.2-3-3",
+    "path": "TestCases/chapter15/15.5/15.5.5/15.5.5.2/15.5.5.5.2-3-3.js",
+    "description": "String object indexing returns undefined if the numeric index (NaN) is not an array index",
+    "test": "assertTrue((function testcase() {\n  var s = new String(\"hello world\");\n\n  if (s[NaN] === undefined) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "15.5.5.5.2-3-4",
+    "path": "TestCases/chapter15/15.5/15.5.5/15.5.5.2/15.5.5.5.2-3-4.js",
+    "description": "String object indexing returns undefined if the numeric index (Infinity) is not an array index",
+    "test": "assertTrue((function testcase() {\n  var s = new String(\"hello world\");\n\n  if (s[Infinity] === undefined) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "15.5.5.5.2-3-5",
+    "path": "TestCases/chapter15/15.5/15.5.5/15.5.5.2/15.5.5.5.2-3-5.js",
+    "description": "String object indexing returns undefined if the numeric index ( 2^32-1) is not an array index",
+    "test": "assertTrue((function testcase() {\n  var s = new String(\"hello world\");\n\n  if (s[Math.pow(2, 32)-1]===undefined) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "15.5.5.5.2-3-6",
+    "path": "TestCases/chapter15/15.5/15.5.5/15.5.5.2/15.5.5.5.2-3-6.js",
+    "description": "String value indexing returns undefined if the numeric index (NaN) is not an array index",
+    "test": "assertTrue((function testcase() {\n  var s = String(\"hello world\");\n\n  if (s[NaN] === undefined) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "15.5.5.5.2-3-7",
+    "path": "TestCases/chapter15/15.5/15.5.5/15.5.5.2/15.5.5.5.2-3-7.js",
+    "description": "String value indexing returns undefined if the numeric index (Infinity) is not an array index",
+    "test": "assertTrue((function testcase() {\n  var s = String(\"hello world\");\n\n  if (s[Infinity] === undefined) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "15.5.5.5.2-3-8",
+    "path": "TestCases/chapter15/15.5/15.5.5/15.5.5.2/15.5.5.5.2-3-8.js",
+    "description": "String value indexing returns undefined if the numeric index ( >= 2^32-1) is not an array index",
+    "test": "assertTrue((function testcase() {\n  var s = String(\"hello world\");\n\n  if (s[Math.pow(2, 32)-1]===undefined) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "15.5.5.5.2-7-1",
+    "path": "TestCases/chapter15/15.5/15.5.5/15.5.5.2/15.5.5.5.2-7-1.js",
+    "description": "String object indexing returns undefined if the numeric index is less than 0",
+    "test": "assertTrue((function testcase() {\n  var s = new String(\"hello world\");\n\n  if (s[-1] === undefined) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "15.5.5.5.2-7-2",
+    "path": "TestCases/chapter15/15.5/15.5.5/15.5.5.2/15.5.5.5.2-7-2.js",
+    "description": "String value indexing returns undefined if the numeric index is less than 0",
+    "test": "assertTrue((function testcase() {\n  var s = String(\"hello world\");\n\n  if (s[-1] === undefined) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "15.5.5.5.2-7-3",
+    "path": "TestCases/chapter15/15.5/15.5.5/15.5.5.2/15.5.5.5.2-7-3.js",
+    "description": "String object indexing returns undefined if the numeric index is greater than the string length",
+    "test": "assertTrue((function testcase() {\n  var s = new String(\"hello world\");\n\n  if (s[11] === undefined) {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "15.5.5.5.2-7-4",
+    "path": "TestCases/chapter15/15.5/15.5.5/15.5.5.2/15.5.5.5.2-7-4.js",
+    "description": "String value indexing returns undefined if the numeric index is greater than the string length",
+    "test": "assertTrue((function testcase() {\n  var s = String(\"hello world\");\n\n  if (s[11] === undefined) {\n    return true;\n  }\n }).call(this));\n"
+   }
+  ]
+ }
+}

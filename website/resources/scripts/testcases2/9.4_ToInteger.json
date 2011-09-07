@@ -1,0 +1,32 @@
+{
+ "testCollection": {
+  "name": "9.4_ToInteger",
+  "numTests": 4,
+  "tests": [
+   {
+    "section": "9.4, 15.5",
+    "description": "Check what position is defined by Number.NaN in string \"abc\": \"abc\".charAt(Number.NaN)",
+    "test": "// CHECK#1\nif (\"abc\".charAt(Number.NaN) !== \"a\") {\n  $ERROR('#1: \"abc\".charAt(Number.NaN) === \"a\". Actual: ' + (\"abc\".charAt(Number.NaN)));\n}\n\n// CHECK#2\nif (\"abc\".charAt(\"x\") !== \"a\") {\n  $ERROR('#2: \"abc\".charAt(\"x\") === \"a\". Actual: ' + (\"abc\".charAt(\"x\")));\n}\n",
+    "id": "S9.4_A1"
+   },
+   {
+    "section": "9.4, 15.5",
+    "description": "Check what position is defined by Number.NaN in string \"abc\": \"abc\".charAt(Number.NaN)",
+    "test": "// CHECK#1\nif (\"abc\".charAt(0.0) !== \"a\") {\n  $ERROR('#1: \"abc\".charAt(0.0) === \"a\". Actual: ' + (\"abc\".charAt(0.0)));\n}\n\n// CHECK#2\nif (\"abc\".charAt(-0.0) !== \"a\") {\n  $ERROR('#2: \"abc\".charAt(-0.0) === \"a\". Actual: ' + (\"abc\".charAt(-0.0)));\n}\n",
+    "id": "S9.4_A2"
+   },
+   {
+    "section": "9.4, 15.9",
+    "description": "For testing constructor Date(Number) is used",
+    "test": "// CHECK#1\nvar d1 = new Date(6.54321);\nif (d1.valueOf() !== 6) {\n  $ERROR('#1: var d1 = new Date(6.54321); d1.valueOf() === 6;');\n}\n\n// CHECK#2\nvar d2 = new Date(-6.54321);\nif (d2.valueOf() !== -6) {\n  $ERROR('#2: var d2 = new Date(-6.54321); d2.valueOf() === -6;');\n}\n\n// CHECK#3\nvar d3 = new Date(6.54321e2);\nif (d3.valueOf() !== 654) {\n  $ERROR('#3: var d3 = new Date(6.54321e2); d3.valueOf() === 654;');\n}\n\n// CHECK#4\nvar d4 = new Date(-6.54321e2);\nif (d4.valueOf() !== -654) {\n  $ERROR('#4: var d4 = new Date(-6.54321e2); d4.valueOf() === -654;');\n}\n\n// CHECK#5\nvar d5 = new Date(0.654321e1);\nif (d5.valueOf() !== 6) {\n  $ERROR('#5: var d5 = new Date(0.654321e1); d5.valueOf() === 6;');\n}\n\n// CHECK#6\nvar d6 = new Date(-0.654321e1);\nif (d6.valueOf() !== -6) {\n  $ERROR('#6: var d6 = new Date(-0.654321e1); d6.valueOf() === -6;');\n}\n\n// CHECK#7\nvar d7 = new Date(true);\nif (d7.valueOf() !== 1) {\n  $ERROR('#7: var d7 = new Date(true); d7.valueOf() === 1;');\n}\n\n// CHECK#8\nvar d8 = new Date(false);\nif (d8.valueOf() !== 0) {\n  $ERROR('#8: var d8 = new Date(false); d8.valueOf() === 0;');\n}\n\n// CHECK#9\nvar d9 = new Date(1.23e15);\nif (d9.valueOf() !== 1.23e15) {\n  $ERROR('#9: var d9 = new Date(1.23e15); d9.valueOf() === 1.23e15;');\n}\n\n// CHECK#10\nvar d10 = new Date(-1.23e15);\nif (d10.valueOf() !== -1.23e15) {\n  $ERROR('#10: var d10 = new Date(-1.23e15); d10.valueOf() === -1.23e15;');\n}\n\n// CHECK#11\nvar d11 = new Date(1.23e-15);\nif (d11.valueOf() !== 0) {\n  $ERROR('#11: var d11 = new Date(1.23e-15); d11.valueOf() === 0;');\n}\n\n// CHECK#12\nvar d12 = new Date(-1.23e-15);\nif (d12.valueOf() !== -0) {\n  $ERROR('#12: var d12 = new Date(-1.23e-15); d12.valueOf() === -0;');\n}\n",
+    "id": "S9.4_A3_T1"
+   },
+   {
+    "section": "9.4, 15.9",
+    "description": "For testing constructor Date(NaN, Infinity, Infinity, +0 and -0) is used",
+    "test": "// CHECK#1\nvar d1 = new Date(Number.NaN);\nif (!isNaN(d1.valueOf())) {\n  $ERROR('#1: var d1 = new Date(Number.NaN); d1.valueOf() === Number.NaN;');\n}\n\n// CHECK#2\nvar d2 = new Date(Infinity);\nif (!isNaN(d2.valueOf())) {\n  $ERROR('#2: var d2 = new Date(Infinity); d2.valueOf() === Number.NaN;');\n}\n\n// CHECK#3\nvar d3 = new Date(-Infinity);\nif (!isNaN(d3.valueOf())) {\n  $ERROR('#3: var d3 = new Date(-Infinity); d3.valueOf() === Number.NaN;');\n}\n\n// CHECK#4\nvar d4 = new Date(0);\nif (d4.valueOf() !== 0) {\n  $ERROR('#4: var d4 = new Date(0); d4.valueOf() === 0;');\n}\n\n// CHECK#5\nvar d5 = new Date(-0);\nif (d5.valueOf() !== -0) {\n  $ERROR('#5: var d5 = new Date(-0); d5.valueOf() === -0;');\n}\n",
+    "id": "S9.4_A3_T2"
+   }
+  ]
+ }
+}

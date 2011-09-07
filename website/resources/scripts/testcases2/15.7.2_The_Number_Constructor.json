@@ -1,0 +1,32 @@
+{
+ "testCollection": {
+  "name": "15.7.2_The_Number_Constructor",
+  "numTests": 4,
+  "tests": [
+   {
+    "section": "15.7.2.1",
+    "description": "Checking type of the newly created object and it value",
+    "test": "//CHECK#1\nif (typeof new Number() !== \"object\") {\n  $ERROR(\"#1: typeof new Number() === 'object'\");\n}\n\n//CHECK#2\nif (new Number() === undefined) {\n  $ERROR(\"#2: new Number() should not be undefined\");\n}\n\n//CHECK#3\nvar x3 = new Number();\nif(typeof x3 !== \"object\"){\n  $ERROR(\"#3: typeof new Number() === 'object'\");\n}\n\n//CHECK#4\nvar x4 = new Number();\nif(x4 === undefined){\n  $ERROR(\"#4: new Number() should not be undefined\");\n}\n\n//CHECK#5\nif (typeof new Number(10) !== \"object\") {\n  $ERROR(\"#5: typeof new Number(10) === 'object'\");\n}\n\n//CHECK#6\nif (new Number(10) === undefined) {\n  $ERROR(\"#6: new Number(10) should not be undefined\");\n}\n\n//CHECK#7\nvar x7 = new Number(10);\nif(typeof x7 !== \"object\"){\n  $ERROR(\"#7: typeof new Number(10) === 'object'\");\n}\n\n//CHECK#8\nvar x8 = new Number(10);\nif(x8 === undefined){\n  $ERROR(\"#8: new Number(10) should not be undefined\");\n}\n",
+    "id": "S15.7.2.1_A1"
+   },
+   {
+    "section": "15.7.2.1",
+    "description": "Checking prototype property of the newly created objects",
+    "test": "// CHECK#1\nvar x1 = new Number(1);\nif (typeof x1.constructor.prototype !== \"object\") {\n  $ERROR('#1: typeof x1.constructor.prototype === \"object\"');\n}\n\n//CHECK#2\nvar x2 = new Number(2);\nif (!Number.prototype.isPrototypeOf(x2)) {\n  $ERROR('#2: Number.prototype.isPrototypeOf(x2)');\n}\n\n//CHECK#3\nvar x3 = new Number(3);\nif (Number.prototype !== x3.constructor.prototype) {\n  $ERROR('#3: Number.prototype === x3.constructor.prototype');\n}\n",
+    "id": "S15.7.2.1_A2"
+   },
+   {
+    "section": "15.7.2.1",
+    "description": "Checking value of the newly created object",
+    "test": "//CHECK#1\nvar x1 = new Number(1);\nif (x1.valueOf() !== 1) {\n  $ERROR('#1: var x1 = new Number(1); x1.valueOf() === 1');\n}\n\n//CHECK#2\nvar x2 = new Number();\nif (x2.valueOf() !== 0) {\n  $ERROR('#2.1: var x2 = new Number(); x2.valueOf() === 0');\n} else if( 1/x2.valueOf() !== Number.POSITIVE_INFINITY ) {\n  $ERROR('#2.2: var x2 = new Number(); x2.valueOf() === +0');\n}\n",
+    "id": "S15.7.2.1_A3"
+   },
+   {
+    "section": "15.7.2.1",
+    "description": "For testing toString function is used",
+    "test": "delete Number.prototype.toString;\n\nvar obj = new Number();\n\n//CHECK#1\nif (obj.toString() !== \"[object Number]\") {\n  $ERROR('#1: The [[Class]] property of the newly constructed object is set to \"Number\"');\n}\n",
+    "id": "S15.7.2.1_A4"
+   }
+  ]
+ }
+}

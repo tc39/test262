@@ -1,0 +1,21 @@
+{
+ "testCollection": {
+  "name": "12.6.4",
+  "numTests": 2,
+  "tests": [
+   {
+    "id": "12.6.4-1",
+    "path": "TestCases/chapter12/12.6/12.6.4/12.6.4-1.js",
+    "description": "The for-in Statement - a property name must not be visited more than once in any enumeration.",
+    "test": "assertTrue((function testcase() {\n        var obj = { prop1: \"abc\", prop2: \"bbc\", prop3: \"cnn\" };\n\n        var countProp1 = 0;\n        var countProp2 = 0;\n        var countProp3 = 0;\n\n        for (var p in obj) {\n            if (obj.hasOwnProperty(p)) {\n                if (p === \"prop1\") {\n                    countProp1++;\n                }\n                if (p === \"prop2\") {\n                    countProp2++;\n                }\n                if (p === \"prop3\") {\n                    countProp3++;\n                }\n            }\n        }\n        return countProp1 === 1 && countProp2 === 1 && countProp3 === 1;\n    }).call(this));\n"
+   },
+   {
+    "id": "12.6.4-2",
+    "path": "TestCases/chapter12/12.6/12.6.4/12.6.4-2.js",
+    "description": "The for-in Statement - the values of [[Enumerable]] attributes are not considered when determining if a property of a prototype object is shadowed by a previous object on the prototype chain",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n\n        var proto = {};\n\n        Object.defineProperty(proto, \"prop\", {\n            value: \"inheritedValue\",\n            enumerable: false,\n            configurable: true,\n            writable: true\n        });\n\n        var ConstructFun = function () { };\n        ConstructFun.prototype = proto;\n\n        var child = new ConstructFun();\n\n        Object.defineProperty(child, \"prop1\", {\n            value: \"overridedValue1\",\n            enumerable: false\n        });\n        Object.defineProperty(child, \"prop2\", {\n            value: \"overridedValue2\",\n            enumerable: true\n        });\n        var accessedProp1 = false;\n        var accessedProp2 = false;\n\n        for (var p in child) {\n            if (child.hasOwnProperty(p)) {\n                if (p === \"prop1\") {\n                    accessedProp1 = true;\n                }\n                if (p === \"prop2\") {\n                    accessedProp2 = true;\n                }\n            }\n        }\n        return !accessedProp1 && accessedProp2 && child.prop1 === \"overridedValue1\" && child.prop2 === \"overridedValue2\";\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.defineProperty))"
+   }
+  ]
+ }
+}

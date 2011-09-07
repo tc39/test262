@@ -1,0 +1,68 @@
+{
+ "testCollection": {
+  "name": "11.4.3_The_typeof_Operator",
+  "numTests": 10,
+  "tests": [
+   {
+    "section": "11.4.3",
+    "description": "Checking by using eval",
+    "test": "//CHECK#1\nif (eval(\"var x = 0; typeof\\u0009x\") !== \"number\") {\n  $ERROR('#1: var x = 0; typeof\\\\u0009x; x === \"number\". Actual: ' + (x));\n}\n\n//CHECK#2\nif (eval(\"var x = 0; typeof\\u000Bx\") !== \"number\") {\n  $ERROR('#2: var x = 0; typeof\\\\u000Bx; x === \"number\". Actual: ' + (x));  \n}\n\n//CHECK#3\nif (eval(\"var x = 0; typeof\\u000Cx\") !== \"number\") {\n  $ERROR('#3: var x = 0; typeof\\\\u000Cx; x === \"number\". Actual: ' + (x));\n}\n\n//CHECK#4\nif (eval(\"var x = 0; typeof\\u0020x\") !== \"number\") {\n  $ERROR('#4: var x = 0; typeof\\\\u0020x; x === \"number\". Actual: ' + (x));\n}\n\n//CHECK#5\nif (eval(\"var x = 0; typeof\\u00A0x\") !== \"number\") {\n  $ERROR('#5: var x = 0; typeof\\\\u00A0x; x === \"number\". Actual: ' + (x));\n}\n\n//CHECK#6\nif (eval(\"var x = 0; typeof\\u000Ax\") !== \"number\") {\n  $ERROR('#6: var x = 0; typeof\\\\u000Ax; x === \"number\". Actual: ' + (x));  \n}\n\n//CHECK#7\nif (eval(\"var x = 0; typeof\\u000Dx\") !== \"number\") {\n  $ERROR('#7: var x = 0; typeof\\\\u000Dx; x === \"number\". Actual: ' + (x));\n}\n\n//CHECK#8\nif (eval(\"var x = 0; typeof\\u2028x\") !== \"number\") {\n  $ERROR('#8: var x = 0; typeof\\\\u2028x; x === \"number\". Actual: ' + (x));\n}\n\n//CHECK#9\nif (eval(\"var x = 0; typeof\\u2029x\") !== \"number\") {\n  $ERROR('#9: var x = 0; typeof\\\\u2029x; x === \"number\". Actual: ' + (x));\n}\n\n//CHECK#10\nif (eval(\"var x = 0; typeof\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029x\") !== \"number\") {\n  $ERROR('#10: var x = 0; typeof\\\\u0009\\\\u000B\\\\u000C\\\\u0020\\\\u00A0\\\\u000A\\\\u000D\\\\u2028\\\\u2029x; x === \"number\". Actual: ' + (x));\n}\n",
+    "id": "S11.4.3_A1"
+   },
+   {
+    "section": "11.4.3",
+    "description": "Either Type(x) is not Reference or GetBase(x) is not null",
+    "test": "//CHECK#1\nif (typeof 0 !== \"number\") {\n  $ERROR('#1: typeof 0 === \"number\". Actual: ' + (typeof 0));\n}\n\n//CHECK#2\nvar x = 0;\nif (typeof x !== \"number\") {\n  $ERROR('#2: typeof x === \"number\". Actual: ' + (typeof x));\n}\n\n//CHECK#3\nvar x = new Object();\nif (typeof x !== \"object\") {\n  $ERROR('#3: var x = new Object(); typeof x === \"object\". Actual: ' + (typeof x));\n}\n",
+    "id": "S11.4.3_A2_T1"
+   },
+   {
+    "section": "11.4.3",
+    "description": "If GetBase(x) is null, return \"undefined\"",
+    "test": "//CHECK#1\nif (typeof x !== \"undefined\") {\n  $ERROR('#1: typeof x === \"undefined\". Actual: ' + (typeof x));\n}\n",
+    "id": "S11.4.3_A2_T2"
+   },
+   {
+    "section": "11.4.3",
+    "description": "typeof undefined === \"undefined\"",
+    "test": "//CHECK#1\nif (typeof undefined !== \"undefined\") {\n  $ERROR('#1: typeof undefined === \"undefined\". Actual: ' + (typeof undefined));\n}\n\n//CHECK#2\nif (typeof void 0 !== \"undefined\") {\n  $ERROR('#2: typeof void 0 === \"undefined\". Actual: ' + (typeof void 0));\n}\n",
+    "id": "S11.4.3_A3.1"
+   },
+   {
+    "section": "11.4.3",
+    "description": "typeof null === \"object\"",
+    "test": "//CHECK#1\nif (typeof null !== \"object\") {\n  $ERROR('#1: typeof null === \"object\". Actual: ' + (typeof null));\n}\n\n//CHECK#2\nif (typeof RegExp(\"0\").exec(\"1\") !== \"object\") {\n  $ERROR('#2: typeof RegExp(\"0\").exec(\"1\") === \"object\". Actual: ' + (typeof RegExp(\"0\").exec(\"1\")));\n}\n",
+    "id": "S11.4.3_A3.2"
+   },
+   {
+    "section": "11.4.3",
+    "description": "typeof (boolean value) === \"boolean\"",
+    "test": "//CHECK#1\nif (typeof true !== \"boolean\") {\n  $ERROR('#1: typeof true === \"boolean\". Actual: ' + (typeof true));\n}\n\n//CHECK#2\nif (typeof false !== \"boolean\") {\n  $ERROR('#2: typeof false === \"boolean\". Actual: ' + (typeof false));\n}\n\n//CHECK#3\nif (typeof !-1 !== \"boolean\") {\n  $ERROR('#3: typeof !-1 === \"boolean\". Actual: ' + (typeof !-1));\n}\n",
+    "id": "S11.4.3_A3.3"
+   },
+   {
+    "section": "11.4.3",
+    "description": "typeof (number value) === \"number\"",
+    "test": "//CHECK#1\nif (typeof 1 !== \"number\") {\n  $ERROR('#1: typeof 1 === \"number\". Actual: ' + (typeof 1));\n}\n\n//CHECK#2\nif (typeof Number.NaN !== \"number\") {\n  $ERROR('#2: typeof NaN === \"number\". Actual: ' + (typeof NaN));\n}\n\n//CHECK#3\nif (typeof Number.POSITIVE_INFINITY !== \"number\") {\n  $ERROR('#3: typeof Infinity === \"number\". Actual: ' + (typeof Infinity));\n}\n\n//CHECK#4\nif (typeof Number.NEGATIVE_INFINITY !== \"number\") {\n  $ERROR('#4: typeof -Infinity === \"number\". Actual: ' + (typeof -Infinity));\n}\n\n//CHECK#5\nif (typeof Math.PI !== \"number\") {\n  $ERROR('#5: typeof Math.PI === \"number\". Actual: ' + (typeof Math.PI));\n}\n",
+    "id": "S11.4.3_A3.4"
+   },
+   {
+    "section": "11.4.3",
+    "description": "typeof (string value) === \"string\"",
+    "test": "//CHECK#1\nif (typeof \"1\" !== \"string\") {\n  $ERROR('#1: typeof \"1\" === \"string\". Actual: ' + (typeof \"1\"));\n}\n\n//CHECK#2\nif (typeof \"NaN\" !== \"string\") {\n  $ERROR('#2: typeof \"NaN\" === \"string\". Actual: ' + (typeof \"NaN\"));\n}\n\n//CHECK#3\nif (typeof \"Infinity\" !== \"string\") {\n  $ERROR('#3: typeof \"Infinity\" === \"string\". Actual: ' + (typeof \"Infinity\"));\n}\n\n//CHECK#4\nif (typeof \"\" !== \"string\") {\n  $ERROR('#4: typeof \"\" === \"string\". Actual: ' + (typeof \"\"));\n}\n\n//CHECK#5\nif (typeof \"true\" !== \"string\") {\n  $ERROR('#5: typeof \"true\" === \"string\". Actual: ' + (typeof \"true\"));\n}\n\n//CHECK#6\nif (typeof Date() !== \"string\") {\n  $ERROR('#6: typeof Date() === \"string\". Actual: ' + (typeof Date()));\n}\n",
+    "id": "S11.4.3_A3.5"
+   },
+   {
+    "section": "11.4.3",
+    "description": "typeof (object without [[Call]]) === \"object\"",
+    "test": "//CHECK#1\nif (typeof this !== \"object\") {\n  $ERROR('#1: typeof this === \"object\". Actual: ' + (typeof this));\n}\n\n//CHECK#2\nif (typeof new Object() !== \"object\") {\n  $ERROR('#2: typeof new Object() === \"object\". Actual: ' + (typeof new Object()));\n}\n\n//CHECK#3\nif (typeof new Array(1,2,3) !== \"object\") {\n  $ERROR('#3: typeof new Array(1,2,3) === \"object\". Actual: ' + (typeof new Array(1,2,3)));\n}\n\n//CHECK#4\nif (typeof Array(1,2,3) !== \"object\") {\n  $ERROR('#4: typeof Array(1,2,3) === \"object\". Actual: ' + (typeof Array(1,2,3)));\n}\n\n//CHECK#5\nif (typeof new String(\"x\") !== \"object\") {\n  $ERROR('#5: typeof new String(\"x\") === \"object\". Actual: ' + (typeof new String(\"x\")));\n}\n\n//CHECK#6\nif (typeof new Boolean(true) !== \"object\") {\n  $ERROR('#6: typeof new Boolean(true) === \"object\". Actual: ' + (typeof new Boolean(true)));\n}\n\n//CHECK#7\nif (typeof new Number(1) !== \"object\") {\n  $ERROR('#7: typeof new Number(1) === \"object\". Actual: ' + (typeof new Number(1)));\n}\n\n//CHECK#8\n//The Math object does not have a [[Construct]] property; \n//it is not possible to use the Math object as a constructor with the new operator.\n//The Math object does not have a [[Call]] property; it is not possible to invoke the Math object as a object.\nif (typeof Math !== \"object\") {\n  $ERROR('#8: typeof Math === \"object\". Actual: ' + (typeof Math));\n}\n\n//CHECK#9\nif (typeof new Date() !== \"object\") {\n  $ERROR('#9: typeof new Date() === \"object\". Actual: ' + (typeof new Date()));\n}\n\n//CHECK#10\nif (typeof new Error() !== \"object\") {\n  $ERROR('#10: typeof new Error() === \"object\". Actual: ' + (typeof new Error()));\n}\n\n//CHECK#11\nif (typeof new RegExp() !== \"object\") {\n  $ERROR('#11: typeof new RegExp() === \"object\". Actual: ' + (typeof new RegExp()));\n}\n\n//CHECK#12\nif (typeof RegExp() !== \"object\") {\n  $ERROR('#12: typeof RegExp() === \"object\". Actual: ' + (typeof RegExp()));\n}\n",
+    "id": "S11.4.3_A3.6"
+   },
+   {
+    "section": "11.4.3",
+    "description": "typeof (object with [[Call]]) === \"function\"",
+    "test": "//CHECK#1\nif (typeof new Function() !== \"function\") {\n  $ERROR('#1: typeof new Function() === \"function\". Actual: ' + (typeof new Function()));\n}\n\n//CHECK#2\nif (typeof Function() !== \"function\") {\n  $ERROR('#2: typeof Function() === \"function\". Actual: ' + (typeof Function()));\n}\n\n//CHECK#3\nif (typeof Object !== \"function\") {\n  $ERROR('#3: typeof Object === \"function\". Actual: ' + (typeof Object));\n}\n\n//CHECK#4\nif (typeof String !== \"function\") {\n  $ERROR('#4: typeof String === \"function\". Actual: ' + (typeof String));\n}\n\n//CHECK5\nif (typeof Boolean !== \"function\") {\n  $ERROR('#5: typeof Boolean === \"function\". Actual: ' + (typeof Boolean));\n}\n\n//CHECK#6\nif (typeof Number !== \"function\") {\n  $ERROR('#6: typeof Number === \"function\". Actual: ' + (typeof Number));\n}\n\n//CHECK#7\nif (typeof Date !== \"function\") {\n  $ERROR('#7: typeof Date === \"function\". Actual: ' + (typeof Date));\n}\n\n//CHECK#8\nif (typeof Error !== \"function\") {\n  $ERROR('#8: typeof Error === \"function\". Actual: ' + (typeof Error));\n}\n\n//CHECK#9\nif (typeof RegExp !== \"function\") {\n  $ERROR('#9: typeof RegExp === \"function\". Actual: ' + (typeof RegExp));\n}\n",
+    "id": "S11.4.3_A3.7"
+   }
+  ]
+ }
+}

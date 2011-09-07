@@ -1,0 +1,224 @@
+{
+ "testCollection": {
+  "name": "11.8.3_The_Less_than_or_equal_Operator",
+  "numTests": 36,
+  "tests": [
+   {
+    "section": "11.8.3, 7.2, 7.3",
+    "description": "Checking by using eval",
+    "test": "//CHECK#1\nif (eval(\"1\\u0009<=\\u00091\") !== true) {\n  $ERROR('#1: (1\\\\u0009<=\\\\u00091) === true');\n}\n\n//CHECK#2\nif (eval(\"1\\u000B<=\\u000B1\") !== true) {\n  $ERROR('#2: (1\\\\u000B<=\\\\u000B1) === true');  \n}\n\n//CHECK#3\nif (eval(\"1\\u000C<=\\u000C1\") !== true) {\n  $ERROR('#3: (1\\\\u000C<=\\\\u000C1) === true');\n}\n\n//CHECK#4\nif (eval(\"1\\u0020<=\\u00201\") !== true) {\n  $ERROR('#4: (1\\\\u0020<=\\\\u00201) === true');\n}\n\n//CHECK#5\nif (eval(\"1\\u00A0<=\\u00A01\") !== true) {\n  $ERROR('#5: (1\\\\u00A0<=\\\\u00A01) === true');\n}\n\n//CHECK#6\nif (eval(\"1\\u000A<=\\u000A1\") !== true) {\n  $ERROR('#6: (1\\\\u000A<=\\\\u000A1) === true');  \n}\n\n//CHECK#7\nif (eval(\"1\\u000D<=\\u000D1\") !== true) {\n  $ERROR('#7: (1\\\\u000D<=\\\\u000D1) === true');\n}\n\n//CHECK#8\nif (eval(\"1\\u2028<=\\u20281\") !== true) {\n  $ERROR('#8: (1\\\\u2028<=\\\\u20281) === true');\n}\n\n//CHECK#9\nif (eval(\"1\\u2029<=\\u20291\") !== true) {\n  $ERROR('#9: (1\\\\u2029<=\\\\u20291) === true');\n}\n\n//CHECK#10\nif (eval(\"1\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029>\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u20290\") !== true) {\n  $ERROR('#10: (1\\\\u0009\\\\u000B\\\\u000C\\\\u0020\\\\u00A0\\\\u000A\\\\u000D\\\\u2028\\\\u2029>\\\\u0009\\\\u000B\\\\u000C\\\\u0020\\\\u00A0\\\\u000A\\\\u000D\\\\u2028\\\\u20290) === true');\n}\n",
+    "id": "S11.8.3_A1"
+   },
+   {
+    "section": "11.8.3, 11.8.5",
+    "description": "Either Type is not Reference or GetBase is not null",
+    "test": "//CHECK#1\nif (1 <= 1 !== true) {\n  $ERROR('#1: 1 <= 1 === true');\n}\n\n//CHECK#2\nvar x = 1;\nif (x <= 1 !== true) {\n  $ERROR('#2: var x = 1; x <= 1 === true');\n}\n\n//CHECK#3\nvar y = 1;\nif (1 <= y !== true) {\n  $ERROR('#3: var y = 1; 1 <= y === true');\n}\n\n//CHECK#4\nvar x = 1;\nvar y = 1;\nif (x <= y !== true) {\n  $ERROR('#4: var x = 1; var y = 1; x <= y === true');\n}\n\n//CHECK#5\nvar objectx = new Object();\nvar objecty = new Object();\nobjectx.prop = 1;\nobjecty.prop = 1;\nif (objectx.prop <= objecty.prop !== true) {\n  $ERROR('#5: var objectx = new Object(); var objecty = new Object(); objectx.prop = 1; objecty.prop = 1; objectx.prop <= objecty.prop === true');\n}\n",
+    "id": "S11.8.3_A2.1_T1"
+   },
+   {
+    "section": "11.8.3, 11.8.5",
+    "description": "If GetBase(x) is null, throw ReferenceError",
+    "test": "//CHECK#1\ntry {\n  x <= 1;\n  $ERROR('#1.1: x <= 1 throw ReferenceError. Actual: ' + (x <= 1));  \n}\ncatch (e) {\n  if ((e instanceof ReferenceError) !== true) {\n    $ERROR('#1.2: x <= 1 throw ReferenceError. Actual: ' + (e));  \n  }\n}\n",
+    "id": "S11.8.3_A2.1_T2"
+   },
+   {
+    "section": "11.8.3, 11.8.5",
+    "description": "If GetBase(y) is null, throw ReferenceError",
+    "test": "//CHECK#1\ntry {\n  1 <= y;\n  $ERROR('#1.1: 1 <= y throw ReferenceError. Actual: ' + (1 <= y));  \n}\ncatch (e) {\n  if ((e instanceof ReferenceError) !== true) {\n    $ERROR('#1.2: 1 <= y throw ReferenceError. Actual: ' + (e));  \n  }\n}\n\n",
+    "id": "S11.8.3_A2.1_T3"
+   },
+   {
+    "section": "11.8.3, 8.6.2.6",
+    "description": "If Type(value) is Object, evaluate ToPrimitive(value, Number)",
+    "test": "//CHECK#1\nif ({valueOf: function() {return 0}} <= 1 !== true) {\n  $ERROR('#1: {valueOf: function() {return 1}} <= 1 === true. Actual: ' + ({valueOf: function() {return 1}} <= 1));\n}\n\n//CHECK#2\nif ({valueOf: function() {return 0}, toString: function() {return 2}} <= 1 !== true) {\n  $ERROR('#2: {valueOf: function() {return 1}, toString: function() {return 0}} <= 1 === true. Actual: ' + ({valueOf: function() {return 1}, toString: function() {return 0}} <= 1));\n}\n\n//CHECK#3\nif ({valueOf: function() {return 0}, toString: function() {return {}}} <= 1 !== true) {\n  $ERROR('#3: {valueOf: function() {return 1}, toString: function() {return {}}} <= 1 === true. Actual: ' + ({valueOf: function() {return 1}, toString: function() {return {}}} <= 1));\n}\n\n//CHECK#4\ntry {\n  if ({valueOf: function() {return 0}, toString: function() {throw \"error\"}} <= 1 !== true) {\n    $ERROR('#4.1: {valueOf: function() {return 1}, toString: function() {throw \"error\"}} <= 1 === true. Actual: ' + ({valueOf: function() {return 1}, toString: function() {throw \"error\"}} <= 1));\n  }\n}\ncatch (e) {\n  if (e === \"error\") {\n    $ERROR('#4.2: {valueOf: function() {return 0}, toString: function() {throw \"error\"}} <= 1 not throw \"error\"');\n  } else {\n    $ERROR('#4.3: {valueOf: function() {return 0}, toString: function() {throw \"error\"}} <= 1 not throw Error. Actual: ' + (e));\n  }\n}\n\n//CHECK#5\nif (1 <= {toString: function() {return 2}} !== true) {\n  $ERROR('#5: 1 <= {toString: function() {return 2}} === true. Actual: ' + (1 <= {toString: function() {return 2}}));\n}\n\n//CHECK#6\nif (1 <= {valueOf: function() {return {}}, toString: function() {return 2}} !== true) {\n  $ERROR('#6: 1 <= {valueOf: function() {return {}}, toString: function() {return 2}} === true. Actual: ' + (1 <= {valueOf: function() {return {}}, toString: function() {return 2}}));\n}\n\n//CHECK#7\ntry {\n  1 <= {valueOf: function() {throw \"error\"}, toString: function() {return 2}};\n  $ERROR('#7.1: 1 <= {valueOf: function() {throw \"error\"}, toString: function() {return 2}} throw \"error\". Actual: ' + (1 <= {valueOf: function() {throw \"error\"}, toString: function() {return 2}}));\n}  \ncatch (e) {\n  if (e !== \"error\") {\n    $ERROR('#7.2: 1 <= {valueOf: function() {throw \"error\"}, toString: function() {return 2}} throw \"error\". Actual: ' + (e));\n  } \n}\n\n//CHECK#8\ntry {\n  1 <= {valueOf: function() {return {}}, toString: function() {return {}}};\n  $ERROR('#8.1: 1 <= {valueOf: function() {return {}}, toString: function() {return {}}} throw TypeError. Actual: ' + (1 <= {valueOf: function() {return {}}, toString: function() {return {}}}));\n}  \ncatch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#8.2: 1 <= {valueOf: function() {return {}}, toString: function() {return {}}} throw TypeError. Actual: ' + (e));\n  } \n}\n",
+    "id": "S11.8.3_A2.2_T1"
+   },
+   {
+    "section": "11.8.3",
+    "description": "Checking with \"throw\"",
+    "test": "//CHECK#1\nvar x = { valueOf: function () { throw \"x\"; } };\nvar y = { valueOf: function () { throw \"y\"; } };\ntry {\n   x <= y;\n   $ERROR('#1.1: var x = { valueOf: function () { throw \"x\"; } }; var y = { valueOf: function () { throw \"y\"; } }; x <= y throw \"y\". Actual: ' + (x <= y));\n} catch (e) {\n   if (e === \"x\") {\n     $ERROR('#1.2: ToNumber(second expression) is called first, and then ToNumber(first expression)');\n   } else {\n     if (e !== \"y\") {\n       $ERROR('#1.3: var x = { valueOf: function () { throw \"x\"; } }; var y = { valueOf: function () { throw \"y\"; } }; x <= y throw \"y\". Actual: ' + (e));\n     }\n   }\n}\n",
+    "id": "S11.8.3_A2.3_T1"
+   },
+   {
+    "section": "11.8.3",
+    "description": "Checking with \"=\"",
+    "test": "//CHECK#1\nvar x = 0; \nif ((x = 1) <= x !== true) {\n  $ERROR('#1: var x = 0; (x = 1) <= x === true');\n}\n\n//CHECK#2\nvar x = 1; \nif (x <= (x = 0) !== false) {\n  $ERROR('#2: var x = 1; x <= (x = 0) === false');\n}\n\n",
+    "id": "S11.8.3_A2.4_T1"
+   },
+   {
+    "section": "11.8.3",
+    "description": "Checking with \"throw\"",
+    "test": "//CHECK#1\nvar x = function () { throw \"x\"; };\nvar y = function () { throw \"y\"; };\ntry {\n   x() <= y();\n   $ERROR('#1.1: var x = function () { throw \"x\"; }; var y = function () { throw \"y\"; }; x() <= y() throw \"x\". Actual: ' + (x() <= y()));\n} catch (e) {\n   if (e === \"y\") {\n     $ERROR('#1.2: First expression is evaluated first, and then second expression');\n   } else {\n     if (e !== \"x\") {\n       $ERROR('#1.3: var x = function () { throw \"x\"; }; var y = function () { throw \"y\"; }; x() <= y() throw \"x\". Actual: ' + (e));\n     }\n   }\n}\n",
+    "id": "S11.8.3_A2.4_T2"
+   },
+   {
+    "section": "11.8.3",
+    "description": "Checking with undeclarated variables",
+    "test": "//CHECK#1\ntry {\n  x <= (x = 1);\n  $ERROR('#1.1: x <= (x = 1) throw ReferenceError. Actual: ' + (x <= (x = 1)));  \n}\ncatch (e) {\n  if ((e instanceof ReferenceError) !== true) {\n    $ERROR('#1.2: x <= (x = 1) throw ReferenceError. Actual: ' + (e));  \n  }\n}\n\n//CHECK#2\nif ((y = 1) <= y !== true) {\n  $ERROR('#2: (y = 1) <= y === true');\n}\n\n",
+    "id": "S11.8.3_A2.4_T3"
+   },
+   {
+    "section": "11.8.3",
+    "description": "Type(Primitive(x)) and Type(Primitive(y)) vary between primitive boolean and Boolean object",
+    "test": "//CHECK#1\nif (true <= true !== true) {\n  $ERROR('#1: true <= true === true');\n}\n\n//CHECK#2\nif (new Boolean(true) <= true !== true) {\n  $ERROR('#2: new Boolean(true) <= true === true');\n}\n\n//CHECK#3\nif (true <= new Boolean(true) !== true) {\n  $ERROR('#3: true <= new Boolean(true) === true');\n}\n\n//CHECK#4\nif (new Boolean(true) <= new Boolean(true) !== true) {\n  $ERROR('#4: new Boolean(true) <= new Boolean(true) === true');\n}\n",
+    "id": "S11.8.3_A3.1_T1.1"
+   },
+   {
+    "section": "11.8.3",
+    "description": "Type(Primitive(x)) and Type(Primitive(y)) vary between primitive number and Number object",
+    "test": "//CHECK#1\nif (1 <= 1 !== true) {\n  $ERROR('#1: 1 <= 1 === true');\n}\n\n//CHECK#2\nif (new Number(1) <= 1 !== true) {\n  $ERROR('#2: new Number(1) <= 1 === true');\n}\n\n//CHECK#3\nif (1 <= new Number(1) !== true) {\n  $ERROR('#3: 1 <= new Number(1) === true');\n}\n\n//CHECK#4\nif (new Number(1) <= new Number(1) !== true) {\n  $ERROR('#4: new Number(1) <= new Number(1) === true');\n}\n\n",
+    "id": "S11.8.3_A3.1_T1.2"
+   },
+   {
+    "section": "11.8.3",
+    "description": "Type(Primitive(x)) and Type(Primitive(y)) vary between Null and Undefined",
+    "test": "//CHECK#1\nif (null <= undefined !== false) {\n  $ERROR('#1: null <= undefined === false');\n}\n\n//CHECK#2\nif (undefined <= null !== false) {\n  $ERROR('#2: undefined <= null === false');\n}\n\n//CHECK#3\nif (undefined <= undefined !== false) {\n  $ERROR('#3: undefined <= undefined === false');\n}\n\n//CHECK#4\nif (null <= null !== true) {\n  $ERROR('#4: null <= null === true');\n}\n",
+    "id": "S11.8.3_A3.1_T1.3"
+   },
+   {
+    "section": "11.8.3",
+    "description": "Type(Primitive(x)) is different from Type(Primitive(y)) and both types vary between Number (primitive or object) and Boolean (primitive and object)",
+    "test": "//CHECK#1\nif (true <= 1 !== true) {\n  $ERROR('#1: true <= 1 === true');\n}\n\n//CHECK#2\nif (1 <= true !== true) {\n  $ERROR('#2: 1 <= true === true');\n}\n\n//CHECK#3\nif (new Boolean(true) <= 1 !== true) {\n  $ERROR('#3: new Boolean(true) <= 1 === true');\n}\n\n//CHECK#4\nif (1 <= new Boolean(true) !== true) {\n  $ERROR('#4: 1 <= new Boolean(true) === true');\n}\n\n//CHECK#5\nif (true <= new Number(1) !== true) {\n  $ERROR('#5: true <= new Number(1) === true');\n}\n\n//CHECK#6\nif (new Number(1) <= true !== true) {\n  $ERROR('#6: new Number(1) <= true === true');\n}\n\n//CHECK#7\nif (new Boolean(true) <= new Number(1) !== true) {\n  $ERROR('#7: new Boolean(true) <= new Number(1) === true');\n}\n\n//CHECK#8\nif (new Number(1) <= new Boolean(true) !== true) {\n  $ERROR('#8: new Number(1) <= new Boolean(true) === true');\n}\n",
+    "id": "S11.8.3_A3.1_T2.1"
+   },
+   {
+    "section": "11.8.3",
+    "description": "Type(Primitive(x)) is different from Type(Primitive(y)) and both types vary between Number (primitive or object) and String (primitive and object)",
+    "test": "//CHECK#1\nif (\"1\" <= 1 !== true) {\n  $ERROR('#1: \"1\" <= 1 === true');\n}\n\n//CHECK#2\nif (1 <= \"1\" !== true) {\n  $ERROR('#2: 1 <= \"1\" === true');\n}\n\n//CHECK#3\nif (new String(\"1\") <= 1 !== true) {\n  $ERROR('#3: new String(\"1\") <= 1 === true');\n}\n\n//CHECK#4\nif (1 <= new String(\"1\") !== true) {\n  $ERROR('#4: 1 <= new String(\"1\") === true');\n}\n\n//CHECK#5\nif (\"1\" <= new Number(1) !== true) {\n  $ERROR('#5: \"1\" <= new Number(1) === true');\n}\n\n//CHECK#6\nif (new Number(1) <= \"1\" !== true) {\n  $ERROR('#6: new Number(1) <= \"1\" === true');\n}\n\n//CHECK#7\nif (new String(\"1\") <= new Number(1) !== true) {\n  $ERROR('#7: new String(\"1\") <= new Number(1) === true');\n}\n\n//CHECK#8\nif (new Number(1) <= new String(\"1\") !== true) {\n  $ERROR('#8: new Number(1) <= new String(\"1\") === true');\n}\n\n//CHECK#9\nif (\"x\" <= 1 !== false) {\n  $ERROR('#9: \"x\" <= 1 === false');\n}\n\n//CHECK#10\nif (1 <= \"x\" !== false) {\n  $ERROR('#10: 1 <= \"x\" === false');\n}\n",
+    "id": "S11.8.3_A3.1_T2.2"
+   },
+   {
+    "section": "11.8.3",
+    "description": "Type(Primitive(x)) is different from Type(Primitive(y)) and both types vary between Number (primitive or object) and Null",
+    "test": "//CHECK#1\nif (1 <= null !== false) {\n  $ERROR('#1: 1 <= null === false');\n}\n\n//CHECK#2\nif (null <= 1 !== true) {\n  $ERROR('#2: null <= 1 === true');\n}\n\n//CHECK#3\nif (new Number(1) <= null !== false) {\n  $ERROR('#3: new Number(1) <= null === false');\n}\n\n//CHECK#4\nif (null <= new Number(1) !== true) {\n  $ERROR('#4: null <= new Number(1) === true');\n}\n",
+    "id": "S11.8.3_A3.1_T2.3"
+   },
+   {
+    "section": "11.8.3",
+    "description": "Type(Primitive(x)) is different from Type(Primitive(y)) and both types vary between Number (primitive or object) and Undefined",
+    "test": "//CHECK#1\nif (1 <= undefined !== false) {\n  $ERROR('#1: 1 <= undefined === false');\n}\n\n//CHECK#2\nif (undefined <= 1 !== false) {\n  $ERROR('#2: undefined <= 1 === false');\n}\n\n//CHECK#3\nif (new Number(1) <= undefined !== false) {\n  $ERROR('#3: new Number(1) <= undefined === false');\n}\n\n//CHECK#4\nif (undefined <= new Number(1) !== false) {\n  $ERROR('#4: undefined <= new Number(1) === false');\n}\n",
+    "id": "S11.8.3_A3.1_T2.4"
+   },
+   {
+    "section": "11.8.3",
+    "description": "Type(Primitive(x)) is different from Type(Primitive(y)) and both types vary between String (primitive or object) and Boolean (primitive and object)",
+    "test": "//CHECK#1\nif (true <= \"1\" !== true) {\n  $ERROR('#1: true <= \"1\" === true');\n}\n\n//CHECK#2\nif (\"1\" <= true !== true) {\n  $ERROR('#2: \"1\" <= true === true');\n}\n\n//CHECK#3\nif (new Boolean(true) <= \"1\" !== true) {\n  $ERROR('#3: new Boolean(true) <= \"1\" === true');\n}\n\n//CHECK#4\nif (\"1\" <= new Boolean(true) !== true) {\n  $ERROR('#4: \"1\" <= new Boolean(true) === true');\n}\n\n//CHECK#5\nif (true <= new String(\"1\") !== true) {\n  $ERROR('#5: true <= new String(\"1\") === true');\n}\n\n//CHECK#6\nif (new String(\"1\") <= true !== true) {\n  $ERROR('#6: new String(\"1\") <= true === true');\n}\n\n//CHECK#7\nif (new Boolean(true) <= new String(\"1\") !== true) {\n  $ERROR('#7: new Boolean(true) <= new String(\"1\") === true');\n}\n\n//CHECK#8\nif (new String(\"1\") <= new Boolean(true) !== true) {\n  $ERROR('#8: new String(\"1\") <= new Boolean(true) === true');\n}\n",
+    "id": "S11.8.3_A3.1_T2.5"
+   },
+   {
+    "section": "11.8.3",
+    "description": "Type(Primitive(x)) is different from Type(Primitive(y)) and both types vary between String (primitive or object) and Undefined",
+    "test": "//CHECK#1\nif (\"1\" <= undefined !== false) {\n  $ERROR('#1: \"1\" <= undefined === false');\n}\n\n//CHECK#2\nif (undefined <= \"1\" !== false) {\n  $ERROR('#2: undefined <= \"1\" === false');\n}\n\n//CHECK#3\nif (new String(\"1\") <= undefined !== false) {\n  $ERROR('#3: new String(\"1\") <= undefined === false');\n}\n\n//CHECK#4\nif (undefined <= new String(\"1\") !== false) {\n  $ERROR('#4: undefined <= new String(\"1\") === false');\n}\n",
+    "id": "S11.8.3_A3.1_T2.6"
+   },
+   {
+    "section": "11.8.3",
+    "description": "Type(Primitive(x)) is different from Type(Primitive(y)) and both types vary between String (primitive or object) and Null",
+    "test": "//CHECK#1\nif (\"1\" <= null !== false) {\n  $ERROR('#1: \"1\" <= null === false');\n}\n\n//CHECK#2\nif (null <= \"1\" !== true) {\n  $ERROR('#2: null <= \"1\" === true');\n}\n\n//CHECK#3\nif (new String(\"1\") <= null !== false) {\n  $ERROR('#3: new String(\"1\") <= null === false');\n}\n\n//CHECK#4\nif (null <= new String(\"1\") !== true) {\n  $ERROR('#4: null <= new String(\"1\") === true');\n}\n",
+    "id": "S11.8.3_A3.1_T2.7"
+   },
+   {
+    "section": "11.8.3",
+    "description": "Type(Primitive(x)) is different from Type(Primitive(y)) and both types vary between Boolean (primitive or object) and Undefined",
+    "test": "//CHECK#1\nif (true <= undefined !== false) {\n  $ERROR('#1: true <= undefined === false');\n}\n\n//CHECK#2\nif (undefined <= true !== false) {\n  $ERROR('#2: undefined <= true === false');\n}\n\n//CHECK#3\nif (new Boolean(true) <= undefined !== false) {\n  $ERROR('#3: new Boolean(true) <= undefined === false');\n}\n\n//CHECK#4\nif (undefined <= new Boolean(true) !== false) {\n  $ERROR('#4: undefined <= new Boolean(true) === false');\n}\n",
+    "id": "S11.8.3_A3.1_T2.8"
+   },
+   {
+    "section": "11.8.3",
+    "description": "Type(Primitive(x)) is different from Type(Primitive(y)) and both types vary between Boolean (primitive or object) and Null",
+    "test": "//CHECK#1\nif (true <= null !== false) {\n  $ERROR('#1: true <= null === false');\n}\n\n//CHECK#2\nif (null <= true !== true) {\n  $ERROR('#2: null <= true === true');\n}\n\n//CHECK#3\nif (new Boolean(true) <= null !== false) {\n  $ERROR('#3: new Boolean(true) <= null === false');\n}\n\n//CHECK#4\nif (null <= new Boolean(true) !== true) {\n  $ERROR('#4: null <= new Boolean(true) === true');\n}\n",
+    "id": "S11.8.3_A3.1_T2.9"
+   },
+   {
+    "section": "11.8.3",
+    "description": "Type(Primitive(x)) and Type(Primitive(y)) vary between primitive string and String object",
+    "test": "//CHECK#1\nif (\"1\" <= \"1\" !== true) {\n  $ERROR('#1: \"1\" <= \"1\" === true');\n}\n\n//CHECK#2\nif (new String(\"1\") <= \"1\" !== true) {\n  $ERROR('#2: new String(\"1\") <= \"1\" === true');\n}\n\n//CHECK#3\nif (\"1\" <= new String(\"1\") !== true) {\n  $ERROR('#3: \"1\" <= new String(\"1\") === true');\n}\n\n//CHECK#4\nif (new String(\"1\") <= new String(\"1\") !== true) {\n  $ERROR('#4: new String(\"1\") <= new String(\"1\") === true');\n}\n\n//CHECK#5\nif (\"x\" <= \"1\" !== false) {\n  $ERROR('#5: \"x\" <= \"1\" === false');\n}\n\n//CHECK#6\nif (\"1\" <= \"x\" !== true) {\n  $ERROR('#6: \"1\" <= \"x\" === true');\n}\n",
+    "id": "S11.8.3_A3.2_T1.1"
+   },
+   {
+    "section": "11.8.3",
+    "description": "Type(Primitive(x)) and Type(Primitive(y)) vary between Object object and Function object",
+    "test": "//CHECK#1\nif (({} <= function(){return 1}) !== ({}.toString() <= function(){return 1}.toString())) {\n  $ERROR('#1: ({} <= function(){return 1}) === ({}.toString() <= function(){return 1}.toString())');\n}\n\n//CHECK#2\nif ((function(){return 1} <= {}) !== (function(){return 1}.toString() <= {}.toString())) {\n  $ERROR('#2: (function(){return 1} <= {}) === (function(){return 1}.toString() <= {}.toString())');\n}\n\n//CHECK#3\nif ((function(){return 1} <= function(){return 1}) !== (function(){return 1}.toString() <= function(){return 1}.toString())) {\n  $ERROR('#3: (function(){return 1} <= function(){return 1}) === (function(){return 1}.toString() <= function(){return 1}.toString())');\n}\n\n//CHECK#4\nif (({} <= {}) !== ({}.toString() <= {}.toString())) {\n  $ERROR('#4: ({} <= {}) === ({}.toString() <= {}.toString())');\n}\n",
+    "id": "S11.8.3_A3.2_T1.2"
+   },
+   {
+    "section": "11.8.3, 11.8.5",
+    "description": "y is number primitive",
+    "test": "//CHECK#1\nif ((Number.NaN <= 0) !== false) {\n  $ERROR('#1: (NaN <= 0) === false');\n}\n\n//CHECK#2\nif ((Number.NaN <= 1.1) !== false) {\n  $ERROR('#2: (NaN <= 1.1) === false');\n}\n\n//CHECK#3\nif ((Number.NaN <= -1.1) !== false) {\n  $ERROR('#3: (NaN <= -1.1) === false');\n}\n\n//CHECK#4\nif ((Number.NaN <= Number.NaN) !== false) {\n  $ERROR('#4: (NaN <= NaN) === false');\n}\n\n//CHECK#5\nif ((Number.NaN <= Number.POSITIVE_INFINITY) !== false) {\n  $ERROR('#5: (NaN <= +Infinity) === false');\n}\n\n//CHECK#6\nif ((Number.NaN <= Number.NEGATIVE_INFINITY) !== false) {\n  $ERROR('#6: (NaN <= -Infinity) === false');\n}\n\n//CHECK#7\nif ((Number.NaN <= Number.MAX_VALUE) !== false) {\n  $ERROR('#7: (NaN <= Number.MAX_VALUE) === false');\n}\n\n//CHECK#8\nif ((Number.NaN <= Number.MIN_VALUE) !== false) {\n  $ERROR('#8: (NaN <= Number.MIN_VALUE) === false');\n}\n\n",
+    "id": "S11.8.3_A4.1"
+   },
+   {
+    "section": "11.8.3, 11.8.5",
+    "description": "x and y are string primitives",
+    "test": "//CHECK#1\nif ((\"x \" <= \"x\") !== false) {\n  $ERROR('#1: (\"x \" <= \"x\") === false');\n}\n\n//CHECK#2\nif ((\"x\" <= \"\") !== false) {\n  $ERROR('#2: (\"x\" <= \"\") === false');\n}\n\n//CHECK#3\nif ((\"abcd\" <= \"ab\") !== false) {\n  $ERROR('#3: (\"abcd\" <= ab\") === false');\n}\n\n//CHECK#4\nif ((\"abc\\u0064\" <= \"abcd\") !== true) {\n  $ERROR('#4: (\"abc\\\\u0064\" <= abcd\") === true');\n}\n\n//CHECK#5\nif ((\"x\" + \"y\" <= \"x\") !== false) {\n  $ERROR('#5: (\"x\" + \"y\" <= \"x\") === false');\n}\n\n//CHECK#6\nvar x = \"x\";\nif ((x + 'y' <= x) !== false) {\n  $ERROR('#6: var x = \"x\"; (x + \"y\" <= x) === false');\n}\n\n",
+    "id": "S11.8.3_A4.10"
+   },
+   {
+    "section": "11.8.3, 11.8.5",
+    "description": "x and y are string primitives",
+    "test": "//CHECK#1\nif ((\"x\" <= \"x\") !== true) {\n  $ERROR('#1: (\"x\" <= \"x\") === true');\n}\n\n//CHECK#2\nif ((\"\" <= \"x\") !== true) {\n  $ERROR('#2: (\"\" <= \"x\") === true');\n}\n\n//CHECK#3\nif ((\"ab\" <= \"abcd\") !== true) {\n  $ERROR('#3: (\"ab\" <= abcd\") === true');\n}\n\n//CHECK#4\nif ((\"abcd\" <= \"abc\\u0064\") !== true) {\n  $ERROR('#4: (\"abcd\" <= abc\\\\u0064\") === true');\n}\n\n//CHECK#5\nif ((\"x\" <= \"x\" + \"y\") !== true) {\n  $ERROR('#5: (\"x\" <= \"x\" + \"y\") === true');\n}\n\n//CHECK#6\nvar x = \"x\";\nif ((x <= x + \"y\") !== true) {\n  $ERROR('#6: var x = \"x\"; (x <= x + \"y\") === true');\n}\n\n//CHECK#7\nif ((\"a\\u0000\" <= \"a\\u0000a\") !== true) {\n  $ERROR('#7: (\"a\\\\u0000\" <= \"a\\\\u0000a\") === true');\n}\n\n//CHECK#8\nif ((\"x\" <= \" x\") !== false) {\n  $ERROR('#8: (\"x\" <= \" x\") === false');\n}\n\n\n",
+    "id": "S11.8.3_A4.11"
+   },
+   {
+    "section": "11.8.3, 11.8.5",
+    "description": "x and y are string primitives",
+    "test": "//CHECK#1\nif ((\"xx\" <= \"xy\") !== true) {\n  $ERROR('#1: (\"xx\" <= \"xy\") === true');\n}\n\n//CHECK#2\nif ((\"xy\" <= \"xx\") !== false) {\n  $ERROR('#2: (\"xy\" <= \"xx\") === false');\n}\n\n//CHECK#3\nif ((\"x\" <= \"y\") !== true) {\n  $ERROR('#3: (\"x\" <= y\") === true');\n}\n\n//CHECK#4\nif ((\"aab\" <= \"aba\") !== true) {\n  $ERROR('#4: (\"aab\" <= aba\") === true');\n}\n\n//CHECK#5\nif ((\"\\u0061\\u0061\\u0061\\u0062\" <= \"\\u0061\\u0061\\u0061\\u0061\") !== false) {\n  $ERROR('#5: (\"\\\\u0061\\\\u0061\\\\u0061\\\\u0062\" <= \\\\u0061\\\\u0061\\\\u0061\\\\u0061\") === false');\n}\n\n//CHECK#6\nif ((\"a\\u0000a\" <= \"a\\u0000b\") !== true) {\n  $ERROR('#6: (\"a\\\\u0000a\" <= \"a\\\\u0000b\") === true');\n}\n\n//CHECK#7\nif ((\"aB\" <= \"aa\") !== true) {\n  $ERROR('#7: (\"aB\" <= aa\") === true');\n}\n",
+    "id": "S11.8.3_A4.12_T1"
+   },
+   {
+    "section": "11.8.3, 11.8.5",
+    "description": "x and y are string primitives",
+    "test": "//CHECK#1\nif ((\"0\" <= \"x\") !== true) {\n  $ERROR('#1: (\"0\" <= \"x\") !== true');\n}\n\n//CHECK#2\nif ((\"-\" <= \"0\") !== true) {\n  $ERROR('#2: (\"-\" <= \"0\") !== true');\n}\n\n//CHECK#3\nif ((\".\" <= \"0\") !== true) {\n  $ERROR('#3: (\".\" <= \"0\") !== true');\n}\n\n//CHECK#4\nif ((\"+\" <= \"-\") !== true) {\n  $ERROR('#4: (\"+\" <= \"-\") !== true');\n}\n\n//CHECK#5\nif ((\"-0\" <= \"-1\") !== true) {\n  $ERROR('#5: (\"-0\" <= \"-1\") !== true');\n}\n\n//CHECK#6\nif ((\"+1\" <= \"-1\") !== true) {\n  $ERROR('#6: (\"+1\" <= \"-1\") !== true');\n}\n\n//CHECK#7\nif ((\"1\" <= \"1e-10\") !== true) {\n$ERROR('#7: (\"1\" <= \"1e-10\") !== true');\n}\n",
+    "id": "S11.8.3_A4.12_T2"
+   },
+   {
+    "section": "11.8.3, 11.8.5",
+    "description": "x is number primitive",
+    "test": "//CHECK#1\nif ((0 <= Number.NaN) !== false) {\n  $ERROR('#1: (0 <= NaN) === false');\n}\n\n//CHECK#2\nif ((1.1 <= Number.NaN) !== false) {\n  $ERROR('#2: (1.1 <= NaN) === false');\n}\n\n//CHECK#3\nif ((-1.1 <= Number.NaN) !== false) {\n  $ERROR('#3: (-1.1 <= NaN) === false');\n}\n\n//CHECK#4\nif ((Number.NaN <= Number.NaN) !== false) {\n  $ERROR('#4: (NaN <= NaN) === false');\n}\n\n//CHECK#5\nif ((Number.POSITIVE_INFINITY <= Number.NaN) !== false) {\n  $ERROR('#5: (+Infinity <= NaN) === false');\n}\n\n//CHECK#6\nif ((Number.NEGATIVE_INFINITY <= Number.NaN) !== false) {\n  $ERROR('#6: (-Infinity <= NaN) === false');\n}\n\n//CHECK#7\nif ((Number.MAX_VALUE <= Number.NaN) !== false) {\n  $ERROR('#7: (Number.MAX_VALUE <= NaN) === false');\n}\n\n//CHECK#8\nif ((Number.MIN_VALUE <= Number.NaN) !== false) {\n  $ERROR('#8: (Number.MIN_VALUE <= NaN) === false');\n}\n\n",
+    "id": "S11.8.3_A4.2"
+   },
+   {
+    "section": "11.8.3, 11.8.5",
+    "description": "x and y are number primitives",
+    "test": "//CHECK#1\nif ((1 <= 1) !== true) {\n  $ERROR('#1: (1 <= 1) === true');\n}\n\n//CHECK#2\nif ((1.1 <= 1.1) !== true) {\n  $ERROR('#2: (1.1 <= 1.1) === true');\n}\n\n//CHECK#3\nif ((-1.1 <= -1.1) !== true) {\n  $ERROR('#3: (-1.1 <= -1.1) === true');\n}\n\n//CHECK#4\nif ((Number.NEGATIVE_INFINITY <= Number.NEGATIVE_INFINITY) !== true) {\n  $ERROR('#4: (-Infinity <= -Infinity) === true');\n}\n\n//CHECK#5\nif ((Number.POSITIVE_INFINITY <= Number.POSITIVE_INFINITY) !== true) {\n  $ERROR('#5: (+Infinity <= +Infinity) === true');\n}\n\n//CHECK#6\nif ((Number.MAX_VALUE <= Number.MAX_VALUE) !== true) {\n  $ERROR('#6: (Number.MAX_VALUE <= Number.MAX_VALUE) === true');\n}\n\n//CHECK#7\nif ((Number.MIN_VALUE <= Number.MIN_VALUE) !== true) {\n  $ERROR('#7: (Number.MIN_VALUE <= Number.MIN_VALUE) === true');\n}\n\n\n",
+    "id": "S11.8.3_A4.3"
+   },
+   {
+    "section": "11.8.3, 11.8.5",
+    "description": "Checking all combinations",
+    "test": "//CHECK#1\nif ((0 <= 0) !== true) {\n  $ERROR('#1: (0 <= 0) === true');\n}\n\n//CHECK#2\nif ((-0 <= -0) !== true) {\n  $ERROR('#2: (-0 <= -0) === true');\n}\n\n//CHECK#3\nif ((+0 <= -0) !== true) {\n  $ERROR('#3: (+0 <= -0) === true');\n}\n\n//CHECK#4\nif ((-0 <= +0) !== true) {\n  $ERROR('#4: (-0 <= +0) === true');\n}\n\n",
+    "id": "S11.8.3_A4.4"
+   },
+   {
+    "section": "11.8.3, 11.8.5",
+    "description": "y is number primitive",
+    "test": "//CHECK#1\nif ((Number.POSITIVE_INFINITY <= 0) !== false) {\n  $ERROR('#1: (+Infinity <= 0) === false');\n}\n\n//CHECK#2\nif ((Number.POSITIVE_INFINITY <= 1.1) !== false) {\n  $ERROR('#2: (+Infinity <= 1.1) === false');\n}\n\n//CHECK#3\nif ((Number.POSITIVE_INFINITY <= -1.1) !== false) {\n  $ERROR('#3: (+Infinity <= -1.1) === false');\n}\n\n//CHECK#4\nif ((Number.POSITIVE_INFINITY <= Number.NEGATIVE_INFINITY) !== false) {\n  $ERROR('#4: (+Infinity <= -Infinity) === false');\n}\n\n//CHECK#5\nif ((Number.POSITIVE_INFINITY <= Number.MAX_VALUE) !== false) {\n  $ERROR('#5: (+Infinity <= Number.MAX_VALUE) === false');\n}\n\n//CHECK#6\nif ((Number.POSITIVE_INFINITY <= Number.MIN_VALUE) !== false) {\n  $ERROR('#6: (+Infinity <= Number.MIN_VALUE) === false');\n}\n\n",
+    "id": "S11.8.3_A4.5"
+   },
+   {
+    "section": "11.8.3, 11.8.5",
+    "description": "x is number primitive",
+    "test": "//CHECK#1\nif ((0 <= Number.POSITIVE_INFINITY) !== true) {\n  $ERROR('#1: (0 <= +Infinity) === true');\n}\n\n//CHECK#2\nif ((1.1 <= Number.POSITIVE_INFINITY) !== true) {\n  $ERROR('#2: (1.1 <= +Infinity) === true');\n}\n\n//CHECK#3\nif ((-1.1 <= Number.POSITIVE_INFINITY) !== true) {\n  $ERROR('#3: (-1.1 <= +Infinity) === true');\n}\n\n//CHECK#4\nif ((Number.NEGATIVE_INFINITY <= Number.POSITIVE_INFINITY) !== true) {\n  $ERROR('#4: (-Infinity <= +Infinity) === true');\n}\n\n//CHECK#5\nif ((Number.MAX_VALUE <= Number.POSITIVE_INFINITY) !== true) {\n  $ERROR('#5: (Number.MAX_VALUE <= +Infinity) === true');\n}\n\n//CHECK#6\nif ((Number.MIN_VALUE <= Number.POSITIVE_INFINITY) !== true) {\n  $ERROR('#6: (Number.MIN_VALUE <= +Infinity) === true');\n}\n\n",
+    "id": "S11.8.3_A4.6"
+   },
+   {
+    "section": "11.8.3, 11.8.5",
+    "description": "y is number primitive",
+    "test": "//CHECK#1\nif ((Number.NEGATIVE_INFINITY <= 0) !== true) {\n  $ERROR('#1: (-Infinity <= 0) === true');\n}\n\n//CHECK#2\nif ((Number.NEGATIVE_INFINITY <= 1.1) !== true) {\n  $ERROR('#2: (-Infinity <= 1.1) === true');\n}\n\n//CHECK#3\nif ((Number.NEGATIVE_INFINITY <= -1.1) !== true) {\n  $ERROR('#3: (-Infinity <= -1.1) === true');\n}\n\n//CHECK#4\nif ((Number.NEGATIVE_INFINITY <= Number.POSITIVE_INFINITY) !== true) {\n  $ERROR('#4: (-Infinity <= +Infinity) === true');\n}\n\n//CHECK#5\nif ((Number.NEGATIVE_INFINITY <= Number.MAX_VALUE) !== true) {\n  $ERROR('#5: (-Infinity <= Number.MAX_VALUE) === true');\n}\n\n//CHECK#6\nif ((Number.NEGATIVE_INFINITY <= Number.MIN_VALUE) !== true) {\n  $ERROR('#6: (-Infinity <= Number.MIN_VALUE) === true');\n}\n\n",
+    "id": "S11.8.3_A4.7"
+   },
+   {
+    "section": "11.8.3, 11.8.5",
+    "description": "x is number primitive",
+    "test": "//CHECK#1\nif ((0 <= Number.NEGATIVE_INFINITY) !== false) {\n  $ERROR('#1: (0 <= -Infinity) === false');\n}\n\n//CHECK#2\nif ((1.1 <= Number.NEGATIVE_INFINITY) !== false) {\n  $ERROR('#2: (1.1 <= -Infinity) === false');\n}\n\n//CHECK#3\nif ((-1.1 <= Number.NEGATIVE_INFINITY) !== false) {\n  $ERROR('#3: (-1.1 <= -Infinity) === false');\n}\n\n//CHECK#4\nif ((Number.POSITIVE_INFINITY <= Number.NEGATIVE_INFINITY) !== false) {\n  $ERROR('#4: (+Infinity <= -Infinity) === false');\n}\n\n//CHECK#5\nif ((Number.MAX_VALUE <= Number.NEGATIVE_INFINITY) !== false) {\n  $ERROR('#5: (Number.MAX_VALUE <= -Infinity) === false');\n}\n\n//CHECK#6\nif ((Number.MIN_VALUE <= Number.NEGATIVE_INFINITY) !== false) {\n  $ERROR('#6: (Number.MIN_VALUE <= -Infinity) === false');\n}\n\n",
+    "id": "S11.8.3_A4.8"
+   },
+   {
+    "section": "11.8.3, 11.8.5",
+    "description": "x and y are number primitives",
+    "test": "//CHECK#1\nif ((1.1 <= 1) !== false) {\n  $ERROR('#1: (1.1 <= 1) === false');\n}\n\n//CHECK#2\nif ((1 <= 1.1) !== true) {\n  $ERROR('#2: (1 <= 1.1) === true');\n}\n\n//CHECK#3\nif ((-1.1 <= -1) !== true) {\n  $ERROR('#3: (-1.1 <= -1) === true');\n}\n\n//CHECK#4\nif ((-1 <= -1.1) !== false) {\n  $ERROR('#4: (-1 <= -1.1) === false');\n}\n\n//CHECK#5\nif ((0 <= 0.1) !== true) {\n  $ERROR('#5: (0 <= 0.1) === true');\n}\n\n//CHECK#6\nif ((-0.1 <= 0) !== true) {\n  $ERROR('#6: (-0.1 <= 0) === true');\n}\n\n//CHECK#7\nif ((Number.MAX_VALUE/2 <= Number.MAX_VALUE) !== true) {\n  $ERROR('#7: (Number.MAX_VALUE/2 <= Number.MAX_VALUE) === true');\n}\n\n//CHECK#8\nif ((Number.MIN_VALUE <= Number.MIN_VALUE*2) !== true) {\n  $ERROR('#8: (Number.MIN_VALUE <= Number.MIN_VALUE*2) === true');\n}\n\n\n",
+    "id": "S11.8.3_A4.9"
+   }
+  ]
+ }
+}

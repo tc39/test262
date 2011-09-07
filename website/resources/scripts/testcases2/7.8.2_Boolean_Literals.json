@@ -1,0 +1,20 @@
+{
+ "testCollection": {
+  "name": "7.8.2_Boolean_Literals",
+  "numTests": 2,
+  "tests": [
+   {
+    "section": "7.8.2",
+    "description": "BooleanLiteral :: true",
+    "test": "//CHECK#1\nif (Boolean(true) !== true) {\n  $ERROR('#1: Boolean(true) === true. Actual: Boolean(true) === ' + (Boolean(true)));\n} \n",
+    "id": "S7.8.2_A1_T1"
+   },
+   {
+    "section": "7.8.2",
+    "description": "BooleanLiteral :: false",
+    "test": "//CHECK#1\nif (Boolean(false) !== false) {\n  $ERROR('#1: Boolean(false) === false. Actual: Boolean(false) === ' + (Boolean(false)));\n} \n \n",
+    "id": "S7.8.2_A1_T2"
+   }
+  ]
+ }
+}

@@ -1,0 +1,617 @@
+{
+ "testCollection": {
+  "name": "7.9_Automatic_Semicolon_Insertion",
+  "numTests": 96,
+  "tests": [
+   {
+    "section": "7.9, 12.7, 12.12",
+    "description": "Try use continue \\n Label construction",
+    "test": "//CHECK#1\nlabel1: for (var i = 0; i <= 0; i++) {\n  for (var j = 0; j <= 1; j++) {\n    if (j === 0) {\n      continue label1;\n    } else {\n      $ERROR('#1: Check continue statement for automatic semicolon insertion');\n    }\n  }  \n}\n\n//CHECK#2\nvar result = false;\nlabel2: for (var i = 0; i <= 1; i++) {\n  for (var j = 0; j <= 1; j++) {\n    if (j === 0) {\n      continue \n      label2; \n    } else {\n      result = true;\n    }\n  }    \n}\n\nif (result !== true) {\n  $ERROR('#2: Check continue statement for automatic semicolon insertion');\n}\n",
+    "id": "S7.9_A1"
+   },
+   {
+    "section": "7.9",
+    "description": "Checking if execution of \"1 * {}\" passes",
+    "test": "//CHECK#1\n1 * {}\n",
+    "id": "S7.9_A10_T1"
+   },
+   {
+    "section": "7.9",
+    "description": "Checking if execution of \"{a:1 \\n} 3\" passes",
+    "test": "//CHECK#1\n{a:1\n} 3\n",
+    "id": "S7.9_A10_T10"
+   },
+   {
+    "section": "7.9",
+    "description": "Checking if execution of \"{a:1 \\n} \\n 3\" passes",
+    "test": "//CHECK#1\n{a:1 \n} \n3\n",
+    "id": "S7.9_A10_T11"
+   },
+   {
+    "section": "7.9",
+    "description": "Checking if execution of \"{ \\n a: \\n 1 \\n } \\n 3\" passes",
+    "test": "//CHECK#1\n{\na:\n1 \n} \n3\n",
+    "id": "S7.9_A10_T12"
+   },
+   {
+    "section": "7.9",
+    "description": "Checking if execution of \"{}*1\" fails",
+    "negative": "",
+    "test": "//CHECK#1\n{} * 1\n",
+    "id": "S7.9_A10_T2"
+   },
+   {
+    "section": "7.9",
+    "description": "Checking if execution of \"({}) * 1\" passes",
+    "test": "//CHECK#1\n({}) * 1\n",
+    "id": "S7.9_A10_T3"
+   },
+   {
+    "section": "7.9",
+    "description": ": Checking if execution of \"({};)*1\" fails;",
+    "negative": "",
+    "test": "//CHECK#1\n({};) * 1\n",
+    "id": "S7.9_A10_T4"
+   },
+   {
+    "section": "7.9",
+    "description": "Checking if execution of \"( \\n {} \\n ) * 1\" passes",
+    "test": "//CHECK#1\n(\n    {}\n) * 1\n",
+    "id": "S7.9_A10_T5"
+   },
+   {
+    "section": "7.9",
+    "description": "Checking if execution of \"{} \\n * 1\" fails",
+    "negative": "",
+    "test": "//CHECK#1\n{}\n * 1\n",
+    "id": "S7.9_A10_T6"
+   },
+   {
+    "section": "7.9",
+    "description": "Checking if execution of \"{1} 2\" passes",
+    "test": "//CHECK#1\n{1} 2\n",
+    "id": "S7.9_A10_T7"
+   },
+   {
+    "section": "7.9",
+    "description": "Checking if execution of \"{1 2} 3\" fails",
+    "negative": "",
+    "test": "//CHECK#1\n{1 2} 3\n",
+    "id": "S7.9_A10_T8"
+   },
+   {
+    "section": "7.9",
+    "description": "Checking if execution of \"{1 \\n 2} 3\" passes",
+    "test": "//CHECK#1\n{1 \n2} 3\n",
+    "id": "S7.9_A10_T9"
+   },
+   {
+    "section": "7.9, 12.5",
+    "description": "Use if (false) x = 1 (without semicolon) and check x",
+    "test": "//CHECK#1\nx = 0;\nif (false) x = 1\nif (x !== 0) {\n  $ERROR('#1: Check If Statement for automatic semicolon insertion');\n}\n",
+    "id": "S7.9_A11_T1"
+   },
+   {
+    "section": "7.9, 12.5",
+    "description": "Use if (false) {x = 1} else {x=-1} and check x",
+    "test": "//CHECK#1\nx = 0;\nif (false) {x = 1} else {x = -1}\nif (x !== -1) {\n  $ERROR('#1: Check If Statement for automatic semicolon insertion');\n}\n",
+    "id": "S7.9_A11_T10"
+   },
+   {
+    "section": "7.9, 12.5",
+    "description": ": Use if (false) {{x = 1};} \\n else x=-1 and check x;",
+    "test": "//CHECK#1\nx = 0;\nif (false) {{x = 1};} \nelse x = -1\nif (x !== -1) {\n  $ERROR('#1: Check If Statement for automatic semicolon insertion');\n}\n",
+    "id": "S7.9_A11_T11"
+   },
+   {
+    "section": "7.9, 12.5",
+    "description": "Use if (false) \\n x = 1 and check x",
+    "test": "//CHECK#1\nx = 0;\nif (false) \nx = 1\nif (x !== 0) {\n  $ERROR('#1: Check If Statement for automatic semicolon insertion');\n}\n",
+    "id": "S7.9_A11_T2"
+   },
+   {
+    "section": "7.9, 12.5",
+    "description": ": Use if (false);\\n x = 1 and check x;",
+    "test": "//CHECK#1\nx = 0;\nif (false); \nx = 1\nif (x !== 1) {\n  $ERROR('#1: Check If Statement for automatic semicolon insertion');\n}\n",
+    "id": "S7.9_A11_T3"
+   },
+   {
+    "section": "7.9, 12.5",
+    "description": "Checking if execution of \"if (false) x = 1 else x = -1\" fails",
+    "negative": "",
+    "test": "//CHECK#1\nx = 0;\nif (false) x = 1 else x = -1\n",
+    "id": "S7.9_A11_T4"
+   },
+   {
+    "section": "7.9, 12.5",
+    "description": ": Use if (false) x = 1; else x=-1 and check x;",
+    "test": "//CHECK#1\nx = 0;\nif (false) x = 1; else x = -1\nif (x !== -1) {\n  $ERROR('#1: Check If Statement for automatic semicolon insertion');\n}\n",
+    "id": "S7.9_A11_T5"
+   },
+   {
+    "section": "7.9, 12.5",
+    "description": "Use if (false) x = 1 \\n else x=-1 and check x",
+    "test": "//CHECK#1\nx = 0;\nif (false) x = 1 \nelse x = -1\nif (x !== -1) {\n  $ERROR('#1: Check If Statement for automatic semicolon insertion');\n}\n",
+    "id": "S7.9_A11_T6"
+   },
+   {
+    "section": "7.9, 12.5",
+    "description": ": Use if (false) x = 1; \\n else x=-1 and check x;",
+    "test": "//CHECK#1\nx = 0;\nif (false) x = 1; \nelse x = -1\nif (x !== -1) {\n  $ERROR('#1: Check If Statement for automatic semicolon insertion');\n}\n",
+    "id": "S7.9_A11_T7"
+   },
+   {
+    "section": "7.9, 12.5",
+    "description": ": Use if (false) {x = 1}; \\n else x=-1 and check x;",
+    "negative": "",
+    "test": "//CHECK#1\nx = 0;\nif (false) {x = 1}; \nelse x = -1\nif (x !== -1) {\n  $ERROR('#1: Check If Statement for automatic semicolon insertion');\n}\n",
+    "id": "S7.9_A11_T8"
+   },
+   {
+    "section": "7.9, 12.5",
+    "description": "Use if (false) {x = 1} \\n else x=-1 and check x",
+    "test": "//CHECK#1\nx = 0;\nif (false) {x = 1} \nelse x = -1\nif (x !== -1) {\n  $ERROR('#1: Check If Statement for automatic semicolon insertion');\n}\n",
+    "id": "S7.9_A11_T9"
+   },
+   {
+    "section": "7.9, 12.8, 12.12",
+    "description": "Try use break \\n Label construction",
+    "test": "//CHECK#1\nlabel1: for (var i = 0; i <= 0; i++) {\n  for (var j = 0; j <= 0; j++) {\n    break label1;\n  }\n  $ERROR('#1: Check break statement for automatic semicolon insertion');\n}\n\n//CHECK#2\nvar result = false;\nlabel2: for (var i = 0; i <= 0; i++) {\n  for (var j = 0; j <= 0; j++) {\n    break \n    label2;\n  }  \n  result = true;\n}\n\nif (result !== true) {\n  $ERROR('#2: Check break statement for automatic semicolon insertion');\n}\n",
+    "id": "S7.9_A2"
+   },
+   {
+    "section": "7.9, 12.9",
+    "description": "Try use return \\n Expression construction",
+    "test": "//CHECK#1\nfunction f1()\n{\n  return 1;\n}\nif (f1() !== 1) { \n  $ERROR('#1: Check return statement for automatic semicolon insertion');\n}  \n\n//CHECK#2\nfunction f2()\n{\n  return \n  1;\n}\nif (f2() !== undefined) { \n  $ERROR('#2: Check return statement for automatic semicolon insertion');\n}  \n",
+    "id": "S7.9_A3"
+   },
+   {
+    "section": "7.9, 12.13",
+    "description": "Try use Throw \\n Expression construction",
+    "negative": "",
+    "test": "//CHECK#1\ntry {\n  throw \n  1;\n} catch(e) {  \n}  \n$ERROR('#1: Check throw statement for automatic semicolon insertion');\n",
+    "id": "S7.9_A4"
+   },
+   {
+    "section": "7.9, 12.4, 11.13.1",
+    "description": "Try use Variable \\n ++ construction",
+    "negative": "",
+    "test": "//CHECK#1\nvar x = 0;\nx\n++;\n$ERROR('#1: Check Postfix Increment Operator for automatic semicolon insertion');\n",
+    "id": "S7.9_A5.1_T1"
+   },
+   {
+    "section": "7.9, 12.4, 11.13.1",
+    "description": "Try use Variable1 \\n ++Variable2 construction",
+    "test": "//CHECK#1\nvar x = 0;\nvar y = 0;\nx\n++y\nif (x !== 0) {\n  $ERROR('#1: Check Prefix Increment Operator for automatic semicolon insertion');\n} else {\n  if (y !== 1) {\n    $ERROR('#2: Check Prefix Increment Operator for automatic semicolon insertion');\n  }\n}\n \n",
+    "id": "S7.9_A5.2_T1"
+   },
+   {
+    "section": "7.9, 12.4, 11.13.2",
+    "description": "Try use Variable \\n -- construction",
+    "negative": "",
+    "test": "//CHECK#1\nvar x = 1;\nx\n--;\n$ERROR('#1: Check Postfix Decrement Operator for automatic semicolon insertion');\n",
+    "id": "S7.9_A5.3_T1"
+   },
+   {
+    "section": "7.9, 12.4, 11.13.2",
+    "description": "Try use Variable1 \\n --Variable2 construction",
+    "test": "//CHECK#1\nvar x = 1;\nvar y = 1;\nx\n--y\nif (x !== 1) {\n  $ERROR('#1: Check Prefix Decrement Operator for automatic semicolon insertion');\n} else {\n  if (y !== 0) {\n    $ERROR('#1: Check Prefix Decrement Operator for automatic semicolon insertion');\n  }\n}\n",
+    "id": "S7.9_A5.4_T1"
+   },
+   {
+    "section": "7.9, 12.4, 11.2.5",
+    "description": "Try use 1 + function_name\\n(2 + 3) construction",
+    "test": "//CHECK#1\nfunction f(t) {\n  return t;\n}\nvar x = 1 + f\n(2 + 3)\nif (x !== 6) {\n  $ERROR('#1: Check Function Expression for automatic semicolon insertion');\n} \n",
+    "id": "S7.9_A5.5_T1"
+   },
+   {
+    "section": "7.9, 12.4, 11.2.5",
+    "description": ": Try use function f(o) {o.x = 1; return o;}; \\n (new Object()).x; construction;",
+    "test": "//CHECK#1\nvar result = function f(o) {o.x = 1; return o;};\n(new Object()).x;\nif (typeof result !== \"function\") {\n  $ERROR('#1: Check Function Expression for automatic semicolon insertion');\n}\n",
+    "id": "S7.9_A5.5_T2"
+   },
+   {
+    "section": "7.9, 12.4, 11.2.5",
+    "description": ": Try use function f(o) {o.x = 1; return o;} \\n (new Object()).x; construction;",
+    "test": "//CHECK#1\nvar result = function f(o) {o.x = 1; return o;}\n(new Object()).x;\nif (result !== 1) {\n  $ERROR('#1: Check Function Expression for automatic semicolon insertion');\n}\n",
+    "id": "S7.9_A5.5_T3"
+   },
+   {
+    "section": "7.9, 12.4, 11.2.5",
+    "description": "Insert some LineTerminators into function body",
+    "test": "//CHECK#1\nvar x =\n1 + (function (t){return {a:t\n}\n})\n(2 + 3).\na\n\nif (x !== 6) {\n  $ERROR('#1: Check Function Expression for automatic semicolon insertion');\n} \n",
+    "id": "S7.9_A5.5_T4"
+   },
+   {
+    "section": "7.9, 12.4, 11.2.5",
+    "description": ": Insert some LineTerminators into rerutn expression;",
+    "test": "//CHECK#1\nvar x =\n1 + (function f\n(t){\nreturn {\na:\nfunction(){\nreturn t + 1\n}\n}\n}\n)\n(2 + 3).\na\n()\n\nif (x !== 7) {\n  $ERROR('#1: Check Function Expression for automatic semicolon insertion');\n} \n",
+    "id": "S7.9_A5.5_T5"
+   },
+   {
+    "section": "7.9, 12.4, 11.3, 11.4.4, 11.4.5",
+    "description": "Try use Variable1 \\n ++ \\n Variable2 construction",
+    "test": "var x=0, y=0;\n\nx\n++\ny\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif ((x!==0)&(y!==1)) {\n\t$ERROR('#1: Check Postfix Increment Operator for automatic semicolon insertion');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nx\n++y\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif ((x!==0)&(y!==2)) {\n\t$ERROR('#2: Check Postfix Increment Operator for automatic semicolon insertion');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S7.9_A5.6_T1"
+   },
+   {
+    "section": "7.9, 12.4, 11.3, 11.4.4, 11.4.5",
+    "description": "Try use Variable1 \\n -- \\n Variable2 construction",
+    "test": "var x=0, y=2;\n\nx\n--\ny\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif ((x!==0)&(y!==1)) {\n\t$ERROR('#1: Check Postfix Increment Operator for automatic semicolon insertion');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nx\n--y\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif ((x!==0)&(y!==0)) {\n\t$ERROR('#2: Check Postfix Increment Operator for automatic semicolon insertion');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n",
+    "id": "S7.9_A5.6_T2"
+   },
+   {
+    "section": "7.9",
+    "description": "Try use Variable1 \\n ++ \\n ++ \\n Variable2 construction",
+    "negative": "",
+    "test": "var x=0, y=0;\nz=\nx\n++\n++\ny\n",
+    "id": "S7.9_A5.7_T1"
+   },
+   {
+    "section": "7.9",
+    "description": "Try use Variable1 \\n + \\n ++ \\n Variable2 construction",
+    "test": "var x=0, y=0;\nz=\nx\n+ \n++\ny\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif ((z!==1)&&(y!==1)&&(x!==0)) {\n\t$ERROR('#1: ');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nz=\nx\n+ ++\ny\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif ((z!==2)&&(y!==2)&&(x!==0)) {\n\t$ERROR('');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nz=\nx\n+    ++\ny\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif ((z!==3)&&(y!==3)&&(x!==0)) {\n\t$ERROR('');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S7.9_A5.8_T1"
+   },
+   {
+    "section": "7.9",
+    "description": "Try use Variable1 (different combinations of three +) Variable2 construction",
+    "test": "var x=1, y=1;\nz=\nx\n+ \n+\n+\ny\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif ((z!==2)&&(y!==1)&&(x!==1)) {\n\t$ERROR('#1: ');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nz=\nx + + + y\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif ((z!==2)&&(y!==1)&&(x!==1)) {\n\t$ERROR('');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nz=\nx\n+    +\n+    +\ny\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif ((z!==2)&&(y!==1)&&(x!==1)) {\n\t$ERROR('');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S7.9_A5.9_T1"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "for( Empty two semicolons and \\n)",
+    "test": "//CHECK#1\nfor(;;\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.1_T1"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "for (false \\n two semicolons false \\n)",
+    "test": "//CHECK#1\nfor(false\n    ;;false\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.1_T10"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "for (false \\n semicolon \\n semicolon \\n)",
+    "test": "//CHECK#1\nfor(false\n    ;\n    ;\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.1_T11"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "for (false \\n semicolon false \\n semicolon \\n)",
+    "test": "//CHECK#1\nfor(false\n    ;false\n    ;\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.1_T12"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "for (false \\n semicolon false \\n semicolon false \\n)",
+    "test": "//CHECK#1\nfor(false\n    ;false\n    ;false\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.1_T13"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "for (semicolon \\n semicolon \\n)",
+    "test": "//CHECK#1\nfor(;\n  ;\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.1_T2"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "for (\\n two semicolons \\n)",
+    "test": "//CHECK#1\nfor(\n    ;;\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.1_T3"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "for( \\n semicolon \\n semicolon \\n)",
+    "test": "//CHECK#1\nfor(\n    ;\n    ;\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.1_T4"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "for ( \\n semicolon \\n\\n semicolon \\n)",
+    "test": "//CHECK#1\nfor(\n    ;\n    \n    ;\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.1_T5"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "for(false semicolon false semicolon false \\n)",
+    "test": "//CHECK#1\nfor(false;false;false\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.1_T6"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "for (false semicolon false \\n semicolon \\n)",
+    "test": "//CHECK#1\nfor(false;false\n  ;\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.1_T7"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "for (false semicolon false \\n semicolon false \\n)",
+    "test": "//CHECK#1\nfor(false;false\n  ;false\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.1_T8"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "for (false \\n two semicolons \\n)",
+    "test": "//CHECK#1\nfor(false\n    ;;\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.1_T9"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "For header is (semicolon \\n)",
+    "negative": "",
+    "test": "//CHECK#1\nfor(;\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.2_T1"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "For header is (\\n false \\n semicolon)",
+    "negative": "",
+    "test": "//CHECK#1\nfor(\n    false\n;) {\n  break;\n}\n",
+    "id": "S7.9_A6.2_T10"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "For header is (\\n semicolon \\n)",
+    "negative": "",
+    "test": "//CHECK#1\nfor(\n    ;\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.2_T2"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "For header is (\\n semicolon)",
+    "negative": "",
+    "test": "//CHECK#1\nfor(\n;) {\n  break;\n}\n",
+    "id": "S7.9_A6.2_T3"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "For header is (\\n \\n semicolon)",
+    "negative": "",
+    "test": "//CHECK#1\nfor(\n    \n;) {\n  break;\n}\n",
+    "id": "S7.9_A6.2_T4"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "For header is (false semicolon false\\n)",
+    "negative": "",
+    "test": "//CHECK#1\nfor(false;false\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.2_T5"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "For header is (false semicolon \\n false)",
+    "negative": "",
+    "test": "//CHECK#1\nfor(false;\nfalse\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.2_T6"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "For header is (false \\n semicolon \\n)",
+    "negative": "",
+    "test": "//CHECK#1\nfor(false\n    ;\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.2_T7"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "For header is (false \\n semicolon false \\n)",
+    "negative": "",
+    "test": "//CHECK#1\nfor(false\n    ;false\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.2_T8"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "For header is (\\n semicolon false)",
+    "negative": "",
+    "test": "//CHECK#1\nfor(\n;false) {\n  break;\n}\n",
+    "id": "S7.9_A6.2_T9"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "For header is (\\n)",
+    "negative": "",
+    "test": "//CHECK#1\nfor(\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.3_T1"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "For header is (\\n \\n)",
+    "negative": "",
+    "test": "//CHECK#1\nfor(\n    \n) {\n  break;\n}\n",
+    "id": "S7.9_A6.3_T2"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "For header is (\\n \\n \\n)",
+    "negative": "",
+    "test": "//CHECK#1\nfor(\n    \n    \n) {\n  break;\n}\n",
+    "id": "S7.9_A6.3_T3"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "For header is (\\n false \\n)",
+    "negative": "",
+    "test": "//CHECK#1\nfor(\n    false\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.3_T4"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "For header is (false \\n false \\n)",
+    "negative": "",
+    "test": "//CHECK#1\nfor(false\n    false\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.3_T5"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "For header is (\\n false \\n false \\n)",
+    "negative": "",
+    "test": "//CHECK#1\nfor(\n    false\n    false\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.3_T6"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "For header is (\\n false \\n false \\n false \\n)",
+    "negative": "",
+    "test": "//CHECK#1\nfor(\n    false\n    false\n    false\n) {\n  break;\n}\n",
+    "id": "S7.9_A6.3_T7"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "Three semicolons. For header is (false semicolon false semicolon false semicolon)",
+    "negative": "",
+    "test": "//CHECK#1\nfor(false;false;false;) {\n  break;\n}\n",
+    "id": "S7.9_A6.4_T1"
+   },
+   {
+    "section": "7.9, 12.6.3",
+    "description": "Three semicolons. For header is (false semicolon false two semicolons false)",
+    "negative": "",
+    "test": "//CHECK#1\nfor(false;false;;false) {\n  break;\n}\n",
+    "id": "S7.9_A6.4_T2"
+   },
+   {
+    "section": "7.9, 12.2",
+    "description": "Checking if execution of \"var x \\n = 1\" passes",
+    "test": "//CHECK#1\nvar x\n= 1\n",
+    "id": "S7.9_A7_T1"
+   },
+   {
+    "section": "7.9, 12.2",
+    "description": "Checking if execution of \"var x = \\n 1\" passes",
+    "test": "//CHECK#1\nvar x = \n1\n",
+    "id": "S7.9_A7_T2"
+   },
+   {
+    "section": "7.9, 12.2",
+    "description": "Checking if execution of \"var x \\n x = 1\" passes",
+    "test": "//CHECK#1\nvar x\nx = 1\n\n",
+    "id": "S7.9_A7_T3"
+   },
+   {
+    "section": "7.9, 12.2",
+    "description": "Checking if execution of \"var \\n x\" passes",
+    "test": "//CHECK#1\nvar\nx\n\n",
+    "id": "S7.9_A7_T4"
+   },
+   {
+    "section": "7.9, 12.2",
+    "description": "Checking if execution of \"var \\n x \\n = \\n 1\" passes",
+    "test": "//CHECK#1\nvar\nx \n= \n1\n\n",
+    "id": "S7.9_A7_T5"
+   },
+   {
+    "section": "7.9, 12.2",
+    "description": "Checking if execution of \"var x, \\n y\" passes",
+    "test": "//CHECK#1\nvar x, \ny \n\n",
+    "id": "S7.9_A7_T6"
+   },
+   {
+    "section": "7.9, 12.2",
+    "description": "Checking if execution of \"var x \\n y\" passes",
+    "negative": "",
+    "test": "//CHECK#1\nvar x \ny \n\n",
+    "id": "S7.9_A7_T7"
+   },
+   {
+    "section": "7.9, 12.2",
+    "description": "Checking if execution of \"var x \\n ,y\" passes",
+    "test": "//CHECK#1\nvar x \n,y \n\n",
+    "id": "S7.9_A7_T8"
+   },
+   {
+    "section": "7.9, 12.2",
+    "description": "Checking if execution of \"var x \\n ,y = 1\" passes",
+    "test": "//CHECK#1\nvar \nx \n,y = 1\n\n",
+    "id": "S7.9_A7_T9"
+   },
+   {
+    "section": "7.9, 12.4",
+    "description": "Checking if execution of one semicolon passes",
+    "test": "//CHECK#1\n;\n",
+    "id": "S7.9_A8_T1"
+   },
+   {
+    "section": "7.9, 12.4",
+    "description": "Checking if execution of some semicolons with LineTerminators pases",
+    "test": "//CHECK#1\n;\n;\n;\n;\n",
+    "id": "S7.9_A8_T2"
+   },
+   {
+    "section": "7.9, 12.4",
+    "description": "Checking if execution of some semicolons without LineTerminators passes",
+    "test": "//CHECK#1\n;;;;\n",
+    "id": "S7.9_A8_T3"
+   },
+   {
+    "section": "7.9, 12.4",
+    "description": "Checking if execution of some semicolons with LineTerminators and numbers passes",
+    "test": "//CHECK#1\n;1;\n;1\n;1;\n;1\n",
+    "id": "S7.9_A8_T4"
+   },
+   {
+    "section": "7.9, 12.4",
+    "description": "Checking if execution of some semicolons without LineTerminators but with numbers passes",
+    "test": "//CHECK#1\n;;1;;1;;1\n",
+    "id": "S7.9_A8_T5"
+   },
+   {
+    "section": "7.9, 12.6.1",
+    "description": "Execute do { \\n }while(false)",
+    "test": "//CHECK#1\ndo {  \n} while (false)\n",
+    "id": "S7.9_A9_T1"
+   },
+   {
+    "section": "7.9, 12.6.1",
+    "description": ": Execute do; while(false) \\n true;",
+    "test": "//CHECK#1\ndo ; while (false)\ntrue\n",
+    "id": "S7.9_A9_T2"
+   },
+   {
+    "section": "7.9, 12.6.1",
+    "description": ": Execute do { \\n ; \\n }while(false) true;",
+    "test": "//CHECK#1\ndo {\n  ;\n} while (false) true\n",
+    "id": "S7.9_A9_T3"
+   },
+   {
+    "section": "7.9, 12.6.1",
+    "description": ": Execute do ; while \\n (false) true;",
+    "test": "//CHECK#1\ndo ; while \n(false) true\n",
+    "id": "S7.9_A9_T4"
+   },
+   {
+    "section": "7.9, 12.6.1",
+    "description": ": Execute do { \\n ; \\n }while((false) \\n );",
+    "test": "//CHECK#1\ndo {\n  ;\n} while ((false) \n)\n",
+    "id": "S7.9_A9_T5"
+   },
+   {
+    "section": "7.9, 12.6.1",
+    "description": "Execute do \\n while(false)",
+    "negative": "",
+    "test": "//CHECK#1\ndo\nwhile (false) \n",
+    "id": "S7.9_A9_T6"
+   },
+   {
+    "section": "7.9, 12.6.1",
+    "description": "Execute do \\n\\n while(false)",
+    "negative": "",
+    "test": "//CHECK#1\ndo\n  \nwhile (false) \n",
+    "id": "S7.9_A9_T7"
+   },
+   {
+    "section": "7.9, 12.6.1",
+    "description": ": Execute do {}; \\n while(false);",
+    "negative": "",
+    "test": "//CHECK#1\ndo {}; \nwhile (false) \n",
+    "id": "S7.9_A9_T8"
+   },
+   {
+    "section": "7.9, 12.6.1",
+    "description": "Execute do {} \\n while(false)",
+    "test": "//CHECK#1\ndo {} \nwhile (false) \n",
+    "id": "S7.9_A9_T9"
+   }
+  ]
+ }
+}

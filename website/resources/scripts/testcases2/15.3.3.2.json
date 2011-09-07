@@ -1,0 +1,15 @@
+{
+ "testCollection": {
+  "name": "15.3.3.2",
+  "numTests": 1,
+  "tests": [
+   {
+    "id": "15.3.3.2-1",
+    "path": "TestCases/chapter15/15.3/15.3.3/15.3.3.2/15.3.3.2-1.js",
+    "description": "Function.length - data property with value 1",
+    "test": "assertTrue((function testcase() {\n\n  var desc = Object.getOwnPropertyDescriptor(Function,\"length\");\n  if(desc.value === 1 &&\n     desc.writable === false &&\n     desc.enumerable === false &&\n     desc.configurable === false)\n    return true; \n\n }).call(this));\n",
+    "precondition": "(fnExists(Object.getOwnPropertyDescriptor))"
+   }
+  ]
+ }
+}

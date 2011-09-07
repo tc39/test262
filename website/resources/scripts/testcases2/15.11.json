@@ -1,0 +1,20 @@
+{
+ "testCollection": {
+  "name": "15.11",
+  "numTests": 2,
+  "tests": [
+   {
+    "id": "15.11-1",
+    "path": "TestCases/chapter15/15.11/15.11-1.js",
+    "description": "Error - ConversionError has been removed from IE9 standard mode",
+    "test": "assertTrue((typeof ConversionError === \"undefined\"));\n"
+   },
+   {
+    "id": "15.11-2",
+    "path": "TestCases/chapter15/15.11/15.11-2.js",
+    "description": "Error - RegExpError has been removed from IE9 standard mode",
+    "test": "assertTrue((typeof RegExpError === \"undefined\"));\n"
+   }
+  ]
+ }
+}

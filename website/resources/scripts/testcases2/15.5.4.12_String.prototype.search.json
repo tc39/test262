@@ -1,0 +1,188 @@
+{
+ "testCollection": {
+  "name": "15.5.4.12_String.prototype.search",
+  "numTests": 30,
+  "tests": [
+   {
+    "section": "15.5.4.12",
+    "description": "Call search() is the same search(undefined)",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nvar x = \"\".search();\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A1.1_T1"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Checking if varying the String.prototype.search.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(String.prototype.search.hasOwnProperty('length'))) {\n  $FAIL('#1: String.prototype.search.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.search.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar __obj = String.prototype.search.length;\n\nString.prototype.search.length = function(){return \"shifted\";};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (String.prototype.search.length !== __obj) {\n  $ERROR('#2: __obj = String.prototype.search.length; String.prototype.search.length = function(){return \"shifted\";}; String.prototype.search.length === __obj. Actual: '+String.prototype.search.length );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A10"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Checking String.prototype.search.length",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(String.prototype.search.hasOwnProperty(\"length\"))) {\n  $ERROR('#1: String.prototype.search.hasOwnProperty(\"length\") return true. Actual: '+String.prototype.search.hasOwnProperty(\"length\"));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (String.prototype.search.length !== 1) {\n  $ERROR('#2: String.prototype.search.length === 1. Actual: '+String.prototype.search.length );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A11"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Argument is true, and instance is object",
+    "test": "var __instance = new Object(true);\n\n__instance.search = String.prototype.search;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.search(true) !== 0) {\n  $ERROR('#1: __instance = new Object(true); __instance.search = String.prototype.search;  __instance.search(true) === 0. Actual: '+__instance.search(true) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A1_T1"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Argument is object, and instance is string.\nObject with overrided toString function",
+    "test": "var __obj = {toString:function(){return \"\\u0041B\";}};\nvar __str = \"ssABB\\u0041BABAB\";\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nwith(__str){\n  if (search(__obj) !==2) {\n    $ERROR('#1: var __obj = {toString:function(){return \"\\u0041B\";}}; var __str = \"ssABB\\u0041BABAB\"; search(__obj) ===2. Actual: '+search(__obj) );\n  }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar x;\n",
+    "id": "S15.5.4.12_A1_T10"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Argument is object, and instance is string.\nObject with overrided toString function, that throw exception",
+    "test": "var __obj = {toString:function(){throw \"intostr\";}}\nvar __str = {str__:\"ABB\\u0041BABAB\"};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nwith(__str){\n  with(str__){\n    try {\n      var x = search(__obj);\n      $FAIL('#1: var x = search(__obj) lead to throwing exception');\n    } catch (e) {\n      if (e!==\"intostr\") {\n        $ERROR('#1.1: Exception === \"intostr\". Actual: '+e);\n      }\n    }\n  }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A1_T11"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Argument is object, and instance is string.\nObject with overrided toString and valueOf functions, valueOf throw exception",
+    "test": "var __obj = {toString:function(){return {};},valueOf:function(){throw \"intostr\";}}\nvar __str = new String(\"ABB\\u0041BABAB\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nwith(__str){\n    try {\n      var x = search(__obj);\n      $FAIL('#1: var x = search(__obj) lead to throwing exception');\n    } catch (e) {\n      if (e!==\"intostr\") {\n        $ERROR('#1.1: Exception === \"intostr\". Actual: '+e);\n      }\n    }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A1_T12"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Argument is object, and instance is string.\nObject with overrided toString and valueOf functions",
+    "test": "var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (\"ABB\\u0041B\\u0031ABAB\\u0031BBAA\".search(__obj) !==5) {\n  $ERROR('#1: var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}; \"ABB\\\\u0041B\\\\u0031ABAB\\\\u0031BBAA\".search(__obj) ===5. Actual: '+(\"ABB\\u0041B\\u0031ABAB\\u0031BBAA\".search(__obj)) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A1_T13"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Instance is string, argument is regular expression",
+    "test": "var __reg = new RegExp(\"77\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (\"ABB\\u0041BABAB\\u0037\\u0037BBAA\".search(__reg) !== 9) {\n  $ERROR('#1: var __reg = new RegExp(\"77\"); \"ABB\\\\u0041BABAB\\\\u0037\\\\u0037BBAA\".search(__reg) === 9. Actual: '+(\"ABB\\u0041BABAB\\u0037\\u0037BBAA\".search(__reg)) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A1_T14"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Argument is function call, and instance is Boolean",
+    "test": "var __instance = new Boolean;\n\n__instance.search = String.prototype.search;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.search(function(){return false;}()) !== 0) {\n  $ERROR('#1: __instance = new Boolean; __instance.search = String.prototype.search;  __instance.search(function(){return false;}()) === 0. Actual: '+__instance.search(function(){return false;}()) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A1_T2"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Checking by using eval",
+    "test": "var search = String.prototype.search;\n\nif (typeof toString === \"undefined\"){\n    var toString = Object.prototype.toString;\n}\n\nvar __class__ = toString();\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (search(eval(\"\\\"bj\\\"\")) !== 2) {\n  $ERROR('#1: search = String.prototype.search; search(eval(\"\\\\\"bj\\\\\"\")) === 2. Actual: '+search(eval(\"\\\"bj\\\"\")) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A1_T3"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Call search (regexp) without arguments",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n//since ToString() evaluates to \"\" search() evaluates to search(\"\")\nif (\"\".search() !== 0) {\n  $ERROR('#1: \"\".search() === 0. Actual: '+(\"\".search()) );\n}\n\nif (\"--undefined--\".search() != 0) {\n  $ERROR('#1: \"--undefined--\".search() === 0. Actual: '+(\"--undefined--\".search()) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A1_T4"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Argument is null, and instance is function call, that return string",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n//since ToString(null) evaluates to \"null\" search(null) evaluates to search(\"null\")\nif (function(){return \"gnulluna\"}().search(null) !== 1) {\n  $ERROR('#1: function(){return \"gnulluna\"}().search(null) === 1. Actual: '+function(){return \"gnulluna\"}().search(null) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A1_T5"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Argument is x, and instance is new String, x is undefined variable",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n//since ToString(undefined) evaluates to \"undefined\" search(undefined) evaluates to search(\"undefined\")\nif (new String(\"undefined\").search(x) !== 0) {\n  $ERROR('#1: var x; new String(\"undefined\").search(x) === 0. Actual: '+new String(\"undefined\").search(x) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar x;\n",
+    "id": "S15.5.4.12_A1_T6"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Argument is undefined, and instance is new String",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n//since ToString(undefined) evaluates to \"undefined\" search(undefined) evaluates to search(\"undefined\")\nif (String(\"undefined\").search(undefined) !== 0) {\n  $ERROR('#1: String(\"undefined\").search(undefined) === 0. Actual: '+String(\"undefined\").search(undefined) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A1_T7"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Argument is void 0, and instance is String object with overrided toString function",
+    "test": "var __obj = {toString:function(){}};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n//since ToString(void 0) evaluates to \"undefined\" search(void 0) evaluates to search(\"undefined\")\nif (String(__obj).search(void 0) !== 0) {\n  $ERROR('#1: __obj = {toString:function(){}}; String(__obj).search(void 0) === 0. Actual: '+String(__obj).search(void 0) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A1_T8"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Argument is function call, and instance is String object with overrided toString and valueOf functions",
+    "test": "var __obj = {\n    valueOf:function(){},\n    toString:void 0\n};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n//since ToString(undefined) evaluates to \"undefined\" search(undefined) evaluates to search(\"undefined\")\nif (new String(__obj).search(function(){}()) !== 0) {\n  $ERROR('#1: __obj = {valueOf:function(){}, toString:void 0}; new String(__obj).search(function(){}()) === 0. Actual: '+new String(__obj).search(function(){}()) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A1_T9"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Simple search substring inside string",
+    "test": "var aString = new String(\"test string\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (aString.search(\"string\")!== 5) {\n  $ERROR('#1: var aString = new String(\"test string\"); aString.search(\"string\")=== 5. Actual: '+aString.search(\"string\"));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A2_T1"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Checking case sensitive of search, argument is string",
+    "test": "var aString = new String(\"test string\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (aString.search(\"String\")!== -1) {\n  $ERROR('#1: var aString = new String(\"test string\"); aString.search(\"String\")=== -1. Actual: '+aString.search(\"String\"));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A2_T2"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Checking disabling of case sensitive of search, argument is RegExp",
+    "test": "var aString = new String(\"test string\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (aString.search(/String/i)!== 5) {\n  $ERROR('#1: var aString = new String(\"test string\"); aString.search(/String/i)=== 5. Actual: '+aString.search(/String/i));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A2_T3"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Checking case sensitive of search, argument is RegExp with uppercase symbols",
+    "test": "var bString = new String(\"one two three four five\");\nvar regExp = /Four/;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (bString.search(regExp)!== -1) {\n  $ERROR('#1: var bString = new String(\"one two three four five\"); var regExp = /Four/; bString.search(regExp)=== -1. Actual: '+bString.search(regExp));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A2_T4"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Checking case sensitive of search, argument is RegExp without uppercase symbols",
+    "test": "var bString = new String(\"one two three four five\");\nvar regExp = /four/;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (bString.search(regExp)!== 14) {\n  $ERROR('#1: var bString = new String(\"one two three four five\"); var regExp = /four/; bString.search(regExp)=== 14. Actual: '+bString.search(regExp));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A2_T5"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Searching the non-existent \"notexist\" substring",
+    "test": "var aString = new String(\"test string\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (aString.search(\"notexist\")!== -1) {\n  $ERROR('#1: var aString = new String(\"test string\"); aString.search(\"notexist\")=== -1. Actual: '+aString.search(\"notexist\"));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A2_T6"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Simple search sentence inside string",
+    "test": "var aString = new String(\"test string probe\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (aString.search(\"string pro\")!== 5) {\n  $ERROR('#1: var aString = new String(\"test string probe\"); aString.search(\"string pro\")=== 5. Actual: '+aString.search(\"string pro\"));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A2_T7"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Checking results of search regexp with and without global properties",
+    "test": "var aString = new String(\"power of the power of the power of the power of the power of the power of the great sword\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (aString.search(/the/)!== aString.search(/the/g)) {\n  $ERROR('#1: var aString = new String(\"power of the power of the power of the power of the power of the power of the great sword\"); aString.search(/the/)=== aString.search(/the/g). Actual: '+aString.search(/the/));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A3_T1"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Checking results of search regexp with and without global properties. Unicode symbols used",
+    "test": "var aString = new String(\"power \\u006F\\u0066 the power of the power \\u006F\\u0066 the power of the power \\u006F\\u0066 the power of the great sword\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (aString.search(/of/)!== aString.search(/of/g)) {\n  $ERROR('#1: var aString = new String(\"power \\\\u006F\\\\u0066 the power of the power \\\\u006F\\\\u0066 the power of the power \\\\u006F\\\\u0066 the power of the great sword\"); aString.search(/of/)=== aString.search(/of/g). Actual: '+aString.search(/of/));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A3_T2"
+   },
+   {
+    "section": "15.5.4.12, 13.2",
+    "description": "Checking String.prototype.search.prototype",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (String.prototype.search.prototype !== undefined) {\n  $ERROR('#1: String.prototype.search.prototype === undefined. Actual: '+String.prototype.search.prototype );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A6"
+   },
+   {
+    "section": "15.5.4.12, 13.2",
+    "description": "Checking if creating the String.prototype.search object fails",
+    "test": "var __FACTORY = String.prototype.search;\n\ntry {\n  var __instance = new __FACTORY;\n  $FAIL('#1: __FACTORY = String.prototype.search; \"__instance = new __FACTORY\" lead to throwing exception');\n} catch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#1.1: __FACTORY = String.prototype.search; \"__instance = new __FACTORY\" throw a TypeError. Actual: ' + (e));  \n  }\n  $PRINT(e);\n}\n",
+    "id": "S15.5.4.12_A7"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Checking if enumerating the String.prototype.search.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#0\nif (!(String.prototype.search.hasOwnProperty('length'))) {\n  $FAIL('#0: String.prototype.search.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.search.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n//////////////////////////////////////////////////////////////////////////////\n// CHECK#1\nif (String.prototype.search.propertyIsEnumerable('length')) {\n  $ERROR('#1: String.prototype.search.propertyIsEnumerable(\\'length\\') return false');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n// CHECK#2\nvar count=0;\n\nfor (p in String.prototype.search){\n  if (p===\"length\") count++;\n}\n\nif (count !== 0) {\n  $ERROR('#2: count=0; for (p in String.prototype.search){if (p===\"length\") count++;}; count === 0. Actual: '+count );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A8"
+   },
+   {
+    "section": "15.5.4.12",
+    "description": "Checking if deleting the String.prototype.search.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#0\nif (!(String.prototype.search.hasOwnProperty('length'))) {\n  $FAIL('#0: String.prototype.search.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.search.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (delete String.prototype.search.length) {\n  $ERROR('#1: delete String.prototype.search.length return false');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (!(String.prototype.search.hasOwnProperty('length'))) {\n  $FAIL('#2: delete String.prototype.search.length; String.prototype.search.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.search.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.12_A9"
+   }
+  ]
+ }
+}

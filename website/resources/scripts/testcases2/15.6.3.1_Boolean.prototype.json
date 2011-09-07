@@ -1,0 +1,32 @@
+{
+ "testCollection": {
+  "name": "15.6.3.1_Boolean.prototype",
+  "numTests": 4,
+  "tests": [
+   {
+    "section": "15.6.3.1",
+    "description": "Checking Boolean.prototype property",
+    "test": "//CHECK#1\nif (typeof Boolean.prototype !== \"object\") {\n  $ERROR('#1: typeof Boolean.prototype === \"object\"');\n}\n\n//CHECK#2\nif (Boolean.prototype != false) {\n  $ERROR('#2: Boolean.prototype == false');\n}\n\ndelete Boolean.prototype.toString;\n\nif (Boolean.prototype.toString() !== \"[object Boolean]\") {\n  $ERROR('#3: The [[Class]] property of the Boolean prototype object is set to \"Boolean\"');\n}\n",
+    "id": "S15.6.3.1_A1"
+   },
+   {
+    "section": "15.6.3.1",
+    "description": "Checking if varying the Boolean.prototype property fails",
+    "test": "// CHECK#1\nx = Boolean.prototype;\nBoolean.prototype = 1;\nif (Boolean.prototype !== x) {\n  $ERROR('#1: Boolean.prototype has the attribute ReadOnly');\n}\n",
+    "id": "S15.6.3.1_A2"
+   },
+   {
+    "section": "15.6.3.1",
+    "description": "Checking if deleting the Boolean.prototype property fails",
+    "test": "// CHECK#1\nif (delete Boolean.prototype !== false) {\n  $ERROR('#1: Boolean.prototype has the attribute DontDelete');\n}\n",
+    "id": "S15.6.3.1_A3"
+   },
+   {
+    "section": "15.6.3.1",
+    "description": "Checking if enumerating the Boolean.prototype property fails",
+    "test": "//CHECK#1\nfor(x in Boolean) {\n  if(x === \"prototype\") {\n    $ERROR('#1: Boolean.prototype has the attribute DontEnum');\n  }\n}\n\nif (Boolean.propertyIsEnumerable('prototype')) {\n  $ERROR('#2: Boolean.prototype has the attribute DontEnum');\n}\n",
+    "id": "S15.6.3.1_A4"
+   }
+  ]
+ }
+}

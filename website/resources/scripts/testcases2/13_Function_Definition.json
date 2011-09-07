@@ -1,0 +1,261 @@
+{
+ "testCollection": {
+  "name": "13_Function_Definition",
+  "numTests": 42,
+  "tests": [
+   {
+    "section": "13",
+    "description": "Checking the type of y",
+    "test": "var __func = function __exp__func(){return 0;};\n\n////////////////////////////////////////////////\n// //////////////////////////////\n//CHECK#1\nif (typeof __func !== \"function\") {\n\t$ERROR('#1: typeof __func === \"function\". Actual: typeof __func ==='+typeof __func);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (typeof __exp__func !== \"undefined\"){\n    $ERROR('#2: typeof __exp__func === \"undefined\". Actual: typeof __exp__func ==='+typeof __exp__func);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A1"
+   },
+   {
+    "section": "13",
+    "description": "Using function as a property of an object",
+    "test": "function __ziggy__func(){return \"ziggy stardust\"}\n\nvar __music_box={};\n\n__music_box.ziggy = __ziggy__func;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#\nif (typeof __music_box.ziggy !== \"function\") {\n\t$ERROR('#1: typeof __music_box.ziggy === \"function\". Actual: typeof __music_box.ziggy ==='+typeof __music_box.ziggy);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__music_box.ziggy() !== \"ziggy stardust\") {\n\t$ERROR('#2: __music_box.ziggy() === \"ziggy stardust\". Actual: __music_box.ziggy() ==='+__music_box.ziggy());\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A10"
+   },
+   {
+    "section": "13",
+    "description": "Returning result of \"delete arguments\"",
+    "test": "function __func(){ return delete arguments;}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__func(\"A\",\"B\",1,2)) {\n\t$ERROR('#1: arguments property has attribute { DontDelete }');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A11_T1"
+   },
+   {
+    "section": "13",
+    "description": "Checking if deleting the arguments property fails and then returning it",
+    "test": "function __func(){ \n    delete arguments;\n    return arguments;\n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (typeof __func(\"A\",\"B\",1,2) !== \"object\") {\n\t$ERROR('#1: arguments property has attribute { DontDelete }');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A11_T2"
+   },
+   {
+    "section": "13",
+    "description": "Deleting arguments[i] and returning result of the operation",
+    "test": "function __func(){\n    was_del=false;\n    for (i=0; i < arguments.length; i++)\n       was_del= was_del || delete arguments[i];\n    return was_del;\n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!__func(\"A\",\"B\",1,2)) {\n\t$ERROR('#1: Since arguments property has attribute { DontDelete } elements of arguments can be deleted');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A11_T3"
+   },
+   {
+    "section": "13",
+    "description": "Deleting arguments[i] and checking the type of arguments[i]",
+    "test": "function __func(){\n    is_undef=true;\n    for (i=0; i < arguments.length; i++)\n    {\n        delete arguments[i];\n        is_undef= is_undef && (typeof arguments[i] === \"undefined\");\n    };       \n    return is_undef;\n};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!__func(\"A\",\"B\",1,2)) {\n\t$ERROR('#1: Since arguments property has attribute { DontDelete }, but elements of arguments can be deleted');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A11_T4"
+   },
+   {
+    "section": "13",
+    "description": "Checking if deleting a function that is declared in global scope fails",
+    "test": "ALIVE=\"Letov is alive\"\n\nfunction __func(){\n    return ALIVE;\n};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (delete __func) {\n\t$ERROR('#1: delete __func returning false');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__func() !== ALIVE) {\n\t$ERROR('#2: __func() === ALIVE. Actual: __func() ==='+__func());\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A12_T1"
+   },
+   {
+    "section": "13",
+    "description": "Checking if deleting a function that is declared in function scope fails",
+    "test": "ALIVE=\"Letov is alive\"\n\nfunction __cont(){\n\n    function __func(){\n        return ALIVE;\n    };\n    \n    //////////////////////////////////////////////////////////////////////////////\n    //CHECK#1\n    if (delete __func) {\n    \t$ERROR('#1: delete __func returning false');\n    }\n    //\n    //////////////////////////////////////////////////////////////////////////////\n    \n    //////////////////////////////////////////////////////////////////////////////\n    //CHECK#2\n    if (__func() !== ALIVE) {\n    \t$ERROR('#2: __func() === ALIVE. Actual: __func() ==='+__func());\n    }\n    //\n    //////////////////////////////////////////////////////////////////////////////\n};\n\n__cont();\n",
+    "id": "S13_A12_T2"
+   },
+   {
+    "section": "13",
+    "description": "Deleting arguments[i]",
+    "test": "function __func(__arg){\n  delete arguments[0];\n  if (arguments[0] !== undefined) {\n    $ERROR('#1.1: arguments[0] === undefined');\n  }\n  return __arg;\n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__func(1) !== 1) {\n\t$ERROR('#1.2: __func(1) === 1. Actual: __func(1) ==='+__func(1));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A13_T1"
+   },
+   {
+    "section": "13",
+    "description": "Changing arguments value and then deleting the argument",
+    "test": "function __func(__arg){\n  __arg = 2;\n  delete arguments[0];\n  if (arguments[0] !== undefined) {\n    $ERROR('#1.1: arguments[0] === undefined');\n  }\n  return __arg;\n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__func(1) !== 2) {\n\t$ERROR('#1.2: __func(1) === 2. Actual: __func(1) ==='+__func(1));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A13_T2"
+   },
+   {
+    "section": "13",
+    "description": "Changing argument value, deleting the argument and then defining a new value for arguments[i]",
+    "test": "function __func(__arg){\n  __arg = 2;\n  delete arguments[0];\n  if (arguments[0] !== undefined) {\n    $ERROR('#1.1: arguments[0] === undefined');\n  }\n  arguments[0] = \"A\";\n  if (arguments[0] !== \"A\") {\n    $ERROR('#1.2: arguments[0] === \"A\"');\n  }\n  return __arg;\n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__func(1) !== 2) {\n\t$ERROR('#1.3: __func(1) === 2. Actual: __func(1) ==='+__func(1));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A13_T3"
+   },
+   {
+    "section": "13",
+    "description": "Defining function name with unicode symbols",
+    "test": "eval(\"function __func\\u0041(__arg){return __arg;};\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (typeof __funcA !== \"function\") {\n\t$ERROR('#1: unicode symbols in function name are allowed');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A14"
+   },
+   {
+    "section": "13",
+    "description": "Declaring a function with \"__func(arguments)\"",
+    "test": "function __func(arguments){\n    return arguments;\n};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__func(42) !== 42) {\n\t$ERROR('#1: \"arguments\" variable overrides ActivationObject.arguments');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A15_T1"
+   },
+   {
+    "section": "13",
+    "description": "Overriding arguments within functions body",
+    "test": "THE_ANSWER=\"Answer to Life, the Universe, and Everything\";\n\nfunction __func(){\n    var arguments = THE_ANSWER;\n    return arguments;\n};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__func(42,42,42) !== THE_ANSWER) {\n\t$ERROR('#1:  \"arguments\" variable overrides ActivationObject.arguments');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A15_T2"
+   },
+   {
+    "section": "13",
+    "description": "Declaring a variable named with \"arguments\" without a function",
+    "test": "THE_ANSWER=\"Answer to Life, the Universe, and Everything\";\n\nvar arguments = THE_ANSWER;\n\nfunction __func(arguments){\n    return arguments;\n    \n};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (typeof __func() !== \"undefined\") {\n\t$ERROR('#1: typeof __func() === \"undefined\". Actual: typeof __func() ==='+typeof __func());\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__func(\"The Ultimate Question\") !== \"The Ultimate Question\") {\n\t$ERROR('#2: __func(\"The Ultimate Question\") === \"The Ultimate Question\". Actual: __func(\"The Ultimate Question\")==='+__func(\"The Ultimate Question\"));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A15_T3"
+   },
+   {
+    "section": "13",
+    "description": "Declaring a variable named with \"arguments\" and following a \"return\" statement within a function body",
+    "test": "THE_ANSWER=\"Answer to Life, the Universe, and Everything\";\n\nfunction __func(){\n    return typeof arguments;\n    var arguments = THE_ANSWER;\n};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__func(42,42,42) !== \"object\") {\n\t$ERROR('#1: __func(42,42,42) === \"object\". Actual: __func(42,42,42)==='+__func(42,42,42));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A15_T4"
+   },
+   {
+    "section": "13",
+    "description": "Creating a variable named with \"arguments\" without a function",
+    "test": "THE_ANSWER=\"Answer to Life, the Universe, and Everything\";\n\nvar arguments = THE_ANSWER;\n\nfunction __func(){\n    return arguments;\n};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif ( __func() === THE_ANSWER) {\n\t$ERROR('#1: __func() !== THE_ANSWER');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__func(\"The Ultimate Question\") === \"The Ultimate Question\") {\n\t$ERROR('#2: __func(\"The Ultimate Question\") !== \"The Ultimate Question\"');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A15_T5"
+   },
+   {
+    "section": "13",
+    "description": "Inserting separators between declaration chunks",
+    "test": "function\nx\n(\n)\n{\n}\n;\n\nx();\n\nfunction                                                    y                                   (                                          )                                              {};\n\ny();\n\nfunction\n\nz\n\n(\n\n)\n\n{\n    \n}\n\n;\n\nz();\n\neval(\"function\\u0009\\u2029w(\\u000C)\\u00A0{\\u000D};\");\n\nw();\n",
+    "id": "S13_A16"
+   },
+   {
+    "section": "13",
+    "description": "Trying to call a function before the FunctionExpression appears",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry{\n    var __result = __func();\n\t$FAIL(\"#1.1: var __result = __func() lead to throwing exception\");\n} catch(e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#1.2: func should throw a TypeError  Actual: ' + (e));  \n  }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar __func = function (){return \"ONE\";};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nvar __result = __func();\nif (__result !== \"ONE\") {\n\t$ERROR('#2: __result === \"ONE\". Actual: __result ==='+__result);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n__func = function (){return \"TWO\";};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nvar __result = __func();\nif (__result !== \"TWO\") {\n\t$ERROR('#3: __result === \"TWO\". Actual: __result ==='+__result);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A17_T1"
+   },
+   {
+    "section": "13",
+    "description": "Trying to call a function before the FunctionExpression appears and then using the FunctionExpression one more time",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry{\n    var __result = __func();\n\t$ERROR(\"#1: var __result = __func() lead to throwing exception\");\n} catch(e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#1.2: func should throw a TypeError  Actual: ' + (e));  \n  }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n// now we reach the __func overwriting by new expression\nvar __func = function __func(){return \"ONE\";};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nvar __result = __func();\nif (__result !== \"ONE\") {\n\t$ERROR('#2: __result === \"ONE\". Actual: __result ==='+__result);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n__func = function __func(){return \"TWO\";};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nvar __result = __func();\nif (__result !== \"TWO\") {\n\t$ERROR('#3: __result === \"TWO\". Actual: __result ==='+__result);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A17_T2"
+   },
+   {
+    "section": "13",
+    "description": "Using a function declaration as a function parameter",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (typeof sinx !== 'undefined') {\n\t$ERROR('#1: typeof sinx === \\'undefined\\'. Actual: typeof sinx ==='+typeof sinx);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar __val = function derivative(f, dx) {\n    return function(x) {\n      return (f(x + dx) - f(x)) / dx;\n    };\n}(function sinx(x){return Math.sin(x);},.0001)(0.5);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (typeof sinx !== 'undefined') {\n\t$ERROR('#2: typeof sinx === \\'undefined\\'. Actual: typeof sinx ==='+typeof sinx);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A18"
+   },
+   {
+    "section": "13,13.2",
+    "description": "Creating a function and a variable with identical Identifiers in global scope",
+    "test": "// since \"var\" does not override function declaration __decl is set to function\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (typeof __decl !== \"function\") {\n\t$ERROR('#1: typeof __decl === \"function\". Actual: typeof __decl ==='+typeof __decl);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar __decl = 1;\n\n//since statement was evaluted __decl turns to 1 from function\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__decl !== 1) {\n\t$ERROR('#2: __decl === 1. Actual: __decl ==='+__decl);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nfunction __decl(){return 1;}\n",
+    "id": "S13_A19_T1"
+   },
+   {
+    "section": "13,13.2",
+    "description": "Creating a function and a variable with identical Identifiers within function scope",
+    "test": "(function (){\n\n    // since \"var\" does not override function declaration __decl is set to function\n    //////////////////////////////////////////////////////////////////////////////\n    //CHECK#1\n    if (typeof __decl !== \"function\") {\n    \t$ERROR('#1: typeof __decl === \"function\". Actual: typeof __decl ==='+typeof __decl);\n    }\n    //\n    //////////////////////////////////////////////////////////////////////////////\n    \n    var __decl = 1;\n    \n    //since statement was evaluted __decl turns to 1 from function\n    //////////////////////////////////////////////////////////////////////////////\n    //CHECK#2\n    if (__decl !== 1) {\n    \t$ERROR('#2: __decl === 1. Actual: __decl ==='+__decl);\n    }\n    //\n    //////////////////////////////////////////////////////////////////////////////\n\n    function __decl(){return 1;}\n})();    \n",
+    "id": "S13_A19_T2"
+   },
+   {
+    "section": "13",
+    "description": "Defining function body with \"return arg\"",
+    "test": "var x = (function __func(arg){return arg})(1);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (x !== 1) {\n\t$ERROR('#1: x === 1. Actual: x ==='+x);\n}\n\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (typeof __func !== 'undefined') {\n\t$ERROR('#2: typeof __func === \\'undefined\\'. Actual: typeof __func ==='+typeof __func);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A2_T1"
+   },
+   {
+    "section": "13",
+    "description": "Defining function body with \"return arg + arguments[1]\"",
+    "test": "var x = (function __func(arg){return arg + arguments[1]})(1,\"1\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (x !== \"11\") {\n\t$ERROR('#1: x === \"11\". Actual: x ==='+x);\n}\n\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (typeof __func !== 'undefined') {\n\t$ERROR('#2: typeof __func === \\'undefined\\'. Actual: typeof __func ==='+typeof __func);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A2_T2"
+   },
+   {
+    "section": "13",
+    "description": "Defining function body with \"return arguments[0] +\"-\"+ arguments[1]\"",
+    "test": "var x = (function __func(){return arguments[0] +\"-\"+ arguments[1]})(\"Obi\",\"Wan\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (x !== \"Obi-Wan\") {\n\t$ERROR('#1: x === \"Obi-Wan\". Actual: x ==='+x);\n}\n\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (typeof __func !== 'undefined') {\n\t$ERROR('#2: typeof __func === \\'undefined\\'. Actual: typeof __func ==='+typeof __func);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A2_T3"
+   },
+   {
+    "section": "13",
+    "description": "Creating a recursive function that calculates factorial, as a variable.\nFunction call itself by it`s name",
+    "test": "var __func = function __exp__func(arg){\n    if (arg === 1) {\n    \treturn arg;\n    } else {\n    \treturn __exp__func(arg-1)*arg;\n    }\n};\n\nvar fact_of_3 =  __func(3);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (fact_of_3 !== 6) {\n\t$ERROR(\"#1: fact_of_3 === 6. Actual: fact_of_3 ===\"+fact_of_3);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A3_T1"
+   },
+   {
+    "section": "13",
+    "description": "Creating a recursive function that calculates factorial, as a variable.\nFunction calls itself by the name of the variable",
+    "test": "var __func = function (arg){\n    if (arg === 1) {\n    \treturn arg;\n    } else {\n    \treturn __func(arg-1)*arg;\n    }\n};\n\nvar fact_of_3 =  __func(3);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (fact_of_3 !== 6) {\n\t$ERROR(\"#1: fact_of_3 === 6. Actual: fact_of_3 ===\"+fact_of_3);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A3_T2"
+   },
+   {
+    "section": "13",
+    "description": "Creating simple recursive function that calculates factorial",
+    "test": "function __func(arg){\n    if (arg === 1) {\n    \treturn arg;\n    } else {\n    \treturn __func(arg-1)*arg;\n    }\n};\n\nvar fact_of_3 =  __func(3);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (fact_of_3 !== 6) {\n\t$ERROR(\"#1: fact_of_3 === 6. Actual: fact_of_3 ===\"+fact_of_3);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A3_T3"
+   },
+   {
+    "section": "13",
+    "description": "Declaring a function that returns string",
+    "test": "function __func(){return \"zig-zig-sputnik\";};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1 \nif (typeof __func !== \"function\") {\n\t$ERROR('#1: typeof __func === \"function\". Actual: typeof __func ==='+typeof __func);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__func() !== \"zig-zig-sputnik\") {\n\t$ERROR('#2: __func() === \"zig-zig-sputnik\". Actual: __func() ==='+__func());\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A4_T1"
+   },
+   {
+    "section": "13",
+    "description": "Declaring a function that uses prefix increment operator within its \"return\" Expression",
+    "test": "function __func(arg){return ++arg;};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1 \nif (typeof __func !== \"function\") {\n\t$ERROR('#1: typeof __func === \"function\". Actual: typeof __func ==='+typeof __func);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__func(1) !== 2) {\n\t$ERROR('#2: __func(1) === 2. Actual: __func(1) ==='+__func(1));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A4_T2"
+   },
+   {
+    "section": "13",
+    "description": "Declaring a function that uses arithmetical operators within its \"return\" Expression",
+    "test": "function __func(arg1, arg2, arg3){return arg1+=(arg2+=arg3);};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1 \nif (typeof __func !== \"function\") {\n\t$ERROR('#1: typeof __func === \"function\". Actual: typeof __func ==='+typeof __func);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__func(10, 20, 30) !== 60) {\n\t$ERROR('#2: __func(10, 20, 30) === 60. Actual: __func(10,20,30) ==='+__func(10,20,30));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A4_T3"
+   },
+   {
+    "section": "13",
+    "description": "Declaring a function that uses strings concatenaion opeator within its \"return\" Expression",
+    "test": "function __func(){return arguments[0].name + \" \" + arguments[0].surname;};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1 \nif (typeof __func !== \"function\") {\n\t$ERROR('#1: typeof __func === \"function\". Actual: typeof __func ==='+typeof __func);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__func({name:'fox', surname:'malder'}) !== \"fox malder\") {\n\t$ERROR('#2: __func({name:\\'fox\\', surname:\\'malder\\'}) === \"fox malder\". Actual: __func({name:\\'fox\\', surname:\\'malder\\'}) ==='+__func({name:'fox', surname:'malder'}));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nfunction func__(arg){return arg.name + \" \" + arg.surname;};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3 \nif (typeof func__ !== \"function\") {\n\t$ERROR('#3: typeof func__ === \"function\". Actual: typeof __func ==='+typeof __func);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\nif (func__({name:'john', surname:'lennon'}) !== \"john lennon\") {\n\t$ERROR('#4: func__({name:\\'john\\', surname:\\'lennon\\'}) === \"john lennon\". Actual: __func({name:\\'john\\', surname:\\'lennon\\'}) ==='+__func({name:'john', surname:'lennon'}));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A4_T4"
+   },
+   {
+    "section": "13, 10.1.2",
+    "description": "Trying to use [arg1, arg2, arg3], (arg1, arg2, arg3), etc. as a FormalParameterList",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry{\n\teval(\"function __func([arg1, arg2, arg3]){return arguments.length;}\");\n\t$ERROR('#1: eval(\"function __func([arg1, arg2, arg3]){return arguments.length;}\") lead to throwing exception');\n} catch(e){\n\tif(!(e instanceof SyntaxError)){\n\t\t$ERROR('#1.1: eval(\"function __func([arg1, arg2, arg3]){return arguments.length;}\") lead to throwing exception of SyntaxError. Actual: exception is '+e);\n\t}\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\ntry{\n\teval(\"function __func((arg1, arg2, arg3)){return arguments.length;}\");\n\t$ERROR('#2: eval(\"function __func((arg1, arg2, arg3)){return arguments.length;}\") lead to throwing exception')\n} catch(e){\n\tif(!(e instanceof SyntaxError)){\n\t\t$ERROR('#2.1: eval(\"function __func((arg1, arg2, arg3)){return arguments.length;}\") lead to throwing exception of SyntaxError. Actual: exception is '+e);\n\t}\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\ntry{\n\teval(\"function __func(arg1, arg2, arg3,){return arguments.length;}\");\n\t$ERROR('#3: eval(\"function __func(arg1, arg2, arg3,){return arguments.length;}\") lead to throwing exception')\n} catch(e){\n\tif(!(e instanceof SyntaxError)){\n\t\t$ERROR('#3.1: eval(\"function __func(arg1, arg2, arg3,){return arguments.length;}\") lead to throwing exception of SyntaxError. Actual: exception is '+e);\n\t}\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A5"
+   },
+   {
+    "section": "13",
+    "description": "Duplicating function declaration",
+    "test": "function __func(){return 1};\n \nvar __store__func = __func;\n \nvar __1 = __func();\n \n function __func(){return 'A'};\n \nvar __A = __func();\n \n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__store__func !== __func) {\n\t$ERROR('#1: __store__func === __func. Actual: __store__func ==='+__store__func);\n}\n//\n////////////////////////////////////////////////////////////////////////////// \n \n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__1 !== __A) {\n\t$ERROR('#2: __1 === __A. Actual: __1 ==='+__1);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A6_T1"
+   },
+   {
+    "section": "13",
+    "description": "Calling a function before it is declared one more time",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry{\n    var __result = __func();\n} catch(e) {\n    $FAIL(\"#1: Function call can appears in the program before the FunctionDeclaration appears\");\n}\nif (__result !== \"SECOND\") {\n\t$ERROR('#1.1: __result === \"SECOND\". Actual: __result ==='+__result);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nfunction __func(){return \"FIRST\";};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\n__result = __func();\nif (__result !== \"SECOND\") {\n\t$ERROR('#2: __result === \"SECOND\". Actual: __result ==='+__result);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nfunction __func(){return \"SECOND\";};\n",
+    "id": "S13_A6_T2"
+   },
+   {
+    "section": "13",
+    "description": "Using only SourceElements within the FunctionBody",
+    "test": "function __func(){'ground control to major tom'};\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (typeof __func !== \"function\") {\n\t$ERROR('#1: typeof __func === \"function\". Actual: typeof __func ==='+typeof __func);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nfunction __func__2(){b};\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (typeof __func__2 !== \"function\") {\n\t$ERROR('#2: typeof __func__2 === \"function\". Actual: typeof __func__2 ==='+typeof __func__2);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nfunction __func__3(){1};\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (typeof __func__3 !== \"function\") {\n\t$ERROR('#3: typeof __func__3 === \"function\". Actual: typeof __func__3 ==='+typeof __func__3);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nfunction __func__4(){1+c};\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\nif (typeof __func__4 !== \"function\") {\n\t$ERROR('#4: typeof __func__4 === \"function\". Actual: typeof __func__4 ==='+typeof __func__4);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nfunction __func__5(){inc(d)};\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#5\nif (typeof __func__5 !== \"function\") {\n\t$ERROR('#5: typeof __func__5 === \"function\". Actual: typeof __func__5 ==='+typeof __func__5);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nfunction __func__6(){var \\u0042 = 1;};\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#6\nif (typeof __func__6 !== \"function\") {\n\t$ERROR('#6: typeof __func__6 === \"function\". Actual: typeof __func__6 ==='+typeof __func__6);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//function __func__7(){var \\u003d = 1;};\n////////////////////////////////////////////////////////////////////////////////\n////CHECK#7\n//if (typeof __func__7 !== \"function\") {\n//\t$ERROR('#7: The FunctionBody must be SourceElements');\n//}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A7_T1"
+   },
+   {
+    "section": "13",
+    "description": "Inserting elements that is different from SourceElements into the FunctionBody",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry{\n\teval(\"function __func(){/ ABC}\");\n\t$ERROR('#1: eval(\"function __func(){/ ABC}\") lead to throwing exception');\n} catch(e){\n\tif(!(e instanceof SyntaxError)){\n\t\t$ERROR('#1.1: eval(\"function __func(){/ ABC}\") lead to throwing exception of SyntaxError. Actual: exception is '+e);\n\t}\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\ntry{\n\teval(\"function __func(){&1}\");\n\t$ERROR('#3: eval(\"function __func(){&1}\") lead to throwing exception');\n} catch(e){\n\tif(!(e instanceof SyntaxError)){\n\t\t$ERROR('#3.1: eval(\"function __func(){&1}\") lead to throwing exception of SyntaxError. Actual: exception is '+e);\n\t}\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\ntry{\n\teval(\"function __func(){# ABC}\");\n\t$ERROR('#4: eval(\"function __func(){# ABC}\") lead to throwing exception');\n} catch(e){\n\tif(!(e instanceof SyntaxError)){\n\t\t$ERROR('#4.1: eval(\"function __func(){# ABC}\") lead to throwing exception of SyntaxError. Actual: exception is '+e);\n\t}\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A7_T2"
+   },
+   {
+    "section": "13",
+    "description": "Checking if execution of \"function __func(){\\A\\B\\C}\" fails",
+    "negative": "",
+    "test": "function __func(){\\A\\B\\C};\n",
+    "id": "S13_A7_T3"
+   },
+   {
+    "section": "13",
+    "description": "Creating a function declared with \"function __func(param1, param2, param3)\" and using arguments.length property in order to perform the test",
+    "test": " function __func(param1, param2, param3) {\n \treturn arguments.length;\n }\n \n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__func('A') !== 1) {\n \t$ERROR('#1: __func(\\'A\\') === 1. Actual: __func(\\'A\\') ==='+__func('A'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__func('A', 'B', 1, 2,__func) !== 5) {\n\t$ERROR('#2: __func(\\'A\\', \\'B\\', 1, 2,__func) === 5. Actual: __func(\\'A\\', \\'B\\', 1, 2,__func) ==='+__func('A', 'B', 1, 2,__func));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n \n \n \n",
+    "id": "S13_A8_T1"
+   },
+   {
+    "section": "13",
+    "description": "Creating a function with no parameters and using arguments.length property in order to perform the test",
+    "test": " function __func() {\n \treturn arguments.length;\n }\n \n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__func('A') !== 1) {\n \t$ERROR('#1: __func(\\'A\\') === 1. Actual: __func(\\'A\\') ==='+__func('A'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__func('A', 'B', 1, 2,__func) !== 5) {\n\t$ERROR('#2: __func(\\'A\\', \\'B\\', 1, 2,__func) === 5. Actual: __func(\\'A\\', \\'B\\', 1, 2,__func) ==='+__func('A', 'B', 1, 2,__func));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__func() !== 0) {\n\t$ERROR('#3: __func() === 0. Actual: __func() ==='+__func());\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13_A8_T2"
+   },
+   {
+    "section": "13",
+    "description": "Using function as argument of another function",
+    "test": "function __func__INC(arg){return arg + 1;};\nfunction __func__MULT(incrementator, arg, mult){ return incrementator(arg)*mult; };\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__func__MULT(__func__INC, 2, 2) !== 6) {\n\t$ERROR('#1: function  can be passed as argument');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n",
+    "id": "S13_A9"
+   }
+  ]
+ }
+}

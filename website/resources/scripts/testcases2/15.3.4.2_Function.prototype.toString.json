@@ -1,0 +1,85 @@
+{
+ "testCollection": {
+  "name": "15.3.4.2_Function.prototype.toString",
+  "numTests": 12,
+  "tests": [
+   {
+    "section": "15.3.4.2",
+    "description": "Checking if varying the Function.prototype.toString.length property fails",
+    "test": "//CHECK#1\nif (!(Function.prototype.toString.hasOwnProperty('length'))) {\n  $FAIL('#1: the Function.prototype.toString has length property.');\n}\n\nvar obj = Function.prototype.toString.length;\n\nFunction.prototype.toString.length = function(){return \"shifted\";};\n\n//CHECK#2\nif (Function.prototype.toString.length !== obj) {\n  $ERROR('#2: the Function.prototype.toString length property has the attributes ReadOnly.');\n}\n",
+    "id": "S15.3.4.2_A10"
+   },
+   {
+    "section": "15.3.4.2",
+    "description": "Checking Function.prototype.toString.length",
+    "test": "//CHECK#1\nif (!(Function.prototype.toString.hasOwnProperty(\"length\"))) {\n  $ERROR('#1: The Function.prototype.toString has the length property');\n}\n\n//CHECK#2\nif (Function.prototype.toString.length !== 0) {\n  $ERROR('#2: The length property of the toString method is 0');\n}\n",
+    "id": "S15.3.4.2_A11"
+   },
+   {
+    "section": "15.3.4.2",
+    "negative": "TypeError",
+    "test": "Function.prototype.toString.call(undefined);\n",
+    "id": "S15.3.4.2_A12",
+    "description": ": The Function.prototype.toString function is not generic; it throws a TypeError exception if its this value is not a Function object."
+   },
+   {
+    "section": "15.3.4.2",
+    "negative": "TypeError",
+    "test": "Function.prototype.toString.call(null);\n",
+    "id": "S15.3.4.2_A13",
+    "description": ": The toString function is not generic; it throws a TypeError exception if its this value is not a Function object."
+   },
+   {
+    "section": "15.3.4.2",
+    "negative": "TypeError",
+    "test": "Function.prototype.toString.call({});\n",
+    "id": "S15.3.4.2_A14",
+    "description": ": The toString function is not generic; it throws a TypeError exception if its this value is not a Function object."
+   },
+   {
+    "section": "15.3.4.2",
+    "description": "Whether or not they are callable, RegExp objects are not Function objects, so toString should throw a TypeError.",
+    "negative": "TypeError",
+    "test": "Function.prototype.toString.call(/x/);\n",
+    "id": "S15.3.4.2_A15"
+   },
+   {
+    "section": "15.3.4.2",
+    "description": "The String constructor, given an object, should invoke that object's toString method as a method, i.e., with its this value bound to that object.",
+    "negative": "TypeError",
+    "test": "var obj = {toString: Function.prototype.toString};\n\nString(obj);\n",
+    "id": "S15.3.4.2_A16"
+   },
+   {
+    "section": "15.3.4.2",
+    "description": "For testing use Function.prototype.toString() function",
+    "test": "var f = function(x) {\n  return x*x;\n};\n\n//CHECK#1\nif (eval(f.toString())(10) !== f(10)) {\n  $ERROR('#1: An implementation-dependent representation of the function is returned. This representation has the syntax of a FunctionDeclaration');\n}\n",
+    "id": "S15.3.4.2_A1_T1"
+   },
+   {
+    "section": "15.3.4.2, 13.2",
+    "description": "Checking if obtaining the prototype property of Function.prototype.toString fails",
+    "test": "//CHECK#1\nif (Function.prototype.toString.prototype !== undefined) {\n  $ERROR('#1: Function.prototype.toString has not prototype property'+Function.prototype.toString.prototype);\n}\n",
+    "id": "S15.3.4.2_A6"
+   },
+   {
+    "section": "15.3.4.2, 13.2",
+    "description": "Checking if creating \"new Function.prototype.toString\" fails",
+    "test": "var FACTORY = Function.prototype.toString;\n\ntry {\n  var instance = new FACTORY;\n  $FAIL('#1: Function.prototype.toString can\\'t be used as constructor');\n} catch (e) {\n  $PRINT(e);\n}\n",
+    "id": "S15.3.4.2_A7"
+   },
+   {
+    "section": "15.3.4.2",
+    "description": "Checking if enumerating the Function.prototype.toString.length property fails",
+    "test": "//CHECK#0\nif (!(Function.prototype.toString.hasOwnProperty('length'))) {\n  $FAIL('#0: the Function.prototype.toString has length property.');\n}\n\n\n// CHECK#1\nif (Function.prototype.toString.propertyIsEnumerable('length')) {\n  $ERROR('#1: the Function.prototype.toString.length property has the attributes DontEnum');\n}\n\n// CHECK#2\nfor (p in Function.prototype.toString){\n  if (p===\"length\")\n      $ERROR('#2: the Function.prototype.toString.length property has the attributes DontEnum');\n}\n",
+    "id": "S15.3.4.2_A8"
+   },
+   {
+    "section": "15.3.4.2",
+    "description": "Checking if deleting the Function.prototype.toString.length property fails",
+    "test": "//CHECK#0\nif (!(Function.prototype.toString.hasOwnProperty('length'))) {\n  $FAIL('#0: the Function.prototype.toString has length property');\n}\n\n//CHECK#1\nif (delete Function.prototype.toString.length) {\n  $ERROR('#1: The Function.prototype.toString.length property has the attributes DontDelete');\n}\n\n//CHECK#2\nif (!(Function.prototype.toString.hasOwnProperty('length'))) {\n  $FAIL('#2: The Function.prototype.toString.length property has the attributes DontDelete');\n}\n",
+    "id": "S15.3.4.2_A9"
+   }
+  ]
+ }
+}

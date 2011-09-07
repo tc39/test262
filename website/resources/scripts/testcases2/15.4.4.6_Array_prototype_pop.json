@@ -1,0 +1,120 @@
+{
+ "testCollection": {
+  "name": "15.4.4.6_Array_prototype_pop",
+  "numTests": 18,
+  "tests": [
+   {
+    "section": "15.4.4.6",
+    "description": "Checking this algorithm",
+    "test": "//CHECK#1\nvar x = new Array();\nvar pop = x.pop();\nif (pop !== undefined) {\n  $ERROR('#1: var x = new Array(); x.pop() === undefined. Actual: ' + (pop));\n}  \n\n//CHECK#2\nif (x.length !== 0) {\n  $ERROR('#2: var x = new Array(); x.pop(); x.length === 0. Actual: ' + (x.length));\n}  \n\n//CHECK#3\nvar x = Array(1,2,3);\nx.length = 0;\nvar pop = x.pop();\nif (pop !== undefined) {\n  $ERROR('#2: var x = Array(1,2,3); x.length = 0; x.pop() === undefined. Actual: ' + (pop));\n} \n\n//CHECK#4\nif (x.length !== 0) {\n  $ERROR('#4: var x = new Array(1,2,3); x.length = 0; x.pop(); x.length === 0. Actual: ' + (x.length));\n}  \n",
+    "id": "S15.4.4.6_A1.1_T1"
+   },
+   {
+    "section": "15.4.4.6",
+    "description": "Checking this use new Array() and []",
+    "test": "//CHECK#1\nvar x = new Array(0,1,2,3);\nvar pop = x.pop();\nif (pop !== 3) {\n  $ERROR('#1: x = new Array(0,1,2,3); x.pop() === 3. Actual: ' + (pop));\n}\n\n//CHECK#2\nif (x.length !== 3) {\n  $ERROR('#2: x = new Array(0,1,2,3); x.pop(); x.length == 3');\n}\n\n//CHECK#3\nif (x[3] !== undefined) {\n  $ERROR('#3: x = new Array(0,1,2,3); x.pop(); x[3] == undefined');\n}\n\n//CHECK#4\nif (x[2] !== 2) {\n  $ERROR('#4: x = new Array(0,1,2,3); x.pop(); x[2] == 2');\n}\n\n//CHECK#5\nx = [];\nx[0] = 0;\nx[3] = 3;\nvar pop = x.pop();\nif (pop !== 3) {\n  $ERROR('#5: x = []; x[0] = 0; x[3] = 3; x.pop() === 3. Actual: ' + (pop));\n}\n\n//CHECK#6\nif (x.length !== 3) {\n  $ERROR('#6: x = []; x[0] = 0; x[3] = 3; x.pop(); x.length == 3');\n}\n\n//CHECK#7\nif (x[3] !== undefined) {\n  $ERROR('#7: x = []; x[0] = 0; x[3] = 3; x.pop(); x[3] == undefined');\n}\n\n//CHECK#8\nif (x[2] !== undefined) {\n  $ERROR('#8: x = []; x[0] = 0; x[3] = 3; x.pop(); x[2] == undefined');\n}\n\n//CHECK#9\nx.length = 1;\nvar pop = x.pop();\nif (pop !== 0) {\n  $ERROR('#9: x = []; x[0] = 0; x[3] = 3; x.pop(); x.length = 1; x.pop() === 0. Actual: ' + (pop));\n}\n\n//CHECK#10\nif (x.length !== 0) {\n  $ERROR('#10: x = []; x[0] = 0; x[3] = 3; x.pop(); x.length = 1; x.pop(); x.length === 0. Actual: ' + (x.length));\n}\n",
+    "id": "S15.4.4.6_A1.2_T1"
+   },
+   {
+    "section": "15.4.4.6",
+    "description": "If ToUint32(length) equal zero, call the [[Put]] method\nof this object with arguments \"length\" and 0 and return undefined",
+    "test": "var obj = {};\nobj.pop = Array.prototype.pop;\n\nif (obj.length !== undefined) {\n  $ERROR('#0: var obj = {}; obj.length === undefined. Actual: ' + (obj.length));\n} else {\n    //CHECK#1  \n    var pop = obj.pop();\nif (pop !== undefined) {\n      $ERROR('#1: var obj = {}; obj.pop = Array.prototype.pop; obj.pop() === undefined. Actual: ' + (pop));\n    }\n    //CHECK#2\n    if (obj.length !== 0) {\n      $ERROR('#2: var obj = {}; obj.pop = Array.prototype.pop; obj.pop(); obj.length === 0. Actual: ' + (obj.length));\n    }\n}    \n\n//CHECK#3\nobj.length = undefined;\nvar pop = obj.pop();\nif (pop !== undefined) {\n  $ERROR('#3: var obj = {}; obj.length = undefined; obj.pop = Array.prototype.pop; obj.pop() === undefined. Actual: ' + (pop));\n} \n\n//CHECK#4\nif (obj.length !== 0) {\n  $ERROR('#4: var obj = {}; obj.length = undefined; obj.pop = Array.prototype.pop; obj.pop(); obj.length === 0. Actual: ' + (obj.length));\n}\n\n//CHECK#5\nobj.length = null\nvar pop = obj.pop();\nif (pop !== undefined) {\n  $ERROR('#5: var obj = {}; obj.length = null; obj.pop = Array.prototype.pop; obj.pop() === undefined. Actual: ' + (pop));\n} \n\n//CHECK#6\nif (obj.length !== 0) {\n  $ERROR('#6: var obj = {}; obj.length = null; obj.pop = Array.prototype.pop; obj.pop(); obj.length === 0. Actual: ' + (obj.length));\n}\n",
+    "id": "S15.4.4.6_A2_T1"
+   },
+   {
+    "section": "15.4.4.6",
+    "description": "If ToUint32(length) equal zero, call the [[Put]] method\nof this object with arguments \"length\" and 0 and return undefined",
+    "test": "var obj = {};\nobj.pop = Array.prototype.pop;\n\n//CHECK#1\nobj.length = NaN;\nvar pop = obj.pop();\nif (pop !== undefined) {\n  $ERROR('#1: var obj = {}; obj.length = NaN; obj.pop = Array.prototype.pop; obj.pop() === undefined. Actual: ' + (pop));\n}\n\n//CHECK#2\nif (obj.length !== 0) {\n  $ERROR('#2: var obj = {}; obj.length = NaN; obj.pop = Array.prototype.pop; obj.pop(); obj.length === 0. Actual: ' + (obj.length));\n}\n\n//CHECK#3\nobj.length = Number.POSITIVE_INFINITY;\nvar pop = obj.pop();\nif (pop !== undefined) {\n  $ERROR('#3: var obj = {}; obj.length = Number.POSITIVE_INFINITY; obj.pop = Array.prototype.pop; obj.pop() === undefined. Actual: ' + (pop));\n}\n\n//CHECK#4\nif (obj.length !== 0) {\n  $ERROR('#4: var obj = {}; obj.length = Number.POSITIVE_INFINITY; obj.pop = Array.prototype.pop; obj.pop(); obj.length === 0. Actual: ' + (obj.length));\n}\n\n//CHECK#5\nobj.length = Number.NEGATIVE_INFINITY;\nvar pop = obj.pop();\nif (pop !== undefined) {\n  $ERROR('#5: var obj = {}; obj.length = Number.NEGATIVE_INFINITY; obj.pop = Array.prototype.pop; obj.pop() === undefined. Actual: ' + (pop));\n}\n\n//CHECK#6\nif (obj.length !== 0) {\n  $ERROR('#6: var obj = {}; obj.length = Number.NEGATIVE_INFINITY; obj.pop = Array.prototype.pop; obj.pop(); obj.length === 0. Actual: ' + (obj.length));\n}\n\n//CHECK#7\nobj.length = -0;\nvar pop = obj.pop();\nif (pop !== undefined) {\n  $ERROR('#7: var obj = {}; obj.length = -0; obj.pop = Array.prototype.pop; obj.pop() === undefined. Actual: ' + (pop));\n}    \n\n//CHECK#8\nif (obj.length !== 0) {\n  $ERROR('#8: var obj = {}; obj.length = -0; obj.pop = Array.prototype.pop; obj.pop(); obj.length === 0. Actual: ' + (obj.length));\n} else {\n  if (1/obj.length !== Number.POSITIVE_INFINITY) {\n    $ERROR('#8: var obj = {}; obj.length = -0; obj.pop = Array.prototype.pop; obj.pop(); obj.length === +0. Actual: ' + (obj.length));\n  }  \n}   \n\n//CHECK#9\nobj.length = 0.5;\nvar pop = obj.pop();\nif (pop !== undefined) {\n  $ERROR('#9: var obj = {}; obj.length = 0.5; obj.pop = Array.prototype.pop; obj.pop() === undefined. Actual: ' + (pop));\n}\n\n//CHECK#10\nif (obj.length !== 0) {\n  $ERROR('#10: var obj = {}; obj.length = 0.5; obj.pop = Array.prototype.pop; obj.pop(); obj.length === 0. Actual: ' + (obj.length));\n} \n\n//CHECK#11\nobj.length = new Number(0);\nvar pop = obj.pop();\nif (pop !== undefined) {\n  $ERROR('#11: var obj = {}; obj.length = new Number(0); obj.pop = Array.prototype.pop; obj.pop() === undefined. Actual: ' + (pop));\n}\n\n//CHECK#12\nif (obj.length !== 0) {\n  $ERROR('#12: var obj = {}; obj.length = new Number(0); obj.pop = Array.prototype.pop; obj.pop(); obj.length === 0. Actual: ' + (obj.length));\n}\n",
+    "id": "S15.4.4.6_A2_T2"
+   },
+   {
+    "section": "15.4.4.6",
+    "description": "The last element ToUint32(length) - 1 of the array is removed from the array\nand returned",
+    "test": "var obj = {};\nobj.pop = Array.prototype.pop;\n\n//CHECK#1\nobj.length = 2.5;\nvar pop = obj.pop();\nif (pop !== undefined) {\n  $ERROR('#1: var obj = {}; obj.length = 2.5; obj.pop = Array.prototype.pop; obj.pop() === undefined. Actual: ' + (pop));\n}\n\n//CHECK#2\nif (obj.length !== 1) {\n  $ERROR('#2: var obj = {}; obj.length = 2.5; obj.pop = Array.prototype.pop; obj.pop(); obj.length === 1. Actual: ' + (obj.length));\n} \n\n//CHECK#3\nobj.length = new Number(2);\nvar pop = obj.pop();\nif (pop !== undefined) {\n  $ERROR('#11: var obj = {}; obj.length = new Number(2); obj.pop = Array.prototype.pop; obj.pop() === undefined. Actual: ' + (pop));\n}\n\n//CHECK#3\nif (obj.length !== 1) {\n  $ERROR('#12: var obj = {}; obj.length = new Number(2); obj.pop = Array.prototype.pop; obj.pop(); obj.length === 1. Actual: ' + (obj.length));\n} \n",
+    "id": "S15.4.4.6_A2_T3"
+   },
+   {
+    "section": "15.4.4.6",
+    "description": "Operator use ToNumber from length.\nIf Type(value) is Object, evaluate ToPrimitive(value, Number)",
+    "test": "var obj = {};\nobj.pop = Array.prototype.pop;\n\n//CHECK#1\nobj[0] = -1;\nobj.length = {valueOf: function() {return 1}};\nvar pop = obj.pop();\nif (pop !== -1) {\n  $ERROR('#1: obj[0] = -1; obj.length = {valueOf: function() {return 1}}  obj.pop() === -1. Actual: ' + (pop));\n}\n\n//CHECK#2\nobj[0] = -1;\nobj.length = {valueOf: function() {return 1}, toString: function() {return 0}};\nvar pop = obj.pop();\nif (pop !== -1) {\n  $ERROR('#0: obj[0] = -1; obj.length = {valueOf: function() {return 1}, toString: function() {return 0}}  obj.pop() === -1. Actual: ' + (pop));\n} \n\n//CHECK#3\nobj[0] = -1;\nobj.length = {valueOf: function() {return 1}, toString: function() {return {}}};\nvar pop = obj.pop();\nif (pop !== -1) {\n  $ERROR('#3: obj[0] = -1; obj.length = {valueOf: function() {return 1}, toString: function() {return {}}}  obj.pop() === -1. Actual: ' + (pop));\n}\n\n//CHECK#4\ntry {  \n  obj[0] = -1;\n  obj.length = {valueOf: function() {return 1}, toString: function() {throw \"error\"}};  \n  var pop = obj.pop();\nif (pop !== -1) {\n    $ERROR('#4.1: obj[0] = -1; obj.length = {valueOf: function() {return 1}, toString: function() {throw \"error\"}}; obj.pop() === \",\". Actual: ' + (pop));\n  }\n}\ncatch (e) {\n  if (e === \"error\") {\n    $ERROR('#4.2: obj[0] = -1; obj.length = {valueOf: function() {return 1}, toString: function() {throw \"error\"}}; obj.pop() not throw \"error\"');\n  } else {\n    $ERROR('#4.3: obj[0] = -1; obj.length = {valueOf: function() {return 1}, toString: function() {throw \"error\"}}; obj.pop() not throw Error. Actual: ' + (e));\n  }\n}\n\n//CHECK#5\nobj[0] = -1;\nobj.length = {toString: function() {return 0}};\nvar pop = obj.pop();\nif (pop !== undefined) {\n  $ERROR('#5: obj[0] = -1; obj.length = {toString: function() {return 0}}  obj.pop() === undefined. Actual: ' + (pop));\n}\n\n//CHECK#6\nobj[0] = -1;\nobj.length = {valueOf: function() {return {}}, toString: function() {return 0}}\nvar pop = obj.pop();\nif (pop !== undefined) {\n  $ERROR('#6: obj[0] = -1; obj.length = {valueOf: function() {return {}}, toString: function() {return 0}}  obj.pop() === undefined. Actual: ' + (pop));\n}\n\n//CHECK#7\ntry {\n  obj[0] = -1;\n  obj.length = {valueOf: function() {throw \"error\"}, toString: function() {return 0}};  \n  var pop = obj.pop();\n  $ERROR('#7.1: obj[0] = -1; obj.length = {valueOf: function() {throw \"error\"}, toString: function() {return 0}}; obj.pop() throw \"error\". Actual: ' + (pop));\n}  \ncatch (e) {\n  if (e !== \"error\") {\n    $ERROR('#7.2: obj[0] = -1; obj.length = {valueOf: function() {throw \"error\"}, toString: function() {return 0}}; obj.pop() throw \"error\". Actual: ' + (e));\n  } \n}\n\n//CHECK#8\ntry {\n  obj[0] = -1;\n  obj.length = {valueOf: function() {return {}}, toString: function() {return {}}};\n  var pop = obj.pop();\n  $ERROR('#8.1: obj[0] = -1; obj.length = {valueOf: function() {return {}}, toString: function() {return {}}}  obj.pop() throw TypeError. Actual: ' + (pop));\n}  \ncatch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#8.2: obj[0] = -1; obj.length = {valueOf: function() {return {}}, toString: function() {return {}}}  obj.pop() throw TypeError. Actual: ' + (e));\n  } \n}\n",
+    "id": "S15.4.4.6_A2_T4"
+   },
+   {
+    "section": "15.4.4.6",
+    "description": "length = 4294967296",
+    "test": "var obj = {};\nobj.pop = Array.prototype.pop;\nobj[0] = \"x\";\nobj[4294967295] = \"y\";\nobj.length = 4294967296;\n\n//CHECK#1\nvar pop = obj.pop();\nif (pop !== undefined) {\n  $ERROR('#1: var obj = {}; obj.pop = Array.prototype.pop; obj[0] = \"x\"; obj[4294967295] = \"y\"; obj.length = 4294967296; obj.pop() === unedfined. Actual: ' + (pop));\n}\n\n//CHECK#2\nif (obj.length !== 0) {\n  $ERROR('#2: var obj = {}; obj.pop = Array.prototype.pop; obj[0] = \"x\"; obj[4294967295] = \"y\"; obj.length = 4294967296; obj.pop(); obj.length === 0. Actual: ' + (obj.length));\n}\n\n//CHECK#3\nif (obj[0] !== \"x\") {\n   $ERROR('#3: var obj = {}; obj.pop = Array.prototype.pop; obj[0] = \"x\"; obj[4294967295] = \"y\"; obj.length = 4294967296; obj.pop(); obj[0] === \"x\". Actual: ' + (obj[0]));\n}  \n\n//CHECK#4\nif (obj[4294967295] !== \"y\") {\n   $ERROR('#4: var obj = {}; obj.pop = Array.prototype.pop; obj[0] = \"x\"; obj[4294967295] = \"y\"; obj.length = 4294967296; obj.pop(); obj[4294967295] === \"y\". Actual: ' + (obj[4294967295]));\n}  \n",
+    "id": "S15.4.4.6_A3_T1"
+   },
+   {
+    "section": "15.4.4.6",
+    "description": "length = 4294967297",
+    "test": "var obj = {};\nobj.pop = Array.prototype.pop;\nobj[0] = \"x\";\nobj[4294967296] = \"y\";\nobj.length = 4294967297;\n\n//CHECK#1\nvar pop = obj.pop();\nif (pop !== \"x\") {\n  $ERROR('#1: var obj = {}; obj.pop = Array.prototype.pop; obj[0] = \"x\"; obj[4294967296] = \"y\"; obj.length = 4294967297; obj.pop() === \"x\". Actual: ' + (pop));\n}\n\n//CHECK#2\nif (obj.length !== 0) {\n  $ERROR('#2: var obj = {}; obj.pop = Array.prototype.pop; obj[0] = \"x\"; obj[4294967296] = \"y\"; obj.length = 4294967297; obj.pop(); obj.length === 0. Actual: ' + (obj.length));\n}\n\n//CHECK#3\nif (obj[0] !== undefined) {\n   $ERROR('#3: var obj = {}; obj.pop = Array.prototype.pop; obj[0] = \"x\"; obj[4294967296] = \"y\"; obj.length = 4294967297; obj.pop(); obj[0] === undefined. Actual: ' + (obj[0]));\n}\n\n//CHECK#4\nif (obj[4294967296] !== \"y\") {\n   $ERROR('#4: var obj = {}; obj.pop = Array.prototype.pop; obj[0] = \"x\"; obj[4294967296] = \"y\"; obj.length = 4294967297; obj.pop(); obj[4294967296] === \"y\". Actual: ' + (obj[4294967296]));\n}  \n",
+    "id": "S15.4.4.6_A3_T2"
+   },
+   {
+    "section": "15.4.4.6",
+    "description": "length = -1",
+    "test": "var obj = {};\nobj.pop = Array.prototype.pop;\nobj[4294967294] = \"x\";\nobj.length = -1;\n\n//CHECK#1\nvar pop = obj.pop();\nif (pop !== \"x\") {\n  $ERROR('#1: var obj = {}; obj.pop = Array.prototype.pop; obj[4294967294] = \"x\"; obj.length = -1; obj.pop() === \"x\". Actual: ' + (pop));\n}\n\n//CHECK#2\nif (obj.length !== 4294967294) {\n  $ERROR('#2: var obj = {}; obj.pop = Array.prototype.pop; obj[4294967294] = \"x\"; obj.length = -1; obj.pop(); obj.length === 4294967294. Actual: ' + (obj.length));\n}\n\n//CHECK#3\nif (obj[4294967294] !== undefined) {\n   $ERROR('#3: var obj = {}; obj.pop = Array.prototype.pop; obj[4294967294] = \"x\"; obj.length = -1; obj.pop(); obj[4294967294] === undefined. Actual: ' + (obj[4294967294]));\n}  \n",
+    "id": "S15.4.4.6_A3_T3"
+   },
+   {
+    "section": "15.4.4.6, 8.6.2.1, 8.6.2.5",
+    "description": "[[Prototype]] of Array instance is Array.prototype, [[Prototype] of Array.prototype is Object.prototype",
+    "test": "Array.prototype[1] = 1;\nvar x = [0];\nx.length = 2;\n\n//CHECK#1\nvar pop = x.pop();\nif (pop !== 1) {  \n  $ERROR('#1: Array.prototype[1] = 1; x = [0]; x.length = 2; x.pop() === 1. Actual: ' + (pop));    \n}\n\n//CHECK#2\nif (x[1] !== 1) {  \n  $ERROR('#2: Array.prototype[1] = 1; x = [0]; x.length = 2; x.pop(); x[1] === 1. Actual: ' + (x[1]));    \n}\n\nObject.prototype[1] = 1;\nObject.prototype.length = 2;\nObject.prototype.pop = Array.prototype.pop;\nx = {0:0};\n\n//CHECK#3\nvar pop = x.pop();\nif (pop !== 1) {  \n  $ERROR('#3: Object.prototype[1] = 1; Object.prototype.length = 2; Object.prototype.pop = Array.prototype.pop; x = {0:0}; x.pop() === 1. Actual: ' + (pop));    \n}\n\n//CHECK#4\nif (x[1] !== 1) {  \n  $ERROR('#4: Object.prototype[1] = 1; Object.prototype.length = 2; Object.prototype.pop = Array.prototype.pop; x = {0:0}; x.pop(); x[1] === 1. Actual: ' + (x[1]));    \n}\n\n//CHECK#6\nif (x.length !== 1) {  \n  $ERROR('#6: Object.prototype[1] = 1; Object.prototype.length = 2; Object.prototype.pop = Array.prototype.pop; x = {0:0}; x.pop(); x.length === 1. Actual: ' + (x.length));    \n}\n\n//CHECK#7\ndelete x.length;\nif (x.length !== 2) {  \n  $ERROR('#7: Object.prototype[1] = 1; Object.prototype.length = 2; Object.prototype.pop = Array.prototype.pop; x = {0:0}; x.pop(); delete x; x.length === 2. Actual: ' + (x.length));    \n}\n",
+    "id": "S15.4.4.6_A4_T1"
+   },
+   {
+    "section": "15.4.4.6, 8.6.2.1",
+    "description": "[[Prototype]] of Array instance is Array.prototype, [[Prototype] of Array.prototype is Object.prototype",
+    "test": "Array.prototype[1] = -1;\nvar x = [0,1];\nx.length = 2;\n\n//CHECK#1\nvar pop = x.pop();\nif (pop !== 1) {  \n  $ERROR('#1: Array.prototype[1] = -1; x = [0,1]; x.length = 2; x.pop() === 1. Actual: ' + (pop));    \n}\n\n//CHECK#2\nif (x[1] !== -1) {  \n  $ERROR('#2: Array.prototype[1] = -1; x = [0,1]; x.length = 2; x.pop(); x[1] === -1. Actual: ' + (x[1]));    \n}\n\nObject.prototype[1] = -1;\nObject.prototype.length = 2;\nObject.prototype.pop = Array.prototype.pop;\nx = {0:0,1:1};\n\n//CHECK#3\nvar pop = x.pop();\nif (pop !== 1) {  \n  $ERROR('#3: Object.prototype[1] = -1; Object.prototype.length = 2; Object.prototype.pop = Array.prototype.pop; x = {0:0,1:1}; x.pop() === 1. Actual: ' + (pop));    \n}\n\n//CHECK#4\nif (x[1] !== -1) {  \n  $ERROR('#4: Object.prototype[1] = -1; Object.prototype.length = 2; Object.prototype.pop = Array.prototype.pop; x = {0:0,1:1}; x.pop(); x[1] === -1. Actual: ' + (x[1]));    \n}\n\n//CHECK#6\nif (x.length !== 1) {  \n  $ERROR('#6: Object.prototype[1] = -1; Object.prototype.length = 2; Object.prototype.pop = Array.prototype.pop; x = {0:0,1:1}; x.pop(); x.length === 1. Actual: ' + (x.length));    \n}\n\n//CHECK#7\ndelete x.length;\nif (x.length !== 2) {  \n  $ERROR('#7: Object.prototype[1] = -1; Object.prototype.length = 2; Object.prototype.pop = Array.prototype.pop; x = {0:0,1:1}; x.pop(); delete x; x.length === 2. Actual: ' + (x.length));    \n}\n",
+    "id": "S15.4.4.6_A4_T2"
+   },
+   {
+    "section": "15.4.4.6, 15.2.4.7, 12.6.4",
+    "description": "Checking use propertyIsEnumerable, for-in",
+    "test": "//CHECK#1\nif (Array.prototype.pop.propertyIsEnumerable('length') !== false) {\n  $ERROR('#1: Array.prototype.pop.propertyIsEnumerable(\\'length\\') === false. Actual: ' + (Array.prototype.pop.propertyIsEnumerable('length')));\n}\n\n//CHECK#2\nvar result = true;\nfor (var p in Array.pop){\n  if (p === \"length\") {\n    result = false;\n  }  \n}\n\nif (result !== true) {\n  $ERROR('#2: result = true; for (p in Array.pop) { if (p === \"length\") result = false; }  result === true;');\n}\n\n",
+    "id": "S15.4.4.6_A5.1"
+   },
+   {
+    "section": "15.4.4.6, 15.2.4.5, 11.4.1",
+    "description": "Checking use hasOwnProperty, delete",
+    "strict_mode_negative": "",
+    "test": "//CHECK#1\nif (Array.prototype.pop.hasOwnProperty('length') !== true) {\n  $FAIL('#1: Array.prototype.pop.hasOwnProperty(\\'length\\') === true. Actual: ' + (Array.prototype.pop.hasOwnProperty('length')));\n}\n\ndelete Array.prototype.pop.length;\n\n//CHECK#2\nif (Array.prototype.pop.hasOwnProperty('length') !== true) {\n  $ERROR('#2: delete Array.prototype.pop.length; Array.prototype.pop.hasOwnProperty(\\'length\\') === true. Actual: ' + (Array.prototype.pop.hasOwnProperty('length')));\n}\n\n//CHECK#3\nif (Array.prototype.pop.length === undefined) {\n  $ERROR('#3: delete Array.prototype.pop.length; Array.prototype.pop.length !== undefined');\n}\n\n\n",
+    "id": "S15.4.4.6_A5.2",
+    "strict_only": ""
+   },
+   {
+    "section": "15.4.4.6",
+    "description": "Checking if varying the length property fails",
+    "strict_mode_negative": "",
+    "test": "//CHECK#1\nvar x = Array.prototype.pop.length;\nArray.prototype.pop.length = Infinity;\nif (Array.prototype.pop.length !== x) {\n  $ERROR('#1: x = Array.prototype.pop.length; Array.prototype.pop.length = Infinity; Array.prototype.pop.length === x. Actual: ' + (Array.prototype.pop.length));\n}\n\n",
+    "id": "S15.4.4.6_A5.3",
+    "strict_only": ""
+   },
+   {
+    "section": "15.4.4.6",
+    "description": "pop.length === 1",
+    "test": "//CHECK#1\nif (Array.prototype.pop.length !== 0) {\n  $ERROR('#1: Array.prototype.pop.length === 0. Actual: ' + (Array.prototype.pop.length));\n}\n\n",
+    "id": "S15.4.4.6_A5.4"
+   },
+   {
+    "section": "15.4.4.6, 15.2.4.7, 12.6.4",
+    "description": "Checking use propertyIsEnumerable, for-in",
+    "test": "//CHECK#1\nif (Array.propertyIsEnumerable('pop') !== false) {\n  $ERROR('#1: Array.propertyIsEnumerable(\\'pop\\') === false. Actual: ' + (Array.propertyIsEnumerable('pop')));\n}\n\n//CHECK#2\nvar result = true;\nfor (var p in Array){\n  if (p === \"pop\") {\n    result = false;\n  }  \n}\n\nif (result !== true) {\n  $ERROR('#2: result = true; for (p in Array) { if (p === \"pop\") result = false; }  result === true;');\n}\n\n",
+    "id": "S15.4.4.6_A5.5"
+   },
+   {
+    "section": "15.4.4.6",
+    "description": "Checking Array.prototype.pop.prototype",
+    "test": "//CHECK#1\nif (Array.prototype.pop.prototype !== undefined) {\n  $ERROR('#1: Array.prototype.pop.prototype === undefined. Actual: ' + (Array.prototype.pop.prototype));\n}\n",
+    "id": "S15.4.4.6_A5.6"
+   },
+   {
+    "section": "15.4.4.6, 11.2.2",
+    "description": "If property does not implement the internal [[Construct]] method, throw a TypeError exception",
+    "test": "//CHECK#1\n\ntry {\n  new Array.prototype.pop();\n  $ERROR('#1.1: new Array.prototype.pop() throw TypeError. Actual: ' + (new Array.prototype.pop()));\n} catch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#1.2: new Array.prototype.pop() throw TypeError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.4.4.6_A5.7"
+   }
+  ]
+ }
+}

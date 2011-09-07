@@ -1,0 +1,27 @@
+{
+ "testCollection": {
+  "name": "12.4_Expression_Statement",
+  "numTests": 3,
+  "tests": [
+   {
+    "section": "12.4",
+    "description": "Checking if execution of \"function(){}()\" fails",
+    "negative": "",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nfunction(){}();\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.4_A1"
+   },
+   {
+    "section": "12.4",
+    "description": "Checking by using eval \"(eval(\"x+1+x==1\"))\"",
+    "test": "x=1;\n\n__evaluated = eval(\"x+1+x==1\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__evaluated !== false) {\n\t$ERROR('#1: __evaluated === false. Actual:  __evaluated ==='+ __evaluated  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n__evaluated = eval(\"1+1+1==1\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__evaluated !== false) {\n\t$ERROR('#2: __evaluated === false. Actual:  __evaluated ==='+ __evaluated  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.4_A2_T1"
+   },
+   {
+    "section": "12.4",
+    "description": "Checking by using eval(eval(x), where x is any string)",
+    "test": "x=\"5+1|0===0\";\n\n__evaluated = eval(x);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__evaluated !== 7) {\n\t$ERROR('#1: __evaluated === 7. Actual:  __evaluated ==='+ __evaluated  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n__evaluated = eval(\"2*\"+x+\">-1\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__evaluated !== 11) {\n\t$ERROR('#2: __evaluated === 11. Actual:  __evaluated ==='+ __evaluated  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.4_A2_T2"
+   }
+  ]
+ }
+}

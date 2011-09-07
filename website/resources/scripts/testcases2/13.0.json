@@ -1,0 +1,118 @@
+{
+ "testCollection": {
+  "name": "13.0",
+  "numTests": 15,
+  "tests": [
+   {
+    "id": "13.0-1",
+    "path": "TestCases/chapter13/13.0/13.0-1.js",
+    "description": "13.0 - multiple names in one function declaration is not allowed, two function names",
+    "test": "assertTrue((function testcase() {\n        try {\n            eval(\"function x, y() {}\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n"
+   },
+   {
+    "id": "13.0-10-s",
+    "path": "TestCases/chapter13/13.0/13.0-10-s.js",
+    "description": "Strict Mode - SourceElements is evaluated as strict mode code when the code of this FunctionBody with an inner function contains a Use Strict Directive",
+    "test": "assertTrue((function testcase() {\n\n        function _13_0_10_fun() {\n            function _13_0_10_inner() {\n                \"use strict\";\n                eval(\"eval = 42;\");\n            }\n            _13_0_10_inner();\n        };\n        try {\n            _13_0_10_fun();\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.0-11-s",
+    "path": "TestCases/chapter13/13.0/13.0-11-s.js",
+    "description": "Strict Mode - SourceElements is evaluated as strict mode code when the code of this FunctionBody with an inner function which is in strict mode",
+    "test": "assertTrue((function testcase() {\n\n        function _13_0_11_fun() {\n            \"use strict\";\n            function _13_0_11_inner() {\n                eval(\"eval = 42;\");\n            }\n            _13_0_11_inner();\n        };\n        try {\n            _13_0_11_fun();\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.0-12-s",
+    "path": "TestCases/chapter13/13.0/13.0-12-s.js",
+    "description": "Strict Mode - SourceElements is not evaluated as strict mode code when a Function constructor is contained in strict mode code and the function constructor body is not strict",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        var _13_0_12_fun = new Function(\" \",\"eval = 42;\");\n        _13_0_12_fun();\n        return true;\n\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "13.0-13-s",
+    "path": "TestCases/chapter13/13.0/13.0-13-s.js",
+    "description": "Strict Mode - SourceElements is evaluated as strict mode code when the function body of a Function constructor begins with a Strict Directive",
+    "test": "assertTrue((function testcase() {\n       \n        try {\n            eval(\"var _13_0_13_fun = new Function(\\\" \\\", \\\"'use strict'; eval = 42;\\\"); _13_0_13_fun();\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.0-14-s",
+    "path": "TestCases/chapter13/13.0/13.0-14-s.js",
+    "description": "Strict Mode - SourceElements is evaluated as strict mode code when the function body of a Function constructor contains a Strict Directive",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            var _13_0_14_fun = new Function(\" \", \"'use strict'; eval = 42; \");\n            _13_0_14_fun();\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.0-15-s",
+    "path": "TestCases/chapter13/13.0/13.0-15-s.js",
+    "description": "Strict Mode - SourceElements is evaluated as strict mode code when a FunctionDeclaration is contained in strict mode code within eval code",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"'use strict'; function _13_0_15_fun() {eval = 42;};\");\n            _13_0_15_fun();\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.0-16-s",
+    "path": "TestCases/chapter13/13.0/13.0-16-s.js",
+    "description": "Strict Mode - SourceElements is evaluated as strict mode code when a FunctionExpression is contained in strict mode code within eval code",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"'use strict'; var _13_0_16_fun = function () {eval = 42;};\");\n            _13_0_16_fun();\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.0-17-s",
+    "path": "TestCases/chapter13/13.0/13.0-17-s.js",
+    "description": "Strict Mode - SourceElements is not evaluated as strict mode code when a Function constructor is contained in strict mode code within eval code",
+    "test": "assertTrue((function testcase() {\n\n        eval(\"'use strict'; var _13_0_17_fun = new Function('eval = 42;'); _13_0_17_fun();\");\n        return true;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "13.0-2",
+    "path": "TestCases/chapter13/13.0/13.0-2.js",
+    "description": "13.0 - multiple names in one function declaration is not allowed, three function names",
+    "test": "assertTrue((function testcase() {\n        try {\n            eval(\"function x,y,z(){}\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n"
+   },
+   {
+    "id": "13.0-3",
+    "path": "TestCases/chapter13/13.0/13.0-3.js",
+    "description": "13.0 - property names in function definition is not allowed, add a new property into object",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n        try {\n            eval(\"function obj.tt() {};\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n"
+   },
+   {
+    "id": "13.0-4",
+    "path": "TestCases/chapter13/13.0/13.0-4.js",
+    "description": "13.0 - multiple names in one function declaration is not allowed, add a new property into a property which is a object",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n        obj.tt = { len: 10 };\n        try {\n            eval(\"function obj.tt.ss() {};\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n"
+   },
+   {
+    "id": "13.0-7-s",
+    "path": "TestCases/chapter13/13.0/13.0-7-s.js",
+    "description": "Strict Mode - SourceElements is evaluated as strict mode code when the code of this FunctionDeclaration is contained in non-strict mode but the call to eval is a direct call in strict mode code",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"'use strict'; function _13_0_7_fun() {eval = 42;};\");\n            _13_0_7_fun();\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.0-8-s",
+    "path": "TestCases/chapter13/13.0/13.0-8-s.js",
+    "description": "Strict Mode - SourceElements is evaluated as strict mode code when the code of this FunctionExpression is contained in non-strict mode but the call to eval is a direct call in strict mode code",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"var _13_0_8_fun = function () {eval = 42;};\");\n            _13_0_8_fun();\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.0-9-s",
+    "path": "TestCases/chapter13/13.0/13.0-9-s.js",
+    "description": "Strict Mode - SourceElements is evaluated as strict mode code when a FunctionDeclaration that is contained in strict mode code has an inner function",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        var _13_0_9_fun = function () {\n            function _13_0_9_inner() { eval(\"eval = 42;\"); }\n            _13_0_9_inner();\n        };\n        try {\n            _13_0_9_fun();\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   }
+  ]
+ }
+}

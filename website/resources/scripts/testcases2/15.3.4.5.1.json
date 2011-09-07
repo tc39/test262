@@ -1,0 +1,113 @@
+{
+ "testCollection": {
+  "name": "15.3.4.5.1",
+  "numTests": 15,
+  "tests": [
+   {
+    "id": "15.3.4.5.1-4-1",
+    "path": "TestCases/chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-1.js",
+    "description": "[[Call]] - 'F''s [[BoundArgs]] is used as the former part of arguments of calling the [[Call]] internal method of 'F''s [[TargetFunction]] when 'F' is called",
+    "test": "assertTrue((function testcase() {\n        var func = function (x, y, z) {\n            return x + y + z;\n        };\n\n        var newFunc = Function.prototype.bind.call(func, {}, \"a\", \"b\", \"c\");\n\n        return newFunc() === \"abc\";\n    }).call(this));\n",
+    "precondition": "(fnExists(Function.prototype.bind))"
+   },
+   {
+    "id": "15.3.4.5.1-4-10",
+    "path": "TestCases/chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-10.js",
+    "description": "[[Call]] - length of parameters of 'target' is 1, length of 'boundArgs' is 0, length of 'ExtraArgs' is 0, and with 'boundThis'",
+    "test": "assertTrue((function testcase() {\n        var obj = { prop: \"abc\" };\n\n        var func = function (x) {\n            return this === obj && typeof x === \"undefined\";\n        };\n\n        var newFunc = Function.prototype.bind.call(func, obj);\n\n        return newFunc();\n    }).call(this));\n",
+    "precondition": "(fnExists(Function.prototype.bind))"
+   },
+   {
+    "id": "15.3.4.5.1-4-11",
+    "path": "TestCases/chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-11.js",
+    "description": "[[Call]] - length of parameters of 'target' is 1, length of 'boundArgs' is 0, length of 'ExtraArgs' is 1, and with 'boundThis'",
+    "test": "assertTrue((function testcase() {\n        var obj = { prop: \"abc\" };\n\n        var func = function (x) {\n            return this === obj && x === 1 && arguments[0] === 1 && arguments.length === 1 && this.prop === \"abc\";\n        };\n\n        var newFunc = Function.prototype.bind.call(func, obj);\n\n        return newFunc(1);\n    }).call(this));\n",
+    "precondition": "(fnExists(Function.prototype.bind))"
+   },
+   {
+    "id": "15.3.4.5.1-4-12",
+    "path": "TestCases/chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-12.js",
+    "description": "[[Call]] - length of parameters of 'target' is 1, length of 'boundArgs' is 0, length of 'ExtraArgs' is 2, and with 'boundThis'",
+    "test": "assertTrue((function testcase() {\n        var obj = { prop: \"abc\" };\n\n        var func = function (x) {\n            return this === obj && x === 1 && arguments[1] === 2 &&\n                arguments[0] === 1 && arguments.length === 2 && this.prop === \"abc\";\n        };\n\n        var newFunc = Function.prototype.bind.call(func, obj);\n\n        return newFunc(1, 2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Function.prototype.bind))"
+   },
+   {
+    "id": "15.3.4.5.1-4-13",
+    "path": "TestCases/chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-13.js",
+    "description": "[[Call]] - length of parameters of 'target' is 1, length of 'boundArgs' is 1, length of 'ExtraArgs' is 0, and with 'boundThis'",
+    "test": "assertTrue((function testcase() {\n        var obj = { prop: \"abc\" };\n\n        var func = function (x) {\n            return this === obj && x === 1 &&\n                arguments[0] === 1 && arguments.length === 1 && this.prop === \"abc\";\n        };\n\n        var newFunc = Function.prototype.bind.call(func, obj, 1);\n\n        return newFunc();\n    }).call(this));\n",
+    "precondition": "(fnExists(Function.prototype.bind))"
+   },
+   {
+    "id": "15.3.4.5.1-4-14",
+    "path": "TestCases/chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-14.js",
+    "description": "[[Call]] - length of parameters of 'target' is 1, length of 'boundArgs' is 1, length of 'ExtraArgs' is 1, and with 'boundThis'",
+    "test": "assertTrue((function testcase() {\n        var obj = { prop: \"abc\" };\n\n        var func = function (x) {\n            return this === obj && x === 1 && arguments[1] === 2\n                arguments[0] === 1 && arguments.length === 2 && this.prop === \"abc\";\n        };\n\n        var newFunc = Function.prototype.bind.call(func, obj, 1);\n\n        return newFunc(2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Function.prototype.bind))"
+   },
+   {
+    "id": "15.3.4.5.1-4-15",
+    "path": "TestCases/chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-15.js",
+    "description": "[[Call]] - length of parameters of 'target' is 1, length of 'boundArgs' is 2, length of 'ExtraArgs' is 0, and with 'boundThis'",
+    "test": "assertTrue((function testcase() {\n        var obj = { prop: \"abc\" };\n\n        var func = function (x) {\n            return this === obj && x === 1 && arguments[1] === 2 &&\n                arguments[0] === 1 && arguments.length === 2 && this.prop === \"abc\";\n        };\n\n        var newFunc = Function.prototype.bind.call(func, obj, 1, 2);\n\n        return newFunc();\n    }).call(this));\n",
+    "precondition": "(fnExists(Function.prototype.bind))"
+   },
+   {
+    "id": "15.3.4.5.1-4-2",
+    "path": "TestCases/chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-2.js",
+    "description": "[[Call]] - 'F''s [[BoundThis]] is used as the 'this' value of calling the [[Call]] internal method of 'F''s [[TargetFunction]] when 'F' is called",
+    "test": "assertTrue((function testcase() {\n        var obj = { \"prop\": \"a\" };\n\n        var func = function () {\n            return this;\n        };\n\n        var newFunc = Function.prototype.bind.call(func, obj);\n\n        return newFunc() === obj;\n    }).call(this));\n",
+    "precondition": "(fnExists(Function.prototype.bind))"
+   },
+   {
+    "id": "15.3.4.5.1-4-3",
+    "path": "TestCases/chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-3.js",
+    "description": "[[Call]] - the provided arguments is used as the latter part of arguments of calling the [[Call]] internal method of 'F''s [[TargetFunction]] when 'F' is called",
+    "test": "assertTrue((function testcase() {\n        var func = function (x, y, z) {\n            return z;\n        };\n\n        var newFunc = Function.prototype.bind.call(func, {}, \"a\", \"b\");\n\n        return newFunc(\"c\") === \"c\";\n    }).call(this));\n",
+    "precondition": "(fnExists(Function.prototype.bind))"
+   },
+   {
+    "id": "15.3.4.5.1-4-4",
+    "path": "TestCases/chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-4.js",
+    "description": "[[Call]] - length of parameters of 'target' is 0, length of 'boundArgs' is 0, length of 'ExtraArgs' is 0, and without 'boundThis'",
+    "test": "assertTrue((function testcase() {\n        var func = function () {\n            return arguments.length === 0;\n        };\n\n        var newFunc = Function.prototype.bind.call(func);\n\n        return newFunc();\n    }).call(this));\n",
+    "precondition": "(fnExists(Function.prototype.bind))"
+   },
+   {
+    "id": "15.3.4.5.1-4-5",
+    "path": "TestCases/chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-5.js",
+    "description": "[[Call]] - length of parameters of 'target' is 0, length of 'boundArgs' is 0, length of 'ExtraArgs' is 1, and without 'boundThis'",
+    "test": "assertTrue((function testcase() {\n        var func = function () {\n            return arguments[0] === 1;\n        };\n\n        var newFunc = Function.prototype.bind.call(func);\n\n        return newFunc(1);\n    }).call(this));\n",
+    "precondition": "(fnExists(Function.prototype.bind))"
+   },
+   {
+    "id": "15.3.4.5.1-4-6",
+    "path": "TestCases/chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-6.js",
+    "description": "[[Call]] - length of parameters of 'target' is 0, length of 'boundArgs' is 0, length of 'ExtraArgs' is 0, and with 'boundThis'",
+    "test": "assertTrue((function testcase() {\n        var obj = { prop: \"abc\" };\n\n        var func = function () {\n            return this === obj && arguments.length === 0;\n        };\n\n        var newFunc = Function.prototype.bind.call(func, obj);\n\n        return newFunc();\n    }).call(this));\n",
+    "precondition": "(fnExists(Function.prototype.bind))"
+   },
+   {
+    "id": "15.3.4.5.1-4-7",
+    "path": "TestCases/chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-7.js",
+    "description": "[[Call]] - length of parameters of 'target' is 0, length of 'boundArgs' is 1, length of 'ExtraArgs' is 0, and with 'boundThis'",
+    "test": "assertTrue((function testcase() {\n        var obj = { prop: \"abc\" };\n\n        var func = function () {\n            return this === obj && arguments[0] === 1;\n        };\n\n        var newFunc = Function.prototype.bind.call(func, obj, 1);\n\n        return newFunc();\n    }).call(this));\n",
+    "precondition": "(fnExists(Function.prototype.bind))"
+   },
+   {
+    "id": "15.3.4.5.1-4-8",
+    "path": "TestCases/chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-8.js",
+    "description": "[[Call]] - length of parameters of 'target' is 0, length of 'boundArgs' is 0, length of 'ExtraArgs' is 1, and with 'boundThis'",
+    "test": "assertTrue((function testcase() {\n        var obj = { prop: \"abc\" };\n\n        var func = function () {\n            return this === obj && arguments[0] === 1;\n        };\n\n        var newFunc = Function.prototype.bind.call(func, obj);\n\n        return newFunc(1);\n    }).call(this));\n",
+    "precondition": "(fnExists(Function.prototype.bind))"
+   },
+   {
+    "id": "15.3.4.5.1-4-9",
+    "path": "TestCases/chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-9.js",
+    "description": "[[Call]] - length of parameters of 'target' is 0, length of 'boundArgs' is 1, length of 'ExtraArgs' is 1, and with 'boundThis'",
+    "test": "assertTrue((function testcase() {\n        var obj = { prop: \"abc\" };\n\n        var func = function () {\n            return this === obj && arguments[0] === 1 && arguments[1] === 2;\n        };\n\n        var newFunc = Function.prototype.bind.call(func, obj, 1);\n\n        return newFunc(2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Function.prototype.bind))"
+   }
+  ]
+ }
+}

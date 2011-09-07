@@ -1,0 +1,1499 @@
+{
+ "testCollection": {
+  "name": "15.4.4.16",
+  "numTests": 213,
+  "tests": [
+   {
+    "id": "15.4.4.16-0-1",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-0-1.js",
+    "description": "Array.prototype.every must exist as a function",
+    "test": "assertTrue((function testcase() {\n  var f = Array.prototype.every;\n  if (typeof(f) === \"function\") {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "15.4.4.16-0-2",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-0-2.js",
+    "description": "Array.prototype.every.length must be 1",
+    "test": "assertTrue((Array.prototype.every.length === 1));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-1-1",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-1-1.js",
+    "description": "Array.prototype.every applied to undefined throws a TypeError",
+    "test": "assertTrue((function testcase() {\n        try {\n            Array.prototype.every.call(undefined); // TypeError is thrown if value is undefined\n            return false;\n        } catch (e) {\n            return (e instanceof TypeError);\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-1-10",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-1-10.js",
+    "description": "Array.prototype.every applied to the Math object",
+    "test": "assertTrue((function testcase() {\n        function callbackfn(val, idx, obj) {\n            return ('[object Math]' !== Object.prototype.toString.call(obj));\n        }\n\n        try {\n            Math.length = 1;\n            Math[0] = 1;\n            return !Array.prototype.every.call(Math, callbackfn);\n        } finally {\n            delete Math[0];\n            delete Math.length;\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-1-11",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-1-11.js",
+    "description": "Array.prototype.every applied to Date object",
+    "test": "assertTrue((function testcase() {\n        function callbackfn(val, idx, obj) {\n            return !(obj instanceof Date);\n        }\n\n        var obj = new Date();\n        obj.length = 1;\n        obj[0] = 1;\n\n        return !Array.prototype.every.call(obj, callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-1-12",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-1-12.js",
+    "description": "Array.prototype.every applied to RegExp object",
+    "test": "assertTrue((function testcase() {\n        function callbackfn(val, idx, obj) {\n            return !(obj instanceof RegExp);\n        }\n\n        var obj = new RegExp();\n        obj.length = 1;\n        obj[0] = 1;\n\n        return !Array.prototype.every.call(obj, callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-1-13",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-1-13.js",
+    "description": "Array.prototype.every applied to the JSON object",
+    "test": "assertTrue((function testcase() {\n        function callbackfn(val, idx, obj) {\n            return ('[object JSON]' !== Object.prototype.toString.call(obj));\n        }\n\n        try {\n            JSON.length = 1;\n            JSON[0] = 1;\n            return !Array.prototype.every.call(JSON, callbackfn);\n        } finally {\n            delete JSON.length;\n            delete JSON[0];\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-1-14",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-1-14.js",
+    "description": "Array.prototype.every applied to Error object",
+    "test": "assertTrue((function testcase() {\n        function callbackfn(val, idx, obj) {\n            return !(obj instanceof Error);\n        }\n\n        var obj = new Error();\n        obj.length = 1;\n        obj[0] = 1;\n\n        return !Array.prototype.every.call(obj, callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-1-15",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-1-15.js",
+    "description": "Array.prototype.every applied to the Arguments object",
+    "test": "assertTrue((function testcase() {\n        function callbackfn(val, idx, obj) {\n            return ('[object Arguments]' !== Object.prototype.toString.call(obj));\n        }\n\n        var obj = (function fun() {\n            return arguments;\n        }(\"a\", \"b\"));\n\n        return !Array.prototype.every.call(obj, callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-1-2",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-1-2.js",
+    "description": "Array.prototype.every applied to null throws a TypeError",
+    "test": "assertTrue((function testcase() {\n        try {\n            Array.prototype.every.call(null); // TypeError is thrown if value is null\n            return false;\n        } catch (e) {\n            return (e instanceof TypeError);\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-1-3",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-1-3.js",
+    "description": "Array.prototype.every applied to boolean primitive",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return obj instanceof Boolean;\n        }\n\n        try {\n            Boolean.prototype[0] = 1;\n            Boolean.prototype.length = 1;\n            return Array.prototype.every.call(false, callbackfn) && accessed;\n        } finally {\n            delete Boolean.prototype[0];\n            delete Boolean.prototype.length;\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-1-4",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-1-4.js",
+    "description": "Array.prototype.every applied to Boolean object",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return obj instanceof Boolean;\n        }\n\n        var obj = new Boolean(true);\n        obj.length = 2;\n        obj[0] = 11;\n        obj[1] = 12;\n        return Array.prototype.every.call(obj, callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-1-5",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-1-5.js",
+    "description": "Array.prototype.every applied to number primitive",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return obj instanceof Number;\n        }\n\n        try {\n            Number.prototype[0] = 1;\n            Number.prototype.length = 1;\n            return Array.prototype.every.call(2.5, callbackfn) && accessed;\n        } finally {\n            delete Number.prototype[0];\n            delete Number.prototype.length;\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-1-6",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-1-6.js",
+    "description": "Array.prototype.every applied to Number object",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return obj instanceof Number;\n        }\n\n        var obj = new Number(-128);\n        obj.length = 2;\n        obj[0] = 11;\n        obj[1] = 12;\n        return Array.prototype.every.call(obj, callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-1-7",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-1-7.js",
+    "description": "Array.prototype.every applied to string primitive",
+    "test": "assertTrue((function testcase() {\n        function callbackfn(val, idx, obj) {\n            return !(obj instanceof String);\n        }\n\n        return !Array.prototype.every.call(\"hello\\nworld\\\\!\", callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-1-8",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-1-8.js",
+    "description": "Array.prototype.every applied to String object",
+    "test": "assertTrue((function testcase() {\n        function callbackfn(val, idx, obj) {\n            return !(obj instanceof String);\n        }\n\n        var obj = new String(\"hello\\nworld\\\\!\");\n\n        return !Array.prototype.every.call(obj, callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-1-9",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-1-9.js",
+    "description": "Array.prototype.every applied to Function object",
+    "test": "assertTrue((function testcase() {\n        function callbackfn(val, idx, obj) {\n            return !(obj instanceof Function);\n        }\n\n        var obj = function (a, b) {\n            return a + b;\n        };\n        obj[0] = 11;\n        obj[1] = 9;\n\n        return !Array.prototype.every.call(obj, callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-2-1",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-2-1.js",
+    "description": "Array.prototype.every applied to Array-like object, 'length' is an own data property",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var obj = {\n            0: 12,\n            1: 11,\n            2: 9,\n            length: 2\n        };\n\n        return Array.prototype.every.call(obj, callbackfn1) &&\n            !Array.prototype.every.call(obj, callbackfn2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-2-10",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-2-10.js",
+    "description": "Array.prototype.every applied to Array-like object, 'length' is an inherited accessor property",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var proto = { };\n\n        Object.defineProperty(proto, \"length\", {\n            get: function () {\n                return 2;\n            },\n            configurable: true\n        });\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n        child[0] = 12;\n        child[1] = 11;\n        child[2] = 9;\n\n        return Array.prototype.every.call(child, callbackfn1) &&\n            !Array.prototype.every.call(child, callbackfn2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty))"
+   },
+   {
+    "id": "15.4.4.16-2-11",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-2-11.js",
+    "description": "Array.prototype.every applied to Array-like object, 'length' is an own accessor property without a get function",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return val > 10;\n        }\n\n        var obj = {\n            0: 9,\n            1: 8\n        };\n        Object.defineProperty(obj, \"length\", {\n            set: function () { },\n            configurable: true\n        });\n\n        return Array.prototype.every.call(obj, callbackfn) && !accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty))"
+   },
+   {
+    "id": "15.4.4.16-2-12",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-2-12.js",
+    "description": "Array.prototype.every - 'length' is own accessor property without a get function that overrides an inherited accessor property",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return val > 10;\n        }\n\n        try {\n            Object.defineProperty(Object.prototype, \"length\", {\n                get: function () {\n                    return 2;\n                },\n                configurable: true\n            });\n\n            var obj = { 0: 9, 1: 8 };\n            Object.defineProperty(obj, \"length\", {\n                set: function () { },\n                configurable: true\n            });\n\n            return Array.prototype.every.call(obj, callbackfn) && !accessed;\n        } finally {\n            delete Object.prototype.length;\n        }\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty))"
+   },
+   {
+    "id": "15.4.4.16-2-13",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-2-13.js",
+    "description": "Array.prototype.every applied to the Array-like object that 'length' is inherited accessor property without a get function",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return val > 10;\n        }\n\n        var proto = {};\n        Object.defineProperty(proto, \"length\", {\n            set: function () { },\n            configurable: true\n        });\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n        child[0] = 9;\n        child[1] = 8;\n\n        return Array.prototype.every.call(child, callbackfn) && !accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty))"
+   },
+   {
+    "id": "15.4.4.16-2-14",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-2-14.js",
+    "description": "Array.prototype.every applied to the Array-like object that 'length' property doesn't exist",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return val > 10;\n        }\n\n        var obj = { 0: 11, 1: 12 };\n\n        return Array.prototype.every.call(obj, callbackfn) && !accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-2-15",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-2-15.js",
+    "description": "Array.prototype.every - 'length' is property of the global object",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        try {\n            var oldLen = fnGlobalObject().length;\n            fnGlobalObject()[0] = 12;\n            fnGlobalObject()[1] = 11;\n            fnGlobalObject()[2] = 9;\n            fnGlobalObject().length = 2;\n            return Array.prototype.every.call(fnGlobalObject(), callbackfn1) &&\n                !Array.prototype.every.call(fnGlobalObject(), callbackfn2);\n        } finally {\n            delete fnGlobalObject()[0];\n            delete fnGlobalObject()[1];\n            delete fnGlobalObject()[2];\n            fnGlobalObject().length = oldLen;\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-2-17",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-2-17.js",
+    "description": "Array.prototype.every applied to the Arguments object, which implements its own property get method",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var func = function (a, b) {\n            arguments[2] = 9;\n            return Array.prototype.every.call(arguments, callbackfn1) &&\n                !Array.prototype.every.call(arguments, callbackfn2);\n        };\n\n        return func(12, 11);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-2-18",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-2-18.js",
+    "description": "Array.prototype.every applied to String object, which implements its own property get method",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return parseInt(val, 10) > 1;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return parseInt(val, 10) > 2;\n        }\n\n        var str = new String(\"432\");\n        try {\n            String.prototype[3] = \"1\";\n            return Array.prototype.every.call(str, callbackfn1) &&\n            !Array.prototype.every.call(str, callbackfn2);\n        } finally {\n            delete String.prototype[3];\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-2-19",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-2-19.js",
+    "description": "Array.prototype.every applied to Function object, which implements its own property get method",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var fun = function (a, b) {\n            return a + b;\n        };\n        fun[0] = 12;\n        fun[1] = 11;\n        fun[2] = 9;\n\n        return Array.prototype.every.call(fun, callbackfn1) &&\n            !Array.prototype.every.call(fun, callbackfn2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-2-2",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-2-2.js",
+    "description": "Array.prototype.every - 'length' is own data property on an Array",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        try {\n            Array.prototype[2] = 9;\n\n            return [12, 11].every(callbackfn1) &&\n                ![12, 11].every(callbackfn2);\n        } finally {\n            delete Array.prototype[2];\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-2-3",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-2-3.js",
+    "description": "Array.prototype.every applied to Array-like object, 'length' is an own data property that overrides an inherited data property",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var proto = { length: 3 };\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n        child.length = 2;\n        child[0] = 12;\n        child[1] = 11;\n        child[2] = 9;\n\n        return Array.prototype.every.call(child, callbackfn1) &&\n            !Array.prototype.every.call(child, callbackfn2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-2-4",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-2-4.js",
+    "description": "Array.prototype.every - 'length' is own data property that overrides an inherited data property on an Array",
+    "test": "assertTrue((function testcase() {\n        var arrProtoLen = 0;\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        try {\n            arrProtoLen = Array.prototype.length;\n            Array.prototype.length = 0;\n            Array.prototype[2] = 9;\n\n            return [12, 11].every(callbackfn1) &&\n                ![12, 11].every(callbackfn2);\n        } finally {\n            Array.prototype.length = arrProtoLen;\n            delete Array.prototype[2];\n        }\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-2-5",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-2-5.js",
+    "description": "Array.prototype.every applied to Array-like object, 'length' is an own data property that overrides an inherited accessor property",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var proto = { };\n\n        Object.defineProperty(proto, \"length\", {\n            get: function () {\n                return 3;\n            },\n            configurable: true\n        });\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n        child[0] = 12;\n        child[1] = 11;\n        child[2] = 9;\n\n        Object.defineProperty(child, \"length\", {\n            value: 2,\n            configurable: true\n        });\n\n        return Array.prototype.every.call(child, callbackfn1) &&\n            !Array.prototype.every.call(child, callbackfn2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty))"
+   },
+   {
+    "id": "15.4.4.16-2-6",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-2-6.js",
+    "description": "Array.prototype.every applied to Array-like object, 'length' is an inherited data property",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var proto = { length: 2 };\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n        child[0] = 12;\n        child[1] = 11;\n        child[2] = 9;\n\n        return Array.prototype.every.call(child, callbackfn1) &&\n            !Array.prototype.every.call(child, callbackfn2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-2-7",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-2-7.js",
+    "description": "Array.prototype.every applied to Array-like object, 'length' is an own accessor property",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var obj = { };\n\n        Object.defineProperty(obj, \"length\", {\n            get: function () {\n                return 2;\n            },\n            configurable: true\n        });\n\n        obj[0] = 12;\n        obj[1] = 11;\n        obj[2] = 9;\n\n        return Array.prototype.every.call(obj, callbackfn1) &&\n            !Array.prototype.every.call(obj, callbackfn2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty))"
+   },
+   {
+    "id": "15.4.4.16-2-8",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-2-8.js",
+    "description": "Array.prototype.every applied to Array-like object, 'length' is an own accessor property that overrides an inherited data property",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var proto = { length: 3 };\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n\n        Object.defineProperty(child, \"length\", {\n            get: function () {\n                return 2;\n            },\n            configurable: true\n        });\n\n        child[0] = 12;\n        child[1] = 11;\n        child[2] = 9;\n\n        return Array.prototype.every.call(child, callbackfn1) &&\n            !Array.prototype.every.call(child, callbackfn2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty))"
+   },
+   {
+    "id": "15.4.4.16-2-9",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-2-9.js",
+    "description": "Array.prototype.every applied to Array-like object, 'length' is an own accessor property that overrides an inherited accessor property",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var proto = {};\n\n        Object.defineProperty(proto, \"length\", {\n            get: function () {\n                return 3;\n            },\n            configurable: true\n        });\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n\n        Object.defineProperty(child, \"length\", {\n            get: function () {\n                return 2;\n            },\n            configurable: true\n        });\n\n        child[0] = 12;\n        child[1] = 11;\n        child[2] = 9;\n\n        return Array.prototype.every.call(child, callbackfn1) &&\n            !Array.prototype.every.call(child, callbackfn2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty))"
+   },
+   {
+    "id": "15.4.4.16-3-1",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-1.js",
+    "description": "Array.prototype.every - value of 'length' is undefined",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return val > 10;\n        }\n\n        var obj = { 0: 9, length: undefined };\n\n        return Array.prototype.every.call(obj, callbackfn) && !accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-10",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-10.js",
+    "description": "Array.prototype.every - value of 'length' is a number (value is NaN)",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return val > 10;\n        }\n\n        var obj = { 0: 9, length: NaN };\n\n        return Array.prototype.every.call(obj, callbackfn) && !accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-11",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-11.js",
+    "description": "Array.prototype.every - 'length' is a string containing a positive number",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var obj = { 0: 12, 1: 11, 2: 9, length: \"2\" };\n\n        return Array.prototype.every.call(obj, callbackfn1) &&\n            !Array.prototype.every.call(obj, callbackfn2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-12",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-12.js",
+    "description": "Array.prototype.every - 'length' is a string containing a negative number",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var obj = { 0: 11, 1: 12, 2: 9, length: \"-4294967294\" };\n\n        return Array.prototype.every.call(obj, callbackfn1) &&\n            !Array.prototype.every.call(obj, callbackfn2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-13",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-13.js",
+    "description": "Array.prototype.every - 'length' is a string containing a decimal number",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var obj = { 0: 12, 1: 11, 2: 9, length: \"2.5\" };\n\n        return Array.prototype.every.call(obj, callbackfn1) &&\n            !Array.prototype.every.call(obj, callbackfn2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-14",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-14.js",
+    "description": "Array.prototype.every - 'length' is a string containing +/-Infinity",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return val > 10;\n        }\n\n        var objOne = { 0: 9, length: \"Infinity\" };\n        var objTwo = { 0: 9, length: \"+Infinity\" };\n        var objThree = { 0: 9, length: \"-Infinity\" };\n\n        return Array.prototype.every.call(objOne, callbackfn) &&\n            Array.prototype.every.call(objTwo, callbackfn) &&\n            Array.prototype.every.call(objThree, callbackfn) && !accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-15",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-15.js",
+    "description": "Array.prototype.every - 'length' is a string containing an exponential number",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var obj = { 0: 12, 1: 11, 2: 9, length: \"2E0\" };\n\n        return Array.prototype.every.call(obj, callbackfn1) &&\n            !Array.prototype.every.call(obj, callbackfn2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-16",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-16.js",
+    "description": "Array.prototype.every - 'length' is a string containing a hex number",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var obj = { 0: 12, 1: 11, 2: 9, length: \"0x0002\" };\n\n        return Array.prototype.every.call(obj, callbackfn1) &&\n            !Array.prototype.every.call(obj, callbackfn2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-17",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-17.js",
+    "description": "Array.prototype.every - 'length' is a string containing a number with leading zeros",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var obj = { 0: 12, 1: 11, 2: 9, length: \"0002.00\" };\n\n        return Array.prototype.every.call(obj, callbackfn1) &&\n            !Array.prototype.every.call(obj, callbackfn2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-18",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-18.js",
+    "description": "Array.prototype.every - value of 'length' is a string that can't convert to a number",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return val > 10;\n        }\n\n        var obj = { 0: 9, 1: 8, length: \"two\" };\n\n        return Array.prototype.every.call(obj, callbackfn) && !accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-19",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-19.js",
+    "description": "Array.prototype.every - value of 'length' is an Object which has an own toString method",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var toStringAccessed = false;\n        var obj = {\n            0: 12,\n            1: 11,\n            2: 9,\n\n            length: {\n                toString: function () {\n                    toStringAccessed = true;\n                    return '2';\n                }\n            }\n        };\n\n        // objects inherit the default valueOf() method from Object\n        // that simply returns itself. Since the default valueOf() method\n        // does not return a primitive value, ES next tries to convert the object\n        // to a number by calling its toString() method and converting the\n        // resulting string to a number.\n        return Array.prototype.every.call(obj, callbackfn1) &&\n            !Array.prototype.every.call(obj, callbackfn2) && toStringAccessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-2",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-2.js",
+    "description": "Array.prototype.every on an Array-like object if 'length' is 1 (length overridden to true(type conversion))",
+    "test": "assertTrue((function testcase() {\n\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var obj = { 0: 11, 1: 9, length: true };\n\n        return Array.prototype.every.call(obj, callbackfn1) &&\n            !Array.prototype.every.call(obj, callbackfn2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-20",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-20.js",
+    "description": "Array.prototype.every - value of 'length' is an Object which has an own valueOf method",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var valueOfAccessed = false;\n\n        var obj = {\n            0: 12,\n            1: 11,\n            2: 9,\n            length: {\n                valueOf: function () {\n                    valueOfAccessed = true;\n                    return 2;\n                }\n            }\n        };\n\n        return Array.prototype.every.call(obj, callbackfn1) &&\n            !Array.prototype.every.call(obj, callbackfn2) && valueOfAccessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-21",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-21.js",
+    "description": "Array.prototype.every - 'length' is an object that has an own valueOf method that returns an object and toString method that returns a string",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var toStringAccessed = false;\n        var valueOfAccessed = false;\n\n        var obj = {\n            0: 12,\n            1: 11,\n            2: 9,\n            length: {\n                valueOf: function () {\n                    valueOfAccessed = true;\n                    return {};\n                },\n                toString: function () {\n                    toStringAccessed = true;\n                    return '2';\n                }\n            }\n        };\n\n        return Array.prototype.every.call(obj, callbackfn1) &&\n            !Array.prototype.every.call(obj, callbackfn2) &&\n            valueOfAccessed && \n            toStringAccessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-22",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-22.js",
+    "description": "Array.prototype.every throws TypeError exception when 'length' is an object with toString and valueOf methods that don�t return primitive values",
+    "test": "assertTrue((function testcase() {\n\n        var callbackfnAccessed = false;\n        var toStringAccessed = false;\n        var valueOfAccessed = false;\n\n        function callbackfn(val, idx, obj) {\n            callbackfnAccessed = true;\n            return val > 10;\n        }\n\n        var obj = {\n            0: 11,\n            1: 12,\n\n            length: {\n                valueOf: function () {\n                    valueOfAccessed = true;\n                    return {};\n                },\n                toString: function () {\n                    toStringAccessed = true;\n                    return {};\n                }\n            }\n        };\n\n        try {\n            Array.prototype.every.call(obj, callbackfn);\n            return false;\n        } catch (ex) {\n            return (ex instanceof TypeError) && toStringAccessed && valueOfAccessed && !callbackfnAccessed;\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-23",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-23.js",
+    "description": "Array.prototype.every uses inherited valueOf method when 'length' is an object with an own toString and inherited valueOf methods",
+    "test": "assertTrue((function testcase() {\n\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var valueOfAccessed = false;\n        var toStringAccessed = false;\n\n        var proto = {\n            valueOf: function () {\n                valueOfAccessed = true;\n                return 2;\n            }\n        };\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n\n        child.toString = function () {\n            toStringAccessed = true;\n            return '1';\n        };\n\n        var obj = {\n            0: 12,\n            1: 11,\n            2: 9,\n            length: child\n        };\n\n        return Array.prototype.every.call(obj, callbackfn1) &&\n            !Array.prototype.every.call(obj, callbackfn2) &&\n            valueOfAccessed && !toStringAccessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-24",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-24.js",
+    "description": "Array.prototype.every - value of 'length' is a positive non-integer, ensure truncation occurs in the proper direction",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var obj = { 0: 12, 1: 11, 2: 9, length: 2.685 };\n\n        return Array.prototype.every.call(obj, callbackfn1) &&\n            !Array.prototype.every.call(obj, callbackfn2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-25",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-25.js",
+    "description": "Array.prototype.every - value of 'length' is a negative non-integer, ensure truncation occurs in the proper direction",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var obj = {\n            0: 12,\n            1: 11,\n            2: 9,\n            length: -4294967294.5\n        };\n\n        return Array.prototype.every.call(obj, callbackfn1) &&\n            !Array.prototype.every.call(obj, callbackfn2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-28",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-28.js",
+    "description": "Array.prototype.every - value of 'length' is boundary value (2^32)",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return val > 10;\n        }\n\n        var obj = {\n            0: 12,\n            length: 4294967296\n        };\n\n        return Array.prototype.every.call(obj, callbackfn) && !accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-29",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-29.js",
+    "description": "Array.prototype.every - value of 'length' is boundary value (2^32 + 1)",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var obj = {\n            0: 11,\n            1: 9,\n            length: 4294967297\n        };\n\n        return Array.prototype.every.call(obj, callbackfn1) &&\n            !Array.prototype.every.call(obj, callbackfn2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-3",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-3.js",
+    "description": "Array.prototype.every - value of 'length' is a number (value is 0)",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return val > 10;\n        }\n\n        var obj = { 0: 9, length: 0 };\n\n        return Array.prototype.every.call(obj, callbackfn) && !accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-4",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-4.js",
+    "description": "Array.prototype.every - value of 'length' is a number (value is +0)",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return val > 10;\n        }\n\n        var obj = { 0: 9, length: +0 };\n\n        return Array.prototype.every.call(obj, callbackfn) && !accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-5",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-5.js",
+    "description": "Array.prototype.every - value of 'length' is a number (value is -0)",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return val > 10;\n        }\n\n        var obj = { 0: 9, length: -0 };\n\n        return Array.prototype.every.call(obj, callbackfn) && !accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-6",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-6.js",
+    "description": "Array.prototype.every - value of 'length' is a number (value is positive)",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var obj = { 0: 12, 1: 11, 2: 9, length: 2 };\n\n        return Array.prototype.every.call(obj, callbackfn1) &&\n            !Array.prototype.every.call(obj, callbackfn2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-7",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-7.js",
+    "description": "Array.prototype.every - value of 'length' is a number (value is negative)",
+    "test": "assertTrue((function testcase() {\n        function callbackfn1(val, idx, obj) {\n            return val > 10;\n        }\n\n        function callbackfn2(val, idx, obj) {\n            return val > 11;\n        }\n\n        var obj = { 0: 12, 1: 11, 2: 9, length: -4294967294 }; //length used to exec while loop is 2\n\n        return Array.prototype.every.call(obj, callbackfn1) &&\n            !Array.prototype.every.call(obj, callbackfn2);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-8",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-8.js",
+    "description": "Array.prototype.every - value of 'length' is a number (value is Infinity)",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return val > 10;\n        }\n\n        var obj = { 0: 9, length: Infinity };\n\n        return Array.prototype.every.call(obj, callbackfn) && !accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-3-9",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-9.js",
+    "description": "Array.prototype.every - value of 'length' is a number (value is -Infinity)",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return val > 10;\n        }\n\n        var obj = { 0: 9, length: -Infinity };\n\n        return Array.prototype.every.call(obj, callbackfn) && !accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-4-1",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-4-1.js",
+    "description": "Array.prototype.every throws TypeError if callbackfn is undefined",
+    "test": "assertTrue((function testcase() {\n\n  var arr = new Array(10);\n  try {\n    arr.every();    \n  }\n  catch(e) {\n    if(e instanceof TypeError)\n      return true;  \n  }\n\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-4-10",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-4-10.js",
+    "description": "Array.prototype.every - the exception is not thrown if exception was thrown by step 2",
+    "test": "assertTrue((function testcase() {\n\n        var obj = { 0: 11, 1: 12 };\n\n        Object.defineProperty(obj, \"length\", {\n            get: function () {\n                throw new SyntaxError();\n            },\n            configurable: true\n        });\n\n        try {\n            Array.prototype.every.call(obj, undefined);\n            return false;\n        } catch (ex) {\n            return !(ex instanceof TypeError);\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty))"
+   },
+   {
+    "id": "15.4.4.16-4-11",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-4-11.js",
+    "description": "Array.prototype.every - the exception is not thrown if exception was thrown by step 3",
+    "test": "assertTrue((function testcase() {\n\n        var obj = { 0: 11, 1: 12 };\n\n        Object.defineProperty(obj, \"length\", {\n            get: function () {\n                return {\n                    toString: function () {\n                        throw new SyntaxError();\n                    }\n                };\n            },\n            configurable: true\n        });\n\n        try {\n            Array.prototype.every.call(obj, undefined);\n            return false;\n        } catch (ex) {\n            return !(ex instanceof TypeError);\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty))"
+   },
+   {
+    "id": "15.4.4.16-4-12",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-4-12.js",
+    "description": "Array.prototype.every - 'callbackfn' is a function",
+    "test": "assertTrue((function testcase() {\n\n        function callbackfn(val, idx, obj) {\n            return val > 10;\n        }\n\n        return ![11, 9].every(callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-4-15",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-4-15.js",
+    "description": "Array.prototype.every - calling with no callbackfn is the same as passing undefined for callbackfn",
+    "test": "assertTrue((function testcase() {\n        var obj = { 10: 10 };\n        var lengthAccessed = false;\n        var loopAccessed = false;\n\n        Object.defineProperty(obj, \"length\", {\n            get: function () {\n                lengthAccessed = true;\n                return 20;\n            },\n            configurable: true\n        });\n\n        Object.defineProperty(obj, \"0\", {\n            get: function () {\n                loopAccessed = true;\n                return 10;\n            },\n            configurable: true\n        });\n\n        try {\n            Array.prototype.every.call(obj);\n            return false;\n        } catch (ex) {\n            return (ex instanceof TypeError) && lengthAccessed && !loopAccessed;\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects())"
+   },
+   {
+    "id": "15.4.4.16-4-3",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-4-3.js",
+    "description": "Array.prototype.every throws TypeError if callbackfn is null",
+    "test": "assertTrue((function testcase() {\n\n  var arr = new Array(10);\n  try {\n    arr.every(null);    \n  }\n  catch(e) {\n    if(e instanceof TypeError)\n      return true;  \n  }\n\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-4-4",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-4-4.js",
+    "description": "Array.prototype.every throws TypeError if callbackfn is boolean",
+    "test": "assertTrue((function testcase() {\n\n  var arr = new Array(10);\n  try {\n    arr.every(true);    \n  }\n  catch(e) {\n    if(e instanceof TypeError)\n      return true;  \n  }\n\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-4-5",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-4-5.js",
+    "description": "Array.prototype.every throws TypeError if callbackfn is number",
+    "test": "assertTrue((function testcase() {\n\n  var arr = new Array(10);\n  try {\n    arr.every(5);    \n  }\n  catch(e) {\n    if(e instanceof TypeError)\n      return true;  \n  }\n\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-4-6",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-4-6.js",
+    "description": "Array.prototype.every throws TypeError if callbackfn is string",
+    "test": "assertTrue((function testcase() {\n\n  var arr = new Array(10);\n  try {\n    arr.every(\"abc\");    \n  }\n  catch(e) {\n    if(e instanceof TypeError)\n      return true;  \n  }\n\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-4-7",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-4-7.js",
+    "description": "Array.prototype.every throws TypeError if callbackfn is Object without a Call internal method",
+    "test": "assertTrue((function testcase() {\n\n  var arr = new Array(10);\n  try {\n    arr.every( {} );    \n  }\n  catch(e) {\n    if(e instanceof TypeError)\n      return true;  \n  }\n\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-4-8",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-4-8.js",
+    "description": "Array.prototype.every - side effects produced by step 2 are visible when an exception occurs",
+    "test": "assertTrue((function testcase() {\n\n        var obj = { 0: 11, 1: 12 };\n\n        var accessed = false;\n\n        Object.defineProperty(obj, \"length\", {\n            get: function () {\n                accessed = true;\n                return 2;\n            },\n            configurable: true\n        });\n\n        try {\n            Array.prototype.every.call(obj, null);\n            return false;\n        } catch (ex) {\n            return ex instanceof TypeError && accessed;\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty))"
+   },
+   {
+    "id": "15.4.4.16-4-9",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-4-9.js",
+    "description": "Array.prototype.every - side effects produced by step 3 are visible when an exception occurs",
+    "test": "assertTrue((function testcase() {\n\n        var obj = { 0: 11, 1: 12 };\n\n        var accessed = false;\n\n        Object.defineProperty(obj, \"length\", {\n            get: function () {\n                return {\n                    toString: function () {\n                        accessed = true;\n                        return \"2\";\n                    }\n                };\n            },\n            configurable: true\n        });\n\n        try {\n            Array.prototype.every.call(obj, null);\n            return false;\n        } catch (ex) {\n            return ex instanceof TypeError && accessed;\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty))"
+   },
+   {
+    "id": "15.4.4.16-5-1-s",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16-5-1-s.js",
+    "description": "Array.prototype.every - thisArg not passed to strict callbackfn",
+    "test": "assertTrue((function testcase() {\n  var innerThisCorrect = false;\n  \n  function callbackfn(val, idx, obj) {\n    \"use strict\";\n    innerThisCorrect = this===undefined;\n    return true;\n  }\n\n  [1].every(callbackfn);\n  return innerThisCorrect;    \n }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Array.prototype.every))",
+    "strict_only": ""
+   },
+   {
+    "id": "15.4.4.16-5-1",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-1.js",
+    "description": "Array.prototype.every - thisArg not passed",
+    "test": "assertTrue((function testcase() {\n\n  function callbackfn(val, idx, obj)\n  {\n    return this === fnGlobalObject();\n  }\n\n  var arr = [1];\n  if(arr.every(callbackfn) === true)\n    return true;    \n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-5-10",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-10.js",
+    "description": "Array.prototype.every - Array Object can be used as thisArg",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n        var objArray = [];\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return this === objArray;\n        }\n\n\n\n        return [11].every(callbackfn, objArray) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-5-11",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-11.js",
+    "description": "Array.prototype.every - String Object can be used as thisArg",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n        var objString = new String();\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return this === objString;\n        }\n\n        \n\n        return [11].every(callbackfn, objString) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-5-12",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-12.js",
+    "description": "Array.prototype.every - Boolean Object can be used as thisArg",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n        var objBoolean = new Boolean();\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return this === objBoolean;\n        }\n\n       \n\n        return [11].every(callbackfn, objBoolean) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-5-13",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-13.js",
+    "description": "Array.prototype.every - Number Object can be used as thisArg",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n        var objNumber = new Number();\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return this === objNumber;\n        }\n\n        return [11].every(callbackfn, objNumber) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-5-14",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-14.js",
+    "description": "Array.prototype.every - the Math object can be used as thisArg",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return this === Math;\n        }\n\n        return [11].every(callbackfn, Math) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-5-15",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-15.js",
+    "description": "Array.prototype.every - Date Object can be used as thisArg",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n        var objDate = new Date();\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return this === objDate;\n        }\n\n        return [11].every(callbackfn, objDate) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-5-16",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-16.js",
+    "description": "Array.prototype.every - RegExp Object can be used as thisArg",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n        var objRegExp = new RegExp();\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return this === objRegExp;\n        }\n\n        return [11].every(callbackfn, objRegExp) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-5-17",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-17.js",
+    "description": "Array.prototype.every - the JSON object can be used as thisArg",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return this === JSON;\n        }\n\n        return [11].every(callbackfn, JSON) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-5-18",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-18.js",
+    "description": "Array.prototype.every - Error Object can be used as thisArg",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n        var objError = new RangeError();\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return this === objError;\n        }\n\n        return [11].every(callbackfn, objError) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-5-19",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-19.js",
+    "description": "Array.prototype.every - the Arguments object can be used as thisArg",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n        var arg;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return this === arg;\n        }\n\n        (function fun() {\n            arg = arguments;\n        }(1, 2, 3));\n\n        return [11].every(callbackfn, arg) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-5-2",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-2.js",
+    "description": "Array.prototype.every - thisArg is Object",
+    "test": "assertTrue((function testcase() {\n  var res = false;\n  var o = new Object();\n  o.res = true;\n  function callbackfn(val, idx, obj)\n  {\n    return this.res;\n  }\n\n  var arr = [1];\n  if(arr.every(callbackfn, o) === true)\n    return true;    \n\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-5-21",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-21.js",
+    "description": "Array.prototype.every - the global object can be used as thisArg",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return this === fnGlobalObject();\n        }\n\n        return [11].every(callbackfn, fnGlobalObject()) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-5-22",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-22.js",
+    "description": "Array.prototype.every - boolean primitive can be used as thisArg",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return this.valueOf() === false;\n        }\n\n        return [11].every(callbackfn, false) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-5-23",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-23.js",
+    "description": "Array.prototype.every - number primitive can be used as thisArg",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return this.valueOf() === 101;\n        }\n\n        return [11].every(callbackfn, 101) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-5-24",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-24.js",
+    "description": "Array.prototype.every - string primitive can be used as thisArg",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return this.valueOf() === \"abc\";\n        }\n\n        return [11].every(callbackfn, \"abc\") && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-5-3",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-3.js",
+    "description": "Array.prototype.every - thisArg is Array",
+    "test": "assertTrue((function testcase() {\n  var res = false;\n  var a = new Array();\n  a.res = true;\n  function callbackfn(val, idx, obj)\n  {\n    return this.res;\n  }\n\n  var arr = [1];\n\n  if(arr.every(callbackfn, a) === true)\n    return true;    \n\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-5-4",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-4.js",
+    "description": "Array.prototype.every - thisArg is object from object template(prototype)",
+    "test": "assertTrue((function testcase() {\n  var res = false;\n  function callbackfn(val, idx, obj)\n  {\n    return this.res;\n  }\n  \n  function foo(){}\n  foo.prototype.res = true;\n  var f = new foo();\n  var arr = [1];\n\n    if(arr.every(callbackfn,f) === true)\n      return true;    \n\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-5-5",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-5.js",
+    "description": "Array.prototype.every - thisArg is object from object template",
+    "test": "assertTrue((function testcase() {\n  var res = false;\n  function callbackfn(val, idx, obj)\n  {\n    return this.res;\n  }\n\n  function foo(){}\n  var f = new foo();\n  f.res = true;\n  var arr = [1];\n\n  if(arr.every(callbackfn,f) === true)\n    return true;    \n\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-5-6",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-6.js",
+    "description": "Array.prototype.every - thisArg is function",
+    "test": "assertTrue((function testcase() {\n  var res = false;\n  function callbackfn(val, idx, obj)\n  {\n    return this.res;\n  }\n\n  function foo(){}\n  foo.res = true;\n  var arr = [1];\n\n  if(arr.every(callbackfn,foo) === true)\n    return true;    \n\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-5-7",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-7.js",
+    "description": "Array.prototype.every - built-in functions can be used as thisArg",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return this === eval;\n        }\n\n        return [11].every(callbackfn, eval) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-5-9",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-9.js",
+    "description": "Array.prototype.every - Function Object can be used as thisArg",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n        var objFunction = function () { };\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return this === objFunction;\n        }\n\n        return [11].every(callbackfn, objFunction) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-1",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-1.js",
+    "description": "Array.prototype.every considers new elements added to array after the call",
+    "test": "assertTrue((function testcase() { \n \n  var calledForThree = false;\n\n  function callbackfn(val, Idx, obj)\n  {\n    arr[2] = 3;\n    if(val == 3)\n      calledForThree = true;\n    return true;\n  }\n\n  var arr = [1,2,,4,5];\n  \n  var res = arr.every(callbackfn);\n\n  return calledForThree; \n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-2",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-2.js",
+    "description": "Array.prototype.every considers new value of elements in array after the call",
+    "test": "assertTrue((function testcase() { \n \n  function callbackfn(val, Idx, obj)\n  {\n    arr[4] = 6;\n    if(val < 6)\n       return true;\n    else \n       return false;\n  }\n\n  var arr = [1,2,3,4,5];\n  \n  if(arr.every(callbackfn) === false)    \n      return true;  \n  \n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-3",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-3.js",
+    "description": "Array.prototype.every doesn't visit deleted elements in array after the call",
+    "test": "assertTrue((function testcase() { \n \n  function callbackfn(val, Idx, obj)\n  {\n    delete arr[2];\n    if(val == 3)\n       return false;\n    else \n       return true;\n  }\n\n  var arr = [1,2,3,4,5];\n  \n  if(arr.every(callbackfn) === true)    \n      return true;  \n  \n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-4",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-4.js",
+    "description": "Array.prototype.every doesn't visit deleted elements when Array.length is decreased",
+    "test": "assertTrue((function testcase() { \n \n  function callbackfn(val, Idx, obj)\n  {\n    arr.length = 3;\n    if(val < 4)\n       return true;\n    else \n       return false;\n  }\n\n  var arr = [1,2,3,4,6];\n  \n  if(arr.every(callbackfn) === true)    \n      return true;  \n  \n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-5",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-5.js",
+    "description": "Array.prototype.every doesn't consider newly added elements in sparse array",
+    "test": "assertTrue((function testcase() { \n \n  function callbackfn(val, Idx, obj)\n  {\n    arr[1000] = 3;\n    if(val < 3)\n       return true;\n    else \n       return false;\n  }\n\n  var arr = new Array(10);\n  arr[1] = 1;\n  arr[2] = 2;\n  \n  if(arr.every(callbackfn) === true)    \n      return true;  \n  \n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-6",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-6.js",
+    "description": "Array.prototype.every visits deleted element in array after the call when same index is also present in prototype",
+    "test": "assertTrue((function testcase() { \n \n  function callbackfn(val, Idx, obj)\n  {\n    delete arr[2];\n    if(val == 3)\n       return false;\n    else \n       return true;\n  }\n\n  Array.prototype[2] = 3;\n  var arr = [1,2,3,4,5];\n  \n  var res = arr.every(callbackfn);\n  delete Array.prototype[2];\n\n  if(res === false)    \n      return true;  \n  \n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-7",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-7.js",
+    "description": "Array.prototype.every - Deleting the array itself within the callbackfn of Array.prototype.every is successful once Array.prototype.every is called for all elements",
+    "test": "assertTrue((function testcase() {\n        var o = new Object();\n        o.arr = [1, 2, 3, 4, 5];\n\n        function callbackfn(val, Idx, obj) {\n            delete o.arr;\n            if (val === Idx + 1)\n                return true;\n            else\n                return false;\n        }\n\n        return o.arr.every(callbackfn) && !o.hasOwnProperty(\"arr\");\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-8",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-8.js",
+    "description": "Array.prototype.every - no observable effects occur if len is 0",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return val > 10;\n        }\n\n        var obj = { 0: 11, 1: 12, length: 0 };\n\n        return Array.prototype.every.call(obj, callbackfn) && !accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-9",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-9.js",
+    "description": "Array.prototype.every - modifications to length don't change number of iterations",
+    "test": "assertTrue((function testcase() {\n\n        var called = 0;\n\n        function callbackfn(val, idx, obj) {\n            called++;\n            return val > 10;\n        }\n\n        var obj = { 1: 12, 2: 9, length: 2 };\n\n        Object.defineProperty(obj, \"0\", {\n            get: function () {\n                obj.length = 3;\n                return 11;\n            },\n            configurable: true\n        });\n\n        return Array.prototype.every.call(obj, callbackfn) && 2 === called;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects())"
+   },
+   {
+    "id": "15.4.4.16-7-b-1",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-b-1.js",
+    "description": "Array.prototype.every - callbackfn not called for indexes never been assigned values",
+    "test": "assertTrue((function testcase() { \n \n  var callCnt = 0.;\n  function callbackfn(val, Idx, obj)\n  {\n    callCnt++;\n    return true;\n  }\n\n  var arr = new Array(10);\n  arr[1] = undefined;  \n  arr.every(callbackfn);\n  if( callCnt === 1)    \n      return true;  \n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-b-10",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-b-10.js",
+    "description": "Array.prototype.every - deleting property of prototype causes prototype index property not to be visited on an Array-like Object",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return idx !== 1;\n        }\n        var arr = { 2: 2, length: 20 };\n\n        Object.defineProperty(arr, \"0\", {\n            get: function () {\n                delete Object.prototype[1];\n                return 0;\n            },\n            configurable: true\n        });\n\n        try {\n            Object.prototype[1] = 1;\n            return Array.prototype.every.call(arr, callbackfn) && accessed;\n        } finally {\n            delete Object.prototype[1];\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects())"
+   },
+   {
+    "id": "15.4.4.16-7-b-11",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-b-11.js",
+    "description": "Array.prototype.every - deleting property of prototype causes prototype index property not to be visited on an Array",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return idx !== 1;\n        }\n        var arr = [0, , 2];\n\n        Object.defineProperty(arr, \"0\", {\n            get: function () {\n                delete Array.prototype[1];\n                return 0;\n            },\n            configurable: true\n        });\n\n        try {\n            Array.prototype[1] = 1;\n            return arr.every(callbackfn) && accessed;\n        } finally {\n            delete Array.prototype[1];\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && ![, 1].hasOwnProperty(0) && fnSupportsArrayIndexGettersOnArrays())"
+   },
+   {
+    "id": "15.4.4.16-7-b-12",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-b-12.js",
+    "description": "Array.prototype.every - deleting own property with prototype property causes prototype index property to be visited on an Array-like object",
+    "test": "assertTrue((function testcase() {\n        function callbackfn(val, idx, obj) {\n            if (idx === 1 && val === 1) {\n                return false;\n            } else {\n                return true;\n            }\n        }\n        var arr = { 0: 0, 1: 111, 2: 2, length: 10 };\n\n        Object.defineProperty(arr, \"0\", {\n            get: function () {\n                delete arr[1];\n                return 0;\n            },\n            configurable: true\n        });\n\n        try {\n            Object.prototype[1] = 1;\n            return !Array.prototype.every.call(arr, callbackfn);\n        } finally {\n            delete Object.prototype[1];\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects())"
+   },
+   {
+    "id": "15.4.4.16-7-b-13",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-b-13.js",
+    "description": "Array.prototype.every - deleting own property with prototype property causes prototype index property to be visited on an Array",
+    "test": "assertTrue((function testcase() {\n        function callbackfn(val, idx, obj) {\n            if (idx === 1 && val === 1) {\n                return false;\n            } else {\n                return true;\n            }\n        }\n        var arr = [0, 111, 2]; \n        \n        Object.defineProperty(arr, \"0\", {\n            get: function () {\n                delete arr[1];\n                return 0;\n            },\n            configurable: true\n        });\n\n        try {\n            Array.prototype[1] = 1;\n            return !arr.every(callbackfn);\n        } finally {\n            delete Array.prototype[1];\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays())"
+   },
+   {
+    "id": "15.4.4.16-7-b-14",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-b-14.js",
+    "description": "Array.prototype.every - decreasing length of array causes index property not to be visited",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return idx !== 3;\n        }\n        var arr = [0, 1, 2, \"last\"];\n\n        Object.defineProperty(arr, \"0\", {\n            get: function () {\n                arr.length = 3;\n                return 0;\n            },\n            configurable: true\n        });\n\n        return arr.every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays())"
+   },
+   {
+    "id": "15.4.4.16-7-b-15",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-b-15.js",
+    "description": "Array.prototype.every - decreasing length of array with prototype property causes prototype index property to be visited",
+    "test": "assertTrue((function testcase() {\n        function callbackfn(val, idx, obj) {\n            if (idx === 2 && val === \"prototype\") {\n                return false;\n            } else {\n                return true;\n            }\n        }\n        var arr = [0, 1, 2];\n\n        try {\n            Object.defineProperty(Array.prototype, \"2\", {\n                get: function () {\n                    return \"prototype\";\n                },\n                configurable: true\n            });\n\n            Object.defineProperty(arr, \"1\", {\n                get: function () {\n                    arr.length = 2;\n                    return 1;\n                },\n                configurable: true\n            });\n\n            return !arr.every(callbackfn);\n        } finally {\n            delete Array.prototype[2];\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays())"
+   },
+   {
+    "id": "15.4.4.16-7-b-16",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-b-16.js",
+    "description": "Array.prototype.every - decreasing length of array does not delete non-configurable properties",
+    "test": "assertTrue((function testcase() {\n        function callbackfn(val, idx, obj) {\n            if (idx === 2 && val === \"unconfigurable\") {\n                return false;\n            } else {\n                return true;\n            }\n        }\n        \n        var arr = [0, 1, 2];\n\n        Object.defineProperty(arr, \"2\", {\n            get: function () {\n                return \"unconfigurable\";\n            },\n            configurable: false\n        });\n\n        Object.defineProperty(arr, \"1\", {\n            get: function () {\n                arr.length = 2;\n                return 1;\n            },\n            configurable: true\n        });\n\n        return !arr.every(callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays())"
+   },
+   {
+    "id": "15.4.4.16-7-b-2",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-b-2.js",
+    "description": "Array.prototype.every - added properties in step 2 are visible here",
+    "test": "assertTrue((function testcase() {\n        function callbackfn(val, idx, obj) {\n            if (idx === 2 && val === \"length\") {\n                return false;\n            } else {\n                return true;\n            }\n        }\n        \n        var arr = { };\n\n        Object.defineProperty(arr, \"length\", {\n            get: function () {\n                arr[2] = \"length\";\n                return 3;\n            },\n            configurable: true\n        });\n\n        return !Array.prototype.every.call(arr, callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty))"
+   },
+   {
+    "id": "15.4.4.16-7-b-3",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-b-3.js",
+    "description": "Array.prototype.every - deleted properties in step 2 are visible here",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return idx !== 2;\n        }\n        var arr = { 2: 6.99, 8: 19};\n\n        Object.defineProperty(arr, \"length\", {\n            get: function () {\n                delete arr[2];\n                return 10;\n            },\n            configurable: true\n        });\n\n        return Array.prototype.every.call(arr, callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty))"
+   },
+   {
+    "id": "15.4.4.16-7-b-4",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-b-4.js",
+    "description": "Array.prototype.every - properties added into own object after current position are visited on an Array-like object",
+    "test": "assertTrue((function testcase() {\n\n        function callbackfn(val, idx, obj) {\n            if (idx === 1 && val === 1) {\n                return false;\n            } else {\n                return true;\n            }\n        }\n        \n        var arr = { length: 2 };\n\n        Object.defineProperty(arr, \"0\", {\n            get: function () {\n                Object.defineProperty(arr, \"1\", {\n                    get: function () {\n                        return 1;\n                    },\n                    configurable: true\n                });\n                return 0;\n            },\n            configurable: true\n        });\n\n        return !Array.prototype.every.call(arr, callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects())"
+   },
+   {
+    "id": "15.4.4.16-7-b-5",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-b-5.js",
+    "description": "Array.prototype.every - properties added into own object after current position are visited on an Array",
+    "test": "assertTrue((function testcase() {\n        function callbackfn(val, idx, obj) {\n            if (idx === 1 && val === 1) {\n                return false;\n            } else {\n                return true;\n            }\n        }\n\n        var arr = [0, , 2];\n\n        Object.defineProperty(arr, \"0\", {\n            get: function () {\n                Object.defineProperty(arr, \"1\", {\n                    get: function () {\n                        return 1;\n                    },\n                    configurable: true\n                });\n                return 0;\n            },\n            configurable: true\n        });\n\n        return !arr.every(callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays())"
+   },
+   {
+    "id": "15.4.4.16-7-b-6",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-b-6.js",
+    "description": "Array.prototype.every - properties can be added to prototype after current position are visited on an Array-like object",
+    "test": "assertTrue((function testcase() {\n        function callbackfn(val, idx, obj) {\n            if (idx === 1 && val === 6.99) {\n                return false;\n            } else {\n                return true;\n            }\n        }\n        var arr = { length: 2 };\n\n        Object.defineProperty(arr, \"0\", {\n            get: function () {\n                Object.defineProperty(Object.prototype, \"1\", {\n                    get: function () {\n                        return 6.99;\n                    },\n                    configurable: true\n                });\n                return 0;\n            },\n            configurable: true\n        });\n\n        try {\n            return !Array.prototype.every.call(arr, callbackfn);\n        } finally {\n            delete Object.prototype[1];\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects())"
+   },
+   {
+    "id": "15.4.4.16-7-b-7",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-b-7.js",
+    "description": "Array.prototype.every - properties can be added to prototype after current position are visited on an Array",
+    "test": "assertTrue((function testcase() {\n        function callbackfn(val, idx, obj) {\n            if (idx === 1 && val === 6.99) {\n                return false;\n            } else {\n                return true;\n            }\n        }\n        var arr = [0, , 2];\n\n        Object.defineProperty(arr, \"0\", {\n            get: function () {\n                Object.defineProperty(Array.prototype, \"1\", {\n                    get: function () {\n                        return 6.99;\n                    },\n                    configurable: true\n                });\n                return 0;\n            },\n            configurable: true\n        });\n\n        try {\n            return !arr.every(callbackfn);\n        } finally {\n            delete Array.prototype[1];\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && ![, 1].hasOwnProperty(0) && fnSupportsArrayIndexGettersOnArrays())"
+   },
+   {
+    "id": "15.4.4.16-7-b-8",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-b-8.js",
+    "description": "Array.prototype.every - deleting own property causes index property not to be visited on an Array-like object",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return idx !== 1;\n        }\n        var obj = { length: 2 };\n\n        Object.defineProperty(obj, \"1\", {\n            get: function () {\n                return 6.99;\n            },\n            configurable: true\n        });\n\n        Object.defineProperty(obj, \"0\", {\n            get: function () {\n                delete obj[1];\n                return 0;\n            },\n            configurable: true\n        });\n\n        return Array.prototype.every.call(obj, callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects())"
+   },
+   {
+    "id": "15.4.4.16-7-b-9",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-b-9.js",
+    "description": "Array.prototype.every - deleting own property causes index property not to be visited on an Array",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return idx !== 1;\n        }\n        var arr = [1, 2];\n\n        Object.defineProperty(arr, \"1\", {\n            get: function () {\n                return \"6.99\";\n            },\n            configurable: true\n        });\n\n        Object.defineProperty(arr, \"0\", {\n            get: function () {\n                delete arr[1];\n                return 0;\n            },\n            configurable: true\n        });\n\n        return arr.every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays())"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-1",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-1.js",
+    "description": "Array.prototype.every - element to be retrieved is own data property on an Array-like object",
+    "test": "assertTrue((function testcase() {\n\n        var kValue = { };\n        function callbackfn(val, idx, obj) {\n            if (idx === 5) {\n                return val !== kValue;\n            } else {\n                return true;\n            }\n        }\n\n        var obj = { 5: kValue, length: 100 };\n\n        return !Array.prototype.every.call(obj, callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-10",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-10.js",
+    "description": "Array.prototype.every - element to be retrieved is own accessor property on an Array",
+    "test": "assertTrue((function testcase() {\n\n        function callbackfn(val, idx, obj) {\n            if (idx === 2) {\n                return val !== 12;\n            } else {\n                return true;\n            }\n        }\n\n        var arr = [];\n\n        Object.defineProperty(arr, \"2\", {\n            get: function () {\n                return 12;\n            },\n            configurable: true\n        });\n\n        return !arr.every(callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays())"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-11",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-11.js",
+    "description": "Array.prototype.every - element to be retrieved is own accessor property that overrides an inherited data property on an Array-like object",
+    "test": "assertTrue((function testcase() {\n\n        function callbackfn(val, idx, obj) {\n            if (idx === 0) {\n                return val === 5;\n            } else {\n                return true;\n            }\n        }\n\n        var proto = { 0: 5, 1: 6 };\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n        child.length = 10;\n\n        Object.defineProperty(child, \"0\", {\n            get: function () {\n                return 11;\n            },\n            configurable: true\n        });\n\n        return !Array.prototype.every.call(child, callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects())"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-12",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-12.js",
+    "description": " Array.prototype.every - element to be retrieved is own accessor property that overrides an inherited data property on an Array",
+    "test": "assertTrue((function testcase() {\n        function callbackfn(val, idx, obj) {\n            if (idx === 0) {\n                return val === 10;\n            } else {\n                return true;\n            }\n        }\n\n        var arr = [];\n        try {\n            Array.prototype[0] = 10;\n\n            Object.defineProperty(arr, \"0\", {\n                get: function () {\n                    return 111;\n                },\n                configurable: true\n            });\n\n            return !arr.every(callbackfn);\n        } finally {\n            delete Array.prototype[0];\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays())"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-13",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-13.js",
+    "description": "Array.prototype.every - element to be retrieved is own accessor property that overrides an inherited accessor property on an Array-like object",
+    "test": "assertTrue((function testcase() {\n        function callbackfn(val, idx, obj) {\n            if (idx === 1) {\n                return val === 6;\n            } else {\n                return true;\n            }\n        }\n\n        var proto = {};\n\n        Object.defineProperty(proto, \"1\", {\n            get: function () {\n                return 6;\n            },\n            configurable: true\n        });\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n        child.length = 10;\n\n        Object.defineProperty(child, \"1\", {\n            get: function () {\n                return 12;\n            },\n            configurable: true\n        });\n\n\n        return !Array.prototype.every.call(child, callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects())"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-14",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-14.js",
+    "description": " Array.prototype.every - element to be retrieved is own accessor property that overrides an inherited accessor property on an Array",
+    "test": "assertTrue((function testcase() {\n\n        function callbackfn(val, idx, obj) {\n            if (idx === 0) {\n                return val === 5;\n            } else {\n                return true;\n            }\n        }\n\n        var arr = [];\n        try {\n            Object.defineProperty(Array.prototype, \"0\", {\n                get: function () {\n                    return 5;\n                },\n                configurable: true\n            });\n\n            Object.defineProperty(arr, \"0\", {\n                get: function () {\n                    return 11;\n                },\n                configurable: true\n            });\n\n            return !arr.every(callbackfn);\n        } finally {\n            delete Array.prototype[0];\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays())"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-15",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-15.js",
+    "description": "Array.prototype.every - element to be retrieved is inherited accessor property on an Array-like object",
+    "test": "assertTrue((function testcase() {\n\n        function callbackfn(val, idx, obj) {\n            if (idx === 1) {\n                return val !== 11;\n            } else {\n                return true;\n            }\n        }\n\n        var proto = {};\n\n        Object.defineProperty(proto, \"1\", {\n            get: function () {\n                return 11;\n            },\n            configurable: true\n        });\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n        child.length = 20;\n\n        return !Array.prototype.every.call(child, callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects())"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-16",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-16.js",
+    "description": "Array.prototype.every - element to be retrieved is inherited accessor property on an Array",
+    "test": "assertTrue((function testcase() {\n\n        function callbackfn(val, idx, obj) {\n            if (idx === 0) {\n                return val !== 11;\n            } else {\n                return true;\n            }\n        }\n\n        try {\n            Object.defineProperty(Array.prototype, \"0\", {\n                get: function () {\n                    return 11;\n                },\n                configurable: true\n            });\n\n            return ![, , , ].every(callbackfn);\n        } finally {\n            delete Array.prototype[0];\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && ![, 1].hasOwnProperty(0) && fnSupportsArrayIndexGettersOnArrays())"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-17",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-17.js",
+    "description": "Array.prototype.every - element to be retrieved is own accessor property without a get function on an Array-like object",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return typeof val === \"undefined\";\n        }\n\n        var obj = { length: 2 };\n        Object.defineProperty(obj, \"1\", {\n            set: function () { },\n            configurable: true\n        });\n\n        return Array.prototype.every.call(obj, callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects())"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-18",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-18.js",
+    "description": "Array.prototype.every - element to be retrieved is own accessor property without a get function on an Array",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return typeof val === \"undefined\";\n        }\n\n        var arr = [];\n\n        Object.defineProperty(arr, \"0\", {\n            set: function () { },\n            configurable: true\n        });\n\n        return arr.every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays())"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-19",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-19.js",
+    "description": "Array.prototype.every - element to be retrieved is own accessor property without a get function that overrides an inherited accessor property on an Array-like object",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return typeof val === \"undefined\";\n        }\n\n        var obj = { length: 2 };\n        Object.defineProperty(obj, \"1\", {\n            set: function () { },\n            configurable: true\n        });\n        try {\n            Object.prototype[1] = 10;\n            return Array.prototype.every.call(obj, callbackfn) && accessed;\n        } finally {\n            delete Object.prototype[1];\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects())"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-2",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-2.js",
+    "description": "Array.prototype.every - element to be retrieved is own data property on an Array",
+    "test": "assertTrue((function testcase() {\n\n        var called = 0;\n\n        function callbackfn(val, idx, obj) {\n            called++;\n            return val === 11;\n        }\n\n        return [11].every(callbackfn) && 1 === called;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-20",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-20.js",
+    "description": "Array.prototype.every - element to be retrieved is own accessor property without a get function that overrides an inherited accessor property on an Array",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return typeof val === \"undefined\";\n        }\n\n        var arr = [];\n\n        Object.defineProperty(arr, \"0\", {\n            set: function () { },\n            configurable: true\n        });\n\n        try {\n            Array.prototype[0] = 100;\n            return arr.every(callbackfn) && accessed;\n        } finally {\n            delete Array.prototype[0];\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays())"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-21",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-21.js",
+    "description": "Array.prototype.every - element to be retrieved is inherited accessor property without a get function on an Array-like object",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return typeof val === \"undefined\";\n        }\n\n        var proto = {};\n        Object.defineProperty(proto, \"1\", {\n            set: function () { },\n            configurable: true\n        });\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n        child.length = 2;\n\n        return Array.prototype.every.call(child, callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects())"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-22",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-22.js",
+    "description": "Array.prototype.every - element to be retrieved is inherited accessor property without a get function on an Array",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return typeof val === \"undefined\";\n        }\n\n        try {\n            Object.defineProperty(Array.prototype, \"0\", {\n                set: function () { },\n                configurable: true\n            });\n\n            return [, ].every(callbackfn) && accessed;\n        } finally {\n            delete Array.prototype[0];\n        }\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && ![, 1].hasOwnProperty(0) && fnSupportsArrayIndexGettersOnArrays())"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-23",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-23.js",
+    "description": "Array.prototype.every - This object is an global object which contains index property",
+    "test": "assertTrue((function testcase() {\n\n        function callbackfn(val, idx, obj) {\n            if (idx === 0) {\n                return val !== 11;\n            } else {\n                return true;\n            }\n        }\n\n        try {\n            var oldLen = fnGlobalObject().length;\n            fnGlobalObject()[0] = 11;\n            fnGlobalObject().length = 1;\n            return !Array.prototype.every.call(fnGlobalObject(), callbackfn);\n        } finally {\n            delete fnGlobalObject()[0];\n            fnGlobalObject().length = oldLen;\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-25",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-25.js",
+    "description": "Array.prototype.every - This object is the Arguments object which implements its own property get method (number of arguments is less than number of parameters)",
+    "test": "assertTrue((function testcase() {\n\n        var called = 0;\n\n        function callbackfn(val, idx, obj) {\n            called++;\n            return val === 11;\n        }\n\n        var func = function (a, b) {\n            return Array.prototype.every.call(arguments, callbackfn);\n        };\n\n        return func(11) && called === 1;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-26",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-26.js",
+    "description": "Array.prototype.every - This object is the Arguments object which implements its own property get method (number of arguments equals number of parameters)",
+    "test": "assertTrue((function testcase() {\n\n        var called = 0;\n\n        function callbackfn(val, idx, obj) {\n            called++;\n            if (idx === 0) {\n                return val === 11;\n            } else if (idx === 1) {\n                return val === 9;\n            } else {\n                return false;\n            }\n        }\n\n        var func = function (a, b) {\n            return Array.prototype.every.call(arguments, callbackfn);\n        };\n\n        return func(11, 9) && called === 2;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-27",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-27.js",
+    "description": "Array.prototype.every - This object is the Arguments object which implements its own property get method (number of arguments is greater than number of parameters)",
+    "test": "assertTrue((function testcase() {\n\n        var called = 0;\n\n        function callbackfn(val, idx, obj) {\n            called++;\n            if (idx < 2) {\n                return val > 10;\n            } else if (idx === 2) {\n                return val < 10;\n            } else {\n                return false;\n            }\n        }\n\n        var func = function (a, b) {\n            return Array.prototype.every.call(arguments, callbackfn);\n        };\n\n        return func(11, 12, 9) && called === 3;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-28",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-28.js",
+    "description": "Array.prototype.every - element changed by getter on previous iterations is observed on an Array",
+    "test": "assertTrue((function testcase() {\n\n        var preIterVisible = false;\n        var arr = [];\n\n        function callbackfn(val, idx, obj) {\n            return val > 10;\n        }\n\n        Object.defineProperty(arr, \"0\", {\n            get: function () {\n                preIterVisible = true;\n                return 11;\n            },\n            configurable: true\n        });\n\n        Object.defineProperty(arr, \"1\", {\n            get: function () {\n                if (preIterVisible) {\n                    return 9;\n                } else {\n                    return 11;\n                }\n            },\n            configurable: true\n        });\n\n        return !arr.every(callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays())"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-29",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-29.js",
+    "description": "Array.prototype.every - element changed by getter on previous iterations is observed on an Array-like object",
+    "test": "assertTrue((function testcase() {\n        function callbackfn(val, idx, obj) {\n            return val > 10;\n        }\n\n        var preIterVisible = false;\n        var obj = { length: 2 };\n\n        Object.defineProperty(obj, \"0\", {\n            get: function () {\n                preIterVisible = true;\n                return 11;\n            },\n            configurable: true\n        });\n\n        Object.defineProperty(obj, \"1\", {\n            get: function () {\n                if (preIterVisible) {\n                    return 9;\n                } else {\n                    return 13;\n                }\n            },\n            configurable: true\n        });\n\n        return !Array.prototype.every.call(obj, callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects())"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-3",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-3.js",
+    "description": "Array.prototype.every - element to be retrieved is own data property that overrides an inherited data property on an Array",
+    "test": "assertTrue((function testcase() {\n\n        function callbackfn(val, idx, obj) {\n            if (idx === 5) {\n                return val === 100;\n            } else {\n                return true;\n            }\n        }\n\n        var proto = { 0: 11, 5: 100 };\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n        child[5] = \"abc\";\n        child.length = 10;\n\n        return !Array.prototype.every.call(child, callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-30",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-30.js",
+    "description": "Array.prototype.every - unnhandled exceptions happened in getter terminate iteration on an Array-like object",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n        function callbackfn(val, idx, obj) {\n            if (idx > 1) {\n                accessed = true;\n            }\n            return true;\n        }\n\n        var obj = { 0: 11, 5: 10, 10: 8, length: 20 };\n        Object.defineProperty(obj, \"1\", {\n            get: function () {\n                throw new RangeError(\"unhandle exception happened in getter\");\n            },\n            configurable: true\n        });\n\n        try {\n            Array.prototype.every.call(obj, callbackfn);\n            return false;\n        } catch (ex) {\n            return (ex instanceof RangeError) && !accessed;\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects())"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-31",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-31.js",
+    "description": "Array.prototype.every - unhandled exceptions happened in getter terminate iteration on an Array",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n        function callbackfn(val, idx, obj) {\n            if (idx > 1) {\n                accessed = true;\n            }\n            return true;\n        }\n\n        var arr = [];\n        arr[5] = 10;\n        arr[10] = 100;\n\n        Object.defineProperty(arr, \"1\", {\n            get: function () {\n                throw new RangeError(\"unhandle exception happened in getter\");\n            },\n            configurable: true\n        });\n\n        try {\n            arr.every(callbackfn);\n            return false;\n        } catch (ex) {\n            return (ex instanceof RangeError) && !accessed;\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays())"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-4",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-4.js",
+    "description": "Array.prototype.every - element to be retrieved is own data property that overrides an inherited data property on an Array",
+    "test": "assertTrue((function testcase() {\n        var called = 0;\n        function callbackfn(val, idx, obj) {\n            called++;\n            return val === 12;\n        }\n\n        try {\n            Array.prototype[0] = 11;\n            Array.prototype[1] = 11;\n\n            return [12, 12].every(callbackfn) && called === 2;\n        } finally {\n            delete Array.prototype[0];\n            delete Array.prototype[1];\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-5",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-5.js",
+    "description": "Array.prototype.every - element to be retrieved is own data property that overrides an inherited accessor property on an Array-like object",
+    "test": "assertTrue((function testcase() {\n\n        function callbackfn(val, idx, obj) {\n            if (idx === 0) {\n                return val === 5;\n            } else {\n                return true;\n            }\n        }\n\n        var proto = {};\n\n        Object.defineProperty(proto, \"0\", {\n            get: function () {\n                return 5;\n            },\n            configurable: true\n        });\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n        child.length = 2;\n        Object.defineProperty(child, \"0\", {\n            value: 11,\n            configurable: true\n        });\n        child[1] = 12;\n\n        return !Array.prototype.every.call(child, callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects())"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-6",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-6.js",
+    "description": "Array.prototype.every - element to be retrieved is own data property that overrides an inherited accessor property on an Array",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return val === 11;\n        }\n\n        try {\n            Object.defineProperty(Array.prototype, \"0\", {\n                get: function () {\n                    return 9;\n                },\n                configurable: true\n            });\n            return [11].every(callbackfn) && accessed;\n        } finally {\n            delete Array.prototype[0];\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays())"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-7",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-7.js",
+    "description": "Array.prototype.every - element to be retrieved is inherited data property on an Array-like object",
+    "test": "assertTrue((function testcase() {\n\n        var kValue = 'abc';\n\n        function callbackfn(val, idx, obj) {\n            if (idx === 5) {\n                return val !== kValue;\n            } else {\n                return true;\n            }\n        }\n\n        var proto = { 5: kValue };\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n        child.length = 10;\n\n        return !Array.prototype.every.call(child, callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-8",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-8.js",
+    "description": "Array.prototype.every - element to be retrieved is inherited data property on an Array",
+    "test": "assertTrue((function testcase() {\n\n        function callbackfn(val, idx, obj) {\n            if (idx === 1) {\n                return val !== 13;\n            } else {\n                return true;\n            }\n        }\n\n        try {\n            Array.prototype[1] = 13;\n            return ![, , , ].every(callbackfn);\n        } finally {\n            delete Array.prototype[1];\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && ![, 1].hasOwnProperty(0))"
+   },
+   {
+    "id": "15.4.4.16-7-c-i-9",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-9.js",
+    "description": "Array.prototype.every - element to be retrieved is own accessor property on an Array-like object",
+    "test": "assertTrue((function testcase() {\n\n        function callbackfn(val, idx, obj) {\n            if (idx === 0) {\n                return val !== 11;\n            } else {\n                return true;\n            }\n        }\n\n        var obj = { 10: 10, length: 20 };\n\n        Object.defineProperty(obj, \"0\", {\n            get: function () {\n                return 11;\n            },\n            configurable: true\n        });\n        \n        return !Array.prototype.every.call(obj, callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects())"
+   },
+   {
+    "id": "15.4.4.16-7-c-ii-1",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-1.js",
+    "description": "Array.prototype.every - callbackfn called with correct parameters",
+    "test": "assertTrue((function testcase() { \n \n  function callbackfn(val, Idx, obj)\n  {\n    if(obj[Idx] === val)\n      return true;\n  }\n\n  var arr = [0,1,2,3,4,5,6,7,8,9];\n  \n  if(arr.every(callbackfn) === true)\n    return true;\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-ii-10",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-10.js",
+    "description": "Array.prototype.every - callbackfn is called with 1 formal parameter",
+    "test": "assertTrue((function testcase() {\n\n        var called = 0;\n\n        function callbackfn(val) {\n            called++;\n            return val > 10;\n        }\n\n        return [11, 12].every(callbackfn) && 2 === called;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-ii-11",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-11.js",
+    "description": "Array.prototype.every - callbackfn is called with 2 formal parameter",
+    "test": "assertTrue((function testcase() {\n\n        var called = 0;\n\n        function callbackfn(val, idx) {\n            called++;\n            return val > 10 && arguments[2][idx] === val;\n        }\n\n        return [11, 12].every(callbackfn) && 2 === called;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-ii-12",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-12.js",
+    "description": "Array.prototype.every - callbackfn is called with 3 formal parameter",
+    "test": "assertTrue((function testcase() {\n\n        var called = 0;\n\n        function callbackfn(val, idx, obj) {\n            called++;\n            return val > 10 && obj[idx] === val;\n        }\n\n        return [11, 12, 13].every(callbackfn) && 3 === called;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-ii-13",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-13.js",
+    "description": "Array.prototype.every - callbackfn that uses arguments object to get parameter value",
+    "test": "assertTrue((function testcase() {\n\n        var called = 0;\n\n        function callbackfn() {\n            called++;\n            return arguments[2][arguments[1]] === arguments[0];\n        }\n\n        return [11, 12].every(callbackfn) && 2 === called;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-ii-16",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-16.js",
+    "description": "Array.prototype.every - 'this' of 'callbackfn' is a Boolean object when T is not an object (T is a boolean primitive)",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return this.valueOf() !== false;\n        }\n\n        var obj = { 0: 11, length: 2 };\n\n        return !Array.prototype.every.call(obj, callbackfn, false) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-ii-17",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-17.js",
+    "description": "Array.prototype.every -'this' of 'callbackfn' is a Number object when T is not an object (T is a number primitive)",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, o) {\n            accessed = true;\n            return 5 === this.valueOf();\n        }\n\n        var obj = { 0: 11, length: 2 };\n\n        return Array.prototype.every.call(obj, callbackfn, 5) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-ii-18",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-18.js",
+    "description": "Array.prototype.every - 'this' of 'callbackfn' is an String object when T is not an object (T is a string primitive)",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return 'hello' === this.valueOf();\n        }\n\n        var obj = { 0: 11, length: 2 };\n\n        return Array.prototype.every.call(obj, callbackfn, \"hello\") && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-ii-19",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-19.js",
+    "description": "Array.prototype.every - non-indexed properties are not called",
+    "test": "assertTrue((function testcase() {\n\n        var called = 0;\n\n        function callbackfn(val, idx, obj) {\n            called++;\n            return val !== 8;\n        }\n\n        var obj = { 0: 11, 10: 12, non_index_property: 8, length: 20 };\n\n        return Array.prototype.every.call(obj, callbackfn) && 2 === called;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-ii-2",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-2.js",
+    "description": "Array.prototype.every - callbackfn takes 3 arguments",
+    "test": "assertTrue((function testcase() { \n \n  function callbackfn(val, Idx, obj)\n  {\n    if(arguments.length === 3)   //verify if callbackfn was called with 3 parameters\n       return true;\n  }\n\n  var arr = [0,1,true,null,new Object(),\"five\"];\n  arr[999999] = -6.6;\n  \n  if(arr.every(callbackfn) === true)\n    return true;\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-ii-20",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-20.js",
+    "description": "Array.prototype.every - callbackfn called with correct parameters (thisArg is correct)",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return 10 === this.threshold;\n        }\n\n        var thisArg = { threshold: 10 };\n\n        var obj = { 0: 11, length: 1 };\n\n        return Array.prototype.every.call(obj, callbackfn, thisArg);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-ii-21",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-21.js",
+    "description": "Array.prototype.every - callbackfn called with correct parameters (kValue is correct)",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            if (idx === 0) {\n                return val === 11;\n            }\n\n            if (idx === 1) {\n                return val === 12;\n            }\n\n        }\n\n        var obj = { 0: 11, 1: 12, length: 2 };\n\n        return Array.prototype.every.call(obj, callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-ii-22",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-22.js",
+    "description": "Array.prototype.every - callbackfn called with correct parameters (the index k is correct)",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            if (val === 11) {\n                return idx === 0;\n            }\n\n            if (val === 12) {\n                return idx === 1;\n            }\n\n        }\n\n        var obj = { 0: 11, 1: 12, length: 2 };\n\n        return Array.prototype.every.call(obj, callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-ii-23",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-23.js",
+    "description": "Array.prototype.every - callbackfn called with correct parameters (this object O is correct)",
+    "test": "assertTrue((function testcase() {\n\n        var called = 0;\n        var obj = { 0: 11, 1: 12, length: 2 };\n\n        function callbackfn(val, idx, o) {\n            called++;\n            return obj === o;\n        }\n\n        return Array.prototype.every.call(obj, callbackfn) && 2 === called;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-ii-3",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-3.js",
+    "description": "Array.prototype.every immediately returns false if callbackfn returns false",
+    "test": "assertTrue((function testcase() { \n \n  var callCnt = 0;\n  function callbackfn(val, idx, obj)\n  {\n    callCnt++;\n    if(idx > 5)   \n       return false;\n    else\n       return true;\n  }\n\n  var arr = [0,1,2,3,4,5,6,7,8,9];\n  \n  if(arr.every(callbackfn) === false && callCnt === 7) \n    return true;\n\n\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-ii-4",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-4.js",
+    "description": "Array.prototype.every - k values are passed in ascending numeric order",
+    "test": "assertTrue((function testcase() {\n\n        var arr = [0, 1, 2, 3, 4, 5];\n        var lastIdx = 0;\n        var called = 0;\n        function callbackfn(val, idx, o) {\n            called++;\n            if (lastIdx !== idx) {\n                return false;\n            } else {\n                lastIdx++;\n                return true;\n            }\n        }\n\n        return arr.every(callbackfn) &&  arr.length === called;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-ii-5",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-5.js",
+    "description": "Array.prototype.every - k values are accessed during each iteration and not prior to starting the loop on an Array",
+    "test": "assertTrue((function testcase() {\n        var called = 0;\n        var kIndex = [];\n\n        //By below way, we could verify that k would be setted as 0, 1, ..., length - 1 in order, and each value will be setted one time.\n        function callbackfn(val, idx, obj) {\n            called++;\n            //Each position should be visited one time, which means k is accessed one time during iterations.\n            if (typeof kIndex[idx] === \"undefined\") {\n                //when current position is visited, its previous index should has been visited.\n                if (idx !== 0 && typeof kIndex[idx - 1] === \"undefined\") {\n                    return false;\n                }\n                kIndex[idx] = 1;\n                return true;\n            } else {\n                return false;\n            }\n        }\n\n        return [11, 12, 13, 14].every(callbackfn, undefined) && 4 === called;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-ii-6",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-6.js",
+    "description": "Array.prototype.every - arguments to callbackfn are self consistent",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n        var thisArg = {};\n        var obj = { 0: 11, length: 1 };\n\n        function callbackfn() {\n            accessed = true;\n            return this === thisArg &&\n                arguments[0] === 11 &&\n                arguments[1] === 0 &&\n                arguments[2] === obj;\n        }\n\n        return Array.prototype.every.call(obj, callbackfn, thisArg) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-ii-7",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-7.js",
+    "description": "Array.prototype.every - unhandled exceptions happened in callbackfn terminate iteration",
+    "test": "assertTrue((function testcase() {\n\n        var called = 0;\n\n        function callbackfn(val, idx, obj) {\n            called++;\n            if (called === 1) {\n                throw new Error(\"Exception occurred in callbackfn\");\n            }\n            return true;\n        }\n\n        var obj = { 0: 11, 4: 10, 10: 8, length: 20 };\n\n        try {\n            Array.prototype.every.call(obj, callbackfn);\n            return false;\n        } catch (ex) {\n            return 1 === called;\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-ii-8",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-8.js",
+    "description": "Array.prototype.every - element changed by callbackfn on previous iterations is observed",
+    "test": "assertTrue((function testcase() {\n\n        var obj = { 0: 11, 1: 12, length: 2 };\n\n        function callbackfn(val, idx, o) {\n            if (idx === 0) {\n                obj[idx + 1] = 8;\n            }\n            return val > 10;\n        }\n\n       \n\n        return !Array.prototype.every.call(obj, callbackfn);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-ii-9",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-9.js",
+    "description": "Array.prototype.every - callbackfn is called with 0 formal parameter",
+    "test": "assertTrue((function testcase() {\n\n        var called = 0;\n\n        function callbackfn() {\n            called++;\n            return true;\n        }\n\n        return [11, 12].every(callbackfn) && 2 === called;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-1",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-1.js",
+    "description": "Array.prototype.every - return value of callbackfn is undefined",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n        var obj = { 0: 11, length: 1 };\n\n        function callbackfn(val, idx, o) {\n            accessed = true;\n            return undefined;\n        }\n\n        \n\n        return !Array.prototype.every.call(obj, callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-10",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-10.js",
+    "description": "Array.prototype.every - return value of callbackfn is a number (value is Infinity)",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return Infinity;\n        }\n\n        return [11].every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-11",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-11.js",
+    "description": "Array.prototype.every - return value of callbackfn is a number (value is -Infinity)",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return -Infinity;\n        }\n\n        return [11].every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-12",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-12.js",
+    "description": "Array.prototype.every - return value of callbackfn is a number (value is NaN)",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return NaN;\n        }\n\n        return ![11].every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-13",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-13.js",
+    "description": "Array.prototype.every - return value of callbackfn is an empty string",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return \"\";\n        }\n\n        return ![11].every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-14",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-14.js",
+    "description": "Array.prototype.every - return value of callbackfn is a non-empty string",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return \"non-empty string\";\n        }\n\n        return [11].every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-15",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-15.js",
+    "description": "Array.prototype.every - return value of callbackfn is a Function object",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return function () { };\n        }\n\n        return [11].every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-16",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-16.js",
+    "description": "Array.prototype.every - return value of callbackfn is an Array object",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return [];\n        }\n\n        return [11].every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-17",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-17.js",
+    "description": "Array.prototype.every - return value of callbackfn is a String object",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return new String();\n        }\n\n        return [11].every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-18",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-18.js",
+    "description": "Array.prototype.every - return value of callbackfn is a Boolean object",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return new Boolean();\n        }\n\n        return [11].every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-19",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-19.js",
+    "description": "Array.prototype.every - return value of callbackfn is a Number object",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return new Number();\n        }\n\n        return [11].every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-2",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-2.js",
+    "description": "Array.prototype.every - return value of callbackfn is null",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n        var obj = { 0: 11, length: 1 };\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return null;\n        }\n\n        \n\n        return !Array.prototype.every.call(obj, callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-20",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-20.js",
+    "description": "Array.prototype.every - return value of callbackfn is the Math object",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return Math;\n        }\n\n        return [11].every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-21",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-21.js",
+    "description": "Array.prototype.every - return value of callbackfn is a Date object",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return new Date();\n        }\n\n        return [11].every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-22",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-22.js",
+    "description": "Array.prototype.every - return value of callbackfn is a RegExp object",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return new RegExp();\n        }\n\n        return [11].every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-23",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-23.js",
+    "description": "Array.prototype.every - return value of callbackfn is the JSON object",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return JSON;\n        }\n\n        return [11].every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-24",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-24.js",
+    "description": "Array.prototype.every - return value of callbackfn is an Error object",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return new EvalError();\n        }\n\n        return [11].every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-25",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-25.js",
+    "description": "Array.prototype.every - return value of callbackfn is the Arguments object",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return arguments;\n        }\n\n        return [11].every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-27",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-27.js",
+    "description": "Array.prototype.every - return value of callbackfn is the global object",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return fnGlobalObject();\n        }\n\n        return [11].every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-28",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-28.js",
+    "description": "Array.prototype.every - false prevents further side effects",
+    "test": "assertTrue((function testcase() {\n\n        var result = false;\n        var obj = { length: 20 };\n\n        function callbackfn(val, idx, obj) {\n            if (idx > 1) {\n                result = true;\n            }\n            return val > 10;\n        }\n\n        Object.defineProperty(obj, \"0\", {\n            get: function () {\n                return 11;\n            },\n            configurable: true\n        });\n\n        Object.defineProperty(obj, \"1\", {\n            get: function () {\n                return 8;\n            },\n            configurable: true\n        });\n\n        Object.defineProperty(obj, \"2\", {\n            get: function () {\n                result = true;\n                return 8;\n            },\n            configurable: true\n        });\n\n        return !Array.prototype.every.call(obj, callbackfn) && !result;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects())"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-29",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-29.js",
+    "description": "Array.prototype.every - return value (new Boolean(false)) of callbackfn is treated as true value",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return new Boolean(false);\n        }\n\n        return [11].every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-3",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-3.js",
+    "description": "Array.prototype.every - return value of callbackfn is a boolean (value is false)",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n        var obj = { 0: 11, length: 1 };\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return false;\n        }\n\n        return !Array.prototype.every.call(obj, callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-4",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-4.js",
+    "description": "Array.prototype.every - return value of callbackfn is a boolean (value is true)",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n        var obj = { 0: 11, length: 1 };\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return true;\n        }\n\n       \n\n        return Array.prototype.every.call(obj, callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-5",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-5.js",
+    "description": "Array.prototype.every - return value of callbackfn is a number (value is 0)",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return 0;\n        }\n\n        return ![11].every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-6",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-6.js",
+    "description": "Array.prototype.every - return value of callbackfn is a number (value is +0)",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return +0;\n        }\n\n        return ![11].every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-7",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-7.js",
+    "description": "Array.prototype.every - return value of callbackfn is a nunmber (value is -0)",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return -0;\n        }\n\n        return ![11].every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-8",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-8.js",
+    "description": "Array.prototype.every - return value of callbackfn is a number (value is positive number)",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return 5;\n        }\n\n        return [11].every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-7-c-iii-9",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-9.js",
+    "description": "Array.prototype.every - return value of callbackfn is a number (value is negative number)",
+    "test": "assertTrue((function testcase() {\n\n        var accessed = false;\n\n        function callbackfn(val, idx, obj) {\n            accessed = true;\n            return -5;\n        }\n\n        return [11].every(callbackfn) && accessed;\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-8-1",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-8-1.js",
+    "description": "Array.prototype.every returns true if 'length' is 0 (empty array)",
+    "test": "assertTrue((function testcase() {\n  function cb() {}\n  var i = [].every(cb);\n  if (i === true) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-8-10",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-8-10.js",
+    "description": "Array.prototype.every - subclassed array when length is reduced",
+    "test": "assertTrue((function testcase() {\n  foo.prototype = new Array(1, 2, 3);\n  function foo() {}\n  var f = new foo();\n  f.length = 2;\n  \n  function cb(val)\n  {\n    if(val>2)\n      return false;\n    else\n      return true;    \n  }\n  var i = f.every(cb);\n  \n  if (i === true) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-8-11",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-8-11.js",
+    "description": "Array.prototype.every returns true when all calls to callbackfn return true",
+    "test": "assertTrue((function testcase() { \n \n  var callCnt = 0;\n  function callbackfn(val, idx, obj)\n  {\n    callCnt++;\n    return true;\n  }\n\n  var arr = [0,1,2,3,4,5,6,7,8,9];\n  \n  if(arr.every(callbackfn) === true && callCnt === 10) \n    return true;\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-8-12",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-8-12.js",
+    "description": "Array.prototype.every doesn't mutate the array on which it is called on",
+    "test": "assertTrue((function testcase() {\n\n  function callbackfn(val, idx, obj)\n  {\n    return true;\n  }\n  var arr = [1,2,3,4,5];\n  arr.every(callbackfn);\n  if(arr[0] === 1 &&\n     arr[1] === 2 &&\n     arr[2] === 3 &&\n     arr[3] === 4 &&\n     arr[4] === 5)\n  {\n    return true;\n  }\n\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-8-13",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-8-13.js",
+    "description": "Array.prototype.every doesn't visit expandos",
+    "test": "assertTrue((function testcase() { \n \n  var callCnt = 0;\n  function callbackfn(val, idx, obj)\n  {\n    callCnt++;\n    return true;\n  }\n\n  var arr = [0,1,2,3,4,5,6,7,8,9];\n  arr[\"i\"] = 10;\n  arr[true] = 11;\n  \n  if(arr.every(callbackfn) === true && callCnt === 10) \n    return true;\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-8-2",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-8-2.js",
+    "description": "Array.prototype.every returns true if 'length' is 0 (subclassed Array, length overridden to null (type conversion))",
+    "test": "assertTrue((function testcase() {\n  foo.prototype = new Array(1, 2, 3);\n  function foo() {}\n  var f = new foo();\n  f.length = null;\n  \n  function cb(){}\n  var i = f.every(cb);\n  \n  if (i === true) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-8-3",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-8-3.js",
+    "description": "Array.prototype.every returns true if 'length' is 0 (subclassed Array, length overridden to false (type conversion))",
+    "test": "assertTrue((function testcase() {\n  foo.prototype = new Array(1, 2, 3);\n  function foo() {}\n  var f = new foo();\n  f.length = false;\n\n  function cb(){}\n  var i = f.every(cb);\n  \n  if (i === true) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-8-4",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-8-4.js",
+    "description": "Array.prototype.every returns true if 'length' is 0 (subclassed Array, length overridden to 0 (type conversion))",
+    "test": "assertTrue((function testcase() {\n  foo.prototype = new Array(1, 2, 3);\n  function foo() {}\n  var f = new foo();\n  f.length = 0;\n\n  function cb(){}\n  var i = f.every(cb);\n  \n  if (i === true) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-8-5",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-8-5.js",
+    "description": "Array.prototype.every returns true if 'length' is 0 (subclassed Array, length overridden to '0' (type conversion))",
+    "test": "assertTrue((function testcase() {\n  foo.prototype = new Array(1, 2, 3);\n  function foo() {}\n  var f = new foo();\n  f.length = '0';\n  \n  function cb(){}\n  var i = f.every(cb);\n  \n  if (i === true) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-8-6",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-8-6.js",
+    "description": "Array.prototype.every returns true if 'length' is 0 (subclassed Array, length overridden with obj with valueOf)",
+    "test": "assertTrue((function testcase() {\n  foo.prototype = new Array(1, 2, 3);\n  function foo() {}\n  var f = new foo();\n  \n  var o = { valueOf: function () { return 0;}};\n  f.length = o;\n  \n  function cb(){}\n  var i = f.every(cb);\n  \n  if (i === true) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-8-7",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-8-7.js",
+    "description": "Array.prototype.every returns true if 'length' is 0 (subclassed Array, length overridden with obj w/o valueOf (toString))",
+    "test": "assertTrue((function testcase() {\n  foo.prototype = new Array(1, 2, 3);\n  function foo() {}\n  var f = new foo();\n  \n  var o = { toString: function () { return '0';}};\n  f.length = o;\n  \n  // objects inherit the default valueOf method of the Object object;\n  // that simply returns the itself. Since the default valueOf() method\n  // does not return a primitive value, ES next tries to convert the object\n  // to a number by calling its toString() method and converting the\n  // resulting string to a number.\n  function cb(){}\n  var i = f.every(cb);\n  \n  if (i === true) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   },
+   {
+    "id": "15.4.4.16-8-8",
+    "path": "TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-8-8.js",
+    "description": "Array.prototype.every returns true if 'length' is 0 (subclassed Array, length overridden with []",
+    "test": "assertTrue((function testcase() {\n  foo.prototype = new Array(1, 2, 3);\n  function foo() {}\n  var f = new foo();\n  \n  f.length = [];\n  \n  // objects inherit the default valueOf method of the Object object;\n  // that simply returns the itself. Since the default valueOf() method\n  // does not return a primitive value, ES next tries to convert the object\n  // to a number by calling its toString() method and converting the\n  // resulting string to a number.\n  //\n  // The toString( ) method on Array converts the array elements to strings,\n  // then returns the result of concatenating these strings, with commas in\n  // between. An array with no elements converts to the empty string, which\n  // converts to the number 0. If an array has a single element that is a\n  // number n, the array converts to a string representation of n, which is\n  // then converted back to n itself. If an array contains more than one element,\n  // or if its one element is not a number, the array converts to NaN.\n\n  function cb(){}\n  var i = f.every(cb);\n  \n  if (i === true) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Array.prototype.every))"
+   }
+  ]
+ }
+}

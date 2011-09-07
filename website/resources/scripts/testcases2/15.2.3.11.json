@@ -1,0 +1,217 @@
+{
+ "testCollection": {
+  "name": "15.2.3.11",
+  "numTests": 30,
+  "tests": [
+   {
+    "id": "15.2.3.11-0-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-0-1.js",
+    "description": "Object.isSealed must exist as a function",
+    "test": "assertTrue((function testcase() {\n  var f = Object.isSealed;\n  if (typeof(f) === \"function\") {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "15.2.3.11-0-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-0-2.js",
+    "description": "Object.isSealed must exist as a function taking 1 parameter",
+    "test": "assertTrue((Object.isSealed.length === 1));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-1.js",
+    "description": "Object.isSealed throws TypeError if type of first param is not Object",
+    "test": "assertTrue((function testcase() {\n    try {\n      Object.isSealed(0);\n    }\n    catch (e) {\n      if (e instanceof TypeError) {\n        return true;\n      }\n    }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-1.js",
+    "description": "Object.isSealed returns false for all built-in objects (Global)",
+    "test": "assertTrue((function testcase() {\n  // in non-strict mode, 'this' is bound to the global object.\n  var b = Object.isSealed(this);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-10",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-10.js",
+    "description": "Object.isSealed returns false for all built-in objects (Boolean)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(Boolean);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-11",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-11.js",
+    "description": "Object.isSealed returns false for all built-in objects (Boolean.prototype)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(Boolean.prototype);\n  if (b === false) {\n    return true;\n  }\n  }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-12",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-12.js",
+    "description": "Object.isSealed returns false for all built-in objects (Number)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(Number);\n  if (b === false) {\n    return true;\n  }\n  }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-13",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-13.js",
+    "description": "Object.isSealed returns false for all built-in objects (Number.prototype)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(Number.prototype);\n  if (b === false) {\n    return true;\n  }\n  }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-14",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-14.js",
+    "description": "Object.isSealed returns false for all built-in objects (Math)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(Math);\n  if (b === false) {\n    return true;\n  }\n  }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-15",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-15.js",
+    "description": "Object.isSealed returns false for all built-in objects (Date)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(Date);\n  if (b === false) {\n    return true;\n  }\n  }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-16",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-16.js",
+    "description": "Object.isSealed returns false for all built-in objects (Date.prototype)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(Date.prototype);\n  if (b === false) {\n    return true;\n  }\n  }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-17",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-17.js",
+    "description": "Object.isSealed returns false for all built-in objects (RegExp)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(RegExp);\n  if (b === false) {\n    return true;\n  }\n  }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-18",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-18.js",
+    "description": "Object.isSealed returns false for all built-in objects (RegExp.prototype)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(RegExp.prototype);\n  if (b === false) {\n    return true;\n  }\n  }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-19",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-19.js",
+    "description": "Object.isSealed returns false for all built-in objects (Error)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(Error);\n  if (b === false) {\n    return true;\n  }\n  }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-2.js",
+    "description": "Object.isSealed returns false for all built-in objects (Object)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(Object);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-20",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-20.js",
+    "description": "Object.isSealed returns false for all built-in objects (Error.prototype)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(Error.prototype);\n  if (b === false) {\n    return true;\n  }\n  }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-21",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-21.js",
+    "description": "Object.isSealed returns false for all built-in objects (EvalError)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(EvalError);\n  if (b === false) {\n    return true;\n  }\n  }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-22",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-22.js",
+    "description": "Object.isSealed returns false for all built-in objects (RangeError)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(RangeError);\n  if (b === false) {\n    return true;\n  }\n  }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-23",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-23.js",
+    "description": "Object.isSealed returns false for all built-in objects (ReferenceError)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(ReferenceError);\n  if (b === false) {\n    return true;\n  }\n  }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-24",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-24.js",
+    "description": "Object.isSealed returns false for all built-in objects (SyntaxError)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(SyntaxError);\n  if (b === false) {\n    return true;\n  }\n  }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-25",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-25.js",
+    "description": "Object.isSealed returns false for all built-in objects (TypeError)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(TypeError);\n  if (b === false) {\n    return true;\n  }\n  }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-26",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-26.js",
+    "description": "Object.isSealed returns false for all built-in objects (URIError)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(URIError);\n  if (b === false) {\n    return true;\n  }\n  }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-27",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-27.js",
+    "description": "Object.isSealed returns false for all built-in objects (JSON)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(JSON);\n  if (b === false) {\n    return true;\n  }\n  }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-3",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-3.js",
+    "description": "Object.isSealed returns false for all built-in objects (Object.prototype)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(Object.prototype);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-4",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-4.js",
+    "description": "Object.isSealed returns false for all built-in objects (Function)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(Function);\n  if (b === false) {\n    return true;\n  }\n  }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-5",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-5.js",
+    "description": "Object.isSealed returns false for all built-in objects (Function.prototype)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(Function.prototype);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-6",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-6.js",
+    "description": "Object.isSealed returns false for all built-in objects (Array)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(Array);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-7",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-7.js",
+    "description": "Object.isSealed returns false for all built-in objects (Array.prototype)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(Array.prototype);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-8",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-8.js",
+    "description": "Object.isSealed returns false for all built-in objects (String)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(String);\n  if (b === false) {\n    return true;\n  }\n}).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   },
+   {
+    "id": "15.2.3.11-4-9",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-9.js",
+    "description": "Object.isSealed returns false for all built-in objects (String.prototype)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isSealed(String.prototype);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isSealed))"
+   }
+  ]
+ }
+}

@@ -1,0 +1,195 @@
+{
+ "testCollection": {
+  "name": "10.6",
+  "numTests": 26,
+  "tests": [
+   {
+    "id": "10.6-10-c-ii-1-s",
+    "path": "TestCases/chapter10/10.6/10.6-10-c-ii-1-s.js",
+    "description": "arguments[i] remains same after changing actual parameters in strict mode",
+    "test": "assertTrue((function testcase() {\n  function foo(a,b,c)\n  {\n    'use strict';\n    a = 1; b = 'str'; c = 2.1;\n    return (arguments[0] === 10 && arguments[1] === 'sss' && arguments[2] === 1);\n  }\n  return foo(10, 'sss', 1);\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.6-10-c-ii-1",
+    "path": "TestCases/chapter10/10.6/10.6-10-c-ii-1.js",
+    "description": "arguments[i] change with actual parameters",
+    "test": "assertTrue((function testcase() {\n  function foo(a,b,c)\n  {\n    a = 1; b = 'str'; c = 2.1;\n    if(arguments[0] === 1 && arguments[1] === 'str' && arguments[2] === 2.1)\n      return true;   \n  }\n  return foo(10,'sss',1);\n }).call(this));\n"
+   },
+   {
+    "id": "10.6-10-c-ii-2-s",
+    "path": "TestCases/chapter10/10.6/10.6-10-c-ii-2-s.js",
+    "description": "arguments[i] doesn't map to actual parameters in strict mode",
+    "test": "assertTrue((function testcase() {\n  \n  function foo(a,b,c)\n  {\n    'use strict';    \n    arguments[0] = 1; arguments[1] = 'str'; arguments[2] = 2.1;\n    return 10 === a && 'sss' === b && 1 === c;\n  }\n  return foo(10,'sss',1);\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.6-10-c-ii-2",
+    "path": "TestCases/chapter10/10.6/10.6-10-c-ii-2.js",
+    "description": "arguments[i] map to actual parameter",
+    "test": "assertTrue((function testcase() {\n  \n  function foo(a,b,c)\n  {\n    arguments[0] = 1; arguments[1] = 'str'; arguments[2] = 2.1;\n    if(1 === a && 'str' === b && 2.1 === c)\n      return true;   \n  }\n  return foo(10,'sss',1);\n }).call(this));\n"
+   },
+   {
+    "id": "10.6-11-b-1",
+    "path": "TestCases/chapter10/10.6/10.6-11-b-1.js",
+    "description": "Arguments Object has index property '0' as its own property, it shoulde be writable, enumerable, configurable and does not invoke the setter defined on Object.prototype[0] (Step 11.b)",
+    "test": "assertTrue((function testcase() {\n        try {\n            var data = \"data\";\n            var getFunc = function () {\n                return data;\n            };\n\n            var setFunc = function (value) {\n                data = value;\n            };\n\n            Object.defineProperty(Object.prototype, \"0\", {\n                get: getFunc,\n                set: setFunc,\n                configurable: true\n            });\n\n            var argObj = (function () { return arguments })(1);\n\n            var verifyValue = false;\n            verifyValue = (argObj[0] === 1);\n\n            var verifyEnumerable = false;\n            for (var p in argObj) {\n                if (p === \"0\" && argObj.hasOwnProperty(\"0\")) {\n                    verifyEnumerable = true;\n                }\n            }\n\n            var verifyWritable = false;\n            argObj[0] = 1001;\n            verifyWritable = (argObj[0] === 1001);\n\n            var verifyConfigurable = false;\n            delete argObj[0];\n            verifyConfigurable = argObj.hasOwnProperty(\"0\");\n\n            return verifyValue && verifyWritable && verifyEnumerable && !verifyConfigurable && data === \"data\";\n        } finally {\n            delete Object.prototype[0];\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.defineProperty))"
+   },
+   {
+    "id": "10.6-12-1",
+    "path": "TestCases/chapter10/10.6/10.6-12-1.js",
+    "description": "Accessing callee property of Arguments object is allowed",
+    "test": "assertTrue((function testcase() {\n  try \n  {\n    arguments.callee;\n    return true;\n  }\n  catch (e) {\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "10.6-12-2",
+    "path": "TestCases/chapter10/10.6/10.6-12-2.js",
+    "description": "arguments.callee has correct attributes",
+    "test": "assertTrue((function testcase() {\n  \n  var desc = Object.getOwnPropertyDescriptor(arguments,\"callee\");\n  if(desc.configurable === true &&\n     desc.enumerable === false &&\n     desc.writable === true &&\n     desc.hasOwnProperty('get') == false &&\n     desc.hasOwnProperty('put') == false)\n    return true;   \n }).call(this));\n",
+    "precondition": "(fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "10.6-13-1",
+    "path": "TestCases/chapter10/10.6/10.6-13-1.js",
+    "description": "Accessing caller property of Arguments object is allowed",
+    "test": "assertTrue((function testcase() {\n  try \n  {\n    arguments.caller;\n    return true;\n  }\n  catch (e) {\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "10.6-13-a-1",
+    "path": "TestCases/chapter10/10.6/10.6-13-a-1.js",
+    "description": "In non-strict mode, arguments object should have its own 'callee' property defined (Step 13.a)",
+    "test": "assertTrue((function testcase() {\n        try {\n            Object.defineProperty(Object.prototype, \"callee\", {\n                value: 1,\n                writable: false,\n                configurable: true\n            });\n\n            var argObj = (function () { return arguments })();\n\n            var verifyValue = false;\n            verifyValue = typeof argObj.callee === \"function\";\n            \n            var verifyWritable = false;\n            argObj.callee = 1001;\n            verifyWritable = (argObj.callee === 1001);\n\n            var verifyEnumerable = false;\n            for (var p in argObj) {\n                if (p === \"callee\" && argObj.hasOwnProperty(\"callee\")) {\n                    verifyEnumerable = true;\n                }\n            }\n\n            var verifyConfigurable = false;\n            delete argObj.callee;\n            verifyConfigurable = argObj.hasOwnProperty(\"callee\");\n\n            return verifyValue && verifyWritable && !verifyEnumerable && !verifyConfigurable;\n        } finally {\n            delete Object.prototype.callee;\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.defineProperty))"
+   },
+   {
+    "id": "10.6-13-b-1-s",
+    "path": "TestCases/chapter10/10.6/10.6-13-b-1-s.js",
+    "description": "Accessing caller property of Arguments object throws TypeError in strict mode",
+    "test": "assertTrue((function testcase() {\n  'use strict';\n  try \n  {\n    arguments.caller;\n  }\n  catch (e) {\n    if(e instanceof TypeError)\n      return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.6-13-b-2-s",
+    "path": "TestCases/chapter10/10.6/10.6-13-b-2-s.js",
+    "description": "arguments.caller exists in strict mode",
+    "test": "assertTrue((function testcase() {\n  \n  'use strict';    \n  var desc = Object.getOwnPropertyDescriptor(arguments,\"caller\");\n  return desc!== undefined;\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.6-13-b-3-s",
+    "path": "TestCases/chapter10/10.6/10.6-13-b-3-s.js",
+    "description": "arguments.caller is non-configurable in strict mode",
+    "test": "assertTrue((function testcase() {\n   \n  'use strict';    \n  var desc = Object.getOwnPropertyDescriptor(arguments,\"caller\");\n  \n  return (desc.configurable === false && \n     desc.enumerable === false && \n     desc.hasOwnProperty('value') == false  && \n     desc.hasOwnProperty('writable') == false &&\n     desc.hasOwnProperty('get') == true && \n     desc.hasOwnProperty('set') == true);                                     \n    \n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.6-13-c-1-s",
+    "path": "TestCases/chapter10/10.6/10.6-13-c-1-s.js",
+    "description": "Accessing callee property of Arguments object throws TypeError in strict mode",
+    "test": "assertTrue((function testcase() {\n  'use strict';\n  try \n  {\n    arguments.callee;\n    return false;\n  }\n  catch (e) {\n    return (e instanceof TypeError);\n  }\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.6-13-c-2-s",
+    "path": "TestCases/chapter10/10.6/10.6-13-c-2-s.js",
+    "description": "arguments.callee is exists in strict mode",
+    "test": "assertTrue((function testcase() {\n  \n  'use strict';    \n  var desc = Object.getOwnPropertyDescriptor(arguments,\"callee\");\n  return desc !== undefined;\n }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "10.6-13-c-3-s",
+    "path": "TestCases/chapter10/10.6/10.6-13-c-3-s.js",
+    "description": "arguments.callee is non-configurable in strict mode",
+    "test": "assertTrue((function testcase() {\n  \n  'use strict';    \n  var desc = Object.getOwnPropertyDescriptor(arguments,\"callee\");\n  return (desc.configurable === false &&\n     desc.enumerable === false &&\n     desc.hasOwnProperty('value') == false &&\n     desc.hasOwnProperty('writable') == false &&\n     desc.hasOwnProperty('get') == true &&\n     desc.hasOwnProperty('set') == true);\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.6-14-1-s",
+    "path": "TestCases/chapter10/10.6/10.6-14-1-s.js",
+    "description": "Strict Mode - 'callee' exists and 'caller' exists under strict mode",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var argObj = function () {\n            return arguments;\n        } ();\n        return argObj.hasOwnProperty(\"callee\") && argObj.hasOwnProperty(\"caller\");\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.6-14-b-1-s",
+    "path": "TestCases/chapter10/10.6/10.6-14-b-1-s.js",
+    "description": "Strict Mode - [[Enumerable]] attribute value in 'caller' is false under strict mode",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        var argObj = function () {\n            return arguments;\n        } ();\n\n        var verifyEnumerable = false;\n        for (var _10_6_14_b_1 in argObj) {\n            if (argObj.hasOwnProperty(_10_6_14_b_1) && _10_6_14_b_1 === \"caller\") {\n                verifyEnumerable = true;\n            }\n        }\n        return !verifyEnumerable && argObj.hasOwnProperty(\"caller\");\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.6-14-b-4-s",
+    "path": "TestCases/chapter10/10.6/10.6-14-b-4-s.js",
+    "description": "Strict Mode - TypeError is thrown when accessing the [[Set]] attribute in 'caller' under strict mode",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        var argObj = function () {\n            return arguments;\n        } ();\n\n        try {\n            argObj.caller = {};\n            return false;\n        } catch (e) {\n            return e instanceof TypeError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.6-14-c-1-s",
+    "path": "TestCases/chapter10/10.6/10.6-14-c-1-s.js",
+    "description": "Strict Mode - [[Enumerable]] attribute value in 'callee' is false under strict mode",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        var argObj = function () {\n            return arguments;\n        } ();\n\n        var verifyEnumerable = false;\n        for (var _10_6_14_c_1 in argObj) {\n            if (argObj.hasOwnProperty(_10_6_14_c_1) && _10_6_14_c_1 === \"callee\") {\n                verifyEnumerable = true;\n            }\n        }\n        return !verifyEnumerable && argObj.hasOwnProperty(\"callee\");\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "10.6-14-c-4-s",
+    "path": "TestCases/chapter10/10.6/10.6-14-c-4-s.js",
+    "description": "Strict Mode - TypeError is thrown when accessing the [[Set]] attribute in 'callee' under strict mode",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        var argObj = function () {\n            return arguments;\n        } ();\n\n        try {\n            argObj.callee = {};\n            return false;\n        } catch (e) {\n            return e instanceof TypeError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.6-5-1",
+    "path": "TestCases/chapter10/10.6/10.6-5-1.js",
+    "description": "[[Prototype]] property of Arguments is set to Object prototype object",
+    "test": "assertTrue((function testcase() {\n  if(Object.getPrototypeOf(arguments) === Object.getPrototypeOf({}))\n    return true;\n }).call(this));\n",
+    "precondition": "(fnExists(Object.getPrototypeOf))"
+   },
+   {
+    "id": "10.6-6-1",
+    "path": "TestCases/chapter10/10.6/10.6-6-1.js",
+    "description": "'length property of arguments object exists",
+    "test": "assertTrue((function testcase() {\n  \n  var desc = Object.getOwnPropertyDescriptor(arguments,\"length\");\n  return desc !== undefined\n }).call(this));\n",
+    "precondition": "(fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "10.6-6-2",
+    "path": "TestCases/chapter10/10.6/10.6-6-2.js",
+    "description": "'length' property of arguments object has correct attributes",
+    "test": "assertTrue((function testcase() {\n  \n  var desc = Object.getOwnPropertyDescriptor(arguments,\"length\");\n  if(desc.configurable === true &&\n     desc.enumerable === false &&\n     desc.writable === true )\n    return true;\n }).call(this));\n",
+    "precondition": "(fnExists(Object.getOwnPropertyDescriptor))"
+   },
+   {
+    "id": "10.6-6-3",
+    "path": "TestCases/chapter10/10.6/10.6-6-3.js",
+    "description": "'length' property of arguments object for 0 argument function exists",
+    "test": "assertTrue((function testcase() {\n      var arguments= undefined;\n\treturn (function () {return arguments.length !== undefined})();\n }).call(this));\n"
+   },
+   {
+    "id": "10.6-6-4",
+    "path": "TestCases/chapter10/10.6/10.6-6-4.js",
+    "description": "'length' property of arguments object for 0 argument function call is 0 even with formal parameters",
+    "test": "assertTrue((function testcase() {\n      var arguments= undefined;\n\treturn (function (a,b,c) {return arguments.length === 0})();\n }).call(this));\n"
+   },
+   {
+    "id": "10.6-7-1",
+    "path": "TestCases/chapter10/10.6/10.6-7-1.js",
+    "description": "Arguments Object has length as its own property and does not invoke the setter defined on Object.prototype.length (Step 7)",
+    "test": "assertTrue((function testcase() {\n        try {\n            var data = \"data\";\n            var getFunc = function () {\n                return 12;\n            };\n\n            var setFunc = function (value) {\n                data = value;\n            };\n\n            Object.defineProperty(Object.prototype, \"length\", {\n                get: getFunc,\n                set: setFunc,\n                configurable: true\n            });\n\n            var verifyValue = false;\n            var argObj = (function () { return arguments })();\n            verifyValue = (argObj.length === 0);\n\n            var verifyWritable = false;\n            argObj.length = 1001;\n            verifyWritable = (argObj.length === 1001);\n\n            var verifyEnumerable = false;\n            for (var p in argObj) {\n                if (p === \"length\") {\n                    verifyEnumerable = true;\n                }\n            }\n\n            var verifyConfigurable = false;\n            delete argObj.length;\n            verifyConfigurable = argObj.hasOwnProperty(\"length\");\n\n            return verifyValue && verifyWritable && !verifyEnumerable && !verifyConfigurable && data === \"data\";\n        } finally {\n            delete Object.prototype.length;\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.defineProperty))"
+   }
+  ]
+ }
+}

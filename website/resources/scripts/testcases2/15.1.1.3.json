@@ -1,0 +1,15 @@
+{
+ "testCollection": {
+  "name": "15.1.1.3",
+  "numTests": 1,
+  "tests": [
+   {
+    "id": "15.1.1.3-0",
+    "path": "TestCases/chapter15/15.1/15.1.1/15.1.1.3/15.1.1.3-0.js",
+    "description": "Global.undefined is a data property with default attribute values (false)",
+    "test": "var global = this;assertTrue((function testcase() {\n  var desc = Object.getOwnPropertyDescriptor(global, 'undefined');\n  if (desc.writable === false &&\n      desc.enumerable === false &&\n      desc.configurable === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.getOwnPropertyDescriptor))"
+   }
+  ]
+ }
+}

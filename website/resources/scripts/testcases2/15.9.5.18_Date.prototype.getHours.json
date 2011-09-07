@@ -1,0 +1,50 @@
+{
+ "testCollection": {
+  "name": "15.9.5.18_Date.prototype.getHours",
+  "numTests": 7,
+  "tests": [
+   {
+    "section": "15.9.5.18",
+    "description": "Checking absence of ReadOnly attribute",
+    "test": "x = Date.prototype.getHours;\nif(x === 1)\n  Date.prototype.getHours = 2;\nelse\n  Date.prototype.getHours = 1;\nif (Date.prototype.getHours === x) {\n  $ERROR('#1: The Date.prototype.getHours has not the attribute ReadOnly');\n}\n\n",
+    "id": "S15.9.5.18_A1_T1"
+   },
+   {
+    "section": "15.9.5.18",
+    "description": "Checking absence of DontDelete attribute",
+    "test": "if (delete Date.prototype.getHours  === false) {\n  $ERROR('#1: The Date.prototype.getHours property has not the attributes DontDelete');\n}\n\nif (Date.prototype.hasOwnProperty('getHours')) {\n  $FAIL('#2: The Date.prototype.getHours property has not the attributes DontDelete');\n}\n\n",
+    "id": "S15.9.5.18_A1_T2"
+   },
+   {
+    "section": "15.9.5.18",
+    "description": "Checking DontEnum attribute",
+    "test": "if (Date.prototype.propertyIsEnumerable('getHours')) {\n  $ERROR('#1: The Date.prototype.getHours property has the attribute DontEnum');\n}\n\nfor(x in Date.prototype) {\n  if(x === \"getHours\") {\n    $ERROR('#2: The Date.prototype.getHours has the attribute DontEnum');\n  }\n}\n\n",
+    "id": "S15.9.5.18_A1_T3"
+   },
+   {
+    "section": "15.9.5.18",
+    "description": "The \"length\" property of the \"getHours\" is 0",
+    "test": "if(Date.prototype.getHours.hasOwnProperty(\"length\") !== true){\n  $ERROR('#1: The getHours has a \"length\" property');\n}\n\nif(Date.prototype.getHours.length !== 0){\n  $ERROR('#2: The \"length\" property of the getHours is 0');\n}\n\n",
+    "id": "S15.9.5.18_A2_T1"
+   },
+   {
+    "section": "15.9.5.18",
+    "description": "Checking ReadOnly attribute",
+    "test": "x = Date.prototype.getHours.length;\nDate.prototype.getHours.length = 1;\nif (Date.prototype.getHours.length !== x) {\n  $ERROR('#1: The Date.prototype.getHours.length has the attribute ReadOnly');\n}\n\n",
+    "id": "S15.9.5.18_A3_T1"
+   },
+   {
+    "section": "15.9.5.18",
+    "description": "Checking DontDelete attribute",
+    "test": "if (delete Date.prototype.getHours.length  !== false) {\n  $ERROR('#1: The Date.prototype.getHours.length property has the attributes DontDelete');\n}\n\nif (!Date.prototype.getHours.hasOwnProperty('length')) {\n  $FAIL('#2: The Date.prototype.getHours.length property has the attributes DontDelete');\n}\n\n",
+    "id": "S15.9.5.18_A3_T2"
+   },
+   {
+    "section": "15.9.5.18",
+    "description": "Checking DontEnum attribute",
+    "test": "if (Date.prototype.getHours.propertyIsEnumerable('length')) {\n  $ERROR('#1: The Date.prototype.getHours.length property has the attribute DontEnum');\n}\n\nfor(x in Date.prototype.getHours) {\n  if(x === \"length\") {\n    $ERROR('#2: The Date.prototype.getHours.length has the attribute DontEnum');\n  }\n}\n\n",
+    "id": "S15.9.5.18_A3_T3"
+   }
+  ]
+ }
+}

@@ -1,0 +1,248 @@
+{
+ "testCollection": {
+  "name": "10.1.1",
+  "numTests": 32,
+  "tests": [
+   {
+    "id": "10.1.1-1-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-1-s.js",
+    "description": "Strict Mode - Use Strict Directive Prologue is 'use  strict'; which contains two space between 'use' and 'strict'",
+    "test": "assertTrue((function testcase() {\n        \"use  strict\";\n        var public = 1;\n        return public === 1;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-10-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-10-s.js",
+    "description": "Strict Mode - Use Strict Directive Prologue is ''USE STRICT';' in which all characters are uppercase",
+    "test": "assertTrue((function testcase() {\n        \"USE STRICT\";\n        var public = 1;\n        return public === 1;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-11-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-11-s.js",
+    "description": "Strict Mode - Eval code is strict code with a Use Strict Directive at the beginning of the block",
+    "test": "assertTrue((function testcase() {\n        try {\n            eval(\"'use strict'; var public = 1; var anotherVariableNotReserveWord = 2;\");\n\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && typeof public === \"undefined\" &&\n                typeof anotherVariableNotReserveWord === \"undefined\";\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-12-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-12-s.js",
+    "description": "Strict Mode - Eval code is strict eval code with a Use Strict Directive in the middle of the block",
+    "test": "assertTrue((function testcase() {\n        eval(\"var public = 1; 'use strict'; var anotherVariableNotReserveWord = 2;\");\n        return public === 1 && anotherVariableNotReserveWord === 2;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-13-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-13-s.js",
+    "description": "Strict Mode - Eval code is strict eval code with a Use Strict Directive at the end of the block",
+    "test": "assertTrue((function testcase() {\n        eval(\"var public = 1; var anotherVariableNotReserveWord = 2; 'use strict';\");\n        return public === 1 && anotherVariableNotReserveWord === 2;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-14-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-14-s.js",
+    "description": "Strict Mode - The call to eval function is contained in a Strict Mode block",
+    "test": "assertTrue((function testcase() {\n        'use strict';\n        try {\n            eval(\"var public = 1;\");\n            return false;\n        } catch (e) {\n            return true;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-15-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-15-s.js",
+    "description": "Strict Mode - Function code that is part of a FunctionDeclaration is strict function code if FunctionDeclaration is contained in use strict",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        function fun() {\n            try {\n                eval(\"var public = 1;\");\n                return false;\n            } catch (e) {\n                return e instanceof SyntaxError;\n            }\n        }\n\n        return fun();\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-16-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-16-s.js",
+    "description": "Strict Mode - Function code that is part of a FunctionExpression is strict function code if FunctionExpression is contained in use strict",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        return function () {\n            try {\n                eval(\"var public = 1;\");\n                return false;\n            } catch (e) {\n                return e instanceof SyntaxError;\n            }\n        } ();\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-17-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-17-s.js",
+    "description": "Strict Mode - Function code that is part of a Accessor PropertyAssignment is in Strict Mode if Accessor PropertyAssignment is contained in use strict(getter)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        try {\n            var obj = {};\n            Object.defineProperty(obj, \"accProperty\", {\n                get: function () {\n                    eval(\"public = 1;\");\n                    return 11;\n                }\n            });\n\n            var temp = obj.accProperty === 11;\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-18-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-18-s.js",
+    "description": "Strict Mode - Function code that is part of a Accessor PropertyAssignment is in Strict Mode if Accessor PropertyAssignment is contained in use strict(setter)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        try {\n            var obj = {};\n            var data = \"data\";\n            Object.defineProperty(obj, \"accProperty\", {\n                set: function (value) {\n                    eval(\"var public = 1;\");\n                    data = value;\n                }\n            });\n\n            obj.accProperty = \"overrideData\";\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && data === \"data\";\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-19-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-19-s.js",
+    "description": "Strict Mode - Function code of a FunctionDeclaration contains Use Strict Directive which appears at the start of the block",
+    "test": "assertTrue((function testcase() {\n        function fun() {\n            \"use strict\";\n            try {\n                eval(\"var public = 1;\");\n                return false;\n            } catch (e) {\n                return e instanceof SyntaxError;\n            }\n        }\n        return fun();\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-2-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-2-s.js",
+    "description": "Strict Mode - Use Strict Directive Prologue is ''use strict'' which lost the last character ';'",
+    "test": "assertTrue((function testcase() {\n        \"use strict\"\n        try {\n            eval(\"var public = 1;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-20-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-20-s.js",
+    "description": "Strict Mode - Function code of a FunctionDeclaration contains Use Strict Directive which appears in the middle of the block",
+    "test": "assertTrue((function testcase() {\n        function fun() {\n            eval(\"var public = 1;\");\n            \"use strict\";\n            return public === 1;\n        }\n        return fun();\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-21-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-21-s.js",
+    "description": "Strict Mode - Function code of a FunctionDeclaration contains Use Strict Directive which appears at the end of the block",
+    "test": "assertTrue((function testcase() {\n        function fun() {\n            eval(\"var public = 1;\");\n            return public === 1;\n            \"use strict\";\n        }\n        return fun();\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-22-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-22-s.js",
+    "description": "Strict Mode - Function code of a FunctionExpression contains Use Strict Directive which appears at the start of the block",
+    "test": "assertTrue((function () {\n            \"use strict\";\n            try {\n                eval(\"var public = 1;\");\n                return false;\n            } catch (e) {\n                return e instanceof SyntaxError;\n            }\n        } ()));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-23-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-23-s.js",
+    "description": "Strict Mode - Function code of a FunctionExpression contains Use Strict Directive which appears in the middle of the block",
+    "test": "assertTrue((function () {\n            eval(\"var public = 1;\");\n            return public === 1;\n            \"use strict\";\n        } ()));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-24-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-24-s.js",
+    "description": "Strict Mode - Function code of a FunctionExpression contains Use Strict Directive which appears at the end of the block",
+    "test": "assertTrue((function () {\n            eval(\"var public = 1;\");\n            \"use strict\";\n            return public === 1;\n        } ()));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-25-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-25-s.js",
+    "description": "Strict Mode - Function code of Accessor PropertyAssignment contains Use Strict Directive which appears at the start of the block(getter)",
+    "test": "assertTrue((function testcase() {\n        try {\n            var obj = {};\n            Object.defineProperty(obj, \"accProperty\", {\n                get: function () {\n                    \"use strict\";\n                    eval(\"var public = 1;\");\n                    return 11;\n                }\n            });\n            var temp = obj.accProperty === 11;\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-26-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-26-s.js",
+    "description": "Strict Mode - Function code of Accessor PropertyAssignment contains Use Strict Directive which appears at the start of the block(setter)",
+    "test": "assertTrue((function testcase() {\n        try {\n            var obj = {};\n            var data = \"data\";\n            Object.defineProperty(obj, \"accProperty\", {\n                set: function (value) {\n                    \"use strict\";\n                    eval(\"var public = 1;\");\n                    data = value;\n                }\n            });\n\n            obj.accProperty = \"overrideData\";\n\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && data === \"data\";\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-27-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-27-s.js",
+    "description": "Strict Mode - Function code of Accessor PropertyAssignment contains Use Strict Directive which appears in the middle of the block(getter)",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n        Object.defineProperty(obj, \"accProperty\", {\n            get: function () {\n                eval(\"public = 1;\");\n                \"use strict\";\n                return 11;\n            }\n        });\n        return obj.accProperty === 11 && public === 1;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-28-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-28-s.js",
+    "description": "Strict Mode - Function code of Accessor PropertyAssignment contains Use Strict Directive which appears at the end of the block(setter)",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n        var data;\n        \n        Object.defineProperty(obj, \"accProperty\", {\n            set: function (value) {\n                var _10_1_1_28_s = {a:1, a:2};\n                data = value;\n                \"use strict\";\n            }\n        });\n        obj.accProperty = \"overrideData\";\n        return data===\"overrideData\";\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-29-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-29-s.js",
+    "description": "Strict Mode - The built-in Function constructor is contained in use strict code",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var funObj = new Function(\"a\", \"eval('public = 1;');\");\n        funObj();\n        return true;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-3-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-3-s.js",
+    "description": "Strict Mode - Use Strict Directive Prologue is '' use strict';' which the first character is space",
+    "test": "assertTrue((function testcase() {\n        \" use strict\";\n        var public = 1;\n\n        return public === 1;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-30-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-30-s.js",
+    "description": "Strict Mode - Function code of built-in Function constructor contains Use Strict Directive which appears at the start of the block",
+    "test": "assertTrue((function testcase() {\n        try {\n            var funObj = new Function(\"a\", \"'use strict'; eval('public = 1;');\");\n            funObj();\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-31-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-31-s.js",
+    "description": "Strict Mode - Function code of built-in Function constructor contains Use Strict Directive which appears in the middle of the block",
+    "test": "assertTrue((function testcase() {\n        var funObj = new Function(\"a\", \"eval('public = 1;'); 'use strict'; anotherVariable = 2;\");\n        funObj();\n        return public === 1 && anotherVariable === 2;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-32-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-32-s.js",
+    "description": "Strict Mode - Function code of built-in Function constructor contains Use Strict Directive which appears at the end of the block",
+    "test": "assertTrue((function testcase() {\n        var funObj = new Function(\"a\", \"eval('public = 1;'); anotherVariable = 2; 'use strict';\");\n        funObj();\n        return public === 1 && anotherVariable === 2;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-4-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-4-s.js",
+    "description": "Strict Mode - Use Strict Directive Prologue is ''use strict ';' which the last character is space",
+    "test": "assertTrue((function testcase() {\n        \"use strict \";\n        var public = 1;\n        return public === 1;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-5-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-5-s.js",
+    "description": "Strict Mode - Use Strict Directive Prologue is ''use strict';' which appears at the beginning of the block",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        try {\n            eval(\"var public = 1;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-6-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-6-s.js",
+    "description": "Strict Mode - Use Strict Directive Prologue is ''use strict';' which appears in the middle of the block",
+    "test": "assertTrue((function testcase() {\n        var interface = 2;\n        \"use strict\";\n        var public = 1;\n        return public === 1 && interface === 2;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-7-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-7-s.js",
+    "description": "Strict Mode - Use Strict Directive Prologue is ''use strict';' which appears at the end of the block",
+    "test": "assertTrue((function testcase() {\n        var public = 1;\n        return public === 1;\n        \"use strict\";\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-8-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-8-s.js",
+    "description": "Strict Mode - Use Strict Directive Prologue is ''use strict';' which appears twice in the directive prologue",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        \"use strict\";\n        try {\n            eval(\"var public = 1;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.1.1-9-s",
+    "path": "TestCases/chapter10/10.1/10.1.1/10.1.1-9-s.js",
+    "description": "Strict Mode - Use Strict Directive Prologue is ''Use strict';' in which the first character is uppercase",
+    "test": "assertTrue((function testcase() {\n        \"Use strict\";\n        var public = 1;\n        return public === 1;\n    }).call(this));\n",
+    "strict_only": ""
+   }
+  ]
+ }
+}

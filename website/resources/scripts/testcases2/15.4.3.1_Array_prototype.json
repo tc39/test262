@@ -1,0 +1,42 @@
+{
+ "testCollection": {
+  "name": "15.4.3.1_Array_prototype",
+  "numTests": 5,
+  "tests": [
+   {
+    "section": "15.4.3.1, 15.2.4.5",
+    "description": "Checking use hasOwnProperty",
+    "test": "//CHECK#1\nif (Array.hasOwnProperty('prototype') !== true) {\n\t$FAIL('#1: Array.hasOwnProperty(\\'prototype\\') === true. Actual: ' + (Array.hasOwnProperty('prototype')));\n}\n\n",
+    "id": "S15.4.3.1_A1"
+   },
+   {
+    "section": "15.4.3.1",
+    "description": "Checking if enumerating the Array.prototype property fails",
+    "test": "//CHECK#1\nif (Array.propertyIsEnumerable('prototype') !== false) {\n\t$ERROR('#1: Array.propertyIsEnumerable(\\'prototype\\') === false. Actual: ' + (Array.propertyIsEnumerable('prototype')));\n}\n\n//CHECK#2\nvar result = true;\nfor (var p in Array){\n\tif (p === \"prototype\") {\n\t  result = false;\n\t}  \n}\n\nif (result !== true) {\n\t$ERROR('#2: result = true; for (p in Array) { if (p === \"prototype\") result = false; }  result === true;');\n}\n\n",
+    "id": "S15.4.3.1_A2"
+   },
+   {
+    "section": "15.4.3.1, 15.2.4.5",
+    "description": "Checking if deleting the Array.prototype property fails",
+    "strict_mode_negative": "",
+    "test": "//CHECK#1\nif (Array.hasOwnProperty('prototype') !== true) {\n\t$FAIL('#1: Array.hasOwnProperty(\\'prototype\\') === true. Actual: ' + (Array.hasOwnProperty('prototype')));\n}\n\ndelete Array.prototype;\n\n//CHECK#2\nif (Array.hasOwnProperty('prototype') !== true) {\n\t$ERROR('#2: delete Array.prototype; Array.hasOwnProperty(\\'prototype\\') === true. Actual: ' + (Array.hasOwnProperty('prototype')));\n}\n\n//CHECK#3\nif (Array.prototype === undefined) {\n  $ERROR('#3: delete Array.prototype; Array.prototype !== undefined');\n}\n\n\n",
+    "id": "S15.4.3.1_A3",
+    "strict_only": ""
+   },
+   {
+    "section": "15.4.3.1",
+    "description": "Checking if varying the Array.prototype property fails",
+    "strict_mode_negative": "",
+    "test": "//CHECK#1\nvar x = Array.prototype;\nArray.prototype = 1;\nif (Array.prototype !== x) {\n\t$ERROR('#1: x = Array.prototype; Array.prototype = 1; Array.prototype === x. Actual: ' + (Array.prototype));\n}\n\n",
+    "id": "S15.4.3.1_A4",
+    "strict_only": ""
+   },
+   {
+    "section": "15.4.3.1",
+    "description": "Array.prototype.length === 0",
+    "test": "//CHECK#1\nif (Array.prototype.length !== 0) {\n  $ERROR('#1.1: Array.prototype.length === 0. Actual: ' + (Array.prototype.length));\n} else {\n  if (1 / Array.prototype.length !== Number.POSITIVE_INFINITY) {\n    $ERROR('#1.2: Array.prototype.length === +0. Actual: -' + (Array.prototype.length));\n  }\n} \n\n",
+    "id": "S15.4.3.1_A5"
+   }
+  ]
+ }
+}

@@ -1,0 +1,354 @@
+{
+ "testCollection": {
+  "name": "15.1.2.2_parseInt",
+  "numTests": 57,
+  "tests": [
+   {
+    "section": "15.1.2.2, 9.8",
+    "description": "Checking for boolean primitive",
+    "test": "//CHECK#1\nif (!(isNaN(parseInt(true)) && isNaN(parseInt(\"NaN\")))) {\n  $ERROR('#1: parseInt(true) === Not-a-Number; parseInt(\"NaN\") === Not-a-Number. Actual: ' + (parseInt(\"NaN\")));\n}\n\n//CHECK#2\nif (String(parseInt(false)) !== \"NaN\") {\n  $ERROR('#2: String(parseInt(false)) === \"NaN\". Actual: ' + (String(parseInt(false))));\n}\n",
+    "id": "S15.1.2.2_A1_T1"
+   },
+   {
+    "section": "15.1.2.2, 9.8",
+    "description": "Checking for number primitive",
+    "test": "//CHECK#1\nif (parseInt(-1) !== parseInt(\"-1\")) {\n  $ERROR('#1: parseInt(-1) === parseInt(\"-1\"). Actual: ' + (parseInt(-1)));\n}\n\n//CHECK#2\nif (String(parseInt(Infinity)) !== \"NaN\") {\n  $ERROR('#2: String(parseInt(Infinity)) === \"NaN\". Actual: ' + (String(parseInt(Infinity))));\n}\n\n//CHECK#3\nif (String(parseInt(NaN)) !== \"NaN\") {\n  $ERROR('#3: String(parseInt(NaN)) === \"NaN\". Actual: ' + (String(parseInt(NaN))));\n}\n\n//CHECK#4\nif (parseInt(-0) !== 0) {\n  $ERROR('#4: parseInt(-0) === 0. Actual: ' + (parseInt(-0)));\n} else {\n  if (1 / parseInt(-0) !== Number.POSITIVE_INFINITY) {\n    $ERROR('#4: parseInt(-0) === +0. Actual: ' + (parseInt(-0)));\n  }\n}    \n",
+    "id": "S15.1.2.2_A1_T2"
+   },
+   {
+    "section": "15.1.2.2, 9.8",
+    "description": "Checking for undefined and null",
+    "test": "//CHECK#1\nif (!(isNaN(parseInt(undefined)) && isNaN(parseInt(\"NaN\")))) {\n  $ERROR('#1: parseInt(undefined) === Not-a-Number; parseInt(\"NaN\") === Not-a-Number. Actual: ' + (parseInt(\"NaN\")));\n}\n\n//CHECK#2\nif (!(isNaN(parseInt(null)) && isNaN(parseInt(\"NaN\")))) {\n  $ERROR('#2: parseInt(null) === Not-a-Number; parseInt(\"NaN\") === Not-a-Number. Actual: ' + (parseInt(\"NaN\")));\n}\n\n//CHECK#3\nif (String(parseInt(undefined)) !== \"NaN\") {\n  $ERROR('#3: String(parseInt(undefined)) === \"NaN\". Actual: ' + (String(parseInt(undefined))));\n}\n\n//CHECK#4\nif (String(parseInt(null)) !== \"NaN\") {\n  $ERROR('#4: String(parseInt(null)) === \"NaN\". Actual: ' + (String(parseInt(null))));\n}\n",
+    "id": "S15.1.2.2_A1_T3"
+   },
+   {
+    "section": "15.1.2.2, 9.8",
+    "description": "Checking for Boolean object",
+    "test": "//CHECK#1\nif (!(isNaN(parseInt(new Boolean(true))) && isNaN(parseInt(\"NaN\")))) {\n  $ERROR('#1: parseInt(new Boolean(true)) === Not-a-Number; parseInt(\"NaN\") === Not-a-Number. Actual: ' + (parseInt(\"NaN\")));\n}\n\n//CHECK#2\nif (String(parseInt(new Boolean(false))) !== \"NaN\") {\n  $ERROR('#2: String(parseInt(new Boolean(false))) === \"NaN\". Actual: ' + (String(parseInt(new Boolean(false)))));\n}\n",
+    "id": "S15.1.2.2_A1_T4"
+   },
+   {
+    "section": "15.1.2.2, 9.8",
+    "description": "Checking for Number object",
+    "test": "//CHECK#1\nif (parseInt(new Number(-1)) !== parseInt(\"-1\")) {\n  $ERROR('#1: parseInt(new Number(-1)) === parseInt(\"-1\"). Actual: ' + (parseInt(new Number(-1))));\n}\n\n//CHECK#2\nif (String(parseInt(new Number(Infinity))) !== \"NaN\") {\n  $ERROR('#2: String(parseInt(new Number(Infinity))) === \"NaN\". Actual: ' + (String(parseInt(new Number(Infinity)))));\n}\n\n//CHECK#3\nif (String(parseInt(new Number(NaN))) !== \"NaN\") {\n  $ERROR('#3: String(parseInt(new Number(NaN))) === \"NaN\". Actual: ' + (String(parseInt(new Number(NaN)))));\n}\n",
+    "id": "S15.1.2.2_A1_T5"
+   },
+   {
+    "section": "15.1.2.2, 9.8",
+    "description": "Checking for String object",
+    "test": "//CHECK#1\nif (parseInt(new String(\"-1\")) !== parseInt(\"-1\")) {\n  $ERROR('#1: parseInt(new String(\"-1\")) === parseInt(\"-1\"). Actual: ' + (parseInt(new String(\"-1\"))));\n}\n\n//CHECK#2\nif (String(parseInt(new String(\"Infinity\"))) !== \"NaN\") {\n  $ERROR('#2: String(parseInt(new String(\"Infinity\"))) === \"NaN\". Actual: ' + (String(parseInt(new String(\"Infinity\")))));\n}\n\n//CHECK#3\nif (String(parseInt(new String(\"NaN\"))) !== \"NaN\") {\n  $ERROR('#3: String(parseInt(new String(\"NaN\"))) === \"NaN\". Actual: ' + (String(parseInt(new String(\"NaN\")))));\n}\n\n//CHECK#4\nif (String(parseInt(new String(\"false\"))) !== \"NaN\") {\n  $ERROR('#4: String(parseInt(new String(\"false\"))) === \"NaN\". Actual: ' + (String(parseInt(new String(\"false\")))));\n}\n",
+    "id": "S15.1.2.2_A1_T6"
+   },
+   {
+    "section": "15.1.2.2, 9.8, 8.6.2.6",
+    "description": "If Type(value) is Object, evaluate ToPrimitive(value, String)",
+    "test": "//CHECK#1\nvar object = {valueOf: function() {return 1}};\nif (isNaN(parseInt(object)) !== true) {\n  $ERROR('#1: var object = {valueOf: function() {return 1}}; parseInt(object) === Not-a-Number. Actual: ' + (parseInt(object)));\n}\n\n//CHECK#2\nvar object = {valueOf: function() {return 1}, toString: function() {return 0}};\nif (parseInt(object) !== 0) {\n  $ERROR('#2: var object = {valueOf: function() {return 1}, toString: function() {return 0}}; parseInt(object) === 0. Actual: ' + (parseInt(object)));\n} \n\n//CHECK#3\nvar object = {valueOf: function() {return 1}, toString: function() {return {}}};\nif (parseInt(object) !== 1) {\n  $ERROR('#3: var object = {valueOf: function() {return 1}, toString: function() {return {}}}; parseInt(object) === 1. Actual: ' + (parseInt(object)));\n}\n\n//CHECK#4\ntry {\n  var object = {valueOf: function() {throw \"error\"}, toString: function() {return 1}};\n  if (parseInt(object) !== 1) {\n    $ERROR('#4.1: var object = {valueOf: function() {throw \"error\"}, toString: function() {return 1}}; parseInt(object) === 1. Actual: ' + (parseInt(object)));\n  }\n}\ncatch (e) {\n  if (e === \"error\") {\n    $ERROR('#4.2: var object = {valueOf: function() {throw \"error\"}, toString: function() {return 1}}; parseInt(object) not throw \"error\"');\n  } else {\n    $ERROR('#4.3: var object = {valueOf: function() {throw \"error\"}, toString: function() {return 1}}; parseInt(object) not throw Error. Actual: ' + (e));\n  }\n}\n\n//CHECK#5\nvar object = {toString: function() {return 1}};\nif (parseInt(object) !== 1) {\n  $ERROR('#5: var object = {toString: function() {return 1}}; parseInt(object) === 1. Actual: ' + (parseInt(object)));\n}\n\n//CHECK#6\nvar object = {valueOf: function() {return {}}, toString: function() {return 1}}\nif (parseInt(object) !== 1) {\n  $ERROR('#6: var object = {valueOf: function() {return {}}, toString: function() {return 1}}; parseInt(object) === 1. Actual: ' + (parseInt(object)));\n}\n\n//CHECK#7\ntry {\n  var object = {valueOf: function() {return 1}, toString: function() {throw \"error\"}};\n  parseInt(object);\n  $ERROR('#7.1: var object = {valueOf: function() {return 1}, toString: function() {throw \"error\"}}; parseInt(object) throw \"error\". Actual: ' + (parseInt(object)));\n}  \ncatch (e) {\n  if (e !== \"error\") {\n    $ERROR('#7.2: var object = {valueOf: function() {return 1}, toString: function() {throw \"error\"}}; parseInt(object) throw \"error\". Actual: ' + (e));\n  } \n}\n\n//CHECK#8\ntry {\n  var object = {valueOf: function() {return {}}, toString: function() {return {}}};\n  parseInt(object);\n  $ERROR('#8.1: var object = {valueOf: function() {return {}}, toString: function() {return {}}}; parseInt(object) throw TypeError. Actual: ' + (parseInt(object)));\n}  \ncatch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#8.2: var object = {valueOf: function() {return {}}, toString: function() {return {}}}; parseInt(object) throw TypeError. Actual: ' + (e));\n  } \n}\n",
+    "id": "S15.1.2.2_A1_T7"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "StrWhiteSpaceChar :: TAB (U+0009)",
+    "test": "//CHECK#1\nif (parseInt(\"\\u00091\") !== parseInt(\"1\")) {\n  $ERROR('#1: parseInt(\"\\\\u00091\") === parseInt(\"1\"). Actual: ' + (parseInt(\"\\u00091\")));\n}\n\n//CHECK#2\nif (parseInt(\"\\u0009\\u0009-1\") !== parseInt(\"-1\")) {\n  $ERROR('#2: parseInt(\"\\\\u0009\\\\u0009-1\") === parseInt(\"-1\"). Actual: ' + (parseInt(\"\\u0009\\u0009-1\")));\n}\n\n//CHECK#3\nif (parseInt(\"\t1\") !== parseInt(\"1\")) {\n  $ERROR('#3: parseInt(\"\t1\") === parseInt(\"1\"). Actual: ' + (parseInt(\"\t1\")));\n}\n\n//CHECK#4\nif (parseInt(\"\t\t\t1\") !== parseInt(\"1\")) {\n  $ERROR('#4: parseInt(\"\t\t\t1\") === parseInt(\"1\"). Actual: ' + (parseInt(\"\t\t\t1\")));\n}\n\n//CHECK#5\nif (parseInt(\"\t\t\t\\u0009\t\t\t\\u0009-1\") !== parseInt(\"-1\")) {\n  $ERROR('#5: parseInt(\"\t\t\t\\\\u0009\t\t\t\\\\u0009-1\") === parseInt(\"-1\"). Actual: ' + (parseInt(\"\t\t\t\\u0009\t\t\t\\u0009-1\")));\n}\n\n//CHECK#6\nif (isNaN(parseInt(\"\\u0009\")) !== true) {\n  $ERROR('#6: parseInt(\"\\\\u0009\") === Not-a-Number. Actual: ' + (parseInt(\"\\u0009\")));\n}\n",
+    "id": "S15.1.2.2_A2_T1"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "StrWhiteSpaceChar :: USP",
+    "test": "//CHECK#\nvar count = 0;\nvar errorCount = 0;\nvar uspU = [\"\\u1680\", \"\\u180E\", \"\\u2000\", \"\\u2001\", \"\\u2002\", \"\\u2003\", \"\\u2004\", \"\\u2005\", \"\\u2006\", \"\\u2007\", \"\\u2008\", \"\\u2009\", \"\\u200A\", \"\\u202F\", \"\\u205F\", \"\\u3000\"];\nvar uspS = [\"1680\", \"180E\", \"2000\", \"2001\", \"2002\", \"2003\", \"2004\", \"2005\", \"2006\", \"2007\", \"2008\", \"2009\", \"200A\", \"202F\", \"205F\", \"3000\"];\n\nfor (var index = 0; index < uspU.length; index++) {\n  var result = true;\n  if (parseInt(uspU[index] + \"1\") !== parseInt(\"1\")) {\n    $ERROR('#1.' +  uspS[index] + ' ');\n    result = false;\n  }\n   if (parseInt(uspU[index] + uspU[index] + uspU[index] + \"1\") !== parseInt(\"1\")) {\n    $ERROR('#2.' +  uspS[index] + ' ');\n    result = false;\n  }\n  if (isNaN(parseInt(uspU[index])) !== true) {\n    $ERROR('#3.' +  uspS[index] + ' ');\n    result = false;\n  }\n  if (result !== true) {\n      errorCount++;\n  }\n  count++;\n}\n\nif (errorCount > 0) {  \n  $ERROR('Total error: ' + errorCount + ' bad Unicode character in ' + count);\n}\n",
+    "id": "S15.1.2.2_A2_T10"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "StrWhiteSpaceChar :: SP (U+0020)",
+    "test": "//CHECK#1\nif (parseInt(\"\\u00201\") !== parseInt(\"1\")) {\n  $ERROR('#1: parseInt(\"\\\\u00201\") === parseInt(\"1\"). Actual: ' + (parseInt(\"\\u00201\")));\n}\n\n//CHECK#2\nif (parseInt(\"\\u0020\\u0020-1\") !== parseInt(\"-1\")) {\n  $ERROR('#2: parseInt(\"\\\\u0020\\\\u0020-1\") === parseInt(\"-1\"). Actual: ' + (parseInt(\"\\u0020\\u0020-1\")));\n}\n\n//CHECK#3\nif (parseInt(\" 1\") !== parseInt(\"1\")) {\n  $ERROR('#3: parseInt(\" 1\") === parseInt(\"1\"). Actual: ' + (parseInt(\" 1\")));\n}\n\n//CHECK#4\nif (parseInt(\"       1\") !== parseInt(\"1\")) {\n  $ERROR('#4: parseInt(\"       1\") === parseInt(\"1\"). Actual: ' + (parseInt(\"       1\")));\n}\n\n//CHECK#5\nif (parseInt(\"       \\u0020       \\u0020-1\") !== parseInt(\"-1\")) {\n  $ERROR('#5: parseInt(\"       \\\\u0020       \\\\u0020-1\") === parseInt(\"-1\"). Actual: ' + (parseInt(\"       \\u0020       \\u0020-1\")));\n}\n\n//CHECK#6\nif (isNaN(parseInt(\"\\u0020\")) !== true) {\n  $ERROR('#6: parseInt(\"\\\\u0020\") === Not-a-Number. Actual: ' + (parseInt(\"\\u0020\")));\n}\n",
+    "id": "S15.1.2.2_A2_T2"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "StrWhiteSpaceChar :: NBSB (U+00A0)",
+    "test": "//CHECK#1\nif (parseInt(\"\\u00A01\") !== parseInt(\"1\")) {\n  $ERROR('#1: parseInt(\"\\\\u00A01\") === parseInt(\"1\"). Actual: ' + (parseInt(\"\\u00A01\")));\n}\n\n//CHECK#2\nif (parseInt(\"\\u00A0\\u00A0-1\") !== parseInt(\"-1\")) {\n  $ERROR('#2: parseInt(\"\\\\u00A0\\\\u00A0-1\") === parseInt(\"-1\"). Actual: ' + (parseInt(\"\\u00A0\\u00A0-1\")));\n}\n\n//CHECK#3\nif (isNaN(parseInt(\"\\u00A0\")) !== true) {\n  $ERROR('#3: parseInt(\"\\\\u00A0\") === Not-a-Number. Actual: ' + (parseInt(\"\\u00A0\")));\n}\n",
+    "id": "S15.1.2.2_A2_T3"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "StrWhiteSpaceChar :: FF (U+000C)",
+    "test": "//CHECK#1\nif (parseInt(\"\\u000C1\") !== parseInt(\"1\")) {\n  $ERROR('#1: parseInt(\"\\\\u000C1\") === parseInt(\"1\"). Actual: ' + (parseInt(\"\\u000C1\")));\n}\n\n//CHECK#2\nif (parseInt(\"\\u000C\\u000C-1\") !== parseInt(\"-1\")) {\n  $ERROR('#2: parseInt(\"\\\\u000C\\\\u000C-1\") === parseInt(\"-1\"). Actual: ' + (parseInt(\"\\u000C\\u000C-1\")));\n}\n\n//CHECK#3\nif (isNaN(parseInt(\"\\u000C\")) !== true) {\n  $ERROR('#3: parseInt(\"\\\\u000C\") === Not-a-Number. Actual: ' + (parseInt(\"\\u000C\")));\n}\n",
+    "id": "S15.1.2.2_A2_T4"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "StrWhiteSpaceChar :: VT (U+000B)",
+    "test": "//CHECK#1\nif (parseInt(\"\\u000B1\") !== parseInt(\"1\")) {\n  $ERROR('#1: parseInt(\"\\\\u000B1\") === parseInt(\"1\"). Actual: ' + (parseInt(\"\\u000B1\")));\n}\n\n//CHECK#2\nif (parseInt(\"\\u000B\\u000B-1\") !== parseInt(\"-1\")) {\n  $ERROR('#2: parseInt(\"\\\\u000B\\\\u000B-1\") === parseInt(\"-1\"). Actual: ' + (parseInt(\"\\u000B\\u000B-1\")));\n}\n\n//CHECK#3\nif (isNaN(parseInt(\"\\u000B\")) !== true) {\n  $ERROR('#3: parseInt(\"\\\\u000B\") === Not-a-Number. Actual: ' + (parseInt(\"\\u000B\")));\n}\n",
+    "id": "S15.1.2.2_A2_T5"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "StrWhiteSpaceChar :: CR (U+000D)",
+    "test": "//CHECK#1\nif (parseInt(\"\\u000D1\") !== parseInt(\"1\")) {\n  $ERROR('#1: parseInt(\"\\\\u000D1\") === parseInt(\"1\"). Actual: ' + (parseInt(\"\\u000D1\")));\n}\n\n//CHECK#2\nif (parseInt(\"\\u000D\\u000D-1\") !== parseInt(\"-1\")) {\n  $ERROR('#2: parseInt(\"\\\\u000D\\\\u000D-1\") === parseInt(\"-1\"). Actual: ' + (parseInt(\"\\u000D\\u000D-1\")));\n}\n\n//CHECK#3\nif (isNaN(parseInt(\"\\u000D\")) !== true) {\n  $ERROR('#3: parseInt(\"\\\\u000D\") === Not-a-Number. Actual: ' + (parseInt(\"\\u000D\")));\n}\n",
+    "id": "S15.1.2.2_A2_T6"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "StrWhiteSpaceChar :: LF (U+000A)",
+    "test": "//CHECK#1\nif (parseInt(\"\\u000A1\") !== parseInt(\"1\")) {\n  $ERROR('#1: parseInt(\"\\\\u000A1\") === parseInt(\"1\"). Actual: ' + (parseInt(\"\\u000A1\")));\n}\n\n//CHECK#2\nif (parseInt(\"\\u000A\\u000A-1\") !== parseInt(\"-1\")) {\n  $ERROR('#2: parseInt(\"\\\\u000A\\\\u000A-1\") === parseInt(\"-1\"). Actual: ' + (parseInt(\"\\u000A\\u000A-1\")));\n}\n\n//CHECK#3\nif (isNaN(parseInt(\"\\u000A\")) !== true) {\n  $ERROR('#3: parseInt(\"\\\\u000A\") === Not-a-Number. Actual: ' + (parseInt(\"\\u000A\")));\n}\n",
+    "id": "S15.1.2.2_A2_T7"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "StrWhiteSpaceChar :: LS (U+2028)",
+    "test": "//CHECK#1\nif (parseInt(\"\\u20281\") !== parseInt(\"1\")) {\n  $ERROR('#1: parseInt(\"\\\\u20281\") === parseInt(\"1\"). Actual: ' + (parseInt(\"\\u20281\")));\n}\n\n//CHECK#2\nif (parseInt(\"\\u2028\\u2028-1\") !== parseInt(\"-1\")) {\n  $ERROR('#2: parseInt(\"\\\\u2028\\\\u2028-1\") === parseInt(\"-1\"). Actual: ' + (parseInt(\"\\u2028\\u2028-1\")));\n}\n\n//CHECK#3\nif (isNaN(parseInt(\"\\u2028\")) !== true) {\n  $ERROR('#3: parseInt(\"\\\\u2028\") === Not-a-Number. Actual: ' + (parseInt(\"\\u2028\")));\n}\n",
+    "id": "S15.1.2.2_A2_T8"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "StrWhiteSpaceChar :: PS (U+2029)",
+    "test": "//CHECK#1\nif (parseInt(\"\\u20291\") !== parseInt(\"1\")) {\n  $ERROR('#1: parseInt(\"\\\\u20291\") === parseInt(\"1\"). Actual: ' + (parseInt(\"\\u20291\")));\n}\n\n//CHECK#2\nif (parseInt(\"\\u2029\\u2029-1\") !== parseInt(\"-1\")) {\n  $ERROR('#2: parseInt(\"\\\\u2029\\\\u2029-1\") === parseInt(\"-1\"). Actual: ' + (parseInt(\"\\u2029\\u2029-1\")));\n}\n\n//CHECK#3\nif (isNaN(parseInt(\"\\u2029\")) !== true) {\n  $ERROR('#3: parseInt(\"\\\\u2029\") === Not-a-Number. Actual: ' + (parseInt(\"\\u2029\")));\n}\n",
+    "id": "S15.1.2.2_A2_T9"
+   },
+   {
+    "section": "15.1.2.2, 9.3",
+    "description": "Checking for boolean primitive",
+    "test": "//CHECK#1\nif (parseInt(\"11\", false) !== parseInt(\"11\", 10)) {\n  $ERROR('#1: parseInt(\"11\", false) === parseInt(\"11\", 10). Actual: ' + (parseInt(\"11\", false)));\n}\n\n//CHECK#2\nif (isNaN(parseInt(\"11\", true)) !== true) {\n  $ERROR('#2: parseInt(\"11\", true) === Not-a-Number. Actual: ' + (parseInt(\"11\", true)));\n}\n",
+    "id": "S15.1.2.2_A3.1_T1"
+   },
+   {
+    "section": "15.1.2.2, 9.3",
+    "description": "Checking for string primitive",
+    "test": "//CHECK#1\nif (parseInt(\"11\", \"2\") !== parseInt(\"11\", 2)) {\n  $ERROR('#1: parseInt(\"11\", \"2\") === parseInt(\"11\", 2). Actual: ' + (parseInt(\"11\", \"2\")));\n}\n\n//CHECK#2\nif (parseInt(\"11\", \"0\") !== parseInt(\"11\", 10)) {\n  $ERROR('#2: parseInt(\"11\", \"0\") === parseInt(\"11\", 10). Actual: ' + (parseInt(\"11\", \"0\")));\n}\n\n//CHECK#3\nif (parseInt(\"11\", \"\") !== parseInt(\"11\", 10)) {\n  $ERROR('#3: parseInt(\"11\", \"\") === parseInt(\"11\", 10). Actual: ' + (parseInt(\"11\", \"\")));\n}\n\n",
+    "id": "S15.1.2.2_A3.1_T2"
+   },
+   {
+    "section": "15.1.2.2, 9.3",
+    "description": "Checking for undefined and null",
+    "test": "//CHECK#1\nif (parseInt(\"11\", undefined) !== parseInt(\"11\", 10)) {\n  $ERROR('#1: parseInt(\"11\", undefined) === parseInt(\"11\", 10). Actual: ' + (parseInt(\"11\", undefined)));\n}\n\n//CHECK#2\nif (parseInt(\"11\", null) !== parseInt(\"11\", 10)) {\n  $ERROR('#2: parseInt(\"11\", null) === parseInt(\"11\", 10). Actual: ' + (parseInt(\"11\", null)));\n}\n",
+    "id": "S15.1.2.2_A3.1_T3"
+   },
+   {
+    "section": "15.1.2.2, 9.3",
+    "description": "Checking for Boolean object",
+    "test": "//CHECK#1\nif (parseInt(\"11\", new Boolean(false)) !== parseInt(\"11\", false)) {\n  $ERROR('#1: parseInt(\"11\", new Boolean(false)) === parseInt(\"11\", false). Actual: ' + (parseInt(\"11\", new Boolean(false))));\n}\n\n//CHECK#2\nif (isNaN(parseInt(\"11\", new Boolean(true))) !== true) {\n  $ERROR('#2: parseInt(\"11\", new Boolean(true)) === Not-a-Number. Actual: ' + (parseInt(\"11\", new Boolean(true))));\n}\n",
+    "id": "S15.1.2.2_A3.1_T4"
+   },
+   {
+    "section": "15.1.2.2, 9.3",
+    "description": "Checking for Number object",
+    "test": "//CHECK#1\nif (parseInt(\"11\", new Number(2)) !== parseInt(\"11\", 2)) {\n  $ERROR('#1: parseInt(\"11\", new Number(2)) === parseInt(\"11\", 2). Actual: ' + (parseInt(\"11\", new Number(2))));\n}\n\n//CHECK#2\nif (parseInt(\"11\", new Number(Infinity)) !== parseInt(\"11\", Infinity)) {\n  $ERROR('#2: parseInt(\"11\", new Number(Infinity)) === parseInt(\"11\", Infinity). Actual: ' + (parseInt(\"11\", new Number(Infinity))));\n}\n",
+    "id": "S15.1.2.2_A3.1_T5"
+   },
+   {
+    "section": "15.1.2.2, 9.3",
+    "description": "Checking for String object",
+    "test": "//CHECK#1\nif (parseInt(\"11\", new String(\"2\")) !== parseInt(\"11\", 2)) {\n  $ERROR('#1: parseInt(\"11\", new String(\"2\")) === parseInt(\"11\", 2). Actual: ' + (parseInt(\"11\", new String(\"2\"))));\n}\n\n//CHECK#2\nif (parseInt(\"11\", new String(\"Infinity\")) !== parseInt(\"11\", Infinity)) {\n  $ERROR('#2: parseInt(\"11\", new String(\"Infinity\")) === parseInt(\"11\", Infinity). Actual: ' + (parseInt(\"11\", new String(\"Infinity\"))));\n}\n",
+    "id": "S15.1.2.2_A3.1_T6"
+   },
+   {
+    "section": "15.1.2.2, 9.3, 8.6.2.6",
+    "description": "If Type(value) is Object, evaluate ToPrimitive(value, Number)",
+    "test": "//CHECK#1\nvar object = {valueOf: function() {return 2}};\nif (parseInt(\"11\", object) !== parseInt(\"11\", 2)) {\n  $ERROR('#1: var object = {valueOf: function() {return 2}}; parseInt(\"11\", object) === parseInt(\"11\", 2). Actual: ' + (parseInt(\"11\", object)));\n}\n\n//CHECK#2\nvar object = {valueOf: function() {return 2}, toString: function() {return 1}};\nif (parseInt(\"11\", object) !== parseInt(\"11\", 2)) {\n  $ERROR('#2: var object = {valueOf: function() {return 2}, toString: function() {return 1}}; parseInt(\"11\", object) === parseInt(\"11\", 2). Actual: ' + (parseInt(\"11\", object)));\n} \n\n//CHECK#3\nvar object = {valueOf: function() {return 2}, toString: function() {return {}}};\nif (parseInt(\"11\", object) !== parseInt(\"11\", 2)) {\n  $ERROR('#3: var object = {valueOf: function() {return 2}, toString: function() {return {}}}; parseInt(\"11\", object) === parseInt(\"11\", 2). Actual: ' + (parseInt(\"11\", object)));\n}\n\n//CHECK#4\ntry {\n  var object = {valueOf: function() {return 2}, toString: function() {throw \"error\"}};\n  if (parseInt(\"11\", object) !== parseInt(\"11\", 2)) {\n    $ERROR('#4.1: var object = {valueOf: function() {return 2}, toString: function() {throw \"error\"}}; parseInt(\"11\", object) === parseInt(\"11\", 2). Actual: ' + (parseInt(\"11\", object)));\n  }\n}\ncatch (e) {\n  if (e === \"error\") {\n    $ERROR('#4.2: var object = {valueOf: function() {return 2}, toString: function() {throw \"error\"}}; parseInt(\"11\", object) not throw \"error\"');\n  } else {\n    $ERROR('#4.3: var object = {valueOf: function() {return 2}, toString: function() {throw \"error\"}}; parseInt(\"11\", object) not throw Error. Actual: ' + (e));\n  }\n}\n\n//CHECK#5\nvar object = {toString: function() {return 2}};\nif (parseInt(\"11\", object) !== parseInt(\"11\", 2)) {\n  $ERROR('#5: var object = {toString: function() {return 2}}; parseInt(\"11\", object) === parseInt(\"11\", 2). Actual: ' + (parseInt(\"11\", object)));\n}\n\n//CHECK#6\nvar object = {valueOf: function() {return {}}, toString: function() {return 2}}\nif (parseInt(\"11\", object) !== parseInt(\"11\", 2)) {\n  $ERROR('#6: var object = {valueOf: function() {return {}}, toString: function() {return 2}}; parseInt(\"11\", object) === parseInt(\"11\", 2). Actual: ' + (parseInt(\"11\", object)));\n}\n\n//CHECK#7\ntry {\n  var object = {valueOf: function() {throw \"error\"}, toString: function() {return 2}};\n  parseInt(\"11\", object);\n  $ERROR('#7.1: var object = {valueOf: function() {throw \"error\"}, toString: function() {return 2}}; parseInt(\"11\", object) throw \"error\". Actual: ' + (parseInt(\"11\", object)));\n}  \ncatch (e) {\n  if (e !== \"error\") {\n    $ERROR('#7.2: var object = {valueOf: function() {throw \"error\"}, toString: function() {return 2}}; parseInt(\"11\", object) throw \"error\". Actual: ' + (e));\n  } \n}\n\n//CHECK#8\ntry {\n  var object = {valueOf: function() {return {}}, toString: function() {return {}}};\n  parseInt(\"11\", object);\n  $ERROR('#8.1: var object = {valueOf: function() {return {}}, toString: function() {return {}}}; parseInt(\"11\", object) throw TypeError. Actual: ' + (parseInt(\"11\", object)));\n}  \ncatch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#8.2: var object = {valueOf: function() {return {}}, toString: function() {return {}}}; parseInt(\"11\", object) throw TypeError. Actual: ' + (e));\n  } \n}\n",
+    "id": "S15.1.2.2_A3.1_T7"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "If radix is NaN, +0, -0, +Infinity, -Infinity, return radix = +0",
+    "test": "//CHECK#1\nif (parseInt(\"11\", NaN) !== parseInt(\"11\", 10)) {\n  $ERROR('#1: parseInt(\"11\", NaN) === parseInt(\"11\", 10). Actual: ' + (parseInt(\"11\", NaN)));\n}\n\n//CHECK#2\nif (parseInt(\"11\", +0) !== parseInt(\"11\", 10)) {\n  $ERROR('#2: parseInt(\"11\", +0) === parseInt(\"11\", 10). Actual: ' + (parseInt(\"11\", +0)));\n}\n\n//CHECK#3\nif (parseInt(\"11\", -0) !== parseInt(\"11\", 10)) {\n  $ERROR('#3: parseInt(\"11\", -0) === parseInt(\"11\", 10). Actual: ' + (parseInt(\"11\", -0)));\n}\n\n//CHECK#4\nif (parseInt(\"11\", Number.POSITIVE_INFINITY) !== parseInt(\"11\", 10)) {\n  $ERROR('#4: parseInt(\"11\", Number.POSITIVE_INFINITY) === parseInt(\"11\", 10). Actual: ' + (parseInt(\"11\", Number.POSITIVE_INFINITY)));\n}\n\n//CHECK#5\nif (parseInt(\"11\", Number.NEGATIVE_INFINITY) !== parseInt(\"11\", 10)) {\n  $ERROR('#5: parseInt(\"11\", Number.NEGATIVE_INFINITY) === parseInt(\"11\", 10). Actual: ' + (parseInt(\"11\", Number.NEGATIVE_INFINITY)));\n}\n",
+    "id": "S15.1.2.2_A3.2_T1"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "ToInt32 use floor",
+    "test": "//CHECK#1\nif (parseInt(\"11\", 2.1) !== parseInt(\"11\", 2)) {\n  $ERROR('#1: parseInt(\"11\", 2.1) === parseInt(\"11\", 2). Actual: ' + (parseInt(\"11\", 2.1)));\n}\n\n//CHECK#2\nif (parseInt(\"11\", 2.5) !== parseInt(\"11\", 2)) {\n  $ERROR('#2: parseInt(\"11\", 2.5) === parseInt(\"11\", 2). Actual: ' + (parseInt(\"11\", 2.5)));\n}\n\n//CHECK#3\nif (parseInt(\"11\", 2.9) !== parseInt(\"11\", 2)) {\n  $ERROR('#3: parseInt(\"11\", 2.9) === parseInt(\"11\", 2). Actual: ' + (parseInt(\"11\", 2.9)));\n}\n\n//CHECK#4\nif (parseInt(\"11\", 2.000000000001) !== parseInt(\"11\", 2)) {\n  $ERROR('#4: parseInt(\"11\", 2.000000000001) === parseInt(\"11\", 2). Actual: ' + (parseInt(\"11\", 2.000000000001)));\n}\n\n//CHECK#5\nif (parseInt(\"11\", 2.999999999999) !== parseInt(\"11\", 2)) {\n  $ERROR('#5: parseInt(\"11\", 2.999999999999) === parseInt(\"11\", 2). Actual: ' + (parseInt(\"11\", 2.999999999999)));\n}\n",
+    "id": "S15.1.2.2_A3.2_T2"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "ToInt32 use modulo",
+    "test": "//CHECK#1\nif (parseInt(\"11\", 4294967298) !== parseInt(\"11\", 2)) {\n  $ERROR('#1: parseInt(\"11\", 4294967298) === parseInt(\"11\", 2). Actual: ' + (parseInt(\"11\", 4294967298)));\n}\n\n//CHECK#2\nif (parseInt(\"11\", 4294967296) !== parseInt(\"11\", 10)) {\n  $ERROR('#2: parseInt(\"11\", 4294967296) === parseInt(\"11\", 10). Actual: ' + (parseInt(\"11\", 4294967296)));\n}\n\n//CHECK#3\nif (isNaN(parseInt(\"11\", -2147483650)) !== true) {\n  $ERROR('#3: parseInt(\"11\", 2147483650) === Not-a-Number. Actual: ' + (parseInt(\"11\", 2147483650)));\n}\n\n//CHECK#4\nif (parseInt(\"11\", -4294967294) !== parseInt(\"11\", 2)) {\n  $ERROR('#4: parseInt(\"11\", -4294967294) === parseInt(\"11\", 2). Actual: ' + (parseInt(\"11\", -4294967294)));\n}\n",
+    "id": "S15.1.2.2_A3.2_T3"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "R = 0",
+    "test": "//CHECK#0\nif (parseInt(\"0\", 0) !== parseInt(\"0\", 10)) {\n  $ERROR('#0: parseInt(\"0\", 0) === parseInt(\"0\", 10). Actual: ' + (parseInt(\"0\", 0)));\n}  \n\n//CHECK#1\nif (parseInt(\"1\", 0) !== parseInt(\"1\", 10)) {\n  $ERROR('#1: parseInt(\"1\", 0) === parseInt(\"01\", 10). Actual: ' + (parseInt(\"1\", 0)));\n}  \n\n//CHECK#2\nif (parseInt(\"2\", 0) !== parseInt(\"2\", 10)) {\n  $ERROR('#2: parseInt(\"2\", 0) === parseInt(\"2\", 10). Actual: ' + (parseInt(\"2\", 0)));\n}  \n\n//CHECK#3\nif (parseInt(\"3\", 0) !== parseInt(\"3\", 10)) {\n  $ERROR('#3: parseInt(\"3\", 0) === parseInt(\"3\", 10). Actual: ' + (parseInt(\"3\", 0)));\n} \n\n//CHECK#4\nif (parseInt(\"4\", 0) !== parseInt(\"4\", 10)) {\n  $ERROR('#4: parseInt(\"4\", 0) === parseInt(4\", 10). Actual: ' + (parseInt(\"4\", 0)));\n} \n\n//CHECK#5\nif (parseInt(\"5\", 0) !== parseInt(\"5\", 10)) {\n  $ERROR('#5: parseInt(\"5\", 0) === parseInt(\"5\", 10). Actual: ' + (parseInt(\"5\", 0)));\n}  \n\n//CHECK#6\nif (parseInt(\"6\", 0) !== parseInt(\"6\", 10)) {\n  $ERROR('#6: parseInt(\"6\", 0) === parseInt(\"6\", 10). Actual: ' + (parseInt(\"6\", 0)));\n}  \n\n//CHECK#7\nif (parseInt(\"7\", 0) !== parseInt(\"7\", 10)) {\n  $ERROR('#7: parseInt(\"7\", 0) === parseInt(\"7\", 10). Actual: ' + (parseInt(\"7\", 0)));\n}  \n\n//CHECK#8\nif (parseInt(\"8\", 0) !== parseInt(\"8\", 10)) {\n  $ERROR('#8: parseInt(\"8\", 0) === parseInt(\"8\", 10). Actual: ' + (parseInt(\"8\", 0)));\n}  \n\n//CHECK#9\nif (parseInt(\"9\", 0) !== parseInt(\"9\", 10)) {\n  $ERROR('#9: parseInt(\"9\", 0) === parseInt(\"9\", 10). Actual: ' + (parseInt(\"9\", 0)));\n}  \n\n//CHECK#10\nif (parseInt(\"10\", 0) !== parseInt(\"10\", 10)) {\n  $ERROR('#10: parseInt(\"10\", 0) === parseInt(\"10\", 10). Actual: ' + (parseInt(\"10\", 0)));\n}  \n\n//CHECK#11\nif (parseInt(\"11\", 0) !== parseInt(\"11\", 10)) {\n  $ERROR('#11: parseInt(\"11\", 0) === parseInt(\"11\", 10). Actual: ' + (parseInt(\"11\", 0)));\n}  \n\n//CHECK#12\nif (parseInt(\"9999\", 0) !== parseInt(\"9999\", 10)) {\n  $ERROR('#12: parseInt(\"9999\", 0) === parseInt(\"9999\", 10). Actual: ' + (parseInt(\"9999\", 0)));\n}  \n",
+    "id": "S15.1.2.2_A4.1_T1"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "R = undefined",
+    "test": "//CHECK#0\nif (parseInt(\"0\") !== parseInt(\"0\", 10)) {\n  $ERROR('#0: parseInt(\"0\") === parseInt(\"0\", 10). Actual: ' + (parseInt(\"0\")));\n}  \n\n//CHECK#1\nif (parseInt(\"1\") !== parseInt(\"1\", 10)) {\n  $ERROR('#1: parseInt(\"1\") === parseInt(\"01\", 10). Actual: ' + (parseInt(\"1\")));\n}  \n\n//CHECK#2\nif (parseInt(\"2\") !== parseInt(\"2\", 10)) {\n  $ERROR('#2: parseInt(\"2\") === parseInt(\"2\", 10). Actual: ' + (parseInt(\"2\")));\n}  \n\n//CHECK#3\nif (parseInt(\"3\") !== parseInt(\"3\", 10)) {\n  $ERROR('#3: parseInt(\"3\") === parseInt(\"3\", 10). Actual: ' + (parseInt(\"3\")));\n} \n\n//CHECK#4\nif (parseInt(\"4\") !== parseInt(\"4\", 10)) {\n  $ERROR('#4: parseInt(\"4\") === parseInt(4\", 10). Actual: ' + (parseInt(\"4\")));\n} \n\n//CHECK#5\nif (parseInt(\"5\") !== parseInt(\"5\", 10)) {\n  $ERROR('#5: parseInt(\"5\") === parseInt(\"5\", 10). Actual: ' + (parseInt(\"5\")));\n}  \n\n//CHECK#6\nif (parseInt(\"6\") !== parseInt(\"6\", 10)) {\n  $ERROR('#6: parseInt(\"6\") === parseInt(\"6\", 10). Actual: ' + (parseInt(\"6\")));\n}  \n\n//CHECK#7\nif (parseInt(\"7\") !== parseInt(\"7\", 10)) {\n  $ERROR('#7: parseInt(\"7\") === parseInt(\"7\", 10). Actual: ' + (parseInt(\"7\")));\n}  \n\n//CHECK#8\nif (parseInt(\"8\") !== parseInt(\"8\", 10)) {\n  $ERROR('#8: parseInt(\"8\") === parseInt(\"8\", 10). Actual: ' + (parseInt(\"8\")));\n}  \n\n//CHECK#9\nif (parseInt(\"9\") !== parseInt(\"9\", 10)) {\n  $ERROR('#9: parseInt(\"9\") === parseInt(\"9\", 10). Actual: ' + (parseInt(\"9\")));\n}  \n\n//CHECK#10\nif (parseInt(\"10\") !== parseInt(\"10\", 10)) {\n  $ERROR('#10: parseInt(\"10\") === parseInt(\"10\", 10). Actual: ' + (parseInt(\"10\")));\n}  \n\n//CHECK#11\nif (parseInt(\"11\") !== parseInt(\"11\", 10)) {\n  $ERROR('#11: parseInt(\"11\") === parseInt(\"11\", 10). Actual: ' + (parseInt(\"11\")));\n}  \n\n//CHECK#12\nif (parseInt(\"9999\") !== parseInt(\"9999\", 10)) {\n  $ERROR('#12: parseInt(\"9999\") === parseInt(\"9999\", 10). Actual: ' + (parseInt(\"9999\")));\n}  \n",
+    "id": "S15.1.2.2_A4.1_T2"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "R = 1",
+    "test": "//CHECK#0\nif (isNaN(parseInt(\"0\", 1)) !== true) {\n  $ERROR('#0: parseInt(\"0\", 1) === Not-a-Number. Actual: ' + (parseInt(\"0\", 1)));\n}  \n\n//CHECK#1\nif (isNaN(parseInt(\"1\", 1)) !== true) {\n  $ERROR('#1: parseInt(\"1\", 1) === Not-a-Number. Actual: ' + (parseInt(\"1\", 1)));\n}  \n\n//CHECK#2\nif (isNaN(parseInt(\"2\", 1)) !== true) {\n  $ERROR('#2: parseInt(\"2\", 1) === Not-a-Number. Actual: ' + (parseInt(\"2\", 1)));\n}  \n\n//CHECK#3\nif (isNaN(parseInt(\"3\", 1)) !== true) {\n  $ERROR('#3: parseInt(\"3\", 1) === Not-a-Number. Actual: ' + (parseInt(\"3\", 1)));\n} \n\n//CHECK#4\nif (isNaN(parseInt(\"4\", 1)) !== true) {\n  $ERROR('#4: parseInt(\"4\", 1) === Not-a-Number. Actual: ' + (parseInt(\"4\", 1)));\n} \n\n//CHECK#5\nif (isNaN(parseInt(\"5\", 1)) !== true) {\n  $ERROR('#5: parseInt(\"5\", 1) === Not-a-Number. Actual: ' + (parseInt(\"5\", 1)));\n}  \n\n//CHECK#6\nif (isNaN(parseInt(\"6\", 1)) !== true) {\n  $ERROR('#6: parseInt(\"6\", 1) === Not-a-Number. Actual: ' + (parseInt(\"6\", 1)));\n}  \n\n//CHECK#7\nif (isNaN(parseInt(\"7\", 1)) !== true) {\n  $ERROR('#7: parseInt(\"7\", 1) === Not-a-Number. Actual: ' + (parseInt(\"7\", 1)));\n}  \n\n//CHECK#8\nif (isNaN(parseInt(\"8\", 1)) !== true) {\n  $ERROR('#8: parseInt(\"8\", 1) === Not-a-Number. Actual: ' + (parseInt(\"8\", 1)));\n}  \n\n//CHECK#9\nif (isNaN(parseInt(\"9\", 1)) !== true) {\n  $ERROR('#9: parseInt(\"9\", 1) === Not-a-Number. Actual: ' + (parseInt(\"9\", 1)));\n}  \n\n//CHECK#10\nif (isNaN(parseInt(\"10\", 1)) !== true) {\n  $ERROR('#10: parseInt(\"10\", 1) === Not-a-Number. Actual: ' + (parseInt(\"10\", 1)));\n}  \n\n//CHECK#11\nif (isNaN(parseInt(\"11\", 1)) !== true) {\n  $ERROR('#11: parseInt(\"11\", 1) === Not-a-Number. Actual: ' + (parseInt(\"11\", 1)));\n}  \n",
+    "id": "S15.1.2.2_A4.2_T1"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "R = 37",
+    "test": "//CHECK#0\nif (isNaN(parseInt(\"0\", 37)) !== true) {\n  $ERROR('#0: parseInt(\"0\", 37) === Not-a-Number. Actual: ' + (parseInt(\"0\", 37)));\n}  \n\n//CHECK#1\nif (isNaN(parseInt(\"1\", 37)) !== true) {\n  $ERROR('#1: parseInt(\"1\", 37) === Not-a-Number. Actual: ' + (parseInt(\"1\", 37)));\n}  \n\n//CHECK#2\nif (isNaN(parseInt(\"2\", 37)) !== true) {\n  $ERROR('#2: parseInt(\"2\", 37) === Not-a-Number. Actual: ' + (parseInt(\"2\", 37)));\n}  \n\n//CHECK#3\nif (isNaN(parseInt(\"3\", 37)) !== true) {\n  $ERROR('#3: parseInt(\"3\", 37) === Not-a-Number. Actual: ' + (parseInt(\"3\", 37)));\n} \n\n//CHECK#4\nif (isNaN(parseInt(\"4\", 37)) !== true) {\n  $ERROR('#4: parseInt(\"4\", 37) === Not-a-Number. Actual: ' + (parseInt(\"4\", 37)));\n} \n\n//CHECK#5\nif (isNaN(parseInt(\"5\", 37)) !== true) {\n  $ERROR('#5: parseInt(\"5\", 37) === Not-a-Number. Actual: ' + (parseInt(\"5\", 37)));\n}  \n\n//CHECK#6\nif (isNaN(parseInt(\"6\", 37)) !== true) {\n  $ERROR('#6: parseInt(\"6\", 37) === Not-a-Number. Actual: ' + (parseInt(\"6\", 37)));\n}  \n\n//CHECK#7\nif (isNaN(parseInt(\"7\", 37)) !== true) {\n  $ERROR('#7: parseInt(\"7\", 37) === Not-a-Number. Actual: ' + (parseInt(\"7\", 37)));\n}  \n\n//CHECK#8\nif (isNaN(parseInt(\"8\", 37)) !== true) {\n  $ERROR('#8: parseInt(\"8\", 37) === Not-a-Number. Actual: ' + (parseInt(\"8\", 37)));\n}  \n\n//CHECK#9\nif (isNaN(parseInt(\"9\", 37)) !== true) {\n  $ERROR('#9: parseInt(\"9\", 37) === Not-a-Number. Actual: ' + (parseInt(\"9\", 37)));\n}  \n\n//CHECK#10\nif (isNaN(parseInt(\"10\", 37)) !== true) {\n  $ERROR('#10: parseInt(\"10\", 37) === Not-a-Number. Actual: ' + (parseInt(\"10\", 37)));\n}  \n\n//CHECK#11\nif (isNaN(parseInt(\"11\", 37)) !== true) {\n  $ERROR('#11: parseInt(\"11\", 37) === Not-a-Number. Actual: ' + (parseInt(\"11\", 37)));\n}  \n",
+    "id": "S15.1.2.2_A4.2_T2"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "Complex test",
+    "test": "//CHECK#\nvar pow = 2;\nfor (var i = 1; i < 32; i++) {   \n  if (pow > 36) {  \n    var res = true;  \n    if (isNaN(parseInt(1, pow)) !== true) {\n      $ERROR('#1.' + i + ': If R < 2 or R > 36, then return NaN');\n    }\n    if (isNaN(parseInt(1, -pow)) !== true) {\n      $ERROR('#2.' + i + ': If R < 2 or R > 36, then return NaN');\n    }\n  }\n  pow = pow * 2;                        \n}    \n",
+    "id": "S15.1.2.2_A4.2_T3"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "Either R = 8, or R = 10",
+    "test": "//CHECK#\nvar res8 = 1;\nvar res10 = 1;\nif (parseInt(\"08\") !== parseInt(\"08\", 8)) {\n  res8 = 0;\n}\nif (parseInt(\"08\") !== parseInt(\"08\", 10)) {\n  res10 = 0;\n}\nif (parseInt(\"09\") !== parseInt(\"09\", 8)) {\n  res8 = 0;\n}\nif (parseInt(\"09\") !== parseInt(\"09\", 10)) {\n  res10 = 0;\n}\nif (parseInt(\"010\") !== parseInt(\"010\", 8)) {\n  res8 = 0;\n}\nif (parseInt(\"010\") !== parseInt(\"010\", 10)) {\n  res10 = 0;\n}\nif (res8 + res10 !== 1) {\n  $ERROR('#1: If the length of S is at least 1 and the first character of S is 0, then at the implementation\\'s discretion either let R = 8 or R = 10');\n}    \n",
+    "id": "S15.1.2.2_A5.1_T1"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": ": 0x",
+    "test": "//CHECK#0\nif (parseInt(\"0x0\", 0)  !== parseInt(\"0\", 16)) {\n  $ERROR('#0: parseInt(\"0x0\", 0) === parseInt(\"0\", 16). Actual: ' + (parseInt(\"0x0\", 0)));\n}\n\n//CHECK#1\nif (parseInt(\"0x1\", 0)  !== parseInt(\"1\", 16)) {\n  $ERROR('#1: parseInt(\"0x1\", 0) === parseInt(\"1\", 16). Actual: ' + (parseInt(\"0x1\", 0)));\n}\n\n//CHECK#2\nif (parseInt(\"0x2\", 0)  !== parseInt(\"2\", 16)) {\n  $ERROR('#2: parseInt(\"0x2\", 0) === parseInt(\"2\", 16). Actual: ' + (parseInt(\"0x2\", 0)));\n}\n\n//CHECK#3\nif (parseInt(\"0x3\", 0)  !== parseInt(\"3\", 16)) {\n  $ERROR('#3: parseInt(\"0x3\", 0) === parseInt(\"3\", 16). Actual: ' + (parseInt(\"0x3\", 0)));\n}\n\n//CHECK#4\nif (parseInt(\"0x4\", 0)  !== parseInt(\"4\", 16)) {\n  $ERROR('#4: parseInt(\"0x4\", 0) === parseInt(\"4\", 16). Actual: ' + (parseInt(\"0x4\", 0)));\n}\n\n//CHECK#5\nif (parseInt(\"0x5\", 0)  !== parseInt(\"5\", 16)) {\n  $ERROR('#5: parseInt(\"0x5\", 0) === parseInt(\"5\", 16). Actual: ' + (parseInt(\"0x5\", 0)));\n}\n\n//CHECK#6\nif (parseInt(\"0x6\", 0)  !== parseInt(\"6\", 16)) {\n  $ERROR('#6: parseInt(\"0x6\", 0) === parseInt(\"6\", 16). Actual: ' + (parseInt(\"0x6\", 0)));\n}\n\n//CHECK#7\nif (parseInt(\"0x7\", 0)  !== parseInt(\"7\", 16)) {\n  $ERROR('#7: parseInt(\"0x7\", 0) === parseInt(\"7\", 16). Actual: ' + (parseInt(\"0x7\", 0)));\n}\n\n//CHECK#8\nif (parseInt(\"0x8\", 0)  !== parseInt(\"8\", 16)) {\n  $ERROR('#8: parseInt(\"0x8\", 0) === parseInt(\"8\", 16). Actual: ' + (parseInt(\"0x8\", 0)));\n}\n\n//CHECK#9\nif (parseInt(\"0x9\", 0)  !== parseInt(\"9\", 16)) {\n  $ERROR('#9: parseInt(\"0x9\", 0) === parseInt(\"9\", 16). Actual: ' + (parseInt(\"0x9\", 0)));\n}\n\n//CHECK#A\nif (parseInt(\"0xA\", 0)  !== parseInt(\"A\", 16)) {\n  $ERROR('#A: parseInt(\"0xA\", 0) === parseInt(\"A\", 16). Actual: ' + (parseInt(\"0xA\", 0)));\n}\n\n//CHECK#B\nif (parseInt(\"0xB\", 0)  !== parseInt(\"B\", 16)) {\n  $ERROR('#B: parseInt(\"0xB\", 0) === parseInt(\"B\", 16). Actual: ' + (parseInt(\"0xB\", 0)));\n}\n\n//CHECK#C\nif (parseInt(\"0xC\", 0)  !== parseInt(\"C\", 16)) {\n  $ERROR('#C: parseInt(\"0xC\", 0) === parseInt(\"C\", 16). Actual: ' + (parseInt(\"0xC\", 0)));\n}\n\n//CHECK#D\nif (parseInt(\"0xD\", 0)  !== parseInt(\"D\", 16)) {\n  $ERROR('#D: parseInt(\"0xD\", 0) === parseInt(\"D\", 16). Actual: ' + (parseInt(\"0xD\", 0)));\n}\n\n//CHECK#E\nif (parseInt(\"0xE\", 0)  !== parseInt(\"E\", 16)) {\n  $ERROR('#E: parseInt(\"0xE\", 0) === parseInt(\"E\", 16). Actual: ' + (parseInt(\"0xE\", 0)));\n}\n\n//CHECK#F\nif (parseInt(\"0xF\", 0)  !== parseInt(\"F\", 16)) {\n  $ERROR('#F: parseInt(\"0xF\", 0) === parseInt(\"F\", 16). Actual: ' + (parseInt(\"0xF\", 0)));\n}\n\n//CHECK#E\nif (parseInt(\"0xE\", 0)  !== parseInt(\"E\", 16)) {\n  $ERROR('#E: parseInt(\"0xE\", 0) === parseInt(\"E\", 16). Actual: ' + (parseInt(\"0xE\", 0)));\n}\n\n//CHECK#ABCDEF\nif (parseInt(\"0xABCDEF\", 0)  !== parseInt(\"ABCDEF\", 16)) {\n  $ERROR('#ABCDEF: parseInt(\"0xABCDEF\", 0) === parseInt(\"ABCDEF\", 16). Actual: ' + (parseInt(\"0xABCDEF\", 0)));\n}     \n",
+    "id": "S15.1.2.2_A5.2_T1"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": ": 0X",
+    "test": "//CHECK#0\nif (parseInt(\"0X0\", 0)  !== parseInt(\"0\", 16)) {\n  $ERROR('#0: parseInt(\"0X0\", 0) === parseInt(\"0\", 16). Actual: ' + (parseInt(\"0X0\", 0)));\n}\n\n//CHECK#1\nif (parseInt(\"0X1\")  !== parseInt(\"1\", 16)) {\n  $ERROR('#1: parseInt(\"0X1\") === parseInt(\"1\", 16). Actual: ' + (parseInt(\"0X1\")));\n}\n\n//CHECK#2\nif (parseInt(\"0X2\")  !== parseInt(\"2\", 16)) {\n  $ERROR('#2: parseInt(\"0X2\") === parseInt(\"2\", 16). Actual: ' + (parseInt(\"0X2\")));\n}\n\n//CHECK#3\nif (parseInt(\"0X3\")  !== parseInt(\"3\", 16)) {\n  $ERROR('#3: parseInt(\"0X3\") === parseInt(\"3\", 16). Actual: ' + (parseInt(\"0X3\")));\n}\n\n//CHECK#4\nif (parseInt(\"0X4\")  !== parseInt(\"4\", 16)) {\n  $ERROR('#4: parseInt(\"0X4\") === parseInt(\"4\", 16). Actual: ' + (parseInt(\"0X4\")));\n}\n\n//CHECK#5\nif (parseInt(\"0X5\")  !== parseInt(\"5\", 16)) {\n  $ERROR('#5: parseInt(\"0X5\") === parseInt(\"5\", 16). Actual: ' + (parseInt(\"0X5\")));\n}\n\n//CHECK#6\nif (parseInt(\"0X6\")  !== parseInt(\"6\", 16)) {\n  $ERROR('#6: parseInt(\"0X6\") === parseInt(\"6\", 16). Actual: ' + (parseInt(\"0X6\")));\n}\n\n//CHECK#7\nif (parseInt(\"0X7\")  !== parseInt(\"7\", 16)) {\n  $ERROR('#7: parseInt(\"0X7\") === parseInt(\"7\", 16). Actual: ' + (parseInt(\"0X7\")));\n}\n\n//CHECK#8\nif (parseInt(\"0X8\")  !== parseInt(\"8\", 16)) {\n  $ERROR('#8: parseInt(\"0X8\") === parseInt(\"8\", 16). Actual: ' + (parseInt(\"0X8\")));\n}\n\n//CHECK#9\nif (parseInt(\"0X9\")  !== parseInt(\"9\", 16)) {\n  $ERROR('#9: parseInt(\"0X9\") === parseInt(\"9\", 16). Actual: ' + (parseInt(\"0X9\")));\n}\n\n//CHECK#A\nif (parseInt(\"0XA\")  !== parseInt(\"A\", 16)) {\n  $ERROR('#A: parseInt(\"0XA\") === parseInt(\"A\", 16). Actual: ' + (parseInt(\"0XA\")));\n}\n\n//CHECK#B\nif (parseInt(\"0XB\")  !== parseInt(\"B\", 16)) {\n  $ERROR('#B: parseInt(\"0XB\") === parseInt(\"B\", 16). Actual: ' + (parseInt(\"0XB\")));\n}\n\n//CHECK#C\nif (parseInt(\"0XC\")  !== parseInt(\"C\", 16)) {\n  $ERROR('#C: parseInt(\"0XC\") === parseInt(\"C\", 16). Actual: ' + (parseInt(\"0XC\")));\n}\n\n//CHECK#D\nif (parseInt(\"0XD\")  !== parseInt(\"D\", 16)) {\n  $ERROR('#D: parseInt(\"0XD\") === parseInt(\"D\", 16). Actual: ' + (parseInt(\"0XD\")));\n}\n\n//CHECK#E\nif (parseInt(\"0XE\")  !== parseInt(\"E\", 16)) {\n  $ERROR('#E: parseInt(\"0XE\") === parseInt(\"E\", 16). Actual: ' + (parseInt(\"0XE\")));\n}\n\n//CHECK#F\nif (parseInt(\"0XF\")  !== parseInt(\"F\", 16)) {\n  $ERROR('#F: parseInt(\"0XF\") === parseInt(\"F\", 16). Actual: ' + (parseInt(\"0XF\")));\n}\n\n//CHECK#E\nif (parseInt(\"0XE\")  !== parseInt(\"E\", 16)) {\n  $ERROR('#E: parseInt(\"0XE\") === parseInt(\"E\", 16). Actual: ' + (parseInt(\"0XE\")));\n}\n\n//CHECK#ABCDEF\nif (parseInt(\"0XABCDEF\")  !== parseInt(\"ABCDEF\", 16)) {\n  $ERROR('#ABCDEF: parseInt(\"0XABCDEF\") === parseInt(\"ABCDEF\", 16). Actual: ' + (parseInt(\"0XABCDEF\")));\n}     \n",
+    "id": "S15.1.2.2_A5.2_T2"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "Complex test. R in [2, 36]",
+    "test": "//CHECK#\nfor (var i = 2; i <= 36; i++) {\n  if (parseInt(\"10$1\", i) !== i) {\n    $ERROR('#' + i +': i = ' + i + 'parseInt(\"10$1\", i) === i. Actual: ' + (parseInt(\"10$1\", i)));\n  }\n}    \n",
+    "id": "S15.1.2.2_A6.1_T1"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "Complex test. Radix-R notation in [0..9, A-Z]",
+    "test": "//CHECK#\nvar R_digit = [\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\", \"I\", \"J\", \"K\", \"L\", \"M\", \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\"];\nfor (var i = 2; i <= 36; i++) {\n  if (parseInt(R_digit[i - 2] + \"$\", i) !== i - 1) {\n    $ERROR('#' + i + ': ');\n  }\n}    \n",
+    "id": "S15.1.2.2_A6.1_T2"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "Complex test. Radix-R notation in [0..9, a-z]",
+    "test": "//CHECK#\nvar R_digit = [\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\", \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\"];\nfor (var i = 2; i <= 36; i++) {\n  if (parseInt(R_digit[i - 2] + \"$\", i) !== i - 1) {\n    $ERROR('#' + i + ': ');\n  }\n}    \n",
+    "id": "S15.1.2.2_A6.1_T3"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "Complex test. Radix-R notation in [0..9, A-Z]",
+    "test": "//CHECK#\nvar R_digit = [\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\", \"I\", \"J\", \"K\", \"L\", \"M\", \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\"];\nfor (var i = 2; i <= 35; i++) {\n  if (parseInt(R_digit[i - 2] + R_digit[i - 1], i) !== i - 1) {\n    $ERROR('#' + i + ': ');\n  }\n}    \n",
+    "id": "S15.1.2.2_A6.1_T4"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "Complex test. Radix-R notation in [0..9, a-z]",
+    "test": "//CHECK#\nvar R_digit = [\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\", \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\"];\nfor (var i = 2; i <= 35; i++) {\n  if (parseInt(R_digit[i - 2] + R_digit[i - 1], i) !== i - 1) {\n    $ERROR('#' + i + ': ');\n  }\n}    \n",
+    "id": "S15.1.2.2_A6.1_T5"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "Complex test. Radix-R notation in [0..9]",
+    "test": "//CHECK#2\nif (parseInt(\"0123456789\", 2) !== 1) {\n  $ERROR('#2: parseInt(\"0123456789\", 2) === 1. Actual: ' + (parseInt(\"0123456789\", 2)));\n}  \n\n//CHECK#3\nif (parseInt(\"01234567890\", 3) !== 5) {\n  $ERROR('#3: parseInt(\"01234567890\", 3) === 5. Actual: ' + (parseInt(\"01234567890\", 3)));\n} \n\n//CHECK#4\nif (parseInt(\"01234567890\", 4) !== 27) {\n  $ERROR('#4: parseInt(\"01234567890\", 4) === 27. Actual: ' + (parseInt(\"01234567890\", 4)));\n} \n\n//CHECK#5\nif (parseInt(\"01234567890\", 5) !== 194) {\n  $ERROR('#5: parseInt(\"01234567890\", 5) === 194. Actual: ' + (parseInt(\"01234567890\", 5)));\n}  \n\n//CHECK#6\nif (parseInt(\"01234567890\", 6) !== 1865) {\n  $ERROR('#6: parseInt(\"01234567890\", 6) === 1865. Actual: ' + (parseInt(\"01234567890\", 6)));\n}  \n\n//CHECK#7\nif (parseInt(\"01234567890\", 7) !== 22875) {\n  $ERROR('#7: parseInt(\"01234567890\", 7) === 22875. Actual: ' + (parseInt(\"01234567890\", 7)));\n}  \n\n//CHECK#8\nif (parseInt(\"01234567890\", 8) !== 342391) {\n  $ERROR('#8: parseInt(\"01234567890\", 8) === 342391. Actual: ' + (parseInt(\"01234567890\", 8)));\n}  \n\n//CHECK#9\nif (parseInt(\"01234567890\", 9) !== 6053444) {\n  $ERROR('#9: parseInt(\"01234567890\", 9) === 6053444. Actual: ' + (parseInt(\"01234567890\", 9)));\n}  \n\n//CHECK#10\nif (parseInt(\"01234567890\", 10) !== Number(1234567890)) {\n  $ERROR('#10: parseInt(\"01234567890\", 10) === Number(1234567890). Actual: ' + (parseInt(\"01234567890\", 10)));\n}  \n",
+    "id": "S15.1.2.2_A6.1_T6"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "Complex test. R in [2, 36]",
+    "test": "//CHECK#\nfor (var i = 2; i <= 36; i++) {\n  if (isNaN(parseInt(\"$string\", i)) !== true) {\n    $ERROR('#' + i + ': parseInt(\"$string\", i) === Not-a-Number. Actual: ' + (parseInt(\"$string\", i)));\n  }\n}    \n",
+    "id": "S15.1.2.2_A7.1_T1"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "x is not a radix-R digit",
+    "test": "//CHECK#1\nif (isNaN(parseInt(\"$0x\")) !== true) {\n  $ERROR('#1: parseInt(\"$0x\") === Not-a-Number. Actual: ' + (parseInt(\"$0x\")));\n}\n\n//CHECK#2\nif (isNaN(parseInt(\"$0X\")) !== true) {\n  $ERROR('#2: parseInt(\"$0X\") === Not-a-Number. Actual: ' + (parseInt(\"$0X\")));\n}\n\n//CHECK#3\nif (isNaN(parseInt(\"$$$\")) !== true) {\n  $ERROR('#3: parseInt(\"$$$\") === Not-a-Number. Actual: ' + (parseInt(\"$$$\")));\n}\n\n//CHECK#4\nif (isNaN(parseInt(\"\")) !== true) {\n  $ERROR('#4: parseInt(\"\") === Not-a-Number. Actual: ' + (parseInt(\"\")));\n}\n\n//CHECK#5\nif (isNaN(parseInt(\" \")) !== true) {\n  $ERROR('#5: parseInt(\" \") === Not-a-Number. Actual: ' + (parseInt(\" \")));\n}          \n",
+    "id": "S15.1.2.2_A7.1_T2"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "Complex test. Check algorithm",
+    "test": "//CHECK#\nvar R_digit1 = [\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\", \"I\", \"J\", \"K\", \"L\", \"M\", \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\"];\nvar R_digit2 = [\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\", \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\"];\nfor (var i = 2; i <= 36; i++) {\n  for (var j = 0; j < 10; j++) {\n    var str = \"\";  \n    var num = 0;\n    var pow = 1;\n    var k0 = Math.max(2, i - j);\n    for (var k = k0; k <= i; k++) { \n      if (k % 2 === 0) {  \n        str = str + R_digit1[k - 2];\n      } else {  \n        str = str + R_digit2[k - 2];\n      }\n      num = num + (i + (k0 - k) - 1) * pow;\n      pow = pow * i;   \n    }   \n    if (parseInt(str, i) !== num) {\n      $ERROR('#' + i + '.' + j + ' : ');      \n    }\n  }  \n}  \n",
+    "id": "S15.1.2.2_A7.2_T1"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "Checking algorithm for R = 2",
+    "test": "//CHECK#1\nif (parseInt(\"1\", 2)  !== 1) {\n  $ERROR('#1: parseInt(\"1\", 2) === 1. Actual: ' + (parseInt(\"1\", 2)));\n}\n\n//CHECK#2\nif (parseInt(\"11\", 2)  !== 3) {\n  $ERROR('#2: parseInt(\"11\", 2) === 3. Actual: ' + (parseInt(\"11\", 2)));\n}\n\n//CHECK#3\nif (parseInt(\"111\", 2)  !== 7) {\n  $ERROR('#3: parseInt(\"111\", 2) === 7. Actual: ' + (parseInt(\"111\", 2)));\n}\n\n//CHECK#4\nif (parseInt(\"1111\", 2)  !== 15) {\n  $ERROR('#4: parseInt(\"1111\", 2) === 15. Actual: ' + (parseInt(\"1111\", 2)));\n}\n\n//CHECK#5\nif (parseInt(\"11111\", 2)  !== 31) {\n  $ERROR('#5: parseInt(\"11111\", 2) === 31. Actual: ' + (parseInt(\"11111\", 2)));\n}\n\n//CHECK#6\nif (parseInt(\"111111\", 2)  !== 63) {\n  $ERROR('#6: parseInt(\"111111\", 2) === 63. Actual: ' + (parseInt(\"111111\", 2)));\n}\n\n//CHECK#7\nif (parseInt(\"1111111\", 2)  !== 127) {\n  $ERROR('#7: parseInt(\"1111111\", 2) === 127. Actual: ' + (parseInt(\"1111111\", 2)));\n}\n\n//CHECK#8\nif (parseInt(\"11111111\", 2)  !== 255) {\n  $ERROR('#8: parseInt(\"11111111\", 2) === 255. Actual: ' + (parseInt(\"11111111\", 2)));\n}\n\n//CHECK#9\nif (parseInt(\"111111111\", 2)  !== 511) {\n  $ERROR('#9: parseInt(\"111111111\", 2) === 511. Actual: ' + (parseInt(\"111111111\", 2)));\n}\n\n//CHECK#10\nif (parseInt(\"1111111111\", 2)  !== 1023) {\n  $ERROR('#10: parseInt(\"1111111111\", 2) === 1023. Actual: ' + (parseInt(\"1111111111\", 2)));\n}\n\n//CHECK#11\nif (parseInt(\"11111111111\", 2)  !== 2047) {\n  $ERROR('#11: parseInt(\"11111111111\", 2) === 2047. Actual: ' + (parseInt(\"11111111111\", 2)));\n}\n\n//CHECK#12\nif (parseInt(\"111111111111\", 2)  !== 4095) {\n  $ERROR('#12: parseInt(\"111111111111\", 2) === 4095. Actual: ' + (parseInt(\"111111111111\", 2)));\n}\n\n//CHECK#13\nif (parseInt(\"1111111111111\", 2)  !== 8191) {\n  $ERROR('#13: parseInt(\"1111111111111\", 2) === 8191. Actual: ' + (parseInt(\"1111111111111\", 2)));\n}\n\n//CHECK#14\nif (parseInt(\"11111111111111\", 2)  !== 16383) {\n  $ERROR('#14: parseInt(\"11111111111111\", 2) === 16383. Actual: ' + (parseInt(\"11111111111111\", 2)));\n}\n\n//CHECK#15\nif (parseInt(\"111111111111111\", 2)  !== 32767) {\n  $ERROR('#15: parseInt(\"111111111111111\", 2) === 32767. Actual: ' + (parseInt(\"111111111111111\", 2)));\n}\n\n//CHECK#16\nif (parseInt(\"1111111111111111\", 2)  !== 65535) {\n  $ERROR('#16: parseInt(\"1111111111111111\", 2) === 65535. Actual: ' + (parseInt(\"1111111111111111\", 2)));\n}\n\n//CHECK#17\nif (parseInt(\"11111111111111111\", 2)  !== 131071) {\n  $ERROR('#17: parseInt(\"11111111111111111\", 2) === 131071. Actual: ' + (parseInt(\"11111111111111111\", 2)));\n}\n\n//CHECK#18\nif (parseInt(\"111111111111111111\", 2)  !== 262143) {\n  $ERROR('#18: parseInt(\"111111111111111111\", 2) === 262143. Actual: ' + (parseInt(\"111111111111111111\", 2)));\n}\n\n//CHECK#19\nif (parseInt(\"1111111111111111111\", 2)  !== 524287) {\n  $ERROR('#19: parseInt(\"1111111111111111111\", 2) === 524287. Actual: ' + (parseInt(\"1111111111111111111\", 2)));\n}\n\n//CHECK#20\nif (parseInt(\"11111111111111111111\", 2)  !== 1048575) {\n  $ERROR('#20: parseInt(\"11111111111111111111\", 2) === 1048575. Actual: ' + (parseInt(\"11111111111111111111\", 2)));\n}\n",
+    "id": "S15.1.2.2_A7.2_T2"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "Checking algorithm for R = 16",
+    "test": "//CHECK#1\nif (parseInt(\"0x1\", 16) !== 1) {\n  $ERROR('#1: parseInt(\"0x1\", 16) === 1. Actual: ' + (parseInt(\"0x1\", 16)));\n}\n\n//CHECK#2\nif (parseInt(\"0X10\", 16) !== 16) {\n  $ERROR('#2: parseInt(\"0X10\", 16) === 16. Actual: ' + (parseInt(\"0X10\", 16)));\n}\n\n//CHECK#3\nif (parseInt(\"0x100\", 16) !== 256) {\n  $ERROR('#3: parseInt(\"0x100\", 16) === 256. Actual: ' + (parseInt(\"0x100\", 16)));\n}\n\n//CHECK#4\nif (parseInt(\"0X1000\", 16) !== 4096) {\n  $ERROR('#4: parseInt(\"0X1000\", 16) === 4096. Actual: ' + (parseInt(\"0X1000\", 16)));\n}\n\n//CHECK#5\nif (parseInt(\"0x10000\", 16) !== 65536) {\n  $ERROR('#5: parseInt(\"0x10000\", 16) === 65536. Actual: ' + (parseInt(\"0x10000\", 16)));\n}\n\n//CHECK#6\nif (parseInt(\"0X100000\", 16) !== 1048576) {\n  $ERROR('#6: parseInt(\"x100000\", 16) === 1048576. Actual: ' + (parseInt(\"x100000\", 16)));\n}\n\n//CHECK#7\nif (parseInt(\"0x1000000\", 16) !== 16777216) {\n  $ERROR('#7: parseInt(\"0x1000000\", 16) === 16777216. Actual: ' + (parseInt(\"0x1000000\", 16)));\n}\n\n//CHECK#8\nif (parseInt(\"0x10000000\", 16) !== 268435456) {\n  $ERROR('#8: parseInt(\"0x10000000\", 16) === 268435456. Actual: ' + (parseInt(\"0x10000000\", 16)));\n}\n\n//CHECK#9\nif (parseInt(\"0x100000000\", 16) !== 4294967296) {\n  $ERROR('#9: parseInt(\"0x100000000\", 16) === 4294967296. Actual: ' + (parseInt(\"0x100000000\", 16)));\n}\n\n//CHECK#10\nif (parseInt(\"0x1000000000\", 16) !== 68719476736) {\n  $ERROR('#10: parseInt(\"0x1000000000\", 16) === 68719476736. Actual: ' + (parseInt(\"0x1000000000\", 16)));\n}\n\n//CHECK#10\nif (parseInt(\"0x10000000000\", 16) !== 1099511627776) {\n  $ERROR('#10: parseInt(\"0x10000000000\", 16) === 1099511627776. Actual: ' + (parseInt(\"0x10000000000\", 16)));\n}\n\n//CHECK#12\nif (parseInt(\"0x100000000000\", 16) !== 17592186044416) {\n  $ERROR('#12: parseInt(\"0x100000000000\", 16) === 17592186044416. Actual: ' + (parseInt(\"0x100000000000\", 16)));\n}\n\n//CHECK#13\nif (parseInt(\"0x1000000000000\", 16) !== 281474976710656) {\n  $ERROR('#13: parseInt(\"0x1000000000000\", 16) === 281474976710656. Actual: ' + (parseInt(\"0x1000000000000\", 16)));\n}\n\n//CHECK#14\nif (parseInt(\"0x10000000000000\", 16) !== 4503599627370496) {\n  $ERROR('#14: parseInt(\"0x10000000000000\", 16) === 4503599627370496. Actual: ' + (parseInt(\"0x10000000000000\", 16)));\n}\n\n//CHECK#15\nif (parseInt(\"0x100000000000000\", 16) !== 72057594037927936) {\n  $ERROR('#15: parseInt(\"0x100000000000000\", 16) === 72057594037927936. Actual: ' + (parseInt(\"0x100000000000000\", 16)));\n}\n\n//CHECK#16\nif (parseInt(\"0x1000000000000000\", 16) !== 1152921504606846976) {\n  $ERROR('#16: parseInt(\"0x1000000000000000\", 16) === 1152921504606846976. Actual: ' + (parseInt(\"0x1000000000000000\", 16)));\n}\n\n//CHECK#17\nif (parseInt(\"0x10000000000000000\", 16) !== 18446744073709551616) {\n  $ERROR('#17: parseInt(\"0x10000000000000000\", 16) === 18446744073709551616. Actual: ' + (parseInt(\"0x10000000000000000\", 16)));\n}\n\n//CHECK#18\nif (parseInt(\"0x100000000000000000\", 16) !== 295147905179352825856) {\n  $ERROR('#18: parseInt(\"0x100000000000000000\", 16) === 295147905179352825856. Actual: ' + (parseInt(\"0x100000000000000000\", 16)));\n}\n\n//CHECK#19\nif (parseInt(\"0x1000000000000000000\", 16) !== 4722366482869645213696) {\n  $ERROR('#19: parseInt(\"0x1000000000000000000\", 16) === 4722366482869645213696. Actual: ' + (parseInt(\"0x1000000000000000000\", 16)));\n}\n\n//CHECK#20\nif (parseInt(\"0x10000000000000000000\", 16) !== 75557863725914323419136) {\n  $ERROR('#20: parseInt(\"0x10000000000000000000\", 16) === 75557863725914323419136. Actual: ' + (parseInt(\"0x10000000000000000000\", 16)));\n}\n",
+    "id": "S15.1.2.2_A7.2_T3"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "Complex test. Check algorithm",
+    "test": "//CHECK#\nvar R_digit1 = [\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\", \"I\", \"J\", \"K\", \"L\", \"M\", \"N\", \"O\", \"P\", \"Q\", \"R\", \"S\", \"T\", \"U\", \"V\", \"W\", \"X\", \"Y\", \"Z\"];\nvar R_digit2 = [\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\", \"i\", \"j\", \"k\", \"l\", \"m\", \"n\", \"o\", \"p\", \"q\", \"r\", \"s\", \"t\", \"u\", \"v\", \"w\", \"x\", \"y\", \"z\"];\nfor (var i = 2; i <= 36; i++) {\n  for (var j = 0; j < 10; j++) {\n    var str = \"+\";  \n    var sign = 1;\n    if (j % 2 !== 0) {  \n        str = \"-\";\n        sign= -1;\n    } \n    var num = 0;\n    var pow = 1;\n    var k0 = Math.max(2, i - j);\n    for (var k = k0; k <= i; k++) { \n      if (k % 2 === 0) {  \n        str = str + R_digit1[k - 2];\n      } else {  \n        str = str + R_digit2[k - 2];\n      }\n      num = num + (i + (k0 - k) - 1) * pow;\n      pow = pow * i;   \n    }   \n    if (parseInt(str, i) !== num * sign) {\n      $ERROR('#' + i + '.' + j + ' : ');      \n    }\n  }  \n}  \n",
+    "id": "S15.1.2.2_A7.3_T1"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "Checking algorithm for R = 2",
+    "test": "//CHECK#1\nif (parseInt(\"-1\", 2)  !== -1) {\n  $ERROR('#1: parseInt(\"-1\", 2) === -1. Actual: ' + (parseInt(\"-1\", 2)));\n}\n\n//CHECK#2\nif (parseInt(\"-11\", 2)  !== -3) {\n  $ERROR('#2: parseInt(\"-11\", 2) === -3. Actual: ' + (parseInt(\"-11\", 2)));\n}\n\n//CHECK#3\nif (parseInt(\"-111\", 2)  !== -7) {\n  $ERROR('#3: parseInt(\"-111\", 2) === -7. Actual: ' + (parseInt(\"-111\", 2)));\n}\n\n//CHECK#4\nif (parseInt(\"-1111\", 2)  !== -15) {\n  $ERROR('#4: parseInt(\"-1111\", 2) === -15. Actual: ' + (parseInt(\"-1111\", 2)));\n}\n\n//CHECK#5\nif (parseInt(\"-11111\", 2)  !== -31) {\n  $ERROR('#5: parseInt(\"-11111\", 2) === -31. Actual: ' + (parseInt(\"-11111\", 2)));\n}\n\n//CHECK#6\nif (parseInt(\"-111111\", 2)  !== -63) {\n  $ERROR('#6: parseInt(\"-111111\", 2) === -63. Actual: ' + (parseInt(\"-111111\", 2)));\n}\n\n//CHECK#7\nif (parseInt(\"-1111111\", 2)  !== -127) {\n  $ERROR('#7: parseInt(\"-1111111\", 2) === -127. Actual: ' + (parseInt(\"-1111111\", 2)));\n}\n\n//CHECK#8\nif (parseInt(\"-11111111\", 2)  !== -255) {\n  $ERROR('#8: parseInt(\"-11111111\", 2) === -255. Actual: ' + (parseInt(\"-11111111\", 2)));\n}\n\n//CHECK#9\nif (parseInt(\"-111111111\", 2)  !== -511) {\n  $ERROR('#9: parseInt(\"-111111111\", 2) === -511. Actual: ' + (parseInt(\"-111111111\", 2)));\n}\n\n//CHECK#10\nif (parseInt(\"-1111111111\", 2)  !== -1023) {\n  $ERROR('#10: parseInt(\"-1111111111\", 2) === -1023. Actual: ' + (parseInt(\"-1111111111\", 2)));\n}\n\n//CHECK#11\nif (parseInt(\"-11111111111\", 2)  !== -2047) {\n  $ERROR('#11: parseInt(\"-11111111111\", 2) === -2047. Actual: ' + (parseInt(\"-11111111111\", 2)));\n}\n\n//CHECK#12\nif (parseInt(\"-111111111111\", 2)  !== -4095) {\n  $ERROR('#12: parseInt(\"-111111111111\", 2) === -4095. Actual: ' + (parseInt(\"-111111111111\", 2)));\n}\n\n//CHECK#13\nif (parseInt(\"-1111111111111\", 2)  !== -8191) {\n  $ERROR('#13: parseInt(\"-1111111111111\", 2) === -8191. Actual: ' + (parseInt(\"-1111111111111\", 2)));\n}\n\n//CHECK#14\nif (parseInt(\"-11111111111111\", 2)  !== -16383) {\n  $ERROR('#14: parseInt(\"-11111111111111\", 2) === -16383. Actual: ' + (parseInt(\"-11111111111111\", 2)));\n}\n\n//CHECK#15\nif (parseInt(\"-111111111111111\", 2)  !== -32767) {\n  $ERROR('#15: parseInt(\"-111111111111111\", 2) === -32767. Actual: ' + (parseInt(\"-111111111111111\", 2)));\n}\n\n//CHECK#16\nif (parseInt(\"-1111111111111111\", 2)  !== -65535) {\n  $ERROR('#16: parseInt(\"-1111111111111111\", 2) === -65535. Actual: ' + (parseInt(\"-1111111111111111\", 2)));\n}\n\n//CHECK#17\nif (parseInt(\"-11111111111111111\", 2)  !== -131071) {\n  $ERROR('#17: parseInt(\"-11111111111111111\", 2) === -131071. Actual: ' + (parseInt(\"-11111111111111111\", 2)));\n}\n\n//CHECK#18\nif (parseInt(\"-111111111111111111\", 2)  !== -262143) {\n  $ERROR('#18: parseInt(\"-111111111111111111\", 2) === -262143. Actual: ' + (parseInt(\"-111111111111111111\", 2)));\n}\n\n//CHECK#19\nif (parseInt(\"-1111111111111111111\", 2)  !== -524287) {\n  $ERROR('#19: parseInt(\"-1111111111111111111\", 2) === -524287. Actual: ' + (parseInt(\"-1111111111111111111\", 2)));\n}\n\n//CHECK#20\nif (parseInt(\"-11111111111111111111\", 2)  !== -1048575) {\n  $ERROR('#20: parseInt(\"-11111111111111111111\", 2) === -1048575. Actual: ' + (parseInt(\"-11111111111111111111\", 2)));\n}\n",
+    "id": "S15.1.2.2_A7.3_T2"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "Checking algorithm for R = 10",
+    "test": "//CHECK#1\nif (parseInt(\"-1\", 10) !== -1) {\n  $ERROR('#1: parseInt(\"-1\", 10) === -1. Actual: ' + (parseInt(\"-1\", 10)));\n}\n\n//CHECK#2\nif (parseInt(\"-10\", 10) !== -10) {\n  $ERROR('#2: parseInt(\"-10\", 10) === -10. Actual: ' + (parseInt(\"-10\", 10)));\n}\n\n//CHECK#3\nif (parseInt(\"-100\", 10) !== -100) {\n  $ERROR('#3: parseInt(\"-100\", 10) === -100. Actual: ' + (parseInt(\"-100\", 10)));\n}\n\n//CHECK#4\nif (parseInt(\"-1000\", 10) !== -1000) {\n  $ERROR('#4: parseInt(\"-1000\", 10) === -1000. Actual: ' + (parseInt(\"-1000\", 10)));\n}\n\n//CHECK#5\nif (parseInt(\"-10000\", 10) !== -10000) {\n  $ERROR('#5: parseInt(\"-10000\", 10) === -10000. Actual: ' + (parseInt(\"-10000\", 10)));\n}\n\n//CHECK#6\nif (parseInt(\"-100000\", 10) !== -100000) {\n  $ERROR('#6: parseInt(\"-100000\", 10) === -100000. Actual: ' + (parseInt(\"-100000\", 10)));\n}\n\n//CHECK#7\nif (parseInt(\"-1000000\", 10) !== -1000000) {\n  $ERROR('#7: parseInt(\"-1000000\", 10) === -1000000. Actual: ' + (parseInt(\"-1000000\", 10)));\n}\n\n//CHECK#8\nif (parseInt(\"-10000000\", 10) !== -10000000) {\n  $ERROR('#8: parseInt(\"-10000000\", 10) === -10000000. Actual: ' + (parseInt(\"-10000000\", 10)));\n}\n\n//CHECK#9\nif (parseInt(\"-100000000\", 10) !== -100000000) {\n  $ERROR('#9: parseInt(\"-100000000\", 10) === -100000000. Actual: ' + (parseInt(\"-100000000\", 10)));\n}\n\n//CHECK#10\nif (parseInt(\"-1000000000\", 10) !== -1000000000) {\n  $ERROR('#10: parseInt(\"-1000000000\", 10) === -1000000000. Actual: ' + (parseInt(\"-1000000000\", 10)));\n}\n\n//CHECK#10\nif (parseInt(\"-10000000000\", 10) !== -10000000000) {\n  $ERROR('#10: parseInt(\"-10000000000\", 10) === -10000000000. Actual: ' + (parseInt(\"-10000000000\", 10)));\n}\n\n//CHECK#12\nif (parseInt(\"-100000000000\", 10) !== -100000000000) {\n  $ERROR('#12: parseInt(\"-100000000000\", 10) === -100000000000. Actual: ' + (parseInt(\"-100000000000\", 10)));\n}\n\n//CHECK#13\nif (parseInt(\"-1000000000000\", 10) !== -1000000000000) {\n  $ERROR('#13: parseInt(\"-1000000000000\", 10) === -1000000000000. Actual: ' + (parseInt(\"-1000000000000\", 10)));\n}\n\n//CHECK#14\nif (parseInt(\"-10000000000000\", 10) !== -10000000000000) {\n  $ERROR('#14: parseInt(\"-10000000000000\", 10) === -10000000000000. Actual: ' + (parseInt(\"-10000000000000\", 10)));\n}\n\n//CHECK#15\nif (parseInt(\"-100000000000000\", 10) !== -100000000000000) {\n  $ERROR('#15: parseInt(\"-100000000000000\", 10) === -100000000000000. Actual: ' + (parseInt(\"-100000000000000\", 10)));\n}\n\n//CHECK#10\nif (parseInt(\"-1000000000000000\", 10) !== -1000000000000000) {\n  $ERROR('#10: parseInt(\"-1000000000000000\", 10) === -1000000000000000. Actual: ' + (parseInt(\"-1000000000000000\", 10)));\n}\n\n//CHECK#17\nif (parseInt(\"-10000000000000000\", 10) !== -10000000000000000) {\n  $ERROR('#17: parseInt(\"-10000000000000000\", 10) === -10000000000000000. Actual: ' + (parseInt(\"-10000000000000000\", 10)));\n}\n\n//CHECK#18\nif (parseInt(\"-100000000000000000\", 10) !== -100000000000000000) {\n  $ERROR('#18: parseInt(\"-100000000000000000\", 10) === -100000000000000000. Actual: ' + (parseInt(\"-100000000000000000\", 10)));\n}\n\n//CHECK#19\nif (parseInt(\"-1000000000000000000\", 10) !== -1000000000000000000) {\n  $ERROR('#19: parseInt(\"-1000000000000000000\", 10) === -1000000000000000000. Actual: ' + (parseInt(\"-1000000000000000000\", 10)));\n}\n\n//CHECK#20\nif (parseInt(\"-10000000000000000000\", 10) !== -10000000000000000000) {\n  $ERROR('#20: parseInt(\"-10000000000000000000\", 10) === -10000000000000000000. Actual: ' + (parseInt(\"-10000000000000000000\", 10)));\n}\n",
+    "id": "S15.1.2.2_A7.3_T3"
+   },
+   {
+    "section": "15.1.2.2, 9.3.1",
+    "description": "Complex test without eval",
+    "test": "//CHECK\nvar errorCount = 0;\nvar count = 0;\nvar indexP;\nvar indexO = 0;\nfor (var index = 0; index <= 65535; index++) {  \n  if ((index < 0x0030) || (index > 0x0039) && \n      (index < 0x0041) || (index > 0x005A) && \n      (index < 0x0061) || (index > 0x007A)) {    \n    var hex = decimalToHexString(index);\n    if (parseInt(\"1Z\" + String.fromCharCode(index), 36) !== 71) {       \n      if (indexO === 0) { \n        indexO = index;\n      } else {\n        if ((index - indexP) !== 1) {             \n          if ((indexP - indexO) !== 0) {\n            var hexP = decimalToHexString(indexP);\n            var hexO = decimalToHexString(indexO);\n            $ERROR('#' + hexO + '-' + hexP + ' ');\n          } \n          else {\n            var hexP = decimalToHexString(indexP);\n            $ERROR('#' + hexP + ' ');\n          }  \n          indexO = index;\n        }         \n      }\n      indexP = index;\n      errorCount++;    \n    }   \n    count++;\n  }  \n}\n\nif (errorCount > 0) {\n  if ((indexP - indexO) !== 0) {\n    var hexP = decimalToHexString(indexP);\n    var hexO = decimalToHexString(indexO);\n    $ERROR('#' + hexO + '-' + hexP + ' ');\n  } else {\n    var hexP = decimalToHexString(indexP);\n    $ERROR('#' + hexP + ' ');\n  }     \n  $ERROR('Total error: ' + errorCount + ' bad Unicode character in ' + count + ' ');\n}\n\nfunction decimalToHexString(n) {\n  n = Number(n);\n  var h = \"\";\n  for (var i = 3; i >= 0; i--) {\n    if (n >= Math.pow(16, i)) {\n      var t = Math.floor(n / Math.pow(16, i));\n      n -= t * Math.pow(16, i);\n      if ( t >= 10 ) {\n        if ( t == 10 ) { h += \"A\"; }\n        if ( t == 11 ) { h += \"B\"; }\n        if ( t == 12 ) { h += \"C\"; }\n        if ( t == 13 ) { h += \"D\"; }\n        if ( t == 14 ) { h += \"E\"; }\n        if ( t == 15 ) { h += \"F\"; }\n      } else {\n        h += String(t);\n      }\n    } else {\n      h += \"0\";\n    }\n  }\n  return h;\n}\n",
+    "id": "S15.1.2.2_A8"
+   },
+   {
+    "section": "15.1.2.2, 15.2.4.7, 12.6.4",
+    "description": "Checking use propertyIsEnumerable, for-in",
+    "test": "//CHECK#1\nif (parseInt.propertyIsEnumerable('length') !== false) {\n  $ERROR('#1: parseInt.propertyIsEnumerable(\\'length\\') === false. Actual: ' + (parseInt.propertyIsEnumerable('length')));\n}\n\n//CHECK#2\nvar result = true;\nfor (var p in parseInt){\n  if (p === \"length\") {\n    result = false;\n  }  \n}\n\nif (result !== true) {\n  $ERROR('#2: result = true; for (p in parseInt) { if (p === \"length\") result = false; }  result === true;');\n}\n",
+    "id": "S15.1.2.2_A9.1"
+   },
+   {
+    "section": "15.1.2.2, 15.2.4.5, 11.4.1",
+    "description": "Checking use hasOwnProperty, delete",
+    "strict_mode_negative": "",
+    "test": "//CHECK#1\nif (parseInt.hasOwnProperty('length') !== true) {\n  $FAIL('#1: parseInt.hasOwnProperty(\\'length\\') === true. Actual: ' + (parseInt.hasOwnProperty('length')));\n}\n\ndelete parseInt.length;\n\n//CHECK#2\nif (parseInt.hasOwnProperty('length') !== true) {\n  $ERROR('#2: delete parseInt.length; parseInt.hasOwnProperty(\\'length\\') === true. Actual: ' + (parseInt.hasOwnProperty('length')));\n}\n\n//CHECK#3\nif (parseInt.length === undefined) {\n  $ERROR('#3: delete parseInt.length; parseInt.length !== undefined');\n}\n",
+    "id": "S15.1.2.2_A9.2",
+    "strict_only": ""
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "Checking if varying the length property fails",
+    "strict_mode_negative": "",
+    "test": "//CHECK#1\nx = parseInt.length;\nparseInt.length = Infinity;\nif (parseInt.length !== x) {\n  $ERROR('#1: x = parseInt.length; parseInt.length = Infinity; parseInt.length === x. Actual: ' + (parseInt.length));\n}\n\n",
+    "id": "S15.1.2.2_A9.3",
+    "strict_only": ""
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "parseInt.length === 2",
+    "test": "//CHECK#1\nif (parseInt.length !== 2) {\n  $ERROR('#1: parseInt.length === 2. Actual: ' + (parseInt.length));\n} \n\n",
+    "id": "S15.1.2.2_A9.4"
+   },
+   {
+    "section": "15.1.2.2, 15.2.4.7, 12.6.4",
+    "description": "Checking use propertyIsEnumerable, for-in",
+    "test": "//CHECK#1\nif (this.propertyIsEnumerable('parseInt') !== false) {\n  $ERROR('#1: this.propertyIsEnumerable(\\'parseInt\\') === false. Actual: ' + (this.propertyIsEnumerable('parseInt')));\n}\n\n//CHECK#2\nvar result = true;\nfor (var p in this){\n  if (p === \"parseInt\") {\n    result = false;\n  }  \n}\n\nif (result !== true) {\n  $ERROR('#2: result = true; for (p in this) { if (p === \"parseInt\") result = false; }  result === true;');\n}\n",
+    "id": "S15.1.2.2_A9.5"
+   },
+   {
+    "section": "15.1.2.2",
+    "description": "Checking parseInt.prototype",
+    "test": "//CHECK#1\nif (parseInt.prototype !== undefined) {\n  $ERROR('#1: parseInt.prototype === undefined. Actual: ' + (parseInt.prototype));\n}\n",
+    "id": "S15.1.2.2_A9.6"
+   },
+   {
+    "section": "15.1.2.2, 11.2.2",
+    "description": "If property does not implement the internal [[Construct]] method, throw a TypeError exception",
+    "test": "//CHECK#1\n\ntry {\n  new parseInt();\n  $ERROR('#1.1: new parseInt() throw TypeError. Actual: ' + (new parseInt()));\n} catch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#1.2: new parseInt() throw TypeError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.1.2.2_A9.7"
+   }
+  ]
+ }
+}

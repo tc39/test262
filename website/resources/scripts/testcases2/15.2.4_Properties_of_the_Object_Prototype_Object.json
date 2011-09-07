@@ -1,0 +1,50 @@
+{
+ "testCollection": {
+  "name": "15.2.4_Properties_of_the_Object_Prototype_Object",
+  "numTests": 7,
+  "tests": [
+   {
+    "section": "15.2.4.1",
+    "description": "Checking the Object.prototype.constructor",
+    "test": "//CHECK#1\nif (Object.prototype.constructor !== Object) {\n  $ERROR('#1: The initial value of Object.prototype.constructor is the built-in Object constructor');\n}\n",
+    "id": "S15.2.4.1_A1_T1"
+   },
+   {
+    "section": "15.2.4.1",
+    "description": "Creating \"new Object.prototype.constructor\" and checking its properties",
+    "test": "var constr = Object.prototype.constructor;\n\nvar obj = new constr;\n\n// CHECK#0\nif (obj === undefined) {\n  $ERROR('#0: new Object() return the newly created native object.');\n}\n\n// CHECK#1\nif (obj.constructor !== Object) {\n  $ERROR('#1: new Object() create a new native ECMAScript object');\n}\n\n// CHECK#2\nif (!(Object.prototype.isPrototypeOf(obj))) {\n  $ERROR('#2: when new Object() calls the [[Prototype]] property of the newly constructed object is set to the Object prototype object.');\n}\n\n// CHECK#3\nvar to_string_result = '[object '+ 'Object' +']';\nif (obj.toString() !== to_string_result) {\n  $ERROR('#3: when new Object() calls the [[Class]] property of the newly constructed object is set to \"Object\".');\n}\n\n// CHECK#4\nif (obj.valueOf().toString() !== to_string_result) {\n  $ERROR('#4: when new Object() calls the newly constructed object has no [[Value]] property.');\n}\n",
+    "id": "S15.2.4.1_A1_T2"
+   },
+   {
+    "section": "15.2.4, 8.6.2",
+    "description": "Checking if obtaining Object.prototype.prototype fails",
+    "test": "// CHECK#1\nif (Object.prototype.prototype !== undefined) {\n  $ERROR('#1: Object prototype has not prototype');\n}\n",
+    "id": "S15.2.4_A1_T1"
+   },
+   {
+    "section": "15.2.4, 8.6.2",
+    "description": "Since the Object prototype object has not prototype, deleted toString method can not be found in prototype chain",
+    "test": "//CHECK#1\nif (Object.prototype.toString() == false) {\n  $ERROR('#1: Object prototype object has not prototype');\n}\n\ndelete Object.prototype.toString;\n\n// CHECK#2\ntry {\n  Object.prototype.toString();\n  $ERROR('#2: Object prototype object has not prototype');\n} catch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#1.1: delete Object.prototype.toString; Object.prototype.toString() throw a TypeError. Actual: ' + (e));  \n  }\n}\n//\n",
+    "id": "S15.2.4_A1_T2"
+   },
+   {
+    "section": "15.2.4",
+    "description": "Getting the value of the internal [[Class]] property with Object.prototype.toString() function",
+    "test": "var tostr = Object.prototype.toString();\n\n//CHECK#1\nif (tostr !== \"[object Object]\") {\n  $ERROR('#1: the value of the internal [[Class]] property of Object prototype object is \"Object\"');\n}\n",
+    "id": "S15.2.4_A2"
+   },
+   {
+    "section": "15.2.4",
+    "description": "Checking if calling Object prototype as a function fails",
+    "test": "//CHECK#1\ntry {\n  Object.prototype();\n  $FAIL('#1: Since Object prototype object is not function it has not [[call]] method');\n} catch (e) {\n  $PRINT(e);\n}\n",
+    "id": "S15.2.4_A3"
+   },
+   {
+    "section": "15.2.4",
+    "description": "Checking if creating \"new Object.prototype\" fails",
+    "test": "//CHECK#1\ntry {\n  instance = new Object.prototype;\n  $FAIL('#1: Since Object prototype object is not function it has not [[create]] method');\n} catch (e) {\n  $PRINT(e);\n}\n",
+    "id": "S15.2.4_A4"
+   }
+  ]
+ }
+}

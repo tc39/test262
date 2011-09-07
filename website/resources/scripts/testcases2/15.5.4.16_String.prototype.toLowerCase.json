@@ -1,0 +1,134 @@
+{
+ "testCollection": {
+  "name": "15.5.4.16_String.prototype.toLowerCase",
+  "numTests": 21,
+  "tests": [
+   {
+    "section": "15.5.4.16",
+    "description": "Checking if varying the String.prototype.toLowerCase.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(String.prototype.toLowerCase.hasOwnProperty('length'))) {\n  $FAIL('#1: String.prototype.toLowerCase.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.toLowerCase.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar __obj = String.prototype.toLowerCase.length;\n\nString.prototype.toLowerCase.length = function(){return \"shifted\";};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (String.prototype.toLowerCase.length !== __obj) {\n  $ERROR('#2: __obj = String.prototype.toLowerCase.length; String.prototype.toLowerCase.length = function(){return \"shifted\";}; String.prototype.toLowerCase.length === __obj. Actual: '+String.prototype.toLowerCase.length );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.16_A10"
+   },
+   {
+    "section": "15.5.4.16",
+    "description": "Checking String.prototype.toLowerCase.length",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(String.prototype.toLowerCase.hasOwnProperty(\"length\"))) {\n  $ERROR('#1: String.prototype.toLowerCase.hasOwnProperty(\"length\") return true. Actual: '+String.prototype.toLowerCase.hasOwnProperty(\"length\"));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (String.prototype.toLowerCase.length !== 0) {\n  $ERROR('#2: String.prototype.toLowerCase.length === 0. Actual: '+String.prototype.toLowerCase.length );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.16_A11"
+   },
+   {
+    "section": "15.5.4.16",
+    "description": "Arguments is true, and instance is object",
+    "test": "var __instance = new Object(true);\n\n__instance.toLowerCase = String.prototype.toLowerCase;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.toLowerCase() !== \"true\") {\n  $ERROR('#1: __instance = new Object(true); __instance.toLowerCase = String.prototype.toLowerCase;  __instance.toLowerCase() === \"true\". Actual: '+__instance.toLowerCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.16_A1_T1"
+   },
+   {
+    "section": "15.5.4.16",
+    "description": "Call toLowerCase() function of object with overrode toString function",
+    "test": "var __obj = {toString:function(){return \"\\u0041B\";}}\n__obj.toLowerCase = String.prototype.toLowerCase;\n\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__obj.toLowerCase() !==\"ab\") {\n  $ERROR('#1: var __obj = {toString:function(){return \"\\u0041B\";}}; __obj.toLowerCase = String.prototype.toLowerCase; __obj.toLowerCase() ===\"ab\". Actual: '+__obj.toLowerCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.16_A1_T10"
+   },
+   {
+    "section": "15.5.4.16",
+    "description": "Override toString function, toString throw exception, then call toLowerCase() function for this object",
+    "test": "var __obj = {toString:function(){throw \"intostr\";}}\n__obj.toLowerCase = String.prototype.toLowerCase;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n  var x = __obj.toLowerCase();\n   \t$FAIL('#1: \"var x = __obj.toLowerCase()\" lead to throwing exception');\n} catch (e) {\n  if (e!==\"intostr\") {\n    $ERROR('#1.1: Exception === \"intostr\". Actual: '+e);\n  }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.16_A1_T11"
+   },
+   {
+    "section": "15.5.4.16",
+    "description": "Override toString and valueOf functions, valueOf throw exception, then call toLowerCase() function for this object",
+    "test": "var __obj = {toString:function(){return {};},valueOf:function(){throw \"intostr\";}}\n__obj.toLowerCase = String.prototype.toLowerCase;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n  var x = __obj.toLowerCase();\n \t$FAIL('#1: \"var x = __obj.toLowerCase()\" lead to throwing exception');\n} catch (e) {\n  if (e!==\"intostr\") {\n    $ERROR('#1.1: Exception === \"intostr\". Actual: '+e);\n  }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.16_A1_T12"
+   },
+   {
+    "section": "15.5.4.16",
+    "description": "Override toString and valueOf functions, then call toLowerCase() function for this object",
+    "test": "var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}\n__obj.toLowerCase = String.prototype.toLowerCase;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__obj.toLowerCase() !==\"1\") {\n  $ERROR('#1: var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}; __obj.toLowerCase = String.prototype.toLowerCase; __obj.toLowerCase() ===\"1\". Actual: '+__obj.toLowerCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__obj.toLowerCase().length !== 1) {\n  $ERROR('#2: var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}; __obj.toLowerCase = String.prototype.toLowerCase; __obj.toLowerCase().length === 1. Actual: '+__obj.toLowerCase().length );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.16_A1_T13"
+   },
+   {
+    "section": "15.5.4.16",
+    "description": "Call toLowerCase() function for RegExp object",
+    "test": "var __reg = new RegExp(\"ABC\");\n__reg.toLowerCase = String.prototype.toLowerCase;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__reg.toLowerCase() !== \"/abc/\") {\n  $ERROR('#1: var __reg = new RegExp(\"ABC\"); __reg.toLowerCase = String.prototype.toLowerCase; __reg.toLowerCase() === \"/abc/\". Actual: '+__reg.toLowerCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.16_A1_T14"
+   },
+   {
+    "section": "15.5.4.16",
+    "description": "Instance is Boolean object",
+    "test": "__instance = new Boolean;\n\n__instance.toLowerCase = String.prototype.toLowerCase;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.toLowerCase() !== \"false\") {\n  $ERROR('#1: __instance = new Boolean; __instance.toLowerCase = String.prototype.toLowerCase;  __instance.toLowerCase() === \"false\". Actual: '+__instance.toLowerCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.16_A1_T2"
+   },
+   {
+    "section": "15.5.4.16",
+    "description": "Checking by using eval",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (eval(\"\\\"BJ\\\"\").toLowerCase() !== \"bj\") {\n  $ERROR('#1: eval(\"\\\\\"BJ\\\\\"\").toLowerCase() === \"bj\". Actual: '+eval(\"\\\"BJ\\\"\").toLowerCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.16_A1_T3"
+   },
+   {
+    "section": "15.5.4.16",
+    "description": "Call toLowerCase() function without arguments of string and from empty string",
+    "test": "var __lowerCase = \"\".toLowerCase();\n\nvar __expected = \"\"; \n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__lowerCase.length !== __expected.length) {\n  $ERROR('#1: __lowerCase = \"\".toLowerCase(); __expected = \"\"; __lowerCase.length === __expected.length. Actual: '+__lowerCase.length );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__lowerCase.index !== __expected.index) {\n  $ERROR('#2: __lowerCase = \"\".toLowerCase(); __expected = \"\"; __lowerCase.index === __expected.index. Actual: '+__lowerCase.index );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__lowerCase.input !== __expected.input) {\n  $ERROR('#3: __lowerCase = \"\".toLowerCase(); __expected = \"\"; __lowerCase.input === __expected.input. Actual: '+__lowerCase.input );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\nif (__lowerCase[0]!==__expected[0]) {\n  $ERROR('#4: __lowerCase = \"\".toLowerCase(); __expected = \"\"; __lowerCase[0]==='+__expected[0]+'. Actual: '+__lowerCase[0]);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.16_A1_T4"
+   },
+   {
+    "section": "15.5.4.16",
+    "description": "Call toLowerCase() function for function call",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n//since ToString(null) evaluates to \"null\" match(null) evaluates to match(\"null\")\nif (function(){return \"GnulLuNa\"}().toLowerCase() !== \"gnulluna\") {\n  $ERROR('#1: function(){return \"GnulLuNa\"}().toLowerCase() === \"gnulluna\". Actual: '+function(){return \"GnulLuNa\"}().toLowerCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.16_A1_T5"
+   },
+   {
+    "section": "15.5.4.16",
+    "description": "Call toLowerCase() function of Number.NEGATIVE_INFINITY",
+    "test": "Number.prototype.toLowerCase = String.prototype.toLowerCase;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif ((Number.NEGATIVE_INFINITY).toLowerCase() !== \"-infinity\") {\n  $ERROR('#1: Number.prototype.toLowerCase = String.prototype.toLowerCase; (Number.NEGATIVE_INFINITY).toLowerCase() === \"-infinity\". Actual: '+(Number.NEGATIVE_INFINITY).toLowerCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n",
+    "id": "S15.5.4.16_A1_T6"
+   },
+   {
+    "section": "15.5.4.16",
+    "description": "Call toLowerCase() function of NaN",
+    "test": "Number.prototype.toLowerCase = String.prototype.toLowerCase;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (NaN.toLowerCase()!== \"nan\") {\n  $ERROR('#1: Number.prototype.toLowerCase = String.prototype.toLowerCase; NaN.toLowerCase()=== \"nan\". Actual: '+NaN.toLowerCase());\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.16_A1_T7"
+   },
+   {
+    "section": "15.5.4.16",
+    "description": "Call toLowerCase() function of Infinity",
+    "test": "Number.prototype.toLowerCase = String.prototype.toLowerCase;\n\nif (Infinity.toLowerCase()!== \"infinity\") {\n  $ERROR('#1: Number.prototype.toLowerCase = String.prototype.toLowerCase; Infinity.toLowerCase()=== \"infinity\". Actual: '+Infinity.toLowerCase());\n}\n",
+    "id": "S15.5.4.16_A1_T8"
+   },
+   {
+    "section": "15.5.4.16",
+    "description": "Call toLowerCase() function of string object",
+    "test": "var __obj = {\n    valueOf:function(){},\n    toString:void 0\n};\n\nvar __lowerCase = new String(__obj).toLowerCase();\n\nvar __expected =\"undefined\"; \n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__lowerCase.length !== __expected.length) {\n  $ERROR('#1: __obj = {valueOf:function(){}, toString:void 0}; __lowerCase = new String(__obj).toLowerCase(); __expected =\"undefined\"; __lowerCase.length === __expected.length. Actual: '+__lowerCase.length );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__lowerCase.index !== __expected.index) {\n  $ERROR('#2: __obj = {valueOf:function(){}, toString:void 0}; __lowerCase = new String(__obj).toLowerCase(); __expected =\"undefined\"; __lowerCase.index === __expected.index. Actual: '+__lowerCase.index );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__lowerCase.input !== __expected.input) {\n  $ERROR('#3: __obj = {valueOf:function(){}, toString:void 0}; __lowerCase = new String(__obj).toLowerCase(); __expected =\"undefined\"; __lowerCase.input === __expected.input. Actual: '+__lowerCase.input );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n  if (__lowerCase[index]!==__expected[index]) {\n    $ERROR('#4.'+index+': __obj = {valueOf:function(){}, toString:void 0}; __lowerCase = new String(__obj).toLowerCase(); __expected =\"undefined\"; __lowerCase['+index+']==='+__expected[index]+'. Actual: '+__lowerCase[index]);\n  }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.16_A1_T9"
+   },
+   {
+    "section": "15.5.4.16",
+    "description": "Checking returned result",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (\"Hello, WoRlD!\".toLowerCase() !== \"hello, world!\") {\n  $ERROR('#1: \"Hello, WoRlD!\".toLowerCase() === \"hello, world!\". Actual: '+(\"Hello, WoRlD!\".toLowerCase()) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (\"Hello, WoRlD!\".toLowerCase() !== String(\"hello, world!\")) {\n  $ERROR('#2: \"Hello, WoRlD!\".toLowerCase() === String(\"hello, world!\"). Actual: '+(\"Hello, WoRlD!\".toLowerCase()) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (\"Hello, WoRlD!\".toLowerCase() ===new String(\"hello, world!\")) {\n  $ERROR('#3: \"Hello, WoRlD!\".toLowerCase() !== new String(\"hello, world!\")');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.16_A2_T1"
+   },
+   {
+    "section": "15.5.4.16, 13.2",
+    "description": "Checking String.prototype.toLowerCase.prototype",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (String.prototype.toLowerCase.prototype !== undefined) {\n  $ERROR('#1: String.prototype.toLowerCase.prototype === undefined. Actual: '+String.prototype.toLowerCase.prototype );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.16_A6"
+   },
+   {
+    "section": "15.5.4.16, 13.2",
+    "description": "Checking if creating the String.prototype.toLowerCase object fails",
+    "test": "var __FACTORY = String.prototype.toLowerCase;\n\ntry {\n  var __instance = new __FACTORY;\n  $FAIL('#1: var __FACTORY = String.prototype.toLowerCase; \"__instance = new __FACTORY\" lead to throwing exception');\n} catch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#1.1: var __FACTORY = String.prototype.toLowerCase; \"__instance = new __FACTORY\" throws a TypeError. Actual: ' + (e));  \n  }\n};\n\n",
+    "id": "S15.5.4.16_A7"
+   },
+   {
+    "section": "15.5.4.16",
+    "description": "Checking if enumerating the String.prototype.toLowerCase.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#0\nif (!(String.prototype.toLowerCase.hasOwnProperty('length'))) {\n  $FAIL('#0: String.prototype.toLowerCase.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.toLowerCase.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n//////////////////////////////////////////////////////////////////////////////\n// CHECK#1\nif (String.prototype.toLowerCase.propertyIsEnumerable('length')) {\n  $ERROR('#1: String.prototype.toLowerCase.propertyIsEnumerable(\\'length\\') return false');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n// CHECK#2\nvar count=0;\n\nfor (p in String.prototype.toLowerCase){\n  if (p===\"length\") count++;\n}\n\nif (count !== 0) {\n  $ERROR('#2: count=0; for (p in String.prototype.toLowerCase){if (p===\"length\") count++;}; count === 0. Actual: '+count );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.16_A8"
+   },
+   {
+    "section": "15.5.4.16",
+    "description": "Checking if deleting the String.prototype.toLowerCase.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#0\nif (!(String.prototype.toLowerCase.hasOwnProperty('length'))) {\n  $FAIL('#0: String.prototype.toLowerCase.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.toLowerCase.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (delete String.prototype.toLowerCase.length) {\n  $ERROR('#1: delete String.prototype.toLowerCase.length return false');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (!(String.prototype.toLowerCase.hasOwnProperty('length'))) {\n  $FAIL('#2: delete String.prototype.toLowerCase.length; String.prototype.toLowerCase.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.toLowerCase.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.16_A9"
+   }
+  ]
+ }
+}

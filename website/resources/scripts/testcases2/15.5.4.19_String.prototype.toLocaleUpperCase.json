@@ -1,0 +1,134 @@
+{
+ "testCollection": {
+  "name": "15.5.4.19_String.prototype.toLocaleUpperCase",
+  "numTests": 21,
+  "tests": [
+   {
+    "section": "15.5.4.19",
+    "description": "Checking if varying the String.prototype.toLocaleUpperCase.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(String.prototype.toLocaleUpperCase.hasOwnProperty('length'))) {\n  $FAIL('#1: String.prototype.toLocaleUpperCase.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.toLocaleUpperCase.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar __obj = String.prototype.toLocaleUpperCase.length;\n\nString.prototype.toLocaleUpperCase.length = function(){return \"shifted\";};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (String.prototype.toLocaleUpperCase.length !== __obj) {\n  $ERROR('#2: __obj = String.prototype.toLocaleUpperCase.length; String.prototype.toLocaleUpperCase.length = function(){return \"shifted\";}; String.prototype.toLocaleUpperCase.length === __obj. Actual: '+String.prototype.toLocaleUpperCase.length );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.19_A10"
+   },
+   {
+    "section": "15.5.4.19",
+    "description": "Checking String.prototype.toLocaleUpperCase.length",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(String.prototype.toLocaleUpperCase.hasOwnProperty(\"length\"))) {\n  $ERROR('#1: String.prototype.toLocaleUpperCase.hasOwnProperty(\"length\") return true. Actual: '+String.prototype.toLocaleUpperCase.hasOwnProperty(\"length\"));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (String.prototype.toLocaleUpperCase.length !== 0) {\n  $ERROR('#2: String.prototype.toLocaleUpperCase.length === 0. Actual: '+String.prototype.toLocaleUpperCase.length );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.19_A11"
+   },
+   {
+    "section": "15.5.4.19",
+    "description": "Arguments is true, and instance is object",
+    "test": "var __instance = new Object(true);\n\n__instance.toLocaleUpperCase = String.prototype.toLocaleUpperCase;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.toLocaleUpperCase() !== \"TRUE\") {\n  $ERROR('#1: __instance = new Object(true); __instance.toLocaleUpperCase = String.prototype.toLocaleUpperCase;  __instance.toLocaleUpperCase() === \"TRUE\". Actual: '+__instance.toLocaleUpperCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.19_A1_T1"
+   },
+   {
+    "section": "15.5.4.19",
+    "description": "Call toLocaleUpperCase() function of object with overrode toString function",
+    "test": "var __obj = {toString:function(){return \"\\u0041b\";}}\n__obj.toLocaleUpperCase = String.prototype.toLocaleUpperCase;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__obj.toLocaleUpperCase() !==\"AB\") {\n  $ERROR('#1: var __obj = {toString:function(){return \"\\u0041b\";}}; __obj.toLocaleUpperCase = String.prototype.toLocaleUpperCase; __obj.toLocaleUpperCase() ===\"AB\". Actual: '+__obj.toLocaleUpperCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.19_A1_T10"
+   },
+   {
+    "section": "15.5.4.19",
+    "description": "Override toString function, toString throw exception, then call toLocaleUpperCase() function for this object",
+    "test": "var __obj = {toString:function(){throw \"intostr\";}}\n__obj.toLocaleUpperCase = String.prototype.toLocaleUpperCase;\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n  var x = __obj.toLocaleUpperCase();\n  $FAIL('#1: \"var x = __obj.toLocaleUpperCase()\" lead to throwing exception');\n} catch (e) {\n  if (e!==\"intostr\") {\n    $ERROR('#1.1: Exception === \"intostr\". Actual: '+e);\n  }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.19_A1_T11"
+   },
+   {
+    "section": "15.5.4.19",
+    "description": "Override toString and valueOf functions, valueOf throw exception, then call toLocaleUpperCase() function for this object",
+    "test": "var __obj = {toString:function(){return {};},valueOf:function(){throw \"intostr\";}}\n__obj.toLocaleUpperCase = String.prototype.toLocaleUpperCase;\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n  var x = __obj.toLocaleUpperCase();\n \t$FAIL('#1: \"var x = __obj.toLocaleUpperCase()\" lead to throwing exception');\n} catch (e) {\n  if (e!==\"intostr\") {\n    $ERROR('#1.1: Exception === \"intostr\". Actual: '+e);\n  }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.19_A1_T12"
+   },
+   {
+    "section": "15.5.4.19",
+    "description": "Override toString and valueOf functions, then call toLocaleUpperCase() function for this object",
+    "test": "var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}\n__obj.toLocaleUpperCase = String.prototype.toLocaleUpperCase;\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__obj.toLocaleUpperCase() !==\"1\") {\n  $ERROR('#1: var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}; __obj.toLocaleUpperCase = String.prototype.toLocaleUpperCase; __obj.toLocaleUpperCase() ===\"1\". Actual: '+__obj.toLocaleUpperCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__obj.toLocaleUpperCase().length !== 1) {\n  $ERROR('#2: var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}; __obj.toLocaleUpperCase = String.prototype.toLocaleUpperCase; __obj.toLocaleUpperCase().length === 1. Actual: '+__obj.toLocaleUpperCase().length );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.19_A1_T13"
+   },
+   {
+    "section": "15.5.4.19",
+    "description": "Call toLocaleUpperCase() function for RegExp object",
+    "test": "var __reg = new RegExp(\"abc\");\n__reg.toLocaleUpperCase = String.prototype.toLocaleUpperCase;\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__reg.toLocaleUpperCase() !== \"/ABC/\") {\n  $ERROR('#1: var __reg = new RegExp(\"abc\"); __reg.toLocaleUpperCase = String.prototype.toLocaleUpperCase; __reg.toLocaleUpperCase() === \"/ABC/\". Actual: '+__reg.toLocaleUpperCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.19_A1_T14"
+   },
+   {
+    "section": "15.5.4.19",
+    "description": "Instance is Boolean object",
+    "test": "var __instance = new Boolean;\n\n__instance.toLocaleUpperCase = String.prototype.toLocaleUpperCase;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.toLocaleUpperCase() !== \"FALSE\") {\n  $ERROR('#1: __instance = new Boolean; __instance.toLocaleUpperCase = String.prototype.toLocaleUpperCase;  __instance.toLocaleUpperCase() === \"FALSE\". Actual: '+__instance.toLocaleUpperCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.19_A1_T2"
+   },
+   {
+    "section": "15.5.4.19",
+    "description": "Checking by using eval",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (eval(\"\\\"bj\\\"\").toLocaleUpperCase() !== \"BJ\") {\n  $ERROR('#1: eval(\"\\\\\"bj\\\\\"\").toLocaleUpperCase() === \"BJ\". Actual: '+eval(\"\\\"bj\\\"\").toLocaleUpperCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.19_A1_T3"
+   },
+   {
+    "section": "15.5.4.19",
+    "description": "Call toLocaleUpperCase() function without arguments of string and from empty string",
+    "test": "var __lowerCase = \"\".toLocaleUpperCase();\nvar __expected = \"\"; \n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__lowerCase.length !== __expected.length) {\n  $ERROR('#1: __lowerCase = \"\".toLocaleUpperCase(); __expected = \"\"; __lowerCase.length === __expected.length. Actual: '+__lowerCase.length );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__lowerCase.index !== __expected.index) {\n  $ERROR('#2: __lowerCase = \"\".toLocaleUpperCase(); __expected = \"\"; __lowerCase.index === __expected.index. Actual: '+__lowerCase.index );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__lowerCase.input !== __expected.input) {\n  $ERROR('#3: __lowerCase = \"\".toLocaleUpperCase(); __expected = \"\"; __lowerCase.input === __expected.input. Actual: '+__lowerCase.input );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\nif (__lowerCase[0]!==__expected[0]) {\n  $ERROR('#4: __lowerCase = \"\".toLocaleUpperCase(); __lowerCase[0]==='+__expected[0]+'. Actual: '+__lowerCase[0]);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.19_A1_T4"
+   },
+   {
+    "section": "15.5.4.19",
+    "description": "Call toLocaleUpperCase() function of function call",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n//since ToString(null) evaluates to \"null\" match(null) evaluates to match(\"null\")\nif (function(){return \"GnulLuNa\"}().toLocaleUpperCase() !== \"GNULLUNA\") {\n  $ERROR('#1: function(){return \"GnulLuNa\"}().toLocaleUpperCase() === \"GNULLUNA\". Actual: '+function(){return \"GnulLuNa\"}().toLocaleUpperCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.19_A1_T5"
+   },
+   {
+    "section": "15.5.4.19",
+    "description": "Call toLocaleUpperCase() function of Number.NEGATIVE_INFINITY",
+    "test": "Number.prototype.toLocaleUpperCase = String.prototype.toLocaleUpperCase;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif ((Number.NEGATIVE_INFINITY).toLocaleUpperCase() !== \"-INFINITY\") {\n  $ERROR('#1: Number.prototype.toLocaleUpperCase = String.prototype.toLocaleUpperCase; (Number.NEGATIVE_INFINITY).toLocaleUpperCase() === \"-INFINITY\". Actual: '+(Number.NEGATIVE_INFINITY).toLocaleUpperCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n",
+    "id": "S15.5.4.19_A1_T6"
+   },
+   {
+    "section": "15.5.4.19",
+    "description": "Call toLocaleUpperCase() function of NaN",
+    "test": "Number.prototype.toLocaleUpperCase = String.prototype.toLocaleUpperCase;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (NaN.toLocaleUpperCase()!== \"NAN\") {\n  $ERROR('#1: Number.prototype.toLocaleUpperCase = String.prototype.toLocaleUpperCase; NaN.toLocaleUpperCase()=== \"NAN\". Actual: '+NaN.toLocaleUpperCase());\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.19_A1_T7"
+   },
+   {
+    "section": "15.5.4.19",
+    "description": "Call toLocaleUpperCase() function of Infinity",
+    "test": "Number.prototype.toLocaleUpperCase = String.prototype.toLocaleUpperCase;\n\nif (Infinity.toLocaleUpperCase()!== \"INFINITY\") {\n  $ERROR('#1: Number.prototype.toLocaleUpperCase = String.prototype.toLocaleUpperCase; Infinity.toLocaleUpperCase()=== \"INFINITY\". Actual: '+Infinity.toLocaleUpperCase());\n}\n",
+    "id": "S15.5.4.19_A1_T8"
+   },
+   {
+    "section": "15.5.4.19",
+    "description": "Call toLocaleUpperCase() function of string object",
+    "test": "var __obj = {\n    valueOf:function(){},\n    toString:void 0\n};\n\nvar __lowerCase = new String(__obj).toLocaleUpperCase();\n\nvar __expected =\"UNDEFINED\"; \n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__lowerCase.length !== __expected.length) {\n  $ERROR('#1: __obj = {valueOf:function(){}, toString:void 0}; __lowerCase = new String(__obj).toLocaleUpperCase(); __expected =\"UNDEFINED\"; __lowerCase.length === __expected.length. Actual: '+__lowerCase.length );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__lowerCase.index !== __expected.index) {\n  $ERROR('#2: __obj = {valueOf:function(){}, toString:void 0}; __lowerCase = new String(__obj).toLocaleUpperCase(); __expected =\"UNDEFINED\"; __lowerCase.index === __expected.index. Actual: '+__lowerCase.index );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__lowerCase.input !== __expected.input) {\n  $ERROR('#3: __obj = {valueOf:function(){}, toString:void 0}; __lowerCase = new String(__obj).toLocaleUpperCase(); __expected =\"UNDEFINED\"; __lowerCase.input === __expected.input. Actual: '+__lowerCase.input );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n  if (__lowerCase[index]!==__expected[index]) {\n    $ERROR('#4.'+index+': __obj = {valueOf:function(){}, toString:void 0}; __lowerCase = new String(__obj).toLocaleUpperCase(); __expected =\"UNDEFINED\"; __lowerCase['+index+']==='+__expected[index]+'. Actual: '+__lowerCase[index]);\n  }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.19_A1_T9"
+   },
+   {
+    "section": "15.5.4.19",
+    "description": "Checking returned result",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (\"Hello, WoRlD!\".toLocaleUpperCase() !== \"HELLO, WORLD!\") {\n  $ERROR('#1: \"Hello, WoRlD!\".toLocaleUpperCase() === \"HELLO, WORLD!\". Actual: '+(\"Hello, WoRlD!\".toLocaleUpperCase()) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (\"Hello, WoRlD!\".toLocaleUpperCase() !== String(\"HELLO, WORLD!\")) {\n  $ERROR('#2: \"Hello, WoRlD!\".toLocaleUpperCase() === String(\"HELLO, WORLD!\"). Actual: '+(\"Hello, WoRlD!\".toLocaleUpperCase()) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (\"Hello, WoRlD!\".toLocaleUpperCase() ===new String(\"HELLO, WORLD!\")) {\n  $ERROR('#3: \"Hello, WoRlD!\".toLocaleUpperCase() !== new String(\"HELLO, WORLD!\"');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.19_A2_T1"
+   },
+   {
+    "section": "15.5.4.19, 13.2",
+    "description": "Checking String.prototype.toLocaleUpperCase.prototype",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (String.prototype.toLocaleUpperCase.prototype !== undefined) {\n  $ERROR('#1: String.prototype.toLocaleUpperCase.prototype === undefined. Actual: '+String.prototype.toLocaleUpperCase.prototype );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.19_A6"
+   },
+   {
+    "section": "15.5.4.19, 13.2",
+    "description": "Checking if creating the String.prototype.toLocaleUpperCase object fails",
+    "test": "var __FACTORY = String.prototype.toLocaleUpperCase;\n\ntry {\n  var __instance = new __FACTORY;\n  $FAIL('#1: __FACTORY = String.prototype.toLocaleUpperCase; \"__instance = new __FACTORY\" lead to throwing exception');\n} catch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#1.1:  var __instance = new __FACTORY;  Object has no construct lead  a TypeError. Actual: ' + (e));  \n  }\n}\n",
+    "id": "S15.5.4.19_A7"
+   },
+   {
+    "section": "15.5.4.19",
+    "description": "Checking if enumerating the String.prototype.toLocaleUpperCase.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#0\nif (!(String.prototype.toLocaleUpperCase.hasOwnProperty('length'))) {\n  $FAIL('#0: String.prototype.toLocaleUpperCase.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.toLocaleUpperCase.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n//////////////////////////////////////////////////////////////////////////////\n// CHECK#1\nif (String.prototype.toLocaleUpperCase.propertyIsEnumerable('length')) {\n  $ERROR('#1: String.prototype.toLocaleUpperCase.propertyIsEnumerable(\\'length\\') return false');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n// CHECK#2\nvar count=0;\n\nfor (var p in String.prototype.toLocaleUpperCase){\n  if (p===\"length\") count++;\n}\n\nif (count !== 0) {\n  $ERROR('#2: count=0; for (p in String.prototype.toLocaleUpperCase){if (p===\"length\") count++;}; count === 0. Actual: '+count );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.19_A8"
+   },
+   {
+    "section": "15.5.4.19",
+    "description": "Checking if deleting the String.prototype.toLocaleUpperCase.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#0\nif (!(String.prototype.toLocaleUpperCase.hasOwnProperty('length'))) {\n  $FAIL('#0: String.prototype.toLocaleUpperCase.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.toLocaleUpperCase.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (delete String.prototype.toLocaleUpperCase.length) {\n  $ERROR('#1: delete String.prototype.toLocaleUpperCase.length return false');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (!(String.prototype.toLocaleUpperCase.hasOwnProperty('length'))) {\n  $FAIL('#2: delete String.prototype.toLocaleUpperCase.length; String.prototype.toLocaleUpperCase.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.toLocaleUpperCase.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.19_A9"
+   }
+  ]
+ }
+}

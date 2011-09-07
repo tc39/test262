@@ -1,0 +1,50 @@
+{
+ "testCollection": {
+  "name": "15.9.5.13_Date.prototype.getUTCMonth",
+  "numTests": 7,
+  "tests": [
+   {
+    "section": "15.9.5.13",
+    "description": "Checking absence of ReadOnly attribute",
+    "test": "x = Date.prototype.getUTCMonth;\nif(x === 1)\n  Date.prototype.getUTCMonth = 2;\nelse\n  Date.prototype.getUTCMonth = 1;\nif (Date.prototype.getUTCMonth === x) {\n  $ERROR('#1: The Date.prototype.getUTCMonth has not the attribute ReadOnly');\n}\n\n",
+    "id": "S15.9.5.13_A1_T1"
+   },
+   {
+    "section": "15.9.5.13",
+    "description": "Checking absence of DontDelete attribute",
+    "test": "if (delete Date.prototype.getUTCMonth  === false) {\n  $ERROR('#1: The Date.prototype.getUTCMonth property has not the attributes DontDelete');\n}\n\nif (Date.prototype.hasOwnProperty('getUTCMonth')) {\n  $FAIL('#2: The Date.prototype.getUTCMonth property has not the attributes DontDelete');\n}\n\n",
+    "id": "S15.9.5.13_A1_T2"
+   },
+   {
+    "section": "15.9.5.13",
+    "description": "Checking DontEnum attribute",
+    "test": "if (Date.prototype.propertyIsEnumerable('getUTCMonth')) {\n  $ERROR('#1: The Date.prototype.getUTCMonth property has the attribute DontEnum');\n}\n\nfor(x in Date.prototype) {\n  if(x === \"getUTCMonth\") {\n    $ERROR('#2: The Date.prototype.getUTCMonth has the attribute DontEnum');\n  }\n}\n\n",
+    "id": "S15.9.5.13_A1_T3"
+   },
+   {
+    "section": "15.9.5.13",
+    "description": "The \"length\" property of the \"getUTCMonth\" is 0",
+    "test": "if(Date.prototype.getUTCMonth.hasOwnProperty(\"length\") !== true){\n  $ERROR('#1: The getUTCMonth has a \"length\" property');\n}\n\nif(Date.prototype.getUTCMonth.length !== 0){\n  $ERROR('#2: The \"length\" property of the getUTCMonth is 0');\n}\n\n",
+    "id": "S15.9.5.13_A2_T1"
+   },
+   {
+    "section": "15.9.5.13",
+    "description": "Checking ReadOnly attribute",
+    "test": "x = Date.prototype.getUTCMonth.length;\nDate.prototype.getUTCMonth.length = 1;\nif (Date.prototype.getUTCMonth.length !== x) {\n  $ERROR('#1: The Date.prototype.getUTCMonth.length has the attribute ReadOnly');\n}\n\n",
+    "id": "S15.9.5.13_A3_T1"
+   },
+   {
+    "section": "15.9.5.13",
+    "description": "Checking DontDelete attribute",
+    "test": "if (delete Date.prototype.getUTCMonth.length  !== false) {\n  $ERROR('#1: The Date.prototype.getUTCMonth.length property has the attributes DontDelete');\n}\n\nif (!Date.prototype.getUTCMonth.hasOwnProperty('length')) {\n  $FAIL('#2: The Date.prototype.getUTCMonth.length property has the attributes DontDelete');\n}\n\n",
+    "id": "S15.9.5.13_A3_T2"
+   },
+   {
+    "section": "15.9.5.13",
+    "description": "Checking DontEnum attribute",
+    "test": "if (Date.prototype.getUTCMonth.propertyIsEnumerable('length')) {\n  $ERROR('#1: The Date.prototype.getUTCMonth.length property has the attribute DontEnum');\n}\n\nfor(x in Date.prototype.getUTCMonth) {\n  if(x === \"length\") {\n    $ERROR('#2: The Date.prototype.getUTCMonth.length has the attribute DontEnum');\n  }\n}\n\n",
+    "id": "S15.9.5.13_A3_T3"
+   }
+  ]
+ }
+}

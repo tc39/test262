@@ -1,0 +1,150 @@
+{
+ "testCollection": {
+  "name": "15.4.4.5_Array_prototype_join",
+  "numTests": 23,
+  "tests": [
+   {
+    "section": "15.4.4.5",
+    "description": "Checking this use new Array() and []",
+    "test": "//CHECK#1\nvar x = new Array();\nif (x.join() !== \"\") {\n  $ERROR('#1: x = new Array(); x.join() === \"\". Actual: ' + (x.join()));\n}  \n\n//CHECK#2\nx = [];\nx[0] = 1;\nx.length = 0;\nif (x.join() !== \"\") {\n  $ERROR('#2: x = []; x[0] = 1; x.length = 0; x.join() === \"\". Actual: ' + (x.join()));\n}  \n",
+    "id": "S15.4.4.5_A1.1_T1"
+   },
+   {
+    "section": "15.4.4.5",
+    "description": "Checking this use new Array() and []",
+    "test": "//CHECK#1\nvar x = new Array(0,1,2,3);\nif (x.join() !== \"0,1,2,3\") {\n  $ERROR('#1: x = new Array(0,1,2,3); x.join() === \"0,1,2,3\". Actual: ' + (x.join()));\n}\n\n//CHECK#2\nx = [];\nx[0] = 0;\nx[3] = 3;\nif (x.join() !== \"0,,,3\") {\n  $ERROR('#2: x = []; x[0] = 0; x[3] = 3; x.join() === \"0,,,3\". Actual: ' + (x.join()));\n}\n\n//CHECK#3\nx = [];\nx[0] = 0;\nif (x.join() !== \"0\") {\n  $ERROR('#3: x = []; x[0] = 0; x.join() === \"0\". Actual: ' + (x.join()));\n}\n",
+    "id": "S15.4.4.5_A1.2_T1"
+   },
+   {
+    "section": "15.4.4.5",
+    "description": "Checking this use new Array() and []",
+    "test": "//CHECK#1\nvar x = new Array(0,1,2,3);\nif (x.join(undefined) !== \"0,1,2,3\") {\n  $ERROR('#1: x = new Array(0,1,2,3); x.join(undefined) === \"0,1,2,3\". Actual: ' + (x.join(undefined)));\n}\n\n//CHECK#2\nx = [];\nx[0] = 0;\nx[3] = 3;\nif (x.join(undefined) !== \"0,,,3\") {\n  $ERROR('#2: x = []; x[0] = 0; x[3] = 3; x.join(undefined) === \"0,,,3\". Actual: ' + (x.join(undefined)));\n}\n\n//CHECK#3\nx = [];\nx[0] = 0;\nif (x.join(undefined) !== \"0\") {\n  $ERROR('#3: x = []; x[0] = 0; x.join(undefined) === \"0\". Actual: ' + (x.join(undefined)));\n}\n",
+    "id": "S15.4.4.5_A1.2_T2"
+   },
+   {
+    "section": "15.4.4.5",
+    "description": "Checking this use new Array() and []",
+    "test": "//CHECK#1\nvar x = [];\nx[0] = undefined;\nif (x.join() !== \"\") {\n  $ERROR('#1: x = []; x[0] = undefined; x.join() === \"\". Actual: ' + (x.join()));\n}\n\n//CHECK#2\nx = [];\nx[0] = null;\nif (x.join() !== \"\") {\n  $ERROR('#2: x = []; x[0] = null; x.join() === \"\". Actual: ' + (x.join()));\n}\n\n//CHECK#3\nx = Array(undefined,1,null,3);\nif (x.join() !== \",1,,3\") {\n  $ERROR('#3: x = Array(undefined,1,null,3); x.join() === \",1,,3\". Actual: ' + (x.join()));\n}\n",
+    "id": "S15.4.4.5_A1.3_T1"
+   },
+   {
+    "section": "15.4.4.5",
+    "description": "If ToUint32(length) is zero, return the empty string",
+    "test": "var obj = {};\nobj.join = Array.prototype.join;\n\nif (obj.length !== undefined) {\n  $ERROR('#0: var obj = {}; obj.length === undefined. Actual: ' + (obj.length));\n} else {\n    //CHECK#1  \n    if (obj.join() !== \"\") {\n      $ERROR('#1: var obj = {}; obj.join = Array.prototype.join; obj.join() === \"\". Actual: ' + (obj.join()));\n    }\n    //CHECK#2\n    if (obj.length !== undefined) {\n      $ERROR('#2: var obj = {}; obj.join = Array.prototype.join; obj.join(); obj.length === undefined. Actual: ' + (obj.length));\n    }\n}    \n\n//CHECK#3\nobj.length = undefined;\nif (obj.join() !== \"\") {\n  $ERROR('#3: var obj = {}; obj.length = undefined; obj.join = Array.prototype.join; obj.join() === \". Actual: ' + (obj.join()));\n} \n\n//CHECK#4\nif (obj.length !== undefined) {\n  $ERROR('#4: var obj = {}; obj.length = undefined; obj.join = Array.prototype.join; obj.join(); obj.length === undefined. Actual: ' + (obj.length));\n}\n\n//CHECK#5\nobj.length = null\nif (obj.join() !== \"\") {\n  $ERROR('#5: var obj = {}; obj.length = null; obj.join = Array.prototype.join; obj.join() === \"\". Actual: ' + (obj.join()));\n} \n\n//CHECK#6\nif (obj.length !== null) {\n  $ERROR('#6: var obj = {}; obj.length = null; obj.join = Array.prototype.join; obj.join(); obj.length === null. Actual: ' + (obj.length));\n}\n",
+    "id": "S15.4.4.5_A2_T1"
+   },
+   {
+    "section": "15.4.4.5",
+    "description": "If ToUint32(length) is zero, return the empty string",
+    "test": "var obj = {};\nobj.join = Array.prototype.join;\n\n//CHECK#1\nobj.length = NaN;\nif (obj.join() !== \"\") {\n  $ERROR('#1: var obj = {}; obj.length = NaN; obj.join = Array.prototype.join; obj.join() === \"\". Actual: ' + (obj.join()));\n}\n\n//CHECK#2\nif (isNaN(obj.length) !== true) {\n  $ERROR('#2: var obj = {}; obj.length = NaN; obj.join = Array.prototype.join; obj.join(); obj.length === Not-a-Number. Actual: ' + (obj.length));\n}\n\n//CHECK#3\nobj.length = Number.POSITIVE_INFINITY;\nif (obj.join() !== \"\") {\n  $ERROR('#3: var obj = {}; obj.length = Number.POSITIVE_INFINITY; obj.join = Array.prototype.join; obj.join() === \"\". Actual: ' + (obj.join()));\n}\n\n//CHECK#4\nif (obj.length !== Number.POSITIVE_INFINITY) {\n  $ERROR('#4: var obj = {}; obj.length = Number.POSITIVE_INFINITY; obj.join = Array.prototype.join; obj.join(); obj.length === Number.POSITIVE_INFINITY. Actual: ' + (obj.length));\n}\n\n//CHECK#5\nobj.length = Number.NEGATIVE_INFINITY;\nif (obj.join() !== \"\") {\n  $ERROR('#5: var obj = {}; obj.length = Number.NEGATIVE_INFINITY; obj.join = Array.prototype.join; obj.join() === \"\". Actual: ' + (obj.join()));\n}\n\n//CHECK#6\nif (obj.length !== Number.NEGATIVE_INFINITY) {\n  $ERROR('#6: var obj = {}; obj.length = Number.NEGATIVE_INFINITY; obj.join = Array.prototype.join; obj.join(); obj.length === Number.NEGATIVE_INFINITY. Actual: ' + (obj.length));\n}\n\n//CHECK#7\nobj.length = -0;\nif (obj.join() !== \"\") {\n  $ERROR('#7: var obj = {}; obj.length = -0; obj.join = Array.prototype.join; obj.join() === \"\". Actual: ' + (obj.join()));\n}    \n\n//CHECK#8\nif (obj.length !== -0) {\n  $ERROR('#8: var obj = {}; obj.length = -0; obj.join = Array.prototype.join; obj.join(); obj.length === 0. Actual: ' + (obj.length));\n} else {\n  if (1/obj.length !== Number.NEGATIVE_INFINITY) {\n    $ERROR('#8: var obj = {}; obj.length = -0; obj.join = Array.prototype.join; obj.join(); obj.length === -0. Actual: ' + (obj.length));\n  }  \n}   \n\n//CHECK#9\nobj.length = 0.5;\nif (obj.join() !== \"\") {\n  $ERROR('#9: var obj = {}; obj.length = 0.5; obj.join = Array.prototype.join; obj.join() === \"\". Actual: ' + (obj.join()));\n}\n\n//CHECK#10\nif (obj.length !== 0.5) {\n  $ERROR('#10: var obj = {}; obj.length = 0.5; obj.join = Array.prototype.join; obj.join(); obj.length === 0.5. Actual: ' + (obj.length));\n} \n\n//CHECK#11\nvar x = new Number(0);\nobj.length = x;\nif (obj.join() !== \"\") {\n  $ERROR('#11: var x = new Number(0); var obj = {}; obj.length = x; obj.join = Array.prototype.join; obj.join() === \"\". Actual: ' + (obj.join()));\n}\n\n//CHECK#12\nif (obj.length !== x) {\n  $ERROR('#12: var x = new Number(0); var obj = {}; obj.length = x; obj.join = Array.prototype.join; obj.join(); obj.length === x. Actual: ' + (obj.length));\n}\n",
+    "id": "S15.4.4.5_A2_T2"
+   },
+   {
+    "section": "15.4.4.5",
+    "description": "If ToUint32(length) is zero, return the empty string",
+    "test": "var obj = {};\nobj.join = Array.prototype.join;\n\n//CHECK#1\nobj.length = 4.5;\nif (obj.join() !== \",,,\") {\n  $ERROR('#1: var obj = {}; obj.length = 4.5; obj.join = Array.prototype.join; obj.join() === \",,,\". Actual: ' + (obj.join()));\n}\n\n//CHECK#2\nobj[0] = undefined;\nobj[1] = 1;\nobj[2] = null;\nif (obj.join() !== \",1,,\") {\n  $ERROR('#1: var obj = {}; obj.length = 4.5; obj[0] = undefined; obj[1] = 1; obj[2] = null; obj.join = Array.prototype.join; obj.join() === \",1,,\". Actual: ' + (obj.join()));\n}\n\n//CHECK#3\nif (obj.length !== 4.5) {\n  $ERROR('#1: var obj = {}; obj.length = 4.5; obj[0] = undefined; obj[1] = 1; obj[2] = null; obj.join = Array.prototype.join; obj.join(); obj.length === 4.5. Actual: ' + (obj.length));\n}  \n\nvar obj = {};\nobj.join = Array.prototype.join;\n\n//CHECK#4\nvar x = new Number(4.5);\nobj.length = x;\nif (obj.join() !== \",,,\") {\n  $ERROR('#4: var obj = {}; var x = new Number(4.5); obj.length = x; obj.join = Array.prototype.join; obj.join() === \",,,\". Actual: ' + (obj.join()));\n}\n\n//CHECK#5\nobj[0] = undefined;\nobj[1] = 1;\nobj[2] = null;\nif (obj.join() !== \",1,,\") {\n  $ERROR('#5: var obj = {}; var x = new Number(4.5); obj.length = x; obj[0] = undefined; obj[1] = 1; obj[2] = null; obj.join = Array.prototype.join; obj.join() === \",1,,\". Actual: ' + (obj.join()));\n}\n\n//CHECK#6\nif (obj.length !== x) {\n  $ERROR('#6: var obj = {}; var x = new Number(4.5); obj.length = x; obj[0] = undefined; obj[1] = 1; obj[2] = null; obj.join = Array.prototype.join; obj.join(); obj.length === x. Actual: ' + (obj.length));\n}  \n",
+    "id": "S15.4.4.5_A2_T3"
+   },
+   {
+    "section": "15.4.4.5",
+    "description": "Operator use ToNumber from length.\nIf Type(value) is Object, evaluate ToPrimitive(value, Number)",
+    "test": "var obj = {};\nobj.join = Array.prototype.join;\n\n//CHECK#1\nobj.length = {valueOf: function() {return 3}};\nif (obj.join() !== \",,\") {\n  $ERROR('#1: obj.length = {valueOf: function() {return 3}}  obj.join() === \",,\". Actual: ' + (obj.join()));\n}\n\n//CHECK#2\nobj.length = {valueOf: function() {return 3}, toString: function() {return 2}};\nif (obj.join() !== \",,\") {\n  $ERROR('#2: obj.length = {valueOf: function() {return 3}, toString: function() {return 2}}  obj.join() === \",,\". Actual: ' + (obj.join()));\n} \n\n//CHECK#3\nobj.length = {valueOf: function() {return 3}, toString: function() {return {}}};\nif (obj.join() !== \",,\") {\n  $ERROR('#3: obj.length = {valueOf: function() {return 3}, toString: function() {return {}}}  obj.join() === \",,\". Actual: ' + (obj.join()));\n}\n\n//CHECK#4\ntry {  \n  obj.length = {valueOf: function() {return 3}, toString: function() {throw \"error\"}};  \n  if (obj.join() !== \",,\") {\n    $ERROR('#4.1: obj.length = {valueOf: function() {return 3}, toString: function() {throw \"error\"}}; obj.join() === \",\". Actual: ' + (obj.join()));\n  }\n}\ncatch (e) {\n  if (e === \"error\") {\n    $ERROR('#4.2: obj.length = {valueOf: function() {return 3}, toString: function() {throw \"error\"}}; obj.join() not throw \"error\"');\n  } else {\n    $ERROR('#4.3: obj.length = {valueOf: function() {return 3}, toString: function() {throw \"error\"}}; obj.join() not throw Error. Actual: ' + (e));\n  }\n}\n\n//CHECK#5\nobj.length = {toString: function() {return 2}};\nif (obj.join() !== \",\") {\n  $ERROR('#5: obj.length = {toString: function() {return 2}}  obj.join() === \",\". Actual: ' + (obj.join()));\n}\n\n//CHECK#6\nobj.length = {valueOf: function() {return {}}, toString: function() {return 2}}\nif (obj.join() !== \",\") {\n  $ERROR('#6: obj.length = {valueOf: function() {return {}}, toString: function() {return 2}}  obj.join() === \",\". Actual: ' + (obj.join()));\n}\n\n//CHECK#7\ntry {\n  obj.length = {valueOf: function() {throw \"error\"}, toString: function() {return 2}};  \n  obj.join();\n  $ERROR('#7.1: obj.length = {valueOf: function() {throw \"error\"}, toString: function() {return 2}}; obj.join() throw \"error\". Actual: ' + (obj.join()));\n}  \ncatch (e) {\n  if (e !== \"error\") {\n    $ERROR('#7.2: obj.length = {valueOf: function() {throw \"error\"}, toString: function() {return 2}}; obj.join() throw \"error\". Actual: ' + (e));\n  } \n}\n\n//CHECK#8\ntry {\n  obj.length = {valueOf: function() {return {}}, toString: function() {return {}}};\n  obj.join();\n  $ERROR('#8.1: obj.length = {valueOf: function() {return {}}, toString: function() {return {}}}  obj.join() throw TypeError. Actual: ' + (obj.join()));\n}  \ncatch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#8,2: obj.length = {valueOf: function() {return {}}, toString: function() {return {}}}  obj.join() throw TypeError. Actual: ' + (e));\n  } \n}\n",
+    "id": "S15.4.4.5_A2_T4"
+   },
+   {
+    "section": "15.4.4.5",
+    "description": "Checking separator in [\"\", \"\\\\\", \"&\", true, Infinity, null, undefind, NaN]",
+    "test": "//CHECK#0\nvar x = new Array(0,1,2,3);\nif (x.join(\"\") !== \"0123\") {\n  $ERROR('#0: x = new Array(0,1,2,3); x.join(\"\") === \"0123\". Actual: ' + (x.join(\"\")));\n}\n\n//CHECK#1\nx = new Array(0,1,2,3);\nif (x.join(\"\\\\\") !== \"0\\\\1\\\\2\\\\3\") {\n  $ERROR('#1: x = new Array(0,1,2,3); x.join(\"\\\\\") === \"0\\\\1\\\\2\\\\3\". Actual: ' + (x.join(\"\\\\\")));\n}\n\n//CHECK#2\nif (x.join(\"&\") !== \"0&1&2&3\") {\n  $ERROR('#2: x = new Array(0,1,2,3); x.join(\"&\") === \"0&1&2&3\". Actual: ' + (x.join(\"&\")));\n}\n\n//CHECK#3\nif (x.join(true) !== \"0true1true2true3\") {\n  $ERROR('#3: x = new Array(0,1,2,3); x.join(true) === \"0true1true2true3\". Actual: ' + (x.join(true)));\n}\n\n//CHECK#4\nif (x.join(Infinity) !== \"0Infinity1Infinity2Infinity3\") {\n  $ERROR('#4: x = new Array(0,1,2,3); x.join(Infinity) === \"0Infinity1Infinity2Infinity3\". Actual: ' + (x.join(Infinity)));\n}\n\n//CHECK#5\nif (x.join(null) !== \"0null1null2null3\") {\n  $ERROR('#3: 5 = new Array(0,1,2,3); x.join(null) === \"0null1null2null3\". Actual: ' + (x.join(null)));\n}\n\n//CHECK#6\nif (x.join(undefined) !== \"0,1,2,3\") {\n  $ERROR('#6: x = new Array(0,1,2,3); x.join(undefined) === \"0,1,2,3\". Actual: ' + (x.join(undefined)));\n}\n\n//CHECK#7\nif (x.join(NaN) !== \"0NaN1NaN2NaN3\") {\n  $ERROR('#7: x = new Array(0,1,2,3); x.join(\"NaN\") === \"0NaN1NaN2NaN3\". Actual: ' + (x.join(\"NaN\")));\n}\n",
+    "id": "S15.4.4.5_A3.1_T1"
+   },
+   {
+    "section": "15.4.4.5",
+    "description": "If Type(separator) is Object, evaluate ToPrimitive(separator, String)",
+    "test": "var x = new Array(0,1,2,3);\n//CHECK#1\nvar object = {valueOf: function() {return \"+\"}};\nif (x.join(object) !== \"0[object Object]1[object Object]2[object Object]3\") {\n  $ERROR('#1: var object = {valueOf: function() {return \"+\"}}; x.join(object) === \"0[object Object]1[object Object]2[object Object]3\". Actual: ' + (x.join(object)));\n}\n\n//CHECK#2\nvar object = {valueOf: function() {return \"+\"}, toString: function() {return \"*\"}};\nif (x.join(object) !== \"0*1*2*3\") {\n  $ERROR('#2: var object = {valueOf: function() {return \"+\"}, toString: function() {return \"*\"}}; x.join(object) === \"0*1*2*3\". Actual: ' + (x.join(object)));\n} \n\n//CHECK#3\nvar object = {valueOf: function() {return \"+\"}, toString: function() {return {}}};\nif (x.join(object) !== \"0+1+2+3\") {\n  $ERROR('#3: var object = {valueOf: function() {return \"+\"}, toString: function() {return {}}}; x.join(object) === \"0+1+2+3\". Actual: ' + (x.join(object)));\n}\n\n//CHECK#4\ntry {\n  var object = {valueOf: function() {throw \"error\"}, toString: function() {return \"*\"}};\n  if (x.join(object) !== \"0*1*2*3\") {\n    $ERROR('#4.1: var object = {valueOf: function() {throw \"error\"}, toString: function() {return \"*\"}}; x.join(object) === \"0*1*2*3\". Actual: ' + (x.join(object)));\n  }\n}\ncatch (e) {\n  if (e === \"error\") {\n    $ERROR('#4.2: var object = {valueOf: function() {throw \"error\"}, toString: function() {return \"*\"}}; x.join(object) not throw \"error\"');\n  } else {\n    $ERROR('#4.3: var object = {valueOf: function() {throw \"error\"}, toString: function() {return \"*\"}}; x.join(object) not throw Error. Actual: ' + (e));\n  }\n}\n\n//CHECK#5\nvar object = {toString: function() {return \"*\"}};\nif (x.join(object) !== \"0*1*2*3\") {\n  $ERROR('#5: var object = {toString: function() {return \"*\"}}; x.join(object) === \"0*1*2*3\". Actual: ' + (x.join(object)));\n}\n\n//CHECK#6\nvar object = {valueOf: function() {return {}}, toString: function() {return \"*\"}}\nif (x.join(object) !== \"0*1*2*3\") {\n  $ERROR('#6: var object = {valueOf: function() {return {}}, toString: function() {return \"*\"}}; x.join(object) === \"0*1*2*3\". Actual: ' + (x.join(object)));\n}\n\n//CHECK#7\ntry {\n  var object = {valueOf: function() {return \"+\"}, toString: function() {throw \"error\"}};\n  x.join(object);\n  $ERROR('#7.1: var object = {valueOf: function() {return \"+\"}, toString: function() {throw \"error\"}}; x.join(object) throw \"error\". Actual: ' + (x.join(object)));\n}  \ncatch (e) {\n  if (e !== \"error\") {\n    $ERROR('#7.2: var object = {valueOf: function() {return \"+\"}, toString: function() {throw \"error\"}}; x.join(object) throw \"error\". Actual: ' + (e));\n  } \n}\n\n//CHECK#8\ntry {\n  var object = {valueOf: function() {return {}}, toString: function() {return {}}};\n  x.join(object);\n  $ERROR('#8.1: var object = {valueOf: function() {return {}}, toString: function() {return {}}}; x.join(object) throw TypeError. Actual: ' + (x.join(object)));\n}  \ncatch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#8.2: var object = {valueOf: function() {return {}}, toString: function() {return {}}}; x.join(object) throw TypeError. Actual: ' + (e));\n  } \n}\n",
+    "id": "S15.4.4.5_A3.1_T2"
+   },
+   {
+    "section": "15.4.4.5",
+    "description": "Checking arguments and separator in [\"\", \"\\\\\", \"&\", true, Infinity, null, undefind, NaN]",
+    "test": "//CHECK#0\nvar x = new Array(\"\",\"\",\"\");\nif (x.join(\"\") !== \"\") {\n  $ERROR('#0: var x = new Array(\"\",\"\",\"\"); x.join(\"\") === \"\". Actual: ' + (x.join(\"\")));\n}\n\n//CHECK#1\nvar x = new Array(\"\\\\\",\"\\\\\",\"\\\\\");\nif (x.join(\"\\\\\") !== \"\\\\\\\\\\\\\\\\\\\\\") {\n  $ERROR('#1: var x = new Array(\"\\\\\",\"\\\\\",\"\\\\\"); x.join(\"\\\\\") === \"\\\\\\\\\\\\\\\\\\\\\". Actual: ' + (x.join(\"\\\\\")));\n}\n\n//CHECK#2\nvar x = new Array(\"&\", \"&\", \"&\");\nif (x.join(\"&\") !== \"&&&&&\") {\n  $ERROR('#2: var x = new Array(\"&\", \"&\", \"&\"); x.join(\"&\") === \"&&&&&\". Actual: ' + (x.join(\"&\")));\n}\n\n//CHECK#3\nvar x = new Array(true,true,true);\nif (x.join() !== \"true,true,true\") {\n  $ERROR('#3: var x = new Array(true,true,true); x.join(true,true,true) === \"true,true,true\". Actual: ' + (x.join(true,true,true)));\n}\n\n//CHECK#4\nvar x = new Array(null,null,null);\nif (x.join() !== \",,\") {\n  $ERROR('#4: var x = new Array(null,null,null); x.join(null,null,null) === \",,\". Actual: ' + (x.join(null,null,null)));\n}\n\n//CHECK#5\nvar x = new Array(undefined,undefined,undefined);\nif (x.join() !== \",,\") {\n  $ERROR('#5: var x = new Array(undefined,undefined,undefined); x.join(undefined,undefined,undefined) === \",,\". Actual: ' + (x.join(undefined,undefined,undefined)));\n}\n\n//CHECK#6\nvar x = new Array(Infinity,Infinity,Infinity);\nif (x.join() !== \"Infinity,Infinity,Infinity\") {\n  $ERROR('#6: var x = new Array(Infinity,Infinity,Infinity); x.join(Infinity,Infinity,Infinity) === \"Infinity,Infinity,Infinity\". Actual: ' + (x.join(Infinity,Infinity,Infinity)));\n}\n\n//CHECK#7\nvar x = new Array(NaN,NaN,NaN);\nif (x.join() !== \"NaN,NaN,NaN\") {\n  $ERROR('#7: var x = new Array(NaN,NaN,NaN); x.join(NaN,NaN,NaN) === \"NaN,NaN,NaN\". Actual: ' + (x.join(NaN,NaN,NaN)));\n}\n",
+    "id": "S15.4.4.5_A3.2_T1"
+   },
+   {
+    "section": "15.4.4.5",
+    "description": "If Type(argument) is Object, evaluate ToPrimitive(argument, String)",
+    "test": "//CHECK#1\nvar object = {valueOf: function() {return \"+\"}};\nvar x = new Array(object);\nif (x.join() !== \"[object Object]\") {\n  $ERROR('#1: var object = {valueOf: function() {return \"+\"}} var x = new Array(object); x.join() === \"[object Object]\". Actual: ' + (x.join()));\n}\n\n//CHECK#2\nvar object = {valueOf: function() {return \"+\"}, toString: function() {return \"*\"}};\nvar x = new Array(object);\nif (x.join() !== \"*\") {\n  $ERROR('#2: var object = {valueOf: function() {return \"+\"}, toString: function() {return \"*\"}} var x = new Array(object); x.join() === \"*\". Actual: ' + (x.join()));\n} \n\n//CHECK#3\nvar object = {valueOf: function() {return \"+\"}, toString: function() {return {}}};\nvar x = new Array(object);\nif (x.join() !== \"+\") {\n  $ERROR('#3: var object = {valueOf: function() {return \"+\"}, toString: function() {return {}}} var x = new Array(object); x.join() === \"+\". Actual: ' + (x.join()));\n}\n\n//CHECK#4\ntry {\n  var object = {valueOf: function() {throw \"error\"}, toString: function() {return \"*\"}};\n  var x = new Array(object);\n  if (x.join() !== \"*\") {\n    $ERROR('#4.1: var object = {valueOf: function() {throw \"error\"}, toString: function() {return \"*\"}} var x = new Array(object); x.join() === \"*\". Actual: ' + (x.join()));\n  }\n}\ncatch (e) {\n  if (e === \"error\") {\n    $ERROR('#4.2: var object = {valueOf: function() {throw \"error\"}, toString: function() {return \"*\"}} var x = new Array(object); x.join() not throw \"error\"');\n  } else {\n    $ERROR('#4.3: var object = {valueOf: function() {throw \"error\"}, toString: function() {return \"*\"}} var x = new Array(object); x.join() not throw Error. Actual: ' + (e));\n  }\n}\n\n//CHECK#5\nvar object = {toString: function() {return \"*\"}};\nvar x = new Array(object);\nif (x.join() !== \"*\") {\n  $ERROR('#5: var object = {toString: function() {return \"*\"}} var x = new Array(object); x.join() === \"*\". Actual: ' + (x.join()));\n}\n\n//CHECK#6\nvar object = {valueOf: function() {return {}}, toString: function() {return \"*\"}}\nvar x = new Array(object);\nif (x.join() !== \"*\") {\n  $ERROR('#6: var object = {valueOf: function() {return {}}, toString: function() {return \"*\"}} var x = new Array(object); x.join() === \"*\". Actual: ' + (x.join()));\n}\n\n//CHECK#7\ntry {\n  var object = {valueOf: function() {return \"+\"}, toString: function() {throw \"error\"}};\n  var x = new Array(object);\n  x.join();\n  $ERROR('#7.1: var object = {valueOf: function() {return \"+\"}, toString: function() {throw \"error\"}} var x = new Array(object); x.join() throw \"error\". Actual: ' + (x.join()));\n}  \ncatch (e) {\n  if (e !== \"error\") {\n    $ERROR('#7.2: var object = {valueOf: function() {return \"+\"}, toString: function() {throw \"error\"}} var x = new Array(object); x.join() throw \"error\". Actual: ' + (e));\n  } \n}\n\n//CHECK#8\ntry {\n  var object = {valueOf: function() {return {}}, toString: function() {return {}}};\n  var x = new Array(object);\n  x.join();\n  $ERROR('#8.1: var object = {valueOf: function() {return {}}, toString: function() {return {}}} var x = new Array(object); x.join() throw TypeError. Actual: ' + (x.join()));\n}  \ncatch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#8.2: var object = {valueOf: function() {return {}}, toString: function() {return {}}} var x = new Array(object); x.join() throw TypeError. Actual: ' + (e));\n  } \n}\n",
+    "id": "S15.4.4.5_A3.2_T2"
+   },
+   {
+    "section": "15.4.4.5",
+    "description": "length = 4294967296",
+    "test": "var obj = {};\nobj.join = Array.prototype.join;\nobj[0] = \"x\";\nobj[4294967295] = \"y\";\nobj.length = 4294967296;\n\n//CHECK#1\nif (obj.join(\"\") !== \"\") {\n  $ERROR('#1: var obj = {}; obj.join = Array.prototype.join; obj[0] = \"x\"; obj[4294967295] = \"y\"; obj.length = 4294967296; obj.join(\"\") === \"\". Actual: ' + (obj.join(\"\")));\n}\n\n//CHECK#2\nif (obj.length !== 4294967296) {\n  $ERROR('#2: var obj = {}; obj.join = Array.prototype.join; obj[0] = \"x\"; obj[4294967295] = \"y\"; obj.length = 4294967296; obj.join(\"\"); obj.length === 4294967296. Actual: ' + (obj.length));\n}\n",
+    "id": "S15.4.4.5_A4_T1"
+   },
+   {
+    "section": "15.4.4.5",
+    "description": "length = 4294967297",
+    "test": "var obj = {};\nobj.join = Array.prototype.join;\nobj[0] = \"x\";\nobj[1] = \"y\";\nobj[4294967296] = \"z\";\nobj.length = 4294967297;\n\n//CHECK#1\nif (obj.join(\"\") !== \"x\") {\n  $ERROR('#1: var obj = {}; obj.join = Array.prototype.join; obj[0] = \"x\"; obj[1] = \"y\"; obj[4294967296] = \"z\"; obj.length = 4294967297; obj.join(\"\") === \"x\". Actual: ' + (obj.join(\"\")));\n}\n\n//CHECK#2\nif (obj.length !== 4294967297) {\n  $ERROR('#2: var obj = {}; obj.join = Array.prototype.join; obj[0] = \"x\"; obj[1] = \"y\"; obj[4294967296] = \"z\"; obj.length = 4294967297; obj.join(\"\"); obj.length === 4294967297. Actual: ' + (obj.length));\n}\n",
+    "id": "S15.4.4.5_A4_T2"
+   },
+   {
+    "section": "15.4.4.5",
+    "description": "length = -4294967294",
+    "test": "var obj = {};\nobj.join = Array.prototype.join;\nobj[0] = \"x\";\nobj[1] = \"y\";\nobj[2] = \"z\";\nobj.length = -4294967294;\n\n//CHECK#1\nif (obj.join(\"\") !== \"xy\") {\n  $ERROR('#1: var obj = {}; obj.join = Array.prototype.join; obj[0] = \"x\"; obj[1] = \"y\"; obj[2] = \"z\"; obj.length = -4294967294; obj.join(\"\") === \"xy\". Actual: ' + (obj.join(\"\")));\n}\n\n//CHECK#2\nif (obj.length !== -4294967294) {\n  $ERROR('#2: var obj = {}; obj.join = Array.prototype.join; obj[0] = \"x\"; obj[1] = \"y\"; obj[2] = \"z\"; obj.length = -4294967294; obj.join(\"\"); obj.length === -4294967294. Actual: ' + (obj.length));\n}\n",
+    "id": "S15.4.4.5_A4_T3"
+   },
+   {
+    "section": "15.4.4.5, 8.6.2.1",
+    "description": "[[Prototype]] of Array instance is Array.prototype, [[Prototype] of Array.prototype is Object.prototype",
+    "test": "//CHECK#1\nArray.prototype[1] = 1;\nvar x = [0];\nx.length = 2;\nif (x.join() !== \"0,1\") {  \n  $ERROR('#1: Array.prototype[1] = 1; x = [0]; x.length = 2; x.join() === \"0,1\". Actual: ' + (x.join()));    \n}\n\n//CHECK#2\nObject.prototype[1] = 1;\nObject.prototype.length = 2;\nObject.prototype.join = Array.prototype.join;\nx = {0:0};\nif (x.join() !== \"0,1\") {  \n  $ERROR('#2: Object.prototype[1] = 1; Object.prototype.length = 2; Object.prototype.join = Array.prototype.join; x = {0:0}; x.join() === \"0,1\". Actual: ' + (x.join()));    \n}\n",
+    "id": "S15.4.4.5_A5_T1"
+   },
+   {
+    "section": "15.4.4.5, 15.2.4.7, 12.6.4",
+    "description": "Checking use propertyIsEnumerable, for-in",
+    "test": "//CHECK#1\nif (Array.prototype.join.propertyIsEnumerable('length') !== false) {\n  $ERROR('#1: Array.prototype.join.propertyIsEnumerable(\\'length\\') === false. Actual: ' + (Array.prototype.join.propertyIsEnumerable('length')));\n}\n\n//CHECK#2\nvar result = true;\nfor (var p in Array.join){\n  if (p === \"length\") {\n    result = false;\n  }  \n}\n\nif (result !== true) {\n  $ERROR('#2: result = true; for (p in Array.join) { if (p === \"length\") result = false; }  result === true;');\n}\n\n",
+    "id": "S15.4.4.5_A6.1"
+   },
+   {
+    "section": "15.4.4.5, 15.2.4.5, 11.4.1",
+    "description": "Checking use hasOwnProperty, delete",
+    "strict_mode_negative": "",
+    "test": "//CHECK#1\nif (Array.prototype.join.hasOwnProperty('length') !== true) {\n  $FAIL('#1: Array.prototype.join.hasOwnProperty(\\'length\\') === true. Actual: ' + (Array.prototype.join.hasOwnProperty('length')));\n}\n\ndelete Array.prototype.join.length;\n \n//CHECK#2\nif (Array.prototype.join.hasOwnProperty('length') !== true) {\n  $ERROR('#2: delete Array.prototype.join.length; Array.prototype.join.hasOwnProperty(\\'length\\') === true. Actual: ' + (Array.prototype.join.hasOwnProperty('length')));\n}\n\n//CHECK#3\nif (Array.prototype.join.length === undefined) {\n  $ERROR('#3: delete Array.prototype.join.length; Array.prototype.join.length !== undefined');\n}\n\n\n",
+    "id": "S15.4.4.5_A6.2",
+    "strict_only": ""
+   },
+   {
+    "section": "15.4.4.5",
+    "description": "Checking if varying the length property fails",
+    "strict_mode_negative": "",
+    "test": "//CHECK#1\nvar x = Array.prototype.join.length;\nArray.prototype.join.length = Infinity;\nif (Array.prototype.join.length !== x) {\n  $ERROR('#1: x = Array.prototype.join.length; Array.prototype.join.length = Infinity; Array.prototype.join.length === x. Actual: ' + (Array.prototype.join.length));\n}\n\n",
+    "id": "S15.4.4.5_A6.3",
+    "strict_only": ""
+   },
+   {
+    "section": "15.4.4.5",
+    "description": "join.length === 1",
+    "test": "//CHECK#1\nif (Array.prototype.join.length !== 1) {\n  $ERROR('#1: Array.prototype.join.length === 1. Actual: ' + (Array.prototype.join.length));\n}\n\n",
+    "id": "S15.4.4.5_A6.4"
+   },
+   {
+    "section": "15.4.4.5, 15.2.4.7, 12.6.4",
+    "description": "Checking use propertyIsEnumerable, for-in",
+    "test": "//CHECK#1\nif (Array.propertyIsEnumerable('join') !== false) {\n  $ERROR('#1: Array.propertyIsEnumerable(\\'join\\') === false. Actual: ' + (Array.propertyIsEnumerable('join')));\n}\n\n//CHECK#2\nvar result = true;\nfor (var p in Array){\n  if (p === \"join\") {\n    result = false;\n  }  \n}\n\nif (result !== true) {\n  $ERROR('#2: result = true; for (p in Array) { if (p === \"join\") result = false; }  result === true;');\n}\n\n",
+    "id": "S15.4.4.5_A6.5"
+   },
+   {
+    "section": "15.4.4.5",
+    "description": "Checking Array.prototype.join.prototype",
+    "test": "//CHECK#1\nif (Array.prototype.join.prototype !== undefined) {\n  $ERROR('#1: Array.prototype.join.prototype === undefined. Actual: ' + (Array.prototype.join.prototype));\n}\n",
+    "id": "S15.4.4.5_A6.6"
+   },
+   {
+    "section": "15.4.4.5, 11.2.2",
+    "description": "If property does not implement the internal [[Construct]] method, throw a TypeError exception",
+    "test": "//CHECK#1\n\ntry {\n  new Array.prototype.join();\n  $ERROR('#1.1: new Array.prototype.join() throw TypeError. Actual: ' + (new Array.prototype.join()));\n} catch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#1.2: new Array.prototype.join() throw TypeError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.4.4.5_A6.7"
+   }
+  ]
+ }
+}

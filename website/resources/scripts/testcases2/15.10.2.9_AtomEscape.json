@@ -1,0 +1,38 @@
+{
+ "testCollection": {
+  "name": "15.10.2.9_AtomEscape",
+  "numTests": 5,
+  "tests": [
+   {
+    "section": "15.10.2.9, 15.10.2.11",
+    "description": "Execute /\\b(\\w+) \\1\\b/.exec(\"do you listen the the band\") and check results",
+    "test": "__executed = /\\b(\\w+) \\1\\b/.exec(\"do you listen the the band\");\n\n__expected = [\"the the\", \"the\"];\n__expected.index = 14;\n__expected.input = \"do you listen the the band\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /\\\\b(\\\\w+) \\\\1\\\\b/.exec(\"do you listen the the band\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /\\\\b(\\\\w+) \\\\1\\\\b/.exec(\"do you listen the the band\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /\\\\b(\\\\w+) \\\\1\\\\b/.exec(\"do you listen the the band\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /\\\\b(\\\\w+) \\\\1\\\\b/.exec(\"do you listen the the band\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.9_A1_T1"
+   },
+   {
+    "section": "15.10.2.9, 15.10.2.11",
+    "description": "Execute /([xu]\\d{2}([A-H]{2})?)\\1/.exec(\"x09x12x01x01u00FFu00FFx04x04x23\") and check results",
+    "test": "__executed = /([xu]\\d{2}([A-H]{2})?)\\1/.exec(\"x09x12x01x01u00FFu00FFx04x04x23\");\n\n__expected = [\"x01x01\", \"x01\", undefined];\n__expected.index = 6;\n__expected.input = \"x09x12x01x01u00FFu00FFx04x04x23\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /([xu]\\\\d{2}([A-H]{2})?)\\\\1/.exec(\"x09x12x01x01u00FFu00FFx04x04x23\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /([xu]\\\\d{2}([A-H]{2})?)\\\\1/.exec(\"x09x12x01x01u00FFu00FFx04x04x23\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /([xu]\\\\d{2}([A-H]{2})?)\\\\1/.exec(\"x09x12x01x01u00FFu00FFx04x04x23\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /([xu]\\\\d{2}([A-H]{2})?)\\\\1/.exec(\"x09x12x01x01u00FFu00FFx04x04x23\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.9_A1_T2"
+   },
+   {
+    "section": "15.10.2.9, 15.10.2.11",
+    "description": "Execute /([xu]\\d{2}([A-H]{2})?)\\1/.exec(\"x09x12x01x05u00FFu00FFx04x04x23\") and check results",
+    "test": "__executed = /([xu]\\d{2}([A-H]{2})?)\\1/.exec(\"x09x12x01x05u00FFu00FFx04x04x23\");\n\n__expected = [\"u00FFu00FF\", \"u00FF\", \"FF\"];\n__expected.index = 12;\n__expected.input = \"x09x12x01x05u00FFu00FFx04x04x23\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /([xu]\\\\d{2}([A-H]{2})?)\\\\1/.exec(\"x09x12x01x05u00FFu00FFx04x04x23\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /([xu]\\\\d{2}([A-H]{2})?)\\\\1/.exec(\"x09x12x01x05u00FFu00FFx04x04x23\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /([xu]\\\\d{2}([A-H]{2})?)\\\\1/.exec(\"x09x12x01x05u00FFu00FFx04x04x23\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /([xu]\\\\d{2}([A-H]{2})?)\\\\1/.exec(\"x09x12x01x05u00FFu00FFx04x04x23\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.9_A1_T3"
+   },
+   {
+    "section": "15.10.2.9, 15.10.2.11",
+    "description": "Execute /\\b(\\w+) \\2\\b/.test(\"do you listen the the band\") and check results",
+    "test": "__executed = /\\b(\\w+) \\2\\b/.test(\"do you listen the the band\");\n\n//CHECK#1\nif (__executed) {\n\t$ERROR('#1: /\\\\b(\\\\w+) \\\\2\\\\b/.test(\"do you listen the the band\") === false');\n}\n\n",
+    "id": "S15.10.2.9_A1_T4"
+   },
+   {
+    "section": "15.10.2.9, 15.10.2.11",
+    "description": "Execute /(a*)b\\1+/.exec(\"baaac\") and check results",
+    "test": "__executed = /(a*)b\\1+/.exec(\"baaac\");\n\n__expected = [\"b\", \"\"];\n__expected.index = 0;\n__expected.input = \"baaac\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /(a*)b\\\\1+/.exec(\"baaac\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /(a*)b\\\\1+/.exec(\"baaac\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /(a*)b\\\\1+/.exec(\"baaac\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /(a*)b\\\\1+/.exec(\"baaac\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.9_A1_T5"
+   }
+  ]
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "testCollection": {
+  "name": "15.8.1.2_LN10",
+  "numTests": 4,
+  "tests": [
+   {
+    "section": "15.8.1.2",
+    "description": "Comparing Math.LN10 with 2.302585092994046",
+    "test": "$INCLUDE(\"math_precision.js\");\n$INCLUDE(\"math_isequal.js\");\n\n// CHECK#1\nif (!isEqual(Math.LN10, 2.302585092994046)) {\n  $ERROR('#1: \\'Math.LN10 is not approximately equal to 2.302585092994046\\'');\n}\n",
+    "id": "S15.8.1.2_A1"
+   },
+   {
+    "section": "15.8.1.2",
+    "description": "Checking if Math.LN10 property has the attribute DontEnum",
+    "test": "// CHECK#1\nfor(x in Math) {\n  if(x === \"LN10\") {\n    $ERROR('#1: Value Property LN10 of the Math Object hasn\\'t attribute DontEnum: \\'for(x in Math) {x===\"LN10\"}\\'');\n  }\n}\n\n",
+    "id": "S15.8.1.2_A2"
+   },
+   {
+    "section": "15.8.1.2",
+    "description": "Checking if Math.LN10 property has the attribute DontDelete",
+    "strict_mode_negative": "",
+    "test": "// CHECK#1\nif (delete Math.LN10 === true) {\n  $ERROR('#1: Value Property LN10 of the Math Object hasn\\'t attribute DontDelete: \\'Math.LN10 === true\\'');\n}\n\n",
+    "id": "S15.8.1.2_A3",
+    "strict_only": ""
+   },
+   {
+    "section": "15.8.1.2",
+    "description": "Checking if Math.LN10 property has the attribute ReadOnly",
+    "strict_mode_negative": "",
+    "test": "// CHECK#1\nvar x = Math.LN10;\nMath.LN10 = 1;\nif (Math.LN10 !== x) {\n  $ERROR('#1: Math.LN10 hasn\\'t ReadOnly: \\'x = Math.LN10;Math.LN10 = 1;Math.LN10 === x\\'');\n}\n",
+    "id": "S15.8.1.2_A4",
+    "strict_only": ""
+   }
+  ]
+ }
+}

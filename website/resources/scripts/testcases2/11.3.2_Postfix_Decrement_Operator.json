@@ -1,0 +1,127 @@
+{
+ "testCollection": {
+  "name": "11.3.2_Postfix_Decrement_Operator",
+  "numTests": 19,
+  "tests": [
+   {
+    "section": "11.3.2, 11.6.3, 7.3",
+    "description": "Checking Line Feed",
+    "negative": "",
+    "test": "//CHECK#1\neval(\"var x = 1; x\\u000A--\");\n",
+    "id": "S11.3.2_A1.1_T1"
+   },
+   {
+    "section": "11.3.2, 11.6.3, 7.3",
+    "description": "Checking Carriage Return",
+    "negative": "",
+    "test": "//CHECK#1\neval(\"var x = 1; x\\u000D--\");\n",
+    "id": "S11.3.2_A1.1_T2"
+   },
+   {
+    "section": "11.3.2, 11.6.3, 7.3",
+    "description": "Checking Page separator",
+    "negative": "",
+    "test": "//CHECK#1\neval(\"var x = 1; x\\u2028--\");\n",
+    "id": "S11.3.2_A1.1_T3"
+   },
+   {
+    "section": "11.3.2, 11.6.3, 7.3",
+    "description": "Checking Line separator",
+    "negative": "",
+    "test": "//CHECK#1\neval(\"var x = 1; x\\u2029--\");\n",
+    "id": "S11.3.2_A1.1_T4"
+   },
+   {
+    "section": "11.3.2, 11.6.3, 7.2",
+    "description": "Checking by using eval",
+    "test": "//CHECK#1\nif (eval(\"var x = 0; x\\u0009--; x\") !== -1) {\n  $ERROR('#1: var x = 0; x\\\\u0009--; x === -1. Actual: ' + (x));\n}\n\n//CHECK#2\nif (eval(\"var x = 0; x\\u000B--; x\") !== -1) {\n  $ERROR('#2: var x = 0; x\\\\u000B--; x === -1. Actual: ' + (x));  \n}\n\n//CHECK#3\nif (eval(\"var x = 0; x\\u000C--; x\") !== -1) {\n  $ERROR('#3: var x = 0; x\\\\u000C--; x === -1. Actual: ' + (x));\n}\n\n//CHECK#4\nif (eval(\"var x = 0; x\\u0020--; x\") !== -1) {\n  $ERROR('#4: var x = 0; x\\\\u0020--; x === -1. Actual: ' + (x));\n}\n\n//CHECK#5\nif (eval(\"var x = 0; x\\u00A0--; x\") !== -1) {\n  $ERROR('#5: var x = 0; x\\\\u00A0--; x === -1. Actual: ' + (x));\n}\n\n//CHECK#6\nif (eval(\"var x = 0; x\\u0009\\u000B\\u000C\\u0020\\u00A0--; x\") !== -1) {\n    $ERROR('#6: var x = 0; x\\\\u0009\\\\u000B\\\\u000C\\\\u0020\\\\u00A0--; x === -1. Actual: ' + (x));\n}\n",
+    "id": "S11.3.2_A1.2_T1"
+   },
+   {
+    "section": "11.3.2, 11.6.3",
+    "description": "Type(x) is Reference and GetBase(x) is not null",
+    "test": "//CHECK#1\nvar x = 1;\nif (x-- !== 1) {\n  $ERROR('#1: var x = 1; x-- === 1. Actual: ' + (x--));\n} else {\n  if (x !== 1 - 1) {\n    $ERROR('#1: var x = 1; x--; x === 1 - 1. Actual: ' + (x));\n  } \n}\n\n//CHECK#2\nthis.x = 1;\nif (this.x-- !== 1) {\n  $ERROR('#2: this.x = 1; this.x-- === 1. Actual: ' + (this.x--));\n} else {\n  if (this.x !== 1 - 1) {\n    $ERROR('#2: this.x = 1; this.x--; this.x === 1 - 1. Actual: ' + (this.x));\n  } \n}\n\n//CHECK#3\nvar object = new Object();\nobject.prop = 1;\nif (object.prop-- !== 1) {\n  $ERROR('#3: var object = new Object(); object.prop = 1; object.prop-- === 1. Actual: ' + (object.prop--));\n} else {\n  if (this.x !== 1 - 1) {\n    $ERROR('#3: var object = new Object(); object.prop = 1; object.prop--; object.prop === 1 - 1. Actual: ' + (object.prop));\n  } \n}\n",
+    "id": "S11.3.2_A2.1_T1"
+   },
+   {
+    "section": "11.3.2, 11.6.3",
+    "description": "If GetBase(x) is null, throw ReferenceError",
+    "test": "//CHECK#1\ntry {\n  x--;\n  $ERROR('#1.1: x-- throw ReferenceError. Actual: ' + (x--));  \n}\ncatch (e) {\n  if ((e instanceof ReferenceError) !== true) {\n    $ERROR('#1.2: x-- throw ReferenceError. Actual: ' + (e));  \n  }\n}\n",
+    "id": "S11.3.2_A2.1_T2"
+   },
+   {
+    "section": "11.3.2, 11.6.3",
+    "description": "If Type(x) is not Reference, throw ReferenceError (or SyntaxError)",
+    "negative": "",
+    "test": "//CHECK#1\ntry {\n  1--;\n  $ERROR('#1.1: 1-- throw ReferenceError (or SyntaxError). Actual: ' + (1--));  \n}\ncatch (e) {\n  if ((e instanceof ReferenceError) !== true) {\n    $ERROR('#1.2: 1-- throw ReferenceError (or SyntaxError). Actual: ' + (e));  \n  } else {\n    1--;\n  }\n}\n",
+    "id": "S11.3.2_A2.1_T3"
+   },
+   {
+    "section": "11.3.2, 8.6.2.6",
+    "description": "If Type(value) is Object, evaluate ToPrimitive(value, Number)",
+    "test": "//CHECK#1\nvar object = {valueOf: function() {return 1}};\nvar y = object--;\nif (y !== 1) {\n  $ERROR('#1: var object = {valueOf: function() {return 1}}; var y = object--; y === 1. Actual: ' + (y));\n} else {\n  if (object !== 1 - 1) {\n    $ERROR('#1: var object = {valueOf: function() {return 1}}; object--; object === 1 - 1. Actual: ' + (object));\n  }\n}\n\n//CHECK#2\nvar object = {valueOf: function() {return 1}, toString: function() {return 0}};\nvar y = object--;\nif (y !== 1) {\n  $ERROR('#2: var object = {valueOf: function() {return 1}, toString: function() {return 0}}; var y = object--; y === 1. Actual: ' + (y));\n} else {\n  if (object !== 1 - 1) {\n    $ERROR('#2: var object = {valueOf: function() {return 1}, toString: function() {return 0}}; object--; object === 1 - 1. Actual: ' + (object));\n  }\n}\n\n//CHECK#3\nvar object = {valueOf: function() {return 1}, toString: function() {return {}}};\nvar y = object--;\nif (y !== 1) {\n  $ERROR('#3: var object = {valueOf: function() {return 1}, toString: function() {return {}}}; var y = object--; y === 1. Actual: ' + (y));\n} else {\n  if (object !== 1 - 1) {\n    $ERROR('#3: var object = {valueOf: function() {return 1}, toString: function() {return {}}}; object--; object === 1 - 1. Actual: ' + (object));\n  }\n}\n\n//CHECK#4\ntry {\n  var object = {valueOf: function() {return 1}, toString: function() {throw \"error\"}};\n  var y = object--;\n  if (y !== 1) {\n    $ERROR('#4.1: var object = {valueOf: function() {return 1}, toString: function() {throw \"error\"}}; var y = object--; y === 1. Actual: ' + (y));\n  } else {\n    if (object !== 1 - 1) {\n      $ERROR('#4.2: var object = {valueOf: function() {return 1}, toString: function() {throw \"error\"}}; object--; object === 1 - 1. Actual: ' + (object));\n    }\n  }\n}\ncatch (e) {\n  if (e === \"error\") {\n    $ERROR('#4.3: var object = {valueOf: function() {return 1}, toString: function() {throw \"error\"}}; y not throw \"error\"');\n  } else {\n    $ERROR('#4.4: var object = {valueOf: function() {return 1}, toString: function() {throw \"error\"}}; y not throw Error. Actual: ' + (e));\n  }\n}\n\n//CHECK#5\nvar object = {toString: function() {return 1}};\nvar y = object--;\nif (y !== 1) {\n  $ERROR('#5.1: var object = {toString: function() {return 1}}; var y = object--; y === 1. Actual: ' + (y));\n} else {\n  if (object !== 1 - 1) {\n    $ERROR('#5.2: var object = {toString: function() {return 1}}; object--; object === 1 - 1. Actual: ' + (object));\n  }\n}\n\n\n//CHECK#6\nvar object = {valueOf: function() {return {}}, toString: function() {return 1}}\nvar y = object--;\nif (y !== 1) {\n  $ERROR('#6.1: var object = {valueOf: function() {return {}}, toString: function() {return 1}}; var y = object--; y === 1. Actual: ' + (y));\n} else {\n  if (object !== 1 - 1) {\n    $ERROR('#6.2: var object = {valueOf: function() {return {}}, toString: function() {return 1}}; object--; object === 1 - 1. Actual: ' + (object));\n  }\n}\n\n//CHECK#7\ntry {\n  var object = {valueOf: function() {throw \"error\"}, toString: function() {return 1}};\n  var y = object--;\n  $ERROR('#7.1: var object = {valueOf: function() {throw \"error\"}, toString: function() {return 1}}; object-- throw \"error\". Actual: ' + (y));\n}  \ncatch (e) {\n  if (e !== \"error\") {\n    $ERROR('#7.2: var object = {valueOf: function() {throw \"error\"}, toString: function() {return 1}}; object-- throw \"error\". Actual: ' + (e));\n  } \n}\n\n//CHECK#8\ntry {\n  var object = {valueOf: function() {return {}}, toString: function() {return {}}};\n  var y = object--;\n  $ERROR('#8.1: var object = {valueOf: function() {return {}}, toString: function() {return {}}}; object-- throw TypeError. Actual: ' + (y));\n}  \ncatch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#8.2: var object = {valueOf: function() {return {}}, toString: function() {return {}}}; object-- throw TypeError. Actual: ' + (e));\n  } \n}\n",
+    "id": "S11.3.2_A2.2_T1"
+   },
+   {
+    "section": "11.3.2, 11.6.3",
+    "description": "Type(x) is boolean primitive or Boolean object",
+    "test": "//CHECK#1\nvar x = true; \nx--;\nif (x !== 0) {\n  $ERROR('#1: var x = true; x--; x === 0. Actual: ' + (x));\n}\n\n//CHECK#2\nvar x = new Boolean(false); \nx--;\nif (x !== 0 - 1) {\n  $ERROR('#2: var x = new Boolean(false); x--; x === 0 - 1. Actual: ' + (x));\n}\n",
+    "id": "S11.3.2_A3_T1"
+   },
+   {
+    "section": "11.3.2, 11.6.3",
+    "description": "Type(x) is number primitive or Number object",
+    "test": "//CHECK#1\nvar x = 1.1; \nx--;\nif (x !== 1.1 - 1) {\n  $ERROR('#1: var x = 1.1; x--; x === 1.1 - 1. Actual: ' + (x));\n}\n\n//CHECK#2\nvar x = new Number(-0.1); \nx--; \nif (x !== -0.1 - 1) {\n  $ERROR('#2: var x = new Number(-0.1); x--; x === -0.1 - 1. Actual: ' + (x));\n}\n",
+    "id": "S11.3.2_A3_T2"
+   },
+   {
+    "section": "11.3.2, 11.6.3",
+    "description": "Type(x) is string primitive or String object",
+    "test": "//CHECK#1\nvar x = \"1\"; \nx--; \nif (x !== 1 - 1) {\n  $ERROR('#1: var x = \"1\"; x--; x === 1 - 1. Actual: ' + (x));\n}\n\n//CHECK#2\nvar x = \"x\"; \nx--; \nif (isNaN(x) !== true) {\n  $ERROR('#2: var x = \"x\"; x--; x === Not-a-Number. Actual: ' + (x));\n}\n\n//CHECK#3\nvar x = new Number(\"-1\"); \nx--;\nif (x !== -1 - 1) {\n  $ERROR('#3: var x = new String(\"-1\"); x--; x === -1 - 1. Actual: ' + (x));\n}\n",
+    "id": "S11.3.2_A3_T3"
+   },
+   {
+    "section": "11.3.2, 11.6.3",
+    "description": "Type(x) is undefined or null",
+    "test": "//CHECK#1\nvar x; \nx--;\nif (isNaN(x) !== true) {\n  $ERROR('#1: var x; x--; x === Not-a-Number. Actual: ' + (x));\n}\n\n//CHECK#2\nvar x = null; \nx--;\nif (x !== -1) {\n  $ERROR('#2: var x = null; x--; x === -1. Actual: ' + (x));\n}\n",
+    "id": "S11.3.2_A3_T4"
+   },
+   {
+    "section": "11.3.2, 11.6.3",
+    "description": "Type(x) is Object object or Function object",
+    "test": "//CHECK#1\nvar x = {}; \nx--; \nif (isNaN(x) !== true) {\n  $ERROR('#1: var x = {}; x--; x === Not-a-Number. Actual: ' + (x));\n}\n\n//CHECK#2\nvar x = function(){return 1}; \nx--; \nif (isNaN(x) !== true) {\n  $ERROR('#2: var x = function(){return 1}; x--; x === Not-a-Number. Actual: ' + (x));\n}\n",
+    "id": "S11.3.2_A3_T5"
+   },
+   {
+    "section": "11.3.2, 11.6.3",
+    "description": "Type(x) is boolean primitive or Boolean object",
+    "test": "//CHECK#1\nvar x = true;\nvar y = x--; \nif (y !== 1) {\n  $ERROR('#1: var x = true; var y = x--; y === 1. Actual: ' + (y));\n}\n\n//CHECK#2\nvar x = new Boolean(false);\nvar y = x--;\nif (y !== 0) {\n  $ERROR('#2: var x = new Boolean(false); var y = x--; y === 0. Actual: ' + (y));\n}\n",
+    "id": "S11.3.2_A4_T1"
+   },
+   {
+    "section": "11.3.2, 11.6.3",
+    "description": "Type(x) is number primitive or Number object",
+    "test": "//CHECK#1\nvar x = 1.1;\nvar y = x--;\nif (y !== 1.1) {\n  $ERROR('#1: var x = 1.1; var y = x--; y === 1.1. Actual: ' + (y));\n}\n\n//CHECK#2\nvar x = new Number(-0.1);\nvar y = x--;\nif (y !== -0.1) {\n  $ERROR('#2: var x = new Number(-0.1); var y = x--; y === -0.1. Actual: ' + (y));\n}\n",
+    "id": "S11.3.2_A4_T2"
+   },
+   {
+    "section": "11.3.2, 11.6.3",
+    "description": "Type(x) is string primitive or String object",
+    "test": "//CHECK#1\nvar x = \"1\"; \nvar y = x--;\nif (y !== 1) {\n  $ERROR('#1: var x = \"1\"; var y = x--; y === 1. Actual: ' + (y));\n}\n\n//CHECK#2\nvar x = \"x\";\nvar y = x--;\nif (isNaN(y) !== true) {\n  $ERROR('#2: var x = \"x\"; var y = x--; y === Not-a-Number. Actual: ' + (y));\n}\n\n//CHECK#3\nvar x = new String(\"-1\");\nvar y = x--;\nif (y !== -1) {\n  $ERROR('#3: var x = new String(\"-1\"); var y = x--; y === -1. Actual: ' + (y));\n}\n",
+    "id": "S11.3.2_A4_T3"
+   },
+   {
+    "section": "11.3.2, 11.6.3",
+    "description": "If Type(x) is undefined or null",
+    "test": "//CHECK#1\nvar x; \nvar y = x--;\nif (isNaN(y) !== true) {\n  $ERROR('#1: var x; var y = x--; y === Not-a-Number. Actual: ' + (y));\n}\n\n//CHECK#2\nvar x = null;\nvar y = x--;\nif (y !== 0) {\n  $ERROR('#2: var x = null; var y = x--; y === 0. Actual: ' + (y));\n}\n",
+    "id": "S11.3.2_A4_T4"
+   },
+   {
+    "section": "11.3.2, 11.6.3",
+    "description": "Type(x) is Object object or Function object",
+    "test": "//CHECK#1\nvar x = {};\nvar y = x--; \nif (isNaN(y) !== true) {\n  $ERROR('#1: var x = {}; var y = x--; y === Not-a-Number. Actual: ' + (y));\n}\n\n//CHECK#2\nvar x = function(){return 1};\nvar y = x--; \nif (isNaN(y) !== true) {\n  $ERROR('#2: var x = function(){return 1}; var y = x--; y === Not-a-Number. Actual: ' + (y));\n}\n",
+    "id": "S11.3.2_A4_T5"
+   }
+  ]
+ }
+}

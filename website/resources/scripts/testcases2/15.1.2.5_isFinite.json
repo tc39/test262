@@ -1,0 +1,66 @@
+{
+ "testCollection": {
+  "name": "15.1.2.5_isFinite",
+  "numTests": 9,
+  "tests": [
+   {
+    "section": "15.1.2.5",
+    "description": "Checking all primitive",
+    "test": "// CHECK#1\nif (!(isFinite(NaN) === false)) {\n  $ERROR('#1: NaN === Not-a-Finite. Actual: ' + (NaN)); \n}\n\n// CHECK#2\nif (!(isFinite(Number.NaN) === false)) {\n  $ERROR('#2: Number.NaN === Not-a-Finite. Actual: ' + (Number.NaN)); \n}\n\n// CHECK#3\nif (!(isFinite(Number(void 0)) === false)) {\n  $ERROR('#3: Number(void 0) === Not-a-Finite. Actual: ' + (Number(void 0))); \n}\n\n// CHECK#4\nif (!(isFinite(void 0) === false)) {\n  $ERROR('#4: void 0 === Not-a-Finite. Actual: ' + (void 0)); \n}\n\n// CHECK#5\nif (!(isFinite(\"string\") === false)) {\n  $ERROR('#5: \"string\" === Not-a-Finite. Actual: ' + (\"string\")); \n}\n\n// CHECK#6\nif (isFinite(Number.POSITIVE_INFINITY) !== false) {\n  $ERROR('#6: Number.POSITIVE_INFINITY === Not-a-Finite. Actual: ' + (Number.POSITIVE_INFINITY)); \n}\n\n// CHECK#7\nif (isFinite(Number.NEGATIVE_INFINITY) !== false) {\n  $ERROR('#7: Number.NEGATIVE_INFINITY === Not-a-Finite. Actual: ' + (Number.NEGATIVE_INFINITY)); \n}\n\n// CHECK#8\nif (isFinite(Number.MAX_VALUE) === false) {\n  $ERROR('#8: Number.MAX_VALUE !== Not-a-Finite'); \n}\n\n// CHECK#9\nif (isFinite(Number.MIN_VALUE) === false) {\n  $ERROR('#9: Number.MIN_VALUE !== Not-a-Finite'); \n}\n\n// CHECK#10\nif (isFinite(-0) === false) {\n  $ERROR('#10: -0 !== Not-a-Finite'); \n}\n\n// CHECK#11\nif (isFinite(false) === false) {\n  $ERROR('#11: false !== Not-a-Finite'); \n}\n\n// CHECK#12\nif (isFinite(\"1\") === false) {\n  $ERROR('#12: \"1\" !== Not-a-Finite'); \n}\n",
+    "id": "S15.1.2.5_A1_T1"
+   },
+   {
+    "section": "15.1.2.5",
+    "description": "Checking all object",
+    "test": "// CHECK#1\nif (!(isFinite({}) === false)) {\n  $ERROR('#1: {} === Not-a-Finite. Actual: ' + ({})); \n}\n\n// CHECK#2\nif (!(isFinite(new String(\"string\")) === false)) {\n  $ERROR('#2: new String(\"string\") === Not-a-Finite. Actual: ' + (new String(\"string\"))); \n}\n\n// CHECK#3\nif (isFinite(new String(\"1\")) === false) {\n  $ERROR('#3: new String(\"1\") === Not-a-Finite. Actual: ' + (new String(\"1\"))); \n}\n\n// CHECK#4\nif (isFinite(new Number(1)) === false) {\n  $ERROR('#4: new Number(1) !== Not-a-Finite'); \n}\n\n// CHECK#5\nif (!(isFinite(new Number(NaN)) === false)) {\n  $ERROR('#5: new Number(NaN) === Not-a-Finite. Actual: ' + (new Number(NaN))); \n}\n\n// CHECK#6\nif (isFinite(new Boolean(true)) === false) {\n  $ERROR('#6: new Boolean(true) !== Not-a-Finite'); \n}\n",
+    "id": "S15.1.2.5_A1_T2"
+   },
+   {
+    "section": "15.1.2.5, 15.2.4.7, 12.6.4",
+    "description": "Checking use propertyIsEnumerable, for-in",
+    "test": "//CHECK#1\nif (isFinite.propertyIsEnumerable('length') !== false) {\n  $ERROR('#1: isFinite.propertyIsEnumerable(\\'length\\') === false. Actual: ' + (isFinite.propertyIsEnumerable('length')));\n}\n\n//CHECK#2\nvar result = true;\nfor (p in isFinite){\n  if (p === \"length\") {\n    result = false;\n  }  \n}\n\nif (result !== true) {\n  $ERROR('#2: result = true; for (p in isFinite) { if (p === \"length\") result = false; }  result === true;');\n}\n",
+    "id": "S15.1.2.5_A2.1"
+   },
+   {
+    "section": "15.1.2.5, 15.2.4.5, 11.4.1",
+    "description": "Checking use hasOwnProperty, delete",
+    "strict_mode_negative": "",
+    "test": "//CHECK#1\nif (isFinite.hasOwnProperty('length') !== true) {\n  $FAIL('#1: isFinite.hasOwnProperty(\\'length\\') === true. Actual: ' + (isFinite.hasOwnProperty('length')));\n}\n\ndelete isFinite.length;\n\n//CHECK#2\nif (isFinite.hasOwnProperty('length') !== true) {\n  $ERROR('#2: delete isFinite.length; isFinite.hasOwnProperty(\\'length\\') === true. Actual: ' + (isFinite.hasOwnProperty('length')));\n}\n\n//CHECK#3\nif (isFinite.length === undefined) {\n  $ERROR('#3: delete isFinite.length; isFinite.length !== undefined');\n}\n",
+    "id": "S15.1.2.5_A2.2",
+    "strict_only": ""
+   },
+   {
+    "section": "15.1.2.5",
+    "description": "Checking if varying the length property fails",
+    "strict_mode_negative": "",
+    "test": "//CHECK#1\nx = isFinite.length;\nisFinite.length = Infinity;\nif (isFinite.length !== x) {\n  $ERROR('#1: x = isFinite.length; isFinite.length = Infinity; isFinite.length === x. Actual: ' + (isFinite.length));\n}\n\n",
+    "id": "S15.1.2.5_A2.3",
+    "strict_only": ""
+   },
+   {
+    "section": "15.1.2.5",
+    "description": "isFinite.length === 1",
+    "test": "//CHECK#1\nif (isFinite.length !== 1) {\n  $ERROR('#1: isFinite.length === 1. Actual: ' + (isFinite.length));\n} \n\n",
+    "id": "S15.1.2.5_A2.4"
+   },
+   {
+    "section": "15.1.2.5, 15.2.4.7, 12.6.4",
+    "description": "Checking use propertyIsEnumerable, for-in",
+    "test": "//CHECK#1\nif (this.propertyIsEnumerable('isFinite') !== false) {\n  $ERROR('#1: this.propertyIsEnumerable(\\'isFinite\\') === false. Actual: ' + (this.propertyIsEnumerable('isFinite')));\n}\n\n//CHECK#2\nvar result = true;\nfor (p in this){\n  if (p === \"isFinite\") {\n    result = false;\n  }  \n}\n\nif (result !== true) {\n  $ERROR('#2: result = true; for (p in this) { if (p === \"isFinite\") result = false; }  result === true;');\n}\n",
+    "id": "S15.1.2.5_A2.5"
+   },
+   {
+    "section": "15.1.2.5",
+    "description": "Checking isFinit.prototype",
+    "test": "//CHECK#1\nif (isFinite.prototype !== undefined) {\n  $ERROR('#1: isFinite.prototype === undefined. Actual: ' + (isFinite.prototype));\n}\n",
+    "id": "S15.1.2.5_A2.6"
+   },
+   {
+    "section": "15.1.2.5, 11.2.2",
+    "description": "If property does not implement the internal [[Construct]] method, throw a TypeError exception",
+    "test": "//CHECK#1\n\ntry {\n  new isFinite();\n  $ERROR('#1.1: new isFinite() throw TypeError. Actual: ' + (new isFinite()));\n} catch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#1.2: new isFinite() throw TypeError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.1.2.5_A2.7"
+   }
+  ]
+ }
+}

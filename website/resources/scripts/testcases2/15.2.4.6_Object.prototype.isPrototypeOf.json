@@ -1,0 +1,66 @@
+{
+ "testCollection": {
+  "name": "15.2.4.6_Object.prototype.isPrototypeOf",
+  "numTests": 9,
+  "tests": [
+   {
+    "section": "15.2.4.6",
+    "description": "Creating two objects with the same prototype",
+    "test": "function USER_FACTORY( name ) {\n  this.name = name;\n  this.getName=function(){return name;};\n}\n\n\nfunction FORCEDUSER_FACTORY( name, grade ) {\n    this.name = name;\n  this.grade = grade;\n  this.getGrade=function(){return grade;};\n}\n\nvar proto = new USER_FACTORY(\"noname\");\n\nFORCEDUSER_FACTORY.prototype = proto;\n\nvar luke = new FORCEDUSER_FACTORY(\"Luke Skywalker\", 12);\n//////\n// CHECK#1\nif(proto.isPrototypeOf(luke)){\n  $PRINT('#1: Native ECMAScript objects have an internal property called [[Prototype]].');\n} else {\n  $ERROR('#1: native ECMAScript objects have an internal property called [[Prototype]].');\n}\n//\n/////////\n//////\n// CHECK#2\nif(USER_FACTORY.prototype.isPrototypeOf(luke)){\n  $PRINT('#2: Native ECMAScript objects have an internal property called [[Prototype]].');\n} else {\n  $ERROR('#2: native ECMAScript objects have an internal property called [[Prototype]].');\n}\n//\n/////////\n//////\n// CHECK#3\nif(Number.isPrototypeOf(luke)){\n  $ERROR('#2: Native ECMAScript objects have an internal property called [[Prototype]].');\n}\n//\n/////////\n",
+    "id": "S15.2.4.6_A1"
+   },
+   {
+    "section": "15.2.4.6",
+    "description": "Checking if varying the Object.prototype.isPrototypeOf.length property fails",
+    "strict_mode_negative": "",
+    "test": "//CHECK#1\nif (!(Object.prototype.isPrototypeOf.hasOwnProperty('length'))) {\n  $FAIL('#1: the Object.prototype.isPrototypeOf has length property');\n}\n\nvar obj = Object.prototype.isPrototypeOf.length;\n\nObject.prototype.isPrototypeOf.length = function(){return \"shifted\";};\n\n//CHECK#2\nif (Object.prototype.isPrototypeOf.length !== obj) {\n  $ERROR('#2: the Object.prototype.isPrototypeOf length property has the attributes ReadOnly');\n}\n",
+    "id": "S15.2.4.6_A10",
+    "strict_only": ""
+   },
+   {
+    "section": "15.2.4.6",
+    "description": "Checking the Object.prototype.hasOwnProperty.length",
+    "test": "//CHECK#1\nif (!(Object.prototype.isPrototypeOf.hasOwnProperty(\"length\"))) {\n  $ERROR('#1: the Object.prototype.isPrototypeOf has length property');\n}\n\n//CHECK#2\nif (Object.prototype.isPrototypeOf.length !== 1) {\n  $ERROR('#2: The length property of the toObject method is 1');\n}\n",
+    "id": "S15.2.4.6_A11"
+   },
+   {
+    "section": "15.2.4.6",
+    "negative": "",
+    "test": "Object.prototype.isPrototypeOf.call(undefined, {});\n",
+    "id": "S15.2.4.6_A12",
+    "description": "Let O be the result of calling ToObject passing the this value as the argument."
+   },
+   {
+    "section": "15.2.4.6",
+    "negative": "",
+    "test": "Object.prototype.isPrototypeOf.call(null, {});\n",
+    "id": "S15.2.4.6_A13",
+    "description": "Let O be the result of calling ToObject passing the this value as the argument."
+   },
+   {
+    "section": "15.2.4.6, 13.2",
+    "description": "Checking if obtaining the prototype property of Object.prototype.isPrototypeOf fails",
+    "test": "//CHECK#1\nif (Object.prototype.isPrototypeOf.prototype !== undefined) {\n  $ERROR('#1: Object.prototype.isPrototypeOf has not prototype property'+Object.prototype.isPrototypeOf.prototype);\n}\n//\n",
+    "id": "S15.2.4.6_A6"
+   },
+   {
+    "section": "15.2.4.6, 13.2",
+    "description": "Checking if creating new \"Object.prototype.isPrototypeOf\" fails",
+    "test": "var FACTORY = Object.prototype.isPrototypeOf;\n\ntry {\n  instance = new FACTORY;\n  $FAIL('#1: Object.prototype.isPrototypeOf can\\'t be used as a constructor');\n} catch (e) {\n  $PRINT(e);\n\n}\n",
+    "id": "S15.2.4.6_A7"
+   },
+   {
+    "section": "15.2.4.6",
+    "description": "Checknig if enumerating the Object.prototype.isPrototypeOf.length property fails",
+    "test": "//CHECK#0\nif (!(Object.prototype.isPrototypeOf.hasOwnProperty('length'))) {\n  $FAIL('#0: the Object.prototype.isPrototypeOf has length property');\n}\n\n\n// CHECK#1\nif (Object.prototype.isPrototypeOf.propertyIsEnumerable('length')) {\n  $ERROR('#1: the Object.prototype.isPrototypeOf.length property has the attributes DontEnum');\n}\n\n// CHECK#2\nfor (p in Object.prototype.isPrototypeOf){\n  if (p===\"length\")\n        $ERROR('#2: the Object.prototype.isPrototypeOf.length property has the attributes DontEnum');\n}\n//\n",
+    "id": "S15.2.4.6_A8"
+   },
+   {
+    "section": "15.2.4.6",
+    "description": "Checking deleting the Object.prototype.isPrototypeOf.length property fails",
+    "test": "//CHECK#0\nif (!(Object.prototype.isPrototypeOf.hasOwnProperty('length'))) {\n  $FAIL('#0: the Object.prototype.isPrototypeOf has length property');\n}\n\n//CHECK#1\nif (delete Object.prototype.isPrototypeOf.length) {\n  $ERROR('#1: The Object.prototype.isPrototypeOf.length property has the attributes DontDelete');\n}\n//\n",
+    "id": "S15.2.4.6_A9"
+   }
+  ]
+ }
+}

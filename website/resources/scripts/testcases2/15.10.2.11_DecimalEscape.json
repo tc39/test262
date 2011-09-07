@@ -1,0 +1,64 @@
+{
+ "testCollection": {
+  "name": "15.10.2.11_DecimalEscape",
+  "numTests": 9,
+  "tests": [
+   {
+    "section": "15.10.2.11",
+    "description": "DecimalEscape :: 0. If i is zero, return the EscapeValue consisting of a <NUL> character (Unicodevalue0000)",
+    "test": "//CHECK#1\nvar arr = /\\0/.exec(\"\\u0000\"); \nif ((arr === null) || (arr[0] !== \"\\u0000\")) {\n  $ERROR('#1: var arr = /\\\\0/.exec(\\\\u0000); arr[0] === \"\\\\u0000\". Actual. ' + (arr && arr[0]));\n}\n\n//CHECK#2\nvar arr = (new RegExp(\"\\\\0\")).exec(\"\\u0000\"); \nif ((arr === null) || (arr[0] !== \"\\u0000\")) {\n  $ERROR('#2: var arr = (new RegExp(\"\\\\0\")).exec(\\\\u0000); arr[0] === \"\\\\u0000\". Actual. ' + (arr && arr[0]));\n}\n",
+    "id": "S15.10.2.11_A1_T1"
+   },
+   {
+    "section": "15.10.2.11",
+    "description": "It is an error if n is greater than the total number of left capturing parentheses in the entire regular expression",
+    "negative": "",
+    "test": "/\\1/.exec(\"\");\n/\\2/.exec(\"\");\n/\\3/.exec(\"\");\n/\\4/.exec(\"\");\n/\\5/.exec(\"\");\n/\\6/.exec(\"\");\n/\\7/.exec(\"\");\n/\\8/.exec(\"\");\n/\\9/.exec(\"\");\n/\\10/.exec(\"\");\n",
+    "id": "S15.10.2.11_A1_T2"
+   },
+   {
+    "section": "15.10.2.11",
+    "description": "It is an error if n is greater than the total number of left capturing parentheses in the entire regular expression",
+    "negative": "",
+    "test": "/(?:A)\\2/.exec(\"AA\");\n",
+    "id": "S15.10.2.11_A1_T3"
+   },
+   {
+    "section": "15.10.2.11, 15.10.2.9",
+    "description": "DecimalIntegerLiteral is not 0",
+    "test": "var arr = /(A)\\1/.exec(\"AA\");\n\n//CHECK#1\nif ((arr === null) || (arr[0] !== \"AA\")) {\n  $ERROR('#1: var arr = (/(A)\\\\1/.exec(\"AA\")); arr[0] === \"AA\". Actual. ' + (arr && arr[0]));\n}\n\n//CHECK#2\nif ((arr === null) || (arr[1] !== \"A\")) {\n  $ERROR('#2: var arr = (/(A)\\\\1/.exec(\"AA\")); arr[1] === \"A\". Actual. ' + (arr && arr[1]));\n}    \n",
+    "id": "S15.10.2.11_A1_T4"
+   },
+   {
+    "section": "15.10.2.11, 15.10.2.9",
+    "description": "DecimalIntegerLiteral is not 0",
+    "test": "var arr = /\\1(A)/.exec(\"AA\");\n\n//CHECK#1\nif ((arr === null) || (arr[0] !== \"A\")) {\n  $ERROR('#1: var arr = (/\\\\1(A)/.exec(\"AA\")); arr[0] === \"A\". Actual. ' + (arr && arr[0]));\n}\n\n//CHECK#2\nif ((arr === null) || (arr[1] !== \"A\")) {\n  $ERROR('#2: var arr = (/\\\\1(A)/.exec(\"AA\")); arr[1] === \"A\". Actual. ' + (arr && arr[1]));\n}    \n",
+    "id": "S15.10.2.11_A1_T5"
+   },
+   {
+    "section": "15.10.2.11, 15.10.2.9",
+    "description": "DecimalIntegerLiteral is not 0",
+    "test": "var arr = /(A)\\1(B)\\2/.exec(\"AABB\");\n\n//CHECK#1\nif ((arr === null) || (arr[0] !== \"AABB\")) {\n  $ERROR('#1: var arr = /(A)\\\\1(B)\\\\2/.exec(\"AABB\"); arr[0] === \"AABB\". Actual. ' + (arr && arr[0]));\n}\n\n//CHECK#2\nif ((arr === null) || (arr[1] !== \"A\")) {\n  $ERROR('#2: var arr = /(A)\\\\1(B)\\\\2/.exec(\"AABB\"); arr[1] === \"A\". Actual. ' + (arr && arr[1]));\n}\n\n//CHECK#3\nif ((arr === null) || (arr[2] !== \"B\")) {\n  $ERROR('#3: var arr = /(A)\\\\1(B)\\\\2/.exec(\"AABB\"); arr[2] === \"B\". Actual. ' + (arr && arr[2]));\n}      \n",
+    "id": "S15.10.2.11_A1_T6"
+   },
+   {
+    "section": "15.10.2.11, 15.10.2.9",
+    "description": "DecimalIntegerLiteral is not 0",
+    "test": "var arr = /\\1(A)(B)\\2/.exec(\"ABB\");\n\n//CHECK#1\nif ((arr === null) || (arr[0] !== \"ABB\")) {\n  $ERROR('#1: var arr = /\\\\1(A)(B)\\\\2/.exec(\"ABB\"); arr[0] === \"ABB\". Actual. ' + (arr && arr[0]));\n}\n\n//CHECK#2\nif ((arr === null) || (arr[1] !== \"A\")) {\n  $ERROR('#2: var arr = /\\\\1(A)(B)\\\\2/.exec(\"ABB\"); arr[1] === \"A\". Actual. ' + (arr && arr[1]));\n}\n\n//CHECK#3\nif ((arr === null) || (arr[2] !== \"B\")) {\n  $ERROR('#3: var arr = /\\\\1(A)(B)\\\\2/.exec(\"ABB\"); arr[2] === \"B\". Actual. ' + (arr && arr[2]));\n}      \n",
+    "id": "S15.10.2.11_A1_T7"
+   },
+   {
+    "section": "15.10.2.11, 15.10.2.9",
+    "description": "DecimalIntegerLiteral is not 0",
+    "test": "var arr = /((((((((((A))))))))))\\1\\2\\3\\4\\5\\6\\7\\8\\9\\10/.exec(\"AAAAAAAAAAA\");\n\n//CHECK#1\nif ((arr === null) || (arr[0] !== \"AAAAAAAAAAA\")) {\n  $ERROR('#1: var arr = /((((((((((A))))))))))\\\\1\\\\2\\\\3\\\\4\\\\5\\\\6\\\\7\\\\8\\\\9\\\\10/.exec(\"AAAAAAAAAAA\"); arr[0] === \"AAAAAAAAAAA\". Actual. ' + (arr && arr[0]));\n}\n\nfor (i = 1; i <= 10; i++) {\n  //CHECK#i\n  if ((arr === null) || (arr[i] !== \"A\")) {\n    $ERROR('#2: var arr = /((((((((((A))))))))))\\\\1\\\\2\\\\3\\\\4\\\\5\\\\6\\\\7\\\\8\\\\9\\\\10/.exec(\"AAAAAAAAAAA\"); arr[' + i + '] === \"A\". Actual. ' + (arr && arr[i]));\n  }\n}  \n",
+    "id": "S15.10.2.11_A1_T8"
+   },
+   {
+    "section": "15.10.2.11, 15.10.2.9",
+    "description": "DecimalIntegerLiteral is not 0",
+    "test": "var arr = /((((((((((A))))))))))\\10\\9\\8\\7\\6\\5\\4\\3\\2\\1/.exec(\"AAAAAAAAAAA\");\n\n//CHECK#1\nif ((arr === null) || (arr[0] !== \"AAAAAAAAAAA\")) {\n  $ERROR('#1: var arr = /((((((((((A))))))))))\\\\10\\\\9\\\\8\\\\7\\\\6\\\\5\\\\4\\\\3\\\\2\\\\1/.exec(\"AAAAAAAAAAA\"); arr[0] === \"AAAAAAAAAAA\". Actual. ' + (arr && arr[0]));\n}\n\nfor (i = 1; i <= 10; i++) {\n  //CHECK#i\n  if ((arr === null) || (arr[i] !== \"A\")) {\n    $ERROR('#2: var arr = /((((((((((A))))))))))\\\\10\\\\9\\\\8\\\\7\\\\6\\\\5\\\\4\\\\3\\\\2\\\\1/.exec(\"AAAAAAAAAAA\"); arr[' + i + '] === \"A\". Actual. ' + (arr && arr[i]));\n  }\n}  \n",
+    "id": "S15.10.2.11_A1_T9"
+   }
+  ]
+ }
+}

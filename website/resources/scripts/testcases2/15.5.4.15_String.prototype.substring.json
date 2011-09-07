@@ -1,0 +1,260 @@
+{
+ "testCollection": {
+  "name": "15.5.4.15_String.prototype.substring",
+  "numTests": 42,
+  "tests": [
+   {
+    "section": "15.5.4.15",
+    "description": "Checking if varying the String.prototype.substring.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(String.prototype.substring.hasOwnProperty('length'))) {\n  $FAIL('#1: String.prototype.substring.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.substring.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar __obj = String.prototype.substring.length;\n\nString.prototype.substring.length = function(){return \"shifted\";};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (String.prototype.substring.length !== __obj) {\n  $ERROR('#2: __obj = String.prototype.substring.length; String.prototype.substring.length = function(){return \"shifted\";}; String.prototype.substring.length === __obj. Actual: '+String.prototype.substring.length );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A10"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Checking String.prototype.substring.length",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(String.prototype.substring.hasOwnProperty(\"length\"))) {\n  $ERROR('#1: String.prototype.substring.hasOwnProperty(\"length\") return true. Actual: '+String.prototype.substring.hasOwnProperty(\"length\"));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (String.prototype.substring.length !== 2) {\n  $ERROR('#2: String.prototype.substring.length === 2. Actual: '+String.prototype.substring.length );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A11"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Arguments are false and true, and instance is object",
+    "test": "var __instance = new Object(true);\n\n__instance.substring = String.prototype.substring;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.substring(false, true) !== \"t\") {\n  $ERROR('#1: __instance = new Object(true); __instance.substring = String.prototype.substring;  __instance.substring(false, true) === \"t\". Actual: '+__instance.substring(false, true) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A1_T1"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Arguments are object and function call, and instance is String, object have overrided valueOf function",
+    "test": "var __obj = {valueOf:function(){return 2;}};\n\nvar __str = \"\\u0035ABBBABAB\";\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nwith(__str){\n    if (substring(__obj, function(){return substring(0,1);}()) !== \"BBB\") {\n      $ERROR('#1: var __obj = {valueOf:function(){return 2;}}; var __str = \"\\u0035ABBBABAB\"; substring(__obj, function(){return substring(0,1);}()) === \"BBB\". Actual: '+substring(__obj, function(){return substring(0,1);}()) );\n    }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar x;\n",
+    "id": "S15.5.4.15_A1_T10"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Arguments are objects, and instance is string, objects have overrided valueOf function, that return exception",
+    "test": "var __obj = {valueOf:function(){throw \"instart\";}};\nvar __obj2 = {valueOf:function(){throw \"inend\";}};\nvar __str = {str__:\"ABB\\u0041BABAB\"};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nwith(__str){\n    with(str__){\n        try {\n          var x = substring(__obj,__obj2);\n          $FAIL('#1: \"var x = substring(__obj,__obj2)\" lead to throw exception');\n        } catch (e) {\n          if (e!==\"instart\") {\n            $ERROR('#1.1: Exception === \"instart\". Actual: '+e);\n          }\n        }\n    }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A1_T11"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Arguments are objects, and instance is string.\nFirst object have overrided valueOf function and toString function, that return exception.\nSecond object have overrided valueOf function, that return exception",
+    "test": "var __obj = {valueOf:function(){return {};}, toString:function(){throw \"instart\";}};\nvar __obj2 = {valueOf:function(){throw \"inend\";}};\nvar __str = new String(\"ABB\\u0041BABAB\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nwith(__str){\n    try {\n      var x = substring(__obj, __obj2);\n      $FAIL('#1: \"var x = substring(__obj,__obj2)\" lead to throw exception');\n    } catch (e) {\n      if (e!==\"instart\") {\n        $ERROR('#1.1: Exception ===\"instart\". Actual: '+e);\n      }\n    }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A1_T12"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Arguments are objects, and instance is string.\nFirst object have overrided valueOf and toString functions.\nSecond object have overrided toString function, that return exception",
+    "test": "var __obj = {valueOf:function(){return {};}, toString:function(){return 1;}};\nvar __obj2 = {toString:function(){throw \"inend\";}};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n    var x = \"ABB\\u0041BABAB\\u0031BBAA\".substring(__obj, __obj2);\n    $FAIL('#1: var x = \"ABB\\\\u0041BABAB\\\\u0031BBAA\".substring(__obj,__obj2) lead to throw exception');\n} catch (e) {\n    if (e!==\"inend\") {\n        $ERROR('#1.1: Exception === \"inend\". Actual: '+e);\n    }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n",
+    "id": "S15.5.4.15_A1_T13"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Used one argument, that is function(){}(). Instance is string",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (\"report\".substring(function(){}()) !== \"report\") {\n  $ERROR('#1: \"report\".substring(function(){}()) === \"report\". Actual: '+\"report\".substring(function(){}()) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A1_T14"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Call substring without arguments. Instance is Number with prototype.substring = String.prototype.substring",
+    "test": "var __num = 11.001002;\n\nNumber.prototype.substring = String.prototype.substring;\n\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__num.substring()!==\"11.001002\") {\n  $ERROR('#1: var __num = 11.001002; Number.prototype.substring = String.prototype.substring; __num.substring()===\"11.001002\". Actual: '+__num.substring());\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A1_T15"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Arguments are function call and x, and instance is Boolean. x is undefined variable",
+    "test": "var __instance = new Boolean;\n\n__instance.substring = String.prototype.substring;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.substring(function(){return true;}(),x) !== \"alse\") {\n  $ERROR('#1: var x; __instance = new Boolean; __instance.substring = String.prototype.substring;  __instance.substring(function(){return true;}(),x) === \"alse\". Actual: '+__instance.substring(function(){return true;}(),x) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar x;\n",
+    "id": "S15.5.4.15_A1_T2"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Checking by using eval",
+    "test": "var substring = String.prototype.substring;\n\nif (typeof toString === \"undefined\"){\n    toString = Object.prototype.toString;\n}\n\nvar __class__ = toString();\nvar __toggle = 1;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (substring(eval(\"\\\"1\\\"\"),{valueOf:function(){return \"0x0007\"}})!==\"object\") {\n  $ERROR('#1: substring(eval(\"\\\\\"1\\\\\"\"),{valueOf:function(){return \"0x0007\"}})===\"object\". Actual: '+substring(eval(\"\\\"1\\\"\"),{valueOf:function(){return \"0x0007\"}}));\n};\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A1_T3"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Arguments are null and number, and instance is function call, that returned string",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (function(){return \"gnulluna\"}().substring(null, -3) !== \"\") {\n  $ERROR('#1: function(){return \"gnulluna\"}().substring(null, -3) === \"\". Actual: '+function(){return \"gnulluna\"}().substring(null, -3) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A1_T4"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Arguments are null and Function(), and instance is function object, that have overrided valueOf function",
+    "test": "__func.valueOf=function(){return \"gnulluna\"};\n\nFunction.prototype.substring=String.prototype.substring;\n\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__func.substring(null, Function()) !== \"\") {\n  $ERROR('#1: __func.valueOf=function(){return \"gnulluna\"}; Function.prototype.substring=String.prototype.substring; function __func(){}; __func.substring(null, Function()) === \"\". Actual: '+__func.substring(null, Function()) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nfunction __func(){};\n",
+    "id": "S15.5.4.15_A1_T5"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Arguments are x and number, and instance is new String, x is undefined variable",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (new String(\"undefined\").substring(x,3) !== \"und\") {\n  $ERROR('#1: var x; new String(\"undefined\").substring(x,3) === \"und\". Actual: '+new String(\"undefined\").substring(x,3) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar x;\n",
+    "id": "S15.5.4.15_A1_T6"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Arguments are symbol and undefined, and instance is String",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (String(void 0).substring(\"e\",undefined) !== \"undefined\") {\n  $ERROR('#1: String(void 0).substring(\"e\",undefined) === \"undefined\". Actual: '+String(void 0).substring(\"e\",undefined) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A1_T7"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Arguments are negative number and void 0, and instance is String(object), object have overrided toString function",
+    "test": "var __obj = {toString:function(){}};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (String(__obj).substring(-4,void 0) !== \"undefined\") {\n  $ERROR('#1: __obj = {toString:function(){}}; String(__obj).substring(-4,void 0) === \"undefined\". Actual: '+String(__obj).substring(-4,void 0) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A1_T8"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Arguments are undefined and object, and instance is new String(object), object have overrided valueOf and toString functions",
+    "test": "var __obj = {\n    valueOf:function(){},\n    toString:void 0\n};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (new String(__obj).substring(/*(function(){})()*/undefined,undefined) !== \"undefined\") {\n  $ERROR('#1: __obj = {valueOf:function(){}, toString:void 0}; new String(__obj).substring(/*(function(){})()*/undefined,undefined) === \"undefined\". Actual: '+new String(__obj).substring(/*(function(){})()*/undefined,undefined) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A1_T9"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Checking type of substring()",
+    "test": "var __string = new String(\"this is a string object\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (typeof __string.substring() !== \"string\") {\n  $ERROR('#1: __string = new String(\"this is a string object\"); typeof __string.substring() === \"string\". Actual: '+typeof __string.substring() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A2_T1"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "start is 0, end is 8",
+    "test": "var __string = new String(\"this_is_a_string object\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__string.substring(0,8) !== \"this_is_\") {\n  $ERROR('#1: __string = new String(\"this_is_a_string object\"); __string.substring(0,8) === \"this_is_\". Actual: '+__string.substring(0,8) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A2_T10"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "start is NaN, end is Infinity",
+    "test": "var __string = new String('this is a string object');\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__string.substring(NaN, Infinity) !== \"this is a string object\") {\n  $ERROR('#1: __string = new String(\\'this is a string object\\'); __string.substring(NaN, Infinity) === \"this is a string object\". Actual: '+__string.substring(NaN, Infinity) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A2_T2"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Call substring from empty String object",
+    "test": "var __string = new String(\"\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__string.substring(1,0) !== \"\") {\n  $ERROR('#1: __string = new String(\"\"); __string.substring(1,0) === \"\". Actual: '+__string.substring(1,0) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A2_T3"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "start is Infinity, end is NaN",
+    "test": "var __string = new String(\"this is a string object\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__string.substring(Infinity, NaN) !== \"this is a string object\") {\n  $ERROR('#1: __string = new String(\"this is a string object\"); __string.substring(Infinity, NaN) === \"this is a string object\". Actual: '+__string.substring(Infinity, NaN) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A2_T4"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "start is Infinity, end is Infinity",
+    "test": "var __string = new String(\"this is a string object\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__string.substring(Infinity, Infinity) !== \"\") {\n  $ERROR('#1: __string = new String(\"this is a string object\"); __string.substring(Infinity, Infinity) === \"\". Actual: '+__string.substring(Infinity, Infinity) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A2_T5"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "start is negative float number, end is 0",
+    "test": "var __string = new String(\"this is a string object\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__string.substring(-0.01,0) !== \"\") {\n  $ERROR('#1: __string = new String(\"this is a string object\"); __string.substring(-0.01,0) === \"\". Actual: '+__string.substring(-0.01,0) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A2_T6"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "start is tested_string.length, end is tested_string.length",
+    "test": "var __string = new String(\"this is a string object\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__string.substring(__string.length, __string.length) !== \"\") {\n  $ERROR('#1: __string = new String(\"this is a string object\"); __string.substring(__string.length, __string.length) === \"\". Actual: '+__string.substring(__string.length, __string.length) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A2_T7"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "start is tested_string.length+1, end is 0",
+    "test": "var __string = new String(\"this is a string object\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__string.substring(__string.length+1, 0) !== \"this is a string object\") {\n  $ERROR('#1: __string = new String(\"this is a string object\"); __string.substring(__string.length+1, 0) === \"this is a string object\". Actual: '+__string.substring(__string.length+1, 0) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A2_T8"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "start is -Infinity, end is -Infinity",
+    "test": "var __string = new String(\"this is a string object\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__string.substring(-Infinity, -Infinity) !== \"\") {\n  $ERROR('#1: __string = new String(\"this is a string object\"); __string.substring(-Infinity, -Infinity) === \"\". Actual: '+__string.substring(-Infinity, -Infinity) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A2_T9"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Apply String.prototype.substring to Array instance. Start is Infinity, end is -Infinity",
+    "test": "var __instance = new Array(1,2,3,4,5); \n__instance.substring = String.prototype.substring;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.substring(Infinity,-Infinity) !== \"1,2,3,4,5\") {\n  $ERROR('#1: __instance = new Array(1,2,3,4,5); __instance.substring = String.prototype.substring; __instance.substring(Infinity,-Infinity) === \"1,2,3,4,5\". Actual: '+__instance.substring(Infinity,-Infinity) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A3_T1"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Checknig if applying String.prototype.substring to Function object instance passes",
+    "test": "__FACTORY.prototype.substring = String.prototype.substring;\n\nvar __instance = new __FACTORY(void 0);\n \n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.substring(0, 100) !== \"undefined\") {\n  $ERROR('#1: __instance.substring(0, 100) === \"undefined\". Actual: '+__instance.substring(0, 100) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nfunction __FACTORY( value ) {\n    this.value = value;\n    this.toString = function() { return this.value+''; }\n}\n",
+    "id": "S15.5.4.15_A3_T10"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Apply String.prototype.substring to Boolean instance. Start is new Array(), end is new Boolean(1)",
+    "test": "var __instance = new Boolean();\n \n__instance.substring = String.prototype.substring;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.substring(new Array(), new Boolean(1)) !== \"f\") {\n  $ERROR('#1: __instance = new Boolean(); __instance.substring = String.prototype.substring;  __instance.substring(new Array(), new Boolean(1)) === \"f\". Actual: '+__instance.substring(new Array(), new Boolean(1)) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A3_T11"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Apply String.prototype.substring to Array instance. Start is 9, end is -Infinity",
+    "test": "var __instance = new Array(1,2,3,4,5); \n__instance.substring = String.prototype.substring;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.substring(9,-Infinity) !== \"1,2,3,4,5\") {\n  $ERROR('#1: __instance = new Array(1,2,3,4,5); __instance.substring = String.prototype.substring; __instance.substring(9,-Infinity) === \"1,2,3,4,5\". Actual: '+__instance.substring(9,-Infinity) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A3_T2"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Apply String.prototype.substring to Array instance. Start is true, end is false",
+    "test": "var __instance = new Array(1,2,3,4,5); \n__instance.substring = String.prototype.substring;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.substring(true, false) !== \"1\") {\n  $ERROR('#1: __instance = new Array(1,2,3,4,5); __instance.substring = String.prototype.substring; __instance.substring(true, false) === \"1\". Actual: '+__instance.substring(true, false) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A3_T3"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Apply String.prototype.substring to Array instance. Start is '4', end is '5'",
+    "test": "var __instance = new Array(1,2,3,4,5); \n__instance.substring = String.prototype.substring;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.substring('4', '5') !== \"3\") {\n  $ERROR('#1: __instance = new Array(1,2,3,4,5); __instance.substring = String.prototype.substring; __instance.substring(\\'4\\', \\'5\\') === \"3\". Actual: '+__instance.substring('4', '5') );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A3_T4"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Apply String.prototype.substring to Object instance. Start is 8, end is 0",
+    "test": "var __instance = new Object(); \n__instance.substring = String.prototype.substring;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.substring(8,0) !== \"[object \") {\n  $ERROR('#1: __instance = new Object(); __instance.substring = String.prototype.substring; __instance.substring(8,0) === \"[object \". Actual: '+__instance.substring(8,0) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A3_T5"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Apply String.prototype.substring to Object instance. Start is 8, end is length of object.toString",
+    "test": "var __instance = new Object(); \n__instance.substring = String.prototype.substring;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.substring(8, __instance.toString().length) !== \"Object]\") {\n  $ERROR('#1: __instance = new Object(); __instance.substring = String.prototype.substring; __instance.substring(8, __instance.toString().length) === \"Object]\". Actual: '+__instance.substring(8, __instance.toString().length) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A3_T6"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Apply String.prototype.substring to Object instance. Call instance.substring(...).substring(...)",
+    "test": "var __instance = function(){};\n \n__instance.substring = String.prototype.substring;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.substring(-Infinity,8) !== \"function\") {\n  $ERROR('#1: __instance = function(){}; __instance.substring = String.prototype.substring;  __instance.substring(-Infinity,8) === \"function\". Actual: '+__instance.substring(8,Infinity).substring(-Infinity,1) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A3_T7"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Apply String.prototype.substring to Number instance. Start is Infinity, end is NaN",
+    "test": "var __instance = new Number(NaN);\n \n__instance.substring = String.prototype.substring;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.substring(Infinity, NaN) !== \"NaN\") {\n  $ERROR('#1: __instance = new Number(NaN); __instance.substring = String.prototype.substring;  __instance.substring(Infinity, NaN) === \"NaN\". Actual: '+__instance.substring(Infinity, NaN) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A3_T8"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Apply String.prototype.substring to Math instance. Start is Math.PI, end is -10",
+    "test": "var __instance = Math;\n \n__instance.substring = String.prototype.substring;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.substring(Math.PI, -10) !== \"[ob\") {\n  $ERROR('#1: __instance = Math; __instance.substring = String.prototype.substring;  __instance.substring(Math.PI, -10) === \"[ob\". Actual: '+__instance.substring(Math.PI, -10) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A3_T9"
+   },
+   {
+    "section": "15.5.4.15, 13.2",
+    "description": "Checking String.prototype.substring.prototype",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (String.prototype.substring.prototype !== undefined) {\n  $ERROR('#1: String.prototype.substring.prototype === undefined. Actual: '+String.prototype.substring.prototype );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A6"
+   },
+   {
+    "section": "15.5.4.15, 13.2",
+    "description": "Checking if creating the String.prototype.substring object fails",
+    "test": "var __FACTORY = String.prototype.substring;\n\ntry {\n  var __instance = new __FACTORY;\n  $FAIL('#1: __FACTORY = String.prototype.substring; \"__instance = new __FACTORY\" lead to throwing exception');\n} catch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#1.2: undefined = 1 throw a TypeError. Actual: ' + (e));  \n  }\n  $PRINT(e);\n}\n",
+    "id": "S15.5.4.15_A7"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Checking if enumerating the String.prototype.substring.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#0\nif (!(String.prototype.substring.hasOwnProperty('length'))) {\n  $FAIL('#0: String.prototype.substring.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.substring.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n//////////////////////////////////////////////////////////////////////////////\n// CHECK#1\nif (String.prototype.substring.propertyIsEnumerable('length')) {\n  $ERROR('#1: String.prototype.substring.propertyIsEnumerable(\\'length\\') return false');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n// CHECK#2\nvar count=0;\n\nfor (var p in String.prototype.substring){\n  if (p===\"length\") count++;\n}\n\nif (count !== 0) {\n  $ERROR('#2: count=0; for (p in String.prototype.substring){if (p===\"length\") count++;} count === 0. Actual: '+count );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A8"
+   },
+   {
+    "section": "15.5.4.15",
+    "description": "Checking if deleting the String.prototype.substring.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#0\nif (!(String.prototype.substring.hasOwnProperty('length'))) {\n  $FAIL('#0: String.prototype.substring.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.substring.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (delete String.prototype.substring.length) {\n  $ERROR('#1: delete String.prototype.substring.length return false');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (!(String.prototype.substring.hasOwnProperty('length'))) {\n  $FAIL('#2: delete String.prototype.substring.length; String.prototype.substring.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.substring.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.15_A9"
+   }
+  ]
+ }
+}

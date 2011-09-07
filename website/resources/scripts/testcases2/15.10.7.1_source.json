@@ -1,0 +1,26 @@
+{
+ "testCollection": {
+  "name": "15.10.7.1_source",
+  "numTests": 3,
+  "tests": [
+   {
+    "section": "15.10.7.1",
+    "description": "Checking if varying the source property fails",
+    "test": "__re = /./;\n\n//CHECK#1\nif (__re.hasOwnProperty('source') !== true) {\n  $FAIL('#1: __re = /./; __re.hasOwnProperty(\\'source\\') === true');\n}\n\n__obj = __re.source;\n\n__re.source = \"shifted\";\n\n//CHECK#2\nif (__re.source !== __obj) {\n  $ERROR('#2: __re = /./; __obj = __re.source; __re.source = \"shifted\"; __re.source === __obj. Actual: ' + (__re.source));\n}\n\n",
+    "id": "S15.10.7.1_A10"
+   },
+   {
+    "section": "15.10.7.1",
+    "description": "Checking if enumerating the source property of RegExp instance fails",
+    "test": "__re = new RegExp(\"[1-2]\",\"i\");\n\n//CHECK#0\nif (__re.hasOwnProperty('source') !== true) {\n\t$FAIL('#0: __re = new RegExp(\"[1-2]\",\"i\"); __re.hasOwnProperty(\\'source\\') === true');\n}\n\n //CHECK#1\nif (__re.propertyIsEnumerable('source') !== false) {\n\t$ERROR('#1: __re = new RegExp(\"[1-2]\",\"i\"); __re.propertyIsEnumerable(\\'source\\') === false');\n}\n\n //CHECK#2\ncount = 0\nfor (p in __re){\n\tif (p===\"source\") count++\t  \n}\n\nif (count !== 0) {\n  $ERROR('#2: count = 0; __re = new RegExp(\"[1-2]\",\"i\"); for (p in __re){ if (p===\"source\") count++; } count === 0. Actual: ' + (count));\n}  \n\n",
+    "id": "S15.10.7.1_A8"
+   },
+   {
+    "section": "15.10.7.1",
+    "description": "Checking if deleting the source property fails",
+    "test": "__re = new RegExp;\n\n//CHECK#0\nif (__re.hasOwnProperty('source') !== true) {\n\t$FAIL('#0: __re = new RegExp; __re.hasOwnProperty(\\'source\\') === true');\n}\n\n//CHECK#1\nif ((delete __re.source) !== false) {\n\t$ERROR('#1: __re = new RegExp; (delete __re.source) === false');\n}\n\n//CHECK#2\nif (__re.hasOwnProperty('source') !== true) {\n\t$ERROR('#2: __re = new RegExp;delete __re.source === true; __re.hasOwnProperty(\\'source\\') === true');\n}\n\n",
+    "id": "S15.10.7.1_A9"
+   }
+  ]
+ }
+}

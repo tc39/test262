@@ -1,0 +1,224 @@
+{
+ "testCollection": {
+  "name": "15.5.4.7_String.prototype.indexOf",
+  "numTests": 36,
+  "tests": [
+   {
+    "section": "15.5.4.7",
+    "description": "Checking if varying the String.prototype.indexOf.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(String.prototype.indexOf.hasOwnProperty('length'))) {\n  $FAIL('#1: String.prototype.indexOf.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.indexOf.hasOwnProperty('length')); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar __obj = String.prototype.indexOf.length;\n\nString.prototype.indexOf.length = function(){return \"shifted\";};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (String.prototype.indexOf.length !== __obj) {\n  $ERROR('#2: __obj = String.prototype.indexOf.length; String.prototype.indexOf.length = function(){return \"shifted\";}; String.prototype.indexOf.length === __obj. Actual: '+String.prototype.indexOf.length ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A10"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Checking String.prototype.indexOf.length",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(String.prototype.indexOf.hasOwnProperty(\"length\"))) {\n  $ERROR('#1: String.prototype.indexOf.hasOwnProperty(\"length\") return true. Actual: '+String.prototype.indexOf.hasOwnProperty(\"length\")); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (String.prototype.indexOf.length !== 1) {\n  $ERROR('#2: String.prototype.indexOf.length === 1. Actual: '+String.prototype.indexOf.length ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A11"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Arguments are false and true, and instance is object",
+    "test": "var __instance = new Object(true);\n\n__instance.indexOf = String.prototype.indexOf;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.indexOf(true, false) !== 0) {\n  $ERROR('#1: __instance = new Object(true); __instance.indexOf = String.prototype.indexOf;  __instance.indexOf(true, false) === 0. Actual: '+__instance.indexOf(true, false) ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A1_T1"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Call indexOf(searchString, position) function with object arguments",
+    "test": "var __obj = {toString:function(){return \"\\u0041B\";}}\nvar __obj2 = {valueOf:function(){return true;}}\nvar __str = \"ABB\\u0041BABAB\";\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nwith(__str){\n    if (indexOf(__obj, __obj2) !== 3) {\n      $ERROR('#1: var x; var __obj = {toString:function(){return \"\\u0041B\";}}; var __obj2 = {valueOf:function(){return true;}}; var __str = \"ABB\\u0041BABAB\"; indexOf(__obj, __obj2) === 3. Actual: '+indexOf(__obj, __obj2) ); \n    }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar x;\n",
+    "id": "S15.5.4.7_A1_T10"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Instance is Date(0) object",
+    "test": "var __instance = new Date(0);\n\n__instance.indexOf = String.prototype.indexOf;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif ((__instance.getTimezoneOffset()>0 ? __instance.indexOf('31') : __instance.indexOf('01')) !== 8) {\n  $ERROR('#1: __instance = new Date(0); __instance.indexOf = String.prototype.indexOf;  (__instance.getTimezoneOffset()>0 ? __instance.indexOf(\\'31\\') : __instance.indexOf(\\'01\\')) === 8. Actual: '+(__instance.getTimezoneOffset()>0 ? __instance.indexOf('31') : __instance.indexOf('01')) ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A1_T11"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Argument is string, and instance is array of strings",
+    "test": "var __instance = new Array('new','zoo','revue');\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.indexOf('new') !== 0) {\n  $ERROR('#1: __instance = new Array(\\'new\\',\\'zoo\\',\\'revue\\'); __instance.indexOf(\\'new\\') === 0. Actual: '+__instance.indexOf('new') ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__instance.indexOf('zoo') !== 1) {\n  $ERROR('#2: __instance = new Array(\\'new\\',\\'zoo\\',\\'revue\\'); __instance.indexOf(\\'zoo\\') === 1. Actual: '+__instance.indexOf('zoo') ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A1_T12"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Arguments are boolean equation, function and null, and instance is Boolean object",
+    "test": "var __instance = new Boolean;\n\n__instance.indexOf = String.prototype.indexOf;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.indexOf(\"A\"!==\"\\u0041\", function(){return 0;}(),null) !== 0) {\n  $ERROR('#1: __instance = new Boolean; __instance.indexOf = String.prototype.indexOf;  __instance.indexOf(\"A\"!==\"\\\\u0041\", function(){return 0;}(),null) === 0. Actual: '+__instance.indexOf(\"A\"!==\"\\u0041\", function(){return 0;}(),null) ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A1_T2"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Checking by using eval",
+    "test": "var indexOf = String.prototype.indexOf;\n\nvar __obj__pos = {valueOf:function(){return 5;}};\n\nif (typeof toString === \"undefined\"){\n    toString = Object.prototype.toString;\n}\n\nvar __class__ = toString();\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (indexOf(eval(\"\\\"[\\\"\"),__obj__pos)!=-1) {\n  $ERROR('#1: indexOf = String.prototype.indexOf; indexOf(eval(\"\\\\\"[\\\\\"\"),__obj__pos)==-1. Actual: indexOf(eval(\"\\\\\"[\\\\\"\"),__obj__pos)=='+indexOf(eval(\"\\\"[\\\"\"),__obj__pos)); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A1_T3"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Call indexOf(searchString, position) function without arguments of string",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n//since ToString() evaluates to \"\" indexOf() evaluates to indexOf(\"\",0)\nif (\"\".indexOf() !== -1) {\n  $ERROR('#1: \"\".indexOf() === -1. Actual: '+(\"\".indexOf()) ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A1_T4"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Call indexOf(searchString, position) function with null argument of function object",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n//since ToString(null) evaluates to \"null\" indexOf(null) evaluates to indexOf(\"\",0)\nif (function(){return \"gnulluna\"}().indexOf(null) !== 1) {\n  $ERROR('#1: function(){return \"gnulluna\"}().indexOf(null) === 1. Actual: '+function(){return \"gnulluna\"}().indexOf(null) ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A1_T5"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Call indexOf(searchString, position) function with x argument of new String object, where x is undefined variable",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n//since ToString(undefined) evaluates to \"\" indexOf(undefined) evaluates to indexOf(\"\",0)\nif (new String(\"undefined\").indexOf(x) !== 0) {\n  $ERROR('#1: var x; new String(\"undefined\").indexOf(x) === 0. Actual: '+new String(\"undefined\").indexOf(x) ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar x;\n",
+    "id": "S15.5.4.7_A1_T6"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Call indexOf(searchString, position) function with undefined argument of string object",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n//since ToString(undefined) evaluates to \"undefined\" indexOf(undefined) evaluates to indexOf(\"undefined\",0)\nif (String(\"undefined\").indexOf(undefined) !== 0) {\n  $ERROR('#1: String(\"undefined\").indexOf(undefined) === 0. Actual: '+String(\"undefined\").indexOf(undefined) ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A1_T7"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Call indexOf(searchString, position) function with void 0 argument of string object",
+    "test": "var __obj = {toString:function(){}};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n//since ToString(void 0) evaluates to \"undefined\" indexOf(void 0) evaluates to indexOf(\"undefined\")\nif (String(__obj).indexOf(void 0) !== 0) {\n  $ERROR('#1: __obj = {toString:function(){}}; String(__obj).indexOf(void 0) === 0. Actual: '+String(__obj).indexOf(void 0) ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A1_T8"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Call indexOf(searchString, position) function with function(){}() argument of string object",
+    "test": "var __obj = {\n    valueOf:function(){},\n    toString:void 0\n};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n//since ToString(undefined) evaluates to \"undefined\" indexOf(undefined) evaluates to indexOf(\"undefined\")\nif (new String(__obj).indexOf(function(){}()) !== 0) {\n  $ERROR('#1: __obj = {valueOf:function(){}, toString:void 0}; new String(__obj).indexOf(function(){}()) === 0. Actual: '+new String(__obj).indexOf(function(){}()) ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A1_T9"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Call \"abcd\".indexOf(\"abcdab\") and check result",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (\"abcd\".indexOf(\"abcdab\")!==-1) {\n  $ERROR('#1: \"abcd\".indexOf(\"abcdab\")===-1. Actual: '+(\"abcd\".indexOf(\"abcdab\"))); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A2_T1"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Call \"abcd\".indexOf(\"abcdab\",0) and check result",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (\"abcd\".indexOf(\"abcdab\",0)!==-1) {\n  $ERROR('#1: \"abcd\".indexOf(\"abcdab\",0)===-1. Actual: '+(\"abcd\".indexOf(\"abcdab\",0))); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A2_T2"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Call \"abcd\".indexOf(\"abcdab\",99) and check result",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (\"abcd\".indexOf(\"abcdab\",99)!==-1) {\n  $ERROR('#1: \"abcd\".indexOf(\"abcdab\",99)===-1. Actual: '+(\"abcd\".indexOf(\"abcdab\",99))); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A2_T3"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Call \"abcd\".indexOf(\"abcdab\",NaN) and check result",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (\"abcd\".indexOf(\"abcdab\",NaN)!==-1) {\n  $ERROR('#1: \"abcd\".indexOf(\"abcdab\",NaN)===-1. Actual: '+(\"abcd\".indexOf(\"abcdab\",NaN))); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A2_T4"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Call \"$$abcdabcd\".indexOf(\"ab\",NaN) and check result",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (\"$$abcdabcd\".indexOf(\"ab\",NaN)!==2) {\n  $ERROR('#1: \"$$abcdabcd\".indexOf(\"ab\",NaN)===2. Actual: '+(\"$$abcdabcd\".indexOf(\"ab\",NaN))); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A3_T1"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Call \"$$abcdabcd\".indexOf(\"ab\",eval(\"\\\"-99\\\"\")) and check result",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (\"$$abcdabcd\".indexOf(\"ab\",eval(\"\\\"-99\\\"\"))!==2) {\n  $ERROR('#1: \"$$abcdabcd\".indexOf(\"ab\",eval(\"\\\\\"-99\\\\\"\"))===2. Actual: '+(\"$$abcdabcd\".indexOf(\"ab\",eval(\"\\\"-99\\\"\")))); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A3_T2"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": ": Call \"$$abcdabcd\".indexOf(\"ab\",function(){return -Infinity;}()) and check result;",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (\"$$abcdabcd\".indexOf(\"ab\", function(){return -Infinity;}())!==2) {\n  $ERROR('#1: \"$$abcdabcd\".indexOf(\"ab\", function(){return -Infinity;}())===2. Actual: '+(\"$$abcdabcd\".indexOf(\"ab\", function(){return -Infinity;}()))); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A3_T3"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Override toString and valueOf functions, valueOf throw exception",
+    "test": "var __obj = {toString:function(){return \"\\u0041B\";}}\nvar __obj2 = {valueOf:function(){throw \"intointeger\";}}\nvar __str = {str__:\"ABB\\u0041BABAB\"};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nwith(__str){\n    with(str__){\n        try {\n          var x = indexOf(__obj, __obj2);\n          $FAIL('#1: \"var x = indexOf(__obj, __obj2)\" lead to throwing exception');\n        } catch (e) {\n          if (e!==\"intointeger\") {\n            $ERROR('#1.1: Exception === \"intointeger\". Actual: '+e); \n          }\n        }\n    }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A4_T1"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Override toString and valueOf functions, second toString throw exception",
+    "test": "var __obj = {toString:function(){return \"\\u0041B\";}}\nvar __obj2 = {valueOf:function(){return {};},toString:function(){throw \"intointeger\";}}\nvar __str = new String(\"ABB\\u0041BABAB\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nwith(__str){\n    try {\n      var x = indexOf(__obj, __obj2);\n      $FAIL('#1: \"var x = indexOf(__obj, __obj2)\" lead to throwing exception');\n    } catch (e) {\n      if (e!==\"intointeger\") {\n        $ERROR('#1.1: Exception === \"intointeger\". Actual: '+e); \n      }\n    }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A4_T2"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Override toString and valueOf functions",
+    "test": "var __obj = {toString:function(){return \"\\u0041B\";}}\nvar __obj2 = {valueOf:function(){return {};},toString:function(){return \"1\";}}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (\"ABB\\u0041BABAB\".indexOf(__obj, __obj2)!==3) {\n  $ERROR('#1: var __obj = {toString:function(){return \"\\u0041B\";}}; var __obj2 = {valueOf:function(){return {};},toString:function(){return \"1\";}}; \"ABB\\\\u0041BABAB\".indexOf(__obj, __obj2)===3. Actual: '+(\"ABB\\u0041BABAB\".indexOf(__obj, __obj2))); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A4_T3"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Override toString and valueOf functions, and they throw exceptions",
+    "test": "var __obj = {toString:function(){throw \"intostr\";}};\nvar __obj2 = {valueOf:function(){throw \"intoint\";}};\nvar __instance = new Number(10001.10001);\nNumber.prototype.indexOf=String.prototype.indexOf;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nwith(__instance){\n    try {\n      var x = indexOf(__obj, __obj2);\n      $FAIL('#1: \"var x = indexOf(__obj, __obj2)\" lead to throwing exception');\n    } catch (e) {\n      if (e!==\"intostr\") {\n        $ERROR('#1.1: Exception === \"intostr\". Actual: '+e); \n      }\n    }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A4_T4"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Override toString and valueOf functions, first and second valueOf throw exception",
+    "test": "var __obj = {toString:function(){return {};},valueOf:function(){throw \"intostr\";}};\n\nvar __obj2 = {valueOf:function(){throw \"intointeger\";}};\n\n__FACTORY.prototype.indexOf = String.prototype.indexOf;\n\nvar __instance = new __FACTORY(void 0);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n  var x = __instance.indexOf(__obj, __obj2);\n  $FAIL('#1: \"var x = __instance.indexOf(__obj, __obj2)\" lead to throwing exception');\n} catch (e) {\n  if (e!==\"intostr\") {\n    $ERROR('#1.1: Exception === \"intostr\". Actual: '+e); \n  }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nfunction __FACTORY( value ) {\n    this.value = value;\n    this.toString = function() { return new Number; };\n    this.valueOf=function(){return this.value+\"\"};\n}\n",
+    "id": "S15.5.4.7_A4_T5"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Search one symbol from begin of string",
+    "test": "var TEST_STRING = new String( \" !\\\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\" );\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nfor (var  k = 0, i = 0x0020; i < 0x007e; i++, k++ ) {\n    if (TEST_STRING.indexOf( String.fromCharCode(i), 0 )!==k) {\n      $ERROR('#'+(i-0x0020)+': TEST_STRING.indexOf( String.fromCharCode('+i+'), 0 )==='+k+'. Actual: '+TEST_STRING.indexOf( String.fromCharCode(i), 0 )); \n    }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A5_T1"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Search one symbol from it`s position in the string",
+    "test": "var TEST_STRING = new String( \" !\\\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\" );\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nfor (var  k = 0, i = 0x0020; i < 0x007e; i++, k++ ) {\n    if (TEST_STRING.indexOf( String.fromCharCode(i), k )!==k) {\n      $ERROR('#'+(i-0x0020)+': TEST_STRING.indexOf( String.fromCharCode('+i+'), '+k+' )==='+k+'. Actual: '+TEST_STRING.indexOf( String.fromCharCode(i), k )); \n    }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A5_T2"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Search one symbol from it`s position+1 in the string",
+    "test": "var TEST_STRING = new String( \" !\\\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\" );\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nfor ( var k = 0, i = 0x0020; i < 0x007e; i++, k++ ) {\n    if (TEST_STRING.indexOf( String.fromCharCode(i), k+1 ) !== -1) {\n      $ERROR('#'+(i-0x0020)+': TEST_STRING.indexOf( String.fromCharCode('+i+'), '+(k+1)+' )===-1. Actual: '+TEST_STRING.indexOf( String.fromCharCode(i), k+1 )); \n    }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A5_T3"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Search substring from begin of string",
+    "test": "var TEST_STRING = new String( \" !\\\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\" );\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nfor (var k = 0, i = 0x0020; i < 0x007d; i++, k++ ) {\n    if (TEST_STRING.indexOf( (String.fromCharCode(i)+ String.fromCharCode(i+1) + String.fromCharCode(i+2)), 0 )!==k) {\n      $ERROR('#'+(i-0x0020)+': TEST_STRING.indexOf( (String.fromCharCode('+i+')+ String.fromCharCode('+(i+1)+') + String.fromCharCode('+(i+2)+')), 0 )==='+k+'. Actual: '+TEST_STRING.indexOf( (String.fromCharCode(i)+ String.fromCharCode(i+1) + String.fromCharCode(i+2)), 0 )); \n    }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A5_T4"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Search substring from it`s position in the string",
+    "test": "var TEST_STRING = new String( \" !\\\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\" );\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nfor ( var k = 0, i = 0x0020; i < 0x007d; i++, k++ ) {\n    if (TEST_STRING.indexOf( (String.fromCharCode(i)+ String.fromCharCode(i+1)+ String.fromCharCode(i+2)),k ) !==k) {\n      $ERROR('#'+(i-0x0020)+': TEST_STRING.indexOf( (String.fromCharCode('+i+')+ String.fromCharCode('+(i+1)+') + String.fromCharCode('+(i+2)+')), '+k+' )==='+k+'. Actual: '+TEST_STRING.indexOf( (String.fromCharCode(i)+ String.fromCharCode(i+1) + String.fromCharCode(i+2)), k )); \n    }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A5_T5"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Search substring from it`s position+1 in the string",
+    "test": "var TEST_STRING = new String( \" !\\\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\" );\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nfor (var k = 0, i = 0x0020; i < 0x007d; i++, k++ ) {\n    if (TEST_STRING.indexOf( (String.fromCharCode(i)+ String.fromCharCode(i+1)+ String.fromCharCode(i+2)), k+1 )!== -1) {\n      $ERROR('#'+(i-0x0020)+': TEST_STRING.indexOf( (String.fromCharCode('+i+')+ String.fromCharCode('+(i+1)+') + String.fromCharCode('+(i+2)+')), '+(k+1)+' )=== -1. Actual: '+TEST_STRING.indexOf( (String.fromCharCode(i)+ String.fromCharCode(i+1) + String.fromCharCode(i+2)), k+1 )); \n    }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A5_T6"
+   },
+   {
+    "section": "15.5.4.7, 13.2",
+    "description": "Checking String.prototype.indexOf.prototype",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (String.prototype.indexOf.prototype !== undefined) {\n  $ERROR('#1: String.prototype.indexOf.prototype === undefined. Actual: '+String.prototype.indexOf.prototype ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A6"
+   },
+   {
+    "section": "15.5.4.7, 13.2",
+    "description": "Checking if creating the String.prototype.indexOf object fails",
+    "test": "var __FACTORY = String.prototype.indexOf;\n\ntry {\n  var __instance = new __FACTORY;\n  $FAIL('#1: var __FACTORY = String.prototype.indexOf; \"__instance = new __FACTORY\" lead to throwing exception');\n} catch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#1.2: var __FACTORY = String.prototype.indexOf; \"__instance = new __FACTORY\" throw a TypeError. Actual: ' + (e));  \n  }\n  $PRINT(e);\n}\n",
+    "id": "S15.5.4.7_A7"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Checking if enumerating the String.prototype.indexOf.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#0\nif (!(String.prototype.indexOf.hasOwnProperty('length'))) {\n  $ERROR('#0: String.prototype.indexOf.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.indexOf.hasOwnProperty('length')); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n//////////////////////////////////////////////////////////////////////////////\n// CHECK#1\nif (String.prototype.indexOf.propertyIsEnumerable('length')) {\n  $ERROR('#1: String.prototype.indexOf.propertyIsEnumerable(\\'length\\') return false');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n// CHECK#2\nvar count=0;\n\nfor (p in String.prototype.indexOf){\n  if (p===\"length\") count++;\n}\n\nif (count !== 0) {\n  $ERROR('#2: count=0; for (p in String.prototype.indexOf){if (p===\"length\") count++;}; count === 0. Actual: '+count ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A8"
+   },
+   {
+    "section": "15.5.4.7",
+    "description": "Checking if deleting the String.prototype.indexOf.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#0\nif (!(String.prototype.indexOf.hasOwnProperty('length'))) {\n  $FAIL('#0: String.prototype.indexOf.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.indexOf.hasOwnProperty('length')); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (delete String.prototype.indexOf.length) {\n  $ERROR('#1: delete String.prototype.indexOf.length raturn false');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (!(String.prototype.indexOf.hasOwnProperty('length'))) {\n  $FAIL('#2: delete String.prototype.indexOf.length; String.prototype.indexOf.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.indexOf.hasOwnProperty('length')); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.7_A9"
+   }
+  ]
+ }
+}
