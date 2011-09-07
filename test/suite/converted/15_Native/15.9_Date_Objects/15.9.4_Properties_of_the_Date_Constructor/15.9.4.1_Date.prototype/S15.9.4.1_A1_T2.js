@@ -1,0 +1,20 @@
+// Copyright 2009 the Sputnik authors.  All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/**
+ * The Date property "prototype" has { DontEnum, DontDelete, ReadOnly } attributes
+ *
+ * @id: S15.9.4.1_A1_T2;
+ * @section: 15.9.4.1;
+ * @description: Checking DontDelete attribute;
+ */
+
+if (delete Date.prototype !== false) {
+  $ERROR('#1: The Date.prototype property has the attributes DontDelete');
+}
+
+if (!Date.hasOwnProperty('prototype')) {
+  $FAIL('#2: The Date.prototype property has the attributes DontDelete');
+}
+
+

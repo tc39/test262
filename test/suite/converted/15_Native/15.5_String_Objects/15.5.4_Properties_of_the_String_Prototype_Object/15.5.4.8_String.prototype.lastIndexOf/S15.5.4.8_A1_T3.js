@@ -1,0 +1,29 @@
+// Copyright 2009 the Sputnik authors.  All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/**
+ * String.prototype.lastIndexOf(searchString, position)
+ *
+ * @id: S15.5.4.8_A1_T3;
+ * @section: 15.5.4.8;
+ * @description: Checking by using eval;
+ */
+
+var lastIndexOf = String.prototype.lastIndexOf;
+
+var __obj__pos = {valueOf:function(){return 7;}};
+
+if (typeof toString === "undefined"){
+  var toString = Object.prototype.toString;
+}
+
+var __class__ = toString();
+
+//////////////////////////////////////////////////////////////////////////////
+//CHECK#1
+if (lastIndexOf(eval("\"[\""),__obj__pos)!= 0) {
+  $ERROR('#1: lastIndexOf(eval("\\"[\\""),__obj__pos)== 0. Actual: '+lastIndexOf(eval("\"[\""),__obj__pos));
+}
+//
+//////////////////////////////////////////////////////////////////////////////
+
