@@ -4,8 +4,8 @@
 /**
  * VariableDeclaration within "try-catch" statement is allowed
  *
- * @id: S12.2_A6_T1;
  * @section: 12.2;
+ * @path: 12_Statement/12.2_Variable_Statement/S12.2_A6_T1.js;
  * @description: Declaring variable within "try-catch" statement;
  */
 

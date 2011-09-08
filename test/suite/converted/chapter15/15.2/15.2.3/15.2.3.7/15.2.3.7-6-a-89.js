@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-89;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-89.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-89.js;
  * @description: Object.defineProperties will not throw TypeError when P.configurable is false, P.[[Set]] and properties.[[Set]] are undefined (8.12.9 step 11.a.i);
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
 
@@ -60,5 +59,5 @@ assertTrue((function testcase() {
         verifyConfigurable = obj.hasOwnProperty("foo");
 
         return verifyConfigurable && !verifyEnumerable && typeof (desc.set) === "undefined";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

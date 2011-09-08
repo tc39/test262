@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-333-9;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-333-9.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-333-9.js;
  * @description: Object.defineProperty - Named property 'P' with attributes [[Writable]]: true, [[Enumerable]]:true, [[Configurable]]:false is writable using simple assignment, 'A' is an Array Object;
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = [];
 
         Object.defineProperty(obj, "prop", {
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         obj.prop = 1001;
 
         return verifyValue && obj.prop === 1001;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-5-b-248;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-248.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-248.js;
  * @description: Object.defineProperties - 'descObj' is an Error object which implements its own [[Get]] method to get 'set' property (8.10.5 step 8.a);
- * @precondition: (fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var data = "data";
         var descObj = new Error("test");
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
         Object.defineProperties(obj, descObj);
         obj.prop = "errorData";
         return obj.hasOwnProperty("prop") && data === "errorData";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

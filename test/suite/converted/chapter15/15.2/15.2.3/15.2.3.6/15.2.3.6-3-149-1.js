@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-3-149-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-149-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-149-1.js;
  * @description: Object.defineProperty - 'Attributes' is an Arguments object which implements its own [[Get]] method to access the 'value' property of prototype object (8.10.5 step 5.a);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         try {
             Object.prototype.value = "arguments";
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         } finally {
             delete Object.prototype.value;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-3-23;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-3-23.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-3-23.js;
  * @description: Array.prototype.reduce uses inherited valueOf method - 'length' is an object with an own toString and inherited valueOf methods;
- * @precondition: (fnExists(Array.prototype.reduce));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var valueOfAccessed = false;
         var toStringAccessed = false;
@@ -58,5 +57,5 @@ assertTrue((function testcase() {
         };
 
         return Array.prototype.reduce.call(obj, callbackfn, 1) === true && valueOfAccessed && !toStringAccessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

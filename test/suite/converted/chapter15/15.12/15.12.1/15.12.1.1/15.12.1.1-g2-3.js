@@ -1,10 +1,8 @@
 
 
 /**
- * @id: 15.12.1.1-g2-3;
- * @path: TestCases/chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g2-3.js;
+ * @path: chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g2-3.js;
  * @description: A JSONString may not be delimited by Uncode escaped quotes ;
- * @precondition: (JSON && fnExists(JSON.parse) && JSON.parse('"1234"')==="1234");
  */
 
 /// Copyright (c) 2009 Microsoft Corporation 
@@ -25,12 +23,13 @@
 /// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
 /// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 /// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-/// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.assertTrue((function testcase() {
+/// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+function testcase() {
     try {
         if (JSON.parse("\\u0022abc\\u0022") ==='abc') return false;
        }
      catch (e) {
         return true;
         }
-  }).call(this));
-
+  }
+assertTrue(testcase.call(this));

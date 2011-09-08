@@ -4,8 +4,8 @@
 /**
  * Sanity test for "catch(Indetifier) statement"
  *
- * @id: S12.14_A4;
  * @section: 12.14;
+ * @path: 12_Statement/12.14_The_try_Statement/S12.14_A4.js;
  * @description: Checking if deleting an exception fails;
  * @strict_only;
  * @strict_mode_negative: SyntaxError;

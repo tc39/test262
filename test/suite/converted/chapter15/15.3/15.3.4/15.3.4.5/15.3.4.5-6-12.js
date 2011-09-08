@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5-6-12;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-6-12.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-6-12.js;
  * @description: Function.prototype.bind - F cannot get property which doesn't exist;
- * @precondition: (fnExists(Function.prototype.bind));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var foo = function () { };
 
         var obj = foo.bind({});
         return typeof (obj.property) === "undefined";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

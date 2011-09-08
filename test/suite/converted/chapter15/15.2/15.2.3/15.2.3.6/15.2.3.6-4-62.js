@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-62;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-62.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-62.js;
  * @description: Object.defineProperty - both desc.value and name.value are null (8.12.9 step 6);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
 
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
 
         Object.defineProperty(obj, "foo", { value: null });
         return dataPropertyAttributesAreCorrect(obj, "foo", null, false, false, false);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

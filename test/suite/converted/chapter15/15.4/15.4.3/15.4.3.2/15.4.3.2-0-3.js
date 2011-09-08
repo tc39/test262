@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.3.2-0-3;
- * @path: TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-0-3.js;
+ * @path: chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-0-3.js;
  * @description: Array.isArray return true if its argument is an Array;
- * @precondition: (fnExists(Array.isArray));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var a = [];
   var b = Array.isArray(a);
   if (b === true) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

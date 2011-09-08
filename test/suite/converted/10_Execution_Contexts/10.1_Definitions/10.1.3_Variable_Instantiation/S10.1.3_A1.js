@@ -5,8 +5,8 @@
  * If the caller supplies fewer parameter values than there are
  * formal parameters, the extra formal parameters have value undefined
  *
- * @id: S10.1.3_A1;
  * @section: 10.1.3;
+ * @path: 10_Execution_Contexts/10.1_Definitions/10.1.3_Variable_Instantiation/S10.1.3_A1.js;
  * @description: Calling function excluding a few parameters;
  */
 

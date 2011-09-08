@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * : The [[Value]] property of the newly constructed object
+ * The [[Value]] property of the newly constructed object
  * is set by following steps:
  * 8. If Result(1) is not NaN and 0 <= ToInteger(Result(1)) <= 99, Result(8) is
  * 1900+ToInteger(Result(1)); otherwise, Result(8) is Result(1)
@@ -10,10 +10,10 @@
  * 10. Compute MakeTime(Result(4), Result(5), Result(6), Result(7))
  * 11. Compute MakeDate(Result(9), Result(10))
  * 12. Set the [[Value]] property of the newly constructed object to
- * TimeClip(UTC(Result(11)));
+ * TimeClip(UTC(Result(11)))
  *
- * @id: S15.9.3.1_A5_T5;
  * @section: 15.9.3.1;
+ * @path: 15_Native/15.9_Date_Objects/15.9.3_The_Date_Constructor/S15.9.3.1_A5_T5.js;
  * @description: 6 arguments, (year, month, date, hours, minutes, seconds);
  */
 

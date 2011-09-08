@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-75;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-75.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-75.js;
  * @description: Object.defineProperties will not throw TypeError if P.configurable is false, P.writalbe is false, P.value is NaN and properties.value is NaN (8.12.9 step 10.a.ii.1);
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
         var accessed = false;
@@ -60,5 +59,5 @@ assertTrue((function testcase() {
         verifyConfigurable = obj.hasOwnProperty("foo");
 
         return verifyValue && !verifyEnumerable && verifyConfigurable;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

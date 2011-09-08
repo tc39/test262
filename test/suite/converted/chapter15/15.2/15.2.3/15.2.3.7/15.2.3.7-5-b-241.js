@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-5-b-241;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-241.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-241.js;
  * @description: Object.defineProperties - 'descObj' is a String object which implements its own [[Get]] method to get 'set' property (8.10.5 step 8.a);
- * @precondition: (fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var data = "data";
         var descStr = new String();
         var setFun = function (value) {
@@ -40,5 +39,5 @@ assertTrue((function testcase() {
         Object.defineProperties(obj, descStr);
         obj.prop = "strData";
         return obj.hasOwnProperty("prop") && data === "strData";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

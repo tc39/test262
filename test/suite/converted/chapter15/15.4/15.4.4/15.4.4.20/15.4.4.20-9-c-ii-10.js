@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-9-c-ii-10;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-ii-10.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-ii-10.js;
  * @description: Array.prototype.filter - callbackfn is called with 1 formal parameter;
- * @precondition: (fnExists(Array.prototype.filter));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         function callbackfn(val) {
             return val > 10;
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
         var newArr = [12].filter(callbackfn);
 
         return newArr.length === 1 && newArr[0] === 12;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

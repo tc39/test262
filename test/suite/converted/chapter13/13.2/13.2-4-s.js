@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 13.2-4-s;
- * @path: TestCases/chapter13/13.2/13.2-4-s.js;
+ * @path: chapter13/13.2/13.2-4-s.js;
  * @description: StrictMode - A TypeError is thrown when a code in strict mode tries to write to 'arguments' of function instances.;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         try {
             var foo = function () {
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
         } catch (ex) {
             return ex instanceof TypeError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

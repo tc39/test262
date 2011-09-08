@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-218;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-218.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-218.js;
  * @description: Object.defineProperties - 'O' is an Array, 'name' is an array index property, the [[Value]] field of 'desc' and the [[Value]] attribute value of 'name' are two objects which refer to the same object  (15.4.5.1 step 4.c);
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arr = [];
 
         var obj1 = { length: 10 };
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return false;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-8-b-9;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-b-9.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-b-9.js;
  * @description: Array.prototype.map - deleting own property causes index property not to be visited on an Array;
- * @precondition: (fnExists(Array.prototype.map) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         function callbackfn(val, idx, obj) {
             if (idx === 1) {
@@ -53,5 +52,5 @@ assertTrue((function testcase() {
 
         var testResult = arr.map(callbackfn);
         return testResult[0] === true && typeof testResult[1] === "undefined";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

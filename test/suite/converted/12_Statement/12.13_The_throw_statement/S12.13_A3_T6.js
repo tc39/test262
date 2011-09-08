@@ -4,8 +4,8 @@
 /**
  * 1. Evaluate Expression
  *
- * @id: S12.13_A3_T6;
  * @section: 12.13;
+ * @path: 12_Statement/12.13_The_throw_statement/S12.13_A3_T6.js;
  * @description: Evaluating functions;
  */
 

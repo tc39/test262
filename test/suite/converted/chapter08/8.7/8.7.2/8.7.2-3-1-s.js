@@ -19,16 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 8.7.2-3-1-s;
- * @path: TestCases/chapter08/8.7/8.7.2/8.7.2-3-1-s.js;
+ * @path: chapter08/8.7/8.7.2/8.7.2-3-1-s.js;
  * @description: eval - a property named 'eval' is permitted;
  * @strict_only;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   'use strict';
 
   var o = { eval: 42};
   return true;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

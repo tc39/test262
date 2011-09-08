@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 7.6.1-6-4;
- * @path: TestCases/chapter07/7.6/7.6.1/7.6.1-6-4.js;
+ * @path: chapter07/7.6/7.6.1/7.6.1-6-4.js;
  * @description: Allow reserved words as property names by dot operator assignment, accessed via indexing: new, var, catch;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var tokenCodes  = {};
         tokenCodes.new = 0;
         tokenCodes.var = 1;
@@ -40,5 +40,5 @@ assertTrue((function testcase() {
             };
         }
         return true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

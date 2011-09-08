@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-9-8;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-9-8.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-9-8.js;
  * @description: Array.prototype.map - empty array to be returned if 'length' is 0 (subclassed Array, length overridden to 0 (type conversion));
- * @precondition: (fnExists(Array.prototype.map));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var accessed = false;
 
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
         var testResult = Array.prototype.map.call(obj, callbackfn);
         return testResult.length === 0;
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.18-7-c-i-30;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-7-c-i-30.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-7-c-i-30.js;
  * @description: Array.prototype.forEach - unnhandled exceptions happened in getter terminate iteration on an Array-like object;
- * @precondition: (fnExists(Array.prototype.forEach) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = { 0: 11, 5: 10, 10: 8, length: 20 };
         var accessed = false;
@@ -57,5 +56,5 @@ assertTrue((function testcase() {
         } catch (ex) {
             return (ex instanceof RangeError) && !accessed;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-2-11;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-2-11.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-2-11.js;
  * @description: Array.prototype.indexOf - 'length' is own accessor property without a get function;
- * @precondition: (fnExists(Array.prototype.indexOf) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = { 1: true };
         Object.defineProperty(obj, "length", {
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
         });
 
         return Array.prototype.indexOf.call(obj, true) === -1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

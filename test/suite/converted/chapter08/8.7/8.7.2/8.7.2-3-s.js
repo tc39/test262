@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 8.7.2-3-s;
- * @path: TestCases/chapter08/8.7/8.7.2/8.7.2-3-s.js;
+ * @path: chapter08/8.7/8.7.2/8.7.2-3-s.js;
  * @description: Strict Mode - TypeError is thrown if LeftHandSide is a reference to a non-writable data property;
  * @strict_only;
- * @precondition: (fnExists(Object.defineProperty) && fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         var _8_7_2_3 = {};
         Object.defineProperty(_8_7_2_3, "b", {
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof TypeError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

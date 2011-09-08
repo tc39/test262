@@ -4,8 +4,8 @@
 /**
  * String.prototype.toLowerCase has not prototype property
  *
- * @id: S15.5.4.16_A6;
  * @section: 15.5.4.16, 13.2;
+ * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.16_String.prototype.toLowerCase/S15.5.4.16_A6.js;
  * @description: Checking String.prototype.toLowerCase.prototype;
  */
 

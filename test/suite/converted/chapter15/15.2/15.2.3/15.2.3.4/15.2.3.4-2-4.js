@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.4-2-4;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-2-4.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-2-4.js;
  * @description: Object.getOwnPropertyNames - returned array is the standard built-in constructor;
- * @precondition: (fnExists(Object.getOwnPropertyNames));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var oldArray = Array;
         Array = function () {
             throw new Error("invoke customer defined Array!");
@@ -40,5 +39,5 @@ assertTrue((function testcase() {
         } finally {
             Array = oldArray;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

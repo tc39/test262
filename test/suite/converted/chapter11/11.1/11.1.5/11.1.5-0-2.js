@@ -22,12 +22,12 @@
  * it isn't clear what specific requirements of the specificaiton are being tested here. This test should 
  * probably be replaced by some more targeted tests.  AllenWB
  *
- * @id: 11.1.5-0-2;
- * @path: TestCases/chapter11/11.1/11.1.5/11.1.5-0-2.js;
+ * @path: chapter11/11.1/11.1.5/11.1.5-0-2.js;
  * @description: Object literal - multiple get set properties;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var s1 = "First getter";
   var s2 = "First setter";
   var s3 = "Second getter";
@@ -43,5 +43,5 @@ assertTrue((function testcase() {
   if(o.bar !== "Second setter")
     return false;
   return true;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

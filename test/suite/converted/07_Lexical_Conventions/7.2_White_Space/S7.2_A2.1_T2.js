@@ -4,8 +4,8 @@
 /**
  * HORIZONTAL TAB (U+0009) may occur within strings
  *
- * @id: S7.2_A2.1_T2;
  * @section: 7.2, 7.8.4;
+ * @path: 07_Lexical_Conventions/7.2_White_Space/S7.2_A2.1_T2.js;
  * @description: Use real HORIZONTAL TAB;
  */
 

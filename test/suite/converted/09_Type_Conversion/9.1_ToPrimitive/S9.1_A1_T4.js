@@ -4,8 +4,8 @@
 /**
  * Result of primitive conversion from object is a default value for the Object
  *
- * @id: S9.1_A1_T4;
  * @section: 9.1;
+ * @path: 09_Type_Conversion/9.1_ToPrimitive/S9.1_A1_T4.js;
  * @description: Using operator "<". The operator firstly calls ToPrimitive and then calls ToString or ToNumber;
  */
 

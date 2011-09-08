@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-313;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-313.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-313.js;
  * @description: Object.defineProperty - 'O' is an Arguments object, 'P' is generic property, and 'desc' is data descriptor, test 'P' is defined in 'O' with all correct attribute values (10.6 [[DefineOwnProperty]] step 3);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue(((function () {
+
+assertTrue((function () {
             Object.defineProperty(arguments, "genericProperty", {
                 value: 1001,
                 writable: true,
@@ -33,5 +32,4 @@ assertTrue(((function () {
                 configurable: true
             });
             return dataPropertyAttributesAreCorrect(arguments, "genericProperty", 1001, true, true, true);
-        }(1, 2, 3))));
-
+        }(1, 2, 3)));

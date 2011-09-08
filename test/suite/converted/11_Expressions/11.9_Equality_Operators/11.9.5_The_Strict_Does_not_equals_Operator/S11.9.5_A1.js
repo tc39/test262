@@ -4,8 +4,8 @@
 /**
  * White Space and Line Terminator between EqualityExpression and "!==" or between "!==" and RelationalExpression are allowed
  *
- * @id: S11.9.5_A1;
  * @section: 11.9.5, 7.2, 7.3;
+ * @path: 11_Expressions/11.9_Equality_Operators/11.9.5_The_Strict_Does_not_equals_Operator/S11.9.5_A1.js;
  * @description: Checking by using eval;
  */
 

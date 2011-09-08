@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-3-166;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-166.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-166.js;
  * @description: Object.defineProperty - 'Attributes' is an Array object that uses Object's [[Get]] method to access the 'writable' property  (8.10.5 step 6.a);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = { };
 
         var arrObj = [1, 2, 3];
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
         var afterWrite = (obj.property === "isWritable");
 
         return beforeWrite === true && afterWrite === true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

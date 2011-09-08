@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-437;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-437.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-437.js;
  * @description: ES5 Attributes - fail to update [[Enumerable]] attribute of accessor property ([[Get]] is undefined, [[Set]] is undefined, [[Enumerable]] is true, [[Configurable]] is false) to different value;
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
@@ -59,5 +58,5 @@ assertTrue((function testcase() {
 
             return result1 && result2 && desc1.enumerable === true && desc2.enumerable === true && e instanceof TypeError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

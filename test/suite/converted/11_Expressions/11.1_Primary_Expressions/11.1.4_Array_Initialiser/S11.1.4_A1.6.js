@@ -4,8 +4,8 @@
 /**
  * Evaluate the production ArrayLiteral: [ Elision, AssignmentExpression, Elision ]
  *
- * @id: S11.1.4_A1.6;
  * @section: 11.1.4;
+ * @path: 11_Expressions/11.1_Primary_Expressions/11.1.4_Array_Initialiser/S11.1.4_A1.6.js;
  * @description: Checking various properteis and contents of the array defined with "var array = [,,3,,,]";
  */
 

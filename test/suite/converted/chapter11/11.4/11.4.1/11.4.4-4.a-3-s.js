@@ -22,14 +22,13 @@
  * This test is actually testing the [[Delete]] internal method (8.12.8). Since the
  * language provides no way to directly exercise [[Delete]], the tests are placed here.
  *
- * @id: 11.4.4-4.a-3-s;
- * @path: TestCases/chapter11/11.4/11.4.1/11.4.4-4.a-3-s.js;
+ * @path: chapter11/11.4/11.4.1/11.4.4-4.a-3-s.js;
  * @description: delete operator throws TypeError when deleting a non-configurable data property in strict mode;
  * @strict_only;
- * @precondition: (fnSupportsStrict() && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   'use strict';
 
   var o = {};
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
   catch (e) {
     return (e instanceof TypeError);
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

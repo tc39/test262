@@ -4,8 +4,8 @@
 /**
  * When the production "IfStatement: if ( Expression ) Statement else Statement" is evaluated, Statement(s) is(are) evaluated second
  *
- * @id: S12.5_A4;
  * @section: 12.5;
+ * @path: 12_Statement/12.5_The_if_Statement/S12.5_A4.js;
  * @description: The first statement is "(function(){throw "instatement"})()";
  */
 

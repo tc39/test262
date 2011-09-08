@@ -23,13 +23,12 @@
  * of O to define the property. For configurable properties, step 9c of
  * [[DefineOwnProperty]] permits changing the kind of a property.
  *
- * @id: 15.2.3.6-4-15;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-15.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-15.js;
  * @description: Object.defineProperty permits changing accessor property to data property for configurable properties;
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o = {};
 
   // define an accessor property
@@ -52,5 +51,5 @@ assertTrue((function testcase() {
       d2.configurable === true) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

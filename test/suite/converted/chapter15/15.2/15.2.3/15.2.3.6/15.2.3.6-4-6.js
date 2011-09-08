@@ -24,13 +24,12 @@
  * every field of desc also occurs in current and every field in desc has
  * the same value as current.
  *
- * @id: 15.2.3.6-4-6;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-6.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-6.js;
  * @description: Object.defineProperty is no-op if current and desc are the same accessor desc;
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   function sameAccessorDescriptorValues(d1, d2) {
     return (d1.get == d2.get &&
             d1.enumerable == d2.enumerable &&
@@ -62,5 +61,5 @@ assertTrue((function testcase() {
   if (sameAccessorDescriptorValues(d1, d2) === true) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -4,8 +4,8 @@
 /**
  * Comma Operator evaluates all Expressions and returns the last of them
  *
- * @id: S11.14_A3;
  * @section: 11.14;
+ * @path: 11_Expressions/11.14_Comma_Operator/S11.14_A3.js;
  * @description: Checking with "=";
  */
 

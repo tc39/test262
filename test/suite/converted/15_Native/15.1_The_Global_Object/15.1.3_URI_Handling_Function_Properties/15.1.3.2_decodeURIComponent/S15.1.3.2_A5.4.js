@@ -4,8 +4,8 @@
 /**
  * The length property of decodeURIComponent is 1
  *
- * @id: S15.1.3.2_A5.4;
  * @section: 15.1.3.2;
+ * @path: 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.2_decodeURIComponent/S15.1.3.2_A5.4.js;
  * @description: decodeURIComponent.length === 1;
  */
 

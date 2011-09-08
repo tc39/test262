@@ -4,8 +4,8 @@
 /**
  * MemberExpression and CallExpression uses GetValue
  *
- * @id: S11.2.1_A2;
  * @section: 11.2.1;
+ * @path: 11_Expressions/11.2_Left_Hand_Side_Expressions/11.2.1_Property_Accessors/S11.2.1_A2.js;
  * @description: If GetBase(MemberExpression or CallExpression) is null, throw ReferenceError;
  */
 

@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.14-2-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-2-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-2-1.js;
  * @description: Object.keys returns the standard built-in Array;
- * @precondition: (fnExists(Object.keys) && fnExists(Array.isArray));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o = { x: 1, y: 2};
 
   var a = Object.keys(o);
   if (Array.isArray(a) === true) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

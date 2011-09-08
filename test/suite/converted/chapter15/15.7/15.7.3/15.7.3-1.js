@@ -19,10 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.7.3-1;
- * @path: TestCases/chapter15/15.7/15.7.3/15.7.3-1.js;
+ * @path: chapter15/15.7/15.7.3/15.7.3-1.js;
  * @description: Number constructor - [[Prototype]] is the Function prototype object;
  */
 
-assertTrue((Function.prototype.isPrototypeOf(Number) === true));
 
+assertTrue(Function.prototype.isPrototypeOf(Number) === true);

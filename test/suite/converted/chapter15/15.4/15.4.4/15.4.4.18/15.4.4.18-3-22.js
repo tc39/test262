@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.18-3-22;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-3-22.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-3-22.js;
  * @description: Array.prototype.forEach throws TypeError exception when 'length' is an object with toString and valueOf methods that don�t return primitive values;
- * @precondition: (fnExists(Array.prototype.forEach));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var accessed = false;
         var firstStepOccured = false;
@@ -57,5 +56,5 @@ assertTrue((function testcase() {
         } catch (ex) {
             return ex instanceof TypeError && !accessed;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

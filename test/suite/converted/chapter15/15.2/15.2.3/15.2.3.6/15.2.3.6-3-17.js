@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-3-17;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-17.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-17.js;
  * @description: Object.defineProperty - 'Attributes' is a boolean primitive (8.10.5 step 1);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         try {
             Object.defineProperty({}, "property", true);
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof TypeError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

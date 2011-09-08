@@ -1,10 +1,8 @@
 
 
 /**
- * @id: 15.2.3.6-2-5;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-2-5.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-2-5.js;
  * @description: Object.defineProperty - argument 'P' is a number that converts to a string (value is NaN);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
 /// Copyright (c) 2009 Microsoft Corporation 
@@ -25,11 +23,12 @@
 /// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
 /// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 /// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-/// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.assertTrue((function testcase() {
+/// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+function testcase() {
         var obj = {};
         Object.defineProperty(obj, NaN, {});
 
         return obj.hasOwnProperty("NaN");
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.5-1-s;
- * @path: TestCases/chapter10/10.5/10.5-1-s.js;
+ * @path: chapter10/10.5/10.5-1-s.js;
  * @description: Strict Mode - arguments object is immutable;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         try {
             (function fun() {
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return (e instanceof SyntaxError);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

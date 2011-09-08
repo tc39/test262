@@ -4,8 +4,8 @@
 /**
  * Number.NEGATIVE_INFINITY is ReadOnly
  *
- * @id: S15.7.3.5_A2;
  * @section: 15.7.3.5;
+ * @path: 15_Native/15.7_Number_Objects/15.7.3_Properties_of_Number_Constructor/15.7.3.5_Number.NEGATIVE_INFINITY/S15.7.3.5_A2.js;
  * @description: Checking if varying Number.NEGATIVE_INFINITY fails;
  */
 

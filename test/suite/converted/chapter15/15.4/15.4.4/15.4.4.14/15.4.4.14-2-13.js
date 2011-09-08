@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-2-13;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-2-13.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-2-13.js;
  * @description: Array.prototype.indexOf - 'length' is inherited accessor property without a get function;
- * @precondition: (fnExists(Array.prototype.indexOf) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var proto = {};
         Object.defineProperty(proto, "length", {
@@ -40,5 +39,5 @@ assertTrue((function testcase() {
         child[1] = true;
 
         return Array.prototype.indexOf.call(child, true) === -1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

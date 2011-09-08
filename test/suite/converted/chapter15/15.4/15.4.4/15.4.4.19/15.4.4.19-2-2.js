@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-2-2;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-2-2.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-2-2.js;
  * @description: Array.prototype.map - when 'length' is own data property on an Array;
- * @precondition: (fnExists(Array.prototype.map));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(val, idx, obj) {
             return val > 10;
         }
 
         var testResult = [12, 11].map(callbackfn);
         return testResult.length === 2;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

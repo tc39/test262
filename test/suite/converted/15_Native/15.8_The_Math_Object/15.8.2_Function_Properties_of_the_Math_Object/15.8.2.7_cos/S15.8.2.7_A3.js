@@ -4,8 +4,8 @@
 /**
  * If x is -0, Math.cos(x) is 1
  *
- * @id: S15.8.2.7_A3;
  * @section: 15.8.2.7;
+ * @path: 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.7_cos/S15.8.2.7_A3.js;
  * @description: Checking if Math.cos(-0) is 1;
  */
 

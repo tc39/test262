@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.2.1.1.3-4-18-s;
- * @path: TestCases/chapter10/10.2/10.2.1/10.2.1.1/10.2.1.1.3/10.2.1.1.3-4-18-s.js;
+ * @path: chapter10/10.2/10.2.1/10.2.1.1/10.2.1.1.3/10.2.1.1.3-4-18-s.js;
  * @description: Strict Mode - TypeError is thrown when changing the value of a Value Property of the Global Object under strict mode (undefined);
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         try {
             undefined = 12;
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof TypeError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

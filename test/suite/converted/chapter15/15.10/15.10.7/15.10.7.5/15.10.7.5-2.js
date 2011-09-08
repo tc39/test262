@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.10.7.5-2;
- * @path: TestCases/chapter15/15.10/15.10.7/15.10.7.5/15.10.7.5-2.js;
+ * @path: chapter15/15.10/15.10.7/15.10.7.5/15.10.7.5-2.js;
  * @description: RegExp.prototype.lastIndex is a data property with specified attribute values;
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var d = Object.getOwnPropertyDescriptor(RegExp.prototype, 'lastIndex');
   
   if (d.writable === true &&
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
       d.configurable === false) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

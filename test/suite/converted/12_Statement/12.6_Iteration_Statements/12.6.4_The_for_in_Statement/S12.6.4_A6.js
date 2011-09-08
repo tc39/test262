@@ -4,8 +4,8 @@
 /**
  * The production IterationStatement: "for (var VariableDeclarationNoIn in Expression) Statement"
  *
- * @id: S12.6.4_A6;
  * @section: 12.6.4;
+ * @path: 12_Statement/12.6_Iteration_Statements/12.6.4_The_for_in_Statement/S12.6.4_A6.js;
  * @description: Using Object with custom prototype as an Expression is appropriate. The prototype is "{feat:2,hint:"protohint"}";
  */
 

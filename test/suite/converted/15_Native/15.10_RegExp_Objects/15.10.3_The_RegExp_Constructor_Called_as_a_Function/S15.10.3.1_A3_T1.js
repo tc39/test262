@@ -5,8 +5,8 @@
  * If pattern and flags are defined, then
  * call the RegExp constructor (15.10.4.1), passing it the pattern and flags arguments and return the object constructed by that constructor
  *
- * @id: S15.10.3.1_A3_T1;
  * @section: 15.10.3.1;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.3_The_RegExp_Constructor_Called_as_a_Function/S15.10.3.1_A3_T1.js;
  * @description: R is "d+" and instance is RegExp(R,"i");
  */
 

@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.10.2.15-6-1;
- * @path: TestCases/chapter15/15.10/15.10.2/15.10.2.15-6-1.js;
+ * @path: chapter15/15.10/15.10.2/15.10.2.15-6-1.js;
  * @description: Pattern - SyntaxError was thrown when one character in CharSet 'A' greater than one character in CharSet 'B' (15.10.2.15 CharacterRange step 6);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             var regExp = new RegExp("^[z-a]$");
 
@@ -32,5 +32,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

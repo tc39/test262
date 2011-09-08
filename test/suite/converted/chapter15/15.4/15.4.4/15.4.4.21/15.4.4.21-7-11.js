@@ -19,15 +19,14 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-7-11;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-7-11.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-7-11.js;
  * @description: Array.prototype.reduce - 'initialValue' is not present;
- * @precondition: (fnExists(Array.prototype.reduce));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var str = "initialValue is not present";
         return str === [str].reduce(function () { });
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

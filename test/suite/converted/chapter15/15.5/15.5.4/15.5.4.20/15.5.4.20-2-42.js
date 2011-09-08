@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.5.4.20-2-42;
- * @path: TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-42.js;
+ * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-42.js;
  * @description: String.prototype.trim - TypeError exception was thrown  when 'this' is an object that both toString and valueOf wouldn't return primitive value.;
- * @precondition: (fnExists(String.prototype.trim));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var toStringAccessed = false;
         var valueOfAccessed = false;
         var obj = {
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return valueOfAccessed && toStringAccessed && (e instanceof TypeError);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

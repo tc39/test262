@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.5.4.20-1-4;
- * @path: TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-1-4.js;
+ * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-1-4.js;
  * @description: String.prototype.trim works for primitive type number;
- * @precondition: (fnExists(String.prototype.trim));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   try
   {
     if(String.prototype.trim.call(0) == "0") 
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
   catch(e)
   {
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

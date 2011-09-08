@@ -19,15 +19,14 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-5-18;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-5-18.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-5-18.js;
  * @description: Array.prototype.lastIndexOf - value of 'fromIndex' is a string containing an exponential number;
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var targetObj = {};
         return [0, NaN, targetObj, 3, false].lastIndexOf(targetObj, "2E0") === 2 &&
             [0, NaN, 3, targetObj, false].lastIndexOf(targetObj, "2E0") === -1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

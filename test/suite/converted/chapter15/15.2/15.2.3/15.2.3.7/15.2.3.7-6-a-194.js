@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-194;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-194.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-194.js;
  * @description: Object.defineProperties - 'O' is an Array, 'P' is an array index named property, 'P' property doesn't exist in 'O', test TypeError is thrown when 'O' is not extensible  (15.4.5.1 step 4.c);
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.preventExtensions));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arr = [];
         Object.preventExtensions(arr);
 
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return (e instanceof TypeError) && (arr.hasOwnProperty("0") === false);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

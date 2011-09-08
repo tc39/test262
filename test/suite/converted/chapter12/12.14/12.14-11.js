@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.14-11;
- * @path: TestCases/chapter12/12.14/12.14-11.js;
+ * @path: chapter12/12.14/12.14-11.js;
  * @description: catch introduces scope - name lookup finds inner variable;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   function f(o) {
 
     function innerf(o) {
@@ -44,5 +44,5 @@ assertTrue((function testcase() {
   if (f({}) === 42) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

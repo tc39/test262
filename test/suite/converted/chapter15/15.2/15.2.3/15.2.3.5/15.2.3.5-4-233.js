@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-233;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-233.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-233.js;
  * @description: Object.create - 'get' property of one property in 'Properties' is own data property (8.10.5 step 7.a);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var newObj = Object.create({}, {
             prop: {
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
             }
         });
         return newObj.prop === "ownDataProperty";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

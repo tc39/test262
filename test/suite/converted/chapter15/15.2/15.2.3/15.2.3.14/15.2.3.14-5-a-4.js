@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.14-5-a-4;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-a-4.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-a-4.js;
  * @description: Object.keys - Verify that 'configurable' attribute of element of returned array is correct;
- * @precondition: (fnExists(Object.keys));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = { prop1: 100 };
 
         var array = Object.keys(obj);
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
         delete array[0];
 
         return typeof array[0] === "undefined" && desc.hasOwnProperty("configurable") && desc.configurable === true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-5-b-103;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-103.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-103.js;
  * @description: Object.defineProperties - value of 'configurable' property of 'descObj' is Date object (8.10.5 step 4.b);
- * @precondition: (fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         Object.defineProperties(obj, {
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         delete obj.property;
 
         return preCheck && !obj.hasOwnProperty("property");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

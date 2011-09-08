@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.9.5.43-0-3;
- * @path: TestCases/chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-3.js;
+ * @path: chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-3.js;
  * @description: Date.prototype.toISOString must exist as a function;
- * @precondition: (fnExists(Date.prototype.toISOString));
  */
 
-assertTrue((typeof (Date.prototype.toISOString) === "function"));
 
+assertTrue(typeof (Date.prototype.toISOString) === "function");

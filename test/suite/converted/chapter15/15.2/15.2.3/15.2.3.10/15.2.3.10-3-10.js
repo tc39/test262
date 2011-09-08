@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.10-3-10;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-10.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-10.js;
  * @description: Object.preventExtensions - indexed properties cannot be added into an Error object;
- * @precondition: (fnExists(Object.preventExtensions) && fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var errObj = new Error();
         var preCheck = Object.isExtensible(errObj);
         Object.preventExtensions(errObj);
 
         errObj[0] = 12;
         return preCheck && !errObj.hasOwnProperty("0");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

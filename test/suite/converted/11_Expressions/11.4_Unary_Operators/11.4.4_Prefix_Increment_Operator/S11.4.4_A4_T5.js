@@ -4,8 +4,8 @@
 /**
  * Operator ++x returns ToNumber(x) + 1
  *
- * @id: S11.4.4_A4_T5;
  * @section: 11.4.4, 11.6.3;
+ * @path: 11_Expressions/11.4_Unary_Operators/11.4.4_Prefix_Increment_Operator/S11.4.4_A4_T5.js;
  * @description: Type(x) is Object object or Function object;
  */
 

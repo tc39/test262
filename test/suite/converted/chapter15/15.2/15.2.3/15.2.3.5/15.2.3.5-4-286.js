@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-286;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-286.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-286.js;
  * @description: Object.create - one property in 'Properties' is a RegExp object that uses Object's [[Get]] method to access the 'set' property (8.10.5 step 8.a);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var regObj = new RegExp();
         var data = "data";
         regObj.set = function (value) {
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
         newObj.prop = "overrideData";
 
         return hasProperty && data === "overrideData";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

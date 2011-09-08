@@ -4,8 +4,8 @@
 /**
  * The Object.prototype.isPrototypeOf.length property has the attribute ReadOnly
  *
- * @id: S15.2.4.6_A10;
  * @section: 15.2.4.6;
+ * @path: 15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/15.2.4.6_Object.prototype.isPrototypeOf/S15.2.4.6_A10.js;
  * @description: Checking if varying the Object.prototype.isPrototypeOf.length property fails;
  * @strict_only;
  * @strict_mode_negative;

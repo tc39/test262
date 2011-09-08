@@ -4,8 +4,8 @@
 /**
  * Operator x-- returns x = ToNumber(x) - 1
  *
- * @id: S11.3.2_A3_T5;
  * @section: 11.3.2, 11.6.3;
+ * @path: 11_Expressions/11.3_PostfixExpressions/11.3.2_Postfix_Decrement_Operator/S11.3.2_A3_T5.js;
  * @description: Type(x) is Object object or Function object;
  */
 

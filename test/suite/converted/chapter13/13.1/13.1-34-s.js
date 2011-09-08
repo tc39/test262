@@ -23,14 +23,13 @@
  * It is a SyntaxError if any Identifier value occurs more than once within a FormalParameterList of a strict mode
  * FunctionDeclaration or FunctionExpression.
  *
- * @id: 13.1-34-s;
- * @path: TestCases/chapter13/13.1/13.1-34-s.js;
+ * @path: chapter13/13.1/13.1-34-s.js;
  * @description: Strict Mode - SyntaxError is thrown if a function declaration has three identical parameters with a strict mode body;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         try {
             eval("var _13_1_34_fun = function (param, param, param) { 'use strict'; };")
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

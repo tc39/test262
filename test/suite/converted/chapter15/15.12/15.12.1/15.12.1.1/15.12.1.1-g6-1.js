@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.12.1.1-g6-1;
- * @path: TestCases/chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g6-1.js;
+ * @path: chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g6-1.js;
  * @description: The JSON lexical grammer allows '/' as a JSONEscapeCharacter after '' in a JSONString;
- * @precondition: (JSON && fnExists(JSON.parse)&& JSON.parse('"1234"')==="1234");
  */
 
-assertTrue((JSON.parse('"\\/"')==='/'));
 
+assertTrue(JSON.parse('"\\/"')==='/');

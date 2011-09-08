@@ -23,16 +23,15 @@
  * The name JSON must be bound to an object.
  * 4.2 calls out JSON as one of the built-in objects.
  *
- * @id: 15.12-0-1;
- * @path: TestCases/chapter15/15.12/15.12-0-1.js;
+ * @path: chapter15/15.12/15.12-0-1.js;
  * @description: JSON must be a built-in object;
- * @precondition: (JSON !== undefined);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o = JSON;
   if (typeof(o) === "object") {  
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

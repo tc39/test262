@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.14-3-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-3-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-3-1.js;
  * @description: Object.keys returns the standard built-in Array containing own enumerable properties;
- * @precondition: (fnExists(Object.keys));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o = { x: 1, y: 2};
 
   var a = Object.keys(o);
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
       a[1] === 'y') {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

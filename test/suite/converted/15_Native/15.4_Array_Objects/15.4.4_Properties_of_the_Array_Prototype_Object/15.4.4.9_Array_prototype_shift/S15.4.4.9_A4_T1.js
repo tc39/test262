@@ -4,8 +4,8 @@
 /**
  * [[Get]], [[Delete]] from not an inherited property
  *
- * @id: S15.4.4.9_A4_T1;
  * @section: 15.4.4.9, 8.6.2.1, 8.6.2.5;
+ * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.9_Array_prototype_shift/S15.4.4.9_A4_T1.js;
  * @description: [[Prototype]] of Array instance is Array.prototype, [[Prototype] of Array.prototype is Object.prototype;
  */
 

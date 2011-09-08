@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.8-2-c-4;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-c-4.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-c-4.js;
  * @description: Object.seal - 'O' is a Boolean object;
- * @precondition: (fnExists(Object.seal) && fnExists(Object.isSealed) && fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var boolObj = new Boolean(false);
         var preCheck = Object.isExtensible(boolObj);
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
 
         return preCheck && Object.isSealed(boolObj);
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -4,8 +4,8 @@
 /**
  * Result of boolean conversion from undefined value is false
  *
- * @id: S9.2_A1_T2;
  * @section: 9.2, 11.4.9;
+ * @path: 09_Type_Conversion/9.2_ToBoolean/S9.2_A1_T2.js;
  * @description: Undefined, void and others are converted to Boolean by implicit transformation;
  */
 

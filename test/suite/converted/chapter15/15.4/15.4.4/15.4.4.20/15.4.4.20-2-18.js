@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-2-18;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-2-18.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-2-18.js;
  * @description: Array.prototype.filter applied to String object, which implements its own property get method;
- * @precondition: (fnExists(Array.prototype.filter));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         function callbackfn(val, idx, obj) {
             return obj.length === 3;
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
 
         var newArr = Array.prototype.filter.call(str, callbackfn);
         return newArr.length === 3;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

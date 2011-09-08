@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-289;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-289.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-289.js;
  * @description: Object.create - one property in 'Properties' is an Arguments object which implements its own [[Get]] method to access the 'set' property (8.10.5 step 8.a);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var argObj = (function () { return arguments; })();
 
         var data = "data";
@@ -43,5 +42,5 @@ assertTrue((function testcase() {
         newobj.prop = "overrideData";
 
         return hasProperty && data === "overrideData";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

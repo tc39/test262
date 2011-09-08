@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.22-9-c-ii-16;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-c-ii-16.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-c-ii-16.js;
  * @description: Array.prototype.reduceRight - non-indexed properties are not called on an Array-like object;
- * @precondition: (fnExists(Array.prototype.reduceRight));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var testResult = false;
 
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         var obj = { 0: 11, 10: 12, non_index_property: 8, length: 20 };
         Array.prototype.reduceRight.call(obj, callbackfn, "initialValue");
         return !testResult;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

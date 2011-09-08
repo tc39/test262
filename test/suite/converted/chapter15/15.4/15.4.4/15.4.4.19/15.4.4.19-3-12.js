@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-3-12;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-3-12.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-3-12.js;
  * @description: Array.prototype.map - 'length' is a string containing a negative number;
- * @precondition: (fnExists(Array.prototype.map));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(val, idx, obj) {
             return val < 10;
         }
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         var newArr = Array.prototype.map.call(obj, callbackfn);
 
         return newArr.length === 2;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

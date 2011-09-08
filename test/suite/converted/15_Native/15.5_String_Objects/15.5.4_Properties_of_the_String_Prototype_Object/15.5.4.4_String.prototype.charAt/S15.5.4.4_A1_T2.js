@@ -4,8 +4,8 @@
 /**
  * String.prototype.charAt(pos)
  *
- * @id: S15.5.4.4_A1_T2;
  * @section: 15.5.4.4;
+ * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.4_String.prototype.charAt/S15.5.4.4_A1_T2.js;
  * @description: pos is equation with false and true, and instance is Boolean object;
  */
 

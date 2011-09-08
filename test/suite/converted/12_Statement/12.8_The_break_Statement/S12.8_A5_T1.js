@@ -4,8 +4,8 @@
 /**
  * Identifier must be label in the label set of an enclosing (but not crossing function boundaries) IterationStatement
  *
- * @id: S12.8_A5_T1;
  * @section: 12.8;
+ * @path: 12_Statement/12.8_The_break_Statement/S12.8_A5_T1.js;
  * @description: Checking if breaking another labeled loop fails;
  * @negative;
  */

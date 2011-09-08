@@ -19,15 +19,15 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.1.1-32-s;
- * @path: TestCases/chapter10/10.1/10.1.1/10.1.1-32-s.js;
+ * @path: chapter10/10.1/10.1.1/10.1.1-32-s.js;
  * @description: Strict Mode - Function code of built-in Function constructor contains Use Strict Directive which appears at the end of the block;
  * @strict_only;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var funObj = new Function("a", "eval('public = 1;'); anotherVariable = 2; 'use strict';");
         funObj();
         return public === 1 && anotherVariable === 2;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.12.3-11-14;
- * @path: TestCases/chapter15/15.12/15.12.3/15.12.3-11-14.js;
+ * @path: chapter15/15.12/15.12.3/15.12.3-11-14.js;
  * @description: Applying JSON.stringify to a  function returns undefined.;
- * @precondition: (JSON && fnExists(JSON.stringify));
  */
 
-assertTrue((JSON.stringify(function() {}) === undefined));
 
+assertTrue(JSON.stringify(function() {}) === undefined);

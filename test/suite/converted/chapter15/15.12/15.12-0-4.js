@@ -25,13 +25,12 @@
  * unless otherwise specified. This default applies to the properties on
  * JSON, and we should not be able to enumerate them.
  *
- * @id: 15.12-0-4;
- * @path: TestCases/chapter15/15.12/15.12-0-4.js;
+ * @path: chapter15/15.12/15.12-0-4.js;
  * @description: JSON object's properties must be non enumerable;
- * @precondition: (JSON !== undefined);
  */
 
-assertTrue((function testcase() { 
+
+function testcase() { 
   var o = JSON;
   var i = 0;
   for (var p in o) {
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
   if (i === 0) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

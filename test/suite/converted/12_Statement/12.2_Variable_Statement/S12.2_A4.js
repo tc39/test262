@@ -4,8 +4,8 @@
 /**
  * Unicode characters in variable Identifier are allowed
  *
- * @id: S12.2_A4;
  * @section: 12.2;
+ * @path: 12_Statement/12.2_Variable_Statement/S12.2_A4.js;
  * @description: Create and use unicode characters in variable Identifier;
  */
 

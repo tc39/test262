@@ -19,17 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 7.3-3;
- * @path: TestCases/chapter07/7.3/7.3-3.js;
+ * @path: chapter07/7.3/7.3-3.js;
  * @description: 7.3 - ES5 recognizes the character <LS> (\u2028) as terminating SingleLineComments;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             eval("//Single Line Comments\u2028 var =;");
             return false;
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.17-5-12;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-5-12.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-5-12.js;
  * @description: Array.prototype.some - Boolean object can be used as thisArg;
- * @precondition: (fnExists(Array.prototype.some));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var objBoolean = new Boolean();
 
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
         }
 
         return [11].some(callbackfn, objBoolean);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.3-3-13;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-3-13.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-3-13.js;
  * @description: Object.getOwnPropertyDescriptor applied to the Arguments object which implements its own property get method;
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arg = (function () {
             return arguments;
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
         var desc = Object.getOwnPropertyDescriptor(arg, "0");
 
         return desc.value === "ownProperty" && desc.writable === true && desc.enumerable === true && desc.configurable === true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

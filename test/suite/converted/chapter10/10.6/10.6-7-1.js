@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.6-7-1;
- * @path: TestCases/chapter10/10.6/10.6-7-1.js;
+ * @path: chapter10/10.6/10.6-7-1.js;
  * @description: Arguments Object has length as its own property and does not invoke the setter defined on Object.prototype.length (Step 7);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             var data = "data";
             var getFunc = function () {
@@ -65,5 +64,5 @@ assertTrue((function testcase() {
         } finally {
             delete Object.prototype.length;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

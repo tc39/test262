@@ -19,16 +19,14 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-9-b-ii-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-ii-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-ii-1.js;
  * @description: Array.prototype.indexOf - type of array element is different from type of search element;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((["true"].indexOf(true) === -1 &&
+
+assertTrue(["true"].indexOf(true) === -1 &&
             ["0"].indexOf(0) === -1 &&
             [false].indexOf(0) === -1 &&
             [undefined].indexOf(0) === -1 &&
             [null].indexOf(0) === -1 &&
-            [[]].indexOf(0) === -1));
-
+            [[]].indexOf(0) === -1);

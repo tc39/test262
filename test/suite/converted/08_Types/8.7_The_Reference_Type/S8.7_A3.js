@@ -4,8 +4,8 @@
 /**
  * Changing the Reference of an Object While Maintaining Integrity
  *
- * @id: S8.7_A3;
  * @section: 8.7;
+ * @path: 08_Types/8.7_The_Reference_Type/S8.7_A3.js;
  * @description: Create a reference to the array, and redefine original array with new array;
  */
 

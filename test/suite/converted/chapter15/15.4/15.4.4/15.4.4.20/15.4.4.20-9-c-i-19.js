@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-9-c-i-19;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-i-19.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-i-19.js;
  * @description: Array.prototype.filter - element to be retrieved is own accessor property without a get function that overrides an inherited accessor property on an Array-like object;
- * @precondition: (fnExists(Array.prototype.filter) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         function callbackfn(val, idx, obj) {
             return undefined === val && idx === 1;
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
         } finally {
             delete Object.prototype[1];
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

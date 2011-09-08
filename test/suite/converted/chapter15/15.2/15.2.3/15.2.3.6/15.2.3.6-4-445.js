@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-445;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-445.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-445.js;
  * @description: ES5 Attributes - success to update [[Set]] attribute of accessor property ([[Get]] is undefined, [[Set]] is undefined, [[Enumerable]] is false, [[Configurable]] is true) to different value;
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         var verifySetFunc = "data";
@@ -51,5 +50,5 @@ assertTrue((function testcase() {
         var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
 
         return typeof desc1.set === "undefined" && propertyDefineCorrect && desc2.set === setFunc && verifySetFunc === "overrideData";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

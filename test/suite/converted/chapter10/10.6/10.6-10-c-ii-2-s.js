@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.6-10-c-ii-2-s;
- * @path: TestCases/chapter10/10.6/10.6-10-c-ii-2-s.js;
+ * @path: chapter10/10.6/10.6-10-c-ii-2-s.js;
  * @description: arguments[i] doesn't map to actual parameters in strict mode;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   
   function foo(a,b,c)
   {
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
     return 10 === a && 'sss' === b && 1 === c;
   }
   return foo(10,'sss',1);
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

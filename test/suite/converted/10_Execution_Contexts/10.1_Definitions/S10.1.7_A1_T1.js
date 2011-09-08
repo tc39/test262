@@ -4,8 +4,8 @@
 /**
  * The this value associated with an executioncontext is immutable
  *
- * @id: S10.1.7_A1_T1;
  * @section: 10.1.7;
+ * @path: 10_Execution_Contexts/10.1_Definitions/S10.1.7_A1_T1.js;
  * @description: Checking if deleting "this" fails;
  */
 

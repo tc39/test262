@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-5-23;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-5-23.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-5-23.js;
  * @description: Array.prototype.lastIndexOf - value of 'fromIndex' is an object that has an own valueOf method that returns an object and toString method that returns a string;
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var toStringAccessed = false;
         var valueOfAccessed = false;
@@ -43,5 +42,5 @@ assertTrue((function testcase() {
         };
 
         return [0, true].lastIndexOf(true, fromIndex) === 1 && toStringAccessed && valueOfAccessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

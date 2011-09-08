@@ -4,8 +4,8 @@
 /**
  * Operator x - y returns ToNumber(x) - ToNumber(y)
  *
- * @id: S11.6.2_A3_T2.1;
  * @section: 11.6.2;
+ * @path: 11_Expressions/11.6_Additive_Operators/11.6.2_The_Subtraction_operator/S11.6.2_A3_T2.1.js;
  * @description: Type(x) is different from Type(y) and both types vary between Number (primitive or object) and Boolean (primitive and object);
  */
 

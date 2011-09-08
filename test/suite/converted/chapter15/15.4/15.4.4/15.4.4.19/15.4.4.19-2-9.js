@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-2-9;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-2-9.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-2-9.js;
  * @description: Array.prototype.map - applied to Array-like object when 'length' is an own accessor property that overrides an inherited accessor property;
- * @precondition: (fnExists(Array.prototype.map) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(val, idx, obj) {
             return val > 10;
         }
@@ -58,5 +57,5 @@ assertTrue((function testcase() {
         var testResult = Array.prototype.map.call(child, callbackfn);
 
         return testResult.length === 2;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

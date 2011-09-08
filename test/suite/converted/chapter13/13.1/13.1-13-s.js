@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 13.1-13-s;
- * @path: TestCases/chapter13/13.1/13.1-13-s.js;
+ * @path: chapter13/13.1/13.1-13-s.js;
  * @description: StrictMode - SyntaxError is thrown if 'arguments' occurs as the function name of a FunctionDeclaration in strict mode;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
 
         try {
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

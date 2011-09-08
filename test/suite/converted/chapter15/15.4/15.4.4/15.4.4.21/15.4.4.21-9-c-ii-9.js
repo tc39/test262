@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-9-c-ii-9;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-c-ii-9.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-c-ii-9.js;
  * @description: Array.prototype.reduce - callbackfn is called with 0 formal parameter;
- * @precondition: (fnExists(Array.prototype.reduce));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var called = 0;
         function callbackfn() {
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
 
         [11, 12].reduce(callbackfn, 1);
         return 2 === called;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

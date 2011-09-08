@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-3-6;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-3-6.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-3-6.js;
  * @description: Array.prototype.lastIndexOf - value of 'length' is a number (value is a positive number);
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = { 99: true, 100: 100, length: 100 };
 
         return Array.prototype.lastIndexOf.call(obj, true) === 99 &&
             Array.prototype.lastIndexOf.call(obj, 100) === -1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

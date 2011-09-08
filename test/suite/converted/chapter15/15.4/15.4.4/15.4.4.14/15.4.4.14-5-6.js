@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-5-6;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-6.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-6.js;
  * @description: Array.prototype.indexOf - 'fromIndex' isn't passed;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arr = [0, 1, 2, 3, 4];
         //'fromIndex' will be set as 0 if not passed by default
         return arr.indexOf(0) === arr.indexOf(0, 0) &&
             arr.indexOf(2) === arr.indexOf(2, 0) &&
             arr.indexOf(4) === arr.indexOf(4, 0); 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -2,13 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * :
- * If ToString([[Get]] ToString(j)) < ToString([[Get]] ToString(k)), return -1.
+ * * If ToString([[Get]] ToString(j)) < ToString([[Get]] ToString(k)), return -1.
  * If ToString([[Get]] ToString(j)) > ToString([[Get]] ToString(k)), return 1;
  * return -1
  *
- * @id: S15.4.4.11_A2.1_T2;
  * @section: 15.4.4.11;
+ * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.11_Array_prototype_sort/S15.4.4.11_A2.1_T2.js;
  * @description: Checking RUSSIAN ALPHABET;
  */
 

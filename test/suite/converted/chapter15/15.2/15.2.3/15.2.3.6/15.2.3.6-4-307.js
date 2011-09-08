@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-307;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-307.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-307.js;
  * @description: Object.defineProperty - 'O' is an Arguments object, 'name' is an index named data property of 'O' but not defined in [[ParameterMap]] of 'O', test TypeError is thrown when updating the [[Enumerable]] attribute value of 'name' which is not configurable (10.6 [[DefineOwnProperty]] step 4);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue(((function () {
+
+assertTrue((function () {
             Object.defineProperty(arguments, "0", {
                 value: 0,
                 writable: false,
@@ -40,5 +39,4 @@ assertTrue(((function () {
                 return e instanceof TypeError && dataPropertyAttributesAreCorrect(arguments, "0", 0, false, true, false);
             }
             return false;
-        }())));
-
+        }()));

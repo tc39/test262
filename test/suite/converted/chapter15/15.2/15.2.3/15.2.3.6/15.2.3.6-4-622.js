@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-622;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-622.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-622.js;
  * @description: ES5 Attributes - all attributes in Date.now are correct;
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor) && fnExists(Date.now));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var desc = Object.getOwnPropertyDescriptor(Date, "now");
 
         var propertyAreCorrect = (desc.writable === true && desc.enumerable === false && desc.configurable === true);
@@ -58,5 +57,5 @@ assertTrue((function testcase() {
                 configurable: true
             });
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

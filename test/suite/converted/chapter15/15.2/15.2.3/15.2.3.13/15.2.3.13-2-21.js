@@ -29,16 +29,15 @@
  * RegExp.prototype
  * Error.prototype
  *
- * @id: 15.2.3.13-2-21;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.13/15.2.3.13-2-21.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.13/15.2.3.13-2-21.js;
  * @description: Object.isExtensible returns true for all built-in objects (Error.prototype);
- * @precondition: (fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var e = Object.isExtensible(Error.prototype);
   if (e === true) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

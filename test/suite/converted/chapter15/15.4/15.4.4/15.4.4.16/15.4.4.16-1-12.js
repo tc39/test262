@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.16-1-12;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-1-12.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-1-12.js;
  * @description: Array.prototype.every applied to RegExp object;
- * @precondition: (fnExists(Array.prototype.every));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(val, idx, obj) {
             return !(obj instanceof RegExp);
         }
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         obj[0] = 1;
 
         return !Array.prototype.every.call(obj, callbackfn);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

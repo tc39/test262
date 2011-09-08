@@ -4,8 +4,8 @@
 /**
  * When appears not closed single-quote program failes
  *
- * @id: S8.4_A13_T2;
  * @section: 8.4;
+ * @path: 08_Types/8.4_The_String_Type/S8.4_A13_T2.js;
  * @description: Try to create variable using 1 single-quote;
  * @negative;
  */

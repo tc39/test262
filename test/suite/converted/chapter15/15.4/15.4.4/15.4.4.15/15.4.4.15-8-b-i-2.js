@@ -19,13 +19,11 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-8-b-i-2;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-i-2.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-i-2.js;
  * @description: Array.prototype.lastIndexOf - element to be retrieved is own data property on an Array;
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue(([true, true, true].lastIndexOf(true) === 2 &&
-            [true, true, false].lastIndexOf(true) === 1 &&
-            [true, false, false].lastIndexOf(true) === 0));
 
+assertTrue([true, true, true].lastIndexOf(true) === 2 &&
+            [true, true, false].lastIndexOf(true) === 1 &&
+            [true, false, false].lastIndexOf(true) === 0);

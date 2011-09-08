@@ -4,8 +4,8 @@
 /**
  * Line Terminators between operators are allowed
  *
- * @id: S7.3_A7_T5;
  * @section: 7.3;
+ * @path: 07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A7_T5.js;
  * @description: Insert Line Terminator in var x=y%z;
  */
 

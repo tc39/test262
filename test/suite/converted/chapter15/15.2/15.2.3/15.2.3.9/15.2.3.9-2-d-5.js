@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.9-2-d-5;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-d-5.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-d-5.js;
  * @description: Object.freeze - 'O' is a Number object;
- * @precondition: (fnExists(Object.freeze) && fnExists(Object.isFrozen));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var numObj = new Number(3);
 
         Object.freeze(numObj);
 
         return Object.isFrozen(numObj);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

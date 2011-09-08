@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 11.4.1-5-2;
- * @path: TestCases/chapter11/11.4/11.4.1/11.4.1-5-2.js;
+ * @path: chapter11/11.4/11.4.1/11.4.1-5-2.js;
  * @description: delete operator returns false when deleting a direct reference to a function argument;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   
   function foo(a,b) {
   
@@ -34,5 +34,5 @@ assertTrue((function testcase() {
     return (d === false && a === 1);
   }
   return foo(1,2);  
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

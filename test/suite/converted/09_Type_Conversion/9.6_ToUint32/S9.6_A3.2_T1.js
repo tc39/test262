@@ -4,8 +4,8 @@
 /**
  * Operator uses floor, abs
  *
- * @id: S9.6_A3.2_T1;
  * @section: 9.6;
+ * @path: 09_Type_Conversion/9.6_ToUint32/S9.6_A3.2_T1.js;
  * @description: Use operator >>>0;
  */
 

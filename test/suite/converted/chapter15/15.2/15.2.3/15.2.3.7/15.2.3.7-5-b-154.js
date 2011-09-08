@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-5-b-154;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-154.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-154.js;
  * @description: Object.defineProperties - 'descObj' is a Boolean object which implements its own [[Get]] method to get 'writable' property (8.10.5 step 6.a);
- * @precondition: (fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         var descObj = new Boolean(false);
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
         obj.property = "isWritable";
 
         return obj.hasOwnProperty("property") && typeof (obj.property) === "undefined";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

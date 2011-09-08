@@ -4,8 +4,8 @@
 /**
  * StatementList: StatementList Statement inside the Block is evaluated from left to right
  *
- * @id: S12.1_A5;
  * @section: 12.1;
+ * @path: 12_Statement/12.1_Block/S12.1_A5.js;
  * @description: Throwing exceptions within embedded/sequence Blocks;
  */
 

@@ -4,8 +4,8 @@
 /**
  * VariableDeclaration in "var VariableDeclarationListNoIn" of for IterationStatement is allowed
  *
- * @id: S12.6.3_A13;
  * @section: 12.6.3;
+ * @path: 12_Statement/12.6_Iteration_Statements/12.6.3_The_for_Statement/S12.6.3_A13.js;
  * @description: Declaring variable in "for" ExpressionNoIn;
  */
 

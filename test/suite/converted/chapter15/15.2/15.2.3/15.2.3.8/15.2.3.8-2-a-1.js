@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.8-2-a-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-1.js;
  * @description: Object.seal - 'P' is own data property;
- * @precondition: (fnExists(Object.seal) && fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         obj.foo = 10; // default [[Configurable]] attribute value of foo: true
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
 
         delete obj.foo;
         return preCheck && obj.foo === 10;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

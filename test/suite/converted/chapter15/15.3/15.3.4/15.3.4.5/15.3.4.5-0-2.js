@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5-0-2;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-0-2.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-0-2.js;
  * @description: Function.prototype.bind must exist as a function taking 1 parameter;
- * @precondition: (fnExists(Function.prototype.bind));
  */
 
-assertTrue((Function.prototype.bind.length === 1));
 
+assertTrue(Function.prototype.bind.length === 1);

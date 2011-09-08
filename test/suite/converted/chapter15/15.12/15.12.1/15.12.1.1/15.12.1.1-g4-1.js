@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.12.1.1-g4-1;
- * @path: TestCases/chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g4-1.js;
+ * @path: chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g4-1.js;
  * @description: The JSON lexical grammar does not allow a JSONStringCharacter to be any of the Unicode characters U+0000 thru U+0007;
- * @precondition: (JSON && fnExists(JSON.parse)&& JSON.parse('"1234"')==="1234");
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   try {
     JSON.parse('"\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007"'); // invalid string characters should produce a syntax error
     }
   catch (e) {
       return true; // treat any exception as a pass, other tests ensure that JSON.parse throws SyntaxError exceptions
       }
-  }).call(this));
-
+  }
+assertTrue(testcase.call(this));

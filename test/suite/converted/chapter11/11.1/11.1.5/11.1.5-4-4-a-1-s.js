@@ -25,14 +25,13 @@
  *    4. If previous is not undefined then throw a SyntaxError exception if any of the following conditions are true
  *      a. This production is contained in strict code and IsDataDescriptor(previous) is true and IsDataDescriptor(propId.descriptor) is true
  *
- * @id: 11.1.5-4-4-a-1-s;
- * @path: TestCases/chapter11/11.1/11.1.5/11.1.5-4-4-a-1-s.js;
+ * @path: chapter11/11.1/11.1.5/11.1.5-4-4-a-1-s.js;
  * @description: Object literal - SyntaxError for duplicate date property name in strict mode;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   
   try
   {
@@ -43,5 +42,5 @@ assertTrue((function testcase() {
   {
     return (e instanceof SyntaxError);
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

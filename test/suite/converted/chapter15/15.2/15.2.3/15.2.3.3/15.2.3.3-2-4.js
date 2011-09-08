@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.3-2-4;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-2-4.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-2-4.js;
  * @description: Object.getOwnPropertyDescriptor - argument 'P' is null that converts to string 'null';
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = { "null": 1 };
 
         var desc = Object.getOwnPropertyDescriptor(obj, null);
 
         return desc.value === 1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -22,16 +22,16 @@
  * 15.5.5.2 defines [[GetOwnProperty]] for Strings. It supports using indexing
  * notation to look up non numeric property names.
  *
- * @id: 15.5.5.5.2-3-1;
- * @path: TestCases/chapter15/15.5/15.5.5/15.5.5.2/15.5.5.5.2-3-1.js;
+ * @path: chapter15/15.5/15.5.5/15.5.5.2/15.5.5.5.2-3-1.js;
  * @description: String object indexing returns undefined for missing data properties;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var s = new String("hello world");
   
   if (s["foo"] === undefined) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-3-167-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-167-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-167-1.js;
  * @description: Object.defineProperty - 'Attributes' is a String object that uses Object's [[Get]] method to access the 'writable' property of prototype object (8.10.5 step 6.b);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         try {
             String.prototype.writable = true;
@@ -43,5 +42,5 @@ assertTrue((function testcase() {
         } finally {
             delete String.prototype.writable;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

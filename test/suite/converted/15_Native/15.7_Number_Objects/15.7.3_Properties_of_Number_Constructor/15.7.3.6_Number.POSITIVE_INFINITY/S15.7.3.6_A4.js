@@ -4,8 +4,8 @@
 /**
  * Number.POSITIVE_INFINITY has the attribute DontEnum
  *
- * @id: S15.7.3.6_A4;
  * @section: 15.7.3.6;
+ * @path: 15_Native/15.7_Number_Objects/15.7.3_Properties_of_Number_Constructor/15.7.3.6_Number.POSITIVE_INFINITY/S15.7.3.6_A4.js;
  * @description: Checking if enumerating Number.POSITIVE_INFINITY fails;
  */
 

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-99;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-99.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-99.js;
  * @description: Object.defineProperty will throw TypeError when name.configurable = false, name.[[Get]] is undefined, desc.[[Get]] refers to an object (8.12.9 step 11.a.ii);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
 
@@ -51,5 +50,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof TypeError && accessorPropertyAttributesAreCorrect(obj, "foo", undefined, setFunc, "setVerifyHelpProp", false, false);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

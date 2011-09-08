@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.5.4.20-2-25;
- * @path: TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-25.js;
+ * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-25.js;
  * @description: String.prototype.trim - argument 'this' is a decimal that converts to a string (value is 123.456);
- * @precondition: (fnExists(String.prototype.trim));
  */
 
-assertTrue((String.prototype.trim.call(123.456) === "123.456"));
 
+assertTrue(String.prototype.trim.call(123.456) === "123.456");

@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-1-12;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-1-12.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-1-12.js;
  * @description: Array.prototype.lastIndexOf applied to RegExp object;
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = new RegExp("afdasf");
         obj.length = 100;
         obj[1] = "afdasf";
 
         return Array.prototype.lastIndexOf.call(obj, "afdasf") === 1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

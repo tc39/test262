@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.16-1-7;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-1-7.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-1-7.js;
  * @description: Array.prototype.every applied to string primitive;
- * @precondition: (fnExists(Array.prototype.every));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(val, idx, obj) {
             return !(obj instanceof String);
         }
 
         return !Array.prototype.every.call("hello\nworld\\!", callbackfn);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

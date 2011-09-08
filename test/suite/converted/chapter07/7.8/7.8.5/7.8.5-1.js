@@ -19,17 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 7.8.5-1;
- * @path: TestCases/chapter07/7.8/7.8.5/7.8.5-1.js;
+ * @path: chapter07/7.8/7.8.5/7.8.5-1.js;
  * @description: Literal RegExp Objects - SyntaxError exception is thrown if the RegularExpressionNonTerminator position of a RegularExpressionBackslashSequence is a LineTerminator.;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             eval("var regExp = /\\\rn/;");
             return false;
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

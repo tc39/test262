@@ -4,8 +4,8 @@
 /**
  * White Space and Line Terminator between LeftHandSideExpression and "=" or between "=" and AssignmentExpression are allowed
  *
- * @id: S11.13.1_A1;
  * @section: 11.13.1;
+ * @path: 11_Expressions/11.13_Assignment_Operators/11.13.1_Simple_Assignment/S11.13.1_A1.js;
  * @description: Checking by using eval;
  */
 

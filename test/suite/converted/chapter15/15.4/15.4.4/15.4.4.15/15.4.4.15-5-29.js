@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-5-29;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-5-29.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-5-29.js;
  * @description: Array.prototype.lastIndexOf - side effects produced by step 2 are visible when an exception occurs;
- * @precondition: (fnExists(Array.prototype.lastIndexOf) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var stepFiveOccurs = false;
 
@@ -50,5 +49,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return (e instanceof RangeError) && !stepFiveOccurs;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

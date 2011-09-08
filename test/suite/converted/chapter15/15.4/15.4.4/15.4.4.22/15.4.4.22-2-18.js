@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.22-2-18;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-2-18.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-2-18.js;
  * @description: Array.prototype.reduceRight applied to String object, which implements its own property get method;
- * @precondition: (fnExists(Array.prototype.reduceRight));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var accessed = false;
         var str = new String("432");
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
         } finally {
             delete String.prototype[3];
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

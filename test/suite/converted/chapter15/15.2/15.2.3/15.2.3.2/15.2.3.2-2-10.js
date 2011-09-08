@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.2-2-10;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-2-10.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-2-10.js;
  * @description: Object.getPrototypeOf returns the [[Prototype]] of its parameter (RegExp);
- * @precondition: (fnExists(Object.getPrototypeOf));
  */
 
-assertTrue((Object.getPrototypeOf(RegExp) === Function.prototype));
 
+assertTrue(Object.getPrototypeOf(RegExp) === Function.prototype);

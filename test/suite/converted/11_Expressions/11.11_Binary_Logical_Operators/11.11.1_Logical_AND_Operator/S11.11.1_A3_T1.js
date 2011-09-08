@@ -4,8 +4,8 @@
 /**
  * If ToBoolean(x) is false, return x
  *
- * @id: S11.11.1_A3_T1;
  * @section: 11.11.1;
+ * @path: 11_Expressions/11.11_Binary_Logical_Operators/11.11.1_Logical_AND_Operator/S11.11.1_A3_T1.js;
  * @description: Type(x) is primitive boolean and Type(y) is changed between primitive boolean and Boolean object;
  */
 

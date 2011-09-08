@@ -5,8 +5,8 @@
  * RegularExpressionFirstChar :: NonTerminator but not * or \ or /,
  * RegularExpressionChars :: [empty], RegularExpressionFlags :: [empty]
  *
- * @id: S7.8.5_A1.1_T1;
  * @section: 7.8.5;
+ * @path: 07_Lexical_Conventions/7.8_Literals/7.8.5_Regular_Expression_Literals/S7.8.5_A1.1_T1.js;
  * @description: Without eval;
  */
 

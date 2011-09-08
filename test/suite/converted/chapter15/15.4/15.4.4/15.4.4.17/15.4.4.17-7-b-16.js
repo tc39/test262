@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.17-7-b-16;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-b-16.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-b-16.js;
  * @description: Array.prototype.some - decreasing length of array does not delete non-configurable properties;
- * @precondition: (fnExists(Array.prototype.some) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(val, idx, obj) {
             if (idx === 2 && val === "unconfigurable") {
                 return true;
@@ -52,5 +51,5 @@ assertTrue((function testcase() {
         });
 
         return arr.some(callbackfn);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -6,9 +6,9 @@
  * i) Let A be the set of all characters except the four line terminator characters <LF>, <CR>, <LS>, or <PS>
  * ii) Call CharacterSetMatcher(A, false) and return its Matcher result
  *
- * @id: S15.10.2.8_A4_T9;
  * @section: 15.10.2.8;
- * @description: : Execute /.+/.exec("|\\[{]};:\"\',<>.?/") and check results;;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.8_Atom/S15.10.2.8_A4_T9.js;
+ * @description: Execute /.+/.exec("|\\[{]};:\"\',<>.?/") and check results;
  */
 
 __string = "|\\[{]};:\"\',<>.?/";

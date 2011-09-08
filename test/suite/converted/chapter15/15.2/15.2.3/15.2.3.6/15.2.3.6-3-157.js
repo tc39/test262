@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-3-157;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-157.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-157.js;
  * @description: Object.defineProperty - 'writable' property in 'Attributes' is own data property that overrides an inherited accessor property  (8.10.5 step 6.a);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = { };
 
         var proto = { };
@@ -52,5 +51,5 @@ assertTrue((function testcase() {
         var afterWrite = (obj.property === "isWritable");
 
         return beforeWrite === true && afterWrite === true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

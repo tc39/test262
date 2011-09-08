@@ -22,12 +22,12 @@
  * This test is actually testing the [[Delete]] internal method (8.12.8). Since the
  * language provides no way to directly exercise [[Delete]], the tests are placed here.
  *
- * @id: 11.4.1-4.a-17;
- * @path: TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-17.js;
+ * @path: chapter11/11.4/11.4.1/11.4.1-4.a-17.js;
  * @description: delete operator returns true on deleting a arguments element;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   function foo(a,b)
   {
     var d = delete arguments[0];
@@ -36,5 +36,5 @@ assertTrue((function testcase() {
 
   if(foo(1,2) === true)
     return true;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

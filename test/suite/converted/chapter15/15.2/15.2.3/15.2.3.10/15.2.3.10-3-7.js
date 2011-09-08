@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.10-3-7;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-7.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-7.js;
  * @description: Object.preventExtensions - indexed properties cannot be added into a Number object;
- * @precondition: (fnExists(Object.preventExtensions) && fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var numObj = new Number(123);
         var preCheck = Object.isExtensible(numObj);
         Object.preventExtensions(numObj);
 
         numObj[0] = 12;
         return preCheck && !numObj.hasOwnProperty("0");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

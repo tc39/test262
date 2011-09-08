@@ -4,8 +4,8 @@
 /**
  * TryStatement: "try Block Catch" or "try Block Finally" or "try Block Catch Finally"
  *
- * @id: S12.14_A16_T12;
  * @section: 12.14;
+ * @path: 12_Statement/12.14_The_try_Statement/S12.14_A16_T12.js;
  * @description: Embedded "try" statements followed by two "catch" statements;
  * @negative;
  */

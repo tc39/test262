@@ -4,8 +4,8 @@
 /**
  * Appearing of "return" without a function body leads to syntax error
  *
- * @id: S12.9_A1_T5;
  * @section: 12.9;
+ * @path: 12_Statement/12.9_The_return_Statement/S12.9_A1_T5.js;
  * @description: Checking if execution of "return" with no function, placed into a Block, fails;
  * @negative;
  */

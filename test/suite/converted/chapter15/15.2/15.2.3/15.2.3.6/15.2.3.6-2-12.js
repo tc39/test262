@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-2-12;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-2-12.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-2-12.js;
  * @description: Object.defineProperty - argument 'P' is a number that converts to a string (value is +Infinity);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         Object.defineProperty(obj, +Infinity, {});
 
         return obj.hasOwnProperty("Infinity");
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

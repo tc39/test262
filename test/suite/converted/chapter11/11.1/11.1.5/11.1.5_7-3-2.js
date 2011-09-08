@@ -24,21 +24,15 @@
  *      PropertyAssignment : get PropertyName ( ) { FunctionBody } 
  *   3.Let desc be the Property Descriptor{[[Get]]: closure, [[Enumerable]]: true, [[Configurable]]: true}
  *
- * @id: 11.1.5_7-3-2;
- * @path: TestCases/chapter11/11.1/11.1.5/11.1.5_7-3-2.js;
+ * @path: chapter11/11.1/11.1.5/11.1.5_7-3-2.js;
  * @description: Object literal - property descriptor for set property assignment should not create a get function;
- * @precondition: (function () {
- *    //accessor properties in object literals must be allowed
- *   try {eval("({set foo(x) {}, get foo(){}});");}
- *   catch(e) {return false}
- *   return fnExists(Object.getOwnPropertyDescriptor);;
- * }).call(this);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
   eval("var o = {set foo(arg){}};");
   var desc = Object.getOwnPropertyDescriptor(o,"foo");
   return desc.get === undefined
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

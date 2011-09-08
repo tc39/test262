@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-3-68;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-68.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-68.js;
  * @description: Object.defineProperty - value of 'enumerable' property in 'Attributes' is an Arguments Object (8.10.5 step 3.b);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         var accessed = false;
         var argObj = (function () { return arguments; })(0, 1, 2);
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
             }
         }
         return accessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

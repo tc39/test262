@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.10-7-1;
- * @path: TestCases/chapter12/12.10/12.10-7-1.js;
+ * @path: chapter12/12.10/12.10-7-1.js;
  * @description: with introduces scope - restores the earlier environment on exit;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var a = 1;
 
   var o = {a : 2};
@@ -43,5 +43,5 @@ assertTrue((function testcase() {
       return true;
   }
 
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.1.1-14-s;
- * @path: TestCases/chapter10/10.1/10.1.1/10.1.1-14-s.js;
+ * @path: chapter10/10.1/10.1.1/10.1.1-14-s.js;
  * @description: Strict Mode - The call to eval function is contained in a Strict Mode block;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         'use strict';
         try {
             eval("var public = 1;");
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return true;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

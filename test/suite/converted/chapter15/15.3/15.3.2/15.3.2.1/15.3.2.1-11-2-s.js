@@ -19,13 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.2.1-11-2-s;
- * @path: TestCases/chapter15/15.3/15.3.2/15.3.2.1/15.3.2.1-11-2-s.js;
+ * @path: chapter15/15.3/15.3.2/15.3.2.1/15.3.2.1-11-2-s.js;
  * @description: Duplicate seperate parameter name in Function constructor called from strict mode allowed if body not strict;
  * @strict_only;
  */
 
-assertTrue((function testcase()
+
+function testcase()
 { 
   "use strict"; 
   try {
@@ -34,5 +34,5 @@ assertTrue((function testcase()
   } catch (e) {
     return false;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

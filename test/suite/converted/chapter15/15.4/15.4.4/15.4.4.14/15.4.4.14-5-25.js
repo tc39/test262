@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-5-25;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-25.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-25.js;
  * @description: Array.prototype.indexOf uses inherited valueOf method when value of 'fromIndex' is an object with an own toString and inherited valueOf methods;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var toStringAccessed = false;
         var valueOfAccessed = false;
@@ -47,5 +46,5 @@ assertTrue((function testcase() {
         };
 
         return [0, true].indexOf(true, child) === 1 && valueOfAccessed && !toStringAccessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

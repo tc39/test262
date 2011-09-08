@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.10-0-1;
- * @path: TestCases/chapter12/12.10/12.10-0-1.js;
+ * @path: chapter12/12.10/12.10-0-1.js;
  * @description: with does not change declaration scope - vars in with are visible outside;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o = {};
   var f = function () {
 	/* capture foo binding before executing with */
@@ -37,5 +37,5 @@ assertTrue((function testcase() {
 
   return f()==="12.10-0-1"
 
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

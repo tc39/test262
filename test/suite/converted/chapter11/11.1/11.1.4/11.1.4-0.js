@@ -19,15 +19,15 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 11.1.4-0;
- * @path: TestCases/chapter11/11.1/11.1.4/11.1.4-0.js;
+ * @path: chapter11/11.1/11.1.4/11.1.4-0.js;
  * @description: elements elided at the end of an array do not contribute to its length;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var a = [,];
   if (a.length === 1) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

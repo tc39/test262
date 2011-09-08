@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.9.4.4-0-2;
- * @path: TestCases/chapter15/15.9/15.9.4/15.9.4.4/15.9.4.4-0-2.js;
+ * @path: chapter15/15.9/15.9.4/15.9.4.4/15.9.4.4-0-2.js;
  * @description: Date.now must exist as a function taking 0 parameters;
- * @precondition: (fnExists(Date.now));
  */
 
-assertTrue((Date.now.length === 0));
 
+assertTrue(Date.now.length === 0);

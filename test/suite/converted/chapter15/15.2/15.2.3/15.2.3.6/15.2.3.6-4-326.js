@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-326;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-326.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-326.js;
  * @description: ES5 Attributes - property ([[Writable]] is true, [[Enumerable]] is true, [[Configurable]] is true) is writable;
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         obj.prop = 1001;
 
         return propertyDefineCorrect && obj.prop === 1001;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

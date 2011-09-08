@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.14-2-5;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-2-5.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-2-5.js;
  * @description: Object.keys returns the standard built-in Array that is not sealed;
- * @precondition: (fnExists(Object.keys) && fnExists(Object.isSealed));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o = { x: 1, y: 2};
 
   var a = Object.keys(o);
   if (Object.isSealed(a) === false) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

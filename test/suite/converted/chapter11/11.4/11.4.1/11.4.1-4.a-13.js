@@ -22,13 +22,12 @@
  * This test is actually testing the [[Delete]] internal method (8.12.8). Since the
  * language provides no way to directly exercise [[Delete]], the tests are placed here.
  *
- * @id: 11.4.1-4.a-13;
- * @path: TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-13.js;
+ * @path: chapter11/11.4/11.4.1/11.4.1-4.a-13.js;
  * @description: delete operator returns false when deleting Array object;
- * @precondition: (fnExists(Array.isArray));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
   var a = [1,2,3]
   a.x = 10;
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
 
   if(d === false && Array.isArray(a) === true)
     return true;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

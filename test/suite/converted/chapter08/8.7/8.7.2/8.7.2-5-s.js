@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 8.7.2-5-s;
- * @path: TestCases/chapter08/8.7/8.7.2/8.7.2-5-s.js;
+ * @path: chapter08/8.7/8.7.2/8.7.2-5-s.js;
  * @description: Strict Mode - TypeError is thrown if LeftHandSide is a reference to a non-existent property of an non-extensible object;
  * @strict_only;
- * @precondition: (fnExists(Object.preventExtensions) && fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         var _8_7_2_5 = {};
         Object.preventExtensions(_8_7_2_5);
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof TypeError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

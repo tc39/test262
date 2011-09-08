@@ -2,10 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * : The production IterationStatement: "for (var VariableDeclarationListNoIn; Expression; Expression) Statement";
+ * The production IterationStatement: "for (var VariableDeclarationListNoIn; Expression; Expression) Statement"
  *
- * @id: S12.6.3_A14;
  * @section: 12.6.3;
+ * @path: 12_Statement/12.6_Iteration_Statements/12.6.3_The_for_Statement/S12.6.3_A14.js;
  * @description: Using +,*,/, as the second Expression;
  */
 

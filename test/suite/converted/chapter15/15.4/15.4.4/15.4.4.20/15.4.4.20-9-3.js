@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-9-3;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-3.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-3.js;
  * @description: Array.prototype.filter doesn't visit deleted elements in array after the call;
- * @precondition: (fnExists(Array.prototype.filter));
  */
 
-assertTrue((function testcase() { 
+
+function testcase() { 
  
   function callbackfn(val, idx, obj)
   {
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
   if(resArr.length === 3 && resArr[0] === 1 && resArr[2] === 4 )    // two elements deleted
       return true;  
   
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

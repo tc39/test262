@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.9-2-c-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-c-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-c-1.js;
  * @description: Object.freeze - The [[Configurable]] attribute of own data property of 'O' is set to false while other attributes are unchanged;
- * @precondition: (fnExists(Object.freeze) && fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "foo", {
@@ -40,5 +39,5 @@ assertTrue((function testcase() {
 
         return dataPropertyAttributesAreCorrect(obj, "foo", 10, false, true, false) &&
             desc.configurable === false && desc.writable === false;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

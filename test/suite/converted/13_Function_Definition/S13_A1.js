@@ -4,8 +4,8 @@
 /**
  * "x=function y(){}" statement does not store a reference to the new function in the varaible y(Identifier)
  *
- * @id: S13_A1;
  * @section: 13;
+ * @path: 13_Function_Definition/S13_A1.js;
  * @description: Checking the type of y;
  */
 

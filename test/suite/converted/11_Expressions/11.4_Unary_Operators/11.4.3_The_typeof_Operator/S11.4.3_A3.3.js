@@ -4,8 +4,8 @@
 /**
  * Result of applying "typeof" operator to boolean is "boolean"
  *
- * @id: S11.4.3_A3.3;
  * @section: 11.4.3;
+ * @path: 11_Expressions/11.4_Unary_Operators/11.4.3_The_typeof_Operator/S11.4.3_A3.3.js;
  * @description: typeof (boolean value) === "boolean";
  */
 

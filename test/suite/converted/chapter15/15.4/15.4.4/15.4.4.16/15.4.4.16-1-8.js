@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.16-1-8;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-1-8.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-1-8.js;
  * @description: Array.prototype.every applied to String object;
- * @precondition: (fnExists(Array.prototype.every));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(val, idx, obj) {
             return !(obj instanceof String);
         }
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
         var obj = new String("hello\nworld\\!");
 
         return !Array.prototype.every.call(obj, callbackfn);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

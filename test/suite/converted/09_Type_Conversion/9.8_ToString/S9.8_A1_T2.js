@@ -4,8 +4,8 @@
 /**
  * Result of ToString conversion from undefined value is "undefined"
  *
- * @id: S9.8_A1_T2;
  * @section: 9.8;
+ * @path: 09_Type_Conversion/9.8_ToString/S9.8_A1_T2.js;
  * @description: Undefined values is undefined, void 0 and eval("var x"). Use implicit transformation;
  */
 

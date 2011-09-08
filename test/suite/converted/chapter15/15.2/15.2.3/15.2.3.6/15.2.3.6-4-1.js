@@ -25,13 +25,12 @@
  * current is undefined and extensible is false. The value of desc does not
  * matter.
  *
- * @id: 15.2.3.6-4-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-1.js;
  * @description: Object.defineProperty throws TypeError when adding properties to non-extensible objects(8.12.9 step 3);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.preventExtensions));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o = {};
   Object.preventExtensions(o);
 
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
       return true;
     }
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

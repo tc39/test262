@@ -19,13 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.6-6-4;
- * @path: TestCases/chapter10/10.6/10.6-6-4.js;
+ * @path: chapter10/10.6/10.6-6-4.js;
  * @description: 'length' property of arguments object for 0 argument function call is 0 even with formal parameters;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
       var arguments= undefined;
 	return (function (a,b,c) {return arguments.length === 0})();
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

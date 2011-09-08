@@ -4,8 +4,8 @@
 /**
  * Result of boolean conversion from null value is false
  *
- * @id: S9.2_A2_T1;
  * @section: 9.2, 15.6.1;
+ * @path: 09_Type_Conversion/9.2_ToBoolean/S9.2_A2_T1.js;
  * @description: null convert to Boolean by explicit transformation;
  */
 

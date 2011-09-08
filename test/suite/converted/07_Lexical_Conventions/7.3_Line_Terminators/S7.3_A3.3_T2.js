@@ -4,8 +4,8 @@
 /**
  * Single line comments can not contain LINE SEPARATOR (U+2028) inside
  *
- * @id: S7.3_A3.3_T2;
  * @section: 7.3, 7.4;
+ * @path: 07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A3.3_T2.js;
  * @description: Insert LINE SEPARATOR (\u2028) into begin of single line comment;
  * @negative;
  */

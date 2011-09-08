@@ -4,8 +4,8 @@
 /**
  * White Space between LeftHandSideExpression and "++" are allowed
  *
- * @id: S11.3.1_A1.2_T1;
  * @section: 11.3.1, 11.6.3, 7.2;
+ * @path: 11_Expressions/11.3_PostfixExpressions/11.3.1_Postfix_Increment_Operator/S11.3.1_A1.2_T1.js;
  * @description: Checking by using eval;
  */
 

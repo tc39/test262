@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-208;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-208.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-208.js;
  * @description: Object.defineProperties - 'O' is an Array, 'P' is an array index named property, 'P' makes no change if the value of every field in 'desc' is the same value as the corresponding field in 'P'(desc is data property)  (15.4.5.1 step 4.c);
- * @precondition: (fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arr = [];
 
         arr[0] = 100; // default value of attributes: writable: true, configurable: true, enumerable: true
@@ -40,5 +39,5 @@ assertTrue((function testcase() {
         });
 
         return dataPropertyAttributesAreCorrect(arr, "0", 100, true, true, true);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

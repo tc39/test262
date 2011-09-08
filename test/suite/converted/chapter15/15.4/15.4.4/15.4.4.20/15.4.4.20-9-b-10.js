@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-9-b-10;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-b-10.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-b-10.js;
  * @description: Array.prototype.filter - deleting property of prototype causes prototype index property not to be visited on an Array-like Object;
- * @precondition: (fnExists(Array.prototype.filter) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         function callbackfn(val, idx, obj) {
             return true;
@@ -48,5 +47,5 @@ assertTrue((function testcase() {
         } finally {
             delete Object.prototype[1];
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

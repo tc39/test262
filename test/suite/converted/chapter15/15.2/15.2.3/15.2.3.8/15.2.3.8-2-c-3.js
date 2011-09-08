@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.8-2-c-3;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-c-3.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-c-3.js;
  * @description: Object.seal - 'O' is a String object;
- * @precondition: (fnExists(Object.seal) && fnExists(Object.isSealed) && fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var strObj = new String("a");
         var preCheck = Object.isExtensible(strObj);
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
 
         return preCheck && Object.isSealed(strObj);
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

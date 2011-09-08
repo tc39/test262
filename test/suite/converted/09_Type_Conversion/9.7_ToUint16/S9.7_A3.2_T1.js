@@ -4,8 +4,8 @@
 /**
  * Operator uses floor, abs
  *
- * @id: S9.7_A3.2_T1;
  * @section: 9.7;
+ * @path: 09_Type_Conversion/9.7_ToUint16/S9.7_A3.2_T1.js;
  * @description: For testing use String.fromCharCode(Number).charCodeAt(0) construction;
  */
 

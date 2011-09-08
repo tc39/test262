@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-540-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-540-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-540-1.js;
  * @description: Object.defineProperty fails to update [[Get]] and [[Set]] attributes of a named accessor property 'P' whose [[Configurable]] attribute is false and throws TypeError exception, 'O' is an Object object (8.12.9 step 11.a);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         obj.verifySetFunction = "data";
@@ -63,5 +62,5 @@ assertTrue((function testcase() {
             return result && e1 instanceof TypeError &&
                 accessorPropertyAttributesAreCorrect(obj, "property", getFunc, setFunc, "verifySetFunction", false, false);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

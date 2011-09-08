@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5-2-9;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-2-9.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-2-9.js;
  * @description: Function.prototype.bind allows Target to be a constructor (Date);
- * @precondition: (fnExists(Function.prototype.bind));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var bdc = Date.bind(null);
   var s = bdc(0, 0, 0);
   if (typeof(s) === 'string') {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

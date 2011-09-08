@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.17-7-c-ii-17;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-c-ii-17.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-c-ii-17.js;
  * @description: Array.prototype.some - 'this' of 'callbackfn' is a Number object when T is not an object (T is a number primitive);
- * @precondition: (fnExists(Array.prototype.some));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         function callbackfn(val, idx, obj) {
             return this.valueOf() === 5;
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
         var obj = { 0: 11, length: 1 };
 
         return Array.prototype.some.call(obj, callbackfn, 5);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

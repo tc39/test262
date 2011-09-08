@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-8-c-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-8-c-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-8-c-1.js;
  * @description: Array.prototype.reduce throws TypeError when Array is empty and initialValue is not present;
- * @precondition: (fnExists(Array.prototype.reduce));
  */
 
-assertTrue((function testcase() { 
+
+function testcase() { 
  
   function callbackfn(prevVal, curVal, idx, obj)
   {
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
     if(e instanceof TypeError)
       return true;  
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

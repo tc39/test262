@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.4-1-s;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.4/15.3.4.4-1-s.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.4/15.3.4.4-1-s.js;
  * @description: Strict Mode - 'this' value is a string which cannot be converted to wrapper objects when the function is called without an array of arguments;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         function fun() {
             return (this instanceof String);
         }
         return !fun.call("");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-27;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-27.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-27.js;
  * @description: Object.defineProperties - 'P' doesn't exist in 'O', test [[Value]] of 'P' is set as undefined value if absent in data descriptor 'desc' (8.12.9 step 4.a.i);
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         Object.defineProperties(obj, {
@@ -40,5 +39,5 @@ assertTrue((function testcase() {
             desc.hasOwnProperty("writable") && desc.writable === true &&
             desc.hasOwnProperty("configurable") && desc.configurable === false &&
             desc.hasOwnProperty("enumerable") && desc.enumerable === false;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

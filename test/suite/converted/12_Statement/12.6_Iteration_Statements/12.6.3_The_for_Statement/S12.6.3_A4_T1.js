@@ -2,11 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * : "in"-expression is not allowed as a ExpressionNoIn in "for (ExpressionNoIn; FirstExpression; SecondExpression) Statement" IterationStatement;
+ * "in"-expression is not allowed as a ExpressionNoIn in "for (ExpressionNoIn; FirstExpression; SecondExpression) Statement" IterationStatement
  *
- * @id: S12.6.3_A4_T1;
  * @section: 12.6.3;
- * @description: : Checking if execution of "for (a in arr;1;){}" fails;;
+ * @path: 12_Statement/12.6_Iteration_Statements/12.6.3_The_for_Statement/S12.6.3_A4_T1.js;
+ * @description: Checking if execution of "for (a in arr;1;){}" fails;
  * @negative;
  */
 

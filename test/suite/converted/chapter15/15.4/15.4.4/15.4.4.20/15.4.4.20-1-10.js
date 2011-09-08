@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-1-10;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-1-10.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-1-10.js;
  * @description: Array.prototype.filter applied to the Math object;
- * @precondition: (fnExists(Array.prototype.filter));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(val, idx, obj) {
             return '[object Math]' === Object.prototype.toString.call(obj);
         }
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
             delete Math[0];
             delete Math.length;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -21,13 +21,12 @@
 /**
  * 15.3.4.5 step 2 specifies that a TypeError must be thrown if the Target is not callable.
  *
- * @id: 15.3.4.5-2-1;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-2-1.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-2-1.js;
  * @description: Function.prototype.bind throws TypeError if the Target is not callable (but an instance of Function);
- * @precondition: (fnExists(Function.prototype.bind));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   foo.prototype = Function.prototype;
   // dummy function
   function foo() {}
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
       return true;
     }
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

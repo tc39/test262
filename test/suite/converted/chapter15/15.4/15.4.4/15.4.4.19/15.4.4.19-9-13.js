@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-9-13;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-9-13.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-9-13.js;
  * @description: Array.prototype.map - if there are no side effects of the functions, O is unmodified;
- * @precondition: (fnExists(Array.prototype.map));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var called = 0;
 
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
         return 1 === arr[0] && 2 === arr[1] && 3 === arr[2] && 4 === arr[3] && 4 === called;
 
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

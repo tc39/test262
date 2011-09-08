@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.5.4.20-1-8;
- * @path: TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-1-8.js;
+ * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-1-8.js;
  * @description: String.prototype.trim works for a primitive string (value is '    abc') ;
- * @precondition: (fnExists(String.prototype.trim));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var strObj = String("    abc");
         return "abc" === strObj.trim() && strObj.toString() === "    abc";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

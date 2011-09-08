@@ -7,8 +7,8 @@
  * significant digits by replacing each significant digit after the 20th
  * with a 0 digit or the number value
  *
- * @id: S9.3.1_A32;
  * @section: 9.3.1;
+ * @path: 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A32.js;
  * @description: Use various long numbers, for example, 1234567890.1234567890;
  */
 

@@ -4,8 +4,8 @@
 /**
  * Embedded "if/else" constructions are allowed
  *
- * @id: S12.5_A12_T1;
  * @section: 12.5;
+ * @path: 12_Statement/12.5_The_if_Statement/S12.5_A12_T1.js;
  * @description: Using embedded "if/else" into "if/else" constructions;
  */
 

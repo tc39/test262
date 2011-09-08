@@ -19,15 +19,15 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.1.1-9-s;
- * @path: TestCases/chapter10/10.1/10.1.1/10.1.1-9-s.js;
+ * @path: chapter10/10.1/10.1.1/10.1.1-9-s.js;
  * @description: Strict Mode - Use Strict Directive Prologue is ''Use strict';' in which the first character is uppercase;
  * @strict_only;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "Use strict";
         var public = 1;
         return public === 1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-9-c-iii-1-5;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-iii-1-5.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-iii-1-5.js;
  * @description: Array.prototype.filter - values of 'to' are passed in acending numeric order;
- * @precondition: (fnExists(Array.prototype.filter));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arr = [0, 1, 2, 3, 4];
         var lastToIdx = 0;
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
         var newArr = arr.filter(callbackfn);
 
         return newArr.length === 5 && called === 5;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

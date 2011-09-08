@@ -4,8 +4,8 @@
 /**
  * Objects as arguments are passed by reference
  *
- * @id: S13.2.1_A4_T4;
  * @section: 13.2.1;
+ * @path: 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.1_A4_T4.js;
  * @description: Adding new number property to a function argument within the function body,
  * where array element "arguments[0]" is an object defined with "var __obj={}";
  */

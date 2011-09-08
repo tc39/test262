@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-3-127;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-127.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-127.js;
  * @description: Object.defineProperty - 'value' property in 'Attributes' is not present  (8.10.5 step 5);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = { };
 
         var attr = {
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         Object.defineProperty(obj, "property", attr);
 
         return obj.hasOwnProperty("property") && typeof (obj.property) === "undefined";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

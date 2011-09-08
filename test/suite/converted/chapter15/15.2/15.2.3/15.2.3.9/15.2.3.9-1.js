@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.9-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-1.js;
  * @description: Object.freeze throws TypeError if type of first param is not Object;
- * @precondition: (fnExists(Object.freeze));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             Object.freeze(0);
             return false;
         } catch (e) {
             return e instanceof TypeError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

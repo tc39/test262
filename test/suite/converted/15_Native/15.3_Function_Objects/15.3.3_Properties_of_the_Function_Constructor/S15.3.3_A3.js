@@ -4,8 +4,8 @@
 /**
  * Function constructor has length property whose value is 1
  *
- * @id: S15.3.3_A3;
  * @section: 15.3.3, 15.3.4;
+ * @path: 15_Native/15.3_Function_Objects/15.3.3_Properties_of_the_Function_Constructor/S15.3.3_A3.js;
  * @description: Checking Function.length property;
  */
 

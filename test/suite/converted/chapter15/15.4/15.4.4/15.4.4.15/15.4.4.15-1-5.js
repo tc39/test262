@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-1-5;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-1-5.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-1-5.js;
  * @description: Array.prototype.lastIndexOf applied to number primitive;
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         try {
                 Number.prototype[1] = isNaN;
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
                 delete Number.prototype[1];
                 delete Number.prototype.length;
             }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -4,8 +4,8 @@
 /**
  * Single line comment can contain FORM FEED (U+000C)
  *
- * @id: S7.2_A3.3_T1;
  * @section: 7.2, 7.4;
+ * @path: 07_Lexical_Conventions/7.2_White_Space/S7.2_A3.3_T1.js;
  * @description: Use FORM FEED(\u000C);
  */
 

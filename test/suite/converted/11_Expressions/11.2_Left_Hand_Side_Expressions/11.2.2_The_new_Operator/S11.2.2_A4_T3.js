@@ -4,8 +4,8 @@
 /**
  * If NewExpression or MemberExpression does not implement internal [[Construct]] method, throw TypeError
  *
- * @id: S11.2.2_A4_T3;
  * @section: 11.2.2;
+ * @path: 11_Expressions/11.2_Left_Hand_Side_Expressions/11.2.2_The_new_Operator/S11.2.2_A4_T3.js;
  * @description: Checking String object case;
  */
 

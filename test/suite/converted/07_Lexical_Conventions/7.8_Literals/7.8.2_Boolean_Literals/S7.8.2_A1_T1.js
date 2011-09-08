@@ -4,8 +4,8 @@
 /**
  * Literal :: BooleanLiteral
  *
- * @id: S7.8.2_A1_T1;
  * @section: 7.8.2;
+ * @path: 07_Lexical_Conventions/7.8_Literals/7.8.2_Boolean_Literals/S7.8.2_A1_T1.js;
  * @description: BooleanLiteral :: true;
  */
 

@@ -19,15 +19,14 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.13-2-22;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.13/15.2.3.13-2-22.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.13/15.2.3.13-2-22.js;
  * @description: Object.isExtensible returns true if 'O' is extensible;
- * @precondition: (fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
         return Object.isExtensible(obj);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

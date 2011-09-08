@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-7-5;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-7-5.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-7-5.js;
  * @description: Array.prototype.indexOf returns correct index when 'fromIndex' is 1;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue(([1, 2, 3].indexOf(2, 1) === 1));
 
+assertTrue([1, 2, 3].indexOf(2, 1) === 1);

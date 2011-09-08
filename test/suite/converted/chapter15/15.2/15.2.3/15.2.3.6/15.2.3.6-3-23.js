@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-3-23;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-23.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-23.js;
  * @description: Object.defineProperty - 'enumerable' property in 'Attributes' is an inherited data property (8.10.5 step 3.a);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         var accessed = false;
 
@@ -47,5 +46,5 @@ assertTrue((function testcase() {
             }
         }
         return accessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

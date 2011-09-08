@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-544;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-544.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-544.js;
  * @description: ES5 Attributes - fail to update [[Set]] attribute of accessor property ([[Get]] is a Function, [[Set]] is a Function, [[Enumerable]] is true, [[Configurable]] is false) to different value;
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         var getFunc = function () {
@@ -57,5 +56,5 @@ assertTrue((function testcase() {
 
             return desc1.set === setFunc && desc2.set === setFunc && e instanceof TypeError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

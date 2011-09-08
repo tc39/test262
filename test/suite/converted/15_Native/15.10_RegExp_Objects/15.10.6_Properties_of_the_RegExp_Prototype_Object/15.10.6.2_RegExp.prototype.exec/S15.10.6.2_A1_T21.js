@@ -5,8 +5,8 @@
  * RegExp.prototype.exec(string) Performs a regular expression match of ToString(string) against the regular expression and
  * returns an Array object containing the results of the match, or null if the string did not match
  *
- * @id: S15.10.6.2_A1_T21;
  * @section: 15.10.6.2;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.6_Properties_of_the_RegExp_Prototype_Object/15.10.6.2_RegExp.prototype.exec/S15.10.6.2_A1_T21.js;
  * @description: String is function(){}() and RegExp is /[a-z]n/;
  */
 

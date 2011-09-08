@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.12-1-2;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-1-2.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-1-2.js;
  * @description: Object.isFrozen - TypeError is thrown when the first param 'O' is null;
- * @precondition: (fnExists(Object.isFrozen));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             Object.isFrozen(null);
         } catch (e) {
             return (e instanceof TypeError);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

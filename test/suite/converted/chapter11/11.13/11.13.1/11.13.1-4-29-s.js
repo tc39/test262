@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 11.13.1-4-29-s;
- * @path: TestCases/chapter11/11.13/11.13.1/11.13.1-4-29-s.js;
+ * @path: chapter11/11.13/11.13.1/11.13.1-4-29-s.js;
  * @description: Strict Mode - SyntaxError is thrown if the identifier 'arguments' appears as the LeftHandSideExpression of simple assignment(=) under strict mode;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         var blah = arguments;
         try {
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof SyntaxError && blah === arguments;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -4,8 +4,8 @@
 /**
  * Single and Multi line comments are used together
  *
- * @id: S7.4_A4_T1;
  * @section: 7.4;
+ * @path: 07_Lexical_Conventions/7.4_Comments/S7.4_A4_T1.js;
  * @description: Try use 2 close comment tags;
  * @negative;
  */

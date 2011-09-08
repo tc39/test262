@@ -4,8 +4,8 @@
 /**
  * The RegExp instance global property has the attribute DontDelete
  *
- * @id: S15.10.7.2_A9;
  * @section: 15.10.7.2;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.7_Properties_of_RegExp_Instances/15.10.7.2_global/S15.10.7.2_A9.js;
  * @description: Checking if deleting the global property fails;
  */
 

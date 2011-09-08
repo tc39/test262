@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-35;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-35.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-35.js;
  * @description: Object.defineProperty - 'O' is a String object which implements its own [[GetOwnProperty]] method to access the 'name' property (8.12.9 step 1);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var str = new String("abc");
 
         Object.defineProperty(str, "foo", {
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof TypeError && str.foo === 12;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

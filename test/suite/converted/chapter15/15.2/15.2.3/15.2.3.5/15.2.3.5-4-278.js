@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-278;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-278.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-278.js;
  * @description: Object.create - 'set' property of one property in 'Properties' is an inherited accessor property without a get function (8.10.5 step 8.a);
- * @precondition: (fnExists(Object.create) && fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var proto = {};
         Object.defineProperty(proto, "set", {
             set: function () { }
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
         var desc = Object.getOwnPropertyDescriptor(newObj, "prop");
 
         return newObj.hasOwnProperty("prop") && typeof desc.set === "undefined";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

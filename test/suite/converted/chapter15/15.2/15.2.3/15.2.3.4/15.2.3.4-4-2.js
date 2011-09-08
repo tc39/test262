@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.4-4-2;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-4-2.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-4-2.js;
  * @description: Object.getOwnPropertyNames returns array of property names (Object);
- * @precondition: (fnExists(Object.getOwnPropertyNames));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var result = Object.getOwnPropertyNames(Object);
   var expResult = ["getPrototypeOf", "getOwnPropertyDescriptor", "getOwnPropertyNames", "create", "defineProperty", "defineProperties", "seal", "freeze", "preventExtensions", "isSealed", "isFrozen", "isExtensible", "keys", "prototype", "length"];
   var found;
 
   return arrayContains(result, expResult);
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

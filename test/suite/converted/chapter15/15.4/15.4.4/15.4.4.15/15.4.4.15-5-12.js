@@ -19,15 +19,14 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-5-12;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-5-12.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-5-12.js;
  * @description: Array.prototype.lastIndexOf - value of 'fromIndex' is a number (value is Infinity);
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arr = [];
         arr[Math.pow(2, 32) - 2] = null; // length is the max value of Uint type
         return arr.lastIndexOf(null, Infinity) === (Math.pow(2, 32) - 2);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

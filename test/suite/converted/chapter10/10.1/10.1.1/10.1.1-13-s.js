@@ -19,14 +19,14 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.1.1-13-s;
- * @path: TestCases/chapter10/10.1/10.1.1/10.1.1-13-s.js;
+ * @path: chapter10/10.1/10.1.1/10.1.1-13-s.js;
  * @description: Strict Mode - Eval code is strict eval code with a Use Strict Directive at the end of the block;
  * @strict_only;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         eval("var public = 1; var anotherVariableNotReserveWord = 2; 'use strict';");
         return public === 1 && anotherVariableNotReserveWord === 2;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

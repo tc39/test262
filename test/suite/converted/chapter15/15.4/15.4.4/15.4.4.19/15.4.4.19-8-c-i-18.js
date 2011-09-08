@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-8-c-i-18;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-c-i-18.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-c-i-18.js;
  * @description: Array.prototype.map - element to be retrieved is own accessor property without a get function on an Array;
- * @precondition: (fnExists(Array.prototype.map) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         function callbackfn(val, idx, obj) {
             if (idx === 1) {
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
         var testResult = arr.map(callbackfn);
 
         return testResult[1] === true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

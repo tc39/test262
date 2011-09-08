@@ -4,8 +4,8 @@
 /**
  * Check If Statement for automatic semicolon insertion
  *
- * @id: S7.9_A11_T4;
  * @section: 7.9, 12.5;
+ * @path: 07_Lexical_Conventions/7.9_Automatic_Semicolon_Insertion/S7.9_A11_T4.js;
  * @description: Checking if execution of "if (false) x = 1 else x = -1" fails;
  * @negative;
  */

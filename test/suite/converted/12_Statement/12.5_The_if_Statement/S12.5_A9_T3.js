@@ -4,8 +4,8 @@
 /**
  * Function declaration within an "if" statement is not allowed
  *
- * @id: S12.5_A9_T3;
  * @section: 12.5;
+ * @path: 12_Statement/12.5_The_if_Statement/S12.5_A9_T3.js;
  * @description: Declaring function within an "if" statement that is declared within the function declaration;
  * @negative;
  */

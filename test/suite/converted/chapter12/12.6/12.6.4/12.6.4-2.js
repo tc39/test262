@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.6.4-2;
- * @path: TestCases/chapter12/12.6/12.6.4/12.6.4-2.js;
+ * @path: chapter12/12.6/12.6.4/12.6.4-2.js;
  * @description: The for-in Statement - the values of [[Enumerable]] attributes are not considered when determining if a property of a prototype object is shadowed by a previous object on the prototype chain;
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         var proto = {};
@@ -64,5 +63,5 @@ assertTrue((function testcase() {
             }
         }
         return !accessedProp1 && accessedProp2 && child.prop1 === "overridedValue1" && child.prop2 === "overridedValue2";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

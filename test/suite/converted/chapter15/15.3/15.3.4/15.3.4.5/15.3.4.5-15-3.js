@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5-15-3;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-15-3.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-15-3.js;
  * @description: Function.prototype.bind - The [[Writable]] attribute of length property in F set as false;
- * @precondition: (fnExists(Function.prototype.bind));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var canWritable = false;
         var hasProperty = false;
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         obj.length = 100;
         canWritable = (obj.length === 100);
         return hasProperty && !canWritable;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

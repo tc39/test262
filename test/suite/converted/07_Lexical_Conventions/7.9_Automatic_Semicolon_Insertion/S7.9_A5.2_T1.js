@@ -4,8 +4,8 @@
 /**
  * Check Prefix Increment Operator for automatic semicolon insertion
  *
- * @id: S7.9_A5.2_T1;
  * @section: 7.9, 12.4, 11.13.1;
+ * @path: 07_Lexical_Conventions/7.9_Automatic_Semicolon_Insertion/S7.9_A5.2_T1.js;
  * @description: Try use Variable1 \n ++Variable2 construction;
  */
 

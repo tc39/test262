@@ -7,9 +7,9 @@
  * referenced in a replace string,
  * or returned as part of an array from the regular expression matching function
  *
- * @id: S15.10.2.8_A3_T25;
  * @section: 15.10.2.8;
- * @description: : Execute /(A)?(A.*)/.exec("zxcasd;fl\\\  ^AaaAAaaaf;lrlrzs") and check results;;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.8_Atom/S15.10.2.8_A3_T25.js;
+ * @description: Execute /(A)?(A.*)/.exec("zxcasd;fl\\\  ^AaaAAaaaf;lrlrzs") and check results;
  */
 
 __string = "zxcasd;fl\\\  ^AaaAAaaaf;lrlrzs";

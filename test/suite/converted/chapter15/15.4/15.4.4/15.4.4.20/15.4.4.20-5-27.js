@@ -19,16 +19,15 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-5-27;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-5-27.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-5-27.js;
  * @description: Array.prototype.filter - Array.isArray(arg) returns true when arg is the returned array;
- * @precondition: (fnExists(Array.prototype.filter) && fnExists(Array.isArray));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var newArr = [11].filter(function () { });
 
         return Array.isArray(newArr);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

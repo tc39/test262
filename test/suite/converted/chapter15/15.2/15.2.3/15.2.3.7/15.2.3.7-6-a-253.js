@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-253;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-253.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-253.js;
  * @description: Object.defineProperties - 'O' is an Array, 'P' is an array index named property that already exists on 'O' is data property and 'desc' is data descriptor, test updating multiple attribute values of 'P'  (15.4.5.1 step 4.c);
- * @precondition: (fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arr = [12];
 
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
         } catch (ex) {
             return false;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

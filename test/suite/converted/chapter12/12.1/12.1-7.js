@@ -19,17 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.1-7;
- * @path: TestCases/chapter12/12.1/12.1-7.js;
+ * @path: chapter12/12.1/12.1-7.js;
  * @description: 12.1 - block '{ StatementListopt };' is not allowed: do-while;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             eval("do{};while()");
             return false;
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

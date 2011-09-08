@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-71;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-71.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-71.js;
  * @description: Object.defineProperty - both desc.value and name.value are Ojbects which refer to the same Object (8.12.9 step 6);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
 
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
 
         Object.defineProperty(obj, "foo", { value: obj1 });
         return dataPropertyAttributesAreCorrect(obj, "foo", obj1, false, false, false);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

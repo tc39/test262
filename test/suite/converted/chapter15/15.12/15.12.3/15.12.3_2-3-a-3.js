@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.12.3_2-3-a-3;
- * @path: TestCases/chapter15/15.12/15.12.3/15.12.3_2-3-a-3.js;
+ * @path: chapter15/15.12/15.12.3/15.12.3_2-3-a-3.js;
  * @description: JSON.stringify converts Boolean wrapper objects returned from replacer functions to literal numbers.;
- * @precondition: (JSON && fnExists(JSON.stringify));
  */
 
-assertTrue((JSON.stringify([42], function(k,v) {return v===42? new Boolean(false):v}) === '[false]'));
 
+assertTrue(JSON.stringify([42], function(k,v) {return v===42? new Boolean(false):v}) === '[false]');

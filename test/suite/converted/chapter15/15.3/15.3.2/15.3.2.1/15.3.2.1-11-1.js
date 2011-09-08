@@ -19,14 +19,14 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.2.1-11-1;
- * @path: TestCases/chapter15/15.3/15.3.2/15.3.2.1/15.3.2.1-11-1.js;
+ * @path: chapter15/15.3/15.3.2/15.3.2.1/15.3.2.1-11-1.js;
  * @description: Duplicate separate parameter name in Function constructor allowed if body not strict;
  */
 
-assertTrue((function testcase()
+
+function testcase()
 {   
     Function('a','a','return;');
     return true;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

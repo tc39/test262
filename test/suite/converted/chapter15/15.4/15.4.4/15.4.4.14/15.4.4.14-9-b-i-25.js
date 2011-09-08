@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-9-b-i-25;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-i-25.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-i-25.js;
  * @description: Array.prototype.indexOf applied to Arguments object which implements its own property get method (number of arguments is less than number of parameters);
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var func = function (a, b) {
             return 0 === Array.prototype.indexOf.call(arguments, arguments[0]) &&
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
         };
 
         return func(true);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -32,17 +32,16 @@
  * This default applies to JSON.parse, and it must exist as a function
  * taking 2 parameters.
  *
- * @id: 15.12.2-0-1;
- * @path: TestCases/chapter15/15.12/15.12.2/15.12.2-0-1.js;
+ * @path: chapter15/15.12/15.12.2/15.12.2-0-1.js;
  * @description: JSON.parse must exist as a function;
- * @precondition: (JSON !== undefined);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var f = JSON.parse;
 
   if (typeof(f) === "function") {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.16-3-17;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-17.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-17.js;
  * @description: Array.prototype.every - 'length' is a string containing a number with leading zeros;
- * @precondition: (fnExists(Array.prototype.every));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn1(val, idx, obj) {
             return val > 10;
         }
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
 
         return Array.prototype.every.call(obj, callbackfn1) &&
             !Array.prototype.every.call(obj, callbackfn2);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

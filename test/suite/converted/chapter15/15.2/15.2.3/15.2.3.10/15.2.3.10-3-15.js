@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.10-3-15;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-15.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-15.js;
  * @description: Object.preventExtensions - named properties cannot be added into a String object;
- * @precondition: (fnExists(Object.preventExtensions) && fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var strObj = new String("bbq");
         var preCheck = Object.isExtensible(strObj);
         Object.preventExtensions(strObj);
 
         strObj.exName = 2;
         return preCheck && !strObj.hasOwnProperty("exName");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

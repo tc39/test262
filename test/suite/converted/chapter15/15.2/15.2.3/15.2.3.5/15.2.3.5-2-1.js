@@ -22,13 +22,12 @@
  * create sets the [[Prototype]] of the created object to first parameter.
  * This can be checked using isPrototypeOf, or getPrototypeOf.
  *
- * @id: 15.2.3.5-2-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-2-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-2-1.js;
  * @description: Object.create creates new Object;
- * @precondition: (fnExists(Object.create) && fnExists(Object.getPrototypeOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
     function base() {}
     var b = new base();
     var prop = new Object();
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
     if (typeof d === 'object') {
       return true;
     }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

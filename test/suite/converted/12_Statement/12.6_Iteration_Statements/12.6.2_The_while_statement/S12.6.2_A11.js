@@ -4,8 +4,8 @@
 /**
  * "{}" Block within a "while" Expression is evaluated to true
  *
- * @id: S12.6.2_A11;
  * @section: 12.6.2;
+ * @path: 12_Statement/12.6_Iteration_Statements/12.6.2_The_while_statement/S12.6.2_A11.js;
  * @description: Checking if execution of "while({}){}" passes;
  */
 

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-413;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-413.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-413.js;
  * @description: ES5 Attributes - Successfully add a property to an object when the object's prototype has a property with the same name and [[Writable]] set to true (Object.create);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var appointment = {};
 
         Object.defineProperty(appointment, "startTime", {
@@ -62,5 +61,5 @@ assertTrue((function testcase() {
         return hasOwnProperty && teamMeeting.name === "Team Meeting" &&
             teamMeeting.startTime === dateObj &&
             teamMeeting.conferenceCall === "4255551212";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.10-2-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-2-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-2-1.js;
  * @description: Object.preventExtensions - repeated calls to preventExtensions have no side effects;
- * @precondition: (fnExists(Object.preventExtensions) && fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         var testResult1 = true;
         var testResult2 = true;
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
 
         return preCheck && !testResult1 && !testResult2;
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

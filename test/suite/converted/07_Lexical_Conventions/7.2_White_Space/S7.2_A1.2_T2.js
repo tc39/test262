@@ -4,8 +4,8 @@
 /**
  * VERTICAL TAB (U+000B) between any two tokens is allowed
  *
- * @id: S7.2_A1.2_T2;
  * @section: 7.2, 7.5;
+ * @path: 07_Lexical_Conventions/7.2_White_Space/S7.2_A1.2_T2.js;
  * @description: Insert real VERTICAL TAB between tokens of var x=1;
  */
 

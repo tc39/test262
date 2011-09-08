@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.17-7-b-6;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-b-6.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-b-6.js;
  * @description: Array.prototype.some - properties can be added to prototype after current position are visited on an Array-like object;
- * @precondition: (fnExists(Array.prototype.some) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(val, idx, obj) {
             if (idx === 1 && val === 6.99) {
                 return true;
@@ -53,5 +52,5 @@ assertTrue((function testcase() {
         } finally {
             delete Object.prototype[1];
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

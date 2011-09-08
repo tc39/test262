@@ -4,8 +4,8 @@
 /**
  * The call method performs a function call using the [[Call]] property of the object. If the object does not have a [[Call]] property, a TypeError exception is thrown
  *
- * @id: S15.3.4.4_A1_T2;
  * @section: 15.3.4.4;
+ * @path: 15_Native/15.3_Function_Objects/15.3.4_Properties_of_the_Function_Prototype_Object/15.3.4.4_Function.prototype.call/S15.3.4.4_A1_T2.js;
  * @description: Calling "call" method of the object that does not have a [[Call]] property.
  * Prototype of the object is Function.prototype;
  */

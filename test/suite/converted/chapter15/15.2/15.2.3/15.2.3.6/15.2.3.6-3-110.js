@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-3-110;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-110.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-110.js;
  * @description: Object.defineProperty - 'configurable' property in 'Attributes' is a non-empty string (8.10.5 step 4.b);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "property", { configurable: "       " });
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         var afterDeleted = obj.hasOwnProperty("property");
 
         return beforeDeleted === true && afterDeleted === false;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

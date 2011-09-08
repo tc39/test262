@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-8-7;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-7.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-7.js;
  * @description: Array.prototype.lastIndexOf must return correct index (self reference);
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var a = new Array(0,1,2,3);  
   a[2] = a;
   if (a.lastIndexOf(a) === 2 &&  
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
   {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

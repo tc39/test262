@@ -25,18 +25,12 @@
  *   4. If previous is not undefined then throw a SyntaxError exception if any of the following conditions are true
  *     d.	IsAccessorDescriptor(previous) is true and IsAccessorDescriptor(propId.descriptor) is true and either both previous and propId.descriptor have [[Get]] fields or both previous and propId.descriptor have [[Set]] fields
  *
- * @id: 11.1.5_4-4-d-4;
- * @path: TestCases/chapter11/11.1/11.1.5/11.1.5_4-4-d-4.js;
+ * @path: chapter11/11.1/11.1.5/11.1.5_4-4-d-4.js;
  * @description: Object literal - SyntaxError for duplicate property name (set,get,set);
- * @precondition: (function () {
- *    //accessor properties in object literals must be allowed
- *   try {eval("({set foo(x) {}, get foo(){}});");}
- *   catch(e) {return false}
- *   return true;
- * }).call(this);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   try
   {
     eval("({set foo(arg){}, get foo(){}, set foo(arg1){}});");
@@ -46,5 +40,5 @@ assertTrue((function testcase() {
   {
     return e instanceof SyntaxError;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -19,16 +19,15 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.7.3-2;
- * @path: TestCases/chapter15/15.7/15.7.3/15.7.3-2.js;
+ * @path: chapter15/15.7/15.7.3/15.7.3-2.js;
  * @description: Number constructor - [[Prototype]] is the Function prototype object (using getPrototypeOf);
- * @precondition: (fnExists(Object.getPrototypeOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var p = Object.getPrototypeOf(Number);
   if (p === Function.prototype) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

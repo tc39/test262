@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.12.1.1-g2-1;
- * @path: TestCases/chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g2-1.js;
+ * @path: chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g2-1.js;
  * @description: JSONStrings can be written using double quotes;
- * @precondition: (JSON && fnExists(JSON.parse));
  */
 
-assertTrue((JSON.parse('"abc"')==="abc"));
 
+assertTrue(JSON.parse('"abc"')==="abc");

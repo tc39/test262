@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-1-4;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-1-4.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-1-4.js;
  * @description: Object.create throws TypeError if 'O' is a number primitive;
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         try {
             Object.create(2);
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return (e instanceof TypeError);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

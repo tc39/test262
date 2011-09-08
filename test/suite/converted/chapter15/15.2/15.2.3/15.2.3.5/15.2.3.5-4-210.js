@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-210;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-210.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-210.js;
  * @description: Object.create - 'writable' property of one property in 'Properties' is -0 (8.10.5 step 6.b);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var newObj = Object.create({}, {
             prop: {
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         newObj.prop = 121;
 
         return hasProperty && typeof newObj.prop === "undefined";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

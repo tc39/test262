@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.4-4-48;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-4-48.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-4-48.js;
  * @description: Object.getOwnPropertyNames - own accessor property of Array object 'O' is pushed into the returned array.;
- * @precondition: (fnExists(Object.getOwnPropertyNames) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arr = [0, 1, 2];
 
         Object.defineProperty(arr, "ownProperty", {
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
         }
 
         return false;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

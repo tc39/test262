@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-34;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-34.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-34.js;
  * @description: Object.create - 'Properties' is a Date object that uses Object's [[Get]] method to access own enumerable property (15.2.3.7 step 5.a);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var props = new Date();
         props.prop = {
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
         };
         var newObj = Object.create({}, props);
         return newObj.hasOwnProperty("prop");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

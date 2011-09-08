@@ -19,14 +19,14 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.12-9-a-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.12/15.4.4.12-9-a-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.12/15.4.4.12-9-a-1.js;
  * @description: Array.prototype.splice - 'from' is the result of ToString(actualStart+k) in an Array;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arrObj = [1, 2, 3];
         var newArrObj = arrObj.splice(-2, 1);
         return newArrObj.length === 1 && newArrObj[0] === 2;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

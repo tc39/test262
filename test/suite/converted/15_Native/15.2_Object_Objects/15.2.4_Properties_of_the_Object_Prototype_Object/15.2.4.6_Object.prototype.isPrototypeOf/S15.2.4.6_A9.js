@@ -4,8 +4,8 @@
 /**
  * The Object.prototype.isPrototypeOf.length property has the attribute DontDelete
  *
- * @id: S15.2.4.6_A9;
  * @section: 15.2.4.6;
+ * @path: 15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/15.2.4.6_Object.prototype.isPrototypeOf/S15.2.4.6_A9.js;
  * @description: Checking deleting the Object.prototype.isPrototypeOf.length property fails;
  */
 

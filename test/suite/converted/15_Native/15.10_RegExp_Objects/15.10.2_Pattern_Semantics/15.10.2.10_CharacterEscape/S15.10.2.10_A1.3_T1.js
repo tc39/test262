@@ -5,8 +5,8 @@
  * The production CharacterEscape :: v evaluates by returning
  * the character \u000B
  *
- * @id: S15.10.2.10_A1.3_T1;
  * @section: 15.10.2.10;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.10_CharacterEscape/S15.10.2.10_A1.3_T1.js;
  * @description: Use \v in RegExp and \u000B in tested string;
  */
 

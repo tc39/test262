@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-8-c-i-2;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-c-i-2.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-c-i-2.js;
  * @description: Array.prototype.map - element to be retrieved is own data property on an Array;
- * @precondition: (fnExists(Array.prototype.map));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var kValue = {};
 
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
         var newArr = arr.map(callbackfn);
 
         return newArr[0] === true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

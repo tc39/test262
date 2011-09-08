@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.3.2-1-5;
- * @path: TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-5.js;
+ * @path: chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-5.js;
  * @description: Array.isArray applied to string primitive;
- * @precondition: (fnExists(Array.isArray));
  */
 
-assertTrue((!Array.isArray("abc")));
 
+assertTrue(!Array.isArray("abc"));

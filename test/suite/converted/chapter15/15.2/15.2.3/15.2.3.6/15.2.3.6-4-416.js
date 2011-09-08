@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-416;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-416.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-416.js;
  * @description: ES5 Attributes - Inherited properties whose [[Enumerable]] attribute is set to false is non-enumerable (Object.create);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var appointment = {};
 
         Object.defineProperty(appointment, "startTime", {
@@ -71,5 +70,5 @@ assertTrue((function testcase() {
             !teamMeeting.hasOwnProperty("conferenceCall");
 
         return hasOwnProperty && !verifyTimeProp && !verifyNameProp && !verifyCallProp;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

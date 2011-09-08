@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-40;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-40.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-40.js;
  * @description: Object.create - ensure that if an exception is thrown it occurs in the correct order relative to prior and subsequent side-effects (15.2.3.7 step 5.a);
- * @precondition: (fnExists(Object.create) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var newObj = {};
         var props = {};
@@ -56,5 +55,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return (e instanceof RangeError) && !newObj.hasOwnProperty("prop1") && i === 2;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-8-4;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-4.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-4.js;
  * @description: Array.prototype.map doesn't visit deleted elements when Array.length is decreased;
- * @precondition: (fnExists(Array.prototype.map));
  */
 
-assertTrue((function testcase() { 
+
+function testcase() { 
  
   var callCnt = 0;
   function callbackfn(val, idx, obj)
@@ -40,5 +39,5 @@ assertTrue((function testcase() {
   if(resArr.length === 5  && callCnt === 2 && resArr[2] === undefined)
     return true;  
   
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

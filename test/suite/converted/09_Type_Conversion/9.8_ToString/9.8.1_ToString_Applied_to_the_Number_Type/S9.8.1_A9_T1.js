@@ -7,8 +7,8 @@
  * sign '-' according to whether n-1 is positive or negative, followed by the
  * decimal representation of the integer abs(n-1) (with no leading zeros)
  *
- * @id: S9.8.1_A9_T1;
  * @section: 9.8.1;
+ * @path: 09_Type_Conversion/9.8_ToString/9.8.1_ToString_Applied_to_the_Number_Type/S9.8.1_A9_T1.js;
  * @description: Various big numbers convert to String by explicit transformation;
  */
 

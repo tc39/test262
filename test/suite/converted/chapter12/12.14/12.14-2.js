@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.14-2;
- * @path: TestCases/chapter12/12.14/12.14-2.js;
+ * @path: chapter12/12.14/12.14-2.js;
  * @description: catch doesn't change declaration scope - var initializer in catch with same name as catch parameter changes parameter;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   function capturedFoo() {return foo};
   foo = "prior to throw";
   try {
@@ -35,5 +35,5 @@ assertTrue((function testcase() {
     return capturedFoo() !== "initializer in catch";
   }
   
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -8,8 +8,8 @@
  * If PROTO_VAL is not an object, sets the [[Prototype]] property of native ECMAScript object just created
  *  to the original Object prototype object as described in 15.2.3.1
  *
- * @id: S13.2.2_A3_T2;
  * @section: 13.2.2, 15.2.3.1;
+ * @path: 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A3_T2.js;
  * @description: Declaring a function with "var __FACTORY = function()";
  */
 

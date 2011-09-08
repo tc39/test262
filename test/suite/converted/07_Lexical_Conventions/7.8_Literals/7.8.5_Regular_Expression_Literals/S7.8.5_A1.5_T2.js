@@ -4,8 +4,8 @@
 /**
  * RegularExpressionFirstChar :: BackslashSequence :: \LineTerminator is incorrect
  *
- * @id: S7.8.5_A1.5_T2;
  * @section: 7.8.5;
+ * @path: 07_Lexical_Conventions/7.8_Literals/7.8.5_Regular_Expression_Literals/S7.8.5_A1.5_T2.js;
  * @description: Line Feed, with eval;
  */
 

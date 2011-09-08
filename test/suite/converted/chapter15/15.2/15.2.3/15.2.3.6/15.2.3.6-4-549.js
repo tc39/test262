@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-549;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-549.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-549.js;
  * @description: ES5 Attributes - [[Set]] attribute of accessor property ([[Get]] is a Function, [[Set]] is a Function, [[Enumerable]] is false, [[Configurable]] is true) is the expected function;
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         var getFunc = function () {
@@ -49,5 +48,5 @@ assertTrue((function testcase() {
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
         return propertyDefineCorrect && desc.set === setFunc && verifySetFunc === "overrideData";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

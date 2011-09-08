@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.9.5.43-0-7;
- * @path: TestCases/chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-7.js;
+ * @path: chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-7.js;
  * @description: Date.prototype.toISOString - TypeError is thrown when this is any primitive values;
- * @precondition: (fnExists(Date.prototype.toISOString));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         try {
             Date.prototype.toISOString.call(15);
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
         } catch (ex) {
             return ex instanceof TypeError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

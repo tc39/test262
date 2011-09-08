@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.2.1-10-s;
- * @path: TestCases/chapter12/12.2/12.2.1/12.2.1-10-s.js;
+ * @path: chapter12/12.2/12.2.1/12.2.1-10-s.js;
  * @description: Strict Mode: an indirect eval assigning into 'eval' does not throw;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   'use strict';
   var s = eval;
   s('eval = 42;');
   return true;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.10-1-4;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-1-4.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-1-4.js;
  * @description: Object.preventExtensions throws TypeError if 'O' is a string primitive value;
- * @precondition: (fnExists(Object.preventExtensions));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             Object.preventExtensions("abc");
         } catch (e) {
             return (e instanceof TypeError);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

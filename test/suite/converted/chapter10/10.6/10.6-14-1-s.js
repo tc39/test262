@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.6-14-1-s;
- * @path: TestCases/chapter10/10.6/10.6-14-1-s.js;
+ * @path: chapter10/10.6/10.6-14-1-s.js;
  * @description: Strict Mode - 'callee' exists and 'caller' exists under strict mode;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         var argObj = function () {
             return arguments;
         } ();
         return argObj.hasOwnProperty("callee") && argObj.hasOwnProperty("caller");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

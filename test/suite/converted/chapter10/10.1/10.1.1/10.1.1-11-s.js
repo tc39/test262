@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.1.1-11-s;
- * @path: TestCases/chapter10/10.1/10.1.1/10.1.1-11-s.js;
+ * @path: chapter10/10.1/10.1.1/10.1.1-11-s.js;
  * @description: Strict Mode - Eval code is strict code with a Use Strict Directive at the beginning of the block;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             eval("'use strict'; var public = 1; var anotherVariableNotReserveWord = 2;");
 
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
             return e instanceof SyntaxError && typeof public === "undefined" &&
                 typeof anotherVariableNotReserveWord === "undefined";
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

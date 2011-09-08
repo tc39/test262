@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.10.1-14-s;
- * @path: TestCases/chapter12/12.10/12.10.1/12.10.1-14-s.js;
+ * @path: chapter12/12.10/12.10.1/12.10.1-14-s.js;
  * @description: Strict Mode - SyntaxError is thrown when the getter of a literal object utilizes WithStatement;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
 
         try {
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

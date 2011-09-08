@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-5-a-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-a-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-a-1.js;
  * @description: Object.defineProperties - 'P' is own data property that overrides enumerable inherited data property of 'Properties' is defined in 'O' ;
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
 
@@ -52,5 +51,5 @@ assertTrue((function testcase() {
         Object.defineProperties(obj, child);
 
         return obj.hasOwnProperty("prop") && obj.prop === 12;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

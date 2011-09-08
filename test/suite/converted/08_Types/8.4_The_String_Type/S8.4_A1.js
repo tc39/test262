@@ -4,8 +4,8 @@
 /**
  * Any variable that has been assigned with string literal has the type string
  *
- * @id: S8.4_A1;
  * @section: 8.4, 7.8.4;
+ * @path: 08_Types/8.4_The_String_Type/S8.4_A1.js;
  * @description: Check type of variable that has been assigned with string literal;
  */
 

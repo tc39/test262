@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-9-11;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-11.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-11.js;
  * @description: Array.prototype.indexOf - the length of iteration isn't changed by adding elements to the array during iteration;
- * @precondition: (fnExists(Array.prototype.indexOf) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arr = [20];
 
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         });
 
         return arr.indexOf(1) === -1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

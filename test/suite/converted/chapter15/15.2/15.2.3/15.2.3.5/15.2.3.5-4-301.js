@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-301;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-301.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-301.js;
  * @description: Object.create - TypeError is thrown if both 'set' property and 'value' property of one property in 'Properties' are present (8.10.5 step 9.a);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         try {
             Object.create({}, {
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return (e instanceof TypeError);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

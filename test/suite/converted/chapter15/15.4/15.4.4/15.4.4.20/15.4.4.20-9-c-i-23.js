@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-9-c-i-23;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-i-23.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-i-23.js;
  * @description: Array.prototype.filter - This object is the global object which contains index property;
- * @precondition: (fnExists(Array.prototype.filter));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         function callbackfn(val, idx, obj) {
             return idx === 0 && val === 11;
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
             delete fnGlobalObject()[0];
             fnGlobalObject().length = oldLen;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

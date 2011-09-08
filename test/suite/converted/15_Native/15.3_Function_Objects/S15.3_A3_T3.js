@@ -5,8 +5,8 @@
  * Since when call is used for Function constructor themself new function instance creates
  * and then first argument(thisArg) should be ignored
  *
- * @id: S15.3_A3_T3;
  * @section: 15.3, 10.2.3;
+ * @path: 15_Native/15.3_Function_Objects/S15.3_A3_T3.js;
  * @description: First argument is this, and this don`t have needed variable;
  */
 

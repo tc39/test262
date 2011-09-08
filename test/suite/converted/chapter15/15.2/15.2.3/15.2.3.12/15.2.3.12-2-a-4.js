@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.12-2-a-4;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-a-4.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-a-4.js;
  * @description: Object.isFrozen - 'P' is own accessor property;
- * @precondition: (fnExists(Object.isFrozen) && fnExists(Object.defineProperty) && fnExists(Object.preventExtensions));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
         Object.defineProperty(obj, "foo", {
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
 
         Object.preventExtensions(obj);
         return !Object.isFrozen(obj);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

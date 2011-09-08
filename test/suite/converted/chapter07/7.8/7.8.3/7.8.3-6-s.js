@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 7.8.3-6-s;
- * @path: TestCases/chapter07/7.8/7.8.3/7.8.3-6-s.js;
+ * @path: chapter07/7.8/7.8.3/7.8.3-6-s.js;
  * @description: Strict Mode - octal extension (000) is forbidden in strict mode;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         try {
             eval("var _7_8_3_6 = 000;");
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof SyntaxError && typeof _7_8_3_6 === "undefined";
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

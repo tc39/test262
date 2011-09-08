@@ -5,8 +5,8 @@
  * The splice function is intentionally generic.
  * It does not require that its this value be an Array object
  *
- * @id: S15.4.4.12_A2_T3;
  * @section: 15.4.4.12;
+ * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.12_Array_prototype_splice/S15.4.4.12_A2_T3.js;
  * @description: If start is positive, use min(start, length).
  * If deleteCount is negative, use 0;
  */

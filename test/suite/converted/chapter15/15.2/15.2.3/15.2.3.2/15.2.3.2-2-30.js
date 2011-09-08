@@ -19,15 +19,14 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.2-2-30;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-2-30.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-2-30.js;
  * @description: Object.getPrototypeOf returns the [[Prototype]] of its parameter (the global object);
- * @precondition: (fnExists(Object.getPrototypeOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var proto = Object.getPrototypeOf(fnGlobalObject());
 
         return proto.isPrototypeOf(fnGlobalObject()) === true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

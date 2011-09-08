@@ -5,8 +5,8 @@
  * If Type(x) is String and Type(y) is Number,
  * return the result of comparison ToNumber(x) == y
  *
- * @id: S11.9.1_A5.3;
  * @section: 11.9.1, 11.9.3;
+ * @path: 11_Expressions/11.9_Equality_Operators/11.9.1_The_Equals_Operator/S11.9.1_A5.3.js;
  * @description: x is primitive string, y is primitive number;
  */
 

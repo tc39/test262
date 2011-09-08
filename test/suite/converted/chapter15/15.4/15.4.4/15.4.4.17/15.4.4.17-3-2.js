@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.17-3-2;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-3-2.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-3-2.js;
  * @description: Array.prototype.some on an Array-like object if 'length' is 1 (length overridden to true(type conversion));
- * @precondition: (fnExists(Array.prototype.some));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn1(val, idx, obj) {
             return val > 10;
         }
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
 
         return Array.prototype.some.call(obj, callbackfn1) &&
             !Array.prototype.some.call(obj, callbackfn2);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

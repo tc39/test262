@@ -5,8 +5,8 @@
  * No matter how control leaves the embedded 'Statement',
  * the scope chain is always restored to its former state
  *
- * @id: S12.10_A3.10_T2;
  * @section: 12.10;
+ * @path: 12_Statement/12.10_The_with_Statement/S12.10_A3.10_T2.js;
  * @description: Using iteration statement within "with" statement, leading completion by exception;
  * @strict_only;
  * @strict_mode_negative;

@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.6-14-b-1-s;
- * @path: TestCases/chapter10/10.6/10.6-14-b-1-s.js;
+ * @path: chapter10/10.6/10.6-14-b-1-s.js;
  * @description: Strict Mode - [[Enumerable]] attribute value in 'caller' is false under strict mode;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
 
         var argObj = function () {
@@ -40,5 +39,5 @@ assertTrue((function testcase() {
             }
         }
         return !verifyEnumerable && argObj.hasOwnProperty("caller");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

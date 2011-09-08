@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-292;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-292.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-292.js;
  * @description: Object.defineProperties - 'O' is an Arguments object, 'P' is an array index named accessor property of 'O' but not defined in [[ParameterMap]] of 'O', and 'desc' is accessor descriptor, test updating multiple attribute values of 'P' (10.6 [[DefineOwnProperty]] step 3);
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arg;
 
@@ -56,5 +55,5 @@ assertTrue((function testcase() {
         });
 
         return accessorPropertyAttributesAreCorrect(arg, "0", get_func2, undefined, undefined, false, false);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

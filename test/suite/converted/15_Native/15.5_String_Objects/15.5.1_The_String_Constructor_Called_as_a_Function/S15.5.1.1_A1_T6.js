@@ -4,9 +4,9 @@
 /**
  * When String is called as a function rather than as a constructor, it performs a type conversion
  *
- * @id: S15.5.1.1_A1_T6;
  * @section: 15.5.1.1;
- * @description: : Checking by using eval, Call String(eval());;;
+ * @path: 15_Native/15.5_String_Objects/15.5.1_The_String_Constructor_Called_as_a_Function/S15.5.1.1_A1_T6.js;
+ * @description: Checking by using eval, Call String(eval());;
  */
 
 var __str = String(eval());

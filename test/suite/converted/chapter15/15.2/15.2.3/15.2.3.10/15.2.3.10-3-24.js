@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.10-3-24;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-24.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-24.js;
  * @description: Object.preventExtensions - [[Extensible]]: false on a prototype doesn't prevent adding properties to an instance that inherits from that prototype;
- * @precondition: (fnExists(Object.preventExtensions) && fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var proto = {};
         var preCheck = Object.isExtensible(proto);
         Object.preventExtensions(proto);
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         child.prop = 10;
 
         return preCheck && child.hasOwnProperty("prop");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

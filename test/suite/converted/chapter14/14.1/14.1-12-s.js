@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 14.1-12-s;
- * @path: TestCases/chapter14/14.1/14.1-12-s.js;
+ * @path: chapter14/14.1/14.1-12-s.js;
  * @description: comments may follow 'use strict' directive ;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
   function foo()
   {
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
   }
 
   return foo.call(undefined);
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

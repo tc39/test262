@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-82-17;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-82-17.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-82-17.js;
  * @description: Object.defineProperty - Update [[Enumerable]] and [[Configurable]] attributes of 'name' property to false successfully when [[Enumerable]] and [[Configurable]] attributes of 'name' property are true, the 'desc' is a generic descriptor which contains [[Enumerable]] and [[Configurable]] attributes as false, 'name' property is an index data property (8.12.9 step 8);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
     
         var obj = {};
 
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
         });
 
         return dataPropertyAttributesAreCorrect(obj, "0", 1001, true, false, false);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

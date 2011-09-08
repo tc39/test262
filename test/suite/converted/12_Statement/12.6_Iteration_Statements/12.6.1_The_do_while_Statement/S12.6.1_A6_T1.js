@@ -4,8 +4,8 @@
 /**
  * Expression in "do-while" IterationStatement is bracketed with braces
  *
- * @id: S12.6.1_A6_T1;
  * @section: 12.6.1;
+ * @path: 12_Statement/12.6_Iteration_Statements/12.6.1_The_do_while_Statement/S12.6.1_A6_T1.js;
  * @description: Checking if execution of "do{} while 1" fails;
  * @negative;
  */

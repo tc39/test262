@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-3-143;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-143.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-143.js;
  * @description: Object.defineProperty - 'Attributes' is a Number object that uses Object's [[Get]] method to access the 'value' property  (8.10.5 step 5.a);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = { };
 
         var numObj = new Number(-2);
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         Object.defineProperty(obj, "property", numObj);
 
         return obj.property === "Number";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

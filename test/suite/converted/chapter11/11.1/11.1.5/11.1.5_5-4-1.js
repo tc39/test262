@@ -24,13 +24,12 @@
  *      PropertyAssignment : PropertyName : AssignmentExpression 
  *   4.Let desc be the Property Descriptor{[[Value]]: propValue, [[Writable]]: true, [[Enumerable]]: true, [[Configurable]]: true}
  *
- * @id: 11.1.5_5-4-1;
- * @path: TestCases/chapter11/11.1/11.1.5/11.1.5_5-4-1.js;
+ * @path: chapter11/11.1/11.1.5/11.1.5_5-4-1.js;
  * @description: Object literal - property descriptor for assignment expression;
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
   var o = {foo : 1};
   var desc = Object.getOwnPropertyDescriptor(o,"foo");
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
      desc.enumerable === true &&
      desc.configurable === true)
     return true;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5-20-4;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-20-4.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-20-4.js;
  * @description: Function.prototype.bind - The [[Enumerable]] attribute of 'caller' property in  'F' is false;
- * @precondition: (fnExists(Function.prototype.bind));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var canEnumerable = false;
         var hasProperty = false;
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
             }
         }
         return hasProperty && !canEnumerable;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

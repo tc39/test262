@@ -19,15 +19,14 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-5-20;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-20.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-20.js;
  * @description: Array.prototype.indexOf - value of 'fromIndex' which is a string containing a number with leading zeros;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var targetObj = {};
         return [0, 1, targetObj, 3, 4].indexOf(targetObj, "0003.10") === -1 &&
             [0, 1, 2, targetObj, 4].indexOf(targetObj, "0003.10") === 3;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-9-b-i-8;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-i-8.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-i-8.js;
  * @description: Array.prototype.indexOf - element to be retrieved is inherited data property on an Array-like object;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         try {
             Object.prototype[0] = true;
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
             delete Object.prototype[1];
             delete Object.prototype[2];
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

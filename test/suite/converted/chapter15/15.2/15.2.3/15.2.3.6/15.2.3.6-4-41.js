@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-41;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-41.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-41.js;
  * @description: Object.defineProperty - 'O' is the JSON object that uses Object's [[GetOwnProperty]] method to access the 'name' property (8.12.9 step 1);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         try {
             Object.defineProperty(JSON, "foo", {
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         } finally {
             delete JSON.foo;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

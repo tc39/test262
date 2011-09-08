@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-82-10;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-82-10.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-82-10.js;
  * @description: Object.defineProperty - Update [[Configurable]] attribute of 'name' property to false successfully when [[Enumerable]] and [[Configurable]] attributes of 'name' property are true,  the 'desc' is a generic descriptor which contains [[Enumerable]] attribute as true and [[Configurable]] attribute is false, 'name' property is an accessor property (8.12.9 step 8);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
         obj.verifySetFunction = "data";
@@ -48,5 +47,5 @@ assertTrue((function testcase() {
         });
 
         return accessorPropertyAttributesAreCorrect(obj, "foo", get_func, set_func, "verifySetFunction", true, false);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

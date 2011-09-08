@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-303;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-303.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-303.js;
  * @description: Object.defineProperties - 'O' is an Arguments object, 'P' is generic property, and 'desc' is accessor descriptor, test 'P' is defined in 'O' with all correct attribute values (10.6 [[DefineOwnProperty]] step 4);
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor) && fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arg = (function () {
             return arguments;
         }(1, 2, 3));
@@ -46,5 +45,5 @@ assertTrue((function testcase() {
         });
 
         return accessorPropertyAttributesAreCorrect(arg, "genericProperty", getFun, setFun, "testGetFunction", true, true);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

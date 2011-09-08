@@ -4,8 +4,8 @@
 /**
  * List of words that are not reserved
  *
- * @id: S7.5.1_A2;
  * @section: 7.5.1;
+ * @path: 07_Lexical_Conventions/7.5_Tokens/7.5.1_Reserved_Words/S7.5.1_A2.js;
  * @description: Try assign 1 for not reserved words;
  */
 

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.4-4-b-4;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-4-b-4.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-4-b-4.js;
  * @description: Object.getOwnPropertyNames - elements of the returned array are writable;
- * @precondition: (fnExists(Object.getOwnPropertyNames));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = { "a": "a" };
 
         var result = Object.getOwnPropertyNames(obj);
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
         } catch (ex) {
             return false;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

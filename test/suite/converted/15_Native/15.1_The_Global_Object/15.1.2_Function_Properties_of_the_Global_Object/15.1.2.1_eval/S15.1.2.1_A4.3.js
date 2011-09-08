@@ -4,8 +4,8 @@
 /**
  * The length property of eval has the attribute ReadOnly
  *
- * @id: S15.1.2.1_A4.3;
  * @section: 15.1.2.1;
+ * @path: 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.1_eval/S15.1.2.1_A4.3.js;
  * @description: Checking if varying the length property fails;
  * @strict_only;
  * @strict_mode_negative;

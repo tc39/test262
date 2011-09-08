@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.12.3_2-2-b-i-3;
- * @path: TestCases/chapter15/15.12/15.12.3/15.12.3_2-2-b-i-3.js;
+ * @path: chapter15/15.12/15.12.3/15.12.3_2-2-b-i-3.js;
  * @description: JSON.stringify converts Boolean wrapper objects returned from a toJSON call to literal Boolean values.;
- * @precondition: (JSON && fnExists(JSON.stringify));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var obj = {
     prop:42,
     toJSON: function () {return new Boolean(true)}
     };
   return JSON.stringify([obj]) === '[true]';
-  }).call(this));
-
+  }
+assertTrue(testcase.call(this));

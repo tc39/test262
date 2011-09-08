@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.9-2-a-9;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-9.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-9.js;
  * @description: Object.freeze - 'P' is own property of the Function object that uses Object's [[GetOwnProperty]];
- * @precondition: (fnExists(Object.freeze) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var funObj = function () { };
 
         funObj.foo = 10; // default [[Configurable]] attribute value of foo: true
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
 
         delete funObj.foo;
         return funObj.foo === 10 && desc.configurable === false && desc.writable === false;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

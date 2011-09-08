@@ -5,8 +5,8 @@
  * Number instances have no special properties beyond those
  * inherited from the Number prototype object
  *
- * @id: S15.7.5_A1_T06;
  * @section: 15.7.5;
+ * @path: 15_Native/15.7_Number_Objects/15.7.5_Properties_of_Number_Instances/S15.7.5_A1_T06.js;
  * @description: Checking property toExponential;
  */
 

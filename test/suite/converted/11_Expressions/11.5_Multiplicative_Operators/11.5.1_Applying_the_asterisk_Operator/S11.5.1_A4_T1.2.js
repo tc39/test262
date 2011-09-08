@@ -4,8 +4,8 @@
 /**
  * The result of a floating-point multiplication is governed by the rules of IEEE 754 double-precision arithmetics
  *
- * @id: S11.5.1_A4_T1.2;
  * @section: 11.5.1;
+ * @path: 11_Expressions/11.5_Multiplicative_Operators/11.5.1_Applying_the_asterisk_Operator/S11.5.1_A4_T1.2.js;
  * @description: If right operand is NaN, the result is NaN;
  */
 

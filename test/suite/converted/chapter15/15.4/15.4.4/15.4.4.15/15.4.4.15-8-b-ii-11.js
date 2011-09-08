@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-8-b-ii-11;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-ii-11.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-ii-11.js;
  * @description: Array.prototype.lastIndexOf - both array element and search element are Objects, and they refer to the same object;
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj1 = {};
         var obj2 = {};
         var obj3 = obj2;
         return [obj2, obj1].lastIndexOf(obj3) === 0;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

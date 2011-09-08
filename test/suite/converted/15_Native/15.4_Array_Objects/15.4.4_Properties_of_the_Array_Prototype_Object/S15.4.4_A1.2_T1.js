@@ -4,8 +4,8 @@
 /**
  * The [[Class]] property of the Array prototype object is set to "Array"
  *
- * @id: S15.4.4_A1.2_T1;
  * @section: 15.4.4, 15.2.4.2;
+ * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/S15.4.4_A1.2_T1.js;
  * @description: Checking use Object.prototype.toString;
  */
 

@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.12-1-5;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-1-5.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-1-5.js;
  * @description: Object.isFrozen applies to dense array;
- * @precondition: (fnExists(Object.isFrozen) && fnExists(Object.freeze));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = Object.freeze([0, 1, 2]);
         return Object.isFrozen(obj);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

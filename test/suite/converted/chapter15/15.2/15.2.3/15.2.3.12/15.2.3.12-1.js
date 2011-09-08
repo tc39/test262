@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.12-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-1.js;
  * @description: Object.isFrozen throws TypeError if type of first param is not Object;
- * @precondition: (fnExists(Object.isFrozen));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
     try {
       Object.isFrozen(0);
     }
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
         return true;
       }
     }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

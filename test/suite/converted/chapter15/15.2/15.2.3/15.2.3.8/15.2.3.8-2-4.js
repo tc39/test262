@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.8-2-4;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-4.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-4.js;
  * @description: Object.seal - non-enumerable own property of 'O' is sealed;
- * @precondition: (fnExists(Object.seal) && fnExists(Object.defineProperty) && fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "foo", {
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
         var afterDeleted = obj.hasOwnProperty("foo");
 
         return preCheck && beforeDeleted && afterDeleted;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

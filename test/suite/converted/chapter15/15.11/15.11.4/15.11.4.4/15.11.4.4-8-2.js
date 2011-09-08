@@ -19,14 +19,14 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.11.4.4-8-2;
- * @path: TestCases/chapter15/15.11/15.11.4/15.11.4.4/15.11.4.4-8-2.js;
+ * @path: chapter15/15.11/15.11.4/15.11.4.4/15.11.4.4-8-2.js;
  * @description: Error.prototype.toString return empty string when 'name' is empty string and 'msg' is undefined;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var errObj = new Error();
         errObj.name = "";
         return errObj.toString() === "";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

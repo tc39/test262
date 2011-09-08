@@ -4,8 +4,8 @@
 /**
  * Operator x >>> y uses [[Default Value]]
  *
- * @id: S11.7.3_A2.2_T1;
  * @section: 11.7.3, 8.6.2.6;
+ * @path: 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.3_The_Unsigned_Right_Shift_Operator/S11.7.3_A2.2_T1.js;
  * @description: If Type(value) is Object, evaluate ToPrimitive(value, Number);
  */
 

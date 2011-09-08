@@ -4,8 +4,8 @@
 /**
  * If x is NaN, Math.tan(x) is NaN
  *
- * @id: S15.8.2.18_A1;
  * @section: 15.8.2.18;
+ * @path: 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.18_tan/S15.8.2.18_A1.js;
  * @description: Checking if Math.tan(NaN) is NaN;
  */
 

@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.10.1-1-s;
- * @path: TestCases/chapter12/12.10/12.10.1/12.10.1-1-s.js;
+ * @path: chapter12/12.10/12.10.1/12.10.1-1-s.js;
  * @description: with statement in strict mode throws SyntaxError (strict function);
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
   try {
     // wrapping it in eval since this needs to be a syntax error. The
@@ -43,5 +42,5 @@ assertTrue((function testcase() {
   catch (e) {
     return(e instanceof SyntaxError); 
 	}
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

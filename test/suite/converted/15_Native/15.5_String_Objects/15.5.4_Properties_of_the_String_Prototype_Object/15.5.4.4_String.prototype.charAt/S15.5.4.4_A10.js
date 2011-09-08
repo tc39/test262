@@ -4,8 +4,8 @@
 /**
  * The String.prototype.charAt.length property has the attribute ReadOnly
  *
- * @id: S15.5.4.4_A10;
  * @section: 15.5.4.4;
+ * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.4_String.prototype.charAt/S15.5.4.4_A10.js;
  * @description: Checking if varying the String.prototype.charAt.length property fails;
  */
 

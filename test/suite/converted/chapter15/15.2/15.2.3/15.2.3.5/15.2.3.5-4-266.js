@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-266;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-266.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-266.js;
  * @description: Object.create - 'set' property of one property in 'Properties' is present (8.10.5 step 8);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var data = "data";
 
         var newObj = Object.create({}, {
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
         newObj.prop = "overrideData";
 
         return hasProperty && data === "overrideData";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

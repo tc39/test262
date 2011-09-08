@@ -21,13 +21,12 @@
 /**
  * 15.3.4.5 step 2 specifies that a TypeError must be thrown if the Target is not callable.
  *
- * @id: 15.3.4.5-2-7;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-2-7.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-2-7.js;
  * @description: Function.prototype.bind throws TypeError if the Target is not callable (JSON);
- * @precondition: (fnExists(Function.prototype.bind));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   try {
     JSON.bind();
   }
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
       return true;
     }
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

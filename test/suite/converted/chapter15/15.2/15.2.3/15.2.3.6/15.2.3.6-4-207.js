@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-207;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-207.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-207.js;
  * @description: Object.defineProperty - 'O' is an Array, 'name' is an array index named property, 'name' property doesn't exist in 'O' and [[Enumerable]] is absent in accessor descriptor 'desc', test [[Enumerable]] attribute of property 'name' is set to false (15.4.5.1 step 4.c);
- * @precondition: (fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arrObj = [];
 
         var setFunc = function (value) {
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
             configurable: true
         });
         return accessorPropertyAttributesAreCorrect(arrObj, "0", getFunc, setFunc, "setVerifyHelpProp", false, true);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

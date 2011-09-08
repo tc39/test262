@@ -19,15 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-5-33;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-5-33.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-5-33.js;
  * @description: Array.prototype.lastIndexOf - match on the first element, a middle element and the last element when 'fromIndex' is passed;
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue(([0, 1, 2, 3, 4].lastIndexOf(0, 0) === 0 &&
+
+assertTrue([0, 1, 2, 3, 4].lastIndexOf(0, 0) === 0 &&
             [0, 1, 2, 3, 4].lastIndexOf(0, 2) === 0 &&
             [0, 1, 2, 3, 4].lastIndexOf(2, 2) === 2 &&
             [0, 1, 2, 3, 4].lastIndexOf(2, 4) === 2 &&
-            [0, 1, 2, 3, 4].lastIndexOf(4, 4) === 4));
-
+            [0, 1, 2, 3, 4].lastIndexOf(4, 4) === 4);

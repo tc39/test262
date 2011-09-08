@@ -4,8 +4,8 @@
 /**
  * The "false" token can not be used as identifier
  *
- * @id: S7.5.1_A1.3;
  * @section: 7.5.1;
+ * @path: 07_Lexical_Conventions/7.5_Tokens/7.5.1_Reserved_Words/S7.5.1_A1.3.js;
  * @description: Checking if execution of "false=1" fails;
  * @negative;
  */

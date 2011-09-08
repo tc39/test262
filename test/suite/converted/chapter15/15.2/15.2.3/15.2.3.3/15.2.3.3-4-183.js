@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.3-4-183;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-183.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-183.js;
  * @description: Object.getOwnPropertyDescriptor returns undefined for non-existent property (arguments_1) on built-in object (Function);
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var desc = Object.getOwnPropertyDescriptor(Function, "arguments_1");
 
   if (desc === undefined)
     return true;
   else
     return false;  
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

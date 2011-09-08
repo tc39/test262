@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-9-b-ii-9;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-ii-9.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-ii-9.js;
  * @description: Array.prototype.indexOf - both array element and search element are String, and they have exactly the same sequence of characters;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((["", "ab", "bca", "abc"].indexOf("abc") === 3));
 
+assertTrue(["", "ab", "bca", "abc"].indexOf("abc") === 3);

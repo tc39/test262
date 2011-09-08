@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-197;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-197.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-197.js;
  * @description: Object.defineProperties - 'O' is an Array, 'P' is an array index named property, 'P' property doesn't exist in 'O', test [[Writable]] of 'P' property in 'Attributes' is set as false value if [[Writable]] is absent in data descriptor 'desc'  (15.4.5.1 step 4.c);
- * @precondition: (fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arr = [];
         var isOwnProperty = false;
         var canWritable = false;
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
         canWritable = (arr[0] === 12);
 
         return isOwnProperty && !canWritable && arr[0] === 1001;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-8-b-ii-3;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-ii-3.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-ii-3.js;
  * @description: Array.prototype.lastIndexOf - both type of array element and type of search element are Null;
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue(([null].lastIndexOf(null) === 0));
 
+assertTrue([null].lastIndexOf(null) === 0);

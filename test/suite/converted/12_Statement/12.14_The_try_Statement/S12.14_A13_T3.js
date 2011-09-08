@@ -4,8 +4,8 @@
 /**
  * Using "try" with "catch" or "finally" statement with a "return" statement
  *
- * @id: S12.14_A13_T3;
  * @section: 12.14;
+ * @path: 12_Statement/12.14_The_try_Statement/S12.14_A13_T3.js;
  * @description: Using try/catch/finally syntax construction;
  */
 

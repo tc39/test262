@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-531-16;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-531-16.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-531-16.js;
  * @description: ES5 Attributes - Updating an indexed accessor property 'P' using simple assignment, 'O' is an Arguments object (8.12.5 step 5.b);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = (function () {
             return arguments;
         }());
@@ -50,5 +49,5 @@ assertTrue((function testcase() {
         var desc = Object.getOwnPropertyDescriptor(obj, "0");
 
         return propertyDefineCorrect && desc.set === setFunc && obj[0] === "overrideData";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

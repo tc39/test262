@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.18-1-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-1-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-1-1.js;
  * @description: Array.prototype.forEach applied to undefined;
- * @precondition: (fnExists(Array.prototype.forEach));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             Array.prototype.forEach.call(undefined); // TypeError is thrown if value is undefined
             return false;
         } catch (e) {
             return (e instanceof TypeError);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

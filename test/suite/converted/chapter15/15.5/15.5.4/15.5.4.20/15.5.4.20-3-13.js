@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.5.4.20-3-13;
- * @path: TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-3-13.js;
+ * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-3-13.js;
  * @description: String.prototype.trim - 'S' is a string that starts with null character and ends with null character;
- * @precondition: (fnExists(String.prototype.trim));
  */
 
-assertTrue(("\0\u0000abc\0\u0000".trim() === "\0\u0000abc\0\u0000"));
 
+assertTrue("\0\u0000abc\0\u0000".trim() === "\0\u0000abc\0\u0000");

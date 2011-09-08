@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 7.3-8;
- * @path: TestCases/chapter07/7.3/7.3-8.js;
+ * @path: chapter07/7.3/7.3-8.js;
  * @description: 7.3 - ES5 recognizes the character <PS> (\u2029) as terminating regular expression literals;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             eval("var regExp =  /[\u2029]/");
             regExp.test("");
@@ -32,5 +32,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -5,8 +5,8 @@
  * RegularExpressionFirstChar :: BackslashSequence :: \NonTerminator,
  * RegularExpressionChars :: [empty], RegularExpressionFlags :: [empty]
  *
- * @id: S7.8.5_A1.4_T2;
  * @section: 7.8.5, 15.10.1;
+ * @path: 07_Lexical_Conventions/7.8_Literals/7.8.5_Regular_Expression_Literals/S7.8.5_A1.4_T2.js;
  * @description: Complex test with eval, using syntax pattern;
  */
 

@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-6-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-6-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-6-1.js;
  * @description: Array.prototype.indexOf returns -1 if fromIndex is greater than Array length;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var a = [1,2,3];
   if (a.indexOf(1,5) === -1 &&  
      a.indexOf(1,3) === -1  &&
      [ ].indexOf(1,0) === -1  ){
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

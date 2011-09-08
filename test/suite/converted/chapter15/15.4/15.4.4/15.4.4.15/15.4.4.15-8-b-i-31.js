@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-8-b-i-31;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-i-31.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-i-31.js;
  * @description: Array.prototype.lastIndexOf terminates iteration on unhandled exception on an Array-like object;
- * @precondition: (fnExists(Array.prototype.lastIndexOf) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var accessed = false;
         var obj = { length: 3 };
@@ -52,5 +51,5 @@ assertTrue((function testcase() {
             return (e instanceof TypeError) && !accessed;
         }
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

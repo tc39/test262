@@ -22,13 +22,12 @@
  * Let 'x' be the return value from getPrototypeOf when called on d.
  * Then, x.isPrototypeOf(d) must be true.
  *
- * @id: 15.2.3.2-2-2;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-2-2.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-2-2.js;
  * @description: Object.getPrototypeOf returns the [[Prototype]] of its parameter (custom object);
- * @precondition: (fnExists(Object.getPrototypeOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   function base() {}
 
   function derived() {}
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
   if (x.isPrototypeOf(d) === true) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

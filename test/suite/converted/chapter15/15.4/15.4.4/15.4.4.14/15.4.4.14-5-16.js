@@ -19,15 +19,14 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-5-16;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-16.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-16.js;
  * @description: Array.prototype.indexOf - value of 'fromIndex' is a string containing Infinity;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arr = [];
         arr[Math.pow(2, 32) - 2] = true; //length is the max value of Uint type
         return arr.indexOf(true, "Infinity") === -1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

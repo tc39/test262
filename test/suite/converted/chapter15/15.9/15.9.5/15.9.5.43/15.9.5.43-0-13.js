@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.9.5.43-0-13;
- * @path: TestCases/chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-13.js;
+ * @path: chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-13.js;
  * @description: Date.prototype.toISOString - RangeError is thrown when value of date is Date(1970, 0, 100000001, 0, 0, 0, 1), the time zone is UTC(0);
- * @precondition: (fnExists(Date.prototype.toISOString));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var timeZoneMinutes = new Date().getTimezoneOffset() * (-1);
         var date, dateStr;
         try {
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof RangeError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

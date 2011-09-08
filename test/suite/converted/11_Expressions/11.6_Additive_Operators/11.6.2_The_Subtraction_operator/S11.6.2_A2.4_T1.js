@@ -4,8 +4,8 @@
 /**
  * First expression is evaluated first, and then second expression
  *
- * @id: S11.6.2_A2.4_T1;
  * @section: 11.6.2;
+ * @path: 11_Expressions/11.6_Additive_Operators/11.6.2_The_Subtraction_operator/S11.6.2_A2.4_T1.js;
  * @description: Checking with "=";
  */
 

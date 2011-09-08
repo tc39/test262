@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.12-2-a-11;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-a-11.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-a-11.js;
  * @description: Object.isFrozen - 'O' is the Arguments object;
- * @precondition: (fnExists(Object.isFrozen) && fnExists(Object.preventExtensions));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arg;
 
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
 
         Object.preventExtensions(arg);
         return !Object.isFrozen(arg);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

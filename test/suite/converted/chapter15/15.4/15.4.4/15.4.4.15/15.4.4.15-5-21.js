@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-5-21;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-5-21.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-5-21.js;
  * @description: Array.prototype.lastIndexOf - value of 'fromIndex' which is an Object, and has an own toString method;
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         // objects inherit the default valueOf() method from Object
         // that simply returns itself. Since the default valueOf() method
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
 
         return [0, true, targetObj, 3, false].lastIndexOf(targetObj, fromIndex) === 2 &&
         [0, true, 3, targetObj, false].lastIndexOf(targetObj, fromIndex) === -1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

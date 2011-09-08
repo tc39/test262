@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-5-b-171;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-171.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-171.js;
  * @description: Object.defineProperties - value of 'writable' property of 'descObj' is NaN (8.10.5 step 6.b);
- * @precondition: (fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         Object.defineProperties(obj, {
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         obj.property = "isWritable";
 
         return obj.hasOwnProperty("property") && typeof (obj.property) === "undefined";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

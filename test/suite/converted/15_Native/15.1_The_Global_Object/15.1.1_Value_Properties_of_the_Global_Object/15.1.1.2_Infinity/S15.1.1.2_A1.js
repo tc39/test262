@@ -4,8 +4,8 @@
 /**
  * The initial value of Infinity is Number.POSITIVE_INFINITY
  *
- * @id: S15.1.1.2_A1;
  * @section: 15.1.1.2, 11.4.3, 15.1.2.4, 15.1.2.5;
+ * @path: 15_Native/15.1_The_Global_Object/15.1.1_Value_Properties_of_the_Global_Object/15.1.1.2_Infinity/S15.1.1.2_A1.js;
  * @description: Use typeof, isNaN, isFinite;
  */
 

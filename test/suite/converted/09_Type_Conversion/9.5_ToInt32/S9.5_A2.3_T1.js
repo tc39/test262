@@ -4,8 +4,8 @@
 /**
  * If result is greater than or equal to 2^31, return result -2^32
  *
- * @id: S9.5_A2.3_T1;
  * @section: 9.5, 11.7.1;
+ * @path: 09_Type_Conversion/9.5_ToInt32/S9.5_A2.3_T1.js;
  * @description: Use operator <<0;
  */
 

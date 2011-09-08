@@ -2,13 +2,13 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * : String.prototype.split (separator, limit) returns an Array object into which substrings of the result of converting this object to a string have
+ * String.prototype.split (separator, limit) returns an Array object into which substrings of the result of converting this object to a string have
  * been stored. The substrings are determined by searching from left to right for occurrences of
  * separator; these occurrences are not part of any substring in the returned array, but serve to divide up
- * the string value. The value of separator may be a string of any length or it may be a RegExp object;
+ * the string value. The value of separator may be a string of any length or it may be a RegExp object
  *
- * @id: S15.5.4.14_A2_T13;
  * @section: 15.5.4.14;
+ * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.14_String.prototype.split/S15.5.4.14_A2_T13.js;
  * @description: Call split("-4"), instance is String("one-1 two-2 four-4");
  */
 

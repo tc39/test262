@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-23;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-23.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-23.js;
  * @description: Object.create - own enumerable data property that overrides an enumerable inherited accessor property in 'Properties' is defined in 'obj' (15.2.3.7 step 5.a);
- * @precondition: (fnExists(Object.create) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var proto = {};
         Object.defineProperty(proto, "prop", {
@@ -48,5 +47,5 @@ assertTrue((function testcase() {
         var newObj = Object.create({}, child);
 
         return newObj.hasOwnProperty("prop") && newObj.prop === 12;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

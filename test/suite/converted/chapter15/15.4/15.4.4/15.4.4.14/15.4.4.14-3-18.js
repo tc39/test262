@@ -19,16 +19,15 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-3-18;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-3-18.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-3-18.js;
  * @description: Array.prototype.indexOf - value of 'length' is a string that can't convert to a number;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = { 0: true, 100: true, length: "one" };
 
         return Array.prototype.indexOf.call(obj, true) === -1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

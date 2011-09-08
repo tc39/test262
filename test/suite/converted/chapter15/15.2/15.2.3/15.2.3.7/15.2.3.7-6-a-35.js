@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-35;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-35.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-35.js;
  * @description: Object.defineProperties - 'P' doesn't exist in 'O', test [[Enumerable]] of 'P' is set as false value if absent in accessor descriptor 'desc' (8.12.9 step 4.b.i);
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor) && fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         var getFun = function () {
             return 10;
@@ -43,5 +42,5 @@ assertTrue((function testcase() {
         });
         return accessorPropertyAttributesAreCorrect(obj, "prop", getFun, setFun, "setVerifyHelpProp", false, true);
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

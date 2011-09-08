@@ -4,8 +4,8 @@
 /**
  * The production x &= y is the same as x = x & y
  *
- * @id: S11.13.2_A4.9_T2.3;
  * @section: 11.13.2, 11.10.1;
+ * @path: 11_Expressions/11.13_Assignment_Operators/11.13.2_Compound_Assignment/S11.13.2_A4.9_T2.3.js;
  * @description: Type(x) is different from Type(y) and both types vary between Number (primitive or object) and Null;
  */
 

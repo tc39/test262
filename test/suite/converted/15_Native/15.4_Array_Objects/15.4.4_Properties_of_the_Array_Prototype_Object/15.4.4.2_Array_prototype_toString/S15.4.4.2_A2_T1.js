@@ -5,8 +5,8 @@
  * The toString function is not generic.
  * it throws a TypeError exception if its this value is not an Array object
  *
- * @id: S15.4.4.2_A2_T1;
  * @section: 15.4.4.2;
+ * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.2_Array_prototype_toString/S15.4.4.2_A2_T1.js;
  * @description: {}.toString = Array.prototype.toString;
  */
 

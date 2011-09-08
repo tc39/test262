@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.9-2-a-12;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-12.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-12.js;
  * @description: Object.freeze - 'P' is own index property of a String object that implements its own [[GetOwnProperty]];
- * @precondition: (fnExists(Object.freeze) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         // default [[Configurable]] attribute value of "0": true
         var strObj = new String("abc");
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
 
         delete strObj[0];
         return strObj[0] === "a" && desc.configurable === false && desc.writable === false;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

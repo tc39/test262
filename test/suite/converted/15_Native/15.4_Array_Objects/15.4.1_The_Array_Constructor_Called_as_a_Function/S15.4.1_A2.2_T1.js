@@ -2,14 +2,14 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * : The 0 property of the newly constructed object is set to item0
+ * The 0 property of the newly constructed object is set to item0
  * (if supplied); the 1 property of the newly constructed object is set to item1
  * (if supplied); and, in general, for as many arguments as there are, the k property
  * of the newly constructed object is set to argument k, where the first argument is
- * considered to be argument number 0;
+ * considered to be argument number 0
  *
- * @id: S15.4.1_A2.2_T1;
  * @section: 15.4.1;
+ * @path: 15_Native/15.4_Array_Objects/15.4.1_The_Array_Constructor_Called_as_a_Function/S15.4.1_A2.2_T1.js;
  * @description: Checking correct work this algorithm;
  */
 

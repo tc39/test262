@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 13.2-15-1;
- * @path: TestCases/chapter13/13.2/13.2-15-1.js;
+ * @path: chapter13/13.2/13.2-15-1.js;
  * @description: Function Object has length as its own property and does not invoke the setter defined on Function.prototype.length (Step 15);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
             var fun = function (x, y) { };
 
             var verifyValue = false;
@@ -47,5 +46,5 @@ assertTrue((function testcase() {
             verifyConfigurable = fun.hasOwnProperty("length");
 
             return verifyValue && !verifyWritable && !verifyEnumerable && verifyConfigurable;
-        }).call(this));
-
+        }
+assertTrue(testcase.call(this));

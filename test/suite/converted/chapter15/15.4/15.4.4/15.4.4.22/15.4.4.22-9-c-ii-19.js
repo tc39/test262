@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.22-9-c-ii-19;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-c-ii-19.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-c-ii-19.js;
  * @description: Array.prototype.reduceRight - value of 'accumulator' used for first iteration is the value of max index property which is not undefined when 'initialValue' is not present on an Array;
- * @precondition: (fnExists(Array.prototype.reduceRight));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arr = [11, 12, 13];
         var testResult = false;
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
         arr.reduceRight(callbackfn);
 
         return testResult;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

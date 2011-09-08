@@ -19,13 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.5-7-b-2-s;
- * @path: TestCases/chapter10/10.5/10.5-7-b-2-s.js;
+ * @path: chapter10/10.5/10.5-7-b-2-s.js;
  * @description: Strict Mode - arguments object index assignment is disallowed;
  * @strict_only;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
 
         function _10_5_7_b_2_fun() {
@@ -34,5 +34,5 @@ assertTrue((function testcase() {
         };
 
         return _10_5_7_b_2_fun(30);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,10 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.11-2;
- * @path: TestCases/chapter15/15.11/15.11-2.js;
+ * @path: chapter15/15.11/15.11-2.js;
  * @description: Error - RegExpError has been removed from IE9 standard mode;
  */
 
-assertTrue((typeof RegExpError === "undefined"));
 
+assertTrue(typeof RegExpError === "undefined");

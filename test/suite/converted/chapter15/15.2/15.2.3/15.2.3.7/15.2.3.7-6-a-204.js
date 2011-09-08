@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-204;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-204.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-204.js;
  * @description: Object.defineProperties - 'O' is an Array, 'P' is an array index named property, 'P' property doesn't exist in 'O', test [[Configurable]] of 'P' property in 'Attributes' is set as false value if [[Configurable]] is absent in accessor descriptor 'desc'  (15.4.5.1 step 4.c);
- * @precondition: (fnExists(Object.defineProperties) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arr = [];
         var beforeDeleted = false;
         var afterDeleted = false;
@@ -50,5 +49,5 @@ assertTrue((function testcase() {
         arr[0] = 101;
 
         return beforeDeleted && afterDeleted && arr[0] === 101 && arr.verifySetter === 101;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

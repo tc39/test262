@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-290;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-290.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-290.js;
  * @description: Object.defineProperty - 'O' is an Arguments object, 'name' is own property of 'O', and is deleted afterwards, and 'desc' is accessor descriptor, test 'name' is redefined in 'O' with all correct attribute values (10.6 [[DefineOwnProperty]] step 3);
- * @precondition: (fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects() && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue(((function () { 
+
+assertTrue((function () { 
             delete arguments[0];
             function getFunc() {
                 return 10;
@@ -40,5 +39,4 @@ assertTrue(((function () {
                 configurable: true
             });
             return accessorPropertyAttributesAreCorrect(arguments, "0", getFunc, setFunc, "setVerifyHelpProp", true, true);
-        }(0, 1, 2))));
-
+        }(0, 1, 2)));

@@ -23,13 +23,12 @@
  * of O to define the property. Step 7a of [[DefineOwnProperty]] rejects if
  * current.[[Configurable]] is false and desc.[[Configurable]] is true.
  *
- * @id: 15.2.3.6-4-7;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-7.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-7.js;
  * @description: Object.defineProperty throws TypeError when changing [[Configurable]] from false to true;
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o = {};
 
   // create a data valued property; all other attributes default to false.
@@ -51,5 +50,5 @@ assertTrue((function testcase() {
       }
     }
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

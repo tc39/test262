@@ -4,8 +4,8 @@
 /**
  * String.prototype.toUpperCase()
  *
- * @id: S15.5.4.18_A1_T4;
  * @section: 15.5.4.18;
+ * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.18_String.prototype.toUpperCase/S15.5.4.18_A1_T4.js;
  * @description: Call toUpperCase() function without arguments of string and from empty string;
  */
 

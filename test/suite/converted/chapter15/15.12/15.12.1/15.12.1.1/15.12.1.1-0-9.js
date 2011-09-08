@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.12.1.1-0-9;
- * @path: TestCases/chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-0-9.js;
+ * @path: chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-0-9.js;
  * @description: Whitespace characters can appear before/after any JSONtoken;
- * @precondition: (JSON && fnExists(JSON.parse) && JSON.parse('1234')===1234);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
     JSON.parse('\t\r \n{\t\r \n'+
                    '"property"\t\r \n:\t\r \n{\t\r \n}\t\r \n,\t\r \n' +
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
                         '[\t\r \ntrue\t\r \n,\t\r \nnull\t\r \n,123.456\t\r \n]'+
                      '\t\r \n}\t\r \n');  // should JOSN parse without error
     return true;
-  }).call(this));
-
+  }
+assertTrue(testcase.call(this));

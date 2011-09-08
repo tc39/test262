@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.18-7-8;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-7-8.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-7-8.js;
  * @description: Array.prototype.forEach - no observable effects occur if len is 0;
- * @precondition: (fnExists(Array.prototype.forEach));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var accessed = false;
 
         function callbackfn(val, idx, obj) {
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
 
         Array.prototype.forEach.call(obj, callbackfn);
         return !accessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

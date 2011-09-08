@@ -5,8 +5,8 @@
  * When the isPrototypeOf method is called with argument V and when O and
  * V refer to the same object or to objects joined to each other, return true
  *
- * @id: S15.2.4.6_A1;
  * @section: 15.2.4.6;
+ * @path: 15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/15.2.4.6_Object.prototype.isPrototypeOf/S15.2.4.6_A1.js;
  * @description: Creating two objects with the same prototype;
  */
 

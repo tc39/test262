@@ -4,8 +4,8 @@
 /**
  * TryStatement: "try Block Catch" or "try Block Finally" or "try Block Catch Finally"
  *
- * @id: S12.14_A16_T10;
  * @section: 12.14;
+ * @path: 12_Statement/12.14_The_try_Statement/S12.14_A16_T10.js;
  * @description: Catch: "catch (Identifier ) Block";
  * @negative;
  */

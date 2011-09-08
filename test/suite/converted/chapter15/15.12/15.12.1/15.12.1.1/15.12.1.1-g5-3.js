@@ -1,10 +1,8 @@
 
 
 /**
- * @id: 15.12.1.1-g5-3;
- * @path: TestCases/chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g5-3.js;
+ * @path: chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g5-3.js;
  * @description: A JSONStringCharacter UnicodeEscape may not include any non=hex characters;
- * @precondition: (JSON && fnExists(JSON.parse)&& '\u0058'==='X' && JSON.parse('"1234"')==="1234");
  */
 
 /// Copyright (c) 2009 Microsoft Corporation 
@@ -25,12 +23,13 @@
 /// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
 /// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 /// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-/// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.assertTrue((function testcase() {
+/// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+function testcase() {
     try {
         JSON.parse('"\\u0X50"') 
        }
      catch (e) {
         return e.name==='SyntaxError'
         }
-  }).call(this));
-
+  }
+assertTrue(testcase.call(this));

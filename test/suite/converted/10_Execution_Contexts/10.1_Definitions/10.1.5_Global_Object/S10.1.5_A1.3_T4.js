@@ -5,8 +5,8 @@
  * Global object has properties such as built-in objects such as
  * Math, String, Date, parseInt, etc
  *
- * @id: S10.1.5_A1.3_T4;
  * @section: 10.1.5, 15.1;
+ * @path: 10_Execution_Contexts/10.1_Definitions/10.1.5_Global_Object/S10.1.5_A1.3_T4.js;
  * @description: Eval execution context - Other Properties;
  */
 

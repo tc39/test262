@@ -19,15 +19,14 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.7.4-1;
- * @path: TestCases/chapter15/15.7/15.7.4/15.7.4-1.js;
+ * @path: chapter15/15.7/15.7.4/15.7.4-1.js;
  * @description: Number prototype object: its [[Class]] must be 'Number';
- * @precondition: (fnExists(Object.getPrototypeOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var numProto = Object.getPrototypeOf(new Number(42));
   var s = Object.prototype.toString.call(numProto );
   return (s === '[object Number]') ;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-254;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-254.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-254.js;
  * @description: Object.defineProperty - 'O' is an Array, 'name' is an array index named property, 'name' is accessor property and 'desc' is accessor descriptor, and the [[Configurable]] attribute value of 'name' is false, test TypeError is not thrown if the [[Set]] field of 'desc' is present, and the [[Set]] field of 'desc' and the [[Set]] attribute value of 'name' are undefined (15.4.5.1 step 4.c);
- * @precondition: (fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arrObj = [];
 
         Object.defineProperty(arrObj, "1", {
@@ -55,5 +54,5 @@ assertTrue((function testcase() {
         verifyConfigurable = arrObj.hasOwnProperty("1");
 
         return hasProperty && verifyGet && verifySet && !verifyEnumerable && verifyConfigurable;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

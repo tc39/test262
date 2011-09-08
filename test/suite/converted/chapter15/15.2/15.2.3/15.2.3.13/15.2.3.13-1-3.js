@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.13-1-3;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.13/15.2.3.13-1-3.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.13/15.2.3.13-1-3.js;
  * @description: Object.isExtensible throws TypeError if 'O' is a boolean;
- * @precondition: (fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         try {
             Object.isExtensible(true);
         } catch (e) {
             return (e instanceof TypeError);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

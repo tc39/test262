@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.12.3-11-26;
- * @path: TestCases/chapter15/15.12/15.12.3/15.12.3-11-26.js;
+ * @path: chapter15/15.12/15.12.3/15.12.3-11-26.js;
  * @description: JSON.stringify - the last element of the concatenation is ']' (The abstract operation JA(value) step 10.b.iii);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arrObj = [];
         arrObj[0] = "a";
         arrObj[1] = "b";
@@ -32,5 +32,5 @@ assertTrue((function testcase() {
 
         var jsonText = JSON.stringify(arrObj, undefined, "").toString();
         return jsonText.substr(jsonText.length - 1, 1) === "]";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

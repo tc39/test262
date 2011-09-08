@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-177;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-177.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-177.js;
  * @description: Object.create - one property in 'Properties' is the global object that uses Object's [[Get]] method to access the 'value' property (8.10.5 step 5.a);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         try {
             fnGlobalObject().value = "GlobalValue";
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         } finally {
             delete fnGlobalObject().value;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

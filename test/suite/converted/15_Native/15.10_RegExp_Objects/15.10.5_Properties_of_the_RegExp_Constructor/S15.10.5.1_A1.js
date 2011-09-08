@@ -4,8 +4,8 @@
 /**
  * The RegExp has property prototype
  *
- * @id: S15.10.5.1_A1;
  * @section: 15.10.5.1;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.5_Properties_of_the_RegExp_Constructor/S15.10.5.1_A1.js;
  * @description: Checking RegExp.prototype property;
  */
 

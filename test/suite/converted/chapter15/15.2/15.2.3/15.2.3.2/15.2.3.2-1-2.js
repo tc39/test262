@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.2-1-2;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-1-2.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-1-2.js;
  * @description: Object.getPrototypeOf throws TypeError if 'O' is null;
- * @precondition: (fnExists(Object.getPrototypeOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             Object.getPrototypeOf(null);
             return false;
         } catch (e) {
             return (e instanceof TypeError);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

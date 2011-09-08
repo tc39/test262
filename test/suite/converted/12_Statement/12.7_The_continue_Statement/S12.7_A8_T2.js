@@ -4,8 +4,8 @@
 /**
  * Appearing of "continue" within a "try/catch" Block yields SyntaxError
  *
- * @id: S12.7_A8_T2;
  * @section: 12.7;
+ * @path: 12_Statement/12.7_The_continue_Statement/S12.7_A8_T2.js;
  * @description: Checking if execution of "continue" within catch Block fails;
  * @negative;
  */

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-8-b-iii-1-33;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-8-b-iii-1-33.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-8-b-iii-1-33.js;
  * @description: Array.prototype.reduce - exception in getter terminates iteration on an Array;
- * @precondition: (fnExists(Array.prototype.reduce) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var accessed = false;
         var testResult = false;
@@ -51,5 +50,5 @@ assertTrue((function testcase() {
         } catch (ex) {
             return (ex instanceof RangeError) && !accessed && !testResult;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

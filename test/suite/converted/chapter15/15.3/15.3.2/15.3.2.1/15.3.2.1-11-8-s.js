@@ -19,17 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.2.1-11-8-s;
- * @path: TestCases/chapter15/15.3/15.3.2/15.3.2.1/15.3.2.1-11-8-s.js;
+ * @path: chapter15/15.3/15.3.2/15.3.2.1/15.3.2.1-11-8-s.js;
  * @description: Strict Mode - SyntaxError is not thrown if a function is created using a Function constructor that has two identical parameters, which are separated by a unique parameter name and there is no explicit 'use strict' in the function constructor's body;
  * @strict_only;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
 
         var foo = new Function("baz", "qux", "baz", "return 0;");
         return true;
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

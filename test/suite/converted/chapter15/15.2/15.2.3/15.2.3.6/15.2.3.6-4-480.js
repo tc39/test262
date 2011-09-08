@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-480;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-480.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-480.js;
  * @description: ES5 Attributes - success to update [[Get]] attribute of accessor property ([[Get]] is undefined, [[Set]] is a Function, [[Enumerable]] is false, [[Configurable]] is true) to different value;
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         var getFunc = function () {
@@ -55,5 +54,5 @@ assertTrue((function testcase() {
         var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
 
         return result1 && result2 && typeof desc1.get === "undefined" && desc2.get === getFunc;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

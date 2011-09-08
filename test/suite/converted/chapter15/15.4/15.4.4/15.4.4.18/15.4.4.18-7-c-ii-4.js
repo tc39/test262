@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.18-7-c-ii-4;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-7-c-ii-4.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-7-c-ii-4.js;
  * @description: Array.prototype.forEach - k values are passed in ascending numeric order;
- * @precondition: (fnExists(Array.prototype.forEach));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arr = [0, 1, 2, 3, 4, 5];
         var lastIdx = 0;
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
 
         arr.forEach(callbackfn);
         return result && arr.length === called;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

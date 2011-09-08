@@ -5,8 +5,8 @@
  * If B = 110xxxxx (n = 2) and string.charAt(k + 4) and
  * string.charAt(k + 5) do not represent hexadecimal digits, throw URIError
  *
- * @id: S15.1.3.2_A1.10_T1;
  * @section: 15.1.3.2;
+ * @path: 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.2_decodeURIComponent/S15.1.3.2_A1.10_T1.js;
  * @description: Complex tests;
  */
 

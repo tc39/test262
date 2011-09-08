@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-51;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-51.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-51.js;
  * @description: Object.defineProperty - desc is data descriptor, test updating all attribute values of 'name' (8.12.9 step 4.a.i);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = { "property": 1 }; // default value of attributes: writable: true, configurable: true, enumerable: true
 
         Object.defineProperty(obj, "property", {
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
         });
 
         return dataPropertyAttributesAreCorrect(obj, "property", 1001, false, false, false);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

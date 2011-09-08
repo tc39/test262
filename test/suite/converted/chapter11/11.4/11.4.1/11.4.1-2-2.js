@@ -19,17 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 11.4.1-2-2;
- * @path: TestCases/chapter11/11.4/11.4.1/11.4.1-2-2.js;
+ * @path: chapter11/11.4/11.4.1/11.4.1-2-2.js;
  * @description: delete operator returns true when deleting returned value from a function;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var bIsFooCalled = false;
   var foo = function(){bIsFooCalled = true;};
 
   var d = delete foo();
   if(d === true && bIsFooCalled === true)
     return true;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

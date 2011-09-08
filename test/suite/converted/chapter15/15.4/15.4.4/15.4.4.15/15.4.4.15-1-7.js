@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-1-7;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-1-7.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-1-7.js;
  * @description: Array.prototype.lastIndexOf applied to string primitive;
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue((Array.prototype.lastIndexOf.call("abc", "c") === 2));
 
+assertTrue(Array.prototype.lastIndexOf.call("abc", "c") === 2);

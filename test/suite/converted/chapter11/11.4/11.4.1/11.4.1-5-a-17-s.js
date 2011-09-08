@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 11.4.1-5-a-17-s;
- * @path: TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-17-s.js;
+ * @path: chapter11/11.4/11.4.1/11.4.1-5-a-17-s.js;
  * @description: Strict Mode - SyntaxError is thrown when deleting a variable of type Arguments;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
        try {
             eval("var argObj = (function (a, b) { delete arguments; }(1, 2));");
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

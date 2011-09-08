@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.9.5.43-0-16;
- * @path: TestCases/chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-16.js;
+ * @path: chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-16.js;
  * @description: Date.prototype.toISOString - when this is a String object that value format is 'YYYY-MM-DDTHH:mm:ss.sssZ' Date.prototype.toISOString throw the TypeError;
- * @precondition: (fnExists(Date.prototype.toISOString));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var date = new String("1970-01-00000:00:00.000Z");
 
         try {
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
         } catch (ex) {
             return ex instanceof TypeError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -4,8 +4,8 @@
 /**
  * Deleting property using "eval" statement containing "with" statement
  *
- * @id: S12.10_A5_T5;
  * @section: 12.10;
+ * @path: 12_Statement/12.10_The_with_Statement/S12.10_A5_T5.js;
  * @description: Deleting array property;
  * @strict_only;
  * @strict_mode_negative;

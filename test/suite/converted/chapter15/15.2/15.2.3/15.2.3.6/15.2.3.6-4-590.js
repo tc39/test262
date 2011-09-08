@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-590;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-590.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-590.js;
  * @description: ES5 Attributes - Inherited property is enumerable (Object.create);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var appointment = {};
 
         var data1 = 1001;
@@ -86,5 +85,5 @@ assertTrue((function testcase() {
             !teamMeeting.hasOwnProperty('conferenceCall');
 
         return hasOwnProperty && verifyTimeProp && verifyNameProp && verifyCallProp;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

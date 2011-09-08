@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-5-23;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-5-23.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-5-23.js;
  * @description: Array.prototype.filter - number primitive can be used as thisArg;
- * @precondition: (fnExists(Array.prototype.filter));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var accessed = false;
 
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         var newArr = [11].filter(callbackfn, 101);
 
         return newArr[0] === 11 && accessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

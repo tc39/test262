@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-243-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-243-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-243-1.js;
  * @description: Object.defineProperty - 'O' is an Array, 'name' is an array index named property,  'name' is accessor property and  assignment to the accessor property, fails to convert accessor property from accessor property to data property (15.4.5.1 step 4.c);
- * @precondition: (fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arrObj = [];
 
@@ -40,5 +39,5 @@ assertTrue((function testcase() {
         arrObj[1] = 4;
 
         return accessorPropertyAttributesAreCorrect(arrObj, "1", getFunc, undefined, undefined, false, true);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

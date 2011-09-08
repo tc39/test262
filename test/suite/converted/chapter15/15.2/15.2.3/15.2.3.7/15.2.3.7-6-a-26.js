@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-26;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-26.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-26.js;
  * @description: Object.defineProperties - 'P' doesn't exist in 'O', test 'P' is defined as data property when 'desc' is generic descriptor (8.12.9 step 4.a);
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         Object.defineProperties(obj, {
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
             desc.hasOwnProperty("configurable") && desc.configurable === true &&
             desc.hasOwnProperty("enumerable") && desc.enumerable === true &&
             !desc.hasOwnProperty("get") && !desc.hasOwnProperty("set");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

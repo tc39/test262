@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.22-9-9;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-9.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-9.js;
  * @description: Array.prototype.reduceRight - modifications to length will change number of iterations;
- * @precondition: (fnExists(Array.prototype.reduceRight) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var called = 0;
         function callbackfn(preVal, val, idx, obj) {
             called++;
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
         arr.reduceRight(callbackfn, "initialValue");
 
         return called === 3;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

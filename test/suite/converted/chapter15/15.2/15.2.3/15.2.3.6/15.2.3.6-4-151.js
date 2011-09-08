@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-151;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-151.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-151.js;
  * @description: Object.defineProperty - 'O' is an Array, 'name' is the length property of 'O', and the [[Value]] field of 'desc' is an Object with an own toString method and an inherited valueOf method (15.4.5.1 step 3.c), test that the inherited valueOf method is used;
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arrObj = [];
         var toStringAccessed = false;
@@ -52,5 +51,5 @@ assertTrue((function testcase() {
         });
         return arrObj.length === 2 && !toStringAccessed && valueOfAccessed;
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

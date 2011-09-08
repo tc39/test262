@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-9-c-i-28;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-i-28.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-i-28.js;
  * @description: Array.prototype.filter - element changed by getter on previous iterations is observed on an Array;
- * @precondition: (fnExists(Array.prototype.filter) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var preIterVisible = false;
         var arr = [];
@@ -55,5 +54,5 @@ assertTrue((function testcase() {
         var newArr = arr.filter(callbackfn);
 
         return newArr.length === 1 && newArr[0] === 9;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

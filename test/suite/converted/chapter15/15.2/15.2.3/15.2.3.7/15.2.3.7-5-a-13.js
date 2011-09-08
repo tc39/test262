@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-5-a-13;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-a-13.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-a-13.js;
  * @description: Object.defineProperties - 'Properties' is a Date object which implements its own [[Get]] method to get enumerable own property;
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
         var props = new Date();
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
         Object.defineProperties(obj, props);
 
         return obj.hasOwnProperty("prop") && obj.prop === 13;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.14-6-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-6-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-6-1.js;
  * @description: Object.keys - the order of elements in returned array is the same with the order of properties in 'O' (dense array);
- * @precondition: (fnExists(Object.keys));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var denseArray = [1, 2, 3];
 
         var tempArray = [];
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
         }
         return true;
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

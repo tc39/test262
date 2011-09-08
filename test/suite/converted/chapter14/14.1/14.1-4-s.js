@@ -19,13 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 14.1-4-s;
- * @path: TestCases/chapter14/14.1/14.1-4-s.js;
+ * @path: chapter14/14.1/14.1-4-s.js;
  * @description: 'use strict' directive - not recognized if contains Line Continuation;
  * @strict_only;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
   function foo()
   {
@@ -35,5 +35,5 @@ ict';
   }
 
   return foo.call(undefined);
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

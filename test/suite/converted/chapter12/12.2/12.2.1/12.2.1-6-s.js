@@ -19,17 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.2.1-6-s;
- * @path: TestCases/chapter12/12.2/12.2.1/12.2.1-6-s.js;
+ * @path: chapter12/12.2/12.2.1/12.2.1-6-s.js;
  * @description: eval - a Function assigning into 'eval' will not throw any error if contained within strict mode and its body does not start with strict mode;
  * @strict_only;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   'use strict';
   
     var f = Function('eval = 42;');
     f();
     return true;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

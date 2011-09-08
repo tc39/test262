@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.8-1;
- * @path: TestCases/chapter12/12.8/12.8-1.js;
+ * @path: chapter12/12.8/12.8-1.js;
  * @description: The break Statement - a break statement without an identifier may have a LineTerminator before the semi-colon;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var sum = 0;
         for (var i = 1; i <= 10; i++) {
             if (i === 6) {
@@ -34,5 +34,5 @@ assertTrue((function testcase() {
             sum += i;
         }
         return sum === 15;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

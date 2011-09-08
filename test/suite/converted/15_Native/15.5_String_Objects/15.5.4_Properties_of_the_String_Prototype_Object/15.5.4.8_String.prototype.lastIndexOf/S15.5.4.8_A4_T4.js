@@ -5,8 +5,8 @@
  * when String.prototype.lastIndexOf(searchString, position) is called first Call ToString, giving it the this value as its argument.
  * Then Call ToString(searchString) and Call ToNumber(position)
  *
- * @id: S15.5.4.8_A4_T4;
  * @section: 15.5.4.8;
+ * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.8_String.prototype.lastIndexOf/S15.5.4.8_A4_T4.js;
  * @description: Override toString and valueOf functions, and they throw exceptions;
  */
 

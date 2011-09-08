@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-111;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-111.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-111.js;
  * @description: Object.defineProperties - each properties are in list order;
- * @precondition: (fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
 
@@ -59,5 +58,5 @@ assertTrue((function testcase() {
         Object.defineProperties(obj, properties);
         return (obj["a"] === 100 && obj["b"] === 20 && obj["c"] === 200);
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

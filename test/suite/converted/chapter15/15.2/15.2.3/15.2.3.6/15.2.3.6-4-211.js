@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-211;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-211.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-211.js;
  * @description: Object.defineProperty - 'O' is an Array, 'name' is an array index named property, 'name' makes no change if every field in 'desc' is absent(name is accessor property) (15.4.5.1 step 4.c);
- * @precondition: (fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arrObj = [];
 
         function getFunc() {
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
 
         Object.defineProperty(arrObj, "0", {});
         return accessorPropertyAttributesAreCorrect(arrObj, "0", getFunc, setFunc, "setVerifyHelpProp", true, true);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

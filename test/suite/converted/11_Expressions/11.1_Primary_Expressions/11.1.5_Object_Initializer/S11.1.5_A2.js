@@ -4,8 +4,8 @@
 /**
  * Evaluate the production ObjectLiteral: { PropertyName : AssignmentExpression }
  *
- * @id: S11.1.5_A2;
  * @section: 11.1.5;
+ * @path: 11_Expressions/11.1_Primary_Expressions/11.1.5_Object_Initializer/S11.1.5_A2.js;
  * @description: Creating property "prop" of various types(boolean, number and etc.);
  */
 

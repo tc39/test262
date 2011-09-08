@@ -4,9 +4,9 @@
 /**
  * FunctionExpression within a new statement is admitted
  *
- * @id: S13.2.2_A16_T1;
  * @section: 13.2.2;
- * @description: : Using "is __obj = new function __func(){this.prop=1;}" as FunctionExpression;;
+ * @path: 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A16_T1.js;
+ * @description: Using "is __obj = new function __func(){this.prop=1;}" as FunctionExpression;
  */
 
 //////////////////////////////////////////////////////////////////////////////

@@ -4,8 +4,8 @@
 /**
  * If x is not a string value, return x
  *
- * @id: S15.1.2.1_A1.1_T2;
  * @section: 15.1.2.1;
+ * @path: 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.1_eval/S15.1.2.1_A1.1_T2.js;
  * @description: Checking all object;
  */
 

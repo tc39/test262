@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-5-a-12;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-a-12.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-a-12.js;
  * @description: Object.defineProperties - 'Properties' is the Math object which implements its own [[Get]] method to get enumerable own property;
- * @precondition: (fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
 
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
         } finally {
             delete Math.prop;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

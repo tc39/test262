@@ -6,8 +6,8 @@
  * consisting of the k digits of the decimal representation of s (in order,
  * with no leading zeroes), followed by n-k occurrences of the character '0'
  *
- * @id: S9.8.1_A6;
  * @section: 9.8.1;
+ * @path: 09_Type_Conversion/9.8_ToString/9.8.1_ToString_Applied_to_the_Number_Type/S9.8.1_A6.js;
  * @description: Various integer numbers convert to String by explicit transformation;
  */
 

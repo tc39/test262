@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.16-7-c-i-27;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-27.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-27.js;
  * @description: Array.prototype.every - This object is the Arguments object which implements its own property get method (number of arguments is greater than number of parameters);
- * @precondition: (fnExists(Array.prototype.every));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var called = 0;
 
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
         };
 
         return func(11, 12, 9) && called === 3;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

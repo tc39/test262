@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-3-194;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-194.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-194.js;
  * @description: Object.defineProperty - 'writable' property in 'Attributes' is a Number object (8.10.5 step 6.b);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "property", { writable: new Number(123) });
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         var afterWrite = (obj.property === "isWritable");
 
         return beforeWrite === true && afterWrite === true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

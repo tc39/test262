@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.5.4.20-2-49;
- * @path: TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-49.js;
+ * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-49.js;
  * @description: String.prototype.trim - 'this' is a RegExp Object that converts to a string;
- * @precondition: (fnExists(String.prototype.trim));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var regObj = new RegExp(/test/);
         return String.prototype.trim.call(regObj) === "/test/";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,15 +19,14 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-5-32;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-32.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-32.js;
  * @description: Array.prototype.indexOf - 'fromIndex' is a negative non-integer, verify truncation occurs in the proper direction;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var targetObj = {};
         return [0, targetObj, 2].indexOf(targetObj, -1.5) === -1 &&
             [0, 1, targetObj].indexOf(targetObj, -1.5) === 2;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

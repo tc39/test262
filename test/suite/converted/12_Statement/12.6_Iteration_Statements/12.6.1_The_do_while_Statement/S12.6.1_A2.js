@@ -4,8 +4,8 @@
 /**
  * While evaluating "do Statement while ( Expression )", Statement is evaluated first and only after it is done Expression is checked
  *
- * @id: S12.6.1_A2;
  * @section: 12.6.1;
+ * @path: 12_Statement/12.6_Iteration_Statements/12.6.1_The_do_while_Statement/S12.6.1_A2.js;
  * @description: Evaluating Statement with error Expression;
  */
 

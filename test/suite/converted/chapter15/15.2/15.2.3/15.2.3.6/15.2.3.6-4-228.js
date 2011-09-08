@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-228;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-228.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-228.js;
  * @description: Object.defineProperty - 'O' is an Array, 'name' is an array index property, the [[Writable]] field of 'desc' and the [[Writable]] attribute value of 'name' are two booleans with same value (15.4.5.1 step 4.c);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arrObj = [];
 
         Object.defineProperty(arrObj, "0", { writable: false });
 
         Object.defineProperty(arrObj, "0", { writable: false });
         return dataPropertyAttributesAreCorrect(arrObj, "0", undefined, false, false, false);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

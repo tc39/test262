@@ -4,8 +4,8 @@
 /**
  * Operator x ? y : z uses GetValue
  *
- * @id: S11.12_A2.1_T4;
  * @section: 11.12, 8.7.1;
+ * @path: 11_Expressions/11.12_Conditional_Operator/S11.12_A2.1_T4.js;
  * @description: If ToBoolean(x) is false and GetBase(z) is null, throw ReferenceError;
  */
 

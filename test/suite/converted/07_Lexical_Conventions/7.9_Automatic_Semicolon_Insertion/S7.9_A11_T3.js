@@ -4,9 +4,9 @@
 /**
  * Check If Statement for automatic semicolon insertion
  *
- * @id: S7.9_A11_T3;
  * @section: 7.9, 12.5;
- * @description: : Use if (false);\n x = 1 and check x;;
+ * @path: 07_Lexical_Conventions/7.9_Automatic_Semicolon_Insertion/S7.9_A11_T3.js;
+ * @description: Use if (false);\n x = 1 and check x;
  */
 
 //CHECK#1

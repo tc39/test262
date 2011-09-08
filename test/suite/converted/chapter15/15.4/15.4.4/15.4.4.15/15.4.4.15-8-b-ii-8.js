@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-8-b-ii-8;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-ii-8.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-ii-8.js;
  * @description: Array.prototype.lastIndexOf - both array element and search element are numbers, and they have same value;
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue(([-1, 0, 1].lastIndexOf(-1) === 0));
 
+assertTrue([-1, 0, 1].lastIndexOf(-1) === 0);

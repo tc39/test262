@@ -24,13 +24,12 @@
  * current.[[Enumerable]] and desc.[[Enumerable]] are the boolean negations
  * of each other.
  *
- * @id: 15.2.3.6-4-9;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-9.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-9.js;
  * @description: Object.defineProperty throws TypeError when changing [[Enumerable]] from true to false on non-configurable data properties;
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o = {};
 
   // create a data valued property with [[Enumerable]] explicitly set to true;
@@ -56,5 +55,5 @@ assertTrue((function testcase() {
       }
     }
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

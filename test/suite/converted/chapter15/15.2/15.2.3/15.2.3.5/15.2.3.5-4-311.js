@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-311;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-311.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-311.js;
  * @description: Object.create - [[Set]] is set as undefined if it is absent in accessor descriptor of one property in 'Properties' (8.12.9 step 4.b);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var newObj = Object.create({}, {
             prop: {
                 get: function () {
@@ -57,5 +56,5 @@ assertTrue((function testcase() {
         verifyConfigurable = !newObj.hasOwnProperty("prop") && hasProperty;
 
         return verifySet && verifyGet && verifyEnumerable && verifyConfigurable;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

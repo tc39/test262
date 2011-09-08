@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.17-3-18;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-3-18.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-3-18.js;
  * @description: Array.prototype.some - value of 'length' is a string that can't convert to a number;
- * @precondition: (fnExists(Array.prototype.some));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var accessed = false;
 
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         var obj = { 0: 11, 1: 21, length: "two" };
 
         return !Array.prototype.some.call(obj, callbackfn) && !accessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

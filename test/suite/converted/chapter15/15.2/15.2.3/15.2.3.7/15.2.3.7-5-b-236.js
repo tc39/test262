@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-5-b-236;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-236.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-236.js;
  * @description: Object.defineProperties - 'set' property of 'descObj' is own accessor property without a get function (8.10.5 step 8.a);
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.getOwnPropertyDescriptor) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var fun = function () {
             return 10;
         };
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
         return obj.hasOwnProperty("prop") && typeof desc.set === "undefined" && obj.prop === 10;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

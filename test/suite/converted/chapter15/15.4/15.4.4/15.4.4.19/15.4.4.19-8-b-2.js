@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-8-b-2;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-b-2.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-b-2.js;
  * @description: Array.prototype.map - added properties in step 2 are visible here;
- * @precondition: (fnExists(Array.prototype.map) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(val, idx, obj) {
             if (idx === 2 && val === "length") {
                 return false;
@@ -46,5 +45,5 @@ assertTrue((function testcase() {
 
         var testResult = Array.prototype.map.call(obj, callbackfn);
         return testResult[2] === false;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,15 +19,14 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.6-6-1;
- * @path: TestCases/chapter10/10.6/10.6-6-1.js;
+ * @path: chapter10/10.6/10.6-6-1.js;
  * @description: 'length property of arguments object exists;
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   
   var desc = Object.getOwnPropertyDescriptor(arguments,"length");
   return desc !== undefined
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

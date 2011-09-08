@@ -4,8 +4,8 @@
 /**
  * The global object does not have a [[Construct]] property
  *
- * @id: S15.1_A1_T1;
  * @section: 15.1;
+ * @path: 15_Native/15.1_The_Global_Object/S15.1_A1_T1.js;
  * @description: It is not possible to use the global object as a constructor
  * with the new operator;
  * @negative;

@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.2.1-11-5-s;
- * @path: TestCases/chapter15/15.3/15.3.2/15.3.2.1/15.3.2.1-11-5-s.js;
+ * @path: chapter15/15.3/15.3.2/15.3.2.1/15.3.2.1-11-5-s.js;
  * @description: Duplicate combined parameter name in Function constructor throws SyntaxError in strict mode;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase()
+
+function testcase()
 {   
   try 
   {
@@ -36,5 +35,5 @@ assertTrue((function testcase()
   catch (e) {
     return(e instanceof SyntaxError);
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -4,8 +4,8 @@
 /**
  * String.prototype.search (regexp)
  *
- * @id: S15.5.4.12_A1_T5;
  * @section: 15.5.4.12;
+ * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.12_String.prototype.search/S15.5.4.12_A1_T5.js;
  * @description: Argument is null, and instance is function call, that return string;
  */
 

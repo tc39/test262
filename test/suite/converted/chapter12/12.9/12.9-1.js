@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.9-1;
- * @path: TestCases/chapter12/12.9/12.9-1.js;
+ * @path: chapter12/12.9/12.9-1.js;
  * @description: The return Statement - a return statement without an expression may have a LineTerminator before the semi-colon;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var sum = 0;
         (function innerTest() {
             for (var i = 1; i <= 10; i++) {
@@ -36,5 +36,5 @@ assertTrue((function testcase() {
             }
         })();
         return sum === 15;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

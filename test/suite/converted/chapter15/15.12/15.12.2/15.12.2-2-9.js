@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.12.2-2-9;
- * @path: TestCases/chapter15/15.12/15.12.2/15.12.2-2-9.js;
+ * @path: chapter15/15.12/15.12.2/15.12.2-2-9.js;
  * @description: JSON.parse - parsing an object where property value starts and ends with a null character;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var result = true;
 
@@ -71,5 +71,5 @@ assertTrue((function testcase() {
             }
         }
         return result;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

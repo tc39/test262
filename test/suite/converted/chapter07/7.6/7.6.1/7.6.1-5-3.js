@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 7.6.1-5-3;
- * @path: TestCases/chapter07/7.6/7.6.1/7.6.1-5-3.js;
+ * @path: chapter07/7.6/7.6.1/7.6.1-5-3.js;
  * @description: Allow reserved words as property names at object initialization, accessed via indexing: instanceof, typeof, else;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var tokenCodes  = { 
             instanceof: 0,
             typeof: 1,
@@ -41,5 +41,5 @@ assertTrue((function testcase() {
             };
         }
         return true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

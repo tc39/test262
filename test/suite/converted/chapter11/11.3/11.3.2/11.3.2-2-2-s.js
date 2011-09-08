@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 11.3.2-2-2-s;
- * @path: TestCases/chapter11/11.3/11.3.2/11.3.2-2-2-s.js;
+ * @path: chapter11/11.3/11.3.2/11.3.2-2-2-s.js;
  * @description: Strict Mode - SyntaxError is thrown if the identifier 'eval' appear as a PostfixExpression(eval--);
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         var blah = eval;
         try {
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof SyntaxError && blah === eval;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

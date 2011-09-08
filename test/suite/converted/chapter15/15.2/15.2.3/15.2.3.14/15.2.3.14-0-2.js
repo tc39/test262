@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.14-0-2;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-0-2.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-0-2.js;
  * @description: Object.keys must exist as a function taking 1 parameter;
- * @precondition: (fnExists(Object.keys));
  */
 
-assertTrue((Object.keys.length === 1));
 
+assertTrue(Object.keys.length === 1);

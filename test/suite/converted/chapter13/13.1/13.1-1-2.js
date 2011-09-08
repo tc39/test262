@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 13.1-1-2;
- * @path: TestCases/chapter13/13.1/13.1-1-2.js;
+ * @path: chapter13/13.1/13.1-1-2.js;
  * @description: Duplicate identifier allowed in non-strict function expression parameter list;
  */
 
-assertTrue((function testcase()
+
+function testcase()
 {
   try 
   {
@@ -32,5 +32,5 @@ assertTrue((function testcase()
     return true;
   }
   catch (e) { return false }
-  }).call(this));
-
+  }
+assertTrue(testcase.call(this));

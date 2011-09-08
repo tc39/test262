@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-531-6;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-531-6.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-531-6.js;
  * @description: ES5 Attributes - Updating an indexed accessor property 'P' without [[Set]] using simple assignment is failed, 'A' is an Array object (8.12.5 step 5.b);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = [];
 
         var verifySetFunc = "data";
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
         var desc = Object.getOwnPropertyDescriptor(obj, "0");
 
         return propertyDefineCorrect && typeof desc.set === "undefined" && obj[0] === "data";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

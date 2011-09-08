@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.8-2-c-6;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-c-6.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-c-6.js;
  * @description: Object.seal - 'O' is a Date object;
- * @precondition: (fnExists(Object.seal) && fnExists(Object.isSealed) && fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var dateObj = new Date();
         var preCheck = Object.isExtensible(dateObj);
         Object.seal(dateObj);
 
         return preCheck && Object.isSealed(dateObj);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

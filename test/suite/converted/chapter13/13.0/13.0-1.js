@@ -19,17 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 13.0-1;
- * @path: TestCases/chapter13/13.0/13.0-1.js;
+ * @path: chapter13/13.0/13.0-1.js;
  * @description: 13.0 - multiple names in one function declaration is not allowed, two function names;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             eval("function x, y() {}");
             return false;
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

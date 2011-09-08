@@ -4,8 +4,8 @@
 /**
  * If ToBoolean(x) is true, return y
  *
- * @id: S11.12_A4_T1;
  * @section: 11.12;
+ * @path: 11_Expressions/11.12_Conditional_Operator/S11.12_A4_T1.js;
  * @description: Type(y) and Type(z) are boolean primitives;
  */
 

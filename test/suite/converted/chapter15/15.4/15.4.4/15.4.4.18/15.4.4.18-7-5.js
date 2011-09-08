@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.18-7-5;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-7-5.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-7-5.js;
  * @description: Array.prototype.forEach visits deleted element in array after the call when same index is also present in prototype;
- * @precondition: (fnExists(Array.prototype.forEach));
  */
 
-assertTrue((function testcase() { 
+
+function testcase() { 
  
   var callCnt = 0;
   function callbackfn(val, idx, obj)
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
   if( callCnt === 5)    
       return true;  
   
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

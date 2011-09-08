@@ -4,8 +4,8 @@
 /**
  * Check x >> y operator in distinct points
  *
- * @id: S11.7.2_A4_T3;
  * @section: 11.7.2;
+ * @path: 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.2_The_Sign_Left_shift_Operator/S11.7.2_A4_T3.js;
  * @description: ShiftExpression = 2^n - 1, n = 0...15;
  */
 

@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-9-b-ii-10;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-ii-10.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-ii-10.js;
  * @description: Array.prototype.indexOf - both array element and search element are Boolean type, and they have same value;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue(([false, true].indexOf(true) === 1));
 
+assertTrue([false, true].indexOf(true) === 1);

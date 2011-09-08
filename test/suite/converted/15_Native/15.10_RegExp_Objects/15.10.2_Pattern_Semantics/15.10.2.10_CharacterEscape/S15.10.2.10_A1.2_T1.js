@@ -5,8 +5,8 @@
  * The production CharacterEscape :: n evaluates by returning
  * the character \u000A
  *
- * @id: S15.10.2.10_A1.2_T1;
  * @section: 15.10.2.10;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.10_CharacterEscape/S15.10.2.10_A1.2_T1.js;
  * @description: Use \n in RegExp and \u000A in tested string;
  */
 

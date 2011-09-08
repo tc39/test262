@@ -19,14 +19,14 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 13.1-2-6;
- * @path: TestCases/chapter13/13.1/13.1-2-6.js;
+ * @path: chapter13/13.1/13.1-2-6.js;
  * @description: arguments allowed as formal parameter name of a non-strict function expression;
  */
 
-assertTrue((function testcase()
+
+function testcase()
 {
     eval("(function foo(arguments){});");
     return true;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

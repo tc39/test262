@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.18-5-25;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-5-25.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-5-25.js;
  * @description: Array.prototype.forEach - thisArg not passed;
- * @precondition: (fnExists(Array.prototype.forEach));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function innerObj() {
             this._15_4_4_18_5_25 = true;
             var _15_4_4_18_5_25 = false;
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
             this.retVal = !result;
         }
         return new innerObj().retVal;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

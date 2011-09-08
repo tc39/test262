@@ -23,17 +23,14 @@
  * The initial value of [[Configurable]] on JSON is true. This means we
  * should be able to delete (8.6.2.5) the stringify and parse properties.
  *
- * @id: 15.12.2-0-3;
- * @path: TestCases/chapter15/15.12/15.12.2/15.12.2-0-3.js;
+ * @path: chapter15/15.12/15.12.2/15.12.2-0-3.js;
  * @description: JSON.parse must be deletable (configurable);
- * @precondition: (function preq() {
- *     return typeof JSON != "undefined" && fnExists(Object.getOwnPropertyDescriptor)
- *   }).call(this);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o = JSON;
   var desc = Object.getOwnPropertyDescriptor(o, "parse");
   return desc.configurable === true;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

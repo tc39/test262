@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.10-0-8;
- * @path: TestCases/chapter12/12.10/12.10-0-8.js;
+ * @path: chapter12/12.10/12.10-0-8.js;
  * @description: with introduces scope - var initializer sets like named property;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o = {foo: 42};
 
   with (o) {
@@ -32,5 +32,5 @@ assertTrue((function testcase() {
   }
 
   return o.foo === "set in with";
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

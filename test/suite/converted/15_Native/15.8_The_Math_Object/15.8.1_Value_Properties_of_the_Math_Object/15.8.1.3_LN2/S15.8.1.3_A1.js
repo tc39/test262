@@ -4,8 +4,8 @@
 /**
  * Math.LN2 is approximately 0.6931471805599453
  *
- * @id: S15.8.1.3_A1;
  * @section: 15.8.1.3;
+ * @path: 15_Native/15.8_The_Math_Object/15.8.1_Value_Properties_of_the_Math_Object/15.8.1.3_LN2/S15.8.1.3_A1.js;
  * @description: Comparing Math.LN2 with 0.6931471805599453;
  */
 

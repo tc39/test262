@@ -4,8 +4,8 @@
 /**
  * The Null Type has one value, called null
  *
- * @id: S8.2_A1_T2;
  * @section: 8.2;
+ * @path: 08_Types/8.2_The_Null_Type/S8.2_A1_T2.js;
  * @description: Checking if execution of "x = null" passes;
  */
 

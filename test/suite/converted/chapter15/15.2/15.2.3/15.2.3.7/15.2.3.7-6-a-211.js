@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-211;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-211.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-211.js;
  * @description: Object.defineProperties - 'O' is an Array, 'name' is an array index property, both the [[Value]] field of 'desc' and the [[Value]] attribute value of 'name' are null  (15.4.5.1 step 4.c);
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arr = [];
 
         Object.defineProperty(arr, "0", {
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
             }
         });
         return dataPropertyAttributesAreCorrect(arr, "0", null, false, false, false);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

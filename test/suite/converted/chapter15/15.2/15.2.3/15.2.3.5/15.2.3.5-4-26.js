@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-26;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-26.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-26.js;
  * @description: Object.create - TypeError is thrown when own enumerable accessor property of 'Properties' without a get function (15.2.3.7 step 5.a);
- * @precondition: (fnExists(Object.create) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var props = {};
         Object.defineProperty(props, "prop", {
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
         } catch (ex) {
             return ex instanceof TypeError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

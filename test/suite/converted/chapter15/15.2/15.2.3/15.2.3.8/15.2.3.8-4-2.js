@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.8-4-2;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-4-2.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-4-2.js;
  * @description: Object.seal - 'O' is frozen already;
- * @precondition: (fnExists(Object.seal) && fnExists(Object.isSealed) && fnExists(Object.freeze) && fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
 
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
 
         Object.seal(obj);
         return preCheck && Object.isSealed(obj);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

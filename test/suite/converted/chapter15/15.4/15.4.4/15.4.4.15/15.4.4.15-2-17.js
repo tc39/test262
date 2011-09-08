@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-2-17;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-2-17.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-2-17.js;
  * @description: Array.prototype.lastIndexOf applied to Arguments object which implements its own property get method;
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var targetObj = function () { };
         var func = function (a, b) {
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         };
 
         return func(0, targetObj);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

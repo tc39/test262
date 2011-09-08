@@ -5,8 +5,8 @@
  * When the [[Call]] property for a Function object is called,
  * the body is evaluated and if evaluation result has type "normal", then "undefined" is returned
  *
- * @id: S13.2.1_A9.1_T2;
  * @section: 13.2.1;
+ * @path: 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.1_A9.1_T2.js;
  * @description: Declaring a function with "var __func = function()" and no "return" in the function body;
  */
 

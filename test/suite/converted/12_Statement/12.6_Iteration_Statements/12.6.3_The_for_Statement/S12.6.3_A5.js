@@ -2,11 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * : "in"-expression wrapped into "eval" statement is allowed as a ExpressionNoIn in "for (ExpressionNoIn; FirstExpression; SecondExpression) Statement" IterationStatement;
+ * "in"-expression wrapped into "eval" statement is allowed as a ExpressionNoIn in "for (ExpressionNoIn; FirstExpression; SecondExpression) Statement" IterationStatement
  *
- * @id: S12.6.3_A5;
  * @section: 12.6.3;
- * @description: : Using eval "for(eval("i in arr");1;)";;
+ * @path: 12_Statement/12.6_Iteration_Statements/12.6.3_The_for_Statement/S12.6.3_A5.js;
+ * @description: Using eval "for(eval("i in arr");1;)";
  */
 
 arr = [1,2,3,4,5];

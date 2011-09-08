@@ -5,8 +5,8 @@
  * The concat function is intentionally generic.
  * It does not require that its this value be an Array object
  *
- * @id: S15.4.4.4_A2_T2;
  * @section: 15.4.4.4;
+ * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.4_Array_prototype_concat/S15.4.4.4_A2_T2.js;
  * @description: Checking this for Object object with no items;
  */
 

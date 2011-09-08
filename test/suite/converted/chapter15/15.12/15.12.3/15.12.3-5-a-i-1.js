@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.12.3-5-a-i-1;
- * @path: TestCases/chapter15/15.12/15.12.3/15.12.3-5-a-i-1.js;
+ * @path: chapter15/15.12/15.12.3/15.12.3-5-a-i-1.js;
  * @description: JSON.stringify converts Number wrapper object space aruguments to Number values;
- * @precondition: (JSON && fnExists(JSON.stringify));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var obj = {a1: {b1: [1,2,3,4], b2: {c1: 1, c2: 2}},a2: 'a2'};
   return JSON.stringify(obj,null, new Number(5))=== JSON.stringify(obj,null, 5);
-  }).call(this));
-
+  }
+assertTrue(testcase.call(this));

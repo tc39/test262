@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-1-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-1-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-1-1.js;
  * @description: Array.prototype.filter applied to undefined throws a TypeError;
- * @precondition: (fnExists(Array.prototype.filter));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             Array.prototype.filter.call(undefined); // TypeError is thrown if value is undefined
             return false;
         } catch (ex) {
             return ex instanceof TypeError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

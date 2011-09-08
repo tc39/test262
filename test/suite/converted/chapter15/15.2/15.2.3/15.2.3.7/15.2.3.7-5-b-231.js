@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-5-b-231;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-231.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-231.js;
  * @description: Object.defineProperties - 'set' property of 'descObj' is own data property that overrides an inherited accessor property (8.10.5 step 8.a);
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var data1 = "data";
         var data2 = "data";
         var fun = function (value) {
@@ -58,5 +57,5 @@ assertTrue((function testcase() {
         obj.prop = "overrideData";
 
         return obj.hasOwnProperty("prop") && data1 === "overrideData" && data2 === "data";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

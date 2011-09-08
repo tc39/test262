@@ -4,8 +4,8 @@
 /**
  * If ToBoolean(x) is true, return x
  *
- * @id: S11.11.2_A4_T2;
  * @section: 11.11.2;
+ * @path: 11_Expressions/11.11_Binary_Logical_Operators/11.11.2_Logical_OR_Operator/S11.11.2_A4_T2.js;
  * @description: Type(x) and Type(y) vary between primitive number and Number object;
  */
 

@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-7-3;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-7-3.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-7-3.js;
  * @description: Array.prototype.lastIndexOf returns -1 when abs('fromIndex') is length of array - 1;
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue(([1, 2, 3, 4].lastIndexOf(3, -3) === -1));
 
+assertTrue([1, 2, 3, 4].lastIndexOf(3, -3) === -1);

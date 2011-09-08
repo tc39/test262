@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-9-c-ii-26;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-c-ii-26.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-c-ii-26.js;
  * @description: Array.prototype.reduce - Array object can be used as accumulator;
- * @precondition: (fnExists(Array.prototype.reduce));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var objArray = new Array(10);
 
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         var obj = { 0: 11, length: 1 };
 
         return Array.prototype.reduce.call(obj, callbackfn, objArray) === true && accessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

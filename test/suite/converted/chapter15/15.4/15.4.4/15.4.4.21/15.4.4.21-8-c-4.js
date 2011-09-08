@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-8-c-4;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-8-c-4.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-8-c-4.js;
  * @description: Array.prototype.reduce doesn't throw error when array has no own properties but prototype contains a single property;
- * @precondition: (fnExists(Array.prototype.reduce) && ![, 1].hasOwnProperty(0));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arr = [, , , ];
 
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         } finally {
             delete Array.prototype[1];
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

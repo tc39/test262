@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.18-2-12;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-2-12.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-2-12.js;
  * @description: Array.prototype.forEach - 'length' is own accessor property without a get function that overrides an inherited accessor property on an Array;
- * @precondition: (fnExists(Array.prototype.forEach) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var accessed = false;
         function callbackfn(val, idx, obj) {
             accessed = true;
@@ -51,5 +50,5 @@ assertTrue((function testcase() {
             delete Object.prototype.length;
         }
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

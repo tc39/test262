@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.1.1.3-0;
- * @path: TestCases/chapter15/15.1/15.1.1/15.1.1.3/15.1.1.3-0.js;
+ * @path: chapter15/15.1/15.1.1/15.1.1.3/15.1.1.3-0.js;
  * @description: Global.undefined is a data property with default attribute values (false);
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-var global = this;assertTrue((function testcase() {
+var global = this;
+function testcase() {
   var desc = Object.getOwnPropertyDescriptor(global, 'undefined');
   if (desc.writable === false &&
       desc.enumerable === false &&
       desc.configurable === false) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

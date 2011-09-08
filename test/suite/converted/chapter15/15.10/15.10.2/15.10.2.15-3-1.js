@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.10.2.15-3-1;
- * @path: TestCases/chapter15/15.10/15.10.2/15.10.2.15-3-1.js;
+ * @path: chapter15/15.10/15.10.2/15.10.2.15-3-1.js;
  * @description: Pattern - SyntaxError was thrown when 'A' does not contain exactly one character (15.10.2.5 step 3);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             var regExp = new RegExp("^[/w-c]$");
 
@@ -32,5 +32,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-8-b-i-10;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-i-10.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-i-10.js;
  * @description: Array.prototype.lastIndexOf - element to be retrieved is own accessor property on an Array-like object;
- * @precondition: (fnExists(Array.prototype.lastIndexOf) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = { length: 3 };
         Object.defineProperty(obj, "0", {
@@ -52,5 +51,5 @@ assertTrue((function testcase() {
         return 0 === Array.prototype.lastIndexOf.call(obj, 0) &&
             1 === Array.prototype.lastIndexOf.call(obj, 1) &&
             2 === Array.prototype.lastIndexOf.call(obj, 2);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

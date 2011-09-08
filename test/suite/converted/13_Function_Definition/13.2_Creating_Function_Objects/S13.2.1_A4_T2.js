@@ -4,8 +4,8 @@
 /**
  * Objects as arguments are passed by reference
  *
- * @id: S13.2.1_A4_T2;
  * @section: 13.2.1;
+ * @path: 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.1_A4_T2.js;
  * @description: Adding new string property to a function argument within the function body,
  * where explicit argument is an object defined with "__obj={}";
  */

@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 11.13.1-2-s;
- * @path: TestCases/chapter11/11.13/11.13.1/11.13.1-2-s.js;
+ * @path: chapter11/11.13/11.13.1/11.13.1-2-s.js;
  * @description: Strict Mode - TypeError is thrown if The LeftHandSide is a reference to an accessor property with the attribute value {[[Set]]:undefined} under strict mode;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         var obj = {};
         Object.defineProperty(obj, "prop", {
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof TypeError && obj.prop === 11;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

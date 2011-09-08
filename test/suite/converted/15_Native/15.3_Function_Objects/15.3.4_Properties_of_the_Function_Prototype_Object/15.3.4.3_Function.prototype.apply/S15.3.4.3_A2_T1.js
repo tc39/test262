@@ -4,8 +4,8 @@
 /**
  * The length property of the apply method is 2
  *
- * @id: S15.3.4.3_A2_T1;
  * @section: 15.3.4.3;
+ * @path: 15_Native/15.3_Function_Objects/15.3.4_Properties_of_the_Function_Prototype_Object/15.3.4.3_Function.prototype.apply/S15.3.4.3_A2_T1.js;
  * @description: Checking Function.prototype.apply.length;
  */
 

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.10.7.2-2;
- * @path: TestCases/chapter15/15.10/15.10.7/15.10.7.2/15.10.7.2-2.js;
+ * @path: chapter15/15.10/15.10.7/15.10.7.2/15.10.7.2-2.js;
  * @description: RegExp.prototype.global is a data property with default attribute values (false);
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var desc = Object.getOwnPropertyDescriptor(RegExp.prototype, 'global');
   
   if (desc.writable === false &&
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
       desc.configurable === false) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

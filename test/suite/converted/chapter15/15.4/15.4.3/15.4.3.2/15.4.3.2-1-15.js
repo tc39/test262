@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.3.2-1-15;
- * @path: TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-15.js;
+ * @path: chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-15.js;
  * @description: Array.isArray applied to the global object;
- * @precondition: (fnExists(Array.isArray));
  */
 
-assertTrue((!Array.isArray(fnGlobalObject())));
 
+assertTrue(!Array.isArray(fnGlobalObject()));

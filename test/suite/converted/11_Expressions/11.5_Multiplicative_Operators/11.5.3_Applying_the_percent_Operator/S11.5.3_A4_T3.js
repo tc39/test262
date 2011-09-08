@@ -4,8 +4,8 @@
 /**
  * The result of a ECMAScript floating-point remainder operation is determined by the rules of IEEE arithmetics
  *
- * @id: S11.5.3_A4_T3;
  * @section: 11.5.3;
+ * @path: 11_Expressions/11.5_Multiplicative_Operators/11.5.3_Applying_the_percent_Operator/S11.5.3_A4_T3.js;
  * @description: If the dividend is an infinity results is NaN;
  */
 

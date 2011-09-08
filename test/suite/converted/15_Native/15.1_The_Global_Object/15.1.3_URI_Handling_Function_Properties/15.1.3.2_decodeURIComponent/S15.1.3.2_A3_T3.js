@@ -4,8 +4,8 @@
 /**
  * Let reservedURIComponentSet be the empty string
  *
- * @id: S15.1.3.2_A3_T3;
  * @section: 15.1.3.2;
+ * @path: 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.2_decodeURIComponent/S15.1.3.2_A3_T3.js;
  * @description: Complex test;
  */
 

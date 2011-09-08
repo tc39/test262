@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-7;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-7.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-7.js;
  * @description: Object.create - argument 'Properties' is a String object (15.2.3.7 step 2);
- * @precondition: (fnExists(Object.create) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var props = new String();
         var result = false;
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
         });
         Object.create({}, props);
         return result;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

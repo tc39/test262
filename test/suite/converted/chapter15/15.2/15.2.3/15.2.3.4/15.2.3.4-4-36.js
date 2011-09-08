@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.4-4-36;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-4-36.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-4-36.js;
  * @description: Object.getOwnPropertyNames - inherited data properties are not pushed into the returned array;
- * @precondition: (fnExists(Object.getOwnPropertyNames));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var proto = { "parent": "parent" };
 
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
             }
         }
         return true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

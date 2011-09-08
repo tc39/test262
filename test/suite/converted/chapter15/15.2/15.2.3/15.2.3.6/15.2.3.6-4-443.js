@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-443;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-443.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-443.js;
  * @description: ES5 Attributes - property ([[Get]] is undefined, [[Set]] is undefined, [[Enumerable]] is false, [[Configurable]] is true) is deletable;
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
         delete obj.prop;
 
         return propertyDefineCorrect && desc.configurable === true && !obj.hasOwnProperty("prop");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

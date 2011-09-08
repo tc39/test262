@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-5-22;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-22.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-22.js;
  * @description: Array.prototype.indexOf - value of 'fromIndex' is an Object, which has an own valueOf method;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var fromIndex = {
             valueOf: function () {
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
 
 
         return [0, true].indexOf(true, fromIndex) === 1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

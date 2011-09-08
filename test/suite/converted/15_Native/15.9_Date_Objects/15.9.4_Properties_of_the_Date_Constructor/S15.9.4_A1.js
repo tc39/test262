@@ -4,8 +4,8 @@
 /**
  * The Date constructor has the property "prototype"
  *
- * @id: S15.9.4_A1;
  * @section: 15.9.4;
+ * @path: 15_Native/15.9_Date_Objects/15.9.4_Properties_of_the_Date_Constructor/S15.9.4_A1.js;
  * @description: Checking existence of the property "prototype";
  */
 

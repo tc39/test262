@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.17-5-21;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-5-21.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-5-21.js;
  * @description: Array.prototype.some - the global object can be used as thisArg;
- * @precondition: (fnExists(Array.prototype.some));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
 
         function callbackfn(val, idx, obj) {
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
         }
 
         return [11].some(callbackfn, fnGlobalObject());
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

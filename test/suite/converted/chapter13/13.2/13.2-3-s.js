@@ -19,13 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 13.2-3-s;
- * @path: TestCases/chapter13/13.2/13.2-3-s.js;
+ * @path: chapter13/13.2/13.2-3-s.js;
  * @description: StrictMode - Writing or reading from a property named 'arguments' of function objects is allowed under both strict and normal modes.;
  * @strict_only;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
 
         var foo = function () {
@@ -33,5 +33,5 @@ assertTrue((function testcase() {
         } 
         var obj = new foo();
         return obj.arguments === 12;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

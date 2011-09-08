@@ -19,13 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 11.4.1-4-a-4-s;
- * @path: TestCases/chapter11/11.4/11.4.1/11.4.1-4-a-4-s.js;
+ * @path: chapter11/11.4/11.4.1/11.4.1-4-a-4-s.js;
  * @description: Strict Mode - TypeError isn't thrown when deleting configurable accessor property;
  * @strict_only;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         var obj = {};
         Object.defineProperty(obj, "prop", {
@@ -37,5 +37,5 @@ assertTrue((function testcase() {
 
         delete obj.prop;
         return !obj.hasOwnProperty("prop");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

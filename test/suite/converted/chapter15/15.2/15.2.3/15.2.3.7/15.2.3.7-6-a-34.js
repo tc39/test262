@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-34;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-34.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-34.js;
  * @description: Object.defineProperties - 'P' doesn't exist in 'O', test [[Set]] of 'P' is set as undefined value if absent in accessor descriptor 'desc' (8.12.9 step 4.b.i);
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         var getFunc = function () {
             return 10; 
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
         return obj.hasOwnProperty("prop") && typeof (desc.set) === "undefined";
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

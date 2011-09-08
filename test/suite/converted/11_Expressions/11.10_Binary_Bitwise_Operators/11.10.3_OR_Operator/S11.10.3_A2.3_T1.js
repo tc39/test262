@@ -4,8 +4,8 @@
 /**
  * ToInt32(first expression) is called first, and then ToInt32(second expression)
  *
- * @id: S11.10.3_A2.3_T1;
  * @section: 11.10.3;
+ * @path: 11_Expressions/11.10_Binary_Bitwise_Operators/11.10.3_OR_Operator/S11.10.3_A2.3_T1.js;
  * @description: Checking with "throw";
  */
 

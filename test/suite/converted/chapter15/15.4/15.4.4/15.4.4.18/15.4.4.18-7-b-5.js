@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.18-7-b-5;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-7-b-5.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-7-b-5.js;
  * @description: Array.prototype.forEach - properties added into own object after current position are visited on an Array;
- * @precondition: (fnExists(Array.prototype.forEach) && fnExists(Object.defineProperty) && ![, 1].hasOwnProperty(0) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var testResult = false;
 
@@ -52,5 +51,5 @@ assertTrue((function testcase() {
 
         arr.forEach(callbackfn);
         return testResult;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

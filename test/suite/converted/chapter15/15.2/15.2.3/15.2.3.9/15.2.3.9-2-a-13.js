@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.9-2-a-13;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-13.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-13.js;
  * @description: Object.freeze - 'P' is own index property of the Object;
- * @precondition: (fnExists(Object.freeze) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         // default [[Configurable]] attribute value of "0": true
         var obj = { 0: 0, 1: 1, length: 2};
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
 
         delete obj[0];
         return obj[0] === 0 && desc.configurable === false && desc.writable === false;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

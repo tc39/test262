@@ -4,8 +4,8 @@
 /**
  * Operator uses GetValue
  *
- * @id: S11.14_A2.1_T2;
  * @section: 11.14;
+ * @path: 11_Expressions/11.14_Comma_Operator/S11.14_A2.1_T2.js;
  * @description: If GetBase(Expression) is null, throw ReferenceError;
  */
 

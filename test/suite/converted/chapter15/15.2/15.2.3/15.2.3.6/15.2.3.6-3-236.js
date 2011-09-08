@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-3-236;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-236.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-236.js;
  * @description: Object.defineProperty - 'set' property in 'Attributes' is not present (8.10.5 step 8);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "property", {
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         obj.property = 14;
         var desc = Object.getOwnPropertyDescriptor(obj, "property");
         return obj.hasOwnProperty("property") && obj.property === 11 && typeof desc.set === "undefined";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

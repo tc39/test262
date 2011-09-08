@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.12.1.1-g1-4;
- * @path: TestCases/chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g1-4.js;
+ * @path: chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g1-4.js;
  * @description: The JSON lexical grammar treats <SP> as a whitespace character;
- * @precondition: (JSON && fnExists(JSON.parse)&& JSON.parse('1234')===1234);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
  if (JSON.parse(' 1234')!=1234) return false; // <SP> should be ignored
   try {
     JSON.parse('12 34'); // <SP> should produce a syntax error as whitespace results in two tokens
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
   catch (e) {
       if (e.name === 'SyntaxError') return true;
       }
-  }).call(this));
-
+  }
+assertTrue(testcase.call(this));

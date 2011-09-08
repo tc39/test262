@@ -4,8 +4,8 @@
 /**
  * Assignment to string literals calls String constructor
  *
- * @id: S8.4_A9_T1;
  * @section: 8.4, 7.8.4;
+ * @path: 08_Types/8.4_The_String_Type/S8.4_A9_T1.js;
  * @description: Simple string variable compare with object String;
  */
 

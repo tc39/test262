@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.3.2-2-1;
- * @path: TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-2-1.js;
+ * @path: chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-2-1.js;
  * @description: Array.isArray applied to an object with an array as the prototype;
- * @precondition: (fnExists(Array.isArray));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var proto = [];
         var Con = function () { };
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
 
         var child = new Con();
         return !Array.isArray(child);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -4,8 +4,8 @@
 /**
  * The result of an addition is determined using the rules of IEEE 754 double-precision arithmetics
  *
- * @id: S11.6.1_A4_T5;
  * @section: 11.6.1, 11.6.3;
+ * @path: 11_Expressions/11.6_Additive_Operators/11.6.1_The_Addition_operator/S11.6.1_A4_T5.js;
  * @description: The sum of two negative zeros is -0. The sum of two positive zeros, or of two zeros of opposite sign is +0;
  */
 

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-3-7;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-3-7.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-3-7.js;
  * @description: Array.prototype.reduce - value of 'length' is a number (value is negative);
- * @precondition: (fnExists(Array.prototype.reduce));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         function callbackfn(prevVal, curVal, idx, obj) {
             return (curVal === 11 && idx === 1);
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
         var obj = { 1: 11, 2: 9, length: -4294967294 };
 
         return Array.prototype.reduce.call(obj, callbackfn, 1) === true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-5-24;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-24.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-24.js;
  * @description: Array.prototype.indexOf throws TypeError exception when value of 'fromIndex' is an object with toString and valueOf methods that don�t return primitive values;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var toStringAccessed = false;
         var valueOfAccessed = false;
@@ -47,5 +46,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return toStringAccessed && valueOfAccessed;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

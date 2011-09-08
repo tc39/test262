@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.4.3-1-3-s;
- * @path: TestCases/chapter10/10.4/10.4.3/10.4.3-1-3-s.js;
+ * @path: chapter10/10.4/10.4.3/10.4.3-1-3-s.js;
  * @description: this is not coerced to an object in strict mode (undefined);
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
   function foo()
   {
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
     return typeof(this);
   }
   return foo.call(undefined) === 'undefined' && bar.call() === 'object';
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -4,8 +4,8 @@
 /**
  * The Error.prototype has message property
  *
- * @id: S15.11.4.3_A1;
  * @section: 15.11.4.3, 16;
+ * @path: 15_Native/15.11_Error_Objects/15.11.4_Properties_of_the_Error_Prototype_Object/S15.11.4.3_A1.js;
  * @description: Checking Error.prototype.message;
  */
 

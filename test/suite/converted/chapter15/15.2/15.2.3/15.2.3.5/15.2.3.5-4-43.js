@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-43;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-43.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-43.js;
  * @description: Object.create - value of one property in 'Properties' is false (8.10.5 step 1);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         try {
             Object.create({}, {
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
             return (e instanceof TypeError);
         }
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,16 +19,15 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-3-18;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-3-18.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-3-18.js;
  * @description: Array.prototype.lastIndexOf - value of 'length' is a string that can't convert to a number;
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var targetObj = new String("123abc123");
         var obj = { 0: targetObj, length: "123abc123" };
 
         return Array.prototype.lastIndexOf.call(obj, targetObj) === -1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

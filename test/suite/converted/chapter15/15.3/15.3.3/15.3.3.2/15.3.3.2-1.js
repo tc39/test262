@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.3.2-1;
- * @path: TestCases/chapter15/15.3/15.3.3/15.3.3.2/15.3.3.2-1.js;
+ * @path: chapter15/15.3/15.3.3/15.3.3.2/15.3.3.2-1.js;
  * @description: Function.length - data property with value 1;
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
   var desc = Object.getOwnPropertyDescriptor(Function,"length");
   if(desc.value === 1 &&
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
      desc.configurable === false)
     return true; 
 
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

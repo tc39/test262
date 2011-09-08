@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-107;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-107.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-107.js;
  * @description: Object.defineProperty - 'name' and 'desc' are accessor properties, both desc.[[Get]] and name.[[Get]] are two different values (8.12.9 step 12);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
 
@@ -51,5 +50,5 @@ assertTrue((function testcase() {
             get: getFunc2
         });
         return accessorPropertyAttributesAreCorrect(obj, "foo", getFunc2, setFunc, "setVerifyHelpProp", false, true);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

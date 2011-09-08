@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.5.4.20-4-59;
- * @path: TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-59.js;
+ * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-59.js;
  * @description: String.prototype.trim handles whitepace and lineterminators (\u2029abc as a multiline string);
- * @precondition: (fnExists(String.prototype.trim));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var s = "\u2029\
            abc";
   if (s.trim() === "abc") {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

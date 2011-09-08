@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.22-9-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-1.js;
  * @description: Array.prototype.reduceRight doesn't consider new elements which index is larger than array original length added to array after it is called, consider new elements which index is smaller than array length;
- * @precondition: (fnExists(Array.prototype.reduceRight));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(prevVal, curVal, idx, obj) {
             arr[5] = 6;
             arr[2] = 3;
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
 
         var arr = ['1', 2, , 4, '5'];
         return arr.reduceRight(callbackfn) === "54321";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

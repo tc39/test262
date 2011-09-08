@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.9.4.4-0-4;
- * @path: TestCases/chapter15/15.9/15.9.4/15.9.4.4/15.9.4.4-0-4.js;
+ * @path: chapter15/15.9/15.9.4/15.9.4.4/15.9.4.4-0-4.js;
  * @description: Date.now - returns number;
- * @precondition: (fnExists(Date.now));
  */
 
-assertTrue((typeof Date.now() === "number"));
 
+assertTrue(typeof Date.now() === "number");

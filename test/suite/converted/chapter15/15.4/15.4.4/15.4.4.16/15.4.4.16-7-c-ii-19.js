@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.16-7-c-ii-19;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-19.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-19.js;
  * @description: Array.prototype.every - non-indexed properties are not called;
- * @precondition: (fnExists(Array.prototype.every));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var called = 0;
 
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         var obj = { 0: 11, 10: 12, non_index_property: 8, length: 20 };
 
         return Array.prototype.every.call(obj, callbackfn) && 2 === called;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

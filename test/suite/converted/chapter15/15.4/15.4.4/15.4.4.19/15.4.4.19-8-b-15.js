@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-8-b-15;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-b-15.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-b-15.js;
  * @description: Array.prototype.map - decreasing length of array with prototype property causes prototype index property to be visited;
- * @precondition: (fnExists(Array.prototype.map) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(val, idx, obj) {
             if (idx === 2 && val === "prototype") {
                 return false;
@@ -56,5 +55,5 @@ assertTrue((function testcase() {
         } finally {
             delete Array.prototype[2];
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

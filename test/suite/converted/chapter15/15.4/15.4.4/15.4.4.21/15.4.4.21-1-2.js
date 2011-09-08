@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-1-2;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-1-2.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-1-2.js;
  * @description: Array.prototype.reduce applied to null;
- * @precondition: (fnExists(Array.prototype.reduce));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             Array.prototype.reduce.call(null);
             return false;
         } catch (e) {
             return (e instanceof TypeError);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

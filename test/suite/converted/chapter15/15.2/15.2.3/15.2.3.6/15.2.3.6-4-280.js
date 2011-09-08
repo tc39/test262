@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-280;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-280.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-280.js;
  * @description: Object.defineProperty - 'O' is an Array, 'name' is generic own data property of 'O', and 'desc' is data descriptor, test updating multiple attribute values of 'name' (15.4.5.1 step 5);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arrObj = [];
 
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         });
 
         return dataPropertyAttributesAreCorrect(arrObj, "property", 12, false, false, false);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

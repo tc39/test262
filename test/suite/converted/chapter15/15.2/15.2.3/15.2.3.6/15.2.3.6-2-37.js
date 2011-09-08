@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-2-37;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-2-37.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-2-37.js;
  * @description: Object.defineProperty - argument 'P' is applied to string '123αβπcd' ;
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         Object.defineProperty(obj, "123αβπcd", {});
 
         return obj.hasOwnProperty("123αβπcd");
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

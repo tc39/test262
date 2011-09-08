@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-58;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-58.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-58.js;
  * @description: Object.defineProperties - desc.[[Get]] and P.[[Get]] are two objects which refer to the different objects (8.12.9 step 6);
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
 
@@ -65,5 +64,5 @@ assertTrue((function testcase() {
         verifyConfigurable = obj.hasOwnProperty("foo");
 
         return !verifyConfigurable && !verifyEnumerable && verifyValue && typeof (desc.set) === "undefined" && desc.get === get_Func2;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

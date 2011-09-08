@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 7.6.1-1-2;
- * @path: TestCases/chapter07/7.6/7.6.1/7.6.1-1-2.js;
+ * @path: chapter07/7.6/7.6.1/7.6.1-1-2.js;
  * @description: Allow reserved words as property names at object initialization, verified with hasOwnProperty: break, case, do;
  */
 
-assertTrue((function testcase(){      
+
+function testcase(){      
         var tokenCodes  = { 
             break: 0,
             case: 1,
@@ -45,5 +45,5 @@ assertTrue((function testcase(){
             }
         }
         return true;
-}).call(this));
-
+}
+assertTrue(testcase.call(this));

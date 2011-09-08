@@ -21,13 +21,12 @@
 /**
  * PutValue operates only on references (see step 3.b).
  *
- * @id: 11.13.1-4-1;
- * @path: TestCases/chapter11/11.13/11.13.1/11.13.1-4-1.js;
+ * @path: chapter11/11.13/11.13.1/11.13.1-4-1.js;
  * @description: simple assignment creates property on the global object if LeftHandSide is an unresolvable reference;
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   function foo() {
     __ES3_1_test_suite_test_11_13_1_unique_id_3__ = 42;
   }
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
     delete __ES3_1_test_suite_test_11_13_1_unique_id_3__;
     return true;
   }  
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

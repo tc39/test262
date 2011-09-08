@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5-6-4;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-6-4.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-6-4.js;
  * @description: Function.prototype.bind - F can get own data property that overrides an inherited accessor property;
- * @precondition: (fnExists(Function.prototype.bind) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var foo = function () { };
 
@@ -46,5 +45,5 @@ assertTrue((function testcase() {
         } finally {
             delete Function.prototype.property;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

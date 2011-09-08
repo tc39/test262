@@ -19,13 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.10.6;
- * @path: TestCases/chapter15/15.10/15.10.6/15.10.6.js;
+ * @path: chapter15/15.10/15.10.6/15.10.6.js;
  * @description: RegExp.prototype is itself a RegExp;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var s = Object.prototype.toString.call(RegExp.prototype);
   return s === '[object RegExp]';
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -24,13 +24,12 @@
  * PropertyNameAndValueList : PropertyAssignment 
  * 3.Call the [[DefineOwnProperty]] internal method of obj with arguments propId.name, propId.descriptor, and false.
  *
- * @id: 11.1.5_3-3-1;
- * @path: TestCases/chapter11/11.1/11.1.5/11.1.5_3-3-1.js;
+ * @path: chapter11/11.1/11.1.5/11.1.5_3-3-1.js;
  * @description: Object initialization using PropertyNameAndValueList (PropertyAssignment) when property (read-only) exists in Object.prototype (step 3);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             Object.defineProperty(Object.prototype, "prop", {
                 value: 100,
@@ -43,5 +42,5 @@ assertTrue((function testcase() {
         } finally {
             delete Object.prototype.prop;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

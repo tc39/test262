@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 11.4.1-4-a-2-s;
- * @path: TestCases/chapter11/11.4/11.4.1/11.4.1-4-a-2-s.js;
+ * @path: chapter11/11.4/11.4.1/11.4.1-4-a-2-s.js;
  * @description: Strict Mode - TypeError is thrown when deleting non-configurable accessor property;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         var obj = {};
         Object.defineProperty(obj, "prop", {
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof TypeError && obj.prop === "abc";
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

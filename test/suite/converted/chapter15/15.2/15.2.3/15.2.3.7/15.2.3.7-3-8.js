@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-3-8;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-3-8.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-3-8.js;
  * @description: Object.defineProperties - no additional property is defined in 'O' when 'Properties' doesn't contain enumerable own property ;
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
 
@@ -46,5 +45,5 @@ assertTrue((function testcase() {
         Object.defineProperties(obj, props);
 
         return !obj.hasOwnProperty("prop1") && obj.hasOwnProperty("prop2");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

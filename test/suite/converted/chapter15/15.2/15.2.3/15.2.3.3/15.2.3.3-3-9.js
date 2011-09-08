@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.3-3-9;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-3-9.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-3-9.js;
  * @description: Object.getOwnPropertyDescriptor - 'P' is own accessor property without a get function;
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
         var fun = function () { };
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         var desc = Object.getOwnPropertyDescriptor(obj, "property");
 
         return desc.set === fun;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

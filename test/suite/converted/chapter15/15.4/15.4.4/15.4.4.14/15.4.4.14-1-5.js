@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-1-5;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-1-5.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-1-5.js;
  * @description: Array.prototype.indexOf applied to number primitive;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var targetObj = {};
         try {
             Number.prototype[1] = targetObj;
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
             delete Number.prototype[1];
             delete Number.prototype.length;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

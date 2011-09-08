@@ -4,8 +4,8 @@
 /**
  * isNaN applies ToNumber to its argument, then return true if the result is NaN, and otherwise return false
  *
- * @id: S15.1.2.4_A1_T1;
  * @section: 15.1.2.4;
+ * @path: 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.4_isNaN/S15.1.2.4_A1_T1.js;
  * @description: Checking all primitive;
  */
 

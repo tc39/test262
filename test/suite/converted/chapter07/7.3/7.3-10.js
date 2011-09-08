@@ -19,17 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 7.3-10;
- * @path: TestCases/chapter07/7.3/7.3-10.js;
+ * @path: chapter07/7.3/7.3-10.js;
  * @description: 7.3 - ES5 recognizes the character <PS> (\u2029) as a NonEscapeCharacter;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             eval("var prop = \\u2029;");
             return false;
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

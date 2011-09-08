@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.6-13-c-3-s;
- * @path: TestCases/chapter10/10.6/10.6-13-c-3-s.js;
+ * @path: chapter10/10.6/10.6-13-c-3-s.js;
  * @description: arguments.callee is non-configurable in strict mode;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   
   'use strict';    
   var desc = Object.getOwnPropertyDescriptor(arguments,"callee");
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
      desc.hasOwnProperty('writable') == false &&
      desc.hasOwnProperty('get') == true &&
      desc.hasOwnProperty('set') == true);
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

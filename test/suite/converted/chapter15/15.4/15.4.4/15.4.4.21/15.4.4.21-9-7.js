@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-9-7;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-7.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-7.js;
  * @description: Array.prototype.reduce stops calling callbackfn once the array is deleted during the call;
- * @precondition: (fnExists(Array.prototype.reduce));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(prevVal, curVal, idx, obj) {
             delete o.arr;
             return prevVal + curVal;
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
         var o = new Object();
         o.arr = ['1', 2, 3, 4, 5];
         return o.arr.reduce(callbackfn) === "12345" && !o.hasOwnProperty("arr");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

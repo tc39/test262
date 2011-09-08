@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.18-2-2;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-2-2.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-2-2.js;
  * @description: Array.prototype.forEach - 'length' is own data property on an Array;
- * @precondition: (fnExists(Array.prototype.forEach));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var result = false;
         function callbackfn(val, idx, obj) {
             result = (obj.length === 2);
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
 
         [12, 11].forEach(callbackfn);
         return result;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-161;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-161.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-161.js;
  * @description: Object.defineProperty - 'O' is an Array, 'name' is the length property of 'O', set the [[Value]] field of 'desc' to a value lesser than the existing value of length and test that indexes beyond the new length are deleted(15.4.5.1 step 3.f);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arrObj = [0, 1];
         
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
             value: 1
         });
         return arrObj.length === 1 && !arrObj.hasOwnProperty("1");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-1-3;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-1-3.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-1-3.js;
  * @description: Object.defineProperties throws TypeError if 'O' is a boolean;
- * @precondition: (fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         try {
             Object.defineProperties(true, {});
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return (e instanceof TypeError);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

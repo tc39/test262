@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-279;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-279.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-279.js;
  * @description: Object.defineProperties - 'O' is an Arguments object, 'P' is own property which is ever defined in both [[ParameterMap]] of 'O' and 'O', and is deleted afterwards, and 'desc' is accessor descriptor, test 'P' is redefined in 'O' with all correct attribute values (10.6 [[DefineOwnProperty]] step 3);
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor) && fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arg;
 
@@ -52,5 +51,5 @@ assertTrue((function testcase() {
         });
 
         return accessorPropertyAttributesAreCorrect(arg, "0", get_func, set_func, "setVerifyHelpProp", true, true);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

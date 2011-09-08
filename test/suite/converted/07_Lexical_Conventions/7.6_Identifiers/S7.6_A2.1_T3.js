@@ -4,8 +4,8 @@
 /**
  * IdentifierPart :: IdentifierStart
  *
- * @id: S7.6_A2.1_T3;
  * @section: 7.6;
+ * @path: 07_Lexical_Conventions/7.6_Identifiers/S7.6_A2.1_T3.js;
  * @description: IdentifierStart :: _;
  */
 

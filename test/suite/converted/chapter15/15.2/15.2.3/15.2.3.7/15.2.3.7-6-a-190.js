@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-190;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-190.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-190.js;
  * @description: Object.defineProperties - 'O' is an Array, 'P' is an array index named property, 'P' is own accessor property  (15.4.5.1 step 4.c);
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arr = [];
 
         Object.defineProperty(arr, "0", {
@@ -48,5 +47,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof TypeError && arr[0] === 11;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

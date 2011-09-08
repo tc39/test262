@@ -23,13 +23,12 @@
  * of O to define the property. For newly defined properties, step 4.a.1 of
  * [[DefineOwnProperty]] creates a data property if handed a generic desc.
  *
- * @id: 15.2.3.6-4-4;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-4.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-4.js;
  * @description: Object.defineProperty defines a data property if given a generic desc(8.12.9 step 4.a.i);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o = {};
   
   var desc = {};
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
       propDesc.configurable === false) {      // false by default
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

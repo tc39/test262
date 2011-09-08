@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.7.3.1-1;
- * @path: TestCases/chapter15/15.7/15.7.3/15.7.3.1/15.7.3.1-1.js;
+ * @path: chapter15/15.7/15.7.3/15.7.3.1/15.7.3.1-1.js;
  * @description: Number.prototype is a data property with default attribute values (false);
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var d = Object.getOwnPropertyDescriptor(Number, 'prototype');
   
   if (d.writable === false &&
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
       d.configurable === false) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

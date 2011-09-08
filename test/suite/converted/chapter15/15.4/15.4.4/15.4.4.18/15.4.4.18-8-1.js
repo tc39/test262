@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.18-8-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-8-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-8-1.js;
  * @description: Array.prototype.forEach doesn't call callbackfn if 'length' is 0 (empty array);
- * @precondition: (fnExists(Array.prototype.forEach));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var callCnt = 0;
   function cb(){callCnt++}
   var i = [].forEach(cb);
   if (callCnt === 0) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

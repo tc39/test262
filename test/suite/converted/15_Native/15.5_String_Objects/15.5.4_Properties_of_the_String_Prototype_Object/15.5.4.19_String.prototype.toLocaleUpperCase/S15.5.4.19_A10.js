@@ -4,8 +4,8 @@
 /**
  * The String.prototype.toLocaleUpperCase.length property has the attribute ReadOnly
  *
- * @id: S15.5.4.19_A10;
  * @section: 15.5.4.19;
+ * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.19_String.prototype.toLocaleUpperCase/S15.5.4.19_A10.js;
  * @description: Checking if varying the String.prototype.toLocaleUpperCase.length property fails;
  */
 

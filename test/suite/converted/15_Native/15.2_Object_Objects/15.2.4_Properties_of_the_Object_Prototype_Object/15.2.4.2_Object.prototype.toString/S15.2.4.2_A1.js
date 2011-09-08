@@ -7,8 +7,8 @@
  * ii) Compute a string value by concatenating the three strings "[object ", Result(1), and "]"
  * iii) Return Result(2)
  *
- * @id: S15.2.4.2_A1;
  * @section: 15.2.4.2;
+ * @path: 15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/15.2.4.2_Object.prototype.toString/S15.2.4.2_A1.js;
  * @description: Checking the type of Object.prototype.toString and the returned result;
  */
 

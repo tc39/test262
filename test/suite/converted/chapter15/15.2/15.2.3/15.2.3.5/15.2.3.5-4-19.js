@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-19;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-19.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-19.js;
  * @description: Object.create -  own enumerable accessor property in 'Properties' is defined in 'obj' (15.2.3.7 step 3);
- * @precondition: (fnExists(Object.create) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var props = {};
 
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
         var newObj = Object.create({}, props);
 
         return newObj.hasOwnProperty("prop");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

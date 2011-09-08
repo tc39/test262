@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.17-7-c-ii-11;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-c-ii-11.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-c-ii-11.js;
  * @description: Array.prototype.some - callbackfn is called with 2 formal parameter;
- * @precondition: (fnExists(Array.prototype.some));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(val, idx) {
             return val > 10 && arguments[2][idx] === val;
         }
 
         return [9, 12].some(callbackfn);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

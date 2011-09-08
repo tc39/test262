@@ -2,10 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * : The "for {;;}" for Statement with empty expressions is allowed and leads to performing an infinite loop;
+ * The "for {;;}" for Statement with empty expressions is allowed and leads to performing an infinite loop
  *
- * @id: S12.6.3_A1;
  * @section: 12.6.3;
+ * @path: 12_Statement/12.6_Iteration_Statements/12.6.3_The_for_Statement/S12.6.3_A1.js;
  * @description: Breaking an infinite loop by throwing exception;
  */
 

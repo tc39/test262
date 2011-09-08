@@ -4,8 +4,8 @@
 /**
  * If thisArg is null or undefined, the called function is passed the global object as the this value
  *
- * @id: S15.3.4.4_A3_T8;
  * @section: 15.3.4.4;
+ * @path: 15_Native/15.3_Function_Objects/15.3.4_Properties_of_the_Function_Prototype_Object/15.3.4.4_Function.prototype.call/S15.3.4.4_A3_T8.js;
  * @description: Argument at call function is undefined and it called inside function declaration;
  */
 

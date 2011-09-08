@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-4-7;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-4-7.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-4-7.js;
  * @description: Array.prototype.indexOf returns -1 if 'length' is 0 ( length is object overridden with obj w/o valueOf (toString));
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
   
   // objects inherit the default valueOf method of the Object object;
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
   if (i === -1) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

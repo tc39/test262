@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.10-10-c-ii-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.10/15.4.4.10-10-c-ii-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.10/15.4.4.10-10-c-ii-1.js;
  * @description: Array.prototype.slice will slice a string from start to end when index property (read-only) exists in Array.prototype (Step 10.c.ii);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arrObj = [1, 2, 3];
         try {
             Object.defineProperty(Array.prototype, "0", {
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
         } finally {
             delete Array.prototype[0];
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

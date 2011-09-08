@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 11.8.2-2;
- * @path: TestCases/chapter11/11.8/11.8.2/11.8.2-2.js;
+ * @path: chapter11/11.8/11.8.2/11.8.2-2.js;
  * @description: 11.8.2 Greater-than Operator - Partial left to right order enforced when using Greater-than operator: valueOf > toString;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var accessed = false;
         var obj1 = {
             valueOf: function () {
@@ -42,5 +42,5 @@ assertTrue((function testcase() {
             }
         };
         return !(obj1 > obj2);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

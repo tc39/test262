@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5.1-4-1;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-1.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-1.js;
  * @description: [[Call]] - 'F''s [[BoundArgs]] is used as the former part of arguments of calling the [[Call]] internal method of 'F''s [[TargetFunction]] when 'F' is called;
- * @precondition: (fnExists(Function.prototype.bind));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var func = function (x, y, z) {
             return x + y + z;
         };
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
         var newFunc = Function.prototype.bind.call(func, {}, "a", "b", "c");
 
         return newFunc() === "abc";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

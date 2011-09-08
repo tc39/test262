@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.16-7-b-3;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-b-3.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-b-3.js;
  * @description: Array.prototype.every - deleted properties in step 2 are visible here;
- * @precondition: (fnExists(Array.prototype.every) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var accessed = false;
         function callbackfn(val, idx, obj) {
             accessed = true;
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
         });
 
         return Array.prototype.every.call(arr, callbackfn) && accessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

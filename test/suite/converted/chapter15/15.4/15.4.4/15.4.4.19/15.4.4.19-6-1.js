@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-6-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-6-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-6-1.js;
  * @description: Array.prototype.map - Array.isArray returns true when input argument is the ourput array;
- * @precondition: (fnExists(Array.prototype.map) && fnExists(Array.isArray));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var newArr = [11].map(function () { });
 
         return Array.isArray(newArr);
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

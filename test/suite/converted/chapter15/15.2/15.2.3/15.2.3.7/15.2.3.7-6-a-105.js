@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-105;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-105.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-105.js;
  * @description: Object.defineProperties - 'P' is accessor property, P.[[Set]] is present and properties.[[Set]] is undefined (8.12.9 step 12);
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         function get_func() {
             return 10;
@@ -67,5 +66,5 @@ assertTrue((function testcase() {
         verifyConfigurable = obj.hasOwnProperty("property");
 
         return hasProperty && verifyGet && verifySet && verifyEnumerable && !verifyConfigurable;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

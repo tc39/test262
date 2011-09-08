@@ -4,8 +4,8 @@
 /**
  * If string.charAt(k) in [0x0000 - 0x007F]\[uriReserved, uriUnescaped, #], return 1 octet (00000000 0zzzzzzz -> 0zzzzzzz)
  *
- * @id: S15.1.3.3_A2.1_T1;
  * @section: 15.1.3.3;
+ * @path: 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.3_encodeURI/S15.1.3.3_A2.1_T1.js;
  * @description: Complex tests, use RFC 3629;
  */
 

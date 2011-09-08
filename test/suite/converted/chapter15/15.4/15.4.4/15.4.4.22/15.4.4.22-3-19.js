@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.22-3-19;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-3-19.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-3-19.js;
  * @description: Array.prototype.reduceRight - value of 'length' is an object which has an own toString method;
- * @precondition: (fnExists(Array.prototype.reduceRight));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var testResult1 = true;
         var testResult2 = false;
@@ -61,5 +60,5 @@ assertTrue((function testcase() {
 
         Array.prototype.reduceRight.call(obj, callbackfn, 1);
         return testResult1 && testResult2 && toStringAccessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

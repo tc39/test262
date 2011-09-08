@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-9-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-1.js;
  * @description: Array.prototype.reduce doesn't consider new elements added to array after it is called;
- * @precondition: (fnExists(Array.prototype.reduce));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(prevVal, curVal, idx, obj) {
             arr[5] = 6;
             arr[2] = 3;
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
 
         var arr = [1, 2, , 4, '5'];
         return arr.reduce(callbackfn) === "105";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

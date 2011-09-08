@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-317-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-317-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-317-1.js;
  * @description: Object.defineProperty - 'O' is an Arguments object of a function that has formal parameters, 'P' is own data property of 'O', test TypeError is thrown when updating the [[Value]] attribute value of 'P' which is not writable and not configurable (10.6 [[DefineOwnProperty]] step 4);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue(((function (a, b, c) {
+
+assertTrue((function (a, b, c) {
             Object.defineProperty(arguments, "genericProperty", {
                 value: 1001,
                 writable: false,
@@ -41,5 +40,4 @@ assertTrue(((function (a, b, c) {
                     dataPropertyAttributesAreCorrect(arguments, "genericProperty", 1001, false, false, false) && verifyFormal;
             }
             return false;
-        }(1, 2, 3))));
-
+        }(1, 2, 3)));

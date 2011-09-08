@@ -2,10 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * : While evaluating "for (ExpressionNoIn; FirstExpression; SecondExpression) Statement", ExpressionNoIn is evaulated first, FirstExpressoin is evaluated second;
+ * While evaluating "for (ExpressionNoIn; FirstExpression; SecondExpression) Statement", ExpressionNoIn is evaulated first, FirstExpressoin is evaluated second
  *
- * @id: S12.6.3_A3;
  * @section: 12.6.3;
+ * @path: 12_Statement/12.6_Iteration_Statements/12.6.3_The_for_Statement/S12.6.3_A3.js;
  * @description: Using "(function(){throw "FirstExpression"})()" as FirstExpression;
  */
 

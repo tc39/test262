@@ -19,10 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.4.2-2-2;
- * @path: TestCases/chapter15/15.2/15.2.4/15.2.4.2/15.2.4.2-2-2.js;
+ * @path: chapter15/15.2/15.2.4/15.2.4.2/15.2.4.2-2-2.js;
  * @description: Object.prototype.toString - '[object Null]' will be returned when 'this' value is null;
  */
 
-assertTrue((Object.prototype.toString.apply(null, []) === "[object Null]"));
 
+assertTrue(Object.prototype.toString.apply(null, []) === "[object Null]");

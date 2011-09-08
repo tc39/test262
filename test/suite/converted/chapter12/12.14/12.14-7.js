@@ -27,12 +27,12 @@
  * local function expresssions must shadow outer function expressions
  * eval should use the appended object to the scope chain
  *
- * @id: 12.14-7;
- * @path: TestCases/chapter12/12.14/12.14-7.js;
+ * @path: chapter12/12.14/12.14-7.js;
  * @description: catch introduces scope - scope removed when exiting catch block;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
       var o = {foo: 1};
       var catchAccessed = false;
       
@@ -50,5 +50,5 @@ assertTrue((function testcase() {
         return catchAccessed && e instanceof ReferenceError
       }
       return false;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

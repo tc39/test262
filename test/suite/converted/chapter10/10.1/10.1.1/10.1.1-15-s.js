@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.1.1-15-s;
- * @path: TestCases/chapter10/10.1/10.1.1/10.1.1-15-s.js;
+ * @path: chapter10/10.1/10.1.1/10.1.1-15-s.js;
  * @description: Strict Mode - Function code that is part of a FunctionDeclaration is strict function code if FunctionDeclaration is contained in use strict;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         function fun() {
             try {
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         }
 
         return fun();
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

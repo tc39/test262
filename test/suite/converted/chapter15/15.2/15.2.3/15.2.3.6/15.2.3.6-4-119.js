@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-119;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-119.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-119.js;
  * @description: Object.defineProperty - 'O' is an Array, 'name' is the length property of 'O', the [[Value]] field of 'desc' is absent, test every field in 'desc' is same with corresponding attribute value of the length property in 'O' (15.4.5.1 step 3.a.i);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arrObj = [];
         Object.defineProperty(arrObj, "length", {
@@ -53,5 +52,5 @@ assertTrue((function testcase() {
         var verifyConfigurable = arrObj.hasOwnProperty("length");
 
         return verifyValue && verifyWritable && !verifyEnumerable && verifyConfigurable;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

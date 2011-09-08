@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5-15-2;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-15-2.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-15-2.js;
  * @description: Function.prototype.bind, 'length' is a data valued own property with default attributes (false);
- * @precondition: (fnExists(Function.prototype.bind) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   function foo() { }
   var o = {};
   
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
       desc.configurable == false) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

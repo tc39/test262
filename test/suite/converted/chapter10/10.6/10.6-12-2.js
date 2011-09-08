@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.6-12-2;
- * @path: TestCases/chapter10/10.6/10.6-12-2.js;
+ * @path: chapter10/10.6/10.6-12-2.js;
  * @description: arguments.callee has correct attributes;
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   
   var desc = Object.getOwnPropertyDescriptor(arguments,"callee");
   if(desc.configurable === true &&
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
      desc.hasOwnProperty('get') == false &&
      desc.hasOwnProperty('put') == false)
     return true;   
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

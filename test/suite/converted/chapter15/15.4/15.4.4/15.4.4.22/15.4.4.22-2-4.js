@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.22-2-4;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-2-4.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-2-4.js;
  * @description: Array.prototype.reduceRight - 'length' is own data property that overrides an inherited data property on an Array;
- * @precondition: (fnExists(Array.prototype.reduceRight));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var accessed = false;
         var arrProtoLen;
@@ -43,5 +42,5 @@ assertTrue((function testcase() {
             Array.prototype.length = arrProtoLen;
         }
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

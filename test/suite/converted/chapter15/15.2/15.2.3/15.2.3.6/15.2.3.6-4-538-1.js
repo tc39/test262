@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-538-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-538-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-538-1.js;
  * @description: ES5 Attributes - Updating an indexed 'P' whose [[Configurable]] attribute is true to a data property is successful, 'A' is an Array object (8.12.9 - step 9.c.i);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = [];
 
         obj.verifySetFunc = "data";
@@ -53,5 +52,5 @@ assertTrue((function testcase() {
         return desc1.hasOwnProperty("get") && desc2.hasOwnProperty("value") &&
             typeof desc2.get === "undefined" && typeof desc2.get === "undefined" &&
             dataPropertyAttributesAreCorrect(obj, "0", 1001, false, true, true);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

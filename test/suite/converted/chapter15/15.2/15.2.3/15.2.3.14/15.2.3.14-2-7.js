@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.14-2-7;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-2-7.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-2-7.js;
  * @description: Object.keys - 'n' is 0 when 'O' doesn't contain own enumerable data or accessor properties;
- * @precondition: (fnExists(Object.keys) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop1", {
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
         var arr = Object.keys(obj);
 
         return arr.length === 0;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

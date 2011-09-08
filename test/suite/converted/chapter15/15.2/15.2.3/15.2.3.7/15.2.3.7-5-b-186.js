@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-5-b-186;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-186.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-186.js;
  * @description: Object.defineProperties - value of 'writable' property of 'descObj' is the Argument object (8.10.5 step 6.b);
- * @precondition: (fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         var func = function (a, b, c) {
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
         obj.property = "isWritable";
 
         return obj.property === "isWritable";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

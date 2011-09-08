@@ -4,8 +4,8 @@
 /**
  * The Array.prototype property has the attribute DontDelete
  *
- * @id: S15.4.3.1_A3;
  * @section: 15.4.3.1, 15.2.4.5;
+ * @path: 15_Native/15.4_Array_Objects/15.4.3_Properties_of_the_Array_Constructor/15.4.3.1_Array_prototype/S15.4.3.1_A3.js;
  * @description: Checking if deleting the Array.prototype property fails;
  * @strict_only;
  * @strict_mode_negative;

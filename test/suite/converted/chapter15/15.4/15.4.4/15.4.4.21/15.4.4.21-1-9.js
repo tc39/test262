@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-1-9;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-1-9.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-1-9.js;
  * @description: Array.prototype.reduce applied to Function object;
- * @precondition: (fnExists(Array.prototype.reduce));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(prevVal, curVal, idx, obj) {
             return obj instanceof Function;
         }
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         obj[1] = 9;
 
         return Array.prototype.reduce.call(obj, callbackfn, 1);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

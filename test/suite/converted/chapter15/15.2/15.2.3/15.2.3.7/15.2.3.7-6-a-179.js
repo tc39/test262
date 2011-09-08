@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-179;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-179.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-179.js;
  * @description: Object.defineProperties - 'O' is an Array, 'P' is an array index named property, 'P' is boundary value 2^32 - 2 (15.4.5.1 step 4.a);
- * @precondition: (fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arr = [];
 
         Object.defineProperties(arr, {
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         });
 
         return arr.hasOwnProperty("4294967294") && arr.length === 4294967295 && arr[4294967294] === 100;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -4,8 +4,8 @@
 /**
  * The production Assertion :: $ evaluates by returning an internal AssertionTester closure that takes a State argument x and performs the ...
  *
- * @id: S15.10.2.6_A1_T2;
  * @section: 15.10.2.6;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.6_Assertion/S15.10.2.6_A1_T2.js;
  * @description: Execute /e$/.exec("pairs\nmakes\tdouble") and check results;
  */
 

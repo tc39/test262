@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-8-b-ii-4;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-ii-4.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-ii-4.js;
  * @description: Array.prototype.lastIndexOf - search element is NaN;
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue(([+NaN, NaN, -NaN].lastIndexOf(NaN) === -1));
 
+assertTrue([+NaN, NaN, -NaN].lastIndexOf(NaN) === -1);

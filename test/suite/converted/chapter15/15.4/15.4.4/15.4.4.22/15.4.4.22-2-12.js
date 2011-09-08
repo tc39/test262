@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.22-2-12;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-2-12.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-2-12.js;
  * @description: Array.prototype.reduceRight - 'length' is own accessor property without a get function that overrides an inherited accessor property;
- * @precondition: (fnExists(Array.prototype.reduceRight) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var accessed = false;
 
@@ -52,5 +51,5 @@ assertTrue((function testcase() {
         } finally {
             delete Object.prototype.length;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

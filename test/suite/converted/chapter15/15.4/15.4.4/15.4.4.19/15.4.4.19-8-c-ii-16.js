@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-8-c-ii-16;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-c-ii-16.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-c-ii-16.js;
  * @description: Array.prototype.map - 'this' object when T is not an object (T is a boolean primitive);
- * @precondition: (fnExists(Array.prototype.map));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         function callbackfn(val, idx, obj) {
             return this.valueOf() === false;
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
         var testResult = Array.prototype.map.call(obj, callbackfn, false);
 
         return testResult[0] === true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

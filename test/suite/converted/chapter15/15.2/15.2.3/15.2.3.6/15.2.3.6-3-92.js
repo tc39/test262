@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-3-92;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-92.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-92.js;
  * @description: Object.defineProperty - 'Attributes' is a Date object that uses Object's [[Get]] method to access the 'configurable' property (8.10.5 step 4.a);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = { };
 
         var dateObj = new Date();
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
         var afterDeleted = obj.hasOwnProperty("property");
 
         return beforeDeleted === true && afterDeleted === false;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

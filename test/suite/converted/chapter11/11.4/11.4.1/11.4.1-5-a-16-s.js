@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 11.4.1-5-a-16-s;
- * @path: TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-16-s.js;
+ * @path: chapter11/11.4/11.4.1/11.4.1-5-a-16-s.js;
  * @description: Strict Mode - SyntaxError is thrown when deleting a variable of type Error;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         var errObj = new Error();
 
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

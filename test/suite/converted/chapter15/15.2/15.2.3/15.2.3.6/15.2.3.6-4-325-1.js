@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-325-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-325-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-325-1.js;
  * @description: Object.defineProperty - 'O' is an Arguments object which created with function take formal parameters, 'name' is own property of [[ParameterMap]] of 'O', test 'name' is deleted if 'name' is configurable and 'desc' is accessor descriptor (10.6 [[DefineOwnProperty]] step 5.a.i);
- * @precondition: (fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var argObj = (function (a, b, c) { return arguments; })(1, 2, 3);
         var accessed = false;
 
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         });
 
         return argObj[0] === 12 && accessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-59;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-59.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-59.js;
  * @description: Object.defineProperty - 'name' is accessor descriptor and every fields in 'desc' is absent (8.12.9 step 5);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
 
@@ -43,5 +42,5 @@ assertTrue((function testcase() {
 
         Object.defineProperty(obj, "foo", {});
         return accessorPropertyAttributesAreCorrect(obj, "foo", getFunc, setFunc, "helpVerifySet", false, false);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

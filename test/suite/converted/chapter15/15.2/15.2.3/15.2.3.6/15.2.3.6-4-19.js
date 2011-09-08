@@ -23,13 +23,12 @@
  * of O to define the property. For non-configurable properties, step 11.a.i
  * of [[DefineOwnProperty]] permits setting a setter (if absent).
  *
- * @id: 15.2.3.6-4-19;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-19.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-19.js;
  * @description: Object.defineProperty permits setting a setter (if absent) of non-configurable accessor properties(8.12.9 step 10.a.ii.1);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o = {};
 
   // create an accessor property; all other attributes default to false.
@@ -51,5 +50,5 @@ assertTrue((function testcase() {
 	  d2.enumerable === false) {
 	return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

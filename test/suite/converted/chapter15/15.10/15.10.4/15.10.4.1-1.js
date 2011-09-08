@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.10.4.1-1;
- * @path: TestCases/chapter15/15.10/15.10.4/15.10.4.1-1.js;
+ * @path: chapter15/15.10/15.10.4/15.10.4.1-1.js;
  * @description: RegExp - the thrown error is TypeError instead of RegExpError when pattern is an object whose [[Class]] property is 'RegExp' and flags is not undefined ;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var regObj = new RegExp();
         try {
             var regExpObj = new RegExp(regObj, true);
@@ -33,5 +33,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof TypeError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

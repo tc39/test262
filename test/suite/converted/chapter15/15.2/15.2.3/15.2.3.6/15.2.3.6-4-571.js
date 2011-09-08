@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-571;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-571.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-571.js;
  * @description: ES5 Attributes - [[Get]] attribute is a function which involves 'this' object into statement(s);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {
             len: 2010
         };
@@ -40,5 +39,5 @@ assertTrue((function testcase() {
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
         return obj.hasOwnProperty("prop") && obj.prop === obj && desc.get === getFunc;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

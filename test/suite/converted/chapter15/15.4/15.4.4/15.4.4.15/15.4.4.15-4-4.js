@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-4-4;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-4-4.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-4-4.js;
  * @description: Array.prototype.lastIndexOf returns -1 if 'length' is 0 (generic 'array' with length 0 );
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   foo.prototype = new Array(1, 2, 3);
   function foo() {}
   var f = new foo();
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
   if (i === -1) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-1-13;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-1-13.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-1-13.js;
  * @description: Array.prototype.indexOf applied to the JSON object;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var targetObj = {};
         try {
             JSON[3] = targetObj;
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
             delete JSON[3];
             delete JSON.length;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

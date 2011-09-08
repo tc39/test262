@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-8-b-11;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-b-11.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-b-11.js;
  * @description: Array.prototype.map - deleting property of prototype causes prototype index property not to be visited on an Array;
- * @precondition: (fnExists(Array.prototype.map) && fnExists(Object.defineProperty) && ![, 1].hasOwnProperty(0) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(val, idx, obj) {
             return idx === 1 && typeof val === "undefined";
         }
@@ -46,5 +45,5 @@ assertTrue((function testcase() {
         } finally {
             delete Array.prototype[1];
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

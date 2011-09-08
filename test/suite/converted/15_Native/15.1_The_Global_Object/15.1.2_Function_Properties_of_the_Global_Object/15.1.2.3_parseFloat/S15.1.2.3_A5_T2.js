@@ -4,8 +4,8 @@
 /**
  * Return the number value for the MV of Result(4)
  *
- * @id: S15.1.2.3_A5_T2;
  * @section: 15.1.2.3, 9.3.1;
+ * @path: 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.3_parseFloat/S15.1.2.3_A5_T2.js;
  * @description: Checking DecimalDigits . DecimalDigits_opt ExponentPart_opt;
  */
 

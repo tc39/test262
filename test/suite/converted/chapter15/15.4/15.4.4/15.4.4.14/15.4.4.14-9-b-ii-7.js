@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-9-b-ii-7;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-ii-7.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-ii-7.js;
  * @description: Array.prototype.indexOf - array element is -0 and search element is +0;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue(([-0].indexOf(+0) === 0));
 
+assertTrue([-0].indexOf(+0) === 0);

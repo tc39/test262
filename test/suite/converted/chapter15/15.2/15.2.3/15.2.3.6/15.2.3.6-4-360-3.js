@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-360-3;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-360-3.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-360-3.js;
  * @description: ES5 Attributes - Updating data property 'P' whose attributes are [[Writable]]: false, [[Enumerable]]: true, [[Configurable]]: true to an accessor property, 'O' is the global object (8.12.9 - step 9.b.i);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = fnGlobalObject();
         try {
             Object.defineProperty(obj, "prop", {
@@ -50,5 +49,5 @@ assertTrue((function testcase() {
         } finally {
             delete obj.prop;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

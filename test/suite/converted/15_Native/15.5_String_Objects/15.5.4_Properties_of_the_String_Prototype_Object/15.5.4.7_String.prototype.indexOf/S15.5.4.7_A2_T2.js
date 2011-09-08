@@ -4,8 +4,8 @@
 /**
  * When length of searchString less than length of ToString(this) -1 returns
  *
- * @id: S15.5.4.7_A2_T2;
  * @section: 15.5.4.7;
+ * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.7_String.prototype.indexOf/S15.5.4.7_A2_T2.js;
  * @description: Call "abcd".indexOf("abcdab",0) and check result;
  */
 

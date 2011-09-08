@@ -4,8 +4,8 @@
 /**
  * The Boolean type have two values, called true and false
  *
- * @id: S8.3_A1_T1;
  * @section: 8.3;
+ * @path: 08_Types/8.3_The_Boolean_Type/S8.3_A1_T1.js;
  * @description: Assign true and false to variables;
  */
 

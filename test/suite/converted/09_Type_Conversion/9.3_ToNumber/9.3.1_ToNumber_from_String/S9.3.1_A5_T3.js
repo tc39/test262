@@ -5,8 +5,8 @@
  * The MV of StrDecimalLiteral::: - StrUnsignedDecimalLiteral is the negative
  * of the MV of StrUnsignedDecimalLiteral. (the negative of this 0 is also 0)
  *
- * @id: S9.3.1_A5_T3;
  * @section: 9.3.1, 15.7.1;
+ * @path: 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A5_T3.js;
  * @description: Compare Number('-' + 'any_number') with -Number('any_number');
  */
 

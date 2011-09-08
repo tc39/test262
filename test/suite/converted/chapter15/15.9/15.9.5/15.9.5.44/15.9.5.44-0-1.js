@@ -19,15 +19,15 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.9.5.44-0-1;
- * @path: TestCases/chapter15/15.9/15.9.5/15.9.5.44/15.9.5.44-0-1.js;
+ * @path: chapter15/15.9/15.9.5/15.9.5.44/15.9.5.44-0-1.js;
  * @description: Date.prototype.toJSON must exist as a function;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var f = Date.prototype.toJSON;
   if (typeof(f) === "function") {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

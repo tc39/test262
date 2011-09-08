@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.18-7-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-7-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-7-1.js;
  * @description: Array.prototype.forEach doesn't consider new elements added to array after the call;
- * @precondition: (fnExists(Array.prototype.forEach));
  */
 
-assertTrue((function testcase() { 
+
+function testcase() { 
  
   var callCnt = 0;
   function callbackfn(val, idx, obj)
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
   arr.forEach(callbackfn);
   if( callCnt === 5)    
     return true;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

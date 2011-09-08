@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.22-9-c-ii-5;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-c-ii-5.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-c-ii-5.js;
  * @description: Array.prototype.reduceRight - k values are accessed during each iteration and not prior to starting the loop on an Array;
- * @precondition: (fnExists(Array.prototype.reduceRight));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arr = [11, 12, 13, 14];
         var kIndex = [];
         var result = true;
@@ -48,5 +47,5 @@ assertTrue((function testcase() {
 
         arr.reduceRight(callbackfn, 1);
         return result && called === 4;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

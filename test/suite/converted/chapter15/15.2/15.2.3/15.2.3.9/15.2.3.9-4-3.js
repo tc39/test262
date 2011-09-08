@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.9-4-3;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-4-3.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-4-3.js;
  * @description: Object.freeze - the extensions of 'O' is prevented already;
- * @precondition: (fnExists(Object.freeze) && fnExists(Object.isFrozen) && fnExists(Object.preventExtensions));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
 
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
 
         Object.freeze(obj);
         return Object.isFrozen(obj);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

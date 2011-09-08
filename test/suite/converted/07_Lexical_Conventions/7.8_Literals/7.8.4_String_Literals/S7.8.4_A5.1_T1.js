@@ -4,8 +4,8 @@
 /**
  * EscapeSequence :: 0
  *
- * @id: S7.8.4_A5.1_T1;
  * @section: 7.8.4;
+ * @path: 07_Lexical_Conventions/7.8_Literals/7.8.4_String_Literals/S7.8.4_A5.1_T1.js;
  * @description: String.fromCharCode(0x0000);
  */
 

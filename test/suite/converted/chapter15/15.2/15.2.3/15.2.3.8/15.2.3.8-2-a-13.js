@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.8-2-a-13;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-13.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-13.js;
  * @description: Object.seal - 'P' is own property of a RegExp object that uses Object's [[GetOwnProperty]];
- * @precondition: (fnExists(Object.seal) && fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var regObj = new RegExp();
 
         regObj.foo = 10;
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
 
         delete regObj.foo;
         return preCheck && regObj.foo === 10;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

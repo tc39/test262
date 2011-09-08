@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.17-3-16;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-3-16.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-3-16.js;
  * @description: Array.prototype.some - 'length' is a string containing a hex number;
- * @precondition: (fnExists(Array.prototype.some));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn1(val, idx, obj) {
             return val > 10;
         }
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
 
         return Array.prototype.some.call(obj, callbackfn1) &&
             !Array.prototype.some.call(obj, callbackfn2);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

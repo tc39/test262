@@ -4,8 +4,8 @@
 /**
  * The Identifier in a FunctionExpression can be referenced from inside the FunctionExpression's FunctionBody to allow the function calling itself recursively
  *
- * @id: S13_A3_T3;
  * @section: 13;
+ * @path: 13_Function_Definition/S13_A3_T3.js;
  * @description: Creating simple recursive function that calculates factorial;
  */
 

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-365;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-365.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-365.js;
  * @description: ES5 Attributes - fail to update [[Enumerable]] attribute of data property ([[Writable]] is false, [[Enumerable]] is true, [[Configurable]] is false) to different value;
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
@@ -47,5 +46,5 @@ assertTrue((function testcase() {
 
             return propertyDefineCorrect && desc1.enumerable === true && obj.prop === 2010 && desc2.enumerable === true && e instanceof TypeError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

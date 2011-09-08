@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-3-145;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-145.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-145.js;
  * @description: Object.defineProperty - 'Attributes' is a Date object that uses Object's [[Get]] method to access the 'value' property  (8.10.5 step 5.a);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = { };
 
         var dateObj = new Date();
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         Object.defineProperty(obj, "property", dateObj);
 
         return obj.property === "Date";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.5.4.20-2-1;
- * @path: TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-1.js;
+ * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-1.js;
  * @description: String.prototype.trim - argument 'this' is a boolean whose value is false;
- * @precondition: (fnExists(String.prototype.trim));
  */
 
-assertTrue((String.prototype.trim.call(false) === "false"));
 
+assertTrue(String.prototype.trim.call(false) === "false");

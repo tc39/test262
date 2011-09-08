@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-57;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-57.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-57.js;
  * @description: Object.defineProperty - 'desc' is accessor descriptor, test updating all attribute values of 'name' (8.12.9 step 4.b.i);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         var setFunc = function (value) {
             obj.setVerifyHelpProp = value;
@@ -51,5 +50,5 @@ assertTrue((function testcase() {
         });
 
         return accessorPropertyAttributesAreCorrect(obj, "property", getFunc, setFunc, "setVerifyHelpProp", false, false);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

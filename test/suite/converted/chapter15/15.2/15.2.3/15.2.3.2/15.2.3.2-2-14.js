@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.2-2-14;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-2-14.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-2-14.js;
  * @description: Object.getPrototypeOf returns the [[Prototype]] of its parameter (ReferenceError);
- * @precondition: (fnExists(Object.getPrototypeOf));
  */
 
-assertTrue((Object.getPrototypeOf(ReferenceError) === Function.prototype));
 
+assertTrue(Object.getPrototypeOf(ReferenceError) === Function.prototype);

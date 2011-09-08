@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.12.3_4-1-2;
- * @path: TestCases/chapter15/15.12/15.12.3/15.12.3_4-1-2.js;
+ * @path: chapter15/15.12/15.12.3/15.12.3_4-1-2.js;
  * @description: JSON.stringify a circular object throws a TypeError;
- * @precondition: (JSON && fnExists(JSON.stringify));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var obj = {};
   obj.prop = obj;
   try {
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
      return false;  // should not reach here
      }
    catch (e) {return e.name==='TypeError'}
-  }).call(this));
-
+  }
+assertTrue(testcase.call(this));

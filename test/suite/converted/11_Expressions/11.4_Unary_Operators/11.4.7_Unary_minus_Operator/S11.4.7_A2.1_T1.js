@@ -4,8 +4,8 @@
 /**
  * Operator -x uses GetValue
  *
- * @id: S11.4.7_A2.1_T1;
  * @section: 11.4.7;
+ * @path: 11_Expressions/11.4_Unary_Operators/11.4.7_Unary_minus_Operator/S11.4.7_A2.1_T1.js;
  * @description: Either Type(x) is not Reference or GetBase(x) is not null;
  */
 

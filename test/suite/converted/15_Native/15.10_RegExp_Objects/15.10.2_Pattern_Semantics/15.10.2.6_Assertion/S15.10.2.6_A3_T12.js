@@ -4,8 +4,8 @@
 /**
  * The production Assertion :: \b evaluates by returning an internal AssertionTester closure that takes a State argument x and performs the ...
  *
- * @id: S15.10.2.6_A3_T12;
  * @section: 15.10.2.6;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.6_Assertion/S15.10.2.6_A3_T12.js;
  * @description: Execute /\bop/.exec("pilot\nsoviet robot\topenoffice") and check results;
  */
 

@@ -19,17 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 7.6-3;
- * @path: TestCases/chapter07/7.6/7.6-3.js;
+ * @path: chapter07/7.6/7.6-3.js;
  * @description: 7.6 - SyntaxError expected: reserved words used as Identifier Names in UTF8: false (false);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
             try {
                 eval("var fals\u0065 = 123;");  
                 return false;
             } catch (e) {
                 return e instanceof SyntaxError;  
             }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

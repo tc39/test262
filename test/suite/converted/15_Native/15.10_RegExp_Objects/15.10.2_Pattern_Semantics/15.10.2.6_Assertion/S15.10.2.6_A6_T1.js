@@ -4,8 +4,8 @@
 /**
  * Assertions in combination
  *
- * @id: S15.10.2.6_A6_T1;
  * @section: 15.10.2.6;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.6_Assertion/S15.10.2.6_A6_T1.js;
  * @description: while asterix is non greedy it is run till the end because of dollar assertion;
  */
 

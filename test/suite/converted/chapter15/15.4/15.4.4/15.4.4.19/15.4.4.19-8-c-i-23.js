@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-8-c-i-23;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-c-i-23.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-c-i-23.js;
  * @description: Array.prototype.map - This object is the global object which contains index property;
- * @precondition: (fnExists(Array.prototype.map));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var kValue = "abc";
 
@@ -48,5 +47,5 @@ assertTrue((function testcase() {
             delete fnGlobalObject()[0];
             fnGlobalObject().length = oldLen;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 7.3-2;
- * @path: TestCases/chapter07/7.3/7.3-2.js;
+ * @path: chapter07/7.3/7.3-2.js;
  * @description: 7.3 - ES5 recognizes the character <PS> (\u2029) as line terminators when parsing statements;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         eval("var test\u2029prop = 66;");
         return prop === 66 && !this.hasOwnProperty("test") && typeof test === "undefined";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

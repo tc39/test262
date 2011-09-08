@@ -4,8 +4,8 @@
 /**
  * The production QuantifierPrefix :: + evaluates by returning the two results 1 and \infty
  *
- * @id: S15.10.2.7_A3_T2;
  * @section: 15.10.2.7;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.7_Quantifier/S15.10.2.7_A3_T2.js;
  * @description: Execute /\s+java\s+/.exec("\t java object") and check results;
  */
 

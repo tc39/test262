@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-9-b-i-3;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-i-3.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-i-3.js;
  * @description: Array.prototype.indexOf - element to be retrieved is own data property that overrides an inherited data property on an Array;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             Array.prototype[0] = false;
             return [true].indexOf(true) === 0;
         } finally {
             delete Array.prototype[0];
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

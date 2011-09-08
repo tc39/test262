@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-7-4;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-7-4.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-7-4.js;
  * @description: Array.prototype.reduce returns initialValue if 'length' is 0 and initialValue is present (subclassed Array, length overridden to 0 (type conversion));
- * @precondition: (fnExists(Array.prototype.reduce));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   foo.prototype = new Array(1, 2, 3);
   function foo() {}
   var f = new foo();
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
       return true;
   }
   catch (e) {  }  
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

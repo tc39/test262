@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.6-13-a-1;
- * @path: TestCases/chapter10/10.6/10.6-13-a-1.js;
+ * @path: chapter10/10.6/10.6-13-a-1.js;
  * @description: In non-strict mode, arguments object should have its own 'callee' property defined (Step 13.a);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             Object.defineProperty(Object.prototype, "callee", {
                 value: 1,
@@ -57,5 +56,5 @@ assertTrue((function testcase() {
         } finally {
             delete Object.prototype.callee;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

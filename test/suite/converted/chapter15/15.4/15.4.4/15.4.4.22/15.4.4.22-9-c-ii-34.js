@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.22-9-c-ii-34;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-c-ii-34.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-c-ii-34.js;
  * @description: Array.prototype.reduceRight - Error Object can be used as accumulator;
- * @precondition: (fnExists(Array.prototype.reduceRight));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var accessed = false;
         var objError = new RangeError();
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         
 
         return Array.prototype.reduceRight.call(obj, callbackfn, objError) === true && accessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

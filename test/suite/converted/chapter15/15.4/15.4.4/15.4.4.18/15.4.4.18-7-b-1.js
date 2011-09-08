@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.18-7-b-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-7-b-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-7-b-1.js;
  * @description: Array.prototype.forEach - callbackfn not called for indexes never been assigned values;
- * @precondition: (fnExists(Array.prototype.forEach));
  */
 
-assertTrue((function testcase() { 
+
+function testcase() { 
  
   var callCnt = 0;
   function callbackfn(val, idx, obj)
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
   arr.forEach(callbackfn);
   if( callCnt === 1)    
     return true;    
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

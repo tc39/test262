@@ -4,8 +4,8 @@
 /**
  * If x is -Infinity, Math.floor(x) is -Infinity
  *
- * @id: S15.8.2.9_A5;
  * @section: 15.8.2.9;
+ * @path: 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.9_floor/S15.8.2.9_A5.js;
  * @description: Checking if Math.floor(x) is -Infinity, where x is -Infinity;
  */
 

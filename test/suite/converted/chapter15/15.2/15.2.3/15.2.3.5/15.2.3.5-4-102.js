@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-102;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-102.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-102.js;
  * @description: Object.create - 'configurable' property of one property in 'Properties' is an inherited data property (8.10.5 step 4.a);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
        
         var proto = {
             configurable: true
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
 
         return result1 === true && result2 === false;
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-7;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-7.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-7.js;
  * @description: Object.defineProperties - 'P' is own accessor property that overrides an inherited data property (8.12.9 step 1 ) ;
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var proto = {};
         Object.defineProperty(proto, "prop", {
             value: 11,
@@ -53,5 +52,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return (e instanceof TypeError) && obj.prop === 12;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

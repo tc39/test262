@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-5-7;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-5-7.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-5-7.js;
  * @description: Array.prototype.reduce throws TypeError if 'length' is 0 (subclassed Array, length overridden with obj w/o valueOf (toString)), no initVal;
- * @precondition: (fnExists(Array.prototype.reduce));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   foo.prototype = new Array(1, 2, 3);
   function foo() {}
   var f = new foo();
@@ -48,5 +47,5 @@ assertTrue((function testcase() {
       return true;
     }
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

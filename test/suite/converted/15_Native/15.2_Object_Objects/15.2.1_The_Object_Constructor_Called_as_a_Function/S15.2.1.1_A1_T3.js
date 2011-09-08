@@ -5,8 +5,8 @@
  * When the Object(value) is called and the value is null, undefined or not supplied,
  * create and return a new Object object if the object constructor had been called with the same arguments (15.2.2.1)
  *
- * @id: S15.2.1.1_A1_T3;
  * @section: 15.2.1.1, 15.2.2.1;
+ * @path: 15_Native/15.2_Object_Objects/15.2.1_The_Object_Constructor_Called_as_a_Function/S15.2.1.1_A1_T3.js;
  * @description: Creating Object() and checking its properties;
  */
 

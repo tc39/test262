@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.4-4-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-4-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-4-1.js;
  * @description: Object.getOwnPropertyNames returns array of property names (Global);
- * @precondition: (fnExists(Object.getOwnPropertyNames));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var result = Object.getOwnPropertyNames(fnGlobalObject());
         var expResult = ["NaN", "Infinity", "undefined", "eval", "parseInt", "parseFloat", "isNaN", "isFinite", "decodeURI", "decodeURIComponent", "encodeURI", "encodeURIComponent", "Object", "Function", "Array", "String", "Boolean", "Number", "Date", "Date", "RegExp", "Error", "EvalError", "RangeError", "ReferenceError", "SyntaxError", "TypeError", "URIError", "Math", "JSON"];
 
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
         }
 
         return true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

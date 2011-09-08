@@ -5,8 +5,8 @@
  * The push function is intentionally generic.
  * It does not require that its this value be an Array object
  *
- * @id: S15.4.4.7_A2_T3;
  * @section: 15.4.4.7;
+ * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.7_Array_prototype_push/S15.4.4.7_A2_T3.js;
  * @description: Operator use ToNumber from length.
  * If Type(value) is Object, evaluate ToPrimitive(value, Number);
  */

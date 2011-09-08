@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.4.3-1-1-s;
- * @path: TestCases/chapter10/10.4/10.4.3/10.4.3-1-1-s.js;
+ * @path: chapter10/10.4/10.4.3/10.4.3-1-1-s.js;
  * @description: this is not coerced to an object in strict mode (Number);
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
   function foo()
   {
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
 
 
   return foo.call(1) === 'number' && bar.call(1) === 'object';
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -5,8 +5,8 @@
  * If start is positive, use min(start, length).
  * If deleteCount is negative, use 0
  *
- * @id: S15.4.4.12_A1.3_T2;
  * @section: 15.4.4.12;
+ * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.12_Array_prototype_splice/S15.4.4.12_A1.3_T2.js;
  * @description: -length = -start < deleteCount < 0, itemCount = 0;
  */
 

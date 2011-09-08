@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-3-14;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-3-14.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-3-14.js;
  * @description: Array.prototype.filter - 'length' is a string containing +/-Infinity;
- * @precondition: (fnExists(Array.prototype.filter));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var accessed1 = false;
         var accessed2 = false;
@@ -57,5 +56,5 @@ assertTrue((function testcase() {
         return !accessed1 && newArr1.length === 0 &&
             !accessed2 && newArr2.length === 0 && 
             !accessed3 && newArr3.length === 0;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

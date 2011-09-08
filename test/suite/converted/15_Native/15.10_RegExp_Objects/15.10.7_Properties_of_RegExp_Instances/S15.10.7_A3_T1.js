@@ -4,8 +4,8 @@
 /**
  * RegExp instance type is RegExp
  *
- * @id: S15.10.7_A3_T1;
  * @section: 15.10.7;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.7_Properties_of_RegExp_Instances/S15.10.7_A3_T1.js;
  * @description: Checking type of RegExp instance with operators typeof, instanceof and check it constructor.
  * RegExp instance is /[^a]* /;
  */

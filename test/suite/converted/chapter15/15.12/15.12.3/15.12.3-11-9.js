@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.12.3-11-9;
- * @path: TestCases/chapter15/15.12/15.12.3/15.12.3-11-9.js;
+ * @path: chapter15/15.12/15.12.3/15.12.3-11-9.js;
  * @description: JSON.stringify correctly works on top level Boolean objects.;
- * @precondition: (JSON && fnExists(JSON.stringify));
  */
 
-assertTrue((JSON.stringify(new Boolean(false)) === 'false'));
 
+assertTrue(JSON.stringify(new Boolean(false)) === 'false');

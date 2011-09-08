@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-9-c-ii-18;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-c-ii-18.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-c-ii-18.js;
  * @description: Array.prototype.reduce - value of 'accumulator' used for first iteration is the value of 'initialValue' when it is present on an Array-like object;
- * @precondition: (fnExists(Array.prototype.reduce));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var result = false;
         function callbackfn(prevVal, curVal, idx, obj) {
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
 
         Array.prototype.reduce.call(obj, callbackfn, 1);
         return result;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

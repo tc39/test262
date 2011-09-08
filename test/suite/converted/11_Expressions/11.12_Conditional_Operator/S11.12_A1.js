@@ -4,8 +4,8 @@
 /**
  * White Space and Line Terminator between LogicalORExpression and "?" or between "?" and AssignmentExpression or between AssignmentExpression and ":" or between ":" and AssignmentExpression are allowed
  *
- * @id: S11.12_A1;
  * @section: 11.12;
+ * @path: 11_Expressions/11.12_Conditional_Operator/S11.12_A1.js;
  * @description: Checking by using eval;
  */
 

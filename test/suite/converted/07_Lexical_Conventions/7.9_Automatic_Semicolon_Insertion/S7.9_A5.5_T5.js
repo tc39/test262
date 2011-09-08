@@ -4,9 +4,9 @@
 /**
  * Check Function Expression for automatic semicolon insertion
  *
- * @id: S7.9_A5.5_T5;
  * @section: 7.9, 12.4, 11.2.5;
- * @description: : Insert some LineTerminators into rerutn expression;;
+ * @path: 07_Lexical_Conventions/7.9_Automatic_Semicolon_Insertion/S7.9_A5.5_T5.js;
+ * @description: Insert some LineTerminators into rerutn expression;;
  */
 
 //CHECK#1

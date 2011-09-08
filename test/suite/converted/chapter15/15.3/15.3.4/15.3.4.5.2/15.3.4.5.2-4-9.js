@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5.2-4-9;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5.2/15.3.4.5.2-4-9.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5.2/15.3.4.5.2-4-9.js;
  * @description: [[Construct]] - length of parameters of 'target' is 1, length of 'boundArgs' is 0, length of 'ExtraArgs' is 0;
- * @precondition: (fnExists(Function.prototype.bind));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var func = function (x) {
             return new Boolean(arguments.length === 0 && typeof x === "undefined");
         };
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         var newInstance = new NewFunc();
 
         return newInstance.valueOf() === true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

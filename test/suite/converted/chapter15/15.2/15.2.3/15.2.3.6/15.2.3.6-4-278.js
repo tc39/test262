@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-278;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-278.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-278.js;
  * @description: Object.defineProperty - 'name' is generic property that won't exist on 'O', and 'desc' is accessor descriptor, test 'name' is defined in 'O' with all correct attribute values (15.4.5.1 step 5);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arrObj = [];
 
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
         });
 
         return accessorPropertyAttributesAreCorrect(arrObj, "property", getFunc, setFunc, "setVerifyHelpProp", true, true);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

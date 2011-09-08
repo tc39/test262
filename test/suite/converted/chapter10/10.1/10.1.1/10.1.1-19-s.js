@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.1.1-19-s;
- * @path: TestCases/chapter10/10.1/10.1.1/10.1.1-19-s.js;
+ * @path: chapter10/10.1/10.1.1/10.1.1-19-s.js;
  * @description: Strict Mode - Function code of a FunctionDeclaration contains Use Strict Directive which appears at the start of the block;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function fun() {
             "use strict";
             try {
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
             }
         }
         return fun();
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

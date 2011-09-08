@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5-20-5;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-20-5.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-20-5.js;
  * @description: Function.prototype.bind - The [[Configurable]] attribute of 'caller' property in  'F' is false;
- * @precondition: (fnExists(Function.prototype.bind));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var canConfigurable = false;
         var hasProperty = false;
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         delete obj.caller;
         canConfigurable = obj.hasOwnProperty("caller");
         return hasProperty && canConfigurable;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

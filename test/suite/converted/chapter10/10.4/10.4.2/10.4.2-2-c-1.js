@@ -19,17 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.4.2-2-c-1;
- * @path: TestCases/chapter10/10.4/10.4.2/10.4.2-2-c-1.js;
+ * @path: chapter10/10.4/10.4.2/10.4.2-2-c-1.js;
  * @description: Direct val code in non-strict mode - can instantiate variable in calling context;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var x = 0;
   return function inner() {
      eval("var x = 1");
      if (x === 1)
         return true;
      } ();
-   }).call(this));
-
+   }
+assertTrue(testcase.call(this));

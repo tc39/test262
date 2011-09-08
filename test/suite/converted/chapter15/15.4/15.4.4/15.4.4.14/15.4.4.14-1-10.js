@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-1-10;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-1-10.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-1-10.js;
  * @description: Array.prototype.indexOf applied to the Math object;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             Math[1] = true;
             Math.length = 2;
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
             delete Math[1];
             delete Math.length;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-3-212;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-212.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-212.js;
  * @description: Object.defineProperty - 'get' property in 'Attributes' is an inherited accessor property (8.10.5 step 7.a);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         var proto = {};
         Object.defineProperty(proto, "get", {
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
         Object.defineProperty(obj, "property", child);
 
         return obj.property === "inheritedAccessorProperty";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

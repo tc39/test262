@@ -16,18 +16,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5-2-15;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-2-15.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-2-15.js;
  * @description: Function.prototype.bind throws TypeError if 'Target' is Object without Call internal method;
- * @precondition: (fnExists(Function.prototype.bind));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             Function.prototype.bind.call({});
             return false;
         } catch (e) {
             return (e instanceof TypeError);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

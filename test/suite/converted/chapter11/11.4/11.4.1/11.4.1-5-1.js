@@ -19,17 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 11.4.1-5-1;
- * @path: TestCases/chapter11/11.4/11.4.1/11.4.1-5-1.js;
+ * @path: chapter11/11.4/11.4.1/11.4.1-5-1.js;
  * @description: delete operator returns false when deleting a direct reference to a var;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var x = 1;
 
   // Now, deleting 'x' directly should fail;
   var d = delete x;
   if(d === false && x === 1)
     return true;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

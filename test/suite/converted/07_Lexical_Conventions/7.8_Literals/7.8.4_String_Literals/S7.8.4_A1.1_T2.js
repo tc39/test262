@@ -4,8 +4,8 @@
 /**
  * StringLiteral :: "DoubleStringCharacters_opt"
  *
- * @id: S7.8.4_A1.1_T2;
  * @section: 7.8.4;
+ * @path: 07_Lexical_Conventions/7.8_Literals/7.8.4_String_Literals/S7.8.4_A1.1_T2.js;
  * @description: DoubleStringCharacter :: SourceCharacter but not double-quote " or LineTerminator;
  * @negative;
  */

@@ -4,8 +4,8 @@
 /**
  * NO-BREAK SPACE (U+00A0) between any two tokens is allowed
  *
- * @id: S7.2_A1.5_T1;
  * @section: 7.2, 7.5;
+ * @path: 07_Lexical_Conventions/7.2_White_Space/S7.2_A1.5_T1.js;
  * @description: Insert NO-BREAK SPACE(\u00A0) between tokens of var x=1;
  */
 

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-406;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-406.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-406.js;
  * @description: ES5 Attributes - Inherited property whose [[Enumerable]] attribute is set to false is non-enumerable (Function instance);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             Object.defineProperty(Function.prototype, "prop", {
                 value: 1001,
@@ -46,5 +45,5 @@ assertTrue((function testcase() {
         } finally {
             delete Function.prototype.prop;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

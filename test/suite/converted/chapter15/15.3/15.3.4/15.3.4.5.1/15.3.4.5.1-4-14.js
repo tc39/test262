@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5.1-4-14;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-14.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-14.js;
  * @description: [[Call]] - length of parameters of 'target' is 1, length of 'boundArgs' is 1, length of 'ExtraArgs' is 1, and with 'boundThis';
- * @precondition: (fnExists(Function.prototype.bind));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = { prop: "abc" };
 
         var func = function (x) {
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
         var newFunc = Function.prototype.bind.call(func, obj, 1);
 
         return newFunc(2);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

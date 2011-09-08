@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.22-9-2;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-2.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-2.js;
  * @description: Array.prototype.reduceRight considers new value of elements in array after it is called;
- * @precondition: (fnExists(Array.prototype.reduceRight));
  */
 
-assertTrue((function testcase() { 
+
+function testcase() { 
  
   function callbackfn(prevVal, curVal, idx, obj)
   {
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
   if(arr.reduceRight(callbackfn) === 13)
     return true;  
   
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

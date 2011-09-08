@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-293-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-293-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-293-1.js;
  * @description: Object.defineProperty - 'O' is an Arguments object, 'name' is own data property of 'O', test TypeError is not thrown when updating the [[Value]] attribute value of 'name' which is defined as non-writable and configurable (10.6 [[DefineOwnProperty]] step 3 and 5b);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue(((function () {
+
+assertTrue((function () {
             Object.defineProperty(arguments, "0", {
                 value: 10,
                 writable: false
@@ -34,5 +33,4 @@ assertTrue(((function () {
                 value: 20
             });
             return dataPropertyAttributesAreCorrect(arguments, "0", 20, false, true, true);
-        }(0, 1, 2))));
-
+        }(0, 1, 2)));

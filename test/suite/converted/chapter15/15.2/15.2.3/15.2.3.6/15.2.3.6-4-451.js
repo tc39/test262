@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-451;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-451.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-451.js;
  * @description: ES5 Attributes - property ([[Get]] is undefined, [[Set]] is undefined, [[Enumerable]] is false, [[Configurable]] is false) is non-enumerable;
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
         }
 
         return propertyDefineCorrect && desc.enumerable === false;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

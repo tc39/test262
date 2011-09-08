@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.1.1-28-s;
- * @path: TestCases/chapter10/10.1/10.1.1/10.1.1-28-s.js;
+ * @path: chapter10/10.1/10.1.1/10.1.1-28-s.js;
  * @description: Strict Mode - Function code of Accessor PropertyAssignment contains Use Strict Directive which appears at the end of the block(setter);
  * @strict_only;
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         var data;
         
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
         });
         obj.accProperty = "overrideData";
         return data==="overrideData";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

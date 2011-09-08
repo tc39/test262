@@ -4,8 +4,8 @@
 /**
  * Check type of various properties
  *
- * @id: S11.2.1_A4_T4;
  * @section: 11.2.1;
+ * @path: 11_Expressions/11.2_Left_Hand_Side_Expressions/11.2.1_Property_Accessors/S11.2.1_A4_T4.js;
  * @description: Checking properties of the Array object;
  */
 

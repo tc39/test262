@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-9-b-8;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-b-8.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-b-8.js;
  * @description: Array.prototype.filter - deleting own property causes index property not to be visited on an Array-like object;
- * @precondition: (fnExists(Array.prototype.filter) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var accessed = false;
         var obj = { length: 2 };
 
@@ -52,5 +51,5 @@ assertTrue((function testcase() {
         var newArr = Array.prototype.filter.call(obj, callbackfn);
 
         return newArr.length === 1 && newArr[0] === 0;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

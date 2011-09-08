@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.3.2-0-4;
- * @path: TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-0-4.js;
+ * @path: chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-0-4.js;
  * @description: Array.isArray return false if its argument is not an Array;
- * @precondition: (fnExists(Array.isArray));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var b_num   = Array.isArray(42);
   var b_undef = Array.isArray(undefined);
   var b_bool  = Array.isArray(true);
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
       b_null === false) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

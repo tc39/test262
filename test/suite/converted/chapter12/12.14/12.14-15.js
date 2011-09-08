@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.14-15;
- * @path: TestCases/chapter12/12.14/12.14-15.js;
+ * @path: chapter12/12.14/12.14-15.js;
  * @description: Exception object is a function which is a property of an object, when an exception parameter is called as a function in catch block, global object is passed as the this value;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         obj.test = function () {
             this._12_14_15_foo = "test";
@@ -39,5 +39,5 @@ assertTrue((function testcase() {
         finally {
             delete fnGlobalObject()._12_14_15_foo;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

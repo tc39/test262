@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-8-c-ii-5;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-c-ii-5.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-c-ii-5.js;
  * @description: Array.prototype.map - k values are accessed during each iteration and not prior to starting the loop.;
- * @precondition: (fnExists(Array.prototype.map));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var kIndex = [];
 
@@ -49,5 +48,5 @@ assertTrue((function testcase() {
         return testResult.length === 4 && testResult[0] === false &&
             testResult[1] === false && testResult[2] === false &&
             testResult[3] === false;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

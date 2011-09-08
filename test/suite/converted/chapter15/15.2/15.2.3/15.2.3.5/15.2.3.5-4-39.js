@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-39;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-39.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-39.js;
  * @description: Object.create - ensure that side-effects of gets occur in the same order as they would for: for (P in props) props[P] (15.2.3.7 step 5.a);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var props = {};
         props.prop1 = { value: 12, enumerable: true };
@@ -46,5 +45,5 @@ assertTrue((function testcase() {
             }
         }
         return true;         
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

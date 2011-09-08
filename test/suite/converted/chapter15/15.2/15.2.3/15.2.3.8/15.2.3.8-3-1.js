@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.8-3-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-3-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-3-1.js;
  * @description: Object.seal - returned object is not extensible;
- * @precondition: (fnExists(Object.seal) && fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
         var preCheck = Object.isExtensible(obj);
         Object.seal(obj);
         return preCheck && !Object.isExtensible(obj);
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

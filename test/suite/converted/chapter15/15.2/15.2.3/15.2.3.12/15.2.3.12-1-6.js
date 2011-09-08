@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.12-1-6;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-1-6.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-1-6.js;
  * @description: Object.isFrozen applies to sparse array;
- * @precondition: (fnExists(Object.isFrozen) && fnExists(Object.freeze));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var sparseArr = [0, 1];
         sparseArr[10000] = 10000;
 
         sparseArr = Object.freeze(sparseArr);
         return Object.isFrozen(sparseArr);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

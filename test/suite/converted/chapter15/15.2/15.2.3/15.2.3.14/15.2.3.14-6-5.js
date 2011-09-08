@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.14-6-5;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-6-5.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-6-5.js;
  * @description: Object.keys - the order of elements in returned array is the same with the order of properties in 'O' (any other built-in object);
- * @precondition: (fnExists(Object.keys));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = new Date();
         obj.prop1 = 100;
         obj.prop2 = "prop2";
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
             }
         }
         return true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.5.4.20-2-41;
- * @path: TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-41.js;
+ * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-41.js;
  * @description: String.prototype.trim - 'this' is an object which has an own toString and valueOf method.;
- * @precondition: (fnExists(String.prototype.trim));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var toStringAccessed = false;
         var valueOfAccessed = false;
         var obj = {
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
             }
         };
         return (String.prototype.trim.call(obj) === "abc") && !valueOfAccessed && toStringAccessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

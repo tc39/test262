@@ -19,19 +19,18 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.4.2-3-c-1-s;
- * @path: TestCases/chapter10/10.4/10.4.2/10.4.2-3-c-1-s.js;
+ * @path: chapter10/10.4/10.4.2/10.4.2-3-c-1-s.js;
  * @description: Direct eval code in strict mode - cannot instantiate variable in the variable environment of the calling context;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var _10_4_2_3_c_1_s = 0;
   function _10_4_2_3_c_1_sFunc() {
      eval("'use strict';var _10_4_2_3_c_1_s = 1");
      return _10_4_2_3_c_1_s===0;
   } 
   return _10_4_2_3_c_1_sFunc();
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

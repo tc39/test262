@@ -22,12 +22,12 @@
  * This test is actually testing the [[Delete]] internal method (8.12.8). Since the
  * language provides no way to directly exercise [[Delete]], the tests are placed here.
  *
- * @id: 11.4.1-4.a-5;
- * @path: TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-5.js;
+ * @path: chapter11/11.4/11.4.1/11.4.1-4.a-5.js;
  * @description: delete operator returns false when deleting the environment object inside 'with';
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o = new Object();
   o.x = 1;
   var d;
@@ -39,5 +39,5 @@ assertTrue((function testcase() {
     return true;
   }
   return false;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

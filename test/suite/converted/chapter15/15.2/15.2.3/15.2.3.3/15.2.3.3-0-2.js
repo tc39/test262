@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.3-0-2;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-0-2.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-0-2.js;
  * @description: Object.getOwnPropertyDescriptor must exist as a function taking 2 parameters;
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((Object.getOwnPropertyDescriptor.length === 2));
 
+assertTrue(Object.getOwnPropertyDescriptor.length === 2);

@@ -4,8 +4,8 @@
 /**
  * String.prototype.replace (searchValue, replaceValue)
  *
- * @id: S15.5.4.11_A1_T11;
  * @section: 15.5.4.11;
+ * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.11_String.prototype.replace/S15.5.4.11_A1_T11.js;
  * @description: Call replace (searchValue, replaceValue) function with objects arguments of string object. Objects have overrided toString function, that throw exception;
  */
 

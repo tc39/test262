@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.17-1-5;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-1-5.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-1-5.js;
  * @description: Array.prototype.some applied to number primitive;
- * @precondition: (fnExists(Array.prototype.some));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(val, idx, obj) {
             return obj instanceof Number;
         }
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
             delete Number.prototype[1];
             delete Number.prototype.length;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.17-7-4;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-4.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-4.js;
  * @description: Array.prototype.some doesn't visit deleted elements when Array.length is decreased;
- * @precondition: (fnExists(Array.prototype.some));
  */
 
-assertTrue((function testcase() { 
+
+function testcase() { 
  
   function callbackfn(val, idx, obj)
   {
@@ -40,5 +39,5 @@ assertTrue((function testcase() {
   
   if(arr.some(callbackfn) === false)    
     return true;    
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

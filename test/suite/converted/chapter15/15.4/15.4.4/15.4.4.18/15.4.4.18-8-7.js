@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.18-8-7;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-8-7.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-8-7.js;
  * @description: Array.prototype.forEach doesn't call callbackfn if 'length' is 0 (subclassed Array, length overridden with obj w/o valueOf (toString));
- * @precondition: (fnExists(Array.prototype.forEach));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   foo.prototype = new Array(1, 2, 3);
   function foo() {}
   var f = new foo();
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
   if (callCnt === 0) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

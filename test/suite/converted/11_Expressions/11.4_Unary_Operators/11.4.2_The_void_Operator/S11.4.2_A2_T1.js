@@ -4,8 +4,8 @@
 /**
  * Operator "void" uses GetValue
  *
- * @id: S11.4.2_A2_T1;
  * @section: 11.4.2;
+ * @path: 11_Expressions/11.4_Unary_Operators/11.4.2_The_void_Operator/S11.4.2_A2_T1.js;
  * @description: Either Type(x) is not Reference or GetBase(x) is not null;
  */
 

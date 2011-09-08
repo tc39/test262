@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.16-7-7;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-7.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-7.js;
  * @description: Array.prototype.every - Deleting the array itself within the callbackfn of Array.prototype.every is successful once Array.prototype.every is called for all elements;
- * @precondition: (fnExists(Array.prototype.every));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var o = new Object();
         o.arr = [1, 2, 3, 4, 5];
 
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         }
 
         return o.arr.every(callbackfn) && !o.hasOwnProperty("arr");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -23,13 +23,12 @@
  * of O to define the property. For non-configurable properties, step 11.a.ii
  * of [[DefineOwnProperty]] rejects changing the getter if present.
  *
- * @id: 15.2.3.6-4-20;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-20.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-20.js;
  * @description: Object.defineProperty throws TypeError when changing getter (if present) of non-configurable accessor properties(8.12.9 step 11.a.ii);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o = {};
 
   // create an accessor property; all other attributes default to false.
@@ -56,5 +55,5 @@ assertTrue((function testcase() {
       }
     }
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

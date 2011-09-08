@@ -4,8 +4,8 @@
 /**
  * The production QuantifierPrefix :: * evaluates by returning the two results 0 and \infty
  *
- * @id: S15.10.2.7_A4_T16;
  * @section: 15.10.2.7;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.7_Quantifier/S15.10.2.7_A4_T16.js;
  * @description: Execute /(x+)(x*)/.exec('xxxxxxx') and check results;
  */
 

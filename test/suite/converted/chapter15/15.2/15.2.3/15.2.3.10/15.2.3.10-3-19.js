@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.10-3-19;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-19.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-19.js;
  * @description: Object.preventExtensions - named properties cannot be added into a RegExp object;
- * @precondition: (fnExists(Object.preventExtensions) && fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var regObj = new RegExp();
         var preCheck = Object.isExtensible(regObj);
         Object.preventExtensions(regObj);
 
         regObj.exName = 2;
         return preCheck && !regObj.hasOwnProperty("exName");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

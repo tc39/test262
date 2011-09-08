@@ -19,16 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.1.1-29-s;
- * @path: TestCases/chapter10/10.1/10.1.1/10.1.1-29-s.js;
+ * @path: chapter10/10.1/10.1.1/10.1.1-29-s.js;
  * @description: Strict Mode - The built-in Function constructor is contained in use strict code;
  * @strict_only;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         var funObj = new Function("a", "eval('public = 1;');");
         funObj();
         return true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

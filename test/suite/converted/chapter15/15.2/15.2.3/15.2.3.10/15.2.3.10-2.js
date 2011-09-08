@@ -21,13 +21,12 @@
 /**
  * The effect of preventExtentions must be testable by calling isExtensible
  *
- * @id: 15.2.3.10-2;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-2.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-2.js;
  * @description: Object.preventExtensions returns its arguments after setting its extensible property to false;
- * @precondition: (fnExists(Object.preventExtensions));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o  = {};
   var o2 = undefined;
 
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
   if (o2 === o && Object.isExtensible(o2) === false) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

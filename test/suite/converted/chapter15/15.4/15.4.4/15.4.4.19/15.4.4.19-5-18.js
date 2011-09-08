@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-5-18;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-5-18.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-5-18.js;
  * @description: Array.prototype.map - Error object can be used as thisArg;
- * @precondition: (fnExists(Array.prototype.map));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var objError = new RangeError();
 
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
 
         var testResult = [11].map(callbackfn, objError);
         return testResult[0] === true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

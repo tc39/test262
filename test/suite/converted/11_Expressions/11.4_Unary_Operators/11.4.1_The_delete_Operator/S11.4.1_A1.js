@@ -4,8 +4,8 @@
 /**
  * White Space and Line Terminator between "delete" and UnaryExpression are allowed
  *
- * @id: S11.4.1_A1;
  * @section: 11.4.1;
+ * @path: 11_Expressions/11.4_Unary_Operators/11.4.1_The_delete_Operator/S11.4.1_A1.js;
  * @description: Checking by using eval;
  */
 

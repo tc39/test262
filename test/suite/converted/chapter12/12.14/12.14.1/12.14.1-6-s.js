@@ -19,13 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.14.1-6-s;
- * @path: TestCases/chapter12/12.14/12.14.1/12.14.1-6-s.js;
+ * @path: chapter12/12.14/12.14.1/12.14.1-6-s.js;
  * @description: Strict Mode - SyntaxError isn't thrown if a TryStatement with a Catch occurs within strict code and the Identifier of the Catch production is ARGUMENTS;
  * @strict_only;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
 
         try {
@@ -34,5 +34,5 @@ assertTrue((function testcase() {
         } catch (ARGUMENTS) {
             return ARGUMENTS instanceof Error;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

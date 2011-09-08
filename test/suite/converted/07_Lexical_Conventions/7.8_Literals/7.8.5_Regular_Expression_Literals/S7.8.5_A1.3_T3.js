@@ -4,8 +4,8 @@
 /**
  * RegularExpressionFirstChar :: LineTerminator is incorrect
  *
- * @id: S7.8.5_A1.3_T3;
  * @section: 7.8.5;
+ * @path: 07_Lexical_Conventions/7.8_Literals/7.8.5_Regular_Expression_Literals/S7.8.5_A1.3_T3.js;
  * @description: Carriage Return, without eval;
  * @negative;
  */

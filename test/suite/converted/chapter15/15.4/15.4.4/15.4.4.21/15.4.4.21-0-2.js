@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-0-2;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-0-2.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-0-2.js;
  * @description: Array.prototype.reduce.length must be 1;
- * @precondition: (fnExists(Array.prototype.reduce));
  */
 
-assertTrue((Array.prototype.reduce.length === 1));
 
+assertTrue(Array.prototype.reduce.length === 1);

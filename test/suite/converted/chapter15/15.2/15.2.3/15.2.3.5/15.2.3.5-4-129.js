@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-129;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-129.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-129.js;
  * @description: Object.create - 'configurable' property of one property in 'Properties' is 0 (8.10.5 step 4.b);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var newObj = Object.create({}, {
             prop: {
@@ -40,5 +39,5 @@ assertTrue((function testcase() {
         var afterDeleted = newObj.hasOwnProperty("prop");
 
         return beforeDeleted === true && afterDeleted === true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

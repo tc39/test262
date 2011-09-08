@@ -4,8 +4,8 @@
 /**
  * Single line comment can contain NO-BREAK SPACE (U+00A0)
  *
- * @id: S7.2_A3.5_T2;
  * @section: 7.2, 7.4;
+ * @path: 07_Lexical_Conventions/7.2_White_Space/S7.2_A3.5_T2.js;
  * @description: Use real NO-BREAK SPACE;
  */
 

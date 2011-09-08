@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.22-9-c-ii-4;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-c-ii-4.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-c-ii-4.js;
  * @description: Array.prototype.reduceRight - k values are passed in acending numeric order;
- * @precondition: (fnExists(Array.prototype.reduceRight));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arr = [0, 1, 2, 3, 4, 5];
         var lastIdx = arr.length - 1;
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
         }
         arr.reduceRight(callbackfn, 1);
         return result && accessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

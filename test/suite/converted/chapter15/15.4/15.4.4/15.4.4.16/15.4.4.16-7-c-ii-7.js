@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.16-7-c-ii-7;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-7.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-7.js;
  * @description: Array.prototype.every - unhandled exceptions happened in callbackfn terminate iteration;
- * @precondition: (fnExists(Array.prototype.every));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var called = 0;
 
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
         } catch (ex) {
             return 1 === called;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -4,8 +4,8 @@
 /**
  * "throw Expression" returns (throw, GetValue(Result(1)), empty), where 1 evaluates Expression
  *
- * @id: S12.13_A2_T4;
  * @section: 12.13;
+ * @path: 12_Statement/12.13_The_throw_statement/S12.13_A2_T4.js;
  * @description: Throwing string;
  */
 

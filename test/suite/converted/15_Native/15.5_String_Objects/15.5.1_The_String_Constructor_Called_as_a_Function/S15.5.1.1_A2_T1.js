@@ -4,8 +4,8 @@
 /**
  * If value is not supplied, the empty string "" is returned
  *
- * @id: S15.5.1.1_A2_T1;
  * @section: 15.5.1.1;
+ * @path: 15_Native/15.5_String_Objects/15.5.1_The_String_Constructor_Called_as_a_Function/S15.5.1.1_A2_T1.js;
  * @description: Call String();
  */
 

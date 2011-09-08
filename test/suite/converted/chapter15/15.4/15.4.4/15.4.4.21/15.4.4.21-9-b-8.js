@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-9-b-8;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-b-8.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-b-8.js;
  * @description: Array.prototype.reduce - deleting own property in step 8 causes deleted index property not to be visited on an Array-like object;
- * @precondition: (fnExists(Array.prototype.reduce) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var accessed = false;
         var testResult = true;
@@ -56,5 +55,5 @@ assertTrue((function testcase() {
 
         Array.prototype.reduce.call(obj, callbackfn);
         return testResult && accessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

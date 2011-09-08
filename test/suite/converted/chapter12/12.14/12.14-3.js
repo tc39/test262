@@ -27,12 +27,12 @@
  * local function expresssions must shadow outer function expressions
  * eval should use the appended object to the scope chain
  *
- * @id: 12.14-3;
- * @path: TestCases/chapter12/12.14/12.14-3.js;
+ * @path: chapter12/12.14/12.14-3.js;
  * @description: catch doesn't change declaration scope - var declaration are visible outside when name different from catch parameter;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   try {
     throw new Error();
   }
@@ -41,5 +41,5 @@ assertTrue((function testcase() {
   }
   
   return foo === "declaration in catch";
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

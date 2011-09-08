@@ -4,9 +4,9 @@
 /**
  * CharacterEscape :: IdentityEscapeSequence :: SourceCharacter but not IdentifierPart
  *
- * @id: S15.10.2.10_A5.1_T1;
  * @section: 15.10.2.10;
- * @description: : Tested string is "~`!@#$%^&*()-+={[}]|\\:;'<,>./?" + '"';;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.10_CharacterEscape/S15.10.2.10_A5.1_T1.js;
+ * @description: Tested string is "~`!@#$%^&*()-+={[}]|\\:;'<,>./?" + '"';
  */
 
 //CHECK#1

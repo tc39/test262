@@ -8,8 +8,8 @@
  * list passed into [[Construct]] as the argument values.
  * If Type( [[Call]] returned) is an Function then return this just as obtained function
  *
- * @id: S13.2.2_A8_T1;
  * @section: 13.2.2;
+ * @path: 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A8_T1.js;
  * @description: Creating a function whose prototype contains "return" followed by declaration of another function;
  */
 

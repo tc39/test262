@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-66;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-66.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-66.js;
  * @description: Object.defineProperties throws TypeError when P.configurable is false, P.enumerable and desc.enumerable has different values (8.12.9 step 7.b);
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
 
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return (e instanceof TypeError) && dataPropertyAttributesAreCorrect(obj, "foo", 10, false, true, false);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -4,8 +4,8 @@
 /**
  * Number.MAX_VALUE is DontDelete
  *
- * @id: S15.7.3.2_A3;
  * @section: 15.7.3.2;
+ * @path: 15_Native/15.7_Number_Objects/15.7.3_Properties_of_Number_Constructor/15.7.3.2_Number.MAX_VALUE/S15.7.3.2_A3.js;
  * @description: Checking if deleting Number.MAX_VALUE fails;
  * @strict_only;
  * @strict_mode_negative;

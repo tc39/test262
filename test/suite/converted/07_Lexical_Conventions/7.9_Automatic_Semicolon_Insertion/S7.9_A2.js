@@ -4,8 +4,8 @@
 /**
  * Check Break Statement for automatic semicolon insertion
  *
- * @id: S7.9_A2;
  * @section: 7.9, 12.8, 12.12;
+ * @path: 07_Lexical_Conventions/7.9_Automatic_Semicolon_Insertion/S7.9_A2.js;
  * @description: Try use break \n Label construction;
  */
 

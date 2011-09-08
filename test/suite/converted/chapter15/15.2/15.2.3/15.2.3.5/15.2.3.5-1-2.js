@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-1-2;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-1-2.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-1-2.js;
  * @description: Object.create TypeError is not thrown if 'O' is null;
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             Object.create(null);
             return true;
         } catch (e) {
             return false;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

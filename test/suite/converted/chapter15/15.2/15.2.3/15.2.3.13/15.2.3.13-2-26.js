@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.13-2-26;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.13/15.2.3.13-2-26.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.13/15.2.3.13-2-26.js;
  * @description: Object.isExtensible returns false if O is not extensible and has a prototype that is extensible;
- * @precondition: (fnExists(Object.isExtensible) && fnExists(Object.preventExtensions));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var proto = {};
 
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
 
         return !Object.isExtensible(obj);
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

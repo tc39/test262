@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-531-15;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-531-15.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-531-15.js;
  * @description: ES5 Attributes - Updating a named accessor property 'P' using simple assignment is successful, 'A' is an Array object (8.12.5 step 5.b);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = [];
 
         var verifySetFunc = "data";
@@ -48,5 +47,5 @@ assertTrue((function testcase() {
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
         return propertyDefineCorrect && desc.set === setFunc && obj.prop === "overrideData";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

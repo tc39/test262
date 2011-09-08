@@ -4,9 +4,9 @@
 /**
  * GetValue(V) mast fail
  *
- * @id: S8.7.2_A1_T1;
  * @section: 8.7.2;
- * @description: : Checking if execution of "'litera'=1;" fails;;
+ * @path: 08_Types/8.7_The_Reference_Type/S8.7.2_A1_T1.js;
+ * @description: Checking if execution of "'litera'=1;" fails;
  * @negative;
  */
 

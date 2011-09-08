@@ -5,8 +5,8 @@
  * The [[Class]] property of the newly constructed object
  * is set to "Number"
  *
- * @id: S15.7.2.1_A4;
  * @section: 15.7.2.1;
+ * @path: 15_Native/15.7_Number_Objects/15.7.2_The_Number_Constructor/S15.7.2.1_A4.js;
  * @description: For testing toString function is used;
  */
 

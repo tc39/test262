@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-2-12;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-2-12.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-2-12.js;
  * @description: Array.prototype.lastIndexOf - 'length' is own accessor property without a get function that overrides an inherited accessor property on an Array-like object;
- * @precondition: (fnExists(Array.prototype.lastIndexOf) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             Object.defineProperty(Object.prototype, "length", {
                 get: function () {
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
         } finally {
             delete Object.prototype.length;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

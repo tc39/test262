@@ -19,10 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.3-0-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-0-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-0-1.js;
  * @description: Object.getOwnPropertyDescriptor must exist as a function;
  */
 
-assertTrue((typeof(Object.getOwnPropertyDescriptor) === "function"));
 
+assertTrue(typeof(Object.getOwnPropertyDescriptor) === "function");

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.9-2-c-4;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-c-4.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-c-4.js;
  * @description: Object.freeze - all own properties of 'O' are not writable and not configurable;
- * @precondition: (fnExists(Object.freeze) && fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         var resultSetFun = false;
 
@@ -75,5 +74,5 @@ assertTrue((function testcase() {
 
         return dataPropertyAttributesAreCorrect(obj, "foo1", 10, false, true, false) &&
             result && desc1.configurable === false && desc1.writable === false && desc2.configurable === false;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

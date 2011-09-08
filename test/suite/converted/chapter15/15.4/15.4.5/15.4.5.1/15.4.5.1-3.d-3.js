@@ -19,14 +19,14 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.5.1-3.d-3;
- * @path: TestCases/chapter15/15.4/15.4.5/15.4.5.1/15.4.5.1-3.d-3.js;
+ * @path: chapter15/15.4/15.4.5/15.4.5.1/15.4.5.1-3.d-3.js;
  * @description: Set array length property to max value 4294967295 (2**32-1,);
  */
 
-assertTrue((function testcase() {  
+
+function testcase() {  
   var a =[];
   a.length = 4294967295 ;
   return a.length===4294967295 ;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

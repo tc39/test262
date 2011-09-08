@@ -6,8 +6,8 @@
  * ToString(j), return 1. If this object does not have a property
  * named by ToString(k), return -1
  *
- * @id: S15.4.4.11_A1.2_T2;
  * @section: 15.4.4.11;
+ * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.11_Array_prototype_sort/S15.4.4.11_A1.2_T2.js;
  * @description: If comparefn is not undefined;
  */
 

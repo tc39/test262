@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-8-4;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-8-4.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-8-4.js;
  * @description: Array.prototype.indexOf returns -1 when abs('fromIndex') is length of array;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue(([1, 2, 3, 4].indexOf(0, -4) === -1));
 
+assertTrue([1, 2, 3, 4].indexOf(0, -4) === -1);

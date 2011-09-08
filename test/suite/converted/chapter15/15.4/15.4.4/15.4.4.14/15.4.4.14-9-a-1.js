@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-9-a-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-a-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-a-1.js;
  * @description: Array.prototype.indexOf - added properties in step 2 are visible here;
- * @precondition: (fnExists(Array.prototype.indexOf) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arr = { };
 
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         });
 
         return 2 === Array.prototype.indexOf.call(arr, "length");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

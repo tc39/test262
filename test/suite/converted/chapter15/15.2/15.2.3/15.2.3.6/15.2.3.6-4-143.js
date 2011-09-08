@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-143;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-143.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-143.js;
  * @description: Object.defineProperty - 'O' is an Array, 'name' is the length property of 'O', test the [[Value]] field of 'desc' is a string containing a hex number (15.4.5.1 step 3.c);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arrObj = [];
 
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
             value: "0x00B"
         });
         return arrObj.length === 0x00B;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

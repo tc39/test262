@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-5-17;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-17.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-17.js;
  * @description: Array.prototype.indexOf - value of 'fromIndex' is a string containing -Infinity;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue(([true].indexOf(true, "-Infinity") === 0));
 
+assertTrue([true].indexOf(true, "-Infinity") === 0);

@@ -4,8 +4,8 @@
 /**
  * Since a function is an object, it might be set to [[Prototype]] property of a new created object through [[Construct]] property
  *
- * @id: S13.2.2_A1_T1;
  * @section: 13.2.2;
+ * @path: 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A1_T1.js;
  * @description: Declaring a function with "function __func()";
  */
 

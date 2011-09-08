@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 13.2-18-1;
- * @path: TestCases/chapter13/13.2/13.2-18-1.js;
+ * @path: chapter13/13.2/13.2-18-1.js;
  * @description: Function Object has 'prototype' as its own property, it is not enumerable and does not invoke the setter defined on Function.prototype (Step 18);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             var getFunc = function () {
                 return 100;
@@ -65,5 +64,5 @@ assertTrue((function testcase() {
         } finally {
             delete Function.prototype.prototype;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

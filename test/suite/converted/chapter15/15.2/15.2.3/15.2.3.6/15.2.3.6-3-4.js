@@ -23,13 +23,12 @@
  * into a property desc. Step 10 of ToPropertyDescriptor throws a TypeError
  * if the property desc ends up having a mix of accessor and data property elements.
  *
- * @id: 15.2.3.6-3-4;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-4.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-4.js;
  * @description: Object.defineProperty throws TypeError if desc has 'set' and 'writable' present(8.10.5 step 9.a);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
     var o = {};
     
     // dummy getter
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
         return true;
       }
     }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

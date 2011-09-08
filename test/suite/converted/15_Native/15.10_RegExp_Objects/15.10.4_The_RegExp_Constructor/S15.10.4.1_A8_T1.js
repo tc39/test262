@@ -4,8 +4,8 @@
 /**
  * let P be ToString(pattern) and let F be ToString(flags)
  *
- * @id: S15.10.4.1_A8_T1;
  * @section: 15.10.4.1;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.4_The_RegExp_Constructor/S15.10.4.1_A8_T1.js;
  * @description: Pattern is "a|b" and flags is "i";
  */
 

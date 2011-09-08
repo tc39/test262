@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-572;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-572.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-572.js;
  * @description: ES5 Attributes - [[Set]] attribute is a function which has zero argument;
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         var setFunc = function () { };
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
         return obj.hasOwnProperty("prop") && desc.set === setFunc;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

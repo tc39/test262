@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-69;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-69.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-69.js;
  * @description: Object.defineProperties - 'P' is data property and P.configurable is true, desc is accessor property (8.12.9 step 9.b.i);
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
 
@@ -62,5 +61,5 @@ assertTrue((function testcase() {
 
         return !verifyConfigurable && !verifyEnumerable && verifyValue &&
             typeof desc.set === "undefined" && desc.get === get_Func;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

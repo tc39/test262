@@ -1,10 +1,8 @@
 
 
 /**
- * @id: 15.2.3.3-4-228;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-228.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-228.js;
  * @description: Object.getOwnPropertyDescriptor - ensure that 'writable' property of returned object is data property with correct 'writable' attribute;
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
 /// Copyright (c) 2009 Microsoft Corporation 
@@ -25,7 +23,8 @@
 /// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
 /// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 /// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-/// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.assertTrue((function testcase() {
+/// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+function testcase() {
         var obj = { "property": "ownDataProperty" };
 
         var desc = Object.getOwnPropertyDescriptor(obj, "property");
@@ -36,5 +35,5 @@
         } catch (e) {
             return false;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

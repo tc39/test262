@@ -19,16 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 11.4.1-3-3;
- * @path: TestCases/chapter11/11.4/11.4.1/11.4.1-3-3.js;
+ * @path: chapter11/11.4/11.4.1/11.4.1-3-3.js;
  * @description: delete operator returns true when deleting an explicitly qualified yet unresolvable reference (property undefined for base obj);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var __ES3_1_test_suite_test_11_4_1_3_unique_id_3__ = {};
   var d = delete __ES3_1_test_suite_test_11_4_1_3_unique_id_3__.x;
   if (d === true) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

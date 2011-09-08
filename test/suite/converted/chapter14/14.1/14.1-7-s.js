@@ -19,13 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 14.1-7-s;
- * @path: TestCases/chapter14/14.1/14.1-7-s.js;
+ * @path: chapter14/14.1/14.1-7-s.js;
  * @description: 'use strict' directive - not recognized if upper case;
  * @strict_only;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
   function foo()
   {
@@ -34,5 +34,5 @@ assertTrue((function testcase() {
   }
 
   return foo.call(undefined);
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

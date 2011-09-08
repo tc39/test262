@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-8-c-ii-22;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-c-ii-22.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-c-ii-22.js;
  * @description: Array.prototype.map - callbackfn called with correct parameters (the index k is correct);
- * @precondition: (fnExists(Array.prototype.map));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         function callbackfn(val, idx, obj) {
             if (val === 11) {
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
         var testResult = Array.prototype.map.call(obj, callbackfn);
 
         return testResult[0] === true && testResult[1] === true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

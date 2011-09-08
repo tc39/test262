@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-5-b-60;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-60.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-60.js;
  * @description: Object.defineProperties - 'configurable' property of 'descObj' is not present (8.10.5 step 4);
- * @precondition: (fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
 
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         var result2 = obj.hasOwnProperty("prop");
 
         return result1 === true && result2 === true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

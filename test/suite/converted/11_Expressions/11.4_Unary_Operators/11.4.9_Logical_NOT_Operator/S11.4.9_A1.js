@@ -4,8 +4,8 @@
 /**
  * White Space and Line Terminator between "!" and UnaryExpression are allowed
  *
- * @id: S11.4.9_A1;
  * @section: 11.4.9, 7.2, 7.3;
+ * @path: 11_Expressions/11.4_Unary_Operators/11.4.9_Logical_NOT_Operator/S11.4.9_A1.js;
  * @description: Checking by using eval;
  */
 

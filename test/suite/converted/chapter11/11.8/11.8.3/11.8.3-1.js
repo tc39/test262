@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 11.8.3-1;
- * @path: TestCases/chapter11/11.8/11.8.3/11.8.3-1.js;
+ * @path: chapter11/11.8/11.8.3/11.8.3-1.js;
  * @description: 11.8.3 Less-than-or-equal Operator - Partial left to right order enforced when using Less-than-or-equal operator: valueOf <= valueOf;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var accessed = false;
         var obj1 = {
             valueOf: function () {
@@ -42,5 +42,5 @@ assertTrue((function testcase() {
             }
         };
         return (obj1 <= obj2);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

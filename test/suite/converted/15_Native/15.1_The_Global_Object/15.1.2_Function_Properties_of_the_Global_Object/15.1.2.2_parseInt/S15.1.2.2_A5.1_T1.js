@@ -5,8 +5,8 @@
  * If the length of S is at least 1 and the first character of S is 0,
  * then at the implementation's discretion either let R = 8 or R = 10
  *
- * @id: S15.1.2.2_A5.1_T1;
  * @section: 15.1.2.2;
+ * @path: 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.2_parseInt/S15.1.2.2_A5.1_T1.js;
  * @description: Either R = 8, or R = 10;
  */
 

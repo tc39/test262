@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.12.1.1-0-7;
- * @path: TestCases/chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-0-7.js;
+ * @path: chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-0-7.js;
  * @description: other category z spaces are not valid JSON whitespace as specified by the production JSONWhitespace.;
- * @precondition: (JSON && fnExists(JSON.parse) && JSON.parse(' 1234')===1234);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   
   try {
     // the following should produce a syntax error 
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
   catch (e) {
       return true; // treat any exception as a pass, other tests ensure that JSON.parse throws SyntaxError exceptions
      }
-  }).call(this));
-
+  }
+assertTrue(testcase.call(this));

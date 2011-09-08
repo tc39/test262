@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-71;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-71.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-71.js;
  * @description: Object.defineProperties throws TypeError when 'P' is data property and  P.configurable is false, P.writable is false, desc is data property and  desc.writable is true (8.12.9 step 10.a.i);
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
 
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return (e instanceof TypeError) && dataPropertyAttributesAreCorrect(obj, "foo", 10, false, false, false);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -21,17 +21,16 @@
 /**
  * 15.3.4.5 step 2 specifies that a TypeError must be thrown if the Target is not callable.
  *
- * @id: 15.3.4.5-2-3;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-2-3.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-2-3.js;
  * @description: Function.prototype.bind allows Target to be a constructor (Number);
- * @precondition: (fnExists(Function.prototype.bind));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var bnc = Number.bind(null);
   var n = bnc(42);
   if (n === 42) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

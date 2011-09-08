@@ -4,8 +4,8 @@
 /**
  * The Date.prototype property "getMonth" has { DontEnum } attributes
  *
- * @id: S15.9.5.12_A1_T2;
  * @section: 15.9.5.12;
+ * @path: 15_Native/15.9_Date_Objects/15.9.5_Properties_of_the_Date_Prototype_Object/15.9.5.12_Date.prototype.getMonth/S15.9.5.12_A1_T2.js;
  * @description: Checking absence of DontDelete attribute;
  */
 

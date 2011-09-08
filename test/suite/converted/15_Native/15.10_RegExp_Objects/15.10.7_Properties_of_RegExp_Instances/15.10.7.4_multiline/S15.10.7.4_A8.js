@@ -4,8 +4,8 @@
 /**
  * The RegExp instance multiline property has the attribute DontEnum
  *
- * @id: S15.10.7.4_A8;
  * @section: 15.10.7.4;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.7_Properties_of_RegExp_Instances/15.10.7.4_multiline/S15.10.7.4_A8.js;
  * @description: Checking if enumerating the multiline property of RegExp instance fails;
  */
 

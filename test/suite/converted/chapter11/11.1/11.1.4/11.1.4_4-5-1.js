@@ -25,13 +25,12 @@
  * 5.Call the [[DefineOwnProperty]] internal method of array with arguments ToString(firstIndex), the Property Descriptor { [[Value]]: initValue, [[Writable]]: true
  *     , [[Enumerable]]: true, [[Configurable]]: true}, and false.
  *
- * @id: 11.1.4_4-5-1;
- * @path: TestCases/chapter11/11.1/11.1.4/11.1.4_4-5-1.js;
+ * @path: chapter11/11.1/11.1.4/11.1.4_4-5-1.js;
  * @description: Initialize array using ElementList (Elisionopt AssignmentExpression) when index property (read-only) exists in Array.prototype (step 5);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             Object.defineProperty(Array.prototype, "0", {
                 value: 100,
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
         } finally {
             delete Array.prototype[0];
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

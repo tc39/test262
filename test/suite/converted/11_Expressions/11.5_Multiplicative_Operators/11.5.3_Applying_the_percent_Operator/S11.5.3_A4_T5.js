@@ -4,8 +4,8 @@
 /**
  * The result of a ECMAScript floating-point remainder operation is determined by the rules of IEEE arithmetics
  *
- * @id: S11.5.3_A4_T5;
  * @section: 11.5.3;
+ * @path: 11_Expressions/11.5_Multiplicative_Operators/11.5.3_Applying_the_percent_Operator/S11.5.3_A4_T5.js;
  * @description: If dividend is finite and the divisor is an infinity, the result equals the dividend;
  */
 

@@ -19,17 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.1-4;
- * @path: TestCases/chapter12/12.1/12.1-4.js;
+ * @path: chapter12/12.1/12.1-4.js;
  * @description: 12.1 - block '{ StatementListopt };' is not allowed: if-else;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             eval("if{};else{}");
             return false;
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

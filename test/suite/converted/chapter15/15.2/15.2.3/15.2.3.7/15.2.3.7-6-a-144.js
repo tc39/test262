@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-144;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-144.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-144.js;
  * @description: Object.defineProperties -  'O' is an Array, 'name' is the length property of 'O', test the [[Value]] field of 'desc' is an Object which has an own valueOf method that returns an object and toString method that returns a string (15.4.5.1 step 3.c);
- * @precondition: (fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arr = [];
         var toStringAccessed = false;
@@ -47,5 +46,5 @@ assertTrue((function testcase() {
             }
         });
         return arr.length === 2 && toStringAccessed && valueOfAccessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

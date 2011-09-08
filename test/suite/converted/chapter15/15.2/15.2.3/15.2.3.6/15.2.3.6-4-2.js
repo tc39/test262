@@ -23,13 +23,12 @@
  * of O to define the property. For newly defined data properties, attributes
  * missing from desc should have values set to the defaults from 8.6.1.
  *
- * @id: 15.2.3.6-4-2;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-2.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-2.js;
  * @description: Object.defineProperty sets missing attributes to their default values (data properties)(8.12.9 step 4.a.i);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o = {};
 
   var desc = { value: 1 };
@@ -43,5 +42,5 @@ assertTrue((function testcase() {
       propDesc.configurable === false) {      // false by default
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

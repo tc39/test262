@@ -4,8 +4,8 @@
 /**
  * The String.prototype.toLocaleLowerCase.length property has the attribute DontEnum
  *
- * @id: S15.5.4.17_A8;
  * @section: 15.5.4.17;
+ * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.17_String.prototype.toLocaleLowerCase/S15.5.4.17_A8.js;
  * @description: Checking if enumerating the String.prototype.toLocaleLowerCase.length property fails;
  */
 

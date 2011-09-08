@@ -6,8 +6,8 @@
  * to other kinds of objects for use as a method and there is should be
  * a TypeError exception if its this value is not a Number object
  *
- * @id: S15.7.4.2_A4_T04;
  * @section: 15.7.4.2;
+ * @path: 15_Native/15.7_Number_Objects/15.7.4_Properties_of_the_Number_Prototype_Object/15.7.4.2_Number.prototype.toString/S15.7.4.2_A4_T04.js;
  * @description: transferring to the Object objects;
  */
 

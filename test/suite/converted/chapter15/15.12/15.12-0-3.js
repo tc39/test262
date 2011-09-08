@@ -23,13 +23,12 @@
  * The name JSON must be bound to an object, and must not support [[Call]].
  * step 5 in 11.2.3 should throw a TypeError exception.
  *
- * @id: 15.12-0-3;
- * @path: TestCases/chapter15/15.12/15.12-0-3.js;
+ * @path: chapter15/15.12/15.12-0-3.js;
  * @description: JSON must not support the [[Call]] method;
- * @precondition: (JSON !== undefined);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o = JSON;
 
   try {
@@ -40,5 +39,5 @@ assertTrue((function testcase() {
       return true;
     }
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-307;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-307.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-307.js;
  * @description: Object.create - [[Writable]] is set as false if it is absent in data descriptor of one property in 'Properties' (8.12.9 step 4.a.i);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var newObj = Object.create({}, {
             prop: {
                 value: 1001,
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
         newObj.prop = 12;
 
         return hasProperty && newObj.prop === 1001;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

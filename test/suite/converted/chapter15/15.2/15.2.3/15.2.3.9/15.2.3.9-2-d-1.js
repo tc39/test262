@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.9-2-d-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-d-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-d-1.js;
  * @description: Object.freeze - 'O' is a Function object;
- * @precondition: (fnExists(Object.freeze) && fnExists(Object.isFrozen));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var funObj = function () { };
 
         Object.freeze(funObj);
 
         return Object.isFrozen(funObj);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

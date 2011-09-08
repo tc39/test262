@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.11-4-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-1.js;
  * @description: Object.isSealed returns false for all built-in objects (Global);
- * @precondition: (fnExists(Object.isSealed));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   // in non-strict mode, 'this' is bound to the global object.
   var b = Object.isSealed(this);
   if (b === false) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

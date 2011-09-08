@@ -19,16 +19,15 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.9.5.43-0-4;
- * @path: TestCases/chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-4.js;
+ * @path: chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-4.js;
  * @description: Date.prototype.toISOString - format of returned string is 'YYYY-MM-DDTHH:mm:ss.sssZ', the time zone is UTC(0);
- * @precondition: (fnExists(Date.prototype.toISOString));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var date = new Date(1999, 09, 10, 10, 10, 10, 10);
         var localDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
 
         return localDate.toISOString() === "1999-10-10T10:10:10.010Z";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

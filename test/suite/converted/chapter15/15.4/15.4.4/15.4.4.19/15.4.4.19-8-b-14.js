@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-8-b-14;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-b-14.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-b-14.js;
  * @description: Array.prototype.map - decreasing length of array causes index property not to be visited;
- * @precondition: (fnExists(Array.prototype.map) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         function callbackfn(val, idx, obj) {
             return idx === 3 && typeof val === "undefined";
@@ -43,5 +42,5 @@ assertTrue((function testcase() {
 
         var testResult = arr.map(callbackfn);
         return typeof testResult[3] === "undefined";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

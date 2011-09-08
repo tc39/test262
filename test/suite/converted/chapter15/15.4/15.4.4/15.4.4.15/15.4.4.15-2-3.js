@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-2-3;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-2-3.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-2-3.js;
  * @description: Array.prototype.lastIndexOf - 'length' is own data property that overrides an inherited data property on an Array-like object;
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var proto = {length: 0};
 
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         child[1] = child;
 
         return Array.prototype.lastIndexOf.call(child, child) === 1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

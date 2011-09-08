@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.14-2-8;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-2-8.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-2-8.js;
  * @description: Object.keys - 'n' is the correct value when enumerable properties exist in 'O';
- * @precondition: (fnExists(Object.keys) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {
             prop1: 1001,
             prop2: function () {
@@ -50,5 +49,5 @@ assertTrue((function testcase() {
         var arr = Object.keys(obj);
 
         return (arr.length === 2) && (arr[0] === "prop1") && (arr[1] === "prop2");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

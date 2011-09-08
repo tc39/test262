@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 13.2-17-1;
- * @path: TestCases/chapter13/13.2/13.2-17-1.js;
+ * @path: chapter13/13.2/13.2-17-1.js;
  * @description: Function Object has 'constructor' as its own property, it is not enumerable and does not invoke the setter defined on Function.prototype.constructor (Step 17);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var desc = Object.getOwnPropertyDescriptor(Object.prototype, "constructor");
         try {
             var getFunc = function () {
@@ -67,5 +66,5 @@ assertTrue((function testcase() {
         } finally {
             Object.defineProperty(Object.prototype, "constructor", desc);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

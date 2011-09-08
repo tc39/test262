@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.8-2-3;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-3.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-3.js;
  * @description: Object.seal - inherited accessor properties are ignored;
- * @precondition: (fnExists(Object.seal) && fnExists(Object.defineProperty) && fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var proto = {};
 
         Object.defineProperty(proto, "Father", {
@@ -47,5 +46,5 @@ assertTrue((function testcase() {
         var afterDeleted = proto.hasOwnProperty("Father");
 
         return preCheck && beforeDeleted && !afterDeleted;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

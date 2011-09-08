@@ -5,8 +5,8 @@
  * ToObject conversion from Object: The result is the input
  * argument (no conversion)
  *
- * @id: S9.9_A6;
  * @section: 9.9;
+ * @path: 09_Type_Conversion/9.9_ToObject/S9.9_A6.js;
  * @description: Converting from Objects to Object;
  */
 

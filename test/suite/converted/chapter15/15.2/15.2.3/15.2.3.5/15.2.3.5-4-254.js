@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-254;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-254.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-254.js;
  * @description: Object.create - one property in 'Properties' is an Arguments object which implements its own [[Get]] method to access the 'get' property (8.10.5 step 7.a);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var argObj = (function () { return arguments; })();
 
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         });
 
         return newObj.prop === "VerifyArgumentsObject";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

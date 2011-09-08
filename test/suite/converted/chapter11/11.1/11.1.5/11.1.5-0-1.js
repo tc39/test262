@@ -22,12 +22,12 @@
  * it isn't clear what specific requirements of the specificaiton are being tested here. This test should 
  * probably be replaced by some more targeted tests.  AllenWB
  *
- * @id: 11.1.5-0-1;
- * @path: TestCases/chapter11/11.1/11.1.5/11.1.5-0-1.js;
+ * @path: chapter11/11.1/11.1.5/11.1.5-0-1.js;
  * @description: Object literal - get set property;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var s1 = "In getter";
   var s2 = "In setter";
   var s3 = "Modified by setter";
@@ -38,5 +38,5 @@ assertTrue((function testcase() {
   if(s2 !== s3) 
     return false;
   return true;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

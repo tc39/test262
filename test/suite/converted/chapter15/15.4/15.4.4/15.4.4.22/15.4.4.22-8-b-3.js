@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.22-8-b-3;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-8-b-3.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-8-b-3.js;
  * @description: Array.prototype.reduceRight -  while loop is breaken once 'kPresent' is true;
- * @precondition: (fnExists(Array.prototype.reduceRight) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var called = 0;
         var testResult = false;
@@ -60,5 +59,5 @@ assertTrue((function testcase() {
         arr.reduceRight(callbackfn);
 
         return testResult && firstCalled === 1 && secondCalled === 1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

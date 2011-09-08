@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.6-13-c-1-s;
- * @path: TestCases/chapter10/10.6/10.6-13-c-1-s.js;
+ * @path: chapter10/10.6/10.6-13-c-1-s.js;
  * @description: Accessing callee property of Arguments object throws TypeError in strict mode;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   'use strict';
   try 
   {
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
   catch (e) {
     return (e instanceof TypeError);
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

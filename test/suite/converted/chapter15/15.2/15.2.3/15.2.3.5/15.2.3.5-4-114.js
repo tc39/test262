@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-114;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-114.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-114.js;
  * @description: Object.create - one property in 'Properties' is a String object that uses Object's [[Get]] method to access the 'configurable' property (8.10.5 step 4.a);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var descObj = new String();
 
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
         var result2 = newObj.hasOwnProperty("prop");
 
         return result1 === true && result2 === false;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

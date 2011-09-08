@@ -4,8 +4,8 @@
 /**
  * White Space and Line Terminator between MultiplicativeExpression and "/" or between "/" and UnaryExpression are allowed
  *
- * @id: S11.5.2_A1;
  * @section: 11.5.2, 7.2, 7.3;
+ * @path: 11_Expressions/11.5_Multiplicative_Operators/11.5.2_Applying_the_slash_Operator/S11.5.2_A1.js;
  * @description: Checking by using eval;
  */
 

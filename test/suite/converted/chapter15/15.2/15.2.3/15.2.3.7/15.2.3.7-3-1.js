@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-3-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-3-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-3-1.js;
  * @description: Object.defineProperties - enumerable own data property of 'Properties' is defined in 'O' ;
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};      
         var props = {};
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         Object.defineProperties(obj, props);
 
         return obj.hasOwnProperty("prop");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

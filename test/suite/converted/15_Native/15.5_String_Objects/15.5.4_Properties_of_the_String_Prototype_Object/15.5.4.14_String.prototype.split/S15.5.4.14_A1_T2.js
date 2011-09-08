@@ -8,8 +8,8 @@
  * ii) if separator is not RegExp ToString(separator) performs and
  * iii) ToInteger(limit) performs
  *
- * @id: S15.5.4.14_A1_T2;
  * @section: 15.5.4.14;
+ * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.14_String.prototype.split/S15.5.4.14_A1_T2.js;
  * @description: Arguments are boolean expression, function call and null, and instance is Boolean;
  */
 

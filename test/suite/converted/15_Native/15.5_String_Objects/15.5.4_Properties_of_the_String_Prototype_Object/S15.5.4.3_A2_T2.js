@@ -2,11 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * : The valueOf function is not generic; it throws a TypeError exception if its this value is not a String object.
- * Therefore, it cannot be transferred to other kinds of objects for use as a method;
+ * The valueOf function is not generic; it throws a TypeError exception if its this value is not a String object.
+ * Therefore, it cannot be transferred to other kinds of objects for use as a method
  *
- * @id: S15.5.4.3_A2_T2;
  * @section: 15.5.4.3;
+ * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/S15.5.4.3_A2_T2.js;
  * @description: Checking if creating the object String.prototype.valueOf fails;
  */
 

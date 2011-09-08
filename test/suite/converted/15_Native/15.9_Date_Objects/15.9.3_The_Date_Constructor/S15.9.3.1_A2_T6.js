@@ -6,8 +6,8 @@
  * is set to the original Date prototype object, the one that is the
  * initial value of Date.prototype
  *
- * @id: S15.9.3.1_A2_T6;
  * @section: 15.9.3.1;
+ * @path: 15_Native/15.9_Date_Objects/15.9.3_The_Date_Constructor/S15.9.3.1_A2_T6.js;
  * @description: 7 arguments, (year, month, date, hours, minutes, seconds, ms);
  */
 

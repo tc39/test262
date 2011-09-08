@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.22-9-c-ii-2;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-c-ii-2.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-c-ii-2.js;
  * @description: Array.prototype.reduceRight - callbackfn called with correct parameters (initialvalue passed);
- * @precondition: (fnExists(Array.prototype.reduceRight));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var bParCorrect = false;
         var arr = [0, 1, true, null, new Object(), "five"];
         var initialValue = 5.5;
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
                 return false;
         }
         return arr.reduceRight(callbackfn, initialValue) === 0;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

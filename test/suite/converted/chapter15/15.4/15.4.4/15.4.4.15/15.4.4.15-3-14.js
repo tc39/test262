@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-3-14;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-3-14.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-3-14.js;
  * @description: Array.prototype.lastIndexOf - value of 'length' is a string containing +/-Infinity;
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var objOne = { 0: true, 1: true, length: "Infinity" };
         var objTwo = { 0: true, 1: true, length: "+Infinity" };
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
         return Array.prototype.lastIndexOf.call(objOne, true) === -1 &&
             Array.prototype.lastIndexOf.call(objTwo, true) === -1 &&
             Array.prototype.lastIndexOf.call(objThree, true) === -1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

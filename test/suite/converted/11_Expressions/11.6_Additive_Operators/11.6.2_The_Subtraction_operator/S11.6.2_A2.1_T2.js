@@ -4,8 +4,8 @@
 /**
  * Operator x - y uses GetValue
  *
- * @id: S11.6.2_A2.1_T2;
  * @section: 11.6.2;
+ * @path: 11_Expressions/11.6_Additive_Operators/11.6.2_The_Subtraction_operator/S11.6.2_A2.1_T2.js;
  * @description: If GetBase(x) is null, throw ReferenceError;
  */
 

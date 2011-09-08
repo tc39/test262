@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-153;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-153.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-153.js;
  * @description: Object.create - 'value' property of one property in 'Properties' is not present (8.10.5 step 5);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var newObj = Object.create({}, {
             prop: {}
         });
 
         return newObj.hasOwnProperty("prop") && typeof (newObj.prop) === "undefined";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

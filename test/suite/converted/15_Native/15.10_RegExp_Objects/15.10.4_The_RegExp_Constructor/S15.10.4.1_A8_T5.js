@@ -4,9 +4,9 @@
 /**
  * let P be ToString(pattern) and let F be ToString(flags)
  *
- * @id: S15.10.4.1_A8_T5;
  * @section: 15.10.4.1;
- * @description: : Pattern is new Object("abc{1}") and flags is {toString:function(){return "";}};;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.4_The_RegExp_Constructor/S15.10.4.1_A8_T5.js;
+ * @description: Pattern is new Object("abc{1}") and flags is {toString:function(){return "";}};
  */
 
 __re = new RegExp(new Object("abc{1}"), {toString:function(){return "";}});

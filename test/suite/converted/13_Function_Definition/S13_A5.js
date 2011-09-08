@@ -4,8 +4,8 @@
 /**
  * Only FormalParameterList as arguments list is allowed
  *
- * @id: S13_A5;
  * @section: 13, 10.1.2;
+ * @path: 13_Function_Definition/S13_A5.js;
  * @description: Trying to use [arg1, arg2, arg3], (arg1, arg2, arg3), etc. as a FormalParameterList;
  */
 

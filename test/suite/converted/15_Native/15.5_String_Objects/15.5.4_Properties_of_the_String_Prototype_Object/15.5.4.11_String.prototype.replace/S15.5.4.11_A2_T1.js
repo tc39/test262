@@ -5,8 +5,8 @@
  * The $ replacements are done left-to-right, and, once such are placement is performed, the new
  * replacement text is not subject to further replacements
  *
- * @id: S15.5.4.11_A2_T1;
  * @section: 15.5.4.11;
+ * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.11_String.prototype.replace/S15.5.4.11_A2_T1.js;
  * @description: Don`t use $ in replaceValue, searchValue is regular expression /sh/g;
  */
 

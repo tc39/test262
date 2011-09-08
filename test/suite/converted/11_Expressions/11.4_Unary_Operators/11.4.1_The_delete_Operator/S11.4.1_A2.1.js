@@ -4,8 +4,8 @@
 /**
  * If Type(x) is not Reference, return true
  *
- * @id: S11.4.1_A2.1;
  * @section: 11.4.1;
+ * @path: 11_Expressions/11.4_Unary_Operators/11.4.1_The_delete_Operator/S11.4.1_A2.1.js;
  * @description: Checking primitive value and Object value cases;
  */
 

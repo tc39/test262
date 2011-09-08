@@ -4,8 +4,8 @@
 /**
  * Correct interpretation of ENGLISH ALPHABET
  *
- * @id: S7.6_A4.1_T2;
  * @section: 7.6;
+ * @path: 07_Lexical_Conventions/7.6_Identifiers/S7.6_A4.1_T2.js;
  * @description: Check ENGLISH SMALL ALPHABET;
  */
 

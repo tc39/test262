@@ -4,8 +4,8 @@
 /**
  * LINE SEPARATOR (U+2028) within strings is not allowed
  *
- * @id: S7.3_A2.3;
  * @section: 7.3;
+ * @path: 07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A2.3.js;
  * @description: Insert LINE SEPARATOR (\u2028) into string;
  * @negative;
  */

@@ -4,8 +4,8 @@
 /**
  * EscapeSequence :: HexEscapeSequence :: x HexDigit HexDigit
  *
- * @id: S7.8.4_A6.1_T2;
  * @section: 7.8.4;
+ * @path: 07_Lexical_Conventions/7.8_Literals/7.8.4_String_Literals/S7.8.4_A6.1_T2.js;
  * @description: HexEscapeSequence ::  ENGLISH CAPITAL ALPHABET;
  */
 

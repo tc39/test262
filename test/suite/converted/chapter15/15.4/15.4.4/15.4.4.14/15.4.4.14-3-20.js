@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-3-20;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-3-20.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-3-20.js;
  * @description: Array.prototype.indexOf - value of 'length' is an Object which has an own valueOf method.;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         //valueOf method will be invoked first, since hint is Number
         var obj = {
@@ -40,5 +39,5 @@ assertTrue((function testcase() {
 
         return Array.prototype.indexOf.call(obj, true) === 1 &&
             Array.prototype.indexOf.call(obj, 2) === -1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

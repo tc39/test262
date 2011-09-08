@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.3-4-214;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-214.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-214.js;
  * @description: Object.getOwnPropertyDescriptor returns data desc (all false) for properties on built-ins (RegExp.prototype.ignoreCase);
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var desc = Object.getOwnPropertyDescriptor(RegExp.prototype, "ignoreCase");
 
   if (desc.writable === false &&
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
       desc.hasOwnProperty('set') === false) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

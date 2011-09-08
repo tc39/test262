@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-58;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-58.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-58.js;
  * @description: Object.create - 'enumerable' property of one property in 'Properties' is an inherited accessor property without a get function (8.10.5 step 3.a);
- * @precondition: (fnExists(Object.create) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
 
         var proto = {};
@@ -48,5 +47,5 @@ assertTrue((function testcase() {
             }
         }
         return !accessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

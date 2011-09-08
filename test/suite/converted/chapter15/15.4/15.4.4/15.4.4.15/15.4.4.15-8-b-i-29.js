@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-8-b-i-29;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-i-29.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-i-29.js;
  * @description: Array.prototype.lastIndexOf - side-effects are visible in subsequent iterations on an Array-like object;
- * @precondition: (fnExists(Array.prototype.lastIndexOf) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var preIterVisible = false;
         var obj = { length: 3 };
@@ -50,5 +49,5 @@ assertTrue((function testcase() {
         });
 
         return Array.prototype.lastIndexOf.call(obj, true) === 1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

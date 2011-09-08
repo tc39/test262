@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.3-4-239;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-239.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-239.js;
  * @description: Object.getOwnPropertyDescriptor - ensure that 'get' property of returned object is data property with correct 'value' attribute;
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         var fun = function () {
             return "ownDataProperty";
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         var desc = Object.getOwnPropertyDescriptor(obj, "property");
 
         return desc.get === fun;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

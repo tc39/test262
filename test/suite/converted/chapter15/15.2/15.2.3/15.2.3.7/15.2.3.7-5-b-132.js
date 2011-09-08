@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-5-b-132;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-132.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-132.js;
  * @description: Object.defineProperties - 'descObj' is a RegExp object which implements its own [[Get]] method to get 'value' property (8.10.5 step 5.a);
- * @precondition: (fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         var descObj = new RegExp();
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         });
 
         return obj.property === "RegExp";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

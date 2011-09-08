@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.18-3-15;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-3-15.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-3-15.js;
  * @description: Array.prototype.forEach - 'length' is a string containing an exponential number;
- * @precondition: (fnExists(Array.prototype.forEach));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var testResult = false;
 
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
 
         Array.prototype.forEach.call(obj, callbackfn);
         return testResult;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

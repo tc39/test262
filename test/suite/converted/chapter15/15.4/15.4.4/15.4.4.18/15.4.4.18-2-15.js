@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.18-2-15;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-2-15.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-2-15.js;
  * @description: Array.prototype.forEach - 'length' is property of the global object;
- * @precondition: (fnExists(Array.prototype.forEach));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var result = false;
         function callbackfn(val, idx, obj) {
             result = (obj.length === 2);
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
             delete fnGlobalObject()[2];
             fnGlobalObject().length = oldLen;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-153;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-153.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-153.js;
  * @description: Object.defineProperties - 'O' is an Array, 'name' is the length property of 'O', test RangeError is thrown when the [[Value]] field of 'desc' is boundary value 2^32 + 1 (15.4.5.1 step 3.c);
- * @precondition: (fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arr = [];
         try {
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof RangeError && arr.length === 0;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

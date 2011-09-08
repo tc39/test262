@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.6-5-1;
- * @path: TestCases/chapter10/10.6/10.6-5-1.js;
+ * @path: chapter10/10.6/10.6-5-1.js;
  * @description: [[Prototype]] property of Arguments is set to Object prototype object;
- * @precondition: (fnExists(Object.getPrototypeOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   if(Object.getPrototypeOf(arguments) === Object.getPrototypeOf({}))
     return true;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

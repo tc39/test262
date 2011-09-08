@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.3-4-4;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-4.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-4.js;
  * @description: Object.getOwnPropertyDescriptor returns data desc for functions on built-ins (Global.eval);
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var global = fnGlobalObject();
   var desc = Object.getOwnPropertyDescriptor(global,  "eval");
   if (desc.value === global.eval &&
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
       desc.configurable === true) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

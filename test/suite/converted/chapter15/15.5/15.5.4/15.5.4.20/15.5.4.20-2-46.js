@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.5.4.20-2-46;
- * @path: TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-46.js;
+ * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-46.js;
  * @description: String.prototype.trim - 'this' is a Function Object that converts to a string;
- * @precondition: (fnExists(String.prototype.trim));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var funObj = function () { return arguments; };
         return typeof(String.prototype.trim.call(funObj)) === "string";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -7,8 +7,8 @@
  * the decimal representation of s, followed by a decimal point '.',
  * followed by the remaining k-n digits of the decimal representation of s
  *
- * @id: S9.8.1_A7;
  * @section: 9.8.1;
+ * @path: 09_Type_Conversion/9.8_ToString/9.8.1_ToString_Applied_to_the_Number_Type/S9.8.1_A7.js;
  * @description: 1.0000001 and -1.0000001 convert to String by explicit transformation;
  */
 

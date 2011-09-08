@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.9-2-c-2;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-c-2.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-c-2.js;
  * @description: Object.freeze - The [[Configurable]] attribute of own accessor property of 'O' is set to false while other attributes are unchanged;
- * @precondition: (fnExists(Object.freeze) && fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         function get_func() {
@@ -64,5 +63,5 @@ assertTrue((function testcase() {
         var result = resultConfigurable && resultEnumerable && resultGetFun && resultSetFun;
 
         return desc.configurable === false && result;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-8-9;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-9.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-9.js;
  * @description: Array.prototype.lastIndexOf must return correct index (Sparse Array);
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var a = new Array(0,1);  
   a[4294967294] = 2;          // 2^32-2 - is max array element index
   a[4294967295] = 3;          // 2^32-1 added as non-array element property
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
       a.lastIndexOf(3) === 4294967200 &&
       a.lastIndexOf(4) === 4294967201 &&
       a.lastIndexOf(5) === 4294967202) ;
-   }).call(this));
-
+   }
+assertTrue(testcase.call(this));

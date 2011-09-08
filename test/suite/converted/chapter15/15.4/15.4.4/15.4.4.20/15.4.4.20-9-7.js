@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-9-7;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-7.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-7.js;
  * @description: Array.prototype.filter stops calling callbackfn once the array is deleted during the call;
- * @precondition: (fnExists(Array.prototype.filter));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var o = new Object();
         o.srcArr = [1, 2, 3, 4, 5];
 
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
 
         var resArr = o.srcArr.filter(callbackfn);
         return resArr.length === 5 && typeof o.srcArr === "undefined";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

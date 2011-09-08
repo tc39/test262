@@ -4,8 +4,8 @@
 /**
  * The result of division is determined by the specification of IEEE 754 arithmetics
  *
- * @id: S11.5.2_A4_T8;
  * @section: 11.5.2;
+ * @path: 11_Expressions/11.5_Multiplicative_Operators/11.5.2_Applying_the_slash_Operator/S11.5.2_A4_T8.js;
  * @description: Division of a zero by any non-zero finite value -0 results in zero of appropriate sign;
  */
 

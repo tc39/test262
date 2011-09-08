@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-9-b-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-1.js;
  * @description: Array.prototype.indexOf - non-existent property wouldn't be called;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue(([0, , 2].indexOf(undefined) === -1));
 
+assertTrue([0, , 2].indexOf(undefined) === -1);

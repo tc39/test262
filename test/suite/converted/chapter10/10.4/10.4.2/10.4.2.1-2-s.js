@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.4.2.1-2-s;
- * @path: TestCases/chapter10/10.4/10.4.2/10.4.2.1-2-s.js;
+ * @path: chapter10/10.4/10.4.2/10.4.2.1-2-s.js;
  * @description: Strict Mode - Strict mode eval code cannot instantiate functions in the variable environment of the caller to eval;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
 
         eval("function _10_4_2_1_2_fun(){}");
         return typeof _10_4_2_1_2_fun === "undefined";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

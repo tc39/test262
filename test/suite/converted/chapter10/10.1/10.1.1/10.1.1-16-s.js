@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.1.1-16-s;
- * @path: TestCases/chapter10/10.1/10.1.1/10.1.1-16-s.js;
+ * @path: chapter10/10.1/10.1.1/10.1.1-16-s.js;
  * @description: Strict Mode - Function code that is part of a FunctionExpression is strict function code if FunctionExpression is contained in use strict;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         return function () {
             try {
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
                 return e instanceof SyntaxError;
             }
         } ();
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

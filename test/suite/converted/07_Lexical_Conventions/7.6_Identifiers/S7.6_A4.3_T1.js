@@ -4,8 +4,8 @@
 /**
  * Correct interpretation of DIGITS
  *
- * @id: S7.6_A4.3_T1;
  * @section: 7.6;
+ * @path: 07_Lexical_Conventions/7.6_Identifiers/S7.6_A4.3_T1.js;
  * @description: Identifier is $+ANY_DIGIT;
  */
 

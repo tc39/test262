@@ -5,8 +5,8 @@
  * We overload valueOf method so it return non Primitive value and toString method so it return non Primitive value too
  * Thus [[DefaultValue]] must generate TypeError error
  *
- * @id: S8.6.2.6_A4;
  * @section: 8.6.2.6, 8.6.2;
+ * @path: 08_Types/8.6_The_Object_Type/8.6.2_Internal_Properties_and_Methods/S8.6.2.6_A4.js;
  * @description: Try to overload toString and valueOf methods, they returned new Objects;
  */
 

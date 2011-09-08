@@ -4,8 +4,8 @@
 /**
  * The "length" property of the "setUTCSeconds" is 2
  *
- * @id: S15.9.5.31_A2_T1;
  * @section: 15.9.5.31;
+ * @path: 15_Native/15.9_Date_Objects/15.9.5_Properties_of_the_Date_Prototype_Object/15.9.5.31_Date.prototype.setUTCSeconds/S15.9.5.31_A2_T1.js;
  * @description: The "length" property of the "setUTCSeconds" is 2;
  */
 

@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.5-7-b-4-s;
- * @path: TestCases/chapter10/10.5/10.5-7-b-4-s.js;
+ * @path: chapter10/10.5/10.5-7-b-4-s.js;
  * @description: Strict Mode - Deleting property of the arguments object successful under strict mode;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
 
         function _10_5_7_b_4_fun() {
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
             return _10_5_7_b_4_1 && _10_5_7_b_4_2;
         };
         return _10_5_7_b_4_fun(30, 12);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

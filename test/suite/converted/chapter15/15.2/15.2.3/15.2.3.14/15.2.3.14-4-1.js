@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.14-4-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-4-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-4-1.js;
  * @description: Object.keys - elements of the returned array start from index 0;
- * @precondition: (fnExists(Object.keys) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = { prop1: 1001, prop2: 1002 };
 
         Object.defineProperty(obj, "prop3", {
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
         var arr = Object.keys(obj);
 
         return arr.hasOwnProperty(0) && arr[0] === "prop1";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

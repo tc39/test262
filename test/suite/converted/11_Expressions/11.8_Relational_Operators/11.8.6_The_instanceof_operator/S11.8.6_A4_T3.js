@@ -4,8 +4,8 @@
 /**
  * Only constructor call (with "new" keyword) makes instance
  *
- * @id: S11.8.6_A4_T3;
  * @section: 11.8.6;
+ * @path: 11_Expressions/11.8_Relational_Operators/11.8.6_The_instanceof_operator/S11.8.6_A4_T3.js;
  * @description: Checking String case;
  */
 

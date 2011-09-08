@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-182;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-182.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-182.js;
  * @description: Object.defineProperty - 'O' is an Array, 'name' is an array index named property, 'name' is available String values that convert to numbers (15.4.5.1 step 4.a);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arrObj = [];
 
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
         });
 
         return arrObj[0] === 12;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

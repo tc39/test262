@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-9-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-1.js;
  * @description: Array.prototype.filter doesn't consider new elements added to array after it is called;
- * @precondition: (fnExists(Array.prototype.filter));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         function callbackfn(val, idx, obj) {
             srcArr[2] = 3;
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         var resArr = srcArr.filter(callbackfn);
         return resArr.length === 5;
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

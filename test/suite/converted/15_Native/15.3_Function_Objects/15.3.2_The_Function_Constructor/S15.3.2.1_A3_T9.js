@@ -12,9 +12,9 @@
  * Pass in a scope chain consisting of the global object as the Scope parameter
  * vii) Return Result(vi)
  *
- * @id: S15.3.2.1_A3_T9;
  * @section: 15.3.2.1, 13.2;
- * @description: : Values of the function constructor arguments are "1,1" and "return this;";;
+ * @path: 15_Native/15.3_Function_Objects/15.3.2_The_Function_Constructor/S15.3.2.1_A3_T9.js;
+ * @description: Values of the function constructor arguments are "1,1" and "return this;";
  */
 
 var body = "return this;";

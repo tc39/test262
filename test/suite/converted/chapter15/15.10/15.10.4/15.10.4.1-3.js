@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.10.4.1-3;
- * @path: TestCases/chapter15/15.10/15.10.4/15.10.4.1-3.js;
+ * @path: chapter15/15.10/15.10.4/15.10.4.1-3.js;
  * @description: RegExp - the thrown error is SyntaxError instead of RegExpError when 'F' contains any character other than 'g', 'i', or 'm' ;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             var regExpObj = new RegExp('abc', 'a');
 
@@ -32,5 +32,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

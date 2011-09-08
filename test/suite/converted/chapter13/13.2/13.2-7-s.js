@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 13.2-7-s;
- * @path: TestCases/chapter13/13.2/13.2-7-s.js;
+ * @path: chapter13/13.2/13.2-7-s.js;
  * @description: StrictMode - enumerating over a function object looking for 'caller' fails outside of the function;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var foo = new Function("'use strict';");
         
         for (var tempIndex in foo) {
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
             }
         }
         return true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

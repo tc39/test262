@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-9-c-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-c-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-c-1.js;
  * @description: Array.prototype.reduce - callbackfn not called for indexes never been assigned values;
- * @precondition: (fnExists(Array.prototype.reduce));
  */
 
-assertTrue((function testcase() { 
+
+function testcase() { 
  
   var callCnt = 0;
   function callbackfn(prevVal, curVal, idx, obj)
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
   arr[0] = arr[1] = undefined; //explicitly assigning a value
   if( arr.reduce(callbackfn) === undefined && callCnt === 1)
     return true;    
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 11.13.1-1-s;
- * @path: TestCases/chapter11/11.13/11.13.1/11.13.1-1-s.js;
+ * @path: chapter11/11.13/11.13.1/11.13.1-1-s.js;
  * @description: Strict Mode - TypeError is thrown if The LeftHandSide is a reference to a data property with the attribute value {[[Writable]]:false} under strict mode;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         var obj = {};
         Object.defineProperty(obj, "prop", {
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof TypeError && obj.prop === 10;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

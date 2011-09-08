@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-309;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-309.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-309.js;
  * @description: Object.create - [[Configurable]] is set as false if it is absent in data descriptor of one property in 'Properties' (8.12.9 step 4.a.i);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var isNotConfigurable = false;
 
         try {
@@ -43,5 +42,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return false;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

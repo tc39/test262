@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.14-5-6;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-6.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-6.js;
  * @description: Object.keys - inherited enumerable accessor property of 'O' is not defined in returned array;
- * @precondition: (fnExists(Object.keys) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var proto = {};
         Object.defineProperty(proto, "inheritedProp", {
             get: function () {
@@ -55,5 +54,5 @@ assertTrue((function testcase() {
         }
 
         return true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

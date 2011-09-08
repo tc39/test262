@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-2-18;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-2-18.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-2-18.js;
  * @description: Array.prototype.indexOf applied to String object, which implements its own property get method;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var str = new String("012");
         try {
             String.prototype[3] = "3";
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
         } finally {
             delete String.prototype[3];
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

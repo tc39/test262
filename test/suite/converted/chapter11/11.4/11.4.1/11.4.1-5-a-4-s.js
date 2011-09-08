@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 11.4.1-5-a-4-s;
- * @path: TestCases/chapter11/11.4/11.4.1/11.4.1-5-a-4-s.js;
+ * @path: chapter11/11.4/11.4.1/11.4.1-5-a-4-s.js;
  * @description: Strict Mode - SyntaxError is thrown when deleting a function parameter;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         function funObj(x, y, z) {
             eval("delete y;");
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

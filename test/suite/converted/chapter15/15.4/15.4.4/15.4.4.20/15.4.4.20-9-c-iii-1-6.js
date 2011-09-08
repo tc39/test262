@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-9-c-iii-1-6;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-iii-1-6.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-iii-1-6.js;
  * @description: Array.prototype.filter - values of 'to' are accessed during each iteration when 'selected' is converted to true and not prior to starting the loop;
- * @precondition: (fnExists(Array.prototype.filter));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var toIndex = [];
         var called = 0;
@@ -48,5 +47,5 @@ assertTrue((function testcase() {
         var newArr = [11, 12, 13, 14].filter(callbackfn, undefined);
 
         return newArr.length === 4 && called === 4;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

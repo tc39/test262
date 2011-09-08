@@ -4,9 +4,9 @@
 /**
  * FunctionExpression within a "do-while" Expression is allowed
  *
- * @id: S12.6.1_A14_T1;
  * @section: 12.6.1, 13;
- * @description: : Using FunctionExpression "function __func(){return 0;}" as an Expression;;
+ * @path: 12_Statement/12.6_Iteration_Statements/12.6.1_The_do_while_Statement/S12.6.1_A14_T1.js;
+ * @description: Using FunctionExpression "function __func(){return 0;}" as an Expression;
  */
 
 //////////////////////////////////////////////////////////////////////////////

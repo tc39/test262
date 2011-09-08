@@ -32,17 +32,16 @@
  * This default applies to JSON.stringify, and it must exist as a function
  * taking 3 parameters.
  *
- * @id: 15.12.3-0-2;
- * @path: TestCases/chapter15/15.12/15.12.3/15.12.3-0-2.js;
+ * @path: chapter15/15.12/15.12.3/15.12.3-0-2.js;
  * @description: JSON.stringify must exist as be a function taking 3 parameters;
- * @precondition: (JSON !== undefined);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var f = JSON.stringify;
 
   if (typeof(f) === "function" && f.length === 3) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

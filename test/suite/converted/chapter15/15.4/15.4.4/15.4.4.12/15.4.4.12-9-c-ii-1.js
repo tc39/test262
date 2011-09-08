@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.12-9-c-ii-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.12/15.4.4.12-9-c-ii-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.12/15.4.4.12-9-c-ii-1.js;
  * @description: Array.prototype.splice will splice an array even when Array.prototype has index '0' set to read-only and 'fromPresent' less than 'actualDeleteCount (Step 9.c.ii);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             var arr = ["a", "b", "c"];
             Array.prototype[0] = "test";
@@ -54,5 +53,5 @@ assertTrue((function testcase() {
         } finally {
             delete Array.prototype[0];
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

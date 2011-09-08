@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.1.1-8-s;
- * @path: TestCases/chapter10/10.1/10.1.1/10.1.1-8-s.js;
+ * @path: chapter10/10.1/10.1.1/10.1.1-8-s.js;
  * @description: Strict Mode - Use Strict Directive Prologue is ''use strict';' which appears twice in the directive prologue;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         "use strict";
         try {
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

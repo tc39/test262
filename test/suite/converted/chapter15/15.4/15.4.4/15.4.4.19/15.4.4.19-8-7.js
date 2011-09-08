@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-8-7;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-7.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-7.js;
  * @description: Array.prototype.map successful to delete the object in callbackfn;
- * @precondition: (fnExists(Array.prototype.map));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         obj.srcArr = [1, 2, 3, 4, 5];
 
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
 
         var resArr = obj.srcArr.map(callbackfn);
         return resArr.toString() === "1,1,1,1,1" && !obj.hasOwnProperty("arr");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

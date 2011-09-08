@@ -19,16 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.5.1-3.d-1;
- * @path: TestCases/chapter15/15.4/15.4.5/15.4.5.1/15.4.5.1-3.d-1.js;
+ * @path: chapter15/15.4/15.4.5/15.4.5.1/15.4.5.1-3.d-1.js;
  * @description: Throw RangeError if attempt to set array length property to 4294967296 (2**32);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   try {
       [].length = 4294967296 ;
   } catch (e) {
 	if (e instanceof RangeError) return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

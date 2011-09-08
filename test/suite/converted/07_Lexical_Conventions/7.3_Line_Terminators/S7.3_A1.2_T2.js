@@ -4,8 +4,8 @@
 /**
  * CARRIAGE RETURN (U+000D) may occur between any two tokens
  *
- * @id: S7.3_A1.2_T2;
  * @section: 7.3;
+ * @path: 07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A1.2_T2.js;
  * @description: Insert real CARRIAGE RETURN between tokens of var x=1;
  */
 

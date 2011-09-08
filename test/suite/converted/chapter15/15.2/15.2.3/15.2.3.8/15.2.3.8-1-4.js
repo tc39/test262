@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.8-1-4;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-1-4.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-1-4.js;
  * @description: Object.seal throws TypeError if type of first param is a string primitive;
- * @precondition: (fnExists(Object.seal));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             Object.seal("abc");
             return false;
         } catch (e) {
             return e instanceof TypeError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

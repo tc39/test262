@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-242-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-242-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-242-1.js;
  * @description: Object.defineProperty - 'O' is an Array, 'name' is an array index named property,  'name' is data property and 'desc' is data descriptor, and the [[Configurable]] attribute value of 'name' is true, test 'name' is updated successfully (15.4.5.1 step 4.c);
- * @precondition: (fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arrObj = [3];
 
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
         });
 
         return dataPropertyAttributesAreCorrect(arrObj, "0", 1001, false, false, true);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

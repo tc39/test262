@@ -19,16 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5-0-1;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-0-1.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-0-1.js;
  * @description: Function.prototype.bind must exist as a function;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var f = Function.prototype.bind;
 
   if (typeof(f) === "function") {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

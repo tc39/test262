@@ -4,8 +4,8 @@
 /**
  * Use replace with regexp as searchValue and use $ in replaceValue
  *
- * @id: S15.5.4.11_A5_T1;
  * @section: 15.5.4.11;
+ * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.11_String.prototype.replace/S15.5.4.11_A5_T1.js;
  * @description: searchValue is  regexp /^(a+)\1*,\1+$/ and replaceValue is "$1";
  */
 

@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.4-3-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-3-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-3-1.js;
  * @description: Object.getOwnPropertyNames - elements of the returned array start from index 0;
- * @precondition: (fnExists(Object.getOwnPropertyNames));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = { prop1: 1001 };
 
         var arr = Object.getOwnPropertyNames(obj);
 
         return arr.hasOwnProperty(0) && arr[0] === "prop1";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

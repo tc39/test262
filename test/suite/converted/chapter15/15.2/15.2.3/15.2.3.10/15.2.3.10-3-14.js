@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.10-3-14;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-14.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-14.js;
  * @description: Object.preventExtensions - named properties cannot be added into an Array object;
- * @precondition: (fnExists(Object.preventExtensions) && fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arrObj = [];
         var preCheck = Object.isExtensible(arrObj);
         Object.preventExtensions(arrObj);
 
         arrObj.exName = 2;
         return preCheck && !arrObj.hasOwnProperty("exName");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

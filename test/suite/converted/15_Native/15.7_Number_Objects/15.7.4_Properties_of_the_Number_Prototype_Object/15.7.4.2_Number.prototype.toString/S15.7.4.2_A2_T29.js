@@ -5,8 +5,8 @@
  * toString: If radix is an integer from 2 to 36, but not 10,
  * the result is a string, the choice of which is implementation-dependent
  *
- * @id: S15.7.4.2_A2_T29;
  * @section: 15.7.4.2;
+ * @path: 15_Native/15.7_Number_Objects/15.7.4_Properties_of_the_Number_Prototype_Object/15.7.4.2_Number.prototype.toString/S15.7.4.2_A2_T29.js;
  * @description: radix is 31;
  */
 

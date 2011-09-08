@@ -24,12 +24,12 @@
  *     IterationStatement : for ( var VariableDeclarationListNoIn ; Expressionopt ; Expressionopt ) Statement
  * is evaluated as follows:
  *
- * @id: 12.6.3_2-3-a-ii-1;
- * @path: TestCases/chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-1.js;
+ * @path: chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-1.js;
  * @description: The for Statement - (normal, V, empty) will be returned when first Expression is an Object with value false;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var accessed = false;
         var obj = { value: false };
         for (var i = 0; obj; ) {
@@ -37,5 +37,5 @@ assertTrue((function testcase() {
             break;
         }
         return accessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

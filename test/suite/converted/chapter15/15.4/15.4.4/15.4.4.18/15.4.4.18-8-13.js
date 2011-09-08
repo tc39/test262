@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.18-8-13;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-8-13.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-8-13.js;
  * @description: Array.prototype.forEach - undefined will be returned when 'len' is 0;
- * @precondition: (fnExists(Array.prototype.forEach));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var accessed = false;
         function callbackfn(val, idx, obj) {
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
 
         var result = [].forEach(callbackfn);
         return typeof result === "undefined" && !accessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

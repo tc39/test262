@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-261;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-261.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-261.js;
  * @description: Object.create - 'get' property of one property in 'Properties' is a primitive string (8.10.5 step 7.b);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         try {
             Object.create({}, {
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return (e instanceof TypeError);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

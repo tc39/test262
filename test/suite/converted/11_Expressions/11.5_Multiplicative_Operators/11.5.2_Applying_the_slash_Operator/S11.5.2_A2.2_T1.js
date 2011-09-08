@@ -4,8 +4,8 @@
 /**
  * Operator x / y uses [[Default Value]]
  *
- * @id: S11.5.2_A2.2_T1;
  * @section: 11.5.2, 8.6.2.6;
+ * @path: 11_Expressions/11.5_Multiplicative_Operators/11.5.2_Applying_the_slash_Operator/S11.5.2_A2.2_T1.js;
  * @description: If Type(value) is Object, evaluate ToPrimitive(value, Number);
  */
 

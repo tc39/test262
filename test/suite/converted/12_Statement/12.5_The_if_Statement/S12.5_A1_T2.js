@@ -4,8 +4,8 @@
 /**
  * 1, true, non-empty string in expression is evaluated to true
  *
- * @id: S12.5_A1_T2;
  * @section: 12.5;
+ * @path: 12_Statement/12.5_The_if_Statement/S12.5_A1_T2.js;
  * @description: Using "if/else" construction;
  */
 

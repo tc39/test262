@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5-6-9;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-6-9.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-6-9.js;
  * @description: Function.prototype.bind - F can get own accessor property without a get function;
- * @precondition: (fnExists(Function.prototype.bind) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var foo = function () { };
 
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
             set: function () {}
         });
         return obj.hasOwnProperty("property") && typeof (obj.property) === "undefined";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

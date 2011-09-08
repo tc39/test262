@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.6-14-c-4-s;
- * @path: TestCases/chapter10/10.6/10.6-14-c-4-s.js;
+ * @path: chapter10/10.6/10.6-14-c-4-s.js;
  * @description: Strict Mode - TypeError is thrown when accessing the [[Set]] attribute in 'callee' under strict mode;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
 
         var argObj = function () {
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof TypeError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

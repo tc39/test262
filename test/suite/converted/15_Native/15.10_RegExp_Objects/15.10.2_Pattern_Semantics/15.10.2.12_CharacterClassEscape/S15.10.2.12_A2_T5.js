@@ -6,9 +6,9 @@
  * the set of all characters not included in the set returned by
  * CharacterClassEscape :: s
  *
- * @id: S15.10.2.12_A2_T5;
  * @section: 15.10.2.12, 7.2, 7.3;
- * @description: : Tested string is "0123456789_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~`!@#$%^&*()-+={[}]|\\:;'<,>./?" + '"';;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.12_CharacterClassEscape/S15.10.2.12_A2_T5.js;
+ * @description: Tested string is "0123456789_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~`!@#$%^&*()-+={[}]|\\:;'<,>./?" + '"';
  */
 
 //CHECK#1

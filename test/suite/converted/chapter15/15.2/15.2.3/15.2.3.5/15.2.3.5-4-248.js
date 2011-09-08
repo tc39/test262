@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-248;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-248.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-248.js;
  * @description: Object.create - one property in 'Properties' is a Number object that uses Object's [[Get]] method to access the 'get' property (8.10.5 step 7.a);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var numObj = new Number(5);
 
         numObj.get = function () {
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         });
 
         return newObj.prop === "VerifyNumberObject";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

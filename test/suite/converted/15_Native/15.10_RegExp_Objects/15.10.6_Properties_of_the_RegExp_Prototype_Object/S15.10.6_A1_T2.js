@@ -4,8 +4,8 @@
 /**
  * The value of the internal [[Prototype]] property of the RegExp prototype object is the Object prototype
  *
- * @id: S15.10.6_A1_T2;
  * @section: 15.10.6;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.6_Properties_of_the_RegExp_Prototype_Object/S15.10.6_A1_T2.js;
  * @description: Add new property to Object.prototype and check it of RegExp.prototype;
  */
 

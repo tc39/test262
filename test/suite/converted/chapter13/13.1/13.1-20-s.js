@@ -23,14 +23,13 @@
  * It is a SyntaxError if the Identifier "eval" or the Identifier "arguments" occurs within a FormalParameterList
  * of a strict mode FunctionDeclaration or FunctionExpression.
  *
- * @id: 13.1-20-s;
- * @path: TestCases/chapter13/13.1/13.1-20-s.js;
+ * @path: chapter13/13.1/13.1-20-s.js;
  * @description: StrictMode - SyntaxError is thrown if the identifier 'arguments' appears within a FormalParameterList of a strict mode FunctionDeclaration when FuctionBody is strict code;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         try {
             eval("function _13_1_20_fun(arguments) { 'use strict'; }");
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

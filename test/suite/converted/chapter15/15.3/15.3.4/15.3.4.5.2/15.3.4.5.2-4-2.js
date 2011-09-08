@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5.2-4-2;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5.2/15.3.4.5.2-4-2.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5.2/15.3.4.5.2-4-2.js;
  * @description: [[Construct]] - the provided arguments is used as the latter part of arguments of calling the [[Construct]] internal method of 'F''s [[TargetFunction]] when 'F' is called as constructor;
- * @precondition: (fnExists(Function.prototype.bind));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var func = function (x, y, z) {
             var objResult = {};
             objResult.returnValue = x + y + z;
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
 
         return newInstance.hasOwnProperty("returnValue") && newInstance.returnValue === "abc" &&
             newInstance.hasOwnProperty("returnVerifyResult") && newInstance.returnVerifyResult === true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

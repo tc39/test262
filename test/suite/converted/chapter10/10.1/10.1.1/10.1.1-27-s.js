@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.1.1-27-s;
- * @path: TestCases/chapter10/10.1/10.1.1/10.1.1-27-s.js;
+ * @path: chapter10/10.1/10.1.1/10.1.1-27-s.js;
  * @description: Strict Mode - Function code of Accessor PropertyAssignment contains Use Strict Directive which appears in the middle of the block(getter);
  * @strict_only;
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         Object.defineProperty(obj, "accProperty", {
             get: function () {
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
             }
         });
         return obj.accProperty === 11 && public === 1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

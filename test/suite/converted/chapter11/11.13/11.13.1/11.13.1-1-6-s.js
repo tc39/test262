@@ -21,13 +21,13 @@
 /**
  * PutValue operates only on references (see step 3.a).
  *
- * @id: 11.13.1-1-6-s;
- * @path: TestCases/chapter11/11.13/11.13.1/11.13.1-1-6-s.js;
+ * @path: chapter11/11.13/11.13.1/11.13.1-1-6-s.js;
  * @description: simple assignment throws ReferenceError if LeftHandSide is an unresolvable reference in strict mode (base obj undefined);
  * @strict_only;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   'use strict';
   
   try {
@@ -37,5 +37,5 @@ assertTrue((function testcase() {
   catch (e) {
     return (e instanceof ReferenceError);
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

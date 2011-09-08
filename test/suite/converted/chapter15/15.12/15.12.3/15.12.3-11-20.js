@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.12.3-11-20;
- * @path: TestCases/chapter15/15.12/15.12.3/15.12.3-11-20.js;
+ * @path: chapter15/15.12/15.12.3/15.12.3-11-20.js;
  * @description: JSON.stringify - stringifying an object where property name middles with the union of all null character (The abstract operation Quote(value) step 2.c);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var result = true;
 
@@ -68,5 +68,5 @@ assertTrue((function testcase() {
             result = (result && str.indexOf(expectedNullChars[index]) !== -1);
         }
         return result;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

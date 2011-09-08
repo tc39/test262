@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-26;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-26.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-26.js;
  * @description: Object.defineProperty - 'name' is own accessor property (8.12.9 step 1);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "property", {
@@ -46,5 +45,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof TypeError && obj.property === 11;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

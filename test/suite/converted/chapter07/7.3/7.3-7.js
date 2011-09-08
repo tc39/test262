@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 7.3-7;
- * @path: TestCases/chapter07/7.3/7.3-7.js;
+ * @path: chapter07/7.3/7.3-7.js;
  * @description: 7.3 - ES5 recognizes the character <LS> (\u2028) as terminating regular expression literals;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             eval("var regExp =  /[\u2028]/");
             regExp.test("");
@@ -32,5 +32,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

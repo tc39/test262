@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.12.3-11-4;
- * @path: TestCases/chapter15/15.12/15.12.3/15.12.3-11-4.js;
+ * @path: chapter15/15.12/15.12.3/15.12.3-11-4.js;
  * @description: JSON.stringify correctly works on top level Number values.;
- * @precondition: (JSON && fnExists(JSON.stringify));
  */
 
-assertTrue((JSON.stringify(123) === '123'));
 
+assertTrue(JSON.stringify(123) === '123');

@@ -2,12 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * : When the [[Call]] property for a Function object F is called, the following steps are taken:
+ * When the [[Call]] property for a Function object F is called, the following steps are taken:
  * 2. Evaluate F's FunctionBody;
- * if Result.type is returned  then Result.value is returned too;
+ * if Result.type is returned  then Result.value is returned too
  *
- * @id: S13.2.1_A7_T4;
  * @section: 13.2.1;
+ * @path: 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.1_A7_T4.js;
  * @description: Returning boolean. Declaring a function with "function __func()";
  */
 

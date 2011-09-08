@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-104;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-104.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-104.js;
  * @description: Object.defineProperties - 'P' is accessor property, both properties.[[Set]] and P.[[Set]] are two different values (8.12.9 step 12);
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor) && fnExists(Object.defineProperties) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
 
@@ -54,5 +53,5 @@ assertTrue((function testcase() {
             }
         });
         return accessorPropertyAttributesAreCorrect(obj, "foo", get_func, set_func2, "setVerifyHelpProp", true, true);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.3.2-1-7;
- * @path: TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-7.js;
+ * @path: chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-7.js;
  * @description: Array.isArray applied to Function object;
- * @precondition: (fnExists(Array.isArray));
  */
 
-assertTrue((!Array.isArray(function () { })));
 
+assertTrue(!Array.isArray(function () { }));

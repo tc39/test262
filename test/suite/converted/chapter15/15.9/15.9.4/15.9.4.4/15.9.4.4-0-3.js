@@ -19,15 +19,14 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.9.4.4-0-3;
- * @path: TestCases/chapter15/15.9/15.9.4/15.9.4.4/15.9.4.4-0-3.js;
+ * @path: chapter15/15.9/15.9.4/15.9.4.4/15.9.4.4-0-3.js;
  * @description: Date.now must exist as a function;
- * @precondition: (fnExists(Date.now));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var fun = Date.now;
         return (typeof (fun) === "function");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

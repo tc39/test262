@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-82;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-82.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-82.js;
  * @description: Object.defineProperty - desc.configurable and name.configurable are boolean negation of each other (8.12.9 step 6);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
     
         var obj = {};
 
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
 
         Object.defineProperty(obj, "foo", { configurable: false });
         return dataPropertyAttributesAreCorrect(obj, "foo", undefined, false, false, false);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

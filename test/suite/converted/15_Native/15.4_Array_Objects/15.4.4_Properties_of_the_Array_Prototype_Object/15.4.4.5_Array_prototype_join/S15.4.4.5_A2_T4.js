@@ -5,8 +5,8 @@
  * The join function is intentionally generic.
  * It does not require that its this value be an Array object
  *
- * @id: S15.4.4.5_A2_T4;
  * @section: 15.4.4.5;
+ * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.5_Array_prototype_join/S15.4.4.5_A2_T4.js;
  * @description: Operator use ToNumber from length.
  * If Type(value) is Object, evaluate ToPrimitive(value, Number);
  */

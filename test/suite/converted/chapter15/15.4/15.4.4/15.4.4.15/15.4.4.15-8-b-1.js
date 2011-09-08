@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-8-b-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-1.js;
  * @description: Array.prototype.lastIndexOf - undefined property wouldn't be called;
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue(([0, , 2].lastIndexOf(undefined) === -1));
 
+assertTrue([0, , 2].lastIndexOf(undefined) === -1);

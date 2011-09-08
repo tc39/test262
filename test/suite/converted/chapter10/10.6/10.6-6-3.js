@@ -19,13 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.6-6-3;
- * @path: TestCases/chapter10/10.6/10.6-6-3.js;
+ * @path: chapter10/10.6/10.6-6-3.js;
  * @description: 'length' property of arguments object for 0 argument function exists;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
       var arguments= undefined;
 	return (function () {return arguments.length !== undefined})();
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

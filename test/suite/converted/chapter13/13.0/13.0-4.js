@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 13.0-4;
- * @path: TestCases/chapter13/13.0/13.0-4.js;
+ * @path: chapter13/13.0/13.0-4.js;
  * @description: 13.0 - multiple names in one function declaration is not allowed, add a new property into a property which is a object;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         obj.tt = { len: 10 };
         try {
@@ -33,5 +33,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

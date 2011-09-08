@@ -4,8 +4,8 @@
 /**
  * First expression is evaluated first, and then second expression
  *
- * @id: S11.11.2_A2.4_T2;
  * @section: 11.11.2;
+ * @path: 11_Expressions/11.11_Binary_Logical_Operators/11.11.2_Logical_OR_Operator/S11.11.2_A2.4_T2.js;
  * @description: Checking with "throw";
  */
 

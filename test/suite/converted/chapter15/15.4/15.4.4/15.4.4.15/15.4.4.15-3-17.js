@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-3-17;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-3-17.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-3-17.js;
  * @description: Array.prototype.lastIndexOf - value of 'length' is a string containing a number with leading zeros;
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = { 1: 1, 2: 2, length: "0002.0" };
 
         return Array.prototype.lastIndexOf.call(obj, 1) === 1 &&
             Array.prototype.lastIndexOf.call(obj, 2) === -1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -4,8 +4,8 @@
 /**
  * let F be the empty string if flags is undefined
  *
- * @id: S15.10.4.1_A4_T1;
  * @section: 15.10.4.1;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.4_The_RegExp_Constructor/S15.10.4.1_A4_T1.js;
  * @description: RegExp is new RegExp(undefined);
  */
 

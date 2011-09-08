@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-360-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-360-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-360-1.js;
  * @description: ES5 Attributes - Updating indexed data property 'P' whose attributes are [[Writable]]: false, [[Enumerable]]: true, [[Configurable]]: true to an accessor property, 'A' is an Array object (8.12.9 - step 9.b.i);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = [];
 
         Object.defineProperty(obj, "0", {
@@ -47,5 +46,5 @@ assertTrue((function testcase() {
         return desc1.hasOwnProperty("value") && desc2.hasOwnProperty("get") &&
             desc2.enumerable === true && desc2.configurable === true &&
             obj[0] === 20 && typeof desc2.set === "undefined" && desc2.get === getFunc;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.3-4-3;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-3.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-3.js;
  * @description: Object.getOwnPropertyDescriptor returns an object representing an accessor desc for valid accessor properties;
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
     var o = {};
 
     // dummy getter
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
         desc.configurable === false) {
       return true;
     }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.22-9-c-ii-17;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-c-ii-17.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-c-ii-17.js;
  * @description: Array.prototype.reduceRight - 'accumulator' used for current iteration is the result of previous iteration on an Array;
- * @precondition: (fnExists(Array.prototype.reduceRight));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arr = [11, 12, 13];
         var testResult = true;
@@ -43,5 +42,5 @@ assertTrue((function testcase() {
         arr.reduceRight(callbackfn, initVal);
 
         return testResult;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

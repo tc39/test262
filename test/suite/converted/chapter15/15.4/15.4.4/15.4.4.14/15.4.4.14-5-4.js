@@ -19,16 +19,15 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-5-4;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-4.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-4.js;
  * @description: Array.prototype.indexOf returns 0 if fromIndex is 'undefined';
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var a = [1,2,3];
   if (a.indexOf(1,undefined) === 0) {    // undefined resolves to 0
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

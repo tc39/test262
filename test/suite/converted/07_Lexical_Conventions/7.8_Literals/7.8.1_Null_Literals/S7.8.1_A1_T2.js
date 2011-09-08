@@ -4,8 +4,8 @@
 /**
  * Literal :: NullLiteral
  *
- * @id: S7.8.1_A1_T2;
  * @section: 7.8.1;
+ * @path: 07_Lexical_Conventions/7.8_Literals/7.8.1_Null_Literals/S7.8.1_A1_T2.js;
  * @description: Check RegExp("0").exec("1") === null;
  */
 

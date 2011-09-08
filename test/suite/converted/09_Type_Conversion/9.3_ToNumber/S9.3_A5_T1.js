@@ -5,8 +5,8 @@
  * Result of number conversion from object value is the result
  * of conversion from primitive value
  *
- * @id: S9.3_A5_T1;
  * @section: 9.3, 15.7.1;
+ * @path: 09_Type_Conversion/9.3_ToNumber/S9.3_A5_T1.js;
  * @description: new Number(), new Number(0), new Number(Number.NaN), new Number(null),
  * new Number(void 0) and others convert to Number by explicit transformation;
  */

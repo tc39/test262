@@ -2,11 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * : While evaluating "for ( ;  ; Expression) Statement", Statement is evaluated first and then Expression is evaluated;
+ * While evaluating "for ( ;  ; Expression) Statement", Statement is evaluated first and then Expression is evaluated
  *
- * @id: S12.6.3_A6;
  * @section: 12.6.3;
- * @description: : Using "(function(){throw "SecondExpression";})()" as an Expression;;
+ * @path: 12_Statement/12.6_Iteration_Statements/12.6.3_The_for_Statement/S12.6.3_A6.js;
+ * @description: Using "(function(){throw "SecondExpression";})()" as an Expression;
  */
 
 //////////////////////////////////////////////////////////////////////////////

@@ -4,8 +4,8 @@
 /**
  * RegExp.prototype.test can't be used as constructor
  *
- * @id: S15.10.6.3_A7;
  * @section: 15.10.6.3, 13.2;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.6_Properties_of_the_RegExp_Prototype_Object/15.10.6.3_RegExp.prototype.test/S15.10.6.3_A7.js;
  * @description: Checking if creating the RegExp.prototype.test object fails;
  */
 

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-306;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-306.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-306.js;
  * @description: Object.defineProperties - 'O' is an Arguments object, 'P' is generic own data property of 'O', test TypeError is thrown when updating the [[Value]] attribute value of 'P' which is not writable and not configurable (10.6 [[DefineOwnProperty]] step 4);
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arg = (function () {
             return arguments;
         }(1, 2, 3));
@@ -48,5 +47,5 @@ assertTrue((function testcase() {
             return ex instanceof TypeError &&
                 dataPropertyAttributesAreCorrect(arg, "genericProperty", 1001, false, false, false);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

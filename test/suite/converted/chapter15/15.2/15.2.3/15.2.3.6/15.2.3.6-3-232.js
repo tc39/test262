@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-3-232;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-232.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-232.js;
  * @description: Object.defineProperty - value of 'get' property in 'Attributes' is a function (8.10.5 step 7.b);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "property", {
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         });
 
         return obj.hasOwnProperty("property") && obj.property === "getFunction";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

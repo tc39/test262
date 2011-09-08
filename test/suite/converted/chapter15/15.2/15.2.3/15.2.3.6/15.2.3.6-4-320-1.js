@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-320-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-320-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-320-1.js;
  * @description: Object.defineProperty - 'O' is an Arguments object of a function that has formal parameters, 'P' is own data property of 'O', test TypeError is thrown when updating the [[Configurable]] attribute value of 'P' which is not configurable (10.6 [[DefineOwnProperty]] step 4);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue(((function (a, b, c) {
+
+assertTrue((function (a, b, c) {
             Object.defineProperty(arguments, "genericProperty", {
                 configurable: false
             });
@@ -38,5 +37,4 @@ assertTrue(((function (a, b, c) {
                     dataPropertyAttributesAreCorrect(arguments, "genericProperty", undefined, false, false, false);
             }
             return false;
-        }(1, 2, 3))));
-
+        }(1, 2, 3)));

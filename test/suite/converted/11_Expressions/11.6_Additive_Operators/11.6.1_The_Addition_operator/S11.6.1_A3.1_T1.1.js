@@ -4,8 +4,8 @@
 /**
  * If Type(Primitive(x)) is not String and Type(Primitive(y)) is not String, then operator x + y returns ToNumber(x) + ToNumber(y)
  *
- * @id: S11.6.1_A3.1_T1.1;
  * @section: 11.6.1;
+ * @path: 11_Expressions/11.6_Additive_Operators/11.6.1_The_Addition_operator/S11.6.1_A3.1_T1.1.js;
  * @description: Type(Primitive(x)) and Type(Primitive(y)) vary between primitive boolean and Boolean object;
  */
 

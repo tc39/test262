@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 11.13.1-4-6-s;
- * @path: TestCases/chapter11/11.13/11.13.1/11.13.1-4-6-s.js;
+ * @path: chapter11/11.13/11.13.1/11.13.1-4-6-s.js;
  * @description: simple assignment throws TypeError if LeftHandSide is a readonly property in strict mode (Function.length);
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   'use strict';
   
   try {
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
   catch (e) {
     return (e instanceof TypeError);
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -4,9 +4,9 @@
 /**
  * let P be ToString(pattern) and let F be ToString(flags)
  *
- * @id: S15.10.4.1_A8_T6;
  * @section: 15.10.4.1;
- * @description: : Pattern is {toString:function(){throw "intostr";} } and flags is "i";;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.4_The_RegExp_Constructor/S15.10.4.1_A8_T6.js;
+ * @description: Pattern is {toString:function(){throw "intostr";} } and flags is "i";
  */
 
 //CHECK#1

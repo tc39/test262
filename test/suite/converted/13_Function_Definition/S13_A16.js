@@ -4,8 +4,8 @@
 /**
  * Any separators are admitted between declaration chunks
  *
- * @id: S13_A16;
  * @section: 13;
+ * @path: 13_Function_Definition/S13_A16.js;
  * @description: Inserting separators between declaration chunks;
  */
 

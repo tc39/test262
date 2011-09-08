@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.8-2-a-11;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-11.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-11.js;
  * @description: Object.seal - 'P' is own property of a Number object that uses Object's [[GetOwnProperty]];
- * @precondition: (fnExists(Object.seal) && fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var numObj = new Number(-1);
 
         numObj.foo = 10;
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
 
         delete numObj.foo;
         return preCheck && numObj.foo === 10;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

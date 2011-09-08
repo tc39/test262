@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.4-5-b-iii-3-b-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.4/15.4.4.4-5-b-iii-3-b-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.4/15.4.4.4-5-b-iii-3-b-1.js;
  * @description: Array.prototype.concat will concat an Array when index property (read-only) exists in Array.prototype (Step 5.b.iii.3.b);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             Object.defineProperty(Array.prototype, "0", {
                 value: 100,
@@ -59,5 +58,5 @@ assertTrue((function testcase() {
         } finally {
             delete Array.prototype[0];
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.9.5.44-0-2;
- * @path: TestCases/chapter15/15.9/15.9.5/15.9.5.44/15.9.5.44-0-2.js;
+ * @path: chapter15/15.9/15.9.5/15.9.5.44/15.9.5.44-0-2.js;
  * @description: Date.prototype.toJSON must exist as a function taking 1 parameter;
- * @precondition: (fnExists(Date.prototype.toJSON));
  */
 
-assertTrue((Date.prototype.toJSON.length === 1));
 
+assertTrue(Date.prototype.toJSON.length === 1);

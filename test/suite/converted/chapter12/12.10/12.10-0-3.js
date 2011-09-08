@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.10-0-3;
- * @path: TestCases/chapter12/12.10/12.10-0-3.js;
+ * @path: chapter12/12.10/12.10-0-3.js;
  * @description: with introduces scope - that is captured by function expression;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o = {prop: "12.10-0-3 before"};
   var f;
 
@@ -33,5 +33,5 @@ assertTrue((function testcase() {
   }
   o.prop = "12.10-0-3 after";
   return f()==="12.10-0-3 after"
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.5.4.20-1-1;
- * @path: TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-1-1.js;
+ * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-1-1.js;
  * @description: String.prototype.trim throws TypeError when string is undefined;
- * @precondition: (fnExists(String.prototype.trim));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   try
   {
     String.prototype.trim.call(undefined); 
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
   {
     return e instanceof TypeError;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

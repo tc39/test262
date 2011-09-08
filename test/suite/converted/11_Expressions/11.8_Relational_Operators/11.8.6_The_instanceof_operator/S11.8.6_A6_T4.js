@@ -4,8 +4,8 @@
 /**
  * Only Function objects implement [[HasInstance]] and can be proper ShiftExpression for the "instanceof" operator consequently
  *
- * @id: S11.8.6_A6_T4;
  * @section: 11.8.6;
+ * @path: 11_Expressions/11.8_Relational_Operators/11.8.6_The_instanceof_operator/S11.8.6_A6_T4.js;
  * @description: Checking if RelationalExpression is object;
  */
 

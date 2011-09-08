@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.17-5-16;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-5-16.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-5-16.js;
  * @description: Array.prototype.some - RegExp object can be used as thisArg;
- * @precondition: (fnExists(Array.prototype.some));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var objRegExp = new RegExp();
 
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
         }
 
         return [11].some(callbackfn, objRegExp);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

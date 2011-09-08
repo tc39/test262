@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-228;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-228.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-228.js;
  * @description: Object.defineProperties - 'O' is an Array, 'P' is an array index property, TypeError is thrown if the [[Configurable]] attribute value of 'P' is false, and [[Enumerable]] of 'desc' is present and its value is different from the [[Enumerable]] attribute value of 'P'  (15.4.5.1 step 4.c);
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arr = [];
 
@@ -47,5 +46,5 @@ assertTrue((function testcase() {
         } catch (ex) {
             return (ex instanceof TypeError) && dataPropertyAttributesAreCorrect(arr, "1", 3, false, false, false);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

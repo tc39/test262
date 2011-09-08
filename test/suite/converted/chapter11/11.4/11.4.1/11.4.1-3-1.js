@@ -19,16 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 11.4.1-3-1;
- * @path: TestCases/chapter11/11.4/11.4.1/11.4.1-3-1.js;
+ * @path: chapter11/11.4/11.4.1/11.4.1-3-1.js;
  * @description: delete operator returns true when deleting an unresolvable reference;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   // just cooking up a long/veryLikely unique name
   var d = delete __ES3_1_test_suite_test_11_4_1_3_unique_id_0__;
   if (d === true) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

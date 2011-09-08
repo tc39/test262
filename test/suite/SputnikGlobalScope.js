@@ -1,4 +1,4 @@
-this.GlobalScopeTests = this.GlobalScopeTests || new Array();
+this.GlobalScopeTests = this.GlobalScopeTests || {};
 GlobalScopeTests["S7.2_A5_T1"]={"assertion":"White space cannot be expressed as a Unicode escape sequence consisting of six characters, namely \\u plus four hexadecimal digits","description":"Use TAB (U+0009)","id":"S7.2_A5_T1","path":"07_Lexical_Conventions\\7.2_White_Space\\S7.2_A5_T1.js","negative":"."};
 GlobalScopeTests["S7.2_A5_T2"]={"assertion":"White space cannot be expressed as a Unicode escape sequence consisting of six characters, namely \\u plus four hexadecimal digits","description":"Use VERTICAL TAB (U+000B)","id":"S7.2_A5_T2","path":"07_Lexical_Conventions\\7.2_White_Space\\S7.2_A5_T2.js","negative":"."};
 GlobalScopeTests["S7.2_A5_T3"]={"assertion":"White space cannot be expressed as a Unicode escape sequence consisting of six characters, namely \\u plus four hexadecimal digits","description":"Use FORM FEED (U+000C)","id":"S7.2_A5_T3","path":"07_Lexical_Conventions\\7.2_White_Space\\S7.2_A5_T3.js","negative":"."};

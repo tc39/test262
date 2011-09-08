@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 13.1-37-s;
- * @path: TestCases/chapter13/13.1/13.1-37-s.js;
+ * @path: chapter13/13.1/13.1-37-s.js;
  * @description: StrictMode - SyntaxError is thrown if 'eval' occurs as the Identifier of a FunctionExpression in strict eval code;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var _13_1_37_s = {};
         try {
             eval("'use strict'; _13_1_37_s.x = function eval() {};");
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

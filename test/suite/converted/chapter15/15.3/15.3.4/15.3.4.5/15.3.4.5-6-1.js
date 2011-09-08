@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5-6-1;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-6-1.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-6-1.js;
  * @description: Function.prototype.bind - F can get own data property;
- * @precondition: (fnExists(Function.prototype.bind));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var foo = function () { };
 
         var obj = foo.bind({});
         obj.property = 12;
         return obj.property === 12;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,16 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 11.13.2-21-s;
- * @path: TestCases/chapter11/11.13/11.13.2/11.13.2-21-s.js;
+ * @path: chapter11/11.13/11.13.2/11.13.2-21-s.js;
  * @description: Strict Mode - ReferenceError isn't thrown if the LeftHandSideExpression of a Compound Assignment operator(^=) evaluates to a resolvable reference;
  * @strict_only;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         var _11_13_2_21 = 5
         _11_13_2_21 ^= 3;
         return _11_13_2_21 === 6;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

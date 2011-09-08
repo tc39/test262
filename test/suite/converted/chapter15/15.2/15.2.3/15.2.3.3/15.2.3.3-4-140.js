@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.3-4-140;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-140.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-140.js;
  * @description: Object.getOwnPropertyDescriptor returns data desc for functions on built-ins (Date.prototype.setDate);
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var desc = Object.getOwnPropertyDescriptor(Date.prototype, "setDate");
   if (desc.value === Date.prototype.setDate &&
       desc.writable === true &&
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
       desc.configurable === true) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

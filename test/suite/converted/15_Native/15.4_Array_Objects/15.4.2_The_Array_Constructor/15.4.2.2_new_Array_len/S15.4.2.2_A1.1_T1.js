@@ -6,8 +6,8 @@
  * is set to the original Array prototype object, the one that
  * is the initial value of Array.prototype
  *
- * @id: S15.4.2.2_A1.1_T1;
  * @section: 15.4.2.2;
+ * @path: 15_Native/15.4_Array_Objects/15.4.2_The_Array_Constructor/15.4.2.2_new_Array_len/S15.4.2.2_A1.1_T1.js;
  * @description: Create new property of Array.prototype. When new Array object has this property;
  */
 

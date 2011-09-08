@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.5.4.20-2-16;
- * @path: TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-16.js;
+ * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-16.js;
  * @description: String.prototype.trim - argument 'this' is a number that converts to string (value is 1e+21);
- * @precondition: (fnExists(String.prototype.trim));
  */
 
-assertTrue((String.prototype.trim.call(1e+21) === "1e+21"));
 
+assertTrue(String.prototype.trim.call(1e+21) === "1e+21");

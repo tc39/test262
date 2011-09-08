@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.3-4-179;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-179.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-179.js;
  * @description: Object.getOwnPropertyDescriptor returns data desc (all false) for properties on built-ins (Global.Infinity);
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   // in non-strict mode, 'this' is bound to the global object.
   var desc = Object.getOwnPropertyDescriptor(fnGlobalObject(),  "Infinity");
 
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
     return true;
   }
   return false;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

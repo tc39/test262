@@ -4,8 +4,8 @@
 /**
  * Empty string has type string
  *
- * @id: S8.4_A2;
  * @section: 8.4, 7.8.4;
+ * @path: 08_Types/8.4_The_String_Type/S8.4_A2.js;
  * @description: Create empty string and check it type;
  */
 

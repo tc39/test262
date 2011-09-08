@@ -4,9 +4,9 @@
 /**
  * Math.tan, recommended that implementations use the approximation algorithms for IEEE 754 arithmetic contained in fdlibm
  *
- * @id: S15.8.2.18_A7;
  * @section: 15.8.2.18;
- * @description: : Checking if Math.tan is approximately equals to its mathematical values on the set of 64 argument values; all the sample values is calculated with LibC;;
+ * @path: 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.18_tan/S15.8.2.18_A7.js;
+ * @description: Checking if Math.tan is approximately equals to its mathematical values on the set of 64 argument values; all the sample values is calculated with LibC;
  */
 
 $INCLUDE("math_precision.js");

@@ -4,9 +4,9 @@
 /**
  * Since applying the "call" method to Function constructor themself leads to creating a new function instance, the second argument must be a valid function body
  *
- * @id: S15.3_A2_T1;
  * @section: 15.3, 10.2.3, 15.3.2.1;
- * @description: : Checking if executing "Function.call(this, "var x / = 1;")" fails;;
+ * @path: 15_Native/15.3_Function_Objects/S15.3_A2_T1.js;
+ * @description: Checking if executing "Function.call(this, "var x / = 1;")" fails;
  */
 
 //CHECK#

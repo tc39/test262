@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.14-5-15;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-15.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-15.js;
  * @description: Object.keys - own enumerable indexed data property of String object 'O' is defined in returned array;
- * @precondition: (fnExists(Object.keys) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = new String("xyz");
         obj[-20] = -20;
         obj[20] = 20;
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
         }
 
         return true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

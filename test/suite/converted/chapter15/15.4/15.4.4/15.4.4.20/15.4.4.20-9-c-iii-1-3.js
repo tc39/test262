@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-9-c-iii-1-3;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-iii-1-3.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-iii-1-3.js;
  * @description: Array.prototype.filter - value of returned array element can be enumerated;
- * @precondition: (fnExists(Array.prototype.filter));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         function callbackfn(val, idx, obj) {
             return true;
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
         }
 
         return enumerable;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

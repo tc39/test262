@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.6-6-2;
- * @path: TestCases/chapter10/10.6/10.6-6-2.js;
+ * @path: chapter10/10.6/10.6-6-2.js;
  * @description: 'length' property of arguments object has correct attributes;
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   
   var desc = Object.getOwnPropertyDescriptor(arguments,"length");
   if(desc.configurable === true &&
      desc.enumerable === false &&
      desc.writable === true )
     return true;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

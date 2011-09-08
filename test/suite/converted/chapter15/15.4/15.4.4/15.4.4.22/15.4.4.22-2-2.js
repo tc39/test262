@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.22-2-2;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-2-2.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-2-2.js;
  * @description: Array.prototype.reduceRight - 'length' is own data property on an Array;
- * @precondition: (fnExists(Array.prototype.reduceRight));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var accessed = false;
 
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         }
 
         return [12, 11].reduceRight(callbackfn, 11) && accessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

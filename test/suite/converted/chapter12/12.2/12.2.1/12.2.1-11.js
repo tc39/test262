@@ -19,13 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.2.1-11;
- * @path: TestCases/chapter12/12.2/12.2.1/12.2.1-11.js;
+ * @path: chapter12/12.2/12.2.1/12.2.1-11.js;
  * @description: arguments as var identifier in eval code is allowed;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
     eval("var arguments;");
     return true;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

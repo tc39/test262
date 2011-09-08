@@ -5,8 +5,8 @@
  * When Date is called as part of a new expression it is
  * a constructor: it initialises the newly created object
  *
- * @id: S15.9.3.2_A1_T1;
  * @section: 15.9.3.2;
+ * @path: 15_Native/15.9_Date_Objects/15.9.3_The_Date_Constructor/S15.9.3.2_A1_T1.js;
  * @description: Checking types of newly created objects and it values;
  */
 

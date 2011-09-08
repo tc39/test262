@@ -4,8 +4,8 @@
 /**
  * Number.prototype is itself Number object
  *
- * @id: S15.7.3.1_A2_T1;
  * @section: 15.7.3.1;
+ * @path: 15_Native/15.7_Number_Objects/15.7.3_Properties_of_Number_Constructor/15.7.3.1_Number.prototype/S15.7.3.1_A2_T1.js;
  * @description: Checking type of Number.prototype property - test based on
  * deleting Number.prototype.toString;
  */

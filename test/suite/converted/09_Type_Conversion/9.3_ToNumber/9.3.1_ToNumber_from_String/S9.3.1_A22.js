@@ -4,8 +4,8 @@
 /**
  * The MV of DecimalDigit ::: 6 or of HexDigit ::: 6 is 6
  *
- * @id: S9.3.1_A22;
  * @section: 9.3.1, 15.7.1;
+ * @path: 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A22.js;
  * @description: Compare Number('0x6') and Number('0X6') with 6;
  */
 

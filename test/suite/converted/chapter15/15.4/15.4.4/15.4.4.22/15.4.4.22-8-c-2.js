@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.22-8-c-2;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-8-c-2.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-8-c-2.js;
  * @description: Array.prototype.reduceRight throws TypeError when elements assigned values are deleted by reducign array length and initialValue is not present;
- * @precondition: (fnExists(Array.prototype.reduceRight));
  */
 
-assertTrue((function testcase() { 
+
+function testcase() { 
  
   function callbackfn(prevVal, curVal, idx, obj)
   {
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
     if(e instanceof TypeError)
       return true;  
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

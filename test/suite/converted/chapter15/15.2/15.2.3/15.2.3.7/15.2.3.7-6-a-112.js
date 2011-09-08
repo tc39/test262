@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-112;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-112.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-112.js;
  * @description: Object.defineProperties - 'O' is an Array, test the length property of 'O' is own data property (15.4.5.1 step 1);
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arr = [0, 1];
         Object.defineProperty(arr, "1", {
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
             return ex instanceof TypeError && desc.value === 2 &&
                 desc.writable && !desc.enumerable && !desc.configurable;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

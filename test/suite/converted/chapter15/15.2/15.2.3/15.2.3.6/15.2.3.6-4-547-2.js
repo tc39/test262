@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-547-2;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-547-2.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-547-2.js;
  * @description: ES5 Attributes - Updating a named accessor property 'P' whose [[Configurable]] attribute is false to a data property does not succeed, 'A' is an Arguments object (8.12.9 step 9.a);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = (function () {
             return arguments;
         }());
@@ -59,5 +58,5 @@ assertTrue((function testcase() {
             return desc1.hasOwnProperty("get") && !desc2.hasOwnProperty("value") && e instanceof TypeError &&
                 accessorPropertyAttributesAreCorrect(obj, "prop", getFunc, setFunc, "verifySetFunc", true, false);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

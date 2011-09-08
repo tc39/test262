@@ -4,8 +4,8 @@
 /**
  * The encodeURI property can't be used as constructor
  *
- * @id: S15.1.3.3_A5.7;
  * @section: 15.1.3.3, 11.2.2;
+ * @path: 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.3_encodeURI/S15.1.3.3_A5.7.js;
  * @description: If property does not implement the internal [[Construct]] method, throw a TypeError exception;
  */
 

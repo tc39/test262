@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-5-b-57;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-57.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-57.js;
  * @description: Object.defineProperties - value of 'enumerable' property of 'descObj' is a string (value is 'false') which is treated as true value (8.10.5 step 3.b);
- * @precondition: (fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
         var accessed = false;
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
             }
         }
         return accessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.2.1.1.3-4-27-s;
- * @path: TestCases/chapter10/10.2/10.2.1/10.2.1.1/10.2.1.1.3/10.2.1.1.3-4-27-s.js;
+ * @path: chapter10/10.2/10.2.1/10.2.1.1/10.2.1.1.3/10.2.1.1.3-4-27-s.js;
  * @description: Strict Mode - TypeError is not thrown when changing the value of the Constructor Properties of the Global Object under strict mode (Number);
  * @strict_only;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
 
         var numBak = Number;
@@ -35,5 +35,5 @@ assertTrue((function testcase() {
         } finally {
             Number = numBak;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

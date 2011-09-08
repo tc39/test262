@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-3-220;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-220.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-220.js;
  * @description: Object.defineProperty - 'Attributes' is a String object that uses Object's [[Get]] method to access the 'get' property (8.10.5 step 7.a);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         var strObj = new String();
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         Object.defineProperty(obj, "property", strObj);
 
         return obj.property === "stringGetProperty";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

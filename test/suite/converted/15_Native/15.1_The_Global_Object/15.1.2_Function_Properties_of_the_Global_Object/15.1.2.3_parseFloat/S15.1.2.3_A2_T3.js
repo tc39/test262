@@ -4,8 +4,8 @@
 /**
  * Operator remove leading StrWhiteSpaceChar
  *
- * @id: S15.1.2.3_A2_T3;
  * @section: 15.1.2.3;
+ * @path: 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.3_parseFloat/S15.1.2.3_A2_T3.js;
  * @description: StrWhiteSpaceChar :: NBSB (U+00A0);
  */
 

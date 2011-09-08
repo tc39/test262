@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.22-9-b-3;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-b-3.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-b-3.js;
  * @description: Array.prototype.reduceRight - deleted properties in step 2 are visible here;
- * @precondition: (fnExists(Array.prototype.reduceRight) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var accessed = false;
         var testResult = true;
@@ -50,5 +49,5 @@ assertTrue((function testcase() {
         Array.prototype.reduceRight.call(obj, callbackfn, "initialValue");
 
         return accessed && testResult;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

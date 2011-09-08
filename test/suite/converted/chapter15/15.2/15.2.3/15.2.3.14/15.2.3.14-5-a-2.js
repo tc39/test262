@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.14-5-a-2;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-a-2.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-a-2.js;
  * @description: Object.keys - 'writable' attribute of element of returned array is correct;
- * @precondition: (fnExists(Object.keys));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = { prop1: 100 };
 
         var array = Object.keys(obj);
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return false;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

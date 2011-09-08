@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-5-1-s;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20-5-1-s.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-5-1-s.js;
  * @description: Array.prototype.filter - thisArg not passed to strict callbackfn;
  * @strict_only;
- * @precondition: (fnSupportsStrict() && fnExists(Array.prototype.filter));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var innerThisCorrect = false;
   
   function callbackfn(val, idx, obj) {
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
 
   [1].filter(callbackfn);
   return innerThisCorrect;    
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

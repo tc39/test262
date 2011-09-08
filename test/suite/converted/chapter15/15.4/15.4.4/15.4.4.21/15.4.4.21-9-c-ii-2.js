@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-9-c-ii-2;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-c-ii-2.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-c-ii-2.js;
  * @description: Array.prototype.reduce - callbackfn called with correct parameters (initialvalue passed);
- * @precondition: (fnExists(Array.prototype.reduce));
  */
 
-assertTrue((function testcase() { 
+
+function testcase() { 
  
   var bParCorrect = false;
   function callbackfn(prevVal, curVal, idx, obj)
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
   var initialValue = 5.5;
   if( arr.reduce(callbackfn,initialValue) === "five") 
     return true;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.12-4-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-4-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-4-1.js;
  * @description: Object.isFrozen returns false if extensible is true;
- * @precondition: (fnExists(Object.isFrozen));
  */
 
-assertTrue((!Object.isFrozen({})));
 
+assertTrue(!Object.isFrozen({}));

@@ -4,8 +4,8 @@
 /**
  * The "this" is reserved word
  *
- * @id: S11.1.1_A1;
  * @section: 11.1.1;
+ * @path: 11_Expressions/11.1_Primary_Expressions/11.1.1_The_this_Keyword/S11.1.1_A1.js;
  * @description: Checking if execution of "this=1" fails;
  * @negative;
  */

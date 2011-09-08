@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.2-2-28;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-2-28.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-2-28.js;
  * @description: Object.getPrototypeOf returns the [[Prototype]] of its parameter (the Arguments object);
- * @precondition: (fnExists(Object.getPrototypeOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function fun() {
             return arguments;
         }
         var obj = fun(1, true, 3);
 
         return Object.getPrototypeOf(obj) === Object.prototype;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -16,18 +16,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5-2-11;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-2-11.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-2-11.js;
  * @description: Function.prototype.bind throws TypeError if 'Target' is NULL;
- * @precondition: (fnExists(Function.prototype.bind));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             Function.prototype.bind.call(null);
             return false;
         } catch (e) {
             return (e instanceof TypeError);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

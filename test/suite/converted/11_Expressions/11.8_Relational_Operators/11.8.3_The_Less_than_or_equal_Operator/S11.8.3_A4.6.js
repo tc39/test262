@@ -4,8 +4,8 @@
 /**
  * If y is +Infinity and x !== y, return true
  *
- * @id: S11.8.3_A4.6;
  * @section: 11.8.3, 11.8.5;
+ * @path: 11_Expressions/11.8_Relational_Operators/11.8.3_The_Less_than_or_equal_Operator/S11.8.3_A4.6.js;
  * @description: x is number primitive;
  */
 

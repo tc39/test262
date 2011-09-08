@@ -5,9 +5,9 @@
  * RegExp.prototype.exec(string) Performs a regular expression match of ToString(string) against the regular expression and
  * returns an Array object containing the results of the match, or null if the string did not match
  *
- * @id: S15.10.6.2_A1_T5;
  * @section: 15.10.6.2;
- * @description: : String is {toString:function(){return {};}, valueOf:function(){return "aabaac";}} and RegExp is /(aa|aabaac|ba|b|c)* /;;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.6_Properties_of_the_RegExp_Prototype_Object/15.10.6.2_RegExp.prototype.exec/S15.10.6.2_A1_T5.js;
+ * @description: String is {toString:function(){return {};}, valueOf:function(){return "aabaac";}} and RegExp is /(aa|aabaac|ba|b|c)* /;
  */
 
 __executed = /(aa|aabaac|ba|b|c)*/.exec({toString:function(){return {};}, valueOf:function(){return "aabaac";}});

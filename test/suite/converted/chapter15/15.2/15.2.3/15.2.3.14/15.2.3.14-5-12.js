@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.14-5-12;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-12.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-12.js;
  * @description: Object.keys - own enumerable indexed accessor property of dense array 'O' is defined in returned array;
- * @precondition: (fnExists(Object.keys) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = [2, 3, 4, 5];
 
         Object.defineProperty(obj, "prop", {
@@ -47,5 +46,5 @@ assertTrue((function testcase() {
         }
 
         return false;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

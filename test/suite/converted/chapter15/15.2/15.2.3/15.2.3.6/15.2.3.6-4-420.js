@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-420;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-420.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-420.js;
  * @description: ES5 Attributes - Failed to add a property to an object when the object's prototype has a property with the same name and [[Writable]] set to false(Function.prototype.bind);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Function.prototype.bind));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var foo = function () { };
         try {
             Object.defineProperty(Function.prototype, "prop", {
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
         } finally {
             delete Function.prototype.prop;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.9-1-3;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-1-3.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-1-3.js;
  * @description: Object.freeze throws TypeError if type of first param is boolean primitive;
- * @precondition: (fnExists(Object.freeze));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var result = false;
         try {
             Object.freeze(false);
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return result && e instanceof TypeError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 13.0-3;
- * @path: TestCases/chapter13/13.0/13.0-3.js;
+ * @path: chapter13/13.0/13.0-3.js;
  * @description: 13.0 - property names in function definition is not allowed, add a new property into object;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         try {
             eval("function obj.tt() {};");
@@ -32,5 +32,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 8.7.2-1-s;
- * @path: TestCases/chapter08/8.7/8.7.2/8.7.2-1-s.js;
+ * @path: chapter08/8.7/8.7.2/8.7.2-1-s.js;
  * @description: Strict Mode - ReferenceError is thrown if LeftHandSide evaluates to an unresolvable Reference;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         try {
             eval("_8_7_2_1 = 11;");
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof ReferenceError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

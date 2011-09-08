@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.3-1-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-1-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-1-1.js;
  * @description: Object.getOwnPropertyDescriptor - TypeError is thrown when first param is undefined;
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             Object.getOwnPropertyDescriptor(undefined, "foo");
         } catch (e) {
             return (e instanceof TypeError);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

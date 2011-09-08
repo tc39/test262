@@ -4,8 +4,8 @@
 /**
  * Operator x <= y returns ToNumber(x) <= ToNumber(y), if Type(Primitive(x)) is not String or Type(Primitive(y)) is not String
  *
- * @id: S11.8.3_A3.1_T1.2;
  * @section: 11.8.3;
+ * @path: 11_Expressions/11.8_Relational_Operators/11.8.3_The_Less_than_or_equal_Operator/S11.8.3_A3.1_T1.2.js;
  * @description: Type(Primitive(x)) and Type(Primitive(y)) vary between primitive number and Number object;
  */
 

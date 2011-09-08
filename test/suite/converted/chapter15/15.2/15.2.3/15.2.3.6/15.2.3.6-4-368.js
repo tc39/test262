@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-368;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-368.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-368.js;
  * @description: ES5 Attributes - property ([[Writable]] is false, [[Enumerable]] is false, [[Configurable]] is true) is unwritable;
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         obj.prop = 1001;
 
         return propertyDefineCorrect && obj.prop === 2010;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

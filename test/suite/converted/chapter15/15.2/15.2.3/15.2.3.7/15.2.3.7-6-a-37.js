@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-37;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-37.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-37.js;
  * @description: Object.defineProperties - 'desc' is accessor descriptor, test setting all attribute values of 'P' (8.12.9 step 4.b.i);
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor) && fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         var getFun = function () {
             return 10;
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
         });
         return accessorPropertyAttributesAreCorrect(obj, "prop", getFun, setFun, "setVerifyHelpProp", false, false);
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

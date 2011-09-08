@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 11.4.1-3-2;
- * @path: TestCases/chapter11/11.4/11.4.1/11.4.1-3-2.js;
+ * @path: chapter11/11.4/11.4.1/11.4.1-3-2.js;
  * @description: delete operator throws ReferenceError when deleting an explicitly qualified yet unresolvable reference (base obj undefined);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   // just cooking up a long/veryLikely unique name
   try
   {
@@ -35,5 +35,5 @@ assertTrue((function testcase() {
     if (e instanceof ReferenceError)
       return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

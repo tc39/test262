@@ -4,8 +4,8 @@
 /**
  * The production QuantifierPrefix :: ? evaluates by returning the two results 0 and 1
  *
- * @id: S15.10.2.7_A5_T10;
  * @section: 15.10.2.7;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.7_Quantifier/S15.10.2.7_A5_T10.js;
  * @description: Execute /ab?c?d?x?y?z/.exec("123az789") and check results;
  */
 

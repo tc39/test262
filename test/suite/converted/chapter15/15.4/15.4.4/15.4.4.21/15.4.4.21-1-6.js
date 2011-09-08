@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-1-6;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-1-6.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-1-6.js;
  * @description: Array.prototype.reduce applied to Number object;
- * @precondition: (fnExists(Array.prototype.reduce));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(prevVal, curVal, idx, obj) {
             return obj instanceof Number;
         }
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         obj[0] = 11;
         obj[1] = 12;
         return Array.prototype.reduce.call(obj, callbackfn, 1);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

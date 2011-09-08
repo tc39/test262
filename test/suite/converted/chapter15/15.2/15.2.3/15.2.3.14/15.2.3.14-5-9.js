@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.14-5-9;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-9.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-9.js;
  * @description: Object.keys - inherted enumerable accessor property that is over-ridden by non-enumerable own data property is not defined in returned array;
- * @precondition: (fnExists(Object.keys) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var proto = {};
         Object.defineProperty(proto, "prop", {
             get: function () { },
@@ -51,5 +50,5 @@ assertTrue((function testcase() {
         }
 
         return true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

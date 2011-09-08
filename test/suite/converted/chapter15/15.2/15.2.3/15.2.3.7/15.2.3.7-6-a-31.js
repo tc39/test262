@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-31;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-31.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-31.js;
  * @description: Object.defineProperties - 'desc' is data descriptor, test setting all attribute values of 'P' (8.12.9 step 4.a.i);
- * @precondition: (fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         Object.defineProperties(obj, {
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         });
         return dataPropertyAttributesAreCorrect(obj, "prop", 1002, false, false, false);
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

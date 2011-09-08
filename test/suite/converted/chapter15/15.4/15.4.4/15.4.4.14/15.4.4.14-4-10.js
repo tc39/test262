@@ -19,15 +19,14 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-4-10;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-4-10.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-4-10.js;
  * @description: Array.prototype.indexOf - 'length' is a number of value -6e-1;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var targetObj = [];
         var obj = { 0: targetObj, 100: targetObj, length: -6e-1 };
         return Array.prototype.indexOf.call(obj, targetObj) === -1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

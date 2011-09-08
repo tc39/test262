@@ -16,13 +16,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5-2-16;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-2-16.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-2-16.js;
  * @description: Function.prototype.bind - 'Target' is a function;
- * @precondition: (fnExists(Function.prototype.bind));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function testFunc() {}
         try {
             testFunc.bind();
@@ -30,5 +29,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return false;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

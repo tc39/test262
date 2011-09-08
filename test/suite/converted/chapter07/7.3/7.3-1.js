@@ -19,13 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 7.3-1;
- * @path: TestCases/chapter07/7.3/7.3-1.js;
+ * @path: chapter07/7.3/7.3-1.js;
  * @description: 7.3 - ES5 recognizes the character <LS> (\u2028) as line terminators when parsing statements;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         eval("var test\u2028prop = 66;");
         return prop === 66 && !this.hasOwnProperty("test") && typeof test === "undefined";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

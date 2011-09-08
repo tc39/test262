@@ -25,18 +25,12 @@
  *    4. If previous is not undefined then throw a SyntaxError exception if any of the following conditions are true
  *      b.IsDataDescriptor(previous) is true and IsAccessorDescriptor(propId.descriptor) is true.
  *
- * @id: 11.1.5_4-4-b-1;
- * @path: TestCases/chapter11/11.1/11.1.5/11.1.5_4-4-b-1.js;
+ * @path: chapter11/11.1/11.1.5/11.1.5_4-4-b-1.js;
  * @description: Object literal - SyntaxError if a data property definition is followed by get accessor definition with the same name;
- * @precondition: (function () {
- *    //accessor properties in object literals must be allowed
- *   try {eval("({set foo(x) {}, get foo(){}});");}
- *   catch(e) {return false}
- *   return true;
- * }).call(this);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   try
   {
     eval("({foo : 1, get foo(){}});");
@@ -46,5 +40,5 @@ assertTrue((function testcase() {
   {
     return e instanceof SyntaxError;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

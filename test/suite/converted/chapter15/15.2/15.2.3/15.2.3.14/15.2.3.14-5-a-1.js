@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.14-5-a-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-a-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-a-1.js;
  * @description: Object.keys - 'value' attribute of element in returned array is correct.;
- * @precondition: (fnExists(Object.keys));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = { prop1: 1 };
 
         var array = Object.keys(obj);
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
         var desc = Object.getOwnPropertyDescriptor(array, "0");
 
         return desc.hasOwnProperty("value") && desc.value === "prop1";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

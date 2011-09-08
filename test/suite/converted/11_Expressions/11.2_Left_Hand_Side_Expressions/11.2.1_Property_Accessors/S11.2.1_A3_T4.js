@@ -4,8 +4,8 @@
 /**
  * MemberExpression calls ToObject(MemberExpression) and ToString(Expression). CallExpression calls ToObject(CallExpression) and ToString(Expression)
  *
- * @id: S11.2.1_A3_T4;
  * @section: 11.2.1, 9.9, 11.2.3, 15.6.4.2;
+ * @path: 11_Expressions/11.2_Left_Hand_Side_Expressions/11.2.1_Property_Accessors/S11.2.1_A3_T4.js;
  * @description: Checking "undefined" case;
  */
 

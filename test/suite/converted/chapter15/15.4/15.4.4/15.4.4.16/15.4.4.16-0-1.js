@@ -19,15 +19,15 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.16-0-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-0-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-0-1.js;
  * @description: Array.prototype.every must exist as a function;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var f = Array.prototype.every;
   if (typeof(f) === "function") {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

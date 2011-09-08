@@ -19,14 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-291-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-291-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-291-1.js;
  * @description: Object.defineProperty - 'O' is an Arguments object of a function that has formal parameters, 'name' is own accessor property of 'O' which is also defined in [[ParameterMap]] of 'O', and 'desc' is accessor descriptor, test updating multiple attribute values of 'name' (10.6 [[DefineOwnProperty]] step 3 and 5.a.i);
- * @precondition: (fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects() &&
- *             fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue(((function (a, b, c) { 
+
+assertTrue((function (a, b, c) { 
             function getFunc1() {
                 return 10;
             }
@@ -45,5 +43,4 @@ assertTrue(((function (a, b, c) {
             });
             var verifyFormal = a === 0;
             return accessorPropertyAttributesAreCorrect(arguments, "0", getFunc2, undefined, undefined, false, false) && verifyFormal;
-        }(0, 1, 2))));
-
+        }(0, 1, 2)));

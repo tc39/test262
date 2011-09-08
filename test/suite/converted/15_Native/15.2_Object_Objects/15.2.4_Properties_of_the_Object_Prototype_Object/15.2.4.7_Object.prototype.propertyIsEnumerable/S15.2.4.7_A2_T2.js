@@ -9,8 +9,8 @@
  * iv) If the property has the DontEnum attribute, return false
  * v) Return true
  *
- * @id: S15.2.4.7_A2_T2;
  * @section: 15.2.4.7;
+ * @path: 15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/15.2.4.7_Object.prototype.propertyIsEnumerable/S15.2.4.7_A2_T2.js;
  * @description: Argument of the propertyIsEnumerable method is a custom boolean property;
  */
 

@@ -4,8 +4,8 @@
 /**
  * "var" does not override function declaration
  *
- * @id: S13_A19_T2;
  * @section: 13,13.2;
+ * @path: 13_Function_Definition/S13_A19_T2.js;
  * @description: Creating a function and a variable with identical Identifiers within function scope;
  */
 

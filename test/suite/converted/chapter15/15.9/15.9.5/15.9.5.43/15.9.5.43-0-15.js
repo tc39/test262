@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.9.5.43-0-15;
- * @path: TestCases/chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-15.js;
+ * @path: chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-15.js;
  * @description: Date.prototype.toISOString - value of year is Infinity Date.prototype.toISOString throw the RangeError;
- * @precondition: (fnExists(Date.prototype.toISOString));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var date = new Date(Infinity, 1, 70, 0, 0, 0);
 
         try {
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
         } catch (ex) {
             return ex instanceof RangeError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

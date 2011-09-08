@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-2-6;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-2-6.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-2-6.js;
  * @description: Array.prototype.indexOf - 'length' is an inherited data property;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var proto = { length: 2 };
 
         var Con = function () {};
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
 
         return Array.prototype.indexOf.call(childOne, true) === 1 &&
             Array.prototype.indexOf.call(childTwo, true) === -1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

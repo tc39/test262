@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.18-7-b-8;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-7-b-8.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-7-b-8.js;
  * @description: Array.prototype.forEach - deleting own property causes index property not to be visited on an Array-like object;
- * @precondition: (fnExists(Array.prototype.forEach) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var accessed = false;
         var testResult = true;
@@ -56,5 +55,5 @@ assertTrue((function testcase() {
 
         Array.prototype.forEach.call(obj, callbackfn);
         return testResult && accessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

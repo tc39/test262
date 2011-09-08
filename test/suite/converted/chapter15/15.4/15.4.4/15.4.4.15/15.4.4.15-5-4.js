@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-5-4;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-5-4.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-5-4.js;
  * @description: Array.prototype.lastIndexOf when fromIndex is undefined;
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var a = new Array(1,2,1);
   if (a.lastIndexOf(2,undefined) === -1 &&
       a.lastIndexOf(1,undefined) === 0  &&
       a.lastIndexOf(1) === 2)   {    // undefined resolves to 0, no second argument resolves to len
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

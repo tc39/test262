@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-333-3;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-333-3.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-333-3.js;
  * @description: Object.defineProperty will update [[Value]] attribute of named property 'P' successfully when [[Configurable]] attribute is false, [[Writable]] attribute is true and 'O' is an Arguments object (8.12.9 - step 10);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = (function () {
             return arguments;
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
         });
 
         return dataPropertyAttributesAreCorrect(obj, "property", 1002, true, false, false);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

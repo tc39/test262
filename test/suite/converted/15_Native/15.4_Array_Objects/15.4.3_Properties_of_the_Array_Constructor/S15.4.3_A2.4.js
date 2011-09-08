@@ -4,8 +4,8 @@
 /**
  * The length property of Array is 1
  *
- * @id: S15.4.3_A2.4;
  * @section: 15.4.3;
+ * @path: 15_Native/15.4_Array_Objects/15.4.3_Properties_of_the_Array_Constructor/S15.4.3_A2.4.js;
  * @description: Array.length === 1;
  */
 

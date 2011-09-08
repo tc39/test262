@@ -5,8 +5,8 @@
  * When the [[HasProperty]] method of O is called with property name P and if O has not a property with name P
  * then If the [[Prototype]] of O is null, return false or call the [[HasProperty]] method of [[Prototype]] with property name P
  *
- * @id: S8.6.2.4_A2_T2;
  * @section: 8.6.2.4, 12.6.4;
+ * @path: 08_Types/8.6_The_Object_Type/8.6.2_Internal_Properties_and_Methods/S8.6.2.4_A2_T2.js;
  * @description: Try find not existent property of any Object, but existent property of this Object prototype;
  */
 

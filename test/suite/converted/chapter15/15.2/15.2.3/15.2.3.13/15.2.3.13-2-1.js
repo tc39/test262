@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.13-2-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.13/15.2.3.13-2-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.13/15.2.3.13-2-1.js;
  * @description: Object.isExtensible returns true for all built-in objects (Global);
- * @precondition: (fnExists(Object.isExtensible));
  */
 
-global = this;assertTrue((function testcase() {
+global = this;
+function testcase() {
   // in non-strict mode, 'this' is bound to the global object.
   var e = Object.isExtensible(this);
   if (e === true) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

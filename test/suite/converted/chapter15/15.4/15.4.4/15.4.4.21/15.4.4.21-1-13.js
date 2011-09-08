@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-1-13;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-1-13.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-1-13.js;
  * @description: Array.prototype.reduce applied to the JSON object;
- * @precondition: (fnExists(Array.prototype.reduce));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         function callbackfn(prevVal, curVal, idx, obj) {
             return ('[object JSON]' === Object.prototype.toString.call(obj));
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
             delete JSON.length;
             delete JSON[0];
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

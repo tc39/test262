@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-9-b-5;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-b-5.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-b-5.js;
  * @description: Array.prototype.filter - properties added into own object after current position are visited on an Array;
- * @precondition: (fnExists(Array.prototype.filter) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(val, idx, obj) {
             return true;
         }
@@ -48,5 +47,5 @@ assertTrue((function testcase() {
         var newArr = arr.filter(callbackfn);
 
         return newArr.length === 3 && newArr[1] === 6.99;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.17-1-14;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-1-14.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-1-14.js;
  * @description: Array.prototype.some applied to Error object;
- * @precondition: (fnExists(Array.prototype.some));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(val, idx, obj) {
             return obj instanceof Error;
         }
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         obj[0] = 1;
 
         return Array.prototype.some.call(obj, callbackfn);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

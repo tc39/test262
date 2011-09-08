@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-2-48;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-2-48.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-2-48.js;
  * @description: Object.defineProperty - an inherited toString method  is invoked when 'P' is an object with an own valueOf and an inherited toString methods;
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         var toStringAccessed = false;
         var valueOfAccessed = false;
@@ -49,5 +48,5 @@ assertTrue((function testcase() {
         Object.defineProperty(obj, child, {});
 
         return obj.hasOwnProperty("test") && !valueOfAccessed && toStringAccessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

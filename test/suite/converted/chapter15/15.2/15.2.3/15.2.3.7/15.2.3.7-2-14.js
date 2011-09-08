@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-2-14;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-2-14.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-2-14.js;
  * @description: Object.defineProperties - argument 'Properties' is the JSON object;
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
         var result = false;
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
         } finally {
             delete JSON.prop;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

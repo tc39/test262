@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-531-7;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-531-7.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-531-7.js;
  * @description: ES5 Attributes - Updating a named accessor property 'P' without [[Set]] using simple assignment is failed, 'O' is an Arguments object (8.12.5 step 5.b);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = (function () {
             return arguments;
         }());
@@ -46,5 +45,5 @@ assertTrue((function testcase() {
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
         return propertyDefineCorrect && typeof desc.set === "undefined" && obj.prop === "data";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

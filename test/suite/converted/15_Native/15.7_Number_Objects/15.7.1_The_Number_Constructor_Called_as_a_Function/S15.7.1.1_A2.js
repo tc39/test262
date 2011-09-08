@@ -4,8 +4,8 @@
 /**
  * Number() returns +0
  *
- * @id: S15.7.1.1_A2;
  * @section: 15.7.1.1;
+ * @path: 15_Native/15.7_Number_Objects/15.7.1_The_Number_Constructor_Called_as_a_Function/S15.7.1.1_A2.js;
  * @description: Call Number() and check result;
  */
 

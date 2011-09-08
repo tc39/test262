@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-333-10;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-333-10.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-333-10.js;
  * @description: ES5 Attributes - indexed data property 'P' with attributes [[Writable]]: true, [[Enumerable]]: true, [[Configurable]]: false is writable using simple assignment, 'O' is an Arguments object;
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = (function () {
             return arguments;
         }());
@@ -40,5 +39,5 @@ assertTrue((function testcase() {
         obj[0] = 1001;
 
         return verifyValue && obj[0] === 1001;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

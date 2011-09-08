@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.9-2-2;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-2.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-2.js;
  * @description: Object.freeze - inherited data properties are not frozen;
- * @precondition: (fnExists(Object.freeze) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var proto = {};
 
         Object.defineProperty(proto, "Father", {
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
         var afterDeleted = proto.hasOwnProperty("Father");
 
         return beforeDeleted && !afterDeleted;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -4,8 +4,8 @@
 /**
  * length property has the attributes {DontEnum}
  *
- * @id: S15.5.5.1_A2;
  * @section: 15.5.5.1;
+ * @path: 15_Native/15.5_String_Objects/15.5.5_Properties_of_String_Instances/S15.5.5.1_A2.js;
  * @description: Checking if enumerating the length property of String fails;
  */
 

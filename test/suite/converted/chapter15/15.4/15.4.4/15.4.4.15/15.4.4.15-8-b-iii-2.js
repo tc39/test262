@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-8-b-iii-2;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-iii-2.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-iii-2.js;
  * @description: Array.prototype.lastIndexOf returns without visiting subsequent element once search value is found;
- * @precondition: (fnExists(Array.prototype.lastIndexOf) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arr = [2, 1, , 1, 2];
         var elementFirstAccessed = false;
         var elementThirdAccessed = false;
@@ -47,5 +46,5 @@ assertTrue((function testcase() {
 
         arr.lastIndexOf(2);
         return !elementThirdAccessed && !elementFirstAccessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

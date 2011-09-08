@@ -4,8 +4,8 @@
 /**
  * The "do-while" Statement is evaluted according to 12.6.1 and returns (normal, V, empty)
  *
- * @id: S12.6.1_A7;
  * @section: 12.6.1;
+ * @path: 12_Statement/12.6_Iteration_Statements/12.6.1_The_do_while_Statement/S12.6.1_A7.js;
  * @description: Using eval;
  */
 

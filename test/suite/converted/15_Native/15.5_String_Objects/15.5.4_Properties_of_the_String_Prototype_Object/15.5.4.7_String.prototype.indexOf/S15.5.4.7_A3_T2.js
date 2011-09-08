@@ -4,8 +4,8 @@
 /**
  * Since we deal with max(ToInteger(pos), 0) if ToInteger(pos) less than 0 indexOf(searchString,0) returns
  *
- * @id: S15.5.4.7_A3_T2;
  * @section: 15.5.4.7;
+ * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.7_String.prototype.indexOf/S15.5.4.7_A3_T2.js;
  * @description: Call "$$abcdabcd".indexOf("ab",eval("\"-99\"")) and check result;
  */
 

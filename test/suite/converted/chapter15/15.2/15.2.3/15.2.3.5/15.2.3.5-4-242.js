@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-242;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-242.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-242.js;
  * @description: Object.create - 'get' property of one property in 'Properties' is own accessor property without a get function, which overrides an inherited accessor property (8.10.5 step 7.a);
- * @precondition: (fnExists(Object.create) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var proto = {};
 
         Object.defineProperty(proto, "get", {
@@ -49,5 +48,5 @@ assertTrue((function testcase() {
         });
 
         return newObj.hasOwnProperty("prop") && typeof newObj.prop === "undefined";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -4,8 +4,8 @@
 /**
  * The production CharacterClass :: [ [lookahead \notin {^}] ClassRanges ] evaluates by evaluating ClassRanges to obtain a CharSet and returning that CharSet and the boolean false
  *
- * @id: S15.10.2.13_A1_T16;
  * @section: 15.10.2.13;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.13_CharacterClass/S15.10.2.13_A1_T16.js;
  * @description: Execute /[\d][\12-\14]{1,}[^\d]/.exec("line1\n\n\n\n\nline2") and check results;
  */
 

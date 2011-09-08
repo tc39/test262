@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.8-2-a-4;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-4.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-4.js;
  * @description: Object.seal - 'P' is own accessor property;
- * @precondition: (fnExists(Object.seal) && fnExists(Object.defineProperty) && fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "foo", {
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
 
         delete obj.foo;
         return preCheck && obj.foo === 10;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

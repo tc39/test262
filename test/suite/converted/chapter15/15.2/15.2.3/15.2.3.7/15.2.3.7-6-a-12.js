@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-12;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-12.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-12.js;
  * @description: Object.defineProperties - 'O' is a Function object which implements its own [[GetOwnProperty]] method to get 'P' (8.12.9 step 1 ) ;
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var fun = function () { };
 
         Object.defineProperty(fun, "prop", {
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof TypeError && dataPropertyAttributesAreCorrect(fun, "prop", 11, false, false, false);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

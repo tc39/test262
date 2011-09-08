@@ -4,8 +4,8 @@
 /**
  * The Function prototype object is itself a Function object (its [[Class]] is "Function")
  *
- * @id: S15.3.4_A1;
  * @section: 15.3.4;
+ * @path: 15_Native/15.3_Function_Objects/15.3.4_Properties_of_the_Function_Prototype_Object/S15.3.4_A1.js;
  * @description: Object.prototype.toString returns [object+[[Class]]+];
  */
 

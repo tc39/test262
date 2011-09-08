@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-1-17;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-1-17.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-1-17.js;
  * @description: Array.prototype.lastIndexOf applied to the global object;
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var targetObj = ["global"];
         try {
             var oldLen = fnGlobalObject().length;
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
             delete fnGlobalObject()[1];
             fnGlobalObject().length = oldLen;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

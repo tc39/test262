@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.3.2-1-9;
- * @path: TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-9.js;
+ * @path: chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-9.js;
  * @description: Array.isArray applied to Date object;
- * @precondition: (fnExists(Array.isArray));
  */
 
-assertTrue((!Array.isArray(new Date())));
 
+assertTrue(!Array.isArray(new Date()));

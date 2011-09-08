@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.5.4.20-2-43;
- * @path: TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-43.js;
+ * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-43.js;
  * @description: String.prototype.trim - 'this' is an object with an own valueOf and inherited toString methods with hint string, verify inherited toString method will be called first;
- * @precondition: (fnExists(String.prototype.trim));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var toStringAccessed = false;
         var valueOfAccessed = false;
@@ -46,5 +45,5 @@ assertTrue((function testcase() {
             return "efg";
         };
         return (String.prototype.trim.call(child) === "abc") && toStringAccessed && !valueOfAccessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

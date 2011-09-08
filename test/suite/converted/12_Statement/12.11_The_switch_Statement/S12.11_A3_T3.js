@@ -4,8 +4,8 @@
 /**
  * Syntax constructions of switch statement
  *
- * @id: S12.11_A3_T3;
  * @section: 12.11;
+ * @path: 12_Statement/12.11_The_switch_Statement/S12.11_A3_T3.js;
  * @description: Checking if execution of "switch(value)" fails;
  * @negative;
  */

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-214;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-214.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-214.js;
  * @description: Object.defineProperty - 'O' is an Array, 'name' is an array index property and its configurable and writable attributes are set to false, test TypeError is thrown when the type of the [[Value]] field of 'desc' is different from the type of the [[Value]] attribute value of 'name' (15.4.5.1 step 4.c);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arrObj = [];
 
         Object.defineProperty(arrObj, 0, {
@@ -40,5 +39,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof TypeError && dataPropertyAttributesAreCorrect(arrObj, "0", 101, false, false, false);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

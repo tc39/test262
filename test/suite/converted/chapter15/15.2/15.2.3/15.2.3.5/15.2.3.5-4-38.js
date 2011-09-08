@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-38;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-38.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-38.js;
  * @description: Object.create - 'Properties' is an Arguments object which implements its own [[Get]] method to access own enumerable property (15.2.3.7 step 5.a);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var argObj = (function () { return arguments; })();
 
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         var newObj = Object.create({}, argObj);
 
         return newObj.hasOwnProperty("prop");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

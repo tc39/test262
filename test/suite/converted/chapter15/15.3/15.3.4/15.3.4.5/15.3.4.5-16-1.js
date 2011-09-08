@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5-16-1;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-16-1.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-16-1.js;
  * @description: Function.prototype.bind, [[Extensible]] of the bound fn is true;
- * @precondition: (fnExists(Function.prototype.bind) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   function foo() { }
   var o = {};
   
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
   if (ex === true) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.8-2-b-4;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-b-4.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-b-4.js;
  * @description: Object.seal - all own properties of 'O' are already non-configurable;
- * @precondition: (fnExists(Object.seal) && fnExists(Object.defineProperty) && fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         obj.variableForHelpVerify = "data";
 
@@ -53,5 +52,5 @@ assertTrue((function testcase() {
 
         return preCheck && dataPropertyAttributesAreCorrect(obj, "foo1", 10, true, true, false) &&
             accessorPropertyAttributesAreCorrect(obj, "foo2", get_func, set_func, "variableForHelpVerify", true, false);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

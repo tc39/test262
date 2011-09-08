@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-56;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-56.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-56.js;
  * @description: Object.defineProperty - 'name' property doesn't exist in 'O', test [[Configurable]] of 'name' property is set as false if it is absent in accessor descriptor 'desc' (8.12.9 step 4.b.i);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         var setFunc = function (value) {
             obj.setVerifyHelpProp = value;
@@ -40,5 +39,5 @@ assertTrue((function testcase() {
             enumerable: true
         });
         return accessorPropertyAttributesAreCorrect(obj, "property", getFunc, setFunc, "setVerifyHelpProp", true, false);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

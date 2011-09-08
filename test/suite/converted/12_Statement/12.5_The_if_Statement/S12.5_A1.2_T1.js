@@ -4,8 +4,8 @@
 /**
  * 1, true, non-empty string and others in expression is evaluated to true when using operator "new"
  *
- * @id: S12.5_A1.2_T1;
  * @section: 12.5;
+ * @path: 12_Statement/12.5_The_if_Statement/S12.5_A1.2_T1.js;
  * @description: Using "if" without "else" construction;
  */
 

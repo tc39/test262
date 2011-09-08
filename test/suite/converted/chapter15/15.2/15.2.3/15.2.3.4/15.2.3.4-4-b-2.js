@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.4-4-b-2;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-4-b-2.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-4-b-2.js;
  * @description: Object.getOwnPropertyNames - all own properties are pushed into the returned array;
- * @precondition: (fnExists(Object.getOwnPropertyNames) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = { "a": "a" };
 
         Object.defineProperty(obj, "b", {
@@ -54,5 +53,5 @@ assertTrue((function testcase() {
         var expResult = ["a", "b", "c", "d"];
 
         return compareArray(expResult, result);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

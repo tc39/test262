@@ -6,8 +6,8 @@
  * is set to the original Boolean prototype object, the one that is the
  * initial value of Boolean.prototype
  *
- * @id: S15.6.2.1_A2;
  * @section: 15.6.2.1;
+ * @path: 15_Native/15.6_Boolean_Objects/15.6.2_The_Boolean_Constructor/S15.6.2.1_A2.js;
  * @description: Checking prototype property of the newly created object;
  */
 

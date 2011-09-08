@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 13.1-3-1;
- * @path: TestCases/chapter13/13.1/13.1-3-1.js;
+ * @path: chapter13/13.1/13.1-3-1.js;
  * @description: eval allowed as function identifier in non-strict function declaration;
  */
 
-assertTrue((function testcase()
+
+function testcase()
 {
   try 
   {
@@ -32,5 +32,5 @@ assertTrue((function testcase()
     return true;
   }
   catch (e) {  }  
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

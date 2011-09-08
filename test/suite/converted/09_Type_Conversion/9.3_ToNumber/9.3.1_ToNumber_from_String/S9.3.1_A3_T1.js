@@ -4,8 +4,8 @@
 /**
  * The MV of StringNumericLiteral ::: StrWhiteSpaceopt StrNumericLiteral StrWhiteSpaceopt is the MV of StrNumericLiteral, no matter whether white space is present or not
  *
- * @id: S9.3.1_A3_T1;
  * @section: 9.3.1, 15.7.1;
+ * @path: 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A3_T1.js;
  * @description: static string;
  */
 

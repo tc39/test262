@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-0-2;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-0-2.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-0-2.js;
  * @description: Array.prototype.lastIndexOf has a length property whose value is 1.;
- * @precondition: (fnExists(Array.prototype.lastIndexOf));
  */
 
-assertTrue((Array.prototype.lastIndexOf.length === 1));
 
+assertTrue(Array.prototype.lastIndexOf.length === 1);

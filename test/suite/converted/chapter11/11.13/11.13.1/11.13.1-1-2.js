@@ -21,12 +21,12 @@
 /**
  * PutValue operates only on references (see step 1).
  *
- * @id: 11.13.1-1-2;
- * @path: TestCases/chapter11/11.13/11.13.1/11.13.1-1-2.js;
+ * @path: chapter11/11.13/11.13.1/11.13.1-1-2.js;
  * @description: simple assignment throws ReferenceError if LeftHandSide is not a reference (string);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   try {
     eval("'x' = 42");
   }
@@ -35,5 +35,5 @@ assertTrue((function testcase() {
       return true;
     }
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

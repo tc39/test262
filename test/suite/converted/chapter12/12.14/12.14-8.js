@@ -27,12 +27,12 @@
  * local function expresssions must shadow outer function expressions
  * eval should use the appended object to the scope chain
  *
- * @id: 12.14-8;
- * @path: TestCases/chapter12/12.14/12.14-8.js;
+ * @path: chapter12/12.14/12.14-8.js;
  * @description: catch introduces scope - scope removed when exiting catch block (properties);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o = {foo: 42};
 
   try {
@@ -45,5 +45,5 @@ assertTrue((function testcase() {
   if (o.foo === 42) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.6-12-1;
- * @path: TestCases/chapter10/10.6/10.6-12-1.js;
+ * @path: chapter10/10.6/10.6-12-1.js;
  * @description: Accessing callee property of Arguments object is allowed;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   try 
   {
     arguments.callee;
@@ -32,5 +32,5 @@ assertTrue((function testcase() {
   }
   catch (e) {
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

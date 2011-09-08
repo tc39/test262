@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.10-2-2;
- * @path: TestCases/chapter12/12.10/12.10-2-2.js;
+ * @path: chapter12/12.10/12.10-2-2.js;
  * @description: with - expression being Boolean;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o = true;
   var foo = 1;
   try
@@ -38,5 +38,5 @@ assertTrue((function testcase() {
   }
   return true;
   
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

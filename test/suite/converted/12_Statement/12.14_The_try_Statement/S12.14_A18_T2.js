@@ -4,8 +4,8 @@
 /**
  * Catching objects with try/catch/finally statement
  *
- * @id: S12.14_A18_T2;
  * @section: 12.14, 12.13;
+ * @path: 12_Statement/12.14_The_try_Statement/S12.14_A18_T2.js;
  * @description: Catching null;
  */
 

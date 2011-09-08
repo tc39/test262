@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.22-1-13;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-1-13.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-1-13.js;
  * @description: Array.prototype.reduceRight applied to the JSON object;
- * @precondition: (fnExists(Array.prototype.reduceRight));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var accessed = false;
 
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
             delete JSON.length;
             delete JSON[0];
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

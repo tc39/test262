@@ -19,13 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.2.1-12;
- * @path: TestCases/chapter12/12.2/12.2.1/12.2.1-12.js;
+ * @path: chapter12/12.2/12.2.1/12.2.1-12.js;
  * @description: arguments as local var identifier is allowed;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
     eval("(function (){var arguments;})");
     return true;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

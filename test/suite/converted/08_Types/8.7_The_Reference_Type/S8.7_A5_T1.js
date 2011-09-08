@@ -4,8 +4,8 @@
 /**
  * Delete unary operator can't delete object to be referenced
  *
- * @id: S8.7_A5_T1;
  * @section: 8.7;
+ * @path: 08_Types/8.7_The_Reference_Type/S8.7_A5_T1.js;
  * @description: Delete referenced object, var __ref = obj;
  * @strict_only;
  * @strict_mode_negative;

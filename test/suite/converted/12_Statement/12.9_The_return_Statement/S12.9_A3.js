@@ -4,8 +4,8 @@
 /**
  * If Expression is omitted, the return value is undefined
  *
- * @id: S12.9_A3;
  * @section: 12.9;
+ * @path: 12_Statement/12.9_The_return_Statement/S12.9_A3.js;
  * @description: Return without Expression;
  */
 

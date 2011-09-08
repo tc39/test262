@@ -4,8 +4,8 @@
 /**
  * Operator x = y returns GetValue(y)
  *
- * @id: S11.13.1_A3.2;
  * @section: 11.13.1;
+ * @path: 11_Expressions/11.13_Assignment_Operators/11.13.1_Simple_Assignment/S11.13.1_A3.2.js;
  * @description: Checking Expression and Variable statements;
  */
 

@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-3-6;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-3-6.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-3-6.js;
  * @description: Array.prototype.indexOf - value of 'length' is a number (value is positive);
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = { 3: true, 4: false, length: 4 };
 
         return Array.prototype.indexOf.call(obj, true) === 3 &&
             Array.prototype.indexOf.call(obj, false) === -1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

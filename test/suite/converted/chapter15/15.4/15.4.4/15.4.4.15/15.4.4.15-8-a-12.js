@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-8-a-12;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-a-12.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-a-12.js;
  * @description: Array.prototype.lastIndexOf - deleting own property causes index property not to be visited on an Array;
- * @precondition: (fnExists(Array.prototype.lastIndexOf) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arr = [1, 2, 3, 4];
 
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
         });
 
         return -1 === arr.lastIndexOf("6.99");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

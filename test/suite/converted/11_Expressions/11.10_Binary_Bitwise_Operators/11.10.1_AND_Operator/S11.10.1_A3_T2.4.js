@@ -4,8 +4,8 @@
 /**
  * Operator x & y returns ToNumber(x) & ToNumber(y)
  *
- * @id: S11.10.1_A3_T2.4;
  * @section: 11.10.1;
+ * @path: 11_Expressions/11.10_Binary_Bitwise_Operators/11.10.1_AND_Operator/S11.10.1_A3_T2.4.js;
  * @description: Type(x) is different from Type(y) and both types vary between Number (primitive or object) and Undefined;
  */
 

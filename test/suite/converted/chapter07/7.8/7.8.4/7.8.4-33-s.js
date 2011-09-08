@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 7.8.4-33-s;
- * @path: TestCases/chapter07/7.8/7.8.4/7.8.4-33-s.js;
+ * @path: chapter07/7.8/7.8.4/7.8.4-33-s.js;
  * @description: Three OctalEscapeSequences in a String are not allowed in a String under Strict Mode;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase()
+
+function testcase()
 {
   try 
   {
@@ -36,5 +35,5 @@ assertTrue((function testcase()
   catch (e) {
     return (e instanceof SyntaxError);
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

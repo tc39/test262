@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-8-a-17;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-a-17.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-a-17.js;
  * @description: Array.prototype.lastIndexOf -  decreasing length of array causes index property not to be visited;
- * @precondition: (fnExists(Array.prototype.lastIndexOf) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arr = [0, 1, 2, "last", 4];
 
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         });
 
         return -1 === arr.lastIndexOf("last");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

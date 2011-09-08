@@ -4,8 +4,8 @@
 /**
  * The MV of DecimalDigit ::: 8 or of HexDigit ::: 8 is 8
  *
- * @id: S9.3.1_A24;
  * @section: 9.3.1, 15.7.1;
+ * @path: 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A24.js;
  * @description: Compare Number('0x8') and Number('0X8') with 8;
  */
 

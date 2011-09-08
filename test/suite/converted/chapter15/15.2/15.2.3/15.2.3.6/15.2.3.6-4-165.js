@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-165;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-165.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-165.js;
  * @description: Object.defineProperty - 'O' is an Array, 'name' is the length property of 'O', the [[Value]] field of 'desc' is less than value of  the length property,  test the [[Writable]] attribute of the length property is set to true after deleting properties with large index named if the [[Writable]] field of 'desc' is absent (15.4.5.1 step 3.h);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arrObj = [0, 1];
 
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         arrObj.length = 10;
 
         return indexDeleted && arrObj.length === 10;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

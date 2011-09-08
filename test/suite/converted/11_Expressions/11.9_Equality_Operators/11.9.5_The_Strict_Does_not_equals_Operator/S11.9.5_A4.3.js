@@ -2,11 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * : Type(x) and Type(y) are Number-s minus NaN, +0, -0.
- * Return false, if x is the same number value as y; otherwise, return true;
+ * Type(x) and Type(y) are Number-s minus NaN, +0, -0.
+ * Return false, if x is the same number value as y; otherwise, return true
  *
- * @id: S11.9.5_A4.3;
  * @section: 11.9.5, 11.9.6;
+ * @path: 11_Expressions/11.9_Equality_Operators/11.9.5_The_Strict_Does_not_equals_Operator/S11.9.5_A4.3.js;
  * @description: x and y are primitive numbers;
  */
 

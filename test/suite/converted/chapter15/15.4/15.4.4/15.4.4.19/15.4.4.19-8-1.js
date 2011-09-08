@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-8-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-1.js;
  * @description: Array.prototype.map doesn't consider new elements added to array after it is called;
- * @precondition: (fnExists(Array.prototype.map));
  */
 
-assertTrue((function testcase() { 
+
+function testcase() { 
  
   function callbackfn(val, idx, obj)
   {
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
   if(resArr.length === 5)
       return true;  
   
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

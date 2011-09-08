@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-160;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-160.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-160.js;
  * @description: Object.defineProperty - 'O' is an Array, 'name' is the length property of 'O', set the [[Value]] field of 'desc' to a value equal to the existing value of length (15.4.5.1 step 3.f);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arrObj = [0, , 2];
 
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
         });
 
         return arrObj.length === 3 && arrObj[0] === 0 && !arrObj.hasOwnProperty("1") && arrObj[2] === 2;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

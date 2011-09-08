@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.3.2-2-3;
- * @path: TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-2-3.js;
+ * @path: chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-2-3.js;
  * @description: Array.isArray applied to an Array-like object with length and some indexed properties;
- * @precondition: (fnExists(Array.isArray));
  */
 
-assertTrue((!Array.isArray({ 0: 12, 1: 9, length: 2 })));
 
+assertTrue(!Array.isArray({ 0: 12, 1: 9, length: 2 }));

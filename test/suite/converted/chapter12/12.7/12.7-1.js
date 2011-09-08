@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.7-1;
- * @path: TestCases/chapter12/12.7/12.7-1.js;
+ * @path: chapter12/12.7/12.7-1.js;
  * @description: The continue Statement - a continue statement without an identifier may have a LineTerminator before the semi-colon;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var sum = 0;
         for (var i = 1; i <= 10; i++) {
             continue
@@ -32,5 +32,5 @@ assertTrue((function testcase() {
             sum += i;
         }
         return sum === 0;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.12.3-11-2;
- * @path: TestCases/chapter15/15.12/15.12.3/15.12.3-11-2.js;
+ * @path: chapter15/15.12/15.12.3/15.12.3-11-2.js;
  * @description: A JSON.stringify replacer function works is applied to a top level undefined value.;
- * @precondition: (JSON && fnExists(JSON.stringify));
  */
 
-assertTrue((JSON.stringify(undefined, function(k, v) { return "replacement" }) === '"replacement"'));
 
+assertTrue(JSON.stringify(undefined, function(k, v) { return "replacement" }) === '"replacement"');

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.3-4-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-1.js;
  * @description: Object.getOwnPropertyDescriptor returns an object representing a data desc for valid data valued properties;
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
     var o = {};
     o["foo"] = 101;
 
@@ -38,5 +37,5 @@ assertTrue((function testcase() {
         !desc.hasOwnProperty("set")) {
       return true;
     }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

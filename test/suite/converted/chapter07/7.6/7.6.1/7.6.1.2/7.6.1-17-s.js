@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 7.6.1-17-s;
- * @path: TestCases/chapter07/7.6/7.6.1/7.6.1.2/7.6.1-17-s.js;
+ * @path: chapter07/7.6/7.6.1/7.6.1.2/7.6.1-17-s.js;
  * @description: 7.6 - SyntaxError expected: reserved words used as Identifier Names in UTF8: implements (implements);
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
 
         try {
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

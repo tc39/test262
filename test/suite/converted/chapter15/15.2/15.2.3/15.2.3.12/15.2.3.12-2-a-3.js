@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.12-2-a-3;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-a-3.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-a-3.js;
  * @description: Object.isFrozen - 'P' is own data property that overrides an inherited accessor property;
- * @precondition: (fnExists(Object.isFrozen) && fnExists(Object.defineProperty) && fnExists(Object.preventExtensions));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var proto = {};
 
@@ -48,5 +47,5 @@ assertTrue((function testcase() {
 
         Object.preventExtensions(child);
         return !Object.isFrozen(child);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

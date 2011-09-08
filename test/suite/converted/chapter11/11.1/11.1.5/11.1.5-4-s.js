@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 11.1.5-4-s;
- * @path: TestCases/chapter11/11.1/11.1.5/11.1.5-4-s.js;
+ * @path: chapter11/11.1/11.1.5/11.1.5-4-s.js;
  * @description: Strict Mode - SyntaxError is thrown when 'arguments'  occurs as the Identifier in a PropertySetParameterList of a PropertyAssignment  if its FunctionBody is strict code;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         try {
             eval("var obj = {set _11_1_5_4_fun(arguments) {\"use strict\";}};");
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return (e instanceof SyntaxError);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

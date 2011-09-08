@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-595;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-595.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-595.js;
  * @description: ES5 Attributes - Inherited property is enumerable (Function.prototype.bind);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var foo = function () { };
         var data = "data";
         try {
@@ -53,5 +52,5 @@ assertTrue((function testcase() {
         } finally {
             delete Function.prototype.prop;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

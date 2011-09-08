@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-1-3;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-1-3.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-1-3.js;
  * @description: Array.prototype.filter applied to boolean primitive;
- * @precondition: (fnExists(Array.prototype.filter));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(val, idx, obj) {
             return obj instanceof Boolean;
         }
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
             delete Boolean.prototype[0];
             delete Boolean.prototype.length;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

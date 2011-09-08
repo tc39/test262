@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.14-3-6;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-3-6.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-3-6.js;
  * @description: Object.keys - returns the standard built-in Array (instanceof Array);
- * @precondition: (fnExists(Object.keys));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         var arr = Object.keys(obj);
 
         return arr instanceof Array;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

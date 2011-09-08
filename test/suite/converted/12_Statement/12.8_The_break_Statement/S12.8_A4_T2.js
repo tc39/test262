@@ -4,8 +4,8 @@
 /**
  * When "break Identifier" is evaluated, (break, empty, Identifier) is returned
  *
- * @id: S12.8_A4_T2;
  * @section: 12.8;
+ * @path: 12_Statement/12.8_The_break_Statement/S12.8_A4_T2.js;
  * @description: Using embedded and labeled loops, breaking to nested loop;
  */
 

@@ -4,8 +4,8 @@
 /**
  * Operator -x uses [[Default Value]]
  *
- * @id: S11.4.7_A2.2_T1;
  * @section: 11.4.7, 8.6.2.6;
+ * @path: 11_Expressions/11.4_Unary_Operators/11.4.7_Unary_minus_Operator/S11.4.7_A2.2_T1.js;
  * @description: If Type(value) is Object, evaluate ToPrimitive(value, Number);
  */
 

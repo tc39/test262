@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-1-8;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-1-8.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-1-8.js;
  * @description: Array.prototype.reduce applied to String object;
- * @precondition: (fnExists(Array.prototype.reduce));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         function callbackfn(prevVal, curVal, idx, obj) {
             return obj instanceof String;
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
         var obj = new String("abc");
 
         return  Array.prototype.reduce.call(obj, callbackfn, 1);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

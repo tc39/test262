@@ -19,13 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 7.3-6;
- * @path: TestCases/chapter07/7.3/7.3-6.js;
+ * @path: chapter07/7.3/7.3-6.js;
  * @description: 7.3 - ES5 recognizes the character <PS> (\u2029) as terminating string literal;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var prop = "66\u2029123";
         return prop === "66\u2029123" && prop[2] === "\u2029" && prop.length === 6;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

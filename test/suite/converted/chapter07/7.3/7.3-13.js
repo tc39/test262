@@ -19,16 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 7.3-13;
- * @path: TestCases/chapter07/7.3/7.3-13.js;
+ * @path: chapter07/7.3/7.3-13.js;
  * @description: 7.3 - ES5 specifies that a multiline comment that contains a line terminator character <CR> (\u000D) must be treated as a single line terminator for the purposes of semicolon insertion;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         /*MultiLine
         Comments 
         \u000D var = ;
         */
         return true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

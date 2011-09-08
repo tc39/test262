@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-97;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-97.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-97.js;
  * @description: Object.defineProperties - 'P' is data property, P.writable and properties.writable are different values (8.12.9 step 12);
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
 
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
             }
         });
         return dataPropertyAttributesAreCorrect(obj, "foo", 100, true, true, true);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

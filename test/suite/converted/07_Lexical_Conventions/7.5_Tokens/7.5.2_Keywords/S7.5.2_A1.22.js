@@ -4,8 +4,8 @@
 /**
  * The "var" token can not be used as identifier
  *
- * @id: S7.5.2_A1.22;
  * @section: 7.5.2;
+ * @path: 07_Lexical_Conventions/7.5_Tokens/7.5.2_Keywords/S7.5.2_A1.22.js;
  * @description: Checking if execution of "var=1" fails;
  * @negative;
  */

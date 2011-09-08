@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-195;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-195.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-195.js;
  * @description: Object.defineProperties - 'O' is an Array, 'P' is an array index named property, 'P' property doesn't exist in 'O', test 'P' is defined as data property when 'desc' is generic descriptor  (15.4.5.1 step 4.c);
- * @precondition: (fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arr = [];
 
         Object.defineProperties(arr, {
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         });
 
         return dataPropertyAttributesAreCorrect(arr, "0", undefined, false, true, false);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

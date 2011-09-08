@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-531-3;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-531-3.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-531-3.js;
  * @description: Object.defineProperty will update [[Get]] and [[Set]] attributes of named accessor property successfully when [[Configurable]] attribute is true, 'O' is an Arguments object (8.12.9 step 11);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = (function () {
             return arguments;
@@ -56,5 +55,5 @@ assertTrue((function testcase() {
         });
 
         return accessorPropertyAttributesAreCorrect(obj, "property", getFunc, setFunc, "verifySetFunction1", false, true);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

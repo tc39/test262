@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.17-7-b-2;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-b-2.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-b-2.js;
  * @description: Array.prototype.some - added properties in step 2 are visible here;
- * @precondition: (fnExists(Array.prototype.some) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(val, idx, obj) {
             if (idx === 2 && val === "length") {
                 return true;
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
         });
 
         return Array.prototype.some.call(arr, callbackfn);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

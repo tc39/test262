@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.12.3-11-13;
- * @path: TestCases/chapter15/15.12/15.12.3/15.12.3-11-13.js;
+ * @path: chapter15/15.12/15.12.3/15.12.3-11-13.js;
  * @description: A JSON.stringify replacer function applied to a top level scalar can return an Object.;
- * @precondition: (JSON && fnExists(JSON.stringify));
  */
 
-assertTrue((JSON.stringify(42, function(k, v) { return v==42 ? {forty:2}: v}) === '{"forty":2}'));
 
+assertTrue(JSON.stringify(42, function(k, v) { return v==42 ? {forty:2}: v}) === '{"forty":2}');

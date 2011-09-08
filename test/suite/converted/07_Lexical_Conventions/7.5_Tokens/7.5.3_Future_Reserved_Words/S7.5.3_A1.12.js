@@ -4,8 +4,8 @@
 /**
  * The "final" token can be used as identifier
  *
- * @id: S7.5.3_A1.12;
  * @section: 7.5.3;
+ * @path: 07_Lexical_Conventions/7.5_Tokens/7.5.3_Future_Reserved_Words/S7.5.3_A1.12.js;
  * @description: Checking if execution of "final=1" succeeds;
  */
 

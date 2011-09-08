@@ -19,15 +19,15 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 7.6.1.2-16-s;
- * @path: TestCases/chapter07/7.6/7.6.1/7.6.1.2/7.6.1.2-16-s.js;
+ * @path: chapter07/7.6/7.6.1/7.6.1.2/7.6.1.2-16-s.js;
  * @description: Strict Mode - SyntaxError isn't thrown when '_implements' occurs in strict mode code;
  * @strict_only;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         var _implements = 1;
         return _implements === 1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

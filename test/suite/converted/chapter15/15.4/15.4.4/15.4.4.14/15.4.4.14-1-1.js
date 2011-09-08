@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-1-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-1-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-1-1.js;
  * @description: Array.prototype.indexOf applied to undefined throws a TypeError;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   try {
      Array.prototype.indexOf.call(undefined);
      return false;
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
   catch (e) {
      return e instanceof TypeError;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -2,12 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * : When the [[Call]] property for a Function object F is called, the following steps are taken:
+ * When the [[Call]] property for a Function object F is called, the following steps are taken:
  * 2. Evaluate F's FunctionBody;
- * if Result.type is thrown then Result.value is thrown too;
+ * if Result.type is thrown then Result.value is thrown too
  *
- * @id: S13.2.1_A8_T1;
  * @section: 13.2.1;
+ * @path: 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.1_A8_T1.js;
  * @description: Throwing an exception within a function body. Declaring function with "function __func()";
  */
 

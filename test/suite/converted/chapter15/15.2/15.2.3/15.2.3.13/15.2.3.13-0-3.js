@@ -22,17 +22,16 @@
  * A newly created object using the Object contructor has its [[Extensible]]
  * property set to true by default (15.2.2.1, step 8).
  *
- * @id: 15.2.3.13-0-3;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.13/15.2.3.13-0-3.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.13/15.2.3.13-0-3.js;
  * @description: Object.isExtensible is true for objects created using the Object constructor;
- * @precondition: (fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o = new Object();
 
   if (Object.isExtensible(o) === true) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

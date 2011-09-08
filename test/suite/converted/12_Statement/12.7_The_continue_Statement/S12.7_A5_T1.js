@@ -4,8 +4,8 @@
 /**
  * When "continue Identifier" is evaluated Identifier must be label in the label set of an enclosing (but not crossing function boundaries) IterationStatement
  *
- * @id: S12.7_A5_T1;
  * @section: 12.7;
+ * @path: 12_Statement/12.7_The_continue_Statement/S12.7_A5_T1.js;
  * @description: Trying to continue another labeled loop;
  * @negative;
  */

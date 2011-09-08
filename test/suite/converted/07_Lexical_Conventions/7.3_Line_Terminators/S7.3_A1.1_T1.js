@@ -4,8 +4,8 @@
 /**
  * LINE FEED (U+000A) may occur between any two tokens
  *
- * @id: S7.3_A1.1_T1;
  * @section: 7.3;
+ * @path: 07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A1.1_T1.js;
  * @description: Insert LINE FEED (\u000A and \n) between tokens of var x=1;
  */
 

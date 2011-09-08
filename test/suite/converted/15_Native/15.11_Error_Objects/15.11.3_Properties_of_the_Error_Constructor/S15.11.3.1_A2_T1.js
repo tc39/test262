@@ -4,8 +4,8 @@
 /**
  * Error.prototype property has the attributes {DontEnum}
  *
- * @id: S15.11.3.1_A2_T1;
  * @section: 15.11.3.1, 16;
+ * @path: 15_Native/15.11_Error_Objects/15.11.3_Properties_of_the_Error_Constructor/S15.11.3.1_A2_T1.js;
  * @description: Checking if enumerating the Error.prototype property fails;
  */
 

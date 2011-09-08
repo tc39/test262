@@ -4,8 +4,8 @@
 /**
  * Operator x = y uses GetValue and PutValue
  *
- * @id: S11.13.1_A2.1_T2;
  * @section: 11.13.1;
+ * @path: 11_Expressions/11.13_Assignment_Operators/11.13.1_Simple_Assignment/S11.13.1_A2.1_T2.js;
  * @description: If GetBase(AssigmentExpression) is null, throw ReferenceError;
  */
 

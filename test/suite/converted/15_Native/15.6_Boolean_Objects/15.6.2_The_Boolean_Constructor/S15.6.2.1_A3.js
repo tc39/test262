@@ -5,8 +5,8 @@
  * The [[Value]] property of the newly constructed object
  * is set to ToBoolean(value)
  *
- * @id: S15.6.2.1_A3;
  * @section: 15.6.2.1;
+ * @path: 15_Native/15.6_Boolean_Objects/15.6.2_The_Boolean_Constructor/S15.6.2.1_A3.js;
  * @description: Checking value of the newly created object;
  */
 

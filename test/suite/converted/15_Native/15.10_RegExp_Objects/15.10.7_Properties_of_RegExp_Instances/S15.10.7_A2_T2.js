@@ -4,8 +4,8 @@
 /**
  * RegExp instance has not [[construct]] property
  *
- * @id: S15.10.7_A2_T2;
  * @section: 15.10.7;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.7_Properties_of_RegExp_Instances/S15.10.7_A2_T2.js;
  * @description: Checking if creating "new RegExp" instance fails;
  */
 

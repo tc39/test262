@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.3-2-47;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-2-47.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-2-47.js;
  * @description: Object.getOwnPropertyDescriptor - uses inherited toString method when 'P' is an object with an own valueOf and inherited toString methods;
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var proto = {};
         var valueOfAccessed = false;
         var toStringAccessed = false;
@@ -47,5 +46,5 @@ assertTrue((function testcase() {
         var desc = Object.getOwnPropertyDescriptor(obj, child);
 
         return desc.value === "length2" && toStringAccessed && !valueOfAccessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

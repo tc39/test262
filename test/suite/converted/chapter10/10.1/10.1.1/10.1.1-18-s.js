@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.1.1-18-s;
- * @path: TestCases/chapter10/10.1/10.1.1/10.1.1-18-s.js;
+ * @path: chapter10/10.1/10.1.1/10.1.1-18-s.js;
  * @description: Strict Mode - Function code that is part of a Accessor PropertyAssignment is in Strict Mode if Accessor PropertyAssignment is contained in use strict(setter);
  * @strict_only;
- * @precondition: (fnSupportsStrict() && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         try {
             var obj = {};
@@ -43,5 +42,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof SyntaxError && data === "data";
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

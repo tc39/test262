@@ -4,8 +4,8 @@
 /**
  * Operator "in" uses GetValue
  *
- * @id: S11.8.7_A2.1_T1;
  * @section: 11.8.7;
+ * @path: 11_Expressions/11.8_Relational_Operators/11.8.7_The_in_operator/S11.8.7_A2.1_T1.js;
  * @description: Either Expression is not Reference or GetBase is not null;
  */
 

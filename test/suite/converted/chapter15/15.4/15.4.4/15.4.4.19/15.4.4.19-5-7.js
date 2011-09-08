@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-5-7;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-5-7.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-5-7.js;
  * @description: Array.prototype.map - built-in functions can be used as thisArg;
- * @precondition: (fnExists(Array.prototype.map));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         function callbackfn(val, idx, obj) {
             return this === eval;
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
 
         var testResult = [11].map(callbackfn, eval);
         return testResult[0] === true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

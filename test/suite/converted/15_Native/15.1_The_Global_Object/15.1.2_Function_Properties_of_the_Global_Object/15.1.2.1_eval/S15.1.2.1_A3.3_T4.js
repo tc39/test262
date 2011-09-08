@@ -5,8 +5,8 @@
  * If Result(3).type is not normal, then Result(3).type must be throw.
  * Throw Result(3).value as an exception
  *
- * @id: S15.1.2.1_A3.3_T4;
  * @section: 15.1.2.1, 12.13;
+ * @path: 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.1_eval/S15.1.2.1_A3.3_T4.js;
  * @description: Throw statement;
  */
 

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-202;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-202.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-202.js;
  * @description: Object.defineProperties - 'O' is an Array, 'P' is an array index named property, 'P' property doesn't exist in 'O', test [[Set]] of 'P' property in 'Attributes' is set as undefined value if [[Set]] is absent in accessor descriptor 'desc'  (15.4.5.1 step 4.c);
- * @precondition: (fnExists(Object.defineProperties) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arr = [];
         var getFunc = function () {
             return 11;
@@ -55,5 +54,5 @@ assertTrue((function testcase() {
         return typeof desc.set === "undefined" && propertyDefineCorrect &&
             desc.get === getFunc && !verifyConfigurable && verifyEnumerable;
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

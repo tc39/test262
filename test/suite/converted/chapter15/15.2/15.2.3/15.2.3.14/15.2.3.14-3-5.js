@@ -19,18 +19,17 @@
 // ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.14-3-5;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-3-5.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-3-5.js;
  * @description: Object.keys must return a fresh array on each invocation;
- * @precondition: (fnExists(Object.keys));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var literal = {a: 1};
   var keysBefore = Object.keys(literal);
   if (keysBefore[0] != 'a') return false;
   keysBefore[0] = 'x';
   var keysAfter = Object.keys(literal);
   return (keysBefore[0] == 'x') && (keysAfter[0] == 'a');
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

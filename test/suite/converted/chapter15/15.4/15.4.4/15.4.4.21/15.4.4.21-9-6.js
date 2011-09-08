@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-9-6;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-6.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-6.js;
  * @description: Array.prototype.reduce visits deleted element in array after the call when same index is also present in prototype;
- * @precondition: (fnExists(Array.prototype.reduce));
  */
 
-assertTrue((function testcase() { 
+
+function testcase() { 
  
   function callbackfn(prevVal, curVal, idx, obj)  
   {
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
   if(res === "1235"  )    //one element acually deleted
     return true;  
   
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -5,8 +5,8 @@
  * If Type(x) is Number and Type(y) is Object,
  * return x == ToPrimitive(y)
  *
- * @id: S11.9.1_A7.5;
  * @section: 11.9.1, 11.9.3;
+ * @path: 11_Expressions/11.9_Equality_Operators/11.9.1_The_Equals_Operator/S11.9.1_A7.5.js;
  * @description: y is object, x is primitive number;
  */
 

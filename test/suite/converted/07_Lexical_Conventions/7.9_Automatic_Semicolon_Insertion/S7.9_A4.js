@@ -4,8 +4,8 @@
 /**
  * Check Throw Statement for automatic semicolon insertion
  *
- * @id: S7.9_A4;
  * @section: 7.9, 12.13;
+ * @path: 07_Lexical_Conventions/7.9_Automatic_Semicolon_Insertion/S7.9_A4.js;
  * @description: Try use Throw \n Expression construction;
  * @negative;
  */

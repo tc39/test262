@@ -4,9 +4,9 @@
 /**
  * Equivalent to the expression RegExp.prototype.exec(string) != null
  *
- * @id: S15.10.6.3_A1_T15;
  * @section: 15.10.6.3;
- * @description: : RegExp is /LS/i and tested string is {toString:function(){return false;}};;
+ * @path: 15_Native/15.10_RegExp_Objects/15.10.6_Properties_of_the_RegExp_Prototype_Object/15.10.6.3_RegExp.prototype.test/S15.10.6.3_A1_T15.js;
+ * @description: RegExp is /LS/i and tested string is {toString:function(){return false;}};
  */
 
 var __string = {toString:function(){return false;}};

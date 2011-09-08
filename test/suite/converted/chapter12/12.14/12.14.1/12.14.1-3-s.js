@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.14.1-3-s;
- * @path: TestCases/chapter12/12.14/12.14.1/12.14.1-3-s.js;
+ * @path: chapter12/12.14/12.14.1/12.14.1-3-s.js;
  * @description: Strict Mode - SyntaxError isn't thrown if a TryStatement with a Catch occurs within strict code and the Identifier of the Catch production is EVAL but throws SyntaxError if it is eval;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
 
        try{ eval(" try { \
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
         } catch(e) {
              return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

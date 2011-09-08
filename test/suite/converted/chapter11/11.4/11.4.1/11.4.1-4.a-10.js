@@ -22,12 +22,12 @@
  * This test is actually testing the [[Delete]] internal method (8.12.8). Since the
  * language provides no way to directly exercise [[Delete]], the tests are placed here.
  *
- * @id: 11.4.1-4.a-10;
- * @path: TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-10.js;
+ * @path: chapter11/11.4/11.4.1/11.4.1-4.a-10.js;
  * @description: delete operator returns true for property (stringify) defined on built-in object (JSON);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   try {
       var o = JSON.stringify;
 	  var desc;
@@ -44,5 +44,5 @@ assertTrue((function testcase() {
     if (desc) Object.defineProperty(JSON, 'stringify', desc)
 	else JSON.stringify = o  /* this branch messes up the attributes */;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

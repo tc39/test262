@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.9-2-a-14;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-14.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-14.js;
  * @description: Object.freeze - 'P' is own index property of an Array object that uses Object's [[GetOwnProperty]];
- * @precondition: (fnExists(Object.freeze) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         // default [[Configurable]] attribute value of "0": true
         var arrObj = [0, 1, 2];
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
 
         delete arrObj[0];
         return arrObj[0] === 0 && desc.configurable === false && desc.writable === false;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

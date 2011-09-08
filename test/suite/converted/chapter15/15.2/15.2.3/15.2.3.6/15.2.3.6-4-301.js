@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-301;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-301.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-301.js;
  * @description: Object.defineProperty - 'O' is an Arguments object, 'name' is an array index named property of 'O' but not defined in [[ParameterMap]] of 'O', and 'desc' is data descriptor, test 'name' is defined in 'O' with all correct attribute values (10.6 [[DefineOwnProperty]] step 3);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue(((function () { 
+
+assertTrue((function () { 
             delete arguments[0];
             Object.defineProperty(arguments, "0", {
                 value: 10,
@@ -34,5 +33,4 @@ assertTrue(((function () {
                 configurable: false
             });
             return dataPropertyAttributesAreCorrect(arguments, "0", 10, false, false, false);
-        }(0, 1, 2))));
-
+        }(0, 1, 2)));

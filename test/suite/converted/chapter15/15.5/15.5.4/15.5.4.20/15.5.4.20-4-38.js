@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.5.4.20-4-38;
- * @path: TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-38.js;
+ * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-38.js;
  * @description: String.prototype.trim handles whitepace and lineterminators (ab\u0020c);
- * @precondition: (fnExists(String.prototype.trim));
  */
 
-assertTrue(("ab\u0020c".trim() === "ab\u0020c"));
 
+assertTrue("ab\u0020c".trim() === "ab\u0020c");

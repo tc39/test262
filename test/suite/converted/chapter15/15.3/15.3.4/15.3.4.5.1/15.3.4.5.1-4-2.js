@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5.1-4-2;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-2.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-2.js;
  * @description: [[Call]] - 'F''s [[BoundThis]] is used as the 'this' value of calling the [[Call]] internal method of 'F''s [[TargetFunction]] when 'F' is called;
- * @precondition: (fnExists(Function.prototype.bind));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = { "prop": "a" };
 
         var func = function () {
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         var newFunc = Function.prototype.bind.call(func, obj);
 
         return newFunc() === obj;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

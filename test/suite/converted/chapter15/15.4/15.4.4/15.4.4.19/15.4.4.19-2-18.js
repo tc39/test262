@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-2-18;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-2-18.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-2-18.js;
  * @description: Array.prototype.map - applied to String object, which implements its own property get method;
- * @precondition: (fnExists(Array.prototype.map));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         function callbackfn(val, idx, obj) {
             return parseInt(val, 10) > 1;
         }
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
         } finally {
             delete String.prototype[3];
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

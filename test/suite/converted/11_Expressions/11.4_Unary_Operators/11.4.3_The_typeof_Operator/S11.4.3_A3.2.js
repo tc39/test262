@@ -4,8 +4,8 @@
 /**
  * Result of applying "typeof" operator to null is "object"
  *
- * @id: S11.4.3_A3.2;
  * @section: 11.4.3;
+ * @path: 11_Expressions/11.4_Unary_Operators/11.4.3_The_typeof_Operator/S11.4.3_A3.2.js;
  * @description: typeof null === "object";
  */
 

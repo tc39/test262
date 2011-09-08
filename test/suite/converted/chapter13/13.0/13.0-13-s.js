@@ -22,14 +22,13 @@
  * Refer 13; 
  * The production FunctionBody : SourceElementsopt is evaluated as follows:
  *
- * @id: 13.0-13-s;
- * @path: TestCases/chapter13/13.0/13.0-13-s.js;
+ * @path: chapter13/13.0/13.0-13-s.js;
  * @description: Strict Mode - SourceElements is evaluated as strict mode code when the function body of a Function constructor begins with a Strict Directive;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
        
         try {
             eval("var _13_0_13_fun = new Function(\" \", \"'use strict'; eval = 42;\"); _13_0_13_fun();");
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

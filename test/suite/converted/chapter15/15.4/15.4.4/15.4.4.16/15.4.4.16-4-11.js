@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.16-4-11;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-4-11.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-4-11.js;
  * @description: Array.prototype.every - the exception is not thrown if exception was thrown by step 3;
- * @precondition: (fnExists(Array.prototype.every) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = { 0: 11, 1: 12 };
 
@@ -46,5 +45,5 @@ assertTrue((function testcase() {
         } catch (ex) {
             return !(ex instanceof TypeError);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

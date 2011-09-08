@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.19-5-1;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-5-1.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-5-1.js;
  * @description: Array.prototype.map - thisArg not passed;
- * @precondition: (fnExists(Array.prototype.map));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   try {
     fnGlobalObject()._15_4_4_19_5_1 = true;
     var _15_4_4_19_5_1 = false;
@@ -43,5 +42,5 @@ assertTrue((function testcase() {
   finally {
 	delete fnGlobalObject()._15_4_4_19_5_1;
   }  
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

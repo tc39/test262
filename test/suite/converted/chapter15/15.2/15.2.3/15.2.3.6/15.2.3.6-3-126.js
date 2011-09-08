@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-3-126;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-126.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-126.js;
  * @description: Object.defineProperty - 'value' property in 'Attributes' is present  (8.10.5 step 5);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         var attr = { value: 100 };
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
         Object.defineProperty(obj, "property", attr);
 
         return obj.property === 100;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

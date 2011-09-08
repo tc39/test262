@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.14-5-b-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-b-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-b-1.js;
  * @description: Object.keys - Verify that 'index' of returned array is ascend by 1;
- * @precondition: (fnExists(Object.keys));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = { prop1: 100, prop2: 200, prop3: 300 };
 
         var array = Object.keys(obj);
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
         }
 
         return true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

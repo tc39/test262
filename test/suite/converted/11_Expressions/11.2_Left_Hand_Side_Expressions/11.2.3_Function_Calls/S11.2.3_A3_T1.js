@@ -4,8 +4,8 @@
 /**
  * If MemberExpression is not Object, throw TypeError
  *
- * @id: S11.2.3_A3_T1;
  * @section: 11.2.3;
+ * @path: 11_Expressions/11.2_Left_Hand_Side_Expressions/11.2.3_Function_Calls/S11.2.3_A3_T1.js;
  * @description: Checking "boolean primitive" case;
  */
 

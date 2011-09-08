@@ -4,8 +4,8 @@
 /**
  * If B = 110xxxxx (n = 2) and (k + 2) + 3 >= length, throw URIError
  *
- * @id: S15.1.3.1_A1.4_T1;
  * @section: 15.1.3.1;
+ * @path: 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.1_decodeURI/S15.1.3.1_A1.4_T1.js;
  * @description: Complex tests. B = [0xC0 - 0xDF];
  */
 

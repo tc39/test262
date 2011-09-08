@@ -4,8 +4,8 @@
 /**
  * Both unicode and ascii chars are allowed
  *
- * @id: S8.4_A10;
  * @section: 8.4, 7.8.4;
+ * @path: 08_Types/8.4_The_String_Type/S8.4_A10.js;
  * @description: Create string using both unicode and ascii chars;
  */
 

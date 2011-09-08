@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-2-6;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-2-6.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-2-6.js;
  * @description: Array.prototype.filter applied to Array-like object, 'length' is an inherited data property;
- * @precondition: (fnExists(Array.prototype.filter));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         function callbackfn(val, idx, obj) {
             return obj.length === 2;
@@ -43,5 +42,5 @@ assertTrue((function testcase() {
 
         var newArr = Array.prototype.filter.call(child, callbackfn);
         return newArr.length === 2;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-316;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-316.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-316.js;
  * @description: Object.create - enumerable properties of 'Properties' are given numerical names (15.2.3.7 step 7);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         function getFunc() {
             return 20;
@@ -53,5 +52,5 @@ assertTrue((function testcase() {
             }
         });
         return newObj[0] === 100 && newObj[1] === 20 && newObj[2] === 200;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

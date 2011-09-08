@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-3-23;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-3-23.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-3-23.js;
  * @description: Array.prototype.filter uses inherited valueOf method when 'length' is an object with an own toString and inherited valueOf methods;
- * @precondition: (fnExists(Array.prototype.filter));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var valueOfAccessed = false;
         var toStringAccessed = false;
@@ -60,5 +59,5 @@ assertTrue((function testcase() {
         var newArr = Array.prototype.filter.call(obj, callbackfn);
 
         return newArr.length === 1 && newArr[0] === 11 && valueOfAccessed && !toStringAccessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.1.1-22-s;
- * @path: TestCases/chapter10/10.1/10.1.1/10.1.1-22-s.js;
+ * @path: chapter10/10.1/10.1.1/10.1.1-22-s.js;
  * @description: Strict Mode - Function code of a FunctionExpression contains Use Strict Directive which appears at the start of the block;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function () {
+
+assertTrue(function () {
             "use strict";
             try {
                 eval("var public = 1;");
@@ -34,5 +33,4 @@ assertTrue((function () {
             } catch (e) {
                 return e instanceof SyntaxError;
             }
-        } ()));
-
+        } ());

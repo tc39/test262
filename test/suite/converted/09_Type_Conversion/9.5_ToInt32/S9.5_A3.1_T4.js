@@ -4,8 +4,8 @@
 /**
  * Operator uses ToNumber
  *
- * @id: S9.5_A3.1_T4;
  * @section: 9.5;
+ * @path: 09_Type_Conversion/9.5_ToInt32/S9.5_A3.1_T4.js;
  * @description: Type(x) is Object;
  */
 

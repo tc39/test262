@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-569;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-569.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-569.js;
  * @description: ES5 Attributes - [[Get]] attribute is a function which contains global variable;
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         var globalVariable = 20;
         var getFunc = function () {
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
         return obj.hasOwnProperty("prop") && desc.get === getFunc && obj.prop === 2010 && globalVariable === 2010;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

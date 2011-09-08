@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-315;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-315.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-315.js;
  * @description: Object.create - all properties in 'Properties' are enumerable (data property and accessor property) (15.2.3.7 step 7);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var newObj = {};
         function getFunc() {
@@ -51,5 +50,5 @@ assertTrue((function testcase() {
         });
         return dataPropertyAttributesAreCorrect(newObj, "foo1", 200, true, true, true) &&
             accessorPropertyAttributesAreCorrect(newObj, "foo2", getFunc, setFunc, "setVerifyHelpProp", true, true);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

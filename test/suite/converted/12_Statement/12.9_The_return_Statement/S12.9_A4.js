@@ -2,13 +2,13 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * : The production ReturnStatement : return Expression; is evaluated as:
+ * The production ReturnStatement : return Expression; is evaluated as:
  * i)   Evaluate Expression.
  * ii)  Call GetValue(Result(2)).
- * iii) Return (return, Result(3), empty);
+ * iii) Return (return, Result(3), empty)
  *
- * @id: S12.9_A4;
  * @section: 12.9;
+ * @path: 12_Statement/12.9_The_return_Statement/S12.9_A4.js;
  * @description: Return very sophisticated expression and function;
  */
 

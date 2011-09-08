@@ -2,10 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * : If is x greater than y and these values are both finite non-zero, return true; otherwise, return false;
+ * If is x greater than y and these values are both finite non-zero, return true; otherwise, return false
  *
- * @id: S11.8.2_A4.9;
  * @section: 11.8.2, 11.8.5;
+ * @path: 11_Expressions/11.8_Relational_Operators/11.8.2_The_Greater_than_Operator/S11.8.2_A4.9.js;
  * @description: x and y are number primitives;
  */
 

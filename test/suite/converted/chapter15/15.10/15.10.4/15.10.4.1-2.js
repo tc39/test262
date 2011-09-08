@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.10.4.1-2;
- * @path: TestCases/chapter15/15.10/15.10.4/15.10.4.1-2.js;
+ * @path: chapter15/15.10/15.10.4/15.10.4.1-2.js;
  * @description: RegExp - the thrown error is SyntaxError instead of RegExpError when the characters of 'P' do not have the syntactic form Pattern;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             var regExpObj = new RegExp('\\');
 
@@ -32,5 +32,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

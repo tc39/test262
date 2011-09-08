@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.14-1-4;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-1-4.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-1-4.js;
  * @description: Object.keys throws TypeError if type of first param is not Object (null);
- * @precondition: (fnExists(Object.keys));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   try {
     Object.keys(null);
   }
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
       return true;
     }
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

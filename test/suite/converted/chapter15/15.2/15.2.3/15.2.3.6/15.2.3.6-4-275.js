@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-275;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-275.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-275.js;
  * @description: Object.defineProperty - 'O' is an Array, 'name' is an array index named property, test the length property of 'O' is set as ToUint32('name') + 1 if ToUint32('name') equals to value of the length property in 'O' (15.4.5.1 step 4.e.ii);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arrObj = [];
         arrObj.length = 3; // default value of length: writable: true, configurable: false, enumerable: false
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         });
 
         return arrObj.length === 4 && arrObj[3] === 3;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

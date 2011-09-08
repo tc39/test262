@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-3-6;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-3-6.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-3-6.js;
  * @description: Object.defineProperties - enumerable inherited accessor property of 'Properties' is not defined in 'O' ;
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
         var proto = {};
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
         Object.defineProperties(obj, child);
 
         return !obj.hasOwnProperty("prop");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -5,8 +5,8 @@
  * The value of the internal [[Prototype]] property of
  * the Array constructor is the Function prototype object
  *
- * @id: S15.4.3_A1.1_T2;
  * @section: 15.4.3, 15.2.4.2;
+ * @path: 15_Native/15.4_Array_Objects/15.4.3_Properties_of_the_Array_Constructor/S15.4.3_A1.1_T2.js;
  * @description: Function.prototype.toString = Object.prototype.toString;
  */
 

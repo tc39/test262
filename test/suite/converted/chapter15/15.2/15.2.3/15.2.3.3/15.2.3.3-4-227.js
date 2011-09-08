@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.3-4-227;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-227.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-227.js;
  * @description: Object.getOwnPropertyDescriptor - ensure that 'writable' property of returned object is data property with correct 'value' attribute;
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = { "property": "ownDataProperty" };
 
         var desc = Object.getOwnPropertyDescriptor(obj, "property");
 
         return desc.writable === true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

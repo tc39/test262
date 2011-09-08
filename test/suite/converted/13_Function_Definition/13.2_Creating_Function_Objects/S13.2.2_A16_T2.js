@@ -4,9 +4,9 @@
 /**
  * FunctionExpression within a new statement is admitted
  *
- * @id: S13.2.2_A16_T2;
  * @section: 13.2.2;
- * @description: : Using "var __obj = new function __func(arg){this.prop=arg;}(5)" as FunctionExpression;;
+ * @path: 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A16_T2.js;
+ * @description: Using "var __obj = new function __func(arg){this.prop=arg;}(5)" as FunctionExpression;
  */
 
 //////////////////////////////////////////////////////////////////////////////

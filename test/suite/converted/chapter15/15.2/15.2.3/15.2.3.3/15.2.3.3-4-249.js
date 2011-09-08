@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.3-4-249;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-249.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-249.js;
  * @description: Object.getOwnPropertyDescriptor - returned object contains the property 'set' if the value of property 'set' is not explicitly specified when defined by Object.defineProperty.;
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         Object.defineProperty(obj, "property", {
             get: function () { },
@@ -35,5 +34,5 @@ assertTrue((function testcase() {
         var desc = Object.getOwnPropertyDescriptor(obj, "property");
 
         return "set" in desc;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

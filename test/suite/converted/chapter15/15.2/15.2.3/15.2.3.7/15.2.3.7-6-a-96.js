@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-96;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-96.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-96.js;
  * @description: Object.defineProperties - 'P' is data property, properties.value is present and P.value is undefined (8.12.9 step 12);
- * @precondition: (fnExists(Object.defineProperties) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
 
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
             }
         });
         return dataPropertyAttributesAreCorrect(obj, "foo", 200, true, true, true);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

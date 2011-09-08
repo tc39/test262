@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.5.4.20-4-1;
- * @path: TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-1.js;
+ * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-1.js;
  * @description: String.prototype.trim handles multiline string with whitepace and lineterminators;
- * @precondition: (fnExists(String.prototype.trim));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 var s = "\u0009a b\
 c \u0009"
 
@@ -33,5 +32,5 @@ c \u0009"
   if (s.trim() === "a bc") {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

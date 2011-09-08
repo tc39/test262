@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-174;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-174.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-174.js;
  * @description: Object.defineProperty - 'O' is an Array, 'name' is the length property of 'O', the [[Value]] field of 'desc' is less than value of  the length property, test the [[Configurable]] attribute of own accessor property with large index named in 'O' can stop deleting index named properties (15.4.5.1 step 3.l.ii);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arrObj = [0, 1];
 
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof TypeError && arrObj.length === 2 && arrObj.hasOwnProperty("1");
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

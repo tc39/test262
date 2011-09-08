@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.22-3-22;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-3-22.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-3-22.js;
  * @description: Array.prototype.reduceRight throws TypeError exception when 'length' is an object with toString and valueOf methods that don�t return primitive values;
- * @precondition: (fnExists(Array.prototype.reduceRight));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var accessed = false;
         var toStringAccessed = false;
@@ -57,5 +56,5 @@ assertTrue((function testcase() {
         } catch (ex) {
             return (ex instanceof TypeError) && toStringAccessed && valueOfAccessed && !accessed;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

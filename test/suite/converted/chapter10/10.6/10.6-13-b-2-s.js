@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.6-13-b-2-s;
- * @path: TestCases/chapter10/10.6/10.6-13-b-2-s.js;
+ * @path: chapter10/10.6/10.6-13-b-2-s.js;
  * @description: arguments.caller exists in strict mode;
  * @strict_only;
- * @precondition: (fnSupportsStrict());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   
   'use strict';    
   var desc = Object.getOwnPropertyDescriptor(arguments,"caller");
   return desc!== undefined;
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

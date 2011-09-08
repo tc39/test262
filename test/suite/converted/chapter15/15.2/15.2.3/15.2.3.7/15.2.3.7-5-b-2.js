@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-5-b-2;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-2.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-2.js;
  * @description: Object.defineProperties - 'descObj' is null (8.10.5 step 1);
- * @precondition: (fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
       
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof TypeError && !obj.hasOwnProperty("prop"); ;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.12.3-8-a-3;
- * @path: TestCases/chapter15/15.12/15.12.3/15.12.3-8-a-3.js;
+ * @path: chapter15/15.12/15.12.3/15.12.3-8-a-3.js;
  * @description: JSON.stringify treats an null space argument the same as a missing space argument.;
- * @precondition: (JSON && fnExists(JSON.stringify));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var obj = {a1: {b1: [1,2,3,4], b2: {c1: 1, c2: 2}},a2: 'a2'};
   return JSON.stringify(obj)=== JSON.stringify(obj,null, null);
-  }).call(this));
-
+  }
+assertTrue(testcase.call(this));

@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.5.4.20-1-9;
- * @path: TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-1-9.js;
+ * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-1-9.js;
  * @description: String.prototype.trim works for a String object which value is undefined;
- * @precondition: (fnExists(String.prototype.trim));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var strObj = new String(undefined);
         return strObj.trim() === "undefined";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

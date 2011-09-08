@@ -4,8 +4,8 @@
 /**
  * Do not crash with postincrement custom property
  *
- * @id: S8.6_A2_T1;
  * @section: 8.6, 11.3.1;
+ * @path: 08_Types/8.6_The_Object_Type/S8.6_A2_T1.js;
  * @description: Try to implement postincrement for custom property;
  */
 

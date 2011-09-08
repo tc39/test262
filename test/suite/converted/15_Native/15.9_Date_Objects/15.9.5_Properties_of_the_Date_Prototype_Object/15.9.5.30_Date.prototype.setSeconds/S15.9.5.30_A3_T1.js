@@ -4,8 +4,8 @@
 /**
  * The Date.prototype.setSeconds property "length" has { ReadOnly, DontDelete, DontEnum } attributes
  *
- * @id: S15.9.5.30_A3_T1;
  * @section: 15.9.5.30;
+ * @path: 15_Native/15.9_Date_Objects/15.9.5_Properties_of_the_Date_Prototype_Object/15.9.5.30_Date.prototype.setSeconds/S15.9.5.30_A3_T1.js;
  * @description: Checking ReadOnly attribute;
  */
 

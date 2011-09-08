@@ -19,15 +19,15 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.2.1-5-s;
- * @path: TestCases/chapter12/12.2/12.2.1/12.2.1-5-s.js;
+ * @path: chapter12/12.2/12.2.1/12.2.1-5-s.js;
  * @description: Strict Mode - a Function declaring var named 'eval' does not throw SyntaxError;
  * @strict_only;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         'use strict';
         Function('var eval;');
         return true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

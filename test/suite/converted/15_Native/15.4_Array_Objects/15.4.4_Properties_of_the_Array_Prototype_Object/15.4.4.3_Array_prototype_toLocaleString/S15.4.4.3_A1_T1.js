@@ -7,8 +7,8 @@
  * by occurrences of a separator string that has been derived in an
  * implementation-defined locale-specific way
  *
- * @id: S15.4.4.3_A1_T1;
  * @section: 15.4.4.3;
+ * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.3_Array_prototype_toLocaleString/S15.4.4.3_A1_T1.js;
  * @description: it is the function that should be invoked;
  */
 

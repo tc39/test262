@@ -4,8 +4,8 @@
 /**
  * Operator uses GetValue
  *
- * @id: S11.13.2_A2.1_T1.3;
  * @section: 11.13.2;
+ * @path: 11_Expressions/11.13_Assignment_Operators/11.13.2_Compound_Assignment/S11.13.2_A2.1_T1.3.js;
  * @description: Either Type is not Reference or GetBase is not null, check opeartor is "x %= y";
  */
 

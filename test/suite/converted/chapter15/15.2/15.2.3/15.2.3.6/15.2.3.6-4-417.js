@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-417;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-417.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-417.js;
  * @description: ES5 Attributes - [[Value]] attribute of inherited property of [[Prototype]] internal property is correct(Function.prototype.bind);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Function.prototype.bind));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var foo = function () { };
         try {
             Object.defineProperty(Function.prototype, "prop", {
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
         } finally {
             delete Function.prototype.prop;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

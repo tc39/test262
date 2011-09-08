@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.10-0-7;
- * @path: TestCases/chapter12/12.10/12.10-0-7.js;
+ * @path: chapter12/12.10/12.10-0-7.js;
  * @description: with introduces scope - scope removed when exiting with statement;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o = {foo: 1};
 
   with (o) {
@@ -37,5 +37,5 @@ assertTrue((function testcase() {
   catch (e) {
      return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.9.5.43-0-6;
- * @path: TestCases/chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-6.js;
+ * @path: chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-6.js;
  * @description: Date.prototype.toISOString - TypeError is thrown when this is any other objects instead of Date object;
- * @precondition: (fnExists(Date.prototype.toISOString));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         try {
             Date.prototype.toISOString.call([]);
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
         } catch (ex) {
             return ex instanceof TypeError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

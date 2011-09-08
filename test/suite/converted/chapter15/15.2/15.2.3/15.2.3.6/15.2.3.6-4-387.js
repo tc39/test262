@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-387;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-387.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-387.js;
  * @description: ES5 Attributes - [[Value]] attribute of data property is a String object;
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         var strObj = new String();
 
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
         return obj.prop === strObj && desc.value === strObj;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

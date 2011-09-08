@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.3-2-44;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-2-44.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-2-44.js;
  * @description: Object.getOwnPropertyDescriptor - argument 'P' is an object that has an own toString method that returns an object and toValue method that returns a primitive value;
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = { "abc": 1 };
         var valueOfAccessed = false;
         var toStringAccessed = false;
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
         var desc = Object.getOwnPropertyDescriptor(obj, ownProp);
 
         return desc.value === 1 && valueOfAccessed && toStringAccessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

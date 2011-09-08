@@ -4,8 +4,8 @@
 /**
  * FunctionDeclaration within a "for-in" Statement is not allowed
  *
- * @id: S12.6.4_A13_T3;
  * @section: 12.6.4;
+ * @path: 12_Statement/12.6_Iteration_Statements/12.6.4_The_for_in_Statement/S12.6.4_A13_T3.js;
  * @description: Declaring function within a "for-in" Statement that is within function declaration;
  * @negative;
  */

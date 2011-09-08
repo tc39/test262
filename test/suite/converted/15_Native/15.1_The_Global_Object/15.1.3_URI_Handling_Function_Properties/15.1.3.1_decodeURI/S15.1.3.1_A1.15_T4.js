@@ -4,8 +4,8 @@
 /**
  * If B = 11110xxx (n = 4) and C != 10xxxxxx (C - first of octets after B), throw URIError
  *
- * @id: S15.1.3.1_A1.15_T4;
  * @section: 15.1.3.1;
+ * @path: 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.1_decodeURI/S15.1.3.1_A1.15_T4.js;
  * @description: Complex tests. B = [0xF0 - 0x0F7], C = [0xC0, 0xFF];
  */
 

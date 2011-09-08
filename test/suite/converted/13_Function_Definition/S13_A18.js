@@ -4,8 +4,8 @@
 /**
  * Closures are admitted
  *
- * @id: S13_A18;
  * @section: 13;
+ * @path: 13_Function_Definition/S13_A18.js;
  * @description: Using a function declaration as a function parameter;
  */
 

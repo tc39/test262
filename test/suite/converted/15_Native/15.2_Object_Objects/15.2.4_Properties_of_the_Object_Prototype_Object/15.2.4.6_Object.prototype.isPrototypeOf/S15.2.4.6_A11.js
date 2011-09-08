@@ -4,8 +4,8 @@
 /**
  * The length property of the hasOwnProperty method is 1
  *
- * @id: S15.2.4.6_A11;
  * @section: 15.2.4.6;
+ * @path: 15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/15.2.4.6_Object.prototype.isPrototypeOf/S15.2.4.6_A11.js;
  * @description: Checking the Object.prototype.hasOwnProperty.length;
  */
 

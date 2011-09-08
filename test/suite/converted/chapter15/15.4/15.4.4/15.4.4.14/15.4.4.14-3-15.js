@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-3-15;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-3-15.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-3-15.js;
  * @description: Array.prototype.indexOf - 'length' is a string containing an exponential number;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = { 1: true, 2: "2E0", length: "2E0" };
 
         return Array.prototype.indexOf.call(obj, true) === 1 &&
         Array.prototype.indexOf.call(obj, "2E0") === -1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

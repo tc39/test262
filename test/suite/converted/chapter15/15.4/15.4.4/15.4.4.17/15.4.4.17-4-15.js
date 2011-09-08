@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.17-4-15;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-4-15.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-4-15.js;
  * @description: Array.prototype.some - calling with no callbackfn is the same as passing undefined for callbackfn;
- * @precondition: (fnExists(Array.prototype.some) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = { };
         var lengthAccessed = false;
         var loopAccessed = false;
@@ -51,5 +50,5 @@ assertTrue((function testcase() {
         } catch (ex) {
             return (ex instanceof TypeError) && lengthAccessed && !loopAccessed;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

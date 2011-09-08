@@ -4,8 +4,8 @@
 /**
  * When String.prototype.charCodeAt(pos) calls first calls ToString, giving it the this value as its argument
  *
- * @id: S15.5.4.5_A4;
  * @section: 15.5.4.5;
+ * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.5_String.prototype.charCodeAt/S15.5.4.5_A4.js;
  * @description: Change toString function, it trow exception, and call charCodeAt();
  */
 

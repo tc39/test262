@@ -4,8 +4,8 @@
 /**
  * If neither x, nor y is a prefix of each other, returned result of strings comparison applies a simple lexicographic ordering to the sequences of code point value values
  *
- * @id: S11.8.1_A4.12_T2;
  * @section: 11.8.1, 11.8.5;
+ * @path: 11_Expressions/11.8_Relational_Operators/11.8.1_The_Less_than_Operator/S11.8.1_A4.12_T2.js;
  * @description: x and y are string primitives;
  */
 

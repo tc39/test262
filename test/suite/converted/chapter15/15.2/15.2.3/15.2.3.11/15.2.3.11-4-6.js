@@ -19,16 +19,15 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.11-4-6;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-6.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-6.js;
  * @description: Object.isSealed returns false for all built-in objects (Array);
- * @precondition: (fnExists(Object.isSealed));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var b = Object.isSealed(Array);
   if (b === false) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

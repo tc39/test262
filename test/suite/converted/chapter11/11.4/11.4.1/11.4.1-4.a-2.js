@@ -22,13 +22,12 @@
  * This test is actually testing the [[Delete]] internal method (8.12.8). Since the
  * language provides no way to directly exercise [[Delete]], the tests are placed here.
  *
- * @id: 11.4.1-4.a-2;
- * @path: TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-2.js;
+ * @path: chapter11/11.4/11.4.1/11.4.1-4.a-2.js;
  * @description: delete operator returns true when deleting a configurable accessor property;
- * @precondition: ((fnExists(Object.defineProperty) && fnExists(Object.hasOwnProperty)));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var o = {};
 
   // define an accessor
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
   if (d === true && o.hasOwnProperty("foo") === false) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

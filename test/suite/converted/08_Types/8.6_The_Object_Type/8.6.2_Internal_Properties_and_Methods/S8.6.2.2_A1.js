@@ -6,8 +6,8 @@
  * and If O doesn't have a property with name P, then
  * creates a property with name P, set its value to V and give it empty attributes
  *
- * @id: S8.6.2.2_A1;
  * @section: 8.6.2.2;
+ * @path: 08_Types/8.6_The_Object_Type/8.6.2_Internal_Properties_and_Methods/S8.6.2.2_A1.js;
  * @description: Put to not existent properties;
  */
 

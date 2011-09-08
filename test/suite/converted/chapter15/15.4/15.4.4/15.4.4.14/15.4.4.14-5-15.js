@@ -19,12 +19,10 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-5-15;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-15.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-15.js;
  * @description: Array.prototype.indexOf - value of 'fromIndex' is a string containing a negative number;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue(([0, true, 2].indexOf(true, "-1") === -1 &&
-        [0, 1, true].indexOf(true, "-1") === 2));
 
+assertTrue([0, true, 2].indexOf(true, "-1") === -1 &&
+        [0, 1, true].indexOf(true, "-1") === 2);

@@ -5,8 +5,8 @@
  * The [[Class]] property of the newly constructed object
  * is set to "Date"
  *
- * @id: S15.9.3.1_A3_T6.2;
  * @section: 15.9.3.1;
+ * @path: 15_Native/15.9_Date_Objects/15.9.3_The_Date_Constructor/S15.9.3.1_A3_T6.2.js;
  * @description: Test based on overwriting prototype.toString - 7 arguments, (year, month, date, hours, minutes, seconds, ms);
  */
 

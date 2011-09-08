@@ -19,15 +19,15 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 11.4.1-2-3;
- * @path: TestCases/chapter11/11.4/11.4.1/11.4.1-2-3.js;
+ * @path: chapter11/11.4/11.4.1/11.4.1-2-3.js;
  * @description: delete operator returns true when deleting a non-reference (boolean);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var d = delete true;
   if (d === true) {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

@@ -4,8 +4,8 @@
 /**
  * The String.prototype.lastIndexOf.length property has the attribute ReadOnly
  *
- * @id: S15.5.4.8_A10;
  * @section: 15.5.4.8;
+ * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.8_String.prototype.lastIndexOf/S15.5.4.8_A10.js;
  * @description: Checking if varying the String.prototype.lastIndexOf.length property fails;
  */
 

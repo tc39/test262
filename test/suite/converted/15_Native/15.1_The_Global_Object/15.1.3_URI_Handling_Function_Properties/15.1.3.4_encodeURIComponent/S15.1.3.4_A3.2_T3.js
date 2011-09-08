@@ -4,8 +4,8 @@
 /**
  * unescapedURIComponentSet containing one instance of each character valid in uriUnescaped
  *
- * @id: S15.1.3.4_A3.2_T3;
  * @section: 15.1.3.4;
+ * @path: 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.4_encodeURIComponent/S15.1.3.4_A3.2_T3.js;
  * @description: Complex tests, uriUnescaped :: uriMark;
  */
 

@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.9-2-d-7;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-d-7.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-d-7.js;
  * @description: Object.freeze - 'O' is a RegExp object;
- * @precondition: (fnExists(Object.freeze) && fnExists(Object.isFrozen));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var regObj = new RegExp();
 
         Object.freeze(regObj);
 
         return Object.isFrozen(regObj);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

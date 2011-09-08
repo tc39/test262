@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.5.4.20-2-44;
- * @path: TestCases/chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-44.js;
+ * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-44.js;
  * @description: String.prototype.trim - 'this' is a string that contains east Asian characters (value is 'SD咕噜');
- * @precondition: (fnExists(String.prototype.trim));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var str = "SD咕噜";
         return str.trim() === str;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

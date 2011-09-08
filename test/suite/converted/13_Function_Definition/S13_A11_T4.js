@@ -4,8 +4,8 @@
 /**
  * Since arguments property has attribute { DontDelete }, only its elements can be deleted
  *
- * @id: S13_A11_T4;
  * @section: 13;
+ * @path: 13_Function_Definition/S13_A11_T4.js;
  * @description: Deleting arguments[i] and checking the type of arguments[i];
  */
 

@@ -4,8 +4,8 @@
 /**
  * Array prototype object has length property whose value is +0
  *
- * @id: S15.4.4_A1.3_T1;
  * @section: 15.4.4;
+ * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/S15.4.4_A1.3_T1.js;
  * @description: Array.prototype.length === 0;
  */
 

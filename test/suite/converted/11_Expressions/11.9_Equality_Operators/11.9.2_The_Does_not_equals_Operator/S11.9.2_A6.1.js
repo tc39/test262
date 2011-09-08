@@ -4,8 +4,8 @@
 /**
  * If Type(x) as well as Type(y) is Undefined or Null, return true
  *
- * @id: S11.9.2_A6.1;
  * @section: 11.9.2, 11.9.3;
+ * @path: 11_Expressions/11.9_Equality_Operators/11.9.2_The_Does_not_equals_Operator/S11.9.2_A6.1.js;
  * @description: Checking all combinations;
  */
 

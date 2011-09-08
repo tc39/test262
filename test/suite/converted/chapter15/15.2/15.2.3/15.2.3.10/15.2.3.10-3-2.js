@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.10-3-2;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-2.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-2.js;
  * @description: Object.preventExtensions - indexed properties cannot be added into the returned object;
- * @precondition: (fnExists(Object.preventExtensions) && fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
         var preCheck = Object.isExtensible(obj);
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
 
         obj[0] = 12;
         return preCheck && !obj.hasOwnProperty("0");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

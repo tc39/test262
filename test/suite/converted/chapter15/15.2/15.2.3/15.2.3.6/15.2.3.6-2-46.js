@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-2-46;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-2-46.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-2-46.js;
  * @description: Object.defineProperty - argument 'P' is an object that has an own toString and valueOf method;
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         var toStringAccessed = false;
         var valueOfAccessed = false;
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
 
         return obj.hasOwnProperty("abc") && !valueOfAccessed && toStringAccessed;
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

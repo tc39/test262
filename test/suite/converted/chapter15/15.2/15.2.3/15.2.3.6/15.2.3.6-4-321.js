@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-321;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-321.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-321.js;
  * @description: Object.defineProperty - 'O' is an Arguments object, 'P' is own accessor property of 'O', test TypeError is thrown when updating the [[Get]] attribute value of 'P' which is not configurable (10.6 [[DefineOwnProperty]] step 4);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue(((function () {
+
+assertTrue((function () {
             function getFunc() {
                 return "genericPropertyString";
             }
@@ -48,5 +47,4 @@ assertTrue(((function () {
                     accessorPropertyAttributesAreCorrect(arguments, "genericProperty", getFunc, setFunc, "helpVerifyGet", false, false, false);
             }
             return false;
-        }(1, 2, 3))));
-
+        }(1, 2, 3)));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.10-3-5;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-5.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-5.js;
  * @description: Object.preventExtensions - indexed properties cannot be added into a String object;
- * @precondition: (fnExists(Object.preventExtensions) && fnExists(Object.isExtensible) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var strObj = new String();
         var preCheck = Object.isExtensible(strObj);
         Object.preventExtensions(strObj);
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
             return e instanceof TypeError && preCheck &&
                 !strObj.hasOwnProperty("0") && typeof strObj[0] === "undefined";
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

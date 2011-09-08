@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-9-c-ii-16;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-c-ii-16.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-c-ii-16.js;
  * @description: Array.prototype.reduce - non-indexed properties are not called;
- * @precondition: (fnExists(Array.prototype.reduce));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var accessed = false;
         var result1 = true;
@@ -46,5 +45,5 @@ assertTrue((function testcase() {
 
         Array.prototype.reduce.call(obj, callbackfn, 1);
         return result1 && result2 && accessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

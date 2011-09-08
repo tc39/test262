@@ -5,8 +5,8 @@
  * Since LineTerminator between Postfix Increment/Decrement Operator(I/DO) and operand is not allowed but
  * between Prefix I/DO and operand admitted, Postfix I/DO in combination with prefix I/DO after automatic semicolon insertion gives valid result
  *
- * @id: S7.9_A5.6_T2;
  * @section: 7.9, 12.4, 11.3, 11.4.4, 11.4.5;
+ * @path: 07_Lexical_Conventions/7.9_Automatic_Semicolon_Insertion/S7.9_A5.6_T2.js;
  * @description: Try use Variable1 \n -- \n Variable2 construction;
  */
 

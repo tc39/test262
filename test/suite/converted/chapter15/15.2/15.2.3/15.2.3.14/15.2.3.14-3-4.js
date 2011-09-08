@@ -19,13 +19,12 @@
 // ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.14-3-4;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-3-4.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-3-4.js;
  * @description: Object.keys of an arguments object returns the indices of the given arguments;
- * @precondition: (fnExists(Object.keys));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   function testArgs2(x, y, z) {
     // Properties of the arguments object are enumerable.
     var a = Object.keys(arguments);
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
       return true;
   }
   return testArgs2(1, 2) && testArgs3(1, 2, 3) && testArgs4(1, 2, 3, 4);
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

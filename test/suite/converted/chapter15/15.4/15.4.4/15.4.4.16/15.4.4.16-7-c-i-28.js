@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.16-7-c-i-28;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-28.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-28.js;
  * @description: Array.prototype.every - element changed by getter on previous iterations is observed on an Array;
- * @precondition: (fnExists(Array.prototype.every) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var preIterVisible = false;
         var arr = [];
@@ -54,5 +53,5 @@ assertTrue((function testcase() {
         });
 
         return !arr.every(callbackfn);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

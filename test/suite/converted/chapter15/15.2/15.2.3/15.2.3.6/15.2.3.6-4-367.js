@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-367;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-367.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-367.js;
  * @description: ES5 Attributes - fail to update the data property ([[Writable]] is false, [[Enumerable]] is true, [[Configurable]] is false) to an accessor property;
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
@@ -49,5 +48,5 @@ assertTrue((function testcase() {
             var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
             return propertyDefineCorrect && desc1.value === 2010 && obj.prop === 2010 && typeof desc2.get === "undefined" && e instanceof TypeError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.12.3-11-3;
- * @path: TestCases/chapter15/15.12/15.12.3/15.12.3-11-3.js;
+ * @path: chapter15/15.12/15.12.3/15.12.3-11-3.js;
  * @description: A JSON.stringify correctly works on top level string values.;
- * @precondition: (JSON && fnExists(JSON.stringify));
  */
 
-assertTrue((JSON.stringify("a string") === '"a string"'));
 
+assertTrue(JSON.stringify("a string") === '"a string"');

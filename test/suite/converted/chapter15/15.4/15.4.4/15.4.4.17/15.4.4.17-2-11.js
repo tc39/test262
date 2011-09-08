@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.17-2-11;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-2-11.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-2-11.js;
  * @description: Array.prototype.some - 'length' is an own accessor property without a get function on an Array-like object;
- * @precondition: (fnExists(Array.prototype.some) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var accessed = false;
 
@@ -44,5 +43,5 @@ assertTrue((function testcase() {
         });
 
         return !Array.prototype.some.call(obj, callbackfn) && !accessed;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

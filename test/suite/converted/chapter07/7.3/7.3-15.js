@@ -19,13 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 7.3-15;
- * @path: TestCases/chapter07/7.3/7.3-15.js;
+ * @path: chapter07/7.3/7.3-15.js;
  * @description: 7.3 - ES5 recognize <BOM> (\uFFFF) as a whitespace character;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var prop = "a\uFFFFa";
         return prop.length === 3 && prop !== "aa" && prop[1] === "\uFFFF";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

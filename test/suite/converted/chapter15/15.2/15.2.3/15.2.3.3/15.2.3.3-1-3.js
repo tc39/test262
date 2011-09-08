@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.3-1-3;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-1-3.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-1-3.js;
  * @description: Object.getOwnPropertyDescriptor - TypeError is thrown when first param is a boolean;
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             Object.getOwnPropertyDescriptor(true, "foo");
         } catch (e) {
             return (e instanceof TypeError);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.10.4.1-4;
- * @path: TestCases/chapter15/15.10/15.10.4/15.10.4.1-4.js;
+ * @path: chapter15/15.10/15.10.4/15.10.4.1-4.js;
  * @description: RegExp - the SyntaxError is not thrown when flags is 'gim';
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             var regExpObj = new RegExp('abc', 'gim');
 
@@ -32,5 +32,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return false;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

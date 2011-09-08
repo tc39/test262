@@ -4,8 +4,8 @@
 /**
  * The MV of StringNumericLiteral ::: StrWhiteSpace is 0
  *
- * @id: S9.3.1_A2;
  * @section: 9.3.1, 15.7.1;
+ * @path: 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A2.js;
  * @description: Strings with various WhiteSpaces convert to Number by explicit transformation;
  */
 

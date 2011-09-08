@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-2-6;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-2-6.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-2-6.js;
  * @description: Array.prototype.reduce applied to Array-like object, 'length' is an inherited data property;
- * @precondition: (fnExists(Array.prototype.reduce));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         function callbackfn(prevVal, curVal, idx, obj) {
             return (obj.length === 2);
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
         child[2] = 9;
 
         return Array.prototype.reduce.call(child, callbackfn, 1) === true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -4,8 +4,8 @@
 /**
  * The length property of parseFloat has the attribute DontDelete
  *
- * @id: S15.1.2.3_A7.2;
  * @section: 15.1.2.3, 15.2.4.5, 11.4.1;
+ * @path: 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.3_parseFloat/S15.1.2.3_A7.2.js;
  * @description: Checking use hasOwnProperty, delete;
  * @strict_only;
  * @strict_mode_negative;

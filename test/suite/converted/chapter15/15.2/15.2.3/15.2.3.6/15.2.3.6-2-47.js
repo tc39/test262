@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-2-47;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-2-47.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-2-47.js;
  * @description: Object.defineProperty - TypeError exception is thrown  when 'P' is an object that neither toString nor valueOf returns a primitive value;
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = {};
         var toStringAccessed = false;
         var valueOfAccessed = false;
@@ -47,5 +46,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return valueOfAccessed && toStringAccessed && e instanceof TypeError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

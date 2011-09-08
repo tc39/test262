@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.3-2-21;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-2-21.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-2-21.js;
  * @description: Object.getOwnPropertyDescriptor - argument 'P' is a number that converts to a string (value is 1e+22);
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = { "1e+22": 1 };
 
         var desc = Object.getOwnPropertyDescriptor(obj, 1e+22);
 
         return desc.value === 1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

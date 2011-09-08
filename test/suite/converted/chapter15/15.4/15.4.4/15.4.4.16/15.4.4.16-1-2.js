@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.16-1-2;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-1-2.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-1-2.js;
  * @description: Array.prototype.every applied to null throws a TypeError;
- * @precondition: (fnExists(Array.prototype.every));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             Array.prototype.every.call(null); // TypeError is thrown if value is null
             return false;
         } catch (e) {
             return (e instanceof TypeError);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

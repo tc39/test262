@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5-3-1;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-3-1.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-3-1.js;
  * @description: Function.prototype.bind - each arg is defined in A in list order;
- * @precondition: (fnExists(Function.prototype.bind));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var foo = function (x, y) {
             return new Boolean((x + y) === "ab" && arguments[0] === "a" &&
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
 
         var obj = foo.bind({}, "a", "b");
         return obj()==true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

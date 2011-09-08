@@ -19,18 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.21-2-2;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-2-2.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-2-2.js;
  * @description: Array.prototype.reduce - 'length' is own data property on an Array;
- * @precondition: (fnExists(Array.prototype.reduce));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         function callbackfn(prevVal, curVal, idx, obj) {
             return (obj.length === 2);
         }
 
         return [12, 11].reduce(callbackfn, 1) === true;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

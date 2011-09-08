@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.14-13;
- * @path: TestCases/chapter12/12.14/12.14-13.js;
+ * @path: chapter12/12.14/12.14-13.js;
  * @description: catch introduces scope - updates are based on scope;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var res1 = false;
         var res2 = false;
         var res3 = false;
@@ -53,5 +53,5 @@ assertTrue((function testcase() {
         } finally {
             delete this.x_12_14_13;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

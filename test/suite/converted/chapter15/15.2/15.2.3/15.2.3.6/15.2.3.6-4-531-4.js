@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-531-4;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-531-4.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-531-4.js;
  * @description: Object.defineProperty will update [[Get]] and [[Set]] attributes of named accessor property 'P' successfully when [[Configurable]] attribute is true, 'O' is the global object (8.12.9 step 11);
- * @precondition: (fnExists(Object.defineProperty) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = fnGlobalObject();
         try {
@@ -59,5 +58,5 @@ assertTrue((function testcase() {
             delete obj.verifySetFunction;
             delete obj.verifySetFunction1;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

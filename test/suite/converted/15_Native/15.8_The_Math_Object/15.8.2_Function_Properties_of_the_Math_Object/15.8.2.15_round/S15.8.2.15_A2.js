@@ -4,8 +4,8 @@
 /**
  * If x is +0, Math.round(x) is +0
  *
- * @id: S15.8.2.15_A2;
  * @section: 15.8.2.15;
+ * @path: 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.15_round/S15.8.2.15_A2.js;
  * @description: Checking if Math.round(x) equals to +0, where x is +0;
  */
 

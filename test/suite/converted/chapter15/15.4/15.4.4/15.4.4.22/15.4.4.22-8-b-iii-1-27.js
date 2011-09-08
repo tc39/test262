@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.22-8-b-iii-1-27;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-8-b-iii-1-27.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-8-b-iii-1-27.js;
  * @description: Array.prototype.reduceRight - This object is the Arguments object which implements its own property get method (number of arguments is greater than number of parameters);
- * @precondition: (fnExists(Array.prototype.reduceRight));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var testResult = false;
         function callbackfn(prevVal, curVal, idx, obj) {
@@ -40,5 +39,5 @@ assertTrue((function testcase() {
 
         func(0, 1, 2, 3);
         return testResult;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

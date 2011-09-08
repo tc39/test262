@@ -4,8 +4,8 @@
 /**
  * Operator x < y returns ToString(x) < ToString(y), if Type(Primitive(x)) is String and Type(Primitive(y)) is String
  *
- * @id: S11.8.1_A3.2_T1.2;
  * @section: 11.8.1;
+ * @path: 11_Expressions/11.8_Relational_Operators/11.8.1_The_Less_than_Operator/S11.8.1_A3.2_T1.2.js;
  * @description: Type(Primitive(x)) and Type(Primitive(y)) vary between Object object and Function object;
  */
 

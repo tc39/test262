@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.8-4-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-4-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-4-1.js;
  * @description: Object.seal - 'O' is sealed already;
- * @precondition: (fnExists(Object.seal) && fnExists(Object.isSealed) && fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
 
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
         Object.seal(obj);
         return preCheck && Object.isSealed(obj);
 
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

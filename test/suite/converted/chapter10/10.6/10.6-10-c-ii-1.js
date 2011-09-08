@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.6-10-c-ii-1;
- * @path: TestCases/chapter10/10.6/10.6-10-c-ii-1.js;
+ * @path: chapter10/10.6/10.6-10-c-ii-1.js;
  * @description: arguments[i] change with actual parameters;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   function foo(a,b,c)
   {
     a = 1; b = 'str'; c = 2.1;
@@ -32,5 +32,5 @@ assertTrue((function testcase() {
       return true;   
   }
   return foo(10,'sss',1);
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

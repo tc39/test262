@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.14-5-14;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-14.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-14.js;
  * @description: Object.keys - own enumerable indexed accessor property of sparse array 'O' is defined in returned array;
- * @precondition: (fnExists(Object.keys) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = [1, , 3, , 5];
 
         Object.defineProperty(obj, "10000", {
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
         }
 
         return false;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

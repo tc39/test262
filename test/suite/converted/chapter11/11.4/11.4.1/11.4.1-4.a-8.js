@@ -22,12 +22,12 @@
  * This test is actually testing the [[Delete]] internal method (8.12.8). Since the
  * language provides no way to directly exercise [[Delete]], the tests are placed here.
  *
- * @id: 11.4.1-4.a-8;
- * @path: TestCases/chapter11/11.4/11.4.1/11.4.1-4.a-8.js;
+ * @path: chapter11/11.4/11.4.1/11.4.1-4.a-8.js;
  * @description: delete operator returns true for built-in objects (JSON);
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   try {
       var o = JSON;
       var d = delete JSON;  
@@ -37,5 +37,5 @@ assertTrue((function testcase() {
   } finally {
     JSON = o;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

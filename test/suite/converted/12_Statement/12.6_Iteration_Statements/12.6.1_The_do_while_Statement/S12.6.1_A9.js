@@ -4,8 +4,8 @@
 /**
  * "do-while" Statement is evaluated without syntax checks
  *
- * @id: S12.6.1_A9;
  * @section: 12.6.1;
+ * @path: 12_Statement/12.6_Iteration_Statements/12.6.1_The_do_while_Statement/S12.6.1_A9.js;
  * @description: Throwing system exception whithin a "do-while" loop;
  */
 

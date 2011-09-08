@@ -19,18 +19,18 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 8.7.2-8-s;
- * @path: TestCases/chapter08/8.7/8.7.2/8.7.2-8-s.js;
+ * @path: chapter08/8.7/8.7.2/8.7.2-8-s.js;
  * @description: Strict Mode - TypeError isn't thrown if LeftHandSide is a reference to a property of an extensible object;
  * @strict_only;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         var _8_7_2_8 = {};
 
         _8_7_2_8.b = 11;
 
         return _8_7_2_8.b === 11;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

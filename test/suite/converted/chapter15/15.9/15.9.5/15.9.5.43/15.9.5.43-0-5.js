@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.9.5.43-0-5;
- * @path: TestCases/chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-5.js;
+ * @path: chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-5.js;
  * @description: Date.prototype.toISOString - The returned string is the UTC time zone(0);
- * @precondition: (fnExists(Date.prototype.toISOString));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var dateStr = (new Date()).toISOString();
         return dateStr[dateStr.length - 1] === "Z";
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

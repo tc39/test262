@@ -19,15 +19,15 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 8.7.2-2-s;
- * @path: TestCases/chapter08/8.7/8.7.2/8.7.2-2-s.js;
+ * @path: chapter08/8.7/8.7.2/8.7.2-2-s.js;
  * @description: Strict Mode - ReferenceError isn't thrown if LeftHandSide evaluates to a resolvable Reference;
  * @strict_only;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         "use strict";
         var b = 11;
         return b === 11;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

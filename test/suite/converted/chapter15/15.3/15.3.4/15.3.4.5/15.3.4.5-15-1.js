@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5-15-1;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-15-1.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-15-1.js;
  * @description: Function.prototype.bind, 'length' is a data valued own property;
- * @precondition: (fnExists(Function.prototype.bind) && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   function foo() { }
   var o = {};
   
@@ -36,5 +35,5 @@ assertTrue((function testcase() {
       desc.hasOwnProperty('set') === false) {
     return true;
   }    
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

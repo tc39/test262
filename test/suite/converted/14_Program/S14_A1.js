@@ -4,8 +4,8 @@
 /**
  * FunctionExpression must be localed in a reacheable fragment of the program
  *
- * @id: S14_A1;
  * @section: 14;
+ * @path: 14_Program/S14_A1.js;
  * @description: Declaring a function within an "if" Expression;
  */
 

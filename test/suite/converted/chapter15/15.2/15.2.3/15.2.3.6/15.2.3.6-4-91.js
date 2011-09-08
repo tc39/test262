@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-91;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-91.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-91.js;
  * @description: Object.defineProperty will throw TypeError when name.configurable = false, name.writable = false, desc.value and name.value are two strings with different values (8.12.9 step 10.a.ii.1);
- * @precondition: (fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
 
@@ -41,5 +40,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return e instanceof TypeError && dataPropertyAttributesAreCorrect(obj, "foo", "abcd", false, false, false);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

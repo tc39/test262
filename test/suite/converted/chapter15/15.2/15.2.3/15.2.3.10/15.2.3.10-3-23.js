@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.10-3-23;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-23.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-23.js;
  * @description: Object.preventExtensions - properties can still be reassigned after extensions have been prevented;
- * @precondition: (fnExists(Object.preventExtensions) && fnExists(Object.isExtensible));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var obj = { prop: 12 };
         var preCheck = Object.isExtensible(obj);
         Object.preventExtensions(obj);
@@ -33,5 +32,5 @@ assertTrue((function testcase() {
         obj.prop = -1;
 
         return preCheck && obj.prop === -1;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,11 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.2-2-18;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-2-18.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-2-18.js;
  * @description: Object.getPrototypeOf returns the [[Prototype]] of its parameter (JSON);
- * @precondition: (fnExists(Object.getPrototypeOf));
  */
 
-assertTrue((Object.getPrototypeOf(JSON) === Object.prototype));
 
+assertTrue(Object.getPrototypeOf(JSON) === Object.prototype);

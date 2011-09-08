@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.20-3-21;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-3-21.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-3-21.js;
  * @description: Array.prototype.filter - 'length' is an object that has an own valueOf method that returns an object and toString method that returns a string;
- * @precondition: (fnExists(Array.prototype.filter));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var firstStepOccured = false;
         var secondStepOccured = false;
@@ -52,5 +51,5 @@ assertTrue((function testcase() {
         var newArr = Array.prototype.filter.call(obj, callbackfn);
 
         return newArr.length === 1 && newArr[0] === 11 && firstStepOccured && secondStepOccured;
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

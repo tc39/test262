@@ -4,8 +4,8 @@
 /**
  * Operator x-- uses GetValue and PutValue
  *
- * @id: S11.3.2_A2.1_T3;
  * @section: 11.3.2, 11.6.3;
+ * @path: 11_Expressions/11.3_PostfixExpressions/11.3.2_Postfix_Decrement_Operator/S11.3.2_A2.1_T3.js;
  * @description: If Type(x) is not Reference, throw ReferenceError (or SyntaxError);
  * @negative;
  */

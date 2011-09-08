@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.6-4-291;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-291.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-291.js;
  * @description: Object.defineProperty - 'O' is an Arguments object, 'name' is own accessor property of 'O', and 'desc' is accessor descriptor, test updating multiple attribute values of 'name' (10.6 [[DefineOwnProperty]] step 3);
- * @precondition: (fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnObjects() && fnExists(Object.getOwnPropertyDescriptor));
  */
 
-assertTrue(((function () {
+
+assertTrue((function () {
             function getFunc1() {
                 return 10;
             }
@@ -43,5 +42,4 @@ assertTrue(((function () {
                 configurable: false
             });
             return accessorPropertyAttributesAreCorrect(arguments, "0", getFunc2, undefined, undefined, false, false);
-        }(0, 1, 2))));
-
+        }(0, 1, 2)));

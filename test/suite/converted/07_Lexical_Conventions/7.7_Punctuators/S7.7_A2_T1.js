@@ -4,8 +4,8 @@
 /**
  * Punctuator cannot be expressed as a Unicode escape sequence consisting of six characters, namely \u plus four hexadecimal digits
  *
- * @id: S7.7_A2_T1;
  * @section: 7.7;
+ * @path: 07_Lexical_Conventions/7.7_Punctuators/S7.7_A2_T1.js;
  * @description: Try to use {} as a Unicode \u007B\u007D;
  * @negative;
  */

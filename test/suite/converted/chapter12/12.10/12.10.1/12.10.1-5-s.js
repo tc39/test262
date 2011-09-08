@@ -19,16 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.10.1-5-s;
- * @path: TestCases/chapter12/12.10/12.10.1/12.10.1-5-s.js;
+ * @path: chapter12/12.10/12.10.1/12.10.1-5-s.js;
  * @description: with statement allowed in nested Function even if its container Function is strict);
  * @strict_only;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   
     Function("\'use strict\'; var f1 = Function( \"var o = {}; with (o) {};\")");
     return true;
   
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

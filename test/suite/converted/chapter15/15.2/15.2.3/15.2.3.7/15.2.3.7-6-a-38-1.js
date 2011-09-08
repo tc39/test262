@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-38-1;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-38-1.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-38-1.js;
  * @description: Object.defineProperties - 'P' exists in 'O' is an accessor property, test 'P' makes no change if 'desc' is generic descriptor without any attribute (8.12.9 step 5);
- * @precondition: (fnExists(Object.getOwnPropertyDescriptor) && fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var obj = {};
         var getFunc = function () {
@@ -42,5 +41,5 @@ assertTrue((function testcase() {
         Object.defineProperties(obj, { foo: {} });
 
         return accessorPropertyAttributesAreCorrect(obj, "foo", getFunc, undefined, undefined, true, true);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.14-9-a-5;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-a-5.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-a-5.js;
  * @description: Array.prototype.indexOf - deleted properties in step 5 are visible here on an Array-like object;
- * @precondition: (fnExists(Array.prototype.indexOf));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arr = { 10: false, length: 30 };
 
@@ -37,5 +36,5 @@ assertTrue((function testcase() {
         };
 
         return -1 === Array.prototype.indexOf.call(arr, false, fromIndex);
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

@@ -4,9 +4,9 @@
 /**
  * FunctionDeclaration inside the "if" Expression is evaluated as true and function will not be declarated
  *
- * @id: S12.5_A5;
  * @section: 12.5;
- * @description: : The "if" Expression is "function __func(){throw "FunctionExpression";}";;
+ * @path: 12_Statement/12.5_The_if_Statement/S12.5_A5.js;
+ * @description: The "if" Expression is "function __func(){throw "FunctionExpression";}";
  */
 
 //////////////////////////////////////////////////////////////////////////////

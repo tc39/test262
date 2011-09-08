@@ -19,14 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.12.3-6-b-1;
- * @path: TestCases/chapter15/15.12/15.12.3/15.12.3-6-b-1.js;
+ * @path: chapter15/15.12/15.12.3/15.12.3-6-b-1.js;
  * @description: JSON.stringify treats numeric space arguments less than 1 (0.999999)the same as emptry string space argument.;
- * @precondition: (JSON && fnExists(JSON.stringify));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var obj = {a1: {b1: [1,2,3,4], b2: {c1: 1, c2: 2}},a2: 'a2'};
   return JSON.stringify(obj,null, 0.999999)=== JSON.stringify(obj);  /* emptry string should be same as no space arg */
-  }).call(this));
-
+  }
+assertTrue(testcase.call(this));

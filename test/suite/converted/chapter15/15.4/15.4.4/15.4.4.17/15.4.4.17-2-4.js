@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.17-2-4;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-2-4.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-2-4.js;
  * @description: Array.prototype.some - 'length' is an own data property that overrides an inherited data property on an array;
- * @precondition: (fnExists(Array.prototype.some));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         var arrProtoLen = 0;
         function callbackfn1(val, idx, obj) {
             return val > 10;
@@ -46,5 +45,5 @@ assertTrue((function testcase() {
             Array.prototype.length = arrProtoLen;
             delete Array.prototype[2];
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

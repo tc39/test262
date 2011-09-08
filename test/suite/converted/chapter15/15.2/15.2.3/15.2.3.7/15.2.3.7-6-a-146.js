@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.7-6-a-146;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-146.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-146.js;
  * @description: Object.defineProperties - 'O' is an Array, 'name' is the length property of 'O', test TypeError is thrown when the [[Value]] field of 'desc' is an Object that both toString and valueOf wouldn't return primitive value (15.4.5.1 step 3.c);
- * @precondition: (fnExists(Object.defineProperties));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arr = [];
         var toStringAccessed = false;
@@ -52,5 +51,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return (e instanceof TypeError) && toStringAccessed && valueOfAccessed;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

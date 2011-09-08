@@ -4,8 +4,8 @@
 /**
  * If x less than 0, Math.sqrt(x) is NaN
  *
- * @id: S15.8.2.17_A2;
  * @section: 15.8.2.17;
+ * @path: 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.17_sqrt/S15.8.2.17_A2.js;
  * @description: Checking if Math.sqrt(x) is NaN, where x is less than 0;
  */
 

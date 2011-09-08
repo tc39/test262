@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.5-4-306;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-306.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-306.js;
  * @description: Object.create - [[Value]] is set as undefined if it is absent in data descriptor of one property in 'Properties' (8.12.9 step 4.a.i);
- * @precondition: (fnExists(Object.create));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         try {
             var newObj = Object.create({}, {
@@ -39,5 +38,5 @@ assertTrue((function testcase() {
         } catch (e) {
             return false;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

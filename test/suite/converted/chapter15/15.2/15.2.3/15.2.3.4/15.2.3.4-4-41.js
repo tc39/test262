@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.2.3.4-4-41;
- * @path: TestCases/chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-4-41.js;
+ * @path: chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-4-41.js;
  * @description: Object.getOwnPropertyNames - inherited accessor property of String object 'O' is not pushed into the returned array;
- * @precondition: (fnExists(Object.getOwnPropertyNames) && fnExists(Object.defineProperty));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             var str = new String("abc");
 
@@ -47,5 +46,5 @@ assertTrue((function testcase() {
         } finally {
             delete String.prototype.protoProperty;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

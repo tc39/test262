@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5-8-2;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-8-2.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-8-2.js;
  * @description: Function.prototype.bind, [[Class]] of bound function must be 'Function';
- * @precondition: (fnExists(Function.prototype.bind));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   function foo() { }
   var o = {};
   
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
   if (s === '[object Function]') {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

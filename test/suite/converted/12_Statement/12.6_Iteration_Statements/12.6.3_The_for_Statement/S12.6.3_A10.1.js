@@ -4,8 +4,8 @@
 /**
  * Nested "var-loops" nine blocks depth is evaluated properly
  *
- * @id: S12.6.3_A10.1;
  * @section: 12.6.3;
+ * @path: 12_Statement/12.6_Iteration_Statements/12.6.3_The_for_Statement/S12.6.3_A10.1.js;
  * @description: Checking if executing nested "var-loops" nine blocks depth is evaluated properly;
  */
 

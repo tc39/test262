@@ -19,17 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 12.1-2;
- * @path: TestCases/chapter12/12.1/12.1-2.js;
+ * @path: chapter12/12.1/12.1-2.js;
  * @description: 12.1 - block '{ StatementListopt };' is not allowed: try-catch-finally;
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
         try {
             eval("try{};catch{};finally{}");
             return false;
         } catch (e) {
             return e instanceof SyntaxError;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

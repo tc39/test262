@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 10.4.2-1-5;
- * @path: TestCases/chapter10/10.4/10.4.2/10.4.2-1-5.js;
+ * @path: chapter10/10.4/10.4.2/10.4.2-1-5.js;
  * @description: Indirect call to eval has context set to global context (inside another eval);
  */
 
-var __10_4_2_1_5 = "str";assertTrue((function testcase() {
+var __10_4_2_1_5 = "str";
+function testcase() {
         try {
 
             var __10_4_2_1_5 = "str1";
@@ -38,5 +38,5 @@ var __10_4_2_1_5 = "str";assertTrue((function testcase() {
         } finally {
             delete this.__10_4_2_1_5;
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

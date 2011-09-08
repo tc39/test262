@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.3.4.5-21-2;
- * @path: TestCases/chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-21-2.js;
+ * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-21-2.js;
  * @description: Function.prototype.bind - [[Get]] attribute of 'arguments' property in  'F' is thrower;
- * @precondition: (fnExists(Function.prototype.bind));
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         function foo() { }
         var obj = foo.bind({});
@@ -34,5 +33,5 @@ assertTrue((function testcase() {
         } catch (ex) {
             return (ex instanceof TypeError);
         }
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

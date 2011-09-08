@@ -19,13 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.4.15-8-a-19;
- * @path: TestCases/chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-a-19.js;
+ * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-a-19.js;
  * @description: Array.prototype.lastIndexOf -  decreasing length of array does not delete non-configurable properties;
- * @precondition: (fnExists(Array.prototype.lastIndexOf) && fnExists(Object.defineProperty) && fnSupportsArrayIndexGettersOnArrays());
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
 
         var arr = [0, 1, 2, 3];
 
@@ -45,5 +44,5 @@ assertTrue((function testcase() {
         });
 
         return 2 === arr.lastIndexOf("unconfigurable");
-    }).call(this));
-
+    }
+assertTrue(testcase.call(this));

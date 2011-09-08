@@ -19,16 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @id: 15.4.5-1;
- * @path: TestCases/chapter15/15.4/15.4.5/15.4.5-1.js;
+ * @path: chapter15/15.4/15.4.5/15.4.5-1.js;
  * @description: Array instances have [[Class]] set to 'Array';
  */
 
-assertTrue((function testcase() {
+
+function testcase() {
   var a = [];
   var s = Object.prototype.toString.call(a);
   if (s === '[object Array]') {
     return true;
   }
- }).call(this));
-
+ }
+assertTrue(testcase.call(this));

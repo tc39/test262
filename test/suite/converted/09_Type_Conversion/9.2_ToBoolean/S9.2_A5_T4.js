@@ -2,10 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * : Result of boolean conversion from nonempty string value (length is not zero) is true; from empty String (length is zero) is false;
+ * Result of boolean conversion from nonempty string value (length is not zero) is true; from empty String (length is zero) is false
  *
- * @id: S9.2_A5_T4;
  * @section: 9.2, 11.4.9;
+ * @path: 09_Type_Conversion/9.2_ToBoolean/S9.2_A5_T4.js;
  * @description: Any nonempty string convert to Boolean by implicit transformation;
  */
 
