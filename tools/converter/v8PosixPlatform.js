@@ -34,11 +34,16 @@
    /**
     * Appends a bunch of RegExps together into a single RegExp,
     * solving both the RegExp-one-liner problem and the doubled
-    * backslash problem when composing literal string.
+    * backslash problem when composing literal strings.
     *
-    * <p>The arguments can be any mixture of RegExps and strings. The
-    * strings are added as is without escaping -- BEWARE. If
-    * arguments[0] is a RegExp, we use its flag on the resuting RegExp.
+    * <p>The arguments can be any mixture of RegExps and strings. By
+    * expressing the portions that should be well formed regexps as
+    * regexps, we catch well-formedness errors within such a portion
+    * separately. The strings are added as is without escaping --
+    * BEWARE. By not escaping the strings, we can use them to
+    * represent the individually unbalanced fragments, like capturing
+    * parens, around other regexps. If arguments[0] is a RegExp, we
+    * use its flags on the resuting RegExp.
     *
     * <p>Not platform dependent, so does not really belong in this
     * file.
@@ -96,22 +101,38 @@
    }
 
    /**
+    * Converts a relPath to a relPathStr.
+    *
+    * A relPath is an array of filenames relative to some base onto
+    * which it will be concatenated before use.
+    */
+   function toRelPathStr(relPath) {
+     validatePath(relPath);
+     return relPath.join('/');
+   }
+   platform.toRelPathStr = toRelPathStr;
+
+   /**
     * Converts a path to a pathStr.
     *
     * A path is an array of filenames relative to TEST262_ROOT. A
     * pathStr is a (possibly fully qualified string) for referring to
-    * that string on the current platform, according to the operations
+    * that file on the current platform, according to the operations
     * in this *Platform.js file.
     */
    function toPathStr(path) {
      validatePath(path);
      return TEST262_ROOT.concat(path).join('/');
-   };
+   }
    platform.toPathStr = toPathStr;
 
    /**
     * Returns the text found at path, with newlines normalized and
     * any initial BOM (Unicode Byte Order Mark) removed.
+    *
+    * Note: Don't simply revise this (without renamings) to follow the
+    * general pattern of also defining a local 'read' function, as it
+    * will mask the v8 shell's read function, which we use.
     */
    platform.read = function(path) {
      var text = read(toPathStr(path)).
@@ -153,12 +174,12 @@
     * @returns If there is a target, then the null string. Otherwise,
     * the string result of evaluating opt_exprSrc.
     */
-   platform.writeSpawn = function(scriptPaths,
-                                  opt_exprSrc,
-                                  opt_args,
-                                  opt_targetPath,
-                                  opt_spawn_required,
-                                  opt_forceNonStrict) {
+   function writeSpawn(scriptPaths,
+                       opt_exprSrc,
+                       opt_args,
+                       opt_targetPath,
+                       opt_spawn_required,
+                       opt_forceNonStrict) {
      if (opt_exprSrc && !opt_targetPath && !opt_spawn_required) {
        var str = '(function(/*var_args*/) {';
        if (opt_forceNonStrict !== 'forceNonStrict') {
@@ -182,8 +203,21 @@
      }
      if (VERBOSE || DRY_RUN) { print(cmd); }
      if (DRY_RUN) { return ''; }
-     return os.system('bash', ['-c', cmd]);
-   };
+     try {
+       return os.system('bash', ['-c', cmd]);
+     } catch (err) {
+       if (opt_targetPath) {
+         // The error we catch is almost certainly less interesting
+         // than the one unfortunately written to the target file.
+         var message = 'failed: ' + cmd + '\n' +
+           platform.read(opt_targetPath);
+         os.system('rm', [toPathStr(opt_targetPath)]);
+         throw new Error(message);
+       }
+       throw err;
+     }
+   }
+   platform.writeSpawn = writeSpawn;
 
    ////////////////// Only needed for building /////////////////////
 
@@ -193,7 +227,7 @@
     * On platforms (like SES) where this can be a safely confining
     * evaluation, it should be. The implementation here is not safe.
     */
-   platform.evalExprIn = function(exprSrc, env, opt_forceNonStrict) {
+   function evalExprIn(exprSrc, env, opt_forceNonStrict) {
      var varNames = Object.getOwnPropertyNames(env);
      var str = '(function(' + varNames.join(',') + ') {';
      if (opt_forceNonStrict !== 'forceNonStrict') {
@@ -203,12 +237,23 @@
      return (1,eval)(str).apply(void 0, varNames.map(function(varName) {
        return env[varName];
      }));
-   };
+   }
+   platform.evalExprIn = evalExprIn;
+
+   /**
+    * Converts a relPathStr to a relPath.
+    *
+    * <p>See toRelPathStr.
+    */
+   function toRelPath(relPathStr) {
+     return validatePath(relPathStr.split('/'));
+   }
+   platform.toRelPath = toRelPath;
 
    /**
     * Converts a pathStr to a path.
     *
-    * See toPathStr.
+    * <p>See toPathStr.
     */
    function toPath(pathStr) {
      if (pathStr[0] === '/') {
@@ -225,24 +270,38 @@
    /**
     * Does path name a directory?
     */
-   platform.isDirectory = function(path) {
-     var fileOut = os.system('file', [toPathStr(path)]);
-     var fileMatch = fileOut.match(/:\s*([^:]*)\s*$/);
-     if (!fileMatch) { return null; }
-     var fileType = fileMatch[1].trim();
-     return fileType === 'directory';
-   };
+   function isDirectory(path) {
+//     var fileOut = os.system('file', [toPathStr(path)]);
+//     var fileMatch = fileOut.match(/:\s*([^:]*)\s*$/);
+//     if (!fileMatch) { return null; }
+//     var fileType = fileMatch[1].trim();
+//     return fileType === 'directory';
+     try {
+       os.system('test', ['-d', toPathStr(path)]);
+       return true;
+     } catch (x) {
+       return false;
+     }
+   }
+   platform.isDirectory = isDirectory;
 
    /**
     * A list of the filenames found in path, which must name a
     * directory.
     */
-   platform.ls = function(path) {
+   function ls(path) {
      var pathStr = toPathStr(path);
-     var lines = os.system('ls', [pathStr]).trim();
+     if (!isDirectory(path)) { return []; }
+     var lines;
+     try {
+       lines = os.system('ls', [pathStr]).trim();
+     } catch (err) {
+       throw err;
+     }
      if (lines === '') { return []; }
      return lines.split('\n');
-   };
+   }
+   platform.ls = ls;
 
    /**
     * Emits the jsonRecord serialized as JSON, either compactly or
@@ -257,7 +316,7 @@
    }
    global.t262.asJSONTxt = platform.asJSONTxt = asJSONTxt;
 
-   platform.mkdir = function(path) {
+   function mkdir(path) {
      var pathStr = toPathStr(path);
      if (DRY_RUN) {
        print('mkdir ' + pathStr);
@@ -269,7 +328,8 @@
        print('***could not mkdir: ' + pathStr);
        throw err;
      }
-   };
+   }
+   platform.mkdir = mkdir;
 
    ////////////////// Only needed for running //////////////////////
 

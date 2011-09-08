@@ -139,7 +139,7 @@ namespace Microsoft.Sputnik.Interop.ParserEngine
             }
             FileStream fs = new FileStream(destination.Remove(destination.LastIndexOf("\\")) + globalScopeFileName, FileMode.Create, FileAccess.Write);
             StreamWriter sw = new StreamWriter(fs);
-            sw.Write("this.GlobalScopeTests = this.GlobalScopeTests || new Array();\n");
+            sw.Write("this.GlobalScopeTests = this.GlobalScopeTests || {};\n");
             sw.Flush();
             sw.Close();
             fs.Close();
