@@ -6,8 +6,9 @@
  * Each implementation of *Platform.js abstracts the underlying OS and JS
  * engine peculiarities.
  *
- * <p>The implementation here is specific to the v8 shell running on a
- * Posix platform.
+ * <p>The implementation here is for running in many browsers, and so
+ * should assume the platform may be anything from ES3+Reality
+ * forward, including somewhat non-conformant implementations.
  */
 (function (global) {
    "use strict";
@@ -47,6 +48,9 @@
     *
     * <p>Not platform dependent, so does not really belong in this
     * file.
+    *
+    * <p>TODO(erights): must rewrite to avoid depending on anything
+    * not in ES3+Reality.
     */
    function regExp(var_args) {
      var args = [].slice.call(arguments, 0);
@@ -64,22 +68,18 @@
 
    ////////////////// Needed for building and running //////////////
 
-   try {
-     read('tools/converter/v8PosixPlatform.js');
-   } catch (err) {
-     throw new Error('Must run in a test262 source root');
-   }
 
-   var ABS_ROOT = os.system('pwd', ['-P']).trim().split('/');
+   // Someday these will be https:
+   var ABS_ROOT = ['http://test262.ecmascript.org'];
 
-   var TEST262_ROOT = ABSOLUTE_PATHSTR ? ABS_ROOT : [];
+   var TEST262_ROOT = ABSOLUTE_PATHSTR ? ABS_ROOT : ['http:'];
 
    var TEST262_ROOT_STR = TEST262_ROOT.join('/');
 
-   var CONVERTER_PATH = ['tools', 'converter'];
+   var CONVERTER_PATH = ['resources', 'scripts', 'global'];
    platform.CONVERTER_PATH = CONVERTER_PATH;
 
-   var ME_PATH = CONVERTER_PATH.concat('v8PosixPlatform.js');
+   var ME_PATH = CONVERTER_PATH.concat('browserPlatform.js');
 
    /**
     *
@@ -135,7 +135,7 @@
     * will mask the v8 shell's read function, which we use.
     */
    platform.read = function(path) {
-     var text = read(toPathStr(path)).
+     var text = "TBD".
        replace(/\r\n/g, '\n').
        replace(/\r/g, '\n');
      if (text.charCodeAt(0) === 0xfeff) { return text.substring(1); }
@@ -163,9 +163,7 @@
     * @param opt_args A list of strings to be bound to top-level
     * 'arguments' both in opt_src and in the possibly spawed scripts.
     * @param opt_targetPath A path array naming a file where the
-    * result of opt_src should be written. On v8 currently, if this is
-    * provided, then writeSpawn will spawn, since we have no other way
-    * to implement this functionality. In the browser context, the
+    * result of opt_src should be written. In the browser context, the
     * result is PUT (or should that be POST), using XHR, to the target
     * resource.
     * @param opt_spawn_required If truthy, forces spawning.
@@ -178,157 +176,14 @@
                        opt_targetPath,
                        opt_spawn_required,
                        opt_forceNonStrict) {
-     if (opt_src && !opt_targetPath && !opt_spawn_required) {
-       var str = '(function(/*var_args*/) { ';
-       if (opt_forceNonStrict !== 'forceNonStrict') {
-         str += '"use strict"; ';
-       }
-       str += opt_src + '\n})';
-       return ''+(1,eval)(str).apply(void 0, opt_args || []);
-     }
-
-     var cmd = 'v8 ' + toPathStr(ME_PATH) + ' ';
-     cmd += scriptPaths.map(toPathStr).join(' ');
-
-     if (opt_src) {
-       cmd += ' -e ' + JSON.stringify(opt_src);
-     }
-     if (opt_args) {
-       cmd += ' -- ' + opt_args.map(JSON.stringify).join(' ');
-     }
-     if (opt_targetPath) {
-       cmd += ' > ' + toPathStr(opt_targetPath);
-     }
-     if (VERBOSE || DRY_RUN) { print(cmd); }
+     "TBD"();
+     if (VERBOSE || DRY_RUN) { "TBD"(); }
      if (DRY_RUN) { return ''; }
-     try {
-       return os.system('bash', ['-c', cmd]);
-     } catch (err) {
-       if (opt_targetPath) {
-         // The error we catch is almost certainly less interesting
-         // than the one unfortunately written to the target file.
-         var message = 'failed: ' + cmd + '\n' +
-           platform.read(opt_targetPath);
-         os.system('rm', [toPathStr(opt_targetPath)]);
-         throw new Error(message);
-       }
-       throw err;
-     }
+
+     return "TBD";
    }
    platform.writeSpawn = writeSpawn;
 
-
-   ////////////////// Only needed for building /////////////////////
-
-   /**
-    * Calls a non-strict indirect eval function on exprSrc.
-    *
-    * On platforms (like SES) where this can be a safely confining
-    * evaluation, it should be. The implementation here is not safe.
-    */
-   function evalExprIn(exprSrc, env, opt_forceNonStrict) {
-     var varNames = Object.getOwnPropertyNames(env);
-     var str = '(function(' + varNames.join(',') + ') {';
-     if (opt_forceNonStrict !== 'forceNonStrict') {
-       str += '"use strict";';
-     }
-     str += ' return (' + exprSrc + '); })';
-     return (1,eval)(str).apply(void 0, varNames.map(function(varName) {
-       return env[varName];
-     }));
-   }
-   platform.evalExprIn = evalExprIn;
-
-   /**
-    * Converts a relPathStr to a relPath.
-    *
-    * <p>See toRelPathStr.
-    */
-   function toRelPath(relPathStr) {
-     return validatePath(relPathStr.split('/'));
-   }
-   platform.toRelPath = toRelPath;
-
-   /**
-    * Converts a pathStr to a path.
-    *
-    * <p>See toPathStr.
-    */
-   function toPath(pathStr) {
-     if (pathStr[0] === '/') {
-       if (pathStr.indexOf(TEST262_ROOT_STR + '/') !== 0) {
-         throw new Error('"' + pathStr + '" must start with "' +
-                         TEST262_ROOT_STR + '/"');
-       }
-       pathStr = pathStr.substring(TEST262_ROOT_STR.length + 1);
-     }
-     return validatePath(pathStr.split('/'));
-   }
-   platform.toPath = toPath;
-
-   /**
-    * Does path name a directory?
-    */
-   function isDirectory(path) {
-//     var fileOut = os.system('file', [toPathStr(path)]);
-//     var fileMatch = fileOut.match(/:\s*([^:]*)\s*$/);
-//     if (!fileMatch) { return null; }
-//     var fileType = fileMatch[1].trim();
-//     return fileType === 'directory';
-     try {
-       os.system('test', ['-d', toPathStr(path)]);
-       return true;
-     } catch (x) {
-       return false;
-     }
-   }
-   platform.isDirectory = isDirectory;
-
-   /**
-    * A list of the filenames found in path, which must name a
-    * directory.
-    */
-   function ls(path) {
-     var pathStr = toPathStr(path);
-     if (!isDirectory(path)) { return []; }
-     var lines;
-     try {
-       lines = os.system('ls', [pathStr]).trim();
-     } catch (err) {
-       throw err;
-     }
-     if (lines === '') { return []; }
-     return lines.split('\n');
-   }
-   platform.ls = ls;
-
-   /**
-    * Emits the jsonRecord serialized as JSON, either compactly or
-    * readably according to VERBOSE.
-    */
-   function asJSONTxt(jsonRecord) {
-     if (VERBOSE) {
-       return JSON.stringify(jsonRecord, void 0, ' ');
-     } else {
-       return JSON.stringify(jsonRecord);
-     }
-   }
-   global.t262.asJSONTxt = platform.asJSONTxt = asJSONTxt;
-
-   function mkdir(path) {
-     var pathStr = toPathStr(path);
-     if (DRY_RUN) {
-       print('mkdir ' + pathStr);
-       return;
-     }
-     try {
-       os.mkdirp(pathStr);
-     } catch (err) {
-       print('***could not mkdir: ' + pathStr);
-       throw err;
-     }
-   }
-   platform.mkdir = mkdir;
 
    ////////////////// Only needed for running //////////////////////
 

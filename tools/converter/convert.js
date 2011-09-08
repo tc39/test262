@@ -366,8 +366,8 @@
          try {
            platform.writeSpawn(
              [ME_PATH],
-             't262.convertTest("' + toPathStr(inBase) +
-               '", "' + toRelPathStr(nextRelPath) + '")',
+             'print(t262.convertTest("' + toPathStr(inBase) +
+               '", "' + toRelPathStr(nextRelPath) + '"));',
              void 0,
              outFilePath);
          } catch (err) {
@@ -455,8 +455,8 @@
        try {
          platform.writeSpawn(
            [ME_PATH],
-           't262.asJSONTxt(t262.buildSection("' +
-             toPathStr(inPath) + '"))',
+           'print(t262.asJSONTxt(t262.buildSection("' +
+             toPathStr(inPath) + '")));',
            void 0,
            outFilePath);
        } catch (err) {
