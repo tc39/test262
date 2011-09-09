@@ -52,4 +52,4 @@ function testcase() {
         var testResult = Array.prototype.map.call(obj, callbackfn);
         return testResult[0] === true && testResult[1] === false;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

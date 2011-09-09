@@ -33,4 +33,4 @@ function testcase() {
   if(f.reduce(cb,-1) === 9)
     return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

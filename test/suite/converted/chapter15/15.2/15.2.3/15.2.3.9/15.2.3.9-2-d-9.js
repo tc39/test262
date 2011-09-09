@@ -32,4 +32,4 @@ function testcase() {
         return Object.isFrozen(argObj);
 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

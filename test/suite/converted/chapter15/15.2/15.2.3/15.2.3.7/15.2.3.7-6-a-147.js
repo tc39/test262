@@ -57,4 +57,4 @@ function testcase() {
         });
         return arr.length === 3 && toStringAccessed && !valueOfAccessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

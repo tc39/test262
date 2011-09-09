@@ -39,4 +39,4 @@ function testcase() {
         var newArr = Array.prototype.map.call(obj, callbackfn);
         return newArr.length === 1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

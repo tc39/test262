@@ -45,4 +45,4 @@ function testcase() {
         
         return 2 === arr.indexOf("unconfigurable");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

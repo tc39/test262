@@ -50,4 +50,4 @@ function testcase() {
             delete Boolean.prototype.prop;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

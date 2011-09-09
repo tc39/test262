@@ -45,4 +45,4 @@ function testcase() {
 
         return desc1.hasOwnProperty("value") && desc2.hasOwnProperty("get");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

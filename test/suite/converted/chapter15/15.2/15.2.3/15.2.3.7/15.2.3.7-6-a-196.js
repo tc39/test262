@@ -37,4 +37,4 @@ function testcase() {
 
         return arr.hasOwnProperty("0") && typeof (arr[0]) === "undefined";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

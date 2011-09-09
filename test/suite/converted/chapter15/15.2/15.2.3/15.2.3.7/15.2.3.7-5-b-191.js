@@ -39,4 +39,4 @@ function testcase() {
 
         return obj.property === "present";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -41,4 +41,4 @@ function testcase() {
   if(arr.some(callbackfn) === true && callCnt === 7) 
     return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -63,4 +63,4 @@ function testcase() {
             return !result1 && !result2 && desc1.enumerable === false && desc2.enumerable === false && e instanceof TypeError;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

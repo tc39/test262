@@ -43,4 +43,4 @@ function testcase() {
             delete fnGlobalObject().writable;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

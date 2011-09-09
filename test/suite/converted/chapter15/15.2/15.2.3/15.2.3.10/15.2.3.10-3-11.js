@@ -35,4 +35,4 @@ function testcase() {
         argObj[0] = 12;
         return preCheck && !argObj.hasOwnProperty("0");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

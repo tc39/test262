@@ -60,4 +60,4 @@ function testcase() {
 
         return newArr.length === 2 && valueOfAccessed && !toStringAccessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

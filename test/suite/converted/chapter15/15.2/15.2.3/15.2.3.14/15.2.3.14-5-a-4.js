@@ -34,4 +34,4 @@ function testcase() {
 
         return typeof array[0] === "undefined" && desc.hasOwnProperty("configurable") && desc.configurable === true;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

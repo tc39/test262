@@ -43,4 +43,4 @@ function testcase() {
         return beforeWrite === true && afterWrite === true;
 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

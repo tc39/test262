@@ -48,4 +48,4 @@ function testcase() {
 
         return obj.hasOwnProperty("property") && obj.property === "isWritable";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

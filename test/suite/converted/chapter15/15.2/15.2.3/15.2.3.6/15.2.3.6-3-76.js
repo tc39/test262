@@ -45,4 +45,4 @@ function testcase() {
         var afterDeleted = obj.hasOwnProperty("property");
         return beforeDeleted && afterDeleted && typeof (obj.property) === "undefined";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

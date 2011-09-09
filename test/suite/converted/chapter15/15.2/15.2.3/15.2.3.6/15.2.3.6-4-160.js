@@ -34,4 +34,4 @@ function testcase() {
 
         return arrObj.length === 3 && arrObj[0] === 0 && !arrObj.hasOwnProperty("1") && arrObj[2] === 2;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

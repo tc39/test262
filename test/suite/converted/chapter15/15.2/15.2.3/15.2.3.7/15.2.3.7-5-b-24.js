@@ -45,4 +45,4 @@ function testcase() {
             delete Math.enumerable;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

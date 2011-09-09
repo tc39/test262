@@ -6,12 +6,34 @@
    "use strict";
 
    var t262 = global.t262;
+
    var platform = t262.platform;
-   var regExp = platform.regExp;
    var toRelPathStr = platform.toRelPathStr;
    var toPathStr    = platform.toPathStr;
    var toRelPath    = platform.toRelPath;
    var toPath       = platform.toPath;
+
+   var utils = t262.utils;
+   var forEach = utils.forEach;
+   var map     = utils.map;
+   var filter  = utils.filter;
+   var keys    = utils.keys;
+   var trim    = utils.trim;
+   var regExp  = utils.regExp;
+
+   var CONTRIB_DIRS = [
+     ['test', 'suite', 'other'],
+     ['test', 'suite', 'sputnik', 'Conformance'],
+     ['test', 'suite', 'ietestcenter']
+   ];
+
+   var CONVERTED_DIR = ['test', 'suite', 'converted'];
+
+   var OUT_DIR = ['website', 'resources', 'scripts', 'testcases2'];
+
+   var CONVERT_PATH = platform.CONVERTER_DIR.concat('convert.js');
+
+/////////////////////////////////////////////////////////////////
 
    var headerPattern = /(?:(?:\/\/.*)?\s*\n)*/;
    var captureCommentPattern = /\/\*\*?((?:\s|\S)*?)\*\/\s*\n/;
@@ -48,12 +70,14 @@
             /return\s+true;?/, blanksPattern,
             /\}$/);
 
+/////////////////////////////////////////////////////////////////
+
    /**
     * Strip the left margin "*"s that are found in the body of a
     * multiline doc-comment like this one.
     */
    function stripStars(text) {
-     return text.replace(/\s*\n\s*\*\s?/g, '\n').trim();
+     return trim(text.replace(/\s*\n\s*\*\s?/g, '\n'));
    }
 
    /**
@@ -77,12 +101,12 @@
        // Can't happen?
        throw new Error('unrecognized: ' + name);
      }
-     envelope.header = envelopeMatch[1].trim();
+     envelope.header = trim(envelopeMatch[1]);
 
      if (envelopeMatch[2]) {
        var propTexts = envelopeMatch[2].split(/\s*\n\s*\*\s*@/);
        envelope.comment = stripStars(propTexts.shift()), // notice side effect
-       propTexts.forEach(function(propText) {
+       forEach(propTexts, function(propText) {
          var propName = propText.match(/^\w+/)[0];
          var propVal = propText.substring(propName.length);
          // strip optional initial colon or final semicolon.
@@ -100,8 +124,8 @@
 
      var registerMatch = registerPattern.exec(envelope.rest);
      if (registerMatch) {
-       envelope.rest = registerMatch[1].trim();
-       envelope.registerExpr = registerMatch[2].trim();
+       envelope.rest = trim(registerMatch[1]);
+       envelope.registerExpr = trim(registerMatch[2]);
      } else if (envelope.rest.indexOf('ES5Harness.registerTest') >= 0) {
        print(' \n--header---\n|' + envelope.header +
              '|\n--rest-----\n|' + envelope.rest +
@@ -122,9 +146,10 @@
     * <p>Programs do not conveniently return any value, even their
     * completion value, so Programs in canonical test262 style instead
     * indicate success simply by completing normally, i.e., without
-    * throwing anything. The convertion assumes a one argument
-    * <code>assertTrue</code> function which throws an indication of
-    * test failure iff given a falsy argument.
+    * throwing anything. The conversion assumes a one argument
+    * <code>runTestCase</code> function which calls it function
+    * argument and throws an indication of test failure iff that
+    * function returns a falsy argument.
     *
     * <p>Unless it specifies otherwise, the Program source may be
     * executed strict and/or non-strict, and it may be exeuted within
@@ -137,25 +162,25 @@
      if (!cfnbMatch) {
        throw new Error('Could not recognize: "' + funcSrc + '"');
      }
-     var name = cfnbMatch[1].trim();
-     var body = cfnbMatch[2].trim();
+     var name = trim(cfnbMatch[1]);
+     var body = trim(cfnbMatch[2]);
 
      // Look for special cases
 
      var cebMatch = captureExprBodyPattern.exec(body);
      if (cebMatch) {
-       return 'assertTrue(' + cebMatch[1].trim() + ');';
+       return 'assertTrue(' + trim(cebMatch[1]) + ');';
      }
 
      var cpMatch = capturePredicatePattern.exec(body);
      if (cpMatch) {
-       return 'assertTrue(' + cpMatch[1].trim() + ');';
+       return 'assertTrue(' + trim(cpMatch[1]) + ');';
      }
 
      // General case
 
      return funcSrc + '\n' +
-       'assertTrue(' + name + '.call(this));';
+       'runTestCase(' + name + ');';
    }
 
    /**
@@ -164,7 +189,7 @@
     */
    function gatherOne(envelope, name) {
      if (envelope.testRecord) {
-       var propNames = Object.keys(envelope.testRecord);
+       var propNames = keys(envelope.testRecord);
        if (propNames.length >= 1) {
          // This need not be an error. It's just here so we notice the
          // first time it happens. This would happen if an
@@ -254,7 +279,7 @@
      var nextRelPath = relPath.concat([name]);
      var nextPath = inBase.concat(nextRelPath);
 
-     var src = platform.read(nextPath);
+     var src = platform.getText(nextPath);
      var testRecord;
      if (!src) {
        throw new Error('no src: ' + toPathStr(nextPath));
@@ -313,8 +338,8 @@
        result += ' * ' + testRecord.comment.replace(/\n/g, '\n * ') + '\n *\n';
      }
      delete testRecord.comment;
-     KNOWN_PROPS.forEach(addProp);
-     Object.keys(testRecord).forEach(addProp);
+     forEach(KNOWN_PROPS, addProp);
+     forEach(keys(testRecord), addProp);
      result += ' */\n\n' + test;
      return result;
    }
@@ -334,18 +359,6 @@
    }
    t262.convertTest = convertTest;
 
-   var SRC_DIRS = [
-     ['test', 'suite', 'other'],
-     ['test', 'suite', 'ietestcenter'],
-     ['test', 'suite', 'sputnik', 'Conformance']
-   ];
-
-   var CONV_DIR = ['test', 'suite', 'converted'];
-
-   var OUT_DIR = ['website', 'resources', 'scripts', 'testcases2'];
-
-   var ME_PATH = platform.CONVERTER_PATH.concat('convert.js');
-
    var writeSpawnFailures = [];
 
    /**
@@ -357,7 +370,7 @@
      var inPath = inBase.concat(relPath);
      var outPath = outBase.concat(relPath);
      platform.mkdir(outPath);
-     platform.ls(inPath).forEach(function(name) {
+     forEach(platform.ls(inPath), function(name) {
        var nextRelPath = relPath.concat([name]);
        if (platform.isDirectory(inBase.concat(nextRelPath))) {
          convertAll(inBase, outBase, nextRelPath);
@@ -365,8 +378,8 @@
          var outFilePath = outPath.concat([name]);
          try {
            platform.writeSpawn(
-             [ME_PATH],
-             'print(t262.convertTest("' + toPathStr(inBase) +
+             [CONVERT_PATH],
+             't262.show(t262.convertTest("' + toPathStr(inBase) +
                '", "' + toRelPathStr(nextRelPath) + '"));',
              void 0,
              outFilePath);
@@ -388,12 +401,12 @@
    function convert(opt_relPathStr) {
      var relPath = opt_relPathStr ? toRelPath(opt_relPathStr) : [];
      writeSpawnFailures = [];
-     SRC_DIRS.forEach(function(srcDir) {
-       convertAll(srcDir, CONV_DIR, relPath);
+     forEach(CONTRIB_DIRS, function(srcDir) {
+       convertAll(srcDir, CONVERTED_DIR, relPath);
      });
      if (writeSpawnFailures.length >= 1) {
        print('********* failures **********');
-       writeSpawnFailures.forEach(function(failure) {
+       forEach(writeSpawnFailures, function(failure) {
          print(failure.error + ': ' + toRelPathStr(failure.relPath));
        });
        throw writeSpawnFailures[0].error;
@@ -411,17 +424,17 @@
      var path = toPath(pathStr);
      if (!platform.isDirectory(path)) { throw new Error('not dir: ' + path); }
 
-     var jsFiles = platform.ls(path).filter(function(name) {
+     var jsFiles = filter(platform.ls(path), function(name) {
        return /\.js$/.test(name);
      });
-     var testRecords = jsFiles.map(function(name) {
+     var testRecords = map(jsFiles, function(name) {
        var testRecord = parseTestRecord(path, name);
 
        delete testRecord.header;
        delete testRecord.comment;
        return testRecord;
      });
-     testRecords = testRecords.filter(function(testRecord) {
+     testRecords = filter(testRecords, function(testRecord) {
        return testRecord !== null;
      });
      return {
@@ -441,7 +454,7 @@
    function buildAll(inBase, outBase, relPath) {
      var inPath = inBase.concat(relPath);
      var hasJS = false;
-     platform.ls(inPath).forEach(function(name) {
+     forEach(platform.ls(inPath), function(name) {
        var nextRelPath = relPath.concat([name]);
        if (platform.isDirectory(inBase.concat(nextRelPath))) {
          buildAll(inBase, outBase, nextRelPath);
@@ -454,9 +467,8 @@
        var outFilePath = outBase.concat([name]);
        try {
          platform.writeSpawn(
-           [ME_PATH],
-           'print(t262.asJSONTxt(t262.buildSection("' +
-             toPathStr(inPath) + '")));',
+           [CONVERT_PATH],
+           't262.showJSON(t262.buildSection("' + toPathStr(inPath) + '"));',
            void 0,
            outFilePath);
        } catch (err) {
@@ -479,10 +491,10 @@
     */
    function buildWebSite(opt_relPathStr) {
      var relPath = opt_relPathStr ? toRelPath(opt_relPathStr) : [];
-     SRC_DIRS.forEach(function(srcDir) {
+     forEach(CONTRIB_DIRS, function(srcDir) {
        buildAll(srcDir, OUT_DIR, relPath);
      });
-//     buildAll(CONV_DIR, OUT_DIR, relPath);
+//     buildAll(CONVERTED_DIR, OUT_DIR, relPath);
    }
    t262.buildWebSite = buildWebSite;
 

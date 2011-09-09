@@ -61,4 +61,4 @@ function testcase() {
         return Array.prototype.some.call(child, callbackfn1) &&
             !Array.prototype.some.call(child, callbackfn2);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

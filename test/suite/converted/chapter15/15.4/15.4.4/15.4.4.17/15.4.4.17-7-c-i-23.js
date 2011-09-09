@@ -43,4 +43,4 @@ function testcase() {
             fnGlobalObject().length = oldLen;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

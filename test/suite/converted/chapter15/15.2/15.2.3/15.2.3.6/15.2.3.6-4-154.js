@@ -35,4 +35,4 @@ function testcase() {
         return arrObj.length === 4294967294;
 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

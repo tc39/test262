@@ -32,4 +32,4 @@ function testcase() {
 
         return [11].some(callbackfn, JSON);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

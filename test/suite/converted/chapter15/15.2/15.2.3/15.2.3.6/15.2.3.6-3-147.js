@@ -37,4 +37,4 @@ function testcase() {
             delete JSON.value;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

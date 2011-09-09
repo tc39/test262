@@ -33,4 +33,4 @@ function testcase() {
 
         return [11].some(callbackfn, fnGlobalObject());
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

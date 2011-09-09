@@ -37,4 +37,4 @@ function testcase() {
         var newArr = Array.prototype.filter.call(obj, callbackfn);
         return newArr[0] === true;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

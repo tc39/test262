@@ -38,4 +38,4 @@ function testcase() {
 
         return newObj.prop === "VerifyArgumentsObject";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

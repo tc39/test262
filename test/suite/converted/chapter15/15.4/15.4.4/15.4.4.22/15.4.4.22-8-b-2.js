@@ -44,4 +44,4 @@ function testcase() {
 
         return preVal === 11 && called === 2;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

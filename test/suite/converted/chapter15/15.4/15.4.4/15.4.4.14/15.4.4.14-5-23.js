@@ -43,4 +43,4 @@ function testcase() {
 
         return [0, true].indexOf(true, fromIndex) === 1 && toStringAccessed && valueOfAccessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

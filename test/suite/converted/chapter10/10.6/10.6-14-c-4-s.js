@@ -39,4 +39,4 @@ function testcase() {
             return e instanceof TypeError;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -33,4 +33,4 @@ function testcase() {
                      '\t\r \n}\t\r \n');  // should JOSN parse without error
     return true;
   }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

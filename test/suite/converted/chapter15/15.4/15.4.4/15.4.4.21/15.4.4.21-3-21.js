@@ -50,4 +50,4 @@ function testcase() {
 
         return Array.prototype.reduce.call(obj, callbackfn, 1) === true && valueOfOccured && toStringOccured;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

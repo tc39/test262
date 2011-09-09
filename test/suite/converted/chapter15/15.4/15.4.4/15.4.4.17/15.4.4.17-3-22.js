@@ -58,4 +58,4 @@ function testcase() {
             return (ex instanceof TypeError) && toStringAccessed && valueOfAccessed && !callbackfnAccessed;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

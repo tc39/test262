@@ -50,4 +50,4 @@ function testcase() {
         return Array.prototype.some.call(obj, callbackfn1) &&
             !Array.prototype.some.call(obj, callbackfn2) && toStringAccessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

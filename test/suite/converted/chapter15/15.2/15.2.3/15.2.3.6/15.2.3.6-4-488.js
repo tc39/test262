@@ -46,4 +46,4 @@ function testcase() {
 
         return propertyDefineCorrect && desc.configurable === false && obj.hasOwnProperty("prop");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

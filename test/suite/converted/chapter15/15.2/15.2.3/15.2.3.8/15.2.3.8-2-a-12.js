@@ -34,4 +34,4 @@ function testcase() {
         delete dateObj.foo;
         return preCheck && dateObj.foo === 10;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

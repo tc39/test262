@@ -39,4 +39,4 @@ function testcase() {
             return (e instanceof TypeError) && (arr.hasOwnProperty("0") === false);
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

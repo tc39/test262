@@ -32,4 +32,4 @@ function testcase() {
         return obj.hasOwnProperty("AB\n\\cd");
 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

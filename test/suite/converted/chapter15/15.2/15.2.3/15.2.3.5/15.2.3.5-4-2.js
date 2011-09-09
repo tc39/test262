@@ -29,4 +29,4 @@ function testcase() {
         var newObj = Object.create({}, undefined);
         return (newObj instanceof Object);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

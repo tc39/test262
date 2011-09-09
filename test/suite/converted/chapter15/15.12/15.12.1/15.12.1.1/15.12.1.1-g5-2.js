@@ -32,4 +32,4 @@ function testcase() {
         return e.name==='SyntaxError'
         }
   }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

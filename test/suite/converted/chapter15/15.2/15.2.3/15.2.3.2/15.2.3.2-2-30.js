@@ -29,4 +29,4 @@ function testcase() {
 
         return proto.isPrototypeOf(fnGlobalObject()) === true;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

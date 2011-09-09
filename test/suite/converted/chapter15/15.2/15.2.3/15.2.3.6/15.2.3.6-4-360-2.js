@@ -49,4 +49,4 @@ function testcase() {
             desc2.enumerable === true && desc2.configurable === true &&
             obj.prop === 20 && typeof desc2.set === "undefined" && desc2.get === getFunc;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -31,4 +31,4 @@ function testcase() {
         var obj = foo.bind({});
         return Object.prototype.toString.call(obj) === "[object Function]";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

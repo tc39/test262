@@ -42,4 +42,4 @@ function testcase() {
             delete Number.prototype.prop;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

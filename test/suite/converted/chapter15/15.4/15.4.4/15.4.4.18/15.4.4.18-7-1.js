@@ -39,4 +39,4 @@ function testcase() {
   if( callCnt === 5)    
     return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

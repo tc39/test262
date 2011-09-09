@@ -31,4 +31,4 @@ function testcase() {
 
         return typeof desc !== "undefined" && desc.value === 1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

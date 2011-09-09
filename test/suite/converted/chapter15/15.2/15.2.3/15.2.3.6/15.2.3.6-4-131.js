@@ -33,4 +33,4 @@ function testcase() {
         });
         return arrObj.length === 0;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

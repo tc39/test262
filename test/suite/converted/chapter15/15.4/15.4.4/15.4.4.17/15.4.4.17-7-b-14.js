@@ -42,4 +42,4 @@ function testcase() {
 
         return !arr.some(callbackfn) && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

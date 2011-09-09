@@ -47,4 +47,4 @@ function testcase() {
         arr.lastIndexOf(2);
         return !elementThirdAccessed && !elementFirstAccessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -35,4 +35,4 @@ function testcase() {
         Object.preventExtensions(arg);
         return !Object.isFrozen(arg);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

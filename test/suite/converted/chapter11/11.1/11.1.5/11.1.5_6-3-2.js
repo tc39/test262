@@ -35,4 +35,4 @@ function testcase() {
   var desc = Object.getOwnPropertyDescriptor(o,"foo");
   return desc.set === undefined
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

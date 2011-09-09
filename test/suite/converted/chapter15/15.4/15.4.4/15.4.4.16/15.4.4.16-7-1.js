@@ -42,4 +42,4 @@ function testcase() {
 
   return calledForThree; 
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

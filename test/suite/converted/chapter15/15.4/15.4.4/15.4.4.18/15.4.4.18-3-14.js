@@ -52,4 +52,4 @@ function testcase() {
 
         return !accessed1 && !accessed2 && !accessed3;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

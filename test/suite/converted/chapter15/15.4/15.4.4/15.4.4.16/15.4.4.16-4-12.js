@@ -32,4 +32,4 @@ function testcase() {
 
         return ![11, 9].every(callbackfn);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

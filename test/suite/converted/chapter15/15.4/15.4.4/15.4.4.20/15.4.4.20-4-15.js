@@ -50,4 +50,4 @@ function testcase() {
             return (ex instanceof TypeError) && lengthAccessed && !loopAccessed;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

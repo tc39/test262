@@ -40,4 +40,4 @@ function testcase() {
 
         return obj.hasOwnProperty("property") && isEnumerable;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

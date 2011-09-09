@@ -32,4 +32,4 @@ function testcase() {
         funObj[0] = 12;
         return preCheck && !funObj.hasOwnProperty("0");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

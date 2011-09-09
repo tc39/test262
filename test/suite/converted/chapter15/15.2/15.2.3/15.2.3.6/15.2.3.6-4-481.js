@@ -49,4 +49,4 @@ function testcase() {
 
         return desc1.set === setFunc && typeof desc2.set === "undefined";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -40,4 +40,4 @@ function testcase() {
         }
         return !verifyEnumerable && argObj.hasOwnProperty("callee");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

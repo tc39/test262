@@ -38,4 +38,4 @@ function testcase() {
 
         return -1 === arr.indexOf("last");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -45,4 +45,4 @@ function testcase() {
 
         return propertyDefineCorrect && desc.enumerable === false;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

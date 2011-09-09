@@ -35,4 +35,4 @@ function testcase() {
 
         return newInstance.valueOf() === true;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

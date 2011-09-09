@@ -34,4 +34,4 @@ function testcase() {
         var arr = [1, 2, , 4, '5'];
         return arr.reduce(callbackfn) === "105";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

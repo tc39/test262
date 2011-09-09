@@ -57,4 +57,4 @@ function testcase() {
             return typeof desc1.set === "undefined" && typeof desc2.set === "undefined" && e instanceof TypeError;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -33,4 +33,4 @@ function testcase() {
   } 
   return _10_4_2_3_c_1_sFunc();
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

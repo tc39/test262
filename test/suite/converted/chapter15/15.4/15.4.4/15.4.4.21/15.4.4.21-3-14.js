@@ -54,4 +54,4 @@ function testcase() {
             Array.prototype.reduce.call(obj3, callbackfn3, 1) === 1 &&
             !accessed1 && !accessed2 && !accessed3;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

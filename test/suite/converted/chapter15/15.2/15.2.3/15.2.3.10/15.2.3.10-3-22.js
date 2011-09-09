@@ -34,4 +34,4 @@ function testcase() {
         return preCheck && !obj.hasOwnProperty("prop");
 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

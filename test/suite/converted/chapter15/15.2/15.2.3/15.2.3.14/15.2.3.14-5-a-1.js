@@ -33,4 +33,4 @@ function testcase() {
 
         return desc.hasOwnProperty("value") && desc.value === "prop1";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

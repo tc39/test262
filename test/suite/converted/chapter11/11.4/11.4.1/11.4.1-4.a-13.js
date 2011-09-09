@@ -37,4 +37,4 @@ function testcase() {
   if(d === false && Array.isArray(a) === true)
     return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

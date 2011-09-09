@@ -33,4 +33,4 @@ function testcase() {
             return ex instanceof RangeError;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

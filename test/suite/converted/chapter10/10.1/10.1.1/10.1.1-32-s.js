@@ -30,4 +30,4 @@ function testcase() {
         funObj();
         return public === 1 && anotherVariable === 2;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

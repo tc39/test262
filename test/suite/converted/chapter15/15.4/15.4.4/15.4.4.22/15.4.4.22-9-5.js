@@ -37,4 +37,4 @@ function testcase() {
   if(arr.reduceRight(callbackfn) === 1 && callCnt === 0 )
     return true;    
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

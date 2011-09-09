@@ -33,4 +33,4 @@ function testcase() {
 
         return preCheck && obj.prop === -1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

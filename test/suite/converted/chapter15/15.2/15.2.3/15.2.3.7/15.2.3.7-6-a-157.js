@@ -35,4 +35,4 @@ function testcase() {
         });
         return arr.length === 1 && !arr.hasOwnProperty("1") && arr[0] === 0;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

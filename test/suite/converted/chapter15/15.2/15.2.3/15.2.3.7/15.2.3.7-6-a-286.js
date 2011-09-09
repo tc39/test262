@@ -59,4 +59,4 @@ function testcase() {
                 desc.enumerable === false && desc.configurable === false;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

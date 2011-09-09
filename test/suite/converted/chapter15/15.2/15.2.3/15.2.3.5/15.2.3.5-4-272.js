@@ -46,4 +46,4 @@ function testcase() {
 
         return hasProperty && data === "overrideData";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

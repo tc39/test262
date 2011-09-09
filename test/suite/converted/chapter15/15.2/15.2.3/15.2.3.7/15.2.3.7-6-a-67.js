@@ -65,4 +65,4 @@ function testcase() {
                 verifyValue && typeof (desc.set) === "undefined" && desc.get === get_Func;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -35,4 +35,4 @@ function testcase() {
   if( d === true && a.x === undefined)
     return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

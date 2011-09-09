@@ -36,4 +36,4 @@ function testcase() {
 
         return newObj.prop === "ArrValue";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

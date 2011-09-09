@@ -40,4 +40,4 @@ function testcase() {
             delete Array.prototype.prop;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

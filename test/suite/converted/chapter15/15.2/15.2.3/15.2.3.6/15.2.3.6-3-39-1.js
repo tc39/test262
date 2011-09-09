@@ -44,4 +44,4 @@ function testcase() {
             delete Date.prototype.enumerable;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

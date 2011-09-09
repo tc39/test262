@@ -36,4 +36,4 @@ ict';
 
   return foo.call(undefined);
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

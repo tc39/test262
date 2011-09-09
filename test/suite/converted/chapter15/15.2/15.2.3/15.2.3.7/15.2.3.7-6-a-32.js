@@ -37,4 +37,4 @@ function testcase() {
             desc.hasOwnProperty("enumerable") && desc.enumerable === false &&
             !desc.hasOwnProperty("get") && !desc.hasOwnProperty("set");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

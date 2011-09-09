@@ -38,4 +38,4 @@ function testcase() {
     JSON = o;
   }
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

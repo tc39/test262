@@ -47,4 +47,4 @@ function testcase() {
 
         return Array.prototype.every.call(child, callbackfn) && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

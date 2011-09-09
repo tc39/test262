@@ -53,4 +53,4 @@ function testcase() {
             typeof desc2.get === "undefined" && typeof desc2.get === "undefined" &&
             dataPropertyAttributesAreCorrect(obj, "0", 1001, false, true, true);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -32,4 +32,4 @@ function testcase() {
   if(d === false && fnExists(foo))
     return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

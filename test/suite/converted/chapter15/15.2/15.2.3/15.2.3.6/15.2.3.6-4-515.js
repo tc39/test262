@@ -45,4 +45,4 @@ function testcase() {
 
         return propertyDefineCorrect && desc.configurable === true && !obj.hasOwnProperty("prop");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -48,4 +48,4 @@ function testcase() {
 
         return newArr.length === 3 && newArr[1] === 6.99;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

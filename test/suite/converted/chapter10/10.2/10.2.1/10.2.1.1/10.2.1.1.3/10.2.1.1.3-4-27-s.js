@@ -36,4 +36,4 @@ function testcase() {
             Number = numBak;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

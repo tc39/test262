@@ -55,4 +55,4 @@ function testcase() {
         });
         return accessorPropertyAttributesAreCorrect(obj, "foo", get_func2, set_func2, "setVerifyHelpProp", false, false);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

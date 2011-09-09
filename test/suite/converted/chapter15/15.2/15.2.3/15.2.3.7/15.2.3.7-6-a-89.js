@@ -60,4 +60,4 @@ function testcase() {
 
         return verifyConfigurable && !verifyEnumerable && typeof (desc.set) === "undefined";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

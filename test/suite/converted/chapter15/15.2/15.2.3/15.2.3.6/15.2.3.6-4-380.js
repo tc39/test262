@@ -48,4 +48,4 @@ function testcase() {
             return propertyDefineCorrect && desc1.configurable === false && obj.prop === 2010 && desc2.configurable === false && e instanceof TypeError;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -34,4 +34,4 @@ function testcase() {
             return e instanceof ReferenceError;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

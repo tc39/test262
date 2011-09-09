@@ -36,4 +36,4 @@ function testcase() {
   if(d === true && arguments.callee === undefined)
     return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -40,4 +40,4 @@ function testcase() {
         [11].forEach(callbackfn, arg);
         return result;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

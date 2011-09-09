@@ -31,4 +31,4 @@ function testcase() {
         sparseArr = Object.freeze(sparseArr);
         return Object.isFrozen(sparseArr);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

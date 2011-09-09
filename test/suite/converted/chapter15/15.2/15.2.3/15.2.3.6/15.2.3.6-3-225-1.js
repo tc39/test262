@@ -40,4 +40,4 @@ function testcase() {
             delete RegExp.prototype.get;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

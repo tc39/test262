@@ -40,4 +40,4 @@ function testcase() {
             desc.hasOwnProperty("configurable") && desc.configurable === false &&
             desc.hasOwnProperty("enumerable") && desc.enumerable === false;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

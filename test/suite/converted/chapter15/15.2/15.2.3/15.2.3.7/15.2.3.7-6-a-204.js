@@ -50,4 +50,4 @@ function testcase() {
 
         return beforeDeleted && afterDeleted && arr[0] === 101 && arr.verifySetter === 101;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

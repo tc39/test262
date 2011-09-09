@@ -46,4 +46,4 @@ function testcase() {
         var testResult = Array.prototype.map.call(obj, callbackfn);
         return testResult[2] === false;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

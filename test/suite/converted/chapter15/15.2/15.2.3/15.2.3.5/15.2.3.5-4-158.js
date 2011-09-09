@@ -40,4 +40,4 @@ function testcase() {
 
         return newObj.prop === "ownAccessorProperty";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

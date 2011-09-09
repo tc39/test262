@@ -36,4 +36,4 @@ function testcase() {
 
         return obj.prop === errObj && desc.value === errObj;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

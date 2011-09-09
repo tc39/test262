@@ -30,4 +30,4 @@ function testcase() {
         return public === 1;
         "use strict";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

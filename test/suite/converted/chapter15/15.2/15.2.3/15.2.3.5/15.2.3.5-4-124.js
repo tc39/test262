@@ -42,4 +42,4 @@ function testcase() {
             delete fnGlobalObject().configurable;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

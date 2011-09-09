@@ -57,4 +57,4 @@ function testcase() {
             delete obj.verifySetFunc;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

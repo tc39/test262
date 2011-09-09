@@ -44,4 +44,4 @@ function testcase() {
 
         return accessorPropertyAttributesAreCorrect(arrObj, "property", getFunc, setFunc, "setVerifyHelpProp", true, true);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

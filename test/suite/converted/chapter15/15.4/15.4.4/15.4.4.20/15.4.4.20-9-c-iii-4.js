@@ -38,4 +38,4 @@ function testcase() {
         var newArr = Array.prototype.filter.call(obj, callbackfn);
         return newArr.length === 0 && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

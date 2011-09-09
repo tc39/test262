@@ -34,4 +34,4 @@ function testcase() {
 
         return arr.lastIndexOf(undefined) === 0;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

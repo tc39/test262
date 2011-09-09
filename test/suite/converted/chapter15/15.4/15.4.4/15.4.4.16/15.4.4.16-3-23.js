@@ -65,4 +65,4 @@ function testcase() {
             !Array.prototype.every.call(obj, callbackfn2) &&
             valueOfAccessed && !toStringAccessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

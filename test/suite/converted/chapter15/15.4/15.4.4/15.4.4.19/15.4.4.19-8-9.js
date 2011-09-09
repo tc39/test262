@@ -45,4 +45,4 @@ function testcase() {
 
         return testResult.length === 3 && called === 2 && typeof testResult[2] === "undefined";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

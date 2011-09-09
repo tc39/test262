@@ -33,4 +33,4 @@ function testcase() {
         Object.defineProperty(obj, "foo", { value: "fghj" });
         return dataPropertyAttributesAreCorrect(obj, "foo", "fghj", true, true, true);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -51,4 +51,4 @@ function testcase() {
             return e instanceof TypeError && accessorPropertyAttributesAreCorrect(obj, "foo", undefined, setFunc, "setVerifyHelpProp", false, false);
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

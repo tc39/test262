@@ -37,4 +37,4 @@ function testcase() {
             delete Math.value;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

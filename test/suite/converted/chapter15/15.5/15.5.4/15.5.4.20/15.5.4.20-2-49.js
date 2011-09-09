@@ -28,4 +28,4 @@ function testcase() {
         var regObj = new RegExp(/test/);
         return String.prototype.trim.call(regObj) === "/test/";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

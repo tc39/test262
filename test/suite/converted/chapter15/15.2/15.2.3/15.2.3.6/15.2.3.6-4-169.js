@@ -45,4 +45,4 @@ function testcase() {
             return e instanceof TypeError && arrObj.length === 2 && !arrObj.hasOwnProperty("2");
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

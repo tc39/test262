@@ -43,4 +43,4 @@ function testcase() {
 
         return propertyDefineCorrect && desc1.writable === true && obj.prop === 2010 && desc2.writable === false;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -30,4 +30,4 @@ function testcase() {
         var implement = 1;
         return implement === 1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

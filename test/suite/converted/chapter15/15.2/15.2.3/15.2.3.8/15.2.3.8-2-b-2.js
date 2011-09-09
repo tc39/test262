@@ -45,4 +45,4 @@ function testcase() {
 
         return preCheck && accessorPropertyAttributesAreCorrect(obj, "foo", getFunc, setFunc, "variableForHelpVerify", true, false);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

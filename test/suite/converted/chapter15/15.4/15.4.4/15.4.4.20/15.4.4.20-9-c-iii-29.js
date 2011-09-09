@@ -39,4 +39,4 @@ function testcase() {
         return newArr.length === 1 && newArr[0] !== 8 && called === 2;
 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

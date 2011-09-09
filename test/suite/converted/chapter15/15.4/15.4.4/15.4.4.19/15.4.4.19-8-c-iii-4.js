@@ -45,4 +45,4 @@ function testcase() {
 
         return enumerable;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

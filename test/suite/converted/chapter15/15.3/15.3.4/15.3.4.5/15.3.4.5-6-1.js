@@ -32,4 +32,4 @@ function testcase() {
         obj.property = 12;
         return obj.property === 12;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

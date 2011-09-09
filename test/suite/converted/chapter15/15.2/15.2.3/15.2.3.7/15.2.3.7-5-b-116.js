@@ -45,4 +45,4 @@ function testcase() {
         return obj.property === "ownDataProperty";
 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

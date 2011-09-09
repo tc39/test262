@@ -35,4 +35,4 @@ function testcase() {
 
         return [12, 11].reduceRight(callbackfn, 11) && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -37,4 +37,4 @@ function testcase() {
   [1].map(callbackfn);
   return innerThisCorrect;    
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -34,4 +34,4 @@ function testcase() {
         var obj = foo.bind({}, "a", "b");
         return obj()==true;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

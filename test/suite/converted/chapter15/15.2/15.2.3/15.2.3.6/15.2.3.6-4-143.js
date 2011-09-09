@@ -33,4 +33,4 @@ function testcase() {
         });
         return arrObj.length === 0x00B;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

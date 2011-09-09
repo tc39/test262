@@ -47,4 +47,4 @@ function testcase() {
             delete fnGlobalObject().prop;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -45,4 +45,4 @@ function testcase() {
             return (ex instanceof TypeError) && accessorPropertyAttributesAreCorrect(arr, "1", get_fun, undefined, undefined, false, false);
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

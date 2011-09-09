@@ -34,4 +34,4 @@ function testcase() {
         [11].reduce(callbackfn, 1);
         return result;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

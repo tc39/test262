@@ -39,4 +39,4 @@ function testcase() {
 
         return obj.hasOwnProperty("prop") && desc.get === getFunc && obj.prop === 2010 && globalVariable === 2010;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

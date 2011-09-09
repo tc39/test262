@@ -41,4 +41,4 @@ function testcase() {
 
         return arr.every(callbackfn) &&  arr.length === called;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

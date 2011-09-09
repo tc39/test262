@@ -43,4 +43,4 @@ function testcase() {
 
         return arr.indexOf(1) === 1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

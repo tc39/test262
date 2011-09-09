@@ -35,4 +35,4 @@ function testcase() {
         canWritable = (obj.length === 100);
         return hasProperty && !canWritable;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

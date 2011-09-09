@@ -77,4 +77,4 @@ function testcase() {
 
         return hasOwnProperty && !verifyTimeProp && !verifyNameProp && !verifyCallProp;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

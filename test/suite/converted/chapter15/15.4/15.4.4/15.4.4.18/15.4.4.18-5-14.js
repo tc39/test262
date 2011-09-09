@@ -34,4 +34,4 @@ function testcase() {
         [11].forEach(callbackfn, Math);
         return result;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

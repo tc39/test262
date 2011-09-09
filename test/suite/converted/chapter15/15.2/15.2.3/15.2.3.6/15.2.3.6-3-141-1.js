@@ -37,4 +37,4 @@ function testcase() {
             delete String.prototype.value;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

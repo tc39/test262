@@ -31,4 +31,4 @@ function testcase() {
 
         return public === 1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

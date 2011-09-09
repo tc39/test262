@@ -31,4 +31,4 @@ function testcase() {
         var foo = new Function("baz", "baz", "baz", "return 0;");
         return true;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

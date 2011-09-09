@@ -47,4 +47,4 @@ function testcase() {
             return toStringAccessed && valueOfAccessed && e instanceof TypeError;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

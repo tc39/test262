@@ -66,4 +66,4 @@ function testcase() {
             delete Object.prototype[0];
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

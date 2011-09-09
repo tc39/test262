@@ -49,4 +49,4 @@ function testcase() {
             testResult[1] === false && testResult[2] === false &&
             testResult[3] === false;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

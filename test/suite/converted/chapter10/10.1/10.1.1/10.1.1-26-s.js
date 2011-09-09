@@ -44,4 +44,4 @@ function testcase() {
             return e instanceof SyntaxError && data === "data";
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

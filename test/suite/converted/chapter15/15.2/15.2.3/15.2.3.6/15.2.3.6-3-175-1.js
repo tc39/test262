@@ -44,4 +44,4 @@ function testcase() {
             delete Object.prototype.writable;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

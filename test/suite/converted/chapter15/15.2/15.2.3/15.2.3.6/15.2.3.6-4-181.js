@@ -36,4 +36,4 @@ function testcase() {
         arrObj.length = 10; //try to overwrite length value of arr
         return !arrObj.hasOwnProperty("1") && arrObj.length === 0;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

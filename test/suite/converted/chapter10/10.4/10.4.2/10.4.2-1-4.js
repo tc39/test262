@@ -41,4 +41,4 @@ function testcase() {
             delete this.__10_4_2_1_4;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

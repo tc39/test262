@@ -39,4 +39,4 @@ function testcase() {
         Object.create({}, props);
         return result;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

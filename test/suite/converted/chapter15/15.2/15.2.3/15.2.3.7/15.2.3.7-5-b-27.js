@@ -45,4 +45,4 @@ function testcase() {
             delete JSON.enumerable;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

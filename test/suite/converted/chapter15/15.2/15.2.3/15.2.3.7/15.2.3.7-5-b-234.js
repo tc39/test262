@@ -55,4 +55,4 @@ function testcase() {
         return obj.hasOwnProperty("prop") && data2 === "overrideData" && data1 === "data";
 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

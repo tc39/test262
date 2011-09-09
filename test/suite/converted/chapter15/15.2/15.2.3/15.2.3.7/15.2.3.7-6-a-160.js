@@ -43,4 +43,4 @@ function testcase() {
             return e instanceof TypeError && arr.length === 2 && arr[0] === 0 && arr[1] === 1;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

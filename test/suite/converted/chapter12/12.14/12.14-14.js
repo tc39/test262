@@ -38,4 +38,4 @@ function testcase() {
            delete fnGlobalObject()._12_14_14_foo;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

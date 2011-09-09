@@ -64,4 +64,4 @@ function testcase() {
         }
         return !accessedProp1 && accessedProp2 && child.prop1 === "overridedValue1" && child.prop2 === "overridedValue2";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

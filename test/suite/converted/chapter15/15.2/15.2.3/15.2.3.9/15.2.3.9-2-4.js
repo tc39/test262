@@ -43,4 +43,4 @@ function testcase() {
 
         return beforeDeleted && afterDeleted && desc.configurable === false && desc.writable === false;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

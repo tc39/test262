@@ -52,4 +52,4 @@ function testcase() {
         var desc = Object.getOwnPropertyDescriptor(obj, "foo");
         return obj.hasOwnProperty("foo") && typeof (desc.set) === "undefined";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

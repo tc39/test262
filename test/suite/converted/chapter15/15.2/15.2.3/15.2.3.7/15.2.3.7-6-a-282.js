@@ -50,4 +50,4 @@ function testcase() {
             return (e instanceof TypeError) && dataPropertyAttributesAreCorrect(arg, "0", 0, false, true, false);
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

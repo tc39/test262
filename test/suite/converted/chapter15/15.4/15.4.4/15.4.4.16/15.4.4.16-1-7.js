@@ -31,4 +31,4 @@ function testcase() {
 
         return !Array.prototype.every.call("hello\nworld\\!", callbackfn);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

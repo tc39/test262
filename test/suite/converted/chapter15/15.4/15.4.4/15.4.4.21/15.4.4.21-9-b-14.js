@@ -50,4 +50,4 @@ function testcase() {
 
         return testResult && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

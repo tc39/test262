@@ -77,4 +77,4 @@ function testcase() {
             desc1.configurable === false && desc1.writable === false && desc2.configurable === false;
 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

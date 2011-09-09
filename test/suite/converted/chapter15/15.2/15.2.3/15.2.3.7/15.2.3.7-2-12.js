@@ -41,4 +41,4 @@ function testcase() {
         Object.defineProperties(obj, props);
         return result;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

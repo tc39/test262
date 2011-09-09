@@ -35,4 +35,4 @@ function testcase() {
         }
         return sum === 15;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

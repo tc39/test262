@@ -38,4 +38,4 @@ function testcase() {
 
         return desc.set === fun;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

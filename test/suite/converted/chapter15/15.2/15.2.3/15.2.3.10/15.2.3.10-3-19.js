@@ -32,4 +32,4 @@ function testcase() {
         regObj.exName = 2;
         return preCheck && !regObj.hasOwnProperty("exName");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

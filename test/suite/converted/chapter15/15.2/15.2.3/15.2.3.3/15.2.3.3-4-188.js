@@ -29,4 +29,4 @@ function testcase() {
   var desc = Object.getOwnPropertyDescriptor(f, "functionNameHopefullyDoesNotExist");
   return desc === undefined;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

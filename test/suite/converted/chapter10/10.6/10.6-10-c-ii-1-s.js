@@ -34,4 +34,4 @@ function testcase() {
   }
   return foo(10, 'sss', 1);
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -50,4 +50,4 @@ function testcase() {
 
         return propertyDefineCorrect && typeof desc1.set === "undefined" && desc2.set === setFunc && verifySetFunc === "overrideData";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

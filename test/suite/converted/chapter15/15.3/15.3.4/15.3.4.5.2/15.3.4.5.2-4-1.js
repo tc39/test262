@@ -39,4 +39,4 @@ function testcase() {
         return newInstance.hasOwnProperty("returnValue") && newInstance.returnValue === "abc" &&
             newInstance.hasOwnProperty("returnVerifyResult") && newInstance.returnVerifyResult === true;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

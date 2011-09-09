@@ -42,4 +42,4 @@ function testcase() {
         delete child.foo;
         return child.foo === 10 && desc.configurable === false && desc.writable === false;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

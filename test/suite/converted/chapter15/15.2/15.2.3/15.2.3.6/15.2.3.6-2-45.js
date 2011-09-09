@@ -44,4 +44,4 @@ function testcase() {
 
         return obj.hasOwnProperty("abc") && valueOfAccessed && toStringAccessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

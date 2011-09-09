@@ -52,4 +52,4 @@ function testcase() {
                 accessorPropertyAttributesAreCorrect(arr, "property", get_fun, set_fun, "verifySetFun", false, false);
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

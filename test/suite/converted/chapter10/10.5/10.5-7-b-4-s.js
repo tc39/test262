@@ -36,4 +36,4 @@ function testcase() {
         };
         return _10_5_7_b_4_fun(30, 12);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -29,4 +29,4 @@ function testcase() {
         var str = "initialValue is present";
         return str === [].reduce(function () { }, str);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -75,4 +75,4 @@ function testcase() {
         return dataPropertyAttributesAreCorrect(obj, "foo1", 10, false, true, false) &&
             result && desc1.configurable === false && desc1.writable === false && desc2.configurable === false;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

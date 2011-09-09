@@ -32,4 +32,4 @@ function testcase() {
   if(d === true && bIsFooCalled === true)
     return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

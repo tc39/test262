@@ -48,4 +48,4 @@ function testcase() {
         Array.prototype.forEach.call(obj, callbackfn);
         return testResult && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

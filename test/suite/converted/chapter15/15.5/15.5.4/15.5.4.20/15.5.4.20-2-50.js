@@ -28,4 +28,4 @@ function testcase() {
         var errObj = new Error("test");
         return String.prototype.trim.call(errObj) === "Error: test";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

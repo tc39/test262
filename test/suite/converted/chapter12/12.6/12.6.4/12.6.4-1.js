@@ -46,4 +46,4 @@ function testcase() {
         }
         return countProp1 === 1 && countProp2 === 1 && countProp3 === 1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

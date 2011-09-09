@@ -40,4 +40,4 @@ function testcase() {
 
         return !Array.prototype.some.call(obj, callbackfn) && !accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

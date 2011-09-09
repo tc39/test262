@@ -29,4 +29,4 @@ function testcase() {
         return [0, 100].lastIndexOf(100, 0) === -1 && // verify fromIndex is not more than 0
             [200, 0].lastIndexOf(200, 0) === 0; // verify fromIndex is not less than 0
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

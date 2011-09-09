@@ -37,4 +37,4 @@ function testcase() {
       a.indexOf(4,4294967290) === -1 &&  
       a.indexOf(5,4294967290) === -1   ) ;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

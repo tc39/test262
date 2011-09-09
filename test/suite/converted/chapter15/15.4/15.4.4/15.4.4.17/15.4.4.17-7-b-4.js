@@ -51,4 +51,4 @@ function testcase() {
 
         return Array.prototype.some.call(arr, callbackfn);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

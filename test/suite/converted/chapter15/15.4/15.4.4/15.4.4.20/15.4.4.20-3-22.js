@@ -58,4 +58,4 @@ function testcase() {
             return (ex instanceof TypeError) && !accessed && firstStepOccured && secondStepOccured;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

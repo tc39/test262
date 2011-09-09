@@ -35,4 +35,4 @@ function testcase() {
 
         return obj.property === "Error";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -44,4 +44,4 @@ function testcase() {
         Array.prototype.forEach.call(obj, callbackfn);
         return 2 === called;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

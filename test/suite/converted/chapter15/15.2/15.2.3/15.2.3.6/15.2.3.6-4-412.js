@@ -58,4 +58,4 @@ function testcase() {
             teamMeeting.startTime === 1001 &&
             teamMeeting.conferenceCall === "In-person meeting";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

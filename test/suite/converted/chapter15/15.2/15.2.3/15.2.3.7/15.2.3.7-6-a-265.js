@@ -35,4 +35,4 @@ function testcase() {
         });
         return arr.length === 6 && arr[5] === 26;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

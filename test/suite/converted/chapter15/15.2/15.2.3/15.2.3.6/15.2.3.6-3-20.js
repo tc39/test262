@@ -40,4 +40,4 @@ function testcase() {
         }
         return !accessed && obj.hasOwnProperty("property");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

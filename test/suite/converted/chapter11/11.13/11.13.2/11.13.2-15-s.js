@@ -31,4 +31,4 @@ function testcase() {
         _11_13_2_15 >>>= 2;
         return _11_13_2_15 === 2;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

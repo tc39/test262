@@ -40,4 +40,4 @@ function testcase() {
             Array.prototype.length = storeProtoLength;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

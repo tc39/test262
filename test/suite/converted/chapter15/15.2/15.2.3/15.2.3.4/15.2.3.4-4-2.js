@@ -31,4 +31,4 @@ function testcase() {
 
   return arrayContains(result, expResult);
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

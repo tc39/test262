@@ -38,4 +38,4 @@ function testcase() {
 
         return hasProperty && typeof newObj.prop === "undefined";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -40,4 +40,4 @@ function testcase() {
         obj.prop = "booleanData";
         return obj.hasOwnProperty("prop") && data === "booleanData";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

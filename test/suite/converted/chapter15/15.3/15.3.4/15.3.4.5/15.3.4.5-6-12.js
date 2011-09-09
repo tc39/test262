@@ -31,4 +31,4 @@ function testcase() {
         var obj = foo.bind({});
         return typeof (obj.property) === "undefined";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

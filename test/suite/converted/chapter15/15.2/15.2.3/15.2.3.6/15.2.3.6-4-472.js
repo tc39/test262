@@ -53,4 +53,4 @@ function testcase() {
             return desc1.set === setFunc && desc2.set === setFunc && e instanceof TypeError;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

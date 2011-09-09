@@ -47,4 +47,4 @@ function testcase() {
 
         return Array.prototype.indexOf.call(child, undefined) === 0;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

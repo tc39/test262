@@ -38,4 +38,4 @@ function testcase() {
   return f()==="12.10-0-1"
 
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

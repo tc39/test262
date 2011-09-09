@@ -43,4 +43,4 @@ function testcase() {
             delete JSON.writable;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

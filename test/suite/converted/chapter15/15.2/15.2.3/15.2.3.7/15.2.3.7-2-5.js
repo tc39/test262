@@ -31,4 +31,4 @@ function testcase() {
         return obj === obj1;
 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

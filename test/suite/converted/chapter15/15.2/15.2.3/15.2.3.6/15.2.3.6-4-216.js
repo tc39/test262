@@ -32,4 +32,4 @@ function testcase() {
         Object.defineProperty(arrObj, "0", { value: null });
         return dataPropertyAttributesAreCorrect(arrObj, "0", null, false, false, false);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -32,4 +32,4 @@ function testcase() {
 
         return preCheck && Object.isSealed(dateObj);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -39,4 +39,4 @@ function testcase() {
 
         return propertyDefineCorrect && typeof desc.set === "undefined";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

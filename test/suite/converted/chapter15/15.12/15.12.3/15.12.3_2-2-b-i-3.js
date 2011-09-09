@@ -31,4 +31,4 @@ function testcase() {
     };
   return JSON.stringify([obj]) === '[true]';
   }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -37,4 +37,4 @@ function testcase() {
 
         return preCheck && child.hasOwnProperty("prop");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

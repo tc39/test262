@@ -39,4 +39,4 @@ function testcase() {
   }
   return foo.call(undefined) === 'undefined' && bar.call() === 'object';
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -48,4 +48,4 @@ function testcase() {
 
         return Array.prototype.reduceRight.call(child, callbackfn, 111) === 111 && !accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -39,4 +39,4 @@ function testcase() {
 
         return accessorPropertyAttributesAreCorrect(arr, "1", undefined, undefined, undefined, false, false);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -35,4 +35,4 @@ function testcase() {
         });
         return arr[0] === 12;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

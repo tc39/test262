@@ -40,4 +40,4 @@ function testcase() {
 
         return hasProperty && typeof desc.set === "undefined";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

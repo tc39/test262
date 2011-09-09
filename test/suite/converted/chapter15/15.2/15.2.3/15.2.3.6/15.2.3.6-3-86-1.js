@@ -45,4 +45,4 @@ function testcase() {
             delete Function.prototype.configurable;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

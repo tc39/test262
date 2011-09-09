@@ -37,4 +37,4 @@ function testcase() {
 
         return newObj.prop === "VerifyStringObject";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

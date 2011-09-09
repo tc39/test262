@@ -29,4 +29,4 @@ function testcase() {
         var fun = Date.now;
         return (typeof (fun) === "function");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

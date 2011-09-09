@@ -43,4 +43,4 @@ function testcase() {
         return Object.isFrozen(child);
 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

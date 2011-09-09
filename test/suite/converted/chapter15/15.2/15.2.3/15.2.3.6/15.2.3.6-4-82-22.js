@@ -48,4 +48,4 @@ function testcase() {
 
         return accessorPropertyAttributesAreCorrect(obj, "0", get_func, set_func, "verifySetFunction", true, false);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

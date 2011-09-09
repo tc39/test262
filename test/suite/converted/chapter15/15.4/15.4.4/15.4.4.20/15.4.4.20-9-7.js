@@ -39,4 +39,4 @@ function testcase() {
         var resArr = o.srcArr.filter(callbackfn);
         return resArr.length === 5 && typeof o.srcArr === "undefined";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

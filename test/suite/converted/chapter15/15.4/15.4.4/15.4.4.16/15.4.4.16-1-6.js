@@ -37,4 +37,4 @@ function testcase() {
         obj[1] = 12;
         return Array.prototype.every.call(obj, callbackfn) && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -39,4 +39,4 @@ function testcase() {
 
         return obj.hasOwnProperty("prop") && obj.prop === 14;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

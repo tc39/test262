@@ -42,4 +42,4 @@ function testcase() {
         afterDeleted = arr.hasOwnProperty("0");
         return beforeDeleted && afterDeleted && arr[0] === 1001;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

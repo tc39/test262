@@ -31,4 +31,4 @@ function testcase() {
 
         return arr instanceof Array;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

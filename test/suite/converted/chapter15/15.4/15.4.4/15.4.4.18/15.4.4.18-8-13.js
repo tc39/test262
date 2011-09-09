@@ -34,4 +34,4 @@ function testcase() {
         var result = [].forEach(callbackfn);
         return typeof result === "undefined" && !accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

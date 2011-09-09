@@ -7,7 +7,9 @@
  * engine peculiarities.
  *
  * <p>The implementation here is specific to the v8 shell running on a
- * Posix platform.
+ * Posix platform. Therefore, it may legitimately use ES5 features,
+ * although it generally avoids them for consistency with the rest of
+ * test262.
  */
 (function (global) {
    "use strict";
@@ -31,38 +33,11 @@
 
    var platform = global.t262.platform = {};
 
-   /**
-    * Appends a bunch of RegExps together into a single RegExp,
-    * solving both the RegExp-one-liner problem and the doubled
-    * backslash problem when composing literal strings.
-    *
-    * <p>The arguments can be any mixture of RegExps and strings. By
-    * expressing the portions that should be well formed regexps as
-    * regexps, we catch well-formedness errors within such a portion
-    * separately. The strings are added as is without escaping --
-    * BEWARE. By not escaping the strings, we can use them to
-    * represent the individually unbalanced fragments, like capturing
-    * parens, around other regexps. If arguments[0] is a RegExp, we
-    * use its flags on the resuting RegExp.
-    *
-    * <p>Not platform dependent, so does not really belong in this
-    * file.
-    */
-   function regExp(var_args) {
-     var args = [].slice.call(arguments, 0);
-     var reSrc = args.map(function(arg) {
-       return (typeof arg === 'string') ? arg : arg.source;
-     }).join('');
-     var flags = '';
-     if (typeof args[0] === 'object') {
-       var parts = (''+args[0]).split('/');
-       flags = parts[parts.length -1];
-     }
-     return new RegExp(reSrc, flags);
-   }
-   platform.regExp = regExp;
-
-   ////////////////// Needed for building and running //////////////
+   var utils = global.t262.utils;
+   var forEach = utils.forEach;
+   var map     = utils.map;
+   var keys    = utils.keys;
+   var trim    = utils.trim;
 
    try {
      read('tools/converter/v8PosixPlatform.js');
@@ -70,23 +45,31 @@
      throw new Error('Must run in a test262 source root');
    }
 
-   var ABS_ROOT = os.system('pwd', ['-P']).trim().split('/');
+   var ABS_ROOT = trim(os.system('pwd', ['-P'])).split('/');
 
    var TEST262_ROOT = ABSOLUTE_PATHSTR ? ABS_ROOT : [];
 
    var TEST262_ROOT_STR = TEST262_ROOT.join('/');
 
-   var CONVERTER_PATH = ['tools', 'converter'];
-   platform.CONVERTER_PATH = CONVERTER_PATH;
+   var HARNESS_DIR = ['test', 'harness'];
+   platform.HARNESS_DIR = HARNESS_DIR;
 
-   var ME_PATH = CONVERTER_PATH.concat('v8PosixPlatform.js');
+   var CONVERTER_DIR = ['tools', 'converter'];
+   platform.CONVERTER_DIR = CONVERTER_DIR;
+
+   var PLATFORM_PATHS = [
+     CONVERTER_DIR.concat('utils.js'),
+     CONVERTER_DIR.concat('v8PosixPlatform.js')
+   ];
+
+   ////////////////// Needed for building and running test //////////////
 
    /**
     *
     */
    function validatePath(path) {
      var pathStr = path.join('/');
-     path.forEach(function(segment) {
+     forEach(path, function(segment) {
        if (segment === '') {
          throw new Error('A path cannot have empty segments: ' + pathStr);
        }
@@ -129,31 +112,34 @@
    /**
     * Returns the text found at path, with newlines normalized and
     * any initial BOM (Unicode Byte Order Mark) removed.
-    *
-    * Note: Don't simply revise this (without renamings) to follow the
-    * general pattern of also defining a local 'read' function, as it
-    * will mask the v8 shell's read function, which we use.
     */
-   platform.read = function(path) {
-     var text = read(toPathStr(path)).
-       replace(/\r\n/g, '\n').
-       replace(/\r/g, '\n');
+   function getText(path) {
+     var text = read(toPathStr(path));
+     text = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
      if (text.charCodeAt(0) === 0xfeff) { return text.substring(1); }
      return text;
-   };
+   }
+   platform.getText = getText;
 
    /**
     * How one JavaScript script possibly spawns another and possibly
     * redirects its printed form to a chosen file (or resource).
     *
     * <p>For example, if !DRY_RUN, then<pre>
-    *   writeSpawn([], 'print(+arguments[0] + +arguments[1]);', ['3', '5'])
+    *   platform.writeSpawn([],
+    *                       't262.show(+arguments[0] + +arguments[1]);',
+    *                       ['3', '5'])
     * </pre>
-    * should return the string "8" if writeSpawn decides to spawn.
+    * should emit string "8" to stdout.
+    *
+    * <p>To spawn a platform distinct from the present one -- for
+    * example, as outer v8-based driver can drive a rhino-based child
+    * -- create a distinct object representing that other platform and
+    * invoke its writeSpawn method.
     *
     * @param scriptPaths An array of path arrays of JavaScript source
-    * files to be loaded into the spawned JS engine (in addition to
-    * the spawning platform file) if we are indeed spawning.
+    * files to be loaded into the spawned JS engine, after
+    * PLATFORM_PATHS, if we are indeed spawning.
     * @param opt_src A Program to be evaluated in an environment in
     * which "arguments" is bound to the list of strings provided by
     * opt_args. If spawned, the result is whatever the program writes
@@ -187,14 +173,14 @@
        return ''+(1,eval)(str).apply(void 0, opt_args || []);
      }
 
-     var cmd = 'v8 ' + toPathStr(ME_PATH) + ' ';
-     cmd += scriptPaths.map(toPathStr).join(' ');
+     var allScriptPaths = PLATFORM_PATHS.concat(scriptPaths);
+     var cmd = 'v8 ' + map(allScriptPaths, toPathStr).join(' ');
 
      if (opt_src) {
        cmd += ' -e ' + JSON.stringify(opt_src);
      }
      if (opt_args) {
-       cmd += ' -- ' + opt_args.map(JSON.stringify).join(' ');
+       cmd += ' -- ' + map(opt_args, JSON.stringify).join(' ');
      }
      if (opt_targetPath) {
        cmd += ' > ' + toPathStr(opt_targetPath);
@@ -207,8 +193,7 @@
        if (opt_targetPath) {
          // The error we catch is almost certainly less interesting
          // than the one unfortunately written to the target file.
-         var message = 'failed: ' + cmd + '\n' +
-           platform.read(opt_targetPath);
+         var message = 'failed: ' + cmd + '\n' + getText(opt_targetPath);
          os.system('rm', [toPathStr(opt_targetPath)]);
          throw new Error(message);
        }
@@ -218,24 +203,23 @@
    platform.writeSpawn = writeSpawn;
 
 
-   ////////////////// Only needed for building /////////////////////
+   ////////////////// Only needed for building tests /////////////////////
 
    /**
     * Calls a non-strict indirect eval function on exprSrc.
     *
-    * On platforms (like SES) where this can be a safely confining
+    * <p>On platforms (like SES) where this can be a safely confining
     * evaluation, it should be. The implementation here is not safe.
     */
    function evalExprIn(exprSrc, env, opt_forceNonStrict) {
-     var varNames = Object.getOwnPropertyNames(env);
+     var varNames = keys(env);
      var str = '(function(' + varNames.join(',') + ') {';
      if (opt_forceNonStrict !== 'forceNonStrict') {
        str += '"use strict";';
      }
      str += ' return (' + exprSrc + '); })';
-     return (1,eval)(str).apply(void 0, varNames.map(function(varName) {
-       return env[varName];
-     }));
+     var vals = map(varNames, function(varName) { return env[varName]; });
+     return (1,eval)(str).apply(void 0, vals);
    }
    platform.evalExprIn = evalExprIn;
 
@@ -270,11 +254,6 @@
     * Does path name a directory?
     */
    function isDirectory(path) {
-//     var fileOut = os.system('file', [toPathStr(path)]);
-//     var fileMatch = fileOut.match(/:\s*([^:]*)\s*$/);
-//     if (!fileMatch) { return null; }
-//     var fileType = fileMatch[1].trim();
-//     return fileType === 'directory';
      try {
        os.system('test', ['-d', toPathStr(path)]);
        return true;
@@ -293,7 +272,7 @@
      if (!isDirectory(path)) { return []; }
      var lines;
      try {
-       lines = os.system('ls', [pathStr]).trim();
+       lines = trim(os.system('ls', [pathStr]));
      } catch (err) {
        throw err;
      }
@@ -303,18 +282,8 @@
    platform.ls = ls;
 
    /**
-    * Emits the jsonRecord serialized as JSON, either compactly or
-    * readably according to VERBOSE.
+    * If the directory does not yet exist, create it.
     */
-   function asJSONTxt(jsonRecord) {
-     if (VERBOSE) {
-       return JSON.stringify(jsonRecord, void 0, ' ');
-     } else {
-       return JSON.stringify(jsonRecord);
-     }
-   }
-   global.t262.asJSONTxt = platform.asJSONTxt = asJSONTxt;
-
    function mkdir(path) {
      var pathStr = toPathStr(path);
      if (DRY_RUN) {
@@ -330,7 +299,28 @@
    }
    platform.mkdir = mkdir;
 
-   ////////////////// Only needed for running //////////////////////
+   /**
+    * Emits the text itself followed by a newline.
+    *
+    * <p>On the v8 shell, this is identical to "print".
+    */
+   var show = global.t262.show = print;
+
+   /**
+    * Emits the jsonRecord serialized as JSON, either compactly or
+    * readably according to VERBOSE.
+    */
+   function showJSON(jsonRecord) {
+     if (VERBOSE) {
+       print(JSON.stringify(jsonRecord, void 0, ' '));
+     } else {
+       print(JSON.stringify(jsonRecord));
+     }
+   }
+   global.t262.showJSON = platform.showJSON = showJSON;
+
+
+   ////////////////// Only needed for running tests //////////////////////
 
 
  })(this);

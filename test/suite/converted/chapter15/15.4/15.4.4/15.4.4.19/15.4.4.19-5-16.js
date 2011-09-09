@@ -35,4 +35,4 @@ function testcase() {
         var testResult = [11].map(callbackfn, objRegExp);
         return testResult[0] === true;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

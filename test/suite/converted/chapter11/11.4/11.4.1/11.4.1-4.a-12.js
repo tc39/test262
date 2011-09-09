@@ -35,4 +35,4 @@ function testcase() {
   if(d === false && a.length === 3)
     return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

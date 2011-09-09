@@ -36,4 +36,4 @@ function testcase() {
 
         return obj.prop === regObj && desc.value === regObj;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -41,4 +41,4 @@ function testcase() {
         var newArr = [11].filter(callbackfn, arg);
         return newArr[0] === 11 && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -36,4 +36,4 @@ function testcase() {
 
         return Array.prototype.lastIndexOf.call(obj, targetObj) === -1; //verify length is 0 finally
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -35,4 +35,4 @@ function testcase() {
         var resArr = srcArr.filter(callbackfn);
         return resArr.length === 0;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

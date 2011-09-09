@@ -59,4 +59,4 @@ function testcase() {
             delete obj.verifySetFunction1;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

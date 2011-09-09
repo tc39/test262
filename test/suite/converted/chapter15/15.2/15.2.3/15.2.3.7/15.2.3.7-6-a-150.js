@@ -36,4 +36,4 @@ function testcase() {
 
         return arr.length === 4294967294;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -38,4 +38,4 @@ function testcase() {
 
         return Array.prototype.reduce.call(obj, callbackfn, objError) === true && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -35,4 +35,4 @@ function testcase() {
 
         return obj.prop === "ThisIsAString" && desc.value === "ThisIsAString";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

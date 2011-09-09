@@ -38,4 +38,4 @@ function testcase() {
         delete obj.prop;
         return !obj.hasOwnProperty("prop");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

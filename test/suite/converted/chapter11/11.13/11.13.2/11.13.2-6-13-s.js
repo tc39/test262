@@ -35,4 +35,4 @@ function testcase() {
             return e instanceof SyntaxError && blah === arguments;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

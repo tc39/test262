@@ -57,4 +57,4 @@ function testcase() {
             !accessed2 && newArr2.length === 0 && 
             !accessed3 && newArr3.length === 0;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

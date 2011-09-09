@@ -38,4 +38,4 @@ function testcase() {
      desc.hasOwnProperty('set') == true);                                     
     
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

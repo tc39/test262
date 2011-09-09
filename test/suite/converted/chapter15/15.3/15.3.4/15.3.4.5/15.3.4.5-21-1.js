@@ -30,4 +30,4 @@ function testcase() {
         var obj = foo.bind({});
         return obj.hasOwnProperty("arguments");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -47,4 +47,4 @@ function testcase() {
 
         return [0, true].lastIndexOf(true, child) === 1 && valueOfAccessed && !toStringAccessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

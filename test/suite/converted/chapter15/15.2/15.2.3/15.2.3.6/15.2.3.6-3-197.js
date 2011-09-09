@@ -39,4 +39,4 @@ function testcase() {
 
         return beforeWrite && afterWrite;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

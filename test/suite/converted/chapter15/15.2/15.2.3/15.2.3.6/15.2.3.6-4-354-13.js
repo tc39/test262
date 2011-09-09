@@ -44,4 +44,4 @@ function testcase() {
             delete obj[0];
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

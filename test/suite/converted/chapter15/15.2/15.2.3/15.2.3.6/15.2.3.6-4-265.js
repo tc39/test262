@@ -42,4 +42,4 @@ function testcase() {
         });
         return accessorPropertyAttributesAreCorrect(arrObj, "0", getFunc, undefined, undefined, false, true);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -29,4 +29,4 @@ function testcase() {
   a.length = 4294967295 ;
   return a.length===4294967295 ;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

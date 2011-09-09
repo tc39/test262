@@ -33,4 +33,4 @@ function testcase() {
 
         return Array.prototype.indexOf.call(obj, true) === 1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

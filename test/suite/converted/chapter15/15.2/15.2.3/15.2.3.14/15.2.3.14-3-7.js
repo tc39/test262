@@ -45,4 +45,4 @@ function testcase() {
 
         return arr.length === 3;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

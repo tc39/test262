@@ -44,4 +44,4 @@ function testcase() {
             delete fnGlobalObject().enumerable;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

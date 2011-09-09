@@ -31,4 +31,4 @@ function testcase() {
 
         return arr.hasOwnProperty(0) && arr[0] === "prop1";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

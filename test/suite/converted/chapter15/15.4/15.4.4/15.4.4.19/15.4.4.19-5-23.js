@@ -33,4 +33,4 @@ function testcase() {
         var testResult = [11].map(callbackfn, 101);
         return testResult[0] === true;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

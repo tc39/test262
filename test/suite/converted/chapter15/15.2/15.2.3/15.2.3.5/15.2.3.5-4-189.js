@@ -55,4 +55,4 @@ function testcase() {
 
         return beforeWrite === true && afterWrite === false;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

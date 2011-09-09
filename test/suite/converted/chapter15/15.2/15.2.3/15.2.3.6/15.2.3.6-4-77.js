@@ -37,4 +37,4 @@ function testcase() {
         Object.defineProperty(obj, "foo", { set: setFunc });
         return accessorPropertyAttributesAreCorrect(obj, "foo", undefined, setFunc, "setVerifyHelpProp", false, false);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

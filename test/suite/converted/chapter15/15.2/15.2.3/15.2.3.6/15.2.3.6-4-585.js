@@ -50,4 +50,4 @@ function testcase() {
             delete RegExp.prototype.prop;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

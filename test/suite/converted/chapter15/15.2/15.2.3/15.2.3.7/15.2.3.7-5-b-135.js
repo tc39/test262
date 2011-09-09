@@ -39,4 +39,4 @@ function testcase() {
 
         return func();
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

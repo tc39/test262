@@ -35,4 +35,4 @@ function testcase() {
  return foo === "prior to throw";
   
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

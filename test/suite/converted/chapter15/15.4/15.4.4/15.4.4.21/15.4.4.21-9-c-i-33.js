@@ -52,4 +52,4 @@ function testcase() {
             return (ex instanceof RangeError) && !accessed && !testResult;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

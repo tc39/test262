@@ -43,4 +43,4 @@ function testcase() {
             delete Object.prototype.verifyThis;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

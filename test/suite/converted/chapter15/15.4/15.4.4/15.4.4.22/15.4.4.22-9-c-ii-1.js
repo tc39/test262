@@ -38,4 +38,4 @@ function testcase() {
   if( arr.reduceRight(callbackfn) === 0) 
     return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

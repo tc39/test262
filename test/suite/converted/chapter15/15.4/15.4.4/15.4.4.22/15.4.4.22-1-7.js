@@ -35,4 +35,4 @@ function testcase() {
 
         return Array.prototype.reduceRight.call("hello\nworld\\!", callbackfn, "h") && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

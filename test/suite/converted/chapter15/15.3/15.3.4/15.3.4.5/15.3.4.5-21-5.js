@@ -35,4 +35,4 @@ function testcase() {
         canConfigurable = !obj.hasOwnProperty("arguments");
         return hasProperty && !canConfigurable;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

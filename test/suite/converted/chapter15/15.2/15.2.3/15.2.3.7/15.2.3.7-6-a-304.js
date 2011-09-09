@@ -57,4 +57,4 @@ function testcase() {
 
         return accessorPropertyAttributesAreCorrect(arg, "genericProperty", getFun, setFun, "testGetFunction", false, false);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

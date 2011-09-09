@@ -42,4 +42,4 @@ function testcase() {
             return (e instanceof TypeError) && dataPropertyAttributesAreCorrect(obj, "foo", -0, false, false, false);
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

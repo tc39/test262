@@ -29,4 +29,4 @@ function testcase() {
         errObj.name = "";
         return errObj.toString() === "";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

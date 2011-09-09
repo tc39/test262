@@ -30,4 +30,4 @@ function testcase() {
      }
    catch (e) {return  false}
   }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -33,4 +33,4 @@ function testcase() {
   if(f.reduceRight(cb,"4") === "41")
     return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

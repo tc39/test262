@@ -56,4 +56,4 @@ function testcase() {
         arr.reduce(callbackfn, "initialValue");
         return testResult && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

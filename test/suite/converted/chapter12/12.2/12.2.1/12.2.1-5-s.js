@@ -30,4 +30,4 @@ function testcase() {
         Function('var eval;');
         return true;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

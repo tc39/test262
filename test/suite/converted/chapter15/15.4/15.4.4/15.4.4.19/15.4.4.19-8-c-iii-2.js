@@ -35,4 +35,4 @@ function testcase() {
 
         return newArr[0] === obj[0] && newArr[1] === obj[1];
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

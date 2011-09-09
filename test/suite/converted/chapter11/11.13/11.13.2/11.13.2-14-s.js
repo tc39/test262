@@ -31,4 +31,4 @@ function testcase() {
         _11_13_2_14 %= 2;
         return _11_13_2_14 === 1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

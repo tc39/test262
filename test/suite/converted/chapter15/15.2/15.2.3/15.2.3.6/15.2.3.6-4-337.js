@@ -47,4 +47,4 @@ function testcase() {
             return propertyDefineCorrect && desc1.enumerable === true && obj.prop === 2010 && desc2.enumerable === true && e instanceof TypeError;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

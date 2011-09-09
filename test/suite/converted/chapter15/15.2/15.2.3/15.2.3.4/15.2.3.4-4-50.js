@@ -37,4 +37,4 @@ function testcase() {
 
         return result[0] === "nonEnumerableProp";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

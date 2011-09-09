@@ -67,4 +67,4 @@ function testcase() {
             Object.defineProperty(Object.prototype, "constructor", desc);
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

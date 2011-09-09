@@ -33,4 +33,4 @@ function testcase() {
 
   return o.foo === "set in with";
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

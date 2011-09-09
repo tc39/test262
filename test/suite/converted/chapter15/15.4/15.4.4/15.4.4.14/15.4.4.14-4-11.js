@@ -29,4 +29,4 @@ function testcase() {
         var obj = { 0: targetObj, 100: targetObj, length: "" };
         return Array.prototype.indexOf.call(obj, targetObj) === -1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

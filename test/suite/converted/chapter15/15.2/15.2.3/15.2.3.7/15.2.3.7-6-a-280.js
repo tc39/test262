@@ -58,4 +58,4 @@ function testcase() {
         return desc.get === get_func2 && typeof desc.set === "undefined" &&
             desc.configurable === false && desc.enumerable === false;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -35,4 +35,4 @@ function testcase() {
         obj[1] = 12;
         return Array.prototype.reduce.call(obj, callbackfn, 1);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

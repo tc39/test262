@@ -42,4 +42,4 @@ function testcase() {
         var newArr = Array.prototype.filter.call(obj, callbackfn);
         return newArr.length === 1 && newArr[0] === 11;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

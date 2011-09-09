@@ -46,4 +46,4 @@ function testcase() {
 
         return Array.prototype.indexOf.call(obj, true) === 1 && toStringAccessed && valueOfAccessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

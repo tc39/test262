@@ -52,4 +52,4 @@ function testcase() {
 
         return !arr.every(callbackfn);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

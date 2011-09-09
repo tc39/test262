@@ -28,4 +28,4 @@ function testcase() {
         var strObj = new String(undefined);
         return strObj.trim() === "undefined";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

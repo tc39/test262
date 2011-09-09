@@ -49,4 +49,4 @@ function testcase() {
 
         return verifyValue && verifyWritable && !verifyEnumerable && verifyConfigurable;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

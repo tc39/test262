@@ -40,4 +40,4 @@ function testcase() {
   if(arr.some(callbackfn) === false)    
     return true;    
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

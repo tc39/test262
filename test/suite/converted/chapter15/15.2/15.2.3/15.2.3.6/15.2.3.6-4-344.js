@@ -43,4 +43,4 @@ function testcase() {
 
         return propertyDefineCorrect && desc1.enumerable === false && obj.prop === 2010 && desc2.enumerable === true;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

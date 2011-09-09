@@ -36,4 +36,4 @@ function testcase() {
             Object = objBak;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

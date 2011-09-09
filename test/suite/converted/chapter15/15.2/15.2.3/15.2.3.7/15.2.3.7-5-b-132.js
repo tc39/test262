@@ -37,4 +37,4 @@ function testcase() {
 
         return obj.property === "RegExp";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

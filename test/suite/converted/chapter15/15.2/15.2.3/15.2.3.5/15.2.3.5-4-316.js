@@ -53,4 +53,4 @@ function testcase() {
         });
         return newObj[0] === 100 && newObj[1] === 20 && newObj[2] === 200;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -39,4 +39,4 @@ function testcase() {
             delete fnGlobalObject().get;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

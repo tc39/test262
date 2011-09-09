@@ -53,4 +53,4 @@ function testcase() {
         var testResult = arr.map(callbackfn);
         return testResult.length === 3 && testResult[2] === false;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

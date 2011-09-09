@@ -52,4 +52,4 @@ function testcase() {
                 typeof desc2.get === "undefined" && e instanceof TypeError;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

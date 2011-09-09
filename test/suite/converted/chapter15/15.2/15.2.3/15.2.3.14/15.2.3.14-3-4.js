@@ -45,4 +45,4 @@ function testcase() {
   }
   return testArgs2(1, 2) && testArgs3(1, 2, 3) && testArgs4(1, 2, 3, 4);
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

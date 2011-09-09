@@ -32,4 +32,4 @@ function testcase() {
         return preCheck && !Object.isExtensible(obj);
 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

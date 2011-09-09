@@ -35,4 +35,4 @@ function testcase() {
 
         return arr.hasOwnProperty("4294967295") && arr.length === 0 && arr[4294967295] === 100;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

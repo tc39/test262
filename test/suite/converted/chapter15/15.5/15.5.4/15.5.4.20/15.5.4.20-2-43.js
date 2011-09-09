@@ -46,4 +46,4 @@ function testcase() {
         };
         return (String.prototype.trim.call(child) === "abc") && toStringAccessed && !valueOfAccessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

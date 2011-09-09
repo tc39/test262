@@ -41,4 +41,4 @@ function testcase() {
 
         return obj.hasOwnProperty("property") && data === "ownAccessorProperty";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -44,4 +44,4 @@ function testcase() {
             delete JSON.configurable;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -44,4 +44,4 @@ function testcase() {
                 arr[1] === 2 && arr[2] === 3 && !arr.hasOwnProperty("3");
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

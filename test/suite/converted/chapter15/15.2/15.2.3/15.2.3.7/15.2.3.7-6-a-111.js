@@ -59,4 +59,4 @@ function testcase() {
         return (obj["a"] === 100 && obj["b"] === 20 && obj["c"] === 200);
 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

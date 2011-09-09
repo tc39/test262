@@ -38,4 +38,4 @@ function testcase() {
 
         return o.arr.every(callbackfn) && !o.hasOwnProperty("arr");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -40,4 +40,4 @@ function testcase() {
 
         return obj.hasOwnProperty("prop") && obj.prop === obj && desc.get === getFunc;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

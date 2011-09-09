@@ -33,4 +33,4 @@ function testcase() {
 
         return typeof obj.property === "undefined" && obj.hasOwnProperty("property");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

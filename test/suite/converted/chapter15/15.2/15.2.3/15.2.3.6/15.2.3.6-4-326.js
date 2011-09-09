@@ -38,4 +38,4 @@ function testcase() {
 
         return propertyDefineCorrect && obj.prop === 1001;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

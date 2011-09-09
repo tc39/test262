@@ -35,4 +35,4 @@ function testcase() {
         arr.forEach(callbackfn)
         return !result;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

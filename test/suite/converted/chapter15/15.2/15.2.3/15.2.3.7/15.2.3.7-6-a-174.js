@@ -36,4 +36,4 @@ function testcase() {
 
         return !arr.hasOwnProperty("1");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

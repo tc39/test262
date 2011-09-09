@@ -31,4 +31,4 @@ function testcase() {
   var desc = Object.getOwnPropertyDescriptor(arguments,"callee");
   return desc !== undefined;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

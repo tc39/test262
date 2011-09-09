@@ -29,4 +29,4 @@ function testcase() {
         var str1 = "    " + str + "    ";
         return str1.trim() === str;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

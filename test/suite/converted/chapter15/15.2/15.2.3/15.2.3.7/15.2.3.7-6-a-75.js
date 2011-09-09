@@ -60,4 +60,4 @@ function testcase() {
 
         return verifyValue && !verifyEnumerable && verifyConfigurable;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

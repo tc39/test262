@@ -31,4 +31,4 @@ function testcase() {
 
         return desc instanceof Object;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

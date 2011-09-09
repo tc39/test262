@@ -38,4 +38,4 @@ function testcase() {
         
         return 4 === Array.prototype.indexOf.call(arr, targetObj, fromIndex);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

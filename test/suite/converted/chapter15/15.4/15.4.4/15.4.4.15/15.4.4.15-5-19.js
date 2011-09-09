@@ -29,4 +29,4 @@ function testcase() {
         return [0, true, targetObj, 3, false].lastIndexOf(targetObj, "0x0002") === 2 &&
             [0, true, 3, targetObj, false].lastIndexOf(targetObj, "0x0002") === -1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -52,4 +52,4 @@ function testcase() {
 
         return newArr.length === 2 && firstStepOccured && secondStepOccured;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

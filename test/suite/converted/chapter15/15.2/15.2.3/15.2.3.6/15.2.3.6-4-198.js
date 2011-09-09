@@ -36,4 +36,4 @@ function testcase() {
             return e instanceof TypeError && (arrObj.hasOwnProperty("0") === false);
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

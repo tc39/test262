@@ -62,4 +62,4 @@ function testcase() {
             teamMeeting.startTime === dateObj &&
             teamMeeting.conferenceCall === "4255551212";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

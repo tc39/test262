@@ -33,4 +33,4 @@ function testcase() {
       return true; // treat any exception as a pass, other tests ensure that JSON.parse throws SyntaxError exceptions
       }
   }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

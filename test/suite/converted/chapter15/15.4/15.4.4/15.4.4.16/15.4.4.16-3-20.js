@@ -50,4 +50,4 @@ function testcase() {
         return Array.prototype.every.call(obj, callbackfn1) &&
             !Array.prototype.every.call(obj, callbackfn2) && valueOfAccessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

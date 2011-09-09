@@ -34,4 +34,4 @@ function testcase() {
             return e instanceof SyntaxError && typeof _7_8_3_5 === "undefined";
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -44,4 +44,4 @@ function testcase() {
             delete String.prototype.enumerable;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

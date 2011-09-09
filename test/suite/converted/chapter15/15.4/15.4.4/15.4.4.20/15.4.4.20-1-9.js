@@ -40,4 +40,4 @@ function testcase() {
 
         return newArr[0] === 11 && newArr[1] === 9;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

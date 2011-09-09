@@ -34,4 +34,4 @@ function testcase() {
   o.prop = "12.10-0-3 after";
   return f()==="12.10-0-3 after"
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

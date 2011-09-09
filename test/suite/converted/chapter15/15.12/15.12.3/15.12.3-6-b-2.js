@@ -28,4 +28,4 @@ function testcase() {
   var obj = {a1: {b1: [1,2,3,4], b2: {c1: 1, c2: 2}},a2: 'a2'};
   return JSON.stringify(obj,null, 0)=== JSON.stringify(obj);  /* emptry string should be same as no space arg */
   }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

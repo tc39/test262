@@ -48,4 +48,4 @@ function testcase() {
         Object.defineProperty(obj, "foo", { get: getFunc2 });
         return accessorPropertyAttributesAreCorrect(obj, "foo", getFunc2, setFunc1, "helpVerifySet", false, true);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

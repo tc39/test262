@@ -34,4 +34,4 @@ function testcase() {
 
         return desc.value === "ownProperty" && desc.writable === true && desc.enumerable === true && desc.configurable === true;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

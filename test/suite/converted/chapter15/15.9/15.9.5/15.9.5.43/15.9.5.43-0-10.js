@@ -45,4 +45,4 @@ function testcase() {
             return dateStr[dateStr.length - 1] === "Z";
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

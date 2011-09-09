@@ -51,4 +51,4 @@ function testcase() {
         return dataPropertyAttributesAreCorrect(newObj, "foo1", 200, true, true, true) &&
             accessorPropertyAttributesAreCorrect(newObj, "foo2", getFunc, setFunc, "setVerifyHelpProp", true, true);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -56,4 +56,4 @@ function testcase() {
             return (e instanceof RangeError) && !newObj.hasOwnProperty("prop1") && i === 2;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -30,4 +30,4 @@ function testcase() {
   //               '12345'
   return JSON.stringify(obj,null, 5)=== JSON.stringify(obj, null, fiveSpaces);  
   }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

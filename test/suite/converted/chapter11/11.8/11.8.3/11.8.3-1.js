@@ -43,4 +43,4 @@ function testcase() {
         };
         return (obj1 <= obj2);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

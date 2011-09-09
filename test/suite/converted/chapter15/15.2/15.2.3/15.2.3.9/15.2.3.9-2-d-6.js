@@ -31,4 +31,4 @@ function testcase() {
 
         return Object.isFrozen(dateObj);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

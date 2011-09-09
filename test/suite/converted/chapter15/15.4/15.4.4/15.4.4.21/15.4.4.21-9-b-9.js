@@ -49,4 +49,4 @@ function testcase() {
         arr.reduce(callbackfn);
         return testResult && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

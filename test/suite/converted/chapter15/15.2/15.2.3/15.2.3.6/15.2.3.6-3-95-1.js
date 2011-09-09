@@ -43,4 +43,4 @@ function testcase() {
             delete Error.prototype.configurable;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

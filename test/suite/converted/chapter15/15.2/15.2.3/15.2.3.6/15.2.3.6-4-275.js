@@ -35,4 +35,4 @@ function testcase() {
 
         return arrObj.length === 4 && arrObj[3] === 3;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

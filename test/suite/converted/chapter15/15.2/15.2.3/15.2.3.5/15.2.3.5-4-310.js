@@ -34,4 +34,4 @@ function testcase() {
         });
         return newObj.hasOwnProperty("prop") && newObj.prop === undefined;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

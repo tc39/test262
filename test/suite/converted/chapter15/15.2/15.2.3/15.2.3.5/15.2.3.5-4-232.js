@@ -31,4 +31,4 @@ function testcase() {
         });
         return typeof (newObj.prop) === "undefined";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

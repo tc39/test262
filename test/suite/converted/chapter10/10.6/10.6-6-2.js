@@ -32,4 +32,4 @@ function testcase() {
      desc.writable === true )
     return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

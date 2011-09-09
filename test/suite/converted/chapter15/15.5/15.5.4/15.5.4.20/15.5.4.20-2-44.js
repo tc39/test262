@@ -28,4 +28,4 @@ function testcase() {
         var str = "SD咕噜";
         return str.trim() === str;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

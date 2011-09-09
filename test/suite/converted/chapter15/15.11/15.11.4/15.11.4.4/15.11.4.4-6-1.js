@@ -28,4 +28,4 @@ function testcase() {
         var errObj = new Error();
         return errObj.toString() === "Error";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

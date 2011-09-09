@@ -37,4 +37,4 @@ function testcase() {
 
         return obj.property === "isWritable";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

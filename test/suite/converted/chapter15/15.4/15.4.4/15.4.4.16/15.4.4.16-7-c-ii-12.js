@@ -35,4 +35,4 @@ function testcase() {
 
         return [11, 12, 13].every(callbackfn) && 3 === called;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

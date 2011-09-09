@@ -35,4 +35,4 @@ function testcase() {
         var newArr = Array.prototype.filter.call(str, callbackfn);
         return newArr.length === 3;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

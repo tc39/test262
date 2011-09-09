@@ -45,4 +45,4 @@ function testcase() {
 	else JSON.stringify = o  /* this branch messes up the attributes */;
   }
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

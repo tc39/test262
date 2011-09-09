@@ -44,4 +44,4 @@ function testcase() {
             delete Math.writable;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

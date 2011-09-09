@@ -37,4 +37,4 @@ function testcase() {
 
         return obj.property === "arrayGetProperty";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

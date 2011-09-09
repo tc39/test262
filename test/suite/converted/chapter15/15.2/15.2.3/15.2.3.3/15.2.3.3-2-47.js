@@ -47,4 +47,4 @@ function testcase() {
 
         return desc.value === "length2" && toStringAccessed && !valueOfAccessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

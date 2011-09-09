@@ -51,4 +51,4 @@ function testcase() {
 
         return !func(11, 12, 9) && firstResult && secondResult && thirdResult;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

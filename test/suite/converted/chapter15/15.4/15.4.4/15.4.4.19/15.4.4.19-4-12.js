@@ -33,4 +33,4 @@ function testcase() {
         var testResult = [11, 9].map(callbackfn);
         return testResult.length === 2 && testResult[0] === true && testResult[1] === false;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

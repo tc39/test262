@@ -35,4 +35,4 @@ function testcase() {
 
         return obj.property === "arguments";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

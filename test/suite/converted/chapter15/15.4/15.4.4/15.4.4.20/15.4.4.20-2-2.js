@@ -33,4 +33,4 @@ function testcase() {
         var newArr = [12, 11].filter(callbackfn);
         return newArr.length === 2;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

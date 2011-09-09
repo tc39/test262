@@ -37,4 +37,4 @@ function testcase() {
         }
         return new innerObj().retVal;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -32,4 +32,4 @@ function testcase() {
         }
         return !fun.call(-12);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -32,4 +32,4 @@ function testcase() {
         result = dateStr === expectedDateTimeStr;
         return result;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

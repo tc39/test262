@@ -43,4 +43,4 @@ function testcase() {
 
         return dataPropertyAttributesAreCorrect(arr, "1", 12, false, false, true);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

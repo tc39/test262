@@ -34,4 +34,4 @@ function testcase() {
 
         return !Array.isArray(arg);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

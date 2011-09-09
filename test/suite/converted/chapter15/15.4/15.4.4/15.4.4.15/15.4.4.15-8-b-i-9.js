@@ -50,4 +50,4 @@ function testcase() {
 
         return arr.lastIndexOf(0) === 0 && arr.lastIndexOf(1) === 1 && arr.lastIndexOf(2) === 2;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

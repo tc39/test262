@@ -28,4 +28,4 @@ function testcase() {
   if(Object.getPrototypeOf(arguments) === Object.getPrototypeOf({}))
     return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

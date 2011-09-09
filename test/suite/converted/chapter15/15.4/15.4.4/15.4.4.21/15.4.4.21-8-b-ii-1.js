@@ -38,4 +38,4 @@ function testcase() {
 
         return Array.prototype.reduce.call(obj, function () { }) === "accumulator";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

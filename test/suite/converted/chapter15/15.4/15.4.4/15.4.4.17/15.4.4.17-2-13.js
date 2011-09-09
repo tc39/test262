@@ -48,4 +48,4 @@ function testcase() {
 
         return !Array.prototype.some.call(child, callbackfn) && !accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

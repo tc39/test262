@@ -32,4 +32,4 @@ function testcase() {
   if(delete arguments === false && arguments !== undefined)
     return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

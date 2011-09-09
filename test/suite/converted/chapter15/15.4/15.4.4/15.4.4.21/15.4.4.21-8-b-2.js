@@ -42,4 +42,4 @@ function testcase() {
 
         return Array.prototype.reduce.call(obj, callbackfn) === 3;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

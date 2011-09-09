@@ -40,4 +40,4 @@ function testcase() {
             Array = oldArray;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

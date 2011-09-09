@@ -35,4 +35,4 @@ function testcase() {
 
         return ![11].some(callbackfn) && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

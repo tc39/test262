@@ -55,4 +55,4 @@ function testcase() {
 
         return result1 && result2 && desc1.get === getFunc && typeof desc2.get === "undefined";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -45,4 +45,4 @@ function testcase() {
         var testResult = Array.prototype.map.call(obj, callbackfn);
         return typeof testResult[2] === "undefined";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

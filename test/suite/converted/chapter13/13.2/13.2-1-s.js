@@ -34,4 +34,4 @@ function testcase() {
         var obj = new foo();
         return obj.caller === 12;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

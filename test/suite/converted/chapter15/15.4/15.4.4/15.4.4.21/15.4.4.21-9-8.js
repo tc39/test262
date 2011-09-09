@@ -45,4 +45,4 @@ function testcase() {
         Array.prototype.reduce.call(obj, function () { }, "initialValue");
         return !accessed && !callbackAccessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

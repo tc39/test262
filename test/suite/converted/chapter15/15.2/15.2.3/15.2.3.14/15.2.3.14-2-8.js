@@ -50,4 +50,4 @@ function testcase() {
 
         return (arr.length === 2) && (arr[0] === "prop1") && (arr[1] === "prop2");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

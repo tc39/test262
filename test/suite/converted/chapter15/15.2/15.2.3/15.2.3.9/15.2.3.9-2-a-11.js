@@ -36,4 +36,4 @@ function testcase() {
         delete argObj[0];
         return argObj[0] === 1 && desc.configurable === false && desc.writable === false;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -40,4 +40,4 @@ function testcase() {
 
         return [11].every(callbackfn, arg) && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

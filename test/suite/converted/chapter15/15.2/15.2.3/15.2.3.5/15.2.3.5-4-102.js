@@ -45,4 +45,4 @@ function testcase() {
         return result1 === true && result2 === false;
 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

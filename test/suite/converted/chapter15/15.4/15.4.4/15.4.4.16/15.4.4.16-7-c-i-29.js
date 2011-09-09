@@ -53,4 +53,4 @@ function testcase() {
 
         return !Array.prototype.every.call(obj, callbackfn);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

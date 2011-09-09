@@ -51,4 +51,4 @@ function testcase() {
 
         return hasProperty && verifyValue && verifyWritable && !verifyEnumerable && verifyConfigurable;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -47,4 +47,4 @@ function testcase() {
             delete Function.prototype.prop;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

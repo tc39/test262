@@ -32,4 +32,4 @@ function testcase() {
         errObj.exName = 2;
         return preCheck && !errObj.hasOwnProperty("exName");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

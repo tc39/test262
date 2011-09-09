@@ -42,4 +42,4 @@ function testcase() {
   
   return foo === "declaration in catch";
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

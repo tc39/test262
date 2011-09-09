@@ -46,4 +46,4 @@ function testcase() {
 
         return [11, 12, 13, 14].every(callbackfn, undefined) && 4 === called;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

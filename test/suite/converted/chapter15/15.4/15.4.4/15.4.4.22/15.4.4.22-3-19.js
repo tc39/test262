@@ -61,4 +61,4 @@ function testcase() {
         Array.prototype.reduceRight.call(obj, callbackfn, 1);
         return testResult1 && testResult2 && toStringAccessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -41,4 +41,4 @@ function testcase() {
 
         return obj.property === "Function";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

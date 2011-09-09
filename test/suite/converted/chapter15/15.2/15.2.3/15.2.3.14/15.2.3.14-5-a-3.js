@@ -38,4 +38,4 @@ function testcase() {
 
         return result && desc.hasOwnProperty("enumerable") && desc.enumerable === true;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

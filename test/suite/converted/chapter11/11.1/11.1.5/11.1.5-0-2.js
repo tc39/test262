@@ -44,4 +44,4 @@ function testcase() {
     return false;
   return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

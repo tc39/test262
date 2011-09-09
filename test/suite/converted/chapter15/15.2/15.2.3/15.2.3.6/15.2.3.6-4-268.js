@@ -41,4 +41,4 @@ function testcase() {
         });
         return accessorPropertyAttributesAreCorrect(arrObj, "0", undefined, setFunc, "setVerifyHelpProp", false, true);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

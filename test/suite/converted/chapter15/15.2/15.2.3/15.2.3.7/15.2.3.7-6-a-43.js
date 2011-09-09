@@ -39,4 +39,4 @@ function testcase() {
         return dataPropertyAttributesAreCorrect(obj, "foo", null, false, false, false);
 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

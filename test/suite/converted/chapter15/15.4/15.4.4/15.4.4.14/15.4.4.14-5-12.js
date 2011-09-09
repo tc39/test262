@@ -29,4 +29,4 @@ function testcase() {
         arr[Math.pow(2, 32) - 2] = true; //length is the max value of Uint type
         return arr.indexOf(true, Infinity) === -1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

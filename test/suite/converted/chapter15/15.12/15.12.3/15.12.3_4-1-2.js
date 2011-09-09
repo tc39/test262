@@ -33,4 +33,4 @@ function testcase() {
      }
    catch (e) {return e.name==='TypeError'}
   }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

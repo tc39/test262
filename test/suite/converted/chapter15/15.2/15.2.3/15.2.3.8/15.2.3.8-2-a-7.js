@@ -34,4 +34,4 @@ function testcase() {
         delete funObj.foo;
         return preCheck && funObj.foo === 10;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

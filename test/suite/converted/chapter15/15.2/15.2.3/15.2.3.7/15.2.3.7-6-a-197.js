@@ -45,4 +45,4 @@ function testcase() {
 
         return isOwnProperty && !canWritable && arr[0] === 1001;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

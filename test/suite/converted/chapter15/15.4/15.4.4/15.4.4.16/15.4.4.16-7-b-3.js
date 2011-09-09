@@ -42,4 +42,4 @@ function testcase() {
 
         return Array.prototype.every.call(arr, callbackfn) && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

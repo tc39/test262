@@ -36,4 +36,4 @@ function testcase() {
 
         return Array.prototype.every.call(obj, callbackfn) && 2 === called;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

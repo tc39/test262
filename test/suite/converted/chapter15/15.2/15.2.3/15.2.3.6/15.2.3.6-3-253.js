@@ -41,4 +41,4 @@ function testcase() {
             delete Math.set;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

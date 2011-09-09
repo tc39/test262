@@ -42,4 +42,4 @@ function testcase() {
 
         return newArr.length === 5 && called === 5;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

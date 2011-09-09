@@ -39,4 +39,4 @@ function testcase() {
 
         return obj.hasOwnProperty("prop") && desc.set === setFunc && verifySetFunc === 2010;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

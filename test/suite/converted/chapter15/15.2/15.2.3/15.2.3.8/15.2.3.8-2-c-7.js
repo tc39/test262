@@ -31,4 +31,4 @@ function testcase() {
 
         return preCheck && Object.isSealed(regObj);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

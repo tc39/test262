@@ -31,4 +31,4 @@ function testcase() {
 
         return (str.trim() === str);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -36,4 +36,4 @@ function testcase() {
         });
         return obj.accProperty === 11 && public === 1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

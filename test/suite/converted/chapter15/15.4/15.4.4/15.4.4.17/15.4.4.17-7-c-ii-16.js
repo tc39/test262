@@ -34,4 +34,4 @@ function testcase() {
 
         return Array.prototype.some.call(obj, callbackfn, false);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -45,4 +45,4 @@ function testcase() {
             delete Date.prototype.prop;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

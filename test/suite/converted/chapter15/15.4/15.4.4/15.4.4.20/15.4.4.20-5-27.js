@@ -30,4 +30,4 @@ function testcase() {
 
         return Array.isArray(newArr);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

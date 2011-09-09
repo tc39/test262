@@ -30,4 +30,4 @@ function testcase() {
         var obj1 = Object.defineProperties(obj, false);
         return obj === obj1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

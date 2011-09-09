@@ -41,4 +41,4 @@ function testcase() {
 
         return obj.hasOwnProperty("prop") && desc.set === setFunc && firstArg === 100 && typeof secondArg === "undefined";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

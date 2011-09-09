@@ -42,4 +42,4 @@ function testcase() {
             delete Math.configurable;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

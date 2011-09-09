@@ -43,4 +43,4 @@ function testcase() {
         var newArr = Array.prototype.filter.call(child, callbackfn);
         return newArr.length === 2;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

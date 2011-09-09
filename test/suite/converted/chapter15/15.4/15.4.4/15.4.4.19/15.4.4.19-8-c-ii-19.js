@@ -43,4 +43,4 @@ function testcase() {
 
         return !result && testResult[0] === true && called === 1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

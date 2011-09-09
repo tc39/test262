@@ -31,4 +31,4 @@ function testcase() {
 
         return Object.getPrototypeOf(obj) === Function.prototype;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

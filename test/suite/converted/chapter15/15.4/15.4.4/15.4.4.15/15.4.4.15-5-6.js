@@ -31,4 +31,4 @@ function testcase() {
             arr.lastIndexOf(2) === arr.lastIndexOf(2, 4) &&
             arr.lastIndexOf(4) === arr.lastIndexOf(4, 4);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

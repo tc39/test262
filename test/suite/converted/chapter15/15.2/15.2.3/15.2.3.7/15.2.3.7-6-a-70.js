@@ -44,4 +44,4 @@ function testcase() {
         });
         return dataPropertyAttributesAreCorrect(obj, "foo", 12, false, false, true);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

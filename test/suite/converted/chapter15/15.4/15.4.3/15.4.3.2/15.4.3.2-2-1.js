@@ -33,4 +33,4 @@ function testcase() {
         var child = new Con();
         return !Array.isArray(child);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

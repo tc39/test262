@@ -32,4 +32,4 @@ function testcase() {
         } ();
         return argObj.hasOwnProperty("callee") && argObj.hasOwnProperty("caller");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -34,4 +34,4 @@ function testcase() {
 
         return [11, 9].reduce(callbackfn, 1) === false && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

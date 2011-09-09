@@ -39,4 +39,4 @@ function testcase() {
 
         return obj.property === "Array";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

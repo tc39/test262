@@ -41,4 +41,4 @@ function testcase() {
             !Array.prototype.some.call(objTwo, callbackfn) &&
             !Array.prototype.some.call(objThree, callbackfn) && !accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

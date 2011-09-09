@@ -33,4 +33,4 @@ function testcase() {
 
         return newFunc() === "abc";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

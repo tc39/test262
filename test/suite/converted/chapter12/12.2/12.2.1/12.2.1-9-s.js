@@ -31,4 +31,4 @@ function testcase() {
   s('var eval;');
   return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -52,4 +52,4 @@ function testcase() {
 
         return Array.prototype.lastIndexOf.call(obj, child) === 1 && valueOfAccessed && !toStringAccessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -65,4 +65,4 @@ function testcase() {
 
         return !verifyConfigurable && !verifyEnumerable && verifyValue && typeof (desc.set) === "undefined" && desc.get === get_Func2;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

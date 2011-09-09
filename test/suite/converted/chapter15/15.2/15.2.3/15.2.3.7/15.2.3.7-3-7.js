@@ -46,4 +46,4 @@ function testcase() {
 
         return !obj.hasOwnProperty("prop1") && !obj.hasOwnProperty("prop2");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

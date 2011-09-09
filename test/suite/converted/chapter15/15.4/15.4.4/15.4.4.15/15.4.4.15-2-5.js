@@ -46,4 +46,4 @@ function testcase() {
 
         return Array.prototype.lastIndexOf.call(child, null) === 1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

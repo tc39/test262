@@ -38,4 +38,4 @@ function testcase() {
   if( resArr.length === 1)
     return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

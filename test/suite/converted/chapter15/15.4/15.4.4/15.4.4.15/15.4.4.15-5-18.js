@@ -29,4 +29,4 @@ function testcase() {
         return [0, NaN, targetObj, 3, false].lastIndexOf(targetObj, "2E0") === 2 &&
             [0, NaN, 3, targetObj, false].lastIndexOf(targetObj, "2E0") === -1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

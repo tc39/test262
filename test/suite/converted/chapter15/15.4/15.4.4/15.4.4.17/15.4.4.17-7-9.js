@@ -45,4 +45,4 @@ function testcase() {
 
         return Array.prototype.some.call(obj, callbackfn) && called === 3;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

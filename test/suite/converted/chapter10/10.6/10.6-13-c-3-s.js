@@ -36,4 +36,4 @@ function testcase() {
      desc.hasOwnProperty('get') == true &&
      desc.hasOwnProperty('set') == true);
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

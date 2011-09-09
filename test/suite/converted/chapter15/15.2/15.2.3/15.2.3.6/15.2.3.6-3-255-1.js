@@ -41,4 +41,4 @@ function testcase() {
             delete RegExp.prototype.set;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

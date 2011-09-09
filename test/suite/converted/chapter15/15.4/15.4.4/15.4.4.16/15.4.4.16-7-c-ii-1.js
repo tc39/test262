@@ -37,4 +37,4 @@ function testcase() {
   if(arr.every(callbackfn) === true)
     return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -44,4 +44,4 @@ function testcase() {
 
         return newArr.length === 1 && newArr[0] === "length";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

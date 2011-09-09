@@ -39,4 +39,4 @@ function testcase() {
         return preCheck && !testResult1 && !testResult2;
 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

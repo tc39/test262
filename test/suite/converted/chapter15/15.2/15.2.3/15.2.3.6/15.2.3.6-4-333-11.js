@@ -39,4 +39,4 @@ function testcase() {
 
         return verifyValue;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

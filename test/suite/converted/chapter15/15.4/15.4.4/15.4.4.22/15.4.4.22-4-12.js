@@ -34,4 +34,4 @@ function testcase() {
 
         return 20 === [11, 9].reduceRight(callbackfn, initialValue);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

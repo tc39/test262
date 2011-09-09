@@ -31,4 +31,4 @@ function testcase() {
   var o = { eval: 42};
   return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

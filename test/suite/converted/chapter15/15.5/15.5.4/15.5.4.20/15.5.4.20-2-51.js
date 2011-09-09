@@ -28,4 +28,4 @@ function testcase() {
         var argObj = function () { return arguments; } (1, 2, true);
         return String.prototype.trim.call(argObj) === "[object Arguments]";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

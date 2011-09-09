@@ -33,4 +33,4 @@ function testcase() {
         var jsonText = JSON.stringify(arrObj, undefined, "").toString();
         return jsonText.substr(jsonText.length - 1, 1) === "]";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

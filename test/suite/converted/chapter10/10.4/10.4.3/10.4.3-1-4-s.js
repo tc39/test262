@@ -41,4 +41,4 @@ function testcase() {
 
   return foo.call(true) === 'boolean' && bar.call(true) === 'object';
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

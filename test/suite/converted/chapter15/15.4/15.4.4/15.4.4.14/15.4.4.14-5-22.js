@@ -35,4 +35,4 @@ function testcase() {
 
         return [0, true].indexOf(true, fromIndex) === 1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

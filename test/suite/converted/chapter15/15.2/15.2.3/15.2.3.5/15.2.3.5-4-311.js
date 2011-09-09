@@ -57,4 +57,4 @@ function testcase() {
 
         return verifySet && verifyGet && verifyEnumerable && verifyConfigurable;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

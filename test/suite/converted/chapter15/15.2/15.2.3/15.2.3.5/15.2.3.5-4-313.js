@@ -37,4 +37,4 @@ function testcase() {
         var isNotConfigurable = newObj.hasOwnProperty("prop");
         return hasProperty && isNotConfigurable;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

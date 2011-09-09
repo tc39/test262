@@ -41,4 +41,4 @@ function testcase() {
                 desc.writable === true && desc.configurable === false && desc.enumerable === false;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

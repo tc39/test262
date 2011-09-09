@@ -28,4 +28,4 @@ function testcase() {
   Function('eval', 'return;');
   return true;
   }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

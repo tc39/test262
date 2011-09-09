@@ -33,4 +33,4 @@ function testcase() {
 
         return testResult[0] === true && testResult[1] === true && testResult[2] === true;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

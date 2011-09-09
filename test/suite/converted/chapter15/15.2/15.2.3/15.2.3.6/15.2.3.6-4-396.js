@@ -35,4 +35,4 @@ function testcase() {
 
         return obj.prop !== obj.prop && desc.value !== desc.value;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

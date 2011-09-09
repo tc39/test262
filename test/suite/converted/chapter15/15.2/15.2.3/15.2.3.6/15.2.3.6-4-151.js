@@ -52,4 +52,4 @@ function testcase() {
         return arrObj.length === 2 && !toStringAccessed && valueOfAccessed;
 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

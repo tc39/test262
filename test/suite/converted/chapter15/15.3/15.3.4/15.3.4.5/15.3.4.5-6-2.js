@@ -36,4 +36,4 @@ function testcase() {
             delete Function.prototype.property;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

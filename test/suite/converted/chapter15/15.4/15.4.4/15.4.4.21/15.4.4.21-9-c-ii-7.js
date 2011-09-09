@@ -46,4 +46,4 @@ function testcase() {
             return (ex instanceof Error) && !accessed;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -45,4 +45,4 @@ function testcase() {
             delete JSON.prop;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -56,4 +56,4 @@ function testcase() {
 
         return accessorPropertyAttributesAreCorrect(arg, "0", get_func2, undefined, undefined, false, false);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -31,4 +31,4 @@ function testcase() {
         return obj.hasOwnProperty("NaN");
 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

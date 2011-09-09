@@ -53,4 +53,4 @@ function testcase() {
 
         return testResult && firstStepOccured && secondStepOccured;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

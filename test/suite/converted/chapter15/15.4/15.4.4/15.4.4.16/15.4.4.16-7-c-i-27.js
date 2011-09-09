@@ -45,4 +45,4 @@ function testcase() {
 
         return func(11, 12, 9) && called === 3;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

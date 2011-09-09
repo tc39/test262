@@ -56,4 +56,4 @@ function testcase() {
         arr.reduceRight(callbackfn);
         return testResult && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

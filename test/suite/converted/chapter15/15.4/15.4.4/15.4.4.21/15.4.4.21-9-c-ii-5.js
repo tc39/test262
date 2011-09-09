@@ -49,4 +49,4 @@ function testcase() {
 
         return result && called === 4;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

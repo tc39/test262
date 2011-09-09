@@ -33,4 +33,4 @@ function testcase() {
             return ex instanceof TypeError;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

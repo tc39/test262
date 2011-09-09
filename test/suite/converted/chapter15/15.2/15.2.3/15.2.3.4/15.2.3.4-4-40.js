@@ -43,4 +43,4 @@ function testcase() {
             delete String.prototype.protoProperty;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

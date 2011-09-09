@@ -47,4 +47,4 @@ function testcase() {
             return e instanceof TypeError && accessorPropertyAttributesAreCorrect(obj, "prop", getFunc, undefined, undefined, false, false);
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

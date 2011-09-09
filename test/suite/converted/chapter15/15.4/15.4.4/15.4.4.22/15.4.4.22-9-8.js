@@ -44,4 +44,4 @@ function testcase() {
         Array.prototype.reduceRight.call(obj, function () { }, "initialValue");
         return !accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

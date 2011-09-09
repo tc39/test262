@@ -31,4 +31,4 @@ function testcase() {
         var obj3 = obj2;
         return [obj2, obj1].lastIndexOf(obj3) === 0;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

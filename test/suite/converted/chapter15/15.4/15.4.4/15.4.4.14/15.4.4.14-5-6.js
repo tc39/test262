@@ -31,4 +31,4 @@ function testcase() {
             arr.indexOf(2) === arr.indexOf(2, 0) &&
             arr.indexOf(4) === arr.indexOf(4, 0); 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

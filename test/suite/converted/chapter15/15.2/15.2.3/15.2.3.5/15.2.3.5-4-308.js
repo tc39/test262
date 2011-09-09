@@ -44,4 +44,4 @@ function testcase() {
         }
         return hasProperty && !isEnumerable;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

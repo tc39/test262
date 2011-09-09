@@ -33,4 +33,4 @@ function testcase() {
         obj[0] = 12;
         return preCheck && !obj.hasOwnProperty("0");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

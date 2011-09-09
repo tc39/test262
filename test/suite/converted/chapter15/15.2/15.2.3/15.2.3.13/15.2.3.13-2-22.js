@@ -29,4 +29,4 @@ function testcase() {
         var obj = {};
         return Object.isExtensible(obj);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

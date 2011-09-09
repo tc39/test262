@@ -43,4 +43,4 @@ function testcase() {
             return e instanceof TypeError && arr[0] === "ownDataProperty";
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

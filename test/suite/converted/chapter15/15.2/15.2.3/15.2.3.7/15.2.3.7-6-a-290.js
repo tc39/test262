@@ -45,4 +45,4 @@ function testcase() {
 
         return dataPropertyAttributesAreCorrect(arg, "0", 10, false, false, false);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

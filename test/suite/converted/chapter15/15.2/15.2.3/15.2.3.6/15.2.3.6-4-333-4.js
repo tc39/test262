@@ -38,4 +38,4 @@ function testcase() {
 
         return verifyValue && obj[0] === 1001;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

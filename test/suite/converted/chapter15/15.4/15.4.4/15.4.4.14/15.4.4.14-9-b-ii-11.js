@@ -31,4 +31,4 @@ function testcase() {
         var obj3 = obj2;
         return [{}, obj1, obj2].indexOf(obj3) === 2;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

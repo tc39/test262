@@ -35,4 +35,4 @@ function testcase() {
   var arr = [1,2,,4,'5'];
   return arr.reduce(callbackfn, "") === "12345";
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

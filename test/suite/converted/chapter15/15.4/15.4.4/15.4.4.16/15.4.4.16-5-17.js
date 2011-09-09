@@ -34,4 +34,4 @@ function testcase() {
 
         return [11].every(callbackfn, JSON) && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

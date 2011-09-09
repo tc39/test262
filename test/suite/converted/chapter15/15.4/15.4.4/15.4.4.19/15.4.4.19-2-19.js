@@ -40,4 +40,4 @@ function testcase() {
 
         return 2 === testResult.length;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

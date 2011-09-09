@@ -28,4 +28,4 @@ function testcase() {
       var arguments= undefined;
 	return (function (a,b,c) {return arguments.length === 0})();
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

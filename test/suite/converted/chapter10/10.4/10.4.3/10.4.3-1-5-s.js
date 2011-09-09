@@ -44,4 +44,4 @@ function testcase() {
 
   return foo.call(foobar) === 'function' && bar.call(foobar) === 'function';
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

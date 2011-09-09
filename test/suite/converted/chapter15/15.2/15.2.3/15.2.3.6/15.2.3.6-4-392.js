@@ -36,4 +36,4 @@ function testcase() {
 
         return obj.prop === dateObj && desc.value === dateObj;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

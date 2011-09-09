@@ -31,4 +31,4 @@ function testcase() {
         result = regObj.exec(str).toString() === "World";
         return result;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

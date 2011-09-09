@@ -28,4 +28,4 @@ function testcase() {
         var funObj = function () { return arguments; };
         return typeof(String.prototype.trim.call(funObj)) === "string";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

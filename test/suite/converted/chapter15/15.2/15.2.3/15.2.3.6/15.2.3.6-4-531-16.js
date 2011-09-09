@@ -50,4 +50,4 @@ function testcase() {
 
         return propertyDefineCorrect && desc.set === setFunc && obj[0] === "overrideData";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

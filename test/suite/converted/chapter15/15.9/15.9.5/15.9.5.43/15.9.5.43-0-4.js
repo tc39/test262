@@ -30,4 +30,4 @@ function testcase() {
 
         return localDate.toISOString() === "1999-10-10T10:10:10.010Z";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

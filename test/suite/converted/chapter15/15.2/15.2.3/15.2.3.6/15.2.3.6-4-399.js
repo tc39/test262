@@ -35,4 +35,4 @@ function testcase() {
 
         return obj.prop === fnGlobalObject() && desc.value === fnGlobalObject();
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

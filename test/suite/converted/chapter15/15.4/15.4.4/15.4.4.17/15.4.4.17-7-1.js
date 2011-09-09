@@ -41,4 +41,4 @@ function testcase() {
   var val = arr.some(callbackfn);
   return calledForThree;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

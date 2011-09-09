@@ -37,4 +37,4 @@ function testcase() {
   [1].filter(callbackfn);
   return innerThisCorrect;    
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

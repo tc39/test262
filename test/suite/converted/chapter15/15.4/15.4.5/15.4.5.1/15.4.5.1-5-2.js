@@ -29,4 +29,4 @@ function testcase() {
   a[4294967295] = "not an array element" ;
   return a.length===3;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

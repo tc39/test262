@@ -34,4 +34,4 @@ function testcase() {
         delete obj.prop;
         return obj.hasOwnProperty("prop") && obj.prop === 1001;        
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -35,4 +35,4 @@ function testcase() {
 
         return obj.prop === -Infinity && desc.value === -Infinity;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

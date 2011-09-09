@@ -41,4 +41,4 @@ function testcase() {
 
         return preCheck && beforeDeleted && afterDeleted;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

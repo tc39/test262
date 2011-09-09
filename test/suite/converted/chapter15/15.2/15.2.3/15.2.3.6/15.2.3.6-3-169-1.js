@@ -43,4 +43,4 @@ function testcase() {
             delete Number.prototype.writable;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

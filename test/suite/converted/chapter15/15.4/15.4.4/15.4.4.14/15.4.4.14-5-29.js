@@ -50,4 +50,4 @@ function testcase() {
             return (e instanceof RangeError) && !stepFiveOccurs;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

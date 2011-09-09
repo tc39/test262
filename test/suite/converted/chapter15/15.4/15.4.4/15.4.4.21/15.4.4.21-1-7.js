@@ -32,4 +32,4 @@ function testcase() {
 
         return Array.prototype.reduce.call("abc", callbackfn, 1);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

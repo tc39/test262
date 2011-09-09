@@ -37,4 +37,4 @@ function testcase() {
             delete Date.prototype.value;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

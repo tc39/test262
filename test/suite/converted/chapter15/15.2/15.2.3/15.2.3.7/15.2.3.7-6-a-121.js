@@ -38,4 +38,4 @@ function testcase() {
             return e instanceof RangeError && arr.length === 0;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

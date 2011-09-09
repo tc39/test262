@@ -36,4 +36,4 @@ function testcase() {
 
         return newArr[0] === 11 && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

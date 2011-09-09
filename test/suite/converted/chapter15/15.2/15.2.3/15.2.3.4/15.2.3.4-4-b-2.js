@@ -54,4 +54,4 @@ function testcase() {
 
         return compareArray(expResult, result);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

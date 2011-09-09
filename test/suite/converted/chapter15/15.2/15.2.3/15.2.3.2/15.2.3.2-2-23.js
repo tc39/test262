@@ -29,4 +29,4 @@ function testcase() {
 
         return Object.getPrototypeOf(obj) === Boolean.prototype;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -37,4 +37,4 @@ function testcase() {
 
         return argObj[0] === 12 && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

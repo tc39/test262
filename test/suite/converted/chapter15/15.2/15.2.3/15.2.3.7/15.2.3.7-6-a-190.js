@@ -48,4 +48,4 @@ function testcase() {
             return e instanceof TypeError && arr[0] === 11;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

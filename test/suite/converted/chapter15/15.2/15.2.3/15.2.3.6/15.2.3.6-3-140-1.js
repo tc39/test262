@@ -37,4 +37,4 @@ function testcase() {
             delete Array.prototype.value;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

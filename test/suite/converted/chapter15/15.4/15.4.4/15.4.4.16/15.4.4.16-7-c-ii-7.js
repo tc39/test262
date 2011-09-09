@@ -45,4 +45,4 @@ function testcase() {
             return 1 === called;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -34,4 +34,4 @@ function testcase() {
 
         return desc.value === "ownDataProperty";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

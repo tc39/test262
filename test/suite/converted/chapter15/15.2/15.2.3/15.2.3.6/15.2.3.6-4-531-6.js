@@ -44,4 +44,4 @@ function testcase() {
 
         return propertyDefineCorrect && typeof desc.set === "undefined" && obj[0] === "data";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

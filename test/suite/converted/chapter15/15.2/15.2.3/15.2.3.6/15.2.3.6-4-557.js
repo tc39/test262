@@ -48,4 +48,4 @@ function testcase() {
 
         return propertyDefineCorrect && desc.get === getFunc && obj.prop === 1001;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

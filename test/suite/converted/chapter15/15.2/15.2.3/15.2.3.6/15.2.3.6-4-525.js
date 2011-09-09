@@ -53,4 +53,4 @@ function testcase() {
             return result1 && result2 && desc1.get === getFunc && desc2.get === getFunc && e instanceof TypeError;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

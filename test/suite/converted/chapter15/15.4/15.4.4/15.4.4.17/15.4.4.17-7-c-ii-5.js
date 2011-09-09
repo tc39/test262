@@ -45,4 +45,4 @@ function testcase() {
 
         return ![11, 12, 13, 14].some(callbackfn, undefined);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -35,4 +35,4 @@ function testcase() {
 
         return [11, 12].reduceRight(callbackfn, 11) === true && 2 === called;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

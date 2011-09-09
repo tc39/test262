@@ -51,4 +51,4 @@ function testcase() {
             return (e instanceof TypeError) && !accessed;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

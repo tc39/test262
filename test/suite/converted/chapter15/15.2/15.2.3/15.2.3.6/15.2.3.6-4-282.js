@@ -40,4 +40,4 @@ function testcase() {
             return e instanceof TypeError && dataPropertyAttributesAreCorrect(arrObj, "property", undefined, false, false, false);
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

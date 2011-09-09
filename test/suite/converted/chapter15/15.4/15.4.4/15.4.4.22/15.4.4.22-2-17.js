@@ -41,4 +41,4 @@ function testcase() {
 
         return func(12, 11) && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

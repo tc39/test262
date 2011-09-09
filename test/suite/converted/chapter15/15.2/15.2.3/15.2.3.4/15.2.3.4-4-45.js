@@ -42,4 +42,4 @@ function testcase() {
             delete Array.prototype.protoProperty;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

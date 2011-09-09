@@ -47,4 +47,4 @@ function testcase() {
             return desc1.hasOwnProperty("get") && !desc2.hasOwnProperty("value") && e instanceof TypeError;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

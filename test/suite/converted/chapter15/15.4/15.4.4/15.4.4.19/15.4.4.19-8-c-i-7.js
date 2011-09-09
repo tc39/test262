@@ -46,4 +46,4 @@ function testcase() {
 
         return newArr[5] === true;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

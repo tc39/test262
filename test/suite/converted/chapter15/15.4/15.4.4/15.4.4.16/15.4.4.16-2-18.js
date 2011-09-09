@@ -42,4 +42,4 @@ function testcase() {
             delete String.prototype[3];
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

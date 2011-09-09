@@ -28,4 +28,4 @@ function testcase() {
   var s = Object.prototype.toString.call(RegExp.prototype);
   return s === '[object RegExp]';
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

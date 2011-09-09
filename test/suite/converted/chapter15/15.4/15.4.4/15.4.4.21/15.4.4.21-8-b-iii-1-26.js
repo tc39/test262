@@ -41,4 +41,4 @@ function testcase() {
         func(0, 1, 2);
         return testResult;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

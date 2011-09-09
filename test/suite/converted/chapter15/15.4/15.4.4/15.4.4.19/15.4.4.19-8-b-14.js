@@ -43,4 +43,4 @@ function testcase() {
         var testResult = arr.map(callbackfn);
         return typeof testResult[3] === "undefined";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -39,4 +39,4 @@ function testcase() {
 
         return 4 === arr.lastIndexOf(targetObj, fromIndex);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

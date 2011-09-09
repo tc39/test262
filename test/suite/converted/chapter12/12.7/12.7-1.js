@@ -33,4 +33,4 @@ function testcase() {
         }
         return sum === 0;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -44,4 +44,4 @@ function testcase() {
 
         return newAccum === "initialValue01" && called === 2;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

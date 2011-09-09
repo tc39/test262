@@ -35,4 +35,4 @@ function testcase() {
             delete JSON.length;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

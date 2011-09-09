@@ -29,4 +29,4 @@ function testcase() {
   var desc = Object.getOwnPropertyDescriptor(arguments,"length");
   return desc !== undefined
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -56,4 +56,4 @@ function testcase() {
         arr.forEach(callbackfn);
         return testResult && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

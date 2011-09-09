@@ -41,4 +41,4 @@ function testcase() {
       a.lastIndexOf(4) === 4294967201 &&
       a.lastIndexOf(5) === 4294967202) ;
    }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

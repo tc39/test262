@@ -34,4 +34,4 @@ function testcase() {
 
         return func(0, arguments, 0, Object.prototype);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -29,4 +29,4 @@ function testcase() {
         var newArrObj = arrObj.splice(-2, 1);
         return newArrObj.length === 1 && newArrObj[0] === 2;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -39,4 +39,4 @@ function testcase() {
 
         return indexDeleted && arrObj.length === 1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

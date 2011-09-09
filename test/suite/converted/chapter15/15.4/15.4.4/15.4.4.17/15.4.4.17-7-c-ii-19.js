@@ -37,4 +37,4 @@ function testcase() {
 
         return !Array.prototype.some.call(obj, callbackfn) && (2 === called);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

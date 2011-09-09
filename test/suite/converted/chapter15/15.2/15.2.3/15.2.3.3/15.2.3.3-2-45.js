@@ -42,4 +42,4 @@ function testcase() {
 
         return desc.value === 1 && !valueOfAccessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

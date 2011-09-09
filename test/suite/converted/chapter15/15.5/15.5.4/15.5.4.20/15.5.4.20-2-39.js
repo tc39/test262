@@ -33,4 +33,4 @@ function testcase() {
 
         return (String.prototype.trim.call(obj) === "[object Object]");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

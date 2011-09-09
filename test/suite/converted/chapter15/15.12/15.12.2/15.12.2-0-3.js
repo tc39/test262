@@ -33,4 +33,4 @@ function testcase() {
   var desc = Object.getOwnPropertyDescriptor(o, "parse");
   return desc.configurable === true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

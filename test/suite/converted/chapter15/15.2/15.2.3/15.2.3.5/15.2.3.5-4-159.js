@@ -45,4 +45,4 @@ function testcase() {
 
         return newObj.prop === "inheritedAccessorProperty";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

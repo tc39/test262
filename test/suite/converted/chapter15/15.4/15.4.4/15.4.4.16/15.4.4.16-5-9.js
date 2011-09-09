@@ -36,4 +36,4 @@ function testcase() {
 
         return [11].every(callbackfn, objFunction) && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -39,4 +39,4 @@ function testcase() {
         var resArr = obj.srcArr.map(callbackfn);
         return resArr.toString() === "1,1,1,1,1" && !obj.hasOwnProperty("arr");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -38,4 +38,4 @@ function testcase() {
         }
         return hasProperty && !canEnumerable;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

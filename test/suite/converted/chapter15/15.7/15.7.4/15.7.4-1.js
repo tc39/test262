@@ -29,4 +29,4 @@ function testcase() {
   var s = Object.prototype.toString.call(numProto );
   return (s === '[object Number]') ;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

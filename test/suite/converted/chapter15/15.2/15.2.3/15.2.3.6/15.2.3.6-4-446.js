@@ -54,4 +54,4 @@ function testcase() {
 
         return !result1 && result2 && desc1.enumerable === false && desc2.enumerable === true;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

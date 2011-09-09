@@ -50,4 +50,4 @@ function testcase() {
 
         return arr.indexOf(0) === 0 && arr.indexOf(1) === 1 && arr.indexOf(2) === 2;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

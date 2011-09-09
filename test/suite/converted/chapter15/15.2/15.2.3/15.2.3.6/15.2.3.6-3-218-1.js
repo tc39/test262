@@ -39,4 +39,4 @@ function testcase() {
             delete Function.prototype.get;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

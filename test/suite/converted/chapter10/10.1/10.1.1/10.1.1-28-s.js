@@ -39,4 +39,4 @@ function testcase() {
         obj.accProperty = "overrideData";
         return data==="overrideData";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

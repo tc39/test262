@@ -37,4 +37,4 @@ function testcase() {
 
         return obj.property === "errorGetProperty";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

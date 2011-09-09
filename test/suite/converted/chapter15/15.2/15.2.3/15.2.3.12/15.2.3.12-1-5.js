@@ -28,4 +28,4 @@ function testcase() {
         var obj = Object.freeze([0, 1, 2]);
         return Object.isFrozen(obj);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

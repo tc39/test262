@@ -36,4 +36,4 @@ function testcase() {
 
         return dataPropertyAttributesAreCorrect(arrObj, "0", 1001, false, false, true);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

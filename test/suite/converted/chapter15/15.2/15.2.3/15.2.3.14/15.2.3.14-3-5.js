@@ -32,4 +32,4 @@ function testcase() {
   var keysAfter = Object.keys(literal);
   return (keysBefore[0] == 'x') && (keysAfter[0] == 'a');
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -32,4 +32,4 @@ function testcase() {
 
         return desc.value === "3";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

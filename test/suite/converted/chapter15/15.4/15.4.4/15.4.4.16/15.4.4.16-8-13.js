@@ -40,4 +40,4 @@ function testcase() {
   if(arr.every(callbackfn) === true && callCnt === 10) 
     return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

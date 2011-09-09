@@ -31,4 +31,4 @@ function testcase() {
 
         return desc.enumerable === true;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

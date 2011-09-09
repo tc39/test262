@@ -41,4 +41,4 @@ function testcase() {
 
         return newObj.prop === "inheritedDataProperty";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

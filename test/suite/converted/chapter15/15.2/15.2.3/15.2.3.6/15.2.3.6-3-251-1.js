@@ -41,4 +41,4 @@ function testcase() {
             delete Boolean.prototype.set;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

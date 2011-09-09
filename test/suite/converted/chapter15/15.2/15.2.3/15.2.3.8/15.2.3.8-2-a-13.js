@@ -34,4 +34,4 @@ function testcase() {
         delete regObj.foo;
         return preCheck && regObj.foo === 10;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

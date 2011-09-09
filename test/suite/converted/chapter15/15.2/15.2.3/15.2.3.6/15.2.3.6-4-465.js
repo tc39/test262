@@ -48,4 +48,4 @@ function testcase() {
 
         return desc1.configurable === true && desc2.configurable === false && obj.hasOwnProperty("prop");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

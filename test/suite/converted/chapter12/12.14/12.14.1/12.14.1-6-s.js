@@ -35,4 +35,4 @@ function testcase() {
             return ARGUMENTS instanceof Error;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

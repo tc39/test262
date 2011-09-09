@@ -36,4 +36,4 @@ function testcase() {
         delete strObj[0];
         return strObj[0] === "a" && desc.configurable === false && desc.writable === false;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

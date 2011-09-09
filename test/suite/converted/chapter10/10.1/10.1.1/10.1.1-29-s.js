@@ -31,4 +31,4 @@ function testcase() {
         funObj();
         return true;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

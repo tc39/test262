@@ -35,4 +35,4 @@ function testcase() {
 
         return obj.prop === false && desc.value === false;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

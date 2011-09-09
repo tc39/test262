@@ -32,4 +32,4 @@ function testcase() {
         dateObj.exName = 2;
         return preCheck && !dateObj.hasOwnProperty("exName");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -48,4 +48,4 @@ function testcase() {
             return (ex instanceof RangeError) && !accessed;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

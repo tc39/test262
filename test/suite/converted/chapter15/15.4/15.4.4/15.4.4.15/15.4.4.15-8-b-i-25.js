@@ -33,4 +33,4 @@ function testcase() {
 
         return func(true);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

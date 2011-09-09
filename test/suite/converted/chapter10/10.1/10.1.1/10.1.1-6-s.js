@@ -31,4 +31,4 @@ function testcase() {
         var public = 1;
         return public === 1 && interface === 2;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

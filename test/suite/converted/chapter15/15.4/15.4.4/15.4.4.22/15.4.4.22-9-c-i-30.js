@@ -58,4 +58,4 @@ function testcase() {
         arr.reduceRight(callbackfn, "initialValue");
         return testResult;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -40,4 +40,4 @@ function testcase() {
 
         return Array.prototype.reduceRight.call(obj, callbackfn) === "accumulator";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

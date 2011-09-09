@@ -34,4 +34,4 @@ function testcase() {
         var arr = ['1', 2, , 4, '5'];
         return arr.reduceRight(callbackfn) === "54321";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

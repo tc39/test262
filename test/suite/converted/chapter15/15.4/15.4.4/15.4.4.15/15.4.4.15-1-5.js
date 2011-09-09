@@ -35,4 +35,4 @@ function testcase() {
                 delete Number.prototype.length;
             }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

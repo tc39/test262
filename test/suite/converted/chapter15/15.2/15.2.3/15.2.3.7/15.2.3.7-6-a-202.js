@@ -55,4 +55,4 @@ function testcase() {
             desc.get === getFunc && !verifyConfigurable && verifyEnumerable;
 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

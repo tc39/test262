@@ -37,4 +37,4 @@ function testcase() {
 
         return obj.property === "dateGetProperty";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

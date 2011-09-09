@@ -29,4 +29,4 @@ function testcase() {
         return [0, 1, targetObj, 3, 4].indexOf(targetObj, "0003.10") === -1 &&
             [0, 1, 2, targetObj, 4].indexOf(targetObj, "0003.10") === 3;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

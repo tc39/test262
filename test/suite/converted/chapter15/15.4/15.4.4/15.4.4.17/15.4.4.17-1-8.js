@@ -32,4 +32,4 @@ function testcase() {
         var obj = new String("hello\nw_orld\\!");
         return Array.prototype.some.call(obj, callbackfn);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

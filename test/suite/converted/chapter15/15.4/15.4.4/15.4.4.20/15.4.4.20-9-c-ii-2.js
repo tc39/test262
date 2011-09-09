@@ -40,4 +40,4 @@ function testcase() {
   if(bCalled === true && parCnt === 3)
     return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

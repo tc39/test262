@@ -38,4 +38,4 @@ function testcase() {
         var afterDelete = obj.hasOwnProperty("prop");
         return beforeDelete && !afterDelete;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -35,4 +35,4 @@ function testcase() {
   eval("({foo:0,foo:1});");
   return true;
   }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -54,4 +54,4 @@ function testcase() {
             });
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

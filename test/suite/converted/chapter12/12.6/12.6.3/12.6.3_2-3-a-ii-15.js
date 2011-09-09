@@ -36,4 +36,4 @@ function testcase() {
         }
         return count === 0;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

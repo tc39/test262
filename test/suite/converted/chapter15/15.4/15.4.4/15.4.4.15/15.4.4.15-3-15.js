@@ -31,4 +31,4 @@ function testcase() {
         return Array.prototype.lastIndexOf.call(obj, 229) === 229 &&
             Array.prototype.lastIndexOf.call(obj, 2.3E2) === -1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -35,4 +35,4 @@ function testcase() {
                 typeof anotherVariableNotReserveWord === "undefined";
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

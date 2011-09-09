@@ -35,4 +35,4 @@ function testcase() {
 
         return beforeDeleted && !afterDeleted;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

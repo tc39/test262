@@ -38,4 +38,4 @@ function testcase() {
 
         return testResult.length === 0 && !accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

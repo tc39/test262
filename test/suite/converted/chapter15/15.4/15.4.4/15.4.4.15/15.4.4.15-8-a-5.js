@@ -37,4 +37,4 @@ function testcase() {
 
         return -1 === Array.prototype.lastIndexOf.call(arr, false, fromIndex);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

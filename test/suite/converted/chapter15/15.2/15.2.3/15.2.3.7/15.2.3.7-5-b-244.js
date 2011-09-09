@@ -43,4 +43,4 @@ function testcase() {
             delete Math.prop;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

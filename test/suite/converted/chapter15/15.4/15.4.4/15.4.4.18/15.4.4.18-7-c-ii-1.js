@@ -41,4 +41,4 @@ function testcase() {
   if(bCalled === true && bPar === true)
     return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

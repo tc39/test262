@@ -37,4 +37,4 @@ function testcase() {
 
         return [kValue].some(callbackfn);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

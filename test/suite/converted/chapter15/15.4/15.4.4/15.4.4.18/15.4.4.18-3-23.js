@@ -61,4 +61,4 @@ function testcase() {
 
         return testResult && valueOfAccessed && !toStringAccessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

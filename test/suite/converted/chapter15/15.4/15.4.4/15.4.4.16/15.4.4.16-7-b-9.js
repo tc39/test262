@@ -49,4 +49,4 @@ function testcase() {
 
         return arr.every(callbackfn) && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

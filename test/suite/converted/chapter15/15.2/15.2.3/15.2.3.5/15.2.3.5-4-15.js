@@ -41,4 +41,4 @@ function testcase() {
         var newObj = Object.create({}, argObj);
         return result && newObj.hasOwnProperty("prop");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

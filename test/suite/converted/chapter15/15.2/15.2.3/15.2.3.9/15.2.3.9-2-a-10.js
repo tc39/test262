@@ -36,4 +36,4 @@ function testcase() {
         delete arrObj.foo;
         return arrObj.foo === 10 && desc.configurable === false && desc.writable === false;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

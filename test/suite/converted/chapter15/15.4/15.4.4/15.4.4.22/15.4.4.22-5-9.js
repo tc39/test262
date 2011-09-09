@@ -29,4 +29,4 @@ function testcase() {
         var initialValue = 10;
         return initialValue === [].reduceRight(function () { }, initialValue);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

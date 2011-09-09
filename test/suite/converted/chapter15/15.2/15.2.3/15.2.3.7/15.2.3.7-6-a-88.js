@@ -65,4 +65,4 @@ function testcase() {
             return e instanceof TypeError && !verifyEnumerable && verifyConfigurable && typeof (desc.set) === "undefined";
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

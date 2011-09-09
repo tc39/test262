@@ -37,4 +37,4 @@ function testcase() {
 
         return newObj.prop === "VerifyNumberObject";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

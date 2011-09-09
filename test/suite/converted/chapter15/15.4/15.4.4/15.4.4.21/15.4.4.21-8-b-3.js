@@ -59,4 +59,4 @@ function testcase() {
         arr.reduce(callbackfn);
         return testResult && firstCalled === 1 && secondCalled === 1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

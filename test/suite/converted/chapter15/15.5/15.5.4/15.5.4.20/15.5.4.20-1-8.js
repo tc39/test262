@@ -28,4 +28,4 @@ function testcase() {
         var strObj = String("    abc");
         return "abc" === strObj.trim() && strObj.toString() === "    abc";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

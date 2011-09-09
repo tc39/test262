@@ -43,4 +43,4 @@ function testcase() {
         arr.reduce(callbackfn, 11);
         return result && accessed;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

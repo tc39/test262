@@ -31,4 +31,4 @@ function testcase() {
         return obj.hasOwnProperty("0.000001");
 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

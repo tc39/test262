@@ -37,4 +37,4 @@ function testcase() {
         Array.prototype.forEach.call(obj, callbackfn);
         return testResult;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

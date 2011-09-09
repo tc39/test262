@@ -31,4 +31,4 @@ function testcase() {
         return obj.hasOwnProperty("1e+22");
 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

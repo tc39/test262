@@ -34,4 +34,4 @@ function testcase() {
         delete arrObj.foo;
         return preCheck && arrObj.foo === 10;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

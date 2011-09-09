@@ -28,4 +28,4 @@ function testcase() {
     eval("var arguments;");
     return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

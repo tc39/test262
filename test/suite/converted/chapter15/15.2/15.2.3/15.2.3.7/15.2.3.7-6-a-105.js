@@ -67,4 +67,4 @@ function testcase() {
 
         return hasProperty && verifyGet && verifySet && verifyEnumerable && !verifyConfigurable;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

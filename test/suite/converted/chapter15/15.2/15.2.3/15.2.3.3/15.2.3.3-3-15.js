@@ -35,4 +35,4 @@ function testcase() {
 
         return desc.value === "ownProperty";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

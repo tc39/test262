@@ -30,4 +30,4 @@ function testcase() {
         eval("(function fun(x){ return x })(10)");
         return typeof (fun) === "undefined";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

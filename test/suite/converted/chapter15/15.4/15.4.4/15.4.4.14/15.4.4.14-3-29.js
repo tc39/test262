@@ -35,4 +35,4 @@ function testcase() {
         return Array.prototype.indexOf.call(obj, targetObj) === 0 &&
             Array.prototype.indexOf.call(obj, 4294967297) === -1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

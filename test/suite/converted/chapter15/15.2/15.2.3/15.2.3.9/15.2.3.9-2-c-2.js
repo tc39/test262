@@ -64,4 +64,4 @@ function testcase() {
 
         return desc.configurable === false && result;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

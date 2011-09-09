@@ -49,4 +49,4 @@ function testcase() {
         delete child.foo;
         return preCheck && child.foo === 10;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

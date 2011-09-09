@@ -31,4 +31,4 @@ function testcase() {
         return Array.prototype.indexOf.call(obj, true) === 199 &&
             Array.prototype.indexOf.call(obj, "200.59") === -1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

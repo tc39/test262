@@ -34,4 +34,4 @@ function testcase() {
         Object.seal(obj);
         return preCheck && Object.isSealed(obj);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

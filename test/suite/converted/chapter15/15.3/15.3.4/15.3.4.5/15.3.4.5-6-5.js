@@ -36,4 +36,4 @@ function testcase() {
         });
         return obj.property === 12;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

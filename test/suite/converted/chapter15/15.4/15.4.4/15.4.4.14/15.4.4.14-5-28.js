@@ -41,4 +41,4 @@ function testcase() {
             return (e instanceof TypeError) && !stepFiveOccurs;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

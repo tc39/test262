@@ -30,4 +30,4 @@ function testcase() {
 
         return result instanceof Array;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

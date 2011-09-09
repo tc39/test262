@@ -39,4 +39,4 @@ function testcase() {
   if(arr.reduce(callbackfn,true) === true && bCalled === true)
     return true;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -49,4 +49,4 @@ function testcase() {
             return propertyDefineCorrect && desc1.value === 2010 && obj[0] === 2010 && typeof desc2.get === "undefined" && e instanceof TypeError;
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

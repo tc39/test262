@@ -34,4 +34,4 @@ function testcase() {
         o.arr = ['1', 2, 3, 4, 5];
         return o.arr.reduceRight(callbackfn) === "141" && !o.hasOwnProperty("arr");
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

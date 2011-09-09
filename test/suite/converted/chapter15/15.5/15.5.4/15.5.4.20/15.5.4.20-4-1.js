@@ -33,4 +33,4 @@ c \u0009"
     return true;
   }
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

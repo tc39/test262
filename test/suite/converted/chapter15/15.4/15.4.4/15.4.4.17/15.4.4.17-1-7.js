@@ -31,4 +31,4 @@ function testcase() {
 
         return Array.prototype.some.call("hello\nw_orld\\!", callbackfn);
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

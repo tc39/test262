@@ -38,4 +38,4 @@ function testcase() {
         return obj.hasOwnProperty("abc");
 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

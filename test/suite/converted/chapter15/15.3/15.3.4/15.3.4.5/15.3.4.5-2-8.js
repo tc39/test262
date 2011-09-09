@@ -34,4 +34,4 @@ function testcase() {
 
         return a.prop === "verifyPropertyExist" && a[41] === 41 && a.length === 42;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

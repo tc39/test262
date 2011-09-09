@@ -39,4 +39,4 @@ function testcase() {
 
         return obj.property === "Date";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -38,4 +38,4 @@ function testcase() {
 
         return arrObj.hasOwnProperty("0") && desc.hasOwnProperty("set") && typeof desc.set === "undefined";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

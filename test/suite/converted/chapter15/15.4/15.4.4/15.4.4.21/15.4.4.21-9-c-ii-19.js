@@ -38,4 +38,4 @@ function testcase() {
         [11, 9].reduce(callbackfn);
         return result && called === 1;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

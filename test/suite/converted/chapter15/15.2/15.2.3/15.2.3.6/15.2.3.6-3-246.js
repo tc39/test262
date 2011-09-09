@@ -49,4 +49,4 @@ function testcase() {
         obj.property = "overrideData";
         return obj.hasOwnProperty("property") && typeof obj.property === "undefined" && data === "data";
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -37,4 +37,4 @@ function testcase() {
         return !Object.isFrozen(obj);
 
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

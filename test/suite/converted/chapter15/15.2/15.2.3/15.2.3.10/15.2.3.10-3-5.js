@@ -36,4 +36,4 @@ function testcase() {
                 !strObj.hasOwnProperty("0") && typeof strObj[0] === "undefined";
         }
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

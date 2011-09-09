@@ -36,4 +36,4 @@ function testcase() {
         [11].forEach(callbackfn, objNumber);
         return result;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

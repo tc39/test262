@@ -28,4 +28,4 @@ function testcase() {
   // assume that Number.prototype has not been modified.
   return Object.getPrototypeOf(new Number(42))===Number.prototype;
  }
-assertTrue(testcase.call(this));
+runTestCase(testcase);

@@ -44,4 +44,4 @@ function testcase() {
 
         return !Array.prototype.some.call(obj, callbackfn) && firstIndex && secondIndex;
     }
-assertTrue(testcase.call(this));
+runTestCase(testcase);
