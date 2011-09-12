@@ -1,14 +1,14 @@
-﻿/// Copyright (c) 2009 Microsoft Corporation 
-/// 
+/// Copyright (c) 2009 Microsoft Corporation
+///
 /// Redistribution and use in source and binary forms, with or without modification, are permitted provided
-/// that the following conditions are met: 
+/// that the following conditions are met:
 ///    * Redistributions of source code must retain the above copyright notice, this list of conditions and
-///      the following disclaimer. 
-///    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and 
-///      the following disclaimer in the documentation and/or other materials provided with the distribution.  
+///      the following disclaimer.
+///    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and
+///      the following disclaimer in the documentation and/or other materials provided with the distribution.
 ///    * Neither the name of Microsoft nor the names of its contributors may be used to
 ///      endorse or promote products derived from this software without specific prior written permission.
-/// 
+///
 /// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR
 /// IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
 /// FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE
@@ -16,7 +16,7 @@
 /// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
 /// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 /// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-/// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+/// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //Do not cache any JSON files - see https://bugs.ecmascript.org/show_bug.cgi?id=87
 $.ajaxSetup( {cache:false});
@@ -68,7 +68,7 @@ function BrowserRunner() {
             currentTest.description = "Failed to load test case!";
         } else if((typeof currentTest.error) !== "undefined") {
             // We have an error logged from testRun.
-            if(currentTest.error instanceof SputnikError) {
+            if(currentTest.error instanceof Test262Error) {
                 currentTest.error = currentTest.message;
             } else {
             currentTest.error = currentTest.error.name + ": " + currentTest.error.message;
@@ -119,11 +119,11 @@ function BrowserRunner() {
         // Set up some globals.
         iwin.testRun = testRun;
         iwin.testFinished = testFinished;
-        
+
         //TODO: these should be moved to sta.js
         var includes = code.match(/\$INCLUDE\(([^\)]+)\)/g), // find all of the $INCLUDE statements
             include;
-        iwin.SputnikError = SputnikError;
+        iwin.Test262Error = Test262Error;
         iwin.$ERROR = $ERROR;
         iwin.$FAIL  = $FAIL;
         iwin.$PRINT = function () {};
@@ -139,15 +139,15 @@ function BrowserRunner() {
                     $.ajax({
                         async: false,
                         url: 'resources/scripts/global/' + include,
-                        success: function(s) { scriptCache[include] = s }
-                    })
+                        success: function(s) { scriptCache[include] = s; }
+                    });
                 }
 
                 // Finally, write the required script to the window.
                 idoc.writeln("<script type='text/javascript'>" + scriptCache[include] + "</script>");
             }
         }
-           
+
         //Write out all of our helper functions
         //idoc.writeln("<script type='text/javascript' src='harness/sta.js'>" + "</script>");
         idoc.writeln("<script type='text/javascript'>");
@@ -163,13 +163,13 @@ function BrowserRunner() {
             testDescrip.path = test.path;
             testDescrip.code = code;
             iwin.testDescrip = testDescrip;
-            
+                
             //Add an error handler capable of catching so-called early errors
             //idoc.writeln("<script type='text/javascript' src='harness/ed.js'>" + "</script>");
             idoc.writeln("<script type='text/javascript'>");
             idoc.writeln(errorDetectorFileContents);
             idoc.writeln("</script>");
-            
+
             //Run the code
             idoc.writeln("<script type='text/javascript'>");
             if (/opera/i.test(navigator.userAgent)) { //Opera doesn't support window.onerror
@@ -238,9 +238,9 @@ function TestLoader() {
         $.ajax({url: group.path, dataType: 'json', success: function(data) {
             group.tests = data.testsCollection.tests;
             loader.getNextTest();
-        },	
+        },
 	error: function (XMLHttpRequest, textStatus, errorThrown) {
-		//alert(XMLHttpRequest); 
+		//alert(XMLHttpRequest);
 	}
 
 	});
@@ -257,13 +257,13 @@ function TestLoader() {
 
             loader.version    = data.version;
             loader.date       = data.date;
-            loader.totalTests = data.numTests;               
+            loader.totalTests = data.numTests;
 
             for (var i = 0; i < testSuite.length; i++) {
                 testGroups[i] = {
                     path: testSuite[i],
                     tests: []
-                }
+                };
             }
             loader.onInitialized(loader.totalTests, loader.version, loader.date);
             getNextXML();
@@ -290,13 +290,13 @@ function TestLoader() {
             // We're done.
             loader.onTestsExhausted();
         }
-    }
+    };
 
     /* Start over at the beginning */
     this.reset = function() {
         currentTestIndex = 0;
         testGroupIndex = 0;
-    }
+    };
     
     
     
@@ -330,22 +330,22 @@ function Controller() {
         
         if(state === 'running')
             setTimeout(loader.getNextTest, 10);
-    }
+    };
 
     loader.onInitialized = function(totalTests, version, date) {
         presenter.setVersion(version);
         presenter.setDate(date);
         presenter.setTotalTests(totalTests);
-    }
+    };
 
     loader.onLoadingNextSection = function(path) {
         presenter.updateStatus("Loading: " + path);
-    }
+    };
 
     loader.onTestReady = function(testObj, testSrc) {
         presenter.updateStatus("Running Test: " + testObj.id);
         runner.run(testObj, testSrc);
-    }
+    };
 
     loader.onTestsExhausted = function() {
         state = 'stopped';
@@ -363,20 +363,20 @@ function Controller() {
         startTime = new Date();
         loader.getNextTest();
         presenter.started();
-    }
-    
+    };
+
     this.pause = function() {
         elapsed += new Date() - startTime;
         state = 'paused';
         presenter.paused();
-    }
+    };
 
     this.reset = function() {
         startTime = new Date();
         elapsed = 0;
         loader.reset();
         presenter.reset();
-    }
+    };
 
     this.toggle = function() {
         if(state === 'running') {
@@ -384,16 +384,16 @@ function Controller() {
         } else {
             controller.start();
         }
-    }
+    };
 }
 
-var controller = new Controller()
+var controller = new Controller();
 
 /* Helper function which shows if we're in the 'debug' mode of the Test262 site.
-   This mode is only useful for debugging issues with the test harness and 
+   This mode is only useful for debugging issues with the test harness and
    website. */
 function isSiteDebugMode() {
-    var str=window.location.href.substring(window.location.href.indexOf("?")+1)
+    var str=window.location.href.substring(window.location.href.indexOf("?")+1);
     if(str.indexOf("sitedebug") > -1) {
         return true;
     }
@@ -423,7 +423,7 @@ $(function () {
             $(this).attr('targetDiv', '.content-browsers');
         }
 
-        //Attaching the click event to the header tab that shows the respective div of header            
+        //Attaching the click event to the header tab that shows the respective div of header
         $(this).click(function () {
             var target = $(this).attr('targetDiv');
             $('#contentContainer > div:visible').hide();
