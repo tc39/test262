@@ -200,7 +200,8 @@ class TestCase(object):
     return self.is_strict_mode_negative
 
   def GetSource(self):
-    source = self.suite.GetInclude("framework.js", False)
+    source = self.suite.GetInclude("framework.js", False) + \
+        self.suite.GetInclude("sta.js", False)
     source += StripHeader(self.GetRawContents())
     def IncludeFile(match):
       return self.suite.GetInclude(match.group(1))
