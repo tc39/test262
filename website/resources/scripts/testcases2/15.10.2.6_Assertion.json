@@ -1,0 +1,272 @@
+{
+ "testCollection": {
+  "name": "15.10.2.6_Assertion",
+  "numTests": 44,
+  "tests": [
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /s$/.test(\"pairs\\nmakes\\tdouble\") and check results",
+    "test": "__executed = /s$/.test(\"pairs\\nmakes\\tdouble\");\n\n//CHECK#1\nif (__executed) {\n\t$ERROR('#1: /s$/.test(\"pairs\\\\nmakes\\\\tdouble\") === false');\n}\n\n",
+    "id": "S15.10.2.6_A1_T1"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /e$/.exec(\"pairs\\nmakes\\tdouble\") and check results",
+    "test": "__executed = /e$/.exec(\"pairs\\nmakes\\tdouble\");\n\n__expected = [\"e\"];\n__expected.index = 17;\n__expected.input = \"pairs\\nmakes\\tdouble\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /e$/.exec(\"pairs\\\\nmakes\\\\tdouble\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /e$/.exec(\"pairs\\\\nmakes\\\\tdouble\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /e$/.exec(\"pairs\\\\nmakes\\\\tdouble\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /e$/.exec(\"pairs\\\\nmakes\\\\tdouble\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A1_T2"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /s$/m.exec(\"pairs\\nmakes\\tdouble\") and check results",
+    "test": "__executed = /s$/m.exec(\"pairs\\nmakes\\tdouble\");\n\n__expected = [\"s\"];\n__expected.index = 4;\n__expected.input = \"pairs\\nmakes\\tdouble\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /s$/m.exec(\"pairs\\\\nmakes\\\\tdouble\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /s$/m.exec(\"pairs\\\\nmakes\\\\tdouble\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /s$/m.exec(\"pairs\\\\nmakes\\\\tdouble\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /s$/m.exec(\"pairs\\\\nmakes\\\\tdouble\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A1_T3"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /[^e]$/mg.exec(\"pairs\\nmakes\\tdouble\") and check results",
+    "test": "__executed = /[^e]$/mg.exec(\"pairs\\nmakes\\tdouble\");\n\n__expected = [\"s\"];\n__expected.index = 4;\n__expected.input = \"pairs\\nmakes\\tdouble\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /[^e]$/mg.exec(\"pairs\\\\nmakes\\\\tdouble\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /[^e]$/mg.exec(\"pairs\\\\nmakes\\\\tdouble\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /[^e]$/mg.exec(\"pairs\\\\nmakes\\\\tdouble\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /[^e]$/mg.exec(\"pairs\\\\nmakes\\\\tdouble\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A1_T4"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /es$/mg.exec(\"pairs\\nmakes\\tdoubl\\u0065s\") and check results",
+    "test": "__executed = /es$/mg.exec(\"pairs\\nmakes\\tdoubl\\u0065s\");\n\n__expected = [\"es\"];\n__expected.index = 17;\n__expected.input = \"pairs\\nmakes\\tdoubles\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /es$/mg.exec(\"pairs\\\\nmakes\\\\tdoubl\\\\u0065s\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /es$/mg.exec(\"pairs\\\\nmakes\\\\tdoubl\\\\u0065s\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /es$/mg.exec(\"pairs\\\\nmakes\\\\tdoubl\\\\u0065s\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /es$/mg.exec(\"pairs\\\\nmakes\\\\tdoubl\\\\u0065s\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A1_T5"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /^m/.test(\"pairs\\nmakes\\tdouble\") and check results",
+    "test": "__executed = /^m/.test(\"pairs\\nmakes\\tdouble\");\n\n//CHECK#1\nif (__executed) {\n\t$ERROR('#1: /^m/.test(\"pairs\\\\nmakes\\\\tdouble\") === false');\n}\n\n",
+    "id": "S15.10.2.6_A2_T1"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /^\\d+/m.exec(\"abc\\n123xyz\") and check results",
+    "test": "__executed = /^\\d+/m.exec(\"abc\\n123xyz\");\n\n__expected = [\"123\"];\n__expected.index = 4;\n__expected.input = \"abc\\n123xyz\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /^\\\\d+/m.exec(\"abc\\\\n123xyz\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /^\\\\d+/m.exec(\"abc\\\\n123xyz\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /^\\\\d+/m.exec(\"abc\\\\n123xyz\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /^\\\\d+/m.exec(\"abc\\\\n123xyz\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A2_T10"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /^m/m.exec(\"pairs\\nmakes\\tdouble\") and check results",
+    "test": "__executed = /^m/m.exec(\"pairs\\nmakes\\tdouble\");\n\n__expected = [\"m\"];\n__expected.index = 6;\n__expected.input = \"pairs\\nmakes\\tdouble\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /^m/m.exec(\"pairs\\\\nmakes\\\\tdouble\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /^m/m.exec(\"pairs\\\\nmakes\\\\tdouble\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /^m/m.exec(\"pairs\\\\nmakes\\\\tdouble\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /^m/m.exec(\"pairs\\\\nmakes\\\\tdouble\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A2_T2"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /^p[a-z]/.exec(\"pairs\\nmakes\\tdouble\\npesos\") and check results",
+    "test": "__executed = /^p[a-z]/.exec(\"pairs\\nmakes\\tdouble\\npesos\");\n\n__expected = [\"pa\"];\n__expected.index = 0;\n__expected.input = \"pairs\\nmakes\\tdouble\\npesos\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /^p[a-z]/.exec(\"pairs\\\\nmakes\\\\tdouble\\\\npesos\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /^p[a-z]/.exec(\"pairs\\\\nmakes\\\\tdouble\\\\npesos\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /^p[a-z]/.exec(\"pairs\\\\nmakes\\\\tdouble\\\\npesos\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /^p[a-z]/.exec(\"pairs\\\\nmakes\\\\tdouble\\\\npesos\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A2_T3"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /^p[a-z]/m.exec(\"pairs\\nmakes\\tdouble\\npesos\") and check results",
+    "test": "__executed = /^p[b-z]/m.exec(\"pairs\\nmakes\\tdouble\\npesos\");\n\n__expected = [\"pe\"];\n__expected.index = 19;\n__expected.input = \"pairs\\nmakes\\tdouble\\npesos\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /^p[b-z]/m.exec(\"pairs\\\\nmakes\\\\tdouble\\\\npesos\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /^p[b-z]/m.exec(\"pairs\\\\nmakes\\\\tdouble\\\\npesos\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /^p[b-z]/m.exec(\"pairs\\\\nmakes\\\\tdouble\\\\npesos\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /^p[b-z]/m.exec(\"pairs\\\\nmakes\\\\tdouble\\\\npesos\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A2_T4"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /^[^p]/m.exec(\"pairs\\nmakes\\tdouble\\npesos\") and check results",
+    "test": "__executed = /^[^p]/m.exec(\"pairs\\nmakes\\tdouble\\npesos\");\n\n__expected = [\"m\"];\n__expected.index = 6;\n__expected.input = \"pairs\\nmakes\\tdouble\\npesos\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /^[^p]/m.exec(\"pairs\\\\nmakes\\\\tdouble\\\\npesos\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /^[^p]/m.exec(\"pairs\\\\nmakes\\\\tdouble\\\\npesos\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /^[^p]/m.exec(\"pairs\\\\nmakes\\\\tdouble\\\\npesos\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /^[^p]/m.exec(\"pairs\\\\nmakes\\\\tdouble\\\\npesos\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A2_T5"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /^ab/.exec(\"abcde\") and check results",
+    "test": "__executed = /^ab/.exec(\"abcde\");\n\n__expected = [\"ab\"];\n__expected.index = 0;\n__expected.input = \"abcde\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /^ab/.exec(\"abcde\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /^ab/.exec(\"abcde\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /^ab/.exec(\"abcde\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /^ab/.exec(\"abcde\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A2_T6"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /^..^e/.test(\"ab\\ncde\") and check results",
+    "test": "__executed = /^..^e/.test(\"ab\\ncde\");\n\n//CHECK#1\nif (__executed) {\n\t$ERROR('#1: /^..^e/.test(\"ab\\\\ncde\") === false');\n}\n\n",
+    "id": "S15.10.2.6_A2_T7"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /^xxx/.test(\"yyyyy\") and check results",
+    "test": "__executed = /^xxx/.test(\"yyyyy\");\n\n//CHECK#1\nif (__executed) {\n\t$ERROR('#1: /^xxx/.test(\"yyyyy\") === false');\n}\n\n",
+    "id": "S15.10.2.6_A2_T8"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /^\\^+/.exec(\"^^^x\") and check results",
+    "test": "__executed = /^\\^+/.exec(\"^^^x\");\n\n__expected = [\"^^^\"];\n__expected.index = 0;\n__expected.input = \"^^^x\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /^\\\\^+/.exec(\"^^^x\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /^\\\\^+/.exec(\"^^^x\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /^\\\\^+/.exec(\"^^^x\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /^\\\\^+/.exec(\"^^^x\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A2_T9"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /\\bp/.exec(\"pilot\\nsoviet robot\\topenoffice\") and check results",
+    "test": "__executed = /\\bp/.exec(\"pilot\\nsoviet robot\\topenoffice\");\n\n__expected = [\"p\"];\n__expected.index = 0;\n__expected.input = \"pilot\\nsoviet robot\\topenoffice\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /\\\\bp/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /\\\\bp/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /\\\\bp/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /\\\\bp/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A3_T1"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /\\brobot\\b/.exec(\"pilot\\nsoviet robot\\topenoffice\") and check results",
+    "test": "__executed = /\\brobot\\b/.exec(\"pilot\\nsoviet robot\\topenoffice\");\n\n__expected = [\"robot\"];\n__expected.index = 13;\n__expected.input = \"pilot\\nsoviet robot\\topenoffice\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /\\\\brobot\\\\b/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /\\\\brobot\\\\b/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /\\\\brobot\\\\b/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /\\\\brobot\\\\b/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A3_T10"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /\\b\\w{5}\\b/.exec(\"pilot\\nsoviet robot\\topenoffice\") and check results",
+    "test": "__executed = /\\b\\w{5}\\b/.exec(\"pilot\\nsoviet robot\\topenoffice\");\n\n__expected = [\"pilot\"];\n__expected.index = 0;\n__expected.input = \"pilot\\nsoviet robot\\topenoffice\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /\\\\b\\\\w{5}\\\\b/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /\\\\b\\\\w{5}\\\\b/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /\\\\b\\\\w{5}\\\\b/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /\\\\b\\\\w{5}\\\\b/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A3_T11"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /\\bop/.exec(\"pilot\\nsoviet robot\\topenoffice\") and check results",
+    "test": "__executed = /\\bop/.exec(\"pilot\\nsoviet robot\\topenoffice\");\n\n__expected = [\"op\"];\n__expected.index = 19;\n__expected.input = \"pilot\\nsoviet robot\\topenoffice\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /\\\\bop/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /\\\\bop/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /\\\\bop/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /\\\\bop/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A3_T12"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /op\\b/.test(\"pilot\\nsoviet robot\\topenoffice\") and check results",
+    "test": "__executed = /op\\b/.test(\"pilot\\nsoviet robot\\topenoffice\");\n\n//CHECK#1\nif (__executed) {\n\t$ERROR('#1: /op\\\\b/.test(\"pilot\\\\nsoviet robot\\\\topenoffice\") === false');\n}\n\n",
+    "id": "S15.10.2.6_A3_T13"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /e\\b/.exec(\"pilot\\nsoviet robot\\topenoffic\\u0065\") and check results",
+    "test": "__executed = /e\\b/.exec(\"pilot\\nsoviet robot\\topenoffic\\u0065\");\n\n__expected = [\"e\"];\n__expected.index = 28;\n__expected.input = \"pilot\\nsoviet robot\\topenoffice\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /e\\\\b/.exec(\"pilot\\\\nsoviet robot\\\\topenoffic\\\\u0065\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /e\\\\b/.exec(\"pilot\\\\nsoviet robot\\\\topenoffic\\\\u0065\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /e\\\\b/.exec(\"pilot\\\\nsoviet robot\\\\topenoffic\\\\u0065\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /e\\\\b/.exec(\"pilot\\\\nsoviet robot\\\\topenoffic\\\\u0065\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A3_T14"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /\\be/.test(\"pilot\\nsoviet robot\\topenoffic\\u0065\") and check results",
+    "test": "__executed = /\\be/.test(\"pilot\\nsoviet robot\\topenoffic\\u0065\");\n\n//CHECK#1\nif (__executed) {\n\t$ERROR('#1: /\\\\be/.test(\"pilot\\\\nsoviet robot\\\\topenoffic\\\\u0065\") === false');\n}\n\n",
+    "id": "S15.10.2.6_A3_T15"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /ot\\b/.exec(\"pilot\\nsoviet robot\\topenoffice\") and check results",
+    "test": "__executed = /ot\\b/.exec(\"pilot\\nsoviet robot\\topenoffice\");\n\n__expected = [\"ot\"];\n__expected.index = 3;\n__expected.input = \"pilot\\nsoviet robot\\topenoffice\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /ot\\\\b/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /ot\\\\b/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /ot\\\\b/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /ot\\\\b/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A3_T2"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /\\bot/.test(\"pilot\\nsoviet robot\\topenoffice\") and check results",
+    "test": "__executed = /\\bot/.test(\"pilot\\nsoviet robot\\topenoffice\");\n\n//CHECK#1\nif (__executed) {\n\t$ERROR('#1: /\\\\bot/.test(\"pilot\\\\nsoviet robot\\\\topenoffice\") === false');\n}\n\n",
+    "id": "S15.10.2.6_A3_T3"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /\\bso/.exec(\"pilot\\nsoviet robot\\topenoffice\") and check results",
+    "test": "__executed = /\\bso/.exec(\"pilot\\nsoviet robot\\topenoffice\");\n\n__expected = [\"so\"];\n__expected.index = 6;\n__expected.input = \"pilot\\nsoviet robot\\topenoffice\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /\\\\bso/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /\\\\bso/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /\\\\bso/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /\\\\bso/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A3_T4"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /so\\b/.test(\"pilot\\nsoviet robot\\topenoffice\") and check results",
+    "test": "__executed = /so\\b/.test(\"pilot\\nsoviet robot\\topenoffice\");\n\n//CHECK#1\nif (__executed) {\n\t$ERROR('#1: /so\\\\b/.test(\"pilot\\\\nsoviet robot\\\\topenoffice\") === false');\n}\n\n",
+    "id": "S15.10.2.6_A3_T5"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /[^o]t\\b/.exec(\"pilOt\\nsoviet robot\\topenoffice\") and check results",
+    "test": "__executed = /[^o]t\\b/.exec(\"pilOt\\nsoviet robot\\topenoffice\");\n\n__expected = [\"Ot\"];\n__expected.index = 3;\n__expected.input = \"pilOt\\nsoviet robot\\topenoffice\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /[^o]t\\\\b/.exec(\"pilOt\\\\nsoviet robot\\\\topenoffice\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /[^o]t\\\\b/.exec(\"pilOt\\\\nsoviet robot\\\\topenoffice\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /[^o]t\\\\b/.exec(\"pilOt\\\\nsoviet robot\\\\topenoffice\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /[^o]t\\\\b/.exec(\"pilOt\\\\nsoviet robot\\\\topenoffice\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A3_T6"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /[^o]t\\b/i.exec(\"pilOt\\nsoviet robot\\topenoffice\") and check results",
+    "test": "__executed = /[^o]t\\b/i.exec(\"pilOt\\nsoviet robot\\topenoffice\");\n\n__expected = [\"et\"];\n__expected.index = 10;\n__expected.input = \"pilOt\\nsoviet robot\\topenoffice\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /[^o]t\\\\b/i.exec(\"pilOt\\\\nsoviet robot\\\\topenoffice\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /[^o]t\\\\b/i.exec(\"pilOt\\\\nsoviet robot\\\\topenoffice\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /[^o]t\\\\b/i.exec(\"pilOt\\\\nsoviet robot\\\\topenoffice\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /[^o]t\\\\b/i.exec(\"pilOt\\\\nsoviet robot\\\\topenoffice\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A3_T7"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /\\bro/.exec(\"pilot\\nsoviet robot\\topenoffice\") and check results",
+    "test": "__executed = /\\bro/.exec(\"pilot\\nsoviet robot\\topenoffice\");\n\n__expected = [\"ro\"];\n__expected.index = 13;\n__expected.input = \"pilot\\nsoviet robot\\topenoffice\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /\\\\bro/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /\\\\bro/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /\\\\bro/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /\\\\bro/.exec(\"pilot\\\\nsoviet robot\\\\topenoffice\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A3_T8"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /r\\b/.exec(\"pilot\\nsoviet robot\\topenoffice\") and check results",
+    "test": "__executed = /r\\b/.test(\"pilot\\nsoviet robot\\topenoffice\");\n\n//CHECK#1\nif (__executed) {\n\t$ERROR('#1: /r\\\\b/.test(\"pilot\\\\nsoviet robot\\\\topenoffice\") === false');\n}\n\n",
+    "id": "S15.10.2.6_A3_T9"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /\\Bevil\\B/.exec(\"devils arise\\tfor\\nevil\") and check results",
+    "test": "__executed = /\\Bevil\\B/.exec(\"devils arise\\tfor\\nevil\");\n\n__expected = [\"evil\"];\n__expected.index = 1;\n__expected.input = \"devils arise\\tfor\\nevil\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /\\\\Bevil\\\\B/.exec(\"devils arise\\\\tfor\\\\nevil\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /\\\\Bevil\\\\B/.exec(\"devils arise\\\\tfor\\\\nevil\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /\\\\Bevil\\\\B/.exec(\"devils arise\\\\tfor\\\\nevil\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /\\\\Bevil\\\\B/.exec(\"devils arise\\\\tfor\\\\nevil\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A4_T1"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /[f-z]e\\B/.exec(\"devils arise\\tfor\\nevil\") and check results",
+    "test": "__executed = /[f-z]e\\B/.exec(\"devils arise\\tfor\\nrevil\");\n\n__expected = [\"re\"];\n__expected.index = 17;\n__expected.input = \"devils arise\\tfor\\nrevil\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /[f-z]e\\\\B/.exec(\"devils arise\\\\tfor\\\\nrevil\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /[f-z]e\\\\B/.exec(\"devils arise\\\\tfor\\\\nrevil\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /[f-z]e\\\\B/.exec(\"devils arise\\\\tfor\\\\nrevil\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /[f-z]e\\\\B/.exec(\"devils arise\\\\tfor\\\\nrevil\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A4_T2"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /\\Bo\\B/.exec(\"devils arise\\tfor\\nevil\") and check results",
+    "test": "__executed = /\\Bo\\B/i.exec(\"devils arise\\tfOr\\nrevil\");\n\n__expected = [\"O\"];\n__expected.index = 14;\n__expected.input = \"devils arise\\tfOr\\nrevil\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /\\\\Bo\\\\B/i.exec(\"devils arise\\\\tfOr\\\\nrevil\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /\\\\Bo\\\\B/i.exec(\"devils arise\\\\tfOr\\\\nrevil\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /\\\\Bo\\\\B/i.exec(\"devils arise\\\\tfOr\\\\nrevil\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /\\\\Bo\\\\B/i.exec(\"devils arise\\\\tfOr\\\\nrevil\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A4_T3"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /\\B\\w\\B/.exec(\"devils arise\\tfor\\nevil\") and check results",
+    "test": "__executed = /\\B\\w\\B/.exec(\"devils arise\\tfor\\nrevil\");\n\n__expected = [\"e\"];\n__expected.index = 1;\n__expected.input = \"devils arise\\tfor\\nrevil\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /\\\\B\\\\w\\\\B/.exec(\"devils arise\\\\tfor\\\\nrevil\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /\\\\B\\\\w\\\\B/.exec(\"devils arise\\\\tfor\\\\nrevil\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /\\\\B\\\\w\\\\B/.exec(\"devils arise\\\\tfor\\\\nrevil\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /\\\\B\\\\w\\\\B/.exec(\"devils arise\\\\tfor\\\\nrevil\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A4_T4"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /\\w\\B/.exec(\"devils arise\\tfor\\nevil\") and check results",
+    "test": "__executed = /\\w\\B/.exec(\"devils arise\\tfor\\nrevil\");\n\n__expected = [\"d\"];\n__expected.index = 0;\n__expected.input = \"devils arise\\tfor\\nrevil\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /\\\\w\\\\B/.exec(\"devils arise\\\\tfor\\\\nrevil\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /\\\\w\\\\B/.exec(\"devils arise\\\\tfor\\\\nrevil\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /\\\\w\\\\B/.exec(\"devils arise\\\\tfor\\\\nrevil\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /\\\\w\\\\B/.exec(\"devils arise\\\\tfor\\\\nrevil\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A4_T5"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /\\B\\w/.exec(\"devils arise\\tfor\\nevil\") and check results",
+    "test": "__executed = /\\B\\w/.exec(\"devils arise\\tfor\\nrevil\");\n\n__expected = [\"e\"];\n__expected.index = 1;\n__expected.input = \"devils arise\\tfor\\nrevil\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /\\\\B\\\\w/.exec(\"devils arise\\\\tfor\\\\nrevil\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /\\\\B\\\\w/.exec(\"devils arise\\\\tfor\\\\nrevil\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /\\\\B\\\\w/.exec(\"devils arise\\\\tfor\\\\nrevil\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /\\\\B\\\\w/.exec(\"devils arise\\\\tfor\\\\nrevil\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A4_T6"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /\\B\\[^z]{4}\\B/.test(\"devil arise\\tforzzx\\nevils\") and check results",
+    "test": "__executed = /\\B\\[^z]{4}\\B/.test(\"devil arise\\tforzzx\\nevils\");\n\n//CHECK#1\nif (__executed) {\n\t$ERROR('#1: /\\\\B\\\\[^z]{4}\\\\B/.test(\"devil arise\\\\tforzzx\\\\nevils\") === false');\n}\n\n",
+    "id": "S15.10.2.6_A4_T7"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /\\B\\w{4}\\B/.exec(\"devil arise\\tforzzx\\nevils\") and check results",
+    "test": "__executed = /\\B\\w{4}\\B/.exec(\"devil arise\\tforzzx\\nevils\");\n\n__expected = [\"orzz\"];\n__expected.index = 13;\n__expected.input = \"devil arise\\tforzzx\\nevils\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /\\\\B\\\\w{4}\\\\B/.exec(\"devil arise\\\\tforzzx\\\\nevils\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /\\\\B\\\\w{4}\\\\B/.exec(\"devil arise\\\\tforzzx\\\\nevils\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /\\\\B\\\\w{4}\\\\B/.exec(\"devil arise\\\\tforzzx\\\\nevils\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /\\\\B\\\\w{4}\\\\B/.exec(\"devil arise\\\\tforzzx\\\\nevils\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A4_T8"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /^^^^^^^robot$$$$/.exec(\"robot\") and check results",
+    "test": "__executed = /^^^^^^^robot$$$$/.exec(\"robot\");\n\n__expected = [\"robot\"];\n__expected.index = 0;\n__expected.input = \"robot\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /^^^^^^^robot$$$$/.exec(\"robot\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /^^^^^^^robot$$$$/.exec(\"robot\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /^^^^^^^robot$$$$/.exec(\"robot\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /^^^^^^^robot$$$$/.exec(\"robot\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A5_T1"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /\\B\\B\\B\\B\\B\\Bbot\\b\\b\\b\\b\\b\\b\\b/.exec(\"robot wall-e\") and check results",
+    "test": "__executed = /\\B\\B\\B\\B\\B\\Bbot\\b\\b\\b\\b\\b\\b\\b/.exec(\"robot wall-e\");\n\n__expected = [\"bot\"];\n__expected.index = 2;\n__expected.input = \"robot wall-e\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /\\\\B\\\\B\\\\B\\\\B\\\\B\\\\Bbot\\\\b\\\\b\\\\b\\\\b\\\\b\\\\b\\\\b/.exec(\"robot wall-e\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /\\\\B\\\\B\\\\B\\\\B\\\\B\\\\Bbot\\\\b\\\\b\\\\b\\\\b\\\\b\\\\b\\\\b/.exec(\"robot wall-e\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /\\\\B\\\\B\\\\B\\\\B\\\\B\\\\Bbot\\\\b\\\\b\\\\b\\\\b\\\\b\\\\b\\\\b/.exec(\"robot wall-e\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /\\\\B\\\\B\\\\B\\\\B\\\\B\\\\Bbot\\\\b\\\\b\\\\b\\\\b\\\\b\\\\b\\\\b/.exec(\"robot wall-e\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A5_T2"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "while asterix is non greedy it is run till the end because of dollar assertion",
+    "test": "__executed = /^.*?$/.exec(\"Hello World\");\n\n__expected = [\"Hello World\"];\n__expected.index = 0;\n__expected.input = \"Hello World\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /^.*?$/.exec(\"Hello World\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /^.*?$/.exec(\"Hello World\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /^.*?$/.exec(\"Hello World\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /^.*?$/.exec(\"Hello World\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A6_T1"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /^.*?/.exec(\"Hello World\") and check results",
+    "test": "__executed = /^.*?/.exec(\"Hello World\");\n\n__expected = [\"\"];\n__expected.index = 0;\n__expected.input = \"Hello World\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /^.*?/.exec(\"Hello World\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /^.*?/.exec(\"Hello World\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /^.*?/.exec(\"Hello World\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /^.*?/.exec(\"Hello World\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A6_T2"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "while asterix is non greedy it is run till matches end or colon",
+    "test": "__executed = /^.*?(:|$)/.exec(\"Hello: World\");\n\n__expected = [\"Hello:\", \":\"];\n__expected.index = 0;\n__expected.input = \"Hello: World\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /^.*?(:|$)/.exec(\"Hello: World\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /^.*?(:|$)/.exec(\"Hello: World\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /^.*?(:|$)/.exec(\"Hello: World\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /^.*?(:|$)/.exec(\"Hello: World\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A6_T3"
+   },
+   {
+    "section": "15.10.2.6",
+    "description": "Execute /^.*(:|$)/.exec(\"Hello: World\") and check results",
+    "test": "__executed = /^.*(:|$)/.exec(\"Hello: World\");\n\n__expected = [\"Hello: World\", \"\"];\n__expected.index = 0;\n__expected.input = \"Hello: World\";\n\n//CHECK#1\nif (__executed.length !== __expected.length) {\n\t$ERROR('#1: __executed = /^.*(:|$)/.exec(\"Hello: World\"); __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);\n}\n\n//CHECK#2\nif (__executed.index !== __expected.index) {\n\t$ERROR('#2: __executed = /^.*(:|$)/.exec(\"Hello: World\"); __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);\n}\n\n//CHECK#3\nif (__executed.input !== __expected.input) {\n\t$ERROR('#3: __executed = /^.*(:|$)/.exec(\"Hello: World\"); __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);\n}\n\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n\tif (__executed[index] !== __expected[index]) {\n\t\t$ERROR('#4: __executed = /^.*(:|$)/.exec(\"Hello: World\"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);\n\t}\n}\n\n",
+    "id": "S15.10.2.6_A6_T4"
+   }
+  ]
+ }
+}

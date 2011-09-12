@@ -1,0 +1,278 @@
+{
+ "testCollection": {
+  "name": "15.10.4_The_RegExp_Constructor",
+  "numTests": 45,
+  "tests": [
+   {
+    "section": "15.10.4.1",
+    "description": "Pattern is /./i and RegExp is new RegExp(pattern)",
+    "test": "__pattern = /./i;\n__re = new RegExp(__pattern); \n\n//CHECK#1\nif (__re.source !== __pattern.source) {\n  $ERROR('#1: __pattern = /./i; __re = new RegExp(__pattern); __re.source === __pattern.source. Actual: '+ (__re.source));\n}\n\n//CHECK#2\nif (__re.multiline !== __pattern.multiline) {\n  $ERROR('#2: __pattern = /./i; __re = new RegExp(__pattern); __re.multiline === __pattern.multiline. Actual: ' + (__re.multiline));\n}\n\n//CHECK#3\nif (__re.global !== __pattern.global) {\n  $ERROR('#3: __pattern = /./i; __re = new RegExp(__pattern); __re.global === __pattern.global. Actual: ' + (__re.global));\n}\n\n//CHECK#4\nif (__re.ignoreCase !== __pattern.ignoreCase) {\n  $ERROR('#4: __pattern = /./i; __re = new RegExp(__pattern); __re.ignoreCase === __pattern.ignoreCase. Actual: ' + (__re.ignoreCase));\n}\n",
+    "id": "S15.10.4.1_A1_T1"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Pattern is /\\t/m and RegExp is new RegExp(pattern,x), where x is undefined variable",
+    "test": "__pattern = /\\t/m;\n__re = new RegExp(__pattern, x);\n\n//CHECK#1\nif (__re.source !== __pattern.source) {\n  $ERROR('#1: __pattern = /\\\\t/m; _re = new RegExp(__pattern, x); var x; __re.source === __pattern.source. Actual: '+ (__re.source));\n}\n\n//CHECK#2\nif (__re.multiline !== __pattern.multiline) {\n  $ERROR('#2: __pattern = /\\\\t/m; _re = new RegExp(__pattern, x); var x; __re.multiline === __pattern.multiline. Actual: ' + (__re.multiline));\n}\n\n//CHECK#3\nif (__re.global !== __pattern.global) {\n  $ERROR('#3: __pattern = /\\\\t/m; _re = new RegExp(__pattern, x); var x; __re.global === __pattern.global. Actual: ' + (__re.global));\n}\n\n//CHECK#4\nif (__re.ignoreCase !== __pattern.ignoreCase) {\n  $ERROR('#4: __pattern = /\\\\t/m; _re = new RegExp(__pattern, x); var x; __re.ignoreCase === __pattern.ignoreCase. Actual: ' + (__re.ignoreCase));\n}\n\nvar x;\n",
+    "id": "S15.10.4.1_A1_T2"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Pattern is /[a-b]/g and RegExp is new RegExp(pattern,void 0)",
+    "test": "__pattern = /[a-b]/g;\n__re = new RegExp(__pattern, void 0);\n\n//CHECK#1\nif (__re.source !== __pattern.source) {\n  $ERROR('#1: __pattern = /[a-b]/g; __re = new RegExp(__pattern, void 0); __re.source === __pattern.source. Actual: '+ (__re.source));\n}\n\n//CHECK#2\nif (__re.multiline !== __pattern.multiline) {\n  $ERROR('#2: __pattern = /[a-b]/g; __re = new RegExp(__pattern, void 0); __re.multiline === __pattern.multiline. Actual: ' + (__re.multiline));\n}\n\n//CHECK#3\nif (__re.global !== __pattern.global) {\n  $ERROR('#3: __pattern = /[a-b]/g; __re = new RegExp(__pattern, void 0); __re.global === __pattern.global. Actual: ' + (__re.global));\n}\n\n//CHECK#4\nif (__re.ignoreCase !== __pattern.ignoreCase) {\n  $ERROR('#4: __pattern = /[a-b]/g; __re = new RegExp(__pattern, void 0); __re.ignoreCase === __pattern.ignoreCase. Actual: ' + (__re.ignoreCase));\n}\n\n\n",
+    "id": "S15.10.4.1_A1_T3"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Pattern is new RegExp and RegExp is new RegExp(pattern,undefined)",
+    "test": "__pattern = new RegExp;\n__re = new RegExp(__pattern, undefined);\n\n//CHECK#1\nif (__re.source !== __pattern.source) {\n  $ERROR('#1: __pattern = new RegExp; __re = new RegExp(__pattern, undefined); __re.source === __pattern.source. Actual: '+ (__re.source));\n}\n\n//CHECK#2\nif (__re.multiline !== __pattern.multiline) {\n  $ERROR('#2: __pattern = new RegExp; __re = new RegExp(__pattern, undefined); __re.multiline === __pattern.multiline. Actual: ' + (__re.multiline));\n}\n\n//CHECK#3\nif (__re.global !== __pattern.global) {\n  $ERROR('#3: __pattern = new RegExp; __re = new RegExp(__pattern, undefined); __re.global === __pattern.global. Actual: ' + (__re.global));\n}\n\n//CHECK#4\nif (__re.ignoreCase !== __pattern.ignoreCase) {\n  $ERROR('#4: __pattern = new RegExp; __re = new RegExp(__pattern, undefined); __re.ignoreCase === __pattern.ignoreCase. Actual: ' + (__re.ignoreCase));\n}\n\n",
+    "id": "S15.10.4.1_A1_T4"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Pattern is RegExp(\"1?\",\"mig\") and RegExp is new RegExp(pattern,(function(){})())",
+    "test": "__pattern = RegExp(\"1?\",\"mig\");\n__re = new RegExp(__pattern, (function(){})());\n\n//CHECK#1\nif (__re.source !== __pattern.source) {\n  $ERROR('#1: __pattern = RegExp(\"1?\",\"mig\"); __re = new RegExp(__pattern, (function(){})()); __re.source === __pattern.source. Actual: '+ (__re.source));\n}\n\n//CHECK#2\nif (__re.multiline !== __pattern.multiline) {\n  $ERROR('#2: __pattern = RegExp(\"1?\",\"mig\"); __re = new RegExp(__pattern, (function(){})()); __re.multiline === __pattern.multiline. Actual: ' + (__re.multiline));\n}\n\n//CHECK#3\nif (__re.global !== __pattern.global) {\n  $ERROR('#3: __pattern = RegExp(\"1?\",\"mig\"); __re = new RegExp(__pattern, (function(){})()); __re.global === __pattern.global. Actual: ' + (__re.global));\n}\n\n//CHECK#4\nif (__re.ignoreCase !== __pattern.ignoreCase) {\n  $ERROR('#4: __pattern = RegExp(\"1?\",\"mig\"); __re = new RegExp(__pattern, (function(){})()); __re.ignoreCase === __pattern.ignoreCase. Actual: ' + (__re.ignoreCase));\n}\n\n\n",
+    "id": "S15.10.4.1_A1_T5"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Checking if execution of \"new RegExp(pattern, \"i\")\", where the pattern is \"/\\u0042/i\", fails",
+    "test": "//CHECK#1\ntry {\n\t$ERROR('#1.1: new RegExp(/\\\\u0042/i, \"i\") throw TypeError. Actual: ' + (new RegExp(/\\u0042/i, \"i\"))); \n} catch (e) {\n\tif ((e instanceof TypeError) !== true) {\n\t\t$ERROR('#1.2: new RegExp(/\\\\u0042/i, \"i\") throw TypeError. Actual: ' + (e));\n\t}\n}\n\n",
+    "id": "S15.10.4.1_A2_T1"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Checking if execution of \"new RegExp(pattern, {})\", where the pattern is \"/1?1/mig\", fails",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: new RegExp(/1?1/mig, {}) throw TypeError. Actual: ' + (new RegExp(/1?1/mig, {}))); \n} catch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#1.2: new RegExp(/1?1/mig, {}) throw TypeError. Actual: ' + (e));\n  }\n}\n\n",
+    "id": "S15.10.4.1_A2_T2"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "RegExp is new RegExp",
+    "test": "__re = new RegExp;\n\n//CHECK#1\nif (__re.source !== \"\") {\n  $ERROR('#1: __re = new RegExp; __re.source === \"\". Actual: '+ (__re.source));\n}\n\n//CHECK#2\nif (__re.multiline !== false) {\n  $ERROR('#2: __re = new RegExp; __re.multiline === false. Actual: ' + (__re.multiline));\n}\n\n//CHECK#3\nif (__re.global !== false) {\n  $ERROR('#3: __re = new RegExp; __re.global === false. Actual: ' + (__re.global));\n}\n\n//CHECK#4\nif (__re.ignoreCase !== false) {\n  $ERROR('#4: __re = new RegExp; __re.ignoreCase === false. Actual: ' + (__re.ignoreCase));\n}\n\n\n",
+    "id": "S15.10.4.1_A3_T1"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "RegExp is new RegExp(void 0)",
+    "test": "__re = new RegExp(void 0);\n\n//CHECK#1\nif (__re.source !== \"\") {\n  $ERROR('#1: __re = new RegExp(void 0); __re.source === \"\". Actual: '+ (__re.source));\n}\n\n//CHECK#2\nif (__re.multiline !== false) {\n  $ERROR('#2: __re = new RegExp(void 0); __re.multiline === false. Actual: ' + (__re.multiline));\n}\n\n//CHECK#3\nif (__re.global !== false) {\n  $ERROR('#3: __re = new RegExp(void 0); __re.global === false. Actual: ' + (__re.global));\n}\n\n//CHECK#4\nif (__re.ignoreCase !== false) {\n  $ERROR('#4: __re = new RegExp(void 0); __re.ignoreCase === false. Actual: ' + (__re.ignoreCase));\n}\n\n",
+    "id": "S15.10.4.1_A3_T2"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "RegExp is new RegExp(x), where x is undefined variable",
+    "test": "__re = new RegExp(x);\n\n//CHECK#1\nif (__re.source !== \"\") {\n  $ERROR('#1: __re = new RegExp(x); var x; __re.source === \"\". Actual: '+ (__re.source));\n}\n\n//CHECK#2\nif (__re.multiline !== false) {\n  $ERROR('#2: __re = new RegExp(x); var x; __re.multiline === false. Actual: ' + (__re.multiline));\n}\n\n//CHECK#3\nif (__re.global !== false) {\n  $ERROR('#3: __re = new RegExp(x); var x; __re.global === false. Actual: ' + (__re.global));\n}\n\n//CHECK#4\nif (__re.ignoreCase !== false) {\n  $ERROR('#4: __re = new RegExp(x); var x; __re.ignoreCase === false. Actual: ' + (__re.ignoreCase));\n}\n\nvar x;\n\n",
+    "id": "S15.10.4.1_A3_T3"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "RegExp is new RegExp(undefined)",
+    "test": "__re = new RegExp(undefined);\n\n//CHECK#1\nif (__re.source !== \"\") {\n  $ERROR('#1: __re = new RegExp(undefined); __re.source === \"\". Actual: '+ (__re.source));\n}\n\n//CHECK#2\nif (__re.multiline !== false) {\n  $ERROR('#2: __re = new RegExp(undefined); __re.multiline === false. Actual: ' + (__re.multiline));\n}\n\n//CHECK#3\nif (__re.global !== false) {\n  $ERROR('#3: __re = new RegExp(undefined); __re.global === false. Actual: ' + (__re.global));\n}\n\n//CHECK#4\nif (__re.ignoreCase !== false) {\n  $ERROR('#4: __re = new RegExp(undefined); __re.ignoreCase === false. Actual: ' + (__re.ignoreCase));\n}\n",
+    "id": "S15.10.4.1_A3_T4"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "RegExp is new RegExp((function(){})())",
+    "test": "__re = new RegExp((function(){})());\n\n//CHECK#1\nif (__re.source !== \"\") {\n  $ERROR('#1: __re = new RegExp((function(){})()); __re.source === \"\". Actual: '+ (__re.source));\n}\n\n//CHECK#2\nif (__re.multiline !== false) {\n  $ERROR('#2: __re = new RegExp((function(){})()); __re.multiline === false. Actual: ' + (__re.multiline));\n}\n\n//CHECK#3\nif (__re.global !== false) {\n  $ERROR('#3: __re = new RegExp((function(){})()); __re.global === false. Actual: ' + (__re.global));\n}\n\n//CHECK#4\nif (__re.ignoreCase !== false) {\n  $ERROR('#4: __re = new RegExp((function(){})()); __re.ignoreCase === false. Actual: ' + (__re.ignoreCase));\n}\n\n",
+    "id": "S15.10.4.1_A3_T5"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "RegExp is new RegExp(undefined)",
+    "test": "__re = new RegExp(null, void 0);\n\n//CHECK#1\nif (__re.source !== \"null\") {\n  $ERROR('#1: __re = new RegExp(null, void 0); __re.source === \"null\". Actual: '+ (__re.source));\n}\n\n//CHECK#2\nif (__re.multiline !== false) {\n  $ERROR('#2: __re = new RegExp(null, void 0); __re.multiline === false. Actual: ' + (__re.multiline));\n}\n\n//CHECK#3\nif (__re.global !== false) {\n  $ERROR('#3: __re = new RegExp(null, void 0); __re.global === false. Actual: ' + (__re.global));\n}\n\n//CHECK#4\nif (__re.ignoreCase !== false) {\n  $ERROR('#4: __re = new RegExp(null, void 0); __re.ignoreCase === false. Actual: ' + (__re.ignoreCase));\n}\n\n\n",
+    "id": "S15.10.4.1_A4_T1"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "RegExp is new RegExp(undefined,undefined)",
+    "test": "__re = new RegExp(undefined, undefined);\n\n//CHECK#1\nif (__re.source !== \"\") {\n  $ERROR('#1: __re = new RegExp(undefined, undefined); __re.source === \"\". Actual: '+ (__re.source));\n}\n\n//CHECK#2\nif (__re.multiline !== false) {\n  $ERROR('#2: __re = new RegExp(undefined, undefined); __re.multiline === false. Actual: ' + (__re.multiline));\n}\n\n//CHECK#3\nif (__re.global !== false) {\n  $ERROR('#3: __re = new RegExp(undefined, undefined); __re.global === false. Actual: ' + (__re.global));\n}\n\n//CHECK#4\nif (__re.ignoreCase !== false) {\n  $ERROR('#4: __re = new RegExp(undefined, undefined); __re.ignoreCase === false. Actual: ' + (__re.ignoreCase));\n}\n\n",
+    "id": "S15.10.4.1_A4_T2"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Use undefined properties of object as flags of RegExp",
+    "test": "__re = new RegExp({}.p, {}.q);\n\n//CHECK#1\nif (__re.source !== \"\") {\n  $ERROR('#1: __re = new RegExp({}.p, {}.q); __re.source === \"\". Actual: '+ (__re.source));\n}\n\n//CHECK#2\nif (__re.multiline !== false) {\n  $ERROR('#2: __re = new RegExp({}.p, {}.q); __re.multiline === false. Actual: ' + (__re.multiline));\n}\n\n//CHECK#3\nif (__re.global !== false) {\n  $ERROR('#3: __re = new RegExp({}.p, {}.q); __re.global === false. Actual: ' + (__re.global));\n}\n\n//CHECK#4\nif (__re.ignoreCase !== false) {\n  $ERROR('#4: __re = new RegExp({}.p, {}.q); __re.ignoreCase === false. Actual: ' + (__re.ignoreCase));\n}\n\n",
+    "id": "S15.10.4.1_A4_T3"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "RegExp is new RegExp(null,void 0)",
+    "test": "__re = new RegExp(null, void 0);\n\n//CHECK#1\nif (__re.source !== \"null\") {\n  $ERROR('#1: __re = new RegExp(null, void 0); __re.source === \"null\". Actual: '+ (__re.source));\n}\n\n//CHECK#2\nif (__re.multiline !== false) {\n  $ERROR('#2: __re = new RegExp(null, void 0); __re.multiline === false. Actual: ' + (__re.multiline));\n}\n\n//CHECK#3\nif (__re.global !== false) {\n  $ERROR('#3: __re = new RegExp(null, void 0); __re.global === false. Actual: ' + (__re.global));\n}\n\n//CHECK#4\nif (__re.ignoreCase !== false) {\n  $ERROR('#4: __re = new RegExp(null, void 0); __re.ignoreCase === false. Actual: ' + (__re.ignoreCase));\n}\n\n",
+    "id": "S15.10.4.1_A4_T4"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "RegExp is new RegExp(\"\",(function(){})())",
+    "test": "__re = new RegExp(\"\", (function(){})());\n\n//CHECK#1\nif (__re.source !== \"\") {\n  $ERROR('#1: __re = new RegExp(\"\", (function(){})()); __re.source === \"\". Actual: '+ (__re.source));\n}\n\n//CHECK#2\nif (__re.multiline !== false) {\n  $ERROR('#2: __re = new RegExp(\"\", (function(){})()); __re.multiline === false. Actual: ' + (__re.multiline));\n}\n\n//CHECK#3\nif (__re.global !== false) {\n  $ERROR('#3: __re = new RegExp(\"\", (function(){})()); __re.global === false. Actual: ' + (__re.global));\n}\n\n//CHECK#4\nif (__re.ignoreCase !== false) {\n  $ERROR('#4: __re = new RegExp(\"\", (function(){})()); __re.ignoreCase === false. Actual: ' + (__re.ignoreCase));\n}\n",
+    "id": "S15.10.4.1_A4_T5"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Checking if using \"ii\" as F leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n\t$ERROR('#1.1: new RegExp(undefined,\"ii\") throw SyntaxError. Actual: ' + (new RegExp(undefined,\"ii\")));\n} catch (e) {\n\tif ((e instanceof SyntaxError) !== true) {\n\t\t$ERROR('#1.2: new RegExp(undefined,\"ii\") throw SyntaxError. Actual: ' + (e));\n\t}\n}\n\n",
+    "id": "S15.10.4.1_A5_T1"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Checking if using \"migg\" as F leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n\t$ERROR('#1.1: new RegExp(null,\"migg\") throw SyntaxError. Actual: ' + (new RegExp(null,\"migg\")));\n} catch (e) {\n\tif ((e instanceof SyntaxError) !== true) {\n\t\t$ERROR('#1.2: new RegExp(null,\"migg\") throw SyntaxError. Actual: ' + (e));\n\t}\n}\n\n",
+    "id": "S15.10.4.1_A5_T2"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Checking by using eval, try to use eval(\"\\\"migg\\\"\") as F",
+    "test": "//CHECK#1\ntry {\n\t$ERROR('#1.1: new RegExp(\"\",eval(\"\\\\\"migr\\\\\"\")) throw SyntaxError. Actual: ' + (new RegExp(\"\",eval(\"\\\"migr\\\"\"))));\n} catch (e) {\n\tif ((e instanceof SyntaxError) !== true) {\n\t\t$ERROR('#1.2: new RegExp(\"\",eval(\"\\\\\"migr\\\\\"\")) throw SyntaxError. Actual: ' + (e));\n\t}\n}\n\n",
+    "id": "S15.10.4.1_A5_T3"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Checking if using \"z\" as F leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n\t$ERROR('#1.1: new RegExp(\"a|b\",\"z\") throw SyntaxError. Actual: ' + (new RegExp(\"a|b\",\"z\")));\n} catch (e) {\n\tif ((e instanceof SyntaxError) !== true) {\n\t\t$ERROR('#1.2: new RegExp(\"a|b\",\"z\") throw SyntaxError. Actual: ' + (e));\n\t}\n}\n\n",
+    "id": "S15.10.4.1_A5_T4"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": ": Checking if using \"{toString:function(){return \"x\";}}\" as F leads to throwing the correct exception;",
+    "test": "//CHECK#1\ntry {\n\t$ERROR('#1.1: new RegExp(\"a|b|[a-b]\",{toString:function(){return \"x\" throw SyntaxError. Actual: ' + (new RegExp(\"a|b|[a-b]\",{toString:function(){return \"x\"}})));\n} catch (e) {\n\tif ((e instanceof SyntaxError) !== true) {\n\t\t$ERROR('#1.2: new RegExp(\"a|b|[a-b]\",{toString:function(){return \"x\" throw SyntaxError. Actual: ' + (e));\n\t}\n}\n\n",
+    "id": "S15.10.4.1_A5_T5"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Checking if using \"null\" as F leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n\t$ERROR('#1.1: new RegExp(\".\",null) throw SyntaxError. Actual: ' + (new RegExp(\".\",null)));\n} catch (e) {\n\tif ((e instanceof SyntaxError) !== true) {\n\t\t$ERROR('#1.2: new RegExp(\".\",null) throw SyntaxError. Actual: ' + (e));\n\t}\n}\n\n",
+    "id": "S15.10.4.1_A5_T6"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Checking if using 1.0 as F leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n\t$ERROR('#1.1: new RegExp(\"^\",1.0) throw SyntaxError. Actual: ' + (new RegExp(\"^\",1.0)));\n} catch (e) {\n\tif ((e instanceof SyntaxError) !== true) {\n\t\t$ERROR('#1.2: new RegExp(\"^\",1.0) throw SyntaxError. Actual: ' + (e));\n\t}\n}\n\n",
+    "id": "S15.10.4.1_A5_T7"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Checking if using \"true\" as F leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n\t$ERROR('#1.1: new RegExp(\"|\",true) throw SyntaxError. Actual: ' + (new RegExp(\"|\",true)));\n} catch (e) {\n\tif ((e instanceof SyntaxError) !== true) {\n\t\t$ERROR('#1.2: new RegExp(\"|\",true) throw SyntaxError. Actual: ' + (e));\n\t}\n}\n\n",
+    "id": "S15.10.4.1_A5_T8"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Checking if using \"{toString:function(){}}\" as F leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n\t$ERROR('#1.1: new RegExp(\"$sup\",{toString:function(){}}) throw SyntaxError. Actual: ' + (new RegExp(\"$sup\",{toString:function(){}})));\n} catch (e) {\n\tif ((e instanceof SyntaxError) !== true) {\n\t\t$ERROR('#1.2: new RegExp(\"$sup\",{toString:function(){}}) throw SyntaxError. Actual: ' + (e));\n\t}\n}\n\n",
+    "id": "S15.10.4.1_A5_T9"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Checking [[Class]] property of the newly constructed object",
+    "test": "__re = new RegExp;\n__re.toString = Object.prototype.toString;\n\n//CHECK#1\nif (__re.toString() !== \"[object \"+\"RegExp\"+\"]\") {\n\t$ERROR('#1: __re = new RegExp; __re.toString = Object.prototype.toString; __re.toString() === \"[object \"+\"RegExp\"+\"]\". Actual: ' + (__re.toString()));\n}\n\n",
+    "id": "S15.10.4.1_A6_T1"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Add new property to [[Prototype]] of REgExp and check this property of the newly constructed object",
+    "test": "__re = new RegExp;\nRegExp.prototype.indicator = 1;\n\n//CHECK#1\nif (__re.indicator !== 1) {\n\t$ERROR('#1: __re = new RegExp; RegExp.prototype.indicator = 1; __re.indicator === 1. Actual: ' + (__re.indicator));\n}\n\n",
+    "id": "S15.10.4.1_A7_T1"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Checking [[Prototype]] property of the newly constructed object",
+    "test": "__re = new RegExp();\n\n//CHECK#1\nif (RegExp.prototype.isPrototypeOf(__re) !== true) {\n\t$ERROR('#1: __re = new RegExp(); RegExp.prototype.isPrototypeOf(__re) === true. Actual: ' + (RegExp.prototype.isPrototypeOf(__re)));\n}\n\n",
+    "id": "S15.10.4.1_A7_T2"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Pattern is \"a|b\" and flags is \"i\"",
+    "test": "__re = new RegExp(\"a|b\",\"i\");\n\n//CHECK#1\nif (__re.ignoreCase !== true) {\n\t$ERROR('#1: __re = new RegExp(\"a|b\",\"i\"); __re.ignoreCase === true. Actual: ' + (__re.ignoreCase));\n}\n\n//CHECK#2\nif (__re.multiline !== false) {\n\t$ERROR('#2: __re = new RegExp(\"a|b\",\"i\"); __re.multiline === false. Actual: ' + (__re.multiline));\n}\n\n//CHECK#3\nif (__re.global !== false) {\n\t$ERROR('#3: __re = new RegExp(\"a|b\",\"i\"); __re.global === false. Actual: ' + (__re.global));\n}\n\n//CHECK#4\nif (__re.lastIndex !== 0) {\n\t$ERROR('#4: __re = new RegExp(\"a|b\",\"i\"); __re.lastIndex === 0. Actual: ' + (__re.lastIndex));\n}\n\n//CHECK#5\nif (typeof __re.source === \"undefined\") {\n\t$ERROR('#5: __re = new RegExp(\"a|b\",\"i\"); typeof __re.source !== \"undefined\"');\n}\n\n",
+    "id": "S15.10.4.1_A8_T1"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Pattern is true and flags is \"m\"",
+    "test": "__re = new RegExp(true,\"m\");\n\n//CHECK#1\nif (__re.ignoreCase !== false) {\n\t$ERROR('#1: __re = new RegExp(true,\"m\"); __re.ignoreCase === false. Actual: ' + (__re.ignoreCase));\n}\n\n//CHECK#2\nif (__re.multiline !== true) {\n\t$ERROR('#2: __re = new RegExp(true,\"m\"); __re.multiline === true. Actual: ' + (__re.multiline));\n}\n\n//CHECK#3\nif (__re.global !== false) {\n\t$ERROR('#3: __re = new RegExp(true,\"m\"); __re.global === false. Actual: ' + (__re.global));\n}\n\n//CHECK#4\nif (__re.lastIndex !== 0) {\n\t$ERROR('#4: __re = new RegExp(true,\"m\"); __re.lastIndex === 0. Actual: ' + (__re.lastIndex));\n}\n\n//CHECK#5\nif (typeof __re.source === \"undefined\") {\n\t$ERROR('#5: __re = new RegExp(true,\"m\"); typeof __re.source !== \"undefined\"');\n}\n\n",
+    "id": "S15.10.4.1_A8_T10"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Checking by using eval, pattern is Math and flags is eval(\"\\\"g\\\"\")",
+    "test": "__re = new RegExp(Math,eval(\"\\\"g\\\"\"));\n\n//CHECK#1\nif (__re.ignoreCase !== false) {\n\t$ERROR('#1: __re = new RegExp(Math,eval(\"\\\\\"g\\\\\"\")); __re.ignoreCase === false. Actual: ' + (__re.ignoreCase));\n}\n\n//CHECK#2\nif (__re.multiline !== false) {\n\t$ERROR('#2: __re = new RegExp(Math,eval(\"\\\\\"g\\\\\"\")); __re.multiline === false. Actual: ' + (__re.multiline));\n}\n\n//CHECK#3\nif (__re.global !== true) {\n\t$ERROR('#3: __re = new RegExp(Math,eval(\"\\\\\"g\\\\\"\")); __re.global === true. Actual: ' + (__re.global));\n}\n\n//CHECK#4\nif (__re.lastIndex !== 0) {\n\t$ERROR('#4: __re = new RegExp(Math,eval(\"\\\\\"g\\\\\"\")); __re.lastIndex === 0. Actual: ' + (__re.lastIndex));\n}\n\n//CHECK#5\nif (typeof __re.source === \"undefined\") {\n\t$ERROR('#5: __re = new RegExp(Math,eval(\"\\\\\"g\\\\\"\")); typeof __re.source !== \"undefined\"');\n}\n\n",
+    "id": "S15.10.4.1_A8_T11"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": ": Pattern is \"\\u0042\" and flags is {toString:void 0, valueOf:function(){throw \"invalof\";} };",
+    "test": "//CHECK#1\ntry {\n\t$ERROR('#1.1: new RegExp(\"\\\\u0042\", {toString:void 0, valueOf:function(){throw \"invalof\";}}) throw \"invalof\". Actual: ' + (new RegExp(\"\\u0042\", {toString:void 0, valueOf:function(){throw \"invalof\";}})));\n} catch (e) {\n\tif (e !== \"invalof\" ) {\n\t\t$ERROR('#1.2: new RegExp(\"\\\\u0042\", {toString:void 0, valueOf:function(){throw \"invalof\";}}) throw \"invalof\". Actual: ' + (e));\n\t}\n}\n\n",
+    "id": "S15.10.4.1_A8_T12"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": ": Pattern is \"1\" and flags is {toString:function(){throw \"intostr\";} };",
+    "test": "//CHECK#1\ntry {\n\t$ERROR('#1.1: new RegExp(\"1\", {toString:function(){throw \"intostr\";}}) throw \"intostr\". Actual: ' + (new RegExp(\"1\", {toString:function(){throw \"intostr\";}})));\n} catch (e) {\n\tif (e !== \"intostr\" ) {\n\t\t$ERROR('#1.2: new RegExp(\"1\", {toString:function(){throw \"intostr\";}}) throw \"intostr\". Actual: ' + (e));\n\t}\n}\n\n",
+    "id": "S15.10.4.1_A8_T13"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": ": Pattern is function(){return \"a|b|[]\";}() and flags is \"ig\";",
+    "test": "__re = new RegExp(function(){return \"a|b|[]\";}(),\"ig\");\n\n//CHECK#1\nif (__re.ignoreCase !== true) {\n\t$ERROR('#1: __re = new RegExp(function(){return \"a|b|[]\"; __re.ignoreCase === true. Actual: ' + (__re.ignoreCase));\n}\n\n//CHECK#2\nif (__re.multiline !== false) {\n\t$ERROR('#2: __re = new RegExp(function(){return \"a|b|[]\"; __re.multiline === false. Actual: ' + (__re.multiline));\n}\n\n//CHECK#3\nif (__re.global !== true) {\n\t$ERROR('#3: __re = new RegExp(function(){return \"a|b|[]\"; __re.global === true. Actual: ' + (__re.global));\n}\n\n//CHECK#4\nif (__re.lastIndex !== 0) {\n\t$ERROR('#4: __re = new RegExp(function(){return \"a|b|[]\"; __re.lastIndex === 0. Actual: ' + (__re.lastIndex));\n}\n\n//CHECK#5\nif (typeof __re.source === \"undefined\") {\n\t$ERROR('#5: __re = new RegExp(function(){return \"a|b|[]\"; typeof __re.source !== \"undefined\"');\n}\n\n",
+    "id": "S15.10.4.1_A8_T2"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": ": Pattern is {toString:function(){return \"[0-9]\";}} and flags is (function(){return \"m\";})();",
+    "test": "__re = new RegExp({toString:function(){return \"[0-9]\";}}, (function(){return \"m\";})());\n\n//CHECK#1\nif (__re.ignoreCase !== false) {\n\t$ERROR('#1: __re = new RegExp({toString:function(){return \"[0-9]\"; __re.ignoreCase === false. Actual: ' + (__re.ignoreCase));\n}\n\n//CHECK#2\nif (__re.multiline !== true) {\n\t$ERROR('#2: __re = new RegExp({toString:function(){return \"[0-9]\"; __re.multiline === true. Actual: ' + (__re.multiline));\n}\n\n//CHECK#3\nif (__re.global !== false) {\n\t$ERROR('#3: __re = new RegExp({toString:function(){return \"[0-9]\"; __re.global === false. Actual: ' + (__re.global));\n}\n\n//CHECK#4\nif (__re.lastIndex !== 0) {\n\t$ERROR('#4: __re = new RegExp({toString:function(){return \"[0-9]\"; __re.lastIndex === 0. Actual: ' + (__re.lastIndex));\n}\n\n//CHECK#5\nif (typeof __re.source === \"undefined\") {\n\t$ERROR('#5: __re = new RegExp({toString:function(){return \"[0-9]\"; typeof __re.source !== \"undefined\"');\n}\n\n",
+    "id": "S15.10.4.1_A8_T3"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": ": Pattern is {toString:void 0,valueOf:function(){return \"[z-z]\";}} and flags is {toString:void 0,valueOf:function(){return \"mig\";}};",
+    "test": "__re = new RegExp({toString:void 0,valueOf:function(){return \"[z-z]\";}}, {toString:void 0,valueOf:function(){return \"mig\";}});\n\n//CHECK#1\nif (__re.ignoreCase !== true) {\n\t$ERROR('#1: __re = new RegExp({toString:void 0,valueOf:function(){return \"[z-z]\"; __re.ignoreCase === true. Actual: ' + (__re.ignoreCase));\n}\n\n//CHECK#2\nif (__re.multiline !== true) {\n\t$ERROR('#2: __re = new RegExp({toString:void 0,valueOf:function(){return \"[z-z]\"; __re.multiline === true. Actual: ' + (__re.multiline));\n}\n\n//CHECK#3\nif (__re.global !== true) {\n\t$ERROR('#3: __re = new RegExp({toString:void 0,valueOf:function(){return \"[z-z]\"; __re.global === true. Actual: ' + (__re.global));\n}\n\n//CHECK#4\nif (__re.lastIndex !== 0) {\n\t$ERROR('#4: __re = new RegExp({toString:void 0,valueOf:function(){return \"[z-z]\"; __re.lastIndex === 0. Actual: ' + (__re.lastIndex));\n}\n\n//CHECK#5\nif (typeof __re.source === \"undefined\") {\n\t$ERROR('#5: __re = new RegExp({toString:void 0,valueOf:function(){return \"[z-z]\"; typeof __re.source !== \"undefined\"');\n}\n\n",
+    "id": "S15.10.4.1_A8_T4"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": ": Pattern is new Object(\"abc{1}\") and flags is {toString:function(){return \"\";}};",
+    "test": "__re = new RegExp(new Object(\"abc{1}\"), {toString:function(){return \"\";}});\n\n//CHECK#1\nif (__re.ignoreCase !== false) {\n\t$ERROR('#1: __re = new RegExp(new Object(\"abc{1}\"), {toString:function(){return \"\"; __re.ignoreCase === false. Actual: ' + (__re.ignoreCase));\n}\n\n//CHECK#2\nif (__re.multiline !== false) {\n\t$ERROR('#2: __re = new RegExp(new Object(\"abc{1}\"), {toString:function(){return \"\"; __re.multiline === false. Actual: ' + (__re.multiline));\n}\n\n//CHECK#3\nif (__re.global !== false) {\n\t$ERROR('#3: __re = new RegExp(new Object(\"abc{1}\"), {toString:function(){return \"\"; __re.global === false. Actual: ' + (__re.global));\n}\n\n//CHECK#4\nif (__re.lastIndex !== 0) {\n\t$ERROR('#4: __re = new RegExp(new Object(\"abc{1}\"), {toString:function(){return \"\"; __re.lastIndex === 0. Actual: ' + (__re.lastIndex));\n}\n\n//CHECK#5\nif (typeof __re.source === \"undefined\") {\n\t$ERROR('#5: __re = new RegExp(new Object(\"abc{1}\"), {toString:function(){return \"\"; typeof __re.source !== \"undefined\"');\n}\n\n",
+    "id": "S15.10.4.1_A8_T5"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": ": Pattern is {toString:function(){throw \"intostr\";} } and flags is \"i\";",
+    "test": "//CHECK#1\ntry {\n\t$ERROR('#1.1: new RegExp({toString:function(){throw \"intostr\";}}, \"i\") throw \"intostr\". Actual: ' + (new RegExp({toString:function(){throw \"intostr\";}}, \"i\")));\n} catch (e) {\n\tif (e !== \"intostr\" ) {\n\t\t$ERROR('#1.2: new RegExp({toString:function(){throw \"intostr\";}}, \"i\") throw \"intostr\". Actual: ' + (e));\n\t}\n}\n\n",
+    "id": "S15.10.4.1_A8_T6"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": ": Pattern is {toString:void 0, valueOf:function(){throw \"invalof\";} } and flags is \"i\";",
+    "test": "//CHECK#1\ntry {\n\t$ERROR('#1.1: new RegExp({toString:void 0, valueOf:function(){throw \"invalof\";}}) throw \"invalof\". Actual: ' + (new RegExp({toString:void 0, valueOf:function(){throw \"invalof\";}})));\n} catch (e) {\n\tif (e !== \"invalof\" ) {\n\t\t$ERROR('#1.2: new RegExp({toString:void 0, valueOf:function(){throw \"invalof\";}}) throw \"invalof\". Actual: ' + (e));\n\t}\n}\n\n",
+    "id": "S15.10.4.1_A8_T7"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": ": Pattern is {toString:function(){throw \"intostr\";} } and flags is \"error\";",
+    "test": "//CHECK#1\ntry {\n\t$ERROR('#1.1: new RegExp({toString:function(){throw \"intostr\";}}, \"error\") throw \"intostr\". Actual: ' + (new RegExp({toString:function(){throw \"intostr\";}}, \"error\")));\n} catch (e) {\n\tif (e !== \"intostr\" ) {\n\t\t$ERROR('#1.2: new RegExp({toString:function(){throw \"intostr\";}}, \"error\") throw \"intostr\". Actual: ' + (e));\n\t}\n}\n\n",
+    "id": "S15.10.4.1_A8_T8"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Pattern is 1 and flags is new Object(\"gi\")",
+    "test": "__re = new RegExp(1, new Object(\"gi\"));\n\n//CHECK#1\nif (__re.ignoreCase !== true) {\n\t$ERROR('#1: __re = new RegExp(1, new Object(\"gi\")); __re.ignoreCase === true. Actual: ' + (__re.ignoreCase));\n}\n\n//CHECK#2\nif (__re.multiline !== false) {\n\t$ERROR('#2: __re = new RegExp(1, new Object(\"gi\")); __re.multiline === false. Actual: ' + (__re.multiline));\n}\n\n//CHECK#3\nif (__re.global !== true) {\n\t$ERROR('#3: __re = new RegExp(1, new Object(\"gi\")); __re.global === true. Actual: ' + (__re.global));\n}\n\n//CHECK#4\nif (__re.lastIndex !== 0) {\n\t$ERROR('#4: __re = new RegExp(1, new Object(\"gi\")); __re.lastIndex === 0. Actual: ' + (__re.lastIndex));\n}\n\n//CHECK#5\nif (typeof __re.source === \"undefined\") {\n\t$ERROR('#5: __re = new RegExp(1, new Object(\"gi\")); typeof __re.source !== \"undefined\"');\n}\n\n",
+    "id": "S15.10.4.1_A8_T9"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Pattern is \"??\"",
+    "test": "//CHECK#1\ntry {\n\t$ERROR('#1.1: new RegExp(\"??\") throw SyntaxError. Actual: ' + (new RegExp(\"??\")));\n} catch (e) {\n\tif ((e instanceof SyntaxError) !== true) {\n\t\t$ERROR('#1.2: new RegExp(\"??\") throw SyntaxError. Actual: ' + (e));\n\t}\n}\n\n",
+    "id": "S15.10.4.1_A9_T1"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Pattern is \"[{-z]\"",
+    "test": "//CHECK#1\ntry {\n\t$ERROR('#1.1: new RegExp(\"[{-z]\") throw SyntaxError. Actual: ' + (new RegExp(\"[{-z]\")));\n} catch (e) {\n\tif ((e instanceof SyntaxError) !== true) {\n\t\t$ERROR('#1.2: new RegExp(\"[{-z]\") throw SyntaxError. Actual: ' + (e));\n\t}\n}\n\n",
+    "id": "S15.10.4.1_A9_T2"
+   },
+   {
+    "section": "15.10.4.1",
+    "description": "Pattern is \"[a--z]\"",
+    "test": "//CHECK#1\ntry {\n\t$ERROR('#1.1: new RegExp(\"[a--z]\") throw SyntaxError. Actual: ' + (new RegExp(\"[a--z]\")));\n} catch (e) {\n\tif ((e instanceof SyntaxError) !== true) {\n\t\t$ERROR('#1.2: new RegExp(\"[a--z]\") throw SyntaxError. Actual: ' + (e));\n\t}\n}\n\n",
+    "id": "S15.10.4.1_A9_T3"
+   }
+  ]
+ }
+}

@@ -1,0 +1,404 @@
+{
+ "testCollection": {
+  "name": "13.1",
+  "numTests": 52,
+  "tests": [
+   {
+    "id": "13.1-1-1",
+    "path": "TestCases/chapter13/13.1/13.1-1-1.js",
+    "description": "Duplicate identifier allowed in non-strict function declaration parameter list",
+    "test": "assertTrue((function testcase()\n{\n  try \n  {\n    eval('function foo(a,a){}');\n    return true;\n  }\n  catch (e) { return false }\n  }).call(this));\n"
+   },
+   {
+    "id": "13.1-1-2",
+    "path": "TestCases/chapter13/13.1/13.1-1-2.js",
+    "description": "Duplicate identifier allowed in non-strict function expression parameter list",
+    "test": "assertTrue((function testcase()\n{\n  try \n  {\n    eval('(function foo(a,a){})');\n    return true;\n  }\n  catch (e) { return false }\n  }).call(this));\n"
+   },
+   {
+    "id": "13.1-1-s",
+    "path": "TestCases/chapter13/13.1/13.1-1-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier 'eval' appears within a FormalParameterList of a strict mode FunctionDeclaration",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"function _13_1_1_fun(eval) { }\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-10-s",
+    "path": "TestCases/chapter13/13.1/13.1-10-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if a function is created in 'strict mode' using a FunctionExpression and the function has three identical parameters",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"var _13_1_10_fun = function (param, param, param) { };\")\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-11-s",
+    "path": "TestCases/chapter13/13.1/13.1-11-s.js",
+    "description": "StrictMode - SyntaxError is thrown if 'eval' occurs as the function name of a FunctionDeclaration in strict mode",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        try {\n            eval(\"function eval() { };\")\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-12-s",
+    "path": "TestCases/chapter13/13.1/13.1-12-s.js",
+    "description": "StrictMode - SyntaxError is thrown if 'eval' occurs as the Identifier of a FunctionExpression in strict mode",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var _13_1_12_s = {};\n\n        try {\n            eval(\"_13_1_12_s.x = function eval() {};\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-13-s",
+    "path": "TestCases/chapter13/13.1/13.1-13-s.js",
+    "description": "StrictMode - SyntaxError is thrown if 'arguments' occurs as the function name of a FunctionDeclaration in strict mode",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"function arguments() { };\")\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-14-s",
+    "path": "TestCases/chapter13/13.1/13.1-14-s.js",
+    "description": "StrictMode - SyntaxError is thrown if 'arguments' occurs as the Identifier of a FunctionExpression in strict mode",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var _13_1_14_s = {};\n\n        try {\n            eval(\"_13_1_14_s.x = function arguments() {};\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-15-s",
+    "path": "TestCases/chapter13/13.1/13.1-15-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier 'eval' appears within a FormalParameterList of a strict mode FunctionDeclaration in strict eval code",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"'use strict';function _13_1_15_fun(eval) { }\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-16-s",
+    "path": "TestCases/chapter13/13.1/13.1-16-s.js",
+    "description": "StrictMode - SyntaxError is thrown if the identifier 'eval' appears within a FormalParameterList of a strict mode FunctionDeclaration when FuctionBody is strict code",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"function _13_1_16_fun(eval) { 'use strict'; }\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-17-s",
+    "path": "TestCases/chapter13/13.1/13.1-17-s.js",
+    "description": "StrictMode - SyntaxError is thrown if the identifier 'eval' appears within a FormalParameterList of a strict mode FunctionExpression in strict eval code",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"'use strict'; var _13_1_17_fun = function (eval) { }\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-18-s",
+    "path": "TestCases/chapter13/13.1/13.1-18-s.js",
+    "description": "StrictMode - SyntaxError is thrown if the identifier 'eval' appears within a FormalParameterList of a strict mode FunctionExpression when FuctionBody is strict code",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"var _13_1_18_fun = function (eval) { 'use strict'; }\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-19-s",
+    "path": "TestCases/chapter13/13.1/13.1-19-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier 'arguments' appears within a FormalParameterList of a strict mode FunctionDeclaration in strict eval code",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"'use strict';function _13_1_19_fun(arguments) { }\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-2-1",
+    "path": "TestCases/chapter13/13.1/13.1-2-1.js",
+    "description": "eval allowed as formal parameter name of a non-strict function declaration",
+    "test": "assertTrue((function testcase()\n{\n  try \n  {\n    eval(\"function foo(eval){};\");\n    return true;\n  }\n  catch (e) {  }\n }).call(this));\n"
+   },
+   {
+    "id": "13.1-2-2",
+    "path": "TestCases/chapter13/13.1/13.1-2-2.js",
+    "description": "eval allowed as formal parameter name of a non-strict function expression",
+    "test": "assertTrue((function testcase()\n{\n    eval(\"(function foo(eval){});\");\n    return true;\n }).call(this));\n"
+   },
+   {
+    "id": "13.1-2-5",
+    "path": "TestCases/chapter13/13.1/13.1-2-5.js",
+    "description": "arguments allowed as formal parameter name of a non-strict function declaration",
+    "test": "assertTrue((function testcase()\n{\n  try \n  {\n    eval(\"function foo(arguments){};\");\n    return true;\n  }\n  catch (e) {  }\n }).call(this));\n"
+   },
+   {
+    "id": "13.1-2-6",
+    "path": "TestCases/chapter13/13.1/13.1-2-6.js",
+    "description": "arguments allowed as formal parameter name of a non-strict function expression",
+    "test": "assertTrue((function testcase()\n{\n    eval(\"(function foo(arguments){});\");\n    return true;\n }).call(this));\n"
+   },
+   {
+    "id": "13.1-2-s",
+    "path": "TestCases/chapter13/13.1/13.1-2-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier 'eval' appears within a FormalParameterList of a strict mode FunctionExpression",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"var _13_1_2_fun = function (eval) { }\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-20-s",
+    "path": "TestCases/chapter13/13.1/13.1-20-s.js",
+    "description": "StrictMode - SyntaxError is thrown if the identifier 'arguments' appears within a FormalParameterList of a strict mode FunctionDeclaration when FuctionBody is strict code",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"function _13_1_20_fun(arguments) { 'use strict'; }\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-21-s",
+    "path": "TestCases/chapter13/13.1/13.1-21-s.js",
+    "description": "StrictMode - SyntaxError is thrown if the identifier 'arguments' appears within a FormalParameterList of a strict mode FunctionExpression in strict eval code",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"'use strict'; var _13_1_21_fun = function (arguments) { }\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-22-s",
+    "path": "TestCases/chapter13/13.1/13.1-22-s.js",
+    "description": "StrictMode - SyntaxError is thrown if the identifier 'arguments' appears within a FormalParameterList of a strict mode FunctionExpression when FuctionBody is strict code",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"var _13_1_22_fun = function (arguments) { 'use strict'; }\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-23-s",
+    "path": "TestCases/chapter13/13.1/13.1-23-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if a function is created using a FunctionDeclaration that is contained in eval strict code and the function has two identical parameters",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"'use strict'; function _13_1_23_fun(param, param) { }\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-24-s",
+    "path": "TestCases/chapter13/13.1/13.1-24-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if a function is created using a FunctionDeclaration whose FunctionBody is contained in strict code and the function has two identical parameters",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"function _13_1_24_fun(param, param) { 'use strict'; }\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-25-s",
+    "path": "TestCases/chapter13/13.1/13.1-25-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if a function is created using a FunctionDeclaration that is contained in eval strict code and the function has two identical parameters which are separated by a unique parameter name",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"'use strict'; function _13_1_25_fun(param1, param2, param1) { }\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-26-s",
+    "path": "TestCases/chapter13/13.1/13.1-26-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if a function is created using a FunctionDeclaration whose FunctionBody is contained in strict code and the function has two identical parameters which are separated by a unique parameter name",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"function _13_1_26_fun(param1, param2, param1) { 'use strict'; }\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-27-s",
+    "path": "TestCases/chapter13/13.1/13.1-27-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if a function is created using a FunctionDeclaration that is contained in eval strict code and the function has three identical parameters",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"'use strict'; function _13_1_27_fun(param, param, param) { }\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-28-s",
+    "path": "TestCases/chapter13/13.1/13.1-28-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if a function is created using a FunctionDeclaration whose FunctionBody is contained in strict code and the function has three identical parameters",
+    "test": "assertTrue((function testcase() {\n        \n\n        try {\n            eval(\"function _13_1_28_fun(param, param, param) { 'use strict'; }\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-29-s",
+    "path": "TestCases/chapter13/13.1/13.1-29-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if a function is created using a FunctionExpression that is contained in eval strict code and the function has two identical parameters",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"'use strict'; var _13_1_29_fun = function (param, param) { };\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-3-1",
+    "path": "TestCases/chapter13/13.1/13.1-3-1.js",
+    "description": "eval allowed as function identifier in non-strict function declaration",
+    "test": "assertTrue((function testcase()\n{\n  try \n  {\n    eval(\"function eval(){};\");\n    return true;\n  }\n  catch (e) {  }  \n }).call(this));\n"
+   },
+   {
+    "id": "13.1-3-2",
+    "path": "TestCases/chapter13/13.1/13.1-3-2.js",
+    "description": "eval allowed as function identifier in non-strict function expression",
+    "test": "assertTrue((function testcase()\n{\n  try \n  {\n    eval(\"(function eval(){});\");\n    return true;\n  }\n  catch (e) {  }  \n }).call(this));\n"
+   },
+   {
+    "id": "13.1-3-7",
+    "path": "TestCases/chapter13/13.1/13.1-3-7.js",
+    "description": "arguments allowed as function identifier in non-strict function declaration",
+    "test": "assertTrue((function testcase()\n{\n  try \n  {\n    eval(\"function arguments (){};\");\n    return true;\n  }\n  catch (e) {  }  \n }).call(this));\n"
+   },
+   {
+    "id": "13.1-3-8",
+    "path": "TestCases/chapter13/13.1/13.1-3-8.js",
+    "description": "arguments allowed as function identifier in non-strict function expression",
+    "test": "assertTrue((function testcase()\n{\n  try \n  {\n    eval(\"(function arguments (){});\");\n    return true;\n  }\n  catch (e) {  }  \n }).call(this));\n"
+   },
+   {
+    "id": "13.1-3-s",
+    "path": "TestCases/chapter13/13.1/13.1-3-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier 'arguments' appears within a FormalParameterList of a strict mode FunctionDeclaration",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"function _13_1_3_fun(arguments) { }\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-30-s",
+    "path": "TestCases/chapter13/13.1/13.1-30-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if a function is created using a FunctionExpression whose FunctionBody is contained in strict code and the function has two identical parameters",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"var _13_1_30_fun = function (param, param) { 'use strict'; };\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-31-s",
+    "path": "TestCases/chapter13/13.1/13.1-31-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if a function is created using a FunctionExpression that is contained in eval strict code and the function has two identical parameters, which are separated by a unique parameter name",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"'use strict'; var _13_1_31_fun = function (param1, param2, param1) { };\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-32-s",
+    "path": "TestCases/chapter13/13.1/13.1-32-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if a function is created using a FunctionExpression whose FunctionBody is strict and the function has two identical parameters, which are separated by a unique parameter name",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"var _13_1_32_fun = function (param1, param2, param1) { 'use strict'; };\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-33-s",
+    "path": "TestCases/chapter13/13.1/13.1-33-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if function is created using a FunctionExpression that is contained in eval strict code and the function has three identical parameters",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"'use strict'; var _13_1_33_fun = function (param, param, param) { };\")\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-34-s",
+    "path": "TestCases/chapter13/13.1/13.1-34-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if a function declaration has three identical parameters with a strict mode body",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"var _13_1_34_fun = function (param, param, param) { 'use strict'; };\")\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-35-s",
+    "path": "TestCases/chapter13/13.1/13.1-35-s.js",
+    "description": "StrictMode - SyntaxError is thrown if 'eval' occurs as the function name of a FunctionDeclaration in strict eval code",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"'use strict'; function eval() { };\")\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-36-s",
+    "path": "TestCases/chapter13/13.1/13.1-36-s.js",
+    "description": "StrictMode - SyntaxError is thrown if 'eval' occurs as the function name of a FunctionDeclaration whose FunctionBody is in strict mode",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"function eval() { 'use strict'; };\")\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-37-s",
+    "path": "TestCases/chapter13/13.1/13.1-37-s.js",
+    "description": "StrictMode - SyntaxError is thrown if 'eval' occurs as the Identifier of a FunctionExpression in strict eval code",
+    "test": "assertTrue((function testcase() {\n        var _13_1_37_s = {};\n        try {\n            eval(\"'use strict'; _13_1_37_s.x = function eval() {};\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-38-s",
+    "path": "TestCases/chapter13/13.1/13.1-38-s.js",
+    "description": "StrictMode - SyntaxError is thrown if 'eval' occurs as the Identifier of a FunctionExpression whose FunctionBody is contained in strict code",
+    "test": "assertTrue((function testcase() {\n        var _13_1_38_s = {};\n        try {\n            eval(\"_13_1_38_s.x = function eval() {'use strict'; };\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-39-s",
+    "path": "TestCases/chapter13/13.1/13.1-39-s.js",
+    "description": "StrictMode - SyntaxError is thrown if 'arguments' occurs as the function name of a FunctionDeclaration in strict eval code",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"'use strict'; function arguments() { };\")\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-4-s",
+    "path": "TestCases/chapter13/13.1/13.1-4-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier 'arguments' appears within a FormalParameterList of a strict mode FunctionExpression",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"var _13_1_4_fun = function (arguments) { };\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-40-s",
+    "path": "TestCases/chapter13/13.1/13.1-40-s.js",
+    "description": "StrictMode - SyntaxError is thrown if 'arguments' occurs as the Identifier of a FunctionDeclaration whose FunctionBody is contained in strict code",
+    "test": "assertTrue((function testcase() {\n\n        try {\n            eval(\"function arguments() { 'use strict'; };\")\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-41-s",
+    "path": "TestCases/chapter13/13.1/13.1-41-s.js",
+    "description": "StrictMode - SyntaxError is thrown if 'arguments' occurs as the Identifier of a FunctionExpression in strict eval code",
+    "test": "assertTrue((function testcase() {\n        var _13_1_41_s = {};\n        try {\n            eval(\"'use strict'; _13_1_41_s.x = function arguments() {};\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-42-s",
+    "path": "TestCases/chapter13/13.1/13.1-42-s.js",
+    "description": "StrictMode - SyntaxError is thrown if 'arguments' occurs as the Identifier of a FunctionExpression whose FunctionBody is contained in strict code",
+    "test": "assertTrue((function testcase() {\n        var _13_1_42_s = {};\n        try {\n            eval(\"_13_1_42_s.x = function arguments() {'use strict';};\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-5-s",
+    "path": "TestCases/chapter13/13.1/13.1-5-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if a function is declared in 'strict mode' using a FunctionDeclaration and the function has two identical parameters",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"function _13_1_5_fun(param, param) { }\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-6-s",
+    "path": "TestCases/chapter13/13.1/13.1-6-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if a function is created in 'strict mode' using a FunctionDeclaration and the function has two identical parameters, which are separated by a unique parameter name",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"function _13_1_6_fun(param1, param2, param1) { }\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-7-s",
+    "path": "TestCases/chapter13/13.1/13.1-7-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if a function is created in 'strict mode' using a FunctionDeclaration and the function has three identical parameters",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"function _13_1_7_fun(param, param, param) { }\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-8-s",
+    "path": "TestCases/chapter13/13.1/13.1-8-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if a function is created in 'strict mode' using a FunctionExpression and the function has two identical parameters",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"var _13_1_8_fun = function (param, param) { };\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "13.1-9-s",
+    "path": "TestCases/chapter13/13.1/13.1-9-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if a function is created in 'strict mode' using a FunctionExpression and the function has two identical parameters, which are separated by a unique parameter name",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n\n        try {\n            eval(\"var _13_1_9_fun = function (param1, param2, param1) { };\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   }
+  ]
+ }
+}

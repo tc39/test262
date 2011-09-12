@@ -1,0 +1,110 @@
+{
+ "testCollection": {
+  "name": "15.6.4_Properties_of_the_Boolean_Prototype_Object",
+  "numTests": 17,
+  "tests": [
+   {
+    "section": "15.6.4.1",
+    "description": "Compare Boolean.prototype.constructor with Boolean",
+    "test": "//CHECK#1\nif(Boolean.prototype.constructor !== Boolean){\n  $ERROR('#1: Boolean.prototype.constructor === Boolean');\n}\n",
+    "id": "S15.6.4.1_A1"
+   },
+   {
+    "section": "15.6.4.2",
+    "description": "no arguments",
+    "test": "//CHECK#1\nif(Boolean.prototype.toString() !== \"false\"){\n  $ERROR('#1: Boolean.prototype.toString() === \"false\"');\n}\n\n//CHECK#2\nif((new Boolean()).toString() !== \"false\"){\n  $ERROR('#2: (new Boolean()).toString() === \"false\"');\n}\n\n//CHECK#3\nif((new Boolean(false)).toString() !== \"false\"){\n  $ERROR('#3: (new Boolean(false)).toString() === \"false\"');\n}\n\n//CHECK#4\nif((new Boolean(true)).toString() !== \"true\"){\n  $ERROR('#4: (new Boolean(true)).toString() === \"true\"');\n}\n\n//CHECK#5\nif((new Boolean(1)).toString() !== \"true\"){\n  $ERROR('#5: (new Boolean(1)).toString() === \"true\"');\n}\n\n//CHECK#6\nif((new Boolean(0)).toString() !== \"false\"){\n  $ERROR('#6: (new Boolean(0)).toString() === \"false\"');\n}\n\n//CHECK#7\nif((new Boolean(new Object())).toString() !== \"true\"){\n  $ERROR('#7: (new Boolean(new Object())).toString() === \"true\"');\n}\n",
+    "id": "S15.6.4.2_A1_T1"
+   },
+   {
+    "section": "15.6.4.2",
+    "description": "with some argument",
+    "test": "//CHECK#1\nif(Boolean.prototype.toString(true) !== \"false\"){\n  $ERROR('#1: Boolean.prototype.toString(true) === \"false\"');\n}\n\n//CHECK#2\nif((new Boolean()).toString(true) !== \"false\"){\n  $ERROR('#2: (new Boolean()).toString(true) === \"false\"');\n}\n\n//CHECK#3\nif((new Boolean(false)).toString(true) !== \"false\"){\n  $ERROR('#3: (new Boolean(false)).toString(true) === \"false\"');\n}\n\n//CHECK#4\nif((new Boolean(true)).toString(false) !== \"true\"){\n  $ERROR('#4: (new Boolean(true)).toString(false) === \"true\"');\n}\n\n//CHECK#5\nif((new Boolean(1)).toString(false) !== \"true\"){\n  $ERROR('#5: (new Boolean(1)).toString(false) === \"true\"');\n}\n\n//CHECK#6\nif((new Boolean(0)).toString(true) !== \"false\"){\n  $ERROR('#6: (new Boolean(0)).toString(true) === \"false\"');\n}\n\n//CHECK#7\nif((new Boolean(new Object())).toString(false) !== \"true\"){\n  $ERROR('#7: (new Boolean(new Object())).toString(false) === \"true\"');\n}\n",
+    "id": "S15.6.4.2_A1_T2"
+   },
+   {
+    "section": "15.6.4.2",
+    "description": "transferring to the String objects",
+    "test": "//CHECK#1\ntry{\n  var s1 = new String();\n  s1.toString = Boolean.prototype.toString;\n  var v1 = s1.toString(); \n  $ERROR('#1: Boolean.prototype.toString on not a Boolean object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#1: Boolean.prototype.toString on not a Boolean object should throw TypeError, not '+e);\n  }\n}\n\n//CHECK#2\ntry{\n  var s2 = new String();\n  s2.myToString = Boolean.prototype.toString;\n  var v2 = s2.myToString(); \n  $ERROR('#2: Boolean.prototype.toString on not a Boolean object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#2: Boolean.prototype.toString on not a Boolean object should throw TypeError, not '+e);\n  }\n}\n\n",
+    "id": "S15.6.4.2_A2_T1"
+   },
+   {
+    "section": "15.6.4.2",
+    "description": "transferring to the Number objects",
+    "test": "//CHECK#1\ntry{\n  var s1 = new Number();\n  s1.toString = Boolean.prototype.toString;\n  var v1 = s1.toString(); \n  $ERROR('#1: Boolean.prototype.toString on not a Boolean object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#1: Boolean.prototype.toString on not a Boolean object should throw TypeError, not '+e);\n  }\n}\n\n//CHECK#1\ntry{\n  var s2 = new Number();\n  s2.myToString = Boolean.prototype.toString;\n  var v2 = s2.myToString(); \n  $ERROR('#2: Boolean.prototype.toString on not a Boolean object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#2: Boolean.prototype.toString on not a Boolean object should throw TypeError, not '+e);\n  }\n}\n\n",
+    "id": "S15.6.4.2_A2_T2"
+   },
+   {
+    "section": "15.6.4.2",
+    "description": "transferring to the Date objects",
+    "test": "//CHECK#1\ntry{\n  var s1 = new Date();\n  s1.toString = Boolean.prototype.toString;\n  var v1 = s1.toString(); \n  $ERROR('#1: Boolean.prototype.toString on not a Boolean object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#1: Boolean.prototype.toString on not a Boolean object should throw TypeError, not '+e);\n  }\n}\n\n//CHECK#1\ntry{\n  var s2 = new Date();\n  s2.myToString = Boolean.prototype.toString;\n  var v2 = s2.myToString(); \n  $ERROR('#2: Boolean.prototype.toString on not a Boolean object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#2: Boolean.prototype.toString on not a Boolean object should throw TypeError, not '+e);\n  }\n}\n\n",
+    "id": "S15.6.4.2_A2_T3"
+   },
+   {
+    "section": "15.6.4.2",
+    "description": "transferring to the Object objects",
+    "test": "//CHECK#1\ntry{\n  var s1 = new Object();\n  s1.toString = Boolean.prototype.toString;\n  var v1 = s1.toString(); \n  $ERROR('#1: Boolean.prototype.toString on not a Boolean object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#1: Boolean.prototype.toString on not a Boolean object should throw TypeError, not '+e);\n  }\n}\n\n//CHECK#1\ntry{\n  var s2 = new Object();\n  s2.myToString = Boolean.prototype.toString;\n  var v2 = s2.myToString(); \n  $ERROR('#2: Boolean.prototype.toString on not a Boolean object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#2: Boolean.prototype.toString on not a Boolean object should throw TypeError, not '+e);\n  }\n}\n\n",
+    "id": "S15.6.4.2_A2_T4"
+   },
+   {
+    "section": "15.6.4.2",
+    "description": "transferring to the other objects",
+    "test": "//CHECK#1\ntry{\n  var s1 = {x: 1};\n  s1.toString = Boolean.prototype.toString;\n  var v1 = s1.toString(); \n  $ERROR('#1: Boolean.prototype.toString on not a Boolean object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#1: Boolean.prototype.toString on not a Boolean object should throw TypeError, not '+e);\n  }\n}\n\n//CHECK#1\ntry{\n  var s2 = {x: 1};\n  s2.myToString = Boolean.prototype.toString;\n  var v2 = s2.myToString(); \n  $ERROR('#2: Boolean.prototype.toString on not a Boolean object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#2: Boolean.prototype.toString on not a Boolean object should throw TypeError, not '+e);\n  }\n}\n\n",
+    "id": "S15.6.4.2_A2_T5"
+   },
+   {
+    "section": "15.6.4.3",
+    "description": "no arguments",
+    "test": "//CHECK#1\nif(Boolean.prototype.valueOf() !== false){\n  $ERROR('#1: Boolean.prototype.valueOf() === false');\n}\n\n//CHECK#2\nif((new Boolean()).valueOf() !== false){\n  $ERROR('#2: (new Boolean()).valueOf() === false');\n}\n\n//CHECK#3\nif((new Boolean(0)).valueOf() !== false){\n  $ERROR('#3: (new Boolean(0)).valueOf() === false');\n}\n\n//CHECK#4\nif((new Boolean(-1)).valueOf() !== true){\n  $ERROR('#4: (new Boolean(-1)).valueOf() === true');\n}\n\n//CHECK#5\nif((new Boolean(1)).valueOf() !== true){\n  $ERROR('#5: (new Boolean(1)).valueOf() === true');\n}\n\n//CHECK#6\nif((new Boolean(new Object())).valueOf() !== true){\n  $ERROR('#6: (new Boolean(new Object())).valueOf() === true');\n}\n\n",
+    "id": "S15.6.4.3_A1_T1"
+   },
+   {
+    "section": "15.6.4.3",
+    "description": "calling with argument",
+    "test": "//CHECK#1\nif(Boolean.prototype.valueOf(true) !== false){\n  $ERROR('#1: Boolean.prototype.valueOf(true) === false');\n}\n\n//CHECK#2\nif((new Boolean()).valueOf(true) !== false){\n  $ERROR('#2: (new Boolean()).valueOf(true) === false');\n}\n\n//CHECK#3\nif((new Boolean(0)).valueOf(true) !== false){\n  $ERROR('#3: (new Boolean(0)).valueOf(true) === false');\n}\n\n//CHECK#4\nif((new Boolean(-1)).valueOf(false) !== true){\n  $ERROR('#4: (new Boolean(-1)).valueOf(false) === true');\n}\n\n//CHECK#5\nif((new Boolean(1)).valueOf(false) !== true){\n  $ERROR('#5: (new Boolean(1)).valueOf(false) === true');\n}\n\n//CHECK#6\nif((new Boolean(new Object())).valueOf(false) !== true){\n  $ERROR('#6: (new Boolean(new Object())).valueOf(false) === true');\n}\n\n",
+    "id": "S15.6.4.3_A1_T2"
+   },
+   {
+    "section": "15.6.4.3",
+    "description": "transferring to the String objects",
+    "test": "//CHECK#1\ntry{\n  var s1 = new String();\n  s1.valueOf = Boolean.prototype.valueOf;\n  var v1 = s1.valueOf(); \n  $ERROR('#1: Boolean.prototype.valueOf on not a Boolean object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#1: Boolean.prototype.valueOf on not a Boolean object should throw TypeError, not '+e);\n  }\n}\n\n//CHECK#1\ntry{\n  var s2 = new String();\n  s2.myValueOf = Boolean.prototype.valueOf;\n  var v2 = s2.myValueOf(); \n  $ERROR('#2: Boolean.prototype.valueOf on not a Boolean object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#2: Boolean.prototype.valueOf on not a Boolean object should throw TypeError, not '+e);\n  }\n}\n\n",
+    "id": "S15.6.4.3_A2_T1"
+   },
+   {
+    "section": "15.6.4.3",
+    "description": "transferring to the Number objects",
+    "test": "//CHECK#1\ntry{\n  var s1 = new Number();\n  s1.valueOf = Boolean.prototype.valueOf;\n  var v1 = s1.valueOf(); \n  $ERROR('#1: Boolean.prototype.valueOf on not a Boolean object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#1: Boolean.prototype.valueOf on not a Boolean object should throw TypeError, not '+e);\n  }\n}\n\n//CHECK#1\ntry{\n  var s2 = new Number();\n  s2.myValueOf = Boolean.prototype.valueOf;\n  var v2 = s2.myValueOf(); \n  $ERROR('#2: Boolean.prototype.valueOf on not a Boolean object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#2: Boolean.prototype.valueOf on not a Boolean object should throw TypeError, not '+e);\n  }\n}\n\n",
+    "id": "S15.6.4.3_A2_T2"
+   },
+   {
+    "section": "15.6.4.3",
+    "description": "transferring to the Date objects",
+    "test": "//CHECK#1\ntry{\n  var s1 = new Date();\n  s1.valueOf = Boolean.prototype.valueOf;\n  var v1 = s1.valueOf(); \n  $ERROR('#1: Boolean.prototype.valueOf on not a Boolean object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#1: Boolean.prototype.valueOf on not a Boolean object should throw TypeError, not '+e);\n  }\n}\n\n//CHECK#1\ntry{\n  var s2 = new Date();\n  s2.myValueOf = Boolean.prototype.valueOf;\n  var v2 = s2.myValueOf(); \n  $ERROR('#2: Boolean.prototype.valueOf on not a Boolean object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#2: Boolean.prototype.valueOf on not a Boolean object should throw TypeError, not '+e);\n  }\n}\n\n",
+    "id": "S15.6.4.3_A2_T3"
+   },
+   {
+    "section": "15.6.4.3",
+    "description": "transferring to the Object objects",
+    "test": "//CHECK#1\ntry{\n  var s1 = new Object();\n  s1.valueOf = Boolean.prototype.valueOf;\n  var v1 = s1.valueOf(); \n  $ERROR('#1: Boolean.prototype.valueOf on not a Boolean object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#1: Boolean.prototype.valueOf on not a Boolean object should throw TypeError, not '+e);\n  }\n}\n\n//CHECK#1\ntry{\n  var s2 = new Object();\n  s2.myValueOf = Boolean.prototype.valueOf;\n  var v2 = s2.myValueOf(); \n  $ERROR('#2: Boolean.prototype.valueOf on not a Boolean object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#2: Boolean.prototype.valueOf on not a Boolean object should throw TypeError, not '+e);\n  }\n}\n\n",
+    "id": "S15.6.4.3_A2_T4"
+   },
+   {
+    "section": "15.6.4.3",
+    "description": "transferring to the other objects",
+    "test": "//CHECK#1\ntry{\n  var s1 = {x: 1};\n  s1.valueOf = Boolean.prototype.valueOf;\n  var v1 = s1.valueOf(); \n  $ERROR('#1: Boolean.prototype.valueOf on not a Boolean object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#1: Boolean.prototype.valueOf on not a Boolean object should throw TypeError, not '+e);\n  }\n}\n\n//CHECK#1\ntry{\n  var s2 = {x: 1};\n  s2.myValueOf = Boolean.prototype.valueOf;\n  var v2 = s2.myValueOf(); \n  $ERROR('#2: Boolean.prototype.valueOf on not a Boolean object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#2: Boolean.prototype.valueOf on not a Boolean object should throw TypeError, not '+e);\n  }\n}\n\n",
+    "id": "S15.6.4.3_A2_T5"
+   },
+   {
+    "section": "15.6.4",
+    "description": "Checking type and value of Boolean.prototype",
+    "test": "//CHECK#1\nif (typeof Boolean.prototype !== \"object\") {\n  $ERROR('#1: typeof Boolean.prototype === \"object\"');\n}\n\n//CHECK#2\nif (Boolean.prototype != false) {\n  $ERROR('#2: Boolean.prototype == false');\n}\n\ndelete Boolean.prototype.toString;\n\nif (Boolean.prototype.toString() !== \"[object Boolean]\") {\n  $ERROR('#3: The [[Class]] property of the Boolean prototype object is set to \"Boolean\"');\n}\n",
+    "id": "S15.6.4_A1"
+   },
+   {
+    "section": "15.6.4",
+    "description": "Checking Object.prototype.isPrototypeOf(Boolean.prototype)",
+    "test": "//CHECK#1\nif (!Object.prototype.isPrototypeOf(Boolean.prototype)) {\n  $ERROR('#1: Object prototype object is the prototype of Boolean prototype object');\n}\n",
+    "id": "S15.6.4_A2"
+   }
+  ]
+ }
+}

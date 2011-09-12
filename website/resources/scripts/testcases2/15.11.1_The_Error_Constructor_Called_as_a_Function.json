@@ -1,0 +1,32 @@
+{
+ "testCollection": {
+  "name": "15.11.1_The_Error_Constructor_Called_as_a_Function",
+  "numTests": 4,
+  "tests": [
+   {
+    "section": "15.11.1.1, 16",
+    "description": "Checking message property of different error objects",
+    "test": "function otherScope(msg)\n{\n  return Error(msg);\n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nvar err1=Error('msg1');\nif(err1.message!==\"msg1\"){\n  $ERROR('#1: var err1=Error(\\'msg1\\'); err1.message===\"msg1\". Actual: '+err1.message);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nvar err2=otherScope('msg2');\nif(err2.message!==\"msg2\"){\n  $ERROR('#2: function otherScope(msg){return Error(msg);} var err2=otherScope(\\'msg2\\'); err2.message===\"msg2\". Actual: '+err2.message);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nvar err3=otherScope();\nif(err3.hasOwnProperty('message')){\n  $ERROR('#3: function otherScope(msg){return Error(msg);} var err3=otherScope(); err3.hasOwnProperty(\"message\"). Actual: '+err3.message);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\nvar err4=eval(\"Error('msg4')\");\nif(err4.message!==\"msg4\"){\n  $ERROR('#4: var err4=eval(\"Error(\\'msg4\\')\"); err4.message===\"msg4\". Actual: '+err4.message);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.11.1.1_A1_T1"
+   },
+   {
+    "section": "15.11.1.1, 16",
+    "description": "Checking prototype of the newly constructed Error object",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nvar err1=Error('msg1');\nif(!Error.prototype.isPrototypeOf(err1)){\n  $ERROR('#1: var err1=Error(\\'msg1\\'); Error.prototype.isPrototypeOf(err1) return true. Actual: '+Error.prototype.isPrototypeOf(err1));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.11.1.1_A2_T1"
+   },
+   {
+    "section": "15.11.1.1, 16",
+    "description": "Checking Class of the newly constructed Error object using toSting() function",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nError.prototype.toString=Object.prototype.toString;\nvar err1=Error();\nif(err1.toString()!=='[object '+ 'Error' +']'){\n  $ERROR('#1: Error.prototype.toString=Object.prototype.toString; var err1=Error(); err1.toString()===\\'[object Error]\\'. Actual: '+err1.toString());\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.11.1.1_A3_T1"
+   },
+   {
+    "section": "15.11.1, 16",
+    "description": "Checking constructor of the newly constructed Error object",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nError.prototype.toString=Object.prototype.toString;\nvar err1=Error();\nif(err1.constructor!==Error){\n  $ERROR('#1: Error.prototype.toString=Object.prototype.toString; var err1=Error(); err1.constructor===Error. Actual: '+err1.constructor);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.11.1_A1_T1"
+   }
+  ]
+ }
+}

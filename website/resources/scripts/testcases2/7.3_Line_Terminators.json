@@ -1,0 +1,292 @@
+{
+ "testCollection": {
+  "name": "7.3_Line_Terminators",
+  "numTests": 44,
+  "tests": [
+   {
+    "section": "7.3",
+    "description": "Insert LINE FEED (\\u000A and \\n) between tokens of var x=1",
+    "test": "// CHECK#1\neval(\"\\u000Avar\\u000Ax\\u000A=\\u000A1\\u000A\");\nif (x !== 1) {\n  $ERROR('#1: eval(\"\\\\u000Avar\\\\u000Ax\\\\u000A=\\\\u000A1\\\\u000A\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#2\neval(\"\\u000A\" + \"var\" + \"\\u000A\" + \"x\" + \"\\u000A\" + \"=\" + \"\\u000A\" + \"1\" + \"\\u000A\");\nif (x !== 1) {\n  $ERROR('#2: eval(\"\\\\u000A\" + \"var\" + \"\\\\u000A\" + \"x\" + \"\\\\u000A\" + \"=\" + \"\\\\u000A\" + \"1\" + \"\\\\u000A\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#3\neval(\"\\nvar\\nx\\n=\\n1\\n\");\nif (x !== 1) {\n  $ERROR('#3: eval(\"\\\\nvar\\\\nx\\\\n=\\\\n1\\\\n\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#4\neval(\"\\n\" + \"var\" + \"\\n\" + \"x\" + \"\\n\" + \"=\" + \"\\n\" + \"1\" + \"\\n\");\nif (x !== 1) {\n  $ERROR('#4: eval(\"\\\\n\" + \"var\" + \"\\\\n\" + \"x\" + \"\\\\n\" + \"=\" + \"\\\\n\" + \"1\" + \"\\\\n\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#5\neval(\"\\u000A\" + \"var\" + \"\\n\" + \"x\" + \"\\u000A\" + \"=\" + \"\\n\" + \"1\" + \"\\u000A\");\nif (x !== 1) {\n  $ERROR('#5: eval(\"\\\\u000A\" + \"var\" + \"\\\\n\" + \"x\" + \"\\\\u000A\" + \"=\" + \"\\\\n\" + \"1\" + \"\\\\u000A\"); x === 1. Actual: ' + (x));\n}\n",
+    "id": "S7.3_A1.1_T1"
+   },
+   {
+    "section": "7.3",
+    "description": "Insert real LINE FEED between tokens of var x=1",
+    "test": "//CHECK#1\nvar\nx\n=\n1;\nif (x !== 1) {\n  $ERROR('#1: var\\\\nx\\\\n=\\\\n1\\\\n; x === 1. Actual: ' + (x));\n}\n",
+    "id": "S7.3_A1.1_T2"
+   },
+   {
+    "section": "7.3",
+    "description": "Insert CARRIAGE RETURN (\\u000D and \\r) between tokens of var x=1",
+    "test": "// CHECK#1\neval(\"\\u000Dvar\\u000Dx\\u000D=\\u000D1\\u000D\");\nif (x !== 1) {\n  $ERROR('#1: eval(\"\\\\u000Dvar\\\\u000Dx\\\\u000D=\\\\u000D1\\\\u000D\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#2\neval(\"\\u000D\" + \"var\" + \"\\u000D\" + \"x\" + \"\\u000D\" + \"=\" + \"\\u000D\" + \"1\" + \"\\u000D\");\nif (x !== 1) {\n  $ERROR('#2: eval(\"\\\\u000D\" + \"var\" + \"\\\\u000D\" + \"x\" + \"\\\\u000D\" + \"=\" + \"\\\\u000D\" + \"1\" + \"\\\\u000D\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#3\neval(\"\\rvar\\rx\\r=\\r1\\r\");\nif (x !== 1) {\n  $ERROR('#3: eval(\"\\\\rvar\\\\rx\\\\r=\\\\r1\\\\r\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#4\neval(\"\\r\" + \"var\" + \"\\r\" + \"x\" + \"\\r\" + \"=\" + \"\\r\" + \"1\" + \"\\r\");\nif (x !== 1) {\n  $ERROR('#4: eval(\"\\\\r\" + \"var\" + \"\\\\r\" + \"x\" + \"\\\\r\" + \"=\" + \"\\\\r\" + \"1\" + \"\\\\r\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#5\neval(\"\\u000D\" + \"var\" + \"\\r\" + \"x\" + \"\\u000D\" + \"=\" + \"\\r\" + \"1\" + \"\\u000D\");\nif (x !== 1) {\n  $ERROR('#5: eval(\"\\\\u000D\" + \"var\" + \"\\\\r\" + \"x\" + \"\\\\u000D\" + \"=\" + \"\\\\r\" + \"1\" + \"\\\\u000D\"); x === 1. Actual: ' + (x));\n}\n",
+    "id": "S7.3_A1.2_T1"
+   },
+   {
+    "section": "7.3",
+    "description": "Insert real CARRIAGE RETURN between tokens of var x=1",
+    "test": "//CHECK#1\nvar\nx\n=\n1;\nif (x !== 1) {\n  $ERROR('#1: var\\\\nx\\\\n=\\\\n1\\\\n; x === 1. Actual: ' + (x));\n}\n",
+    "id": "S7.3_A1.2_T2"
+   },
+   {
+    "section": "7.3",
+    "description": "Insert LINE SEPARATOR (\\u2028) between tokens of var x=1",
+    "test": "// CHECK#1\neval(\"\\u2028var\\u2028x\\u2028=\\u20281\\u2028\");\nif (x !== 1) {\n  $ERROR('#1: eval(\"\\\\u2028var\\\\u2028x\\\\u2028=\\\\u20281\\\\u2028\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#2\neval(\"\\u2028\" + \"var\" + \"\\u2028\" + \"x\" + \"\\u2028\" + \"=\" + \"\\u2028\" + \"1\" + \"\\u2028\");\nif (x !== 1) {\n  $ERROR('#2: eval(\"\\\\u2028\" + \"var\" + \"\\\\u2028\" + \"x\" + \"\\\\u2028\" + \"=\" + \"\\\\u2028\" + \"1\" + \"\\\\u2028\"); x === 1. Actual: ' + (x));\n}\n\n",
+    "id": "S7.3_A1.3"
+   },
+   {
+    "section": "7.3",
+    "description": "Insert PARAGRAPH SEPARATOR (\\u2029) between tokens of var x=1",
+    "test": "// CHECK#1\neval(\"\\u2029var\\u2029x\\u2029=\\u20291\\u2029\");\nif (x !== 1) {\n  $ERROR('#1: eval(\"\\\\u2029var\\\\u2029x\\\\u2029=\\\\u20291\\\\u2029\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#2\neval(\"\\u2029\" + \"var\" + \"\\u2029\" + \"x\" + \"\\u2029\" + \"=\" + \"\\u2029\" + \"1\" + \"\\u2029\");\nif (x !== 1) {\n  $ERROR('#2: eval(\"\\\\u2029\" + \"var\" + \"\\\\u2029\" + \"x\" + \"\\\\u2029\" + \"=\" + \"\\\\u2029\" + \"1\" + \"\\\\u2029\"); x === 1. Actual: ' + (x));\n}\n\n\n\n",
+    "id": "S7.3_A1.4"
+   },
+   {
+    "section": "7.3",
+    "description": "Insert LINE FEED (\\u000A) into string",
+    "negative": "",
+    "test": "// CHECK#1\nif (eval(\"'\\u000Astr\\u000Aing\\u000A'\") === \"\\u000Astr\\u000Aing\\u000A\") {\n  $ERROR('#1: eval(\"\\'\\\\u000Astr\\\\u000Aing\\\\u000A\\'\") === \"\\\\u000Astr\\\\u000Aing\\\\u000A\"');\n}\n",
+    "id": "S7.3_A2.1_T1"
+   },
+   {
+    "section": "7.3",
+    "description": "Use real LINE FEED into string",
+    "negative": "",
+    "test": "//CHECK#1\n\"\nstr\ning\n\";\n",
+    "id": "S7.3_A2.1_T2"
+   },
+   {
+    "section": "7.3",
+    "description": "Insert CARRIAGE RETURN (\\u000D) into string",
+    "negative": "",
+    "test": "// CHECK#1\nif (eval(\"'\\u000Dstr\\u000Ding\\u000D'\") === \"\\u000Dstr\\u000Ding\\u000D\") {\n  $ERROR('#1: eval(\"\\'\\\\u000Dstr\\\\u000Ding\\\\u000D\\'\") === \"\\\\u000Dstr\\\\u000Ding\\\\u000D\"');\n}\n",
+    "id": "S7.3_A2.2_T1"
+   },
+   {
+    "section": "7.3",
+    "description": "Insert real CARRIAGE RETURN into string",
+    "negative": "",
+    "test": "//CHECK#1\n\"\nstr\ning\n\";\n",
+    "id": "S7.3_A2.2_T2"
+   },
+   {
+    "section": "7.3",
+    "description": "Insert LINE SEPARATOR (\\u2028) into string",
+    "negative": "",
+    "test": "// CHECK#1\nif (eval(\"'\\u2028str\\u2028ing\\u2028'\") === \"\\u2028str\\u2028ing\\u2028\") {\n  $ERROR('#1: eval(\"\\'\\\\u2028str\\\\u2028ing\\\\u2028\\'\") === \"\\\\u2028str\\\\u2028ing\\\\u2028\"');\n}\n",
+    "id": "S7.3_A2.3"
+   },
+   {
+    "section": "7.3",
+    "description": "Insert PARAGRAPH SEPARATOR (\\u2029) into string",
+    "negative": "",
+    "test": "// CHECK#1\nif (eval(\"'\\u2029str\\u2029ing\\u2029'\") === \"\\u2029str\\u2029ing\\u2029\") {\n  $ERROR('#1: eval(\"\\'\\\\u2029str\\\\u2029ing\\\\u2029\\'\") === \"\\\\u2029str\\\\u2029ing\\\\u2029\"');\n}\n",
+    "id": "S7.3_A2.4"
+   },
+   {
+    "section": "7.3, 7.4",
+    "description": "Insert LINE FEED (\\u000A) into single line comment",
+    "negative": "",
+    "test": "// CHECK#1\neval(\"// single line \\u000A comment\");\n",
+    "id": "S7.3_A3.1_T1"
+   },
+   {
+    "section": "7.3, 7.4",
+    "description": "Insert LINE FEED (\\u000A) into begin of single line comment",
+    "negative": "",
+    "test": "// CHECK#1\neval(\"//\\u000A single line comment\");\n",
+    "id": "S7.3_A3.1_T2"
+   },
+   {
+    "section": "7.3, 7.4",
+    "description": "Insert real LINE FEED into single line comment",
+    "negative": "",
+    "test": "// CHECK#1\n//single \nline comment\n",
+    "id": "S7.3_A3.1_T3"
+   },
+   {
+    "section": "7.3, 7.4",
+    "description": "Insert CARRIAGE RETURN (\\u000D) into single line comment",
+    "negative": "",
+    "test": "// CHECK#1\neval(\"// single line \\u000D comment\");\n",
+    "id": "S7.3_A3.2_T1"
+   },
+   {
+    "section": "7.3, 7.4",
+    "description": "Insert CARRIAGE RETURN (\\u000D) into begin of single line comment",
+    "negative": "",
+    "test": "// CHECK#1\neval(\"//\\u000D single line comment\");\n",
+    "id": "S7.3_A3.2_T2"
+   },
+   {
+    "section": "7.3, 7.4",
+    "description": "Insert real CARRIAGE RETURN into single line comment",
+    "negative": "",
+    "test": "// CHECK#1\n//single \nline comment\n",
+    "id": "S7.3_A3.2_T3"
+   },
+   {
+    "section": "7.3, 7.4",
+    "description": "Insert LINE SEPARATOR (\\u2028) into single line comment",
+    "negative": "",
+    "test": "// CHECK#1\neval(\"// single line \\u2028 comment\");\n",
+    "id": "S7.3_A3.3_T1"
+   },
+   {
+    "section": "7.3, 7.4",
+    "description": "Insert LINE SEPARATOR (\\u2028) into begin of single line comment",
+    "negative": "",
+    "test": "// CHECK#1\neval(\"//\\u2028 single line comment\");\n",
+    "id": "S7.3_A3.3_T2"
+   },
+   {
+    "section": "7.3, 7.4",
+    "description": "Insert PARAGRAPH SEPARATOR (\\u2029) into single line comment",
+    "negative": "",
+    "test": "// CHECK#1\neval(\"// single line \\u2029 comment\");\n",
+    "id": "S7.3_A3.4_T1"
+   },
+   {
+    "section": "7.3, 7.4",
+    "description": "Insert PARAGRAPH SEPARATOR (\\u2029) into begin of single line comment",
+    "negative": "",
+    "test": "// CHECK#1\neval(\"//\\u2029 single line comment\");\n",
+    "id": "S7.3_A3.4_T2"
+   },
+   {
+    "section": "7.3, 7.4",
+    "description": "Insert LINE FEED (U+000A) into the end of single line comment",
+    "test": "// CHECK#1\neval(\"// single line comment\\u000A\");\n\n// CHECK#2\nvar x = 0;\neval(\"// single line comment\\u000A x = 1;\");\nif (x !== 1) {\n  $ERROR('#1: var x = 0; eval(\"// single line comment\\\\u000A x = 1;\"); x === 1. Actual: ' + (x));\n}\n",
+    "id": "S7.3_A4_T1"
+   },
+   {
+    "section": "7.3, 7.4",
+    "description": "Insert CARRIAGE RETURN (U+000D) into the end of single line comment",
+    "test": "// CHECK#1\neval(\"// single line comment\\u000D\");\n\n// CHECK#2\nvar x = 0;\neval(\"// single line comment\\u000D x = 1;\");\nif (x !== 1) {\n  $ERROR('#1: var x = 0; eval(\"// single line comment\\\\u000D x = 1;\"); x === 1. Actual: ' + (x));\n}\n",
+    "id": "S7.3_A4_T2"
+   },
+   {
+    "section": "7.3, 7.4",
+    "description": "Insert LINE SEPARATOR (U+2028) into the end of single line comment",
+    "test": "// CHECK#1\neval(\"// single line comment\\u2028\");\n\n// CHECK#2\nvar x = 0;\neval(\"// single line comment\\u2028 x = 1;\");\nif (x !== 1) {\n  $ERROR('#1: var x = 0; eval(\"// single line comment\\\\u2028 x = 1;\"); x === 1. Actual: ' + (x));\n}\n",
+    "id": "S7.3_A4_T3"
+   },
+   {
+    "section": "7.3, 7.4",
+    "description": "Insert PARAGRAPH SEPARATOR (U+2029) into the end of single line comment",
+    "test": "// CHECK#1\neval(\"// single line comment\\u2029\");\n\n// CHECK#2\nvar x = 0;\neval(\"// single line comment\\u2029 x = 1;\");\nif (x !== 1) {\n  $ERROR('#1: var x = 0; eval(\"// single line comment\\\\u2029 x = 1;\"); x === 1. Actual: ' + (x));\n}\n",
+    "id": "S7.3_A4_T4"
+   },
+   {
+    "section": "7.3, 7.4",
+    "description": "Insert LINE FEED (U+000A) into multi line comment",
+    "test": "// CHECK#1\neval(\"/*\\u000A multi line \\u000A comment \\u000A*/\");\n\n//CHECK#2\nvar x = 0;\neval(\"/*\\u000A multi line \\u000A comment \\u000A x = 1;*/\");\nif (x !== 0) {\n  $ERROR('#1: var x = 0; eval(\"/*\\\\u000A multi line \\\\u000A comment \\\\u000A x = 1;*/\"); x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.3_A5.1_T1"
+   },
+   {
+    "section": "7.3, 7.4",
+    "description": "Insert real LINE FEED into multi line comment",
+    "test": "/*CHECK#1*/\nvar x = 0;\n/*\nmulti\nline\ncomment\nx = 1;\n*/\nif (x !== 0) {\n  $ERROR('#1: var x = 0; /*\\\\nmulti\\\\nline\\\\ncomment\\\\nx = 1;\\\\n*/ x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.3_A5.1_T2"
+   },
+   {
+    "section": "7.3, 7.4",
+    "description": "Insert CARRIAGE RETURN (U+000D) into multi line comment",
+    "test": "// CHECK#1\neval(\"/*\\u000D multi line \\u000D comment \\u000D*/\");\n\n//CHECK#2\nvar x = 0;\neval(\"/*\\u000D multi line \\u000D comment \\u000D x = 1;*/\");\nif (x !== 0) {\n  $ERROR('#1: var x = 0; eval(\"/*\\\\u000D multi line \\\\u000D comment \\\\u000D x = 1;*/\"); x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.3_A5.2_T1"
+   },
+   {
+    "section": "7.3, 7.4",
+    "description": "Insert real CARRIAGE RETURN into multi line comment",
+    "test": "/*CHECK#1*/\nvar x = 0;\n/*\nmulti\nline\ncomment\nx = 1;\n*/\nif (x !== 0) {\n  $ERROR('#1: var x = 0; /*\\\\rmulti\\\\rline\\\\rcomment\\\\rx = 1;\\\\r*/ x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.3_A5.2_T2"
+   },
+   {
+    "section": "7.3, 7.4",
+    "description": "Insert LINE SEPARATOR (U+2028) into multi line comment",
+    "test": "// CHECK#1\neval(\"/*\\u2028 multi line \\u2028 comment \\u2028*/\");\n\n//CHECK#2\nvar x = 0;\neval(\"/*\\u2028 multi line \\u2028 comment \\u2028 x = 1;*/\");\nif (x !== 0) {\n  $ERROR('#1: var x = 0; eval(\"/*\\\\u2028 multi line \\\\u2028 comment \\\\u2028 x = 1;*/\"); x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.3_A5.3"
+   },
+   {
+    "section": "7.3, 7.4",
+    "description": "Insert PARAGRAPH SEPARATOR (U+2029) into multi line comment",
+    "test": "// CHECK#1\neval(\"/*\\u2029 multi line \\u2029 comment \\u2029*/\");\n\n//CHECK#2\nvar x = 0;\neval(\"/*\\u2029 multi line \\u2029 comment \\u2029 x = 1;*/\");\nif (x !== 0) {\n  $ERROR('#1: var x = 0; eval(\"/*\\\\u2029 multi line \\\\u2029 comment \\\\u2029 x = 1;*/\"); x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.3_A5.4"
+   },
+   {
+    "section": "7.3",
+    "description": "Insert LINE FEED (U+000A) in var x",
+    "negative": "",
+    "test": "var\\u000Ax;\n",
+    "id": "S7.3_A6_T1"
+   },
+   {
+    "section": "7.3",
+    "description": "Insert CARRIAGE RETURN (U+000D) in var x",
+    "negative": "",
+    "test": "var\\u000Dx;\n",
+    "id": "S7.3_A6_T2"
+   },
+   {
+    "section": "7.3",
+    "description": "Insert LINE SEPARATOR (U+2028) in var x",
+    "negative": "",
+    "test": "var\\u2028x;\n",
+    "id": "S7.3_A6_T3"
+   },
+   {
+    "section": "7.3",
+    "description": "Insert PARAGRAPH SEPARATOR (U+2029) in var x",
+    "negative": "",
+    "test": "var\\u2029x;\n",
+    "id": "S7.3_A6_T4"
+   },
+   {
+    "section": "7.3",
+    "description": "Insert Line Terminator in var x=y+z",
+    "test": "// CHECK#1\nvar y=2;\nvar z=3;\nvar\nx\n=\ny\n+\nz\n;\nif (x !== 5) {\n  $ERROR('#1: var\\\\nx\\\\n=\\\\ny\\\\n+\\\\nz\\\\n; x === 5. Actual: ' + (x));\n}\nx=0;\n\n// CHECK#2\nvar y=2;\nvar z=3;\nvar\nx\n=\ny\n+\nz\n;\nif (x !== 5) {\n  $ERROR('#2: var\\\\nx\\\\n=\\\\ny\\\\n+\\\\nz\\\\n; x === 5. Actual: ' + (x));\n}\nx=0;\n\n// CHECK#3\nvar y=2;\nvar z=3;\neval(\"\\u2028var\\u2028x\\u2028=\\u2028y\\u2028+\\u2028z\\u2028\");\nif (x !== 5) {\n  $ERROR('#3: eval(\"\\\\u2028var\\\\u2028x\\\\u2028=\\\\u2028y\\\\u2028+\\\\u2028z\\\\u2028\"); x === 5. Actual: ' + (x));\n}\nx=0;\n\n// CHECK#4\nvar y=2;\nvar z=3;\neval(\"\\u2029var\\u2029x\\u2029=\\u2029y\\u2029+\\u2029z\\u2029\");\nif (x !== 5) {\n  $ERROR('#4: eval(\"\\\\u2029var\\\\u2029x\\\\u2029=\\\\u2029y\\\\u2029+\\\\u2029z\\\\u2029\"); x === 5. Actual: ' + (x));\n}\n",
+    "id": "S7.3_A7_T1"
+   },
+   {
+    "section": "7.3",
+    "description": "Insert Line Terminator in var x=y-z",
+    "test": "// CHECK#1\nvar y=3;\nvar z=2;\nvar\nx\n=\ny\n-\nz\n;\nif (x !== 1) {\n  $ERROR('#1: var\\\\nx\\\\n=\\\\ny\\\\n-\\\\nz\\\\n; x === 1. Actual: ' + (x));\n}\nx=0;\n\n// CHECK#2\nvar y=3;\nvar z=2;\nvar\nx\n=\ny\n-\nz\n;\nif (x !== 1) {\n  $ERROR('#2: var\\\\nx\\\\n=\\\\ny\\\\n-\\\\nz\\\\n; x === 1. Actual: ' + (x));\n}\nx=0;\n\n// CHECK#3\nvar y=3;\nvar z=2;\neval(\"\\u2028var\\u2028x\\u2028=\\u2028y\\u2028-\\u2028z\\u2028\");\nif (x !== 1) {\n  $ERROR('#3: eval(\"\\\\u2028var\\\\u2028x\\\\u2028=\\\\u2028y\\\\u2028-\\\\u2028z\\\\u2028\"); x === 1. Actual: ' + (x));\n}\nx=0;\n\n// CHECK#4\nvar y=3;\nvar z=2;\neval(\"\\u2029var\\u2029x\\u2029=\\u2029y\\u2029-\\u2029z\\u2029\");\nif (x !== 1) {\n  $ERROR('#4: eval(\"\\\\u2029var\\\\u2029x\\\\u2029=\\\\u2029y\\\\u2029-\\\\u2029z\\\\u2029\"); x === 1. Actual: ' + (x));\n}\n",
+    "id": "S7.3_A7_T2"
+   },
+   {
+    "section": "7.3",
+    "description": "Insert Line Terminator in var x=y*z",
+    "test": "// CHECK#1\nvar y=3;\nvar z=2;\nvar\nx\n=\ny\n*\nz\n;\nif (x !== 6) {\n  $ERROR('#1: var\\\\nx\\\\n=\\\\ny\\\\n*\\\\nz\\\\n; x === 6. Actual: ' + (x));\n}\nx=0;\n\n// CHECK#2\nvar y=3;\nvar z=2;\nvar\nx\n=\ny\n*\nz\n;\nif (x !== 6) {\n  $ERROR('#2: var\\\\nx\\\\n=\\\\ny\\\\n*\\\\nz\\\\n; x === 6. Actual: ' + (x));\n}\nx=0;\n\n// CHECK#3\nvar y=3;\nvar z=2;\neval(\"\\u2028var\\u2028x\\u2028=\\u2028y\\u2028*\\u2028z\\u2028\");\nif (x !== 6) {\n  $ERROR('#3: eval(\"\\\\u2028var\\\\u2028x\\\\u2028=\\\\u2028y\\\\u2028*\\\\u2028z\\\\u2028\"); x === 6. Actual: ' + (x));\n}\nx=0;\n\n// CHECK#4\nvar y=3;\nvar z=2;\neval(\"\\u2029var\\u2029x\\u2029=\\u2029y\\u2029*\\u2029z\\u2029\");\nif (x !== 6) {\n  $ERROR('#4: eval(\"\\\\u2029var\\\\u2029x\\\\u2029=\\\\u2029y\\\\u2029*\\\\u2029z\\\\u2029\"); x === 6. Actual: ' + (x));\n}\n",
+    "id": "S7.3_A7_T3"
+   },
+   {
+    "section": "7.3",
+    "description": "Insert Line Terminator in var x=y/z",
+    "test": "// CHECK#1\nvar y=12;\nvar z=2;\nvar\nx\n=\ny\n/\nz\n;\nif (x !== 6) {\n  $ERROR('#1: var\\\\nx\\\\n=\\\\ny\\\\n/\\\\nz\\\\n; x === 6. Actual: ' + (x));\n}\nx=0;\n\n// CHECK#2\nvar y=12;\nvar z=2;\nvar\nx\n=\ny\n/\nz\n;\nif (x !== 6) {\n  $ERROR('#2: var\\\\nx\\\\n=\\\\ny\\\\n/\\\\nz\\\\n; x === 6. Actual: ' + (x));\n}\nx=0;\n\n// CHECK#3\nvar y=12;\nvar z=2;\neval(\"\\u2028var\\u2028x\\u2028=\\u2028y\\u2028/\\u2028z\\u2028\");\nif (x !== 6) {\n  $ERROR('#3: eval(\"\\\\u2028var\\\\u2028x\\\\u2028=\\\\u2028y\\\\u2028/\\\\u2028z\\\\u2028\"); x === 6. Actual: ' + (x));\n}\nx=0;\n\n// CHECK#4\nvar y=12;\nvar z=2;\neval(\"\\u2029var\\u2029x\\u2029=\\u2029y\\u2029/\\u2029z\\u2029\");\nif (x !== 6) {\n  $ERROR('#4: eval(\"\\\\u2029var\\\\u2029x\\\\u2029=\\\\u2029y\\\\u2029/\\\\u2029z\\\\u2029\"); x === 6. Actual: ' + (x));\n}\n",
+    "id": "S7.3_A7_T4"
+   },
+   {
+    "section": "7.3",
+    "description": "Insert Line Terminator in var x=y%z",
+    "test": "// CHECK#1\nvar y=16;\nvar z=10;\nvar\nx\n=\ny\n%\nz\n;\nif (x !== 6) {\n  $ERROR('#1: var\\\\nx\\\\n=\\\\ny\\\\n%\\\\nz\\\\n; x === 6. Actual: ' + (x));\n}\nx=0;\n\n// CHECK#2\nvar y=16;\nvar z=10;\nvar\nx\n=\ny\n%\nz\n;\nif (x !== 6) {\n  $ERROR('#2: var\\\\nx\\\\n=\\\\ny\\\\n%\\\\nz\\\\n; x === 6. Actual: ' + (x));\n}\nx=0;\n\n// CHECK#3\nvar y=16;\nvar z=10;\neval(\"\\u2028var\\u2028x\\u2028=\\u2028y\\u2028%\\u2028z\\u2028\");\nif (x !== 6) {\n  $ERROR('#3: eval(\"\\\\u2028var\\\\u2028x\\\\u2028=\\\\u2028y\\\\u2028%\\\\u2028z\\\\u2028\"); x === 6. Actual: ' + (x));\n}\nx=0;\n\n// CHECK#4\nvar y=16;\nvar z=10;\neval(\"\\u2029var\\u2029x\\u2029=\\u2029y\\u2029%\\u2029z\\u2029\");\nif (x !== 6) {\n  $ERROR('#4: eval(\"\\\\u2029var\\\\u2029x\\\\u2029=\\\\u2029y\\\\u2029%\\\\u2029z\\\\u2029\"); x === 6. Actual: ' + (x));\n}\n",
+    "id": "S7.3_A7_T5"
+   },
+   {
+    "section": "7.3",
+    "description": "Insert Line Terminator in var x=y>>z",
+    "test": "// CHECK#1\nvar y=16;\nvar z=3;\nvar\nx\n=\ny\n>>\nz\n;\nif (x !== 2) {\n  $ERROR('#1: var\\\\nx\\\\n=\\\\ny\\\\n>>\\\\nz\\\\n; x === 2. Actual: ' + (x));\n}\nx=0;\n\n// CHECK#2\nvar y=16;\nvar z=3;\nvar\nx\n=\ny\n>>\nz\n;\nif (x !== 2) {\n  $ERROR('#2: var\\\\nx\\\\n=\\\\ny\\\\n>>\\\\nz\\\\n; x === 2. Actual: ' + (x));\n}\nx=0;\n\n// CHECK#3\nvar y=16;\nvar z=3;\neval(\"\\u2028var\\u2028x\\u2028=\\u2028y\\u2028>>\\u2028z\\u2028\");\nif (x !== 2) {\n  $ERROR('#3: eval(\"\\\\u2028var\\\\u2028x\\\\u2028=\\\\u2028y\\\\u2028>>\\\\u2028z\\\\u2028\"); x === 2. Actual: ' + (x));\n}\nx=0;\n\n// CHECK#4\nvar y=16;\nvar z=3;\neval(\"\\u2029var\\u2029x\\u2029=\\u2029y\\u2029>>\\u2029z\\u2029\");\nif (x !== 2) {\n  $ERROR('#4: eval(\"\\\\u2029var\\\\u2029x\\\\u2029=\\\\u2029y\\\\u2029>>\\\\u2029z\\\\u2029\"); x === 2. Actual: ' + (x));\n}\n",
+    "id": "S7.3_A7_T6"
+   },
+   {
+    "section": "7.3",
+    "description": "Insert Line Terminator in var x=y<<z",
+    "test": "// CHECK#1\nvar y=2;\nvar z=3;\nvar\nx\n=\ny\n<<\nz\n;\nif (x !== 16) {\n  $ERROR('#1: var\\\\nx\\\\n=\\\\ny\\\\n<<\\\\nz\\\\n; x === 16. Actual: ' + (x));\n}\nx=0;\n\n// CHECK#2\nvar y=2;\nvar z=3;\nvar\nx\n=\ny\n<<\nz\n;\nif (x !== 16) {\n  $ERROR('#2: var\\\\nx\\\\n=\\\\ny\\\\n<<\\\\nz\\\\n; x ===16 ');\n}\nx=0;\n\n// CHECK#3\nvar y=2;\nvar z=3;\neval(\"\\u2028var\\u2028x\\u2028=\\u2028y\\u2028<<\\u2028z\\u2028\");\nif (x !== 16) {\n  $ERROR('#3: eval(\"\\\\u2028var\\\\u2028x\\\\u2028=\\\\u2028y\\\\u2028<<\\\\u2028z\\\\u2028\"); x === 16. Actual: ' + (x));\n}\nx=0;\n\n// CHECK#4\nvar y=2;\nvar z=3;\neval(\"\\u2029var\\u2029x\\u2029=\\u2029y\\u2029<<\\u2029z\\u2029\");\nif (x !== 16) {\n  $ERROR('#4: eval(\"\\\\u2029var\\\\u2029x\\\\u2029=\\\\u2029y\\\\u2029<<\\\\u2029z\\\\u2029\"); x === 16. Actual: ' + (x));\n}\n",
+    "id": "S7.3_A7_T7"
+   },
+   {
+    "section": "7.3",
+    "description": "Insert Line Terminator in var x=y<z",
+    "test": "// CHECK#1\nvar y=2;\nvar z=3;\nvar\nx\n=\ny\n<\nz\n;\nif (x !== true) {\n  $ERROR('#1: var\\\\nx\\\\n=\\\\ny\\\\n<\\\\nz\\\\n; x === true. Actual: ' + (x));\n}\nx=0;\n\n// CHECK#2\nvar y=2;\nvar z=3;\nvar\nx\n=\ny\n<\nz\n;\nif (x !== true) {\n  $ERROR('#2: var\\\\nx\\\\n=\\\\ny\\\\n<\\\\nz\\\\n; x === true. Actual: ' + (x));\n}\nx=0;\n\n// CHECK#3\nvar y=2;\nvar z=3;\neval(\"\\u2028var\\u2028x\\u2028=\\u2028y\\u2028<\\u2028z\\u2028\");\nif (x !== true) {\n  $ERROR('#3: eval(\"\\\\u2028var\\\\u2028x\\\\u2028=\\\\u2028y\\\\u2028<\\\\u2028z\\\\u2028\"); x === true. Actual: ' + (x));\n}\nx=0;\n\n// CHECK#4\nvar y=2;\nvar z=3;\neval(\"\\u2029var\\u2029x\\u2029=\\u2029y\\u2029<\\u2029z\\u2029\");\nif (x !== true) {\n  $ERROR('#4: eval(\"\\\\u2029var\\\\u2029x\\\\u2029=\\\\u2029y\\\\u2029<\\\\u2029z\\\\u2029\"); x === true. Actual: ' + (x));\n}\n",
+    "id": "S7.3_A7_T8"
+   }
+  ]
+ }
+}

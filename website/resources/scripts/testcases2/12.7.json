@@ -1,0 +1,14 @@
+{
+ "testCollection": {
+  "name": "12.7",
+  "numTests": 1,
+  "tests": [
+   {
+    "id": "12.7-1",
+    "path": "TestCases/chapter12/12.7/12.7-1.js",
+    "description": "The continue Statement - a continue statement without an identifier may have a LineTerminator before the semi-colon",
+    "test": "assertTrue((function testcase() {\n        var sum = 0;\n        for (var i = 1; i <= 10; i++) {\n            continue\n            ;\n            sum += i;\n        }\n        return sum === 0;\n    }).call(this));\n"
+   }
+  ]
+ }
+}

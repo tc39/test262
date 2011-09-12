@@ -1,0 +1,15 @@
+{
+ "testCollection": {
+  "name": "15.9.1.15",
+  "numTests": 1,
+  "tests": [
+   {
+    "id": "15.9.1.15-1",
+    "path": "TestCases/chapter15/15.9/15.9.1/15.9.1.15/15.9.1.15-1.js",
+    "description": "Date Time String Format - specified default values will be set for all optional fields(MM, DD, mm, ss and time zone) when they are absent",
+    "test": "assertTrue((function testcase() {\n        var result = false;\n        var expectedDateTimeStr = \"1970-01-01T00:00:00.000Z\";\n        var dateObj = new Date(\"1970\");\n        var dateStr = dateObj.toISOString();\n        result = dateStr === expectedDateTimeStr;\n        return result;\n    }).call(this));\n",
+    "precondition": "(fnExists(Date.prototype.toISOString))"
+   }
+  ]
+ }
+}

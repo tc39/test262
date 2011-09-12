@@ -1,0 +1,50 @@
+{
+ "testCollection": {
+  "name": "15.9.5.35_Date.prototype.setUTCHours",
+  "numTests": 7,
+  "tests": [
+   {
+    "section": "15.9.5.35",
+    "description": "Checking absence of ReadOnly attribute",
+    "test": "x = Date.prototype.setUTCHours;\nif(x === 1)\n  Date.prototype.setUTCHours = 2;\nelse\n  Date.prototype.setUTCHours = 1;\nif (Date.prototype.setUTCHours === x) {\n  $ERROR('#1: The Date.prototype.setUTCHours has not the attribute ReadOnly');\n}\n\n",
+    "id": "S15.9.5.35_A1_T1"
+   },
+   {
+    "section": "15.9.5.35",
+    "description": "Checking absence of DontDelete attribute",
+    "test": "if (delete Date.prototype.setUTCHours  === false) {\n  $ERROR('#1: The Date.prototype.setUTCHours property has not the attributes DontDelete');\n}\n\nif (Date.prototype.hasOwnProperty('setUTCHours')) {\n  $FAIL('#2: The Date.prototype.setUTCHours property has not the attributes DontDelete');\n}\n\n",
+    "id": "S15.9.5.35_A1_T2"
+   },
+   {
+    "section": "15.9.5.35",
+    "description": "Checking DontEnum attribute",
+    "test": "if (Date.prototype.propertyIsEnumerable('setUTCHours')) {\n  $ERROR('#1: The Date.prototype.setUTCHours property has the attribute DontEnum');\n}\n\nfor(x in Date.prototype) {\n  if(x === \"setUTCHours\") {\n    $ERROR('#2: The Date.prototype.setUTCHours has the attribute DontEnum');\n  }\n}\n\n",
+    "id": "S15.9.5.35_A1_T3"
+   },
+   {
+    "section": "15.9.5.35",
+    "description": "The \"length\" property of the \"setUTCHours\" is 4",
+    "test": "if(Date.prototype.setUTCHours.hasOwnProperty(\"length\") !== true){\n  $ERROR('#1: The setUTCHours has a \"length\" property');\n}\n\nif(Date.prototype.setUTCHours.length !== 4){\n  $ERROR('#2: The \"length\" property of the setUTCHours is 4');\n}\n\n",
+    "id": "S15.9.5.35_A2_T1"
+   },
+   {
+    "section": "15.9.5.35",
+    "description": "Checking ReadOnly attribute",
+    "test": "x = Date.prototype.setUTCHours.length;\nDate.prototype.setUTCHours.length = 1;\nif (Date.prototype.setUTCHours.length !== x) {\n  $ERROR('#1: The Date.prototype.setUTCHours.length has the attribute ReadOnly');\n}\n\n",
+    "id": "S15.9.5.35_A3_T1"
+   },
+   {
+    "section": "15.9.5.35",
+    "description": "Checking DontDelete attribute",
+    "test": "if (delete Date.prototype.setUTCHours.length  !== false) {\n  $ERROR('#1: The Date.prototype.setUTCHours.length property has the attributes DontDelete');\n}\n\nif (!Date.prototype.setUTCHours.hasOwnProperty('length')) {\n  $FAIL('#2: The Date.prototype.setUTCHours.length property has the attributes DontDelete');\n}\n\n",
+    "id": "S15.9.5.35_A3_T2"
+   },
+   {
+    "section": "15.9.5.35",
+    "description": "Checking DontEnum attribute",
+    "test": "if (Date.prototype.setUTCHours.propertyIsEnumerable('length')) {\n  $ERROR('#1: The Date.prototype.setUTCHours.length property has the attribute DontEnum');\n}\n\nfor(x in Date.prototype.setUTCHours) {\n  if(x === \"length\") {\n    $ERROR('#2: The Date.prototype.setUTCHours.length has the attribute DontEnum');\n  }\n}\n\n",
+    "id": "S15.9.5.35_A3_T3"
+   }
+  ]
+ }
+}

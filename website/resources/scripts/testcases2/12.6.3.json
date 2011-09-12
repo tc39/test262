@@ -1,0 +1,134 @@
+{
+ "testCollection": {
+  "name": "12.6.3",
+  "numTests": 21,
+  "tests": [
+   {
+    "id": "12.6.3_2-3-a-ii-1",
+    "path": "TestCases/chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-1.js",
+    "description": "The for Statement - (normal, V, empty) will be returned when first Expression is an Object with value false",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        var obj = { value: false };\n        for (var i = 0; obj; ) {\n            accessed = true;\n            break;\n        }\n        return accessed;\n    }).call(this));\n"
+   },
+   {
+    "id": "12.6.3_2-3-a-ii-10",
+    "path": "TestCases/chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-10.js",
+    "description": "The for Statement - (normal, V, empty) will be returned when first Expression is a String object (value is '1')",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        var strObj = new String(\"1\");\n        for (var i = 0; strObj;) {\n            accessed = true;\n            break;\n        }\n        return accessed;\n    }).call(this));\n"
+   },
+   {
+    "id": "12.6.3_2-3-a-ii-11",
+    "path": "TestCases/chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-11.js",
+    "description": "The for Statement - (normal, V, empty) will be returned when first Expression is undefined",
+    "test": "assertTrue((function testcase() {\n        var count = 0;\n        for (var i = 0; undefined;) {\n            count++;\n        }\n        return count === 0;\n    }).call(this));\n"
+   },
+   {
+    "id": "12.6.3_2-3-a-ii-12",
+    "path": "TestCases/chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-12.js",
+    "description": "The for Statement - (normal, V, empty) will be returned when first Expression is null",
+    "test": "assertTrue((function testcase() {\n        var count = 0;\n        for (var i = 0; null;) {\n            count++;\n        }\n        return count === 0;\n    }).call(this));\n"
+   },
+   {
+    "id": "12.6.3_2-3-a-ii-13",
+    "path": "TestCases/chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-13.js",
+    "description": "The for Statement - (normal, V, empty) will be returned when first Expression is a boolean (value is false)",
+    "test": "assertTrue((function testcase() {\n        var count = 0;\n        for (var i = 0; false;) {\n            count++;\n        }\n        return count === 0;\n    }).call(this));\n"
+   },
+   {
+    "id": "12.6.3_2-3-a-ii-14",
+    "path": "TestCases/chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-14.js",
+    "description": "The for Statement - (normal, V, empty) will be returned when first Expression is a number (value is NaN)",
+    "test": "assertTrue((function testcase() {\n        var count = 0;\n        for (var i = 0; NaN;) {\n            count++;\n        }\n        return count === 0;\n    }).call(this));\n"
+   },
+   {
+    "id": "12.6.3_2-3-a-ii-15",
+    "path": "TestCases/chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-15.js",
+    "description": "The for Statement - (normal, V, empty) will be returned when first Expression is a number (value is +0)",
+    "test": "assertTrue((function testcase() {\n        var count = 0;\n        for (var i = 0; +0;) {\n            count++;\n        }\n        return count === 0;\n    }).call(this));\n"
+   },
+   {
+    "id": "12.6.3_2-3-a-ii-16",
+    "path": "TestCases/chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-16.js",
+    "description": "The for Statement - (normal, V, empty) will be returned when first Expression is a number (value is -0)",
+    "test": "assertTrue((function testcase() {\n        var count = 0;\n        for (var i = 0; -0;) {\n            count++;\n        }\n        return count === 0;\n    }).call(this));\n"
+   },
+   {
+    "id": "12.6.3_2-3-a-ii-17",
+    "path": "TestCases/chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-17.js",
+    "description": "The for Statement - (normal, V, empty) will be returned when first Expression is a number (value is a positive)",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        for (var i = 0; 2;) {\n            accessed = true;\n            break;\n        }\n        return accessed;\n    }).call(this));\n"
+   },
+   {
+    "id": "12.6.3_2-3-a-ii-18",
+    "path": "TestCases/chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-18.js",
+    "description": "The for Statement - (normal, V, empty) will be returned when first Expression is a string (value is empty string)",
+    "test": "assertTrue((function testcase() {\n        var count = 0;\n        for (var i = 0; \"\";) {\n            count++;\n        }\n        return count === 0;\n    }).call(this));\n"
+   },
+   {
+    "id": "12.6.3_2-3-a-ii-19",
+    "path": "TestCases/chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-19.js",
+    "description": "The for Statement - (normal, V, empty) will be returned when first Expression is a string (value is 'undefined')",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        for (var i = 0; \"undefined\";) {\n            accessed = true;\n            break;\n        }\n        return accessed;\n    }).call(this));\n"
+   },
+   {
+    "id": "12.6.3_2-3-a-ii-2",
+    "path": "TestCases/chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-2.js",
+    "description": "The for Statement - (normal, V, empty) will be returned when first Expression is a Boolean object",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        var boolObj = new Boolean(false);\n        for (var i = 0; boolObj;) {\n            accessed = true;\n            break;\n        }\n        return accessed;\n    }).call(this));\n"
+   },
+   {
+    "id": "12.6.3_2-3-a-ii-20",
+    "path": "TestCases/chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-20.js",
+    "description": "The for Statement - (normal, V, empty) will be returned when first Expression is a string (value is 'null')",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        for (var i = 0; \"null\";) {\n            accessed = true;\n            break;\n        }\n        return accessed;\n    }).call(this));\n"
+   },
+   {
+    "id": "12.6.3_2-3-a-ii-21",
+    "path": "TestCases/chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-21.js",
+    "description": "The for Statement - (normal, V, empty) will be returned when first Expression is a string (value is '1')",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        for (var i = 0; \"1\";) {\n            accessed = true;\n            break;\n        }\n        return accessed;\n    }).call(this));\n"
+   },
+   {
+    "id": "12.6.3_2-3-a-ii-3",
+    "path": "TestCases/chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-3.js",
+    "description": "The for Statement - (normal, V, empty) will be returned when first Expression is a Number object (value is NaN)",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        var numObj = new Number(NaN);\n        for (var i = 0; numObj;) {\n            accessed = true;\n            break;\n        }\n        return accessed;\n    }).call(this));\n"
+   },
+   {
+    "id": "12.6.3_2-3-a-ii-4",
+    "path": "TestCases/chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-4.js",
+    "description": "The for Statement - (normal, V, empty) will be returned when first Expression is a Number object (value is +0)",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        var numObj = new Number(+0);\n        for (var i = 0; numObj;) {\n            accessed = true;\n            break;\n        }\n        return accessed;\n    }).call(this));\n"
+   },
+   {
+    "id": "12.6.3_2-3-a-ii-5",
+    "path": "TestCases/chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-5.js",
+    "description": "The for Statement - (normal, V, empty) will be returned when first Expression is a Number object (value is -0)",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        var numObj = new Number(-0);\n        for (var i = 0; numObj;) {\n            accessed = true;\n            break;\n        }\n        return accessed;\n    }).call(this));\n"
+   },
+   {
+    "id": "12.6.3_2-3-a-ii-6",
+    "path": "TestCases/chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-6.js",
+    "description": "The for Statement - (normal, V, empty) will be returned when first Expression is a Number object (value is a positive)",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        var numObj = new Number(12);\n        for (var i = 0; numObj;) {\n            accessed = true;\n            break;\n        }\n        return accessed;\n    }).call(this));\n"
+   },
+   {
+    "id": "12.6.3_2-3-a-ii-7",
+    "path": "TestCases/chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-7.js",
+    "description": "The for Statement - (normal, V, empty) will be returned when first Expression is a String object (value is empty string)",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        var strObj = new String(\"\");\n        for (var i = 0; strObj;) {\n            accessed = true;\n            break;\n        }\n        return accessed;\n    }).call(this));\n"
+   },
+   {
+    "id": "12.6.3_2-3-a-ii-8",
+    "path": "TestCases/chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-8.js",
+    "description": "The for Statement - (normal, V, empty) will be returned when first Expression is a String object (value is 'undefined')",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        var strObj = new String(\"undefined\");\n        for (var i = 0; strObj;) {\n            accessed = true;\n            break;\n        }\n        return accessed;\n    }).call(this));\n"
+   },
+   {
+    "id": "12.6.3_2-3-a-ii-9",
+    "path": "TestCases/chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-9.js",
+    "description": "The for Statement - (normal, V, empty) will be returned when first Expression is a String object (value is 'null')",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        var strObj = new String(\"null\");\n        for (var i = 0; strObj;) {\n            accessed = true;\n            break;\n        }\n        return accessed;\n    }).call(this));\n"
+   }
+  ]
+ }
+}

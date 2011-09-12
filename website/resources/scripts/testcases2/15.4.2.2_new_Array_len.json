@@ -1,0 +1,86 @@
+{
+ "testCollection": {
+  "name": "15.4.2.2_new_Array_len",
+  "numTests": 13,
+  "tests": [
+   {
+    "section": "15.4.2.2",
+    "description": "Create new property of Array.prototype. When new Array object has this property",
+    "test": "//CHECK#1\nArray.prototype.myproperty = 1;\nvar x = new Array(0); \nif (x.myproperty !== 1) {\n  $ERROR('#1: Array.prototype.myproperty = 1; var x = new Array(0); x.myproperty === 1. Actual: ' + (x.myproperty));\n}\n",
+    "id": "S15.4.2.2_A1.1_T1"
+   },
+   {
+    "section": "15.4.2.2, 15.2.4.2",
+    "description": "Array.prototype.toString = Object.prototype.toString",
+    "test": "//CHECK#1\nArray.prototype.toString = Object.prototype.toString;\nvar x = new Array(0); \nif (x.toString() !== \"[object \" + \"Array\" + \"]\") {\n  $ERROR('#1: Array.prototype.toString = Object.prototype.toString; var x = new Array(0); x.toString() === \"[object \" + \"Array\" + \"]\". Actual: ' + (x.toString()));\n}\n",
+    "id": "S15.4.2.2_A1.1_T2"
+   },
+   {
+    "section": "15.4.2.2, 15.2.4.6",
+    "description": "Checking use isPrototypeOf",
+    "test": "//CHECK#1\nif (Array.prototype.isPrototypeOf(new Array(0)) !== true) {\n  $ERROR('#1: Array.prototype.isPrototypeOf(new Array(0)) === true. Actual: ' + (Array.prototype.isPrototypeOf(new Array(0))));\n}\n\n",
+    "id": "S15.4.2.2_A1.1_T3"
+   },
+   {
+    "section": "15.4.2.2, 15.2.4.2",
+    "description": "Checking use Object.prototype.toString",
+    "test": "//CHECK#1\nvar x = new Array(0); \nx.getClass = Object.prototype.toString;\nif (x.getClass() !== \"[object \" + \"Array\" + \"]\") {\n  $ERROR('#1: var x = new Array(0); x.getClass = Object.prototype.toString; x is Array object. Actual: ' + (x.getClass()));\n}\n",
+    "id": "S15.4.2.2_A1.2_T1"
+   },
+   {
+    "section": "15.4.2.2",
+    "description": "Array constructor is given one argument",
+    "test": "//CHECK#1\nvar x = new Array(0); \nif (x.length !== 0) {\n  $ERROR('#1: var x = new Array(0); x.length === 0. Actual: ' + (x.length));\n}\n\n//CHECK#2\nvar x = new Array(1); \nif (x.length !== 1) {\n  $ERROR('#2: var x = new Array(1); x.length === 1. Actual: ' + (x.length));\n}   \n\n//CHECK#3\nvar x = new Array(4294967295); \nif (x.length !== 4294967295) {\n  $ERROR('#3: var x = new Array(4294967295); x.length === 4294967295. Actual: ' + (x.length));\n} \n",
+    "id": "S15.4.2.2_A2.1_T1"
+   },
+   {
+    "section": "15.4.2.2, 12.14",
+    "description": "Use try statement. len = -1, 4294967296, 4294967297",
+    "test": "//CHECK#1\ntry {  \n  new Array(-1);   \n  $ERROR('#1.1: new Array(-1) throw RangeError. Actual: ' + (new Array(-1)));\n} catch(e) {\n  if ((e instanceof RangeError) !== true) {\n    $ERROR('#1.2: new Array(-1) throw RangeError. Actual: ' + (e));\n  }\n}\n\n//CHECK#2\ntry {  \n  new Array(4294967296);   \n  $ERROR('#2.1: new Array(4294967296) throw RangeError. Actual: ' + (new Array(4294967296)));\n} catch(e) {\n  if ((e instanceof RangeError) !== true) {\n    $ERROR('#2.2: new Array(4294967296) throw RangeError. Actual: ' + (e));\n  }\n}\n\n//CHECK#3\ntry {  \n  new Array(4294967297);   \n  $ERROR('#3.1: new Array(4294967297) throw RangeError. Actual: ' + (new Array(4294967297)));\n} catch(e) {\n  if ((e instanceof RangeError) !== true) {\n    $ERROR('#3.2: new Array(4294967297) throw RangeError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.4.2.2_A2.2_T1"
+   },
+   {
+    "section": "15.4.2.2",
+    "description": "Use try statement. len = NaN, +/-Infinity",
+    "test": "//CHECK#1\ntry {  \n  new Array(NaN);   \n  $ERROR('#1.1: new Array(NaN) throw RangeError. Actual: ' + (new Array(NaN)));\n} catch(e) {\n  if ((e instanceof RangeError) !== true) {\n    $ERROR('#1.2: new Array(NaN) throw RangeError. Actual: ' + (e));\n  }\n}\n\n//CHECK#2\ntry {  \n  new Array(Number.POSITIVE_INFINITY);   \n  $ERROR('#2.1: new Array(Number.POSITIVE_INFINITY) throw RangeError. Actual: ' + (new Array(Number.POSITIVE_INFINITY)));\n} catch(e) {\n  if ((e instanceof RangeError) !== true) {\n    $ERROR('#2.2: new Array(Number.POSITIVE_INFINITY) throw RangeError. Actual: ' + (e));\n  }\n}\n\n//CHECK#3\ntry {  \n  new Array(Number.NEGATIVE_INFINITY);   \n  $ERROR('#3.1: new Array(Number.NEGATIVE_INFINITY) throw RangeError. Actual: ' + (new Array(Number.NEGATIVE_INFINITY)));\n} catch(e) {\n  if ((e instanceof RangeError) !== true) {\n    $ERROR('#3.2: new Array(Number.NEGATIVE_INFINITY) throw RangeError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.4.2.2_A2.2_T2"
+   },
+   {
+    "section": "15.4.2.2",
+    "description": "Use try statement. len = 1.5, Number.MAX_VALUE, Number.MIN_VALUE",
+    "test": "//CHECK#1\ntry {  \n  new Array(1.5);   \n  $ERROR('#1.1: new Array(1.5) throw RangeError. Actual: ' + (new Array(1.5)));\n} catch(e) {\n  if ((e instanceof RangeError) !== true) {\n    $ERROR('#1.2: new Array(1.5) throw RangeError. Actual: ' + (e));\n  }\n}\n\n//CHECK#2\ntry {  \n  new Array(Number.MAX_VALUE);   \n  $ERROR('#2.1: new Array(Number.MAX_VALUE) throw RangeError. Actual: ' + (new Array(Number.MAX_VALUE)));\n} catch(e) {\n  if ((e instanceof RangeError) !== true) {\n    $ERROR('#2.2: new Array(Number.MAX_VALUE) throw RangeError. Actual: ' + (e));\n  }\n}\n\n//CHECK#3\ntry {  \n  new Array(Number.MIN_VALUE);   \n  $ERROR('#3.1: new Array(Number.MIN_VALUE) throw RangeError. Actual: ' + (new Array(Number.MIN_VALUE)));\n} catch(e) {\n  if ((e instanceof RangeError) !== true) {\n    $ERROR('#3.2: new Array(Number.MIN_VALUE) throw RangeError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.4.2.2_A2.2_T3"
+   },
+   {
+    "section": "15.4.2.2",
+    "description": "Checking for null and undefined",
+    "test": "var x = new Array(null);\n\n//CHECK#1 \nif (x.length !== 1) {\n  $ERROR('#1: var x = new Array(null); x.length === 1. Actual: ' + (x.length));\n}\n\n//CHECK#2\nif (x[0] !== null) {\n  $ERROR('#2: var x = new Array(null); x[0] === null. Actual: ' + (x[0]));\n}\n\nvar x = new Array(undefined);\n\n//CHECK#3 \nif (x.length !== 1) {\n  $ERROR('#3: var x = new Array(undefined); x.length === 1. Actual: ' + (x.length));\n}\n\n//CHECK#4\nif (x[0] !== undefined) {\n  $ERROR('#4: var x = new Array(undefined); x[0] === undefined. Actual: ' + (x[0]));\n}\n",
+    "id": "S15.4.2.2_A2.3_T1"
+   },
+   {
+    "section": "15.4.2.2",
+    "description": "Checking for boolean primitive and Boolean object",
+    "test": "var x = new Array(true);\n\n//CHECK#1 \nif (x.length !== 1) {\n  $ERROR('#1: var x = new Array(true); x.length === 1. Actual: ' + (x.length));\n}\n\n//CHECK#2\nif (x[0] !== true) {\n  $ERROR('#2: var x = new Array(true); x[0] === true. Actual: ' + (x[0]));\n}\n\nvar obj = new Boolean(false);\nvar x = new Array(obj);\n\n//CHECK#3 \nif (x.length !== 1) {\n  $ERROR('#3: var obj = new Boolean(false); var x = new Array(obj); x.length === 1. Actual: ' + (x.length));\n}\n\n//CHECK#4\nif (x[0] !== obj) {\n  $ERROR('#4: var obj = new Boolean(false); var x = new Array(obj); x[0] === obj. Actual: ' + (x[0]));\n}\n",
+    "id": "S15.4.2.2_A2.3_T2"
+   },
+   {
+    "section": "15.4.2.2",
+    "description": "Checking for boolean primitive and Boolean object",
+    "test": "var x = new Array(\"1\");\n\n//CHECK#1 \nif (x.length !== 1) {\n  $ERROR('#1: var x = new Array(\"1\"); x.length === 1. Actual: ' + (x.length));\n}\n\n//CHECK#2\nif (x[0] !== \"1\") {\n  $ERROR('#2: var x = new Array(\"1\"); x[0] === \"1\". Actual: ' + (x[0]));\n}\n\nvar obj = new String(\"0\");\nvar x = new Array(obj);\n\n//CHECK#3 \nif (x.length !== 1) {\n  $ERROR('#3: var obj = new String(\"0\"); var x = new Array(obj); x.length === 1. Actual: ' + (x.length));\n}\n\n//CHECK#4\nif (x[0] !== obj) {\n  $ERROR('#4: var obj = new String(\"0\"); var x = new Array(obj); x[0] === obj. Actual: ' + (x[0]));\n}\n",
+    "id": "S15.4.2.2_A2.3_T3"
+   },
+   {
+    "section": "15.4.2.2",
+    "description": "Checking for Number object",
+    "test": "var obj = new Number(0);\nvar x = new Array(obj);\n\n//CHECK#1 \nif (x.length !== 1) {\n  $ERROR('#1: var obj = new Number(0); var x = new Array(obj); x.length === 1. Actual: ' + (x.length));\n}\n\n//CHECK#2\nif (x[0] !== obj) {\n  $ERROR('#2: var obj = new Number(0); var x = new Array(obj); x[0] === obj. Actual: ' + (x[0]));\n}\n\nvar obj = new Number(1);\nvar x = new Array(obj);\n\n//CHECK#3 \nif (x.length !== 1) {\n  $ERROR('#3: var obj = new Number(1); var x = new Array(obj); x.length === 1. Actual: ' + (x.length));\n}\n\n//CHECK#4\nif (x[0] !== obj) {\n  $ERROR('#4: var obj = new Number(1); var x = new Array(obj); x[0] === obj. Actual: ' + (x[0]));\n}\n\nvar obj = new Number(4294967295);\nvar x = new Array(obj);\n\n//CHECK#5 \nif (x.length !== 1) {\n  $ERROR('#5: var obj = new Number(4294967295); var x = new Array(obj); x.length === 1. Actual: ' + (x.length));\n}\n\n//CHECK#6\nif (x[0] !== obj) {\n  $ERROR('#6: var obj = new Number(4294967295); var x = new Array(obj); x[0] === obj. Actual: ' + (x[0]));\n}\n\n",
+    "id": "S15.4.2.2_A2.3_T4"
+   },
+   {
+    "section": "15.4.2.2",
+    "description": "Checking for Number object",
+    "test": "var obj = new Number(-1);\nvar x = new Array(obj);\n\n//CHECK#1 \nif (x.length !== 1) {\n  $ERROR('#1: var obj = new Number(-1); var x = new Array(obj); x.length === 1. Actual: ' + (x.length));\n}\n\n//CHECK#2\nif (x[0] !== obj) {\n  $ERROR('#2: var obj = new Number(-1); var x = new Array(obj); x[0] === obj. Actual: ' + (x[0]));\n}\n\nvar obj = new Number(4294967296);\nvar x = new Array(obj);\n\n//CHECK#3 \nif (x.length !== 1) {\n  $ERROR('#3: var obj = new Number(4294967296); var x = new Array(obj); x.length === 1. Actual: ' + (x.length));\n}\n\n//CHECK#4\nif (x[0] !== obj) {\n  $ERROR('#4: var obj = new Number(4294967296); var x = new Array(obj); x[0] === obj. Actual: ' + (x[0]));\n}\n\nvar obj = new Number(4294967297);\nvar x = new Array(obj);\n\n//CHECK#5 \nif (x.length !== 1) {\n  $ERROR('#5: var obj = new Number(4294967297); var x = new Array(obj); x.length === 1. Actual: ' + (x.length));\n}\n\n//CHECK#6\nif (x[0] !== obj) {\n  $ERROR('#6: var obj = new Number(4294967297); var x = new Array(obj); x[0] === obj. Actual: ' + (x[0]));\n}\n\n",
+    "id": "S15.4.2.2_A2.3_T5"
+   }
+  ]
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "testCollection": {
+  "name": "15.9.4.1_Date.prototype",
+  "numTests": 3,
+  "tests": [
+   {
+    "section": "15.9.4.1",
+    "description": "Checking ReadOnly attribute",
+    "test": "x = Date.prototype;\nDate.prototype = 1;\nif (Date.prototype !== x) {\n  $ERROR('#1: The Date.prototype has the attribute ReadOnly');\n}\n\n",
+    "id": "S15.9.4.1_A1_T1"
+   },
+   {
+    "section": "15.9.4.1",
+    "description": "Checking DontDelete attribute",
+    "test": "if (delete Date.prototype !== false) {\n  $ERROR('#1: The Date.prototype property has the attributes DontDelete');\n}\n\nif (!Date.hasOwnProperty('prototype')) {\n  $FAIL('#2: The Date.prototype property has the attributes DontDelete');\n}\n\n",
+    "id": "S15.9.4.1_A1_T2"
+   },
+   {
+    "section": "15.9.4.1",
+    "description": "Checking DontEnum attribute",
+    "test": "if (Date.propertyIsEnumerable('prototype')) {\n  $ERROR('#1: The Date.prototype property has the attribute DontEnum');\n}\n\nfor(x in Date) {\n  if(x === \"prototype\") {\n    $ERROR('#2: The Date.prototype has the attribute DontEnum');\n  }\n}\n\n",
+    "id": "S15.9.4.1_A1_T3"
+   }
+  ]
+ }
+}

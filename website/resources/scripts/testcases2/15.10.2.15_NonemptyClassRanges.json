@@ -1,0 +1,254 @@
+{
+ "testCollection": {
+  "name": "15.10.2.15_NonemptyClassRanges",
+  "numTests": 41,
+  "tests": [
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[b-ac-e]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[b-ac-e]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[b-ac-e]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[b-ac-e]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T1"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[\\10b-G]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[\\\\10b-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[\\\\10b-G]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[\\\\10b-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T10"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[\\bd-G]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[\\\\bd-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[\\\\bd-G]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[\\\\bd-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T11"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[\\Bd-G]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[\\\\Bd-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[\\\\Bd-G]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[\\\\Bd-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T12"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[\\td-G]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[\\\\td-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[\\\\td-G]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[\\\\td-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T13"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[\\nd-G]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[\\\\nd-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[\\\\nd-G]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[\\\\nd-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T14"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[\\vd-G]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[\\\\vd-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[\\\\vd-G]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[\\\\vd-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T15"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[\\fd-G]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[\\\\fd-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[\\\\fd-G]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[\\\\fd-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T16"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[\\rd-G]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[\\\\rd-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[\\\\rd-G]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[\\\\rd-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T17"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[\\c0001d-G]/.exec(\"1\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[\\\\c0001d-G]/.exec(\"1\") throw SyntaxError. Actual: ' + (new RegExp(\"[\\\\c0001d-G]\").exec(\"1\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[\\\\c0001d-G]/.exec(\"1\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T18"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[\\x0061d-G]/.exec(\"1\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[\\\\x0061d-G]/.exec(\"1\") throw SyntaxError. Actual: ' + (new RegExp(\"[\\\\x0061d-G]\").exec(\"1\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[\\\\x0061d-G]/.exec(\"1\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T19"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[a-dc-b]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[a-dc-b]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[a-dc-b]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[a-dc-b]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T2"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[\\u0061d-G]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[\\\\u0061d-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[\\\\u0061d-G]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[\\\\u0061d-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T20"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[\\ad-G]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[\\\\ad-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[\\\\ad-G]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[\\\\ad-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T21"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[c-eb-a]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[c-eb-a]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[c-eb-a]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[c-eb-a]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T22"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[b-G\\d]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[b-G\\\\d]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[b-G\\\\d]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[b-G\\\\d]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T23"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[b-G\\D]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[b-G\\\\D]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[b-G\\\\D]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[b-G\\\\D]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T24"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[b-G\\s]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[b-G\\\\s]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[b-G\\\\s]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[b-G\\\\s]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T25"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[b-G\\S]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[b-G\\\\S]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[b-G\\\\S]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[b-G\\\\S]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T26"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[b-G\\w]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[b-G\\\\w]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[b-G\\\\w]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[b-G\\\\w]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T27"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[b-G\\W]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[b-G\\\\W]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[b-G\\\\W]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[b-G\\\\W]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T28"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[b-G\\0]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[b-G\\\\0]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[b-G\\\\0]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[b-G\\\\0]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T29"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[\\db-G]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[\\\\db-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[\\\\db-G]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[\\\\db-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T3"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[b-G\\10]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[b-G\\\\10]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[b-G\\\\10]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[b-G\\\\10]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T30"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[d-G\\b]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[d-G\\\\b]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[d-G\\\\b]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[d-G\\\\b]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T31"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[d-G\\B]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[d-G\\\\B]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[d-G\\\\B]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[d-G\\\\B]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T32"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[d-G\\t]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[d-G\\\\t]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[d-G\\\\t]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[d-G\\\\t]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T33"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[d-G\\n]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[d-G\\\\n]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[d-G\\\\n]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[d-G\\\\n]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T34"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[d-G\\v]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[d-G\\\\v]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[d-G\\\\v]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[d-G\\\\v]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T35"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[d-G\\f]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[d-G\\\\f]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[d-G\\\\f]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[d-G\\\\f]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T36"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[d-G\\r]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[d-G\\\\r]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[d-G\\\\r]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[d-G\\\\r]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T37"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[d-G\\c0001]/.exec(\"1\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[d-G\\\\c0001]/.exec(\"1\") throw SyntaxError. Actual: ' + (new RegExp(\"[d-G\\\\c0001]\").exec(\"1\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[d-G\\\\c0001]/.exec(\"1\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T38"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[d-G\\x0061]/.exec(\"1\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[d-G\\\\x0061]/.exec(\"1\") throw SyntaxError. Actual: ' + (new RegExp(\"[d-G\\\\x0061]\").exec(\"1\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[d-G\\\\x0061]/.exec(\"1\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T39"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[\\Db-G]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[\\\\Db-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[\\\\Db-G]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[\\\\Db-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T4"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[d-G\\u0061]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[d-G\\\\u0061]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[d-G\\\\u0061]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[d-G\\\\u0061]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T40"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[d-G\\a]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[d-G\\\\a]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[d-G\\\\a]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[d-G\\\\a]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T41"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[\\sb-G]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[\\\\sb-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[\\\\sb-G]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[\\\\sb-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T5"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[\\Sb-G]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[\\\\Sb-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[\\\\Sb-G]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[\\\\Sb-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T6"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[\\wb-G]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[\\\\wb-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[\\\\wb-G]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[\\\\wb-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T7"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[\\Wb-G]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[\\\\Wb-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[\\\\Wb-G]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[\\\\Wb-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T8"
+   },
+   {
+    "section": "15.10.2.15",
+    "description": "Checking if execution of \"/[\\0b-G]/.exec(\"a\")\" leads to throwing the correct exception",
+    "test": "//CHECK#1\ntry {\n  $ERROR('#1.1: /[\\\\0b-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (new RegExp(\"[\\\\0b-G]\").exec(\"a\")));\n} catch (e) {\n  if((e instanceof SyntaxError) !== true){\n    $ERROR('#1.2: /[\\\\0b-G]/.exec(\"a\") throw SyntaxError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.2.15_A1_T9"
+   }
+  ]
+ }
+}

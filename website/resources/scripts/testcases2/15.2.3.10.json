@@ -1,0 +1,245 @@
+{
+ "testCollection": {
+  "name": "15.2.3.10",
+  "numTests": 34,
+  "tests": [
+   {
+    "id": "15.2.3.10-0-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-0-1.js",
+    "description": "Object.preventExtensions must exist as a function",
+    "test": "assertTrue((function testcase() {\n  var f = Object.preventExtensions;\n  if (typeof(f) === \"function\") {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "15.2.3.10-0-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-0-2.js",
+    "description": "Object.preventExtensions must exist as a function taking 1 parameter",
+    "test": "assertTrue((Object.preventExtensions.length === 1));\n",
+    "precondition": "(fnExists(Object.preventExtensions))"
+   },
+   {
+    "id": "15.2.3.10-1-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-1-1.js",
+    "description": "Object.preventExtensions throws TypeError if 'O' is undefined",
+    "test": "assertTrue((function testcase() {\n        try {\n            Object.preventExtensions(undefined);\n        } catch (e) {\n            return (e instanceof TypeError);\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions))"
+   },
+   {
+    "id": "15.2.3.10-1-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-1-2.js",
+    "description": "Object.preventExtensions throws TypeError if 'O' is null",
+    "test": "assertTrue((function testcase() {\n        try {\n            Object.preventExtensions(null);\n        } catch (e) {\n            return (e instanceof TypeError);\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions))"
+   },
+   {
+    "id": "15.2.3.10-1-3",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-1-3.js",
+    "description": "Object.preventExtensions throws TypeError if 'O' is a boolean primitive value",
+    "test": "assertTrue((function testcase() {\n        try {\n            Object.preventExtensions(true);\n        } catch (e) {\n            return (e instanceof TypeError);\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions))"
+   },
+   {
+    "id": "15.2.3.10-1-4",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-1-4.js",
+    "description": "Object.preventExtensions throws TypeError if 'O' is a string primitive value",
+    "test": "assertTrue((function testcase() {\n        try {\n            Object.preventExtensions(\"abc\");\n        } catch (e) {\n            return (e instanceof TypeError);\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions))"
+   },
+   {
+    "id": "15.2.3.10-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-1.js",
+    "description": "Object.preventExtensions throws TypeError if type of first param is not Object",
+    "test": "assertTrue((function testcase() {\n    try {\n      Object.preventExtensions(0);\n    }\n    catch (e) {\n      if (e instanceof TypeError) {\n        return true;\n      }\n    }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions))"
+   },
+   {
+    "id": "15.2.3.10-2-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-2-1.js",
+    "description": "Object.preventExtensions - repeated calls to preventExtensions have no side effects",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n        var testResult1 = true;\n        var testResult2 = true;\n\n        var preCheck = Object.isExtensible(obj);\n\n        Object.preventExtensions(obj);\n        testResult1 = Object.isExtensible(obj);\n        Object.preventExtensions(obj);\n        testResult2 = Object.isExtensible(obj);\n\n        return preCheck && !testResult1 && !testResult2;\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-2.js",
+    "description": "Object.preventExtensions returns its arguments after setting its extensible property to false",
+    "test": "assertTrue((function testcase() {\n  var o  = {};\n  var o2 = undefined;\n\n  o2 = Object.preventExtensions(o);\n  if (o2 === o && Object.isExtensible(o2) === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions))"
+   },
+   {
+    "id": "15.2.3.10-3-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-1.js",
+    "description": "Object.preventExtensions - Object.isExtensible(arg) returns false if arg is the returned object",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n        var preCheck = Object.isExtensible(obj);\n        Object.preventExtensions(obj);\n\n        return preCheck && !Object.isExtensible(obj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-3-10",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-10.js",
+    "description": "Object.preventExtensions - indexed properties cannot be added into an Error object",
+    "test": "assertTrue((function testcase() {\n        var errObj = new Error();\n        var preCheck = Object.isExtensible(errObj);\n        Object.preventExtensions(errObj);\n\n        errObj[0] = 12;\n        return preCheck && !errObj.hasOwnProperty(\"0\");\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-3-11",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-11.js",
+    "description": "Object.preventExtensions - indexed properties cannot be added into an Arguments object",
+    "test": "assertTrue((function testcase() {\n        var argObj;\n        (function () {\n            argObj = arguments;\n        }());\n        var preCheck = Object.isExtensible(argObj);\n        Object.preventExtensions(argObj);\n\n        argObj[0] = 12;\n        return preCheck && !argObj.hasOwnProperty(\"0\");\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-3-12",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-12.js",
+    "description": "Object.preventExtensions - named properties cannot be added into the returned object",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n        var preCheck = Object.isExtensible(obj);\n        Object.preventExtensions(obj);\n\n        obj.exName = 2;\n        return preCheck && !Object.hasOwnProperty(\"exName\");\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-3-13",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-13.js",
+    "description": "Object.preventExtensions - named properties cannot be added into a Function object",
+    "test": "assertTrue((function testcase() {\n        var funObj = function () { };\n        var preCheck = Object.isExtensible(funObj);\n        Object.preventExtensions(funObj);\n\n        funObj.exName = 2;\n        return preCheck && !funObj.hasOwnProperty(\"exName\");\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-3-14",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-14.js",
+    "description": "Object.preventExtensions - named properties cannot be added into an Array object",
+    "test": "assertTrue((function testcase() {\n        var arrObj = [];\n        var preCheck = Object.isExtensible(arrObj);\n        Object.preventExtensions(arrObj);\n\n        arrObj.exName = 2;\n        return preCheck && !arrObj.hasOwnProperty(\"exName\");\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-3-15",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-15.js",
+    "description": "Object.preventExtensions - named properties cannot be added into a String object",
+    "test": "assertTrue((function testcase() {\n        var strObj = new String(\"bbq\");\n        var preCheck = Object.isExtensible(strObj);\n        Object.preventExtensions(strObj);\n\n        strObj.exName = 2;\n        return preCheck && !strObj.hasOwnProperty(\"exName\");\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-3-16",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-16.js",
+    "description": "Object.preventExtensions - named properties cannot be added into a Boolean object",
+    "test": "assertTrue((function testcase() {\n        var boolObj = new Boolean(true);\n        var preCheck = Object.isExtensible(boolObj);\n        Object.preventExtensions(boolObj);\n\n        boolObj.exName = 2;\n        return preCheck && !boolObj.hasOwnProperty(\"exName\");\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-3-17",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-17.js",
+    "description": "Object.preventExtensions - named properties cannot be added into a Number object",
+    "test": "assertTrue((function testcase() {\n        var numObj = new Number(123);\n        var preCheck = Object.isExtensible(numObj);\n        Object.preventExtensions(numObj);\n\n        numObj.exName = 2;\n        return preCheck && !numObj.hasOwnProperty(\"exName\");\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-3-18",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-18.js",
+    "description": "Object.preventExtensions - named properties cannot be added into a Date object",
+    "test": "assertTrue((function testcase() {\n        var dateObj = new Date();\n        var preCheck = Object.isExtensible(dateObj);\n        Object.preventExtensions(dateObj);\n\n        dateObj.exName = 2;\n        return preCheck && !dateObj.hasOwnProperty(\"exName\");\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-3-19",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-19.js",
+    "description": "Object.preventExtensions - named properties cannot be added into a RegExp object",
+    "test": "assertTrue((function testcase() {\n        var regObj = new RegExp();\n        var preCheck = Object.isExtensible(regObj);\n        Object.preventExtensions(regObj);\n\n        regObj.exName = 2;\n        return preCheck && !regObj.hasOwnProperty(\"exName\");\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-3-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-2.js",
+    "description": "Object.preventExtensions - indexed properties cannot be added into the returned object",
+    "test": "assertTrue((function testcase() {\n\n        var obj = {};\n        var preCheck = Object.isExtensible(obj);\n        Object.preventExtensions(obj);\n\n        obj[0] = 12;\n        return preCheck && !obj.hasOwnProperty(\"0\");\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-3-20",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-20.js",
+    "description": "Object.preventExtensions - named properties cannot be added into an Error object",
+    "test": "assertTrue((function testcase() {\n        var errObj = new Error();\n        var preCheck = Object.isExtensible(errObj);\n        Object.preventExtensions(errObj);\n\n        errObj.exName = 2;\n        return preCheck && !errObj.hasOwnProperty(\"exName\");\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-3-21",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-21.js",
+    "description": "Object.preventExtensions - named properties cannot be added into an Arguments object",
+    "test": "assertTrue((function testcase() {\n        var argObj;\n        (function () {\n            argObj = arguments;\n        }());\n        var preCheck = Object.isExtensible(argObj);\n        Object.preventExtensions(argObj);\n\n        argObj.exName = 2;\n        return preCheck && !argObj.hasOwnProperty(\"exName\");\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-3-22",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-22.js",
+    "description": "Object.preventExtensions - properties can still be deleted after extensions have been prevented",
+    "test": "assertTrue((function testcase() {\n        var obj = { prop: 12 };\n        var preCheck = Object.isExtensible(obj);\n        Object.preventExtensions(obj);\n\n        delete obj.prop;\n\n        return preCheck && !obj.hasOwnProperty(\"prop\");\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-3-23",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-23.js",
+    "description": "Object.preventExtensions - properties can still be reassigned after extensions have been prevented",
+    "test": "assertTrue((function testcase() {\n        var obj = { prop: 12 };\n        var preCheck = Object.isExtensible(obj);\n        Object.preventExtensions(obj);\n\n        obj.prop = -1;\n\n        return preCheck && obj.prop === -1;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-3-24",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-24.js",
+    "description": "Object.preventExtensions - [[Extensible]]: false on a prototype doesn't prevent adding properties to an instance that inherits from that prototype",
+    "test": "assertTrue((function testcase() {\n        var proto = {};\n        var preCheck = Object.isExtensible(proto);\n        Object.preventExtensions(proto);\n\n        var ConstructFun = function () { };\n        ConstructFun.prototype = proto;\n        var child = new ConstructFun();\n\n        child.prop = 10;\n\n        return preCheck && child.hasOwnProperty(\"prop\");\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-3-3",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-3.js",
+    "description": "Object.preventExtensions - indexed properties cannot be added into a Function object",
+    "test": "assertTrue((function testcase() {\n        var funObj = function () { };\n        var preCheck = Object.isExtensible(funObj);\n        Object.preventExtensions(funObj);\n\n        funObj[0] = 12;\n        return preCheck && !funObj.hasOwnProperty(\"0\");\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-3-4",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-4.js",
+    "description": "Object.preventExtensions - indexed properties cannot be added into an Array object",
+    "test": "assertTrue((function testcase() {\n        var arrObj = [];\n        var preCheck = Object.isExtensible(arrObj);\n        Object.preventExtensions(arrObj);\n\n        arrObj[0] = 12;\n        return preCheck && !arrObj.hasOwnProperty(\"0\");\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-3-5-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-5-1.js",
+    "description": "Object.preventExtensions - indexed properties cannot be added into a String object",
+    "test": "assertTrue((function testcase() {\n        var strObj = new String(\"bbq\");\n        var preCheck = Object.isExtensible(strObj);\n        Object.preventExtensions(strObj);\n\n        strObj[10] = 12;\n        return preCheck && !strObj.hasOwnProperty(\"10\");\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-3-5",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-5.js",
+    "description": "Object.preventExtensions - indexed properties cannot be added into a String object",
+    "test": "assertTrue((function testcase() {\n        var strObj = new String();\n        var preCheck = Object.isExtensible(strObj);\n        Object.preventExtensions(strObj);\n        try {\n            Object.defineProperty(strObj, \"0\", { value: \"c\" });\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && preCheck &&\n                !strObj.hasOwnProperty(\"0\") && typeof strObj[0] === \"undefined\";\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible) && fnExists(Object.defineProperty))"
+   },
+   {
+    "id": "15.2.3.10-3-6",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-6.js",
+    "description": "Object.preventExtensions - indexed properties cannot be added into a Boolean object",
+    "test": "assertTrue((function testcase() {\n        var boolObj = new Boolean(true);\n        var preCheck = Object.isExtensible(boolObj);\n        Object.preventExtensions(boolObj);\n\n        boolObj[0] = 12;\n        return preCheck && !boolObj.hasOwnProperty(\"0\");\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-3-7",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-7.js",
+    "description": "Object.preventExtensions - indexed properties cannot be added into a Number object",
+    "test": "assertTrue((function testcase() {\n        var numObj = new Number(123);\n        var preCheck = Object.isExtensible(numObj);\n        Object.preventExtensions(numObj);\n\n        numObj[0] = 12;\n        return preCheck && !numObj.hasOwnProperty(\"0\");\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-3-8",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-8.js",
+    "description": "Object.preventExtensions - indexed properties cannot be added into a Date object",
+    "test": "assertTrue((function testcase() {\n        var dateObj = new Date();\n        var preCheck = Object.isExtensible(dateObj);\n        Object.preventExtensions(dateObj);\n\n        dateObj[0] = 12;\n        return preCheck && !dateObj.hasOwnProperty(\"0\");\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.10-3-9",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-9.js",
+    "description": "Object.preventExtensions - indexed properties cannot be added into a RegExp object",
+    "test": "assertTrue((function testcase() {\n        var regObj = new RegExp();\n        var preCheck = Object.isExtensible(regObj);\n        Object.preventExtensions(regObj);\n\n        regObj[0] = 12;\n        return preCheck && !regObj.hasOwnProperty(\"0\");\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   }
+  ]
+ }
+}

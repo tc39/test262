@@ -1,0 +1,32 @@
+{
+ "testCollection": {
+  "name": "15.10.4",
+  "numTests": 4,
+  "tests": [
+   {
+    "id": "15.10.4.1-1",
+    "path": "TestCases/chapter15/15.10/15.10.4/15.10.4.1-1.js",
+    "description": "RegExp - the thrown error is TypeError instead of RegExpError when pattern is an object whose [[Class]] property is 'RegExp' and flags is not undefined ",
+    "test": "assertTrue((function testcase() {\n        var regObj = new RegExp();\n        try {\n            var regExpObj = new RegExp(regObj, true);\n\n            return false;\n        } catch (e) {\n            return e instanceof TypeError;\n        }\n    }).call(this));\n"
+   },
+   {
+    "id": "15.10.4.1-2",
+    "path": "TestCases/chapter15/15.10/15.10.4/15.10.4.1-2.js",
+    "description": "RegExp - the thrown error is SyntaxError instead of RegExpError when the characters of 'P' do not have the syntactic form Pattern",
+    "test": "assertTrue((function testcase() {\n        try {\n            var regExpObj = new RegExp('\\\\');\n\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n"
+   },
+   {
+    "id": "15.10.4.1-3",
+    "path": "TestCases/chapter15/15.10/15.10.4/15.10.4.1-3.js",
+    "description": "RegExp - the thrown error is SyntaxError instead of RegExpError when 'F' contains any character other than 'g', 'i', or 'm' ",
+    "test": "assertTrue((function testcase() {\n        try {\n            var regExpObj = new RegExp('abc', 'a');\n\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError;\n        }\n    }).call(this));\n"
+   },
+   {
+    "id": "15.10.4.1-4",
+    "path": "TestCases/chapter15/15.10/15.10.4/15.10.4.1-4.js",
+    "description": "RegExp - the SyntaxError is not thrown when flags is 'gim'",
+    "test": "assertTrue((function testcase() {\n        try {\n            var regExpObj = new RegExp('abc', 'gim');\n\n            return true;\n        } catch (e) {\n            return false;\n        }\n    }).call(this));\n"
+   }
+  ]
+ }
+}

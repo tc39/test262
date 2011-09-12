@@ -1,0 +1,50 @@
+{
+ "testCollection": {
+  "name": "15.10.5_Properties_of_the_RegExp_Constructor",
+  "numTests": 7,
+  "tests": [
+   {
+    "section": "15.10.5.1",
+    "description": "Checking RegExp.prototype property",
+    "test": "//CHECK#1\nif (RegExp.hasOwnProperty('prototype') !== true) {\n\t$ERROR('#1: RegExp.hasOwnProperty(\\'prototype\\') === true');\n}\n\n",
+    "id": "S15.10.5.1_A1"
+   },
+   {
+    "section": "15.10.5.1",
+    "description": "Checking if enumerating the RegExp.prototype property fails",
+    "test": "//CHECK#0\nif (RegExp.hasOwnProperty('prototype') !== true) {\n\t$ERROR('#0: RegExp.hasOwnProperty(\\'prototype\\') === true');\n}\n\n //CHECK#1\nif (RegExp.propertyIsEnumerable('prototype') !== false) {\n\t$ERROR('#1: RegExp.propertyIsEnumerable(\\'prototype\\') === false');\n}\n\n //CHECK#2\ncount=0;\nfor (p in RegExp){\n\tif (p===\"prototype\") count++;\n}\n\nif (count !== 0) {\n\t$ERROR('#2: count=0; for (p in RegExp){ if (p===\"prototype\") count++; } count === 0. Actual: ' + (count));\n}\n\n",
+    "id": "S15.10.5.1_A2"
+   },
+   {
+    "section": "15.10.5.1",
+    "description": "Checking if deleting the RegExp.prototype property fails",
+    "test": "//CHECK#0\nif (RegExp.hasOwnProperty('prototype') !== true) {\n\t$FAIL('#0: RegExp.hasOwnProperty(\\'prototype\\') === true');\n}\n\n//CHECK#1\nif (delete RegExp.prototype !== false) {\n  $ERROR('#1: delete RegExp.prototype === false');\n}\n\n//CHECK#2\nif (RegExp.hasOwnProperty('prototype') !== true) {\n\t$ERROR('#2: delete RegExp.prototype; RegExp.hasOwnProperty(\\'prototype\\') === true');\n}\n\n",
+    "id": "S15.10.5.1_A3"
+   },
+   {
+    "section": "15.10.5.1",
+    "description": "Checking if varying the RegExp.prototype property fails",
+    "test": "//CHECK#1\nif (RegExp.hasOwnProperty('prototype') !== true) {\n\t$FAIL('#1: RegExp.hasOwnProperty(\\'prototype\\') === true');\n}\n\n__obj = RegExp.prototype;\n\nRegExp.prototype = function(){return \"shifted\";};\n\n//CHECK#2\nif (RegExp.prototype !== __obj) {\n\t$ERROR('#2: __obj = RegExp.prototype; RegExp.prototype = function(){return \"shifted\";}; RegExp.prototype === __obj. Actual: ' + (RegExp.prototype));\n}\n\n",
+    "id": "S15.10.5.1_A4"
+   },
+   {
+    "section": "15.10.5",
+    "description": "Checking RegExp.length property",
+    "test": " //CHECK#1\nif (RegExp.length !== 2) {\n\t$ERROR('#1: RegExp.length === 2. Actual: ' + (RegExp.length));\n}\n\n",
+    "id": "S15.10.5_A1"
+   },
+   {
+    "section": "15.10.5",
+    "description": "Checking Function.prototype.isPrototypeOf(RegExp)",
+    "test": " //CHECK#1\nif (Function.prototype.isPrototypeOf(RegExp) !== true) {\n\t$ERROR('#1: Function.prototype.isPrototypeOf(RegExp) === true');\n}\n\n",
+    "id": "S15.10.5_A2_T1"
+   },
+   {
+    "section": "15.10.5",
+    "description": "Add new property to Function.prototype and then check this property of RegExp",
+    "test": "Function.prototype.indicator = 1;\n\n //CHECK#1\nif (RegExp.indicator !== 1) {\n\t$ERROR('#1: Function.prototype.indicator = 1; RegExp.indicator === 1. Actual: ' + (RegExp.indicator));\n}\n\n",
+    "id": "S15.10.5_A2_T2"
+   }
+  ]
+ }
+}

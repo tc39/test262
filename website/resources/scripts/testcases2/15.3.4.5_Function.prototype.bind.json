@@ -1,0 +1,49 @@
+{
+ "testCollection": {
+  "name": "15.3.4.5_Function.prototype.bind",
+  "numTests": 6,
+  "tests": [
+   {
+    "section": "15.3.4.5",
+    "description": "A bound function should fail to find its \"caller\"",
+    "negative": "TypeError",
+    "test": "function foo() { return bar.caller; }\nvar bar = foo.bind({});\nfunction baz() { return bar(); }\nbaz();\n",
+    "id": "S15.3.4.5_A1"
+   },
+   {
+    "section": "15.3.4.5",
+    "negative": "TypeError",
+    "test": "Function.prototype.bind.call(undefined, {});\n\n",
+    "id": "S15.3.4.5_A13",
+    "description": "If IsCallable(func) is false, then throw a TypeError exception."
+   },
+   {
+    "section": "15.3.4.5",
+    "negative": "TypeError",
+    "test": "Function.prototype.bind.call(null, {});\n\n",
+    "id": "S15.3.4.5_A14",
+    "description": "If IsCallable(func) is false, then throw a TypeError exception."
+   },
+   {
+    "section": "15.3.4.5",
+    "negative": "TypeError",
+    "test": "Function.prototype.bind.call({}, {});\n\n",
+    "id": "S15.3.4.5_A15",
+    "description": "If IsCallable(func) is false, then throw a TypeError exception."
+   },
+   {
+    "section": "15.3.4.5",
+    "description": "A RegExp is not a function, but it may be callable. Iff it is, it's typeof should be 'function', in which case bind should accept it as a valid this value.",
+    "test": "var re = (/x/);\nif (typeof re === 'function') {\n  Function.prototype.bind.call(re, undefined);\n} else {\n  try {\n    Function.prototype.bind.call(re, undefined);\n    $FAIL('#1: If IsCallable(func) is false, ' +\n          'then (bind should) throw a TypeError exception');\n  } catch (e) {\n    if (!(e instanceof TypeError)) {\n      $ERROR('#1: TypeError expected. Actual: ' + e);\n    }\n  }\n}\n",
+    "id": "S15.3.4.5_A16"
+   },
+   {
+    "section": "15.3.4.5",
+    "description": "a bound function should fail to find the bound function \"arguments\"",
+    "negative": "TypeError",
+    "test": "function foo() { return bar.arguments; }\nvar bar = foo.bind({});\nfunction baz() { return bar(); }\nbaz();\n",
+    "id": "S15.3.4.5_A1"
+   }
+  ]
+ }
+}

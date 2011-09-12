@@ -1,0 +1,44 @@
+{
+ "testCollection": {
+  "name": "15.11.3_Properties_of_the_Error_Constructor",
+  "numTests": 6,
+  "tests": [
+   {
+    "section": "15.11.3.1, 16",
+    "description": "Checking if deleting the Error.prototype property fails",
+    "test": "var proto=Error.prototype;\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif(delete Error.prototype){\n  $ERROR('#1: delete Error.prototype return false');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif(Error.prototype!==proto){\n  $ERROR('#2: var proto=Error.prototype; delete Error.prototype; Error.prototype===proto. Actual: '+Error.prototype);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.11.3.1_A1_T1"
+   },
+   {
+    "section": "15.11.3.1, 16",
+    "description": "Checking if enumerating the Error.prototype property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#0\nif (!(Error.hasOwnProperty('prototype'))) {\n  $ERROR('#0: Error.hasOwnProperty(\\'prototype\\') return true. Actual: '+Error.hasOwnProperty('prototype'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n//////////////////////////////////////////////////////////////////////////////\n// CHECK#1\nif (Error.propertyIsEnumerable('prototype')) {\n  $ERROR('#1: Error.propertyIsEnumerable(\\'prototype\\') return false. Actual: '+Error.propertyIsEnumerable('prototype'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n//////////////////////////////////////////////////////////////////////////////\n// CHECK#2\ncout=0;\n\nfor (p in Error){\n  if (p===\"prototype\") cout++;\n}\n\nif (cout !== 0) {\n  $ERROR('#2: cout === 0. Actual: '+cout );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.11.3.1_A2_T1"
+   },
+   {
+    "section": "15.11.3.1, 16",
+    "description": "Checking if varying the Error.prototype property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(Error.hasOwnProperty('prototype'))) {\n  $ERROR('#1: Error.hasOwnProperty(\\'prototype\\') return true. Actual: '+Error.hasOwnProperty('prototype'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n__obj = Error.prototype;\n\nError.prototype = function(){return \"shifted\";};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (Error.prototype !== __obj) {\n  $ERROR('#2: __obj = Error.prototype; Error.prototype = function(){return \"shifted\";}; Error.prototype === __obj. Actual: '+Error.prototype );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\ntry {\n  Error.prototype();\n  $ERROR('#3: \"Error.prototype()\" lead to throwing exception');\n} catch (e) {\n  ;\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.11.3.1_A3_T1"
+   },
+   {
+    "section": "15.11.3.1, 16",
+    "description": "Checking Error.hasOwnProperty('prototype')",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(Error.hasOwnProperty('prototype'))) {\n  $ERROR('#1: Error.hasOwnProperty(\\'prototype\\') return true. Actual: '+Error.hasOwnProperty('prototype'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.11.3.1_A4_T1"
+   },
+   {
+    "section": "15.11.3, 16",
+    "description": "Checking prototype of constructor of the newly constructed Error object",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nvar err1=Error(\"err\");\nif(!Function.prototype.isPrototypeOf(err1.constructor)){\n  $ERROR('#1: var err1=Error(\"err\"); Function.prototype.isPrototypeOf(err1.constructor) return true. Actual:'+Function.prototype.isPrototypeOf(err1.constructor));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif(!Function.prototype.isPrototypeOf(Error.constructor)){\n  $ERROR('#2: Function.prototype.isPrototypeOf(Error.constructor) return true. Actual:'+Function.prototype.isPrototypeOf(Error.constructor));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.11.3_A1_T1"
+   },
+   {
+    "section": "15.11.3, 16",
+    "description": "Checking length property",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nvar err1=Error(\"err\");\nif(err1.constructor.length!==1){\n  $ERROR('#1: var err1=Error(\"err\"); err1.constructor.length===1. Actual: '+err1.constructor.length);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif(Error.constructor.length!==1){\n  $ERROR('#2: Error.constructor.length===1. Actual: '+Error.constructor.length);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.11.3_A2_T1"
+   }
+  ]
+ }
+}

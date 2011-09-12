@@ -1,0 +1,24 @@
+{
+ "testCollection": {
+  "name": "11.3.2",
+  "numTests": 2,
+  "tests": [
+   {
+    "id": "11.3.2-2-1-s",
+    "path": "TestCases/chapter11/11.3/11.3.2/11.3.2-2-1-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier 'arguments' appear as a PostfixExpression(arguments--)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = arguments;\n        try {\n            eval(\"arguments--;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === arguments;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.3.2-2-2-s",
+    "path": "TestCases/chapter11/11.3/11.3.2/11.3.2-2-2-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier 'eval' appear as a PostfixExpression(eval--)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = eval;\n        try {\n            eval(\"eval--;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === eval;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   }
+  ]
+ }
+}

@@ -1,0 +1,777 @@
+{
+ "testCollection": {
+  "name": "7.6.1",
+  "numTests": 128,
+  "tests": [
+   {
+    "id": "7.6.1-1-1",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-1-1.js",
+    "description": "Allow reserved words as property names at object initialization, verified with hasOwnProperty: null, true, false",
+    "test": "assertTrue((function testcase(){      \n        var tokenCodes  = { \n            null: 0,\n            true: 1,\n            false: 2\n        };\n        var arr = [\n            'null',\n            'true',\n            'false'\n        ];        \n        for(var p in tokenCodes) {\n            for(var p1 in arr) {\n                if(arr[p1] === p) {                     \n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n}).call(this));\n"
+   },
+   {
+    "id": "7.6.1-1-10",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-1-10.js",
+    "description": "Allow reserved words as property names at object initialization, verified with hasOwnProperty: in, try, class",
+    "test": "assertTrue((function testcase(){      \n        var tokenCodes  = { \n            in: 0, \n            try: 1,\n            class: 2\n        };\n        var arr = [\n            'in', \n            'try',\n            'class'\n        ];        \n        for(var p in tokenCodes) {\n            for(var p1 in arr) {\n                if(arr[p1] === p) {                     \n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n}).call(this));\n"
+   },
+   {
+    "id": "7.6.1-1-11",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-1-11.js",
+    "description": "Allow reserved words as property names at object initialization, verified with hasOwnProperty: enum, extends, super",
+    "test": "assertTrue((function testcase(){      \n        var tokenCodes  = { \n            enum: 0,\n            extends: 1,\n            super: 2\n        };\n        var arr = [\n            'enum',\n            'extends',\n            'super'\n        ];        \n        for(var p in tokenCodes) {\n            for(var p1 in arr) {\n                if(arr[p1] === p) {                     \n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n}).call(this));\n"
+   },
+   {
+    "id": "7.6.1-1-12",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-1-12.js",
+    "description": "Allow reserved words as property names at object initialization, verified with hasOwnProperty: const, export, import",
+    "test": "assertTrue((function testcase(){      \n        var tokenCodes  = { \n            const: 0,\n            export: 1,\n            import: 2\n        };\n        var arr = [\n            'const',\n            'export',\n            'import'\n        ];        \n        for(var p in tokenCodes) {\n            for(var p1 in arr) {\n                if(arr[p1] === p) {                     \n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n}).call(this));\n"
+   },
+   {
+    "id": "7.6.1-1-13",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-1-13.js",
+    "description": "Allow reserved words as property names at object initialization, verified with hasOwnProperty: implements, let, private",
+    "test": "assertTrue((function testcase(){      \n        var tokenCodes  = { \n            implements: 0,\n            let: 1,\n            private: 2\n        };\n        var arr = [\n            'implements',\n            'let',\n            'private'\n        ];        \n        for(var p in tokenCodes) {\n            for(var p1 in arr) {\n                if(arr[p1] === p) {                     \n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n}).call(this));\n"
+   },
+   {
+    "id": "7.6.1-1-14",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-1-14.js",
+    "description": "Allow reserved words as property names at object initialization, verified with hasOwnProperty: public, yield, interface",
+    "test": "assertTrue((function testcase(){      \n        var tokenCodes  = { \n            public: 0,\n            yield: 1,\n            interface: 2\n        };\n        var arr = [\n            'public',\n            'yield',\n            'interface'\n        ];        \n        for(var p in tokenCodes) {\n            for(var p1 in arr) {\n                if(arr[p1] === p) {                     \n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n}).call(this));\n"
+   },
+   {
+    "id": "7.6.1-1-15",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-1-15.js",
+    "description": "Allow reserved words as property names at object initialization, verified with hasOwnProperty: package, protected, static",
+    "test": "assertTrue((function testcase(){      \n        var tokenCodes  = { \n            package: 0,\n            protected: 1,\n            static: 2\n        };\n        var arr = [\n            'package',\n            'protected',\n            'static'\n        ];        \n        for(var p in tokenCodes) {\n            for(var p1 in arr) {\n                if(arr[p1] === p) {                     \n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n}).call(this));\n"
+   },
+   {
+    "id": "7.6.1-1-16",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-1-16.js",
+    "description": "Allow reserved words as property names at object initialization, verified with hasOwnProperty: undeefined, NaN, Infinity",
+    "test": "assertTrue((function testcase(){      \n        var tokenCodes  = { \n            undefined: 0,\n            NaN: 1,\n            Infinity: 2\n        };\n        var arr = [\n            'undefined',\n            'NaN',\n            'Infinity'\n        ];        \n        for(var p in tokenCodes) {\n            for(var p1 in arr) {\n                if(arr[p1] === p) {                     \n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n}).call(this));\n"
+   },
+   {
+    "id": "7.6.1-1-2",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-1-2.js",
+    "description": "Allow reserved words as property names at object initialization, verified with hasOwnProperty: break, case, do",
+    "test": "assertTrue((function testcase(){      \n        var tokenCodes  = { \n            break: 0,\n            case: 1,\n            do: 2\n        };\n        var arr = [\n            'break',\n            'case',\n            'do'\n        ];        \n        for(var p in tokenCodes) {\n            for(var p1 in arr) {\n                if(arr[p1] === p) {                     \n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n}).call(this));\n"
+   },
+   {
+    "id": "7.6.1-1-3",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-1-3.js",
+    "description": "Allow reserved words as property names at object initialization, verified with hasOwnProperty: instanceof, typeof, else",
+    "test": "assertTrue((function testcase(){      \n        var tokenCodes  = { \n            instanceof: 0,\n            typeof: 1,\n            else: 2\n        };\n        var arr = [\n            'instanceof',\n            'typeof',\n            'else'\n        ];        \n        for(var p in tokenCodes) {\n            for(var p1 in arr) {\n                if(arr[p1] === p) {                     \n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n}).call(this));\n"
+   },
+   {
+    "id": "7.6.1-1-4",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-1-4.js",
+    "description": "Allow reserved words as property names at object initialization, verified with hasOwnProperty: new, var, catch",
+    "test": "assertTrue((function testcase(){      \n        var tokenCodes  = { \n            new: 0,\n            var: 1,\n            catch: 2\n        };\n        var arr = [\n            'new', \n            'var', \n            'catch'\n        ];        \n        for(var p in tokenCodes) {\n            for(var p1 in arr) {\n                if(arr[p1] === p) {                     \n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n}).call(this));\n"
+   },
+   {
+    "id": "7.6.1-1-5",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-1-5.js",
+    "description": "Allow reserved words as property names at object initialization, verified with hasOwnProperty: finally, return, void",
+    "test": "assertTrue((function testcase(){      \n        var tokenCodes  = { \n            finally: 0,\n            return: 1,\n            void: 2\n        };\n        var arr = [ \n            'finally', \n            'return', \n            'void'\n        ];        \n        for(var p in tokenCodes) {\n            for(var p1 in arr) {\n                if(arr[p1] === p) {                     \n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n}).call(this));\n"
+   },
+   {
+    "id": "7.6.1-1-6",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-1-6.js",
+    "description": "Allow reserved words as property names at object initialization, verified with hasOwnProperty: continue, for, switch",
+    "test": "assertTrue((function testcase(){      \n        var tokenCodes  = { \n            continue: 0, \n            for: 1, \n            switch: 2\n        };\n        var arr = [\n            'continue', \n            'for',\n            'switch'\n        ];        \n        for(var p in tokenCodes) {\n            for(var p1 in arr) {\n                if(arr[p1] === p) {                     \n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n}).call(this));\n"
+   },
+   {
+    "id": "7.6.1-1-7",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-1-7.js",
+    "description": "Allow reserved words as property names at object initialization, verified with hasOwnProperty: while, debugger, function",
+    "test": "assertTrue((function testcase(){      \n        var tokenCodes  = { \n            while: 0, \n            debugger: 1, \n            function: 2\n        };\n        var arr = [ \n            'while' ,\n            'debugger', \n            'function'\n        ];        \n        for(var p in tokenCodes) {\n            for(var p1 in arr) {\n                if(arr[p1] === p) {                     \n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n}).call(this));\n"
+   },
+   {
+    "id": "7.6.1-1-8",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-1-8.js",
+    "description": "Allow reserved words as property names at object initialization, verified with hasOwnProperty: this, with, default",
+    "test": "assertTrue((function testcase(){\n        var tokenCodes  = {       \n            this: 0,  \n            with: 1, \n            default: 2\n        };\n        var arr = [ \n            'this', \n            'with', \n            'default'\n        ];        \n        for(var p in tokenCodes) {\n            for(var p1 in arr) {\n                if(arr[p1] === p) {                     \n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n}).call(this));\n"
+   },
+   {
+    "id": "7.6.1-1-9",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-1-9.js",
+    "description": "Allow reserved words as property names at object initialization, verified with hasOwnProperty: if, throw, delete",
+    "test": "assertTrue((function testcase(){      \n        var tokenCodes  = { \n            if: 0, \n            throw: 1, \n            delete: 2\n        };\n        var arr = [\n            'if', \n            'throw', \n            'delete'\n        ];        \n        for(var p in tokenCodes) {\n            for(var p1 in arr) {\n                if(arr[p1] === p) {                     \n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n}).call(this));\n"
+   },
+   {
+    "id": "7.6.1-2-1",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-2-1.js",
+    "description": "Allow reserved words as property names by dot operator assignment, verified with hasOwnProperty: null, true, false",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.null = 0;\n\t    tokenCodes.true = 1;\n\t    tokenCodes.false = 2;\n        var arr = [\n            'null',\n            'true',\n            'false'\n        ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-2-10",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-2-10.js",
+    "description": "Allow reserved words as property names by dot operator assignment, verified with hasOwnProperty: in, try, class",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes.in = 0;\n        tokenCodes.try = 1;\n        tokenCodes.class = 2;\n        var arr = [\n            'in', \n            'try',\n            'class'\n        ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-2-11",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-2-11.js",
+    "description": "Allow reserved words as property names by dot operator assignment, verified with hasOwnProperty: enum, extends, super",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes.enum = 0;\n        tokenCodes.extends = 1;\n        tokenCodes.super = 2;\n        var arr = [\n            'enum',\n            'extends',\n            'super'\n        ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-2-12",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-2-12.js",
+    "description": "Allow reserved words as property names by dot operator assignment, verified with hasOwnProperty: const, export, import",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.const = 0;\n        tokenCodes.export = 1;\n        tokenCodes.import = 2;\n        var arr = [\n            'const',\n            'export',\n            'import'\n        ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-2-13",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-2-13.js",
+    "description": "Allow reserved words as property names by dot operator assignment, verified with hasOwnProperty: implements, let, private",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.implements = 0;\n        tokenCodes.let = 1;\n        tokenCodes.private = 2;\n        var arr = [\n            'implements',\n            'let',\n            'private'\n        ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-2-14",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-2-14.js",
+    "description": "Allow reserved words as property names by dot operator assignment, verified with hasOwnProperty: public, yield, interface",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.public = 0;\n        tokenCodes.yield = 1;\n        tokenCodes.interface = 2;\n        var arr = [\n            'public',\n            'yield',\n            'interface'\n        ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-2-15",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-2-15.js",
+    "description": "Allow reserved words as property names by dot operator assignment, verified with hasOwnProperty: package, protected, static",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.package = 0;\n        tokenCodes.protected = 1;\n        tokenCodes.static = 2;\n        var arr = [\n            'package',\n            'protected',\n            'static'    \n        ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-2-16",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-2-16.js",
+    "description": "Allow reserved words as property names by dot operator assignment, verified with hasOwnProperty: undefined, NaN, Infinity",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes.undefined = 0;\n        tokenCodes.NaN = 1;\n        tokenCodes.Infinity = 2;\n        var arr = [\n            'undefined',\n            'NaN',\n            'Infinity'\n        ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-2-2",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-2-2.js",
+    "description": "Allow reserved words as property names by dot operator assignment, verified with hasOwnProperty: break, case, do",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.break = 0;  \t\n        tokenCodes.case = 1;\n        tokenCodes.do = 2;\n        var arr = [\n            'break',\n            'case',\n            'do'\n        ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-2-3",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-2-3.js",
+    "description": "Allow reserved words as property names by dot operator assignment, verified with hasOwnProperty: instanceof, typeof, else",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.instanceof = 0;\n        tokenCodes.typeof = 1;\n        tokenCodes.else = 2;\n        var arr = [\n            'instanceof',\n            'typeof',\n            'else'\n        ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-2-4",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-2-4.js",
+    "description": "Allow reserved words as property names by dot operator assignment, verified with hasOwnProperty: new, var, catch",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes.new = 0;\n        tokenCodes.var = 1;\n        tokenCodes.catch = 2;\n        var arr = [\n            'new', \n            'var', \n            'catch'\n        ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-2-5",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-2-5.js",
+    "description": "Allow reserved words as property names by dot operator assignment, verified with hasOwnProperty: finally, return, void",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes.finally = 0;\n        tokenCodes.return = 1;\n        tokenCodes.void = 2;\n        var arr = [\n            'finally', \n            'return', \n            'void'\n        ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-2-6",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-2-6.js",
+    "description": "Allow reserved words as property names by dot operator assignment, verified with hasOwnProperty: continue, for, switch",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.continue = 0;\n        tokenCodes.for = 1; \n        tokenCodes.switch = 2;\n        var arr = [\n            'continue', \n            'for',\n            'switch'\n        ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-2-7",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-2-7.js",
+    "description": "Allow reserved words as property names by dot operator assignment, verified with hasOwnProperty: while, debugger, function",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.while = 0; \n        tokenCodes.debugger = 1;\n        tokenCodes.function = 2; \n        var arr = [\n            'while' ,\n            'debugger', \n            'function'\n        ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-2-8",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-2-8.js",
+    "description": "Allow reserved words as property names by dot operator assignment, verified with hasOwnProperty: this, with, default",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes.this = 0; \n        tokenCodes.with = 1; \n        tokenCodes.default = 2;\n        var arr = [\n            'this', \n            'with', \n            'default'\n        ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-2-9",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-2-9.js",
+    "description": "Allow reserved words as property names by dot operator assignment, verified with hasOwnProperty: if, throw, delete",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes.if = 0;\n        tokenCodes.throw = 1;\n        tokenCodes.delete = 2;\n        var arr = [\n            'if', \n            'throw', \n            'delete'\n        ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-3-1",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-3-1.js",
+    "description": "Allow reserved words as property names by index assignment,verified with hasOwnProperty: null, true, false",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes['null'] = 0;\n\t    tokenCodes['true'] = 1;\n\t    tokenCodes['false'] = 2;\n        var arr = [\n            'null',\n            'true',\n            'false'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-3-10",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-3-10.js",
+    "description": "Allow reserved words as property names by index assignment,verified with hasOwnProperty: in, try, class",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes['in'] = 0;\n        tokenCodes['try'] = 1;\n        tokenCodes['class'] = 2;\n        var arr = [\n            'in',\n            'try',\n            'class'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-3-11",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-3-11.js",
+    "description": "Allow reserved words as property names by index assignment,verified with hasOwnProperty: enum, extends, super",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes['enum'] = 0;\n        tokenCodes['extends'] = 1;\n        tokenCodes['super'] = 2;\n        var arr = [\n            'enum',\n            'extends',\n            'super'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-3-12",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-3-12.js",
+    "description": "Allow reserved words as property names by index assignment,verified with hasOwnProperty: const, export, import",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes['const'] = 0;\n        tokenCodes['export'] = 1;\n        tokenCodes['import'] = 2;\n        var arr = [\n            'const',\n            'export',\n            'import'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-3-13",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-3-13.js",
+    "description": "Allow reserved words as property names by index assignment,verified with hasOwnProperty: implements, let, private",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes['implements'] = 0;\n        tokenCodes['let'] = 1;\n        tokenCodes['private'] = 2;\n        var arr = [\n            'implements',\n            'let',\n            'private'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-3-14",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-3-14.js",
+    "description": "Allow reserved words as property names by index assignment,verified with hasOwnProperty: public, yield, interface",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes['public'] = 0;\n        tokenCodes['yield'] = 1;\n        tokenCodes['interface'] = 2;\n        var arr = [\n            'public',\n            'yield',\n            'interface'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-3-15",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-3-15.js",
+    "description": "Allow reserved words as property names by index assignment,verified with hasOwnProperty: package, protected, static",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes['package'] = 0;\n        tokenCodes['protected'] = 1;\n        tokenCodes['static'] = 2;\n        var arr = [\n            'package',\n            'protected',\n            'static'   \n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-3-16",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-3-16.js",
+    "description": "Allow reserved words as property names by index assignment,verified with hasOwnProperty: undefined, NaN, Infinity",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes['undefined'] = 0;\n        tokenCodes['NaN'] = 1;\n        tokenCodes['Infinity'] = 2;\n        var arr = [\n            'undefined',\n            'NaN',\n            'Infinity'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-3-2",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-3-2.js",
+    "description": "Allow reserved words as property names by index assignment,verified with hasOwnProperty: break, case, do",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes['break'] = 0;\n        tokenCodes['case'] = 1;\n        tokenCodes['do'] = 2;\n        var arr = [\n            'break',\n            'case',\n            'do'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-3-3",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-3-3.js",
+    "description": "Allow reserved words as property names by index assignment,verified with hasOwnProperty: instanceof, typeof, else",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes['instanceof'] = 0;\n        tokenCodes['typeof'] = 1;\n        tokenCodes['else'] = 2;\n        var arr = [\n            'instanceof',\n            'typeof',\n            'else'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-3-4",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-3-4.js",
+    "description": "Allow reserved words as property names by index assignment,verified with hasOwnProperty: new, var, catch",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes['new'] = 0;\n        tokenCodes['var'] = 1;\n        tokenCodes['catch'] = 2;\n        var arr = [\n            'new',\n            'var',\n            'catch'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-3-5",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-3-5.js",
+    "description": "Allow reserved words as property names by index assignment,verified with hasOwnProperty: finally, return, void",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes['finally'] = 0;\n        tokenCodes['return'] = 1;\n        tokenCodes['void'] = 2;\n        var arr = [\n            'finally',\n            'return',\n            'void'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-3-6",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-3-6.js",
+    "description": "Allow reserved words as property names by index assignment,verified with hasOwnProperty: continue, for, switch",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes['continue'] = 0;\n        tokenCodes['for'] = 1;\n        tokenCodes['switch'] = 2;\n        var arr = [\n            'continue',\n            'for',\n            'switch'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-3-7",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-3-7.js",
+    "description": "Allow reserved words as property names by index assignment,verified with hasOwnProperty: while, debugger, function",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes['while'] = 0;\n        tokenCodes['debugger'] = 1;\n        tokenCodes['function'] = 2; \n        var arr = [\n            'while',\n            'debugger',\n            'function'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-3-8",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-3-8.js",
+    "description": "Allow reserved words as property names by index assignment,verified with hasOwnProperty: this, with, default",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes['this'] = 0;\n        tokenCodes['with'] = 1;\n        tokenCodes['default'] = 2;\n        var arr = [\n            'this',\n            'with',\n            'default'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-3-9",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-3-9.js",
+    "description": "Allow reserved words as property names by index assignment,verified with hasOwnProperty: if, throw, delete",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes['if'] = 0;\n        tokenCodes['throw'] = 1;\n        tokenCodes['delete'] = 2;\n        var arr = [\n            'if',\n            'throw',\n            'delete'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-4-1",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-4-1.js",
+    "description": "Allow reserved words as property names by set function within an object, verified with hasOwnProperty: null, true, false",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set null(value) {\n                test0 = value;        \n            },\n            get null() {\n                return test0;\n            },\n            set true(value) {\n                test1 = value;        \n            },\n            get true() {\n                return test1;\n            },\n            set false(value) {\n                test2 = value;        \n            },\n            get false(){\n                return test2;\n            }\n        };      \n        var arr = [\n            'null',\n            'true',\n            'false'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-4-10",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-4-10.js",
+    "description": "Allow reserved words as property names by set function within an object, verified with hasOwnProperty: in, try, class",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set in(value){\n                test0 = value;\n            },\n            get in(){\n                return test0;\n            },\n            set try(value){\n                test1 = value;\n            },\n            get try(){\n                return test1\n            },\n            set class(value){\n                test2 = value;\n            },\n            get class(){\n                return test2;\n            }\n        };      \n        var arr = [\n            'in', \n            'try',\n            'class'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-4-11",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-4-11.js",
+    "description": "Allow reserved words as property names by set function within an object, verified with hasOwnProperty: enum, extends, super",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set enum(value){\n                test0 = value;\n            },\n            get enum(){\n                return test0;\n            },\n            set extends(value){\n                test1 = value;\n            },\n            get extends(){\n                return test1;\n            },\n            set super(value){\n                test2 = value;\n            }, \n            get super(){\n                return test2;\n            }\n        };      \n        var arr = [\n            'enum',\n            'extends',\n            'super'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-4-12",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-4-12.js",
+    "description": "Allow reserved words as property names by set function within an object, verified with hasOwnProperty: const, export, import",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set const(value){\n                test0 = value;\n            },\n            get const(){\n                return test0;\n            },\n            set export(value){\n                test1 = value;\n            },\n            get export(){\n                return test1\n            },\n            set import(value){\n                test2 = value;\n            },\n            get import(){\n                return test2\n            }\n        };      \n        var arr = [\n            'const',\n            'export',\n            'import'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-4-13",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-4-13.js",
+    "description": "Allow reserved words as property names by set function within an object, verified with hasOwnProperty: implements, let, private",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set implements(value){\n                test0 = value;\n            },\n            get implements(){\n                return test0;\n            },\n            set let(value){\n                test1 = value;\n            },\n            get let(){\n                return test1\n            },\n            set private(value){\n                test2 = value;\n            },\n            get private(){\n                return test2;\n            }\n        };      \n        var arr = [\n            'implements',\n            'let',\n            'private'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-4-14",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-4-14.js",
+    "description": "Allow reserved words as property names by set function within an object, verified with hasOwnProperty: public, yield, interface",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set public(value){\n                test0 = value;\n            },\n            get public(){\n                return test0;\n            },\n            set yield(value){\n                test1 = value;\n            },\n            get yield(){\n                return test1;\n            },\n            set interface(value){\n                test2 = value;\n            },\n            get interface(){\n                return test2;\n            }\n        };      \n        var arr = [\n            'public',\n            'yield',\n            'interface'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-4-15",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-4-15.js",
+    "description": "Allow reserved words as property names by set function within an object, verified with hasOwnProperty: package, protected, static",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set package(value){\n                test0 = value;\n            },\n            get package(){\n                return test0;\n            },\n            set protected(value){\n                test1 = value;\n            },\n            get protected(){\n                return test1\n            },\n            set static(value){\n                test2 = value;\n            },\n            get static(){\n                return test2;\n            }\n        };      \n        var arr = [\n            'package',\n            'protected',\n            'static'  \n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-4-16",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-4-16.js",
+    "description": "Allow reserved words as property names by set function within an object, verified with hasOwnProperty: undefined, NaN, Infinity",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set undefined(value){\n                test0 = value;\n            },\n            get undefined(){\n                return test0;\n            },\n            set NaN(value){\n                test1 = value;\n            },\n            get NaN(){\n                return test1;\n            },\n            set Infinity(value){\n                test2 = value;\n            },\n            get Infinity(){\n                return test2;\n            }\n        };      \n        var arr = [\n            'undefined',\n            'NaN',\n            'Infinity'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-4-2",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-4-2.js",
+    "description": "Allow reserved words as property names by set function within an object, verified with hasOwnProperty: break, case, do",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set break(value){\n                test0 = value;        \n            },\n            get break(){\n                return test0;\n            },\n            set case(value){\n                test1 = value;\n            },\n            get case(){\n                return test1;\n            },\n            set do(value){\n                test2 = value;\n            },\n            get do(){\n                return test2;\n            }\n        };      \n        var arr = [\n            'break',\n            'case',\n            'do'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-4-3",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-4-3.js",
+    "description": "Allow reserved words as property names by set function within an object, verified with hasOwnProperty: instanceof, typeof, else",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set instanceof(value){\n                test0 = value;\n            },\n            get instanceof(){\n                return test0;\n            },\n            set typeof(value){\n                test1 = value;\n            },\n            get typeof(){\n                return test1;\n            },\n            set else(value){\n                test2 = value;\n            },\n            get else(){\n                return test2;\n            }\n        };      \n        var arr = [\n            'instanceof',\n            'typeof',\n            'else'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-4-4",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-4-4.js",
+    "description": "Allow reserved words as property names by set function within an object, verified with hasOwnProperty: new, var, catch",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set new(value){\n                test0 = value;\n            },\n            get new(){\n                return test0;\n            },\n            set var(value){\n                test1 = value;\n            },\n            get var(){\n                return test1;\n            },\n            set catch(value){\n                test2 = value;\n            },\n            get catch(){\n                return test2;\n            }\n        };      \n        var arr = [\n            'new', \n            'var', \n            'catch'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-4-5",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-4-5.js",
+    "description": "Allow reserved words as property names by set function within an object, verified with hasOwnProperty: finally, return, void",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set finally(value){\n                test0 = value;\n            },\n            get finally(){\n                return test0;\n            },\n            set return(value){\n                test1 = value;\n            },\n            get return(){\n                return test1;\n            },\n            set void(value){\n                test2 = value;\n            },\n            get void(){\n                return test2;\n            }\n        };      \n        var arr = [\n            'finally', \n            'return', \n            'void'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-4-6",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-4-6.js",
+    "description": "Allow reserved words as property names by set function within an object, verified with hasOwnProperty: continue, for, switch",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set continue(value){\n                test0 = value;\n            },\n            get continue(){\n                return test0;\n            },\n            set for(value){\n                test1 = value;\n            },\n            get for(){\n                return test1;\n            },\n            set switch(value){\n                test2 = value;\n            },\n            get switch(){\n                return test2;\n            }\n        };      \n        var arr = [\n            'continue', \n            'for',\n            'switch'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-4-7",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-4-7.js",
+    "description": "Allow reserved words as property names by set function within an object, verified with hasOwnProperty: while, debugger, function",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set while(value){\n                test0 = value;\n            },\n            get while(){\n                return test0\n            },\n            set debugger(value){\n                test1 = value;\n            },\n            get debugger(){\n                return test1;\n            },\n            set function(value){\n                test2 = value;\n            },\n            get function(){\n                return test2;\n            }\n        };      \n        var arr = [\n            'while' ,\n            'debugger', \n            'function'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-4-8",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-4-8.js",
+    "description": "Allow reserved words as property names by set function within an object, verified with hasOwnProperty: this, with, default",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set this(value){\n                test0 = value;\n            },\n            get this(){\n                return test0;\n            },\n            set with(value){\n                test1 = value;\n            },\n            get with(){\n                return test1;\n            },\n            set default(value){\n                test2 = value;\n            },\n            get default(){\n                return test2;\n            }\n        };      \n        var arr = [\n            'this', \n            'with', \n            'default'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-4-9",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-4-9.js",
+    "description": "Allow reserved words as property names by set function within an object, verified with hasOwnProperty: if, throw, delete",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set if(value){\n                test0 = value;\n            },\n            get if(){\n                return test0;\n            },\n            set throw(value){\n                test1 = value;\n            },\n            get throw(){\n                return test1\n            },\n            set delete(value){\n                test2 = value;\n            },\n            get delete(){\n                return test2;\n            }\n        };      \n        var arr = [\n            'if', \n            'throw', \n            'delete'\n            ];\n        for(var p in tokenCodes) {       \n            for(var p1 in arr) {                \n                if(arr[p1] === p) {\n                    if(!tokenCodes.hasOwnProperty(arr[p1])) {\n                        return false;\n                    };\n                }\n            }\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-5-1",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-5-1.js",
+    "description": "Allow reserved words as property names at object initialization, accessed via indexing: null, true, false",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = { \n            null: 0,\n            true: 1,\n            false: 2\n        };\n        var arr = [\n            'null',\n            'true',\n            'false'\n        ];  \n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-5-10",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-5-10.js",
+    "description": "Allow reserved words as property names at object initialization, accessed via indexing: in, try, class",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = { \n            in: 0, \n            try: 1,\n            class: 2\n        };\n        var arr = [\n            'in', \n            'try',\n            'class'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-5-11",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-5-11.js",
+    "description": "Allow reserved words as property names at object initialization, accessed via indexing: enum, extends, super",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {\n            enum: 0,\n            extends: 1,\n            super: 2\n        };\n        var arr = [\n            'enum',\n            'extends',\n            'super'\n        ];  \n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-5-12",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-5-12.js",
+    "description": "Allow reserved words as property names at object initialization, accessed via indexing: const, export, import",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {\n            const : 0,\n            export: 1,\n            import: 2\n        };\n        var arr = [\n            'const',\n            'export',\n            'import'\n        ]; \n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-5-13",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-5-13.js",
+    "description": "Allow reserved words as property names at object initialization, accessed via indexing: implements, let, private",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {\n            implements: 0,\n            let: 1,\n            private: 2\n        };\n        var arr = [\n            'implements',\n            'let',\n            'private'\n        ];   \n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-5-14",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-5-14.js",
+    "description": "Allow reserved words as property names at object initialization, accessed via indexing: public, yield, interface",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {\n            public: 0,\n            yield: 1,\n            interface: 2\n        };\n        var arr = [\n            'public',\n            'yield',\n            'interface'\n        ]; \n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-5-15",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-5-15.js",
+    "description": "Allow reserved words as property names at object initialization, accessed via indexing: package, protected, static",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {\n            package: 0,\n            protected: 1,\n            static: 2\n        };\n        var arr = [\n            'package',\n            'protected',\n            'static'\n        ];  \n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-5-16",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-5-16.js",
+    "description": "Allow reserved words as property names at object initialization, accessed via indexing: undefined, NaN, Infinity",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {\n            undefined: 0,\n            NaN: 1,\n            Infinity: 2\n        };\n        var arr = [\n            'undefined',\n            'NaN',\n            'Infinity'\n        ]; \n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-5-2",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-5-2.js",
+    "description": "Allow reserved words as property names at object initialization, accessed via indexing: break, case, do",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = { \n            break: 0,\n            case: 1,\n            do: 2\n        };\n        var arr = [\n            'break',\n            'case',\n            'do'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-5-3",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-5-3.js",
+    "description": "Allow reserved words as property names at object initialization, accessed via indexing: instanceof, typeof, else",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = { \n            instanceof: 0,\n            typeof: 1,\n            else: 2\n        };\n        var arr = [\n            'instanceof',\n            'typeof',\n            'else'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-5-4",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-5-4.js",
+    "description": "Allow reserved words as property names at object initialization, accessed via indexing: new, var, catch",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = { \n            new: 0,\n            var: 1,\n            catch: 2\n        };\n        var arr = [\n            'new', \n            'var', \n            'catch'\n        ]; \n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-5-5",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-5-5.js",
+    "description": "Allow reserved words as property names at object initialization, accessed via indexing: finally, return, void",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = { \n            finally: 0,\n            return: 1,\n            void: 2\n        };\n        var arr = [ \n            'finally', \n            'return', \n            'void'\n        ];  \n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-5-6",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-5-6.js",
+    "description": "Allow reserved words as property names at object initialization, accessed via indexing: continue, for, switch",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = { \n            continue: 0, \n            for: 1, \n            switch: 2\n        };\n        var arr = [\n            'continue', \n            'for',\n            'switch'\n        ];  \n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-5-7",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-5-7.js",
+    "description": "Allow reserved words as property names at object initialization, accessed via indexing: while, debugger, function",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = { \n            while: 0, \n            debugger: 1, \n            function: 2\n        };\n        var arr = [ \n            'while' ,\n            'debugger', \n            'function'\n        ];    \n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-5-8",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-5-8.js",
+    "description": "Allow reserved words as property names at object initialization, accessed via indexing: this, with, default",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {       \n            this: 0,  \n            with: 1, \n            default: 2\n        };\n        var arr = [ \n            'this', \n            'with', \n            'default'\n        ]; \n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-5-9",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-5-9.js",
+    "description": "Allow reserved words as property names at object initialization, accessed via indexing: if, throw, delete",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = { \n            if: 0, \n            throw: 1, \n            delete: 2\n        };\n        var arr = [\n            'if', \n            'throw', \n            'delete'\n        ];   \n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-6-1",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-6-1.js",
+    "description": "Allow reserved words as property names by dot operator assignment, accessed via indexing: null, true, false",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.null = 0;\n\t    tokenCodes.true = 1;\n\t    tokenCodes.false = 2; \n        var arr = [\n            'null',\n            'true',\n            'false'\n         ];\n         for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-6-10",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-6-10.js",
+    "description": "Allow reserved words as property names by dot operator assignment, accessed via indexing: in, try, class",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.in = 0;\n        tokenCodes.try = 1;\n        tokenCodes.class = 2;\n        var arr = [\n            'in', \n            'try',\n            'class'\n         ];\n         for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-6-11",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-6-11.js",
+    "description": "Allow reserved words as property names by dot operator assignment, accessed via indexing: enum, extends, super",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.enum = 0;\n        tokenCodes.extends = 1;\n        tokenCodes.super = 2;\n        var arr = [\n            'enum',\n            'extends',\n            'super'\n         ];\n         for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-6-12",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-6-12.js",
+    "description": "Allow reserved words as property names by dot operator assignment, accessed via indexing: const, export, import",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.const = 0;\n        tokenCodes.export = 1;\n        tokenCodes.import = 2;\n        var arr = [\n            'const',\n            'export',\n            'import'\n         ];\n         for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-6-13",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-6-13.js",
+    "description": "Allow reserved words as property names by dot operator assignment, accessed via indexing: implements, let, private",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.implements = 0;\n        tokenCodes.let = 1;\n        tokenCodes.private = 2;\n        var arr = [\n            'implements',\n            'let',\n            'private'\n         ];\n         for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-6-14",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-6-14.js",
+    "description": "Allow reserved words as property names by dot operator assignment, accessed via indexing: public, yield, interface",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.public = 0;\n        tokenCodes.yield = 1;\n        tokenCodes.interface = 2;\n        var arr = [\n            'public',\n            'yield',\n            'interface'\n         ];\n         for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-6-15",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-6-15.js",
+    "description": "Allow reserved words as property names by dot operator assignment, accessed via indexing: package, protected, static",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.package = 0;\n        tokenCodes.protected = 1;\n        tokenCodes.static = 2;\n        var arr = [\n            'package',\n            'protected',\n            'static' \n         ];\n         for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-6-16",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-6-16.js",
+    "description": "Allow reserved words as property names by dot operator assignment, accessed via indexing: undefined, NaN, Infinity",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.undefined = 0;\n        tokenCodes.NaN = 1;\n        tokenCodes.Infinity = 2;\n        var arr = [\n            'undefined',\n            'NaN',\n            'Infinity'\n         ];\n         for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-6-2",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-6-2.js",
+    "description": "Allow reserved words as property names by dot operator assignment, accessed via indexing: break, case, do",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes.break = 0;  \t\n        tokenCodes.case = 1;\n        tokenCodes.do = 2;\n        var arr = [\n            'break',\n            'case',\n            'do'\n         ];\n         for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-6-3",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-6-3.js",
+    "description": "Allow reserved words as property names by dot operator assignment, accessed via indexing: instanceof, typeof, else",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.instanceof = 0;\n        tokenCodes.typeof = 1;\n        tokenCodes.else = 2;\n        var arr = [\n            'instanceof',\n            'typeof',\n            'else'\n         ];\n         for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-6-4",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-6-4.js",
+    "description": "Allow reserved words as property names by dot operator assignment, accessed via indexing: new, var, catch",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.new = 0;\n        tokenCodes.var = 1;\n        tokenCodes.catch = 2;\n        var arr = [\n            'new', \n            'var', \n            'catch'\n         ];\n         for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-6-5",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-6-5.js",
+    "description": "Allow reserved words as property names by dot operator assignment, accessed via indexing: finally, return, void",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.finally = 0;\n        tokenCodes.return = 1;\n        tokenCodes.void = 2;\n        var arr = [\n            'finally', \n            'return', \n            'void'\n         ];\n         for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-6-6",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-6-6.js",
+    "description": "Allow reserved words as property names by dot operator assignment, accessed via indexing: continue, for, switch",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.continue = 0;\n        tokenCodes.for = 1; \n        tokenCodes.switch = 2;\n        var arr = [\n            'continue', \n            'for',\n            'switch'\n         ];\n         for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-6-7",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-6-7.js",
+    "description": "Allow reserved words as property names by dot operator assignment, accessed via indexing: while, debugger, function",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.while = 0; \n        tokenCodes.debugger = 1;\n        tokenCodes.function = 2; \n        var arr = [\n            'while' ,\n            'debugger', \n            'function'\n         ];\n         for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-6-8",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-6-8.js",
+    "description": "Allow reserved words as property names by dot operator assignment, accessed via indexing: this, with, default",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.this = 0; \n        tokenCodes.with = 1; \n        tokenCodes.default = 2;\n        var arr = [\n            'this', \n            'with', \n            'default'\n         ];\n         for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n",
+    "precondition": "(true; return true)"
+   },
+   {
+    "id": "7.6.1-6-9",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-6-9.js",
+    "description": "Allow reserved words as property names by dot operator assignment, accessed via indexing: if, throw, delete",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes  = {};\n        tokenCodes.if = 0;\n        tokenCodes.throw = 1;\n        tokenCodes.delete = 2;\n        var arr = [\n            'if', \n            'throw', \n            'delete'\n         ];\n         for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-7-1",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-7-1.js",
+    "description": "Allow reserved words as property names by index assignment, accessed via indexing: null, true, false",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes['null'] = 0;\n        tokenCodes['true'] = 1;\n        tokenCodes['false'] = 2;        \n        var arr = [\n            'null',\n            'true',\n            'false'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-7-10",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-7-10.js",
+    "description": "Allow reserved words as property names by index assignment, accessed via indexing: in, try, class",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes['in'] = 0;\n        tokenCodes['try'] = 1;\n        tokenCodes['class'] = 2;\n        var arr = [\n            'in',\n            'try',\n            'class'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-7-11",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-7-11.js",
+    "description": "Allow reserved words as property names by index assignment, accessed via indexing: enum, extends, super",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes['enum'] = 0;\n        tokenCodes['extends'] = 1;\n        tokenCodes['super'] = 2;      \n        var arr = [\n            'enum',\n            'extends',\n            'super'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-7-12",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-7-12.js",
+    "description": "Allow reserved words as property names by index assignment, accessed via indexing: const, export, import",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes['const'] = 0;\n        tokenCodes['export'] = 1;\n        tokenCodes['import'] = 2;      \n        var arr = [\n            'const',\n            'export',\n            'import'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-7-13",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-7-13.js",
+    "description": "Allow reserved words as property names by index assignment, accessed via indexing: implements, let, private",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes['implements'] = 0;\n        tokenCodes['let'] = 1;\n        tokenCodes['private'] = 2;     \n        var arr = [\n            'implements',\n            'let',\n            'private'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-7-14",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-7-14.js",
+    "description": "Allow reserved words as property names by index assignment, accessed via indexing: public, yield, interface",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes['public'] = 0;\n        tokenCodes['yield'] = 1;\n        tokenCodes['interface'] = 2; \n        var arr = [\n            'public',\n            'yield',\n            'interface'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-7-15",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-7-15.js",
+    "description": "Allow reserved words as property names by index assignment, accessed via indexing: package, protected, static",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes['package'] = 0;\n        tokenCodes['protected'] = 1;\n        tokenCodes['static'] = 2;    \n        var arr = [\n            'package',\n            'protected',\n            'static' \n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-7-16",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-7-16.js",
+    "description": "Allow reserved words as property names by index assignment, accessed via indexing: undefined, NaN, Infinity",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes['undefined'] = 0;\n        tokenCodes['NaN'] = 1;\n        tokenCodes['Infinity'] = 2;     \n        var arr = [\n            'undefined',\n            'NaN',\n            'Infinity'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-7-2",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-7-2.js",
+    "description": "Allow reserved words as property names by index assignment, accessed via indexing: break, case, do",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes['break'] = 0;\n        tokenCodes['case'] = 1;\n        tokenCodes['do'] = 2;     \n        var arr = [\n            'break',\n            'case',\n            'do'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-7-3",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-7-3.js",
+    "description": "Allow reserved words as property names by index assignment, accessed via indexing: instanceof, typeof, else",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes['instanceof'] = 0;\n        tokenCodes['typeof'] = 1;\n        tokenCodes['else'] = 2;     \n        var arr = [\n            'instanceof',\n            'typeof',\n            'else'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-7-4",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-7-4.js",
+    "description": "Allow reserved words as property names by index assignment, accessed via indexing: new, var, catch",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes['new'] = 0;\n        tokenCodes['var'] = 1;\n        tokenCodes['catch'] = 2;       \n        var arr = [\n            'new',\n            'var',\n            'catch'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-7-5",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-7-5.js",
+    "description": "Allow reserved words as property names by index assignment, accessed via indexing: finally, return, void",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes['finally'] = 0;\n        tokenCodes['return'] = 1;\n        tokenCodes['void'] = 2;      \n        var arr = [\n            'finally',\n            'return',\n            'void'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-7-6",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-7-6.js",
+    "description": "Allow reserved words as property names by index assignment, accessed via indexing: continue, for, switch",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes['continue'] = 0;\n        tokenCodes['for'] = 1;\n        tokenCodes['switch'] = 2;     \n        var arr = [\n            'continue',\n            'for',\n            'switch'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-7-7",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-7-7.js",
+    "description": "Allow reserved words as property names by index assignment, accessed via indexing: while, debugger, function",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes['while'] = 0;\n        tokenCodes['debugger'] = 1;\n        tokenCodes['function'] = 2; \n        var arr = [\n            'while',\n            'debugger',\n            'function'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-7-8",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-7-8.js",
+    "description": "Allow reserved words as property names by index assignment, accessed via indexing: this, with, default",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes['this'] = 0;\n        tokenCodes['with'] = 1;\n        tokenCodes['default'] = 2;   \n        var arr = [\n            'this',\n            'with',\n            'default'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-7-9",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-7-9.js",
+    "description": "Allow reserved words as property names by index assignment, accessed via indexing: if, throw, delete",
+    "test": "assertTrue((function testcase() {\n        var tokenCodes = {};\n        tokenCodes['if'] = 0;\n        tokenCodes['throw'] = 1;\n        tokenCodes['delete'] = 2;      \n        var arr = [\n            'if',\n            'throw',\n            'delete'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-8-1",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-8-1.js",
+    "description": "Allow reserved words as property names by set function within an object, accessed via indexing: null, true, false",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set null(value) {\n                test0 = value;        \n            },\n            get null() {\n                return test0;\n            },\n            set true(value) {\n                test1 = value;        \n            },\n            get true() {\n                return test1;\n            },\n            set false(value) {\n                test2 = value;        \n            },\n            get false(){\n                return test2;\n            }\n        }; \n        var arr = [\n            'null',\n            'true',\n            'false'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-8-10",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-8-10.js",
+    "description": "Allow reserved words as property names by set function within an object, accessed via indexing: in, try, class",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set in(value){\n                test0 = value;\n            },\n            get in(){\n                return test0;\n            },\n            set try(value){\n                test1 = value;\n            },\n            get try(){\n                return test1\n            },\n            set class(value){\n                test2 = value;\n            },\n            get class(){\n                return test2;\n            }\n        }; \n        var arr = [\n            'in', \n            'try',\n            'class'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-8-11",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-8-11.js",
+    "description": "Allow reserved words as property names by set function within an object, accessed via indexing: enum, extends, super",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set enum(value){\n                test0 = value;\n            },\n            get enum(){\n                return test0;\n            },\n            set extends(value){\n                test1 = value;\n            },\n            get extends(){\n                return test1;\n            },\n            set super(value){\n                test2 = value;\n            }, \n            get super(){\n                return test2;\n            }\n        }; \n        var arr = [\n            'enum',\n            'extends',\n            'super'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-8-12",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-8-12.js",
+    "description": "Allow reserved words as property names by set function within an object, accessed via indexing: const, export, import",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set const(value){\n                test0 = value;\n            },\n            get const(){\n                return test0;\n            },\n            set export(value){\n                test1 = value;\n            },\n            get export(){\n                return test1\n            },\n            set import(value){\n                test2 = value;\n            },\n            get import(){\n                return test2\n            }\n        }; \n        var arr = [\n            'const',\n            'export',\n            'import'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-8-13",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-8-13.js",
+    "description": "Allow reserved words as property names by set function within an object, accessed via indexing: implements, let, private",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set implements(value){\n                test0 = value;\n            },\n            get implements(){\n                return test0;\n            },\n            set let(value){\n                test1 = value;\n            },\n            get let(){\n                return test1\n            },\n            set private(value){\n                test2 = value;\n            },\n            get private(){\n                return test2;\n            }\n        }; \n        var arr = [\n            'implements',\n            'let',\n            'private'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-8-14",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-8-14.js",
+    "description": "Allow reserved words as property names by set function within an object, accessed via indexing: public, yield, interface",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set public(value){\n                test0 = value;\n            },\n            get public(){\n                return test0;\n            },\n            set yield(value){\n                test1 = value;\n            },\n            get yield(){\n                return test1;\n            },\n            set interface(value){\n                test2 = value;\n            },\n            get interface(){\n                return test2;\n            }\n        }; \n        var arr = [\n            'public',\n            'yield',\n            'interface'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-8-15",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-8-15.js",
+    "description": "Allow reserved words as property names by set function within an object, accessed via indexing: package, protected, static",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set package(value){\n                test0 = value;\n            },\n            get package(){\n                return test0;\n            },\n            set protected(value){\n                test1 = value;\n            },\n            get protected(){\n                return test1\n            },\n            set static(value){\n                test2 = value;\n            },\n            get static(){\n                return test2;\n            }\n        }; \n        var arr = [\n            'package',\n            'protected',\n            'static'  \n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-8-16",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-8-16.js",
+    "description": "Allow reserved words as property names by set function within an object, accessed via indexing: undefined, NaN, Infinity",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set undefined(value){\n                test0 = value;\n            },\n            get undefined(){\n                return test0;\n            },\n            set NaN(value){\n                test1 = value;\n            },\n            get NaN(){\n                return test1;\n            },\n            set Infinity(value){\n                test2 = value;\n            },\n            get Infinity(){\n                return test2;\n            }\n        }; \n        var arr = [\n            'undefined',\n            'NaN',\n            'Infinity'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-8-2",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-8-2.js",
+    "description": "Allow reserved words as property names by set function within an object, accessed via indexing: break, case, do",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set break(value){\n                test0 = value;        \n            },\n            get break(){\n                return test0;\n            },\n            set case(value){\n                test1 = value;\n            },\n            get case(){\n                return test1;\n            },\n            set do(value){\n                test2 = value;\n            },\n            get do(){\n                return test2;\n            }\n        }; \n        var arr = [\n            'break',\n            'case',\n            'do'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-8-3",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-8-3.js",
+    "description": "Allow reserved words as property names by set function within an object, accessed via indexing: instanceof, typeof, else",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set instanceof(value){\n                test0 = value;\n            },\n            get instanceof(){\n                return test0;\n            },\n            set typeof(value){\n                test1 = value;\n            },\n            get typeof(){\n                return test1;\n            },\n            set else(value){\n                test2 = value;\n            },\n            get else(){\n                return test2;\n            }\n        }; \n        var arr = [\n            'instanceof',\n            'typeof',\n            'else'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-8-4",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-8-4.js",
+    "description": "Allow reserved words as property names by set function within an object, accessed via indexing: new, var, catch",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set new(value){\n                test0 = value;\n            },\n            get new(){\n                return test0;\n            },\n            set var(value){\n                test1 = value;\n            },\n            get var(){\n                return test1;\n            },\n            set catch(value){\n                test2 = value;\n            },\n            get catch(){\n                return test2;\n            }\n        }; \n        var arr = [\n            'new', \n            'var', \n            'catch'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-8-5",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-8-5.js",
+    "description": "Allow reserved words as property names by set function within an object, accessed via indexing: finally, return, void",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set finally(value){\n                test0 = value;\n            },\n            get finally(){\n                return test0;\n            },\n            set return(value){\n                test1 = value;\n            },\n            get return(){\n                return test1;\n            },\n            set void(value){\n                test2 = value;\n            },\n            get void(){\n                return test2;\n            }\n        }; \n        var arr = [\n            'finally', \n            'return', \n            'void'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-8-6",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-8-6.js",
+    "description": "Allow reserved words as property names by set function within an object, accessed via indexing: continue, for, switch",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set continue(value){\n                test0 = value;\n            },\n            get continue(){\n                return test0;\n            },\n            set for(value){\n                test1 = value;\n            },\n            get for(){\n                return test1;\n            },\n            set switch(value){\n                test2 = value;\n            },\n            get switch(){\n                return test2;\n            }\n        }; \n        var arr = [\n            'continue', \n            'for',\n            'switch'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-8-7",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-8-7.js",
+    "description": "Allow reserved words as property names by set function within an object, accessed via indexing: while, debugger, function",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set while(value){\n                test0 = value;\n            },\n            get while(){\n                return test0\n            },\n            set debugger(value){\n                test1 = value;\n            },\n            get debugger(){\n                return test1;\n            },\n            set function(value){\n                test2 = value;\n            },\n            get function(){\n                return test2;\n            }\n        }; \n        var arr = [\n            'while' ,\n            'debugger', \n            'function'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-8-8",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-8-8.js",
+    "description": "Allow reserved words as property names by set function within an object, accessed via indexing: this, with, default",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set this(value){\n                test0 = value;\n            },\n            get this(){\n                return test0;\n            },\n            set with(value){\n                test1 = value;\n            },\n            get with(){\n                return test1;\n            },\n            set default(value){\n                test2 = value;\n            },\n            get default(){\n                return test2;\n            }\n        }; \n        var arr = [\n            'this', \n            'with', \n            'default'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   },
+   {
+    "id": "7.6.1-8-9",
+    "path": "TestCases/chapter07/7.6/7.6.1/7.6.1-8-9.js",
+    "description": "Allow reserved words as property names by set function within an object, accessed via indexing: if, throw, delete",
+    "test": "assertTrue((function testcase() {\n        var test0 = 0, test1 = 1, test2 = 2;\n        var tokenCodes  = {\n            set if(value){\n                test0 = value;\n            },\n            get if(){\n                return test0;\n            },\n            set throw(value){\n                test1 = value;\n            },\n            get throw(){\n                return test1\n            },\n            set delete(value){\n                test2 = value;\n            },\n            get delete(){\n                return test2;\n            }\n        }; \n        var arr = [\n            'if', \n            'throw', \n            'delete'\n        ];\n        for (var i = 0; i < arr.length; i++) {\n            if (tokenCodes[arr[i]] !== i) {\n                return false;\n            };\n        }\n        return true;\n    }).call(this));\n"
+   }
+  ]
+ }
+}

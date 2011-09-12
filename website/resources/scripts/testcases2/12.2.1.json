@@ -1,0 +1,146 @@
+{
+ "testCollection": {
+  "name": "12.2.1",
+  "numTests": 18,
+  "tests": [
+   {
+    "id": "12.2.1-1-s",
+    "path": "TestCases/chapter12/12.2/12.2.1/12.2.1-1-s.js",
+    "description": "eval - a function declaring a var named 'eval' throws SyntaxError in strict mode",
+    "test": "assertTrue((function testcase() {\n  'use strict';\n\n  try {\n    eval('function foo() { var eval; }');\n    return false;\n  }\n  catch (e) {\n    return (e instanceof SyntaxError);\n  }\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "12.2.1-10-s",
+    "path": "TestCases/chapter12/12.2/12.2.1/12.2.1-10-s.js",
+    "description": "Strict Mode: an indirect eval assigning into 'eval' does not throw",
+    "test": "assertTrue((function testcase() {\n  'use strict';\n  var s = eval;\n  s('eval = 42;');\n  return true;\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "12.2.1-11",
+    "path": "TestCases/chapter12/12.2/12.2.1/12.2.1-11.js",
+    "description": "arguments as var identifier in eval code is allowed",
+    "test": "assertTrue((function testcase() {\n    eval(\"var arguments;\");\n    return true;\n }).call(this));\n"
+   },
+   {
+    "id": "12.2.1-12-s",
+    "path": "TestCases/chapter12/12.2/12.2.1/12.2.1-12-s.js",
+    "description": "arguments as local var identifier throws SyntaxError in strict mode",
+    "test": "assertTrue((function testcase() {\n  'use strict';\n\n  try {\n    eval('function foo() { var arguments;}');\n    return false;\n  }\n  catch (e) {\n    return (e instanceof SyntaxError);\n  }\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "12.2.1-12",
+    "path": "TestCases/chapter12/12.2/12.2.1/12.2.1-12.js",
+    "description": "arguments as local var identifier is allowed",
+    "test": "assertTrue((function testcase() {\n    eval(\"(function (){var arguments;})\");\n    return true;\n }).call(this));\n"
+   },
+   {
+    "id": "12.2.1-13-s",
+    "path": "TestCases/chapter12/12.2/12.2.1/12.2.1-13-s.js",
+    "description": "arguments assignment throws SyntaxError in strict mode",
+    "test": "assertTrue((function testcase() {\n  'use strict';\n\n  try {\n    eval('function foo() { arguments = 42; }; foo()');\n    return false;\n  }\n  catch (e) {\n    return (e instanceof SyntaxError);\n  }\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "12.2.1-2-s",
+    "path": "TestCases/chapter12/12.2/12.2.1/12.2.1-2-s.js",
+    "description": "eval - a function assigning into 'eval' throws SyntaxError in strict mode",
+    "test": "assertTrue((function testcase() {\n  'use strict';\n\n  try {\n    eval('function foo() { eval = 42; }; foo()');\n    return false;\n  }\n  catch (e) {\n    return (e instanceof SyntaxError);\n  }\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "12.2.1-3-s",
+    "path": "TestCases/chapter12/12.2/12.2.1/12.2.1-3-s.js",
+    "description": "eval - a function expr declaring a var named 'eval' throws SyntaxError in strict mode",
+    "test": "assertTrue((function testcase() {\n  'use strict';\n\n  try {\n    eval('(function () { var eval; })');\n    return false;\n  }\n  catch (e) {\n    return (e instanceof SyntaxError);\n  }\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "12.2.1-34-s",
+    "path": "TestCases/chapter12/12.2/12.2.1/12.2.1-34-s.js",
+    "description": "'for(var eval in ...) {...}' throws SyntaxError in strict mode",
+    "test": "assertTrue((function testcase() {\n  'use strict';\n\n  try {\n    eval('for (var eval in null) {};');\n    return false;\n  }\n  catch (e) {\n    return (e instanceof SyntaxError);\n  }\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "12.2.1-35-s",
+    "path": "TestCases/chapter12/12.2/12.2.1/12.2.1-35-s.js",
+    "description": "'for(var eval = 42 in ...) {...}' throws SyntaxError in strict mode",
+    "test": "assertTrue((function testcase() {\n  'use strict';\n\n  try {\n    eval('for (var eval = 42 in null) {};');\n    return false;\n  }\n  catch (e) {\n    return (e instanceof SyntaxError);\n  }\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "12.2.1-36-s",
+    "path": "TestCases/chapter12/12.2/12.2.1/12.2.1-36-s.js",
+    "description": "'for(var arguments in ...) {...}' throws SyntaxError in strict mode",
+    "test": "assertTrue((function testcase() {\n  'use strict';\n\n  try {\n    eval('for (var arguments in null) {};');\n    return false;\n  }\n  catch (e) {\n    return (e instanceof SyntaxError);\n  }\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "12.2.1-37-s",
+    "path": "TestCases/chapter12/12.2/12.2.1/12.2.1-37-s.js",
+    "description": "'for(var arguments = 42 in ...) {...}' throws SyntaxError in strict mode",
+    "test": "assertTrue((function testcase() {\n  'use strict';\n\n  try {\n    eval('for (var arguments = 42 in null) {};');\n    return false;\n  }\n  catch (e) {\n    return (e instanceof SyntaxError);\n  }\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "12.2.1-4-s",
+    "path": "TestCases/chapter12/12.2/12.2.1/12.2.1-4-s.js",
+    "description": "eval - a function expr assigning into 'eval' throws a SyntaxError in strict mode",
+    "test": "assertTrue((function testcase() {\n  'use strict';\n\n  try {\n    eval('(function () { eval = 42; })()');\n    return false;\n  }\n  catch (e) {\n    return (e instanceof SyntaxError);\n  }\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "12.2.1-5-s",
+    "path": "TestCases/chapter12/12.2/12.2.1/12.2.1-5-s.js",
+    "description": "Strict Mode - a Function declaring var named 'eval' does not throw SyntaxError",
+    "test": "assertTrue((function testcase() {\n        'use strict';\n        Function('var eval;');\n        return true;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "12.2.1-6-s",
+    "path": "TestCases/chapter12/12.2/12.2.1/12.2.1-6-s.js",
+    "description": "eval - a Function assigning into 'eval' will not throw any error if contained within strict mode and its body does not start with strict mode",
+    "test": "assertTrue((function testcase() {\n  'use strict';\n  \n    var f = Function('eval = 42;');\n    f();\n    return true;\n }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "12.2.1-7-s",
+    "path": "TestCases/chapter12/12.2/12.2.1/12.2.1-7-s.js",
+    "description": "eval - a direct eval declaring a var named 'eval' throws SyntaxError in strict mode",
+    "test": "assertTrue((function testcase() {\n  'use strict';\n\n  try {\n    eval('var eval;');\n    return false;\n  }\n  catch (e) {\n    return (e instanceof SyntaxError);\n  }\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "12.2.1-8-s",
+    "path": "TestCases/chapter12/12.2/12.2.1/12.2.1-8-s.js",
+    "description": "eval - a direct eval assigning into 'eval' throws SyntaxError in strict mode",
+    "test": "assertTrue((function testcase() {\n  'use strict';\n\n  try {\n    eval('eval = 42;');\n    return false;\n  }\n  catch (e) {\n    return (e instanceof SyntaxError) ;\n  }\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "12.2.1-9-s",
+    "path": "TestCases/chapter12/12.2/12.2.1/12.2.1-9-s.js",
+    "description": "Strict Mode: an indirect eval declaring a var named 'eval' does not throw",
+    "test": "assertTrue((function testcase() {\n  'use strict';\n  var s = eval;\n  s('var eval;');\n  return true;\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   }
+  ]
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "testCollection": {
+  "name": "15.9.5.44",
+  "numTests": 2,
+  "tests": [
+   {
+    "id": "15.9.5.44-0-1",
+    "path": "TestCases/chapter15/15.9/15.9.5/15.9.5.44/15.9.5.44-0-1.js",
+    "description": "Date.prototype.toJSON must exist as a function",
+    "test": "assertTrue((function testcase() {\n  var f = Date.prototype.toJSON;\n  if (typeof(f) === \"function\") {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "15.9.5.44-0-2",
+    "path": "TestCases/chapter15/15.9/15.9.5/15.9.5.44/15.9.5.44-0-2.js",
+    "description": "Date.prototype.toJSON must exist as a function taking 1 parameter",
+    "test": "assertTrue((Date.prototype.toJSON.length === 1));\n",
+    "precondition": "(fnExists(Date.prototype.toJSON))"
+   }
+  ]
+ }
+}

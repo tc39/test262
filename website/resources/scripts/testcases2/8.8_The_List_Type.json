@@ -1,0 +1,26 @@
+{
+ "testCollection": {
+  "name": "8.8_The_List_Type",
+  "numTests": 3,
+  "tests": [
+   {
+    "section": "8.8",
+    "description": "Call function __mFunc(1,2,3) with 3 arguments",
+    "test": "function __mFunc(){return arguments.length;};\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__mFunc(1,2,3) !== 3){\n  $ERROR('#1: function __mFunc(){return arguments.length;}; __mFunc(1,2,3) === 3. Actual: ' + (__mFunc(1,2,3)));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S8.8_A2_T1"
+   },
+   {
+    "section": "8.8",
+    "description": "Call function __mFunc([,,]) with 1 arguments",
+    "test": "function __mFunc(){return arguments.length;};\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__mFunc([,,]) !== 1){\n  $ERROR('#1: function __mFunc(){return arguments.length;}; __mFunc([,,]) === 1. Actual: ' + (__mFunc([,,])));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S8.8_A2_T2"
+   },
+   {
+    "section": "8.8",
+    "description": "Call function, that concatenate all it`s arguments",
+    "test": "function __mFunc(){var __accum=\"\"; for (var i = 0; i < arguments.length; ++i){__accum += arguments[i]};return __accum;};\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__mFunc(\"A\",\"B\",\"C\",\"D\",\"E\",\"F\") !== \"ABCDEF\"){\n  $ERROR('#1: function __mFunc(){var __accum=\"\"; for (var i = 0; i < arguments.length; ++i){__accum += arguments[i]};return __accum;}; __mFunc(\"A\",\"B\",\"C\",\"D\",\"E\",\"F\") === \"ABCDEF\". Actual: ' + (__mFunc(\"A\",\"B\",\"C\",\"D\",\"E\",\"F\")));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S8.8_A2_T3"
+   }
+  ]
+ }
+}

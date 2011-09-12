@@ -1,0 +1,146 @@
+{
+ "testCollection": {
+  "name": "15.5.4.8_String.prototype.lastIndexOf",
+  "numTests": 23,
+  "tests": [
+   {
+    "section": "15.5.4.8",
+    "description": "Checking if varying the String.prototype.lastIndexOf.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(String.prototype.lastIndexOf.hasOwnProperty('length'))) {\n  $FAIL('#1: String.prototype.lastIndexOf.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.lastIndexOf.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar __obj = String.prototype.lastIndexOf.length;\n\nString.prototype.lastIndexOf.length = function(){return \"shifted\";};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (String.prototype.lastIndexOf.length !== __obj) {\n  $ERROR('#2: __obj = String.prototype.lastIndexOf.length; String.prototype.lastIndexOf.length = function(){return \"shifted\";}; String.prototype.lastIndexOf.length === __obj. Actual: '+String.prototype.lastIndexOf.length );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.8_A10"
+   },
+   {
+    "section": "15.5.4.8",
+    "description": "Checking String.prototype.lastIndexOf.length",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(String.prototype.lastIndexOf.hasOwnProperty(\"length\"))) {\n  $ERROR('#1: String.prototype.lastIndexOf.hasOwnProperty(\"length\") return true. Actual: '+String.prototype.lastIndexOf.hasOwnProperty(\"length\"));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (String.prototype.lastIndexOf.length !== 1) {\n  $ERROR('#2: String.prototype.lastIndexOf.length === 1. Actual: '+String.prototype.lastIndexOf.length );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.8_A11"
+   },
+   {
+    "section": "15.5.4.8",
+    "description": "Arguments are false and true, and instance is object",
+    "test": "var __instance = new Object(true);\n\n__instance.lastIndexOf = String.prototype.lastIndexOf;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.lastIndexOf(true, false) !== 0) {\n  $ERROR('#1: __instance = new Object(true); __instance.lastIndexOf = String.prototype.lastIndexOf;  __instance.lastIndexOf(true, false) === 0. Actual: '+__instance.lastIndexOf(true, false) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.8_A1_T1"
+   },
+   {
+    "section": "15.5.4.8",
+    "description": "Call lastIndexOf(searchString, position) function with object arguments",
+    "test": "var __obj = {toString:function(){return \"\\u0041B\";}}\nvar __obj2 = {valueOf:function(){return NaN;}}\nvar __str = \"ABB\\u0041BABAB\";\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nwith(__str){\n  if (lastIndexOf(__obj, __obj2) !== 7) {\n    $ERROR('#1: var x; var __obj = {toString:function(){return \"\\u0041B\";}}; var __obj2 = {valueOf:function(){return NaN;}}; var __str = \"ABB\\u0041BABAB\";lastIndexOf(__obj, __obj2) === 7. Actual: '+lastIndexOf(__obj, __obj2) );\n  }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar x;\n",
+    "id": "S15.5.4.8_A1_T10"
+   },
+   {
+    "section": "15.5.4.8",
+    "description": "Instance is Date(0) object",
+    "test": "var __instance = new Date(100000000);\n\n__instance.lastIndexOf = String.prototype.lastIndexOf;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif ((__instance.lastIndexOf('1970')) !== 11) {\n  $ERROR('#1: __instance = new Date(0); __instance.lastIndexOf = String.prototype.lastIndexOf;  __instance.lastIndexOf(\\'1970\\') === 11. Actual: '+(__instance.lastIndexOf('1970')) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.8_A1_T11"
+   },
+   {
+    "section": "15.5.4.8",
+    "description": "Argument is string, and instance is array of strings",
+    "test": "var __instance = new Array('new','zoo','revue');\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.lastIndexOf('new') !== 0) {\n  $ERROR('#1: __instance = new Array(\\'new\\',\\'zoo\\',\\'revue\\'); __instance.lastIndexOf(\\'new\\') === 0. Actual: '+__instance.lastIndexOf('new') );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__instance.lastIndexOf('zoo') !== 1) {\n  $ERROR('#2: __instance = new Array(\\'new\\',\\'zoo\\',\\'revue\\'); __instance.lastIndexOf(\\'zoo\\') === 1. Actual: '+__instance.lastIndexOf('zoo') );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.8_A1_T12"
+   },
+   {
+    "section": "15.5.4.8",
+    "description": "Arguments are boolean equation, function and null, and instance is Boolean object",
+    "test": "var __instance = new Boolean;\n\n__instance.lastIndexOf = String.prototype.lastIndexOf;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.lastIndexOf(\"A\"!==\"\\u0041\", function(){return 0;}(),null) !== 0) {\n  $ERROR('#1: __instance = new Boolean; __instance.lastIndexOf = String.prototype.lastIndexOf;  __instance.lastIndexOf(\"A\"!==\"\\\\u0041\", function(){return 0;}(),null) === 0. Actual: '+__instance.lastIndexOf(\"A\"!==\"\\u0041\", function(){return 0;}(),null) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.8_A1_T2"
+   },
+   {
+    "section": "15.5.4.8",
+    "description": "Checking by using eval",
+    "test": "var lastIndexOf = String.prototype.lastIndexOf;\n\nvar __obj__pos = {valueOf:function(){return 7;}};\n\nif (typeof toString === \"undefined\"){\n  var toString = Object.prototype.toString;\n}\n\nvar __class__ = toString();\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (lastIndexOf(eval(\"\\\"[\\\"\"),__obj__pos)!= 0) {\n  $ERROR('#1: lastIndexOf(eval(\"\\\\\"[\\\\\"\"),__obj__pos)== 0. Actual: '+lastIndexOf(eval(\"\\\"[\\\"\"),__obj__pos));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.8_A1_T3"
+   },
+   {
+    "section": "15.5.4.8",
+    "description": "Call lastIndexOf(searchString, position) function without arguments of string",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n//since ToString() evaluates to \"\" lastIndexOf() evaluates to lastIndexOf(\"\",0)\nif (\"\".lastIndexOf() !== -1) {\n  $ERROR('#1: \"\".lastIndexOf() === -1. Actual: '+(\"\".lastIndexOf()) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.8_A1_T4"
+   },
+   {
+    "section": "15.5.4.8",
+    "description": "Call lastIndexOf(searchString, position) function with null argument of function object",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n//since ToString(null) evaluates to \"null\" lastIndexOf(null) evaluates to lastIndexOf(\"\",0)\nif (function(){return \"gnullunazzgnull\"}().lastIndexOf(null) !== 11) {\n  $ERROR('#1: function(){return \"gnullunazzgnull\"}().lastIndexOf(null) === 11. Actual: '+function(){return \"gnullunazzgnull\"}().lastIndexOf(null) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.8_A1_T5"
+   },
+   {
+    "section": "15.5.4.8",
+    "description": "Call lastIndexOf(searchString, position) function with x argument of new String object, where x is undefined variable",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n//since ToString(undefined) evaluates to \"\" lastIndexOf(undefined) evaluates to lastIndexOf(\"\",0)\nif (new String(\"undefined\").lastIndexOf(x) !== 0) {\n  $ERROR('#1: var x; new String(\"undefined\").lastIndexOf(x) === 0. Actual: '+new String(\"undefined\").lastIndexOf(x) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar x;\n",
+    "id": "S15.5.4.8_A1_T6"
+   },
+   {
+    "section": "15.5.4.8",
+    "description": "Call lastIndexOf(searchString, position) function with undefined argument of string object",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n//since ToString(undefined) evaluates to \"undefined\" lastIndexOf(undefined) evaluates to lastIndexOf(\"undefined\",0)\nif (String(\"undefined\").lastIndexOf(undefined) !== 0) {\n  $ERROR('#1: String(\"undefined\").lastIndexOf(undefined) === 0. Actual: '+String(\"undefined\").lastIndexOf(undefined) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.8_A1_T7"
+   },
+   {
+    "section": "15.5.4.8",
+    "description": "Call lastIndexOf(searchString, position) function with void 0 argument of string object",
+    "test": "var __obj = {toString:function(){}};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n//since ToString(void 0) evaluates to \"undefined\" lastIndexOf(void 0) evaluates to lastIndexOf(\"undefined\",0)\nif (String(__obj).lastIndexOf(void 0) !== 0) {\n  $ERROR('#1: __obj = {toString:function(){}}; String(__obj).lastIndexOf(void 0) === 0. Actual: '+String(__obj).lastIndexOf(void 0) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.8_A1_T8"
+   },
+   {
+    "section": "15.5.4.8",
+    "description": "Call lastIndexOf(searchString, position) function with function(){}() argument of string object",
+    "test": "var __obj = {\n  valueOf:function(){},\n  toString:void 0\n};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n//since ToString(undefined) evaluates to \"undefined\" indexOf(undefined) evaluates to indexOf(\"undefined\")\nif (new String(__obj).lastIndexOf(function(){}()) !== 0) {\n  $ERROR('#1: __obj = {valueOf:function(){}, toString:void 0}; new String(__obj).lastIndexOf(function(){}()) === 0. Actual: '+new String(__obj).lastIndexOf(function(){}()) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.8_A1_T9"
+   },
+   {
+    "section": "15.5.4.8",
+    "description": "Override toString and valueOf functions, valueOf throw exception",
+    "test": "var __obj = {toString:function(){return \"\\u0041B\";}}\nvar __obj2 = {valueOf:function(){throw \"intointeger\";}}\nvar __str = {str__:\"ABB\\u0041BABAB\"};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nwith(__str){\n    with(str__){\n        try {\n          var x = lastIndexOf(__obj, __obj2);\n          $FAIL('#1: var x = lastIndexOf(__obj, __obj2) lead to throwing exception');\n        } catch (e) {\n          if (e!==\"intointeger\") {\n            $ERROR('#1.1: Exception === \"intointeger\". Actual: '+e);\n          }\n        }\n    }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.8_A4_T1"
+   },
+   {
+    "section": "15.5.4.8",
+    "description": "Override toString and valueOf functions, second toString throw exception",
+    "test": "var __obj = {toString:function(){return \"\\u0041B\";}}\nvar __obj2 = {valueOf:function(){return {};},toString:function(){throw \"intointeger\";}}\nvar __str = new String(\"ABB\\u0041BABAB\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nwith(__str){\n    try {\n      var x = lastIndexOf(__obj, __obj2);\n      $FAIL('#1: var x = lastIndexOf(__obj, __obj2) lead to throwing exception');\n    } catch (e) {\n      if (e!==\"intointeger\") {\n        $ERROR('#1.1: Exception === \"intointeger\". Actual: '+e);\n      }\n    }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.8_A4_T2"
+   },
+   {
+    "section": "15.5.4.8",
+    "description": "Override toString and valueOf functions",
+    "test": "var __obj = {toString:function(){return \"\\u0041B\";}}\nvar __obj2 = {valueOf:function(){return {};},toString:function(){}}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (\"ABB\\u0041BABAB\".lastIndexOf(__obj, __obj2)!==7) {\n  $ERROR('#1: var __obj = {toString:function(){return \"\\u0041B\";}}; var __obj2 = {valueOf:function(){return {};},toString:function(){}}; \"ABB\\\\u0041BABAB\".lastIndexOf(__obj, __obj2)===7. Actual: '+(\"ABB\\u0041BABAB\".lastIndexOf(__obj, __obj2)));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.8_A4_T3"
+   },
+   {
+    "section": "15.5.4.8",
+    "description": "Override toString and valueOf functions, and they throw exceptions",
+    "test": "var __obj = {toString:function(){throw \"intostr\";}};\nvar __obj2 = {valueOf:function(){throw \"intoint\";}};\nvar __instance = new Number(10001.10001);\nNumber.prototype.lastIndexOf=String.prototype.lastIndexOf;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nwith(__instance){\n    try {\n      var x = lastIndexOf(__obj, __obj2);\n      $FAIL('#1: var x = lastIndexOf(__obj, __obj2) lead to throwing exception');\n    } catch (e) {\n      if (e!==\"intostr\") {\n        $ERROR('#1.1: Exception === \"intostr\". Actual: '+e);\n      }\n    }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.8_A4_T4"
+   },
+   {
+    "section": "15.5.4.8",
+    "description": "Override toString and valueOf functions, first and second valueOf throw exception",
+    "test": "var __obj = {toString:function(){return {};},valueOf:function(){throw \"intostr\";}};\n\nvar __obj2 = {valueOf:function(){throw \"intointeger\";}};\n\n__FACTORY.prototype.lastIndexOf = String.prototype.lastIndexOf;\n\nvar __instance = new __FACTORY(void 0);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n  var x = __instance.lastIndexOf(__obj, __obj2);\n  $FAIL('#1: var x = __instance.lastIndexOf(__obj, __obj2) lead to throwing exception');\n} catch (e) {\n  if (e!==\"intostr\") {\n    $ERROR('#1.1: Exception === \"intostr\". Actual: '+e);\n  }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nfunction __FACTORY( value ) {\n    this.value = value;\n    this.toString = function() { return new Number; };\n    this.valueOf=function(){return this.value+\"\"};\n}\n",
+    "id": "S15.5.4.8_A4_T5"
+   },
+   {
+    "section": "15.5.4.8, 13.2",
+    "description": "Checking String.prototype.lastIndexOf.prototype",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (String.prototype.lastIndexOf.prototype !== undefined) {\n  $ERROR('#1: String.prototype.lastIndexOf.prototype === undefined. Actual: '+String.prototype.lastIndexOf.prototype );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.8_A6"
+   },
+   {
+    "section": "15.5.4.8, 13.2",
+    "description": "Checking if creating the String.prototype.lastIndexOf object fails",
+    "test": "var __FACTORY = String.prototype.lastIndexOf;\n\ntry {\n  var __instance = new __FACTORY;\n  $FAIL('#1: __FACTORY = String.prototype.lastIndexOf; __instance = new __FACTORY lead to throwing exception');\n} catch (e) {\n  $PRINT(e);\n}\n",
+    "id": "S15.5.4.8_A7"
+   },
+   {
+    "section": "15.5.4.8",
+    "description": "Checking if enumerating the String.prototype.lastIndexOf.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#0\nif (!(String.prototype.lastIndexOf.hasOwnProperty('length'))) {\n  $FAIL('#0: String.prototype.lastIndexOf.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.lastIndexOf.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n//////////////////////////////////////////////////////////////////////////////\n// CHECK#1\nif (String.prototype.lastIndexOf.propertyIsEnumerable('length')) {\n  $ERROR('#1: String.prototype.lastIndexOf.propertyIsEnumerable(\\'length\\') return false. Actual: '+String.prototype.lastIndexOf.propertyIsEnumerable('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n// CHECK#2\ncount=0;\n\nfor (p in String.prototype.lastIndexOf){\n  if (p===\"length\") count++;\n}\n\nif (count !== 0) {\n  $ERROR('#2: count=0; for (p in String.prototype.lastIndexOf){if (p===\"length\") count++;}; count === 0. Actual: '+count );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.8_A8"
+   },
+   {
+    "section": "15.5.4.8",
+    "description": "Checking if deleting the String.prototype.lastIndexOf.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#0\nif (!(String.prototype.lastIndexOf.hasOwnProperty('length'))) {\n  $FAIL('#0: String.prototype.lastIndexOf.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.lastIndexOf.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (delete String.prototype.lastIndexOf.length) {\n  $ERROR('#1: delete String.prototype.lastIndexOf.length return false');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (!(String.prototype.lastIndexOf.hasOwnProperty('length'))) {\n  $FAIL('#2: delete String.prototype.lastIndexOf.length; String.prototype.lastIndexOf.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.lastIndexOf.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.8_A9"
+   }
+  ]
+ }
+}

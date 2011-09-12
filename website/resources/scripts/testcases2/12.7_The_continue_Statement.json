@@ -1,0 +1,126 @@
+{
+ "testCollection": {
+  "name": "12.7_The_continue_Statement",
+  "numTests": 18,
+  "tests": [
+   {
+    "section": "12.7",
+    "description": "Checking if execution of single \"continue\" without any IterationStatement fails",
+    "negative": "",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nvar x=1;\ncontinue;\nvar y=2;\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.7_A1_T1"
+   },
+   {
+    "section": "12.7",
+    "description": "Checking if single \"continue\" with Label but without any IterationStatement fails",
+    "negative": "",
+    "test": "LABEL : x=3.14;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nvar x=1;\ncontinue LABEL;\nvar y=2;\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.7_A1_T2"
+   },
+   {
+    "section": "12.7",
+    "description": "Checking if laballed \"continue\" with no IterationStatement, placed into a block, fails",
+    "negative": "",
+    "test": "LABEL : x=3.14;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n{\n    var x=1;\n    continue LABEL;\n    var y=2;\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.7_A1_T3"
+   },
+   {
+    "section": "12.7",
+    "description": "Checking if execution of \"continue\" with no IterationStatement, placed into a block, fails",
+    "negative": "",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n{\n    var x=1;\n    continue;\n    var y=2;\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n",
+    "id": "S12.7_A1_T4"
+   },
+   {
+    "section": "12.7",
+    "description": "Checking by using eval, inserting LineTerminator between continue and Identifier",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry{\n\teval(\"FOR1 : for(var i=1;i<2;i++){FOR1NESTED : for(var j=1;j<2;j++) { continue\\u000AFOR1; } while(0);}\");\n\tif (j!==2) {\n\t\t$ERROR('#1: Since LineTerminator(U-000A) between continue and Identifier not allowed continue evaluates without label');\n\t}\n} catch(e){\n\t$ERROR('#1.1: eval(\"FOR1 : for(var i=1;i<2;i++){FOR1NESTED : for(var j=1;j<2;j++) { continue\\\\u000AFOR1; } while(0);}\") does not lead to throwing exception');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\ntry{\n\teval(\"FOR2 : for(var i=1;i<2;i++){FOR2NESTED : for(var j=1;j<2;j++) { continue\\u000DFOR2; } while(0);}\");\n\tif (j!==2) {\n\t\t$ERROR('#2: Since LineTerminator(U-000D) between continue and Identifier not allowed continue evaluates without label');\n\t}\n} catch(e){\n\t$ERROR('#2.1: eval(\"FOR2 : for(var i=1;i<2;i++){FOR2NESTED : for(var j=1;j<2;j++) { continue\\\\u000DFOR2; } while(0);}\") does not lead to throwing exception');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\ntry{\n\teval(\"FOR3 : for(var i=1;i<2;i++){FOR3NESTED : for(var j=1;j<2;j++) { continue\\u2028FOR3; } while(0);}\");\n\tif (j!==2) {\n\t\t$ERROR('#3: Since LineTerminator(U-2028) between continue and Identifier not allowed continue evaluates without label');\n\t}\n} catch(e){\n\t$ERROR('#3.1: eval(\"FOR3 : for(var i=1;i<2;i++){FOR3NESTED : for(var j=1;j<2;j++) { continue\\\\u2028FOR3; } while(0);}\") does not lead to throwing exception');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\ntry{\n\teval(\"FOR4 : for(var i=1;i<2;i++){FOR4NESTED : for(var j=1;j<2;j++) { continue\\u2029FOR4; } while(0);}\");\n\tif (j!==2) {\n\t\t$ERROR('#4: Since LineTerminator(U-2029) between continue and Identifier not allowed continue evaluates without label');\n\t}\n} catch(e){\n\t$ERROR('#4.1: eval(\"FOR4 : for(var i=1;i<2;i++){FOR4NESTED : for(var j=1;j<2;j++) { continue\\\\u2029FOR4; } while(0);}\"); does not lead to throwing exception');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n",
+    "id": "S12.7_A2"
+   },
+   {
+    "section": "12.7",
+    "description": "Simple using continue without Identifier and labeled loop",
+    "test": "LABEL_OUT : var x=0, y=0;\n\nLABEL_DO_LOOP : do {\n    LABEL_IN : x=2;\n    continue ;\n    LABEL_IN_2 : var y=2;\n    \n    function IN_DO_FUNC(){}\n} while(0);\n\nLABEL_ANOTHER_LOOP : do {\n    ;\n} while(0);\n\nfunction OUT_FUNC(){}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif ((x!==2)&&(y!==0)) {\n\t$ERROR('#1: x === 2 and y === 0. Actual:  x ==='+x+' and y ==='+ y  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.7_A3"
+   },
+   {
+    "section": "12.7",
+    "description": "Simple using continue Identifier construction",
+    "test": "LABEL_OUT : var x=0, y=0;\n\nLABEL_DO_LOOP : do {\n    LABEL_IN : x++;\n    if(x===10)break;\n    continue LABEL_DO_LOOP;\n    LABEL_IN_2 : y++;\n    \n    function IN_DO_FUNC(){}\n} while(0);\n\nLABEL_ANOTHER_LOOP : do {\n    ;\n} while(0);\n\nfunction OUT_FUNC(){}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif ((x!==1)&&(y!==0)) {\n\t$ERROR('#1: x===1 and y === 0. Actual:  x==='+x+' and y ==='+y);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.7_A4_T1"
+   },
+   {
+    "section": "12.7",
+    "description": "Using embedded and labeled loops, continue to nested loop",
+    "test": "LABEL_OUT : var x=0, y=0, xx=0, yy=0;\n\nLABEL_DO_LOOP : do {\n    LABEL_IN : x++;\n    if(x===10)break;\n    LABEL_NESTED_LOOP : do {\n        LABEL_IN_NESTED : xx++;\n        if(xx===10)break;\n        continue LABEL_NESTED_LOOP;\n        LABEL_IN_NESTED_2 : yy++;\n    } while (0);\n    \n    LABEL_IN_2 : y++;\n    \n    function IN_DO_FUNC(){}\n} while(0);\n\nLABEL_ANOTHER_LOOP : do {\n    ;\n} while(0);\n\nfunction OUT_FUNC(){}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif ((x!==1)&&(y!==1)&&(xx!==1)&(yy!==0)) {\n\t$ERROR('#1: (x===1) and (y===1) and (xx===1) and (yy===0). Actual:  x==='+x+' and y==='+y+' and xx==='+xx+' and yy==='+yy );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.7_A4_T2"
+   },
+   {
+    "section": "12.7",
+    "description": "Using embedded and labeled loops, continue to outer loop",
+    "test": "LABEL_OUT : var x=0, y=0, xx=0, yy=0;\n\nLABEL_DO_LOOP : do {\n    LABEL_IN : x++;\n    if(x===10)break;\n    LABEL_NESTED_LOOP : do {\n        LABEL_IN_NESTED : xx++;\n        if(xx===10)break;\n        continue LABEL_DO_LOOP;\n        LABEL_IN_NESTED_2 : yy++;\n    } while (0);\n    \n    LABEL_IN_2 : y++;\n    \n    function IN_DO_FUNC(){}\n} while(0);\n\nLABEL_ANOTHER_LOOP : do {\n    ;\n} while(0);\n\nfunction OUT_FUNC(){}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif ((x!==1)&&(y!==0)&&(xx!==1)&(yy!==0)) {\n\t$ERROR('#1: (x===1) and (y===0) and (xx===1) and (yy===0). Actual:  x==='+x+' and y==='+y+' and xx==='+xx+' and yy==='+yy );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.7_A4_T3"
+   },
+   {
+    "section": "12.7",
+    "description": "Trying to continue another labeled loop",
+    "negative": "",
+    "test": "LABEL_OUT : var x=0, y=0;\nLABEL_DO_LOOP : do {\n   LABEL_IN : x++;\n   if(x===10)break;\n   continue LABEL_ANOTHER_LOOP;\n   LABEL_IN_2 : y++;\n   function IN_DO_FUNC(){}\n} while(0);\n\nLABEL_ANOTHER_LOOP : do {\n    ;\n} while(0);\n\nfunction OUT_FUNC(){}\n",
+    "id": "S12.7_A5_T1"
+   },
+   {
+    "section": "12.7",
+    "description": "Identifier is a function name",
+    "negative": "",
+    "test": "LABEL_OUT : var x=0, y=0;\nLABEL_DO_LOOP : do {\n   LABEL_IN : x++;\n   if(x===10)break;\n   continue IN_DO_FUNC;\n   LABEL_IN_2 : y++;\n   function IN_DO_FUNC(){}\n} while(0);\n\nLABEL_ANOTHER_LOOP : do {\n    ;\n} while(0);\n\nfunction OUT_FUNC(){};\n",
+    "id": "S12.7_A5_T2"
+   },
+   {
+    "section": "12.7",
+    "description": "Identifier is within loop label",
+    "negative": "",
+    "test": "LABEL_OUT : var x=0, y=0;\n\nLABEL_DO_LOOP : do {\n   LABEL_IN : x++;\n   if(x===10)break;\n   continue LABEL_IN;\n   LABEL_IN_2 : y++;\n   function IN_DO_FUNC(){}\n} while(0);\n\nLABEL_ANOTHER_LOOP : do {\n    ;\n} while(0);\n\nfunction OUT_FUNC(){}\n",
+    "id": "S12.7_A5_T3"
+   },
+   {
+    "section": "12.7",
+    "description": "Using labaled \"continue Identifier\" within a function body",
+    "negative": "",
+    "test": "var x=0,y=0;\n\nLABEL1 : do {\n    x++;\n    (function(){continue LABEL1;})();\n    y++;\n} while(0);\n",
+    "id": "S12.7_A6"
+   },
+   {
+    "section": "12.7",
+    "description": "Using eval \"eval(\"continue LABEL1\")\"",
+    "test": "var x=0,y=0;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry{\n\tLABEL1 : do {\n        x++;\n        eval(\"continue LABEL1\");\n        y++;\n    } while(0);\n\t$ERROR('#1: eval(\"continue LABEL1\") does not lead to throwing exception');\n} catch(e){\n\tif(!(e instanceof SyntaxError)){\n\t\t$ERROR(\"1.1: Appearing of continue within eval statement inside of IterationStatement yields SyntaxError\");\n\t}\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.7_A7"
+   },
+   {
+    "section": "12.7",
+    "description": "Checking if execution of \"continue Identifier\" within catch Block fails",
+    "negative": "",
+    "test": "var x=0,y=0;\n\ntry{\n\tLABEL1 : do {\n\t\tx++;\n\t\tthrow \"gonna leave it\";\n\t\ty++;\n\t} while(0);\n\t$ERROR('#1: throw \"gonna leave it\" lead to throwing exception');\n} catch(e){\n\tcontinue LABEL2;\n\tLABEL2 : do {\n\t\tx++;\n\t\ty++;\n\t} while(0);\n};\n",
+    "id": "S12.7_A8_T1"
+   },
+   {
+    "section": "12.7",
+    "description": "Checking if execution of \"continue\" within catch Block fails",
+    "negative": "",
+    "test": "var x=0,y=0;\n\ntry{\n\tLABEL1 : do {\n\t\tx++;\n\t\tthrow \"gonna leave it\";\n\t\ty++;\n\t} while(0);\n\t$ERROR('#1: throw \"gonna leave it\" lead to throwing exception');\n} catch(e){\n\tcontinue;\n\tLABEL2 : do {\n\t\tx++;\n\t\ty++;\n\t} while(0);\n};\n",
+    "id": "S12.7_A8_T2"
+   },
+   {
+    "section": "12.7",
+    "description": "Using \"continue Identifier\" within catch Block that is within a loop",
+    "test": "var x=0,y=0;\n\n(function(){\nFOR : for(;;){\n\ttry{\n\t\tx++;\n\t\tif(x===10)return;\n\t\tthrow 1;\n\t} catch(e){\n\t\tcontinue FOR;\n\t}\t\n}\n})();\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (x!==10) {\n\t$ERROR('#1: Continue inside of try-catch nested in loop is allowed');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.7_A9_T1"
+   },
+   {
+    "section": "12.7",
+    "description": "Using \"continue\" within catch Block that is within a loop",
+    "test": "var x=0,y=0;\n\n(function(){\nFOR : for(;;){\n\ttry{\n\t\tx++;\n\t\tif(x===10)return;\n\t\tthrow 1;\n\t} catch(e){\n\t\tcontinue;\n\t}\t\n}\n})();\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (x!==10) {\n\t$ERROR('#1: Continue inside of try-catch nested in loop is allowed');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S12.7_A9_T2"
+   }
+  ]
+ }
+}

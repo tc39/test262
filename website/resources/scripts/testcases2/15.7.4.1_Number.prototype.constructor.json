@@ -1,0 +1,14 @@
+{
+ "testCollection": {
+  "name": "15.7.4.1_Number.prototype.constructor",
+  "numTests": 1,
+  "tests": [
+   {
+    "section": "15.7.4.1",
+    "description": "Compare Number.prototype.constructor with Number",
+    "test": "//CHECK#1\nif(Number.prototype.constructor !== Number){\n  $ERROR('#1: Number.prototype.constructor === Number');\n}\n\n",
+    "id": "S15.7.4.1_A1"
+   }
+  ]
+ }
+}

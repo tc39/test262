@@ -1,0 +1,62 @@
+{
+ "testCollection": {
+  "name": "15.5.5_Properties_of_String_Instances",
+  "numTests": 9,
+  "tests": [
+   {
+    "section": "15.5.5.1",
+    "description": "Create strings and check its length",
+    "test": "var __str__instance = new String(\"ABC\\u0041\\u0042\\u0043\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__str__instance.length !== 6) {\n  $ERROR('#1: var __str__instance = new String(\"ABC\\\\u0041\\\\u0042\\\\u0043\"); __str__instance.length === 6, where __str__instance is new String(\"ABC\\\\u0041\\\\u0042\\\\u0043\"). Actual: __str__instance.length ==='+__str__instance.length ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n__str__instance = new String;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__str__instance.length !== 0) {\n  $ERROR('#2: __str__instance = new String; __str__instance.length === 0, where __str__instance is new String. Actual: __str__instance.length ==='+__str__instance.length ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.5.1_A1"
+   },
+   {
+    "section": "15.5.5.1",
+    "description": "Checking if enumerating the length property of String fails",
+    "test": "var __str__instance = new String(\"globglob\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(__str__instance.hasOwnProperty(\"length\"))) {\n  $ERROR('#1: var __str__instance = new String(\"globglob\"); __str__instance.hasOwnProperty(\"length\") return true. Actual: '+__str__instance.hasOwnProperty(\"length\"));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nfor(prop in __str__instance){\n    if (prop === \"length\") {\n      $ERROR('#2: length property has the attributes {DontEnum}');\n    }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.5.1_A2"
+   },
+   {
+    "section": "15.5.5.1",
+    "description": "Checking if deleting the length property of String fails",
+    "test": "var __str__instance = new String(\"globglob\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(__str__instance.hasOwnProperty(\"length\"))) {\n  $ERROR('#1: var __str__instance = new String(\"globglob\"); __str__instance.hasOwnProperty(\"length\") return true. Actual: '+__str__instance.hasOwnProperty(\"length\"));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (delete __str__instance === true) {\n  $ERROR('#2: var __str__instance = new String(\"globglob\"); delete __str__instance !== true');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (!(__str__instance.hasOwnProperty(\"length\"))) {\n  $ERROR('#3: var __str__instance = new String(\"globglob\"); delete __str__instance; __str__instance.hasOwnProperty(\"length\") return true. Actual: '+__str__instance.hasOwnProperty(\"length\"));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.5.1_A3"
+   },
+   {
+    "section": "15.5.5.1",
+    "description": "Checking if varying the length property of String fails",
+    "test": "var __str__instance = new String(\"globglob\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(__str__instance.hasOwnProperty(\"length\"))) {\n  $ERROR('#1: var __str__instance = new String(\"globglob\"); __str__instance.hasOwnProperty(\"length\") return true. Actual: '+__str__instance.hasOwnProperty(\"length\"));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__str__instance.length !== 8) {\n  $ERROR('#2: var __str__instance = new String(\"globglob\"); __str__instance.length === 8. Actual: __str__instance.length ==='+__str__instance.length ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n__str__instance.length=-1;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__str__instance.length !== 8) {\n  $ERROR('#3: var __str__instance = new String(\"globglob\"); __str__instance.length=-1; __str__instance.length === 8(after redefine length property). Actual: __str__instance.length ==='+__str__instance.length ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nwith(__str__instance)\n    length = 0;\n    \n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\nif (__str__instance.length !== 8) {\n  $ERROR('#4: var __str__instance = new String(\"globglob\"); with(__str__instance) length = 0; __str__instance.length === 8(after redefine length property with using \"with\"). Actual: __str__instance.length ==='+__str__instance.length ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n__str__instance.length++;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#5\nif (__str__instance.length !== 8) {\n  $ERROR('#5: var __str__instance = new String(\"globglob\"); __str__instance.length++; __str__instance.length === 8(after redefine length property with using \"++\"). Actual: __str__instance.length ==='+__str__instance.length ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.5.1_A4"
+   },
+   {
+    "section": "15.5.5.1",
+    "description": "Change valueOf and toString of String object and check length property",
+    "test": "var __str__instance = new String(\"ABC\\u0041\\u0042\\u0043\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__str__instance.length !== 6) {\n  $ERROR('#1: var __str__instance = new String(\"ABC\\\\u0041\\\\u0042\\\\u0043\"); __str__instance.length === 6. Actual: __str__instance.length ==='+__str__instance.length ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n__str__instance.valueOf = function(){return \"ed\"};\n__str__instance.toString = function(){return \"ed\"};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__str__instance !=\"ed\") {\n  $ERROR('#2: var __str__instance = new String(\"ABC\\\\u0041\\\\u0042\\\\u0043\"); __str__instance.valueOf = function(){return \"ed\"}; __str__instance.toString = function(){return \"ed\"}; __str__instance ==\"ed\". Actual: __str__instance =='+__str__instance ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__str__instance.length !== 6) {\n  $ERROR('#3: var __str__instance = new String(\"ABC\\\\u0041\\\\u0042\\\\u0043\"); __str__instance.valueOf = function(){return \"ed\"}; __str__instance.toString = function(){return \"ed\"}; __str__instance.length === 6. Actual: __str__instance.length ==='+__str__instance.length ); \n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.5.1_A5"
+   },
+   {
+    "section": "15.5.5",
+    "description": "Create new String and try call it",
+    "test": "var __str = new String;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n  __str();\n  $FAIL('#1: __str = new String; __str() lead to throwing exception');\n} catch (e) {\n  if (!(e instanceof TypeError)) {\n    $ERROR('#1.1: Exception is instance of TypeError. Actual: exception is '+e);\n  }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.5_A1_T1"
+   },
+   {
+    "section": "15.5.5",
+    "description": "Checking if creating new \"String(\"a|b\")()\" fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n  String(\"a|b\")();\n  $FAIL('#1: String(\"a|b\")() lead to throwing exception');\n} catch (e) {\n  if (!(e instanceof TypeError)) {\n    $ERROR('#1.1: Exception is instance of TypeError. Actual: exception is '+e);\n  }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.5_A1_T2"
+   },
+   {
+    "section": "15.5.5",
+    "description": "Create new string object and try new created_string",
+    "test": "var __str = new Object(\"\");\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n  new __str;\n  $FAIL('#1: __str = new Object(\"\"); \"new __str\" lead to throwing exception');\n} catch (e) {\n  if (!(e instanceof TypeError)) {\n    $ERROR('#1.1: Exception is instance of TypeError. Actual: exception is '+e);\n  }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.5_A2_T1"
+   },
+   {
+    "section": "15.5.5",
+    "description": "Checking if creating \"new String\" fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n  new new String;\n  $FAIL('#1: \"new new String\" lead to throwing exception');\n} catch (e) {\n  if (!(e instanceof TypeError)) {\n    $ERROR('#1.1: Exception is instance of TypeError. Actual: exception is '+e);\n  }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.5_A2_T2"
+   }
+  ]
+ }
+}

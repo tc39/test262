@@ -1,0 +1,287 @@
+{
+ "testCollection": {
+  "name": "15.3.4.4_Function.prototype.call",
+  "numTests": 46,
+  "tests": [
+   {
+    "section": "15.3.4.4",
+    "description": "Checking if varying the Function.prototype.call.length property fails",
+    "test": "//CHECK#1\nif (!(Function.prototype.call.hasOwnProperty('length'))) {\n  $FAIL('#1: the Function.prototype.call has length property.');\n}\n\nvar obj = Function.prototype.call.length;\n\nFunction.prototype.call.length = function(){return \"shifted\";};\n\n//CHECK#2\nif (Function.prototype.call.length !== obj) {\n  $ERROR('#2: the Function.prototype.call length property has the attributes ReadOnly.');\n}\n",
+    "id": "S15.3.4.4_A10"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Checking if enumerating the Function.prototype.call.length property fails",
+    "test": "//CHECK#0\nif (!(Function.prototype.call.hasOwnProperty('length'))) {\n  $FAIL('#0: the Function.prototype.call has length property.');\n}\n\n\n// CHECK#1\nif (Function.prototype.call.propertyIsEnumerable('length')) {\n  $ERROR('#1: the Function.prototype.call.length property has the attributes DontEnum');\n}\n\n// CHECK#2\nfor (p in Function.prototype.call){\n  if (p===\"length\")\n    $ERROR('#2: the Function.prototype.call.length property has the attributes DontEnum');\n}\n",
+    "id": "S15.3.4.4_A11"
+   },
+   {
+    "section": "15.3.4.4, 13.2",
+    "description": "Checking if obtaining the prototype property of Function.prototype.call fails",
+    "test": "//CHECK#1\nif (Function.prototype.call.prototype !== undefined) {\n  $ERROR('#1: Function.prototype.call has not prototype property'+Function.prototype.call.prototype);\n}\n",
+    "id": "S15.3.4.4_A12"
+   },
+   {
+    "section": "15.3.4.4",
+    "negative": "TypeError",
+    "test": "Function.prototype.call.call(undefined, {});\n",
+    "id": "S15.3.4.4_A13",
+    "description": "If IsCallable(func) is false, then throw a TypeError exception."
+   },
+   {
+    "section": "15.3.4.4",
+    "negative": "TypeError",
+    "test": "Function.prototype.call.call(null, {});\n",
+    "id": "S15.3.4.4_A14",
+    "description": "If IsCallable(func) is false, then throw a TypeError exception."
+   },
+   {
+    "section": "15.3.4.4",
+    "negative": "TypeError",
+    "test": "Function.prototype.call.call({}, {});\n",
+    "id": "S15.3.4.4_A15",
+    "description": "If IsCallable(func) is false, then throw a TypeError exception."
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "A RegExp is not a function, but it may be callable. Iff it is, it's typeof should be 'function', in which case call should accept it as a valid this value.",
+    "test": "var re = (/x/);\nif (typeof re === 'function') {\n  Function.prototype.call.call(re, undefined, 'x');\n} else {\n  try {\n    Function.prototype.bind.call(re, undefined);\n    $FAIL('#1: If IsCallable(func) is false, ' +\n          'then (bind should) throw a TypeError exception');\n  } catch (e) {\n    if (!(e instanceof TypeError)) {\n      $ERROR('#1: TypeError expected. Actual: ' + e);\n    }\n  }\n}\n",
+    "id": "S15.3.4.4_A16"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Call \"call\" method of the object that does not have a [[Call]] property.\nPrototype of the object is Function()",
+    "test": "var proto=Function();\n\nfunction FACTORY(){};\n\nFACTORY.prototype=proto;\n\nvar obj = new FACTORY;\n\n//CHECK#1\nif (typeof obj.call !== \"function\") {\n  $ERROR('#1: call method accessed');\n}\n\n//CHECK#2\ntry {\n  obj.call();\n  $FAIL('#2: If the object does not have a [[Call]] property, a TypeError exception is thrown');\n} catch (e) {\n  if (!(e instanceof TypeError)) {\n  \t$ERROR('#2.1: If the object does not have a [[Call]] property, a TypeError exception is thrown');\n  }\n}\n    ",
+    "id": "S15.3.4.4_A1_T1"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Calling \"call\" method of the object that does not have a [[Call]] property.\nPrototype of the object is Function.prototype",
+    "test": "function FACTORY(){};\n\nFACTORY.prototype=Function.prototype;\n\nvar obj = new FACTORY;\n\n//CHECK#1\nif (typeof obj.call !== \"function\") {\n  $ERROR('#1: call method accessed');\n}\n\n//CHECK#2\ntry {\n  obj.call();\n  $FAIL('#2: If the object does not have a [[Call]] property, a TypeError exception is thrown');\n} catch (e) {\n  if (!(e instanceof TypeError)) {\n  \t$ERROR('#2.1: If the object does not have a [[Call]] property, a TypeError exception is thrown');\n  }\n}\n",
+    "id": "S15.3.4.4_A1_T2"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Checking Function.prototype.call.length",
+    "test": "//CHECK#1\nif (typeof Function.prototype.call !== \"function\") {\n  $ERROR('#1: call method defined');\n}\n\n//CHECK#2\nif (typeof Function.prototype.call.length === \"undefined\") {\n  $ERROR('#2: length property of call method defined');\n}\n\n//CHECK#3\nif (Function.prototype.call.length !== 1) {\n  $ERROR('#3: The length property of the call method is 1');\n}\n",
+    "id": "S15.3.4.4_A2_T1"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Checking f.call.length, where f is new Function",
+    "test": "var f=new Function;\n\n//CHECK#1\nif (typeof f.call !== \"function\") {\n  $ERROR('#1: call method accessed');\n}\n\n//CHECK#2\nif (typeof f.call.length === \"undefined\") {\n  $ERROR('#2: length property of call method defined');\n}\n\n//CHECK#3\nif (f.call.length !== 1) {\n  $ERROR('#3: The length property of the call method is 1');\n}\n",
+    "id": "S15.3.4.4_A2_T2"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Not any arguments at call function",
+    "test": "Function(\"this.field=\\\"strawberry\\\"\").call();\n\n//CHECK#1\nif (this[\"field\"] !== \"strawberry\") {\n  $ERROR('#1: If thisArg is null or undefined, the called function is passed the global object as the this value');\n}\n",
+    "id": "S15.3.4.4_A3_T1"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Checking by using eval, no any arguments at call function",
+    "test": "eval(\" (function(){this.feat=1}).call()\");\n\n//CHECK#1\nif (this[\"feat\"] !== 1) {\n  $ERROR('#1: If thisArg is null or undefined, the called function is passed the global object as the this value');\n}\n",
+    "id": "S15.3.4.4_A3_T10"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Argument at call function is null",
+    "test": "Function(\"this.field=\\\"green\\\"\").call(null);\n\n//CHECK#1\nif (this[\"field\"] !== \"green\") {\n  $ERROR('#1: If thisArg is null or undefined, the called function is passed the global object as the this value');\n}\n",
+    "id": "S15.3.4.4_A3_T2"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Argument at call function is void 0",
+    "test": "Function(\"this.field=\\\"battle\\\"\").call(void 0);\n\n//CHECK#1\nif (this[\"field\"] !== \"battle\") {\n  $ERROR('#1: If thisArg is null or undefined, the called function is passed the global object as the this value');\n}\n",
+    "id": "S15.3.4.4_A3_T3"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Argument at call function is undefined",
+    "test": "Function(\"this.field=\\\"oil\\\"\").call(undefined);\n\n//CHECK#1\nif (this[\"field\"] !== \"oil\") {\n  $ERROR('#1: If thisArg is null or undefined, the called function is passed the global object as the this value');\n}\n",
+    "id": "S15.3.4.4_A3_T4"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "No any arguments at call function and it called inside function declaration",
+    "test": "function FACTORY(){\n  Function(\"this.feat=\\\"in da haus\\\"\").call();\n};\n\nvar obj = new FACTORY;\n\n//CHECK#1\nif (this[\"feat\"] !== \"in da haus\") {\n  $ERROR('#1: If thisArg is null or undefined, the called function is passed the global object as the this value');\n}\n\n//CHECK#2\nif (typeof obj.feat !== \"undefined\") {\n  $ERROR('#1: If thisArg is null or undefined, the called function is passed the global object as the this value');\n}\n",
+    "id": "S15.3.4.4_A3_T5"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Argument at call function is null and it called inside function declaration",
+    "test": "function FACTORY(){\n  (function(){this.feat=\"kamon beyba\"}).call(null);\n};\n\nvar obj = new FACTORY;\n\n//CHECK#1\nif (this[\"feat\"] !== \"kamon beyba\") {\n  $ERROR('#1: If thisArg is null or undefined, the called function is passed the global object as the this value');\n}\n\n//CHECK#2\nif (typeof obj.feat !== \"undefined\") {\n  $ERROR('#1: If thisArg is null or undefined, the called function is passed the global object as the this value');\n}\n",
+    "id": "S15.3.4.4_A3_T6"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Argument at call function is void 0 and it called inside function declaration",
+    "test": "(function FACTORY(){\n  Function(\"this.feat=\\\"in da haus\\\"\").call(void 0);\n})();\n\n\n//CHECK#1\nif (this[\"feat\"] !== \"in da haus\") {\n  $ERROR('#1: If thisArg is null or undefined, the called function is passed the global object as the this value');\n}\n",
+    "id": "S15.3.4.4_A3_T7"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Argument at call function is undefined and it called inside function declaration",
+    "test": "(function FACTORY(){\n  (function(){this.feat=\"kamon beyba\"}).call(undefined);\n})();\n\n\n//CHECK#1\nif (this[\"feat\"] !== \"kamon beyba\") {\n  $ERROR('#1: If thisArg is null or undefined, the called function is passed the global object as the this value');\n}\n",
+    "id": "S15.3.4.4_A3_T8"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Checking by using eval, argument at call function is void 0",
+    "test": "eval( \" Function(\\\"this.feat=1\\\").call(void 0) \" );\n\n\n//CHECK#1\nif (this[\"feat\"] !== 1) {\n  $ERROR('#1: If thisArg is null or undefined, the called function is passed the global object as the this value');\n}\n",
+    "id": "S15.3.4.4_A3_T9"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "thisArg is number",
+    "test": "var obj=1;\n\nvar retobj = Function(\"this.touched= true; return this;\").call(obj);\n\n//CHECK#1\nif (typeof obj.touched !== \"undefined\") {\n  $ERROR('#1: If thisArg is not null(defined) the called function is passed ToObject(thisArg) as the this value');\n}\n\n//CHECK#2\nif (!(retobj[\"touched\"])) {\n  $ERROR('#2: If thisArg is not null(defined) the called function is passed ToObject(thisArg) as the this value');\n}\n\n",
+    "id": "S15.3.4.4_A5_T1"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "thisArg is boolean true",
+    "test": "var obj=true;\n\nvar retobj = new Function(\"this.touched= true; return this;\").call(obj);\n\n//CHECK#1\nif (typeof obj.touched !== \"undefined\") {\n  $ERROR('#1: If thisArg is not null(defined) the called function is passed ToObject(thisArg) as the this value');\n}\n\n//CHECK#2\nif (!(retobj[\"touched\"])) {\n  $ERROR('#2: If thisArg is not null(defined) the called function is passed ToObject(thisArg) as the this value');\n}\n\n",
+    "id": "S15.3.4.4_A5_T2"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "thisArg is string",
+    "test": "var obj=\"soap\";\n\nvar retobj = ( function(){this.touched= true; return this;} ).call(obj);\n\n//CHECK#1\nif (typeof obj.touched !== \"undefined\") {\n  $ERROR('#1: If thisArg is not null(defined) the called function is passed ToObject(thisArg) as the this value');\n}\n\n//CHECK#2\nif (!(retobj[\"touched\"])) {\n  $ERROR('#2: If thisArg is not null(defined) the called function is passed ToObject(thisArg) as the this value');\n}\n\n",
+    "id": "S15.3.4.4_A5_T3"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "thisArg is function variable that return this",
+    "test": "var f = function(){this.touched= true; return this;};\n\nvar retobj = f.call(obj);\n\n//CHECK#1\nif (typeof obj !== \"undefined\") {\n  $ERROR('#1: If thisArg is not null(defined) the called function is passed ToObject(thisArg) as the this value');\n}\n\n//CHECK#2\nif (!(retobj[\"touched\"])) {\n  $ERROR('#2: If thisArg is not null(defined) the called function is passed ToObject(thisArg) as the this value');\n}\n\nvar obj;\n",
+    "id": "S15.3.4.4_A5_T4"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "thisArg is function variable",
+    "test": "var f = function(){this.touched= true;};\n\nvar obj={};\n\nf.call(obj);\n\n//CHECK#1\nif (!(obj.touched)) {\n  $ERROR('#1: If thisArg is not null(defined) the called function is passed ToObject(thisArg) as the this value');\n}\n",
+    "id": "S15.3.4.4_A5_T5"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "thisArg is new String()",
+    "test": "var obj=new String(\"soap\");\n\n( function(){this.touched= true;}).call(obj);\n\n//CHECK#1\nif (!(obj.touched)) {\n  $ERROR('#1: If thisArg is not null(defined) the called function is passed ToObject(thisArg) as the this value');\n}\n",
+    "id": "S15.3.4.4_A5_T6"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "thisArg is new Number()",
+    "test": "var obj=new Number(1);\n\nFunction(\"this.touched= true;\").call(obj);\n\n//CHECK#1\nif (!(obj.touched)) {\n  $ERROR('#1: If thisArg is not null(defined) the called function is passed ToObject(thisArg) as the this value');\n}\n\n",
+    "id": "S15.3.4.4_A5_T7"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "thisArg is Function()",
+    "test": "var obj=Function();\n\nnew Function(\"this.touched= true; return this;\").call(obj);\n\n//CHECK#1\nif (!(obj.touched)) {\n  $ERROR('#1: If thisArg is not null(defined) the called function is passed ToObject(thisArg) as the this value');\n}\n",
+    "id": "S15.3.4.4_A5_T8"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Argunemts of call function is (null,[1])",
+    "test": "Function(\"a1,a2,a3\",\"this.shifted=a1;\").call(null,[1]);\n\n//CHECK#1\nif (this[\"shifted\"].constructor !== Array) {\n  $ERROR('#1: The call method takes one or more arguments, thisArg and (optionally) arg1, arg2 etc, and performs a function call using the [[Call]] property of the object');\n}\n\n//CHECK#2\nif (this[\"shifted\"].length !== 1) {\n  $ERROR('#2: The call method takes one or more arguments, thisArg and (optionally) arg1, arg2 etc, and performs a function call using the [[Call]] property of the object');\n}\n\n//CHECK#3\nif (this[\"shifted\"][0] !== 1) {\n  $ERROR('#3: The call method takes one or more arguments, thisArg and (optionally) arg1, arg2 etc, and performs a function call using the [[Call]] property of the object');\n}\n\n",
+    "id": "S15.3.4.4_A6_T1"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Argunemts of call function is (empty object, \"\", arguments,2), inside function call without declaration used",
+    "test": "var obj={};\n\n(function (){\n  Function(\"a1,a2,a3\",\"this.shifted=a1.length+a2+a3;\").call(obj,arguments,\"\",\"2\");\n})(\"\",4,2,\"a\");\n\n//CHECK#1\nif (obj[\"shifted\"] !== \"42\") {\n  $ERROR('#1: The call method takes one or more arguments, thisArg and (optionally) arg1, arg2 etc, and performs a function call using the [[Call]] property of the object');\n}\n\n//CHECK#2\nif (typeof this[\"shifted\"] !== \"undefined\") {\n  $ERROR('#2: The call method takes one or more arguments, thisArg and (optionally) arg1, arg2 etc, and performs a function call using the [[Call]] property of the object');\n}\n\n",
+    "id": "S15.3.4.4_A6_T10"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Argunemts of call function is (null,[3,2,1])",
+    "test": "new Function(\"a1,a2\",\"a3\",\"this.shifted=a1;\").call(null,[3,2,1]);\n\n//CHECK#1\nif (this[\"shifted\"].length !== 3) {\n  $ERROR('#1: The call method takes one or more arguments, thisArg and (optionally) arg1, arg2 etc, and performs a function call using the [[Call]] property of the object');\n}\n\n//CHECK#2\nif ((this[\"shifted\"][0] !== 3)||(this[\"shifted\"][1] !== 2)||(this[\"shifted\"][2] !== 1)) {\n  $ERROR('#2: The call method takes one or more arguments, thisArg and (optionally) arg1, arg2 etc, and performs a function call using the [[Call]] property of the object');\n}\n\n",
+    "id": "S15.3.4.4_A6_T2"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Argunemts of call function is (empty object, new Array(\"nine\",\"inch\",\"nails\"))",
+    "test": "var i=0;\n\nvar p={toString:function(){return \"a\"+(++i);}};\n\nvar obj={};\n\nFunction(p,\"a2,a3\",\"this.shifted=a1;\").call(obj, new Array(\"nine\",\"inch\",\"nails\"));\n\n//CHECK#1\nif (obj[\"shifted\"].length !== 3) {\n  $ERROR('#1: The call method takes one or more arguments, thisArg and (optionally) arg1, arg2 etc, and performs a function call using the [[Call]] property of the object');\n}\n\n//CHECK#2\nif ((obj[\"shifted\"][0] !== \"nine\")||(obj[\"shifted\"][1] !== \"inch\")||(obj[\"shifted\"][2] !== \"nails\")) {\n  $ERROR('#2: The call method takes one or more arguments, thisArg and (optionally) arg1, arg2 etc, and performs a function call using the [[Call]] property of the object');\n}\n\n//CHECK#3\nif (typeof this[\"shifted\"] !== \"undefined\") {\n  $ERROR('#3: The call method takes one or more arguments, thisArg and (optionally) arg1, arg2 etc, and performs a function call using the [[Call]] property of the object');\n}\n\n",
+    "id": "S15.3.4.4_A6_T3"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": ": Argunemts of call function is (empty object, ( function(){return arguments;})(\"a\",\"b\",\"c\",\"d\"),\"\",2);",
+    "test": "var i=0;\n\nvar p={toString:function(){return \"a\"+(++i);}};\n\nvar obj={};\n\nnew Function(p,p,p, \"this.shifted=a3+a2+a1.length;\").call( obj,( function(){return arguments;})(\"a\",\"b\",\"c\",\"d\"),\"\",2 );\n\n//CHECK#1\nif (obj[\"shifted\"] !== \"24\") {\n  $ERROR('#1: The call method takes one or more arguments, thisArg and (optionally) arg1, arg2 etc, and performs a function call using the [[Call]] property of the object');\n}\n\n//CHECK#2\nif (typeof this[\"shifted\"] !== \"undefined\") {\n  $ERROR('#2: The call method takes one or more arguments, thisArg and (optionally) arg1, arg2 etc, and performs a function call using the [[Call]] property of the object');\n}\n\n",
+    "id": "S15.3.4.4_A6_T4"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Argunemts of call function is (null, arguments,\"\",2), inside function declaration used",
+    "test": "function FACTORY(){\n  Function(\"a1,a2,a3\",\"this.shifted=a1.length+a2+a3;\").call(null,arguments,\"\",2);\n}\n\nvar obj=new FACTORY(\"\",1,2,\"A\");\n\n//CHECK#1\nif (this[\"shifted\"] !== \"42\") {\n  $ERROR('#1: The call method takes one or more arguments, thisArg and (optionally) arg1, arg2 etc, and performs a function call using the [[Call]] property of the object');\n}\n\n//CHECK#2\nif (typeof obj.shifted !== \"undefined\") {\n  $ERROR('#2: The call method takes one or more arguments, thisArg and (optionally) arg1, arg2 etc, and performs a function call using the [[Call]] property of the object');\n}\n\n",
+    "id": "S15.3.4.4_A6_T5"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Argunemts of call function is (this, arguments,\"\",2), inside function declaration used",
+    "test": "function FACTORY(){\n  Function(\"a1,a2,a3\",\"this.shifted=a1.length+a2+a3;\").call(this,arguments,\"\",2);\n}\n\nvar obj=new FACTORY(\"\",4,2,\"A\");\n\n//CHECK#1\nif (obj[\"shifted\"] !== \"42\") {\n  $ERROR('#1: The call method takes one or more arguments, thisArg and (optionally) arg1, arg2 etc, and performs a function call using the [[Call]] property of the object');\n}\n\n//CHECK#2\nif (typeof this[\"shifted\"] !== \"undefined\") {\n  $ERROR('#2: The call method takes one or more arguments, thisArg and (optionally) arg1, arg2 etc, and performs a function call using the [[Call]] property of the object');\n}\n\n",
+    "id": "S15.3.4.4_A6_T6"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Argunemts of call function is (null, arguments,\"\",2), inside function call without declaration used",
+    "test": "(function (){\n  Function(\"a1,a2,a3\",\"this.shifted=a1.length+a2+a3;\").call(null,arguments,\"\",2);\n})(\"\",1,2,true);\n\n//CHECK#1\nif (this[\"shifted\"] !== \"42\") {\n  $ERROR('#1: The call method takes one or more arguments, thisArg and (optionally) arg1, arg2 etc, and performs a function call using the [[Call]] property of the object');\n}\n",
+    "id": "S15.3.4.4_A6_T7"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Argunemts of call function is (this, arguments,\"\",2), inside function call without declaration used",
+    "test": "(function (){\n  Function(\"a1,a2,a3\",\"this.shifted=a1.length+a2+a3;\").call(this,arguments,\"\",2);\n})(\"\",4,2,null);\n\n//CHECK#2\nif (this[\"shifted\"] !== \"42\") {\n  $ERROR('#2: The call method takes one or more arguments, thisArg and (optionally) arg1, arg2 etc, and performs a function call using the [[Call]] property of the object');\n}\n\n",
+    "id": "S15.3.4.4_A6_T8"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Argunemts of call function is (empty object, \"\", arguments,2), inside function declaration used",
+    "test": "function FACTORY(){\n  var obj = {};\n  Function(\"a1,a2,a3\",\"this.shifted=a1+a2.length+a3;\").call(obj,\"\",arguments,2);\n  return obj;\n}\n\nvar obj=new FACTORY(\"\",1,2,void 0);\n\n//CHECK#1\nif (typeof this[\"shifted\"] !== \"undefined\") {\n  $ERROR('#1: If argArray is either an array or an arguments object, the function is passed the...');\n}\n\n//CHECK#2\nif (obj.shifted !== \"42\") {\n  $ERROR('#2: If argArray is either an array or an arguments object, the function is passed the...');\n}\n\n",
+    "id": "S15.3.4.4_A6_T9"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Checking if creating \"new Function.prototype.call\" fails",
+    "test": "try {\n  var obj = new Function.prototype.call;\n  $ERROR('#1: Function.prototype.call can\\'t be used as [[create]] caller');\n} catch (e) {\n  if (!(e instanceof TypeError)) {\n  \t$ERROR('#1.1: Function.prototype.call can\\'t be used as [[create]] caller');\n  }\n}\n",
+    "id": "S15.3.4.4_A7_T1"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Checking if creating \"new Function.prototype.call()\" fails",
+    "test": "try {\n  var FACTORY = Function.prototype.call;\n  var obj = new FACTORY();\n  $ERROR('#1: Function.prototype.call can\\'t be used as [[create]] caller');\n} catch (e) {\n  if (!(e instanceof TypeError)) {\n  \t$ERROR('#1.1: Function.prototype.call can\\'t be used as [[create]] caller');\n  }\n}\n",
+    "id": "S15.3.4.4_A7_T2"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Checking if creating \"new Function.call\" fails",
+    "test": "try {\n  var obj = new Function.call;\n  $ERROR('#1: Function.prototype.call can\\'t be used as [[create]] caller');\n} catch (e) {\n  if (!(e instanceof TypeError)) {\n  \t$ERROR('#1.1: Function.prototype.call can\\'t be used as [[create]] caller');\n  }\n}\n",
+    "id": "S15.3.4.4_A7_T3"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Checking if creating \"new (Function(\"this.p1=1\").call)\" fails",
+    "test": "try {\n  var obj = new (Function(\"this.p1=1\").call);\n  $ERROR('#1: Function.prototype.call can\\'t be used as [[create]] caller');\n} catch (e) {\n  if (!(e instanceof TypeError)) {\n  \t$ERROR('#1.1: Function.prototype.call can\\'t be used as [[create]] caller');\n  }\n}\n",
+    "id": "S15.3.4.4_A7_T4"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Checking if creating \"new Function(\"this.p1=1\").call\" fails",
+    "test": "try {\n  var FACTORY = Function(\"this.p1=1\").call;\n  var obj = new FACTORY();\n  $ERROR('#1: Function.prototype.call can\\'t be used as [[create]] caller');\n} catch (e) {\n  if (!(e instanceof TypeError)) {\n  \t$ERROR('#1.1: Function.prototype.call can\\'t be used as [[create]] caller');\n  }\n}\n",
+    "id": "S15.3.4.4_A7_T5"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": ": Checking if creating \"new (Function(\"function f(){this.p1=1;};return f\").call())\" fails;",
+    "test": "//CHECK#1\ntry {\n  var obj = new (Function(\"function f(){this.p1=1;};return f\").call());\n} catch (e) {\n  $ERROR('#1: Function.prototype.call can\\'t be used as [[create]] caller');\n}\n\n//CHECK#2\nif (obj.p1!== 1) {\n  $ERROR('#2: Function.prototype.call can\\'t be used as [[create]] caller');\n}\n",
+    "id": "S15.3.4.4_A7_T6"
+   },
+   {
+    "section": "15.3.4.4",
+    "description": "Checking if deleting the Function.prototype.call.length property fails",
+    "test": "//CHECK#0\nif (!(Function.prototype.call.hasOwnProperty('length'))) {\n  $FAIL('#0: the Function.prototype.call has length property');\n}\n\n//CHECK#1\nif (delete Function.prototype.call.length) {\n  $ERROR('#1: The Function.prototype.call.length property has the attributes DontDelete');\n}\n\n//CHECK#2\nif (!(Function.prototype.call.hasOwnProperty('length'))) {\n  $FAIL('#2: The Function.prototype.call.length property has the attributes DontDelete');\n}\n",
+    "id": "S15.3.4.4_A9"
+   }
+  ]
+ }
+}

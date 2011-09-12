@@ -1,0 +1,158 @@
+{
+ "testCollection": {
+  "name": "15.2.2_The_Object_Constructor",
+  "numTests": 25,
+  "tests": [
+   {
+    "section": "15.2.2.1",
+    "description": "Creating new Object() and checking its properties",
+    "test": "var obj = new Object();\n\n// CHECK#0\nif (obj === undefined) {\n  $ERROR('#0: new Object() return the newly created native object.');\n}\n\n// CHECK#1\nif (obj.constructor !== Object) {\n  $ERROR('#1: new Object() create a new native ECMAScript object');\n}\n\n// CHECK#2\nif (!(Object.prototype.isPrototypeOf(obj))) {\n  $ERROR('#2: when new Object() calls the [[Prototype]] property of the newly constructed object is set to the Object prototype object.');\n}\n\n// CHECK#3\nvar to_string_result = '[object '+ 'Object' +']';\nif (obj.toString() !== to_string_result) {\n  $ERROR('#3: when new Object() calls the [[Class]] property of the newly constructed object is set to \"Object\".');\n}\n\n// CHECK#4\nif (obj.valueOf().toString() !== to_string_result.toString()) {\n  $ERROR('#4: when new Object() calls the newly constructed object has no [[Value]] property.');\n}\n\n",
+    "id": "S15.2.2.1_A1_T1"
+   },
+   {
+    "section": "15.2.2.1",
+    "description": "Creating new Object(void 0) and checking its properties",
+    "test": "//var foo = void 0;\nvar obj = new Object(void 0);\n\n// CHECK#0\nif (obj === undefined) {\n  $ERROR('#0: new Object(undefined) return the newly created native object.');\n}\n\n// CHECK#1\nif (obj.constructor !== Object) {\n  $ERROR('#1: new Object(undefined) create a new native ECMAScript object');\n}\n\n// CHECK#2\nif (!(Object.prototype.isPrototypeOf(obj))) {\n  $ERROR('#2: when new Object(undefined) calls the [[Prototype]] property of the newly constructed object is set to the Object prototype object.');\n}\n\n// CHECK#3\nvar to_string_result = '[object '+ 'Object' +']';\nif (obj.toString() !== to_string_result) {\n  $ERROR('#3: when new Object(undefined) calls the [[Class]] property of the newly constructed object is set to \"Object\".');\n}\n\n// CHECK#4\nif (obj.valueOf().toString() !== to_string_result.toString()) {\n  $ERROR('#4: when new Object(undefined) calls the newly constructed object has no [[Value]] property.');\n}\n\n",
+    "id": "S15.2.2.1_A1_T2"
+   },
+   {
+    "section": "15.2.2.1",
+    "description": "Creating new Object(null) and checking its properties",
+    "test": "var obj = new Object(null);\n\n// CHECK#0\nif (obj === undefined) {\n  $ERROR('#0: new Object(null) return the newly created native object.');\n}\n\n// CHECK#1\nif (obj.constructor !== Object) {\n  $ERROR('#1: new Object(null) create a new native ECMAScript object');\n}\n\n// CHECK#2\nif (!(Object.prototype.isPrototypeOf(obj))) {\n  $ERROR('#2: when new Object(null) calls the [[Prototype]] property of the newly constructed object is set to the Object prototype object.');\n}\n\n// CHECK#3\nvar to_string_result = '[object '+ 'Object' +']';\nif (obj.toString() !== to_string_result) {\n  $ERROR('#3: when new Object(null) calls the [[Class]] property of the newly constructed object is set to \"Object\".');\n}\n\n// CHECK#4\nif (obj.valueOf().toString() !== to_string_result.toString()) {\n  $ERROR('#4: when new Object(null) calls the newly constructed object has no [[Value]] property.');\n}\n\n",
+    "id": "S15.2.2.1_A1_T3"
+   },
+   {
+    "section": "15.2.2.1",
+    "description": "Creating new Object(undefined) and checking its properties",
+    "test": "var obj = new Object(undefined);\n\n// CHECK#0\nif (obj === undefined) {\n  $ERROR('#0: new Object(undefined) return the newly created native object.');\n}\n\n// CHECK#1\nif (obj.constructor !== Object) {\n  $ERROR('#1: new Object(undefined) create a new native ECMAScript object');\n}\n\n// CHECK#2\nif (!(Object.prototype.isPrototypeOf(obj))) {\n  $ERROR('#2: when new Object(undefined) calls the [[Prototype]] property of the newly constructed object is set to the Object prototype object.');\n}\n\n// CHECK#3\nvar to_string_result = '[object '+ 'Object' +']';\nif (obj.toString() !== to_string_result) {\n  $ERROR('#3: when new Object(undefined) calls the [[Class]] property of the newly constructed object is set to \"Object\".');\n}\n\n// CHECK#4\nif (obj.valueOf().toString() !== to_string_result.toString()) {\n  $ERROR('#4: when new Object(undefined) calls the newly constructed object has no [[Value]] property.');\n}\n\n",
+    "id": "S15.2.2.1_A1_T4"
+   },
+   {
+    "section": "15.2.2.1",
+    "description": "Creating new Object(x), where x is \"undefined\", and checking it properties",
+    "test": "var obj = new Object(x);\n\n// CHECK#0\nif (obj === undefined) {\n  $ERROR('#0: new Object(undefined) return the newly created native object.');\n}\n\n// CHECK#1\nif (obj.constructor !== Object) {\n  $ERROR('#1: new Object(undefined) create a new native ECMAScript object');\n}\n\n// CHECK#2\nif (!(Object.prototype.isPrototypeOf(obj))) {\n  $ERROR('#2: when new Object(undefined) calls the [[Prototype]] property of the newly constructed object is set to the Object prototype object.');\n}\n\n// CHECK#3\nvar to_string_result = '[object '+ 'Object' +']';\nif (obj.toString() !== to_string_result) {\n  $ERROR('#3: when new Object(undefined) calls the [[Class]] property of the newly constructed object is set to \"Object\".');\n}\n\n// CHECK#4\nif (obj.valueOf().toString() !== to_string_result.toString()) {\n  $ERROR('#4: when new Object(undefined) calls the newly constructed object has no [[Value]] property.');\n}\n\nvar x;\n\n",
+    "id": "S15.2.2.1_A1_T5"
+   },
+   {
+    "section": "15.2.2.1",
+    "description": "The value is Object",
+    "test": "var obj = {prop:1};\n\nvar n_obj = new Object(obj);\n\n//CHECK#1\nif (n_obj !== obj) {\n  $ERROR('#1: When the Object constructor is called and if the value is an Object simply value returns.');\n}\n\n//CHECK#2\nif (n_obj['prop'] !== 1) {\n  $ERROR('#2: When the Object constructor is called and if the value is an Object simply value returns.');\n}\n",
+    "id": "S15.2.2.1_A2_T1"
+   },
+   {
+    "section": "15.2.2.1",
+    "description": "The value is a function variable",
+    "test": "var func = function(){return 1;};\n\nvar n_obj = new Object(func);\n\n//CHECK#1\nif (n_obj !== func) {\n  $ERROR('#1: When the Object constructor is called and if the value is an Object simply value returns');\n}\n\n//CHECK#2\nif (n_obj() !== 1) {\n  $ERROR('When the Object constructor is called and if the value is an Object simply value returns');\n}\n//\n",
+    "id": "S15.2.2.1_A2_T2"
+   },
+   {
+    "section": "15.2.2.1",
+    "description": "The value is an array",
+    "test": "var arr = [1,2,3];\n\nvar n_obj = new Object(arr);\n\narr.push(4);\n\n//CHECK#1\nif (n_obj !== arr) {\n  $ERROR('#1: When the Object constructor is called and if the value is an Object simply value returns.');\n}\n\n//CHECK#2\nif (n_obj[3] !== 4) {\n  $ERROR('#2: When the Object constructor is called and if the value is an Object simply value returns.');\n}\n",
+    "id": "S15.2.2.1_A2_T3"
+   },
+   {
+    "section": "15.2.2.1",
+    "description": "The value is \"this\"",
+    "test": "var x=1;\n\nvar obj = this;\n\nvar n_obj = new Object(obj);\n\n//CHECK#1\nif (n_obj !== obj) {\n  $ERROR('#1: When the Object constructor is called and if the value is an Object simply value returns.');\n}\n\n//CHECK#2\nif (n_obj['x'] !== 1) {\n  $ERROR('#2: When the Object constructor is called and if the value is an Object simply value returns.');\n}\n",
+    "id": "S15.2.2.1_A2_T4"
+   },
+   {
+    "section": "15.2.2.1",
+    "description": "The value is a Date object",
+    "test": "var obj = new Date(1978,3);\n\nvar n_obj = new Object(obj);\n\n//CHECK#1\nif (n_obj !== obj) {\n  $ERROR('#1: When the Object constructor is called and if the value is an Object simply value returns.');\n}\n\n//CHECK#2\nif ((n_obj.getYear() !== 78)||(n_obj.getMonth() !== 3)) {\n  $ERROR('#2: When the Object constructor is called and if the value is an Object simply value returns.');\n}\n",
+    "id": "S15.2.2.1_A2_T5"
+   },
+   {
+    "section": "15.2.2.1",
+    "description": "The value is a declared function",
+    "test": "var n_obj = new Object(func);\n\n//CHECK#1\nif (n_obj !== func) {\n  $ERROR('#1: When the Object constructor is called and if the value is an Object simply value returns');\n}\n\n//CHECK#2\nif (n_obj() !== 1) {\n  $ERROR('When the Object constructor is called and if the value is an Object simply value returns');\n}\n\nfunction func(){return 1;};\n",
+    "id": "S15.2.2.1_A2_T6"
+   },
+   {
+    "section": "15.2.2.1",
+    "description": "The value is a function declaration",
+    "test": "//CHECK#0\nif (typeof func !== 'undefined') {\n  $ERROR('#0: function expression can\\'t be declarated');\n}\n\nvar n_obj = new Object(function func(){return 1;});\n\n//CHECK#1\nif (n_obj.constructor !== Function) {\n  $ERROR('#1: When the Object constructor is called and if the value is an Object simply value returns');\n}\n\n//CHECK#2\nif (n_obj() !== 1) {\n  $ERROR('#2: When the Object constructor is called and if the value is an Object simply value returns');\n}\n\n//CHECK#3\nif (typeof func !== 'undefined') {\n  $ERROR('#3: function expression can\\'t be declarated');\n}\n\n",
+    "id": "S15.2.2.1_A2_T7"
+   },
+   {
+    "section": "15.2.2.1, 8.6",
+    "description": "Argument value is a nonempty string",
+    "test": "var str = 'Obi-Wan Kenobi';\n\n//CHECK#1\nif (typeof str  !== 'string') {\n  $FAIL('#1: \"Obi-Wan Kenobi\" is NOT a String');\n}\n\n\nvar n_obj = new Object(str);\n\n//CHECK#2\nif (n_obj.constructor !== String) {\n  $ERROR('#2: When the Object constructor is called with String argument return ToObject(string)');\n}\n\n//CHECK#3\nif (typeof n_obj !== 'object') {\n  $ERROR('#3: When the Object constructor is called with String argument return ToObject(string)');\n}\n\n//CHECK#4\nif ( n_obj != str) {\n  $ERROR('#4: When the Object constructor is called with String argument return ToObject(string)');\n}\n\n//CHECK#5\nif ( n_obj === str) {\n  $ERROR('#5: When the Object constructor is called with String argument return ToObject(string)');\n}\n\n",
+    "id": "S15.2.2.1_A3_T1"
+   },
+   {
+    "section": "15.2.2.1, 8.6",
+    "description": "Argument value is an empty string",
+    "test": "var str = '';\n\n//CHECK#1\nif (typeof str  !== 'string') {\n  $FAIL('#1: \"\" is NOT a String');\n}\n\nvar n_obj = new Object(str);\n\n//CHECK#2\nif (n_obj.constructor !== String) {\n  $ERROR('#2: When the Object constructor is called with String argument return ToObject(string)');\n}\n\n//CHECK#3\nif (typeof n_obj !== 'object') {\n  $ERROR('#3: When the Object constructor is called with String argument return ToObject(string)');\n}\n\n//CHECK#4\nif ( n_obj != str) {\n  $ERROR('#4: When the Object constructor is called with String argument return ToObject(string)');\n}\n\n//CHECK#5\nif ( n_obj === str) {\n  $ERROR('#5: When the Object constructor is called with String argument return ToObject(string)');\n}\n",
+    "id": "S15.2.2.1_A3_T2"
+   },
+   {
+    "section": "15.2.2.1, 8.6",
+    "description": "Argument value is sum of empty string and number",
+    "test": "var n_obj = new Object(\"\"+1);\n\n//CHECK#2\nif (n_obj.constructor !== String) {\n  $ERROR('#2: When the Object constructor is called with String argument return ToObject(string)');\n}\n\n//CHECK#3\nif (typeof n_obj !== 'object') {\n  $ERROR('#3: When the Object constructor is called with String argument return ToObject(string)');\n}\n\n//CHECK#4\nif ( n_obj != \"1\") {\n  $ERROR('#4: When the Object constructor is called with String argument return ToObject(string)');\n}\n\n//CHECK#5\nif ( n_obj === \"1\") {\n  $ERROR('#5: When the Object constructor is called with String argument return ToObject(string)');\n}\n",
+    "id": "S15.2.2.1_A3_T3"
+   },
+   {
+    "section": "15.2.2.1, 8.6",
+    "description": "Argument value is \"true\"",
+    "test": "var bool = true;\n\n//CHECK#1\nif (typeof bool  !== 'boolean') {\n  $FAIL('#1: true is NOT a boolean');\n}\n\nvar n_obj = new Object(bool);\n\n//CHECK#2\nif (n_obj.constructor !== Boolean) {\n  $ERROR('#2: When the Object constructor is called with Boolean argument return ToObject(boolean)');\n}\n\n//CHECK#3\nif (typeof n_obj !== 'object') {\n  $ERROR('#3: When the Object constructor is called with Boolean argument return ToObject(boolean)');\n}\n\n//CHECK#4\nif ( n_obj != bool) {\n  $ERROR('#4: When the Object constructor is called with Boolean argument return ToObject(boolean)');\n}\n\n//CHECK#5\nif ( n_obj === bool) {\n  $ERROR('#5: When the Object constructor is called with Boolean argument return ToObject(boolean)');\n}\n",
+    "id": "S15.2.2.1_A4_T1"
+   },
+   {
+    "section": "15.2.2.1, 8.6",
+    "description": "Argument value is \"false\"",
+    "test": "var bool = false;\n\n//CHECK#1\nif (typeof bool  !== 'boolean') {\n  $FAIL('#1: false is NOT a boolean');\n}\n\nvar n_obj = new Object(bool);\n\n//CHECK#2\nif (n_obj.constructor !== Boolean) {\n  $ERROR('#2: When the Object constructor is called with Boolean argument return ToObject(boolean)');\n}\n\n//CHECK#3\nif (typeof n_obj !== 'object') {\n  $ERROR('#3: When the Object constructor is called with Boolean argument return ToObject(boolean)');\n}\n\n//CHECK#4\nif ( n_obj != bool) {\n  $ERROR('#4: When the Object constructor is called with Boolean argument return ToObject(boolean)');\n}\n\n//CHECK#5\nif ( n_obj === bool) {\n  $ERROR('#5: When the Object constructor is called with Boolean argument return ToObject(boolean)');\n}\n",
+    "id": "S15.2.2.1_A4_T2"
+   },
+   {
+    "section": "15.2.2.1, 8.6",
+    "description": "Argument value is boolean expression",
+    "test": "var n_obj = new Object((1===1)&&!(false));\n\n//CHECK#2\nif (n_obj.constructor !== Boolean) {\n  $ERROR('#2: When the Object constructor is called with Boolean argument return ToObject(boolean)');\n}\n\n//CHECK#3\nif (typeof n_obj !== 'object') {\n  $ERROR('#3: When the Object constructor is called with Boolean argument return ToObject(boolean)');\n}\n\n//CHECK#4\nif ( n_obj != true) {\n  $ERROR('#4: When the Object constructor is called with Boolean argument return ToObject(boolean)');\n}\n\n//CHECK#5\nif ( n_obj === true) {\n  $ERROR('#5: When the Object constructor is called with Boolean argument return ToObject(boolean)');\n}\n",
+    "id": "S15.2.2.1_A4_T3"
+   },
+   {
+    "section": "15.2.2.1, 8.6",
+    "description": "Argument value is any number",
+    "test": "var num = 1.0;\n\n//CHECK#1\nif (typeof num  !== 'number') {\n  $FAIL('#1: 1.0 is NOT a number');\n}\n\nvar n_obj = new Object(num);\n\n//CHECK#2\nif (n_obj.constructor !== Number) {\n  $ERROR('#2: When the Object constructor is called with Number argument return ToObject(number)');\n}\n\n//CHECK#3\nif (typeof n_obj !== 'object') {\n  $ERROR('#3: When the Object constructor is called with Number argument return ToObject(number)');\n}\n\n//CHECK#4\nif ( n_obj != num) {\n  $ERROR('#4: When the Object constructor is called with Number argument return ToObject(number)');\n}\n\n//CHECK#5\nif ( n_obj === num) {\n  $ERROR('#5: When the Object constructor is called with Number argument return ToObject(number)');\n}\n",
+    "id": "S15.2.2.1_A5_T1"
+   },
+   {
+    "section": "15.2.2.1, 8.6",
+    "description": "Argument value is NaN",
+    "test": "var num = NaN;\n\n//CHECK#1\nif (typeof num  !== 'number') {\n  $FAIL('#1: NaN is NOT a number');\n}\n\nvar n_obj = new Object(num);\n\n//CHECK#2\nif (n_obj.constructor !== Number) {\n  $ERROR('#2: When the Object constructor is called with Number argument return ToObject(number)');\n}\n\n//CHECK#3\nif (typeof n_obj !== 'object') {\n  $ERROR('#3: When the Object constructor is called with Number argument return ToObject(number)');\n}\n",
+    "id": "S15.2.2.1_A5_T2"
+   },
+   {
+    "section": "15.2.2.1, 8.6",
+    "description": "Argument value is Infinity",
+    "test": "var num = Infinity;\n\n//CHECK#1\nif (typeof num  !== 'number') {\n  $FAIL('#1: Infinity is NOT a number');\n}\n\nvar n_obj = new Object(num);\n\n//CHECK#2\nif (n_obj.constructor !== Number) {\n  $ERROR('#2: When the Object constructor is called with Number argument return ToObject(number)');\n}\n\n//CHECK#3\nif (typeof n_obj !== 'object') {\n  $ERROR('#3: When the Object constructor is called with Number argument return ToObject(number)');\n}\n\n//CHECK#4\nif ( n_obj != num) {\n  $ERROR('#4: When the Object constructor is called with Number argument return ToObject(number)');\n}\n\n//CHECK#5\nif ( n_obj === num) {\n  $ERROR('#5: When the Object constructor is called with Number argument return ToObject(number)');\n}\n",
+    "id": "S15.2.2.1_A5_T3"
+   },
+   {
+    "section": "15.2.2.1, 8.6",
+    "description": "Argument value is numeric expression",
+    "test": "var n_obj = new Object( 2*([].length + {q:1}[\"q\"]));\n\n//CHECK#2\nif (n_obj.constructor !== Number) {\n  $ERROR('#2: When the Object constructor is called with Number argument return ToObject(number)');\n}\n\n//CHECK#3\nif (typeof n_obj !== 'object') {\n  $ERROR('#3: When the Object constructor is called with Number argument return ToObject(number)');\n}\n\n//CHECK#4\nif ( n_obj != 2) {\n  $ERROR('#4: When the Object constructor is called with Number argument return ToObject(number)');\n}\n\n//CHECK#5\nif ( n_obj === 2) {\n  $ERROR('#5: When the Object constructor is called with Number argument return ToObject(number)');\n}\n",
+    "id": "S15.2.2.1_A5_T4"
+   },
+   {
+    "section": "15.2.2.1",
+    "description": "Creating an object with \"new Object(1,2,3)\"",
+    "test": "var obj = new Object(1,2,3);\n\n//CHECK#1\nif (obj.constructor !== Number) {\n  $ERROR('#1: Since Object as a function calling is the same as function calling list of arguments can appears in braces;');\n}\n\n//CHECK#2\nif (typeof obj !== \"object\") {\n  $ERROR('#2: Since Object as a function calling is the same as function calling list of arguments can appears in braces;');\n}\n\n//CHECK#3\nif ((obj != 1)||(obj === 1)) {\n  $ERROR('3#: Since Object as a function calling is the same as function calling list of arguments can appears in braces;');\n}\n",
+    "id": "S15.2.2.1_A6_T1"
+   },
+   {
+    "section": "15.2.2.1",
+    "description": "Creating an object with \"new Object(null,2,3)\"",
+    "test": "var obj = new Object(null,2,3);\n\n//CHECK#1\nif (obj.constructor !== Object) {\n  $ERROR('#1: Since Object as a function calling is the same as function calling list of arguments can appears in braces;');\n}\n\n//CHECK#2\nif (typeof obj !== \"object\") {\n  $ERROR('#2: Since Object as a function calling is the same as function calling list of arguments can appears in braces;');\n}\n",
+    "id": "S15.2.2.1_A6_T2"
+   },
+   {
+    "section": "15.2.2.1",
+    "description": "Creating an object with \"new Object((null,2,3),2,3)\"",
+    "test": "var obj = new Object((null,2,3),1,2);\n\n//CHECK#1\nif (obj.constructor !== Number) {\n  $ERROR('#1: Since Object as a function calling is the same as function calling list of arguments can appears in braces;');\n}\n\n//CHECK#2\nif (typeof obj !== \"object\") {\n  $ERROR('#2: Since Object as a function calling is the same as function calling list of arguments can appears in braces;');\n}\n\n//CHECK#3\nif ((obj != 3)||(obj === 3)) {\n  $ERROR('3#: Since Object as a function calling is the same as function calling list of arguments can appears in braces;');\n}\n",
+    "id": "S15.2.2.1_A6_T3"
+   }
+  ]
+ }
+}

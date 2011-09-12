@@ -1,0 +1,218 @@
+{
+ "testCollection": {
+  "name": "15.3.2_The_Function_Constructor",
+  "numTests": 35,
+  "tests": [
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": ": The body of the function is \"{toString:function(){throw 7;}}\";",
+    "test": "var body = {toString:function(){throw 7;}}\n\n//CHECK#1\ntry {\n  var f = new Function(body);\n  $FAIL('#1: When the Function constructor is called with one argument then body be that argument the following step are taken: call ToString(body)');\n} catch (e) {\n  if (e !== 7) {\n  \t$ERROR('#1.1: When the Function constructor is called with one argument then body be that argument the following step are taken: call ToString(body)');\n  }\n}\n",
+    "id": "S15.3.2.1_A1_T1"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": "Value of the function constructor argument is \"null\"",
+    "test": "//CHECK#1\ntry {\n  var f = new Function(null);\n} catch (e) {\n  $FAIL('#1: test fails with error '+e);\n}\n\n//CHECK#2\nif (f.constructor !== Function) {\n  $ERROR('#2: When the Function constructor is called with one argument then body be that argument and creates a new Function object as specified in 13.2');\n}\n\n//CHECK#3\nif (f() !== undefined) {\n  $ERROR('#3: When the Function constructor is called with one argument then body be that argument the following steps are taken...');\n}\n",
+    "id": "S15.3.2.1_A1_T10"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": "Value of the function constructor argument is \"undefined\"",
+    "test": "//CHECK#1\ntry {\n  var f = new Function(undefined);\n} catch (e) {\n  $FAIL('#1: test failed with error '+e);\n}\n\n//CHECK#2\nif (f.constructor !== Function) {\n  $ERROR('#2: When the Function constructor is called with one argument then body be that argument and creates a new Function object as specified in 13.2');\n}\n\n//CHECK#3\nif (f() !== undefined) {\n  $ERROR('#3: When the Function constructor is called with one argument then body be that argument the following steps are taken...');\n}\n",
+    "id": "S15.3.2.1_A1_T11"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": "Value of the function constructor argument is \"void 0\"",
+    "test": "//CHECK#1\ntry {\n  var f = new Function(void 0);\n} catch (e) {\n  $FAIL('#1: test failed with error '+e);\n}\n\n//CHECK#2\nif (f.constructor !== Function) {\n  $ERROR('#2: When the Function constructor is called with one argument then body be that argument and creates a new Function object as specified in 13.2');\n}\n\n//CHECK#3\nif (f()!==undefined) {\n  $ERROR('#3: When the Function constructor is called with one argument then body be that argument the following steps are taken...');\n}\n",
+    "id": "S15.3.2.1_A1_T12"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": "Value of the function constructor argument is \"{}\"",
+    "test": "//CHECK#1\ntry {\n  var f = new Function({});\n  $FAIL('#1: test failed with error '+e);\n} catch (e) {\n  if (!(e instanceof SyntaxError)) {\n  \t$ERROR('#1.1: If body is not parsable as FunctionBody then throw a SyntaxError exception');\n  }\n}\n",
+    "id": "S15.3.2.1_A1_T13"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": ": The body of the function is \"{toString:function(){return \"return 1;\";}}\";",
+    "test": "var body={toString:function(){return \"return 1;\";}};\n\n//CHECK#1\ntry {\n  var f = new Function(body);\t\n} catch (e) {\n  $FAIL('#1: test failed with error '+e);\n}\n\n//CHECK#2\nif (f.constructor !== Function) {\n  $ERROR('#2: When the Function constructor is called with one argument then body be that argument and creates a new Function object as specified in 13.2');\n}\n\n//CHECK#3\nif (f()!==1) {\n  $ERROR('#3: hen the Function constructor is called with one argument then body be that argument the following steps are taken...');\n}\n",
+    "id": "S15.3.2.1_A1_T2"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": "Value of the function constructor argument is 1",
+    "test": "//CHECK#1\ntry {\n  var f = new Function(1);\n} catch (e) {\n  $FAIL('#1: test failed with error '+e);\n}\n\n//CHECK#2\nif (f.constructor !== Function) {\n  $ERROR('#2: When the Function constructor is called with one argument then body be that argument and creates a new Function object as specified in 13.2');\n}\n\n//CHECK#3\nif (f()!==undefined) {\n  $ERROR('#3: When the Function constructor is called with one argument then body be that argument the following steps are taken...');\n}\n",
+    "id": "S15.3.2.1_A1_T3"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": "Value of the function constructor argument is x, where x is specified with \"undefined\"",
+    "test": "//CHECK#1\ntry {\n  var f = new Function(x);\n} catch (e) {\n  $FAIL('#1: test failed with error '+e);\n}\n\n//CHECK#2\nif (f.constructor !== Function) {\n  $ERROR('#2: When the Function constructor is called with one argument then body be that argument and creates a new Function object as specified in 13.2');\n}\n\n//CHECK#3\nif (f()!==undefined) {\n  $ERROR('#3: When the Function constructor is called with one argument then body be that argument the following steps are taken...');\n}\n\nvar x;\n",
+    "id": "S15.3.2.1_A1_T4"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": "Value of the function constructor argument is \"Object(\"return \\'A\\'\")\"",
+    "test": "var body = Object(\"return \\'A\\'\");\n\n//CHECK#1\ntry {\n  var f = new Function(body);\n} catch (e) {\n  $FAIL('#1: test failed with error '+e);\n}\n\n//CHECK#2\nif (f.constructor !== Function) {\n  $ERROR('#2: When the Function constructor is called with one argument then body be that argument and creates a new Function object as specified in 13.2');\n}\n\n//CHECK#3\nif (f()!==\"\\u0041\") {\n  $ERROR('#3: When the Function constructor is called with one argument then body be that argument the following steps are taken...');\n}\n",
+    "id": "S15.3.2.1_A1_T5"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": ": Value of the function constructor argument is the string \"return true;\";",
+    "test": "//CHECK#1\ntry {\n  var f = new Function(\"return true;\");\n} catch (e) {\n  $FAIL('#1: test failed with error '+e);\n}\n\n//CHECK#2\nif (f.constructor !== Function) {\n  $ERROR('#2: When the Function constructor is called with one argument then body be that argument and creates a new Function object as specified in 13.2');\n}\n\n//CHECK#3\nif (!(f())) {\n  $ERROR('#3: When the Function constructor is called with one argument then body be that argument the following steps are taken...');\n}\n",
+    "id": "S15.3.2.1_A1_T6"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": "Value of the function constructor argument is \"Object(1)\"",
+    "test": "var body = new Object(1);\n\n//CHECK#1\ntry {\n  var f = new Function(body);\n} catch (e) {\n  $FAIL('#1: test failed with error '+e);\n}\n\n//CHECK#2\nif (f.constructor !== Function) {\n  $ERROR('#2: When the Function constructor is called with one argument then body be that argument and creates a new Function object as specified in 13.2');\n}\n\n//CHECK#3\nif (f()!==undefined) {\n  $ERROR('#3: When the Function constructor is called with one argument then body be that argument the following steps are taken...');\n}\n",
+    "id": "S15.3.2.1_A1_T7"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": ": Value of the function constructor argument is \"var 1=1;\";",
+    "test": "var body = \"var 1=1;\";\n\n//CHECK#1\ntry {\n  var f = new Function(body);\n  $FAIL('#1: If body is not parsable as FunctionBody then throw a SyntaxError exception');\n} catch (e) {\n  if (!(e instanceof SyntaxError)) {\n  \t$ERROR('#1.1: If body is not parsable as FunctionBody then throw a SyntaxError exception');\n  }\n}\n",
+    "id": "S15.3.2.1_A1_T8"
+   },
+   {
+    "section": "15.3.2.1",
+    "description": ": Value of the function constructor argument is \"return arguments[0];\";",
+    "test": "var f = new Function(\"return arguments[0];\");\n\n//CHECK#1\nif (!(f instanceof Function)) {\n  $ERROR('#3: When the Function constructor is called with one argument then body be that argument and the following steps are taken...');\n}\n\n//CHECK#2\nif (f(\"A\") !== \"A\") {\n  $ERROR('#2: When the Function constructor is called with one argument then body be that argument and the following steps are taken...');\n}\n",
+    "id": "S15.3.2.1_A1_T9"
+   },
+   {
+    "section": "15.3.2.1",
+    "description": ": Values of the function constructor arguments are \"arg1\", \"arg2\", \"arg3\", \"return arg1+arg2+arg3;\";",
+    "test": "//CHECK#1\ntry {\n  var f = Function(\"arg1\", \"arg2\", \"arg3\", \"return arg1+arg2+arg3;\");\n} catch (e) {\n  $FAIL('#1: test failed');\n}\n\n//CHECK#2\nif (!(f instanceof Function)){\n  $ERROR('#2: It is permissible but not necessary to have one argument for each formal parameter to be specified');\n}\n\n//CHECK#3\nif (f(1,2,3) !== 6) {\n  $ERROR('#3: It is permissible but not necessary to have one argument for each formal parameter to be specified');\n}\n",
+    "id": "S15.3.2.1_A2_T1"
+   },
+   {
+    "section": "15.3.2.1",
+    "description": ": Values of the function constructor arguments are \"arg1, arg2\", \"arg3\", \"return arg1+arg2+arg3;\";",
+    "test": "//CHECK#1\ntry {\n  var f = Function(\"arg1, arg2\", \"arg3\", \"return arg1+arg2+arg3;\");\n} catch (e) {\n  $FAIL('#1: test failed');\n}\n\n//CHECK#2\nif (!(f instanceof Function)){\n  $ERROR('#2: It is permissible but not necessary to have one argument for each formal parameter to be specified');\n}\n\n//CHECK#3\nif (f(\"AB\",\"BA\",1) !== \"ABBA1\") {\n  $ERROR('#3: It is permissible but not necessary to have one argument for each formal parameter to be specified');\n}\n",
+    "id": "S15.3.2.1_A2_T2"
+   },
+   {
+    "section": "15.3.2.1",
+    "description": ": Values of the function constructor arguments are \"arg1, arg2, arg3\", \"return arg1+arg2+arg3;\";",
+    "test": "//CHECK#1\ntry {\n  var f = Function(\"arg1, arg2, arg3\", \"return arg1+arg2+arg3;\");\n} catch (e) {\n  $FAIL('#1: test failed');\n}\n\n//CHECK#2\nif (!(f instanceof Function)){\n  $ERROR('#2: It is permissible but not necessary to have one argument for each formal parameter to be specified');\n}\n\n//CHECK#3\nif (f(1,1,\"ABBA\") !== \"2ABBA\") {\n  $ERROR('#3: It is permissible but not necessary to have one argument for each formal parameter to be specified');\n}\n",
+    "id": "S15.3.2.1_A2_T3"
+   },
+   {
+    "section": "15.3.2.1",
+    "description": "Values of the function constructor arguments are \"return\"-s of various results",
+    "test": "var i=0;\n\nvar p={toString:function(){return \"arg\"+(++i);}};\n\n//CHECK#1\ntry {\n  var f = Function(p, p, p, \"return arg1+arg2+arg3;\");\n} catch (e) {\n  $FAIL('#1: test failed');\n}\n\n//CHECK#2\nif (!(f instanceof Function)){\n  $ERROR('#2: It is permissible but not necessary to have one argument for each formal parameter to be specified');\n}\n\n//CHECK#3\nif (f(4,\"2\",\"QUESTION\") !== \"42QUESTION\") {\n  $ERROR('#3: It is permissible but not necessary to have one argument for each formal parameter to be specified');\n}\n  ",
+    "id": "S15.3.2.1_A2_T4"
+   },
+   {
+    "section": "15.3.2.1",
+    "description": "Values of the function constructor arguments are \"return\"-s of various results and a concotenation of strings",
+    "test": "var i=0;\n\nvar p={toString:function(){return \"arg\"+(++i)}};\n\n//CHECK#1\ntry {\n  var f = Function(p+\",\"+p,p, \"return arg1+arg2+arg3;\");\n} catch (e) {\n  $FAIL('#1: test failed');\n}\n\n//CHECK#2\nif (!(f instanceof Function)){\n  $ERROR('#2: It is permissible but not necessary to have one argument for each formal parameter to be specified');\n}\n\n//CHECK#3\nif (f(\"\",1,2) !== \"12\") {\n  $ERROR('#3: It is permissible but not necessary to have one argument for each formal parameter to be specified');\n}\n",
+    "id": "S15.3.2.1_A2_T5"
+   },
+   {
+    "section": "15.3.2.1",
+    "description": "Values of the function constructor arguments are \"return\"-s of various results and a concotenation of strings",
+    "test": "var i=0;\n\nvar p={toString:function(){return \"arg\"+(++i)}};\n\n//CHECK#1\ntry {\n  var f = Function(p+\",\"+p+\",\"+p, \"return arg1+arg2+arg3;\");\n} catch (e) {\n  $FAIL('#1: test failed');\n}\n\n//CHECK#2\nif (!(f instanceof Function)){\n  $ERROR('#2: It is permissible but not necessary to have one argument for each formal parameter to be specified');\n}\n\n//CHECK#3\nif (f(\"\",1,p) !== \"1arg4\") {\n  $ERROR('#3: It is permissible but not necessary to have one argument for each formal parameter to be specified');\n}\n",
+    "id": "S15.3.2.1_A2_T6"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": ": Values of the function constructor arguments are \"{toString:function(){throw 1;}}\" and \"{toString:function(){throw 'body';}}\";",
+    "test": "var p = {toString:function(){throw 1;}};\nvar body = {toString:function(){throw \"body\";}};\n\n//CHECK#1\ntry {\n  var f = new Function(p,body);\n  $FAIL('#1: test failed');\n} catch (e) {\n  if (e !== 1) {\n  \t$ERROR('#1.1: i) Let Result(i) be the first argument; ii) Let P be ToString(Result(i))');\n  }\n}\n\n\n",
+    "id": "S15.3.2.1_A3_T1"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": ": Values of the function constructor arguments are \"{toString:function(){return \"z;x\"}}\" and \"return this;\";",
+    "test": "var body = \"return this;\";\nvar p={toString:function(){return \"z;x\"}};\n\n//CHECK#1\ntry {\n  var f = new Function(p,body);\n  $FAIL('#1: If P is not parsable as a FormalParameterList_opt then throw a SyntaxError exception');\n} catch (e) {\n  if (!(e instanceof SyntaxError)) {\n  \t$ERROR('#1.1: If P is not parsable as a FormalParameterList_opt then throw a SyntaxError exception');\n  }\n}\n",
+    "id": "S15.3.2.1_A3_T10"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": "Values of the function constructor arguments are \"a,b,c\" and \"void 0\"",
+    "test": "var p = \"a,b,c\";\n\n//CHECK#1\ntry {\n  var f = new Function(p, void 0);\n} catch (e) {\n  $FAIL('#1: test failed with error '+e);\n}\n\n//CHECK#2\nif (f.constructor !== Function) {\n  $ERROR('#2: When the Function constructor is called with arguments p, body creates a new Function object as specified in 13.2');\n}\n\n//CHECK#3\nif (f()!==undefined) {\n  $ERROR('#3: When the Function constructor is called with arguments p, body the following steps are taken...');\n}\n",
+    "id": "S15.3.2.1_A3_T11"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": "Values of the function constructor arguments are \"a,b,c\" and \"undefined\"",
+    "test": "var p = \"a,b,c\";\n\n//CHECK#1\ntry {\n  var f = new Function(p, undefined);\n} catch (e) {\n  $FAIL('#1: test failed with error '+e);\n}\n\n//CHECK#2\nif (f.constructor !== Function) {\n  $ERROR('#2: When the Function constructor is called with arguments p, body creates a new Function object as specified in 13.2');\n}\n\n//CHECK#3\nif (f()!==undefined) {\n  $ERROR('#3: When the Function constructor is called with arguments p, body the following steps are taken...');\n}\n",
+    "id": "S15.3.2.1_A3_T12"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": "Values of the function constructor arguments are \"a,b,c\" and \"null\"",
+    "test": "var p = \"a,b,c\";\n\n//CHECK#1\ntry {\n  var f = new Function(p, null);\n} catch (e) {\n  $FAIL('#1: test failed with error '+e);\n}\n\n//CHECK#2\nif (f.constructor !== Function) {\n  $ERROR('#2: When the Function constructor is called with arguments p, body creates a new Function object as specified in 13.2');\n}\n\n//CHECK#3\nif (f()!==undefined) {\n  $ERROR('#3: When the Function constructor is called with arguments p, body the following steps are taken...');\n}\n",
+    "id": "S15.3.2.1_A3_T13"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": "Values of the function constructor arguments are \"a,b,c\" and an undefined variable",
+    "test": "var p = \"a,b,c\";\n\n//CHECK#1\ntry {\n  var f = new Function(p, body);\n} catch (e) {\n  $FAIL('#1: test failed with error '+e);\n}\n\n//CHECK#2\nif (f.constructor !== Function) {\n  $ERROR('#2: When the Function constructor is called with arguments p, body creates a new Function object as specified in 13.2');\n}\n\n//CHECK#3\nif (f()!==undefined) {\n  $ERROR('#3: When the Function constructor is called with arguments p, body the following steps are taken...');\n}\n\nvar body;\n",
+    "id": "S15.3.2.1_A3_T14"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": "Values of the function constructor arguments are are two empty strings",
+    "test": "//CHECK#1\ntry {\n  var f = new Function(\"\", \"\");\n} catch (e) {\n  $FAIL('#1: test failed with error '+e);\n}\n\n//CHECK#2\nif (f.constructor !== Function) {\n  $ERROR('#2: When the Function constructor is called with arguments p, body creates a new Function object as specified in 13.2');\n}\n\n//CHECK#3\nif (f()!==undefined) {\n  $ERROR('#3: When the Function constructor is called with arguments p, body the following steps are taken...');\n}\n",
+    "id": "S15.3.2.1_A3_T15"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": ": Values of the function constructor arguments are \"{toString:function(){return 'a';}}\" and \"return a;\";",
+    "test": "var p = {toString:function(){return \"a\";}};\nvar body = \"return a;\";\n\n//CHECK#1\ntry {\n  var f = new Function(p,body);\n} catch (e) {\n  $FAIL('#1: test failed with error '+e);\n}\n\n//CHECK#2\nif (f.constructor !== Function) {\n  $ERROR('#2: When the Function constructor is called with arguments p, body creates a new Function object as specified in 13.2');\n}\n\n//CHECK#3\nif (f(42)!==42) {\n  $ERROR('#3: When the Function constructor is called with arguments p, body creates a new Function object as specified in 13.2');\n}\n\n\n",
+    "id": "S15.3.2.1_A3_T2"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": ": Values of the function constructor arguments are \"{toString:function(){p=1;return \"a\";}}\" and \"{toString:function(){throw \"body\";}}\";",
+    "test": "var p = {toString:function(){p=1;return \"a\";}};\nvar body = {toString:function(){throw \"body\";}};\n\n//CHECK#1\ntry {\n  var f = new Function(p,body);\n  $FAIL('#1: test failed');\n} catch (e) {\n  if (e !== \"body\") {\n  \t$ERROR('#1.1: i) Let Result(i) be the first argument; ii) Let P be ToString(Result(i))');\n  }\n}\n\n//CHECK#2\nif (p !== 1) {\n  $ERROR('#2: i) Let Result(i) be the first argument; ii) Let P be ToString(Result(i))');\n}\n\n\n\n",
+    "id": "S15.3.2.1_A3_T3"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": ": Values of the function constructor arguments are an undefined variable and \"return 1.1;\";",
+    "test": "var body = \"return 1.1;\";\n\n//CHECK#1\ntry {\n  var f = new Function(p,body);\n} catch (e) {\n  $FAIL('#1: test failed with error '+e);\n}\n\n//CHECK#2\nif (f.constructor !== Function) {\n  $ERROR('#2: When the Function constructor is called with one argument then body be that argument and creates a new Function object as specified in 13.2');\n}\n\n//CHECK#3\nif (f()!==1.1) {\n  $ERROR('#3: When the Function constructor is called with one argument then body be that argument the following steps are taken...');\n}\n\nvar p;",
+    "id": "S15.3.2.1_A3_T4"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": ": Values of the function constructor arguments are \"void 0\" and \"return \\\"A\\\";\";",
+    "test": "var body = \"return \\\"A\\\";\";\n\n//CHECK#1\ntry {\n  var f = new Function(void 0,body);\n} catch (e) {\n  $FAIL('#1: test failed with error '+e);\n}\n\n//CHECK#2\nif (f.constructor !== Function) {\n  $ERROR('#2: When the Function constructor is called with one argument then body be that argument and creates a new Function object as specified in 13.2');\n}\n\n//CHECK#3\nif (f()!=='\\u0041') {\n  $ERROR('#3: When the Function constructor is called with one argument then body be that argument the following steps are taken...');\n}\n\n\n",
+    "id": "S15.3.2.1_A3_T5"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": ": Values of the function constructor arguments are \"null\" and \"return true;\";",
+    "test": "var body = \"return true;\";\n\n//CHECK#1\ntry {\n  var f = new Function(null,body);\n  $FAIL('#1: If P is not parsable as a FormalParameterList_opt then throw a SyntaxError exception');\n} catch (e) {\n  if (!(e instanceof SyntaxError)) {\n  \t$ERROR('#1.1: If P is not parsable as a FormalParameterList_opt then throw a SyntaxError exception');\n  }\n}",
+    "id": "S15.3.2.1_A3_T6"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": ": Values of the function constructor arguments are \"Object(\"a\")\" and \"return a;\";",
+    "test": "var body = \"return a;\";\n\nvar p=Object(\"a\");\n\n//CHECK#1\ntry {\n  var f = new Function(p, body);\n} catch (e) {\n  $FAIL('#1: test failed with error '+e);\n}\n\n//CHECK#2\nif (f.constructor !== Function) {\n  $ERROR('#2: When the Function constructor is called with one argument then body be that argument and creates a new Function object as specified in 13.2');\n}\n\n//CHECK#3\nif (f(1)!==1) {\n  $ERROR('#3: When the Function constructor is called with one argument then body be that argument the following steps are taken...');\n}",
+    "id": "S15.3.2.1_A3_T7"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": ": Values of the function constructor arguments are \"undefined\" and \"return this;\";",
+    "test": "var body = \"return this;\";\n\n//CHECK#1\ntry {\n  var f = new Function(undefined,body);\n} catch (e) {\n  $FAIL('#1: test failed with error '+e);\n}\n\n//CHECK#2\nif (f.constructor !== Function) {\n  $ERROR('#2: When the Function constructor is called with one argument then body be that argument and creates a new Function object as specified in 13.2');\n}\n\n//CHECK#3\nif (f()!==this) {\n  $ERROR('#3: When the Function constructor is called with one argument then body be that argument the following steps are taken...');\n}\n\n\n",
+    "id": "S15.3.2.1_A3_T8"
+   },
+   {
+    "section": "15.3.2.1, 13.2",
+    "description": ": Values of the function constructor arguments are \"1,1\" and \"return this;\";",
+    "test": "var body = \"return this;\";\nvar p=\"1,1\";\n\n//CHECK#1\ntry {\n  var f = new Function(p,body);\n  $FAIL('#1: If P is not parsable as a FormalParameterList_opt then throw a SyntaxError exception');\n} catch (e) {\n  if (!(e instanceof SyntaxError)) {\n  \t$ERROR('#1.1: If P is not parsable as a FormalParameterList_opt then throw a SyntaxError exception');\n  }\n}\n",
+    "id": "S15.3.2.1_A3_T9"
+   },
+   {
+    "section": "15.3.2",
+    "description": "Checking the constuctor of the object that is created as a new Function",
+    "test": "var f = new Function;\n\n//CHECK#1\nif (f.constructor !== Function) {\n  $ERROR('#1: When Function is called as part of a new expression, it is a constructor: it initialises the newly created object');\n}\n\n//CHECK#2\nif (f === undefined) {\n  $ERROR('#2: When Function is called as part of a new expression, it is a constructor: it initialises the newly created object');\n}\n",
+    "id": "S15.3.2_A1"
+   }
+  ]
+ }
+}

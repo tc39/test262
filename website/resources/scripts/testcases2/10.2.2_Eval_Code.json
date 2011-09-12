@@ -1,0 +1,140 @@
+{
+ "testCollection": {
+  "name": "10.2.2_Eval_Code",
+  "numTests": 22,
+  "tests": [
+   {
+    "section": "10.2.2",
+    "description": "eval within global execution context",
+    "test": "var i;\nvar j;\nstr1 = '';\nstr2 = '';\nx = 1;\ny = 2;\n\nfor(i in this){\n  str1+=i;\n}\n\neval('for(j in this){\\nstr2+=j;\\n}');\n\nif(!(str1 === str2)){\n  $ERROR(\"#1: scope chain must contain same objects in the same order as the calling context\");\n}\n",
+    "id": "S10.2.2_A1.1_T1"
+   },
+   {
+    "section": "10.2.2",
+    "description": "eval within global execution context",
+    "test": "var i;\nvar j;\nstr1 = '';\nstr2 = '';\nvar x = 1;\nvar y = 2;\n\nfor(i in this){\n  str1+=i;\n}\n\neval('for(j in this){\\nstr2+=j;\\n}');\n\nif(!(str1 === str2)){\n  $ERROR(\"#1: scope chain must contain same objects in the same order as the calling context\");\n}\n",
+    "id": "S10.2.2_A1.1_T10"
+   },
+   {
+    "section": "10.2.2",
+    "description": "eval within global execution context",
+    "test": "var i;\nvar j;\nstr1 = '';\nstr2 = '';\n\nfor(i in this){\n  str1+=i;\n}\n\neval('for(j in this){\\nstr2+=j;\\n}');\n\nif(!(str1 === str2)){\n  $ERROR(\"#1: scope chain must contain same objects in the same order as the calling context\");\n}\n\nthis.x = 1;\nthis.y = 2;\n",
+    "id": "S10.2.2_A1.1_T11"
+   },
+   {
+    "section": "10.2.2",
+    "description": "eval within global execution context",
+    "test": "var i;\nvar j;\nstr1 = '';\nstr2 = '';\n\nfor(i in this){\n  str1+=i;\n}\n\neval('for(j in this){\\nstr2+=j;\\n}');\n\nif(!(str1 === str2)){\n  $ERROR(\"#1: scope chain must contain same objects in the same order as the calling context\");\n}\n\nvar x = 1;\nvar y = 2;\n",
+    "id": "S10.2.2_A1.1_T2"
+   },
+   {
+    "section": "10.2.2",
+    "description": "eval within global execution context",
+    "test": "var i;\nvar j;\nstr1 = '';\nstr2 = '';\nthis.x = 1;\nthis.y = 2;\n\nfor(i in this){\n  str1+=i;\n}\n\neval('for(j in this){\\nstr2+=j;\\n}');\n\nif(!(str1 === str2)){\n  $ERROR(\"#1: scope chain must contain same objects in the same order as the calling context\");\n}\n",
+    "id": "S10.2.2_A1.1_T3"
+   },
+   {
+    "section": "10.2.2",
+    "description": "eval within global execution context",
+    "test": "var i;\nvar j;\nstr1 = '';\nstr2 = '';\nx = 1;\n\nfor(i in this){\n  str1+=i;\n}\n\neval('for(j in this){\\nstr2+=j;\\n}');\n\nif(!(str1 === str2)){\n  $ERROR(\"#1: scope chain must contain same objects in the same order as the calling context\");\n}\n\ny = 2;\n",
+    "id": "S10.2.2_A1.1_T4"
+   },
+   {
+    "section": "10.2.2",
+    "description": "eval within global execution context",
+    "test": "var i;\nvar j;\nstr1 = '';\nstr2 = '';\nvar x = 1;\n\nfor(i in this){\n  str1+=i;\n}\n\neval('for(j in this){\\nstr2+=j;\\n}');\n\nif(!(str1 === str2)){\n  $ERROR(\"#1: scope chain must contain same objects in the same order as the calling context\");\n}\n\nvar y = 2;\n",
+    "id": "S10.2.2_A1.1_T5"
+   },
+   {
+    "section": "10.2.2",
+    "description": "eval within global execution context",
+    "test": "var i;\nvar j;\nstr1 = '';\nstr2 = '';\nthis.x = 1;\n\nfor(i in this){\n  str1+=i;\n}\n\neval('for(j in this){\\nstr2+=j;\\n}');\n\nif(!(str1 === str2)){\n  $ERROR(\"#1: scope chain must contain same objects in the same order as the calling context\");\n}\n\nthis.y = 2;\n",
+    "id": "S10.2.2_A1.1_T6"
+   },
+   {
+    "section": "10.2.2",
+    "description": "eval within global execution context",
+    "test": "var i;\nvar j;\nstr1 = '';\nstr2 = '';\nx = 1;\n\nfor(i in this){\n  str1+=i;\n}\n\neval('for(j in this){\\nstr2+=j;\\n}');\n\nif(!(str1 === str2)){\n  $ERROR(\"#1: scope chain must contain same objects in the same order as the calling context\");\n}\n\nvar y = 2;\n",
+    "id": "S10.2.2_A1.1_T7"
+   },
+   {
+    "section": "10.2.2",
+    "description": "eval within global execution context",
+    "test": "var i;\nvar j;\nstr1 = '';\nstr2 = '';\nthis.x = 1;\n\nfor(i in this){\n  str1+=i;\n}\n\neval('for(j in this){\\nstr2+=j;\\n}');\n\nif(!(str1 === str2)){\n  $ERROR(\"#1: scope chain must contain same objects in the same order as the calling context\");\n}\n\nvar y = 2;\n",
+    "id": "S10.2.2_A1.1_T8"
+   },
+   {
+    "section": "10.2.2",
+    "description": "eval within global execution context",
+    "test": "var i;\nvar j;\nstr1 = '';\nstr2 = '';\n\nfor(i in this){\n  str1+=i;\n}\n\neval('for(j in this){\\nstr2+=j;\\n}');\n\nif(!(str1 === str2)){\n  $ERROR(\"#1: scope chain must contain same objects in the same order as the calling context\");\n}\n\nx = 1;\ny = 2;\n",
+    "id": "S10.2.2_A1.1_T9"
+   },
+   {
+    "section": "10.2.2",
+    "description": "eval within global execution context",
+    "test": "function f(){\n  var i;\n  var j;\n  str1 = '';\n  str2 = '';\n  x = 1;\n  y = 2;\n  \n  for(i in this){\n    str1+=i;\n  }\n  \n  eval('for(j in this){\\nstr2+=j;\\n}');\n  return (str1 === str2); \n}\n\nif(!f()){\n  $ERROR(\"#1: scope chain must contain same objects in the same order as the calling context\");\n}\n",
+    "id": "S10.2.2_A1.2_T1"
+   },
+   {
+    "section": "10.2.2",
+    "description": "eval within global execution context",
+    "test": "function f(){\n  var i;\n  var j;\n  str1 = '';\n  str2 = '';\n  var x = 1;\n  var y = 2;\n  \n  for(i in this){\n    str1+=i;\n  }\n  \n  eval('for(j in this){\\nstr2+=j;\\n}');\n\n  return (str1 === str2); \n}\n\nif(!f()){\n  $ERROR(\"#1: scope chain must contain same objects in the same order as the calling context\");\n}\n",
+    "id": "S10.2.2_A1.2_T10"
+   },
+   {
+    "section": "10.2.2",
+    "description": "eval within global execution context",
+    "test": "function f(){\n  var i;\n  var j;\n  str1 = '';\n  str2 = '';\n  \n  for(i in this){\n    str1+=i;\n  }\n  \n  eval('for(j in this){\\nstr2+=j;\\n}');\n\n  return (str1 === str2); \n\n  this.x = 1;\n  this.y = 2;\n}\n\nif(!f()){\n  $ERROR(\"#1: scope chain must contain same objects in the same order as the calling context\");\n}\n",
+    "id": "S10.2.2_A1.2_T11"
+   },
+   {
+    "section": "10.2.2",
+    "description": "eval within global execution context",
+    "test": "function f(){\n  var i;\n  var j;\n  str1 = '';\n  str2 = '';\n  \n  for(i in this){\n    str1+=i;\n  }\n  \n  eval('for(j in this){\\nstr2+=j;\\n}');\n\n  return (str1 === str2);\n  var x = 1;\n  var y = 2;\n}\n\nif(!f()){\n  $ERROR(\"#1: scope chain must contain same objects in the same order as the calling context\");\n}\n",
+    "id": "S10.2.2_A1.2_T2"
+   },
+   {
+    "section": "10.2.2",
+    "description": "eval within global execution context",
+    "test": "function f(){\n  var i;\n  var j;\n  str1 = '';\n  str2 = '';\n  this.x = 1;\n  this.y = 2;\n  \n  for(i in this){\n    str1+=i;\n  }\n  \n  eval('for(j in this){\\nstr2+=j;\\n}');\n\n  return (str1 === str2); \n}\n\nif(!f()){\n  $ERROR(\"#1: scope chain must contain same objects in the same order as the calling context\");\n}\n",
+    "id": "S10.2.2_A1.2_T3"
+   },
+   {
+    "section": "10.2.2",
+    "description": "eval within global execution context",
+    "test": "function f(){\n  var i;\n  var j;\n  str1 = '';\n  str2 = '';\n  x = 1;\n  \n  for(i in this){\n    str1+=i;\n  }\n  \n  eval('for(j in this){\\nstr2+=j;\\n}');\n\n  return (str1 === str2); \n\n  y = 2;\n}\n\nif(!f()){\n  $ERROR(\"#1: scope chain must contain same objects in the same order as the calling context\");\n}\n",
+    "id": "S10.2.2_A1.2_T4"
+   },
+   {
+    "section": "10.2.2",
+    "description": "eval within global execution context",
+    "test": "function f(){\n  var i;\n  var j;\n  str1 = '';\n  str2 = '';\n  var x = 1;\n  \n  for(i in this){\n    str1+=i;\n  }\n  \n  eval('for(j in this){\\nstr2+=j;\\n}');\n\n  return (str1 === str2);\n  \n  var y = 2;\n}\n\nif(!f()){\n  $ERROR(\"#1: scope chain must contain same objects in the same order as the calling context\");\n}\n\n",
+    "id": "S10.2.2_A1.2_T5"
+   },
+   {
+    "section": "10.2.2",
+    "description": "eval within global execution context",
+    "test": "function f(){\n  var i;\n  var j;\n  str1 = '';\n  str2 = '';\n  this.x = 1;\n  \n  for(i in this){\n    str1+=i;\n  }\n  \n  eval('for(j in this){\\nstr2+=j;\\n}');\n\n  return (str1 === str2);\n  \n  this.y = 2;\n}\n\nif(!f()){\n  $ERROR(\"#1: scope chain must contain same objects in the same order as the calling context\");\n}\n\n",
+    "id": "S10.2.2_A1.2_T6"
+   },
+   {
+    "section": "10.2.2",
+    "description": "eval within global execution context",
+    "test": "function f(){\n  var i;\n  var j;\n  str1 = '';\n  str2 = '';\n  x = 1;\n  \n  for(i in this){\n    str1+=i;\n  }\n  \n  eval('for(j in this){\\nstr2+=j;\\n}');\n\n  return (str1 === str2);\n  \n  var y = 2;\n}\n\nif(!f()){\n  $ERROR(\"#1: scope chain must contain same objects in the same order as the calling context\");\n}\n\n\n",
+    "id": "S10.2.2_A1.2_T7"
+   },
+   {
+    "section": "10.2.2",
+    "description": "eval within global execution context",
+    "test": "function f(){\n  var i;\n  var j;\n  str1 = '';\n  str2 = '';\n  this.x = 1;\n  \n  for(i in this){\n    str1+=i;\n  }\n  \n  eval('for(j in this){\\nstr2+=j;\\n}');\n\n  return (str1 === str2);\n  \n  var y = 2;\n}\n\nif(!f()){\n  $ERROR(\"#1: scope chain must contain same objects in the same order as the calling context\");\n}\n\n",
+    "id": "S10.2.2_A1.2_T8"
+   },
+   {
+    "section": "10.2.2",
+    "description": "eval within global execution context",
+    "test": "function f(){\n  var i;\n  var j;\n  str1 = '';\n  str2 = '';\n  \n  for(i in this){\n    str1+=i;\n  }\n  \n  eval('for(j in this){\\nstr2+=j;\\n}');\n\n  return (str1 === str2);\n  \n  x = 1;\n  y = 2;\n}\n\nif(!f()){\n  $ERROR(\"#1: scope chain must contain same objects in the same order as the calling context\");\n}\n\n",
+    "id": "S10.2.2_A1.2_T9"
+   }
+  ]
+ }
+}

@@ -1,0 +1,175 @@
+{
+ "testCollection": {
+  "name": "15.4.3.2",
+  "numTests": 24,
+  "tests": [
+   {
+    "id": "15.4.3.2-0-1",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-0-1.js",
+    "description": "Array.isArray must exist as a function",
+    "test": "assertTrue((function testcase() {\n  var f = Array.isArray;\n  if (typeof(f) === \"function\") {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "15.4.3.2-0-2",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-0-2.js",
+    "description": "Array.isArray must exist as a function taking 1 parameter",
+    "test": "assertTrue((Array.isArray.length === 1));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   },
+   {
+    "id": "15.4.3.2-0-3",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-0-3.js",
+    "description": "Array.isArray return true if its argument is an Array",
+    "test": "assertTrue((function testcase() {\n  var a = [];\n  var b = Array.isArray(a);\n  if (b === true) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   },
+   {
+    "id": "15.4.3.2-0-4",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-0-4.js",
+    "description": "Array.isArray return false if its argument is not an Array",
+    "test": "assertTrue((function testcase() {\n  var b_num   = Array.isArray(42);\n  var b_undef = Array.isArray(undefined);\n  var b_bool  = Array.isArray(true);\n  var b_str   = Array.isArray(\"abc\");\n  var b_obj   = Array.isArray({});\n  var b_null  = Array.isArray(null);\n  \n  if (b_num === false &&\n      b_undef === false &&\n      b_bool === false &&\n      b_str === false &&\n      b_obj === false &&\n      b_null === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   },
+   {
+    "id": "15.4.3.2-0-5",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-0-5.js",
+    "description": "Array.isArray return true if its argument is an Array (Array.prototype)",
+    "test": "assertTrue((function testcase() {\n  var b = Array.isArray(Array.prototype);\n  if (b === true) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   },
+   {
+    "id": "15.4.3.2-0-6",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-0-6.js",
+    "description": "Array.isArray return true if its argument is an Array (new Array())",
+    "test": "assertTrue((function testcase() {\n  var a = new Array(10);\n  var b = Array.isArray(a);\n  if (b === true) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   },
+   {
+    "id": "15.4.3.2-0-7",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-0-7.js",
+    "description": "Array.isArray returns false if its argument is not an Array",
+    "test": "assertTrue((function testcase() {\n  var o = new Object();\n  o[12] = 13;\n  var b = Array.isArray(o);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   },
+   {
+    "id": "15.4.3.2-1-1",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-1.js",
+    "description": "Array.isArray applied to boolean primitive",
+    "test": "assertTrue((!Array.isArray(true)));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   },
+   {
+    "id": "15.4.3.2-1-10",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-10.js",
+    "description": "Array.isArray applied to RegExp object",
+    "test": "assertTrue((!Array.isArray(new RegExp())));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   },
+   {
+    "id": "15.4.3.2-1-11",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-11.js",
+    "description": "Array.isArray applied to the JSON object",
+    "test": "assertTrue((!Array.isArray(JSON)));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   },
+   {
+    "id": "15.4.3.2-1-12",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-12.js",
+    "description": "Array.isArray applied to Error object",
+    "test": "assertTrue((!Array.isArray(new SyntaxError())));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   },
+   {
+    "id": "15.4.3.2-1-13",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-13.js",
+    "description": "Array.isArray applied to Arguments object",
+    "test": "assertTrue((function testcase() {\n\n        var arg;\n\n        (function fun() {\n            arg = arguments;\n        }(1, 2, 3));\n\n        return !Array.isArray(arg);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   },
+   {
+    "id": "15.4.3.2-1-15",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-15.js",
+    "description": "Array.isArray applied to the global object",
+    "test": "assertTrue((!Array.isArray(fnGlobalObject())));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   },
+   {
+    "id": "15.4.3.2-1-2",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-2.js",
+    "description": "Array.isArray applied to Boolean Object",
+    "test": "assertTrue((!Array.isArray(new Boolean(false))));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   },
+   {
+    "id": "15.4.3.2-1-3",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-3.js",
+    "description": "Array.isArray applied to number primitive",
+    "test": "assertTrue((!Array.isArray(5)));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   },
+   {
+    "id": "15.4.3.2-1-4",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-4.js",
+    "description": "Array.isArray applied to Number object",
+    "test": "assertTrue((!Array.isArray(new Number(-3))));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   },
+   {
+    "id": "15.4.3.2-1-5",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-5.js",
+    "description": "Array.isArray applied to string primitive",
+    "test": "assertTrue((!Array.isArray(\"abc\")));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   },
+   {
+    "id": "15.4.3.2-1-6",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-6.js",
+    "description": "Array.isArray applied to String object",
+    "test": "assertTrue((!Array.isArray(new String(\"hello\\nworld\\\\!\"))));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   },
+   {
+    "id": "15.4.3.2-1-7",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-7.js",
+    "description": "Array.isArray applied to Function object",
+    "test": "assertTrue((!Array.isArray(function () { })));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   },
+   {
+    "id": "15.4.3.2-1-8",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-8.js",
+    "description": "Array.isArray applied to the Math object",
+    "test": "assertTrue((!Array.isArray(Math)));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   },
+   {
+    "id": "15.4.3.2-1-9",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-9.js",
+    "description": "Array.isArray applied to Date object",
+    "test": "assertTrue((!Array.isArray(new Date())));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   },
+   {
+    "id": "15.4.3.2-2-1",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-2-1.js",
+    "description": "Array.isArray applied to an object with an array as the prototype",
+    "test": "assertTrue((function testcase() {\n\n        var proto = [];\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n        return !Array.isArray(child);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   },
+   {
+    "id": "15.4.3.2-2-2",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-2-2.js",
+    "description": "Array.isArray applied to an object with Array.prototype as the prototype",
+    "test": "assertTrue((function testcase() {\n\n        var proto = Array.prototype;\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n\n        return !Array.isArray(child);\n    }).call(this));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   },
+   {
+    "id": "15.4.3.2-2-3",
+    "path": "TestCases/chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-2-3.js",
+    "description": "Array.isArray applied to an Array-like object with length and some indexed properties",
+    "test": "assertTrue((!Array.isArray({ 0: 12, 1: 9, length: 2 })));\n",
+    "precondition": "(fnExists(Array.isArray))"
+   }
+  ]
+ }
+}

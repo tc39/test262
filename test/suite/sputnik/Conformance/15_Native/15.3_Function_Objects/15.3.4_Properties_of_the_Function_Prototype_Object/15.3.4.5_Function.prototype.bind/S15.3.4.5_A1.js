@@ -5,7 +5,7 @@
 * @name: S15.3.4.5_A1;
 * @section: 15.3.4.5;
 * @assertion: "caller" of bound function is poisoned (step 20);
-* @description A bound function should fail to find its "caller";
+* @description: A bound function should fail to find its "caller";
 * @negative
 * @errortype: TypeError;
 */

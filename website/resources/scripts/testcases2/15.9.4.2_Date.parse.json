@@ -1,0 +1,50 @@
+{
+ "testCollection": {
+  "name": "15.9.4.2_Date.parse",
+  "numTests": 7,
+  "tests": [
+   {
+    "section": "15.9.4.2",
+    "description": "Checking absence of ReadOnly attribute",
+    "test": "x = Date.parse;\nif(x === 1)\n  Date.parse = 2;\nelse\n  Date.parse = 1;\nif (Date.parse === x) {\n  $ERROR('#1: The Date.parse has not the attribute ReadOnly');\n}\n\n",
+    "id": "S15.9.4.2_A1_T1"
+   },
+   {
+    "section": "15.9.4.2",
+    "description": "Checking absence of DontDelete attribute",
+    "test": "if (delete Date.parse  === false) {\n  $ERROR('#1: The Date.parse property has not the attributes DontDelete');\n}\n\nif (Date.hasOwnProperty('parse')) {\n  $FAIL('#2: The Date.parse property has not the attributes DontDelete');\n}\n\n",
+    "id": "S15.9.4.2_A1_T2"
+   },
+   {
+    "section": "15.9.4.2",
+    "description": "Checking DontEnum attribute",
+    "test": "if (Date.propertyIsEnumerable('parse')) {\n  $ERROR('#1: The Date.parse property has the attribute DontEnum');\n}\n\nfor(x in Date) {\n  if(x === \"parse\") {\n    $ERROR('#2: The Date.parse has the attribute DontEnum');\n  }\n}\n\n",
+    "id": "S15.9.4.2_A1_T3"
+   },
+   {
+    "section": "15.9.4.2",
+    "description": "The \"length\" property of the \"parse\" is 1",
+    "test": "if(Date.parse.hasOwnProperty(\"length\") !== true){\n  $ERROR('#1: The parse has a \"length\" property');\n}\n\nif(Date.parse.length !== 1){\n  $ERROR('#2: The \"length\" property of the parse is 1');\n}\n\n",
+    "id": "S15.9.4.2_A2_T1"
+   },
+   {
+    "section": "15.9.4.2",
+    "description": "Checking ReadOnly attribute",
+    "test": "x = Date.parse.length;\nDate.parse.length = 1;\nif (Date.parse.length !== x) {\n  $ERROR('#1: The Date.parse.length has the attribute ReadOnly');\n}\n\n",
+    "id": "S15.9.4.2_A3_T1"
+   },
+   {
+    "section": "15.9.4.2",
+    "description": "Checking DontDelete attribute",
+    "test": "if (delete Date.parse.length  !== false) {\n  $ERROR('#1: The Date.parse.length property has the attributes DontDelete');\n}\n\nif (!Date.parse.hasOwnProperty('length')) {\n  $FAIL('#2: The Date.parse.length property has the attributes DontDelete');\n}\n\n",
+    "id": "S15.9.4.2_A3_T2"
+   },
+   {
+    "section": "15.9.4.2",
+    "description": "Checking DontEnum attribute",
+    "test": "if (Date.parse.propertyIsEnumerable('length')) {\n  $ERROR('#1: The Date.parse.length property has the attribute DontEnum');\n}\n\nfor(x in Date.parse) {\n  if(x === \"length\") {\n    $ERROR('#2: The Date.parse.length has the attribute DontEnum');\n  }\n}\n\n",
+    "id": "S15.9.4.2_A3_T3"
+   }
+  ]
+ }
+}

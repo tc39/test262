@@ -1,0 +1,14 @@
+{
+ "testCollection": {
+  "name": "12.9",
+  "numTests": 1,
+  "tests": [
+   {
+    "id": "12.9-1",
+    "path": "TestCases/chapter12/12.9/12.9-1.js",
+    "description": "The return Statement - a return statement without an expression may have a LineTerminator before the semi-colon",
+    "test": "assertTrue((function testcase() {\n        var sum = 0;\n        (function innerTest() {\n            for (var i = 1; i <= 10; i++) {\n                if (i === 6) {\n                    return\n                    ;\n                }\n                sum += i;\n            }\n        })();\n        return sum === 15;\n    }).call(this));\n"
+   }
+  ]
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "testCollection": {
+  "name": "15.8.1.4_LOG2E",
+  "numTests": 4,
+  "tests": [
+   {
+    "section": "15.8.1.4",
+    "description": "Comparing Math.LOG2E with 1.4426950408889634",
+    "test": "$INCLUDE(\"math_precision.js\");\n$INCLUDE(\"math_isequal.js\");\n\n// CHECK#1\nif (!isEqual(Math.LOG2E, 1.4426950408889634)) {\n  $ERROR('#1: \\'Math.LOG2E is not approximatley equal to 1.4426950408889634\\'');\n}\n",
+    "id": "S15.8.1.4_A1"
+   },
+   {
+    "section": "15.8.1.4",
+    "description": "Checking if Math.LOG2E property has the attribute DontEnum",
+    "test": "// CHECK#1\nfor(x in Math) {\n  if(x === \"LOG2E\") {\n    $ERROR('#1: Value Property LOG2E of the Math Object hasn\\'t attribute DontEnum: \\'for(x in Math) {x===\"LOG2E\"}\\'');\n  }\n}\n\n",
+    "id": "S15.8.1.4_A2"
+   },
+   {
+    "section": "15.8.1.4",
+    "description": "Checking if Math.LOG2E property has the attribute DontDelete",
+    "strict_mode_negative": "",
+    "test": "// CHECK#1\nif (delete Math.LOG2E === true) {\n    $ERROR('#1: Value Property LOG2E of the Math Object hasn\\'t attribute DontDelete: \\'Math.LOG2E === true\\'');\n}\n\n",
+    "id": "S15.8.1.4_A3",
+    "strict_only": ""
+   },
+   {
+    "section": "15.8.1.4",
+    "description": "Checking if Math.LOG2E property has the attribute ReadOnly",
+    "strict_mode_negative": "",
+    "test": "// CHECK#1\nvar x = Math.LOG2E;\nMath.LOG2E = 1;\nif (Math.LOG2E !== x) {\n  $ERROR('#1: Math.LOG2E hasn\\'t ReadOnly: \\'x = Math.LOG2E;Math.LOG2E = 1;Math.LOG2E === x\\'');\n}\n",
+    "id": "S15.8.1.4_A4",
+    "strict_only": ""
+   }
+  ]
+ }
+}

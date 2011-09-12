@@ -1,0 +1,308 @@
+{
+ "testCollection": {
+  "name": "15.2.3.8",
+  "numTests": 43,
+  "tests": [
+   {
+    "id": "15.2.3.8-0-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-0-1.js",
+    "description": "Object.seal must exist as a function",
+    "test": "assertTrue((function testcase() {\n  var f = Object.seal;\n  if (typeof(f) === \"function\") {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "15.2.3.8-0-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-0-2.js",
+    "description": "Object.seal must exist as a function taking 1 parameter",
+    "test": "assertTrue((Object.seal.length === 1));\n",
+    "precondition": "(fnExists(Object.seal))"
+   },
+   {
+    "id": "15.2.3.8-1-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-1-1.js",
+    "description": "Object.seal throws TypeError if type of first param is undefined",
+    "test": "assertTrue((function testcase() {\n        try {\n            Object.seal(undefined);\n            return false;\n        } catch (e) {\n            return e instanceof TypeError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal))"
+   },
+   {
+    "id": "15.2.3.8-1-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-1-2.js",
+    "description": "Object.seal throws TypeError if type of first param is null",
+    "test": "assertTrue((function testcase() {\n        try {\n            Object.seal(null);\n            return false;\n        } catch (e) {\n            return e instanceof TypeError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal))"
+   },
+   {
+    "id": "15.2.3.8-1-3",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-1-3.js",
+    "description": "Object.seal throws TypeError if type of first param is a boolean primitive",
+    "test": "assertTrue((function testcase() {\n        try {\n            Object.seal(false);\n            return false;\n        } catch (e) {\n            return e instanceof TypeError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal))"
+   },
+   {
+    "id": "15.2.3.8-1-4",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-1-4.js",
+    "description": "Object.seal throws TypeError if type of first param is a string primitive",
+    "test": "assertTrue((function testcase() {\n        try {\n            Object.seal(\"abc\");\n            return false;\n        } catch (e) {\n            return e instanceof TypeError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal))"
+   },
+   {
+    "id": "15.2.3.8-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-1.js",
+    "description": "Object.seal throws TypeError if type of first param is not Object",
+    "test": "assertTrue((function testcase() {\n    try {\n      Object.seal(0);\n    }\n    catch (e) {\n      if (e instanceof TypeError) {\n        return true;\n      }\n    }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.seal))"
+   },
+   {
+    "id": "15.2.3.8-2-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-1.js",
+    "description": "Object.seal - extensible of 'O' is set as false even if 'O' has no own property",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n\n        var preCheck = Object.isExtensible(obj);\n\n        Object.seal(obj);\n\n        return preCheck && !Object.isExtensible(obj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-2.js",
+    "description": "Object.seal - inherited data properties are ignored",
+    "test": "assertTrue((function testcase() {\n        var proto = {};\n\n        Object.defineProperty(proto, \"Father\", {\n            value: 10,\n            configurable: true\n        });\n\n        var ConstructFun = function () { };\n        ConstructFun.prototype = proto;\n\n        var child = new ConstructFun();\n        var preCheck = Object.isExtensible(child);\n        Object.seal(child);\n\n        var beforeDeleted = proto.hasOwnProperty(\"Father\");\n        delete proto.Father;\n        var afterDeleted = proto.hasOwnProperty(\"Father\");\n\n        return preCheck && beforeDeleted && !afterDeleted;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.defineProperty) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-3",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-3.js",
+    "description": "Object.seal - inherited accessor properties are ignored",
+    "test": "assertTrue((function testcase() {\n        var proto = {};\n\n        Object.defineProperty(proto, \"Father\", {\n            get: function () {\n                return 10;\n            },\n            configurable: true\n        });\n\n        var ConstructFun = function () { };\n        ConstructFun.prototype = proto;\n\n        var child = new ConstructFun();\n        var preCheck = Object.isExtensible(child);\n        Object.seal(child);\n\n        var beforeDeleted = proto.hasOwnProperty(\"Father\");\n        delete proto.Father;\n        var afterDeleted = proto.hasOwnProperty(\"Father\");\n\n        return preCheck && beforeDeleted && !afterDeleted;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.defineProperty) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-4",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-4.js",
+    "description": "Object.seal - non-enumerable own property of 'O' is sealed",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n\n        Object.defineProperty(obj, \"foo\", {\n            value: 10,\n            enumerable: false,\n            configurable: true\n        });\n        var preCheck = Object.isExtensible(obj);\n        Object.seal(obj);\n\n        var beforeDeleted = obj.hasOwnProperty(\"foo\");\n        delete obj.foo;\n        var afterDeleted = obj.hasOwnProperty(\"foo\");\n\n        return preCheck && beforeDeleted && afterDeleted;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.defineProperty) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-a-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-1.js",
+    "description": "Object.seal - 'P' is own data property",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n\n        obj.foo = 10; // default [[Configurable]] attribute value of foo: true\n        var preCheck = Object.isExtensible(obj);\n        Object.seal(obj);\n\n        delete obj.foo;\n        return preCheck && obj.foo === 10;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-a-10",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-10.js",
+    "description": "Object.seal - 'P' is own property of a Boolean object that uses Object's [[GetOwnProperty]]",
+    "test": "assertTrue((function testcase() {\n        var boolObj = new Boolean(false);\n\n        boolObj.foo = 10;\n        var preCheck = Object.isExtensible(boolObj);\n        Object.seal(boolObj);\n\n        delete boolObj.foo;\n        return preCheck && boolObj.foo === 10;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-a-11",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-11.js",
+    "description": "Object.seal - 'P' is own property of a Number object that uses Object's [[GetOwnProperty]]",
+    "test": "assertTrue((function testcase() {\n        var numObj = new Number(-1);\n\n        numObj.foo = 10;\n        var preCheck = Object.isExtensible(numObj);\n        Object.seal(numObj);\n\n        delete numObj.foo;\n        return preCheck && numObj.foo === 10;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-a-12",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-12.js",
+    "description": "Object.seal - 'P' is own property of a Date object that uses Object's [[GetOwnProperty]]",
+    "test": "assertTrue((function testcase() {\n        var dateObj = new Date();\n\n        dateObj.foo = 10;\n        var preCheck = Object.isExtensible(dateObj);\n        Object.seal(dateObj);\n\n        delete dateObj.foo;\n        return preCheck && dateObj.foo === 10;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-a-13",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-13.js",
+    "description": "Object.seal - 'P' is own property of a RegExp object that uses Object's [[GetOwnProperty]]",
+    "test": "assertTrue((function testcase() {\n        var regObj = new RegExp();\n\n        regObj.foo = 10;\n        var preCheck = Object.isExtensible(regObj);\n        Object.seal(regObj);\n\n        delete regObj.foo;\n        return preCheck && regObj.foo === 10;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-a-14",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-14.js",
+    "description": "Object.seal - 'P' is own property of an Error object that uses Object's [[GetOwnProperty]]",
+    "test": "assertTrue((function testcase() {\n        var errObj = new Error();\n\n        errObj.foo = 10;\n        var preCheck = Object.isExtensible(errObj);\n        Object.seal(errObj);\n\n        delete errObj.foo;\n        return preCheck && errObj.foo === 10;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-a-15",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-15.js",
+    "description": "Object.seal - 'P' is own property of an Arguments object which implements its own [[GetOwnProperty]]",
+    "test": "assertTrue((function testcase() {\n        var argObj = (function () { return arguments; })();\n\n        argObj.foo = 10; // default [[Configurable]] attribute value of foo: true\n        var preCheck = Object.isExtensible(argObj);\n        Object.seal(argObj);\n\n        delete argObj.foo;\n        return preCheck && argObj.foo === 10;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-a-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-2.js",
+    "description": "Object.seal - 'P' is own data property that overrides an inherited data property",
+    "test": "assertTrue((function testcase() {\n        var proto = { foo: 0 };\n\n        var ConstructFun = function () { };\n        ConstructFun.prototype = proto;\n\n        var child = new ConstructFun();\n        Object.defineProperty(child, \"foo\", {\n            value: 10,\n            configurable: true\n        });\n        var preCheck = Object.isExtensible(child);\n        Object.seal(child);\n\n        delete child.foo;\n        return preCheck && child.foo === 10;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.defineProperty) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-a-3",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-3.js",
+    "description": "Object.seal - 'P' is own data property that overrides an inherited accessor property",
+    "test": "assertTrue((function testcase() {\n        var proto = {};\n\n        Object.defineProperty(proto, \"foo\", {\n            get: function () {\n                return 0;\n            },\n            configurable: true\n        });\n\n        var ConstructFun = function () { };\n        ConstructFun.prototype = proto;\n\n        var child = new ConstructFun();\n        Object.defineProperty(child, \"foo\", {\n            value: 10,\n            configurable: true\n        });\n        var preCheck = Object.isExtensible(child);\n        Object.seal(child);\n\n        delete child.foo;\n        return preCheck && child.foo === 10;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.defineProperty) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-a-4",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-4.js",
+    "description": "Object.seal - 'P' is own accessor property",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n\n        Object.defineProperty(obj, \"foo\", {\n            get: function () {\n                return 10;\n            },\n            configurable: true\n        });\n        var preCheck = Object.isExtensible(obj);\n        Object.seal(obj);\n\n        delete obj.foo;\n        return preCheck && obj.foo === 10;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.defineProperty) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-a-5",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-5.js",
+    "description": "Object.seal - 'P' is own accessor property that overrides an inherited data property",
+    "test": "assertTrue((function testcase() {\n        var proto = {};\n\n        Object.defineProperty(proto, \"foo\", {\n            value: 0,\n            configurable: true\n        });\n\n        var ConstructFun = function () { };\n        ConstructFun.prototype = proto;\n\n        var child = new ConstructFun();\n        \n        Object.defineProperty(child, \"foo\", {\n            get: function () {\n                return 10;\n            },\n            configurable: true\n        });\n        var preCheck = Object.isExtensible(child);\n        Object.seal(child);\n\n        delete child.foo;\n        return preCheck && child.foo === 10;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.defineProperty) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-a-6",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-6.js",
+    "description": "Object.seal - 'P' is own accessor property that overrides an inherited accessor property",
+    "test": "assertTrue((function testcase() {\n        var proto = {};\n\n        Object.defineProperty(proto, \"foo\", {\n            get: function () {\n                return 0;\n            },\n            configurable: true\n        });\n\n        var ConstructFun = function () { };\n        ConstructFun.prototype = proto;\n\n        var child = new ConstructFun();\n\n        Object.defineProperty(child, \"foo\", {\n            get: function () {\n                return 10;\n            },\n            configurable: true\n        });\n        var preCheck = Object.isExtensible(child);\n        Object.seal(child);\n\n        delete child.foo;\n        return preCheck && child.foo === 10;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.defineProperty) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-a-7",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-7.js",
+    "description": "Object.seal - 'P' is own property of a Function object that uses Object's [[GetOwnProperty]]",
+    "test": "assertTrue((function testcase() {\n        var funObj = function () { };\n\n        funObj.foo = 10; // default [[Configurable]] attribute value of foo: true\n        var preCheck = Object.isExtensible(funObj);\n        Object.seal(funObj);\n\n        delete funObj.foo;\n        return preCheck && funObj.foo === 10;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-a-8",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-8.js",
+    "description": "Object.seal - 'P' is own property of an Array object that uses Object's [[GetOwnProperty]]",
+    "test": "assertTrue((function testcase() {\n        var arrObj = [];\n\n        arrObj.foo = 10;\n        var preCheck = Object.isExtensible(arrObj);\n        Object.seal(arrObj);\n\n        delete arrObj.foo;\n        return preCheck && arrObj.foo === 10;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-a-9",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-9.js",
+    "description": "Object.seal - 'P' is own property of a String object which implements its own [[GetOwnProperty]]",
+    "test": "assertTrue((function testcase() {\n        var strObj = new String(\"abc\");\n\n        strObj.foo = 10; // default [[Configurable]] attribute value of foo: true\n        var preCheck = Object.isExtensible(strObj);\n        Object.seal(strObj);\n\n        delete strObj.foo;\n        return preCheck && strObj.foo === 10;\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-b-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-b-1.js",
+    "description": "Object.seal - the [[Configurable]] attribute of own data property of 'O' is set from true to false and other attributes of the property are unaltered",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n\n        Object.defineProperty(obj, \"foo\", {\n            value: 10,\n            writable: true,\n            enumerable: true,\n            configurable: true\n        });\n        var preCheck = Object.isExtensible(obj);\n        Object.seal(obj);\n\n        return preCheck && dataPropertyAttributesAreCorrect(obj, \"foo\", 10, true, true, false);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.defineProperty) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-b-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-b-2.js",
+    "description": "Object.seal - the [[Configurable]] attribute of own accessor property of 'O' is set from true to false and other attributes of the property are unaltered",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n        obj.variableForHelpVerify = \"data\";\n\n        function setFunc(value) {\n            obj.variableForHelpVerify = value;\n        }\n        function getFunc() {\n            return 10;\n        }\n        Object.defineProperty(obj, \"foo\", {\n            get: getFunc,\n            set: setFunc,\n            enumerable: true,\n            configurable: true\n        });\n        var preCheck = Object.isExtensible(obj);\n        Object.seal(obj);\n\n        return preCheck && accessorPropertyAttributesAreCorrect(obj, \"foo\", getFunc, setFunc, \"variableForHelpVerify\", true, false);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.defineProperty) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-b-3",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-b-3.js",
+    "description": "Object.seal - the [[Configurable]] attribute of all own properties of 'O' are set from true to false and other attributes of the property are unaltered",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n        obj.variableForHelpVerify = \"data\";\n\n        Object.defineProperty(obj, \"foo1\", {\n            value: 10,\n            writable: true,\n            enumerable: true,\n            configurable: true\n        });\n\n        function set_func(value) {\n            obj.variableForHelpVerify = value;\n        }\n        function get_func() {\n            return 10;\n        }\n        Object.defineProperty(obj, \"foo2\", {\n            get: get_func,\n            set: set_func,\n            enumerable: true,\n            configurable: true\n        });\n        var preCheck = Object.isExtensible(obj);\n        Object.seal(obj);\n\n        return preCheck && dataPropertyAttributesAreCorrect(obj, \"foo1\", 10, true, true, false) &&\n            accessorPropertyAttributesAreCorrect(obj, \"foo2\", get_func, set_func, \"variableForHelpVerify\", true, false);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.defineProperty) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-b-4",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-b-4.js",
+    "description": "Object.seal - all own properties of 'O' are already non-configurable",
+    "test": "assertTrue((function testcase() {\n        var obj = {};\n        obj.variableForHelpVerify = \"data\";\n\n        Object.defineProperty(obj, \"foo1\", {\n            value: 10,\n            writable: true,\n            enumerable: true,\n            configurable: false\n        });\n\n        function set_func(value) {\n            obj.variableForHelpVerify = value;\n        }\n        function get_func() {\n            return 10;\n        }\n        Object.defineProperty(obj, \"foo2\", {\n            get: get_func,\n            set: set_func,\n            enumerable: true,\n            configurable: false\n        });\n        var preCheck = Object.isExtensible(obj);\n        Object.seal(obj);\n\n        return preCheck && dataPropertyAttributesAreCorrect(obj, \"foo1\", 10, true, true, false) &&\n            accessorPropertyAttributesAreCorrect(obj, \"foo2\", get_func, set_func, \"variableForHelpVerify\", true, false);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.defineProperty) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-c-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-c-1.js",
+    "description": "Object.seal - 'O' is a Function object",
+    "test": "assertTrue((function testcase() {\n\n        var fun = function () { };\n        var preCheck = Object.isExtensible(fun);\n        Object.seal(fun);\n\n        return preCheck && Object.isSealed(fun);\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isSealed) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-c-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-c-2.js",
+    "description": "Object.seal - 'O' is an Array object",
+    "test": "assertTrue((function testcase() {\n\n        var arr = [0, 1];\n        var preCheck = Object.isExtensible(arr);\n        Object.seal(arr);\n\n        return preCheck && Object.isSealed(arr);\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isSealed) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-c-3",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-c-3.js",
+    "description": "Object.seal - 'O' is a String object",
+    "test": "assertTrue((function testcase() {\n\n        var strObj = new String(\"a\");\n        var preCheck = Object.isExtensible(strObj);\n        Object.seal(strObj);\n\n        return preCheck && Object.isSealed(strObj);\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isSealed) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-c-4",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-c-4.js",
+    "description": "Object.seal - 'O' is a Boolean object",
+    "test": "assertTrue((function testcase() {\n\n        var boolObj = new Boolean(false);\n        var preCheck = Object.isExtensible(boolObj);\n        Object.seal(boolObj);\n\n        return preCheck && Object.isSealed(boolObj);\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isSealed) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-c-5",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-c-5.js",
+    "description": "Object.seal - 'O' is a Number object",
+    "test": "assertTrue((function testcase() {\n\n        var numObj = new Number(3);\n        var preCheck = Object.isExtensible(numObj);\n        Object.seal(numObj);\n\n        return preCheck && Object.isSealed(numObj);\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isSealed) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-c-6",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-c-6.js",
+    "description": "Object.seal - 'O' is a Date object",
+    "test": "assertTrue((function testcase() {\n\n        var dateObj = new Date();\n        var preCheck = Object.isExtensible(dateObj);\n        Object.seal(dateObj);\n\n        return preCheck && Object.isSealed(dateObj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isSealed) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-c-7",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-c-7.js",
+    "description": "Object.seal - 'O' is a RegExp object",
+    "test": "assertTrue((function testcase() {\n        var regObj = new RegExp();\n        var preCheck = Object.isExtensible(regObj);\n        Object.seal(regObj);\n\n        return preCheck && Object.isSealed(regObj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isSealed) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-c-8",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-c-8.js",
+    "description": "Object.seal - 'O' is an Error object",
+    "test": "assertTrue((function testcase() {\n\n        var errObj = new Error();\n        var preCheck = Object.isExtensible(errObj);\n        Object.seal(errObj);\n\n        return preCheck && Object.isSealed(errObj);\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isSealed) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-2-c-9",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-c-9.js",
+    "description": "Object.seal - 'O' is an Arguments object",
+    "test": "assertTrue((function testcase() {\n\n        var argObj = (function () { return arguments; })();\n\n        var preCheck = Object.isExtensible(argObj);\n        Object.seal(argObj);\n\n        return preCheck && Object.isSealed(argObj);\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isSealed) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-3-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-3-1.js",
+    "description": "Object.seal - returned object is not extensible",
+    "test": "assertTrue((function testcase() {\n\n        var obj = {};\n        var preCheck = Object.isExtensible(obj);\n        Object.seal(obj);\n        return preCheck && !Object.isExtensible(obj);\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-4-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-4-1.js",
+    "description": "Object.seal - 'O' is sealed already",
+    "test": "assertTrue((function testcase() {\n\n        var obj = {};\n\n        obj.foo = 10; // default value of attributes: writable: true, configurable: true, enumerable: true\n        var preCheck = Object.isExtensible(obj);\n        Object.seal(obj);\n\n        Object.seal(obj);\n        return preCheck && Object.isSealed(obj);\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isSealed) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-4-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-4-2.js",
+    "description": "Object.seal - 'O' is frozen already",
+    "test": "assertTrue((function testcase() {\n\n        var obj = {};\n\n        obj.foo = 10; // default value of attributes: writable: true, configurable: true, enumerable: true\n        var preCheck = Object.isExtensible(obj);\n        Object.freeze(obj);\n\n        Object.seal(obj);\n        return preCheck && Object.isSealed(obj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isSealed) && fnExists(Object.freeze) && fnExists(Object.isExtensible))"
+   },
+   {
+    "id": "15.2.3.8-4-3",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-4-3.js",
+    "description": "Object.seal - the extension of 'O' is prevented already",
+    "test": "assertTrue((function testcase() {\n\n        var obj = {};\n\n        obj.foo = 10; // default value of attributes: writable: true, configurable: true, enumerable: true\n        var preCheck = Object.isExtensible(obj);\n        Object.preventExtensions(obj);\n        Object.seal(obj);\n        return preCheck && Object.isSealed(obj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.seal) && fnExists(Object.isSealed) && fnExists(Object.preventExtensions) && fnExists(Object.isExtensible))"
+   }
+  ]
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "testCollection": {
+  "name": "10.4.3",
+  "numTests": 5,
+  "tests": [
+   {
+    "id": "10.4.3-1-1-s",
+    "path": "TestCases/chapter10/10.4/10.4.3/10.4.3-1-1-s.js",
+    "description": "this is not coerced to an object in strict mode (Number)",
+    "test": "assertTrue((function testcase() {\n\n  function foo()\n  {\n    'use strict';\n    return typeof(this);\n  } \n\n  function bar()\n  {\n    return typeof(this);\n  }\n\n\n  return foo.call(1) === 'number' && bar.call(1) === 'object';\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.4.3-1-2-s",
+    "path": "TestCases/chapter10/10.4/10.4.3/10.4.3-1-2-s.js",
+    "description": "this is not coerced to an object in strict mode (string)",
+    "test": "assertTrue((function testcase() {\n\n  function foo()\n  {\n    'use strict';\n    return typeof(this);\n  } \n\n  function bar()\n  {\n    return typeof(this);\n  }\n\n\n  return foo.call('1') === 'string' && bar.call('1') === 'object';\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.4.3-1-3-s",
+    "path": "TestCases/chapter10/10.4/10.4.3/10.4.3-1-3-s.js",
+    "description": "this is not coerced to an object in strict mode (undefined)",
+    "test": "assertTrue((function testcase() {\n\n  function foo()\n  {\n    'use strict';\n    return typeof(this);\n  } \n\n  function bar()\n  {\n    return typeof(this);\n  }\n  return foo.call(undefined) === 'undefined' && bar.call() === 'object';\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.4.3-1-4-s",
+    "path": "TestCases/chapter10/10.4/10.4.3/10.4.3-1-4-s.js",
+    "description": "this is not coerced to an object in strict mode (boolean)",
+    "test": "assertTrue((function testcase() {\n\n  function foo()\n  {\n    'use strict';\n    return typeof(this);\n  } \n\n  function bar()\n  {\n    return typeof(this);\n  }\n\n\n  return foo.call(true) === 'boolean' && bar.call(true) === 'object';\n }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "10.4.3-1-5-s",
+    "path": "TestCases/chapter10/10.4/10.4.3/10.4.3-1-5-s.js",
+    "description": "this is not coerced to an object in strict mode (function)",
+    "test": "assertTrue((function testcase() {\n\n  function foo()\n  {\n    'use strict';\n    return typeof(this);\n  } \n\n  function bar()\n  {\n    return typeof(this);\n  }\n\n  function foobar()\n  {\n  }\n\n  return foo.call(foobar) === 'function' && bar.call(foobar) === 'function';\n }).call(this));\n",
+    "strict_only": ""
+   }
+  ]
+ }
+}

@@ -1,0 +1,316 @@
+{
+ "testCollection": {
+  "name": "7.8.5_Regular_Expression_Literals",
+  "numTests": 49,
+  "tests": [
+   {
+    "section": "7.8.5",
+    "description": "Without eval",
+    "test": "//CHECK#1\nif (/1/.source !== \"1\") {\n  $ERROR('#1: /1/');\n}   \n\n//CHECK#2\nif (/a/.source !== \"a\") {\n  $ERROR('#2: /a/');\n}\n\n//CHECK#3\nif (/;/.source !== \";\") {\n  $ERROR('#3: /;/');\n}\n\n//CHECK#4\nif (/ /.source !== \" \") {\n  $ERROR('#4: / /');\n}\n\n//CHECK#5\nif (/\\u0041/.source !== \"\\\\u0041\") {\n  $ERROR('#5: /\\\\u0041/');\n}         \n",
+    "id": "S7.8.5_A1.1_T1"
+   },
+   {
+    "section": "7.8.5, 15.10.1",
+    "description": "Complex test with eval, using syntax pattern",
+    "test": "//CHECK\nerrorCount = 0;\ncount = 0;\nvar hex = [\"0\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"A\", \"B\", \"C\", \"D\", \"E\", \"F\"];\nfor (i1 = 0; i1 < 16; i1++) {\n  for (i2 = 0; i2 < 16; i2++) {\n    for (i3 = 0; i3 < 16; i3++) {\n      for (i4 = 0; i4 < 16; i4++) {\n        try {    \n          var uu = hex[i1] + hex[i2] + hex[i3] + hex[i4];\n\t      var Elimination = \n          ((uu === \"002A\") || (uu === \"002F\") || (uu === \"005C\") || (uu === \"002B\") || \n           (uu === \"003F\") || (uu === \"0028\") || (uu === \"0029\") || \n           (uu === \"005B\") || (uu === \"005D\") || (uu === \"007B\") || (uu === \"007D\"));\n           /* \n                * \\u002A     / \\u002F     \\ \\u005C     + \\u002B\n                ? \\u003F     ( \\u0028     ) \\u0029\n                [ \\u005B     ] \\u005D     { \\u007B     } \\u007D          \n           */\n          var LineTerminator = ((uu === \"000A\") || (uu === \"000D\") || (uu === \"2028\") || (uu === \"2029\"));                      \n          if ((Elimination || LineTerminator ) === false) {              \n            var xx = String.fromCharCode(\"0x\" + uu);          \n            var pattern = eval(\"/\" + xx + \"/\");  \n            if (pattern.source !== xx) {\n              $ERROR('#' + uu + ' ');\n              errorCount++;\n            }  \n          } else {\n            count--;\n          }                     \n        } catch (e) {         \n          $ERROR('#' + uu + ' ');\n          errorCount++;\n        }\n        count++;\n      }  \n    }\n  }\n}\n\nif (errorCount > 0) {    \n  $ERROR('Total error: ' + errorCount + ' bad Regular Expression First Char in ' + count);\n} \n",
+    "id": "S7.8.5_A1.1_T2"
+   },
+   {
+    "section": "7.8.5",
+    "description": "*",
+    "negative": "",
+    "test": "//CHECK#1\n/*/\n",
+    "id": "S7.8.5_A1.2_T1"
+   },
+   {
+    "section": "7.8.5",
+    "description": "\\",
+    "negative": "",
+    "test": "//CHECK#1\n/\\/\n",
+    "id": "S7.8.5_A1.2_T2"
+   },
+   {
+    "section": "7.8.5",
+    "description": "/",
+    "negative": "",
+    "test": "//CHECK#1\n///\n.source;\n",
+    "id": "S7.8.5_A1.2_T3"
+   },
+   {
+    "section": "7.8.5",
+    "description": "[empty]",
+    "negative": "",
+    "test": "//CHECK#1\n//\n.source;\n",
+    "id": "S7.8.5_A1.2_T4"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Line Feed, without eval",
+    "negative": "",
+    "test": "//CHECK#1\n/\n/\n",
+    "id": "S7.8.5_A1.3_T1"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Line Feed, with eval",
+    "test": "//CHECK#1\ntry {\n   eval(\"/\\u000A/\").source;\n   $ERROR('#1.1: RegularExpressionFirstChar :: Line Feed is incorrect. Actual: ' + (eval(\"/\\u000A/\").source)); \n}\ncatch (e) {\n  if ((e instanceof SyntaxError) !== true) {\n     $ERROR('#1.2: RegularExpressionFirstChar :: Line Feed is incorrect. Actual: ' + (e));\n  }\n}     \n",
+    "id": "S7.8.5_A1.3_T2"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Carriage Return, without eval",
+    "negative": "",
+    "test": "//CHECK#1\n/\n/\n",
+    "id": "S7.8.5_A1.3_T3"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Carriage Return, with eval",
+    "test": "//CHECK#1\ntry {\n   eval(\"/\\u000D/\").source;\n   $ERROR('#1.1: RegularExpressionFirstChar :: Carriage Return is incorrect. Actual: ' + (eval(\"/\\u000D/\").source)); \n}\ncatch (e) {\n  if ((e instanceof SyntaxError) !== true) {\n     $ERROR('#1.2: RegularExpressionFirstChar :: Carriage Return is incorrect. Actual: ' + (e));\n  }\n}     \n",
+    "id": "S7.8.5_A1.3_T4"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Line separator, with eval",
+    "test": "//CHECK#1\ntry {\n   eval(\"/\\u2028/\").source;\n   $ERROR('#1.1: RegularExpressionFirstChar :: Line separator is incorrect. Actual: ' + (eval(\"/\\u2028/\").source)); \n}\ncatch (e) {\n  if ((e instanceof SyntaxError) !== true) {\n     $ERROR('#1.2: RegularExpressionFirstChar :: Line separator is incorrect. Actual: ' + (e));\n  }\n}     \n",
+    "id": "S7.8.5_A1.3_T5"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Paragraph separator, with eval",
+    "test": "//CHECK#1\ntry {\n   eval(\"/\\u2029/\").source;\n   $ERROR('#1.1: RegularExpressionFirstChar :: Paragraph separator is incorrect. Actual: ' + (eval(\"/\\u2029/\").source)); \n}\ncatch (e) {\n  if ((e instanceof SyntaxError) !== true) {\n     $ERROR('#1.2: RegularExpressionFirstChar :: Paragraph separator is incorrect. Actual: ' + (e));\n  }\n}     \n",
+    "id": "S7.8.5_A1.3_T6"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Check similar to (/\\1/.source === \"\\\\1\")",
+    "test": "//CHECK#1\nif (/\\1/.source !== \"\\\\1\") {\n  $ERROR('#1: /\\\\1/');\n}   \n\n//CHECK#2\nif (/\\a/.source !== \"\\\\a\") {\n  $ERROR('#2: /\\\\a/');\n}\n\n//CHECK#3\nif (/\\;/.source !== \"\\\\;\") {\n  $ERROR('#3: /\\\\;/');\n}\n\n//CHECK#4\nif (/\\ /.source !== \"\\\\ \") {\n  $ERROR('#4: /\\\\ /');\n}  \n",
+    "id": "S7.8.5_A1.4_T1"
+   },
+   {
+    "section": "7.8.5, 15.10.1",
+    "description": "Complex test with eval, using syntax pattern",
+    "test": "//CHECK\nerrorCount = 0;\ncount = 0;\nvar hex = [\"0\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"A\", \"B\", \"C\", \"D\", \"E\", \"F\"];\nfor (i1 = 0; i1 < 16; i1++) {\n  for (i2 = 0; i2 < 16; i2++) {\n    for (i3 = 0; i3 < 16; i3++) {\n      for (i4 = 0; i4 < 16; i4++) {\n        try {    \n          var uu = hex[i1] + hex[i2] + hex[i3] + hex[i4];\n\t      var Elimination = \n          ((uu === \"002A\") || (uu === \"002F\") || (uu === \"005C\") || (uu === \"002B\") || \n           (uu === \"003F\") || (uu === \"0028\") || (uu === \"0029\") || \n           (uu === \"005B\") || (uu === \"005D\") || (uu === \"007B\") || (uu === \"007D\"));\n           /* \n                * \\u002A     / \\u002F     \\ \\u005C     + \\u002B\n                ? \\u003F     ( \\u0028     ) \\u0029\n                [ \\u005B     ] \\u005D     { \\u007B     } \\u007D          \n           */\n          var LineTerminator = ((uu === \"000A\") || (uu === \"000D\") || (uu === \"2028\") || (uu === \"2029\"));                      \n          if ((Elimination || LineTerminator ) === false) {              \n            var xx = \"\\\\\" + String.fromCharCode(\"0x\" + uu);          \n            var pattern = eval(\"/\" + xx + \"/\");  \n            if (pattern.source !== xx) {\n              $ERROR('#' + uu + ' ');\n              errorCount++;\n            }                   \n          } else {\n            count--;\n          }                     \n        } catch (e) {         \n          $ERROR('#' + uu + ' ');\n          errorCount++;\n        }\n        count++;\n      }  \n    }\n  }\n}\n\nif (errorCount > 0) {    \n  $ERROR('Total error: ' + errorCount + ' bad Regular Expression First Char in ' + count);\n} \n",
+    "id": "S7.8.5_A1.4_T2"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Line Feed, without eval",
+    "negative": "",
+    "test": "//CHECK#1\n/\\\n/\n",
+    "id": "S7.8.5_A1.5_T1"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Line Feed, with eval",
+    "test": "//CHECK#1\ntry {      \n   eval(\"/\\\\\\u000A/\").source;   \n   $ERROR('#1.1: RegularExpressionFirstChar :: BackslashSequence :: \\\\Line Feed is incorrect. Actual: ' + (eval(\"/\\\\\\u000A/\").source)); \n}\ncatch (e) {\n  if ((e instanceof SyntaxError) !== true) {\n     $ERROR('#1.2: RegularExpressionFirstChar :: BackslashSequence :: \\\\Line Feed is incorrect. Actual: ' + (e));\n  }\n}     \n",
+    "id": "S7.8.5_A1.5_T2"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Carriage Return, without eval",
+    "negative": "",
+    "test": "//CHECK#1\n/\\\n/\n",
+    "id": "S7.8.5_A1.5_T3"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Carriage Return, with eval",
+    "test": "//CHECK#1\ntry {\n   eval(\"/\\\\\\u000D/\").source;\n   $ERROR('#1.1: RegularExpressionFirstChar :: BackslashSequence :: \\\\Carriage Return is incorrect. Actual: ' + (eval(\"/\\\\\\u000D/\").source)); \n}\ncatch (e) {\n  if ((e instanceof SyntaxError) !== true) {\n     $ERROR('#1.2: RegularExpressionFirstChar :: BackslashSequence :: \\\\Carriage Return is incorrect. Actual: ' + (e));\n  }\n}     \n",
+    "id": "S7.8.5_A1.5_T4"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Line separator, with eval",
+    "test": "//CHECK#1\ntry {\n   eval(\"/\\\\\\u2028/\").source;\n   $ERROR('#1.1: RegularExpressionFirstChar :: BackslashSequence :: \\\\Line separator is incorrect. Actual: ' + (eval(\"/\\\\\\u2028/\").source)); \n}\ncatch (e) {\n  if ((e instanceof SyntaxError) !== true) {\n     $ERROR('#1.2: RegularExpressionFirstChar :: BackslashSequence :: \\\\Line separator is incorrect. Actual: ' + (e));\n  }\n}     \n",
+    "id": "S7.8.5_A1.5_T5"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Paragraph separator, with eval",
+    "test": "//CHECK#1\ntry {\n   eval(\"/\\\\\\u2029/\").source;\n   $ERROR('#1.1: RegularExpressionFirstChar :: BackslashSequence :: \\\\Paragraph separator is incorrect. Actual: ' + (eval(\"/\\\\\\u2029/\").source)); \n}\ncatch (e) {\n  if ((e instanceof SyntaxError) !== true) {\n     $ERROR('#1.2: RegularExpressionFirstChar :: BackslashSequence :: \\\\Paragraph separator is incorrect. Actual: ' + (e));\n  }\n}     \n",
+    "id": "S7.8.5_A1.5_T6"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Without eval",
+    "test": "//CHECK#1\nif (/1a/.source !== \"1a\") {\n  $ERROR('#1: /1a/');\n}   \n\n//CHECK#2\nif (/aa/.source !== \"aa\") {\n  $ERROR('#2: /aa/');\n}\n\n//CHECK#3\nif (/,;/.source !== \",;\") {\n  $ERROR('#3: /,;/');\n}\n\n//CHECK#4\nif (/  /.source !== \"  \") {\n  $ERROR('#4: /  /');\n}      \n\n//CHECK#5\nif (/a\\u0041/.source !== \"a\\\\u0041\") {\n  $ERROR('#5: /a\\\\u0041/');\n}  \n",
+    "id": "S7.8.5_A2.1_T1"
+   },
+   {
+    "section": "7.8.5, 15.10.1",
+    "description": "Complex test with eval, using syntax pattern",
+    "test": "//CHECK\nerrorCount = 0;\ncount = 0;\nvar hex = [\"0\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"A\", \"B\", \"C\", \"D\", \"E\", \"F\"];\nfor (i1 = 0; i1 < 16; i1++) {\n  for (i2 = 0; i2 < 16; i2++) {\n    for (i3 = 0; i3 < 16; i3++) {\n      for (i4 = 0; i4 < 16; i4++) {\n        try {               \n          var uu = hex[i1] + hex[i2] + hex[i3] + hex[i4];\n\t      var Elimination = \n          ((uu === \"002A\") || (uu === \"002F\") || (uu === \"005C\") || (uu === \"002B\") || \n           (uu === \"003F\") || (uu === \"0028\") || (uu === \"0029\") || \n           (uu === \"005B\") || (uu === \"005D\") || (uu === \"007B\") || (uu === \"007D\"));\n           /* \n                * \\u002A     / \\u002F     \\ \\u005C     + \\u002B\n                ? \\u003F     ( \\u0028     ) \\u0029\n                [ \\u005B     ] \\u005D     { \\u007B     } \\u007D          \n           */\n          var LineTerminator = ((uu === \"000A\") || (uu === \"000D\") || (uu === \"2028\") || (uu === \"2029\"));                      \n          if ((Elimination || LineTerminator ) === false) {                       \n            var xx = \"nnnn\" + String.fromCharCode(\"0x\" + uu);                  \n            var pattern = eval(\"/\" + xx + \"/\");  \n            if (pattern.source !== xx) {\n              $ERROR('#' + uu + ' ');\n              errorCount++;\n            }                   \n      \n          } else {\n            count--;\n          }                     \n        } catch (e) {         \n          $ERROR('#' + uu + ' ');\n          errorCount++;\n        }\n        count++;\n      }  \n    }\n  }\n}\n\nif (errorCount > 0) {    \n  $ERROR('Total error: ' + errorCount + ' bad Regular Expression First Char in ' + count);\n} \n",
+    "id": "S7.8.5_A2.1_T2"
+   },
+   {
+    "section": "7.8.5",
+    "description": "\\",
+    "negative": "",
+    "test": "//CHECK#1\n/a\\/\n",
+    "id": "S7.8.5_A2.2_T1"
+   },
+   {
+    "section": "7.8.5",
+    "description": "/",
+    "negative": "",
+    "test": "//CHECK#1\n/a//.source;\n",
+    "id": "S7.8.5_A2.2_T2"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Line Feed, without eval",
+    "negative": "",
+    "test": "//CHECK#1\n/a\n/\n",
+    "id": "S7.8.5_A2.3_T1"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Line Feed, with eval",
+    "test": "//CHECK#1\ntry {\n   eval(\"/a\\u000A/\").source;\n   $ERROR('#1.1: RegularExpressionChar :: Line Feedis incorrect. Actual: ' + (eval(\"/a\\u000A/\").source)); \n}\ncatch (e) {\n  if ((e instanceof SyntaxError) !== true) {\n     $ERROR('#1.2: RegularExpressionChar :: Line Feed is incorrect. Actual: ' + (e));\n  }\n}     \n",
+    "id": "S7.8.5_A2.3_T2"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Carriage Return, without eval",
+    "negative": "",
+    "test": "//CHECK#1\n/a\n/\n",
+    "id": "S7.8.5_A2.3_T3"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Carriage Return, with eval",
+    "test": "//CHECK#1\ntry {\n   eval(\"/a\\u000D/\").source;\n   $ERROR('#1.1: RegularExpressionChar :: Carriage Retur is incorrect. Actual: ' + (eval(\"/a\\u000D/\").source)); \n}\ncatch (e) {\n  if ((e instanceof SyntaxError) !== true) {\n     $ERROR('#1.2: RegularExpressionChar :: Carriage Retur is incorrect. Actual: ' + (e));\n  }\n}     \n",
+    "id": "S7.8.5_A2.3_T4"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Line separator, with eval",
+    "test": "//CHECK#1\ntry {\n   eval(\"/a\\u2028/\").source;\n   $ERROR('#1.1: RegularExpressionChar :: Line separator is incorrect. Actual: ' + (eval(\"/a\\u2028/\").source)); \n}\ncatch (e) {\n  if ((e instanceof SyntaxError) !== true) {\n     $ERROR('#1.2: RegularExpressionChar :: Line separator is incorrect. Actual: ' + (e));\n  }\n}     \n",
+    "id": "S7.8.5_A2.3_T5"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Paragraph separator, with eval",
+    "test": "//CHECK#1\ntry {\n   eval(\"/s\\u2029/\").source;\n   $ERROR('#1.1: RegularExpressionChar :: Paragraph separator is incorrect. Actual: ' + (eval(\"/s\\u2029/\").source)); \n}\ncatch (e) {\n  if ((e instanceof SyntaxError) !== true) {\n     $ERROR('#1.2: RegularExpressionChar :: Paragraph separator is incorrect. Actual: ' + (e));\n  }\n}     \n",
+    "id": "S7.8.5_A2.3_T6"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Check similar to (/a\\1/.source === \"a\\\\1\")",
+    "test": "//CHECK#1\nif (/a\\1/.source !== \"a\\\\1\") {\n  $ERROR('#1: /a\\\\1/');\n}   \n\n//CHECK#2\nif (/a\\a/.source !== \"a\\\\a\") {\n  $ERROR('#2: /a\\\\a/');\n}\n\n//CHECK#3\nif (/,\\;/.source !== \",\\\\;\") {\n  $ERROR('#3: /,\\\\;/');\n}\n\n//CHECK#4\nif (/ \\ /.source !== \" \\\\ \") {\n  $ERROR('#4: / \\\\ /');\n}  \n",
+    "id": "S7.8.5_A2.4_T1"
+   },
+   {
+    "section": "7.8.5, 15.10.1",
+    "description": "Complex test with eval, using syntax pattern",
+    "test": "//CHECK\nerrorCount = 0;\ncount = 0;\nvar hex = [\"0\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"A\", \"B\", \"C\", \"D\", \"E\", \"F\"];\nfor (i1 = 0; i1 < 16; i1++) {\n  for (i2 = 0; i2 < 16; i2++) {\n    for (i3 = 0; i3 < 16; i3++) {\n      for (i4 = 0; i4 < 16; i4++) {\n        try {    \n          var uu = hex[i1] + hex[i2] + hex[i3] + hex[i4];\n\t      var Elimination = \n          ((uu === \"002A\") || (uu === \"002F\") || (uu === \"005C\") || (uu === \"002B\") || \n           (uu === \"003F\") || (uu === \"0028\") || (uu === \"0029\") || \n           (uu === \"005B\") || (uu === \"005D\") || (uu === \"007B\") || (uu === \"007D\"));\n           /* \n                * \\u002A     / \\u002F     \\ \\u005C     + \\u002B\n                ? \\u003F     ( \\u0028     ) \\u0029\n                [ \\u005B     ] \\u005D     { \\u007B     } \\u007D          \n           */\n          var LineTerminator = ((uu === \"000A\") || (uu === \"000D\") || (uu === \"2028\") || (uu === \"2029\"));                      \n          if ((Elimination || LineTerminator ) === false) {              \n            var xx = \"a\\\\\" + String.fromCharCode(\"0x\" + uu);          \n            var pattern = eval(\"/\" + xx + \"/\");  \n            if (pattern.source !== xx) {\n              $ERROR('#' + uu + ' ');\n              errorCount++;\n            }                   \n          } else {\n            count--;\n          }                     \n        } catch (e) {         \n          $ERROR('#' + uu + ' ');\n          errorCount++;\n        }\n        count++;\n      }  \n    }\n  }\n}\n\nif (errorCount > 0) {    \n  $ERROR('Total error: ' + errorCount + ' bad Regular Expression First Char in ' + count);\n} \n",
+    "id": "S7.8.5_A2.4_T2"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Line Feed, without eval",
+    "negative": "",
+    "test": "//CHECK#1\n/a\\\n/\n",
+    "id": "S7.8.5_A2.5_T1"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Line Feed, with eval",
+    "test": "//CHECK#1\ntry {      \n   eval(\"/a\\\\\\u000A/\").source;\n   $ERROR('#1.1: RegularExpressionChar :: BackslashSequence :: \\\\Line Feed is incorrect. Actual: ' + (eval(\"/a\\\\\\u000A/\").source)); \n}\ncatch (e) {\n  if ((e instanceof SyntaxError) !== true) {\n     $ERROR('#1.2: RegularExpressionChar :: BackslashSequence :: \\\\Line Feed is incorrect. Actual: ' + (e));\n  }\n}     \n",
+    "id": "S7.8.5_A2.5_T2"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Carriage Return, without eval",
+    "negative": "",
+    "test": "//CHECK#1\n/a\\\n/\n",
+    "id": "S7.8.5_A2.5_T3"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Carriage Return, with eval",
+    "test": "//CHECK#1\ntry {\n   eval(\"/a\\\\\\u000D/\").source;\n   $ERROR('#1.1: RegularExpressionChar :: BackslashSequence :: \\\\Carriage Return is incorrect. Actual: ' + (eval(\"/a\\\\\\u000D/\").source)); \n}\ncatch (e) {\n  if ((e instanceof SyntaxError) !== true) {\n     $ERROR('#1.2: RegularExpressionChar :: BackslashSequence :: \\\\Carriage Return is incorrect. Actual: ' + (e));\n  }\n}     \n",
+    "id": "S7.8.5_A2.5_T4"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Line separator, with eval",
+    "test": "//CHECK#1\ntry {\n   eval(\"/a\\\\\\u2028/\").source;\n   $ERROR('#1.1: RegularExpressionChar :: BackslashSequence :: \\\\Line separator is incorrect. Actual: ' + (eval(\"/a\\\\\\u2028/\").source)); \n}\ncatch (e) {\n  if ((e instanceof SyntaxError) !== true) {\n     $ERROR('#1.2: RegularExpressionChar :: BackslashSequence :: \\\\Line separator is incorrect. Actual: ' + (e));\n  }\n}     \n",
+    "id": "S7.8.5_A2.5_T5"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Paragraph separator, with eval",
+    "test": "//CHECK#1\ntry {\n   eval(\"/a\\\\\\u2029/\").source;\n   $ERROR('#1.1: RegularExpressionChar :: BackslashSequence :: \\\\Paragraph separator is incorrect. Actual: ' + (eval(\"/a\\\\\\u2029/\").source)); \n}\ncatch (e) {\n  if ((e instanceof SyntaxError) !== true) {\n     $ERROR('#1.2: RegularExpressionChar :: BackslashSequence :: \\\\Paragraph separator is incorrect. Actual: ' + (e));\n  }\n}     \n",
+    "id": "S7.8.5_A2.5_T6"
+   },
+   {
+    "section": "7.8.5, 15.10.4.1",
+    "description": "IdentifierPart :: g",
+    "test": "//CHECK#1\nvar regexp = /(?:)/g; \nif (regexp.global !== true) {\n  $ERROR('#1: var regexp = /(?:)/g; regexp.global === true. Actual: ' + (regexp.global));\n}\n\n//CHECK#2 \nif (regexp.ignoreCase !== false) {\n  $ERROR('#2: var regexp = /(?:)/g; regexp.ignoreCase === false. Actual: ' + (regexp.ignoreCase));\n}\n\n//CHECK#3\nif (regexp.multiline !== false) {\n  $ERROR('#3: var regexp = /(?:)/g; regexp.multiline === false. Actual: ' + (regexp.multiline));\n}                            \n",
+    "id": "S7.8.5_A3.1_T1"
+   },
+   {
+    "section": "7.8.5, 15.10.4.1",
+    "description": "IdentifierPart :: i",
+    "test": "//CHECK#1\nvar regexp = /(?:)/i; \nif (regexp.global !== false) {\n  $ERROR('#1: var regexp = /(?:)/g; regexp.global === false. Actual: ' + (regexp.global));\n}\n\n//CHECK#2 \nif (regexp.ignoreCase !== true) {\n  $ERROR('#2: var regexp = /(?:)/g; regexp.ignoreCase === true. Actual: ' + (regexp.ignoreCase));\n}\n\n//CHECK#3\nif (regexp.multiline !== false) {\n  $ERROR('#3: var regexp = /(?:)/g; regexp.multiline === false. Actual: ' + (regexp.multiline));\n}                            \n",
+    "id": "S7.8.5_A3.1_T2"
+   },
+   {
+    "section": "7.8.5, 15.10.4.1",
+    "description": "IdentifierPart :: m",
+    "test": "//CHECK#1\nvar regexp = /(?:)/m; \nif (regexp.global !== false) {\n  $ERROR('#1: var regexp = /(?:)/g; regexp.global === false. Actual: ' + (regexp.global));\n}\n\n//CHECK#2 \nif (regexp.ignoreCase !== false) {\n  $ERROR('#2: var regexp = /(?:)/g; regexp.ignoreCase === false. Actual: ' + (regexp.ignoreCase));\n}\n\n//CHECK#3\nif (regexp.multiline !== true) {\n  $ERROR('#3: var regexp = /(?:)/g; regexp.multiline === true. Actual: ' + (regexp.multiline));\n}                            \n",
+    "id": "S7.8.5_A3.1_T3"
+   },
+   {
+    "section": "7.8.5, 15.10.4.1",
+    "description": "IdentifierPart :: gi",
+    "test": "//CHECK#1\nvar regexp = /(?:)/gi; \nif (regexp.global !== true) {\n  $ERROR('#1: var regexp = /(?:)/g; regexp.global === true. Actual: ' + (regexp.global));\n}\n\n//CHECK#2 \nif (regexp.ignoreCase !== true) {\n  $ERROR('#2: var regexp = /(?:)/g; regexp.ignoreCase === true. Actual: ' + (regexp.ignoreCase));\n}\n\n//CHECK#3\nif (regexp.multiline !== false) {\n  $ERROR('#3: var regexp = /(?:)/g; regexp.multiline === false. Actual: ' + (regexp.multiline));\n}                            \n",
+    "id": "S7.8.5_A3.1_T4"
+   },
+   {
+    "section": "7.8.5, 15.10.4.1",
+    "description": "IdentifierPart :: mg",
+    "test": "//CHECK#1\nvar regexp = /(?:)/mg; \nif (regexp.global !== true) {\n  $ERROR('#1: var regexp = /(?:)/g; regexp.global === true. Actual: ' + (regexp.global));\n}\n\n//CHECK#2 \nif (regexp.ignoreCase !== false) {\n  $ERROR('#2: var regexp = /(?:)/g; regexp.ignoreCase === false. Actual: ' + (regexp.ignoreCase));\n}\n\n//CHECK#3\nif (regexp.multiline !== true) {\n  $ERROR('#3: var regexp = /(?:)/g; regexp.multiline === true. Actual: ' + (regexp.multiline));\n}                            \n",
+    "id": "S7.8.5_A3.1_T5"
+   },
+   {
+    "section": "7.8.5, 15.10.4.1",
+    "description": "IdentifierPart :: mig",
+    "test": "//CHECK#1\nvar regexp = /(?:)/mig; \nif (regexp.global !== true) {\n  $ERROR('#1: var regexp = /(?:)/g; regexp.global === true. Actual: ' + (regexp.global));\n}\n\n//CHECK#2 \nif (regexp.ignoreCase !== true) {\n  $ERROR('#2: var regexp = /(?:)/g; regexp.ignoreCase === true. Actual: ' + (regexp.ignoreCase));\n}\n\n//CHECK#3\nif (regexp.multiline !== true) {\n  $ERROR('#3: var regexp = /(?:)/g; regexp.multiline === true. Actual: ' + (regexp.multiline));\n}                            \n",
+    "id": "S7.8.5_A3.1_T6"
+   },
+   {
+    "section": "7.8.5, 15.10.4.1",
+    "description": "IdentifierPart :: \\u0067 (g)",
+    "test": "//CHECK#1\nvar regexp = /(?:)/\\u0067; \nif (regexp.global !== true) {\n  $ERROR('#1: var regexp = /(?:)/\\\\u0067; regexp.global === true. Actual: ' + (regexp.global));\n}                        \n",
+    "id": "S7.8.5_A3.1_T7"
+   },
+   {
+    "section": "7.8.5, 15.10.4.1",
+    "description": "IdentifierPart :: \\u0069 (i)",
+    "test": "//CHECK#1\nvar regexp = /(?:)/\\u0069; \nif (regexp.ignoreCase !== true) {\n  $ERROR('#1: var regexp = /(?:)/\\\\u0069; regexp.ignoreCase === true. Actual: ' + (regexp.ignoreCase));\n}                         \n",
+    "id": "S7.8.5_A3.1_T8"
+   },
+   {
+    "section": "7.8.5, 15.10.4.1",
+    "description": "IdentifierPart :: \\u006D (m)",
+    "test": "//CHECK#1\nvar regexp = /(?:)/\\u006D; \nif (regexp.multiline !== true) {\n  $ERROR('#1: var regexp = /(?:)/\\\\u006D; regexp.multiline === true. Actual: ' + (regexp.multiline));\n}                             \n",
+    "id": "S7.8.5_A3.1_T9"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Check ((/(?:)/ instanceof RegExp) === true)",
+    "test": "//CHECK#1\nif ((/(?:)/ instanceof RegExp) !== true) {\n  $ERROR('#1: (/(?:)/ instanceof RegExp) === true. Actual: ' + ((/(?:)/ instanceof RegExp)));\n}   \n   \n",
+    "id": "S7.8.5_A4.1"
+   },
+   {
+    "section": "7.8.5",
+    "description": "Check equality two regular expression literals",
+    "test": "//CHECK#1\nvar regexp1 = /(?:)/;\nvar regexp2 = /(?:)/;\nif (regexp1 === regexp2) {\n  $ERROR('#1: var regexp1 = /(?:)/; var regexp2 = /(?:)/; regexp1 !== regexp2');\n}   \n   \n",
+    "id": "S7.8.5_A4.2"
+   }
+  ]
+ }
+}

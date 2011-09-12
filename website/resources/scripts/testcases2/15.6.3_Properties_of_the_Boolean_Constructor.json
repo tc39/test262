@@ -1,0 +1,26 @@
+{
+ "testCollection": {
+  "name": "15.6.3_Properties_of_the_Boolean_Constructor",
+  "numTests": 3,
+  "tests": [
+   {
+    "section": "15.6.3",
+    "description": "Checking existence of the property \"prototype\"",
+    "test": "if(!Boolean.hasOwnProperty(\"prototype\")){\n  $ERROR('#1: The Boolean constructor has the property \"prototype\"');\n}\n\n",
+    "id": "S15.6.3_A1"
+   },
+   {
+    "section": "15.6.3",
+    "description": "Checking prototype of the Boolean constructor",
+    "test": "//CHECK#1\nif (!(Function.prototype.isPrototypeOf(Boolean))) {\n  $ERROR('#1: the value of the internal [[Prototype]] property of the Boolean constructor is the Function prototype object.');\n}\n",
+    "id": "S15.6.3_A2"
+   },
+   {
+    "section": "15.6.3",
+    "description": "Checking Boolean.length property",
+    "test": "//CHECK#1\nif (!Boolean.hasOwnProperty(\"length\")){\n  $ERROR('#1: Boolean constructor has length property');\n}\n\n//CHECK#2\nif (Boolean.length !== 1) {\n  $ERROR('#2: Boolean constructor length property value is 1');\n}\n",
+    "id": "S15.6.3_A3"
+   }
+  ]
+ }
+}

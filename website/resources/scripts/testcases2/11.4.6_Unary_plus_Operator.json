@@ -1,0 +1,62 @@
+{
+ "testCollection": {
+  "name": "11.4.6_Unary_plus_Operator",
+  "numTests": 9,
+  "tests": [
+   {
+    "section": "11.4.6, 7.2, 7.3",
+    "description": "Checking by using eval",
+    "test": "//CHECK#1\nif (eval(\"+\\u00091\") !== 1) {\n  $ERROR('#1: +\\\\u00091 === 1');\n}\n\n//CHECK#2\nif (eval(\"+\\u000B1\") !== 1) {\n  $ERROR('#2: +\\\\u000B1 === 1');  \n}\n\n//CHECK#3\nif (eval(\"+\\u000C1\") !== 1) {\n  $ERROR('#3: +\\\\u000C1 === 1');\n}\n\n//CHECK#4\nif (eval(\"+\\u00201\") !== 1) {\n  $ERROR('#4: +\\\\u0020 === 1');\n}\n\n//CHECK#5\nif (eval(\"+\\u00A01\") !== 1) {\n  $ERROR('#5: +\\\\u00A01 === 1');\n}\n\n//CHECK#6\nif (eval(\"+\\u000A1\") !== 1) {\n  $ERROR('#6: +\\\\u000A1 === 1');  \n}\n\n//CHECK#7\nif (eval(\"+\\u000D1\") !== 1) {\n  $ERROR('#7: +\\\\u000D1 === 1');\n}\n\n//CHECK#8\nif (eval(\"+\\u20281\") !== 1) {\n  $ERROR('#8: +\\\\u20281 === 1');\n}\n\n//CHECK#9\nif (eval(\"+\\u20291\") !== 1) {\n  $ERROR('#9: +\\\\u20291 === 1');\n}\n\n//CHECK#10\nif (eval(\"+\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u20291\") !== 1) {\n  $ERROR('#10: +\\\\u0009\\\\u000B\\\\u000C\\\\u0020\\\\u00A0\\\\u000A\\\\u000D\\\\u2028\\\\u20291 === 1');\n}\n",
+    "id": "S11.4.6_A1"
+   },
+   {
+    "section": "11.4.6",
+    "description": "Either Type(x) is not Reference or GetBase(x) is not null",
+    "test": "//CHECK#1\nif (+1 !== 1) {\n  $ERROR('#1: +1 === 1. Actual: ' + (+1));\n}\n\n//CHECK#2\nif (+(+1) !== 1) {\n  $ERROR('#2: +(+1) === -1. Actual: ' + (+(+1)));\n}\n\n//CHECK#3\nvar x = 1;\nif (+x !== 1) {\n  $ERROR('#3: var x = +1; -x === 1. Actual: ' + (-x));\n}\n\n//CHECK#4\nvar x = 1;\nif (+(+x) !== 1) {\n  $ERROR('#4: var x = 1; +(+x) === 1. Actual: ' + (+(+x)));\n}\n\n//CHECK#5\nvar object = new Object();\nobject.prop = 1;\nif (+object.prop !== 1) {\n  $ERROR('#5: var object = new Object(); object.prop = 1; +object.prop === 1. Actual: ' + (+object.prop));\n}\n",
+    "id": "S11.4.6_A2.1_T1"
+   },
+   {
+    "section": "11.4.6",
+    "description": "If GetBase(x) is null, throw ReferenceError",
+    "test": "//CHECK#1\ntry {\n  +x;\n  $ERROR('#1.1: +x throw ReferenceError. Actual: ' + (+x));  \n}\ncatch (e) {\n  if ((e instanceof ReferenceError) !== true) {\n    $ERROR('#1.2: +x throw ReferenceError. Actual: ' + (e));  \n  }\n}\n",
+    "id": "S11.4.6_A2.1_T2"
+   },
+   {
+    "section": "11.4.6, 8.6.2.6",
+    "description": "If Type(value) is Object, evaluate ToPrimitive(value, Number)",
+    "test": "//CHECK#1\nvar object = {valueOf: function() {return 1}};\nif (+object !== 1) {\n  $ERROR('#1: var object = {valueOf: function() {return 1}}; +object === 1. Actual: ' + (+object));\n}\n\n//CHECK#2\nvar object = {valueOf: function() {return 1}, toString: function() {return 0}};\nif (+object !== 1) {\n  $ERROR('#2: var object = {valueOf: function() {return 1}, toString: function() {return 0}}; +object === 1. Actual: ' + (+object));\n} \n\n//CHECK#3\nvar object = {valueOf: function() {return 1}, toString: function() {return {}}};\nif (+object !== 1) {\n  $ERROR('#3: var object = {valueOf: function() {return 1}, toString: function() {return {}}}; +object === 1. Actual: ' + (+object));\n}\n\n//CHECK#4\ntry {\n  var object = {valueOf: function() {return 1}, toString: function() {throw \"error\"}};\n  if (+object !== 1) {\n    $ERROR('#4.1: var object = {valueOf: function() {return 1}, toString: function() {throw \"error\"}}; +object === 1. Actual: ' + (+object));\n  }\n}\ncatch (e) {\n  if (e === \"error\") {\n    $ERROR('#4.2: var object = {valueOf: function() {return 1}, toString: function() {throw \"error\"}}; +object not throw \"error\"');\n  } else {\n    $ERROR('#4.3: var object = {valueOf: function() {return 1}, toString: function() {throw \"error\"}}; +object not throw Error. Actual: ' + (e));\n  }\n}\n\n//CHECK#5\nvar object = {toString: function() {return 1}};\nif (+object !== 1) {\n  $ERROR('#5: var object = {toString: function() {return 1}}; +object === 1. Actual: ' + (+object));\n}\n\n//CHECK#6\nvar object = {valueOf: function() {return {}}, toString: function() {return 1}}\nif (+object !== 1) {\n  $ERROR('#6: var object = {valueOf: function() {return {}}, toString: function() {return 1}}; +object === 1. Actual: ' + (+object));\n}\n\n//CHECK#7\ntry {\n  var object = {valueOf: function() {throw \"error\"}, toString: function() {return 1}};\n  +object;\n  $ERROR('#7.1: var object = {valueOf: function() {throw \"error\"}, toString: function() {return 1}}; +object throw \"error\". Actual: ' + (+object));\n}  \ncatch (e) {\n  if (e !== \"error\") {\n    $ERROR('#7.2: var object = {valueOf: function() {throw \"error\"}, toString: function() {return 1}}; +object throw \"error\". Actual: ' + (e));\n  } \n}\n\n//CHECK#8\ntry {\n  var object = {valueOf: function() {return {}}, toString: function() {return {}}};\n  +object;\n  $ERROR('#8.1: var object = {valueOf: function() {return {}}, toString: function() {return {}}}; +object throw TypeError. Actual: ' + (+object));\n}  \ncatch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#8.2: var object = {valueOf: function() {return {}}, toString: function() {return {}}}; +object throw TypeError. Actual: ' + (e));\n  } \n}\n",
+    "id": "S11.4.6_A2.2_T1"
+   },
+   {
+    "section": "11.4.6",
+    "description": "Type(x) is boolean primitive or Boolean object",
+    "test": "//CHECK#1\nif (+false !== 0) {\n  $ERROR('#1: +false === 0. Actual: ' + (+false));\n}\n\n//CHECK#2\nif (+new Boolean(true) !== 1) {\n  $ERROR('#2: +new Boolean(true) === 1. Actual: ' + (+new Boolean(true)));\n}\n",
+    "id": "S11.4.6_A3_T1"
+   },
+   {
+    "section": "11.4.6",
+    "description": "Type(x) is number primitive or Number object",
+    "test": "//CHECK#1\nif (+0.1 !== 0.1) {\n  $ERROR('#1: +0.1 === 0.1. Actual: ' + (+0.1));\n}\n\n//CHECK#2\nif (+new Number(-1.1) !== -1.1) {\n  $ERROR('#2: +new Number(-1.1) === -1.1. Actual: ' + (+new Number(-1.1)));\n}\n",
+    "id": "S11.4.6_A3_T2"
+   },
+   {
+    "section": "11.4.6",
+    "description": "Type(x) is string primitive or String object",
+    "test": "//CHECK#1\nif (+\"1\" !== 1) {\n  $ERROR('#1: +\"1\" === 1. Actual: ' + (+\"1\"));\n}\n\n//CHECK#2\nif (isNaN(+\"x\") !== true) {\n  $ERROR('#2: +\"x\" === Not-a-Number. Actual: ' + (+\"x\"));\n}\n\n//CHECK#3\nif (+new Number(\"-1\") !== -1) {\n  $ERROR('#3: +new String(\"-1\") === -1. Actual: ' + (+new String(\"-1\")));\n}\n",
+    "id": "S11.4.6_A3_T3"
+   },
+   {
+    "section": "11.4.6",
+    "description": "Type(x) is undefined or null",
+    "test": "//CHECK#1\nif (isNaN(+void 0) !== true) {\n  $ERROR('#1: +void 0 === Not-a-Number. Actual: ' + (+void 0));\n}\n\n//CHECK#2\nif (+null !== 0) {\n  $ERROR('#2: +null === 0. Actual: ' + (+null));\n}\n",
+    "id": "S11.4.6_A3_T4"
+   },
+   {
+    "section": "11.4.6",
+    "description": "Type(x) is Object object or Function object",
+    "test": "//CHECK#1\nif (isNaN(+{}) !== true) {\n  $ERROR('#1: +{} === Not-a-Number. Actual: ' + (+{}));\n}\n\n//CHECK#2  \nif (isNaN(+function(){return 1}) !== true) {\n  $ERROR('#2: +function(){return 1} === Not-a-Number. Actual: ' + (+function(){return 1}));\n}\n",
+    "id": "S11.4.6_A3_T5"
+   }
+  ]
+ }
+}

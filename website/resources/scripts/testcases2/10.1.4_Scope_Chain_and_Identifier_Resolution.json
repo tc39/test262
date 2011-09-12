@@ -1,0 +1,62 @@
+{
+ "testCollection": {
+  "name": "10.1.4_Scope_Chain_and_Identifier_Resolution",
+  "numTests": 9,
+  "tests": [
+   {
+    "section": "10.1.4",
+    "description": "Checking scope chain containing function declarations",
+    "test": "var x = 0;\n\nfunction f1(){\n  var x = 1;\n  function f2(){\n    return x;\n  };\n  return f2();\n}\n\nif(!(f1() === 1)){\n  $ERROR(\"#1: Scope chain disturbed\");\n}\n",
+    "id": "S10.1.4_A1_T1"
+   },
+   {
+    "section": "10.1.4",
+    "description": "Checking scope chain containing function declarations",
+    "test": "var x = 0;\n\nfunction f1(){\n  function f2(){\n    return x;\n  };\n  return f2();\n}\n\nif(!(f1() === 0)){\n  $ERROR(\"#1: Scope chain disturbed\");\n}\n",
+    "id": "S10.1.4_A1_T2"
+   },
+   {
+    "section": "10.1.4",
+    "description": "Checking scope chain containing function declarations",
+    "test": "var x = 0;\n\nfunction f1(){\n  function f2(){\n    return x;\n  };\n  return f2();\n  \n  var x = 1;\n}\n\nif(!(f1() === undefined)){\n  $ERROR(\"#1: Scope chain disturbed\");\n}\n\n",
+    "id": "S10.1.4_A1_T3"
+   },
+   {
+    "section": "10.1.4",
+    "description": "Checking scope chain containing function declarations",
+    "test": "var x = 0;\n\nfunction f1(){\n  function f2(){\n    return x;\n  };\n\n  var x = 1;\n  return f2();\n}\n\nif(!(f1() === 1)){\n  $ERROR(\"#1: Scope chain disturbed\");\n}\n",
+    "id": "S10.1.4_A1_T4"
+   },
+   {
+    "section": "10.1.4",
+    "description": "Checking scope chain containing function declarations and \"with\"",
+    "test": "var x = 0;\n\nvar myObj = {x : \"obj\"};\n\nfunction f1(){\n  var x = 1;\n  function f2(){\n    with(myObj){\n      return x;\n    }\n  };\n  return f2();\n}\n\nif(!(f1() === \"obj\")){\n  $ERROR(\"#1: Scope chain disturbed\");\n}\n",
+    "id": "S10.1.4_A1_T5"
+   },
+   {
+    "section": "10.1.4",
+    "description": "Checking scope chain containing function declarations and \"with\"",
+    "test": "var x = 0;\n\nvar myObj = {x : \"obj\"};\n\nfunction f1(){\n  function f2(){\n    with(myObj){\n      return x;\n    }\n  };\n  return f2();\n}\n\nif(!(f1() === \"obj\")){\n  $ERROR(\"#1: Scope chain disturbed\");\n}\n",
+    "id": "S10.1.4_A1_T6"
+   },
+   {
+    "section": "10.1.4",
+    "description": "Checking scope chain containing function declarations and \"with\"",
+    "test": "var x = 0;\n\nvar myObj = {x : \"obj\"};\n\nfunction f1(){\n  function f2(){\n    with(myObj){\n      return x;\n    }\n  };\n  return f2();\n  \n  var x = 1;\n}\n\nif(!(f1() === \"obj\")){\n  $ERROR(\"#1: Scope chain disturbed\");\n}\n",
+    "id": "S10.1.4_A1_T7"
+   },
+   {
+    "section": "10.1.4",
+    "description": "Checking scope chain containing function declarations and \"with\"",
+    "test": "var x = 0;\n\nvar myObj = {x : \"obj\"};\n\nfunction f1(){\n  function f2(){\n    with(myObj){\n      return x;\n    }\n  };\n\n  var x = 1;\n  return f2();\n}\n\nif(!(f1() === \"obj\")){\n  $ERROR(\"#1: Scope chain disturbed\");\n}\n",
+    "id": "S10.1.4_A1_T8"
+   },
+   {
+    "section": "10.1.4",
+    "description": "Checking scope chain containing function declarations and \"with\"",
+    "test": "var x = 0;\n\nvar myObj = {x : \"obj\"};\n\nfunction f1(){\n  with(myObj){\n    return x;\n  }\n}\n\nif(!(f1() === \"obj\")){\n  $ERROR(\"#1: Scope chain disturbed\");\n}\n",
+    "id": "S10.1.4_A1_T9"
+   }
+  ]
+ }
+}

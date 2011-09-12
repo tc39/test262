@@ -1,0 +1,38 @@
+{
+ "testCollection": {
+  "name": "15.10.6_Properties_of_the_RegExp_Prototype_Object",
+  "numTests": 5,
+  "tests": [
+   {
+    "section": "15.10.6.1",
+    "description": "Compare RegExp.prototype.constructor with RegExp",
+    "test": "//CHECK#1\nif (RegExp.prototype.constructor !== RegExp) {\n\t$ERROR('#1: RegExp.prototype.constructor === RegExp. Actual: ' + (RegExp.prototype.constructor));\n}\n\n",
+    "id": "S15.10.6.1_A1_T1"
+   },
+   {
+    "section": "15.10.6.1",
+    "description": "Compare instance.constructor !== RegExp, where instance is new RegExp.prototype.constructor",
+    "test": "__FACTORY = RegExp.prototype.constructor;\n\n__instance = new __FACTORY;\n\n//CHECK#1\nif ((__instance instanceof RegExp) !== true) {\n\t$ERROR('#1: __FACTORY = RegExp.prototype.constructor; __instance = new __FACTORY; (__instance instanceof RegExp) === true');\n}\n\n//CHECK#2\nif (__instance.constructor !== RegExp) {\n\t$ERROR('#2: __FACTORY = RegExp.prototype.constructor; __instance = new __FACTORY; __instance.constructor === RegExp. Actual: ' + (__instance.constructor));\n}\n\n",
+    "id": "S15.10.6.1_A1_T2"
+   },
+   {
+    "section": "15.10.6",
+    "description": "Checking Object.prototype.isPrototypeOf(RegExp.prototype)",
+    "test": "//CHECK#1\nif (Object.prototype.isPrototypeOf(RegExp.prototype) !== true) {\n\t$ERROR('#1: Object.prototype.isPrototypeOf(RegExp.prototype) === true');\n}\n\n",
+    "id": "S15.10.6_A1_T1"
+   },
+   {
+    "section": "15.10.6",
+    "description": "Add new property to Object.prototype and check it of RegExp.prototype",
+    "test": "Object.prototype.indicator = 1;\n\n//CHECK#1\nif (RegExp.prototype.indicator !== 1) {\n\t$ERROR('#1: Object.prototype.indicator = 1; RegExp.prototype.indicator === 1. Actual: ' + (RegExp.prototype.indicator));\n}\n\n",
+    "id": "S15.10.6_A1_T2"
+   },
+   {
+    "section": "15.10.6",
+    "description": "Checking performs with toString function",
+    "test": "RegExp.prototype.toString = Object.prototype.toString;\n\n//CHECK#1\nif (RegExp.prototype.toString() !== \"[object \" + \"Object\" + \"]\") {\n\t$ERROR('#1: RegExp.prototype.toString = Object.prototype.toString; RegExp.prototype.toString() === \"[object \" + \"Object\" + \"]\". Actual: ' + RegExp.prototype.toString());\n}\n\n",
+    "id": "S15.10.6_A2"
+   }
+  ]
+ }
+}

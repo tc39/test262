@@ -1,0 +1,44 @@
+{
+ "testCollection": {
+  "name": "15.10.6.4_RegExp.prototype.toString",
+  "numTests": 6,
+  "tests": [
+   {
+    "section": "15.10.6.4",
+    "description": "Checking if varying the RegExp.prototype.toString.length property fails",
+    "test": "//CHECK#1\nif (RegExp.prototype.toString.hasOwnProperty('length') !== true) {\n\t$FAIL('#1: RegExp.prototype.toString.hasOwnProperty(\\'length\\') === true');\n}\n\n__obj = RegExp.prototype.toString.length;\n\nRegExp.prototype.toString.length = function(){return \"shifted\";};\n\n//CHECK#2\nif (RegExp.prototype.toString.length !== __obj) {\n\t$ERROR('#2: __obj = RegExp.prototype.toString.length; RegExp.prototype.toString.length = function(){return \"shifted\";}; RegExp.prototype.toString.length === __obj. Actual: ' + (RegExp.prototype.toString.length));\n}\n\n",
+    "id": "S15.10.6.4_A10"
+   },
+   {
+    "section": "15.10.6.4",
+    "description": "Checking RegExp.prototype.toString.length",
+    "test": "//CHECK#1\nif (RegExp.prototype.toString.hasOwnProperty(\"length\") !== true) {\n\t$FAIL('#1: RegExp.prototype.toString.hasOwnProperty(\\'length\\') === true');\n}\n\n//CHECK#2\nif (RegExp.prototype.toString.length !== 0) {\n\t$ERROR('#2: RegExp.prototype.toString.length === 0. Actual: ' + (RegExp.prototype.toString.length));\n}\n\n",
+    "id": "S15.10.6.4_A11"
+   },
+   {
+    "section": "15.10.6.4, 13.2",
+    "description": "Checking RegExp.prototype.toString.prototype",
+    "test": "//CHECK#1\nif (RegExp.prototype.toString.prototype !== undefined) {\n\t$ERROR('#1: RegExp.prototype.toString.prototype === undefined. Actual: ' + (RegExp.prototype.toString.prototype));\n}\n\n",
+    "id": "S15.10.6.4_A6"
+   },
+   {
+    "section": "15.10.6.4, 13.2",
+    "description": "Checking if creating the RegExp.prototype.toString object fails",
+    "test": "__FACTORY = RegExp.prototype.toString;\n\ntry {\n\t__instance = new __FACTORY;\n\t$ERROR('#1.1: __FACTORY = RegExp.prototype.toString throw TypeError. Actual: ' + (__instance));\n} catch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#1.2: __FACTORY = RegExp.prototype.toString throw TypeError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.10.6.4_A7"
+   },
+   {
+    "section": "15.10.6.4",
+    "description": "Checking if enumerating the RegExp.prototype.toString.length property fails",
+    "test": "//CHECK#0\nif (RegExp.prototype.toString.hasOwnProperty('length') !== true) {\n\t$ERROR('#0: RegExp.prototype.toString.hasOwnProperty(\\'length\\') === true');\n}\n\n //CHECK#1\nif (RegExp.prototype.toString.propertyIsEnumerable('length') !== false) {\n\t$ERROR('#1: RegExp.prototype.toString.propertyIsEnumerable(\\'length\\') === true');\n}\n\n //CHECK#2\ncount=0;\n\nfor (p in RegExp.prototype.toString){\n\tif (p===\"length\") count++;\n}\n\nif (count !== 0) {\n\t$ERROR('#2: count = 0; for (p in RegExp.prototype.toString){ if (p===\"length\") count++; } count === 0. Actual: ' + (count));\n}\n\n",
+    "id": "S15.10.6.4_A8"
+   },
+   {
+    "section": "15.10.6.4",
+    "description": "Checking if deleting the RegExp.prototype.toString.length property fails",
+    "test": "//CHECK#0\nif ((RegExp.prototype.toString.hasOwnProperty('length') !== true)) {\n\t$FAIL('#0: RegExp.prototype.toString.hasOwnProperty(\\'length\\') === true');\n}\n\n//CHECK#1\nif (delete RegExp.prototype.toString.length !== false) {\n\t$ERROR('#1: delete RegExp.prototype.toString.length === false');\n}\n\n//CHECK#2\nif (RegExp.prototype.toString.hasOwnProperty('length') !== true) {\n\t$ERROR('#2: delete RegExp.prototype.toString.length; RegExp.prototype.toString.hasOwnProperty(\\'length\\') === true');\n}\n\n",
+    "id": "S15.10.6.4_A9"
+   }
+  ]
+ }
+}

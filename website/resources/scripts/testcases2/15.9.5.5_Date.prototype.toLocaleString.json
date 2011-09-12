@@ -1,0 +1,50 @@
+{
+ "testCollection": {
+  "name": "15.9.5.5_Date.prototype.toLocaleString",
+  "numTests": 7,
+  "tests": [
+   {
+    "section": "15.9.5.5",
+    "description": "Checking absence of ReadOnly attribute",
+    "test": "x = Date.prototype.toLocaleString;\nif(x === 1)\n  Date.prototype.toLocaleString = 2;\nelse\n  Date.prototype.toLocaleString = 1;\nif (Date.prototype.toLocaleString === x) {\n  $ERROR('#1: The Date.prototype.toLocaleString has not the attribute ReadOnly');\n}\n\n",
+    "id": "S15.9.5.5_A1_T1"
+   },
+   {
+    "section": "15.9.5.5",
+    "description": "Checking absence of DontDelete attribute",
+    "test": "if (delete Date.prototype.toLocaleString  === false) {\n  $ERROR('#1: The Date.prototype.toLocaleString property has not the attributes DontDelete');\n}\n\nif (Date.prototype.hasOwnProperty('toLocaleString')) {\n  $FAIL('#2: The Date.prototype.toLocaleString property has not the attributes DontDelete');\n}\n\n",
+    "id": "S15.9.5.5_A1_T2"
+   },
+   {
+    "section": "15.9.5.5",
+    "description": "Checking DontEnum attribute",
+    "test": "if (Date.prototype.propertyIsEnumerable('toLocaleString')) {\n  $ERROR('#1: The Date.prototype.toLocaleString property has the attribute DontEnum');\n}\n\nfor(x in Date.prototype) {\n  if(x === \"toLocaleString\") {\n    $ERROR('#2: The Date.prototype.toLocaleString has the attribute DontEnum');\n  }\n}\n\n",
+    "id": "S15.9.5.5_A1_T3"
+   },
+   {
+    "section": "15.9.5.5",
+    "description": "The \"length\" property of the \"toLocaleString\" is 0",
+    "test": "if(Date.prototype.toLocaleString.hasOwnProperty(\"length\") !== true){\n  $ERROR('#1: The toLocaleString has a \"length\" property');\n}\n\nif(Date.prototype.toLocaleString.length !== 0){\n  $ERROR('#2: The \"length\" property of the toLocaleString is 0');\n}\n\n",
+    "id": "S15.9.5.5_A2_T1"
+   },
+   {
+    "section": "15.9.5.5",
+    "description": "Checking ReadOnly attribute",
+    "test": "x = Date.prototype.toLocaleString.length;\nDate.prototype.toLocaleString.length = 1;\nif (Date.prototype.toLocaleString.length !== x) {\n  $ERROR('#1: The Date.prototype.toLocaleString.length has the attribute ReadOnly');\n}\n\n",
+    "id": "S15.9.5.5_A3_T1"
+   },
+   {
+    "section": "15.9.5.5",
+    "description": "Checking DontDelete attribute",
+    "test": "if (delete Date.prototype.toLocaleString.length  !== false) {\n  $ERROR('#1: The Date.prototype.toLocaleString.length property has the attributes DontDelete');\n}\n\nif (!Date.prototype.toLocaleString.hasOwnProperty('length')) {\n  $FAIL('#2: The Date.prototype.toLocaleString.length property has the attributes DontDelete');\n}\n\n",
+    "id": "S15.9.5.5_A3_T2"
+   },
+   {
+    "section": "15.9.5.5",
+    "description": "Checking DontEnum attribute",
+    "test": "if (Date.prototype.toLocaleString.propertyIsEnumerable('length')) {\n  $ERROR('#1: The Date.prototype.toLocaleString.length property has the attribute DontEnum');\n}\n\nfor(x in Date.prototype.toLocaleString) {\n  if(x === \"length\") {\n    $ERROR('#2: The Date.prototype.toLocaleString.length has the attribute DontEnum');\n  }\n}\n\n",
+    "id": "S15.9.5.5_A3_T3"
+   }
+  ]
+ }
+}

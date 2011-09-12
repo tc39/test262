@@ -1,0 +1,128 @@
+{
+ "testCollection": {
+  "name": "11.8.6_The_instanceof_operator",
+  "numTests": 20,
+  "tests": [
+   {
+    "section": "11.8.6, 7.2, 7.3",
+    "description": "Checking by using eval",
+    "test": "//CHECK#1\nif (eval(\"({})\\u0009instanceof\\u0009Object\") !== true) {\n  $ERROR('#1: ({})\\\\u0009instanceof\\\\u0009Object === true');\n}\n\n//CHECK#2\nif (eval(\"({})\\u000Binstanceof\\u000BObject\") !== true) {\n  $ERROR('#2: ({})\\\\u000Binstanceof\\\\u000BObject === true');  \n}\n\n//CHECK#3\nif (eval(\"({})\\u000Cinstanceof\\u000CObject\") !== true) {\n  $ERROR('#3: ({})\\\\u000Cinstanceof\\\\u000CObject === true');\n}\n\n//CHECK#4\nif (eval(\"({})\\u0020instanceof\\u0020Object\") !== true) {\n  $ERROR('#4: ({})\\\\u0020instanceof\\\\u0020Object === true');\n}\n\n//CHECK#5\nif (eval(\"({})\\u00A0instanceof\\u00A0Object\") !== true) {\n  $ERROR('#5: ({})\\\\u00A0instanceof\\\\u00A0Object === true');\n}\n\n//CHECK#6\nif (eval(\"({})\\u000Ainstanceof\\u000AObject\") !== true) {\n  $ERROR('#6: ({})\\\\u000Ainstanceof\\\\u000AObject === true');  \n}\n\n//CHECK#7\nif (eval(\"({})\\u000Dinstanceof\\u000DObject\") !== true) {\n  $ERROR('#7: ({})\\\\u000Dinstanceof\\\\u000DObject === true');\n}\n\n//CHECK#8\nif (eval(\"({})\\u2028instanceof\\u2028Object\") !== true) {\n  $ERROR('#8: ({})\\\\u2028instanceof\\\\u2028Object === true');\n}\n\n//CHECK#9\nif (eval(\"({})\\u2029instanceof\\u2029Object\") !== true) {\n  $ERROR('#9: ({})\\\\u2029instanceof\\\\u2029Object === true');\n}\n\n//CHECK#10\nif (eval(\"({})\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029instanceof\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029Object\") !== true) {\n  $ERROR('#10: ({})\\\\u0009\\\\u000B\\\\u000C\\\\u0020\\\\u00A0\\\\u000A\\\\u000D\\\\u2028\\\\u2029instanceof\\\\u0009\\\\u000B\\\\u000C\\\\u0020\\\\u00A0\\\\u000A\\\\u000D\\\\u2028\\\\u2029Object === true');\n}\n",
+    "id": "S11.8.6_A1"
+   },
+   {
+    "section": "11.8.6",
+    "description": "Either Expression is not Reference or GetBase is not null",
+    "test": "//CHECK#1\nif (({}) instanceof Object !== true) {\n  $ERROR('#1: ({}) instanceof Object === true');\n}\n\n//CHECK#2\nvar object = {};\nif (object instanceof Object !== true) {\n  $ERROR('#2: var object = {}; object instanceof Object === true');\n}\n\n//CHECK#3\nvar OBJECT = Object;\nif (({}) instanceof OBJECT !== true) {\n  $ERROR('#3: var OBJECT = Object; ({}) instanceof OBJECT === true');\n}\n\n//CHECK#4\nvar object = {};\nvar OBJECT = Object;\nif (object instanceof OBJECT !== true) {\n  $ERROR('#4: var object = {}; var OBJECT = Object; object instanceof OBJECT === true');\n}\n\n",
+    "id": "S11.8.6_A2.1_T1"
+   },
+   {
+    "section": "11.8.6",
+    "description": "If GetBase(RelationalExpression) is null, throw ReferenceError",
+    "test": "//CHECK#1\ntry {\n  object instanceof Object;\n  $ERROR('#1.1: object instanceof Object throw ReferenceError. Actual: ' + (object instanceof Object));  \n}\ncatch (e) {\n  if ((e instanceof ReferenceError) !== true) {\n    $ERROR('#1.2: object instanceof Object throw ReferenceError. Actual: ' + (e));  \n  }\n}\n",
+    "id": "S11.8.6_A2.1_T2"
+   },
+   {
+    "section": "11.8.6",
+    "description": "If GetBase(ShiftExpression) is null, throw ReferenceError",
+    "test": "//CHECK#1\ntry {\n  ({}) instanceof OBJECT;\n  $ERROR('#1.1: ({}) instanceof OBJECT throw ReferenceError. Actual: ' + (({}) instanceof OBJECT));  \n}\ncatch (e) {\n  if ((e instanceof ReferenceError) !== true) {\n    $ERROR('#1.2: ({}) instanceof OBJECT throw ReferenceError. Actual: ' + (e));  \n  }\n}\n",
+    "id": "S11.8.6_A2.1_T3"
+   },
+   {
+    "section": "11.8.6",
+    "description": "Checking with \"=\"",
+    "test": "//CHECK#1 \nvar OBJECT = 0;\nif ((OBJECT = Object, {}) instanceof OBJECT !== true) {\n  $ERROR('#1: var OBJECT = 0; (OBJECT = Object, {}) instanceof OBJECT === true');\n}\n\n//CHECK#2\nvar object = {}; \nif (object instanceof (object = 0, Object) !== true) {\n  $ERROR('#2: var object = {};  object instanceof (object = 0, Object) === true');\n}\n\n",
+    "id": "S11.8.6_A2.4_T1"
+   },
+   {
+    "section": "11.8.6",
+    "description": "Checking with \"throw\"",
+    "test": "//CHECK#1\nvar x = function () { throw \"x\"; };\nvar y = function () { throw \"y\"; };\ntry {\n   x() instanceof y();\n   $ERROR('#1.1: var x = function () { throw \"x\"; }; var y = function () { throw \"y\"; }; x() instanceof y() throw \"x\". Actual: ' + (x() instanceof y()));\n} catch (e) {\n   if (e === \"y\") {\n     $ERROR('#1.2: First expression is evaluated first, and then second expression');\n   } else {\n     if (e !== \"x\") {\n       $ERROR('#1.3: var x = function () { throw \"x\"; }; var y = function () { throw \"y\"; }; x() instanceof y() throw \"x\". Actual: ' + (e));\n     }\n   }\n}\n",
+    "id": "S11.8.6_A2.4_T2"
+   },
+   {
+    "section": "11.8.6",
+    "description": "Checking with undeclarated variables",
+    "test": "//CHECK#1\ntry {\n  object instanceof (object = {}, Object);\n  $ERROR('#1.1: object instanceof (object = {}, Object) throw ReferenceError. Actual: ' + (object instanceof (object = {}, Object)));  \n}\ncatch (e) {\n  if ((e instanceof ReferenceError) !== true) {\n    $ERROR('#1.2: object instanceof (object = {}, Object) throw ReferenceError. Actual: ' + (e));  \n  }\n}\n\n//CHECK#2\nif ((OBJECT = Object, {}) instanceof OBJECT !== true) {\n  $ERROR('#2: (OBJECT = Object, {}) instanceof OBJECT !== true');\n}\n\n",
+    "id": "S11.8.6_A2.4_T3"
+   },
+   {
+    "section": "11.8.6",
+    "description": "Checking all the types of primitives",
+    "test": "//CHECK#1\ntry {\n  true instanceof true;\n  $ERROR('#1: true instanceof true throw TypeError');  \n}\ncatch (e) {\n  if (e instanceof TypeError !== true) {\n    $ERROR('#1: true instanceof true throw TypeError');  \n  }\n}\n\n//CHECK#2\ntry {\n  1 instanceof 1;\n  $ERROR('#2: 1 instanceof 1 throw TypeError');  \n}\ncatch (e) {\n  if (e instanceof TypeError !== true) {\n    $ERROR('#2: 1 instanceof 1 throw TypeError');  \n  }\n}\n\n//CHECK#3\ntry {\n  \"string\" instanceof \"string\";\n  $ERROR('#3: \"string\" instanceof \"string\" throw TypeError');  \n}\ncatch (e) {\n  if (e instanceof TypeError !== true) {\n    $ERROR('#3: \"string\" instanceof \"string\" throw TypeError');  \n  }\n}\n\n//CHECK#4\ntry {\n  undefined instanceof undefined;\n  $ERROR('#4: undefined instanceof undefined throw TypeError');  \n}\ncatch (e) {\n  if (e instanceof TypeError !== true) {\n    $ERROR('#4: undefined instanceof undefined throw TypeError');  \n  }\n}\n\n//CHECK#5\ntry {\n  null instanceof null;\n  $ERROR('#5: null instanceof null throw TypeError');  \n}\ncatch (e) {\n  if (e instanceof TypeError !== true) {\n    $ERROR('#5: null instanceof null throw TypeError');  \n  }\n}\n",
+    "id": "S11.8.6_A3"
+   },
+   {
+    "section": "11.8.6",
+    "description": "Checking Boolean case",
+    "test": "//CHECK#1\nif (false instanceof Boolean) {\n\t$ERROR('#1: false is not instanceof Boolean');\n}\n\n//CHECK#2\nif (Boolean(false) instanceof Boolean) {\n\t$ERROR('#2: Boolean(false) is not instanceof Boolean');\n}\n\n//CHECK#3\nif (new Boolean instanceof Boolean !== true) {\n\t$ERROR('#3: new Boolean instanceof Boolean');\n}\n\n",
+    "id": "S11.8.6_A4_T1"
+   },
+   {
+    "section": "11.8.6",
+    "description": "Checking Number case",
+    "test": "//CHECK#1\nif (0 instanceof Number) {\n\t$ERROR('#1: 0 is not instanceof Number');\n}\n\n//CHECK#2\nif (Number(0) instanceof Number) {\n\t$ERROR('#2: Number(0) is not instanceof Number');\n}\n\n//CHECK#3\nif (new Number instanceof Number !== true) {\n\t$ERROR('#3: new Number instanceof Number');\n}\n\n",
+    "id": "S11.8.6_A4_T2"
+   },
+   {
+    "section": "11.8.6",
+    "description": "Checking String case",
+    "test": "//CHECK#1\nif (\"\" instanceof String) {\n\t$ERROR('#1: \"\" is not instanceof String');\n}\n\n//CHECK#2\nif (String(\"\") instanceof String) {\n\t$ERROR('#2: String(\"\") is not instanceof String');\n}\n\n//CHECK#3\nif (new String instanceof String !== true) {\n\t$ERROR('#3: new String instanceof String');\n}\n",
+    "id": "S11.8.6_A4_T3"
+   },
+   {
+    "section": "11.8.6",
+    "description": "Checking Error case",
+    "test": "var __err = new Error;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(__err instanceof Error)) {\n\t$ERROR('#1: TypeError is subclass of Error from instanceof operator poit of view');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__err instanceof TypeError) {\n\t$ERROR('#2: TypeError is subclass of Error from instanceof operator poit of view');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar err__ = Error('failed');\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (!(err__ instanceof Error)) {\n\t$ERROR('#3: TypeError is subclass of Error from instanceof operator poit of view');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\nif (err__ instanceof TypeError) {\n\t$ERROR('#4: TypeError is subclass of Error from instanceof operator poit of view');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n",
+    "id": "S11.8.6_A5_T1"
+   },
+   {
+    "section": "11.8.6",
+    "description": "Checking TypeError case",
+    "test": "var __t__err = new TypeError;\n\n//CHECK#1\nif (!(__t__err instanceof Error)) {\n\t$ERROR('#1: TypeError is subclass of Error from instanceof operator poit of view');\n}\n\n//CHECK#2\nif (!(__t__err instanceof TypeError)) {\n\t$ERROR('#2: TypeError is subclass of Error from instanceof operator poit of view');\n}\n\n//////////////////////////////////////////////////////////////////////////////\nvar err__t__ = TypeError('failed');\n\n//CHECK#3\nif (!(err__t__ instanceof Error)) {\n\t$ERROR('#3: TypeError is subclass of Error from instanceof operator poit of view');\n}\n\n//CHECK#4\nif (!(err__t__ instanceof TypeError)) {\n\t$ERROR('#4: TypeError is subclass of Error from instanceof operator poit of view');\n}\n\n",
+    "id": "S11.8.6_A5_T2"
+   },
+   {
+    "section": "11.8.6",
+    "description": "Checking \"this\" case",
+    "test": "//CHECK#1\ntry{\n\t({}) instanceof this;\n\t$ERROR('#1: Only Function objects implement [[HasInstance]] and consequently can be proper ShiftExpression for The instanceof operator');\n}\ncatch(e){\n  if (e instanceof TypeError !== true) {\n    $ERROR('#1: Only Function objects implement [[HasInstance]] and consequently can be proper ShiftExpression for The instanceof operator');\n  }\n}\n",
+    "id": "S11.8.6_A6_T1"
+   },
+   {
+    "section": "11.8.6",
+    "description": "Checking Math case",
+    "test": "//CHECK#1\ntry{\n\t1 instanceof Math;\n\t$ERROR('#1: 1 instanceof Math throw TypeError');\n}\ncatch(e){\n  if (e  instanceof TypeError !== true) { \n    $ERROR('#1: 1 instanceof Math throw TypeError');\n  }  \n}\n",
+    "id": "S11.8.6_A6_T2"
+   },
+   {
+    "section": "11.8.6",
+    "description": "Checking if RelationalExpression is function",
+    "test": "function MyFunct(){return 0};\n\n//CHECK#1\nif (MyFunct instanceof MyFunct){\n\t$ERROR('#1 function MyFunct(){return 0}; MyFunct instanceof MyFunct === false');\n}\n\n//CHECK#2\nif (MyFunct instanceof Function !== true){\n\t$ERROR('#2 function MyFunct(){return 0}; MyFunct instanceof Function === true');\n}\n\n//CHECK#3\nif (MyFunct instanceof Object !== true){\n\t$ERROR('#3 function MyFunct(){return 0}; MyFunct instanceof Object === true');\n}\n",
+    "id": "S11.8.6_A6_T3"
+   },
+   {
+    "section": "11.8.6",
+    "description": "Checking if RelationalExpression is object",
+    "test": "MyFunct = function(){};\n__my__funct = new MyFunct;\n\n\n//CHECK#1\nif (!(__my__funct instanceof MyFunct)){\n\t$ERROR('#1 Only Function objects implement [[HasInstance]] and consequently can be proper ShiftExpression for The instanceof operator');\n}\n\n//CHECK#2\nif (__my__funct instanceof Function){\n\t$ERROR('#2 Only Function objects implement [[HasInstance]] and consequently can be proper ShiftExpression for The instanceof operator');\n}\n\n//CHECK#3\nif (!(__my__funct instanceof Object)){\n\t$ERROR('#3 Only Function objects implement [[HasInstance]] and consequently can be proper ShiftExpression for The instanceof operator');\n}\n\n//CHECK#4\ntry{\n\t__my__funct instanceof __my__funct;\n\t$ERROR('#4 Only Function objects implement [[HasInstance]] and consequently can be proper ShiftExpression for The instanceof operator');\n}\ncatch(e){  \n\tif (e instanceof TypeError !== true) {\n      $ERROR('#4 Only Function objects implement [[HasInstance]] and consequently can be proper ShiftExpression for The instanceof operator');\n\t}\n}\n",
+    "id": "S11.8.6_A6_T4"
+   },
+   {
+    "section": "11.8.6",
+    "description": "Checking Object object",
+    "test": "var __obj={};\n\n//CHECK#1\nif (!(__obj instanceof Object)) {\n\t$ERROR('#1: If instanceof returns true then GetValue(RelationalExpression) was constructed with ShiftExpression');\n}\n\n//CHECK#2\nif (__obj.constructor !== Object) {\n\t$ERROR('#2: If instanceof returns true then GetValue(RelationalExpression) was constructed with ShiftExpression');\n}\n",
+    "id": "S11.8.6_A7_T1"
+   },
+   {
+    "section": "11.8.6",
+    "description": "Checking Array object",
+    "test": "var __arr=[];\n\n//CHECK#1\nif (!(__arr instanceof Array)) {\n\t$ERROR('#1: If instanceof returns true then GetValue(RelationalExpression) was constructed with ShiftExpression');\n}\n\n//CHECK#2\nif (__arr.constructor !== Array) {\n\t$ERROR('#2: If instanceof returns true then GetValue(RelationalExpression) was constructed with ShiftExpression');\n}\n",
+    "id": "S11.8.6_A7_T2"
+   },
+   {
+    "section": "11.8.6",
+    "description": "Checking Function object",
+    "test": "var __func = new Function;\n\n//CHECK#1\nif (!(__func instanceof Function)) {\n\t$ERROR('#1: If instanceof returns true then GetValue(RelationalExpression) was constructed with ShiftExpression');\n}\n\n//CHECK#2\nif (__func.constructor !== Function) {\n\t$ERROR('#2: If instanceof returns true then GetValue(RelationalExpression) was constructed with ShiftExpression');\n}\n\n",
+    "id": "S11.8.6_A7_T3"
+   }
+  ]
+ }
+}

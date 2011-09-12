@@ -1,0 +1,38 @@
+{
+ "testCollection": {
+  "name": "11.8.3",
+  "numTests": 5,
+  "tests": [
+   {
+    "id": "11.8.3-1",
+    "path": "TestCases/chapter11/11.8/11.8.3/11.8.3-1.js",
+    "description": "11.8.3 Less-than-or-equal Operator - Partial left to right order enforced when using Less-than-or-equal operator: valueOf <= valueOf",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        var obj1 = {\n            valueOf: function () {\n                accessed = true;\n                return 3;\n            }\n        };\n        var obj2 = {\n            valueOf: function () {\n                if (accessed === true) {\n                    return 4;\n                } else {\n                    return 2;\n                }\n            }\n        };\n        return (obj1 <= obj2);\n    }).call(this));\n"
+   },
+   {
+    "id": "11.8.3-2",
+    "path": "TestCases/chapter11/11.8/11.8.3/11.8.3-2.js",
+    "description": "11.8.3 Less-than-or-equal Operator - Partial left to right order enforced when using Less-than-or-equal operator: valueOf <= toString",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        var obj1 = {\n            valueOf: function () {\n                accessed = true;\n                return 3;\n            }\n        };\n        var obj2 = {\n            toString: function () {\n                if (accessed === true) {\n                    return 4;\n                } else {\n                    return 2;\n                }\n            }\n        };\n        return (obj1 <= obj2);\n    }).call(this));\n"
+   },
+   {
+    "id": "11.8.3-3",
+    "path": "TestCases/chapter11/11.8/11.8.3/11.8.3-3.js",
+    "description": "11.8.3 Less-than-or-equal Operator - Partial left to right order enforced when using Less-than-or-equal operator: toString <= valueOf",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        var obj1 = {\n            toString: function () {\n                accessed = true;\n                return 3;\n            }\n        };\n        var obj2 = {\n            valueOf: function () {\n                if (accessed === true) {\n                    return 4;\n                } else {\n                    return 2;\n                }\n            }\n        };\n        return (obj1 <= obj2);\n    }).call(this));\n"
+   },
+   {
+    "id": "11.8.3-4",
+    "path": "TestCases/chapter11/11.8/11.8.3/11.8.3-4.js",
+    "description": "11.8.3 Less-than-or-equal Operator - Partial left to right order enforced when using Less-than-or-equal operator: toString <= toString",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        var obj1 = {\n            toString: function () {\n                accessed = true;\n                return 3;\n            }\n        };\n        var obj2 = {\n            toString: function () {\n                if (accessed === true) {\n                    return 4;\n                } else {\n                    return 2;\n                }\n            }\n        };\n        return (obj1 <= obj2);\n    }).call(this));\n"
+   },
+   {
+    "id": "11.8.3-5",
+    "path": "TestCases/chapter11/11.8/11.8.3/11.8.3-5.js",
+    "description": "11.8.3 Less-than-or-equal Operator - Partial left to right order enforced when using Less-than-or-equal operator: valueOf <= valueOf",
+    "test": "assertTrue((function testcase() {\n        var accessed = false;\n        var obj1 = {\n            valueOf: function () {\n                accessed = true;\n                return 3;\n            }\n        };\n        var obj2 = {\n            valueOf: function () {\n                if (accessed === true) {\n                    return 3;\n                } else {\n                    return 2;\n                }\n            }\n        };\n        return (obj1 <= obj2);\n    }).call(this));\n"
+   }
+  ]
+ }
+}

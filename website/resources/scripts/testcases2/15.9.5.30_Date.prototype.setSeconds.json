@@ -1,0 +1,50 @@
+{
+ "testCollection": {
+  "name": "15.9.5.30_Date.prototype.setSeconds",
+  "numTests": 7,
+  "tests": [
+   {
+    "section": "15.9.5.30",
+    "description": "Checking absence of ReadOnly attribute",
+    "test": "x = Date.prototype.setSeconds;\nif(x === 1)\n  Date.prototype.setSeconds = 2;\nelse\n  Date.prototype.setSeconds = 1;\nif (Date.prototype.setSeconds === x) {\n  $ERROR('#1: The Date.prototype.setSeconds has not the attribute ReadOnly');\n}\n\n",
+    "id": "S15.9.5.30_A1_T1"
+   },
+   {
+    "section": "15.9.5.30",
+    "description": "Checking absence of DontDelete attribute",
+    "test": "if (delete Date.prototype.setSeconds  === false) {\n  $ERROR('#1: The Date.prototype.setSeconds property has not the attributes DontDelete');\n}\n\nif (Date.prototype.hasOwnProperty('setSeconds')) {\n  $FAIL('#2: The Date.prototype.setSeconds property has not the attributes DontDelete');\n}\n\n",
+    "id": "S15.9.5.30_A1_T2"
+   },
+   {
+    "section": "15.9.5.30",
+    "description": "Checking DontEnum attribute",
+    "test": "if (Date.prototype.propertyIsEnumerable('setSeconds')) {\n  $ERROR('#1: The Date.prototype.setSeconds property has the attribute DontEnum');\n}\n\nfor(x in Date.prototype) {\n  if(x === \"setSeconds\") {\n    $ERROR('#2: The Date.prototype.setSeconds has the attribute DontEnum');\n  }\n}\n\n",
+    "id": "S15.9.5.30_A1_T3"
+   },
+   {
+    "section": "15.9.5.30",
+    "description": "The \"length\" property of the \"setSeconds\" is 2",
+    "test": "if(Date.prototype.setSeconds.hasOwnProperty(\"length\") !== true){\n  $ERROR('#1: The setSeconds has a \"length\" property');\n}\n\nif(Date.prototype.setSeconds.length !== 2){\n  $ERROR('#2: The \"length\" property of the setSeconds is 2');\n}\n\n",
+    "id": "S15.9.5.30_A2_T1"
+   },
+   {
+    "section": "15.9.5.30",
+    "description": "Checking ReadOnly attribute",
+    "test": "x = Date.prototype.setSeconds.length;\nDate.prototype.setSeconds.length = 1;\nif (Date.prototype.setSeconds.length !== x) {\n  $ERROR('#1: The Date.prototype.setSeconds.length has the attribute ReadOnly');\n}\n\n",
+    "id": "S15.9.5.30_A3_T1"
+   },
+   {
+    "section": "15.9.5.30",
+    "description": "Checking DontDelete attribute",
+    "test": "if (delete Date.prototype.setSeconds.length  !== false) {\n  $ERROR('#1: The Date.prototype.setSeconds.length property has the attributes DontDelete');\n}\n\nif (!Date.prototype.setSeconds.hasOwnProperty('length')) {\n  $FAIL('#2: The Date.prototype.setSeconds.length property has the attributes DontDelete');\n}\n\n",
+    "id": "S15.9.5.30_A3_T2"
+   },
+   {
+    "section": "15.9.5.30",
+    "description": "Checking DontEnum attribute",
+    "test": "if (Date.prototype.setSeconds.propertyIsEnumerable('length')) {\n  $ERROR('#1: The Date.prototype.setSeconds.length property has the attribute DontEnum');\n}\n\nfor(x in Date.prototype.setSeconds) {\n  if(x === \"length\") {\n    $ERROR('#2: The Date.prototype.setSeconds.length has the attribute DontEnum');\n  }\n}\n\n",
+    "id": "S15.9.5.30_A3_T3"
+   }
+  ]
+ }
+}

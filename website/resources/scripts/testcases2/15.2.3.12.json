@@ -1,0 +1,399 @@
+{
+ "testCollection": {
+  "name": "15.2.3.12",
+  "numTests": 56,
+  "tests": [
+   {
+    "id": "15.2.3.12-0-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-0-1.js",
+    "description": "Object.isFrozen must exist as a function",
+    "test": "assertTrue((function testcase() {\n  var f = Object.isFrozen;\n  if (typeof(f) === \"function\") {\n    return true;\n  }\n }).call(this));\n"
+   },
+   {
+    "id": "15.2.3.12-0-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-0-2.js",
+    "description": "Object.isFrozen must exist as a function taking 1 parameter",
+    "test": "assertTrue((Object.isFrozen.length === 1));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-1-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-1-1.js",
+    "description": "Object.isFrozen - TypeError is thrown when the first param 'O' is undefined",
+    "test": "assertTrue((function testcase() {\n        try {\n            Object.isFrozen(undefined);\n        } catch (e) {\n            return (e instanceof TypeError);\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-1-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-1-2.js",
+    "description": "Object.isFrozen - TypeError is thrown when the first param 'O' is null",
+    "test": "assertTrue((function testcase() {\n        try {\n            Object.isFrozen(null);\n        } catch (e) {\n            return (e instanceof TypeError);\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-1-3",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-1-3.js",
+    "description": "Object.isFrozen - TypeError is thrown when the first param 'O' is a boolean",
+    "test": "assertTrue((function testcase() {\n        try {\n            Object.isFrozen(true);\n        } catch (e) {\n            return (e instanceof TypeError);\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-1-4",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-1-4.js",
+    "description": "Object.isFrozen - TypeError is thrown when the first param 'O' is a string",
+    "test": "assertTrue((function testcase() {\n        try {\n            Object.isFrozen(\"abc\");\n        } catch (e) {\n            return (e instanceof TypeError);\n        }\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-1-5",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-1-5.js",
+    "description": "Object.isFrozen applies to dense array",
+    "test": "assertTrue((function testcase() {\n        var obj = Object.freeze([0, 1, 2]);\n        return Object.isFrozen(obj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen) && fnExists(Object.freeze))"
+   },
+   {
+    "id": "15.2.3.12-1-6",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-1-6.js",
+    "description": "Object.isFrozen applies to sparse array",
+    "test": "assertTrue((function testcase() {\n        var sparseArr = [0, 1];\n        sparseArr[10000] = 10000;\n\n        sparseArr = Object.freeze(sparseArr);\n        return Object.isFrozen(sparseArr);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen) && fnExists(Object.freeze))"
+   },
+   {
+    "id": "15.2.3.12-1-7",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-1-7.js",
+    "description": "Object.isFrozen applies to non-array object which contains index named properties",
+    "test": "assertTrue((function testcase() {\n        var obj = Object.freeze({ 0: 0, 1: 1, 1000: 1000 });\n        return Object.isFrozen(obj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen) && fnExists(Object.freeze))"
+   },
+   {
+    "id": "15.2.3.12-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-1.js",
+    "description": "Object.isFrozen throws TypeError if type of first param is not Object",
+    "test": "assertTrue((function testcase() {\n    try {\n      Object.isFrozen(0);\n    }\n    catch (e) {\n      if (e instanceof TypeError) {\n        return true;\n      }\n    }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-2-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-1.js",
+    "description": "Object.isFrozen - inherited data property is not considered into the for each loop",
+    "test": "assertTrue((function testcase() {\n\n        var proto = {};\n        Object.defineProperty(proto, \"Father\", {\n            value: 10,\n            writable: false,\n            configurable: true\n        });\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n\n        Object.preventExtensions(child);\n\n        return Object.isFrozen(child);\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen) && fnExists(Object.preventExtensions) && fnExists(Object.defineProperty))"
+   },
+   {
+    "id": "15.2.3.12-2-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-2.js",
+    "description": "Object.isFrozen - inherited accessor property is not considered into the for each loop",
+    "test": "assertTrue((function testcase() {\n\n        var proto = {};\n        \n        function get_func() {\n            return 10;\n        }\n        function set_func() { }\n\n        Object.defineProperty(proto, \"Father\", {\n            get: get_func,\n            set: set_func,\n            configurable: true\n        });\n\n        var Con = function () { };\n        Con.prototype = proto;\n\n        var child = new Con();\n\n        Object.preventExtensions(child);\n\n        return Object.isFrozen(child);\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen) && fnExists(Object.preventExtensions) && fnExists(Object.defineProperty))"
+   },
+   {
+    "id": "15.2.3.12-2-a-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-a-1.js",
+    "description": "Object.isFrozen - 'P' is own data property",
+    "test": "assertTrue((function testcase() {\n\n        var obj = {};\n\n        Object.defineProperty(obj, \"foo\", {\n            value: 12,\n            writable: true,\n            configurable: false\n        });\n\n        Object.preventExtensions(obj);\n\n        return !Object.isFrozen(obj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen) && fnExists(Object.defineProperty) && fnExists(Object.preventExtensions))"
+   },
+   {
+    "id": "15.2.3.12-2-a-11",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-a-11.js",
+    "description": "Object.isFrozen - 'O' is the Arguments object",
+    "test": "assertTrue((function testcase() {\n\n        var arg;\n\n        (function fun() {\n            arg = arguments;\n        }(1, 2, 3));\n\n        Object.preventExtensions(arg);\n        return !Object.isFrozen(arg);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen) && fnExists(Object.preventExtensions))"
+   },
+   {
+    "id": "15.2.3.12-2-a-12",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-a-12.js",
+    "description": "Object.isFrozen - 'O' is a String object",
+    "test": "assertTrue((function testcase() {\n\n        var obj = new String(\"abc\");\n\n        obj.len = 100;\n\n        Object.preventExtensions(obj);\n\n        return !Object.isFrozen(obj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen) && fnExists(Object.preventExtensions))"
+   },
+   {
+    "id": "15.2.3.12-2-a-13",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-a-13.js",
+    "description": "Object.isFrozen - 'O' is a Function object",
+    "test": "assertTrue((function testcase() {\n\n        var obj = function () { };\n        \n        Object.defineProperty(obj, \"property\", {\n            value: 12,\n            writable: true,\n            configurable: false\n        });\n\n        Object.preventExtensions(obj);\n\n        return !Object.isFrozen(obj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen) && fnExists(Object.preventExtensions) && fnExists(Object.defineProperty))"
+   },
+   {
+    "id": "15.2.3.12-2-a-14",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-a-14.js",
+    "description": "Object.isFrozen - 'O' is an Array object",
+    "test": "assertTrue((function testcase() {\n\n        var obj = [2];\n        obj.len = 200;\n\n        Object.preventExtensions(obj);\n\n        return !Object.isFrozen(obj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen) && fnExists(Object.preventExtensions))"
+   },
+   {
+    "id": "15.2.3.12-2-a-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-a-2.js",
+    "description": "Object.isFrozen - 'P' is own data property that overrides an inherited data property",
+    "test": "assertTrue((function testcase() {\n\n        var proto = {};\n\n        Object.defineProperty(proto, \"foo\", {\n            value: 9,\n            writable: false,\n            configurable: false\n        });\n\n        var Con = function () { };\n        Con.prototype = proto;\n        var child = new Con();\n\n        Object.defineProperty(child, \"foo\", {\n            value: 12,\n            writable: true,\n            configurable: false\n        });\n\n        Object.preventExtensions(child);\n        return !Object.isFrozen(child);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen) && fnExists(Object.defineProperty) && fnExists(Object.preventExtensions))"
+   },
+   {
+    "id": "15.2.3.12-2-a-3",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-a-3.js",
+    "description": "Object.isFrozen - 'P' is own data property that overrides an inherited accessor property",
+    "test": "assertTrue((function testcase() {\n\n        var proto = {};\n\n        Object.defineProperty(proto, \"foo\", {\n            get: function () {\n                return 9;\n            },\n            configurable: false\n        });\n\n        var Con = function () { };\n        Con.prototype = proto;\n        var child = new Con();\n\n\n        Object.defineProperty(child, \"foo\", {\n            value: 12,\n            configurable: true\n        });\n\n        Object.preventExtensions(child);\n        return !Object.isFrozen(child);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen) && fnExists(Object.defineProperty) && fnExists(Object.preventExtensions))"
+   },
+   {
+    "id": "15.2.3.12-2-a-4",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-a-4.js",
+    "description": "Object.isFrozen - 'P' is own accessor property",
+    "test": "assertTrue((function testcase() {\n\n        var obj = {};\n        Object.defineProperty(obj, \"foo\", {\n            get: function () {\n                return 9;\n            },\n            configurable: true\n        });\n\n        Object.preventExtensions(obj);\n        return !Object.isFrozen(obj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen) && fnExists(Object.defineProperty) && fnExists(Object.preventExtensions))"
+   },
+   {
+    "id": "15.2.3.12-2-a-5",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-a-5.js",
+    "description": "Object.isFrozen - 'P' is own accessor property that overrides an inherited data property",
+    "test": "assertTrue((function testcase() {\n\n        var proto = {};\n\n        Object.defineProperty(proto, \"foo\", {\n            value: 12,\n            configurable: false\n        });\n\n        var Con = function () { };\n        Con.prototype = proto;\n        var child = new Con();\n\n        Object.defineProperty(child, \"foo\", {\n            get: function () {\n                return 9;\n            },\n            configurable: true\n        });\n\n        Object.preventExtensions(child);\n        return !Object.isFrozen(child);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen) && fnExists(Object.defineProperty) && fnExists(Object.preventExtensions))"
+   },
+   {
+    "id": "15.2.3.12-2-a-6",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-a-6.js",
+    "description": "Object.isFrozen - 'P' is own accessor property that overrides an inherited accessor property",
+    "test": "assertTrue((function testcase() {\n\n        var proto = {};\n\n        Object.defineProperty(proto, \"foo\", {\n            get: function () {\n                return 12;\n            },\n            configurable: false\n        });\n\n        var Con = function () { };\n        Con.prototype = proto;\n        var child = new Con();\n\n\n        Object.defineProperty(child, \"foo\", {\n            get: function () {\n                return 9;\n            },\n            configurable: true\n        });\n\n        Object.preventExtensions(child);\n        return !Object.isFrozen(child);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen) && fnExists(Object.defineProperty) && fnExists(Object.preventExtensions))"
+   },
+   {
+    "id": "15.2.3.12-2-a-7",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-a-7.js",
+    "description": "Object.isFrozen - 'P' is own accessor property without a get function",
+    "test": "assertTrue((function testcase() {\n\n        var obj = {};\n        Object.defineProperty(obj, \"foo\", {\n            set: function () { },\n            configurable: true\n        });\n\n        Object.preventExtensions(obj);\n        return !Object.isFrozen(obj);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen) && fnExists(Object.defineProperty) && fnExists(Object.preventExtensions))"
+   },
+   {
+    "id": "15.2.3.12-2-a-8",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-a-8.js",
+    "description": "Object.isFrozen - 'P' is own accessor property without a get function that overrides an inherited accessor property",
+    "test": "assertTrue((function testcase() {\n\n        var proto = {};\n\n        Object.defineProperty(proto, \"foo\", {\n            get: function () {\n                return 9;\n            },\n            configurable: false\n        });\n\n        var Con = function () { };\n        Con.prototype = proto;\n        var child = new Con();\n\n        Object.defineProperty(child, \"foo\", {\n            set: function () { },\n            configurable: true\n        });\n\n        Object.preventExtensions(child);\n        return !Object.isFrozen(child);\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen) && fnExists(Object.defineProperty) && fnExists(Object.preventExtensions))"
+   },
+   {
+    "id": "15.2.3.12-2-b-i-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-b-i-1.js",
+    "description": "Object.isFrozen returns false if 'O' contains own writable data property",
+    "test": "assertTrue((function testcase() {\n\n        var obj = {};\n        Object.defineProperty(obj, \"foo\", {\n            value: 20,\n            writable: true,\n            configurable: false\n        });\n        Object.preventExtensions(obj);\n        return !Object.isFrozen(obj);\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen) && fnExists(Object.defineProperty) && fnExists(Object.preventExtensions))"
+   },
+   {
+    "id": "15.2.3.12-2-c-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-c-1.js",
+    "description": "Object.isFrozen returns false if 'O' contains own configurable data property",
+    "test": "assertTrue((function testcase() {\n\n        var obj = {};\n        Object.defineProperty(obj, \"foo\", {\n            value: 20,\n            writable: false,\n            configurable: true\n        });\n\n        Object.preventExtensions(obj);\n        return !Object.isFrozen(obj);\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen) && fnExists(Object.defineProperty) && fnExists(Object.preventExtensions))"
+   },
+   {
+    "id": "15.2.3.12-2-c-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-c-2.js",
+    "description": "Object.isFrozen returns false if 'O' contains own configurable accessor property",
+    "test": "assertTrue((function testcase() {\n\n        var obj = {};\n\n        function get_func() {\n            return 10;\n        }\n        function set_func() { }\n\n        Object.defineProperty(obj, \"foo\", {\n            get: get_func,\n            set: set_func,\n            configurable: true\n        });\n\n        Object.preventExtensions(obj);\n        return !Object.isFrozen(obj);\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen) && fnExists(Object.defineProperty) && fnExists(Object.preventExtensions))"
+   },
+   {
+    "id": "15.2.3.12-3-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-1.js",
+    "description": "Object.isFrozen returns false for all built-in objects (Global)",
+    "test": "assertTrue((function testcase() {\n  // in non-strict mode, 'this' is bound to the global object.\n  var b = Object.isFrozen(this);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-10",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-10.js",
+    "description": "Object.isFrozen returns false for all built-in objects (Boolean)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(Boolean);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-11",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-11.js",
+    "description": "Object.isFrozen returns false for all built-in objects (Boolean.prototype)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(Boolean.prototype);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-12",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-12.js",
+    "description": "Object.isFrozen returns false for all built-in objects (Number)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(Number);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-13",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-13.js",
+    "description": "Object.isFrozen returns false for all built-in objects (Number.prototype)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(Number.prototype);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-14",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-14.js",
+    "description": "Object.isFrozen returns false for all built-in objects (Math)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(Math);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-15",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-15.js",
+    "description": "Object.isFrozen returns false for all built-in objects (Date)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(Date);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-16",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-16.js",
+    "description": "Object.isFrozen returns false for all built-in objects (Date.prototype)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(Date.prototype);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-17",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-17.js",
+    "description": "Object.isFrozen returns false for all built-in objects (RegExp)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(RegExp);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-18",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-18.js",
+    "description": "Object.isFrozen returns false for all built-in objects (RegExp.prototype)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(RegExp.prototype);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-19",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-19.js",
+    "description": "Object.isFrozen returns false for all built-in objects (Error)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(Error);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-2",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-2.js",
+    "description": "Object.isFrozen returns false for all built-in objects (Object)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(Object);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-20",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-20.js",
+    "description": "Object.isFrozen returns false for all built-in objects (Error.prototype)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(Error.prototype);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-21",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-21.js",
+    "description": "Object.isFrozen returns false for all built-in objects (EvalError)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(EvalError);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-22",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-22.js",
+    "description": "Object.isFrozen returns false for all built-in objects (RangeError)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(RangeError);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-23",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-23.js",
+    "description": "Object.isFrozen returns false for all built-in objects (ReferenceError)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(ReferenceError);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-24",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-24.js",
+    "description": "Object.isFrozen returns false for all built-in objects (SyntaxError)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(SyntaxError);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-25",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-25.js",
+    "description": "Object.isFrozen returns false for all built-in objects (TypeError)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(TypeError);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-26",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-26.js",
+    "description": "Object.isFrozen returns false for all built-in objects (URIError)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(URIError);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-27",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-27.js",
+    "description": "Object.isFrozen returns false for all built-in objects (JSON)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(JSON);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-28",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-28.js",
+    "description": "Object.isFrozen returns true when all own properties of 'O' are not writable and not configurable, and 'O' is not extensible",
+    "test": "assertTrue((function testcase() {\n\n        var obj = {};\n\n        Object.defineProperty(obj, \"foo1\", {\n            value: 20,\n            writable: false,\n            enumerable: false,\n            configurable: false\n        });\n\n\n        function get_func() {\n            return 10;\n        }\n        function set_func() { }\n\n        Object.defineProperty(obj, \"foo2\", {\n            get: get_func,\n            set: set_func,\n            configurable: false\n        });\n\n        Object.preventExtensions(obj);\n        return Object.isFrozen(obj);\n\n    }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen) && fnExists(Object.preventExtensions) && fnExists(Object.defineProperty))"
+   },
+   {
+    "id": "15.2.3.12-3-3",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-3.js",
+    "description": "Object.isFrozen returns false for all built-in objects (Object.prototype)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(Object.prototype);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-4",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-4.js",
+    "description": "Object.isFrozen returns false for all built-in objects (Function)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(Function);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-5",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-5.js",
+    "description": "Object.isFrozen returns false for all built-in objects (Function.prototype)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(Function.prototype);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-6",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-6.js",
+    "description": "Object.isFrozen returns false for all built-in objects (Array)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(Array);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-7",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-7.js",
+    "description": "Object.isFrozen returns false for all built-in objects (Array.prototype)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(Array.prototype);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-8",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-8.js",
+    "description": "Object.isFrozen returns false for all built-in objects (String)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(String);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-3-9",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-3-9.js",
+    "description": "Object.isFrozen returns false for all built-in objects (String.prototype)",
+    "test": "assertTrue((function testcase() {\n  var b = Object.isFrozen(String.prototype);\n  if (b === false) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   },
+   {
+    "id": "15.2.3.12-4-1",
+    "path": "TestCases/chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-4-1.js",
+    "description": "Object.isFrozen returns false if extensible is true",
+    "test": "assertTrue((!Object.isFrozen({})));\n",
+    "precondition": "(fnExists(Object.isFrozen))"
+   }
+  ]
+ }
+}

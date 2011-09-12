@@ -1,0 +1,68 @@
+{
+ "testCollection": {
+  "name": "15.3.4_Properties_of_the_Function_Prototype_Object",
+  "numTests": 10,
+  "tests": [
+   {
+    "section": "15.3.4.1",
+    "description": "Checking Function.prototype.constructor",
+    "test": "//CHECK#1\nif (Function.prototype.constructor !== Function) {\n  $ERROR('#1: The initial value of Function.prototype.constructor is the built-in Function constructor');\n}\n",
+    "id": "S15.3.4.1_A1_T1"
+   },
+   {
+    "section": "15.3.4.1",
+    "description": "Create new Function.prototype.constructor object",
+    "test": "var constr = Function.prototype.constructor;\n\nvar f = new constr;\n\n// CHECK#0\nif (f === undefined) {\n  $ERROR('#0: new Function() return the newly created function object.');\n}\n\n// CHECK#1\nif (f.constructor !== Function) {\n  $ERROR('#1: new Function() create a new function object');\n}\n\n// CHECK#2\nif (!(Function.prototype.isPrototypeOf(f))) {\n  $ERROR('#2: when new Function() calls the [[Prototype]] property of the newly constructed object is set to the Function prototype object.');\n}\n\n// CHECK#3\nvar to_string_result = '[object '+ 'Function' +']';\n\ndelete Function.prototype.toString;\n\nif (f.toString() !== to_string_result) {\n  $ERROR('#3: when new Function() calls the [[Class]] property of the newly constructed object is set to \"Function\"');\n}\n",
+    "id": "S15.3.4.1_A1_T2"
+   },
+   {
+    "section": "15.3.4",
+    "description": "Object.prototype.toString returns [object+[[Class]]+]",
+    "test": "if (Object.prototype.toString.call(Function.prototype) !== \"[object Function]\") {\n  $ERROR('#2: The Function prototype object is itself a Function ' +\n         'object (its [[Class]] is \"Function\") (15.3.4)');\n}\n",
+    "id": "S15.3.4_A1"
+   },
+   {
+    "section": "15.3.4",
+    "description": "Call Function.prototype()",
+    "test": "//CHECK#1\ntry {\n  if (Function.prototype() !== undefined) {\n    $ERROR('#1: The Function prototype object is itself a Function object that, when invoked, accepts any arguments and returns undefined');\n  }\n} catch (e) {\n  $ERROR('#1.1: The Function prototype object is itself a Function object that, when invoked, accepts any arguments and returns undefined: '+e);\n}\n",
+    "id": "S15.3.4_A2_T1"
+   },
+   {
+    "section": "15.3.4",
+    "description": "Call Function.prototype(null,void 0)",
+    "test": "//CHECK#1\ntry {\n  if (Function.prototype(null,void 0) !== undefined) {\n    $ERROR('#1: The Function prototype object is itself a Function object that, when invoked, accepts any arguments and returns undefined');\n  }\n} catch (e) {\n  $ERROR('#1.1: The Function prototype object is itself a Function object that, when invoked, accepts any arguments and returns undefined: '+e);\n}\n",
+    "id": "S15.3.4_A2_T2"
+   },
+   {
+    "section": "15.3.4",
+    "description": "Call Function.prototype(x), where x is undefined variable",
+    "test": "//CHECK#1\ntry {\n  if (Function.prototype(x) !== undefined) {\n    var x;\n    $ERROR('#1: The Function prototype object is itself a Function object that, when invoked, accepts any arguments and returns undefined');\n  }\n} catch (e) {\n  $ERROR('#1.1: The Function prototype object is itself a Function object that, when invoked, accepts any arguments and returns undefined: '+e);\n}\n\n",
+    "id": "S15.3.4_A2_T3"
+   },
+   {
+    "section": "15.3.4",
+    "description": "Checking prototype of Function.prototype",
+    "test": "if (Object.getPrototypeOf(Function.prototype) !== Object.prototype) {\n  $ERROR('#1: The value of the internal [[Prototype]] property of ' +\n         'the Function prototype object is the Object prototype ' +\n         'object (15.3.4)');\n}\n",
+    "id": "S15.3.4_A3_T1"
+   },
+   {
+    "section": "15.3.4, 15.3.2.1",
+    "description": "Add new property to Object.prototype and check it at Function.prototype",
+    "test": "Object.prototype.indicator = 1;\n\n//CHECK#1\nif (Function.prototype.indicator!==1) {\n  $ERROR('#1: The value of the internal [[Prototype]] property of the Function prototype object is the Object prototype object (15.3.2.1)');\n}\n",
+    "id": "S15.3.4_A3_T2"
+   },
+   {
+    "section": "15.3.4",
+    "description": "Checking valueOf property at Function.prototype",
+    "test": "//CHECK#1\nif (Function.prototype.hasOwnProperty(\"valueOf\") !== false) {\n  $ERROR('#1: The Function prototype object does not have a valueOf property of its own');\n}\n\n//CHECK#2\nif (typeof Function.prototype.valueOf === \"undefined\") {\n  $ERROR('#2: however, it inherits the valueOf property from the Object prototype Object');\n}\n\n//CHECK#3\nif (Function.prototype.valueOf !== Object.prototype.valueOf) {\n  $ERROR('#3: however, it inherits the valueOf property from the Object prototype Object');\n}\n",
+    "id": "S15.3.4_A4"
+   },
+   {
+    "section": "15.3.4",
+    "description": "Checking if creating \"new Function.prototype object\" fails",
+    "test": "//CHECK#\ntry {\n  var obj = new Function.prototype;\n  $FAIL('#1: The Function prototype object is itself a Function object without [[create]] property: '+e);\n} catch (e) {\n  $PRINT(\"#1.1: The Function prototype object is itself a Function object without [[create]] property \"+e);\n\n}\n",
+    "id": "S15.3.4_A5"
+   }
+  ]
+ }
+}

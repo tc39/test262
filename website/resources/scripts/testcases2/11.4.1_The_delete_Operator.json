@@ -1,0 +1,56 @@
+{
+ "testCollection": {
+  "name": "11.4.1_The_delete_Operator",
+  "numTests": 8,
+  "tests": [
+   {
+    "section": "11.4.1",
+    "description": "Checking by using eval",
+    "test": "//CHECK#1\nif (eval(\"delete\\u00090\") !== true) {\n  $ERROR('#1: delete\\\\u00090 === true');\n}\n\n//CHECK#2\nif (eval(\"delete\\u000B0\") !== true) {\n  $ERROR('#2: delete\\\\u000B0 === true');  \n}\n\n//CHECK#3\nif (eval(\"delete\\u000C0\") !== true) {\n  $ERROR('#3: delete\\\\u000C0 === true');\n}\n\n//CHECK#4\nif (eval(\"delete\\u00200\") !== true) {\n  $ERROR('#4: delete\\\\u00200 === true');\n}\n\n//CHECK#5\nif (eval(\"delete\\u00A00\") !== true) {\n  $ERROR('#5: delete\\\\u00A00 === true');\n}\n\n//CHECK#6\nif (eval(\"delete\\u000A0\") !== true) {\n  $ERROR('#6: delete\\\\u000A0 === true');  \n}\n\n//CHECK#7\nif (eval(\"delete\\u000D0\") !== true) {\n  $ERROR('#7: delete\\\\u000D0 === true');\n}\n\n//CHECK#8\nif (eval(\"delete\\u20280\") !== true) {\n  $ERROR('#8: delete\\\\u20280 === true');\n}\n\n//CHECK#9\nif (eval(\"delete\\u20290\") !== true) {\n  $ERROR('#9: delete\\\\u20290 === true');\n}\n\n//CHECK#10\nif (eval(\"delete\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u20290\") !== true) {\n  $ERROR('#10: delete\\\\u0009\\\\u000B\\\\u000C\\\\u0020\\\\u00A0\\\\u000A\\\\u000D\\\\u2028\\\\u20290 === true');\n}\n",
+    "id": "S11.4.1_A1"
+   },
+   {
+    "section": "11.4.1",
+    "description": "Checking primitive value and Object value cases",
+    "test": "//CHECK#1\nif (delete 1 !== true) {\n  $ERROR('#1: delete 1 === true');\n}\n\n//CHECK#2\nif (delete new Object() !== true) {\n  $ERROR('#2: delete new Object() === true');\n}\n\n",
+    "id": "S11.4.1_A2.1"
+   },
+   {
+    "section": "11.4.1",
+    "description": "Checking undeclared variable case",
+    "test": "//CHECK#1\nif (delete x !== true) {\n  $ERROR('#1: delete x === true');\n}\n\n//CHECK#2\nif (delete this.x !== true) {\n  $ERROR('#2: delete this.x === true');\n}\n",
+    "id": "S11.4.1_A2.2_T1"
+   },
+   {
+    "section": "11.4.1",
+    "description": "Checking Object object and Function object cases",
+    "test": "//CHECK#1\nfunction MyFunction(){}\nvar MyObject = new MyFunction();\nif (delete MyObject.prop !== true) {\n  $ERROR('#1: function MyFunction(){}; var MyObject = new MyFunction(); delete MyObject.prop === true');\n}\n\n//CHECK#2\nvar MyObject = new Object();\nif (delete MyObject.prop !== true) {\n  $ERROR('#2: var MyObject = new Object(); delete MyObject.prop === true');\n}\n",
+    "id": "S11.4.1_A2.2_T2"
+   },
+   {
+    "section": "11.4.1",
+    "description": "Checking declared variable",
+    "test": "//CHECK#1\nvar x = 1;\nif (delete x !== false) {\n  $ERROR('#1: var x = 1; delete x === false');\n}\n\n//CHECK#2\nvar y = 1;\nif (delete this.y !== false) {\n  $ERROR('#2: var y = 1; delete this.y === false');\n}\n\n//CHECK#3\nfunction MyFunction(){};\nif (delete MyFunction !== false) {\n  $ERROR('#3: function MyFunction(){}; delete MyFunction === false');\n}\n\n//CHECK#4\nfunction MyFunction(){};\nvar MyObject = new MyFunction();\nif (delete MyObject !== false) {\n  $ERROR('#4: function MyFunction(){}; var MyObject = new MyFunction(); delete MyObject === false');\n}\n\n//CHECK#5\nif (delete MyObject !== false) {\n  $ERROR('#5: function MyFunction(){}; var MyObject = new MyFunction(); delete MyObject === false');\n}\n",
+    "id": "S11.4.1_A3.1"
+   },
+   {
+    "section": "11.4.1",
+    "description": "Checking declared variable",
+    "test": "//CHECK#1\nx = 1;\nif (delete x !== true) {\n  $ERROR('#1: x = 1; delete x === true');\n}\n\n//CHECK#2\nfunction MyFunction(){};\nMyFunction.prop = 1;\nif (delete MyFunction.prop !== true) {\n  $ERROR('#2: function MyFunction(){}; MyFunction.prop = 1; delete MyFunction.prop === true');\n}\n\n//CHECK#3\nfunction MyFunction(){};\nvar MyObject = new MyFunction();\nMyObject.prop = 1;\nif (delete MyObject.prop !== true) {\n  $ERROR('#3: function MyFunction(){}; var MyObject = new MyFunction(); MyFunction.prop = 1; delete MyObject.prop === true');\n}\n",
+    "id": "S11.4.1_A3.2"
+   },
+   {
+    "section": "11.4.1",
+    "description": "Checking declared variable",
+    "test": "//CHECK#1\ntry {\n  x = 1;\n  delete x;\n  x;    \n  $ERROR('#1: x = 1; delete x; x is not exist');\n} catch (e) {\n  if (e instanceof ReferenceError !== true) {\n    $ERROR('#1: x = 1; delete x; x is not exist');\n  }\n}\n\n\n//CHECK#2\nfunction MyFunction(){};\nMyFunction.prop = 1;\ndelete MyFunction.prop;\nif (MyFunction.prop !== undefined) {\n  $ERROR('#2: function MyFunction(){}; MyFunction.prop = 1; delete MyFunction.prop; MyFunction.prop === undefined. Actual: ' + (MyFunction.prop));\n\n}\n\n//CHECK#3\nfunction MyFunction(){};\nvar MyObjectVar = new MyFunction();\nMyObjectVar.prop = 1;\ndelete MyObjectVar.prop;\nif (MyObjectVar.prop !== undefined) {\n  $ERROR('#3: function MyFunction(){}; var MyObjectVar = new MyFunction(); MyFunction.prop = 1; delete MyObjectVar.prop; MyObjectVar.prop === undefined. Actual: ' + (MyObjectVar.prop));\n}\n\n//CHECK#4\nif (delete MyObjectVar !== false) {\n  $ERROR('#4: function MyFunction(){}; var MyObjectVar = new MyFunction(); delete MyObjectVar === false');\n}\n\n//CHECK#5\nfunction MyFunction(){};\nMyObjectNotVar = new MyFunction();\nMyObjectNotVar.prop = 1;\ndelete MyObjectNotVar.prop;\nif (MyObjectNotVar.prop !== undefined) {\n  $ERROR('#5: function MyFunction(){}; MyObjectNotVar = new MyFunction(); MyFunction.prop = 1; delete MyObjectNotVar.prop; MyObjectNotVar.prop === undefined. Actual: ' + (MyObjectNotVar.prop));\n}\n\n//CHECK#6\nif (delete MyObjectNotVar !== true) {\n  $ERROR('#6: function MyFunction(){}; var MyObjectNotVar = new MyFunction(); delete MyObjectNotVar === true');\n}\n\n",
+    "id": "S11.4.1_A3.3"
+   },
+   {
+    "section": "11.4.1",
+    "description": "Checking two reference by one object",
+    "test": "//CHECK#1\nobj = new Object();\nref = obj;\ndelete ref;\nif (typeof obj !== \"object\") {\n  $ERROR('#1: obj = new Object(); ref = obj; delete ref; typeof obj === \"object\". Actual: ' + (typeof obj));\n}\n\n",
+    "id": "S11.4.1_A4"
+   }
+  ]
+ }
+}

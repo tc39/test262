@@ -1,0 +1,45 @@
+{
+ "testCollection": {
+  "name": "11.1.1_The_this_Keyword",
+  "numTests": 6,
+  "tests": [
+   {
+    "section": "11.1.1",
+    "description": "Checking if execution of \"this=1\" fails",
+    "negative": "",
+    "test": "this = 1;\n",
+    "id": "S11.1.1_A1"
+   },
+   {
+    "section": "11.1.1",
+    "description": "Checking if execution of \"this\" and eval(\"this\"), which are in global code, return the global object by using toString function",
+    "test": "//CHECK#1\nif (this.toString() !== toString()) {\n  $ERROR('#1: this.toString() === toString(). Actual: ' + (this.toString()));  \n}\n\n//CHECK#2\nif (eval(\"this\").toString() !== toString()) {\n  $ERROR('#2: eval(\"this\").toString() === toString(). Actual: ' + (this.toString()));  \n}\n",
+    "id": "S11.1.1_A2"
+   },
+   {
+    "section": "11.1.1",
+    "description": "Creating function which returns \"this\" or eval(\"this\")",
+    "test": "//CHECK#1\nfunction MyFunction() {return this}\nif (MyFunction() !== this) {\n  $ERROR('#1: function MyFunction() {return this} MyFunction() === this. Actual: ' + (MyFunction()));  \n}\n\n//CHECK#2\nfunction MyFunction() {return eval(\"this\")}\nif (MyFunction() !== this) {\n  $ERROR('#2: function MyFunction() {return eval(\"this\")} MyFunction() === this. Actual: ' + (MyFunction()));  \n}\n\n\n",
+    "id": "S11.1.1_A3.1"
+   },
+   {
+    "section": "11.1.1",
+    "description": "Create function. It have property, that returned \"this\"",
+    "test": "//CHECK#1\nfunction MyFunction() {this.THIS = this}\nif ((new MyFunction()).THIS.toString() !== \"[object Object]\") {\n  $ERROR('#1: function MyFunction() {this.THIS = this} (new MyFunction()).THIS.toString() !== \"[object Object]\". Actual: ' + ((new MyFunction()).THIS.toString()));  \n}\n\n//CHECK#2\nfunction MyFunction() {this.THIS = eval(\"this\")}\nif ((new MyFunction()).THIS.toString() !== \"[object Object]\") {\n  $ERROR('#2: function MyFunction() {this.THIS = eval(\"this\")} (new MyFunction()).THIS.toString() !== \"[object Object]\". Actual: ' + ((new MyFunction()).THIS.toString()));  \n}\n\n",
+    "id": "S11.1.1_A3.2"
+   },
+   {
+    "section": "11.1.1",
+    "description": "Creating function with new Function() constructor",
+    "test": "//CHECK#1\nvar MyFunction = new Function(\"return this\");\nif (MyFunction() !== this) {\n  $ERROR('#1: var MyFunction = new Function(\"return this\"); MyFunction() === this. Actual: ' + (MyFunction()));  \n}\n\n//CHECK#2\nvar MyFunction = new Function(\"return eval(\\'this\\')\");\nif (MyFunction() !== this) {\n  $ERROR('#2: var MyFunction = new Function(\"return eval(\\'this\\')\"); MyFunction() === this. Actual: ' + (MyFunction()));  \n}\n\n\n",
+    "id": "S11.1.1_A4.1"
+   },
+   {
+    "section": "11.1.1",
+    "description": "Creating function by using new Function() constructor. It has the property, which returns \"this\"",
+    "test": "//CHECK#1\nvar MyFunction = new Function(\"this.THIS = this\");\nvar MyObject = new MyFunction();\nif (MyObject.THIS.toString() !== \"[object Object]\") {\n  $ERROR('#1: var MyFunction = new Function(\"this.THIS = this\"); var MyObject = new MyFunction(); MyObject.THIS.toString() === \"[object Object]\". Actual: ' + (MyObject.THIS.toString()));  \n}\n\n//CHECK#2\nvar MyFunction = new Function(\"this.THIS = eval(\\'this\\')\");\nvar MyObject = new MyFunction();\nif (MyObject.THIS.toString() !== \"[object Object]\") {\n  $ERROR('#2: var MyFunction = new Function(\"this.THIS = eval(\\'this\\')\"); var MyObject = new MyFunction(); MyObject.THIS.toString() === \"[object Object]\". Actual: ' + (MyObject.THIS.toString()));  \n}\n\n",
+    "id": "S11.1.1_A4.2"
+   }
+  ]
+ }
+}

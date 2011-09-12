@@ -1,0 +1,38 @@
+{
+ "testCollection": {
+  "name": "8.6_The_Object_Type",
+  "numTests": 5,
+  "tests": [
+   {
+    "section": "8.6, 11.3.1",
+    "description": "Try to implement postincrement for custom property",
+    "test": "var __map={foo:\"bar\"};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n\n__map.foo++;\nif (!isNaN(__map.foo)) {\n  $ERROR('#1: var __map={foo:\"bar\"}; __map.foo++; __map.foo === Not-a-Number. Actual: ' + (__map.foo));\n}\n\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S8.6_A2_T1"
+   },
+   {
+    "section": "8.6, 11.3.1",
+    "description": "Try to implement postincrement for not declared custom property",
+    "test": "var __map={};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!isNaN(__map.foo++)) {\n  $ERROR('#1: var __map={}; __map.foo === Not-a-Number. Actual: ' + (__map.foo));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (!(\"foo\" in __map)) {\n  $ERROR('#2: var __map={}; \"foo\" in __map');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S8.6_A2_T2"
+   },
+   {
+    "section": "8.6, 11.4.4",
+    "description": "Try to implement pefixincrement for custom property",
+    "test": "var __map={foo:'bar'};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n\n++__map.foo;\nif (!isNaN(__map.foo)) {\n  $ERROR('#1:  var __map={foo:\"bar\"}; ++__map.foo; __map.foo === Not-a-Number. Actual: ' + (__map.foo));\n}\n\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S8.6_A3_T1"
+   },
+   {
+    "section": "8.6, 11.4.4",
+    "description": "Try to implement pefixincrement for not declared custom property",
+    "test": "var __map={};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!isNaN(++__map.foo)) {\n  $ERROR('#1:  var __map={}; __map.foo++; __map.foo === Not-a-Number. Actual: ' + (__map.foo));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (!(\"foo\" in __map)) {\n  $ERROR('#2: var __map={}; \"foo\" in __map');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S8.6_A3_T2"
+   },
+   {
+    "section": "8.6, 8.6.1, 15.2.2, 12.6.4",
+    "description": "Simple using a few custom properties",
+    "test": "///////////////////////////////////////////////////////\n// CHECK#1\nobj = {bar:true, some:1, foo:\"a\"};\n\ncount=0;\n\nfor (property in obj)\tcount++;\n\nif (count !== 3){\n  $ERROR('#1: obj = {bar:true, some:1, foo:\"a\"}; count=0; for (property in obj) count++; count === 3. Actual: ' + (count));\n}\n//\n////////////////////////////////////////////////////////\n\n///////////////////////////////////////////////////////\n// CHECK#2\nobj_ = {bar:true};\nobj_.some = 1;\nobj_.foo = \"a\";\n\ncount=0;\n\nfor (property in obj_) count++;\n\nif (count !== 3){\n  $ERROR('#2: obj_ = {bar:true}; obj_.some = 1; obj_.foo = \"a\"; count=0; for (property in obj_) count++; count === 3. Actual: ' + (count));\n}\n//\n////////////////////////////////////////////////////////\n\n///////////////////////////////////////////////////////\n// CHECK#3\nobj__ = new Object();\nobj__.bar = true;\nobj__.some = 1;\nobj__.foo = \"a\";\n\ncount=0;\n\nfor (property in obj__)\tcount++;\n\nif (count !== 3){\n  $ERROR('#3: obj__ = new Object(); obj__.bar = true; obj__.some = 1; obj__.foo = \"a\"; for (property in obj__)  count++; count === 3. Actual: ' + (count));\n}\n//\n////////////////////////////////////////////////////////\n",
+    "id": "S8.6_A4_T1"
+   }
+  ]
+ }
+}

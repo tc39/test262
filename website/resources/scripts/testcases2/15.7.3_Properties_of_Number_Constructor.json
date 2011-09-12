@@ -1,0 +1,56 @@
+{
+ "testCollection": {
+  "name": "15.7.3_Properties_of_Number_Constructor",
+  "numTests": 8,
+  "tests": [
+   {
+    "section": "15.7.3",
+    "description": "Checking existence of the property \"prototype\"",
+    "test": "if(!Number.hasOwnProperty(\"prototype\")){\n  $ERROR('#1: The Number constructor has the property \"prototype\"');\n}\n\n",
+    "id": "S15.7.3_A1"
+   },
+   {
+    "section": "15.7.3",
+    "description": "Checking existence of the property \"MAX_VALUE\"",
+    "test": "if(!Number.hasOwnProperty(\"MAX_VALUE\")){\n  $ERROR('#1: The Number constructor has the property \"MAX_VALUE\"');\n}\n\n",
+    "id": "S15.7.3_A2"
+   },
+   {
+    "section": "15.7.3",
+    "description": "Checking existence of the property \"MIN_VALUE\"",
+    "test": "if(!Number.hasOwnProperty(\"MIN_VALUE\")){\n  $ERROR('#1: The Number constructor has the property \"MIN_VALUE\"');\n}\n\n",
+    "id": "S15.7.3_A3"
+   },
+   {
+    "section": "15.7.3",
+    "description": "Checking existence of the property \"NaN\"",
+    "test": "if(!Number.hasOwnProperty(\"NaN\")){\n  $ERROR('#1: The Number constructor has the property \"NaN\"');\n}\n\n",
+    "id": "S15.7.3_A4"
+   },
+   {
+    "section": "15.7.3",
+    "description": "Checking existence of the property \"NEGATIVE_INFINITY\"",
+    "test": "if(!Number.hasOwnProperty(\"NEGATIVE_INFINITY\")){\n  $ERROR('#1: The Number constructor has the property \"NEGATIVE_INFINITY\"');\n}\n\n",
+    "id": "S15.7.3_A5"
+   },
+   {
+    "section": "15.7.3",
+    "description": "Checking existence of the property \"POSITIVE_INFINITY\"",
+    "test": "if(!Number.hasOwnProperty(\"POSITIVE_INFINITY\")){\n  $ERROR('#1: The Number constructor has the property \"POSITIVE_INFINITY\"');\n}\n\n",
+    "id": "S15.7.3_A6"
+   },
+   {
+    "section": "15.7.3",
+    "description": "Checking Function.prototype.isPrototypeOf(Number)",
+    "test": "//CHECK#1\nif (!(Function.prototype.isPrototypeOf(Number))) {\n  $ERROR('#1: the value of the internal [[Prototype]] property of the Number constructor is the Function prototype object.');\n}\n",
+    "id": "S15.7.3_A7"
+   },
+   {
+    "section": "15.7.3",
+    "description": "Checking Number.length property",
+    "test": "//CHECK#1\nif (!Number.hasOwnProperty(\"length\")){\n  $ERROR('#1: Number constructor has length property');\n}\n\n//CHECK#2\nif (Number.length !== 1) {\n  $ERROR('#2: Number constructor length property value is 1');\n}\n",
+    "id": "S15.7.3_A8"
+   }
+  ]
+ }
+}

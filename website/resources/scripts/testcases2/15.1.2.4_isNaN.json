@@ -1,0 +1,66 @@
+{
+ "testCollection": {
+  "name": "15.1.2.4_isNaN",
+  "numTests": 9,
+  "tests": [
+   {
+    "section": "15.1.2.4",
+    "description": "Checking all primitive",
+    "test": "// CHECK#1\nif (!(isNaN(NaN) === true)) {\n\t$ERROR('#1: NaN === Not-a-Number. Actual: ' + (NaN)); \n}\n\n// CHECK#2\nif (!(isNaN(Number.NaN) === true)) {\n\t$ERROR('#2: Number.NaN === Not-a-Number. Actual: ' + (Number.NaN)); \n}\n\n// CHECK#3\nif (!(isNaN(Number(void 0)) === true)) {\n\t$ERROR('#3: Number(void 0) === Not-a-Number. Actual: ' + (Number(void 0))); \n}\n\n// CHECK#4\nif (!(isNaN(void 0) === true)) {\n\t$ERROR('#4: void 0 === Not-a-Number. Actual: ' + (void 0)); \n}\n\n// CHECK#5\nif (!(isNaN(\"string\") === true)) {\n\t$ERROR('#5: \"string\" === Not-a-Number. Actual: ' + (\"string\")); \n}\n\n// CHECK#6\nif (isNaN(Number.POSITIVE_INFINITY) === true) {\n\t$ERROR('#6: Number.POSITIVE_INFINITY !== Not-a-Number'); \n}\n\n// CHECK#7\nif (isNaN(Number.NEGATIVE_INFINITY) === true) {\n\t$ERROR('#7: Number.NEGATIVE_INFINITY !== Not-a-Number'); \n}\n\n// CHECK#8\nif (isNaN(Number.MAX_VALUE) === true) {\n\t$ERROR('#8: Number.MAX_VALUE !== Not-a-Number'); \n}\n\n// CHECK#9\nif (isNaN(Number.MIN_VALUE) === true) {\n\t$ERROR('#9: Number.MIN_VALUE !== Not-a-Number'); \n}\n\n// CHECK#10\nif (isNaN(-0) === true) {\n\t$ERROR('#10: -0 !== Not-a-Number'); \n}\n\n// CHECK#11\nif (isNaN(true) === true) {\n  $ERROR('#11: true !== Not-a-Number'); \n}\n\n// CHECK#12\nif (isNaN(\"1\") === true) {\n  $ERROR('#12: \"1\" !== Not-a-Number'); \n}\n\n\n\n\n",
+    "id": "S15.1.2.4_A1_T1"
+   },
+   {
+    "section": "15.1.2.4",
+    "description": "Checking all object",
+    "test": "// CHECK#1\nif (!(isNaN({}) === true)) {\n\t$ERROR('#1: {} === Not-a-Number. Actual: ' + ({})); \n}\n\n// CHECK#2\nif (!(isNaN(new String(\"string\")) === true)) {\n\t$ERROR('#2: new String(\"string\") === Not-a-Number. Actual: ' + (new String(\"string\"))); \n}\n\n// CHECK#3\nif (isNaN(new String(\"1\")) === true) {\n  $ERROR('#3: new String(\"1\") === Not-a-Number. Actual: ' + (new String(\"1\"))); \n}\n\n// CHECK#4\nif (isNaN(new Number(1)) === true) {\n\t$ERROR('#4: new Number(1) !== Not-a-Number'); \n}\n\n// CHECK#5\nif (!(isNaN(new Number(NaN)) === true)) {\n  $ERROR('#5: new Number(NaN) === Not-a-Number. Actual: ' + (new Number(NaN))); \n}\n\n// CHECK#6\nif (isNaN(new Boolean(true)) === true) {\n  $ERROR('#6: new Boolean(true) !== Not-a-Number'); \n}\n\n\n\n\n",
+    "id": "S15.1.2.4_A1_T2"
+   },
+   {
+    "section": "15.1.2.4, 15.2.4.7, 12.6.4",
+    "description": "Checking use propertyIsEnumerable, for-in",
+    "test": "//CHECK#1\nif (isNaN.propertyIsEnumerable('length') !== false) {\n  $ERROR('#1: isNaN.propertyIsEnumerable(\\'length\\') === false. Actual: ' + (isNaN.propertyIsEnumerable('length')));\n}\n\n//CHECK#2\nvar result = true;\nfor (p in isNaN){\n  if (p === \"length\") {\n    result = false;\n  }  \n}\n\nif (result !== true) {\n  $ERROR('#2: result = true; for (p in isNaN) { if (p === \"length\") result = false; }  result === true;');\n}\n",
+    "id": "S15.1.2.4_A2.1"
+   },
+   {
+    "section": "15.1.2.4, 15.2.4.5, 11.4.1",
+    "description": "Checking use hasOwnProperty, delete",
+    "strict_mode_negative": "",
+    "test": "//CHECK#1\nif (isNaN.hasOwnProperty('length') !== true) {\n  $FAIL('#1: isNaN.hasOwnProperty(\\'length\\') === true. Actual: ' + (isNaN.hasOwnProperty('length')));\n}\n\ndelete isNaN.length;\n\n//CHECK#2\nif (isNaN.hasOwnProperty('length') !== true) {\n  $ERROR('#2: delete isNaN.length; isNaN.hasOwnProperty(\\'length\\') === true. Actual: ' + (isNaN.hasOwnProperty('length')));\n}\n\n//CHECK#3\nif (isNaN.length === undefined) {\n  $ERROR('#3: delete isNaN.length; isNaN.length !== undefined');\n}\n",
+    "id": "S15.1.2.4_A2.2",
+    "strict_only": ""
+   },
+   {
+    "section": "15.1.2.4",
+    "description": "Checking if varying the length property fails",
+    "strict_mode_negative": "",
+    "test": "//CHECK#1\nx = isNaN.length;\nisNaN.length = Infinity;\nif (isNaN.length !== x) {\n  $ERROR('#1: x = isNaN.length; isNaN.length = Infinity; isNaN.length === x. Actual: ' + (isNaN.length));\n}\n\n",
+    "id": "S15.1.2.4_A2.3",
+    "strict_only": ""
+   },
+   {
+    "section": "15.1.2.4",
+    "description": "isNaN.length === 1",
+    "test": "//CHECK#1\nif (isNaN.length !== 1) {\n  $ERROR('#1: isNaN.length === 1. Actual: ' + (isNaN.length));\n} \n\n",
+    "id": "S15.1.2.4_A2.4"
+   },
+   {
+    "section": "15.1.2.4, 15.2.4.7, 12.6.4",
+    "description": "Checking use propertyIsEnumerable, for-in",
+    "test": "//CHECK#1\nif (this.propertyIsEnumerable('isNaN') !== false) {\n  $ERROR('#1: this.propertyIsEnumerable(\\'isNaN\\') === false. Actual: ' + (this.propertyIsEnumerable('isNaN')));\n}\n\n//CHECK#2\nvar result = true;\nfor (p in this){\n  if (p === \"isNaN\") {\n    result = false;\n  }  \n}\n\nif (result !== true) {\n  $ERROR('#2: result = true; for (p in this) { if (p === \"isNaN\") result = false; }  result === true;');\n}\n",
+    "id": "S15.1.2.4_A2.5"
+   },
+   {
+    "section": "15.1.2.4",
+    "description": "Checking isNaN.prototype",
+    "test": "//CHECK#1\nif (isNaN.prototype !== undefined) {\n  $ERROR('#1: isNaN.prototype === undefined. Actual: ' + (isNaN.prototype));\n}\n",
+    "id": "S15.1.2.4_A2.6"
+   },
+   {
+    "section": "15.1.2.4, 11.2.2",
+    "description": "If property does not implement the internal [[Construct]] method, throw a TypeError exception",
+    "test": "//CHECK#1\n\ntry {\n  new isNaN();\n  $ERROR('#1.1: new isNaN() throw TypeError. Actual: ' + (new isNaN()));\n} catch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#1.2: new isNaN() throw TypeError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.1.2.4_A2.7"
+   }
+  ]
+ }
+}

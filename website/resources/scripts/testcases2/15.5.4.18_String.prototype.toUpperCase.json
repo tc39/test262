@@ -1,0 +1,134 @@
+{
+ "testCollection": {
+  "name": "15.5.4.18_String.prototype.toUpperCase",
+  "numTests": 21,
+  "tests": [
+   {
+    "section": "15.5.4.18",
+    "description": "Checking if varying the String.prototype.toUpperCase.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(String.prototype.toUpperCase.hasOwnProperty('length'))) {\n  $FAIL('#1: String.prototype.toUpperCase.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.toUpperCase.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar __obj = String.prototype.toUpperCase.length;\n\nString.prototype.toUpperCase.length = function(){return \"shifted\";};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (String.prototype.toUpperCase.length !== __obj) {\n  $ERROR('#2: __obj = String.prototype.toUpperCase.length; String.prototype.toUpperCase.length = function(){return \"shifted\";}; String.prototype.toUpperCase.length === __obj. Actual: '+String.prototype.toUpperCase.length );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.18_A10"
+   },
+   {
+    "section": "15.5.4.18",
+    "description": "Checking String.prototype.toUpperCase.length",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(String.prototype.toUpperCase.hasOwnProperty(\"length\"))) {\n  $ERROR('#1: String.prototype.toUpperCase.hasOwnProperty(\"length\") return true. Actual: '+String.prototype.toUpperCase.hasOwnProperty(\"length\"));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (String.prototype.toUpperCase.length !== 0) {\n  $ERROR('#2: String.prototype.toUpperCase.length === 0. Actual: '+String.prototype.toUpperCase.length );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.18_A11"
+   },
+   {
+    "section": "15.5.4.18",
+    "description": "Arguments is true, and instance is object",
+    "test": "var __instance = new Object(true);\n\n__instance.toUpperCase = String.prototype.toUpperCase;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.toUpperCase() !== \"TRUE\") {\n  $ERROR('#1: __instance = new Object(true); __instance.toUpperCase = String.prototype.toUpperCase;  __instance.toUpperCase() === \"TRUE\". Actual: '+__instance.toUpperCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.18_A1_T1"
+   },
+   {
+    "section": "15.5.4.18",
+    "description": "Call toUpperCase() function of object with overrode toString function",
+    "test": "var __obj = {toString:function(){return \"\\u0041b\";}}\n__obj.toUpperCase = String.prototype.toUpperCase;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__obj.toUpperCase() !==\"AB\") {\n  $ERROR('#1: var __obj = {toString:function(){return \"\\u0041b\";}}; __obj.toUpperCase = String.prototype.toUpperCase; __obj.toUpperCase() ===\"AB\". Actual: '+__obj.toUpperCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.18_A1_T10"
+   },
+   {
+    "section": "15.5.4.18",
+    "description": "Override toString function, toString throw exception, then call toUpperCase() function for this object",
+    "test": "var __obj = {toString:function(){throw \"intostr\";}}\n__obj.toUpperCase = String.prototype.toUpperCase;\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n  var x = __obj.toUpperCase();\n   \t$FAIL('#1: \"var x = __obj.toUpperCase()\" lead to throwing exception');\n} catch (e) {\n  if (e!==\"intostr\") {\n    $ERROR('#1.1: Exception === \"intostr\". Actual: '+e);\n  }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.18_A1_T11"
+   },
+   {
+    "section": "15.5.4.18",
+    "description": "Override toString and valueOf functions, valueOf throw exception, then call toUpperCase() function for this object",
+    "test": "var __obj = {toString:function(){return {};},valueOf:function(){throw \"intostr\";}}\n__obj.toUpperCase = String.prototype.toUpperCase;\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n  var x = __obj.toUpperCase();\n \t$FAIL('#1: \"var x = __obj.toUpperCase()\" lead to throwing exception');\n} catch (e) {\n  if (e!==\"intostr\") {\n    $ERROR('#1.1: Exception === \"intostr\". Actual: '+e);\n  }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.18_A1_T12"
+   },
+   {
+    "section": "15.5.4.18",
+    "description": "Override toString and valueOf functions, then call toUpperCase() function for this object",
+    "test": "var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}\n__obj.toUpperCase = String.prototype.toUpperCase;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__obj.toUpperCase() !==\"1\") {\n  $ERROR('#1: var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}; __obj.toUpperCase = String.prototype.toUpperCase; __obj.toUpperCase() ===\"1\". Actual: '+__obj.toUpperCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__obj.toUpperCase().length !== 1) {\n  $ERROR('#2: var __obj = {toString:function(){return {};},valueOf:function(){return 1;}}; __obj.toUpperCase = String.prototype.toUpperCase; __obj.toUpperCase().length === 1. Actual: '+__obj.toUpperCase().length );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.18_A1_T13"
+   },
+   {
+    "section": "15.5.4.18",
+    "description": "Call toUpperCase() function of RegExp object",
+    "test": "var __reg = new RegExp(\"abc\");\n__reg.toUpperCase = String.prototype.toUpperCase;\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__reg.toUpperCase() !== \"/ABC/\") {\n  $ERROR('#1: var __reg = new RegExp(\"abc\"); __reg.toUpperCase = String.prototype.toUpperCase; __reg.toUpperCase() === \"/ABC/\". Actual: '+__reg.toUpperCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.18_A1_T14"
+   },
+   {
+    "section": "15.5.4.18",
+    "description": "Instance is Boolean object",
+    "test": "var __instance = new Boolean;\n\n__instance.toUpperCase = String.prototype.toUpperCase;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.toUpperCase() !== \"FALSE\") {\n  $ERROR('#1: __instance = new Boolean; __instance.toUpperCase = String.prototype.toUpperCase;  __instance.toUpperCase() === \"FALSE\". Actual: '+__instance.toUpperCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.18_A1_T2"
+   },
+   {
+    "section": "15.5.4.18",
+    "description": "Checking by using eval",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (eval(\"\\\"bj\\\"\").toUpperCase() !== \"BJ\") {\n  $ERROR('#1: eval(\"\\\\\"bj\\\\\"\").toUpperCase() === \"BJ\". Actual: '+eval(\"\\\"bj\\\"\").toUpperCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.18_A1_T3"
+   },
+   {
+    "section": "15.5.4.18",
+    "description": "Call toUpperCase() function without arguments of string and from empty string",
+    "test": "var __lowerCase = \"\".toUpperCase();\n\nvar __expected = \"\"; \n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__lowerCase.length !== __expected.length) {\n  $ERROR('#1: __lowerCase = \"\".toUpperCase(); __expected = \"\"; __lowerCase.length === __expected.length. Actual: '+__lowerCase.length );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__lowerCase.index !== __expected.index) {\n  $ERROR('#2: __lowerCase = \"\".toUpperCase(); __expected = \"\"; __lowerCase.index === __expected.index. Actual: '+__lowerCase.index );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__lowerCase.input !== __expected.input) {\n  $ERROR('#3: __lowerCase = \"\".toUpperCase(); __expected = \"\"; __lowerCase.input === __expected.input. Actual: '+__lowerCase.input );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\nif (__lowerCase[0]!==__expected[0]) {\n  $ERROR('#4: __lowerCase = \"\".toUpperCase(); __expected = \"\"; __lowerCase[0]==='+__expected[0]+'. Actual: '+__lowerCase[0]);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.18_A1_T4"
+   },
+   {
+    "section": "15.5.4.18",
+    "description": "Call toUpperCase() function of function call",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\n//since ToString(null) evaluates to \"null\" match(null) evaluates to match(\"null\")\nif (function(){return \"GnulLuNa\"}().toUpperCase() !== \"GNULLUNA\") {\n  $ERROR('#1: function(){return \"GnulLuNa\"}().toUpperCase() === \"GNULLUNA\". Actual: '+function(){return \"GnulLuNa\"}().toUpperCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.18_A1_T5"
+   },
+   {
+    "section": "15.5.4.18",
+    "description": "Call toUpperCase() function of Number.NEGATIVE_INFINITY",
+    "test": "Number.prototype.toUpperCase = String.prototype.toUpperCase;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif ((Number.NEGATIVE_INFINITY).toUpperCase() !== \"-INFINITY\") {\n  $ERROR('#1: Number.prototype.toUpperCase = String.prototype.toUpperCase; (Number.NEGATIVE_INFINITY).toUpperCase() === \"-INFINITY\". Actual: '+(Number.NEGATIVE_INFINITY).toUpperCase() );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.18_A1_T6"
+   },
+   {
+    "section": "15.5.4.18",
+    "description": "Call toUpperCase() function of NaN",
+    "test": "Number.prototype.toUpperCase = String.prototype.toUpperCase;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (NaN.toUpperCase()!== \"NAN\") {\n  $ERROR('#1: Number.prototype.toUpperCase = String.prototype.toUpperCase; NaN.toUpperCase()=== \"NAN\". Actual: '+NaN.toUpperCase());\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.18_A1_T7"
+   },
+   {
+    "section": "15.5.4.18",
+    "description": ": Call toUpperCase() function of Infinity;",
+    "test": "Number.prototype.toUpperCase = String.prototype.toUpperCase;\n\nif (Infinity.toUpperCase()!== \"INFINITY\") {\n  $ERROR('#1: Number.prototype.toUpperCase = String.prototype.toUpperCase; Infinity.toUpperCase()=== \"INFINITY\". Actual: '+Infinity.toUpperCase());\n}\n",
+    "id": "S15.5.4.18_A1_T8"
+   },
+   {
+    "section": "15.5.4.18",
+    "description": "Call toUpperCase() function of string object",
+    "test": "var __obj = {\n    valueOf:function(){},\n    toString:void 0\n};\n\nvar __upperCase = new String(__obj).toUpperCase();\n\nvar __expected =\"UNDEFINED\"; \n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__upperCase.length !== __expected.length) {\n  $ERROR('#1: __obj = {valueOf:function(){}, toString:void 0}; __upperCase = new String(__obj).toUpperCase(); __expected =\"UNDEFINED\"; __upperCase.length === __expected.length. Actual: '+__upperCase.length );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__upperCase.index !== __expected.index) {\n  $ERROR('#2: __obj = {valueOf:function(){}, toString:void 0}; __upperCase = new String(__obj).toUpperCase(); __expected =\"UNDEFINED\"; __upperCase.index === __expected.index. Actual: '+__upperCase.index );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__upperCase.input !== __expected.input) {\n  $ERROR('#3: __obj = {valueOf:function(){}, toString:void 0}; __upperCase = new String(__obj).toUpperCase(); __expected =\"UNDEFINED\"; __upperCase.input === __expected.input. Actual: '+__upperCase.input );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\nfor(var index=0; index<__expected.length; index++) {\n  if (__upperCase[index]!==__expected[index]) {\n    $ERROR('#4.'+index+': __obj = {valueOf:function(){}, toString:void 0}; __upperCase = new String(__obj).toUpperCase(); __expected =\"UNDEFINED\"; __upperCase['+index+']==='+__expected[index]+'. Actual: '+__upperCase[index]);\n  }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.18_A1_T9"
+   },
+   {
+    "section": "15.5.4.18",
+    "description": "Checking returned result",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (\"Hello, WoRlD!\".toUpperCase() !== \"HELLO, WORLD!\") {\n  $ERROR('#1: \"Hello, WoRlD!\".toUpperCase() === \"HELLO, WORLD!\". Actual: '+(\"Hello, WoRlD!\".toUpperCase()) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (\"Hello, WoRlD!\".toUpperCase() !== String(\"HELLO, WORLD!\")) {\n  $ERROR('#2: \"Hello, WoRlD!\".toUpperCase() === String(\"HELLO, WORLD!\"). Actual: '+(\"Hello, WoRlD!\".toUpperCase()) );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (\"Hello, WoRlD!\".toUpperCase() ===new String(\"HELLO, WORLD!\")) {\n  $ERROR('#3: \"Hello, WoRlD!\".toUpperCase() !== new String(\"HELLO, WORLD!\")');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.18_A2_T1"
+   },
+   {
+    "section": "15.5.4.18, 13.2",
+    "description": "Checking String.prototype.toUpperCase.prototype",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (String.prototype.toUpperCase.prototype !== undefined) {\n  $ERROR('#1: String.prototype.toUpperCase.prototype === undefined. Actual: '+String.prototype.toUpperCase.prototype );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.18_A6"
+   },
+   {
+    "section": "15.5.4.18, 13.2",
+    "description": "Checking if creating the String.prototype.toUpperCase object fails",
+    "test": "var __FACTORY = String.prototype.toUpperCase;\n\ntry {\n  var __instance = new __FACTORY;\n  $FAIL('#1: var __FACTORY = String.prototype.toUpperCase; \"__instance = new __FACTORY\" lead to throwing exception');\n} catch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#1.1: var __FACTORY = String.prototype.toUpperCase; \"__instance = new __FACTORY\" throw a TypeError. Actual: ' + (e));  \n  }\n}\n",
+    "id": "S15.5.4.18_A7"
+   },
+   {
+    "section": "15.5.4.18",
+    "description": "Checking if enumerating the String.prototype.toUpperCase.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#0\nif (!(String.prototype.toUpperCase.hasOwnProperty('length'))) {\n  $FAIL('#0: String.prototype.toUpperCase.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.toUpperCase.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n//////////////////////////////////////////////////////////////////////////////\n// CHECK#1\nif (String.prototype.toUpperCase.propertyIsEnumerable('length')) {\n  $ERROR('#1: String.prototype.toUpperCase.propertyIsEnumerable(\\'length\\') return false');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n// CHECK#2\nvar count=0;\n\nfor (p in String.prototype.toUpperCase){\n  if (p===\"length\") count++;\n}\n\nif (count !== 0) {\n  $ERROR('#2: count=0; for (p in String.prototype.toUpperCase){if (p===\"length\") count++;}; count === 0. Actual: '+count );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.18_A8"
+   },
+   {
+    "section": "15.5.4.18",
+    "description": "Checking if deleting the String.prototype.toUpperCase.length property fails",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#0\nif (!(String.prototype.toUpperCase.hasOwnProperty('length'))) {\n  $FAIL('#0: String.prototype.toUpperCase.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.toUpperCase.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (delete String.prototype.toUpperCase.length) {\n  $ERROR('#1: delete String.prototype.toUpperCase.length return false');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (!(String.prototype.toUpperCase.hasOwnProperty('length'))) {\n  $FAIL('#2: delete String.prototype.toUpperCase.length; String.prototype.toUpperCase.hasOwnProperty(\\'length\\') return true. Actual: '+String.prototype.toUpperCase.hasOwnProperty('length'));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S15.5.4.18_A9"
+   }
+  ]
+ }
+}

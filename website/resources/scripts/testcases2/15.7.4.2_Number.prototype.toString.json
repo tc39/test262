@@ -1,0 +1,284 @@
+{
+ "testCollection": {
+  "name": "15.7.4.2_Number.prototype.toString",
+  "numTests": 46,
+  "tests": [
+   {
+    "section": "15.7.4.2",
+    "description": "undefined radix",
+    "test": "//CHECK#1\nif(Number.prototype.toString() !== \"0\"){\n  $ERROR('#1: Number.prototype.toString() === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString() !== \"0\"){\n  $ERROR('#2: (new Number()).toString() === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString() !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString() === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString() !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString() === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString() !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString() === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString() !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString() === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString() !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString() === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString() !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString() === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A1_T01"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 10",
+    "test": "//CHECK#1\nif(Number.prototype.toString(10) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(10) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(10) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(10) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(10) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(10) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(10) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(10) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(10) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(10) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(10) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(10) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(10) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(10) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(10) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(10) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A1_T02"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is undefined value",
+    "test": "//CHECK#1\nif(Number.prototype.toString(undefined) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(undefined) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(undefined) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(undefined) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(undefined) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(undefined) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(undefined) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(undefined) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(undefined) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(undefined) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(undefined) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(undefined) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(undefined) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(undefined) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(undefined) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(undefined) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A1_T03"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 2",
+    "test": "//CHECK#1\nif(Number.prototype.toString(2) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(2) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(2) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(2) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(2) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(2) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(2) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(2) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(2) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(2) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(2) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(2) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(2) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(2) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(2) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(2) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T01"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 3",
+    "test": "//CHECK#1\nif(Number.prototype.toString(3) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(3) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(3) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(3) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(3) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(3) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(3) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(3) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(3) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(3) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(3) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(3) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(3) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(3) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(3) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(3) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T02"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 4",
+    "test": "//CHECK#1\nif(Number.prototype.toString(4) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(4) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(4) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(4) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(4) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(4) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(4) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(4) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(4) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(4) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(4) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(4) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(4) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(4) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(4) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(4) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T03"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 5",
+    "test": "//CHECK#1\nif(Number.prototype.toString(5) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(5) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(5) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(5) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(5) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(5) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(5) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(5) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(5) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(5) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(5) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(5) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(5) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(5) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(5) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(5) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T04"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 6",
+    "test": "//CHECK#1\nif(Number.prototype.toString(6) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(6) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(6) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(6) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(6) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(6) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(6) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(6) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(6) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(6) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(6) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(6) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(6) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(6) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(6) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(6) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T05"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 7",
+    "test": "//CHECK#1\nif(Number.prototype.toString(7) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(7) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(7) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(7) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(7) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(7) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(7) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(7) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(7) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(7) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(7) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(7) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(7) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(7) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(7) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(7) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T06"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 8",
+    "test": "//CHECK#1\nif(Number.prototype.toString(8) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(8) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(8) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(8) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(8) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(8) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(8) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(8) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(8) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(8) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(8) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(8) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(8) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(8) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(8) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(8) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T07"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 9",
+    "test": "//CHECK#1\nif(Number.prototype.toString(9) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(9) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(9) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(9) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(9) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(9) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(9) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(9) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(9) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(9) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(9) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(9) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(9) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(9) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(9) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(9) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T08"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 11",
+    "test": "//CHECK#1\nif(Number.prototype.toString(11) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(11) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(11) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(11) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(11) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(11) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(11) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(11) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(11) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(11) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(11) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(11) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(11) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(11) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(11) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(11) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T09"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 12",
+    "test": "//CHECK#1\nif(Number.prototype.toString(12) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(12) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(12) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(12) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(12) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(12) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(12) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(12) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(12) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(12) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(12) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(12) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(12) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(12) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(12) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(12) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T10"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 13",
+    "test": "//CHECK#1\nif(Number.prototype.toString(13) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(13) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(13) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(13) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(13) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(13) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(13) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(13) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(13) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(13) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(13) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(13) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(13) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(13) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(13) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(13) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T11"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 14",
+    "test": "//CHECK#1\nif(Number.prototype.toString(14) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(14) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(14) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(14) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(14) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(14) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(14) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(14) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(14) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(14) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(14) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(14) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(14) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(14) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(14) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(14) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T12"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 15",
+    "test": "//CHECK#1\nif(Number.prototype.toString(15) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(15) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(15) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(15) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(15) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(15) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(15) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(15) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(15) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(15) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(15) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(15) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(15) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(15) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(15) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(15) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T13"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 16",
+    "test": "//CHECK#1\nif(Number.prototype.toString(16) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(16) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(16) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(16) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(16) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(16) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(16) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(16) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(16) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(16) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(16) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(16) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(16) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(16) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(16) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(16) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T14"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 17",
+    "test": "//CHECK#1\nif(Number.prototype.toString(17) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(17) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(17) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(17) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(17) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(17) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(17) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(17) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(17) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(17) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(17) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(17) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(17) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(17) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(17) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(17) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T15"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 18",
+    "test": "//CHECK#1\nif(Number.prototype.toString(18) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(18) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(18) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(18) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(18) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(18) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(18) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(18) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(18) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(18) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(18) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(18) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(18) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(18) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(18) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(18) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T16"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 19",
+    "test": "//CHECK#1\nif(Number.prototype.toString(19) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(19) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(19) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(19) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(19) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(19) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(19) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(19) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(19) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(19) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(19) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(19) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(19) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(19) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(19) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(19) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T17"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 20",
+    "test": "//CHECK#1\nif(Number.prototype.toString(20) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(20) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(20) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(20) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(20) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(20) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(20) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(20) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(20) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(20) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(20) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(20) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(20) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(20) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(20) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(20) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T18"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 21",
+    "test": "//CHECK#1\nif(Number.prototype.toString(21) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(21) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(21) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(21) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(21) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(21) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(21) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(21) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(21) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(21) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(21) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(21) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(21) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(21) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(21) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(21) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T19"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 22",
+    "test": "//CHECK#1\nif(Number.prototype.toString(22) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(22) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(22) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(22) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(22) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(22) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(22) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(22) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(22) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(22) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(22) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(22) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(22) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(22) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(22) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(22) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T20"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 23",
+    "test": "//CHECK#1\nif(Number.prototype.toString(23) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(23) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(23) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(23) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(23) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(23) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(23) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(23) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(23) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(23) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(23) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(23) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(23) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(23) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(23) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(23) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T21"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 24",
+    "test": "//CHECK#1\nif(Number.prototype.toString(24) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(24) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(24) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(24) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(24) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(24) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(24) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(24) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(24) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(24) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(24) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(24) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(24) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(24) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(24) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(24) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T22"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 25",
+    "test": "//CHECK#1\nif(Number.prototype.toString(25) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(25) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(25) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(25) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(25) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(25) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(25) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(25) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(25) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(25) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(25) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(25) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(25) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(25) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(25) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(25) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T23"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 26",
+    "test": "//CHECK#1\nif(Number.prototype.toString(26) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(26) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(26) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(26) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(26) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(26) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(26) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(26) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(26) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(26) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(26) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(26) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(26) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(26) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(26) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(26) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T24"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 27",
+    "test": "//CHECK#1\nif(Number.prototype.toString(27) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(27) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(27) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(27) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(27) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(27) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(27) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(27) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(27) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(27) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(27) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(27) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(27) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(27) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(27) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(27) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T25"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 28",
+    "test": "//CHECK#1\nif(Number.prototype.toString(28) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(28) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(28) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(28) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(28) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(28) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(28) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(28) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(28) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(28) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(28) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(28) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(28) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(28) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(28) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(28) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T26"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 29",
+    "test": "//CHECK#1\nif(Number.prototype.toString(29) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(29) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(29) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(29) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(29) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(29) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(29) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(29) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(29) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(29) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(29) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(29) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(29) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(29) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(29) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(29) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T27"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 30",
+    "test": "//CHECK#1\nif(Number.prototype.toString(30) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(30) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(30) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(30) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(30) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(30) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(30) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(30) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(30) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(30) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(30) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(30) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(30) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(30) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(30) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(30) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T28"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 31",
+    "test": "//CHECK#1\nif(Number.prototype.toString(31) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(31) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(31) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(31) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(31) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(31) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(31) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(31) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(31) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(31) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(31) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(31) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(31) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(31) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(31) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(31) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T29"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 32",
+    "test": "//CHECK#1\nif(Number.prototype.toString(32) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(32) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(32) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(32) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(32) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(32) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(32) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(32) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(32) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(32) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(32) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(32) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(32) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(32) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(32) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(32) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T30"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 33",
+    "test": "//CHECK#1\nif(Number.prototype.toString(33) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(33) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(33) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(33) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(33) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(33) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(33) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(33) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(33) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(33) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(33) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(33) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(33) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(33) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(33) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(33) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T31"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 34",
+    "test": "//CHECK#1\nif(Number.prototype.toString(34) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(34) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(34) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(34) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(34) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(34) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(34) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(34) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(34) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(34) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(34) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(34) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(34) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(34) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(34) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(34) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T32"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 35",
+    "test": "//CHECK#1\nif(Number.prototype.toString(35) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(35) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(35) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(35) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(35) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(35) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(35) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(35) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(35) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(35) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(35) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(35) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(35) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(35) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(35) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(35) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T33"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 36",
+    "test": "//CHECK#1\nif(Number.prototype.toString(36) !== \"0\"){\n  $ERROR('#1: Number.prototype.toString(36) === \"0\"');\n}\n\n//CHECK#2\nif((new Number()).toString(36) !== \"0\"){\n  $ERROR('#2: (new Number()).toString(36) === \"0\"');\n}\n\n//CHECK#3\nif((new Number(0)).toString(36) !== \"0\"){\n  $ERROR('#3: (new Number(0)).toString(36) === \"0\"');\n}\n\n//CHECK#4\nif((new Number(-1)).toString(36) !== \"-1\"){\n  $ERROR('#4: (new Number(-1)).toString(36) === \"-1\"');\n}\n\n//CHECK#5\nif((new Number(1)).toString(36) !== \"1\"){\n  $ERROR('#5: (new Number(1)).toString(36) === \"1\"');\n}\n\n//CHECK#6\nif((new Number(Number.NaN)).toString(36) !== \"NaN\"){\n  $ERROR('#6: (new Number(Number.NaN)).toString(36) === \"NaN\"');\n}\n\n//CHECK#7\nif((new Number(Number.POSITIVE_INFINITY)).toString(36) !== \"Infinity\"){\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(36) === \"Infinity\"');\n}\n\n//CHECK#8\nif((new Number(Number.NEGATIVE_INFINITY)).toString(36) !== \"-Infinity\"){\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(36) === \"-Infinity\"');\n}\n",
+    "id": "S15.7.4.2_A2_T34"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 1",
+    "test": "//CHECK#1\ntry{\n  var n = Number.prototype.toString(1);\n  $ERROR('#1: Number.prototype.toString(1) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#2\ntry{\n  var n = (new Number()).toString(1);\n  $ERROR('#2: (new Number()).toString(1) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#3\ntry{\n  var n = (new Number(0)).toString(1);\n  $ERROR('#3: (new Number(0)).toString(1) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#4\ntry{\n  var n = (new Number(-1)).toString(1);\n  $ERROR('#4: (new Number(-1)).toString(1) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#5\ntry{\n  var n =(new Number(1)).toString(1);\n  $ERROR('#5: (new Number(1)).toString(1) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#6\ntry{\n  var n =(new Number(Number.NaN)).toString(1);\n  $ERROR('#6: (new Number(Number.NaN)).toString(1) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#7\ntry{\n  var n =(new Number(Number.POSITIVE_INFINITY)).toString(1);\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(1) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#8\ntry{\n  var n =(new Number(Number.NEGATIVE_INFINITY)).toString(1);\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(1) should throw an Error');\n}\ncatch(e){\n}\n",
+    "id": "S15.7.4.2_A3_T01"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 37",
+    "test": "//CHECK#1\ntry{\n  var n =Number.prototype.toString(37);\n  $ERROR('#1: Number.prototype.toString(37) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#2\ntry{\n  var n =(new Number()).toString(37);\n  $ERROR('#2: (new Number()).toString(37) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#3\ntry{\n  var n =(new Number(0)).toString(37);\n  $ERROR('#3: (new Number(0)).toString(37) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#4\ntry{\n  var n =(new Number(-1)).toString(37);\n  $ERROR('#4: (new Number(-1)).toString(37) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#5\ntry{\n  var n =(new Number(1)).toString(37);\n  $ERROR('#5: (new Number(1)).toString(37) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#6\ntry{\n  var n =(new Number(Number.NaN)).toString(37);\n  $ERROR('#6: (new Number(Number.NaN)).toString(37) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#7\ntry{\n  var n =(new Number(Number.POSITIVE_INFINITY)).toString(37);\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(37) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#8\ntry{\n  var n =(new Number(Number.NEGATIVE_INFINITY)).toString(37);\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(37) should throw an Error');\n}\ncatch(e){\n}\n",
+    "id": "S15.7.4.2_A3_T02"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is null value",
+    "test": "//CHECK#1\ntry{\n  var n = Number.prototype.toString(null);\n  $ERROR('#1: Number.prototype.toString(null) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#2\ntry{\n  var n = (new Number()).toString(null);\n  $ERROR('#2: (new Number()).toString(null) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#3\ntry{\n  var n = (new Number(0)).toString(null);\n  $ERROR('#3: (new Number(0)).toString(null) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#4\ntry{\n  var n = (new Number(-1)).toString(null);\n  $ERROR('#4: (new Number(-1)).toString(null) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#5\ntry{\n  var n = (new Number(1)).toString(null);\n  $ERROR('#5: (new Number(1)).toString(null) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#6\ntry{\n  var n = (new Number(Number.NaN)).toString(null);\n  $ERROR('#6: (new Number(Number.NaN)).toString(null) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#7\ntry{\n  var n = (new Number(Number.POSITIVE_INFINITY)).toString(null);\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(null) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#8\ntry{\n  var n = (new Number(Number.NEGATIVE_INFINITY)).toString(null);\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(null) should throw an Error');\n}\ncatch(e){\n}\n",
+    "id": "S15.7.4.2_A3_T03"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "radix is 0",
+    "test": "//CHECK#1\ntry{\n  var n = Number.prototype.toString(0);\n  $ERROR('#1: Number.prototype.toString(0) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#2\ntry{\n  var n = (new Number()).toString(0);\n  $ERROR('#2: (new Number()).toString(0) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#3\ntry{\n  var n = (new Number(0)).toString(0);\n  $ERROR('#3: (new Number(0)).toString(0) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#4\ntry{\n  var n = (new Number(-1)).toString(0);\n  $ERROR('#4: (new Number(-1)).toString(0) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#5\ntry{\n  var n = (new Number(1)).toString(0);\n  $ERROR('#5: (new Number(1)).toString(0) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#6\ntry{\n  var n = (new Number(Number.NaN)).toString(0);\n  $ERROR('#6: (new Number(Number.NaN)).toString(0) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#7\ntry{\n  var n = (new Number(Number.POSITIVE_INFINITY)).toString(0);\n  $ERROR('#7: (new Number(Number.POSITIVE_INFINITY)).toString(0) should throw an Error');\n}\ncatch(e){\n}\n\n//CHECK#8\ntry{\n  var n = (new Number(Number.NEGATIVE_INFINITY)).toString(0);\n  $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(0) should throw an Error');\n}\ncatch(e){\n}\n",
+    "id": "S15.7.4.2_A3_T04"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "transferring to the String objects",
+    "test": "//CHECK#1\ntry{\n  var s1 = new String();\n  s1.toString = Number.prototype.toString;\n  var v1 = s1.toString(); \n  $ERROR('#1: Number.prototype.toString on not a Number object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#1: Number.prototype.toString on not a Number object should throw TypeError, not '+e);\n  }\n}\n\n//CHECK#2\ntry{\n  var s2 = new String();\n  s2.myToString = Number.prototype.toString;\n  var v2 = s2.myToString(); \n  $ERROR('#2: Number.prototype.toString on not a Number object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#2: Number.prototype.toString on not a Number object should throw TypeError, not '+e);\n  }\n}\n\n",
+    "id": "S15.7.4.2_A4_T01"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "transferring to the Boolean objects",
+    "test": "//CHECK#1\ntry{\n  var s1 = new Boolean();\n  s1.toString = Number.prototype.toString;\n  var v1 = s1.toString(); \n  $ERROR('#1: Number.prototype.toString on not a Number object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#1: Number.prototype.toString on not a Number object should throw TypeError, not '+e);\n  }\n}\n\n//CHECK#2\ntry{\n  var s2 = new Boolean();\n  s2.myToString = Number.prototype.toString;\n  var v2 = s2.myToString(); \n  $ERROR('#2: Number.prototype.toString on not a Number object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#2: Number.prototype.toString on not a Number object should throw TypeError, not '+e);\n  }\n}\n\n",
+    "id": "S15.7.4.2_A4_T02"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "transferring to the Date objects",
+    "test": "//CHECK#1\ntry{\n  var s1 = new Date();\n  s1.toString = Number.prototype.toString;\n  var v1 = s1.toString(); \n  $ERROR('#1: Number.prototype.toString on not a Number object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#1: Number.prototype.toString on not a Number object should throw TypeError, not '+e);\n  }\n}\n\n//CHECK#2\ntry{\n  var s2 = new Date();\n  s2.myToString = Number.prototype.toString;\n  var v2 = s2.myToString(); \n  $ERROR('#2: Number.prototype.toString on not a Number object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#2: Number.prototype.toString on not a Number object should throw TypeError, not '+e);\n  }\n}\n\n",
+    "id": "S15.7.4.2_A4_T03"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "transferring to the Object objects",
+    "test": "//CHECK#1\ntry{\n  var s1 = new Object();\n  s1.toString = Number.prototype.toString;\n  var v1 = s1.toString(); \n  $ERROR('#1: Number.prototype.toString on not a Number object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#1: Number.prototype.toString on not a Number object should throw TypeError, not '+e);\n  }\n}\n\n//CHECK#2\ntry{\n  var s2 = new Object();\n  s2.myToString = Number.prototype.toString;\n  var v2 = s2.myToString(); \n  $ERROR('#2: Number.prototype.toString on not a Number object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#2: Number.prototype.toString on not a Number object should throw TypeError, not '+e);\n  }\n}\n\n",
+    "id": "S15.7.4.2_A4_T04"
+   },
+   {
+    "section": "15.7.4.2",
+    "description": "transferring to the other objects",
+    "test": "//CHECK#1\ntry{\n  var s1 = {x: 1};\n  s1.toString = Number.prototype.toString;\n  var v1 = s1.toString(); \n  $ERROR('#1: Number.prototype.toString on not a Number object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#1: Number.prototype.toString on not a Number object should throw TypeError, not '+e);\n  }\n}\n\n//CHECK#2\ntry{\n  var s2 = {x: 1};\n  s2.myToString = Number.prototype.toString;\n  var v2 = s2.myToString(); \n  $ERROR('#2: Number.prototype.toString on not a Number object should throw TypeError');\n}\ncatch(e){\n  if(!(e instanceof TypeError)){\n    $ERROR('#2: Number.prototype.toString on not a Number object should throw TypeError, not '+e);\n  }\n}\n\n",
+    "id": "S15.7.4.2_A4_T05"
+   }
+  ]
+ }
+}

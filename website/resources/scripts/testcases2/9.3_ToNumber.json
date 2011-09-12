@@ -1,0 +1,80 @@
+{
+ "testCollection": {
+  "name": "9.3_ToNumber",
+  "numTests": 12,
+  "tests": [
+   {
+    "section": "9.3, 15.7.1",
+    "description": "Undefined convert to Number by explicit transformation",
+    "test": "// CHECK#1\nif (isNaN(Number(undefined)) !== true) {\n  $ERROR('#1: Number(undefined) === Not-a-Number. Actual: ' + (Number(undefined)));\n}\n\n// CHECK#2\nif (isNaN(Number(void 0)) !== true) {\n  $ERROR('#2: Number(void 0) === Not-a-Number. Actual: ' + (Number(void 0)));\n}\n\n// CHECK#3\nif (isNaN(Number(eval(\"var x\"))) !== true) {\n  $ERROR('#3: Number(eval(\"var x\")) === Not-a-Number. Actual: ' + (Number(eval(\"var x\"))));\n}\n",
+    "id": "S9.3_A1_T1"
+   },
+   {
+    "section": "9.3, 11.6.1",
+    "description": "Undefined convert to Number by implicit transformation",
+    "test": "// CHECK#1\nif (isNaN(+(undefined)) !== true) {\n  $ERROR('#1: +(undefined) === Not-a-Number. Actual: ' + (+(undefined)));\n}\n\n// CHECK#2\nif (isNaN(+(void 0)) !== true) {\n  $ERROR('#2: +(void 0) === Not-a-Number. Actual: ' + (+(void 0)));\n}\n\n// CHECK#3\nif (isNaN(+(eval(\"var x\"))) !== true) {\n  $ERROR('#3: +(eval(\"var x\")) === Not-a-Number. Actual: ' + (+(eval(\"var x\"))));\n}\n",
+    "id": "S9.3_A1_T2"
+   },
+   {
+    "section": "9.3, 15.7.1",
+    "description": "null convert to Number by explicit transformation",
+    "test": "// CHECK #1\nif (Number(null) !== 0) {\n  $ERROR('#1.1: Number(null) === 0. Actual: ' + (Number(null))); \n} else {\n  if (1/Number(null) !== Number.POSITIVE_INFINITY) {\n    $ERROR('#1.2: Number(null) === +0. Actual: -0');\n  }\t\n}\n",
+    "id": "S9.3_A2_T1"
+   },
+   {
+    "section": "9.3, 11.6.1",
+    "description": "null convert to Number by implicit transformation",
+    "test": "// CHECK #1\nif (+(null) !== 0) {\n  $ERROR('#1.1: +(null) === 0. Actual: ' + (+(null))); \n} else {\n  if (1/+(null) !== Number.POSITIVE_INFINITY) {\n    $ERROR('#1.2: +(null) === +0. Actual: -0');\n  }\t\n}\n",
+    "id": "S9.3_A2_T2"
+   },
+   {
+    "section": "9.3, 15.7.1",
+    "description": "False and true convert to Number by explicit transformation",
+    "test": "// CHECK#1\nif (Number(false) !== +0) {\n  $ERROR('#1.1: Number(false) === 0. Actual: ' + (Number(false)));\n} else {\n  if (1/Number(false) !== Number.POSITIVE_INFINITY) {\n    $ERROR('#1.2: Number(false) === +0. Actual: -0');\n  }\n}\n\n// CHECK#2\nif (Number(true) !== 1) {\n  $ERROR('#2: Number(true) === 1. Actual: ' + (Number(true)));\t\n}\n",
+    "id": "S9.3_A3_T1"
+   },
+   {
+    "section": "9.3, 11.6.1",
+    "description": "False and true convert to Number by implicit transformation",
+    "test": "// CHECK#1\nif (+(false) !== +0) {\n  $ERROR('#1.1: +(false) === 0. Actual: ' + (+(false)));\n} else {\n  if (1/+(false) !== Number.POSITIVE_INFINITY) {\n    $ERROR('#1.2: +(false) === +0. Actual: -0');\n  }\n}\n\n// CHECK#2\nif (+(true) !== 1) {\n  $ERROR('#2: +(true) === 1. Actual: ' + (+(true)));\t\n}\n",
+    "id": "S9.3_A3_T2"
+   },
+   {
+    "section": "9.3, 15.7.1",
+    "description": "Some numbers including Number.MAX_VALUE and Number.MIN_VALUE are converted to Number with explicit transformation",
+    "test": "// CHECK#1\nif (Number(13) !== 13) {\n  $ERROR('#1: Number(13) === 13. Actual: ' + (Number(13)));\n}\n\n// CHECK#2\nif (Number(-13) !== -13) { \n  $ERROR('#2: Number(-13) === -13. Actual: ' + (Number(-13)));\n}\n\n// CHECK#3\nif (Number(1.3) !== 1.3) {\n  $ERROR('#3: Number(1.3) === 1.3. Actual: ' + (Number(1.3)));\n}\n\n// CHECK#4\nif (Number(-1.3) !== -1.3) {\n  $ERROR('#4: Number(-1.3) === -1.3. Actual: ' + (Number(-1.3)));\n}\n\n// CHECK#5\nif (Number(Number.MAX_VALUE) !== 1.7976931348623157e308) {\n  $ERROR('#5: Number(Number.MAX_VALUE) === 1.7976931348623157e308. Actual: ' + (Number(Number.MAX_VALUE)));\n}\n\n// CHECK#6\nif (Number(Number.MIN_VALUE) !== 5e-324) {\n  $ERROR('#6: Number(Number.MIN_VALUE) === 5e-324. Actual: ' + (Number(Number.MIN_VALUE)));\n}\t\n",
+    "id": "S9.3_A4.1_T1"
+   },
+   {
+    "section": "9.3, 11.6.1",
+    "description": "Some numbers including Number.MAX_VALUE and Number.MIN_VALUE are converted to Number with implicit transformation",
+    "test": "// CHECK#1\nif (+(13) !== 13) {\n  $ERROR('#1: +(13) === 13. Actual: ' + (+(13)));\n}\n\n// CHECK#2\nif (+(-13) !== -13) { \n  $ERROR('#2: +(-13) === -13. Actual: ' + (+(-13)));\n}\n\n// CHECK#3\nif (+(1.3) !== 1.3) {\n  $ERROR('#3: +(1.3) === 1.3. Actual: ' + (+(1.3)));\n}\n\n// CHECK#4\nif (+(-1.3) !== -1.3) {\n  $ERROR('#4: +(-1.3) === -1.3. Actual: ' + (+(-1.3)));\n}\n\n// CHECK#5\nif (+(Number.MAX_VALUE) !== 1.7976931348623157e308) {\n  $ERROR('#5: +(Number.MAX_VALUE) === 1.7976931348623157e308. Actual: ' + (+(Number.MAX_VALUE)));\n}\n\n// CHECK#6\nif (+(Number.MIN_VALUE) !== 5e-324) {\n  $ERROR('#6: +(Number.MIN_VALUE) === 5e-324. Actual: ' + (+(Number.MIN_VALUE)));\n}\t\n",
+    "id": "S9.3_A4.1_T2"
+   },
+   {
+    "section": "9.3, 15.7.1",
+    "description": "Number.NaN, +0, -0, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY,\nNumber.MAX_VALUE and Number.MIN_VALUE convert to Number by explicit transformation",
+    "test": "// CHECK#1\nif (isNaN(Number(Number.NaN)) !== true) {\n  $ERROR('#1: Number(NaN) === Not-a-Number. Actual: ' + (Number(NaN))); \n}\n\n// CHECK#2\nif (Number(+0) !== +0) {\n  $ERROR('#2.1: Number(+0) === 0. Actual: ' + (Number(+0))); \n} else {\n  if (1/Number(+0) !== Number.POSITIVE_INFINITY) {\n    $ERROR('#2.2: Number(+0) === +0. Actual: -0');\n  }\t\n}\n\n// CHECK#3\nif (Number(-0) !== -0) {\n  $ERROR('#3.1: Number(-0) === 0. Actual: ' + (Number(-0))); \n} else {\n  if (1/Number(-0) !== Number.NEGATIVE_INFINITY) {\n    $ERROR('#3.2: Number(-0) === -0. Actual: +0');\n  }\t\n}\n\n// CHECK#4\nif (Number(Number.POSITIVE_INFINITY) !== Number.POSITIVE_INFINITY) {\n  $ERROR('#4: Number(+Infinity) === +Infinity. Actual: ' + (Number(+Infinity))); \n}\n\n// CHECK#5\nif (Number(Number.NEGATIVE_INFINITY) !== Number.NEGATIVE_INFINITY) {\n  $ERROR('#5: Number(-Infinity) === -Infinity. Actual: ' + (Number(-Infinity))); \n}\n\n// CHECK#6\nif (Number(Number.MAX_VALUE) !== Number.MAX_VALUE) {\n  $ERROR('#6: Number(Number.MAX_VALUE) === Number.MAX_VALUE. Actual: ' + (Number(Number.MAX_VALUE))); \n}\n\n// CHECK#7\nif (Number(Number.MIN_VALUE) !== Number.MIN_VALUE) {\n  $ERROR('#7: Number(Number.MIN_VALUE) === Number.MIN_VALUE. Actual: ' + (Number(Number.MIN_VALUE))); \n}\n",
+    "id": "S9.3_A4.2_T1"
+   },
+   {
+    "section": "9.3, 11.6.1",
+    "description": "Number.NaN, +0, -0, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY,\nNumber.MAX_VALUE and Number.MIN_VALUE convert to Number by implicit transformation",
+    "test": "// CHECK#1\nif (isNaN(+(Number.NaN)) !== true) {\n  $ERROR('#1: +(NaN) === Not-a-Number. Actual: ' + (+(NaN))); \n}\n\n// CHECK#2\nif (+(+0) !== +0) {\n  $ERROR('#2.1: +(+0) === 0. Actual: ' + (+(+0))); \n} else {\n  if (1/+(+0) !== Number.POSITIVE_INFINITY) {\n    $ERROR('#2.2: +(+0) === +0. Actual: -0');\n  }\t\n}\n\n// CHECK#3\nif (+(-0) !== -0) {\n  $ERROR('#3.1: +(-0) === 0. Actual: ' + (+(-0))); \n} else {\n  if (1/+(-0) !== Number.NEGATIVE_INFINITY) {\n    $ERROR('#3.2: +(-0) === -0. Actual: +0');\n  }\t\n}\n\n// CHECK#4\nif (+(Number.POSITIVE_INFINITY) !== Number.POSITIVE_INFINITY) {\n  $ERROR('#4: +(+Infinity) === +Infinity. Actual: ' + (+(+Infinity))); \n}\n\n// CHECK#5\nif (+(Number.NEGATIVE_INFINITY) !== Number.NEGATIVE_INFINITY) {\n  $ERROR('#5: +(-Infinity) === -Infinity. Actual: ' + (+(-Infinity))); \n}\n\n// CHECK#6\nif (+(Number.MAX_VALUE) !== Number.MAX_VALUE) {\n  $ERROR('#6: +(Number.MAX_VALUE) === Number.MAX_VALUE. Actual: ' + (+(Number.MAX_VALUE))); \n}\n\n// CHECK#7\nif (+(Number.MIN_VALUE) !== Number.MIN_VALUE) {\n  $ERROR('#7: +(Number.MIN_VALUE) === Number.MIN_VALUE. Actual: ' + (+(Number.MIN_VALUE))); \n}\n",
+    "id": "S9.3_A4.2_T2"
+   },
+   {
+    "section": "9.3, 15.7.1",
+    "description": "new Number(), new Number(0), new Number(Number.NaN), new Number(null),\nnew Number(void 0) and others convert to Number by explicit transformation",
+    "test": "// CHECK#1\nif (Number(new Number()) !== 0) {\n  $ERROR('#1: Number(new Number()) === 0. Actual: ' + (Number(new Number())));\n}\n\n// CHECK#2\nif (Number(new Number(0)) !== 0) {\n  $ERROR('#2: Number(new Number(0)) === 0. Actual: ' + (Number(new Number(0))));\n}\n\n// CHECK#3\nif (isNaN(Number(new Number(Number.NaN)) !== true)) {\n  $ERROR('#3: Number(new Number(Number.NaN)) === Not-a-Number. Actual: ' + (Number(new Number(Number.NaN))));\n}\n\n// CHECK#4\nif (Number(new Number(null)) !== 0) {\n  $ERROR('#4.1: Number(new Number(null)) === 0. Actual: ' + (Number(new Number(null)))); \n} else {\n  if (1/Number(new Number(null)) !== Number.POSITIVE_INFINITY) {\n    $ERROR('#4.2: Number(new Number(null)) === +0. Actual: -0');\n  }\t\n}\n\n// CHECK#5\nif (isNaN(Number(new Number(void 0)) !== true)) {\n  $ERROR('#5: Number(new Number(void 0)) === Not-a-Number. Actual: ' + (Number(new Number(void 0))));\n}\n\n// CHECK#6\nif (Number(new Number(true)) !== 1) {\n  $ERROR('#6: Number(new Number(true)) === 1. Actual: ' + (Number(new Number(true))));\n}\n\n// CHECK#7\nif (Number(new Number(false)) !== +0) {\n  $ERROR('#7.1: Number(new Number(false)) === 0. Actual: ' + (Number(new Number(false))));\n} else {\n  if (1/Number(new Number(false)) !== Number.POSITIVE_INFINITY) {\n    $ERROR('#7.2: Number(new Number(false)) === +0. Actual: -0');\n  }\n}\n\n// CHECK#8\nif (Number(new Boolean(true)) !== 1) {\n  $ERROR('#8: Number(new Boolean(true)) === 1. Actual: ' + (Number(new Boolean(true))));\n}\n\n// CHECK#9\nif (Number(new Boolean(false)) !== +0) {\n  $ERROR('#9.1: Number(new Boolean(false)) === 0. Actual: ' + (Number(new Boolean(false))));\n} else {\n  if (1/Number(new Boolean(false)) !== Number.POSITIVE_INFINITY) {\n    $ERROR('#9.2: Number(new Boolean(false)) === +0. Actual: -0');\n  }\n}\n\n// CHECK#10\nif (isNaN(Number(new Array(2,4,8,16,32))) !== true) {\n  $ERROR('#10: Number(new Array(2,4,8,16,32)) === Not-a-Number. Actual: ' + (Number(new Array(2,4,8,16,32))));\n}\n\n// CHECK#11\nvar myobj1 = {\n                ToNumber : function(){return 12345;}, \n                toString : function(){return \"67890\";},\n                valueOf  : function(){return \"[object MyObj]\";} \n            };\n\nif (isNaN(Number(myobj1)) !== true){\n  $ERROR(\"#11: Number(myobj1) calls ToPrimitive with hint Number. Actual: \" + (Number(myobj1)));\n}\n\n// CHECK#12\nvar myobj2 = {\n                ToNumber : function(){return 12345;}, \n                toString : function(){return \"67890\";},\n                valueOf  : function(){return \"9876543210\";} \n            };\n\nif (Number(myobj2) !== 9876543210){\n  $ERROR(\"#12: Number(myobj2) calls ToPrimitive with hint Number. Exptected: 9876543210. Actual: \" + (Number(myobj2)));\n}\n\n\n// CHECK#13\nvar myobj3 = {\n                ToNumber : function(){return 12345;}, \n                toString : function(){return \"[object MyObj]\";} \n            };\n\nif (isNaN(Number(myobj3)) !== true){\n  $ERROR(\"#13: Number(myobj3) calls ToPrimitive with hint Number. Exptected: Not-a-Number.  Actual: \" + (Number(myobj3)));\n}\n\n// CHECK#14\nvar myobj4 = {\n                ToNumber : function(){return 12345;}, \n                toString : function(){return \"67890\";} \n            };\n\nif (Number(myobj4) !== 67890){\n  $ERROR(\"#14: Number(myobj4) calls ToPrimitive with hint Number. Exptected: 67890.  Actual: \" + (Number(myobj4)));\n}\n\n// CHECK#15\nvar myobj5 = {\n                ToNumber : function(){return 12345;} \n            };\n\nif (isNaN(Number(myobj5)) !== true){\n  $ERROR(\"#15: Number(myobj5) calls ToPrimitive with hint Number. Exptected: Not-a-Number.  Actual: \" + (Number(myobj5)));\n}\n",
+    "id": "S9.3_A5_T1"
+   },
+   {
+    "section": "9.3, 11.6.1",
+    "description": "new Number(), new Number(0), new Number(Number.NaN), new Number(null),\nnew Number(void 0) and others convert to Number by implicit transformation",
+    "test": "// CHECK#1\nif (+(new Number()) !== 0) {\n  $ERROR('#1: +(new Number()) === 0. Actual: ' + (+(new Number())));\n}\n\n// CHECK#2\nif (+(new Number(0)) !== 0) {\n  $ERROR('#2: +(new Number(0)) === 0. Actual: ' + (+(new Number(0))));\n}\n\n// CHECK#3\nif (isNaN(+(new Number(Number.NaN)) !== true)) {\n  $ERROR('#3: +(new Number(Number.NaN)) === Not-a-Number. Actual: ' + (+(new Number(Number.NaN))));\n}\n\n// CHECK#4\nif (+(new Number(null)) !== 0) {\n  $ERROR('#4.1: +(new Number(null)) === 0. Actual: ' + (+(new Number(null)))); \n} else {\n  if (1/+(new Number(null)) !== Number.POSITIVE_INFINITY) {\n    $ERROR('#4.2: +(new Number(null)) === +0. Actual: -0');\n  }\t\n}\n\n// CHECK#5\nif (isNaN(+(new Number(void 0)) !== true)) {\n  $ERROR('#5: +(new Number(void 0)) === Not-a-Number. Actual: ' + (+(new Number(void 0))));\n}\n\n// CHECK#6\nif (+(new Number(true)) !== 1) {\n  $ERROR('#6: +(new Number(true)) === 1. Actual: ' + (+(new Number(true))));\n}\n\n// CHECK#7\nif (+(new Number(false)) !== +0) {\n  $ERROR('#7.1: +(new Number(false)) === 0. Actual: ' + (+(new Number(false))));\n} else {\n  if (1/+(new Number(false)) !== Number.POSITIVE_INFINITY) {\n    $ERROR('#7.2: +(new Number(false)) === +0. Actual: -0');\n  }\n}\n\n// CHECK#8\nif (+(new Boolean(true)) !== 1) {\n  $ERROR('#8: +(new Boolean(true)) === 1. Actual: ' + (+(new Boolean(true))));\n}\n\n// CHECK#9\nif (+(new Boolean(false)) !== +0) {\n  $ERROR('#9.1: +(new Boolean(false)) === 0. Actual: ' + (+(new Boolean(false))));\n} else {\n  if (1/+(new Boolean(false)) !== Number.POSITIVE_INFINITY) {\n    $ERROR('#9.2: +(new Boolean(false)) === +0. Actual: -0');\n  }\n}\n\n// CHECK#10\nif (isNaN(+(new Array(2,4,8,16,32))) !== true) {\n  $ERROR('#10: +(new Array(2,4,8,16,32)) === Not-a-Number. Actual: ' + (+(new Array(2,4,8,16,32))));\n}\n\n// CHECK#11\nvar myobj1 = {\n                ToNumber : function(){return 12345;}, \n                toString : function(){return \"67890\";},\n                valueOf  : function(){return \"[object MyObj]\";} \n            };\n\nif (isNaN(+(myobj1)) !== true){\n  $ERROR(\"#11: +(myobj1) calls ToPrimitive with hint +. Exptected: Not-a-Number. Actual: \" + (+(myobj1)));\n}\n\n// CHECK#12\nvar myobj2 = {\n                ToNumber : function(){return 12345;}, \n                toString : function(){return \"67890\";},\n                valueOf  : function(){return \"9876543210\";} \n            };\n\nif (+(myobj2) !== 9876543210){\n  $ERROR(\"#12: +(myobj2) calls ToPrimitive with hint +. Exptected: 9876543210. Actual: \" + (+(myobj2)));\n}\n\n\n// CHECK#13\nvar myobj3 = {\n                ToNumber : function(){return 12345;}, \n                toString : function(){return \"[object MyObj]\";} \n            };\n\nif (isNaN(+(myobj3)) !== true){\n  $ERROR(\"#13: +(myobj3) calls ToPrimitive with hint +. Exptected: Not-a-Number. Actual: \" + (+(myobj3)));\n}\n\n// CHECK#14\nvar myobj4 = {\n                ToNumber : function(){return 12345;}, \n                toString : function(){return \"67890\";} \n            };\n\nif (+(myobj4) !== 67890){\n  $ERROR(\"#14: +(myobj4) calls ToPrimitive with hint +. Exptected: 67890. Actual: \" + (+(myobj4)));\n}\n\n// CHECK#15\nvar myobj5 = {\n                ToNumber : function(){return 12345;} \n            };\n\nif (isNaN(+(myobj5)) !== true){\n  $ERROR(\"#15: +(myobj5) calls ToPrimitive with hint +. Exptected: 12345. Actual: \" + (+(myobj5)));\n}\n",
+    "id": "S9.3_A5_T2"
+   }
+  ]
+ }
+}

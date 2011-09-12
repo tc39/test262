@@ -1,0 +1,50 @@
+{
+ "testCollection": {
+  "name": "15.9.5.29_Date.prototype.setUTCMilliseconds",
+  "numTests": 7,
+  "tests": [
+   {
+    "section": "15.9.5.29",
+    "description": "Checking absence of ReadOnly attribute",
+    "test": "x = Date.prototype.setUTCMilliseconds;\nif(x === 1)\n  Date.prototype.setUTCMilliseconds = 2;\nelse\n  Date.prototype.setUTCMilliseconds = 1;\nif (Date.prototype.setUTCMilliseconds === x) {\n  $ERROR('#1: The Date.prototype.setUTCMilliseconds has not the attribute ReadOnly');\n}\n\n",
+    "id": "S15.9.5.29_A1_T1"
+   },
+   {
+    "section": "15.9.5.29",
+    "description": "Checking absence of DontDelete attribute",
+    "test": "if (delete Date.prototype.setUTCMilliseconds  === false) {\n  $ERROR('#1: The Date.prototype.setUTCMilliseconds property has not the attributes DontDelete');\n}\n\nif (Date.prototype.hasOwnProperty('setUTCMilliseconds')) {\n  $FAIL('#2: The Date.prototype.setUTCMilliseconds property has not the attributes DontDelete');\n}\n\n",
+    "id": "S15.9.5.29_A1_T2"
+   },
+   {
+    "section": "15.9.5.29",
+    "description": "Checking DontEnum attribute",
+    "test": "if (Date.prototype.propertyIsEnumerable('setUTCMilliseconds')) {\n  $ERROR('#1: The Date.prototype.setUTCMilliseconds property has the attribute DontEnum');\n}\n\nfor(x in Date.prototype) {\n  if(x === \"setUTCMilliseconds\") {\n    $ERROR('#2: The Date.prototype.setUTCMilliseconds has the attribute DontEnum');\n  }\n}\n\n",
+    "id": "S15.9.5.29_A1_T3"
+   },
+   {
+    "section": "15.9.5.29",
+    "description": "The \"length\" property of the \"setUTCMilliseconds\" is 1",
+    "test": "if(Date.prototype.setUTCMilliseconds.hasOwnProperty(\"length\") !== true){\n  $ERROR('#1: The setUTCMilliseconds has a \"length\" property');\n}\n\nif(Date.prototype.setUTCMilliseconds.length !== 1){\n  $ERROR('#2: The \"length\" property of the setUTCMilliseconds is 1');\n}\n\n",
+    "id": "S15.9.5.29_A2_T1"
+   },
+   {
+    "section": "15.9.5.29",
+    "description": "Checking ReadOnly attribute",
+    "test": "x = Date.prototype.setUTCMilliseconds.length;\nDate.prototype.setUTCMilliseconds.length = 1;\nif (Date.prototype.setUTCMilliseconds.length !== x) {\n  $ERROR('#1: The Date.prototype.setUTCMilliseconds.length has the attribute ReadOnly');\n}\n\n",
+    "id": "S15.9.5.29_A3_T1"
+   },
+   {
+    "section": "15.9.5.29",
+    "description": "Checking DontDelete attribute",
+    "test": "if (delete Date.prototype.setUTCMilliseconds.length  !== false) {\n  $ERROR('#1: The Date.prototype.setUTCMilliseconds.length property has the attributes DontDelete');\n}\n\nif (!Date.prototype.setUTCMilliseconds.hasOwnProperty('length')) {\n  $FAIL('#2: The Date.prototype.setUTCMilliseconds.length property has the attributes DontDelete');\n}\n\n",
+    "id": "S15.9.5.29_A3_T2"
+   },
+   {
+    "section": "15.9.5.29",
+    "description": "Checking DontEnum attribute",
+    "test": "if (Date.prototype.setUTCMilliseconds.propertyIsEnumerable('length')) {\n  $ERROR('#1: The Date.prototype.setUTCMilliseconds.length property has the attribute DontEnum');\n}\n\nfor(x in Date.prototype.setUTCMilliseconds) {\n  if(x === \"length\") {\n    $ERROR('#2: The Date.prototype.setUTCMilliseconds.length has the attribute DontEnum');\n  }\n}\n\n",
+    "id": "S15.9.5.29_A3_T3"
+   }
+  ]
+ }
+}

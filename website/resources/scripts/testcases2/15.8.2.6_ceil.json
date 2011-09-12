@@ -1,0 +1,50 @@
+{
+ "testCollection": {
+  "name": "15.8.2.6_ceil",
+  "numTests": 7,
+  "tests": [
+   {
+    "section": "15.8.2.6",
+    "description": "Checking if Math.ceil(NaN) is NaN",
+    "test": "// CHECK#1\nvar x = NaN;\nif (!isNaN(Math.ceil(x)))\n{\n\t$ERROR(\"#1: 'var x=NaN; isNaN(Math.ceil(x)) === false'\");\n}\n",
+    "id": "S15.8.2.6_A1"
+   },
+   {
+    "section": "15.8.2.6",
+    "description": "Checking if Math.ceil(x) is +0, where x is +0",
+    "test": "// CHECK#1\nvar x = +0;\nif (Math.ceil(x) !== +0)\n{\n\t$ERROR(\"#1: 'var x = +0; Math.ceil(x) !== +0'\");\n}\n",
+    "id": "S15.8.2.6_A2"
+   },
+   {
+    "section": "15.8.2.6",
+    "description": "Checking if Math.ceil(x) is -0, where x is -0",
+    "test": "// CHECK#1\nvar x = -0;\nif (Math.ceil(x) !== -0)\n{\n\t$ERROR(\"#1: 'var x = -0; Math.ceil(x) !== -0'\");\n}\n",
+    "id": "S15.8.2.6_A3"
+   },
+   {
+    "section": "15.8.2.6",
+    "description": "Checking if Math.ceil(x) is +Infinity, where x is +Infinity",
+    "test": "// CHECK#1\nvar x = +Infinity;\nif (Math.ceil(x) !== +Infinity)\n{\n\t$ERROR(\"#1: 'var x = +Infinity; Math.ceil(x) !== +Infinity'\");\n}\n",
+    "id": "S15.8.2.6_A4"
+   },
+   {
+    "section": "15.8.2.6",
+    "description": "Checking if Math.ceil(x) is -Infinity, where x is -Infinity",
+    "test": "// CHECK#1\nvar x = -Infinity;\nif (Math.ceil(x) !== -Infinity)\n{\n\t$ERROR(\"#1: 'var x = -Infinity; Math.ceil(x) !== -Infinity'\");\n}\n",
+    "id": "S15.8.2.6_A5"
+   },
+   {
+    "section": "15.8.2.6",
+    "description": "Checking if Math.ceil(x) is -0, where x is less than 0 but greater than -1",
+    "test": "// CHECK#1\nvar x = -0.000000000000001;\nif (Math.ceil(x) !== -0)\n{\n\t$ERROR(\"#1: 'var x = -0.000000000000001; Math.ceil(x) !== -0'\");\n}\n\n// CHECK#2\nvar x = -0.999999999999999;\nif (Math.ceil(x) !== -0)\n{\n\t$ERROR(\"#2: 'var x = -0.999999999999999; Math.ceil(x) !== -0'\");\n}\n\n// CHECK#3\nvar x = -0.5;\nif (Math.ceil(x) !== -0)\n{\n\t$ERROR(\"#3: 'var x = -0.5; Math.ceil(x) !== -0'\");\n}\n",
+    "id": "S15.8.2.6_A6"
+   },
+   {
+    "section": "15.8.2.6",
+    "description": "Checking if Math.ceil(x) equals to -Math.floor(-x) on 2000 floating point argument values",
+    "test": "// CHECK#1\nfor (i=-1000; i<1000; i++)\n{\n\tx = i/10.0;\n\tif (Math.ceil(x) !== -Math.floor(-x))\n\t{\n\t\t$ERROR(\"#1: 'x = \" + x + \"; Math.ceil(x) !== -Math.floor(-x)'\");\n\t}\n}\n",
+    "id": "S15.8.2.6_A7"
+   }
+  ]
+ }
+}

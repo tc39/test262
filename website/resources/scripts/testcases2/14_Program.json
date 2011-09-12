@@ -1,0 +1,38 @@
+{
+ "testCollection": {
+  "name": "14_Program",
+  "numTests": 5,
+  "tests": [
+   {
+    "section": "14",
+    "description": "Declaring a function within an \"if\" Expression",
+    "test": "var THERE = \"I'm there\";\nvar HERE = \"I'm here\";\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif ( __func !== undefined) {\n\t$ERROR('#1: __func === undefined. Actual:  __func ==='+ __func  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nif (true){\n    var __func = function(){return HERE;};\n} else {\n    var __func = function (){return THERE;};\n};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__func() !== HERE) {\n\t$ERROR('#2: __func() === HERE. Actual:  __func() ==='+ __func()  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S14_A1"
+   },
+   {
+    "section": "14",
+    "description": "Declaring a function within an \"if\" Expression",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (typeof f !== 'undefined') {\n\t$ERROR('#1: typeof f === \\'undefined\\'. Actual:  typeof f ==='+ typeof f  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (function f(arg){\n\tif (arg===0)\n\t   return 1;\n\telse\n\t   return f(arg-1)*arg;\n}(3)!==6) {\n\t$ERROR('#2: FunctionDeclaration cannot be localed inside an Expression');\n};\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S14_A2"
+   },
+   {
+    "section": "14",
+    "description": "Declaring a function within the body of another function",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (typeof __func !== \"function\") {\n\t$ERROR('#1: typeof __func === \"function\". Actual:  typeof __func ==='+ typeof __func  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (typeof __gunc !== \"undefined\") {\n\t$ERROR('#2: typeof __gunc === \"undefined\". Actual:  typeof __gunc ==='+ typeof __gunc  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nfunction __func(){\n    function __gunc(){return true};\n}\n",
+    "id": "S14_A3"
+   },
+   {
+    "section": "14",
+    "description": "Declaring a function with \"function __\\u0066\\u0075\\u006e\\u0063(){return \"both\"}\"",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__func() !== \"both\") {\n\t$ERROR('#1: __func() === \"both\". Actual:  __func() ==='+ __func()  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nfunction __func(){return \"ascii\"};\nfunction \\u005f\\u005f\\u0066\\u0075\\u006e\\u0063(){return \"unicode\"};//__func in unicode\nfunction __\\u0066\\u0075\\u006e\\u0063(){return \"both\"};//__func in unicode\n",
+    "id": "S14_A5_T1"
+   },
+   {
+    "section": "14",
+    "description": "Declaring a function with \"function \\u005f\\u005f\\u0066\\u0075\\u006e\\u0063(){return \"unicode\"}\"",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__func() !== \"unicode\") {\n\t$ERROR('#1: __func() === \"unicode\". Actual:  __func() ==='+ __func()  );\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nfunction __func(){return \"ascii\"};\nfunction \\u005f\\u005f\\u0066\\u0075\\u006e\\u0063(){return \"unicode\"};//__func in unicode\n",
+    "id": "S14_A5_T2"
+   }
+  ]
+ }
+}

@@ -1,0 +1,183 @@
+{
+ "testCollection": {
+  "name": "7.5.2_Keywords",
+  "numTests": 25,
+  "tests": [
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"break=1\" fails",
+    "negative": "",
+    "test": "break = 1;\n",
+    "id": "S7.5.2_A1.1"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"for=1\" fails",
+    "negative": "",
+    "test": "for = 1;\n",
+    "id": "S7.5.2_A1.10"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"function=1\" fails",
+    "negative": "",
+    "test": "function = 1;\n",
+    "id": "S7.5.2_A1.11"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"if=1\" fails",
+    "negative": "",
+    "test": "if = 1;\n",
+    "id": "S7.5.2_A1.12"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"in=1\" fails",
+    "negative": "",
+    "test": "in = 1;\n",
+    "id": "S7.5.2_A1.13"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"instanceof=1\" fails",
+    "negative": "",
+    "test": "instanceof = 1;\n",
+    "id": "S7.5.2_A1.14"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"new=1\" fails",
+    "negative": "",
+    "test": "new = 1;\n",
+    "id": "S7.5.2_A1.15"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"return=1\" fails",
+    "negative": "",
+    "test": "return = 1;\n",
+    "id": "S7.5.2_A1.16"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"switch=1\" fails",
+    "negative": "",
+    "test": "switch = 1;\n",
+    "id": "S7.5.2_A1.17"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"this=1\" fails",
+    "negative": "",
+    "test": "this = 1;\n",
+    "id": "S7.5.2_A1.18"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"throw=1\" fails",
+    "negative": "",
+    "test": "throw = 1;\n",
+    "id": "S7.5.2_A1.19"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"case=1\" fails",
+    "negative": "",
+    "test": "case = 1;\n",
+    "id": "S7.5.2_A1.2"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"try=1\" fails",
+    "negative": "",
+    "test": "try = 1;\n",
+    "id": "S7.5.2_A1.20"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"typeof=1\" fails",
+    "negative": "",
+    "test": "typeof = 1;\n",
+    "id": "S7.5.2_A1.21"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"var=1\" fails",
+    "negative": "",
+    "test": "var = 1;\n",
+    "id": "S7.5.2_A1.22"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"void=1\" fails",
+    "negative": "",
+    "test": "void = 1;\n",
+    "id": "S7.5.2_A1.23"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"while=1\" fails",
+    "negative": "",
+    "test": "while = 1;\n",
+    "id": "S7.5.2_A1.24"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"with=1\" fails",
+    "negative": "",
+    "test": "with = 1;\n",
+    "id": "S7.5.2_A1.25"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"catch=1\" fails",
+    "negative": "",
+    "test": "catch = 1;\n",
+    "id": "S7.5.2_A1.3"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"contunue=1\" fails",
+    "negative": "",
+    "test": "continue = 1;\n",
+    "id": "S7.5.2_A1.4"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"default=1\" fails",
+    "negative": "",
+    "test": "default = 1;\n",
+    "id": "S7.5.2_A1.5"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"delete=1\" fails",
+    "negative": "",
+    "test": "delete = 1;\n",
+    "id": "S7.5.2_A1.6"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"do=1\" fails",
+    "negative": "",
+    "test": "do = 1;\n",
+    "id": "S7.5.2_A1.7"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"else=1\" fails",
+    "negative": "",
+    "test": "else = 1;\n",
+    "id": "S7.5.2_A1.8"
+   },
+   {
+    "section": "7.5.2",
+    "description": "Checking if execution of \"finally=1\" fails",
+    "negative": "",
+    "test": "finally = 1;\n",
+    "id": "S7.5.2_A1.9"
+   }
+  ]
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "testCollection": {
+  "name": "15.3.3_Properties_of_the_Function_Constructor",
+  "numTests": 4,
+  "tests": [
+   {
+    "section": "15.3.3",
+    "description": "Checking existence of the property \"prototype\"",
+    "test": "if(!Function.hasOwnProperty(\"prototype\")){\n  $ERROR('#1: The Function constructor has the property \"prototype\"');\n}\n\n",
+    "id": "S15.3.3_A1"
+   },
+   {
+    "section": "15.3.3, 15.3.4",
+    "description": "Checking prototype of Function",
+    "test": "// CHECK#\nif (!(Function.prototype.isPrototypeOf(Function))) {\n  $ERROR('#1: the value of the internal [[Prototype]] property of the Function constructor is the Function prototype object.');\n}\n",
+    "id": "S15.3.3_A2_T1"
+   },
+   {
+    "section": "15.3.3, 15.3.4",
+    "description": "Add new property to Function.prototype and check it",
+    "test": "Function.prototype.indicator = 1;\n\n//CHECK#\nif (Function.indicator != 1) {\n  $ERROR('#1: the value of the internal [[Prototype]] property of the Function constructor is the Function prototype object.');\n}\n",
+    "id": "S15.3.3_A2_T2"
+   },
+   {
+    "section": "15.3.3, 15.3.4",
+    "description": "Checking Function.length property",
+    "test": "//CHECK#1\nif (!Function.hasOwnProperty(\"length\")){\n  $ERROR('#1: Function constructor has length property');\n}\n\n//CHECK#2\nif (Function.length !== 1) {\n  $ERROR('#2: Function constructor length property value is 1');\n}\n",
+    "id": "S15.3.3_A3"
+   }
+  ]
+ }
+}

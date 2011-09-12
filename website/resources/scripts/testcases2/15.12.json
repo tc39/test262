@@ -1,0 +1,36 @@
+{
+ "testCollection": {
+  "name": "15.12",
+  "numTests": 4,
+  "tests": [
+   {
+    "id": "15.12-0-1",
+    "path": "TestCases/chapter15/15.12/15.12-0-1.js",
+    "description": "JSON must be a built-in object",
+    "test": "assertTrue((function testcase() {\n  var o = JSON;\n  if (typeof(o) === \"object\") {  \n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(JSON !== undefined)"
+   },
+   {
+    "id": "15.12-0-2",
+    "path": "TestCases/chapter15/15.12/15.12-0-2.js",
+    "description": "JSON must not support the [[Construct]] method",
+    "test": "assertTrue((function testcase() {\n  var o = JSON;\n\n  try {\n    var j = new JSON();\n  }\n  catch (e) {\n    if (e instanceof TypeError) {\n      return true;\n    }\n  }\n }).call(this));\n",
+    "precondition": "(JSON !== undefined)"
+   },
+   {
+    "id": "15.12-0-3",
+    "path": "TestCases/chapter15/15.12/15.12-0-3.js",
+    "description": "JSON must not support the [[Call]] method",
+    "test": "assertTrue((function testcase() {\n  var o = JSON;\n\n  try {\n    var j = JSON();\n  }\n  catch (e) {\n    if (e instanceof TypeError) {\n      return true;\n    }\n  }\n }).call(this));\n",
+    "precondition": "(JSON !== undefined)"
+   },
+   {
+    "id": "15.12-0-4",
+    "path": "TestCases/chapter15/15.12/15.12-0-4.js",
+    "description": "JSON object's properties must be non enumerable",
+    "test": "assertTrue((function testcase() { \n  var o = JSON;\n  var i = 0;\n  for (var p in o) {\n    i++;\n  }\n    \n  if (i === 0) {\n    return true;\n  }\n }).call(this));\n",
+    "precondition": "(JSON !== undefined)"
+   }
+  ]
+ }
+}

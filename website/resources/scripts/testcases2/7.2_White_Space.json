@@ -1,0 +1,280 @@
+{
+ "testCollection": {
+  "name": "7.2_White_Space",
+  "numTests": 45,
+  "tests": [
+   {
+    "section": "7.2, 7.5",
+    "description": "Insert HORIZONTAL TAB(\\u0009 and \\t) between tokens of var x=1",
+    "test": "// CHECK#1\neval(\"\\u0009var\\u0009x\\u0009=\\u00091\\u0009\");\nif (x !== 1) {\n  $ERROR('#1: eval(\"\\\\u0009var\\\\u0009x\\\\u0009=\\\\u00091\\\\u0009\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#2\neval(\"\\u0009\" + \"var\" + \"\\u0009\" + \"x\" + \"\\u0009\" + \"=\" + \"\\u0009\" + \"1\" + \"\\u0009\");\nif (x !== 1) {\n  $ERROR('#2: eval(\"\\\\u0009\" + \"var\" + \"\\\\u0009\" + \"x\" + \"\\\\u0009\" + \"=\" + \"\\\\u0009\" + \"1\" + \"\\\\u0009\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#3\neval(\"\\tvar\\tx\\t=\\t1\\t\");\nif (x !== 1) {\n  $ERROR('#3: eval(\"\\\\tvar\\\\tx\\\\t=\\\\t1\\\\t\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#4\neval(\"\\t\" + \"var\" + \"\\t\" + \"x\" + \"\\t\" + \"=\" + \"\\t\" + \"1\" + \"\\t\");\nif (x !== 1) {\n  $ERROR('#4: eval(\"\\\\t\" + \"var\" + \"\\\\t\" + \"x\" + \"\\\\t\" + \"=\" + \"\\\\t\" + \"1\" + \"\\\\t\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#5\neval(\"\\u0009\" + \"var\" + \"\\t\" + \"x\" + \"\\u0009\" + \"=\" + \"\\t\" + \"1\" + \"\\u0009\");\nif (x !== 1) {\n  $ERROR('#5: eval(\"\\\\u0009\" + \"var\" + \"\\\\t\" + \"x\" + \"\\\\u0009\" + \"=\" + \"\\\\t\" + \"1\" + \"\\\\u0009\"); x === 1. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A1.1_T1"
+   },
+   {
+    "section": "7.2, 7.5",
+    "description": "Insert real HORIZONTAL TAB between tokens of var x=1",
+    "test": "//CHECK#1\n\tvar  x\t=\t1\t;\nif (x !== 1) {\n  $ERROR('#1: \tvar\tx\t=\t1\t; x === 1. Actual: ' + (x));\n}\n\n//CHECK#2\neval(\"\tvar\\tx\t=\\t2\t\");\nif (x !== 2) {\n  $ERROR('#2: \tvar\\\\tx\t=\\\\t1\t; x === 2. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A1.1_T2"
+   },
+   {
+    "section": "7.2, 7.5",
+    "description": "Insert VERTICAL TAB(\\u000B and \\v) between tokens of var x=1",
+    "test": "// CHECK#1\neval(\"\\u000Bvar\\u000Bx\\u000B=\\u000B1\\u000B\");\nif (x !== 1) {\n  $ERROR('#1: eval(\"\\\\u000Bvar\\\\u000Bx\\\\u000B=\\\\u000B1\\\\u000B\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#2\neval(\"\\u000B\" + \"var\" + \"\\u000B\" + \"x\" + \"\\u000B\" + \"=\" + \"\\u000B\" + \"1\" + \"\\u000B\");\nif (x !== 1) {\n  $ERROR('#2: eval(\"\\\\u000B\" + \"var\" + \"\\\\u000B\" + \"x\" + \"\\\\u000B\" + \"=\" + \"\\\\u000B\" + \"1\" + \"\\\\u000B\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#3\neval(\"\\vvar\\vx\\v=\\v1\\v\");\nif (x !== 1) {\n  $ERROR('#3: eval(\"\\\\vvar\\\\vx\\\\v=\\\\v1\\\\v\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#4\neval(\"\\v\" + \"var\" + \"\\v\" + \"x\" + \"\\v\" + \"=\" + \"\\v\" + \"1\" + \"\\v\");\nif (x !== 1) {\n  $ERROR('#4: eval(\"\\\\v\" + \"var\" + \"\\\\v\" + \"x\" + \"\\\\v\" + \"=\" + \"\\\\v\" + \"1\" + \"\\\\v\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#5\neval(\"\\u000B\" + \"var\" + \"\\v\" + \"x\" + \"\\u000B\" + \"=\" + \"\\v\" + \"1\" + \"\\u000B\");\nif (x !== 1) {\n  $ERROR('#5: eval(\"\\\\u000B\" + \"var\" + \"\\\\v\" + \"x\" + \"\\\\u000B\" + \"=\" + \"\\\\v\" + \"1\" + \"\\\\u000B\"); x === 1. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A1.2_T1"
+   },
+   {
+    "section": "7.2, 7.5",
+    "description": "Insert real VERTICAL TAB between tokens of var x=1",
+    "test": "//CHECK#1\n\u000bvar\u000bx\u000b=\u000b1\u000b;\nif (x !== 1) {\n  $ERROR('#1: \u000bvar\u000bx\u000b=\u000b1\u000b; x === 1. Actual: ' + (x));\n}\n\n//CHECK#2\neval(\"\u000bvar\\vx\u000b=\\v1\u000b\");\nif (x !== 1) {\n  $ERROR('#2: \u000bvar\\\\vx\u000b=\\\\v1\u000b; x === 1. Actual: ' + (x));\n}\n\n",
+    "id": "S7.2_A1.2_T2"
+   },
+   {
+    "section": "7.2, 7.5",
+    "description": "Insert FORM FEED(\\u000C and \\f) between tokens of var x=1",
+    "test": "// CHECK#1\neval(\"\\u000Cvar\\u000Cx\\u000C=\\u000C1\\u000C\");\nif (x !== 1) {\n  $ERROR('#1: eval(\"\\\\u000Cvar\\\\u000Cx\\\\u000C=\\\\u000C1\\\\u000C\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#2\neval(\"\\u000C\" + \"var\" + \"\\u000C\" + \"x\" + \"\\u000C\" + \"=\" + \"\\u000C\" + \"1\" + \"\\u000C\");\nif (x !== 1) {\n  $ERROR('#2: eval(\"\\\\u000C\" + \"var\" + \"\\\\u000C\" + \"x\" + \"\\\\u000C\" + \"=\" + \"\\\\u000C\" + \"1\" + \"\\\\u000C\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#3\neval(\"\\fvar\\fx\\f=\\f1\\f\");\nif (x !== 1) {\n  $ERROR('#3: eval(\"\\\\fvar\\\\fx\\\\f=\\\\f1\\\\f\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#4\neval(\"\\f\" + \"var\" + \"\\f\" + \"x\" + \"\\f\" + \"=\" + \"\\f\" + \"1\" + \"\\f\");\nif (x !== 1) {\n  $ERROR('#4: eval(\"\\\\f\" + \"var\" + \"\\\\f\" + \"x\" + \"\\\\f\" + \"=\" + \"\\\\f\" + \"1\" + \"\\\\f\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#5\neval(\"\\u000C\" + \"var\" + \"\\f\" + \"x\" + \"\\u000C\" + \"=\" + \"\\f\" + \"1\" + \"\\u000C\");\nif (x !== 1) {\n  $ERROR('#5: eval(\"\\\\u000C\" + \"var\" + \"\\\\f\" + \"x\" + \"\\\\u000C\" + \"=\" + \"\\\\f\" + \"1\" + \"\\\\u000C\"); x === 1. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A1.3_T1"
+   },
+   {
+    "section": "7.2, 7.5",
+    "description": "Insert real FORM FEED between tokens of var x=1",
+    "test": "//CHECK#1\n\fvar\fx\f=\f1\f;\nif (x !== 1) {\n  $ERROR('#1: \fvar\fx\f=\f1\f; x === 1. Actual: ' + (x));\n}\n\n//CHECK#2\neval(\"\fvar\\fx\f=\\f1\f\");\nif (x !== 1) {\n  $ERROR('#2: \fvar\\\\fx\f=\\\\f1\f; x === 1. Actual: ' + (x));\n}\n\n",
+    "id": "S7.2_A1.3_T2"
+   },
+   {
+    "section": "7.2, 7.5",
+    "description": "Insert SPACE(\\u0020) between tokens of var x=1",
+    "test": "// CHECK#1\neval(\"\\u0020var\\u0020x\\u0020=\\u00201\\u0020\");\nif (x !== 1) {\n  $ERROR('#1: eval(\"\\\\u0020var\\\\u0020x\\\\u0020=\\\\u00201\\\\u0020\"); x === 1;');\n}\n\n//CHECK#2\neval(\"\\u0020\" + \"var\" + \"\\u0020\" + \"x\" + \"\\u0020\" + \"=\" + \"\\u0020\" + \"1\" + \"\\u0020\");\nif (x !== 1) {\n  $ERROR('#2: eval(\"\\\\u0020\" + \"var\" + \"\\\\u0020\" + \"x\" + \"\\\\u0020\" + \"=\" + \"\\\\u0020\" + \"1\" + \"\\\\u0020\"); x === 1. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A1.4_T1"
+   },
+   {
+    "section": "7.2, 7.5",
+    "description": "Insert real SPACE between tokens of var x=1",
+    "test": "//CHECK#1\neval(\"\\u0020var x\\u0020= 1\\u0020\");\nif (x !== 1) {\n  $ERROR('#1: eval(\"\\\\u0020var x\\\\u0020= 1\\\\u0020\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#2\n var x = 1 ;\nif (x !== 1) {\n  $ERROR('#2:  var x = 1 ; x === 1. Actual: ' + (x));\n}\n\n",
+    "id": "S7.2_A1.4_T2"
+   },
+   {
+    "section": "7.2, 7.5",
+    "description": "Insert NO-BREAK SPACE(\\u00A0) between tokens of var x=1",
+    "test": "// CHECK#1\neval(\"\\u00A0var\\u00A0x\\u00A0=\\u00A01\\u00A0\");\nif (x !== 1) {\n  $ERROR('#1: eval(\"\\\\u00A0var\\\\u00A0x\\\\u00A0=\\\\u00A01\\\\u00A0\"); x === 1. Actual: ' + (x));\n}\n\n//CHECK#2\neval(\"\\u00A0\" + \"var\" + \"\\u00A0\" + \"x\" + \"\\u00A0\" + \"=\" + \"\\u00A0\" + \"1\" + \"\\u00A0\");\nif (x !== 1) {\n  $ERROR('#2: eval(\"\\\\u00A0\" + \"var\" + \"\\\\u00A0\" + \"x\" + \"\\\\u00A0\" + \"=\" + \"\\\\u00A0\" + \"1\" + \"\\\\u00A0\"); x === 1. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A1.5_T1"
+   },
+   {
+    "test": "��/"
+   },
+   {
+    "section": "7.2, 7.8.4",
+    "description": "Use HORIZONTAL TAB(\\u0009 and \\t)",
+    "test": "// CHECK#1\nif (eval(\"'\\u0009str\\u0009ing\\u0009'\") !== \"\\u0009str\\u0009ing\\u0009\") {\n  $ERROR('#1: eval(\"\\'\\\\u0009str\\\\u0009ing\\\\u0009\\'\") === \"\\\\u0009str\\\\u0009ing\\\\u0009\"');\n}\n\n//CHECK#2\nif (eval(\"'\\tstr\\ting\\t'\") !== \"\\tstr\\ting\\t\") {\n  $ERROR('#2: eval(\"\\'\\\\tstr\\\\ting\\\\t\\'\") === \"\\\\tstr\\\\ting\\\\t\"');\n}\n",
+    "id": "S7.2_A2.1_T1"
+   },
+   {
+    "section": "7.2, 7.8.4",
+    "description": "Use real HORIZONTAL TAB",
+    "test": "//CHECK#1\nif (\"\tstr\ting\t\" !== \"\\u0009str\\u0009ing\\u0009\") {\n  $ERROR('#1: \"\tstr\ting\t\" === \"\\\\u0009str\\\\u0009ing\\\\u0009\"');\n}\n",
+    "id": "S7.2_A2.1_T2"
+   },
+   {
+    "section": "7.2, 7.8.4",
+    "description": "Use VERTICAL TAB(\\u000B and \\v)",
+    "test": "// CHECK#1\nif (eval(\"'\\u000Bstr\\u000Bing\\u000B'\") !== \"\\u000Bstr\\u000Bing\\u000B\") {\n  $ERROR('#1: eval(\"\\'\\\\u000Bstr\\\\u000Bing\\\\u000B\\'\") === \"\\\\u000Bstr\\\\u000Bing\\\\u000B\"');\n}\n\n//CHECK#2\nif (eval(\"'\\vstr\\ving\\v'\") !== \"\\vstr\\ving\\v\") {\n  $ERROR('#2: eval(\"\\'\\\\vstr\\\\ving\\\\v\\'\") === \"\\\\vstr\\\\ving\\\\v\"');\n}\n",
+    "id": "S7.2_A2.2_T1"
+   },
+   {
+    "section": "7.2, 7.8.4",
+    "description": "Use real VERTICAL TAB",
+    "test": "//CHECK#1\nif (\"\u000bstr\u000bing\u000b\" !== \"\\u000Bstr\\u000Bing\\u000B\") {\n  $ERROR('#1: \"\u000bstr\u000bing\u000b\" === \"\\\\u000Bstr\\\\u000Bing\\\\u000B\"');\n}\n",
+    "id": "S7.2_A2.2_T2"
+   },
+   {
+    "section": "7.2, 7.8.4",
+    "description": "Use FORM FEED(\\u000C and \\f)",
+    "test": "// CHECK#1\nif (eval(\"'\\u000Cstr\\u000Cing\\u000C'\") !== \"\\u000Cstr\\u000Cing\\u000C\") {\n  $ERROR('#1: eval(\"\\'\\\\u000Cstr\\\\u000Cing\\\\u000C\\'\") === \"\\\\u000Cstr\\\\u000Cing\\\\u000C\"');\n}\n\n//CHECK#2\nif (eval(\"'\\fstr\\fing\\f'\") !== \"\\fstr\\fing\\f\") {\n  $ERROR('#2: eval(\"\\'\\\\fstr\\\\fing\\\\f\\'\") === \"\\\\fstr\\\\fing\\\\f\"');\n}\n",
+    "id": "S7.2_A2.3_T1"
+   },
+   {
+    "section": "7.2, 7.8.4",
+    "description": "Use real FORM FEED",
+    "test": "//CHECK#1\nif (\"\fstr\fing\f\" !== \"\\u000Cstr\\u000Cing\\u000C\") {\n  $ERROR('#1: \"\fstr\fing\f\" === \"\\\\u000Cstr\\\\u000Cing\\\\u000C\"');\n}\n",
+    "id": "S7.2_A2.3_T2"
+   },
+   {
+    "section": "7.2, 7.8.4",
+    "description": "Use SPACE(\\u0020)",
+    "test": "// CHECK#1\nif (eval(\"'\\u0020str\\u0020ing\\u0020'\") !== \"\\u0020str\\u0020ing\\u0020\") {\n  $ERROR('#1: eval(\"\\'\\\\u0020str\\\\u0020ing\\\\u0020\\'\") === \"\\\\u0020str\\\\u0020ing\\\\u0020\"');\n}\n\n//CHECK#2\nif (eval(\"' str ing '\") !== \" str ing \") {\n  $ERROR('#2: eval(\"\\' str ing \\'\") === \" str ing \"');\n}\n",
+    "id": "S7.2_A2.4_T1"
+   },
+   {
+    "section": "7.2, 7.8.4",
+    "description": "Use real SPACE",
+    "test": "//CHECK#1\nif (\" str ing \" !== \"\\u0020str\\u0020ing\\u0020\") {\n  $ERROR('#1: \" str ing \" === \"\\\\u0020str\\\\u0020ing\\\\u0020\"');\n}\n",
+    "id": "S7.2_A2.4_T2"
+   },
+   {
+    "section": "7.2, 7.8.4",
+    "description": "Use NO-BREAK SPACE(\\u00A0)",
+    "test": "// CHECK#1\nif (eval(\"'\\u00A0str\\u00A0ing\\u00A0'\") !== \"\\u00A0str\\u00A0ing\\u00A0\") {\n  $ERROR('#1: eval(\"\\'\\\\u00A0str\\\\u00A0ing\\\\u00A0\\'\") === \"\\\\u00A0str\\\\u00A0ing\\\\u00A0\"');\n}\n",
+    "id": "S7.2_A2.5_T1"
+   },
+   {
+    "section": "7.2, 7.8.4",
+    "description": "Use real NO-BREAK SPACE",
+    "test": "//CHECK#1\nif (\" str ing \" !== \"\\u00A0str\\u00A0ing\\u00A0\") {\n  $ERROR('#1: \" str ing \" === \"\\\\u00A0str\\\\u00A0ing\\\\u00A0\"');\n}\n",
+    "id": "S7.2_A2.5_T2"
+   },
+   {
+    "section": "7.2, 7.4",
+    "description": "Use HORIZONTAL TAB(\\u0009)",
+    "test": "// CHECK#1\neval(\"//\\u0009 single line \\u0009 comment \\u0009\");\n\n//CHECK#2\nvar x = 0;\neval(\"//\\u0009 single line \\u0009 comment \\u0009 x = 1;\");\nif (x !== 0) {\n  $ERROR('#1: var x = 0; eval(\"//\\\\u0009 single line \\\\u0009 comment \\\\u0009 x = 1;\"); x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A3.1_T1"
+   },
+   {
+    "section": "7.2, 7.4",
+    "description": "Use real HORIZONTAL TAB",
+    "test": "//CHECK#1\nvar x = 0;\n//\tsingle\tline\tcomment\tx = 1;\nif (x !== 0) {\n  $ERROR('#1: var x = 0; //\tsingle\tline\tcomment\tx = 1; x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A3.1_T2"
+   },
+   {
+    "section": "7.2, 7.4",
+    "description": "Use VERTICAL TAB(\\u000B)",
+    "test": "// CHECK#1\neval(\"//\\u000B single line \\u000B comment \\u000B\");\n\n//CHECK#2\nvar x = 0;\neval(\"//\\u000B single line \\u000B comment \\u000B x = 1;\");\nif (x !== 0) {\n  $ERROR('#1: var x = 0; eval(\"//\\\\u000B single line \\\\u000B comment \\\\u000B x = 1;\"); x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A3.2_T1"
+   },
+   {
+    "section": "7.2, 7.4",
+    "description": "Use real VERTICAL TAB",
+    "test": "//CHECK#1\nvar x = 0;\n//\fsingle\fline\fcomment\fx = 1;\nif (x !== 0) {\n  $ERROR('#1: var x = 0; //\fsingle\fline\fcomment\fx = 1; x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A3.2_T2"
+   },
+   {
+    "section": "7.2, 7.4",
+    "description": "Use FORM FEED(\\u000C)",
+    "test": "// CHECK#1\neval(\"//\\u000C single line \\u000C comment \\u000C\");\n\n//CHECK#2\nvar x = 0;\neval(\"//\\u000C single line \\u000C comment \\u000C x = 1;\");\nif (x !== 0) {\n  $ERROR('#1: var x = 0; eval(\"//\\\\u000C single line \\\\u000C comment \\\\u000C x = 1;\"); x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A3.3_T1"
+   },
+   {
+    "section": "7.2, 7.4",
+    "description": "Use real FORM FEED",
+    "test": "//CHECK#1\nvar x = 0;\n//\u000bsingle\u000bline\u000bcomment\u000bx = 1;\nif (x !== 0) {\n  $ERROR('#1: var x = 0; //\u000bsingle\u000bline\u000bcomment\u000bx = 1; x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A3.3_T2"
+   },
+   {
+    "section": "7.2, 7.4",
+    "description": "Use SPACE(\\u0020)",
+    "test": "// CHECK#1\neval(\"//\\u0020 single line \\u0020 comment \\u0020\");\n\n//CHECK#2\nvar x = 0;\neval(\"//\\u0020 single line \\u0020 comment \\u0020 x = 1;\");\nif (x !== 0) {\n  $ERROR('#1: var x = 0; eval(\"//\\\\u0020 single line \\\\u0020 comment \\\\u0020 x = 1;\"); x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A3.4_T1"
+   },
+   {
+    "section": "7.2, 7.4",
+    "description": "Use real SPACE",
+    "test": "//CHECK#1\nvar x = 0;\n// single line comment x = 1;\nif (x !== 0) {\n  $ERROR('#1: var x = 0; // single line comment x = 1; x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A3.4_T2"
+   },
+   {
+    "section": "7.2, 7.4",
+    "description": "Use NO-BREAK SPACE(\\u00A0)",
+    "test": "// CHECK#1\neval(\"//\\u00A0 single line \\u00A0 comment \\u00A0\");\n\n//CHECK#2\nvar x = 0;\neval(\"//\\u00A0 single line \\u00A0 comment \\u00A0 x = 1;\");\nif (x !== 0) {\n  $ERROR('#1: var x = 0; eval(\"//\\\\u00A0 single line \\\\u00A0 comment \\\\u00A0 x = 1;\"); x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A3.5_T1"
+   },
+   {
+    "section": "7.2, 7.4",
+    "description": "Use real NO-BREAK SPACE",
+    "test": "//CHECK#1\nvar x = 0;\n// single line comment x = 1;\nif (x !== 0) {\n  $ERROR('#1: var x = 0; // single line comment x = 1; x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A3.5_T2"
+   },
+   {
+    "section": "7.2, 7.4",
+    "description": "Use HORIZONTAL TAB(\\u0009)",
+    "test": "// CHECK#1\neval(\"/*\\u0009 multi line \\u0009 comment \\u0009*/\");\n\n//CHECK#2\nvar x = 0;\neval(\"/*\\u0009 multi line \\u0009 comment \\u0009 x = 1;*/\");\nif (x !== 0) {\n  $ERROR('#1: var x = 0; eval(\"/*\\\\u0009 multi line \\\\u0009 comment \\\\u0009 x = 1;*/\"); x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A4.1_T1"
+   },
+   {
+    "section": "7.2, 7.4",
+    "description": "Use real HORIZONTAL TAB",
+    "test": "/*CHECK#1*/\nvar x = 0;\n/*\tmulti\tline\tcomment\tx = 1;*/\nif (x !== 0) {\n  $ERROR('#1: var x = 0; /*\tmulti\tline\tcomment\tx = 1;*/ x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A4.1_T2"
+   },
+   {
+    "section": "7.2, 7.4",
+    "description": "Use VERTICAL TAB(\\u000B)",
+    "test": "// CHECK#1\neval(\"/*\\u000B multi line \\u000B comment \\u000B*/\");\n\n//CHECK#2\nvar x = 0;\neval(\"/*\\u000B multi line \\u000B comment \\u000B x = 1;*/\");\nif (x !== 0) {\n  $ERROR('#1: var x = 0; eval(\"/*\\\\u000B multi line \\\\u000B comment \\\\u000B x = 1;*/\"); x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A4.2_T1"
+   },
+   {
+    "section": "7.2, 7.4",
+    "description": "Use real VERTICAL TAB",
+    "test": "/*CHECK#1*/\nvar x = 0;\n/*\fmulti\fline\fcomment\fx = 1;*/\nif (x !== 0) {\n  $ERROR('#1: var x = 0; /*\fmulti\fline\fcomment\fx = 1;*/ x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A4.2_T2"
+   },
+   {
+    "section": "7.2, 7.4",
+    "description": "Use FORM FEED(\\u000C)",
+    "test": "// CHECK#1\neval(\"/*\\u000C multi line \\u000C comment \\u000C*/\");\n\n//CHECK#2\nvar x = 0;\neval(\"/*\\u000C multi line \\u000C comment \\u000C x = 1;*/\");\nif (x !== 0) {\n  $ERROR('#1: var x = 0; eval(\"/*\\\\u000C multi line \\\\u000C comment \\\\u000C x = 1;*/\"); x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A4.3_T1"
+   },
+   {
+    "section": "7.2, 7.4",
+    "description": "Use real FORM FEED",
+    "test": "/*CHECK#1*/\nvar x = 0;\n/*\u000bmulti\u000bline\u000bcomment\u000bx = 1;*/\nif (x !== 0) {\n  $ERROR('#1: var x = 0; /*\u000bmulti\u000bline\u000bcomment\u000bx = 1;*/ x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A4.3_T2"
+   },
+   {
+    "section": "7.2, 7.4",
+    "description": "Use SPACE(\\u0020)",
+    "test": "// CHECK#1\neval(\"/*\\u0020 multi line \\u0020 comment \\u0020*/\");\n\n//CHECK#2\nvar x = 0;\neval(\"/*\\u0020 multi line \\u0020 comment \\u0020 x = 1;*/\");\nif (x !== 0) {\n  $ERROR('#1: var x = 0; eval(\"/*\\\\u0020 multi line \\\\u0020 comment \\\\u0020 x = 1;*/\"); x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A4.4_T1"
+   },
+   {
+    "section": "7.2, 7.4",
+    "description": "Use real SPACE",
+    "test": "/*CHECK#1*/\nvar x = 0;\n/* multi line comment x = 1;*/\nif (x !== 0) {\n  $ERROR('#1: var x = 0; /* multi line comment x = 1;*/ x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A4.4_T2"
+   },
+   {
+    "section": "7.2, 7.4",
+    "description": "Use NO-BREAK SPACE(\\u00A0)",
+    "test": "// CHECK#1\neval(\"/*\\u00A0 multi line \\u00A0 comment \\u00A0*/\");\n\n//CHECK#2\nvar x = 0;\neval(\"/*\\u00A0 multi line \\u00A0 comment \\u00A0 x = 1;*/\");\nif (x !== 0) {\n  $ERROR('#1: var x = 0; eval(\"/*\\\\u00A0 multi line \\\\u00A0 comment \\\\u00A0 x = 1;*/\"); x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A4.5_T1"
+   },
+   {
+    "section": "7.2, 7.4",
+    "description": "Use real NO-BREAK SPACE",
+    "test": "/*CHECK#1*/\nvar x = 0;\n/* multi line comment x = 1;*/\nif (x !== 0) {\n  $ERROR('#1: var x = 0; /* multi line comment x = 1;*/ x === 0. Actual: ' + (x));\n}\n",
+    "id": "S7.2_A4.5_T2"
+   },
+   {
+    "section": "7.2",
+    "description": "Use TAB (U+0009)",
+    "negative": "",
+    "test": "var\\u0009x;\n",
+    "id": "S7.2_A5_T1"
+   },
+   {
+    "section": "7.2",
+    "description": "Use VERTICAL TAB (U+000B)",
+    "negative": "",
+    "test": "var\\u000Bx;\n",
+    "id": "S7.2_A5_T2"
+   },
+   {
+    "section": "7.2",
+    "description": "Use FORM FEED (U+000C)",
+    "negative": "",
+    "test": "var\\u000Cx;\n",
+    "id": "S7.2_A5_T3"
+   },
+   {
+    "section": "7.2",
+    "description": "Use SPACE (U+0020)",
+    "negative": "",
+    "test": "var\\u0020x;\n",
+    "id": "S7.2_A5_T4"
+   },
+   {
+    "section": "7.2",
+    "description": "Use NO-BREAK SPACE (U+00A0)",
+    "negative": "",
+    "test": "var\\u00A0x;\n",
+    "id": "S7.2_A5_T5"
+   }
+  ]
+ }
+}

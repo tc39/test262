@@ -1,0 +1,90 @@
+{
+ "testCollection": {
+  "name": "15.4.4.2_Array_prototype_toString",
+  "numTests": 13,
+  "tests": [
+   {
+    "section": "15.4.4.2",
+    "description": "If Result(2) is zero, return the empty string",
+    "test": "//CHECK#1\nvar x = new Array();\nif (x.toString() !== x.join()) {\n  $ERROR('#1.1: x = new Array(); x.toString() === x.join(). Actual: ' + (x.toString()));\n}  else {\n  if (x.toString() !== \"\") {\n    $ERROR('#1.2: x = new Array(); x.toString() === \"\". Actual: ' + (x.toString()));\n  }  \n}  \n\n//CHECK#2\nx = [];\nx[0] = 1;\nx.length = 0;\nif (x.toString() !== x.join()) {\n  $ERROR('#2.1: x = []; x[0] = 1; x.length = 0; x.toString() === x.join(). Actual: ' + (x.toString()));\n} else {\n  if (x.toString() !== \"\") {\n    $ERROR('#2.2: x = []; x[0] = 1; x.length = 0; x.toString() === \"\". Actual: ' + (x.toString()));\n  }  \n}    \n",
+    "id": "S15.4.4.2_A1_T1"
+   },
+   {
+    "section": "15.4.4.2",
+    "description": "The elements of the array are converted to strings, and these strings are\nthen concatenated, separated by occurrences of the separator. If no separator is provided,\na single comma is used as the separator",
+    "test": "//CHECK#1\nvar x = new Array(0,1,2,3);\nif (x.toString() !== x.join()) {\n  $ERROR('#1.1: x = new Array(0,1,2,3); x.toString() === x.join(). Actual: ' + (x.toString()));\n} else {\n  if (x.toString() !== \"0,1,2,3\") {\n    $ERROR('#1.2: x = new Array(0,1,2,3); x.toString() === \"0,1,2,3\". Actual: ' + (x.toString()));\n  }\n}\n\n//CHECK#2\nx = [];\nx[0] = 0;\nx[3] = 3;\nif (x.toString() !== x.join()) {\n  $ERROR('#2.1: x = []; x[0] = 0; x[3] = 3; x.toString() === x.join(). Actual: ' + (x.toString()));\n} else {\n  if (x.toString() !== \"0,,,3\") {\n    $ERROR('#2.2: x = []; x[0] = 0; x[3] = 3; x.toString() === \"0,,,3\". Actual: ' + (x.toString()));\n  }\n}\n\n//CHECK#3\nx = Array(undefined,1,null,3);\nif (x.toString() !== x.join()) {\n  $ERROR('#3.1: x = Array(undefined,1,null,3); x.toString() === x.join(). Actual: ' + (x.toString()));\n} else {\n  if (x.toString() !== \",1,,3\") {\n    $ERROR('#3.2: x = Array(undefined,1,null,3); x.toString() === \",1,,3\". Actual: ' + (x.toString()));\n  }\n}\n\n//CHECK#4\nx = [];\nx[0] = 0;\nif (x.toString() !== x.join()) {\n  $ERROR('#4.1: x = []; x[0] = 0; x.toString() === x.join(). Actual: ' + (x.toString()));\n} else {\n  if (x.toString() !== \"0\") {\n    $ERROR('#4.2: x = []; x[0] = 0; x.toString() === \"0\". Actual: ' + (x.toString()));\n  }\n}\n",
+    "id": "S15.4.4.2_A1_T2"
+   },
+   {
+    "section": "15.4.4.2",
+    "description": "Operator use ToString from array arguments",
+    "test": "//CHECK#0\nvar x = new Array(\"\",\"\",\"\");\nif (x.toString() !== x.join()) {\n  $ERROR('#0.1: var x = new Array(\"\",\"\",\"\"); x.toString() === x.join(). Actual: ' + (x.toString()));\n} else {\n  if (x.toString() !== \",,\") {\n    $ERROR('#0.2: var x = new Array(\"\",\"\",\"\"); x.toString() === \",,\". Actual: ' + (x.toString()));\n  }\n}\n\n//CHECK#1\nvar x = new Array(\"\\\\\",\"\\\\\",\"\\\\\");\nif (x.toString() !== x.join()) {\n  $ERROR('#1.1: var x = new Array(\"\\\\\",\"\\\\\",\"\\\\\"); x.toString() === x.join(). Actual: ' + (x.toString()));\n} else {\n  if (x.toString() !== \"\\\\,\\\\,\\\\\") {\n    $ERROR('#1.2: var x = new Array(\"\\\\\",\"\\\\\",\"\\\\\"); x.toString() === \"\\\\,\\\\,\\\\\". Actual: ' + (x.toString()));\n  } \n}\n\n//CHECK#2\nvar x = new Array(\"&\", \"&\", \"&\");\nif (x.toString() !== x.join()) {\n  $ERROR('#2.1: var x = new Array(\"&\", \"&\", \"&\"); x.toString() === x.join(). Actual: ' + (x.toString()));\n} else {\n  if (x.toString() !== \"&,&,&\") {\n    $ERROR('#2.2: var x = new Array(\"&\", \"&\", \"&\"); x.toString() === \"&,&,&\". Actual: ' + (x.toString()));\n  }\n}\n\n//CHECK#3\nvar x = new Array(true,true,true);\nif (x.toString() !== x.join()) {\n  $ERROR('#3.1: var x = new Array(true,true,true); x.toString(true,true,true) === x.join(). Actual: ' + (x.toString(true,true,true)));\n} else {\n  if (x.toString() !== \"true,true,true\") {\n    $ERROR('#3.2: var x = new Array(true,true,true); x.toString(true,true,true) === \"true,true,true\". Actual: ' + (x.toString(true,true,true)));\n  }\n}\n\n//CHECK#4\nvar x = new Array(null,null,null);\nif (x.toString() !== x.join()) {\n  $ERROR('#4.1: var x = new Array(null,null,null); x.toString(null,null,null) === x.join(). Actual: ' + (x.toString(null,null,null)));\n} else {\n  if (x.toString() !== \",,\") {\n    $ERROR('#4.2: var x = new Array(null,null,null); x.toString(null,null,null) === \",,\". Actual: ' + (x.toString(null,null,null)));\n  }\n}\n\n//CHECK#5\nvar x = new Array(undefined,undefined,undefined);\nif (x.toString() !== x.join()) {\n  $ERROR('#5.1: var x = new Array(undefined,undefined,undefined); x.toString(undefined,undefined,undefined) === x.join(). Actual: ' + (x.toString(undefined,undefined,undefined)));\n} else {\n  if (x.toString() !== \",,\") {\n    $ERROR('#5.2: var x = new Array(undefined,undefined,undefined); x.toString(undefined,undefined,undefined) === \",,\". Actual: ' + (x.toString(undefined,undefined,undefined)));\n  }\n}\n\n//CHECK#6\nvar x = new Array(Infinity,Infinity,Infinity);\nif (x.toString() !== x.join()) {\n  $ERROR('#6.1: var x = new Array(Infinity,Infinity,Infinity); x.toString(Infinity,Infinity,Infinity) === x.join(). Actual: ' + (x.toString(Infinity,Infinity,Infinity)));\n} else {\n  if (x.toString() !== \"Infinity,Infinity,Infinity\") {\n    $ERROR('#6.2: var x = new Array(Infinity,Infinity,Infinity); x.toString(Infinity,Infinity,Infinity) === \"Infinity,Infinity,Infinity\". Actual: ' + (x.toString(Infinity,Infinity,Infinity)));\n  }\n}\n\n//CHECK#7\nvar x = new Array(NaN,NaN,NaN);\nif (x.toString() !== x.join()) {\n  $ERROR('#7.1: var x = new Array(NaN,NaN,NaN); x.toString(NaN,NaN,NaN) === x.join(). Actual: ' + (x.toString(NaN,NaN,NaN)));\n} else {\n  if (x.toString() !== \"NaN,NaN,NaN\") {\n    $ERROR('#7.2: var x = new Array(NaN,NaN,NaN); x.toString(NaN,NaN,NaN) === \"NaN,NaN,NaN\". Actual: ' + (x.toString(NaN,NaN,NaN)));\n  }\n}   \n",
+    "id": "S15.4.4.2_A1_T3"
+   },
+   {
+    "section": "15.4.4.2",
+    "description": "If Type(value) is Object, evaluate ToPrimitive(value, String)",
+    "test": "//CHECK#1\nvar object = {valueOf: function() {return \"+\"}};\nvar x = new Array(object);\nif (x.toString() !== x.join()) {\n  $ERROR('#1.1: var object = {valueOf: function() {return \"+\"}} var x = new Array(object); x.toString() === x.join(). Actual: ' + (x.toString()));\n} else {\n  if (x.toString() !== \"[object Object]\") {\n    $ERROR('#1.2: var object = {valueOf: function() {return \"+\"}} var x = new Array(object); x.toString() === \"[object Object]\". Actual: ' + (x.toString()));\n  }\n}\n\n//CHECK#2\nvar object = {valueOf: function() {return \"+\"}, toString: function() {return \"*\"}};\nvar x = new Array(object);\nif (x.toString() !== x.join()) {\n  $ERROR('#2.1: var object = {valueOf: function() {return \"+\"}, toString: function() {return x.join()}} var x = new Array(object); x.toString() === \"*\". Actual: ' + (x.toString()));\n} else {\n  if (x.toString() !== \"*\") {\n    $ERROR('#2.2: var object = {valueOf: function() {return \"+\"}, toString: function() {return \"*\"}} var x = new Array(object); x.toString() === \"*\". Actual: ' + (x.toString()));\n  } \n} \n\n//CHECK#3\nvar object = {valueOf: function() {return \"+\"}, toString: function() {return {}}};\nvar x = new Array(object);\nif (x.toString() !== x.join()) {\n  $ERROR('#3.1: var object = {valueOf: function() {return x.join()}, toString: function() {return {}}} var x = new Array(object); x.toString() === \"+\". Actual: ' + (x.toString()));\n} else {\n  if (x.toString() !== \"+\") {\n    $ERROR('#3.2: var object = {valueOf: function() {return \"+\"}, toString: function() {return {}}} var x = new Array(object); x.toString() === \"+\". Actual: ' + (x.toString()));\n  }\n}\n\n//CHECK#4\ntry {\n  var object = {valueOf: function() {throw \"error\"}, toString: function() {return \"*\"}};\n  var x = new Array(object);\n  if (x.toString() !== x.join()) {\n    $ERROR('#4.1: var object = {valueOf: function() {throw \"error\"}, toString: function() {return x.join()}} var x = new Array(object); x.toString() === \"*\". Actual: ' + (x.toString()));\n  } else {\n    if (x.toString() !== \"*\") {\n      $ERROR('#4.2: var object = {valueOf: function() {throw \"error\"}, toString: function() {return \"*\"}} var x = new Array(object); x.toString() === \"*\". Actual: ' + (x.toString()));\n    }\n  }\n}\ncatch (e) {\n  if (e === \"error\") {\n    $ERROR('#4.3: var object = {valueOf: function() {throw \"error\"}, toString: function() {return \"*\"}} var x = new Array(object); x.toString() not throw \"error\"');\n  } else {\n    $ERROR('#4.4: var object = {valueOf: function() {throw \"error\"}, toString: function() {return \"*\"}} var x = new Array(object); x.toString() not throw Error. Actual: ' + (e));\n  }\n}\n\n//CHECK#5\nvar object = {toString: function() {return \"*\"}};\nvar x = new Array(object);\nif (x.toString() !== x.join()) {\n  $ERROR('#5.1: var object = {toString: function() {return x.join()}} var x = new Array(object); x.toString() === \"*\". Actual: ' + (x.toString()));\n} else {\n  if (x.toString() !== \"*\") {\n    $ERROR('#5.2: var object = {toString: function() {return \"*\"}} var x = new Array(object); x.toString() === \"*\". Actual: ' + (x.toString()));\n  }\n}\n\n//CHECK#6\nvar object = {valueOf: function() {return {}}, toString: function() {return \"*\"}}\nvar x = new Array(object);\nif (x.toString() !== x.join()) {\n  $ERROR('#6.1: var object = {valueOf: function() {return {}}, toString: function() {return x.join()}} var x = new Array(object); x.toString() === \"*\". Actual: ' + (x.toString()));\n} else {\n  if (x.toString() !== \"*\") {\n    $ERROR('#6.2: var object = {valueOf: function() {return {}}, toString: function() {return \"*\"}} var x = new Array(object); x.toString() === \"*\". Actual: ' + (x.toString()));\n  }\n}\n\n//CHECK#7\ntry {\n  var object = {valueOf: function() {return \"+\"}, toString: function() {throw \"error\"}};\n  var x = new Array(object);\n  x.toString();\n  $ERROR('#7.1: var object = {valueOf: function() {return \"+\"}, toString: function() {throw \"error\"}} var x = new Array(object); x.toString() throw \"error\". Actual: ' + (x.toString()));\n}  \ncatch (e) {\n  if (e !== \"error\") {\n    $ERROR('#7.2: var object = {valueOf: function() {return \"+\"}, toString: function() {throw \"error\"}} var x = new Array(object); x.toString() throw \"error\". Actual: ' + (e));\n  } \n}\n\n//CHECK#8\ntry {\n  var object = {valueOf: function() {return {}}, toString: function() {return {}}};\n  var x = new Array(object);\n  x.toString();\n  $ERROR('#8.1: var object = {valueOf: function() {return {}}, toString: function() {return {}}} var x = new Array(object); x.toString() throw TypeError. Actual: ' + (x.toString()));\n}  \ncatch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#8.2: var object = {valueOf: function() {return {}}, toString: function() {return {}}} var x = new Array(object); x.toString() throw TypeError. Actual: ' + (e));\n  } \n}\n",
+    "id": "S15.4.4.2_A1_T4"
+   },
+   {
+    "section": "15.4.4.2",
+    "description": "{}.toString = Array.prototype.toString",
+    "test": "var obj = {};\nobj.toString = Array.prototype.toString;\n\n//CHECK#1\ntry {\n  obj.toString();\n  $ERROR('#1.1: var obj = {}; obj.toString = Array.prototype.toString; obj.toString() throw TypeError. Actual: ' + (obj.toString()));\n} catch(e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#1.2: var obj = {}; obj.toString = Array.prototype.toString; obj.toString() throw TypeError. Actual: ' + (e));\n  }\n}\n\nobj[0] = 1;\nobj.length = 1;\n\n//CHECK#2\ntry {\n  obj.toString();\n  $ERROR('#2.1: var obj = {}; obj.toString = Array.prototype.toString; obj[0] = 1; obj.length = 1; obj.toString() throw TypeError. Actual: ' + (obj.toString()));\n} catch(e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#2.2: var obj = {}; obj.toString = Array.prototype.toString; obj[0] = 1; obj.length = 1; obj.toString() throw TypeError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.4.4.2_A2_T1"
+   },
+   {
+    "section": "15.4.4.2, 8.6.2.1",
+    "description": "[[Prototype]] of Array instance is Array.prototype",
+    "test": "//CHECK#1\nArray.prototype[1] = 1;\nvar x = [0];\nx.length = 2;\nif (x.toString() !== \"0,1\") {  \n  $ERROR('#1: Array.prototype[1] = 1; x = [0]; x.length = 2; x.toString() === \"0,1\". Actual: ' + (x.toString()));    \n}\n",
+    "id": "S15.4.4.2_A3_T1"
+   },
+   {
+    "section": "15.4.4.2, 15.2.4.7, 12.6.4",
+    "description": "Checking use propertyIsEnumerable, for-in",
+    "test": "//CHECK#1\nif (Array.prototype.toString.propertyIsEnumerable('length') !== false) {\n  $ERROR('#1: Array.prototype.toString.propertyIsEnumerable(\\'length\\') === false. Actual: ' + (Array.prototype.toString.propertyIsEnumerable('length')));\n}\n\n//CHECK#2\nvar result = true;\nfor (var p in Array.toString){\n  if (p === \"length\") {\n    result = false;\n  }  \n}\n\nif (result !== true) {\n  $ERROR('#2: result = true; for (p in Array.toString) { if (p === \"length\") result = false; }  result === true;');\n}\n\n",
+    "id": "S15.4.4.2_A4.1"
+   },
+   {
+    "section": "15.4.4.2, 15.2.4.5, 11.4.1",
+    "description": "Checking use hasOwnProperty, delete",
+    "strict_mode_negative": "",
+    "test": "//CHECK#1\nif (Array.prototype.toString.hasOwnProperty('length') !== true) {\n  $FAIL('#1: Array.prototype.toString.hasOwnProperty(\\'length\\') === true. Actual: ' + (Array.prototype.toString.hasOwnProperty('length')));\n}\n\ndelete Array.prototype.toString.length;\n\n//CHECK#2\nif (Array.prototype.toString.hasOwnProperty('length') !== true) {\n  $ERROR('#2: delete Array.prototype.toString.length; Array.prototype.toString.hasOwnProperty(\\'length\\') === true. Actual: ' + (Array.prototype.toString.hasOwnProperty('length')));\n}\n\n//CHECK#3\nif (Array.prototype.toString.length === undefined) {\n  $ERROR('#3: delete Array.prototype.toString.length; Array.prototype.toString.length !== undefined');\n}\n\n\n",
+    "id": "S15.4.4.2_A4.2",
+    "strict_only": ""
+   },
+   {
+    "section": "15.4.4.2",
+    "description": "Checking if varying the length property fails",
+    "strict_mode_negative": "",
+    "test": "//CHECK#1\nvar x = Array.prototype.toString.length;\nArray.prototype.toString.length = Infinity;\nif (Array.prototype.toString.length !== x) {\n  $ERROR('#1: x = Array.prototype.toString.length; Array.prototype.toString.length = Infinity; Array.prototype.toString.length === x. Actual: ' + (Array.prototype.toString.length));\n}\n\n",
+    "id": "S15.4.4.2_A4.3",
+    "strict_only": ""
+   },
+   {
+    "section": "15.4.4.2",
+    "description": "toString.length === 1",
+    "test": "//CHECK#1\nif (Array.prototype.toString.length !== 0) {\n  $ERROR('#1: Array.prototype.toString.length === 0. Actual: ' + (Array.prototype.toString.length));\n}\n\n",
+    "id": "S15.4.4.2_A4.4"
+   },
+   {
+    "section": "15.4.4.2, 15.2.4.7, 12.6.4",
+    "description": "Checking use propertyIsEnumerable, for-in",
+    "test": "//CHECK#1\nif (Array.propertyIsEnumerable('toString') !== false) {\n  $ERROR('#1: Array.propertyIsEnumerable(\\'toString\\') === false. Actual: ' + (Array.propertyIsEnumerable('toString')));\n}\n\n//CHECK#2\nvar result = true;\nfor (var p in Array){\n  if (p === \"toString\") {\n    result = false;\n  }  \n}\n\nif (result !== true) {\n  $ERROR('#2: result = true; for (p in Array) { if (p === \"toString\") result = false; }  result === true;');\n}\n\n",
+    "id": "S15.4.4.2_A4.5"
+   },
+   {
+    "section": "15.4.4.2",
+    "description": "Checking Array.prototype.toString.prototype",
+    "test": "//CHECK#1\nif (Array.prototype.toString.prototype !== undefined) {\n  $ERROR('#1: Array.prototype.toString.prototype === undefined. Actual: ' + (Array.prototype.toString.prototype));\n}\n",
+    "id": "S15.4.4.2_A4.6"
+   },
+   {
+    "section": "15.4.4.2, 11.2.2",
+    "description": "If property does not implement the internal [[Construct]] method, throw a TypeError exception",
+    "test": "//CHECK#1\n\ntry {\n  new Array.prototype.toString();\n  $ERROR('#1.1: new Array.prototype.toString() throw TypeError. Actual: ' + (new Array.prototype.toString()));\n} catch (e) {\n  if ((e instanceof TypeError) !== true) {\n    $ERROR('#1.2: new Array.prototype.toString() throw TypeError. Actual: ' + (e));\n  }\n}\n",
+    "id": "S15.4.4.2_A4.7"
+   }
+  ]
+ }
+}

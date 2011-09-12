@@ -1,0 +1,422 @@
+{
+ "testCollection": {
+  "name": "13.2_Creating_Function_Objects",
+  "numTests": 69,
+  "tests": [
+   {
+    "section": "13.2.1",
+    "description": "Creating function calls 32 elements depth",
+    "test": "(function(){\n    (function(){\n        (function(){\n            (function(){\n                (function(){\n                    (function(){\n                        (function(){\n                            (function(){\n                                (function(){\n                                    (function(){\n                                        (function(){\n                                            (function(){\n                                                (function(){\n                                                    (function(){\n                                                        (function(){\n                                                            (function(){\n                                                                (function(){\n                                                                    (function(){\n                                                                        (function(){\n                                                                            (function(){\n                                                                                (function(){\n                                                                                    (function(){\n                                                                                        (function(){\n                                                                                            (function(){\n                                                                                                (function(){\n                                                                                                    (function(){\n                                                                                                        (function(){\n                                                                                                            (function(){\n                                                                                                                (function(){\n                                                                                                                    (function(){\n                                                                                                                        (function(){\n                                                                                                                            (function(){})()\n                                                                                                                        })()\n                                                                                                                    })()\n                                                                                                                })()\n                                                                                                            })()\n                                                                                                        })()\n                                                                                                    })()\n                                                                                                })()\n                                                                                            })()\n                                                                                        })()\n                                                                                    })()\n                                                                                })()\n                                                                            })()\n                                                                        })()\n                                                                    })()\n                                                                })()\n                                                            })()\n                                                        })()\n                                                    })()\n                                                })()\n                                            })()\n                                        })()\n                                    })()\n                                })()\n                            })()\n                        })()\n                    })()\n                })()\n            })()\n        })()\n    })()\n})()                            \n",
+    "id": "S13.2.1_A1_T1"
+   },
+   {
+    "section": "13.2.1",
+    "description": "Adding new number property to a function argument within the function body,\nwhere explicit argument is an object defined with \"var __obj={}\"",
+    "test": "function __func(__arg){\n    __arg.foo=7;\n}\n\nvar __obj={};\n\n__func(__obj);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__obj.foo !== 7) {\n\t$ERROR('#1: __obj.foo === 7. Actual: __obj.foo ==='+__obj.foo);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.1_A4_T1"
+   },
+   {
+    "section": "13.2.1",
+    "description": "Adding new string property to a function argument within the function body,\nwhere explicit argument is an object defined with \"__obj={}\"",
+    "test": "function __func(__arg){\n    __arg.foo=\"whiskey gogo\";\n}\n\nvar __obj={};\n\n __func(__obj);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__obj.foo !== \"whiskey gogo\") {\n\t$ERROR('#1: __obj.foo === \"whiskey gogo\". Actual: __obj.foo ==='+__obj.foo);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.1_A4_T2"
+   },
+   {
+    "section": "13.2.1",
+    "description": "Adding new number property to a function argument within the function body,\nwhere array element \"arguments[0]\" is an object defined with \"__obj={}\"",
+    "test": "function __func(){\n    arguments[0][\"PI\"]=3.14;\n}\n\nvar __obj={};\n\n__func(__obj);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__obj.PI !== 3.14) {\n\t$ERROR('#1: __obj.PI === 3.14. Actual: __obj.PI ==='+__obj.PI);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.1_A4_T3"
+   },
+   {
+    "section": "13.2.1",
+    "description": "Adding new number property to a function argument within the function body,\nwhere array element \"arguments[0]\" is an object defined with \"var __obj={}\"",
+    "test": "function __func(){\n    arguments[0][\"E\"]=2.74;\n}\n\nvar __obj={};\n\n__func(__obj);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__obj.E !== 2.74) {\n\t$ERROR('#1: __obj.E === 2.74. Actual: __obj.E ==='+__obj.E);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.1_A4_T4"
+   },
+   {
+    "section": "13.2.1",
+    "description": "Sorting with closure",
+    "test": "var __arr = [4,3,2,1,4,3,2,1,4,3,2,1];\n//Sort uses closure\n//\n__arr.sort(\n\tfunction(x,y) { \n\t\tif (x>y){return -1;} \n\t\tif (x<y){return 1;} \n\t\tif (x==y){return 0;} \n\t}\n);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__arr.toString() !== [4,4,4,3,3,3,2,2,2,1,1,1].toString()) {\n\t$ERROR('#1: __arr.toString() === [4,4,4,3,3,3,2,2,2,1,1,1].toString(). Actual: __arr.toString() ==='+__arr.toString());\n}\n\n//\n//////////////////////////////////////////////////////////////////////////////  \n",
+    "id": "S13.2.1_A5_T1"
+   },
+   {
+    "section": "13.2.1",
+    "description": "Returning a function that approximates the derivative of f\nusing an interval of dx, which should be appropriately small",
+    "test": "// Return a function that approximates the derivative of f\n// using an interval of dx, which should be appropriately small.\nfunction derivative(f, dx) {\n    return function(x) {\n      return (f(x + dx) - f(x)) / dx;\n    };\n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (Math.abs(derivative(Math.sin, 0.0001)(0) - derivative(Math.sin, 0.0001)(2*Math.PI)) >= 1/65536.0) {\n\t$ERROR('#1: Math.abs(derivative(Math.sin, 0.0001)(0) - derivative(Math.sin, 0.0001)(2*Math.PI)) <= 1/65536.0');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.1_A5_T2"
+   },
+   {
+    "section": "13.2.1",
+    "description": "Declaring a function with \"function __func(arg1, arg2)\"",
+    "test": "function __func(arg1, arg2){\n    arg1++;\n    arg2+=\"BA\";\n};\n\nvar x=1;\ny=2;\nvar a=\"AB\"\nb=\"SAM\";\n\n__func(x,a);\n__func(y,b);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (x!==1 || y!==2 || a!==\"AB\" || b!==\"SAM\") {\n\t$ERROR('#1: x === 1 and y === 2 and a === \"AB\" and b === \"SAM\". Actual: x ==='+x+' and y ==='+y+' and a ==='+a+' and b ==='+b);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.1_A6_T1"
+   },
+   {
+    "section": "13.2.1",
+    "description": "Declaring a function with \"__func = function(arg1, arg2)\"",
+    "test": "__func = function(arg1, arg2){\n    arg1++;\n    arg2+=\"BA\";\n};\n\nvar x=1;\ny=2;\nvar a=\"AB\"\nb=\"SAM\";\n\n__func(x,a);\n__func(y,b);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (x!==1 || y!==2 || a!==\"AB\" || b!==\"SAM\") {\n\t$ERROR('#1: x === 1 and y === 2 and a === \"AB\" and b === \"SAM\". Actual: x ==='+x+' and y ==='+y+' and a ==='+a+' and b ==='+b);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.1_A6_T2"
+   },
+   {
+    "section": "13.2.1",
+    "description": "Returning null. Declaring a function with \"function __func()\"",
+    "test": "function __func(){\n    var x = null;\n    return x;\n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry{\n    var x=__func();\n} catch(e){\n    $ERROR('#1: var x=__func() does not lead to throwing exception. Actual: exception is '+e);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.1_A7_T1"
+   },
+   {
+    "section": "13.2.1",
+    "description": "Returning null. Declaring a function with \"var __func = function ()\"",
+    "test": "var __func = function (){\n    var x = null;\n    return x;\n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry{\n    var x=__func();\n} catch(e){\n    $ERROR('#1: var x=__func() does not lead to throwing exception. Actual: exception is '+e);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.1_A7_T2"
+   },
+   {
+    "section": "13.2.1",
+    "description": "Returning number. Declaring a function with \"function __func()\"",
+    "test": "function __func(){\n    x = 1;\n    return x;\n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#\ntry {\n\tx=x;\n\t$ERROR('#0: \"x=x\" lead to throwing exception');\n} catch (e) {}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry{\n    var __x=__func()\n} catch(e){\n    $ERROR('#1: var __x=__func() does not lead to throwing exception. Actual: exception is '+e);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__x !== 1) {\n\t$ERROR('#2: __x === 1. Actual: __x ==='+__x);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (x !== 1) {\n\t$ERROR('#3: x === 1. Actual: x ==='+x);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n",
+    "id": "S13.2.1_A7_T3"
+   },
+   {
+    "section": "13.2.1",
+    "description": "Returning boolean. Declaring a function with \"function __func()\"",
+    "test": "function __func(){\n    var x = true;\n    return x;\n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#\ntry {\n\tx=x;\n\t$ERROR('#0: \"x=x\" lead to throwing exception');\n} catch (e) {}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry{\n    var __x=__func()\n} catch(e){\n    $ERROR('#1: var __x=__func() does not lead to throwing exception. Actual: exception is '+e);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (!(__x)) {\n\t$ERROR('#2: __x === true. Actual: __x ==='+__x);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\ntry {\n\tx=x;\n\t$ERROR('#3: \"x=x\" lead to throwing exception');\n} catch (e) {}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n",
+    "id": "S13.2.1_A7_T4"
+   },
+   {
+    "section": "13.2.1",
+    "description": "Throwing an exception within a function body. Declaring function with \"function __func()\"",
+    "test": "function __func(){\n    var x = 1;\n    throw (\"Catch Me If You Can\")\n    return x;\n}\n\ntry{\n    var x=__func()\n    $ERROR('#0: var x=__func() lead to throwing exception');\n} catch(e){\n    if (e !== \"Catch Me If You Can\") {\n    \t$ERROR('#1: Exception === \"Catch Me If You Can\". Actual: exception ==='+e);\n    }\n}\n",
+    "id": "S13.2.1_A8_T1"
+   },
+   {
+    "section": "13.2.1",
+    "description": "Throwing an exception within a function body. Declaring function with \"var __func = function (message)\"",
+    "test": "var CATCH_ME_IF_YOU_CAN = true;\n\nvar __func = function (message){\n    var x = 1;\n    throw (message)\n    return x;\n}\n\ntry{\n    var x=__func(CATCH_ME_IF_YOU_CAN)\n    $ERROR('#0: var x=__func(CATCH_ME_IF_YOU_CAN) lead to throwing exception');\n} catch(e){\n    if (!e) {\n    \t$ERROR('#1: Exception === true. Actual: exception ==='+e);\n    }\n}\n",
+    "id": "S13.2.1_A8_T2"
+   },
+   {
+    "section": "13.2.1",
+    "description": "Declaring a function with \"function __func()\" and no \"return\" in the function body",
+    "test": "var x;\n\nfunction __func(){\n    x = true;\n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__func() !== undefined) {\n\t$ERROR('#1: __func() === undefined. Actual: __func() ==='+__func());\n};\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (!x) {\n\t$ERROR('#2: x === true. Actual: x === '+x);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.1_A9.1_T1"
+   },
+   {
+    "section": "13.2.1",
+    "description": "Declaring a function with \"var __func = function()\" and no \"return\" in the function body",
+    "test": "var x;\n\nvar __func = function(){\n    x = true;\n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__func() !== undefined) {\n\t$ERROR('#1: __func() === undefined. Actual: __func() ==='+__func());\n};\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (!x) {\n\t$ERROR('#2: x === true. Actual: x === '+x);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.1_A9.1_T2"
+   },
+   {
+    "section": "13.2.1",
+    "description": "Using \"return\" with no expression. Declaring a function with \"function __func()\"",
+    "test": "var x; \n\nfunction __func(){\n    x = 1;\n    return;\n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__func() !== undefined) {\n\t$ERROR('#1: __func() === undefined. Actual: __func() ==='+__func());\n};\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (x!==1) {\n\t$ERROR('#2: x === 1. Actual: x === '+x);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.1_A9_T1"
+   },
+   {
+    "section": "13.2.1",
+    "description": "Using \"return\" with no expression. Declaring a function with \"var __func = function()\"",
+    "test": "var x; \n\nvar __func = function(){\n    x = 1;\n    return;\n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__func() !== undefined) {\n\t$ERROR('#1: __func() === undefined. Actual: __func() ==='+__func());\n};\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (x!==1) {\n\t$ERROR('#2: x === 1. Actual: x === '+x);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.1_A9_T2"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Calling a function as a constructor after it has been declared",
+    "test": "function FACTORY(){\n   this.id = 0;\n   \n   this.func = function (){\n      return 5;\n   }\n   \n   this.id = this.func();\n     \n}\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n\tvar obj = new FACTORY();\n} catch (e) {\n\t$ERROR('#1: var obj = new FACTORY() does not lead to throwing exception. Actual: Exception is '+e);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (obj.id !== 5) {\n\t$ERROR('#2: obj.id === 5. Actual: obj.id ==='+obj.id);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A10"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Calling a function as a constructor after it has been declared with \"function func()\"",
+    "test": "function FACTORY(){\n   this.id = 0;\n      \n   this.id = this.func();\n   \n   function func(){\n      return \"id_string\";\n   }\n     \n}\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n\tvar obj = new FACTORY();\n\t$ERROR('#1: var obj = new FACTORY() lead to throwing exception');\n} catch (e) {}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n",
+    "id": "S13.2.2_A11"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Calling a function as a constructor after it has been declared with \"function func()\"",
+    "test": "function FACTORY(){\n   this.id = 0;\n      \n   this.id = func();\n   \n   function func(){\n      return \"id_string\";\n   }\n     \n}\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n\tvar obj = new FACTORY();\n} catch (e) {\n\t$ERROR('#1: var obj = new FACTORY() does not lead to throwing exception. Actual: Exception is '+e);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (obj.id !== \"id_string\") {\n\t$ERROR('#2: obj.id === \"id_string\". Actual: obj.id ==='+obj.id);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A12"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Calling a function as a constructor after it has been declared by eval",
+    "test": "function FACTORY(){\n   this.id = 0;\n      \n   this.id = func();\n   \n   eval(\"function func(){return \\\"id_string\\\";}\");\n     \n}\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n\tvar obj = new FACTORY();\n\t$ERROR('#1: var obj = new FACTORY() lead to throwing exception');\n} catch (e) {}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A13"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Calling a function as a constructor after it has been declared by eval",
+    "test": "function FACTORY(){\n   this.id = 0;\n   \n   eval(\"function func(){return \\\"id_string\\\";}\");\n      \n   this.id = func();\n     \n}\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n\tvar obj = new FACTORY();\n} catch (e) {\n\t$ERROR('#1: var obj = new FACTORY() does not lead to throwing exception');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A14"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Function declared at the end of the program and \"obj\" property is declared with \"var obj = {}\"",
+    "test": "var __obj = new __FACTORY();\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (typeof obj !== \"undefined\") {\n\t$ERROR('#1: typeof obj === \"undefined\". Actual: typeof obj ==='+typeof obj);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__obj.prop !== \"A\") {\n\t$ERROR('#2: __obj.prop === \"A\". Actual: __obj.prop ==='+__obj.prop);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__obj.slot.prop !==1) {\n\t$ERROR('#3: __obj.slot.prop ===1. Actual: __obj.slot.prop ==='+__obj.slot.prop);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nfunction __FACTORY(){\n    this.prop = 1;\n    var obj = {};\n    obj.prop = \"A\";\n    obj.slot = this;\n    return obj;\n}\n",
+    "id": "S13.2.2_A15_T1"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Function declared at the end of the program and \"obj\" property is declared with \"obj = {}\"",
+    "test": "var __obj = new __FACTORY();\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (obj.prop !== \"A\") {\n\t$ERROR('#1: obj.prop === \"A\". Actual: obj.prop ==='+obj.prop);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__obj.prop !== \"A\") {\n\t$ERROR('#2: __obj.prop === \"A\". Actual: __obj.prop ==='+__obj.prop);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__obj.slot.prop !==1) {\n\t$ERROR('#3: __obj.slot.prop === 1. Actual: __obj.slot.prop ==='+__obj.slot.prop);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nfunction __FACTORY(){\n    this.prop = 1;\n    obj = {};\n    obj.prop = \"A\";\n    obj.slot = this;\n    return obj;\n}\n",
+    "id": "S13.2.2_A15_T2"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Function declared at the end of the program and \"obj\" property is declared with \"var obj = {}\"",
+    "test": "__FACTORY = function (){\n    this.prop = 1;\n    var obj = {};\n    obj.prop = \"A\";\n    obj.slot = this;\n    return obj;\n}\n\n__obj = new __FACTORY();\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (typeof obj !== \"undefined\") {\n\t$ERROR('#1: typeof obj === \"undefined\". Actual: typeof obj ==='+typeof obj);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__obj.prop !== \"A\") {\n\t$ERROR('#2: __obj.prop === \"A\". Actual: __obj.prop ==='+__obj.prop);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__obj.slot.prop !==1) {\n\t$ERROR('#3: __obj.slot.prop ===1. Actual: __obj.slot.prop ==='+__obj.slot.prop);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A15_T3"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Function declared at the end of the program and \"obj\" property is declared with \"obj = {}\"",
+    "test": "__FACTORY = function(){\n    this.prop = 1;\n    obj = {};\n    obj.prop = \"A\";\n    obj.slot = this;\n    return obj;\n}\n\n__obj = new __FACTORY();\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (obj.prop !== \"A\") {\n\t$ERROR('#1: obj.prop === \"A\". Actual: obj.prop ==='+obj.prop);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__obj.prop !== \"A\") {\n\t$ERROR('#2: __obj.prop === \"A\". Actual: __obj.prop ==='+obj.prop);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__obj.slot.prop !==1) {\n\t$ERROR('#3: __obj.slot.prop ===1. Actual: __obj.slot.prop ==='+obj.slot.prop);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n",
+    "id": "S13.2.2_A15_T4"
+   },
+   {
+    "section": "13.2.2",
+    "description": ": Using \"is __obj = new function __func(){this.prop=1;}\" as FunctionExpression;",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (typeof __func !== \"undefined\") {\n\t$ERROR('#1: typeof __func === \"undefined\". Actual: typeof __func ==='+typeof __func);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar __obj = new function __func(){this.prop=1;};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__obj.prop !== 1) {\n\t$ERROR('#2: __obj.prop === 1. Actual: __obj.prop ==='+__obj.prop);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#5\nif (typeof __func !== \"undefined\") {\n\t$ERROR('#5: typeof __func === \"undefined\". Actual: typeof __func ==='+typeof __func);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A16_T1"
+   },
+   {
+    "section": "13.2.2",
+    "description": ": Using \"var __obj = new function __func(arg){this.prop=arg;}(5)\" as FunctionExpression;",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (typeof __func !== \"undefined\") {\n\t$ERROR('#1: typeof __func === \"undefined\". Actual: typeof __func ==='+typeof __func);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar __obj = new function __func(arg){this.prop=arg;}(5);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__obj.prop !== 5) {\n\t$ERROR('#2: __obj.prop === 5. Actual: __obj.prop ==='+__obj.prop);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (typeof __func !== \"undefined\") {\n\t$ERROR('#3: typeof __func === \"undefined\". Actual: typeof __func ==='+typeof __func);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A16_T2"
+   },
+   {
+    "section": "13.2.2",
+    "description": ": Using \"is __obj = new function __func(arg){this.prop=arg; return {feat: ++arg}}(5)\" as FunctionExpression;",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (typeof __func !== \"undefined\") {\n\t$ERROR('#1: typeof __func === \"undefined\"');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar __obj = new function __func(arg){this.prop=arg; return {feat: ++arg}}(5);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__obj.prop !== undefined) {\n\t$ERROR('#2: __obj.prop === undefined. Actual: __obj.prop ==='+__obj.prop);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__obj.feat !== 6) {\n\t$ERROR('#3: __obj.feat === 6. Actual: __obj.feat ==='+__obj.feat);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\nif (typeof __func !== \"undefined\") {\n\t$ERROR('#4: typeof __func === \"undefined\". Actual: typeof __func ==='+typeof __func);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A16_T3"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Using \"with\" statement within a function body",
+    "test": "var p1=\"alert\";\n\nvar __obj={p1:1,getRight:function(){return \"right\";}};\n\nthis.getRight=function(){return \"napravo\";};\n\n(function(){\n    with(__obj){\n        p1=\"w1\";\n        function getRight(){return false;}\n   }\n})();\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (p1!==\"alert\") {\n\t$ERROR('#1: p1 === \"alert\". Actual: p1==='+p1);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (getRight()!==\"napravo\") {\n\t$ERROR('#2: getRight() === \"napravo\". Actual: getRight() === '+getRight());\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__obj.p1!==\"w1\") {\n\t$ERROR('#3: __obj.p1 === \"w1\". Actual: __obj.p1 ==='+__obj.p1);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\nif (__obj.getRight()!==\"right\") {\n\t$ERROR('#4: __obj.getRight() === \"right\". Actual: __obj.getRight() ==='+__obj.getRight());\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n",
+    "id": "S13.2.2_A17_T1"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Throwing an exception within \"with\" statement",
+    "test": "this.p1=\"alert\";\n\n__obj={p1:1,getRight:function(){return \"right\";}};\n\ngetRight=function(){return \"napravo\";};\n\ntry {\n\t(function(){\n        with(__obj){\n            p1=\"w1\";\n            getRight=function(){return false;}\n            throw p1;\n        }\n    })();\n} catch (e) {\n\tresukt = p1;\n}\n\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (p1!==\"alert\") {\n\t$ERROR('#1: p1 === \"alert\". Actual: p1==='+p1);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (getRight()!==\"napravo\") {\n\t$ERROR('#2: getRight() === \"napravo\". Actual: getRight() === '+getRight());\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__obj.p1!==\"w1\") {\n\t$ERROR('#3: __obj.p1 === \"w1\". Actual: __obj.p1 ==='+__obj.p1);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\nif (__obj.getRight()!==false) {\n\t$ERROR('#4: __obj.getRight() === false. Actual: __obj.getRight() === '+__obj.getRight());\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#5\nif (resukt !== \"alert\") {\n\t$ERROR('#5: resukt === \"alert\". Actual: resukt ==='+resukt);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar resukt;\n\n",
+    "id": "S13.2.2_A17_T2"
+   },
+   {
+    "section": "13.2.2",
+    "description": "In the check 4 we populate field getRight in __obj object since var getRight declaration adds variable to function scope\nbut getRight in statement resolves within with(__obj) scope and searchs getRight in __obj first",
+    "test": "p1=\"alert\";\n\nthis.__obj={p1:1,getRight:function(){return \"right\";}};\n\nvar getRight=function(){return \"napravo\";};\n\nresukt=(function(){\n    with(__obj){\n        p1=\"w1\";\n        var getRight=function(){return false;};\n        return p1;\n    }\n})();\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (p1!==\"alert\") {\n\t$ERROR('#1: p1 === \"alert\". Actual: p1==='+p1);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (getRight()!==\"napravo\") {\n\t$ERROR('#2: getRight() === \"napravo\". Actual: getRight()==='+getRight());\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__obj.p1!==\"w1\") {\n\t$ERROR('#3: __obj.p1 === \"w1\". Actual: __obj.p1 ==='+__obj.p1);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\nif (__obj.getRight()!==false) {\n\t$ERROR('#4: __obj.getRight() === false. Actual: __obj.getRight()==='+__obj.getRight());\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#5\nif (resukt !== \"w1\") {\n\t$ERROR('#5: resukt === \"w1\". Actual: resukt ==='+resukt);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar resukt;\n\n",
+    "id": "S13.2.2_A17_T3"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Object is declared with \"var __obj={callee:\"a\"}\"",
+    "test": "var callee=0, b;\n\nvar __obj={callee:\"a\"};\n\nresult=(function(){\n    with (arguments){\n        callee=1;\n        b=true;\n    }\n    return arguments;\n})(__obj);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (callee !== 0) {\n\t$ERROR('#1: callee === 0. Actual: callee ==='+callee);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__obj.callee !== \"a\") {\n\t$ERROR('#2: __obj.callee === \"a\". Actual: __obj.callee==='+__obj.callee);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (result.callee !== 1) {\n\t$ERROR('#3: result.callee === 1. Actual: result.callee ==='+result.callee);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\nif (!(this.b)) {\n\t$ERROR('#4: this.b === true. Actual: this.b ==='+this.b);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A18_T1"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Object is declared with \"__obj={callee:\"a\"}\"",
+    "test": "this.callee = 0;\nvar b;\n\n__obj={callee:\"a\"};\n\nfunction f(){\n    with (arguments){\n        callee=1;\n        b=true;\n        return arguments;\n    }\n};\n\nresult=f(__obj);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (callee !== 0) {\n\t$ERROR('#1: callee === 0. Actual: callee ==='+callee);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__obj.callee !== \"a\") {\n\t$ERROR('#2: __obj.callee === \"a\". Actual: __obj.callee ==='+__obj.callee);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (result.callee !== 1) {\n\t$ERROR('#3: result.callee === 1. Actual: result.callee ==='+result.callee);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\nif (!(this.b)) {\n\t$ERROR('#4: this.b === true. Actual: this.b ==='+this.b);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A18_T2"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Function is declared in the global scope",
+    "test": "var a = 1;\n\nvar __func= function(){return a;};\n\nvar __obj = {a:2};\n\nwith (__obj)\n{\n    result = __func();\n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (result !== 1) {\n\t$ERROR('#1: result === 1. Actual: result ==='+result);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A19_T1"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Function is declared in the object scope. Using \"with\" statement",
+    "test": "var a = 1;\n\nvar __obj = {a:2};\n\nwith (__obj)\n{\n    result = (function(){return a;})();\n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (result !== 2) {\n\t$ERROR('#1: result === 2. Actual: result ==='+result);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A19_T2"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Function is declared in the object scope and then an exception is thrown",
+    "test": "var a = 1;\n\nvar __obj = {a:2};\n\ntry {\n\twith (__obj)\n    {\n        var __func = function (){return a;};\n        throw 3;\n    }\n} catch (e) {\n\t;\n}\n\nresult = __func();\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (result !== 2) {\n\t$ERROR('#1: result === 2. Actual: result ==='+result);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n\n",
+    "id": "S13.2.2_A19_T3"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Function is declared in the hierarchical object scope and then an exception is thrown",
+    "test": "var a = 1;\n\nvar __obj = {a:2,__obj:{a:3}};\n\ntry {\n\twith (__obj)\n    {\n        with(__obj){\n            var __func = function(){return a;};\n            throw 5;\n        }\n    }\n} catch (e) {\n\t;\n}\n\nresult = __func();\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (result !== 3) {\n\t$ERROR('#1: result === 3. Actual: result ==='+result);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n\n",
+    "id": "S13.2.2_A19_T4"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Function is declared in the object scope, then an exception is thrown and the object is deleted",
+    "test": "var a = 1;\n\nvar __obj = {a:2};\n\nwith (__obj)\n{\n    try {\n        \n    \tvar __func = function()\n        {\n            return a;\n        }\n        throw 3;\n    } catch (e) {\n    \t;\n    }\n}\n\ndelete __obj;\n\nresult = __func();\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (result !== 2) {\n\t$ERROR('#1: result === 2. Actual: result ==='+result);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A19_T5"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Function is declared in the \"object->do-while\" scope, then the object is deleted and another object with the same name is declared",
+    "test": "var a = 1;\n\nvar __obj = {a:2};\n\nwith (__obj)\n{\n    do {\n        var __func = function()\n        {\n            return a;\n        }\n    } while(0);\n}\n\ndelete __obj;\n\nvar __obj = {a:3};\n\nwith (__obj)\n{\n    result = __func();\n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (result !== 2) {\n\t$ERROR('#1: result === 2. Actual: result ==='+result);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n\n\n\n",
+    "id": "S13.2.2_A19_T6"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Function is declared in the object scope as a variable",
+    "test": "var a = 1;\n\nvar __obj = {a:2};\n\nwith (__obj)\n{\n    var __func = function()\n    {\n        return a;\n    }\n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__obj.hasOwnProperty('__func')) {\n\t$ERROR('#1: __obj.hasOwnProperty(\\'__func\\') === false');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n///////////////////////////////////// /////////////////////////////////////////\n//CHECK#2\nif (!(this.hasOwnProperty('__func'))) {\n\t$ERROR('#2: this.hasOwnProperty(\\'__func\\') === true');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__func in __obj) {\n\t$ERROR('#3: (__func in __obj) === false');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\nif (this.__func === undefined) {\n\t$ERROR('#4: this.__func !== undefined');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A19_T7"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Function is declared multiply times",
+    "test": "//////////////////////////////////////////////////////////////////////////////\n//CHECK#0\nif (typeof __func !== \"undefined\") {\n\t$ERROR('#0: typeof __func === \"undefined\". Actual: typeof __func ==='+typeof __func);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar a = 1, b = \"a\";\n\nvar __obj = {a:2};\n\nwith (__obj)\n{\n    while(1){\n        var  __func = function()\n        {\n            return a;\n        }\n        break;\n    }\n}\n\ndelete __obj;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__func() !== 2) {\n\t$ERROR('#1: __func() === 2. Actual: __func() ==='+__func());\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar __obj = {a:3,b:\"b\"};\n\nwith (__obj)\n{\n    var __func = function()\n    {\n        return b;\n    }\n}\n\ndelete __obj;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__func()!==\"b\") {\n\t$ERROR('#2: __func()===\"b\". Actual: __func()==='+__func());\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nwith ({a:99,b:\"c\"})\n{\n    //////////////////////////////////////////////////////////////////////////////\n    //CHECK#3\n    if (__func() !== \"b\") {\n    \t$ERROR('#3: __func()===\"b\". Actual: __func()==='+__func());\n    }\n    //\n    //////////////////////////////////////////////////////////////////////////////\n}\n",
+    "id": "S13.2.2_A19_T8"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Declaring a function with \"function __func()\"",
+    "test": "var __MONSTER=\"monster\";\nvar __PREDATOR=\"predator\";\n\nfunction __PROTO(){};\n\ntry{\n    __PROTO.type=__MONSTER;\n}\ncatch(e){\n    $ERROR('#0: __PROTO.type=__MONSTER does not lead to throwing exception')\n}\n\nfunction __FACTORY(){this.name=__PREDATOR};\n\n__FACTORY.prototype=__PROTO;\n\nvar __monster = new __FACTORY();\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(__PROTO.isPrototypeOf(__monster))) {\n\t$ERROR('#1: __PROTO.isPrototypeOf(__monster) must be true');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__monster.type !==__MONSTER) {\n\t$ERROR('#2: __monster.type ===__MONSTER. Actual: __monster.type ==='+__monster.type);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A1_T1"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Declaring a function with \"var __PROTO = function()\"",
+    "test": "var __MONSTER=\"monster\";\nvar __PREDATOR=\"predator\";\n\nvar __PROTO = function(){};\n\ntry{\n    __PROTO.type=__MONSTER;\n}\ncatch(e){\n    $FAIL('#0: __PROTO.type=__MONSTER does not lead to throwing exception')\n}\n\nvar __FACTORY = function(){this.name=__PREDATOR};\n\n__FACTORY.prototype=__PROTO;\n\nvar __monster = new __FACTORY();\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(__PROTO.isPrototypeOf(__monster))) {\n\t$ERROR('#1: __PROTO.isPrototypeOf(__monster) must be true');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__monster.type !==__MONSTER) {\n\t$ERROR('#2: __monster.type ===__MONSTER. Actual: __monster.type ==='+__monster.type);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A1_T2"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Trying to [[call]] this function",
+    "test": "var __PLANT=\"flower\";\nvar __ROSE=\"rose\";\n\nfunction __PROTO(){};\n\ntry{\n    __PROTO.type=__PLANT;\n}\ncatch(e){\n    $ERROR('#0: __PROTO.type=__PLANT does not lead to throwing exception')\n}\n\nfunction __FACTORY(){this.name=__ROSE};\n\n__FACTORY.prototype=__PROTO;\n\nvar __rose = new __FACTORY();\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry{\n    __rose();\n    $ERROR('#1: __rose() lead to throwing exception');\n} catch(e){\n    if (!(e instanceof TypeError)) {\n    \t$ERROR('#2: Exception Type is TypeError. Actual: exception ==='+e);\n    }\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A2"
+   },
+   {
+    "section": "13.2.2, 15.2.3.1",
+    "description": "Declaring a function with \"function __FACTORY()\"",
+    "test": "function __FACTORY(){};\n__FACTORY.prototype=1;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (typeof __FACTORY.prototype !== 'number') {\n\t$ERROR('#1: typeof __FACTORY.prototype === \\'number\\'. Actual: typeof __FACTORY.prototype ==='+(typeof __FACTORY.prototype));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar __device = new __FACTORY();\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (!(Object.prototype.isPrototypeOf(__device))) {\n\t$ERROR('#2: Object.prototype.isPrototypeOf(__device) === true');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A3_T1"
+   },
+   {
+    "section": "13.2.2, 15.2.3.1",
+    "description": "Declaring a function with \"var __FACTORY = function()\"",
+    "test": "var __FACTORY = function(){};\n__FACTORY.prototype=1;\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (typeof __FACTORY.prototype !== 'number') {\n\t$ERROR('#1: typeof __FACTORY.prototype === \\'number\\'. Actual: typeof __FACTORY.prototype ==='+(typeof __FACTORY.prototype));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar __device = new __FACTORY();\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (!(Object.prototype.isPrototypeOf(__device))) {\n\t$ERROR('#2: Object.prototype.isPrototypeOf(__device) === true');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A3_T2"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Declaring a function with \"function __FACTORY()\"",
+    "test": "var __CUBE=\"cube\";\n\nfunction __FACTORY(){\n};\n__FACTORY.prototype={ shape:__CUBE, printShape:function(){return this.shape;} };\n\nvar __device = new __FACTORY();\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__device.printShape === undefined) {\n\t$ERROR('#1: __device.printShape !== undefined. Actual: __device.printShape ==='+__device.printShape);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__device.printShape() !== __CUBE) {\n\t$ERROR('#2: __device.printShape() === __CUBE. Actual: __device.printShape() ==='+__device.printShape());\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A4_T1"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Declaring a function with \"__FACTORY = function()\"",
+    "test": "__CUBE=\"cube\";\n\n__FACTORY = function(){};\n\n__FACTORY.prototype={ shape:__CUBE, printShape:function(){return this.shape;} };\n\n__device = new __FACTORY();\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__device.printShape === undefined) {\n\t$ERROR('#1: __device.printShape !== undefined. Actual: __device.printShape ==='+__device.printShape);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__device.printShape() !== __CUBE) {\n\t$ERROR('#2: __device.printShape() === __CUBE. Actual: __device.printShape() ==='+__device.printShape());\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A4_T2"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Declaring a function with \"function __FACTORY(arg1, arg2)\"",
+    "test": "__VOLUME=8;\n__RED=\"red\";\n__ID=12342;\n__TOP=1.1;\n__BOTTOM=0.0;\n__LEFT=0.0;\n\n\nfunction __FACTORY(arg1, arg2){\n\tthis.volume=__VOLUME;\n\tcolor=__RED;\n\tthis.id=arg1;\n\ttop=arg2;\n\tthis.bottom=arguments[3];\n\tleft=arguments[4];\n};\n\n__device = new __FACTORY(__ID, __TOP, __BOTTOM, __LEFT);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__device.color !== undefined) {\n\t$ERROR('#1: __device.color === undefined. Actual: __device.color ==='+__device.color);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__device.volume !== __VOLUME) {\n\t$ERROR('#2: __device.volume === __VOLUME. Actual: __device.volume ==='+__device.volume);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__device.top !== undefined) {\n\t$ERROR('#3: __device.top === undefined. Actual: __device.top ==='+__device.top);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\nif (__device.id !== __ID) {\n\t$ERROR('#4: __device.id === __ID. Actual: __device.id ==='+__device.id);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#5\nif (__device.left !== undefined) {\n\t$ERROR('#5: __device.left === undefined. Actual: __device.left ==='+__device.left);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#6\nif (__device.bottom !== __BOTTOM) {\n\t$ERROR('#6: __device.bottom === __BOTTOM. Actual: __device.bottom ==='+__device.bottom);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A5_T1"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Declaring a function with \"__FACTORY = function(arg1, arg2)\"",
+    "test": "__VOLUME=8;\n__RED=\"red\";\n__ID=12342;\n__TOP=1.1;\n__BOTTOM=0.0;\n__LEFT=0.0;\n\n\n__FACTORY = function(arg1, arg2){\n\tthis.volume=__VOLUME;\n\tcolor=__RED;\n\tthis.id=arg1;\n\ttop=arg2;\n\tthis.bottom=arguments[3];\n\tleft=arguments[4];\n};\n\n__device = new __FACTORY(__ID, __TOP, __BOTTOM, __LEFT);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__device.color !== undefined) {\n\t$ERROR('#1: __device.color === undefined. Actual: __device.color ==='+__device.color);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__device.volume !== __VOLUME) {\n\t$ERROR('#2: __device.volume === __VOLUME. Actual: __device.volume ==='+__device.volume);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__device.top !== undefined) {\n\t$ERROR('#3: __device.top === undefined. Actual: __device.top ==='+__device.top);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#4\nif (__device.id !== __ID) {\n\t$ERROR('#4: __device.id === __ID. Actual: __device.id ==='+__device.id);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#5\nif (__device.left !== undefined) {\n\t$ERROR('#5: __device.left === undefined. Actual: __device.left ==='+__device.left);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#6\nif (__device.bottom !== __BOTTOM) {\n\t$ERROR('#6: __device.bottom === __BOTTOM. Actual: __device.bottom ==='+__device.bottom);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A5_T2"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Declaring a function with \"__func = function(arg)\"",
+    "test": "__FOO=\"fooValue\";\n__BAR=\"barValue\";\n\n__func = function(arg){\n\tthis.foo=arg;\n    return 0;\n\tthis.bar=arguments[1];\n};\n\n__obj = new __func(__FOO, __BAR);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__obj.foo!==__FOO) {\n\t$ERROR('#1: __obj.foo === __FOO. Actual: __obj.foo==='+__obj.foo);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__obj.bar!==undefined) {\n\t$ERROR('#2: __obj.bar === undefined. Actual: __obj.bar==='+__obj.bar);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A6_T1"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Declaring a function with \"function __func (arg)\"",
+    "test": "var __FOO=\"fooValue\";\nvar __BAR=\"barValue\";\n\nfunction __func (arg){\n\tthis.foo=arg;\n    return true;\n\tthis.bar=arguments[1];\n};\n\nvar __obj = new __func(__FOO, __BAR);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__obj.foo!==__FOO) {\n\t$ERROR('#1: __obj.foo === __FOO. Actual: __obj.foo==='+__obj.foo);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__obj.bar!==undefined) {\n\t$ERROR('#2: __obj.bar === undefined. Actual: __obj.bar==='+__obj.bar);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A6_T2"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Declaring a function with \"as __func = function(arg)\"",
+    "test": "var __FRST=\"one\";\nvar __SCND=\"two\";\n\nfunction __func (arg1, arg2){\n\tthis.first=arg1;\n\tvar __obj={second:arg2};\n    return __obj;\n\t\n};\n\nvar __obj__ = new __func(__FRST, __SCND);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__obj__.first !== undefined) {\n\t$ERROR('#1: __obj__.first === undefined. Actual: __obj__.first==='+__obj__.first);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__obj__.second !== __SCND) {\n\t$ERROR('#2: __obj__.second === __SCND. Actual: __obj__.second ==='+__obj__.second);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A7_T1"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Declaring a \"function as function __func (arg)\"",
+    "test": "__FRST=\"one\";\n__SCND=\"two\";\n\n__func = function(arg1, arg2){\n\tthis.first=arg1;\n\tvar __obj={second:arg2};\n    return __obj;\n\t\n};\n\n__obj__ = new __func(__FRST, __SCND);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__obj__.first !== undefined) {\n\t$ERROR('#1: __obj__.first === undefined. Actual: __obj__.first==='+__obj__.first);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__obj__.second !== __SCND) {\n\t$ERROR('#2: __obj__.second === __SCND. Actual: __obj__.second ==='+__obj__.second);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A7_T2"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Creating a function whose prototype contains \"return\" followed by declaration of another function",
+    "test": "var __FRST=\"one\";\nvar __SCND=\"two\";\n\nvar __func = function(arg1, arg2){\n\tthis.first=arg1;\n\t\n\t__gunc.prop=arg2;\n    return __gunc;\n    // function declaration\n    function __gunc(arg){return ++arg};\n\t\n};\n\nvar __instance = new __func(__FRST, __SCND);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.first !== undefined) {\n\t$ERROR('#1: __instance.first === undefined. Actual: __instance.first ==='+__instance.first);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__instance.prop!==__SCND) {\n\t$ERROR('#2: __instance.prop === __SCND. Actual: __instance.prop ==='+__instance.prop);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__instance(1)!== 2) {\n\t$ERROR('#2: __instance(1)=== 2. Actual: __instance(1) ==='+__instance(1));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n",
+    "id": "S13.2.2_A8_T1"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Creating a function whose prototype contains declaration of another function declared as a variable",
+    "test": "var __FRST=\"one\";\nvar __SCND=\"two\";\n\nvar __func = function(arg1, arg2){\n\tthis.first=arg1;\n\tvar __gunc = function(arg){return arg+=\"BA\"};\n\t__gunc.prop=arg2;\n    return __gunc;\n\t\n};\n\nvar __instance = new __func(__FRST, __SCND);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.first !== undefined) {\n\t$ERROR('#1: __instance.first === undefined. Actual: __instance.first ==='+__instance.first);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__instance.prop!==__SCND) {\n\t$ERROR('#2: __instance.prop === __SCND. Actual: __instance.prop ==='+__instance.prop);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__instance(\"SAM\")!== \"SAMBA\") {\n\t$ERROR('#2: __instance(\"SAM\") === \"SAMBA\". Actual: __instance(\"SAM\") ==='+__instance(\"SAM\"));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n",
+    "id": "S13.2.2_A8_T2"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Creating a function whose prototype contains declaration of another function defined by using Function.call method",
+    "test": "var __FRST=\"one\";\nvar __SCND=\"two\";\n\nvar __func = function(arg1, arg2){\n\tthis.first=arg1;\n\tvar __gunc = Function.call(this,\"arg\",\"return ++arg;\");\n\t__gunc.prop=arg2;\n    return __gunc;\n\t\n};\n\nvar __instance = new __func(__FRST, __SCND);\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__instance.first !== undefined) {\n\t$ERROR('#1: __instance.first === undefined. Actual: __instance.first ==='+__instance.first);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__instance.prop!==__SCND) {\n\t$ERROR('#2: __instance.prop === __SCND. Actual: __instance.prop ==='+__instance.prop);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__instance(1)!== 2) {\n\t$ERROR('#2: __instance(1)=== 2. Actual: __instance(1) ==='+__instance(1));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n",
+    "id": "S13.2.2_A8_T3"
+   },
+   {
+    "section": "13.2.2",
+    "description": "Calling a function as a constructor",
+    "test": "function FACTORY(){\n   this.id = 0;\n   \n   this.id = this.func();\n   \n   this.func = function (){\n      return 5;\n   }\n  \n}\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\ntry {\n\tvar obj = new FACTORY();\n\t$ERROR('#1: var obj = new FACTORY() lead to throwing exception');\n} catch (e) {}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2.2_A9"
+   },
+   {
+    "section": "13.2",
+    "description": "Using \"function __func(){}\" as a FunctionDeclaration",
+    "test": "function __func(){};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__func.prototype === undefined) {\n\t$ERROR('#1: __func.prototype !== undefined');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2_A1_T1"
+   },
+   {
+    "section": "13.2",
+    "description": "Using \"var __func = function(){}\" as a FunctionDeclaration",
+    "test": "var __func = function(){};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__func.prototype === undefined) {\n\t$ERROR('#1: __func.prototype !== undefined');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2_A1_T2"
+   },
+   {
+    "section": "13.2",
+    "description": "Nesting level is two",
+    "test": "var __JEDI=\"jedi\";\n\nfunction __FUNC(){\n    function __GUNC(){\n        return arguments[0];\n    };\n    \n    return __GUNC;\n};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__FUNC()(__JEDI) !== __JEDI) {\n\t$ERROR('#1: __FUNC()(__JEDI) === __JEDI. Actual: __FUNC()(__JEDI) ==='+__FUNC()(__JEDI));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2_A2_T1"
+   },
+   {
+    "section": "13.2",
+    "description": "Nesting level is three",
+    "test": "var __ROBOT=\"C3PO\";\n\nfunction __FUNC(){\n    function __GUNC(){\n        return arguments[0];\n    };\n    function __HUNC(){\n        return __GUNC;\n    };\n    return __HUNC;\n};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__FUNC()()(__ROBOT) !== __ROBOT) {\n\t$ERROR('#1: __FUNC()()(__ROBOT) === __ROBOT. Actual: __FUNC()()(__ROBOT) ==='+__FUNC()()(__ROBOT));\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n",
+    "id": "S13.2_A2_T2"
+   },
+   {
+    "section": "13.2",
+    "description": "Creating functions with various FormalParameterList and checking their lengths",
+    "test": "function __func(){};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (__func.length !== 0) {\n\t$ERROR('#1: __func.length === 0. Actual: __func.length ==='+__func.length);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nfunction __gunc(a,b,c){};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__gunc.length !== 3) {\n\t$ERROR('#2: __gunc.length === 3. Actual: __gunc.length ==='+__gunc.length);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n",
+    "id": "S13.2_A3"
+   },
+   {
+    "section": "13.2",
+    "description": "Checking prototype, prototype.constructor properties and {DontEnum} property of a constructor.\nUsing \"function __func(){}\" as a FunctionDeclaration",
+    "test": "function __func(){};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (typeof __func.prototype !== 'object') {\n\t$ERROR('#1: typeof __func.prototype === \\'object\\'. Actual: typeof __gunc.prototype ==='+typeof __gunc.prototype);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__func.prototype.constructor !== __func) {\n\t$ERROR('#2: __func.prototype.constructor === __func. Actual: __gunc.prototype.constructor ==='+__gunc.prototype.constructor);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar __constructor_was__enumed;\n\nfor (__prop in __func.prototype){\n    if (__prop = 'constructor')\n        __constructor_was__enumed = true;\n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__constructor_was__enumed) {\n\t$ERROR('#3: __constructor_was__enumed === false. Actual: __constructor_was__enumed ==='+__constructor_was__enumed);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n\n\n\n",
+    "id": "S13.2_A4_T1"
+   },
+   {
+    "section": "13.2",
+    "description": "Checking prototype, prototype.constructor properties and {DontEnum} property of a constructor.\nUsing \"var __gunc = function(){}\" as a FunctionDeclaration",
+    "test": "var __gunc = function(){};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (typeof __gunc.prototype !== 'object') {\n\t$ERROR('#1: typeof __gunc.prototype === \\'object\\'. Actual: typeof __gunc.prototype ==='+typeof __gunc.prototype);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (__gunc.prototype.constructor !== __gunc) {\n\t$ERROR('#2: __gunc.prototype.constructor === __gunc. Actual: __gunc.prototype.constructor ==='+__gunc.prototype.constructor);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\nvar __constructor_was__enumed;\n\nfor (__prop in __gunc.prototype){\n    if (__prop = 'constructor')\n        __constructor_was__enumed = true;\n}\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#3\nif (__constructor_was__enumed) {\n\t$ERROR('#3: __constructor_was__enumed === false. Actual: __constructor_was__enumed ==='+__constructor_was__enumed);\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n\n\n\n",
+    "id": "S13.2_A4_T2"
+   },
+   {
+    "section": "13.2, 15.3.3.1",
+    "description": "Function.prototype.isPrototypeOf() is used",
+    "test": "function __func(){};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#1\nif (!(Function.prototype.isPrototypeOf(__func))) {\n\t$ERROR('#1: Function.prototype.isPrototypeOf(__func)');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\nvar __gunc = function(){};\n\n//////////////////////////////////////////////////////////////////////////////\n//CHECK#2\nif (!(Function.prototype.isPrototypeOf(__gunc))) {\n\t$ERROR('#1: Function.prototype.isPrototypeOf(__gunc)');\n}\n//\n//////////////////////////////////////////////////////////////////////////////\n\n\n",
+    "id": "S13.2_A5"
+   }
+  ]
+ }
+}

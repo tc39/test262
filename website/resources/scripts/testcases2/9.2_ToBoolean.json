@@ -1,0 +1,104 @@
+{
+ "testCollection": {
+  "name": "9.2_ToBoolean",
+  "numTests": 16,
+  "tests": [
+   {
+    "section": "9.2, 15.6.1",
+    "description": "Undefined, void and others are converted to Boolean by explicit transformation",
+    "test": "// CHECK#1\nif (Boolean(undefined) !== false) {\n  $ERROR('#1: Boolean(undefined) === false. Actual: ' + (Boolean(undefined)));\n}\n\n// CHECK#2\nif (Boolean(void 0) !== false) {\n  $ERROR('#2: Boolean(undefined) === false. Actual: ' + (Boolean(undefined)));\n}\n\n// CHECK#3\nif (Boolean(eval(\"var x\")) !== false) {\n  $ERROR('#3: Boolean(eval(\"var x\")) === false. Actual: ' + (Boolean(eval(\"var x\"))));\n}\n\n// CHECK#4\nif (Boolean() !== false) {\n  $ERROR('#4: Boolean() === false. Actual: ' + (Boolean()));\n}\n",
+    "id": "S9.2_A1_T1"
+   },
+   {
+    "section": "9.2, 11.4.9",
+    "description": "Undefined, void and others are converted to Boolean by implicit transformation",
+    "test": "// CHECK#1\nif (!(undefined) !== true) {\n  $ERROR('#1: !(undefined) === true. Actual: ' + (!(undefined)));\n}\n\n// CHECK#2\nif (!(void 0) !== true) {\n  $ERROR('#2: !(undefined) === true. Actual: ' + (!(undefined)));\n}\n\n// CHECK#3\nif (!(eval(\"var x\")) !== true) {\n  $ERROR('#3: !(eval(\"var x\")) === true. Actual: ' + (!(eval(\"var x\"))));\n}\n",
+    "id": "S9.2_A1_T2"
+   },
+   {
+    "section": "9.2, 15.6.1",
+    "description": "null convert to Boolean by explicit transformation",
+    "test": "// CHECK#1\nif (Boolean(null) !== false) {\n  $ERROR('#1: Boolean(null) === false. Actual: ' + (Boolean(null))); \n}\n",
+    "id": "S9.2_A2_T1"
+   },
+   {
+    "section": "9.2, 11.4.9",
+    "description": "null convert to Boolean by implicit transformation",
+    "test": "// CHECK#1\nif (!(null) !== true) {\n  $ERROR('#1: !(null) === true. Actual: ' + (!(null))); \n}\n",
+    "id": "S9.2_A2_T2"
+   },
+   {
+    "section": "9.2, 15.6.1",
+    "description": "true and false convert to Boolean by explicit transformation",
+    "test": "// CHECK#1 \nif (Boolean(true) !== true) {\n  $ERROR('#1: Boolean(true) === true. Actual: ' + (Boolean(true)));\t\n}\n\n// CHECK#2\nif (Boolean(false) !== false) {\n  $ERROR('#2: Boolean(false) === false. Actual: ' + (Boolean(false)));\n}\n",
+    "id": "S9.2_A3_T1"
+   },
+   {
+    "section": "9.2, 11.4.9",
+    "description": "true and false convert to Boolean by implicit transformation",
+    "test": "// CHECK#1 \nif (!(true) !== false) {\n  $ERROR('#1: !(true) === false. Actual: ' + (!(true)));\t\n}\n\n// CHECK#2\nif (!(false) !== true) {\n  $ERROR('#2: !(false) === true. Actual: ' + (!(false)));\n}\n",
+    "id": "S9.2_A3_T2"
+   },
+   {
+    "section": "9.2, 15.6.1",
+    "description": "+0, -0 and NaN convert to Boolean by explicit transformation",
+    "test": "// CHECK#1\nif (Boolean(+0) !== false) {\n  $ERROR('#1: Boolean(+0) === false. Actual: ' + (Boolean(+0))); \t \n}\n\n// CHECK#2\nif (Boolean(-0) !== false) {\n  $ERROR('#2: Boolean(-0) === false. Actual: ' + (Boolean(-0)));\n}\n\n// CHECK#3\nif (Boolean(Number.NaN) !== false) {\n  $ERROR('#3: Boolean(Number.NaN) === false. Actual: ' + (Boolean(Number.NaN)));\n}\n",
+    "id": "S9.2_A4_T1"
+   },
+   {
+    "section": "9.2, 11.4.9",
+    "description": "+0, -0 and NaN convert to Boolean by implicit transformation",
+    "test": "// CHECK#1\nif (!(+0) !== true) {\n  $ERROR('#1: !(+0) === true. Actual: ' + (!(+0))); \t \n}\n\n// CHECK#2\nif (!(-0) !== true) {\n  $ERROR('#2: !(-0) === true. Actual: ' + (!(-0)));\n}\n\n// CHECK#3\nif (!(Number.NaN) !== true) {\n  $ERROR('#3: !(Number.NaN) === true. Actual: ' + (!(Number.NaN)));\n}\n",
+    "id": "S9.2_A4_T2"
+   },
+   {
+    "section": "9.2, 15.6.1",
+    "description": "Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY,\nNumber.MAX_VALUE, Number.MIN_VALUE and some numbers convert to Boolean by explicit transformation",
+    "test": "// CHECK#1\nif (Boolean(Number.POSITIVE_INFINITY) !== true) {\n  $ERROR('#1: Boolean(+Infinity) === true. Actual: ' + (Boolean(+Infinity))); \t\n}\n\n// CHECK#2;\nif (Boolean(Number.NEGATIVE_INFINITY) !== true) {\n  $ERROR('#2: Boolean(-Infinity) === true. Actual: ' + (Boolean(-Infinity))); \t\n}\n\n// CHECK#3\nif (Boolean(Number.MAX_VALUE) !== true) {\n  $ERROR('#3: Boolean(Number.MAX_VALUE) === true. Actual: ' + (Boolean(Number.MAX_VALUE))); \t\n}\n\n// CHECK#4\nif (Boolean(Number.MIN_VALUE) !== true) {\n  $ERROR('#4: Boolean(Number.MIN_VALUE) === true. Actual: ' + (Boolean(Number.MIN_VALUE))); \t\n}\n\n// CHECK#5\nif (Boolean(13) !== true) {\n  $ERROR('#5: Boolean(13) === true. Actual: ' + (Boolean(13)));\t\n}\n\n// CHECK#6\nif (Boolean(-13) !== true) {\n  $ERROR('#6: Boolean(-13) === true. Actual: ' + (Boolean(-13)));\t\n}\n\n// CHECK#7\nif (Boolean(1.3) !== true) {\n  $ERROR('#7: Boolean(1.3) === true. Actual: ' + (Boolean(1.3)));\t\n}\n\n// CHECK#8\nif (Boolean(-1.3) !== true) {\n  $ERROR('#8: Boolean(-1.3) === true. Actual: ' + (Boolean(-1.3)));\t\n}\t\n",
+    "id": "S9.2_A4_T3"
+   },
+   {
+    "section": "9.2, 11.4.9",
+    "description": "Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY,\nNumber.MAX_VALUE, Number.MIN_VALUE and some other numbers are converted to Boolean by implicit transformation",
+    "test": "// CHECK#1\nif (!(Number.POSITIVE_INFINITY) !== false) {\n  $ERROR('#1: !(+Infinity) === false. Actual: ' + (!(+Infinity))); \t\n}\n\n// CHECK#2;\nif (!(Number.NEGATIVE_INFINITY) !== false) {\n  $ERROR('#2: !(-Infinity) === false. Actual: ' + (!(-Infinity))); \t\n}\n\n// CHECK#3\nif (!(Number.MAX_VALUE) !== false) {\n  $ERROR('#3: !(Number.MAX_VALUE) === false. Actual: ' + (!(Number.MAX_VALUE))); \t\n}\n\n// CHECK#4\nif (!(Number.MIN_VALUE) !== false) {\n  $ERROR('#4: !(Number.MIN_VALUE) === false. Actual: ' + (!(Number.MIN_VALUE))); \t\n}\n\n// CHECK#5\nif (!(13) !== false) {\n  $ERROR('#5: !(13) === false. Actual: ' + (!(13)));\t\n}\n\n// CHECK#6\nif (!(-13) !== false) {\n  $ERROR('#6: !(-13) === false. Actual: ' + (!(-13)));\t\n}\n\n// CHECK#7\nif (!(1.3) !== false) {\n  $ERROR('#7: !(1.3) === false. Actual: ' + (!(1.3)));\t\n}\n\n// CHECK#8\nif (!(-1.3) !== false) {\n  $ERROR('#8: !(-1.3) === false. Actual: ' + (!(-1.3)));\t\n}\t\n",
+    "id": "S9.2_A4_T4"
+   },
+   {
+    "section": "9.2, 15.6.1",
+    "description": "\"\" is converted to Boolean by explicit transformation",
+    "test": "// CHECK#1\nif (Boolean(\"\") !== false) {\n  $ERROR('#1: Boolean(\"\") === false. Actual: ' + (Boolean(\"\")));\n}\n",
+    "id": "S9.2_A5_T1"
+   },
+   {
+    "section": "9.2, 11.4.9",
+    "description": "\"\" convert to Boolean by implicit transformation",
+    "test": "// CHECK#1\nif (!(\"\") !== true) {\n  $ERROR('#1: !(\"\") === true. Actual: ' + (!(\"\")));\n}\n",
+    "id": "S9.2_A5_T2"
+   },
+   {
+    "section": "9.2, 15.6.1",
+    "description": "Any nonempty string convert to Boolean by explicit transformation",
+    "test": "// CHECK#1\nif (Boolean(\" \") !== true) {\n  $ERROR('#1: Boolean(\" \") === true. Actual: ' + (Boolean(\" \")));\t\n}\n\n// CHECK#2\nif (Boolean(\"Nonempty String\") !== true) {\n  $ERROR('#2: Boolean(\"Nonempty String\") === true. Actual: ' + (Boolean(\"Nonempty String\")));\t\n}\n",
+    "id": "S9.2_A5_T3"
+   },
+   {
+    "section": "9.2, 11.4.9",
+    "description": "Any nonempty string convert to Boolean by implicit transformation",
+    "test": "// CHECK#1\nif (!(\" \") !== false) {\n  $ERROR('#1: !(\" \") === false. Actual: ' + (!(\" \")));\t\n}\n\n// CHECK#2\nif (!(\"Nonempty String\") !== false) {\n  $ERROR('#2: !(\"Nonempty String\") === false. Actual: ' + (!(\"Nonempty String\")));\t\n}\n",
+    "id": "S9.2_A5_T4"
+   },
+   {
+    "section": "9.2, 15.6.1",
+    "description": "Different objects convert to Boolean by explicit transformation",
+    "test": "// CHECK#1\nif (Boolean(new Object()) !== true) {\n  $ERROR('#1: Boolean(new Object()) === true. Actual: ' + (Boolean(new Object())));\t\n}\n\n// CHECK#2\nif (Boolean(new String(\"\")) !== true) {\n  $ERROR('#2: Boolean(new String(\"\")) === true. Actual: ' + (Boolean(new String(\"\"))));\t\n}\n\n// CHECK#3\nif (Boolean(new String()) !== true) {\n  $ERROR('#3: Boolean(new String()) === true. Actual: ' + (Boolean(new String())));\t\n}\n\n// CHECK#4\nif (Boolean(new Boolean(true)) !== true) {\n  $ERROR('#4: Boolean(new Boolean(true)) === true. Actual: ' + (Boolean(new Boolean(true))));\t\n}\n\n// CHECK#5\nif (Boolean(new Boolean(false)) !== true) {\n  $ERROR('#5: Boolean(new Boolean(false)) === true. Actual: ' + (Boolean(new Boolean(false))));\t\n}\n\n// CHECK#6\nif (Boolean(new Boolean()) !== true) {\n  $ERROR('#6: Boolean(new Boolean()) === true. Actual: ' + (Boolean(new Boolean())));\t\n}\n\n// CHECK#7\nif (Boolean(new Array()) !== true) {\n  $ERROR('#7: Boolean(new Array()) === true. Actual: ' + (Boolean(new Array())));\t\n}\n\n// CHECK#8\nif (Boolean(new Number()) !== true) {\n  $ERROR('#8: Boolean(new Number()) === true. Actual: ' + (Boolean(new Number())));\t\n}\n\n// CHECK#9\nif (Boolean(new Number(-0)) !== true) {\n  $ERROR('#9: Boolean(new Number(-0)) === true. Actual: ' + (Boolean(new Number(-0))));\t\n}\n\n// CHECK#10\nif (Boolean(new Number(0)) !== true) {\n  $ERROR('#10: Boolean(new Number(0)) === true. Actual: ' + (Boolean(new Number(0))));\t\n}\n\n// CHECK#11\nif (Boolean(new Number()) !== true) {\n  $ERROR('#11: Boolean(new Number()) === true. Actual: ' + (Boolean(new Number())));\t\n}\n\n// CHECK#12\nif (Boolean(new Number(Number.NaN)) !== true) {\n  $ERROR('#12: Boolean(new Number(Number.NaN)) === true. Actual: ' + (Boolean(new Number(Number.NaN))));\t\n}\n\n// CHECK#13\nif (Boolean(new Number(-1)) !== true) {\n  $ERROR('#13: Boolean(new Number(-1)) === true. Actual: ' + (Boolean(new Number(-1))));\t\n}\n\n// CHECK#14\nif (Boolean(new Number(1)) !== true) {\n  $ERROR('#14: Boolean(new Number(1)) === true. Actual: ' + (Boolean(new Number(1))));\t\n}\n\n// CHECK#15\nif (Boolean(new Number(Number.POSITIVE_INFINITY)) !== true) {\n  $ERROR('#15: Boolean(new Number(Number.POSITIVE_INFINITY)) === true. Actual: ' + (Boolean(new Number(Number.POSITIVE_INFINITY))));\t\n}\n\n// CHECK#16\nif (Boolean(new Number(Number.NEGATIVE_INFINITY)) !== true) {\n  $ERROR('#16: Boolean(new Number(Number.NEGATIVE_INFINITY)) === true. Actual: ' + (Boolean(new Number(Number.NEGATIVE_INFINITY))));\t\n}\n\n// CHECK#17\nif (Boolean(new Function()) !== true) {\n  $ERROR('#17: Boolean(new Function()) === true. Actual: ' + (Boolean(new Function())));\t\n}\n\n// CHECK#18\nif (Boolean(new Date()) !== true) {\n  $ERROR('#18: Boolean(new Date()) === true. Actual: ' + (Boolean(new Date())));\t\n}\n\n// CHECK#19\nif (Boolean(new Date(0)) !== true) {\n  $ERROR('#19: Boolean(new Date(0)) === true. Actual: ' + (Boolean(new Date(0))));\t\n}\n",
+    "id": "S9.2_A6_T1"
+   },
+   {
+    "section": "9.2, 11.4.9",
+    "description": "Different objects convert to Boolean by implicit transformation",
+    "test": "// CHECK#1\nif (!(new Object()) !== false) {\n  $ERROR('#1: !(new Object()) === false. Actual: ' + (!(new Object())));\t\n}\n\n// CHECK#2\nif (!(new String(\"\")) !== false) {\n  $ERROR('#2: !(new String(\"\")) === false. Actual: ' + (!(new String(\"\"))));\t\n}\n\n// CHECK#3\nif (!(new String()) !== false) {\n  $ERROR('#3: !(new String()) === false. Actual: ' + (!(new String())));\t\n}\n\n// CHECK#4\nif (!(new Boolean(true)) !== false) {\n  $ERROR('#4: !(new Boolean(true)) === false. Actual: ' + (!(new Boolean(true))));\t\n}\n\n// CHECK#5\nif (!(new Boolean(false)) !== false) {\n  $ERROR('#5: !(new Boolean(false)) === false. Actual: ' + (!(new Boolean(false))));\t\n}\n\n// CHECK#6\nif (!(new Boolean()) !== false) {\n  $ERROR('#6: !(new Boolean()) === false. Actual: ' + (!(new Boolean())));\t\n}\n\n// CHECK#7\nif (!(new Array()) !== false) {\n  $ERROR('#7: !(new Array()) === false. Actual: ' + (!(new Array())));\t\n}\n\n// CHECK#8\nif (!(new Number()) !== false) {\n  $ERROR('#8: !(new Number()) === false. Actual: ' + (!(new Number())));\t\n}\n\n// CHECK#9\nif (!(new Number(-0)) !== false) {\n  $ERROR('#9: !(new Number(-0)) === false. Actual: ' + (!(new Number(-0))));\t\n}\n\n// CHECK#10\nif (!(new Number(0)) !== false) {\n  $ERROR('#10: !(new Number(0)) === false. Actual: ' + (!(new Number(0))));\t\n}\n\n// CHECK#11\nif (!(new Number()) !== false) {\n  $ERROR('#11: !(new Number()) === false. Actual: ' + (!(new Number())));\t\n}\n\n// CHECK#12\nif (!(new Number(Number.NaN)) !== false) {\n  $ERROR('#12: !(new Number(Number.NaN)) === false. Actual: ' + (!(new Number(Number.NaN))));\t\n}\n\n// CHECK#13\nif (!(new Number(-1)) !== false) {\n  $ERROR('#13: !(new Number(-1)) === false. Actual: ' + (!(new Number(-1))));\t\n}\n\n// CHECK#14\nif (!(new Number(1)) !== false) {\n  $ERROR('#14: !(new Number(1)) === false. Actual: ' + (!(new Number(1))));\t\n}\n\n// CHECK#15\nif (!(new Number(Number.POSITIVE_INFINITY)) !== false) {\n  $ERROR('#15: !(new Number(Number.POSITIVE_INFINITY)) === false. Actual: ' + (!(new Number(Number.POSITIVE_INFINITY))));\t\n}\n\n// CHECK#16\nif (!(new Number(Number.NEGATIVE_INFINITY)) !== false) {\n  $ERROR('#16: !(new Number(Number.NEGATIVE_INFINITY)) === false. Actual: ' + (!(new Number(Number.NEGATIVE_INFINITY))));\t\n}\n\n// CHECK#17\nif (!(new Function()) !== false) {\n  $ERROR('#17: !(new Function()) === false. Actual: ' + (!(new Function())));\t\n}\n\n// CHECK#18\nif (!(new Date()) !== false) {\n  $ERROR('#18: !(new Date()) === false. Actual: ' + (!(new Date())));\t\n}\n\n// CHECK#19\nif (!(new Date(0)) !== false) {\n  $ERROR('#19: !(new Date(0)) === false. Actual: ' + (!(new Date(0))));\t\n}\n",
+    "id": "S9.2_A6_T2"
+   }
+  ]
+ }
+}

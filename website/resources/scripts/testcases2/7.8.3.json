@@ -1,0 +1,64 @@
+{
+ "testCollection": {
+  "name": "7.8.3",
+  "numTests": 7,
+  "tests": [
+   {
+    "id": "7.8.3-1-s",
+    "path": "TestCases/chapter07/7.8/7.8.3/7.8.3-1-s.js",
+    "description": "Strict Mode - octal extension (010) is forbidden in strict mode",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        try {           \n            eval(\"var _7_8_3_1 = 010;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && typeof _7_8_3_1 === \"undefined\";\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "7.8.3-2-s",
+    "path": "TestCases/chapter07/7.8/7.8.3/7.8.3-2-s.js",
+    "description": "Strict Mode - octal extension (00) is forbidden in strict mode",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        try {\n            eval(\"var _7_8_3_2 = 00;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && typeof _7_8_3_2 === \"undefined\";\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "7.8.3-3-s",
+    "path": "TestCases/chapter07/7.8/7.8.3/7.8.3-3-s.js",
+    "description": "Strict Mode - octal extension (01) is forbidden in strict mode",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        try {\n            eval(\"var _7_8_3_3 = 01;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && typeof _7_8_3_3 === \"undefined\";\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "7.8.3-4-s",
+    "path": "TestCases/chapter07/7.8/7.8.3/7.8.3-4-s.js",
+    "description": "Strict Mode - octal extension (06) is forbidden in strict mode",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        try {\n            eval(\"var _7_8_3_4 = 06;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && typeof _7_8_3_4 === \"undefined\";\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "7.8.3-5-s",
+    "path": "TestCases/chapter07/7.8/7.8.3/7.8.3-5-s.js",
+    "description": "Strict Mode - octal extension (07) is forbidden in strict mode",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        try {\n            eval(\"var _7_8_3_5 = 07;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && typeof _7_8_3_5 === \"undefined\";\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "7.8.3-6-s",
+    "path": "TestCases/chapter07/7.8/7.8.3/7.8.3-6-s.js",
+    "description": "Strict Mode - octal extension (000) is forbidden in strict mode",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        try {\n            eval(\"var _7_8_3_6 = 000;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && typeof _7_8_3_6 === \"undefined\";\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "7.8.3-7-s",
+    "path": "TestCases/chapter07/7.8/7.8.3/7.8.3-7-s.js",
+    "description": "Strict Mode - octal extension (005) is forbidden in strict mode",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        try {\n            eval(\"var _7_8_3_7 = 005;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && typeof _7_8_3_7 === \"undefined\";\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   }
+  ]
+ }
+}

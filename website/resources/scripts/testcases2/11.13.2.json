@@ -1,0 +1,604 @@
+{
+ "testCollection": {
+  "name": "11.13.2",
+  "numTests": 77,
+  "tests": [
+   {
+    "id": "11.13.2-1-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-1-s.js",
+    "description": "Strict Mode - ReferenceError is thrown if the LeftHandSideExpression of a Compound Assignment operator(*=) evaluates to an unresolvable reference",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        try {\n            eval(\"_11_13_2_1 *= 1;\");\n            return false;\n        } catch (e) {\n            return e instanceof ReferenceError;\n        }\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-10-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-10-s.js",
+    "description": "Strict Mode - ReferenceError is thrown if the LeftHandSideExpression of a Compound Assignment operator(^=) evaluates to an unresolvable reference",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        try {\n            eval(\"_11_13_2_10 ^= 1;\");\n            return false;\n        } catch (e) {\n            return e instanceof ReferenceError;\n        }\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-11-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-11-s.js",
+    "description": "Strict Mode - ReferenceError is thrown if the LeftHandSideExpression of a Compound Assignment operator(|=) evaluates to an unresolvable reference",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        try {\n            eval(\"_11_13_2_11 |= 1;\");\n            return false;\n        } catch (e) {\n            return e instanceof ReferenceError;\n        }\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-12-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-12-s.js",
+    "description": "Strict Mode - ReferenceError isn't thrown if the LeftHandSideExpression of a Compound Assignment operator(*=) evaluates to a resolvable reference",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var _11_13_2_12 = 5\n        _11_13_2_12 *= 2;\n        return _11_13_2_12 === 10;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-13-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-13-s.js",
+    "description": "Strict Mode - ReferenceError isn't thrown if the LeftHandSideExpression of a Compound Assignment operator(/=) evaluates to a resolvable reference",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var _11_13_2_13 = 6\n        _11_13_2_13 /= 2;\n        return _11_13_2_13 === 3;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-14-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-14-s.js",
+    "description": "Strict Mode - ReferenceError isn't thrown if the LeftHandSideExpression of a Compound Assignment operator(%=) evaluates to a resolvable reference",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var _11_13_2_14 = 5\n        _11_13_2_14 %= 2;\n        return _11_13_2_14 === 1;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-15-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-15-s.js",
+    "description": "Strict Mode - ReferenceError isn't thrown if the LeftHandSideExpression of a Compound Assignment operator(>>>=) evaluates to a resolvable reference",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var _11_13_2_15 = 8\n        _11_13_2_15 >>>= 2;\n        return _11_13_2_15 === 2;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-16-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-16-s.js",
+    "description": "Strict Mode - ReferenceError isn't thrown if the LeftHandSideExpression of a Compound Assignment operator(-=) evaluates to a resolvable reference",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var _11_13_2_16 = 5\n        _11_13_2_16 -= 2;\n        return _11_13_2_16 === 3;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-17-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-17-s.js",
+    "description": "Strict Mode - ReferenceError isn't thrown if the LeftHandSideExpression of a Compound Assignment operator(<<=) evaluates to a resolvable reference",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var _11_13_2_17 = 1;\n        _11_13_2_17 <<= 2;\n        return _11_13_2_17 === 4;\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-18-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-18-s.js",
+    "description": "Strict Mode - ReferenceError isn't thrown if the LeftHandSideExpression of a Compound Assignment operator(>>=) evaluates to a resolvable reference",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var _11_13_2_18 = 4\n        _11_13_2_18 >>= 2;\n        return _11_13_2_18 === 1;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-19-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-19-s.js",
+    "description": "Strict Mode - ReferenceError isn't thrown if the LeftHandSideExpression of a Compound Assignment operator(+=) evaluates to a resolvable reference",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var _11_13_2_19 = -1\n        _11_13_2_19 += 10;\n        return _11_13_2_19 === 9;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-2-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-2-s.js",
+    "description": "Strict Mode - ReferenceError is thrown if the LeftHandSideExpression of a Compound Assignment operator(/=) evaluates to an unresolvable reference",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        try {\n            eval(\"_11_13_2_2 /= 1;\");\n            return false;\n        } catch (e) {\n            return e instanceof ReferenceError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-20-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-20-s.js",
+    "description": "Strict Mode - ReferenceError isn't thrown if the LeftHandSideExpression of a Compound Assignment operator(&=) evaluates to a resolvable reference",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var _11_13_2_20 = 5\n        _11_13_2_20 &= 3;\n        return _11_13_2_20 === 1;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-21-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-21-s.js",
+    "description": "Strict Mode - ReferenceError isn't thrown if the LeftHandSideExpression of a Compound Assignment operator(^=) evaluates to a resolvable reference",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var _11_13_2_21 = 5\n        _11_13_2_21 ^= 3;\n        return _11_13_2_21 === 6;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-22-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-22-s.js",
+    "description": "Strict Mode - ReferenceError isn't thrown if the LeftHandSideExpression of a Compound Assignment operator(|=) evaluates to a resolvable reference",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var _11_13_2_22 = 5\n        _11_13_2_22 |= 2;\n        return _11_13_2_22 === 7;\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-23-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-23-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(*=) is a reference to a data property with the attribute value {[[Writable]]:false}",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            value: 10,\n            writable: false,\n            enumerable: true,\n            configurable: true\n        });\n\n        try {\n            obj.prop *= 20;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === 10;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-24-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-24-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(/=) is a reference to a data property with the attribute value {[[Writable]]:false}",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            value: 10,\n            writable: false,\n            enumerable: true,\n            configurable: true\n        });\n\n        try {\n            obj.prop /= 20;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === 10;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-25-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-25-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(%=) is a reference to a data property with the attribute value {[[Writable]]:false}",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            value: 10,\n            writable: false,\n            enumerable: true,\n            configurable: true\n        });\n\n        try {\n            obj.prop %= 20;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === 10;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-26-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-26-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(+=) is a reference to a data property with the attribute value {[[Writable]]:false}",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            value: 10,\n            writable: false,\n            enumerable: true,\n            configurable: true\n        });\n\n        try {\n            obj.prop += 20;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === 10;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-27-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-27-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(-=) is a reference to a data property with the attribute value {[[Writable]]:false}",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            value: 10,\n            writable: false,\n            enumerable: true,\n            configurable: true\n        });\n\n        try {\n            obj.prop -= 20;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === 10;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-28-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-28-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(<<=) is a reference to a data property with the attribute value {[[Writable]]:false}",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            value: 10,\n            writable: false,\n            enumerable: true,\n            configurable: true\n        });\n\n        try {\n            obj.prop <<= 20;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === 10;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-29-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-29-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(>>=) is a reference to a data property with the attribute value {[[Writable]]:false}",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            value: 10,\n            writable: false,\n            enumerable: true,\n            configurable: true\n        });\n\n        try {\n            obj.prop >>= 20;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === 10;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-3-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-3-s.js",
+    "description": "Strict Mode - ReferenceError is thrown if the LeftHandSideExpression of a Compound Assignment operator(%=) evaluates to an unresolvable reference",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        try {\n            eval(\"_11_13_2_3 %= 1;\");\n            return false;\n        } catch (e) {\n            return e instanceof ReferenceError;\n        }\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-30-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-30-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(>>>=) is a reference to a data property with the attribute value {[[Writable]]:false}",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            value: 10,\n            writable: false,\n            enumerable: true,\n            configurable: true\n        });\n\n        try {\n            obj.prop >>>= 20;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === 10;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-31-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-31-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(&=) is a reference to a data property with the attribute value {[[Writable]]:false}",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            value: 10,\n            writable: false,\n            enumerable: true,\n            configurable: true\n        });\n\n        try {\n            obj.prop &= 20;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === 10;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-32-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-32-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(^=) is a reference to a data property with the attribute value {[[Writable]]:false}",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            value: 10,\n            writable: false,\n            enumerable: true,\n            configurable: true\n        });\n\n        try {\n            obj.prop ^= 20;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === 10;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-33-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-33-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(|=) is a reference to a data property with the attribute value {[[Writable]]:false}",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            value: 10,\n            writable: false,\n            enumerable: true,\n            configurable: true\n        });\n\n        try {\n            obj.prop |= 20;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === 10;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-34-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-34-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(*=) is a reference to an accessor property with the attribute value {[[Set]]:undefined}",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            get: function () {\n                return 11;\n            },\n            set: undefined,\n            enumerable: true,\n            configurable: true\n        });\n\n        try {\n            obj.prop *= 20;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === 11;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-35-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-35-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(/=) is a reference to an accessor property with the attribute value {[[Set]]:undefined}",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            get: function () {\n                return 11;\n            },\n            set: undefined,\n            enumerable: true,\n            configurable: true\n        });\n\n        try {\n            obj.prop /= 20;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === 11;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-36-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-36-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(%=) is a reference to an accessor property with the attribute value {[[Set]]:undefined}",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            get: function () {\n                return 11;\n            },\n            set: undefined,\n            enumerable: true,\n            configurable: true\n        });\n\n        try {\n            obj.prop %= 20;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === 11;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-37-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-37-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(+=) is a reference to an accessor property with the attribute value {[[Set]]:undefined}",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            get: function () {\n                return 11;\n            },\n            set: undefined,\n            enumerable: true,\n            configurable: true\n        });\n\n        try {\n            obj.prop += 20;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === 11;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-38-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-38-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(-=) is a reference to an accessor property with the attribute value {[[Set]]:undefined}",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            get: function () {\n                return 11;\n            },\n            set: undefined,\n            enumerable: true,\n            configurable: true\n        });\n\n        try {\n            obj.prop -= 20;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === 11;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-39-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-39-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(<<=) is a reference to an accessor property with the attribute value {[[Set]]:undefined}",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            get: function () {\n                return 11;\n            },\n            set: undefined,\n            enumerable: true,\n            configurable: true\n        });\n\n        try {\n            obj.prop <<= 20;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === 11;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-4-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-4-s.js",
+    "description": "Strict Mode - ReferenceError is thrown if the LeftHandSideExpression of a Compound Assignment operator(+=) evaluates to an unresolvable reference",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        try {\n            eval(\"_11_13_2_4 += 1;\");\n            return false;\n        } catch (e) {\n            return e instanceof ReferenceError;\n        }\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-40-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-40-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(>>=) is a reference to an accessor property with the attribute value {[[Set]]:undefined}",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            get: function () {\n                return 11;\n            },\n            set: undefined,\n            enumerable: true,\n            configurable: true\n        });\n\n        try {\n            obj.prop >>= 20;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === 11;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-41-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-41-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(>>>=) is a reference to an accessor property with the attribute value {[[Set]]:undefined}",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            get: function () {\n                return 11;\n            },\n            set: undefined,\n            enumerable: true,\n            configurable: true\n        });\n\n        try {\n            obj.prop >>>= 20;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === 11;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-42-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-42-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(&=) is a reference to an accessor property with the attribute value {[[Set]]:undefined}",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            get: function () {\n                return 11;\n            },\n            set: undefined,\n            enumerable: true,\n            configurable: true\n        });\n\n        try {\n            obj.prop &= 20;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === 11;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-43-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-43-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(^=) is a reference to an accessor property with the attribute value {[[Set]]:undefined}",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            get: function () {\n                return 11;\n            },\n            set: undefined,\n            enumerable: true,\n            configurable: true\n        });\n\n        try {\n            obj.prop ^= 20;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === 11;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-44-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-44-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(|=) is a reference of to an accessor property with the attribute value {[[Set]]:undefined}",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.defineProperty(obj, \"prop\", {\n            get: function () {\n                return 11;\n            },\n            set: undefined,\n            enumerable: true,\n            configurable: true\n        });\n\n        try {\n            obj.prop |= 20;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError && obj.prop === 11;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.defineProperty))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-45-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-45-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(*=) is a reference to a non-existent property of an object whose [[Extensible]] internal property if false",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.preventExtensions(obj);\n\n        try {\n            obj.len *= 10;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.preventExtensions))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-46-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-46-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(/=) is a reference to a non-existent property of an object whose [[Extensible]] internal property if false",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.preventExtensions(obj);\n\n        try {\n            obj.len /= 10;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.preventExtensions))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-47-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-47-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(%=) is a reference to a non-existent property of an object whose [[Extensible]] internal property if false",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.preventExtensions(obj);\n\n        try {\n            obj.len %= 10;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.preventExtensions))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-48-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-48-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(+=) is a reference to a non-existent property of an object whose [[Extensible]] internal property if false",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.preventExtensions(obj);\n\n        try {\n            obj.len += 10;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.preventExtensions))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-49-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-49-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(-=) is a reference to a non-existent property of an object whose [[Extensible]] internal property if false",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.preventExtensions(obj);\n\n        try {\n            obj.len -= 10;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.preventExtensions))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-5-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-5-s.js",
+    "description": "Strict Mode - ReferenceError is thrown if the LeftHandSideExpression of a Compound Assignment operator(-=) evaluates to an unresolvable reference",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        try {\n            eval(\"_11_13_2_5 -= 1;\");\n            return false;\n        } catch (e) {\n            return e instanceof ReferenceError;\n        }\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-50-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-50-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(<<=) is a reference to a non-existent property of an object whose [[Extensible]] internal property if false",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.preventExtensions(obj);\n\n        try {\n            obj.len <<= 10;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.preventExtensions))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-51-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-51-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(>>=) is a reference to a non-existent property of an object whose [[Extensible]] internal property if false",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.preventExtensions(obj);\n\n        try {\n            obj.len >>= 10;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.preventExtensions))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-52-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-52-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(>>>=) is a reference to a non-existent property of an object whose [[Extensible]] internal property if false",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.preventExtensions(obj);\n\n        try {\n            obj.len >>>= 10;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.preventExtensions))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-53-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-53-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(&=) is a reference to a non-existent property of an object whose [[Extensible]] internal property if false",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.preventExtensions(obj);\n\n        try {\n            obj.len &= 10;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.preventExtensions))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-54-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-54-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(^=) is a reference to a non-existent property of an object whose [[Extensible]] internal property if false",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.preventExtensions(obj);\n\n        try {\n            obj.len ^= 10;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.preventExtensions))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-55-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-55-s.js",
+    "description": "Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(|=) is a reference to a non-existent property of an object whose [[Extensible]] internal property if false",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var obj = {};\n        Object.preventExtensions(obj);\n\n        try {\n            obj.len |= 10;\n            return false;\n        } catch (e) {\n            return e instanceof TypeError;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict() && fnExists(Object.preventExtensions))",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-6-1-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-6-1-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier eval appear as the LeftHandSideExpression of a Compound Assignment operator(*=)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = eval;\n        try {\n            eval(\"eval *= 20;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === eval;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-6-10-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-6-10-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier eval appear as the LeftHandSideExpression of a Compound Assignment operator(^=)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = eval;\n        try {\n            eval(\"eval ^= 20;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === eval;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-6-11-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-6-11-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier eval appear as the LeftHandSideExpression of a Compound Assignment operator(|=)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = eval;\n        try {\n            eval(\"eval |= 20;\"); \n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === eval;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-6-12-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-6-12-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier arguments appear as the LeftHandSideExpression of a Compound Assignment operator(*=)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = arguments;\n        try {\n            eval(\"arguments *= 20;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === arguments;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-6-13-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-6-13-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier arguments appear as the LeftHandSideExpression of a Compound Assignment operator(/=)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = arguments;\n        try {\n            eval(\"arguments /= 20;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === arguments;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-6-14-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-6-14-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier arguments appear as the LeftHandSideExpression of a Compound Assignment operator(%=)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = arguments;\n        try {\n            eval(\"arguments %= 20;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === arguments;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-6-15-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-6-15-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier arguments appear as the LeftHandSideExpression of a Compound Assignment operator(+=)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = arguments;\n        try {\n            eval(\"arguments += 20;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === arguments;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-6-16-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-6-16-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier arguments appear as the LeftHandSideExpression of a Compound Assignment operator(-=)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = arguments;\n        try {\n            eval(\"arguments -= 20;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === arguments;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-6-17-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-6-17-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier arguments appear as the LeftHandSideExpression of a Compound Assignment operator(<<=)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = arguments;\n        try {\n            eval(\"arguments <<= 20;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === arguments;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-6-18-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-6-18-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier arguments appear as the LeftHandSideExpression of a Compound Assignment operator(>>=)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = arguments;\n        try {\n            eval(\"arguments >>= 20;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === arguments;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-6-19-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-6-19-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier arguments appear as the LeftHandSideExpression of a Compound Assignment operator(>>>=)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = arguments;\n        try {\n            eval(\"arguments >>>= 20;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === arguments;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-6-2-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-6-2-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier eval appear as the LeftHandSideExpression of a Compound Assignment operator(/=)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = eval;\n        try {\n            eval(\"eval /= 20;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === eval;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-6-20-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-6-20-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier arguments appear as the LeftHandSideExpression of a Compound Assignment operator(&=)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = arguments;\n        try {\n            eval(\"arguments &= 20;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === arguments;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-6-21-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-6-21-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier arguments appear as the LeftHandSideExpression of a Compound Assignment operator(^=)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = arguments;\n        try {\n            eval(\"arguments ^= 20;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === arguments;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-6-22-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-6-22-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier arguments appear as the LeftHandSideExpression of a Compound Assignment operator(|=)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = arguments;\n        try {\n            eval(\"arguments |= 20;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === arguments;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-6-3-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-6-3-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier eval appear as the LeftHandSideExpression of a Compound Assignment operator(%=)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = eval;\n        try {\n            eval(\"eval %= 20;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === eval;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-6-4-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-6-4-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier eval appear as the LeftHandSideExpression of a Compound Assignment operator(+=)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = eval;\n        try {\n            eval(\"eval += 20;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === eval;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-6-5-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-6-5-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier eval appear as the LeftHandSideExpression of a Compound Assignment operator(-=)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = eval;\n        try {\n            eval(\"eval -= 20;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === eval;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-6-6-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-6-6-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier eval appear as the LeftHandSideExpression of a Compound Assignment operator(<<=)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = eval;\n        try {\n            eval(\"eval <<= 20;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === eval;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-6-7-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-6-7-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier eval appear as the LeftHandSideExpression of a Compound Assignment operator(>>=)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = eval;\n        try {\n            eval(\"eval >>= 20;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === eval;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-6-8-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-6-8-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier eval appear as the LeftHandSideExpression of a Compound Assignment operator(>>>=)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = eval;\n        try {\n            eval(\"eval >>>= 20;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === eval;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-6-9-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-6-9-s.js",
+    "description": "Strict Mode - SyntaxError is thrown if the identifier eval appear as the LeftHandSideExpression of a Compound Assignment operator(&=)",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        var blah = eval;\n        try {\n            eval(\"eval &= 20;\");\n            return false;\n        } catch (e) {\n            return e instanceof SyntaxError && blah === eval;\n        }\n    }).call(this));\n",
+    "precondition": "(fnSupportsStrict())",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-6-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-6-s.js",
+    "description": "Strict Mode - ReferenceError is thrown if the LeftHandSideExpression of a Compound Assignment operator(<<=) evaluates to an unresolvable reference",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        try {\n            eval(\"_11_13_2_6 <<= 1;\");\n            return false;\n        } catch (e) {\n            return e instanceof ReferenceError;\n        }\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-7-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-7-s.js",
+    "description": "Strict Mode - ReferenceError is thrown if the LeftHandSideExpression of a Compound Assignment operator(>>=) evaluates to an unresolvable reference",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        try {\n            eval(\"_11_13_2_7 >>= 1;\");\n            return false;\n        } catch (e) {\n            return e instanceof ReferenceError;\n        }\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-8-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-8-s.js",
+    "description": "Strict Mode - ReferenceError is thrown if the LeftHandSideExpression of a Compound Assignment operator(>>>=) evaluates to an unresolvable reference",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        try {\n            eval(\"_11_13_2_8 >>>= 1;\");\n            return false;\n        } catch (e) {\n            return e instanceof ReferenceError;\n        }\n    }).call(this));\n",
+    "strict_only": ""
+   },
+   {
+    "id": "11.13.2-9-s",
+    "path": "TestCases/chapter11/11.13/11.13.2/11.13.2-9-s.js",
+    "description": "Strict Mode - ReferenceError is thrown if the LeftHandSideExpression of a Compound Assignment operator(&=) evaluates to an unresolvable reference",
+    "test": "assertTrue((function testcase() {\n        \"use strict\";\n        try {\n            eval(\"_11_13_2_9 &= 1;\");\n            return false;\n        } catch (e) {\n            return e instanceof ReferenceError;\n        }\n    }).call(this));\n",
+    "strict_only": ""
+   }
+  ]
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "testCollection": {
+  "name": "12.8",
+  "numTests": 1,
+  "tests": [
+   {
+    "id": "12.8-1",
+    "path": "TestCases/chapter12/12.8/12.8-1.js",
+    "description": "The break Statement - a break statement without an identifier may have a LineTerminator before the semi-colon",
+    "test": "assertTrue((function testcase() {\n        var sum = 0;\n        for (var i = 1; i <= 10; i++) {\n            if (i === 6) {\n                break\n                ;\n            }\n            sum += i;\n        }\n        return sum === 15;\n    }).call(this));\n"
+   }
+  ]
+ }
+}

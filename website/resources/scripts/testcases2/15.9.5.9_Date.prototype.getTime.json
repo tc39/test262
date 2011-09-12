@@ -1,0 +1,50 @@
+{
+ "testCollection": {
+  "name": "15.9.5.9_Date.prototype.getTime",
+  "numTests": 7,
+  "tests": [
+   {
+    "section": "15.9.5.9",
+    "description": "Checking absence of ReadOnly attribute",
+    "test": "x = Date.prototype.getTime;\nif(x === 1)\n  Date.prototype.getTime = 2;\nelse\n  Date.prototype.getTime = 1;\nif (Date.prototype.getTime === x) {\n  $ERROR('#1: The Date.prototype.getTime has not the attribute ReadOnly');\n}\n\n",
+    "id": "S15.9.5.9_A1_T1"
+   },
+   {
+    "section": "15.9.5.9",
+    "description": "Checking absence of DontDelete attribute",
+    "test": "if (delete Date.prototype.getTime  === false) {\n  $ERROR('#1: The Date.prototype.getTime property has not the attributes DontDelete');\n}\n\nif (Date.prototype.hasOwnProperty('getTime')) {\n  $FAIL('#2: The Date.prototype.getTime property has not the attributes DontDelete');\n}\n\n",
+    "id": "S15.9.5.9_A1_T2"
+   },
+   {
+    "section": "15.9.5.9",
+    "description": "Checking DontEnum attribute",
+    "test": "if (Date.prototype.propertyIsEnumerable('getTime')) {\n  $ERROR('#1: The Date.prototype.getTime property has the attribute DontEnum');\n}\n\nfor(x in Date.prototype) {\n  if(x === \"getTime\") {\n    $ERROR('#2: The Date.prototype.getTime has the attribute DontEnum');\n  }\n}\n\n",
+    "id": "S15.9.5.9_A1_T3"
+   },
+   {
+    "section": "15.9.5.9",
+    "description": "The \"length\" property of the \"getTime\" is 0",
+    "test": "if(Date.prototype.getTime.hasOwnProperty(\"length\") !== true){\n  $ERROR('#1: The getTime has a \"length\" property');\n}\n\nif(Date.prototype.getTime.length !== 0){\n  $ERROR('#2: The \"length\" property of the getTime is 0');\n}\n\n",
+    "id": "S15.9.5.9_A2_T1"
+   },
+   {
+    "section": "15.9.5.9",
+    "description": "Checking ReadOnly attribute",
+    "test": "x = Date.prototype.getTime.length;\nDate.prototype.getTime.length = 1;\nif (Date.prototype.getTime.length !== x) {\n  $ERROR('#1: The Date.prototype.getTime.length has the attribute ReadOnly');\n}\n\n",
+    "id": "S15.9.5.9_A3_T1"
+   },
+   {
+    "section": "15.9.5.9",
+    "description": "Checking DontDelete attribute",
+    "test": "if (delete Date.prototype.getTime.length  !== false) {\n  $ERROR('#1: The Date.prototype.getTime.length property has the attributes DontDelete');\n}\n\nif (!Date.prototype.getTime.hasOwnProperty('length')) {\n  $FAIL('#2: The Date.prototype.getTime.length property has the attributes DontDelete');\n}\n\n",
+    "id": "S15.9.5.9_A3_T2"
+   },
+   {
+    "section": "15.9.5.9",
+    "description": "Checking DontEnum attribute",
+    "test": "if (Date.prototype.getTime.propertyIsEnumerable('length')) {\n  $ERROR('#1: The Date.prototype.getTime.length property has the attribute DontEnum');\n}\n\nfor(x in Date.prototype.getTime) {\n  if(x === \"length\") {\n    $ERROR('#2: The Date.prototype.getTime.length has the attribute DontEnum');\n  }\n}\n\n",
+    "id": "S15.9.5.9_A3_T3"
+   }
+  ]
+ }
+}
