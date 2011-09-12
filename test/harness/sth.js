@@ -49,7 +49,7 @@ function BrowserRunner() {
             currentTest.error  = "Failed to Load";
         } else if(typeof currentTest.error !== "undefined") {
             // We have an error logged from testRun.
-            if(currentTest.error instanceof SputnikError) {
+            if(currentTest.error instanceof Test262Error) {
                 currentTest.error = currentTest.message;
             } else {
                 currentTest.error = currentTest.error.name + ": " + currentTest.error.message;
@@ -96,7 +96,7 @@ function BrowserRunner() {
         win.testFinished = testFinished;
 
         //TODO: these should be moved to sta.js
-        win.SputnikError = SputnikError;
+        win.Test262Error = Test262Error;
         win.$ERROR = $ERROR;
         win.$FAIL  = $FAIL;
         win.$PRINT = function () {};

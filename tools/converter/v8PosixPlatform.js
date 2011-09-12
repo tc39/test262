@@ -122,6 +122,14 @@
    platform.getText = getText;
 
    /**
+    *
+    */
+   function bashQuote(str) {
+     var escaped = JSON.stringify(str).replace(/'/g, "\\'");
+     return "$'" + escaped.substring(1, escaped.length -1) + "'";
+   }
+
+   /**
     * How one JavaScript script possibly spawns another and possibly
     * redirects its printed form to a chosen file (or resource).
     *
@@ -164,7 +172,9 @@
                        opt_targetPath,
                        opt_spawn_required,
                        opt_forceNonStrict) {
-     if (opt_src && !opt_targetPath && !opt_spawn_required) {
+     if (typeof opt_src === 'string' &&
+         !opt_targetPath &&
+         !opt_spawn_required) {
        var str = '(function(/*var_args*/) { ';
        if (opt_forceNonStrict !== 'forceNonStrict') {
          str += '"use strict"; ';
@@ -173,31 +183,52 @@
        return ''+(1,eval)(str).apply(void 0, opt_args || []);
      }
 
+     var sys = os.system;
+     if (DRY_RUN) {
+       sys = function(command, args) {
+         print(command + ' ' + args.join(' '));
+       };
+     }
+
      var allScriptPaths = PLATFORM_PATHS.concat(scriptPaths);
      var cmd = 'v8 ' + map(allScriptPaths, toPathStr).join(' ');
 
-     if (opt_src) {
-       cmd += ' -e ' + JSON.stringify(opt_src);
+     if (typeof opt_src === 'string') {
+       cmd += ' -e ' + bashQuote(opt_src);
      }
      if (opt_args) {
-       cmd += ' -- ' + map(opt_args, JSON.stringify).join(' ');
+       cmd += ' -- ' + map(opt_args, bashQuote).join(' ');
      }
-     if (opt_targetPath) {
-       cmd += ' > ' + toPathStr(opt_targetPath);
-     }
-     if (VERBOSE || DRY_RUN) { print(cmd); }
-     if (DRY_RUN) { return ''; }
+
+     if (VERBOSE && !DRY_RUN) { print(cmd); }
+
+     // We write the output to a temporary file for two reasons:
+     // * If the spawned script dies with a useful diagnostic,
+     // os.system will throw an error omitting that diagnostic
+     // text. However, bash ">" will both redirect to the output file
+     // and preserve the error code of the command to the left. Bash
+     // does not preserve the error code with "|" redirection.
+     // * If we actually have a target, we only want to write into it
+     // if our command runs successfully.
+     var tempPathStr = os.system('mktemp', ['-t', 'temp.']).trim();
+     cmd += ' > ' + tempPathStr;
+
+     var result;
      try {
-       return os.system('bash', ['-c', cmd]);
-     } catch (err) {
-       if (opt_targetPath) {
+       try {
+         result = sys('bash', ['-c', cmd]);
+       } catch (err) {
          // The error we catch is almost certainly less interesting
          // than the one unfortunately written to the target file.
-         var message = 'failed: ' + cmd + '\n' + getText(opt_targetPath);
-         os.system('rm', [toPathStr(opt_targetPath)]);
+         var message = 'failed: ' + cmd + '\n---\n' + read(tempPathStr);
          throw new Error(message);
        }
-       throw err;
+       if (opt_targetPath) {
+         sys('cp', [tempPathStr, toPathStr(opt_targetPath)]);
+       }
+       return result;
+     } finally {
+       sys('rm', ['-f', tempPathStr]);
      }
    }
    platform.writeSpawn = writeSpawn;
@@ -322,5 +353,16 @@
 
    ////////////////// Only needed for running tests //////////////////////
 
+   if (!global.$PRINT) {
+     global.$PRINT = t262.show;
+   }
+
+   if (!global.$INCLUDE) {
+     global.$INCLUDE = function(name) {
+     // does nothing even locally, since the platform independent
+     // include processing picks these up anyway.
+     //  load(toPathStr(HARNESS_DIR.concat([name])));
+     };
+   }
 
  })(this);

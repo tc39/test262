@@ -2,16 +2,16 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-function SputnikError(message) {
+function Test262Error(message) {
   if (message) this.message = message;
 }
 
-SputnikError.prototype.toString = function () {
+Test262Error.prototype.toString = function () {
   return "Test262 Error: " + this.message;
 };
 
 function testFailed(message) {
-  throw new SputnikError(message);
+  throw new Test262Error(message);
 }
 
 
@@ -47,8 +47,8 @@ function $FAIL(message) {
 function getPrecision(num)
 {
 	//TODO: Create a table of prec's,
-	//      because using Math for testing Math isn't that correct. 
-	
+	//      because using Math for testing Math isn't that correct.
+
 	log2num = Math.log(Math.abs(num))/Math.LN2;
 	pernum = Math.ceil(log2num);
 	return(2 * Math.pow(2, -52 + pernum));
@@ -71,7 +71,7 @@ function isEqual(num1, num2)
 	{
 		return(true);
 	}
-	prec = getPrecision(Math.min(Math.abs(num1), Math.abs(num2)));	
+	prec = getPrecision(Math.min(Math.abs(num1), Math.abs(num2)));
 	return(Math.abs(num1 - num2) <= prec);
 	//return(num1 === num2);
 }
@@ -86,10 +86,10 @@ function ToInteger(p) {
   if(isNaN(x)){
     return +0;
   }
-  
-  if((x === +0) 
-  || (x === -0) 
-  || (x === Number.POSITIVE_INFINITY) 
+
+  if((x === +0)
+  || (x === -0)
+  || (x === Number.POSITIVE_INFINITY)
   || (x === Number.NEGATIVE_INFINITY)){
      return x;
   }
@@ -170,10 +170,10 @@ function YearFromTime(t) {
   t = Number(t);
   var sign = ( t < 0 ) ? -1 : 1;
   var year = ( sign < 0 ) ? 1969 : 1970;
-  
+
   for(var time = 0;;year += sign){
     time = TimeFromYear(year);
-    
+
     if(sign > 0 && time > t){
       year -= sign;
       break;
@@ -184,11 +184,11 @@ function YearFromTime(t) {
   };
   return year;
 }
-  
+
 function InLeapYear(t){
   if(DaysInYear(YearFromTime(t)) == 365)
     return 0;
-  
+
   if(DaysInYear(YearFromTime(t)) == 366)
     return 1;
 }
@@ -247,7 +247,7 @@ var LocalTZA = $LocalTZ*msPerHour;
 
 function DaysInMonth(m, leap) {
   m = m%12;
-  
+
   //April, June, Sept, Nov
   if(m == 3 || m == 5 || m == 8 || m == 10 ) {
     return 30;
@@ -266,7 +266,7 @@ function GetSundayInMonth(t, m, count){
   var year = YearFromTime(t);
   var leap = InLeapYear(t);
   var day = 0;
-  
+
   if(m >= 1) day += DaysInMonth(0, leap);
   if(m >= 2) day += DaysInMonth(1, leap);
   if(m >= 3) day += DaysInMonth(2, leap);
@@ -278,25 +278,25 @@ function GetSundayInMonth(t, m, count){
   if(m >= 9) day += DaysInMonth(8, leap);
   if(m >= 10) day += DaysInMonth(9, leap);
   if(m >= 11) day += DaysInMonth(10, leap);
-  
+
   var month_start = TimeFromYear(year)+day*msPerDay;
   var sunday = 0;
-  
+
   if(count === "last"){
-    for(var last_sunday = month_start+DaysInMonth(m, leap)*msPerDay; 
+    for(var last_sunday = month_start+DaysInMonth(m, leap)*msPerDay;
       WeekDay(last_sunday)>0;
       last_sunday -= msPerDay
     ){};
     sunday = last_sunday;
   }
   else {
-    for(var first_sunday = month_start; 
+    for(var first_sunday = month_start;
       WeekDay(first_sunday)>0;
       first_sunday += msPerDay
     ){};
     sunday = first_sunday+7*msPerDay*(count-1);
   }
-  
+
   return sunday;
 }
 
@@ -306,9 +306,9 @@ function DaylightSavingTA(t) {
   var DST_start = GetSundayInMonth(t, $DST_start_month, $DST_start_sunday)
                   +$DST_start_hour*msPerHour
                   +$DST_start_minutes*msPerMinute;
-                  
+
   var k = new Date(DST_start);
-  
+
   var DST_end   = GetSundayInMonth(t, $DST_end_month, $DST_end_sunday)
                   +$DST_end_hour*msPerHour
                   +$DST_end_minutes*msPerMinute;
@@ -412,7 +412,7 @@ function MakeDate( day, time ) {
   if(!isFinite(day) || !isFinite(time)) {
     return Number.NaN;
   }
-  
+
   return day*msPerDay+time;
 }
 
@@ -445,20 +445,20 @@ function ConstructDate(year, month, date, hours, minutes, seconds, ms){
   var r1 = Number(year);
   var r2 = Number(month);
   var r3 = ((date && arguments.length > 2) ? Number(date) : 1);
-  var r4 = ((hours && arguments.length > 3) ? Number(hours) : 0);   
-  var r5 = ((minutes && arguments.length > 4) ? Number(minutes) : 0);   
-  var r6 = ((seconds && arguments.length > 5) ? Number(seconds) : 0);   
+  var r4 = ((hours && arguments.length > 3) ? Number(hours) : 0);
+  var r5 = ((minutes && arguments.length > 4) ? Number(minutes) : 0);
+  var r6 = ((seconds && arguments.length > 5) ? Number(seconds) : 0);
   var r7 = ((ms && arguments.length > 6) ? Number(ms) : 0);
-  
+
   var r8 = r1;
-  
+
   if(!isNaN(r1) && (0 <= ToInteger(r1)) && (ToInteger(r1) <= 99))
     r8 = 1900+r1;
-  
+
   var r9 = MakeDay(r8, r2, r3);
   var r10 = MakeTime(r4, r5, r6, r7);
   var r11 = MakeDate(r9, r10);
-  
+
   return TimeClip(UTC(r11));
 }
 
@@ -466,9 +466,9 @@ function ConstructDate(year, month, date, hours, minutes, seconds, ms){
 
 /**** Python code for initialize the above constants
 // We may want to replicate the following in JavaScript.
-// However, using JS date operations to generate parameters that are then used to 
+// However, using JS date operations to generate parameters that are then used to
 // test those some date operations seems unsound.  However, it isn't clear if there
-//is a good interoperable alternative.   
+//is a good interoperable alternative.
 
 # Copyright 2009 the Sputnik authors.  All rights reserved.
 # This code is governed by the BSD license found in the LICENSE file.

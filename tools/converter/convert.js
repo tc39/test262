@@ -169,12 +169,12 @@
 
      var cebMatch = captureExprBodyPattern.exec(body);
      if (cebMatch) {
-       return 'assertTrue(' + trim(cebMatch[1]) + ');';
+       return 'assertTruthy(' + trim(cebMatch[1]) + ');';
      }
 
      var cpMatch = capturePredicatePattern.exec(body);
      if (cpMatch) {
-       return 'assertTrue(' + trim(cpMatch[1]) + ');';
+       return 'assertTruthy(' + trim(cpMatch[1]) + ');';
      }
 
      // General case
@@ -314,7 +314,7 @@
     * in canonical test262 style.
     *
     * NOTE: This is currently destructive of testRecord. Easy to fix
-    *if it becomes a problem.
+    * if it becomes a problem.
     */
    function formatTestRecord(testRecord) {
      var test = testRecord.test;
@@ -324,9 +324,9 @@
        if (pname in testRecord) {
          result += ' * @' + pname;
          if (testRecord[pname]) {
-           result += ': ' + testRecord[pname].replace(/\n/g, '\n * ');
+           result += ' ' + testRecord[pname].replace(/\n/g, '\n * ');
          }
-         result += ';\n';
+         result += '\n';
          delete testRecord[pname];
        }
      }
@@ -346,8 +346,8 @@
    t262.formatTestRecord = formatTestRecord;
 
    /**
-    * Reads the test case at pathStr and returns the source of that
-    * test case converted to canonical test262 style.
+    * Reads the test case at inBaseStr+relPathStr and returns the
+    * source of that test case converted to canonical test262 style.
     */
    function convertTest(inBaseStr, relPathStr) {
      var inBase = toPath(inBaseStr);
@@ -420,15 +420,17 @@
     * case section, as would be uploaded to a browser-based test
     * runner.
     */
-   function buildSection(pathStr) {
-     var path = toPath(pathStr);
+   function buildSection(inBaseStr, relPathStr) {
+     var inBase = toPath(inBaseStr);
+     var relPath = platform.toRelPath(relPathStr);
+     var path = inBase.concat(relPath);
      if (!platform.isDirectory(path)) { throw new Error('not dir: ' + path); }
 
      var jsFiles = filter(platform.ls(path), function(name) {
        return /\.js$/.test(name);
      });
      var testRecords = map(jsFiles, function(name) {
-       var testRecord = parseTestRecord(path, name);
+       var testRecord = parseTestRecord(inBase, relPath, name);
 
        delete testRecord.header;
        delete testRecord.comment;
@@ -468,7 +470,8 @@
        try {
          platform.writeSpawn(
            [CONVERT_PATH],
-           't262.showJSON(t262.buildSection("' + toPathStr(inPath) + '"));',
+           't262.showJSON(t262.buildSection("' + toPathStr(inBase) +
+               '", "' + toRelPathStr(nextRelPath) + '"));',
            void 0,
            outFilePath);
        } catch (err) {
@@ -491,10 +494,18 @@
     */
    function buildWebSite(opt_relPathStr) {
      var relPath = opt_relPathStr ? toRelPath(opt_relPathStr) : [];
+     writeSpawnFailures = [];
      forEach(CONTRIB_DIRS, function(srcDir) {
        buildAll(srcDir, OUT_DIR, relPath);
      });
-//     buildAll(CONVERTED_DIR, OUT_DIR, relPath);
+//   buildAll(CONVERTED_DIR, OUT_DIR, relPath);
+     if (writeSpawnFailures.length >= 1) {
+       print('********* failures **********');
+       forEach(writeSpawnFailures, function(failure) {
+         print(failure.error + ': ' + toRelPathStr(failure.relPath));
+       });
+       throw writeSpawnFailures[0].error;
+     }
    }
    t262.buildWebSite = buildWebSite;
 

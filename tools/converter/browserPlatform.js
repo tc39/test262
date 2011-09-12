@@ -32,61 +32,36 @@
 
    var platform = global.t262.platform = {};
 
-   /**
-    * Appends a bunch of RegExps together into a single RegExp,
-    * solving both the RegExp-one-liner problem and the doubled
-    * backslash problem when composing literal strings.
-    *
-    * <p>The arguments can be any mixture of RegExps and strings. By
-    * expressing the portions that should be well formed regexps as
-    * regexps, we catch well-formedness errors within such a portion
-    * separately. The strings are added as is without escaping --
-    * BEWARE. By not escaping the strings, we can use them to
-    * represent the individually unbalanced fragments, like capturing
-    * parens, around other regexps. If arguments[0] is a RegExp, we
-    * use its flags on the resuting RegExp.
-    *
-    * <p>Not platform dependent, so does not really belong in this
-    * file.
-    *
-    * <p>TODO(erights): must rewrite to avoid depending on anything
-    * not in ES3+Reality.
-    */
-   function regExp(var_args) {
-     var args = [].slice.call(arguments, 0);
-     var reSrc = args.map(function(arg) {
-       return (typeof arg === 'string') ? arg : arg.source;
-     }).join('');
-     var flags = '';
-     if (typeof args[0] === 'object') {
-       var parts = (''+args[0]).split('/');
-       flags = parts[parts.length -1];
-     }
-     return new RegExp(reSrc, flags);
-   }
-   platform.regExp = regExp;
+   var utils = global.t262.utils;
+   var forEach = utils.forEach;
+   var map = utils.map;
 
-   ////////////////// Needed for building and running //////////////
+   // Someday this will be https:
+   var ABS_ROOT_STR = 'http://test262.ecmascript.org/';
 
+   var TEST262_ROOT_STR = ABSOLUTE_PATHSTR ? ABS_ROOT : '';
 
-   // Someday these will be https:
-   var ABS_ROOT = ['http://test262.ecmascript.org'];
+   var HARNESS_DIR = ['resources', 'scripts', 'global'];
+   platform.HARNESS_DIR = HARNESS_DIR;
 
-   var TEST262_ROOT = ABSOLUTE_PATHSTR ? ABS_ROOT : ['http:'];
+   var CONVERTER_DIR = ['resources', 'scripts', 'global'];
+   platform.CONVERTER_DIR = CONVERTER_DIR;
 
-   var TEST262_ROOT_STR = TEST262_ROOT.join('/');
+   var PLATFORM_PATHS = [
+     HARNESS_DIR.concat('jquery-1.4.2.min.js'),
+     CONVERTER_DIR.concat('utils.js'),
+     CONVERTER_DIR.concat('v8PosixPlatform.js')
+   ];
+   platform.PLATFORM_PATHS = PLATFORM_PATHS;
 
-   var CONVERTER_PATH = ['resources', 'scripts', 'global'];
-   platform.CONVERTER_PATH = CONVERTER_PATH;
-
-   var ME_PATH = CONVERTER_PATH.concat('browserPlatform.js');
+   ////////////////// Needed for building and running tests //////////////
 
    /**
     *
     */
    function validatePath(path) {
      var pathStr = path.join('/');
-     path.forEach(function(segment) {
+     forEach(path, function(segment) {
        if (segment === '') {
          throw new Error('A path cannot have empty segments: ' + pathStr);
        }
@@ -122,7 +97,7 @@
     */
    function toPathStr(path) {
      validatePath(path);
-     return TEST262_ROOT.concat(path).join('/');
+     return TEST262_ROOT_STR + path.join('/');
    }
    platform.toPathStr = toPathStr;
 
@@ -130,17 +105,22 @@
     * Returns the text found at path, with newlines normalized and
     * any initial BOM (Unicode Byte Order Mark) removed.
     *
-    * Note: Don't simply revise this (without renamings) to follow the
-    * general pattern of also defining a local 'read' function, as it
-    * will mask the v8 shell's read function, which we use.
+    * <p>Note that sync remote reading is a terrible idea, but that
+    * the way test262 was designed and it's hard to change after the
+    * fact.
     */
-   platform.read = function(path) {
-     var text = "TBD".
-       replace(/\r\n/g, '\n').
-       replace(/\r/g, '\n');
+   function getText(path) {
+     var text;
+     $.ajax({
+       async: false,
+       url: toPathStr(path),
+       success: function(s) { text = s; }
+     });
+     text = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
      if (text.charCodeAt(0) === 0xfeff) { return text.substring(1); }
      return text;
-   };
+   }
+   platform.getText = getText;
 
    /**
     * How one JavaScript script possibly spawns another and possibly
@@ -185,7 +165,7 @@
    platform.writeSpawn = writeSpawn;
 
 
-   ////////////////// Only needed for running //////////////////////
+   ////////////////// Only needed for running tests //////////////////////
 
 
  })(this);
