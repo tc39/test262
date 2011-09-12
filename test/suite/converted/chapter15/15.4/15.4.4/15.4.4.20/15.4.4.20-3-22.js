@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-3-22.js;
- * @description: Array.prototype.filter throws TypeError exception when 'length' is an object with toString and valueOf methods that don�t return primitive values;
+ * @path chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-3-22.js
+ * @description Array.prototype.filter throws TypeError exception when 'length' is an object with toString and valueOf methods that don�t return primitive values
  */
 
 

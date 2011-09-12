@@ -4,10 +4,10 @@
 /**
  * Single line comments can not contain LINE SEPARATOR (U+2028) inside
  *
- * @section: 7.3, 7.4;
- * @path: 07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A3.3_T1.js;
- * @description: Insert LINE SEPARATOR (\u2028) into single line comment;
- * @negative;
+ * @section 7.3, 7.4
+ * @path 07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A3.3_T1.js
+ * @description Insert LINE SEPARATOR (\u2028) into single line comment
+ * @negative
  */
 
 // CHECK#1

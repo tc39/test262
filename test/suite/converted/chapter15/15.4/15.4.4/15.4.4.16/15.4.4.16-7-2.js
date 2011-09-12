@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-2.js;
- * @description: Array.prototype.every considers new value of elements in array after the call;
+ * @path chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-2.js
+ * @description Array.prototype.every considers new value of elements in array after the call
  */
 
 

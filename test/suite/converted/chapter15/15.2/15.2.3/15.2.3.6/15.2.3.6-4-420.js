@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-420.js;
- * @description: ES5 Attributes - Failed to add a property to an object when the object's prototype has a property with the same name and [[Writable]] set to false(Function.prototype.bind);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-420.js
+ * @description ES5 Attributes - Failed to add a property to an object when the object's prototype has a property with the same name and [[Writable]] set to false(Function.prototype.bind)
  */
 
 

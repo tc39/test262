@@ -5,9 +5,9 @@
  * If pattern is an object R whose [[Class]] property is "RegExp" and flags is undefined, then let P be
  * the pattern used to construct R and let F be the flags used to construct R
  *
- * @section: 15.10.4.1;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.4_The_RegExp_Constructor/S15.10.4.1_A1_T1.js;
- * @description: Pattern is /./i and RegExp is new RegExp(pattern);
+ * @section 15.10.4.1
+ * @path 15_Native/15.10_RegExp_Objects/15.10.4_The_RegExp_Constructor/S15.10.4.1_A1_T1.js
+ * @description Pattern is /./i and RegExp is new RegExp(pattern)
  */
 
 __pattern = /./i;

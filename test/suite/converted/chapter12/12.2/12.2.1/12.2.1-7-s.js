@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.2/12.2.1/12.2.1-7-s.js;
- * @description: eval - a direct eval declaring a var named 'eval' throws SyntaxError in strict mode;
- * @strict_only;
+ * @path chapter12/12.2/12.2.1/12.2.1-7-s.js
+ * @description eval - a direct eval declaring a var named 'eval' throws SyntaxError in strict mode
+ * @strict_only
  */
 
 

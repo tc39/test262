@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.6/10.6-11-b-1.js;
- * @description: Arguments Object has index property '0' as its own property, it shoulde be writable, enumerable, configurable and does not invoke the setter defined on Object.prototype[0] (Step 11.b);
+ * @path chapter10/10.6/10.6-11-b-1.js
+ * @description Arguments Object has index property '0' as its own property, it shoulde be writable, enumerable, configurable and does not invoke the setter defined on Object.prototype[0] (Step 11.b)
  */
 
 

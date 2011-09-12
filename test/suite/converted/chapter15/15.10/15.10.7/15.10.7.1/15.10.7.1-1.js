@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.10/15.10.7/15.10.7.1/15.10.7.1-1.js;
- * @description: RegExp.prototype.source is of type String;
+ * @path chapter15/15.10/15.10.7/15.10.7.1/15.10.7.1-1.js
+ * @description RegExp.prototype.source is of type String
  */
 
 
-assertTrue((typeof(RegExp.prototype.source)) === 'string');
+assertTruthy((typeof(RegExp.prototype.source)) === 'string');

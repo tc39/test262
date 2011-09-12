@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-547-3.js;
- * @description: ES5 Attributes - Updating a named accessor property 'P' whose [[Configurable]] attribute is false to a data property does not succeed, 'A' is an Array object (8.12.9 step 9.a);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-547-3.js
+ * @description ES5 Attributes - Updating a named accessor property 'P' whose [[Configurable]] attribute is false to a data property does not succeed, 'A' is an Array object (8.12.9 step 9.a)
  */
 
 

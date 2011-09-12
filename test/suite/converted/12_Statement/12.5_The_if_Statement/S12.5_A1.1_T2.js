@@ -4,9 +4,9 @@
 /**
  * 0, null, undefined, false, empty string, NaN in expression is evaluated to false
  *
- * @section: 12.5;
- * @path: 12_Statement/12.5_The_if_Statement/S12.5_A1.1_T2.js;
- * @description: Using "if/else" construction;
+ * @section 12.5
+ * @path 12_Statement/12.5_The_if_Statement/S12.5_A1.1_T2.js
+ * @description Using "if/else" construction
  */
 
 var c=0;

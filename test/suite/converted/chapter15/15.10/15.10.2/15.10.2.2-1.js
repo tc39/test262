@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.10/15.10.2/15.10.2.2-1.js;
- * @description: Pattern - SyntaxError was thrown when compile a pattern;
+ * @path chapter15/15.10/15.10.2/15.10.2.2-1.js
+ * @description Pattern - SyntaxError was thrown when compile a pattern
  */
 
 

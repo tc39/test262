@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-223.js;
- * @description: Object.getOwnPropertyDescriptor - ensure that 'value' property of returned object is data property with correct 'value' attribute;
+ * @path chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-223.js
+ * @description Object.getOwnPropertyDescriptor - ensure that 'value' property of returned object is data property with correct 'value' attribute
  */
 
 

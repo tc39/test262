@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-0-9.js;
- * @description: Whitespace characters can appear before/after any JSONtoken;
+ * @path chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-0-9.js
+ * @description Whitespace characters can appear before/after any JSONtoken
  */
 
 

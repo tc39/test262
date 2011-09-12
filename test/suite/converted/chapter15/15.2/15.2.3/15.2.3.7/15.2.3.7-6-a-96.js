@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-96.js;
- * @description: Object.defineProperties - 'P' is data property, properties.value is present and P.value is undefined (8.12.9 step 12);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-96.js
+ * @description Object.defineProperties - 'P' is data property, properties.value is present and P.value is undefined (8.12.9 step 12)
  */
 
 

@@ -22,8 +22,8 @@
  * create sets the [[Prototype]] of the created object to first parameter.
  * This can be checked using isPrototypeOf, or getPrototypeOf.
  *
- * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-3-1.js;
- * @description: Object.create sets the prototype of the passed-in object;
+ * @path chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-3-1.js
+ * @description Object.create sets the prototype of the passed-in object
  */
 
 

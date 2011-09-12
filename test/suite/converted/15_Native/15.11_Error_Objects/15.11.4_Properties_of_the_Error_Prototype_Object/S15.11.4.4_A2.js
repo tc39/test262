@@ -4,9 +4,9 @@
 /**
  * The Error.prototype.toString returns an implementation defined string
  *
- * @section: 15.11.4.4, 16;
- * @path: 15_Native/15.11_Error_Objects/15.11.4_Properties_of_the_Error_Prototype_Object/S15.11.4.4_A2.js;
- * @description: Checking if call of Error.prototype.toSting() fails;
+ * @section 15.11.4.4, 16
+ * @path 15_Native/15.11_Error_Objects/15.11.4_Properties_of_the_Error_Prototype_Object/S15.11.4.4_A2.js
+ * @description Checking if call of Error.prototype.toSting() fails
  */
 
 //////////////////////////////////////////////////////////////////////////////

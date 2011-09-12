@@ -4,9 +4,9 @@
 /**
  * After "do-while" is broken, (normal, V, empty) is returned
  *
- * @section: 12.6.1;
- * @path: 12_Statement/12.6_Iteration_Statements/12.6.1_The_do_while_Statement/S12.6.1_A5.js;
- * @description: Using eval;
+ * @section 12.6.1
+ * @path 12_Statement/12.6_Iteration_Statements/12.6.1_The_do_while_Statement/S12.6.1_A5.js
+ * @description Using eval
  */
 
 __evaluated = eval("do {__in__do__before__break=1; break; __in__do__after__break=2;} while(0)");

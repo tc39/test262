@@ -22,9 +22,9 @@
  * Refer 13; 
  * The production FunctionBody : SourceElementsopt is evaluated as follows:
  *
- * @path: chapter13/13.0/13.0-9-s.js;
- * @description: Strict Mode - SourceElements is evaluated as strict mode code when a FunctionDeclaration that is contained in strict mode code has an inner function;
- * @strict_only;
+ * @path chapter13/13.0/13.0-9-s.js
+ * @description Strict Mode - SourceElements is evaluated as strict mode code when a FunctionDeclaration that is contained in strict mode code has an inner function
+ * @strict_only
  */
 
 

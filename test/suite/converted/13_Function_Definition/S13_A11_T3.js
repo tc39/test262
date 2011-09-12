@@ -4,9 +4,9 @@
 /**
  * Since arguments property has attribute { DontDelete }, only its elements can be deleted
  *
- * @section: 13;
- * @path: 13_Function_Definition/S13_A11_T3.js;
- * @description: Deleting arguments[i] and returning result of the operation;
+ * @section 13
+ * @path 13_Function_Definition/S13_A11_T3.js
+ * @description Deleting arguments[i] and returning result of the operation
  */
 
 function __func(){

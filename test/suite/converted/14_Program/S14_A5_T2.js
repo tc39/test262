@@ -4,9 +4,9 @@
 /**
  * The Identifer within a FunctionDeclaration can be written in both letters and unicode
  *
- * @section: 14;
- * @path: 14_Program/S14_A5_T2.js;
- * @description: Declaring a function with "function \u005f\u005f\u0066\u0075\u006e\u0063(){return "unicode"}";
+ * @section 14
+ * @path 14_Program/S14_A5_T2.js
+ * @description Declaring a function with "function \u005f\u005f\u0066\u0075\u006e\u0063(){return "unicode"}"
  */
 
 //////////////////////////////////////////////////////////////////////////////

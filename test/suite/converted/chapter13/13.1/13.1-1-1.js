@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter13/13.1/13.1-1-1.js;
- * @description: Duplicate identifier allowed in non-strict function declaration parameter list;
+ * @path chapter13/13.1/13.1-1-1.js
+ * @description Duplicate identifier allowed in non-strict function declaration parameter list
  */
 
 

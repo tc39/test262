@@ -10,9 +10,9 @@
  *  iv) 	The newly constructed object has no [[Value]] property.
  *   v) 	Return the newly created native object
  *
- * @section: 15.2.2.1;
- * @path: 15_Native/15.2_Object_Objects/15.2.2_The_Object_Constructor/S15.2.2.1_A1_T3.js;
- * @description: Creating new Object(null) and checking its properties;
+ * @section 15.2.2.1
+ * @path 15_Native/15.2_Object_Objects/15.2.2_The_Object_Constructor/S15.2.2.1_A1_T3.js
+ * @description Creating new Object(null) and checking its properties
  */
 
 var obj = new Object(null);

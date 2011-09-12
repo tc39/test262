@@ -4,9 +4,9 @@
 /**
  * Operator uses ToNumber
  *
- * @section: 9.6;
- * @path: 09_Type_Conversion/9.6_ToUint32/S9.6_A3.1_T3.js;
- * @description: Type(x) is String;
+ * @section 9.6
+ * @path 09_Type_Conversion/9.6_ToUint32/S9.6_A3.1_T3.js
+ * @description Type(x) is String
  */
 
 // CHECK#1

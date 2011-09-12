@@ -1,8 +1,8 @@
 
 
 /**
- * @path: chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g5-1.js;
- * @description: The JSON lexical grammar allows Unicode escape sequences in a JSONString;
+ * @path chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g5-1.js
+ * @description The JSON lexical grammar allows Unicode escape sequences in a JSONString
  */
 
 /// Copyright (c) 2009 Microsoft Corporation 
@@ -24,4 +24,4 @@
 /// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 /// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-assertTrue(JSON.parse('"\\u0058"')==='X');
+assertTruthy(JSON.parse('"\\u0058"')==='X');

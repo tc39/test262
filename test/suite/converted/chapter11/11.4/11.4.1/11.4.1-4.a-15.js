@@ -22,8 +22,8 @@
  * This test is actually testing the [[Delete]] internal method (8.12.8). Since the
  * language provides no way to directly exercise [[Delete]], the tests are placed here.
  *
- * @path: chapter11/11.4/11.4.1/11.4.1-4.a-15.js;
- * @description: delete operator returns true when deleting Array expandos;
+ * @path chapter11/11.4/11.4.1/11.4.1-4.a-15.js
+ * @description delete operator returns true when deleting Array expandos
  */
 
 

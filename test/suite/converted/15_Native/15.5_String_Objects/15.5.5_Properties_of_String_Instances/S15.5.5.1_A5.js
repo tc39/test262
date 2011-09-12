@@ -4,9 +4,9 @@
 /**
  * Once a String object is created, the length property is unchanging
  *
- * @section: 15.5.5.1;
- * @path: 15_Native/15.5_String_Objects/15.5.5_Properties_of_String_Instances/S15.5.5.1_A5.js;
- * @description: Change valueOf and toString of String object and check length property;
+ * @section 15.5.5.1
+ * @path 15_Native/15.5_String_Objects/15.5.5_Properties_of_String_Instances/S15.5.5.1_A5.js
+ * @description Change valueOf and toString of String object and check length property
  */
 
 var __str__instance = new String("ABC\u0041\u0042\u0043");

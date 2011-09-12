@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-i-30.js;
- * @description: Array.prototype.indexOf - terminates iteration on unhandled exception on an Array;
+ * @path chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-i-30.js
+ * @description Array.prototype.indexOf - terminates iteration on unhandled exception on an Array
  */
 
 

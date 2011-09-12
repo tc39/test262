@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter11/11.13/11.13.2/11.13.2-10-s.js;
- * @description: Strict Mode - ReferenceError is thrown if the LeftHandSideExpression of a Compound Assignment operator(^=) evaluates to an unresolvable reference;
- * @strict_only;
+ * @path chapter11/11.13/11.13.2/11.13.2-10-s.js
+ * @description Strict Mode - ReferenceError is thrown if the LeftHandSideExpression of a Compound Assignment operator(^=) evaluates to an unresolvable reference
+ * @strict_only
  */
 
 

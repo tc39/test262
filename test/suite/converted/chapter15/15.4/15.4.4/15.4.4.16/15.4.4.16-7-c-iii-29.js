@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-29.js;
- * @description: Array.prototype.every - return value (new Boolean(false)) of callbackfn is treated as true value;
+ * @path chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-29.js
+ * @description Array.prototype.every - return value (new Boolean(false)) of callbackfn is treated as true value
  */
 
 

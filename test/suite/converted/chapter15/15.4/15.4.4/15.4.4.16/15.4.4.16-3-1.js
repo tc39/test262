@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-1.js;
- * @description: Array.prototype.every - value of 'length' is undefined;
+ * @path chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-1.js
+ * @description Array.prototype.every - value of 'length' is undefined
  */
 
 

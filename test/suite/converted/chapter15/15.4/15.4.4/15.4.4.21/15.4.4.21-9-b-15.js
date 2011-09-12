@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-b-15.js;
- * @description: Array.prototype.reduce - decreasing length of array with prototype property in step 8 causes prototype index property to be visited;
+ * @path chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-b-15.js
+ * @description Array.prototype.reduce - decreasing length of array with prototype property in step 8 causes prototype index property to be visited
  */
 
 

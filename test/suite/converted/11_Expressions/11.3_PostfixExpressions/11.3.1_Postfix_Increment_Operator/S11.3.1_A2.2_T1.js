@@ -4,9 +4,9 @@
 /**
  * Operator x++ uses [[Default Value]]
  *
- * @section: 11.3.1, 8.6.2.6;
- * @path: 11_Expressions/11.3_PostfixExpressions/11.3.1_Postfix_Increment_Operator/S11.3.1_A2.2_T1.js;
- * @description: If Type(value) is Object, evaluate ToPrimitive(value, Number);
+ * @section 11.3.1, 8.6.2.6
+ * @path 11_Expressions/11.3_PostfixExpressions/11.3.1_Postfix_Increment_Operator/S11.3.1_A2.2_T1.js
+ * @description If Type(value) is Object, evaluate ToPrimitive(value, Number)
  */
 
 //CHECK#1

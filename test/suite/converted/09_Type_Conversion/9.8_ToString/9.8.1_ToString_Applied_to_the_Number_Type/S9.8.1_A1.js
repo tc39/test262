@@ -4,9 +4,9 @@
 /**
  * If m is NaN, return the string "NaN"
  *
- * @section: 9.8.1;
- * @path: 09_Type_Conversion/9.8_ToString/9.8.1_ToString_Applied_to_the_Number_Type/S9.8.1_A1.js;
- * @description: NaN convert to String by explicit transformation;
+ * @section 9.8.1
+ * @path 09_Type_Conversion/9.8_ToString/9.8.1_ToString_Applied_to_the_Number_Type/S9.8.1_A1.js
+ * @description NaN convert to String by explicit transformation
  */
 
 // CHECK#1

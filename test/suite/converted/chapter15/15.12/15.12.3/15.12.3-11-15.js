@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.12/15.12.3/15.12.3-11-15.js;
- * @description: Applying JSON.stringify with a replacer function to a function returns the replacer value.;
+ * @path chapter15/15.12/15.12.3/15.12.3-11-15.js
+ * @description Applying JSON.stringify with a replacer function to a function returns the replacer value.
  */
 
 
-assertTrue(JSON.stringify(function() {}, function(k,v) {return 99}) === '99');
+assertTruthy(JSON.stringify(function() {}, function(k,v) {return 99}) === '99');

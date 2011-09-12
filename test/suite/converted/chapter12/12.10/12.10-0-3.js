@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.10/12.10-0-3.js;
- * @description: with introduces scope - that is captured by function expression;
+ * @path chapter12/12.10/12.10-0-3.js
+ * @description with introduces scope - that is captured by function expression
  */
 
 

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-2-15.js;
- * @description: Array.prototype.indexOf - 'length' is property of the global object;
+ * @path chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-2-15.js
+ * @description Array.prototype.indexOf - 'length' is property of the global object
  */
 
 

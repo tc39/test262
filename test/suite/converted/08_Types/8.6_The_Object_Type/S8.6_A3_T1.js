@@ -4,9 +4,9 @@
 /**
  * Do not crash with pefixincrement custom property
  *
- * @section: 8.6, 11.4.4;
- * @path: 08_Types/8.6_The_Object_Type/S8.6_A3_T1.js;
- * @description: Try to implement pefixincrement for custom property;
+ * @section 8.6, 11.4.4
+ * @path 08_Types/8.6_The_Object_Type/S8.6_A3_T1.js
+ * @description Try to implement pefixincrement for custom property
  */
 
 var __map={foo:'bar'};

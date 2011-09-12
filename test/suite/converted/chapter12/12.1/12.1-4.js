@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.1/12.1-4.js;
- * @description: 12.1 - block '{ StatementListopt };' is not allowed: if-else;
+ * @path chapter12/12.1/12.1-4.js
+ * @description 12.1 - block '{ StatementListopt };' is not allowed: if-else
  */
 
 

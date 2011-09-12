@@ -4,9 +4,9 @@
 /**
  * String.prototype.concat([,[...]]) can accept at least 128
  *
- * @section: 15.5.4.6;
- * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.6_String.prototype.concat/S15.5.4.6_A2.js;
- * @description: Call concat([,[...]]) function with 128 arguments;
+ * @section 15.5.4.6
+ * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.6_String.prototype.concat/S15.5.4.6_A2.js
+ * @description Call concat([,[...]]) function with 128 arguments
  */
 
 var __instance = new Number();

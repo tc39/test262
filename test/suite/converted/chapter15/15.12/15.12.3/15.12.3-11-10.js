@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.12/15.12.3/15.12.3-11-10.js;
- * @description: A JSON.stringify replacer function applied to a top level scalar value can return undefined.;
+ * @path chapter15/15.12/15.12.3/15.12.3-11-10.js
+ * @description A JSON.stringify replacer function applied to a top level scalar value can return undefined.
  */
 
 
-assertTrue(JSON.stringify(42, function(k, v) { return undefined }) === undefined);
+assertTruthy(JSON.stringify(42, function(k, v) { return undefined }) === undefined);

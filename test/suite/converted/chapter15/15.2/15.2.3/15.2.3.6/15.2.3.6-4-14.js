@@ -23,8 +23,8 @@
  * of O to define the property. For configurable properties, step 9b of
  * [[DefineOwnProperty]] permits changing the kind of a property.
  *
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-14.js;
- * @description: Object.defineProperty permits changing data property to accessor property for configurable properties;
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-14.js
+ * @description Object.defineProperty permits changing data property to accessor property for configurable properties
  */
 
 

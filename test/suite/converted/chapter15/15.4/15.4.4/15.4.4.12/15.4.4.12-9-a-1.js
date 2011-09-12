@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.12/15.4.4.12-9-a-1.js;
- * @description: Array.prototype.splice - 'from' is the result of ToString(actualStart+k) in an Array;
+ * @path chapter15/15.4/15.4.4/15.4.4.12/15.4.4.12-9-a-1.js
+ * @description Array.prototype.splice - 'from' is the result of ToString(actualStart+k) in an Array
  */
 
 

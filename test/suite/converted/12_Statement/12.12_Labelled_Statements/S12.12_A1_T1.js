@@ -5,9 +5,9 @@
  * Labelled statements are only used in conjunction with labelled
  * break and continue statements
  *
- * @section: 12.12;
- * @path: 12_Statement/12.12_Labelled_Statements/S12.12_A1_T1.js;
- * @description: Checking if labelled break works. See continue and break sections;
+ * @section 12.12
+ * @path 12_Statement/12.12_Labelled_Statements/S12.12_A1_T1.js
+ * @description Checking if labelled break works. See continue and break sections
  */
 
 var object = {p1: 1, p2: 1};

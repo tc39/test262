@@ -7,9 +7,9 @@
  * separator; these occurrences are not part of any substring in the returned array, but serve to divide up
  * the string value. The value of separator may be a string of any length or it may be a RegExp object
  *
- * @section: 15.5.4.14;
- * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.14_String.prototype.split/S15.5.4.14_A2_T3.js;
- * @description: Call split(/ /,2), instance is String("one two three four five");
+ * @section 15.5.4.14
+ * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.14_String.prototype.split/S15.5.4.14_A2_T3.js
+ * @description Call split(/ /,2), instance is String("one two three four five")
  */
 
 var __string = new String("one two three four five");

@@ -23,8 +23,8 @@
  * of O to define the property. Step 7a of [[DefineOwnProperty]] rejects if
  * current.[[Configurable]] is false and desc.[[Configurable]] is true.
  *
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-7.js;
- * @description: Object.defineProperty throws TypeError when changing [[Configurable]] from false to true;
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-7.js
+ * @description Object.defineProperty throws TypeError when changing [[Configurable]] from false to true
  */
 
 

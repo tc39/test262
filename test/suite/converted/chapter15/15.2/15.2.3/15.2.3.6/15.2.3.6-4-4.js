@@ -23,8 +23,8 @@
  * of O to define the property. For newly defined properties, step 4.a.1 of
  * [[DefineOwnProperty]] creates a data property if handed a generic desc.
  *
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-4.js;
- * @description: Object.defineProperty defines a data property if given a generic desc(8.12.9 step 4.a.i);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-4.js
+ * @description Object.defineProperty defines a data property if given a generic desc(8.12.9 step 4.a.i)
  */
 
 

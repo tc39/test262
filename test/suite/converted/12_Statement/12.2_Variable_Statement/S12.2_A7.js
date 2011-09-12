@@ -4,9 +4,9 @@
 /**
  * VariableDeclaration within "for" statement is allowed
  *
- * @section: 12.2;
- * @path: 12_Statement/12.2_Variable_Statement/S12.2_A7.js;
- * @description: Declaring variable within "for" statement;
+ * @section 12.2
+ * @path 12_Statement/12.2_Variable_Statement/S12.2_A7.js
+ * @description Declaring variable within "for" statement
  */
 
 //////////////////////////////////////////////////////////////////////////////

@@ -25,8 +25,8 @@
  *    4. If previous is not undefined then throw a SyntaxError exception if any of the following conditions are true
  *      c.IsAccessorDescriptor(previous) is true and IsDataDescriptor(propId.descriptor) is true.
  *
- * @path: chapter11/11.1/11.1.5/11.1.5_4-4-c-2.js;
- * @description: Object literal - SyntaxError if a set accessor property definition is followed by a data property definition with the same name;
+ * @path chapter11/11.1/11.1.5/11.1.5_4-4-c-2.js
+ * @description Object literal - SyntaxError if a set accessor property definition is followed by a data property definition with the same name
  */
 
 

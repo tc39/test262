@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g2-1.js;
- * @description: JSONStrings can be written using double quotes;
+ * @path chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g2-1.js
+ * @description JSONStrings can be written using double quotes
  */
 
 
-assertTrue(JSON.parse('"abc"')==="abc");
+assertTruthy(JSON.parse('"abc"')==="abc");

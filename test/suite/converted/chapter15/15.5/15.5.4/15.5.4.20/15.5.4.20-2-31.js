@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-31.js;
- * @description: String.prototype.trim - argument 'this' is a string(value is 'null') ;
+ * @path chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-31.js
+ * @description String.prototype.trim - argument 'this' is a string(value is 'null') 
  */
 
 
-assertTrue(String.prototype.trim.call("null") === "null");
+assertTruthy(String.prototype.trim.call("null") === "null");

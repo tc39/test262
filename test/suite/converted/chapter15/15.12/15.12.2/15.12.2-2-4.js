@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.12/15.12.2/15.12.2-2-4.js;
- * @description: JSON.parse - parsing an object where property name starts and ends with a null character;
+ * @path chapter15/15.12/15.12.2/15.12.2-2-4.js
+ * @description JSON.parse - parsing an object where property name starts and ends with a null character
  */
 
 

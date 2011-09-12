@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-3-1.js;
- * @description: Object.getOwnPropertyNames - elements of the returned array start from index 0;
+ * @path chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-3-1.js
+ * @description Object.getOwnPropertyNames - elements of the returned array start from index 0
  */
 
 

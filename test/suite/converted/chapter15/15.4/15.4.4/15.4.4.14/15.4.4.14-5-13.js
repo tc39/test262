@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-13.js;
- * @description: Array.prototype.indexOf - value of 'fromIndex' is a number (value is -Infinity);
+ * @path chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-13.js
+ * @description Array.prototype.indexOf - value of 'fromIndex' is a number (value is -Infinity)
  */
 
 
-assertTrue([true].indexOf(true, -Infinity) === 0);
+assertTruthy([true].indexOf(true, -Infinity) === 0);

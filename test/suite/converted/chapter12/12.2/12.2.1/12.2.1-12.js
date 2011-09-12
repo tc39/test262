@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.2/12.2.1/12.2.1-12.js;
- * @description: arguments as local var identifier is allowed;
+ * @path chapter12/12.2/12.2.1/12.2.1-12.js
+ * @description arguments as local var identifier is allowed
  */
 
 

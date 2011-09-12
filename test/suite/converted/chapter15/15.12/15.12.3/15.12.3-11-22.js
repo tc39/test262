@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.12/15.12.3/15.12.3-11-22.js;
- * @description: JSON.stringify - stringifying an object where property value starts with the union of all null character (The abstract operation Quote(value) step 2.c);
+ * @path chapter15/15.12/15.12.3/15.12.3-11-22.js
+ * @description JSON.stringify - stringifying an object where property value starts with the union of all null character (The abstract operation Quote(value) step 2.c)
  */
 
 

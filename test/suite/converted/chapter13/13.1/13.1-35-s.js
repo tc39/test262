@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter13/13.1/13.1-35-s.js;
- * @description: StrictMode - SyntaxError is thrown if 'eval' occurs as the function name of a FunctionDeclaration in strict eval code;
- * @strict_only;
+ * @path chapter13/13.1/13.1-35-s.js
+ * @description StrictMode - SyntaxError is thrown if 'eval' occurs as the function name of a FunctionDeclaration in strict eval code
+ * @strict_only
  */
 
 

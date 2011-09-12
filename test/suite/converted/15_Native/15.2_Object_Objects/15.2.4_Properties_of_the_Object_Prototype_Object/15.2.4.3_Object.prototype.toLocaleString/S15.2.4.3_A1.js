@@ -4,9 +4,9 @@
 /**
  * toLocaleString function returns the result of calling toString()
  *
- * @section: 15.2.4.3;
- * @path: 15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/15.2.4.3_Object.prototype.toLocaleString/S15.2.4.3_A1.js;
- * @description: Checking the type of Object.prototype.toLocaleString and the returned result;
+ * @section 15.2.4.3
+ * @path 15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/15.2.4.3_Object.prototype.toLocaleString/S15.2.4.3_A1.js
+ * @description Checking the type of Object.prototype.toLocaleString and the returned result
  */
 
 //CHECK#1

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-305.js;
- * @description: Object.defineProperties - 'O' is an Arguments object, 'P' is generic own data property of 'O', and 'desc' is data descriptor, test updating multiple attribute values of 'P' (10.6 [[DefineOwnProperty]] step 4);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-305.js
+ * @description Object.defineProperties - 'O' is an Arguments object, 'P' is generic own data property of 'O', and 'desc' is data descriptor, test updating multiple attribute values of 'P' (10.6 [[DefineOwnProperty]] step 4)
  */
 
 

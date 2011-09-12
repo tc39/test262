@@ -23,8 +23,8 @@
  * of O to define the property. For non-configurable properties, step 11.a.ii
  * of [[DefineOwnProperty]] permits setting a getter if absent.
  *
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-21.js;
- * @description: Object.defineProperty permits setting a getter (if absent) of non-configurable accessor properties(8.12.9 step 11.a.ii);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-21.js
+ * @description Object.defineProperty permits setting a getter (if absent) of non-configurable accessor properties(8.12.9 step 11.a.ii)
  */
 
 

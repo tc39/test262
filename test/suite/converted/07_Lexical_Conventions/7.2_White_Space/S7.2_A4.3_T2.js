@@ -4,9 +4,9 @@
 /**
  * Multi line comment can contain FORM FEED (U+000C)
  *
- * @section: 7.2, 7.4;
- * @path: 07_Lexical_Conventions/7.2_White_Space/S7.2_A4.3_T2.js;
- * @description: Use real FORM FEED;
+ * @section 7.2, 7.4
+ * @path 07_Lexical_Conventions/7.2_White_Space/S7.2_A4.3_T2.js
+ * @description Use real FORM FEED
  */
 
 /*CHECK#1*/

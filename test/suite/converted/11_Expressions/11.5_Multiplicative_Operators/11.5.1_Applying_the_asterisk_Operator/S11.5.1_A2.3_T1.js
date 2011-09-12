@@ -4,9 +4,9 @@
 /**
  * ToNumber(first expression) is called first, and then ToNumber(second expression)
  *
- * @section: 11.5.1;
- * @path: 11_Expressions/11.5_Multiplicative_Operators/11.5.1_Applying_the_asterisk_Operator/S11.5.1_A2.3_T1.js;
- * @description: Checking with "throw";
+ * @section 11.5.1
+ * @path 11_Expressions/11.5_Multiplicative_Operators/11.5.1_Applying_the_asterisk_Operator/S11.5.1_A2.3_T1.js
+ * @description Checking with "throw"
  */
 
 //CHECK#1

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-2-7.js;
- * @description: Array.prototype.map - applied to Array-like object, 'length' is an own accessor property;
+ * @path chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-2-7.js
+ * @description Array.prototype.map - applied to Array-like object, 'length' is an own accessor property
  */
 
 

@@ -4,9 +4,9 @@
 /**
  * Since assertion evaluating do not change endIndex repetition of assertion does the same result
  *
- * @section: 15.10.2.6;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.6_Assertion/S15.10.2.6_A5_T1.js;
- * @description: Execute /^^^^^^^robot$$$$/.exec("robot") and check results;
+ * @section 15.10.2.6
+ * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.6_Assertion/S15.10.2.6_A5_T1.js
+ * @description Execute /^^^^^^^robot$$$$/.exec("robot") and check results
  */
 
 __executed = /^^^^^^^robot$$$$/.exec("robot");

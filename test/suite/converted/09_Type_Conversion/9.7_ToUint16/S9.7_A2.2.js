@@ -4,9 +4,9 @@
 /**
  * Compute result modulo 2^16
  *
- * @section: 9.7, 11.7.3;
- * @path: 09_Type_Conversion/9.7_ToUint16/S9.7_A2.2.js;
- * @description: For testing use String.fromCharCode(Number).charCodeAt(0) construction;
+ * @section 9.7, 11.7.3
+ * @path 09_Type_Conversion/9.7_ToUint16/S9.7_A2.2.js
+ * @description For testing use String.fromCharCode(Number).charCodeAt(0) construction
  */
 
 // CHECK#1

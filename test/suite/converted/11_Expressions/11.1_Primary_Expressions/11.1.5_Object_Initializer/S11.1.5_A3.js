@@ -4,9 +4,9 @@
 /**
  * Evaluate the production ObjectLiteral: { PropertyNameAndValueList }
  *
- * @section: 11.1.5;
- * @path: 11_Expressions/11.1_Primary_Expressions/11.1.5_Object_Initializer/S11.1.5_A3.js;
- * @description: Creating the object defined with "var object = {0 : 1, "1" : "x", o : {}}";
+ * @section 11.1.5
+ * @path 11_Expressions/11.1_Primary_Expressions/11.1.5_Object_Initializer/S11.1.5_A3.js
+ * @description Creating the object defined with "var object = {0 : 1, "1" : "x", o : {}}"
  */
 
 var object = {0 : 1, "1" : "x", o : {}};

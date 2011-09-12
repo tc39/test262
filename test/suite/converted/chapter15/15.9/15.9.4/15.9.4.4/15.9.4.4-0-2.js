@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.9/15.9.4/15.9.4.4/15.9.4.4-0-2.js;
- * @description: Date.now must exist as a function taking 0 parameters;
+ * @path chapter15/15.9/15.9.4/15.9.4.4/15.9.4.4-0-2.js
+ * @description Date.now must exist as a function taking 0 parameters
  */
 
 
-assertTrue(Date.now.length === 0);
+assertTruthy(Date.now.length === 0);

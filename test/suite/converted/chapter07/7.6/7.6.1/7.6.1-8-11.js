@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter07/7.6/7.6.1/7.6.1-8-11.js;
- * @description: Allow reserved words as property names by set function within an object, accessed via indexing: enum, extends, super;
+ * @path chapter07/7.6/7.6.1/7.6.1-8-11.js
+ * @description Allow reserved words as property names by set function within an object, accessed via indexing: enum, extends, super
  */
 
 

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-55.js;
- * @description: Object.defineProperty - 'name' property doesn't exist in 'O', test [[Enumerable]] of 'name' property of 'Attributes' is set as false value if absent in accessor descriptor 'desc' (8.12.9 step 4.b.i);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-55.js
+ * @description Object.defineProperty - 'name' property doesn't exist in 'O', test [[Enumerable]] of 'name' property of 'Attributes' is set as false value if absent in accessor descriptor 'desc' (8.12.9 step 4.b.i)
  */
 
 

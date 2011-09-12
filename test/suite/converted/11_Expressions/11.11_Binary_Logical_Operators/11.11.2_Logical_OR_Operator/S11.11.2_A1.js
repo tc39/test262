@@ -4,9 +4,9 @@
 /**
  * White Space and Line Terminator between LogicalORExpression and "||" or between "||" and LogicalANDExpression are allowed
  *
- * @section: 11.11.2;
- * @path: 11_Expressions/11.11_Binary_Logical_Operators/11.11.2_Logical_OR_Operator/S11.11.2_A1.js;
- * @description: Checking by using eval;
+ * @section 11.11.2
+ * @path 11_Expressions/11.11_Binary_Logical_Operators/11.11.2_Logical_OR_Operator/S11.11.2_A1.js
+ * @description Checking by using eval
  */
 
 //CHECK#1

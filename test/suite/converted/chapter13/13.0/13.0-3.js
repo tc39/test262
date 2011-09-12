@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter13/13.0/13.0-3.js;
- * @description: 13.0 - property names in function definition is not allowed, add a new property into object;
+ * @path chapter13/13.0/13.0-3.js
+ * @description 13.0 - property names in function definition is not allowed, add a new property into object
  */
 
 

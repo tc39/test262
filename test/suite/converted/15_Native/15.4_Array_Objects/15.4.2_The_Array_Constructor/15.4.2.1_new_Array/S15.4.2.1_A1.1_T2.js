@@ -6,9 +6,9 @@
  * is set to the original Array prototype object, the one that
  * is the initial value of Array.prototype
  *
- * @section: 15.4.2.1, 15.2.4.2;
- * @path: 15_Native/15.4_Array_Objects/15.4.2_The_Array_Constructor/15.4.2.1_new_Array/S15.4.2.1_A1.1_T2.js;
- * @description: Array.prototype.toString = Object.prototype.toString;
+ * @section 15.4.2.1, 15.2.4.2
+ * @path 15_Native/15.4_Array_Objects/15.4.2_The_Array_Constructor/15.4.2.1_new_Array/S15.4.2.1_A1.1_T2.js
+ * @description Array.prototype.toString = Object.prototype.toString
  */
 
 //CHECK#1

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-45.js;
- * @description: Object.defineProperties - desc.value is +0 and P.value is -0 (8.12.9 step 6);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-45.js
+ * @description Object.defineProperties - desc.value is +0 and P.value is -0 (8.12.9 step 6)
  */
 
 

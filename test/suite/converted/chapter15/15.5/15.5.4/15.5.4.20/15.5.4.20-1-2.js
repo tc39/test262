@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-1-2.js;
- * @description: String.prototype.trim throws TypeError when string is null;
+ * @path chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-1-2.js
+ * @description String.prototype.trim throws TypeError when string is null
  */
 
 

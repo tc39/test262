@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.13/15.2.3.13-2-11.js;
- * @description: Object.isExtensible returns true for all built-in objects (Error);
+ * @path chapter15/15.2/15.2.3/15.2.3.13/15.2.3.13-2-11.js
+ * @description Object.isExtensible returns true for all built-in objects (Error)
  */
 
 

@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-0-2.js;
- * @description: Object.create must exist as a function taking 2 parameters;
+ * @path chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-0-2.js
+ * @description Object.create must exist as a function taking 2 parameters
  */
 
 
-assertTrue(Object.create.length === 2);
+assertTruthy(Object.create.length === 2);

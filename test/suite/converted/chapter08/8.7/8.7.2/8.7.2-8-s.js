@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter08/8.7/8.7.2/8.7.2-8-s.js;
- * @description: Strict Mode - TypeError isn't thrown if LeftHandSide is a reference to a property of an extensible object;
- * @strict_only;
+ * @path chapter08/8.7/8.7.2/8.7.2-8-s.js
+ * @description Strict Mode - TypeError isn't thrown if LeftHandSide is a reference to a property of an extensible object
+ * @strict_only
  */
 
 

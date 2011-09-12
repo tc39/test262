@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-28.js;
- * @description: String.prototype.trim - argument 'this' is an empty string ;
+ * @path chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-28.js
+ * @description String.prototype.trim - argument 'this' is an empty string 
  */
 
 
-assertTrue(String.prototype.trim.call("") === "");
+assertTruthy(String.prototype.trim.call("") === "");

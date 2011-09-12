@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter07/7.3/7.3-15.js;
- * @description: 7.3 - ES5 recognize <BOM> (\uFFFF) as a whitespace character;
+ * @path chapter07/7.3/7.3-15.js
+ * @description 7.3 - ES5 recognize <BOM> (\uFFFF) as a whitespace character
  */
 
 

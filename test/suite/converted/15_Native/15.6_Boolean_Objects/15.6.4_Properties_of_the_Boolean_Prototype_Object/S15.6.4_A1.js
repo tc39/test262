@@ -5,9 +5,9 @@
  * The Boolean prototype object is itself a Boolean object
  * (its [[Class]] is "Boolean") whose value is false
  *
- * @section: 15.6.4;
- * @path: 15_Native/15.6_Boolean_Objects/15.6.4_Properties_of_the_Boolean_Prototype_Object/S15.6.4_A1.js;
- * @description: Checking type and value of Boolean.prototype;
+ * @section 15.6.4
+ * @path 15_Native/15.6_Boolean_Objects/15.6.4_Properties_of_the_Boolean_Prototype_Object/S15.6.4_A1.js
+ * @description Checking type and value of Boolean.prototype
  */
 
 //CHECK#1

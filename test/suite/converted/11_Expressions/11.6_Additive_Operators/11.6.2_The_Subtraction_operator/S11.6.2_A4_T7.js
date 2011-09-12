@@ -4,9 +4,9 @@
 /**
  * Operator x - y produces the same result as x + (-y)
  *
- * @section: 11.6.2, 11.6.3;
- * @path: 11_Expressions/11.6_Additive_Operators/11.6.2_The_Subtraction_operator/S11.6.2_A4_T7.js;
- * @description: The mathematical difference of two nonzero finite values of the same magnitude and same sign is +0;
+ * @section 11.6.2, 11.6.3
+ * @path 11_Expressions/11.6_Additive_Operators/11.6.2_The_Subtraction_operator/S11.6.2_A4_T7.js
+ * @description The mathematical difference of two nonzero finite values of the same magnitude and same sign is +0
  */
 
 //CHECK#1

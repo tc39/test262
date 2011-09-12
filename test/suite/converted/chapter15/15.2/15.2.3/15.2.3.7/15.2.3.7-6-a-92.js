@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-92.js;
- * @description: Object.defineProperties throws TypeError when P.configurable is false, P.[[Get]] is undefined, properties.[[Get]] refers to an objcet (8.12.9 step 11.a.ii);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-92.js
+ * @description Object.defineProperties throws TypeError when P.configurable is false, P.[[Get]] is undefined, properties.[[Get]] refers to an objcet (8.12.9 step 11.a.ii)
  */
 
 

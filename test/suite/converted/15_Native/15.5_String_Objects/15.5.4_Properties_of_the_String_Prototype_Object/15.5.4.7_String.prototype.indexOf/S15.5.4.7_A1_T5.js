@@ -4,9 +4,9 @@
 /**
  * String.prototype.indexOf(searchString, position)
  *
- * @section: 15.5.4.7;
- * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.7_String.prototype.indexOf/S15.5.4.7_A1_T5.js;
- * @description: Call indexOf(searchString, position) function with null argument of function object;
+ * @section 15.5.4.7
+ * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.7_String.prototype.indexOf/S15.5.4.7_A1_T5.js
+ * @description Call indexOf(searchString, position) function with null argument of function object
  */
 
 //////////////////////////////////////////////////////////////////////////////

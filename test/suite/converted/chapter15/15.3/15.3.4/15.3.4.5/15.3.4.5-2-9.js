@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-2-9.js;
- * @description: Function.prototype.bind allows Target to be a constructor (Date);
+ * @path chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-2-9.js
+ * @description Function.prototype.bind allows Target to be a constructor (Date)
  */
 
 

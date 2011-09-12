@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-3-6.js;
- * @description: Array.prototype.reduceRight - value of 'length' is a number (value is positive);
+ * @path chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-3-6.js
+ * @description Array.prototype.reduceRight - value of 'length' is a number (value is positive)
  */
 
 

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-4-9.js;
- * @description: Array.prototype.reduceRight - side effects produced by step 3 are visible when an exception occurs;
+ * @path chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-4-9.js
+ * @description Array.prototype.reduceRight - side effects produced by step 3 are visible when an exception occurs
  */
 
 

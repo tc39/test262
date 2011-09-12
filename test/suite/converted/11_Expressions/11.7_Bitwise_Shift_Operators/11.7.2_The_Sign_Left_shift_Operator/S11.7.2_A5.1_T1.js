@@ -4,9 +4,9 @@
 /**
  * Operator x >> y uses ToInt32(ShiftExpression)
  *
- * @section: 11.7.2, 9.5;
- * @path: 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.2_The_Sign_Left_shift_Operator/S11.7.2_A5.1_T1.js;
- * @description: Checking boundary points;
+ * @section 11.7.2, 9.5
+ * @path 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.2_The_Sign_Left_shift_Operator/S11.7.2_A5.1_T1.js
+ * @description Checking boundary points
  */
 
 //CHECK#1

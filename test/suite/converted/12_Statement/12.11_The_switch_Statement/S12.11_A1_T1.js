@@ -5,9 +5,9 @@
  * If Result.type is break and Result.target is in the current
  * label set, return (normal, Result.value, empty)
  *
- * @section: 12.11;
- * @path: 12_Statement/12.11_The_switch_Statement/S12.11_A1_T1.js;
- * @description: Simple test using switch statement;
+ * @section 12.11
+ * @path 12_Statement/12.11_The_switch_Statement/S12.11_A1_T1.js
+ * @description Simple test using switch statement
  */
 
 function SwitchTest(value){

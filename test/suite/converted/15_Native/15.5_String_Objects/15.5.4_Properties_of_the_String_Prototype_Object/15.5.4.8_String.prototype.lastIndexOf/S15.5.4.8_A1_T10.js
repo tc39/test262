@@ -4,9 +4,9 @@
 /**
  * String.prototype.lastIndexOf(searchString, position)
  *
- * @section: 15.5.4.8;
- * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.8_String.prototype.lastIndexOf/S15.5.4.8_A1_T10.js;
- * @description: Call lastIndexOf(searchString, position) function with object arguments;
+ * @section 15.5.4.8
+ * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.8_String.prototype.lastIndexOf/S15.5.4.8_A1_T10.js
+ * @description Call lastIndexOf(searchString, position) function with object arguments
  */
 
 var __obj = {toString:function(){return "\u0041B";}}

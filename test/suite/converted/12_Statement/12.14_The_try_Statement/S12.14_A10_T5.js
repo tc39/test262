@@ -4,9 +4,9 @@
 /**
  * Using "try" with "catch" or "finally" statement within/without a "while" statement
  *
- * @section: 12.14;
- * @path: 12_Statement/12.14_The_try_Statement/S12.14_A10_T5.js;
- * @description: Throw some exceptions from different place of loop body;
+ * @section 12.14
+ * @path 12_Statement/12.14_The_try_Statement/S12.14_A10_T5.js
+ * @description Throw some exceptions from different place of loop body
  */
 
 // CHECK#1

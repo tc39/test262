@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-4-5.js;
- * @description: Array.prototype.reduceRight throws TypeError if callbackfn is number;
+ * @path chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-4-5.js
+ * @description Array.prototype.reduceRight throws TypeError if callbackfn is number
  */
 
 

@@ -4,9 +4,9 @@
 /**
  * If ShiftExpression is not an object, throw TypeError
  *
- * @section: 11.8.6;
- * @path: 11_Expressions/11.8_Relational_Operators/11.8.6_The_instanceof_operator/S11.8.6_A3.js;
- * @description: Checking all the types of primitives;
+ * @section 11.8.6
+ * @path 11_Expressions/11.8_Relational_Operators/11.8.6_The_instanceof_operator/S11.8.6_A3.js
+ * @description Checking all the types of primitives
  */
 
 //CHECK#1

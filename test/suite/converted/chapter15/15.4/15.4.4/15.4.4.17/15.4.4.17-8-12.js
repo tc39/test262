@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-8-12.js;
- * @description: Array.prototype.some doesn't mutate the array on which it is called on;
+ * @path chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-8-12.js
+ * @description Array.prototype.some doesn't mutate the array on which it is called on
  */
 
 

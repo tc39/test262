@@ -4,9 +4,9 @@
 /**
  * RegExp syntax errors must be caught when matcher(s) compiles
  *
- * @section: 15.10.1;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.1_Patterns/S15.10.1_A1_T7.js;
- * @description: Tested RegExp is "*a";
+ * @section 15.10.1
+ * @path 15_Native/15.10_RegExp_Objects/15.10.1_Patterns/S15.10.1_A1_T7.js
+ * @description Tested RegExp is "*a"
  */
 
 //CHECK#1

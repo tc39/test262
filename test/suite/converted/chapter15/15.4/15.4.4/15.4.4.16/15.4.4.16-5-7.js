@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-7.js;
- * @description: Array.prototype.every - built-in functions can be used as thisArg;
+ * @path chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-7.js
+ * @description Array.prototype.every - built-in functions can be used as thisArg
  */
 
 

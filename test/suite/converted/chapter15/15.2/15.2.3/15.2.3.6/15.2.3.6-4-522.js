@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-522.js;
- * @description: ES5 Attributes - [[Set]] attribute of accessor property ([[Get]] is a Function, [[Set]] is undefined, [[Enumerable]] is false, [[Configurable]] is false) is undefined;
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-522.js
+ * @description ES5 Attributes - [[Set]] attribute of accessor property ([[Get]] is a Function, [[Set]] is undefined, [[Enumerable]] is false, [[Configurable]] is false) is undefined
  */
 
 

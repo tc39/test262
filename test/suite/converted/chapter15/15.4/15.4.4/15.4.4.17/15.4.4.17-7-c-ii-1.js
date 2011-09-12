@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-c-ii-1.js;
- * @description: Array.prototype.some - callbackfn called with correct parameters;
+ * @path chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-c-ii-1.js
+ * @description Array.prototype.some - callbackfn called with correct parameters
  */
 
 

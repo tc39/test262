@@ -5,9 +5,9 @@
  * Result of ToString conversion from boolean value is "true" if
  * the argument is "true", else is "false"
  *
- * @section: 9.8;
- * @path: 09_Type_Conversion/9.8_ToString/S9.8_A3_T2.js;
- * @description: True and false convert to String by implicit transformation;
+ * @section 9.8
+ * @path 09_Type_Conversion/9.8_ToString/S9.8_A3_T2.js
+ * @description True and false convert to String by implicit transformation
  */
 
 // CHECK#1

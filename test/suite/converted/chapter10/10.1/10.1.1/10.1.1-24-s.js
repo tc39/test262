@@ -19,13 +19,13 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.1/10.1.1/10.1.1-24-s.js;
- * @description: Strict Mode - Function code of a FunctionExpression contains Use Strict Directive which appears at the end of the block;
- * @strict_only;
+ * @path chapter10/10.1/10.1.1/10.1.1-24-s.js
+ * @description Strict Mode - Function code of a FunctionExpression contains Use Strict Directive which appears at the end of the block
+ * @strict_only
  */
 
 
-assertTrue(function () {
+assertTruthy(function () {
             eval("var public = 1;");
             "use strict";
             return public === 1;

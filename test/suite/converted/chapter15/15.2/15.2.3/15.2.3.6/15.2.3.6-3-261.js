@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-261.js;
- * @description: Object.defineProperty - value of 'set' property in 'Attributes' is undefined (8.10.5 step 8.b);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-261.js
+ * @description Object.defineProperty - value of 'set' property in 'Attributes' is undefined (8.10.5 step 8.b)
  */
 
 

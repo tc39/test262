@@ -4,9 +4,9 @@
 /**
  * The result of evaluating an Identifier is always a value of type Reference
  *
- * @section: 11.1.2;
- * @path: 11_Expressions/11.1_Primary_Expressions/11.1.2_Identifier_Reference/S11.1.2_A1_T1.js;
- * @description: Creating variables without defining it;
+ * @section 11.1.2
+ * @path 11_Expressions/11.1_Primary_Expressions/11.1.2_Identifier_Reference/S11.1.2_A1_T1.js
+ * @description Creating variables without defining it
  */
 
 //CHECK#1

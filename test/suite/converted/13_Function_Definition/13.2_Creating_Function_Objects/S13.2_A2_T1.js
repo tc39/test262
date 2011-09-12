@@ -4,9 +4,9 @@
 /**
  * Nested function are admitted
  *
- * @section: 13.2;
- * @path: 13_Function_Definition/13.2_Creating_Function_Objects/S13.2_A2_T1.js;
- * @description: Nesting level is two;
+ * @section 13.2
+ * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2_A2_T1.js
+ * @description Nesting level is two
  */
 
 var __JEDI="jedi";

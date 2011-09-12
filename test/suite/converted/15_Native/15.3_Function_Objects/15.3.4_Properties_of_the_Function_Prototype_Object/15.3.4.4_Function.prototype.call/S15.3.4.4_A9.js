@@ -4,9 +4,9 @@
 /**
  * The Function.prototype.call.length property has the attribute DontDelete
  *
- * @section: 15.3.4.4;
- * @path: 15_Native/15.3_Function_Objects/15.3.4_Properties_of_the_Function_Prototype_Object/15.3.4.4_Function.prototype.call/S15.3.4.4_A9.js;
- * @description: Checking if deleting the Function.prototype.call.length property fails;
+ * @section 15.3.4.4
+ * @path 15_Native/15.3_Function_Objects/15.3.4_Properties_of_the_Function_Prototype_Object/15.3.4.4_Function.prototype.call/S15.3.4.4_A9.js
+ * @description Checking if deleting the Function.prototype.call.length property fails
  */
 
 //CHECK#0

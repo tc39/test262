@@ -4,9 +4,9 @@
 /**
  * ToNumber(first expression) is called first, and then ToNumber(second expression)
  *
- * @section: 11.7.2;
- * @path: 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.2_The_Sign_Left_shift_Operator/S11.7.2_A2.3_T1.js;
- * @description: Checking with "throw";
+ * @section 11.7.2
+ * @path 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.2_The_Sign_Left_shift_Operator/S11.7.2_A2.3_T1.js
+ * @description Checking with "throw"
  */
 
 //CHECK#1

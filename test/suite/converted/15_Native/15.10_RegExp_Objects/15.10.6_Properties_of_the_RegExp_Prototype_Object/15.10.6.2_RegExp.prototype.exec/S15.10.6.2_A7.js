@@ -4,9 +4,9 @@
 /**
  * RegExp.prototype.exec can't be used as constructor
  *
- * @section: 15.10.6.2, 13.2;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.6_Properties_of_the_RegExp_Prototype_Object/15.10.6.2_RegExp.prototype.exec/S15.10.6.2_A7.js;
- * @description: Checking if creating the RegExp.prototype.exec object fails;
+ * @section 15.10.6.2, 13.2
+ * @path 15_Native/15.10_RegExp_Objects/15.10.6_Properties_of_the_RegExp_Prototype_Object/15.10.6.2_RegExp.prototype.exec/S15.10.6.2_A7.js
+ * @description Checking if creating the RegExp.prototype.exec object fails
  */
 
 __FACTORY = RegExp.prototype.exec;

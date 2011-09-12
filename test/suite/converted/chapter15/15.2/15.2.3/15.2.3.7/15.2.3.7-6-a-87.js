@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-87.js;
- * @description: Object.defineProperties throws TypeError when P.configurable is false, both properties.[[Set]] and P.[[Set]] are two objects which refer to different objects (8.12.9 step 11.a.i);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-87.js
+ * @description Object.defineProperties throws TypeError when P.configurable is false, both properties.[[Set]] and P.[[Set]] are two objects which refer to different objects (8.12.9 step 11.a.i)
  */
 
 

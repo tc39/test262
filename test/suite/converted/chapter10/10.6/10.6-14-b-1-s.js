@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.6/10.6-14-b-1-s.js;
- * @description: Strict Mode - [[Enumerable]] attribute value in 'caller' is false under strict mode;
- * @strict_only;
+ * @path chapter10/10.6/10.6-14-b-1-s.js
+ * @description Strict Mode - [[Enumerable]] attribute value in 'caller' is false under strict mode
+ * @strict_only
  */
 
 

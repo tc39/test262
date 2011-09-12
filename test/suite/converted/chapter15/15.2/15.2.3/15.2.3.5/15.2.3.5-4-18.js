@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-18.js;
- * @description: Object.create - an enumerable inherited data property in 'Properties' is not defined in 'obj' (15.2.3.7 step 3);
+ * @path chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-18.js
+ * @description Object.create - an enumerable inherited data property in 'Properties' is not defined in 'obj' (15.2.3.7 step 3)
  */
 
 

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-21-4.js;
- * @description: Function.prototype.bind - The [[Enumerable]] attribute of 'arguments' property in  'F' is false;
+ * @path chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-21-4.js
+ * @description Function.prototype.bind - The [[Enumerable]] attribute of 'arguments' property in  'F' is false
  */
 
 

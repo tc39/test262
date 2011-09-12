@@ -23,8 +23,8 @@
  * of O to define the property. For non-configurable properties, step 10.a.i
  * of [[DefineOwnProperty]] rejects if relaxing the [[Writable]] attribute.
  *
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-16.js;
- * @description: Object.defineProperty throws TypeError when relaxing [[Writable]] on non-configurable data properties;
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-16.js
+ * @description Object.defineProperty throws TypeError when relaxing [[Writable]] on non-configurable data properties
  */
 
 

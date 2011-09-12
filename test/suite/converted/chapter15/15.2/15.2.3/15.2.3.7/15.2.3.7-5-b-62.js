@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-62.js;
- * @description: Object.defineProperties - 'configurable' property of 'descObj' is inherited data property (8.10.5 step 4.a);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-62.js
+ * @description Object.defineProperties - 'configurable' property of 'descObj' is inherited data property (8.10.5 step 4.a)
  */
 
 

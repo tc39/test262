@@ -4,9 +4,9 @@
 /**
  * FunctionDeclaration cannot be localed inside an Expression
  *
- * @section: 14;
- * @path: 14_Program/S14_A2.js;
- * @description: Declaring a function within an "if" Expression;
+ * @section 14
+ * @path 14_Program/S14_A2.js
+ * @description Declaring a function within an "if" Expression
  */
 
 //////////////////////////////////////////////////////////////////////////////

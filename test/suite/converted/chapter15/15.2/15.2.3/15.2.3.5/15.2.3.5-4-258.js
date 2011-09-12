@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-258.js;
- * @description: Object.create - 'get' property of one property in 'Properties' is the primitive value null (8.10.5 step 7.b);
+ * @path chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-258.js
+ * @description Object.create - 'get' property of one property in 'Properties' is the primitive value null (8.10.5 step 7.b)
  */
 
 

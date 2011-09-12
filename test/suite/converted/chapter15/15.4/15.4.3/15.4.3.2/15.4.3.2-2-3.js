@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-2-3.js;
- * @description: Array.isArray applied to an Array-like object with length and some indexed properties;
+ * @path chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-2-3.js
+ * @description Array.isArray applied to an Array-like object with length and some indexed properties
  */
 
 
-assertTrue(!Array.isArray({ 0: 12, 1: 9, length: 2 }));
+assertTruthy(!Array.isArray({ 0: 12, 1: 9, length: 2 }));

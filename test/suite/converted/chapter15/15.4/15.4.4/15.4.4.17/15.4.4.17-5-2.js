@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-5-2.js;
- * @description: Array.prototype.some - thisArg is Object;
+ * @path chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-5-2.js
+ * @description Array.prototype.some - thisArg is Object
  */
 
 

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-8-b-iii-1-31.js;
- * @description: Array.prototype.reduce - element changed by getter on current iterations is observed in subsequent iterations on an Array-like object;
+ * @path chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-8-b-iii-1-31.js
+ * @description Array.prototype.reduce - element changed by getter on current iterations is observed in subsequent iterations on an Array-like object
  */
 
 

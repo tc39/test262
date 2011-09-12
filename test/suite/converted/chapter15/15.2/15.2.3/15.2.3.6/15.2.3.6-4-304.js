@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-304.js;
- * @description: Object.defineProperty - 'O' is an Arguments object, 'name' is an index named data property of 'O' but not defined in [[ParameterMap]] of 'O', and 'desc' is data descriptor, test updating multiple attribute values of 'name' (10.6 [[DefineOwnProperty]] step 3);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-304.js
+ * @description Object.defineProperty - 'O' is an Arguments object, 'name' is an index named data property of 'O' but not defined in [[ParameterMap]] of 'O', and 'desc' is data descriptor, test updating multiple attribute values of 'name' (10.6 [[DefineOwnProperty]] step 3)
  */
 
 
-assertTrue((function () {
+assertTruthy((function () {
             Object.defineProperty(arguments, "0", {
                 value: 20,
                 writable: false,

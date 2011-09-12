@@ -4,9 +4,9 @@
 /**
  * the prototype property has the attributes { DontDelete }
  *
- * @section: 15.3.5.2;
- * @path: 15_Native/15.3_Function_Objects/15.3.5_Properties_of_Function_Instances/S15.3.5.2_A1_T2.js;
- * @description: Checking if deleting the prototype property of Function(void 0, "") fails;
+ * @section 15.3.5.2
+ * @path 15_Native/15.3_Function_Objects/15.3.5_Properties_of_Function_Instances/S15.3.5.2_A1_T2.js
+ * @description Checking if deleting the prototype property of Function(void 0, "") fails
  */
 
 f = Function(void 0, "");

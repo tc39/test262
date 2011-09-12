@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-5-27.js;
- * @description: Array.prototype.filter - Array.isArray(arg) returns true when arg is the returned array;
+ * @path chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-5-27.js
+ * @description Array.prototype.filter - Array.isArray(arg) returns true when arg is the returned array
  */
 
 

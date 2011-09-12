@@ -4,9 +4,9 @@
 /**
  * The initial value of Error.prototype.constructor is the built-in Error constructor
  *
- * @section: 15.11.4.1, 16;
- * @path: 15_Native/15.11_Error_Objects/15.11.4_Properties_of_the_Error_Prototype_Object/S15.11.4.1_A1_T2.js;
- * @description: Checking if creating "new Error.prototype.constructor" passes and checking its properties;
+ * @section 15.11.4.1, 16
+ * @path 15_Native/15.11_Error_Objects/15.11.4_Properties_of_the_Error_Prototype_Object/S15.11.4.1_A1_T2.js
+ * @description Checking if creating "new Error.prototype.constructor" passes and checking its properties
  */
 
 constr = Error.prototype.constructor;

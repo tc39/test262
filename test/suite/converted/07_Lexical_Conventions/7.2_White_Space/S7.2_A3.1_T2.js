@@ -4,9 +4,9 @@
 /**
  * Single line comment can contain HORIZONTAL TAB (U+0009)
  *
- * @section: 7.2, 7.4;
- * @path: 07_Lexical_Conventions/7.2_White_Space/S7.2_A3.1_T2.js;
- * @description: Use real HORIZONTAL TAB;
+ * @section 7.2, 7.4
+ * @path 07_Lexical_Conventions/7.2_White_Space/S7.2_A3.1_T2.js
+ * @description Use real HORIZONTAL TAB
  */
 
 //CHECK#1

@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter11/11.4/11.4.1/11.4.1-4-a-1-s.js;
- * @description: Strict Mode - TypeError is thrown when deleting non-configurable data property;
- * @strict_only;
+ * @path chapter11/11.4/11.4.1/11.4.1-4-a-1-s.js
+ * @description Strict Mode - TypeError is thrown when deleting non-configurable data property
+ * @strict_only
  */
 
 

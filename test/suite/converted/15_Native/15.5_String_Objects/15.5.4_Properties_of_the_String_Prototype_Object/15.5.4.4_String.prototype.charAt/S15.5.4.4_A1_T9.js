@@ -4,9 +4,9 @@
 /**
  * String.prototype.charAt(pos)
  *
- * @section: 15.5.4.4;
- * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.4_String.prototype.charAt/S15.5.4.4_A1_T9.js;
- * @description: Call charAt() function with function(){}() argument of string object;
+ * @section 15.5.4.4
+ * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.4_String.prototype.charAt/S15.5.4.4_A1_T9.js
+ * @description Call charAt() function with function(){}() argument of string object
  */
 
 //////////////////////////////////////////////////////////////////////////////

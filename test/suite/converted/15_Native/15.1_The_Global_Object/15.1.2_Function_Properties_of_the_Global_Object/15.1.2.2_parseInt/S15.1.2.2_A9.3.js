@@ -4,11 +4,11 @@
 /**
  * The length property of parseInt has the attribute ReadOnly
  *
- * @section: 15.1.2.2;
- * @path: 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.2_parseInt/S15.1.2.2_A9.3.js;
- * @description: Checking if varying the length property fails;
- * @strict_only;
- * @strict_mode_negative;
+ * @section 15.1.2.2
+ * @path 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.2_parseInt/S15.1.2.2_A9.3.js
+ * @description Checking if varying the length property fails
+ * @strict_only
+ * @strict_mode_negative
  */
 
 //CHECK#1

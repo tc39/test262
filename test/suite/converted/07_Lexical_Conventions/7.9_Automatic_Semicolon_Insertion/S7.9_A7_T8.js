@@ -4,9 +4,9 @@
 /**
  * Check Var Statement for automatic semicolon insertion
  *
- * @section: 7.9, 12.2;
- * @path: 07_Lexical_Conventions/7.9_Automatic_Semicolon_Insertion/S7.9_A7_T8.js;
- * @description: Checking if execution of "var x \n ,y" passes;
+ * @section 7.9, 12.2
+ * @path 07_Lexical_Conventions/7.9_Automatic_Semicolon_Insertion/S7.9_A7_T8.js
+ * @description Checking if execution of "var x \n ,y" passes
  */
 
 //CHECK#1

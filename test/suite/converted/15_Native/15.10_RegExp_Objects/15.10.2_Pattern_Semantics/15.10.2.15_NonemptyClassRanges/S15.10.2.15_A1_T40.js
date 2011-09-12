@@ -7,9 +7,9 @@
  * If A does not contain exactly one character or B does not contain exactly one character then throw
  * a SyntaxError exception
  *
- * @section: 15.10.2.15;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.15_NonemptyClassRanges/S15.10.2.15_A1_T40.js;
- * @description: Checking if execution of "/[d-G\u0061]/.exec("a")" leads to throwing the correct exception;
+ * @section 15.10.2.15
+ * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.15_NonemptyClassRanges/S15.10.2.15_A1_T40.js
+ * @description Checking if execution of "/[d-G\u0061]/.exec("a")" leads to throwing the correct exception
  */
 
 //CHECK#1

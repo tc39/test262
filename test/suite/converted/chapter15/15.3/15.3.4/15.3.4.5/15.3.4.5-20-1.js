@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-20-1.js;
- * @description: Function.prototype.bind - 'caller' is defined as one property of 'F';
+ * @path chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-20-1.js
+ * @description Function.prototype.bind - 'caller' is defined as one property of 'F'
  */
 
 

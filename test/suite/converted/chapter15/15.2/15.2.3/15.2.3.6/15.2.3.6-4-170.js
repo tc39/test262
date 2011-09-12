@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-170.js;
- * @description: Object.defineProperty - 'O' is an Array, 'name' is the length property of 'O', the [[Value]] field of 'desc' is less than value of  the length property and also lesser than an index of the array which is set to configurable: false, test that new length is set to a value greater than the non-deletable index by 1, writable attribute of length is set to false and TypeError exception is thrown (15.4.5.1 step 3.l.ii);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-170.js
+ * @description Object.defineProperty - 'O' is an Array, 'name' is the length property of 'O', the [[Value]] field of 'desc' is less than value of  the length property and also lesser than an index of the array which is set to configurable: false, test that new length is set to a value greater than the non-deletable index by 1, writable attribute of length is set to false and TypeError exception is thrown (15.4.5.1 step 3.l.ii)
  */
 
 

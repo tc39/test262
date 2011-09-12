@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-5-5.js;
- * @description: Array.prototype.reduce throws TypeError if 'length' is 0 (subclassed Array, length overridden to '0' (type conversion)), no initVal;
+ * @path chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-5-5.js
+ * @description Array.prototype.reduce throws TypeError if 'length' is 0 (subclassed Array, length overridden to '0' (type conversion)), no initVal
  */
 
 

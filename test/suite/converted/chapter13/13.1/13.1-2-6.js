@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter13/13.1/13.1-2-6.js;
- * @description: arguments allowed as formal parameter name of a non-strict function expression;
+ * @path chapter13/13.1/13.1-2-6.js
+ * @description arguments allowed as formal parameter name of a non-strict function expression
  */
 
 

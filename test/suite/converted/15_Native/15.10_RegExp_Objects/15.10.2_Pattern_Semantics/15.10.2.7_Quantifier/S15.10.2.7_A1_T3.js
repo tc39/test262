@@ -4,9 +4,9 @@
 /**
  * The production QuantifierPrefix :: { DecimalDigits , DecimalDigits } evaluates as ...
  *
- * @section: 15.10.2.7;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.7_Quantifier/S15.10.2.7_A1_T3.js;
- * @description: Execute /\d{2,4}/.exec("the 20000 Leagues Under the Sea book") and check results;
+ * @section 15.10.2.7
+ * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.7_Quantifier/S15.10.2.7_A1_T3.js
+ * @description Execute /\d{2,4}/.exec("the 20000 Leagues Under the Sea book") and check results
  */
 
 __executed = /\d{2,4}/.exec("the 20000 Leagues Under the Sea book");

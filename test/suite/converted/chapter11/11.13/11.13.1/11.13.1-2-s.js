@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter11/11.13/11.13.1/11.13.1-2-s.js;
- * @description: Strict Mode - TypeError is thrown if The LeftHandSide is a reference to an accessor property with the attribute value {[[Set]]:undefined} under strict mode;
- * @strict_only;
+ * @path chapter11/11.13/11.13.1/11.13.1-2-s.js
+ * @description Strict Mode - TypeError is thrown if The LeftHandSide is a reference to an accessor property with the attribute value {[[Set]]:undefined} under strict mode
+ * @strict_only
  */
 
 

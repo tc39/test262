@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-5-1-s.js;
- * @description: Array.prototype.some - thisArg not passed to strict callbackfn;
- * @strict_only;
+ * @path chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-5-1-s.js
+ * @description Array.prototype.some - thisArg not passed to strict callbackfn
+ * @strict_only
  */
 
 

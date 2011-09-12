@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.7/15.7.3/15.7.3.1/15.7.3.1-2.js;
- * @description: Number.prototype, initial value is the Number prototype object;
+ * @path chapter15/15.7/15.7.3/15.7.3.1/15.7.3.1-2.js
+ * @description Number.prototype, initial value is the Number prototype object
  */
 
 

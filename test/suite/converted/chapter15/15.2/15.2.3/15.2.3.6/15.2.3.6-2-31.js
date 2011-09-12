@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-2-31.js;
- * @description: Object.defineProperty - argument 'P' is a number that converts to a string (value is 1(following 22 zeros).1);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-2-31.js
+ * @description Object.defineProperty - argument 'P' is a number that converts to a string (value is 1(following 22 zeros).1)
  */
 
 

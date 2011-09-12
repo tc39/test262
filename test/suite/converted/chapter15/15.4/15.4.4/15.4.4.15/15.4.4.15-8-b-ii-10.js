@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-ii-10.js;
- * @description: Array.prototype.lastIndexOf - both array element and search element are booleans, and they have same value;
+ * @path chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-ii-10.js
+ * @description Array.prototype.lastIndexOf - both array element and search element are booleans, and they have same value
  */
 
 
-assertTrue([false, true].lastIndexOf(true) === 1);
+assertTruthy([false, true].lastIndexOf(true) === 1);

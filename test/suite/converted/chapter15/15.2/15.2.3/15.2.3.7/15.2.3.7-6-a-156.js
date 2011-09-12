@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-156.js;
- * @description: Object.defineProperties - 'O' is an Array, 'P' is the length property of 'O', test the [[Value]] field of 'desc' which equals to value of the length property is defined into 'O' without deleting any property with large index named (15.4.5.1 step 3.f);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-156.js
+ * @description Object.defineProperties - 'O' is an Array, 'P' is the length property of 'O', test the [[Value]] field of 'desc' which equals to value of the length property is defined into 'O' without deleting any property with large index named (15.4.5.1 step 3.f)
  */
 
 

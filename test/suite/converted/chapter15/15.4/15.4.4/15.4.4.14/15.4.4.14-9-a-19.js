@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-a-19.js;
- * @description: Array.prototype.indexOf - decreasing length of array does not delete non-configurable properties;
+ * @path chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-a-19.js
+ * @description Array.prototype.indexOf - decreasing length of array does not delete non-configurable properties
  */
 
 

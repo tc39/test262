@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-354-4.js;
- * @description: Object.defineProperty will update [[Value]] attribute successfully when [[Configurable]] attribute is true and [[Writable]] attribute is false, 'O' is the global object (8.12.9 - step Note);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-354-4.js
+ * @description Object.defineProperty will update [[Value]] attribute successfully when [[Configurable]] attribute is true and [[Writable]] attribute is false, 'O' is the global object (8.12.9 - step Note)
  */
 
 

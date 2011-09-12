@@ -4,9 +4,9 @@
 /**
  * Operator x ? y : z uses GetValue
  *
- * @section: 11.12, 8.7.1;
- * @path: 11_Expressions/11.12_Conditional_Operator/S11.12_A2.1_T1.js;
- * @description: Either Type is not Reference or GetBase is not null;
+ * @section 11.12, 8.7.1
+ * @path 11_Expressions/11.12_Conditional_Operator/S11.12_A2.1_T1.js
+ * @description Either Type is not Reference or GetBase is not null
  */
 
 //CHECK#1

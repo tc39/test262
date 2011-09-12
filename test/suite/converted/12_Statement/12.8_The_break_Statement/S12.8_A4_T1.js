@@ -4,9 +4,9 @@
 /**
  * When "break Identifier" is evaluated, (break, empty, Identifier) is returned
  *
- * @section: 12.8;
- * @path: 12_Statement/12.8_The_break_Statement/S12.8_A4_T1.js;
- * @description: Using "break Identifier" within labaeled loop;
+ * @section 12.8
+ * @path 12_Statement/12.8_The_break_Statement/S12.8_A4_T1.js
+ * @description Using "break Identifier" within labaeled loop
  */
 
 LABEL_OUT : var x=0, y=0;

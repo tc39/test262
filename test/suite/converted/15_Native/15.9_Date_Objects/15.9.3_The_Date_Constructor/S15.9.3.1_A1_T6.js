@@ -5,9 +5,9 @@
  * When Date is called as part of a new expression it is
  * a constructor: it initializes the newly created object
  *
- * @section: 15.9.3.1;
- * @path: 15_Native/15.9_Date_Objects/15.9.3_The_Date_Constructor/S15.9.3.1_A1_T6.js;
- * @description: 7 arguments, (year, month, date, hours, minutes, seconds, ms);
+ * @section 15.9.3.1
+ * @path 15_Native/15.9_Date_Objects/15.9.3_The_Date_Constructor/S15.9.3.1_A1_T6.js
+ * @description 7 arguments, (year, month, date, hours, minutes, seconds, ms)
  */
 
 if (typeof new Date(1899, 11, 31, 23, 59, 59, 999) !== "object") {

@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.11/15.11-1.js;
- * @description: Error - ConversionError has been removed from IE9 standard mode;
+ * @path chapter15/15.11/15.11-1.js
+ * @description Error - ConversionError has been removed from IE9 standard mode
  */
 
 
-assertTrue(typeof ConversionError === "undefined");
+assertTruthy(typeof ConversionError === "undefined");

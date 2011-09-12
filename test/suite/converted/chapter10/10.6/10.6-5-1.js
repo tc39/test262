@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.6/10.6-5-1.js;
- * @description: [[Prototype]] property of Arguments is set to Object prototype object;
+ * @path chapter10/10.6/10.6-5-1.js
+ * @description [[Prototype]] property of Arguments is set to Object prototype object
  */
 
 

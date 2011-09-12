@@ -23,8 +23,8 @@
  * The name JSON must be bound to an object, and must not support [[Call]].
  * step 5 in 11.2.3 should throw a TypeError exception.
  *
- * @path: chapter15/15.12/15.12-0-3.js;
- * @description: JSON must not support the [[Call]] method;
+ * @path chapter15/15.12/15.12-0-3.js
+ * @description JSON must not support the [[Call]] method
  */
 
 

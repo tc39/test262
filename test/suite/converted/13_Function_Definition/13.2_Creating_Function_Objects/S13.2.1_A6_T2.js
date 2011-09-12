@@ -4,9 +4,9 @@
 /**
  * Primitive types are passed by value
  *
- * @section: 13.2.1;
- * @path: 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.1_A6_T2.js;
- * @description: Declaring a function with "__func = function(arg1, arg2)";
+ * @section 13.2.1
+ * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.1_A6_T2.js
+ * @description Declaring a function with "__func = function(arg1, arg2)"
  */
 
 __func = function(arg1, arg2){

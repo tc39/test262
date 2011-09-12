@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-b-i-1.js;
- * @description: Object.isFrozen returns false if 'O' contains own writable data property;
+ * @path chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-b-i-1.js
+ * @description Object.isFrozen returns false if 'O' contains own writable data property
  */
 
 

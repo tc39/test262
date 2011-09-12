@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter14/14.1/14.1-3-s.js;
- * @description: 'use strict' directive - not recognized if it contains extra whitespace;
- * @strict_only;
+ * @path chapter14/14.1/14.1-3-s.js
+ * @description 'use strict' directive - not recognized if it contains extra whitespace
+ * @strict_only
  */
 
 

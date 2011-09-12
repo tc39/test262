@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-ii-1.js;
- * @description: Array.prototype.lastIndexOf - type of array element is different from type of search element;
+ * @path chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-ii-1.js
+ * @description Array.prototype.lastIndexOf - type of array element is different from type of search element
  */
 
 
-assertTrue(["true"].lastIndexOf(true) === -1 &&
+assertTruthy(["true"].lastIndexOf(true) === -1 &&
             ["0"].lastIndexOf(0) === -1 &&
             [false].lastIndexOf(0) === -1 &&
             [undefined].lastIndexOf(0) === -1 &&

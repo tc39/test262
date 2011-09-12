@@ -4,9 +4,9 @@
 /**
  * First expression is evaluated first, and then second expression
  *
- * @section: 11.11.1;
- * @path: 11_Expressions/11.11_Binary_Logical_Operators/11.11.1_Logical_AND_Operator/S11.11.1_A2.4_T3.js;
- * @description: Checking with undeclarated variables;
+ * @section 11.11.1
+ * @path 11_Expressions/11.11_Binary_Logical_Operators/11.11.1_Logical_AND_Operator/S11.11.1_A2.4_T3.js
+ * @description Checking with undeclarated variables
  */
 
 //CHECK#1

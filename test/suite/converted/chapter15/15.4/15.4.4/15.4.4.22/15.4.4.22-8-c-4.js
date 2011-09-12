@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-8-c-4.js;
- * @description: Array.prototype.reduceRight doesn't throw error when array has no own properties but prototype contains a single property;
+ * @path chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-8-c-4.js
+ * @description Array.prototype.reduceRight doesn't throw error when array has no own properties but prototype contains a single property
  */
 
 

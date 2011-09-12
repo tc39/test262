@@ -5,9 +5,9 @@
  * If start is positive, use min(start, length).
  * If end is positive, use min(end, length)
  *
- * @section: 15.4.4.10;
- * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.10_Array_prototype_slice/S15.4.4.10_A1.1_T7.js;
- * @description: end > length > start > 0;
+ * @section 15.4.4.10
+ * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.10_Array_prototype_slice/S15.4.4.10_A1.1_T7.js
+ * @description end > length > start > 0
  */
 
 var x = [0,1,2,3,4];

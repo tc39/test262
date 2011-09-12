@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-570.js;
- * @description: ES5 Attributes - [[Get]] attribute is a function which doesn't contains return statement;
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-570.js
+ * @description ES5 Attributes - [[Get]] attribute is a function which doesn't contains return statement
  */
 
 

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-4-8.js;
- * @description: Array.prototype.filter - side effects produced by step 2 are visible when an exception occurs;
+ * @path chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-4-8.js
+ * @description Array.prototype.filter - side effects produced by step 2 are visible when an exception occurs
  */
 
 

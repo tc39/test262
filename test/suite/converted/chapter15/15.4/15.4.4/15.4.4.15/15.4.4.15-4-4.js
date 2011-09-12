@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-4-4.js;
- * @description: Array.prototype.lastIndexOf returns -1 if 'length' is 0 (generic 'array' with length 0 );
+ * @path chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-4-4.js
+ * @description Array.prototype.lastIndexOf returns -1 if 'length' is 0 (generic 'array' with length 0 )
  */
 
 

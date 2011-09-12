@@ -24,8 +24,8 @@
  * every field of desc also occurs in current and every field in desc has
  * the same value as current.
  *
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-6.js;
- * @description: Object.defineProperty is no-op if current and desc are the same accessor desc;
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-6.js
+ * @description Object.defineProperty is no-op if current and desc are the same accessor desc
  */
 
 

@@ -4,9 +4,9 @@
 /**
  * The production QuantifierPrefix :: { DecimalDigits , DecimalDigits } evaluates as ...
  *
- * @section: 15.10.2.7;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.7_Quantifier/S15.10.2.7_A1_T8.js;
- * @description: Execute /b{2,3}c/.exec("aaabbbbcccddeeeefffff") and check results;
+ * @section 15.10.2.7
+ * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.7_Quantifier/S15.10.2.7_A1_T8.js
+ * @description Execute /b{2,3}c/.exec("aaabbbbcccddeeeefffff") and check results
  */
 
 __executed = /b{2,3}c/.exec("aaabbbbcccddeeeefffff");

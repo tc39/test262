@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-ii-5.js;
- * @description: Array.prototype.lastIndexOf - search element is -NaN;
+ * @path chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-ii-5.js
+ * @description Array.prototype.lastIndexOf - search element is -NaN
  */
 
 
-assertTrue([+NaN, NaN, -NaN].lastIndexOf(-NaN) === -1);
+assertTruthy([+NaN, NaN, -NaN].lastIndexOf(-NaN) === -1);

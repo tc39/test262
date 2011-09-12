@@ -4,9 +4,9 @@
 /**
  * The RegExp instance ignoreCase property has the attribute DontEnum
  *
- * @section: 15.10.7.3;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.7_Properties_of_RegExp_Instances/15.10.7.3_ignoreCase/S15.10.7.3_A8.js;
- * @description: Checking if enumerating the ignoreCase property of RegExp instance fails;
+ * @section 15.10.7.3
+ * @path 15_Native/15.10_RegExp_Objects/15.10.7_Properties_of_RegExp_Instances/15.10.7.3_ignoreCase/S15.10.7.3_A8.js
+ * @description Checking if enumerating the ignoreCase property of RegExp instance fails
  */
 
 __re = new RegExp("[|||||||]","");

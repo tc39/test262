@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.6/10.6-13-b-1-s.js;
- * @description: Accessing caller property of Arguments object throws TypeError in strict mode;
- * @strict_only;
+ * @path chapter10/10.6/10.6-13-b-1-s.js
+ * @description Accessing caller property of Arguments object throws TypeError in strict mode
+ * @strict_only
  */
 
 

@@ -5,11 +5,11 @@
  * Properties of the [[Prototype]] object
  * are visible as properties of the child object for the purposes of get access, but not for put access
  *
- * @section: 8.6.2, 15.2.4;
- * @path: 08_Types/8.6_The_Object_Type/8.6.2_Internal_Properties_and_Methods/S8.6.2_A2.js;
- * @description: Check visibility properties of the child object for the purposes of get access, but not for put access;
- * @strict_only;
- * @strict_mode_negative;
+ * @section 8.6.2, 15.2.4
+ * @path 08_Types/8.6_The_Object_Type/8.6.2_Internal_Properties_and_Methods/S8.6.2_A2.js
+ * @description Check visibility properties of the child object for the purposes of get access, but not for put access
+ * @strict_only
+ * @strict_mode_negative
  */
 
 //Establish foo object 

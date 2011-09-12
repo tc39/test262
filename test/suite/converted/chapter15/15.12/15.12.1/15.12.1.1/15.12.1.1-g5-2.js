@@ -1,8 +1,8 @@
 
 
 /**
- * @path: chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g5-2.js;
- * @description: A JSONStringCharacter UnicodeEscape may not have fewer than 4 hex characters;
+ * @path chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g5-2.js
+ * @description A JSONStringCharacter UnicodeEscape may not have fewer than 4 hex characters
  */
 
 /// Copyright (c) 2009 Microsoft Corporation 

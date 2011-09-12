@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-b-3.js;
- * @description: Object.seal - the [[Configurable]] attribute of all own properties of 'O' are set from true to false and other attributes of the property are unaltered;
+ * @path chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-b-3.js
+ * @description Object.seal - the [[Configurable]] attribute of all own properties of 'O' are set from true to false and other attributes of the property are unaltered
  */
 
 

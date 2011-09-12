@@ -4,9 +4,9 @@
 /**
  * The MV of StrDecimalLiteral::: + StrUnsignedDecimalLiteral is the MV of StrUnsignedDecimalLiteral
  *
- * @section: 9.3.1, 15.7.1;
- * @path: 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A4_T1.js;
- * @description: Compare Number('+any_number') with Number('any_number');
+ * @section 9.3.1, 15.7.1
+ * @path 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A4_T1.js
+ * @description Compare Number('+any_number') with Number('any_number')
  */
 
 // CHECK#1

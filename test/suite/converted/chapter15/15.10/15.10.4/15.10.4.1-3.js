@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.10/15.10.4/15.10.4.1-3.js;
- * @description: RegExp - the thrown error is SyntaxError instead of RegExpError when 'F' contains any character other than 'g', 'i', or 'm' ;
+ * @path chapter15/15.10/15.10.4/15.10.4.1-3.js
+ * @description RegExp - the thrown error is SyntaxError instead of RegExpError when 'F' contains any character other than 'g', 'i', or 'm' 
  */
 
 

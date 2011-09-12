@@ -4,9 +4,9 @@
 /**
  * Math.log, recommended that implementations use the approximation algorithms for IEEE 754 arithmetic contained in fdlibm
  *
- * @section: 15.8.2.10;
- * @path: 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.10_log/S15.8.2.10_A6.js;
- * @description: Checking if Math.log is approximately equals to its mathematical values on the set of 64 argument values; all the sample values is calculated with LibC;
+ * @section 15.8.2.10
+ * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.10_log/S15.8.2.10_A6.js
+ * @description Checking if Math.log is approximately equals to its mathematical values on the set of 64 argument values; all the sample values is calculated with LibC
  */
 
 $INCLUDE("math_precision.js");

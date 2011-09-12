@@ -5,9 +5,9 @@
  * If length equal zero, call the [[Put]] method of this object
  * with arguments "length" and 0 and return undefined
  *
- * @section: 15.4.4.9;
- * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.9_Array_prototype_shift/S15.4.4.9_A1.1_T1.js;
- * @description: Checking this algorithm;
+ * @section 15.4.4.9
+ * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.9_Array_prototype_shift/S15.4.4.9_A1.1_T1.js
+ * @description Checking this algorithm
  */
 
 //CHECK#1

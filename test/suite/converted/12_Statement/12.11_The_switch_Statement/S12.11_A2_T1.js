@@ -4,10 +4,10 @@
 /**
  * There can be only one DefaultClause
  *
- * @section: 12.11;
- * @path: 12_Statement/12.11_The_switch_Statement/S12.11_A2_T1.js;
- * @description: Duplicate DefaultClause;
- * @negative;
+ * @section 12.11
+ * @path 12_Statement/12.11_The_switch_Statement/S12.11_A2_T1.js
+ * @description Duplicate DefaultClause
+ * @negative
  */
 
 function SwitchTest(value){

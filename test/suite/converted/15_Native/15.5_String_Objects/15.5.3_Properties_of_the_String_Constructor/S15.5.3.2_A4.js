@@ -4,9 +4,9 @@
 /**
  * String.fromCharCode has not [[construct]] method
  *
- * @section: 15.5.3.2;
- * @path: 15_Native/15.5_String_Objects/15.5.3_Properties_of_the_String_Constructor/S15.5.3.2_A4.js;
- * @description: Checking if creating "new String.fromCharCode" fails;
+ * @section 15.5.3.2
+ * @path 15_Native/15.5_String_Objects/15.5.3_Properties_of_the_String_Constructor/S15.5.3.2_A4.js
+ * @description Checking if creating "new String.fromCharCode" fails
  */
 
 var __fcc__func = String.fromCharCode;

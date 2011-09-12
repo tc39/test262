@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-3-20.js;
- * @description: Array.prototype.reduce - value of 'length' is an object which has an own valueOf method;
+ * @path chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-3-20.js
+ * @description Array.prototype.reduce - value of 'length' is an object which has an own valueOf method
  */
 
 

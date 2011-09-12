@@ -4,9 +4,9 @@
 /**
  * Check ToUint32(length) for Array object
  *
- * @section: 15.4.4.7;
- * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.7_Array_prototype_push/S15.4.4.7_A3.js;
- * @description: If ToUint32(length) !== length, throw RangeError;
+ * @section 15.4.4.7
+ * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.7_Array_prototype_push/S15.4.4.7_A3.js
+ * @description If ToUint32(length) !== length, throw RangeError
  */
 
 var x = [];

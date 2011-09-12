@@ -4,11 +4,11 @@
 /**
  * If the property has the ReadOnly attribute, [[CanPut]](P) return false
  *
- * @section: 8.6.2.3, 8.6.2.2, 8.6.1;
- * @path: 08_Types/8.6_The_Object_Type/8.6.2_Internal_Properties_and_Methods/S8.6.2.3_A1.js;
- * @description: Try put other value for Math.E property;
- * @strict_only;
- * @strict_mode_negative;
+ * @section 8.6.2.3, 8.6.2.2, 8.6.1
+ * @path 08_Types/8.6_The_Object_Type/8.6.2_Internal_Properties_and_Methods/S8.6.2.3_A1.js
+ * @description Try put other value for Math.E property
+ * @strict_only
+ * @strict_mode_negative
  */
 
 var __e = Math.E;

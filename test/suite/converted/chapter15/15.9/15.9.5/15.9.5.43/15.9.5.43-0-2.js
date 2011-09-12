@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-2.js;
- * @description: Date.prototype.toISOString must exist as a function taking 0 parameters;
+ * @path chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-2.js
+ * @description Date.prototype.toISOString must exist as a function taking 0 parameters
  */
 
 
-assertTrue(Date.prototype.toISOString.length === 0);
+assertTruthy(Date.prototype.toISOString.length === 0);

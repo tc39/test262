@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-40.js;
- * @description: Object.create - ensure that if an exception is thrown it occurs in the correct order relative to prior and subsequent side-effects (15.2.3.7 step 5.a);
+ * @path chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-40.js
+ * @description Object.create - ensure that if an exception is thrown it occurs in the correct order relative to prior and subsequent side-effects (15.2.3.7 step 5.a)
  */
 
 

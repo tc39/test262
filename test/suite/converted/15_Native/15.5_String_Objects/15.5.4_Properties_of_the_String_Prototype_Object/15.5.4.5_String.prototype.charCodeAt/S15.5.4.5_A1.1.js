@@ -4,9 +4,9 @@
 /**
  * String.prototype.charCodeAt() can accept many arguments
  *
- * @section: 15.5.4.5, 13.2;
- * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.5_String.prototype.charCodeAt/S15.5.4.5_A1.1.js;
- * @description: Checking by using eval;
+ * @section 15.5.4.5, 13.2
+ * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.5_String.prototype.charCodeAt/S15.5.4.5_A1.1.js
+ * @description Checking by using eval
  */
 
 function __FACTORY(){this.toString = function(){ return "wizard";};};

@@ -4,9 +4,9 @@
 /**
  * Empty string, 0, false are all equal (==) to each other, since they all evaluate to 0
  *
- * @section: 8.4, 7.8.4;
- * @path: 08_Types/8.4_The_String_Type/S8.4_A8.js;
- * @description: Compare empty string with undefined, null, 0 and false;
+ * @section 8.4, 7.8.4
+ * @path 08_Types/8.4_The_String_Type/S8.4_A8.js
+ * @description Compare empty string with undefined, null, 0 and false
  */
 
 var str='';

@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-32.js;
- * @description: String.prototype.trim - argument 'this' is a string(value is '123#$%abc');
+ * @path chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-32.js
+ * @description String.prototype.trim - argument 'this' is a string(value is '123#$%abc')
  */
 
 
-assertTrue(String.prototype.trim.call("123#$%abc") === "123#$%abc");
+assertTruthy(String.prototype.trim.call("123#$%abc") === "123#$%abc");

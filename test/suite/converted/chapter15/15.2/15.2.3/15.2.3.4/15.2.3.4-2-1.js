@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-2-1.js;
- * @description: Object.getOwnPropertyNames - returned array is an array according to Array.isArray;
+ * @path chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-2-1.js
+ * @description Object.getOwnPropertyNames - returned array is an array according to Array.isArray
  */
 
 

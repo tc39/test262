@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-0-4.js;
- * @description: <NBSP> is not valid JSON whitespace as specified by the production JSONWhitespace.;
+ * @path chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-0-4.js
+ * @description <NBSP> is not valid JSON whitespace as specified by the production JSONWhitespace.
  */
 
 

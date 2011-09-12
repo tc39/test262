@@ -23,8 +23,8 @@
  * The initial value of [[Configurable]] on JSON is true. This means we
  * should be able to delete (8.6.2.5) the stringify and parse properties.
  *
- * @path: chapter15/15.12/15.12.3/15.12.3-0-3.js;
- * @description: JSON.stringify must be deletable (configurable);
+ * @path chapter15/15.12/15.12.3/15.12.3-0-3.js
+ * @description JSON.stringify must be deletable (configurable)
  */
 
 

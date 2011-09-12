@@ -4,9 +4,9 @@
 /**
  * Result of boolean conversion from undefined value is false
  *
- * @section: 9.2, 15.6.1;
- * @path: 09_Type_Conversion/9.2_ToBoolean/S9.2_A1_T1.js;
- * @description: Undefined, void and others are converted to Boolean by explicit transformation;
+ * @section 9.2, 15.6.1
+ * @path 09_Type_Conversion/9.2_ToBoolean/S9.2_A1_T1.js
+ * @description Undefined, void and others are converted to Boolean by explicit transformation
  */
 
 // CHECK#1

@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-0-2.js;
- * @description: Object.defineProperty must exist as a function taking 3 parameters;
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-0-2.js
+ * @description Object.defineProperty must exist as a function taking 3 parameters
  */
 
 
-assertTrue(Object.defineProperty.length === 3);
+assertTruthy(Object.defineProperty.length === 3);

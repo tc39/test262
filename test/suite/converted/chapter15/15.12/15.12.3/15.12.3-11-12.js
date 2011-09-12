@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.12/15.12.3/15.12.3-11-12.js;
- * @description: A JSON.stringify replacer function applied to a top level scalar can return an Array.;
+ * @path chapter15/15.12/15.12.3/15.12.3-11-12.js
+ * @description A JSON.stringify replacer function applied to a top level scalar can return an Array.
  */
 
 
-assertTrue(JSON.stringify(42, function(k, v) { return v==42 ?[4,2]:v }) === '[4,2]');
+assertTruthy(JSON.stringify(42, function(k, v) { return v==42 ?[4,2]:v }) === '[4,2]');

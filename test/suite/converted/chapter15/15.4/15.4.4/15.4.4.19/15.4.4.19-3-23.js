@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-3-23.js;
- * @description: Array.prototype.map uses inherited valueOf method when 'length' is an object with an own toString and inherited valueOf methods;
+ * @path chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-3-23.js
+ * @description Array.prototype.map uses inherited valueOf method when 'length' is an object with an own toString and inherited valueOf methods
  */
 
 

@@ -4,9 +4,9 @@
 /**
  * When "continue Identifier" is evaluated (continue, empty, Identifier) is returned
  *
- * @section: 12.7;
- * @path: 12_Statement/12.7_The_continue_Statement/S12.7_A4_T3.js;
- * @description: Using embedded and labeled loops, continue to outer loop;
+ * @section 12.7
+ * @path 12_Statement/12.7_The_continue_Statement/S12.7_A4_T3.js
+ * @description Using embedded and labeled loops, continue to outer loop
  */
 
 LABEL_OUT : var x=0, y=0, xx=0, yy=0;

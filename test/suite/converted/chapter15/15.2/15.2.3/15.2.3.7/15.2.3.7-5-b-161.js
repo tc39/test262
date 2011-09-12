@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-161.js;
- * @description: Object.defineProperties - 'descObj' is the Arguments object which implements its own [[Get]] method to get 'writable' property (8.10.5 step 6.a);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-161.js
+ * @description Object.defineProperties - 'descObj' is the Arguments object which implements its own [[Get]] method to get 'writable' property (8.10.5 step 6.a)
  */
 
 

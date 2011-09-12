@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-236.js;
- * @description: Object.defineProperties - TypeError is thrown if 'O' is an Array, 'P' is an array index named property that already exists on 'O' is data property with  [[Configurable]], [[Writable]] false, 'desc' is data descriptor, [[Value]] field of 'desc' is -0, and the [[Value]] attribute value of 'P' is +0  (15.4.5.1 step 4.c);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-236.js
+ * @description Object.defineProperties - TypeError is thrown if 'O' is an Array, 'P' is an array index named property that already exists on 'O' is data property with  [[Configurable]], [[Writable]] false, 'desc' is data descriptor, [[Value]] field of 'desc' is -0, and the [[Value]] attribute value of 'P' is +0  (15.4.5.1 step 4.c)
  */
 
 

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-1-6.js;
- * @description: Array.prototype.map - applied to Number object;
+ * @path chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-1-6.js
+ * @description Array.prototype.map - applied to Number object
  */
 
 

@@ -4,9 +4,9 @@
 /**
  * The String.prototype.indexOf.length property has the attribute ReadOnly
  *
- * @section: 15.5.4.7;
- * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.7_String.prototype.indexOf/S15.5.4.7_A10.js;
- * @description: Checking if varying the String.prototype.indexOf.length property fails;
+ * @section 15.5.4.7
+ * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.7_String.prototype.indexOf/S15.5.4.7_A10.js
+ * @description Checking if varying the String.prototype.indexOf.length property fails
  */
 
 //////////////////////////////////////////////////////////////////////////////

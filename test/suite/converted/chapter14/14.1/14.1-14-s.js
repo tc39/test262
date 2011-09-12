@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter14/14.1/14.1-14-s.js;
- * @description: semicolon insertion may come before 'use strict' directive ;
- * @strict_only;
+ * @path chapter14/14.1/14.1-14-s.js
+ * @description semicolon insertion may come before 'use strict' directive 
+ * @strict_only
  */
 
 

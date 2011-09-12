@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-5.js;
- * @description: Date.prototype.toISOString - The returned string is the UTC time zone(0);
+ * @path chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-5.js
+ * @description Date.prototype.toISOString - The returned string is the UTC time zone(0)
  */
 
 

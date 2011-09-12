@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-3-11.js;
- * @description: String.prototype.trim - 'S' is a string that starts with null character;
+ * @path chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-3-11.js
+ * @description String.prototype.trim - 'S' is a string that starts with null character
  */
 
 
-assertTrue("\0\u0000abc".trim() === "\0\u0000abc");
+assertTruthy("\0\u0000abc".trim() === "\0\u0000abc");

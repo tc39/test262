@@ -4,9 +4,9 @@
 /**
  * The "length" property of the "setUTCMonth" is 2
  *
- * @section: 15.9.5.39;
- * @path: 15_Native/15.9_Date_Objects/15.9.5_Properties_of_the_Date_Prototype_Object/15.9.5.39_Date.prototype.setUTCMonth/S15.9.5.39_A2_T1.js;
- * @description: The "length" property of the "setUTCMonth" is 2;
+ * @section 15.9.5.39
+ * @path 15_Native/15.9_Date_Objects/15.9.5_Properties_of_the_Date_Prototype_Object/15.9.5.39_Date.prototype.setUTCMonth/S15.9.5.39_A2_T1.js
+ * @description The "length" property of the "setUTCMonth" is 2
  */
 
 if(Date.prototype.setUTCMonth.hasOwnProperty("length") !== true){

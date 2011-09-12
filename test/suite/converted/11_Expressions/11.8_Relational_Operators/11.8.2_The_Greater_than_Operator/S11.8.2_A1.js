@@ -4,9 +4,9 @@
 /**
  * White Space and Line Terminator between RelationalExpression and ">" or ">" and ShiftExpression are allowed
  *
- * @section: 11.8.2, 7.2, 7.3;
- * @path: 11_Expressions/11.8_Relational_Operators/11.8.2_The_Greater_than_Operator/S11.8.2_A1.js;
- * @description: Checking by using eval;
+ * @section 11.8.2, 7.2, 7.3
+ * @path 11_Expressions/11.8_Relational_Operators/11.8.2_The_Greater_than_Operator/S11.8.2_A1.js
+ * @description Checking by using eval
  */
 
 //CHECK#1

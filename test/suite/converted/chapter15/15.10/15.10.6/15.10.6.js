@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.10/15.10.6/15.10.6.js;
- * @description: RegExp.prototype is itself a RegExp;
+ * @path chapter15/15.10/15.10.6/15.10.6.js
+ * @description RegExp.prototype is itself a RegExp
  */
 
 

@@ -16,8 +16,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-2-15.js;
- * @description: Function.prototype.bind throws TypeError if 'Target' is Object without Call internal method;
+ * @path chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-2-15.js
+ * @description Function.prototype.bind throws TypeError if 'Target' is Object without Call internal method
  */
 
 

@@ -21,8 +21,8 @@
 /**
  * PutValue operates only on references (see step 1).
  *
- * @path: chapter11/11.13/11.13.1/11.13.1-1-2.js;
- * @description: simple assignment throws ReferenceError if LeftHandSide is not a reference (string);
+ * @path chapter11/11.13/11.13.1/11.13.1-1-2.js
+ * @description simple assignment throws ReferenceError if LeftHandSide is not a reference (string)
  */
 
 

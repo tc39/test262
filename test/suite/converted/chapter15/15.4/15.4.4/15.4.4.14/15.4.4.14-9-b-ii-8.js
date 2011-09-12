@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-ii-8.js;
- * @description: Array.prototype.indexOf - both array element and search element are Number, and they have same value;
+ * @path chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-ii-8.js
+ * @description Array.prototype.indexOf - both array element and search element are Number, and they have same value
  */
 
 
-assertTrue([-1, 0, 1].indexOf(1) === 2);
+assertTruthy([-1, 0, 1].indexOf(1) === 2);

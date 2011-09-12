@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.6/10.6-10-c-ii-2-s.js;
- * @description: arguments[i] doesn't map to actual parameters in strict mode;
- * @strict_only;
+ * @path chapter10/10.6/10.6-10-c-ii-2-s.js
+ * @description arguments[i] doesn't map to actual parameters in strict mode
+ * @strict_only
  */
 
 

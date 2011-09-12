@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.2/10.2.1/10.2.1.1/10.2.1.1.3/10.2.1.1.3-4-16-s.js;
- * @description: Strict Mode - TypeError is thrown when changing the value of a Value Property of the Global Object under strict mode (NaN);
- * @strict_only;
+ * @path chapter10/10.2/10.2.1/10.2.1.1/10.2.1.1.3/10.2.1.1.3-4-16-s.js
+ * @description Strict Mode - TypeError is thrown when changing the value of a Value Property of the Global Object under strict mode (NaN)
+ * @strict_only
  */
 
 

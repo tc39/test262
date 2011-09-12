@@ -4,9 +4,9 @@
 /**
  * If B1 = 0xxxxxxxx ([0x00 - 0x7F]), return B1
  *
- * @section: 15.1.3.2;
- * @path: 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.2_decodeURIComponent/S15.1.3.2_A2.2_T1.js;
- * @description: Complex tests, use RFC 3629;
+ * @section 15.1.3.2
+ * @path 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.2_decodeURIComponent/S15.1.3.2_A2.2_T1.js
+ * @description Complex tests, use RFC 3629
  */
 
 errorCount = 0;

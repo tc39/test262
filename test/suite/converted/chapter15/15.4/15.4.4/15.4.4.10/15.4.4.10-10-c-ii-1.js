@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.10/15.4.4.10-10-c-ii-1.js;
- * @description: Array.prototype.slice will slice a string from start to end when index property (read-only) exists in Array.prototype (Step 10.c.ii);
+ * @path chapter15/15.4/15.4.4/15.4.4.10/15.4.4.10-10-c-ii-1.js
+ * @description Array.prototype.slice will slice a string from start to end when index property (read-only) exists in Array.prototype (Step 10.c.ii)
  */
 
 

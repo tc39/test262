@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.11/15.11.4/15.11.4.4/15.11.4.4-8-2.js;
- * @description: Error.prototype.toString return empty string when 'name' is empty string and 'msg' is undefined;
+ * @path chapter15/15.11/15.11.4/15.11.4.4/15.11.4.4-8-2.js
+ * @description Error.prototype.toString return empty string when 'name' is empty string and 'msg' is undefined
  */
 
 

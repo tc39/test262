@@ -4,9 +4,9 @@
 /**
  * Return false, if x and y are both true or both false; otherwise, return true
  *
- * @section: 11.9.2, 11.9.3;
- * @path: 11_Expressions/11.9_Equality_Operators/11.9.2_The_Does_not_equals_Operator/S11.9.2_A3.1.js;
- * @description: x and y are boolean primitives;
+ * @section 11.9.2, 11.9.3
+ * @path 11_Expressions/11.9_Equality_Operators/11.9.2_The_Does_not_equals_Operator/S11.9.2_A3.1.js
+ * @description x and y are boolean primitives
  */
 
 //CHECK#1

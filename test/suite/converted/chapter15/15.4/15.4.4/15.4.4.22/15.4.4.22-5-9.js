@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-5-9.js;
- * @description: Array.prototype.reduceRight - 'initialValue' is returned if 'len' is 0 and 'initialValue' is present;
+ * @path chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-5-9.js
+ * @description Array.prototype.reduceRight - 'initialValue' is returned if 'len' is 0 and 'initialValue' is present
  */
 
 

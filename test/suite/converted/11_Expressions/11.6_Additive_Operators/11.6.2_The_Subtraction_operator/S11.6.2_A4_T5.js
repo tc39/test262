@@ -4,9 +4,9 @@
 /**
  * Operator x - y produces the same result as x + (-y)
  *
- * @section: 11.6.2, 11.6.3;
- * @path: 11_Expressions/11.6_Additive_Operators/11.6.2_The_Subtraction_operator/S11.6.2_A4_T5.js;
- * @description: Using the rule of sum of two zeroes and the fact that a - b = a + (-b);
+ * @section 11.6.2, 11.6.3
+ * @path 11_Expressions/11.6_Additive_Operators/11.6.2_The_Subtraction_operator/S11.6.2_A4_T5.js
+ * @description Using the rule of sum of two zeroes and the fact that a - b = a + (-b)
  */
 
 //CHECK#1

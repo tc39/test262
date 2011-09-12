@@ -5,9 +5,9 @@
  * When "String" is called as part of a new expression, it is a constructor: it initialises the newly created object and
  * The [[Value]] property of the newly constructed object is set to ToString(value), or to the empty string if value is not supplied
  *
- * @section: 15.5.2.1;
- * @path: 15_Native/15.5_String_Objects/15.5.2_The_String_Constructor/S15.5.2.1_A1_T19.js;
- * @description: Creating string object with "new String()" initialized with Array of numbers;
+ * @section 15.5.2.1
+ * @path 15_Native/15.5_String_Objects/15.5.2_The_String_Constructor/S15.5.2.1_A1_T19.js
+ * @description Creating string object with "new String()" initialized with Array of numbers
  */
 
 var __str = new String(new Array(1,2,3));

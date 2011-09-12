@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter11/11.1/11.1.5/11.1.5_7-2-1-s.js;
- * @description: Strict Mode - SyntaxError is thrown when an assignment to a reserved word is contained in strict code;
- * @strict_only;
+ * @path chapter11/11.1/11.1.5/11.1.5_7-2-1-s.js
+ * @description Strict Mode - SyntaxError is thrown when an assignment to a reserved word is contained in strict code
+ * @strict_only
  */
 
 

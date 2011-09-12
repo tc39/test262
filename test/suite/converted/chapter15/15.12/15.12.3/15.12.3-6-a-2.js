@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.12/15.12.3/15.12.3-6-a-2.js;
- * @description: JSON.stringify truccates non-integer numeric space arguments to their integer part.;
+ * @path chapter15/15.12/15.12.3/15.12.3-6-a-2.js
+ * @description JSON.stringify truccates non-integer numeric space arguments to their integer part.
  */
 
 

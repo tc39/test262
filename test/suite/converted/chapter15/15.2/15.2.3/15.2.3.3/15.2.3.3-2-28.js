@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-2-28.js;
- * @description: Object.getOwnPropertyDescriptor - argument 'P' is an integer that converts to a string (value is 123);
+ * @path chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-2-28.js
+ * @description Object.getOwnPropertyDescriptor - argument 'P' is an integer that converts to a string (value is 123)
  */
 
 

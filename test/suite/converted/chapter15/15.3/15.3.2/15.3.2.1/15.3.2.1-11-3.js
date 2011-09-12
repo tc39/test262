@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.3/15.3.2/15.3.2.1/15.3.2.1-11-3.js;
- * @description: Function constructor may have a formal parameter named 'eval' if body is not strict mode;
+ * @path chapter15/15.3/15.3.2/15.3.2.1/15.3.2.1-11-3.js
+ * @description Function constructor may have a formal parameter named 'eval' if body is not strict mode
  */
 
 

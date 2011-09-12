@@ -4,9 +4,9 @@
 /**
  * Result of number conversion from undefined value is NaN
  *
- * @section: 9.3, 15.7.1;
- * @path: 09_Type_Conversion/9.3_ToNumber/S9.3_A1_T1.js;
- * @description: Undefined convert to Number by explicit transformation;
+ * @section 9.3, 15.7.1
+ * @path 09_Type_Conversion/9.3_ToNumber/S9.3_A1_T1.js
+ * @description Undefined convert to Number by explicit transformation
  */
 
 // CHECK#1

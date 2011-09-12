@@ -4,11 +4,11 @@
 /**
  * Delete unary operator can't delete object to be referenced
  *
- * @section: 8.7, 11.4.1;
- * @path: 08_Types/8.7_The_Reference_Type/S8.7_A5_T2.js;
- * @description: Delete referenced object, __ref = obj;
- * @strict_only;
- * @strict_mode_negative;
+ * @section 8.7, 11.4.1
+ * @path 08_Types/8.7_The_Reference_Type/S8.7_A5_T2.js
+ * @description Delete referenced object, __ref = obj
+ * @strict_only
+ * @strict_mode_negative
  */
 
 //////////////////////////////////////////////////////////////////////////////

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-5-5.js;
- * @description: Array.prototype.forEach - thisArg is object from object template;
+ * @path chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-5-5.js
+ * @description Array.prototype.forEach - thisArg is object from object template
  */
 
 

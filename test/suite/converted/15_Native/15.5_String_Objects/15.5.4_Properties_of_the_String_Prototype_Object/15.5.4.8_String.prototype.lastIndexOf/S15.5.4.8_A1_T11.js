@@ -4,9 +4,9 @@
 /**
  * String.prototype.lastIndexOf(searchString, position)
  *
- * @section: 15.5.4.8;
- * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.8_String.prototype.lastIndexOf/S15.5.4.8_A1_T11.js;
- * @description: Instance is Date(0) object;
+ * @section 15.5.4.8
+ * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.8_String.prototype.lastIndexOf/S15.5.4.8_A1_T11.js
+ * @description Instance is Date(0) object
  */
 
 var __instance = new Date(100000000);

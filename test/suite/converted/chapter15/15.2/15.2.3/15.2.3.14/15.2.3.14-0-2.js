@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-0-2.js;
- * @description: Object.keys must exist as a function taking 1 parameter;
+ * @path chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-0-2.js
+ * @description Object.keys must exist as a function taking 1 parameter
  */
 
 
-assertTrue(Object.keys.length === 1);
+assertTruthy(Object.keys.length === 1);

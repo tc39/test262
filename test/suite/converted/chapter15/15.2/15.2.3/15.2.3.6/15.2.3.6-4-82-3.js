@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-82-3.js;
- * @description: Object.defineProperty - Update [[Configurable]] attribute of 'name' property to false successfully when [[Configurable]] attribute of 'name' property is true,  the 'desc' is a generic descriptor which contains [[Configurable]] attribute as false, 'name' property is a data property (8.12.9 step 8);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-82-3.js
+ * @description Object.defineProperty - Update [[Configurable]] attribute of 'name' property to false successfully when [[Configurable]] attribute of 'name' property is true,  the 'desc' is a generic descriptor which contains [[Configurable]] attribute as false, 'name' property is a data property (8.12.9 step 8)
  */
 
 

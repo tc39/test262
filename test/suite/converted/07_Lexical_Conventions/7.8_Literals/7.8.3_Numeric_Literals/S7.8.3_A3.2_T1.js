@@ -4,9 +4,9 @@
 /**
  * DecimalLiteral :: DecimalIntegerLiteral. DecimalDigits
  *
- * @section: 7.8.3;
- * @path: 07_Lexical_Conventions/7.8_Literals/7.8.3_Numeric_Literals/S7.8.3_A3.2_T1.js;
- * @description: After DecimalIntegerLiteral. used ZeroDigit;
+ * @section 7.8.3
+ * @path 07_Lexical_Conventions/7.8_Literals/7.8.3_Numeric_Literals/S7.8.3_A3.2_T1.js
+ * @description After DecimalIntegerLiteral. used ZeroDigit
  */
 
 //CHECK#0

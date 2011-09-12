@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-538-2.js;
- * @description: ES5 Attributes - Updating a named accessor property 'P' whose [[Configurable]] attribute is true to a data property is successful, 'O' is an Arguments object;
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-538-2.js
+ * @description ES5 Attributes - Updating a named accessor property 'P' whose [[Configurable]] attribute is true to a data property is successful, 'O' is an Arguments object
  */
 
 

@@ -4,10 +4,10 @@
 /**
  * match returns array as specified in 15.10.6.2
  *
- * @section: 15.5.4.10, 15.10.6.2;
- * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.10_String.prototype.match/S15.5.4.10_A2_T10.js;
- * @description: Regular expression is /([\d]{5})([-\ ]?[\d]{4})?$/. Last match is undefined.
- * And regular expression object have property lastIndex = tested_string.lastIndexOf("0");
+ * @section 15.5.4.10, 15.10.6.2
+ * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.10_String.prototype.match/S15.5.4.10_A2_T10.js
+ * @description Regular expression is /([\d]{5})([-\ ]?[\d]{4})?$/. Last match is undefined.
+ * And regular expression object have property lastIndex = tested_string.lastIndexOf("0")
  */
 
 var __string = "Boston, MA 02134";

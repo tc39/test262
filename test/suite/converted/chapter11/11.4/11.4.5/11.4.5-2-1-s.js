@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter11/11.4/11.4.5/11.4.5-2-1-s.js;
- * @description: Strict Mode - SyntaxError is thrown for --eval;
- * @strict_only;
+ * @path chapter11/11.4/11.4.5/11.4.5-2-1-s.js
+ * @description Strict Mode - SyntaxError is thrown for --eval
+ * @strict_only
  */
 
 

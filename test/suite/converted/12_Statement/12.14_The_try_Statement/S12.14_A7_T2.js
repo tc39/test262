@@ -4,9 +4,9 @@
 /**
  * Evaluating the nested productions TryStatement
  *
- * @section: 12.14;
- * @path: 12_Statement/12.14_The_try_Statement/S12.14_A7_T2.js;
- * @description: Checking if the production of nested TryStatement statements evaluates correct;
+ * @section 12.14
+ * @path 12_Statement/12.14_The_try_Statement/S12.14_A7_T2.js
+ * @description Checking if the production of nested TryStatement statements evaluates correct
  */
 
 // CHECK#1

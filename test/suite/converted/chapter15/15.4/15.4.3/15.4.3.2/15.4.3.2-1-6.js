@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-6.js;
- * @description: Array.isArray applied to String object;
+ * @path chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-6.js
+ * @description Array.isArray applied to String object
  */
 
 
-assertTrue(!Array.isArray(new String("hello\nworld\\!")));
+assertTruthy(!Array.isArray(new String("hello\nworld\\!")));

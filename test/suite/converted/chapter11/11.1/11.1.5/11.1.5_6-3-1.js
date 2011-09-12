@@ -24,8 +24,8 @@
  *      PropertyAssignment : get PropertyName ( ) { FunctionBody } 
  *   3.Let desc be the Property Descriptor{[[Get]]: closure, [[Enumerable]]: true, [[Configurable]]: true}
  *
- * @path: chapter11/11.1/11.1.5/11.1.5_6-3-1.js;
- * @description: Object literal - property descriptor for get property assignment;
+ * @path chapter11/11.1/11.1.5/11.1.5_6-3-1.js
+ * @description Object literal - property descriptor for get property assignment
  */
 
 

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter07/7.3/7.3-13.js;
- * @description: 7.3 - ES5 specifies that a multiline comment that contains a line terminator character <CR> (\u000D) must be treated as a single line terminator for the purposes of semicolon insertion;
+ * @path chapter07/7.3/7.3-13.js
+ * @description 7.3 - ES5 specifies that a multiline comment that contains a line terminator character <CR> (\u000D) must be treated as a single line terminator for the purposes of semicolon insertion
  */
 
 

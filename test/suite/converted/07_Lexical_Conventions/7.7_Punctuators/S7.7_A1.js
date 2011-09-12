@@ -4,9 +4,9 @@
 /**
  * Correct interpretation of all punctuators
  *
- * @section: 7.7;
- * @path: 07_Lexical_Conventions/7.7_Punctuators/S7.7_A1.js;
- * @description: Using all punctuators;
+ * @section 7.7
+ * @path 07_Lexical_Conventions/7.7_Punctuators/S7.7_A1.js
+ * @description Using all punctuators
  */
 
 //CHECK#1

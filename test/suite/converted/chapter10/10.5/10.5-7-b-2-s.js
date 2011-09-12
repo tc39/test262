@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.5/10.5-7-b-2-s.js;
- * @description: Strict Mode - arguments object index assignment is disallowed;
- * @strict_only;
+ * @path chapter10/10.5/10.5-7-b-2-s.js
+ * @description Strict Mode - arguments object index assignment is disallowed
+ * @strict_only
  */
 
 

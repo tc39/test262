@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.5/15.4.5.1/15.4.5.1-3.d-3.js;
- * @description: Set array length property to max value 4294967295 (2**32-1,);
+ * @path chapter15/15.4/15.4.5/15.4.5.1/15.4.5.1-3.d-3.js
+ * @description Set array length property to max value 4294967295 (2**32-1,)
  */
 
 

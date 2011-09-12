@@ -19,8 +19,8 @@
 // ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-3-5.js;
- * @description: Object.keys must return a fresh array on each invocation;
+ * @path chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-3-5.js
+ * @description Object.keys must return a fresh array on each invocation
  */
 
 

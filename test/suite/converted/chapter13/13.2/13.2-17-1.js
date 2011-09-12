@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter13/13.2/13.2-17-1.js;
- * @description: Function Object has 'constructor' as its own property, it is not enumerable and does not invoke the setter defined on Function.prototype.constructor (Step 17);
+ * @path chapter13/13.2/13.2-17-1.js
+ * @description Function Object has 'constructor' as its own property, it is not enumerable and does not invoke the setter defined on Function.prototype.constructor (Step 17)
  */
 
 

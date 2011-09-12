@@ -5,12 +5,12 @@
  * The with statement adds a computed object to the front of the
  * scope chain of the current execution context
  *
- * @section: 12.10;
- * @path: 12_Statement/12.10_The_with_Statement/S12.10_A1.10_T3.js;
- * @description: Using iteration statment withing "with" statement leading to completion by exception
- * iteration statement inside with statement - exception completion;
- * @strict_only;
- * @strict_mode_negative;
+ * @section 12.10
+ * @path 12_Statement/12.10_The_with_Statement/S12.10_A1.10_T3.js
+ * @description Using iteration statment withing "with" statement leading to completion by exception
+ * iteration statement inside with statement - exception completion
+ * @strict_only
+ * @strict_mode_negative
  */
 
 this.p1 = 1;

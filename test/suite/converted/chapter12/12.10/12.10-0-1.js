@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.10/12.10-0-1.js;
- * @description: with does not change declaration scope - vars in with are visible outside;
+ * @path chapter12/12.10/12.10-0-1.js
+ * @description with does not change declaration scope - vars in with are visible outside
  */
 
 

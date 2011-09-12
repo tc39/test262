@@ -4,9 +4,9 @@
 /**
  * ToNumber(first expression) is called first, and then ToNumber(second expression)
  *
- * @section: 11.6.2;
- * @path: 11_Expressions/11.6_Additive_Operators/11.6.2_The_Subtraction_operator/S11.6.2_A2.3_T1.js;
- * @description: Checking with "throw";
+ * @section 11.6.2
+ * @path 11_Expressions/11.6_Additive_Operators/11.6.2_The_Subtraction_operator/S11.6.2_A2.3_T1.js
+ * @description Checking with "throw"
  */
 
 //CHECK#1

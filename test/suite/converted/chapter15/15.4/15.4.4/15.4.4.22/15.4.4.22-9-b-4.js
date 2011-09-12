@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-b-4.js;
- * @description: Array.prototype.reduceRight - properties added into own object in step 8 can be visited on an Array-like object;
+ * @path chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-b-4.js
+ * @description Array.prototype.reduceRight - properties added into own object in step 8 can be visited on an Array-like object
  */
 
 

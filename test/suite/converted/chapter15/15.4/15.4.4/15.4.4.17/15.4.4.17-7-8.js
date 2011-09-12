@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-8.js;
- * @description: Array.prototype.some - no observable effects occur if length is 0;
+ * @path chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-8.js
+ * @description Array.prototype.some - no observable effects occur if length is 0
  */
 
 

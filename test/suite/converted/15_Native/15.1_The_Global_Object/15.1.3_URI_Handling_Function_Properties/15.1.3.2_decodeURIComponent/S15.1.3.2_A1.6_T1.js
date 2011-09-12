@@ -4,9 +4,9 @@
 /**
  * If B = 11110xxx (n = 4) and (k + 2) + 9 >= length, throw URIError
  *
- * @section: 15.1.3.2;
- * @path: 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.2_decodeURIComponent/S15.1.3.2_A1.6_T1.js;
- * @description: Complex tests. B = [0xF0 - 0xF7];
+ * @section 15.1.3.2
+ * @path 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.2_decodeURIComponent/S15.1.3.2_A1.6_T1.js
+ * @description Complex tests. B = [0xF0 - 0xF7]
  */
 
 errorCount = 0;

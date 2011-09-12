@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.11/15.11.4/15.11.4.4/15.11.4.4-10-1.js;
- * @description: Error.prototype.toString return the result of concatenating 'name', ':', a single space character, and 'msg' when 'name' and 'msg' are non-empty string;
+ * @path chapter15/15.11/15.11.4/15.11.4.4/15.11.4.4-10-1.js
+ * @description Error.prototype.toString return the result of concatenating 'name', ':', a single space character, and 'msg' when 'name' and 'msg' are non-empty string
  */
 
 

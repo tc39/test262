@@ -4,9 +4,9 @@
 /**
  * "throw Expression" returns (throw, GetValue(Result(1)), empty), where 1 evaluates Expression
  *
- * @section: 12.13;
- * @path: 12_Statement/12.13_The_throw_statement/S12.13_A2_T6.js;
- * @description: Throwing object;
+ * @section 12.13
+ * @path 12_Statement/12.13_The_throw_statement/S12.13_A2_T6.js
+ * @description Throwing object
  */
 
 var myObj = {p1: 'a', 

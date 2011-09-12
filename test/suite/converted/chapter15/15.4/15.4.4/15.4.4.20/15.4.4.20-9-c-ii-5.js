@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-ii-5.js;
- * @description: Array.prototype.filter - k values are accessed during each iteration and not prior to starting the loop on an Array;
+ * @path chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-ii-5.js
+ * @description Array.prototype.filter - k values are accessed during each iteration and not prior to starting the loop on an Array
  */
 
 

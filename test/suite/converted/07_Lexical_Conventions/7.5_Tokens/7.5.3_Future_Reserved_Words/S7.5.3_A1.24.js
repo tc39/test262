@@ -4,10 +4,10 @@
 /**
  * The "public" token can not be used as identifier in strict code
  *
- * @section: 7.5.3;
- * @path: 07_Lexical_Conventions/7.5_Tokens/7.5.3_Future_Reserved_Words/S7.5.3_A1.24.js;
- * @description: Checking if execution of "public=1" fails in strict code;
- * @negative;
+ * @section 7.5.3
+ * @path 07_Lexical_Conventions/7.5_Tokens/7.5.3_Future_Reserved_Words/S7.5.3_A1.24.js
+ * @description Checking if execution of "public=1" fails in strict code
+ * @negative
  */
 
 "use strict";

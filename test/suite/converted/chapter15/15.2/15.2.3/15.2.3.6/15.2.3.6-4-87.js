@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-87.js;
- * @description: Object.defineProperty will throw TypeError when name.configurable = false, name.writable = false, desc.value = -0 and name.value = +0 (8.12.9 step 10.a.ii.1);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-87.js
+ * @description Object.defineProperty will throw TypeError when name.configurable = false, name.writable = false, desc.value = -0 and name.value = +0 (8.12.9 step 10.a.ii.1)
  */
 
 

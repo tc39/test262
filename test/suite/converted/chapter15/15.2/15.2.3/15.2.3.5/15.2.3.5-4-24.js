@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-24.js;
- * @description: Object.create - own enumerable accessor property that overrides an enumerable inherited data property in 'Properties' is defined in 'obj' (15.2.3.7 step 5.a);
+ * @path chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-24.js
+ * @description Object.create - own enumerable accessor property that overrides an enumerable inherited data property in 'Properties' is defined in 'obj' (15.2.3.7 step 5.a)
  */
 
 

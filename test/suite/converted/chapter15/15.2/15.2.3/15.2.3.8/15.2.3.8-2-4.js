@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-4.js;
- * @description: Object.seal - non-enumerable own property of 'O' is sealed;
+ * @path chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-4.js
+ * @description Object.seal - non-enumerable own property of 'O' is sealed
  */
 
 

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-1-15.js;
- * @description: Array.prototype.some applied to the Arguments object;
+ * @path chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-1-15.js
+ * @description Array.prototype.some applied to the Arguments object
  */
 
 

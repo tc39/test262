@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.12/15.12.3/15.12.3-6-b-4.js;
- * @description: JSON.stringify treats numeric space arguments (in the range 1..10) is equivalent to a string of spaces of that length.;
+ * @path chapter15/15.12/15.12.3/15.12.3-6-b-4.js
+ * @description JSON.stringify treats numeric space arguments (in the range 1..10) is equivalent to a string of spaces of that length.
  */
 
 

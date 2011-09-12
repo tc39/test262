@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-0-6.js;
- * @description: Array.isArray return true if its argument is an Array (new Array());
+ * @path chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-0-6.js
+ * @description Array.isArray return true if its argument is an Array (new Array())
  */
 
 

@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-8-4.js;
- * @description: Array.prototype.indexOf returns -1 when abs('fromIndex') is length of array;
+ * @path chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-8-4.js
+ * @description Array.prototype.indexOf returns -1 when abs('fromIndex') is length of array
  */
 
 
-assertTrue([1, 2, 3, 4].indexOf(0, -4) === -1);
+assertTruthy([1, 2, 3, 4].indexOf(0, -4) === -1);

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-4-40.js;
- * @description: Object.getOwnPropertyNames - inherited data property of String object 'O' is not pushed into the returned array;
+ * @path chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-4-40.js
+ * @description Object.getOwnPropertyNames - inherited data property of String object 'O' is not pushed into the returned array
  */
 
 

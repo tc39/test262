@@ -4,9 +4,9 @@
 /**
  * First expression is evaluated first, and then second expression
  *
- * @section: 11.10.2;
- * @path: 11_Expressions/11.10_Binary_Bitwise_Operators/11.10.2_XOR_Operator/S11.10.2_A2.4_T1.js;
- * @description: Checking with "=";
+ * @section 11.10.2
+ * @path 11_Expressions/11.10_Binary_Bitwise_Operators/11.10.2_XOR_Operator/S11.10.2_A2.4_T1.js
+ * @description Checking with "="
  */
 
 //CHECK#1

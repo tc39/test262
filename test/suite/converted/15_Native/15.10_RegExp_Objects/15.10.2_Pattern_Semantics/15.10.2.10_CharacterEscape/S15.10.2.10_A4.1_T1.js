@@ -4,9 +4,9 @@
 /**
  * CharacterEscape :: UnicodeEscapeSequence :: u HexDigit HexDigit HexDigit HexDigit
  *
- * @section: 15.10.2.10;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.10_CharacterEscape/S15.10.2.10_A4.1_T1.js;
- * @description: RegExp and tested string include uncode symbols;
+ * @section 15.10.2.10
+ * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.10_CharacterEscape/S15.10.2.10_A4.1_T1.js
+ * @description RegExp and tested string include uncode symbols
  */
 
 //CHECK#0

@@ -4,9 +4,9 @@
 /**
  * Operator -x returns -ToNumber(x)
  *
- * @section: 11.4.7;
- * @path: 11_Expressions/11.4_Unary_Operators/11.4.7_Unary_minus_Operator/S11.4.7_A3_T3.js;
- * @description: Type(x) is string primitive or String object;
+ * @section 11.4.7
+ * @path 11_Expressions/11.4_Unary_Operators/11.4.7_Unary_minus_Operator/S11.4.7_A3_T3.js
+ * @description Type(x) is string primitive or String object
  */
 
 //CHECK#1

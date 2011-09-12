@@ -4,10 +4,10 @@
 /**
  * Appearing of "break" within "try/catch" Block yields SyntaxError
  *
- * @section: 12.8;
- * @path: 12_Statement/12.8_The_break_Statement/S12.8_A8_T2.js;
- * @description: Checking if using "break Identifier" from within catch Block appears to be invalid;
- * @negative;
+ * @section 12.8
+ * @path 12_Statement/12.8_The_break_Statement/S12.8_A8_T2.js
+ * @description Checking if using "break Identifier" from within catch Block appears to be invalid
+ * @negative
  */
 
 var x=0,y=0;

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-5-12.js;
- * @description: Array.prototype.reduceRight - the exception is not thrown if exception was thrown by step 2;
+ * @path chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-5-12.js
+ * @description Array.prototype.reduceRight - the exception is not thrown if exception was thrown by step 2
  */
 
 

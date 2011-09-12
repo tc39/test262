@@ -4,9 +4,9 @@
 /**
  * Operator x = y uses GetValue and PutValue
  *
- * @section: 11.13.1;
- * @path: 11_Expressions/11.13_Assignment_Operators/11.13.1_Simple_Assignment/S11.13.1_A2.1_T1.js;
- * @description: Either AssigmentExpression is not Reference or GetBase is not null;
+ * @section 11.13.1
+ * @path 11_Expressions/11.13_Assignment_Operators/11.13.1_Simple_Assignment/S11.13.1_A2.1_T1.js
+ * @description Either AssigmentExpression is not Reference or GetBase is not null
  */
 
 //CHECK#1

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-8-b-2.js;
- * @description: Array.prototype.reduce - modifications to length don't change number of iterations in step 9;
+ * @path chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-8-b-2.js
+ * @description Array.prototype.reduce - modifications to length don't change number of iterations in step 9
  */
 
 

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-1-5.js;
- * @description: Array.prototype.indexOf applied to number primitive;
+ * @path chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-1-5.js
+ * @description Array.prototype.indexOf applied to number primitive
  */
 
 

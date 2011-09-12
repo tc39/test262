@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-c-ii-2.js;
- * @description: Array.prototype.map - callbackfn takes 3 arguments;
+ * @path chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-c-ii-2.js
+ * @description Array.prototype.map - callbackfn takes 3 arguments
  */
 
 

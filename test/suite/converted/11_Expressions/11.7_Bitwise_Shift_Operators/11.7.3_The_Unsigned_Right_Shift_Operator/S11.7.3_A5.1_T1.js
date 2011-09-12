@@ -4,9 +4,9 @@
 /**
  * Operator x >>> y uses ToUint32(ShiftExpression)
  *
- * @section: 11.7.3, 9.5;
- * @path: 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.3_The_Unsigned_Right_Shift_Operator/S11.7.3_A5.1_T1.js;
- * @description: Checking boundary points;
+ * @section 11.7.3, 9.5
+ * @path 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.3_The_Unsigned_Right_Shift_Operator/S11.7.3_A5.1_T1.js
+ * @description Checking boundary points
  */
 
 //CHECK#1

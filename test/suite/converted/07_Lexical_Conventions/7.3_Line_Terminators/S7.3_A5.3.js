@@ -4,9 +4,9 @@
 /**
  * Multi line comment can contain LINE SEPARATOR (U+2028)
  *
- * @section: 7.3, 7.4;
- * @path: 07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A5.3.js;
- * @description: Insert LINE SEPARATOR (U+2028) into multi line comment;
+ * @section 7.3, 7.4
+ * @path 07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A5.3.js
+ * @description Insert LINE SEPARATOR (U+2028) into multi line comment
  */
 
 // CHECK#1

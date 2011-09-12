@@ -27,8 +27,8 @@
  * local function expresssions must shadow outer function expressions
  * eval should use the appended object to the scope chain
  *
- * @path: chapter12/12.14/12.14-6.js;
- * @description: catch introduces scope - block-local function expression must shadow outer function expression;
+ * @path chapter12/12.14/12.14-6.js
+ * @description catch introduces scope - block-local function expression must shadow outer function expression
  */
 
 

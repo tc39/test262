@@ -4,9 +4,9 @@
 /**
  * The length property of the test method is 1
  *
- * @section: 15.10.6.3;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.6_Properties_of_the_RegExp_Prototype_Object/15.10.6.3_RegExp.prototype.test/S15.10.6.3_A11.js;
- * @description: Checking RegExp.prototype.test.length;
+ * @section 15.10.6.3
+ * @path 15_Native/15.10_RegExp_Objects/15.10.6_Properties_of_the_RegExp_Prototype_Object/15.10.6.3_RegExp.prototype.test/S15.10.6.3_A11.js
+ * @description Checking RegExp.prototype.test.length
  */
 
 //CHECK#1

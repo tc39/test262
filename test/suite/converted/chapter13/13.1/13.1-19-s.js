@@ -23,9 +23,9 @@
  * It is a SyntaxError if the Identifier "eval" or the Identifier "arguments" occurs within a FormalParameterList
  * of a strict mode FunctionDeclaration or FunctionExpression.
  *
- * @path: chapter13/13.1/13.1-19-s.js;
- * @description: Strict Mode - SyntaxError is thrown if the identifier 'arguments' appears within a FormalParameterList of a strict mode FunctionDeclaration in strict eval code;
- * @strict_only;
+ * @path chapter13/13.1/13.1-19-s.js
+ * @description Strict Mode - SyntaxError is thrown if the identifier 'arguments' appears within a FormalParameterList of a strict mode FunctionDeclaration in strict eval code
+ * @strict_only
  */
 
 

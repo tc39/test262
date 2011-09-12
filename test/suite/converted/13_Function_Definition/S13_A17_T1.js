@@ -4,9 +4,9 @@
 /**
  * Function call cannot appear in the program before the FunctionExpression appears
  *
- * @section: 13;
- * @path: 13_Function_Definition/S13_A17_T1.js;
- * @description: Trying to call a function before the FunctionExpression appears;
+ * @section 13
+ * @path 13_Function_Definition/S13_A17_T1.js
+ * @description Trying to call a function before the FunctionExpression appears
  */
 
 //////////////////////////////////////////////////////////////////////////////

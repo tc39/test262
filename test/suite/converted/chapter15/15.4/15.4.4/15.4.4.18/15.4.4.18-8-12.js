@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-8-12.js;
- * @description: Array.prototype.forEach doesn't visit expandos;
+ * @path chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-8-12.js
+ * @description Array.prototype.forEach doesn't visit expandos
  */
 
 

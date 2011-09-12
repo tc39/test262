@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-3-2.js;
- * @description: Array.prototype.some on an Array-like object if 'length' is 1 (length overridden to true(type conversion));
+ * @path chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-3-2.js
+ * @description Array.prototype.some on an Array-like object if 'length' is 1 (length overridden to true(type conversion))
  */
 
 

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-ii-16.js;
- * @description: Array.prototype.filter - 'this' of 'callbackfn' is a Boolean object when T is not an object (T is a boolean);
+ * @path chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-ii-16.js
+ * @description Array.prototype.filter - 'this' of 'callbackfn' is a Boolean object when T is not an object (T is a boolean)
  */
 
 

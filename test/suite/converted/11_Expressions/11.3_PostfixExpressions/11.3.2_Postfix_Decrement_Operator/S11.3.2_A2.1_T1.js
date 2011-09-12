@@ -4,9 +4,9 @@
 /**
  * Operator x-- uses GetValue and PutValue
  *
- * @section: 11.3.2, 11.6.3;
- * @path: 11_Expressions/11.3_PostfixExpressions/11.3.2_Postfix_Decrement_Operator/S11.3.2_A2.1_T1.js;
- * @description: Type(x) is Reference and GetBase(x) is not null;
+ * @section 11.3.2, 11.6.3
+ * @path 11_Expressions/11.3_PostfixExpressions/11.3.2_Postfix_Decrement_Operator/S11.3.2_A2.1_T1.js
+ * @description Type(x) is Reference and GetBase(x) is not null
  */
 
 //CHECK#1

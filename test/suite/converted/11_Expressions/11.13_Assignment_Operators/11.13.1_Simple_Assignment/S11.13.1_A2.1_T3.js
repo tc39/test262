@@ -4,10 +4,10 @@
 /**
  * Operator x = y uses GetValue and PutValue
  *
- * @section: 11.13.1, 16;
- * @path: 11_Expressions/11.13_Assignment_Operators/11.13.1_Simple_Assignment/S11.13.1_A2.1_T3.js;
- * @description: If Type(LeftHandSideExpression) is not Reference, throw ReferenceError (or SyntaxError);
- * @negative;
+ * @section 11.13.1, 16
+ * @path 11_Expressions/11.13_Assignment_Operators/11.13.1_Simple_Assignment/S11.13.1_A2.1_T3.js
+ * @description If Type(LeftHandSideExpression) is not Reference, throw ReferenceError (or SyntaxError)
+ * @negative
  */
 
 //CHECK#1

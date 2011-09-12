@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-10.js;
- * @description: Object.freeze - 'P' is own named property of an Array object that uses Object's [[GetOwnProperty]];
+ * @path chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-a-10.js
+ * @description Object.freeze - 'P' is own named property of an Array object that uses Object's [[GetOwnProperty]]
  */
 
 

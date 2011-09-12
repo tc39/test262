@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-10-7.js;
- * @description: Array.prototype.reduceRight - subclassed array when length to 1 and initialvalue provided;
+ * @path chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-10-7.js
+ * @description Array.prototype.reduceRight - subclassed array when length to 1 and initialvalue provided
  */
 
 

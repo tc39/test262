@@ -4,9 +4,9 @@
 /**
  * Infinity is not a keyword
  *
- * @section: 8.5, 7.8.3;
- * @path: 08_Types/8.5_The_Number_Type/S8.5_A10.js;
- * @description: Create variable entitled Infinity;
+ * @section 8.5, 7.8.3
+ * @path 08_Types/8.5_The_Number_Type/S8.5_A10.js
+ * @description Create variable entitled Infinity
  */
 
 var Infinity=1.0;

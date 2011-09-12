@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-3-10.js;
- * @description: Object.getOwnPropertyDescriptor - 'P' is not an existing property;
+ * @path chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-3-10.js
+ * @description Object.getOwnPropertyDescriptor - 'P' is not an existing property
  */
 
 

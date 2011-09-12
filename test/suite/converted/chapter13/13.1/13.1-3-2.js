@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter13/13.1/13.1-3-2.js;
- * @description: eval allowed as function identifier in non-strict function expression;
+ * @path chapter13/13.1/13.1-3-2.js
+ * @description eval allowed as function identifier in non-strict function expression
  */
 
 

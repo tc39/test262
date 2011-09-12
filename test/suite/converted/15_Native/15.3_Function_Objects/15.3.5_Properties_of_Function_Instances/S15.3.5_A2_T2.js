@@ -4,9 +4,9 @@
 /**
  * Every function instance has a [[Call]] property
  *
- * @section: 15.3.5;
- * @path: 15_Native/15.3_Function_Objects/15.3.5_Properties_of_Function_Instances/S15.3.5_A2_T2.js;
- * @description: For testing call (new Function("arg1,arg2","var x =arg1; this.y=arg2;return arg1+arg2;"))("1",2);
+ * @section 15.3.5
+ * @path 15_Native/15.3_Function_Objects/15.3.5_Properties_of_Function_Instances/S15.3.5_A2_T2.js
+ * @description For testing call (new Function("arg1,arg2","var x =arg1; this.y=arg2;return arg1+arg2;"))("1",2)
  */
 
 //CHECK#1

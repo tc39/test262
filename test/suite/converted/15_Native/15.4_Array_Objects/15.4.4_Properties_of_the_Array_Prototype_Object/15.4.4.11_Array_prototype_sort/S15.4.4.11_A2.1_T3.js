@@ -6,9 +6,9 @@
  * If ToString([[Get]] ToString(j)) > ToString([[Get]] ToString(k)), return 1;
  * return -1
  *
- * @section: 15.4.4.11;
- * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.11_Array_prototype_sort/S15.4.4.11_A2.1_T3.js;
- * @description: Checking ToString operator;
+ * @section 15.4.4.11
+ * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.11_Array_prototype_sort/S15.4.4.11_A2.1_T3.js
+ * @description Checking ToString operator
  */
 
 var obj = {valueOf: function() {return 1}, toString: function() {return -2}};

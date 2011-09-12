@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-i-30.js;
- * @description: Array.prototype.filter - unnhandled exceptions happened in getter terminate iteration on an Array-like object;
+ * @path chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-i-30.js
+ * @description Array.prototype.filter - unnhandled exceptions happened in getter terminate iteration on an Array-like object
  */
 
 

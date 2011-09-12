@@ -4,9 +4,9 @@
 /**
  * When the production "do Statement while ( Expression )" is evaluated, Statement is evaluated first
  *
- * @section: 12.6.1;
- * @path: 12_Statement/12.6_Iteration_Statements/12.6.1_The_do_while_Statement/S12.6.1_A1.js;
- * @description: Evaluating various Expressions;
+ * @section 12.6.1
+ * @path 12_Statement/12.6_Iteration_Statements/12.6.1_The_do_while_Statement/S12.6.1_A1.js
+ * @description Evaluating various Expressions
  */
 
 var __in__do;

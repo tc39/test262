@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g2-5.js;
- * @description: A JSONStrings can contain no JSONStringCharacters (Empty JSONStrings);
+ * @path chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g2-5.js
+ * @description A JSONStrings can contain no JSONStringCharacters (Empty JSONStrings)
  */
 
 
-assertTrue(JSON.parse('""')==="");
+assertTruthy(JSON.parse('""')==="");

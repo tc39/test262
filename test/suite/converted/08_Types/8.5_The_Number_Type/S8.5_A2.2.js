@@ -4,9 +4,9 @@
 /**
  * Number type represented as the extended precision 64-bit format IEEE 754
  *
- * @section: 8.5, 7.8.3;
- * @path: 08_Types/8.5_The_Number_Type/S8.5_A2.2.js;
- * @description: Use 2^53 + 2 number and do some operation with it;
+ * @section 8.5, 7.8.3
+ * @path 08_Types/8.5_The_Number_Type/S8.5_A2.2.js
+ * @description Use 2^53 + 2 number and do some operation with it
  */
 
 var x = 9007199254740994.0; /* 2^53 + 2 */

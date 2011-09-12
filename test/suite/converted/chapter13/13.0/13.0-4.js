@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter13/13.0/13.0-4.js;
- * @description: 13.0 - multiple names in one function declaration is not allowed, add a new property into a property which is a object;
+ * @path chapter13/13.0/13.0-4.js
+ * @description 13.0 - multiple names in one function declaration is not allowed, add a new property into a property which is a object
  */
 
 

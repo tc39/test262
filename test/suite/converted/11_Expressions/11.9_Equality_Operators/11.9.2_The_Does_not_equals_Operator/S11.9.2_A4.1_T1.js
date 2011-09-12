@@ -4,9 +4,9 @@
 /**
  * If x or y is NaN, return true
  *
- * @section: 11.9.2, 11.9.3;
- * @path: 11_Expressions/11.9_Equality_Operators/11.9.2_The_Does_not_equals_Operator/S11.9.2_A4.1_T1.js;
- * @description: x is NaN;
+ * @section 11.9.2, 11.9.3
+ * @path 11_Expressions/11.9_Equality_Operators/11.9.2_The_Does_not_equals_Operator/S11.9.2_A4.1_T1.js
+ * @description x is NaN
  */
 
 //CHECK#1

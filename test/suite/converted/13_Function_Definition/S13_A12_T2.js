@@ -4,9 +4,9 @@
 /**
  * Function declarations in global or function scope are {DontDelete}
  *
- * @section: 13;
- * @path: 13_Function_Definition/S13_A12_T2.js;
- * @description: Checking if deleting a function that is declared in function scope fails;
+ * @section 13
+ * @path 13_Function_Definition/S13_A12_T2.js
+ * @description Checking if deleting a function that is declared in function scope fails
  */
 
 ALIVE="Letov is alive"

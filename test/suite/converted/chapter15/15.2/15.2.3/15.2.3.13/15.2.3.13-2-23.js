@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.13/15.2.3.13-2-23.js;
- * @description: Object.isExtensible returns false if 'O' is not extensible;
+ * @path chapter15/15.2/15.2.3/15.2.3.13/15.2.3.13-2-23.js
+ * @description Object.isExtensible returns false if 'O' is not extensible
  */
 
 

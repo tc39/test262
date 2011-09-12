@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-3-21.js;
- * @description: Array.prototype.some - 'length' is an object that has an own valueOf method that returns an object and toString method that returns a string;
+ * @path chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-3-21.js
+ * @description Array.prototype.some - 'length' is an object that has an own valueOf method that returns an object and toString method that returns a string
  */
 
 

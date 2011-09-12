@@ -4,9 +4,9 @@
 /**
  * First expression is evaluated first, and then second expression
  *
- * @section: 11.11.1;
- * @path: 11_Expressions/11.11_Binary_Logical_Operators/11.11.1_Logical_AND_Operator/S11.11.1_A2.4_T2.js;
- * @description: Checking with "throw";
+ * @section 11.11.1
+ * @path 11_Expressions/11.11_Binary_Logical_Operators/11.11.1_Logical_AND_Operator/S11.11.1_A2.4_T2.js
+ * @description Checking with "throw"
  */
 
 //CHECK#1

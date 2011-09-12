@@ -5,9 +5,9 @@
  * When the Object constructor is called with one argument value and
  * the type of value is Boolean, return ToObject(boolean)
  *
- * @section: 15.2.2.1, 8.6;
- * @path: 15_Native/15.2_Object_Objects/15.2.2_The_Object_Constructor/S15.2.2.1_A4_T1.js;
- * @description: Argument value is "true";
+ * @section 15.2.2.1, 8.6
+ * @path 15_Native/15.2_Object_Objects/15.2.2_The_Object_Constructor/S15.2.2.1_A4_T1.js
+ * @description Argument value is "true"
  */
 
 var bool = true;

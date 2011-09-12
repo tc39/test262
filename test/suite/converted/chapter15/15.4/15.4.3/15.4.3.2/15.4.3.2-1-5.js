@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-5.js;
- * @description: Array.isArray applied to string primitive;
+ * @path chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-5.js
+ * @description Array.isArray applied to string primitive
  */
 
 
-assertTrue(!Array.isArray("abc"));
+assertTruthy(!Array.isArray("abc"));

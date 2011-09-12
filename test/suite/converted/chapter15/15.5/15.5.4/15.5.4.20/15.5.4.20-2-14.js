@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-14.js;
- * @description: String.prototype.trim - argument 'this' is a number that converts to a string (value is 1(following 22 zeros));
+ * @path chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-14.js
+ * @description String.prototype.trim - argument 'this' is a number that converts to a string (value is 1(following 22 zeros))
  */
 
 
-assertTrue(String.prototype.trim.call(10000000000000000000000) === "1e+22");
+assertTruthy(String.prototype.trim.call(10000000000000000000000) === "1e+22");

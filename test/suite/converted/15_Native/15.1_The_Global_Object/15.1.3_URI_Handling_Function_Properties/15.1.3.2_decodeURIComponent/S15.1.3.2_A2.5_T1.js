@@ -4,9 +4,9 @@
 /**
  * If B1 = 11110xxx ([0xF0 - 0x0F4]), B2, B3, B4 = 10xxxxxxx ([0x80 - 0xBF]), without [B1, B2] = [0xF0, 0x80 - 0x9F], [0xF4, 0x90 - 0xBF], return UTF8(B1, B2, B3, B4)
  *
- * @section: 15.1.3.2;
- * @path: 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.2_decodeURIComponent/S15.1.3.2_A2.5_T1.js;
- * @description: Complex tests, use RFC 3629;
+ * @section 15.1.3.2
+ * @path 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.2_decodeURIComponent/S15.1.3.2_A2.5_T1.js
+ * @description Complex tests, use RFC 3629
  */
 
 errorCount = 0;

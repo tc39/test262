@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-5-32.js;
- * @description: Array.prototype.lastIndexOf - 'fromIndex' is a negative non-integer, verify truncation occurs in the proper direction;
+ * @path chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-5-32.js
+ * @description Array.prototype.lastIndexOf - 'fromIndex' is a negative non-integer, verify truncation occurs in the proper direction
  */
 
 

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-333-9.js;
- * @description: Object.defineProperty - Named property 'P' with attributes [[Writable]]: true, [[Enumerable]]:true, [[Configurable]]:false is writable using simple assignment, 'A' is an Array Object;
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-333-9.js
+ * @description Object.defineProperty - Named property 'P' with attributes [[Writable]]: true, [[Enumerable]]:true, [[Configurable]]:false is writable using simple assignment, 'A' is an Array Object
  */
 
 

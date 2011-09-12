@@ -4,9 +4,9 @@
 /**
  * Math.random() returns a number value with positive sign, greater than or equal to 0 but less than 1
  *
- * @section: 15.8.2.14;
- * @path: 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.14_random/S15.8.2.14_A1.js;
- * @description: Checking if Math.random() is a number between 0 and 1, calling Math.random() 100 times;
+ * @section 15.8.2.14
+ * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.14_random/S15.8.2.14_A1.js
+ * @description Checking if Math.random() is a number between 0 and 1, calling Math.random() 100 times
  */
 
 // CHECK#1

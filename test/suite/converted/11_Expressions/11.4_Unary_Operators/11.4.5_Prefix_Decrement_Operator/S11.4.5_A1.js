@@ -4,9 +4,9 @@
 /**
  * White Space and Line Terminator between "--" and UnaryExpression are allowed
  *
- * @section: 11.4.5, 11.6.3, 7.2, 7.3;
- * @path: 11_Expressions/11.4_Unary_Operators/11.4.5_Prefix_Decrement_Operator/S11.4.5_A1.js;
- * @description: Checking by using eval;
+ * @section 11.4.5, 11.6.3, 7.2, 7.3
+ * @path 11_Expressions/11.4_Unary_Operators/11.4.5_Prefix_Decrement_Operator/S11.4.5_A1.js
+ * @description Checking by using eval
  */
 
 //CHECK#1

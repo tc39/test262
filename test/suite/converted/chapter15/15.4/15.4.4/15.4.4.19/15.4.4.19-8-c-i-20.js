@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-c-i-20.js;
- * @description: Array.prototype.map - element to be retrieved is own accessor property without a get function that overrides an inherited accessor property on an Array-like object;
+ * @path chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-c-i-20.js
+ * @description Array.prototype.map - element to be retrieved is own accessor property without a get function that overrides an inherited accessor property on an Array-like object
  */
 
 

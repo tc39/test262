@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-5-19.js;
- * @description: Array.prototype.filter - the Arguments object can be used as thisArg;
+ * @path chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-5-19.js
+ * @description Array.prototype.filter - the Arguments object can be used as thisArg
  */
 
 

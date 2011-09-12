@@ -5,9 +5,9 @@
  * RegExp.prototype.exec(string) Performs a regular expression match of ToString(string) against the regular expression and
  * returns an Array object containing the results of the match, or null if the string did not match
  *
- * @section: 15.10.6.2;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.6_Properties_of_the_RegExp_Prototype_Object/15.10.6.2_RegExp.prototype.exec/S15.10.6.2_A1_T2.js;
- * @description: String is new String("123") and RegExp is /((1)|(12))((3)|(23))/;
+ * @section 15.10.6.2
+ * @path 15_Native/15.10_RegExp_Objects/15.10.6_Properties_of_the_RegExp_Prototype_Object/15.10.6.2_RegExp.prototype.exec/S15.10.6.2_A1_T2.js
+ * @description String is new String("123") and RegExp is /((1)|(12))((3)|(23))/
  */
 
 with(/((1)|(12))((3)|(23))/){

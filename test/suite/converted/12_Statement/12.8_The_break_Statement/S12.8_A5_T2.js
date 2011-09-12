@@ -4,10 +4,10 @@
 /**
  * Identifier must be label in the label set of an enclosing (but not crossing function boundaries) IterationStatement
  *
- * @section: 12.8;
- * @path: 12_Statement/12.8_The_break_Statement/S12.8_A5_T2.js;
- * @description: Checking if using function name as an Identifier appears to be invalid;
- * @negative;
+ * @section 12.8
+ * @path 12_Statement/12.8_The_break_Statement/S12.8_A5_T2.js
+ * @description Checking if using function name as an Identifier appears to be invalid
+ * @negative
  */
 
 (function(){

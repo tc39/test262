@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-17.js;
- * @description: Array.prototype.every -'this' of 'callbackfn' is a Number object when T is not an object (T is a number primitive);
+ * @path chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-17.js
+ * @description Array.prototype.every -'this' of 'callbackfn' is a Number object when T is not an object (T is a number primitive)
  */
 
 

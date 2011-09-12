@@ -4,10 +4,10 @@
 /**
  * Operator ++x uses GetValue and PutValue
  *
- * @section: 11.4.4, 11.6.3;
- * @path: 11_Expressions/11.4_Unary_Operators/11.4.4_Prefix_Increment_Operator/S11.4.4_A2.1_T3.js;
- * @description: If Type(x) is not Reference, throw ReferenceError (or SyntaxError);
- * @negative;
+ * @section 11.4.4, 11.6.3
+ * @path 11_Expressions/11.4_Unary_Operators/11.4.4_Prefix_Increment_Operator/S11.4.4_A2.1_T3.js
+ * @description If Type(x) is not Reference, throw ReferenceError (or SyntaxError)
+ * @negative
  */
 
 //CHECK#1

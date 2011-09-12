@@ -4,9 +4,9 @@
 /**
  * If y is equal to -Infinity and x is equal to +Infinity, Math.atan2(y,x) is an implementation-dependent approximation to -PI/4
  *
- * @section: 15.8.2.5;
- * @path: 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.5_atan2/S15.8.2.5_A22.js;
- * @description: Checking if Math.atan2(y,x) is an approximation to -PI/4, where y is equal to -Infinity and x is equal to +Infinity;
+ * @section 15.8.2.5
+ * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.5_atan2/S15.8.2.5_A22.js
+ * @description Checking if Math.atan2(y,x) is an approximation to -PI/4, where y is equal to -Infinity and x is equal to +Infinity
  */
 
 $INCLUDE("math_precision.js");

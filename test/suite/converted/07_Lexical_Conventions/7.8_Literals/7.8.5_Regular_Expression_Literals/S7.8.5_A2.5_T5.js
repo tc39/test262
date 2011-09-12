@@ -4,9 +4,9 @@
 /**
  * RegularExpressionChar :: BackslashSequence :: \LineTerminator is incorrect
  *
- * @section: 7.8.5;
- * @path: 07_Lexical_Conventions/7.8_Literals/7.8.5_Regular_Expression_Literals/S7.8.5_A2.5_T5.js;
- * @description: Line separator, with eval;
+ * @section 7.8.5
+ * @path 07_Lexical_Conventions/7.8_Literals/7.8.5_Regular_Expression_Literals/S7.8.5_A2.5_T5.js
+ * @description Line separator, with eval
  */
 
 //CHECK#1

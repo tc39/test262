@@ -4,9 +4,9 @@
 /**
  * The RegExp instance global property has the attribute ReadOnly
  *
- * @section: 15.10.7.2;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.7_Properties_of_RegExp_Instances/15.10.7.2_global/S15.10.7.2_A10.js;
- * @description: Checking if varying the global property fails;
+ * @section 15.10.7.2
+ * @path 15_Native/15.10_RegExp_Objects/15.10.7_Properties_of_RegExp_Instances/15.10.7.2_global/S15.10.7.2_A10.js
+ * @description Checking if varying the global property fails
  */
 
 __re = /^|^/;

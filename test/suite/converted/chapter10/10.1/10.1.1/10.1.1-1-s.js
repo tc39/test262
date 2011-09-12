@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.1/10.1.1/10.1.1-1-s.js;
- * @description: Strict Mode - Use Strict Directive Prologue is 'use  strict'; which contains two space between 'use' and 'strict';
- * @strict_only;
+ * @path chapter10/10.1/10.1.1/10.1.1-1-s.js
+ * @description Strict Mode - Use Strict Directive Prologue is 'use  strict'; which contains two space between 'use' and 'strict'
+ * @strict_only
  */
 
 

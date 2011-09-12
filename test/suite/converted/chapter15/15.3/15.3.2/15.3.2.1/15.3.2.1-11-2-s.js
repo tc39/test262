@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.3/15.3.2/15.3.2.1/15.3.2.1-11-2-s.js;
- * @description: Duplicate seperate parameter name in Function constructor called from strict mode allowed if body not strict;
- * @strict_only;
+ * @path chapter15/15.3/15.3.2/15.3.2.1/15.3.2.1-11-2-s.js
+ * @description Duplicate seperate parameter name in Function constructor called from strict mode allowed if body not strict
+ * @strict_only
  */
 
 

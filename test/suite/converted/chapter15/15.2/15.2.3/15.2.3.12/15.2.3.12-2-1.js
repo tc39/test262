@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-1.js;
- * @description: Object.isFrozen - inherited data property is not considered into the for each loop;
+ * @path chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-2-1.js
+ * @description Object.isFrozen - inherited data property is not considered into the for each loop
  */
 
 

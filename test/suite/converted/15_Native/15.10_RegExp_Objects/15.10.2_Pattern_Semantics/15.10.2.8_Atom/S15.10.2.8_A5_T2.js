@@ -4,9 +4,9 @@
 /**
  * In case-insignificant matches all characters are implicitly converted to upper case immediately before they are compared
  *
- * @section: 15.10.2.8;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.8_Atom/S15.10.2.8_A5_T2.js;
- * @description: Execute /[a-z]+/.exec("ABC def ghi") and check results;
+ * @section 15.10.2.8
+ * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.8_Atom/S15.10.2.8_A5_T2.js
+ * @description Execute /[a-z]+/.exec("ABC def ghi") and check results
  */
 
 __string = "ABC def ghi";

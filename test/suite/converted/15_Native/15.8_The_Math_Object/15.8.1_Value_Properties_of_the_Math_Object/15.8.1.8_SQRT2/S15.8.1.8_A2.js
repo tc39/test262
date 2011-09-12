@@ -4,9 +4,9 @@
 /**
  * Value Property SQRT2 of the Math Object has the attribute DontEnum
  *
- * @section: 15.8.1.8;
- * @path: 15_Native/15.8_The_Math_Object/15.8.1_Value_Properties_of_the_Math_Object/15.8.1.8_SQRT2/S15.8.1.8_A2.js;
- * @description: Checking if Math.SQRT2 property has the attribute DontEnum;
+ * @section 15.8.1.8
+ * @path 15_Native/15.8_The_Math_Object/15.8.1_Value_Properties_of_the_Math_Object/15.8.1.8_SQRT2/S15.8.1.8_A2.js
+ * @description Checking if Math.SQRT2 property has the attribute DontEnum
  */
 
 // CHECK#1

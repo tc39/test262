@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.2/12.2.1/12.2.1-9-s.js;
- * @description: Strict Mode: an indirect eval declaring a var named 'eval' does not throw;
- * @strict_only;
+ * @path chapter12/12.2/12.2.1/12.2.1-9-s.js
+ * @description Strict Mode: an indirect eval declaring a var named 'eval' does not throw
+ * @strict_only
  */
 
 

@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.10/12.10.1/12.10.1-4-s.js;
- * @description: with statement in strict mode throws SyntaxError (strict Function);
- * @strict_only;
+ * @path chapter12/12.10/12.10.1/12.10.1-4-s.js
+ * @description with statement in strict mode throws SyntaxError (strict Function)
+ * @strict_only
  */
 
 

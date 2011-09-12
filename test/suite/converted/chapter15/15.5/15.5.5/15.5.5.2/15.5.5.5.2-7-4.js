@@ -22,8 +22,8 @@
  * 15.5.5.2 defines [[GetOwnProperty]] for Strings. It supports using indexing
  * notation to look up non numeric property names.
  *
- * @path: chapter15/15.5/15.5.5/15.5.5.2/15.5.5.5.2-7-4.js;
- * @description: String value indexing returns undefined if the numeric index is greater than the string length;
+ * @path chapter15/15.5/15.5.5/15.5.5.2/15.5.5.5.2-7-4.js
+ * @description String value indexing returns undefined if the numeric index is greater than the string length
  */
 
 

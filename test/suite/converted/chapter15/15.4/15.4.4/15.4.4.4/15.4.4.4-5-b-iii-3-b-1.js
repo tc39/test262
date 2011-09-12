@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.4/15.4.4.4-5-b-iii-3-b-1.js;
- * @description: Array.prototype.concat will concat an Array when index property (read-only) exists in Array.prototype (Step 5.b.iii.3.b);
+ * @path chapter15/15.4/15.4.4/15.4.4.4/15.4.4.4-5-b-iii-3-b-1.js
+ * @description Array.prototype.concat will concat an Array when index property (read-only) exists in Array.prototype (Step 5.b.iii.3.b)
  */
 
 

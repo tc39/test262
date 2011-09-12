@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.8/12.8-1.js;
- * @description: The break Statement - a break statement without an identifier may have a LineTerminator before the semi-colon;
+ * @path chapter12/12.8/12.8-1.js
+ * @description The break Statement - a break statement without an identifier may have a LineTerminator before the semi-colon
  */
 
 

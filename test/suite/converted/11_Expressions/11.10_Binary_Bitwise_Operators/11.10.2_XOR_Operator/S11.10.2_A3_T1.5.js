@@ -4,9 +4,9 @@
 /**
  * Operator x ^ y returns ToNumber(x) ^ ToNumber(y)
  *
- * @section: 11.10.2;
- * @path: 11_Expressions/11.10_Binary_Bitwise_Operators/11.10.2_XOR_Operator/S11.10.2_A3_T1.5.js;
- * @description: Type(x) and Type(y) are Object object and Function object;
+ * @section 11.10.2
+ * @path 11_Expressions/11.10_Binary_Bitwise_Operators/11.10.2_XOR_Operator/S11.10.2_A3_T1.5.js
+ * @description Type(x) and Type(y) are Object object and Function object
  */
 
 //CHECK#1

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.14/12.14-13.js;
- * @description: catch introduces scope - updates are based on scope;
+ * @path chapter12/12.14/12.14-13.js
+ * @description catch introduces scope - updates are based on scope
  */
 
 

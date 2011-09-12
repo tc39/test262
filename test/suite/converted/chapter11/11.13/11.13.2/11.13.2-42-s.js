@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter11/11.13/11.13.2/11.13.2-42-s.js;
- * @description: Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(&=) is a reference to an accessor property with the attribute value {[[Set]]:undefined};
- * @strict_only;
+ * @path chapter11/11.13/11.13.2/11.13.2-42-s.js
+ * @description Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(&=) is a reference to an accessor property with the attribute value {[[Set]]:undefined}
+ * @strict_only
  */
 
 

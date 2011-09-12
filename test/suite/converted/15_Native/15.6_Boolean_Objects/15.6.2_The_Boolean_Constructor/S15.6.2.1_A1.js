@@ -5,9 +5,9 @@
  * When Boolean is called as part of a new expression it is
  * a constructor: it initialises the newly created object
  *
- * @section: 15.6.2.1;
- * @path: 15_Native/15.6_Boolean_Objects/15.6.2_The_Boolean_Constructor/S15.6.2.1_A1.js;
- * @description: Checking type of the newly created object and it value;
+ * @section 15.6.2.1
+ * @path 15_Native/15.6_Boolean_Objects/15.6.2_The_Boolean_Constructor/S15.6.2.1_A1.js
+ * @description Checking type of the newly created object and it value
  */
 
 //CHECK#1

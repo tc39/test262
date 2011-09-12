@@ -4,9 +4,9 @@
 /**
  * The production QuantifierPrefix :: + evaluates by returning the two results 1 and \infty
  *
- * @section: 15.10.2.7;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.7_Quantifier/S15.10.2.7_A3_T8.js;
- * @description: Execute /[a-z]+(\d+)/.exec("__abc123.0") and check results;
+ * @section 15.10.2.7
+ * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.7_Quantifier/S15.10.2.7_A3_T8.js
+ * @description Execute /[a-z]+(\d+)/.exec("__abc123.0") and check results
  */
 
 __executed = /[a-z]+(\d+)/.exec("__abc123.0");

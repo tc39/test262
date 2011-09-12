@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter11/11.1/11.1.4/11.1.4-0.js;
- * @description: elements elided at the end of an array do not contribute to its length;
+ * @path chapter11/11.1/11.1.4/11.1.4-0.js
+ * @description elements elided at the end of an array do not contribute to its length
  */
 
 

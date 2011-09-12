@@ -4,9 +4,9 @@
 /**
  * The result of division is determined by the specification of IEEE 754 arithmetics
  *
- * @section: 11.5.2;
- * @path: 11_Expressions/11.5_Multiplicative_Operators/11.5.2_Applying_the_slash_Operator/S11.5.2_A4_T1.1.js;
- * @description: If left operand is NaN, the result is NaN;
+ * @section 11.5.2
+ * @path 11_Expressions/11.5_Multiplicative_Operators/11.5.2_Applying_the_slash_Operator/S11.5.2_A4_T1.1.js
+ * @description If left operand is NaN, the result is NaN
  */
 
 //CHECK#1

@@ -5,9 +5,9 @@
  * If ToNumber(value) is +0, -0, +Infinity, or -Infinity,
  * return ToNumber(value)
  *
- * @section: 9.4, 15.5;
- * @path: 09_Type_Conversion/9.4_ToInteger/S9.4_A2.js;
- * @description: Check what position is defined by Number.NaN in string "abc": "abc".charAt(Number.NaN);
+ * @section 9.4, 15.5
+ * @path 09_Type_Conversion/9.4_ToInteger/S9.4_A2.js
+ * @description Check what position is defined by Number.NaN in string "abc": "abc".charAt(Number.NaN)
  */
 
 // CHECK#1

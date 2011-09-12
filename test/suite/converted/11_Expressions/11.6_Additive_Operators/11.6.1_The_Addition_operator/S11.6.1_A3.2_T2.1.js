@@ -4,9 +4,9 @@
 /**
  * If Type(Primitive(x)) is String or Type(Primitive(y)) is String, then operator x + y returns the result of concatenating ToString(x) followed by ToString(y)
  *
- * @section: 11.6.1;
- * @path: 11_Expressions/11.6_Additive_Operators/11.6.1_The_Addition_operator/S11.6.1_A3.2_T2.1.js;
- * @description: Type(Primitive(x)) is different from Type(Primitive(y)) and both types vary between Number (primitive or object) and String (primitive and object);
+ * @section 11.6.1
+ * @path 11_Expressions/11.6_Additive_Operators/11.6.1_The_Addition_operator/S11.6.1_A3.2_T2.1.js
+ * @description Type(Primitive(x)) is different from Type(Primitive(y)) and both types vary between Number (primitive or object) and String (primitive and object)
  */
 
 //CHECK#1

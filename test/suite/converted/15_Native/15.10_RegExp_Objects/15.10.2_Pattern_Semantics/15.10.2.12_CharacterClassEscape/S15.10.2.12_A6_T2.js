@@ -5,9 +5,9 @@
  * The production CharacterClassEscape :: D evaluates by returning the set of all characters not
  * included in the set returned by CharacterClassEscape :: d
  *
- * @section: 15.10.2.12;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.12_CharacterClassEscape/S15.10.2.12_A6_T2.js;
- * @description: ENGLISH ALPHABET;
+ * @section 15.10.2.12
+ * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.12_CharacterClassEscape/S15.10.2.12_A6_T2.js
+ * @description ENGLISH ALPHABET
  */
 
 var regexp_D = /\D/;

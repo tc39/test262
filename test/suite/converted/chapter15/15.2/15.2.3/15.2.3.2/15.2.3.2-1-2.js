@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-1-2.js;
- * @description: Object.getPrototypeOf throws TypeError if 'O' is null;
+ * @path chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-1-2.js
+ * @description Object.getPrototypeOf throws TypeError if 'O' is null
  */
 
 

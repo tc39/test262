@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.1/15.1.2/15.1.2.3/15.1.2.3-2-1.js;
- * @description: pareseFloat - 'trimmedString' is the empty string when inputString does not contain any such characters;
+ * @path chapter15/15.1/15.1.2/15.1.2.3/15.1.2.3-2-1.js
+ * @description pareseFloat - 'trimmedString' is the empty string when inputString does not contain any such characters
  */
 
 
-assertTrue(isNaN(parseFloat("")) && parseFloat("") !== parseFloat(""));
+assertTruthy(isNaN(parseFloat("")) && parseFloat("") !== parseFloat(""));

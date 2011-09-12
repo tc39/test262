@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.1/12.1-1.js;
- * @description: 12.1 - block '{ StatementListopt };' is not allowed: try-catch;
+ * @path chapter12/12.1/12.1-1.js
+ * @description 12.1 - block '{ StatementListopt };' is not allowed: try-catch
  */
 
 

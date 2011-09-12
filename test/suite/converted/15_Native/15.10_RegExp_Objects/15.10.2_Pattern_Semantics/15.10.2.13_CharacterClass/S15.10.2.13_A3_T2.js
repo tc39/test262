@@ -4,9 +4,9 @@
 /**
  * Inside a CharacterClass, \b means the backspace character
  *
- * @section: 15.10.2.13;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.13_CharacterClass/S15.10.2.13_A3_T2.js;
- * @description: Execute /c[\b]{3}d/.exec("abc\b\b\bdef") and check results;
+ * @section 15.10.2.13
+ * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.13_CharacterClass/S15.10.2.13_A3_T2.js
+ * @description Execute /c[\b]{3}d/.exec("abc\b\b\bdef") and check results
  */
 
 __executed = /c[\b]{3}d/.exec("abc\b\b\bdef");

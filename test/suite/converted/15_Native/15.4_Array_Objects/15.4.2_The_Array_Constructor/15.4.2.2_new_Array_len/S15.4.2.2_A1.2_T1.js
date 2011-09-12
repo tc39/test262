@@ -4,9 +4,9 @@
 /**
  * The [[Class]] property of the newly constructed object is set to "Array"
  *
- * @section: 15.4.2.2, 15.2.4.2;
- * @path: 15_Native/15.4_Array_Objects/15.4.2_The_Array_Constructor/15.4.2.2_new_Array_len/S15.4.2.2_A1.2_T1.js;
- * @description: Checking use Object.prototype.toString;
+ * @section 15.4.2.2, 15.2.4.2
+ * @path 15_Native/15.4_Array_Objects/15.4.2_The_Array_Constructor/15.4.2.2_new_Array_len/S15.4.2.2_A1.2_T1.js
+ * @description Checking use Object.prototype.toString
  */
 
 //CHECK#1

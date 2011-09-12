@@ -4,9 +4,9 @@
 /**
  * The encodeURI property has not prototype property
  *
- * @section: 15.1.3.3;
- * @path: 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.3_encodeURI/S15.1.3.3_A5.6.js;
- * @description: Checking encodeURI.prototype;
+ * @section 15.1.3.3
+ * @path 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.3_encodeURI/S15.1.3.3_A5.6.js
+ * @description Checking encodeURI.prototype
  */
 
 //CHECK#1

@@ -4,9 +4,9 @@
 /**
  * White Space and Line Terminator between LeftHandSideExpression and "@=" or between "@=" and AssignmentExpression are allowed
  *
- * @section: 11.13.2;
- * @path: 11_Expressions/11.13_Assignment_Operators/11.13.2_Compound_Assignment/S11.13.2_A1_T1.js;
- * @description: Checking by using eval, check operator is x *= y;
+ * @section 11.13.2
+ * @path 11_Expressions/11.13_Assignment_Operators/11.13.2_Compound_Assignment/S11.13.2_A1_T1.js
+ * @description Checking by using eval, check operator is x *= y
  */
 
 //CHECK#1

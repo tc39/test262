@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-12.js;
- * @description: Array.prototype.every - 'length' is a string containing a negative number;
+ * @path chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-12.js
+ * @description Array.prototype.every - 'length' is a string containing a negative number
  */
 
 

@@ -4,9 +4,9 @@
 /**
  * Check ToUint32(length) for non Array objects
  *
- * @section: 15.4.4.6;
- * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.6_Array_prototype_pop/S15.4.4.6_A3_T1.js;
- * @description: length = 4294967296;
+ * @section 15.4.4.6
+ * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.6_Array_prototype_pop/S15.4.4.6_A3_T1.js
+ * @description length = 4294967296
  */
 
 var obj = {};

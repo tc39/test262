@@ -4,9 +4,9 @@
 /**
  * Number.NaN has the attribute DontEnum
  *
- * @section: 15.7.3.4;
- * @path: 15_Native/15.7_Number_Objects/15.7.3_Properties_of_Number_Constructor/15.7.3.4_Number.NaN/S15.7.3.4_A4.js;
- * @description: Checking if enumerating Number.NaN fails;
+ * @section 15.7.3.4
+ * @path 15_Native/15.7_Number_Objects/15.7.3_Properties_of_Number_Constructor/15.7.3.4_Number.NaN/S15.7.3.4_A4.js
+ * @description Checking if enumerating Number.NaN fails
  */
 
 //CHECK#1

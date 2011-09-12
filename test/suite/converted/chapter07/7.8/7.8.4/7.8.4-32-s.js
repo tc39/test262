@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter07/7.8/7.8.4/7.8.4-32-s.js;
- * @description: Two OctalEscapeSequences in a String are not allowed in a String under Strict Mode;
- * @strict_only;
+ * @path chapter07/7.8/7.8.4/7.8.4-32-s.js
+ * @description Two OctalEscapeSequences in a String are not allowed in a String under Strict Mode
+ * @strict_only
  */
 
 

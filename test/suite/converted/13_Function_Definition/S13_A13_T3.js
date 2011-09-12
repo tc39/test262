@@ -4,9 +4,9 @@
 /**
  * Deleting arguments[i] leads to breaking the connection to local reference
  *
- * @section: 13;
- * @path: 13_Function_Definition/S13_A13_T3.js;
- * @description: Changing argument value, deleting the argument and then defining a new value for arguments[i];
+ * @section 13
+ * @path 13_Function_Definition/S13_A13_T3.js
+ * @description Changing argument value, deleting the argument and then defining a new value for arguments[i]
  */
 
 function __func(__arg){

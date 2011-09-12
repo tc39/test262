@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.10/12.10-2-2.js;
- * @description: with - expression being Boolean;
+ * @path chapter12/12.10/12.10-2-2.js
+ * @description with - expression being Boolean
  */
 
 

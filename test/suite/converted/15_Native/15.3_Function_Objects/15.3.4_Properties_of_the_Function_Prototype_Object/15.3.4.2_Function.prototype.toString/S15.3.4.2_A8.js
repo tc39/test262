@@ -4,9 +4,9 @@
 /**
  * The Function.prototype.toString.length property has the attribute DontEnum
  *
- * @section: 15.3.4.2;
- * @path: 15_Native/15.3_Function_Objects/15.3.4_Properties_of_the_Function_Prototype_Object/15.3.4.2_Function.prototype.toString/S15.3.4.2_A8.js;
- * @description: Checking if enumerating the Function.prototype.toString.length property fails;
+ * @section 15.3.4.2
+ * @path 15_Native/15.3_Function_Objects/15.3.4_Properties_of_the_Function_Prototype_Object/15.3.4.2_Function.prototype.toString/S15.3.4.2_A8.js
+ * @description Checking if enumerating the Function.prototype.toString.length property fails
  */
 
 //CHECK#0

@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.4/15.2.4.2/15.2.4.2-1-2.js;
- * @description: Object.prototype.toString - '[object Undefined]' will be returned when 'this' value is undefined;
+ * @path chapter15/15.2/15.2.4/15.2.4.2/15.2.4.2-1-2.js
+ * @description Object.prototype.toString - '[object Undefined]' will be returned when 'this' value is undefined
  */
 
 
-assertTrue(Object.prototype.toString.apply(undefined, []) === "[object Undefined]");
+assertTruthy(Object.prototype.toString.apply(undefined, []) === "[object Undefined]");

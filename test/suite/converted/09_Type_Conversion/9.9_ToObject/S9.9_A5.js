@@ -5,9 +5,9 @@
  * ToObject conversion from String: create a new String object
  * whose [[value]] property is set to the value of the string
  *
- * @section: 9.9;
- * @path: 09_Type_Conversion/9.9_ToObject/S9.9_A5.js;
- * @description: Converting from various strings to Object;
+ * @section 9.9
+ * @path 09_Type_Conversion/9.9_ToObject/S9.9_A5.js
+ * @description Converting from various strings to Object
  */
 
 // CHECK#1

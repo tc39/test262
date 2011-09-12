@@ -4,9 +4,9 @@
 /**
  * Only constructor call (with "new" keyword) makes instance
  *
- * @section: 11.8.6;
- * @path: 11_Expressions/11.8_Relational_Operators/11.8.6_The_instanceof_operator/S11.8.6_A4_T2.js;
- * @description: Checking Number case;
+ * @section 11.8.6
+ * @path 11_Expressions/11.8_Relational_Operators/11.8.6_The_instanceof_operator/S11.8.6_A4_T2.js
+ * @description Checking Number case
  */
 
 //CHECK#1

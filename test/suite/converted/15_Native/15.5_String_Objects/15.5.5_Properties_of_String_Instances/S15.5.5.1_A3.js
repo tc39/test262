@@ -4,9 +4,9 @@
 /**
  * length property has the attributes {DontDelete}
  *
- * @section: 15.5.5.1;
- * @path: 15_Native/15.5_String_Objects/15.5.5_Properties_of_String_Instances/S15.5.5.1_A3.js;
- * @description: Checking if deleting the length property of String fails;
+ * @section 15.5.5.1
+ * @path 15_Native/15.5_String_Objects/15.5.5_Properties_of_String_Instances/S15.5.5.1_A3.js
+ * @description Checking if deleting the length property of String fails
  */
 
 var __str__instance = new String("globglob");

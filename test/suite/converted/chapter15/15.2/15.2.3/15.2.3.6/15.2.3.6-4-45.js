@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-45.js;
- * @description: Object.defineProperty - 'O' is the global object that uses Object's [[GetOwnProperty]] method to access the 'name' property (8.12.9 step 1);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-45.js
+ * @description Object.defineProperty - 'O' is the global object that uses Object's [[GetOwnProperty]] method to access the 'name' property (8.12.9 step 1)
  */
 
 

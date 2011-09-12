@@ -4,9 +4,9 @@
 /**
  * Operator "new" uses GetValue
  *
- * @section: 11.2.2;
- * @path: 11_Expressions/11.2_Left_Hand_Side_Expressions/11.2.2_The_new_Operator/S11.2.2_A2.js;
- * @description: If GetBase(NewExpression) or GetBase(MemberExpression) is null, throw ReferenceError;
+ * @section 11.2.2
+ * @path 11_Expressions/11.2_Left_Hand_Side_Expressions/11.2.2_The_new_Operator/S11.2.2_A2.js
+ * @description If GetBase(NewExpression) or GetBase(MemberExpression) is null, throw ReferenceError
  */
 
 //CHECK#1

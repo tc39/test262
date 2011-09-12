@@ -4,9 +4,9 @@
 /**
  * LineTerminator between return and Identifier_opt yields return without Identifier_opt
  *
- * @section: 12.9;
- * @path: 12_Statement/12.9_The_return_Statement/S12.9_A2.js;
- * @description: Checking by using eval, inserting LineTerminator between return and Variable;
+ * @section 12.9
+ * @path 12_Statement/12.9_The_return_Statement/S12.9_A2.js
+ * @description Checking by using eval, inserting LineTerminator between return and Variable
  */
 
 //CHECK#1

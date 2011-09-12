@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-7-b-16.js;
- * @description: Array.prototype.forEach - decreasing length of array does not delete non-configurable properties;
+ * @path chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-7-b-16.js
+ * @description Array.prototype.forEach - decreasing length of array does not delete non-configurable properties
  */
 
 

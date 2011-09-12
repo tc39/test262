@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-9-2.js;
- * @description: Array.prototype.map returns new Array with same number of elements and values the result of callbackfn;
+ * @path chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-9-2.js
+ * @description Array.prototype.map returns new Array with same number of elements and values the result of callbackfn
  */
 
 

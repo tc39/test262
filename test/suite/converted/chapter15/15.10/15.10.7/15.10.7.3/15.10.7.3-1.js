@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.10/15.10.7/15.10.7.3/15.10.7.3-1.js;
- * @description: RegExp.prototype.ignoreCase is of type Boolean;
+ * @path chapter15/15.10/15.10.7/15.10.7.3/15.10.7.3-1.js
+ * @description RegExp.prototype.ignoreCase is of type Boolean
  */
 
 
-assertTrue((typeof(RegExp.prototype.ignoreCase)) === 'boolean');
+assertTruthy((typeof(RegExp.prototype.ignoreCase)) === 'boolean');

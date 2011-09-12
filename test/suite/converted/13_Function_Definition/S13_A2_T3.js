@@ -4,9 +4,9 @@
 /**
  * function must be evaluated inside the expression
  *
- * @section: 13;
- * @path: 13_Function_Definition/S13_A2_T3.js;
- * @description: Defining function body with "return arguments[0] +"-"+ arguments[1]";
+ * @section 13
+ * @path 13_Function_Definition/S13_A2_T3.js
+ * @description Defining function body with "return arguments[0] +"-"+ arguments[1]"
  */
 
 var x = (function __func(){return arguments[0] +"-"+ arguments[1]})("Obi","Wan");

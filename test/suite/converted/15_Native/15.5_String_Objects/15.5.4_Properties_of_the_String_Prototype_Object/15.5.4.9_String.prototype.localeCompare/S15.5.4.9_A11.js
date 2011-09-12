@@ -4,9 +4,9 @@
 /**
  * The length property of the localeCompare method is 1
  *
- * @section: 15.5.4.9;
- * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.9_String.prototype.localeCompare/S15.5.4.9_A11.js;
- * @description: Checking String.prototype.localeCompare.length;
+ * @section 15.5.4.9
+ * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.9_String.prototype.localeCompare/S15.5.4.9_A11.js
+ * @description Checking String.prototype.localeCompare.length
  */
 
 //////////////////////////////////////////////////////////////////////////////

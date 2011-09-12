@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter11/11.8/11.8.2/11.8.2-4.js;
- * @description: 11.8.2 Greater-than Operator - Partial left to right order enforced when using Greater-than operator: toString > toString;
+ * @path chapter11/11.8/11.8.2/11.8.2-4.js
+ * @description 11.8.2 Greater-than Operator - Partial left to right order enforced when using Greater-than operator: toString > toString
  */
 
 

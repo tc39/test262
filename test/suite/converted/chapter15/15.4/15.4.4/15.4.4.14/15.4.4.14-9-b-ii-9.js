@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-ii-9.js;
- * @description: Array.prototype.indexOf - both array element and search element are String, and they have exactly the same sequence of characters;
+ * @path chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-ii-9.js
+ * @description Array.prototype.indexOf - both array element and search element are String, and they have exactly the same sequence of characters
  */
 
 
-assertTrue(["", "ab", "bca", "abc"].indexOf("abc") === 3);
+assertTruthy(["", "ab", "bca", "abc"].indexOf("abc") === 3);

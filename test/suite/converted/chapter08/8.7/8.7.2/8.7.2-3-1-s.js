@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter08/8.7/8.7.2/8.7.2-3-1-s.js;
- * @description: eval - a property named 'eval' is permitted;
- * @strict_only;
+ * @path chapter08/8.7/8.7.2/8.7.2-3-1-s.js
+ * @description eval - a property named 'eval' is permitted
+ * @strict_only
  */
 
 

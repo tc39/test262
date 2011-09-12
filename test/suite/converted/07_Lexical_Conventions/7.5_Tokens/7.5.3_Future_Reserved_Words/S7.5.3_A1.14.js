@@ -4,9 +4,9 @@
 /**
  * The "goto" token can be used as identifier
  *
- * @section: 7.5.3;
- * @path: 07_Lexical_Conventions/7.5_Tokens/7.5.3_Future_Reserved_Words/S7.5.3_A1.14.js;
- * @description: Checking if execution of "goto=1" succeeds;
+ * @section 7.5.3
+ * @path 07_Lexical_Conventions/7.5_Tokens/7.5.3_Future_Reserved_Words/S7.5.3_A1.14.js
+ * @description Checking if execution of "goto=1" succeeds
  */
 
 goto = 1;

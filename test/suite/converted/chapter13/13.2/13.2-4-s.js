@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter13/13.2/13.2-4-s.js;
- * @description: StrictMode - A TypeError is thrown when a code in strict mode tries to write to 'arguments' of function instances.;
- * @strict_only;
+ * @path chapter13/13.2/13.2-4-s.js
+ * @description StrictMode - A TypeError is thrown when a code in strict mode tries to write to 'arguments' of function instances.
+ * @strict_only
  */
 
 

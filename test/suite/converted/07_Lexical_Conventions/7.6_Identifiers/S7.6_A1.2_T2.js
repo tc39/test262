@@ -4,9 +4,9 @@
 /**
  * IdentifierStart :: $
  *
- * @section: 7.6;
- * @path: 07_Lexical_Conventions/7.6_Identifiers/S7.6_A1.2_T2.js;
- * @description: The $ as unicode character \u0024;
+ * @section 7.6
+ * @path 07_Lexical_Conventions/7.6_Identifiers/S7.6_A1.2_T2.js
+ * @description The $ as unicode character \u0024
  */
 
 //CHECK#1

@@ -4,9 +4,9 @@
 /**
  * The Date.prototype.getUTCHours property "length" has { ReadOnly, DontDelete, DontEnum } attributes
  *
- * @section: 15.9.5.19;
- * @path: 15_Native/15.9_Date_Objects/15.9.5_Properties_of_the_Date_Prototype_Object/15.9.5.19_Date.prototype.getUTCHours/S15.9.5.19_A3_T2.js;
- * @description: Checking DontDelete attribute;
+ * @section 15.9.5.19
+ * @path 15_Native/15.9_Date_Objects/15.9.5_Properties_of_the_Date_Prototype_Object/15.9.5.19_Date.prototype.getUTCHours/S15.9.5.19_A3_T2.js
+ * @description Checking DontDelete attribute
  */
 
 if (delete Date.prototype.getUTCHours.length  !== false) {

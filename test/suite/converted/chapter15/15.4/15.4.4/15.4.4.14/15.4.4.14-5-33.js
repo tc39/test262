@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-33.js;
- * @description: Array.prototype.indexOf match on the first element, a middle element and the last element when 'fromIndex' is passed;
+ * @path chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-33.js
+ * @description Array.prototype.indexOf match on the first element, a middle element and the last element when 'fromIndex' is passed
  */
 
 
-assertTrue([0, 1, 2, 3, 4].indexOf(0, 0) === 0 &&
+assertTruthy([0, 1, 2, 3, 4].indexOf(0, 0) === 0 &&
             [0, 1, 2, 3, 4].indexOf(2, 1) === 2 &&
             [0, 1, 2, 3, 4].indexOf(2, 2) === 2 &&
             [0, 1, 2, 3, 4].indexOf(4, 2) === 4 &&

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-4.js;
- * @description: Array.prototype.some doesn't visit deleted elements when Array.length is decreased;
+ * @path chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-4.js
+ * @description Array.prototype.some doesn't visit deleted elements when Array.length is decreased
  */
 
 

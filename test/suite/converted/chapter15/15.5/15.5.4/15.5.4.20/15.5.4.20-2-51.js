@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-51.js;
- * @description: String.prototype.trim - 'this' is a Arguments Object that converts to a string;
+ * @path chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-51.js
+ * @description String.prototype.trim - 'this' is a Arguments Object that converts to a string
  */
 
 

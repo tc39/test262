@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-27.js;
- * @description: Array.prototype.every - return value of callbackfn is the global object;
+ * @path chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-iii-27.js
+ * @description Array.prototype.every - return value of callbackfn is the global object
  */
 
 

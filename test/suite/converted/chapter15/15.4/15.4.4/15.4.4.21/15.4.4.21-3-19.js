@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-3-19.js;
- * @description: Array.prototype.reduce - value of 'length' is an Object which has an own toString method;
+ * @path chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-3-19.js
+ * @description Array.prototype.reduce - value of 'length' is an Object which has an own toString method
  */
 
 

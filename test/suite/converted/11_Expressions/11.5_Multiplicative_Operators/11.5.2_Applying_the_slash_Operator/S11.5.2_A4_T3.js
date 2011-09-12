@@ -4,9 +4,9 @@
 /**
  * The result of division is determined by the specification of IEEE 754 arithmetics
  *
- * @section: 11.5.2;
- * @path: 11_Expressions/11.5_Multiplicative_Operators/11.5.2_Applying_the_slash_Operator/S11.5.2_A4_T3.js;
- * @description: Division of an infinity by a zero results in an infinity of appropriate sign;
+ * @section 11.5.2
+ * @path 11_Expressions/11.5_Multiplicative_Operators/11.5.2_Applying_the_slash_Operator/S11.5.2_A4_T3.js
+ * @description Division of an infinity by a zero results in an infinity of appropriate sign
  */
 
 //CHECK#1

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.10/15.10.6/15.10.6.2/15.10.6.2-9-e-1.js;
- * @description: RegExp.prototype.exec - the removed step 9.e won't affected current algorithm;
+ * @path chapter15/15.10/15.10.6/15.10.6.2/15.10.6.2-9-e-1.js
+ * @description RegExp.prototype.exec - the removed step 9.e won't affected current algorithm
  */
 
 

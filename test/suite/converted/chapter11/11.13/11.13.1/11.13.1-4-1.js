@@ -21,8 +21,8 @@
 /**
  * PutValue operates only on references (see step 3.b).
  *
- * @path: chapter11/11.13/11.13.1/11.13.1-4-1.js;
- * @description: simple assignment creates property on the global object if LeftHandSide is an unresolvable reference;
+ * @path chapter11/11.13/11.13.1/11.13.1-4-1.js
+ * @description simple assignment creates property on the global object if LeftHandSide is an unresolvable reference
  */
 
 

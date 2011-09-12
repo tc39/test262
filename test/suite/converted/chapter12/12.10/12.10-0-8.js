@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.10/12.10-0-8.js;
- * @description: with introduces scope - var initializer sets like named property;
+ * @path chapter12/12.10/12.10-0-8.js
+ * @description with introduces scope - var initializer sets like named property
  */
 
 

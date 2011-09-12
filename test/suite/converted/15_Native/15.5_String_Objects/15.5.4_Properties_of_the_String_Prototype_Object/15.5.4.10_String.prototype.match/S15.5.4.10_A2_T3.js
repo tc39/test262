@@ -4,9 +4,9 @@
 /**
  * match returns array as specified in 15.10.6.2
  *
- * @section: 15.5.4.10, 15.10.6.2;
- * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.10_String.prototype.match/S15.5.4.10_A2_T3.js;
- * @description: Regular expression is /\d{1}/g;
+ * @section 15.5.4.10, 15.10.6.2
+ * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.10_String.prototype.match/S15.5.4.10_A2_T3.js
+ * @description Regular expression is /\d{1}/g
  */
 
 var __matches=["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];

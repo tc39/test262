@@ -4,9 +4,9 @@
 /**
  * Number.MIN_VALUE is approximately 5e-324
  *
- * @section: 15.7.3.3;
- * @path: 15_Native/15.7_Number_Objects/15.7.3_Properties_of_Number_Constructor/15.7.3.3_Number.MIN_VALUE/S15.7.3.3_A1.js;
- * @description: Checking Number.MIN_VALUE value;
+ * @section 15.7.3.3
+ * @path 15_Native/15.7_Number_Objects/15.7.3_Properties_of_Number_Constructor/15.7.3.3_Number.MIN_VALUE/S15.7.3.3_A1.js
+ * @description Checking Number.MIN_VALUE value
  */
 
 $INCLUDE("math_precision.js");

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.9/15.9.5/15.9.5.44/15.9.5.44-0-1.js;
- * @description: Date.prototype.toJSON must exist as a function;
+ * @path chapter15/15.9/15.9.5/15.9.5.44/15.9.5.44-0-1.js
+ * @description Date.prototype.toJSON must exist as a function
  */
 
 

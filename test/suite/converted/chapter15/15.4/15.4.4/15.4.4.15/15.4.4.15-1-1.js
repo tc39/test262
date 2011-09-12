@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-1-1.js;
- * @description: Array.prototype.lastIndexOf applied to undefined throws a TypeError;
+ * @path chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-1-1.js
+ * @description Array.prototype.lastIndexOf applied to undefined throws a TypeError
  */
 
 

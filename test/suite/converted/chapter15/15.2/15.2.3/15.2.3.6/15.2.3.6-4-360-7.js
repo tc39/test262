@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-360-7.js;
- * @description: ES5 Attributes - Updating indexed data property 'P' whose attributes are [[Writable]]: false, [[Enumerable]]: true, [[Configurable]]: true to an accessor property, 'O' is the global object (8.12.9 - step 9.b.i);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-360-7.js
+ * @description ES5 Attributes - Updating indexed data property 'P' whose attributes are [[Writable]]: false, [[Enumerable]]: true, [[Configurable]]: true to an accessor property, 'O' is the global object (8.12.9 - step 9.b.i)
  */
 
 

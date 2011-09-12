@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.6/10.6-14-b-4-s.js;
- * @description: Strict Mode - TypeError is thrown when accessing the [[Set]] attribute in 'caller' under strict mode;
- * @strict_only;
+ * @path chapter10/10.6/10.6-14-b-4-s.js
+ * @description Strict Mode - TypeError is thrown when accessing the [[Set]] attribute in 'caller' under strict mode
+ * @strict_only
  */
 
 

@@ -4,9 +4,9 @@
 /**
  * The Undefined type has one value, called undefined
  *
- * @section: 8.1;
- * @path: 08_Types/8.1_The_Undefined_Type/S8.1_A1_T1.js;
- * @description: Checking if execution of "var x = undefined" passes;
+ * @section 8.1
+ * @path 08_Types/8.1_The_Undefined_Type/S8.1_A1_T1.js
+ * @description Checking if execution of "var x = undefined" passes
  */
 
 // CHECK#1

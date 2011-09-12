@@ -4,9 +4,9 @@
 /**
  * The initial value of Function.prototype.constructor is the built-in Function constructor
  *
- * @section: 15.3.4.1;
- * @path: 15_Native/15.3_Function_Objects/15.3.4_Properties_of_the_Function_Prototype_Object/S15.3.4.1_A1_T2.js;
- * @description: Create new Function.prototype.constructor object;
+ * @section 15.3.4.1
+ * @path 15_Native/15.3_Function_Objects/15.3.4_Properties_of_the_Function_Prototype_Object/S15.3.4.1_A1_T2.js
+ * @description Create new Function.prototype.constructor object
  */
 
 var constr = Function.prototype.constructor;

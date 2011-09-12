@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.12/15.12.3/15.12.3-5-a-i-1.js;
- * @description: JSON.stringify converts Number wrapper object space aruguments to Number values;
+ * @path chapter15/15.12/15.12.3/15.12.3-5-a-i-1.js
+ * @description JSON.stringify converts Number wrapper object space aruguments to Number values
  */
 
 

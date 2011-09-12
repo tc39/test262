@@ -4,9 +4,9 @@
 /**
  * Operator x << y uses GetValue
  *
- * @section: 11.7.1;
- * @path: 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.1_The_Left_shift_Operator/S11.7.1_A2.1_T2.js;
- * @description: If GetBase(x) is null, throw ReferenceError;
+ * @section 11.7.1
+ * @path 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.1_The_Left_shift_Operator/S11.7.1_A2.1_T2.js
+ * @description If GetBase(x) is null, throw ReferenceError
  */
 
 //CHECK#1

@@ -22,8 +22,8 @@
  * A newly created object using the Object contructor has its [[Extensible]]
  * property set to true by default (15.2.2.1, step 8).
  *
- * @path: chapter15/15.2/15.2.3/15.2.3.13/15.2.3.13-0-3.js;
- * @description: Object.isExtensible is true for objects created using the Object constructor;
+ * @path chapter15/15.2/15.2.3/15.2.3.13/15.2.3.13-0-3.js
+ * @description Object.isExtensible is true for objects created using the Object constructor
  */
 
 

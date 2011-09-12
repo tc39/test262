@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-8-13.js;
- * @description: Array.prototype.forEach - undefined will be returned when 'len' is 0;
+ * @path chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-8-13.js
+ * @description Array.prototype.forEach - undefined will be returned when 'len' is 0
  */
 
 

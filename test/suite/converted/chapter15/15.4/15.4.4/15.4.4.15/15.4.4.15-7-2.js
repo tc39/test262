@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-7-2.js;
- * @description: Array.prototype.lastIndexOf returns correct index when 'fromIndex' is -1;
+ * @path chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-7-2.js
+ * @description Array.prototype.lastIndexOf returns correct index when 'fromIndex' is -1
  */
 
 
-assertTrue([1, 2, 3, 4].lastIndexOf(4, -1) === 3);
+assertTruthy([1, 2, 3, 4].lastIndexOf(4, -1) === 3);

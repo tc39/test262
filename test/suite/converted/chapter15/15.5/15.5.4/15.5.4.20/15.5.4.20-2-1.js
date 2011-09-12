@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-1.js;
- * @description: String.prototype.trim - argument 'this' is a boolean whose value is false;
+ * @path chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-1.js
+ * @description String.prototype.trim - argument 'this' is a boolean whose value is false
  */
 
 
-assertTrue(String.prototype.trim.call(false) === "false");
+assertTruthy(String.prototype.trim.call(false) === "false");

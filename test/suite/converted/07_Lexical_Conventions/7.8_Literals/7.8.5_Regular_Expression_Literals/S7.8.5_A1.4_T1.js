@@ -5,9 +5,9 @@
  * RegularExpressionFirstChar :: BackslashSequence :: \NonTerminator,
  * RegularExpressionChars :: [empty], RegularExpressionFlags :: [empty]
  *
- * @section: 7.8.5;
- * @path: 07_Lexical_Conventions/7.8_Literals/7.8.5_Regular_Expression_Literals/S7.8.5_A1.4_T1.js;
- * @description: Check similar to (/\1/.source === "\\1");
+ * @section 7.8.5
+ * @path 07_Lexical_Conventions/7.8_Literals/7.8.5_Regular_Expression_Literals/S7.8.5_A1.4_T1.js
+ * @description Check similar to (/\1/.source === "\\1")
  */
 
 //CHECK#1

@@ -4,9 +4,9 @@
 /**
  * RegularExpressionFlags :: IdentifierPart
  *
- * @section: 7.8.5, 15.10.4.1;
- * @path: 07_Lexical_Conventions/7.8_Literals/7.8.5_Regular_Expression_Literals/S7.8.5_A3.1_T4.js;
- * @description: IdentifierPart :: gi;
+ * @section 7.8.5, 15.10.4.1
+ * @path 07_Lexical_Conventions/7.8_Literals/7.8.5_Regular_Expression_Literals/S7.8.5_A3.1_T4.js
+ * @description IdentifierPart :: gi
  */
 
 //CHECK#1

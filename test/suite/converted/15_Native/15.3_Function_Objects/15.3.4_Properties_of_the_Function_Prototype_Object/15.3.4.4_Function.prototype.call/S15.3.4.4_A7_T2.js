@@ -4,9 +4,9 @@
 /**
  * Function.prototype.call can't be used as [[create]] caller
  *
- * @section: 15.3.4.4;
- * @path: 15_Native/15.3_Function_Objects/15.3.4_Properties_of_the_Function_Prototype_Object/15.3.4.4_Function.prototype.call/S15.3.4.4_A7_T2.js;
- * @description: Checking if creating "new Function.prototype.call()" fails;
+ * @section 15.3.4.4
+ * @path 15_Native/15.3_Function_Objects/15.3.4_Properties_of_the_Function_Prototype_Object/15.3.4.4_Function.prototype.call/S15.3.4.4_A7_T2.js
+ * @description Checking if creating "new Function.prototype.call()" fails
  */
 
 try {

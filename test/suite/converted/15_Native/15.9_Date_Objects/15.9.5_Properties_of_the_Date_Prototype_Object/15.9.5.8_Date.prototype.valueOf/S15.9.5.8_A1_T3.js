@@ -4,9 +4,9 @@
 /**
  * The Date.prototype property "valueOf" has { DontEnum } attributes
  *
- * @section: 15.9.5.8;
- * @path: 15_Native/15.9_Date_Objects/15.9.5_Properties_of_the_Date_Prototype_Object/15.9.5.8_Date.prototype.valueOf/S15.9.5.8_A1_T3.js;
- * @description: Checking DontEnum attribute;
+ * @section 15.9.5.8
+ * @path 15_Native/15.9_Date_Objects/15.9.5_Properties_of_the_Date_Prototype_Object/15.9.5.8_Date.prototype.valueOf/S15.9.5.8_A1_T3.js
+ * @description Checking DontEnum attribute
  */
 
 if (Date.prototype.propertyIsEnumerable('valueOf')) {

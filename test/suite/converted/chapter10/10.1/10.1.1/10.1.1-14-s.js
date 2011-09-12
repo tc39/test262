@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.1/10.1.1/10.1.1-14-s.js;
- * @description: Strict Mode - The call to eval function is contained in a Strict Mode block;
- * @strict_only;
+ * @path chapter10/10.1/10.1.1/10.1.1-14-s.js
+ * @description Strict Mode - The call to eval function is contained in a Strict Mode block
+ * @strict_only
  */
 
 

@@ -4,9 +4,9 @@
 /**
  * DecimalEscape :: DecimalIntegerLiteral [lookahead not in DecimalDigit]
  *
- * @section: 15.10.2.11, 15.10.2.9;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.11_DecimalEscape/S15.10.2.11_A1_T7.js;
- * @description: DecimalIntegerLiteral is not 0;
+ * @section 15.10.2.11, 15.10.2.9
+ * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.11_DecimalEscape/S15.10.2.11_A1_T7.js
+ * @description DecimalIntegerLiteral is not 0
  */
 
 var arr = /\1(A)(B)\2/.exec("ABB");

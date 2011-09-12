@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.4/10.4.2/10.4.2-1-1.js;
- * @description: Indirect call to eval has context set to global context;
+ * @path chapter10/10.4/10.4.2/10.4.2-1-1.js
+ * @description Indirect call to eval has context set to global context
  */
 
 var __10_4_2_1_1_1 = "str";

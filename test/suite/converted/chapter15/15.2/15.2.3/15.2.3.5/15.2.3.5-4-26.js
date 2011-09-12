@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-26.js;
- * @description: Object.create - TypeError is thrown when own enumerable accessor property of 'Properties' without a get function (15.2.3.7 step 5.a);
+ * @path chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-26.js
+ * @description Object.create - TypeError is thrown when own enumerable accessor property of 'Properties' without a get function (15.2.3.7 step 5.a)
  */
 
 

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-5.js;
- * @description: Array.prototype.lastIndexOf must return correct index(Object);
+ * @path chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-5.js
+ * @description Array.prototype.lastIndexOf must return correct index(Object)
  */
 
 

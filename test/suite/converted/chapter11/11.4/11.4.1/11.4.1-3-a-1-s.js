@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter11/11.4/11.4.1/11.4.1-3-a-1-s.js;
- * @description: Strict Mode - SyntaxError is thrown when deleting an un-resolvable reference;
- * @strict_only;
+ * @path chapter11/11.4/11.4.1/11.4.1-3-a-1-s.js
+ * @description Strict Mode - SyntaxError is thrown when deleting an un-resolvable reference
+ * @strict_only
  */
 
 

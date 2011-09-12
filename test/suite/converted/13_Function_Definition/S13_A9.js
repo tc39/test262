@@ -4,9 +4,9 @@
 /**
  * Function can be passed as argument
  *
- * @section: 13;
- * @path: 13_Function_Definition/S13_A9.js;
- * @description: Using function as argument of another function;
+ * @section 13
+ * @path 13_Function_Definition/S13_A9.js
+ * @description Using function as argument of another function
  */
 
 function __func__INC(arg){return arg + 1;};

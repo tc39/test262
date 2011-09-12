@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-13.b-4.js;
- * @description: Function.prototype.bind, 'length' set to remaining number of expected args (target takes 0 args);
+ * @path chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-13.b-4.js
+ * @description Function.prototype.bind, 'length' set to remaining number of expected args (target takes 0 args)
  */
 
 

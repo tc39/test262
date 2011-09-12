@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-594.js;
- * @description: ES5 Attributes - Success to update value of property into of [[Proptotype]] internal property (Function.prototype.bind);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-594.js
+ * @description ES5 Attributes - Success to update value of property into of [[Proptotype]] internal property (Function.prototype.bind)
  */
 
 

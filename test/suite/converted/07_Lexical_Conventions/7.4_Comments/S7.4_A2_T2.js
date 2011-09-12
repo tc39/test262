@@ -4,10 +4,10 @@
 /**
  * Correct interpretation of multi line comments
  *
- * @section: 7.4;
- * @path: 07_Lexical_Conventions/7.4_Comments/S7.4_A2_T2.js;
- * @description: Try use /*CHECK#1/. This is not closed multi line comment;
- * @negative;
+ * @section 7.4
+ * @path 07_Lexical_Conventions/7.4_Comments/S7.4_A2_T2.js
+ * @description Try use /*CHECK#1/. This is not closed multi line comment
+ * @negative
  */
 
 /*CHECK#1/

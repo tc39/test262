@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.1/15.1.1/15.1.1.1/15.1.1.1-0.js;
- * @description: Global.NaN is a data property with default attribute values (false);
+ * @path chapter15/15.1/15.1.1/15.1.1.1/15.1.1.1-0.js
+ * @description Global.NaN is a data property with default attribute values (false)
  */
 
 var global = this;

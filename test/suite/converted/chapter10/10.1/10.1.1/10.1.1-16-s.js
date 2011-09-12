@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.1/10.1.1/10.1.1-16-s.js;
- * @description: Strict Mode - Function code that is part of a FunctionExpression is strict function code if FunctionExpression is contained in use strict;
- * @strict_only;
+ * @path chapter10/10.1/10.1.1/10.1.1-16-s.js
+ * @description Strict Mode - Function code that is part of a FunctionExpression is strict function code if FunctionExpression is contained in use strict
+ * @strict_only
  */
 
 

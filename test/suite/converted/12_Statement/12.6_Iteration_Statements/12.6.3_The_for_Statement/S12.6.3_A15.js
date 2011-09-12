@@ -4,9 +4,9 @@
 /**
  * The production IterationStatement: "for (var VariableDeclarationListNoIn; Expression; Expression) Statement"
  *
- * @section: 12.6.3;
- * @path: 12_Statement/12.6_Iteration_Statements/12.6.3_The_for_Statement/S12.6.3_A15.js;
- * @description: Statement must be evaluated before second Expression is evaluated;
+ * @section 12.6.3
+ * @path 12_Statement/12.6_Iteration_Statements/12.6.3_The_for_Statement/S12.6.3_A15.js
+ * @description Statement must be evaluated before second Expression is evaluated
  */
 
 //CHECK#1

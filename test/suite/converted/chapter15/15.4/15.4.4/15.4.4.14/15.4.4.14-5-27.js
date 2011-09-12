@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-27.js;
- * @description: Array.prototype.indexOf - side effects produced by step 3 are visible when an exception occurs;
+ * @path chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-27.js
+ * @description Array.prototype.indexOf - side effects produced by step 3 are visible when an exception occurs
  */
 
 

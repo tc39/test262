@@ -4,9 +4,9 @@
 /**
  * The MV of HexDigit ::: a or of HexDigit ::: A is 10
  *
- * @section: 9.3.1, 15.7.1;
- * @path: 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A26.js;
- * @description: Compare Number('0xA'), Number('0XA'), Number('0xa') and Number('0Xa') with 10;
+ * @section 9.3.1, 15.7.1
+ * @path 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A26.js
+ * @description Compare Number('0xA'), Number('0XA'), Number('0xa') and Number('0Xa') with 10
  */
 
 // CHECK#1

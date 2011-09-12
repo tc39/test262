@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-4-2.js;
- * @description: Array.prototype.reduceRight throws ReferenceError if callbackfn is unreferenced;
+ * @path chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-4-2.js
+ * @description Array.prototype.reduceRight throws ReferenceError if callbackfn is unreferenced
  */
 
 

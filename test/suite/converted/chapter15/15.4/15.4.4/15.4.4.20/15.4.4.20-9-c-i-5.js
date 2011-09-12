@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-i-5.js;
- * @description: Array.prototype.filter - element to be retrieved is own data property that overrides an inherited accessor property on an Array-like object;
+ * @path chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-i-5.js
+ * @description Array.prototype.filter - element to be retrieved is own data property that overrides an inherited accessor property on an Array-like object
  */
 
 

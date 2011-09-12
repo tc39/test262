@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.7/15.7.3/15.7.3-2.js;
- * @description: Number constructor - [[Prototype]] is the Function prototype object (using getPrototypeOf);
+ * @path chapter15/15.7/15.7.3/15.7.3-2.js
+ * @description Number constructor - [[Prototype]] is the Function prototype object (using getPrototypeOf)
  */
 
 

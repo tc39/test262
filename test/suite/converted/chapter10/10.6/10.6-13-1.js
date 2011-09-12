@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.6/10.6-13-1.js;
- * @description: Accessing caller property of Arguments object is allowed;
+ * @path chapter10/10.6/10.6-13-1.js
+ * @description Accessing caller property of Arguments object is allowed
  */
 
 

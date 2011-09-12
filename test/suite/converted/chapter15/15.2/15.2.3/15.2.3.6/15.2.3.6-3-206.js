@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-206.js;
- * @description: Object.defineProperty - 'get' property in 'Attributes' is not present (8.10.5 step 7);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-206.js
+ * @description Object.defineProperty - 'get' property in 'Attributes' is not present (8.10.5 step 7)
  */
 
 

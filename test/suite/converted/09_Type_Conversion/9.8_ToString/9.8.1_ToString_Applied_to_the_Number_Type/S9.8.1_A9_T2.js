@@ -7,9 +7,9 @@
  * sign '-' according to whether n-1 is positive or negative, followed by the
  * decimal representation of the integer abs(n-1) (with no leading zeros)
  *
- * @section: 9.8.1;
- * @path: 09_Type_Conversion/9.8_ToString/9.8.1_ToString_Applied_to_the_Number_Type/S9.8.1_A9_T2.js;
- * @description: Various float numbers with many zeros convert to String by explicit transformation;
+ * @section 9.8.1
+ * @path 09_Type_Conversion/9.8_ToString/9.8.1_ToString_Applied_to_the_Number_Type/S9.8.1_A9_T2.js
+ * @description Various float numbers with many zeros convert to String by explicit transformation
  */
 
 // CHECK#1

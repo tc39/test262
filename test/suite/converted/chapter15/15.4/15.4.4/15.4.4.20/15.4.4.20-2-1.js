@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-2-1.js;
- * @description: Array.prototype.filter applied to Array-like object, 'length' is own data property;
+ * @path chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-2-1.js
+ * @description Array.prototype.filter applied to Array-like object, 'length' is own data property
  */
 
 

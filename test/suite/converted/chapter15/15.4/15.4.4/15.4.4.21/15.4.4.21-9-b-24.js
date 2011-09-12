@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-b-24.js;
- * @description: Array.prototype.reduce - deleting property of prototype causes deleted index property not to be visited on an Array;
+ * @path chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-b-24.js
+ * @description Array.prototype.reduce - deleting property of prototype causes deleted index property not to be visited on an Array
  */
 
 

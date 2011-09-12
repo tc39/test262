@@ -4,9 +4,9 @@
 /**
  * ToNumber(first expression) is called first, and then ToNumber(second expression)
  *
- * @section: 11.8.1;
- * @path: 11_Expressions/11.8_Relational_Operators/11.8.1_The_Less_than_Operator/S11.8.1_A2.3_T1.js;
- * @description: Checking with "throw";
+ * @section 11.8.1
+ * @path 11_Expressions/11.8_Relational_Operators/11.8.1_The_Less_than_Operator/S11.8.1_A2.3_T1.js
+ * @description Checking with "throw"
  */
 
 //CHECK#1

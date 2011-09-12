@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.9/15.9.5/15.9.5.44/15.9.5.44-0-2.js;
- * @description: Date.prototype.toJSON must exist as a function taking 1 parameter;
+ * @path chapter15/15.9/15.9.5/15.9.5.44/15.9.5.44-0-2.js
+ * @description Date.prototype.toJSON must exist as a function taking 1 parameter
  */
 
 
-assertTrue(Date.prototype.toJSON.length === 1);
+assertTruthy(Date.prototype.toJSON.length === 1);

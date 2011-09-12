@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.10/15.10.7/15.10.7.5/15.10.7.5-2.js;
- * @description: RegExp.prototype.lastIndex is a data property with specified attribute values;
+ * @path chapter15/15.10/15.10.7/15.10.7.5/15.10.7.5-2.js
+ * @description RegExp.prototype.lastIndex is a data property with specified attribute values
  */
 
 

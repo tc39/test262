@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-c-i-7.js;
- * @description: Array.prototype.some - element to be retrieved is inherited data property on an Array-like object;
+ * @path chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-c-i-7.js
+ * @description Array.prototype.some - element to be retrieved is inherited data property on an Array-like object
  */
 
 

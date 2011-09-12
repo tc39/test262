@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-191.js;
- * @description: Object.defineProperty - 'O' is an Array, 'name' is an array index named property, 'name' is an inherited data property, test that defining own index named property is successful (15.4.5.1 step 4.c);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-191.js
+ * @description Object.defineProperty - 'O' is an Array, 'name' is an array index named property, 'name' is an inherited data property, test that defining own index named property is successful (15.4.5.1 step 4.c)
  */
 
 

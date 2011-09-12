@@ -4,10 +4,10 @@
 /**
  * String.prototype.search (regexp)
  *
- * @section: 15.5.4.12;
- * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.12_String.prototype.search/S15.5.4.12_A1_T11.js;
- * @description: Argument is object, and instance is string.
- * Object with overrided toString function, that throw exception;
+ * @section 15.5.4.12
+ * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.12_String.prototype.search/S15.5.4.12_A1_T11.js
+ * @description Argument is object, and instance is string.
+ * Object with overrided toString function, that throw exception
  */
 
 var __obj = {toString:function(){throw "intostr";}}

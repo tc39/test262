@@ -4,9 +4,9 @@
 /**
  * IdentifierPart :: IdentifierStart
  *
- * @section: 7.6;
- * @path: 07_Lexical_Conventions/7.6_Identifiers/S7.6_A2.1_T1.js;
- * @description: IdentifierStart :: UnicodeLetter;
+ * @section 7.6
+ * @path 07_Lexical_Conventions/7.6_Identifiers/S7.6_A2.1_T1.js
+ * @description IdentifierStart :: UnicodeLetter
  */
 
 //CHECK#1

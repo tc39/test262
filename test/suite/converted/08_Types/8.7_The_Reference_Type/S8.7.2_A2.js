@@ -5,9 +5,9 @@
  * x++ calls GetValue then PutValue so after applying postfix increment(actually conrete operator type is unimportant)
  * we must have reference to defined value
  *
- * @section: 8.7.2;
- * @path: 08_Types/8.7_The_Reference_Type/S8.7.2_A2.js;
- * @description: Execute x++, where x is var x;
+ * @section 8.7.2
+ * @path 08_Types/8.7_The_Reference_Type/S8.7.2_A2.js
+ * @description Execute x++, where x is var x
  */
 
 var x;

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-24.js;
- * @description: Object.preventExtensions - [[Extensible]]: false on a prototype doesn't prevent adding properties to an instance that inherits from that prototype;
+ * @path chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-24.js
+ * @description Object.preventExtensions - [[Extensible]]: false on a prototype doesn't prevent adding properties to an instance that inherits from that prototype
  */
 
 

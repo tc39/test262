@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-29.js;
- * @description: Object.defineProperties - 'P' doesn't exist in 'O', test [[Enumerable]] of 'P' is set as false value if absent in data descriptor 'desc' (8.12.9 step 4.a.i);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-29.js
+ * @description Object.defineProperties - 'P' doesn't exist in 'O', test [[Enumerable]] of 'P' is set as false value if absent in data descriptor 'desc' (8.12.9 step 4.a.i)
  */
 
 

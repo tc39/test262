@@ -6,9 +6,9 @@
  * the set of all characters not included in the set returned by
  * CharacterClassEscape :: s
  *
- * @section: 15.10.2.12, 7.2, 7.3;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.12_CharacterClassEscape/S15.10.2.12_A2_T3.js;
- * @description: ENGLISH ALPHABET;
+ * @section 15.10.2.12, 7.2, 7.3
+ * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.12_CharacterClassEscape/S15.10.2.12_A2_T3.js
+ * @description ENGLISH ALPHABET
  */
 
 var regexp_S = /\S/;

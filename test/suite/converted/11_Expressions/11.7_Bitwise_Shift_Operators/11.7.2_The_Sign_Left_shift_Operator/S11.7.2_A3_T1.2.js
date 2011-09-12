@@ -4,9 +4,9 @@
 /**
  * Operator x >> y returns ToNumber(x) >> ToNumber(y)
  *
- * @section: 11.7.2;
- * @path: 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.2_The_Sign_Left_shift_Operator/S11.7.2_A3_T1.2.js;
- * @description: Type(x) and Type(y) vary between primitive number and Number object;
+ * @section 11.7.2
+ * @path 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.2_The_Sign_Left_shift_Operator/S11.7.2_A3_T1.2.js
+ * @description Type(x) and Type(y) vary between primitive number and Number object
  */
 
 //CHECK#1

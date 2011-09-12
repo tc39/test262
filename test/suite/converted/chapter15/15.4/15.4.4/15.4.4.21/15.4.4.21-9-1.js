@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-1.js;
- * @description: Array.prototype.reduce doesn't consider new elements added to array after it is called;
+ * @path chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-1.js
+ * @description Array.prototype.reduce doesn't consider new elements added to array after it is called
  */
 
 

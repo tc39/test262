@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-147.js;
- * @description: Object.defineProperties - 'O' is an Array, 'name' is the length property of 'O', test using inherited valueOf method when the [[Value]] field of 'desc' is an Objec with an own toString and inherited valueOf methods (15.4.5.1 step 3.c);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-147.js
+ * @description Object.defineProperties - 'O' is an Array, 'name' is the length property of 'O', test using inherited valueOf method when the [[Value]] field of 'desc' is an Objec with an own toString and inherited valueOf methods (15.4.5.1 step 3.c)
  */
 
 

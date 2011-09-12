@@ -4,9 +4,9 @@
 /**
  * CallExpression : MemberExpression Arguments uses GetValue
  *
- * @section: 11.2.3;
- * @path: 11_Expressions/11.2_Left_Hand_Side_Expressions/11.2.3_Function_Calls/S11.2.3_A2.js;
- * @description: If GetBase(MemberExpression) is null, throw ReferenceError;
+ * @section 11.2.3
+ * @path 11_Expressions/11.2_Left_Hand_Side_Expressions/11.2.3_Function_Calls/S11.2.3_A2.js
+ * @description If GetBase(MemberExpression) is null, throw ReferenceError
  */
 
 //CHECK#1

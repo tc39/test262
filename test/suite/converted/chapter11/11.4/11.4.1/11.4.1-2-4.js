@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter11/11.4/11.4.1/11.4.1-2-4.js;
- * @description: delete operator returns true when deleting a non-reference (string);
+ * @path chapter11/11.4/11.4.1/11.4.1-2-4.js
+ * @description delete operator returns true when deleting a non-reference (string)
  */
 
 

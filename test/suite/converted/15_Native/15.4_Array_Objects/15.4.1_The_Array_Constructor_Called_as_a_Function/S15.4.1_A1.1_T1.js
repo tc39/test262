@@ -6,9 +6,9 @@
  * is set to the original Array prototype object, the one that
  * is the initial value of Array.prototype
  *
- * @section: 15.4.1, 15.2.4.5;
- * @path: 15_Native/15.4_Array_Objects/15.4.1_The_Array_Constructor_Called_as_a_Function/S15.4.1_A1.1_T1.js;
- * @description: Create new property of Array.prototype. When new Array object has this property;
+ * @section 15.4.1, 15.2.4.5
+ * @path 15_Native/15.4_Array_Objects/15.4.1_The_Array_Constructor_Called_as_a_Function/S15.4.1_A1.1_T1.js
+ * @description Create new property of Array.prototype. When new Array object has this property
  */
 
 //CHECK#1

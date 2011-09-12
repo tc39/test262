@@ -4,9 +4,9 @@
 /**
  * The Number prototype object has the property toFixed
  *
- * @section: 15.7.4;
- * @path: 15_Native/15.7_Number_Objects/15.7.4_Properties_of_the_Number_Prototype_Object/S15.7.4_A3.5.js;
- * @description: The test uses hasOwnProperty() method;
+ * @section 15.7.4
+ * @path 15_Native/15.7_Number_Objects/15.7.4_Properties_of_the_Number_Prototype_Object/S15.7.4_A3.5.js
+ * @description The test uses hasOwnProperty() method
  */
 
 //CHECK#1

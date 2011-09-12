@@ -4,9 +4,9 @@
 /**
  * The initial value of Object.prototype.constructor is the built-in Object constructor
  *
- * @section: 15.2.4.1;
- * @path: 15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/S15.2.4.1_A1_T2.js;
- * @description: Creating "new Object.prototype.constructor" and checking its properties;
+ * @section 15.2.4.1
+ * @path 15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/S15.2.4.1_A1_T2.js
+ * @description Creating "new Object.prototype.constructor" and checking its properties
  */
 
 var constr = Object.prototype.constructor;

@@ -6,9 +6,9 @@
  * is set to the original Date prototype object, the one that is the
  * initial value of Date.prototype
  *
- * @section: 15.9.3.1;
- * @path: 15_Native/15.9_Date_Objects/15.9.3_The_Date_Constructor/S15.9.3.1_A2_T6.js;
- * @description: 7 arguments, (year, month, date, hours, minutes, seconds, ms);
+ * @section 15.9.3.1
+ * @path 15_Native/15.9_Date_Objects/15.9.3_The_Date_Constructor/S15.9.3.1_A2_T6.js
+ * @description 7 arguments, (year, month, date, hours, minutes, seconds, ms)
  */
 
 var x11 = new Date(1899, 11, 31, 23, 59, 59, 999);

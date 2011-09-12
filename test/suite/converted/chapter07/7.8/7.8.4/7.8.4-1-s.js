@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter07/7.8/7.8.4/7.8.4-1-s.js;
- * @description: A directive preceeding an 'use strict' directive may not contain an OctalEscapeSequence;
- * @strict_only;
+ * @path chapter07/7.8/7.8.4/7.8.4-1-s.js
+ * @description A directive preceeding an 'use strict' directive may not contain an OctalEscapeSequence
+ * @strict_only
  */
 
 

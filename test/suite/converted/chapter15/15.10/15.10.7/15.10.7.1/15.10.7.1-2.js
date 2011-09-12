@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.10/15.10.7/15.10.7.1/15.10.7.1-2.js;
- * @description: RegExp.prototype.source is a data property with default attribute values (false);
+ * @path chapter15/15.10/15.10.7/15.10.7.1/15.10.7.1-2.js
+ * @description RegExp.prototype.source is a data property with default attribute values (false)
  */
 
 

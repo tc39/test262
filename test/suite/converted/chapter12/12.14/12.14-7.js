@@ -27,8 +27,8 @@
  * local function expresssions must shadow outer function expressions
  * eval should use the appended object to the scope chain
  *
- * @path: chapter12/12.14/12.14-7.js;
- * @description: catch introduces scope - scope removed when exiting catch block;
+ * @path chapter12/12.14/12.14-7.js
+ * @description catch introduces scope - scope removed when exiting catch block
  */
 
 

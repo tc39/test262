@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.4/10.4.2/10.4.2-1-2.js;
- * @description: Indirect call to eval has context set to global context (nested function);
+ * @path chapter10/10.4/10.4.2/10.4.2-1-2.js
+ * @description Indirect call to eval has context set to global context (nested function)
  */
 
 var __10_4_2_1_2 = "str";

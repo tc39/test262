@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-4-11.js;
- * @description: Array.prototype.lastIndexOf - 'length' is an empty string;
+ * @path chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-4-11.js
+ * @description Array.prototype.lastIndexOf - 'length' is an empty string
  */
 
 

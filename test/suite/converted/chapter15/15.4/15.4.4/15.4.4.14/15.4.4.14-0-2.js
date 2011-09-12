@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-0-2.js;
- * @description: Array.prototype.indexOf has a length property whose value is 1.;
+ * @path chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-0-2.js
+ * @description Array.prototype.indexOf has a length property whose value is 1.
  */
 
 
-assertTrue(Array.prototype.indexOf.length === 1);
+assertTruthy(Array.prototype.indexOf.length === 1);

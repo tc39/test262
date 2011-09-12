@@ -4,9 +4,9 @@
 /**
  * ''arguments'' variable overrides ActivationObject.arguments
  *
- * @section: 13;
- * @path: 13_Function_Definition/S13_A15_T4.js;
- * @description: Declaring a variable named with "arguments" and following a "return" statement within a function body;
+ * @section 13
+ * @path 13_Function_Definition/S13_A15_T4.js
+ * @description Declaring a variable named with "arguments" and following a "return" statement within a function body
  */
 
 THE_ANSWER="Answer to Life, the Universe, and Everything";

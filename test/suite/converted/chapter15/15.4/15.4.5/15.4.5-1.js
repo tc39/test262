@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.5/15.4.5-1.js;
- * @description: Array instances have [[Class]] set to 'Array';
+ * @path chapter15/15.4/15.4.5/15.4.5-1.js
+ * @description Array instances have [[Class]] set to 'Array'
  */
 
 

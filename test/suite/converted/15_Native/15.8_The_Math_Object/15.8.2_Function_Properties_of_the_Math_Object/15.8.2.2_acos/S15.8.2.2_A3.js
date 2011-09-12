@@ -4,9 +4,9 @@
 /**
  * If x is less than -1, Math.acos(x) is NaN
  *
- * @section: 15.8.2.2;
- * @path: 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.2_acos/S15.8.2.2_A3.js;
- * @description: Checking if Math.acos(x) is NaN, where x is less than -1;
+ * @section 15.8.2.2
+ * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.2_acos/S15.8.2.2_A3.js
+ * @description Checking if Math.acos(x) is NaN, where x is less than -1
  */
 
 // CHECK#1

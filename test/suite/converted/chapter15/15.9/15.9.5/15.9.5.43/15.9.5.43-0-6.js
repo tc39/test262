@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-6.js;
- * @description: Date.prototype.toISOString - TypeError is thrown when this is any other objects instead of Date object;
+ * @path chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-6.js
+ * @description Date.prototype.toISOString - TypeError is thrown when this is any other objects instead of Date object
  */
 
 

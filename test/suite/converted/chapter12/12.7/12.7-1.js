@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.7/12.7-1.js;
- * @description: The continue Statement - a continue statement without an identifier may have a LineTerminator before the semi-colon;
+ * @path chapter12/12.7/12.7-1.js
+ * @description The continue Statement - a continue statement without an identifier may have a LineTerminator before the semi-colon
  */
 
 

@@ -25,9 +25,9 @@
  *    4. If previous is not undefined then throw a SyntaxError exception if any of the following conditions are true
  *      a. This production is contained in strict code and IsDataDescriptor(previous) is true and IsDataDescriptor(propId.descriptor) is true
  *
- * @path: chapter11/11.1/11.1.5/11.1.5-4-4-a-1-s.js;
- * @description: Object literal - SyntaxError for duplicate date property name in strict mode;
- * @strict_only;
+ * @path chapter11/11.1/11.1.5/11.1.5-4-4-a-1-s.js
+ * @description Object literal - SyntaxError for duplicate date property name in strict mode
+ * @strict_only
  */
 
 

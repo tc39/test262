@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter11/11.13/11.13.1/11.13.1-4-28-s.js;
- * @description: Strict Mode - SyntaxError is thrown if the identifier 'eval' appears as the LeftHandSideExpression of simple assignment(=) under strict mode;
- * @strict_only;
+ * @path chapter11/11.13/11.13.1/11.13.1-4-28-s.js
+ * @description Strict Mode - SyntaxError is thrown if the identifier 'eval' appears as the LeftHandSideExpression of simple assignment(=) under strict mode
+ * @strict_only
  */
 
 

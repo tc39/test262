@@ -20,8 +20,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-8-b-ii-2.js;
- * @description: Array.prototype.reduceRight - deleted properties in step 2 are visible here;
+ * @path chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-8-b-ii-2.js
+ * @description Array.prototype.reduceRight - deleted properties in step 2 are visible here
  */
 
 

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-5.js;
- * @description: Object.seal - 'P' is own accessor property that overrides an inherited data property;
+ * @path chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-5.js
+ * @description Object.seal - 'P' is own accessor property that overrides an inherited data property
  */
 
 

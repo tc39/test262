@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-2-8.js;
- * @description: Object.defineProperties - argument 'Properties' is a String object whose primitive value is any interesting string;
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-2-8.js
+ * @description Object.defineProperties - argument 'Properties' is a String object whose primitive value is any interesting string
  */
 
 

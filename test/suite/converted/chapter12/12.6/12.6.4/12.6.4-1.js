@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.6/12.6.4/12.6.4-1.js;
- * @description: The for-in Statement - a property name must not be visited more than once in any enumeration.;
+ * @path chapter12/12.6/12.6.4/12.6.4-1.js
+ * @description The for-in Statement - a property name must not be visited more than once in any enumeration.
  */
 
 

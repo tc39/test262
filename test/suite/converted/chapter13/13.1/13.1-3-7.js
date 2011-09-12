@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter13/13.1/13.1-3-7.js;
- * @description: arguments allowed as function identifier in non-strict function declaration;
+ * @path chapter13/13.1/13.1-3-7.js
+ * @description arguments allowed as function identifier in non-strict function declaration
  */
 
 

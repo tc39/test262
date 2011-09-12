@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-7.js;
- * @description: Array.prototype.every - Deleting the array itself within the callbackfn of Array.prototype.every is successful once Array.prototype.every is called for all elements;
+ * @path chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-7.js
+ * @description Array.prototype.every - Deleting the array itself within the callbackfn of Array.prototype.every is successful once Array.prototype.every is called for all elements
  */
 
 

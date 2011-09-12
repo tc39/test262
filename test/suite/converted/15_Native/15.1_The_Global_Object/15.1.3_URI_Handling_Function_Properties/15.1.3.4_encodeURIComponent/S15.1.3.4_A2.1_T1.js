@@ -4,9 +4,9 @@
 /**
  * If string.charAt(k) in [0x0000 - 0x007F]\[uriUnescaped], return 1 octet (00000000 0zzzzzzz -> 0zzzzzzz)
  *
- * @section: 15.1.3.4;
- * @path: 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.4_encodeURIComponent/S15.1.3.4_A2.1_T1.js;
- * @description: Complex tests, use RFC 3629;
+ * @section 15.1.3.4
+ * @path 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.4_encodeURIComponent/S15.1.3.4_A2.1_T1.js
+ * @description Complex tests, use RFC 3629
  */
 
 uriUnescaped = ["-", "_", ".", "!", "~", "*", "'", "(", ")", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]; 

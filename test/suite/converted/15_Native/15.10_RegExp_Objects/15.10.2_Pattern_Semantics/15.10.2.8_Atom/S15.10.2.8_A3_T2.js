@@ -7,9 +7,9 @@
  * referenced in a replace string,
  * or returned as part of an array from the regular expression matching function
  *
- * @section: 15.10.2.8;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.8_Atom/S15.10.2.8_A3_T2.js;
- * @description: Execute /([Jj]ava([Ss]cript)?)\sis\s(fun\w*)/.exec("Developing with Java is fun, try it") and check results;
+ * @section 15.10.2.8
+ * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.8_Atom/S15.10.2.8_A3_T2.js
+ * @description Execute /([Jj]ava([Ss]cript)?)\sis\s(fun\w*)/.exec("Developing with Java is fun, try it") and check results
  */
 
 __executed = /([Jj]ava([Ss]cript)?)\sis\s(fun\w*)/.exec("Developing with Java is fun, try it");

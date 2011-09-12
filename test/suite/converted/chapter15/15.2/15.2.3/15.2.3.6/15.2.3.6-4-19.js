@@ -23,8 +23,8 @@
  * of O to define the property. For non-configurable properties, step 11.a.i
  * of [[DefineOwnProperty]] permits setting a setter (if absent).
  *
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-19.js;
- * @description: Object.defineProperty permits setting a setter (if absent) of non-configurable accessor properties(8.12.9 step 10.a.ii.1);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-19.js
+ * @description Object.defineProperty permits setting a setter (if absent) of non-configurable accessor properties(8.12.9 step 10.a.ii.1)
  */
 
 

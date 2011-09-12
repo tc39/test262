@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-103.js;
- * @description: Object.defineProperties - 'P' is accessor property, P.[[Get]] is undefined and properties.[[Get]] is normal value (8.12.9 step 12);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-103.js
+ * @description Object.defineProperties - 'P' is accessor property, P.[[Get]] is undefined and properties.[[Get]] is normal value (8.12.9 step 12)
  */
 
 

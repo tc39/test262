@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-282.js;
- * @description: Object.defineProperties - 'O' is an Arguments object, 'P' is own data property of 'O' which is also defined in [[ParameterMap]] of 'O', test TypeError is thrown when updating the [[Value]] attribute value of 'P' whose writable and configurable attributes are false (10.6 [[DefineOwnProperty]] step 4);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-282.js
+ * @description Object.defineProperties - 'O' is an Arguments object, 'P' is own data property of 'O' which is also defined in [[ParameterMap]] of 'O', test TypeError is thrown when updating the [[Value]] attribute value of 'P' whose writable and configurable attributes are false (10.6 [[DefineOwnProperty]] step 4)
  */
 
 

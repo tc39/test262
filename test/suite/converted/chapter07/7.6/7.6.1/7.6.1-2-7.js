@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter07/7.6/7.6.1/7.6.1-2-7.js;
- * @description: Allow reserved words as property names by dot operator assignment, verified with hasOwnProperty: while, debugger, function;
+ * @path chapter07/7.6/7.6.1/7.6.1-2-7.js
+ * @description Allow reserved words as property names by dot operator assignment, verified with hasOwnProperty: while, debugger, function
  */
 
 

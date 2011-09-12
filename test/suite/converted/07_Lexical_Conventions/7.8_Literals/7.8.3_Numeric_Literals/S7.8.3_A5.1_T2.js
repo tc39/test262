@@ -4,9 +4,9 @@
 /**
  * DecimalLiteral :: HexIntegerLiteral
  *
- * @section: 7.8.3;
- * @path: 07_Lexical_Conventions/7.8_Literals/7.8.3_Numeric_Literals/S7.8.3_A5.1_T2.js;
- * @description: HexIntegerLiteral :: 0X Digit;
+ * @section 7.8.3
+ * @path 07_Lexical_Conventions/7.8_Literals/7.8.3_Numeric_Literals/S7.8.3_A5.1_T2.js
+ * @description HexIntegerLiteral :: 0X Digit
  */
 
 //CHECK#0

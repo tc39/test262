@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-305.js;
- * @description: Object.create defines a data property when one property in 'Properties' is generic descriptor (8.12.9 step 4.a);
+ * @path chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-305.js
+ * @description Object.create defines a data property when one property in 'Properties' is generic descriptor (8.12.9 step 4.a)
  */
 
 

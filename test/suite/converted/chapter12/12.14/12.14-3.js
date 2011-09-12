@@ -27,8 +27,8 @@
  * local function expresssions must shadow outer function expressions
  * eval should use the appended object to the scope chain
  *
- * @path: chapter12/12.14/12.14-3.js;
- * @description: catch doesn't change declaration scope - var declaration are visible outside when name different from catch parameter;
+ * @path chapter12/12.14/12.14-3.js
+ * @description catch doesn't change declaration scope - var declaration are visible outside when name different from catch parameter
  */
 
 

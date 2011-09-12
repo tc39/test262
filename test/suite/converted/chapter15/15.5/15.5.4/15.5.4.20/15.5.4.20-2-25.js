@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-25.js;
- * @description: String.prototype.trim - argument 'this' is a decimal that converts to a string (value is 123.456);
+ * @path chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-25.js
+ * @description String.prototype.trim - argument 'this' is a decimal that converts to a string (value is 123.456)
  */
 
 
-assertTrue(String.prototype.trim.call(123.456) === "123.456");
+assertTruthy(String.prototype.trim.call(123.456) === "123.456");

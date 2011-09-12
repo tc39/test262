@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.14/12.14.1/12.14.1-4-s.js;
- * @description: Strict Mode - SyntaxError isn't thrown if a TryStatement with a Catch occurs within strict code and the Identifier of the Catch production is EVAL;
- * @strict_only;
+ * @path chapter12/12.14/12.14.1/12.14.1-4-s.js
+ * @description Strict Mode - SyntaxError isn't thrown if a TryStatement with a Catch occurs within strict code and the Identifier of the Catch production is EVAL
+ * @strict_only
  */
 
 

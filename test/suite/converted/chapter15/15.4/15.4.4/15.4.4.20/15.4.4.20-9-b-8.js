@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-b-8.js;
- * @description: Array.prototype.filter - deleting own property causes index property not to be visited on an Array-like object;
+ * @path chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-b-8.js
+ * @description Array.prototype.filter - deleting own property causes index property not to be visited on an Array-like object
  */
 
 

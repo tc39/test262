@@ -4,9 +4,9 @@
 /**
  * The result of an addition is determined using the rules of IEEE 754 double-precision arithmetics
  *
- * @section: 11.6.1, 11.6.3;
- * @path: 11_Expressions/11.6_Additive_Operators/11.6.1_The_Addition_operator/S11.6.1_A4_T8.js;
- * @description: If the magnitude is too large to represent, the operation overflows and the result is then an infinity of appropriate sign;
+ * @section 11.6.1, 11.6.3
+ * @path 11_Expressions/11.6_Additive_Operators/11.6.1_The_Addition_operator/S11.6.1_A4_T8.js
+ * @description If the magnitude is too large to represent, the operation overflows and the result is then an infinity of appropriate sign
  */
 
 //CHECK#1

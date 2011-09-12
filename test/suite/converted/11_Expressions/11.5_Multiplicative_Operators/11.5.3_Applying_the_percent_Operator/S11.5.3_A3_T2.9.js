@@ -4,9 +4,9 @@
 /**
  * Operator x % y returns ToNumber(x) % ToNumber(y)
  *
- * @section: 11.5.3;
- * @path: 11_Expressions/11.5_Multiplicative_Operators/11.5.3_Applying_the_percent_Operator/S11.5.3_A3_T2.9.js;
- * @description: Type(x) is different from Type(y) and both types vary between Boolean (primitive or object) and Null;
+ * @section 11.5.3
+ * @path 11_Expressions/11.5_Multiplicative_Operators/11.5.3_Applying_the_percent_Operator/S11.5.3_A3_T2.9.js
+ * @description Type(x) is different from Type(y) and both types vary between Boolean (primitive or object) and Null
  */
 
 //CHECK#1

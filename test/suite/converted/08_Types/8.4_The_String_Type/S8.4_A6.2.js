@@ -4,9 +4,9 @@
 /**
  * Large string 8192 bytes
  *
- * @section: 8.4, 7.8.4;
- * @path: 08_Types/8.4_The_String_Type/S8.4_A6.2.js;
- * @description: Assign variable by large string;
+ * @section 8.4, 7.8.4
+ * @path 08_Types/8.4_The_String_Type/S8.4_A6.2.js
+ * @description Assign variable by large string
  */
 
 ////////////////////////////////////////////////////

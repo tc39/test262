@@ -4,9 +4,9 @@
 /**
  * Negating +0 produces -0, negating -0 produces +0
  *
- * @section: 11.4.7;
- * @path: 11_Expressions/11.4_Unary_Operators/11.4.7_Unary_minus_Operator/S11.4.7_A4.2.js;
- * @description: Checking Infinity;
+ * @section 11.4.7
+ * @path 11_Expressions/11.4_Unary_Operators/11.4.7_Unary_minus_Operator/S11.4.7_A4.2.js
+ * @description Checking Infinity
  */
 
 //CHECK#1

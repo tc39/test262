@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.6/10.6-7-1.js;
- * @description: Arguments Object has length as its own property and does not invoke the setter defined on Object.prototype.length (Step 7);
+ * @path chapter10/10.6/10.6-7-1.js
+ * @description Arguments Object has length as its own property and does not invoke the setter defined on Object.prototype.length (Step 7)
  */
 
 

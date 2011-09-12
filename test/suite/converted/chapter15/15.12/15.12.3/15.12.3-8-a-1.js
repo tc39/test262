@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.12/15.12.3/15.12.3-8-a-1.js;
- * @description: JSON.stringify treats an empty string space argument the same as a missing space argument.;
+ * @path chapter15/15.12/15.12.3/15.12.3-8-a-1.js
+ * @description JSON.stringify treats an empty string space argument the same as a missing space argument.
  */
 
 

@@ -4,9 +4,9 @@
 /**
  * The isFinite property has not prototype property
  *
- * @section: 15.1.2.5;
- * @path: 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.5_isFinite/S15.1.2.5_A2.6.js;
- * @description: Checking isFinit.prototype;
+ * @section 15.1.2.5
+ * @path 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.5_isFinite/S15.1.2.5_A2.6.js
+ * @description Checking isFinit.prototype
  */
 
 //CHECK#1

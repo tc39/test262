@@ -4,9 +4,9 @@
 /**
  * Global FunctionDeclaration cannot be defined within the body of another FunctionDeclaration
  *
- * @section: 14;
- * @path: 14_Program/S14_A3.js;
- * @description: Declaring a function within the body of another function;
+ * @section 14
+ * @path 14_Program/S14_A3.js
+ * @description Declaring a function within the body of another function
  */
 
 //////////////////////////////////////////////////////////////////////////////

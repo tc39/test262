@@ -5,9 +5,9 @@
  * When the [[Construct]] property for a Function object F is called,
  * and the object created in the function is returned, the object (declared with "this" within a function) will be strong and healthy
  *
- * @section: 13.2.2;
- * @path: 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A15_T1.js;
- * @description: Function declared at the end of the program and "obj" property is declared with "var obj = {}";
+ * @section 13.2.2
+ * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A15_T1.js
+ * @description Function declared at the end of the program and "obj" property is declared with "var obj = {}"
  */
 
 var __obj = new __FACTORY();

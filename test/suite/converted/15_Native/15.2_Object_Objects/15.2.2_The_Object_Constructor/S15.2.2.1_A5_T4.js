@@ -5,9 +5,9 @@
  * When the Object constructor is called with one argument value and
  * the type of value is Number, return ToObject(number)
  *
- * @section: 15.2.2.1, 8.6;
- * @path: 15_Native/15.2_Object_Objects/15.2.2_The_Object_Constructor/S15.2.2.1_A5_T4.js;
- * @description: Argument value is numeric expression;
+ * @section 15.2.2.1, 8.6
+ * @path 15_Native/15.2_Object_Objects/15.2.2_The_Object_Constructor/S15.2.2.1_A5_T4.js
+ * @description Argument value is numeric expression
  */
 
 var n_obj = new Object( 2*([].length + {q:1}["q"]));

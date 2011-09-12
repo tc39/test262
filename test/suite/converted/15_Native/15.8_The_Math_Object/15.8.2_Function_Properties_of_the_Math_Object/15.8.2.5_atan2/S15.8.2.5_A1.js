@@ -4,9 +4,9 @@
 /**
  * If either x or y is NaN, Math(x,y) is NaN
  *
- * @section: 15.8.2.5;
- * @path: 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.5_atan2/S15.8.2.5_A1.js;
- * @description: Checking if Math.atan2(NaN,y) and Math.atan2(x,NaN) is NaN for different x and y values;
+ * @section 15.8.2.5
+ * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.5_atan2/S15.8.2.5_A1.js
+ * @description Checking if Math.atan2(NaN,y) and Math.atan2(x,NaN) is NaN for different x and y values
  */
 
 // CHECK#1

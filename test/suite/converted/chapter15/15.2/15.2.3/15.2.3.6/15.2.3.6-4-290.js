@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-290.js;
- * @description: Object.defineProperty - 'O' is an Arguments object, 'name' is own property of 'O', and is deleted afterwards, and 'desc' is accessor descriptor, test 'name' is redefined in 'O' with all correct attribute values (10.6 [[DefineOwnProperty]] step 3);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-290.js
+ * @description Object.defineProperty - 'O' is an Arguments object, 'name' is own property of 'O', and is deleted afterwards, and 'desc' is accessor descriptor, test 'name' is redefined in 'O' with all correct attribute values (10.6 [[DefineOwnProperty]] step 3)
  */
 
 
-assertTrue((function () { 
+assertTruthy((function () { 
             delete arguments[0];
             function getFunc() {
                 return 10;

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.7/15.7.4/15.7.4-1.js;
- * @description: Number prototype object: its [[Class]] must be 'Number';
+ * @path chapter15/15.7/15.7.4/15.7.4-1.js
+ * @description Number prototype object: its [[Class]] must be 'Number'
  */
 
 

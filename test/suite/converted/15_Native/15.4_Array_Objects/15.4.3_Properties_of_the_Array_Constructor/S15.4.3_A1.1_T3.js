@@ -5,9 +5,9 @@
  * The value of the internal [[Prototype]] property of
  * the Array constructor is the Function prototype object
  *
- * @section: 15.4.3, 15.2.4.6;
- * @path: 15_Native/15.4_Array_Objects/15.4.3_Properties_of_the_Array_Constructor/S15.4.3_A1.1_T3.js;
- * @description: Checking use isPrototypeOf;
+ * @section 15.4.3, 15.2.4.6
+ * @path 15_Native/15.4_Array_Objects/15.4.3_Properties_of_the_Array_Constructor/S15.4.3_A1.1_T3.js
+ * @description Checking use isPrototypeOf
  */
 
 //CHECK#1

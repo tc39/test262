@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-354-11.js;
- * @description: Object.defineProperty will update [[Value]] attribute of named property 'P' successfully when [[Configurable]] attribute is true and [[Writable]] attribute is false, 'A' is an Array object (8.12.9 step - Note);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-354-11.js
+ * @description Object.defineProperty will update [[Value]] attribute of named property 'P' successfully when [[Configurable]] attribute is true and [[Writable]] attribute is false, 'A' is an Array object (8.12.9 step - Note)
  */
 
 

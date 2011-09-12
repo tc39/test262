@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-6-6.js;
- * @description: Object.keys - the order of elements in returned array is the same with the order of properties in 'O' (global Object);
+ * @path chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-6-6.js
+ * @description Object.keys - the order of elements in returned array is the same with the order of properties in 'O' (global Object)
  */
 
 

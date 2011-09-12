@@ -4,9 +4,9 @@
 /**
  * If y is NaN, return false (if result in 11.8.5 is undefined, return false)
  *
- * @section: 11.8.4, 11.8.5;
- * @path: 11_Expressions/11.8_Relational_Operators/11.8.4_The_Grater_than_or_equal_Operator/S11.8.4_A4.2.js;
- * @description: x is number primitive;
+ * @section 11.8.4, 11.8.5
+ * @path 11_Expressions/11.8_Relational_Operators/11.8.4_The_Grater_than_or_equal_Operator/S11.8.4_A4.2.js
+ * @description x is number primitive
  */
 
 //CHECK#1

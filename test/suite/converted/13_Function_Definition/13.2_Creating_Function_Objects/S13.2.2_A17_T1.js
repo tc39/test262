@@ -4,9 +4,9 @@
 /**
  * FunctionExpression containing "with" statement is admitted
  *
- * @section: 13.2.2;
- * @path: 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A17_T1.js;
- * @description: Using "with" statement within a function body;
+ * @section 13.2.2
+ * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A17_T1.js
+ * @description Using "with" statement within a function body
  */
 
 var p1="alert";

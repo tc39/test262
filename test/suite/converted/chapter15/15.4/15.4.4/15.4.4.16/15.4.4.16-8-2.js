@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-8-2.js;
- * @description: Array.prototype.every returns true if 'length' is 0 (subclassed Array, length overridden to null (type conversion));
+ * @path chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-8-2.js
+ * @description Array.prototype.every returns true if 'length' is 0 (subclassed Array, length overridden to null (type conversion))
  */
 
 

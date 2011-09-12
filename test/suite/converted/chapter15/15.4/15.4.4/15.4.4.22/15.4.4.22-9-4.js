@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-4.js;
- * @description: Array.prototype.reduceRight doesn't consider unvisited deleted elements when Array.length is decreased;
+ * @path chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-4.js
+ * @description Array.prototype.reduceRight doesn't consider unvisited deleted elements when Array.length is decreased
  */
 
 

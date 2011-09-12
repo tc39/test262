@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-1.js;
- * @description: Object.preventExtensions - Object.isExtensible(arg) returns false if arg is the returned object;
+ * @path chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-1.js
+ * @description Object.preventExtensions - Object.isExtensible(arg) returns false if arg is the returned object
  */
 
 

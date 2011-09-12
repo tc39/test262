@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-2-17.js;
- * @description: Array.prototype.filter applied to the Arguments object, which implements its own property get method;
+ * @path chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-2-17.js
+ * @description Array.prototype.filter applied to the Arguments object, which implements its own property get method
  */
 
 

@@ -4,9 +4,9 @@
 /**
  * String.prototype.search (regexp) returns ...
  *
- * @section: 15.5.4.12;
- * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.12_String.prototype.search/S15.5.4.12_A2_T3.js;
- * @description: Checking disabling of case sensitive of search, argument is RegExp;
+ * @section 15.5.4.12
+ * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.12_String.prototype.search/S15.5.4.12_A2_T3.js
+ * @description Checking disabling of case sensitive of search, argument is RegExp
  */
 
 var aString = new String("test string");

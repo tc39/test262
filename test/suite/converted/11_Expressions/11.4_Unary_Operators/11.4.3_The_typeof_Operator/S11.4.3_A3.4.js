@@ -4,9 +4,9 @@
 /**
  * Result of appying "typeof" operator to number is "number"
  *
- * @section: 11.4.3;
- * @path: 11_Expressions/11.4_Unary_Operators/11.4.3_The_typeof_Operator/S11.4.3_A3.4.js;
- * @description: typeof (number value) === "number";
+ * @section 11.4.3
+ * @path 11_Expressions/11.4_Unary_Operators/11.4.3_The_typeof_Operator/S11.4.3_A3.4.js
+ * @description typeof (number value) === "number"
  */
 
 //CHECK#1

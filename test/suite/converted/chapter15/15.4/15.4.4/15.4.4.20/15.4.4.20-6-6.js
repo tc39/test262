@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-6-6.js;
- * @description: Array.prototype.filter returns an empty array if 'length' is 0 (subclassed Array, length overridden with obj with valueOf);
+ * @path chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-6-6.js
+ * @description Array.prototype.filter returns an empty array if 'length' is 0 (subclassed Array, length overridden with obj with valueOf)
  */
 
 

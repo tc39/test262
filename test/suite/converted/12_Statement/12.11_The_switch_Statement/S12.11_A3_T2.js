@@ -4,10 +4,10 @@
 /**
  * Syntax constructions of switch statement
  *
- * @section: 12.11;
- * @path: 12_Statement/12.11_The_switch_Statement/S12.11_A3_T2.js;
- * @description: Checking if execution of "switch {}" fails;
- * @negative;
+ * @section 12.11
+ * @path 12_Statement/12.11_The_switch_Statement/S12.11_A3_T2.js
+ * @description Checking if execution of "switch {}" fails
+ * @negative
  */
 
 function SwitchTest(value){

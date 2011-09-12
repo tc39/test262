@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-115.js;
- * @description: Object.defineProperties - 'O' is an Array, 'P' is the length property of 'O', the [[Value]] field of 'desc' is absent, test every field in 'desc' is same with corresponding attribute value of the length property in 'O' (15.4.5.1 step 3.a.i);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-115.js
+ * @description Object.defineProperties - 'O' is an Array, 'P' is the length property of 'O', the [[Value]] field of 'desc' is absent, test every field in 'desc' is same with corresponding attribute value of the length property in 'O' (15.4.5.1 step 3.a.i)
  */
 
 

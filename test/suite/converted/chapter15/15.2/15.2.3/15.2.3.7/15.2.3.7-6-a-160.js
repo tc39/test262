@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-160.js;
- * @description: Object.defineProperties - 'O' is an Array, 'P' is the length property of 'O', the [[Value]] field of 'desc' is less than value of  the length property, test TypeError is thrown when the [[Writable]] attribute of the length property is false (15.4.5.1 step 3.g);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-160.js
+ * @description Object.defineProperties - 'O' is an Array, 'P' is the length property of 'O', the [[Value]] field of 'desc' is less than value of  the length property, test TypeError is thrown when the [[Writable]] attribute of the length property is false (15.4.5.1 step 3.g)
  */
 
 

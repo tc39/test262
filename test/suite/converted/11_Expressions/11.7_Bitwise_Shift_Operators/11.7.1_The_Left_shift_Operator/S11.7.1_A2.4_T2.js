@@ -4,9 +4,9 @@
 /**
  * First expression is evaluated first, and then second expression
  *
- * @section: 11.7.1;
- * @path: 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.1_The_Left_shift_Operator/S11.7.1_A2.4_T2.js;
- * @description: Checking with "throw";
+ * @section 11.7.1
+ * @path 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.1_The_Left_shift_Operator/S11.7.1_A2.4_T2.js
+ * @description Checking with "throw"
  */
 
 //CHECK#1

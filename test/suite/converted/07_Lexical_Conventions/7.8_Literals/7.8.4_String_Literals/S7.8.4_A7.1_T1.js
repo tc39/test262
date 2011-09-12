@@ -4,9 +4,9 @@
 /**
  * EscapeSequence :: UnicodeEscapeSequence :: u HexDigit HexDigit HexDigit HexDigit
  *
- * @section: 7.8.4;
- * @path: 07_Lexical_Conventions/7.8_Literals/7.8.4_String_Literals/S7.8.4_A7.1_T1.js;
- * @description: Check similar to ("\u0000" === String.fromCharCode("0"));
+ * @section 7.8.4
+ * @path 07_Lexical_Conventions/7.8_Literals/7.8.4_String_Literals/S7.8.4_A7.1_T1.js
+ * @description Check similar to ("\u0000" === String.fromCharCode("0"))
  */
 
 //CHECK#0

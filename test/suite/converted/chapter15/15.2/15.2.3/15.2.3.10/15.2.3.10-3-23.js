@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-23.js;
- * @description: Object.preventExtensions - properties can still be reassigned after extensions have been prevented;
+ * @path chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-3-23.js
+ * @description Object.preventExtensions - properties can still be reassigned after extensions have been prevented
  */
 
 

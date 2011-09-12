@@ -4,9 +4,9 @@
 /**
  * If value is NaN, +0, -0, +Infinity, or -Infinity, return +0
  *
- * @section: 9.6, 11.7.3;
- * @path: 09_Type_Conversion/9.6_ToUint32/S9.6_A1.js;
- * @description: For testing use operator >>>0;
+ * @section 9.6, 11.7.3
+ * @path 09_Type_Conversion/9.6_ToUint32/S9.6_A1.js
+ * @description For testing use operator >>>0
  */
 
 // CHECK#1

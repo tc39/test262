@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-10.js;
- * @description: Object.keys - inherted enumerable accessor property that is over-ridden by non-enumerable own accessor property is not defined in returned array;
+ * @path chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-10.js
+ * @description Object.keys - inherted enumerable accessor property that is over-ridden by non-enumerable own accessor property is not defined in returned array
  */
 
 

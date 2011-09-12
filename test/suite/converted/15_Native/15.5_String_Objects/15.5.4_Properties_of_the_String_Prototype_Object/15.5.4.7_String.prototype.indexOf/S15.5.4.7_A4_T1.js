@@ -5,9 +5,9 @@
  * when String.prototype.indexOf(searchString, position) is called first Call ToString, giving it the this value as its argument.
  * Then Call ToString(searchString) and Call ToNumber(position)
  *
- * @section: 15.5.4.7;
- * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.7_String.prototype.indexOf/S15.5.4.7_A4_T1.js;
- * @description: Override toString and valueOf functions, valueOf throw exception;
+ * @section 15.5.4.7
+ * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.7_String.prototype.indexOf/S15.5.4.7_A4_T1.js
+ * @description Override toString and valueOf functions, valueOf throw exception
  */
 
 var __obj = {toString:function(){return "\u0041B";}}

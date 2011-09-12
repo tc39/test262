@@ -5,9 +5,9 @@
  * The function call Function(…) is equivalent to the object creation expression
  * new Function(…) with the same arguments.
  *
- * @section: 15.3.1;
- * @path: 15_Native/15.3_Function_Objects/S15.3.1_A1_T1.js;
- * @description: Create simple functions and check returned values;
+ * @section 15.3.1
+ * @path 15_Native/15.3_Function_Objects/S15.3.1_A1_T1.js
+ * @description Create simple functions and check returned values
  */
 
 var f = Function("return arguments[0];");

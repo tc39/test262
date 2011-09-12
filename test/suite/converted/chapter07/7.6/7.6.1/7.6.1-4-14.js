@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter07/7.6/7.6.1/7.6.1-4-14.js;
- * @description: Allow reserved words as property names by set function within an object, verified with hasOwnProperty: public, yield, interface;
+ * @path chapter07/7.6/7.6.1/7.6.1-4-14.js
+ * @description Allow reserved words as property names by set function within an object, verified with hasOwnProperty: public, yield, interface
  */
 
 

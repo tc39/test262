@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-238.js;
- * @description: Object.defineProperties - 'set' property of 'descObj' is inherited accessor property without a get function (8.10.5 step 8.a);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-238.js
+ * @description Object.defineProperties - 'set' property of 'descObj' is inherited accessor property without a get function (8.10.5 step 8.a)
  */
 
 

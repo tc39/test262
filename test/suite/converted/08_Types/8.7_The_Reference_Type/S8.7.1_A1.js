@@ -4,9 +4,9 @@
 /**
  * Delete operator deletes pure property, so it returns true to be applyed to this.property
  *
- * @section: 8.7.1, 11.4.1;
- * @path: 08_Types/8.7_The_Reference_Type/S8.7.1_A1.js;
- * @description: Try to delete this.y, where y is this.y=1;
+ * @section 8.7.1, 11.4.1
+ * @path 08_Types/8.7_The_Reference_Type/S8.7.1_A1.js
+ * @description Try to delete this.y, where y is this.y=1
  */
 
 this.y = 1;

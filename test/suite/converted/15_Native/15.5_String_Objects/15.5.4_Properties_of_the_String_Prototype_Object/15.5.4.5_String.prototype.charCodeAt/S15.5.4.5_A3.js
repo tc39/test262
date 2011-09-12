@@ -4,9 +4,9 @@
 /**
  * When String.prototype.charCodeAt(pos) calls if ToInteger(pos) not less than ToString(this value) the NaN returns
  *
- * @section: 15.5.4.5;
- * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.5_String.prototype.charCodeAt/S15.5.4.5_A3.js;
- * @description: pos is bigger of string length;
+ * @section 15.5.4.5
+ * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.5_String.prototype.charCodeAt/S15.5.4.5_A3.js
+ * @description pos is bigger of string length
  */
 
 var __instance = new String("ABC");

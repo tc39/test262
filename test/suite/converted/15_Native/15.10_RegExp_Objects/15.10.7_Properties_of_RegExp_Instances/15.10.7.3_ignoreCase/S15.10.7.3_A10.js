@@ -4,9 +4,9 @@
 /**
  * The RegExp instance ignoreCase property has the attribute ReadOnly
  *
- * @section: 15.10.7.3;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.7_Properties_of_RegExp_Instances/15.10.7.3_ignoreCase/S15.10.7.3_A10.js;
- * @description: Checking if varying the ignoreCase property fails;
+ * @section 15.10.7.3
+ * @path 15_Native/15.10_RegExp_Objects/15.10.7_Properties_of_RegExp_Instances/15.10.7.3_ignoreCase/S15.10.7.3_A10.js
+ * @description Checking if varying the ignoreCase property fails
  */
 
 __re = /a|b|c/;

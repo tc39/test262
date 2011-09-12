@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter14/14.1/14.1-1-s.js;
- * @description: 'use strict' directive - correct usage;
- * @strict_only;
+ * @path chapter14/14.1/14.1-1-s.js
+ * @description 'use strict' directive - correct usage
+ * @strict_only
  */
 
 

@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-2-33.js;
- * @description: Object.getOwnPropertyDescriptor - argument 'P' is applied to string 'AB
- * \cd' ;
+ * @path chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-2-33.js
+ * @description Object.getOwnPropertyDescriptor - argument 'P' is applied to string 'AB
+ * \cd' 
  */
 
 

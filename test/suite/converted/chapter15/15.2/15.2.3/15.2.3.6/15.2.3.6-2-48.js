@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-2-48.js;
- * @description: Object.defineProperty - an inherited toString method  is invoked when 'P' is an object with an own valueOf and an inherited toString methods;
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-2-48.js
+ * @description Object.defineProperty - an inherited toString method  is invoked when 'P' is an object with an own valueOf and an inherited toString methods
  */
 
 

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter11/11.4/11.4.1/11.4.1-3-2.js;
- * @description: delete operator throws ReferenceError when deleting an explicitly qualified yet unresolvable reference (base obj undefined);
+ * @path chapter11/11.4/11.4.1/11.4.1-3-2.js
+ * @description delete operator throws ReferenceError when deleting an explicitly qualified yet unresolvable reference (base obj undefined)
  */
 
 

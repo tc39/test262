@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-1.js;
- * @description: Object.getOwnPropertyDescriptor returns an object representing a data desc for valid data valued properties;
+ * @path chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-1.js
+ * @description Object.getOwnPropertyDescriptor returns an object representing a data desc for valid data valued properties
  */
 
 

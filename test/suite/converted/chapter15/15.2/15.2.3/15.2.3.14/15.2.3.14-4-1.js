@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-4-1.js;
- * @description: Object.keys - elements of the returned array start from index 0;
+ * @path chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-4-1.js
+ * @description Object.keys - elements of the returned array start from index 0
  */
 
 

@@ -4,11 +4,11 @@
 /**
  * Changing property using "eval" statement containing "with" statement
  *
- * @section: 12.10;
- * @path: 12_Statement/12.10_The_with_Statement/S12.10_A4_T2.js;
- * @description: Changing number property;
- * @strict_only;
- * @strict_mode_negative;
+ * @section 12.10
+ * @path 12_Statement/12.10_The_with_Statement/S12.10_A4_T2.js
+ * @description Changing number property
+ * @strict_only
+ * @strict_mode_negative
  */
 
 this.p1 = 'a';

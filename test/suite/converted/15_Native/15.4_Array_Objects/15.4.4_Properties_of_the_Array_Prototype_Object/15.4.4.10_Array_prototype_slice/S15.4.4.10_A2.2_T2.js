@@ -4,9 +4,9 @@
 /**
  * Operator use ToInteger from end
  *
- * @section: 15.4.4.10;
- * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.10_Array_prototype_slice/S15.4.4.10_A2.2_T2.js;
- * @description: end = NaN;
+ * @section 15.4.4.10
+ * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.10_Array_prototype_slice/S15.4.4.10_A2.2_T2.js
+ * @description end = NaN
  */
 
 var x = [0,1,2,3,4];

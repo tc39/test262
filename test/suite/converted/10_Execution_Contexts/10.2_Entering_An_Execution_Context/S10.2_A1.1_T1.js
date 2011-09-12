@@ -4,9 +4,9 @@
 /**
  * Every function call enters a new execution context
  *
- * @section: 10.2;
- * @path: 10_Execution_Contexts/10.2_Entering_An_Execution_Context/S10.2_A1.1_T1.js;
- * @description: Sequence of function calls;
+ * @section 10.2
+ * @path 10_Execution_Contexts/10.2_Entering_An_Execution_Context/S10.2_A1.1_T1.js
+ * @description Sequence of function calls
  */
 
 var y;

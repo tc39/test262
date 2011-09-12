@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-5-24.js;
- * @description: Array.prototype.lastIndexOf throws TypeError exception when value of 'fromIndex' is an object that both toString and valueOf methods than don't return primitive value;
+ * @path chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-5-24.js
+ * @description Array.prototype.lastIndexOf throws TypeError exception when value of 'fromIndex' is an object that both toString and valueOf methods than don't return primitive value
  */
 
 

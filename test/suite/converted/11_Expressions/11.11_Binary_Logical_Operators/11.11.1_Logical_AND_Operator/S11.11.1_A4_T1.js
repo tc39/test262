@@ -4,9 +4,9 @@
 /**
  * If ToBoolean(x) is true, return y
  *
- * @section: 11.11.1;
- * @path: 11_Expressions/11.11_Binary_Logical_Operators/11.11.1_Logical_AND_Operator/S11.11.1_A4_T1.js;
- * @description: Type(x) and Type(y) vary between primitive boolean and Boolean object;
+ * @section 11.11.1
+ * @path 11_Expressions/11.11_Binary_Logical_Operators/11.11.1_Logical_AND_Operator/S11.11.1_A4_T1.js
+ * @description Type(x) and Type(y) vary between primitive boolean and Boolean object
  */
 
 //CHECK#1

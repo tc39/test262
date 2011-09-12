@@ -4,9 +4,9 @@
 /**
  * White Space and Line Terminator between BitwiseANDExpression and "&" or between "&" and EqualityExpression are allowed
  *
- * @section: 11.10.1;
- * @path: 11_Expressions/11.10_Binary_Bitwise_Operators/11.10.1_AND_Operator/S11.10.1_A1.js;
- * @description: Checking uses eval;
+ * @section 11.10.1
+ * @path 11_Expressions/11.10_Binary_Bitwise_Operators/11.10.1_AND_Operator/S11.10.1_A1.js
+ * @description Checking uses eval
  */
 
 //CHECK#1

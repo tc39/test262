@@ -4,9 +4,9 @@
 /**
  * Operator +x uses [[Default Value]]
  *
- * @section: 11.4.6, 8.6.2.6;
- * @path: 11_Expressions/11.4_Unary_Operators/11.4.6_Unary_plus_Operator/S11.4.6_A2.2_T1.js;
- * @description: If Type(value) is Object, evaluate ToPrimitive(value, Number);
+ * @section 11.4.6, 8.6.2.6
+ * @path 11_Expressions/11.4_Unary_Operators/11.4.6_Unary_plus_Operator/S11.4.6_A2.2_T1.js
+ * @description If Type(value) is Object, evaluate ToPrimitive(value, Number)
  */
 
 //CHECK#1

@@ -4,9 +4,9 @@
 /**
  * If P's characters do not have the form Pattern, then throw a SyntaxError exception
  *
- * @section: 15.10.4.1;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.4_The_RegExp_Constructor/S15.10.4.1_A9_T3.js;
- * @description: Pattern is "[a--z]";
+ * @section 15.10.4.1
+ * @path 15_Native/15.10_RegExp_Objects/15.10.4_The_RegExp_Constructor/S15.10.4.1_A9_T3.js
+ * @description Pattern is "[a--z]"
  */
 
 //CHECK#1

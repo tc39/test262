@@ -4,9 +4,9 @@
 /**
  * Operator --x returns x = ToNumber(x) - 1
  *
- * @section: 11.4.5, 11.6.3;
- * @path: 11_Expressions/11.4_Unary_Operators/11.4.5_Prefix_Decrement_Operator/S11.4.5_A3_T4.js;
- * @description: Type(x) is undefined or null;
+ * @section 11.4.5, 11.6.3
+ * @path 11_Expressions/11.4_Unary_Operators/11.4.5_Prefix_Decrement_Operator/S11.4.5_A3_T4.js
+ * @description Type(x) is undefined or null
  */
 
 //CHECK#1

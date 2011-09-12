@@ -4,10 +4,10 @@
 /**
  * UnicodeEscapeSequence :: u HexDigit (one, two or three time) is incorrect
  *
- * @section: 7.8.4;
- * @path: 07_Lexical_Conventions/7.8_Literals/7.8.4_String_Literals/S7.8.4_A7.2_T3.js;
- * @description: :: HexDigit :: 1;
- * @negative;
+ * @section 7.8.4
+ * @path 07_Lexical_Conventions/7.8_Literals/7.8.4_String_Literals/S7.8.4_A7.2_T3.js
+ * @description :: HexDigit :: 1
+ * @negative
  */
 
 //CHECK#1

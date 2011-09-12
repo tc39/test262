@@ -4,9 +4,9 @@
 /**
  * If x is -Infinity, Math.exp(x) is +0
  *
- * @section: 15.8.2.8;
- * @path: 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.8_exp/S15.8.2.8_A5.js;
- * @description: Checking if Math.exp(-Infinity) is +0;
+ * @section 15.8.2.8
+ * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.8_exp/S15.8.2.8_A5.js
+ * @description Checking if Math.exp(-Infinity) is +0
  */
 
 // CHECK#1

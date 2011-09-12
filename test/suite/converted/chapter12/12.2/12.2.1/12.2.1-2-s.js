@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.2/12.2.1/12.2.1-2-s.js;
- * @description: eval - a function assigning into 'eval' throws SyntaxError in strict mode;
- * @strict_only;
+ * @path chapter12/12.2/12.2.1/12.2.1-2-s.js
+ * @description eval - a function assigning into 'eval' throws SyntaxError in strict mode
+ * @strict_only
  */
 
 

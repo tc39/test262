@@ -4,9 +4,9 @@
 /**
  * The Number constructor has the property "MAX_VALUE"
  *
- * @section: 15.7.3;
- * @path: 15_Native/15.7_Number_Objects/15.7.3_Properties_of_Number_Constructor/S15.7.3_A2.js;
- * @description: Checking existence of the property "MAX_VALUE";
+ * @section 15.7.3
+ * @path 15_Native/15.7_Number_Objects/15.7.3_Properties_of_Number_Constructor/S15.7.3_A2.js
+ * @description Checking existence of the property "MAX_VALUE"
  */
 
 if(!Number.hasOwnProperty("MAX_VALUE")){

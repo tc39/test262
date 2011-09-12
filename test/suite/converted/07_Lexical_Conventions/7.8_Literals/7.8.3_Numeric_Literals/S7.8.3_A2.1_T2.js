@@ -4,9 +4,9 @@
 /**
  * DecimalLiteral :: .DecimalDigits
  *
- * @section: 7.8.3;
- * @path: 07_Lexical_Conventions/7.8_Literals/7.8.3_Numeric_Literals/S7.8.3_A2.1_T2.js;
- * @description: Use .DecimalDigits;
+ * @section 7.8.3
+ * @path 07_Lexical_Conventions/7.8_Literals/7.8.3_Numeric_Literals/S7.8.3_A2.1_T2.js
+ * @description Use .DecimalDigits
  */
 
 //CHECK#0

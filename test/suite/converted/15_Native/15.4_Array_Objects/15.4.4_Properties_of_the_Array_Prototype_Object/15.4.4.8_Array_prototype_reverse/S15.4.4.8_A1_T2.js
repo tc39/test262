@@ -5,9 +5,9 @@
  * The elements of the array are rearranged so as to reverse their order.
  * The object is returned as the result of the call
  *
- * @section: 15.4.4.8;
- * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.8_Array_prototype_reverse/S15.4.4.8_A1_T2.js;
- * @description: Checking this algorithm, elements are objects and primitives;
+ * @section 15.4.4.8
+ * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.8_Array_prototype_reverse/S15.4.4.8_A1_T2.js
+ * @description Checking this algorithm, elements are objects and primitives
  */
 
 //CHECK#1

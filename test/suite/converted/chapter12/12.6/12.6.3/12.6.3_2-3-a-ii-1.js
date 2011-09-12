@@ -24,8 +24,8 @@
  *     IterationStatement : for ( var VariableDeclarationListNoIn ; Expressionopt ; Expressionopt ) Statement
  * is evaluated as follows:
  *
- * @path: chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-1.js;
- * @description: The for Statement - (normal, V, empty) will be returned when first Expression is an Object with value false;
+ * @path chapter12/12.6/12.6.3/12.6.3_2-3-a-ii-1.js
+ * @description The for Statement - (normal, V, empty) will be returned when first Expression is an Object with value false
  */
 
 

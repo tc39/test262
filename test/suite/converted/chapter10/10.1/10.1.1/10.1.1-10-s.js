@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.1/10.1.1/10.1.1-10-s.js;
- * @description: Strict Mode - Use Strict Directive Prologue is ''USE STRICT';' in which all characters are uppercase;
- * @strict_only;
+ * @path chapter10/10.1/10.1.1/10.1.1-10-s.js
+ * @description Strict Mode - Use Strict Directive Prologue is ''USE STRICT';' in which all characters are uppercase
+ * @strict_only
  */
 
 

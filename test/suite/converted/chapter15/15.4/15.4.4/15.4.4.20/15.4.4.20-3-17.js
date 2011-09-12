@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-3-17.js;
- * @description: Array.prototype.filter - 'length' is a string containing a number with leading zeros;
+ * @path chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-3-17.js
+ * @description Array.prototype.filter - 'length' is a string containing a number with leading zeros
  */
 
 

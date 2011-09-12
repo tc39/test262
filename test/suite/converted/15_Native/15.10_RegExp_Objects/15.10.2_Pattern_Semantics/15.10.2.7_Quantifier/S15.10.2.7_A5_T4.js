@@ -4,9 +4,9 @@
 /**
  * The production QuantifierPrefix :: ? evaluates by returning the two results 0 and 1
  *
- * @section: 15.10.2.7;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.7_Quantifier/S15.10.2.7_A5_T4.js;
- * @description: Execute /cd?e/.exec("abcdef") and check results;
+ * @section 15.10.2.7
+ * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.7_Quantifier/S15.10.2.7_A5_T4.js
+ * @description Execute /cd?e/.exec("abcdef") and check results
  */
 
 __executed = /cd?e/.exec("abcdef");

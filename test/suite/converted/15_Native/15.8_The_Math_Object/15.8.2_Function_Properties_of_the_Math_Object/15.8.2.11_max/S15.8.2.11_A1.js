@@ -4,9 +4,9 @@
 /**
  * If no arguments are given, Math.max() is -Infinity
  *
- * @section: 15.8.2.11;
- * @path: 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.11_max/S15.8.2.11_A1.js;
- * @description: Checking if Math.max() equals to -Infinity;
+ * @section 15.8.2.11
+ * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.11_max/S15.8.2.11_A1.js
+ * @description Checking if Math.max() equals to -Infinity
  */
 
 // CHECK#1

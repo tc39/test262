@@ -24,8 +24,8 @@
  *      PropertyAssignment : PropertyName : AssignmentExpression 
  *   4.Let desc be the Property Descriptor{[[Value]]: propValue, [[Writable]]: true, [[Enumerable]]: true, [[Configurable]]: true}
  *
- * @path: chapter11/11.1/11.1.5/11.1.5_5-4-1.js;
- * @description: Object literal - property descriptor for assignment expression;
+ * @path chapter11/11.1/11.1.5/11.1.5_5-4-1.js
+ * @description Object literal - property descriptor for assignment expression
  */
 
 

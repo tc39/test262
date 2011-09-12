@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-20.js;
- * @description: Array.prototype.indexOf - value of 'fromIndex' which is a string containing a number with leading zeros;
+ * @path chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-5-20.js
+ * @description Array.prototype.indexOf - value of 'fromIndex' which is a string containing a number with leading zeros
  */
 
 

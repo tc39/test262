@@ -4,9 +4,9 @@
 /**
  * White Space and Line Terminator between Expression and , or between , and AssignmentExpression are allowed
  *
- * @section: 11.14;
- * @path: 11_Expressions/11.14_Comma_Operator/S11.14_A1.js;
- * @description: Checking by using eval;
+ * @section 11.14
+ * @path 11_Expressions/11.14_Comma_Operator/S11.14_A1.js
+ * @description Checking by using eval
  */
 
 //CHECK#1

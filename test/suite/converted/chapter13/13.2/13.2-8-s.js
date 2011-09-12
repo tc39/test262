@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter13/13.2/13.2-8-s.js;
- * @description: StrictMode - enumerating over a function object looking for 'caller' fails inside the function;
- * @strict_only;
+ * @path chapter13/13.2/13.2-8-s.js
+ * @description StrictMode - enumerating over a function object looking for 'caller' fails inside the function
+ * @strict_only
  */
 
 

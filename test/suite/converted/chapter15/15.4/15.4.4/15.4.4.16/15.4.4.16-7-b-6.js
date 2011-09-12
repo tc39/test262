@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-b-6.js;
- * @description: Array.prototype.every - properties can be added to prototype after current position are visited on an Array-like object;
+ * @path chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-b-6.js
+ * @description Array.prototype.every - properties can be added to prototype after current position are visited on an Array-like object
  */
 
 

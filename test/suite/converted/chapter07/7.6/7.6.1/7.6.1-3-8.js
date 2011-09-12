@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter07/7.6/7.6.1/7.6.1-3-8.js;
- * @description: Allow reserved words as property names by index assignment,verified with hasOwnProperty: this, with, default;
+ * @path chapter07/7.6/7.6.1/7.6.1-3-8.js
+ * @description Allow reserved words as property names by index assignment,verified with hasOwnProperty: this, with, default
  */
 
 

@@ -4,9 +4,9 @@
 /**
  * FunctionDeclaration can be overrided by other FunctionDeclaration with the same Identifier
  *
- * @section: 13;
- * @path: 13_Function_Definition/S13_A6_T1.js;
- * @description: Duplicating function declaration;
+ * @section 13
+ * @path 13_Function_Definition/S13_A6_T1.js
+ * @description Duplicating function declaration
  */
 
 function __func(){return 1};

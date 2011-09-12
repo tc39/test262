@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-231.js;
- * @description: Object.defineProperties - 'O' is an Array, 'P' is an array index property,  'P' is data property and 'desc' is accessor descriptor, and the [[Configurable]] attribute value of 'P' is true, test 'P' is converted from data property to accessor property  (15.4.5.1 step 4.c);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-231.js
+ * @description Object.defineProperties - 'O' is an Array, 'P' is an array index property,  'P' is data property and 'desc' is accessor descriptor, and the [[Configurable]] attribute value of 'P' is true, test 'P' is converted from data property to accessor property  (15.4.5.1 step 4.c)
  */
 
 

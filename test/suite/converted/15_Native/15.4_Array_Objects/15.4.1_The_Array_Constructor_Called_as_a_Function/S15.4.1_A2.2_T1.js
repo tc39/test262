@@ -8,9 +8,9 @@
  * of the newly constructed object is set to argument k, where the first argument is
  * considered to be argument number 0
  *
- * @section: 15.4.1;
- * @path: 15_Native/15.4_Array_Objects/15.4.1_The_Array_Constructor_Called_as_a_Function/S15.4.1_A2.2_T1.js;
- * @description: Checking correct work this algorithm;
+ * @section 15.4.1
+ * @path 15_Native/15.4_Array_Objects/15.4.1_The_Array_Constructor_Called_as_a_Function/S15.4.1_A2.2_T1.js
+ * @description Checking correct work this algorithm
  */
 
 //CHECK#

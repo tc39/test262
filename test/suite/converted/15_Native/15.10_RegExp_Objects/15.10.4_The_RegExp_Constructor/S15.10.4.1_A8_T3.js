@@ -4,9 +4,9 @@
 /**
  * let P be ToString(pattern) and let F be ToString(flags)
  *
- * @section: 15.10.4.1;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.4_The_RegExp_Constructor/S15.10.4.1_A8_T3.js;
- * @description: Pattern is {toString:function(){return "[0-9]";}} and flags is (function(){return "m";})();
+ * @section 15.10.4.1
+ * @path 15_Native/15.10_RegExp_Objects/15.10.4_The_RegExp_Constructor/S15.10.4.1_A8_T3.js
+ * @description Pattern is {toString:function(){return "[0-9]";}} and flags is (function(){return "m";})()
  */
 
 __re = new RegExp({toString:function(){return "[0-9]";}}, (function(){return "m";})());

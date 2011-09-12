@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-c-ii-18.js;
- * @description: Array.prototype.reduceRight - 'accumulator' used for first iteration is the value of 'initialValue' when it is present on an Array;
+ * @path chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-c-ii-18.js
+ * @description Array.prototype.reduceRight - 'accumulator' used for first iteration is the value of 'initialValue' when it is present on an Array
  */
 
 

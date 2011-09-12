@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-ii-2.js;
- * @description: Array.prototype.lastIndexOf - both type of array element and type of search element are Undefined;
+ * @path chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-ii-2.js
+ * @description Array.prototype.lastIndexOf - both type of array element and type of search element are Undefined
  */
 
 
-assertTrue([undefined].lastIndexOf() === 0 && [undefined].lastIndexOf(undefined) === 0);
+assertTruthy([undefined].lastIndexOf() === 0 && [undefined].lastIndexOf(undefined) === 0);

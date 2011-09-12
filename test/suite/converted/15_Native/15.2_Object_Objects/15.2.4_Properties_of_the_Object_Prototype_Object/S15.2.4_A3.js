@@ -4,9 +4,9 @@
 /**
  * Since the Object prototype object is not a function, it has not [[call]] method
  *
- * @section: 15.2.4;
- * @path: 15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/S15.2.4_A3.js;
- * @description: Checking if calling Object prototype as a function fails;
+ * @section 15.2.4
+ * @path 15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/S15.2.4_A3.js
+ * @description Checking if calling Object prototype as a function fails
  */
 
 //CHECK#1

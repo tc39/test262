@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.12/15.12.3/15.12.3-11-3.js;
- * @description: A JSON.stringify correctly works on top level string values.;
+ * @path chapter15/15.12/15.12.3/15.12.3-11-3.js
+ * @description A JSON.stringify correctly works on top level string values.
  */
 
 
-assertTrue(JSON.stringify("a string") === '"a string"');
+assertTruthy(JSON.stringify("a string") === '"a string"');

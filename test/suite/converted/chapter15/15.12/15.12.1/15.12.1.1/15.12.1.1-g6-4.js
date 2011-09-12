@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g6-4.js;
- * @description: The JSON lexical grammer allows 'f' as a JSONEscapeCharacter after '' in a JSONString;
+ * @path chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-g6-4.js
+ * @description The JSON lexical grammer allows 'f' as a JSONEscapeCharacter after '' in a JSONString
  */
 
 
-assertTrue(JSON.parse('"\\f"')==='\f');
+assertTruthy(JSON.parse('"\\f"')==='\f');

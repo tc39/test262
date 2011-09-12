@@ -4,9 +4,9 @@
 /**
  * The production FunctionDeclaration: "function Identifier ( FormalParameterList_opt ) { FunctionBody }" is processed by function declarations
  *
- * @section: 13;
- * @path: 13_Function_Definition/S13_A4_T4.js;
- * @description: Declaring a function that uses strings concatenaion opeator within its "return" Expression;
+ * @section 13
+ * @path 13_Function_Definition/S13_A4_T4.js
+ * @description Declaring a function that uses strings concatenaion opeator within its "return" Expression
  */
 
 function __func(){return arguments[0].name + " " + arguments[0].surname;};

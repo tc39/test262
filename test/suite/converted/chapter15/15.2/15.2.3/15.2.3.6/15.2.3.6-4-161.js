@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-161.js;
- * @description: Object.defineProperty - 'O' is an Array, 'name' is the length property of 'O', set the [[Value]] field of 'desc' to a value lesser than the existing value of length and test that indexes beyond the new length are deleted(15.4.5.1 step 3.f);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-161.js
+ * @description Object.defineProperty - 'O' is an Array, 'name' is the length property of 'O', set the [[Value]] field of 'desc' to a value lesser than the existing value of length and test that indexes beyond the new length are deleted(15.4.5.1 step 3.f)
  */
 
 

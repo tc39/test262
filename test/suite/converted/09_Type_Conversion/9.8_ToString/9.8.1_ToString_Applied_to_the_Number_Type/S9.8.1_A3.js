@@ -5,9 +5,9 @@
  * If m is less than zero, return the string concatenation of the
  * string "-" and ToString(-m)
  *
- * @section: 9.8.1;
- * @path: 09_Type_Conversion/9.8_ToString/9.8.1_ToString_Applied_to_the_Number_Type/S9.8.1_A3.js;
- * @description: -1234567890 convert to String by explicit transformation;
+ * @section 9.8.1
+ * @path 09_Type_Conversion/9.8_ToString/9.8.1_ToString_Applied_to_the_Number_Type/S9.8.1_A3.js
+ * @description -1234567890 convert to String by explicit transformation
  */
 
 // CHECK#1

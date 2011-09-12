@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-333-5.js;
- * @description: ES5 Attributes - named data property 'P' with attributes [[Writable]]: true, [[Enumerable]]: true, [[Configurable]]: false is writable using simple assignment, 'O' is an Arguments object;
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-333-5.js
+ * @description ES5 Attributes - named data property 'P' with attributes [[Writable]]: true, [[Enumerable]]: true, [[Configurable]]: false is writable using simple assignment, 'O' is an Arguments object
  */
 
 

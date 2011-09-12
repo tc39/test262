@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-82-6.js;
- * @description: Object.defineProperty - Update [[Enumerable]] attribute of 'name' property to true successfully when [[Enumerable]] attribute of 'name' is false and [[Configurable]] attribute of 'name' is true,  the 'desc' is a generic descriptor which only contains [[Enumerable]] attribute as true, 'name' property is a data property (8.12.9 step 8);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-82-6.js
+ * @description Object.defineProperty - Update [[Enumerable]] attribute of 'name' property to true successfully when [[Enumerable]] attribute of 'name' is false and [[Configurable]] attribute of 'name' is true,  the 'desc' is a generic descriptor which only contains [[Enumerable]] attribute as true, 'name' property is a data property (8.12.9 step 8)
  */
 
 

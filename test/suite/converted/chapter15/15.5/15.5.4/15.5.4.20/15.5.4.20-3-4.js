@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-3-4.js;
- * @description: String.prototype.trim - 'S' is a string start with union of all LineTerminator and all WhiteSpace;
+ * @path chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-3-4.js
+ * @description String.prototype.trim - 'S' is a string start with union of all LineTerminator and all WhiteSpace
  */
 
 

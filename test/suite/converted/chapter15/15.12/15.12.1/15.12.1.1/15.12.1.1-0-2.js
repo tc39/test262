@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-0-2.js;
- * @description: <VT> is not valid JSON whitespace as specified by the production JSONWhitespace.;
+ * @path chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-0-2.js
+ * @description <VT> is not valid JSON whitespace as specified by the production JSONWhitespace.
  */
 
 

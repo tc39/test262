@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter08/8.7/8.7.2/8.7.2-2-s.js;
- * @description: Strict Mode - ReferenceError isn't thrown if LeftHandSide evaluates to a resolvable Reference;
- * @strict_only;
+ * @path chapter08/8.7/8.7.2/8.7.2-2-s.js
+ * @description Strict Mode - ReferenceError isn't thrown if LeftHandSide evaluates to a resolvable Reference
+ * @strict_only
  */
 
 

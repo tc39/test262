@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-11.js;
- * @description: Object.seal - 'P' is own property of a Number object that uses Object's [[GetOwnProperty]];
+ * @path chapter15/15.2/15.2.3/15.2.3.8/15.2.3.8-2-a-11.js
+ * @description Object.seal - 'P' is own property of a Number object that uses Object's [[GetOwnProperty]]
  */
 
 

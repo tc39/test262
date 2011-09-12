@@ -4,9 +4,9 @@
 /**
  * When "break Identifier" is evaluated, (break, empty, Identifier) is returned
  *
- * @section: 12.8;
- * @path: 12_Statement/12.8_The_break_Statement/S12.8_A4_T3.js;
- * @description: Using embedded and labeled loops, breaking to outer loop;
+ * @section 12.8
+ * @path 12_Statement/12.8_The_break_Statement/S12.8_A4_T3.js
+ * @description Using embedded and labeled loops, breaking to outer loop
  */
 
 LABEL_OUT : var x=0, y=0, xx=0, yy=0;

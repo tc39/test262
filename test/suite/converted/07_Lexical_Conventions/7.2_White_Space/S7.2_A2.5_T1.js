@@ -4,9 +4,9 @@
 /**
  * NO-BREAK SPACE (U+00A0) may occur within strings
  *
- * @section: 7.2, 7.8.4;
- * @path: 07_Lexical_Conventions/7.2_White_Space/S7.2_A2.5_T1.js;
- * @description: Use NO-BREAK SPACE(\u00A0);
+ * @section 7.2, 7.8.4
+ * @path 07_Lexical_Conventions/7.2_White_Space/S7.2_A2.5_T1.js
+ * @description Use NO-BREAK SPACE(\u00A0)
  */
 
 // CHECK#1

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.12/15.12.3/15.12.3-6-a-1.js;
- * @description: JSON.stringify treats numeric space arguments greater than 10 the same as a  space argument of 10.;
+ * @path chapter15/15.12/15.12.3/15.12.3-6-a-1.js
+ * @description JSON.stringify treats numeric space arguments greater than 10 the same as a  space argument of 10.
  */
 
 

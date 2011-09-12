@@ -4,9 +4,9 @@
 /**
  * Operator x-- returns x = ToNumber(x) - 1
  *
- * @section: 11.3.2, 11.6.3;
- * @path: 11_Expressions/11.3_PostfixExpressions/11.3.2_Postfix_Decrement_Operator/S11.3.2_A3_T3.js;
- * @description: Type(x) is string primitive or String object;
+ * @section 11.3.2, 11.6.3
+ * @path 11_Expressions/11.3_PostfixExpressions/11.3.2_Postfix_Decrement_Operator/S11.3.2_A3_T3.js
+ * @description Type(x) is string primitive or String object
  */
 
 //CHECK#1

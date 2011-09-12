@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-b-13.js;
- * @description: Array.prototype.map - deleting own property with prototype property causes prototype index property to be visited on an Array;
+ * @path chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-b-13.js
+ * @description Array.prototype.map - deleting own property with prototype property causes prototype index property to be visited on an Array
  */
 
 

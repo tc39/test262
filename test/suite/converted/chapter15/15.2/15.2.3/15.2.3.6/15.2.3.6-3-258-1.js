@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-258-1.js;
- * @description: Object.defineProperty - 'Attributes' is an Arguments object which implements its own [[Get]] method to access the 'set' property of prototype object (8.10.5 step 8.a);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-258-1.js
+ * @description Object.defineProperty - 'Attributes' is an Arguments object which implements its own [[Get]] method to access the 'set' property of prototype object (8.10.5 step 8.a)
  */
 
 

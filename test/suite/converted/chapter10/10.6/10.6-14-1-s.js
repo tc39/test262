@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.6/10.6-14-1-s.js;
- * @description: Strict Mode - 'callee' exists and 'caller' exists under strict mode;
- * @strict_only;
+ * @path chapter10/10.6/10.6-14-1-s.js
+ * @description Strict Mode - 'callee' exists and 'caller' exists under strict mode
+ * @strict_only
  */
 
 

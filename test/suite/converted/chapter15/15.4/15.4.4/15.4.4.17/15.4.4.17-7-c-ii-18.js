@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-c-ii-18.js;
- * @description: Array.prototype.some - 'this' of 'callbackfn' is an String object when T is not an object (T is a string primitive);
+ * @path chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-c-ii-18.js
+ * @description Array.prototype.some - 'this' of 'callbackfn' is an String object when T is not an object (T is a string primitive)
  */
 
 

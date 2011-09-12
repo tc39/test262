@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-8-c-5.js;
- * @description: Array.prototype.reduce - if exception occurs, it occurs after any side-effects that might be produced by step 2;
+ * @path chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-8-c-5.js
+ * @description Array.prototype.reduce - if exception occurs, it occurs after any side-effects that might be produced by step 2
  */
 
 

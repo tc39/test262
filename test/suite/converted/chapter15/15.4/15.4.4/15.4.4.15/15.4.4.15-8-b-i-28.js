@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-i-28.js;
- * @description: Array.prototype.lastIndexOf - side-effects are visible in subsequent iterations on an Array;
+ * @path chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-i-28.js
+ * @description Array.prototype.lastIndexOf - side-effects are visible in subsequent iterations on an Array
  */
 
 

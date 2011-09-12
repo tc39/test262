@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-iii-1.js;
- * @description: Array.prototype.filter - getOwnPropertyDescriptor(all true) of returned array element;
+ * @path chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-iii-1.js
+ * @description Array.prototype.filter - getOwnPropertyDescriptor(all true) of returned array element
  */
 
 

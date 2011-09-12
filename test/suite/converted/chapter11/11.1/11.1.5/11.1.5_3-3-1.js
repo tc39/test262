@@ -24,8 +24,8 @@
  * PropertyNameAndValueList : PropertyAssignment 
  * 3.Call the [[DefineOwnProperty]] internal method of obj with arguments propId.name, propId.descriptor, and false.
  *
- * @path: chapter11/11.1/11.1.5/11.1.5_3-3-1.js;
- * @description: Object initialization using PropertyNameAndValueList (PropertyAssignment) when property (read-only) exists in Object.prototype (step 3);
+ * @path chapter11/11.1/11.1.5/11.1.5_3-3-1.js
+ * @description Object initialization using PropertyNameAndValueList (PropertyAssignment) when property (read-only) exists in Object.prototype (step 3)
  */
 
 

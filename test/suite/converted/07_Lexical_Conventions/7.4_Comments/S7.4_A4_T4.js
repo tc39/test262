@@ -4,10 +4,10 @@
 /**
  * Single and Multi line comments are used together
  *
- * @section: 7.4;
- * @path: 07_Lexical_Conventions/7.4_Comments/S7.4_A4_T4.js;
- * @description: Try to open Multi line comment at the end of Single comment;
- * @negative;
+ * @section 7.4
+ * @path 07_Lexical_Conventions/7.4_Comments/S7.4_A4_T4.js
+ * @description Try to open Multi line comment at the end of Single comment
+ * @negative
  */
 
 /*CHECK#1*/

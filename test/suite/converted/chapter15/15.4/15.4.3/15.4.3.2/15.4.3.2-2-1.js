@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-2-1.js;
- * @description: Array.isArray applied to an object with an array as the prototype;
+ * @path chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-2-1.js
+ * @description Array.isArray applied to an object with an array as the prototype
  */
 
 

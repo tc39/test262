@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter14/14.1/14.1-16-s.js;
- * @description: 'use strict' directive - not recognized if it follow an empty statement;
- * @strict_only;
+ * @path chapter14/14.1/14.1-16-s.js
+ * @description 'use strict' directive - not recognized if it follow an empty statement
+ * @strict_only
  */
 
 

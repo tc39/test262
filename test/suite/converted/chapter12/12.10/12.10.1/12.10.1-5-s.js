@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.10/12.10.1/12.10.1-5-s.js;
- * @description: with statement allowed in nested Function even if its container Function is strict);
- * @strict_only;
+ * @path chapter12/12.10/12.10.1/12.10.1-5-s.js
+ * @description with statement allowed in nested Function even if its container Function is strict)
+ * @strict_only
  */
 
 

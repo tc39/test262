@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-c-iii-3.js;
- * @description: Array.prototype.map - value of returned array element can be overwritten;
+ * @path chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-c-iii-3.js
+ * @description Array.prototype.map - value of returned array element can be overwritten
  */
 
 

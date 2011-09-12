@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-4-11.js;
- * @description: Array.prototype.some - the exception is not thrown if exception was thrown by step 3;
+ * @path chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-4-11.js
+ * @description Array.prototype.some - the exception is not thrown if exception was thrown by step 3
  */
 
 

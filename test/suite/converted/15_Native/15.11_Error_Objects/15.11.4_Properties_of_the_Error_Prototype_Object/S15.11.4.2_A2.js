@@ -4,9 +4,9 @@
 /**
  * The initial value of Error.prototype.name is "Error"
  *
- * @section: 15.11.4.2, 16;
- * @path: 15_Native/15.11_Error_Objects/15.11.4_Properties_of_the_Error_Prototype_Object/S15.11.4.2_A2.js;
- * @description: Checking value of Error.prototype.name;
+ * @section 15.11.4.2, 16
+ * @path 15_Native/15.11_Error_Objects/15.11.4_Properties_of_the_Error_Prototype_Object/S15.11.4.2_A2.js
+ * @description Checking value of Error.prototype.name
  */
 
 //////////////////////////////////////////////////////////////////////////////

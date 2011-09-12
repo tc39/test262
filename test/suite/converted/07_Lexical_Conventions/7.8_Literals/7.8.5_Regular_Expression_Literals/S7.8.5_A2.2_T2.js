@@ -4,10 +4,10 @@
 /**
  * RegularExpressionChar :: \ or / is incorrect
  *
- * @section: 7.8.5;
- * @path: 07_Lexical_Conventions/7.8_Literals/7.8.5_Regular_Expression_Literals/S7.8.5_A2.2_T2.js;
- * @description: /;
- * @negative;
+ * @section 7.8.5
+ * @path 07_Lexical_Conventions/7.8_Literals/7.8.5_Regular_Expression_Literals/S7.8.5_A2.2_T2.js
+ * @description /
+ * @negative
  */
 
 //CHECK#1

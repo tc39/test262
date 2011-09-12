@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-b-14.js;
- * @description: Array.prototype.some - decreasing length of array causes index property not to be visited;
+ * @path chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-b-14.js
+ * @description Array.prototype.some - decreasing length of array causes index property not to be visited
  */
 
 

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-16.js;
- * @description: Date.prototype.toISOString - when this is a String object that value format is 'YYYY-MM-DDTHH:mm:ss.sssZ' Date.prototype.toISOString throw the TypeError;
+ * @path chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-16.js
+ * @description Date.prototype.toISOString - when this is a String object that value format is 'YYYY-MM-DDTHH:mm:ss.sssZ' Date.prototype.toISOString throw the TypeError
  */
 
 

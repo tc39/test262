@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.5/15.4.5.1/15.4.5.1-5-1.js;
- * @description: Defining a property named 4294967295 (2**32-1)(not an array element);
+ * @path chapter15/15.4/15.4.5/15.4.5.1/15.4.5.1-5-1.js
+ * @description Defining a property named 4294967295 (2**32-1)(not an array element)
  */
 
 

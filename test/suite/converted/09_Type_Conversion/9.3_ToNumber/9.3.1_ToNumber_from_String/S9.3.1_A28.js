@@ -4,9 +4,9 @@
 /**
  * The MV of HexDigit ::: c or of HexDigit ::: C is 12
  *
- * @section: 9.3.1, 15.7.1;
- * @path: 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A28.js;
- * @description: Compare Number('0xC'), Number('0XC'), Number('0xc') and Number('0Xc') with 12;
+ * @section 9.3.1, 15.7.1
+ * @path 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A28.js
+ * @description Compare Number('0xC'), Number('0XC'), Number('0xc') and Number('0Xc') with 12
  */
 
 // CHECK#1

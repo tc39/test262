@@ -4,10 +4,10 @@
 /**
  * TryStatement: "try Block Catch" or "try Block Finally" or "try Block Catch Finally"
  *
- * @section: 12.14;
- * @path: 12_Statement/12.14_The_try_Statement/S12.14_A16_T5.js;
- * @description: Catch: "catch (Identifier ) Block". Checking if execution of "catch" with no Block fails;
- * @negative;
+ * @section 12.14
+ * @path 12_Statement/12.14_The_try_Statement/S12.14_A16_T5.js
+ * @description Catch: "catch (Identifier ) Block". Checking if execution of "catch" with no Block fails
+ * @negative
  */
 
 // CHECK#1

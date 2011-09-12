@@ -4,9 +4,9 @@
 /**
  * Operator !x uses [[Default Value]]
  *
- * @section: 11.4.9, 8.6.2.6;
- * @path: 11_Expressions/11.4_Unary_Operators/11.4.9_Logical_NOT_Operator/S11.4.9_A2.2_T1.js;
- * @description: If Type(value) is Object, return false;
+ * @section 11.4.9, 8.6.2.6
+ * @path 11_Expressions/11.4_Unary_Operators/11.4.9_Logical_NOT_Operator/S11.4.9_A2.2_T1.js
+ * @description If Type(value) is Object, return false
  */
 
 //CHECK#1

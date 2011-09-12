@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-1-10.js;
- * @description: Array.prototype.lastIndexOf applied to the Math object;
+ * @path chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-1-10.js
+ * @description Array.prototype.lastIndexOf applied to the Math object
  */
 
 

@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-4.js;
- * @description: Array.isArray applied to Number object;
+ * @path chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-4.js
+ * @description Array.isArray applied to Number object
  */
 
 
-assertTrue(!Array.isArray(new Number(-3)));
+assertTruthy(!Array.isArray(new Number(-3)));

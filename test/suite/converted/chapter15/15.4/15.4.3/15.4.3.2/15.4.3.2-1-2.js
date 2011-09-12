@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-2.js;
- * @description: Array.isArray applied to Boolean Object;
+ * @path chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-2.js
+ * @description Array.isArray applied to Boolean Object
  */
 
 
-assertTrue(!Array.isArray(new Boolean(false)));
+assertTruthy(!Array.isArray(new Boolean(false)));

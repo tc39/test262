@@ -32,8 +32,8 @@
  * This default applies to JSON.parse, and it must exist as a function
  * taking 2 parameters.
  *
- * @path: chapter15/15.12/15.12.2/15.12.2-0-1.js;
- * @description: JSON.parse must exist as a function;
+ * @path chapter15/15.12/15.12.2/15.12.2-0-1.js
+ * @description JSON.parse must exist as a function
  */
 
 

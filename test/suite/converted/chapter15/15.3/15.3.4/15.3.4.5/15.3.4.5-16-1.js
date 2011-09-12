@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-16-1.js;
- * @description: Function.prototype.bind, [[Extensible]] of the bound fn is true;
+ * @path chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-16-1.js
+ * @description Function.prototype.bind, [[Extensible]] of the bound fn is true
  */
 
 

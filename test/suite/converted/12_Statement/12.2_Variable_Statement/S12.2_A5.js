@@ -4,9 +4,9 @@
 /**
  * VariableDeclaration within Eval statement is initialized as the program reaches the eval statement
  *
- * @section: 12.2;
- * @path: 12_Statement/12.2_Variable_Statement/S12.2_A5.js;
- * @description: Executing eval("var x");
+ * @section 12.2
+ * @path 12_Statement/12.2_Variable_Statement/S12.2_A5.js
+ * @description Executing eval("var x")
  */
 
 //////////////////////////////////////////////////////////////////////////////

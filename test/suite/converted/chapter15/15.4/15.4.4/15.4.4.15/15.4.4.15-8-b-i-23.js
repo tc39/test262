@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-i-23.js;
- * @description: Array.prototype.lastIndexOf - This object is the global object;
+ * @path chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-i-23.js
+ * @description Array.prototype.lastIndexOf - This object is the global object
  */
 
 

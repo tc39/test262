@@ -1,8 +1,8 @@
 
 
 /**
- * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-3.js;
- * @description: String.prototype.trim - argument 'this' is a number that converts to a string (value is NaN);
+ * @path chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-3.js
+ * @description String.prototype.trim - argument 'this' is a number that converts to a string (value is NaN)
  */
 
 /// Copyright (c) 2009 Microsoft Corporation 
@@ -24,4 +24,4 @@
 /// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 /// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-assertTrue(String.prototype.trim.call(NaN) === "NaN");
+assertTruthy(String.prototype.trim.call(NaN) === "NaN");

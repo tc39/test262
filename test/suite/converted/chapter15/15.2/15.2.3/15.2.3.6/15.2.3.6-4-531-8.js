@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-531-8.js;
- * @description: ES5 Attributes - Updating a named accessor property 'P' without [[Set]] using simple assignment is failed, 'O' is the global object (8.12.5 step 5.b);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-531-8.js
+ * @description ES5 Attributes - Updating a named accessor property 'P' without [[Set]] using simple assignment is failed, 'O' is the global object (8.12.5 step 5.b)
  */
 
 

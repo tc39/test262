@@ -5,9 +5,9 @@
  * Since when call is used for Function constructor themself new function instance creates
  * and then first argument(thisArg) should be ignored
  *
- * @section: 15.3, 10.2.3;
- * @path: 15_Native/15.3_Function_Objects/S15.3_A3_T5.js;
- * @description: First argument is this, and this don`t have needed variable. Function return this.var_name;
+ * @section 15.3, 10.2.3
+ * @path 15_Native/15.3_Function_Objects/S15.3_A3_T5.js
+ * @description First argument is this, and this don`t have needed variable. Function return this.var_name
  */
 
 var f=Function.call(this, "return this.planet;");

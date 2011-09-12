@@ -6,9 +6,9 @@
  * the newly constructed object is set to 1 and the 0 property of
  * the newly constructed object is set to len
  *
- * @section: 15.4.2.2;
- * @path: 15_Native/15.4_Array_Objects/15.4.2_The_Array_Constructor/15.4.2.2_new_Array_len/S15.4.2.2_A2.3_T1.js;
- * @description: Checking for null and undefined;
+ * @section 15.4.2.2
+ * @path 15_Native/15.4_Array_Objects/15.4.2_The_Array_Constructor/15.4.2.2_new_Array_len/S15.4.2.2_A2.3_T1.js
+ * @description Checking for null and undefined
  */
 
 var x = new Array(null);

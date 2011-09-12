@@ -6,9 +6,9 @@
  * In order for it to succeed, the pattern inside Disjunction must fail to match at the current position.
  * The current position is not advanced before matching the sequel
  *
- * @section: 15.10.2.8;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.8_Atom/S15.10.2.8_A2_T2.js;
- * @description: Execute /Java(?!Script)([A-Z]\w*)/.exec("using of JavaBeans technology") and check results;
+ * @section 15.10.2.8
+ * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.8_Atom/S15.10.2.8_A2_T2.js
+ * @description Execute /Java(?!Script)([A-Z]\w*)/.exec("using of JavaBeans technology") and check results
  */
 
 __executed = /Java(?!Script)([A-Z]\w*)/.exec("using of JavaBeans technology");

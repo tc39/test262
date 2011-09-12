@@ -4,9 +4,9 @@
 /**
  * Using "try" with "catch" or "finally" statement with a "return" statement
  *
- * @section: 12.14;
- * @path: 12_Statement/12.14_The_try_Statement/S12.14_A13_T1.js;
- * @description: Using try/catch syntax construction;
+ * @section 12.14
+ * @path 12_Statement/12.14_The_try_Statement/S12.14_A13_T1.js
+ * @description Using try/catch syntax construction
  */
 
 // CHECK#1

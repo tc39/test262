@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-a-2.js;
- * @description: Object.defineProperties - 'P' is own data property that overrides enumerable inherited accessor property of 'Properties' is defined in 'O' ;
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-a-2.js
+ * @description Object.defineProperties - 'P' is own data property that overrides enumerable inherited accessor property of 'Properties' is defined in 'O' 
  */
 
 

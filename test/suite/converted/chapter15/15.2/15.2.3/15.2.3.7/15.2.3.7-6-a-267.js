@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-267.js;
- * @description: Object.defineProperties - 'O' is an Array, 'P' is generic property, and 'desc' is accessor descriptor, test 'P' is defined in 'O' with all correct attribute values (15.4.5.1 step 5);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-267.js
+ * @description Object.defineProperties - 'O' is an Array, 'P' is generic property, and 'desc' is accessor descriptor, test 'P' is defined in 'O' with all correct attribute values (15.4.5.1 step 5)
  */
 
 

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-10.js;
- * @description: Date.prototype.toISOString - RangeError is not thrown when value of date is Date(1970, 0, -99999999, 0, 0, 0, 1), the time zone is UTC(0);
+ * @path chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-10.js
+ * @description Date.prototype.toISOString - RangeError is not thrown when value of date is Date(1970, 0, -99999999, 0, 0, 0, 1), the time zone is UTC(0)
  */
 
 

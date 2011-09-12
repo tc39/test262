@@ -4,9 +4,9 @@
 /**
  * Function's scope chain is started when it is declared
  *
- * @section: 13.2.2;
- * @path: 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A19_T1.js;
- * @description: Function is declared in the global scope;
+ * @section 13.2.2
+ * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A19_T1.js
+ * @description Function is declared in the global scope
  */
 
 var a = 1;

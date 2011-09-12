@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-1.js;
- * @description: Array.prototype.reduceRight doesn't consider new elements which index is larger than array original length added to array after it is called, consider new elements which index is smaller than array length;
+ * @path chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-1.js
+ * @description Array.prototype.reduceRight doesn't consider new elements which index is larger than array original length added to array after it is called, consider new elements which index is smaller than array length
  */
 
 

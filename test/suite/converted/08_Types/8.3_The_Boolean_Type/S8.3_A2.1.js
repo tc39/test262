@@ -4,10 +4,10 @@
 /**
  * The true is reserved word
  *
- * @section: 8.3;
- * @path: 08_Types/8.3_The_Boolean_Type/S8.3_A2.1.js;
- * @description: Checking if execution of "true=1" fails;
- * @negative;
+ * @section 8.3
+ * @path 08_Types/8.3_The_Boolean_Type/S8.3_A2.1.js
+ * @description Checking if execution of "true=1" fails
+ * @negative
  */
 
 true = 1;

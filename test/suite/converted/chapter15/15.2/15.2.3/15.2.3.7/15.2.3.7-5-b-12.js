@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-12.js;
- * @description: Object.defineProperties - 'enumerable' property of 'descObj' is own accessor property (8.10.5 step 3.a);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-5-b-12.js
+ * @description Object.defineProperties - 'enumerable' property of 'descObj' is own accessor property (8.10.5 step 3.a)
  */
 
 

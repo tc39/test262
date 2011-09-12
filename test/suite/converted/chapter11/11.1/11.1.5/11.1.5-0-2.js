@@ -22,8 +22,8 @@
  * it isn't clear what specific requirements of the specificaiton are being tested here. This test should 
  * probably be replaced by some more targeted tests.  AllenWB
  *
- * @path: chapter11/11.1/11.1.5/11.1.5-0-2.js;
- * @description: Object literal - multiple get set properties;
+ * @path chapter11/11.1/11.1.5/11.1.5-0-2.js
+ * @description Object literal - multiple get set properties
  */
 
 

@@ -6,9 +6,9 @@
  * If ToString([[Get]] ToString(j)) > ToString([[Get]] ToString(k)), return 1;
  * return -1
  *
- * @section: 15.4.4.11;
- * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.11_Array_prototype_sort/S15.4.4.11_A2.1_T1.js;
- * @description: Checking ENGLISH ALPHABET;
+ * @section 15.4.4.11
+ * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.11_Array_prototype_sort/S15.4.4.11_A2.1_T1.js
+ * @description Checking ENGLISH ALPHABET
  */
 
 var alphabetR = ["z", "y", "x", "w", "v", "u", "t", "s", "r", "q", "p", "o", "n", "M", "L", "K", "J", "I", "H", "G", "F", "E", "D", "C", "B", "A"];

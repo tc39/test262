@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.10/12.10.1/12.10.1-15-s.js;
- * @description: Strict Mode - SyntaxError is thrown when the RHS of a dot property assignment utilizes WithStatement;
- * @strict_only;
+ * @path chapter12/12.10/12.10.1/12.10.1-15-s.js
+ * @description Strict Mode - SyntaxError is thrown when the RHS of a dot property assignment utilizes WithStatement
+ * @strict_only
  */
 
 

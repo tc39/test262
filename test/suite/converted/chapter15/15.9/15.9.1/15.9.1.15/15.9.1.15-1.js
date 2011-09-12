@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.9/15.9.1/15.9.1.15/15.9.1.15-1.js;
- * @description: Date Time String Format - specified default values will be set for all optional fields(MM, DD, mm, ss and time zone) when they are absent;
+ * @path chapter15/15.9/15.9.1/15.9.1.15/15.9.1.15-1.js
+ * @description Date Time String Format - specified default values will be set for all optional fields(MM, DD, mm, ss and time zone) when they are absent
  */
 
 

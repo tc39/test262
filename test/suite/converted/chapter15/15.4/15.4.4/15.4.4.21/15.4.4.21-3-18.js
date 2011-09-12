@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-3-18.js;
- * @description: Array.prototype.reduce - value of 'length' is a string that can't convert to a number;
+ * @path chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-3-18.js
+ * @description Array.prototype.reduce - value of 'length' is a string that can't convert to a number
  */
 
 

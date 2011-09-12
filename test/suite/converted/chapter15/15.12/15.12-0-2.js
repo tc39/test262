@@ -23,8 +23,8 @@
  * The name JSON must be bound to an object, and must not support [[Construct]].
  * step 4 in 11.2.2 should throw a TypeError exception.
  *
- * @path: chapter15/15.12/15.12-0-2.js;
- * @description: JSON must not support the [[Construct]] method;
+ * @path chapter15/15.12/15.12-0-2.js
+ * @description JSON must not support the [[Construct]] method
  */
 
 

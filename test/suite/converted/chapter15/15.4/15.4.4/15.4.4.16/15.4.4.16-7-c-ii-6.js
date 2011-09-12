@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-6.js;
- * @description: Array.prototype.every - arguments to callbackfn are self consistent;
+ * @path chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-6.js
+ * @description Array.prototype.every - arguments to callbackfn are self consistent
  */
 
 

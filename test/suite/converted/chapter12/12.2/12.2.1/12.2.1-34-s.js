@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.2/12.2.1/12.2.1-34-s.js;
- * @description: 'for(var eval in ...) {...}' throws SyntaxError in strict mode;
- * @strict_only;
+ * @path chapter12/12.2/12.2.1/12.2.1-34-s.js
+ * @description 'for(var eval in ...) {...}' throws SyntaxError in strict mode
+ * @strict_only
  */
 
 

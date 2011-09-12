@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-102.js;
- * @description: Object.create - 'configurable' property of one property in 'Properties' is an inherited data property (8.10.5 step 4.a);
+ * @path chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-4-102.js
+ * @description Object.create - 'configurable' property of one property in 'Properties' is an inherited data property (8.10.5 step 4.a)
  */
 
 

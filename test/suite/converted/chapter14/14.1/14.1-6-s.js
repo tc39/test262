@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter14/14.1/14.1-6-s.js;
- * @description: 'use strict' directive - not recognized if contains a <TAB> instead of a space;
- * @strict_only;
+ * @path chapter14/14.1/14.1-6-s.js
+ * @description 'use strict' directive - not recognized if contains a <TAB> instead of a space
+ * @strict_only
  */
 
 

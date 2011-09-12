@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-c-ii-19.js;
- * @description: Array.prototype.some - non-indexed properties are not called;
+ * @path chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-c-ii-19.js
+ * @description Array.prototype.some - non-indexed properties are not called
  */
 
 

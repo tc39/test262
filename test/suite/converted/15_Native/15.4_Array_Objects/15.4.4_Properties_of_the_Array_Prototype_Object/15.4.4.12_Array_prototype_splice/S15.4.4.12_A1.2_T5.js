@@ -5,9 +5,9 @@
  * If start is negative, use max(start + length, 0).
  * If deleteCount is negative, use 0
  *
- * @section: 15.4.4.12;
- * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.12_Array_prototype_splice/S15.4.4.12_A1.2_T5.js;
- * @description: start < -length < deleteCount < 0, itemCount > 0;
+ * @section 15.4.4.12
+ * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.12_Array_prototype_splice/S15.4.4.12_A1.2_T5.js
+ * @description start < -length < deleteCount < 0, itemCount > 0
  */
 
 var x = [0,1];

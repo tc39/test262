@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-6.js;
- * @description: Object.keys - inherited enumerable accessor property of 'O' is not defined in returned array;
+ * @path chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-6.js
+ * @description Object.keys - inherited enumerable accessor property of 'O' is not defined in returned array
  */
 
 

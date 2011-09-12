@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.14/12.14-2.js;
- * @description: catch doesn't change declaration scope - var initializer in catch with same name as catch parameter changes parameter;
+ * @path chapter12/12.14/12.14-2.js
+ * @description catch doesn't change declaration scope - var initializer in catch with same name as catch parameter changes parameter
  */
 
 

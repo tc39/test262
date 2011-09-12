@@ -32,8 +32,8 @@
  * This default applies to JSON.stringify, and it must exist as a function
  * taking 3 parameters.
  *
- * @path: chapter15/15.12/15.12.3/15.12.3-0-1.js;
- * @description: JSON.stringify must exist as be a function;
+ * @path chapter15/15.12/15.12.3/15.12.3-0-1.js
+ * @description JSON.stringify must exist as be a function
  */
 
 

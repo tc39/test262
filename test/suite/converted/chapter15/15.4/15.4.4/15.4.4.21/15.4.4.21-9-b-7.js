@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-b-7.js;
- * @description: Array.prototype.reduce - properties added to prototype in step 8 are visited on an Array;
+ * @path chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-b-7.js
+ * @description Array.prototype.reduce - properties added to prototype in step 8 are visited on an Array
  */
 
 

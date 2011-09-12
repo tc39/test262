@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-11.js;
- * @description: Array.isArray applied to the JSON object;
+ * @path chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-11.js
+ * @description Array.isArray applied to the JSON object
  */
 
 
-assertTrue(!Array.isArray(JSON));
+assertTruthy(!Array.isArray(JSON));

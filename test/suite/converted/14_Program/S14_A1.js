@@ -4,9 +4,9 @@
 /**
  * FunctionExpression must be localed in a reacheable fragment of the program
  *
- * @section: 14;
- * @path: 14_Program/S14_A1.js;
- * @description: Declaring a function within an "if" Expression;
+ * @section 14
+ * @path 14_Program/S14_A1.js
+ * @description Declaring a function within an "if" Expression
  */
 
 var THERE = "I'm there";

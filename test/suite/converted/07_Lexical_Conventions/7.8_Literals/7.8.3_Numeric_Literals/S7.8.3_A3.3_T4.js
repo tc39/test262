@@ -4,9 +4,9 @@
 /**
  * DecimalLiteral :: DecimalIntegerLiteral. ExponentPart
  *
- * @section: 7.8.3;
- * @path: 07_Lexical_Conventions/7.8_Literals/7.8.3_Numeric_Literals/S7.8.3_A3.3_T4.js;
- * @description: ExponentPart :: E -DecimalDigits;
+ * @section 7.8.3
+ * @path 07_Lexical_Conventions/7.8_Literals/7.8.3_Numeric_Literals/S7.8.3_A3.3_T4.js
+ * @description ExponentPart :: E -DecimalDigits
  */
 
 //CHECK#0

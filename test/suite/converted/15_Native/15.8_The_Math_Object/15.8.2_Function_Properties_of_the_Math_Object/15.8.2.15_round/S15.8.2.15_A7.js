@@ -4,9 +4,9 @@
 /**
  * If x is less than or equal to -0 and x is greater than or equal to -0.5, Math.round(x) is equal to -0
  *
- * @section: 15.8.2.15;
- * @path: 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.15_round/S15.8.2.15_A7.js;
- * @description: Checking if Math.round(x) is equal -0, where x is equal to 0, equal to -0.5, or less than -0 while greater than -0.5;
+ * @section 15.8.2.15
+ * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.15_round/S15.8.2.15_A7.js
+ * @description Checking if Math.round(x) is equal -0, where x is equal to 0, equal to -0.5, or less than -0 while greater than -0.5
  */
 
 // CHECK#1

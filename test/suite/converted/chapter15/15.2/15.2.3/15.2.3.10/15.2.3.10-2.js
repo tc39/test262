@@ -21,8 +21,8 @@
 /**
  * The effect of preventExtentions must be testable by calling isExtensible
  *
- * @path: chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-2.js;
- * @description: Object.preventExtensions returns its arguments after setting its extensible property to false;
+ * @path chapter15/15.2/15.2.3/15.2.3.10/15.2.3.10-2.js
+ * @description Object.preventExtensions returns its arguments after setting its extensible property to false
  */
 
 

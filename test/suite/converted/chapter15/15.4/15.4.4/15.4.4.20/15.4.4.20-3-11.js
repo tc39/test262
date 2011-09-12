@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-3-11.js;
- * @description: Array.prototype.filter - 'length' is a string containing a positive number;
+ * @path chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-3-11.js
+ * @description Array.prototype.filter - 'length' is a string containing a positive number
  */
 
 

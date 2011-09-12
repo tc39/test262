@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-10.js;
- * @description: Object.isSealed returns false for all built-in objects (Boolean);
+ * @path chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-4-10.js
+ * @description Object.isSealed returns false for all built-in objects (Boolean)
  */
 
 

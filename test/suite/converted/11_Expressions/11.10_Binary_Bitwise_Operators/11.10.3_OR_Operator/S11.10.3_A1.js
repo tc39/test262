@@ -4,9 +4,9 @@
 /**
  * White Space and Line Terminator between BitwiseORExpression and "|" or between "|" and BitwiseXORExpression are allowed
  *
- * @section: 11.10.3;
- * @path: 11_Expressions/11.10_Binary_Bitwise_Operators/11.10.3_OR_Operator/S11.10.3_A1.js;
- * @description: Checking by using eval;
+ * @section 11.10.3
+ * @path 11_Expressions/11.10_Binary_Bitwise_Operators/11.10.3_OR_Operator/S11.10.3_A1.js
+ * @description Checking by using eval
  */
 
 //CHECK#1

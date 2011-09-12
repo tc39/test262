@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-9.js;
- * @description: [[Call]] - length of parameters of 'target' is 0, length of 'boundArgs' is 1, length of 'ExtraArgs' is 1, and with 'boundThis';
+ * @path chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-9.js
+ * @description [[Call]] - length of parameters of 'target' is 0, length of 'boundArgs' is 1, length of 'ExtraArgs' is 1, and with 'boundThis'
  */
 
 

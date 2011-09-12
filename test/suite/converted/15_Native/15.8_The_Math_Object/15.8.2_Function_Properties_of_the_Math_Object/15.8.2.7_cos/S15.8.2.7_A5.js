@@ -4,9 +4,9 @@
 /**
  * If x is -Infinity, Math.cos(x) is NaN
  *
- * @section: 15.8.2.7;
- * @path: 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.7_cos/S15.8.2.7_A5.js;
- * @description: Checking if Math.cos(-Infinity) is NaN;
+ * @section 15.8.2.7
+ * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.7_cos/S15.8.2.7_A5.js
+ * @description Checking if Math.cos(-Infinity) is NaN
  */
 
 // CHECK#1

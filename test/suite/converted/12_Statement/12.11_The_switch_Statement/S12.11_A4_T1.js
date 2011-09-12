@@ -4,9 +4,9 @@
 /**
  * Embedded syntax constructions of switch statement
  *
- * @section: 12.11;
- * @path: 12_Statement/12.11_The_switch_Statement/S12.11_A4_T1.js;
- * @description: Nesting one "switch" statement into StatementList of the other's;
+ * @section 12.11
+ * @path 12_Statement/12.11_The_switch_Statement/S12.11_A4_T1.js
+ * @description Nesting one "switch" statement into StatementList of the other's
  */
 
 function SwitchTest(value){

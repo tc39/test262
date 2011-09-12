@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-c-ii-3.js;
- * @description: Array.prototype.reduce - callbackfn takes 4 arguments;
+ * @path chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-c-ii-3.js
+ * @description Array.prototype.reduce - callbackfn takes 4 arguments
  */
 
 

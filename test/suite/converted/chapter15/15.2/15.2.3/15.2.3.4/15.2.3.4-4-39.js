@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-4-39.js;
- * @description: Object.getOwnPropertyNames - own accessor properties are pushed into the returned array;
+ * @path chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-4-39.js
+ * @description Object.getOwnPropertyNames - own accessor properties are pushed into the returned array
  */
 
 

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter07/7.6/7.6.1/7.6.1-5-4.js;
- * @description: Allow reserved words as property names at object initialization, accessed via indexing: new, var, catch;
+ * @path chapter07/7.6/7.6.1/7.6.1-5-4.js
+ * @description Allow reserved words as property names at object initialization, accessed via indexing: new, var, catch
  */
 
 

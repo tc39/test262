@@ -5,9 +5,9 @@
  * A property is created with name callee with property
  * attributes { DontEnum } and no others
  *
- * @section: 10.1.8;
- * @path: 10_Execution_Contexts/10.1_Definitions/10.1.8_Arguments_Object/S10.1.8_A3_T2.js;
- * @description: Checking if enumerating the arguments.callee property fails;
+ * @section 10.1.8
+ * @path 10_Execution_Contexts/10.1_Definitions/10.1.8_Arguments_Object/S10.1.8_A3_T2.js
+ * @description Checking if enumerating the arguments.callee property fails
  */
 
 //CHECK#1

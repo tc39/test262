@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-c-ii-6.js;
- * @description: Array.prototype.map - arguments to callbackfn are self consistent.;
+ * @path chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-c-ii-6.js
+ * @description Array.prototype.map - arguments to callbackfn are self consistent.
  */
 
 

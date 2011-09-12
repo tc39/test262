@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter11/11.4/11.4.1/11.4.1-5-1.js;
- * @description: delete operator returns false when deleting a direct reference to a var;
+ * @path chapter11/11.4/11.4.1/11.4.1-5-1.js
+ * @description delete operator returns false when deleting a direct reference to a var
  */
 
 

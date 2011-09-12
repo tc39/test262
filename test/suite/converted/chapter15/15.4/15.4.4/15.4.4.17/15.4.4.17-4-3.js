@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-4-3.js;
- * @description: Array.prototype.some throws TypeError if callbackfn is null;
+ * @path chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-4-3.js
+ * @description Array.prototype.some throws TypeError if callbackfn is null
  */
 
 

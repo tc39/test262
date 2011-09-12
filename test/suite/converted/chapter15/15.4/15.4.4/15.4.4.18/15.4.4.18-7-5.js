@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-7-5.js;
- * @description: Array.prototype.forEach visits deleted element in array after the call when same index is also present in prototype;
+ * @path chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-7-5.js
+ * @description Array.prototype.forEach visits deleted element in array after the call when same index is also present in prototype
  */
 
 

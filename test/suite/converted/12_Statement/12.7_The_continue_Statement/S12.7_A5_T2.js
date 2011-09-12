@@ -4,10 +4,10 @@
 /**
  * When "continue Identifier" is evaluated Identifier must be label in the label set of an enclosing (but not crossing function boundaries) IterationStatement
  *
- * @section: 12.7;
- * @path: 12_Statement/12.7_The_continue_Statement/S12.7_A5_T2.js;
- * @description: Identifier is a function name;
- * @negative;
+ * @section 12.7
+ * @path 12_Statement/12.7_The_continue_Statement/S12.7_A5_T2.js
+ * @description Identifier is a function name
+ * @negative
  */
 
 LABEL_OUT : var x=0, y=0;

@@ -8,9 +8,9 @@
  * ii) if separator is not RegExp ToString(separator) performs and
  * iii) ToInteger(limit) performs
  *
- * @section: 15.5.4.14;
- * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.14_String.prototype.split/S15.5.4.14_A1_T17.js;
- * @description: Argument is regexp, and instance is Number;
+ * @section 15.5.4.14
+ * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.14_String.prototype.split/S15.5.4.14_A1_T17.js
+ * @description Argument is regexp, and instance is Number
  */
 
 var __re = /\u0037\u0037/g;

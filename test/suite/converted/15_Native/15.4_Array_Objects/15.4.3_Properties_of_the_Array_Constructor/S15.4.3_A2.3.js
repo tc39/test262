@@ -4,9 +4,9 @@
 /**
  * The length property of Array has the attribute ReadOnly
  *
- * @section: 15.4.3;
- * @path: 15_Native/15.4_Array_Objects/15.4.3_Properties_of_the_Array_Constructor/S15.4.3_A2.3.js;
- * @description: Checking if varying the length property fails;
+ * @section 15.4.3
+ * @path 15_Native/15.4_Array_Objects/15.4.3_Properties_of_the_Array_Constructor/S15.4.3_A2.3.js
+ * @description Checking if varying the length property fails
  */
 
 //CHECK#1

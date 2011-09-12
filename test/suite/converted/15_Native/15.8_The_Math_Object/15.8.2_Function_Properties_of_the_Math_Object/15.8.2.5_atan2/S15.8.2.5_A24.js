@@ -4,9 +4,9 @@
 /**
  * Math.atan2, recommended that implementations use the approximation algorithms for IEEE 754 arithmetic contained in fdlibm
  *
- * @section: 15.8.2.5;
- * @path: 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.5_atan2/S15.8.2.5_A24.js;
- * @description: Checking if Math.atan2(argument1, argument2) is approximately equals to its mathematical values on the set of 64 argument1 values and 64 argument2 values; all the sample values is calculated with LibC;
+ * @section 15.8.2.5
+ * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.5_atan2/S15.8.2.5_A24.js
+ * @description Checking if Math.atan2(argument1, argument2) is approximately equals to its mathematical values on the set of 64 argument1 values and 64 argument2 values; all the sample values is calculated with LibC
  */
 
 $INCLUDE("math_precision.js");

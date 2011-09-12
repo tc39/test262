@@ -4,9 +4,9 @@
 /**
  * Operator x << y returns ToNumber(x) << ToNumber(y)
  *
- * @section: 11.7.1;
- * @path: 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.1_The_Left_shift_Operator/S11.7.1_A3_T2.3.js;
- * @description: Type(x) is different from Type(y) and both types vary between Number (primitive or object) and Null;
+ * @section 11.7.1
+ * @path 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.1_The_Left_shift_Operator/S11.7.1_A3_T2.3.js
+ * @description Type(x) is different from Type(y) and both types vary between Number (primitive or object) and Null
  */
 
 //CHECK#1

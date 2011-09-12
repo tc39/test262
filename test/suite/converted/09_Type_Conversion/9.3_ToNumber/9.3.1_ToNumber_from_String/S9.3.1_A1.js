@@ -4,9 +4,9 @@
 /**
  * The MV of StringNumericLiteral ::: [empty] is 0
  *
- * @section: 9.3.1, 15.7.1;
- * @path: 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A1.js;
- * @description: Number('') convert to Number by explicit transformation;
+ * @section 9.3.1, 15.7.1
+ * @path 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A1.js
+ * @description Number('') convert to Number by explicit transformation
  */
 
 // CHECK#1

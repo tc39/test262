@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-1-2.js;
- * @description: Object.keys throws TypeError if type of first param is not Object (boolean);
+ * @path chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-1-2.js
+ * @description Object.keys throws TypeError if type of first param is not Object (boolean)
  */
 
 

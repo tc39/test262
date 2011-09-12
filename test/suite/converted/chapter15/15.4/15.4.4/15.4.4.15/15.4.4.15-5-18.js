@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-5-18.js;
- * @description: Array.prototype.lastIndexOf - value of 'fromIndex' is a string containing an exponential number;
+ * @path chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-5-18.js
+ * @description Array.prototype.lastIndexOf - value of 'fromIndex' is a string containing an exponential number
  */
 
 

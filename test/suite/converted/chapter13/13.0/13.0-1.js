@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter13/13.0/13.0-1.js;
- * @description: 13.0 - multiple names in one function declaration is not allowed, two function names;
+ * @path chapter13/13.0/13.0-1.js
+ * @description 13.0 - multiple names in one function declaration is not allowed, two function names
  */
 
 

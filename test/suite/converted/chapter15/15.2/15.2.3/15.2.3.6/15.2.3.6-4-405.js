@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-405.js;
- * @description: ES5 Attributes - Failed to add a property to an object when the object's object has a property with same name and [[Writable]] attribute is set to false (Number instance);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-405.js
+ * @description ES5 Attributes - Failed to add a property to an object when the object's object has a property with same name and [[Writable]] attribute is set to false (Number instance)
  */
 
 

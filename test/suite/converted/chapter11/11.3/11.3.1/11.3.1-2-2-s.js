@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter11/11.3/11.3.1/11.3.1-2-2-s.js;
- * @description: Strict Mode - SyntaxError is thrown if the identifier 'eval' appear as a PostfixExpression(eval++);
- * @strict_only;
+ * @path chapter11/11.3/11.3.1/11.3.1-2-2-s.js
+ * @description Strict Mode - SyntaxError is thrown if the identifier 'eval' appear as a PostfixExpression(eval++)
+ * @strict_only
  */
 
 

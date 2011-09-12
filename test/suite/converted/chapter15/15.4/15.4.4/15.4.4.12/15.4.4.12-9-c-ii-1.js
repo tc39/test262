@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.12/15.4.4.12-9-c-ii-1.js;
- * @description: Array.prototype.splice will splice an array even when Array.prototype has index '0' set to read-only and 'fromPresent' less than 'actualDeleteCount (Step 9.c.ii);
+ * @path chapter15/15.4/15.4.4/15.4.4.12/15.4.4.12-9-c-ii-1.js
+ * @description Array.prototype.splice will splice an array even when Array.prototype has index '0' set to read-only and 'fromPresent' less than 'actualDeleteCount (Step 9.c.ii)
  */
 
 

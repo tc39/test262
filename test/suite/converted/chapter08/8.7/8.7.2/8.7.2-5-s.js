@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter08/8.7/8.7.2/8.7.2-5-s.js;
- * @description: Strict Mode - TypeError is thrown if LeftHandSide is a reference to a non-existent property of an non-extensible object;
- * @strict_only;
+ * @path chapter08/8.7/8.7.2/8.7.2-5-s.js
+ * @description Strict Mode - TypeError is thrown if LeftHandSide is a reference to a non-existent property of an non-extensible object
+ * @strict_only
  */
 
 

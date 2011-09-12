@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-15.js;
- * @description: Date.prototype.toISOString - value of year is Infinity Date.prototype.toISOString throw the RangeError;
+ * @path chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-15.js
+ * @description Date.prototype.toISOString - value of year is Infinity Date.prototype.toISOString throw the RangeError
  */
 
 

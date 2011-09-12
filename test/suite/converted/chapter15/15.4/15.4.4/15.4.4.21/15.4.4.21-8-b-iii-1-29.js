@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-8-b-iii-1-29.js;
- * @description: Array.prototype.reduce - applied to Function object which implements its own property get method;
+ * @path chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-8-b-iii-1-29.js
+ * @description Array.prototype.reduce - applied to Function object which implements its own property get method
  */
 
 

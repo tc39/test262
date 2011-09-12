@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.9/12.9-1.js;
- * @description: The return Statement - a return statement without an expression may have a LineTerminator before the semi-colon;
+ * @path chapter12/12.9/12.9-1.js
+ * @description The return Statement - a return statement without an expression may have a LineTerminator before the semi-colon
  */
 
 

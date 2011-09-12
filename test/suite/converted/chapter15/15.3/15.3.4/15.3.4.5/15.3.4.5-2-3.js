@@ -21,8 +21,8 @@
 /**
  * 15.3.4.5 step 2 specifies that a TypeError must be thrown if the Target is not callable.
  *
- * @path: chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-2-3.js;
- * @description: Function.prototype.bind allows Target to be a constructor (Number);
+ * @path chapter15/15.3/15.3.4/15.3.4.5/15.3.4.5-2-3.js
+ * @description Function.prototype.bind allows Target to be a constructor (Number)
  */
 
 

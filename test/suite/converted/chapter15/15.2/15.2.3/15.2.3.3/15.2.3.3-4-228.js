@@ -1,8 +1,8 @@
 
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-228.js;
- * @description: Object.getOwnPropertyDescriptor - ensure that 'writable' property of returned object is data property with correct 'writable' attribute;
+ * @path chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-228.js
+ * @description Object.getOwnPropertyDescriptor - ensure that 'writable' property of returned object is data property with correct 'writable' attribute
  */
 
 /// Copyright (c) 2009 Microsoft Corporation 

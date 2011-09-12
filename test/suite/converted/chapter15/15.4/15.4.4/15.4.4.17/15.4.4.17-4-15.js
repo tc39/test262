@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-4-15.js;
- * @description: Array.prototype.some - calling with no callbackfn is the same as passing undefined for callbackfn;
+ * @path chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-4-15.js
+ * @description Array.prototype.some - calling with no callbackfn is the same as passing undefined for callbackfn
  */
 
 

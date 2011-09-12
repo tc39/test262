@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-11.js;
- * @description: Array.prototype.every - element to be retrieved is own accessor property that overrides an inherited data property on an Array-like object;
+ * @path chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-i-11.js
+ * @description Array.prototype.every - element to be retrieved is own accessor property that overrides an inherited data property on an Array-like object
  */
 
 

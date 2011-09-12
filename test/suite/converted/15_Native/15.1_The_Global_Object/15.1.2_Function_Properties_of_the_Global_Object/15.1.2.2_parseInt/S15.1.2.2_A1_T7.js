@@ -4,9 +4,9 @@
 /**
  * Operator use ToString
  *
- * @section: 15.1.2.2, 9.8, 8.6.2.6;
- * @path: 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.2_parseInt/S15.1.2.2_A1_T7.js;
- * @description: If Type(value) is Object, evaluate ToPrimitive(value, String);
+ * @section 15.1.2.2, 9.8, 8.6.2.6
+ * @path 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.2_parseInt/S15.1.2.2_A1_T7.js
+ * @description If Type(value) is Object, evaluate ToPrimitive(value, String)
  */
 
 //CHECK#1

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-2-4.js;
- * @description: Array.prototype.forEach - 'length' is own data property that overrides an inherited data property on an Array;
+ * @path chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-2-4.js
+ * @description Array.prototype.forEach - 'length' is own data property that overrides an inherited data property on an Array
  */
 
 

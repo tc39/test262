@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-1-4.js;
- * @description: Object.isFrozen - TypeError is thrown when the first param 'O' is a string;
+ * @path chapter15/15.2/15.2.3/15.2.3.12/15.2.3.12-1-4.js
+ * @description Object.isFrozen - TypeError is thrown when the first param 'O' is a string
  */
 
 

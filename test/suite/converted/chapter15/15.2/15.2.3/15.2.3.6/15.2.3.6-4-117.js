@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-117.js;
- * @description: Object.defineProperty - 'O' is an Array, test the length property of 'O' is own data property that overrides an inherited data property (15.4.5.1 step 1);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-117.js
+ * @description Object.defineProperty - 'O' is an Array, test the length property of 'O' is own data property that overrides an inherited data property (15.4.5.1 step 1)
  */
 
 

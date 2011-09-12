@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-2-13.js;
- * @description: Array.prototype.reduce applied to Array-like object that 'length' is inherited accessor property without a get function;
+ * @path chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-2-13.js
+ * @description Array.prototype.reduce applied to Array-like object that 'length' is inherited accessor property without a get function
  */
 
 

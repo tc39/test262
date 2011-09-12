@@ -4,9 +4,9 @@
 /**
  * Result of number conversion from boolean value is 1 if the argument is true, else is +0
  *
- * @section: 9.3, 11.6.1;
- * @path: 09_Type_Conversion/9.3_ToNumber/S9.3_A3_T2.js;
- * @description: False and true convert to Number by implicit transformation;
+ * @section 9.3, 11.6.1
+ * @path 09_Type_Conversion/9.3_ToNumber/S9.3_A3_T2.js
+ * @description False and true convert to Number by implicit transformation
  */
 
 // CHECK#1

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-3-29.js;
- * @description: Array.prototype.forEach - value of 'length' is boundary value (2^32 + 1);
+ * @path chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-3-29.js
+ * @description Array.prototype.forEach - value of 'length' is boundary value (2^32 + 1)
  */
 
 

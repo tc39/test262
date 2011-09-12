@@ -5,9 +5,9 @@
  * Returns a boolean value (not a Boolean object) computed by
  * ToBoolean(value)
  *
- * @section: 15.6.1.1;
- * @path: 15_Native/15.6_Boolean_Objects/15.6.1_The_Boolean_Constructor_Called_as_a_Function/S15.6.1.1_A1_T4.js;
- * @description: Used various undefined values and null as argument;
+ * @section 15.6.1.1
+ * @path 15_Native/15.6_Boolean_Objects/15.6.1_The_Boolean_Constructor_Called_as_a_Function/S15.6.1.1_A1_T4.js
+ * @description Used various undefined values and null as argument
  */
 
 //CHECK#1

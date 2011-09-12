@@ -23,9 +23,9 @@
  * It is a SyntaxError if any Identifier value occurs more than once within a FormalParameterList of a strict mode
  * FunctionDeclaration or FunctionExpression.
  *
- * @path: chapter13/13.1/13.1-27-s.js;
- * @description: Strict Mode - SyntaxError is thrown if a function is created using a FunctionDeclaration that is contained in eval strict code and the function has three identical parameters;
- * @strict_only;
+ * @path chapter13/13.1/13.1-27-s.js
+ * @description Strict Mode - SyntaxError is thrown if a function is created using a FunctionDeclaration that is contained in eval strict code and the function has three identical parameters
+ * @strict_only
  */
 
 

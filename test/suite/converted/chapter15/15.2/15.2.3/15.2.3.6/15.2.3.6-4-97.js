@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-97.js;
- * @description: Object.defineProperty will throw TypeError when name.configurable = false, name.[[Set]] is undefined, desc.[[Set]] refers to an object (8.12.9 step 11.a.i);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-97.js
+ * @description Object.defineProperty will throw TypeError when name.configurable = false, name.[[Set]] is undefined, desc.[[Set]] refers to an object (8.12.9 step 11.a.i)
  */
 
 

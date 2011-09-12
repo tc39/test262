@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-66-1.js;
- * @description: Object.defineProperties throws TypeError when P.configurable is false, P.enumerable and desc.enumerable has different values (8.12.9 step 7.b);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-66-1.js
+ * @description Object.defineProperties throws TypeError when P.configurable is false, P.enumerable and desc.enumerable has different values (8.12.9 step 7.b)
  */
 
 

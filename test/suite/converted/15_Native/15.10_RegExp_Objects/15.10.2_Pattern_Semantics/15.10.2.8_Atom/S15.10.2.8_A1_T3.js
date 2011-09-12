@@ -6,9 +6,9 @@
  * In order for it to succeed, the pattern inside Disjunction must match at the current position, but the current position is not advanced before matching the sequel.
  * If Disjunction can match at the current position in several ways, only the first one is tried
  *
- * @section: 15.10.2.8;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.8_Atom/S15.10.2.8_A1_T3.js;
- * @description: Execute /[Jj]ava([Ss]cript)?(?=\:)/.exec("just Javascript: the way af jedi") and check results;
+ * @section 15.10.2.8
+ * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.8_Atom/S15.10.2.8_A1_T3.js
+ * @description Execute /[Jj]ava([Ss]cript)?(?=\:)/.exec("just Javascript: the way af jedi") and check results
  */
 
 __executed = /[Jj]ava([Ss]cript)?(?=\:)/.exec("just Javascript: the way af jedi");

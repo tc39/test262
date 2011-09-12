@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-0-1.js;
- * @description: The JSON lexical grammar treats whitespace as a token seperator;
+ * @path chapter15/15.12/15.12.1/15.12.1.1/15.12.1.1-0-1.js
+ * @description The JSON lexical grammar treats whitespace as a token seperator
  */
 
 

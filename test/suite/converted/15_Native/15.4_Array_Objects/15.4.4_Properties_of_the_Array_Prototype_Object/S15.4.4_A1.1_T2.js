@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * @section: 15.4.4;
- * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/S15.4.4_A1.1_T2.js;
- * @description: The Array prototype object is itself an array; its [[Class]] is "Array",;
+ * @section 15.4.4
+ * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/S15.4.4_A1.1_T2.js
+ * @description The Array prototype object is itself an array; its [[Class]] is "Array",
  */
 
 //CHECK#1

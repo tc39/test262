@@ -4,9 +4,9 @@
 /**
  * The production CharacterClass :: [ [lookahead \notin {^}] ClassRanges ] evaluates by evaluating ClassRanges to obtain a CharSet and returning that CharSet and the boolean false
  *
- * @section: 15.10.2.13;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.13_CharacterClass/S15.10.2.13_A1_T4.js;
- * @description: Execute /q[ax-zb](?=\s+)/.exec("tqaqy ") and check results;
+ * @section 15.10.2.13
+ * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.13_CharacterClass/S15.10.2.13_A1_T4.js
+ * @description Execute /q[ax-zb](?=\s+)/.exec("tqaqy ") and check results
  */
 
 __executed = /q[ax-zb](?=\s+)/.exec("tqaqy ");

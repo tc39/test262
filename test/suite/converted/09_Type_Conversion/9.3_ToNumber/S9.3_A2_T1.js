@@ -4,9 +4,9 @@
 /**
  * Result of number conversion from null value is +0
  *
- * @section: 9.3, 15.7.1;
- * @path: 09_Type_Conversion/9.3_ToNumber/S9.3_A2_T1.js;
- * @description: null convert to Number by explicit transformation;
+ * @section 9.3, 15.7.1
+ * @path 09_Type_Conversion/9.3_ToNumber/S9.3_A2_T1.js
+ * @description null convert to Number by explicit transformation
  */
 
 // CHECK #1

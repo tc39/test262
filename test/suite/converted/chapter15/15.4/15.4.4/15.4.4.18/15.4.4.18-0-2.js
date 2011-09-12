@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-0-2.js;
- * @description: Array.prototype.forEach.length must be 1;
+ * @path chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-0-2.js
+ * @description Array.prototype.forEach.length must be 1
  */
 
 
-assertTrue(Array.prototype.forEach.length === 1);
+assertTruthy(Array.prototype.forEach.length === 1);

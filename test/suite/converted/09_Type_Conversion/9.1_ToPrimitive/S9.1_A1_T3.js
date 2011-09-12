@@ -4,9 +4,9 @@
 /**
  * Result of primitive conversion from object is a default value for the Object
  *
- * @section: 9.1;
- * @path: 09_Type_Conversion/9.1_ToPrimitive/S9.1_A1_T3.js;
- * @description: Using operator "+". This operator firstly calls ToPrimitive and then calls ToString or ToNumber;
+ * @section 9.1
+ * @path 09_Type_Conversion/9.1_ToPrimitive/S9.1_A1_T3.js
+ * @description Using operator "+". This operator firstly calls ToPrimitive and then calls ToString or ToNumber
  */
 
 // CHECK#1

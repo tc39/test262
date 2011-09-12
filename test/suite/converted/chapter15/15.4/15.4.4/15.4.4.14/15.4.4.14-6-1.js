@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-6-1.js;
- * @description: Array.prototype.indexOf returns -1 if fromIndex is greater than Array length;
+ * @path chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-6-1.js
+ * @description Array.prototype.indexOf returns -1 if fromIndex is greater than Array length
  */
 
 

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-226-1.js;
- * @description: Object.defineProperty - 'Attributes' is the JSON object that uses Object's [[Get]] method to access the 'get' property of prototype object (8.10.5 step 7.a);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-226-1.js
+ * @description Object.defineProperty - 'Attributes' is the JSON object that uses Object's [[Get]] method to access the 'get' property of prototype object (8.10.5 step 7.a)
  */
 
 

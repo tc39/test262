@@ -5,9 +5,9 @@
  * The [[Class]] property of the newly constructed object
  * is set to "Date"
  *
- * @section: 15.9.3.2;
- * @path: 15_Native/15.9_Date_Objects/15.9.3_The_Date_Constructor/S15.9.3.2_A3_T1.1.js;
- * @description: Test based on delete prototype.toString;
+ * @section 15.9.3.2
+ * @path 15_Native/15.9_Date_Objects/15.9.3_The_Date_Constructor/S15.9.3.2_A3_T1.1.js
+ * @description Test based on delete prototype.toString
  */
 
 $INCLUDE("Date_constants.js");

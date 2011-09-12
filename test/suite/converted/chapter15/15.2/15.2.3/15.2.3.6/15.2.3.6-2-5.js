@@ -1,8 +1,8 @@
 
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-2-5.js;
- * @description: Object.defineProperty - argument 'P' is a number that converts to a string (value is NaN);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-2-5.js
+ * @description Object.defineProperty - argument 'P' is a number that converts to a string (value is NaN)
  */
 
 /// Copyright (c) 2009 Microsoft Corporation 

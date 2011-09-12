@@ -4,9 +4,9 @@
 /**
  * The activation object is initialised with a property with name arguments and attributes {DontDelete}
  *
- * @section: 10.1.6;
- * @path: 10_Execution_Contexts/10.1_Definitions/S10.1.6_A1_T1.js;
- * @description: Checking ifdeleting function parameter is possible;
+ * @section 10.1.6
+ * @path 10_Execution_Contexts/10.1_Definitions/S10.1.6_A1_T1.js
+ * @description Checking ifdeleting function parameter is possible
  */
 
 //CHECK#1

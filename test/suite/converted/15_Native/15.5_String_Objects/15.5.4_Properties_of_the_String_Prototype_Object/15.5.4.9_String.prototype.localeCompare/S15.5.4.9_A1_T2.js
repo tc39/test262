@@ -4,9 +4,9 @@
 /**
  * String.prototype.localeCompare(that)
  *
- * @section: 15.5.4.9;
- * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.9_String.prototype.localeCompare/S15.5.4.9_A1_T2.js;
- * @description: Call string_1.localeCompare(string_2) is equal -string_2.localeCompare(string_1);
+ * @section 15.5.4.9
+ * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.9_String.prototype.localeCompare/S15.5.4.9_A1_T2.js
+ * @description Call string_1.localeCompare(string_2) is equal -string_2.localeCompare(string_1)
  */
 
 //CHECK#1

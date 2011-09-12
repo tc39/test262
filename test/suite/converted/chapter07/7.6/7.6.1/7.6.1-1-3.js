@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter07/7.6/7.6.1/7.6.1-1-3.js;
- * @description: Allow reserved words as property names at object initialization, verified with hasOwnProperty: instanceof, typeof, else;
+ * @path chapter07/7.6/7.6.1/7.6.1-1-3.js
+ * @description Allow reserved words as property names at object initialization, verified with hasOwnProperty: instanceof, typeof, else
  */
 
 

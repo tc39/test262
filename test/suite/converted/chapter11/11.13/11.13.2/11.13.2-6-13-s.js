@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter11/11.13/11.13.2/11.13.2-6-13-s.js;
- * @description: Strict Mode - SyntaxError is thrown if the identifier arguments appear as the LeftHandSideExpression of a Compound Assignment operator(/=);
- * @strict_only;
+ * @path chapter11/11.13/11.13.2/11.13.2-6-13-s.js
+ * @description Strict Mode - SyntaxError is thrown if the identifier arguments appear as the LeftHandSideExpression of a Compound Assignment operator(/=)
+ * @strict_only
  */
 
 

@@ -4,9 +4,9 @@
 /**
  * The Object.prototype.hasOwnProperty.length property has the attribute ReadOnly
  *
- * @section: 15.2.4.5;
- * @path: 15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/15.2.4.5_Object.prototype.hasOwnProperty/S15.2.4.5_A10.js;
- * @description: Checking if varying the Object.prototype.hasOwnProperty.length property fails;
+ * @section 15.2.4.5
+ * @path 15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/15.2.4.5_Object.prototype.hasOwnProperty/S15.2.4.5_A10.js
+ * @description Checking if varying the Object.prototype.hasOwnProperty.length property fails
  */
 
 //CHECK#1

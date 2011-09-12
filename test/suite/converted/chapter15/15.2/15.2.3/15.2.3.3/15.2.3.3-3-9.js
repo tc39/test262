@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-3-9.js;
- * @description: Object.getOwnPropertyDescriptor - 'P' is own accessor property without a get function;
+ * @path chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-3-9.js
+ * @description Object.getOwnPropertyDescriptor - 'P' is own accessor property without a get function
  */
 
 

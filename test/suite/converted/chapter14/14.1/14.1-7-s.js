@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter14/14.1/14.1-7-s.js;
- * @description: 'use strict' directive - not recognized if upper case;
- * @strict_only;
+ * @path chapter14/14.1/14.1-7-s.js
+ * @description 'use strict' directive - not recognized if upper case
+ * @strict_only
  */
 
 

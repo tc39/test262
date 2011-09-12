@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-3-2.js;
- * @description: Object.defineProperties - own data property of 'Properties' which is not enumerable is not defined in 'O' ;
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-3-2.js
+ * @description Object.defineProperties - own data property of 'Properties' which is not enumerable is not defined in 'O' 
  */
 
 

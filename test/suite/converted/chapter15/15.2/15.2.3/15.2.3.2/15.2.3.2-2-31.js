@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-2-31.js;
- * @description: Object.getPrototypeOf returns null;
+ * @path chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-2-31.js
+ * @description Object.getPrototypeOf returns null
  */
 
 
-assertTrue((Object.getPrototypeOf(Object.prototype) === null));
+assertTruthy((Object.getPrototypeOf(Object.prototype) === null));

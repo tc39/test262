@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-3-28.js;
- * @description: Array.prototype.reduceRight - value of 'length' is boundary value (2^32);
+ * @path chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-3-28.js
+ * @description Array.prototype.reduceRight - value of 'length' is boundary value (2^32)
  */
 
 

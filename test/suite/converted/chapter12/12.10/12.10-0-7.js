@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.10/12.10-0-7.js;
- * @description: with introduces scope - scope removed when exiting with statement;
+ * @path chapter12/12.10/12.10-0-7.js
+ * @description with introduces scope - scope removed when exiting with statement
  */
 
 

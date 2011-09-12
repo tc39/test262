@@ -4,9 +4,9 @@
 /**
  * An Atom followed by a Quantifier is repeated the number of times specified by the Quantifier
  *
- * @section: 15.10.2.5;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.5_Term/S15.10.2.5_A1_T4.js;
- * @description: Execute /(z)((a+)?(b+)?(c))* /.exec("zaacbbbcac") and check results;
+ * @section 15.10.2.5
+ * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.5_Term/S15.10.2.5_A1_T4.js
+ * @description Execute /(z)((a+)?(b+)?(c))* /.exec("zaacbbbcac") and check results
  */
 
 __executed = /(z)((a+)?(b+)?(c))*/.exec("zaacbbbcac");

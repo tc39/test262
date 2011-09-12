@@ -4,9 +4,9 @@
 /**
  * Sine is a periodic function with period 2*PI
  *
- * @section: 15.8.2.16;
- * @path: 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.16_sin/S15.8.2.16_A6.js;
- * @description: Checking if Math.sin(x) equals to Math.sin(x+n*2*Math.PI) with precision 0.000000000003, where n is an integer from 1 to 100 and x is one of 10 float point values from 0 to 2*Math.PI;
+ * @section 15.8.2.16
+ * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.16_sin/S15.8.2.16_A6.js
+ * @description Checking if Math.sin(x) equals to Math.sin(x+n*2*Math.PI) with precision 0.000000000003, where n is an integer from 1 to 100 and x is one of 10 float point values from 0 to 2*Math.PI
  */
 
 // CHECK#1

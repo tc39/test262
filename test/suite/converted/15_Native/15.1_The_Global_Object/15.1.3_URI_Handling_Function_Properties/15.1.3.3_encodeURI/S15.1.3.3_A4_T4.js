@@ -4,9 +4,9 @@
 /**
  * URI tests
  *
- * @section: 15.1.3.3;
- * @path: 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.3_encodeURI/S15.1.3.3_A4_T4.js;
- * @description: Test some url;
+ * @section 15.1.3.3
+ * @path 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.3_encodeURI/S15.1.3.3_A4_T4.js
+ * @description Test some url
  */
 
 //CHECK#1

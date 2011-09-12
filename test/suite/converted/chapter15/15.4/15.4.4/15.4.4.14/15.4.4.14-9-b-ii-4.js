@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-ii-4.js;
- * @description: Array.prototype.indexOf - search element is NaN;
+ * @path chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-ii-4.js
+ * @description Array.prototype.indexOf - search element is NaN
  */
 
 
-assertTrue([+NaN, NaN, -NaN].indexOf(NaN) === -1);
+assertTruthy([+NaN, NaN, -NaN].indexOf(NaN) === -1);

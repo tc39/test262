@@ -4,9 +4,9 @@
 /**
  * String.prototype.charAt can't be used as constructor
  *
- * @section: 15.5.4.4, 13.2;
- * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.4_String.prototype.charAt/S15.5.4.4_A7.js;
- * @description: Checking if creating the String.prototype.charAt object fails;
+ * @section 15.5.4.4, 13.2
+ * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.4_String.prototype.charAt/S15.5.4.4_A7.js
+ * @description Checking if creating the String.prototype.charAt object fails
  */
 
 var __FACTORY = String.prototype.charAt;

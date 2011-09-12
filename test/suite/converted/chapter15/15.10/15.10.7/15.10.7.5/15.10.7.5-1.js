@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.10/15.10.7/15.10.7.5/15.10.7.5-1.js;
- * @description: RegExp.prototype.lastIndex is of type Number;
+ * @path chapter15/15.10/15.10.7/15.10.7.5/15.10.7.5-1.js
+ * @description RegExp.prototype.lastIndex is of type Number
  */
 
 
-assertTrue((typeof(RegExp.prototype.lastIndex)) === 'number');
+assertTruthy((typeof(RegExp.prototype.lastIndex)) === 'number');

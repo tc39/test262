@@ -5,9 +5,9 @@
  * If Type(x) is Object and Type(y) is primitive type,
  * return ToPrimitive(x) != y
  *
- * @section: 11.9.2, 11.9.3;
- * @path: 11_Expressions/11.9_Equality_Operators/11.9.2_The_Does_not_equals_Operator/S11.9.2_A7.8.js;
- * @description: x is object, y is primtitive;
+ * @section 11.9.2, 11.9.3
+ * @path 11_Expressions/11.9_Equality_Operators/11.9.2_The_Does_not_equals_Operator/S11.9.2_A7.8.js
+ * @description x is object, y is primtitive
  */
 
 //CHECK#1

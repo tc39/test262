@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-1-4.js;
- * @description: Object.getOwnPropertyDescriptor - TypeError is thrown when first param is a number;
+ * @path chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-1-4.js
+ * @description Object.getOwnPropertyDescriptor - TypeError is thrown when first param is a number
  */
 
 

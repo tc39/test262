@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-2.js;
- * @description: [[Call]] - 'F''s [[BoundThis]] is used as the 'this' value of calling the [[Call]] internal method of 'F''s [[TargetFunction]] when 'F' is called;
+ * @path chapter15/15.3/15.3.4/15.3.4.5.1/15.3.4.5.1-4-2.js
+ * @description [[Call]] - 'F''s [[BoundThis]] is used as the 'this' value of calling the [[Call]] internal method of 'F''s [[TargetFunction]] when 'F' is called
  */
 
 

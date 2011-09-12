@@ -4,9 +4,9 @@
 /**
  * Operator "void" evaluates UnaryExpression and returns undefined
  *
- * @section: 11.4.2;
- * @path: 11_Expressions/11.4_Unary_Operators/11.4.2_The_void_Operator/S11.4.2_A4_T4.js;
- * @description: Type(x) is undefined or null;
+ * @section 11.4.2
+ * @path 11_Expressions/11.4_Unary_Operators/11.4.2_The_void_Operator/S11.4.2_A4_T4.js
+ * @description Type(x) is undefined or null
  */
 
 //CHECK#1

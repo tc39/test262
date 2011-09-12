@@ -4,10 +4,10 @@
 /**
  * Operator --x uses GetValue and PutValue
  *
- * @section: 11.4.5, 11.6.3;
- * @path: 11_Expressions/11.4_Unary_Operators/11.4.5_Prefix_Decrement_Operator/S11.4.5_A2.1_T3.js;
- * @description: If Type(x) is not Reference, throw ReferenceError (or SyntaxError);
- * @negative;
+ * @section 11.4.5, 11.6.3
+ * @path 11_Expressions/11.4_Unary_Operators/11.4.5_Prefix_Decrement_Operator/S11.4.5_A2.1_T3.js
+ * @description If Type(x) is not Reference, throw ReferenceError (or SyntaxError)
+ * @negative
  */
 
 //CHECK#1

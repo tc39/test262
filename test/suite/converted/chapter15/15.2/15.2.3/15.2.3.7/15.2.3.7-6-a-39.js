@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-39.js;
- * @description: Object.defineProperties - 'P' is data descriptor and every fields in 'desc' is the same with 'P' (8.12.9 step 6);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-39.js
+ * @description Object.defineProperties - 'P' is data descriptor and every fields in 'desc' is the same with 'P' (8.12.9 step 6)
  */
 
 

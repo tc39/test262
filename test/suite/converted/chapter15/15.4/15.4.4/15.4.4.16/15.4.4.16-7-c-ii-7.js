@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-7.js;
- * @description: Array.prototype.every - unhandled exceptions happened in callbackfn terminate iteration;
+ * @path chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-7.js
+ * @description Array.prototype.every - unhandled exceptions happened in callbackfn terminate iteration
  */
 
 

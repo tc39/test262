@@ -4,9 +4,9 @@
 /**
  * TypeError is subclass of Error from instanceof operator point of view
  *
- * @section: 11.8.6;
- * @path: 11_Expressions/11.8_Relational_Operators/11.8.6_The_instanceof_operator/S11.8.6_A5_T1.js;
- * @description: Checking Error case;
+ * @section 11.8.6
+ * @path 11_Expressions/11.8_Relational_Operators/11.8.6_The_instanceof_operator/S11.8.6_A5_T1.js
+ * @description Checking Error case
  */
 
 var __err = new Error;

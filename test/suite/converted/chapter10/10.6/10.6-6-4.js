@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.6/10.6-6-4.js;
- * @description: 'length' property of arguments object for 0 argument function call is 0 even with formal parameters;
+ * @path chapter10/10.6/10.6-6-4.js
+ * @description 'length' property of arguments object for 0 argument function call is 0 even with formal parameters
  */
 
 

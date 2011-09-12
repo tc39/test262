@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-b-4.js;
- * @description: Array.prototype.some - properties added into own object after current position are visited on an Array-like object;
+ * @path chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-b-4.js
+ * @description Array.prototype.some - properties added into own object after current position are visited on an Array-like object
  */
 
 

@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.9/15.9.4/15.9.4.4/15.9.4.4-0-1.js;
- * @description: Date.now must exist as a function;
+ * @path chapter15/15.9/15.9.4/15.9.4.4/15.9.4.4-0-1.js
+ * @description Date.now must exist as a function
  */
 
 
-assertTrue(typeof Date.now === "function");
+assertTruthy(typeof Date.now === "function");

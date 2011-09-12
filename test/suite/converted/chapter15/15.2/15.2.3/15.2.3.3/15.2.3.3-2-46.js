@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-2-46.js;
- * @description: Object.getOwnPropertyDescriptor - TypeError exception was thrown  when 'P' is an object that both toString and valueOf wouldn't return primitive value;
+ * @path chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-2-46.js
+ * @description Object.getOwnPropertyDescriptor - TypeError exception was thrown  when 'P' is an object that both toString and valueOf wouldn't return primitive value
  */
 
 

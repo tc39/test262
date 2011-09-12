@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-0-1.js;
- * @description: Object.getPrototypeOf must exist as a function;
+ * @path chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-0-1.js
+ * @description Object.getPrototypeOf must exist as a function
  */
 
 
-assertTrue(typeof(Object.getPrototypeOf) === "function");
+assertTruthy(typeof(Object.getPrototypeOf) === "function");

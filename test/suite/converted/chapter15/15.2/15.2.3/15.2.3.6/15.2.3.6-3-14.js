@@ -23,8 +23,8 @@
  * into a property desc. Step 10 of ToPropertyDescriptor throws a TypeError
  * if the property desc ends up having a mix of accessor and data property elements.
  *
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-14.js;
- * @description: Object.defineProperty throws TypeError if setter is not callable but not undefined (Object)(8.10.5 step 8.b);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-3-14.js
+ * @description Object.defineProperty throws TypeError if setter is not callable but not undefined (Object)(8.10.5 step 8.b)
  */
 
 

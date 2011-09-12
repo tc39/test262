@@ -4,9 +4,9 @@
 /**
  * Math.SQRT1_2 is approximately 0.7071067811865476
  *
- * @section: 15.8.1.7;
- * @path: 15_Native/15.8_The_Math_Object/15.8.1_Value_Properties_of_the_Math_Object/15.8.1.7_SQRT1_2/S15.8.1.7_A1.js;
- * @description: Comparing Math.SQRT1_2 with 0.7071067811865476;
+ * @section 15.8.1.7
+ * @path 15_Native/15.8_The_Math_Object/15.8.1_Value_Properties_of_the_Math_Object/15.8.1.7_SQRT1_2/S15.8.1.7_A1.js
+ * @description Comparing Math.SQRT1_2 with 0.7071067811865476
  */
 
 $INCLUDE("math_precision.js");

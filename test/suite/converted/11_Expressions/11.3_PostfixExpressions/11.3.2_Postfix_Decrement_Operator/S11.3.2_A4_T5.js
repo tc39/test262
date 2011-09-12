@@ -4,9 +4,9 @@
 /**
  * Operator x-- returns ToNumber(x)
  *
- * @section: 11.3.2, 11.6.3;
- * @path: 11_Expressions/11.3_PostfixExpressions/11.3.2_Postfix_Decrement_Operator/S11.3.2_A4_T5.js;
- * @description: Type(x) is Object object or Function object;
+ * @section 11.3.2, 11.6.3
+ * @path 11_Expressions/11.3_PostfixExpressions/11.3.2_Postfix_Decrement_Operator/S11.3.2_A4_T5.js
+ * @description Type(x) is Object object or Function object
  */
 
 //CHECK#1

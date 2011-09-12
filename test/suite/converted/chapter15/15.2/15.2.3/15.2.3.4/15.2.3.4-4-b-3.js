@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-4-b-3.js;
- * @description: Object.getOwnPropertyNames - own property named empty('') is pushed into the returned array;
+ * @path chapter15/15.2/15.2.3/15.2.3.4/15.2.3.4-4-b-3.js
+ * @description Object.getOwnPropertyNames - own property named empty('') is pushed into the returned array
  */
 
 

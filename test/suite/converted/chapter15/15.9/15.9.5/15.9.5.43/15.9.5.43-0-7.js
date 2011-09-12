@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-7.js;
- * @description: Date.prototype.toISOString - TypeError is thrown when this is any primitive values;
+ * @path chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-7.js
+ * @description Date.prototype.toISOString - TypeError is thrown when this is any primitive values
  */
 
 

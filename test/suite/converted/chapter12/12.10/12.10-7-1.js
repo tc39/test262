@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.10/12.10-7-1.js;
- * @description: with introduces scope - restores the earlier environment on exit;
+ * @path chapter12/12.10/12.10-7-1.js
+ * @description with introduces scope - restores the earlier environment on exit
  */
 
 

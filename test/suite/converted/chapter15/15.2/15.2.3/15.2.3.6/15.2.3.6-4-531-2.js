@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-531-2.js;
- * @description: Object.defineProperty will update [[Get]] and [[Set]] attributes of indexed accessor property 'P' successfully when [[Configurable]] attribute is true, 'A' is an Array object (8.12.9 step 11);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-531-2.js
+ * @description Object.defineProperty will update [[Get]] and [[Set]] attributes of indexed accessor property 'P' successfully when [[Configurable]] attribute is true, 'A' is an Array object (8.12.9 step 11)
  */
 
 

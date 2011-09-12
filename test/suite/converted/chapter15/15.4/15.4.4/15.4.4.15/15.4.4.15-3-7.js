@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-3-7.js;
- * @description: Array.prototype.lastIndexOf - value of 'length' is a number (value is a negative number);
+ * @path chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-3-7.js
+ * @description Array.prototype.lastIndexOf - value of 'length' is a number (value is a negative number)
  */
 
 

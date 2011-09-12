@@ -4,10 +4,10 @@
 /**
  * Block within a "for-in" Expression is not allowed
  *
- * @section: 12.6.4;
- * @path: 12_Statement/12.6_Iteration_Statements/12.6.4_The_for_in_Statement/S12.6.4_A15.js;
- * @description: Using block within "for-in" Expression;
- * @negative;
+ * @section 12.6.4
+ * @path 12_Statement/12.6_Iteration_Statements/12.6.4_The_for_in_Statement/S12.6.4_A15.js
+ * @description Using block within "for-in" Expression
+ * @negative
  */
 
 var __arr=[1,2,3];

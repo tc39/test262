@@ -4,9 +4,9 @@
 /**
  * VERTICAL TAB (U+000B) may occur within strings
  *
- * @section: 7.2, 7.8.4;
- * @path: 07_Lexical_Conventions/7.2_White_Space/S7.2_A2.2_T1.js;
- * @description: Use VERTICAL TAB(\u000B and \v);
+ * @section 7.2, 7.8.4
+ * @path 07_Lexical_Conventions/7.2_White_Space/S7.2_A2.2_T1.js
+ * @description Use VERTICAL TAB(\u000B and \v)
  */
 
 // CHECK#1

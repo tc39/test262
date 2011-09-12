@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.6/10.6-10-c-ii-1.js;
- * @description: arguments[i] change with actual parameters;
+ * @path chapter10/10.6/10.6-10-c-ii-1.js
+ * @description arguments[i] change with actual parameters
  */
 
 

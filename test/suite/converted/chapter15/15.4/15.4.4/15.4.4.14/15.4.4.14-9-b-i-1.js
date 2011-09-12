@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-i-1.js;
- * @description: Array.prototype.indexOf - element to be retrieved is own data property on an Array-like object;
+ * @path chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-i-1.js
+ * @description Array.prototype.indexOf - element to be retrieved is own data property on an Array-like object
  */
 
 

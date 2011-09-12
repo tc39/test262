@@ -5,11 +5,11 @@
  * The with statement adds a computed object to the front of the
  * scope chain of the current execution context
  *
- * @section: 12.10;
- * @path: 12_Statement/12.10_The_with_Statement/S12.10_A1.7_T2.js;
- * @description: Calling a function within "with" statement declared within the statement, leading to normal completion by "return";
- * @strict_only;
- * @strict_mode_negative;
+ * @section 12.10
+ * @path 12_Statement/12.10_The_with_Statement/S12.10_A1.7_T2.js
+ * @description Calling a function within "with" statement declared within the statement, leading to normal completion by "return"
+ * @strict_only
+ * @strict_mode_negative
  */
 
 this.p1 = 1;

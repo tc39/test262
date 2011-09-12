@@ -23,8 +23,8 @@
  * of O to define the property. For newly defined accessor properties, attributes
  * missing from desc should have values set to the defaults from 8.6.1.
  *
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-3.js;
- * @description: Object.defineProperty sets missing attributes to their default values (accessor)(8.12.9 step 4.b.i);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-3.js
+ * @description Object.defineProperty sets missing attributes to their default values (accessor)(8.12.9 step 4.b.i)
  */
 
 

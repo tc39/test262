@@ -4,9 +4,9 @@
 /**
  * Operator use ToString from separator
  *
- * @section: 15.4.4.5;
- * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.5_Array_prototype_join/S15.4.4.5_A3.1_T2.js;
- * @description: If Type(separator) is Object, evaluate ToPrimitive(separator, String);
+ * @section 15.4.4.5
+ * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.5_Array_prototype_join/S15.4.4.5_A3.1_T2.js
+ * @description If Type(separator) is Object, evaluate ToPrimitive(separator, String)
  */
 
 var x = new Array(0,1,2,3);

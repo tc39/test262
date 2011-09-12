@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter07/7.6/7.6-6.js;
- * @description: 7.6 - SyntaxError expected: reserved words used as Identifier Names in UTF8: instanceof (instanceof);
+ * @path chapter07/7.6/7.6-6.js
+ * @description 7.6 - SyntaxError expected: reserved words used as Identifier Names in UTF8: instanceof (instanceof)
  */
 
 

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-7-6.js;
- * @description: Array.prototype.reduceRight returns initialValue if 'length' is 0 and initialValue is present (subclassed Array, length overridden with obj with valueOf);
+ * @path chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-7-6.js
+ * @description Array.prototype.reduceRight returns initialValue if 'length' is 0 and initialValue is present (subclassed Array, length overridden with obj with valueOf)
  */
 
 

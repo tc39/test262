@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.6/10.6-12-2.js;
- * @description: arguments.callee has correct attributes;
+ * @path chapter10/10.6/10.6-12-2.js
+ * @description arguments.callee has correct attributes
  */
 
 

@@ -4,9 +4,9 @@
 /**
  * unescapedURISet containing one instance of each character valid in uriUnescaped
  *
- * @section: 15.1.3.3;
- * @path: 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.3_encodeURI/S15.1.3.3_A3.2_T2.js;
- * @description: Complex tests, uriUnescaped :: DecimalDigit;
+ * @section 15.1.3.3
+ * @path 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.3_encodeURI/S15.1.3.3_A3.2_T2.js
+ * @description Complex tests, uriUnescaped :: DecimalDigit
  */
 
 DecimalDigit = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];

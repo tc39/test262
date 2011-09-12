@@ -4,9 +4,9 @@
 /**
  * The production Assertion :: \B evaluates by returning an internal AssertionTester closure that takes a State argument x and performs the ...
  *
- * @section: 15.10.2.6;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.6_Assertion/S15.10.2.6_A4_T3.js;
- * @description: Execute /\Bo\B/.exec("devils arise\tfor\nevil") and check results;
+ * @section 15.10.2.6
+ * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.6_Assertion/S15.10.2.6_A4_T3.js
+ * @description Execute /\Bo\B/.exec("devils arise\tfor\nevil") and check results
  */
 
 __executed = /\Bo\B/i.exec("devils arise\tfOr\nrevil");

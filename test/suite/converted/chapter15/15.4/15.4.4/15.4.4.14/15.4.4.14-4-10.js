@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-4-10.js;
- * @description: Array.prototype.indexOf - 'length' is a number of value -6e-1;
+ * @path chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-4-10.js
+ * @description Array.prototype.indexOf - 'length' is a number of value -6e-1
  */
 
 

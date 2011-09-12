@@ -4,9 +4,9 @@
 /**
  * Function is the property of global
  *
- * @section: 15.3;
- * @path: 15_Native/15.3_Function_Objects/S15.3_A1.js;
- * @description: Compare Function with this.Function;
+ * @section 15.3
+ * @path 15_Native/15.3_Function_Objects/S15.3_A1.js
+ * @description Compare Function with this.Function
  */
 
 var obj = Function;

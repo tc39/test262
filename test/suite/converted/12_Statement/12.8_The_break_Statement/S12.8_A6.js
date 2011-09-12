@@ -4,10 +4,10 @@
 /**
  * Appearing of "break" within a function call that is nested in a IterationStatement yields SyntaxError
  *
- * @section: 12.8;
- * @path: 12_Statement/12.8_The_break_Statement/S12.8_A6.js;
- * @description: Checking if using "break Identifier" within a function body appears to be invalid;
- * @negative;
+ * @section 12.8
+ * @path 12_Statement/12.8_The_break_Statement/S12.8_A6.js
+ * @description Checking if using "break Identifier" within a function body appears to be invalid
+ * @negative
  */
 
 var x=0,y=0;

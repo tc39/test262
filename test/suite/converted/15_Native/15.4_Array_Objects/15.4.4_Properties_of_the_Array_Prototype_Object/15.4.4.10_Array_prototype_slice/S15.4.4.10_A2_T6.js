@@ -5,9 +5,9 @@
  * The slice function is intentionally generic.
  * It does not require that its this value be an Array object
  *
- * @section: 15.4.4.10;
- * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.10_Array_prototype_slice/S15.4.4.10_A2_T6.js;
- * @description: If end is undefined use length;
+ * @section 15.4.4.10
+ * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.10_Array_prototype_slice/S15.4.4.10_A2_T6.js
+ * @description If end is undefined use length
  */
 
 var obj = {};

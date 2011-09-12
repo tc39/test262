@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.3/15.3.2/15.3.2.1/15.3.2.1-11-5.js;
- * @description: Duplicate combined parameter name in Function constructor allowed if body is not strict;
+ * @path chapter15/15.3/15.3.2/15.3.2.1/15.3.2.1-11-5.js
+ * @description Duplicate combined parameter name in Function constructor allowed if body is not strict
  */
 
 

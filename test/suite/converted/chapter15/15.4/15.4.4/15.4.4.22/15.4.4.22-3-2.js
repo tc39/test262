@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-3-2.js;
- * @description: Array.prototype.reduceRight applied to an Array-like object, 'length' is 0 (length overridden to false(type conversion));
+ * @path chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-3-2.js
+ * @description Array.prototype.reduceRight applied to an Array-like object, 'length' is 0 (length overridden to false(type conversion))
  */
 
 

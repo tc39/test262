@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-346.js;
- * @description: ES5 Attributes - success to update the data property ([[Writable]] is true, [[Enumerable]] is false, [[Configurable]] is true) to an accessor property;
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-346.js
+ * @description ES5 Attributes - success to update the data property ([[Writable]] is true, [[Enumerable]] is false, [[Configurable]] is true) to an accessor property
  */
 
 

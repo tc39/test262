@@ -4,10 +4,10 @@
 /**
  * Blocks within "for" braces are not allowed
  *
- * @section: 12.6.3;
- * @path: 12_Statement/12.6_Iteration_Statements/12.6.3_The_for_Statement/S12.6.3_A8_T3.js;
- * @description: Checking if execution of "for({index=0; index+=1;} index++<=10; index*2;) { arr.add(""+index);}" fails;
- * @negative;
+ * @section 12.6.3
+ * @path 12_Statement/12.6_Iteration_Statements/12.6.3_The_for_Statement/S12.6.3_A8_T3.js
+ * @description Checking if execution of "for({index=0; index+=1;} index++<=10; index*2;) { arr.add(""+index);}" fails
+ * @negative
  */
 
 var arr = [];

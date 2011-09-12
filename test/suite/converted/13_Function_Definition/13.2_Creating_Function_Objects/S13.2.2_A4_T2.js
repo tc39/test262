@@ -8,9 +8,9 @@
  * If PROTO_VAL is an object, sets the [[Prototype]] property of native ECMAScript object just created
  * to the PROTO_VAL
  *
- * @section: 13.2.2;
- * @path: 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A4_T2.js;
- * @description: Declaring a function with "__FACTORY = function()";
+ * @section 13.2.2
+ * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A4_T2.js
+ * @description Declaring a function with "__FACTORY = function()"
  */
 
 __CUBE="cube";

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-3-25.js;
- * @description: Array.prototype.reduce - value of 'length' is a negative non-integer, ensure truncation occurs in the proper direction;
+ * @path chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-3-25.js
+ * @description Array.prototype.reduce - value of 'length' is a negative non-integer, ensure truncation occurs in the proper direction
  */
 
 

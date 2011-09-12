@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-2-2.js;
- * @description: Object.keys returns the standard built-in Array (check [[Class]];
+ * @path chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-2-2.js
+ * @description Object.keys returns the standard built-in Array (check [[Class]]
  */
 
 

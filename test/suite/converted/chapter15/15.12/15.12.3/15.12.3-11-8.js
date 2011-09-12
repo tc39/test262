@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.12/15.12.3/15.12.3-11-8.js;
- * @description: JSON.stringify correctly works on top level String objects.;
+ * @path chapter15/15.12/15.12.3/15.12.3-11-8.js
+ * @description JSON.stringify correctly works on top level String objects.
  */
 
 
-assertTrue(JSON.stringify(new String('wrappered')) === '"wrappered"');
+assertTruthy(JSON.stringify(new String('wrappered')) === '"wrappered"');

@@ -4,9 +4,9 @@
 /**
  * Single and Multi line comments are used together
  *
- * @section: 7.4;
- * @path: 07_Lexical_Conventions/7.4_Comments/S7.4_A4_T3.js;
- * @description: Insert Single line comment into Multi line comment;
+ * @section 7.4
+ * @path 07_Lexical_Conventions/7.4_Comments/S7.4_A4_T3.js
+ * @description Insert Single line comment into Multi line comment
  */
 
 /*CHECK#1*/

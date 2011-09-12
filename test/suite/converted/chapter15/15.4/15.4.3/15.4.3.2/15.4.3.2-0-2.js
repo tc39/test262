@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-0-2.js;
- * @description: Array.isArray must exist as a function taking 1 parameter;
+ * @path chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-0-2.js
+ * @description Array.isArray must exist as a function taking 1 parameter
  */
 
 
-assertTrue(Array.isArray.length === 1);
+assertTruthy(Array.isArray.length === 1);

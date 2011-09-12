@@ -4,9 +4,9 @@
 /**
  * function must be evaluated inside the expression
  *
- * @section: 13;
- * @path: 13_Function_Definition/S13_A2_T1.js;
- * @description: Defining function body with "return arg";
+ * @section 13
+ * @path 13_Function_Definition/S13_A2_T1.js
+ * @description Defining function body with "return arg"
  */
 
 var x = (function __func(arg){return arg})(1);

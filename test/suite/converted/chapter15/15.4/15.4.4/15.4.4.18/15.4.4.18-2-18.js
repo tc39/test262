@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-2-18.js;
- * @description: Array.prototype.forEach applied to String object, which implements its own property get method;
+ * @path chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-2-18.js
+ * @description Array.prototype.forEach applied to String object, which implements its own property get method
  */
 
 

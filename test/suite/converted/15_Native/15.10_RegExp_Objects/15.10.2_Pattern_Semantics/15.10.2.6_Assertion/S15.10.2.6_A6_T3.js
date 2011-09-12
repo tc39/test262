@@ -4,9 +4,9 @@
 /**
  * Assertions in combination
  *
- * @section: 15.10.2.6;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.6_Assertion/S15.10.2.6_A6_T3.js;
- * @description: while asterix is non greedy it is run till matches end or colon;
+ * @section 15.10.2.6
+ * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.6_Assertion/S15.10.2.6_A6_T3.js
+ * @description while asterix is non greedy it is run till matches end or colon
  */
 
 __executed = /^.*?(:|$)/.exec("Hello: World");

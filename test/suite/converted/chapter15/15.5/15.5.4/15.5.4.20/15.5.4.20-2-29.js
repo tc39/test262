@@ -19,10 +19,10 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-29.js;
- * @description: String.prototype.trim - argument 'this' is a string(value is 'AB
- * \cd');
+ * @path chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-2-29.js
+ * @description String.prototype.trim - argument 'this' is a string(value is 'AB
+ * \cd')
  */
 
 
-assertTrue(String.prototype.trim.call("AB\n\\cd") === "AB\n\\cd");
+assertTruthy(String.prototype.trim.call("AB\n\\cd") === "AB\n\\cd");

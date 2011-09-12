@@ -7,9 +7,9 @@
  * referenced in a replace string,
  * or returned as part of an array from the regular expression matching function
  *
- * @section: 15.10.2.8;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.8_Atom/S15.10.2.8_A3_T6.js;
- * @description: Execute /(.{3})(.{4})/.exec("abcdefgh") and check results;
+ * @section 15.10.2.8
+ * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.8_Atom/S15.10.2.8_A3_T6.js
+ * @description Execute /(.{3})(.{4})/.exec("abcdefgh") and check results
  */
 
 __executed = /(.{3})(.{4})/.exec("abcdefgh");

@@ -4,9 +4,9 @@
 /**
  * First expression is evaluated first, and then second expression
  *
- * @section: 11.9.2;
- * @path: 11_Expressions/11.9_Equality_Operators/11.9.2_The_Does_not_equals_Operator/S11.9.2_A2.4_T3.js;
- * @description: Checking with undeclarated variables;
+ * @section 11.9.2
+ * @path 11_Expressions/11.9_Equality_Operators/11.9.2_The_Does_not_equals_Operator/S11.9.2_A2.4_T3.js
+ * @description Checking with undeclarated variables
  */
 
 //CHECK#1

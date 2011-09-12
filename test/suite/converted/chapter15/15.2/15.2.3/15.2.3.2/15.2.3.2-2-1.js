@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-2-1.js;
- * @description: Object.getPrototypeOf returns the [[Prototype]] of its parameter (Boolean);
+ * @path chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-2-1.js
+ * @description Object.getPrototypeOf returns the [[Prototype]] of its parameter (Boolean)
  */
 
 
-assertTrue(Object.getPrototypeOf(Boolean) === Function.prototype);
+assertTruthy(Object.getPrototypeOf(Boolean) === Function.prototype);

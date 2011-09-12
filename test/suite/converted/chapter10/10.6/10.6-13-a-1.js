@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.6/10.6-13-a-1.js;
- * @description: In non-strict mode, arguments object should have its own 'callee' property defined (Step 13.a);
+ * @path chapter10/10.6/10.6-13-a-1.js
+ * @description In non-strict mode, arguments object should have its own 'callee' property defined (Step 13.a)
  */
 
 

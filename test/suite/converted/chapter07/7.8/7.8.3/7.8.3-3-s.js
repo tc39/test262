@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter07/7.8/7.8.3/7.8.3-3-s.js;
- * @description: Strict Mode - octal extension (01) is forbidden in strict mode;
- * @strict_only;
+ * @path chapter07/7.8/7.8.3/7.8.3-3-s.js
+ * @description Strict Mode - octal extension (01) is forbidden in strict mode
+ * @strict_only
  */
 
 

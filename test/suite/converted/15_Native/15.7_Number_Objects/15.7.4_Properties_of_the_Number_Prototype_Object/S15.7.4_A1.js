@@ -5,9 +5,9 @@
  * The Number prototype object is itself a Number object
  * (its [[Class]] is "Number") whose value is +0
  *
- * @section: 15.7.4;
- * @path: 15_Native/15.7_Number_Objects/15.7.4_Properties_of_the_Number_Prototype_Object/S15.7.4_A1.js;
- * @description: Checking type and value of Number.prototype property;
+ * @section 15.7.4
+ * @path 15_Native/15.7_Number_Objects/15.7.4_Properties_of_the_Number_Prototype_Object/S15.7.4_A1.js
+ * @description Checking type and value of Number.prototype property
  */
 
 //CHECK#1

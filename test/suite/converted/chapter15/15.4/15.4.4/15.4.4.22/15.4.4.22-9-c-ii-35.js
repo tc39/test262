@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-c-ii-35.js;
- * @description: Array.prototype.reduceRight - the Arguments object can be used as accumulator;
+ * @path chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-c-ii-35.js
+ * @description Array.prototype.reduceRight - the Arguments object can be used as accumulator
  */
 
 

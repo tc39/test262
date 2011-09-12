@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-237.js;
- * @description: Object.getOwnPropertyDescriptor - ensure that 'configurable' property of returned object is data property with correct 'enumerable' attribute;
+ * @path chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-237.js
+ * @description Object.getOwnPropertyDescriptor - ensure that 'configurable' property of returned object is data property with correct 'enumerable' attribute
  */
 
 

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-21.js;
- * @description: Array.prototype.every - callbackfn called with correct parameters (kValue is correct);
+ * @path chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-7-c-ii-21.js
+ * @description Array.prototype.every - callbackfn called with correct parameters (kValue is correct)
  */
 
 

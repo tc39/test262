@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-iii-1.js;
- * @description: Array.prototype.lastIndexOf returns index of last one when more than two elements in array are eligible;
+ * @path chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-iii-1.js
+ * @description Array.prototype.lastIndexOf returns index of last one when more than two elements in array are eligible
  */
 
 
-assertTrue([2, 1, 2, 2, 1].lastIndexOf(2) === 3);
+assertTruthy([2, 1, 2, 2, 1].lastIndexOf(2) === 3);

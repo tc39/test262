@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-398.js;
- * @description: ES5 Attributes - [[Value]] attribute of data property is -Infinity;
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-398.js
+ * @description ES5 Attributes - [[Value]] attribute of data property is -Infinity
  */
 
 

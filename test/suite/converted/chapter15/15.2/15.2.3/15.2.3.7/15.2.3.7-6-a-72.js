@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-72.js;
- * @description: Object.defineProperties throws TypeError when P is data property and  P.configurable is false, P.writable is false, desc is data property and  desc.value is not equal to P.value (8.12.9 step 10.a.ii.1);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-72.js
+ * @description Object.defineProperties throws TypeError when P is data property and  P.configurable is false, P.writable is false, desc is data property and  desc.value is not equal to P.value (8.12.9 step 10.a.ii.1)
  */
 
 

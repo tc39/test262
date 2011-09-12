@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.1/15.1.2/15.1.2.2/15.1.2.2-2-1.js;
- * @description: pareseInt - 'S' is the empty string when inputString does not contain any such characters;
+ * @path chapter15/15.1/15.1.2/15.1.2.2/15.1.2.2-2-1.js
+ * @description pareseInt - 'S' is the empty string when inputString does not contain any such characters
  */
 
 
-assertTrue(isNaN(parseInt("")) && parseInt("") !== parseInt(""));
+assertTruthy(isNaN(parseInt("")) && parseInt("") !== parseInt(""));

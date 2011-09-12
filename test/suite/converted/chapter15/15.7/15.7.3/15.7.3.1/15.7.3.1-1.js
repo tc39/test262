@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.7/15.7.3/15.7.3.1/15.7.3.1-1.js;
- * @description: Number.prototype is a data property with default attribute values (false);
+ * @path chapter15/15.7/15.7.3/15.7.3.1/15.7.3.1-1.js
+ * @description Number.prototype is a data property with default attribute values (false)
  */
 
 

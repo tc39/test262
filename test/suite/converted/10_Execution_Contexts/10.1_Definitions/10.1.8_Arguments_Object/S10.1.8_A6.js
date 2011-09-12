@@ -5,9 +5,9 @@
  * The initial value of the created property length is the number
  * of actual parameter values supplied by the caller
  *
- * @section: 10.1.8;
- * @path: 10_Execution_Contexts/10.1_Definitions/10.1.8_Arguments_Object/S10.1.8_A6.js;
- * @description: Create function, that returned arguments.length;
+ * @section 10.1.8
+ * @path 10_Execution_Contexts/10.1_Definitions/10.1.8_Arguments_Object/S10.1.8_A6.js
+ * @description Create function, that returned arguments.length
  */
 
 function f1(){

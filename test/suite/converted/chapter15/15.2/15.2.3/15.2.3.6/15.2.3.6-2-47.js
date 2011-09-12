@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-2-47.js;
- * @description: Object.defineProperty - TypeError exception is thrown  when 'P' is an object that neither toString nor valueOf returns a primitive value;
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-2-47.js
+ * @description Object.defineProperty - TypeError exception is thrown  when 'P' is an object that neither toString nor valueOf returns a primitive value
  */
 
 

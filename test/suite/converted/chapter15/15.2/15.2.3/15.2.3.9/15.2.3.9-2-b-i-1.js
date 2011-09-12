@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-b-i-1.js;
- * @description: Object.freeze - The [[Wrtiable]] attribute of own data property of 'O' is set to false while other attributes are unchanged;
+ * @path chapter15/15.2/15.2.3/15.2.3.9/15.2.3.9-2-b-i-1.js
+ * @description Object.freeze - The [[Wrtiable]] attribute of own data property of 'O' is set to false while other attributes are unchanged
  */
 
 

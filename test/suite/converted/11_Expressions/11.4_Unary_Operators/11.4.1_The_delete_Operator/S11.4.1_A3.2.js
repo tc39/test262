@@ -4,9 +4,9 @@
 /**
  * If the property doesn't have the DontDelete attribute, return true
  *
- * @section: 11.4.1;
- * @path: 11_Expressions/11.4_Unary_Operators/11.4.1_The_delete_Operator/S11.4.1_A3.2.js;
- * @description: Checking declared variable;
+ * @section 11.4.1
+ * @path 11_Expressions/11.4_Unary_Operators/11.4.1_The_delete_Operator/S11.4.1_A3.2.js
+ * @description Checking declared variable
  */
 
 //CHECK#1

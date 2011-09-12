@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-10-1.js;
- * @description: Array.prototype.reduce doesn't mutate the Array on which it is called on;
+ * @path chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-10-1.js
+ * @description Array.prototype.reduce doesn't mutate the Array on which it is called on
  */
 
 

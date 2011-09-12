@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.4/10.4.2/10.4.2-2-c-1.js;
- * @description: Direct val code in non-strict mode - can instantiate variable in calling context;
+ * @path chapter10/10.4/10.4.2/10.4.2-2-c-1.js
+ * @description Direct val code in non-strict mode - can instantiate variable in calling context
  */
 
 

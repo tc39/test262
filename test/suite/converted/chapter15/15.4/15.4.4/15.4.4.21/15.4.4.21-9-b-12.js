@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-b-12.js;
- * @description: Array.prototype.reduce - deleting own property with prototype property in step 8 causes prototype index property to be visited on an Array-like object;
+ * @path chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-b-12.js
+ * @description Array.prototype.reduce - deleting own property with prototype property in step 8 causes prototype index property to be visited on an Array-like object
  */
 
 

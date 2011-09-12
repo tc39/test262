@@ -4,9 +4,9 @@
 /**
  * 1. Evaluate Expression
  *
- * @section: 12.13;
- * @path: 12_Statement/12.13_The_throw_statement/S12.13_A3_T3.js;
- * @description: Evaluating number expression;
+ * @section 12.13
+ * @path 12_Statement/12.13_The_throw_statement/S12.13_A3_T3.js
+ * @description Evaluating number expression
  */
 
 // CHECK#1

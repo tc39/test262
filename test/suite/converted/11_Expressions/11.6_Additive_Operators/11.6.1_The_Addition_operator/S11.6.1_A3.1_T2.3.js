@@ -4,9 +4,9 @@
 /**
  * If Type(Primitive(x)) is not String and Type(Primitive(y)) is not String, then operator x + y returns ToNumber(x) + ToNumber(y)
  *
- * @section: 11.6.1;
- * @path: 11_Expressions/11.6_Additive_Operators/11.6.1_The_Addition_operator/S11.6.1_A3.1_T2.3.js;
- * @description: Type(Primitive(x)) is different from Type(Primitive(y)) and both types vary between Number (primitive or object) and Undefined;
+ * @section 11.6.1
+ * @path 11_Expressions/11.6_Additive_Operators/11.6.1_The_Addition_operator/S11.6.1_A3.1_T2.3.js
+ * @description Type(Primitive(x)) is different from Type(Primitive(y)) and both types vary between Number (primitive or object) and Undefined
  */
 
 //CHECK#1

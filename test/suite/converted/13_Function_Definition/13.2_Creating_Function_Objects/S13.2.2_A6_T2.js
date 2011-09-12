@@ -8,9 +8,9 @@
  * list passed into [[Construct]] as the argument values.
  * If Type( [[Call]] returned) is not Object then return passed as this into [[Call]] object
  *
- * @section: 13.2.2;
- * @path: 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A6_T2.js;
- * @description: Declaring a function with "function __func (arg)";
+ * @section 13.2.2
+ * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A6_T2.js
+ * @description Declaring a function with "function __func (arg)"
  */
 
 var __FOO="fooValue";

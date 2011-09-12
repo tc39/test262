@@ -4,9 +4,9 @@
 /**
  * The length property of isFinite is 1
  *
- * @section: 15.1.2.5;
- * @path: 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.5_isFinite/S15.1.2.5_A2.4.js;
- * @description: isFinite.length === 1;
+ * @section 15.1.2.5
+ * @path 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.5_isFinite/S15.1.2.5_A2.4.js
+ * @description isFinite.length === 1
  */
 
 //CHECK#1

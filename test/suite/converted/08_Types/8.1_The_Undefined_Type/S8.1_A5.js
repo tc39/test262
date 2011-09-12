@@ -4,9 +4,9 @@
 /**
  * Function argument that isn't provided has a value of undefined
  *
- * @section: 8.1;
- * @path: 08_Types/8.1_The_Undefined_Type/S8.1_A5.js;
- * @description: Call function without provided argument;
+ * @section 8.1
+ * @path 08_Types/8.1_The_Undefined_Type/S8.1_A5.js
+ * @description Call function without provided argument
  */
 
 ///////////////////////////////////////

@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-ii-10.js;
- * @description: Array.prototype.indexOf - both array element and search element are Boolean type, and they have same value;
+ * @path chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-ii-10.js
+ * @description Array.prototype.indexOf - both array element and search element are Boolean type, and they have same value
  */
 
 
-assertTrue([false, true].indexOf(true) === 1);
+assertTruthy([false, true].indexOf(true) === 1);

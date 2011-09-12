@@ -4,9 +4,9 @@
 /**
  * If string.charAt(k) in [0x0080 - 0x07FF], return 2 octets (00000yyy yyzzzzzz -> 110yyyyy 10zzzzzz)
  *
- * @section: 15.1.3.3;
- * @path: 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.3_encodeURI/S15.1.3.3_A2.2_T1.js;
- * @description: Complex tests, use RFC 3629;
+ * @section 15.1.3.3
+ * @path 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.3_encodeURI/S15.1.3.3_A2.2_T1.js
+ * @description Complex tests, use RFC 3629
  */
 
 errorCount = 0;

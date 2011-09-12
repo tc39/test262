@@ -4,9 +4,9 @@
 /**
  * Result of boolean conversion from object is true
  *
- * @section: 9.2, 11.4.9;
- * @path: 09_Type_Conversion/9.2_ToBoolean/S9.2_A6_T2.js;
- * @description: Different objects convert to Boolean by implicit transformation;
+ * @section 9.2, 11.4.9
+ * @path 09_Type_Conversion/9.2_ToBoolean/S9.2_A6_T2.js
+ * @description Different objects convert to Boolean by implicit transformation
  */
 
 // CHECK#1

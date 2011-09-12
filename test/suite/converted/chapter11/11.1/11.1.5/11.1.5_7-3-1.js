@@ -24,8 +24,8 @@
  *      PropertyAssignment : set PropertyName( PropertySetParameterList ) { FunctionBody } 
  *   3.Let desc be the Property Descriptor{[[Set]]: closure, [[Enumerable]]: true, [[Configurable]]: true}
  *
- * @path: chapter11/11.1/11.1.5/11.1.5_7-3-1.js;
- * @description: Object literal - property descriptor for set property assignment;
+ * @path chapter11/11.1/11.1.5/11.1.5_7-3-1.js
+ * @description Object literal - property descriptor for set property assignment
  */
 
 

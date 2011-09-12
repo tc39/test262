@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-2-8.js;
- * @description: Array.prototype.every applied to Array-like object, 'length' is an own accessor property that overrides an inherited data property;
+ * @path chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-2-8.js
+ * @description Array.prototype.every applied to Array-like object, 'length' is an own accessor property that overrides an inherited data property
  */
 
 

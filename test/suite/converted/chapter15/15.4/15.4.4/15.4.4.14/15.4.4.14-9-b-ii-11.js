@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-ii-11.js;
- * @description: Array.prototype.indexOf - both array element and search element are Object type, and they refer to the same object;
+ * @path chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-9-b-ii-11.js
+ * @description Array.prototype.indexOf - both array element and search element are Object type, and they refer to the same object
  */
 
 

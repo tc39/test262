@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-333-8.js;
- * @description: Object.defineProperty will update [[Value]] attribute of indexed property 'P'successfully when [[Configurable]] attribute is false, [[Writable]] attribute is true and 'O' is an Arguments object (8.12.9 - step 10);
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-333-8.js
+ * @description Object.defineProperty will update [[Value]] attribute of indexed property 'P'successfully when [[Configurable]] attribute is false, [[Writable]] attribute is true and 'O' is an Arguments object (8.12.9 - step 10)
  */
 
 

@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-3.js;
- * @description: Date.prototype.toISOString must exist as a function;
+ * @path chapter15/15.9/15.9.5/15.9.5.43/15.9.5.43-0-3.js
+ * @description Date.prototype.toISOString must exist as a function
  */
 
 
-assertTrue(typeof (Date.prototype.toISOString) === "function");
+assertTruthy(typeof (Date.prototype.toISOString) === "function");

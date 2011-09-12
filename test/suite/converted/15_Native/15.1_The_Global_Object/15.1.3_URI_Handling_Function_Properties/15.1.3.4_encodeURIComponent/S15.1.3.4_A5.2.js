@@ -4,9 +4,9 @@
 /**
  * The length property of encodeURIComponent has the attribute DontDelete
  *
- * @section: 15.1.3.4, 15.2.4.5, 11.4.1;
- * @path: 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.4_encodeURIComponent/S15.1.3.4_A5.2.js;
- * @description: Checking use hasOwnProperty, delete;
+ * @section 15.1.3.4, 15.2.4.5, 11.4.1
+ * @path 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.4_encodeURIComponent/S15.1.3.4_A5.2.js
+ * @description Checking use hasOwnProperty, delete
  */
 
 //CHECK#1

@@ -4,9 +4,9 @@
 /**
  * The result of an addition is determined using the rules of IEEE 754 double-precision arithmetics
  *
- * @section: 11.6.1, 11.6.3;
- * @path: 11_Expressions/11.6_Additive_Operators/11.6.1_The_Addition_operator/S11.6.1_A4_T2.js;
- * @description: The sum of two infinities of opposite sign is NaN;
+ * @section 11.6.1, 11.6.3
+ * @path 11_Expressions/11.6_Additive_Operators/11.6.1_The_Addition_operator/S11.6.1_A4_T2.js
+ * @description The sum of two infinities of opposite sign is NaN
  */
 
 //CHECK#1

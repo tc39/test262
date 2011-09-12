@@ -6,9 +6,9 @@
  * been stored. If separator is a regular expression then
  * inside of SplitMatch helper the [[Match]] method of R is called giving it the arguments corresponding
  *
- * @section: 15.5.4.14;
- * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.14_String.prototype.split/S15.5.4.14_A4_T9.js;
- * @description: Arguments are regexp /l/ and undefined, and instance is String("hello");
+ * @section 15.5.4.14
+ * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.14_String.prototype.split/S15.5.4.14_A4_T9.js
+ * @description Arguments are regexp /l/ and undefined, and instance is String("hello")
  */
 
 var __string = new String("hello");

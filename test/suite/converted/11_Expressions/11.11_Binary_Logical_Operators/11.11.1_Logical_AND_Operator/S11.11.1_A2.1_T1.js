@@ -4,9 +4,9 @@
 /**
  * Operator x && y uses GetValue
  *
- * @section: 11.11.1, 8.7.1;
- * @path: 11_Expressions/11.11_Binary_Logical_Operators/11.11.1_Logical_AND_Operator/S11.11.1_A2.1_T1.js;
- * @description: Either Type is not Reference or GetBase is not null;
+ * @section 11.11.1, 8.7.1
+ * @path 11_Expressions/11.11_Binary_Logical_Operators/11.11.1_Logical_AND_Operator/S11.11.1_A2.1_T1.js
+ * @description Either Type is not Reference or GetBase is not null
  */
 
 //CHECK#1

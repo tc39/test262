@@ -7,10 +7,10 @@
  * 10<sup><small>-n</small></sup>)) times 10<sup><small>e</small></sup>, where n is the number
  * of characters in the second DecimalDigits and e is the MV of ExponentPart
  *
- * @section: 9.3.1, 15.7.1;
- * @path: 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A9.js;
- * @description: Compare Number('1234.5678e9') with (Number('1234')+(Number('5678')*1e-4))*1e9,
- * and +('1234.5678e-9') with (Number('1234')+(Number('5678')*1e-4))*1e-9;
+ * @section 9.3.1, 15.7.1
+ * @path 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A9.js
+ * @description Compare Number('1234.5678e9') with (Number('1234')+(Number('5678')*1e-4))*1e9,
+ * and +('1234.5678e-9') with (Number('1234')+(Number('5678')*1e-4))*1e-9
  */
 
 // CHECK#1

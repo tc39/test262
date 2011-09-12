@@ -4,9 +4,9 @@
 /**
  * Return sign * Result(17)
  *
- * @section: 15.1.2.2;
- * @path: 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.2_parseInt/S15.1.2.2_A7.3_T2.js;
- * @description: Checking algorithm for R = 2;
+ * @section 15.1.2.2
+ * @path 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.2_parseInt/S15.1.2.2_A7.3_T2.js
+ * @description Checking algorithm for R = 2
  */
 
 //CHECK#1

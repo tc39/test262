@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-2.js;
- * @description: Array.prototype.map considers new value of elements in array after it is called;
+ * @path chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-8-2.js
+ * @description Array.prototype.map considers new value of elements in array after it is called
  */
 
 

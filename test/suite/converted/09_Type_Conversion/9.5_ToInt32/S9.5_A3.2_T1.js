@@ -4,9 +4,9 @@
 /**
  * Operator uses floor, abs
  *
- * @section: 9.5;
- * @path: 09_Type_Conversion/9.5_ToInt32/S9.5_A3.2_T1.js;
- * @description: Use operator <<0;
+ * @section 9.5
+ * @path 09_Type_Conversion/9.5_ToInt32/S9.5_A3.2_T1.js
+ * @description Use operator <<0
  */
 
 // CHECK#1

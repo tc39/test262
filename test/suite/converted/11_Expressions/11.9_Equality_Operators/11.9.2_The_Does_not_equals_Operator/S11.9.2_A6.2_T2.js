@@ -4,9 +4,9 @@
 /**
  * If one expression is undefined or null and another is not, return false
  *
- * @section: 11.9.2, 11.9.3;
- * @path: 11_Expressions/11.9_Equality_Operators/11.9.2_The_Does_not_equals_Operator/S11.9.2_A6.2_T2.js;
- * @description: y is null or undefined, x is not;
+ * @section 11.9.2, 11.9.3
+ * @path 11_Expressions/11.9_Equality_Operators/11.9.2_The_Does_not_equals_Operator/S11.9.2_A6.2_T2.js
+ * @description y is null or undefined, x is not
  */
 
 //CHECK#1

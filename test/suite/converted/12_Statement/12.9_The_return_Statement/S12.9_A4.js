@@ -7,9 +7,9 @@
  * ii)  Call GetValue(Result(2)).
  * iii) Return (return, Result(3), empty)
  *
- * @section: 12.9;
- * @path: 12_Statement/12.9_The_return_Statement/S12.9_A4.js;
- * @description: Return very sophisticated expression and function;
+ * @section 12.9
+ * @path 12_Statement/12.9_The_return_Statement/S12.9_A4.js
+ * @description Return very sophisticated expression and function
  */
 
 // second derivative 

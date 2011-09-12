@@ -4,9 +4,9 @@
 /**
  * FunctionDeclaration produces a new scope
  *
- * @section: 12.2;
- * @path: 12_Statement/12.2_Variable_Statement/S12.2_A3.js;
- * @description: Using Global scope and Function scope together;
+ * @section 12.2
+ * @path 12_Statement/12.2_Variable_Statement/S12.2_A3.js
+ * @description Using Global scope and Function scope together
  */
 
 var __var = "OUT";

@@ -4,11 +4,11 @@
 /**
  * The length property of decodeURI has the attribute DontDelete
  *
- * @section: 15.1.3.1, 15.2.4.5, 11.4.1;
- * @path: 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.1_decodeURI/S15.1.3.1_A5.2.js;
- * @description: Checking use hasOwnProperty, delete;
- * @strict_only;
- * @strict_mode_negative;
+ * @section 15.1.3.1, 15.2.4.5, 11.4.1
+ * @path 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.1_decodeURI/S15.1.3.1_A5.2.js
+ * @description Checking use hasOwnProperty, delete
+ * @strict_only
+ * @strict_mode_negative
  */
 
 //CHECK#1

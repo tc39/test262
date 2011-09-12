@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-2-47.js;
- * @description: Object.getOwnPropertyDescriptor - uses inherited toString method when 'P' is an object with an own valueOf and inherited toString methods;
+ * @path chapter15/15.2/15.2.3/15.2.3.3/15.2.3.3-2-47.js
+ * @description Object.getOwnPropertyDescriptor - uses inherited toString method when 'P' is an object with an own valueOf and inherited toString methods
  */
 
 

@@ -4,9 +4,9 @@
 /**
  * Since LineTerminator between "break" and Identifier is not allowed, "break" is evaluated without label
  *
- * @section: 12.8;
- * @path: 12_Statement/12.8_The_break_Statement/S12.8_A2.js;
- * @description: Checking by using eval, inserting LineTerminator between break and Identifier;
+ * @section 12.8
+ * @path 12_Statement/12.8_The_break_Statement/S12.8_A2.js
+ * @description Checking by using eval, inserting LineTerminator between break and Identifier
  */
 
 //////////////////////////////////////////////////////////////////////////////

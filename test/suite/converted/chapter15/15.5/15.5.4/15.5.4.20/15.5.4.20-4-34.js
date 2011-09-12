@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-34.js;
- * @description: String.prototype.trim handles whitepace and lineterminators (\uFEFF\uFEFF);
+ * @path chapter15/15.5/15.5.4/15.5.4.20/15.5.4.20-4-34.js
+ * @description String.prototype.trim handles whitepace and lineterminators (\uFEFF\uFEFF)
  */
 
 
-assertTrue("\uFEFF\uFEFF".trim() === "");
+assertTruthy("\uFEFF\uFEFF".trim() === "");

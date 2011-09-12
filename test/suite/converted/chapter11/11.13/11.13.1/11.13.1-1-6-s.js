@@ -21,9 +21,9 @@
 /**
  * PutValue operates only on references (see step 3.a).
  *
- * @path: chapter11/11.13/11.13.1/11.13.1-1-6-s.js;
- * @description: simple assignment throws ReferenceError if LeftHandSide is an unresolvable reference in strict mode (base obj undefined);
- * @strict_only;
+ * @path chapter11/11.13/11.13.1/11.13.1-1-6-s.js
+ * @description simple assignment throws ReferenceError if LeftHandSide is an unresolvable reference in strict mode (base obj undefined)
+ * @strict_only
  */
 
 

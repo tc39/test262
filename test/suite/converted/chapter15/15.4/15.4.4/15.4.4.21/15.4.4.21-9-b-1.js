@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-b-1.js;
- * @description: Array.prototype.reduce returns initialvalue when Array is empty and initialValue is present;
+ * @path chapter15/15.4/15.4.4/15.4.4.21/15.4.4.21-9-b-1.js
+ * @description Array.prototype.reduce returns initialvalue when Array is empty and initialValue is present
  */
 
 

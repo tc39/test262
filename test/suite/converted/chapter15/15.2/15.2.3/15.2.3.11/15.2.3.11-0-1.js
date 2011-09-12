@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-0-1.js;
- * @description: Object.isSealed must exist as a function;
+ * @path chapter15/15.2/15.2.3/15.2.3.11/15.2.3.11-0-1.js
+ * @description Object.isSealed must exist as a function
  */
 
 

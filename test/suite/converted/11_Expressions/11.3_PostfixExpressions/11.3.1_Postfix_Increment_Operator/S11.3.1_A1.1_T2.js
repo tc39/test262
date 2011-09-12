@@ -4,10 +4,10 @@
 /**
  * Line Terminator between LeftHandSideExpression and "++" is not allowed
  *
- * @section: 11.3.1, 11.6.3, 7.3;
- * @path: 11_Expressions/11.3_PostfixExpressions/11.3.1_Postfix_Increment_Operator/S11.3.1_A1.1_T2.js;
- * @description: Carriage Return;
- * @negative;
+ * @section 11.3.1, 11.6.3, 7.3
+ * @path 11_Expressions/11.3_PostfixExpressions/11.3.1_Postfix_Increment_Operator/S11.3.1_A1.1_T2.js
+ * @description Carriage Return
+ * @negative
  */
 
 //CHECK#1

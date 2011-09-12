@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-1-1.js;
- * @description: Object.create throws TypeError if 'O' is undefined;
+ * @path chapter15/15.2/15.2.3/15.2.3.5/15.2.3.5-1-1.js
+ * @description Object.create throws TypeError if 'O' is undefined
  */
 
 

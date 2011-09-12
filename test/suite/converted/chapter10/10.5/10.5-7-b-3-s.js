@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.5/10.5-7-b-3-s.js;
- * @description: Strict Mode - Adding property to the arguments object successful under strict mode ;
- * @strict_only;
+ * @path chapter10/10.5/10.5-7-b-3-s.js
+ * @description Strict Mode - Adding property to the arguments object successful under strict mode 
+ * @strict_only
  */
 
 

@@ -4,9 +4,9 @@
 /**
  * The MV of SignedInteger ::: - DecimalDigits is the negative of the MV of DecimalDigits
  *
- * @section: 9.3.1, 15.7.1;
- * @path: 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A15.js;
- * @description: Compare -Number('1234567890') with ('-1234567890');
+ * @section 9.3.1, 15.7.1
+ * @path 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A15.js
+ * @description Compare -Number('1234567890') with ('-1234567890')
  */
 
 // CHECK#1

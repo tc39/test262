@@ -4,9 +4,9 @@
 /**
  * The production FunctionDeclaration: "function Identifier ( FormalParameterList_opt ) { FunctionBody }" is processed by function declarations
  *
- * @section: 13;
- * @path: 13_Function_Definition/S13_A4_T1.js;
- * @description: Declaring a function that returns string;
+ * @section 13
+ * @path 13_Function_Definition/S13_A4_T1.js
+ * @description Declaring a function that returns string
  */
 
 function __func(){return "zig-zig-sputnik";};

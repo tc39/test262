@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-c-i-23.js;
- * @description: Array.prototype.some - This object is an global object which contains index property;
+ * @path chapter15/15.4/15.4.4/15.4.4.17/15.4.4.17-7-c-i-23.js
+ * @description Array.prototype.some - This object is an global object which contains index property
  */
 
 

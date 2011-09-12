@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter07/7.3/7.3-4.js;
- * @description: 7.3 - ES5 recognizes the character <PS> (\u2029) as terminating SingleLineComments;
+ * @path chapter07/7.3/7.3-4.js
+ * @description 7.3 - ES5 recognizes the character <PS> (\u2029) as terminating SingleLineComments
  */
 
 

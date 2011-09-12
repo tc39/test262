@@ -4,9 +4,9 @@
 /**
  * Number.NaN is Not-a-Number
  *
- * @section: 15.7.3.4;
- * @path: 15_Native/15.7_Number_Objects/15.7.3_Properties_of_Number_Constructor/15.7.3.4_Number.NaN/S15.7.3.4_A1.js;
- * @description: Checking isNaN(Number.NaN);
+ * @section 15.7.3.4
+ * @path 15_Native/15.7_Number_Objects/15.7.3_Properties_of_Number_Constructor/15.7.3.4_Number.NaN/S15.7.3.4_A1.js
+ * @description Checking isNaN(Number.NaN)
  */
 
 // CHECK#1

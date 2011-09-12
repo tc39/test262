@@ -4,9 +4,9 @@
 /**
  * When "continue Identifier" is evaluated (continue, empty, empty) is returned
  *
- * @section: 12.7;
- * @path: 12_Statement/12.7_The_continue_Statement/S12.7_A3.js;
- * @description: Simple using continue without Identifier and labeled loop;
+ * @section 12.7
+ * @path 12_Statement/12.7_The_continue_Statement/S12.7_A3.js
+ * @description Simple using continue without Identifier and labeled loop
  */
 
 LABEL_OUT : var x=0, y=0;

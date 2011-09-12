@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.3/15.3.4/15.3.4.5.2/15.3.4.5.2-4-2.js;
- * @description: [[Construct]] - the provided arguments is used as the latter part of arguments of calling the [[Construct]] internal method of 'F''s [[TargetFunction]] when 'F' is called as constructor;
+ * @path chapter15/15.3/15.3.4/15.3.4.5.2/15.3.4.5.2-4-2.js
+ * @description [[Construct]] - the provided arguments is used as the latter part of arguments of calling the [[Construct]] internal method of 'F''s [[TargetFunction]] when 'F' is called as constructor
  */
 
 

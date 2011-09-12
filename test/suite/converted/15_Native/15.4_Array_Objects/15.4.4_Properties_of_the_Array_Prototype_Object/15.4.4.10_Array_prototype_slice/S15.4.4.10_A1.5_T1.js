@@ -4,9 +4,9 @@
 /**
  * If end is undefined use length
  *
- * @section: 15.4.4.10;
- * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.10_Array_prototype_slice/S15.4.4.10_A1.5_T1.js;
- * @description: end === undefined;
+ * @section 15.4.4.10
+ * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.10_Array_prototype_slice/S15.4.4.10_A1.5_T1.js
+ * @description end === undefined
  */
 
 var x = [0,1,2,3,4];

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-iii-7.js;
- * @description: Array.prototype.filter - return value of callbackfn is a number (value is +0);
+ * @path chapter15/15.4/15.4.4/15.4.4.20/15.4.4.20-9-c-iii-7.js
+ * @description Array.prototype.filter - return value of callbackfn is a number (value is +0)
  */
 
 

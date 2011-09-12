@@ -24,8 +24,8 @@
  * current.[[Enumerable]] and desc.[[Enumerable]] are the boolean negations
  * of each other.
  *
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-8.js;
- * @description: Object.defineProperty throws TypeError when changing [[Enumerable]] from false to true on non-configurable data properties;
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-8.js
+ * @description Object.defineProperty throws TypeError when changing [[Enumerable]] from false to true on non-configurable data properties
  */
 
 

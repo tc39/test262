@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-8-1.js;
- * @description: Array.prototype.indexOf with negative fromIndex;
+ * @path chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-8-1.js
+ * @description Array.prototype.indexOf with negative fromIndex
  */
 
 

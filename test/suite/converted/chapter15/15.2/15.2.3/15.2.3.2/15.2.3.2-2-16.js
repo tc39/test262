@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-2-16.js;
- * @description: Object.getPrototypeOf returns the [[Prototype]] of its parameter (TypeError);
+ * @path chapter15/15.2/15.2.3/15.2.3.2/15.2.3.2-2-16.js
+ * @description Object.getPrototypeOf returns the [[Prototype]] of its parameter (TypeError)
  */
 
 
-assertTrue(Object.getPrototypeOf(TypeError) === Function.prototype);
+assertTruthy(Object.getPrototypeOf(TypeError) === Function.prototype);

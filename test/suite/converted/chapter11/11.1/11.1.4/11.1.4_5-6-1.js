@@ -25,8 +25,8 @@
  * 6.Call the [[DefineOwnProperty]] internal method of array with arguments ToString(ToUint32((pad+len)) and the Property Descriptor { [[Value]]: initValue
  *     , [[Writable]]: true, [[Enumerable]]: true, [[Configurable]]: true}, and false.
  *
- * @path: chapter11/11.1/11.1.4/11.1.4_5-6-1.js;
- * @description: Initialize array using ElementList (ElementList , Elisionopt AssignmentExpression) when index property (read-only) exists in Array.prototype (step 6);
+ * @path chapter11/11.1/11.1.4/11.1.4_5-6-1.js
+ * @description Initialize array using ElementList (ElementList , Elisionopt AssignmentExpression) when index property (read-only) exists in Array.prototype (step 6)
  */
 
 

@@ -4,9 +4,9 @@
 /**
  * DecimalLiteral :: DecimalIntegerLiteral.
  *
- * @section: 7.8.3;
- * @path: 07_Lexical_Conventions/7.8_Literals/7.8.3_Numeric_Literals/S7.8.3_A3.1_T1.js;
- * @description: DecimalIntegerLiteral :: 0, NoNZeroDigit;
+ * @section 7.8.3
+ * @path 07_Lexical_Conventions/7.8_Literals/7.8.3_Numeric_Literals/S7.8.3_A3.1_T1.js
+ * @description DecimalIntegerLiteral :: 0, NoNZeroDigit
  */
 
 //CHECK#0

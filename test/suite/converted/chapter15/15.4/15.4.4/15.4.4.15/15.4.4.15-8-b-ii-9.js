@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-ii-9.js;
- * @description: Array.prototype.lastIndexOf - both array element and search element are strings, and they have exactly the same sequence of characters;
+ * @path chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-b-ii-9.js
+ * @description Array.prototype.lastIndexOf - both array element and search element are strings, and they have exactly the same sequence of characters
  */
 
 
-assertTrue(["abc", "ab", "bca", ""].lastIndexOf("abc") === 0);
+assertTruthy(["abc", "ab", "bca", ""].lastIndexOf("abc") === 0);

@@ -4,9 +4,9 @@
 /**
  * Evaluate the production ArrayLiteral: [ AssignmentExpression, Elision ]
  *
- * @section: 11.1.4;
- * @path: 11_Expressions/11.1_Primary_Expressions/11.1.4_Array_Initialiser/S11.1.4_A1.5.js;
- * @description: Checking various properteis and contents of the array defined with "var array = [4,5,,,,]";
+ * @section 11.1.4
+ * @path 11_Expressions/11.1_Primary_Expressions/11.1.4_Array_Initialiser/S11.1.4_A1.5.js
+ * @description Checking various properteis and contents of the array defined with "var array = [4,5,,,,]"
  */
 
 var array = [4,5,,,,];

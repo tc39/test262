@@ -4,9 +4,9 @@
 /**
  * If ToBoolean(x) is false, return z
  *
- * @section: 11.12;
- * @path: 11_Expressions/11.12_Conditional_Operator/S11.12_A3_T3.js;
- * @description: Type(y) and Type(z) are string primitives;
+ * @section 11.12
+ * @path 11_Expressions/11.12_Conditional_Operator/S11.12_A3_T3.js
+ * @description Type(y) and Type(z) are string primitives
  */
 
 //CHECK#1

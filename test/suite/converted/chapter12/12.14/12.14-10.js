@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.14/12.14-10.js;
- * @description: catch introduces scope - name lookup finds function parameter;
+ * @path chapter12/12.14/12.14-10.js
+ * @description catch introduces scope - name lookup finds function parameter
  */
 
 

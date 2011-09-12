@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-6-1.js;
- * @description: Array.prototype.map - Array.isArray returns true when input argument is the ourput array;
+ * @path chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-6-1.js
+ * @description Array.prototype.map - Array.isArray returns true when input argument is the ourput array
  */
 
 

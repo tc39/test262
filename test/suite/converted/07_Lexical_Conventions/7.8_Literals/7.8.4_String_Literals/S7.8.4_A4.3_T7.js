@@ -4,9 +4,9 @@
 /**
  * NonEscapeSequence is not EscapeCharacter
  *
- * @section: 7.8.4;
- * @path: 07_Lexical_Conventions/7.8_Literals/7.8.4_String_Literals/S7.8.4_A4.3_T7.js;
- * @description: EscapeCharacter :: SingleEscapeCharacter :: one of b f n r t v;
+ * @section 7.8.4
+ * @path 07_Lexical_Conventions/7.8_Literals/7.8.4_String_Literals/S7.8.4_A4.3_T7.js
+ * @description EscapeCharacter :: SingleEscapeCharacter :: one of b f n r t v
  */
 
 //CHECK#bfnrtv

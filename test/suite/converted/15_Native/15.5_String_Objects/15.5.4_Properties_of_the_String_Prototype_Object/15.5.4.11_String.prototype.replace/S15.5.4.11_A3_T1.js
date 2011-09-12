@@ -4,9 +4,9 @@
 /**
  * replace with regexp /(uid=)(\d+)/ returns
  *
- * @section: 15.5.4.11;
- * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.11_String.prototype.replace/S15.5.4.11_A3_T1.js;
- * @description: replaceValue is "$11" + 15;
+ * @section 15.5.4.11
+ * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.11_String.prototype.replace/S15.5.4.11_A3_T1.js
+ * @description replaceValue is "$11" + 15
  */
 
 var __str = 'uid=31';

@@ -4,9 +4,9 @@
 /**
  * Operator x / y returns ToNumber(x) / ToNumber(y)
  *
- * @section: 11.5.2;
- * @path: 11_Expressions/11.5_Multiplicative_Operators/11.5.2_Applying_the_slash_Operator/S11.5.2_A3_T2.1.js;
- * @description: Type(x) is different from Type(y) and both types vary between Number (primitive or object) and Boolean (primitive and object);
+ * @section 11.5.2
+ * @path 11_Expressions/11.5_Multiplicative_Operators/11.5.2_Applying_the_slash_Operator/S11.5.2_A3_T2.1.js
+ * @description Type(x) is different from Type(y) and both types vary between Number (primitive or object) and Boolean (primitive and object)
  */
 
 //CHECK#1

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-a-4.js;
- * @description: Object.keys - Verify that 'configurable' attribute of element of returned array is correct;
+ * @path chapter15/15.2/15.2.3/15.2.3.14/15.2.3.14-5-a-4.js
+ * @description Object.keys - Verify that 'configurable' attribute of element of returned array is correct
  */
 
 

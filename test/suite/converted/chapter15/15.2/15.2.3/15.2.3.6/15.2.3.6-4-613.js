@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-613.js;
- * @description: ES5 Attributes - all attributes in Object.lastIndexOf are correct;
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-613.js
+ * @description ES5 Attributes - all attributes in Object.lastIndexOf are correct
  */
 
 

@@ -4,9 +4,9 @@
 /**
  * First expression is evaluated first, and then second expression
  *
- * @section: 11.8.6;
- * @path: 11_Expressions/11.8_Relational_Operators/11.8.6_The_instanceof_operator/S11.8.6_A2.4_T1.js;
- * @description: Checking with "=";
+ * @section 11.8.6
+ * @path 11_Expressions/11.8_Relational_Operators/11.8.6_The_instanceof_operator/S11.8.6_A2.4_T1.js
+ * @description Checking with "="
  */
 
 //CHECK#1 

@@ -4,9 +4,9 @@
 /**
  * If length is zero, return the empty string
  *
- * @section: 15.4.4.5;
- * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.5_Array_prototype_join/S15.4.4.5_A1.1_T1.js;
- * @description: Checking this use new Array() and [];
+ * @section 15.4.4.5
+ * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.5_Array_prototype_join/S15.4.4.5_A1.1_T1.js
+ * @description Checking this use new Array() and []
  */
 
 //CHECK#1

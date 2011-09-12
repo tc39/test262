@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-0-2.js;
- * @description: Array.prototype.reduceRight.length must be 1;
+ * @path chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-0-2.js
+ * @description Array.prototype.reduceRight.length must be 1
  */
 
 
-assertTrue(Array.prototype.reduceRight.length === 1);
+assertTruthy(Array.prototype.reduceRight.length === 1);

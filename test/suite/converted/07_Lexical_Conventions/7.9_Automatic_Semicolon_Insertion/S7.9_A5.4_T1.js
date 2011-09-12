@@ -4,9 +4,9 @@
 /**
  * Check Prefix Decrement Operator for automatic semicolon insertion
  *
- * @section: 7.9, 12.4, 11.13.2;
- * @path: 07_Lexical_Conventions/7.9_Automatic_Semicolon_Insertion/S7.9_A5.4_T1.js;
- * @description: Try use Variable1 \n --Variable2 construction;
+ * @section 7.9, 12.4, 11.13.2
+ * @path 07_Lexical_Conventions/7.9_Automatic_Semicolon_Insertion/S7.9_A5.4_T1.js
+ * @description Try use Variable1 \n --Variable2 construction
  */
 
 //CHECK#1

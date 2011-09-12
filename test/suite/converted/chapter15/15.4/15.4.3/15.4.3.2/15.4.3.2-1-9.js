@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-9.js;
- * @description: Array.isArray applied to Date object;
+ * @path chapter15/15.4/15.4.3/15.4.3.2/15.4.3.2-1-9.js
+ * @description Array.isArray applied to Date object
  */
 
 
-assertTrue(!Array.isArray(new Date()));
+assertTruthy(!Array.isArray(new Date()));

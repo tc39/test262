@@ -4,9 +4,9 @@
 /**
  * String.prototype.replace (searchValue, replaceValue)
  *
- * @section: 15.5.4.11;
- * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.11_String.prototype.replace/S15.5.4.11_A1_T14.js;
- * @description: Instance is string, searchValue is regular expression;
+ * @section 15.5.4.11
+ * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.11_String.prototype.replace/S15.5.4.11_A1_T14.js
+ * @description Instance is string, searchValue is regular expression
  */
 
 var __reg = new RegExp("77");

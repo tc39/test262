@@ -4,9 +4,9 @@
 /**
  * Operator x = y PutValue(x, y)
  *
- * @section: 11.13.1;
- * @path: 11_Expressions/11.13_Assignment_Operators/11.13.1_Simple_Assignment/S11.13.1_A3.1.js;
- * @description: Checking Expression and Variable statements;
+ * @section 11.13.1
+ * @path 11_Expressions/11.13_Assignment_Operators/11.13.1_Simple_Assignment/S11.13.1_A3.1.js
+ * @description Checking Expression and Variable statements
  */
 
 //CHECK#1

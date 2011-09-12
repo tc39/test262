@@ -4,10 +4,10 @@
 /**
  * Only AssignmentExpression is admitted when variable is initialized
  *
- * @section: 12.2;
- * @path: 12_Statement/12.2_Variable_Statement/S12.2_A8_T8.js;
- * @description: Checking if execution of "var x in __arr" fails;
- * @negative;
+ * @section 12.2
+ * @path 12_Statement/12.2_Variable_Statement/S12.2_A8_T8.js
+ * @description Checking if execution of "var x in __arr" fails
+ * @negative
  */
 
 __arr = [];

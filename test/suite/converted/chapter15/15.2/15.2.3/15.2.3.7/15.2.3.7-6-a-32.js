@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-32.js;
- * @description: Object.defineProperties - 'desc' is generic descriptor without any attribute, test 'P' is defined in 'obj' with all default attribute values (8.12.9 step 4.a.i);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-32.js
+ * @description Object.defineProperties - 'desc' is generic descriptor without any attribute, test 'P' is defined in 'obj' with all default attribute values (8.12.9 step 4.a.i)
  */
 
 

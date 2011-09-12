@@ -4,9 +4,9 @@
 /**
  * The FunctionBody must be SourceElements
  *
- * @section: 13;
- * @path: 13_Function_Definition/S13_A7_T1.js;
- * @description: Using only SourceElements within the FunctionBody;
+ * @section 13
+ * @path 13_Function_Definition/S13_A7_T1.js
+ * @description Using only SourceElements within the FunctionBody
  */
 
 function __func(){'ground control to major tom'};

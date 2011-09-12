@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-b-9.js;
- * @description: Array.prototype.reduceRight - deleting own property in step 8 causes deleted index property not to be visited on an Array;
+ * @path chapter15/15.4/15.4.4/15.4.4.22/15.4.4.22-9-b-9.js
+ * @description Array.prototype.reduceRight - deleting own property in step 8 causes deleted index property not to be visited on an Array
  */
 
 

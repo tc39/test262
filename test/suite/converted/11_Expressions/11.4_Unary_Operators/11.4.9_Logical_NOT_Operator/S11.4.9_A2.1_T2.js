@@ -4,9 +4,9 @@
 /**
  * Operator !x uses GetValue
  *
- * @section: 11.4.9;
- * @path: 11_Expressions/11.4_Unary_Operators/11.4.9_Logical_NOT_Operator/S11.4.9_A2.1_T2.js;
- * @description: If GetBase(x) is null, throw ReferenceError;
+ * @section 11.4.9
+ * @path 11_Expressions/11.4_Unary_Operators/11.4.9_Logical_NOT_Operator/S11.4.9_A2.1_T2.js
+ * @description If GetBase(x) is null, throw ReferenceError
  */
 
 //CHECK#1

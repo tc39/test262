@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-3-13.js;
- * @description: Array.prototype.map - value of 'length' is string that is able to convert to number primitive (value is a decimal number);
+ * @path chapter15/15.4/15.4.4/15.4.4.19/15.4.4.19-3-13.js
+ * @description Array.prototype.map - value of 'length' is string that is able to convert to number primitive (value is a decimal number)
  */
 
 

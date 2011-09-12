@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-7-c-ii-12.js;
- * @description: Array.prototype.forEach - callbackfn is called with 3 formal parameter;
+ * @path chapter15/15.4/15.4.4/15.4.4.18/15.4.4.18-7-c-ii-12.js
+ * @description Array.prototype.forEach - callbackfn is called with 3 formal parameter
  */
 
 

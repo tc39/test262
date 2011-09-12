@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.10/15.10.4/15.10.4.1-4.js;
- * @description: RegExp - the SyntaxError is not thrown when flags is 'gim';
+ * @path chapter15/15.10/15.10.4/15.10.4.1-4.js
+ * @description RegExp - the SyntaxError is not thrown when flags is 'gim'
  */
 
 

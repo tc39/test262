@@ -4,9 +4,9 @@
 /**
  * The "length" property of the "parse" is 1
  *
- * @section: 15.9.4.2;
- * @path: 15_Native/15.9_Date_Objects/15.9.4_Properties_of_the_Date_Constructor/15.9.4.2_Date.parse/S15.9.4.2_A2_T1.js;
- * @description: The "length" property of the "parse" is 1;
+ * @section 15.9.4.2
+ * @path 15_Native/15.9_Date_Objects/15.9.4_Properties_of_the_Date_Constructor/15.9.4.2_Date.parse/S15.9.4.2_A2_T1.js
+ * @description The "length" property of the "parse" is 1
  */
 
 if(Date.parse.hasOwnProperty("length") !== true){

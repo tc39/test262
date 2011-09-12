@@ -4,9 +4,9 @@
 /**
  * Assignment to string literals calls String constructor
  *
- * @section: 8.4, 7.8.4;
- * @path: 08_Types/8.4_The_String_Type/S8.4_A9_T3.js;
- * @description: Simple empty string variable compare with empty object String;
+ * @section 8.4, 7.8.4
+ * @path 08_Types/8.4_The_String_Type/S8.4_A9_T3.js
+ * @description Simple empty string variable compare with empty object String
  */
 
 var str="";

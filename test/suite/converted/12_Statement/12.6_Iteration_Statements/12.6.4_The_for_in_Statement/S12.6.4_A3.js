@@ -4,9 +4,9 @@
 /**
  * The production IterationStatement: "for (var VariableDeclarationNoIn in Expression) Statement"
  *
- * @section: 12.6.4;
- * @path: 12_Statement/12.6_Iteration_Statements/12.6.4_The_for_in_Statement/S12.6.4_A3.js;
- * @description: Using an array as an Expression is appropriate. Here Expression is an array of numbers. Eval is used;
+ * @section 12.6.4
+ * @path 12_Statement/12.6_Iteration_Statements/12.6.4_The_for_in_Statement/S12.6.4_A3.js
+ * @description Using an array as an Expression is appropriate. Here Expression is an array of numbers. Eval is used
  */
 
 __str="";

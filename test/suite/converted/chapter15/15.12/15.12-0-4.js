@@ -25,8 +25,8 @@
  * unless otherwise specified. This default applies to the properties on
  * JSON, and we should not be able to enumerate them.
  *
- * @path: chapter15/15.12/15.12-0-4.js;
- * @description: JSON object's properties must be non enumerable;
+ * @path chapter15/15.12/15.12-0-4.js
+ * @description JSON object's properties must be non enumerable
  */
 
 

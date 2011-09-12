@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-4-6.js;
- * @description: Array.prototype.indexOf returns -1 if 'length' is 0 (subclassed Array, length overridden with obj with valueOf);
+ * @path chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-4-6.js
+ * @description Array.prototype.indexOf returns -1 if 'length' is 0 (subclassed Array, length overridden with obj with valueOf)
  */
 
 

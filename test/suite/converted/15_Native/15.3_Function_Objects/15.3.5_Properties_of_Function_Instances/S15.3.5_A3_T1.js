@@ -4,9 +4,9 @@
 /**
  * every function instance has a [[Construct]] property
  *
- * @section: 15.3.5;
- * @path: 15_Native/15.3_Function_Objects/15.3.5_Properties_of_Function_Instances/S15.3.5_A3_T1.js;
- * @description: As constructor use Function("var x =1; this.y=2;return \"OK\";");
+ * @section 15.3.5
+ * @path 15_Native/15.3_Function_Objects/15.3.5_Properties_of_Function_Instances/S15.3.5_A3_T1.js
+ * @description As constructor use Function("var x =1; this.y=2;return \"OK\";")
  */
 
 FACTORY = Function("var x =1; this.y=2;return \"OK\";");

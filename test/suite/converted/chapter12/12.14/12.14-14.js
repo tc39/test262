@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter12/12.14/12.14-14.js;
- * @description: Exception object is a function, when an exception parameter is called as a function in catch block, global object is passed as the this value;
+ * @path chapter12/12.14/12.14-14.js
+ * @description Exception object is a function, when an exception parameter is called as a function in catch block, global object is passed as the this value
  */
 
 

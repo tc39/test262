@@ -4,9 +4,9 @@
 /**
  * The [[Class]] property of the newly constructed object is set to "String"
  *
- * @section: 15.5.2.1;
- * @path: 15_Native/15.5_String_Objects/15.5.2_The_String_Constructor/S15.5.2.1_A3.js;
- * @description: Creating string object with "new String(string)" and changing toString property to Object.prototype.toString;
+ * @section 15.5.2.1
+ * @path 15_Native/15.5_String_Objects/15.5.2_The_String_Constructor/S15.5.2.1_A3.js
+ * @description Creating string object with "new String(string)" and changing toString property to Object.prototype.toString
  */
 
 var __str__obj = new String("seamaid");

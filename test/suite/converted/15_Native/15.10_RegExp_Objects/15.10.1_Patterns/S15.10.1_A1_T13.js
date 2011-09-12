@@ -4,9 +4,9 @@
 /**
  * RegExp syntax errors must be caught when matcher(s) compiles
  *
- * @section: 15.10.1;
- * @path: 15_Native/15.10_RegExp_Objects/15.10.1_Patterns/S15.10.1_A1_T13.js;
- * @description: Tested RegExp is "x{1}{1,}";
+ * @section 15.10.1
+ * @path 15_Native/15.10_RegExp_Objects/15.10.1_Patterns/S15.10.1_A1_T13.js
+ * @description Tested RegExp is "x{1}{1,}"
  */
 
 //CHECK#1

@@ -7,9 +7,9 @@
  * 2. Call GetValue(Result(1)).
  * 3. Return (normal, Result(2), empty)
  *
- * @section: 12.4;
- * @path: 12_Statement/12.4_Expression_Statement/S12.4_A2_T1.js;
- * @description: Checking by using eval "(eval("x+1+x==1"))";
+ * @section 12.4
+ * @path 12_Statement/12.4_Expression_Statement/S12.4_A2_T1.js
+ * @description Checking by using eval "(eval("x+1+x==1"))"
  */
 
 x=1;

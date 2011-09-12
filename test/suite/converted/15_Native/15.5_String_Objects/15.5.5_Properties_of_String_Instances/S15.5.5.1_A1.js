@@ -4,9 +4,9 @@
 /**
  * length property contains the number of characters in the String value represented by this String object
  *
- * @section: 15.5.5.1;
- * @path: 15_Native/15.5_String_Objects/15.5.5_Properties_of_String_Instances/S15.5.5.1_A1.js;
- * @description: Create strings and check its length;
+ * @section 15.5.5.1
+ * @path 15_Native/15.5_String_Objects/15.5.5_Properties_of_String_Instances/S15.5.5.1_A1.js
+ * @description Create strings and check its length
  */
 
 var __str__instance = new String("ABC\u0041\u0042\u0043");

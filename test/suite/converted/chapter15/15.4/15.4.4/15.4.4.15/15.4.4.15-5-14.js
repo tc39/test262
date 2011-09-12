@@ -19,12 +19,12 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-5-14.js;
- * @description: Array.prototype.lastIndexOf - value of 'fromIndex' is a number (value is NaN);
+ * @path chapter15/15.4/15.4.4/15.4.4.15/15.4.4.15-5-14.js
+ * @description Array.prototype.lastIndexOf - value of 'fromIndex' is a number (value is NaN)
  */
 
 
-assertTrue([0, true].lastIndexOf(true, NaN) === -1 && // from Index will be convert to +0
+assertTruthy([0, true].lastIndexOf(true, NaN) === -1 && // from Index will be convert to +0
             [true, 0].lastIndexOf(true, NaN) === 0 &&
             [0, true].lastIndexOf(true, -NaN) === -1 &&
             [true, 0].lastIndexOf(true, -NaN) === 0);

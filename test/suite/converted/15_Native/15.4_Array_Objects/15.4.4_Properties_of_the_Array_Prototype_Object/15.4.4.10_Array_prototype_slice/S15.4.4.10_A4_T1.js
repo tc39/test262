@@ -4,9 +4,9 @@
 /**
  * [[Get]] from not an inherited property
  *
- * @section: 15.4.4.10, 8.6.2.1, 15.2.4.5;
- * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.10_Array_prototype_slice/S15.4.4.10_A4_T1.js;
- * @description: [[Prototype]] of Array instance is Array.prototype;
+ * @section 15.4.4.10, 8.6.2.1, 15.2.4.5
+ * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.10_Array_prototype_slice/S15.4.4.10_A4_T1.js
+ * @description [[Prototype]] of Array instance is Array.prototype
  */
 
 Array.prototype[1] = 1;

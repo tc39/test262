@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-19.js;
- * @description: Object.defineProperties - 'O' is a RegExp object which implements its own [[GetOwnProperty]] method to get 'P' (8.12.9 step 1 ) ;
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-19.js
+ * @description Object.defineProperties - 'O' is a RegExp object which implements its own [[GetOwnProperty]] method to get 'P' (8.12.9 step 1 ) 
  */
 
 

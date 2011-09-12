@@ -4,11 +4,11 @@
 /**
  * String.prototype.substring (start, end)
  *
- * @section: 15.5.4.15;
- * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.15_String.prototype.substring/S15.5.4.15_A1_T13.js;
- * @description: Arguments are objects, and instance is string.
+ * @section 15.5.4.15
+ * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.15_String.prototype.substring/S15.5.4.15_A1_T13.js
+ * @description Arguments are objects, and instance is string.
  * First object have overrided valueOf and toString functions.
- * Second object have overrided toString function, that return exception;
+ * Second object have overrided toString function, that return exception
  */
 
 var __obj = {valueOf:function(){return {};}, toString:function(){return 1;}};

@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-2-10.js;
- * @description: Array.prototype.indexOf - 'length' is inherited accessor property;
+ * @path chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-2-10.js
+ * @description Array.prototype.indexOf - 'length' is inherited accessor property
  */
 
 

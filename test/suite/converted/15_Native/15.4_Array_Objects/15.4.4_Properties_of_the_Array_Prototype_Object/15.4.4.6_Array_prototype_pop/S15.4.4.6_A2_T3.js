@@ -5,10 +5,10 @@
  * The pop function is intentionally generic.
  * It does not require that its this value be an Array object
  *
- * @section: 15.4.4.6;
- * @path: 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.6_Array_prototype_pop/S15.4.4.6_A2_T3.js;
- * @description: The last element ToUint32(length) - 1 of the array is removed from the array
- * and returned;
+ * @section 15.4.4.6
+ * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.6_Array_prototype_pop/S15.4.4.6_A2_T3.js
+ * @description The last element ToUint32(length) - 1 of the array is removed from the array
+ * and returned
  */
 
 var obj = {};

@@ -4,11 +4,11 @@
 /**
  * String.prototype.replace (searchValue, replaceValue)
  *
- * @section: 15.5.4.11;
- * @path: 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.11_String.prototype.replace/S15.5.4.11_A1_T13.js;
- * @description: Call replace (searchValue, replaceValue) function with objects arguments of string.
+ * @section 15.5.4.11
+ * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.11_String.prototype.replace/S15.5.4.11_A1_T13.js
+ * @description Call replace (searchValue, replaceValue) function with objects arguments of string.
  * First objects have overrided toString and valueOf functions.
- * Second objects have overrided toString function, that throw exception;
+ * Second objects have overrided toString function, that throw exception
  */
 
 var __obj = {toString:function(){return {};}, valueOf:function(){return 1;}};

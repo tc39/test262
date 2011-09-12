@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-53.js;
- * @description: Object.defineProperties - both desc.value and P.value are Ojbects which refer to the same Object (8.12.9 step 6);
+ * @path chapter15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-53.js
+ * @description Object.defineProperties - both desc.value and P.value are Ojbects which refer to the same Object (8.12.9 step 6)
  */
 
 

@@ -29,8 +29,8 @@
  * RegExp.prototype
  * Error.prototype
  *
- * @path: chapter15/15.2/15.2.3/15.2.3.13/15.2.3.13-2-21.js;
- * @description: Object.isExtensible returns true for all built-in objects (Error.prototype);
+ * @path chapter15/15.2/15.2.3/15.2.3.13/15.2.3.13-2-21.js
+ * @description Object.isExtensible returns true for all built-in objects (Error.prototype)
  */
 
 

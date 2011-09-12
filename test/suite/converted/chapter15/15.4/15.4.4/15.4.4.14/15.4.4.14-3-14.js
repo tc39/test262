@@ -19,8 +19,8 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-3-14.js;
- * @description: Array.prototype.indexOf - 'length' is a string containing +/-Infinity;
+ * @path chapter15/15.4/15.4.4/15.4.4.14/15.4.4.14-3-14.js
+ * @description Array.prototype.indexOf - 'length' is a string containing +/-Infinity
  */
 
 

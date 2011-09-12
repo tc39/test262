@@ -4,9 +4,9 @@
 /**
  * +Infinity and Infinity are the same as Number.POSITIVE_INFINITY
  *
- * @section: 8.5, 7.8.3;
- * @path: 08_Types/8.5_The_Number_Type/S8.5_A12.1.js;
- * @description: Compare Infinity and +Infinity with Number.POSITIVE_INFINITY;
+ * @section 8.5, 7.8.3
+ * @path 08_Types/8.5_The_Number_Type/S8.5_A12.1.js
+ * @description Compare Infinity and +Infinity with Number.POSITIVE_INFINITY
  */
 
 var p_inf=+Infinity;

@@ -19,9 +19,9 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path: chapter10/10.4/10.4.3/10.4.3-1-5-s.js;
- * @description: this is not coerced to an object in strict mode (function);
- * @strict_only;
+ * @path chapter10/10.4/10.4.3/10.4.3-1-5-s.js
+ * @description this is not coerced to an object in strict mode (function)
+ * @strict_only
  */
 
 
