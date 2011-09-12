@@ -17,17 +17,6 @@ function testPrint(message) {
 
 }
 
-function $PRINT(message) {
-  testPrint(message);
-}
-function $INCLUDE(message) { }
-function $ERROR(message) {
-  testFailed(message);
-}
-function $FAIL(message) {
-  testFailed(message);
-}
-
 /**
  * It is not yet clear that runTestCase should pass the global object
  * as the 'this' binding in the call to testcase.
