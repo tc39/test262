@@ -69,10 +69,11 @@ function Presenter() {
   
   this.finished = function(elapsed) {
         $('.button-start').attr('src', 'resources/images/start.png');
+        //progressBar.text("Testing complete!");
         if (isSiteDebugMode()) {
             this.activityBar.text('Overall Execution Time: ' + elapsed + ' minutes');
         } else {
-            activityBar.text('');
+            this.activityBar.text('');
         }
     }
   
