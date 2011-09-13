@@ -1,14 +1,14 @@
-/// Copyright (c) 2009 Microsoft Corporation 
-/// 
+/// Copyright (c) 2009 Microsoft Corporation
+///
 /// Redistribution and use in source and binary forms, with or without modification, are permitted provided
-/// that the following conditions are met: 
+/// that the following conditions are met:
 ///    * Redistributions of source code must retain the above copyright notice, this list of conditions and
-///      the following disclaimer. 
-///    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and 
-///      the following disclaimer in the documentation and/or other materials provided with the distribution.  
+///      the following disclaimer.
+///    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and
+///      the following disclaimer in the documentation and/or other materials provided with the distribution.
 ///    * Neither the name of Microsoft nor the names of its contributors may be used to
 ///      endorse or promote products derived from this software without specific prior written permission.
-/// 
+///
 /// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR
 /// IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
 /// FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE
@@ -16,7 +16,7 @@
 /// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
 /// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 /// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-/// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+/// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /* A section of the spec. Stores test results and subsections and some rolled up stats on how many tests passed or
  * failed under that section
@@ -57,16 +57,20 @@ function Section(parentSection, id, name) {
         }
 
         return Math.round((this.totalPassed / this.totalTests) * 100);
-    }
+    };
 
-    /* Add a test result to this section. Pushes the result to the test array and passes the result to addTestResult to
-     * tabulate pass/fail numbers*/
+    /* Add a test result to this section. Pushes the result to the
+     * test array and passes the result to addTestResult to tabulate
+     * pass/fail numbers
+     */
     this.addTest = function(test) {
         this.tests.push(test);
         this.addTestResult(test);
-    }
+    };
 
-    /* Increments the various rollup counters for this section and all parent sections */
+    /* Increments the various rollup counters for this section and all
+     * parent sections
+     */
     this.addTestResult = function(test) {
         this.totalTests++;
 
@@ -80,7 +84,7 @@ function Section(parentSection, id, name) {
 
         if(this.parentSection !== null)
             this.parentSection.addTestResult(test);
-    }
+    };
 
     /* Renders this section as HTML. Used for the report page.*/
     this.toHTML = function(options) {
@@ -93,7 +97,7 @@ function Section(parentSection, id, name) {
         }
 
         var html = '<tbody id="section_' + this.id.replace(/\./g, "_") + '">';
-        
+
         if(options.header) {
             html += "<tr><td class='tblHeader' colspan='3'>Chapter " + this.id + " - " + this.name + "</td>" +
                     "<td class='" + rollupCellClass(this.passPercent()) + "'>" + this.passPercent() + "%</td></tr>";
@@ -103,31 +107,40 @@ function Section(parentSection, id, name) {
             test = this.tests[i];
             html += "<tr><td>" + test.id + "</td>" +
                     "<td>" + test.description + "</td>" +
-                    "<td><a class='showSource' href='#" + test.id + "'>[source]</a></td>" + 
-                    "<td class='" + test.result + "'>" + test.result + "</td></tr>"
+                    "<td><a class='showSource' href='#" + test.id +
+                    "'>[source]</a></td>" +
+                    "<td class='" + test.result + "'>" + test.result +
+                    "</td></tr>";
         }
-        
+
         for(var sectionId in this.subsections) {
             var section = this.subsections[sectionId];
 
             if(section.totalTests > 0) {
                 if(options.renderSubsections) {
-                    html += section.toHTML({header: true, renderSubsections: false})
+                    html += section.toHTML({
+                        header: true,
+                        renderSubsections: false});
                 } else {
-                    html += "<tr><td colspan='3'><a class='section' href='#" + section.id + "'>Chapter " + section.id + " - " + section.name + "</a></td>" +
-                            "<td class='" + rollupCellClass(section.passPercent()) + "'>" + section.passPercent() + "%</td></tr>";
+                    html += "<tr><td colspan='3'><a class='section' href='#" +
+                    section.id + "'>Chapter " + section.id + " - " +
+                    section.name + "</a></td>" +
+                            "<td class='" +
+                            rollupCellClass(section.passPercent()) + "'>" +
+                            section.passPercent() + "%</td></tr>";
                 }
             }
         }
 
         return html + "</tbody>";
-    }
+    };
 
     /* Render this section as XML. Used for the report page. */
     this.toXML = function() {
         var xml = "";
         if(this.id != 0) {
-            xml += "<section id='" + this.id + "' name='" + this.name + "'>\r\n";
+            xml += "<section id='" + this.id + "' name='" + this.name +
+                   "'>\r\n";
 
             for (var i = 0; i < this.tests.length; i++) {
                 xml += '<test>\r\n' +
@@ -146,7 +159,7 @@ function Section(parentSection, id, name) {
         }
 
         return xml;
-    }
+    };
 
     /* Reset counts and remove tests. */
     this.reset = function() {
@@ -159,5 +172,5 @@ function Section(parentSection, id, name) {
         for(var subsection in this.subsections) {
             this.subsections[subsection].reset();
         }
-    }
+    };
 }

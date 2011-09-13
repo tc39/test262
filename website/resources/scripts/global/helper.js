@@ -1,14 +1,14 @@
-/// Copyright (c) 2009 Microsoft Corporation 
-/// 
+/// Copyright (c) 2009 Microsoft Corporation
+///
 /// Redistribution and use in source and binary forms, with or without modification, are permitted provided
-/// that the following conditions are met: 
+/// that the following conditions are met:
 ///    * Redistributions of source code must retain the above copyright notice, this list of conditions and
-///      the following disclaimer. 
-///    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and 
-///      the following disclaimer in the documentation and/or other materials provided with the distribution.  
+///      the following disclaimer.
+///    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and
+///      the following disclaimer in the documentation and/or other materials provided with the distribution.
 ///    * Neither the name of Microsoft nor the names of its contributors may be used to
 ///      endorse or promote products derived from this software without specific prior written permission.
-/// 
+///
 /// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR
 /// IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
 /// FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE
@@ -16,7 +16,7 @@
 /// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
 /// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 /// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-/// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+/// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /* Handles updating the page with information from the runner. */
 function Presenter() {
@@ -148,7 +148,9 @@ function Presenter() {
 
         if (test.description) {
             innerHTML += '<b>Description</b>';
-            innerHTML += '<pre>' + test.description.replace(/</g, '&lt;').replace(/>/g, '&gt;'); +' </pre>';
+            innerHTML += '<pre>' +
+                test.description.replace(/</g, '&lt;').replace(/>/g, '&gt;') +
+                ' </pre>';
         }
 
         innerHTML += '<br /><br /><br /><b>Testcase</b>';
@@ -183,7 +185,9 @@ function Presenter() {
         popWnd.document.write(innerHTML);
     }
 
-    /* Returns the section object for the specified section id (eg. "7.1" or "15.4.4.12"). */
+    /* Returns the section object for the specified section id
+     * (eg. "7.1" or "15.4.4.12").
+     */
     function getSectionById(id) {
         if(id == 0)
             return globalSection;
@@ -214,7 +218,11 @@ function Presenter() {
     /* Append a result to the run page's result log. */
     function logResult(test) {
         altStyle = (altStyle !== ' ') ? ' ' : 'alternate';
-        var appendStr = '<tbody><tr class=\"' + altStyle + '\"><td width=\"20%\">' + "<a class='showSource' href='#" + test.id + "'>" + test.id + "</a>" + '</td><td>' + test.description + '</td><td align="right"><span class=\"Fail\">' + test.result + '</span></td></tr></tbody>';
+        var appendStr = '<tbody><tr class=\"' + altStyle +
+            '\"><td width=\"20%\">' + "<a class='showSource' href='#" +
+            test.id + "'>" + test.id + "</a>" + '</td><td>' +
+            test.description + '</td><td align="right"><span class=\"Fail\">' +
+            test.result + '</span></td></tr></tbody>';
         logger.append(appendStr);
         logger.parent().attr("scrollTop", logger.parent().attr("scrollHeight"));
     }
@@ -300,7 +308,7 @@ function Presenter() {
         } else {
             backLink.hide();
         }
-    }
+    };
     
     /* Pops up a window with an xml dump of the results of a test. */
     function createXMLReportWindow() {
@@ -334,7 +342,7 @@ function Presenter() {
         currentSection = getSectionById(e.target.href.match(/#(.+)$/)[1]);
         renderCurrentSection();
         table.attr("scrollTop", 0);
-    }
+    };
     
     //*************************************************************************
     // Load the sections.

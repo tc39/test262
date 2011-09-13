@@ -18,7 +18,8 @@
 /// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-//Do not cache any JSON files - see https://bugs.ecmascript.org/show_bug.cgi?id=87
+// Do not cache any JSON files - see
+// https://bugs.ecmascript.org/show_bug.cgi?id=87
 $.ajaxSetup( {cache:false});
 
 /*
@@ -28,7 +29,8 @@ $.ajaxSetup( {cache:false});
  * * run(id, test): Runs the test specified.
  *
  * Callbacks:
- * * onComplete(test): Called when the test is run. Test object contains result and error strings describing how the
+ * * onComplete(test): Called when the test is run. Test object
+ *                     contains result and error strings describing how the
  *                     test ran.
  */
 function BrowserRunner() {
@@ -56,13 +58,15 @@ function BrowserRunner() {
             success: function(data){globalScopeContents = data;}, 
             url:harnessDir+"gs.js"});
             
-    /* Called by the child window to notify that the test has finished. This function call is put in a separate script
-     * block at the end of the page so errors in the test script block should not prevent this function from being
-     * called.
+    /* Called by the child window to notify that the test has
+     * finished. This function call is put in a separate script block
+     * at the end of the page so errors in the test script block
+     * should not prevent this function from being called.
      */
     function testFinished() {
         if((typeof currentTest.result) === "undefined") {
-            // We didn't get a call to testRun, which likely means the test failed to load.
+            // We didn't get a call to testRun, which likely means the
+            // test failed to load.
             currentTest.result = "fail";
             currentTest.error  = "Failed to load test case (probable parse error).";
             currentTest.description = "Failed to load test case!";
@@ -130,11 +134,13 @@ function BrowserRunner() {
         iwin.$INCLUDE = function() {};
 
         if(includes !== null) {
-            // We have some includes, so loop through each include and pull in the dependencies.
+            // We have some includes, so loop through each include and
+            // pull in the dependencies.
             for(var i = 0; i < includes.length; i++) {
                 include = includes[i].replace(/.*\(('|")(.*)('|")\)/, "$2");
 
-                // First check to see if we have this script cached already, and if not, grab it.
+                // First check to see if we have this script cached
+                // already, and if not, grab it.
                 if(typeof scriptCache[include] === "undefined") {
                     $.ajax({
                         async: false,
@@ -212,7 +218,8 @@ function BrowserRunner() {
  * Callbacks:
  * * onLoadingNextSection(path): Called after a request is sent for the next section json, with the path to that json.
  * * onInitialized(totalTests, version, date): Called after the testcases.json is loaded and parsed.
- * * onTestReady(id, code): Called when a test is ready with the test's id and code.
+ * * onTestReady(id, code): Called when a test is ready with the
+ *       test's id and code.
  * * onTestsExhausted(): Called when there are no more tests to run.
  */
 function TestLoader() {
@@ -265,7 +272,9 @@ function TestLoader() {
                     tests: []
                 };
             }
-            loader.onInitialized(loader.totalTests, loader.version, loader.date);
+            loader.onInitialized(loader.totalTests,
+                                 loader.version,
+                                 loader.date);
             getNextXML();
         }});
     }
@@ -279,11 +288,13 @@ function TestLoader() {
             // We have tests left in this test group.
             var test = testGroups[testGroupIndex].tests[currentTestIndex++];
 	    var scriptCode = test.code;
-            //var scriptCode = (test.firstChild.text != undefined) ? test.firstChild.text : test.firstChild.textContent;
+            //var scriptCode = (test.firstChild.text != undefined) ?
+            //    test.firstChild.text : test.firstChild.textContent;
 
             loader.onTestReady(test, $.base64Decode(scriptCode));
         } else if(testGroupIndex < testGroups.length - 1) {
-            // We don't have tests left in this test group, so move on to the next.
+            // We don't have tests left in this test group, so move on
+            // to the next.
             testGroupIndex++;
             getNextXML();
         } else {
@@ -406,9 +417,11 @@ function isSiteDebugMode() {
 $(function () {
     presenter.setup();
     $('.content-home').show();
-    // Adding attribute to the tabs (e.g. Home, Run etc.) and attaching the click event on buttons (e.g. Reset, Start etc.)
+    // Adding attribute to the tabs (e.g. Home, Run etc.) and
+    // attaching the click event on buttons (e.g. Reset, Start etc.)
     $('.nav-link').each(function (index) {
-        //Adding "targetDiv" attribute to the header tab and on that basis the div related to header tabs are displayed
+        //Adding "targetDiv" attribute to the header tab and on that
+        //basis the div related to header tabs are displayed
         if (index === 0) {
             $(this).attr('targetDiv', '.content-home');
         } else if (index === 1) {
@@ -423,7 +436,8 @@ $(function () {
             $(this).attr('targetDiv', '.content-browsers');
         }
 
-        //Attaching the click event to the header tab that shows the respective div of header
+        //Attaching the click event to the header tab that shows the
+        //respective div of header
         $(this).click(function () {
             var target = $(this).attr('targetDiv');
             $('#contentContainer > div:visible').hide();
@@ -438,12 +452,14 @@ $(function () {
         });
     });
 
-    //Attach the click event to the start button. It starts, stops and pauses the tests
+    //Attach the click event to the start button. It starts, stops and
+    //pauses the tests
     $('.button-start').click(function () {
         controller.toggle();
     });
 
-    //Attach the click event to the reset button. It reset all the test to zero
+    //Attach the click event to the reset button. It reset all the
+    //test to zero
     $('.button-reset').click(function () {
         controller.reset();
     });
