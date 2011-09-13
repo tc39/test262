@@ -18,9 +18,6 @@
 /// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-//Simple Test APIs
-var SimpleTestAPIs = [];
-
 //-----------------------------------------------------------------------------
 function compareArray(aExpected, aActual) {
     if (aActual.length != aExpected.length) {
@@ -38,7 +35,6 @@ function compareArray(aExpected, aActual) {
     }
     return true;
 }
-SimpleTestAPIs.push(compareArray);
 
 //-----------------------------------------------------------------------------
 function arrayContains(arr, expected) {
@@ -57,7 +53,6 @@ function arrayContains(arr, expected) {
     }
     return true;
 }
-SimpleTestAPIs.push(arrayContains);
 
 //-----------------------------------------------------------------------------
 var supportsArrayIndexGettersOnArrays = undefined;
@@ -81,7 +76,6 @@ function fnSupportsArrayIndexGettersOnArrays() {
 
     return supportsArrayIndexGettersOnArrays;
 }
-SimpleTestAPIs.push(fnSupportsArrayIndexGettersOnArrays);
 
 //-----------------------------------------------------------------------------
 var supportsArrayIndexGettersOnObjects = undefined;
@@ -104,13 +98,11 @@ function fnSupportsArrayIndexGettersOnObjects() {
 
     return supportsArrayIndexGettersOnObjects;
 }
-SimpleTestAPIs.push(fnSupportsArrayIndexGettersOnObjects);
 
 //-----------------------------------------------------------------------------
 function ConvertToFileUrl(pathStr) {
     return "file:" + pathStr.replace(/\\/g, "/");
 }
-SimpleTestAPIs.push(ConvertToFileUrl);
 
 //-----------------------------------------------------------------------------
 function fnExists(/*arguments*/) {
@@ -119,31 +111,12 @@ function fnExists(/*arguments*/) {
     }
     return true;
 }
-SimpleTestAPIs.push(fnExists);
 
 //-----------------------------------------------------------------------------
-var supportsStrict = undefined;
-function fnSupportsStrict() {
-    "use strict";
-    if (supportsStrict !== undefined) {
-        return supportsStrict;
-    }
-
-    try {
-        eval('with ({}) {}');
-        supportsStrict = false;
-    } catch (e) {
-        supportsStrict = true;
-    }
-    return supportsStrict;
-}
-SimpleTestAPIs.push(fnSupportsStrict);
-
-//-----------------------------------------------------------------------------
+var __globalObject = Function("return this;")();
 function fnGlobalObject() {
-     return Function("return this")();
+     return __globalObject;
 }
-SimpleTestAPIs.push(fnGlobalObject);
 
 //-----------------------------------------------------------------------------
 function fnSupportsStrict() {
@@ -155,7 +128,6 @@ function fnSupportsStrict() {
         return true;
     }
 }
-SimpleTestAPIs.push(fnSupportsStrict);
 
 //-----------------------------------------------------------------------------
 //Verify all attributes specified data property of given object:
@@ -231,7 +203,6 @@ function dataPropertyAttributesAreCorrect(obj,
 
     return attributesCorrect;
 }
-SimpleTestAPIs.push(dataPropertyAttributesAreCorrect);
 
 //-----------------------------------------------------------------------------
 //Verify all attributes specified accessor property of given object:
@@ -307,6 +278,48 @@ function accessorPropertyAttributesAreCorrect(obj,
 
     return attributesCorrect;
 }
-SimpleTestAPIs.push(accessorPropertyAttributesAreCorrect);
+
 //-----------------------------------------------------------------------------
-var PickledSimpleTestAPIs = SimpleTestAPIs.join(" ");
+var NotEarlyErrorString = "NotEarlyError";
+var EarlyErrorRePat = "^((?!" + NotEarlyErrorString + ").)*$";
+var NotEarlyError = new Error(NotEarlyErrorString);
+
+//--Test case registration-----------------------------------------------------
+var ES5Harness = {};
+ES5Harness.registerTest = function (test) {
+    var error;
+    //Has a test precondition set, but the precondition fails
+    if (test.precondition && !test.precondition()) {
+        testRun(test.id, test.path, test.description, test.test.toString(),
+                typeof test.precondition !== 'undefined' ? test.precondition.toString() : '',
+                'fail', Error('Precondition Failed'));
+    }
+    //We're good to actually run the test case
+    else {
+        try {
+            if (test.strict!==undefined) {
+                var res = test.test();
+            } else {
+                var res = test.test.call(window);
+            }
+            
+        } catch (e) {
+            res = 'fail';
+            error = e;
+            if (!(e instanceof Error)) {
+                try {
+                    error = Error(e.toString());
+                } catch (e2) {
+                    error = Error("test262: unknown error in test case or ECMAScript implementation");
+                }
+            }
+        }
+        //Sputnik and IE Test Center tests are a bit different in terms of return values.
+        //That is, IE Test Center will always return 'true' IFF the test passed. Sputnik
+        //test cases will return either 'true' or 'undefined' if they pass.
+        var retVal = /^s/i.test(test.id) ? (res === true || typeof res === 'undefined' ? 'pass' : 'fail') : (res === true ? 'pass' : 'fail');
+        testRun(test.id, test.path, test.description, test.test.toString(),
+                typeof test.precondition !== 'undefined' ? test.precondition.toString() : '',
+                retVal, error);
+    }
+}

@@ -1,0 +1,2 @@
+throw NotEarlyError;
+var re = //;

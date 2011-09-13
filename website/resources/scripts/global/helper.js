@@ -22,7 +22,6 @@
 function Presenter() {
     var altStyle = '',
         logger,
-        progressBar,
         date,
         version,
         table,
@@ -33,9 +32,213 @@ function Presenter() {
         tests = {},
         totalTests = 0;
 
-        TOCFILEPATH = "resources/scripts/global/ecma-262-toc.xml";
+    var progressBar;
+    TOCFILEPATH = "resources/scripts/global/ecma-262-toc.xml";
+  //**INTERFACE****************************************************************
+  /* Updates progress with the given test, which should have its results in it as well. */
+    this.addTestResult = function(test) {
+        tests[test.id] = test;
+        getSectionById(test.id).addTest(test);
 
+        updateCounts();
+
+        if(test.result === 'fail') {
+            logResult(test);
+        }
+    }
+    
+    this.setVersion = function(v) {
+        version = v;
+        $(".targetTestSuiteVersion").text(v);
+    }
   
+  this.setDate = function(d) {
+        date = d;
+        $(".targetTestSuiteDate").text(d);
+    }
+  
+    this.setTotalTests = function(tests) {
+        totalTests = tests;
+        $('#testsToRun').text(tests);
+    }
+  
+  /* Write status to the activity bar. */
+    this.updateStatus = function (str) {
+       this.activityBar.text(str);
+    }
+  
+  this.finished = function(elapsed) {
+        $('.button-start').attr('src', 'resources/images/start.png');
+        //progressBar.text("Testing complete!");
+        if (isSiteDebugMode()) {
+            this.activityBar.text('Overall Execution Time: ' + elapsed + ' minutes');
+        } else {
+            this.activityBar.text('');
+        }
+    }
+  
+  this.started = function () {
+        $('.button-start').attr('src', 'resources/images/pause.png');
+    }
+
+    this.paused = function () {
+        $('.button-start').attr('src', 'resources/images/resume.png');
+    }
+
+    this.reset = function() {
+        globalSection.reset();
+        updateCounts();
+        logger.empty();
+
+        currentSection = globalSection;
+        renderCurrentSection();
+    }
+  
+  
+  /* Do some setup tasks. */
+    this.setup = function() {
+        backLink = $('#backlinkDiv');
+        backLink.click(goBack);
+        table = $('.results-data-table');
+        
+        logger = $("#tableLogger");
+        progressBar = $('#progressbar');
+        this.activityBar = $('#nextActivity');
+        
+        $('a.showSource', logger).live("click", openSourceWindow);
+        $('a.showError', logger).live("click", openErrorWindow);
+        $('#ancGenXMLReport').click(createXMLReportWindow);
+    }
+    
+    /* Refresh display of the report */
+    this.refresh = function() {
+        renderCurrentSection();
+    }
+    
+  //**IMPLEMENTATION DETAILS***************************************************
+
+    /* Renders the current section into the report window. */
+    function renderCurrentSection() {
+        renderBreadcrumbs();
+        if(globalSection.totalTests === 0) {
+            $('#resultMessage').show();
+        } else {
+            $('#resultMessage').hide();
+        }
+
+        $('.totalCases').text(currentSection.totalTests);
+        $('.passedCases').text(currentSection.totalPassed);
+        $('.failedCases').text(currentSection.totalFailed);
+        $('#failedToLoadCounterDetails').text(currentSection.totalFailedToLoad);
+        table.empty();
+        table.append(currentSection.toHTML());
+        // Observe section selection and show source links
+        $('a.section', table).click(sectionSelected);
+        $('a.showSource', table).click(openSourceWindow);
+    }
+
+    /* Opens a window with a test's source code. */
+    function openSourceWindow(e) {
+        var test = tests[e.target.href.match(/#(.+)$/)[1]],
+            popWnd = window.open("", "", "scrollbars=1, resizable=1"),
+            innerHTML = '';
+
+        innerHTML += '<b>Test </b>';
+        innerHTML += '<b>' + test.id + '</b> <br /><br />';
+
+        if (test.description) {
+            innerHTML += '<b>Description</b>';
+            innerHTML += '<pre>' + test.description.replace(/</g, '&lt;').replace(/>/g, '&gt;'); +' </pre>';
+        }
+
+        innerHTML += '<br /><br /><br /><b>Testcase</b>';
+        innerHTML += '<pre>' + test.code + '</pre>';
+
+        if (test.pre) {
+            innerHTML += '<b>Precondition</b>';
+            innerHTML += '<pre>' + test.pre + '</pre>';
+        }
+
+        innerHTML += '<b>Path</b>';
+        innerHTML += '<pre>' + test.path + ' </pre>&nbsp';
+
+        popWnd.document.write(innerHTML);
+    }
+
+    /* Opens a window with a test's failure message. */
+    function openErrorWindow(e) {
+        var test = tests[e.target.href.match(/#(.+)$/)[1]],
+            popWnd = window.open("", "", "scrollbars=1, resizable=1"),
+            innerHTML = '';
+
+        innerHTML += '<b>Test </b>';
+        innerHTML += '<b>' + test.id + '</b> <br /><br />';
+
+        innerHTML += '<b>Failure</b>';
+        innerHTML += '<pre>' + test.error + '</pre>';
+        
+        innerHTML += '<br /><br /><b>Testcase</b>';
+        innerHTML += '<pre>' + test.code + '</pre>';
+        
+        popWnd.document.write(innerHTML);
+    }
+
+    /* Returns the section object for the specified section id (eg. "7.1" or "15.4.4.12"). */
+    function getSectionById(id) {
+        if(id == 0)
+            return globalSection;
+
+        var match = id.match(/\d+/g);
+        var section = globalSection;
+
+        for(var i = 0; i < match.length; i++) {
+            if(typeof section.subsections[match[i]] !== "undefined") {
+                section = section.subsections[match[i]];
+            } else {
+                break;
+            }
+        }
+        return section;
+    }
+
+    /* Update the page with current status */
+    function updateCounts() {
+        $('#Pass').text(globalSection.totalPassed);
+        $('#Fail').text(globalSection.totalFailed);
+        $('#totalCounter').text(globalSection.totalTests);
+        $('#failedToLoadCounter1').text(globalSection.totalFailedToLoad);
+        $('#failedToLoadCounter').text(globalSection.totalFailedToLoad);
+        progressBar.reportprogress(globalSection.totalTests, totalTests);
+    }
+
+    /* Append a result to the run page's result log. */
+    function logResult(test) {
+        altStyle = (altStyle !== ' ') ? ' ' : 'alternate';
+        var appendStr = '<tbody><tr class=\"' + altStyle + '\"><td width=\"20%\">' + "<a class='showSource' href='#" + test.id + "'>" + test.id + "</a>" + '</td><td>' + test.description + '</td><td align="right"><span class=\"Fail\">' + test.result + '</span></td></tr></tbody>';
+        logger.append(appendStr);
+        logger.parent().attr("scrollTop", logger.parent().attr("scrollHeight"));
+    }
+    
+    
+    
+    //*************************************************************************
+    /* Go back to the previous section */
+    function goBack(e) {
+        e.preventDefault();
+
+        if(currentSection === globalSection)
+            return;
+
+        currentSection = currentSection.parentSection;
+
+        // Since users click directly on sub-chapters of the main chapters, don't go back to main
+        // chapters.
+        if(currentSection.parentSection === globalSection)
+            currentSection = globalSection;
+
+        renderCurrentSection();
+    }
+    
     /* Load the table of contents xml to populate the sections. */
     function loadSections() {
         var sectionsLoader = new XMLHttpRequest();
@@ -60,31 +263,7 @@ function Presenter() {
             }
         }
     }
-
-
-    /* Renders the current section into the report window. */
-    function renderCurrentSection() {
-        renderBreadcrumbs();
-
-        if(globalSection.totalTests === 0) {
-            $('#resultMessage').show();
-        } else {
-            $('#resultMessage').hide();
-        }
-
-        $('.totalCases').text(currentSection.totalTests);
-        $('.passedCases').text(currentSection.totalPassed);
-        $('.failedCases').text(currentSection.totalFailed);
-        $('#failedToLoadCounterDetails').text(currentSection.totalFailedToLoad);
-
-        table.empty();
-        table.append(currentSection.toHTML());
-
-        // Observe section selection and show source links
-        $('a.section', table).click(sectionSelected);
-        $('a.showSource', table).click(openSourceWindow);
-    }
-
+    
     /* Renders the breadcrumbs for report navigation. */
     function renderBreadcrumbs() {
         var container = $('div.crumbContainer div.crumbs');
@@ -122,34 +301,6 @@ function Presenter() {
             backLink.hide();
         }
     }
-
-    /* Opens a window with a test's source code. */
-    function openSourceWindow(e) {
-        var test = tests[e.target.href.match(/#(.+)$/)[1]],
-            popWnd = window.open("", "", "scrollbars=1, resizable=1"),
-            innerHTML = '';
-
-        innerHTML += '<b>Test </b>';
-        innerHTML += '<b>' + test.id + '</b> <br /><br />';
-
-        if (test.description) {
-            innerHTML += '<b>Description</b>';
-            innerHTML += '<pre>' + test.description.replace(/</g, '&lt;').replace(/>/g, '&gt;'); +' </pre>';
-        }
-
-        innerHTML += '<br /><br /><br /><b>Testcase</b>';
-        innerHTML += '<pre>' + test.code + '</pre>';
-
-        if (test.pre) {
-            innerHTML += '<b>Precondition</b>';
-            innerHTML += '<pre>' + test.pre + '</pre>';
-        }
-
-        innerHTML += '<b>Path</b>';
-        innerHTML += '<pre>' + test.path + ' </pre>&nbsp';
-
-        popWnd.document.write(innerHTML);
-    }
     
     /* Pops up a window with an xml dump of the results of a test. */
     function createXMLReportWindow() {
@@ -184,139 +335,10 @@ function Presenter() {
         renderCurrentSection();
         table.attr("scrollTop", 0);
     }
-
-    /* Go back to the previous section */
-    function goBack(e) {
-        e.preventDefault();
-
-        if(currentSection === globalSection)
-            return;
-
-        currentSection = currentSection.parentSection;
-
-        // Since users click directly on sub-chapters of the main chapters, don't go back to main
-        // chapters.
-        if(currentSection.parentSection === globalSection)
-            currentSection = globalSection;
-
-        renderCurrentSection();
-    }
-
-    /* Returns the section object for the specified section id (eg. "7.1" or "15.4.4.12"). */
-    function getSectionById(id) {
-        if(id == 0)
-            return globalSection;
-
-        var match = id.match(/\d+/g);
-        var section = globalSection;
-
-        for(var i = 0; i < match.length; i++) {
-            if(typeof section.subsections[match[i]] !== "undefined") {
-                section = section.subsections[match[i]];
-            } else {
-                break;
-            }
-        }
-
-        return section;
-    }
-
-    /* Update the page with current status */
-    function updateCounts() {
-        $('#Pass').text(globalSection.totalPassed);
-        $('#Fail').text(globalSection.totalFailed);
-        $('#totalCounter').text(globalSection.totalTests);
-        $('#failedToLoadCounter1').text(globalSection.totalFailedToLoad);
-        $('#failedToLoadCounter').text(globalSection.totalFailedToLoad);
-
-        progressBar.reportprogress(globalSection.totalTests, totalTests);
-    }
-
-    /* Append a result to the run page's result log. */
-    function logResult(test) {
-        altStyle = (altStyle !== ' ') ? ' ' : 'alternate';
-        var appendStr = '<tbody><tr class=\"' + altStyle + '\"><td width=\"20%\">' + "<a class='showSource' href='#" + test.id + "'>" + test.id + "</a>" + '</td><td>' + test.description + '</td><td align="right"><span class=\"Fail\">' + test.result + '</span></td></tr></tbody>';
-        logger.append(appendStr);
-        logger.parent().attr("scrollTop", logger.parent().attr("scrollHeight"));
-    }
-
+    
+    //*************************************************************************
     // Load the sections.
     loadSections();
-
-    this.setTotalTests = function(tests) {
-        totalTests = tests;
-        $('#testsToRun').text(tests);
-    }
-
-    this.setVersion = function(v) {
-        version = v;
-        $(".targetTestSuiteVersion").text(v);
-    }
-
-    this.setDate = function(d) {
-        date = d;
-        $(".targetTestSuiteDate").text(d);
-    }
-
-    /* Updates progress with the given test, which should have its results in it as well. */
-    this.addTestResult = function(test) {
-        tests[test.id] = test;
-        getSectionById(test.id).addTest(test);
-
-        updateCounts();
-
-        if(test.result === 'fail')
-            logResult(test);
-
-    }
-
-    this.started = function () {
-        $('.button-start').attr('src', 'resources/images/pause.png');
-    }
-
-    this.paused = function () {
-        $('.button-start').attr('src', 'resources/images/resume.png');
-    }
-
-    this.reset = function() {
-        globalSection.reset();
-        updateCounts();
-        logger.empty();
-
-        currentSection = globalSection;
-        renderCurrentSection();
-    }
-
-    this.finished = function(elapsed) {
-        $('.button-start').attr('src', 'resources/images/start.png');
-        if (isSiteDebugMode()) {
-            activityBar.text('Overall Execution Time: ' + elapsed + ' minutes');
-        } else {
-            activityBar.text('');
-        }
-    }
-
-    /* Refresh display of the report */
-    this.refresh = function() {
-        renderCurrentSection();
-    }
-
-    /* Write status to the activity bar. */
-    this.updateStatus = function(str) {
-        activityBar.text(str);
-    }
-
-    /* Do some setup tasks. */
-    this.setup = function() {
-        backLink = $('#backlinkDiv');
-        backLink.click(goBack);
-        table = $('.results-data-table');
-        logger = $("#tableLogger");
-        progressBar = $('#progressbar');
-        activityBar = $('#nextActivity');
-        $('a.showSource', logger).live("click", openSourceWindow);
-        $('#ancGenXMLReport').click(createXMLReportWindow);
-    }
 }
 
 var presenter = new Presenter();

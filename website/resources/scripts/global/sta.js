@@ -1,14 +1,14 @@
-﻿/// Copyright (c) 2009 Microsoft Corporation 
-/// 
+﻿/// Copyright (c) 2009 Microsoft Corporation
+///
 /// Redistribution and use in source and binary forms, with or without modification, are permitted provided
-/// that the following conditions are met: 
+/// that the following conditions are met:
 ///    * Redistributions of source code must retain the above copyright notice, this list of conditions and
-///      the following disclaimer. 
-///    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and 
-///      the following disclaimer in the documentation and/or other materials provided with the distribution.  
+///      the following disclaimer.
+///    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and
+///      the following disclaimer in the documentation and/or other materials provided with the distribution.
 ///    * Neither the name of Microsoft nor the names of its contributors may be used to
 ///      endorse or promote products derived from this software without specific prior written permission.
-/// 
+///
 /// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR
 /// IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
 /// FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE
@@ -16,10 +16,7 @@
 /// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
 /// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 /// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-/// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
-
-//Simple Test APIs
-var SimpleTestAPIs = []
+/// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //-----------------------------------------------------------------------------
 function compareArray(aExpected, aActual) {
@@ -38,7 +35,6 @@ function compareArray(aExpected, aActual) {
     }
     return true;
 }
-SimpleTestAPIs.push(compareArray);
 
 //-----------------------------------------------------------------------------
 function arrayContains(arr, expected) {
@@ -57,7 +53,6 @@ function arrayContains(arr, expected) {
     }
     return true;
 }
-SimpleTestAPIs.push(arrayContains);
 
 //-----------------------------------------------------------------------------
 var supportsArrayIndexGettersOnArrays = undefined;
@@ -81,7 +76,6 @@ function fnSupportsArrayIndexGettersOnArrays() {
 
     return supportsArrayIndexGettersOnArrays;
 }
-SimpleTestAPIs.push(fnSupportsArrayIndexGettersOnArrays);
 
 //-----------------------------------------------------------------------------
 var supportsArrayIndexGettersOnObjects = undefined;
@@ -104,13 +98,11 @@ function fnSupportsArrayIndexGettersOnObjects() {
 
     return supportsArrayIndexGettersOnObjects;
 }
-SimpleTestAPIs.push(fnSupportsArrayIndexGettersOnObjects);
 
 //-----------------------------------------------------------------------------
 function ConvertToFileUrl(pathStr) {
     return "file:" + pathStr.replace(/\\/g, "/");
 }
-SimpleTestAPIs.push(ConvertToFileUrl);
 
 //-----------------------------------------------------------------------------
 function fnExists(/*arguments*/) {
@@ -119,43 +111,23 @@ function fnExists(/*arguments*/) {
     }
     return true;
 }
-SimpleTestAPIs.push(fnExists);
 
 //-----------------------------------------------------------------------------
-var supportsStrict = undefined;
-function fnSupportsStrict() {
-    "use strict";
-    if (supportsStrict !== undefined) {
-        return supportsStrict;
-    }
-    
-    try {
-        eval('with ({}) {}'); 
-        supportsStrict = false;
-    } catch (e) {
-        supportsStrict = true;
-    }
-    return supportsStrict;
-}
-SimpleTestAPIs.push(fnSupportsStrict);
-
-//-----------------------------------------------------------------------------
+var __globalObject = Function("return this;")();
 function fnGlobalObject() {
-     return Function("return this")();
+     return __globalObject;
 }
-SimpleTestAPIs.push(fnGlobalObject);
 
 //-----------------------------------------------------------------------------
 function fnSupportsStrict() {
     "use strict";
-    try { 
-        eval('with ({}) {}'); 
+    try {
+        eval('with ({}) {}');
         return false;
-    } catch (e) { 
+    } catch (e) {
         return true;
     }
 }
-SimpleTestAPIs.push(fnSupportsStrict);
 
 //-----------------------------------------------------------------------------
 //Verify all attributes specified data property of given object: value, writable, enumerable, configurable
@@ -219,7 +191,6 @@ function dataPropertyAttributesAreCorrect(obj, name, value, writable, enumerable
 
     return attributesCorrect;
 }
-SimpleTestAPIs.push(dataPropertyAttributesAreCorrect);
 
 //-----------------------------------------------------------------------------
 //Verify all attributes specified accessor property of given object: get, set, enumerable, configurable
@@ -285,6 +256,48 @@ function accessorPropertyAttributesAreCorrect(obj, name, get, set, setVerifyHelp
 
     return attributesCorrect;
 }
-SimpleTestAPIs.push(accessorPropertyAttributesAreCorrect);
+
 //-----------------------------------------------------------------------------
-var PickledSimpleTestAPIs = SimpleTestAPIs.join(" ");
+var NotEarlyErrorString = "NotEarlyError";
+var EarlyErrorRePat = "^((?!" + NotEarlyErrorString + ").)*$";
+var NotEarlyError = new Error(NotEarlyErrorString);
+
+//--Test case registration-----------------------------------------------------
+var ES5Harness = {};
+ES5Harness.registerTest = function (test) {
+    var error;
+    //Has a test precondition set, but the precondition fails
+    if (test.precondition && !test.precondition()) {
+        testRun(test.id, test.path, test.description, test.test.toString(),
+                typeof test.precondition !== 'undefined' ? test.precondition.toString() : '',
+                'fail', Error('Precondition Failed'));
+    }
+    //We're good to actually run the test case
+    else {
+        try {
+            if (test.strict!==undefined) {
+                var res = test.test();
+            } else {
+                var res = test.test.call(window);
+            }
+            
+        } catch (e) {
+            res = 'fail';
+            error = e;
+            if (!(e instanceof Error)) {
+                try {
+                    error = Error(e.toString());
+                } catch (e2) {
+                    error = Error("test262: unknown error in test case or ECMAScript implementation");
+                }
+            }
+        }
+        //Sputnik and IE Test Center tests are a bit different in terms of return values.
+        //That is, IE Test Center will always return 'true' IFF the test passed. Sputnik
+        //test cases will return either 'true' or 'undefined' if they pass.
+        var retVal = /^s/i.test(test.id) ? (res === true || typeof res === 'undefined' ? 'pass' : 'fail') : (res === true ? 'pass' : 'fail');
+        testRun(test.id, test.path, test.description, test.test.toString(),
+                typeof test.precondition !== 'undefined' ? test.precondition.toString() : '',
+                retVal, error);
+    }
+}

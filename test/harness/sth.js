@@ -18,7 +18,6 @@
 /// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-
 // Do not cache any JSON files - see
 // https://bugs.ecmascript.org/show_bug.cgi?id=87
 $.ajaxSetup( {cache:false});
@@ -37,29 +36,49 @@ $.ajaxSetup( {cache:false});
 function BrowserRunner() {
     var iframe,             // injected iframe
         currentTest,        // Current test being run.
-        scriptCache = {},   // Holds the various includes required to
-                            // run certain sputnik tests.
-        instance    = this;
+        scriptCache = {},   // Holds the various includes required to run certain tests.
+        instance    = this,
+        errorDetectorFileContents,
+        simpleTestAPIContents,
+        globalScopeContents,
+        harnessDir = "resources/scripts/global/";
 
+    $.ajax({async: false, 
+            dataType: "text", 
+            success: function(data){errorDetectorFileContents = data;}, 
+            url:harnessDir+"ed.js"});
+            
+    $.ajax({async: false, 
+            dataType: "text", 
+            success: function(data){simpleTestAPIContents = data;}, 
+            url:harnessDir+"sta.js"});
+    
+    $.ajax({async: false, 
+            dataType: "text", 
+            success: function(data){globalScopeContents = data;}, 
+            url:harnessDir+"gs.js"});
+            
     /* Called by the child window to notify that the test has
      * finished. This function call is put in a separate script block
      * at the end of the page so errors in the test script block
      * should not prevent this function from being called.
      */
     function testFinished() {
-        if(typeof currentTest.result === "undefined") {
+        if((typeof currentTest.result) === "undefined") {
             // We didn't get a call to testRun, which likely means the
             // test failed to load.
             currentTest.result = "fail";
-            currentTest.error  = "Failed to Load";
-        } else if(typeof currentTest.error !== "undefined") {
+            currentTest.error  = "Failed to load test case (probable parse error).";
+            currentTest.description = "Failed to load test case!";
+        } else if((typeof currentTest.error) !== "undefined") {
             // We have an error logged from testRun.
             if(currentTest.error instanceof Test262Error) {
                 currentTest.error = currentTest.message;
             } else {
-                currentTest.error = currentTest.error.name + ": " +
-                    currentTest.error.message;
+            currentTest.error = currentTest.error.name + ": " + currentTest.error.message;
             }
+        } else if ((typeof currentTest.error === "undefined") && (currentTest.result === "fail")) {
+            currentTest.error = "Test case returned non-true value.";
         }
 
         document.body.removeChild(iframe);
@@ -80,35 +99,39 @@ function BrowserRunner() {
 
 
     /* Run the test. */
-    this.run = function(id, code) {
-        // find all of the $INCLUDE statements
-        var includes = code.match(/\$INCLUDE\(([^\)]+)\)/g),
-            include;
-
-        // default test, in case it doesn't get registered.
-        currentTest = {id: id};
-
+    this.run = function (test, code) {
+        currentTest = { id: test.id,
+                        path: test.path,
+                        code: code,
+         }; // default test, in case it doesn't get registered.
+        
+        var isGlobalTest = GlobalScopeTests[test.path] !== undefined;
+        
         iframe = document.createElement("iframe");
-        iframe.setAttribute("style", "display:none");
-        iframe.setAttribute("id", "runnerIframe");
-
+        iframe.setAttribute("id", "runnerIframe");        
+        //FireFox has a defect where it doesn't fire window.onerror for an iframe if the iframe
+        //is invisible.
+        if (!isGlobalTest || !/firefox/i.test(navigator.userAgent)) {
+            iframe.setAttribute("style", "display:none");
+        }
         document.body.appendChild(iframe);
 
-        var win = window.frames[window.frames.length - 1];
-        var doc = win.document;
-
-        doc.open();
+        var iwin = window.frames[window.frames.length - 1];
+        var idoc = iwin.document;
+        idoc.open();
 
         // Set up some globals.
-        win.testRun = testRun;
-        win.testFinished = testFinished;
+        iwin.testRun = testRun;
+        iwin.testFinished = testFinished;
 
         //TODO: these should be moved to sta.js
-        win.Test262Error = Test262Error;
-        win.$ERROR = $ERROR;
-        win.$FAIL  = $FAIL;
-        win.$PRINT = function () {};
-        win.$INCLUDE = function() {};
+        var includes = code.match(/\$INCLUDE\(([^\)]+)\)/g), // find all of the $INCLUDE statements
+            include;
+        iwin.Test262Error = Test262Error;
+        iwin.$ERROR = $ERROR;
+        iwin.$FAIL  = $FAIL;
+        iwin.$PRINT = function () {};
+        iwin.$INCLUDE = function() {};
 
         if(includes !== null) {
             // We have some includes, so loop through each include and
@@ -127,161 +150,74 @@ function BrowserRunner() {
                 }
 
                 // Finally, write the required script to the window.
-                doc.writeln("<script type='text/javascript'>" +
-                            scriptCache[include] + "</script>");
+                idoc.writeln("<script type='text/javascript'>" + scriptCache[include] + "</script>");
             }
         }
 
         //Write out all of our helper functions
-        doc.writeln("<script type='text/javascript'>" +
-                    PickledSimpleTestAPIs + "</script>");
-
-
+        //idoc.writeln("<script type='text/javascript' src='harness/sta.js'>" + "</script>");
+        idoc.writeln("<script type='text/javascript'>");
+        idoc.writeln(simpleTestAPIContents);
+        idoc.writeln("</script>");
 
         //--Scenario 1: we're dealing with a global scope test case
-        if (GlobalScopeTests[id]!==undefined) {
-            win.iframeError = undefined;
-            win.onerror = undefined;
-            win.onErrorHack = undefined;
-            var testDescrip = GlobalScopeTests[id];
+        if (isGlobalTest) {
+            iwin.iframeError = undefined;
+            iwin.onerror = undefined;
+            var testDescrip = GlobalScopeTests[test.path];
+            testDescrip.id = test.id;
+            testDescrip.path = test.path;
+            testDescrip.code = code;
+            iwin.testDescrip = testDescrip;
+                
+            //Add an error handler capable of catching so-called early errors
+            //idoc.writeln("<script type='text/javascript' src='harness/ed.js'>" + "</script>");
+            idoc.writeln("<script type='text/javascript'>");
+            idoc.writeln(errorDetectorFileContents);
+            idoc.writeln("</script>");
 
-            //Add an error handler
-            doc.writeln("<script type='text/javascript'>" +
-                        "window.onerror = function(errorMsg, url, lineNumber)"+
-                        " {window.iframeError = errorMsg;};" +
-                        "</script>");
-            //Parse and execute the code
-            doc.writeln("<script type='text/javascript'>" +
-                        "onErrorHack = true;try{" +
-                          code +
-                        "}catch(test262RuntimeError){" +
-                          "window.iframeError=test262RuntimeError.message || " +
-                          "'None';" +
-                        "}</script>");
-
-            //validation
-            if (testDescrip.negative!==undefined) {
-                //An exception is expected
-                if (win.onErrorHack===undefined) {
-                    //Hack for browsers not supporting window.onerror
-                    //WRT early parse errors
-                    testRun(testDescrip.id,
-                            testDescrip.path,
-                            testDescrip.description,
-                            code,
-                            typeof testDescrip.precondition !== 'undefined' ?
-                                testDescrip.precondition.toString() : '',
-                            'pass',
-                            'Not parsable');
-                }
-                else if (win.iframeError===undefined) {
-                    //no exception was thrown
-                    testRun(testDescrip.id,
-                            testDescrip.path,
-                            testDescrip.description,
-                            code,
-                            typeof testDescrip.precondition !== 'undefined' ?
-                                testDescrip.precondition.toString() : '',
-                            'fail',
-                            'No Exception Thrown');
-                } else if (! (new RegExp(testDescrip.negative, "i").test(
-                                win.iframeError))) {
-                    //wrong type of exception thrown
-                    testRun(testDescrip.id,
-                            testDescrip.path,
-                            testDescrip.description,
-                            code,
-                            typeof testDescrip.precondition !== 'undefined' ?
-                                testDescrip.precondition.toString() : '',
-                            'fail',
-                            'Wrong Type of Exception Thrown');
-                } else {
-                    testRun(testDescrip.id,
-                            testDescrip.path,
-                            testDescrip.description,
-                            code,
-                            typeof testDescrip.precondition !== 'undefined' ?
-                                testDescrip.precondition.toString() : '',
-                            'pass',
-                            undefined);
-                }
-            } else if (win.iframeError!==undefined) {
-                //Exception was not expected to be thrown
-                testRun(testDescrip.id,
-                        testDescrip.path,
-                        testDescrip.description,
-                        code,
-                        typeof testDescrip.precondition !== 'undefined' ?
-                            testDescrip.precondition.toString() : '',
-                        'fail',
-                        'Unexpected Exception');
+            //Run the code
+            idoc.writeln("<script type='text/javascript'>");
+            if (/opera/i.test(navigator.userAgent)) { //Opera doesn't support window.onerror
+                idoc.writeln("try {eval(\"" + this.convertForEval(code) + "\");} catch(e) {window.onerror(e.toString(), null, null);}");
             } else {
-                testRun(testDescrip.id,
-                        testDescrip.path,
-                        testDescrip.description,
-                        code,
-                        typeof testDescrip.precondition !== 'undefined' ?
-                            testDescrip.precondition.toString() : '',
-                        'pass',
-                        undefined);
+                idoc.writeln(code);
             }
+            idoc.writeln("</script>");
+            
+            //Validate the results
+            //idoc.writeln("<script type='text/javascript' src='harness/gs.js' defer>" + "</script>");
+            idoc.writeln("<script type='text/javascript'>");
+            idoc.writeln(globalScopeContents);
+            idoc.writeln("</script>");
         }
         //--Scenario 2:  we're dealing with a normal positive(?) test case
         else {
-
-            // Write ES5Harness.registerTest and fnGlobalObject, which
-            // returns the global object, and the testFinished call.
-            doc.writeln(
-              "<script type='text/javascript'>" +
-                "ES5Harness = {};" +
-                "ES5Harness.registerTest = function(test) {" +
-                "  var error;" +
-                "  if(test.precondition && !test.precondition()) {" +
-                "    testRun(test.id, " +
-                            "test.path, " +
-                            "test.description, " +
-                            "test.test.toString()," +
-                            "typeof test.precondition !== 'undefined' ? " +
-                                "test.precondition.toString() : '', " +
-                            "'fail', " +
-                            "'Precondition Failed');" +
-                "  } else {" +
-                "    var testThis = " +
-                         "test.strict===undefined ? window : undefined;" +
-                "    try { " +
-                       "var res = test.test.call(testThis); " +
-                    "} catch(e) { res = 'fail'; error = e; }" +
-                  "    var retVal = /^s/i.test(test.id) ? " +
-                           "(res === true || typeof res === 'undefined' ? " +
-                                      "'pass' : 'fail') : " +
-                           "(res === true ? 'pass' : 'fail');" +
-                "    testRun(test.id, " +
-                            "test.path, " +
-                            "test.description, " +
-                            "test.test.toString(), " +
-                            "typeof test.precondition !== 'undefined' ? " +
-                                "test.precondition.toString() : '', " +
-                            "retVal, " +
-                            "error);" +
-                "  }" +
-                "}</script>" +
-                "<script type='text/javascript'>" + code + "</script>");
+            idoc.writeln("<script type='text/javascript'>" + code + "</script>");
+            idoc.writeln("<script type='text/javascript' defer>testFinished();" + "</script>");
         }
-        doc.writeln("<script type='text/javascript'>testFinished();</script>");
-        doc.close();
-    };
+        idoc.close();
+    }
+    
+    //--Helper functions-------------------------------------------------------
+    this.convertForEval = function(txt) {
+        txt = txt.replace(/\\/g,"\\\\");
+        txt = txt.replace(/\"/g,"\\\"");
+        txt = txt.replace(/\'/g,"\\\'");
+        txt = txt.replace(/\r/g,"\\r");
+        txt = txt.replace(/\n/g,"\\n");
+        return txt;
+    }
 }
 
-/* Loads tests from the sections specified in testcaseslist.json.
+/* Loads tests from the sections specified in testcases.json.
  * Public Methods:
  * * getNextTest() - Start loading the next test.
  * * reset() - Start over at the first test.
  *
  * Callbacks:
- * * onLoadingNextSection(path): Called after a request is sent for
- *       the next section xml, with the path to that xml.
- * * onInitialized(totalTests, version, date): Called after the
- *       testcaseslist.xml is loaded and parsed.
+ * * onLoadingNextSection(path): Called after a request is sent for the next section json, with the path to that json.
+ * * onInitialized(totalTests, version, date): Called after the testcases.json is loaded and parsed.
  * * onTestReady(id, code): Called when a test is ready with the
  *       test's id and code.
  * * onTestsExhausted(): Called when there are no more tests to run.
@@ -355,7 +291,7 @@ function TestLoader() {
             //var scriptCode = (test.firstChild.text != undefined) ?
             //    test.firstChild.text : test.firstChild.textContent;
 
-            loader.onTestReady(test.id, $.base64Decode(scriptCode));
+            loader.onTestReady(test, $.base64Decode(scriptCode));
         } else if(testGroupIndex < testGroups.length - 1) {
             // We don't have tests left in this test group, so move on
             // to the next.
@@ -372,6 +308,9 @@ function TestLoader() {
         currentTestIndex = 0;
         testGroupIndex = 0;
     };
+    
+    
+    
 }
 
 /* Controls test generation and running, and sends results to the presenter. */
@@ -382,10 +321,24 @@ function Controller() {
     var controller = this;
     var startTime;
     var elapsed = 0;
+    //Hook which allows browser implementers to hook their own test harness API
+    //into this test framework to handle test case failures and passes in their
+    //own way (e.g., logging failures to the filesystem)
+    this.implementerHook = {
+        //Adds a test result
+        addTestResult: function (test) { },
+    
+        //Called whenever all tests have finished running.  Provided with the 
+        //elapsed time in milliseconds.
+        finished: function(elapsed) { }
+    };
 
     runner.onComplete = function(test) {
         presenter.addTestResult(test);
-
+        try {
+            controller.implementerHook.addTestResult(test);
+        } catch(e) { /*no-op*/}
+        
         if(state === 'running')
             setTimeout(loader.getNextTest, 10);
     };
@@ -400,9 +353,9 @@ function Controller() {
         presenter.updateStatus("Loading: " + path);
     };
 
-    loader.onTestReady = function(id, test) {
-        presenter.updateStatus("Executing Test: " + id);
-        runner.run(id, test);
+    loader.onTestReady = function(testObj, testSrc) {
+        presenter.updateStatus("Running Test: " + testObj.id);
+        runner.run(testObj, testSrc);
     };
 
     loader.onTestsExhausted = function() {
@@ -411,7 +364,10 @@ function Controller() {
         elapsed = elapsed/(1000*60);  //minutes
         elapsed = elapsed.toFixed(1);
         presenter.finished(elapsed);
-    };
+        try {
+            controller.implementerHook.finished(elapsed);
+        } catch(e) { /*no-op*/}
+    }
 
     this.start = function() {
         state = 'running';
@@ -460,7 +416,6 @@ function isSiteDebugMode() {
 
 $(function () {
     presenter.setup();
-
     $('.content-home').show();
     // Adding attribute to the tabs (e.g. Home, Run etc.) and
     // attaching the click event on buttons (e.g. Reset, Start etc.)

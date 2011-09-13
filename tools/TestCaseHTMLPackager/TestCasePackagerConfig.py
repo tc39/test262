@@ -20,6 +20,8 @@
 
 #--Imports---------------------------------------------------------------------
 import os
+import subprocess
+import stat
 
 #--Globals---------------------------------------------------------------------
 MAX_CASES_PER_JSON = 1000
@@ -29,7 +31,7 @@ MAX_CASES_PER_JSON = 1000
 TEST_CONTRIB_DIRS = ["sputnik_converted", "ietestcenter"]
 
 #Global scope source files found directly under "test\suite\".
-GLOBAL_SCOPE_FILES = ["SputnikGlobalScope.js"]
+GLOBAL_SCOPE_FILES = ["SputnikGlobalScope.js", "IETCGlobalScope.js"]
 
 #Path to the root of the Hg repository (relative to this file's location)
 TEST262_ROOT = os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "..")
@@ -55,13 +57,54 @@ WEBSITE_CASES_PATH = "resources/scripts/testcases/"
 #These tests are either invalid as-per ES5 or have issues with the test262 web harness.
 EXCLUDED_FILENAME = os.path.join(TEST262_ROOT, "test", "config", "excludelist.xml")
 
-
-
-#--Sanity checks--------------------------------------------------------------#
-
-
-#--Helpers--------------------------------------------------------------------#
-
-
 #------------------------------------------------------------------------------
 
+TEMPLATE_LINES = None
+__lastHarnessType = None
+
+def generateHarness(harnessType, jsonName, title):
+    global TEMPLATE_LINES
+    global __lastHarnessType
+    if TEMPLATE_LINES==None or harnessType!=__lastHarnessType:
+        __lastHarnessType = harnessType
+        TEMPLATE_LINES = []
+        with open(os.path.join(os.getcwd(), "templates","runner." + harnessType + ".html"), "r") as f:
+            TEMPLATE_LINES = f.readlines()
+    fileName = os.path.join(TEST262_ROOT, "website", jsonName.replace(".json", ".html"))
+    fileNameExists = False
+    if os.path.exists(fileName):
+        SC_HELPER.edit(fileName)
+        fileNameExists = True
+    with open(fileName, "w") as f:
+        for line in TEMPLATE_LINES:
+            if "var TEST_LIST_PATH =" in line:
+                f.write("    var TEST_LIST_PATH = \"resources/scripts/testcases/" + jsonName + "\";" + os.linesep)
+            #elif "ECMAScript 5" in line:
+            #    f.write(line.replace("ECMAScript 5", "ECMAScript 5: %s" % title))
+            else:
+                f.write(line)
+    if not fileNameExists:
+        SC_HELPER.add(fileName)
+
+#------------------------------------------------------------------------------
+class SCAbstraction(object):
+    '''
+    A class which abstracts working with source control systems in relation to 
+    generated test262 files.  Useful when test262 is also used internally by
+    browser implementors.
+    '''
+    def edit(self, filename):
+        '''
+        Source control edit of a file. For Mercurial, just make sure it's
+        writable.
+        '''
+        if not(os.stat(filename).st_mode & stat.S_IWRITE):
+            os.chmod(filename, stat.S_IWRITE)
+    
+    def add(self, filename):
+        '''
+        Source control add of a file.
+        '''
+        subprocess.call(["hg", "add", filename])
+        
+SC_HELPER = SCAbstraction()
