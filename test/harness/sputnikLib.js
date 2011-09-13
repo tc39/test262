@@ -37,7 +37,8 @@ function $FAIL(message) {
 
 
 //Sputnik library definitions
-//Ultimately these should be namespaced some how and only made available to tests that explicitly include them.
+//Ultimately these should be namespaced some how and only made
+//available to tests that explicitly include them.
 //For now, we just define the globally
 
 //math_precision.js
@@ -435,12 +436,14 @@ function ConstructDate(year, month, date, hours, minutes, seconds, ms){
    * 5. If minutes is supplied use ToNumber(minutes); else use 0
    * 6. If seconds is supplied use ToNumber(seconds); else use 0
    * 7. If ms is supplied use ToNumber(ms); else use 0
-   * 8. If Result(1) is not NaN and 0 <= ToInteger(Result(1)) <= 99, Result(8) is
-   * 1900+ToInteger(Result(1)); otherwise, Result(8) is Result(1)
+   * 8. If Result(1) is not NaN and 0 <= ToInteger(Result(1)) <= 99,
+   *    Result(8) is 1900+ToInteger(Result(1));
+   *    otherwise, Result(8) is Result(1)
    * 9. Compute MakeDay(Result(8), Result(2), Result(3))
    * 10. Compute MakeTime(Result(4), Result(5), Result(6), Result(7))
    * 11. Compute MakeDate(Result(9), Result(10))
-   * 12. Set the [[Value]] property of the newly constructed object to TimeClip(UTC(Result(11)))
+   * 12. Set the [[Value]] property of the newly constructed object to
+   *     TimeClip(UTC(Result(11)))
    */
   var r1 = Number(year);
   var r2 = Number(month);

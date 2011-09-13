@@ -158,13 +158,22 @@ function fnSupportsStrict() {
 SimpleTestAPIs.push(fnSupportsStrict);
 
 //-----------------------------------------------------------------------------
-//Verify all attributes specified data property of given object: value, writable, enumerable, configurable
+//Verify all attributes specified data property of given object:
+//value, writable, enumerable, configurable
 //If all attribute values are expected, return true, otherwise, return false
-function dataPropertyAttributesAreCorrect(obj, name, value, writable, enumerable, configurable) {
+function dataPropertyAttributesAreCorrect(obj,
+                                          name,
+                                          value,
+                                          writable,
+                                          enumerable,
+                                          configurable) {
     var attributesCorrect = true;
 
     if (obj[name] !== value) {
-        if (typeof obj[name] === "number" && isNaN(obj[name]) && typeof value === "number" && isNaN(value)) {
+        if (typeof obj[name] === "number" &&
+            isNaN(obj[name]) &&
+            typeof value === "number" &&
+            isNaN(value)) {
             // keep empty
         } else {
             attributesCorrect = false;
@@ -182,7 +191,10 @@ function dataPropertyAttributesAreCorrect(obj, name, value, writable, enumerable
 
     var overwrited = false;
     if (obj[name] !== value) {
-        if (typeof obj[name] === "number" && isNaN(obj[name]) && typeof value === "number" && isNaN(value)) {
+        if (typeof obj[name] === "number" &&
+            isNaN(obj[name]) &&
+            typeof value === "number" &&
+            isNaN(value)) {
             // keep empty
         } else {
             overwrited = true;
@@ -222,14 +234,24 @@ function dataPropertyAttributesAreCorrect(obj, name, value, writable, enumerable
 SimpleTestAPIs.push(dataPropertyAttributesAreCorrect);
 
 //-----------------------------------------------------------------------------
-//Verify all attributes specified accessor property of given object: get, set, enumerable, configurable
+//Verify all attributes specified accessor property of given object:
+//get, set, enumerable, configurable
 //If all attribute values are expected, return true, otherwise, return false
-function accessorPropertyAttributesAreCorrect(obj, name, get, set, setVerifyHelpProp, enumerable, configurable) {
+function accessorPropertyAttributesAreCorrect(obj,
+                                              name,
+                                              get,
+                                              set,
+                                              setVerifyHelpProp,
+                                              enumerable,
+                                              configurable) {
     var attributesCorrect = true;
 
     if (get !== undefined) {
         if (obj[name] !== get()) {
-            if (typeof obj[name] === "number" && isNaN(obj[name]) && typeof get() === "number" && isNaN(get())) {
+            if (typeof obj[name] === "number" &&
+                isNaN(obj[name]) &&
+                typeof get() === "number" &&
+                isNaN(get())) {
                 // keep empty
             } else {
                 attributesCorrect = false;
