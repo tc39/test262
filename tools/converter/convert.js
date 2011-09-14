@@ -33,6 +33,31 @@
 
    var CONVERT_PATH = platform.CONVERTER_DIR.concat('convert.js');
 
+   /**
+    * Extra in the sense that they are not redundant with the source,
+    * but add information that should be present in the converted
+    * source. So not test/suite/SputnikGlobalScope.js, since that is
+    * actually derived from sources.
+    */
+   var EXTRA_GLOBAL_SCOPE_TESTS = [
+     ['test', 'suite', 'IETCGlobalScope.js']
+   ];
+
+   /**
+    * Try prepending this to a relPath if necessary to get an index
+    * into EXTRA_GLOBAL_SCOPE_TESTS.
+    */
+   var EXTRANEOUS_PREFIXES = ['TestCases'];
+
+   /**
+    * Prepare for reading in the EXTRA_GLOBAL_SCOPE_TESTS, suppressing
+    * the "new Array()" that inappropriately still appears in
+    * IETCGlobalScope.js
+    */
+   global.GlobalScopeTests = global.GlobalScopeTests || {};
+   global.EarlyErrorRePat = 'EarlyErrorRePat';
+   global.NotEarlyErrorString = 'NotEarlyErrorString';
+
 /////////////////////////////////////////////////////////////////
 
    var headerPattern = /(?:(?:\/\/.*)?\s*\n)*/;
@@ -244,6 +269,8 @@
    function normalizeProps(testRecord) {
      if (!('strict_only' in testRecord) && testRecord.strict === 1) {
        testRecord.strict_only = '';
+     }
+     if (testRecord.strict === 1) {
        delete testRecord.strict;
      }
 
@@ -276,6 +303,21 @@
    t262.normalizeProps = normalizeProps;
 
    /**
+    * If relPath is represented in the EXTRA_GLOBAL_SCOPE_TESTS,
+    * retrieve the corresponding record. Otherwise, return undefined.
+    */
+   function getGlobalScopeRecord(relPath) {
+     var key = toRelPathStr(relPath);
+     var val = global.GlobalScopeTests[key];
+     if (!val) {
+       key = toRelPathStr(EXTRANEOUS_PREFIXES.concat(relPath));
+       val = global.GlobalScopeTests[key];
+     }
+     return val;
+   }
+   t262.getGlobalScopeRecord = getGlobalScopeRecord;
+
+   /**
     * Parses the source of a test262 test case file into a normalized
     * JSON test record.
     */
@@ -298,6 +340,16 @@
          testRecord.test = envelope.rest;
        }
      }
+
+     var globalScopeRecord = getGlobalScopeRecord(nextRelPath);
+     if (globalScopeRecord) {
+       forEach(keys(globalScopeRecord), function(key) {
+         if (!(key in testRecord) && key !== 'precondition') {
+           testRecord[key] = globalScopeRecord[key];
+         }
+       });
+     }
+
      delete testRecord.id;
      delete testRecord.name;
      testRecord.path = toRelPathStr(nextRelPath);
@@ -382,7 +434,7 @@
          var outFilePath = outPath.concat([name]);
          try {
            platform.writeSpawn(
-             [CONVERT_PATH],
+             [CONVERT_PATH].concat(EXTRA_GLOBAL_SCOPE_TESTS),
              't262.show(t262.convertTest("' + toPathStr(inBase) +
                '", "' + toRelPathStr(nextRelPath) + '"));',
              void 0,
@@ -473,7 +525,7 @@
        var outFilePath = outBase.concat([name]);
        try {
          platform.writeSpawn(
-           [CONVERT_PATH],
+           [CONVERT_PATH].concat(EXTRA_GLOBAL_SCOPE_TESTS),
            't262.showJSON(t262.buildSection("' + toPathStr(inBase) +
                '", "' + toRelPathStr(nextRelPath) + '"));',
            void 0,
