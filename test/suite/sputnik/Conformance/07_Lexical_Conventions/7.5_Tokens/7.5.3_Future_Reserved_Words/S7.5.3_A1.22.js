@@ -10,4 +10,4 @@
  */
 
 "use strict";
-private = 1;
+var private = 1;

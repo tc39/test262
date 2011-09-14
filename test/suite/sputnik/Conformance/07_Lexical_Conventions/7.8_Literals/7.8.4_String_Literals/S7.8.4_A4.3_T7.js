@@ -10,26 +10,26 @@
 
 //CHECK#bfnrtv
 if ("b" === "\b") {
-  $ERROR('#b')
+  $ERROR('#b');
 }
 
 if ("f" === "\f") {
-  $ERROR('#f')
+  $ERROR('#f');
 }
 
 if ("n" === "\n") {
-  $ERROR('#n')
+  $ERROR('#n');
 }
 
 if ("r" === "\r") {
-  $ERROR('#r')
+  $ERROR('#r');
 }
 
 if ("t" === "\t") {
-  $ERROR('#t')
+  $ERROR('#t');
 }
 
 if ("v" === "\v") {
-  $ERROR('#v')
+  $ERROR('#v');
 }
 

@@ -6,6 +6,7 @@
 * @section: 11.13.1;
 * @assertion: White Space and Line Terminator between LeftHandSideExpression and "=" or between "=" and AssignmentExpression are allowed;
 * @description: Checking by using eval;
+* @non_strict_only
 */
 
 //CHECK#1
@@ -15,7 +16,7 @@ if ((eval("x\u0009=\u0009true")) !== true) {
 
 //CHECK#2
 if ((eval("x\u000B=\u000Btrue")) !== true) {
-  $ERROR('#2: (x\\u000B=\\u000Btrue) === true');  
+  $ERROR('#2: (x\\u000B=\\u000Btrue) === true');
 }
 
 //CHECK#3
@@ -35,7 +36,7 @@ if ((eval("x\u00A0=\u00A0true")) !== true) {
 
 //CHECK#6
 if ((eval("x\u000A=\u000Atrue")) !== true) {
-  $ERROR('#6: (x\\u000A=\\u000Atrue) === true');  
+  $ERROR('#6: (x\\u000A=\\u000Atrue) === true');
 }
 
 //CHECK#7

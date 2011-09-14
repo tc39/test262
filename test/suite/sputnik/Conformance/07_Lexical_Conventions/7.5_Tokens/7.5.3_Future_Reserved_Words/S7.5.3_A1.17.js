@@ -8,4 +8,4 @@
  * @description: Checking if execution of "int=1" succeeds;
 */
 
-int = 1;
+var int = 1;

@@ -6,6 +6,7 @@
  * @section: 7.5.3;
  * @assertion: The "implements" token can be used as identifier in non-strict code;
  * @description: Checking if execution of "implements=1" succeeds in non-strict code;
+ * @non_strict_only
  */
 
-new Function('implements = 1');
+var implements = 1;

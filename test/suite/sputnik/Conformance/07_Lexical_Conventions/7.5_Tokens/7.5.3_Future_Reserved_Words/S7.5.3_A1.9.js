@@ -4,9 +4,9 @@
 /**
  * @name: S7.5.3_A1.9;
  * @section: 7.5.3;
- * @assertion: The "enum" token can not be used as identifier;  
+ * @assertion: The "enum" token can not be used as identifier;
  * @description: Checking if execution of "enum=1" fails;
  * @negative
 */
 
-enum = 1;
+var enum = 1;

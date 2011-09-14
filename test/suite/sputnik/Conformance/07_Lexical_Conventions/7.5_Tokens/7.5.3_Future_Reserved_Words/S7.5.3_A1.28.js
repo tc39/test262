@@ -8,4 +8,4 @@
  * @description: Checking if execution of "synchronized=1" succeeds;
 */
 
-synchronized = 1;
+var synchronized = 1;

@@ -8,4 +8,4 @@
  * @description: Checking if execution of "float=1" succeeds;
 */
 
-float = 1;
+var float = 1;

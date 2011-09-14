@@ -8,4 +8,4 @@
  * @description: Checking if execution of "char=1" succeeds;
  */
 
-char = 1;
+var char = 1;

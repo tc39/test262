@@ -4,14 +4,15 @@
 /**
  * @name: S10.1.8_A3_T3;
  * @section: 10.1.8;
- * @assertion: A property is created with name callee with property 
+ * @assertion: A property is created with name callee with property
  * attributes { DontEnum } and no others;
- * @description: Checking if deleting arguments.callee property fails;  
+ * @description: Checking if deleting arguments.callee property fails;
+ * @non_strict_only
 */
 
 //CHECK#1
 function f1(){
-  return (delete arguments.callee); 
+  return (delete arguments.callee);
 }
 
 try{
@@ -25,7 +26,7 @@ catch(e){
 
 //CHECK#2
 var f2 = function(){
-  return (delete arguments.callee); 
+  return (delete arguments.callee);
 }
 
 try{

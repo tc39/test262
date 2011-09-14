@@ -8,4 +8,4 @@
  * @description: Checking if execution of "byte=1" succeeds;
  */
 
-byte = 1;
+var byte = 1;

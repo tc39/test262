@@ -8,4 +8,4 @@
  * @description: Checking if execution of "native=1" succeeds;
  */
 
-native = 1;
+var native = 1;

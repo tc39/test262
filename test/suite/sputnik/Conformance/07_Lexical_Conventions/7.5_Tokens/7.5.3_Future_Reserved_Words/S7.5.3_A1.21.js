@@ -10,4 +10,4 @@
  */
 
 "use strict";
-package = 1;
+var package = 1;

@@ -8,4 +8,4 @@
  * @description: Checking if execution of "transient=1" succeeds;
  */
 
-transient = 1;
+var transient = 1;

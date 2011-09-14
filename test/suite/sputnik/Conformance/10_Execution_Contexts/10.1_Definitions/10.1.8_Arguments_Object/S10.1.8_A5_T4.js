@@ -4,16 +4,16 @@
 /**
  * @name: S10.1.8_A5_T4;
  * @section: 10.1.8;
- * @assertion: A property is created with name length with property 
+ * @assertion: A property is created with name length with property
  * attributes { DontEnum } and no others;
- * @description: Overriding arguments.length property;  
+ * @description: Overriding arguments.length property;
 */
 
 var str = "something different";
 //CHECK#1
 function f1(){
   arguments.length = str;
-  return arguments; 
+  return arguments;
 }
 
 try{
@@ -28,8 +28,8 @@ catch(e){
 //CHECK#2
 var f2 = function(){
     arguments.length = str;
-    return arguments; 
-  }
+    return arguments;
+  };
 try{
   if(f2().length !== str){
     $ERROR("#2: A property length have attribute { ReadOnly }");

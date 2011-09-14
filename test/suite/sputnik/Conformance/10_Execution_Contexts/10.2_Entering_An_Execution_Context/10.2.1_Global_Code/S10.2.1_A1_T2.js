@@ -4,9 +4,10 @@
 /**
  * @name: S10.2.1_A1_T2;
  * @section: 10.2.1;
- * @assertion: Variable instantiation is performed using the global object as 
+ * @assertion: Variable instantiation is performed using the global object as
  * the variable object and using property attributes { DontDelete };
  * @description: Checking if deleting variable x, that is defined as x = 1, fails;
+ * @non_strict_only
 */
 
 x = 1;

@@ -12,13 +12,13 @@
 var MyFunction = new Function("this.THIS = this");
 var MyObject = new MyFunction();
 if (MyObject.THIS.toString() !== "[object Object]") {
-  $ERROR('#1: var MyFunction = new Function("this.THIS = this"); var MyObject = new MyFunction(); MyObject.THIS.toString() === "[object Object]". Actual: ' + (MyObject.THIS.toString()));  
+  $ERROR('#1: var MyFunction = new Function("this.THIS = this"); var MyObject = new MyFunction(); MyObject.THIS.toString() === "[object Object]". Actual: ' + (MyObject.THIS.toString()));
 }
 
 //CHECK#2
-var MyFunction = new Function("this.THIS = eval(\'this\')");
-var MyObject = new MyFunction();
+MyFunction = new Function("this.THIS = eval(\'this\')");
+MyObject = new MyFunction();
 if (MyObject.THIS.toString() !== "[object Object]") {
-  $ERROR('#2: var MyFunction = new Function("this.THIS = eval(\'this\')"); var MyObject = new MyFunction(); MyObject.THIS.toString() === "[object Object]". Actual: ' + (MyObject.THIS.toString()));  
+  $ERROR('#2: var MyFunction = new Function("this.THIS = eval(\'this\')"); var MyObject = new MyFunction(); MyObject.THIS.toString() === "[object Object]". Actual: ' + (MyObject.THIS.toString()));
 }
 

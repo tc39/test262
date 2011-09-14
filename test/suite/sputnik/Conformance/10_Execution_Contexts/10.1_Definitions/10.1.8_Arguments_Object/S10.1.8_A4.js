@@ -4,9 +4,10 @@
 /**
  * @name: S10.1.8_A4;
  * @section: 10.1.8;
- * @assertion: The initial value of the created property callee is the  
+ * @assertion: The initial value of the created property callee is the
  * Function object being executed;
  * @description: Checking that arguments.callee === function object;
+ * @non_strict_only
 */
 
 //CHECK#1

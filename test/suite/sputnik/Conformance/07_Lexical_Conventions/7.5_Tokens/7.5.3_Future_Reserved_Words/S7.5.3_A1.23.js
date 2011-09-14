@@ -11,4 +11,4 @@
  */
 
 "use strict";
-protected = 1;
+var protected = 1;

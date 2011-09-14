@@ -6,16 +6,17 @@
  * @section: 11.11.1;
  * @assertion: First expression is evaluated first, and then second expression;
  * @description: Checking with undeclarated variables;
+ * @non_strict_only
 */
 
 //CHECK#1
 try {
   x && (x = true);
-  $ERROR('#1.1: x && (x = true) throw ReferenceError. Actual: ' + (x && (x = true)));  
+  $ERROR('#1.1: x && (x = true) throw ReferenceError. Actual: ' + (x && (x = true)));
 }
 catch (e) {
   if ((e instanceof ReferenceError) !== true) {
-    $ERROR('#1.2: x && (x = true) throw ReferenceError. Actual: ' + (e));  
+    $ERROR('#1.2: x && (x = true) throw ReferenceError. Actual: ' + (e));
   }
 }
 

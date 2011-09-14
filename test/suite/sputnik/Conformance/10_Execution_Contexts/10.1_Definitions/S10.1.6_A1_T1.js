@@ -5,7 +5,8 @@
  * @name: S10.1.6_A1_T1;
  * @section: 10.1.6;
  * @assertion: The activation object is initialised with a property with name arguments and attributes {DontDelete};
- * @description: Checking ifdeleting function parameter is possible;
+ * @description: Checking if deleting function parameter is possible;
+ * @non_strict_only
 */
 
 //CHECK#1
@@ -15,4 +16,4 @@ function f1(a){
 }
 if (f1(1) !== 1)
   $ERROR('#1: Function parameter was deleted');
-  
+

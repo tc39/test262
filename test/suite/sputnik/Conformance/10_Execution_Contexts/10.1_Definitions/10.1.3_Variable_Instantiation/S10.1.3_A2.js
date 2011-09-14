@@ -4,10 +4,11 @@
 /**
  * @name: S10.1.3_A2;
  * @section: 10.1.3;
- * @assertion: If two or more formal parameters share the same name, hence 
- * the same property, the corresponding property is given the value that was 
+ * @assertion: If two or more formal parameters share the same name, hence
+ * the same property, the corresponding property is given the value that was
  * supplied for the last parameter with this name;
  * @description: Creating functions initialized with two or more formal parameters, which have the same name;
+ * @non_strict_only
 */
 
 //CHECK#1

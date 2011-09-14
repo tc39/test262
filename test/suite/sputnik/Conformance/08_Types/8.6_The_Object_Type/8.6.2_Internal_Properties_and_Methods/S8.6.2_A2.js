@@ -4,13 +4,12 @@
 /**
  * @name: S8.6.2_A2;
  * @section: 8.6.2, 15.2.4;
- * @assertion: Properties of the [[Prototype]] object 
+ * @assertion: Properties of the [[Prototype]] object
  * are visible as properties of the child object for the purposes of get access, but not for put access;
  * @description: Check visibility properties of the child object for the purposes of get access, but not for put access;
- * @strict_mode_negative
 */
- 
-//Establish foo object 
+
+//Establish foo object
 function FooObj(){};
 FooObj.prototype.prop="some";
 
