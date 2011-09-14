@@ -20,6 +20,8 @@
 
 /**
  * @path chapter10/10.4/10.4.3/10.4.3-1-8gs.js
+ * @description Strict - checking 'this' from a global scope (FunctionDeclaration includes strict directive prologue)
+ * @strict_only
  */
 
 function f() {

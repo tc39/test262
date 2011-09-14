@@ -20,6 +20,7 @@
 
 /**
  * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-625gs.js
+ * @description Globally declared variable should take precedence over Object.prototype property of the same name
  */
 
 Object.defineProperty(Object.prototype, 
