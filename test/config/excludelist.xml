@@ -211,5 +211,7 @@
   <test id="S13.2.2_A19_T7">https://bugs.ecmascript.org/show_bug.cgi?id=26</test>
   <test id="S15.2.2.1_A2_T4">https://bugs.ecmascript.org/show_bug.cgi?id=26</test>
   
+  <test id="S11.1.1_A2">https://bugs.ecmascript.org/show_bug.cgi?id=179</test>
+  
  </excludeList>
 
