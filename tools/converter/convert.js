@@ -39,11 +39,13 @@
    var captureCommentPattern = /\/\*\*?((?:\s|\S)*?)\*\/\s*\n/;
    var anyPattern = /(?:\s|\S)*/;
    var blanksPattern = /(?:\s|\n)*/;
+   var captureStrictPattern = /\s*('use strict'|"use strict");/;
 
    // Should match anything
    var testEnvelopePattern =
      regExp('^(', headerPattern,
             ')(?:', captureCommentPattern,
+            ')?(?:', captureStrictPattern,
             ')?(', anyPattern,
             ')$');
 
@@ -102,7 +104,6 @@
        throw new Error('unrecognized: ' + name);
      }
      envelope.header = trim(envelopeMatch[1]);
-
      if (envelopeMatch[2]) {
        var propTexts = envelopeMatch[2].split(/\s*\n\s*\*\s*@/);
        envelope.comment = stripStars(propTexts.shift()), // notice side effect
@@ -120,7 +121,10 @@
          envelope.testRecord[propName] = propVal;
        });
      }
-     envelope.rest = envelopeMatch[3]; // Do not trim
+     if (envelopeMatch[3]) {
+       envelope.testRecord.strict_only = '';
+     }
+     envelope.rest = envelopeMatch[4]; // Do not trim
 
      var registerMatch = registerPattern.exec(envelope.rest);
      if (registerMatch) {
@@ -247,7 +251,7 @@
        if (!('strict_only' in testRecord)) {
          testRecord.strict_only = '';
        }
-       if (!'negative' in testRecord) {
+       if (!('negative' in testRecord)) {
          testRecord.negative = testRecord.strict_mode_negative;
          delete testRecord.strict_mode_negative;
        }

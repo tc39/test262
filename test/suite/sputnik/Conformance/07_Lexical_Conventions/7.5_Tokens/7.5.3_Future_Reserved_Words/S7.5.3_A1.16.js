@@ -4,9 +4,9 @@
 /**
  * @name: S7.5.3_A1.16;
  * @section: 7.5.3;
- * @assertion: The "import" token can not be used as identifier;  
+ * @assertion: The "import" token can not be used as identifier;
  * @description: Checking if execution of "import=1" fails;
  * @negative
 */
 
-import = 1;
+var import = 1;

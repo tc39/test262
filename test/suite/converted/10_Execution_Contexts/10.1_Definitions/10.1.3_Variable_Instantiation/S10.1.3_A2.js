@@ -9,6 +9,7 @@
  * @section 10.1.3
  * @path 10_Execution_Contexts/10.1_Definitions/10.1.3_Variable_Instantiation/S10.1.3_A2.js
  * @description Creating functions initialized with two or more formal parameters, which have the same name
+ * @non_strict_only
  */
 
 //CHECK#1

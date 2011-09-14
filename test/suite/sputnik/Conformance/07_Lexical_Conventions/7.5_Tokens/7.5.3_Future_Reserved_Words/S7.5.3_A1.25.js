@@ -8,4 +8,4 @@
  * @description: Checking if execution of "short=1" succeeds;
  */
 
-short = 1;
+var short = 1;

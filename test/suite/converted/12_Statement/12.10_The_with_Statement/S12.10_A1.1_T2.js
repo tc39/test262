@@ -9,7 +9,7 @@
  * @path 12_Statement/12.10_The_with_Statement/S12.10_A1.1_T2.js
  * @description Using "with" inside of global context leading to completion by exception
  * @strict_only
- * @strict_mode_negative
+ * @negative
  */
 
 this.p1 = 1;

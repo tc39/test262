@@ -5,12 +5,12 @@
  * @name: S8.2_A1_T2;
  * @section: 8.2;
  * @assertion: The Null Type has one value, called null;
- * @description: Checking if execution of "x = null" passes; 
+ * @description: Checking if execution of "x = null" passes;
 */
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-x = null;
+var x = null;
 //
 //////////////////////////////////////////////////////////////////////////////
 

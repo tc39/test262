@@ -6,15 +6,16 @@
 * @section: 13.2.2;
 * @assertion: Calling a function as a constructor is inadmissible as long as this.any_Function is declared by eval and called;
 * @description: Calling a function as a constructor after it has been declared by eval;
+* @non_strict_only
 */
 
 function FACTORY(){
    this.id = 0;
-   
+
    eval("function func(){return \"id_string\";}");
-      
+
    this.id = func();
-     
+
 }
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1

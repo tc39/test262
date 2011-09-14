@@ -9,6 +9,7 @@
  * @section 10.1.4
  * @path 10_Execution_Contexts/10.1_Definitions/10.1.4_Scope_Chain_and_Identifier_Resolution/S10.1.4_A1_T7.js
  * @description Checking scope chain containing function declarations and "with"
+ * @non_strict_only
  */
 
 var x = 0;
@@ -22,7 +23,7 @@ function f1(){
     }
   };
   return f2();
-  
+
   var x = 1;
 }
 

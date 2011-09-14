@@ -10,5 +10,5 @@
  * @negative
  */
 
-debugger = 1;
+var debugger = 1;
 

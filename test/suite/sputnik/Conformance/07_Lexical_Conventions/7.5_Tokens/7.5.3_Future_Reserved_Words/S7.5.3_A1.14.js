@@ -8,4 +8,4 @@
  * @description: Checking if execution of "goto=1" succeeds;
  */
 
-goto = 1;
+var goto = 1;

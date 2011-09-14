@@ -8,7 +8,7 @@
  * @path 15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/15.2.4.2_Object.prototype.toString/S15.2.4.2_A10.js
  * @description Checking if varying the Object.prototype.toString.length property fails
  * @strict_only
- * @strict_mode_negative
+ * @negative
  */
 
 //CHECK#1

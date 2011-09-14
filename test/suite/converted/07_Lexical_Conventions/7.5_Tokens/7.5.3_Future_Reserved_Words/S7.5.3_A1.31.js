@@ -9,5 +9,5 @@
  * @description Checking if execution of "volatile=1" succeeds
  */
 
-volatile = 1;
+var volatile = 1;
 

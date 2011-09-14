@@ -5,8 +5,8 @@
  * @name: S7.5.3_A1.5;
  * @section: 7.5.3;
  * @assertion: The "class" token can not be used as identifier;
- * @description: Checking if execution of "class=1" fails;  
+ * @description: Checking if execution of "class=1" fails;
  * @negative
 */
 
-class = 1;
+var class = 1;

@@ -10,5 +10,5 @@
  * @negative
  */
 
-super = 1;
+var super = 1;
 

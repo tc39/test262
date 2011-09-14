@@ -8,7 +8,7 @@
  * @path 15_Native/15.8_The_Math_Object/15.8.1_Value_Properties_of_the_Math_Object/15.8.1.3_LN2/S15.8.1.3_A3.js
  * @description Checking if Math.LN2 property has the attribute DontDelete
  * @strict_only
- * @strict_mode_negative
+ * @negative
  */
 
 // CHECK#1

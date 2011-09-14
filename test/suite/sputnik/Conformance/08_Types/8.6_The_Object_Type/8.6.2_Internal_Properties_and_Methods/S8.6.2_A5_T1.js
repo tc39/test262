@@ -11,7 +11,7 @@
 
 this.count=0;
 
-screen = {touch:function(){count++}};
+var screen = {touch:function(){count++}};
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 screen.touch();

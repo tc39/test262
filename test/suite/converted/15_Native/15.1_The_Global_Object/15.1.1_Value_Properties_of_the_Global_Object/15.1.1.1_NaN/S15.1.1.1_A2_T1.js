@@ -8,7 +8,7 @@
  * @path 15_Native/15.1_The_Global_Object/15.1.1_Value_Properties_of_the_Global_Object/15.1.1.1_NaN/S15.1.1.1_A2_T1.js
  * @description Checking Boolean, Number, String Functions
  * @strict_only
- * @strict_mode_negative
+ * @negative
  */
 
 // CHECK#1

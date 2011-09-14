@@ -12,7 +12,7 @@
  */
 
 function __func(){
-    x = 1;
+    var x = 1;
     return x;
 }
 

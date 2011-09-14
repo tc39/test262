@@ -36,8 +36,10 @@ def BuildOptions():
                     help="Print summary after running tests")
   result.add_option("--full-summary", default=False, action="store_true",
                     help="Print summary and test output after running tests")
-  result.add_option("--enable-strict-mode", default=False, action="store_true", 
-                    help="Run the mode also in ES5 strict mode")
+  result.add_option("--strict_only", default=False, action="store_true", 
+                    help="Test only strict mode")
+  result.add_option("--non_strict_only", default=False, action="store_true", 
+                    help="Test only non-strict mode")
 
   return result
 
@@ -122,16 +124,15 @@ class TestResult(object):
 
   def ReportOutcome(self, long_format):
     name = self.case.GetName()
+    mode = self.case.GetMode()
     if self.HasUnexpectedOutcome():
       if self.case.IsNegative():
-        print "%s was expected to fail but didn't" % name
-      elif (self.case.strict_mode and self.case.IsStrictModeNegative()):
-        print "%s was expected to fail in strict mode, but didn't" % name
+        print "%s was expected to fail in %s, but didn't" % (name, mode)
       else:
         if long_format:
-          print "=== %s failed ===" % name
+          print "=== %s failed in %s ===" % (name, mode)
         else:
-          print "%s: " % name
+          print "%s in %s: " % (name, mode)
         out = self.stdout.strip()
         if len(out) > 0:
           print "--- output ---"
@@ -143,14 +144,9 @@ class TestResult(object):
         if long_format:
           print "==="
     elif self.case.IsNegative():
-      print "%s failed as expected" % name
-    elif self.case.strict_mode:
-      if self.case.IsStrictModeNegative():
-        print "%s failed in strict mode as expected" % name
-      else: 
-        print "%s passed in strict mode" % name
+      print "%s failed in %s as expected" % (name, mode)
     else:
-      print "%s passed" % name
+      print "%s passed in %s" % (name, mode)
 
   def HasFailed(self):
     return self.exit_code != 0
@@ -158,25 +154,30 @@ class TestResult(object):
   def HasUnexpectedOutcome(self):
     if self.case.IsNegative():
        return not self.HasFailed()
-    if self.case.IsStrictModeNegative():
-       return not self.HasFailed()
     else:
        return self.HasFailed()
 
 
 class TestCase(object):
 
-  def __init__(self, suite, name, full_path, strict_mode=False):
+  def __init__(self, suite, name, full_path, strict_mode):
     self.suite = suite
     self.name = name
     self.full_path = full_path
     self.contents = None
     self.is_negative = None
     self.strict_mode = strict_mode
-    self.is_strict_mode_negative = None
+    self.is_strict_only = None
+    self.is_non_strict_only = None
 
   def GetName(self):
     return path.join(*self.name)
+
+  def GetMode(self):
+    if self.strict_mode:
+      return "strict mode"
+    else:
+      return "non-strict mode"
 
   def GetPath(self):
     return self.name
@@ -193,11 +194,15 @@ class TestCase(object):
       self.is_negative = ("@negative" in self.GetRawContents())
     return self.is_negative
 
-  def IsStrictModeNegative(self):
-    if self.strict_mode and self.is_strict_mode_negative is None:
-      self.is_strict_mode_negative = \
-          ("@strict_mode_negative" in self.GetRawContents())
-    return self.is_strict_mode_negative
+  def IsStrictOnly(self):
+    if self.is_strict_only is None:
+      self.is_strict_only = ("@strict_only" in self.GetRawContents())
+    return self.is_strict_only
+
+  def IsNonStrictOnly(self):
+    if self.is_non_strict_only is None:
+      self.is_non_strict_only = ("@non_strict_only" in self.GetRawContents())
+    return self.is_non_strict_only
 
   def GetSource(self):
     source = self.suite.GetInclude("framework.js", False) + \
@@ -293,12 +298,11 @@ def MakePlural(n):
 
 class TestSuite(object):
 
-  def __init__(self, root, stric_mode):
-#    self.test_root = path.join(root, 'test', 'suite', 'Sputnik', 'Conformance')
-#    self.test_root = path.join(root, 'test', 'suite', 'other')
+  def __init__(self, root, strict_only, non_strict_only):
     self.test_root = path.join(root, 'test', 'suite', 'converted')
     self.lib_root = path.join(root, 'test', 'harness')
-    self.strict_mode = stric_mode
+    self.strict_only = strict_only
+    self.non_strict_only = non_strict_only
     self.include_cache = { }
 
   def Validate(self):
@@ -375,9 +379,14 @@ class TestSuite(object):
           if self.ShouldRun(rel_path, tests):
             basename = path.basename(full_path)[:-3]
             name = rel_path.split(path.sep)[:-1] + [basename]
-            cases.append(TestCase(self, name, full_path, False))
-            if self.strict_mode:
-              cases.append(TestCase(self, name, full_path, True))
+            if not self.non_strict_only:
+              strict_case = TestCase(self, name, full_path, True)
+              if not strict_case.IsNonStrictOnly():
+                cases.append(strict_case)
+            if not self.strict_only:
+              non_strict_case = TestCase(self, name, full_path, False)
+              if not non_strict_case.IsStrictOnly():
+                cases.append(non_strict_case)
     logging.info("Done listing tests")
     return cases
 
@@ -401,12 +410,12 @@ class TestSuite(object):
         print
         print "Failed tests"
         for result in positive:
-          print "  %s" % result.case.GetName()
+          print "  %s in %s" % (result.case.GetName(), result.case.GetMode())
       if len(negative) > 0:
         print
         print "Expected to fail but passed ---"
         for result in negative:
-          print " %s" % result.case.GetName()
+          print " %s in %s" % (result.case.GetName(), result.case.GetMode())
 
   def PrintFailureOutput(self, progress):
     for result in progress.failed_tests:
@@ -512,7 +521,9 @@ def Main():
   parser = BuildOptions()
   (options, args) = parser.parse_args()
   ValidateOptions(options)
-  test_suite = TestSuite(options.tests, options.enable_strict_mode)
+  test_suite = TestSuite(options.tests, 
+                         options.strict_only, 
+                         options.non_strict_only)
   test_suite.Validate()
   if options.cat:
     test_suite.Print(args)

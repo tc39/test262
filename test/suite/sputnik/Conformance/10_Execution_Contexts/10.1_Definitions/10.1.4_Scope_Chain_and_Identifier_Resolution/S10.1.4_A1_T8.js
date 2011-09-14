@@ -4,10 +4,11 @@
 /**
  * @name: S10.1.4_A1_T8;
  * @section: 10.1.4;
- * @assertion: Every execution context has associated with it a scope chain. 
- * A scope chain is a list of objects that are searched when evaluating an 
+ * @assertion: Every execution context has associated with it a scope chain.
+ * A scope chain is a list of objects that are searched when evaluating an
  * Identifier;
  * @description: Checking scope chain containing function declarations and "with";
+ * @non_strict_only
 */
 
 var x = 0;

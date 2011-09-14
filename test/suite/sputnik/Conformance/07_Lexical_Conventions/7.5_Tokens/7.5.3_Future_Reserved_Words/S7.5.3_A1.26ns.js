@@ -6,6 +6,7 @@
  * @section: 7.5.3;
  * @assertion: The "static" token can be used as identifier in non-strict code;
  * @description: Checking if execution of "static=1" succeeds in non-strict code;
+ * @non_strict_only
  */
 
-new Function('static = 1');
+var static = 1;

@@ -9,7 +9,7 @@
  * @path 12_Statement/12.10_The_with_Statement/S12.10_A1.12_T3.js
  * @description Calling a function without "with" statement declared within the statement, leading to normal completion by "return"
  * @strict_only
- * @strict_mode_negative
+ * @negative
  */
 
 this.p1 = 1;

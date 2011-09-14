@@ -8,6 +8,7 @@
  * @section 10.2.1
  * @path 10_Execution_Contexts/10.2_Entering_An_Execution_Context/10.2.1_Global_Code/S10.2.1_A1_T2.js
  * @description Checking if deleting variable x, that is defined as x = 1, fails
+ * @non_strict_only
  */
 
 x = 1;

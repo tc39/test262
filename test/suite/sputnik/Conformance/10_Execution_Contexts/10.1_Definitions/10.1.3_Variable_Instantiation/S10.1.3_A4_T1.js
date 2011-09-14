@@ -4,17 +4,18 @@
 /**
  * @name: S10.1.3_A4_T1;
  * @section: 10.1.3;
- * @assertion: Function declaration in function code - If the variable object 
- * already has a property with the name of Function Identifier, replace its 
- * value and attributes. Semantically, this step must follow the creation of 
+ * @assertion: Function declaration in function code - If the variable object
+ * already has a property with the name of Function Identifier, replace its
+ * value and attributes. Semantically, this step must follow the creation of
  * FormalParameterList properties;
  * @description: Checking existence of a function with passed parameter;
+ * @non_strict_only
 */
 
 //CHECK#1
 function f1(x){
   return x;
-  
+
   function x(){
     return 7;
   }
@@ -26,7 +27,7 @@ if(!(f1().constructor.prototype === Function.prototype)){
 //CHECK#2
 function f2(x){
   return typeof x;
-  
+
   function x(){
     return 7;
   }

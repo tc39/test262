@@ -7,6 +7,7 @@
  * @section 8.7.1
  * @path 08_Types/8.7_The_Reference_Type/S8.7.1_A2.js
  * @description Try to delete y, where y is var y=1
+ * @non_strict_only
  */
 
 var y = 1;

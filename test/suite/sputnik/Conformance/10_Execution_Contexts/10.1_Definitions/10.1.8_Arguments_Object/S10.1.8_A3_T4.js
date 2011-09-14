@@ -4,16 +4,17 @@
 /**
  * @name: S10.1.8_A3_T4;
  * @section: 10.1.8;
- * @assertion: A property is created with name callee with property 
+ * @assertion: A property is created with name callee with property
  * attributes { DontEnum } and no others;
- * @description: Overriding arguments.callee property;  
+ * @description: Overriding arguments.callee property;
+ * @non_strict_only
 */
 
 var str = "something different";
 //CHECK#1
 function f1(){
   arguments.callee = str;
-  return arguments; 
+  return arguments;
 }
 
 try{
@@ -28,7 +29,7 @@ catch(e){
 //CHECK#2
 var f2 = function(){
     arguments.callee = str;
-    return arguments; 
+    return arguments;
   }
 try{
   if(f2().callee !== str){

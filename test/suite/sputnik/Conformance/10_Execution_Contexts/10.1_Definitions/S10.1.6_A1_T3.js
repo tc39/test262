@@ -6,6 +6,7 @@
  * @section: 10.1.6;
  * @assertion: The activation object is initialised with a property with name arguments and attributes {DontDelete};
  * @description: Checking function which returns "this";
+ * @non_strict_only
 */
 
 function f1() {

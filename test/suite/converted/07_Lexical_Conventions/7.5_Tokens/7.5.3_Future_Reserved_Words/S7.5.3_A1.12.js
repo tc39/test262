@@ -9,5 +9,5 @@
  * @description Checking if execution of "final=1" succeeds
  */
 
-final = 1;
+var final = 1;
 

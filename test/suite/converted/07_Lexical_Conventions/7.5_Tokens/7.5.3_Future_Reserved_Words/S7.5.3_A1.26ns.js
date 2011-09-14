@@ -7,7 +7,8 @@
  * @section 7.5.3
  * @path 07_Lexical_Conventions/7.5_Tokens/7.5.3_Future_Reserved_Words/S7.5.3_A1.26ns.js
  * @description Checking if execution of "static=1" succeeds in non-strict code
+ * @non_strict_only
  */
 
-new Function('static = 1');
+var static = 1;
 

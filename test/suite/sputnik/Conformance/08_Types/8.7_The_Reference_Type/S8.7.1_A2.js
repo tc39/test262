@@ -5,7 +5,8 @@
 * @name: S8.7.1_A2;
 * @section: 8.7.1;
 * @assertion: Delete operator can't delete reference, so it returns false to be applyed to reference;
-* @description: Try to delete y, where y is var y=1; 
+* @description: Try to delete y, where y is var y=1;
+* @non_strict_only
 */
 
 var y = 1;

@@ -9,5 +9,5 @@
  * @description Checking if execution of "double=1" succeeds
  */
 
-double = 1;
+var double = 1;
 

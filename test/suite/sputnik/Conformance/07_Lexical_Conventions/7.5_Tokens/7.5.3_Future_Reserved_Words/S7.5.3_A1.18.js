@@ -11,4 +11,4 @@
  */
 
 "use strict";
-interface = 1;
+var interface = 1;

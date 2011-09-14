@@ -10,5 +10,5 @@
  * @negative
  */
 
-const = 1;
+var const = 1;
 

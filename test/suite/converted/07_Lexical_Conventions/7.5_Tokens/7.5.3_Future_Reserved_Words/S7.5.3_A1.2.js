@@ -9,5 +9,5 @@
  * @description Checking if execution of "boolean=1" succeeds
  */
 
-boolean = 1;
+var boolean = 1;
 

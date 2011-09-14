@@ -4,118 +4,117 @@
 /**
  * @name: S7.5.1_A2;
  * @section: 7.5.1;
- * @assertion: List of words that are not reserved; 
+ * @assertion: List of words that are not reserved;
  * @description: Try assign 1 for not reserved words;
 */
 
 // a
-and = 1;
-and_eq = 1;
-as = 1;
-asm = 1; 
-assert = 1;
-auto = 1;
+var and = 1;
+var and_eq = 1;
+var as = 1;
+var asm = 1;
+var assert = 1;
+var auto = 1;
 // b
-base = 1;
-bitand = 1;
-bitor = 1;
-bool = 1;
-byvalue = 1;
+var base = 1;
+var bitand = 1;
+var bitor = 1;
+var bool = 1;
+var byvalue = 1;
 // c
-checked = 1;
-clone = 1;
-comment = 1;
-compl = 1;
-const_cast = 1;
+var checked = 1;
+var clone = 1;
+var comment = 1;
+var compl = 1;
+var const_cast = 1;
 // d
-decimal = 1;
-delegate = 1;
-dynamic_cast = 1;
+var decimal = 1;
+var delegate = 1;
+var dynamic_cast = 1;
 // e
-explicit = 1;
-extern = 1;
-equals = 1;
-event = 1;
+var explicit = 1;
+var extern = 1;
+var equals = 1;
+var event = 1;
 // f
-finalize = 1;
-fixed = 1;
-friend = 1;
-foreach = 1;
-future = 1;
+var finalize = 1;
+var fixed = 1;
+var friend = 1;
+var foreach = 1;
+var future = 1;
 // g
-getClass = 1;
-generic = 1;
+var getClass = 1;
+var generic = 1;
 // h
-hashCode = 1;
+var hashCode = 1;
 // i
-implicit = 1;
-infinity = 1;
-inline = 1;
-inner = 1;
-internal = 1;
-is = 1;
+var implicit = 1;
+var infinity = 1;
+var inline = 1;
+var inner = 1;
+var internal = 1;
+var is = 1;
 // j
 // k
 // l
-lock = 1;
+var lock = 1;
 // m
-mutable = 1;
+var mutable = 1;
 // n
-NaN = 1;
-namespace = 1;
-not = 1;
-notify = 1;
-notifyAll = 1;
-not_eq = 1;
+var namespace = 1;
+var not = 1;
+var notify = 1;
+var notifyAll = 1;
+var not_eq = 1;
 // o
-object = 1;
-operator = 1;
-or = 1;
-or_eq = 1;
-out = 1;
-outer = 1;
-override = 1;
+var object = 1;
+var operator = 1;
+var or = 1;
+var or_eq = 1;
+var out = 1;
+var outer = 1;
+var override = 1;
 // p
-params = 1;
+var params = 1;
 // q
 // r
-readonly = 1;
-reinterpret_cast = 1;
-ref = 1;
-register = 1;
+var readonly = 1;
+var reinterpret_cast = 1;
+var ref = 1;
+var register = 1;
 
 // s
-sbyte = 1;
-signed = 1;
-sizeof = 1;
-stackalloc = 1;
-static_cast = 1;
-string = 1;
-strictfp = 1;
-struct = 1;
+var sbyte = 1;
+var signed = 1;
+var sizeof = 1;
+var stackalloc = 1;
+var static_cast = 1;
+var string = 1;
+var strictfp = 1;
+var struct = 1;
 // t
-template = 1;
-toString = 1;
-typedef = 1;
-typeid = 1;
+var template = 1;
+var toString = 1;
+var typedef = 1;
+var typeid = 1;
 // u
-uint = 1;
-unchecked = 1;
-undefiend = 1;
-union = 1;
-unsafe = 1;
-unsigned = 1;
-use = 1;
-using = 1;
-ushort = 1;
+var uint = 1;
+var unchecked = 1;
+var undefiend = 1;
+var union = 1;
+var unsafe = 1;
+var unsigned = 1;
+var use = 1;
+var using = 1;
+var ushort = 1;
 // v
-valueOf = 1;
-virtual = 1;
+var valueOf = 1;
+var virtual = 1;
 // w
-wait = 1;
-wchar_t = 1;
+var wait = 1;
+var wchar_t = 1;
 // x
-xor = 1;
-xor_eq = 1;
+var xor = 1;
+var xor_eq = 1;
 // y
-// z 
+// z

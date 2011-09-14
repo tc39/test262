@@ -5,8 +5,8 @@
  * @name: S7.5.3_A1.11;
  * @section: 7.5.3;
  * @assertion: The "extends" token can not be used as identifier;
- * @description: Checking if execution of "extends=1" fails;  
+ * @description: Checking if execution of "extends=1" fails;
  * @negative
 */
 
-extends = 1;
+var extends = 1;

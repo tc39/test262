@@ -8,7 +8,7 @@
  * @path 12_Statement/12.14_The_try_Statement/S12.14_A4.js
  * @description Checking if deleting an exception fails
  * @strict_only
- * @strict_mode_negative SyntaxError
+ * @negative SyntaxError
  */
 
 // CHECK#1

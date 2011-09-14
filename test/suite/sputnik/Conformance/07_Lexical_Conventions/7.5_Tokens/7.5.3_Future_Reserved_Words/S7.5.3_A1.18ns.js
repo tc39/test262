@@ -8,6 +8,7 @@
  * non-strict code;
  * @description: Checking if execution of "interface = 1" succeeds in
  * non-strict code;
+ * @non_strict_only
  */
 
-new Function('interface = 1');
+var interface = 1;

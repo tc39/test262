@@ -10,4 +10,4 @@
 */
 
 "use strict";
-static = 1;
+var static = 1;

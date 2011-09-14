@@ -7,10 +7,11 @@
  * @section 12.5
  * @path 12_Statement/12.5_The_if_Statement/S12.5_A9_T1.js
  * @description Declaring function within an "if" statement
+ * @strict_only
  * @negative SyntaxError
  */
 
-"use strict";
+
 if (true) {
     function __func(){};
 } else {

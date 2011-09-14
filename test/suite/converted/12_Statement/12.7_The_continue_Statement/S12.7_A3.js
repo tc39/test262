@@ -15,7 +15,7 @@ LABEL_DO_LOOP : do {
     LABEL_IN : x=2;
     continue ;
     LABEL_IN_2 : var y=2;
-    
+
     function IN_DO_FUNC(){}
 } while(0);
 

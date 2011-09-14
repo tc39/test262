@@ -6,13 +6,14 @@
  * @section: 9.9;
  * @assertion: ToObject conversion from null value must throw TypeError;
  * @description: Trying to convert null to Object;
+ * @non_strict_only
 */
 
 // CHECK#1
 try{
   null['foo'];
   $ERROR('#1.1: null[\'foo\'] throw TypeError. Actual: ' + (null['foo']));
-} 
+}
 catch(e){
   if((e instanceof TypeError) !== true){
     $ERROR('#1.2: null[\'foo\'] must throw TypeError. Actual: ' + (e));
@@ -23,7 +24,7 @@ catch(e){
 try{
   with(null) x = 2;
   $ERROR('#2.1: with(null) x = 2 must throw TypeError. Actual: x === . Actual: ' + (x));
-} 
+}
 catch(e){
   if((e instanceof TypeError) !== true){
     $ERROR('#2.2: with(null) x = 2 must throw TypeError. Actual: ' + (e));
@@ -31,10 +32,10 @@ catch(e){
 }
 
 // CHECK#3
-try{  
+try{
   for(var y in null) y = 2;
   $ERROR('#3.1:  for(var y in null) y = 2 must throw TypeError. Actual: y === . Actual: ' + (y));
-} 
+}
 catch(e){
   if((e instanceof TypeError) !== true){
     $ERROR('#3.2:  for(var y in null) y = 2 must throw TypeError. Actual: ' + (e));
@@ -45,7 +46,7 @@ catch(e){
 try{
   for(var z in 'bbb'.match(/aaa/)) z = 2;
   $ERROR('#4.1: for(var z in \'bbb\'.match(/aaa/)) z = 2 must throw TypeError. Actual: z === . Actual: ' + (z));
-} 
+}
 catch(e){
   if((e instanceof TypeError) !== true){
     $ERROR('#4.2: for(var z in \'bbb\'.match(/aaa/)) z = 2 must throw TypeError. Actual: ' + (e));

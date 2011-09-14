@@ -5,29 +5,29 @@
  * @name: S7.4_A6;
  * @section: 7.4;
  * @assertion: If multi line comments csn not nest, they can contain any Unicode character;
- * @description: "var"+ yy+ "xx = 1", insert instead of yy all Unicode characters; 
+ * @description: "var"+ yy+ "xx = 1", insert instead of yy all Unicode characters;
 */
 
 //CHECK
-errorCount = 0;
-count = 0;
-for (indexI = 0; indexI <= 65535; indexI++) {
+var errorCount = 0;
+var count = 0;
+for (var indexI = 0; indexI <= 65535; indexI++) {
   try {
-    var xx = 0;    
+    var xx = 0;
     eval("/*var " + String.fromCharCode(indexI) + "xx = 1*/");
     var hex = decimalToHexString(indexI);
     if (xx !== 0) {
       $ERROR('#' + hex + ' ');
       errorCount++;
-    }    
+    }
   } catch (e){
     $ERROR('#' + hex + ' ');
     errorCount++;
   }
   count++;
-}  
+}
 
-if (errorCount > 0) {    
+if (errorCount > 0) {
   $ERROR('Total error: ' + errorCount + ' bad Unicode character in ' + count);
 }
 

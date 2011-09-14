@@ -9,5 +9,5 @@
  * @description Checking if execution of "throws=1" succeeds
  */
 
-throws = 1;
+var throws = 1;
 

@@ -9,8 +9,8 @@
 *  as knock=function(){count++};
 */
 
-count=0;
-knock=function(){count++};
+var count=0;
+var knock=function(){count++};
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 knock();

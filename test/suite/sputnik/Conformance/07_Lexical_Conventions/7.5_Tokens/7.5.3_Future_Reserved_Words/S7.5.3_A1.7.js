@@ -5,8 +5,8 @@
  * @name: S7.5.3_A1.7;
  * @section: 7.5.3;
  * @assertion: The "debugger" token can not be used as identifier;
- * @description: Checking if execution of "debugger=1" fails;  
+ * @description: Checking if execution of "debugger=1" fails;
  * @negative
 */
 
-debugger = 1;
+var debugger = 1;

@@ -7,7 +7,7 @@
  * @assertion: The "implements" token can not be used as identifier in strict code;
  * @description: Checking if execution of "implements=1" fails in strict code;
  * @negative
+ * @strict_only
  */
 
-"use strict";
-implements = 1;
+var implements = 1;
