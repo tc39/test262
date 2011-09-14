@@ -10,7 +10,7 @@
  * @description Using iteration statment withing "with" statement leading to completion by exception
  * iteration statement inside with statement - exception completion
  * @strict_only
- * @strict_mode_negative
+ * @negative
  */
 
 this.p1 = 1;

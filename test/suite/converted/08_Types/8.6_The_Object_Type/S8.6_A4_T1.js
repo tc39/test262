@@ -11,9 +11,9 @@
 
 ///////////////////////////////////////////////////////
 // CHECK#1
-obj = {bar:true, some:1, foo:"a"};
+var obj = {bar:true, some:1, foo:"a"};
 
-count=0;
+var count=0;
 
 for (property in obj)	count++;
 
@@ -25,7 +25,7 @@ if (count !== 3){
 
 ///////////////////////////////////////////////////////
 // CHECK#2
-obj_ = {bar:true};
+var obj_ = {bar:true};
 obj_.some = 1;
 obj_.foo = "a";
 
@@ -41,7 +41,7 @@ if (count !== 3){
 
 ///////////////////////////////////////////////////////
 // CHECK#3
-obj__ = new Object();
+var obj__ = new Object();
 obj__.bar = true;
 obj__.some = 1;
 obj__.foo = "a";

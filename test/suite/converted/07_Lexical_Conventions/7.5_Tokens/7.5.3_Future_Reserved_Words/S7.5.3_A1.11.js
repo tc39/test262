@@ -10,5 +10,5 @@
  * @negative
  */
 
-extends = 1;
+var extends = 1;
 

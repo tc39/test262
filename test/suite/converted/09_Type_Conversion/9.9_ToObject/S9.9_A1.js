@@ -7,13 +7,14 @@
  * @section 9.9
  * @path 09_Type_Conversion/9.9_ToObject/S9.9_A1.js
  * @description Trying to convert undefined to Object
+ * @non_strict_only
  */
 
 // CHECK#1
 try{
   undefined['foo'];
   $ERROR('#1.1: undefined[\'foo\'] must throw TypeError. Actual: ' + (undefined['foo']));
-} 
+}
 catch(e){
   if((e instanceof TypeError) !== true){
     $ERROR('#1.2: undefined[\'foo\'] must throw TypeError. Actual: ' + (e));
@@ -24,7 +25,7 @@ catch(e){
 try{
   with(undefined) x = 2;
   $ERROR('#2.1: with(undefined) x = 2 must throw TypeError. Actual: x === ' + (x));
-} 
+}
 catch(e){
   if((e instanceof TypeError) !== true){
     $ERROR('#2.2: with(undefined) x = 2 must throw TypeError. Actual: ' + (e));
@@ -35,7 +36,7 @@ catch(e){
 try{
   for(var y in undefined) y = 2;
   $ERROR('#3.1: for(var y in undefined) y = 2 must throw TypeError. Actual: y === ' + (y));
-} 
+}
 catch(e){
   if((e instanceof TypeError) !== true){
     $ERROR('#3.2: for(var y in undefined) y = 2 must throw TypeError. Actual: ' + (e));
@@ -46,7 +47,7 @@ catch(e){
 try{
   for(var z in this.foo) z = 2;
   $ERROR('#4.1: for(var z in this.foo) z = 2 must throw TypeError. Actual: z === ' + (z));
-} 
+}
 catch(e){
   if((e instanceof TypeError) !== true){
     $ERROR('#4.2: for(var z in this.foo) z = 2 must throw TypeError. Actual: ' + (e));

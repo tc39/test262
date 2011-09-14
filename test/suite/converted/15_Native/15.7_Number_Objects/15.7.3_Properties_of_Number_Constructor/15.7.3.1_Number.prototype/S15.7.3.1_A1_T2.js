@@ -8,7 +8,7 @@
  * @path 15_Native/15.7_Number_Objects/15.7.3_Properties_of_Number_Constructor/15.7.3.1_Number.prototype/S15.7.3.1_A1_T2.js
  * @description Checking if deleting the Number.prototype property fails
  * @strict_only
- * @strict_mode_negative
+ * @negative
  */
 
 // CHECK#1

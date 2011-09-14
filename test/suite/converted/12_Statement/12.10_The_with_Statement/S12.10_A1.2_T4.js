@@ -9,7 +9,7 @@
  * @path 12_Statement/12.10_The_with_Statement/S12.10_A1.2_T4.js
  * @description Calling a function without "with" statement when the statement itself is declared within the function declaration, leading to completion by exception
  * @strict_only
- * @strict_mode_negative
+ * @negative
  */
 
 this.p1 = 1;

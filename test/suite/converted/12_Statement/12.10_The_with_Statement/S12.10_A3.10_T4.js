@@ -9,7 +9,7 @@
  * @path 12_Statement/12.10_The_with_Statement/S12.10_A3.10_T4.js
  * @description Using iteration statement within "with" statement, leading completion be break
  * @strict_only
- * @strict_mode_negative
+ * @negative
  */
 
 this.p1 = 1;

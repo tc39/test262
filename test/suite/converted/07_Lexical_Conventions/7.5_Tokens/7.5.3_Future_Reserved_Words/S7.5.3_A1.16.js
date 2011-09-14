@@ -10,5 +10,5 @@
  * @negative
  */
 
-import = 1;
+var import = 1;
 

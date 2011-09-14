@@ -7,16 +7,17 @@
  * @section 11.10.3
  * @path 11_Expressions/11.10_Binary_Bitwise_Operators/11.10.3_OR_Operator/S11.10.3_A2.4_T3.js
  * @description Checking with undeclarated variables
+ * @non_strict_only
  */
 
 //CHECK#1
 try {
   x | (x = 1);
-  $ERROR('#1.1: x | (x = 1) throw ReferenceError. Actual: ' + (x | (x = 1)));  
+  $ERROR('#1.1: x | (x = 1) throw ReferenceError. Actual: ' + (x | (x = 1)));
 }
 catch (e) {
   if ((e instanceof ReferenceError) !== true) {
-    $ERROR('#1.2: x | (x = 1) throw ReferenceError. Actual: ' + (e));  
+    $ERROR('#1.2: x | (x = 1) throw ReferenceError. Actual: ' + (e));
   }
 }
 

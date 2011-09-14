@@ -9,5 +9,5 @@
  * @description Checking if execution of "abstract=1" succeeds
  */
 
-abstract = 1;
+var abstract = 1;
 

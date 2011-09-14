@@ -10,5 +10,5 @@
  * @negative
  */
 
-enum = 1;
+var enum = 1;
 

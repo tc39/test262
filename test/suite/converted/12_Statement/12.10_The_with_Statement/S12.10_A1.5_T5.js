@@ -9,7 +9,7 @@
  * @path 12_Statement/12.10_The_with_Statement/S12.10_A1.5_T5.js
  * @description Using "with" statement within "for-in" statement, leading to completion by break
  * @strict_only
- * @strict_mode_negative
+ * @negative
  */
 
 this.p1 = 1;

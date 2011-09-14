@@ -10,5 +10,5 @@
  * @negative
  */
 
-export = 1;
+var export = 1;
 

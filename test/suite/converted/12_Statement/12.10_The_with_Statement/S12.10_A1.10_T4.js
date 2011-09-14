@@ -10,7 +10,7 @@
  * @description Using iteration statement witthin "with" staement leading to completion by break
  * iteration statement inside with statement - break completion
  * @strict_only
- * @strict_mode_negative
+ * @negative
  */
 
 this.p1 = 1;

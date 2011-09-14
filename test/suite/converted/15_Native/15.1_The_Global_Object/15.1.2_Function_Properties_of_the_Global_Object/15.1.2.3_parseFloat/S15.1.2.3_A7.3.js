@@ -8,7 +8,7 @@
  * @path 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.3_parseFloat/S15.1.2.3_A7.3.js
  * @description Checking if varying the length property fails
  * @strict_only
- * @strict_mode_negative
+ * @negative
  */
 
 //CHECK#1

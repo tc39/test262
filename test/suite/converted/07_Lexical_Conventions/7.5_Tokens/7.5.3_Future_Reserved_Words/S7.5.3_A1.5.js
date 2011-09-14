@@ -10,5 +10,5 @@
  * @negative
  */
 
-class = 1;
+var class = 1;
 

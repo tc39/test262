@@ -9,7 +9,7 @@
  * @path 12_Statement/12.10_The_with_Statement/S12.10_A1.3_T4.js
  * @description Using "with" statement within function constructor, leading to completition by exception
  * @strict_only
- * @strict_mode_negative
+ * @negative
  */
 
 this.p1 = 1;

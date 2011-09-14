@@ -14,7 +14,7 @@ var str = "something different";
 //CHECK#1
 function f1(){
   arguments.length = str;
-  return arguments; 
+  return arguments;
 }
 
 try{
@@ -29,8 +29,8 @@ catch(e){
 //CHECK#2
 var f2 = function(){
     arguments.length = str;
-    return arguments; 
-  }
+    return arguments;
+  };
 try{
   if(f2().length !== str){
     $ERROR("#2: A property length have attribute { ReadOnly }");

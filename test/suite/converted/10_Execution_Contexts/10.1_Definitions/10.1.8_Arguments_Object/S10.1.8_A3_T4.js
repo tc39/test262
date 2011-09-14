@@ -8,13 +8,14 @@
  * @section 10.1.8
  * @path 10_Execution_Contexts/10.1_Definitions/10.1.8_Arguments_Object/S10.1.8_A3_T4.js
  * @description Overriding arguments.callee property
+ * @non_strict_only
  */
 
 var str = "something different";
 //CHECK#1
 function f1(){
   arguments.callee = str;
-  return arguments; 
+  return arguments;
 }
 
 try{
@@ -29,7 +30,7 @@ catch(e){
 //CHECK#2
 var f2 = function(){
     arguments.callee = str;
-    return arguments; 
+    return arguments;
   }
 try{
   if(f2().callee !== str){

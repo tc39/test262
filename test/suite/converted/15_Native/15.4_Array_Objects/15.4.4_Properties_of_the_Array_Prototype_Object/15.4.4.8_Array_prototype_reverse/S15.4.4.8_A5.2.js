@@ -8,7 +8,7 @@
  * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.8_Array_prototype_reverse/S15.4.4.8_A5.2.js
  * @description Checking use hasOwnProperty, delete
  * @strict_only
- * @strict_mode_negative
+ * @negative
  */
 
 //CHECK#1
