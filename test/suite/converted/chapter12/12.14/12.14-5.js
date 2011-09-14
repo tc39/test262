@@ -19,17 +19,30 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path chapter15/15.1/15.1.1/15.1.1.1/15.1.1.1-0.js
- * @description Global.NaN is a data property with default attribute values (false)
+ * local vars must not be visible outside with block
+ * local functions must not be visible outside with block
+ * local function expresssions should not be visible outside with block
+ * local vars must shadow outer vars
+ * local functions must shadow outer functions
+ * local function expresssions must shadow outer function expressions
+ * eval should use the appended object to the scope chain
+ *
+ * @path chapter12/12.14/12.14-5.js
+ * @description catch introduces scope - block-local functions must shadow outer functions
  */
 
 
 function testcase() {
-    var desc = Object.getOwnPropertyDescriptor(fnGlobalObject(), 'NaN');
-  if (desc.writable === false &&
-      desc.enumerable === false &&
-      desc.configurable === false) {
-    return true;
+  var o = {foo: function () { return 42;}};
+
+  try {
+    throw o;
+  }
+  catch (e) {
+    function foo() {}
+    if (foo() === undefined) {
+      return true;
+    }
   }
  }
 runTestCase(testcase);

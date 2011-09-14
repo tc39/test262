@@ -23,9 +23,9 @@
  * @description Global.undefined is a data property with default attribute values (false)
  */
 
-var global = this;
+
 function testcase() {
-  var desc = Object.getOwnPropertyDescriptor(global, 'undefined');
+    var desc = Object.getOwnPropertyDescriptor(fnGlobalObject(), 'undefined');
   if (desc.writable === false &&
       desc.enumerable === false &&
       desc.configurable === false) {

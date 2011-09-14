@@ -19,17 +19,15 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path chapter15/15.1/15.1.1/15.1.1.1/15.1.1.1-0.js
- * @description Global.NaN is a data property with default attribute values (false)
+ * @path chapter15/15.2/15.2.3/15.2.3.6/15.2.3.6-4-625gs.js
  */
 
+Object.defineProperty(Object.prototype, 
+                      "prop", 
+                      { value: 1001, writable: false, enumerable: false, configurable: false} 
+                      );
+var prop = 1002;
 
-function testcase() {
-    var desc = Object.getOwnPropertyDescriptor(fnGlobalObject(), 'NaN');
-  if (desc.writable === false &&
-      desc.enumerable === false &&
-      desc.configurable === false) {
-    return true;
-  }
- }
-runTestCase(testcase);
+if (! (this.hasOwnProperty("prop") && prop === 1002)) {
+    throw "this.prop should take precedence over Object.prototype.prop";
+}

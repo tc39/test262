@@ -1,4 +1,4 @@
-/// Copyright (c) 2009 Microsoft Corporation 
+/// Copyright (c) 2011 Microsoft Corporation 
 /// 
 /// Redistribution and use in source and binary forms, with or without modification, are permitted provided
 /// that the following conditions are met: 
@@ -19,17 +19,17 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path chapter15/15.1/15.1.1/15.1.1.1/15.1.1.1-0.js
- * @description Global.NaN is a data property with default attribute values (false)
+ * @path chapter10/10.4/10.4.3/10.4.3-1-8-s.js
+ * @description Strict Mode - checking 'this' (FunctionDeclaration includes strict directive prologue)
+ * @strict_only
  */
 
 
 function testcase() {
-    var desc = Object.getOwnPropertyDescriptor(fnGlobalObject(), 'NaN');
-  if (desc.writable === false &&
-      desc.enumerable === false &&
-      desc.configurable === false) {
-    return true;
-  }
- }
+function f() {
+    "use strict";
+    return typeof this;
+}
+return f() === "undefined";
+}
 runTestCase(testcase);

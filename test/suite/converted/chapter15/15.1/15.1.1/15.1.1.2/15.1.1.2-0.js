@@ -23,9 +23,9 @@
  * @description Global.Infinity is a data property with default attribute values (false)
  */
 
-var global = this;
+
 function testcase() {
-  var desc = Object.getOwnPropertyDescriptor(global, 'Infinity');
+    var desc = Object.getOwnPropertyDescriptor(fnGlobalObject(), 'Infinity');
   if (desc.writable === false &&
       desc.enumerable === false &&
       desc.configurable === false) {

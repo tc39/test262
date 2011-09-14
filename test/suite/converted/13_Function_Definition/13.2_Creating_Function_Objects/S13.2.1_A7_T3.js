@@ -11,8 +11,9 @@
  * @description Returning number. Declaring a function with "function __func()"
  */
 
+var x;
 function __func(){
-    var x = 1;
+    x = 1;
     return x;
 }
 
@@ -28,7 +29,7 @@ try {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 try{
-    var __x=__func()
+    var __x=__func();
 } catch(e){
     $ERROR('#1: var __x=__func() does not lead to throwing exception. Actual: exception is '+e);
 }

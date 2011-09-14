@@ -19,17 +19,16 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /**
- * @path chapter15/15.1/15.1.1/15.1.1.1/15.1.1.1-0.js
- * @description Global.NaN is a data property with default attribute values (false)
+ * @path chapter11/11.4/11.4.5/11.4.5-2-3-s.js
+ * @description Strict Mode - SyntaxError is not thrown for --arguments[...]
+ * @strict_only
  */
 
 
 function testcase() {
-    var desc = Object.getOwnPropertyDescriptor(fnGlobalObject(), 'NaN');
-  if (desc.writable === false &&
-      desc.enumerable === false &&
-      desc.configurable === false) {
-    return true;
-  }
- }
+        "use strict";
+        arguments[1] = 7;
+        --arguments[1];
+        return arguments[1]===6;
+    }
 runTestCase(testcase);
