@@ -25,11 +25,11 @@ if (testDescrip.negative !== undefined) {
     if (window.iframeError === undefined) { //no exception was thrown
         testRun(testDescrip.id, testDescrip.path, testDescrip.description, testDescrip.code, typeof testDescrip.precondition !== 'undefined' ? testDescrip.precondition.toString() : '',
                 'fail', 
-                Error('No exception was thrown; expected "' + testDescrip.negative + '".'));
+                Error('No exception was thrown; expected an error "message" property matching the regular expression "' + testDescrip.negative + '".'));
     } else if (!(new RegExp(testDescrip.negative, "i").test(window.iframeError))) {  //wrong type of exception thrown
         testRun(testDescrip.id, testDescrip.path, testDescrip.description, testDescrip.code, typeof testDescrip.precondition !== 'undefined' ? testDescrip.precondition.toString() : '',
                 'fail', 
-                Error('Expected an exception matching "' + testDescrip.negative +'" to be thrown; actual was "' + window.iframeError + '".'));
+                Error('Expected an exception with a "message" property matching the regular expression "' + testDescrip.negative +'" to be thrown; actual was "' + window.iframeError + '".'));
     } else {
         testRun(testDescrip.id, testDescrip.path, testDescrip.description, testDescrip.code, typeof testDescrip.precondition !== 'undefined' ? testDescrip.precondition.toString() : '',
                 'pass', undefined);
