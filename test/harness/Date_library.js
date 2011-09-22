@@ -33,16 +33,13 @@ var $LocalTZ,
         return current;
     }
 
-    var juneDate = new Date(2000, 6, 20, 0, 0, 0, 0);
-    var decemberDate = new Date(2000, 12, 20, 0, 0, 0, 0);
+    var juneDate = new Date(2000, 5, 20, 0, 0, 0, 0);
+    var decemberDate = new Date(2000, 11, 20, 0, 0, 0, 0);
     var juneOffset = juneDate.getTimezoneOffset();
     var decemberOffset = decemberDate.getTimezoneOffset();
     var isSouthernHemisphere = (juneOffset > decemberOffset);
     var winterTime = isSouthernHemisphere ? juneDate : decemberDate;
     var summerTime = isSouthernHemisphere ? decemberDate : juneDate;
-    
-    $LocalTZ = new Date().getTimezoneOffset() / -60;
-    
     
     var dstStart = findNearestDateBefore(winterTime, function (date) {
         return date.getTimezoneOffset() == summerTime.getTimezoneOffset();
@@ -169,6 +166,10 @@ function WeekDay(t) {
 }
 
 //15.9.1.9 Daylight Saving Time Adjustment
+$LocalTZ = (new Date()).getTimezoneOffset() / -60;
+if (DaylightSavingTA((new Date()).valueOf()) !== 0) {
+   $LocalTZ -= 1;
+}
 var LocalTZA = $LocalTZ*msPerHour;
 
 function DaysInMonth(m, leap) {
@@ -188,6 +189,27 @@ function DaysInMonth(m, leap) {
   return 28+leap;
 }
 
+function GetSundayInMonth(t, m, count){
+    var year = YearFromTime(t);
+    
+    if (count==='"first"') {
+        for (var d=1; d <= DaysInMonth(m, InLeapYear(t)); d++) {
+            tempDate = new Date(year, m, d);
+            if (tempDate.getDay()===0) {
+                return tempDate.valueOf();
+            }         
+        }
+    } else if(count==='"last"') {
+        for (var d=DaysInMonth(m, InLeapYear(t)); d>0; d--) {
+            tempDate = new Date(year, m, d);
+            if (tempDate.getDay()===0) {
+                return tempDate.valueOf();
+            }
+        }
+    }
+    throw new Error("Unsupported 'count' arg:" + count);
+}
+/*
 function GetSundayInMonth(t, m, count){
   var year = YearFromTime(t);
   var leap = InLeapYear(t);
@@ -224,20 +246,20 @@ function GetSundayInMonth(t, m, count){
   }
   
   return sunday;
-}
+}*/
 
 function DaylightSavingTA(t) {
-  t = t-LocalTZA;
+//  t = t-LocalTZA;
 
-  var DST_start = GetSundayInMonth(t, $DST_start_month, $DST_start_sunday)
-                  +$DST_start_hour*msPerHour
-                  +$DST_start_minutes*msPerMinute;
+  var DST_start = GetSundayInMonth(t, $DST_start_month, $DST_start_sunday) +
+                  $DST_start_hour*msPerHour + 
+                  $DST_start_minutes*msPerMinute;
                   
   var k = new Date(DST_start);
   
-  var DST_end   = GetSundayInMonth(t, $DST_end_month, $DST_end_sunday)
-                  +$DST_end_hour*msPerHour
-                  +$DST_end_minutes*msPerMinute;
+  var DST_end   = GetSundayInMonth(t, $DST_end_month, $DST_end_sunday) +
+                  $DST_end_hour*msPerHour +
+                  $DST_end_minutes*msPerMinute;
 
   if ( t >= DST_start && t < DST_end ) {
     return msPerHour;
