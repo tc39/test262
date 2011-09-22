@@ -217,12 +217,38 @@ function Presenter() {
 
     /* Append a result to the run page's result log. */
     function logResult(test) {
+        var appendStr = "";
         altStyle = (altStyle !== ' ') ? ' ' : 'alternate';
-        var appendStr = '<tbody><tr class=\"' + altStyle +
-            '\"><td width=\"20%\">' + "<a class='showSource' href='#" +
-            test.id + "'>" + test.id + "</a>" + '</td><td>' +
-            test.description + '</td><td align="right"><span class=\"Fail\">' +
-            test.result + '</span></td></tr></tbody>';
+        
+        if (test.result==="fail") {
+            appendStr += '<tbody>';
+            appendStr += '<tr class=\"' + altStyle + '\">';
+            
+            appendStr += '<td width=\"20%\">';
+            appendStr += "<a class='showSource' href='#" + test.id + "'>";
+            appendStr += test.id + "</a>";
+            appendStr += '</td>';
+            
+            appendStr += '<td>' + test.description + '</td>';
+            
+            appendStr += '<td align="right">';
+            appendStr += '<span class=\"Fail\">' + "<a class='showError' href='#" + test.id + "'>";
+            appendStr += 'Fail</a></span></td></tr></tbody>';
+        }
+        
+        else if (test.result==="pass") {
+           if  (! isSiteDebugMode()) { return;}
+            appendStr += '<tbody><tr class=\"' + altStyle + '\"><td width=\"20%\">';
+            appendStr += "<a class='showSource' href='#" + test.id + "'>";
+            appendStr += test.id + "</a>" + '</td><td>' + test.description;
+            appendStr += '</td><td align="right"><span class=\"Fail\">';
+            appendStr += 'Pass</span></td></tr></tbody>';
+        }
+        else {
+            throw "Result for '" + test.id + "' must either be 'pass' or 'fail', not '" + test.result + "'!";
+        }
+    
+            
         logger.append(appendStr);
         logger.parent().attr("scrollTop", logger.parent().attr("scrollHeight"));
     }
