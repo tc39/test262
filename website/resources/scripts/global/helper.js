@@ -42,6 +42,7 @@ function Presenter() {
 
         updateCounts();
 
+        //TODO: eventually remove this guard.
         if(test.result === 'fail') {
             logResult(test);
         }
@@ -71,7 +72,7 @@ function Presenter() {
         $('.button-start').attr('src', 'resources/images/start.png');
         $('.button-start').fadeOut('fast');
         
-        //progressBar.text("Testing complete!");
+        progressBar.find(".text").html("Testing complete!"); 
         if (isSiteDebugMode()) {
             this.activityBar.text('Overall Execution Time: ' + elapsed + ' minutes');
         } else {
