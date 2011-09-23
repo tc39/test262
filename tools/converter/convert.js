@@ -147,7 +147,7 @@
        });
      }
      if (envelopeMatch[3]) {
-       envelope.testRecord.strict_only = '';
+       envelope.testRecord.strictOnly = '';
      }
      envelope.rest = envelopeMatch[4]; // Do not trim
 
@@ -262,43 +262,44 @@
    }
 
    /**
+    * If record[toName] is absent or empty and record[fromName] is
+    * present, whether empty or not, then set record[toName] to the
+    * current value of record[fromName] and delete record[fromName]
+    */
+   function transferProp(record, fromName, toName) {
+     // Note that record[toName] is falsy whether toName is absent or
+     // empty
+     if (!record[toName] && fromName in record) {
+       record[toName] = record[fromName];
+       delete record[fromName];
+     }
+   }
+
+   /**
     * Normalizes the properties of testRecord to be the canonical
     * test262 style properties, that will be assumed by the new test
     * runners.
     */
    function normalizeProps(testRecord) {
-     if (!('strict_only' in testRecord) && testRecord.strict === 1) {
-       testRecord.strict_only = '';
+     if (!('strictOnly' in testRecord) && testRecord.strict === 1) {
+       testRecord.strictOnly = '';
      }
      if (testRecord.strict === 1) {
        delete testRecord.strict;
      }
 
      if ('strict_mode_negative' in testRecord) {
-       if (!('strict_only' in testRecord)) {
-         testRecord.strict_only = '';
+       if (!('strictOnly' in testRecord)) {
+         testRecord.strictOnly = '';
        }
-       if (!('negative' in testRecord)) {
-         testRecord.negative = testRecord.strict_mode_negative;
-         delete testRecord.strict_mode_negative;
-       }
+       transferProp(testRecord, 'strict_mode_negative', 'negative');
      }
+     transferProp(testRecord, 'strict_only', 'strictOnly');
+     transferProp(testRecord, 'non_strict_only', 'noStrict');
 
-     // Note that testRecord.negative is falsy whether negative is
-     // absent or empty.
-     if (!testRecord.negative && 'errortype' in testRecord) {
-       testRecord.negative = testRecord.errortype;
-       delete testRecord.errortype;
-     }
-
-     if (!testRecord.description && testRecord.assertion) {
-       testRecord.description = testRecord.assertion;
-       delete testRecord.assertion;
-     }
-     if (!testRecord.comment && testRecord.assertion) {
-       testRecord.comment = testRecord.assertion;
-       delete testRecord.assertion;
-     }
+     transferProp(testRecord, 'errortype', 'negative');
+     transferProp(testRecord, 'assertion', 'description');
+     transferProp(testRecord, 'assertion', 'comment');
    }
    t262.normalizeProps = normalizeProps;
 
@@ -352,6 +353,7 @@
 
      delete testRecord.id;
      delete testRecord.name;
+     delete testRecord.section;
      testRecord.path = toRelPathStr(nextRelPath);
      testRecord.header = envelope.header;
      testRecord.comment = envelope.comment;
@@ -361,9 +363,10 @@
    }
    t262.parseTestRecord = parseTestRecord;
 
-   // The known ones will be rendered first, and in this order.
-   var KNOWN_PROPS = ['section', 'path', 'description',
-                      'strict_only', 'negative'];
+   // If we see any properties other than these after normalization,
+   // we signal an error.
+   var KNOWN_PROPS = ['path', 'description',
+                      'noStrict', 'strictOnly', 'negative'];
 
    /**
     * Turns the (assumed) normalized test record into its string form
@@ -395,7 +398,15 @@
      }
      delete testRecord.comment;
      forEach(KNOWN_PROPS, addProp);
-     forEach(keys(testRecord), addProp);
+
+     var remaining = keys(testRecord);
+     if (remaining.length >= 1) {
+       // If we wanted to preserve unrecognized properties, we'd
+       // uncomment the following and comment out the next
+       //forEach(remaining, addProp);
+       throw new Error('unrecognized: ' + remaining);
+     }
+
      result += ' */\n\n' + test;
      return result;
    }
