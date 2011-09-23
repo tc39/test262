@@ -69,6 +69,8 @@ function Presenter() {
   
   this.finished = function(elapsed) {
         $('.button-start').attr('src', 'resources/images/start.png');
+        $('.button-start').fadeOut('fast');
+        
         //progressBar.text("Testing complete!");
         if (isSiteDebugMode()) {
             this.activityBar.text('Overall Execution Time: ' + elapsed + ' minutes');
@@ -92,6 +94,7 @@ function Presenter() {
 
         currentSection = globalSection;
         renderCurrentSection();
+        $('.button-start').show();
     }
   
   
