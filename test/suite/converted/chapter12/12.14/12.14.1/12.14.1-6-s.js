@@ -21,7 +21,7 @@
 /**
  * @path chapter12/12.14/12.14.1/12.14.1-6-s.js
  * @description Strict Mode - SyntaxError isn't thrown if a TryStatement with a Catch occurs within strict code and the Identifier of the Catch production is ARGUMENTS
- * @strict_only
+ * @strictOnly
  */
 
 

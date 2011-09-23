@@ -4,7 +4,6 @@
 /**
  * "break" within a "while" Statement is allowed and performed as described in 12.8
  *
- * @section 12.6.2
  * @path 12_Statement/12.6_Iteration_Statements/12.6.2_The_while_statement/S12.6.2_A4_T5.js
  * @description Using labeled "break" in order to continue a "while" loop
  */

@@ -6,7 +6,6 @@
  * its own; however, it inherits the valueOf property from the valueOf
  * property from the Object prototype Object
  *
- * @section 15.4.4
  * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/S15.4.4_A2.1_T2.js
  * @description Change valueOf property of Object.prototype. When Array.prototype.valueOf also change
  */

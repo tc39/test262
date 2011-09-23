@@ -4,7 +4,6 @@
 /**
  * Closures are admitted
  *
- * @section 13.2.1
  * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.1_A5_T1.js
  * @description Sorting with closure
  */

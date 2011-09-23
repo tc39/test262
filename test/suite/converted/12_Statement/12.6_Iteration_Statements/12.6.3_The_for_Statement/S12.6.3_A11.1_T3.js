@@ -4,7 +4,6 @@
 /**
  * If (Evaluate Statement).type is "continue" and (Evaluate Statement).target is in the current label set, iteration of labeled "var-loop" breaks
  *
- * @section 12.6.3
  * @path 12_Statement/12.6_Iteration_Statements/12.6.3_The_for_Statement/S12.6.3_A11.1_T3.js
  * @description Trying to continue non-existent label
  * @negative

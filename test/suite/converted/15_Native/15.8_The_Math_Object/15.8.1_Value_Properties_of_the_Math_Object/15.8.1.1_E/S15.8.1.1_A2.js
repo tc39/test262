@@ -4,7 +4,6 @@
 /**
  * Value Property E of the Math Object has the attribute DontEnum
  *
- * @section 15.8.1.1
  * @path 15_Native/15.8_The_Math_Object/15.8.1_Value_Properties_of_the_Math_Object/15.8.1.1_E/S15.8.1.1_A2.js
  * @description Checking if Math.E property has the attribute DontEnum
  */

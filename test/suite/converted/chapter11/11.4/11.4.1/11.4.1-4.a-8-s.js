@@ -24,7 +24,7 @@
  *
  * @path chapter11/11.4/11.4.1/11.4.1-4.a-8-s.js
  * @description delete operator throws TypeError when deleting a non-configurable data property in strict mode
- * @strict_only
+ * @strictOnly
  */
 
 

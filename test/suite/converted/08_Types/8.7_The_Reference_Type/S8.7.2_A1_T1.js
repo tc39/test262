@@ -4,7 +4,6 @@
 /**
  * GetValue(V) mast fail
  *
- * @section 8.7.2
  * @path 08_Types/8.7_The_Reference_Type/S8.7.2_A1_T1.js
  * @description Checking if execution of "'litera'=1;" fails
  * @negative

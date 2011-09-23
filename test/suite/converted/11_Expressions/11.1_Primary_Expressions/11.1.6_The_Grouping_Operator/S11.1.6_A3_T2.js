@@ -4,7 +4,6 @@
 /**
  * "This" operator only evaluates Expression
  *
- * @section 11.1.6
  * @path 11_Expressions/11.1_Primary_Expressions/11.1.6_The_Grouping_Operator/S11.1.6_A3_T2.js
  * @description Applying grouping operator to Number
  */

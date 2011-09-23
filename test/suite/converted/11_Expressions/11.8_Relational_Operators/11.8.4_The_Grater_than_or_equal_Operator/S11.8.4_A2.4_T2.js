@@ -4,7 +4,6 @@
 /**
  * First expression is evaluated first, and then second expression
  *
- * @section 11.8.4
  * @path 11_Expressions/11.8_Relational_Operators/11.8.4_The_Grater_than_or_equal_Operator/S11.8.4_A2.4_T2.js
  * @description Checking with "throw"
  */

@@ -3,7 +3,7 @@
 /**
  * @path chapter10/10.5/10.5-1gs.js
  * @description Strict Mode - arguments cannot be assigned to in a strict function
- * @strict_only
+ * @strictOnly
  * @negative EarlyErrorRePat
  */
 

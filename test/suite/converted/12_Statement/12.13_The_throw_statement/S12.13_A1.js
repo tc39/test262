@@ -4,7 +4,6 @@
 /**
  * Sanity test for throw statement
  *
- * @section 12.13
  * @path 12_Statement/12.13_The_throw_statement/S12.13_A1.js
  * @description Trying to throw exception with "throw"
  * @negative

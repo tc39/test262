@@ -5,7 +5,6 @@
  * When the Object function is called with one argument value,
  * and the value neither is null nor undefined, and is supplied, return ToObject(value)
  *
- * @section 15.2.1.1
  * @path 15_Native/15.2_Object_Objects/15.2.1_The_Object_Constructor_Called_as_a_Function/S15.2.1.1_A2_T2.js
  * @description Calling Object function with number argument value
  */

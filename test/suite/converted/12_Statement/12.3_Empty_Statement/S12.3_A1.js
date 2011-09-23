@@ -4,7 +4,6 @@
 /**
  * The production EmptyStatement ; is evaluated as follows Return (normal, empty, empty)
  *
- * @section 12.3
  * @path 12_Statement/12.3_Empty_Statement/S12.3_A1.js
  * @description Using EmptyStatement ;
  */

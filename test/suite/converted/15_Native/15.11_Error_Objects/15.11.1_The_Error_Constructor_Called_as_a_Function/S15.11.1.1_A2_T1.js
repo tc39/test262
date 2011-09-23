@@ -5,7 +5,6 @@
  * The [[Prototype]] property of the newly constructed object is set to the original Error prototype
  * object, the one that is the initial value of Error.prototype (15.11.3.1)
  *
- * @section 15.11.1.1, 16
  * @path 15_Native/15.11_Error_Objects/15.11.1_The_Error_Constructor_Called_as_a_Function/S15.11.1.1_A2_T1.js
  * @description Checking prototype of the newly constructed Error object
  */

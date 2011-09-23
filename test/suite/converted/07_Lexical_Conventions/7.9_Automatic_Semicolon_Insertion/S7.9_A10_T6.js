@@ -4,7 +4,6 @@
 /**
  * Check {} for automatic semicolon insertion
  *
- * @section 7.9
  * @path 07_Lexical_Conventions/7.9_Automatic_Semicolon_Insertion/S7.9_A10_T6.js
  * @description Checking if execution of "{} \n * 1" fails
  * @negative

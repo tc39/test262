@@ -7,7 +7,6 @@
  * string.charAt(k + 8)) or (string.charAt(k + 10) and
  * string.charAt(k + 11)) do not represent hexadecimal digits, throw URIError
  *
- * @section 15.1.3.2
  * @path 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.2_decodeURIComponent/S15.1.3.2_A1.12_T2.js
  * @description Complex tests, string.charAt(k + 7) and string.charAt(k + 7)
  * do not represent hexadecimal digits

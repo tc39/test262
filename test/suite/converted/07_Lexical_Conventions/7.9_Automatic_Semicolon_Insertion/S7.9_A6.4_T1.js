@@ -4,7 +4,6 @@
 /**
  * Check For Statement for automatic semicolon insertion
  *
- * @section 7.9, 12.6.3
  * @path 07_Lexical_Conventions/7.9_Automatic_Semicolon_Insertion/S7.9_A6.4_T1.js
  * @description Three semicolons. For header is (false semicolon false semicolon false semicolon)
  * @negative

@@ -4,7 +4,6 @@
 /**
  * NO-BREAK SPACE (U+00A0) between any two tokens is allowed
  *
- * @section 7.2, 7.5
  * @path 07_Lexical_Conventions/7.2_White_Space/S7.2_A1.5_T2.js
  * @description Insert real NO-BREAK SPACE between tokens of var x=1
  */

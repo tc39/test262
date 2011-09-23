@@ -21,7 +21,7 @@
 /**
  * @path chapter10/10.1/10.1.1/10.1.1-9-s.js
  * @description Strict Mode - Use Strict Directive Prologue is ''Use strict';' in which the first character is uppercase
- * @strict_only
+ * @strictOnly
  */
 
 

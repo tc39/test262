@@ -4,7 +4,6 @@
 /**
  * The Array.prototype property has the attribute DontEnum
  *
- * @section 15.4.3.1
  * @path 15_Native/15.4_Array_Objects/15.4.3_Properties_of_the_Array_Constructor/15.4.3.1_Array_prototype/S15.4.3.1_A2.js
  * @description Checking if enumerating the Array.prototype property fails
  */

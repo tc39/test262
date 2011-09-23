@@ -5,7 +5,6 @@
  * The initial value of Number.prototype.constructor is the
  * built-in Number constructor
  *
- * @section 15.7.4.1
  * @path 15_Native/15.7_Number_Objects/15.7.4_Properties_of_the_Number_Prototype_Object/15.7.4.1_Number.prototype.constructor/S15.7.4.1_A1.js
  * @description Compare Number.prototype.constructor with Number
  */

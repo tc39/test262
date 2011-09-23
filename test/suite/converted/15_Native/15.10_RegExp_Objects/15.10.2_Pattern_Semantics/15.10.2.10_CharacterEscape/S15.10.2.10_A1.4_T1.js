@@ -5,7 +5,6 @@
  * The production CharacterEscape :: f evaluates by returning
  * the character \u000C
  *
- * @section 15.10.2.10
  * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.10_CharacterEscape/S15.10.2.10_A1.4_T1.js
  * @description Use \f in RegExp and \u000C in tested string
  */

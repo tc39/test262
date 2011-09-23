@@ -4,7 +4,6 @@
 /**
  * Closures are admitted
  *
- * @section 13.2.1
  * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.1_A5_T2.js
  * @description Returning a function that approximates the derivative of f
  * using an interval of dx, which should be appropriately small

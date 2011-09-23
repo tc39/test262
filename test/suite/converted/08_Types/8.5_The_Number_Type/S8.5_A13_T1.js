@@ -6,7 +6,6 @@
  *  where s is +1 or -1, m is a positive integer less than 2**53 but not
  *  less than s**52 and e is an integer ranging from -1074 to 971
  *
- * @section 8.5, 7.8.3
  * @path 08_Types/8.5_The_Number_Type/S8.5_A13_T1.js
  * @description Finite Non zero values where e is -1074
  */

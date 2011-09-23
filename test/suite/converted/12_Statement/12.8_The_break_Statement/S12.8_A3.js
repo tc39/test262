@@ -4,7 +4,6 @@
 /**
  * When "break" is evaluated, (break, empty, empty) is returned
  *
- * @section 12.8
  * @path 12_Statement/12.8_The_break_Statement/S12.8_A3.js
  * @description Using "break" without Identifier within labeled loop
  */

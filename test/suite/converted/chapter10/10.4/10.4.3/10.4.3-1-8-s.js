@@ -21,7 +21,7 @@
 /**
  * @path chapter10/10.4/10.4.3/10.4.3-1-8-s.js
  * @description Strict Mode - checking 'this' (FunctionDeclaration includes strict directive prologue)
- * @strict_only
+ * @strictOnly
  */
 
 

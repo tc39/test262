@@ -7,7 +7,6 @@
  * referenced in a replace string,
  * or returned as part of an array from the regular expression matching function
  *
- * @section 15.10.2.8
  * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.8_Atom/S15.10.2.8_A3_T14.js
  * @description Execute /a(.?)b\1c\1d\1/.exec("abcd") and check results
  */

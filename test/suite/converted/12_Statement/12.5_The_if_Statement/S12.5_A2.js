@@ -4,7 +4,6 @@
 /**
  * In the "if" Statement eval in Expression is admitted
  *
- * @section 12.5
  * @path 12_Statement/12.5_The_if_Statement/S12.5_A2.js
  * @description Checking by using eval "eval("true")"
  * @negative

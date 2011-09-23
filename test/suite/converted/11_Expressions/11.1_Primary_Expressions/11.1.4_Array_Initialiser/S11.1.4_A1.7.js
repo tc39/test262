@@ -4,7 +4,6 @@
 /**
  * Evaluate the production ArrayLiteral: [ AssignmentExpression, Elision, AssignmentExpression ]
  *
- * @section 11.1.4
  * @path 11_Expressions/11.1_Primary_Expressions/11.1.4_Array_Initialiser/S11.1.4_A1.7.js
  * @description Checking various properteis and contents of the array defined with "var array = [1,2,,4,5]"
  */

@@ -4,7 +4,6 @@
 /**
  * SPACE (U+0020) between any two tokens is allowed
  *
- * @section 7.2, 7.5
  * @path 07_Lexical_Conventions/7.2_White_Space/S7.2_A1.4_T1.js
  * @description Insert SPACE(\u0020) between tokens of var x=1
  */

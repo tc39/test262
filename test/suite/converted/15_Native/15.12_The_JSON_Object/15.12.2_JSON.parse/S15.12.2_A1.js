@@ -4,7 +4,6 @@
 /**
  * JSON.parse must create a property with the given property name
  *
- * @section 15.12.2
  * @path 15_Native/15.12_The_JSON_Object/15.12.2_JSON.parse/S15.12.2_A1.js
  * @description Tests that JSON.parse treats "__proto__" as a regular property name
  */

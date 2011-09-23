@@ -4,7 +4,6 @@
 /**
  * The Null Type has one value, called null
  *
- * @section 8.2
  * @path 08_Types/8.2_The_Null_Type/S8.2_A1_T1.js
  * @description Checking if execution of "var x = null" passes
  */

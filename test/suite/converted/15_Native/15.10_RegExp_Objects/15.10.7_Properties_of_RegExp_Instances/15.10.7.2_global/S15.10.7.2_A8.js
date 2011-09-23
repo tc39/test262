@@ -4,7 +4,6 @@
 /**
  * The RegExp instance global property has the attribute DontEnum
  *
- * @section 15.10.7.2
  * @path 15_Native/15.10_RegExp_Objects/15.10.7_Properties_of_RegExp_Instances/15.10.7.2_global/S15.10.7.2_A8.js
  * @description Checking if enumerating the global property of RegExp instance fails
  */

@@ -4,7 +4,6 @@
 /**
  * Result of number conversion from undefined value is NaN
  *
- * @section 9.3, 11.6.1
  * @path 09_Type_Conversion/9.3_ToNumber/S9.3_A1_T2.js
  * @description Undefined convert to Number by implicit transformation
  */

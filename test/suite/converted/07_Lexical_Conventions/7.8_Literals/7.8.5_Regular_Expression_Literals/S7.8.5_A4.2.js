@@ -6,7 +6,6 @@
  * regular expression objects that never compare as === to each other even
  * if the two literals' contents are identical
  *
- * @section 7.8.5
  * @path 07_Lexical_Conventions/7.8_Literals/7.8.5_Regular_Expression_Literals/S7.8.5_A4.2.js
  * @description Check equality two regular expression literals
  */

@@ -4,7 +4,6 @@
 /**
  * Evaluate the production ObjectLiteral: { NumericLiteral : AssignmentExpression}
  *
- * @section 11.1.5
  * @path 11_Expressions/11.1_Primary_Expressions/11.1.5_Object_Initializer/S11.1.5_A1.2.js
  * @description Checking various properteis and contents of the object defined with "var object = {1 : true}"
  */

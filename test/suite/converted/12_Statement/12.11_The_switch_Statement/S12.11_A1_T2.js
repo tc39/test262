@@ -5,7 +5,6 @@
  * If Result.type is break and Result.target is in the current
  * label set, return (normal, Result.value, empty)
  *
- * @section 12.11
  * @path 12_Statement/12.11_The_switch_Statement/S12.11_A1_T2.js
  * @description Switch with different types of variables
  */

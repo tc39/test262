@@ -4,7 +4,6 @@
 /**
  * Values of the List type are simply ordered sequences of values
  *
- * @section 8.8
  * @path 08_Types/8.8_The_List_Type/S8.8_A2_T3.js
  * @description Call function, that concatenate all it`s arguments
  */

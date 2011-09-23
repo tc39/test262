@@ -4,7 +4,6 @@
 /**
  * The Number prototype object has the property toPrecision
  *
- * @section 15.7.4
  * @path 15_Native/15.7_Number_Objects/15.7.4_Properties_of_the_Number_Prototype_Object/S15.7.4_A3.7.js
  * @description The test uses hasOwnProperty() method
  */

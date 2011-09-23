@@ -4,7 +4,6 @@
 /**
  * Get arguments of function
  *
- * @section 10.1.8
  * @path 10_Execution_Contexts/10.1_Definitions/10.1.8_Arguments_Object/S10.1.8_A7.js
  * @description Use property arguments
  */

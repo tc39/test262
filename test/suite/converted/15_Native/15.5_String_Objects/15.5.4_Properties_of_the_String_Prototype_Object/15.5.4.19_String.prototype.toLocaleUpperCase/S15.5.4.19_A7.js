@@ -4,7 +4,6 @@
 /**
  * String.prototype.toLocaleUpperCase can't be used as constructor
  *
- * @section 15.5.4.19, 13.2
  * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.19_String.prototype.toLocaleUpperCase/S15.5.4.19_A7.js
  * @description Checking if creating the String.prototype.toLocaleUpperCase object fails
  */

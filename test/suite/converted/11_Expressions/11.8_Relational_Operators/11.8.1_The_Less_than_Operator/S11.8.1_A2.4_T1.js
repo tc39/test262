@@ -4,7 +4,6 @@
 /**
  * First expression is evaluated first, and then second expression
  *
- * @section 11.8.1
  * @path 11_Expressions/11.8_Relational_Operators/11.8.1_The_Less_than_Operator/S11.8.1_A2.4_T1.js
  * @description Checking with "="
  */

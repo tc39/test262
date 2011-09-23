@@ -4,7 +4,6 @@
 /**
  * FunctionDeclaration can be overrided by other FunctionDeclaration with the same Identifier
  *
- * @section 13
  * @path 13_Function_Definition/S13_A6_T2.js
  * @description Calling a function before it is declared one more time
  */

@@ -8,7 +8,6 @@
  * list passed into [[Construct]] as the argument values.
  * If Type( [[Call]] returned) is an Object then return this just as obtained object
  *
- * @section 13.2.2
  * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A7_T2.js
  * @description Declaring a "function as function __func (arg)"
  */

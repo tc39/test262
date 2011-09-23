@@ -4,7 +4,6 @@
 /**
  * the length property has the attributes { DontDelete }
  *
- * @section 15.3.5.1
  * @path 15_Native/15.3_Function_Objects/15.3.5_Properties_of_Function_Instances/S15.3.5.1_A2_T2.js
  * @description Checking if deleting the length property of Function("arg1,arg2,arg3","arg4,arg5", null) fails
  */

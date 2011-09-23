@@ -4,7 +4,6 @@
 /**
  * Object is the property of global
  *
- * @section 15.2
  * @path 15_Native/15.2_Object_Objects/S15.2_A1.js
  * @description Checking if Object equals to this.Object
  */

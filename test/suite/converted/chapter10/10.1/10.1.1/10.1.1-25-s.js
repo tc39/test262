@@ -21,7 +21,7 @@
 /**
  * @path chapter10/10.1/10.1.1/10.1.1-25-s.js
  * @description Strict Mode - Function code of Accessor PropertyAssignment contains Use Strict Directive which appears at the start of the block(getter)
- * @strict_only
+ * @strictOnly
  */
 
 

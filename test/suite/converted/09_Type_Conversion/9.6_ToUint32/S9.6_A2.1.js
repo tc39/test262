@@ -4,7 +4,6 @@
 /**
  * ToUint32 returns values between 0 and 2^32-1
  *
- * @section 9.6, 11.7.3
  * @path 09_Type_Conversion/9.6_ToUint32/S9.6_A2.1.js
  * @description Converting numbers, which are in\outside of Uint32 scopes, with >>>0 operator
  */

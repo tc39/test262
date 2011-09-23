@@ -4,7 +4,6 @@
 /**
  * The Date.prototype.getSeconds property "length" has { ReadOnly, DontDelete, DontEnum } attributes
  *
- * @section 15.9.5.22
  * @path 15_Native/15.9_Date_Objects/15.9.5_Properties_of_the_Date_Prototype_Object/15.9.5.22_Date.prototype.getSeconds/S15.9.5.22_A3_T3.js
  * @description Checking DontEnum attribute
  */

@@ -4,7 +4,6 @@
 /**
  * If x is NaN, Math.exp(x) is NaN
  *
- * @section 15.8.2.8
  * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.8_exp/S15.8.2.8_A1.js
  * @description Checking if Math.exp(NaN) is NaN
  */

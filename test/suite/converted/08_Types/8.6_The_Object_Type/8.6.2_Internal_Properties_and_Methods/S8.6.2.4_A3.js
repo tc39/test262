@@ -4,7 +4,6 @@
 /**
  * [[hasProperty]] is sensitive to property existence but [[Get]] is not
  *
- * @section 8.6.2.4, 12.6.4
  * @path 08_Types/8.6_The_Object_Type/8.6.2_Internal_Properties_and_Methods/S8.6.2.4_A3.js
  * @description Use [[hasProperty]] and [[Get]] for existent and not existent properties
  */

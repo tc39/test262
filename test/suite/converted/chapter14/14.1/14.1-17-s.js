@@ -3,7 +3,7 @@
 /**
  * @path chapter14/14.1/14.1-17-s.js
  * @description 'use strict' directive - not recognized if it follow some other statment empty statement
- * @strict_only
+ * @strictOnly
  */
 
 /// Copyright (c) 2009 Microsoft Corporation 

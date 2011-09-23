@@ -4,7 +4,6 @@
 /**
  * The Function prototype object does not have a valueOf property of its own. however, it inherits the valueOf property from the Object prototype Object
  *
- * @section 15.3.4
  * @path 15_Native/15.3_Function_Objects/15.3.4_Properties_of_the_Function_Prototype_Object/S15.3.4_A4.js
  * @description Checking valueOf property at Function.prototype
  */

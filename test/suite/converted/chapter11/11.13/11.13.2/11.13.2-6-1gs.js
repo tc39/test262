@@ -3,7 +3,7 @@
 /**
  * @path chapter11/11.13/11.13.2/11.13.2-6-1gs.js
  * @description Strict Mode - SyntaxError is throw if the identifier eval appears as the LeftHandSideExpression of a Compound Assignment operator(*=)
- * @strict_only
+ * @strictOnly
  * @negative EarlyErrorRePat
  */
 

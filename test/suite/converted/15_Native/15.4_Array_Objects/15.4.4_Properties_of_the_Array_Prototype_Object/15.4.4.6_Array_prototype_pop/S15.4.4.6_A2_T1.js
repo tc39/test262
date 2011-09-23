@@ -5,7 +5,6 @@
  * The pop function is intentionally generic.
  * It does not require that its this value be an Array object
  *
- * @section 15.4.4.6
  * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.6_Array_prototype_pop/S15.4.4.6_A2_T1.js
  * @description If ToUint32(length) equal zero, call the [[Put]] method
  * of this object with arguments "length" and 0 and return undefined

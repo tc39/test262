@@ -4,7 +4,6 @@
 /**
  * Operator x % y returns ToNumber(x) % ToNumber(y)
  *
- * @section 11.5.3
  * @path 11_Expressions/11.5_Multiplicative_Operators/11.5.3_Applying_the_percent_Operator/S11.5.3_A3_T2.2.js
  * @description Type(x) is different from Type(y) and both types vary between Number (primitive or object) and String (primitive and object)
  */

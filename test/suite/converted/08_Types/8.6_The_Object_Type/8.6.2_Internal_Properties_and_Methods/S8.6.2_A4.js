@@ -4,7 +4,6 @@
 /**
  * [[HasInstance]] returns a boolean value indicating whether Value delegates behaviour to this object
  *
- * @section 8.6.2, 11.8.6
  * @path 08_Types/8.6_The_Object_Type/8.6.2_Internal_Properties_and_Methods/S8.6.2_A4.js
  * @description Check that the obj instance of Object, but not instance
  *  of Function, String, Number, Array

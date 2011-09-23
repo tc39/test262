@@ -4,7 +4,6 @@
 /**
  * The result of a floating-point multiplication is governed by the rules of IEEE 754 double-precision arithmetics
  *
- * @section 11.5.1
  * @path 11_Expressions/11.5_Multiplicative_Operators/11.5.1_Applying_the_asterisk_Operator/S11.5.1_A4_T8.js
  * @description Multiplication is not always associative (x * y * z is the same as (x * y) * z, not x * (y * z))
  */

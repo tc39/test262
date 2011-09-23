@@ -5,7 +5,6 @@
  * A property name P (in the form of a string value) is an array index
  * if and only if ToString(ToUint32(P)) is equal to P and ToUint32(P) is not equal to 2^32 - 1
  *
- * @section 15.4, 11.2.1
  * @path 15_Native/15.4_Array_Objects/S15.4_A1.1_T10.js
  * @description Array index is power of two
  */

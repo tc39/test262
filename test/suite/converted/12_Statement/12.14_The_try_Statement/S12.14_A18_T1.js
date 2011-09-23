@@ -4,7 +4,6 @@
 /**
  * Catching objects with try/catch/finally statement
  *
- * @section 12.14, 12.13
  * @path 12_Statement/12.14_The_try_Statement/S12.14_A18_T1.js
  * @description Catching undefined
  */

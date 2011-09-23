@@ -21,7 +21,7 @@
 /**
  * @path chapter07/7.8/7.8.4/7.8.4-7-s.js
  * @description An OctalEscapeSequence is not allowed in a String under Strict Mode
- * @strict_only
+ * @strictOnly
  */
 
 

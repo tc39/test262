@@ -4,7 +4,6 @@
 /**
  * The RegExp.prototype.toString.length property has the attribute DontEnum
  *
- * @section 15.10.6.4
  * @path 15_Native/15.10_RegExp_Objects/15.10.6_Properties_of_the_RegExp_Prototype_Object/15.10.6.4_RegExp.prototype.toString/S15.10.6.4_A8.js
  * @description Checking if enumerating the RegExp.prototype.toString.length property fails
  */

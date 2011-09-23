@@ -4,7 +4,6 @@
 /**
  * String.prototype.slice (start, end) can be applied to object instances
  *
- * @section 15.5.4.13
  * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.13_String.prototype.slice/S15.5.4.13_A3_T2.js
  * @description Apply String.prototype.slice to Object instance, use other value for start and end values
  */

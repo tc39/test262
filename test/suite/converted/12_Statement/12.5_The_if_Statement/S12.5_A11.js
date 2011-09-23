@@ -4,7 +4,6 @@
 /**
  * {} within the "if" expression is not allowed
  *
- * @section 12.5
  * @path 12_Statement/12.5_The_if_Statement/S12.5_A11.js
  * @description Checking if execution of "if({1})" fails
  * @negative

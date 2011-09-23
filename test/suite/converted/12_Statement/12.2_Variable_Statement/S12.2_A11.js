@@ -4,7 +4,6 @@
 /**
  * When using property attributes, {ReadOnly} is not used
  *
- * @section 12.2
  * @path 12_Statement/12.2_Variable_Statement/S12.2_A11.js
  * @description Changing variable value using property attributes
  */

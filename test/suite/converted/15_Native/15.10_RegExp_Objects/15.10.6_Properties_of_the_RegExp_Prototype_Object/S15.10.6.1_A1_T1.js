@@ -4,7 +4,6 @@
 /**
  * The initial value of RegExp.prototype.constructor is the built-in RegExp constructor
  *
- * @section 15.10.6.1
  * @path 15_Native/15.10_RegExp_Objects/15.10.6_Properties_of_the_RegExp_Prototype_Object/S15.10.6.1_A1_T1.js
  * @description Compare RegExp.prototype.constructor with RegExp
  */

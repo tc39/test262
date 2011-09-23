@@ -25,7 +25,7 @@
  *
  * @path chapter13/13.1/13.1-31-s.js
  * @description Strict Mode - SyntaxError is thrown if a function is created using a FunctionExpression that is contained in eval strict code and the function has two identical parameters, which are separated by a unique parameter name
- * @strict_only
+ * @strictOnly
  */
 
 

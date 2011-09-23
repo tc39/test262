@@ -4,10 +4,9 @@
 /**
  * Using "try" with "catch" or "finally" statement within/without a "with" statement
  *
- * @section 12.14
  * @path 12_Statement/12.14_The_try_Statement/S12.14_A14.js
  * @description Using try/catch/finally in With and With in try/catch/finally
- * @strict_only
+ * @strictOnly
  * @negative SyntaxError
  */
 

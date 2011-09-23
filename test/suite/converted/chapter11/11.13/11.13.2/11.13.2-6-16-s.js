@@ -21,7 +21,7 @@
 /**
  * @path chapter11/11.13/11.13.2/11.13.2-6-16-s.js
  * @description Strict Mode - SyntaxError is thrown if the identifier arguments appear as the LeftHandSideExpression of a Compound Assignment operator(-=)
- * @strict_only
+ * @strictOnly
  */
 
 

@@ -4,7 +4,6 @@
 /**
  * The PropertyName is undefined, ToString(BooleanLiteral), ToString(nullLiteral)
  *
- * @section 11.1.5
  * @path 11_Expressions/11.1_Primary_Expressions/11.1.5_Object_Initializer/S11.1.5_A4.3.js
  * @description Creating properties with following names: undefined, 'true', 'null'
  */

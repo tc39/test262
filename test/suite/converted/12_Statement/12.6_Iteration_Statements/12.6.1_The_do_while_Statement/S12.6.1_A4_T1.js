@@ -4,7 +4,6 @@
 /**
  * "break" within a "do-while" Statement is allowed and performed as described in 12.8
  *
- * @section 12.6.1, 12.8
  * @path 12_Statement/12.6_Iteration_Statements/12.6.1_The_do_while_Statement/S12.6.1_A4_T1.js
  * @description Using "break" within a "do-while" loop
  */

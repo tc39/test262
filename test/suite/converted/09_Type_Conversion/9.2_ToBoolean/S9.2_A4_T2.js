@@ -4,7 +4,6 @@
 /**
  * Result of boolean conversion from number value is false if the argument is +0, -0, or NaN; otherwise, is true
  *
- * @section 9.2, 11.4.9
  * @path 09_Type_Conversion/9.2_ToBoolean/S9.2_A4_T2.js
  * @description +0, -0 and NaN convert to Boolean by implicit transformation
  */

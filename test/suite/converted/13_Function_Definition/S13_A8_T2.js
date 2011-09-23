@@ -4,7 +4,6 @@
 /**
  * Arguments property of activation object contains real params to be passed
  *
- * @section 13
  * @path 13_Function_Definition/S13_A8_T2.js
  * @description Creating a function with no parameters and using arguments.length property in order to perform the test
  */

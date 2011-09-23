@@ -4,7 +4,6 @@
 /**
  * Math.pow, recommended that implementations use the approximation algorithms for IEEE 754 arithmetic contained in fdlibm
  *
- * @section 15.8.2.13
  * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.13_pow/S15.8.2.13_A24.js
  * @description Checking if Math.pow(argument1, argument2) is approximately equals to its mathematical value on the set of 64 argument1 values and 64 argument2 values; all the sample values is calculated with LibC
  */

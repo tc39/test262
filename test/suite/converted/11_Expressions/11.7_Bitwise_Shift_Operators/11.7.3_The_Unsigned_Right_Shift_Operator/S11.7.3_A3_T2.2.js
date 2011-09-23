@@ -4,7 +4,6 @@
 /**
  * Operator x >>> y returns ToNumber(x) >>> ToNumber(y)
  *
- * @section 11.7.3
  * @path 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.3_The_Unsigned_Right_Shift_Operator/S11.7.3_A3_T2.2.js
  * @description Type(x) is different from Type(y) and both types vary between Number (primitive or object) and String (primitive and object)
  */

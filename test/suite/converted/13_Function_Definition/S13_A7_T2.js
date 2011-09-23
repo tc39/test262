@@ -4,7 +4,6 @@
 /**
  * The FunctionBody must be SourceElements
  *
- * @section 13
  * @path 13_Function_Definition/S13_A7_T2.js
  * @description Inserting elements that is different from SourceElements into the FunctionBody
  */

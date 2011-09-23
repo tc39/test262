@@ -4,7 +4,6 @@
 /**
  * Single line comments can contain any Unicode character without Line Terminators
  *
- * @section 7.4
  * @path 07_Lexical_Conventions/7.4_Comments/S7.4_A5.js
  * @description //var " + xx + "yy = -1", insert instead of xx all Unicode characters
  */

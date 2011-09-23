@@ -4,7 +4,6 @@
 /**
  * If x is -Infinity and y<0 and y is NOT an odd integer, Math.pow(x,y) is +0
  *
- * @section 15.8.2.13
  * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.13_pow/S15.8.2.13_A16.js
  * @description Checking if Math.pow(x,y) equals to +0, where x is -Infinity and y<0
  */

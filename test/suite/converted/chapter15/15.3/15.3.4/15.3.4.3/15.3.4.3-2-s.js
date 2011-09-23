@@ -21,7 +21,7 @@
 /**
  * @path chapter15/15.3/15.3.4/15.3.4.3/15.3.4.3-2-s.js
  * @description Strict Mode - 'this' value is a number which cannot be converted to wrapper objects when the function is called with an array of arguments
- * @strict_only
+ * @strictOnly
  */
 
 

@@ -4,7 +4,6 @@
 /**
  * Multi line comments cannot nest
  *
- * @section 7.4
  * @path 07_Lexical_Conventions/7.4_Comments/S7.4_A3.js
  * @description Try use nested comments
  * @negative

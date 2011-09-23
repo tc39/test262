@@ -4,7 +4,6 @@
 /**
  * RegExp instance has not [[call]] property
  *
- * @section 15.10.7
  * @path 15_Native/15.10_RegExp_Objects/15.10.7_Properties_of_RegExp_Instances/S15.10.7_A1_T1.js
  * @description Checking if call of RegExp instance fails
  */

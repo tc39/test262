@@ -4,10 +4,9 @@
 /**
  * The Infinity is not ReadOnly
  *
- * @section 15.1.1.2, 15.5.1, 15.6.1, 15.7.1
  * @path 15_Native/15.1_The_Global_Object/15.1.1_Value_Properties_of_the_Global_Object/15.1.1.2_Infinity/S15.1.1.2_A2_T1.js
  * @description Checking Boolean, Number, String Functions
- * @strict_only
+ * @strictOnly
  * @negative
  */
 

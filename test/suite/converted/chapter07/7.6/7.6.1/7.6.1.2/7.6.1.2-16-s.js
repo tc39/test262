@@ -21,7 +21,7 @@
 /**
  * @path chapter07/7.6/7.6.1/7.6.1.2/7.6.1.2-16-s.js
  * @description Strict Mode - SyntaxError isn't thrown when '_implements' occurs in strict mode code
- * @strict_only
+ * @strictOnly
  */
 
 

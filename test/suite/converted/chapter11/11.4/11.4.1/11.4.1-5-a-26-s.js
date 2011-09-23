@@ -21,7 +21,7 @@
 /**
  * @path chapter11/11.4/11.4.1/11.4.1-5-a-26-s.js
  * @description Strict Mode - SyntaxError is thrown when deleting a built-in (Error)
- * @strict_only
+ * @strictOnly
  */
 
 

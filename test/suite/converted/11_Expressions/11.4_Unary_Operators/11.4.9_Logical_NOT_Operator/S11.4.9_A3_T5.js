@@ -4,7 +4,6 @@
 /**
  * Operator !x returns !ToBoolean(x)
  *
- * @section 11.4.9
  * @path 11_Expressions/11.4_Unary_Operators/11.4.9_Logical_NOT_Operator/S11.4.9_A3_T5.js
  * @description Type(x) is Object object or Function object
  */

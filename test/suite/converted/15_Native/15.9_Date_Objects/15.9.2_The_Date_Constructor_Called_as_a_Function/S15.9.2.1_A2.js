@@ -6,7 +6,6 @@
  * accepted but are completely ignored. A string is created and returned as
  * if by the expression (new Date()).toString()
  *
- * @section 15.9.2.1
  * @path 15_Native/15.9_Date_Objects/15.9.2_The_Date_Constructor_Called_as_a_Function/S15.9.2.1_A2.js
  * @description Use various number arguments and various types of ones
  */

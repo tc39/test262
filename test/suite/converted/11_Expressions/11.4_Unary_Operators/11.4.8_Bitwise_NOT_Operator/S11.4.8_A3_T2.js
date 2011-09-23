@@ -4,7 +4,6 @@
 /**
  * Operator ~x returns ~ToInt32(x)
  *
- * @section 11.4.8
  * @path 11_Expressions/11.4_Unary_Operators/11.4.8_Bitwise_NOT_Operator/S11.4.8_A3_T2.js
  * @description Type(x) is number primitive or Number object
  */

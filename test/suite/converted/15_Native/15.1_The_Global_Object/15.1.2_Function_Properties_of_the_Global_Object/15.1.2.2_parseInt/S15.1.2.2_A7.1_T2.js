@@ -4,7 +4,6 @@
 /**
  * If Z is empty, return NaN
  *
- * @section 15.1.2.2
  * @path 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.2_parseInt/S15.1.2.2_A7.1_T2.js
  * @description x is not a radix-R digit
  */

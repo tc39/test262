@@ -4,7 +4,6 @@
 /**
  * The production QuantifierPrefix :: + evaluates by returning the two results 1 and \infty
  *
- * @section 15.10.2.7
  * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.7_Quantifier/S15.10.2.7_A3_T12.js
  * @description Execute /(b+)(b+)(b+)/.exec("abbbbbbbc") and check results
  */

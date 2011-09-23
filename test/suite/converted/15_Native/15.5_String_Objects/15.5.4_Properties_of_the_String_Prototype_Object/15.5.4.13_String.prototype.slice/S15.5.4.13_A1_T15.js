@@ -4,7 +4,6 @@
 /**
  * String.prototype.slice (start, end)
  *
- * @section 15.5.4.13
  * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.13_String.prototype.slice/S15.5.4.13_A1_T15.js
  * @description Call slice without arguments. Instance is Number with prototype.slice = String.prototype.slice
  */

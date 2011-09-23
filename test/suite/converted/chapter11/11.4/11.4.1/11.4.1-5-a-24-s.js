@@ -21,7 +21,7 @@
 /**
  * @path chapter11/11.4/11.4.1/11.4.1-5-a-24-s.js
  * @description Strict Mode - SyntaxError is thrown when deleting a built-in (Date)
- * @strict_only
+ * @strictOnly
  */
 
 

@@ -21,7 +21,7 @@
 /**
  * @path chapter11/11.13/11.13.2/11.13.2-44-s.js
  * @description Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(|=) is a reference of to an accessor property with the attribute value {[[Set]]:undefined}
- * @strict_only
+ * @strictOnly
  */
 
 

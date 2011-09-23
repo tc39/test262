@@ -21,7 +21,7 @@
 /**
  * @path chapter12/12.2/12.2.1/12.2.1-3-s.js
  * @description eval - a function expr declaring a var named 'eval' throws SyntaxError in strict mode
- * @strict_only
+ * @strictOnly
  */
 
 

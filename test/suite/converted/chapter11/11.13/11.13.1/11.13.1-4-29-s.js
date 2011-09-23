@@ -21,7 +21,7 @@
 /**
  * @path chapter11/11.13/11.13.1/11.13.1-4-29-s.js
  * @description Strict Mode - SyntaxError is thrown if the identifier 'arguments' appears as the LeftHandSideExpression of simple assignment(=) under strict mode
- * @strict_only
+ * @strictOnly
  */
 
 

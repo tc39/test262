@@ -4,7 +4,6 @@
 /**
  * Result of String conversion from string value is the input argument (no conversion)
  *
- * @section 9.8
  * @path 09_Type_Conversion/9.8_ToString/S9.8_A4_T2.js
  * @description Some strings convert to String by implicit transformation
  */

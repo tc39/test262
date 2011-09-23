@@ -4,7 +4,6 @@
 /**
  * The Object.prototype property has the attribute DontEnum
  *
- * @section 15.2.3.1, 15.2.4
  * @path 15_Native/15.2_Object_Objects/15.2.3_Properties_of_the_Object_Constructor/15.2.3.1_Object.prototype/S15.2.3.1_A2.js
  * @description Checking if enumerating "Object.prototype" property fails
  */

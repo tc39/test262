@@ -4,7 +4,6 @@
 /**
  * The sort property of Array has not prototype property
  *
- * @section 15.4.4.11
  * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.11_Array_prototype_sort/S15.4.4.11_A7.6.js
  * @description Checking Array.prototype.sort.prototype
  */

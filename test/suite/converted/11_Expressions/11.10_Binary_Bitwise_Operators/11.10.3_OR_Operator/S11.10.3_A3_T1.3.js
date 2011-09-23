@@ -4,7 +4,6 @@
 /**
  * Operator x | y returns ToNumber(x) | ToNumber(y)
  *
- * @section 11.10.3
  * @path 11_Expressions/11.10_Binary_Bitwise_Operators/11.10.3_OR_Operator/S11.10.3_A3_T1.3.js
  * @description Type(x) and Type(y) vary between primitive string and String object
  */

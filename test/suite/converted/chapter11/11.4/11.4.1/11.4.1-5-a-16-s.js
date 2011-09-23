@@ -21,7 +21,7 @@
 /**
  * @path chapter11/11.4/11.4.1/11.4.1-5-a-16-s.js
  * @description Strict Mode - SyntaxError is thrown when deleting a variable of type Error
- * @strict_only
+ * @strictOnly
  */
 
 

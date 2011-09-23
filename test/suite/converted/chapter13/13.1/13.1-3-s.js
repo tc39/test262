@@ -25,7 +25,7 @@
  *
  * @path chapter13/13.1/13.1-3-s.js
  * @description Strict Mode - SyntaxError is thrown if the identifier 'arguments' appears within a FormalParameterList of a strict mode FunctionDeclaration
- * @strict_only
+ * @strictOnly
  */
 
 

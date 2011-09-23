@@ -21,7 +21,7 @@
 /**
  * @path chapter10/10.6/10.6-13-c-3-s.js
  * @description arguments.callee is non-configurable in strict mode
- * @strict_only
+ * @strictOnly
  */
 
 

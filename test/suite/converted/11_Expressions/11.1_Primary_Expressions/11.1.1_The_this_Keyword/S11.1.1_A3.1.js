@@ -4,10 +4,9 @@
 /**
  * Being in function code, "this" and eval("this"), called as a functions, return the global object
  *
- * @section 11.1.1
  * @path 11_Expressions/11.1_Primary_Expressions/11.1.1_The_this_Keyword/S11.1.1_A3.1.js
  * @description Creating function which returns "this" or eval("this")
- * @non_strict_only
+ * @noStrict
  */
 
 //CHECK#1

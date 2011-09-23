@@ -24,7 +24,7 @@
  *
  * @path chapter13/13.0/13.0-7-s.js
  * @description Strict Mode - SourceElements is evaluated as strict mode code when the code of this FunctionDeclaration is contained in non-strict mode but the call to eval is a direct call in strict mode code
- * @strict_only
+ * @strictOnly
  */
 
 

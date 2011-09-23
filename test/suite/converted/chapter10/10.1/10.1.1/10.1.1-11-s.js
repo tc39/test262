@@ -21,7 +21,7 @@
 /**
  * @path chapter10/10.1/10.1.1/10.1.1-11-s.js
  * @description Strict Mode - Eval code is strict code with a Use Strict Directive at the beginning of the block
- * @strict_only
+ * @strictOnly
  */
 
 

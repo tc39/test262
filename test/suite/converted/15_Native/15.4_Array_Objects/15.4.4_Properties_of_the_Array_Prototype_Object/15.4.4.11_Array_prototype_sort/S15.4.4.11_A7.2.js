@@ -4,10 +4,9 @@
 /**
  * The length property of sort has the attribute DontDelete
  *
- * @section 15.4.4.11, 15.2.4.5, 11.4.1
  * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.11_Array_prototype_sort/S15.4.4.11_A7.2.js
  * @description Checking use hasOwnProperty, delete
- * @strict_only
+ * @strictOnly
  * @negative
  */
 

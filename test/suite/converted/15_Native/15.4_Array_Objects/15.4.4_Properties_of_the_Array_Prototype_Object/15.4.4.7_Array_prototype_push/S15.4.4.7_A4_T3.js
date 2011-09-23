@@ -4,7 +4,6 @@
 /**
  * Check ToUint32(length) for non Array objects
  *
- * @section 15.4.4.7
  * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.7_Array_prototype_push/S15.4.4.7_A4_T3.js
  * @description length = -1
  */

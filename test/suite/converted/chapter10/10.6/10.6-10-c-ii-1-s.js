@@ -21,7 +21,7 @@
 /**
  * @path chapter10/10.6/10.6-10-c-ii-1-s.js
  * @description arguments[i] remains same after changing actual parameters in strict mode
- * @strict_only
+ * @strictOnly
  */
 
 

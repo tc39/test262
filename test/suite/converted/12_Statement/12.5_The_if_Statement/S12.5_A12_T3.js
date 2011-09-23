@@ -4,7 +4,6 @@
 /**
  * Embedded "if/else" constructions are allowed
  *
- * @section 12.5
  * @path 12_Statement/12.5_The_if_Statement/S12.5_A12_T3.js
  * @description Using embedded "if/else" into "if" without "else" constructions
  */

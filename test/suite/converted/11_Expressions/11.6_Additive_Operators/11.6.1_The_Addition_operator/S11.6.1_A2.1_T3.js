@@ -4,7 +4,6 @@
 /**
  * Operator x + y uses GetValue
  *
- * @section 11.6.1
  * @path 11_Expressions/11.6_Additive_Operators/11.6.1_The_Addition_operator/S11.6.1_A2.1_T3.js
  * @description If GetBase(y) is null, throw ReferenceError
  */

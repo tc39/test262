@@ -5,7 +5,6 @@
  * When the [[Put]] method of O is called with property P and value V,
  * then set the value of the property to V. The attributes of the property are not changed
  *
- * @section 8.6.2.2
  * @path 08_Types/8.6_The_Object_Type/8.6.2_Internal_Properties_and_Methods/S8.6.2.2_A2.js
  * @description Put to existent properties
  */

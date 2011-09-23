@@ -6,7 +6,6 @@
  * Let global is true and let I = If ToInteger(lastIndex).
  * Then if I<0 orI>length then set lastIndex to 0 and return null
  *
- * @section 15.10.6.2, 13.2
  * @path 15_Native/15.10_RegExp_Objects/15.10.6_Properties_of_the_RegExp_Prototype_Object/15.10.6.2_RegExp.prototype.exec/S15.10.6.2_A5_T1.js
  * @description First call /(?:ab|cd)\d?/g.exec("aac1dz2233a1bz12nm444ab42"), and then First call /(?:ab|cd)\d?/g.exec("aacd22")
  */

@@ -4,10 +4,9 @@
 /**
  * The undefined is not ReadOnly
  *
- * @section 15.1.1.3, 11.4.3
  * @path 15_Native/15.1_The_Global_Object/15.1.1_Value_Properties_of_the_Global_Object/15.1.1.3_undefined/S15.1.1.3_A2_T2.js
  * @description Checking typeof Operator
- * @strict_only
+ * @strictOnly
  * @negative
  */
 

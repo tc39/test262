@@ -4,7 +4,6 @@
 /**
  * The [[Class]] property of the newly constructed object is set to "RegExp"
  *
- * @section 15.10.4.1
  * @path 15_Native/15.10_RegExp_Objects/15.10.4_The_RegExp_Constructor/S15.10.4.1_A6_T1.js
  * @description Checking [[Class]] property of the newly constructed object
  */

@@ -4,7 +4,6 @@
 /**
  * White Space and Line Terminator between "~" and UnaryExpression are allowed
  *
- * @section 11.4.8, 7.2, 7.3
  * @path 11_Expressions/11.4_Unary_Operators/11.4.8_Bitwise_NOT_Operator/S11.4.8_A1.js
  * @description Checking by using eval
  */

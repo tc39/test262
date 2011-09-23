@@ -4,7 +4,6 @@
 /**
  * AssignmentExpression : LeftHandSideExpression = AssignmentExpression
  *
- * @section 11.13.1
  * @path 11_Expressions/11.13_Assignment_Operators/11.13.1_Simple_Assignment/S11.13.1_A4_T1.js
  * @description Syntax check
  */

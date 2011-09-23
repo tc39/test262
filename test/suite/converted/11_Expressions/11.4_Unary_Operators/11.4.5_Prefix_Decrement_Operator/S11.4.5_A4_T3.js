@@ -4,7 +4,6 @@
 /**
  * Operator --x returns ToNumber(x) - 1
  *
- * @section 11.4.5, 11.6.3
  * @path 11_Expressions/11.4_Unary_Operators/11.4.5_Prefix_Decrement_Operator/S11.4.5_A4_T3.js
  * @description Type(x) is string primitive or String object
  */

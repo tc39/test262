@@ -5,7 +5,6 @@
  * Program functions are defined in source text by a FunctionDeclaration or created dynamically either
  * by using a FunctionExpression or by using the built-in Function object as a constructor
  *
- * @section 10.1.1
  * @path 10_Execution_Contexts/10.1_Definitions/S10.1.1_A1_T2.js
  * @description Creating function dynamically by using a FunctionExpression
  */

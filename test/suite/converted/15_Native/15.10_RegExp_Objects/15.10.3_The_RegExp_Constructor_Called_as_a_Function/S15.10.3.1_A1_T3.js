@@ -4,7 +4,6 @@
 /**
  * If pattern is an object R whose [[Class]] property is "RegExp" and flags is undefined, then return R unchanged
  *
- * @section 15.10.3.1
  * @path 15_Native/15.10_RegExp_Objects/15.10.3_The_RegExp_Constructor_Called_as_a_Function/S15.10.3.1_A1_T3.js
  * @description R is new RegExp() and instance is RegExp(R, x), where x is undefined variable
  */

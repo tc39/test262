@@ -4,7 +4,6 @@
 /**
  * Using "try" with "catch" or "finally" statement in a constructor
  *
- * @section 12.14
  * @path 12_Statement/12.14_The_try_Statement/S12.14_A17.js
  * @description Creating exceptions within constructor
  */

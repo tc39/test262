@@ -4,7 +4,6 @@
 /**
  * Operator x >>> y uses ToUint32(AdditiveExpression) & 31
  *
- * @section 11.7.3, 9.5
  * @path 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.3_The_Unsigned_Right_Shift_Operator/S11.7.3_A5.2_T1.js
  * @description Checking distinct points
  */

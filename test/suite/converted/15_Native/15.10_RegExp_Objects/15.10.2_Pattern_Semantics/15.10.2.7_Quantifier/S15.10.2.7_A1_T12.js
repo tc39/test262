@@ -4,7 +4,6 @@
 /**
  * The production QuantifierPrefix :: { DecimalDigits , DecimalDigits } evaluates as ...
  *
- * @section 15.10.2.7
  * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.7_Quantifier/S15.10.2.7_A1_T12.js
  * @description Execute /.{0,93}/.exec("weirwerdf") and check results
  */

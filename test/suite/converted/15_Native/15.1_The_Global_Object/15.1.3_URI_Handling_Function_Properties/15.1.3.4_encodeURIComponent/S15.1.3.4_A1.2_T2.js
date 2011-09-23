@@ -4,7 +4,6 @@
 /**
  * If string.charAt(k) in [0xD800 - 0xDBFF] and string.length = k + 1, throw URIError
  *
- * @section 15.1.3.4
  * @path 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.4_encodeURIComponent/S15.1.3.4_A1.2_T2.js
  * @description Complex tests
  */

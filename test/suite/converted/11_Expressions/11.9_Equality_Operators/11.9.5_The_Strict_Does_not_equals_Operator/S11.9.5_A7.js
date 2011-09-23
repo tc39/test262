@@ -5,7 +5,6 @@
  * Type(x) and Type(y) are Object-s.
  * Return false, if x and y are references to the same Object; otherwise, return true
  *
- * @section 11.9.5, 11.9.6
  * @path 11_Expressions/11.9_Equality_Operators/11.9.5_The_Strict_Does_not_equals_Operator/S11.9.5_A7.js
  * @description Checking Boolean object, Number object, String object, Object object
  */

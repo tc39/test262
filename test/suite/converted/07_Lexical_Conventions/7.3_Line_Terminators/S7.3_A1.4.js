@@ -4,7 +4,6 @@
 /**
  * PARAGRAPH SEPARATOR (U+2029) may occur between any two tokens
  *
- * @section 7.3
  * @path 07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A1.4.js
  * @description Insert PARAGRAPH SEPARATOR (\u2029) between tokens of var x=1
  */

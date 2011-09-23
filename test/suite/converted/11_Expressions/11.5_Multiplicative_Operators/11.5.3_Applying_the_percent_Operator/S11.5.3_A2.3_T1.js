@@ -4,7 +4,6 @@
 /**
  * ToNumber(first expression) is called first, and then ToNumber(second expression)
  *
- * @section 11.5.3
  * @path 11_Expressions/11.5_Multiplicative_Operators/11.5.3_Applying_the_percent_Operator/S11.5.3_A2.3_T1.js
  * @description Checking with "throw"
  */

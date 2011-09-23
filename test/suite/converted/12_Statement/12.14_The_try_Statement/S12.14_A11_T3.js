@@ -4,7 +4,6 @@
 /**
  * Using "try" with "catch" or "finally" statement within/without a "for" statement
  *
- * @section 12.14
  * @path 12_Statement/12.14_The_try_Statement/S12.14_A11_T3.js
  * @description Try statement inside loop, where use break
  */

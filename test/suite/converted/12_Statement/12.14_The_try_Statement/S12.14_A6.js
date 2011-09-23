@@ -4,7 +4,6 @@
 /**
  * The production TryStatement: "try Block Catch Finally"
  *
- * @section 12.14
  * @path 12_Statement/12.14_The_try_Statement/S12.14_A6.js
  * @description Executing sequence of "try" statements, using counters with varying values within
  */

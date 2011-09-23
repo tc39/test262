@@ -4,7 +4,6 @@
 /**
  * IdentifierStart :: _
  *
- * @section 7.6
  * @path 07_Lexical_Conventions/7.6_Identifiers/S7.6_A1.3_T2.js
  * @description The _ as unicode character \u005F
  */

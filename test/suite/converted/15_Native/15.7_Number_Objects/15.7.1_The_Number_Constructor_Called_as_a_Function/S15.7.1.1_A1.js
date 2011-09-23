@@ -4,7 +4,6 @@
 /**
  * Number([value]) returns a number value (not a Number object) computed by ToNumber(value) if value was supplied
  *
- * @section 15.7.1.1
  * @path 15_Native/15.7_Number_Objects/15.7.1_The_Number_Constructor_Called_as_a_Function/S15.7.1.1_A1.js
  * @description Used values "10", 10, new String("10"), new Object(10) and "abc"
  */

@@ -4,7 +4,6 @@
 /**
  * The Infinity is not ReadOnly
  *
- * @section 15.1.1.2, 11.4.3
  * @path 15_Native/15.1_The_Global_Object/15.1.1_Value_Properties_of_the_Global_Object/15.1.1.2_Infinity/S15.1.1.2_A2_T2.js
  * @description Checking typeof Functions
  */

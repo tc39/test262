@@ -4,7 +4,6 @@
 /**
  * Operator x - y produces the same result as x + (-y)
  *
- * @section 11.6.2, 11.6.3
  * @path 11_Expressions/11.6_Additive_Operators/11.6.2_The_Subtraction_operator/S11.6.2_A4_T3.js
  * @description The difference of two infinities of the same sign is NaN
  */

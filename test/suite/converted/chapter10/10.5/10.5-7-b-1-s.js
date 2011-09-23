@@ -21,7 +21,7 @@
 /**
  * @path chapter10/10.5/10.5-7-b-1-s.js
  * @description Strict Mode - arguments object is immutable in eval'ed functions
- * @strict_only
+ * @strictOnly
  */
 
 

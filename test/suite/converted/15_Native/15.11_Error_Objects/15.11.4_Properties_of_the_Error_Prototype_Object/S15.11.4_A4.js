@@ -4,7 +4,6 @@
 /**
  * Since Error prototype object is not function it has not [[create]] method
  *
- * @section 15.11.4, 16
  * @path 15_Native/15.11_Error_Objects/15.11.4_Properties_of_the_Error_Prototype_Object/S15.11.4_A4.js
  * @description Checking if creating "new Error.prototype" fails
  */

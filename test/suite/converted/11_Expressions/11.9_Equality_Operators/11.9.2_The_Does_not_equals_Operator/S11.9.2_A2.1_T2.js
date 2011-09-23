@@ -4,7 +4,6 @@
 /**
  * Operator x != y uses GetValue
  *
- * @section 11.9.2
  * @path 11_Expressions/11.9_Equality_Operators/11.9.2_The_Does_not_equals_Operator/S11.9.2_A2.1_T2.js
  * @description If GetBase(x) is null, throw ReferenceError
  */

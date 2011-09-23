@@ -5,7 +5,6 @@
  * If [[Get]] ToString(j) and [[Get]] ToString(k)
  * are both undefined, return +0
  *
- * @section 15.4.4.11
  * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.11_Array_prototype_sort/S15.4.4.11_A1.3_T1.js
  * @description If comparefn is undefined, use SortCompare operator
  */

@@ -4,7 +4,6 @@
 /**
  * DecimalLiteral :: DecimalIntegerLiteral ExponentPart
  *
- * @section 7.8.3
  * @path 07_Lexical_Conventions/7.8_Literals/7.8.3_Numeric_Literals/S7.8.3_A1.2_T1.js
  * @description ExponentPart :: e DecimalDigits
  */

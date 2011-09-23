@@ -4,7 +4,6 @@
 /**
  * Compute result modulo 2^32
  *
- * @section 9.5, 11.4.8
  * @path 09_Type_Conversion/9.5_ToInt32/S9.5_A2.2_T2.js
  * @description Use operator ~
  */

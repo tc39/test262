@@ -4,7 +4,6 @@
 /**
  * First expression is evaluated first, and then second expression
  *
- * @section 11.7.3
  * @path 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.3_The_Unsigned_Right_Shift_Operator/S11.7.3_A2.4_T3.js
  * @description Checking with undeclarated variables
  */

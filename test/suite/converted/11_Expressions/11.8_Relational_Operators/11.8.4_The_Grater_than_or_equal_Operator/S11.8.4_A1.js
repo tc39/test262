@@ -4,7 +4,6 @@
 /**
  * White Space and Line Terminator between RelationalExpression and "=>" or "=>" and ShiftExpression are allowed
  *
- * @section 11.8.4, 7.2, 7.3
  * @path 11_Expressions/11.8_Relational_Operators/11.8.4_The_Grater_than_or_equal_Operator/S11.8.4_A1.js
  * @description Checking by using eval
  */

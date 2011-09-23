@@ -21,7 +21,7 @@
 /**
  * @path chapter12/12.10/12.10.1/12.10.1-13-s.js
  * @description Strict Mode - SyntaxError isn't thrown when WithStatement body is in strict mode code
- * @strict_only
+ * @strictOnly
  */
 
 

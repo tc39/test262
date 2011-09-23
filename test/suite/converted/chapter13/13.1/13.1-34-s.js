@@ -25,7 +25,7 @@
  *
  * @path chapter13/13.1/13.1-34-s.js
  * @description Strict Mode - SyntaxError is thrown if a function declaration has three identical parameters with a strict mode body
- * @strict_only
+ * @strictOnly
  */
 
 

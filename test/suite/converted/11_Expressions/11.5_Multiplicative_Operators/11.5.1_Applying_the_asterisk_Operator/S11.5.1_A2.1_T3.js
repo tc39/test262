@@ -4,7 +4,6 @@
 /**
  * Operator x * y uses GetValue
  *
- * @section 11.5.1
  * @path 11_Expressions/11.5_Multiplicative_Operators/11.5.1_Applying_the_asterisk_Operator/S11.5.1_A2.1_T3.js
  * @description If GetBase(y) is null, throw ReferenceError
  */

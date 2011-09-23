@@ -21,7 +21,7 @@
 /**
  * @path chapter11/11.13/11.13.2/11.13.2-23-s.js
  * @description Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(*=) is a reference to a data property with the attribute value {[[Writable]]:false}
- * @strict_only
+ * @strictOnly
  */
 
 

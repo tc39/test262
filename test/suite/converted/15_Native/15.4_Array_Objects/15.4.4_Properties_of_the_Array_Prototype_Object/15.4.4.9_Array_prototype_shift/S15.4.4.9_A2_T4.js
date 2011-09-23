@@ -5,7 +5,6 @@
  * The shift function is intentionally generic.
  * It does not require that its this value be an Array object
  *
- * @section 15.4.4.9
  * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.9_Array_prototype_shift/S15.4.4.9_A2_T4.js
  * @description The first element of the array is removed from the array and
  * returned

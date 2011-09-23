@@ -4,7 +4,6 @@
 /**
  * Every function instance has a [[Call]] property
  *
- * @section 15.3.5
  * @path 15_Native/15.3_Function_Objects/15.3.5_Properties_of_Function_Instances/S15.3.5_A2_T1.js
  * @description For testing call Function("var x =1; this.y=2;return \"OK\";")()
  */

@@ -21,7 +21,7 @@
 /**
  * @path chapter11/11.13/11.13.1/11.13.1-4-27-s.js
  * @description simple assignment throws TypeError if LeftHandSide is a readonly property in strict mode (Global.undefined)
- * @strict_only
+ * @strictOnly
  */
 
 

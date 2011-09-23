@@ -7,7 +7,6 @@
  * 2. Call GetValue(Result(1)).
  * 3. Return (normal, Result(2), empty)
  *
- * @section 12.4
  * @path 12_Statement/12.4_Expression_Statement/S12.4_A2_T2.js
  * @description Checking by using eval(eval(x), where x is any string)
  */

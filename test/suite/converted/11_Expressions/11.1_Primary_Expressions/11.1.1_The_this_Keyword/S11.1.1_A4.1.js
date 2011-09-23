@@ -4,7 +4,6 @@
 /**
  * Being in anonymous code, "this" and eval("this"), called as a function, return the global object
  *
- * @section 11.1.1
  * @path 11_Expressions/11.1_Primary_Expressions/11.1.1_The_this_Keyword/S11.1.1_A4.1.js
  * @description Creating function with new Function() constructor
  */

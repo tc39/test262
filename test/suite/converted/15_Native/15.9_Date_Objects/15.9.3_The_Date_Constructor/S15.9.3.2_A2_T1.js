@@ -6,7 +6,6 @@
  * is set to the original Date prototype object, the one that is the
  * initial value of Date.prototype
  *
- * @section 15.9.3.2
  * @path 15_Native/15.9_Date_Objects/15.9.3_The_Date_Constructor/S15.9.3.2_A2_T1.js
  * @description Checking Date.prototype property of newly constructed objects
  */

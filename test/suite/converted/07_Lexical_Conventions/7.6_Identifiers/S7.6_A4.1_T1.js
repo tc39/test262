@@ -4,7 +4,6 @@
 /**
  * Correct interpretation of ENGLISH ALPHABET
  *
- * @section 7.6
  * @path 07_Lexical_Conventions/7.6_Identifiers/S7.6_A4.1_T1.js
  * @description Check ENGLISH CAPITAL ALPHABET
  */

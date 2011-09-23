@@ -4,7 +4,6 @@
 /**
  * If ToBoolean(x) is false, return x
  *
- * @section 11.11.1
  * @path 11_Expressions/11.11_Binary_Logical_Operators/11.11.1_Logical_AND_Operator/S11.11.1_A3_T4.js
  * @description Type(x) or Type(y) is changed between null and undefined
  */

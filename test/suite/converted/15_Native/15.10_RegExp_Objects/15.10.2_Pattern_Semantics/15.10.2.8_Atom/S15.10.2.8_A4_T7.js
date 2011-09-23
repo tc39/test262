@@ -6,7 +6,6 @@
  * i) Let A be the set of all characters except the four line terminator characters <LF>, <CR>, <LS>, or <PS>
  * ii) Call CharacterSetMatcher(A, false) and return its Matcher result
  *
- * @section 15.10.2.8
  * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.8_Atom/S15.10.2.8_A4_T7.js
  * @description Execute /.+/.exec("ABCDEFGHIJKLMNOPQRSTUVWXYZ") and check results
  */

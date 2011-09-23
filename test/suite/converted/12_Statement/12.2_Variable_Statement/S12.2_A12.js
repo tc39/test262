@@ -4,7 +4,6 @@
 /**
  * VariableDeclaration within "do-while" loop is allowed
  *
- * @section 12.2
  * @path 12_Statement/12.2_Variable_Statement/S12.2_A12.js
  * @description Declaring variable within "do-while" statement
  */

@@ -21,7 +21,7 @@
 /**
  * @path chapter12/12.10/12.10.1/12.10.1-12-s.js
  * @description with statement in strict mode throws SyntaxError (strict eval)
- * @strict_only
+ * @strictOnly
  */
 
 

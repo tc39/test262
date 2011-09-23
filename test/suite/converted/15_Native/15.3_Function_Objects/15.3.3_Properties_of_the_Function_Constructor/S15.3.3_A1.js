@@ -4,7 +4,6 @@
 /**
  * The Function constructor has the property "prototype"
  *
- * @section 15.3.3
  * @path 15_Native/15.3_Function_Objects/15.3.3_Properties_of_the_Function_Constructor/S15.3.3_A1.js
  * @description Checking existence of the property "prototype"
  */

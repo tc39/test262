@@ -5,7 +5,6 @@
  * this.x++ calls GetValue then PutValue so after applying postfix increment(actually conrete operator type is unimportan)
  * we must have reference to defined value
  *
- * @section 8.7.2
  * @path 08_Types/8.7_The_Reference_Type/S8.7.2_A3.js
  * @description Execute this.x++, where this.x is undefined
  */

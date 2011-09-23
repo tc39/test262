@@ -4,7 +4,6 @@
 /**
  * String.prototype.lastIndexOf can't be used as constructor
  *
- * @section 15.5.4.8, 13.2
  * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.8_String.prototype.lastIndexOf/S15.5.4.8_A7.js
  * @description Checking if creating the String.prototype.lastIndexOf object fails
  */

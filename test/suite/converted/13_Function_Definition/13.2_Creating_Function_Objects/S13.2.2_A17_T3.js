@@ -4,7 +4,6 @@
 /**
  * FunctionExpression containing "with" statement is admitted
  *
- * @section 13.2.2
  * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A17_T3.js
  * @description In the check 4 we populate field getRight in __obj object since var getRight declaration adds variable to function scope
  * but getRight in statement resolves within with(__obj) scope and searchs getRight in __obj first

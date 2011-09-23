@@ -21,7 +21,7 @@
 /**
  * @path chapter11/11.13/11.13.1/11.13.1-4-14-s.js
  * @description simple assignment throws TypeError if LeftHandSide is a readonly property in strict mode (Number.MAX_VALUE)
- * @strict_only
+ * @strictOnly
  */
 
 

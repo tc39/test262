@@ -4,7 +4,6 @@
 /**
  * White Space and Line Terminator between "+" and UnaryExpression are allowed
  *
- * @section 11.4.6, 7.2, 7.3
  * @path 11_Expressions/11.4_Unary_Operators/11.4.6_Unary_plus_Operator/S11.4.6_A1.js
  * @description Checking by using eval
  */

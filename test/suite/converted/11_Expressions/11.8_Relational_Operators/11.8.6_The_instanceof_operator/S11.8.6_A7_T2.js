@@ -4,7 +4,6 @@
 /**
  * When "instanceof" returns true it means that GetValue(RelationalExpression) is constructed with ShiftExpression
  *
- * @section 11.8.6
  * @path 11_Expressions/11.8_Relational_Operators/11.8.6_The_instanceof_operator/S11.8.6_A7_T2.js
  * @description Checking Array object
  */

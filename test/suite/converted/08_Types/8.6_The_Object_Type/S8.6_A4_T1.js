@@ -4,7 +4,6 @@
 /**
  * An Object is an unordered collection of properties
  *
- * @section 8.6, 8.6.1, 15.2.2, 12.6.4
  * @path 08_Types/8.6_The_Object_Type/S8.6_A4_T1.js
  * @description Simple using a few custom properties
  */

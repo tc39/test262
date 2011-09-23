@@ -21,7 +21,7 @@
 /**
  * @path chapter11/11.13/11.13.2/11.13.2-49-s.js
  * @description Strict Mode - TypeError is thrown if The LeftHandSide of a Compound Assignment operator(-=) is a reference to a non-existent property of an object whose [[Extensible]] internal property if false
- * @strict_only
+ * @strictOnly
  */
 
 

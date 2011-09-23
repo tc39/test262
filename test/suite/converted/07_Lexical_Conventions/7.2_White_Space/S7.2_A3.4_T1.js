@@ -4,7 +4,6 @@
 /**
  * Single line comment can contain SPACE (U+0020)
  *
- * @section 7.2, 7.4
  * @path 07_Lexical_Conventions/7.2_White_Space/S7.2_A3.4_T1.js
  * @description Use SPACE(\u0020)
  */

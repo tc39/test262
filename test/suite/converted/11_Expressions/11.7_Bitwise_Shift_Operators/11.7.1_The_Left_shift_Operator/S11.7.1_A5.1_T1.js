@@ -4,7 +4,6 @@
 /**
  * Operator x << y uses ToInt32(ShiftExpression)
  *
- * @section 11.7.1, 9.5
  * @path 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.1_The_Left_shift_Operator/S11.7.1_A5.1_T1.js
  * @description Checking boundary points
  */

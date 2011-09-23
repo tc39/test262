@@ -4,7 +4,6 @@
 /**
  * Presence of reserved words in string literal are allowed
  *
- * @section 8.4, 7.8.4
  * @path 08_Types/8.4_The_String_Type/S8.4_A11.js
  * @description Create string variable, thet include all reserved words
  */

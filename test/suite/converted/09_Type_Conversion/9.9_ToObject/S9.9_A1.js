@@ -4,10 +4,9 @@
 /**
  * ToObject conversion from undefined value must throw TypeError
  *
- * @section 9.9
  * @path 09_Type_Conversion/9.9_ToObject/S9.9_A1.js
  * @description Trying to convert undefined to Object
- * @non_strict_only
+ * @noStrict
  */
 
 // CHECK#1

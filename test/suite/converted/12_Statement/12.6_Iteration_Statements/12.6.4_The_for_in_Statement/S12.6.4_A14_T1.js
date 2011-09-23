@@ -4,7 +4,6 @@
 /**
  * FunctionExpession within a "for-in" Expression is allowed
  *
- * @section 12.6.4
  * @path 12_Statement/12.6_Iteration_Statements/12.6.4_The_for_in_Statement/S12.6.4_A14_T1.js
  * @description Using "function __func(){return 0;}" as Expession
  */

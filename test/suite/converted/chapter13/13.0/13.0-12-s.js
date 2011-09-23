@@ -24,7 +24,7 @@
  *
  * @path chapter13/13.0/13.0-12-s.js
  * @description Strict Mode - SourceElements is not evaluated as strict mode code when a Function constructor is contained in strict mode code and the function constructor body is not strict
- * @strict_only
+ * @strictOnly
  */
 
 

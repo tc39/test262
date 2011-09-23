@@ -4,7 +4,6 @@
 /**
  * Arguments : (ArgumentList : ArgumentList, AssignmentExpression)
  *
- * @section 11.2.4, 11.2.3, 10.1.8
  * @path 11_Expressions/11.2_Left_Hand_Side_Expressions/11.2.4_Argument_Lists/S11.2.4_A1.4_T4.js
  * @description Return an internal list whose length is one greater than the
  * length of ArgumentList and whose items are the items of ArgumentList, in order,

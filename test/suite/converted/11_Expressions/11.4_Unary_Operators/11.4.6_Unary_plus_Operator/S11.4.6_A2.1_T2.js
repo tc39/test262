@@ -4,7 +4,6 @@
 /**
  * Operator +x uses GetValue
  *
- * @section 11.4.6
  * @path 11_Expressions/11.4_Unary_Operators/11.4.6_Unary_plus_Operator/S11.4.6_A2.1_T2.js
  * @description If GetBase(x) is null, throw ReferenceError
  */

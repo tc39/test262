@@ -4,7 +4,6 @@
 /**
  * The Date.prototype property "setMinutes" has { DontEnum } attributes
  *
- * @section 15.9.5.32
  * @path 15_Native/15.9_Date_Objects/15.9.5_Properties_of_the_Date_Prototype_Object/15.9.5.32_Date.prototype.setMinutes/S15.9.5.32_A1_T3.js
  * @description Checking DontEnum attribute
  */

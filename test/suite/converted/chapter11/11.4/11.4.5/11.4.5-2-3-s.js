@@ -21,7 +21,7 @@
 /**
  * @path chapter11/11.4/11.4.5/11.4.5-2-3-s.js
  * @description Strict Mode - SyntaxError is not thrown for --arguments[...]
- * @strict_only
+ * @strictOnly
  */
 
 

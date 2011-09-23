@@ -4,7 +4,6 @@
 /**
  * String.prototype.concat([,[...]])
  *
- * @section 15.5.4.6
  * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.6_String.prototype.concat/S15.5.4.6_A1_T3.js
  * @description Use numbers and function object as arguments
  */

@@ -21,7 +21,7 @@
 /**
  * @path chapter12/12.10/12.10.1/12.10.1-14-s.js
  * @description Strict Mode - SyntaxError is thrown when the getter of a literal object utilizes WithStatement
- * @strict_only
+ * @strictOnly
  */
 
 

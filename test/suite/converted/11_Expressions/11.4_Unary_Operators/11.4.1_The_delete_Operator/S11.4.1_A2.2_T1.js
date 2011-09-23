@@ -4,7 +4,6 @@
 /**
  * If GetBase(x) doesn't have a property GetPropertyName(x), return true
  *
- * @section 11.4.1
  * @path 11_Expressions/11.4_Unary_Operators/11.4.1_The_delete_Operator/S11.4.1_A2.2_T1.js
  * @description Checking undeclared variable case
  */

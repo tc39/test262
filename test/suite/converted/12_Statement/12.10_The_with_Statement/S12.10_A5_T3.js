@@ -4,10 +4,9 @@
 /**
  * Deleting property using "eval" statement containing "with" statement
  *
- * @section 12.10
  * @path 12_Statement/12.10_The_with_Statement/S12.10_A5_T3.js
  * @description Deleting boolean property
- * @strict_only
+ * @strictOnly
  * @negative
  */
 

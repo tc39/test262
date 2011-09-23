@@ -4,7 +4,6 @@
 /**
  * The length property of encodeURIComponent is 1
  *
- * @section 15.1.3.4
  * @path 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.4_encodeURIComponent/S15.1.3.4_A5.4.js
  * @description encodeURIComponent.length === 1
  */

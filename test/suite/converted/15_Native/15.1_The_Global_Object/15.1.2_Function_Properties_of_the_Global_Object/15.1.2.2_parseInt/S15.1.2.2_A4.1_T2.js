@@ -4,7 +4,6 @@
 /**
  * If R = 0 or R = undefined, then R = 10
  *
- * @section 15.1.2.2
  * @path 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.2_parseInt/S15.1.2.2_A4.1_T2.js
  * @description R = undefined
  */

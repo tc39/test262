@@ -21,7 +21,7 @@
 /**
  * @path chapter10/10.6/10.6-13-b-2-s.js
  * @description arguments.caller exists in strict mode
- * @strict_only
+ * @strictOnly
  */
 
 

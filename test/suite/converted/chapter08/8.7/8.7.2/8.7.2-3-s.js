@@ -21,7 +21,7 @@
 /**
  * @path chapter08/8.7/8.7.2/8.7.2-3-s.js
  * @description Strict Mode - TypeError is thrown if LeftHandSide is a reference to a non-writable data property
- * @strict_only
+ * @strictOnly
  */
 
 

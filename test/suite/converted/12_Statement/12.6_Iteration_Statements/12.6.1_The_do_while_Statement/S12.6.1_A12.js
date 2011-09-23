@@ -4,7 +4,6 @@
 /**
  * Any statement within "do-while" construction must be a compound
  *
- * @section 12.6.1
  * @path 12_Statement/12.6_Iteration_Statements/12.6.1_The_do_while_Statement/S12.6.1_A12.js
  * @description Checking if execution of "do var x=1; var y =2; while (0)" fails
  * @negative

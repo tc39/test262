@@ -4,7 +4,6 @@
 /**
  * Line Terminator between LeftHandSideExpression and "--" is not allowed
  *
- * @section 11.3.2, 11.6.3, 7.3
  * @path 11_Expressions/11.3_PostfixExpressions/11.3.2_Postfix_Decrement_Operator/S11.3.2_A1.1_T3.js
  * @description Checking Page separator
  * @negative

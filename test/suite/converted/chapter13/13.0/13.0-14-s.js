@@ -24,7 +24,7 @@
  *
  * @path chapter13/13.0/13.0-14-s.js
  * @description Strict Mode - SourceElements is evaluated as strict mode code when the function body of a Function constructor contains a Strict Directive
- * @strict_only
+ * @strictOnly
  */
 
 

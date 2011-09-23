@@ -4,7 +4,6 @@
 /**
  * The Date.prototype.getFullYear property "length" has { ReadOnly, DontDelete, DontEnum } attributes
  *
- * @section 15.9.5.10
  * @path 15_Native/15.9_Date_Objects/15.9.5_Properties_of_the_Date_Prototype_Object/15.9.5.10_Date.prototype.getFullYear/S15.9.5.10_A3_T1.js
  * @description Checking ReadOnly attribute
  */

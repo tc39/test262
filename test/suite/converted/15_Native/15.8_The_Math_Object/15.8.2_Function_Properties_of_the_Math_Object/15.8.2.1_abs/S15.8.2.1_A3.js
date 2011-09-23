@@ -4,7 +4,6 @@
 /**
  * If x is -Infinity, Math.abs(x) is +Infinity
  *
- * @section 15.8.2.1
  * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.1_abs/S15.8.2.1_A3.js
  * @description Checking if Math.abs(-Infinity) equals to +Infinity
  */

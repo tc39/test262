@@ -4,7 +4,6 @@
 /**
  * -Infinity is the same as Number.NEGATIVE_INFINITY
  *
- * @section 8.5, 7.8.3
  * @path 08_Types/8.5_The_Number_Type/S8.5_A12.2.js
  * @description Compare -Infinity with Number.NEGATIVE_INFINITY
  */

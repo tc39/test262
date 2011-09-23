@@ -4,7 +4,6 @@
 /**
  * String.prototype.replace has not prototype property
  *
- * @section 15.5.4.11, 13.2
  * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.11_String.prototype.replace/S15.5.4.11_A6.js
  * @description Checking String.prototype.replace.prototype;
  */

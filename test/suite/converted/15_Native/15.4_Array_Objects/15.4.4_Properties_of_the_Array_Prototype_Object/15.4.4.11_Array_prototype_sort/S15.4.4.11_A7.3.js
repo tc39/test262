@@ -4,10 +4,9 @@
 /**
  * The length property of sort has the attribute ReadOnly
  *
- * @section 15.4.4.11
  * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.11_Array_prototype_sort/S15.4.4.11_A7.3.js
  * @description Checking if varying the length fails
- * @strict_only
+ * @strictOnly
  * @negative
  */
 

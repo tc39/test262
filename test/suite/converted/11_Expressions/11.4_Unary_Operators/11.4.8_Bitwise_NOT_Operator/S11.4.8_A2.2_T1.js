@@ -4,7 +4,6 @@
 /**
  * Operator ~x uses [[Default Value]]
  *
- * @section 11.4.8, 8.6.2.6
  * @path 11_Expressions/11.4_Unary_Operators/11.4.8_Bitwise_NOT_Operator/S11.4.8_A2.2_T1.js
  * @description If Type(value) is Object, evaluate ToPrimitive(value, Number)
  */

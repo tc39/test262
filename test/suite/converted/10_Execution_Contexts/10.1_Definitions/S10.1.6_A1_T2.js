@@ -4,7 +4,6 @@
 /**
  * The activation object is initialised with a property with name arguments and attributes {DontDelete}
  *
- * @section 10.1.6
  * @path 10_Execution_Contexts/10.1_Definitions/S10.1.6_A1_T2.js
  * @description Checking funtion which returns property "arguments"
  */

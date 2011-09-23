@@ -21,7 +21,7 @@
 /**
  * @path chapter10/10.1/10.1.1/10.1.1-20-s.js
  * @description Strict Mode - Function code of a FunctionDeclaration contains Use Strict Directive which appears in the middle of the block
- * @strict_only
+ * @strictOnly
  */
 
 

@@ -6,7 +6,6 @@
  * to other kinds of objects for use as a method and there is should be
  * a TypeError exception if its this value is not a Boolean object
  *
- * @section 15.6.4.2
  * @path 15_Native/15.6_Boolean_Objects/15.6.4_Properties_of_the_Boolean_Prototype_Object/S15.6.4.2_A2_T5.js
  * @description transferring to the other objects
  */

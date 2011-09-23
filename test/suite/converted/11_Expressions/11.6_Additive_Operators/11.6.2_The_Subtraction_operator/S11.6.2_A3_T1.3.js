@@ -4,7 +4,6 @@
 /**
  * Operator x - y returns ToNumber(x) - ToNumber(y)
  *
- * @section 11.6.2
  * @path 11_Expressions/11.6_Additive_Operators/11.6.2_The_Subtraction_operator/S11.6.2_A3_T1.3.js
  * @description Type(x) and Type(y) vary between primitive string and String object
  */

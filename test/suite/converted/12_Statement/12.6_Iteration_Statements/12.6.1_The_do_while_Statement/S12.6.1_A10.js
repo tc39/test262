@@ -4,7 +4,6 @@
 /**
  * FunctionExpression within a "do-while" statement is allowed, but no function with the given name will appear in the global context
  *
- * @section 12.6.1, 13
  * @path 12_Statement/12.6_Iteration_Statements/12.6.1_The_do_while_Statement/S12.6.1_A10.js
  * @description Also this a test on FunctionExpression
  */

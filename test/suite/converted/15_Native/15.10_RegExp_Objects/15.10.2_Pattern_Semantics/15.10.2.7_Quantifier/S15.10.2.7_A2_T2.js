@@ -5,7 +5,6 @@
  * i) The production QuantifierPrefix :: { DecimalDigits } evaluates...
  * ii) The production QuantifierPrefix :: ? evaluates by returning the two results 0 and 1
  *
- * @section 15.10.2.7
  * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.7_Quantifier/S15.10.2.7_A2_T2.js
  * @description Execute /\w{3}\d?/.exec("CELL\uFFDDbox127") and check results
  */

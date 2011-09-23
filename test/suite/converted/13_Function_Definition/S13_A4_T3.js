@@ -4,7 +4,6 @@
 /**
  * The production FunctionDeclaration: "function Identifier ( FormalParameterList_opt ) { FunctionBody }" is processed by function declarations
  *
- * @section 13
  * @path 13_Function_Definition/S13_A4_T3.js
  * @description Declaring a function that uses arithmetical operators within its "return" Expression
  */

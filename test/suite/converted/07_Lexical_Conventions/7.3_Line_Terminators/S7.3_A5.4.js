@@ -4,7 +4,6 @@
 /**
  * Multi line comment can contain LINE SEPARATOR (U+2029)
  *
- * @section 7.3, 7.4
  * @path 07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A5.4.js
  * @description Insert PARAGRAPH SEPARATOR (U+2029) into multi line comment
  */

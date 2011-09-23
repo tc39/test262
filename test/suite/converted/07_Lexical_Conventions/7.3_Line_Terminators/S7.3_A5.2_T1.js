@@ -4,7 +4,6 @@
 /**
  * Multi line comment can contain CARRIAGE RETURN (U+000D)
  *
- * @section 7.3, 7.4
  * @path 07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A5.2_T1.js
  * @description Insert CARRIAGE RETURN (U+000D) into multi line comment
  */

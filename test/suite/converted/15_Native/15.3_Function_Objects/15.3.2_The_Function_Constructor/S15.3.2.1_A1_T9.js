@@ -10,7 +10,6 @@
  * Pass in a scope chain consisting of the global object as the Scope parameter
  * v) Return Result(iv)
  *
- * @section 15.3.2.1
  * @path 15_Native/15.3_Function_Objects/15.3.2_The_Function_Constructor/S15.3.2.1_A1_T9.js
  * @description Value of the function constructor argument is "return arguments[0];"
  */

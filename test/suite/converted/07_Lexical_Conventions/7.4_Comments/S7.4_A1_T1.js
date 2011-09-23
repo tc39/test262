@@ -4,7 +4,6 @@
 /**
  * Correct interpretation of single line comments
  *
- * @section 7.4
  * @path 07_Lexical_Conventions/7.4_Comments/S7.4_A1_T1.js
  * @description Create comments with any code
  */

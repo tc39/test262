@@ -4,7 +4,6 @@
 /**
  * Reference to Self-Modifying Object remain the integrity
  *
- * @section 8.7
  * @path 08_Types/8.7_The_Reference_Type/S8.7_A2.js
  * @description Create a reference to the array, and change original array
  */

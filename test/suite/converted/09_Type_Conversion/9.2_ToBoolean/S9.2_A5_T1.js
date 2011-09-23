@@ -4,7 +4,6 @@
 /**
  * Result of boolean conversion from nonempty string value (length is not zero) is true; from empty String (length is zero) is false
  *
- * @section 9.2, 15.6.1
  * @path 09_Type_Conversion/9.2_ToBoolean/S9.2_A5_T1.js
  * @description "" is converted to Boolean by explicit transformation
  */

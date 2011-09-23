@@ -21,7 +21,7 @@
 /**
  * @path chapter15/15.3/15.3.2/15.3.2.1/15.3.2.1-11-1-s.js
  * @description Duplicate seperate parameter name in Function constructor throws SyntaxError in strict mode
- * @strict_only
+ * @strictOnly
  */
 
 

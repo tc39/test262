@@ -4,10 +4,9 @@
 /**
  * Number.POSITIVE_INFINITY is DontDelete
  *
- * @section 15.7.3.6
  * @path 15_Native/15.7_Number_Objects/15.7.3_Properties_of_Number_Constructor/15.7.3.6_Number.POSITIVE_INFINITY/S15.7.3.6_A3.js
  * @description Checking if deleting Number.POSITIVE_INFINITY fails
- * @strict_only
+ * @strictOnly
  * @negative
  */
 

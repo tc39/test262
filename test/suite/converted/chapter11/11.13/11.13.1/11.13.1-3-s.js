@@ -21,7 +21,7 @@
 /**
  * @path chapter11/11.13/11.13.1/11.13.1-3-s.js
  * @description Strict Mode - TypeError is thrown if The LeftHandSide is a reference to a non-existent property of an object whose [[Extensible]] internal property has the value false under strict mode
- * @strict_only
+ * @strictOnly
  */
 
 

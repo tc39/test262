@@ -4,7 +4,6 @@
 /**
  * The Error.prototype has name property
  *
- * @section 15.11.4.2, 16
  * @path 15_Native/15.11_Error_Objects/15.11.4_Properties_of_the_Error_Prototype_Object/S15.11.4.2_A1.js
  * @description Checking Error.prototype.name
  */

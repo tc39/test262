@@ -4,7 +4,6 @@
 /**
  * [[Call]] executes code associated with the object
  *
- * @section 8.6.2, 13.1, 13.2
  * @path 08_Types/8.6_The_Object_Type/8.6.2_Internal_Properties_and_Methods/S8.6.2_A5_T3.js
  * @description Call function-property of global object, property defined
  *  as knock=function(){count++}

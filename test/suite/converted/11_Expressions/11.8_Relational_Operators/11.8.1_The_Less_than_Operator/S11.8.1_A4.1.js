@@ -4,7 +4,6 @@
 /**
  * If x is NaN, return false (if result in 11.8.5 is undefined, return false)
  *
- * @section 11.8.1, 11.8.5
  * @path 11_Expressions/11.8_Relational_Operators/11.8.1_The_Less_than_Operator/S11.8.1_A4.1.js
  * @description y is number primitive
  */

@@ -21,7 +21,7 @@
 /**
  * @path chapter10/10.1/10.1.1/10.1.1-3-s.js
  * @description Strict Mode - Use Strict Directive Prologue is '' use strict';' which the first character is space
- * @strict_only
+ * @strictOnly
  */
 
 

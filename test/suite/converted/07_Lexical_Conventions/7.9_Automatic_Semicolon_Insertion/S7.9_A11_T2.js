@@ -4,7 +4,6 @@
 /**
  * Check If Statement for automatic semicolon insertion
  *
- * @section 7.9, 12.5
  * @path 07_Lexical_Conventions/7.9_Automatic_Semicolon_Insertion/S7.9_A11_T2.js
  * @description Use if (false) \n x = 1 and check x
  */

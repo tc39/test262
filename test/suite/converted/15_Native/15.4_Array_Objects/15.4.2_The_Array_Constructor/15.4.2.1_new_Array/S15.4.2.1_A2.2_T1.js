@@ -8,7 +8,6 @@
  * of the newly constructed object is set to argument k, where the first argument is
  * considered to be argument number 0
  *
- * @section 15.4.2.1
  * @path 15_Native/15.4_Array_Objects/15.4.2_The_Array_Constructor/15.4.2.1_new_Array/S15.4.2.1_A2.2_T1.js
  * @description Checking correct work this algorithm
  */

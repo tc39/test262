@@ -4,7 +4,6 @@
 /**
  * Global object properties have attributes { DontEnum }
  *
- * @section 10.1.5, 15.1
  * @path 10_Execution_Contexts/10.1_Definitions/10.1.5_Global_Object/S10.1.5_A2.2_T1.js
  * @description Function execution context - Value Properties
  */

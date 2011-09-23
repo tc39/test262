@@ -5,7 +5,6 @@
  * If the argument len is a Number and ToUint32(len) is not equal to len,
  * a RangeError exception is thrown
  *
- * @section 15.4.2.2
  * @path 15_Native/15.4_Array_Objects/15.4.2_The_Array_Constructor/15.4.2.2_new_Array_len/S15.4.2.2_A2.2_T2.js
  * @description Use try statement. len = NaN, +/-Infinity
  */

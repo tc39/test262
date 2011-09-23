@@ -21,7 +21,7 @@
 /**
  * @path chapter10/10.5/10.5-7-b-4-s.js
  * @description Strict Mode - Deleting property of the arguments object successful under strict mode
- * @strict_only
+ * @strictOnly
  */
 
 

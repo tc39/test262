@@ -21,7 +21,7 @@
 /**
  * @path chapter10/10.6/10.6-14-c-4-s.js
  * @description Strict Mode - TypeError is thrown when accessing the [[Set]] attribute in 'callee' under strict mode
- * @strict_only
+ * @strictOnly
  */
 
 

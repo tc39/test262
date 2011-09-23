@@ -5,10 +5,9 @@
  * The with statement adds a computed object to the front of the
  * scope chain of the current execution context
  *
- * @section 12.10
  * @path 12_Statement/12.10_The_with_Statement/S12.10_A1.3_T3.js
  * @description Using "with" statement within function constructor, leading to normal completition by "return"
- * @strict_only
+ * @strictOnly
  * @negative
  */
 

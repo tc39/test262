@@ -4,7 +4,6 @@
 /**
  * The production x -= y is the same as x = x - y
  *
- * @section 11.13.2, 11.6.2
  * @path 11_Expressions/11.13_Assignment_Operators/11.13.2_Compound_Assignment/S11.13.2_A4.5_T2.7.js
  * @description Type(x) is different from Type(y) and both types vary between String (primitive or object) and Null
  */

@@ -5,7 +5,6 @@
  * Result of ToInteger(value) conversion is the result of computing
  * sign(ToNumber(value)) * floor(abs(ToNumber(value)))
  *
- * @section 9.4, 15.9
  * @path 09_Type_Conversion/9.4_ToInteger/S9.4_A3_T2.js
  * @description For testing constructor Date(NaN, Infinity, Infinity, +0 and -0) is used
  */

@@ -5,7 +5,6 @@
  * Compute the longest prefix of Result(2), which might be Result(2) itself,
  * which satisfies the syntax of a StrDecimalLiteral
  *
- * @section 15.1.2.3, 9.3.1
  * @path 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.3_parseFloat/S15.1.2.3_A4_T1.js
  * @description Some wrong number
  */

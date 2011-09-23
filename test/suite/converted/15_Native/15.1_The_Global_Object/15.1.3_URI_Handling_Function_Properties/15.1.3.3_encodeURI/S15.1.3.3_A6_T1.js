@@ -4,7 +4,6 @@
 /**
  * Operator use ToString
  *
- * @section 15.1.3.3, 9.8, 8.6.2.6
  * @path 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.3_encodeURI/S15.1.3.3_A6_T1.js
  * @description If Type(value) is Object, evaluate ToPrimitive(value, String)
  */

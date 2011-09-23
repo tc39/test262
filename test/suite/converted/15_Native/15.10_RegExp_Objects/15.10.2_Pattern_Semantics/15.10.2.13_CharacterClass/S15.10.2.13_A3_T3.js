@@ -4,7 +4,6 @@
 /**
  * Inside a CharacterClass, \b means the backspace character
  *
- * @section 15.10.2.13
  * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.13_CharacterClass/S15.10.2.13_A3_T3.js
  * @description Execute /[^\[\b\]]+/.exec("abc\bdef") and check results
  */

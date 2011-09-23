@@ -4,7 +4,6 @@
 /**
  * Operator uses GetValue
  *
- * @section 11.14
  * @path 11_Expressions/11.14_Comma_Operator/S11.14_A2.1_T1.js
  * @description Either Expression is not Reference or GetBase is not null
  */

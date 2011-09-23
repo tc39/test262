@@ -4,10 +4,9 @@
 /**
  * Globally defined variable NaN has not been altered by program execution
  *
- * @section 8.5, 7.8.3
  * @path 08_Types/8.5_The_Number_Type/S8.5_A9.js
  * @description Try alter globally defined variable NaN
- * @strict_only
+ * @strictOnly
  * @negative
  */
 

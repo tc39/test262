@@ -4,7 +4,6 @@
 /**
  * The production x ^= y is the same as x = x ^ y
  *
- * @section 11.13.2, 11.10.2
  * @path 11_Expressions/11.13_Assignment_Operators/11.13.2_Compound_Assignment/S11.13.2_A4.10_T1.3.js
  * @description Type(x) and Type(y) vary between primitive string and String object
  */

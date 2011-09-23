@@ -4,7 +4,6 @@
 /**
  * The Date.prototype.toDateString property "length" has { ReadOnly, DontDelete, DontEnum } attributes
  *
- * @section 15.9.5.3
  * @path 15_Native/15.9_Date_Objects/15.9.5_Properties_of_the_Date_Prototype_Object/15.9.5.3_Date.prototype.toDateString/S15.9.5.3_A3_T2.js
  * @description Checking DontDelete attribute
  */

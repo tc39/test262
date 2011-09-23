@@ -21,7 +21,7 @@
 /**
  * @path chapter11/11.4/11.4.1/11.4.1-4-a-2-s.js
  * @description Strict Mode - TypeError is thrown when deleting non-configurable accessor property
- * @strict_only
+ * @strictOnly
  */
 
 

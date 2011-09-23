@@ -4,10 +4,9 @@
 /**
  * Deleting property using "eval" statement containing "with" statement
  *
- * @section 12.10
  * @path 12_Statement/12.10_The_with_Statement/S12.10_A5_T1.js
  * @description Deleting string property
- * @strict_only
+ * @strictOnly
  * @negative
  */
 

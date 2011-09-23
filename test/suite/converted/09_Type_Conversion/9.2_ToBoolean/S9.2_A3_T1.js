@@ -4,7 +4,6 @@
 /**
  * Result of boolean conversion from boolean value is no conversion
  *
- * @section 9.2, 15.6.1
  * @path 09_Type_Conversion/9.2_ToBoolean/S9.2_A3_T1.js
  * @description true and false convert to Boolean by explicit transformation
  */
