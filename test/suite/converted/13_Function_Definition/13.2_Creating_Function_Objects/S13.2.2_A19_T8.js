@@ -26,7 +26,7 @@ with (__obj)
         var  __func = function()
         {
             return a;
-        }
+        };
         break;
     }
 }

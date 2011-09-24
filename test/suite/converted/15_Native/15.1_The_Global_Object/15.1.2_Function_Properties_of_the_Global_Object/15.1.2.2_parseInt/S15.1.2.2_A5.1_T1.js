@@ -2,35 +2,15 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * If the length of S is at least 1 and the first character of S is 0,
- * then at the implementation's discretion either let R = 8 or R = 10
+ * parseInt is no longer allowed to treat a leading zero as indicating
+ * octal.  "If radix is undefined or 0, it is assumed to be 10 except
+ * when the number begins with the character pairs 0x or 0X, in which
+ * case a radix of 16 is assumed."
  *
  * @path 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.2_parseInt/S15.1.2.2_A5.1_T1.js
- * @description Either R = 8, or R = 10
+ * @description Check if parseInt still accepts octal
  */
 
-//CHECK#
-var res8 = 1;
-var res10 = 1;
-if (parseInt("08") !== parseInt("08", 8)) {
-  res8 = 0;
+if (parseInt('010') !== 10) {
+  $ERROR("parseInt should no longer accept octal");
 }
-if (parseInt("08") !== parseInt("08", 10)) {
-  res10 = 0;
-}
-if (parseInt("09") !== parseInt("09", 8)) {
-  res8 = 0;
-}
-if (parseInt("09") !== parseInt("09", 10)) {
-  res10 = 0;
-}
-if (parseInt("010") !== parseInt("010", 8)) {
-  res8 = 0;
-}
-if (parseInt("010") !== parseInt("010", 10)) {
-  res10 = 0;
-}
-if (res8 + res10 !== 1) {
-  $ERROR('#1: If the length of S is at least 1 and the first character of S is 0, then at the implementation\'s discretion either let R = 8 or R = 10');
-}    
-
