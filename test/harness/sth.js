@@ -41,7 +41,7 @@ function BrowserRunner() {
         errorDetectorFileContents,
         simpleTestAPIContents,
         globalScopeContents,
-        harnessDir = "resources/scripts/global/";
+        harnessDir = "harness/";
 
     $.ajax({async: false, 
             dataType: "text", 
@@ -99,18 +99,19 @@ function BrowserRunner() {
 
     /* Run the test. */
     this.run = function (test, code) {
-        currentTest = { id: test.id,
-                        path: test.path,
-                        code: code,
-         }; // default test, in case it doesn't get registered.
-        
-        var isGlobalTest = GlobalScopeTests[test.path] !== undefined;
-        
+        currentTest = {};
+        for (var tempIndex in test) {
+            if (test.hasOwnProperty(tempIndex)) {
+                currentTest[tempIndex] = test[tempIndex];
+            }
+        }
+        currentTest.code = code;
+
         iframe = document.createElement("iframe");
-        iframe.setAttribute("id", "runnerIframe");        
+        iframe.setAttribute("id", "runnerIframe");
         //FireFox has a defect where it doesn't fire window.onerror for an iframe if the iframe
         //is invisible.
-        if (!isGlobalTest || !/firefox/i.test(navigator.userAgent)) {
+        if (!/firefox/i.test(navigator.userAgent)) {
             iframe.setAttribute("style", "display:none");
         }
         document.body.appendChild(iframe);
@@ -128,23 +129,23 @@ function BrowserRunner() {
             include;
         iwin.Test262Error = Test262Error;
         iwin.$ERROR = $ERROR;
-        iwin.$FAIL  = $FAIL;
-        iwin.$PRINT = function () {};
-        iwin.$INCLUDE = function() {};
+        iwin.$FAIL = $FAIL;
+        iwin.$PRINT = function () { };
+        iwin.$INCLUDE = function () { };
 
-        if(includes !== null) {
+        if (includes !== null) {
             // We have some includes, so loop through each include and
             // pull in the dependencies.
-            for(var i = 0; i < includes.length; i++) {
+            for (var i = 0; i < includes.length; i++) {
                 include = includes[i].replace(/.*\(('|")(.*)('|")\)/, "$2");
 
                 // First check to see if we have this script cached
                 // already, and if not, grab it.
-                if(typeof scriptCache[include] === "undefined") {
+                if (typeof scriptCache[include] === "undefined") {
                     $.ajax({
                         async: false,
-                        url: 'resources/scripts/global/' + include,
-                        success: function(s) { scriptCache[include] = s; }
+                        url: 'harness/' + include,
+                        success: function (s) { scriptCache[include] = s; }
                     });
                 }
 
@@ -159,42 +160,30 @@ function BrowserRunner() {
         idoc.writeln(simpleTestAPIContents);
         idoc.writeln("</script>");
 
-        //--Scenario 1: we're dealing with a global scope test case
-        if (isGlobalTest) {
-            iwin.iframeError = undefined;
-            iwin.onerror = undefined;
-            var testDescrip = GlobalScopeTests[test.path];
-            testDescrip.id = test.id;
-            testDescrip.path = test.path;
-            testDescrip.code = code;
-            iwin.testDescrip = testDescrip;
-                
-            //Add an error handler capable of catching so-called early errors
-            //idoc.writeln("<script type='text/javascript' src='harness/ed.js'>" + "</script>");
-            idoc.writeln("<script type='text/javascript'>");
-            idoc.writeln(errorDetectorFileContents);
-            idoc.writeln("</script>");
+        iwin.iframeError = undefined;
+        iwin.onerror = undefined;
+        iwin.testDescrip = currentTest;
 
-            //Run the code
-            idoc.writeln("<script type='text/javascript'>");
-            if (/opera/i.test(navigator.userAgent)) { //Opera doesn't support window.onerror
-                idoc.writeln("try {eval(\"" + this.convertForEval(code) + "\");} catch(e) {window.onerror(e.toString(), null, null);}");
-            } else {
-                idoc.writeln(code);
-            }
-            idoc.writeln("</script>");
-            
-            //Validate the results
-            //idoc.writeln("<script type='text/javascript' src='harness/gs.js' defer>" + "</script>");
-            idoc.writeln("<script type='text/javascript'>");
-            idoc.writeln(globalScopeContents);
-            idoc.writeln("</script>");
+        //Add an error handler capable of catching so-called early errors
+        //idoc.writeln("<script type='text/javascript' src='harness/ed.js'>" + "</script>");
+        idoc.writeln("<script type='text/javascript'>");
+        idoc.writeln(errorDetectorFileContents);
+        idoc.writeln("</script>");
+
+        //Run the code
+        idoc.writeln("<script type='text/javascript'>");
+        if (/opera/i.test(navigator.userAgent)) { //Opera doesn't support window.onerror
+            idoc.writeln("try {eval(\"" + this.convertForEval(code) + "\");} catch(e) {window.onerror(e.toString(), null, null);}");
+        } else {
+            idoc.writeln(code);
         }
-        //--Scenario 2:  we're dealing with a normal positive(?) test case
-        else {
-            idoc.writeln("<script type='text/javascript'>" + code + "</script>");
-            idoc.writeln("<script type='text/javascript' defer>testFinished();" + "</script>");
-        }
+        idoc.writeln("</script>");
+
+        //Validate the results
+        //idoc.writeln("<script type='text/javascript' src='harness/gs.js' defer>" + "</script>");
+        idoc.writeln("<script type='text/javascript'>");
+        idoc.writeln(globalScopeContents);
+        idoc.writeln("</script>");
         idoc.close();
     }
     
@@ -278,7 +267,7 @@ function TestLoader() {
         }});
     }
 
-    this.getIdFromPath = function(path) {
+    function getIdFromPath (path) {
         //path is of the form "a/b/c.js"
         
         var id = path.split("/");
@@ -302,7 +291,7 @@ function TestLoader() {
             // We have tests left in this test group.
             var test = testGroups[testGroupIndex].tests[currentTestIndex++];
             var scriptCode = test.code;
-            scriptCode.id = getIdFromPath(test.path);
+            test.id = getIdFromPath(test.path);
             //var scriptCode = (test.firstChild.text != undefined) ?
             //    test.firstChild.text : test.firstChild.textContent;
 

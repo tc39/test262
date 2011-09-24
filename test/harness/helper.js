@@ -33,7 +33,7 @@ function Presenter() {
         totalTests = 0;
 
     var progressBar;
-    TOCFILEPATH = "resources/scripts/global/ecma-262-toc.xml";
+    TOCFILEPATH = "metadata/ecma-262-toc.xml";
   //**INTERFACE****************************************************************
   /* Updates progress with the given test, which should have its results in it as well. */
     this.addTestResult = function(test) {
@@ -69,7 +69,7 @@ function Presenter() {
     }
   
   this.finished = function(elapsed) {
-        $('.button-start').attr('src', 'resources/images/start.png');
+        $('.button-start').attr('src', 'images/start.png');
         $('.button-start').fadeOut('fast');
         
         progressBar.find(".text").html("Testing complete!"); 
@@ -81,11 +81,11 @@ function Presenter() {
     }
   
   this.started = function () {
-        $('.button-start').attr('src', 'resources/images/pause.png');
+        $('.button-start').attr('src', 'images/pause.png');
     }
 
     this.paused = function () {
-        $('.button-start').attr('src', 'resources/images/resume.png');
+        $('.button-start').attr('src', 'images/resume.png');
     }
 
     this.reset = function() {

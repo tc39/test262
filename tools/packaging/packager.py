@@ -30,6 +30,8 @@ import re
 import json
 import stat
 
+from common import convertDocString
+
 #--Stubs-----------------------------------------------------------------------
 def generateHarness(harnessType, jsonFile, description):
     pass
@@ -144,7 +146,8 @@ def isTestStarted(line):
     or Sputnik tests.
     '''
     global IS_MULTILINE_COMMENT
-
+    #TODO
+    return True
     if IS_MULTILINE_COMMENT and ("*/" in line): #End of a newline comment
         IS_MULTILINE_COMMENT = False
         return False
@@ -180,7 +183,6 @@ for temp in TEST_CONTRIB_DIRS:
     else:
         for tempSubdir in os.listdir(temp): 
             TEST_SUITE_SECTIONS.append(os.path.join(temp, tempSubdir))
-        
 
 for chapter in TEST_SUITE_SECTIONS:
     chapterName = chapter.rsplit(os.path.sep, 1)[1]
@@ -205,7 +207,8 @@ for chapter in TEST_SUITE_SECTIONS:
             if EXCLUDE_LIST.count(testName)==0:
                 # dictionary for each test
                 testDict = {}
-                testDict["id"] = testName
+                #TODO
+                #testDict["id"] = testName
                 testDict["path"] = testPath.replace("/ietestcenter", "").replace("/sputnik_converted", "")
                 
                 tempFile = open(test, "r")
@@ -232,6 +235,13 @@ for chapter in TEST_SUITE_SECTIONS:
                 #add the test encoded code node to our test dictionary
                 testDict["code"] = scriptCodeContent 
                 #now close the dictionary for the test
+
+                #now get the metadata added.
+                tempDict = convertDocString("".join(scriptCode))
+                for tempKey in tempDict.keys():
+                    #TODO - is this check really necessary?
+                    if not (tempKey in ["path"]):
+                        testDict[tempKey] = tempDict[tempKey]
 
                 #this adds the test to our tests array
                 tests.append(testDict)
