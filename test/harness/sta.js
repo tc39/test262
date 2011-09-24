@@ -288,38 +288,28 @@ var NotEarlyError = new Error(NotEarlyErrorString);
 var ES5Harness = {};
 ES5Harness.registerTest = function (test) {
     var error;
-    //Has a test precondition set, but the precondition fails
-    if (test.precondition && !test.precondition()) {
-        testRun(test.id, test.path, test.description, test.test.toString(),
-                typeof test.precondition !== 'undefined' ? test.precondition.toString() : '',
-                'fail', Error('Precondition Failed'));
-    }
-    //We're good to actually run the test case
-    else {
-        try {
-            if (test.strict!==undefined) {
-                var res = test.test();
-            } else {
-                var res = test.test.call(window);
-            }
+    try {
+        if (test.strict!==undefined) {
+            var res = test.test();
+        } else {
+            var res = test.test.call(window);
+        }
             
-        } catch (e) {
-            res = 'fail';
-            error = e;
-            if (!(e instanceof Error)) {
-                try {
-                    error = Error(e.toString());
-                } catch (e2) {
-                    error = Error("test262: unknown error in test case or ECMAScript implementation");
-                }
+    } catch (e) {
+        res = 'fail';
+        error = e;
+        if (!(e instanceof Error)) {
+            try {
+                error = Error(e.toString());
+            } catch (e2) {
+                error = Error("test262: unknown error in test case or ECMAScript implementation");
             }
         }
-        //Sputnik and IE Test Center tests are a bit different in terms of return values.
-        //That is, IE Test Center will always return 'true' IFF the test passed. Sputnik
-        //test cases will return either 'true' or 'undefined' if they pass.
-        var retVal = /^s/i.test(test.id) ? (res === true || typeof res === 'undefined' ? 'pass' : 'fail') : (res === true ? 'pass' : 'fail');
-        testRun(test.id, test.path, test.description, test.test.toString(),
-                typeof test.precondition !== 'undefined' ? test.precondition.toString() : '',
-                retVal, error);
     }
+    //Sputnik and IE Test Center tests are a bit different in terms of return values.
+    //That is, IE Test Center will always return 'true' IFF the test passed. Sputnik
+    //test cases will return either 'true' or 'undefined' if they pass.
+    var retVal = /^s/i.test(test.id) ? (res === true || typeof res === 'undefined' ? 'pass' : 'fail') : (res === true ? 'pass' : 'fail');
+    testRun(test.id, test.path, test.description, test.test.toString(),
+            retVal, error);
 }
