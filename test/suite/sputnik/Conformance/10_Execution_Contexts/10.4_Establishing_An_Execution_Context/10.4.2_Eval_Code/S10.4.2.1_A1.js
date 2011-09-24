@@ -4,7 +4,7 @@
 /**
  * @description Strict indirect eval should not leak top level
  * declarations into the global scope
- * @strictOnly
+ * @onlyStrict
  */
 if (!('foo' in this)) {
   (1,eval)('"use strict"; var foo = 88;');

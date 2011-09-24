@@ -4,7 +4,7 @@
 /**
  * @description check if "arguments" poisoning poisons
  * hasOwnProperty too
- * @strictOnly
+ * @onlyStrict
  */
 (function(){}).hasOwnProperty('arguments');
 

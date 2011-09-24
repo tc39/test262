@@ -4,6 +4,6 @@
 /**
  * @description check if "caller" poisoning poisons
  * getOwnPropertyDescriptor too
- * @strictOnly
+ * @onlyStrict
  */
 Object.getOwnPropertyDescriptor(function(){}, 'caller');

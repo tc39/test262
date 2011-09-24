@@ -4,7 +4,7 @@
 /**
  * @description When calling a strict anonymous function as a
  * function, "this" should be bound to undefined.
- * @strictOnly
+ * @onlyStrict
  */
 
 var that = (function() { return this; })();

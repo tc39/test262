@@ -4,7 +4,7 @@
 /**
  * @description check if "caller" poisoning poisons
  * "in" too
- * @strictOnly
+ * @onlyStrict
  */
 'caller' in function() {};
 

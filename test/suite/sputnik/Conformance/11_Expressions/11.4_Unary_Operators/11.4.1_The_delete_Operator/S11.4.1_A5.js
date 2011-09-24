@@ -8,7 +8,7 @@
  *
  * @description See if a strict delete returns false when deleting a
  * non-standard property.
- * @strictOnly
+ * @onlyStrict
  */
 
 var deleted = 'unassigned';

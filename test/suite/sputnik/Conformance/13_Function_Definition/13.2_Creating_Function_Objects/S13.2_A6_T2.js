@@ -4,6 +4,6 @@
 /**
  * @description check if "arguments" poisoning poisons
  * getOwnPropertyDescriptor too
- * @strictOnly
+ * @onlyStrict
  */
 Object.getOwnPropertyDescriptor(function(){}, 'arguments');

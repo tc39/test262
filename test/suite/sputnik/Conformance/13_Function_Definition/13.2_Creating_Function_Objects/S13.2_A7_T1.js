@@ -4,7 +4,7 @@
 /**
  * @description check if "caller" poisoning poisons
  * hasOwnProperty too
- * @strictOnly
+ * @onlyStrict
  */
 (function(){}).hasOwnProperty('caller');
 

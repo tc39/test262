@@ -4,7 +4,7 @@
 /**
  * @description check if "arguments" poisoning poisons
  * "in" too
- * @strictOnly
+ * @onlyStrict
  */
 'arguments' in function() {};
 

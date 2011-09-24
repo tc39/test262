@@ -4,7 +4,7 @@
 /**
  * @description check that all poisoning use the [[ThrowTypeError]]
  * function object.
- * @strictOnly
+ * @onlyStrict
  */
 var poison = Object.getOwnPropertyDescriptor(function() {}, 'caller').get;
 
