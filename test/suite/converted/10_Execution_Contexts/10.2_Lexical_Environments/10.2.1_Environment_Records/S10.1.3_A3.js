@@ -6,7 +6,7 @@
  * name as some previous parameters do) was not supplied by the
  * caller, the value of the corresponding property is undefined
  *
- * @path 10_Execution_Contexts/10.1_Definitions/10.1.3_Variable_Instantiation/S10.1.3_A3.js
+ * @path 10_Execution_Contexts/10.2_Lexical_Environments/10.2.1_Environment_Records/S10.1.3_A3.js
  * @description Creating functions with two or more formal parameters,
  * that have the same name. Calling this function excluding a few last parameters
  */

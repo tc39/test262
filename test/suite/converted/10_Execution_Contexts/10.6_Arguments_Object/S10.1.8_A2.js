@@ -6,7 +6,7 @@
  * created arguments object is the original Object prototype object, the one
  * that is the initial value of Object.prototype
  *
- * @path 10_Execution_Contexts/10.1_Definitions/10.1.8_Arguments_Object/S10.1.8_A2.js
+ * @path 10_Execution_Contexts/10.6_Arguments_Object/S10.1.8_A2.js
  * @description Checking arguments.constructor.prototype===Object.prototype
  */
 

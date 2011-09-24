@@ -7,7 +7,7 @@
  * value and attributes. Semantically, this step must follow the creation of
  * FormalParameterList properties
  *
- * @path 10_Execution_Contexts/10.1_Definitions/10.1.3_Variable_Instantiation/S10.1.3_A4_T1.js
+ * @path 10_Execution_Contexts/10.2_Lexical_Environments/10.2.1_Environment_Records/S10.1.3_A4_T1.js
  * @description Checking existence of a function with passed parameter
  * @noStrict
  */

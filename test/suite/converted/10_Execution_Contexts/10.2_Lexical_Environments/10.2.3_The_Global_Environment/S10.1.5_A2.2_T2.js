@@ -4,7 +4,7 @@
 /**
  * Global object properties have attributes { DontEnum }
  *
- * @path 10_Execution_Contexts/10.1_Definitions/10.1.5_Global_Object/S10.1.5_A2.2_T2.js
+ * @path 10_Execution_Contexts/10.2_Lexical_Environments/10.2.3_The_Global_Environment/S10.1.5_A2.2_T2.js
  * @description Function execution context - Function Properties
  */
 

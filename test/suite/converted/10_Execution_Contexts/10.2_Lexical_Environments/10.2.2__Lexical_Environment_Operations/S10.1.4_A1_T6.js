@@ -6,7 +6,7 @@
  * A scope chain is a list of objects that are searched when evaluating an
  * Identifier
  *
- * @path 10_Execution_Contexts/10.1_Definitions/10.1.4_Scope_Chain_and_Identifier_Resolution/S10.1.4_A1_T6.js
+ * @path 10_Execution_Contexts/10.2_Lexical_Environments/10.2.2__Lexical_Environment_Operations/S10.1.4_A1_T6.js
  * @description Checking scope chain containing function declarations and "with"
  * @noStrict
  */

@@ -6,7 +6,7 @@
  * the same property, the corresponding property is given the value that was
  * supplied for the last parameter with this name
  *
- * @path 10_Execution_Contexts/10.1_Definitions/10.1.3_Variable_Instantiation/S10.1.3_A2.js
+ * @path 10_Execution_Contexts/10.2_Lexical_Environments/10.2.1_Environment_Records/S10.1.3_A2.js
  * @description Creating functions initialized with two or more formal parameters, which have the same name
  * @noStrict
  */

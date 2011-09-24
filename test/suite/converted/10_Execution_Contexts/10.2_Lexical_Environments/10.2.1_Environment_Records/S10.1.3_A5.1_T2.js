@@ -7,7 +7,7 @@
  * in the VariableDeclaration or VariableDeclarationNoIn, whose value is
  * undefined and whose attributes are determined by the type of code
  *
- * @path 10_Execution_Contexts/10.1_Definitions/10.1.3_Variable_Instantiation/S10.1.3_A5.1_T2.js
+ * @path 10_Execution_Contexts/10.2_Lexical_Environments/10.2.1_Environment_Records/S10.1.3_A5.1_T2.js
  * @description Checking existence of the variable object property with formal parameter
  */
 

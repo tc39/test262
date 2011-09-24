@@ -5,7 +5,7 @@
  * A property is created with name callee with property
  * attributes { DontEnum } and no others
  *
- * @path 10_Execution_Contexts/10.1_Definitions/10.1.8_Arguments_Object/S10.1.8_A3_T4.js
+ * @path 10_Execution_Contexts/10.6_Arguments_Object/S10.1.8_A3_T4.js
  * @description Overriding arguments.callee property
  * @noStrict
  */

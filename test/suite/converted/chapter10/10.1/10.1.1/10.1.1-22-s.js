@@ -25,7 +25,8 @@
  */
 
 
-assertTruthy(function () {
+function testcase() {
+        return function () {
             "use strict";
             try {
                 eval("var public = 1;");
@@ -33,4 +34,6 @@ assertTruthy(function () {
             } catch (e) {
                 return e instanceof SyntaxError;
             }
-        } ());
+        } ();
+    }
+runTestCase(testcase);

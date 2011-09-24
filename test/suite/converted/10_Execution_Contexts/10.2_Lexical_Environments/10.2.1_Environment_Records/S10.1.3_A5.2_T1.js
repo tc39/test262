@@ -6,7 +6,7 @@
  * name of a declared variable, the value of the property and its attributes
  * are not changed
  *
- * @path 10_Execution_Contexts/10.1_Definitions/10.1.3_Variable_Instantiation/S10.1.3_A5.2_T1.js
+ * @path 10_Execution_Contexts/10.2_Lexical_Environments/10.2.1_Environment_Records/S10.1.3_A5.2_T1.js
  * @description Checking existence of the variable object property with formal parameter
  */
 

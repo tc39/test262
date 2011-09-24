@@ -4,7 +4,7 @@
 /**
  * The activation object is initialised with a property with name arguments and attributes {DontDelete}
  *
- * @path 10_Execution_Contexts/10.1_Definitions/S10.1.6_A1_T3.js
+ * @path 10_Execution_Contexts/10.1_Types_of_Executable_Code/S10.1.6_A1_T3.js
  * @description Checking function which returns "this"
  * @noStrict
  */
