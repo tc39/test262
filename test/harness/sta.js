@@ -285,31 +285,8 @@ var EarlyErrorRePat = "^((?!" + NotEarlyErrorString + ").)*$";
 var NotEarlyError = new Error(NotEarlyErrorString);
 
 //--Test case registration-----------------------------------------------------
-var ES5Harness = {};
-ES5Harness.registerTest = function (test) {
-    var error;
-    try {
-        if (test.strict!==undefined) {
-            var res = test.test();
-        } else {
-            var res = test.test.call(window);
-        }
-            
-    } catch (e) {
-        res = 'fail';
-        error = e;
-        if (!(e instanceof Error)) {
-            try {
-                error = Error(e.toString());
-            } catch (e2) {
-                error = Error("test262: unknown error in test case or ECMAScript implementation");
-            }
-        }
+function runTestCase(testcase) {
+    if (testcase() !== true) {
+        $ERROR("Test case returned non-true value!")
     }
-    //Sputnik and IE Test Center tests are a bit different in terms of return values.
-    //That is, IE Test Center will always return 'true' IFF the test passed. Sputnik
-    //test cases will return either 'true' or 'undefined' if they pass.
-    var retVal = /^s/i.test(test.id) ? (res === true || typeof res === 'undefined' ? 'pass' : 'fail') : (res === true ? 'pass' : 'fail');
-    testRun(test.id, test.path, test.description, test.test.toString(),
-            retVal, error);
 }

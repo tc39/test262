@@ -78,7 +78,7 @@ def generateHarness(harnessType, jsonName, title):
     with open(fileName, "w") as f:
         for line in TEMPLATE_LINES:
             if "var TEST_LIST_PATH =" in line:
-                f.write("    var TEST_LIST_PATH = \"resources/scripts/testcases/" + jsonName + "\";" + os.linesep)
+                f.write("    var TEST_LIST_PATH = \"json/" + jsonName + "\";" + os.linesep)
             #elif "ECMAScript 5" in line:
             #    f.write(line.replace("ECMAScript 5", "ECMAScript 5: %s" % title))
             else:

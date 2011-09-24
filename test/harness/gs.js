@@ -22,6 +22,7 @@
 
 //An exception is expected
 if (testDescrip.negative !== undefined) {
+    testDescrip.negative = testDescrip.negative !== "" ? testDescrip.negative : ".";
     if (window.iframeError === undefined) { //no exception was thrown
         testRun(testDescrip.id, testDescrip.path, testDescrip.description, testDescrip.code,
                 'fail', 
