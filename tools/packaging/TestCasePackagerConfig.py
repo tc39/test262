@@ -26,12 +26,11 @@ import stat
 #--Globals---------------------------------------------------------------------
 MAX_CASES_PER_JSON = 1000
 
+WEBSITE_SHORT_NAME = "website2"
+
 #Directories under "test\suite\" containing ES5 test chapter directories
 #with *.js tests underneath them
-TEST_CONTRIB_DIRS = ["sputnik_converted", "ietestcenter"]
-
-#Global scope source files found directly under "test\suite\".
-GLOBAL_SCOPE_FILES = ["SputnikGlobalScope.js", "IETCGlobalScope.js"]
+TEST_CONTRIB_DIRS = ["converted"]
 
 #Path to the root of the Hg repository (relative to this file's location)
 TEST262_ROOT = os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "..")
@@ -45,17 +44,18 @@ TEST262_CASES_DIR = os.path.join(TEST262_ROOT, "test", "suite")
 TEST262_HARNESS_DIR = os.path.join(TEST262_ROOT, "test", "harness")
 
 #Directory full of website test cases (ported over from TEST262_CASES_DIR)
-TEST262_WEB_CASES_DIR = os.path.join(TEST262_ROOT, "website", "resources", "scripts", "testcases")
+TEST262_WEB_CASES_DIR = os.path.join(TEST262_ROOT, WEBSITE_SHORT_NAME, "json")
 
 #Directory containing the website's test harness (ported over from TEST262_HARNESS_DIR)
-TEST262_WEB_HARNESS_DIR = os.path.join(TEST262_ROOT, "website", "resources", "scripts", "global")
+TEST262_WEB_HARNESS_DIR = os.path.join(TEST262_ROOT, WEBSITE_SHORT_NAME, "harness")
 
 #Path to the ported test case files on the actual website as opposed to the Hg layout
-WEBSITE_CASES_PATH = "resources/scripts/testcases/"
+WEBSITE_CASES_PATH = "json/"
 
 #The name of a file which contains a list of tests which should be disabled in test262.
 #These tests are either invalid as-per ES5 or have issues with the test262 web harness.
 EXCLUDED_FILENAME = os.path.join(TEST262_ROOT, "test", "config", "excludelist.xml")
+
 
 #------------------------------------------------------------------------------
 
@@ -70,7 +70,7 @@ def generateHarness(harnessType, jsonName, title):
         TEMPLATE_LINES = []
         with open(os.path.join(os.getcwd(), "templates","runner." + harnessType + ".html"), "r") as f:
             TEMPLATE_LINES = f.readlines()
-    fileName = os.path.join(TEST262_ROOT, "website", jsonName.replace(".json", ".html"))
+    fileName = os.path.join(TEST262_ROOT, WEBSITE_SHORT_NAME, jsonName.replace(".json", ".html"))
     fileNameExists = False
     if os.path.exists(fileName):
         SC_HELPER.edit(fileName)

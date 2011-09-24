@@ -1,4 +1,4 @@
-# Copyright (c) 2009 Microsoft Corporation 
+# Copyright (c) 2011 Microsoft Corporation
 # 
 # Redistribution and use in source and binary forms, with or without modification, are permitted provided
 # that the following conditions are met: 
@@ -290,19 +290,5 @@ if TEST262_HARNESS_DIR!=TEST262_WEB_HARNESS_DIR:
                     toFilename)
         if not fileExists:
             SC_HELPER.add(toFilename)
-
-#Copying the global scope files over as well
-#TODO: really the HTML harness file should be generated as well...
-print ""
-print "Deploying global scope metadata files to 'TEST262_WEB_HARNESS_DIR'..."
-for gsf in GLOBAL_SCOPE_FILES:
-    toFilename = os.path.join(TEST262_WEB_CASES_DIR, gsf)
-    fileExists = os.path.exists(toFilename)
-    if fileExists:
-        SC_HELPER.edit(toFilename)
-    shutil.copy(os.path.join(TEST262_CASES_DIR, gsf),
-                toFilename)
-    if not fileExists:
-        SC_HELPER.add(toFilename)
 
 print "Done."
