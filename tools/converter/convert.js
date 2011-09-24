@@ -130,7 +130,8 @@
      envelope.header = trim(envelopeMatch[1]);
      if (envelopeMatch[2]) {
        var propTexts = envelopeMatch[2].split(/\s*\n\s*\*\s*@/);
-       envelope.comment = stripStars(propTexts.shift()), // notice side effect
+       // notice side effect by .shift()
+       envelope.commentary = stripStars(propTexts.shift()),
        forEach(propTexts, function(propText) {
          var propName = propText.match(/^\w+/)[0];
          var propVal = propText.substring(propName.length);
@@ -149,7 +150,7 @@
 
      var strictMatch = captureStrictPattern.exec(envelope.rest);
      if (strictMatch) {
-       envelope.testRecord.strictOnly = '';
+       envelope.testRecord.onlyStrict = '';
        // Note: does not remove or alter the "use strict"; directive
        // itself. We also make no use of the captured string so TODO:
        // stop capturing it.
@@ -286,25 +287,25 @@
     * runners.
     */
    function normalizeProps(testRecord) {
-     if (!('strictOnly' in testRecord) && testRecord.strict === 1) {
-       testRecord.strictOnly = '';
+     if (!('onlyStrict' in testRecord) && testRecord.strict === 1) {
+       testRecord.onlyStrict = '';
      }
      if (testRecord.strict === 1) {
        delete testRecord.strict;
      }
 
      if ('strict_mode_negative' in testRecord) {
-       if (!('strictOnly' in testRecord)) {
-         testRecord.strictOnly = '';
+       if (!('onlyStrict' in testRecord)) {
+         testRecord.onlyStrict = '';
        }
        transferProp(testRecord, 'strict_mode_negative', 'negative');
      }
-     transferProp(testRecord, 'strict_only', 'strictOnly');
+     transferProp(testRecord, 'strict_only', 'onlyStrict');
      transferProp(testRecord, 'non_strict_only', 'noStrict');
 
      transferProp(testRecord, 'errortype', 'negative');
      transferProp(testRecord, 'assertion', 'description');
-     transferProp(testRecord, 'assertion', 'comment');
+     transferProp(testRecord, 'assertion', 'commentary');
    }
    t262.normalizeProps = normalizeProps;
 
@@ -361,7 +362,7 @@
      delete testRecord.section;
      testRecord.path = toRelPathStr(nextRelPath);
      testRecord.header = envelope.header;
-     testRecord.comment = envelope.comment;
+     testRecord.commentary = envelope.commentary;
 
      normalizeProps(testRecord);
      return testRecord;
@@ -371,7 +372,7 @@
    // If we see any properties other than these after normalization,
    // we signal an error.
    var KNOWN_PROPS = ['path', 'description',
-                      'noStrict', 'strictOnly', 'negative'];
+                      'noStrict', 'onlyStrict', 'negative'];
 
    /**
     * Turns the (assumed) normalized test record into its string form
@@ -398,10 +399,11 @@
      var result = testRecord.header + '\n\n';
      delete testRecord.header;
      result +=  '/**\n';
-     if (testRecord.comment) {
-       result += ' * ' + testRecord.comment.replace(/\n/g, '\n * ') + '\n *\n';
+     if (testRecord.commentary) {
+       result += ' * ' + testRecord.commentary.replace(/\n/g, '\n * ') +
+         '\n *\n';
      }
-     delete testRecord.comment;
+     delete testRecord.commentary;
      forEach(KNOWN_PROPS, addProp);
 
      var remaining = keys(testRecord);
@@ -505,7 +507,7 @@
        var testRecord = parseTestRecord(inBase, relPath, name);
 
        delete testRecord.header;
-       delete testRecord.comment;
+       delete testRecord.commentary;
        return testRecord;
      });
      testRecords = filter(testRecords, function(testRecord) {
