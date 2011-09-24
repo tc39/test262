@@ -24,4 +24,8 @@
  */
 
 
-assertTruthy(["", "ab", "bca", "abc"].indexOf("abc") === 3);
+function testcase() {
+
+        return ["", "ab", "bca", "abc"].indexOf("abc") === 3;
+    }
+runTestCase(testcase);

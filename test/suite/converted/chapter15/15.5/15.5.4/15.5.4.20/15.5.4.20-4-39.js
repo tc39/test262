@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy("ab\u0085c".trim() === "ab\u0085c");
+function testcase() {
+  return "ab\u0085c".trim() === "ab\u0085c";
+ }
+runTestCase(testcase);

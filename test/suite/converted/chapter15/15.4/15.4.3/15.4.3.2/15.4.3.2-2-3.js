@@ -24,4 +24,8 @@
  */
 
 
-assertTruthy(!Array.isArray({ 0: 12, 1: 9, length: 2 }));
+function testcase() {
+
+        return !Array.isArray({ 0: 12, 1: 9, length: 2 });
+    }
+runTestCase(testcase);

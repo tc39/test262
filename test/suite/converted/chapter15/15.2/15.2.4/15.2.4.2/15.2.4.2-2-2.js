@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(Object.prototype.toString.apply(null, []) === "[object Null]");
+function testcase() {
+        return Object.prototype.toString.apply(null, []) === "[object Null]";
+    }
+runTestCase(testcase);

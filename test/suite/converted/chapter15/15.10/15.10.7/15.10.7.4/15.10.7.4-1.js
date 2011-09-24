@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy((typeof(RegExp.prototype.multiline)) === 'boolean');
+function testcase() {
+  return (typeof(RegExp.prototype.multiline)) === 'boolean';
+ }
+runTestCase(testcase);

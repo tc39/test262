@@ -24,4 +24,9 @@
  */
 
 
-assertTruthy(Array.isArray.length === 1);
+function testcase() {
+  if (Array.isArray.length === 1) {
+    return true;
+  }
+ }
+runTestCase(testcase);

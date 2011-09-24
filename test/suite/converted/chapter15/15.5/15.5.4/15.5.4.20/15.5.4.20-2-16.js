@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(String.prototype.trim.call(1e+21) === "1e+21");
+function testcase() {
+        return String.prototype.trim.call(1e+21) === "1e+21";
+    }
+runTestCase(testcase);

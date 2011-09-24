@@ -24,4 +24,8 @@
  */
 
 
-assertTruthy((Object.getPrototypeOf(Object.prototype) === null));
+function testcase() {
+
+        return (Object.getPrototypeOf(Object.prototype) === null);
+    }
+runTestCase(testcase);

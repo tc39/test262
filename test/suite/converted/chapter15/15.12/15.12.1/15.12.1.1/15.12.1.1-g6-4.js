@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(JSON.parse('"\\f"')==='\f');
+function testcase() {
+    return JSON.parse('"\\f"')==='\f'; 
+  }
+runTestCase(testcase);

@@ -7,6 +7,6 @@
  * @negative NotEarlyErrorString
  */
 
-
+"use strict";
 throw NotEarlyError;
 b = 11;

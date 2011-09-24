@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(!Object.isFrozen({}));
+function testcase() {
+        return !Object.isFrozen({});
+    }
+runTestCase(testcase);

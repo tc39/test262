@@ -25,4 +25,7 @@
  */
 
 
-assertTruthy(String.prototype.trim.call("AB\n\\cd") === "AB\n\\cd");
+function testcase() {
+        return String.prototype.trim.call("AB\n\\cd") === "AB\n\\cd";
+    }
+runTestCase(testcase);

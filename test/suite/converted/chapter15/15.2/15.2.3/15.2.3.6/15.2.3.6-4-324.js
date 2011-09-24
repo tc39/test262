@@ -24,7 +24,8 @@
  */
 
 
-assertTruthy((function () {
+function testcase() {
+        return (function () {
             function setFunc(value) {
                 this.genericPropertyString = value;
             }
@@ -41,4 +42,6 @@ assertTruthy((function () {
                     accessorPropertyAttributesAreCorrect(arguments, "genericProperty", undefined, setFunc, "genericPropertyString", false, false, false);
             }
             return false;
-        }(1, 2, 3)));
+        }(1, 2, 3));
+    }
+runTestCase(testcase);

@@ -24,4 +24,9 @@
  */
 
 
-assertTruthy(Object.isSealed.length === 1);
+function testcase() {
+  if (Object.isSealed.length === 1) {
+    return true;
+  }
+ }
+runTestCase(testcase);

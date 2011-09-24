@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(typeof RegExpError === "undefined");
+function testcase() {
+        return typeof RegExpError === "undefined";
+    }
+runTestCase(testcase);

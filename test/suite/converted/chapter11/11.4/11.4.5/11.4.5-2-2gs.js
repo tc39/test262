@@ -7,6 +7,6 @@
  * @negative EarlyErrorRePat
  */
 
-
+"use strict";
 throw NotEarlyError;
 --arguments;

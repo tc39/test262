@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy("\uFEFF\uFEFF".trim() === "");
+function testcase() {
+  return "\uFEFF\uFEFF".trim() === "";
+ }
+runTestCase(testcase);

@@ -24,4 +24,8 @@
  */
 
 
-assertTruthy([false, true].lastIndexOf(true) === 1);
+function testcase() {
+
+        return [false, true].lastIndexOf(true) === 1;
+    }
+runTestCase(testcase);

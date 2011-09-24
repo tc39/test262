@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(String.prototype.trim.call(1e-5) === "0.00001");
+function testcase() {
+        return String.prototype.trim.call(1e-5) === "0.00001";
+    }
+runTestCase(testcase);

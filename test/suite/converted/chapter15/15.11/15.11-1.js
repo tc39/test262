@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(typeof ConversionError === "undefined");
+function testcase() {
+        return typeof ConversionError === "undefined";
+    }
+runTestCase(testcase);

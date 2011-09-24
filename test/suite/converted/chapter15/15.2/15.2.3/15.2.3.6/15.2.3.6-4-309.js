@@ -24,7 +24,8 @@
  */
 
 
-assertTruthy((function () {
+function testcase() {
+        return (function () {
             function getFunc1() {
                 return 0;
             }
@@ -44,4 +45,6 @@ assertTruthy((function () {
             } catch (e) {
                 return e instanceof TypeError && accessorPropertyAttributesAreCorrect(arguments, "0", getFunc1, undefined, undefined, false, false);
             }
-        }()));
+        }());
+    }
+runTestCase(testcase);

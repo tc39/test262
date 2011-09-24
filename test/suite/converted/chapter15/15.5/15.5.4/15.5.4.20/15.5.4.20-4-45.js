@@ -24,4 +24,9 @@
  */
 
 
-assertTruthy("\u2028abc".trim() === "abc");
+function testcase() {
+  if ("\u2028abc".trim() === "abc") {
+    return true;
+  }
+ }
+runTestCase(testcase);

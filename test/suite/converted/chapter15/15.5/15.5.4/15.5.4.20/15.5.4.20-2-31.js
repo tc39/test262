@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(String.prototype.trim.call("null") === "null");
+function testcase() {
+        return String.prototype.trim.call("null") === "null";
+    }
+runTestCase(testcase);

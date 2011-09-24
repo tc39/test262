@@ -24,4 +24,9 @@
  */
 
 
-assertTruthy(Object.getPrototypeOf(JSON) === Object.prototype);
+function testcase() {
+  if (Object.getPrototypeOf(JSON) === Object.prototype) {
+    return true;
+  }
+ }
+runTestCase(testcase);

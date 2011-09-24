@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(isNaN(parseInt("")) && parseInt("") !== parseInt(""));
+function testcase() {
+        return isNaN(parseInt("")) && parseInt("") !== parseInt("");
+    }
+runTestCase(testcase);

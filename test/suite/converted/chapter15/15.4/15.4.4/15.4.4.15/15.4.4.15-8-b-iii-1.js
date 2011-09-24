@@ -24,4 +24,8 @@
  */
 
 
-assertTruthy([2, 1, 2, 2, 1].lastIndexOf(2) === 3);
+function testcase() {
+
+        return [2, 1, 2, 2, 1].lastIndexOf(2) === 3;
+    }
+runTestCase(testcase);

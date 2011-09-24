@@ -24,4 +24,9 @@
  */
 
 
-assertTruthy(typeof(Object.create) === "function");
+function testcase() {
+  if (typeof(Object.create) === "function") {
+    return true;
+  }
+ }
+runTestCase(testcase);

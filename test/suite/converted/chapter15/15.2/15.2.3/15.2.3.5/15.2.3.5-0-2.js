@@ -24,4 +24,9 @@
  */
 
 
-assertTruthy(Object.create.length === 2);
+function testcase() {
+  if (Object.create.length === 2) {
+    return true;
+  }
+ }
+runTestCase(testcase);

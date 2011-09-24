@@ -24,7 +24,8 @@
  */
 
 
-assertTruthy((function () { 
+function testcase() {
+        return (function () { 
             delete arguments[0];
             function getFunc() {
                 return 10;
@@ -39,4 +40,6 @@ assertTruthy((function () {
                 configurable: true
             });
             return accessorPropertyAttributesAreCorrect(arguments, "0", getFunc, setFunc, "setVerifyHelpProp", true, true);
-        }(0, 1, 2)));
+        }(0, 1, 2));    
+    }
+runTestCase(testcase);

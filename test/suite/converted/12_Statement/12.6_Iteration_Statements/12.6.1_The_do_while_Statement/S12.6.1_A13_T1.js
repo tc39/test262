@@ -10,7 +10,7 @@
  * @negative SyntaxError
  */
 
-
+"use strict";
 do{
     function __func(){};
 } while(0);

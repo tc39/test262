@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy((typeof(RegExp.prototype.global)) === 'boolean');
+function testcase() {
+  return (typeof(RegExp.prototype.global)) === 'boolean';
+ }
+runTestCase(testcase);

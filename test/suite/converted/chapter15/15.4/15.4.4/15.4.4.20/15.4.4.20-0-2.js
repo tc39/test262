@@ -24,4 +24,9 @@
  */
 
 
-assertTruthy(Array.prototype.filter.length === 1);
+function testcase() {
+  if (Array.prototype.filter.length === 1) {
+    return true;
+  }
+ }
+runTestCase(testcase);

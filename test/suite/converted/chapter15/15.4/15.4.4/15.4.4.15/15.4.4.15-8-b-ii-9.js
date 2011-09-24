@@ -24,4 +24,8 @@
  */
 
 
-assertTruthy(["abc", "ab", "bca", ""].lastIndexOf("abc") === 0);
+function testcase() {
+
+        return ["abc", "ab", "bca", ""].lastIndexOf("abc") === 0;
+    }
+runTestCase(testcase);

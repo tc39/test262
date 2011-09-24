@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(JSON.stringify([42], function(k,v) {return v===42? new Boolean(false):v}) === '[false]');
+function testcase() {
+  return JSON.stringify([42], function(k,v) {return v===42? new Boolean(false):v}) === '[false]';
+  }
+runTestCase(testcase);

@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(JSON.parse('"\\t"')==='\t');
+function testcase() {
+    return JSON.parse('"\\t"')==='\t'; 
+  }
+runTestCase(testcase);

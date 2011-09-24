@@ -24,4 +24,9 @@
  */
 
 
-assertTruthy(Array.prototype.lastIndexOf.length === 1);
+function testcase() {
+  if (Array.prototype.lastIndexOf.length === 1) {
+    return true;
+  }
+ }
+runTestCase(testcase);

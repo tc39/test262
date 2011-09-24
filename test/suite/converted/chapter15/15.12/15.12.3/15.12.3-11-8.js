@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(JSON.stringify(new String('wrappered')) === '"wrappered"');
+function testcase() {
+  return JSON.stringify(new String('wrappered')) === '"wrappered"';
+  }
+runTestCase(testcase);

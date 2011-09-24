@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(JSON.stringify("a string") === '"a string"');
+function testcase() {
+  return JSON.stringify("a string") === '"a string"';
+  }
+runTestCase(testcase);

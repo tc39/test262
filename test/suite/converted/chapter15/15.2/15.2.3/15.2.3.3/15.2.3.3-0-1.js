@@ -24,4 +24,9 @@
  */
 
 
-assertTruthy(typeof(Object.getOwnPropertyDescriptor) === "function");
+function testcase() {
+  if (typeof(Object.getOwnPropertyDescriptor) === "function") {
+    return true;
+  }
+ }
+runTestCase(testcase);

@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(Date.now.length === 0);
+function testcase() {
+        return Date.now.length === 0;
+    }
+runTestCase(testcase);

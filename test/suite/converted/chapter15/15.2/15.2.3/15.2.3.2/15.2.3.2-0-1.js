@@ -24,4 +24,9 @@
  */
 
 
-assertTruthy(typeof(Object.getPrototypeOf) === "function");
+function testcase() {
+  if (typeof(Object.getPrototypeOf) === "function") {
+    return true;
+  }
+ }
+runTestCase(testcase);

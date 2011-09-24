@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(Date.prototype.toISOString.length === 0);
+function testcase() {
+        return Date.prototype.toISOString.length === 0;
+    }
+runTestCase(testcase);

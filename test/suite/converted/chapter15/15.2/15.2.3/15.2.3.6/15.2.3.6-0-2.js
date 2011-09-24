@@ -24,4 +24,9 @@
  */
 
 
-assertTruthy(Object.defineProperty.length === 3);
+function testcase() {
+  if (Object.defineProperty.length === 3) {
+    return true;
+  }
+ }
+runTestCase(testcase);

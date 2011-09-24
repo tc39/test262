@@ -24,4 +24,8 @@
  */
 
 
-assertTruthy([undefined].indexOf() === 0 && [undefined].indexOf(undefined) === 0);
+function testcase() {
+
+        return [undefined].indexOf() === 0 && [undefined].indexOf(undefined) === 0;
+    }
+runTestCase(testcase);

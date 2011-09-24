@@ -24,4 +24,8 @@
  */
 
 
-assertTruthy([+NaN, NaN, -NaN].indexOf(-NaN) === -1);
+function testcase() {
+
+        return [+NaN, NaN, -NaN].indexOf(-NaN) === -1;
+    }
+runTestCase(testcase);

@@ -24,7 +24,11 @@
  */
 
 
-assertTruthy([0, true].lastIndexOf(true, NaN) === -1 && // from Index will be convert to +0
+function testcase() {
+
+        return [0, true].lastIndexOf(true, NaN) === -1 && // from Index will be convert to +0
             [true, 0].lastIndexOf(true, NaN) === 0 &&
             [0, true].lastIndexOf(true, -NaN) === -1 &&
-            [true, 0].lastIndexOf(true, -NaN) === 0);
+            [true, 0].lastIndexOf(true, -NaN) === 0;
+    }
+runTestCase(testcase);

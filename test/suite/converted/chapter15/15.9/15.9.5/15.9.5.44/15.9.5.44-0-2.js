@@ -24,4 +24,9 @@
  */
 
 
-assertTruthy(Date.prototype.toJSON.length === 1);
+function testcase() {
+  if (Date.prototype.toJSON.length === 1) {
+    return true;
+  }
+ }
+runTestCase(testcase);

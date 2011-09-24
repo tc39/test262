@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(typeof (Date.prototype.toISOString) === "function");
+function testcase() {
+        return typeof (Date.prototype.toISOString) === "function";
+    }
+runTestCase(testcase);

@@ -24,6 +24,9 @@
  */
 
 
-assertTruthy([true, true, true].indexOf(true) === 0 &&
+function testcase() {
+        return [true, true, true].indexOf(true) === 0 &&
             [false, true, true].indexOf(true) === 1 &&
-            [false, false, true].indexOf(true) === 2);
+            [false, false, true].indexOf(true) === 2;
+    }
+runTestCase(testcase);

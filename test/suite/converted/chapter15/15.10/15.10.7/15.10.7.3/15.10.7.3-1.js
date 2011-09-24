@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy((typeof(RegExp.prototype.ignoreCase)) === 'boolean');
+function testcase() {
+  return (typeof(RegExp.prototype.ignoreCase)) === 'boolean';
+ }
+runTestCase(testcase);

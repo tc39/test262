@@ -24,7 +24,8 @@
  */
 
 
-assertTruthy((function () {
+function testcase() {
+        return (function () {
             Object.defineProperty(arguments, "0", {
                 value: 10,
                 writable: false,
@@ -39,4 +40,6 @@ assertTruthy((function () {
                 return e instanceof TypeError && dataPropertyAttributesAreCorrect(arguments, "0", 10, false, true, false);
             }
             return false;
-        }(0, 1, 2)));
+        }(0, 1, 2));
+    }
+runTestCase(testcase);

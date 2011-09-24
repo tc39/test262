@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(String.prototype.trim.call(Infinity) === "Infinity");
+function testcase() {
+        return String.prototype.trim.call(Infinity) === "Infinity";
+    }
+runTestCase(testcase);

@@ -24,4 +24,8 @@
  */
 
 
-assertTruthy(!Array.isArray(JSON));
+function testcase() {
+
+        return !Array.isArray(JSON);
+    }
+runTestCase(testcase);

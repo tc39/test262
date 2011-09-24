@@ -24,4 +24,9 @@
  */
 
 
-assertTruthy(Object.freeze.length === 1);
+function testcase() {
+  if (Object.freeze.length === 1) {
+    return true;
+  }
+ }
+runTestCase(testcase);

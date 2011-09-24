@@ -24,7 +24,8 @@
  */
 
 
-assertTruthy((function () {
+function testcase() {
+        return (function () {
             function getFunc1() {
                 return 10;
             }
@@ -42,4 +43,6 @@ assertTruthy((function () {
                 configurable: false
             });
             return accessorPropertyAttributesAreCorrect(arguments, "0", getFunc2, undefined, undefined, false, false);
-        }()));
+        }());
+    }
+runTestCase(testcase);

@@ -10,7 +10,7 @@
  * @negative SyntaxError
  */
 
-
+"use strict";
 if (true) {
     function __func(){};
 } else {

@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy((typeof(RegExp.prototype.lastIndex)) === 'number');
+function testcase() {
+  return (typeof(RegExp.prototype.lastIndex)) === 'number';
+ }
+runTestCase(testcase);

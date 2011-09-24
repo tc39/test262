@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(-"" === 0);
+function testcase() {
+  return -"" === 0;
+ }
+runTestCase(testcase);

@@ -24,7 +24,8 @@
  */
 
 
-assertTruthy((function (a, b, c) { 
+function testcase() {
+        return (function (a, b, c) { 
             Object.defineProperty(arguments, "0", {
                 value: 20,
                 writable: false,
@@ -33,4 +34,6 @@ assertTruthy((function (a, b, c) {
             });
             var verifyFormal = a === 20;
             return dataPropertyAttributesAreCorrect(arguments, "0", 20, false, false, false) && verifyFormal;
-        }(0, 1, 2)));
+        }(0, 1, 2));
+    }
+runTestCase(testcase);

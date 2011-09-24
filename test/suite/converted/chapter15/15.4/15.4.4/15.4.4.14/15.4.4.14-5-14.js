@@ -24,4 +24,8 @@
  */
 
 
-assertTruthy([true].indexOf(true, NaN) === 0 && [true].indexOf(true, -NaN) === 0);
+function testcase() {
+
+        return [true].indexOf(true, NaN) === 0 && [true].indexOf(true, -NaN) === 0;
+    }
+runTestCase(testcase);

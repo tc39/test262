@@ -24,4 +24,8 @@
  */
 
 
-assertTruthy(!Array.isArray(Math));
+function testcase() {
+
+        return !Array.isArray(Math);
+    }
+runTestCase(testcase);

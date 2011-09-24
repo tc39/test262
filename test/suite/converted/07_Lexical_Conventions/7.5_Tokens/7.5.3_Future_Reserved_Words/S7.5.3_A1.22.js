@@ -10,6 +10,6 @@
  * @negative
  */
 
-
+"use strict";
 var private = 1;
 

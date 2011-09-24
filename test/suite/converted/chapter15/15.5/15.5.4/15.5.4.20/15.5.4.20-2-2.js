@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(String.prototype.trim.call(true) === "true");
+function testcase() {
+        return String.prototype.trim.call(true) === "true";
+    }
+runTestCase(testcase);

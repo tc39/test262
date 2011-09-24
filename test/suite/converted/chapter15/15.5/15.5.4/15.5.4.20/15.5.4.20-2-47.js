@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(String.prototype.trim.call({}) === "[object Object]");
+function testcase() {
+        return String.prototype.trim.call({}) === "[object Object]";
+    }
+runTestCase(testcase);

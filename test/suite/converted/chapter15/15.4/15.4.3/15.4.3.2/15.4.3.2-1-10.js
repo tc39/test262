@@ -24,4 +24,8 @@
  */
 
 
-assertTruthy(!Array.isArray(new RegExp()));
+function testcase() {
+
+        return !Array.isArray(new RegExp());
+    }
+runTestCase(testcase);

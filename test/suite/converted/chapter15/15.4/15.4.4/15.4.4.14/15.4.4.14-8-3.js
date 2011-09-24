@@ -24,4 +24,8 @@
  */
 
 
-assertTruthy([1, 2, 3, 4].indexOf(1, -3) === -1);
+function testcase() {
+
+        return [1, 2, 3, 4].indexOf(1, -3) === -1;
+    }
+runTestCase(testcase);

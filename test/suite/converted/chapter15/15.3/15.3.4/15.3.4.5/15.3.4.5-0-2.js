@@ -24,4 +24,9 @@
  */
 
 
-assertTruthy(Function.prototype.bind.length === 1);
+function testcase() {
+  if (Function.prototype.bind.length === 1) {
+    return true;
+  }
+ }
+runTestCase(testcase);

@@ -24,4 +24,8 @@
  */
 
 
-assertTruthy(!Array.isArray(new String("hello\nworld\\!")));
+function testcase() {
+
+        return !Array.isArray(new String("hello\nworld\\!"));
+    }
+runTestCase(testcase);

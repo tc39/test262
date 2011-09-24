@@ -24,4 +24,8 @@
  */
 
 
-assertTruthy([].lastIndexOf(1, 0) === -1);
+function testcase() {
+
+        return [].lastIndexOf(1, 0) === -1;
+    }
+runTestCase(testcase);

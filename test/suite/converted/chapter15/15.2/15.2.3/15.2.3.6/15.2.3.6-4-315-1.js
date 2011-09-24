@@ -24,7 +24,8 @@
  */
 
 
-assertTruthy((function (a, b, c) {
+function testcase() {
+        return (function (a, b, c) {
             Object.defineProperty(arguments, "genericProperty", {
                 get: function () {
                     return 1001;
@@ -49,4 +50,6 @@ assertTruthy((function (a, b, c) {
             });
             var verifyFormal = c === 3;
             return accessorPropertyAttributesAreCorrect(arguments, "genericProperty", getFunc, setFunc, "testgetFunction", false, false) && verifyFormal;
-        }(1, 2, 3)));
+        }(1, 2, 3));
+    }
+runTestCase(testcase);

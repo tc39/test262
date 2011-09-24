@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy((typeof(RegExp.prototype.source)) === 'string');
+function testcase() {
+  return (typeof(RegExp.prototype.source)) === 'string';
+ }
+runTestCase(testcase);

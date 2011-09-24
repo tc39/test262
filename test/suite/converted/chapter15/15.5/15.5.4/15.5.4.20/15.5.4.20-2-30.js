@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(String.prototype.trim.call("undefined") === "undefined");
+function testcase() {
+        return String.prototype.trim.call("undefined") === "undefined";
+    }
+runTestCase(testcase);

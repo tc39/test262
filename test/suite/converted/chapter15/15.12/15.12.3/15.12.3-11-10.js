@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(JSON.stringify(42, function(k, v) { return undefined }) === undefined);
+function testcase() {
+  return JSON.stringify(42, function(k, v) { return undefined }) === undefined;
+  }
+runTestCase(testcase);

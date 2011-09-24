@@ -24,4 +24,8 @@
  */
 
 
-assertTruthy(!Array.isArray(fnGlobalObject()));
+function testcase() {
+
+        return !Array.isArray(fnGlobalObject());
+    }
+runTestCase(testcase);

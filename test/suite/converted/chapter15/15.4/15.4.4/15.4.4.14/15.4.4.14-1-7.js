@@ -24,4 +24,8 @@
  */
 
 
-assertTruthy(Array.prototype.indexOf.call("abc", "b") === 1);
+function testcase() {
+
+        return Array.prototype.indexOf.call("abc", "b") === 1;
+    }
+runTestCase(testcase);

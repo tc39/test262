@@ -24,4 +24,8 @@
  */
 
 
-assertTruthy(!Array.isArray(new Date()));
+function testcase() {
+
+        return !Array.isArray(new Date());
+    }
+runTestCase(testcase);

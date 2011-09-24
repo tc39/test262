@@ -24,4 +24,8 @@
  */
 
 
-assertTruthy(!Array.isArray(new Number(-3)));
+function testcase() {
+
+        return !Array.isArray(new Number(-3));
+    }
+runTestCase(testcase);

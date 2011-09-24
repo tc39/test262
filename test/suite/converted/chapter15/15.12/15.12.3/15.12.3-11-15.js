@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(JSON.stringify(function() {}, function(k,v) {return 99}) === '99');
+function testcase() {
+  return JSON.stringify(function() {}, function(k,v) {return 99}) === '99';
+  }
+runTestCase(testcase);

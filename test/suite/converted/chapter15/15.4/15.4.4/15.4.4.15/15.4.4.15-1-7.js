@@ -24,4 +24,8 @@
  */
 
 
-assertTruthy(Array.prototype.lastIndexOf.call("abc", "c") === 2);
+function testcase() {
+
+        return Array.prototype.lastIndexOf.call("abc", "c") === 2;
+    }
+runTestCase(testcase);

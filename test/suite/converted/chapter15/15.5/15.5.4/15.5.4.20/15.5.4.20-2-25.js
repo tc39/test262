@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(String.prototype.trim.call(123.456) === "123.456");
+function testcase() {
+        return String.prototype.trim.call(123.456) === "123.456";
+    }
+runTestCase(testcase);

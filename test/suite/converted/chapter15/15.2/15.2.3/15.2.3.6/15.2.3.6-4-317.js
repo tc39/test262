@@ -24,7 +24,8 @@
  */
 
 
-assertTruthy((function () {
+function testcase() {
+        return (function () {
             Object.defineProperty(arguments, "genericProperty", {
                 value: 1001,
                 writable: false,
@@ -39,4 +40,6 @@ assertTruthy((function () {
                     dataPropertyAttributesAreCorrect(arguments, "genericProperty", 1001, false, false, false);
             }
             return false;
-        }(1, 2, 3)));
+        }(1, 2, 3));
+    }
+runTestCase(testcase);

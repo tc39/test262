@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(Object.prototype.toString.call(undefined) === "[object Undefined]");
+function testcase() {
+        return Object.prototype.toString.call(undefined) === "[object Undefined]";
+    }
+runTestCase(testcase);

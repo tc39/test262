@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(typeof Date.now() === "number");
+function testcase() {        
+        return typeof Date.now() === "number";
+    }
+runTestCase(testcase);

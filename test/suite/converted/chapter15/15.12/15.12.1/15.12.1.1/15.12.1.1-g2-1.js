@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(JSON.parse('"abc"')==="abc");
+function testcase() {
+  return JSON.parse('"abc"')==="abc"; 
+  }
+runTestCase(testcase);

@@ -24,4 +24,7 @@
  */
 
 
-assertTruthy(isNaN(parseFloat("")) && parseFloat("") !== parseFloat(""));
+function testcase() {
+        return isNaN(parseFloat("")) && parseFloat("") !== parseFloat("");
+    }
+runTestCase(testcase);

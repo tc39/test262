@@ -7,5 +7,5 @@
  * @negative .
  */
 
-
+"use strict";
 b = 11;

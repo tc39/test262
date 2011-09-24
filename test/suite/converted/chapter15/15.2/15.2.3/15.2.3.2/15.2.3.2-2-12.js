@@ -24,4 +24,9 @@
  */
 
 
-assertTruthy(Object.getPrototypeOf(EvalError) === Function.prototype);
+function testcase() {
+  if (Object.getPrototypeOf(EvalError) === Function.prototype) {
+    return true;
+  }
+ }
+runTestCase(testcase);
