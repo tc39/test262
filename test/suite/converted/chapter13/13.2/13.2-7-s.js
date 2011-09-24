@@ -21,7 +21,7 @@
 /**
  * @path chapter13/13.2/13.2-7-s.js
  * @description StrictMode - enumerating over a function object looking for 'caller' fails outside of the function
- * @strictOnly
+ * @onlyStrict
  */
 
 

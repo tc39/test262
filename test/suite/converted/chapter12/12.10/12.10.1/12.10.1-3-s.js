@@ -21,7 +21,7 @@
 /**
  * @path chapter12/12.10/12.10.1/12.10.1-3-s.js
  * @description with statement in strict mode throws SyntaxError (nested strict function)
- * @strictOnly
+ * @onlyStrict
  */
 
 

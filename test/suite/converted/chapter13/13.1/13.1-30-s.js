@@ -25,7 +25,7 @@
  *
  * @path chapter13/13.1/13.1-30-s.js
  * @description Strict Mode - SyntaxError is thrown if a function is created using a FunctionExpression whose FunctionBody is contained in strict code and the function has two identical parameters
- * @strictOnly
+ * @onlyStrict
  */
 
 

@@ -21,7 +21,7 @@
 /**
  * @path chapter14/14.1/14.1-3-s.js
  * @description 'use strict' directive - not recognized if it contains extra whitespace
- * @strictOnly
+ * @onlyStrict
  */
 
 

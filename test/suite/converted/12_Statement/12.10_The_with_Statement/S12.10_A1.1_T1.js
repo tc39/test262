@@ -7,7 +7,7 @@
  *
  * @path 12_Statement/12.10_The_with_Statement/S12.10_A1.1_T1.js
  * @description Using "with" inside of global context leading to normal completion
- * @strictOnly
+ * @onlyStrict
  * @negative
  */
 

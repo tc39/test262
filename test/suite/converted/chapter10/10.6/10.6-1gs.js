@@ -3,7 +3,7 @@
 /**
  * @path chapter10/10.6/10.6-1gs.js
  * @description Strict Mode - arguments.callee cannot be accessed in a strict function, but does not throw an early error
- * @strictOnly
+ * @onlyStrict
  */
 
 "use strict";

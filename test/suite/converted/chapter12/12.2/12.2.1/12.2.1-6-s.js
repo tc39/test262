@@ -21,7 +21,7 @@
 /**
  * @path chapter12/12.2/12.2.1/12.2.1-6-s.js
  * @description eval - a Function assigning into 'eval' will not throw any error if contained within strict mode and its body does not start with strict mode
- * @strictOnly
+ * @onlyStrict
  */
 
 

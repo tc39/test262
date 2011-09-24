@@ -7,7 +7,7 @@
  *
  * @path 12_Statement/12.10_The_with_Statement/S12.10_A3.6_T2.js
  * @description Using "with" statement within another "with" statement, leading to completion by exception
- * @strictOnly
+ * @onlyStrict
  * @negative
  */
 

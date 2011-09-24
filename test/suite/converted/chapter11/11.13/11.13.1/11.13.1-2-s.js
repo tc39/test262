@@ -21,7 +21,7 @@
 /**
  * @path chapter11/11.13/11.13.1/11.13.1-2-s.js
  * @description Strict Mode - TypeError is thrown if The LeftHandSide is a reference to an accessor property with the attribute value {[[Set]]:undefined} under strict mode
- * @strictOnly
+ * @onlyStrict
  */
 
 

@@ -21,7 +21,7 @@
 /**
  * @path chapter08/8.7/8.7.2/8.7.2-3-1-s.js
  * @description eval - a property named 'eval' is permitted
- * @strictOnly
+ * @onlyStrict
  */
 
 

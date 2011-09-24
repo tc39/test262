@@ -21,7 +21,7 @@
 /**
  * @path chapter13/13.1/13.1-37-s.js
  * @description StrictMode - SyntaxError is thrown if 'eval' occurs as the Identifier of a FunctionExpression in strict eval code
- * @strictOnly
+ * @onlyStrict
  */
 
 

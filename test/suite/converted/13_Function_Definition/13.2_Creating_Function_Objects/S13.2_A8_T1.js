@@ -5,7 +5,7 @@
  * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2_A8_T1.js
  * @description check if "caller" poisoning poisons
  * "in" too
- * @strictOnly
+ * @onlyStrict
  */
 
 'caller' in function() {};

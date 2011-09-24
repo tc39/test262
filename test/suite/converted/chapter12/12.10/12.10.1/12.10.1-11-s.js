@@ -21,7 +21,7 @@
 /**
  * @path chapter12/12.10/12.10.1/12.10.1-11-s.js
  * @description Strict Mode - SyntaxError is thrown when using WithStatement in strict mode code
- * @strictOnly
+ * @onlyStrict
  */
 
 

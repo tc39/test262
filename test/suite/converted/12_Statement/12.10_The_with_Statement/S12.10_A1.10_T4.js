@@ -8,7 +8,7 @@
  * @path 12_Statement/12.10_The_with_Statement/S12.10_A1.10_T4.js
  * @description Using iteration statement witthin "with" staement leading to completion by break
  * iteration statement inside with statement - break completion
- * @strictOnly
+ * @onlyStrict
  * @negative
  */
 

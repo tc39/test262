@@ -21,7 +21,7 @@
 /**
  * @path chapter14/14.1/14.1-13-s.js
  * @description semicolon insertion works for'use strict' directive 
- * @strictOnly
+ * @onlyStrict
  */
 
 

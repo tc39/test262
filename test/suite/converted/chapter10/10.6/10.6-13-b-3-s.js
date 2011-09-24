@@ -21,7 +21,7 @@
 /**
  * @path chapter10/10.6/10.6-13-b-3-s.js
  * @description arguments.caller is non-configurable in strict mode
- * @strictOnly
+ * @onlyStrict
  */
 
 

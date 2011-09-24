@@ -21,7 +21,7 @@
 /**
  * @path chapter10/10.6/10.6-13-c-2-s.js
  * @description arguments.callee is exists in strict mode
- * @strictOnly
+ * @onlyStrict
  */
 
 

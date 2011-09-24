@@ -21,7 +21,7 @@
 /**
  * @path chapter13/13.1/13.1-13-s.js
  * @description StrictMode - SyntaxError is thrown if 'arguments' occurs as the function name of a FunctionDeclaration in strict mode
- * @strictOnly
+ * @onlyStrict
  */
 
 

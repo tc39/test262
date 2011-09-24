@@ -21,7 +21,7 @@
 /**
  * @path chapter14/14.1/14.1-8-s.js
  * @description 'use strict' directive - may follow other directives
- * @strictOnly
+ * @onlyStrict
  */
 
 

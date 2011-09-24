@@ -6,7 +6,7 @@
  *
  * @path 12_Statement/12.10_The_with_Statement/S12.10_A5_T1.js
  * @description Deleting string property
- * @strictOnly
+ * @onlyStrict
  * @negative
  */
 

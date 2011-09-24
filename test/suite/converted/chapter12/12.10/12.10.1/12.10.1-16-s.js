@@ -21,7 +21,7 @@
 /**
  * @path chapter12/12.10/12.10.1/12.10.1-16-s.js
  * @description Strict Mode - SyntaxError is thrown when the RHS of an object indexer assignment utilizes WithStatement
- * @strictOnly
+ * @onlyStrict
  */
 
 

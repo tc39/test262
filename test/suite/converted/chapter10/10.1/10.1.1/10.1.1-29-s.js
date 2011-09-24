@@ -21,7 +21,7 @@
 /**
  * @path chapter10/10.1/10.1.1/10.1.1-29-s.js
  * @description Strict Mode - The built-in Function constructor is contained in use strict code
- * @strictOnly
+ * @onlyStrict
  */
 
 

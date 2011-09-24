@@ -6,7 +6,7 @@
  *
  * @path 07_Lexical_Conventions/7.5_Tokens/7.5.3_Future_Reserved_Words/S7.5.3_A1.22.js
  * @description Checking if execution of "private=1" fails in strict code
- * @strictOnly
+ * @onlyStrict
  * @negative
  */
 

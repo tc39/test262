@@ -21,7 +21,7 @@
 /**
  * @path chapter12/12.2/12.2.1/12.2.1-36-s.js
  * @description 'for(var arguments in ...) {...}' throws SyntaxError in strict mode
- * @strictOnly
+ * @onlyStrict
  */
 
 

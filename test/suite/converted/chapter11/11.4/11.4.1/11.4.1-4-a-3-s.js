@@ -21,7 +21,7 @@
 /**
  * @path chapter11/11.4/11.4.1/11.4.1-4-a-3-s.js
  * @description Strict Mode - TypeError isn't thrown when deleting configurable data property
- * @strictOnly
+ * @onlyStrict
  */
 
 

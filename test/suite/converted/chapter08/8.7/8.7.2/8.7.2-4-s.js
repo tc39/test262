@@ -21,7 +21,7 @@
 /**
  * @path chapter08/8.7/8.7.2/8.7.2-4-s.js
  * @description Strict Mode - TypeError is thrown if LeftHandSide is a reference to an accessor property with no setter
- * @strictOnly
+ * @onlyStrict
  */
 
 

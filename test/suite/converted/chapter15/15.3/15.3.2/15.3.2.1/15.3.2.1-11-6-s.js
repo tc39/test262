@@ -21,7 +21,7 @@
 /**
  * @path chapter15/15.3/15.3.2/15.3.2.1/15.3.2.1-11-6-s.js
  * @description Duplicate combined parameter name allowed in Function constructor called in strict mode if body not strict
- * @strictOnly
+ * @onlyStrict
  */
 
 

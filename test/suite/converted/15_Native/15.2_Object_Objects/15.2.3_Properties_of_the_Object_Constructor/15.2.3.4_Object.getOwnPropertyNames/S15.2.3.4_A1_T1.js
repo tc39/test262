@@ -9,7 +9,7 @@
  * @description Check that all the own property names reported by
  * Object.getOwnPropertyNames on a strict function are names that
  * hasOwnProperty agrees are own properties.
- * @strictOnly
+ * @onlyStrict
  */
 
 function foo() {}

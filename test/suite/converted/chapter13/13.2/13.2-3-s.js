@@ -21,7 +21,7 @@
 /**
  * @path chapter13/13.2/13.2-3-s.js
  * @description StrictMode - Writing or reading from a property named 'arguments' of function objects is allowed under both strict and normal modes.
- * @strictOnly
+ * @onlyStrict
  */
 
 

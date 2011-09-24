@@ -6,7 +6,7 @@
  *
  * @path 12_Statement/12.5_The_if_Statement/S12.5_A9_T2.js
  * @description Declaring function within an "if" that is declared within the strict function
- * @strictOnly
+ * @onlyStrict
  * @negative SyntaxError
  */
 

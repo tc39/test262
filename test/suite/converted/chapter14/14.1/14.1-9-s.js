@@ -21,7 +21,7 @@
 /**
  * @path chapter14/14.1/14.1-9-s.js
  * @description 'use strict' directive - may occur multiple times
- * @strictOnly
+ * @onlyStrict
  */
 
 

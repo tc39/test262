@@ -21,7 +21,7 @@
 /**
  * @path chapter10/10.1/10.1.1/10.1.1-22-s.js
  * @description Strict Mode - Function code of a FunctionExpression contains Use Strict Directive which appears at the start of the block
- * @strictOnly
+ * @onlyStrict
  */
 
 

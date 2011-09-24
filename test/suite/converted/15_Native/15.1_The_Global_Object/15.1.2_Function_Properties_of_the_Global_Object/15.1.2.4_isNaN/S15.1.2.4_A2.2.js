@@ -6,7 +6,7 @@
  *
  * @path 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.4_isNaN/S15.1.2.4_A2.2.js
  * @description Checking use hasOwnProperty, delete
- * @strictOnly
+ * @onlyStrict
  * @negative
  */
 

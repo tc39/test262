@@ -21,7 +21,7 @@
 /**
  * @path chapter13/13.2/13.2-5-s.js
  * @description StrictMode - reading a property named 'caller' of function objects is not allowed outside the function
- * @strictOnly
+ * @onlyStrict
  */
 
 

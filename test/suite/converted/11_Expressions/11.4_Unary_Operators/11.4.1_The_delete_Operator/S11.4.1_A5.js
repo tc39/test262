@@ -9,7 +9,7 @@
  * @path 11_Expressions/11.4_Unary_Operators/11.4.1_The_delete_Operator/S11.4.1_A5.js
  * @description See if a strict delete returns false when deleting a
  * non-standard property.
- * @strictOnly
+ * @onlyStrict
  */
 
 var deleted = 'unassigned';

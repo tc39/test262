@@ -6,7 +6,7 @@
  *
  * @path 08_Types/8.5_The_Number_Type/S8.5_A9.js
  * @description Try alter globally defined variable NaN
- * @strictOnly
+ * @onlyStrict
  * @negative
  */
 

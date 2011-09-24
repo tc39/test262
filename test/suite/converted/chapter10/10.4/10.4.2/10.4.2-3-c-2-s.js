@@ -21,7 +21,7 @@
 /**
  * @path chapter10/10.4/10.4.2/10.4.2-3-c-2-s.js
  * @description Calling code in strict mode - eval cannot instantiate variable in the variable environment of the calling context
- * @strictOnly
+ * @onlyStrict
  */
 
 

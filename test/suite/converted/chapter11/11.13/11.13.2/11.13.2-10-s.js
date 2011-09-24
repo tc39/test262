@@ -21,7 +21,7 @@
 /**
  * @path chapter11/11.13/11.13.2/11.13.2-10-s.js
  * @description Strict Mode - ReferenceError is thrown if the LeftHandSideExpression of a Compound Assignment operator(^=) evaluates to an unresolvable reference
- * @strictOnly
+ * @onlyStrict
  */
 
 

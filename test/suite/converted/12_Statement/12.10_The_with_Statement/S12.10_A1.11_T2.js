@@ -7,7 +7,7 @@
  *
  * @path 12_Statement/12.10_The_with_Statement/S12.10_A1.11_T2.js
  * @description Calling a function within "with" statement declared without the statement, leading to normal completion by "return"
- * @strictOnly
+ * @onlyStrict
  * @negative
  */
 

@@ -27,7 +27,7 @@
  *
  * @path chapter11/11.1/11.1.5/11.1.5-4-4-a-1-s.js
  * @description Object literal - SyntaxError for duplicate date property name in strict mode
- * @strictOnly
+ * @onlyStrict
  */
 
 

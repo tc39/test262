@@ -7,7 +7,7 @@
  *
  * @path 12_Statement/12.10_The_with_Statement/S12.10_A3.3_T5.js
  * @description Declaring "with" statement within a function constructor, leading to completion by exception
- * @strictOnly
+ * @onlyStrict
  * @negative
  */
 

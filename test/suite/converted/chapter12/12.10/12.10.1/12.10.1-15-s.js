@@ -21,7 +21,7 @@
 /**
  * @path chapter12/12.10/12.10.1/12.10.1-15-s.js
  * @description Strict Mode - SyntaxError is thrown when the RHS of a dot property assignment utilizes WithStatement
- * @strictOnly
+ * @onlyStrict
  */
 
 

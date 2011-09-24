@@ -21,7 +21,7 @@
 /**
  * @path chapter12/12.2/12.2.1/12.2.1-13-s.js
  * @description arguments assignment throws SyntaxError in strict mode
- * @strictOnly
+ * @onlyStrict
  */
 
 

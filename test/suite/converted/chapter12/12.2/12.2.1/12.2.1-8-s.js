@@ -21,7 +21,7 @@
 /**
  * @path chapter12/12.2/12.2.1/12.2.1-8-s.js
  * @description eval - a direct eval assigning into 'eval' throws SyntaxError in strict mode
- * @strictOnly
+ * @onlyStrict
  */
 
 

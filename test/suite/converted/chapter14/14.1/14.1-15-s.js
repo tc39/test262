@@ -21,7 +21,7 @@
 /**
  * @path chapter14/14.1/14.1-15-s.js
  * @description blank lines may come before 'use strict' directive 
- * @strictOnly
+ * @onlyStrict
  */
 
 

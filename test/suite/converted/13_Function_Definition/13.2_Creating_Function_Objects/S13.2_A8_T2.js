@@ -5,7 +5,7 @@
  * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2_A8_T2.js
  * @description check if "arguments" poisoning poisons
  * "in" too
- * @strictOnly
+ * @onlyStrict
  */
 
 'arguments' in function() {};

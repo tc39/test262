@@ -21,7 +21,7 @@
 /**
  * @path chapter15/15.4/15.4.4/15.4.4.16/15.4.4.16-5-1-s.js
  * @description Array.prototype.every - thisArg not passed to strict callbackfn
- * @strictOnly
+ * @onlyStrict
  */
 
 

@@ -21,7 +21,7 @@
 /**
  * @path chapter11/11.3/11.3.2/11.3.2-2-2-s.js
  * @description Strict Mode - SyntaxError is thrown if the identifier 'eval' appear as a PostfixExpression(eval--)
- * @strictOnly
+ * @onlyStrict
  */
 
 

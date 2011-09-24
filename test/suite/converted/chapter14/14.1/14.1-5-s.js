@@ -21,7 +21,7 @@
 /**
  * @path chapter14/14.1/14.1-5-s.js
  * @description 'use strict' directive - not recognized if contains a EscapeSequence
- * @strictOnly
+ * @onlyStrict
  */
 
 

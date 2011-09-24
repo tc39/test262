@@ -21,7 +21,7 @@
 /**
  * @path chapter10/10.6/10.6-14-1-s.js
  * @description Strict Mode - 'callee' exists and 'caller' exists under strict mode
- * @strictOnly
+ * @onlyStrict
  */
 
 

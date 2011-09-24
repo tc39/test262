@@ -21,7 +21,7 @@
 /**
  * @path chapter10/10.4/10.4.3/10.4.3-1-7gs.js
  * @description Strict - checking 'this' from a global scope (FunctionDeclaration defined within strict mode)
- * @strictOnly
+ * @onlyStrict
  */
 
 "use strict";

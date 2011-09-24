@@ -25,7 +25,7 @@
  *
  * @path chapter13/13.1/13.1-2-s.js
  * @description Strict Mode - SyntaxError is thrown if the identifier 'eval' appears within a FormalParameterList of a strict mode FunctionExpression
- * @strictOnly
+ * @onlyStrict
  */
 
 

@@ -21,7 +21,7 @@
 /**
  * @path chapter07/7.8/7.8.3/7.8.3-4-s.js
  * @description Strict Mode - octal extension (06) is forbidden in strict mode
- * @strictOnly
+ * @onlyStrict
  */
 
 

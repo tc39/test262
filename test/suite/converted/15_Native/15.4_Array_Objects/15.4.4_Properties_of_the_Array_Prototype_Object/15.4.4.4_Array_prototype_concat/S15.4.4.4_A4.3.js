@@ -6,7 +6,7 @@
  *
  * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.4_Array_prototype_concat/S15.4.4.4_A4.3.js
  * @description Checking if varying the length property fails
- * @strictOnly
+ * @onlyStrict
  * @negative
  */
 

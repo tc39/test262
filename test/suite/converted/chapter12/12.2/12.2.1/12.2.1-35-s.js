@@ -21,7 +21,7 @@
 /**
  * @path chapter12/12.2/12.2.1/12.2.1-35-s.js
  * @description 'for(var eval = 42 in ...) {...}' throws SyntaxError in strict mode
- * @strictOnly
+ * @onlyStrict
  */
 
 

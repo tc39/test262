@@ -21,7 +21,7 @@
 /**
  * @path chapter11/11.3/11.3.2/11.3.2-2-3-s.js
  * @description Strict Mode - SyntaxError is not thrown if the identifier 'arguments[...]' appears as a PostfixExpression(arguments--)
- * @strictOnly
+ * @onlyStrict
  */
 
 

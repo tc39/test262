@@ -21,7 +21,7 @@
 /**
  * @path chapter13/13.1/13.1-14-s.js
  * @description StrictMode - SyntaxError is thrown if 'arguments' occurs as the Identifier of a FunctionExpression in strict mode
- * @strictOnly
+ * @onlyStrict
  */
 
 

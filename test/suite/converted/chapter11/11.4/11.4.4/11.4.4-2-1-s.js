@@ -21,7 +21,7 @@
 /**
  * @path chapter11/11.4/11.4.4/11.4.4-2-1-s.js
  * @description Strict Mode - SyntaxError is thrown for ++eval
- * @strictOnly
+ * @onlyStrict
  */
 
 

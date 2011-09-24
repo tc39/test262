@@ -6,7 +6,7 @@
  *
  * @path 12_Statement/12.10_The_with_Statement/S12.10_A4_T5.js
  * @description Changing array property
- * @strictOnly
+ * @onlyStrict
  * @negative
  */
 

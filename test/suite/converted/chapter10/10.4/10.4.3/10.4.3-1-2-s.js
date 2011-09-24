@@ -21,7 +21,7 @@
 /**
  * @path chapter10/10.4/10.4.3/10.4.3-1-2-s.js
  * @description this is not coerced to an object in strict mode (string)
- * @strictOnly
+ * @onlyStrict
  */
 
 

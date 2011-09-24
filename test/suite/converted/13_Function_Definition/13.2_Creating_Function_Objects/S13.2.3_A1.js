@@ -5,7 +5,7 @@
  * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.3_A1.js
  * @description check that all poisoning use the [[ThrowTypeError]]
  * function object.
- * @strictOnly
+ * @onlyStrict
  */
 
 var poison = Object.getOwnPropertyDescriptor(function() {}, 'caller').get;

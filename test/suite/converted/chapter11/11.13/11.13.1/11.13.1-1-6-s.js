@@ -23,7 +23,7 @@
  *
  * @path chapter11/11.13/11.13.1/11.13.1-1-6-s.js
  * @description simple assignment throws ReferenceError if LeftHandSide is an unresolvable reference in strict mode (base obj undefined)
- * @strictOnly
+ * @onlyStrict
  */
 
 

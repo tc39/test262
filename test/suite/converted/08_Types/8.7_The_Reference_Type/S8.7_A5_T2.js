@@ -6,7 +6,7 @@
  *
  * @path 08_Types/8.7_The_Reference_Type/S8.7_A5_T2.js
  * @description Delete referenced object, __ref = obj
- * @strictOnly
+ * @onlyStrict
  * @negative
  */
 
