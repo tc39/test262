@@ -70,7 +70,6 @@
    var testEnvelopePattern =
      regExp('^(', headerPattern,
             ')(?:', captureCommentPattern,
-            ')?(?:', captureStrictPattern,
             ')?(', anyPattern,
             ')$');
 
@@ -146,10 +145,15 @@
          envelope.testRecord[propName] = propVal;
        });
      }
-     if (envelopeMatch[3]) {
+     envelope.rest = envelopeMatch[3]; // Do not trim
+
+     var strictMatch = captureStrictPattern.exec(envelope.rest);
+     if (strictMatch) {
        envelope.testRecord.strictOnly = '';
+       // Note: does not remove or alter the "use strict"; directive
+       // itself. We also make no use of the captured string so TODO:
+       // stop capturing it.
      }
-     envelope.rest = envelopeMatch[4]; // Do not trim
 
      var registerMatch = registerPattern.exec(envelope.rest);
      if (registerMatch) {
@@ -194,17 +198,17 @@
      var name = trim(cfnbMatch[1]);
      var body = trim(cfnbMatch[2]);
 
-     // Look for special cases
-
-     var cebMatch = captureExprBodyPattern.exec(body);
-     if (cebMatch) {
-       return 'assertTruthy(' + trim(cebMatch[1]) + ');';
-     }
-
-     var cpMatch = capturePredicatePattern.exec(body);
-     if (cpMatch) {
-       return 'assertTruthy(' + trim(cpMatch[1]) + ');';
-     }
+     // Uncomment to look for special cases
+     //
+     // var cebMatch = captureExprBodyPattern.exec(body);
+     // if (cebMatch) {
+     //   return 'assertTruthy(' + trim(cebMatch[1]) + ');';
+     // }
+     //
+     // var cpMatch = capturePredicatePattern.exec(body);
+     // if (cpMatch) {
+     //   return 'assertTruthy(' + trim(cpMatch[1]) + ');';
+     // }
 
      // General case
 
@@ -212,21 +216,29 @@
        'runTestCase(' + name + ');';
    }
 
+
+   /**
+    * If record[toName] is absent or empty and record[fromName] is
+    * present, whether empty or not, then set record[toName] to the
+    * current value of record[fromName] and delete record[fromName]
+    */
+   function transferProp(record, fromName, toName) {
+     // Note that record[toName] is falsy whether toName is absent or
+     // empty
+     if (!record[toName] && fromName in record) {
+       record[toName] = record[fromName];
+       delete record[fromName];
+     }
+   }
+
+
    /**
     * Given an ietestcenter style test, this <b>evaluates</b> the
     * registration expression in order to gather the test record.
     */
    function gatherOne(envelope, name) {
-     if (envelope.testRecord) {
-       var propNames = keys(envelope.testRecord);
-       if (propNames.length >= 1) {
-         // This need not be an error. It's just here so we notice the
-         // first time it happens. This would happen if an
-         // ietestcenter style test also had a comment with "@"
-         // property definitions.
-         throw new Error('unexpected in ' + name + ': ' + propNames);
-       }
-     }
+     var testRecord = envelope.testRecord;
+
      var testRecords = [];
 
      // Evaluating!!!!
@@ -245,7 +257,14 @@
        // generators.
        throw new Error('not singleton: ' + name);
      }
-     var testRecord = testRecords[0];
+     var gatheredTestRecord = testRecords[0];
+     forEach(keys(gatheredTestRecord), function(propName) {
+       if (propName in testRecord &&
+           testRecord[propName] !== gatheredTestRecord[propName]) {
+         throw new Error('Conflicting "' + propName + '" in ' + name);
+       }
+       testRecord[propName] = gatheredTestRecord[propName];
+     });
 
      if (typeof testRecord.test === 'function') {
        testRecord.test = envelope.rest + '\n' +
@@ -259,20 +278,6 @@
      }
 
      return testRecord;
-   }
-
-   /**
-    * If record[toName] is absent or empty and record[fromName] is
-    * present, whether empty or not, then set record[toName] to the
-    * current value of record[fromName] and delete record[fromName]
-    */
-   function transferProp(record, fromName, toName) {
-     // Note that record[toName] is falsy whether toName is absent or
-     // empty
-     if (!record[toName] && fromName in record) {
-       record[toName] = record[fromName];
-       delete record[fromName];
-     }
    }
 
    /**
