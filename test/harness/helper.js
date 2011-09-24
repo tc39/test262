@@ -160,11 +160,6 @@ function Presenter() {
         innerHTML += '<br /><br /><br /><b>Testcase</b>';
         innerHTML += '<pre>' + test.code + '</pre>';
 
-        if (test.pre) {
-            innerHTML += '<b>Precondition</b>';
-            innerHTML += '<pre>' + test.pre + '</pre>';
-        }
-
         innerHTML += '<b>Path</b>';
         innerHTML += '<pre>' + test.path + ' </pre>&nbsp';
 
