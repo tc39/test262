@@ -87,14 +87,13 @@ function BrowserRunner() {
     }
 
     /* Called from the child window after the test has run. */
-    function testRun(id, path, description, codeString, preconditionString, result, error) {
+    function testRun(id, path, description, codeString, result, error) {
         currentTest.id = id;
         currentTest.path = path;
         currentTest.description = description;
         currentTest.result = result;
         currentTest.error = error;
         currentTest.code = codeString;
-        currentTest.pre = preconditionString;
     }
 
 
@@ -279,6 +278,21 @@ function TestLoader() {
         }});
     }
 
+    this.getIdFromPath = function(path) {
+        //path is of the form "a/b/c.js"
+        
+        var id = path.split("/");
+        //id is now of the form ["a", "b", "c.js"];
+
+        id = id[id.length-1];
+        //id is now of the form "c.js"
+
+        id = id.replace(/\.js$/i, "");
+        //id is now of the form "c"
+
+        return id;
+    }
+
     /* Move on to the next test */
     this.getNextTest = function() {
         if(testGroups.length == 0) {
@@ -287,7 +301,8 @@ function TestLoader() {
         } else if(currentTestIndex < testGroups[testGroupIndex].tests.length) {
             // We have tests left in this test group.
             var test = testGroups[testGroupIndex].tests[currentTestIndex++];
-	    var scriptCode = test.code;
+            var scriptCode = test.code;
+            scriptCode.id = getIdFromPath(test.path);
             //var scriptCode = (test.firstChild.text != undefined) ?
             //    test.firstChild.text : test.firstChild.textContent;
 
