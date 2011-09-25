@@ -22,8 +22,7 @@
    var regExp  = utils.regExp;
 
    var CONTRIB_DIRS = [
-     ['test', 'suite', 'other'],
-     ['test', 'suite', 'sputnik', 'Conformance'],
+     ['external', 'contributions', 'Google', 'sputnik_conformance_modified'],
      ['external', 'contributions', 'Microsoft', 'ietc_262modified']
    ];
 
@@ -40,7 +39,8 @@
     * actually derived from sources.
     */
    var EXTRA_GLOBAL_SCOPE_TESTS = [
-     ['external', 'contributions', 'Microsoft', 'ietc_262modified', 'IETCGlobalScope.js']
+     ['external', 'contributions', 'Microsoft', 'ietc_262modified',
+      'IETCGlobalScope.js']
    ];
 
    /**
