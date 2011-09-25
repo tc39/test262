@@ -92,8 +92,6 @@
   <test id="S9.9_A2">https://bugs.ecmascript.org/show_bug.cgi?id=13</test>
   <test id="S11.1.5_A4.1">https://bugs.ecmascript.org/show_bug.cgi?id=14</test>
   <test id="S11.1.5_A4.2">https://bugs.ecmascript.org/show_bug.cgi?id=14</test>
-  <test id="S11.8.2_A2.3_T1">https://bugs.ecmascript.org/show_bug.cgi?id=15</test>
-  <test id="S11.8.3_A2.3_T1">https://bugs.ecmascript.org/show_bug.cgi?id=15</test>
   
   <!-- Still invalid after a fix from Google. ES5 doesn't state Chapter 16 extensions
        regarding FunctionDeclaration are invalid per-se -->
