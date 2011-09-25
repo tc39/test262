@@ -12,6 +12,10 @@
   <test id="15.4.4.22-3-28"><!-- reason for the exclusion--></test>
   <test id="15.4.4.22-3-29"><!-- reason for the exclusion--></test>
   <test id="15.4.4.22-3-8"><!-- reason for the exclusion--></test>
+
+  <test id="S10.4.2.1_A1">Opera crash - to be investigated</test>
+  <test id="S15.3.4.5_A5">Opera crash - to be investigated</test>
+  <test id="S8.6.2_A8">Opera crash - to be investigated</test>
   
   <test id="10.4.2-2-c-1">JS to JSON conversion issue</test>
   
