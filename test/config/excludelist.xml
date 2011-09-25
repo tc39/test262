@@ -1,14 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <excludeList>
-  <!-- There might also be a SputnikConverter harness issue here now as the converter
-        hasn't been made aware of strict mode yet -->
-  <test id="S7.5.3_A1.18">problem, test needs 'var' prior to interface in strict mode</test>
-  <test id="S7.5.3_A1.21">problem, test needs 'var' prior to package in strict mode</test>
-  <test id="S7.5.3_A1.22">problem, test needs 'var' prior to private in strict mode</test>
-  <test id="S7.5.3_A1.23">problem, test needs 'var' prior to protected in strict mode</test>
-  <test id="S7.5.3_A1.24">problem, test needs 'var' prior to public in strict mode</test>
-  <test id="S7.5.3_A1.26">problem, test needs 'var' prior to static in strict mode</test>
-  
   <test id="15.4.4.20-3-14"><!-- reason for the exclusion--></test>
   <test id="15.4.4.20-3-28"><!-- reason for the exclusion--></test>
   <test id="15.4.4.20-3-29"><!-- reason for the exclusion--></test>
@@ -144,10 +135,6 @@
   <test id="S15.10.4.1_A5_T5">https://bugs.ecmascript.org/show_bug.cgi?id=128</test>
   <test id="S7.8.4_A4.3_T5">https://bugs.ecmascript.org/show_bug.cgi?id=127</test>
   <test id="S7.8.4_A4.3_T6">https://bugs.ecmascript.org/show_bug.cgi?id=127</test>
-  
-  <!--Google to make these Strict Mode test changes-->
-  <test id="S7.8.4_A4.3_T1">https://bugs.ecmascript.org/show_bug.cgi?id=59</test>
-  <test id="S7.8.4_A4.3_T2">https://bugs.ecmascript.org/show_bug.cgi?id=59</test>
   
   <test id="S15.10.2.12_A1_T1">https://bugs.ecmascript.org/show_bug.cgi?id=60</test>
   <test id="S15.10.2.12_A2_T1">https://bugs.ecmascript.org/show_bug.cgi?id=60</test>

@@ -6,8 +6,10 @@
  * @section: 7.8.4;
  * @assertion: NonEscapeSequence is not EscapeCharacter;
  * @description: EscapeCharacter :: DecimalDigits :: 1;
+ * @onlyStrict
  * @negative
-*/
+ */
+"use strict";
 
 //CHECK#1
 "\1"
