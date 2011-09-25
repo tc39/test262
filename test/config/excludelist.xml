@@ -107,8 +107,6 @@
   <test id="S7.8.4_A4.3_T3">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
   <test id="S7.8.4_A4.3_T4">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
   
-  <test id="S15.10.6_A2">https://bugs.ecmascript.org/show_bug.cgi?id=22</test>
-  
   <test id="S15.5.4.10_A1_T3">https://bugs.ecmascript.org/show_bug.cgi?id=23</test>
   
   <test id="S15.5.4.8_A1_T11">https://bugs.ecmascript.org/show_bug.cgi?id=30</test>  
