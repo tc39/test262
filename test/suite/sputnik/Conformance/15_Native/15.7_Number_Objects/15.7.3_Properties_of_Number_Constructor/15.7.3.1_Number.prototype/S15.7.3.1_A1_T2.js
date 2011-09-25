@@ -6,7 +6,7 @@
  * @section: 15.7.3.1;
  * @assertion: The Number property "prototype" has { DontEnum, DontDelete, ReadOnly } attributes;
  * @description: Checking if deleting the Number.prototype property fails;
- * @strict_mode_negative
+ * @noStrict
 */
 
 // CHECK#1

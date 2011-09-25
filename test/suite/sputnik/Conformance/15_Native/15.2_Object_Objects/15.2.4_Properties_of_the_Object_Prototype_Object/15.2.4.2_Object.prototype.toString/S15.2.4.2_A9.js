@@ -6,7 +6,7 @@
 * @section: 15.2.4.2;
 * @assertion: The Object.prototype.toString.length property has the attribute DontDelete;
 * @description: Checknig if deleting of the Object.prototype.toString.length property fails;
-* @strict_mode_negative
+* @noStrict
 */
 
 //CHECK#0

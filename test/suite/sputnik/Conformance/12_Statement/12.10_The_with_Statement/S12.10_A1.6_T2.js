@@ -7,7 +7,7 @@
  * @assertion: The with statement adds a computed object to the front of the
  * scope chain of the current execution context;
  * @description: Using "with" statement within another "with" statement, leading to completion by exception;
- * @strict_mode_negative
+ * @noStrict
  */
 this.p1 = 1;
 this.p2 = 2;

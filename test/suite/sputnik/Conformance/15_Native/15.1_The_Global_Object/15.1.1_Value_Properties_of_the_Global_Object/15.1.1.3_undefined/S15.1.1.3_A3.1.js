@@ -6,7 +6,7 @@
  * @section: 15.1.1.3, 11.4.1;
  * @assertion: The undefined is DontDelete;
  * @description: Use delete;
- * @strict_mode_negative
+ * @noStrict
 */
 
 // CHECK#1

@@ -7,7 +7,7 @@
  * @assertion: No matter how control leaves the embedded 'Statement', 
  * the scope chain is always restored to its former state;
  * @description: Using "with" statement within global context - normal completion;
- * @strict_mode_negative
+ * @noStrict
  */
  
 this.p1 = 1;

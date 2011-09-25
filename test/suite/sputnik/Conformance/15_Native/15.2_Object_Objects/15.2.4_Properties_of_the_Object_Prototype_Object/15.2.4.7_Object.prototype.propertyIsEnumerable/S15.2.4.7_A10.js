@@ -6,7 +6,7 @@
 * @section: 15.2.4.7;
 * @assertion: The Object.prototype.propertyIsEnumerable.length property has the attribute ReadOnly;
 * @description: Checking if varying the Object.prototype.propertyIsEnumerable.length property fails;
-* @strict_mode_negative
+* @noStrict
 */
 
 //CHECK#1

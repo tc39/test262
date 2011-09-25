@@ -8,7 +8,7 @@
  * scope chain of the current execution context;
  * @description: Using iteration statment withing "with" statement leading to completion by exception
  * iteration statement inside with statement - exception completion;
- * @strict_mode_negative
+ * @noStrict
  */
 this.p1 = 1;
 this.p2 = 2;

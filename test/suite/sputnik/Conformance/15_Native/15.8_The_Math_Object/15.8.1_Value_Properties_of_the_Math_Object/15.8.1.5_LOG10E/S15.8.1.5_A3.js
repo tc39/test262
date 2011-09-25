@@ -6,7 +6,7 @@
  * @section: 15.8.1.5;
  * @assertion: Value Property LOG10E of the Math Object has the attribute DontDelete;
  * @description: Checking if Math.LOG10E property has the attribute DontDelete;
- * @strict_mode_negative
+ * @noStrict
  */
 
 // CHECK#1

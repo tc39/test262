@@ -6,7 +6,7 @@
  * @section: 12.14;
  * @assertion: Using "try" with "catch" or "finally" statement within/without a "with" statement;
  * @description: Using try/catch/finally in With and With in try/catch/finally;
- * @strict_mode_negative SyntaxError;
+ * @noStrict
  */
 
 var myObj = {p1: 'a',

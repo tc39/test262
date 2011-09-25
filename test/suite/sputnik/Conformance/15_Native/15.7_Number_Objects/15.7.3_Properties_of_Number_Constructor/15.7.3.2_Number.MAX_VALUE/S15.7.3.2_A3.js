@@ -6,7 +6,7 @@
  * @section: 15.7.3.2;
  * @assertion: Number.MAX_VALUE is DontDelete;
  * @description: Checking if deleting Number.MAX_VALUE fails;
- * @strict_mode_negative
+ * @noStrict
 */
 
 // CHECK#1

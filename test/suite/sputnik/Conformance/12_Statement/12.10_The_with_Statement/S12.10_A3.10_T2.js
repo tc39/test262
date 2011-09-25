@@ -7,7 +7,7 @@
  * @assertion: No matter how control leaves the embedded 'Statement', 
  * the scope chain is always restored to its former state;
  * @description: Using iteration statement within "with" statement, leading completion by exception;
- * @strict_mode_negative
+ * @noStrict
  */
  
 this.p1 = 1;

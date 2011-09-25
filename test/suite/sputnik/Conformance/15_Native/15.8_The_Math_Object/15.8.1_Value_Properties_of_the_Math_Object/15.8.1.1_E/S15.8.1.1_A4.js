@@ -6,7 +6,7 @@
  * @section: 15.8.1.1;
  * @assertion: Value Property E of the Math Object has the attribute ReadOnly;
  * @description: Checking if Math.E property has the attribute ReadOnly;
- * @strict_mode_negative
+ * @noStrict
  */
 
 // CHECK#1

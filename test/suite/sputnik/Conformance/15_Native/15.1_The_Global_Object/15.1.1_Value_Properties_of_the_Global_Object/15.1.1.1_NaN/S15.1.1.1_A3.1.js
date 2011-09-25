@@ -6,7 +6,7 @@
  * @section: 15.1.1.1, 11.4.1;
  * @assertion: The NaN is DontDelete;
  * @description: Use delete;
- * @strict_mode_negative
+ * @noStrict
  * 
 */
 

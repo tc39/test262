@@ -7,7 +7,7 @@
  * @assertion: No matter how control leaves the embedded 'Statement', 
  * the scope chain is always restored to its former state;
  * @description: Using "for-in" statement within "with" statement, leading to completion by break;
- * @strict_mode_negative
+ * @noStrict
  */
 
 this.p1 = 1;

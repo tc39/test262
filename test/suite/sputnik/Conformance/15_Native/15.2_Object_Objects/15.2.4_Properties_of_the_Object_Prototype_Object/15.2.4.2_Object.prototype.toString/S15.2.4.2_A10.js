@@ -6,7 +6,7 @@
 * @section: 15.2.4.2;
 * @assertion: The Object.prototype.toString.length property has the attribute ReadOnly;
 * @description: Checking if varying the Object.prototype.toString.length property fails;
-* @strict_mode_negative
+* @noStrict
 */
 
 //CHECK#1

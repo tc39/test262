@@ -6,7 +6,7 @@
  * @section: 15.8.1.8;
  * @assertion: Value Property SQRT2 of the Math Object has the attribute ReadOnly;
  * @description: Checking if Math.SQRT2 property has the attribute ReadOnly;
- * @strict_mode_negative
+ * @noStrict
  */
 
 // CHECK#1

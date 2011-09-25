@@ -6,7 +6,7 @@
  * @section: 12.10;
  * @assertion: Changing property using "eval" statement containing "with" statement;
  * @description: Changing string property;
- * @strict_mode_negative
+ * @noStrict
  */
  
 this.p1 = 1;

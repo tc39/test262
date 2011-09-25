@@ -6,7 +6,7 @@
  * @section: 15.7.3.3;
  * @assertion: Number.MIN_VALUE is DontDelete;
  * @description: Checking if deleting Number.MIN_VALUE fails;
- * @strict_mode_negative
+ * @noStrict
 */
 
 //CHECK#1

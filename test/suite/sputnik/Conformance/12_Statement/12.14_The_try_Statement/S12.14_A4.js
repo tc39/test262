@@ -6,7 +6,7 @@
  * @section: 12.14;
  * @assertion: Sanity test for "catch(Indetifier) statement";
  * @description: Checking if deleting an exception fails;
- * @strict_mode_negative SyntaxError;
+ * @noStrict
  */
 
 // CHECK#1

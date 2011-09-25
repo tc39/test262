@@ -6,7 +6,7 @@
  * @section: 15.8.1.3;
  * @assertion: Value Property LN2 of the Math Object has the attribute DontDelete;
  * @description: Checking if Math.LN2 property has the attribute DontDelete;
- * @strict_mode_negative
+ * @noStrict
  */
 
 // CHECK#1

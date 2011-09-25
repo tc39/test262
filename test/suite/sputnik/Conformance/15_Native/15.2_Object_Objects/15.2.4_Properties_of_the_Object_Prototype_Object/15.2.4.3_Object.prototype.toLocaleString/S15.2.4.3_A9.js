@@ -6,7 +6,7 @@
 * @section: 15.2.4.3;
 * @assertion: The Object.prototype.toLocaleString.length property has the attribute DontDelete;
 * @description: Checknig if deleting of the Object.prototype.toLocaleString.length property fails;
-* @strict_mode_negative
+* @noStrict
 */
 
 //CHECK#0

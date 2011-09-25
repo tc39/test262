@@ -7,7 +7,7 @@
  * @assertion: No matter how control leaves the embedded 'Statement', 
  * the scope chain is always restored to its former state;
  * @description: Calling a function without "with" statement declared within the statement, leading to completion by exception;
- * @strict_mode_negative
+ * @noStrict
  */
 this.p1 = 1;
 var result = "result";

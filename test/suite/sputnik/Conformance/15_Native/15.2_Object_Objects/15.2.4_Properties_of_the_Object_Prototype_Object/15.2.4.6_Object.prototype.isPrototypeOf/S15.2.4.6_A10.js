@@ -6,7 +6,7 @@
 * @section: 15.2.4.6;
 * @assertion: The Object.prototype.isPrototypeOf.length property has the attribute ReadOnly;
 * @description: Checking if varying the Object.prototype.isPrototypeOf.length property fails;
-* @strict_mode_negative
+* @noStrict
 */
 
 //CHECK#1

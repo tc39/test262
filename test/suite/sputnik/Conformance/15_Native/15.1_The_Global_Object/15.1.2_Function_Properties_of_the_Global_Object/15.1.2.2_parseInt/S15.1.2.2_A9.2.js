@@ -6,7 +6,7 @@
  * @section: 15.1.2.2, 15.2.4.5, 11.4.1;
  * @assertion: The length property of parseInt has the attribute DontDelete;
  * @description: Checking use hasOwnProperty, delete;
- * @strict_mode_negative
+ * @noStrict
 */
 
 //CHECK#1

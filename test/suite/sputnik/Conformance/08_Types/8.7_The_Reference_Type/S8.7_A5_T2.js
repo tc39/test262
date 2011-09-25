@@ -6,7 +6,7 @@
 * @section: 8.7, 11.4.1;
 * @assertion: Delete unary operator can't delete object to be referenced;
 * @description: Delete referenced object, __ref = obj;
-* @strict_mode_negative
+* @noStrict
 */
 
 //////////////////////////////////////////////////////////////////////////////

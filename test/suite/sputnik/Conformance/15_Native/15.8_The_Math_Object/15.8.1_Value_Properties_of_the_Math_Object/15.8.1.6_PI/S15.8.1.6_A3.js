@@ -6,7 +6,7 @@
  * @section: 15.8.1.6;
  * @assertion: Value Property PI of the Math Object has the attribute DontDelete;
  * @description: Checking if Math.PI property has the attribute DontDelete;
- * @strict_mode_negative
+ * @noStrict
  */
 
 // CHECK#1

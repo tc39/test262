@@ -6,7 +6,7 @@
  * @section: 15.7.3.5;
  * @assertion: Number.NEGATIVE_INFINITY is DontDelete;
  * @description: Checking if deleting Number.NEGATIVE_INFINITY fails;
- * @strict_mode_negative
+ * @noStrict
 */
 
 // CHECK#1

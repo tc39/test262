@@ -6,7 +6,7 @@
 * @section: 15.4.4.9;
 * @assertion: The length property of shift has the attribute ReadOnly;
 * @description: Checking if varying the length property fails;
-* @strict_mode_negative
+* @noStrict
 */
 
 //CHECK#1

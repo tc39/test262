@@ -6,7 +6,7 @@
 * @section: 15.4.3.1;
 * @assertion: The Array.prototype property has the attribute ReadOnly;
 * @description: Checking if varying the Array.prototype property fails;
-* @strict_mode_negative
+* @noStrict
 */
 
 //CHECK#1

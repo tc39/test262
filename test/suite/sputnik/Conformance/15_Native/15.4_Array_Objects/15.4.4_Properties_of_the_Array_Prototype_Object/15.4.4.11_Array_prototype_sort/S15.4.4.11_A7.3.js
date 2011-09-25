@@ -6,7 +6,7 @@
 * @section: 15.4.4.11;
 * @assertion: The length property of sort has the attribute ReadOnly;
 * @description: Checking if varying the length fails;
-* @strict_mode_negative
+* @noStrict
 */
 
 //CHECK#1

@@ -6,7 +6,7 @@
 * @section: 15.4.3.1, 15.2.4.5;
 * @assertion: The Array.prototype property has the attribute DontDelete;
 * @description: Checking if deleting the Array.prototype property fails;
-* @strict_mode_negative
+* @noStrict
 */
 
 //CHECK#1

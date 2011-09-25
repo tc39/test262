@@ -6,7 +6,7 @@
  * @section: 15.1.2.1;
  * @assertion: The length property of eval has the attribute ReadOnly;
  * @description: Checking if varying the length property fails;
- * @strict_mode_negative
+ * @noStrict
 */
 
 //CHECK#1
