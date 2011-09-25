@@ -123,8 +123,6 @@
   
   <test id="S15.5.4.10_A1_T3">https://bugs.ecmascript.org/show_bug.cgi?id=23</test>
   
-  <test id="S12.6.4_A14_T1">https://bugs.ecmascript.org/show_bug.cgi?id=25</test>
-  
   <test id="S15.5.4.8_A1_T11">https://bugs.ecmascript.org/show_bug.cgi?id=30</test>  
   
   <test id="S7.8.4_A6.4_T1">https://bugs.ecmascript.org/show_bug.cgi?id=58</test>
