@@ -132,7 +132,6 @@
   
   <!-- Extension clause -->
   <test id="S13.0_A5">https://bugs.ecmascript.org/show_bug.cgi?id=133</test>
-  <test id="S15.10.4.1_A5_T5">https://bugs.ecmascript.org/show_bug.cgi?id=128</test>
   <test id="S7.8.4_A4.3_T5">https://bugs.ecmascript.org/show_bug.cgi?id=127</test>
   <test id="S7.8.4_A4.3_T6">https://bugs.ecmascript.org/show_bug.cgi?id=127</test>
   
