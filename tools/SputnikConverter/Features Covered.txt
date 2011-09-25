@@ -1,3 +1,0 @@
-Initial Version covers the following features,
-1. Conversion of Sputnik tests that are in the basic/common format to ES5 formats
-2. Splitting multiple checks into individual files
