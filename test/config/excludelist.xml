@@ -123,7 +123,6 @@
   <test id="15.4.4.4-5-c-i-1">https://bugs.ecmascript.org/show_bug.cgi?id=69</test>
   
   <!-- Extension clause -->
-  <test id="S13.0_A5">https://bugs.ecmascript.org/show_bug.cgi?id=133</test>
   <test id="S7.8.4_A4.3_T5">https://bugs.ecmascript.org/show_bug.cgi?id=127</test>
   <test id="S7.8.4_A4.3_T6">https://bugs.ecmascript.org/show_bug.cgi?id=127</test>
   
