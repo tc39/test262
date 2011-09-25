@@ -102,8 +102,6 @@
   <test id="S12.6.2_A13_T2">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
   <test id="S12.6.4_A13_T1">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
   <test id="S12.6.4_A13_T2">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
-  <test id="S7.8.4_A4.3_T3">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
-  <test id="S7.8.4_A4.3_T4">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
   
   <test id="S15.5.4.10_A1_T3">https://bugs.ecmascript.org/show_bug.cgi?id=23</test>
   
@@ -117,10 +115,6 @@
   <test id="S15.5.4.14_A1_T3">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
   
   <test id="15.4.4.4-5-c-i-1">https://bugs.ecmascript.org/show_bug.cgi?id=69</test>
-  
-  <!-- Extension clause -->
-  <test id="S7.8.4_A4.3_T5">https://bugs.ecmascript.org/show_bug.cgi?id=127</test>
-  <test id="S7.8.4_A4.3_T6">https://bugs.ecmascript.org/show_bug.cgi?id=127</test>
   
   <test id="S15.10.2.12_A1_T1">https://bugs.ecmascript.org/show_bug.cgi?id=60</test>
   <test id="S15.10.2.12_A2_T1">https://bugs.ecmascript.org/show_bug.cgi?id=60</test>
