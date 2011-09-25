@@ -6,7 +6,7 @@
  * @section: 8.6.2.3, 8.6.2.2, 8.6.1;
  * @assertion: If the property has the ReadOnly attribute, [[CanPut]](P) return false;
  * @description: Try put other value for Math.E property; 
- * @strict_mode_negative
+ * @noStrict
 */
 
 var __e = Math.E;

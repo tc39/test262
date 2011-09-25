@@ -7,7 +7,7 @@
 * @assertion: When the [[Delete]] method of O is called with property name P, 
 * and If the property has the DontDelete attribute, return false;
 * @description: Try to delete Math.E, that has the DontDelete attribute;  
-* @strict_mode_negative
+* @noStrict
 */
 
 //////////////////////////////////////////////////////////////////////////////

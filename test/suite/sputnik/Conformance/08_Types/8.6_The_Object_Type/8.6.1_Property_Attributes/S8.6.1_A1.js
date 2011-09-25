@@ -6,7 +6,7 @@
  * @section: 8.6.1, 15.2.2, 15.8;
  * @assertion: A property can have attribute ReadOnly like E in Math;
  * @description: Try change Math.E property; 
- * @strict_mode_negative
+ * @noStrict
 */
 
 var __e = Math.E;

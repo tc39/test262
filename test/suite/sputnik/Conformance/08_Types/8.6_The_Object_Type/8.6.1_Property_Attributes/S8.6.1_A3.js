@@ -6,7 +6,7 @@
  * @section: 8.6.1, 15.7;
  * @assertion: A property can have attribute DontDelete like NaN propertie of Number object;
  * @description: Try to delete Number.NaN;  
- * @strict_mode_negative
+ * @noStrict
 */
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1

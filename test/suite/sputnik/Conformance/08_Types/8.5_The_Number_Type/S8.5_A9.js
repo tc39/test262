@@ -6,7 +6,7 @@
  * @section: 8.5, 7.8.3;
  * @assertion: Globally defined variable NaN has not been altered by program execution;
  * @description: Try alter globally defined variable NaN;
- * @strict_mode_negative
+ * @noStrict
 */
 
 Number.NaN = 1;

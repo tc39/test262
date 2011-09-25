@@ -11,7 +11,7 @@
  * @bestPractice
  * http://wiki.ecmascript.org/doku.php?id=conventions:no_non_standard_strict_decls
  */
-
+"use strict";
 while (0) {
     function __func(){};
 };

@@ -6,5 +6,6 @@
  * "in" too
  * @onlyStrict
  */
+"use strict";
 'caller' in function() {};
 

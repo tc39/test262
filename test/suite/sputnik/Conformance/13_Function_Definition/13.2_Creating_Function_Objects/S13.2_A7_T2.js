@@ -6,5 +6,6 @@
  * hasOwnProperty too
  * @onlyStrict
  */
+"use strict";
 (function(){}).hasOwnProperty('arguments');
 

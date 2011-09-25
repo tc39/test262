@@ -10,7 +10,7 @@
  * @bestPractice
  * http://wiki.ecmascript.org/doku.php?id=conventions:no_non_standard_strict_decls
  */
-
+"use strict";
 for (x in this) {
     function __func(){};
 }

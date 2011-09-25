@@ -6,7 +6,7 @@
  * function, "this" should be bound to undefined.
  * @onlyStrict
  */
-
+"use strict";
 var that = (function() { return this; })();
 if (that !== undefined) {
   $ERROR('#1: "this" leaked as: ' + that);

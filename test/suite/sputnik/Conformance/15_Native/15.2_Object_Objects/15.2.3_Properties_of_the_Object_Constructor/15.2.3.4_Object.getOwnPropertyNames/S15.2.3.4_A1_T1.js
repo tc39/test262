@@ -10,7 +10,7 @@
  * hasOwnProperty agrees are own properties.
  * @onlyStrict
  */
-
+"use strict";
 function foo() {}
 
 var names = Object.getOwnPropertyNames(foo);

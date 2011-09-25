@@ -6,4 +6,5 @@
  * getOwnPropertyDescriptor too
  * @onlyStrict
  */
+"use strict";
 Object.getOwnPropertyDescriptor(function(){}, 'caller');

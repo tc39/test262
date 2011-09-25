@@ -6,6 +6,7 @@
  * function object.
  * @onlyStrict
  */
+"use strict";
 var poison = Object.getOwnPropertyDescriptor(function() {}, 'caller').get;
 
 if (typeof poison !== 'function') {
