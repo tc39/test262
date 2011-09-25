@@ -116,11 +116,6 @@
   
   <test id="S15.5.4.8_A1_T11">https://bugs.ecmascript.org/show_bug.cgi?id=30</test>  
   
-  <test id="S7.8.4_A6.4_T1">https://bugs.ecmascript.org/show_bug.cgi?id=58</test>
-  <test id="S7.8.4_A6.4_T2">https://bugs.ecmascript.org/show_bug.cgi?id=58</test>
-  <test id="S7.8.4_A7.4_T1">https://bugs.ecmascript.org/show_bug.cgi?id=58</test>
-  <test id="S7.8.4_A7.4_T2">https://bugs.ecmascript.org/show_bug.cgi?id=58</test>
-  
   <test id="S15.5.4.14_A1_T6">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
   <test id="S15.5.4.14_A1_T7">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
   <test id="S15.5.4.14_A2_T7">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
