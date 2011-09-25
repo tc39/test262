@@ -24,7 +24,7 @@
    var CONTRIB_DIRS = [
      ['test', 'suite', 'other'],
      ['test', 'suite', 'sputnik', 'Conformance'],
-     ['test', 'suite', 'ietestcenter']
+     ['external', 'contributions', 'Microsoft', 'ietc_262modified']
    ];
 
    var CONVERTED_DIR = ['test', 'suite', 'converted'];
@@ -40,7 +40,7 @@
     * actually derived from sources.
     */
    var EXTRA_GLOBAL_SCOPE_TESTS = [
-     ['test', 'suite', 'IETCGlobalScope.js']
+     ['external', 'contributions', 'Microsoft', 'ietc_262modified', 'IETCGlobalScope.js']
    ];
 
    /**
@@ -457,7 +457,7 @@
        var nextRelPath = relPath.concat([name]);
        if (platform.isDirectory(inBase.concat(nextRelPath))) {
          convertAll(inBase, outBase, nextRelPath);
-       } else if (/\.js$/.test(name)) {
+       } else if (/\.js$/.test(name) && !(/IETCGlobalScope\.js$/.test(name))) {
          var outFilePath = outPath.concat([name]);
          try {
            platform.writeSpawn(
