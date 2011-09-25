@@ -22,15 +22,12 @@
 import os
 import subprocess
 import stat
+import re
 
 #--Globals---------------------------------------------------------------------
 MAX_CASES_PER_JSON = 1000
 
 WEBSITE_SHORT_NAME = "website"
-
-#Directories under "test\suite\" containing ES5 test chapter directories
-#with *.js tests underneath them
-TEST_CONTRIB_DIRS = ["converted"]
 
 #Path to the root of the Hg repository (relative to this file's location)
 TEST262_ROOT = os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "..")
@@ -56,6 +53,8 @@ WEBSITE_CASES_PATH = "json/"
 #These tests are either invalid as-per ES5 or have issues with the test262 web harness.
 EXCLUDED_FILENAME = os.path.join(TEST262_ROOT, "test", "config", "excludelist.xml")
 
+WEBSITE_EXCLUDE_RE_LIST = ["bestPractice"]
+WEBSITE_EXCLUDE_RE_LIST = [ re.compile(x) for x in WEBSITE_EXCLUDE_RE_LIST]
 
 #------------------------------------------------------------------------------
 

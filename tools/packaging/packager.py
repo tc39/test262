@@ -172,7 +172,7 @@ def getAllJSFiles(dirName):
     return retVal
 
 #--MAIN------------------------------------------------------------------------
-for temp in TEST_CONTRIB_DIRS:
+for temp in os.listdir(TEST262_CASES_DIR):
     temp = os.path.join(TEST262_CASES_DIR, temp)
     if not os.path.exists(temp):
         print "The expected ES5 test directory,", temp, "did not exist!"
@@ -195,6 +195,9 @@ for chapter in TEST_SUITE_SECTIONS:
     #create an array for tests in a chapter
     tests = []
     sourceFiles = getAllJSFiles(chapter)
+    #TODO - do this only for the website!!!
+    for tempRe in WEBSITE_EXCLUDE_RE_LIST:
+        sourceFiles = [x for x in sourceFiles if tempRe.search(x)==None]
     
     if len(sourceFiles)!=0:
         excluded = 0
