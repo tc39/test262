@@ -26,7 +26,7 @@
      ['external', 'contributions', 'Microsoft', 'ietc_262modified']
    ];
 
-   var CONVERTED_DIR = ['test', 'suite', 'converted'];
+   var CONVERTED_DIR = ['test', 'suite'];
 
    var OUT_DIR = ['website', 'resources', 'scripts', 'testcases2'];
 
