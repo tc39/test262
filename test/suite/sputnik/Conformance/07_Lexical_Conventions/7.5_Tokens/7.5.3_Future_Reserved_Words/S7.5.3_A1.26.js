@@ -7,6 +7,7 @@
  * @assertion: The "static" token can not be used as identifier in strict code;
  * @description: Checking if execution of "static=1" fails in strict code;
  * @negative
+ * @onlyStrict
 */
 
 "use strict";

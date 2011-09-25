@@ -8,6 +8,7 @@
  * @description: Checking if execution of "protected=1" fails in
  * strict code;
  * @negative
+ * @onlyStrict
  */
 
 "use strict";

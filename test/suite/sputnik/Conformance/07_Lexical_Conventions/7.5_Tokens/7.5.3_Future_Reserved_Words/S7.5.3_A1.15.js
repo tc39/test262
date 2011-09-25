@@ -9,5 +9,6 @@
  * @negative
  * @strict_only
  */
+"use strict";
 
 var implements = 1;
