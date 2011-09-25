@@ -2,20 +2,18 @@
 <html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<script type="text/javascript" src="resources/scripts/global/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="resources/scripts/global/sections.js"></script>
+<script type="text/javascript" src="harness/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="harness/sections.js"></script>
 <script type="text/javascript">
     //Globals
-    var TEST_LIST_PATH = "resources/scripts/testcases/default.json";
+    var TEST_LIST_PATH = "json/default.json";
 </script>
-<script type="text/javascript" src="resources/scripts/global/sth.js"></script>
-<script type="text/javascript" src="resources/scripts/global/sta.js"></script>
-<script type="text/javascript" src="resources/scripts/global/jqueryprogressbar.js"></script>
-<script type="text/javascript" src="resources/scripts/global/helper.js"></script>
-<script type="text/javascript" src="resources/scripts/global/jquery.base64.js"></script>
-<script type="text/javascript" src="resources/scripts/global/sputnikLib.js"></script>
-<script type="text/javascript" src="resources/scripts/testcases/SputnikGlobalScope.js"></script>
-<script type="text/javascript" src="resources/scripts/testcases/IETCGlobalScope.js"></script>
+<script type="text/javascript" src="harness/sth.js"></script>
+<script type="text/javascript" src="harness/sta.js"></script>
+<script type="text/javascript" src="harness/jqueryprogressbar.js"></script>
+<script type="text/javascript" src="harness/helper.js"></script>
+<script type="text/javascript" src="harness/jquery.base64.js"></script>
+<script type="text/javascript" src="harness/sputnikLib.js"></script>
 <script language="javascript" type="text/javascript">
     //To support all the browsers
     $(window).resize(ResizeLoadIndicator);
@@ -32,7 +30,7 @@
 </script>
 
 <title>ECMAScript Test262</title>
-<link href="resources/styles/style.css" media="screen" rel="stylesheet" title="CSS" type="text/css" />
+<link href="styles/style.css" media="screen" rel="stylesheet" title="CSS" type="text/css" />
 </head>
 <body>
     <div class="indicatorContainer" oncontextmenu="return false;">
@@ -40,7 +38,7 @@
         <div class="disabledBackground"></div>
         <div id="loadingIndicator">
             <div>
-                <img src="./resources/images/spinner.gif" alt="Loading..." />
+                <img src="./images/spinner.gif" alt="Loading..." />
                 <span>Loading...</span>
             </div>
         </div>
@@ -49,7 +47,7 @@
     <div class="wrapper"> 
         <!-- This Container holds the Logo -->
         <div class="logoHeader"> 
-            <div class="logoBg"><img src="resources/images/logo.png" /></div>
+            <div class="logoBg"><img src="images/logo.png" /></div>
             <div class="ecmascriptbacklink">
             <p><a href='javascript:void(window.open("http://www.ecmascript.org/"));'>ECMAScript.org</a></p>
             </div>
@@ -106,7 +104,7 @@
                 <div class="progressBarHolder">
                     <div id="progressbar"></div>
                     <div class="progressBarButtons">
-                        <img src="resources/images/reset.png" class="button-reset"/>&nbsp;<img src="resources/images/start.png" class="button-start" id="btnStart"/> 
+                        <img src="images/reset.png" class="button-reset"/>&nbsp;<img src="images/start.png" class="button-start" id="btnStart"/> 
                     </div>
                     <div style="clear: both;"></div>
                 </div>
@@ -149,7 +147,7 @@
                     Test Suite Ver.: <span class="targetTestSuiteVersion"></span>&nbsp;<span class="separator">|</span>&nbsp;Test Suite Date: <span class="targetTestSuiteDate"></span>
                 </div>
                 <div class="downloadLinks">
-                    <p><a class="anchor-download-xml" id="ancGenXMLReport"><strong>Download results as XML</strong></a></p> <!--| <strong><a href="resources/scripts/testcases.zip">Download Source</a></strong></p>-->
+                    <p><a class="anchor-download-xml" id="ancGenXMLReport"><strong>Download results as XML</strong></a></p> <!--| <strong><a href="scripts/testcases.zip">Download Source</a></strong></p>-->
                 </div>
                 <div id="legend" class="hide">
                     <label class="reportGreen">Green:</label>&nbsp;100%&nbsp;

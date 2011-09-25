@@ -38,7 +38,7 @@ def generateHarness(harnessType, jsonFile, description):
 
 
 #------------------------------------------------------------------------------
-from TestCasePackagerConfig import *
+from packagerConfig import *
 
 #--Globals---------------------------------------------------------------------
 
