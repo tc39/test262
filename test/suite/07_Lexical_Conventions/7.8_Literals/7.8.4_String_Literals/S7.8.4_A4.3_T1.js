@@ -6,8 +6,11 @@
  *
  * @path 07_Lexical_Conventions/7.8_Literals/7.8.4_String_Literals/S7.8.4_A4.3_T1.js
  * @description EscapeCharacter :: DecimalDigits :: 1
+ * @onlyStrict
  * @negative
  */
+
+"use strict";
 
 //CHECK#1
 "\1"

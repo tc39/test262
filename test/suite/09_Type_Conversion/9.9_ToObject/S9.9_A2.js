@@ -31,25 +31,3 @@ catch(e){
   }
 }
 
-// CHECK#3
-try{
-  for(var y in null) y = 2;
-  $ERROR('#3.1:  for(var y in null) y = 2 must throw TypeError. Actual: y === . Actual: ' + (y));
-}
-catch(e){
-  if((e instanceof TypeError) !== true){
-    $ERROR('#3.2:  for(var y in null) y = 2 must throw TypeError. Actual: ' + (e));
-  }
-}
-
-// CHECK#4
-try{
-  for(var z in 'bbb'.match(/aaa/)) z = 2;
-  $ERROR('#4.1: for(var z in \'bbb\'.match(/aaa/)) z = 2 must throw TypeError. Actual: z === . Actual: ' + (z));
-}
-catch(e){
-  if((e instanceof TypeError) !== true){
-    $ERROR('#4.2: for(var z in \'bbb\'.match(/aaa/)) z = 2 must throw TypeError. Actual: ' + (e));
-  }
-}
-
