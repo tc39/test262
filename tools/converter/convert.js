@@ -56,7 +56,7 @@
     */
    global.GlobalScopeTests = global.GlobalScopeTests || {};
    global.EarlyErrorRePat = 'EarlyErrorRePat';
-   global.NotEarlyErrorString = 'NotEarlyErrorString';
+   global.NotEarlyErrorString = 'NotEarlyError';
 
 /////////////////////////////////////////////////////////////////
 
@@ -372,7 +372,16 @@
    // If we see any properties other than these after normalization,
    // we signal an error.
    var KNOWN_PROPS = ['path', 'description',
-                      'noStrict', 'onlyStrict', 'negative'];
+                      'noStrict', 'onlyStrict', 'negative',
+
+                      // Not yet supported ones that should not be
+                      // accepted until they are supported are
+                      // commented aout below. Not supported ones that
+                      // can safely be present and ignored are enabled
+                      // below.
+                      // 'generator', 'verbatim',
+                      'noHelpers', 'bestPractice'
+                     ];
 
    /**
     * Turns the (assumed) normalized test record into its string form
