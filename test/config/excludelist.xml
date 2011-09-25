@@ -87,13 +87,10 @@
   <test id="S15.9.3.1_A5_T6">https://bugs.ecmascript.org/show_bug.cgi?id=11</test>
   -->
   
-  <test id="S7.5.3_A1.15">https://bugs.ecmascript.org/show_bug.cgi?id=12</test>
   <test id="S9.9_A1">https://bugs.ecmascript.org/show_bug.cgi?id=13</test>
   <test id="S9.9_A2">https://bugs.ecmascript.org/show_bug.cgi?id=13</test>
   <test id="S11.1.5_A4.1">https://bugs.ecmascript.org/show_bug.cgi?id=14</test>
   <test id="S11.1.5_A4.2">https://bugs.ecmascript.org/show_bug.cgi?id=14</test>
-  <test id="S11.8.2_A2.3_T1">https://bugs.ecmascript.org/show_bug.cgi?id=15</test>
-  <test id="S11.8.3_A2.3_T1">https://bugs.ecmascript.org/show_bug.cgi?id=15</test>
   
   <!-- Still invalid after a fix from Google. ES5 doesn't state Chapter 16 extensions
        regarding FunctionDeclaration are invalid per-se -->
@@ -116,11 +113,6 @@
   
   <test id="S15.5.4.8_A1_T11">https://bugs.ecmascript.org/show_bug.cgi?id=30</test>  
   
-  <test id="S7.8.4_A6.4_T1">https://bugs.ecmascript.org/show_bug.cgi?id=58</test>
-  <test id="S7.8.4_A6.4_T2">https://bugs.ecmascript.org/show_bug.cgi?id=58</test>
-  <test id="S7.8.4_A7.4_T1">https://bugs.ecmascript.org/show_bug.cgi?id=58</test>
-  <test id="S7.8.4_A7.4_T2">https://bugs.ecmascript.org/show_bug.cgi?id=58</test>
-  
   <test id="S15.5.4.14_A1_T6">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
   <test id="S15.5.4.14_A1_T7">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
   <test id="S15.5.4.14_A2_T7">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
@@ -131,8 +123,6 @@
   <test id="15.4.4.4-5-c-i-1">https://bugs.ecmascript.org/show_bug.cgi?id=69</test>
   
   <!-- Extension clause -->
-  <test id="S13.0_A5">https://bugs.ecmascript.org/show_bug.cgi?id=133</test>
-  <test id="S15.10.4.1_A5_T5">https://bugs.ecmascript.org/show_bug.cgi?id=128</test>
   <test id="S7.8.4_A4.3_T5">https://bugs.ecmascript.org/show_bug.cgi?id=127</test>
   <test id="S7.8.4_A4.3_T6">https://bugs.ecmascript.org/show_bug.cgi?id=127</test>
   

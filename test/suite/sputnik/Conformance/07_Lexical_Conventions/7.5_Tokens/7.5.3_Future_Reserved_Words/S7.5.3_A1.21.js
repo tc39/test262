@@ -7,6 +7,7 @@
  * @assertion: The "package" token can not be used as identifier in strict code;
  * @description: Checking if execution of "package=1" fails in strict code;
  * @negative
+ * @onlyStrict
  */
 
 "use strict";
