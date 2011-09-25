@@ -6,8 +6,7 @@
  *
  * @path 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.1_eval/S15.1.2.1_A4.3.js
  * @description Checking if varying the length property fails
- * @onlyStrict
- * @negative
+ * @noStrict
  */
 
 //CHECK#1

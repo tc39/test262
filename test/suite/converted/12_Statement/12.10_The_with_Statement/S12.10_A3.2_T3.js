@@ -7,8 +7,7 @@
  *
  * @path 12_Statement/12.10_The_with_Statement/S12.10_A3.2_T3.js
  * @description Declaring "with" statement within a function body, leading to normal completion by "return"
- * @onlyStrict
- * @negative
+ * @noStrict
  */
 
 this.p1 = 1;

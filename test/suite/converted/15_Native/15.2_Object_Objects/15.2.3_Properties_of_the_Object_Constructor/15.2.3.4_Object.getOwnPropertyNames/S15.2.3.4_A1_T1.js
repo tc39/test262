@@ -12,6 +12,7 @@
  * @onlyStrict
  */
 
+"use strict";
 function foo() {}
 
 var names = Object.getOwnPropertyNames(foo);

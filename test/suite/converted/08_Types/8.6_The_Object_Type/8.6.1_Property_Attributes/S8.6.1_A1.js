@@ -6,8 +6,7 @@
  *
  * @path 08_Types/8.6_The_Object_Type/8.6.1_Property_Attributes/S8.6.1_A1.js
  * @description Try change Math.E property
- * @onlyStrict
- * @negative
+ * @noStrict
  */
 
 var __e = Math.E;

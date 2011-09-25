@@ -7,8 +7,7 @@
  *
  * @path 12_Statement/12.10_The_with_Statement/S12.10_A1.4_T2.js
  * @description Using "with" statement within iteration statement, leading to completion by exception
- * @onlyStrict
- * @negative
+ * @noStrict
  */
 
 this.p1 = 1;

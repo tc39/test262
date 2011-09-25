@@ -6,8 +6,7 @@
  *
  * @path 12_Statement/12.10_The_with_Statement/S12.10_A5_T2.js
  * @description Deleting number property
- * @onlyStrict
- * @negative
+ * @noStrict
  */
 
 this.p1 = 'a';

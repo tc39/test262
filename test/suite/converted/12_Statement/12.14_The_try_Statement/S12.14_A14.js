@@ -6,8 +6,7 @@
  *
  * @path 12_Statement/12.14_The_try_Statement/S12.14_A14.js
  * @description Using try/catch/finally in With and With in try/catch/finally
- * @onlyStrict
- * @negative SyntaxError
+ * @noStrict
  */
 
 var myObj = {p1: 'a',

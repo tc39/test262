@@ -6,8 +6,7 @@
  *
  * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.2_Array_prototype_toString/S15.4.4.2_A4.3.js
  * @description Checking if varying the length property fails
- * @onlyStrict
- * @negative
+ * @noStrict
  */
 
 //CHECK#1

@@ -12,6 +12,7 @@
  * @onlyStrict
  */
 
+"use strict";
 var deleted = 'unassigned';
 try {
   deleted = delete RegExp.leftContext;

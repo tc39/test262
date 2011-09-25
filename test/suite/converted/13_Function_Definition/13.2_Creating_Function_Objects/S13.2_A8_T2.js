@@ -8,6 +8,7 @@
  * @onlyStrict
  */
 
+"use strict";
 'arguments' in function() {};
 
 

@@ -7,8 +7,7 @@
  *
  * @path 12_Statement/12.10_The_with_Statement/S12.10_A3.3_T1.js
  * @description Declaring "with" statement within a function constructor, leading to normal completion
- * @onlyStrict
- * @negative
+ * @noStrict
  */
 
 this.p1 = 1;

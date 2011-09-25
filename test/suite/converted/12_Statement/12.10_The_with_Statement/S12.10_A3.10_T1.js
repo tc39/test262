@@ -7,8 +7,7 @@
  *
  * @path 12_Statement/12.10_The_with_Statement/S12.10_A3.10_T1.js
  * @description Using iteration statement within "with" statement, leading to normal completion
- * @onlyStrict
- * @negative
+ * @noStrict
  */
 
 this.p1 = 1;

@@ -7,8 +7,7 @@
  *
  * @path 12_Statement/12.10_The_with_Statement/S12.10_A3.5_T1.js
  * @description Using "with" statement within "for-in" statement, leading to normal completion
- * @onlyStrict
- * @negative
+ * @noStrict
  */
 
 this.p1 = 1;

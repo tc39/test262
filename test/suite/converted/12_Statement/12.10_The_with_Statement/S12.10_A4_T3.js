@@ -6,8 +6,7 @@
  *
  * @path 12_Statement/12.10_The_with_Statement/S12.10_A4_T3.js
  * @description Changing boolean property
- * @onlyStrict
- * @negative
+ * @noStrict
  */
 
 this.p1 = 'a';

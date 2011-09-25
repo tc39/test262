@@ -12,7 +12,7 @@
 * @section: 15.2.3.1, 15.2.4;
 * @assertion: The Object.prototype property has the attribute DontDelete;
 * @description: Checking if deleting "Object.prototype" property fails;
-* @strict_mode_negative
+* @noStrict
 */
 
 delete Object.prototype;

@@ -6,8 +6,7 @@
  *
  * @path 15_Native/15.8_The_Math_Object/15.8.1_Value_Properties_of_the_Math_Object/15.8.1.8_SQRT2/S15.8.1.8_A4.js
  * @description Checking if Math.SQRT2 property has the attribute ReadOnly
- * @onlyStrict
- * @negative
+ * @noStrict
  */
 
 // CHECK#1
