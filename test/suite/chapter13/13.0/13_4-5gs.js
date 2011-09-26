@@ -4,7 +4,7 @@
  * @path chapter13/13.0/13_4-5gs.js
  * @description Strict Mode - SourceElements is evaluated as strict mode code when a FunctionDeclaration is contained in strict mode code
  * @onlyStrict
- * @negative NotEarlyError
+ * @negative ^((?!NotEarlyError).)*$
  */
 
 "use strict";

@@ -23,7 +23,9 @@
 //An exception is expected
 if (testDescrip.negative !== undefined) {
     //TODO - come up with a generic way of catching the error type from window.onerror
-    testDescrip.negative = testDescrip.negative === "NotEarlyError" ? testDescrip.negative : ".";
+    testDescrip.negative = testDescrip.negative === "NotEarlyError" ?
+                testDescrip.negative : (testDescrip.negative === "^((?!NotEarlyError).)*$" ? 
+                testDescrip.negative : ".");
     if (window.iframeError === undefined) { //no exception was thrown
         testRun(testDescrip.id, testDescrip.path, testDescrip.description, testDescrip.code,
                 'fail', 

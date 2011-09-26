@@ -4,7 +4,7 @@
  * @path chapter10/10.5/10.5-1gs.js
  * @description Strict Mode - arguments cannot be assigned to in a strict function
  * @onlyStrict
- * @negative NotEarlyError
+ * @negative ^((?!NotEarlyError).)*$
  */
 
 "use strict";
