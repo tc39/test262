@@ -47,6 +47,8 @@ __parser.add_argument('version', action='store',
                     help='Version of the test suite.')
 __parser.add_argument('--type', action='store', default='test262',
                     help='Type of test case runner to generate.')
+__parser.add_argument('--console', action='store_true', default=False,
+                    help='Type of test case runner to generate.')
 ARGS = __parser.parse_args()
 
 if not os.path.exists(EXCLUDED_FILENAME):
@@ -92,6 +94,21 @@ if not hasattr(ARGS, "version"):
     sys.exit(1)
 
 #--Helpers--------------------------------------------------------------------#
+def createDepDirs(dirName):
+    #base case
+    if dirName==os.path.dirname(dirName):
+        if not os.path.exists(dirName):
+            os.mkdir(dirName)
+    else:
+        if not os.path.exists(dirName):
+            createDepDirs(os.path.dirname(dirName))
+            os.mkdir(dirName)
+
+def test262PathToConsoleFile(path):
+    stuff = os.path.join(TEST262_CONSOLE_CASES_DIR, path.replace("/", os.path.sep))
+    createDepDirs(os.path.dirname(stuff))
+    return stuff
+    
 def getJSCount(dirName):
     '''
     Returns the total number of *.js files (recursively) under a given 
@@ -210,9 +227,7 @@ for chapter in TEST_SUITE_SECTIONS:
             if EXCLUDE_LIST.count(testName)==0:
                 # dictionary for each test
                 testDict = {}
-                #TODO
-                #testDict["id"] = testName
-                testDict["path"] = testPath.replace("/ietestcenter", "").replace("/sputnik_converted", "")
+                testDict["path"] = testPath
                 
                 tempFile = open(test, "r")
                 scriptCode = tempFile.readlines()
@@ -233,10 +248,10 @@ for chapter in TEST_SUITE_SECTIONS:
                 if scriptCodeContent=="":
                     print "WARNING (" + test + "): unable to strip comments/license header/etc."
                     scriptCodeContent = "".join(scriptCode)
-                scriptCodeContent = base64.b64encode(scriptCodeContent)
+                scriptCodeContentB64 = base64.b64encode(scriptCodeContent)
 
                 #add the test encoded code node to our test dictionary
-                testDict["code"] = scriptCodeContent 
+                testDict["code"] = scriptCodeContentB64 
                 #now close the dictionary for the test
 
                 #now get the metadata added.
@@ -248,6 +263,12 @@ for chapter in TEST_SUITE_SECTIONS:
 
                 #this adds the test to our tests array
                 tests.append(testDict)
+                
+                if ARGS.console:
+                    with open(test262PathToConsoleFile(testDict["path"]), "w") as fConsole:
+                        fConsole.write(scriptCodeContent)
+                    with open(test262PathToConsoleFile(testDict["path"][:-3] + "_metadata.js"), "w") as fConsoleMeta:
+                        fConsoleMeta.write("testDescrip = " + str(testDict))
                 testCount += 1
             else:
                 print "Excluded:", testName
@@ -295,13 +316,19 @@ print ""
 print "Deploying test harness files to 'TEST262_WEB_HARNESS_DIR'..."
 if TEST262_HARNESS_DIR!=TEST262_WEB_HARNESS_DIR:
     for filename in [x for x in os.listdir(TEST262_HARNESS_DIR) if x.endswith(".js")]:
-        toFilename = os.path.join(TEST262_WEB_HARNESS_DIR, filename)
-        fileExists = os.path.exists(toFilename)
-        if fileExists:
-            SC_HELPER.edit(toFilename)
-        shutil.copy(os.path.join(TEST262_HARNESS_DIR, filename),
-                    toFilename)
-        if not fileExists:
-            SC_HELPER.add(toFilename)
+        toFilenameList = [ os.path.join(TEST262_WEB_HARNESS_DIR, filename)]
+        if ARGS.console:
+            toFilenameList.append(os.path.join(TEST262_CONSOLE_HARNESS_DIR, filename))
+        
+        for toFilename in toFilenameList:
+            if not os.path.exists(os.path.dirname(toFilename)):
+                os.mkdir(os.path.dirname(toFilename))
+            fileExists = os.path.exists(toFilename)
+            if fileExists:
+                SC_HELPER.edit(toFilename)
+            shutil.copy(os.path.join(TEST262_HARNESS_DIR, filename),
+                        toFilename)
+            if not fileExists:
+                SC_HELPER.add(toFilename)
 
 print "Done."

@@ -22,18 +22,18 @@
 
 //An exception is expected
 if (testDescrip.negative !== undefined) {
-    //TODO - come up with a generic way of catching the error type from window.onerror
+    //TODO - come up with a generic way of catching the error type from this.onerror
     testDescrip.negative = testDescrip.negative === "NotEarlyError" ?
                 testDescrip.negative : (testDescrip.negative === "^((?!NotEarlyError).)*$" ? 
                 testDescrip.negative : ".");
-    if (window.iframeError === undefined) { //no exception was thrown
+    if (this.iframeError === undefined) { //no exception was thrown
         testRun(testDescrip.id, testDescrip.path, testDescrip.description, testDescrip.code,
                 'fail', 
                 Error('No exception was thrown; expected an error "message" property matching the regular expression "' + testDescrip.negative + '".'));
-    } else if (!(new RegExp(testDescrip.negative, "i").test(window.iframeError))) {  //wrong type of exception thrown
+    } else if (!(new RegExp(testDescrip.negative, "i").test(this.iframeError))) {  //wrong type of exception thrown
         testRun(testDescrip.id, testDescrip.path, testDescrip.description, testDescrip.code,
                 'fail', 
-                Error('Expected an exception with a "message" property matching the regular expression "' + testDescrip.negative +'" to be thrown; actual was "' + window.iframeError + '".'));
+                Error('Expected an exception with a "message" property matching the regular expression "' + testDescrip.negative +'" to be thrown; actual was "' + this.iframeError + '".'));
     } else {
         testRun(testDescrip.id, testDescrip.path, testDescrip.description, testDescrip.code,
                 'pass', undefined);
@@ -41,10 +41,10 @@ if (testDescrip.negative !== undefined) {
 }
 
 //Exception was not expected to be thrown
-else if (window.iframeError !== undefined) {  
+else if (this.iframeError !== undefined) {  
     testRun(testDescrip.id, testDescrip.path, testDescrip.description, testDescrip.code,
             'fail', 
-            Error('Unexpected exception, "' + window.iframeError + '" was thrown.'));
+            Error('Unexpected exception, "' + this.iframeError + '" was thrown.'));
 } 
 
 else {

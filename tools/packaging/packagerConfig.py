@@ -28,6 +28,7 @@ import re
 MAX_CASES_PER_JSON = 1000
 
 WEBSITE_SHORT_NAME = "website"
+CONSOLE_SHORT_NAME = "console"
 
 #Path to the root of the Hg repository (relative to this file's location)
 TEST262_ROOT = os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "..")
@@ -42,9 +43,11 @@ TEST262_HARNESS_DIR = os.path.join(TEST262_ROOT, "test", "harness")
 
 #Directory full of website test cases (ported over from TEST262_CASES_DIR)
 TEST262_WEB_CASES_DIR = os.path.join(TEST262_ROOT, WEBSITE_SHORT_NAME, "json")
+TEST262_CONSOLE_CASES_DIR = os.path.join(TEST262_ROOT, CONSOLE_SHORT_NAME)
 
 #Directory containing the website's test harness (ported over from TEST262_HARNESS_DIR)
 TEST262_WEB_HARNESS_DIR = os.path.join(TEST262_ROOT, WEBSITE_SHORT_NAME, "harness")
+TEST262_CONSOLE_HARNESS_DIR = os.path.join(TEST262_ROOT, CONSOLE_SHORT_NAME, "harness")
 
 #Path to the ported test case files on the actual website as opposed to the Hg layout
 WEBSITE_CASES_PATH = "json/"

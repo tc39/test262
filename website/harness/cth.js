@@ -1,4 +1,4 @@
-﻿/// Copyright (c) 2011 Microsoft Corporation 
+/// Copyright (c) 2011 Microsoft Corporation 
 /// 
 /// Redistribution and use in source and binary forms, with or without modification, are permitted provided
 /// that the following conditions are met: 
@@ -18,27 +18,12 @@
 /// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
 
-//Error Detector
-if (this.window!==undefined) {  //for console support
-    window.onerror = function(errorMsg, url, lineNumber) {
-        window.iframeError = errorMsg;
-    }
+function testRun(id, path, description, codeString, result, error) {
+  if (result!=="pass") {
+      throw new Error("Test '" + path + "'failed: " + error);
+  }
 }
 
-//This doesn't work with early errors in current versions of Opera
-/*
-if (/opera/i.test(navigator.userAgent)) {
-    (function() {
-        var origError = window.Error;
-        window.Error = function() {
-            if (arguments.length>0) {
-                try {
-                    window.onerror(arguments[0]);
-                } catch(e) {
-                    alert("Failed to invoke window.onerror (from ed.js)");
-                }
-            }
-            return origError.apply(this, arguments);
-        }
-    })();
-}*/
+function testFinished() {
+    //no-op
+}

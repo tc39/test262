@@ -127,11 +127,6 @@ function BrowserRunner() {
         //TODO: these should be moved to sta.js
         var includes = code.match(/\$INCLUDE\(([^\)]+)\)/g), // find all of the $INCLUDE statements
             include;
-        iwin.Test262Error = Test262Error;
-        iwin.$ERROR = $ERROR;
-        iwin.$FAIL = $FAIL;
-        iwin.$PRINT = function () { };
-        iwin.$INCLUDE = function () { };
 
         if (includes !== null) {
             // We have some includes, so loop through each include and

@@ -19,9 +19,10 @@
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
 
 //Error Detector
-
-window.onerror = function(errorMsg, url, lineNumber) {
-    window.iframeError = errorMsg;
+if (this.window!==undefined) {  //for console support
+    window.onerror = function(errorMsg, url, lineNumber) {
+        window.iframeError = errorMsg;
+    }
 }
 
 //This doesn't work with early errors in current versions of Opera
