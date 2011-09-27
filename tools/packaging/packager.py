@@ -268,7 +268,9 @@ for chapter in TEST_SUITE_SECTIONS:
                     with open(test262PathToConsoleFile(testDict["path"]), "w") as fConsole:
                         fConsole.write(scriptCodeContent)
                     with open(test262PathToConsoleFile(testDict["path"][:-3] + "_metadata.js"), "w") as fConsoleMeta:
-                        fConsoleMeta.write("testDescrip = " + str(testDict))
+                        metaDict = testDict.copy()
+                        del metaDict["code"]
+                        fConsoleMeta.write("testDescrip = " + str(metaDict))
                 testCount += 1
             else:
                 print "Excluded:", testName
