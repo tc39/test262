@@ -1,18 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <excludeList>
-  <test id="15.4.4.20-3-14"><!-- reason for the exclusion--></test>
-  <test id="15.4.4.20-3-28"><!-- reason for the exclusion--></test>
-  <test id="15.4.4.20-3-29"><!-- reason for the exclusion--></test>
-  <test id="15.4.4.20-3-8"><!-- reason for the exclusion--></test>
-  <test id="15.4.4.21-3-14"><!-- reason for the exclusion--></test>
-  <test id="15.4.4.21-3-28"><!-- reason for the exclusion--></test>
-  <test id="15.4.4.21-3-29"><!-- reason for the exclusion--></test>
-  <test id="15.4.4.21-3-8"><!-- reason for the exclusion--></test>
-  <test id="15.4.4.22-3-14"><!-- reason for the exclusion--></test>
-  <test id="15.4.4.22-3-28"><!-- reason for the exclusion--></test>
-  <test id="15.4.4.22-3-29"><!-- reason for the exclusion--></test>
-  <test id="15.4.4.22-3-8"><!-- reason for the exclusion--></test>
-
   <test id="S10.4.2.1_A1">Opera crash - to be investigated</test>
   <test id="S15.3.4.5_A5">Opera crash - to be investigated</test>
   <test id="S8.6.2_A8">Opera crash - to be investigated</test>
@@ -132,4 +119,3 @@
   <test id="S11.1.1_A2">https://bugs.ecmascript.org/show_bug.cgi?id=179</test>
   
  </excludeList>
-
