@@ -5,7 +5,7 @@
  * In ES5, First expression should be evaluated first.
  *
  * @path 11_Expressions/11.8_Relational_Operators/11.8.3_The_Less_than_or_equal_Operator/S11.8.3_A2.3_T1.js
- * @description Checking with "throw"
+ * @description Checking that operands of a "<=" evaluate left-to-right
  */
 
 //CHECK#1
