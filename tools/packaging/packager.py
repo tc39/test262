@@ -42,17 +42,19 @@ from packagerConfig import *
 
 #--Globals---------------------------------------------------------------------
 
-__parser = argparse.ArgumentParser(description='Tool used to generate the test262 website')
+__parser = argparse.ArgumentParser(description= \
+                                   'Tool used to generate the test262 website')
 __parser.add_argument('version', action='store',
-                    help='Version of the test suite.')
+                      help='Version of the test suite.')
 __parser.add_argument('--type', action='store', default='test262',
-                    help='Type of test case runner to generate.')
+                      help='Type of test case runner to generate.')
 __parser.add_argument('--console', action='store_true', default=False,
-                    help='Type of test case runner to generate.')
+                      help='Type of test case runner to generate.')
 ARGS = __parser.parse_args()
 
 if not os.path.exists(EXCLUDED_FILENAME):
-    print "Cannot generate (JSON) test262 tests without a file, %s, showing which tests have been disabled!" % EXCLUDED_FILENAME
+    print "Cannot generate (JSON) test262 tests without a file," + \
+        " %s, showing which tests have been disabled!" % EXCLUDED_FILENAME
     sys.exit(1)
 EXCLUDE_LIST = xml.dom.minidom.parse(EXCLUDED_FILENAME)
 EXCLUDE_LIST = EXCLUDE_LIST.getElementsByTagName("test")
@@ -105,7 +107,8 @@ def createDepDirs(dirName):
             os.mkdir(dirName)
 
 def test262PathToConsoleFile(path):
-    stuff = os.path.join(TEST262_CONSOLE_CASES_DIR, path.replace("/", os.path.sep))
+    stuff = os.path.join(TEST262_CONSOLE_CASES_DIR, 
+                         path.replace("/", os.path.sep))
     createDepDirs(os.path.dirname(stuff))
     return stuff
     
@@ -133,7 +136,8 @@ def dirWalker(dirName):
     '''
     global TEST_SUITE_SECTIONS
     #First check to see if it has test files directly inside it
-    temp = [os.path.join(dirName, x) for x in os.listdir(dirName) if not os.path.isdir(os.path.join(dirName, x))]
+    temp = [os.path.join(dirName, x) for x in os.listdir(dirName) \
+                if not os.path.isdir(os.path.join(dirName, x))]
     if len(temp)!=0:
         TEST_SUITE_SECTIONS.append(dirName)
         return
@@ -171,7 +175,8 @@ def isTestStarted(line):
     elif "/*" in line:  #Beginning of a newline comment
         IS_MULTILINE_COMMENT = True
         return False
-    elif IS_MULTILINE_COMMENT: #//we're already in a multi-line comment that hasn't ended
+    elif IS_MULTILINE_COMMENT: #//we're already in a multi-line
+                               #comment that hasn't ended
         return False
     elif re.match("^\s*//", line)!=None:     #//blah
         return False
@@ -221,7 +226,8 @@ for chapter in TEST_SUITE_SECTIONS:
         testCount = 0
         for test in sourceFiles:
             #TODO - use something other than the hard-coded 'TestCases' below
-            testPath =  "TestCases" + test.split(TEST262_CASES_DIR, 1)[1].replace("\\", "/")
+            testPath =  "TestCases" + \
+                test.split(TEST262_CASES_DIR, 1)[1].replace("\\", "/")
             testName=test.rsplit(".", 1)[0] 
             testName=testName.rsplit(os.path.sep, 1)[1]
             if EXCLUDE_LIST.count(testName)==0:
@@ -233,7 +239,8 @@ for chapter in TEST_SUITE_SECTIONS:
                 scriptCode = tempFile.readlines()
                 tempFile.close()
                 scriptCodeContent=""
-                #Rip out license headers that add unnecessary bytes to the JSON'ized test cases
+                #Rip out license headers that add unnecessary bytes to
+                #the JSON'ized test cases
                 inBeginning = True
                 IS_MULTILINE_COMMENT = False
 
@@ -246,7 +253,8 @@ for chapter in TEST_SUITE_SECTIONS:
                     scriptCodeContent += line
 
                 if scriptCodeContent=="":
-                    print "WARNING (" + test + "): unable to strip comments/license header/etc."
+                    print "WARNING (" + test + \
+                        "): unable to strip comments/license header/etc."
                     scriptCodeContent = "".join(scriptCode)
                 scriptCodeContentB64 = base64.b64encode(scriptCodeContent)
 
@@ -265,9 +273,12 @@ for chapter in TEST_SUITE_SECTIONS:
                 tests.append(testDict)
                 
                 if ARGS.console:
-                    with open(test262PathToConsoleFile(testDict["path"]), "w") as fConsole:
+                    with open(test262PathToConsoleFile(testDict["path"]),
+                                  "w") as fConsole:
                         fConsole.write(scriptCodeContent)
-                    with open(test262PathToConsoleFile(testDict["path"][:-3] + "_metadata.js"), "w") as fConsoleMeta:
+                    with open(test262PathToConsoleFile(testDict["path"][:-3] + \
+                                                       "_metadata.js"),
+                              "w") as fConsoleMeta:
                         metaDict = testDict.copy()
                         del metaDict["code"]
                         fConsoleMeta.write("testDescrip = " + str(metaDict))
@@ -283,7 +294,8 @@ for chapter in TEST_SUITE_SECTIONS:
 
         #create a node for the tests and add it to our testsLists
         testsList["testsCollection"] = sect
-        with open(os.path.join(TEST262_WEB_CASES_DIR, chapterName + ".json"), "w") as f:
+        with open(os.path.join(TEST262_WEB_CASES_DIR, chapterName + ".json"), 
+                  "w") as f:
             json.dump(testsList, f, separators=(',',':'), sort_keys=True)
 
 
@@ -291,11 +303,17 @@ for chapter in TEST_SUITE_SECTIONS:
             CHAPTER_TEST_CASES_JSON = {}
             CHAPTER_TEST_CASES_JSON["numTests"] = int(sect["numTests"])
             CHAPTER_TEST_CASES_JSON["version"] = ARGS.version
-            CHAPTER_TEST_CASES_JSON["date"] = str(datetime.datetime.now().date())
-            CHAPTER_TEST_CASES_JSON["testSuite"] = [WEBSITE_CASES_PATH + chapterName + ".json"]
-            with open(os.path.join(TEST262_WEB_CASES_DIR, "testcases_%s.json" % chapterName), "w") as f:
-                json.dump(CHAPTER_TEST_CASES_JSON, f, separators=(',',':'), sort_keys=True)
-            generateHarness(ARGS.type, "testcases_%s.json" % chapterName, chapterName.replace("chapter", "Chapter "))
+            CHAPTER_TEST_CASES_JSON["date"] = \
+                str(datetime.datetime.now().date())
+            CHAPTER_TEST_CASES_JSON["testSuite"] = \
+                [WEBSITE_CASES_PATH + chapterName + ".json"]
+            with open(os.path.join(TEST262_WEB_CASES_DIR, 
+                                   "testcases_%s.json" % chapterName), 
+                      "w") as f:
+                json.dump(CHAPTER_TEST_CASES_JSON, f, separators=(',',':'),
+                          sort_keys=True)
+            generateHarness(ARGS.type, "testcases_%s.json" % chapterName, 
+                            chapterName.replace("chapter", "Chapter "))
 
         #add the name of the chapter test to our complete list
         SECTIONS_LIST.append(WEBSITE_CASES_PATH + chapterName + ".json")
@@ -317,10 +335,12 @@ generateHarness(ARGS.type, "default.json", "Chapters 1-16")
 print ""
 print "Deploying test harness files to 'TEST262_WEB_HARNESS_DIR'..."
 if TEST262_HARNESS_DIR!=TEST262_WEB_HARNESS_DIR:
-    for filename in [x for x in os.listdir(TEST262_HARNESS_DIR) if x.endswith(".js")]:
+    for filename in [x for x in os.listdir(TEST262_HARNESS_DIR) \
+                         if x.endswith(".js")]:
         toFilenameList = [ os.path.join(TEST262_WEB_HARNESS_DIR, filename)]
         if ARGS.console:
-            toFilenameList.append(os.path.join(TEST262_CONSOLE_HARNESS_DIR, filename))
+            toFilenameList.append(os.path.join(TEST262_CONSOLE_HARNESS_DIR, 
+                                               filename))
         
         for toFilename in toFilenameList:
             if not os.path.exists(os.path.dirname(toFilename)):

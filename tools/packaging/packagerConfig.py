@@ -31,30 +31,38 @@ WEBSITE_SHORT_NAME = "website"
 CONSOLE_SHORT_NAME = "console"
 
 #Path to the root of the Hg repository (relative to this file's location)
-TEST262_ROOT = os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "..")
+TEST262_ROOT = os.path.join(os.path.dirname(os.path.realpath(__file__)), 
+                            "..", "..")
 TEST262_ROOT = os.path.abspath(TEST262_ROOT)
 
-#Directory full of test cases we want to port to the website's test harness runner
+#Directory full of test cases we want to port to the website's test
+#harness runner
 TEST262_CASES_DIR = os.path.join(TEST262_ROOT, "test", "suite")
 
-#Directory containing test harness files to be ported over to the website. Note that
-#only *.js files will be migrated from this dir.
+#Directory containing test harness files to be ported over to the
+#website. Note that only *.js files will be migrated from this dir.
 TEST262_HARNESS_DIR = os.path.join(TEST262_ROOT, "test", "harness")
 
 #Directory full of website test cases (ported over from TEST262_CASES_DIR)
 TEST262_WEB_CASES_DIR = os.path.join(TEST262_ROOT, WEBSITE_SHORT_NAME, "json")
 TEST262_CONSOLE_CASES_DIR = os.path.join(TEST262_ROOT, CONSOLE_SHORT_NAME)
 
-#Directory containing the website's test harness (ported over from TEST262_HARNESS_DIR)
-TEST262_WEB_HARNESS_DIR = os.path.join(TEST262_ROOT, WEBSITE_SHORT_NAME, "harness")
-TEST262_CONSOLE_HARNESS_DIR = os.path.join(TEST262_ROOT, CONSOLE_SHORT_NAME, "harness")
+#Directory containing the website's test harness (ported over from
+#TEST262_HARNESS_DIR)
+TEST262_WEB_HARNESS_DIR = os.path.join(TEST262_ROOT, WEBSITE_SHORT_NAME, 
+                                       "harness")
+TEST262_CONSOLE_HARNESS_DIR = os.path.join(TEST262_ROOT, CONSOLE_SHORT_NAME, 
+                                           "harness")
 
-#Path to the ported test case files on the actual website as opposed to the Hg layout
+#Path to the ported test case files on the actual website as opposed
+#to the Hg layout
 WEBSITE_CASES_PATH = "json/"
 
-#The name of a file which contains a list of tests which should be disabled in test262.
-#These tests are either invalid as-per ES5 or have issues with the test262 web harness.
-EXCLUDED_FILENAME = os.path.join(TEST262_ROOT, "test", "config", "excludelist.xml")
+#The name of a file which contains a list of tests which should be
+#disabled in test262.  These tests are either invalid as-per ES5 or
+#have issues with the test262 web harness.
+EXCLUDED_FILENAME = os.path.join(TEST262_ROOT, "test", "config",
+                                 "excludelist.xml")
 
 WEBSITE_EXCLUDE_RE_LIST = ["bestPractice"]
 WEBSITE_EXCLUDE_RE_LIST = [ re.compile(x) for x in WEBSITE_EXCLUDE_RE_LIST]
@@ -70,9 +78,11 @@ def generateHarness(harnessType, jsonName, title):
     if TEMPLATE_LINES==None or harnessType!=__lastHarnessType:
         __lastHarnessType = harnessType
         TEMPLATE_LINES = []
-        with open(os.path.join(os.getcwd(), "templates","runner." + harnessType + ".html"), "r") as f:
+        with open(os.path.join(os.getcwd(), "templates",
+                               "runner." + harnessType + ".html"), "r") as f:
             TEMPLATE_LINES = f.readlines()
-    fileName = os.path.join(TEST262_ROOT, WEBSITE_SHORT_NAME, jsonName.replace(".json", ".html"))
+    fileName = os.path.join(TEST262_ROOT, WEBSITE_SHORT_NAME, 
+                            jsonName.replace(".json", ".html"))
     fileNameExists = False
     if os.path.exists(fileName):
         SC_HELPER.edit(fileName)
@@ -80,9 +90,11 @@ def generateHarness(harnessType, jsonName, title):
     with open(fileName, "w") as f:
         for line in TEMPLATE_LINES:
             if "var TEST_LIST_PATH =" in line:
-                f.write("    var TEST_LIST_PATH = \"json/" + jsonName + "\";" + os.linesep)
+                f.write("    var TEST_LIST_PATH = \"json/" + jsonName + \
+                        "\";" + os.linesep)
             #elif "ECMAScript 5" in line:
-            #    f.write(line.replace("ECMAScript 5", "ECMAScript 5: %s" % title))
+            #    f.write(line.replace("ECMAScript 5", 
+            #            "ECMAScript 5: %s" % title))
             else:
                 f.write(line)
     if not fileNameExists:
