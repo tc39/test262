@@ -2,6 +2,11 @@
 # Copyright 2009 the Sputnik authors.  All rights reserved.
 # This code is governed by the BSD license found in the LICENSE file.
 
+# This is derived from sputnik.py, the Sputnik console test runner,
+# with elements from packager.py, which is separately
+# copyrighted. TODO: Refactor so there is less duplication between
+# test262.py and packager.py.
+
 
 import logging
 import optparse
@@ -13,16 +18,33 @@ import subprocess
 import sys
 import tempfile
 import time
+import xml.dom.minidom
+import datetime
+import shutil
+import json
+import stat
 
+
+from parseTestRecord import parseTestRecord, stripHeader
+
+from packagerConfig import *
 
 class Test262Error(Exception):
-
   def __init__(self, message):
     self.message = message
 
-
 def ReportError(s):
   raise Test262Error(s)
+
+
+
+if not os.path.exists(EXCLUDED_FILENAME):
+    print "Cannot generate (JSON) test262 tests without a file," + \
+        " %s, showing which tests have been disabled!" % EXCLUDED_FILENAME
+    sys.exit(1)
+EXCLUDE_LIST = xml.dom.minidom.parse(EXCLUDED_FILENAME)
+EXCLUDE_LIST = EXCLUDE_LIST.getElementsByTagName("test")
+EXCLUDE_LIST = [x.getAttribute("id") for x in EXCLUDE_LIST]
 
 
 def BuildOptions():
@@ -31,7 +53,7 @@ def BuildOptions():
   result.add_option("--tests", default=path.abspath('.'), 
                     help="Path to the tests")
   result.add_option("--cat", default=False, action="store_true",
-                    help="Print test source code")
+                    help="Print packaged test code that would be run")
   result.add_option("--summary", default=False, action="store_true",
                     help="Print summary after running tests")
   result.add_option("--full-summary", default=False, action="store_true",
@@ -40,7 +62,10 @@ def BuildOptions():
                     help="Test only strict mode")
   result.add_option("--non_strict_only", default=False, action="store_true", 
                     help="Test only non-strict mode")
-
+  # TODO: Once enough tests are made strict compat, change the default
+  # to "both"
+  result.add_option("--unmarked_default", default="non_strict", 
+                    help="default mode for tests of unspecified strictness")
   return result
 
 
@@ -51,27 +76,12 @@ def ValidateOptions(options):
     ReportError("Couldn't find test path '%s'" % options.tests)
 
 
-_PLACEHOLDER_PATTERN = re.compile(r"\{\{(\w+)\}\}")
-_INCLUDE_PATTERN = re.compile(r"\$INCLUDE\(\"(.*)\"\);")
-_SPECIAL_CALL_PATTERN = re.compile(r"\$([A-Z]+)(?=\()")
-
-
-_SPECIAL_CALLS = {
-  'ERROR': 'testFailed',
-  'FAIL': 'testFailed',
-  'PRINT': 'testPrint'
-}
+placeHolderPattern = re.compile(r"\{\{(\w+)\}\}")
 
 
 def IsWindows():
   p = platform.system()
   return (p == 'Windows') or (p == 'Microsoft')
-
-
-def StripHeader(str):
-  while str.startswith('//') and "\n" in str:
-    str = str[str.index("\n")+1:]
-  return str.lstrip()
 
 
 class TempFile(object):
@@ -89,8 +99,7 @@ class TempFile(object):
     (self.fd, self.name) = tempfile.mkstemp(
         suffix = self.suffix,
         prefix = self.prefix,
-        text = self.text
-    )
+        text = self.text)
 
   def Write(self, str):
     os.write(self.fd, str)
@@ -127,7 +136,7 @@ class TestResult(object):
     mode = self.case.GetMode()
     if self.HasUnexpectedOutcome():
       if self.case.IsNegative():
-        print "%s was expected to fail in %s, but didn't" % (name, mode)
+        print "=== %s was expected to fail in %s, but didn't ===" % (name, mode)
       else:
         if long_format:
           print "=== %s failed in %s ===" % (name, mode)
@@ -164,11 +173,17 @@ class TestCase(object):
     self.suite = suite
     self.name = name
     self.full_path = full_path
-    self.contents = None
-    self.is_negative = None
     self.strict_mode = strict_mode
-    self.is_strict_only = None
-    self.is_non_strict_only = None
+    f = open(self.full_path)
+    self.contents = f.read()
+    f.close()
+    testRecord = parseTestRecord(self.contents, name)
+    self.test = testRecord["test"]
+    del testRecord["test"]
+    del testRecord["header"]
+    del testRecord["commentary"]
+    self.testRecord = testRecord;
+    
 
   def GetName(self):
     return path.join(*self.name)
@@ -182,60 +197,33 @@ class TestCase(object):
   def GetPath(self):
     return self.name
 
-  def GetRawContents(self):
-    if self.contents is None:
-      f = open(self.full_path)
-      self.contents = f.read()
-      f.close()
-    return self.contents
-
   def IsNegative(self):
-    if self.is_negative is None:
-      self.is_negative = ("@negative" in self.GetRawContents())
-    return self.is_negative
+    return 'negative' in self.testRecord
 
-  def IsStrictOnly(self):
-    if self.is_strict_only is None:
-      self.is_strict_only = ("@strict_only" in self.GetRawContents())
-    return self.is_strict_only
+  def IsOnlyStrict(self):
+    return 'onlyStrict' in self.testRecord
 
-  def IsNonStrictOnly(self):
-    if self.is_non_strict_only is None:
-      self.is_non_strict_only = ("@non_strict_only" in self.GetRawContents())
-    return self.is_non_strict_only
+  def IsNoStrict(self):
+    return 'noStrict' in self.testRecord
 
   def GetSource(self):
-    source = self.suite.GetInclude("framework.js", False) + \
-        self.suite.GetInclude("sta.js", False)
-    source += StripHeader(self.GetRawContents())
-    def IncludeFile(match):
-      return self.suite.GetInclude(match.group(1))
-    source = _INCLUDE_PATTERN.sub(IncludeFile, source)
-    def SpecialCall(match):
-      key = match.group(1)
-      return _SPECIAL_CALLS.get(key, match.group(0))
+    # "var testDescrip = " + str(self.testRecord) + ';\n\n' + \
+    source = self.suite.GetInclude("cth.js") + \
+        self.suite.GetInclude("sta.js") + \
+        self.suite.GetInclude("ed.js") + \
+        self.test + '\n'
+
     if self.strict_mode:
-      source = '"use strict";\nvar strict_mode = true;\n' + \
-          _SPECIAL_CALL_PATTERN.sub(SpecialCall, source)
+      source = '"use strict";\nvar strict_mode = true;\n' + source
     else:
-      source =  "var strict_mode = false; \n" + \
-          _SPECIAL_CALL_PATTERN.sub(SpecialCall, source)
+      source =  "var strict_mode = false; \n" + source
     return source
 
   def InstantiateTemplate(self, template, params):
     def GetParameter(match):
       key = match.group(1)
       return params.get(key, match.group(0))
-    return _PLACEHOLDER_PATTERN.sub(GetParameter, template)
-
-  def RunTestIn(self, command_template, tmp):
-    tmp.Write(self.GetSource())
-    tmp.Close()
-    command = self.InstantiateTemplate(command_template, {
-      'path': tmp.name
-    })
-    (code, out, err) = self.Execute(command)
-    return TestResult(code, out, err, self)
+    return placeHolderPattern.sub(GetParameter, template)
 
   def Execute(self, command):
     if IsWindows():
@@ -259,6 +247,15 @@ class TestCase(object):
       stdout.Dispose()
       stderr.Dispose()
     return (code, out, err)
+
+  def RunTestIn(self, command_template, tmp):
+    tmp.Write(self.GetSource())
+    tmp.Close()
+    command = self.InstantiateTemplate(command_template, {
+      'path': tmp.name
+    })
+    (code, out, err) = self.Execute(command)
+    return TestResult(code, out, err, self)
 
   def Run(self, command_template):
     tmp = TempFile(suffix=".js", prefix="test262-", text=True)
@@ -298,11 +295,13 @@ def MakePlural(n):
 
 class TestSuite(object):
 
-  def __init__(self, root, strict_only, non_strict_only):
-    self.test_root = path.join(root, 'test', 'suite', 'converted')
+  def __init__(self, root, strict_only, non_strict_only, unmarked_default):
+    # TODO: derive from packagerConfig.py
+    self.test_root = path.join(root, 'test', 'suite')
     self.lib_root = path.join(root, 'test', 'harness')
     self.strict_only = strict_only
     self.non_strict_only = non_strict_only
+    self.unmarked_default = unmarked_default
     self.include_cache = { }
 
   def Validate(self):
@@ -325,41 +324,18 @@ class TestSuite(object):
         return True
     return False
 
-  def GetTimeZoneInfoInclude(self):
-    dst_attribs = GetDaylightSavingsAttribs()
-    if not dst_attribs:
-      return None
-    lines = []
-    for key in sorted(dst_attribs.keys()):
-      lines.append('var $DST_%s = %s;' % (key, str(dst_attribs[key])))
-    localtz = time.timezone / -3600
-    lines.append('var $LocalTZ = %i;' % localtz)
-    return "\n".join(lines)
-
-  def GetSpecialInclude(self, name):
-    if name == "environment.js":
-      return self.GetTimeZoneInfoInclude()
-    else:
-      return None
-
-  def GetInclude(self, name, strip_header=True):
-    key = (name, strip_header)
-    if not key in self.include_cache:
-      value = self.GetSpecialInclude(name)
-      if value:
-        self.include_cache[key] = value
+  def GetInclude(self, name):
+    if not name in self.include_cache:
+      static = path.join(self.lib_root, name)
+      if path.exists(static):
+        f = open(static)
+        contents = stripHeader(f.read())
+        contents = re.sub(r'\r\n', '\n', contents)
+        self.include_cache[name] = contents + "\n"
+        f.close()
       else:
-        static = path.join(self.lib_root, name)
-        if path.exists(static):
-          f = open(static)
-          contents = f.read()
-          if strip_header:
-            contents = StripHeader(contents)
-          self.include_cache[key] = contents + "\n"
-          f.close()
-        else:
-         self.include_cache[key] = ""
-    return self.include_cache[key]
+        ReportError("Can't find: " + static)
+    return self.include_cache[name]
 
   def EnumerateTests(self, tests):
     logging.info("Listing tests in %s", self.test_root)
@@ -379,14 +355,21 @@ class TestSuite(object):
           if self.ShouldRun(rel_path, tests):
             basename = path.basename(full_path)[:-3]
             name = rel_path.split(path.sep)[:-1] + [basename]
-            if not self.non_strict_only:
-              strict_case = TestCase(self, name, full_path, True)
-              if not strict_case.IsNonStrictOnly():
-                cases.append(strict_case)
-            if not self.strict_only:
-              non_strict_case = TestCase(self, name, full_path, False)
-              if not non_strict_case.IsStrictOnly():
-                cases.append(non_strict_case)
+            if EXCLUDE_LIST.count(basename) >= 1:
+              print 'Excluded: ' + basename
+            else:
+              if not self.non_strict_only:
+                strict_case = TestCase(self, name, full_path, True)
+                if not strict_case.IsNoStrict():
+                  if strict_case.IsOnlyStrict() or \
+                        self.unmarked_default in ['both', 'strict']:
+                    cases.append(strict_case)
+              if not self.strict_only:
+                non_strict_case = TestCase(self, name, full_path, False)
+                if not non_strict_case.IsOnlyStrict():
+                  if non_strict_case.IsNoStrict() or \
+                        self.unmarked_default in ['both', 'non_strict']:
+                    cases.append(non_strict_case)
     logging.info("Done listing tests")
     return cases
 
@@ -447,83 +430,14 @@ class TestSuite(object):
       cases[0].Print()
 
 
-def GetDaylightSavingsTimes():
-  # Is the given floating-point time in DST?
-  def IsDst(t):
-    return time.localtime(t)[-1]
-  # Binary search to find an interval between the two times no greater than
-  # delta where DST switches, returning the midpoint.
-  def FindBetween(start, end, delta):
-    while end - start > delta:
-      middle = (end + start) / 2
-      if IsDst(middle) == IsDst(start):
-        start = middle
-      else:
-        end = middle
-    return (start + end) / 2
-  now = time.time()
-  one_month = (30 * 24 * 60 * 60)
-  # First find a date with different daylight savings.  To avoid corner cases
-  # we try four months before and after today.
-  after = now + 4 * one_month
-  before = now - 4 * one_month
-  if IsDst(now) == IsDst(before) and IsDst(now) == IsDst(after):
-    logging.warning("Was unable to determine DST info.")
-    return None
-  # Determine when the change occurs between now and the date we just found
-  # in a different DST.
-  if IsDst(now) != IsDst(before):
-    first = FindBetween(before, now, 1)
-  else:
-    first = FindBetween(now, after, 1)
-  # Determine when the change occurs between three and nine months from the
-  # first.
-  second = FindBetween(first + 3 * one_month, first + 9 * one_month, 1)
-  # Find out which switch is into and which if out of DST
-  if IsDst(first - 1) and not IsDst(first + 1):
-    start = second
-    end = first
-  else:
-    start = first
-    end = second
-  return (start, end)
-
-
-def GetDaylightSavingsAttribs():
-  times = GetDaylightSavingsTimes()
-  if not times:
-    return None
-  (start, end) = times
-  def DstMonth(t):
-    return time.localtime(t)[1] - 1
-  def DstHour(t):
-    return time.localtime(t - 1)[3] + 1
-  def DstSunday(t):
-    if time.localtime(t)[2] > 15:
-      return "'last'"
-    else:
-      return "'first'"
-  def DstMinutes(t):
-    return (time.localtime(t - 1)[4] + 1) % 60
-  attribs = { }
-  attribs['start_month'] = DstMonth(start)
-  attribs['end_month'] = DstMonth(end)
-  attribs['start_sunday'] = DstSunday(start)
-  attribs['end_sunday'] = DstSunday(end)
-  attribs['start_hour'] = DstHour(start)
-  attribs['end_hour'] = DstHour(end)
-  attribs['start_minutes'] = DstMinutes(start)
-  attribs['end_minutes'] = DstMinutes(end)
-  return attribs
-
-
 def Main():
   parser = BuildOptions()
   (options, args) = parser.parse_args()
   ValidateOptions(options)
   test_suite = TestSuite(options.tests, 
                          options.strict_only, 
-                         options.non_strict_only)
+                         options.non_strict_only,
+                         options.unmarked_default)
   test_suite.Validate()
   if options.cat:
     test_suite.Print(args)
