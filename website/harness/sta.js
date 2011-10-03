@@ -1,4 +1,4 @@
-﻿/// Copyright (c) 2009 Microsoft Corporation
+/// Copyright (c) 2009 Microsoft Corporation
 ///
 /// Redistribution and use in source and binary forms, with or without modification, are permitted provided
 /// that the following conditions are met:
@@ -335,8 +335,8 @@ function getPrecision(num) {
     //TODO: Create a table of prec's,
     //      because using Math for testing Math isn't that correct.
 
-    log2num = Math.log(Math.abs(num)) / Math.LN2;
-    pernum = Math.ceil(log2num);
+    var log2num = Math.log(Math.abs(num)) / Math.LN2;
+    var pernum = Math.ceil(log2num);
     return (2 * Math.pow(2, -52 + pernum));
     //return(0);
 }
@@ -364,7 +364,7 @@ function isEqual(num1, num2) {
 // This code is governed by the BSD license found in the LICENSE file.
 
 function ToInteger(p) {
-    x = Number(p);
+    var x = Number(p);
 
     if (isNaN(x)) {
         return +0;
@@ -437,7 +437,7 @@ var $LocalTZ,
             current = new Date(current.getTime() + 1);
         }
         return current;
-    }
+    };
 
     var juneDate = new Date(2000, 5, 20, 0, 0, 0, 0);
     var decemberDate = new Date(2000, 11, 20, 0, 0, 0, 0);
@@ -446,7 +446,7 @@ var $LocalTZ,
     var isSouthernHemisphere = (juneOffset > decemberOffset);
     var winterTime = isSouthernHemisphere ? juneDate : decemberDate;
     var summerTime = isSouthernHemisphere ? decemberDate : juneDate;
-    
+
     var dstStart = findNearestDateBefore(winterTime, function (date) {
         return date.getTimezoneOffset() == summerTime.getTimezoneOffset();
     });
@@ -454,7 +454,7 @@ var $LocalTZ,
     $DST_start_sunday = dstStart.getDate() > 15 ? '"last"' : '"first"';
     $DST_start_hour = dstStart.getHours();
     $DST_start_minutes = dstStart.getMinutes();
-      
+
     var dstEnd = findNearestDateBefore(summerTime, function (date) {
         return date.getTimezoneOffset() == winterTime.getTimezoneOffset();
     });
@@ -462,7 +462,7 @@ var $LocalTZ,
     $DST_end_sunday = dstEnd.getDate() > 15 ? '"last"' : '"first"';
     $DST_end_hour = dstEnd.getHours();
     $DST_end_minutes = dstEnd.getMinutes();
-    
+
     return;
 })();
 
@@ -503,10 +503,10 @@ function YearFromTime(t) {
   t = Number(t);
   var sign = ( t < 0 ) ? -1 : 1;
   var year = ( sign < 0 ) ? 1969 : 1970;
-  
+
   for(var time = 0;;year += sign){
     time = TimeFromYear(year);
-    
+
     if(sign > 0 && time > t){
       year -= sign;
       break;
@@ -517,11 +517,11 @@ function YearFromTime(t) {
   };
   return year;
 }
-  
+
 function InLeapYear(t){
   if(DaysInYear(YearFromTime(t)) == 365)
     return 0;
-  
+
   if(DaysInYear(YearFromTime(t)) == 366)
     return 1;
 }
@@ -584,7 +584,7 @@ var LocalTZA = $LocalTZ*msPerHour;
 
 function DaysInMonth(m, leap) {
   m = m%12;
-  
+
   //April, June, Sept, Nov
   if(m == 3 || m == 5 || m == 8 || m == 10 ) {
     return 30;
@@ -601,13 +601,14 @@ function DaysInMonth(m, leap) {
 
 function GetSundayInMonth(t, m, count){
     var year = YearFromTime(t);
-    
+    var tempDate;
+
     if (count==='"first"') {
         for (var d=1; d <= DaysInMonth(m, InLeapYear(t)); d++) {
             tempDate = new Date(year, m, d);
             if (tempDate.getDay()===0) {
                 return tempDate.valueOf();
-            }         
+            }
         }
     } else if(count==='"last"') {
         for (var d=DaysInMonth(m, InLeapYear(t)); d>0; d--) {
@@ -624,7 +625,7 @@ function GetSundayInMonth(t, m, count){
   var year = YearFromTime(t);
   var leap = InLeapYear(t);
   var day = 0;
-  
+
   if(m >= 1) day += DaysInMonth(0, leap);
   if(m >= 2) day += DaysInMonth(1, leap);
   if(m >= 3) day += DaysInMonth(2, leap);
@@ -636,25 +637,25 @@ function GetSundayInMonth(t, m, count){
   if(m >= 9) day += DaysInMonth(8, leap);
   if(m >= 10) day += DaysInMonth(9, leap);
   if(m >= 11) day += DaysInMonth(10, leap);
-  
+
   var month_start = TimeFromYear(year)+day*msPerDay;
   var sunday = 0;
-  
+
   if(count === "last"){
-    for(var last_sunday = month_start+DaysInMonth(m, leap)*msPerDay; 
+    for(var last_sunday = month_start+DaysInMonth(m, leap)*msPerDay;
       WeekDay(last_sunday)>0;
       last_sunday -= msPerDay
     ){};
     sunday = last_sunday;
   }
   else {
-    for(var first_sunday = month_start; 
+    for(var first_sunday = month_start;
       WeekDay(first_sunday)>0;
       first_sunday += msPerDay
     ){};
     sunday = first_sunday+7*msPerDay*(count-1);
   }
-  
+
   return sunday;
 }*/
 
@@ -662,11 +663,11 @@ function DaylightSavingTA(t) {
 //  t = t-LocalTZA;
 
   var DST_start = GetSundayInMonth(t, $DST_start_month, $DST_start_sunday) +
-                  $DST_start_hour*msPerHour + 
+                  $DST_start_hour*msPerHour +
                   $DST_start_minutes*msPerMinute;
-                  
+
   var k = new Date(DST_start);
-  
+
   var DST_end   = GetSundayInMonth(t, $DST_end_month, $DST_end_sunday) +
                   $DST_end_hour*msPerHour +
                   $DST_end_minutes*msPerMinute;
@@ -770,7 +771,7 @@ function MakeDate( day, time ) {
   if(!isFinite(day) || !isFinite(time)) {
     return Number.NaN;
   }
-  
+
   return day*msPerDay+time;
 }
 
@@ -803,20 +804,20 @@ function ConstructDate(year, month, date, hours, minutes, seconds, ms){
   var r1 = Number(year);
   var r2 = Number(month);
   var r3 = ((date && arguments.length > 2) ? Number(date) : 1);
-  var r4 = ((hours && arguments.length > 3) ? Number(hours) : 0);   
-  var r5 = ((minutes && arguments.length > 4) ? Number(minutes) : 0);   
-  var r6 = ((seconds && arguments.length > 5) ? Number(seconds) : 0);   
+  var r4 = ((hours && arguments.length > 3) ? Number(hours) : 0);
+  var r5 = ((minutes && arguments.length > 4) ? Number(minutes) : 0);
+  var r6 = ((seconds && arguments.length > 5) ? Number(seconds) : 0);
   var r7 = ((ms && arguments.length > 6) ? Number(ms) : 0);
-  
+
   var r8 = r1;
-  
+
   if(!isNaN(r1) && (0 <= ToInteger(r1)) && (ToInteger(r1) <= 99))
     r8 = 1900+r1;
-  
+
   var r9 = MakeDay(r8, r2, r3);
   var r10 = MakeTime(r4, r5, r6, r7);
   var r11 = MakeDate(r9, r10);
-  
+
   return TimeClip(UTC(r11));
 }
 
@@ -905,6 +906,6 @@ return attribs
 //--Test case registration-----------------------------------------------------
 function runTestCase(testcase) {
     if (testcase() !== true) {
-        $ERROR("Test case returned non-true value!")
+        $ERROR("Test case returned non-true value!");
     }
 }
