@@ -4,7 +4,7 @@
 /**
  * Operator +x uses [[Default Value]]
  *
- * @path 11_Expressions/11.4_Unary_Operators/11.4.6_Unary_plus_Operator/S11.4.6_A2.2_T1.js
+ * @path ch11/11.4/11.4.6/S11.4.6_A2.2_T1.js
  * @description If Type(value) is Object, evaluate ToPrimitive(value, Number)
  */
 

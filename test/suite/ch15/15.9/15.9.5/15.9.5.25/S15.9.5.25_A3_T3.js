@@ -4,7 +4,7 @@
 /**
  * The Date.prototype.getUTCMilliseconds property "length" has { ReadOnly, DontDelete, DontEnum } attributes
  *
- * @path 15_Native/15.9_Date_Objects/15.9.5_Properties_of_the_Date_Prototype_Object/15.9.5.25_Date.prototype.getUTCMilliseconds/S15.9.5.25_A3_T3.js
+ * @path ch15/15.9/15.9.5/15.9.5.25/S15.9.5.25_A3_T3.js
  * @description Checking DontEnum attribute
  */
 

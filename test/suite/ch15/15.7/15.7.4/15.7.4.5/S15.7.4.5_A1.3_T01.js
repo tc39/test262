@@ -4,7 +4,7 @@
 /**
  * Step 4: If this number value is NaN, return the string "NaN"
  *
- * @path 15_Native/15.7_Number_Objects/15.7.4_Properties_of_the_Number_Prototype_Object/15.7.4.5_Number.prototype.toFixed/S15.7.4.5_A1.3_T01.js
+ * @path ch15/15.7/15.7.4/15.7.4.5/S15.7.4.5_A1.3_T01.js
  * @description NaN is computed by new Number("string")
  */
 

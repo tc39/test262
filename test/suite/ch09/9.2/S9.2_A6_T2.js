@@ -4,7 +4,7 @@
 /**
  * Result of boolean conversion from object is true
  *
- * @path 09_Type_Conversion/9.2_ToBoolean/S9.2_A6_T2.js
+ * @path ch09/9.2/S9.2_A6_T2.js
  * @description Different objects convert to Boolean by implicit transformation
  */
 

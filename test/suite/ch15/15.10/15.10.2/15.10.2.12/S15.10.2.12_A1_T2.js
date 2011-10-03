@@ -5,7 +5,7 @@
  * The production CharacterClassEscape :: s evaluates by returning the set of characters
  * containing the characters that are on the right-hand side of the WhiteSpace (7.2) or LineTerminator (7.3) productions
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.12_CharacterClassEscape/S15.10.2.12_A1_T2.js
+ * @path ch15/15.10/15.10.2/15.10.2.12/S15.10.2.12_A1_T2.js
  * @description LineTerminator
  */
 

@@ -4,7 +4,7 @@
 /**
  * String.prototype.match (regexp)
  *
- * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.10_String.prototype.match/S15.5.4.10_A1_T5.js
+ * @path ch15/15.5/15.5.4/15.5.4.10/S15.5.4.10_A1_T5.js
  * @description Call match (regexp) function with null argument of function object
  */
 

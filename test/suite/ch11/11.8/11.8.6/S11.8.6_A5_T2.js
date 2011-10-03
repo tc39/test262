@@ -4,7 +4,7 @@
 /**
  * TypeError is subclass of Error from instanceof operator point of view
  *
- * @path 11_Expressions/11.8_Relational_Operators/11.8.6_The_instanceof_operator/S11.8.6_A5_T2.js
+ * @path ch11/11.8/11.8.6/S11.8.6_A5_T2.js
  * @description Checking TypeError case
  */
 

@@ -4,7 +4,7 @@
 /**
  * Line Terminators between operators are allowed
  *
- * @path 07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A7_T2.js
+ * @path ch07/7.3/S7.3_A7_T2.js
  * @description Insert Line Terminator in var x=y-z
  */
 

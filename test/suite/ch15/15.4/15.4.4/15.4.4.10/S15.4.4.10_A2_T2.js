@@ -5,7 +5,7 @@
  * The slice function is intentionally generic.
  * It does not require that its this value be an Array object
  *
- * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.10_Array_prototype_slice/S15.4.4.10_A2_T2.js
+ * @path ch15/15.4/15.4.4/15.4.4.10/S15.4.4.10_A2_T2.js
  * @description If start is negative, use max(start + length, 0).
  * If end is positive, use min(end, length)
  */

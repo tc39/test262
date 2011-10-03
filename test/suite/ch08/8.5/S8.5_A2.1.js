@@ -4,7 +4,7 @@
 /**
  * Number type represented as the double precision 64-bit format IEEE 754
  *
- * @path 08_Types/8.5_The_Number_Type/S8.5_A2.1.js
+ * @path ch08/8.5/S8.5_A2.1.js
  * @description Use 2^53 + 2 number and do some operation with it
  */
 

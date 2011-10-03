@@ -4,7 +4,7 @@
 /**
  * Operator x >>> y uses ToUint32(ShiftExpression)
  *
- * @path 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.3_The_Unsigned_Right_Shift_Operator/S11.7.3_A5.1_T1.js
+ * @path ch11/11.7/11.7.3/S11.7.3_A5.1_T1.js
  * @description Checking boundary points
  */
 

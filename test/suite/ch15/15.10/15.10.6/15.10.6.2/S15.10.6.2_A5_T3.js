@@ -6,7 +6,7 @@
  * Let global is true and let I = If ToInteger(lastIndex).
  * Then if I<0 orI>length then set lastIndex to 0 and return null
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.6_Properties_of_the_RegExp_Prototype_Object/15.10.6.2_RegExp.prototype.exec/S15.10.6.2_A5_T3.js
+ * @path ch15/15.10/15.10.6/15.10.6.2/S15.10.6.2_A5_T3.js
  * @description Set lastIndex to -1 and call /(?:ab|cd)\d?/g.exec("aacd22 ")
  */
 

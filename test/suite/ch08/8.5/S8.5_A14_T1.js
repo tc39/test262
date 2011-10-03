@@ -4,7 +4,7 @@
 /**
  * When number absolute value is bigger of 2**1024 should convert to Infinity
  *
- * @path 08_Types/8.5_The_Number_Type/S8.5_A14_T1.js
+ * @path ch08/8.5/S8.5_A14_T1.js
  * @description Create number bigger of 2**1024
  */
 

@@ -4,7 +4,7 @@
 /**
  * The PropertyName is not BooleanLiteral
  *
- * @path 11_Expressions/11.1_Primary_Expressions/11.1.5_Object_Initializer/S11.1.5_A4.1.js
+ * @path ch11/11.1/11.1.5/S11.1.5_A4.1.js
  * @description Checking if execution of "var object = {true : 1}" fails
  * @negative
  */

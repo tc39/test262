@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * @path 10_Execution_Contexts/10.4_Establishing_An_Execution_Context/10.4.3_Entering_Function_Code/S10.4.3_A1.js
+ * @path ch10/10.4/10.4.3/S10.4.3_A1.js
  * @description When calling a strict anonymous function as a
  * function, "this" should be bound to undefined.
  * @onlyStrict

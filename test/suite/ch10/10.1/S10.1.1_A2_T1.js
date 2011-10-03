@@ -5,7 +5,7 @@
  * There are two types of Function objects. Internal functions
  * are built-in objects of the language, such as parseInt and Math.exp
  *
- * @path 10_Execution_Contexts/10.1_Types_of_Executable_Code/S10.1.1_A2_T1.js
+ * @path ch10/10.1/S10.1.1_A2_T1.js
  * @description Checking types of parseInt and Math.exp
  */
 

@@ -4,7 +4,7 @@
 /**
  * match returns array as specified in 15.10.6.2
  *
- * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.10_String.prototype.match/S15.5.4.10_A2_T12.js
+ * @path ch15/15.5/15.5.4/15.5.4.10/S15.5.4.10_A2_T12.js
  * @description Regular expression is variable that have value /([\d]{5})([-\ ]?[\d]{4})?$/g
  */
 

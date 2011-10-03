@@ -4,7 +4,7 @@
 /**
  * If ToBoolean(x) is true, return y
  *
- * @path 11_Expressions/11.12_Conditional_Operator/S11.12_A4_T4.js
+ * @path ch11/11.12/S11.12_A4_T4.js
  * @description Type(x) or Type(y) is changed between null and undefined
  */
 

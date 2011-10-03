@@ -4,7 +4,7 @@
 /**
  * If thisArg is not null(defined) the called function is passed ToObject(thisArg) as the this value
  *
- * @path 15_Native/15.3_Function_Objects/15.3.4_Properties_of_the_Function_Prototype_Object/15.3.4.3_Function.prototype.apply/S15.3.4.3_A5_T7.js
+ * @path ch15/15.3/15.3.4/15.3.4.3/S15.3.4.3_A5_T7.js
  * @description thisArg is new Number()
  */
 

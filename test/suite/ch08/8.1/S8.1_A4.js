@@ -4,7 +4,7 @@
 /**
  * If property of object not exist, return undefined
  *
- * @path 08_Types/8.1_The_Undefined_Type/S8.1_A4.js
+ * @path ch08/8.1/S8.1_A4.js
  * @description Check value of not existed property
  */
 

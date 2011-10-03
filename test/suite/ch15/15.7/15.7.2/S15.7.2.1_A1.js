@@ -5,7 +5,7 @@
  * When Number is called as part of a new expression it is
  * a constructor: it initialises the newly created object
  *
- * @path 15_Native/15.7_Number_Objects/15.7.2_The_Number_Constructor/S15.7.2.1_A1.js
+ * @path ch15/15.7/15.7.2/S15.7.2.1_A1.js
  * @description Checking type of the newly created object and it value
  */
 

@@ -4,7 +4,7 @@
 /**
  * The initial value of NaN is NaN
  *
- * @path 15_Native/15.1_The_Global_Object/15.1.1_Value_Properties_of_the_Global_Object/15.1.1.1_NaN/S15.1.1.1_A1.js
+ * @path ch15/15.1/15.1.1/15.1.1.1/S15.1.1.1_A1.js
  * @description Use typeof, isNaN, isFinite
  */
 

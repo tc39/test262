@@ -4,7 +4,7 @@
 /**
  * The [[Prototype]] property of the newly constructed object is set to the original String prototype object
  *
- * @path 15_Native/15.5_String_Objects/15.5.2_The_String_Constructor/S15.5.2.1_A2_T2.js
+ * @path ch15/15.5/15.5.2/S15.5.2.1_A2_T2.js
  * @description Creating string object with "new String(string)" adding custom property
  */
 

@@ -4,7 +4,7 @@
 /**
  * Operator ~x returns ~ToInt32(x)
  *
- * @path 11_Expressions/11.4_Unary_Operators/11.4.8_Bitwise_NOT_Operator/S11.4.8_A3_T1.js
+ * @path ch11/11.4/11.4.8/S11.4.8_A3_T1.js
  * @description Type(x) is boolean primitive or Boolean object
  */
 

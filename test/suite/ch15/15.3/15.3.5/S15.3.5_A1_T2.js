@@ -4,7 +4,7 @@
 /**
  * The value of the [[Class]] property is "Function"
  *
- * @path 15_Native/15.3_Function_Objects/15.3.5_Properties_of_Function_Instances/S15.3.5_A1_T2.js
+ * @path ch15/15.3/15.3.5/S15.3.5_A1_T2.js
  * @description For testing use variable f = Function()
  */
 

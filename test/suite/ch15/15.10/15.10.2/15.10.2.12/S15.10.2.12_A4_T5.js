@@ -5,7 +5,7 @@
  * The production CharacterClassEscape :: W evaluates by returning the set of all characters not
  * included in the set returned by CharacterClassEscape :: w
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.12_CharacterClassEscape/S15.10.2.12_A4_T5.js
+ * @path ch15/15.10/15.10.2/15.10.2.12/S15.10.2.12_A4_T5.js
  * @description non-w
  */
 

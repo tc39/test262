@@ -4,7 +4,7 @@
 /**
  * Operator x >> y uses GetValue
  *
- * @path 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.2_The_Sign_Left_shift_Operator/S11.7.2_A2.1_T1.js
+ * @path ch11/11.7/11.7.2/S11.7.2_A2.1_T1.js
  * @description Either Type is not Reference or GetBase is not null
  */
 

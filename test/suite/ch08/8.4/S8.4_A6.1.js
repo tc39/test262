@@ -4,7 +4,7 @@
 /**
  * Large string 4096 bytes
  *
- * @path 08_Types/8.4_The_String_Type/S8.4_A6.1.js
+ * @path ch08/8.4/S8.4_A6.1.js
  * @description Assign variable by large string
  */
 

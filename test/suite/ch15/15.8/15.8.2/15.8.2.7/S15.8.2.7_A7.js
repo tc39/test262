@@ -4,7 +4,7 @@
 /**
  * Math.cos it is recommended that implementations use the approximation algorithms for IEEE 754 arithmetic contained in fdlibm
  *
- * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.7_cos/S15.8.2.7_A7.js
+ * @path ch15/15.8/15.8.2/15.8.2.7/S15.8.2.7_A7.js
  * @description Checking if Math.cos is approximately equals to its mathematical values on the set of 64 argument values; all the sample values is calculated with LibC
  */
 

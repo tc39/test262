@@ -4,7 +4,7 @@
 /**
  * The length property of splice is 2
  *
- * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.12_Array_prototype_splice/S15.4.4.12_A5.4.js
+ * @path ch15/15.4/15.4.4/15.4.4.12/S15.4.4.12_A5.4.js
  * @description splice.length === 1
  */
 

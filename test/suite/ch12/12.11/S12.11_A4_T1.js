@@ -4,7 +4,7 @@
 /**
  * Embedded syntax constructions of switch statement
  *
- * @path 12_Statement/12.11_The_switch_Statement/S12.11_A4_T1.js
+ * @path ch12/12.11/S12.11_A4_T1.js
  * @description Nesting one "switch" statement into StatementList of the other's
  */
 

@@ -4,7 +4,7 @@
 /**
  * The length property of isFinite has the attribute DontDelete
  *
- * @path 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.5_isFinite/S15.1.2.5_A2.2.js
+ * @path ch15/15.1/15.1.2/15.1.2.5/S15.1.2.5_A2.2.js
  * @description Checking use hasOwnProperty, delete
  * @noStrict
  */

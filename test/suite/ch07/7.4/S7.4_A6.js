@@ -4,7 +4,7 @@
 /**
  * If multi line comments csn not nest, they can contain any Unicode character
  *
- * @path 07_Lexical_Conventions/7.4_Comments/S7.4_A6.js
+ * @path ch07/7.4/S7.4_A6.js
  * @description "var"+ yy+ "xx = 1", insert instead of yy all Unicode characters
  */
 

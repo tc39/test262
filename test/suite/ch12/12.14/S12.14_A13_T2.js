@@ -4,7 +4,7 @@
 /**
  * Using "try" with "catch" or "finally" statement with a "return" statement
  *
- * @path 12_Statement/12.14_The_try_Statement/S12.14_A13_T2.js
+ * @path ch12/12.14/S12.14_A13_T2.js
  * @description Using try/finally syntax construction
  */
 

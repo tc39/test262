@@ -4,7 +4,7 @@
 /**
  * If y is -Infinity and x !== y, return false
  *
- * @path 11_Expressions/11.8_Relational_Operators/11.8.3_The_Less_than_or_equal_Operator/S11.8.3_A4.8.js
+ * @path ch11/11.8/11.8.3/S11.8.3_A4.8.js
  * @description x is number primitive
  */
 

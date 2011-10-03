@@ -4,7 +4,7 @@
 /**
  * Catching objects with try/catch/finally statement
  *
- * @path 12_Statement/12.14_The_try_Statement/S12.14_A18_T4.js
+ * @path ch12/12.14/S12.14_A18_T4.js
  * @description Catching string
  */
 

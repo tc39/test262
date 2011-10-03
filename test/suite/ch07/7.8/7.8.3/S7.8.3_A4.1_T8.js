@@ -4,7 +4,7 @@
 /**
  * DecimalLiteral :: ExponentPart is incorrect
  *
- * @path 07_Lexical_Conventions/7.8_Literals/7.8.3_Numeric_Literals/S7.8.3_A4.1_T8.js
+ * @path ch07/7.8/7.8.3/S7.8.3_A4.1_T8.js
  * @description ExponentPart :: E 0
  * @negative
  */

@@ -4,7 +4,7 @@
 /**
  * Continue inside of try-catch nested in a loop is allowed
  *
- * @path 12_Statement/12.7_The_continue_Statement/S12.7_A9_T2.js
+ * @path ch12/12.7/S12.7_A9_T2.js
  * @description Using "continue" within catch Block that is within a loop
  */
 

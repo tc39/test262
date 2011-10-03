@@ -6,7 +6,7 @@
  * is set to the original Array prototype object, the one that
  * is the initial value of Array.prototype
  *
- * @path 15_Native/15.4_Array_Objects/15.4.1_The_Array_Constructor_Called_as_a_Function/S15.4.1_A1.1_T2.js
+ * @path ch15/15.4/15.4.1/S15.4.1_A1.1_T2.js
  * @description Array.prototype.toString = Object.prototype.toString
  */
 

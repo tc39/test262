@@ -5,7 +5,7 @@
  * Returns a boolean value (not a Boolean object) computed by
  * ToBoolean(value)
  *
- * @path 15_Native/15.6_Boolean_Objects/15.6.1_The_Boolean_Constructor_Called_as_a_Function/S15.6.1.1_A1_T1.js
+ * @path ch15/15.6/15.6.1/S15.6.1.1_A1_T1.js
  * @description Used values 1, new String("1"), new Object(1) and called without argument
  */
 

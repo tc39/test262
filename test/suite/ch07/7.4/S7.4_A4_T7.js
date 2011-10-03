@@ -4,7 +4,7 @@
 /**
  * Single and Multi line comments are used together
  *
- * @path 07_Lexical_Conventions/7.4_Comments/S7.4_A4_T7.js
+ * @path ch07/7.4/S7.4_A4_T7.js
  * @description Insert Multi line comment into Single line comments
  */
 

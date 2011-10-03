@@ -4,7 +4,7 @@
 /**
  * If string.charAt(k) in [0xD800 - 0xDBFF] and string.charAt(k+1) in [0xDC00 � 0xDFFF], return 4 octets (000wwwxx xxxxyyyy yyzzzzzz -> 11110www 10xxxxxx 10yyyyyy 10zzzzzz)
  *
- * @path 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.3_encodeURI/S15.1.3.3_A2.4_T2.js
+ * @path ch15/15.1/15.1.3/15.1.3.3/S15.1.3.3_A2.4_T2.js
  * @description Complex tests, use RFC 3629, string.charAt(k) in [0xD800, 0xDBFF, 0xD9FF]
  */
 

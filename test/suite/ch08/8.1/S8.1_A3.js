@@ -4,7 +4,7 @@
 /**
  * undefined is now non-writable in es5
  *
- * @path 08_Types/8.1_The_Undefined_Type/S8.1_A3.js
+ * @path ch08/8.1/S8.1_A3.js
  * @description "undefined=1" should throw a TypeError
  */
 

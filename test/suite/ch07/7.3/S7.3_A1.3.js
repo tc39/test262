@@ -4,7 +4,7 @@
 /**
  * LINE SEPARATOR (U+2028) may occur between any two tokens
  *
- * @path 07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A1.3.js
+ * @path ch07/7.3/S7.3_A1.3.js
  * @description Insert LINE SEPARATOR (\u2028) between tokens of var x=1
  */
 

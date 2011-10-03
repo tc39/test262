@@ -4,7 +4,7 @@
 /**
  * If x is NaN, operator -x returns NaN
  *
- * @path 11_Expressions/11.4_Unary_Operators/11.4.7_Unary_minus_Operator/S11.4.7_A4.1.js
+ * @path ch11/11.4/11.4.7/S11.4.7_A4.1.js
  * @description Checking NaN
  */
 

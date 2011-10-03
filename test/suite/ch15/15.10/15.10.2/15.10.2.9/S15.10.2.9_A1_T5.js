@@ -4,7 +4,7 @@
 /**
  * An escape sequence of the form \ followed by a nonzero decimal number n matches the result of the nth set of capturing parentheses (see 15.10.2.11)
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.9_AtomEscape/S15.10.2.9_A1_T5.js
+ * @path ch15/15.10/15.10.2/15.10.2.9/S15.10.2.9_A1_T5.js
  * @description Execute /(a*)b\1+/.exec("baaac") and check results
  */
 

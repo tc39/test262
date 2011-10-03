@@ -4,7 +4,7 @@
 /**
  * Single line comment can contain VERTICAL TAB (U+000B)
  *
- * @path 07_Lexical_Conventions/7.2_White_Space/S7.2_A3.2_T2.js
+ * @path ch07/7.2/S7.2_A3.2_T2.js
  * @description Use real VERTICAL TAB
  */
 

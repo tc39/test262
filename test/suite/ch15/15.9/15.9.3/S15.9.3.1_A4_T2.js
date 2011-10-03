@@ -12,7 +12,7 @@
  * 6. If seconds is supplied use ToNumber(seconds)
  * 7. If ms is supplied use ToNumber(ms)
  *
- * @path 15_Native/15.9_Date_Objects/15.9.3_The_Date_Constructor/S15.9.3.1_A4_T2.js
+ * @path ch15/15.9/15.9.3/S15.9.3.1_A4_T2.js
  * @description 3 arguments, (year, month, date)
  */
 

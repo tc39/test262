@@ -5,7 +5,7 @@
  * RegularExpressionChar :: NonTerminator but not \ or /,
  * RegularExpressionFlags :: [empty]
  *
- * @path 07_Lexical_Conventions/7.8_Literals/7.8.5_Regular_Expression_Literals/S7.8.5_A2.1_T2.js
+ * @path ch07/7.8/7.8.5/S7.8.5_A2.1_T2.js
  * @description Complex test with eval, using syntax pattern
  */
 

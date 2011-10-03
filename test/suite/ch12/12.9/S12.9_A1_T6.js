@@ -4,7 +4,7 @@
 /**
  * Appearing of "return" without a function body leads to syntax error
  *
- * @path 12_Statement/12.9_The_return_Statement/S12.9_A1_T6.js
+ * @path ch12/12.9/S12.9_A1_T6.js
  * @description Checking if execution of "return" with no function, placed into a loop, fails
  * @negative
  */

@@ -4,7 +4,7 @@
 /**
  * Since we deal with max(ToInteger(pos), 0) if ToInteger(pos) less than 0 indexOf(searchString,0) returns
  *
- * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.7_String.prototype.indexOf/S15.5.4.7_A3_T3.js
+ * @path ch15/15.5/15.5.4/15.5.4.7/S15.5.4.7_A3_T3.js
  * @description Call "$$abcdabcd".indexOf("ab",function(){return -Infinity;}()) and check result
  */
 

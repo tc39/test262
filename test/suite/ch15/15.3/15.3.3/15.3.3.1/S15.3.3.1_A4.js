@@ -6,7 +6,7 @@
  * as seen by normal object operations might deviate from the value
  * as seem by Object.getOwnPropertyDescriptor
  *
- * @path 15_Native/15.3_Function_Objects/15.3.3_Properties_of_the_Function_Constructor/15.3.3.1_Function.prototype/S15.3.3.1_A4.js
+ * @path ch15/15.3/15.3.3/15.3.3.1/S15.3.3.1_A4.js
  * @description Checks if reading a function's .prototype directly
  * agrees with reading it via Object.getOwnPropertyDescriptor, after
  * having set it by Object.defineProperty.

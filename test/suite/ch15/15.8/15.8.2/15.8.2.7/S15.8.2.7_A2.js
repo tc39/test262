@@ -4,7 +4,7 @@
 /**
  * If x is +0, Math.cos(x) is 1
  *
- * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.7_cos/S15.8.2.7_A2.js
+ * @path ch15/15.8/15.8.2/15.8.2.7/S15.8.2.7_A2.js
  * @description Checking if Math.cos(+0) is 1
  */
 

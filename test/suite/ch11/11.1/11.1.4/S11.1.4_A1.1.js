@@ -4,7 +4,7 @@
 /**
  * Evaluate the production ArrayLiteral: [ ]
  *
- * @path 11_Expressions/11.1_Primary_Expressions/11.1.4_Array_Initialiser/S11.1.4_A1.1.js
+ * @path ch11/11.1/11.1.4/S11.1.4_A1.1.js
  * @description Checking various properties of the array defined with expression "var array = []"
  */
 

@@ -4,7 +4,7 @@
 /**
  * If Type(Primitive(x)) is not String or Type(Primitive(y)) is not String, then operator x > y returns ToNumber(x) > ToNumber(y)
  *
- * @path 11_Expressions/11.8_Relational_Operators/11.8.2_The_Greater_than_Operator/S11.8.2_A3.1_T2.2.js
+ * @path ch11/11.8/11.8.2/S11.8.2_A3.1_T2.2.js
  * @description Type(Primitive(x)) is different from Type(Primitive(y)) and both types vary between Number (primitive or object) and String (primitive and object)
  */
 

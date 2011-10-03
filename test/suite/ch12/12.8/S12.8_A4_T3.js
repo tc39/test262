@@ -4,7 +4,7 @@
 /**
  * When "break Identifier" is evaluated, (break, empty, Identifier) is returned
  *
- * @path 12_Statement/12.8_The_break_Statement/S12.8_A4_T3.js
+ * @path ch12/12.8/S12.8_A4_T3.js
  * @description Using embedded and labeled loops, breaking to outer loop
  */
 

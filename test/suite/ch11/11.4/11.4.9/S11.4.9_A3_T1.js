@@ -4,7 +4,7 @@
 /**
  * Operator !x returns !ToBoolean(x)
  *
- * @path 11_Expressions/11.4_Unary_Operators/11.4.9_Logical_NOT_Operator/S11.4.9_A3_T1.js
+ * @path ch11/11.4/11.4.9/S11.4.9_A3_T1.js
  * @description Type(x) is boolean primitive or Boolean object
  */
 

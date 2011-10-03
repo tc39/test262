@@ -5,7 +5,7 @@
  * Number instances have no special properties beyond those
  * inherited from the Number prototype object
  *
- * @path 15_Native/15.7_Number_Objects/15.7.5_Properties_of_Number_Instances/S15.7.5_A1_T07.js
+ * @path ch15/15.7/15.7.5/S15.7.5_A1_T07.js
  * @description Checking property toPrecision
  */
 

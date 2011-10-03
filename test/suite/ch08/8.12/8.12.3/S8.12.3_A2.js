@@ -4,7 +4,7 @@
 /**
  * [[Get]](P) method should return undefined when property P does not exist both in instance and prototype
  *
- * @path 08_Types/8.6_The_Object_Type/8.6.2_Internal_Properties_and_Methods/S8.6.2.1_A2.js
+ * @path ch08/8.12/8.12.3/S8.12.3_A2.js
  * @description Try to get P when property P does not exist both in instance and prototype
  */
 

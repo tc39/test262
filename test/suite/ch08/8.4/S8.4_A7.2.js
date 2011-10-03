@@ -4,7 +4,7 @@
 /**
  * <CR> between chunks of one string not allowed
  *
- * @path 08_Types/8.4_The_String_Type/S8.4_A7.2.js
+ * @path ch08/8.4/S8.4_A7.2.js
  * @description Insert <CR> between chunks of one string
  * @negative
  */

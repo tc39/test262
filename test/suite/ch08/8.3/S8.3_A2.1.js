@@ -4,7 +4,7 @@
 /**
  * The true is reserved word
  *
- * @path 08_Types/8.3_The_Boolean_Type/S8.3_A2.1.js
+ * @path ch08/8.3/S8.3_A2.1.js
  * @description Checking if execution of "true=1" fails
  * @negative
  */

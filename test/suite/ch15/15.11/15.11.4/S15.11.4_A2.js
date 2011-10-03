@@ -4,7 +4,7 @@
 /**
  * The value of the internal [[Class]] property of Error prototype object is "Error"
  *
- * @path 15_Native/15.11_Error_Objects/15.11.4_Properties_of_the_Error_Prototype_Object/S15.11.4_A2.js
+ * @path ch15/15.11/15.11.4/S15.11.4_A2.js
  * @description Getting the value of the internal [[Class]] property using Error.prototype.toString() function
  */
 

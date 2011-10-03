@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * @path 08_Types/8.6_The_Object_Type/8.6.2_Internal_Properties_and_Methods/S8.6.2_A8.js
+ * @path ch08/8.6/8.6.2/S8.6.2_A8.js
  * @description It should not be possible to change the [[Prototype]]
  * of a non-extensible object
  */

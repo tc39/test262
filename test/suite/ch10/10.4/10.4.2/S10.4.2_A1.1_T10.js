@@ -5,7 +5,7 @@
  * The scope chain is initialised to contain the same objects,
  * in the same order, as the calling context's scope chain
  *
- * @path 10_Execution_Contexts/10.4_Establishing_An_Execution_Context/10.4.2_Eval_Code/S10.2.2_A1.1_T10.js
+ * @path ch10/10.4/10.4.2/S10.4.2_A1.1_T10.js
  * @description eval within global execution context
  */
 

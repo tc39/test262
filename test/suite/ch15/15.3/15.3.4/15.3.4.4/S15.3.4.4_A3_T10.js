@@ -4,7 +4,7 @@
 /**
  * If thisArg is null or undefined, the called function is passed the global object as the this value
  *
- * @path 15_Native/15.3_Function_Objects/15.3.4_Properties_of_the_Function_Prototype_Object/15.3.4.4_Function.prototype.call/S15.3.4.4_A3_T10.js
+ * @path ch15/15.3/15.3.4/15.3.4.4/S15.3.4.4_A3_T10.js
  * @description Checking by using eval, no any arguments at call function
  */
 

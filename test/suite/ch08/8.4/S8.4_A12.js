@@ -4,7 +4,7 @@
 /**
  * Assignment to string literal calls String constructor
  *
- * @path 08_Types/8.4_The_String_Type/S8.4_A12.js
+ * @path ch08/8.4/S8.4_A12.js
  * @description Check constructor of simple assigned variable
  */
 

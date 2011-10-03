@@ -4,7 +4,7 @@
 /**
  * let P be ToString(pattern) and let F be ToString(flags)
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.4_The_RegExp_Constructor/S15.10.4.1_A8_T11.js
+ * @path ch15/15.10/15.10.4/S15.10.4.1_A8_T11.js
  * @description Checking by using eval, pattern is Math and flags is eval("\"g\"")
  */
 

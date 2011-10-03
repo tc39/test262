@@ -5,7 +5,7 @@
  * If P is not an array index, return
  * (Create a property with name P, set its value to V and give it empty attributes)
  *
- * @path 15_Native/15.4_Array_Objects/15.4.5_Properties_of_Array_Instances/15.4.5.1_Put/S15.4.5.1_A2.1_T1.js
+ * @path ch15/15.4/15.4.5/15.4.5.1/S15.4.5.1_A2.1_T1.js
  * @description P in [4294967295, -1, true]
  */
 

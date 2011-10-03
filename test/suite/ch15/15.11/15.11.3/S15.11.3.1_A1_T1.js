@@ -4,7 +4,7 @@
 /**
  * Error.prototype property has the attributes {DontDelete}
  *
- * @path 15_Native/15.11_Error_Objects/15.11.3_Properties_of_the_Error_Constructor/S15.11.3.1_A1_T1.js
+ * @path ch15/15.11/15.11.3/S15.11.3.1_A1_T1.js
  * @description Checking if deleting the Error.prototype property fails
  */
 

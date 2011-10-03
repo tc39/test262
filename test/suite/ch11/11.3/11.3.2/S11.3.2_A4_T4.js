@@ -4,7 +4,7 @@
 /**
  * Operator x-- returns ToNumber(x)
  *
- * @path 11_Expressions/11.3_PostfixExpressions/11.3.2_Postfix_Decrement_Operator/S11.3.2_A4_T4.js
+ * @path ch11/11.3/11.3.2/S11.3.2_A4_T4.js
  * @description If Type(x) is undefined or null
  */
 

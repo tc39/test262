@@ -4,7 +4,7 @@
 /**
  * ''arguments'' variable overrides ActivationObject.arguments
  *
- * @path 13_Function_Definition/S13_A15_T2.js
+ * @path ch13/S13_A15_T2.js
  * @description Overriding arguments within functions body
  */
 

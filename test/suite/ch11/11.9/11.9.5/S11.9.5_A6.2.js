@@ -4,7 +4,7 @@
 /**
  * If Type(x) and Type(y) are Null-s, return false
  *
- * @path 11_Expressions/11.9_Equality_Operators/11.9.5_The_Strict_Does_not_equals_Operator/S11.9.5_A6.2.js
+ * @path ch11/11.9/11.9.5/S11.9.5_A6.2.js
  * @description null === null
  */
 

@@ -4,7 +4,7 @@
 /**
  * White Space and Line Terminator between EqualityExpression and "===" or between "===" and RelationalExpression are allowed
  *
- * @path 11_Expressions/11.9_Equality_Operators/11.9.4_The_Strict_Equals_Operator/S11.9.4_A1.js
+ * @path ch11/11.9/11.9.4/S11.9.4_A1.js
  * @description Checking by using eval
  */
 

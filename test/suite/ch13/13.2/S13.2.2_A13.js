@@ -4,7 +4,7 @@
 /**
  * Calling a function as a constructor is inadmissible as long as this.any_Function is declared by eval and called
  *
- * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A13.js
+ * @path ch13/13.2/S13.2.2_A13.js
  * @description Calling a function as a constructor after it has been declared by eval
  */
 

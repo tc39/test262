@@ -4,7 +4,7 @@
 /**
  * Single line comments can contain Line Terminator at the end of line
  *
- * @path 07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A4_T3.js
+ * @path ch07/7.3/S7.3_A4_T3.js
  * @description Insert LINE SEPARATOR (U+2028) into the end of single line comment
  */
 

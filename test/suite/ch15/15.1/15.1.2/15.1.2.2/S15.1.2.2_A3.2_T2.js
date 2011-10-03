@@ -4,7 +4,7 @@
 /**
  * Operator use ToInt32
  *
- * @path 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.2_parseInt/S15.1.2.2_A3.2_T2.js
+ * @path ch15/15.1/15.1.2/15.1.2.2/S15.1.2.2_A3.2_T2.js
  * @description ToInt32 use floor
  */
 

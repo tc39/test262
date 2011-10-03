@@ -4,7 +4,7 @@
 /**
  * CharacterEscape :: HexEscapeSequence :: x HexDigit HexDigit
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.10_CharacterEscape/S15.10.2.10_A3.1_T2.js
+ * @path ch15/15.10/15.10.2/15.10.2.10/S15.10.2.10_A3.1_T2.js
  * @description Checking ENGLISH CAPITAL ALPHABET and english small alphabet
  */
 

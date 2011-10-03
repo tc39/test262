@@ -4,7 +4,7 @@
 /**
  * When the [[HasProperty]] method of O is called with property name P and if O has a property with name P, return true
  *
- * @path 08_Types/8.6_The_Object_Type/8.6.2_Internal_Properties_and_Methods/S8.6.2.4_A1.js
+ * @path ch08/8.12/8.12.6/S8.12.6_A1.js
  * @description Try find existent property of any Object
  */
 

@@ -4,7 +4,7 @@
 /**
  * The production QuantifierPrefix :: { DecimalDigits , DecimalDigits } evaluates as ...
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.7_Quantifier/S15.10.2.7_A1_T6.js
+ * @path ch15/15.10/15.10.2/15.10.2.7/S15.10.2.7_A1_T6.js
  * @description Execute /\d{2,4}/.exec("0a0\u0031\u0031b") and check results
  */
 

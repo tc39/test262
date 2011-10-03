@@ -4,7 +4,7 @@
 /**
  * Arguments : (ArgumentList : ArgumentList, AssignmentExpression)
  *
- * @path 11_Expressions/11.2_Left_Hand_Side_Expressions/11.2.4_Argument_Lists/S11.2.4_A1.4_T4.js
+ * @path ch11/11.2/11.2.4/S11.2.4_A1.4_T4.js
  * @description Return an internal list whose length is one greater than the
  * length of ArgumentList and whose items are the items of ArgumentList, in order,
  * followed at the end by GetValue(AssignmentExpression), which is the last item of

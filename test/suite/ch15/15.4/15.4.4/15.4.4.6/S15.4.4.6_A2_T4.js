@@ -5,7 +5,7 @@
  * The pop function is intentionally generic.
  * It does not require that its this value be an Array object
  *
- * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.6_Array_prototype_pop/S15.4.4.6_A2_T4.js
+ * @path ch15/15.4/15.4.4/15.4.4.6/S15.4.4.6_A2_T4.js
  * @description Operator use ToNumber from length.
  * If Type(value) is Object, evaluate ToPrimitive(value, Number)
  */

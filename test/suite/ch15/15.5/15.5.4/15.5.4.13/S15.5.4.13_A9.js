@@ -4,7 +4,7 @@
 /**
  * The String.prototype.slice.length property has the attribute DontDelete
  *
- * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.13_String.prototype.slice/S15.5.4.13_A9.js
+ * @path ch15/15.5/15.5.4/15.5.4.13/S15.5.4.13_A9.js
  * @description Checking if deleting the String.prototype.slice.length property fails
  */
 

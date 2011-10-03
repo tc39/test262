@@ -4,7 +4,7 @@
 /**
  * Operator x - y produces the same result as x + (-y)
  *
- * @path 11_Expressions/11.6_Additive_Operators/11.6.2_The_Subtraction_operator/S11.6.2_A4_T8.js
+ * @path ch11/11.6/11.6.2/S11.6.2_A4_T8.js
  * @description If the magnitude is too large to represent, the operation overflows and the result is then an infinity of appropriate sign
  */
 

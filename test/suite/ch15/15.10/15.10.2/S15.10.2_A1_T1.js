@@ -4,7 +4,7 @@
 /**
  * XML Shallow Parsing with Regular Expressions
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/S15.10.2_A1_T1.js
+ * @path ch15/15.10/15.10.2/S15.10.2_A1_T1.js
  * @description See bug http://bugzilla.mozilla.org/show_bug.cgi?id=103087
  */
 

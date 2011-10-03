@@ -4,7 +4,7 @@
 /**
  * The MV of HexDigit ::: b or of HexDigit ::: B is 11
  *
- * @path 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A27.js
+ * @path ch09/9.3/9.3.1/S9.3.1_A27.js
  * @description Compare Number('0xB'), Number('0XB'), Number('0xb') and Number('0Xb') with 11
  */
 

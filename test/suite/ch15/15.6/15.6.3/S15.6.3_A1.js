@@ -4,7 +4,7 @@
 /**
  * The Boolean constructor has the property "prototype"
  *
- * @path 15_Native/15.6_Boolean_Objects/15.6.3_Properties_of_the_Boolean_Constructor/S15.6.3_A1.js
+ * @path ch15/15.6/15.6.3/S15.6.3_A1.js
  * @description Checking existence of the property "prototype"
  */
 

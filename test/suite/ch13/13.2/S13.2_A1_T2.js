@@ -4,7 +4,7 @@
 /**
  * A "prototype" property is automatically created for every function
  *
- * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2_A1_T2.js
+ * @path ch13/13.2/S13.2_A1_T2.js
  * @description Using "var __func = function(){}" as a FunctionDeclaration
  */
 

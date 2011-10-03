@@ -4,7 +4,7 @@
 /**
  * When appears not closed double-quote program failes
  *
- * @path 08_Types/8.4_The_String_Type/S8.4_A14_T1.js
+ * @path ch08/8.4/S8.4_A14_T1.js
  * @description Try to create variable using 1 double-quote
  * @negative
  */

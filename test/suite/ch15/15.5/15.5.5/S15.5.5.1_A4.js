@@ -4,7 +4,7 @@
 /**
  * length property has the attributes {ReadOnly}
  *
- * @path 15_Native/15.5_String_Objects/15.5.5_Properties_of_String_Instances/S15.5.5.1_A4.js
+ * @path ch15/15.5/15.5.5/S15.5.5.1_A4.js
  * @description Checking if varying the length property of String fails
  */
 

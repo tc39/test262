@@ -4,7 +4,7 @@
 /**
  * If y<0 and x is +0, Math.atan2(y,x) is an implementation-dependent approximation to -PI/2
  *
- * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.5_atan2/S15.8.2.5_A12.js
+ * @path ch15/15.8/15.8.2/15.8.2.5/S15.8.2.5_A12.js
  * @description Checking if Math.atan2(y,+0) is an approximation to -PI/2, where y<0
  */
 

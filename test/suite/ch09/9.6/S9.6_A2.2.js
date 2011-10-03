@@ -4,7 +4,7 @@
 /**
  * Compute result modulo 2^32
  *
- * @path 09_Type_Conversion/9.6_ToUint32/S9.6_A2.2.js
+ * @path ch09/9.6/S9.6_A2.2.js
  * @description Use operator >>>0
  */
 

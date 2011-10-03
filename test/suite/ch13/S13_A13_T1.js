@@ -4,7 +4,7 @@
 /**
  * Deleting arguments[i] leads to breaking the connection to local reference
  *
- * @path 13_Function_Definition/S13_A13_T1.js
+ * @path ch13/S13_A13_T1.js
  * @description Deleting arguments[i]
  */
 

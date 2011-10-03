@@ -4,7 +4,7 @@
 /**
  * Result of applying "typeof" operator to undefined is "undefined"
  *
- * @path 11_Expressions/11.4_Unary_Operators/11.4.3_The_typeof_Operator/S11.4.3_A3.1.js
+ * @path ch11/11.4/11.4.3/S11.4.3_A3.1.js
  * @description typeof undefined === "undefined"
  */
 

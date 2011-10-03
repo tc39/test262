@@ -4,7 +4,7 @@
 /**
  * Operator uses ToNumber
  *
- * @path 09_Type_Conversion/9.5_ToInt32/S9.5_A3.1_T2.js
+ * @path ch09/9.5/S9.5_A3.1_T2.js
  * @description Type(x) is Number
  */
 

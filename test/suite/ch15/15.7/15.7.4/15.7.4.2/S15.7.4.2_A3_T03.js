@@ -4,7 +4,7 @@
 /**
  * toString: radix should be an integer between 2 and 36
  *
- * @path 15_Native/15.7_Number_Objects/15.7.4_Properties_of_the_Number_Prototype_Object/15.7.4.2_Number.prototype.toString/S15.7.4.2_A3_T03.js
+ * @path ch15/15.7/15.7.4/15.7.4.2/S15.7.4.2_A3_T03.js
  * @description radix is null value
  */
 

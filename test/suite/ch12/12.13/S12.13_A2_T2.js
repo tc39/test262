@@ -4,7 +4,7 @@
 /**
  * "throw Expression" returns (throw, GetValue(Result(1)), empty), where 1 evaluates Expression
  *
- * @path 12_Statement/12.13_The_throw_statement/S12.13_A2_T2.js
+ * @path ch12/12.13/S12.13_A2_T2.js
  * @description Throwing null
  */
 

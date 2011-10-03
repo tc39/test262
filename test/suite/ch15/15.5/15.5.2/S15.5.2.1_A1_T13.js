@@ -5,7 +5,7 @@
  * When "String" is called as part of a new expression, it is a constructor: it initialises the newly created object and
  * The [[Value]] property of the newly constructed object is set to ToString(value), or to the empty string if value is not supplied
  *
- * @path 15_Native/15.5_String_Objects/15.5.2_The_String_Constructor/S15.5.2.1_A1_T13.js
+ * @path ch15/15.5/15.5.2/S15.5.2.1_A1_T13.js
  * @description Creating string object with "new String(function object)" after changing function object's valueOf property, which causes exception throw
  */
 

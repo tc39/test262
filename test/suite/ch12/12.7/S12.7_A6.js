@@ -4,7 +4,7 @@
 /**
  * Appearing of "continue" within a function call that is within an IterationStatement yields SyntaxError
  *
- * @path 12_Statement/12.7_The_continue_Statement/S12.7_A6.js
+ * @path ch12/12.7/S12.7_A6.js
  * @description Using labaled "continue Identifier" within a function body
  * @negative
  */

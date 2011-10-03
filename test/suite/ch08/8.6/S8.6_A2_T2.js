@@ -4,7 +4,7 @@
 /**
  * Do not crash with postincrement custom property
  *
- * @path 08_Types/8.6_The_Object_Type/S8.6_A2_T2.js
+ * @path ch08/8.6/S8.6_A2_T2.js
  * @description Try to implement postincrement for not declared custom property
  */
 

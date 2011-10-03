@@ -6,7 +6,7 @@
  * always a nonnegative integer less than 2^32. The value of the length property is
  * numerically greater than the name of every property whose name is an array index
  *
- * @path 15_Native/15.4_Array_Objects/15.4.5_Properties_of_Array_Instances/15.4.5.2_length/S15.4.5.2_A1_T1.js
+ * @path ch15/15.4/15.4.5/15.4.5.2/S15.4.5.2_A1_T1.js
  * @description Checking boundary points
  */
 

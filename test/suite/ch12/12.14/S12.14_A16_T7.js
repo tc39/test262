@@ -4,7 +4,7 @@
 /**
  * TryStatement: "try Block Catch" or "try Block Finally" or "try Block Catch Finally"
  *
- * @path 12_Statement/12.14_The_try_Statement/S12.14_A16_T7.js
+ * @path ch12/12.14/S12.14_A16_T7.js
  * @description Block: "{ StatementList }". Checking if execution of "try{} catch(){" fails
  * @negative
  */

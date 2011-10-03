@@ -6,7 +6,7 @@
  * If global is true and lastIndex not changed manually,
  * next exec calling start to match from position where current match finished
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.6_Properties_of_the_RegExp_Prototype_Object/15.10.6.2_RegExp.prototype.exec/S15.10.6.2_A3_T7.js
+ * @path ch15/15.10/15.10.6/15.10.6.2/S15.10.6.2_A3_T7.js
  * @description RegExp is /\d+/ and tested string is "123 456 789"
  */
 

@@ -7,7 +7,7 @@
  * referenced in a replace string,
  * or returned as part of an array from the regular expression matching function
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.8_Atom/S15.10.2.8_A3_T11.js
+ * @path ch15/15.10/15.10.2/15.10.2.8/S15.10.2.8_A3_T11.js
  * @description Execute /a(..(..)..)/.exec("abcdefgh") and check results
  */
 

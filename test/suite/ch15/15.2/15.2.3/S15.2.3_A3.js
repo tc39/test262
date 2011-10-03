@@ -4,7 +4,7 @@
 /**
  * Object constructor has length property whose value is 1
  *
- * @path 15_Native/15.2_Object_Objects/15.2.3_Properties_of_the_Object_Constructor/S15.2.3_A3.js
+ * @path ch15/15.2/15.2.3/S15.2.3_A3.js
  * @description Checking Object.length
  */
 

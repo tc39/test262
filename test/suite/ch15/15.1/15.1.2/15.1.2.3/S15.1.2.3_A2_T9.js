@@ -4,7 +4,7 @@
 /**
  * Operator remove leading StrWhiteSpaceChar
  *
- * @path 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.3_parseFloat/S15.1.2.3_A2_T9.js
+ * @path ch15/15.1/15.1.2/15.1.2.3/S15.1.2.3_A2_T9.js
  * @description StrWhiteSpaceChar :: PS (U+2029)
  */
 

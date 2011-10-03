@@ -4,7 +4,7 @@
 /**
  * Operator uses floor, abs
  *
- * @path 09_Type_Conversion/9.5_ToInt32/S9.5_A3.2_T1.js
+ * @path ch09/9.5/S9.5_A3.2_T1.js
  * @description Use operator <<0
  */
 

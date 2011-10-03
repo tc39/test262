@@ -5,7 +5,7 @@
  * The value of the internal [[Prototype]] property of the Number
  * prototype object is the Object prototype object
  *
- * @path 15_Native/15.7_Number_Objects/15.7.4_Properties_of_the_Number_Prototype_Object/S15.7.4_A2.js
+ * @path ch15/15.7/15.7.4/S15.7.4_A2.js
  * @description Checking Object.prototype.isPrototypeOf(Number.prototype)
  */
 

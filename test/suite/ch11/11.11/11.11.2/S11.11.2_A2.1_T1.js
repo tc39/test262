@@ -4,7 +4,7 @@
 /**
  * Operator x || y uses GetValue
  *
- * @path 11_Expressions/11.11_Binary_Logical_Operators/11.11.2_Logical_OR_Operator/S11.11.2_A2.1_T1.js
+ * @path ch11/11.11/11.11.2/S11.11.2_A2.1_T1.js
  * @description Either Type is not Reference or GetBase is not null
  */
 

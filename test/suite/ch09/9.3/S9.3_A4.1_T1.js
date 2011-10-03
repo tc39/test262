@@ -4,7 +4,7 @@
 /**
  * Result of number conversion from number value equals to the input argument (no conversion)
  *
- * @path 09_Type_Conversion/9.3_ToNumber/S9.3_A4.1_T1.js
+ * @path ch09/9.3/S9.3_A4.1_T1.js
  * @description Some numbers including Number.MAX_VALUE and Number.MIN_VALUE are converted to Number with explicit transformation
  */
 

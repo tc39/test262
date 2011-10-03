@@ -4,7 +4,7 @@
 /**
  * Operator x > y uses GetValue
  *
- * @path 11_Expressions/11.8_Relational_Operators/11.8.2_The_Greater_than_Operator/S11.8.2_A2.1_T1.js
+ * @path ch11/11.8/11.8.2/S11.8.2_A2.1_T1.js
  * @description Either Type is not Reference or GetBase is not null
  */
 

@@ -5,7 +5,7 @@
  * The MV of StrUnsignedDecimalLiteral::: Infinity is 10<sup><small>10000</small></sup>
  * (a value so large that it will round to <b><tt>+&infin;</tt></b>)
  *
- * @path 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A6_T2.js
+ * @path ch09/9.3/9.3.1/S9.3.1_A6_T2.js
  * @description Compare Number('Infi'+'nity') with Number.POSITIVE_INFINITY, 10e10000, 10E10000 and Number("10e10000")
  */
 

@@ -4,7 +4,7 @@
 /**
  * String.prototype.slice (start, end)
  *
- * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.13_String.prototype.slice/S15.5.4.13_A1_T12.js
+ * @path ch15/15.5/15.5.4/15.5.4.13/S15.5.4.13_A1_T12.js
  * @description Arguments are objects, and instance is string.
  * First object have overrided valueOf function and toString function, that return exception.
  * Second object have overrided valueOf function, that return exception

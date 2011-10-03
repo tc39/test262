@@ -4,7 +4,7 @@
 /**
  * Operator x > y uses [[Default Value]]
  *
- * @path 11_Expressions/11.8_Relational_Operators/11.8.2_The_Greater_than_Operator/S11.8.2_A2.2_T1.js
+ * @path ch11/11.8/11.8.2/S11.8.2_A2.2_T1.js
  * @description If Type(value) is Object, evaluate ToPrimitive(value, Number)
  */
 

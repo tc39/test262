@@ -4,7 +4,7 @@
 /**
  * If value is NaN, +0, -0, +Infinity, or -Infinity, return +0
  *
- * @path 09_Type_Conversion/9.7_ToUint16/S9.7_A1.js
+ * @path ch09/9.7/S9.7_A1.js
  * @description For testing use String.fromCharCode(Number).charCodeAt(0) construction
  */
 

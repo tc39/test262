@@ -4,7 +4,7 @@
 /**
  * Operator uses ToNumber
  *
- * @path 09_Type_Conversion/9.7_ToUint16/S9.7_A3.1_T1.js
+ * @path ch09/9.7/S9.7_A3.1_T1.js
  * @description Type(x) is Boolean
  */
 

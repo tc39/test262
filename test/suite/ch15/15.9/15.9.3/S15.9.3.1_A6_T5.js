@@ -5,7 +5,7 @@
  * The [[Value]] property of the newly constructed object
  * with supplied "undefined" argument should be NaN
  *
- * @path 15_Native/15.9_Date_Objects/15.9.3_The_Date_Constructor/S15.9.3.1_A6_T5.js
+ * @path ch15/15.9/15.9.3/S15.9.3.1_A6_T5.js
  * @description 6 arguments, (year, month, date, hours, minutes, seconds)
  */
 

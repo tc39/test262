@@ -4,7 +4,7 @@
 /**
  * The length property of Array.prototype is 0
  *
- * @path 15_Native/15.4_Array_Objects/15.4.3_Properties_of_the_Array_Constructor/15.4.3.1_Array_prototype/S15.4.3.1_A5.js
+ * @path ch15/15.4/15.4.3/15.4.3.1/S15.4.3.1_A5.js
  * @description Array.prototype.length === 0
  */
 

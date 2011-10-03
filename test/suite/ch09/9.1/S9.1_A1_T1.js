@@ -4,7 +4,7 @@
 /**
  * Result of primitive conversion from object is a default value for the Object
  *
- * @path 09_Type_Conversion/9.1_ToPrimitive/S9.1_A1_T1.js
+ * @path ch09/9.1/S9.1_A1_T1.js
  * @description Using operator Number. The operator calls ToPrimitive with hint Number
  */
 

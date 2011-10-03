@@ -4,7 +4,7 @@
 /**
  * Result of number conversion from null value is +0
  *
- * @path 09_Type_Conversion/9.3_ToNumber/S9.3_A2_T1.js
+ * @path ch09/9.3/S9.3_A2_T1.js
  * @description null convert to Number by explicit transformation
  */
 

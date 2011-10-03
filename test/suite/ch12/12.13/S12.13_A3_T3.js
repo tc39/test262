@@ -4,7 +4,7 @@
 /**
  * 1. Evaluate Expression
  *
- * @path 12_Statement/12.13_The_throw_statement/S12.13_A3_T3.js
+ * @path ch12/12.13/S12.13_A3_T3.js
  * @description Evaluating number expression
  */
 

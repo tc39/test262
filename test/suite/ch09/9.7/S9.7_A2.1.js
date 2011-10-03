@@ -4,7 +4,7 @@
 /**
  * ToUint16 returns values between 0 and 2^16-1
  *
- * @path 09_Type_Conversion/9.7_ToUint16/S9.7_A2.1.js
+ * @path ch09/9.7/S9.7_A2.1.js
  * @description Converting numbers, which are in\outside of Uint16 scopes, with String.fromCharCode(Number).charCodeAt(0) construction
  */
 

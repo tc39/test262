@@ -4,7 +4,7 @@
 /**
  * Operator use ToString
  *
- * @path 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.2_parseInt/S15.1.2.2_A1_T4.js
+ * @path ch15/15.1/15.1.2/15.1.2.2/S15.1.2.2_A1_T4.js
  * @description Checking for Boolean object
  */
 

@@ -4,7 +4,7 @@
 /**
  * If y>0 and y is finite and x is equal to +Infinity, Math.atan2(y,x) is +0
  *
- * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.5_atan2/S15.8.2.5_A14.js
+ * @path ch15/15.8/15.8.2/15.8.2.5/S15.8.2.5_A14.js
  * @description Checking if Math.atan2(y,x) equals to +0, where y>0 and y is finite and x is equal to +Infinity
  */
 

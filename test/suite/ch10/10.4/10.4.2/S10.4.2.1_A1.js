@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * @path 10_Execution_Contexts/10.4_Establishing_An_Execution_Context/10.4.2_Eval_Code/S10.4.2.1_A1.js
+ * @path ch10/10.4/10.4.2/S10.4.2.1_A1.js
  * @description Strict indirect eval should not leak top level
  * declarations into the global scope
  * @onlyStrict

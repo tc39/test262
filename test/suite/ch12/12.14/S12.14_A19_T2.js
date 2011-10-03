@@ -4,7 +4,7 @@
 /**
  * Catching system exceptions of different types with try statement
  *
- * @path 12_Statement/12.14_The_try_Statement/S12.14_A19_T2.js
+ * @path ch12/12.14/S12.14_A19_T2.js
  * @description Testing try/catch/finally syntax construction
  */
 

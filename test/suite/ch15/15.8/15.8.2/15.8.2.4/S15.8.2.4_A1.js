@@ -4,7 +4,7 @@
 /**
  * If x is NaN, Math.atan(x) is NaN
  *
- * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.4_atan/S15.8.2.4_A1.js
+ * @path ch15/15.8/15.8.2/15.8.2.4/S15.8.2.4_A1.js
  * @description Checking if Math.atan(NaN) is NaN
  */
 

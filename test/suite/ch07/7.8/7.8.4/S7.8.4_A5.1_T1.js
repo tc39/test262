@@ -4,7 +4,7 @@
 /**
  * EscapeSequence :: 0
  *
- * @path 07_Lexical_Conventions/7.8_Literals/7.8.4_String_Literals/S7.8.4_A5.1_T1.js
+ * @path ch07/7.8/7.8.4/S7.8.4_A5.1_T1.js
  * @description String.fromCharCode(0x0000)
  */
 

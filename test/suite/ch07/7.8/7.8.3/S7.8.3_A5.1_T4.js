@@ -4,7 +4,7 @@
 /**
  * DecimalLiteral :: HexIntegerLiteral
  *
- * @path 07_Lexical_Conventions/7.8_Literals/7.8.3_Numeric_Literals/S7.8.3_A5.1_T4.js
+ * @path ch07/7.8/7.8.3/S7.8.3_A5.1_T4.js
  * @description HexIntegerLiteral :: 0X NonZeroDigit Digits
  */
 

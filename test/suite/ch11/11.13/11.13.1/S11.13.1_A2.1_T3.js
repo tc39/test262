@@ -4,7 +4,7 @@
 /**
  * Operator x = y uses GetValue and PutValue
  *
- * @path 11_Expressions/11.13_Assignment_Operators/11.13.1_Simple_Assignment/S11.13.1_A2.1_T3.js
+ * @path ch11/11.13/11.13.1/S11.13.1_A2.1_T3.js
  * @description If Type(LeftHandSideExpression) is not Reference, throw ReferenceError (or SyntaxError)
  * @negative
  */

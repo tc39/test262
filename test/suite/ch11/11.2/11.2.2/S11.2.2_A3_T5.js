@@ -4,7 +4,7 @@
 /**
  * If Type(NewExpression) or Type(MemberExpression) is not Object, throw TypeError
  *
- * @path 11_Expressions/11.2_Left_Hand_Side_Expressions/11.2.2_The_new_Operator/S11.2.2_A3_T5.js
+ * @path ch11/11.2/11.2.2/S11.2.2_A3_T5.js
  * @description Checking "null primitive" case
  */
 

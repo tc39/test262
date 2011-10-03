@@ -4,7 +4,7 @@
 /**
  * White Space and Line Terminator between MultiplicativeExpression and "%" or between "%" and UnaryExpression are allowed
  *
- * @path 11_Expressions/11.5_Multiplicative_Operators/11.5.3_Applying_the_percent_Operator/S11.5.3_A1.js
+ * @path ch11/11.5/11.5.3/S11.5.3_A1.js
  * @description Checking by using eval
  */
 

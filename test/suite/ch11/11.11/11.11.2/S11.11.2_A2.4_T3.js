@@ -4,7 +4,7 @@
 /**
  * First expression is evaluated first, and then second expression
  *
- * @path 11_Expressions/11.11_Binary_Logical_Operators/11.11.2_Logical_OR_Operator/S11.11.2_A2.4_T3.js
+ * @path ch11/11.11/11.11.2/S11.11.2_A2.4_T3.js
  * @description Checking with undeclarated variables
  * @noStrict
  */

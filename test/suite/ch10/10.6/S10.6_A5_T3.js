@@ -5,7 +5,7 @@
  * A property is created with name length with property
  * attributes { DontEnum } and no others
  *
- * @path 10_Execution_Contexts/10.6_Arguments_Object/S10.1.8_A5_T3.js
+ * @path ch10/10.6/S10.6_A5_T3.js
  * @description Checking if deleting arguments.length property fails
  */
 

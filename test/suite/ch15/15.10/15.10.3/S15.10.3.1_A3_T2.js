@@ -5,7 +5,7 @@
  * If pattern and flags are defined, then
  * call the RegExp constructor (15.10.4.1), passing it the pattern and flags arguments and return the object constructed by that constructor
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.3_The_RegExp_Constructor_Called_as_a_Function/S15.10.3.1_A3_T2.js
+ * @path ch15/15.10/15.10.3/S15.10.3.1_A3_T2.js
  * @description R is {toString:function(){return "[a-c]*";}} and instance is RegExp(R,"gm")
  */
 

@@ -4,7 +4,7 @@
 /**
  * In the "if" Statement empty expression is not allowed
  *
- * @path 12_Statement/12.5_The_if_Statement/S12.5_A8.js
+ * @path ch12/12.5/S12.5_A8.js
  * @description Checking if execution of "if()" fails
  * @negative
  */

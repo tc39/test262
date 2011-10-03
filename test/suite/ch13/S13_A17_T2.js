@@ -4,7 +4,7 @@
 /**
  * Function call cannot appear in the program before the FunctionExpression appears
  *
- * @path 13_Function_Definition/S13_A17_T2.js
+ * @path ch13/S13_A17_T2.js
  * @description Trying to call a function before the FunctionExpression appears and then using the FunctionExpression one more time
  */
 

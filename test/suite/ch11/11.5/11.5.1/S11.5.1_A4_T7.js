@@ -4,7 +4,7 @@
 /**
  * The result of a floating-point multiplication is governed by the rules of IEEE 754 double-precision arithmetics
  *
- * @path 11_Expressions/11.5_Multiplicative_Operators/11.5.1_Applying_the_asterisk_Operator/S11.5.1_A4_T7.js
+ * @path ch11/11.5/11.5.1/S11.5.1_A4_T7.js
  * @description If the magnitude is too small to represent, the result is then a zero of appropriate sign
  */
 

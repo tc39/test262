@@ -5,7 +5,7 @@
  * RegExp.prototype.exec(string) Performs a regular expression match of ToString(string) against the regular expression and
  * returns an Array object containing the results of the match, or null if the string did not match
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.6_Properties_of_the_RegExp_Prototype_Object/15.10.6.2_RegExp.prototype.exec/S15.10.6.2_A1_T10.js
+ * @path ch15/15.10/15.10.6/15.10.6.2/S15.10.6.2_A1_T10.js
  * @description String is 1.01 and RegExp is /1|12/
  */
 

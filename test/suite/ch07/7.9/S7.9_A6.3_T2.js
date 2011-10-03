@@ -6,7 +6,7 @@
  * If automatic insertion semicolon would become one of the two semicolons in the header of a For Statement.
  * Don`t use semicolons
  *
- * @path 07_Lexical_Conventions/7.9_Automatic_Semicolon_Insertion/S7.9_A6.3_T2.js
+ * @path ch07/7.9/S7.9_A6.3_T2.js
  * @description For header is (\n \n)
  * @negative
  */

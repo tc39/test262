@@ -5,7 +5,7 @@
  * Global object has properties such as built-in objects such as
  * Math, String, Date, parseInt, etc
  *
- * @path 10_Execution_Contexts/10.2_Lexical_Environments/10.2.3_The_Global_Environment/S10.1.5_A1.1_T3.js
+ * @path ch10/10.2/10.2.3/S10.2.3_A1.1_T3.js
  * @description Global execution context - Constructor Properties
  */
 

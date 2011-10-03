@@ -4,7 +4,7 @@
 /**
  * The "for {;;}" for Statement with empty expressions is allowed and leads to performing an infinite loop
  *
- * @path 12_Statement/12.6_Iteration_Statements/12.6.3_The_for_Statement/S12.6.3_A1.js
+ * @path ch12/12.6/12.6.3/S12.6.3_A1.js
  * @description Breaking an infinite loop by throwing exception
  */
 

@@ -4,7 +4,7 @@
 /**
  * If MemberExpression does not implement the internal [[Call]] method, throw TypeError
  *
- * @path 11_Expressions/11.2_Left_Hand_Side_Expressions/11.2.3_Function_Calls/S11.2.3_A4_T3.js
+ * @path ch11/11.2/11.2.3/S11.2.3_A4_T3.js
  * @description Checking String object case
  */
 

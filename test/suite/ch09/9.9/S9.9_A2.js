@@ -4,7 +4,7 @@
 /**
  * ToObject conversion from null value must throw TypeError
  *
- * @path 09_Type_Conversion/9.9_ToObject/S9.9_A2.js
+ * @path ch09/9.9/S9.9_A2.js
  * @description Trying to convert null to Object
  * @noStrict
  */

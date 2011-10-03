@@ -4,7 +4,7 @@
 /**
  * Operator x < y uses GetValue
  *
- * @path 11_Expressions/11.8_Relational_Operators/11.8.1_The_Less_than_Operator/S11.8.1_A2.1_T3.js
+ * @path ch11/11.8/11.8.1/S11.8.1_A2.1_T3.js
  * @description If GetBase(y) is null, throw ReferenceError
  */
 

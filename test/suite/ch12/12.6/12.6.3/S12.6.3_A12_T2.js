@@ -4,7 +4,7 @@
 /**
  * If (Evaluate Statement).type is "break" and (Evaluate Statement).target is in the current label set, (normal, (Evaluate Statement), empty) is returned while evaluating a loop
  *
- * @path 12_Statement/12.6_Iteration_Statements/12.6.3_The_for_Statement/S12.6.3_A12_T2.js
+ * @path ch12/12.6/12.6.3/S12.6.3_A12_T2.js
  * @description Embedded loops
  */
 

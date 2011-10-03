@@ -4,7 +4,7 @@
 /**
  * let P be the empty string if pattern is undefined
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.4_The_RegExp_Constructor/S15.10.4.1_A3_T5.js
+ * @path ch15/15.10/15.10.4/S15.10.4.1_A3_T5.js
  * @description RegExp is new RegExp((function(){})())
  */
 

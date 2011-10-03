@@ -4,7 +4,7 @@
 /**
  * The RegExp.prototype.toString.length property has the attribute DontDelete
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.6_Properties_of_the_RegExp_Prototype_Object/15.10.6.4_RegExp.prototype.toString/S15.10.6.4_A9.js
+ * @path ch15/15.10/15.10.6/15.10.6.4/S15.10.6.4_A9.js
  * @description Checking if deleting the RegExp.prototype.toString.length property fails
  */
 

@@ -4,7 +4,7 @@
 /**
  * An ExpressionStatement can not start with the function keyword because that might make it ambiguous with a FunctionDeclaration
  *
- * @path 12_Statement/12.4_Expression_Statement/S12.4_A1.js
+ * @path ch12/12.4/S12.4_A1.js
  * @description Checking if execution of "function(){}()" fails
  * @negative
  */

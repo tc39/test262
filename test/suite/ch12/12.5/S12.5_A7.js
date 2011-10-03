@@ -4,7 +4,7 @@
 /**
  * In the "if" statement empty statement is allowed and is evaluated to "undefined"
  *
- * @path 12_Statement/12.5_The_if_Statement/S12.5_A7.js
+ * @path ch12/12.5/S12.5_A7.js
  * @description Checking by using eval "eval("if(1);"))"
  */
 

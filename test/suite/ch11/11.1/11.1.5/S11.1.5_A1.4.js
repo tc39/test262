@@ -4,7 +4,7 @@
 /**
  * Evaluate the production ObjectLiteral: { Identifier : AssignmentExpression}
  *
- * @path 11_Expressions/11.1_Primary_Expressions/11.1.5_Object_Initializer/S11.1.5_A1.4.js
+ * @path ch11/11.1/11.1.5/S11.1.5_A1.4.js
  * @description Checking various properteis and contents of the object defined with "var object = {prop : true}"
  */
 

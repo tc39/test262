@@ -4,7 +4,7 @@
 /**
  * Operator x ? y : z uses GetValue
  *
- * @path 11_Expressions/11.12_Conditional_Operator/S11.12_A2.1_T3.js
+ * @path ch11/11.12/S11.12_A2.1_T3.js
  * @description If ToBoolean(x) is true and GetBase(y) is null, throw ReferenceError
  */
 

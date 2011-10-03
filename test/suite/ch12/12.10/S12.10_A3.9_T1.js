@@ -5,7 +5,7 @@
  * No matter how control leaves the embedded 'Statement',
  * the scope chain is always restored to its former state
  *
- * @path 12_Statement/12.10_The_with_Statement/S12.10_A3.9_T1.js
+ * @path ch12/12.10/S12.10_A3.9_T1.js
  * @description Using "for-in" statement within "with" statement, leading to normal completion
  * @noStrict
  */

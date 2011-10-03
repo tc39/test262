@@ -5,7 +5,7 @@
  * If start is negative, use max(start + length, 0).
  * If end is positive, use min(end, length)
  *
- * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.10_Array_prototype_slice/S15.4.4.10_A1.2_T1.js
+ * @path ch15/15.4/15.4.4/15.4.4.10/S15.4.4.10_A1.2_T1.js
  * @description length > end = abs(start), start < 0
  */
 

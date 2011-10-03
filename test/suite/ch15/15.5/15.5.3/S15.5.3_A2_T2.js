@@ -4,7 +4,7 @@
 /**
  * The value of the internal [[Prototype]] property of the String constructor is the Function prototype object
  *
- * @path 15_Native/15.5_String_Objects/15.5.3_Properties_of_the_String_Constructor/S15.5.3_A2_T2.js
+ * @path ch15/15.5/15.5.3/S15.5.3_A2_T2.js
  * @description Add custom property to Function.prototype and check it at String
  */
 

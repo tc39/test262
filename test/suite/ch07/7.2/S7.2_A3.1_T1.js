@@ -4,7 +4,7 @@
 /**
  * Single line comment can contain HORIZONTAL TAB (U+0009)
  *
- * @path 07_Lexical_Conventions/7.2_White_Space/S7.2_A3.1_T1.js
+ * @path ch07/7.2/S7.2_A3.1_T1.js
  * @description Use HORIZONTAL TAB(\u0009)
  */
 

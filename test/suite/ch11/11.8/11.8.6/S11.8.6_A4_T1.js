@@ -4,7 +4,7 @@
 /**
  * Only constructor call (with "new" keyword) makes instance
  *
- * @path 11_Expressions/11.8_Relational_Operators/11.8.6_The_instanceof_operator/S11.8.6_A4_T1.js
+ * @path ch11/11.8/11.8.6/S11.8.6_A4_T1.js
  * @description Checking Boolean case
  */
 

@@ -4,7 +4,7 @@
 /**
  * Number.prototype.valueOf() returns this number value
  *
- * @path 15_Native/15.7_Number_Objects/15.7.4_Properties_of_the_Number_Prototype_Object/15.7.4.4_Number.prototype.valueOf/S15.7.4.4_A1_T01.js
+ * @path ch15/15.7/15.7.4/15.7.4.4/S15.7.4.4_A1_T01.js
  * @description Call without argument
  */
 

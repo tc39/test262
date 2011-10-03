@@ -5,7 +5,7 @@
  * The value of the internal [[Prototype]] property of the Object constructor
  * is the Function prototype object
  *
- * @path 15_Native/15.2_Object_Objects/15.2.3_Properties_of_the_Object_Constructor/S15.2.3_A2.js
+ * @path ch15/15.2/15.2.3/S15.2.3_A2.js
  * @description Checking Function.prototype.isPrototypeOf(Object)
  */
 

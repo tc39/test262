@@ -4,7 +4,7 @@
 /**
  * AssignmentExpression : LeftHandSideExpression = AssignmentExpression
  *
- * @path 11_Expressions/11.13_Assignment_Operators/11.13.1_Simple_Assignment/S11.13.1_A4_T2.js
+ * @path ch11/11.13/11.13.1/S11.13.1_A4_T2.js
  * @description Syntax check if "x = x" throws ReferenceError
  */
 

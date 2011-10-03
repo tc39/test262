@@ -4,7 +4,7 @@
 /**
  * "Delete" operator removes property, which is reference to the object, not the object
  *
- * @path 11_Expressions/11.4_Unary_Operators/11.4.1_The_delete_Operator/S11.4.1_A4.js
+ * @path ch11/11.4/11.4.1/S11.4.1_A4.js
  * @description Checking two reference by one object
  */
 

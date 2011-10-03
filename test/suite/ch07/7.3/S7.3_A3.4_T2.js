@@ -4,7 +4,7 @@
 /**
  * Single line comments can not contain PARAGRAPH SEPARATOR (U+2029) inside
  *
- * @path 07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A3.4_T2.js
+ * @path ch07/7.3/S7.3_A3.4_T2.js
  * @description Insert PARAGRAPH SEPARATOR (\u2029) into begin of single line comment
  * @negative
  */

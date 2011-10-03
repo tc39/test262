@@ -4,7 +4,7 @@
 /**
  * CallExpression : MemberExpression Arguments uses GetValue
  *
- * @path 11_Expressions/11.2_Left_Hand_Side_Expressions/11.2.3_Function_Calls/S11.2.3_A2.js
+ * @path ch11/11.2/11.2.3/S11.2.3_A2.js
  * @description If GetBase(MemberExpression) is null, throw ReferenceError
  */
 

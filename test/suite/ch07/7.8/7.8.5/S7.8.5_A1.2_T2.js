@@ -4,7 +4,7 @@
 /**
  * RegularExpressionFirstChar :: * or \ or / or [empty] is incorrect
  *
- * @path 07_Lexical_Conventions/7.8_Literals/7.8.5_Regular_Expression_Literals/S7.8.5_A1.2_T2.js
+ * @path ch07/7.8/7.8.5/S7.8.5_A1.2_T2.js
  * @description \
  * @negative
  */

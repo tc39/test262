@@ -4,7 +4,7 @@
 /**
  * length property has the attributes {DontEnum}
  *
- * @path 15_Native/15.5_String_Objects/15.5.5_Properties_of_String_Instances/S15.5.5.1_A2.js
+ * @path ch15/15.5/15.5.5/S15.5.5.1_A2.js
  * @description Checking if enumerating the length property of String fails
  */
 

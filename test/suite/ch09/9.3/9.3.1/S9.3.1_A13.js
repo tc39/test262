@@ -5,7 +5,7 @@
  * The MV of DecimalDigits ::: DecimalDigits DecimalDigit is
  * (the MV of DecimalDigits times 10) plus the MV of DecimalDigit
  *
- * @path 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A13.js
+ * @path ch09/9.3/9.3.1/S9.3.1_A13.js
  * @description Compare '12' with Number("1")*10+Number("2") and analogous
  */
 

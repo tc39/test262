@@ -4,7 +4,7 @@
 /**
  * Being in function code, "this" and eval("this"), called as a constructors, return the object
  *
- * @path 11_Expressions/11.1_Primary_Expressions/11.1.1_The_this_Keyword/S11.1.1_A3.2.js
+ * @path ch11/11.1/11.1.1/S11.1.1_A3.2.js
  * @description Create function. It have property, that returned "this"
  * @noStrict
  */

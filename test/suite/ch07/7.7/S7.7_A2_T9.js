@@ -4,7 +4,7 @@
 /**
  * Punctuator cannot be expressed as a Unicode escape sequence consisting of six characters, namely \u plus four hexadecimal digits
  *
- * @path 07_Lexical_Conventions/7.7_Punctuators/S7.7_A2_T9.js
+ * @path ch07/7.7/S7.7_A2_T9.js
  * @description Try to use * as a Unicode \u002A
  * @negative
  */

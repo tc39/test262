@@ -5,7 +5,7 @@
  * ToObject conversion from Boolean: create a new Boolean object
  * whose [[value]] property is set to the value of the boolean
  *
- * @path 09_Type_Conversion/9.9_ToObject/S9.9_A3.js
+ * @path ch09/9.9/S9.9_A3.js
  * @description Trying to convert from Boolean to Object
  */
 

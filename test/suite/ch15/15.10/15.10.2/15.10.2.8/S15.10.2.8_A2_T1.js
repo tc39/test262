@@ -6,7 +6,7 @@
  * In order for it to succeed, the pattern inside Disjunction must fail to match at the current position.
  * The current position is not advanced before matching the sequel
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.8_Atom/S15.10.2.8_A2_T1.js
+ * @path ch15/15.10/15.10.2/15.10.2.8/S15.10.2.8_A2_T1.js
  * @description Execute /(.*?)a(?!(a+)b\2c)\2(.*)/.exec("baaabaac") and check results
  */
 

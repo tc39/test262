@@ -4,7 +4,7 @@
 /**
  * The production Assertion :: \b evaluates by returning an internal AssertionTester closure that takes a State argument x and performs the ...
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.6_Assertion/S15.10.2.6_A3_T11.js
+ * @path ch15/15.10/15.10.2/15.10.2.6/S15.10.2.6_A3_T11.js
  * @description Execute /\b\w{5}\b/.exec("pilot\nsoviet robot\topenoffice") and check results
  */
 

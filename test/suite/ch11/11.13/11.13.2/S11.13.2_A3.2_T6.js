@@ -4,7 +4,7 @@
 /**
  * Operator x @= y returns x @ y
  *
- * @path 11_Expressions/11.13_Assignment_Operators/11.13.2_Compound_Assignment/S11.13.2_A3.2_T6.js
+ * @path ch11/11.13/11.13.2/S11.13.2_A3.2_T6.js
  * @description Checking Expression and Variable statements for x <<= y
  */
 

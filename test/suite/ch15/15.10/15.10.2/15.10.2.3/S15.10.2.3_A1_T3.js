@@ -6,7 +6,7 @@
  * The pattern first tries to match the left Alternative (followed by the sequel of the regular expression).
  * If it fails, it tries to match the right Disjunction (followed by the sequel of the regular expression)
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.3_Disjunction/S15.10.2.3_A1_T3.js
+ * @path ch15/15.10/15.10.2/15.10.2.3/S15.10.2.3_A1_T3.js
  * @description Execute /\d{3}|[a-z]{4}/.exec("2, 12 and of course repeat 12") and check results
  */
 

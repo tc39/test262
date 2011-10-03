@@ -6,7 +6,7 @@
  * 2. Evaluate F's FunctionBody;
  * if Result.type is thrown then Result.value is thrown too
  *
- * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.1_A8_T1.js
+ * @path ch13/13.2/S13.2.1_A8_T1.js
  * @description Throwing an exception within a function body. Declaring function with "function __func()"
  */
 

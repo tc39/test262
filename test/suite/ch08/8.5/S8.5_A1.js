@@ -4,7 +4,7 @@
 /**
  * NaN !== NaN
  *
- * @path 08_Types/8.5_The_Number_Type/S8.5_A1.js
+ * @path ch08/8.5/S8.5_A1.js
  * @description Compare NaN with NaN
  */
 

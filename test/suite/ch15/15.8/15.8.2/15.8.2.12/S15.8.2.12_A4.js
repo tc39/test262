@@ -4,7 +4,7 @@
 /**
  * The length property of the Math.min method is 2
  *
- * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.12_min/S15.8.2.12_A4.js
+ * @path ch15/15.8/15.8.2/15.8.2.12/S15.8.2.12_A4.js
  * @description Checking if Math.min.length property is defined and equals to 2
  */
 

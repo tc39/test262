@@ -4,7 +4,7 @@
 /**
  * The isNaN property has the attribute DontEnum
  *
- * @path 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.4_isNaN/S15.1.2.4_A2.5.js
+ * @path ch15/15.1/15.1.2/15.1.2.4/S15.1.2.4_A2.5.js
  * @description Checking use propertyIsEnumerable, for-in
  */
 

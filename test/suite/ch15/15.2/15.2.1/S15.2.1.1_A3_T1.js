@@ -4,7 +4,7 @@
 /**
  * Since calling Object as a function is identical to calling a function, list of arguments bracketing is allowed
  *
- * @path 15_Native/15.2_Object_Objects/15.2.1_The_Object_Constructor_Called_as_a_Function/S15.2.1.1_A3_T1.js
+ * @path ch15/15.2/15.2.1/S15.2.1.1_A3_T1.js
  * @description Creating an object with "Object(1,2,3)"
  */
 

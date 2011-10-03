@@ -4,7 +4,7 @@
 /**
  * Check {} for automatic semicolon insertion
  *
- * @path 07_Lexical_Conventions/7.9_Automatic_Semicolon_Insertion/S7.9_A10_T12.js
+ * @path ch07/7.9/S7.9_A10_T12.js
  * @description Checking if execution of "{ \n a: \n 1 \n } \n 3" passes
  */
 

@@ -4,7 +4,7 @@
 /**
  * Operator x >> y returns ToNumber(x) >> ToNumber(y)
  *
- * @path 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.2_The_Sign_Left_shift_Operator/S11.7.2_A3_T1.3.js
+ * @path ch11/11.7/11.7.2/S11.7.2_A3_T1.3.js
  * @description Type(x) and Type(y) vary between primitive string and String object
  */
 

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * @path 15_Native/15.2_Object_Objects/15.2.3_Properties_of_the_Object_Constructor/15.2.3.6_Object.defineProperty/S15.2.3.6_A2.js
+ * @path ch15/15.2/15.2.3/15.2.3.6/S15.2.3.6_A2.js
  * @description Checks if an inherited accessor property appears to be
  * an own property.
  */

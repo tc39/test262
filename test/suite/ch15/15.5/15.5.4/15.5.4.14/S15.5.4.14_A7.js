@@ -4,7 +4,7 @@
 /**
  * String.prototype.split can't be used as constructor
  *
- * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.14_String.prototype.split/S15.5.4.14_A7.js
+ * @path ch15/15.5/15.5.4/15.5.4.14/S15.5.4.14_A7.js
  * @description Checking if creating the String.prototype.split object fails
  */
 

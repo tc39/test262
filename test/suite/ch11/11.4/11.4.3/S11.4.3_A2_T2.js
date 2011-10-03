@@ -4,7 +4,7 @@
 /**
  * Operator "typeof" uses GetValue
  *
- * @path 11_Expressions/11.4_Unary_Operators/11.4.3_The_typeof_Operator/S11.4.3_A2_T2.js
+ * @path ch11/11.4/11.4.3/S11.4.3_A2_T2.js
  * @description If GetBase(x) is null, return "undefined"
  */
 

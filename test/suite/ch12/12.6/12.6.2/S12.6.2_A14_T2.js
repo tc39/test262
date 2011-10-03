@@ -4,7 +4,7 @@
 /**
  * FunctionExpression within a "while" Expression is allowed
  *
- * @path 12_Statement/12.6_Iteration_Statements/12.6.2_The_while_statement/S12.6.2_A14_T2.js
+ * @path ch12/12.6/12.6.2/S12.6.2_A14_T2.js
  * @description Using function call as an Expression
  */
 

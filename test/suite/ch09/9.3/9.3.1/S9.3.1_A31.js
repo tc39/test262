@@ -4,7 +4,7 @@
 /**
  * The MV of HexDigit ::: f or of HexDigit ::: F is 15
  *
- * @path 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A31.js
+ * @path ch09/9.3/9.3.1/S9.3.1_A31.js
  * @description Compare Number('0xF'), Number('0XF'), Number('0xf') and Number('0Xf') with 15
  */
 

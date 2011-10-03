@@ -4,7 +4,7 @@
 /**
  * The length property of eval is 1
  *
- * @path 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.1_eval/S15.1.2.1_A4.4.js
+ * @path ch15/15.1/15.1.2/15.1.2.1/S15.1.2.1_A4.4.js
  * @description eval.length === 1
  */
 

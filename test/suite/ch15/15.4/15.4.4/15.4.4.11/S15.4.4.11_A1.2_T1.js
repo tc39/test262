@@ -6,7 +6,7 @@
  * ToString(j), return 1. If this object does not have a property
  * named by ToString(k), return -1
  *
- * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.11_Array_prototype_sort/S15.4.4.11_A1.2_T1.js
+ * @path ch15/15.4/15.4.4/15.4.4.11/S15.4.4.11_A1.2_T1.js
  * @description If comparefn is undefined, use SortCompare operator
  */
 

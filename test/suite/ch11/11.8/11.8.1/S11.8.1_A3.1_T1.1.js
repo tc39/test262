@@ -4,7 +4,7 @@
 /**
  * If Type(Primitive(x)) is not String or Type(Primitive(y)) is not String, then operator x < y returns ToNumber(x) < ToNumber(y)
  *
- * @path 11_Expressions/11.8_Relational_Operators/11.8.1_The_Less_than_Operator/S11.8.1_A3.1_T1.1.js
+ * @path ch11/11.8/11.8.1/S11.8.1_A3.1_T1.1.js
  * @description Type(Primitive(x)) and Type(Primitive(y)) vary between primitive boolean and Boolean object
  */
 

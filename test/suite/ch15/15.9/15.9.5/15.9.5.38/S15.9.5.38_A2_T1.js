@@ -4,7 +4,7 @@
 /**
  * The "length" property of the "setMonth" is 2
  *
- * @path 15_Native/15.9_Date_Objects/15.9.5_Properties_of_the_Date_Prototype_Object/15.9.5.38_Date.prototype.setMonth/S15.9.5.38_A2_T1.js
+ * @path ch15/15.9/15.9.5/15.9.5.38/S15.9.5.38_A2_T1.js
  * @description The "length" property of the "setMonth" is 2
  */
 

@@ -4,7 +4,7 @@
 /**
  * The production EmptyStatement ; is evaluated as follows Return (normal, empty, empty)
  *
- * @path 12_Statement/12.3_Empty_Statement/S12.3_A1.js
+ * @path ch12/12.3/S12.3_A1.js
  * @description Using EmptyStatement ;
  */
 

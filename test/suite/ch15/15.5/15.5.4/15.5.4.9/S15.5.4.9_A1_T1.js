@@ -4,7 +4,7 @@
 /**
  * String.prototype.localeCompare(that)
  *
- * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.9_String.prototype.localeCompare/S15.5.4.9_A1_T1.js
+ * @path ch15/15.5/15.5.4/15.5.4.9/S15.5.4.9_A1_T1.js
  * @description This string is symbol and arguments are symbols
  */
 

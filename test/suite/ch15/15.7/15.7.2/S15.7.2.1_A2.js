@@ -6,7 +6,7 @@
  * is set to the original Number prototype object, the one that is the
  * initial value of Number.prototype
  *
- * @path 15_Native/15.7_Number_Objects/15.7.2_The_Number_Constructor/S15.7.2.1_A2.js
+ * @path ch15/15.7/15.7.2/S15.7.2.1_A2.js
  * @description Checking prototype property of the newly created objects
  */
 

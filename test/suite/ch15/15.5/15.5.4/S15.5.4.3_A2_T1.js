@@ -5,7 +5,7 @@
  * The valueOf function is not generic; it throws a TypeError exception if its this value is not a String object.
  * Therefore, it cannot be transferred to other kinds of objects for use as a method
  *
- * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/S15.5.4.3_A2_T1.js
+ * @path ch15/15.5/15.5.4/S15.5.4.3_A2_T1.js
  * @description Checking if creating variable String.prototype.valueOf fails
  */
 

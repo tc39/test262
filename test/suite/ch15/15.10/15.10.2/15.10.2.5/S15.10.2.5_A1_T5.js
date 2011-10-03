@@ -4,7 +4,7 @@
 /**
  * An Atom followed by a Quantifier is repeated the number of times specified by the Quantifier
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.5_Term/S15.10.2.5_A1_T5.js
+ * @path ch15/15.10/15.10.2/15.10.2.5/S15.10.2.5_A1_T5.js
  * @description Execute /(a*)b\1+/.exec("baaaac") and check results
  */
 

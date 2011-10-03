@@ -4,7 +4,7 @@
 /**
  * Object.prototype.toLocaleString can't be used as a constructor
  *
- * @path 15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/15.2.4.3_Object.prototype.toLocaleString/S15.2.4.3_A7.js
+ * @path ch15/15.2/15.2.4/15.2.4.3/S15.2.4.3_A7.js
  * @description Checking if creating "new Object.prototype.toLocaleString" fails
  */
 

@@ -4,7 +4,7 @@
 /**
  * Operator "instanceof" uses GetValue
  *
- * @path 11_Expressions/11.8_Relational_Operators/11.8.6_The_instanceof_operator/S11.8.6_A2.1_T2.js
+ * @path ch11/11.8/11.8.6/S11.8.6_A2.1_T2.js
  * @description If GetBase(RelationalExpression) is null, throw ReferenceError
  */
 

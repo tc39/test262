@@ -4,7 +4,7 @@
 /**
  * Function's scope chain is started when it is declared
  *
- * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A19_T8.js
+ * @path ch13/13.2/S13.2.2_A19_T8.js
  * @description Function is declared multiply times
  */
 

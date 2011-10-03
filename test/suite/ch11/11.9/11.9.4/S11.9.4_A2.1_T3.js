@@ -4,7 +4,7 @@
 /**
  * Operator x === y uses GetValue
  *
- * @path 11_Expressions/11.9_Equality_Operators/11.9.4_The_Strict_Equals_Operator/S11.9.4_A2.1_T3.js
+ * @path ch11/11.9/11.9.4/S11.9.4_A2.1_T3.js
  * @description If GetBase(y) is null, throw ReferenceError
  */
 

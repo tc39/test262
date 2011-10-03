@@ -6,7 +6,7 @@
  * MV of DecimalDigits times 10<sup><small>-n</small></sup>, where n is the
  * number of characters in DecimalDigits
  *
- * @path 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A10.js
+ * @path ch09/9.3/9.3.1/S9.3.1_A10.js
  * @description Compare Number('.12345') with +('12345')*1e-5
  */
 

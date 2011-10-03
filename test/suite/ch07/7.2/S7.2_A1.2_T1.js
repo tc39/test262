@@ -4,7 +4,7 @@
 /**
  * VERTICAL TAB (U+000B) between any two tokens is allowed
  *
- * @path 07_Lexical_Conventions/7.2_White_Space/S7.2_A1.2_T1.js
+ * @path ch07/7.2/S7.2_A1.2_T1.js
  * @description Insert VERTICAL TAB(\u000B and \v) between tokens of var x=1
  */
 

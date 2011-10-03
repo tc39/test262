@@ -4,7 +4,7 @@
 /**
  * function must be evaluated inside the expression
  *
- * @path 13_Function_Definition/S13_A2_T1.js
+ * @path ch13/S13_A2_T1.js
  * @description Defining function body with "return arg"
  */
 

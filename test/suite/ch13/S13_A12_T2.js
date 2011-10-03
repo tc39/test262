@@ -4,7 +4,7 @@
 /**
  * Function declarations in global or function scope are {DontDelete}
  *
- * @path 13_Function_Definition/S13_A12_T2.js
+ * @path ch13/S13_A12_T2.js
  * @description Checking if deleting a function that is declared in function scope fails
  */
 

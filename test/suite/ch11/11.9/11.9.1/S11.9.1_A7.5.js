@@ -5,7 +5,7 @@
  * If Type(x) is Number and Type(y) is Object,
  * return x == ToPrimitive(y)
  *
- * @path 11_Expressions/11.9_Equality_Operators/11.9.1_The_Equals_Operator/S11.9.1_A7.5.js
+ * @path ch11/11.9/11.9.1/S11.9.1_A7.5.js
  * @description y is object, x is primitive number
  */
 

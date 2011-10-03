@@ -4,7 +4,7 @@
 /**
  * Function's scope chain is started when it is declared
  *
- * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A19_T6.js
+ * @path ch13/13.2/S13.2.2_A19_T6.js
  * @description Function is declared in the "object->do-while" scope, then the object is deleted and another object with the same name is declared
  */
 

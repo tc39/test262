@@ -4,7 +4,7 @@
 /**
  * String.prototype.substring (start, end)
  *
- * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.15_String.prototype.substring/S15.5.4.15_A1_T15.js
+ * @path ch15/15.5/15.5.4/15.5.4.15/S15.5.4.15_A1_T15.js
  * @description Call substring without arguments. Instance is Number with prototype.substring = String.prototype.substring
  */
 

@@ -4,7 +4,7 @@
 /**
  * [[Get]] from not an inherited property
  *
- * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.2_Array_prototype_toString/S15.4.4.2_A3_T1.js
+ * @path ch15/15.4/15.4.4/15.4.4.2/S15.4.4.2_A3_T1.js
  * @description [[Prototype]] of Array instance is Array.prototype
  */
 

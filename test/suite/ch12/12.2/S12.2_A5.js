@@ -4,7 +4,7 @@
 /**
  * VariableDeclaration within Eval statement is initialized as the program reaches the eval statement
  *
- * @path 12_Statement/12.2_Variable_Statement/S12.2_A5.js
+ * @path ch12/12.2/S12.2_A5.js
  * @description Executing eval("var x")
  */
 

@@ -4,7 +4,7 @@
 /**
  * The production IterationStatement: "for (var VariableDeclarationListNoIn; Expression; Expression) Statement"
  *
- * @path 12_Statement/12.6_Iteration_Statements/12.6.3_The_for_Statement/S12.6.3_A14.js
+ * @path ch12/12.6/12.6.3/S12.6.3_A14.js
  * @description Using +,*,/, as the second Expression
  */
 

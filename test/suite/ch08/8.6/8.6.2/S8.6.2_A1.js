@@ -5,7 +5,7 @@
  * Native ECMAScript objects have an internal property called [[Prototype]]. The value of this property is
  * either null or an object and is used for implementing inheritance
  *
- * @path 08_Types/8.6_The_Object_Type/8.6.2_Internal_Properties_and_Methods/S8.6.2_A1.js
+ * @path ch08/8.6/8.6.2/S8.6.2_A1.js
  * @description Check [[Prototype]] property of object
  */
 

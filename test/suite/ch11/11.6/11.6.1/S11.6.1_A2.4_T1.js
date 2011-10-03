@@ -4,7 +4,7 @@
 /**
  * First expression is evaluated first, and then second expression
  *
- * @path 11_Expressions/11.6_Additive_Operators/11.6.1_The_Addition_operator/S11.6.1_A2.4_T1.js
+ * @path ch11/11.6/11.6.1/S11.6.1_A2.4_T1.js
  * @description Checking with "="
  */
 

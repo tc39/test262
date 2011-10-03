@@ -4,7 +4,7 @@
 /**
  * Operator uses floor, abs
  *
- * @path 09_Type_Conversion/9.7_ToUint16/S9.7_A3.2_T1.js
+ * @path ch09/9.7/S9.7_A3.2_T1.js
  * @description For testing use String.fromCharCode(Number).charCodeAt(0) construction
  */
 

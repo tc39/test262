@@ -4,7 +4,7 @@
 /**
  * If either x or y is +0 and the other is -0, return true
  *
- * @path 11_Expressions/11.8_Relational_Operators/11.8.4_The_Grater_than_or_equal_Operator/S11.8.4_A4.4.js
+ * @path ch11/11.8/11.8.4/S11.8.4_A4.4.js
  * @description Checking all combinations
  */
 

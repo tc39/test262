@@ -5,7 +5,7 @@
  * If the caller supplies fewer parameter values than there are
  * formal parameters, the extra formal parameters have value undefined
  *
- * @path 10_Execution_Contexts/10.2_Lexical_Environments/10.2.1_Environment_Records/S10.1.3_A1.js
+ * @path ch10/10.2/10.2.1/S10.2.1_A1.js
  * @description Calling function excluding a few parameters
  */
 

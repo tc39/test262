@@ -4,7 +4,7 @@
 /**
  * Result of number conversion from number value equals to the input argument (no conversion)
  *
- * @path 09_Type_Conversion/9.3_ToNumber/S9.3_A4.2_T2.js
+ * @path ch09/9.3/S9.3_A4.2_T2.js
  * @description Number.NaN, +0, -0, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY,
  * Number.MAX_VALUE and Number.MIN_VALUE convert to Number by implicit transformation
  */

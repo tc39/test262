@@ -4,7 +4,7 @@
 /**
  * Line Terminator between LeftHandSideExpression and "--" is not allowed
  *
- * @path 11_Expressions/11.3_PostfixExpressions/11.3.2_Postfix_Decrement_Operator/S11.3.2_A1.1_T1.js
+ * @path ch11/11.3/11.3.2/S11.3.2_A1.1_T1.js
  * @description Checking Line Feed
  * @negative
  */

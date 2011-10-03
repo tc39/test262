@@ -5,7 +5,7 @@
  * The [[Class]] property of the newly constructed object
  * is set to "Boolean"
  *
- * @path 15_Native/15.6_Boolean_Objects/15.6.2_The_Boolean_Constructor/S15.6.2.1_A4.js
+ * @path ch15/15.6/15.6.2/S15.6.2.1_A4.js
  * @description For testing toString function is used
  */
 

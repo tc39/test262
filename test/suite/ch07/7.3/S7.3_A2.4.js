@@ -4,7 +4,7 @@
 /**
  * PARAGRAPH SEPARATOR (U+2029) within strings is not allowed
  *
- * @path 07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A2.4.js
+ * @path ch07/7.3/S7.3_A2.4.js
  * @description Insert PARAGRAPH SEPARATOR (\u2029) into string
  * @negative
  */

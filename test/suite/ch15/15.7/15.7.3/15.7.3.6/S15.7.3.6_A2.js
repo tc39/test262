@@ -4,7 +4,7 @@
 /**
  * Number.POSITIVE_INFINITY is ReadOnly
  *
- * @path 15_Native/15.7_Number_Objects/15.7.3_Properties_of_Number_Constructor/15.7.3.6_Number.POSITIVE_INFINITY/S15.7.3.6_A2.js
+ * @path ch15/15.7/15.7.3/15.7.3.6/S15.7.3.6_A2.js
  * @description Checking if varying Number.POSITIVE_INFINITY fails
  */
 

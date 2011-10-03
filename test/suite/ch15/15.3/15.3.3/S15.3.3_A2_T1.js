@@ -5,7 +5,7 @@
  * The value of the internal [[Prototype]] property of the Function constructor
  * is the Function prototype object
  *
- * @path 15_Native/15.3_Function_Objects/15.3.3_Properties_of_the_Function_Constructor/S15.3.3_A2_T1.js
+ * @path ch15/15.3/15.3.3/S15.3.3_A2_T1.js
  * @description Checking prototype of Function
  */
 

@@ -4,7 +4,7 @@
 /**
  * Number.MAX_VALUE is approximately 1.7976931348623157e308
  *
- * @path 15_Native/15.7_Number_Objects/15.7.3_Properties_of_Number_Constructor/15.7.3.2_Number.MAX_VALUE/S15.7.3.2_A1.js
+ * @path ch15/15.7/15.7.3/15.7.3.2/S15.7.3.2_A1.js
  * @description Checking Number.MAX_VALUE value
  */
 

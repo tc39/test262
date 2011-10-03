@@ -4,7 +4,7 @@
 /**
  * The RegExp.prototype property has the attribute DontEnum
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.5_Properties_of_the_RegExp_Constructor/S15.10.5.1_A2.js
+ * @path ch15/15.10/15.10.5/S15.10.5.1_A2.js
  * @description Checking if enumerating the RegExp.prototype property fails
  */
 

@@ -4,7 +4,7 @@
 /**
  * Literal :: NullLiteral
  *
- * @path 07_Lexical_Conventions/7.8_Literals/7.8.1_Null_Literals/S7.8.1_A1_T2.js
+ * @path ch07/7.8/7.8.1/S7.8.1_A1_T2.js
  * @description Check RegExp("0").exec("1") === null
  */
 

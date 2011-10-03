@@ -4,7 +4,7 @@
 /**
  * "This" operator only evaluates Expression
  *
- * @path 11_Expressions/11.1_Primary_Expressions/11.1.6_The_Grouping_Operator/S11.1.6_A3_T5.js
+ * @path ch11/11.1/11.1.6/S11.1.6_A3_T5.js
  * @description Using grouping operator in declaration of variables
  */
 

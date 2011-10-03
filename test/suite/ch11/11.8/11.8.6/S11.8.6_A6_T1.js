@@ -4,7 +4,7 @@
 /**
  * Only Function objects implement [[HasInstance]] and can be proper ShiftExpression for the "instanceof" operator consequently
  *
- * @path 11_Expressions/11.8_Relational_Operators/11.8.6_The_instanceof_operator/S11.8.6_A6_T1.js
+ * @path ch11/11.8/11.8.6/S11.8.6_A6_T1.js
  * @description Checking "this" case
  */
 

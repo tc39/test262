@@ -4,7 +4,7 @@
 /**
  * The length property of the apply method is 2
  *
- * @path 15_Native/15.3_Function_Objects/15.3.4_Properties_of_the_Function_Prototype_Object/15.3.4.3_Function.prototype.apply/S15.3.4.3_A2_T2.js
+ * @path ch15/15.3/15.3.4/15.3.4.3/S15.3.4.3_A2_T2.js
  * @description Checking f.apply.length, where f is new Function
  */
 

@@ -4,7 +4,7 @@
 /**
  * The length property value is 1
  *
- * @path 15_Native/15.11_Error_Objects/15.11.3_Properties_of_the_Error_Constructor/S15.11.3_A2_T1.js
+ * @path ch15/15.11/15.11.3/S15.11.3_A2_T1.js
  * @description Checking length property
  */
 

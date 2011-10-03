@@ -4,7 +4,7 @@
 /**
  * Operator x / y returns ToNumber(x) / ToNumber(y)
  *
- * @path 11_Expressions/11.5_Multiplicative_Operators/11.5.2_Applying_the_slash_Operator/S11.5.2_A3_T1.3.js
+ * @path ch11/11.5/11.5.2/S11.5.2_A3_T1.3.js
  * @description Type(x) and Type(y) vary between primitive string and String object
  */
 

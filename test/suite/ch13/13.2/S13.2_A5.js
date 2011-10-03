@@ -5,7 +5,7 @@
  * When Function object(F) is constructed
  * the [[Prototype]] property of F is set to the original Function prototype object as specified in 15.3.3.1
  *
- * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2_A5.js
+ * @path ch13/13.2/S13.2_A5.js
  * @description Function.prototype.isPrototypeOf() is used
  */
 

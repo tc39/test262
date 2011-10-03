@@ -4,7 +4,7 @@
 /**
  * Math.LOG2E is approximately 1.4426950408889634
  *
- * @path 15_Native/15.8_The_Math_Object/15.8.1_Value_Properties_of_the_Math_Object/15.8.1.4_LOG2E/S15.8.1.4_A1.js
+ * @path ch15/15.8/15.8.1/15.8.1.4/S15.8.1.4_A1.js
  * @description Comparing Math.LOG2E with 1.4426950408889634
  */
 

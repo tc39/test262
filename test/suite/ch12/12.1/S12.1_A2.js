@@ -6,7 +6,7 @@
  * 1. Evaluate Statement.
  * 2. If an exception was thrown, return (throw, V, empty) where V is the exception
  *
- * @path 12_Statement/12.1_Block/S12.1_A2.js
+ * @path ch12/12.1/S12.1_A2.js
  * @description Throwing exception within a Block
  */
 

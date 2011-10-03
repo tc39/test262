@@ -4,7 +4,7 @@
 /**
  * White Space and Line Terminator between RelationalExpression and "instanceof" and between "instanceof" and ShiftExpression are allowed
  *
- * @path 11_Expressions/11.8_Relational_Operators/11.8.6_The_instanceof_operator/S11.8.6_A1.js
+ * @path ch11/11.8/11.8.6/S11.8.6_A1.js
  * @description Checking by using eval
  */
 

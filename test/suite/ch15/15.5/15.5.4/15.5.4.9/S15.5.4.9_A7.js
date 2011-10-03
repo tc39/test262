@@ -4,7 +4,7 @@
 /**
  * String.prototype.localeCompare can't be used as constructor
  *
- * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.9_String.prototype.localeCompare/S15.5.4.9_A7.js
+ * @path ch15/15.5/15.5.4/15.5.4.9/S15.5.4.9_A7.js
  * @description Checking if creating the String.prototype.localeCompare object fails
  */
 

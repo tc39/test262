@@ -4,7 +4,7 @@
 /**
  * The Infinity is DontDelete
  *
- * @path 15_Native/15.1_The_Global_Object/15.1.1_Value_Properties_of_the_Global_Object/15.1.1.2_Infinity/S15.1.1.2_A3.1.js
+ * @path ch15/15.1/15.1.1/15.1.1.2/S15.1.1.2_A3.1.js
  * @description Use delete
  * @noStrict
  */

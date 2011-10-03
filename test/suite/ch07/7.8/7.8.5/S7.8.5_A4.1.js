@@ -5,7 +5,7 @@
  * A regular expression literal is an input element that is converted to
  * a RegExp object when it is scanned
  *
- * @path 07_Lexical_Conventions/7.8_Literals/7.8.5_Regular_Expression_Literals/S7.8.5_A4.1.js
+ * @path ch07/7.8/7.8.5/S7.8.5_A4.1.js
  * @description Check ((/(?:)/ instanceof RegExp) === true)
  */
 

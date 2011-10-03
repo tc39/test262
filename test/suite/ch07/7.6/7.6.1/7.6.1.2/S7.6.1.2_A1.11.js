@@ -4,7 +4,7 @@
 /**
  * The "extends" token can not be used as identifier
  *
- * @path 07_Lexical_Conventions/7.5_Tokens/7.5.3_Future_Reserved_Words/S7.5.3_A1.11.js
+ * @path ch07/7.6/7.6.1/7.6.1.2/S7.6.1.2_A1.11.js
  * @description Checking if execution of "extends=1" fails
  * @negative
  */

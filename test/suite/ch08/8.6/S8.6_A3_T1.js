@@ -4,7 +4,7 @@
 /**
  * Do not crash with pefixincrement custom property
  *
- * @path 08_Types/8.6_The_Object_Type/S8.6_A3_T1.js
+ * @path ch08/8.6/S8.6_A3_T1.js
  * @description Try to implement pefixincrement for custom property
  */
 

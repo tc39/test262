@@ -4,7 +4,7 @@
 /**
  * Since assertion evaluating do not change endIndex repetition of assertion does the same result
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.6_Assertion/S15.10.2.6_A5_T1.js
+ * @path ch15/15.10/15.10.2/15.10.2.6/S15.10.2.6_A5_T1.js
  * @description Execute /^^^^^^^robot$$$$/.exec("robot") and check results
  */
 

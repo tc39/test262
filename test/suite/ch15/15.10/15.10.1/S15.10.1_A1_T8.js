@@ -4,7 +4,7 @@
 /**
  * RegExp syntax errors must be caught when matcher(s) compiles
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.1_Patterns/S15.10.1_A1_T8.js
+ * @path ch15/15.10/15.10.1/S15.10.1_A1_T8.js
  * @description Tested RegExp is "**a"
  */
 

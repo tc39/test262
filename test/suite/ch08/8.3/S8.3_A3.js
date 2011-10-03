@@ -4,7 +4,7 @@
 /**
  * Applaing negation to boolean works well
  *
- * @path 08_Types/8.3_The_Boolean_Type/S8.3_A3.js
+ * @path ch08/8.3/S8.3_A3.js
  * @description Check not false equals true, not true equals false
  */
 

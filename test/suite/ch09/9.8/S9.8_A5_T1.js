@@ -5,7 +5,7 @@
  * Result of String conversion from Object value is conversion
  * from primitive value
  *
- * @path 09_Type_Conversion/9.8_ToString/S9.8_A5_T1.js
+ * @path ch09/9.8/S9.8_A5_T1.js
  * @description Some objects convert to String by explicit transformation
  */
 

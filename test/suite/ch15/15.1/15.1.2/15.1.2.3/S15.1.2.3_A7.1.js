@@ -4,7 +4,7 @@
 /**
  * The length property of parseFloat has the attribute DontEnum
  *
- * @path 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.3_parseFloat/S15.1.2.3_A7.1.js
+ * @path ch15/15.1/15.1.2/15.1.2.3/S15.1.2.3_A7.1.js
  * @description Checking use propertyIsEnumerable, for-in
  */
 

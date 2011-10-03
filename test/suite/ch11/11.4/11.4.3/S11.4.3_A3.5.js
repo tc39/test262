@@ -4,7 +4,7 @@
 /**
  * Result of appying "typeof" operator to string is "string"
  *
- * @path 11_Expressions/11.4_Unary_Operators/11.4.3_The_typeof_Operator/S11.4.3_A3.5.js
+ * @path ch11/11.4/11.4.3/S11.4.3_A3.5.js
  * @description typeof (string value) === "string"
  */
 

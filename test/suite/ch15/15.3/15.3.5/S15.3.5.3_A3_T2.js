@@ -10,7 +10,7 @@
  * v)  If O and V refer to the same object or if they refer to objects joined to each other (13.1.2), return true.
  * vi) Go to step iii)
  *
- * @path 15_Native/15.3_Function_Objects/15.3.5_Properties_of_Function_Instances/S15.3.5.3_A3_T2.js
+ * @path ch15/15.3/15.3.5/S15.3.5.3_A3_T2.js
  * @description F.prototype is Object.prototype, and V is empty object
  */
 

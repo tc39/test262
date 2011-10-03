@@ -4,7 +4,7 @@
 /**
  * The Number constructor has the property "POSITIVE_INFINITY"
  *
- * @path 15_Native/15.7_Number_Objects/15.7.3_Properties_of_Number_Constructor/S15.7.3_A6.js
+ * @path ch15/15.7/15.7.3/S15.7.3_A6.js
  * @description Checking existence of the property "POSITIVE_INFINITY"
  */
 

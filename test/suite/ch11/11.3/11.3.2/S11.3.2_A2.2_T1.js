@@ -4,7 +4,7 @@
 /**
  * Operator x-- uses [[Default Value]]
  *
- * @path 11_Expressions/11.3_PostfixExpressions/11.3.2_Postfix_Decrement_Operator/S11.3.2_A2.2_T1.js
+ * @path ch11/11.3/11.3.2/S11.3.2_A2.2_T1.js
  * @description If Type(value) is Object, evaluate ToPrimitive(value, Number)
  */
 

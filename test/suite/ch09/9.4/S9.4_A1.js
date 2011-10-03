@@ -4,7 +4,7 @@
 /**
  * If ToNumber(value) is NaN, ToInteger(value) returns +0
  *
- * @path 09_Type_Conversion/9.4_ToInteger/S9.4_A1.js
+ * @path ch09/9.4/S9.4_A1.js
  * @description Check what position is defined by Number.NaN in string "abc": "abc".charAt(Number.NaN)
  */
 

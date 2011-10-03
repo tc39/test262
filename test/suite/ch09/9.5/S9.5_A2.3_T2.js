@@ -4,7 +4,7 @@
 /**
  * If result is greater than or equal to 2^31, return result -2^32
  *
- * @path 09_Type_Conversion/9.5_ToInt32/S9.5_A2.3_T2.js
+ * @path ch09/9.5/S9.5_A2.3_T2.js
  * @description Use operator ~
  */
 

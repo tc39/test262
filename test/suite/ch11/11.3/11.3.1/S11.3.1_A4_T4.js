@@ -4,7 +4,7 @@
 /**
  * Operator x++ returns ToNumber(x)
  *
- * @path 11_Expressions/11.3_PostfixExpressions/11.3.1_Postfix_Increment_Operator/S11.3.1_A4_T4.js
+ * @path ch11/11.3/11.3.1/S11.3.1_A4_T4.js
  * @description Type(x) is undefined or null
  */
 

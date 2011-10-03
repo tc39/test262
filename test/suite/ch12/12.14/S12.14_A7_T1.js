@@ -4,7 +4,7 @@
 /**
  * Evaluating the nested productions TryStatement
  *
- * @path 12_Statement/12.14_The_try_Statement/S12.14_A7_T1.js
+ * @path ch12/12.14/S12.14_A7_T1.js
  * @description Checking if the production of nested TryStatement statements evaluates correct
  */
 

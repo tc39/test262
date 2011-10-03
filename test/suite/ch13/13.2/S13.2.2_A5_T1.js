@@ -7,7 +7,7 @@
  * Invoke the [[Call]] property of F, providing native ECMAScript object just created as the this value and
  * providing the argument list passed into [[Construct]] as the argument values
  *
- * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A5_T1.js
+ * @path ch13/13.2/S13.2.2_A5_T1.js
  * @description Declaring a function with "function __FACTORY(arg1, arg2)"
  */
 

@@ -4,7 +4,7 @@
 /**
  * The initial value of String.prototype.constructor is the built-in String constructor
  *
- * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/S15.5.4.1_A1_T1.js
+ * @path ch15/15.5/15.5.4/S15.5.4.1_A1_T1.js
  * @description Checking String.prototype.constructor
  */
 

@@ -4,7 +4,7 @@
 /**
  * LINE SEPARATOR (U+2028) within strings is not allowed
  *
- * @path 07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A2.3.js
+ * @path ch07/7.3/S7.3_A2.3.js
  * @description Insert LINE SEPARATOR (\u2028) into string
  * @negative
  */

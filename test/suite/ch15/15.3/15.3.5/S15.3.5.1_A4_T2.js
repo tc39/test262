@@ -4,7 +4,7 @@
 /**
  * the length property has the attributes { DontEnum }
  *
- * @path 15_Native/15.3_Function_Objects/15.3.5_Properties_of_Function_Instances/S15.3.5.1_A4_T2.js
+ * @path ch15/15.3/15.3.5/S15.3.5.1_A4_T2.js
  * @description Checking if enumerating the length property of Function("arg1,arg2,arg3","arg4,arg5", null) fails
  */
 

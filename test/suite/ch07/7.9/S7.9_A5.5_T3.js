@@ -4,7 +4,7 @@
 /**
  * Check Function Expression for automatic semicolon insertion
  *
- * @path 07_Lexical_Conventions/7.9_Automatic_Semicolon_Insertion/S7.9_A5.5_T3.js
+ * @path ch07/7.9/S7.9_A5.5_T3.js
  * @description Try use function f(o) {o.x = 1; return o;} \n (new Object()).x; construction
  */
 

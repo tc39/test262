@@ -4,7 +4,7 @@
 /**
  * Using "try" with "catch" or "finally" statement within/without a "for" statement
  *
- * @path 12_Statement/12.14_The_try_Statement/S12.14_A11_T1.js
+ * @path ch12/12.14/S12.14_A11_T1.js
  * @description Loop inside try Block, where throw exception
  */
 

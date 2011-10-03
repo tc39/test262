@@ -4,7 +4,7 @@
 /**
  * If ToBoolean(x) is true, return y
  *
- * @path 11_Expressions/11.11_Binary_Logical_Operators/11.11.1_Logical_AND_Operator/S11.11.1_A4_T1.js
+ * @path ch11/11.11/11.11.1/S11.11.1_A4_T1.js
  * @description Type(x) and Type(y) vary between primitive boolean and Boolean object
  */
 

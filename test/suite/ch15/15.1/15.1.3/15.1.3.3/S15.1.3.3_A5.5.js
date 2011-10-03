@@ -4,7 +4,7 @@
 /**
  * The encodeURI property has the attribute DontEnum
  *
- * @path 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.3_encodeURI/S15.1.3.3_A5.5.js
+ * @path ch15/15.1/15.1.3/15.1.3.3/S15.1.3.3_A5.5.js
  * @description Checking use propertyIsEnumerable, for-in
  */
 

@@ -7,7 +7,7 @@
  * in the VariableDeclaration or VariableDeclarationNoIn, whose value is
  * undefined and whose attributes are determined by the type of code
  *
- * @path 10_Execution_Contexts/10.2_Lexical_Environments/10.2.1_Environment_Records/S10.1.3_A5.1_T1.js
+ * @path ch10/10.2/10.2.1/S10.2.1_A5.1_T1.js
  * @description Checking variable existence only
  */
 

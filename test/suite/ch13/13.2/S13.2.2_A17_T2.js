@@ -4,7 +4,7 @@
 /**
  * FunctionExpression containing "with" statement is admitted
  *
- * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.2_A17_T2.js
+ * @path ch13/13.2/S13.2.2_A17_T2.js
  * @description Throwing an exception within "with" statement
  */
 

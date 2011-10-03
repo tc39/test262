@@ -4,7 +4,7 @@
 /**
  * White Space and Line Terminator inside "grouping" operator are allowed
  *
- * @path 11_Expressions/11.1_Primary_Expressions/11.1.6_The_Grouping_Operator/S11.1.6_A1.js
+ * @path ch11/11.1/11.1.6/S11.1.6_A1.js
  * @description Inserting WhiteSpaces and LineTerminators into grouping operator. Eval is used
  */
 

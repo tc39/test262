@@ -4,7 +4,7 @@
 /**
  * Syntax constructions of switch statement
  *
- * @path 12_Statement/12.11_The_switch_Statement/S12.11_A3_T5.js
+ * @path ch12/12.11/S12.11_A3_T5.js
  * @description Introducing statement not followed by "case" keyword
  * @negative
  */

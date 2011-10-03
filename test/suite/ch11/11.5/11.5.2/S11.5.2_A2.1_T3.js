@@ -4,7 +4,7 @@
 /**
  * Operator x / y uses GetValue
  *
- * @path 11_Expressions/11.5_Multiplicative_Operators/11.5.2_Applying_the_slash_Operator/S11.5.2_A2.1_T3.js
+ * @path ch11/11.5/11.5.2/S11.5.2_A2.1_T3.js
  * @description If GetBase(y) is null, throw ReferenceError
  */
 

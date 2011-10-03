@@ -4,7 +4,7 @@
 /**
  * GetValue(V) mast fail
  *
- * @path 08_Types/8.7_The_Reference_Type/S8.7.2_A1_T2.js
+ * @path ch08/8.7/S8.7.2_A1_T2.js
  * @description Checking if execution of "1=1" fails
  * @negative
  */

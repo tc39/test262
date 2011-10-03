@@ -4,7 +4,7 @@
 /**
  * "try" with "catch" or "finally" statement within/without an "do while" statement
  *
- * @path 12_Statement/12.14_The_try_Statement/S12.14_A9_T3.js
+ * @path ch12/12.14/S12.14_A9_T3.js
  * @description "try" statement within a loop, the statement contains "break" statement
  */
 

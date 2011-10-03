@@ -5,7 +5,7 @@
  * If Type(x) is Boolean and Type(y) is Number,
  * return the result of comparison ToNumber(x) != y
  *
- * @path 11_Expressions/11.9_Equality_Operators/11.9.2_The_Does_not_equals_Operator/S11.9.2_A3.2.js
+ * @path ch11/11.9/11.9.2/S11.9.2_A3.2.js
  * @description x is primitive boolean, y is primitive number
  */
 

@@ -8,7 +8,7 @@
  * ii) if separator is not RegExp ToString(separator) performs and
  * iii) ToInteger(limit) performs
  *
- * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.14_String.prototype.split/S15.5.4.14_A1_T16.js
+ * @path ch15/15.5/15.5.4/15.5.4.14/S15.5.4.14_A1_T16.js
  * @description Argument is object, and instance is Number.
  * Object have overrided toString function, that return regexp
  */

@@ -4,7 +4,7 @@
 /**
  * String.prototype.toString() returns this string value
  *
- * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/S15.5.4.2_A1_T1.js
+ * @path ch15/15.5/15.5.4/S15.5.4.2_A1_T1.js
  * @description Create new String(number) and check it`s method toString()
  */
 

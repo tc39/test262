@@ -4,7 +4,7 @@
 /**
  * RegularExpressionChar :: BackslashSequence :: \LineTerminator is incorrect
  *
- * @path 07_Lexical_Conventions/7.8_Literals/7.8.5_Regular_Expression_Literals/S7.8.5_A2.5_T4.js
+ * @path ch07/7.8/7.8.5/S7.8.5_A2.5_T4.js
  * @description Carriage Return, with eval
  */
 

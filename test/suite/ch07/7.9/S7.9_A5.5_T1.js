@@ -4,7 +4,7 @@
 /**
  * Check Function Expression for automatic semicolon insertion
  *
- * @path 07_Lexical_Conventions/7.9_Automatic_Semicolon_Insertion/S7.9_A5.5_T1.js
+ * @path ch07/7.9/S7.9_A5.5_T1.js
  * @description Try use 1 + function_name\n(2 + 3) construction
  */
 

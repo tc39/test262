@@ -4,7 +4,7 @@
 /**
  * Result of boolean conversion from null value is false
  *
- * @path 09_Type_Conversion/9.2_ToBoolean/S9.2_A2_T1.js
+ * @path ch09/9.2/S9.2_A2_T1.js
  * @description null convert to Boolean by explicit transformation
  */
 

@@ -4,7 +4,7 @@
 /**
  * The RegExp instance lastIndex property has the attribute DontEnum
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.7_Properties_of_RegExp_Instances/15.10.7.5_lastIndex/S15.10.7.5_A8.js
+ * @path ch15/15.10/15.10.7/15.10.7.5/S15.10.7.5_A8.js
  * @description Checking if enumerating the lastIndex property of RegExp instance fails
  */
 

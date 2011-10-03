@@ -4,7 +4,7 @@
 /**
  * Function is a data
  *
- * @path 13_Function_Definition/S13_A10.js
+ * @path ch13/S13_A10.js
  * @description Using function as a property of an object
  */
 

@@ -4,7 +4,7 @@
 /**
  * The String.prototype property has the attribute DontEnum
  *
- * @path 15_Native/15.5_String_Objects/15.5.3_Properties_of_the_String_Constructor/S15.5.3.1_A2.js
+ * @path ch15/15.5/15.5.3/S15.5.3.1_A2.js
  * @description Checking if enumerating the String.prototype property fails
  */
 

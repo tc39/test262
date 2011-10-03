@@ -4,7 +4,7 @@
 /**
  * HexEscapeSequence :: x HexDigit is incorrect
  *
- * @path 07_Lexical_Conventions/7.8_Literals/7.8.4_String_Literals/S7.8.4_A6.2_T2.js
+ * @path ch07/7.8/7.8.4/S7.8.4_A6.2_T2.js
  * @description HexDigit :: A
  * @negative
  */

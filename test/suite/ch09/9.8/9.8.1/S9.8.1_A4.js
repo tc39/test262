@@ -4,7 +4,7 @@
 /**
  * If m is infinity, return the string "Infinity"
  *
- * @path 09_Type_Conversion/9.8_ToString/9.8.1_ToString_Applied_to_the_Number_Type/S9.8.1_A4.js
+ * @path ch09/9.8/9.8.1/S9.8.1_A4.js
  * @description +/-Infinity convert to String by explicit transformation
  */
 

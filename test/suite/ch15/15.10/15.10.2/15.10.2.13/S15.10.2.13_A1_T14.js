@@ -4,7 +4,7 @@
 /**
  * The production CharacterClass :: [ [lookahead \notin {^}] ClassRanges ] evaluates by evaluating ClassRanges to obtain a CharSet and returning that CharSet and the boolean false
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.13_CharacterClass/S15.10.2.13_A1_T14.js
+ * @path ch15/15.10/15.10.2/15.10.2.13/S15.10.2.13_A1_T14.js
  * @description Execute /[*&$]{3}/.exec("123*&$abc") and check results
  */
 

@@ -5,7 +5,7 @@
  * If the length property is changed, every property whose name
  * is an array index whose value is not smaller than the new length is automatically deleted
  *
- * @path 15_Native/15.4_Array_Objects/15.4.5_Properties_of_Array_Instances/15.4.5.2_length/S15.4.5.2_A3_T3.js
+ * @path ch15/15.4/15.4.5/15.4.5.2/S15.4.5.2_A3_T3.js
  * @description [[Put]] (length, 4294967296)
  */
 

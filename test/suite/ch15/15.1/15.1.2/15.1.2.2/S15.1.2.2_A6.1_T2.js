@@ -6,7 +6,7 @@
  * then let Z be the substring of S consisting of all characters before
  * the first such character; otherwise, let Z be S
  *
- * @path 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.2_parseInt/S15.1.2.2_A6.1_T2.js
+ * @path ch15/15.1/15.1.2/15.1.2.2/S15.1.2.2_A6.1_T2.js
  * @description Complex test. Radix-R notation in [0..9, A-Z]
  */
 

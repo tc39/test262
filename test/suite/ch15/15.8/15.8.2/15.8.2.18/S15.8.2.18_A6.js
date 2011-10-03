@@ -4,7 +4,7 @@
 /**
  * Tangent is a periodic function with period PI
  *
- * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.18_tan/S15.8.2.18_A6.js
+ * @path ch15/15.8/15.8.2/15.8.2.18/S15.8.2.18_A6.js
  * @description Checking if Math.tan(x) equals to Math.tan(x+n*Math.PI) with precision 0.000000000003, where n is an integer from 1 to 100 and x is one of 10 float point values from 0 to Math.PI
  */
 

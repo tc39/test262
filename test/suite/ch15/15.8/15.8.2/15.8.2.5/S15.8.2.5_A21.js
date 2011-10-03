@@ -4,7 +4,7 @@
 /**
  * If y is equal to +Infinity and x is equal to -Infinity, Math.atan2(y,x) is an implementation-dependent approximation to +3*PI/4
  *
- * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.5_atan2/S15.8.2.5_A21.js
+ * @path ch15/15.8/15.8.2/15.8.2.5/S15.8.2.5_A21.js
  * @description Checking if Math.atan2(y,x) is an approximation to +3*PI/4, where y is equal to +Infinity and x is equal to -Infinity
  */
 

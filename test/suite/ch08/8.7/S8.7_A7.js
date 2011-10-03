@@ -4,7 +4,7 @@
 /**
  * Passing arguments by reference do change values of reference to be passed
  *
- * @path 08_Types/8.7_The_Reference_Type/S8.7_A7.js
+ * @path ch08/8.7/S8.7_A7.js
  * @description Add new property to original variable inside function
  */
 

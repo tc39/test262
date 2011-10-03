@@ -4,7 +4,7 @@
 /**
  * [[Get]](P) method should return value when property P does not exist in instance but prototype contain it
  *
- * @path 08_Types/8.6_The_Object_Type/8.6.2_Internal_Properties_and_Methods/S8.6.2.1_A1.js
+ * @path ch08/8.12/8.12.3/S8.12.3_A1.js
  * @description Try to get P when property P does not exist in instance but prototype contain it
  */
 

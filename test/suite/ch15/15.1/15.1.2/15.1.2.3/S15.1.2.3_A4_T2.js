@@ -5,7 +5,7 @@
  * Compute the longest prefix of Result(2), which might be Result(2) itself,
  * which satisfies the syntax of a StrDecimalLiteral
  *
- * @path 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.3_parseFloat/S15.1.2.3_A4_T2.js
+ * @path ch15/15.1/15.1.2/15.1.2.3/S15.1.2.3_A4_T2.js
  * @description With ExponentIndicator
  */
 

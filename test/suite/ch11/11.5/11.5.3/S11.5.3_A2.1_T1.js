@@ -4,7 +4,7 @@
 /**
  * Operator x % y uses GetValue
  *
- * @path 11_Expressions/11.5_Multiplicative_Operators/11.5.3_Applying_the_percent_Operator/S11.5.3_A2.1_T1.js
+ * @path ch11/11.5/11.5.3/S11.5.3_A2.1_T1.js
  * @description Either Type is not Reference or GetBase is not null
  */
 

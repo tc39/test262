@@ -4,7 +4,7 @@
 /**
  * The MV of StringNumericLiteral ::: StrWhiteSpace is 0
  *
- * @path 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A2.js
+ * @path ch09/9.3/9.3.1/S9.3.1_A2.js
  * @description Strings with various WhiteSpaces convert to Number by explicit transformation
  */
 

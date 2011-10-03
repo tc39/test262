@@ -4,7 +4,7 @@
 /**
  * The propertyIsEnumerable method does not consider objects in the prototype chain
  *
- * @path 15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/15.2.4.7_Object.prototype.propertyIsEnumerable/S15.2.4.7_A1_T1.js
+ * @path ch15/15.2/15.2.4/15.2.4.7/S15.2.4.7_A1_T1.js
  * @description Calling the propertyIsEnumerable method for object in the prototype chain
  */
 

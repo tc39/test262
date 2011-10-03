@@ -4,7 +4,7 @@
 /**
  * Boolean() returns false
  *
- * @path 15_Native/15.6_Boolean_Objects/15.6.1_The_Boolean_Constructor_Called_as_a_Function/S15.6.1.1_A2.js
+ * @path ch15/15.6/15.6.1/S15.6.1.1_A2.js
  * @description Call Boolean() and check result
  */
 

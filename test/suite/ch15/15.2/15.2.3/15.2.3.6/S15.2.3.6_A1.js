@@ -8,7 +8,7 @@
  * case, that if defineProperty seems to have successfully installed a
  * non-configurable getter, that it is still there.
  *
- * @path 15_Native/15.2_Object_Objects/15.2.3_Properties_of_the_Object_Constructor/15.2.3.6_Object.defineProperty/S15.2.3.6_A1.js
+ * @path ch15/15.2/15.2.3/15.2.3.6/S15.2.3.6_A1.js
  * @description Do getters on HTMLFormElements disappear?
  */
 

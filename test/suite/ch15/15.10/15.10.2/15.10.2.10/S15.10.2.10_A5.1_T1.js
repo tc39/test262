@@ -4,7 +4,7 @@
 /**
  * CharacterEscape :: IdentityEscapeSequence :: SourceCharacter but not IdentifierPart
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.10_CharacterEscape/S15.10.2.10_A5.1_T1.js
+ * @path ch15/15.10/15.10.2/15.10.2.10/S15.10.2.10_A5.1_T1.js
  * @description Tested string is "~`!@#$%^&*()-+={[}]|\\:;'<,>./?" + '"'
  */
 

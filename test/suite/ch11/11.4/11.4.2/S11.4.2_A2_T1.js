@@ -4,7 +4,7 @@
 /**
  * Operator "void" uses GetValue
  *
- * @path 11_Expressions/11.4_Unary_Operators/11.4.2_The_void_Operator/S11.4.2_A2_T1.js
+ * @path ch11/11.4/11.4.2/S11.4.2_A2_T1.js
  * @description Either Type(x) is not Reference or GetBase(x) is not null
  */
 

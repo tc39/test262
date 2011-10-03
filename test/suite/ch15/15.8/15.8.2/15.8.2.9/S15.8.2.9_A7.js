@@ -4,7 +4,7 @@
 /**
  * The value of Math.floor(x) is the same as the value of -Math.ceil(-x)
  *
- * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.9_floor/S15.8.2.9_A7.js
+ * @path ch15/15.8/15.8.2/15.8.2.9/S15.8.2.9_A7.js
  * @description Checking if Math.floor(x) is equal to -Math.ceil(-x) on 2000 floating-point argument values
  */
 

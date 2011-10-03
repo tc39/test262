@@ -4,7 +4,7 @@
 /**
  * Unicode characters in variable Identifier are allowed
  *
- * @path 12_Statement/12.2_Variable_Statement/S12.2_A4.js
+ * @path ch12/12.2/S12.2_A4.js
  * @description Create and use unicode characters in variable Identifier
  */
 

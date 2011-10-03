@@ -4,7 +4,7 @@
 /**
  * The value of the internal [[Prototype]] property of the Error constructor is the Function prototype object(15.3.4)
  *
- * @path 15_Native/15.11_Error_Objects/15.11.3_Properties_of_the_Error_Constructor/S15.11.3_A1_T1.js
+ * @path ch15/15.11/15.11.3/S15.11.3_A1_T1.js
  * @description Checking prototype of constructor of the newly constructed Error object
  */
 

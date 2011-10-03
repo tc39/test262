@@ -4,7 +4,7 @@
 /**
  * Only AssignmentExpression is admitted when variable is initialized
  *
- * @path 12_Statement/12.2_Variable_Statement/S12.2_A8_T2.js
+ * @path ch12/12.2/S12.2_A8_T2.js
  * @description Checking if execution of "var x | true" fails
  * @negative
  */

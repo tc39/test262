@@ -7,7 +7,7 @@
  * 10. Set the constructor property of Result(9) to F. This property is given attributes { DontEnum }.
  * 11. Set the "prototype" property of F to Result(9).
  *
- * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2_A4_T1.js
+ * @path ch13/13.2/S13.2_A4_T1.js
  * @description Checking prototype, prototype.constructor properties and {DontEnum} property of a constructor.
  * Using "function __func(){}" as a FunctionDeclaration
  */

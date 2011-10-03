@@ -4,7 +4,7 @@
 /**
  * Primitive types are passed by value
  *
- * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.1_A6_T2.js
+ * @path ch13/13.2/S13.2.1_A6_T2.js
  * @description Declaring a function with "__func = function(arg1, arg2)"
  */
 

@@ -4,7 +4,7 @@
 /**
  * Result of boolean conversion from number value is false if the argument is +0, -0, or NaN; otherwise, is true
  *
- * @path 09_Type_Conversion/9.2_ToBoolean/S9.2_A4_T3.js
+ * @path ch09/9.2/S9.2_A4_T3.js
  * @description Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY,
  * Number.MAX_VALUE, Number.MIN_VALUE and some numbers convert to Boolean by explicit transformation
  */

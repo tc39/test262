@@ -4,7 +4,7 @@
 /**
  * Operator --x returns ToNumber(x) - 1
  *
- * @path 11_Expressions/11.4_Unary_Operators/11.4.5_Prefix_Decrement_Operator/S11.4.5_A4_T4.js
+ * @path ch11/11.4/11.4.5/S11.4.5_A4_T4.js
  * @description Type(x) is undefined or null
  */
 

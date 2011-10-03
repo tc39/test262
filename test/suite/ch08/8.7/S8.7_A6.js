@@ -4,7 +4,7 @@
 /**
  * Passing arguments by value differs from by reference and do not change values to be passed
  *
- * @path 08_Types/8.7_The_Reference_Type/S8.7_A6.js
+ * @path ch08/8.7/S8.7_A6.js
  * @description Adding original variable with referenced one inside function
  */
 

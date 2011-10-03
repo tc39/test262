@@ -4,7 +4,7 @@
 /**
  * The Object.prototype.propertyIsEnumerable.length property has the attribute DontDelete
  *
- * @path 15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/15.2.4.7_Object.prototype.propertyIsEnumerable/S15.2.4.7_A9.js
+ * @path ch15/15.2/15.2.4/15.2.4.7/S15.2.4.7_A9.js
  * @description Checking if deleting the Object.prototype.propertyIsEnumerable.length property fails
  */
 

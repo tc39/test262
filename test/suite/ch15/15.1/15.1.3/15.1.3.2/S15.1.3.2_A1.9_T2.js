@@ -5,7 +5,7 @@
  * If B = 11110xxx (n = 4) and string.charAt(k + 3),
  * string.charAt(k + 6), string.charAt(k + 9) not equal "%", throw URIError
  *
- * @path 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.2_decodeURIComponent/S15.1.3.2_A1.9_T2.js
+ * @path ch15/15.1/15.1.3/15.1.3.2/S15.1.3.2_A1.9_T2.js
  * @description Complex tests. B = [0xF0 - 0x0F7],
  * string.charAt(k + 6) not equal "%"
  */

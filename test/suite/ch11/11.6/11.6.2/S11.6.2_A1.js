@@ -4,7 +4,7 @@
 /**
  * White Space and Line Terminator between AdditiveExpression and "-" or between "-" and MultiplicativeExpression are allowed
  *
- * @path 11_Expressions/11.6_Additive_Operators/11.6.2_The_Subtraction_operator/S11.6.2_A1.js
+ * @path ch11/11.6/11.6.2/S11.6.2_A1.js
  * @description Checking by using eval
  */
 

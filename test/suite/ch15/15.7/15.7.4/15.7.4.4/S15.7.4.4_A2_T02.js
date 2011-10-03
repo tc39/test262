@@ -6,7 +6,7 @@
  * to other kinds of objects for use as a method and there is should be
  * a TypeError exception if its this value is not a Number object
  *
- * @path 15_Native/15.7_Number_Objects/15.7.4_Properties_of_the_Number_Prototype_Object/15.7.4.4_Number.prototype.valueOf/S15.7.4.4_A2_T02.js
+ * @path ch15/15.7/15.7.4/15.7.4.4/S15.7.4.4_A2_T02.js
  * @description transferring to the Boolean objects
  */
 

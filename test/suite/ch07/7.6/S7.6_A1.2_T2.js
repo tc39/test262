@@ -4,7 +4,7 @@
 /**
  * IdentifierStart :: $
  *
- * @path 07_Lexical_Conventions/7.6_Identifiers/S7.6_A1.2_T2.js
+ * @path ch07/7.6/S7.6_A1.2_T2.js
  * @description The $ as unicode character \u0024
  */
 

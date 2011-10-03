@@ -6,7 +6,7 @@
  * when created. A variable with an Initialiser is assigned the value of its AssignmentExpression when the
  * VariableStatement is executed, not when the variable is created
  *
- * @path 12_Statement/12.2_Variable_Statement/S12.2_A1.js
+ * @path ch12/12.2/S12.2_A1.js
  * @description Creating variables after entering the execution scope
  */
 

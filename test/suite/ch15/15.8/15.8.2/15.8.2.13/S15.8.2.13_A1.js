@@ -4,7 +4,7 @@
 /**
  * If y is NaN, Math.pow(x,y) is NaN
  *
- * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.13_pow/S15.8.2.13_A1.js
+ * @path ch15/15.8/15.8.2/15.8.2.13/S15.8.2.13_A1.js
  * @description Checking if Math.pow(x,y) is NaN, where y is NaN
  */
 

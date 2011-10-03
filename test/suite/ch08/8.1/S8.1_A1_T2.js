@@ -4,7 +4,7 @@
 /**
  * The Undefined type has one value, called undefined
  *
- * @path 08_Types/8.1_The_Undefined_Type/S8.1_A1_T2.js
+ * @path ch08/8.1/S8.1_A1_T2.js
  * @description Check typeof(undefined) and typeof(void 0)
  */
 

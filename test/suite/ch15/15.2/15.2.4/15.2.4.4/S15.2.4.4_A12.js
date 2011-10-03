@@ -4,7 +4,7 @@
 /**
  * Let O be the result of calling ToObject passing the this value as the argument.
  *
- * @path 15_Native/15.2_Object_Objects/15.2.4_Properties_of_the_Object_Prototype_Object/15.2.4.4_Object.prototype.valueOf/S15.2.4.4_A12.js
+ * @path ch15/15.2/15.2.4/15.2.4.4/S15.2.4.4_A12.js
  * @description Checking Object.prototype.valueOf invoked by the 'call' property.
  * @negative
  */

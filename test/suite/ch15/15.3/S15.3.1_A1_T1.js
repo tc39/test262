@@ -5,7 +5,7 @@
  * The function call Function(…) is equivalent to the object creation expression
  * new Function(…) with the same arguments.
  *
- * @path 15_Native/15.3_Function_Objects/S15.3.1_A1_T1.js
+ * @path ch15/15.3/S15.3.1_A1_T1.js
  * @description Create simple functions and check returned values
  */
 

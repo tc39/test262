@@ -4,7 +4,7 @@
 /**
  * Function expession inside the "if" expression is allowed
  *
- * @path 12_Statement/12.5_The_if_Statement/S12.5_A10_T2.js
+ * @path ch12/12.5/S12.5_A10_T2.js
  * @description Using function expession "function __func(){return 0;}()" within "if" expression
  */
 

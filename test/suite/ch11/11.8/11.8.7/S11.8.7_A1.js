@@ -4,7 +4,7 @@
 /**
  * White Space and Line Terminator between RelationalExpression and "in" and between "in" and ShiftExpression are allowed
  *
- * @path 11_Expressions/11.8_Relational_Operators/11.8.7_The_in_operator/S11.8.7_A1.js
+ * @path ch11/11.8/11.8.7/S11.8.7_A1.js
  * @description Checking by using eval
  */
 

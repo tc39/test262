@@ -4,7 +4,7 @@
 /**
  * The RegExp instance ignoreCase property has the attribute DontDelete
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.7_Properties_of_RegExp_Instances/15.10.7.3_ignoreCase/S15.10.7.3_A9.js
+ * @path ch15/15.10/15.10.7/15.10.7.3/S15.10.7.3_A9.js
  * @description Checking if deleting the ignoreCase property fails
  */
 

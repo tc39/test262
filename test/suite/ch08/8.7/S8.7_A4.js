@@ -4,7 +4,7 @@
 /**
  * Object Modification Resulting in a New Object for Not a Self-Modified Object leads to loss of integrity
  *
- * @path 08_Types/8.7_The_Reference_Type/S8.7_A4.js
+ * @path ch08/8.7/S8.7_A4.js
  * @description Create a reference to the string, and Concatenate some new text onto the string object
  */
 

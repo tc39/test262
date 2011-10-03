@@ -6,7 +6,7 @@
  * i) Let A be the set of all characters except the four line terminator characters <LF>, <CR>, <LS>, or <PS>
  * ii) Call CharacterSetMatcher(A, false) and return its Matcher result
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.8_Atom/S15.10.2.8_A4_T8.js
+ * @path ch15/15.10/15.10.2/15.10.2.8/S15.10.2.8_A4_T8.js
  * @description Execute /.+/.exec("`1234567890-=~!@#$%^&*()_+") and check results
  */
 

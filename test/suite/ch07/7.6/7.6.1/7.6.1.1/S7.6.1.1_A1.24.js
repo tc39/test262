@@ -4,7 +4,7 @@
 /**
  * The "while" token can not be used as identifier
  *
- * @path 07_Lexical_Conventions/7.5_Tokens/7.5.2_Keywords/S7.5.2_A1.24.js
+ * @path ch07/7.6/7.6.1/7.6.1.1/S7.6.1.1_A1.24.js
  * @description Checking if execution of "while=1" fails
  * @negative
  */

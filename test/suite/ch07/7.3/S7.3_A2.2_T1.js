@@ -4,7 +4,7 @@
 /**
  * CARRIAGE RETURN (U+000D) within strings is not allowed
  *
- * @path 07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A2.2_T1.js
+ * @path ch07/7.3/S7.3_A2.2_T1.js
  * @description Insert CARRIAGE RETURN (\u000D) into string
  * @negative
  */

@@ -4,7 +4,7 @@
 /**
  * If x and y are +0 and -0, return false
  *
- * @path 11_Expressions/11.8_Relational_Operators/11.8.1_The_Less_than_Operator/S11.8.1_A4.4.js
+ * @path ch11/11.8/11.8.1/S11.8.1_A4.4.js
  * @description Checking all combinations
  */
 

@@ -4,7 +4,7 @@
 /**
  * FunctionDeclaration produces a new scope
  *
- * @path 12_Statement/12.2_Variable_Statement/S12.2_A3.js
+ * @path ch12/12.2/S12.2_A3.js
  * @description Using Global scope and Function scope together
  */
 

@@ -4,7 +4,7 @@
 /**
  * While evaluating "for (ExpressionNoIn; Expression; Expression) Statement", ExpressionNoIn is evaulated first
  *
- * @path 12_Statement/12.6_Iteration_Statements/12.6.3_The_for_Statement/S12.6.3_A2.js
+ * @path ch12/12.6/12.6.3/S12.6.3_A2.js
  * @description Using "(function(){throw "NoInExpression"})()" as ExpressionNoIn
  */
 

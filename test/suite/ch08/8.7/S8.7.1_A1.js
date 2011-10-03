@@ -4,7 +4,7 @@
 /**
  * Delete operator deletes pure property, so it returns true to be applyed to this.property
  *
- * @path 08_Types/8.7_The_Reference_Type/S8.7.1_A1.js
+ * @path ch08/8.7/S8.7.1_A1.js
  * @description Try to delete this.y, where y is this.y=1
  */
 

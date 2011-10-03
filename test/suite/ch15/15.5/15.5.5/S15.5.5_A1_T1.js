@@ -4,7 +4,7 @@
 /**
  * String instance has not [[call]] property
  *
- * @path 15_Native/15.5_String_Objects/15.5.5_Properties_of_String_Instances/S15.5.5_A1_T1.js
+ * @path ch15/15.5/15.5.5/S15.5.5_A1_T1.js
  * @description Create new String and try call it
  */
 

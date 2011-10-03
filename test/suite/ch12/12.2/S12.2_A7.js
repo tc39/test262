@@ -4,7 +4,7 @@
 /**
  * VariableDeclaration within "for" statement is allowed
  *
- * @path 12_Statement/12.2_Variable_Statement/S12.2_A7.js
+ * @path ch12/12.2/S12.2_A7.js
  * @description Declaring variable within "for" statement
  */
 

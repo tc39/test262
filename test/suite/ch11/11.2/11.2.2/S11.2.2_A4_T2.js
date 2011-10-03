@@ -4,7 +4,7 @@
 /**
  * If NewExpression or MemberExpression does not implement internal [[Construct]] method, throw TypeError
  *
- * @path 11_Expressions/11.2_Left_Hand_Side_Expressions/11.2.2_The_new_Operator/S11.2.2_A4_T2.js
+ * @path ch11/11.2/11.2.2/S11.2.2_A4_T2.js
  * @description Checking Number object case
  */
 

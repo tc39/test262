@@ -4,7 +4,7 @@
 /**
  * The Date.prototype property "setSeconds" has { DontEnum } attributes
  *
- * @path 15_Native/15.9_Date_Objects/15.9.5_Properties_of_the_Date_Prototype_Object/15.9.5.30_Date.prototype.setSeconds/S15.9.5.30_A1_T1.js
+ * @path ch15/15.9/15.9.5/15.9.5.30/S15.9.5.30_A1_T1.js
  * @description Checking absence of ReadOnly attribute
  */
 

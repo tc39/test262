@@ -4,7 +4,7 @@
 /**
  * Every function call enters a new execution context
  *
- * @path 10_Execution_Contexts/10.4_Establishing_An_Execution_Context/S10.2_A1.1_T2.js
+ * @path ch10/10.4/S10.4A1.1_T2.js
  * @description Recursive function call
  */
 

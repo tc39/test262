@@ -5,7 +5,7 @@
  * ToObject conversion from Object: The result is the input
  * argument (no conversion)
  *
- * @path 09_Type_Conversion/9.9_ToObject/S9.9_A6.js
+ * @path ch09/9.9/S9.9_A6.js
  * @description Converting from Objects to Object
  */
 

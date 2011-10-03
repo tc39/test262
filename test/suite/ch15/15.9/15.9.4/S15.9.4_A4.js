@@ -5,7 +5,7 @@
  * The value of the internal [[Prototype]] property of the Date
  * constructor is the Function prototype object
  *
- * @path 15_Native/15.9_Date_Objects/15.9.4_Properties_of_the_Date_Constructor/S15.9.4_A4.js
+ * @path ch15/15.9/15.9.4/S15.9.4_A4.js
  * @description Checking Function.prototype.isPrototypeOf(Date)
  */
 

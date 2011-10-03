@@ -4,7 +4,7 @@
 /**
  * Operator "in" uses GetValue
  *
- * @path 11_Expressions/11.8_Relational_Operators/11.8.7_The_in_operator/S11.8.7_A2.1_T3.js
+ * @path ch11/11.8/11.8.7/S11.8.7_A2.1_T3.js
  * @description If GetBase(ShiftExpression) is null, throw ReferenceError
  */
 

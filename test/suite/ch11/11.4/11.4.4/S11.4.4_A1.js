@@ -4,7 +4,7 @@
 /**
  * White Space and Line Terminator between "++" and UnaryExpression are allowed
  *
- * @path 11_Expressions/11.4_Unary_Operators/11.4.4_Prefix_Increment_Operator/S11.4.4_A1.js
+ * @path ch11/11.4/11.4.4/S11.4.4_A1.js
  * @description Checking by using eval
  */
 

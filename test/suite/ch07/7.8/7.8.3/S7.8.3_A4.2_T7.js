@@ -4,7 +4,7 @@
 /**
  * ExponentPart :: ExponentIndicator ( /+/-) 0 DecimalDigits is allowed
  *
- * @path 07_Lexical_Conventions/7.8_Literals/7.8.3_Numeric_Literals/S7.8.3_A4.2_T7.js
+ * @path ch07/7.8/7.8.3/S7.8.3_A4.2_T7.js
  * @description ExponentIndicator :: e
  */
 

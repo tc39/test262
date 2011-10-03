@@ -4,7 +4,7 @@
 /**
  * If Type(Primitive(x)) is not String and Type(Primitive(y)) is not String, then operator x + y returns ToNumber(x) + ToNumber(y)
  *
- * @path 11_Expressions/11.6_Additive_Operators/11.6.1_The_Addition_operator/S11.6.1_A3.1_T1.2.js
+ * @path ch11/11.6/11.6.1/S11.6.1_A3.1_T1.2.js
  * @description Type(Primitive(x)) and Type(Primitive(y)) vary between primitive number and Number object
  */
 

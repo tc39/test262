@@ -4,7 +4,7 @@
 /**
  * LINE FEED (U+000A) within strings is not allowed
  *
- * @path 07_Lexical_Conventions/7.3_Line_Terminators/S7.3_A2.1_T1.js
+ * @path ch07/7.3/S7.3_A2.1_T1.js
  * @description Insert LINE FEED (\u000A) into string
  * @negative
  */

@@ -4,7 +4,7 @@
 /**
  * If y is +0, Math.pow(x,y) is 1, even if x is NaN
  *
- * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.13_pow/S15.8.2.13_A2.js
+ * @path ch15/15.8/15.8.2/15.8.2.13/S15.8.2.13_A2.js
  * @description Checking if Math.pow(x,y) equals to 1, where y is +0 and x is number or NaN
  */
 

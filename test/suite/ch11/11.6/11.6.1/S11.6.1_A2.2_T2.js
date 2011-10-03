@@ -4,7 +4,7 @@
 /**
  * Operator x + y uses [[Default Value]]
  *
- * @path 11_Expressions/11.6_Additive_Operators/11.6.1_The_Addition_operator/S11.6.1_A2.2_T2.js
+ * @path ch11/11.6/11.6.1/S11.6.1_A2.2_T2.js
  * @description If Type(value) is Date object, evaluate ToPrimitive(value, String)
  */
 

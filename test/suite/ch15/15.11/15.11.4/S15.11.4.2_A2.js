@@ -4,7 +4,7 @@
 /**
  * The initial value of Error.prototype.name is "Error"
  *
- * @path 15_Native/15.11_Error_Objects/15.11.4_Properties_of_the_Error_Prototype_Object/S15.11.4.2_A2.js
+ * @path ch15/15.11/15.11.4/S15.11.4.2_A2.js
  * @description Checking value of Error.prototype.name
  */
 

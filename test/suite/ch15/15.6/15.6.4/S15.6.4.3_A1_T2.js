@@ -4,7 +4,7 @@
 /**
  * Boolean.prototype.valueOf() returns this boolean value
  *
- * @path 15_Native/15.6_Boolean_Objects/15.6.4_Properties_of_the_Boolean_Prototype_Object/S15.6.4.3_A1_T2.js
+ * @path ch15/15.6/15.6.4/S15.6.4.3_A1_T2.js
  * @description calling with argument
  */
 

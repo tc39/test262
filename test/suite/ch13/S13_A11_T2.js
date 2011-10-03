@@ -4,7 +4,7 @@
 /**
  * Since arguments property has attribute { DontDelete }, only its elements can be deleted
  *
- * @path 13_Function_Definition/S13_A11_T2.js
+ * @path ch13/S13_A11_T2.js
  * @description Checking if deleting the arguments property fails and then returning it
  */
 

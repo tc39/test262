@@ -5,7 +5,7 @@
  * The initial value of the created property callee is the
  * Function object being executed
  *
- * @path 10_Execution_Contexts/10.6_Arguments_Object/S10.1.8_A4.js
+ * @path ch10/10.6/S10.6_A4.js
  * @description Checking that arguments.callee === function object
  * @noStrict
  */

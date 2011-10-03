@@ -4,7 +4,7 @@
 /**
  * In the If statement expression must be enclosed in braces
  *
- * @path 12_Statement/12.5_The_if_Statement/S12.5_A6_T1.js
+ * @path ch12/12.5/S12.5_A6_T1.js
  * @description Checking if execution of "if true" fails
  * @negative
  */

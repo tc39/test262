@@ -9,7 +9,7 @@
  * http://bugs.ecmascript.org/ticket/250
  * for example
  *
- * @path 08_Types/8.2_The_Null_Type/S8.2_A3.js
+ * @path ch08/8.2/S8.2_A3.js
  * @description Check type of null
  */
 

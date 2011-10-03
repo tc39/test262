@@ -4,7 +4,7 @@
 /**
  * The length property of the toLocaleLowerCase method is 0
  *
- * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.17_String.prototype.toLocaleLowerCase/S15.5.4.17_A11.js
+ * @path ch15/15.5/15.5.4/15.5.4.17/S15.5.4.17_A11.js
  * @description Checking String.prototype.toLocaleLowerCase.length
  */
 

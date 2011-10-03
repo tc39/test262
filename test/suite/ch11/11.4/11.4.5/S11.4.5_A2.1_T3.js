@@ -4,7 +4,7 @@
 /**
  * Operator --x uses GetValue and PutValue
  *
- * @path 11_Expressions/11.4_Unary_Operators/11.4.5_Prefix_Decrement_Operator/S11.4.5_A2.1_T3.js
+ * @path ch11/11.4/11.4.5/S11.4.5_A2.1_T3.js
  * @description If Type(x) is not Reference, throw ReferenceError (or SyntaxError)
  * @negative
  */

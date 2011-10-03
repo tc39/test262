@@ -4,7 +4,7 @@
 /**
  * DecimalEscape :: DecimalIntegerLiteral [lookahead not in DecimalDigit]
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.11_DecimalEscape/S15.10.2.11_A1_T1.js
+ * @path ch15/15.10/15.10.2/15.10.2.11/S15.10.2.11_A1_T1.js
  * @description DecimalEscape :: 0. If i is zero, return the EscapeValue consisting of a <NUL> character (Unicodevalue0000)
  */
 

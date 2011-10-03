@@ -4,7 +4,7 @@
 /**
  * If value is NaN, +0, -0, +Infinity, or -Infinity, return +0
  *
- * @path 09_Type_Conversion/9.5_ToInt32/S9.5_A1_T1.js
+ * @path ch09/9.5/S9.5_A1_T1.js
  * @description For testing use operator <<0
  */
 

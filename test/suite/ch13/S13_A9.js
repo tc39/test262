@@ -4,7 +4,7 @@
 /**
  * Function can be passed as argument
  *
- * @path 13_Function_Definition/S13_A9.js
+ * @path ch13/S13_A9.js
  * @description Using function as argument of another function
  */
 

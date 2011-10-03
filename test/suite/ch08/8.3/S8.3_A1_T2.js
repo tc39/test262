@@ -4,7 +4,7 @@
 /**
  * The Boolean type have two values, called true and false
  *
- * @path 08_Types/8.3_The_Boolean_Type/S8.3_A1_T2.js
+ * @path ch08/8.3/S8.3_A1_T2.js
  * @description Check type of true/false and it`s equality
  */
 

@@ -4,7 +4,7 @@
 /**
  * The [[Class]] property of the newly constructed object is set to "Error"
  *
- * @path 15_Native/15.11_Error_Objects/15.11.1_The_Error_Constructor_Called_as_a_Function/S15.11.1.1_A3_T1.js
+ * @path ch15/15.11/15.11.1/S15.11.1.1_A3_T1.js
  * @description Checking Class of the newly constructed Error object using toSting() function
  */
 

@@ -4,7 +4,7 @@
 /**
  * Check ToUint32(length) for non Array objects
  *
- * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.9_Array_prototype_shift/S15.4.4.9_A3_T2.js
+ * @path ch15/15.4/15.4.4/15.4.4.9/S15.4.4.9_A3_T2.js
  * @description length is arbitrarily
  */
 

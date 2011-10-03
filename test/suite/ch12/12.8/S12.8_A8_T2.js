@@ -4,7 +4,7 @@
 /**
  * Appearing of "break" within "try/catch" Block yields SyntaxError
  *
- * @path 12_Statement/12.8_The_break_Statement/S12.8_A8_T2.js
+ * @path ch12/12.8/S12.8_A8_T2.js
  * @description Checking if using "break Identifier" from within catch Block appears to be invalid
  * @negative
  */

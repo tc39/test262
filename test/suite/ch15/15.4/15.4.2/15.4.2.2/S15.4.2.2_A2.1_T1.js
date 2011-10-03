@@ -5,7 +5,7 @@
  * If the argument len is a Number and ToUint32(len) is equal to len,
  * then the length property of the newly constructed object is set to ToUint32(len)
  *
- * @path 15_Native/15.4_Array_Objects/15.4.2_The_Array_Constructor/15.4.2.2_new_Array_len/S15.4.2.2_A2.1_T1.js
+ * @path ch15/15.4/15.4.2/15.4.2.2/S15.4.2.2_A2.1_T1.js
  * @description Array constructor is given one argument
  */
 

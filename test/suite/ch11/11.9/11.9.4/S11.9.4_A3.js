@@ -5,7 +5,7 @@
  * Type(x) and Type(y) are Boolean-s.
  * Return true, if x and y are both true and both false; otherwise, return false
  *
- * @path 11_Expressions/11.9_Equality_Operators/11.9.4_The_Strict_Equals_Operator/S11.9.4_A3.js
+ * @path ch11/11.9/11.9.4/S11.9.4_A3.js
  * @description x and y are primitive booleans
  */
 

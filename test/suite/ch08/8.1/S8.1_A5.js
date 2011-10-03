@@ -4,7 +4,7 @@
 /**
  * Function argument that isn't provided has a value of undefined
  *
- * @path 08_Types/8.1_The_Undefined_Type/S8.1_A5.js
+ * @path ch08/8.1/S8.1_A5.js
  * @description Call function without provided argument
  */
 

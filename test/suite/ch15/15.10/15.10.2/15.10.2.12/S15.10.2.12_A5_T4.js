@@ -4,7 +4,7 @@
 /**
  * The production CharacterClassEscape :: d evaluates by returning the ten-element set of characters containing the characters 0 through 9 inclusive
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.12_CharacterClassEscape/S15.10.2.12_A5_T4.js
+ * @path ch15/15.10/15.10.2/15.10.2.12/S15.10.2.12_A5_T4.js
  * @description non-d
  */
 

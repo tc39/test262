@@ -4,7 +4,7 @@
 /**
  * First expression is evaluated first, and then second expression
  *
- * @path 11_Expressions/11.10_Binary_Bitwise_Operators/11.10.3_OR_Operator/S11.10.3_A2.4_T1.js
+ * @path ch11/11.10/11.10.3/S11.10.3_A2.4_T1.js
  * @description Checking with "="
  */
 

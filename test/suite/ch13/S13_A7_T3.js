@@ -4,7 +4,7 @@
 /**
  * The FunctionBody must be SourceElements
  *
- * @path 13_Function_Definition/S13_A7_T3.js
+ * @path ch13/S13_A7_T3.js
  * @description Checking if execution of "function __func(){\A\B\C}" fails
  * @negative
  */

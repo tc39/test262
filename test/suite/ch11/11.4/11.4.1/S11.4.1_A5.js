@@ -6,7 +6,7 @@
  * should fail by throwing a TypeError. Under no circumstances
  * should a strict delete return false.
  *
- * @path 11_Expressions/11.4_Unary_Operators/11.4.1_The_delete_Operator/S11.4.1_A5.js
+ * @path ch11/11.4/11.4.1/S11.4.1_A5.js
  * @description See if a strict delete returns false when deleting a
  * non-standard property.
  * @onlyStrict

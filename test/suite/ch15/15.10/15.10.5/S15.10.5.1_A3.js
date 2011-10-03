@@ -4,7 +4,7 @@
 /**
  * The RegExp.prototype property has the attribute DontDelete
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.5_Properties_of_the_RegExp_Constructor/S15.10.5.1_A3.js
+ * @path ch15/15.10/15.10.5/S15.10.5.1_A3.js
  * @description Checking if deleting the RegExp.prototype property fails
  */
 

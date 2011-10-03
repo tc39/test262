@@ -4,7 +4,7 @@
 /**
  * If any value is NaN, the result of Math.max is NaN
  *
- * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.11_max/S15.8.2.11_A2.js
+ * @path ch15/15.8/15.8.2/15.8.2.11/S15.8.2.11_A2.js
  * @description The script tests Math.max giving 1, 2 and 3 arguments to the function where at least one of the arguments is NaN
  */
 

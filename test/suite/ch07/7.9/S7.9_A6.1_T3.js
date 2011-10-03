@@ -4,7 +4,7 @@
 /**
  * Check For Statement for automatic semicolon insertion
  *
- * @path 07_Lexical_Conventions/7.9_Automatic_Semicolon_Insertion/S7.9_A6.1_T3.js
+ * @path ch07/7.9/S7.9_A6.1_T3.js
  * @description for (\n two semicolons \n)
  */
 

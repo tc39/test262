@@ -4,7 +4,7 @@
 /**
  * Number.NEGATIVE_INFINITY is DontDelete
  *
- * @path 15_Native/15.7_Number_Objects/15.7.3_Properties_of_Number_Constructor/15.7.3.5_Number.NEGATIVE_INFINITY/S15.7.3.5_A3.js
+ * @path ch15/15.7/15.7.3/15.7.3.5/S15.7.3.5_A3.js
  * @description Checking if deleting Number.NEGATIVE_INFINITY fails
  * @noStrict
  */

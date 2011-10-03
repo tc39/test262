@@ -4,7 +4,7 @@
 /**
  * The FunctionBody must be SourceElements
  *
- * @path 13_Function_Definition/S13_A7_T1.js
+ * @path ch13/S13_A7_T1.js
  * @description Using only SourceElements within the FunctionBody
  */
 

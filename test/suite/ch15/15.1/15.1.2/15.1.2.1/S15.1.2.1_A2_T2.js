@@ -4,7 +4,7 @@
 /**
  * If the parse fails, throw a SyntaxError exception (but see also clause 16)
  *
- * @path 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.1_eval/S15.1.2.1_A2_T2.js
+ * @path ch15/15.1/15.1.2/15.1.2.1/S15.1.2.1_A2_T2.js
  * @description Checking if execution of "eval("x = 1; x\u000A++")" fails
  * @negative
  */

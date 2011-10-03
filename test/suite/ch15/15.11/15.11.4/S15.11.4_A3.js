@@ -4,7 +4,7 @@
 /**
  * Since Error prototype object is not function it has not [[call]] method
  *
- * @path 15_Native/15.11_Error_Objects/15.11.4_Properties_of_the_Error_Prototype_Object/S15.11.4_A3.js
+ * @path ch15/15.11/15.11.4/S15.11.4_A3.js
  * @description Checking if call of Error prototype as a function fails
  */
 

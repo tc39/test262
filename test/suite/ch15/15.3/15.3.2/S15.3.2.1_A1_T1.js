@@ -10,7 +10,7 @@
  * Pass in a scope chain consisting of the global object as the Scope parameter
  * v) Return Result(iv)
  *
- * @path 15_Native/15.3_Function_Objects/15.3.2_The_Function_Constructor/S15.3.2.1_A1_T1.js
+ * @path ch15/15.3/15.3.2/S15.3.2.1_A1_T1.js
  * @description The body of the function is "{toString:function(){throw 7;}}"
  */
 

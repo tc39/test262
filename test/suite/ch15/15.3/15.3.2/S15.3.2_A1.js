@@ -4,7 +4,7 @@
 /**
  * When Function is called as part of a new expression, it is a constructor: it initialises the newly created object
  *
- * @path 15_Native/15.3_Function_Objects/15.3.2_The_Function_Constructor/S15.3.2_A1.js
+ * @path ch15/15.3/15.3.2/S15.3.2_A1.js
  * @description Checking the constuctor of the object that is created as a new Function
  */
 

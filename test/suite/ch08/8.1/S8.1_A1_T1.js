@@ -4,7 +4,7 @@
 /**
  * The Undefined type has one value, called undefined
  *
- * @path 08_Types/8.1_The_Undefined_Type/S8.1_A1_T1.js
+ * @path ch08/8.1/S8.1_A1_T1.js
  * @description Checking if execution of "var x = undefined" passes
  */
 

@@ -4,7 +4,7 @@
 /**
  * The length property of encodeURIComponent has the attribute DontEnum
  *
- * @path 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.4_encodeURIComponent/S15.1.3.4_A5.1.js
+ * @path ch15/15.1/15.1.3/15.1.3.4/S15.1.3.4_A5.1.js
  * @description Checking use propertyIsEnumerable, for-in
  */
 

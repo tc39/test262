@@ -4,7 +4,7 @@
 /**
  * When String is called as a function rather than as a constructor, it performs a type conversion
  *
- * @path 15_Native/15.5_String_Objects/15.5.1_The_String_Constructor_Called_as_a_Function/S15.5.1.1_A1_T3.js
+ * @path ch15/15.5/15.5.1/S15.5.1.1_A1_T3.js
  * @description Call String(void 0)
  */
 

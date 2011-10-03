@@ -4,7 +4,7 @@
 /**
  * Using "break" within "try/catch" statement that is nested in a loop is allowed
  *
- * @path 12_Statement/12.8_The_break_Statement/S12.8_A9_T1.js
+ * @path ch12/12.8/S12.8_A9_T1.js
  * @description Using "continue Identifier" within "catch" statement
  */
 

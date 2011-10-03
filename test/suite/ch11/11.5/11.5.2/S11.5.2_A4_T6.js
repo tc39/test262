@@ -4,7 +4,7 @@
 /**
  * The result of division is determined by the specification of IEEE 754 arithmetics
  *
- * @path 11_Expressions/11.5_Multiplicative_Operators/11.5.2_Applying_the_slash_Operator/S11.5.2_A4_T6.js
+ * @path ch11/11.5/11.5.2/S11.5.2_A4_T6.js
  * @description Division of a finite value by an infinity results in zero of appropriate sign
  */
 

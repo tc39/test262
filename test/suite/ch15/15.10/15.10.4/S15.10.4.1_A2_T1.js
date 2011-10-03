@@ -4,7 +4,7 @@
 /**
  * If pattern is an object R whose [[Class]] property is "RegExp" and flags is not undefined, then throw a TypeError exception
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.4_The_RegExp_Constructor/S15.10.4.1_A2_T1.js
+ * @path ch15/15.10/15.10.4/S15.10.4.1_A2_T1.js
  * @description Checking if execution of "new RegExp(pattern, "i")", where the pattern is "/\u0042/i", fails
  */
 

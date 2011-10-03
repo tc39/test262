@@ -4,7 +4,7 @@
 /**
  * Expression in "while" IterationStatement is bracketed with braces
  *
- * @path 12_Statement/12.6_Iteration_Statements/12.6.2_The_while_statement/S12.6.2_A6_T4.js
+ * @path ch12/12.6/12.6.2/S12.6.2_A6_T4.js
  * @description Checking if execution of "while false break" fails
  * @negative
  */

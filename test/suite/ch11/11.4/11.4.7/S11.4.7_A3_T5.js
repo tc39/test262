@@ -4,7 +4,7 @@
 /**
  * Operator -x returns -ToNumber(x)
  *
- * @path 11_Expressions/11.4_Unary_Operators/11.4.7_Unary_minus_Operator/S11.4.7_A3_T5.js
+ * @path ch11/11.4/11.4.7/S11.4.7_A3_T5.js
  * @description Type(x) is Object object or Function object
  */
 

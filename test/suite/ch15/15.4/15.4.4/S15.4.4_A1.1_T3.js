@@ -5,7 +5,7 @@
  * The value of the internal [[Prototype]] property of
  * the Array prototype object is the Object prototype object
  *
- * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/S15.4.4_A1.1_T3.js
+ * @path ch15/15.4/15.4.4/S15.4.4_A1.1_T3.js
  * @description Checking use isPrototypeOf
  */
 

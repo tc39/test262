@@ -4,7 +4,7 @@
 /**
  * Check operator x >>> y in distinct points
  *
- * @path 11_Expressions/11.7_Bitwise_Shift_Operators/11.7.3_The_Unsigned_Right_Shift_Operator/S11.7.3_A4_T1.js
+ * @path ch11/11.7/11.7.3/S11.7.3_A4_T1.js
  * @description ShiftExpression = 2^n, n = 0...15
  */
 

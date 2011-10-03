@@ -8,7 +8,7 @@
  * ii) if separator is not RegExp ToString(separator) performs and
  * iii) ToInteger(limit) performs
  *
- * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.14_String.prototype.split/S15.5.4.14_A1_T12.js
+ * @path ch15/15.5/15.5.4/15.5.4.14/S15.5.4.14_A1_T12.js
  * @description Arguments are objects, and instance is string.
  * First object have overrided toString function.
  * Second object have overrided valueOf function and toString function, that throw exception

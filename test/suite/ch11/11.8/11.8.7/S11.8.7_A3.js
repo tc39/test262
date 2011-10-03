@@ -4,7 +4,7 @@
 /**
  * If ShiftExpression is not an object, throw TypeError
  *
- * @path 11_Expressions/11.8_Relational_Operators/11.8.7_The_in_operator/S11.8.7_A3.js
+ * @path ch11/11.8/11.8.7/S11.8.7_A3.js
  * @description Checking all the types of primitives
  */
 

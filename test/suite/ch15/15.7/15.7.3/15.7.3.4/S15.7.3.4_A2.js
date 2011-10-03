@@ -4,7 +4,7 @@
 /**
  * Number.NaN is ReadOnly
  *
- * @path 15_Native/15.7_Number_Objects/15.7.3_Properties_of_Number_Constructor/15.7.3.4_Number.NaN/S15.7.3.4_A2.js
+ * @path ch15/15.7/15.7.3/15.7.3.4/S15.7.3.4_A2.js
  * @description Checking if varying Number.NaN fails
  */
 

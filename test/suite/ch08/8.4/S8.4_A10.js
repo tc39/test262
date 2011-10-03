@@ -4,7 +4,7 @@
 /**
  * Both unicode and ascii chars are allowed
  *
- * @path 08_Types/8.4_The_String_Type/S8.4_A10.js
+ * @path ch08/8.4/S8.4_A10.js
  * @description Create string using both unicode and ascii chars
  */
 

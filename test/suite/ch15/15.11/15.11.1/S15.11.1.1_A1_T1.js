@@ -5,7 +5,7 @@
  * If the argument "message" is not undefined, the message property of the newly constructed object is
  * set to ToString(message)
  *
- * @path 15_Native/15.11_Error_Objects/15.11.1_The_Error_Constructor_Called_as_a_Function/S15.11.1.1_A1_T1.js
+ * @path ch15/15.11/15.11.1/S15.11.1.1_A1_T1.js
  * @description Checking message property of different error objects
  */
 

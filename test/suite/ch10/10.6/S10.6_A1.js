@@ -5,7 +5,7 @@
  * When control enters an execution context for function code,
  * an arguments object is created and initialised
  *
- * @path 10_Execution_Contexts/10.6_Arguments_Object/S10.1.8_A1.js
+ * @path ch10/10.6/S10.6_A1.js
  * @description Executing function which uses arguments object
  */
 

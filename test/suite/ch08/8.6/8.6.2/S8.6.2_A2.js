@@ -5,7 +5,7 @@
  * Properties of the [[Prototype]] object
  * are visible as properties of the child object for the purposes of get access, but not for put access
  *
- * @path 08_Types/8.6_The_Object_Type/8.6.2_Internal_Properties_and_Methods/S8.6.2_A2.js
+ * @path ch08/8.6/8.6.2/S8.6.2_A2.js
  * @description Check visibility properties of the child object for the purposes of get access, but not for put access
  */
 

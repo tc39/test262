@@ -4,7 +4,7 @@
 /**
  * Check type of various properties
  *
- * @path 11_Expressions/11.2_Left_Hand_Side_Expressions/11.2.1_Property_Accessors/S11.2.1_A4_T8.js
+ * @path ch11/11.2/11.2.1/S11.2.1_A4_T8.js
  * @description Checking properties of the Math Object
  */
 

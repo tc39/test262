@@ -4,7 +4,7 @@
 /**
  * Using "try" with "catch" or "finally" statement within/without a "with" statement
  *
- * @path 12_Statement/12.14_The_try_Statement/S12.14_A14.js
+ * @path ch12/12.14/S12.14_A14.js
  * @description Using try/catch/finally in With and With in try/catch/finally
  * @noStrict
  */

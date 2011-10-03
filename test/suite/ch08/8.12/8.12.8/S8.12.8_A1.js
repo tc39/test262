@@ -6,7 +6,7 @@
  * Cause we overload toString method so it return non Primitive value
  * See ECMA reference at http://bugzilla.mozilla.org/show_bug.cgi?id=167325
  *
- * @path 08_Types/8.6_The_Object_Type/8.6.2_Internal_Properties_and_Methods/S8.6.2.6_A1.js
+ * @path ch08/8.12/8.12.8/S8.12.8_A1.js
  * @description Try to overload toString method
  */
 

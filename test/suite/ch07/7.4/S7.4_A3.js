@@ -4,7 +4,7 @@
 /**
  * Multi line comments cannot nest
  *
- * @path 07_Lexical_Conventions/7.4_Comments/S7.4_A3.js
+ * @path ch07/7.4/S7.4_A3.js
  * @description Try use nested comments
  * @negative
  */

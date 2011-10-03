@@ -4,7 +4,7 @@
 /**
  * Check Return Statement for automatic semicolon insertion
  *
- * @path 07_Lexical_Conventions/7.9_Automatic_Semicolon_Insertion/S7.9_A3.js
+ * @path ch07/7.9/S7.9_A3.js
  * @description Try use return \n Expression construction
  */
 

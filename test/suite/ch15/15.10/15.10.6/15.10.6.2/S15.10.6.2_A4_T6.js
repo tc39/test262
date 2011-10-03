@@ -5,7 +5,7 @@
  * RegExp.prototype.exec behavior depends on global property.
  * If global is true next exec calling start to match from lastIndex position
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.6_Properties_of_the_RegExp_Prototype_Object/15.10.6.2_RegExp.prototype.exec/S15.10.6.2_A4_T6.js
+ * @path ch15/15.10/15.10.6/15.10.6.2/S15.10.6.2_A4_T6.js
  * @description Call first exec, then set re.lastIndex = false and again call exec
  */
 

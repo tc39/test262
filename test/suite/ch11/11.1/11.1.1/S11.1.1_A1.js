@@ -4,7 +4,7 @@
 /**
  * The "this" is reserved word
  *
- * @path 11_Expressions/11.1_Primary_Expressions/11.1.1_The_this_Keyword/S11.1.1_A1.js
+ * @path ch11/11.1/11.1.1/S11.1.1_A1.js
  * @description Checking if execution of "this=1" fails
  * @negative
  */

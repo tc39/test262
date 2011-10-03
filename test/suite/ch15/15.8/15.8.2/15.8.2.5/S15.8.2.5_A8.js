@@ -4,7 +4,7 @@
 /**
  * If y is equal to -0 and x>0, Math.atan2(y,x) is -0
  *
- * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.5_atan2/S15.8.2.5_A8.js
+ * @path ch15/15.8/15.8.2/15.8.2.5/S15.8.2.5_A8.js
  * @description Checking if Math.atan2(y,x) is -0, where y is equal to -0 and x>0
  */
 

@@ -4,7 +4,7 @@
 /**
  * Create multi dimensional array
  *
- * @path 11_Expressions/11.1_Primary_Expressions/11.1.4_Array_Initialiser/S11.1.4_A2.js
+ * @path ch11/11.1/11.1.4/S11.1.4_A2.js
  * @description Checking various properteis and contents of the arrya defined with "var array = [[1,2], [3], []]"
  */
 

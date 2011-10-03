@@ -4,7 +4,7 @@
 /**
  * Appearing of break without an IterationStatement leads to syntax error
  *
- * @path 12_Statement/12.8_The_break_Statement/S12.8_A1_T2.js
+ * @path ch12/12.8/S12.8_A1_T2.js
  * @description Checking if break Identifier with no loop fails
  * @negative
  */

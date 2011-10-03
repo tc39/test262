@@ -4,7 +4,7 @@
 /**
  * Blocks within "for(with var)" braces are not allowed
  *
- * @path 12_Statement/12.6_Iteration_Statements/12.6.3_The_for_Statement/S12.6.3_A8.1_T2.js
+ * @path ch12/12.6/12.6.3/S12.6.3_A8.1_T2.js
  * @description Checking if execution of "for(var index=0; {index++;index<100;}; index*2;) {  arr.add(""+index);}" fails
  * @negative
  */

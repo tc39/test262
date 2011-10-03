@@ -4,7 +4,7 @@
 /**
  * Appearing of "break" within eval statement that is nested in an IterationStatement yields SyntaxError
  *
- * @path 12_Statement/12.8_The_break_Statement/S12.8_A7.js
+ * @path ch12/12.8/S12.8_A7.js
  * @description Using eval "eval("break LABEL1")"
  */
 

@@ -5,7 +5,7 @@
  * When Array is called as a function rather than as a constructor,
  * it creates and initialises a new Array object
  *
- * @path 15_Native/15.4_Array_Objects/15.4.1_The_Array_Constructor_Called_as_a_Function/S15.4.1_A3.1_T1.js
+ * @path ch15/15.4/15.4.1/S15.4.1_A3.1_T1.js
  * @description Checking use typeof, instanceof
  */
 

@@ -4,7 +4,7 @@
 /**
  * If x is less than y and these values are both finite non-zero, return true; otherwise, return false
  *
- * @path 11_Expressions/11.8_Relational_Operators/11.8.1_The_Less_than_Operator/S11.8.1_A4.9.js
+ * @path ch11/11.8/11.8.1/S11.8.1_A4.9.js
  * @description x and y are number primitives
  */
 

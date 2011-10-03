@@ -4,7 +4,7 @@
 /**
  * Multiple Variables should Referring to a Single Object
  *
- * @path 08_Types/8.7_The_Reference_Type/S8.7_A1.js
+ * @path ch08/8.7/S8.7_A1.js
  * @description Create object and refers to the other object, modify a property in the original object.
  *  We now see that that change is represented in both variables
  */

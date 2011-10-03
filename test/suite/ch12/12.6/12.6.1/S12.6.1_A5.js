@@ -4,7 +4,7 @@
 /**
  * After "do-while" is broken, (normal, V, empty) is returned
  *
- * @path 12_Statement/12.6_Iteration_Statements/12.6.1_The_do_while_Statement/S12.6.1_A5.js
+ * @path ch12/12.6/12.6.1/S12.6.1_A5.js
  * @description Using eval
  */
 

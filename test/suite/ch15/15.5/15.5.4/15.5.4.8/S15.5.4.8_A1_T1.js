@@ -4,7 +4,7 @@
 /**
  * String.prototype.lastIndexOf(searchString, position)
  *
- * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.8_String.prototype.lastIndexOf/S15.5.4.8_A1_T1.js
+ * @path ch15/15.5/15.5.4/15.5.4.8/S15.5.4.8_A1_T1.js
  * @description Arguments are false and true, and instance is object
  */
 

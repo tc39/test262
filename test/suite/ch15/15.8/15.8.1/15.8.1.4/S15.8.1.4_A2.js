@@ -4,7 +4,7 @@
 /**
  * Value Property LOG2E of the Math Object has the attribute DontEnum
  *
- * @path 15_Native/15.8_The_Math_Object/15.8.1_Value_Properties_of_the_Math_Object/15.8.1.4_LOG2E/S15.8.1.4_A2.js
+ * @path ch15/15.8/15.8.1/15.8.1.4/S15.8.1.4_A2.js
  * @description Checking if Math.LOG2E property has the attribute DontEnum
  */
 

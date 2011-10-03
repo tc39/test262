@@ -4,7 +4,7 @@
 /**
  * The length property of isNaN has the attribute ReadOnly
  *
- * @path 15_Native/15.1_The_Global_Object/15.1.2_Function_Properties_of_the_Global_Object/15.1.2.4_isNaN/S15.1.2.4_A2.3.js
+ * @path ch15/15.1/15.1.2/15.1.2.4/S15.1.2.4_A2.3.js
  * @description Checking if varying the length property fails
  * @noStrict
  */

@@ -5,7 +5,7 @@
  * The initial value of Boolean.prototype.constructor is the
  * built-in Boolean constructor
  *
- * @path 15_Native/15.6_Boolean_Objects/15.6.4_Properties_of_the_Boolean_Prototype_Object/S15.6.4.1_A1.js
+ * @path ch15/15.6/15.6.4/S15.6.4.1_A1.js
  * @description Compare Boolean.prototype.constructor with Boolean
  */
 

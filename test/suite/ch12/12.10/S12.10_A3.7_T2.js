@@ -5,7 +5,7 @@
  * No matter how control leaves the embedded 'Statement',
  * the scope chain is always restored to its former state
  *
- * @path 12_Statement/12.10_The_with_Statement/S12.10_A3.7_T2.js
+ * @path ch12/12.10/S12.10_A3.7_T2.js
  * @description Declaring and calling a function within "with" statement, leading to normal completion by "return"
  * @noStrict
  */

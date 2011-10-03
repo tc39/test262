@@ -4,7 +4,7 @@
 /**
  * Operator x - y produces the same result as x + (-y)
  *
- * @path 11_Expressions/11.6_Additive_Operators/11.6.2_The_Subtraction_operator/S11.6.2_A4_T6.js
+ * @path ch11/11.6/11.6.2/S11.6.2_A4_T6.js
  * @description Using the rule of sum of a zero and a nonzero finite value and the fact that a - b = a + (-b)
  */
 

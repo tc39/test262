@@ -4,7 +4,7 @@
 /**
  * Any variable that has not been assigned a value has the value undefined
  *
- * @path 08_Types/8.1_The_Undefined_Type/S8.1_A2_T2.js
+ * @path ch08/8.1/S8.1_A2_T2.js
  * @description Function return undefined
  */
 

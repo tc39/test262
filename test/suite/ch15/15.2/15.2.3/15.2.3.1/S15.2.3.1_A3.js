@@ -1,7 +1,7 @@
 
 
 /**
- * @path 15_Native/15.2_Object_Objects/15.2.3_Properties_of_the_Object_Constructor/15.2.3.1_Object.prototype/S15.2.3.1_A3.js
+ * @path ch15/15.2/15.2.3/15.2.3.1/S15.2.3.1_A3.js
  */
 
   // Copyright 2009 the Sputnik authors.  All rights reserved.

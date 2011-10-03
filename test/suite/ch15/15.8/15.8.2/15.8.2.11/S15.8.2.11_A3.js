@@ -4,7 +4,7 @@
 /**
  * +0 is considered to be larger than -0
  *
- * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.11_max/S15.8.2.11_A3.js
+ * @path ch15/15.8/15.8.2/15.8.2.11/S15.8.2.11_A3.js
  * @description Checking if Math.max(-0,+0) and Math.max(+0,-0) equals to +0
  */
 

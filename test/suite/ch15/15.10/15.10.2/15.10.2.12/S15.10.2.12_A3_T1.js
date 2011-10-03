@@ -5,7 +5,7 @@
  * The production CharacterClassEscape :: w evaluates by returning the set of characters containing the sixty-three characters:
  * a - z, A - Z, 0 - 9, _
  *
- * @path 15_Native/15.10_RegExp_Objects/15.10.2_Pattern_Semantics/15.10.2.12_CharacterClassEscape/S15.10.2.12_A3_T1.js
+ * @path ch15/15.10/15.10.2/15.10.2.12/S15.10.2.12_A3_T1.js
  * @description A - Z
  */
 

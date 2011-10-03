@@ -4,7 +4,7 @@
 /**
  * The pop property of Array can't be used as constructor
  *
- * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.6_Array_prototype_pop/S15.4.4.6_A5.7.js
+ * @path ch15/15.4/15.4.4/15.4.4.6/S15.4.4.6_A5.7.js
  * @description If property does not implement the internal [[Construct]] method, throw a TypeError exception
  */
 

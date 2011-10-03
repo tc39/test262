@@ -4,7 +4,7 @@
 /**
  * If x is a prefix of y, return false
  *
- * @path 11_Expressions/11.8_Relational_Operators/11.8.2_The_Greater_than_Operator/S11.8.2_A4.10.js
+ * @path ch11/11.8/11.8.2/S11.8.2_A4.10.js
  * @description x and y are string primitives
  */
 

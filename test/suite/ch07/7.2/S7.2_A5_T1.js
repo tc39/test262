@@ -4,7 +4,7 @@
 /**
  * White space cannot be expressed as a Unicode escape sequence consisting of six characters, namely \u plus four hexadecimal digits
  *
- * @path 07_Lexical_Conventions/7.2_White_Space/S7.2_A5_T1.js
+ * @path ch07/7.2/S7.2_A5_T1.js
  * @description Use TAB (U+0009)
  * @negative
  */

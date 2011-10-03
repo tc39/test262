@@ -5,7 +5,7 @@
  * Since LineTerminator(LT) between Postfix Increment/Decrement Operator(I/DO) and operand is admitted,
  * Additive/Substract Operator(A/SO) in combination with I/DO separated by LT or white spaces after automatic semicolon insertion gives valid result
  *
- * @path 07_Lexical_Conventions/7.9_Automatic_Semicolon_Insertion/S7.9_A5.8_T1.js
+ * @path ch07/7.9/S7.9_A5.8_T1.js
  * @description Try use Variable1 \n + \n ++ \n Variable2 construction
  */
 

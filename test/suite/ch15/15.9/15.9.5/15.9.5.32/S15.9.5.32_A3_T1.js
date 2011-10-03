@@ -4,7 +4,7 @@
 /**
  * The Date.prototype.setMinutes property "length" has { ReadOnly, DontDelete, DontEnum } attributes
  *
- * @path 15_Native/15.9_Date_Objects/15.9.5_Properties_of_the_Date_Prototype_Object/15.9.5.32_Date.prototype.setMinutes/S15.9.5.32_A3_T1.js
+ * @path ch15/15.9/15.9.5/15.9.5.32/S15.9.5.32_A3_T1.js
  * @description Checking ReadOnly attribute
  */
 

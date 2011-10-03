@@ -4,7 +4,7 @@
 /**
  * Operator ~x uses GetValue
  *
- * @path 11_Expressions/11.4_Unary_Operators/11.4.8_Bitwise_NOT_Operator/S11.4.8_A2.1_T2.js
+ * @path ch11/11.4/11.4.8/S11.4.8_A2.1_T2.js
  * @description If GetBase(x) is null, throw ReferenceError
  */
 

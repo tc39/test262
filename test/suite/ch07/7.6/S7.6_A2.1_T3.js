@@ -4,7 +4,7 @@
 /**
  * IdentifierPart :: IdentifierStart
  *
- * @path 07_Lexical_Conventions/7.6_Identifiers/S7.6_A2.1_T3.js
+ * @path ch07/7.6/S7.6_A2.1_T3.js
  * @description IdentifierStart :: _
  */
 

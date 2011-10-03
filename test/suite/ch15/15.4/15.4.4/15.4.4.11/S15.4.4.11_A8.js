@@ -4,7 +4,7 @@
 /**
  * Call the comparefn passing undefined as the this value (step 13b)
  *
- * @path 15_Native/15.4_Array_Objects/15.4.4_Properties_of_the_Array_Prototype_Object/15.4.4.11_Array_prototype_sort/S15.4.4.11_A8.js
+ * @path ch15/15.4/15.4.4/15.4.4.11/S15.4.4.11_A8.js
  * @description comparefn tests that its this value is undefined
  * @onlyStrict
  */

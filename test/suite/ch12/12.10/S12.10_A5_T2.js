@@ -4,7 +4,7 @@
 /**
  * Deleting property using "eval" statement containing "with" statement
  *
- * @path 12_Statement/12.10_The_with_Statement/S12.10_A5_T2.js
+ * @path ch12/12.10/S12.10_A5_T2.js
  * @description Deleting number property
  * @noStrict
  */

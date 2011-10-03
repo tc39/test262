@@ -4,7 +4,7 @@
 /**
  * The production TryStatement : try Block Catch is evaluated as follows: 2. If Result(1).type is not throw, return Result(1)
  *
- * @path 12_Statement/12.14_The_try_Statement/S12.14_A1.js
+ * @path ch12/12.14/S12.14_A1.js
  * @description Executing TryStatement : try Block Catch. The statements doesn't cause actual exceptions
  */
 

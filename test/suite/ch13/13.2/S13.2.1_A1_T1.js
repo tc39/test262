@@ -4,7 +4,7 @@
 /**
  * The depth of nested function calls reaches 32
  *
- * @path 13_Function_Definition/13.2_Creating_Function_Objects/S13.2.1_A1_T1.js
+ * @path ch13/13.2/S13.2.1_A1_T1.js
  * @description Creating function calls 32 elements depth
  */
 

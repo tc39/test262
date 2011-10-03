@@ -4,7 +4,7 @@
 /**
  * Code after ReturnStatement is not evaluated
  *
- * @path 12_Statement/12.9_The_return_Statement/S12.9_A5.js
+ * @path ch12/12.9/S12.9_A5.js
  * @description Using code after Return statement
  */
 

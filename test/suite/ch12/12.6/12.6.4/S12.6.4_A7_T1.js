@@ -4,7 +4,7 @@
 /**
  * Properties of the object being enumerated may be deleted during enumeration
  *
- * @path 12_Statement/12.6_Iteration_Statements/12.6.4_The_for_in_Statement/S12.6.4_A7_T1.js
+ * @path ch12/12.6/12.6.4/S12.6.4_A7_T1.js
  * @description Checking "for (LeftHandSideExpression in Expression) Statement" case
  */
 

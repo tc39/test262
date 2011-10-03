@@ -4,7 +4,7 @@
 /**
  * If B = 10xxxxxx or B = 11111xxx, throw URIError
  *
- * @path 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.2_decodeURIComponent/S15.1.3.2_A1.3_T1.js
+ * @path ch15/15.1/15.1.3/15.1.3.2/S15.1.3.2_A1.3_T1.js
  * @description Complex tests. B = 10xxxxxx -> B in [0x80 - 0xBF]
  */
 

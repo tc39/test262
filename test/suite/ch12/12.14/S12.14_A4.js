@@ -4,7 +4,7 @@
 /**
  * Sanity test for "catch(Indetifier) statement"
  *
- * @path 12_Statement/12.14_The_try_Statement/S12.14_A4.js
+ * @path ch12/12.14/S12.14_A4.js
  * @description Checking if deleting an exception fails
  * @noStrict
  */

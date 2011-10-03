@@ -4,7 +4,7 @@
 /**
  * every function instance has a [[Construct]] property
  *
- * @path 15_Native/15.3_Function_Objects/15.3.5_Properties_of_Function_Instances/S15.3.5_A3_T2.js
+ * @path ch15/15.3/15.3.5/S15.3.5_A3_T2.js
  * @description As constructor use new Function("arg1,arg2","var x =1; this.y=arg1+arg2;return \"OK\";")
  */
 

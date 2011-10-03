@@ -4,7 +4,7 @@
 /**
  * If x is -0, Math.sin(x) is -0
  *
- * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.16_sin/S15.8.2.16_A3.js
+ * @path ch15/15.8/15.8.2/15.8.2.16/S15.8.2.16_A3.js
  * @description Checking if Math.sin(-0) equals to -0
  */
 

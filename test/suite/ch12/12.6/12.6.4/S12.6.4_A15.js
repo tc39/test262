@@ -4,7 +4,7 @@
 /**
  * Block within a "for-in" Expression is not allowed
  *
- * @path 12_Statement/12.6_Iteration_Statements/12.6.4_The_for_in_Statement/S12.6.4_A15.js
+ * @path ch12/12.6/12.6.4/S12.6.4_A15.js
  * @description Using block within "for-in" Expression
  * @negative
  */

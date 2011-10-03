@@ -4,7 +4,7 @@
 /**
  * The result of division is determined by the specification of IEEE 754 arithmetics
  *
- * @path 11_Expressions/11.5_Multiplicative_Operators/11.5.2_Applying_the_slash_Operator/S11.5.2_A4_T10.js
+ * @path ch11/11.5/11.5.2/S11.5.2_A4_T10.js
  * @description If both operands are finite and nonzero, the quotient is computed and rounded using IEEE 754 round-to-nearest mode.
  * If the magnitude is too small to represent, the result is then a zero of appropriate sign
  */

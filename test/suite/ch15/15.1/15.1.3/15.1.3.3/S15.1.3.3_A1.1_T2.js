@@ -4,7 +4,7 @@
 /**
  * If string.charAt(k) in [0xDC00 - 0xDFFF], throw URIError
  *
- * @path 15_Native/15.1_The_Global_Object/15.1.3_URI_Handling_Function_Properties/15.1.3.3_encodeURI/S15.1.3.3_A1.1_T2.js
+ * @path ch15/15.1/15.1.3/15.1.3.3/S15.1.3.3_A1.1_T2.js
  * @description Complex tests
  */
 

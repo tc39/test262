@@ -4,7 +4,7 @@
 /**
  * SPACE (U+0020) may occur within strings
  *
- * @path 07_Lexical_Conventions/7.2_White_Space/S7.2_A2.4_T1.js
+ * @path ch07/7.2/S7.2_A2.4_T1.js
  * @description Use SPACE(\u0020)
  */
 

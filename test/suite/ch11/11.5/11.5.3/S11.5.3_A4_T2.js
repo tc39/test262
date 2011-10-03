@@ -4,7 +4,7 @@
 /**
  * The result of a ECMAScript floating-point remainder operation is determined by the rules of IEEE arithmetics
  *
- * @path 11_Expressions/11.5_Multiplicative_Operators/11.5.3_Applying_the_percent_Operator/S11.5.3_A4_T2.js
+ * @path ch11/11.5/11.5.3/S11.5.3_A4_T2.js
  * @description The sign of the finite non-zero value result equals the sign of the divided
  */
 

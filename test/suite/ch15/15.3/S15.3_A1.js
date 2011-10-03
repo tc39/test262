@@ -4,7 +4,7 @@
 /**
  * Function is the property of global
  *
- * @path 15_Native/15.3_Function_Objects/S15.3_A1.js
+ * @path ch15/15.3/S15.3_A1.js
  * @description Compare Function with this.Function
  */
 

@@ -4,7 +4,7 @@
 /**
  * White Space and Line Terminator between BitwiseXORExpression and "^" or between "^" and BitwiseANDExpression are allowed
  *
- * @path 11_Expressions/11.10_Binary_Bitwise_Operators/11.10.2_XOR_Operator/S11.10.2_A1.js
+ * @path ch11/11.10/11.10.2/S11.10.2_A1.js
  * @description The check uses eval
  */
 

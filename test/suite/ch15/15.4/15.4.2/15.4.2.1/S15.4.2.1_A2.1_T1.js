@@ -5,7 +5,7 @@
  * The length property of the newly constructed object;
  * is set to the number of arguments
  *
- * @path 15_Native/15.4_Array_Objects/15.4.2_The_Array_Constructor/15.4.2.1_new_Array/S15.4.2.1_A2.1_T1.js
+ * @path ch15/15.4/15.4.2/15.4.2.1/S15.4.2.1_A2.1_T1.js
  * @description Array constructor is given no arguments or at least two arguments
  */
 

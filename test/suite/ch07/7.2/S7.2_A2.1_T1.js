@@ -4,7 +4,7 @@
 /**
  * HORIZONTAL TAB (U+0009) may occur within strings
  *
- * @path 07_Lexical_Conventions/7.2_White_Space/S7.2_A2.1_T1.js
+ * @path ch07/7.2/S7.2_A2.1_T1.js
  * @description Use HORIZONTAL TAB(\u0009 and \t)
  */
 

@@ -4,7 +4,7 @@
 /**
  * White Space and Line Terminator between Expression and , or between , and AssignmentExpression are allowed
  *
- * @path 11_Expressions/11.14_Comma_Operator/S11.14_A1.js
+ * @path ch11/11.14/S11.14_A1.js
  * @description Checking by using eval
  */
 

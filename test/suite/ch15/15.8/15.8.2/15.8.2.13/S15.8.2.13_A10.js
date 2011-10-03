@@ -4,7 +4,7 @@
 /**
  * If abs(x)<1 and y is -Infinity, Math.pow(x,y) is +Infinity
  *
- * @path 15_Native/15.8_The_Math_Object/15.8.2_Function_Properties_of_the_Math_Object/15.8.2.13_pow/S15.8.2.13_A10.js
+ * @path ch15/15.8/15.8.2/15.8.2.13/S15.8.2.13_A10.js
  * @description Checking if Math.pow(x,y) equals to +Infinity, where abs(x)<1 and y is -Infinity
  */
 

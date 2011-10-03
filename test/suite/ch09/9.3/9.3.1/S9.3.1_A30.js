@@ -4,7 +4,7 @@
 /**
  * The MV of HexDigit ::: e or of HexDigit ::: E is 14
  *
- * @path 09_Type_Conversion/9.3_ToNumber/9.3.1_ToNumber_from_String/S9.3.1_A30.js
+ * @path ch09/9.3/9.3.1/S9.3.1_A30.js
  * @description Compare Number('0xE'), Number('0XE'), Number('0xe') and Number('0Xe') with 14
  */
 

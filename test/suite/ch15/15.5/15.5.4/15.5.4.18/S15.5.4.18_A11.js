@@ -4,7 +4,7 @@
 /**
  * The length property of the toUpperCase method is 0
  *
- * @path 15_Native/15.5_String_Objects/15.5.4_Properties_of_the_String_Prototype_Object/15.5.4.18_String.prototype.toUpperCase/S15.5.4.18_A11.js
+ * @path ch15/15.5/15.5.4/15.5.4.18/S15.5.4.18_A11.js
  * @description Checking String.prototype.toUpperCase.length
  */
 

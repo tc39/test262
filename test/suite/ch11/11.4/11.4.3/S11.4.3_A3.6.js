@@ -4,7 +4,7 @@
 /**
  * Result of applying "typeof" operator to the object that is native and doesn't implement [[Call]] is "object"
  *
- * @path 11_Expressions/11.4_Unary_Operators/11.4.3_The_typeof_Operator/S11.4.3_A3.6.js
+ * @path ch11/11.4/11.4.3/S11.4.3_A3.6.js
  * @description typeof (object without [[Call]]) === "object"
  */
 
