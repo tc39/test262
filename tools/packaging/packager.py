@@ -148,14 +148,16 @@ def dirWalker(dirName):
     if temp==0:
         print "ERROR:  expected there to be JavaScript tests under dirName!"
         sys.exit(1)
-    elif temp < MAX_CASES_PER_JSON:
-        TEST_SUITE_SECTIONS.append(dirName)
-        return
-    else:
-        #Max has been exceeded.  We need to look at each subdir individually
-        temp = os.listdir(dirName)
-        for tempSubdir in temp:
-            dirWalker(os.path.join(dirName, tempSubdir))
+    #TODO - commenting out this elif/else clause seems to be causing *.json
+    #naming conflicts WRT Sputnik test dirs.
+    # elif temp < MAX_CASES_PER_JSON:
+    TEST_SUITE_SECTIONS.append(dirName)
+    return
+    #TODO else:
+    #    #Max has been exceeded.  We need to look at each subdir individually
+    #    temp = os.listdir(dirName)
+    #    for tempSubdir in temp:
+    #        dirWalker(os.path.join(dirName, tempSubdir))
 
 #------------------------------------------------------------------------------
 def isTestStarted(line):

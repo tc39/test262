@@ -25,7 +25,7 @@ import sys
 import re
 
 #--Globals---------------------------------------------------------------------
-PRE_PATH = "TestCases/"
+PRE_PATH = ""
 
 #------------------------------------------------------------------------------
 def getAllJSFiles(dirName):
@@ -46,19 +46,16 @@ def getAllJSFiles(dirName):
 #------------------------------------------------------------------------------
 def handleFile(filePath, partialPath):
     global PRE_PATH
-    
     tempPath = filePath.replace(partialPath + os.path.sep, "", 1)
     tempPath = tempPath.replace(os.path.sep, "/")
-    tempId   = tempPath.rsplit("/", 1)[1][:-3]
     
     with open(filePath, "r") as f:
         origLines = f.readlines()
     
-    with open(filePath, "w") as f:
+    with open(filePath, "wb") as f:
         pathHit = False
-        idHit = False
-        testHit = False
-        descriptHit = False
+        #testHit = False
+        #descriptHit = False
         
         for line in origLines:
             #TODO?
@@ -68,15 +65,10 @@ def handleFile(filePath, partialPath):
             #elif (not testHit) and re.search("test\s*:\s*function\s+testcase\(\)", line)!=None:
             #    testHit = True
             #    line = line.rstrip() + os.linesep
-            if (not pathHit) and re.search("path\s*:\s*\"", line)!=None:
+            if (not pathHit) and re.search(r"\* @path\s[^$]", line)!=None:
                 pathHit = True
-                line = re.sub("\"[^\"]*\"", 
-                              "\"%s\"" % (PRE_PATH + tempPath), 
-                              line)
-            elif (not idHit) and re.search("id\s*:\s*\"", line)!=None:
-                idHit = True
-                line = re.sub("\"[^\"]*\"", 
-                              "\"%s\"" % tempId, 
+                line = re.sub(r"@path\s+[^$]+$", #"\"[^\"]*\"", 
+                              r"@path %s\n" % (PRE_PATH + tempPath), 
                               line)
             #TODO?
             #elif (not descriptHit) and re.search("description\s*:\s*\"", line)!=None:
@@ -86,7 +78,7 @@ def handleFile(filePath, partialPath):
 
 #--Main------------------------------------------------------------------------
 if __name__=="__main__":
-    __parser = argparse.ArgumentParser(description='Tool used to fix the id and path properties of test case objects')
+    __parser = argparse.ArgumentParser(description='Tool used to fix the path properties of test case objects')
     __parser.add_argument('tpath', action='store',
                           help='Full path to test cases. E.g., C:\repos\test262-msft\test\suite\ietestcenter')
     ARGS = __parser.parse_args()
