@@ -25,7 +25,8 @@ import sys
 import re
 
 #--Globals---------------------------------------------------------------------
-PRE_PATH = ""
+testCaseRe     = re.compile(r"function\W+testcase\W*\(\W*\)")
+runTestCaseRe  = re.compile(r"runTestCase\W*\(\W*testcase\W*\)")
 
 #------------------------------------------------------------------------------
 def getAllJSFiles(dirName):
@@ -44,52 +45,38 @@ def getAllJSFiles(dirName):
     return retVal
 
 #------------------------------------------------------------------------------
-def handleFile(filePath, partialPath):
-    global PRE_PATH
-    tempPath = filePath.replace(partialPath + os.path.sep, "", 1)
-    tempPath = tempPath.replace(os.path.sep, "/")
-    
-    with open(filePath, "rb") as f:
+def handleFile(filePath):
+    with open(filePath, "r") as f:
         origLines = f.readlines()
     
-    with open(filePath, "wb") as f:
-        pathHit = False
-        #testHit = False
-        #descriptHit = False
+    testCase = False
+    runTestCaseCalled = False
+    for line in origLines:
+        if testCaseRe.search(line)!=None:
+            testCase = True
+        if runTestCaseRe.search(line)!=None:
+            runTestCaseCalled = True
+            
+    if testCase==True and runTestCaseCalled==True:
+        pass #print "testcase TEST:", filePath
+    elif testCase==False and runTestCaseCalled==False:
+        pass #print "GLOBAL TEST:", filePath
+    else:
+        print "ERROR:", filePath
         
-        for line in origLines:
-            #TODO?
-            #if (not testHit) and re.match("^$", line)!=None:
-            #    #Throw away empty lines until we hit the first test function
-            #    continue
-            #elif (not testHit) and re.search("test\s*:\s*function\s+testcase\(\)", line)!=None:
-            #    testHit = True
-            #    line = line.rstrip() + os.linesep
-            if (not pathHit) and re.search(r"\* @path\s[^$]", line)!=None:
-                lineEnding = "\n"
-                if line.endswith("\r\n"):
-                    lineEnding = "\r\n"
-                pathHit = True
-                line = re.sub(r"@path\s+[^$]+$", #"\"[^\"]*\"", 
-                              r"@path %s%s" % (PRE_PATH + tempPath, lineEnding), 
-                              line)
-            #TODO?
-            #elif (not descriptHit) and re.search("description\s*:\s*\"", line)!=None:
-            #    descriptHit = True
-            #    line = line.strip() + os.linesep
-            f.write(line)
+    
 
 #--Main------------------------------------------------------------------------
 if __name__=="__main__":
-    __parser = argparse.ArgumentParser(description='Tool used to fix the path properties of test case objects')
+    __parser = argparse.ArgumentParser(description='Tool used to detect (potentially) invalid test cases')
     __parser.add_argument('tpath', action='store',
-                          help='Full path to test cases. E.g., C:\repos\test262-msft\test\suite\ietestcenter')
+                          help='Full path to test cases. E.g., C:\repos\test262-msft\test\suite')
     ARGS = __parser.parse_args()
     if not os.path.exists(ARGS.tpath):
-        print "Cannot fix tests in '%s' when it doesn't exist!" % ARGS.tpath
+        print "Cannot examine tests in '%s' when it doesn't exist!" % ARGS.tpath
         sys.exit(1)
     
     ALL_JS_FILES = getAllJSFiles(ARGS.tpath)
     for fileName in ALL_JS_FILES:
-        handleFile(fileName, ARGS.tpath)
+        handleFile(fileName)
     print "Done!"
