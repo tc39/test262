@@ -46,7 +46,7 @@ __parser = argparse.ArgumentParser(description= \
                                    'Tool used to generate the test262 website')
 __parser.add_argument('version', action='store',
                       help='Version of the test suite.')
-__parser.add_argument('--type', action='store', default='test262',
+__parser.add_argument('--type', action='store', default=DEFAULT_TESTCASE_TEMPLATE,
                       help='Type of test case runner to generate.')
 __parser.add_argument('--console', action='store_true', default=False,
                       help='Type of test case runner to generate.')
@@ -66,15 +66,9 @@ TEST_SUITE_SECTIONS = []
 #total number of tests accross the entire set of tests.
 TOTAL_TEST_COUNT = 0
 
-#global which states whether the test case we're currently processing is in 
-#the midst of a "/* ... */" style comment
-IS_MULTILINE_COMMENT = False
-
 #List of all *.json files containing encoded test cases
 SECTIONS_LIST = []
 
-ONE_JSON_PER_CHAPTER = False
-TESTCASELIST_PER_JSON = False
 
 #--Sanity checks--------------------------------------------------------------#
 if not os.path.exists(TEST262_CASES_DIR):
@@ -168,24 +162,13 @@ def isTestStarted(line):
     line.  However, we know for a fact this is not the case in IE Test Center
     or Sputnik tests.
     '''
-    global IS_MULTILINE_COMMENT
-    #TODO
-    return True
-    if IS_MULTILINE_COMMENT and ("*/" in line): #End of a newline comment
-        IS_MULTILINE_COMMENT = False
+    if re.search("^\s*//", line)!=None:     #//blah
         return False
-    elif "/*" in line:  #Beginning of a newline comment
-        IS_MULTILINE_COMMENT = True
-        return False
-    elif IS_MULTILINE_COMMENT: #//we're already in a multi-line
-                               #comment that hasn't ended
-        return False
-    elif re.match("^\s*//", line)!=None:     #//blah
+    elif ("//" in line) and ("Copyright " in line):
+        #BOM hack
         return False
     elif re.match("^\s*$", line)!=None: #newlines
         return False
-    elif "ES5Harness" in line: #definitely start of the test!
-        return True
     return True
 
 #------------------------------------------------------------------------------
@@ -205,8 +188,7 @@ for temp in os.listdir(TEST262_CASES_DIR):
     if not ONE_JSON_PER_CHAPTER:
         dirWalker(temp)
     else:
-        for tempSubdir in os.listdir(temp): 
-            TEST_SUITE_SECTIONS.append(os.path.join(temp, tempSubdir))
+        TEST_SUITE_SECTIONS.append(temp)
 
 for chapter in TEST_SUITE_SECTIONS:
     chapterName = chapter.rsplit(os.path.sep, 1)[1]
@@ -237,15 +219,17 @@ for chapter in TEST_SUITE_SECTIONS:
                 testDict = {}
                 testDict["path"] = testPath
                 
-                tempFile = open(test, "r")
+                tempFile = open(test, "rb")
                 scriptCode = tempFile.readlines()
                 tempFile.close()
                 scriptCodeContent=""
                 #Rip out license headers that add unnecessary bytes to
                 #the JSON'ized test cases
                 inBeginning = True
-                IS_MULTILINE_COMMENT = False
 
+                #Hack to preserve the BOM
+                if "Copyright " in scriptCode[0]:
+                    scriptCodeContent += scriptCode[0]
                 for line in scriptCode:
                     if inBeginning:
                         isStarted = isTestStarted(line)
@@ -254,7 +238,7 @@ for chapter in TEST_SUITE_SECTIONS:
                         inBeginning = False
                     scriptCodeContent += line
 
-                if scriptCodeContent=="":
+                if scriptCodeContent==scriptCode[0]:
                     print "WARNING (" + test + \
                         "): unable to strip comments/license header/etc."
                     scriptCodeContent = "".join(scriptCode)
@@ -315,7 +299,7 @@ for chapter in TEST_SUITE_SECTIONS:
                 json.dump(CHAPTER_TEST_CASES_JSON, f, separators=(',',':'),
                           sort_keys=True)
             generateHarness(ARGS.type, "testcases_%s.json" % chapterName, 
-                            chapterName.replace("chapter", "Chapter "))
+                            chapterName.replace("ch", "Chapter "))
 
         #add the name of the chapter test to our complete list
         SECTIONS_LIST.append(WEBSITE_CASES_PATH + chapterName + ".json")

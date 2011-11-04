@@ -30,6 +30,11 @@ MAX_CASES_PER_JSON = 1000
 WEBSITE_SHORT_NAME = "website"
 CONSOLE_SHORT_NAME = "console"
 
+DEFAULT_TESTCASE_TEMPLATE="test262"
+
+ONE_JSON_PER_CHAPTER = False
+TESTCASELIST_PER_JSON = False
+
 #Path to the root of the Hg repository (relative to this file's location)
 TEST262_ROOT = os.path.join(os.path.dirname(os.path.realpath(__file__)), 
                             "..", "..")
