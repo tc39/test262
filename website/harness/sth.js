@@ -99,6 +99,45 @@ function BrowserRunner() {
 
     /* Run the test. */
     this.run = function (test, code) {
+        
+        //--Detect proper window.onerror support
+        if (instance.supportsWindowOnerror===undefined) {
+            var iframePrereqs = document.createElement("iframe");
+            iframePrereqs.setAttribute("id", "prereqsIframe");
+            if (!/firefox/i.test(navigator.userAgent)) {
+                iframePrereqs.setAttribute("style", "display:none");
+            }
+            document.body.appendChild(iframePrereqs);
+
+            var iwinPrereqs = iframePrereqs.contentWindow; 
+            var idocPrereqs = iwinPrereqs.document;
+            idocPrereqs.open();
+    
+            iwinPrereqs.failCount = 0;
+            
+            var stuff = [
+                         "window.onerror = function(a, b, c) { this.failCount++; }",
+                         "va xyz =",
+                         "throw Error();"
+            ];
+    
+            for(var i in stuff) {
+                idocPrereqs.writeln("<script type='text/javascript'>");
+                idocPrereqs.writeln(stuff[i]);
+                idocPrereqs.writeln("</script>");
+            }
+            idocPrereqs.close();
+            
+            //TODO - 500ms *should* be a sufficient delay
+            setTimeout(function() {
+                instance.supportsWindowOnerror = iwinPrereqs.failCount === 2;
+                //alert(iwinPrereqs.failCount);
+                document.body.removeChild(iframePrereqs);
+                instance.run(test, code);
+            }, 500);
+            return; 
+        }
+        
         currentTest = {};
         for (var tempIndex in test) {
             if (test.hasOwnProperty(tempIndex)) {
@@ -106,6 +145,8 @@ function BrowserRunner() {
             }
         }
         currentTest.code = code;
+              
+
 
         iframe = document.createElement("iframe");
         iframe.setAttribute("id", "runnerIframe");
@@ -167,7 +208,7 @@ function BrowserRunner() {
 
         //Run the code
         idoc.writeln("<script type='text/javascript'>");
-        if (/opera/i.test(navigator.userAgent)) { //Opera doesn't support window.onerror
+        if (! instance.supportsWindowOnerror) {
             idoc.writeln("try {eval(\"" + this.convertForEval(code) + "\");} catch(e) {window.onerror(e.toString(), null, null);}");
         } else {
             idoc.writeln(code);
