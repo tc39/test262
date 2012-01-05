@@ -105,13 +105,7 @@
   
   <test id="S15.10.2.12_A1_T1">https://bugs.ecmascript.org/show_bug.cgi?id=60</test>
   <test id="S15.10.2.12_A2_T1">https://bugs.ecmascript.org/show_bug.cgi?id=60</test>
-  
-  <!--Sputnik to Test262 Converter Tool issues-->
-  <test id="S13.2.2_A18_T1">https://bugs.ecmascript.org/show_bug.cgi?id=26</test>
-  <test id="S13.2.2_A18_T2">https://bugs.ecmascript.org/show_bug.cgi?id=26</test>
-  <test id="S13.2.2_A19_T7">https://bugs.ecmascript.org/show_bug.cgi?id=26</test>
-  <test id="S15.2.2.1_A2_T4">https://bugs.ecmascript.org/show_bug.cgi?id=26</test>
-  
+   
   <test id="S11.1.1_A2">https://bugs.ecmascript.org/show_bug.cgi?id=179</test>
   
  </excludeList>
