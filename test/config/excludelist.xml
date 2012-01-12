@@ -90,9 +90,7 @@
   <test id="S12.6.4_A13_T1">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
   <test id="S12.6.4_A13_T2">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
   
-  <test id="S15.5.4.10_A1_T3">https://bugs.ecmascript.org/show_bug.cgi?id=23</test>
-  
-  <test id="S15.5.4.8_A1_T11">https://bugs.ecmascript.org/show_bug.cgi?id=30</test>  
+  <test id="S15.5.4.10_A1_T3">https://bugs.ecmascript.org/show_bug.cgi?id=23</test>  
   
   <test id="S15.5.4.14_A1_T6">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
   <test id="S15.5.4.14_A1_T7">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
@@ -105,7 +103,5 @@
   
   <test id="S15.10.2.12_A1_T1">https://bugs.ecmascript.org/show_bug.cgi?id=60</test>
   <test id="S15.10.2.12_A2_T1">https://bugs.ecmascript.org/show_bug.cgi?id=60</test>
-   
-  <test id="S11.1.1_A2">https://bugs.ecmascript.org/show_bug.cgi?id=179</test>
   
  </excludeList>
