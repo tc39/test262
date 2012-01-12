@@ -25,7 +25,7 @@
 
 
 function testcase() {
-        var date = new Date(1999, 09, 10, 10, 10, 10, 10);
+        var date = new Date(1999, 9, 10, 10, 10, 10, 10);
         var localDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
 
         return localDate.toISOString() === "1999-10-10T10:10:10.010Z";
