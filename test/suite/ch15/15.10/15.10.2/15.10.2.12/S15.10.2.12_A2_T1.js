@@ -515,10 +515,16 @@ if (i62.replace(/\S+/g, "") !== o62) {
 }
 
 var i63 = "";
-for (var j = 64512; j < 65536; j++)
+for (var j = 64512; j < 65536; j++) {
+  if (j===65279) { continue;} //Ignore BOM
   i63 += String.fromCharCode(j);
+}
 var o63 = "";
 if (i63.replace(/\S+/g, "") !== o63) {
   $ERROR("#63: Error matching character class \S between character fc00 and ffff");
 }
 
+var i64 = String.fromCharCode(65279);
+if (i64.replace(/\S/g, "") === "") {
+  $ERROR("#64: Error matching character class \S for BOM (feff)");
+}

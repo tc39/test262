@@ -62,16 +62,7 @@
   <test id="S12.2_A9">Used this</test>
   <test id="S15.5.1.1_A1_T9">Using this pointer</test>
   <test id="S10.1.7_A1_T1">Using this pointer, intented for Global object</test>
-  
-  <!--
-  <test id="S15.9.3.1_A5_T1">https://bugs.ecmascript.org/show_bug.cgi?id=11</test>
-  <test id="S15.9.3.1_A5_T2">https://bugs.ecmascript.org/show_bug.cgi?id=11</test>
-  <test id="S15.9.3.1_A5_T3">https://bugs.ecmascript.org/show_bug.cgi?id=11</test>
-  <test id="S15.9.3.1_A5_T4">https://bugs.ecmascript.org/show_bug.cgi?id=11</test>
-  <test id="S15.9.3.1_A5_T5">https://bugs.ecmascript.org/show_bug.cgi?id=11</test>
-  <test id="S15.9.3.1_A5_T6">https://bugs.ecmascript.org/show_bug.cgi?id=11</test>
-  --> 
-  
+   
   <test id="S15.5.4.14_A1_T6">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
   <test id="S15.5.4.14_A1_T7">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
   <test id="S15.5.4.14_A2_T7">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
@@ -80,8 +71,5 @@
   <test id="S15.5.4.14_A1_T3">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
   
   <test id="15.4.4.4-5-c-i-1">https://bugs.ecmascript.org/show_bug.cgi?id=69</test>
-  
-  <test id="S15.10.2.12_A1_T1">https://bugs.ecmascript.org/show_bug.cgi?id=60</test>
-  <test id="S15.10.2.12_A2_T1">https://bugs.ecmascript.org/show_bug.cgi?id=60</test>
   
  </excludeList>
