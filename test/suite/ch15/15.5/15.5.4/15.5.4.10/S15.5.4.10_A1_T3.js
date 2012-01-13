@@ -8,18 +8,17 @@
  * @description Checking by using eval
  */
 
-var match = String.prototype.match;
+var match = String.prototype.match.bind(fnGlobalObject());
 
-if (typeof toString === "undefined"){
-    toString = Object.prototype.toString;
-}
-
-var __class__ = toString();
+try {
+    fnGlobalObject().toString = Object.prototype.toString;
+} catch (e) { ; }
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (match(eval("\"bj\""))[0] !== "bj") {
-  $ERROR('#1: match = String.prototype.match; match(eval("\\"bj\\""))[0] === "bj". Actual: '+match(eval("\"bj\""))[0] );
+if ((fnGlobalObject().toString === Object.prototype.toString)  && //Ensure we could overwrite global obj's toString
+    (match(eval("\"bj\""))[0] !== "bj")) {
+  $ERROR('#1: match = String.prototype.match.bind(this); match(eval("\\"bj\\""))[0] === "bj". Actual: '+match(eval("\"bj\""))[0] );
 }
 //
 //////////////////////////////////////////////////////////////////////////////
