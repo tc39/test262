@@ -10,11 +10,6 @@
 
 __re = new RegExp(undefined);
 
-//CHECK#1
-if (__re.source !== "") {
-  $ERROR('#1: __re = new RegExp(undefined); __re.source === "". Actual: '+ (__re.source));
-}
-
 //CHECK#2
 if (__re.multiline !== false) {
   $ERROR('#2: __re = new RegExp(undefined); __re.multiline === false. Actual: ' + (__re.multiline));
