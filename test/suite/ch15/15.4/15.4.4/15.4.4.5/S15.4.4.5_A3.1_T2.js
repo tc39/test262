@@ -78,3 +78,14 @@ catch (e) {
   } 
 }
 
+//CHECK#9
+try {
+    var object = {toString: function() {throw "error"}};
+    [].join(object);
+    $ERROR('#9.1: var object = {toString: function() {throw "error"}}; [].join(object) throw "error". Actual: ' + ([].join(object)));
+}
+catch (e) {
+    if (e !== "error") {
+        $ERROR('#9.2: var object = {toString: function() {throw "error"}}; [].join(object) throw "error". Actual: ' + (e));
+   }
+}
