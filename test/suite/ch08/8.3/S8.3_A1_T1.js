@@ -8,14 +8,23 @@
  * @description Assign true and false to variables
  */
 
-if (x == undefined) {
-    $ERROR("x == undefined, but actual is "+ x);
+if (x !== undefined) {
+    $ERROR("#0 x !== undefined, but actual is "+ x);
 }   
 
 ////////////////////////////////////////////////////////////////////////
 // CHECK#1
 var x = true;
 var y = false;
+
+if (x !== true) {
+    $ERROR("#1.1 x !== true, but actual is "+ x);
+} 
+
+if (y !== false) {
+    $ERROR("#1.1 y !== false, but actual is "+ y);
+} 
+
 //
 ////////////////////////////////////////////////////////////////////////
 

@@ -27,41 +27,13 @@
   <test id="S15.2.4_A1_T2">problem, bad test should be rewritten</test>
   
   <test id="S15.5.4.8_A1_T1">problem, bad var syntax.  revised</test>
+  
   <test id="S7.8.5_A3.1_T7">problem, syntax validation needs to use eval.  revised</test>
   <test id="S7.8.5_A3.1_T8">problem, syntax validation needs to use eval.  revised</test>
   <test id="S7.8.5_A3.1_T9">problem, syntax validation needs to use eval.  revised</test>
-  <test id="S12.2_A11">Uses this.</test>
-  <test id="S12.2_A2">Uses this.</test>
-  <test id="S15.3.4.3_A7_T10">Uses this.</test>
-  <test id="S15.3.4.3_A7_T3">Uses this.</test>
-  <test id="S15.3.4.3_A7_T4">Uses this.</test>
-  <test id="S15.3.4.3_A7_T6">Uses this.</test>
-  <test id="S15.3.4.3_A7_T9">Uses this.</test>
-  <test id="S15.3.4.4_A6_T3">Uses this.</test>
-  <test id="S15.3.4.4_A6_T4">Uses this.</test>
-  <test id="S15.3.4.4_A6_T6">Uses this.</test>
-  <test id="S15.3.4.4_A6_T9">Uses this.</test>
+  
   <test id="S15.3_A3_T1">Uses this.</test>
-  <test id="S15.3_A3_T2">Uses this.</test>
   <test id="S15.3_A3_T3">Uses this.</test>
-  <test id="S15.3_A3_T4">Uses this.</test>
-  <test id="S15.3_A3_T5">Uses this.</test>
-  <test id="S15.3_A3_T6">Uses this.</test>
-  <test id="S7.8.3_A4.1_T3">Uses this.</test>
-  <test id="S7.8.3_A4.1_T4">Uses this.</test>
-  <test id="S7.8.3_A4.1_T5">Uses this.</test>
-  <test id="S7.8.3_A4.1_T6">Uses this.</test>
-  <test id="S7.9_A7_T7">Uses this.</test>
-  <test id="S8.3_A1_T1">Uses this.</test>
-  <test id="S8.7.2_A3">Uses this.</test>
-  <test id="S8.7_A5_T2">Uses this.</test>
-  <test id="S11.8.7_A2.4_T1">Uses this.</test>
-  <test id="S10.2.1_A1_T1">Used this</test>
-  <test id="S11.4.1_A3.1">Used this</test>
-  <test id="S15.3.4.4_A6_T10">Used this</test>
-  <test id="S12.2_A9">Used this</test>
-  <test id="S15.5.1.1_A1_T9">Using this pointer</test>
-  <test id="S10.1.7_A1_T1">Using this pointer, intented for Global object</test>
    
   <test id="S15.5.4.14_A1_T6">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
   <test id="S15.5.4.14_A1_T7">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
