@@ -77,19 +77,6 @@
   <test id="S11.1.5_A4.1">https://bugs.ecmascript.org/show_bug.cgi?id=14</test>
   <test id="S11.1.5_A4.2">https://bugs.ecmascript.org/show_bug.cgi?id=14</test>
   
-  <!-- Still invalid after a fix from Google. ES5 doesn't state Chapter 16 extensions
-       regarding FunctionDeclaration are invalid per-se -->
-  <test id="S12.1_A1">https://bugs.ecmascript.org/show_bug.cgi?id=80</test> 
-  <test id="S12.5_A9_T1">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
-  <test id="S12.5_A9_T2">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
-  <test id="S12.6.1_A13_T1">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
-  <test id="S12.6.1_A13_T2">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
-  <!-- Invalid early error tests-->
-  <test id="S12.6.2_A13_T1">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
-  <test id="S12.6.2_A13_T2">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
-  <test id="S12.6.4_A13_T1">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
-  <test id="S12.6.4_A13_T2">https://bugs.ecmascript.org/show_bug.cgi?id=80</test>
-  
   <test id="S15.5.4.10_A1_T3">https://bugs.ecmascript.org/show_bug.cgi?id=23</test>  
   
   <test id="S15.5.4.14_A1_T6">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
