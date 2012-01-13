@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <excludeList>
-  <test id="10.4.2-2-c-1">JS to JSON conversion issue</test>
-  
   <test id="S15.3.4.1_A1_T2">problem, bad test should be rewritten</test>
   <test id="S15.3.4.1_A1_T2">problem, bad test should be rewritten</test>
   <test id="S15.4.4.10_A4_T1">problem, bad test should be rewritten</test>
@@ -41,7 +39,5 @@
   <test id="S15.5.4.14_A1_T8">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
   <test id="S15.5.4.14_A1_T9">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
   <test id="S15.5.4.14_A1_T3">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
-  
-  <test id="15.4.4.4-5-c-i-1">https://bugs.ecmascript.org/show_bug.cgi?id=69</test>
   
  </excludeList>
