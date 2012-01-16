@@ -1,4 +1,4 @@
-// Copyright 2009 the Sputnik authors.  All rights reserved.
+﻿// Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
@@ -9,7 +9,8 @@
  */
 
 //CHECK#1
-var regexp = /(?:)/\u0067; 
+var regexp;
+eval("regexp = /(?:)/\u0067"); 
 if (regexp.global !== true) {
   $ERROR('#1: var regexp = /(?:)/\\u0067; regexp.global === true. Actual: ' + (regexp.global));
 }                        

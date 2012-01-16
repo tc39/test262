@@ -1,36 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<excludeList>
-  <test id="S15.3.4.1_A1_T2">problem, bad test should be rewritten</test>
-  <test id="S15.3.4.1_A1_T2">problem, bad test should be rewritten</test>
-  <test id="S15.4.4.10_A4_T1">problem, bad test should be rewritten</test>
-  <test id="S15.4.4.11_A6_T2">problem, bad test should be rewritten</test>
-  <test id="S15.4.4.12_A4_T1">problem, bad test should be rewritten</test>
-  <test id="S15.4.4.12_A4_T2">problem, bad test should be rewritten</test>
-  <test id="S15.4.4.12_A4_T3">problem, bad test should be rewritten</test>
-  <test id="S15.4.4.13_A4_T1">problem, bad test should be rewritten</test>
-  <test id="S15.4.4.13_A4_T2">problem, bad test should be rewritten</test>
-  <test id="S15.4.4.2_A3_T1">problem, bad test should be rewritten</test>
-  <test id="S15.4.4.3_A3_T1">problem, bad test should be rewritten</test>
-  <test id="S15.4.4.4_A3_T1">problem, bad test should be rewritten</test>
-  <test id="S15.4.4.5_A5_T1">problem, bad test should be rewritten</test>
-  <test id="S15.4.4.6_A4_T1">problem, bad test should be rewritten</test>
-  <test id="S15.4.4.6_A4_T2">problem, bad test should be rewritten</test>
-  <test id="S15.4.4.8_A4_T1">problem, bad test should be rewritten</test>
-  <test id="S15.4.4.8_A4_T2">problem, bad test should be rewritten</test>
-  <test id="S15.4.4.9_A4_T1">problem, bad test should be rewritten</test>
-  <test id="S15.4.4.9_A4_T2">problem, bad test should be rewritten</test>
-  <test id="S15.4.5.1_A1.2_T2">problem, bad test should be rewritten</test>
-  <test id="S15.4.5.1_A1.2_T3">problem, bad test should be rewritten</test>
-  <test id="S15.4.4.7_A5_T1">problem, bad test should be rewritten</test>
-  <test id="S15.2.4_A1_T2">problem, bad test should be rewritten</test>
-  
-  <test id="S15.5.4.8_A1_T1">problem, bad var syntax.  revised</test>
-  
-  <test id="S7.8.5_A3.1_T7">problem, syntax validation needs to use eval.  revised</test>
-  <test id="S7.8.5_A3.1_T8">problem, syntax validation needs to use eval.  revised</test>
-  <test id="S7.8.5_A3.1_T9">problem, syntax validation needs to use eval.  revised</test>
-  
+<excludeList>  
   <test id="S15.3_A3_T1">Uses this.</test>
   <test id="S15.3_A3_T3">Uses this.</test>
-  
- </excludeList>
+</excludeList>
