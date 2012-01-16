@@ -13,13 +13,9 @@ var f=Function.call(this, "return planet;");
 var g=Function.call(this, "return color;");
 
 //CHECK#1
-try{
-  f();
+if (f()!==undefined) {
   $ERROR('#1: ');
-} catch(e){
-  if (!(e instanceof ReferenceError))
-  	$ERROR('#1.1: ');
-}   
+}
 
 var planet="mars";
 

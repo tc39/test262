@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <excludeList>  
-  <test id="S15.3_A3_T1">Uses this.</test>
-  <test id="S15.3_A3_T3">Uses this.</test>
+  <test id="example">Some description</test>
 </excludeList>
