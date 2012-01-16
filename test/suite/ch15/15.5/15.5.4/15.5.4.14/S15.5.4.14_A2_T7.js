@@ -12,14 +12,14 @@
  */
 
 var __string = "thisundefinedisundefinedaundefinedstringundefinedobject";
-var __expected = ["this", "is", "a", "string", "object"];
+var __expected = [__string];
 
 var __split = __string.split(void 0);
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 if (__split.constructor !== Array) {
-  $ERROR('#1: var __string = "thisundefinedisundefinedaundefinedstringundefinedobject"; var __expected = ["this", "is", "a", "string", "object"]; __split = __string.split(void 0); __split.constructor === Array. Actual: '+__split.constructor );
+  $ERROR('#1: var __string = "thisundefinedisundefinedaundefinedstringundefinedobject"; var __expected = ["thisundefinedisundefinedaundefinedstringundefinedobject"]; __split = __string.split(void 0); __split.constructor === Array. Actual: '+__split.constructor );
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -27,7 +27,7 @@ if (__split.constructor !== Array) {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
 if (__split.length !== __expected.length) {
-  $ERROR('#2: var __string = "thisundefinedisundefinedaundefinedstringundefinedobject"; var __expected = ["this", "is", "a", "string", "object"]; __split = __string.split(void 0); __split.length === __expected.length. Actual: '+__split.length );
+  $ERROR('#2: var __string = "thisundefinedisundefinedaundefinedstringundefinedobject"; var __expected = ["thisundefinedisundefinedaundefinedstringundefinedobject"]; __split = __string.split(void 0); __split.length === __expected.length. Actual: '+__split.length );
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -36,7 +36,7 @@ if (__split.length !== __expected.length) {
 //CHECK#3
 for ( var i = 0; i < __expected.length; i++ ) {
     if (__expected[i]!==__split[i]) {
-      $ERROR('#3.'+i+': var __string = "thisundefinedisundefinedaundefinedstringundefinedobject"; var __expected = ["this", "is", "a", "string", "object"]; __split = __string.split(void 0); __expected['+i+']==='+__split[i]+'. Actual: '+__expected[i]);
+      $ERROR('#3.'+i+': var __string = "thisundefinedisundefinedaundefinedstringundefinedobject"; var __expected = ["thisundefinedisundefinedaundefinedstringundefinedobject"]; __split = __string.split(void 0); __expected['+i+']==='+__split[i]+'. Actual: '+__expected[i]);
     }
 }
 //

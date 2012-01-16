@@ -33,24 +33,16 @@ if (__split.constructor !== Array) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#3
-if (__split.length !== 2) {
-  $ERROR('#3: var x; __split = new String("1undefined").split(x); __split.length === 2. Actual: '+__split.length );
+if (__split.length !== 1) {
+  $ERROR('#3: var x; __split = new String("1undefined").split(x); __split.length === 1. Actual: '+__split.length );
 }
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#4
-if (__split[0] !== "1") {
-  $ERROR('#4: var x; __split = new String("1undefined").split(x); __split[0] === "1". Actual: '+__split[0] );
-}
-//
-//////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#5
-if (__split[1] !== "") {
-  $ERROR('#5: var x; __split = new String("1undefined").split(x); __split[1] === "". Actual: '+__split[1] );
+if (__split[0] !== "1undefined") {
+  $ERROR('#4: var x; __split = new String("1undefined").split(x); __split[0] === "1undefined". Actual: '+__split[0] );
 }
 //
 //////////////////////////////////////////////////////////////////////////////

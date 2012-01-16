@@ -14,7 +14,6 @@
 
 var __obj = {toString:function(){}};
 
-//since ToString(void 0) evaluates to "undefined" split(void 0) evaluates to split("undefined")
 var __split = String(__obj).split(void 0);
 
 //////////////////////////////////////////////////////////////////////////////
@@ -35,25 +34,16 @@ if (__split.constructor !== Array) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#3
-if (__split.length !== 2) {
-  $ERROR('#3: __obj = {toString:function(){}}; __split = String(__obj).split(void 0); __split.length === 2. Actual: '+__split.length );
+if (__split.length !== 1) {
+  $ERROR('#3: __obj = {toString:function(){}}; __split = String(__obj).split(void 0); __split.length === 1. Actual: '+__split.length );
 }
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#4
-if (__split[0] !== "") {
-  $ERROR('#4: __obj = {toString:function(){}}; __split = String(__obj).split(void 0); __split[0] !== "". Actual: '+__split[0]);
+if (__split[0] !== "undefined") {
+  $ERROR('#4: __obj = {toString:function(){}}; __split = String(__obj).split(void 0); __split[0] !== "undefined". Actual: '+__split[0]);
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#5
-if (__split[1] !== "") {
-  $ERROR('#5: __obj = {toString:function(){}}; __split = String(__obj).split(void 0); __split[1] === "". Actual: '+__split[1] );
-}
-//
-//////////////////////////////////////////////////////////////////////////////
-

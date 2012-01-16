@@ -12,7 +12,6 @@
  * @description Argument is undefined, and instance is String
  */
 
-//since ToString(undefined) evaluates to "undefined" split(undefined) evaluates to split("undefined",0)
 var __split = String("undefinedd").split(undefined);
 
 //////////////////////////////////////////////////////////////////////////////
@@ -33,25 +32,16 @@ if (__split.constructor !== Array) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#3
-if (__split.length !== 2) {
-  $ERROR('#3: __split = String("undefinedd").split(undefined); __split.length === 2. Actual: '+__split.length );
+if (__split.length !== 1) {
+  $ERROR('#3: __split = String("undefinedd").split(undefined); __split.length === 1. Actual: '+__split.length );
 }
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#4
-if (__split[0] !== "") {
-  $ERROR('#4: __split = String("undefinedd").split(undefined); __split[0] === "". Actual: '+__split[0] );
+if (__split[0] !== "undefinedd") {
+  $ERROR('#4: __split = String("undefinedd").split(undefined); __split[0] === "undefinedd". Actual: '+__split[0] );
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#5
-if (__split[1] !== "d") {
-  $ERROR('#5: __split = String("undefinedd").split(undefined); __split[1] === "d". Actual: '+__split[1] );
-}
-//
-//////////////////////////////////////////////////////////////////////////////
-

@@ -32,12 +32,5 @@
   
   <test id="S15.3_A3_T1">Uses this.</test>
   <test id="S15.3_A3_T3">Uses this.</test>
-   
-  <test id="S15.5.4.14_A1_T6">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
-  <test id="S15.5.4.14_A1_T7">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
-  <test id="S15.5.4.14_A2_T7">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
-  <test id="S15.5.4.14_A1_T8">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
-  <test id="S15.5.4.14_A1_T9">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
-  <test id="S15.5.4.14_A1_T3">https://bugs.ecmascript.org/show_bug.cgi?id=61</test>
   
  </excludeList>
