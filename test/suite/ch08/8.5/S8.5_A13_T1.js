@@ -8,6 +8,7 @@
  *
  * @path ch08/8.5/S8.5_A13_T1.js
  * @description Finite Non zero values where e is -1074
+ * @implDependent Does not pass on current ARM processors
  */
 
 //CHECK #1 
