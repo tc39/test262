@@ -201,9 +201,6 @@ for chapter in TEST_SUITE_SECTIONS:
     #create an array for tests in a chapter
     tests = []
     sourceFiles = getAllJSFiles(chapter)
-    #TODO - do this only for the website!!!
-    for tempRe in WEBSITE_EXCLUDE_RE_LIST:
-        sourceFiles = [x for x in sourceFiles if tempRe.search(x)==None]
     
     if len(sourceFiles)!=0:
         excluded = 0
@@ -302,8 +299,13 @@ for chapter in TEST_SUITE_SECTIONS:
                             chapterName.replace("ch", "Chapter "))
 
         #add the name of the chapter test to our complete list
-        SECTIONS_LIST.append(WEBSITE_CASES_PATH + chapterName + ".json")
-        TOTAL_TEST_COUNT += int(sect["numTests"])
+        tempBool = True
+        for tempRe in WEBSITE_EXCLUDE_RE_LIST:
+            if tempRe.search(chapterName)!=None:
+                tempBool = False
+        if tempBool:
+            SECTIONS_LIST.append(WEBSITE_CASES_PATH + chapterName + ".json")
+            TOTAL_TEST_COUNT += int(sect["numTests"])
 
 
 #we now have the list of files for each chapter

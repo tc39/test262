@@ -33,7 +33,7 @@ CONSOLE_SHORT_NAME = "console"
 DEFAULT_TESTCASE_TEMPLATE="test262"
 
 ONE_JSON_PER_CHAPTER = False
-TESTCASELIST_PER_JSON = False
+TESTCASELIST_PER_JSON = True
 
 #Path to the root of the Hg repository (relative to this file's location)
 TEST262_ROOT = os.path.join(os.path.dirname(os.path.realpath(__file__)), 
@@ -69,7 +69,7 @@ WEBSITE_CASES_PATH = "json/"
 EXCLUDED_FILENAME = os.path.join(TEST262_ROOT, "test", "config",
                                  "excludelist.xml")
 
-WEBSITE_EXCLUDE_RE_LIST = ["bestPractice"]
+WEBSITE_EXCLUDE_RE_LIST = ["bestPractice", "internationalization"]
 WEBSITE_EXCLUDE_RE_LIST = [ re.compile(x) for x in WEBSITE_EXCLUDE_RE_LIST]
 
 #------------------------------------------------------------------------------
