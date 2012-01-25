@@ -80,14 +80,15 @@ __lastHarnessType = None
 def generateHarness(harnessType, jsonName, title):
     global TEMPLATE_LINES
     global __lastHarnessType
+    
+    #TODO: temp hack to make experimental internationalization tests work
+    if jsonName=="testcases_intl402.json":
+        harnessType = "intl402"
+        
     if TEMPLATE_LINES==None or harnessType!=__lastHarnessType:
         __lastHarnessType = harnessType
         TEMPLATE_LINES = []
         
-        #TODO: temp hack to make internationalization tests work
-        if jsonName=="testcases_intl402.html":
-            harnessType = "intl402"
-            
         with open(os.path.join(os.getcwd(), "templates",
                                "runner." + harnessType + ".html"), "r") as f:
             TEMPLATE_LINES = f.readlines()
