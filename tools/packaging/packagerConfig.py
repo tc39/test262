@@ -69,7 +69,7 @@ WEBSITE_CASES_PATH = "json/"
 EXCLUDED_FILENAME = os.path.join(TEST262_ROOT, "test", "config",
                                  "excludelist.xml")
 
-WEBSITE_EXCLUDE_RE_LIST = ["bestPractice", "internationalization"]
+WEBSITE_EXCLUDE_RE_LIST = ["bestPractice", "intl402"]
 WEBSITE_EXCLUDE_RE_LIST = [ re.compile(x) for x in WEBSITE_EXCLUDE_RE_LIST]
 
 #------------------------------------------------------------------------------
@@ -83,9 +83,15 @@ def generateHarness(harnessType, jsonName, title):
     if TEMPLATE_LINES==None or harnessType!=__lastHarnessType:
         __lastHarnessType = harnessType
         TEMPLATE_LINES = []
+        
+        #TODO: temp hack to make internationalization tests work
+        if jsonName=="testcases_intl402.html":
+            harnessType = "intl402"
+            
         with open(os.path.join(os.getcwd(), "templates",
                                "runner." + harnessType + ".html"), "r") as f:
             TEMPLATE_LINES = f.readlines()
+    
     fileName = os.path.join(TEST262_ROOT, WEBSITE_SHORT_NAME, 
                             jsonName.replace(".json", ".html"))
     fileNameExists = False
