@@ -4,7 +4,7 @@
 /**
  * "var" does not override function declaration
  *
- * @path ch13/S13_A19_T1.js
+ * @path ch13/13.0/S13_A19_T1.js
  * @description Creating a function and a variable with identical Identifiers in global scope
  */
 

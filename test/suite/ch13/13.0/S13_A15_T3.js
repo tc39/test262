@@ -4,7 +4,7 @@
 /**
  * ''arguments'' variable overrides ActivationObject.arguments
  *
- * @path ch13/S13_A15_T3.js
+ * @path ch13/13.0/S13_A15_T3.js
  * @description Declaring a variable named with "arguments" without a function
  */
 

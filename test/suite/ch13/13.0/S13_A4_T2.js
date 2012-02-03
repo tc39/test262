@@ -4,7 +4,7 @@
 /**
  * The production FunctionDeclaration: "function Identifier ( FormalParameterList_opt ) { FunctionBody }" is processed by function declarations
  *
- * @path ch13/S13_A4_T2.js
+ * @path ch13/13.0/S13_A4_T2.js
  * @description Declaring a function that uses prefix increment operator within its "return" Expression
  */
 

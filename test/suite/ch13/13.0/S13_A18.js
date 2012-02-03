@@ -4,7 +4,7 @@
 /**
  * Closures are admitted
  *
- * @path ch13/S13_A18.js
+ * @path ch13/13.0/S13_A18.js
  * @description Using a function declaration as a function parameter
  */
 

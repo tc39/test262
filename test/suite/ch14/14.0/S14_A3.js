@@ -4,7 +4,7 @@
 /**
  * Global FunctionDeclaration cannot be defined within the body of another FunctionDeclaration
  *
- * @path ch14/S14_A3.js
+ * @path ch14/14.0/S14_A3.js
  * @description Declaring a function within the body of another function
  */
 

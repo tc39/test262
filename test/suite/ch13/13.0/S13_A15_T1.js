@@ -4,7 +4,7 @@
 /**
  * ''arguments'' variable overrides ActivationObject.arguments
  *
- * @path ch13/S13_A15_T1.js
+ * @path ch13/13.0/S13_A15_T1.js
  * @description Declaring a function with "__func(arguments)"
  */
 

@@ -4,7 +4,7 @@
 /**
  * Unicode symbols in function name are allowed
  *
- * @path ch13/S13_A14.js
+ * @path ch13/13.0/S13_A14.js
  * @description Defining function name with unicode symbols
  */
 

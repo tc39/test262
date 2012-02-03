@@ -4,7 +4,7 @@
 /**
  * Check Do-While Statement for automatic semicolon insertion
  *
- * @path ch07/7.9/S7.9_A9_T3.js
+ * @path bestPractice/Sbp_7.9_A9_T3.js
  * @description Execute do { \n ; \n }while(false) true
  */
 

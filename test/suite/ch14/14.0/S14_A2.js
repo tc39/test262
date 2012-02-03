@@ -4,7 +4,7 @@
 /**
  * FunctionDeclaration cannot be localed inside an Expression
  *
- * @path ch14/S14_A2.js
+ * @path ch14/14.0/S14_A2.js
  * @description Declaring a function within an "if" Expression
  */
 

@@ -4,7 +4,7 @@
 /**
  * "x=function y(){}" statement does not store a reference to the new function in the varaible y(Identifier)
  *
- * @path ch13/S13_A1.js
+ * @path ch13/13.0/S13_A1.js
  * @description Checking the type of y
  */
 
