@@ -46,15 +46,17 @@ MSFT_LICENSE = '''/// Copyright (c) 2012 Microsoft Corporation
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 '''
 
-GOOGLE_LICENSE = '''// Copyright 2009 the Sputnik authors.  All rights reserved.
+GOOGLE_LICENSE = '''// Copyright 2011 Google Inc.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 '''
 
-SPUTNIK_RE = re.compile(r"[\\/]S(bp)?[0-9]+\.[^\\/]+\.js$")
-SPUTNIK_LINE_ONE = "the Sputnik authors"
+GOOGLE_RE = re.compile(r"[\\/]S([0-9]+)|(bp)(\.|_)[^\\/]+\.js$")
+GOOGLE_LINE_ONE  = re.compile(r"(Copyright\s+20[0-9][0-9]\s+Google)|(the Sputnik authors)")
 
 IETC_RE    = re.compile(r"[\\/][0-9]+\.[^\\/]+\.js$")
-IETC_LINE_ONE = "Microsoft Corporation"
+IETC_LINE_ONE = re.compile(r"Microsoft Corporation")
+
+
 
 #------------------------------------------------------------------------------
 def getAllJSFiles(dirName):
@@ -80,10 +82,10 @@ def handleFile(filePath):
         origLines = f.readlines()
     
     #Figure out which license header we'll be using
-    #if SPUTNIK_RE.search(filePath)!=None:
-    #    licenseHeader = GOOGLE_LICENSE
-    #    lineOne = SPUTNIK_LINE_ONE
-    if IETC_RE.search(filePath)!=None:
+    if GOOGLE_RE.search(filePath)!=None:
+        licenseHeader = GOOGLE_LICENSE
+        lineOne = GOOGLE_LINE_ONE
+    elif IETC_RE.search(filePath)!=None:
         licenseHeader = MSFT_LICENSE
         lineOne = IETC_LINE_ONE
     else:
@@ -91,7 +93,7 @@ def handleFile(filePath):
         return
     
     #See if it's already there
-    if lineOne in origLines[0]:
+    if lineOne.search(origLines[0])!=None:
         return
     
     with open(filePath, "wb") as f:
