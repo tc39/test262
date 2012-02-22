@@ -18,6 +18,7 @@
 /// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+
 /* Handles updating the page with information from the runner. */
 function Presenter() {
     var altStyle = '',
@@ -148,21 +149,23 @@ function Presenter() {
             innerHTML = '';
 
         innerHTML += '<b>Test </b>';
-        innerHTML += '<b>' + test.id + '</b> <br /><br />';
+        innerHTML += '<b>' + test.id + '</b> <br /><br />\n';
 
         if (test.description) {
             innerHTML += '<b>Description</b>';
             innerHTML += '<pre>' +
                 test.description.replace(/</g, '&lt;').replace(/>/g, '&gt;') +
-                ' </pre>';
+                ' </pre>\n';
         }
 
         innerHTML += '<br /><br /><br /><b>Testcase</b>';
-        innerHTML += '<pre>' + test.code + '</pre>';
+        innerHTML += '<pre>' + test.code + '</pre>\n';
 
-        innerHTML += '<b>Path</b>';
-        innerHTML += '<pre>' + test.path + ' </pre>&nbsp';
-
+        innerHTML += '<br /><b>Path</b>';
+        innerHTML += '<pre>' + test.path + '</pre>';
+        innerHTML += '<br /><a href="javascript:void(window.open(\'http://hg.ecmascript.org/tests/test262/file/tip/test/suite'
+        innerHTML += test.path.replace("TestCases", "") + '\'));">' + 'Hg source' + '</a> (might be newer than the testcase source shown above)\n'
+        
         popWnd.document.write(innerHTML);
     }
 
@@ -172,14 +175,33 @@ function Presenter() {
             popWnd = window.open("", "", "scrollbars=1, resizable=1"),
             innerHTML = '';
 
+        var bugDetails = "";
+        bugDetails    += "DESCRIPTION\n*Please insert your description here!*\n\n";
+        bugDetails    += "------------------\n";
+        bugDetails    += "TEST:            " + test.path + "\n";
+        bugDetails    += "SOURCE:          http://hg.ecmascript.org/tests/test262/file/tip/test/suite" + test.path.replace("TestCases", "") + "\n";
+        bugDetails    += "TEST SUITE DATE: " + date + "\n";
+        bugDetails    += "PLATFORM:        " + navigator.userAgent + "\n";
+        bugDetails    += "ERROR:           " + test.error + "\n\n";
+
+        
+        var bugTemplate = 'https://bugs.ecmascript.org/enter_bug.cgi?product=Test262&amp;bug_severity=normal&amp;component=Tests&amp;short_desc=';
+        bugTemplate += encodeURIComponent('Invalid test? ' + test.id) + "&amp;comment=";
+        bugTemplate += encodeURIComponent(bugDetails);
+        
         innerHTML += '<b>Test </b>';
-        innerHTML += '<b>' + test.id + '</b> <br /><br />';
+        innerHTML += '<b>' + test.id + '</b> <br /><br />\n';
 
         innerHTML += '<b>Failure</b>';
-        innerHTML += '<pre>' + test.error + '</pre>';
+        innerHTML += '<pre>' + test.error + '</pre>\n';
         
         innerHTML += '<br /><br /><b>Testcase</b>';
-        innerHTML += '<pre>' + test.code + '</pre>';
+        innerHTML += '<pre>' + test.code + '</pre>\n';
+        
+        innerHTML += '<br /><br /><b>Broken test?</b>';
+        innerHTML += '<p>If you have reason to believe the JavaScript engine being tested<br />\n';
+        innerHTML += 'is actually OK and there\'s instead something wrong with the test<br />\n';
+        innerHTML += 'itself, please <a href="' + bugTemplate + '" onclick="window.moveTo(0,0);window.resizeTo(screen.width, screen.height);">file a bug.</a></p>\n'
         
         popWnd.document.write(innerHTML);
     }
