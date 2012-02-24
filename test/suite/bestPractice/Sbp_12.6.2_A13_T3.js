@@ -4,7 +4,7 @@
 /**
  * FunctionDeclaration within a "while" Statement is not allowed
  *
- * @path ch12/12.6/12.6.2/S12.6.2_A13_T3.js
+ * @path bestPractice/Sbp_12.6.2_A13_T3.js
  * @description Checking if declaring a function within a "while" Statement that is in a function body leads to an exception
  * @negative
  */

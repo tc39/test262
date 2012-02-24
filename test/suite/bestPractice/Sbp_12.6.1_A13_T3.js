@@ -4,7 +4,7 @@
 /**
  * FunctionDeclaration within a "do-while" Block is not allowed
  *
- * @path ch12/12.6/12.6.1/S12.6.1_A13_T3.js
+ * @path bestPractice/Sbp_12.6.1_A13_T3.js
  * @description Declaring a function within a "do-while" loop that is within a function declaration itself
  * @negative
  */
