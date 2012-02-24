@@ -28,8 +28,10 @@ for (indexB1 = 0xF0; indexB1 <= 0xF4; indexB1++) {
         var L = ((index - 0x10000) & 0x03FF) + 0xDC00;
         var H = (((index - 0x10000) >> 10) & 0x03FF) + 0xD800;  
         try {
-          if (decodeURIComponent("%" + hexB1.substring(3) + "%" + hexB2.substring(3) + "%" + hexB3.substring(3) + "%" + hexB4.substring(3)) === String.fromCharCode(H) + String.fromCharCode(L)) continue;        
-        } catch (e) {}   
+          if (decodeURIComponent("%" + hexB1.substring(3) + "%" + hexB2.substring(3) + "%" + hexB3.substring(3) + "%" + hexB4.substring(3)) === String.fromCharCode(H) + String.fromCharCode(L)) continue;
+        } catch (e) {
+          if (e instanceof Test262Error) throw e;
+        }   
         if (indexO === 0) { 
           indexO = index;
         } else {

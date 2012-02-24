@@ -24,8 +24,10 @@ for (indexB1 = 0xE0; indexB1 <= 0xEF; indexB1++) {
       var hexB3 = decimalToHexString(indexB3);
       var index = (indexB1 & 0x0F) * 0x1000 + (indexB2 & 0x3F) * 0x40 + (indexB3 & 0x3F);  
       try {
-        if (decodeURIComponent("%" + hexB1.substring(2) + "%" + hexB2.substring(2) + "%" + hexB3.substring(2)) === String.fromCharCode(index)) continue;        
-      } catch (e) {}   
+        if (decodeURIComponent("%" + hexB1.substring(2) + "%" + hexB2.substring(2) + "%" + hexB3.substring(2)) === String.fromCharCode(index)) continue;
+      } catch (e) {
+        if (e instanceof Test262Error) throw e;
+      }
       if (indexO === 0) { 
         indexO = index;
       } else {

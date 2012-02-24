@@ -10,7 +10,6 @@
  * @description Returning number. Declaring a function with "function __func()"
  */
 
-var x;
 function __func(){
     x = 1;
     return x;
@@ -21,7 +20,9 @@ function __func(){
 try {
 	x=x;
 	$ERROR('#0: "x=x" lead to throwing exception');
-} catch (e) {}
+} catch (e) {
+    if (e instanceof Test262Error) throw e;
+}
 //
 //////////////////////////////////////////////////////////////////////////////
 

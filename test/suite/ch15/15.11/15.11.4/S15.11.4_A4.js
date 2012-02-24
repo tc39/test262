@@ -13,7 +13,9 @@
 try {
 	__instance = new Object.prototype;
 	$FAIL('#1: "__instance = new Object.prototype" lead to throwing exception');
-} catch (e) {}
+} catch (e) {
+    if (e instanceof Test262Error) throw e;
+}
 //
 //////////////////////////////////////////////////////////////////////////////
 

@@ -21,7 +21,9 @@ for (indexB1 = 0xC2; indexB1 <= 0xDF; indexB1++) {
     var index = (indexB1 & 0x1F) * 0x40 + (indexB2 & 0x3F);  
     try {
       if (decodeURIComponent("%" + hexB1.substring(2) + "%" + hexB2.substring(2)) === String.fromCharCode(index)) continue;
-    } catch (e) {}   
+    } catch (e) {
+      if (e instanceof Test262Error) throw e;
+    }   
     if (indexO === 0) { 
       indexO = index;
     } else {

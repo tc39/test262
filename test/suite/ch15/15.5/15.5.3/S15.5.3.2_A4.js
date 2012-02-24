@@ -17,7 +17,9 @@ delete String.fromCharCode;
 try {
   var __obj = new __fcc__func(65,66,66,65);
   $FAIL('#1: __fcc__func = String.fromCharCode; var __obj = new __fcc__func(65,66,66,65) lead to throwing exception');
-} catch (e) {}
+} catch (e) {
+    if (e instanceof Test262Error) throw e;
+}
 //
 //////////////////////////////////////////////////////////////////////////////
 

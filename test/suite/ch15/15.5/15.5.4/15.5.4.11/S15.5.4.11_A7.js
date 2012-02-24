@@ -13,5 +13,7 @@ var __FACTORY = String.prototype.replace;
 try {
   var __instance = new __FACTORY;
   $FAIL('#1: __FACTORY = String.prototype.replace; "__instance = new __FACTORY" lead to throwing exception');
-} catch (e) {}
+} catch (e) {
+    if (e instanceof Test262Error) throw e;
+}
 

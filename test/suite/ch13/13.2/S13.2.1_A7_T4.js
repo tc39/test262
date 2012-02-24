@@ -20,7 +20,9 @@ function __func(){
 try {
 	x=x;
 	$ERROR('#0: "x=x" lead to throwing exception');
-} catch (e) {}
+} catch (e) {
+    if (e instanceof Test262Error) throw e;
+}
 //
 //////////////////////////////////////////////////////////////////////////////
 
@@ -47,7 +49,9 @@ if (!(__x)) {
 try {
 	x=x;
 	$ERROR('#3: "x=x" lead to throwing exception');
-} catch (e) {}
+} catch (e) {
+    if (e instanceof Test262Error) throw e;
+}
 //
 //////////////////////////////////////////////////////////////////////////////
 

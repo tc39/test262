@@ -11,7 +11,9 @@
 try {
 	do __in__do = "reached"; while (abbracadabra);
 	$ERROR('#1: \'do __in__do = "reached"; while (abbracadabra)\' lead to throwing exception');
-} catch (e) {}
+} catch (e) {
+    if (e instanceof Test262Error) throw e;
+}
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
