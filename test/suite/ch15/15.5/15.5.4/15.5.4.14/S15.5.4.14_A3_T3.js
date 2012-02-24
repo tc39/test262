@@ -10,7 +10,7 @@
  * @description Instance is function(){}
  */
 
-var __instance = function(){};
+var __instance = { toString: function() { return "function(){}";} };
 
 __instance.split = String.prototype.split;
 

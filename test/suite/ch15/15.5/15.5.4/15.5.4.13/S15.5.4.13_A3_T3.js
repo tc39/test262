@@ -8,7 +8,7 @@
  * @description Apply String.prototype.slice to Object instance, and call instance.slice(...).slice(...)
  */
 
-var __instance =  function(){};
+var __instance = { toString: function() { return "function(){}";} };
 
 __instance.slice = String.prototype.slice;
 
