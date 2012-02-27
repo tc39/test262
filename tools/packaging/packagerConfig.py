@@ -88,11 +88,9 @@ def generateHarness(harnessType, jsonName, title):
     if TEMPLATE_LINES==None or harnessType!=__lastHarnessType:
         __lastHarnessType = harnessType
         TEMPLATE_LINES = []
-        
         with open(os.path.join(os.getcwd(), "templates",
                                "runner." + harnessType + ".html"), "r") as f:
             TEMPLATE_LINES = f.readlines()
-    
     fileName = os.path.join(TEST262_ROOT, WEBSITE_SHORT_NAME, 
                             jsonName.replace(".json", ".html"))
     fileNameExists = False
