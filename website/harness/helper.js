@@ -18,7 +18,6 @@
 /// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 /// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-
 /* Handles updating the page with information from the runner. */
 function Presenter() {
     var altStyle = '',
@@ -240,7 +239,6 @@ function Presenter() {
     function logResult(test) {
         var appendStr = "";
         altStyle = (altStyle !== ' ') ? ' ' : 'alternate';
-        
         if (test.result==="fail") {
             appendStr += '<tbody>';
             appendStr += '<tr class=\"' + altStyle + '\">';
