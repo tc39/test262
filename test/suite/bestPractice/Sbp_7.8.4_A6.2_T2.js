@@ -4,7 +4,7 @@
 /**
  * HexEscapeSequence :: x HexDigit is incorrect
  *
- * @path ch07/7.8/7.8.4/S7.8.4_A6.2_T2.js
+ * @path bestPractice/Sbp_7.8.4_A6.2_T2.js
  * @description HexDigit :: A
  * @negative
  */

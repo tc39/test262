@@ -36,10 +36,10 @@ function testcase() {
 
             var hasProperty = newArr.hasOwnProperty("0");
 
-	    var instanceOfVerify = typeof newArr[0]==="number";
+	    var instanceOfVerify = typeof newArr[0]==="object";
             
             var verifyValue = false;
-            verifyValue = newArr[0] === 101;
+            verifyValue = newArr[0] == 101;
 
             var verifyEnumerable = false;
             for (var p in newArr) {
