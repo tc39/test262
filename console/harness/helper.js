@@ -1,22 +1,8 @@
-/// Copyright (c) 2009 Microsoft Corporation
-///
-/// Redistribution and use in source and binary forms, with or without modification, are permitted provided
-/// that the following conditions are met:
-///    * Redistributions of source code must retain the above copyright notice, this list of conditions and
-///      the following disclaimer.
-///    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and
-///      the following disclaimer in the documentation and/or other materials provided with the distribution.
-///    * Neither the name of Microsoft nor the names of its contributors may be used to
-///      endorse or promote products derived from this software without specific prior written permission.
-///
-/// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR
-/// IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-/// FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE
-/// FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-/// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-/// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-/// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-/// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+/// Copyright (c) 2012 Ecma International.  All rights reserved. 
+/// Ecma International makes this code available under the terms and conditions set
+/// forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the 
+/// "Use Terms").   Any redistribution of this code must retain the above 
+/// copyright and this notice and otherwise comply with the Use Terms.
 
 /* Handles updating the page with information from the runner. */
 function Presenter() {
@@ -148,21 +134,23 @@ function Presenter() {
             innerHTML = '';
 
         innerHTML += '<b>Test </b>';
-        innerHTML += '<b>' + test.id + '</b> <br /><br />';
+        innerHTML += '<b>' + test.id + '</b> <br /><br />\n';
 
         if (test.description) {
             innerHTML += '<b>Description</b>';
             innerHTML += '<pre>' +
                 test.description.replace(/</g, '&lt;').replace(/>/g, '&gt;') +
-                ' </pre>';
+                ' </pre>\n';
         }
 
         innerHTML += '<br /><br /><br /><b>Testcase</b>';
-        innerHTML += '<pre>' + test.code + '</pre>';
+        innerHTML += '<pre>' + test.code + '</pre>\n';
 
-        innerHTML += '<b>Path</b>';
-        innerHTML += '<pre>' + test.path + ' </pre>&nbsp';
-
+        innerHTML += '<br /><b>Path</b>';
+        innerHTML += '<pre>' + test.path + '</pre>';
+        innerHTML += '<br /><a href="javascript:void(window.open(\'http://hg.ecmascript.org/tests/test262/file/tip/test/suite'
+        innerHTML += test.path.replace("TestCases", "") + '\'));">' + 'Hg source' + '</a> (might be newer than the testcase source shown above)\n'
+        
         popWnd.document.write(innerHTML);
     }
 
@@ -172,14 +160,33 @@ function Presenter() {
             popWnd = window.open("", "", "scrollbars=1, resizable=1"),
             innerHTML = '';
 
+        var bugDetails = "";
+        bugDetails    += "DESCRIPTION\n*Please insert your description here!*\n\n";
+        bugDetails    += "------------------\n";
+        bugDetails    += "TEST:            " + test.path + "\n";
+        bugDetails    += "SOURCE:          http://hg.ecmascript.org/tests/test262/file/tip/test/suite" + test.path.replace("TestCases", "") + "\n";
+        bugDetails    += "TEST SUITE DATE: " + date + "\n";
+        bugDetails    += "PLATFORM:        " + navigator.userAgent + "\n";
+        bugDetails    += "ERROR:           " + test.error + "\n\n";
+
+        
+        var bugTemplate = 'https://bugs.ecmascript.org/enter_bug.cgi?product=Test262&amp;bug_severity=normal&amp;component=Tests&amp;short_desc=';
+        bugTemplate += encodeURIComponent('Invalid test? ' + test.id) + "&amp;comment=";
+        bugTemplate += encodeURIComponent(bugDetails);
+        
         innerHTML += '<b>Test </b>';
-        innerHTML += '<b>' + test.id + '</b> <br /><br />';
+        innerHTML += '<b>' + test.id + '</b> <br /><br />\n';
 
         innerHTML += '<b>Failure</b>';
-        innerHTML += '<pre>' + test.error + '</pre>';
+        innerHTML += '<pre>' + test.error + '</pre>\n';
         
         innerHTML += '<br /><br /><b>Testcase</b>';
-        innerHTML += '<pre>' + test.code + '</pre>';
+        innerHTML += '<pre>' + test.code + '</pre>\n';
+        
+        innerHTML += '<br /><br /><b>Broken test?</b>';
+        innerHTML += '<p>If you have reason to believe the JavaScript engine being tested<br />\n';
+        innerHTML += 'is actually OK and there\'s instead something wrong with the test<br />\n';
+        innerHTML += 'itself, please <a href="' + bugTemplate + '" onclick="window.moveTo(0,0);window.resizeTo(screen.width, screen.height);">file a bug.</a></p>\n'
         
         popWnd.document.write(innerHTML);
     }
@@ -218,7 +225,6 @@ function Presenter() {
     function logResult(test) {
         var appendStr = "";
         altStyle = (altStyle !== ' ') ? ' ' : 'alternate';
-        
         if (test.result==="fail") {
             appendStr += '<tbody>';
             appendStr += '<tr class=\"' + altStyle + '\">';

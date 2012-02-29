@@ -1,22 +1,8 @@
-/// Copyright (c) 2009 Microsoft Corporation
-///
-/// Redistribution and use in source and binary forms, with or without modification, are permitted provided
-/// that the following conditions are met:
-///    * Redistributions of source code must retain the above copyright notice, this list of conditions and
-///      the following disclaimer.
-///    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and
-///      the following disclaimer in the documentation and/or other materials provided with the distribution.
-///    * Neither the name of Microsoft nor the names of its contributors may be used to
-///      endorse or promote products derived from this software without specific prior written permission.
-///
-/// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR
-/// IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-/// FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE
-/// FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-/// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-/// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-/// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-/// ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+/// Copyright (c) 2012 Ecma International.  All rights reserved. 
+/// Ecma International makes this code available under the terms and conditions set
+/// forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the 
+/// "Use Terms").   Any redistribution of this code must retain the above 
+/// copyright and this notice and otherwise comply with the Use Terms.
 
 // Do not cache any JSON files - see
 // https://bugs.ecmascript.org/show_bug.cgi?id=87
@@ -43,21 +29,21 @@ function BrowserRunner() {
         globalScopeContents,
         harnessDir = "harness/";
 
-    $.ajax({async: false, 
-            dataType: "text", 
-            success: function(data){errorDetectorFileContents = data;}, 
+    $.ajax({async: false,
+            dataType: "text",
+            success: function(data){errorDetectorFileContents = data;},
             url:harnessDir+"ed.js"});
-            
-    $.ajax({async: false, 
-            dataType: "text", 
-            success: function(data){simpleTestAPIContents = data;}, 
+
+    $.ajax({async: false,
+            dataType: "text",
+            success: function(data){simpleTestAPIContents = data;},
             url:harnessDir+"sta.js"});
-    
-    $.ajax({async: false, 
-            dataType: "text", 
-            success: function(data){globalScopeContents = data;}, 
+
+    $.ajax({async: false,
+            dataType: "text",
+            success: function(data){globalScopeContents = data;},
             url:harnessDir+"gs.js"});
-            
+
     /* Called by the child window to notify that the test has
      * finished. This function call is put in a separate script block
      * at the end of the page so errors in the test script block
@@ -99,6 +85,45 @@ function BrowserRunner() {
 
     /* Run the test. */
     this.run = function (test, code) {
+        
+        //--Detect proper window.onerror support
+        if (instance.supportsWindowOnerror===undefined) {
+            var iframePrereqs = document.createElement("iframe");
+            iframePrereqs.setAttribute("id", "prereqsIframe");
+            if (!/firefox/i.test(navigator.userAgent)) {
+                iframePrereqs.setAttribute("style", "display:none");
+            }
+            document.body.appendChild(iframePrereqs);
+
+            var iwinPrereqs = iframePrereqs.contentWindow; 
+            var idocPrereqs = iwinPrereqs.document;
+            idocPrereqs.open();
+    
+            iwinPrereqs.failCount = 0;
+            
+            var stuff = [
+                         "window.onerror = function(a, b, c) { this.failCount++; }",
+                         "va xyz =",
+                         "throw Error();"
+            ];
+    
+            for(var i in stuff) {
+                idocPrereqs.writeln("<script type='text/javascript'>");
+                idocPrereqs.writeln(stuff[i]);
+                idocPrereqs.writeln("</script>");
+            }
+            idocPrereqs.close();
+            
+            //TODO - 500ms *should* be a sufficient delay
+            setTimeout(function() {
+                instance.supportsWindowOnerror = iwinPrereqs.failCount === 2;
+                //alert(iwinPrereqs.failCount);
+                document.body.removeChild(iframePrereqs);
+                instance.run(test, code);
+            }, 500);
+            return; 
+        }
+        
         currentTest = {};
         for (var tempIndex in test) {
             if (test.hasOwnProperty(tempIndex)) {
@@ -106,6 +131,8 @@ function BrowserRunner() {
             }
         }
         currentTest.code = code;
+              
+
 
         iframe = document.createElement("iframe");
         iframe.setAttribute("id", "runnerIframe");
@@ -167,7 +194,7 @@ function BrowserRunner() {
 
         //Run the code
         idoc.writeln("<script type='text/javascript'>");
-        if (/opera/i.test(navigator.userAgent)) { //Opera doesn't support window.onerror
+        if (! instance.supportsWindowOnerror) {
             idoc.writeln("try {eval(\"" + this.convertForEval(code) + "\");} catch(e) {window.onerror(e.toString(), null, null);}");
         } else {
             idoc.writeln(code);
@@ -180,8 +207,8 @@ function BrowserRunner() {
         idoc.writeln(globalScopeContents);
         idoc.writeln("</script>");
         idoc.close();
-    }
-    
+    };
+
     //--Helper functions-------------------------------------------------------
     this.convertForEval = function(txt) {
         txt = txt.replace(/\\/g,"\\\\");
@@ -190,7 +217,7 @@ function BrowserRunner() {
         txt = txt.replace(/\r/g,"\\r");
         txt = txt.replace(/\n/g,"\\n");
         return txt;
-    }
+    };
 }
 
 /* Loads tests from the sections specified in testcases.json.
@@ -264,7 +291,7 @@ function TestLoader() {
 
     function getIdFromPath (path) {
         //path is of the form "a/b/c.js"
-        
+
         var id = path.split("/");
         //id is now of the form ["a", "b", "c.js"];
 
@@ -307,9 +334,9 @@ function TestLoader() {
         currentTestIndex = 0;
         testGroupIndex = 0;
     };
-    
-    
-    
+
+
+
 }
 
 /* Controls test generation and running, and sends results to the presenter. */
@@ -326,8 +353,8 @@ function Controller() {
     this.implementerHook = {
         //Adds a test result
         addTestResult: function (test) { },
-    
-        //Called whenever all tests have finished running.  Provided with the 
+
+        //Called whenever all tests have finished running.  Provided with the
         //elapsed time in milliseconds.
         finished: function(elapsed) { }
     };
@@ -337,7 +364,7 @@ function Controller() {
         try {
             controller.implementerHook.addTestResult(test);
         } catch(e) { /*no-op*/}
-        
+
         if(state === 'running')
             setTimeout(loader.getNextTest, 10);
     };
@@ -366,7 +393,7 @@ function Controller() {
         try {
             controller.implementerHook.finished(elapsed);
         } catch(e) { /*no-op*/}
-    }
+    };
 
     this.start = function() {
         state = 'running';
