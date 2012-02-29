@@ -84,6 +84,8 @@ def generateHarness(harnessType, jsonName, title):
     #TODO: temp hack to make experimental internationalization tests work
     if jsonName=="testcases_intl402.json":
         harnessType = "intl402"
+    elif jsonName=="testcases_bestPractice.json":
+        harnessType = "bestPractice"
         
     if TEMPLATE_LINES==None or harnessType!=__lastHarnessType:
         __lastHarnessType = harnessType
