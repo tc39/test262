@@ -6,7 +6,7 @@
 /**
  * @path ch10/10.4/10.4.3/10.4.3-1-52-s.js
  * @description Strict Mode - checking 'this' (FunctionExpression with a strict directive prologue defined within an Anonymous FunctionExpression)
- * @onlyStrict
+ * @noStrict
  */
     
 function testcase() {

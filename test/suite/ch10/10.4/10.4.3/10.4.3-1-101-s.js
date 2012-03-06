@@ -6,7 +6,7 @@
 /**
  * @path ch10/10.4/10.4.3/10.4.3-1-101-s.js
  * @description Strict Mode - checking 'this' (non-strict function passed as arg to String.prototype.replace from strict context)
- * @onlyStrict
+ * @noStrict
  */
     
 function testcase() {

@@ -6,7 +6,7 @@
 /**
  * @path ch10/10.4/10.4.3/10.4.3-1-48gs.js
  * @description Strict - checking 'this' from a global scope (FunctionDeclaration with a strict directive prologue defined within a FunctionExpression)
- * @onlyStrict
+ * @noStrict
  */
 
 var f1 = function () {

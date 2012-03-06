@@ -6,7 +6,7 @@
 /**
  * @path ch10/10.4/10.4.3/10.4.3-1-81-s.js
  * @description Strict Mode - checking 'this' (non-strict function declaration called by strict function declaration)
- * @onlyStrict
+ * @noStrict
  */
     
 function testcase() {

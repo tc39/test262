@@ -6,7 +6,7 @@
 /**
  * @path ch10/10.4/10.4.3/10.4.3-1-48-s.js
  * @description Strict Mode - checking 'this' (FunctionDeclaration with a strict directive prologue defined within a FunctionExpression)
- * @onlyStrict
+ * @noStrict
  */
     
 function testcase() {

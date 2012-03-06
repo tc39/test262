@@ -6,7 +6,7 @@
 /**
  * @path ch10/10.4/10.4.3/10.4.3-1-96gs.js
  * @description Strict - checking 'this' from a global scope (non-strict function declaration called by strict Function.prototype.bind(null)())
- * @onlyStrict
+ * @noStrict
  */
 
 function f() { return this===fnGlobalObject();};
