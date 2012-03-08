@@ -6,7 +6,7 @@
 /**
  * @path ch15/15.3/15.3.5/15.3.5.4/15.3.5.4_2-94gs.js
  * @description Strict mode - checking access to strict function caller from non-strict function expression (FunctionDeclaration includes strict directive prologue)
- * @onlyStrict
+ * @noStrict
  * @negative TypeError
  */
 
