@@ -10,7 +10,7 @@
  * @negative TypeError
  */
 
-var gNonStrict = Function("return gNonStrict.caller;");
+var gNonStrict = Function("return gNonStrict.caller || gNonStrict.caller.throwTypeError;");
 
 function f() {
     "use strict";

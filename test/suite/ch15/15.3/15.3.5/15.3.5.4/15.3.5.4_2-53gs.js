@@ -6,7 +6,7 @@
 /**
  * @path ch15/15.3/15.3.5/15.3.5.4/15.3.5.4_2-53gs.js
  * @description Strict mode - checking access to strict function caller from non-strict function (Injected getter includes strict directive prologue)
- * @onlyStrict
+ * @noStrict
  * @negative TypeError
  */
 
@@ -17,6 +17,6 @@ o.foo;
 
 
 function gNonStrict() {
-    return gNonStrict.caller;
+    return gNonStrict.caller || gNonStrict.caller.throwTypeError;
 }
 

@@ -20,6 +20,6 @@
 
 
 function gNonStrict() {
-    return gNonStrict.caller;
+    return gNonStrict.caller || gNonStrict.caller.throwTypeError;
 }
 

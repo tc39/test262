@@ -16,6 +16,6 @@ o.foo = 8;
 
 
 function gNonStrict() {
-    return gNonStrict.caller;
+    return gNonStrict.caller || gNonStrict.caller.throwTypeError;
 }
 
