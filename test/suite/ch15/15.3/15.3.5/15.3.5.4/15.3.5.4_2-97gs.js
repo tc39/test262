@@ -20,6 +20,6 @@ f();
 
 
 function gNonStrictBindee() {
-    return gNonStrictBindee.caller;
+    return gNonStrictBindee.caller || gNonStrictBindee.caller.throwTypeError;
 }
 

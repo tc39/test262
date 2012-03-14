@@ -12,7 +12,8 @@
 
 var o = { 
     get gNonStrict() {
-        return Object.getOwnPropertyDescriptor(o, "gNonStrict").get.caller;
+        var tmp = Object.getOwnPropertyDescriptor(o, "gNonStrict").get;
+        return tmp.caller || tmp.caller.throwTypeError;
     }
 };
 
