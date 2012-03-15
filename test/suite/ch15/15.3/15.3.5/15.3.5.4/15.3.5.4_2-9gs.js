@@ -13,7 +13,7 @@
 
 "use strict";
 var f = new Function("return gNonStrict();");
-f(); //REPLACE ME
+f();
 
 
 function gNonStrict() {
