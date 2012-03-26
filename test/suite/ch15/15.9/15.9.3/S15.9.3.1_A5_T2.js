@@ -21,51 +21,51 @@ $INCLUDE("numeric_conversion.js");
 $INCLUDE("Date_constants.js");
 $INCLUDE("Date_library.js");
 
-if (ConstructDate(1899, 11, 31) !== new Date(1899, 11, 31).valueOf()) {
+if (-2209046400000 !== new Date(1899, 11, 31).valueOf()) {
   $FAIL("#1: Incorrect value of Date");
 }
 
-if (ConstructDate(1899, 12, 1) !== new Date(1899, 12, 1).valueOf()) {
+if (-2208960000000 !== new Date(1899, 12, 1).valueOf()) {
   $FAIL("#2: Incorrect value of Date");
 }
 
-if (ConstructDate(1900, 0, 1) !== new Date(1900, 0, 1).valueOf()) {
+if (-2208960000000 !== new Date(1900, 0, 1).valueOf()) {
   $FAIL("#3: Incorrect value of Date");
 }
 
-if (ConstructDate(1969, 11, 31) !== new Date(1969, 11, 31).valueOf()) {
+if (-57600000 !== new Date(1969, 11, 31).valueOf()) {
   $FAIL("#4: Incorrect value of Date");
 }
 
-if (ConstructDate(1969, 12, 1) !== new Date(1969, 12, 1).valueOf()) {
+if (28800000 !== new Date(1969, 12, 1).valueOf()) {
   $FAIL("#5: Incorrect value of Date");
 }
 
-if (ConstructDate(1970, 0, 1) !== new Date(1970, 0, 1).valueOf()) {
+if (28800000 !== new Date(1970, 0, 1).valueOf()) {
   $FAIL("#6: Incorrect value of Date");
 }
 
-if (ConstructDate(1999, 11, 31) !== new Date(1999, 11, 31).valueOf()) {
+if (946627200000 !== new Date(1999, 11, 31).valueOf()) {
   $FAIL("#7: Incorrect value of Date");
 }
 
-if (ConstructDate(1999, 12, 1) !== new Date(1999, 12, 1).valueOf()) {
+if (946713600000 !== new Date(1999, 12, 1).valueOf()) {
   $FAIL("#8: Incorrect value of Date");
 }
 
-if (ConstructDate(2000, 0, 1) !== new Date(2000, 0, 1).valueOf()) {
+if (946713600000 !== new Date(2000, 0, 1).valueOf()) {
   $FAIL("#9: Incorrect value of Date");
 }
 
-if (ConstructDate(2099, 11, 31) !== new Date(2099, 11, 31).valueOf()) {
+if (4102387200000 !== new Date(2099, 11, 31).valueOf()) {
   $FAIL("#10: Incorrect value of Date");
 }
 
-if (ConstructDate(2099, 12, 1) !== new Date(2099, 12, 1).valueOf()) {
+if (4102473600000 !== new Date(2099, 12, 1).valueOf()) {
   $FAIL("#11: Incorrect value of Date");
 }
 
-if (ConstructDate(2100, 0, 1) !== new Date(2100, 0, 1).valueOf()) {
+if (4102473600000 !== new Date(2100, 0, 1).valueOf()) {
   $FAIL("#12: Incorrect value of Date");
 }
 

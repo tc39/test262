@@ -21,51 +21,51 @@ $INCLUDE("numeric_conversion.js");
 $INCLUDE("Date_constants.js");
 $INCLUDE("Date_library.js");
 
-if (ConstructDate(1899, 11) !== new Date(1899, 11).valueOf()) {
+if (-2211638400000 !== new Date(1899, 11).valueOf()) {
   $FAIL("#1: Incorrect value of Date");
 }
 
-if (ConstructDate(1899, 12) !== new Date(1899, 12).valueOf()) {
+if (-2208960000000 !== new Date(1899, 12).valueOf()) {
   $FAIL("#2: Incorrect value of Date");
 }
 
-if (ConstructDate(1900, 0) !== new Date(1900, 0).valueOf()) {
+if (-2208960000000 !== new Date(1900, 0).valueOf()) {
   $FAIL("#3: Incorrect value of Date");
 }
 
-if (ConstructDate(1969, 11) !== new Date(1969, 11).valueOf()) {
+if (-2649600000 !== new Date(1969, 11).valueOf()) {
   $FAIL("#4: Incorrect value of Date");
 }
 
-if (ConstructDate(1969, 12) !== new Date(1969, 12).valueOf()) {
+if (28800000 !== new Date(1969, 12).valueOf()) {
   $FAIL("#5: Incorrect value of Date");
 }
 
-if (ConstructDate(1970, 0) !== new Date(1970, 0).valueOf()) {
+if (28800000 !== new Date(1970, 0).valueOf()) {
   $FAIL("#6: Incorrect value of Date");
 }
 
-if (ConstructDate(1999, 11) !== new Date(1999, 11).valueOf()) {
+if (944035200000 !== new Date(1999, 11).valueOf()) {
   $FAIL("#7: Incorrect value of Date");
 }
 
-if (ConstructDate(1999, 12) !== new Date(1999, 12).valueOf()) {
+if (946713600000 !== new Date(1999, 12).valueOf()) {
   $FAIL("#8: Incorrect value of Date");
 }
 
-if (ConstructDate(2000, 0) !== new Date(2000, 0).valueOf()) {
+if (946713600000 !== new Date(2000, 0).valueOf()) {
   $FAIL("#9: Incorrect value of Date");
 }
 
-if (ConstructDate(2099, 11) !== new Date(2099, 11).valueOf()) {
+if (4099795200000 !== new Date(2099, 11).valueOf()) {
   $FAIL("#10: Incorrect value of Date");
 }
 
-if (ConstructDate(2099, 12) !== new Date(2099, 12).valueOf()) {
+if (4102473600000 !== new Date(2099, 12).valueOf()) {
   $FAIL("#11: Incorrect value of Date");
 }
 
-if (ConstructDate(2100, 0) !== new Date(2100, 0).valueOf()) {
+if (4102473600000 !== new Date(2100, 0).valueOf()) {
   $FAIL("#12: Incorrect value of Date");
 }
 
