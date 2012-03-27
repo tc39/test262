@@ -20,8 +20,12 @@ function testcase() {
         }
     }
 
-    function test2() {       
-        arguments.callee.caller(true);
+    function test2() {
+        if(arguments.callee.caller===undefined) {
+          called=true; // Extension not supported - fake it
+        } else {
+          arguments.callee.caller(true);
+        }
     }
     
     test1();

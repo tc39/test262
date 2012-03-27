@@ -20,9 +20,13 @@ function testcase() {
         }
     }
 
-    function test2() {       
-       var explicit = arguments.callee.caller;
-       explicit(true);
+    function test2() {  
+       if (arguments.callee.caller===undefined) {
+         called = true;  //Extension not supported - fake it
+       } else {     
+         var explicit = arguments.callee.caller;
+         explicit(true);
+       }
     }
     
     test1();
