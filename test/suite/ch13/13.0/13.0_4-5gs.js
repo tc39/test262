@@ -5,12 +5,12 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 
 /**
- * @path ch13/13.0/13_4-17gs.js
- * @description Strict Mode - SourceElements is evaluated as strict mode code when a Function constructor is contained in strict mode code
+ * @path ch13/13.0/13.0_4-5gs.js
+ * @description Strict Mode - SourceElements is evaluated as strict mode code when a FunctionDeclaration is contained in strict mode code
  * @onlyStrict
- * @negative NotEarlyError
+ * @negative ^((?!NotEarlyError).)*$
  */
 
 "use strict";
-var _13_4_17_fun = new Function('eval = 42;');
 throw NotEarlyError;
+function _13_0_4_5_fun() { eval = 42; };
