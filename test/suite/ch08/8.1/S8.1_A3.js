@@ -2,10 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * undefined is now non-writable in es5
+ * undefined is not a keyword
  *
  * @path ch08/8.1/S8.1_A3.js
- * @description "undefined=1" should throw a TypeError
+ * @description Create variable named undefined
  */
 
 //////////////////////////////////////////////////////////
