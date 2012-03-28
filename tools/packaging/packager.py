@@ -271,9 +271,6 @@ for chapter in TEST_SUITE_SECTIONS:
         if TESTCASELIST_PER_JSON:
             CHAPTER_TEST_CASES_JSON = {}
             CHAPTER_TEST_CASES_JSON["numTests"] = int(sect["numTests"])
-            CHAPTER_TEST_CASES_JSON["version"] = ARGS.version
-            CHAPTER_TEST_CASES_JSON["date"] = \
-                str(datetime.datetime.now().date())
             CHAPTER_TEST_CASES_JSON["testSuite"] = \
                 [WEBSITE_CASES_PATH + chapterName + ".json"]
             with open(os.path.join(TEST262_WEB_CASES_DIR, 
@@ -298,12 +295,17 @@ for chapter in TEST_SUITE_SECTIONS:
 #create a root node for our suite
 TEST_CASES_JSON = {}
 TEST_CASES_JSON["numTests"] = TOTAL_TEST_COUNT
-TEST_CASES_JSON["version"] = ARGS.version
-TEST_CASES_JSON["date"] = str(datetime.datetime.now().date())
 TEST_CASES_JSON["testSuite"] = SECTIONS_LIST
 with open(os.path.join(TEST262_WEB_CASES_DIR, "default.json"), "w") as f:
     json.dump(TEST_CASES_JSON, f, separators=(',',':'), sort_keys=True)
 generateHarness(ARGS.type, "default.json", "Chapters 1-16")
+
+#Overall description of this version of the test suite
+SUITE_DESCRIP_JSON = {}
+SUITE_DESCRIP_JSON["version"] = ARGS.version
+SUITE_DESCRIP_JSON["date"] = str(datetime.datetime.now().date())
+with open(os.path.join(TEST262_WEB_CASES_DIR, "suiteDescrip.json"), "w") as f:
+    json.dump(SUITE_DESCRIP_JSON, f, separators=(',',':'), sort_keys=True)
 
 #Deploy test harness to website as well
 print ""

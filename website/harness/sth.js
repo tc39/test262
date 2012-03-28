@@ -282,9 +282,7 @@ function TestLoader() {
                     tests: []
                 };
             }
-            loader.onInitialized(loader.totalTests,
-                                 loader.version,
-                                 loader.date);
+            loader.onInitialized(loader.totalTests);
             getNextXML();
         }});
     }
@@ -369,9 +367,7 @@ function Controller() {
             setTimeout(loader.getNextTest, 10);
     };
 
-    loader.onInitialized = function(totalTests, version, date) {
-        presenter.setVersion(version);
-        presenter.setDate(date);
+    loader.onInitialized = function(totalTests) {
         presenter.setTotalTests(totalTests);
     };
 
@@ -488,5 +484,12 @@ $(function () {
     //test to zero
     $('.button-reset').click(function () {
         controller.reset();
+    });
+
+    var SUITE_DESCRIP_PATH = "json/suiteDescrip.json";
+    $.ajax({ url: SUITE_DESCRIP_PATH, dataType: 'json', success: function (data) {
+        presenter.setVersion(data.version);
+        presenter.setDate(data.date);
+    }
     });
 });
