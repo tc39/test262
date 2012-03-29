@@ -10,7 +10,7 @@
  */
 
 //The first test case for a hypothetical Step 1 of section 1.2 in the Ecma 
-//standard 402.
+//standard 402. Yay!
 
 function testcase() {
     "use strict";
