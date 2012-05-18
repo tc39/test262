@@ -4,19 +4,11 @@
 /// "Use Terms").   Any redistribution of this code must retain the above 
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
- * @path ch15/15.1/15.1.1/15.1.1.3/15.1.1.3-1.js
- * @description undefined is not writable, should not throw in non-strict mode
- * @noStrict
+ * @path ch10/10.4/10.4.3/10.4.3-1-18gs.js
+ * @description Strict - checking 'this' from a global scope (eval includes strict directive prologue)
+ * @onlyStrict
  */
 
-function testcase(){
-    undefined = 5;
-    if(typeof undefined !== "undefined") return false;
-
-    var nosuchproperty;
-    if(nosuchproperty !== undefined) return false;
-    
-    return true;
+if (eval("\"use strict\";\nthis") !== fnGlobalObject()) {
+    throw "'this' had incorrect value!";
 }
-
-runTestCase(testcase);
