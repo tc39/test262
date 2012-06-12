@@ -25,8 +25,8 @@ a
 
 .logoHeader
 {
-	display:block;
-	height:50px;
+    display:block;
+    height:50px;
 }
 
 .ecmascriptlogoBg
@@ -46,17 +46,17 @@ a
 }
 .ecmascriptbacklink
 {
-	position:relative;
+    position:relative;
 }
 .ecmascriptbacklink p 
 {
-	position:absolute;
-	right:0px;
+    position:absolute;
+    right:0px;
 }
 .ecmascriptbacklink a
 {
  font-weight:bold;
- font-size:0.9em;	
+ font-size:0.9em;    
 } 
 
 .navBar
@@ -92,7 +92,7 @@ a
     line-height: 60px;
     padding-left: 20px;
     padding-right: 20px;
-    /*	min-width: 160px; */
+    /*    min-width: 160px; */
     color: #fff;
     text-decoration: none;
     text-align: center;
@@ -180,7 +180,7 @@ li.content
     position: relative;
     color: black; 
     text-align: left;
-    width: 602px;
+    width: 458px;
     height: 23px;
     margin-bottom: 5px;
     float: left;
@@ -223,6 +223,11 @@ li.content
 .progressBarButtons img
 {
     cursor: pointer;
+}
+
+.progressBarButtons img.disabled
+{
+    cursor: not-allowed;
 }
 
 /*ToDo: to be deleted*/
@@ -270,7 +275,7 @@ li.content
 .reportTblHeader
 {
     padding: 5px;
-    border-bottom: 1px dotted #999;	
+    border-bottom: 1px dotted #999;    
     background-image: url(../images/tblreportheaderbg.png);
     background-repeat: repeat-x;
     color: #444;
@@ -307,7 +312,7 @@ li.content
 .resultsTableHolder td.tblSectionHeader
 {
     padding: 5px;
-    border-bottom: 1px dotted #999;	
+    border-bottom: 1px dotted #999;    
     background-image: url(images/tblsectionheader.png);
     background-repeat: repeat-x;
     color: #f2a612;
@@ -346,7 +351,6 @@ li.content
 .content-container { color: #444;} 
 .content-home, .content-dev, .content-tests, .content-results, .content-results-detailed, .content-browsers { display: none; }
 .nav-link { cursor: pointer;} 
-.button-start {  }
 .table-logger { overflow: scroll; }
 #resultsTableHolder { overflow: auto; }
 .log-row{ width: 100%; }
@@ -524,6 +528,40 @@ li.content
 }
 /* </Loading Indicator> */
 
+
+/* <Chapter Selection> */
+div#chapterSelector {
+    text-align: left;
+    font-size: 0.8em;
+    height: 150px;
+    border: 1px solid #CCC;
+    overflow: auto;
+    margin-bottom: 20px;
+}
+
+div#chapterSelector tr.selectedChapter {
+    font-weight:bold;
+}
+
+div#chapterSelector img {
+    cursor:pointer;
+}
+
+tr.loading, tr.waiting {
+    color:#999;
+}
+
+#chapterSelector .loading {
+    min-height:0;
+    background-position:2px center;
+}
+#chapterSelector tr.loading td.chapterName {
+    padding-left:20px;
+}
+
+/* </Chapter Selection> */
+
+
 .hide
 {
     display: none;
@@ -550,7 +588,7 @@ li.content
 }
 .projectSection
 {
-	border-top:1px none #444;
-	border-top-color: #444;
-	border-top-style:solid;
+    border-top:1px none #444;
+    border-top-color: #444;
+    border-top-style:solid;
 }

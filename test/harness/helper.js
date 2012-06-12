@@ -34,30 +34,77 @@ function Presenter() {
         }
     }
     
+    /* Updates the displayed version. */
     this.setVersion = function(v) {
         version = v;
         $(".targetTestSuiteVersion").text(v);
     }
-  
-  this.setDate = function(d) {
+    
+    /* Updates the displayed date. */
+    this.setDate = function(d) {
         date = d;
         $(".targetTestSuiteDate").text(d);
     }
-  
+    
+    /* Updates the displayed number of tests to run. */
     this.setTotalTests = function(tests) {
         totalTests = tests;
         $('#testsToRun').text(tests);
     }
   
-  /* Write status to the activity bar. */
+    /* Write status to the activity bar. */
     this.updateStatus = function (str) {
        this.activityBar.text(str);
     }
-  
-  this.finished = function(elapsed) {
-        $('.button-start').attr('src', 'images/start.png');
-        $('.button-start').fadeOut('fast');
+    
+    /* When starting to load a test, create a table row entry and buttons. Display file path. */
+    this.setTestWaiting = function(index, path) {
+        var appendMsg = '<tr class="waiting"><td height="29" class="chapterName">Waiting to load test file: ' + path + '</td>';
+        appendMsg += '<td width="83"><img src="images/select.png" alt="Select" title="Toggle the selection of this chapter." /></td>';
+        appendMsg += '<td width="83"><img src="images/run.png" alt="Run" title="Run this chapter individually." /></td></tr>';
+    
+        $('#chapterSelector table').append(appendMsg);
+        // Find the table row
+        var tr = $('#chapterSelector table tr').filter(":last-child");
         
+        // Attach click listeners to the buttons
+        tr.find("img").filter('[alt="Select"]').bind("click", {tr: tr, index: index}, function(event) {
+            controller.toggleSelection(event.data.index);
+            // Deselect row
+            if(event.data.tr.hasClass("selectedChapter")) {
+                event.data.tr.removeClass("selectedChapter");
+                event.data.tr.find('img').filter('[alt="Selected"]').attr({
+                    src: 'images/select.png',
+                    alt: 'Select'
+                });
+            }
+            // Select row
+            else {
+                event.data.tr.addClass("selectedChapter");
+                event.data.tr.find('img').filter('[alt="Select"]').attr({
+                    src: 'images/selected.png',
+                    alt: 'Selected'
+                });
+            }
+        });
+    }
+    
+    this.setTestLoading = function(index, path) {
+        var tr = $('#chapterSelector table tr').filter(":nth-child(" + (index+1) + ")");
+        tr.removeClass("waiting");
+        tr.addClass("loading");
+        tr.find(":first-child").html("Loading test file: " + path);
+    };
+    
+    /* On test loaded, display the chapter name and the number of tests */
+    this.setTestLoaded = function(index, name, numTests) {
+        var tr = $('#chapterSelector table tr').filter(":nth-child(" + (index+1) + ")");
+        tr.removeClass("loading");
+        tr.find("td").filter(":first-child").html(name + " (" + numTests + " tests)");
+    }
+    
+    /* Called when the tests finish executing. */
+    this.finished = function(elapsed) {
         progressBar.find(".text").html("Testing complete!"); 
         if (isSiteDebugMode()) {
             this.activityBar.text('Overall Execution Time: ' + elapsed + ' minutes');
@@ -65,27 +112,19 @@ function Presenter() {
             this.activityBar.text('');
         }
     }
-  
-  this.started = function () {
-        $('.button-start').attr('src', 'images/pause.png');
-    }
 
-    this.paused = function () {
-        $('.button-start').attr('src', 'images/resume.png');
-    }
-
-    this.reset = function() {
+    this.reset = function () {
         globalSection.reset();
         updateCounts();
+        this.activityBar.text('');
         logger.empty();
 
         currentSection = globalSection;
         renderCurrentSection();
-        $('.button-start').show();
     }
   
   
-  /* Do some setup tasks. */
+    /* Do some setup tasks. */
     this.setup = function() {
         backLink = $('#backlinkDiv');
         backLink.click(goBack);
@@ -105,7 +144,29 @@ function Presenter() {
         renderCurrentSection();
     }
     
-  //**IMPLEMENTATION DETAILS***************************************************
+    /* The state machine for the button display. */
+    this.setState = function(state) {
+        // Hide all the buttons
+        $('.progressBarButtons img').addClass("hide");
+        // Only show what is needed.
+        if(state == 'loading') {
+            $('#btnRunAll').removeClass('hide');
+            $('#btnRunSelected').removeClass('hide');
+        }
+        else if(state == 'paused') {
+            $('#btnResume').removeClass('hide');
+            $('#btnReset').removeClass('hide');
+        }
+        else if(state == 'running') {
+            $('#btnPause').removeClass('hide');
+        }
+        else if(state == 'loaded') {
+            $('#btnRunAll').removeClass('hide');
+            $('#btnRunSelected').removeClass('hide');
+        }
+    };
+    
+    //**IMPLEMENTATION DETAILS***************************************************
 
     /* Renders the current section into the report window. */
     function renderCurrentSection() {
@@ -352,11 +413,11 @@ function Presenter() {
 
         xml = '<testRun>\r\n' +
               '<userAgent>' + window.navigator.userAgent + '</userAgent>\r\n' +
-			  '<Date>' + dateNow.toDateString() + '</Date>\r\n' +
-			  '<targetTestSuiteName>ECMAScript Test262 Site</targetTestSuiteName>\r\n' +
-			  '<targetTestSuiteVersion>' + version + '</targetTestSuiteVersion>\r\n' +
-			  '<targetTestSuiteDate>' + date + '</targetTestSuiteDate>\r\n' +
-			  ' <Tests>\r\n\r\n';
+              '<Date>' + dateNow.toDateString() + '</Date>\r\n' +
+              '<targetTestSuiteName>ECMAScript Test262 Site</targetTestSuiteName>\r\n' +
+              '<targetTestSuiteVersion>' + version + '</targetTestSuiteVersion>\r\n' +
+              '<targetTestSuiteDate>' + date + '</targetTestSuiteDate>\r\n' +
+              ' <Tests>\r\n\r\n';
 
         reportWindow = window.open();
         reportWindow.document.writeln("<title>ECMAScript Test262 XML</title>");

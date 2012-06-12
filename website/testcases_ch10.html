@@ -93,31 +93,43 @@
 
             <div class="content-tests">
                 <!-- This is the Main Content Container -->
-                <p class="content">Please click on the Start button to start the test. Once you start the test you may pause the test anytime by clicking on the Pause button. You can click on the Results tab once the test is completed or after pausing the test. The Reset button is for restarting the test run.</p>
-<!--
-                <div class="progressBarHolder">
-                    Chapter Index: <input type="text" size="2" maxlength="2" value="" id="chapterId" onkeypress="if(event.keyCode < 48 || event.keyCode > 57){return false;}"/> 
-                </div>
--->
+                <p class="content">Please click on the Run All button to run all the tests. Once you start the test you may pause the test anytime by clicking on the Pause button. You can click on the Results tab once the test is completed or after pausing the test. The Reset button is for restarting the test run. You may run individual tests by clicking the Run button next to the tests listed below. If you wish to run several chapters in sequence, but not the entire test suite, click the Select button for the chapters you wish to run and then click the Run Selected button.</p>
+
                 <!-- This is the Progress Bar Holder -->
                 <div class="progressBarHolder">
                     <div id="progressbar"></div>
                     <div class="progressBarButtons">
-                        <img src="images/reset.png" class="button-reset"/>&nbsp;<img src="images/start.png" class="button-start" id="btnStart"/> 
+                        <!-- Loading: Run All, Run Selected -->
+                        <!-- Loaded: Run All, Run Selected -->
+                        <!-- Running: Pause -->
+                        <!-- Paused: Resume, Reset -->
+                        <img src="images/runall.png" alt="Run All" title="Run all tests." id="btnRunAll" />
+                        <img src="images/runselected.png" alt="Run Selected Tests" title="Run the tests selected below." id="btnRunSelected" />
+                        <img src="images/pause.png" alt="Pause" title="Pause the running tests." id="btnPause" />
+                        <img src="images/resume.png" alt="Resume" title="Resume the running tests." id="btnResume" />
+                        <img src="images/reset.png" alt="Reset" title="Reset testing status." id="btnReset" />
                     </div>
                     <div style="clear: both;"></div>
                 </div>
-                <p class="hide">>
+                <p class="hide">
                     Timer Value(ms) : <input id="txtTimerValue" value="50" /> <input id="btnSetTimerValue" value="Set Timer Value" type="button"/>
                 </p>
+                
                 <!-- This is the Results Text Holder -->
                 <div class="resultsHeader">
-                    <!--Total Loaded: <strong><span id="totalLoadedCounter"></span></strong><span class="Separator">|</span>-->
                     Tests To Run: <strong><span class="teststorun-counter" id="testsToRun"></span></strong>&nbsp;<span class="separator">|</span>
-                    Total Tests Ran: <strong><span class="total-counter" id="totalCounter"></span></strong> <span class="separator">|</span> Pass: <span class="pass" id="Pass"></span> <span class="separator">|</span> Fail: <span class="fail" id="Fail"></span>
-                    <span class="separator">|</span>&nbsp;Failed To Load: <span class="fail" id="failedToLoadCounter1"></span>
+                    Total Tests Ran: <strong><span class="total-counter" id="totalCounter"></span></strong> <span class="separator">|</span>
+                    Pass: <span class="pass" id="Pass"></span> <span class="separator">|</span>
+                    Fail: <span class="fail" id="Fail"></span> <span class="separator">|</span>
+                    Failed To Load: <span class="fail" id="failedToLoadCounter1"></span>
                     <p><span id="nextActivity"></span></p>
                 </div>
+                
+                <!-- Test Chapter selector -->
+                <div id="chapterSelector">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="2"></table>
+                </div>
+                
                 <!-- This is the Table -->
                 <div class="resultsTableHolder" id="tableLoggerParent">                    
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table-logger" id="tableLogger"></table>
