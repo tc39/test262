@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
@@ -6,6 +6,7 @@
 <script type="text/javascript" src="harness/sections.js"></script>
 <script type="text/javascript">
     //Globals
+    var STANDARD = "ECMA-262";
     var TEST_LIST_PATH = "json/testcases_bestPractice.json";
 </script>
 <script type="text/javascript" src="harness/sth.js"></script>
@@ -13,7 +14,7 @@
 <script type="text/javascript" src="harness/jqueryprogressbar.js"></script>
 <script type="text/javascript" src="harness/helper.js"></script>
 <script type="text/javascript" src="harness/jquery.base64.js"></script>
-<script language="javascript" type="text/javascript">
+<script type="text/javascript">
     //To support all the browsers
     $(window).resize(ResizeLoadIndicator);
     $(window).load(ResizeLoadIndicator);
@@ -28,11 +29,11 @@
     });
 </script>
 
-<title>ECMAScript Test262 Best Practices</title>
+<title>ECMAScript Best Practices – test262</title>
 <link href="styles/style.css" media="screen" rel="stylesheet" title="CSS" type="text/css" />
 </head>
 <body>
-    <div class="indicatorContainer" oncontextmenu="return false;">
+    <div class="indicatorContainer">
         <!--Blank div to disable back portion when indicator is shown-->
         <div class="disabledBackground"></div>
         <div id="loadingIndicator">
@@ -44,12 +45,10 @@
     </div>
 
     <div class="wrapper"> 
-        <!-- This Container holds the Logo -->
-        <div class="logoHeader"> 
-            <div class="logoBg"> <p class="headers">ecma<font color="#868686">script</font><font color="black"> test262 <b>Best Practices</b></font></p>   <!-- <img src="images/logo.png" /> --> </div>
-            <div class="ecmascriptbacklink">
-            <p><a href='javascript:void(window.open("http://www.ecmascript.org/"));'>ECMAScript.org</a></p>
-            </div>
+        <!-- This Container holds the main header -->
+        <div class="mainHeader"> 
+            <p><span id="ECMAscript">ECMA</span><span id="ecmaSCRIPT">Script</span> <strong>Best Practices</strong> test262
+            <a id="ecmascriptbacklink" href='javascript:void(window.open("http://www.ecmascript.org/"));'>ECMAScript.org</a></p>
         </div>
         <!-- This Container holds the Navigation -->
         <div class="navBar">
@@ -95,7 +94,7 @@
                 <div class="progressBarHolder">
                     <div id="progressbar"></div>
                     <div class="progressBarButtons">
-                        <img src="images/reset.png" class="button-reset"/>&nbsp;<img src="images/start.png" class="button-start" id="btnStart"/> 
+                        <img src="images/reset.png" class="button-reset" alt="reset"/>&nbsp;<img src="images/start.png" class="button-start" id="btnStart" alt="start"/> 
                     </div>
                     <div style="clear: both;"></div>
                 </div>
@@ -105,9 +104,9 @@
                 <!-- This is the Results Text Holder -->
                 <div class="resultsHeader">
                     <!--Total Loaded: <strong><span id="totalLoadedCounter"></span></strong><span class="Separator">|</span>-->
-                    Tests To Run: <strong><span class="teststorun-counter" id="testsToRun"></span></strong>&nbsp;<span class="separator">|</span>
-                    Total Tests Ran: <strong><span class="total-counter" id="totalCounter"></span></strong> <span class="separator">|</span> Pass: <span class="pass" id="Pass"></span> <span class="separator">|</span> Fail: <span class="fail" id="Fail"></span>
-                    <span class="separator">|</span>&nbsp;Failed To Load: <span class="fail" id="failedToLoadCounter1"></span>
+                    Tests to run: <strong><span class="teststorun-counter" id="testsToRun"></span></strong>&nbsp;<span class="separator">|</span>
+                    Total tests ran: <strong><span class="total-counter" id="totalCounter"></span></strong> <span class="separator">|</span> Passed: <span class="pass" id="Pass"></span> <span class="separator">|</span> Failed: <span class="fail" id="Fail"></span>
+                    <span class="separator">|</span>&nbsp;Failed to load: <span class="fail" id="failedToLoadCounter1"></span>
                     <p><span id="nextActivity"></span></p>
                 </div>
                 <!-- This is the Table -->
@@ -115,19 +114,19 @@
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table-logger" id="tableLogger"></table>
                 </div>
                 <div>
-                    Test Suite Ver.: <span class="targetTestSuiteVersion"></span>&nbsp;<span class="separator">|</span>&nbsp;Test Suite Date: <span class="targetTestSuiteDate"></span>
+                    Test suite version: <span class="targetTestSuiteVersion"></span>&nbsp;<span class="separator">|</span>&nbsp;Test suite date: <span class="targetTestSuiteDate"></span>
                 </div>
             </div>
 
             <div class="content-results">
                 <div class="crumbContainer">
                     <div class="crumbs"></div>
-                    <div style="float:right;"><a class="setBlue hide" id="backlinkDiv" href="#"><< back</a></div>
+                    <div style="float:right;"><a class="setBlue hide" id="backlinkDiv" href="#">&lt;&lt; back</a></div>
                     <div style="clear : both;"></div>
                 </div>
-                <div class="resultsHeader"> <strong>Total Tests:<span class="totalCases"></span></strong><br />
+                <div class="resultsHeader"> <strong>Total tests: <span class="totalCases"></span></strong><br />
                     Passed: <span class="passedCases"></span> <span class="separator">|</span> Failed: <span class="failedCases"></span> <span class="separator">|</span>
-                    Failed To Load: <strong><span id="failedToLoadCounter"></span></strong>
+                    Failed to load: <strong><span id="failedToLoadCounter"></span></strong>
                 </div>
                 <!-- This is the Table -->
                <div class="resultsTableHolder">
@@ -135,7 +134,7 @@
                     <div id="resultMessage">Test results will be displayed after the tests are executed using the Run page.</div>
                 </div>
                 <div>
-                    Test Suite Ver.: <span class="targetTestSuiteVersion"></span>&nbsp;<span class="separator">|</span>&nbsp;Test Suite Date: <span class="targetTestSuiteDate"></span>
+                    Test suite version: <span class="targetTestSuiteVersion"></span>&nbsp;<span class="separator">|</span>&nbsp;Test suite date: <span class="targetTestSuiteDate"></span>
                 </div>
                 <div class="downloadLinks">
                     <p><a class="anchor-download-xml" id="ancGenXMLReport"><strong>Download results as XML</strong></a></p> <!--| <strong><a href="scripts/testcases.zip">Download Source</a></strong></p>-->
