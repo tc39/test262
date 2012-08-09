@@ -70,21 +70,35 @@
 		var uTF8Decode = function(input) {
 			var string = "";
 			var i = 0;
-			var c = c1 = c2 = 0;
+			var c = c2 = c3 = c4 = 0;
 			while ( i < input.length ) {
 				c = input.charCodeAt(i);
-				if (c < 128) {
+				if (c < 128) { // 1 byte encoding - ASCII only
 					string += String.fromCharCode(c);
 					i++;
-				} else if ((c > 191) && (c < 224)) {
+				} else if ((c >= 192) && (c < 224)) {  // 2 byte encoding - max U+07FF
 					c2 = input.charCodeAt(i+1);
 					string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
 					i += 2;
-				} else {
+				} else if ((c >= 224) && (c < 240)) {  // 3 byte encoding - max U+FFFF
 					c2 = input.charCodeAt(i+1);
 					c3 = input.charCodeAt(i+2);
 					string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
 					i += 3;
+				} else if ((c >= 240) && (c < 248)){  // 4 byte encoding - max U+10FFFF.  Covers all Unicode CodePoints
+					c2 = input.charCodeAt(i+1);
+					c3 = input.charCodeAt(i+2);
+					c4 = input.charCodeAt(i+3);
+					var codePoint = (((c & 7) << 18) | ((c2 & 63) << 12) | ((c3 & 63) << 6) | (c4 & 63));
+					if (codePoint > 0x10FFFF) {
+					    throw new SyntaxError("invalid UTF-8 code unit sequence");
+					}
+					var highSurrogate = (((codePoint - 0x10000) & 0xFFC00) >>> 10) + 0xD800; // Minus 0x10000, then top 10 bits added to 0xD800
+					var lowSurrogate = ((codePoint - 0x10000) & 0x3FF) + 0xDC00; // Minus 0x10000, then low 10 bits added to 0xDC00
+					string += String.fromCharCode(highSurrogate);
+					string += String.fromCharCode(lowSurrogate);
+					i += 4;
+					
 				}
 			}
 			return string;

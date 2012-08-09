@@ -1,0 +1,14 @@
+{
+"testsCollection":{
+"name":"Chapter - ch06",
+"numTests":"1",
+"tests":[
+{
+"code":"Ly8gQ29weXJpZ2h0IChjKSAyMDEyIEVjbWEgSW50ZXJuYXRpb25hbC4gIEFsbCByaWdodHMgcmVzZXJ2ZWQuIAovKioKICogQGRlc2NyaXB0aW9uIFRlc3QgZm9yIGhhbmRsaW5nIG9mIHN1cHBsZW1lbnRhcnkgY2hhcmFjdGVycwogKi8KCnZhciBjaGFycyA9ICLwkJKgIjsgIC8vIFNpbmdsZSBVbmljb2RlIGNoYXJhY3RlciBhdCBjb2RlcG9pbnQgXHV7MTA0QTB9CmlmKGNoYXJzLmxlbmd0aCAhPT0gMikgewogICAgJEVSUk9SKCJBIGNoYXJhY3RlciBvdXRzaWRlIHRoZSBCTVAgKFVuaWNvZGUgQ29kZVBvaW50ID4gMHhGRkZGKSBzaG91bGQgY29uc3VtZSB0d28gY29kZSB1bml0cyIpOwp9CmlmKGNoYXJzLmNoYXJDb2RlQXQoMCkgIT09IDB4RDgwMSkgewogICAgJEVSUk9SKCJGaXJzdCBjb2RlIHVuaXQgb2Ygc3Vycm9nYXRlIHBhaXIgZm9yIDB4MTA0QTAgc2hvdWxkIGJlIDB4RDgwMSIpOwp9CgppZihjaGFycy5jaGFyQ29kZUF0KDEpICE9PSAweERDQTApIHsKICAgICRFUlJPUigiU2Vjb25kIGNvZGUgdW5pdCBvZiBzdXJyb2dhdGUgcGFpciBmb3IgMHgxMDRBMCBzaG91bGQgYmUgMHhEQ0EwIik7Cn0K",
+"commentary":"",
+"description":"Test for handling of supplementary characters",
+"path":"TestCases/ch06/6.1.js"
+}
+]
+}
+}

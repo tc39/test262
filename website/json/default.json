@@ -1,6 +1,7 @@
 {
-"numTests":11571,
+"numTests":11572,
 "testSuite":[
+"json/ch06.json",
 "json/ch07.json",
 "json/ch08.json",
 "json/ch09.json",
