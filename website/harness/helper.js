@@ -13,13 +13,13 @@ function Presenter() {
         table,
         backLink,
 
-        globalSection = new Section(null, "0", "ECMA-262"),
+        globalSection = new Section(null, "0", STANDARD),
         currentSection = globalSection,
         tests = {},
         totalTests = 0;
 
     var progressBar;
-    TOCFILEPATH = "metadata/ecma-262-toc.xml";
+    TOCFILEPATH = "metadata/" + STANDARD.toLowerCase() + "-toc.xml";
   //**INTERFACE****************************************************************
   /* Updates progress with the given test, which should have its results in it as well. */
     this.addTestResult = function(test) {

@@ -171,6 +171,10 @@ for temp in os.listdir(TEST262_CASES_DIR):
         print "The expected ES5 test directory,", temp, "did not exist!"
         sys.exit(1)
     
+    if temp.find("/.") != -1:
+        # skip hidden files on Unix, such as ".DS_Store" on Mac
+        continue
+
     if not ONE_JSON_PER_CHAPTER:
         dirWalker(temp)
     else:

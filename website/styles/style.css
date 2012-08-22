@@ -23,41 +23,37 @@ a
     margin: 0px auto;
 }
 
-.logoHeader
+.mainHeader
 {
     display:block;
     height:50px;
 }
 
-.ecmascriptlogoBg
+.mainHeader p
 {
-    margin-bottom: 5px; 
-    width:700px;
-    float:left;
+    color: black;
+    margin: 0;
+    font-size: 2em;
 }
 
-.logoBg
+#ECMAscript
 {
-    text-align: left;
-    margin-bottom: 5px;
-    width:600px;
-    height:36px;
-    float:left;
+    color: #f2a612;
 }
-.ecmascriptbacklink
+
+#ecmaSCRIPT
 {
-    position:relative;
+    color: #868686;
 }
-.ecmascriptbacklink p 
+
+#ecmascriptbacklink
 {
-    position:absolute;
-    right:0px;
+    display: inline-block;
+    float: right;
+    margin-top: 1.5em;
+    font-size: 0.4em;
+    font-weight: bold;
 }
-.ecmascriptbacklink a
-{
- font-weight:bold;
- font-size:0.9em;    
-} 
 
 .navBar
 {
