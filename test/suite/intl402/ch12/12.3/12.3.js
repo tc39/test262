@@ -2,20 +2,15 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * @path intl402/ch12/12.3/12.3.js
- * @description Tests that Intl.NumberFormat.prototype is an intance of
- * Intl.NumberFormat.
+ * @description Tests that Intl.NumberFormat.prototype is an object that
+ * has been initialized as an Intl.NumberFormat.
  * @author: Roozbeh Pournader
  */
 
-var testcase = function() {
-  "use strict";
-
-  if (!(Intl.NumberFormat.prototype instanceof Intl.NumberFormat)) {
-    $ERROR("Intl.NumberFormat's prototype is not an instance of " +
-      "Intl.NumberFormat");
-  }
-  
-  return true;
+// test by calling a function that would fail if "this" were not an object
+// initialized as an Intl.NumberFormat
+if (typeof Intl.NumberFormat.prototype.format(0) !== "string") {
+    $ERROR("Intl.NumberFormat's prototype is not an object that has been " +
+        "initialized as an Intl.NumberFormat");
 }
-runTestCase(testcase);
+

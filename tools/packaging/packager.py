@@ -238,7 +238,8 @@ for chapter in TEST_SUITE_SECTIONS:
                 #now get the metadata added.
                 tempDict = convertDocString("".join(scriptCode))
                 for tempKey in tempDict.keys():
-                    #TODO - is this check really necessary?
+                    #path is set from the file path above; the "@path" property
+                    #in comments is redundant
                     if not (tempKey in ["path"]):
                         testDict[tempKey] = tempDict[tempKey]
 

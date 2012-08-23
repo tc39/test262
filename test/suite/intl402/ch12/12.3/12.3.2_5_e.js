@@ -2,16 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * @path intl402/ch12/12.3/12.3.2_5_e.js
  * @description Tests that Intl.NumberFormat.prototype.format
  * supports all alternative numbering systems.
  * @author: Roozbeh Pournader
  */
 
-var testcase = function() {
-  "use strict";
-
-  var numberingSystems = {
+var numberingSystems = {
     arab: 0x0660,
     arabext: 0x06F0,
     beng: 0x09E6,
@@ -33,22 +29,19 @@ var testcase = function() {
     telu: 0x0C66,
     thai: 0x0E50,
     tibt: 0x0F20
-  };
+};
 
-  var options, formatter;
-  var s, zeroCode, digitList;
+var options, formatter;
+var s, zeroCode, digitList;
 
-  for (s in numberingSystems) {
+for (s in numberingSystems) {
     zeroCode = numberingSystems[s];
     if (typeof zeroCode === 'number') {
-      digitList = [zeroCode, zeroCode+1, zeroCode+2, zeroCode+3, zeroCode+4,
+        digitList = [zeroCode, zeroCode+1, zeroCode+2, zeroCode+3, zeroCode+4,
                    zeroCode+5, zeroCode+6, zeroCode+7, zeroCode+8, zeroCode+9];
-      numberingSystems[s] = digitList;
+        numberingSystems[s] = digitList;
     }
-  }
-
-  // FIXME: Unfinished
-
-  return true;
 }
-runTestCase(testcase);
+
+// FIXME: Unfinished
+

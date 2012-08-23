@@ -2,34 +2,27 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * @path intl402/ch13/13.2/13.2.2.js
- * @description Tests that the Intl.DateTimeFormat has a supportedLocalesOf
+ * @description Tests that Intl.DateTimeFormat has a supportedLocalesOf
  * property, and it works as planned.
  * @author: Roozbeh Pournader
  */
 
-var testcase = function() {
-  "use strict";
-
-  var supported = (new Intl.LocaleList())[0];
-  var notSupported = 'zxx';
-  var requestedLocales = [supported, notSupported];
+var defaultLocale = new Intl.DateTimeFormat().resolvedOptions().locale;
+var notSupported = 'zxx'; // "no linguistic content"
+var requestedLocales = [defaultLocale, notSupported];
     
-  var supportedLocales;
+var supportedLocales;
 
-  if (!Intl.DateTimeFormat.hasOwnProperty('supportedLocalesOf')) {
+if (!Intl.DateTimeFormat.hasOwnProperty('supportedLocalesOf')) {
     $ERROR("Intl.DateTimeFormat doesn't have a supportedLocalesOf property.");
-  }
-    
-  supportedLocales = Intl.DateTimeFormat.supportedLocalesOf(requestedLocales);
-  if (supportedLocales.length !== 1) {
-    $ERROR('The length of supported locales list is not 1.');
-  }
-    
-  if (supportedLocales[0] !== supported) {
-    $ERROR('The supported locale is not returned in the supported list.');
-  }
-    
-  return true;
 }
-runTestCase(testcase);
+    
+supportedLocales = Intl.DateTimeFormat.supportedLocalesOf(requestedLocales);
+if (supportedLocales.length !== 1) {
+    $ERROR('The length of supported locales list is not 1.');
+}
+    
+if (supportedLocales[0] !== defaultLocale) {
+    $ERROR('The default locale is not returned in the supported list.');
+}
+

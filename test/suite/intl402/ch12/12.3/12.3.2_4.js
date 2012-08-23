@@ -2,19 +2,15 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * @path intl402/ch12/12.3/12.3.2_4.js
  * @description Tests that Intl.NumberFormat.prototype.format
- * hangles NaN, Infinity, and -Infinity properly.
+ * handles NaN, Infinity, and -Infinity properly.
  * @author: Roozbeh Pournader
  */
 
-var testcase = function() {
-  "use strict";
-  
-  // FIXME: We are only listing Numeric_Type=Decimal. May need to add more
-  // when the spec clarifies. Current as of Unicode 6.1.
-  var hasUnicodeDigits = new RegExp('.*([' +
-    '\u0030-\u0039\u0660-\u0669\u06F0-\u06F9\u07C0-\u07C9\u0966-\u096F' +
+// FIXME: We are only listing Numeric_Type=Decimal. May need to add more
+// when the spec clarifies. Current as of Unicode 6.1.
+var hasUnicodeDigits = new RegExp('.*([' +
+    '0-9\u0660-\u0669\u06F0-\u06F9\u07C0-\u07C9\u0966-\u096F' +
     '\u09E6-\u09EF\u0A66-\u0A6F\u0AE6-\u0AEF\u0B66-\u0B6F\u0BE6-\u0BEF' +
     '\u0C66-\u0C6F\u0CE6-\u0CEF\u0D66-\u0D6F\u0E50-\u0E59\u0ED0-\u0ED9' +
     '\u0F20-\u0F29\u1040-\u1049\u1090-\u1099\u17E0-\u17E9\u1810-\u1819' +
@@ -27,40 +23,37 @@ var testcase = function() {
     '\uD805[\uDEC0-\uDEC9]|' +
     '\uD835[\uDFCE-\uDFFF])');
 
-  var formatter = new Intl.NumberFormat();
-  var formattedNaN = formatter.format(NaN);
-  var formattedInfinity = formatter.format(Infinity);
-  var formattedNegativeInfinity = formatter.format(-Infinity);
+var formatter = new Intl.NumberFormat();
+var formattedNaN = formatter.format(NaN);
+var formattedInfinity = formatter.format(Infinity);
+var formattedNegativeInfinity = formatter.format(-Infinity);
 
-  if (formattedNaN === formattedInfinity) {
+if (formattedNaN === formattedInfinity) {
     $ERROR('Intl.NumberFormat formats NaN and Infinity the ' +
         'same way.');
-  }
+}
 
-  if (formattedNaN === formattedNegativeInfinity) {
+if (formattedNaN === formattedNegativeInfinity) {
     $ERROR('Intl.NumberFormat formats NaN and negative ' +
         'Infinity the same way.');
-  }
+}
 
-  if (formattedInfinity === formattedNegativeInfinity) {
+if (formattedInfinity === formattedNegativeInfinity) {
     $ERROR('Intl.NumberFormat formats Infinity and ' +
-        'negaive Infinity the same way.');
-  }
+        'negative Infinity the same way.');
+}
 
-  if (hasUnicodeDigits.test(formattedNaN)) {
+if (hasUnicodeDigits.test(formattedNaN)) {
     $ERROR('Intl.NumberFormat formats NaN using a digit.');
-  }
+}
 
-  if (hasUnicodeDigits.test(formattedInfinity)) {
+if (hasUnicodeDigits.test(formattedInfinity)) {
     $ERROR('Intl.NumberFormat formats Infinity using a ' +
         'digit.');
-  }
+}
 
-  if (hasUnicodeDigits.test(formattedNegativeInfinity)) {
+if (hasUnicodeDigits.test(formattedNegativeInfinity)) {
     $ERROR('Intl.NumberFormat formats negative Infinity ' + 
         'using a digit.');
-  }
-
-  return true;
 }
-runTestCase(testcase);
+
