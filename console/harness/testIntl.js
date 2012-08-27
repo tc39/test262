@@ -656,3 +656,474 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
             canonicalizeLanguageTag(locale) === locale;
 }
 
+
+/**
+ * Tests whether the named options property is correctly handled by the given constructor.
+ * @param {object} Constructor the constructor to test.
+ * @param {string} property the name of the options property to test.
+ * @param {string} type the type that values of the property are expected to have
+ * @param {Array} [values] an array of allowed values for the property. Not needed for boolean.
+ * @param {any} fallback the fallback value that the property assumes if not provided.
+ * @param {object} testOptions additional options:
+ *     @param {boolean} isOptional whether support for this property is optional for implementations.
+ *     @param {boolean} noReturn whether the resulting value of the property is not returned.
+ *     @param {boolean} isILD whether the resulting value of the property is implementation and locale dependent.
+ *     @param {object} extra additional option to pass along, properties are value -> {option: value}.
+ * @return {boolean} whether the test succeeded.
+ */
+function testOption(Constructor, property, type, values, fallback, testOptions) {
+    var isOptional = testOptions !== undefined && testOptions.isOptional === true;
+    var noReturn = testOptions !== undefined && testOptions.noReturn === true;
+    var isILD = testOptions !== undefined && testOptions.isILD === true;
+    
+    function addExtraOptions(options, value, testOptions) {
+        if (testOptions !== undefined && testOptions.extra !== undefined) {
+            var extra;
+            if (value !== undefined && testOptions.extra[value] !== undefined) {
+                extra = testOptions.extra[value];
+            } else if (testOptions.extra.any !== undefined) {
+                extra = testOptions.extra.any;
+            }
+            if (extra !== undefined) {
+                Object.getOwnPropertyNames(extra).forEach(function (prop) {
+                    options[prop] = extra[prop];
+                });
+            }
+        }
+    }
+
+    var testValues, options, obj, expected, actual, error;
+
+    // test that the specified values are accepted. Also add values that convert to specified values.
+    if (type === "boolean") {
+        if (values === undefined) {
+            values = [true, false];
+        }
+        testValues = values.slice(0);
+        testValues.push(888);
+        testValues.push(0);
+    } else if (type === "string") {
+        testValues = values.slice(0);
+        testValues.push({toString: function () { return values[0]; }});
+    }
+    testValues.forEach(function (value) {
+        options = {};
+        options[property] = value;
+        addExtraOptions(options, value, testOptions);
+        obj = new Constructor(undefined, options);
+        if (noReturn) {
+            if (obj.resolvedOptions().hasOwnProperty(property)) {
+                $ERROR("Option property " + property + " is returned, but shouldn't be.");
+            }
+        } else {
+            actual = obj.resolvedOptions()[property];
+            if (isILD) {
+                if (actual !== undefined && values.indexOf(actual) === -1) {
+                    $ERROR("Invalid value " + actual + " returned for property " + property + ".");
+                }
+            } else {
+                if (type === "boolean") {
+                    expected = Boolean(value);
+                } else if (type === "string") {
+                    expected = String(value);
+                }
+                if (actual !== expected && !(isOptional && actual === undefined)) {
+                    $ERROR("Option value " + value + " for property " + property +
+                        " was not accepted; got " + actual + " instead.");
+                }
+            }
+        }
+    });
+
+    // test that invalid values are rejected
+    if (type === "string") {
+        var invalidValues = ["invalidValue", -1, null];
+        // assume that we won't have values in caseless scripts
+        if (values[0].toUpperCase() !== values[0]) {
+            invalidValues.push(values[0].toUpperCase());
+        } else {
+            invalidValues.push(values[0].toLowerCase());
+        }
+        invalidValues.forEach(function (value) {
+            options = {};
+            options[property] = value;
+            addExtraOptions(options, value, testOptions);
+            error = undefined;
+            try {
+                obj = new Constructor(undefined, options);
+            } catch (e) {
+                error = e;
+            }
+            if (error === undefined) {
+                $ERROR("Invalid option value " + value + " for property " + property + " was not rejected.");
+            } else if (error.name !== "RangeError") {
+                $ERROR("Invalid option value " + value + " for property " + property + " was rejected with wrong error " + error.name + ".");
+            }
+        });
+    }
+
+    // test that fallback value or another valid value is used if no options value is provided
+    if (!noReturn) {
+        options = {};
+        addExtraOptions(options, undefined, testOptions);
+        obj = new Constructor(undefined, options);
+        actual = obj.resolvedOptions()[property];
+        if (!(isOptional && actual === undefined)) {
+            if (fallback !== undefined) {
+                if (actual !== fallback) {
+                    $ERROR("Option fallback value " + fallback + " for property " + property +
+                        " was not used; got " + actual + " instead.");
+                }
+            } else {
+                if (values.indexOf(actual) === -1 && !(isILD && actual === undefined)) {
+                    $ERROR("Invalid value " + actual + " returned for property " + property + ".");
+                }
+            }
+        }
+    }
+
+    return true;
+}
+
+
+/**
+ * Tests whether the named property of the given object has a valid value
+ * and the default attributes of the properties of an object literal.
+ * @param {Object} obj the object to be tested.
+ * @param {string} property the name of the property
+ * @param {Function|Array} valid either a function that tests value for validity and returns a boolean,
+ *     an array of valid values.
+ * @exception if the property has an invalid value.
+ */
+function testProperty(obj, property, valid) {
+    var desc = Object.getOwnPropertyDescriptor(obj, property);
+    if (!desc.writable) {
+        $ERROR("Property " + property + " must be writable.");
+    }
+    if (!desc.enumerable) {
+        $ERROR("Property " + property + " must be enumerable.");
+    }
+    if (!desc.configurable) {
+        $ERROR("Property " + property + " must be configurable.");
+    }
+    var value = desc.value;
+    var isValid = (typeof valid === "function") ? valid(value) : (valid.indexOf(value) !== -1);
+    if (!isValid) {
+        $ERROR("Property value " + value + " is not allowed for property " + property + ".");
+    }
+}
+
+
+/**
+ * Tests whether the named property of the given object, if present at all, has a valid value
+ * and the default attributes of the properties of an object literal.
+ * @param {Object} obj the object to be tested.
+ * @param {string} property the name of the property
+ * @param {Function|Array} valid either a function that tests value for validity and returns a boolean,
+ *     an array of valid values.
+ * @exception if the property is present and has an invalid value.
+ */
+function mayHaveProperty(obj, property, valid) {
+    if (obj.hasOwnProperty(property)) {
+        testProperty(obj, property, valid);
+    }
+}
+
+
+/**
+ * Tests whether the given object has the named property with a valid value
+ * and the default attributes of the properties of an object literal.
+ * @param {Object} obj the object to be tested.
+ * @param {string} property the name of the property
+ * @param {Function|Array} valid either a function that tests value for validity and returns a boolean,
+ *     an array of valid values.
+ * @exception if the property is missing or has an invalid value.
+ */
+function mustHaveProperty(obj, property, valid) {
+    if (!obj.hasOwnProperty(property)) {
+        $ERROR("Object is missing property " + property + ".");
+    }
+    testProperty(obj, property, valid);
+}
+
+
+/**
+ * Tests whether the given object does not have the named property.
+ * @param {Object} obj the object to be tested.
+ * @param {string} property the name of the property
+ * @exception if the property is present.
+ */
+function mustNotHaveProperty(obj, property) {
+    if (obj.hasOwnProperty(property)) {
+        $ERROR("Object has property it mustn't have: " + property + ".");
+    }
+}
+
+
+/**
+ * Tests whether name is a valid BCP 47 numbering system name
+ * and not excluded from use in the ECMAScript Internationalization API.
+ * @param {string} name the name to be tested.
+ * @return {boolean} whether name is a valid BCP 47 numbering system name and
+ *     allowed for use in the ECMAScript Internationalization API.
+ */
+
+function isValidNumberingSystem(name) {
+    
+    // source: CLDR file common/bcp47/number.xml; version CLDR 21.
+    var numberingSystems = [
+        "arab",
+        "arabext",
+        "armn",
+        "armnlow",
+        "bali",
+        "beng",
+        "brah",
+        "cakm",
+        "cham",
+        "deva",
+        "ethi",
+        "finance",
+        "fullwide",
+        "geor",
+        "grek",
+        "greklow",
+        "gujr",
+        "guru",
+        "hanidec",
+        "hans",
+        "hansfin",
+        "hant",
+        "hantfin",
+        "hebr",
+        "java",
+        "jpan",
+        "jpanfin",
+        "kali",
+        "khmr",
+        "knda",
+        "osma",            
+        "lana",
+        "lanatham",
+        "laoo",
+        "latn",
+        "lepc",
+        "limb",
+        "mlym",
+        "mong",
+        "mtei",
+        "mymr",
+        "mymrshan",
+        "native",
+        "nkoo",
+        "olck",
+        "orya",
+        "roman",
+        "romanlow",
+        "saur",
+        "shrd",
+        "sora",
+        "sund",
+        "talu",
+        "takr",
+        "taml",
+        "tamldec",
+        "telu",
+        "thai",
+        "tibt",
+        "traditio",
+        "vaii"
+    ];
+    
+    var excluded = [
+        "finance",
+        "native",
+        "traditio"
+    ];
+        
+    
+    return numberingSystems.indexOf(name) !== -1 && excluded.indexOf(name) === -1;
+}
+
+
+/**
+ * Provides the digits of numbering systems with simple digit mappings,
+ * as specified in 11.3.2.
+ */
+
+var numberingSystemDigits = {
+    arab: "٠١٢٣٤٥٦٧٨٩",
+    arabext: "۰۱۲۳۴۵۶۷۸۹",
+    beng: "০১২৩৪৫৬৭৮৯",
+    deva: "०१२३४५६७८९",
+    fullwide: "０１２３４５６７８９",
+    gujr: "૦૧૨૩૪૫૬૭૮૯",
+    guru: "੦੧੨੩੪੫੬੭੮੯",
+    hanidec: "〇一二三四五六七八九",
+    khmr: "០១២៣៤៥៦៧៨៩",
+    knda: "೦೧೨೩೪೫೬೭೮೯",
+    laoo: "໐໑໒໓໔໕໖໗໘໙",
+    latn: "0123456789",
+    mlym: "൦൧൨൩൪൫൬൭൮൯",
+    mong: "᠐᠑᠒᠓᠔᠕᠖᠗᠘᠙",
+    mymr: "၀၁၂၃၄၅၆၇၈၉",
+    orya: "୦୧୨୩୪୫୬୭୮୯",
+    tamldec: "௦௧௨௩௪௫௬௭௮௯",
+    telu: "౦౧౨౩౪౫౬౭౮౯",
+    thai: "๐๑๒๓๔๕๖๗๘๙",
+    tibt: "༠༡༢༣༤༥༦༧༨༩"
+};
+
+
+/**
+ * Tests that number formatting is handled correctly. The function checks that the
+ * digit sequences in formatted output are as specified, converted to the
+ * selected numbering system, and embedded in consistent localized patterns.
+ * @param {Array} locales the locales to be tested.
+ * @param {Array} numberingSystems the numbering systems to be tested.
+ * @param {Object} options the options to pass to Intl.NumberFormat. Options
+ *     must include {useGrouping: false}, and must cause 1.1 to be formatted
+ *     pre- and post-decimal digits.
+ * @param {Object} testData maps input data (in ES5 9.3.1 format) to expected output strings
+ *     in unlocalized format with Western digits.
+ */
+
+function testNumberFormat(locales, numberingSystems, options, testData) {
+    locales.forEach(function (locale) {
+        numberingSystems.forEach(function (numbering) {
+            var digits = numberingSystemDigits[numbering];
+            var format = new Intl.NumberFormat([locale + "-u-nu-" + numbering], options);
+    
+            function getPatternParts(positive) {
+                var n = positive ? 1.1 : -1.1;
+                var formatted = format.format(n);
+                var oneoneRE = "([^" + digits + "]*)[" + digits + "]+([^" + digits + "]+)[" + digits + "]+([^" + digits + "]*)";
+                var match = formatted.match(new RegExp(oneoneRE));
+                if (match === null) {
+                    $ERROR("Unexpected formatted " + n + " for " +
+                        format.resolvedOptions().locale + " and options " +
+                        JSON.stringify(options) + ": " + formatted);
+                }
+                return match;
+            }
+            
+            function toNumbering(raw) {
+                return raw.replace(/[0-9]/g, function (digit) {
+                    return digits[digit.charCodeAt(0) - "0".charCodeAt(0)];
+                });
+            }
+            
+            function buildExpected(raw, patternParts) {
+                var period = raw.indexOf(".");
+                if (period === -1) {
+                    return patternParts[1] + toNumbering(raw) + patternParts[3];
+                } else {
+                    return patternParts[1] + 
+                        toNumbering(raw.substring(0, period)) +
+                        patternParts[2] +
+                        toNumbering(raw.substring(period + 1)) +
+                        patternParts[3];
+                }
+            }
+            
+            if (format.resolvedOptions().numberingSystem === numbering) {
+                // figure out prefixes, infixes, suffixes for positive and negative values
+                var posPatternParts = getPatternParts(true);
+                var negPatternParts = getPatternParts(false);
+                
+                Object.getOwnPropertyNames(testData).forEach(function (input) {
+                    var rawExpected = testData[input];
+                    var patternParts;
+                    if (rawExpected[0] === "-") {
+                        patternParts = negPatternParts;
+                        rawExpected = rawExpected.substring(1);
+                    } else {
+                        patternParts = posPatternParts;
+                    }
+                    var expected = buildExpected(rawExpected, patternParts);
+                    var actual = format.format(input);
+                    if (actual !== expected) {
+                        $ERROR("Formatted value for " + input + ", " +
+                        format.resolvedOptions().locale + " and options " +
+                        JSON.stringify(options) + " is " + actual + "; expected " + expected + ".");
+                    }
+                });
+            }
+        });
+    });
+}
+
+
+/**
+ * Return the components of date-time formats.
+ * @return {Array} an array with all date-time components.
+ */
+
+function getDateTimeComponents() {
+    return ["weekday", "era", "year", "month", "day", "hour", "minute", "second", "timeZoneName"];
+}
+
+
+/**
+ * Return the valid values for the given date-time component, as specified
+ * by the table in section 12.1.1.
+ * @param {string} component a date-time component.
+ * @return {Array} an array with the valid values for the component.
+ */
+
+function getDateTimeComponentValues(component) {
+    
+    var components = {
+        weekday: ["narrow", "short", "long"],
+        era: ["narrow", "short", "long"],
+        year: ["2-digit", "numeric"],
+        month: ["2-digit", "numeric", "narrow", "short", "long"],
+        day: ["2-digit", "numeric"],
+        hour: ["2-digit", "numeric"],
+        minute: ["2-digit", "numeric"],
+        second: ["2-digit", "numeric"],
+        timeZoneName: ["short", "long"]
+    };
+    
+    var result = components[component];
+    if (result === undefined) {
+        $ERROR("Internal error: No values defined for date-time component " + component + ".");
+    }
+    return result;
+}
+
+
+/**
+ * Tests that the given value is valid for the given date-time component.
+ * @param {string} component a date-time component.
+ * @param {string} value the value to be tested.
+ * @return {boolean} true if the test succeeds.
+ * @exception if the test fails.
+ */
+
+function testValidDateTimeComponentValue(component, value) {
+    if (getDateTimeComponentValues(component).indexOf(value) === -1) {
+        $ERROR("Invalid value " + value + " for date-time component " + component + ".");
+    }
+    return true;
+}
+
+
+/**
+ * Verifies that the actual array matches the expected one in length, elements,
+ * and element order.
+ * @param {Array} expected the expected array.
+ * @param {Array} actual the actual array.
+ * @return {boolean} true if the test succeeds.
+ * @exception if the test fails.
+ */
+function testArraysAreSame(expected, actual) {
+    for (i = 0; i < Math.max(actual.length, expected.length); i++) {
+        if (actual[i] !== expected[i]) {
+            $ERROR("Result array element at index " + i + " should be \"" +
+                expected[i] + "\" but is \"" + actual[i] + "\".");
+        }
+    }
+    return true;
+}
+
