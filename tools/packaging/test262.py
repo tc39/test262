@@ -212,6 +212,7 @@ class TestCase(object):
         self.suite.GetInclude("sta.js") + \
         self.suite.GetInclude("ed.js") + \
         self.suite.GetInclude("testBuiltInObject.js") + \
+        self.suite.GetInclude("testIntl.js") + \
         self.test + '\n'
 
     if self.strict_mode:
