@@ -771,6 +771,9 @@ function TimeClip(time) {
 }
 
 //Test Functions
+//ConstructDate is considered deprecated, and should not be used directly from
+//test262 tests as it's incredibly sensitive to DST start/end dates that 
+//vary with geographic location.
 function ConstructDate(year, month, date, hours, minutes, seconds, ms){
   /*
    * 1. Call ToNumber(year)
@@ -804,7 +807,8 @@ function ConstructDate(year, month, date, hours, minutes, seconds, ms){
   var r10 = MakeTime(r4, r5, r6, r7);
   var r11 = MakeDate(r9, r10);
 
-  return TimeClip(UTC(r11));
+  var retVal = TimeClip(UTC(r11));
+  return retVal;
 }
 
 
