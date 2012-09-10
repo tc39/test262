@@ -58,7 +58,8 @@ function testBuiltInObject(obj, isFunction, isConstructor, properties, length) {
         }
     
         if (obj.length !== length) {
-            $ERROR("Function's length property doesn't have specified value.");
+            $ERROR("Function's length property doesn't have specified value; expected " +
+                length + ", got " + obj.length + ".");
         }
 
         var desc = Object.getOwnPropertyDescriptor(obj, "length");

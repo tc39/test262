@@ -39,7 +39,6 @@ mustHaveProperty(actual, "locale", isCanonicalizedStructurallyValidLanguageTag);
 mustHaveProperty(actual, "calendar", calendars);
 mustHaveProperty(actual, "numberingSystem", isValidNumberingSystem);
 mustHaveProperty(actual, "timeZone", [undefined]);
-mustHaveProperty(actual, "hour12", [true, false]);
 mustNotHaveProperty(actual, "weekday");
 mustNotHaveProperty(actual, "era");
 mustHaveProperty(actual, "year", ["2-digit", "numeric"]);
@@ -49,4 +48,5 @@ mustNotHaveProperty(actual, "hour");
 mustNotHaveProperty(actual, "minute");
 mustNotHaveProperty(actual, "second");
 mustNotHaveProperty(actual, "timeZoneName");
+mustNotHaveProperty(actual, "hour12");
 

@@ -29,7 +29,8 @@ var canonicalizedTags = {
     "de-DD": ["de-DE", "de"],
     "zh-hak-CN": ["hak-CN", "hak"],
     "sgn-ils": ["ils"],
-    "in": ["id"]
+    "in": ["id"],
+    "x-foo": ["x-foo"]
 };
 
 // make sure the data above is correct

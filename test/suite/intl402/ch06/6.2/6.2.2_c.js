@@ -20,6 +20,8 @@ var invalidLanguageTags = [
     "cmn-hans-cn-u-u", // duplicate singleton
     "cmn-hans-cn-t-u-ca-u", // duplicate singleton
     "de-gregory-gregory", // duplicate variant
+    "*", // language range
+    "de-*", // language range
     "中文", // non-ASCII letters
     "en-ß", // non-ASCII letters
     "ıd" // non-ASCII letters
