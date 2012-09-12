@@ -1,1 +1,6 @@
-{"numTests":521,"testSuite":["json/ch12.json"]}
+{
+"numTests":521,
+"testSuite":[
+"json/ch12.json"
+]
+}

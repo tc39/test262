@@ -270,7 +270,8 @@ for chapter in TEST_SUITE_SECTIONS:
         testsList["testsCollection"] = sect
         with open(os.path.join(TEST262_WEB_CASES_DIR, chapterName + ".json"), 
                   "w") as f:
-            json.dump(testsList, f, separators=(',',':'), sort_keys=True)
+            json.dump(testsList, f, separators=(',',':'), sort_keys=True,
+                      indent=0)
 
 
         if TESTCASELIST_PER_JSON:
@@ -282,7 +283,7 @@ for chapter in TEST_SUITE_SECTIONS:
                                    "testcases_%s.json" % chapterName), 
                       "w") as f:
                 json.dump(CHAPTER_TEST_CASES_JSON, f, separators=(',',':'),
-                          sort_keys=True)
+                          sort_keys=True, indent=0)
             generateHarness(ARGS.type, "testcases_%s.json" % chapterName, 
                             chapterName.replace("ch", "Chapter "))
 
@@ -302,7 +303,7 @@ TEST_CASES_JSON = {}
 TEST_CASES_JSON["numTests"] = TOTAL_TEST_COUNT
 TEST_CASES_JSON["testSuite"] = SECTIONS_LIST
 with open(os.path.join(TEST262_WEB_CASES_DIR, "default.json"), "w") as f:
-    json.dump(TEST_CASES_JSON, f, separators=(',',':'), sort_keys=True)
+    json.dump(TEST_CASES_JSON, f, separators=(',',':'), sort_keys=True, indent=0)
 generateHarness(ARGS.type, "default.json", "Chapters 1-16")
 
 #Overall description of this version of the test suite
