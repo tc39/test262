@@ -27,5 +27,5 @@ mustHaveProperty(actual, "minimumFractionDigits", [0]);
 mustHaveProperty(actual, "maximumFractionDigits", [3]);
 mustNotHaveProperty(actual, "minimumSignificantDigits");
 mustNotHaveProperty(actual, "maximumSignificantDigits");
-mustHaveProperty(actual, "useGrouping", [true, false]);
+mustHaveProperty(actual, "useGrouping", [true]);
 

@@ -8,7 +8,7 @@
 
 $INCLUDE("testIntl.js");
 
-var strings = ["d", "O", "od", "oe", "of", "ö", "o\u0308", "X", "y", "Z", "Z.", "\uD842\uDFB7野家", "吉野家", "!A", "A", "b", "C"];
+var strings = ["d", "O", "od", "oe", "of", "ö", "o\u0308", "X", "y", "Z", "Z.", "𠮷野家", "吉野家", "!A", "A", "b", "C"];
 var locales = [undefined, ["de"], ["de-u-co-phonebk"], ["en"], ["ja"], ["sv"]];
 var options = [
     undefined,
