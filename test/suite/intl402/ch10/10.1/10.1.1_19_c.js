@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * @description Tests that the options numeric, normalization, and caseFirst can be
+ * @description Tests that the options numeric and caseFirst can be
  *     set through either the locale or the options.
  * @author Norbert Lindenberg
  */
@@ -11,7 +11,6 @@ $INCLUDE("testIntl.js");
 
 var options = [
     {key: "kn", property: "numeric", type: "boolean", values: [true, false]},
-    {key: "kk", property: "normalization", type: "boolean", values: [true, false]},
     {key: "kf", property: "caseFirst", type: "string", values: ["upper", "lower", "false"]}
 ];
 

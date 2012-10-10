@@ -43,6 +43,5 @@ mustHaveProperty(actual, "sensitivity", ["variant"]);
 mustHaveProperty(actual, "ignorePunctuation", [false]);
 mustHaveProperty(actual, "collation", collations);
 mayHaveProperty(actual, "numeric", [true, false]);
-mayHaveProperty(actual, "normalization", [true, false]);
 mayHaveProperty(actual, "caseFirst", ["upper", "lower", "false"]);
 

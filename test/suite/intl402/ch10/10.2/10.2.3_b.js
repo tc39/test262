@@ -9,12 +9,18 @@
 
 $INCLUDE("testIntl.js");
 
+var testArray = [
+        "hello", "你好", "こんにちは",
+        "pêche", "peché", "1", "9", "10",
+        "ụ\u031B", "u\u031B\u0323", "ư\u0323", "u\u0323\u031B",
+        "Å", "Å", "A\u030A"
+];
+
 var defaultCollator = new Intl.Collator();
 var defaultOptions = defaultCollator.resolvedOptions();
 var defaultOptionsJSON = JSON.stringify(defaultOptions);
 var defaultLocale = defaultOptions.locale;
-var defaultSortedArray = ["hello", "你好", "こんにちは", "pêche", "peché", "9", "10"].sort(defaultCollator.compare);
-
+var defaultSortedArray = testArray.slice(0).sort(defaultCollator.compare);
 
 var keyValues = {
     "co": ["standard", "search", "invalid"],
@@ -22,12 +28,11 @@ var keyValues = {
     "kb": ["true", "false", "invalid"],
     "kc": ["true", "false", "invalid"],
     "kh": ["true", "false", "invalid"],
+    "kk": ["true", "false", "invalid"],
     "kr": ["latn-hira-hani", "hani-hira-latn", "invalid"],
     "ks": ["level1", "level2", "level3", "level4", "identic", "invalid"],
     "vt": ["1234-5678-9abc-edf0", "invalid"]
 };
-
-var testArray = defaultSortedArray.slice(0);
 
 Object.getOwnPropertyNames(keyValues).forEach(function (key) {
     keyValues[key].forEach(function (value) {
