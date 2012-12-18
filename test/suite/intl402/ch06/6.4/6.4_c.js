@@ -24,7 +24,7 @@ Object.getOwnPropertyNames(additionalTimeZoneNames).forEach(function (name) {
     }
     if (error === undefined) {
         var actual = format.resolvedOptions().timeZone;
-        var expected = additionalTimeZoneNames.name;
+        var expected = additionalTimeZoneNames[name];
         if (actual !== expected) {
             $ERROR("Time zone name " + name + " was accepted, but incorrectly canonicalized to " +
                 actual + "; expected " + expected + ".");
