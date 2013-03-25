@@ -1,5 +1,5 @@
 // Copyright 2011-2012 Norbert Lindenberg. All rights reserved.
-// Copyright 2012  Mozilla Corporation. All rights reserved.
+// Copyright 2012-2013 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
@@ -857,6 +857,44 @@ function mustNotHaveProperty(obj, property) {
     if (obj.hasOwnProperty(property)) {
         $ERROR("Object has property it mustn't have: " + property + ".");
     }
+}
+
+
+/**
+ * Properties of the RegExp constructor that may be affected by use of regular
+ * expressions, and the default values of these properties. Properties are from
+ * https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Deprecated_and_obsolete_features#RegExp_Properties
+ */
+var regExpProperties = ["$1", "$2", "$3", "$4", "$5", "$6", "$7", "$8", "$9",
+    "$_", "$*", "$&", "$+", "$`", "$'",
+    "input", "lastMatch", "lastParen", "leftContext", "rightContext"
+];
+
+var regExpPropertiesDefaultValues = (function () {
+    var values = Object.create(null);
+    regExpProperties.forEach(function (property) {
+        values[property] = RegExp[property];
+    });
+    return values;
+}());
+
+
+/**
+ * Tests that executing the provided function (which may use regular expressions
+ * in its implementation) does not create or modify unwanted properties on the
+ * RegExp constructor.
+ */
+function testForUnwantedRegExpChanges(testFunc) {
+    regExpProperties.forEach(function (property) {
+        RegExp[property] = regExpPropertiesDefaultValues[property];
+    });
+    testFunc();
+    regExpProperties.forEach(function (property) {
+        if (RegExp[property] !== regExpPropertiesDefaultValues[property]) {
+            $ERROR("RegExp has unexpected property " + property + " with value " +
+                RegExp[property] + ".");
+        }
+    });
 }
 
 

@@ -21,7 +21,13 @@ var validLanguageTags = [
     "i-klingon", // grandfathered tag
     "cmn-hans-cn-t-ca-u-ca-x-t-u", // singleton subtags can also be used as private use subtags
     "enochian-enochian", // language and variant subtags may be the same
-    "de-gregory-u-ca-gregory" // variant and extension subtags may be the same
+    "de-gregory-u-ca-gregory", // variant and extension subtags may be the same
+    "aa-a-foo-x-a-foo-bar", // variant subtags can also be used as private use subtags
+    "x-en-US-12345", // anything goes in private use tags
+    "x-12345-12345-en-US",
+    "x-en-US-12345-12345",
+    "x-en-u-foo",
+    "x-en-u-foo-u-bar"
 ];
 
 testWithIntlConstructors(function (Constructor) {

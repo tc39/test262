@@ -7,7 +7,7 @@
  * @author Norbert Lindenberg
  */
 
-// data from http://www.currency-iso.org/dl_iso_table_a1.xml, 2012-08-10
+// data from http://www.currency-iso.org/dl_iso_table_a1.xml, 2013-02-25
 var currencyDigits = {
     AED: 2,
     AFN: 2,
@@ -158,7 +158,7 @@ var currencyDigits = {
     TWD: 2,
     TZS: 2,
     UAH: 2,
-    UGX: 2,
+//  UGX: 2, will be changed to 0 when maintenance agency releases updated table
     USD: 2,
     USN: 2,
     USS: 2,
@@ -175,7 +175,7 @@ var currencyDigits = {
     XPF: 0,
     YER: 2,
     ZAR: 2,
-    ZMK: 2,
+    ZMW: 2,
     ZWL: 2
 };
 

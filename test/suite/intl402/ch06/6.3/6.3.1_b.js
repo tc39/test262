@@ -7,6 +7,7 @@
  */
 
 var invalidCurrencyCodes = [
+    "",
     "€",
     "$",
     "SFr.",
@@ -26,9 +27,9 @@ invalidCurrencyCodes.forEach(function (code) {
         error = e;
     }
     if (error === undefined) {
-        $ERROR("Invalid currency code " + code + " was not rejected.");
+        $ERROR("Invalid currency code '" + code + "' was not rejected.");
     } else if (error.name !== "RangeError") {
-        $ERROR("Invalid currency code " + code + " was rejected with wrong error " + error.name + ".");
+        $ERROR("Invalid currency code '" + code + "' was rejected with wrong error " + error.name + ".");
     }
 });
 
