@@ -66,6 +66,8 @@ def BuildOptions():
   # to "both"
   result.add_option("--unmarked_default", default="non_strict", 
                     help="default mode for tests of unspecified strictness")
+  result.add_option("--loglevel", default="warning",
+                    help="sets log level to debug, info, warning, error, or critical") 
   return result
 
 
@@ -441,6 +443,16 @@ def Main():
                          options.non_strict_only,
                          options.unmarked_default)
   test_suite.Validate()
+  if options.loglevel == 'debug':
+    logging.basicConfig(level=logging.DEBUG)
+  elif options.loglevel == 'info':
+    logging.basicConfig(level=logging.INFO)
+  elif options.loglevel == 'warning':
+    logging.basicConfig(level=logging.WARNING)
+  elif options.loglevel == 'error':
+    logging.basicConfig(level=logging.ERROR)
+  elif options.loglevel == 'critical':
+    logging.basicConfig(level=logging.CRITICAL)
   if options.cat:
     test_suite.Print(args)
   else:
