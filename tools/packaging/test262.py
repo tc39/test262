@@ -229,7 +229,7 @@ class TestCase(object):
 
   def Execute(self, command):
     if IsWindows():
-      args = '"%s"' % command
+      args = '%s' % command
     else:
       args = command.split(" ")
     stdout = TempFile(prefix="test262-out-")
