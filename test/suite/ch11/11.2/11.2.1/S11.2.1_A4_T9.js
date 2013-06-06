@@ -89,9 +89,6 @@ if (typeof Date.prototype.toLocaleString !== "function")  $ERROR('#81: typeof Da
 if (typeof Date.prototype['toLocaleString'] !== "function")  $ERROR('#82: typeof Date.prototype["toLocaleString"] === "function". Actual: ' + (typeof Date.prototype["toLocaleString"] ));
 if (typeof Date.prototype.toUTCString !== "function")  $ERROR('#83: typeof Date.prototype.toUTCString === "function". Actual: ' + (typeof Date.prototype.toUTCString ));
 if (typeof Date.prototype['toUTCString'] !== "function")  $ERROR('#84: typeof Date.prototype["toUTCString"] === "function". Actual: ' + (typeof Date.prototype["toUTCString"] ));
-if (typeof Date.prototype.toGMTString !== "function")  $ERROR('#85: typeof Date.prototype.toGMTString === "function". Actual: ' + (typeof Date.prototype.toGMTString ));
-if (typeof Date.prototype['toGMTString'] !== "function")  $ERROR('#86: typeof Date.prototype["toGMTString"] === "function". Actual: ' + (typeof Date.prototype["toGMTString"] ));
-
 
 
 
