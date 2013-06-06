@@ -4,7 +4,7 @@
 /// "Use Terms").   Any redistribution of this code must retain the above 
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
- * @path ch15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-164.js
+ * @path test/suite/annexB/B.RegExp.prototype.compile.js
  * @description Object.getOwnPropertyDescriptor returns data desc for functions on built-ins (RegExp.prototype.compile)
  */
 
