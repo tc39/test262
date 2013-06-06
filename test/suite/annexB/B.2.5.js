@@ -4,7 +4,7 @@
 /// "Use Terms").   Any redistribution of this code must retain the above 
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
- * @path ch15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-137.js
+ * @path annexB/B.2.5.js
  * @description Object.getOwnPropertyDescriptor returns data desc for functions on built-ins (Date.prototype.setYear)
  */
 
