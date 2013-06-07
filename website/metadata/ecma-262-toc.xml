@@ -303,4 +303,18 @@
         <sec id="15.12.3" name="stringify ( value [ , replacer [ , space ] ] )"/>
       </sec>
   </sec>
+  <sec id="B" name="Annex B (informative) Compatibility">
+    <sec id="B.1" name="Additional Syntax">
+      <sec id="B.1.1" name="Numeric Literals"/>
+      <sec id="B.1.2" name="String Literals"/>
+    </sec>
+    <sec id="B.2" name="Additional Properties">
+      <sec id="B.2.1" name="escape"/>
+      <sec id="B.2.2" name="unescape"/>
+      <sec id="B.2.3" name="String.prototype.substr"/>
+      <sec id="B.2.4" name="Date.prototype.getYear"/>
+      <sec id="B.2.5" name="Date.prototype.setYear"/>
+      <sec id="B.2.6" name="Date.prototype.toGMTString"/>
+    </sec>
+  </sec>
  </esSpec>

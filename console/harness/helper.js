@@ -259,8 +259,11 @@ function Presenter() {
         if(id == 0)
             return globalSection;
 
-        var match = id.match(/\d+/g);
+        var match = id.match(/\d+|[A-F](?=\.)/g);
         var section = globalSection;
+
+        if (match === null)
+            return section;
 
         for(var i = 0; i < match.length; i++) {
             if(typeof section.subsections[match[i]] !== "undefined") {
@@ -358,7 +361,7 @@ function Presenter() {
         for (var i = 0; i < nodes.length; i++) {
             if (nodes[i].nodeName === "sec") {
                 subsection = new Section(parentSection, nodes[i].getAttribute('id'), nodes[i].getAttribute('name'));
-                parentSection.subsections[subsection.id.match(/\d+$/)] = subsection;
+                parentSection.subsections[subsection.id.match(/\d+$|[A-F]$/)] = subsection;
                 addSectionsFromXML(nodes[i].childNodes, subsection);
             }
         }
