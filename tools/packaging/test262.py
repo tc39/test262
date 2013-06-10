@@ -23,6 +23,8 @@ import datetime
 import shutil
 import json
 import stat
+import xml.etree.ElementTree as xmlj
+import unicodedata
 
 
 from parseTestRecord import parseTestRecord, stripHeader
@@ -43,6 +45,7 @@ if not os.path.exists(EXCLUDED_FILENAME):
         " %s, showing which tests have been disabled!" % EXCLUDED_FILENAME
     sys.exit(1)
 EXCLUDE_LIST = xml.dom.minidom.parse(EXCLUDED_FILENAME)
+EXCLUDE_REASON = EXCLUDE_LIST.getElementsByTagName("reason")
 EXCLUDE_LIST = EXCLUDE_LIST.getElementsByTagName("test")
 EXCLUDE_LIST = [x.getAttribute("id") for x in EXCLUDE_LIST]
 
@@ -66,6 +69,8 @@ def BuildOptions():
   # to "both"
   result.add_option("--unmarked_default", default="non_strict", 
                     help="default mode for tests of unspecified strictness")
+  result.add_option("--logname", help="Filename to save stdout to")
+  result.add_option("--junitname", help="Filename to save test results in JUnit XML format")
   result.add_option("--loglevel", default="warning",
                     help="sets log level to debug, info, warning, error, or critical") 
   return result
@@ -158,7 +163,36 @@ class TestResult(object):
       print "%s failed in %s as expected" % (name, mode)
     else:
       print "%s passed in %s" % (name, mode)
+    
+  def XmlAssemble(self, result):
+    test_name = self.case.GetName()
+    test_mode = self.case.GetMode()
+    testCaseElement = xmlj.Element("testcase")
+    testpath = self.TestPathManipulation(test_name)
+    testCaseElement.attrib["classname"] = "%s.%s" % (testpath[0] , testpath[1]) 
+    testCaseElement.attrib["name"] = "%s %s" % (testpath[2].replace('.','_') , test_mode)
+    if self.HasUnexpectedOutcome():
+      failureElement = xmlj.Element("failure")
+      out = self.stdout.strip().decode('utf-8')
+      err = self.stderr.strip().decode('utf-8')
+      if len(out) > 0:
+        failureElement.text = out
+      if len(err) > 0:
+        failureElement.text = err
+      testCaseElement.append(failureElement)
+    return testCaseElement
 
+  def TestPathManipulation(self, test_name):
+    testdirlist = test_name.split('/')
+    testcase = testdirlist.pop()
+    testclass = testdirlist.pop()
+    testclass = testclass.replace('.','_')
+    if len(testdirlist) >= 1:
+       testpackage = testdirlist.pop(0)
+    else:
+       testpackage = testclass
+    return(testpackage,testclass,testcase)
+  
   def HasFailed(self):
     return self.exit_code != 0
 
@@ -296,7 +330,6 @@ def MakePlural(n):
   else:
     return (n, "s")
 
-
 class TestSuite(object):
 
   def __init__(self, root, strict_only, non_strict_only, unmarked_default):
@@ -377,62 +410,124 @@ class TestSuite(object):
     logging.info("Done listing tests")
     return cases
 
-  def PrintSummary(self, progress):
+  def PrintSummary(self, progress, logfile):
     print
+    if logfile:
+       self.logf.write("=== Summary === \n")
     print "=== Summary ==="
     count = progress.count
     succeeded = progress.succeeded
     failed = progress.failed
+    if logfile:
+      self.logf.write(" - Ran %i test%s \n" % MakePlural(count))
     print " - Ran %i test%s" % MakePlural(count)
     if progress.failed == 0:
+      if logfile:
+        self.logf.write(" - All tests succeeded \n")
       print " - All tests succeeded"
+   
     else:
       percent = ((100.0 * succeeded) / count,)
+      if logfile:
+        self.logf.write(" - Passed %i test%s (%.1f%%)\n" % (MakePlural(succeeded) + percent))
       print " - Passed %i test%s (%.1f%%)" % (MakePlural(succeeded) + percent)
       percent = ((100.0 * failed) / count,)
+      if logfile:
+        self.logf.write(" - Failed %i test%s (%.1f%%) \n" % (MakePlural(failed) + percent))
       print " - Failed %i test%s (%.1f%%)" % (MakePlural(failed) + percent)
       positive = [c for c in progress.failed_tests if not c.case.IsNegative()]
       negative = [c for c in progress.failed_tests if c.case.IsNegative()]
       if len(positive) > 0:
         print
+        if logfile:
+          self.logf.write("Failed Tests \n") 
         print "Failed tests"
         for result in positive:
+          if logfile:
+            self.logf.write("  %s in %s \n" % (result.case.GetName(), result.case.GetMode()))
           print "  %s in %s" % (result.case.GetName(), result.case.GetMode())
       if len(negative) > 0:
         print
         print "Expected to fail but passed ---"
         for result in negative:
+          if logfile:
+            self.logfile.append(" %s in %s \n" % (result.case.GetName(), result.case.GetMode()))
           print " %s in %s" % (result.case.GetName(), result.case.GetMode())
 
-  def PrintFailureOutput(self, progress):
+  def PrintFailureOutput(self, progress, logfile):
     for result in progress.failed_tests:
+      if logfile:
+        self.WriteLog(result)
       print
       result.ReportOutcome(False)
 
-  def Run(self, command_template, tests, print_summary, full_summary):
+  def Run(self, command_template, tests, print_summary, full_summary, logname, junitfile):
     if not "{{path}}" in command_template:
       command_template += " {{path}}"
     cases = self.EnumerateTests(tests)
     if len(cases) == 0:
       ReportError("No tests to run")
     progress = ProgressIndicator(len(cases))
+    if logname:
+      self.logf = open(logname, "w")
+    if junitfile:
+      self.outfile = open(junitfile, "w")
+      TestSuiteElement = xmlj.Element("testsuite")
+      TestSuiteElement.attrib["name "] = "test262"
+      for x in range(len(EXCLUDE_LIST)):
+        if self.ShouldRun (unicode(EXCLUDE_LIST[x].encode('utf-8','ignore')), tests):
+          SkipCaseElement = xmlj.Element("testcase")
+          SkipCaseElement.attrib["classname"] = unicode(EXCLUDE_LIST[x]).encode('utf-8','ignore')
+          SkipCaseElement.attrib["name"] = unicode(EXCLUDE_LIST[x]).encode('utf-8','ignore')
+          SkipElement = xmlj.Element("skipped")
+          SkipElement.attrib["message"] = unicode(EXCLUDE_REASON[x].firstChild.nodeValue)
+          SkipCaseElement.append(SkipElement)
+          TestSuiteElement.append(SkipCaseElement)
+       
     for case in cases:
       result = case.Run(command_template)
+      if junitfile:
+        TestCaseElement = result.XmlAssemble(result)
+        TestSuiteElement.append(TestCaseElement)
+        if case == cases[len(cases)-1]:
+             xmlj.ElementTree(TestSuiteElement).write(junitfile, "UTF-8")
+      if logname:
+        self.WriteLog(result)
       progress.HasRun(result)
+    
     if print_summary:
-      self.PrintSummary(progress)
+      self.PrintSummary(progress, logname)
       if full_summary:
-        self.PrintFailureOutput(progress)
+        self.PrintFailureOutput(progress, logname)
       else:
         print
         print "Use --full-summary to see output from failed tests"
     print
 
+  def WriteLog(self, result):
+    name = result.case.GetName()
+    mode = result.case.GetMode()
+    if result.HasUnexpectedOutcome():
+       if result.case.IsNegative():
+          self.logf.write("=== %s was expected to fail in %s, but didn't === \n" % (name, mode))
+       else:
+          self.logf.write("=== %s failed in %s === \n" % (name, mode))
+          out = result.stdout.strip()
+          if len(out) > 0:
+             self.logf.write("--- output --- \n %s" % out)
+          err = result.stderr.strip()
+          if len(err) > 0:
+             self.logf.write("--- errors ---  \n %s" % err)
+             self.logf.write("=== \n")
+    elif result.case.IsNegative():
+       self.logf.write("%s failed in %s as expected \n" % (name, mode))
+    else:
+       self.logf.write("%s passed in %s \n" % (name, mode))
+
   def Print(self, tests):
     cases = self.EnumerateTests(tests)
     if len(cases) > 0:
       cases[0].Print()
-
 
 def Main():
   parser = BuildOptions()
@@ -458,9 +553,10 @@ def Main():
   else:
     test_suite.Run(options.command, args,
                    options.summary or options.full_summary,
-                   options.full_summary)
-
-
+                   options.full_summary,
+                   options.logname,
+                   options.junitname)
+       
 if __name__ == '__main__':
   try:
     Main()
