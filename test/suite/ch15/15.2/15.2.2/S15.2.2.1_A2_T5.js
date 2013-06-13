@@ -19,7 +19,7 @@ if (n_obj !== obj) {
 }
 
 //CHECK#2
-if ((n_obj.getYear() !== 78)||(n_obj.getMonth() !== 3)) {
+if ((n_obj.getFullYear() !== 1978)||(n_obj.getMonth() !== 3)) {
   $ERROR('#2: When the Object constructor is called and if the value is an Object simply value returns.');
 }
 

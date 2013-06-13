@@ -16,6 +16,6 @@ function testcase() {
         arrObj[2] = "c";
 
         var jsonText = JSON.stringify(arrObj, undefined, "").toString();
-        return jsonText.substr(jsonText.length - 1, 1) === "]";
+        return jsonText.charAt(jsonText.length - 1) === "]";
     }
 runTestCase(testcase);
