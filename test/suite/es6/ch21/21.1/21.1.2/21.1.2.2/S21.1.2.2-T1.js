@@ -1,6 +1,6 @@
 /**
  * @path es6/ch21/21.1/21.1.2/21.1.2.2/S21.1.2.2-T1.js
- * @description fromCodePoint iterate through all elements in rest parameter object
+ * @description String.fromCodePoint iterate through all elements in rest parameter object
  */
 
 runTestCase(function() {
