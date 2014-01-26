@@ -90,11 +90,7 @@ runTestCase(function () {
     }());
   }
 
-<<<<<<< HEAD
   var arrLikeSource = 'testValue',
-=======
-  var arrLikeSource = 'testValue';
->>>>>>> 4ef71d24b00df8cc1eae9afbb20a2179c206128f
       testArr = Array.from(arrLikeSource);
 
   if (testArr.length != 9) {
