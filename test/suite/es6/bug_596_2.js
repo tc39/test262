@@ -1,13 +1,23 @@
-// Copyright 2009 the Sputnik authors.  All rights reserved.
-// This code is governed by the BSD license found in the LICENSE file.
+// bug_596_2.js - Tests for the following bug:
+//              <https://bugs.ecmascript.org/show_bug.cgi?id=596>
+//
+//      Written in 2014 by Thomas Dahlstrom tdahlstrom@gmail.com
+//
+//      To the extent possible under law, the author(s) have dedicated all
+//      copyright and related and neighboring rights to this software to the
+//      public domain worldwide. This software is distributed without any
+//      warranty.
+//
+//      You should have received a copy of the CC0 Public Domain Dedication
+//      along with this software. If not, see
+//      <http://creativecommons.org/publicdomain/zero/1.0/>.
 
 /**
- *
- *
  * @path es6/bug_596_2.js
- * @description Array.prototype.sort does not change non-existent elements to undefined
- *              elements, that means holes are preserved (cf. spec text about [[Delete]] and
- *              sparse arrays)
+ * @description Array.prototype.sort does not change non-existent elements to
+ *              undefined elements, that means holes are preserved (cf. spec
+ *              text about [[Delete]] and sparse arrays)
+ * @author Thomas Dahlstrom (tdahlstrom@gmail.com)
  */
 
 var array = ['a',,void 0];
