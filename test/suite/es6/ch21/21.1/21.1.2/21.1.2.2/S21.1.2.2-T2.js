@@ -3,7 +3,7 @@
  * @description String.fromCodePoint returns empty string when no parameters are set
  */
 
-runTestCase(function() {
-  var result = String.fromCodePoint();
-  return result === '';
-});
+var result = String.fromCodePoint();
+if (result !== '') {
+  $ERROR('Result should be empty string');
+}

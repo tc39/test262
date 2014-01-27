@@ -3,12 +3,11 @@
  * @description String.fromCodePoint throws RangeError on > 0x10FFFF (5.e)
  */
 
-runTestCase(function() {
-  try {
-    var result = String.fromCodePoint(0x10FFFF + 1);
-  } catch(e) {
-    return e instanceof RangeError;
+try {
+  var result = String.fromCodePoint(0x10FFFF + 1);
+  $ERROR('String.fromCodePoint(0x10FFFF + 1) should throw exception');
+} catch(e) {
+  if (!(e instanceof RangeError)) {
+    $ERROR('Exception should has type RangeError');
   }
-  
-  return false;
-});
+}

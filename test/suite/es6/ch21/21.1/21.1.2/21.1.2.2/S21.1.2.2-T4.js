@@ -4,12 +4,11 @@
  *              and if there are undefined object - RangeError should be threw (because of SameValue(nextCP, ToInteger(nextCP)))
  */
 
-runTestCase(function() {
-  try {
-    var result = String.fromCodePoint(undefined);
-  } catch(e) {
-    return e instanceof RangeError;
+try {
+  var result = String.fromCodePoint(undefined);
+  $ERROR('String.fromCodePoint(undefined) should throw exception');
+} catch(e) {
+  if (!(e instanceof RangeError)) {
+    $ERROR('Exception should has type RangeError');
   }
-  
-  return false;
-});
+}

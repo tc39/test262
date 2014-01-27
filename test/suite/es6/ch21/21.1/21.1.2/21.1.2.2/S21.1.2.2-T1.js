@@ -3,7 +3,7 @@
  * @description String.fromCodePoint returns a string created by using the specified sequence of code points.
  */
 
-runTestCase(function() {
-  var result = String.fromCodePoint(65, 90);
-  return result === 'AZ';
-});
+var result = String.fromCodePoint(65, 90);
+if (result !== 'AZ') {
+  $ERROR('Result should be \'AZ\' for values 65, 90.');
+}

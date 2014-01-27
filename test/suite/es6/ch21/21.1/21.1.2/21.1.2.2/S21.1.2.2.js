@@ -3,6 +3,6 @@
  * @description The length property of the fromCodePoint function is 0.
  */
 
-runTestCase(function() {
-  return String.fromCodePoint.length === 0;
-});
+if (String.fromCodePoint.length !== 0) {
+  $ERROR('The length property of the fromCodePoint function should be 0');
+}
