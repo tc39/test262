@@ -3,7 +3,7 @@
  * @description String.prototype.repeat can be used on non-string objects (non undefined and non null)
  */
 
-runTestCase(function() {
-  var result = String.prototype.repeat.call(true, 2);
-  return result === 'truetrue';
-});
+var result = String.prototype.repeat.call(true, 2);
+if (result !== 'truetrue') {
+  $ERROR('Result should be \'truetrue\'');
+}

@@ -3,7 +3,7 @@
  * @description String.prototype.repeat can accept NaN (because it converts to 0 with ToInteger(NaN))
  */
 
-runTestCase(function() {
-  var result = String.prototype.repeat.call(true, Number.NaN);
-  return result === '';
-});
+var result = String.prototype.repeat.call(true, Number.NaN);
+if (result !== '') {
+  $ERROR('Result should be empty string');
+}

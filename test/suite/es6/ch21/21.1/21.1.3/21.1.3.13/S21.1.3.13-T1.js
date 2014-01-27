@@ -3,12 +3,11 @@
  * @description String.prototype.repeat throws RangeError if n < 0 (6.)
  */
 
-runTestCase(function() {
-  try {
-    var result = String.prototype.repeat.call('', -1);
-  } catch(e) {
-    return e instanceof RangeError;
+try {
+  var result = String.prototype.repeat.call('', -1);
+  $ERROR('String.prototype.repeat.call(\'\', -1) should throw exception');
+} catch(e) {
+  if (!(e instanceof RangeError)) {
+    $ERROR('Exception should has type RangeError');
   }
-  
-  return false;
-});
+}

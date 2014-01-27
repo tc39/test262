@@ -3,12 +3,11 @@
  * @description String.prototype.repeat can be used on undefined objects
  */
 
-runTestCase(function() {
-  try {
-    var result = String.prototype.repeat.call(undefined, 1);
-  } catch(e) {
-    return e instanceof TypeError;
+try {
+  var result = String.prototype.repeat.call(undefined, 1);
+  $ERROR('String.prototype.repeat.call(undefined, 1) should throw exception');
+} catch(e) {
+  if (!(e instanceof TypeError)) {
+    $ERROR('Exception should has type TypeError');
   }
-  
-  return false;
-});
+}

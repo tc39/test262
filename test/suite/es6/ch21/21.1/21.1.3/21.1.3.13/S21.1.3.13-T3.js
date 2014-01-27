@@ -3,7 +3,7 @@
  * @description String.prototype.repeat returns empty string if n = 0
  */
 
-runTestCase(function() {
-  var result = String.prototype.repeat.call('test string', 0);
-  return result === '';
-});
+var result = String.prototype.repeat.call('test string', 0);
+if (result !== '') {
+  $ERROR('Result should be empty string');
+}

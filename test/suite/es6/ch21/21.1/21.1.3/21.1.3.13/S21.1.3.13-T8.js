@@ -3,7 +3,7 @@
  * @description String.prototype.repeat floats non-integer n
  */
 
-runTestCase(function() {
-  var result = String.prototype.repeat.call('test-string', 1.9);
-  return result === 'test-string';
-});
+var result = String.prototype.repeat.call('test-string', 1.9);
+if (result !== 'test-string') {
+  $ERROR('Result should be \'test-string\'');
+}
