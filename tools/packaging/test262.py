@@ -249,7 +249,6 @@ class TestCase(object):
         self.suite.GetInclude("ed.js") + \
         self.suite.GetInclude("testBuiltInObject.js") + \
         self.suite.GetInclude("testIntl.js") + \
-        self.suite.GetInclude("reflect.js") + \
         self.suite.GetInclude("proxyHelpers.js") + \
         self.test + '\n'
 
