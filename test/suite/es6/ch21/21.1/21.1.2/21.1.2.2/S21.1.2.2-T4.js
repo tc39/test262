@@ -5,16 +5,9 @@
  */
 
 runTestCase(function() {
-  var obj = [undefined];
-  var res = createLoggerProxy(obj);
   try {
-    var result = String.fromCodePoint.apply(String, res.proxy);
+    var result = String.fromCodePoint(undefined);
   } catch(e) {
-    assertOrderOfOps(res.log, [
-      ['get', 'length'],
-      ['get', '0']
-    ]);
-
     return e instanceof RangeError;
   }
   

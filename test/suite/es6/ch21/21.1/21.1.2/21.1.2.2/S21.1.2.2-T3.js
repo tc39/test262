@@ -4,16 +4,7 @@
  */
 
 runTestCase(function() {
-  var obj = [null, true, false, '2'];
-  var res = createLoggerProxy(obj);
-  var result = String.fromCodePoint.apply(String, res.proxy);
-  assertOrderOfOps(res.log, [
-    ['get', 'length'],
-    ['get', '0'],
-    ['get', '1'],
-    ['get', '2'],
-    ['get', '3']
-  ]);
+  var result = String.fromCodePoint(null, true, false, '2');
 
   return result.charCodeAt(0) === 0 && // ToNumber(Null) === 0 
     result.charCodeAt(1) === 1 && // ToNumber(true) === 1

@@ -4,16 +4,9 @@
  */
 
 runTestCase(function() {
-  var obj = [0x10FFFF + 1]; // The max is 0x10FFFF
-  var res = createLoggerProxy(obj);
   try {
-    var result = String.fromCodePoint.apply(String, res.proxy);
+    var result = String.fromCodePoint(0x10FFFF + 1);
   } catch(e) {
-    assertOrderOfOps(res.log, [
-      ['get', 'length'],
-      ['get', '0']
-    ]);
-
     return e instanceof RangeError;
   }
   
