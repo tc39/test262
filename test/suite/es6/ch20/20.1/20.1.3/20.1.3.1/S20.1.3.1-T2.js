@@ -3,7 +3,7 @@
  * @description Number.prototype.clz returns 0 for 0x100000000 (max bit of 32 bit integer) number
  */
 
-runTestCase(function() {
-  var result = Number.prototype.clz.call(0x100000000);
-  return result === 0;
-});
+var result = Number.prototype.clz.call(0x100000000);
+if (result !== 0) {
+  $ERROR('Result of clz(0x100000000) should be 0');
+}

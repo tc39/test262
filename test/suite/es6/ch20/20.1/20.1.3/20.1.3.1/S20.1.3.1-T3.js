@@ -3,7 +3,7 @@
  * @description Number.prototype.clz floors number
  */
 
-runTestCase(function() {
-  var result = Number.prototype.clz.call(0.1);
-  return result === 32;
-});
+var result = Number.prototype.clz.call(0.1);
+if (result !== 32) {
+  $ERROR('Result of clz(0.1) should be 32');
+}

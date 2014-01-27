@@ -3,7 +3,7 @@
  * @description Number.prototype.clz returns 32 for 0 number
  */
 
-runTestCase(function() {
-  var result = Number.prototype.clz.call(0);
-  return result === 32;
-});
+var result = Number.prototype.clz.call(0);
+if (result !== 32) {
+  $ERROR('Result of clz(0) should be 32');
+}
