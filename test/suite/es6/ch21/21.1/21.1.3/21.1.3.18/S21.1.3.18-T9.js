@@ -3,7 +3,7 @@
  * @description String.prototype.startsWith if position greater than string length - then string.length is used as position. 
  */
 
-runTestCase(function() {
-  var result = String.prototype.startsWith.call('test string', 'test', 20);
-  return result === false;
-});
+var result = String.prototype.startsWith.call('test string', 'test', 20);
+if (result !== false) {
+  $ERROR('The result should be false.');
+}

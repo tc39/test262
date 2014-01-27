@@ -3,11 +3,11 @@
  * @description String.prototype.startsWith cannot be used with null as this.
  */
 
-runTestCase(function() {
-  try {
-    var result = String.prototype.startsWith.call(null, 'test');
-  } catch(e) {
-    return e instanceof TypeError;
+try {
+  var result = String.prototype.startsWith.call(null, 'test');
+  $ERROR('String.prototype.startsWith.call(null, \'test\') should throw exception');
+} catch(e) {
+  if (!(e instanceof TypeError)) {
+    $ERROR('Exception should has TypeError type.');
   }
-  return false;
-});
+}

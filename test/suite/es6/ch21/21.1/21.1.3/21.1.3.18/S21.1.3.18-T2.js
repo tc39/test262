@@ -3,12 +3,12 @@
  * @description String.prototype.startsWith cannot accept Regular Exceptions.
  */
 
-runTestCase(function() {
-  var regex = /\w+/;
-  try {
-    var result = String.prototype.startsWith.call('word', regex);
-  } catch(e) {
-    return e instanceof TypeError;
+var regex = /\w+/;
+try {
+  var result = String.prototype.startsWith.call('word', regex);
+  $ERROR('String.prototype.startsWith.call(\'word\', regex) should throw exception');
+} catch(e) {
+  if (!(e instanceof TypeError)) {
+    $ERROR('Exception should has TypeError type.');
   }
-  return false;
-});
+}

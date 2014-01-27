@@ -3,7 +3,7 @@
  * @description String.prototype.startsWith if position < 0 is specified - this is equal to 0
  */
 
-runTestCase(function() {
-  var result = String.prototype.startsWith.call('test string', 'test', -1);
-  return result === true;
-});
+var result = String.prototype.startsWith.call('test string', 'test', -1);
+if (result !== true) {
+  $ERROR('The result should be true');
+}

@@ -3,7 +3,7 @@
  * @description String.prototype.startsWith returns false if searchString is greater than length of string
  */
 
-runTestCase(function() {
-  var result = String.prototype.startsWith.call('test', 'test string');
-  return result === false;
-});
+var result = String.prototype.startsWith.call('test', 'test string');
+if (result !== false) {
+  $ERROR('The result should be false.');
+}

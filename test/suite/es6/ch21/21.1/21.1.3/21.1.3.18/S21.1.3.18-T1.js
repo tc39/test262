@@ -3,6 +3,6 @@
  * @description The length property of the startsWith method is 1.
  */
 
-runTestCase(function() {
-  return String.prototype.startsWith.length === 1;
-});
+if (String.prototype.startsWith.length !== 1) {
+  $ERROR('The length property of the startsWith method is 1.');
+}

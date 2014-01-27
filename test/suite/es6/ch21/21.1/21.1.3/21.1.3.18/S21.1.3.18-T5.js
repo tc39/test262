@@ -3,7 +3,7 @@
  * @description String.prototype.startsWith can be used on non string objects (which are not null and non undefined)
  */
 
-runTestCase(function() {
-  var result = String.prototype.startsWith.call(true, 'true');
-  return result === true;
-});
+var result = String.prototype.startsWith.call(true, 'true');
+if (result !== true) {
+  $ERROR('The result should be true');
+}

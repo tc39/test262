@@ -3,7 +3,7 @@
  * @description String.prototype.startsWith position can be used to change where search begins
  */
 
-runTestCase(function() {
-  var result = String.prototype.startsWith.call('string test', 'test', 6);
-  return result === false;
-});
+var result = String.prototype.startsWith.call('string test', 'test', 6);
+if (result !== false) {
+  $ERROR('The result should be false.');
+}
