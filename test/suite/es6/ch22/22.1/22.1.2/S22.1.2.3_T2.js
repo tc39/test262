@@ -1,5 +1,8 @@
 /**
  * @description Testing Array#of when passed single argument
+ * @author Hank Yates (hankyates@gmail.com)
+ *
+ * https://people.mozilla.org/~jorendorff/es6-draft.html#sec-array.of
  */
 
 runTestCase(function () {
