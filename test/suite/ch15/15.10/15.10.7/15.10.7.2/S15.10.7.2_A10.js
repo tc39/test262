@@ -15,13 +15,14 @@ if (__re.hasOwnProperty('global') !== true) {
   $FAIL('#1: __re = RegExp.prototype; __re.hasOwnProperty(\'global\') === true');
 }
 
-__obj = __re.global;
+__sample = /^|^/;
+__obj = __sample.global;
 
-__re.global = "shifted";
+__sample.global = "shifted";
 
 //CHECK#2
-if (__re.global !== __obj) {
-  $ERROR('#2: __re = RegExp.prototype; __obj = __re.global; __re.global = "shifted"; __re.global === __obj. Actual: ' + (__re.global));
+if (__sample.global !== __obj) {
+  $ERROR('#2: __sample = /^|^/; __obj = __sample.global; __sample.global = "shifted"; __sample.global === __obj. Actual: ' + (__sample.global));
 }
 
 

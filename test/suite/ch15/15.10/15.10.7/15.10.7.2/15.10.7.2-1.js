@@ -5,11 +5,18 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.10/15.10.7/15.10.7.2/15.10.7.2-1.js
- * @description RegExp.prototype.global is of type Boolean
+ * @description RegExp.prototype.global is a non-generic accessor property
  */
 
 
 function testcase() {
-  return (typeof(RegExp.prototype.global)) === 'boolean';
- }
+  try {
+    RegExp.prototype.global;
+  } catch (e) {
+    if (e instanceof TypeError) {
+      return true;
+    }
+  }
+  return false;
+}
 runTestCase(testcase);

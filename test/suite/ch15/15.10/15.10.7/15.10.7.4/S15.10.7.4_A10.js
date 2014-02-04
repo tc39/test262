@@ -15,13 +15,14 @@ if (__re.hasOwnProperty('multiline') !== true) {
   $FAIL('#1: __re = RegExp.prototype; __re.hasOwnProperty(\'multiline\') === true');
 }
 
-__obj = __re.multiline;
+__sample = /\n/;
+__obj = __sample.multiline;
 
-__re.multiline = "shifted";
+__sample.multiline = "shifted";
 
 //CHECK#2
-if (__re.multiline !== __obj) {
-  $ERROR('#2: __re = RegExp.prototype; __obj = __re.multiline; __re.multiline = "shifted"; __re.multiline === __obj. Actual: ' + (__re.multiline));
+if (__sample.multiline !== __obj) {
+  $ERROR('#2: __sample = /\n/; __obj = __sample.multiline; __sample.multiline = "shifted"; __sample.multiline === __obj. Actual: ' + (__sample.multiline));
 }
 
 
