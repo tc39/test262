@@ -10,7 +10,7 @@
 
 
 function testcase() {
-  if (Object.getPrototypeOf(TypeError) === Function.prototype) {
+  if (Object.getPrototypeOf(TypeError) === Error) {
     return true;
   }
  }
