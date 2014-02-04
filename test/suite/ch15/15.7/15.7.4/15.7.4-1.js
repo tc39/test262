@@ -5,13 +5,13 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.7/15.7.4/15.7.4-1.js
- * @description Number prototype object: its [[Class]] must be 'Number'
+ * @description Number prototype object: its [[Class]] must be 'Object'
  */
 
 
 function testcase() {
   var numProto = Object.getPrototypeOf(new Number(42));
   var s = Object.prototype.toString.call(numProto );
-  return (s === '[object Number]') ;
+  return (s === '[object Object]') ;
  }
 runTestCase(testcase);
