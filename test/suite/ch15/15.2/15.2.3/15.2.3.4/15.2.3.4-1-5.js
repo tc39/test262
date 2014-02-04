@@ -5,16 +5,12 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.2/15.2.3/15.2.3.4/15.2.3.4-1-5.js
- * @description Object.getOwnPropertyNames throws TypeError if 'O' is a string
+ * @description Object.getOwnPropertyNames does not throw TypeError if 'O' is a string
  */
 
 
 function testcase() {
-        try {
-            Object.getOwnPropertyNames("abc");
-            return false;
-        } catch (e) {
-            return e instanceof TypeError;
-        }
-    }
+    Object.getOwnPropertyNames("abc");
+    return true;
+}
 runTestCase(testcase);
