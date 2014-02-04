@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * The length property of parseInt has the attribute DontDelete
+ * The length property of parseInt does not have the attribute DontDelete
  *
  * @path ch15/15.1/15.1.2/15.1.2.2/S15.1.2.2_A9.2.js
  * @description Checking use hasOwnProperty, delete
@@ -17,8 +17,8 @@ if (parseInt.hasOwnProperty('length') !== true) {
 delete parseInt.length;
 
 //CHECK#2
-if (parseInt.hasOwnProperty('length') !== true) {
-  $ERROR('#2: delete parseInt.length; parseInt.hasOwnProperty(\'length\') === true. Actual: ' + (parseInt.hasOwnProperty('length')));
+if (parseInt.hasOwnProperty('length') !== false) {
+  $ERROR('#2: delete parseInt.length; parseInt.hasOwnProperty(\'length\') === false. Actual: ' + (parseInt.hasOwnProperty('length')));
 }
 
 //CHECK#3

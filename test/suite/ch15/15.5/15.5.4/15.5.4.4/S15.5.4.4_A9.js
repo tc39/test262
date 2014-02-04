@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * The String.prototype.charAt.length property has the attribute DontDelete
+ * The String.prototype.charAt.length property does not have the attribute DontDelete
  *
  * @path ch15/15.5/15.5.4/15.5.4.4/S15.5.4.4_A9.js
  * @description Checking if deleting the String.prototype.charAt.length property fails
@@ -18,16 +18,16 @@ if (!(String.prototype.charAt.hasOwnProperty('length'))) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (delete String.prototype.charAt.length) {
-  $ERROR('#1: delete String.prototype.charAt.length return false');
+if (!delete String.prototype.charAt.length) {
+  $ERROR('#1: delete String.prototype.charAt.length return true');
 }
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (!(String.prototype.charAt.hasOwnProperty('length'))) {
-  $ERROR('#2: delete String.prototype.charAt.length; String.prototype.charAt.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.charAt.hasOwnProperty('length')); 
+if (String.prototype.charAt.hasOwnProperty('length')) {
+  $ERROR('#2: delete String.prototype.charAt.length; String.prototype.charAt.hasOwnProperty(\'length\') return false. Actual: '+String.prototype.charAt.hasOwnProperty('length')); 
 }
 //
 //////////////////////////////////////////////////////////////////////////////

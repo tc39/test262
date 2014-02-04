@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * The length property of isNaN has the attribute DontDelete
+ * The length property of isNaN does not have the attribute DontDelete
  *
  * @path ch15/15.1/15.1.2/15.1.2.4/S15.1.2.4_A2.2.js
  * @description Checking use hasOwnProperty, delete
@@ -17,8 +17,8 @@ if (isNaN.hasOwnProperty('length') !== true) {
 delete isNaN.length;
 
 //CHECK#2
-if (isNaN.hasOwnProperty('length') !== true) {
-  $ERROR('#2: delete isNaN.length; isNaN.hasOwnProperty(\'length\') === true. Actual: ' + (isNaN.hasOwnProperty('length')));
+if (isNaN.hasOwnProperty('length') !== false) {
+  $ERROR('#2: delete isNaN.length; isNaN.hasOwnProperty(\'length\') === false. Actual: ' + (isNaN.hasOwnProperty('length')));
 }
 
 //CHECK#3

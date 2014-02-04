@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * The Function.prototype.call.length property has the attribute DontDelete
+ * The Function.prototype.call.length property does not have the attribute DontDelete
  *
  * @path ch15/15.3/15.3.4/15.3.4.4/S15.3.4.4_A9.js
  * @description Checking if deleting the Function.prototype.call.length property fails
@@ -14,12 +14,12 @@ if (!(Function.prototype.call.hasOwnProperty('length'))) {
 }
 
 //CHECK#1
-if (delete Function.prototype.call.length) {
-  $ERROR('#1: The Function.prototype.call.length property has the attributes DontDelete');
+if (!delete Function.prototype.call.length) {
+  $ERROR('#1: The Function.prototype.call.length property does not have the attributes DontDelete');
 }
 
 //CHECK#2
-if (!(Function.prototype.call.hasOwnProperty('length'))) {
-  $FAIL('#2: The Function.prototype.call.length property has the attributes DontDelete');
+if (Function.prototype.call.hasOwnProperty('length')) {
+  $FAIL('#2: The Function.prototype.call.length property does not have the attributes DontDelete');
 }
 

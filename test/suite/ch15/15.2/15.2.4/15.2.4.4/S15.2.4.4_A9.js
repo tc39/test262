@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * The Object.prototype.valueOf.length property has the attribute DontDelete
+ * The Object.prototype.valueOf.length property does not have the attribute DontDelete
  *
  * @path ch15/15.2/15.2.4/15.2.4.4/S15.2.4.4_A9.js
  * @description Checknig if deleting of the Object.prototype.valueOf.length property fails
@@ -15,12 +15,12 @@ if (!(Object.prototype.valueOf.hasOwnProperty('length'))) {
 }
 
 //CHECK#1
-if (delete Object.prototype.valueOf.length) {
-  $ERROR('#1: The Object.prototype.valueOf.length property has the attributes DontDelete');
+if (!delete Object.prototype.valueOf.length) {
+  $ERROR('#1: The Object.prototype.valueOf.length property does not have the attributes DontDelete');
 }
 
 //CHECK#2
-if (!(Object.prototype.valueOf.hasOwnProperty('length'))) {
-  $FAIL('#2: The Object.prototype.valueOf.length property has the attributes DontDelete');
+if (Object.prototype.valueOf.hasOwnProperty('length')) {
+  $FAIL('#2: The Object.prototype.valueOf.length property does not have the attributes DontDelete');
 }
 

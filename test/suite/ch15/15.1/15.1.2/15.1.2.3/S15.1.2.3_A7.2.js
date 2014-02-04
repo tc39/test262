@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * The length property of parseFloat has the attribute DontDelete
+ * The length property of parseFloat does not have the attribute DontDelete
  *
  * @path ch15/15.1/15.1.2/15.1.2.3/S15.1.2.3_A7.2.js
  * @description Checking use hasOwnProperty, delete
@@ -17,8 +17,8 @@ if (parseFloat.hasOwnProperty('length') !== true) {
 delete parseFloat.length;
 
 //CHECK#2
-if (parseFloat.hasOwnProperty('length') !== true) {
-  $ERROR('#2: delete parseFloat.length; parseFloat.hasOwnProperty(\'length\') === true. Actual: ' + (parseFloat.hasOwnProperty('length')));
+if (parseFloat.hasOwnProperty('length') !== false) {
+  $ERROR('#2: delete parseFloat.length; parseFloat.hasOwnProperty(\'length\') === false. Actual: ' + (parseFloat.hasOwnProperty('length')));
 }
 
 //CHECK#3

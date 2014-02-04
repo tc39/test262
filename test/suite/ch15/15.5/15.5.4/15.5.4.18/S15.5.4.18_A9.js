@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * The String.prototype.toUpperCase.length property has the attribute DontDelete
+ * The String.prototype.toUpperCase.length property does not have the attribute DontDelete
  *
  * @path ch15/15.5/15.5.4/15.5.4.18/S15.5.4.18_A9.js
  * @description Checking if deleting the String.prototype.toUpperCase.length property fails
@@ -18,16 +18,16 @@ if (!(String.prototype.toUpperCase.hasOwnProperty('length'))) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (delete String.prototype.toUpperCase.length) {
-  $ERROR('#1: delete String.prototype.toUpperCase.length return false');
+if (!delete String.prototype.toUpperCase.length) {
+  $ERROR('#1: delete String.prototype.toUpperCase.length return true');
 }
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (!(String.prototype.toUpperCase.hasOwnProperty('length'))) {
-  $FAIL('#2: delete String.prototype.toUpperCase.length; String.prototype.toUpperCase.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.toUpperCase.hasOwnProperty('length'));
+if (String.prototype.toUpperCase.hasOwnProperty('length')) {
+  $FAIL('#2: delete String.prototype.toUpperCase.length; String.prototype.toUpperCase.hasOwnProperty(\'length\') return false. Actual: '+String.prototype.toUpperCase.hasOwnProperty('length'));
 }
 //
 //////////////////////////////////////////////////////////////////////////////
