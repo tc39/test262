@@ -5,17 +5,18 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.9/15.9.5/15.9.5.40/15.9.5.40_1.js
- * @description Date.prototype.setFullYear - Date.prototype is itself an instance of Date
+ * @description Date.prototype.setFullYear - Date.prototype is itself not an instance of Date
  */
 
 
 function testcase() {
     try {
-        var origYear = Date.prototype.getFullYear();
         Date.prototype.setFullYear(2012);
-        return Date.prototype.getFullYear()===2012;
-    } finally {
-        Date.prototype.setFullYear(origYear);
+    } catch (e) {
+        if (e instanceof TypeError) {
+            return true;
+        }
     }
+    return false;
 }
 runTestCase(testcase);
