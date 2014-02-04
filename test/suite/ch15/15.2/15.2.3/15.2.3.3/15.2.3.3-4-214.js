@@ -5,18 +5,18 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.2/15.2.3/15.2.3.3/15.2.3.3-4-214.js
- * @description Object.getOwnPropertyDescriptor returns data desc (all false) for properties on built-ins (RegExp.prototype.ignoreCase)
+ * @description Object.getOwnPropertyDescriptor returns accessor desc for accessors on built-ins (RegExp.prototype.ignoreCase)
  */
 
 
 function testcase() {
   var desc = Object.getOwnPropertyDescriptor(RegExp.prototype, "ignoreCase");
 
-  if (desc.writable === false &&
+  if (desc.hasOwnProperty('writable') === false &&
       desc.enumerable === false &&
-      desc.configurable === false &&
-      desc.hasOwnProperty('get') === false &&
-      desc.hasOwnProperty('set') === false) {
+      desc.configurable === true &&
+      typeof desc.get === 'function' &&
+      desc.set === undefined) {
     return true;
   }
  }

@@ -5,16 +5,17 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.10/15.10.7/15.10.7.1/15.10.7.1-2.js
- * @description RegExp.prototype.source is a data property with default attribute values (false)
+ * @description RegExp.prototype.source is an accessor property whose set accessor function is undefined
  */
 
 
 function testcase() {
   var d = Object.getOwnPropertyDescriptor(RegExp.prototype, 'source');
   
-  if (d.writable === false &&
+  if (typeof d.get === 'function' &&
+      d.set === undefined &&
       d.enumerable === false &&
-      d.configurable === false) {
+      d.configurable === true) {
     return true;
   }
  }
