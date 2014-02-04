@@ -18,9 +18,9 @@ function testcase() {
             return val > 11;
         }
 
-        var obj = { 0: 12, 1: 11, 2: 9, length: -4294967294 }; //length used to exec while loop is 2
+        var obj = { 0: 12, 1: 11, 2: 9, length: -4294967294 }; //length used to exec while loop is 0
 
         return Array.prototype.every.call(obj, callbackfn1) &&
-            !Array.prototype.every.call(obj, callbackfn2);
+            Array.prototype.every.call(obj, callbackfn2);
     }
 runTestCase(testcase);

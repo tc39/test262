@@ -33,8 +33,8 @@ if (pop !== undefined) {
 }
 
 //CHECK#4
-if (obj.length !== 0) {
-  $ERROR('#4: var obj = {}; obj.length = Number.POSITIVE_INFINITY; obj.pop = Array.prototype.pop; obj.pop(); obj.length === 0. Actual: ' + (obj.length));
+if (obj.length !== 9007199254740990) {
+  $ERROR('#4: var obj = {}; obj.length = Number.POSITIVE_INFINITY; obj.pop = Array.prototype.pop; obj.pop(); obj.length === 9007199254740990. Actual: ' + (obj.length));
 }
 
 //CHECK#5

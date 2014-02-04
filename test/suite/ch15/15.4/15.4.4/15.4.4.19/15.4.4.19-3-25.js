@@ -5,7 +5,7 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.4/15.4.4/15.4.4.19/15.4.4.19-3-25.js
- * @description Array.prototype.map - value of 'length' is a negative non-integer, ensure truncation occurs in the proper direction
+ * @description Array.prototype.map - value of 'length' is a negative non-integer
  */
 
 
@@ -23,6 +23,6 @@ function testcase() {
 
         var newArr = Array.prototype.map.call(obj, callbackfn);
 
-        return newArr.length === 2;
+        return newArr.length === 0;
     }
 runTestCase(testcase);

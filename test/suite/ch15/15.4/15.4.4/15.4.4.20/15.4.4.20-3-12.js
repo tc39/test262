@@ -19,6 +19,6 @@ function testcase() {
 
         var newArr = Array.prototype.filter.call(obj, callbackfn);
 
-        return newArr.length === 1 && newArr[0] === 11;
+        return newArr.length === 0 && newArr[0] === undefined;
     }
 runTestCase(testcase);

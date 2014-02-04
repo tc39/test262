@@ -25,6 +25,6 @@ function testcase() {
         };
 
         return Array.prototype.some.call(obj, callbackfn1) &&
-            !Array.prototype.some.call(obj, callbackfn2);
+            Array.prototype.some.call(obj, callbackfn2);
     }
 runTestCase(testcase);

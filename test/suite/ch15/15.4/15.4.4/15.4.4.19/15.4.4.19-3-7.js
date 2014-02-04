@@ -18,6 +18,6 @@ function testcase() {
 
         var newArr = Array.prototype.map.call(obj, callbackfn);
 
-        return newArr.length === 2;
+        return newArr.length === 0;
     }
 runTestCase(testcase);

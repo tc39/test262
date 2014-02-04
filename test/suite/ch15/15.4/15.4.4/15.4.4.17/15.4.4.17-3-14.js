@@ -22,8 +22,8 @@ function testcase() {
         var objTwo = { 0: 11, length: "+Infinity" };
         var objThree = { 0: 11, length: "-Infinity" };
 
-        return !Array.prototype.some.call(objOne, callbackfn) &&
-            !Array.prototype.some.call(objTwo, callbackfn) &&
-            !Array.prototype.some.call(objThree, callbackfn) && !accessed;
+        return Array.prototype.some.call(objOne, callbackfn) &&
+            Array.prototype.some.call(objTwo, callbackfn) &&
+            !Array.prototype.some.call(objThree, callbackfn) && accessed;
     }
 runTestCase(testcase);
