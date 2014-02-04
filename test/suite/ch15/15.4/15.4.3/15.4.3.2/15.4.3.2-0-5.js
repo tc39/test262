@@ -5,13 +5,13 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.4/15.4.3/15.4.3.2/15.4.3.2-0-5.js
- * @description Array.isArray return true if its argument is an Array (Array.prototype)
+ * @description Array.isArray return false if its argument is not an Array (Array.prototype)
  */
 
 
 function testcase() {
   var b = Array.isArray(Array.prototype);
-  if (b === true) {
+  if (b === false) {
     return true;
   }
  }
