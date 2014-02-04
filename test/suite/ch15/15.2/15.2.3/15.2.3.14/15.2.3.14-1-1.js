@@ -6,18 +6,14 @@
 
 /*---
 es5id: 15.2.3.14-1-1
-description: Object.keys throws TypeError if type of first param is not Object
+description: >
+    Object.keys does not throw TypeError if type of first param is not
+    Object
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  try {
     Object.keys(0);
-  }
-  catch (e) {
-    if (e instanceof TypeError) {
-      return true;
-    }
-  }
- }
+    return true;
+}
 runTestCase(testcase);

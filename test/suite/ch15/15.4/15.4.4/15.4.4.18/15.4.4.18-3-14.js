@@ -6,38 +6,22 @@
 
 /*---
 es5id: 15.4.4.18-3-14
-description: >
-    Array.prototype.forEach - 'length' is a string containing
-    +/-Infinity
+description: Array.prototype.forEach - 'length' is a string containing -Infinity
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
 
-        var accessed1 = false;
         var accessed2 = false;
-        var accessed3 = false;
-
-        function callbackfn1(val, idx, obj) {
-            accessed1 = true;
-        }
 
         function callbackfn2(val, idx, obj) {
             accessed2 = true;
         }
 
-        function callbackfn3(val, idx, obj) {
-            accessed3 = true;
-        }
-
-        var obj1 = { 0: 9, length: "Infinity" };
         var obj2 = { 0: 9, length: "-Infinity" };
-        var obj3 = { 0: 9, length: "+Infinity" };
 
-        Array.prototype.forEach.call(obj1, callbackfn1);
         Array.prototype.forEach.call(obj2, callbackfn2);
-        Array.prototype.forEach.call(obj3, callbackfn3);
 
-        return !accessed1 && !accessed2 && !accessed3;
+        return !accessed2;
     }
 runTestCase(testcase);

@@ -24,6 +24,6 @@ function testcase() {
 
         Array.prototype.forEach.call(obj, callbackfn);
 
-        return testResult1;
+        return !testResult1;
     }
 runTestCase(testcase);

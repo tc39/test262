@@ -7,16 +7,13 @@
 /*---
 es5id: 15.2.3.10-1-3
 description: >
-    Object.preventExtensions throws TypeError if 'O' is a boolean
-    primitive value
+    Object.preventExtensions does not throw TypeError if 'O' is a
+    boolean primitive value
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        try {
-            Object.preventExtensions(true);
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
+    Object.preventExtensions(true);
+    return true;
+}
 runTestCase(testcase);

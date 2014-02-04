@@ -6,9 +6,7 @@
 
 /*---
 es5id: 15.4.4.19-3-25
-description: >
-    Array.prototype.map - value of 'length' is a negative non-integer,
-    ensure truncation occurs in the proper direction
+description: Array.prototype.map - value of 'length' is a negative non-integer
 includes: [runTestCase.js]
 ---*/
 
@@ -26,6 +24,6 @@ function testcase() {
 
         var newArr = Array.prototype.map.call(obj, callbackfn);
 
-        return newArr.length === 2;
+        return newArr.length === 0;
     }
 runTestCase(testcase);

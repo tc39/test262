@@ -8,7 +8,7 @@
 es5id: 15.4.4.18-3-25
 description: >
     Array.prototype.forEach - value of 'length' is a negative
-    non-integer, ensure truncation occurs in the proper direction
+    non-integer
 includes: [runTestCase.js]
 ---*/
 
@@ -28,6 +28,6 @@ function testcase() {
 
         Array.prototype.forEach.call(obj, callbackfn);
 
-        return testResult;
+        return !testResult;
     }
 runTestCase(testcase);

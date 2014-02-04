@@ -7,18 +7,19 @@
 /*---
 es5id: 15.9.5.40_1
 description: >
-    Date.prototype.setFullYear - Date.prototype is itself an instance
-    of Date
+    Date.prototype.setFullYear - Date.prototype is itself not an
+    instance of Date
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
     try {
-        var origYear = Date.prototype.getFullYear();
         Date.prototype.setFullYear(2012);
-        return Date.prototype.getFullYear()===2012;
-    } finally {
-        Date.prototype.setFullYear(origYear);
+    } catch (e) {
+        if (e instanceof TypeError) {
+            return true;
+        }
     }
+    return false;
 }
 runTestCase(testcase);

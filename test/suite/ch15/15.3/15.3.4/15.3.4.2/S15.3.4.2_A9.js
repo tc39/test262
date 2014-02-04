@@ -3,8 +3,8 @@
 
 /*---
 info: >
-    The Function.prototype.toString.length property has the attribute
-    DontDelete
+    The Function.prototype.toString.length property does not have the
+    attribute DontDelete
 es5id: 15.3.4.2_A9
 description: >
     Checking if deleting the Function.prototype.toString.length
@@ -18,11 +18,11 @@ if (!(Function.prototype.toString.hasOwnProperty('length'))) {
 }
 
 //CHECK#1
-if (delete Function.prototype.toString.length) {
-  $ERROR('#1: The Function.prototype.toString.length property has the attributes DontDelete');
+if (!delete Function.prototype.toString.length) {
+  $ERROR('#1: The Function.prototype.toString.length property does not have the attributes DontDelete');
 }
 
 //CHECK#2
-if (!(Function.prototype.toString.hasOwnProperty('length'))) {
-  $FAIL('#2: The Function.prototype.toString.length property has the attributes DontDelete');
+if (Function.prototype.toString.hasOwnProperty('length')) {
+  $FAIL('#2: The Function.prototype.toString.length property does not have the attributes DontDelete');
 }

@@ -27,7 +27,7 @@ function testcase() {
             length: 4294967297
         };
 
-        return Array.prototype.every.call(obj, callbackfn1) &&
+        return !Array.prototype.every.call(obj, callbackfn1) &&
             !Array.prototype.every.call(obj, callbackfn2);
     }
 runTestCase(testcase);

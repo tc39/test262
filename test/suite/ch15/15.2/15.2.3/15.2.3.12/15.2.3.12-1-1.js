@@ -7,16 +7,13 @@
 /*---
 es5id: 15.2.3.12-1-1
 description: >
-    Object.isFrozen - TypeError is thrown when the first param 'O' is
-    undefined
+    Object.isFrozen - TypeError is not thrown when the first param 'O'
+    is undefined
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        try {
-            Object.isFrozen(undefined);
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
+    Object.isFrozen(undefined);
+    return true;
+}
 runTestCase(testcase);

@@ -7,17 +7,13 @@
 /*---
 es5id: 15.2.3.8-1-4
 description: >
-    Object.seal throws TypeError if type of first param is a string
-    primitive
+    Object.seal does not throw TypeError if type of first param is a
+    string primitive
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        try {
-            Object.seal("abc");
-            return false;
-        } catch (e) {
-            return e instanceof TypeError;
-        }
-    }
+    Object.seal("abc");
+    return true;
+}
 runTestCase(testcase);

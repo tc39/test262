@@ -6,9 +6,7 @@
 
 /*---
 es5id: 15.4.4.16-3-25
-description: >
-    Array.prototype.every - value of 'length' is a negative
-    non-integer, ensure truncation occurs in the proper direction
+description: Array.prototype.every - value of 'length' is a negative non-integer
 includes: [runTestCase.js]
 ---*/
 
@@ -29,6 +27,6 @@ function testcase() {
         };
 
         return Array.prototype.every.call(obj, callbackfn1) &&
-            !Array.prototype.every.call(obj, callbackfn2);
+            Array.prototype.every.call(obj, callbackfn2);
     }
 runTestCase(testcase);

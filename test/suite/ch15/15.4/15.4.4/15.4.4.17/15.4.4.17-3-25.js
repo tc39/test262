@@ -6,9 +6,7 @@
 
 /*---
 es5id: 15.4.4.17-3-25
-description: >
-    Array.prototype.some - value of 'length' is a negative
-    non-integer, ensure truncation occurs in the proper direction
+description: Array.prototype.some - value of 'length' is a negative non-integer
 includes: [runTestCase.js]
 ---*/
 
@@ -28,7 +26,7 @@ function testcase() {
             length: -4294967294.5
         };
 
-        return Array.prototype.some.call(obj, callbackfn1) &&
+        return !Array.prototype.some.call(obj, callbackfn1) &&
             !Array.prototype.some.call(obj, callbackfn2);
     }
 runTestCase(testcase);

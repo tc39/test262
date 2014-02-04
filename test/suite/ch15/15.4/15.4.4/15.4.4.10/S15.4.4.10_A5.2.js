@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: The length property of slice has the attribute DontDelete
+info: The length property of slice does not have the attribute DontDelete
 es5id: 15.4.4.10_A5.2
 description: Checking use hasOwnProperty, delete
 includes: [$FAIL.js]
@@ -16,8 +16,8 @@ if (Array.prototype.slice.hasOwnProperty('length') !== true) {
 delete Array.prototype.slice.length;
 
 //CHECK#2
-if (Array.prototype.slice.hasOwnProperty('length') !== true) {
-  $ERROR('#2: delete Array.prototype.slice.length; Array.prototype.slice.hasOwnProperty(\'length\') === true. Actual: ' + (Array.prototype.slice.hasOwnProperty('length')));
+if (Array.prototype.slice.hasOwnProperty('length') !== false) {
+  $ERROR('#2: delete Array.prototype.slice.length; Array.prototype.slice.hasOwnProperty(\'length\') === false. Actual: ' + (Array.prototype.slice.hasOwnProperty('length')));
 }
 
 //CHECK#3

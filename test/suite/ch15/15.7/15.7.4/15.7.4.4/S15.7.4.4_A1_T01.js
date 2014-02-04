@@ -5,11 +5,17 @@
 info: Number.prototype.valueOf() returns this number value
 es5id: 15.7.4.4_A1_T01
 description: Call without argument
+includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
-if(Number.prototype.valueOf() !== 0){
-  $ERROR('#1: Number.prototype.valueOf() === 0');
+try {
+  Number.prototype.valueOf();
+  $FAIL('#1: "Number.prototype.valueOf();" lead to throwing exception. Actual: '+Number.prototype.valueOf());
+} catch (e) {
+  if (!(e instanceof TypeError)) {
+    $ERROR('#1.1: "Number.prototype.valueOf()" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
+  }
 }
 
 //CHECK#2

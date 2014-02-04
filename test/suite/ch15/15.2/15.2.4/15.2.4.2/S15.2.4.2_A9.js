@@ -2,7 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: The Object.prototype.toString.length property has the attribute DontDelete
+info: >
+    The Object.prototype.toString.length property does not have the attribute
+    DontDelete
 es5id: 15.2.4.2_A9
 description: >
     Checknig if deleting of the Object.prototype.toString.length
@@ -17,11 +19,11 @@ if (!(Object.prototype.toString.hasOwnProperty('length'))) {
 }
 
 //CHECK#1
-if (delete Object.prototype.toString.length) {
-  $ERROR('#1: The Object.prototype.toString.length property has the attributes DontDelete');
+if (!delete Object.prototype.toString.length) {
+  $ERROR('#1: The Object.prototype.toString.length property does not have the attributes DontDelete');
 }
 
 //CHECK#2
-if (!(Object.prototype.toString.hasOwnProperty('length'))) {
-  $FAIL('#2: The Object.prototype.toString.length property has the attributes DontDelete');
+if (Object.prototype.toString.hasOwnProperty('length')) {
+  $FAIL('#2: The Object.prototype.toString.length property does not have the attributes DontDelete');
 }

@@ -6,16 +6,12 @@
 
 /*---
 es5id: 15.2.3.13-1-2
-description: Object.isExtensible throws TypeError if 'O' is null
+description: Object.isExtensible does not throw TypeError if 'O' is null
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-
-        try {
-            Object.isExtensible(null);
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
+    Object.isExtensible(null);
+    return true;
+}
 runTestCase(testcase);

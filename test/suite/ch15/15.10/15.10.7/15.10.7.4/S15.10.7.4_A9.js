@@ -2,25 +2,27 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: The RegExp instance multiline property has the attribute DontDelete
+info: >
+    The RegExp.prototype multiline property does not have the attribute
+    DontDelete
 es5id: 15.10.7.4_A9
-description: Checking if deleting the multiline property fails
+description: Checking if deleting the multiline property succeeds
 includes: [$FAIL.js]
 ---*/
 
-__re = new RegExp;
+__re = RegExp.prototype;
 
 //CHECK#0
 if (__re.hasOwnProperty('multiline') !== true) {
-  $FAIL('#0: __re = new RegExp; __re.hasOwnProperty(\'multiline\') === true');
+  $FAIL('#0: __re = RegExp.prototype; __re.hasOwnProperty(\'multiline\') === true');
 }
 
 //CHECK#1
-if ((delete __re.multiline) !== false) {
-  $ERROR('#1: __re = new RegExp; (delete __re.multiline) === false');
+if ((delete __re.multiline) !== true) {
+  $ERROR('#1: __re = RegExp.prototype; (delete __re.multiline) === true');
 }
 
 //CHECK#2
-if (__re.hasOwnProperty('multiline') !== true) {
-  $ERROR('#2: __re = new RegExp;delete __re.multiline === true; __re.hasOwnProperty(\'multiline\') === true');
+if (__re.hasOwnProperty('multiline') !== false) {
+  $ERROR('#2: __re = RegExp.prototype;delete __re.multiline === true; __re.hasOwnProperty(\'multiline\') === false');
 }

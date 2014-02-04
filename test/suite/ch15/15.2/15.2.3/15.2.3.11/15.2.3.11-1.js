@@ -7,19 +7,13 @@
 /*---
 es5id: 15.2.3.11-1
 description: >
-    Object.isSealed throws TypeError if type of first param is not
-    Object
+    Object.isSealed does not throw TypeError if type of first param is
+    not Object
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-    try {
-      Object.isSealed(0);
-    }
-    catch (e) {
-      if (e instanceof TypeError) {
-        return true;
-      }
-    }
- }
+    Object.isSealed(0);
+    return true;
+}
 runTestCase(testcase);

@@ -6,11 +6,11 @@
 
 /*---
 es5id: 15.10.7.5-1
-description: RegExp.prototype.lastIndex is of type Number
+description: RegExp.prototype.lastIndex is of type Undefined
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  return (typeof(RegExp.prototype.lastIndex)) === 'number';
+  return (typeof(RegExp.prototype.lastIndex)) === 'undefined';
  }
 runTestCase(testcase);

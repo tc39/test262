@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: The length property of shift has the attribute DontDelete
+info: The length property of shift does not have the attribute DontDelete
 es5id: 15.4.4.9_A5.2
 description: Checking use hasOwnProperty, delete
 includes: [$FAIL.js]
@@ -16,8 +16,8 @@ if (Array.prototype.shift.hasOwnProperty('length') !== true) {
 delete Array.prototype.shift.length;
 
 //CHECK#2
-if (Array.prototype.shift.hasOwnProperty('length') !== true) {
-  $ERROR('#2: delete Array.prototype.shift.length; Array.prototype.shift.hasOwnProperty(\'length\') === true. Actual: ' + (Array.prototype.shift.hasOwnProperty('length')));
+if (Array.prototype.shift.hasOwnProperty('length') !== false) {
+  $ERROR('#2: delete Array.prototype.shift.length; Array.prototype.shift.hasOwnProperty(\'length\') === false. Actual: ' + (Array.prototype.shift.hasOwnProperty('length')));
 }
 
 //CHECK#3

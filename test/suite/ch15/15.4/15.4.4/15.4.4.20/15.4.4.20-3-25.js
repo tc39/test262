@@ -8,7 +8,7 @@
 es5id: 15.4.4.20-3-25
 description: >
     Array.prototype.filter - value of 'length' is a negative
-    non-integer, ensure truncation occurs in the proper direction
+    non-integer
 includes: [runTestCase.js]
 ---*/
 
@@ -26,6 +26,6 @@ function testcase() {
 
         var newArr = Array.prototype.filter.call(obj, callbackfn);
 
-        return newArr.length === 1 && newArr[0] === 11;
+        return newArr.length === 0 && newArr[0] === undefined;
     }
 runTestCase(testcase);

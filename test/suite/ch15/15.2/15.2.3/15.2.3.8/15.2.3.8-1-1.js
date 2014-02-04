@@ -6,16 +6,14 @@
 
 /*---
 es5id: 15.2.3.8-1-1
-description: Object.seal throws TypeError if type of first param is undefined
+description: >
+    Object.seal does not throw TypeError if type of first param is
+    undefined
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        try {
-            Object.seal(undefined);
-            return false;
-        } catch (e) {
-            return e instanceof TypeError;
-        }
-    }
+    Object.seal(undefined);
+    return true;
+}
 runTestCase(testcase);

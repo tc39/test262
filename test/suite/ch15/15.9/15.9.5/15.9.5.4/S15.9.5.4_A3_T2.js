@@ -3,17 +3,17 @@
 
 /*---
 info: >
-    The Date.prototype.toTimeString property "length" has { ReadOnly,
+    The Date.prototype.toTimeString property "length" has { ReadOnly, !
     DontDelete, DontEnum } attributes
 es5id: 15.9.5.4_A3_T2
 description: Checking DontDelete attribute
 includes: [$FAIL.js]
 ---*/
 
-if (delete Date.prototype.toTimeString.length  !== false) {
-  $ERROR('#1: The Date.prototype.toTimeString.length property has the attributes DontDelete');
+if (delete Date.prototype.toTimeString.length  !== true) {
+  $ERROR('#1: The Date.prototype.toTimeString.length property does not have the attributes DontDelete');
 }
 
-if (!Date.prototype.toTimeString.hasOwnProperty('length')) {
-  $FAIL('#2: The Date.prototype.toTimeString.length property has the attributes DontDelete');
+if (Date.prototype.toTimeString.hasOwnProperty('length')) {
+  $FAIL('#2: The Date.prototype.toTimeString.length property does not have the attributes DontDelete');
 }

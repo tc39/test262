@@ -6,7 +6,7 @@
 
 /*---
 es5id: 11.4.1-5-a-28-s
-description: Strict Mode - TypeError is thrown when deleting RegExp.length
+description: Strict Mode - TypeError is not thrown when deleting RegExp.length
 flags: [onlyStrict]
 includes: [runTestCase.js]
 ---*/
@@ -14,11 +14,7 @@ includes: [runTestCase.js]
 function testcase() {
     "use strict";
     var a = new RegExp();
-    try {
-        var b = delete RegExp.length;
-        return false;
-    } catch (e) {
-        return e instanceof TypeError;
-    }
+    var b = delete RegExp.length;
+    return true;
 }
 runTestCase(testcase);

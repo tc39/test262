@@ -4,7 +4,7 @@
 /*---
 info: >
     The value of the internal [[Class]] property of Error prototype object is
-    "Error"
+    "Object"
 es5id: 15.11.4_A2
 description: >
     Getting the value of the internal [[Class]] property using
@@ -16,8 +16,8 @@ __tostr = Error.prototype.toString();
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__tostr !== "[object Error]") {
-	$ERROR('#1: Error.prototype.toString=Object.prototype.toString; __tostr = Error.prototype.toString(); __tostr === "[object Error]". Actual: '+__tostr );
+if (__tostr !== "[object Object]") {
+	$ERROR('#1: Error.prototype.toString=Object.prototype.toString; __tostr = Error.prototype.toString(); __tostr === "[object Object]". Actual: '+__tostr );
 }
 //
 //////////////////////////////////////////////////////////////////////////////

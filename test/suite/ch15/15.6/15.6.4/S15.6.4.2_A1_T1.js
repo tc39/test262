@@ -8,11 +8,17 @@ info: >
     "false" is returned
 es5id: 15.6.4.2_A1_T1
 description: no arguments
+includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
-if(Boolean.prototype.toString() !== "false"){
-  $ERROR('#1: Boolean.prototype.toString() === "false"');
+try {
+  (Boolean.prototype.toString() !== "false");
+  $FAIL('#1: "(Boolean.prototype.toString() !== "false");" lead to throwing exception. Actual: '+(Boolean.prototype.toString() !== "false"));
+} catch (e) {
+  if (!(e instanceof TypeError)) {
+    $ERROR('#1.1: "(Boolean.prototype.toString() !== "false")" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
+  }
 }
 
 //CHECK#2

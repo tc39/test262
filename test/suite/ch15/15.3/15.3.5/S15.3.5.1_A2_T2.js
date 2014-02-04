@@ -2,11 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: the length property has the attributes { DontDelete }
+info: the length property does not have the attributes { DontDelete }
 es5id: 15.3.5.1_A2_T2
 description: >
     Checking if deleting the length property of
-    Function("arg1,arg2,arg3","arg4,arg5", null) fails
+    Function("arg1,arg2,arg3","arg4,arg5", null) succeeds
 includes: [$FAIL.js]
 ---*/
 
@@ -20,11 +20,11 @@ if (!(f.hasOwnProperty('length'))) {
 delete f.length;
 
 //CHECK#2
-if (!(f.hasOwnProperty('length'))) {
-  $ERROR('#2: the function.length property has the attributes DontDelete.');
+if (f.hasOwnProperty('length')) {
+  $ERROR('#2: the function.length property does not have the attributes DontDelete.');
 }
 
 //CHECK#3
-if (f.length !== 5) {
-  $ERROR('#3: the length property has the attributes { DontDelete }');
+if (f.length === 5) {
+  $ERROR('#3: the length property does not have the attributes { DontDelete }');
 }

@@ -23,6 +23,6 @@ function testcase() {
 
         var obj = { 0: 11, length: Infinity };
 
-        return !Array.prototype.some.call(obj, callbackfn) && !accessed;
+        return Array.prototype.some.call(obj, callbackfn) && accessed;
     }
 runTestCase(testcase);

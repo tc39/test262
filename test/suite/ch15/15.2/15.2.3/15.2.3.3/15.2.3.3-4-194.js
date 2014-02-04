@@ -7,8 +7,8 @@
 /*---
 es5id: 15.2.3.3-4-194
 description: >
-    Object.getOwnPropertyDescriptor returns data desc (all false) for
-    properties on built-ins (Boolean.length)
+    Object.getOwnPropertyDescriptor returns data desc for properties
+    on built-ins (Boolean.length)
 includes: [runTestCase.js]
 ---*/
 
@@ -17,7 +17,7 @@ function testcase() {
 
   if (desc.writable === false &&
       desc.enumerable === false &&
-      desc.configurable === false &&
+      desc.configurable === true &&
       desc.hasOwnProperty('get') === false &&
       desc.hasOwnProperty('set') === false) {
     return true;

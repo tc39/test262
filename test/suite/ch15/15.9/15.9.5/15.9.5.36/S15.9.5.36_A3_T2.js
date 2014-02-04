@@ -3,17 +3,17 @@
 
 /*---
 info: >
-    The Date.prototype.setDate property "length" has { ReadOnly, DontDelete,
-    DontEnum } attributes
+    The Date.prototype.setDate property "length" has { ReadOnly, !
+    DontDelete, DontEnum } attributes
 es5id: 15.9.5.36_A3_T2
 description: Checking DontDelete attribute
 includes: [$FAIL.js]
 ---*/
 
-if (delete Date.prototype.setDate.length  !== false) {
-  $ERROR('#1: The Date.prototype.setDate.length property has the attributes DontDelete');
+if (delete Date.prototype.setDate.length  !== true) {
+  $ERROR('#1: The Date.prototype.setDate.length property does not have the attributes DontDelete');
 }
 
-if (!Date.prototype.setDate.hasOwnProperty('length')) {
-  $FAIL('#2: The Date.prototype.setDate.length property has the attributes DontDelete');
+if (Date.prototype.setDate.hasOwnProperty('length')) {
+  $FAIL('#2: The Date.prototype.setDate.length property does not have the attributes DontDelete');
 }

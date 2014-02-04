@@ -8,7 +8,7 @@
 es5id: 15.4.4.15-3-25
 description: >
     Array.prototype.lastIndexOf - value of 'length' is a negative
-    non-integer, ensure truncation occurs in the proper direction
+    non-integer
 includes: [runTestCase.js]
 ---*/
 
@@ -16,7 +16,7 @@ function testcase() {
 
         var obj = { 1: true, 2: false, length: -4294967294.5 };
 
-        return Array.prototype.lastIndexOf.call(obj, true) === 1 &&
+        return Array.prototype.lastIndexOf.call(obj, true) === -1 &&
             Array.prototype.lastIndexOf.call(obj, false) === -1;
     }
 runTestCase(testcase);

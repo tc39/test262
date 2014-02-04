@@ -7,17 +7,13 @@
 /*---
 es5id: 15.2.3.8-1-3
 description: >
-    Object.seal throws TypeError if type of first param is a boolean
-    primitive
+    Object.seal does not throw TypeError if type of first param is a
+    boolean primitive
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        try {
-            Object.seal(false);
-            return false;
-        } catch (e) {
-            return e instanceof TypeError;
-        }
-    }
+    Object.seal(false);
+    return true;
+}
 runTestCase(testcase);

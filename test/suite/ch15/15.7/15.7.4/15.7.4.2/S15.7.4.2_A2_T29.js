@@ -7,11 +7,17 @@ info: >
     the result is a string, the choice of which is implementation-dependent
 es5id: 15.7.4.2_A2_T29
 description: radix is 31
+includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
-if(Number.prototype.toString(31) !== "0"){
-  $ERROR('#1: Number.prototype.toString(31) === "0"');
+try {
+  Number.prototype.toString(31);
+  $FAIL('#1: "Number.prototype.toString(31);" lead to throwing exception. Actual: '+Number.prototype.toString(31));
+} catch (e) {
+  if (!(e instanceof TypeError)) {
+    $ERROR('#1.1: "Number.prototype.toString(31)" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
+  }
 }
 
 //CHECK#2

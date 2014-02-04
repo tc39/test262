@@ -7,14 +7,14 @@
 /*---
 es5id: 15.4.3.2-0-5
 description: >
-    Array.isArray return true if its argument is an Array
+    Array.isArray return false if its argument is not an Array
     (Array.prototype)
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
   var b = Array.isArray(Array.prototype);
-  if (b === true) {
+  if (b === false) {
     return true;
   }
  }

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: The length property of Array has the attribute DontDelete
+info: The length property of Array does not have the attribute DontDelete
 es5id: 15.4.3_A2.2
 description: Checking use hasOwnProperty, delete
 includes: [$FAIL.js]
@@ -16,8 +16,8 @@ if (Array.hasOwnProperty('length') !== true) {
 delete Array.length;
 
 //CHECK#2
-if (Array.hasOwnProperty('length') !== true) {
-  $ERROR('#2: delete Array.length; Array.hasOwnProperty(\'length\') === true. Actual: ' + (Array.hasOwnProperty('length')));
+if (Array.hasOwnProperty('length') !== false) {
+  $ERROR('#2: delete Array.length; Array.hasOwnProperty(\'length\') === false. Actual: ' + (Array.hasOwnProperty('length')));
 }
 
 //CHECK#3

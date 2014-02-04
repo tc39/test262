@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: Check ToUint32(length) for non Array objects
+info: Check ToLength(length) for non Array objects
 es5id: 15.4.4.7_A4_T2
 description: length = 4294967295
 ---*/

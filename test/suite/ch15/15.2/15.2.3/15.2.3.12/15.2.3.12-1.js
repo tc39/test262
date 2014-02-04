@@ -7,19 +7,13 @@
 /*---
 es5id: 15.2.3.12-1
 description: >
-    Object.isFrozen throws TypeError if type of first param is not
-    Object
+    Object.isFrozen does not throw TypeError if type of first param is
+    not Object
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-    try {
-      Object.isFrozen(0);
-    }
-    catch (e) {
-      if (e instanceof TypeError) {
-        return true;
-      }
-    }
- }
+    Object.isFrozen(0);
+    return true;
+}
 runTestCase(testcase);

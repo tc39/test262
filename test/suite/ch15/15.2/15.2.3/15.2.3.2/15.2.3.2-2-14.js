@@ -13,7 +13,7 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  if (Object.getPrototypeOf(ReferenceError) === Function.prototype) {
+  if (Object.getPrototypeOf(ReferenceError) === Error) {
     return true;
   }
  }

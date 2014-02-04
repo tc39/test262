@@ -6,16 +6,11 @@
 
 /*---
 es5id: 15.2.3.2-1-3
-description: Object.getPrototypeOf throws TypeError if 'O' is a boolean
+description: Object.getPrototypeOf returns Boolean.prototype if 'O' is a boolean
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        try {
-            Object.getPrototypeOf(true);
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
+    return Object.getPrototypeOf(true) === Boolean.prototype;
+}
 runTestCase(testcase);

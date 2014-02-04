@@ -2,24 +2,25 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: The RegExp instance global property has the attribute ReadOnly
+info: The RegExp.prototype global property does not have a set accessor
 es5id: 15.10.7.2_A10
 description: Checking if varying the global property fails
 includes: [$FAIL.js]
 ---*/
 
-__re = /^|^/;
+__re = RegExp.prototype;
 
 //CHECK#1
 if (__re.hasOwnProperty('global') !== true) {
-  $FAIL('#1: __re = /^|^/; __re.hasOwnProperty(\'global\') === true');
+  $FAIL('#1: __re = RegExp.prototype; __re.hasOwnProperty(\'global\') === true');
 }
 
-__obj = __re.global;
+__sample = /^|^/;
+__obj = __sample.global;
 
-__re.global = "shifted";
+__sample.global = "shifted";
 
 //CHECK#2
-if (__re.global !== __obj) {
-  $ERROR('#2: __re = /^|^/; __obj = __re.global; __re.global = "shifted"; __re.global === __obj. Actual: ' + (__re.global));
+if (__sample.global !== __obj) {
+  $ERROR('#2: __sample = /^|^/; __obj = __sample.global; __sample.global = "shifted"; __sample.global === __obj. Actual: ' + (__sample.global));
 }

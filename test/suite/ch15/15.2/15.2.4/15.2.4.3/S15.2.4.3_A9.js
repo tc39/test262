@@ -3,8 +3,8 @@
 
 /*---
 info: >
-    The Object.prototype.toLocaleString.length property has the attribute
-    DontDelete
+    The Object.prototype.toLocaleString.length property does not have the
+    attribute DontDelete
 es5id: 15.2.4.3_A9
 description: >
     Checknig if deleting of the Object.prototype.toLocaleString.length
@@ -19,11 +19,11 @@ if (!(Object.prototype.toLocaleString.hasOwnProperty('length'))) {
 }
 
 //CHECK#1
-if (delete Object.prototype.toLocaleString.length) {
-  $ERROR('#1: The Object.prototype.toLocaleString.length property has the attributes DontDelete');
+if (!delete Object.prototype.toLocaleString.length) {
+  $ERROR('#1: The Object.prototype.toLocaleString.length property does not have the attributes DontDelete');
 }
 
 //CHECK#2
-if (!(Object.prototype.toLocaleString.hasOwnProperty('length'))) {
-  $FAIL('#2: The Object.prototype.toLocaleString.length property has the attributes DontDelete');
+if (Object.prototype.toLocaleString.hasOwnProperty('length')) {
+  $FAIL('#2: The Object.prototype.toLocaleString.length property does not have the attributes DontDelete');
 }

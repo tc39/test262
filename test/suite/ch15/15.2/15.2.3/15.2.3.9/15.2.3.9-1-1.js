@@ -6,16 +6,14 @@
 
 /*---
 es5id: 15.2.3.9-1-1
-description: Object.freeze throws TypeError if type of first param is undefined
+description: >
+    Object.freeze does not throw TypeError if type of first param is
+    undefined
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        try {
-            Object.freeze(undefined);
-            return false;
-        } catch (e) {
-            return e instanceof TypeError;
-        }
-    }
+    Object.freeze(undefined);
+    return true;
+}
 runTestCase(testcase);

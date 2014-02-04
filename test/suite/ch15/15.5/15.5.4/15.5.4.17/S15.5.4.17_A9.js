@@ -3,8 +3,8 @@
 
 /*---
 info: >
-    The String.prototype.toLocaleLowerCase.length property has the attribute
-    DontDelete
+    The String.prototype.toLocaleLowerCase.length property does not have the
+    attribute DontDelete
 es5id: 15.5.4.17_A9
 description: >
     Checking if deleting the String.prototype.toLocaleLowerCase.length
@@ -22,16 +22,16 @@ if (!(String.prototype.toLocaleLowerCase.hasOwnProperty('length'))) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (delete String.prototype.toLocaleLowerCase.length) {
-  $ERROR('#1: delete String.prototype.toLocaleLowerCase.length return false');
+if (!delete String.prototype.toLocaleLowerCase.length) {
+  $ERROR('#1: delete String.prototype.toLocaleLowerCase.length return true');
 }
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (!(String.prototype.toLocaleLowerCase.hasOwnProperty('length'))) {
-  $FAIL('#2: delete String.prototype.toLocaleLowerCase.length; String.prototype.toLocaleLowerCase.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.toLocaleLowerCase.hasOwnProperty('length'));
+if (String.prototype.toLocaleLowerCase.hasOwnProperty('length')) {
+  $FAIL('#2: delete String.prototype.toLocaleLowerCase.length; String.prototype.toLocaleLowerCase.hasOwnProperty(\'length\') return false. Actual: '+String.prototype.toLocaleLowerCase.hasOwnProperty('length'));
 }
 //
 //////////////////////////////////////////////////////////////////////////////

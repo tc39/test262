@@ -3,17 +3,17 @@
 
 /*---
 info: >
-    The Date.prototype.setHours property "length" has { ReadOnly, DontDelete,
-    DontEnum } attributes
+    The Date.prototype.setHours property "length" has { ReadOnly, !
+    DontDelete, DontEnum } attributes
 es5id: 15.9.5.34_A3_T2
 description: Checking DontDelete attribute
 includes: [$FAIL.js]
 ---*/
 
-if (delete Date.prototype.setHours.length  !== false) {
-  $ERROR('#1: The Date.prototype.setHours.length property has the attributes DontDelete');
+if (delete Date.prototype.setHours.length  !== true) {
+  $ERROR('#1: The Date.prototype.setHours.length property does not have the attributes DontDelete');
 }
 
-if (!Date.prototype.setHours.hasOwnProperty('length')) {
-  $FAIL('#2: The Date.prototype.setHours.length property has the attributes DontDelete');
+if (Date.prototype.setHours.hasOwnProperty('length')) {
+  $FAIL('#2: The Date.prototype.setHours.length property does not have the attributes DontDelete');
 }

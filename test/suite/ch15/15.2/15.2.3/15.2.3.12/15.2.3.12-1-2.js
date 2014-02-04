@@ -7,16 +7,13 @@
 /*---
 es5id: 15.2.3.12-1-2
 description: >
-    Object.isFrozen - TypeError is thrown when the first param 'O' is
-    null
+    Object.isFrozen - TypeError is not thrown when the first param 'O'
+    is null
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        try {
-            Object.isFrozen(null);
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
+    Object.isFrozen(null);
+    return true;
+}
 runTestCase(testcase);

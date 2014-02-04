@@ -7,19 +7,19 @@
 /*---
 es5id: 15.2.3.3-4-212
 description: >
-    Object.getOwnPropertyDescriptor returns data desc (all false) for
-    properties on built-ins (RegExp.prototype.source)
+    Object.getOwnPropertyDescriptor returns accessor desc for
+    accessors on built-ins (RegExp.prototype.source)
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
   var desc = Object.getOwnPropertyDescriptor(RegExp.prototype, "source");
 
-  if (desc.writable === false &&
+  if (desc.hasOwnProperty('writable') === false &&
       desc.enumerable === false &&
-      desc.configurable === false &&
-      desc.hasOwnProperty('get') === false &&
-      desc.hasOwnProperty('set') === false) {
+      desc.configurable === true &&
+      typeof desc.get === 'function' &&
+      desc.set === undefined) {
     return true;
   }
  }

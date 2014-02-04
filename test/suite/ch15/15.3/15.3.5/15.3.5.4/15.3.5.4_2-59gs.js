@@ -14,7 +14,7 @@ negative: TypeError
 flags: [noStrict]
 ---*/
 
-function f() { "use strict"; return gNonStrict();};
+function f() { "use strict"; var r = gNonStrict(); return r;};
 new Function("return f();")();
 
 

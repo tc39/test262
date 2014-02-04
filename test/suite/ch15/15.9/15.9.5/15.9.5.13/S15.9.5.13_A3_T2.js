@@ -3,17 +3,17 @@
 
 /*---
 info: >
-    The Date.prototype.getUTCMonth property "length" has { ReadOnly,
+    The Date.prototype.getUTCMonth property "length" has { ReadOnly, !
     DontDelete, DontEnum } attributes
 es5id: 15.9.5.13_A3_T2
 description: Checking DontDelete attribute
 includes: [$FAIL.js]
 ---*/
 
-if (delete Date.prototype.getUTCMonth.length  !== false) {
-  $ERROR('#1: The Date.prototype.getUTCMonth.length property has the attributes DontDelete');
+if (delete Date.prototype.getUTCMonth.length  !== true) {
+  $ERROR('#1: The Date.prototype.getUTCMonth.length property does not have the attributes DontDelete');
 }
 
-if (!Date.prototype.getUTCMonth.hasOwnProperty('length')) {
-  $FAIL('#2: The Date.prototype.getUTCMonth.length property has the attributes DontDelete');
+if (Date.prototype.getUTCMonth.hasOwnProperty('length')) {
+  $FAIL('#2: The Date.prototype.getUTCMonth.length property does not have the attributes DontDelete');
 }

@@ -32,23 +32,6 @@ if (obj["0"] !== -1) {
   $ERROR('#3: var obj = {}; obj.length = NaN; obj.unshift = Array.prototype.unshift; obj.unshift(-1); obj["0"] === -1. Actual: ' + (obj["0"]));
 }
 
-//CHECK#4
-obj.length = Number.POSITIVE_INFINITY;
-var unshift = obj.unshift(-4);
-if (unshift !== 1) {
-  $ERROR('#4: var obj = {}; obj.length = Number.POSITIVE_INFINITY; obj.unshift = Array.prototype.unshift; obj.unshift(-4) === 1. Actual: ' + (unshift));
-}
-
-//CHECK#5
-if (obj.length !== 1) {
-  $ERROR('#6: var obj = {}; obj.length = Number.POSITIVE_INFINITY; obj.unshift = Array.prototype.unshift; obj.unshift(-4); obj.length === 1. Actual: ' + (obj.length));
-}
-
-//CHECK#6
-if (obj["0"] !== -4) {
-  $ERROR('#6: var obj = {}; obj.length = Number.POSITIVE_INFINITY; obj.unshift = Array.prototype.unshift; obj.unshift(-4); obj["0"] === -4. Actual: ' + (obj["0"]));
-}
-
 //CHECK#7
 obj.length = Number.NEGATIVE_INFINITY;
 var unshift = obj.unshift(-7);

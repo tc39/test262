@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: The length property of pop has the attribute DontDelete
+info: The length property of pop does not have the attribute DontDelete
 es5id: 15.4.4.6_A5.2
 description: Checking use hasOwnProperty, delete
 flags: [noStrict]
@@ -17,8 +17,8 @@ if (Array.prototype.pop.hasOwnProperty('length') !== true) {
 delete Array.prototype.pop.length;
 
 //CHECK#2
-if (Array.prototype.pop.hasOwnProperty('length') !== true) {
-  $ERROR('#2: delete Array.prototype.pop.length; Array.prototype.pop.hasOwnProperty(\'length\') === true. Actual: ' + (Array.prototype.pop.hasOwnProperty('length')));
+if (Array.prototype.pop.hasOwnProperty('length') !== false) {
+  $ERROR('#2: delete Array.prototype.pop.length; Array.prototype.pop.hasOwnProperty(\'length\') === false. Actual: ' + (Array.prototype.pop.hasOwnProperty('length')));
 }
 
 //CHECK#3

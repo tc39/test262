@@ -2,9 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: Check ToUint32(length) for non Array objects
+info: Check ToLength(length) for non Array objects
 es5id: 15.4.4.10_A3_T2
 description: length = 4294967297
+includes: [$FAIL.js]
 ---*/
 
 var obj = {};
@@ -12,19 +13,12 @@ obj.slice = Array.prototype.slice;
 obj[0] = "x";
 obj[4294967296] = "y";
 obj.length = 4294967297;
-var arr = obj.slice(0,4294967297);
 
-//CHECK#1
-if (arr.length !== 1) {
-  $ERROR('#1: var obj = {}; obj.slice = Array.prototype.slice; obj[0] = "x"; obj[4294967296] = "y"; obj.length = 4294967297; var arr = obj.slice(0,4294967297); arr.length === 1. Actual: ' + (arr.length));
-}
-
-//CHECK#2
-if (arr[0] !== "x") {
-   $ERROR('#2: var obj = {}; obj.slice = Array.prototype.slice; obj[0] = "x"; obj[4294967296] = "y"; obj.length = 4294967297; var arr = obj.slice(0,4294967297); arr[0] === "x". Actual: ' + (arr[0]));
-}
-
-//CHECK#3
-if (arr[4294967296] !== undefined) {
-   $ERROR('#3: var obj = {}; obj.slice = Array.prototype.slice; obj[0] = "x"; obj[4294967296] = "y"; obj.length = 4294967297; var arr = obj.slice(0,4294967297); arr[4294967296] === undefined. Actual: ' + (arr[4294967296]));
+try {
+  var arr = obj.slice(0,4294967297);
+  $FAIL('#1: var obj = {}; obj.slice = Array.prototype.slice; obj[0] = "x"; obj[4294967296] = "y"; obj.length = 4294967297; var arr = obj.slice(0,4294967297); lead to throwing exception. Actual: '+arr);
+} catch (e) {
+  if (!(e instanceof RangeError)) {
+    $ERROR('#1.1: var obj = {}; obj.slice = Array.prototype.slice; obj[0] = "x"; obj[4294967296] = "y"; obj.length = 4294967297; var arr = obj.slice(0,4294967297); lead to throwing exception. Exception is instance of RangeError. Actual: exception is '+e);
+  }
 }

@@ -7,17 +7,18 @@
 /*---
 es5id: 15.10.7.2-2
 description: >
-    RegExp.prototype.global is a data property with default attribute
-    values (false)
+    RegExp.prototype.global is an accessor property whose set accessor
+    function is undefined
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
   var desc = Object.getOwnPropertyDescriptor(RegExp.prototype, 'global');
   
-  if (desc.writable === false &&
+  if (typeof desc.get === 'function' &&
+      desc.set === undefined &&
       desc.enumerable === false &&
-      desc.configurable === false) {
+      desc.configurable === true) {
     return true;
   }
  }

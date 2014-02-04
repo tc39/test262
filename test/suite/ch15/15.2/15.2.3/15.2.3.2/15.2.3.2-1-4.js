@@ -6,16 +6,11 @@
 
 /*---
 es5id: 15.2.3.2-1-4
-description: Object.getPrototypeOf throws TypeError if 'O' is a string
+description: Object.getPrototypeOf returns String.prototype if 'O' is a string
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        try {
-            Object.getPrototypeOf("abc");
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
+    return Object.getPrototypeOf("abc") === String.prototype;
+}
 runTestCase(testcase);

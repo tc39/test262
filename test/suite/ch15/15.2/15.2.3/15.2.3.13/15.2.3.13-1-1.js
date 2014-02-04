@@ -6,16 +6,12 @@
 
 /*---
 es5id: 15.2.3.13-1-1
-description: Object.isExtensible throws TypeError if 'O' is undefined
+description: Object.isExtensible does not throw TypeError if 'O' is undefined
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-
-        try {
-            Object.isExtensible(undefined);
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
+    Object.isExtensible(undefined);
+    return true;
+}
 runTestCase(testcase);

@@ -7,16 +7,13 @@
 /*---
 es5id: 15.2.3.3-1-3
 description: >
-    Object.getOwnPropertyDescriptor - TypeError is thrown when first
-    param is a boolean
+    Object.getOwnPropertyDescriptor - TypeError is not thrown when
+    first param is a boolean
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        try {
-            Object.getOwnPropertyDescriptor(true, "foo");
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
+    Object.getOwnPropertyDescriptor(true, "foo");
+    return true;
+}
 runTestCase(testcase);

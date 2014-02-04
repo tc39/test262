@@ -21,8 +21,12 @@ function testcase() {
             length: 4294967296
         };
 
-        var newArr = Array.prototype.map.call(obj, callbackfn);
-
-        return newArr.length === 0;
+        try {
+            var newArr = Array.prototype.map.call(obj, callbackfn);
+        } catch (e) {
+            if (e instanceof RangeError) {
+                return true;
+            }
+        }
     }
 runTestCase(testcase);

@@ -2,7 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: The String.prototype.indexOf.length property has the attribute DontDelete
+info: >
+    The String.prototype.indexOf.length property does not have the attribute
+    DontDelete
 es5id: 15.5.4.7_A9
 description: >
     Checking if deleting the String.prototype.indexOf.length property
@@ -20,16 +22,16 @@ if (!(String.prototype.indexOf.hasOwnProperty('length'))) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (delete String.prototype.indexOf.length) {
-  $ERROR('#1: delete String.prototype.indexOf.length raturn false');
+if (!delete String.prototype.indexOf.length) {
+  $ERROR('#1: delete String.prototype.indexOf.length raturn true');
 }
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (!(String.prototype.indexOf.hasOwnProperty('length'))) {
-  $FAIL('#2: delete String.prototype.indexOf.length; String.prototype.indexOf.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.indexOf.hasOwnProperty('length')); 
+if (String.prototype.indexOf.hasOwnProperty('length')) {
+  $FAIL('#2: delete String.prototype.indexOf.length; String.prototype.indexOf.hasOwnProperty(\'length\') return false. Actual: '+String.prototype.indexOf.hasOwnProperty('length')); 
 }
 //
 //////////////////////////////////////////////////////////////////////////////

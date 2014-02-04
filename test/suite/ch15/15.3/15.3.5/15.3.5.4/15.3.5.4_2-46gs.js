@@ -17,7 +17,8 @@ flags: [noStrict]
 (function () {
     var f = function () {
         "use strict";
-        return gNonStrict();
+        var r = gNonStrict();
+        return r;
     }
     return f();
 })();

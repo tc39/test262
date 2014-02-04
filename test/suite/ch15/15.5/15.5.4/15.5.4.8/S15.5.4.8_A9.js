@@ -3,8 +3,8 @@
 
 /*---
 info: >
-    The String.prototype.lastIndexOf.length property has the attribute
-    DontDelete
+    The String.prototype.lastIndexOf.length property does not have the
+    attribute DontDelete
 es5id: 15.5.4.8_A9
 description: >
     Checking if deleting the String.prototype.lastIndexOf.length
@@ -22,16 +22,16 @@ if (!(String.prototype.lastIndexOf.hasOwnProperty('length'))) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (delete String.prototype.lastIndexOf.length) {
-  $ERROR('#1: delete String.prototype.lastIndexOf.length return false');
+if (!delete String.prototype.lastIndexOf.length) {
+  $ERROR('#1: delete String.prototype.lastIndexOf.length return true');
 }
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (!(String.prototype.lastIndexOf.hasOwnProperty('length'))) {
-  $FAIL('#2: delete String.prototype.lastIndexOf.length; String.prototype.lastIndexOf.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.lastIndexOf.hasOwnProperty('length'));
+if (String.prototype.lastIndexOf.hasOwnProperty('length')) {
+  $FAIL('#2: delete String.prototype.lastIndexOf.length; String.prototype.lastIndexOf.hasOwnProperty(\'length\') return false. Actual: '+String.prototype.lastIndexOf.hasOwnProperty('length'));
 }
 //
 //////////////////////////////////////////////////////////////////////////////

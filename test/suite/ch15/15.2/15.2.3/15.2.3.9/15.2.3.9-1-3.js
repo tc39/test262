@@ -7,26 +7,14 @@
 /*---
 es5id: 15.2.3.9-1-3
 description: >
-    Object.freeze throws TypeError if type of first param is boolean
-    primitive
+    Object.freeze does not throw TypeError if type of first param is
+    boolean primitive
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        var result = false;
-        try {
-            Object.freeze(false);
-
-            return false;
-        } catch (e) {
-            result = e instanceof TypeError;
-        }
-        try {
-            Object.freeze(true);
-
-            return false;
-        } catch (e) {
-            return result && e instanceof TypeError;
-        }
-    }
+    Object.freeze(false);
+    Object.freeze(true);
+    return true;
+}
 runTestCase(testcase);

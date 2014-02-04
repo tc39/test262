@@ -7,10 +7,13 @@
 /*---
 es5id: 12.14-1
 description: >
-    catch doesn't change declaration scope - var initializer in catch
-    with same name as catch parameter changes parameter
+    var initializer in catch with same name as catch parameter is a
+    SyntaxError
+negative: ^((?!NotEarlyError).)*$
 includes: [runTestCase.js]
 ---*/
+
+throw NotEarlyError;
 
 function testcase() {
   foo = "prior to throw";

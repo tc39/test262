@@ -6,18 +6,14 @@
 
 /*---
 es5id: 15.2.3.8-1
-description: Object.seal throws TypeError if type of first param is not Object
+description: >
+    Object.seal does not throw TypeError if type of first param is not
+    Object
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-    try {
-      Object.seal(0);
-    }
-    catch (e) {
-      if (e instanceof TypeError) {
-        return true;
-      }
-    }
- }
+    Object.seal(0);
+    return true;
+}
 runTestCase(testcase);

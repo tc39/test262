@@ -2,7 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: The length property of encodeURIComponent has the attribute DontDelete
+info: >
+    The length property of encodeURIComponent does not have the attribute
+    DontDelete
 es5id: 15.1.3.4_A5.2
 description: Checking use hasOwnProperty, delete
 includes: [$FAIL.js]
@@ -16,8 +18,8 @@ if (encodeURIComponent.hasOwnProperty('length') !== true) {
 delete encodeURIComponent.length;
 
 //CHECK#2
-if (encodeURIComponent.hasOwnProperty('length') !== true) {
-  $ERROR('#2: delete encodeURIComponent.length; encodeURIComponent.hasOwnProperty(\'length\') === true. Actual: ' + (encodeURIComponent.hasOwnProperty('length')));
+if (encodeURIComponent.hasOwnProperty('length') !== false) {
+  $ERROR('#2: delete encodeURIComponent.length; encodeURIComponent.hasOwnProperty(\'length\') === false. Actual: ' + (encodeURIComponent.hasOwnProperty('length')));
 }
 
 //CHECK#3

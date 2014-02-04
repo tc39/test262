@@ -3,17 +3,17 @@
 
 /*---
 info: >
-    The Date.prototype.getUTCFullYear property "length" has { ReadOnly,
+    The Date.prototype.getUTCFullYear property "length" has { ReadOnly, !
     DontDelete, DontEnum } attributes
 es5id: 15.9.5.11_A3_T2
 description: Checking DontDelete attribute
 includes: [$FAIL.js]
 ---*/
 
-if (delete Date.prototype.getUTCFullYear.length  !== false) {
-  $ERROR('#1: The Date.prototype.getUTCFullYear.length property has the attributes DontDelete');
+if (delete Date.prototype.getUTCFullYear.length  !== true) {
+  $ERROR('#1: The Date.prototype.getUTCFullYear.length property does not have the attributes DontDelete');
 }
 
-if (!Date.prototype.getUTCFullYear.hasOwnProperty('length')) {
-  $FAIL('#2: The Date.prototype.getUTCFullYear.length property has the attributes DontDelete');
+if (Date.prototype.getUTCFullYear.hasOwnProperty('length')) {
+  $FAIL('#2: The Date.prototype.getUTCFullYear.length property does not have the attributes DontDelete');
 }

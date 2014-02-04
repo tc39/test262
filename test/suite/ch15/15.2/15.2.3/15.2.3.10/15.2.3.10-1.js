@@ -7,19 +7,13 @@
 /*---
 es5id: 15.2.3.10-1
 description: >
-    Object.preventExtensions throws TypeError if type of first param
-    is not Object
+    Object.preventExtensions does not throw TypeError if type of first
+    param is not Object
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-    try {
-      Object.preventExtensions(0);
-    }
-    catch (e) {
-      if (e instanceof TypeError) {
-        return true;
-      }
-    }
- }
+    Object.preventExtensions(0);
+    return true;
+}
 runTestCase(testcase);

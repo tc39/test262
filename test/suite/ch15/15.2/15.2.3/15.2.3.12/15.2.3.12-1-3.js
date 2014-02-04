@@ -7,16 +7,13 @@
 /*---
 es5id: 15.2.3.12-1-3
 description: >
-    Object.isFrozen - TypeError is thrown when the first param 'O' is
-    a boolean
+    Object.isFrozen - TypeError is not thrown when the first param 'O'
+    is a boolean
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        try {
-            Object.isFrozen(true);
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
+    Object.isFrozen(true);
+    return true;
+}
 runTestCase(testcase);

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: The length property of sort has the attribute DontDelete
+info: The length property of sort does not have the attribute DontDelete
 es5id: 15.4.4.11_A7.2
 description: Checking use hasOwnProperty, delete
 flags: [noStrict]
@@ -17,8 +17,8 @@ if (Array.prototype.sort.hasOwnProperty('length') !== true) {
 delete Array.prototype.sort.length;
 
 //CHECK#2
-if (Array.prototype.sort.hasOwnProperty('length') !== true) {
-  $ERROR('#2: delete Array.prototype.sort.length; Array.prototype.sort.hasOwnProperty(\'length\') === true. Actual: ' + (Array.prototype.sort.hasOwnProperty('length')));
+if (Array.prototype.sort.hasOwnProperty('length') !== false) {
+  $ERROR('#2: delete Array.prototype.sort.length; Array.prototype.sort.hasOwnProperty(\'length\') === false. Actual: ' + (Array.prototype.sort.hasOwnProperty('length')));
 }
 
 //CHECK#3

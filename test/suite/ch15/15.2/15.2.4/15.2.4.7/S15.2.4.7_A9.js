@@ -3,8 +3,8 @@
 
 /*---
 info: >
-    The Object.prototype.propertyIsEnumerable.length property has the
-    attribute DontDelete
+    The Object.prototype.propertyIsEnumerable.length property does not have
+    the attribute DontDelete
 es5id: 15.2.4.7_A9
 description: >
     Checking if deleting the
@@ -18,7 +18,7 @@ if (!(Object.prototype.propertyIsEnumerable.hasOwnProperty('length'))) {
 }
 
 //CHECK#1
-if (delete Object.prototype.propertyIsEnumerable.length) {
-  $ERROR('#1: The Object.prototype.propertyIsEnumerable.length property has the attributes DontDelete');
+if (!delete Object.prototype.propertyIsEnumerable.length) {
+  $ERROR('#1: The Object.prototype.propertyIsEnumerable.length property does not have the attributes DontDelete');
 }
 //

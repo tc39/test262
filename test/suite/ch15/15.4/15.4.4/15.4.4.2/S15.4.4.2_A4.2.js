@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: The length property of toString has the attribute DontDelete
+info: The length property of toString does not have the attribute DontDelete
 es5id: 15.4.4.2_A4.2
 description: Checking use hasOwnProperty, delete
 flags: [noStrict]
@@ -17,8 +17,8 @@ if (Array.prototype.toString.hasOwnProperty('length') !== true) {
 delete Array.prototype.toString.length;
 
 //CHECK#2
-if (Array.prototype.toString.hasOwnProperty('length') !== true) {
-  $ERROR('#2: delete Array.prototype.toString.length; Array.prototype.toString.hasOwnProperty(\'length\') === true. Actual: ' + (Array.prototype.toString.hasOwnProperty('length')));
+if (Array.prototype.toString.hasOwnProperty('length') !== false) {
+  $ERROR('#2: delete Array.prototype.toString.length; Array.prototype.toString.hasOwnProperty(\'length\') === false. Actual: ' + (Array.prototype.toString.hasOwnProperty('length')));
 }
 
 //CHECK#3

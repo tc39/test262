@@ -7,13 +7,18 @@ info: >
     the result is a string, the choice of which is implementation-dependent
 es5id: 15.7.4.2_A2_T08
 description: radix is 9
+includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
-if(Number.prototype.toString(9) !== "0"){
-  $ERROR('#1: Number.prototype.toString(9) === "0"');
+try {
+  Number.prototype.toString(9);
+  $FAIL('#1: "Number.prototype.toString(9);" lead to throwing exception. Actual: '+Number.prototype.toString(9));
+} catch (e) {
+  if (!(e instanceof TypeError)) {
+    $ERROR('#1.1: "Number.prototype.toString(9)" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
+  }
 }
-
 //CHECK#2
 if((new Number()).toString(9) !== "0"){
   $ERROR('#2: (new Number()).toString(9) === "0"');

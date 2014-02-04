@@ -7,16 +7,13 @@
 /*---
 es5id: 15.2.3.10-1-4
 description: >
-    Object.preventExtensions throws TypeError if 'O' is a string
-    primitive value
+    Object.preventExtensions does not throw TypeError if 'O' is a
+    string primitive value
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        try {
-            Object.preventExtensions("abc");
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
+    Object.preventExtensions("abc");
+    return true;
+}
 runTestCase(testcase);

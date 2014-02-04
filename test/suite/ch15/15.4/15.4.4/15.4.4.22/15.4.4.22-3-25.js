@@ -8,7 +8,7 @@
 es5id: 15.4.4.22-3-25
 description: >
     Array.prototype.reduceRight - value of 'length' is a negative
-    non-integer, ensure truncation occurs in the proper direction
+    non-integer
 includes: [runTestCase.js]
 ---*/
 
@@ -35,6 +35,6 @@ function testcase() {
         };
 
         Array.prototype.reduceRight.call(obj, callbackfn, 1);
-        return testResult1 && testResult2;
+        return testResult1 && !testResult2;
     }
 runTestCase(testcase);

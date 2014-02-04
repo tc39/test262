@@ -3,8 +3,8 @@
 
 /*---
 info: >
-    The String.prototype.toLocaleUpperCase.length property has the attribute
-    DontDelete
+    The String.prototype.toLocaleUpperCase.length property does not have the
+    attribute DontDelete
 es5id: 15.5.4.19_A9
 description: >
     Checking if deleting the String.prototype.toLocaleUpperCase.length
@@ -22,16 +22,16 @@ if (!(String.prototype.toLocaleUpperCase.hasOwnProperty('length'))) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (delete String.prototype.toLocaleUpperCase.length) {
-  $ERROR('#1: delete String.prototype.toLocaleUpperCase.length return false');
+if (!delete String.prototype.toLocaleUpperCase.length) {
+  $ERROR('#1: delete String.prototype.toLocaleUpperCase.length return true');
 }
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (!(String.prototype.toLocaleUpperCase.hasOwnProperty('length'))) {
-  $FAIL('#2: delete String.prototype.toLocaleUpperCase.length; String.prototype.toLocaleUpperCase.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.toLocaleUpperCase.hasOwnProperty('length'));
+if (String.prototype.toLocaleUpperCase.hasOwnProperty('length')) {
+  $FAIL('#2: delete String.prototype.toLocaleUpperCase.length; String.prototype.toLocaleUpperCase.hasOwnProperty(\'length\') return false. Actual: '+String.prototype.toLocaleUpperCase.hasOwnProperty('length'));
 }
 //
 //////////////////////////////////////////////////////////////////////////////

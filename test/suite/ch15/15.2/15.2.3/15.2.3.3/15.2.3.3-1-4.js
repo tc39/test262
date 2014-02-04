@@ -7,16 +7,13 @@
 /*---
 es5id: 15.2.3.3-1-4
 description: >
-    Object.getOwnPropertyDescriptor - TypeError is thrown when first
-    param is a number
+    Object.getOwnPropertyDescriptor - TypeError is not thrown when
+    first param is a number
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        try {
-            Object.getOwnPropertyDescriptor(-2, "foo");
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
+    Object.getOwnPropertyDescriptor(-2, "foo");
+    return true;
+}
 runTestCase(testcase);

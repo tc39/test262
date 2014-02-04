@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: The length property of concat has the attribute DontDelete
+info: The length property of concat does not have the attribute DontDelete
 es5id: 15.4.4.4_A4.2
 description: Checking use hasOwnProperty, delete
 flags: [noStrict]
@@ -17,8 +17,8 @@ if (Array.prototype.concat.hasOwnProperty('length') !== true) {
 delete Array.prototype.concat.length;
 
 //CHECK#2
-if (Array.prototype.concat.hasOwnProperty('length') !== true) {
-  $ERROR('#2: delete Array.prototype.concat.length; Array.prototype.concat.hasOwnProperty(\'length\') === true. Actual: ' + (Array.prototype.concat.hasOwnProperty('length')));
+if (Array.prototype.concat.hasOwnProperty('length') !== false) {
+  $ERROR('#2: delete Array.prototype.concat.length; Array.prototype.concat.hasOwnProperty(\'length\') === false. Actual: ' + (Array.prototype.concat.hasOwnProperty('length')));
 }
 
 //CHECK#3

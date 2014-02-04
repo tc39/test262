@@ -6,16 +6,12 @@
 
 /*---
 es5id: 15.2.3.13-1-3
-description: Object.isExtensible throws TypeError if 'O' is a boolean
+description: Object.isExtensible does not throw TypeError if 'O' is a boolean
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-
-        try {
-            Object.isExtensible(true);
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
+    Object.isExtensible(true);
+    return true;
+}
 runTestCase(testcase);

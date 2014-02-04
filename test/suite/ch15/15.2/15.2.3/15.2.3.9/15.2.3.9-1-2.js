@@ -6,16 +6,14 @@
 
 /*---
 es5id: 15.2.3.9-1-2
-description: Object.freeze throws TypeError if type of first param is null
+description: >
+    Object.freeze does not throw TypeError if type of first param is
+    null
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        try {
-            Object.freeze(null);
-            return false;
-        } catch (e) {
-            return e instanceof TypeError;
-        }
-    }
+    Object.freeze(null);
+    return true;
+}
 runTestCase(testcase);

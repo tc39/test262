@@ -21,6 +21,6 @@ function testcase() {
             length: 4294967296
         };
 
-        return Array.prototype.indexOf.call(obj, targetObj) === -1;
+        return Array.prototype.indexOf.call(obj, targetObj) === 0;
     }
 runTestCase(testcase);

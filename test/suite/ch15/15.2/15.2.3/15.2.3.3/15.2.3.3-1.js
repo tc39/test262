@@ -7,19 +7,13 @@
 /*---
 es5id: 15.2.3.3-1
 description: >
-    Object.getOwnPropertyDescriptor throws TypeError if type of first
-    param is not Object
+    Object.getOwnPropertyDescriptor does not throw TypeError if type
+    of first param is not Object
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  try {
     Object.getOwnPropertyDescriptor(0, "foo");
-  }
-  catch (e) {
-    if (e instanceof TypeError) {
-      return true;
-    }
-  }
- }
+    return true;
+}
 runTestCase(testcase);

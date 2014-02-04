@@ -23,17 +23,6 @@ if (isNaN(obj.length) !== true) {
   $ERROR('#2: var obj = {}; obj.length = NaN; obj.join = Array.prototype.join; obj.join(); obj.length === Not-a-Number. Actual: ' + (obj.length));
 }
 
-//CHECK#3
-obj.length = Number.POSITIVE_INFINITY;
-if (obj.join() !== "") {
-  $ERROR('#3: var obj = {}; obj.length = Number.POSITIVE_INFINITY; obj.join = Array.prototype.join; obj.join() === "". Actual: ' + (obj.join()));
-}
-
-//CHECK#4
-if (obj.length !== Number.POSITIVE_INFINITY) {
-  $ERROR('#4: var obj = {}; obj.length = Number.POSITIVE_INFINITY; obj.join = Array.prototype.join; obj.join(); obj.length === Number.POSITIVE_INFINITY. Actual: ' + (obj.length));
-}
-
 //CHECK#5
 obj.length = Number.NEGATIVE_INFINITY;
 if (obj.join() !== "") {

@@ -2,16 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: Array prototype object has length property whose value is +0
+info: Array prototype object does not have a length property
 es5id: 15.4.4_A1.3_T1
-description: Array.prototype.length === 0
+description: Array.prototype.length === undefined
 ---*/
 
 //CHECK#1
-if (Array.prototype.length !== 0) {
-  $ERROR('#1.1: Array.prototype.length === 0. Actual: ' + (Array.prototype.length));
-} else {
-  if (1 / Array.prototype.length !== Number.POSITIVE_INFINITY) {
-    $ERROR('#1.2: Array.prototype.length === +0. Actual: ' + (Array.prototype.length));
-  }
+if (Array.prototype.length !== undefined) {
+  $ERROR('#1.1: Array.prototype.length === undefined. Actual: ' + (Array.prototype.length));
 }

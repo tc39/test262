@@ -3,17 +3,17 @@
 
 /*---
 info: >
-    The Date.prototype.setMonth property "length" has { ReadOnly, DontDelete,
-    DontEnum } attributes
+    The Date.prototype.setMonth property "length" has { ReadOnly, !
+    DontDelete, DontEnum } attributes
 es5id: 15.9.5.38_A3_T2
 description: Checking DontDelete attribute
 includes: [$FAIL.js]
 ---*/
 
-if (delete Date.prototype.setMonth.length  !== false) {
-  $ERROR('#1: The Date.prototype.setMonth.length property has the attributes DontDelete');
+if (delete Date.prototype.setMonth.length  !== true) {
+  $ERROR('#1: The Date.prototype.setMonth.length property does not have the attributes DontDelete');
 }
 
-if (!Date.prototype.setMonth.hasOwnProperty('length')) {
-  $FAIL('#2: The Date.prototype.setMonth.length property has the attributes DontDelete');
+if (Date.prototype.setMonth.hasOwnProperty('length')) {
+  $FAIL('#2: The Date.prototype.setMonth.length property does not have the attributes DontDelete');
 }

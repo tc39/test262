@@ -3,8 +3,8 @@
 
 /*---
 info: >
-    The Object.prototype.isPrototypeOf.length property has the attribute
-    DontDelete
+    The Object.prototype.isPrototypeOf.length property does not have the
+    attribute DontDelete
 es5id: 15.2.4.6_A9
 description: >
     Checking deleting the Object.prototype.isPrototypeOf.length
@@ -18,7 +18,7 @@ if (!(Object.prototype.isPrototypeOf.hasOwnProperty('length'))) {
 }
 
 //CHECK#1
-if (delete Object.prototype.isPrototypeOf.length) {
-  $ERROR('#1: The Object.prototype.isPrototypeOf.length property has the attributes DontDelete');
+if (!delete Object.prototype.isPrototypeOf.length) {
+  $ERROR('#1: The Object.prototype.isPrototypeOf.length property does not have the attributes DontDelete');
 }
 //

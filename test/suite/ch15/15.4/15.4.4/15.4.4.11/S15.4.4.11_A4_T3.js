@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: Check ToUint32(length) for non Array objects
+info: Check ToLength(length) for non Array objects
 es5id: 15.4.4.11_A4_T3
 description: length = -4294967294
 ---*/
@@ -25,13 +25,13 @@ if (obj.length !== -4294967294) {
 }
 
 //CHECK#3
-if (obj[0] !== "y") {
-  $ERROR('#3: var obj = {}; obj.sort = Array.prototype.sort; obj[0] = "z"; obj[1] = "y"; obj[2] = "x"; obj.length = -4294967294; obj.sort(); obj[0] === "y". Actual: ' + (obj[0]));
+if (obj[0] !== "z") {
+  $ERROR('#3: var obj = {}; obj.sort = Array.prototype.sort; obj[0] = "z"; obj[1] = "y"; obj[2] = "x"; obj.length = -4294967294; obj.sort(); obj[0] === "z". Actual: ' + (obj[0]));
 }   
 
 //CHECK#4
-if (obj[1] !== "z") {
-  $ERROR('#4: var obj = {}; obj.sort = Array.prototype.sort; obj[0] = "z"; obj[1] = "y"; obj[2] = "x"; obj.length = -4294967294; obj.sort(); obj[1] === "z". Actual: ' + (obj[1]));
+if (obj[1] !== "y") {
+  $ERROR('#4: var obj = {}; obj.sort = Array.prototype.sort; obj[0] = "z"; obj[1] = "y"; obj[2] = "x"; obj.length = -4294967294; obj.sort(); obj[1] === "y". Actual: ' + (obj[1]));
 } 
 
 //CHECK#5
