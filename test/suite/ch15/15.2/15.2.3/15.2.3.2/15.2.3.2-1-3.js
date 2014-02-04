@@ -5,16 +5,11 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.2/15.2.3/15.2.3.2/15.2.3.2-1-3.js
- * @description Object.getPrototypeOf throws TypeError if 'O' is a boolean
+ * @description Object.getPrototypeOf returns Boolean.prototype if 'O' is a boolean
  */
 
 
 function testcase() {
-        try {
-            Object.getPrototypeOf(true);
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
+    return Object.getPrototypeOf(true) === Boolean.prototype;
+}
 runTestCase(testcase);

@@ -5,18 +5,11 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.2/15.2.3/15.2.3.2/15.2.3.2-1.js
- * @description Object.getPrototypeOf throws TypeError if type of first param is not Object
+ * @description Object.getPrototypeOf returns Number.prototype if 'O' is a number
  */
 
 
 function testcase() {
-  try {
-    Object.getPrototypeOf(0);
-  }
-  catch (e) {
-    if (e instanceof TypeError) {
-      return true;
-    }
-  }
- }
+    return Object.getPrototypeOf(0) === Number.prototype;
+}
 runTestCase(testcase);
