@@ -5,18 +5,12 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.2/15.2.3/15.2.3.8/15.2.3.8-1.js
- * @description Object.seal throws TypeError if type of first param is not Object
+ * @description Object.seal does not throw TypeError if type of first param is not Object
  */
 
 
 function testcase() {
-    try {
-      Object.seal(0);
-    }
-    catch (e) {
-      if (e instanceof TypeError) {
-        return true;
-      }
-    }
- }
+    Object.seal(0);
+    return true;
+}
 runTestCase(testcase);
