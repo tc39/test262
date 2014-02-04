@@ -5,16 +5,12 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.2/15.2.3/15.2.3.13/15.2.3.13-1-2.js
- * @description Object.isExtensible throws TypeError if 'O' is null
+ * @description Object.isExtensible does not throw TypeError if 'O' is null
  */
 
 
 function testcase() {
-
-        try {
-            Object.isExtensible(null);
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
+    Object.isExtensible(null);
+    return true;
+}
 runTestCase(testcase);

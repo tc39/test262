@@ -5,16 +5,12 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.2/15.2.3/15.2.3.13/15.2.3.13-1-1.js
- * @description Object.isExtensible throws TypeError if 'O' is undefined
+ * @description Object.isExtensible does not throw TypeError if 'O' is undefined
  */
 
 
 function testcase() {
-
-        try {
-            Object.isExtensible(undefined);
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
+    Object.isExtensible(undefined);
+    return true;
+}
 runTestCase(testcase);
