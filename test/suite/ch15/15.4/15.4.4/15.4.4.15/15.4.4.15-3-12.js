@@ -13,7 +13,7 @@ function testcase() {
 
         var obj = {1: null, 2: undefined, length: "-4294967294"};
 
-        return Array.prototype.lastIndexOf.call(obj, null) === 1 &&
+        return Array.prototype.lastIndexOf.call(obj, null) === -1 &&
             Array.prototype.lastIndexOf.call(obj, undefined) === -1;
     }
 runTestCase(testcase);

@@ -27,6 +27,6 @@ function testcase() {
         var obj = { 1: 11, 2: 9, length: -4294967294 };
 
         Array.prototype.reduceRight.call(obj, callbackfn, 1);
-        return testResult1 && testResult2;
+        return testResult1 && !testResult2;
     }
 runTestCase(testcase);

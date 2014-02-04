@@ -5,7 +5,7 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.4/15.4.4/15.4.4.17/15.4.4.17-3-25.js
- * @description Array.prototype.some - value of 'length' is a negative non-integer, ensure truncation occurs in the proper direction
+ * @description Array.prototype.some - value of 'length' is a negative non-integer
  */
 
 
@@ -25,7 +25,7 @@ function testcase() {
             length: -4294967294.5
         };
 
-        return Array.prototype.some.call(obj, callbackfn1) &&
+        return !Array.prototype.some.call(obj, callbackfn1) &&
             !Array.prototype.some.call(obj, callbackfn2);
     }
 runTestCase(testcase);

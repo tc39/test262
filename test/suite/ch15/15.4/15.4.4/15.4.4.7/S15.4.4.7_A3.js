@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * Check ToUint32(length) for Array object
+ * Check ToLength(length) for Array object
  *
  * @path ch15/15.4/15.4.4/15.4.4.7/S15.4.4.7_A3.js
  * @description If ToUint32(length) !== length, throw RangeError

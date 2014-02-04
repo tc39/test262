@@ -17,6 +17,6 @@ function testcase() {
 
         var obj = { 1: 11, 2: 9, length: -4294967294 };
 
-        return Array.prototype.reduce.call(obj, callbackfn, 1) === true;
+        return Array.prototype.reduce.call(obj, callbackfn, 1) === 1;
     }
 runTestCase(testcase);

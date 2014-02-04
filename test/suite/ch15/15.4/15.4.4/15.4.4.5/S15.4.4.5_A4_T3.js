@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * Check ToUint32(length) for non Array objects
+ * Check ToLength(length) for non Array objects
  *
  * @path ch15/15.4/15.4.4/15.4.4.5/S15.4.4.5_A4_T3.js
  * @description length = -4294967294
@@ -16,8 +16,8 @@ obj[2] = "z";
 obj.length = -4294967294;
 
 //CHECK#1
-if (obj.join("") !== "xy") {
-  $ERROR('#1: var obj = {}; obj.join = Array.prototype.join; obj[0] = "x"; obj[1] = "y"; obj[2] = "z"; obj.length = -4294967294; obj.join("") === "xy". Actual: ' + (obj.join("")));
+if (obj.join("") !== "") {
+  $ERROR('#1: var obj = {}; obj.join = Array.prototype.join; obj[0] = "x"; obj[1] = "y"; obj[2] = "z"; obj.length = -4294967294; obj.join("") === "". Actual: ' + (obj.join("")));
 }
 
 //CHECK#2

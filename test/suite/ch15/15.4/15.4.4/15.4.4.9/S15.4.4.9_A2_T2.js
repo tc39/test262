@@ -25,18 +25,6 @@ if (obj.length !== 0) {
   $ERROR('#2: var obj = {}; obj.length = NaN; obj.shift = Array.prototype.shift; obj.shift(); obj.length === 0. Actual: ' + (obj.length));
 }
 
-//CHECK#3
-obj.length = Number.POSITIVE_INFINITY;
-var shift = obj.shift();
-if (shift !== undefined) {
-  $ERROR('#3: var obj = {}; obj.length = Number.POSITIVE_INFINITY; obj.shift = Array.prototype.shift; obj.shift() === undefined. Actual: ' + (shift));
-}
-
-//CHECK#4
-if (obj.length !== 0) {
-  $ERROR('#4: var obj = {}; obj.length = Number.POSITIVE_INFINITY; obj.shift = Array.prototype.shift; obj.shift(); obj.length === 0. Actual: ' + (obj.length));
-}
-
 //CHECK#5
 obj.length = Number.NEGATIVE_INFINITY;
 var shift = obj.shift();

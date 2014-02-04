@@ -20,7 +20,7 @@ function testcase() {
 
         var obj = { 0: 9, 1: 11, 2: 12, length: "-4294967294" };
 
-        return Array.prototype.some.call(obj, callbackfn1) &&
+        return !Array.prototype.some.call(obj, callbackfn1) &&
             !Array.prototype.some.call(obj, callbackfn2);
     }
 runTestCase(testcase);
