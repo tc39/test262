@@ -10,43 +10,27 @@
 
 
 function testcase() {
-        var obj = {};
-
-        var proto = {};
-
-        Object.defineProperty(proto, "prop", {
-            value: "inheritedValue",
-            enumerable: false,
-            configurable: true,
-            writable: true
-        });
+        var proto = {
+            prop: "enumerableValue"
+        };
 
         var ConstructFun = function () { };
         ConstructFun.prototype = proto;
 
         var child = new ConstructFun();
 
-        Object.defineProperty(child, "prop1", {
-            value: "overridedValue1",
+        Object.defineProperty(child, "prop", {
+            value: "nonEnumerableValue",
             enumerable: false
         });
-        Object.defineProperty(child, "prop2", {
-            value: "overridedValue2",
-            enumerable: true
-        });
-        var accessedProp1 = false;
-        var accessedProp2 = false;
+
+        var accessedProp = false;
 
         for (var p in child) {
-            if (child.hasOwnProperty(p)) {
-                if (p === "prop1") {
-                    accessedProp1 = true;
-                }
-                if (p === "prop2") {
-                    accessedProp2 = true;
-                }
+            if (p === "prop") {
+                accessedProp = true;
             }
         }
-        return !accessedProp1 && accessedProp2 && child.prop1 === "overridedValue1" && child.prop2 === "overridedValue2";
+        return !accessedProp;
     }
 runTestCase(testcase);
