@@ -503,6 +503,7 @@ class TestSuite(object):
         print
         print "Use --full-summary to see output from failed tests"
     print
+    return progress.failed
 
   def WriteLog(self, result):
     name = result.case.GetName()
@@ -530,6 +531,7 @@ class TestSuite(object):
       cases[0].Print()
 
 def Main():
+  code = 0
   parser = BuildOptions()
   (options, args) = parser.parse_args()
   ValidateOptions(options)
@@ -551,16 +553,17 @@ def Main():
   if options.cat:
     test_suite.Print(args)
   else:
-    test_suite.Run(options.command, args,
-                   options.summary or options.full_summary,
-                   options.full_summary,
-                   options.logname,
-                   options.junitname)
+    code = test_suite.Run(options.command, args,
+                          options.summary or options.full_summary,
+                          options.full_summary,
+                          options.logname,
+                          options.junitname)
+  return code
        
 if __name__ == '__main__':
   try:
-    Main()
-    sys.exit(0)
+    code = Main()
+    sys.exit(code)
   except Test262Error, e:
     print "Error: %s" % e.message
     sys.exit(1)
