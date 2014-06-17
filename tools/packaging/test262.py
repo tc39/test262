@@ -73,6 +73,8 @@ def BuildOptions():
   result.add_option("--junitname", help="Filename to save test results in JUnit XML format")
   result.add_option("--loglevel", default="warning",
                     help="sets log level to debug, info, warning, error, or critical") 
+  result.add_option("--threads", help="Number of threads used for running tests.",
+                    default=1, type="int")
   return result
 
 
@@ -255,6 +257,8 @@ class TestCase(object):
       source = '"use strict";\nvar strict_mode = true;\n' + source
     else:
       source =  "var strict_mode = false; \n" + source
+    with open('/tmp/foo.js', 'a') as fd:
+      fd.write(source)
     return source
 
   def InstantiateTemplate(self, template, params):
@@ -461,7 +465,14 @@ class TestSuite(object):
       print
       result.ReportOutcome(False)
 
-  def Run(self, command_template, tests, print_summary, full_summary, logname, junitfile):
+  def Run(self, command_template, tests, print_summary, full_summary, logname, junitfile, threads):
+    if threads > 1:
+      import threading
+      sem = threading.Semaphore(threads)
+      output_lock = threading.Lock()
+    else:
+      threading = None
+
     if not "{{path}}" in command_template:
       command_template += " {{path}}"
     cases = self.EnumerateTests(tests)
@@ -483,17 +494,31 @@ class TestSuite(object):
           SkipElement.attrib["message"] = unicode(EXCLUDE_REASON[x].firstChild.nodeValue)
           SkipCaseElement.append(SkipElement)
           TestSuiteElement.append(SkipCaseElement)
-       
+
     for case in cases:
-      result = case.Run(command_template)
-      if junitfile:
-        TestCaseElement = result.XmlAssemble(result)
-        TestSuiteElement.append(TestCaseElement)
-        if case == cases[len(cases)-1]:
-             xmlj.ElementTree(TestSuiteElement).write(junitfile, "UTF-8")
-      if logname:
-        self.WriteLog(result)
-      progress.HasRun(result)
+      def run_case():
+        result = case.Run(command_template)
+        if junitfile:
+          TestCaseElement = result.XmlAssemble(result)
+          TestSuiteElement.append(TestCaseElement)
+          if case == cases[len(cases)-1]:
+               xmlj.ElementTree(TestSuiteElement).write(junitfile, "UTF-8")
+        try:
+          if threading:
+            output_lock.acquire()
+          if logname:
+            self.WriteLog(result)
+          progress.HasRun(result)
+        finally:
+          if threading:
+            output_lock.release()
+            sem.release()
+      if threading:
+        sem.acquire(blocking=True)
+        threading.Thread(target=run_case).start()
+      else:
+        run_case()
+
     
     if print_summary:
       self.PrintSummary(progress, logname)
@@ -555,7 +580,8 @@ def Main():
                    options.summary or options.full_summary,
                    options.full_summary,
                    options.logname,
-                   options.junitname)
+                   options.junitname,
+                   options.threads)
        
 if __name__ == '__main__':
   try:
