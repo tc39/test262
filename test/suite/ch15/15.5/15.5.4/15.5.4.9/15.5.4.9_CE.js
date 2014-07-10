@@ -1,5 +1,6 @@
 // Copyright 2012 Norbert Lindenberg. All rights reserved.
 // Copyright 2012 Mozilla Corporation. All rights reserved.
+// Copyright 2013 Microsoft Corporation. All rights reserved.
 // This code is governed by the license found in the LICENSE file.
 
 /**
@@ -46,12 +47,26 @@ var pairs = [
 //  ["\uD87E\uDC2B", "北"]
 ];
 
-var i;
-for (i = 0; i < pairs.length; i++) {
-    var pair = pairs[i];
-    if (pair[0].localeCompare(pair[1]) !== 0) {
-        $ERROR("String.prototype.localeCompare considers " + pair[0] + " (" + toU(pair[0]) +
-            ") ≠ " + pair[1] + " (" + toU(pair[1]) + ").");
+// Detect whether we are using locale-sensitive comparisons or a bitwise comparison
+if("a".localeCompare("Z") < 0) {
+    // We are using locale-sensitive comparison, so all pairs should be canonically equivalent
+    var i;
+    for (i = 0; i < pairs.length; i++) {
+        var pair = pairs[i];
+        if (pair[0].localeCompare(pair[1]) !== 0) {
+            $ERROR("String.prototype.localeCompare considers " + pair[0] + " (" + toU(pair[0]) +
+                ") ≠ " + pair[1] + " (" + toU(pair[1]) + ").");
+        }
+    }
+} else {
+    // We are using bitwise comparison, so all pairs should not be equivalent
+    var i;
+    for (i = 0; i < pairs.length; i++) {
+        var pair = pairs[i];
+        if (pair[0].localeCompare(pair[1]) === 0) {
+            $ERROR("String.prototype.localeCompare considers " + pair[0] + " (" + toU(pair[0]) +
+                ") = " + pair[1] + " (" + toU(pair[1]) + ").");
+        }
     }
 }
 
@@ -65,4 +80,3 @@ function toU(s) {
     }
     return result;
 }
-
