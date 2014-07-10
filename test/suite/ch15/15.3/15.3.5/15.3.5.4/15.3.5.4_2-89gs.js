@@ -11,7 +11,7 @@
 
 
 function f() { return gNonStrict();};
-(function () {"use strict"; return f.bind();})();
+(function () {"use strict"; return f.bind()();})();
 
 
 function gNonStrict() {
