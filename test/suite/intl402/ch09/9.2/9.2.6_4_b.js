@@ -29,7 +29,6 @@ testWithIntlConstructors(function (Constructor) {
                         locale + " is considered supported with matcher " + matcher + ".");
                 }
                 if (supported2[0] !== locale + validExtension || supported3[0] !== locale + invalidExtension) {
-                    alert(locale + "; " + supported2[0] + "; " + supported3[0]);
                     $ERROR("Unicode locale extension sequence is not correctly returned for locale " +
                         locale + " with matcher " + matcher + ".");
                 }
