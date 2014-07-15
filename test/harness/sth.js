@@ -1,7 +1,7 @@
-/// Copyright (c) 2012 Ecma International.  All rights reserved. 
+/// Copyright (c) 2012 Ecma International.  All rights reserved.
 /// Ecma International makes this code available under the terms and conditions set
-/// forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the 
-/// "Use Terms").   Any redistribution of this code must retain the above 
+/// forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the
+/// "Use Terms").   Any redistribution of this code must retain the above
 /// copyright and this notice and otherwise comply with the Use Terms.
 
 // Do not cache any JSON files - see
@@ -27,6 +27,8 @@ function BrowserRunner() {
         errorDetectorFileContents,
         simpleTestAPIContents,
         globalScopeContents,
+        timerContents,
+        startTime,
         harnessDir = "harness/";
 
     $.ajax({async: false,
@@ -43,6 +45,11 @@ function BrowserRunner() {
             dataType: "text",
             success: function(data){globalScopeContents = data;},
             url:harnessDir+"gs.js"});
+    
+	$.ajax({async: false,
+		dataType: "text",
+		success: function(data){timerContents = data;},
+		url:harnessDir+"timer.js"});
 
     /* Called by the child window to notify that the test has
      * finished. This function call is put in a separate script block
@@ -70,6 +77,8 @@ function BrowserRunner() {
         document.body.removeChild(iframe);
 
         instance.onComplete(currentTest);
+        //update elapsed time
+        controller.testElapsedTime(new Date() - startTime);
     }
 
     /* Called from the child window after the test has run. */
@@ -85,8 +94,8 @@ function BrowserRunner() {
 
     /* Run the test. */
     this.run = function (test, code) {
-        var start = new Date();
-        
+        startTime = new Date();
+
         //--Detect proper window.onerror support
         if (instance.supportsWindowOnerror===undefined) {
             var iframePrereqs = document.createElement("iframe");
@@ -96,25 +105,25 @@ function BrowserRunner() {
             }
             document.body.appendChild(iframePrereqs);
 
-            var iwinPrereqs = iframePrereqs.contentWindow; 
+            var iwinPrereqs = iframePrereqs.contentWindow;
             var idocPrereqs = iwinPrereqs.document;
             idocPrereqs.open();
-    
+
             iwinPrereqs.failCount = 0;
-            
+
             var stuff = [
                          "window.onerror = function(a, b, c) { this.failCount++; }",
                          "va xyz =",
                          "throw Error();"
             ];
-    
+
             for(var i in stuff) {
                 idocPrereqs.writeln("<script type='text/javascript'>");
                 idocPrereqs.writeln(stuff[i]);
                 idocPrereqs.writeln("</script>");
             }
             idocPrereqs.close();
-            
+
             //TODO - 500ms *should* be a sufficient delay
             setTimeout(function() {
                 instance.supportsWindowOnerror = iwinPrereqs.failCount === 2;
@@ -124,7 +133,7 @@ function BrowserRunner() {
             }, 500);
             return 0; // initial config, ignore this timing.
         }
-        
+
         currentTest = {};
         for (var tempIndex in test) {
             if (test.hasOwnProperty(tempIndex)) {
@@ -132,8 +141,6 @@ function BrowserRunner() {
             }
         }
         currentTest.code = code;
-              
-
 
         iframe = document.createElement("iframe");
         iframe.setAttribute("id", "runnerIframe");
@@ -188,10 +195,24 @@ function BrowserRunner() {
         iwin.testDescrip = currentTest;
 
         //Add an error handler capable of catching so-called early errors
-        //idoc.writeln("<script type='text/javascript' src='harness/ed.js'>" + "</script>");
+		//idoc.writeln("<script type='text/javascript' src='harness/ed.js'>" + "</script>")
         idoc.writeln("<script type='text/javascript'>");
         idoc.writeln(errorDetectorFileContents);
         idoc.writeln("</script>");
+
+        //Validate the results
+        //idoc.writeln("<script type='text/javascript' src='harness/gs.js' defer>" + "</script>");
+        idoc.writeln("<script type='text/javascript'>");
+        idoc.writeln(globalScopeContents);
+        idoc.writeln("</script>");
+
+        //this is mainly applicable for consoles that do not have setTimeout support
+		//idoc.writeln("<script type='text/javascript' src='harness/timer.js' defer>" + "</script>");
+        if(setTimeout === undefined && /\$DONE()/.test(code)){
+         idoc.writeln("<script type='text/javascript'>");
+         idoc.writeln(timerContents);
+         idoc.writeln("</script>");
+        }
 
         //Run the code
         idoc.writeln("<script type='text/javascript'>");
@@ -201,17 +222,21 @@ function BrowserRunner() {
             idoc.writeln(code);
         }
         idoc.writeln("</script>");
-
-        //Validate the results
-        //idoc.writeln("<script type='text/javascript' src='harness/gs.js' defer>" + "</script>");
+		
         idoc.writeln("<script type='text/javascript'>");
-        idoc.writeln(globalScopeContents);
+		
+        if(!/\$DONE()/.test(code))
+        //if the test is synchronous - call $DONE immediately
+            idoc.writeln("if(typeof $DONE === 'function') $DONE()");
+        else{
+        //in case the test does not call $DONE asynchronously then
+        //bailout after 1 min or given bailout time by calling $DONE
+            var asyncval = parseInt(test.timeout);
+            var testTimeout = asyncval !== asyncval ? 2000 : asyncval;
+			idoc.writeln("setTimeout(function() {$ERROR(\" Test Timed Out at " + testTimeout +"\" )} ," + testTimeout + ")");
+        }
         idoc.writeln("</script>");
         idoc.close();
-        
-        var elapsed = new Date() - start;
-
-        return elapsed;
     };
 
     //--Helper functions-------------------------------------------------------
@@ -264,10 +289,10 @@ function TestLoader() {
         else {
             presenter.updateStatus("Loading file: " + testGroups[testGroupIndex].path);
             testGroups[testGroupIndex].onLoaded = getNextXML;
-            
+
         }
     }
-    
+
     /* Get the test list xml */
     function loadTestXML() {
         var testsListLoader = new XMLHttpRequest();
@@ -288,7 +313,7 @@ function TestLoader() {
                     onLoaded: function(){}
                 };
                 presenter.setTestWaiting(i, testSuite[i]);
-                
+
                 var tr = $('#chapterSelector table tr').filter(':nth-child(' + (i+1) + ')');
                 tr.find('img').filter('[alt="Run"]').bind('click', {index:i}, function(event){
                     controller.runIndividualTest(event.data.index);
@@ -298,25 +323,25 @@ function TestLoader() {
             getFile();
         }});
     }
-    
+
     /* Get the test file. Handles all the logic of figuring out the next file to load. */
     function getFile(index) {
         index = (arguments.length == 0) ? -1 : index;
-        
+
         // Look for selected waiting chapters (priority because you'll probably want to run them soon)
         for(var i = 0; index == -1 && i < testGroups.length; i++) {
             if(testGroups[i].status == 'waiting' && testGroups[i].selected) {
                 index = i;
             }
         }
-        
+
         // Look for just chapters waiting to be loaded.
         for(var i = 0; index == -1 && i < testGroups.length; i++) {
             if(testGroups[i].status == 'waiting') {
                 index = i;
             }
         }
-            
+
         if(index == -1) {
             // Still -1? No more tests are waiting to be loaded then.
             if(controller.state == 'loading') {
@@ -324,13 +349,13 @@ function TestLoader() {
             }
             return;
         }
-        
+
         presenter.setTestLoading(index, testGroups[index].path);
         // the only other status that should be set when we get here is 'priorityloading'
         if(testGroups[index].status == 'waiting') {
             testGroups[index].status = 'loading';
         }
-        
+
         loader.onTestStartLoading(index, testGroups[index].path);
         // Create the AJAX call to grab the file.
         $.ajax({
@@ -344,11 +369,11 @@ function TestLoader() {
             },
             error: function(xhr, textStatus, errorThrown) {
                 // TODO: Catch this error and update UI accordingly. Unlikely to happen, but errors would be 404 or 5-- errors.
-                
+
             }
         });
     }
-    
+
     /* Executes when a test file finishes loading. */
     function onTestLoaded(index, name, numTests) {
         presenter.setTestLoaded(index, name, numTests);
@@ -357,7 +382,7 @@ function TestLoader() {
             loader.runningTests += numTests;
             loader.onInitialized( loader.runningTests );
         }
-        
+
         // The loading status is only assigned when downloading files in sequence, otherwise it
         // gets the status of priorityloading. When loading out of order, we only want to download
         // the single file, so we'll only tell it to get the next file when we see a status of
@@ -371,10 +396,10 @@ function TestLoader() {
             testGroups[index].status = 'loaded';
             loader.setChapter(index);
         }
-        
+
         testGroups[index].onLoaded();
     };
-    
+
     function getIdFromPath (path) {
         //path is of the form "a/b/c.js"
 
@@ -420,7 +445,7 @@ function TestLoader() {
                         return;
                     }
                 }
-                // And if 
+                // And if
                 else {
                     // We don't have tests left in this test group, so move on
                     // to the next.
@@ -428,7 +453,7 @@ function TestLoader() {
                 }
                 getNextXML();
             }
-            // 
+            //
             else {
                 // We're done.
                 loader.onTestsExhausted();
@@ -446,18 +471,18 @@ function TestLoader() {
         currentTestIndex = 0;
         testGroupIndex = 0;
     };
-    
+
     /* Begin downloading test files. */
     this.startLoadingTests = function() {
         loadTestXML();
     };
-    
+
     /* Prepare for testing a single chapter. */
     this.setChapter = function(index) {
         currentTestIndex = 0;
         testGroupIndex = index;
         mode = "one";
-        
+
         if(testGroups[index].status == 'loaded') {
             loader.onInitialized(testGroups[index].tests.length);
         }
@@ -467,7 +492,7 @@ function TestLoader() {
             loader.onInitialized(0);
         }
     };
-    
+
     /* Prepare for testing multiple chapters. Returns true if at least one chapter was selected. */
     this.setMultiple = function() {
         // Find the index of the first selection
@@ -481,16 +506,16 @@ function TestLoader() {
         if(firstSelectedIndex == -1) {
             return false;
         }
-        
+
         // Begin loading the file immediately, if necessary
         if(testGroups[firstSelectedIndex].status == 'waiting') {
             getFile(firstSelectedIndex);
         }
-    
+
         mode = "multiple";
         testGroupIndex = firstSelectedIndex; // start at this chapter
         currentTestIndex = 0; // start at test 0
-        
+
         // Count the number of tests
         runningTests = 0;
         for(var i = 0; i < testGroups.length; i++) {
@@ -499,16 +524,16 @@ function TestLoader() {
         loader.onInitialized(runningTests);
         return true;
     };
-    
+
     this.getNumTestFiles = function() {
         return testGroups.length;
     };
-    
+
     /* Toggle the selection of a file. */
     this.toggleSelection = function(index) {
         testGroups[index].selected = !testGroups[index].selected;
     }
-    
+
 }
 
 /* Controls test generation and running, and sends results to the presenter. */
@@ -523,8 +548,8 @@ function Controller() {
     //into this test framework to handle test case failures and passes in their
     //own way (e.g., logging failures to the filesystem)
     this.implementerHook = {
-        //Adds a test result
-        addTestResult: function (test) { },
+        //Adds a test result        
+        addTestResult: function (test) { },            
 
         //Called whenever all tests have finished running.  Provided with the
         //elapsed time in milliseconds.
@@ -550,7 +575,7 @@ function Controller() {
         }
         presenter.setTotalTests(totalTests);
     };
-    
+
     /* Executes when a test file starts loading. */
     loader.onTestStartLoading = function(index, path) {
         presenter.setTestLoading(index, path);
@@ -559,14 +584,14 @@ function Controller() {
     /* Executes when a test is ready to run. */
     loader.onTestReady = function(testObj, testSrc) {
         presenter.updateStatus("Running Test: " + testObj.id);
-        elapsed += runner.run(testObj, testSrc);
+        runner.run(testObj, testSrc);
     };
 
     /* Executes when there are no more tests to run. */
     loader.onTestsExhausted = function() {
         elapsed = elapsed/(1000*60);  //minutes
         elapsed = elapsed.toFixed(3);
-        
+
         state = (loader.loadedFiles == loader.getNumTestFiles()) ? 'loaded' : 'loading';
         presenter.setState(state);
         presenter.finished(elapsed);
@@ -574,7 +599,7 @@ function Controller() {
             controller.implementerHook.finished(elapsed);
         } catch(e) { /*no-op*/}
     };
-    
+
     /* Start the test execution. */
     this.start = function() {
         elapsed = 0;
@@ -594,25 +619,25 @@ function Controller() {
         loader.onInitialized();
         loader.reset();
         presenter.reset();
-        
+
         state = (loader.loadedFiles == loader.getNumTestFiles()) ? 'loaded' : 'loading';
         presenter.setState(state);
     };
-    
+
     /* Start loading tests. */
     this.startLoadingTests = function() {
         state = 'loading';
         presenter.setState(state);
         loader.startLoadingTests();
     }
-    
+
     /* Set the individual chapter in the laoder and start the controller. */
     this.runIndividualTest = function(index) {
         controller.reset();
         loader.setChapter(index);
         controller.start();
     }
-    
+
     /* Compile a list of the selected tests and start the controller. */
     this.runSelected = function() {
         controller.reset();
@@ -620,14 +645,18 @@ function Controller() {
             controller.start();
         }
     }
-    
+
     this.runAll = function() {
         controller.reset();
         controller.start();
     }
-    
+
     this.toggleSelection = function(index) {
         loader.toggleSelection(index);
+    }
+
+    this.testElapsedTime = function(time){
+        elapsed += time;
     }
 }
 
@@ -698,7 +727,7 @@ $(function () {
         presenter.setDate(data.date);
     }
     });
-    
+
     // Start loading the files right away.
     controller.startLoadingTests();
 
