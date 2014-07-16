@@ -1,2 +1,0 @@
-throw NotEarlyError;
-var re = //;
