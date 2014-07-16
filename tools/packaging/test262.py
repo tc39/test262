@@ -73,6 +73,7 @@ def BuildOptions():
   result.add_option("--junitname", help="Filename to save test results in JUnit XML format")
   result.add_option("--loglevel", default="warning",
                     help="sets log level to debug, info, warning, error, or critical") 
+  result.add_option("--print-handle", default="", help="Command to print from console")
   return result
 
 
@@ -193,15 +194,19 @@ class TestResult(object):
        testpackage = testclass
     return(testpackage,testclass,testcase)
   
-  def HasFailed(self):
+  def HasFailed(self):    
     return self.exit_code != 0
 
-  def HasUnexpectedOutcome(self):
-    if self.case.IsNegative():
-       return not self.HasFailed()
-    else:
-       return self.HasFailed()
+  def AsyncHasFailed(self):   
+    return 'Test262:AsyncTestComplete' not in self.stdout
 
+  def HasUnexpectedOutcome(self):
+    if self.case.IsAsyncTest():		
+	return self.AsyncHasFailed() or self.HasFailed()
+    elif self.case.IsNegative():      
+       return not self.HasFailed()
+    else:      
+       return self.HasFailed()
 
 class TestCase(object):
 
@@ -242,6 +247,9 @@ class TestCase(object):
   def IsNoStrict(self):
     return 'noStrict' in self.testRecord
 
+  def IsAsyncTest(self):	
+	return '$DONE' in self.test
+
   def GetSource(self):
     # "var testDescrip = " + str(self.testRecord) + ';\n\n' + \
     source = self.suite.GetInclude("cth.js") + \
@@ -249,6 +257,8 @@ class TestCase(object):
         self.suite.GetInclude("ed.js") + \
         self.suite.GetInclude("testBuiltInObject.js") + \
         self.suite.GetInclude("testIntl.js") + \
+	self.suite.GetInclude("timer.js") + \
+	self.suite.GetInclude("doneprintHandle.js").replace('print', self.suite.print_handle) + \
         self.test + '\n'
 
     if self.strict_mode:
@@ -332,14 +342,16 @@ def MakePlural(n):
 
 class TestSuite(object):
 
-  def __init__(self, root, strict_only, non_strict_only, unmarked_default):
+  def __init__(self, root, strict_only, non_strict_only, unmarked_default, print_handle):
     # TODO: derive from packagerConfig.py
     self.test_root = path.join(root, 'test', 'suite')
     self.lib_root = path.join(root, 'test', 'harness')
     self.strict_only = strict_only
     self.non_strict_only = non_strict_only
     self.unmarked_default = unmarked_default
+    self.print_handle = print_handle
     self.include_cache = { }
+	
 
   def Validate(self):
     if not path.exists(self.test_root):
@@ -536,7 +548,8 @@ def Main():
   test_suite = TestSuite(options.tests, 
                          options.strict_only, 
                          options.non_strict_only,
-                         options.unmarked_default)
+                         options.unmarked_default,
+			 options.print_handle)
   test_suite.Validate()
   if options.loglevel == 'debug':
     logging.basicConfig(level=logging.DEBUG)
