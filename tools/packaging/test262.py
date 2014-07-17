@@ -250,6 +250,12 @@ class TestCase(object):
   def IsAsyncTest(self):	
 	return '$DONE' in self.test
 
+  def GetIncludeList(self):
+    return re.findall('\$INCLUDE\([\'"]([^\)]+)[\'"]\)' ,self.test)
+
+  def GetAdditionalIncludes(self):
+    return '\n'.join([self.suite.GetInclude(include) for include in self.GetIncludeList()])
+
   def GetSource(self):
     # "var testDescrip = " + str(self.testRecord) + ';\n\n' + \
     source = self.suite.GetInclude("cth.js") + \
@@ -259,6 +265,7 @@ class TestCase(object):
         self.suite.GetInclude("testIntl.js") + \
 	self.suite.GetInclude("timer.js") + \
 	self.suite.GetInclude("doneprintHandle.js").replace('print', self.suite.print_handle) + \
+        self.GetAdditionalIncludes() + \
         self.test + '\n'
 
     if self.strict_mode:
