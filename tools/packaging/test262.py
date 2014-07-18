@@ -222,7 +222,7 @@ class TestCase(object):
     self.test = testRecord["test"]
     del testRecord["test"]
     del testRecord["header"]
-    del testRecord["commentary"]
+    testRecord.pop("commentary", None)    # do not throw if missing
     self.testRecord = testRecord;
     
 

@@ -117,6 +117,6 @@ class SCAbstraction(object):
         '''
         Source control add of a file.
         '''
-        subprocess.call(["hg", "add", filename])
+        subprocess.call(["git", "add", filename])
         
 SC_HELPER = SCAbstraction()
