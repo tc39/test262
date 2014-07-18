@@ -9,10 +9,11 @@ es5id: 13.0_4-17gs
 description: >
     Strict Mode - SourceElements is not evaluated as strict mode code
     when a Function constructor is contained in strict mode code
-negative: NotEarlyError
+negative: Test262Error
 flags: [onlyStrict]
+includes: [Test262Error.js]
 ---*/
 
 "use strict";
 var _13_0_4_17_fun = new Function('eval = 42;');
-throw NotEarlyError;
+throw new Test262Error();

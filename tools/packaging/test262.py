@@ -25,6 +25,7 @@ import json
 import stat
 import xml.etree.ElementTree as xmlj
 import unicodedata
+from collections import Counter
 
 
 from parseTestRecord import parseTestRecord, stripHeader
@@ -74,6 +75,8 @@ def BuildOptions():
   result.add_option("--loglevel", default="warning",
                     help="sets log level to debug, info, warning, error, or critical") 
   result.add_option("--print-handle", default="", help="Command to print from console")
+  result.add_option("--list-includes", default=False, action="store_true",
+                    help="List includes required by tests")
   return result
 
 
@@ -251,7 +254,9 @@ class TestCase(object):
 	return '$DONE' in self.test
 
   def GetIncludeList(self):
-    return re.findall('\$INCLUDE\([\'"]([^\)]+)[\'"]\)' ,self.test)
+    if self.testRecord.get('includes'):
+      return self.testRecord['includes']
+    return re.findall('\$INCLUDE\([\'"]([^\)]+)[\'"]\)', self.test)
 
   def GetAdditionalIncludes(self):
     return '\n'.join([self.suite.GetInclude(include) for include in self.GetIncludeList()])
@@ -552,6 +557,16 @@ class TestSuite(object):
     if len(cases) > 0:
       cases[0].Print()
 
+  def ListIncludes(self, tests):
+    cases = self.EnumerateTests(tests)
+    includes_dict = Counter()
+    for case in cases:
+      includes = case.GetIncludeList()
+      includes_dict.update(includes)
+
+    print includes_dict
+        
+
 def Main():
   code = 0
   parser = BuildOptions()
@@ -575,6 +590,8 @@ def Main():
     logging.basicConfig(level=logging.CRITICAL)
   if options.cat:
     test_suite.Print(args)
+  elif options.list_includes:
+    test_suite.ListIncludes(args)
   else:
     code = test_suite.Run(options.command, args,
                           options.summary or options.full_summary,

@@ -10,10 +10,11 @@ description: >
     Strict Mode - SyntaxError is thrown if a function using the
     Function constructor has two identical parameters in (global)
     strict mode
-negative: NotEarlyError
+negative: Test262Error
 flags: [onlyStrict]
+includes: [Test262Error.js]
 ---*/
 
 "use strict";
-throw NotEarlyError;
+throw new Test262Error();
 var _15_3_2_1_10_4_fun = new Function('param_1', 'param_2', 'param_1', '"use strict"; return 0;');

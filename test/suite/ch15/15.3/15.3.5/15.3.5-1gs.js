@@ -9,11 +9,12 @@ es5id: 15.3.5-1gs
 description: >
     StrictMode - error is thrown when reading the 'caller' property of
     a function object
-negative: NotEarlyError
+negative: Test262Error
 flags: [onlyStrict]
+includes: [Test262Error.js]
 ---*/
 
 "use strict";
 function _15_3_5_1_gs() {}
-throw NotEarlyError;
+throw new Test262Error();
 _15_3_5_1_gs.caller;
