@@ -160,8 +160,14 @@ function BrowserRunner() {
         iwin.testFinished = testFinished;
 
         //TODO: these should be moved to sta.js
-        var includes = code.match(/\$INCLUDE\(([^\)]+)\)/g), // find all of the $INCLUDE statements
+        var includes,
             include;
+        
+        includes = test.includes;
+        if (!includes || !(includes.length)) {
+            // includes not specified via frontmatter;  find all of the $INCLUDE statements
+            includes = code.match(/\$INCLUDE\(([^\)]+)\)/g);
+        }
 
         if (includes !== null) {
             // We have some includes, so loop through each include and
