@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If ToBoolean(x) is true, return y
- *
- * @path ch11/11.12/S11.12_A4_T1.js
- * @description Type(y) and Type(z) are boolean primitives
- */
+/*---
+info: If ToBoolean(x) is true, return y
+description: Type(y) and Type(z) are boolean primitives
+---*/
 
 //CHECK#1
 if ((true ? false : true) !== false) {
@@ -24,4 +22,3 @@ var y = new Boolean(false);
 if ((y ? y : true) !== y) {
   $ERROR('#3: (var y = new Boolean(false); (y ? y : true) === y');
 }
-

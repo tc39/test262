@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Let reservedURIComponentSet be the empty string
- *
- * @path ch15/15.1/15.1.3/15.1.3.2/S15.1.3.2_A3_T1.js
- * @description uriReserved and "#" not in reservedURIComponentSet. HexDigit in [0..9, A..F]
- */
+/*---
+info: Let reservedURIComponentSet be the empty string
+description: >
+    uriReserved and "#" not in reservedURIComponentSet. HexDigit in
+    [0..9, A..F]
+---*/
 
 //CHECK#1
 if (decodeURIComponent("%3B") !== ";") {
@@ -62,4 +62,3 @@ if (decodeURIComponent("%2C") !== ",") {
 if (decodeURIComponent("%23") !== "#") {
   $ERROR('#11: decodeURIComponent("%23") equal "#", not "%23"');
 }
-

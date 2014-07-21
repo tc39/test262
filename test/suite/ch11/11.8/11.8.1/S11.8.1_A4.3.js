@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If x and y are the same number value, return false
- *
- * @path ch11/11.8/11.8.1/S11.8.1_A4.3.js
- * @description x and y are number primitives
- */
+/*---
+info: If x and y are the same number value, return false
+description: x and y are number primitives
+---*/
 
 //CHECK#1
 if ((1 < 1) !== false) {
@@ -42,6 +40,3 @@ if ((Number.MAX_VALUE < Number.MAX_VALUE) !== false) {
 if ((Number.MIN_VALUE < Number.MIN_VALUE) !== false) {
   $ERROR('#7: (Number.MIN_VALUE < Number.MIN_VALUE) === false');
 }
-
-
-

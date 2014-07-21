@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The MV of StringNumericLiteral ::: StrWhiteSpace is 0
- *
- * @path ch09/9.3/9.3.1/S9.3.1_A2.js
- * @description Strings with various WhiteSpaces convert to Number by explicit transformation
- */
+/*---
+info: "The MV of StringNumericLiteral ::: StrWhiteSpace is 0"
+description: >
+    Strings with various WhiteSpaces convert to Number by explicit
+    transformation
+---*/
 
 // CHECK#1
 if (Number("\u0009\u000C\u0020\u00A0\u000B\u000A\u000D\u2028\u2029\u1680\u180E\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000") !== 0) {
@@ -286,4 +286,3 @@ if (Number("\u3000") !== 0) {
     $ERROR('#31.2: Number("\\u3000") === +0. Actual: -0');
   }	
 }
-

@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The value of the internal [[Prototype]] property of the Error constructor is the Function prototype object(15.3.4)
- *
- * @path ch15/15.11/15.11.3/S15.11.3_A1_T1.js
- * @description Checking prototype of constructor of the newly constructed Error object
- */
+/*---
+info: >
+    The value of the internal [[Prototype]] property of the Error constructor
+    is the Function prototype object(15.3.4)
+description: >
+    Checking prototype of constructor of the newly constructed Error
+    object
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -24,4 +26,3 @@ if(!Function.prototype.isPrototypeOf(Error.constructor)){
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

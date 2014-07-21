@@ -1,11 +1,11 @@
 // Copyright 2011 Google Inc.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @path ch08/8.6/8.6.2/S8.6.2_A8.js
- * @description It should not be possible to change the [[Prototype]]
- * of a non-extensible object
- */
+/*---
+description: >
+    It should not be possible to change the [[Prototype]]  of a
+    non-extensible object
+---*/
 
 var x = Object.preventExtensions({});
 var y = {};
@@ -19,4 +19,3 @@ try {
 if (Object.getPrototypeOf(x) !== Object.prototype) {
   $ERROR("Prototype of non-extensible object mutated");
 }
-

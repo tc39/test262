@@ -1,14 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The arguments are prepended to the start of the array, such that
- * their order within the array is the same as the order in which they appear in
- * the argument list
- *
- * @path ch15/15.4/15.4.4/15.4.4.13/S15.4.4.13_A1_T2.js
- * @description Checking case when unsift is given many arguments
- */
+/*---
+info: >
+    The arguments are prepended to the start of the array, such that
+    their order within the array is the same as the order in which they appear in
+    the argument list
+description: Checking case when unsift is given many arguments
+---*/
 
 //CHECK#1
 var x = [];
@@ -57,4 +56,3 @@ if (x[4] !== -1) {
 if (x.length !== 6) {
   $ERROR('#9: x = []; x[0] = 0; x.unshift(true, Number.POSITIVE_INFINITY, "NaN", "1", -1); x.length === 6. Actual: ' + (x.length));
 }
-

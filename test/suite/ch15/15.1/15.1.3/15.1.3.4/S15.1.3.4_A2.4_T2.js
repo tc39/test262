@@ -1,12 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If string.charAt(k) in [0xD800 - 0xDBFF] and string.charAt(k+1) in [0xDC00 � 0xDFFF], return 4 octets (000wwwxx xxxxyyyy yyzzzzzz -> 11110www 10xxxxxx 10yyyyyy 10zzzzzz)
- *
- * @path ch15/15.1/15.1.3/15.1.3.4/S15.1.3.4_A2.4_T2.js
- * @description Complex tests, use RFC 3629, string.charAt(k) in [0xD800, 0xDBFF, 0xD9FF]
- */
+/*---
+info: >
+    If string.charAt(k) in [0xD800 - 0xDBFF] and string.charAt(k+1) in
+    [0xDC00 � 0xDFFF], return 4 octets (000wwwxx xxxxyyyy yyzzzzzz ->
+    11110www 10xxxxxx 10yyyyyy 10zzzzzz)
+description: >
+    Complex tests, use RFC 3629, string.charAt(k) in [0xD800, 0xDBFF,
+    0xD9FF]
+---*/
 
 chars = [0xD800, 0xDBFF, 0xD9FF]; 
 errorCount = 0;
@@ -86,4 +89,3 @@ function decimalToHexString(n) {
   }
   return h;
 }
-

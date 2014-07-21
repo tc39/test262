@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator x & y returns ToNumber(x) & ToNumber(y)
- *
- * @path ch11/11.10/11.10.1/S11.10.1_A3_T2.1.js
- * @description Type(x) is different from Type(y) and both types vary between Number (primitive or object) and Boolean (primitive and object)
- */
+/*---
+info: Operator x & y returns ToNumber(x) & ToNumber(y)
+description: >
+    Type(x) is different from Type(y) and both types vary between
+    Number (primitive or object) and Boolean (primitive and object)
+---*/
 
 //CHECK#1
 if ((true & 1) !== 1) {
@@ -47,4 +47,3 @@ if ((new Boolean(true) & new Number(1)) !== 1) {
 if ((new Number(1) & new Boolean(true)) !== 1) {
   $ERROR('#8: (new Number(1) & new Boolean(true)) === 1. Actual: ' + ((new Number(1) & new Boolean(true))));
 }
-

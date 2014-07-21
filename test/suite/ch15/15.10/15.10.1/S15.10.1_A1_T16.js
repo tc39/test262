@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * RegExp syntax errors must be caught when matcher(s) compiles
- *
- * @path ch15/15.10/15.10.1/S15.10.1_A1_T16.js
- * @description Tested RegExp is "x{0,1}{1,}"
- */
+/*---
+info: RegExp syntax errors must be caught when matcher(s) compiles
+description: Tested RegExp is "x{0,1}{1,}"
+---*/
 
 //CHECK#1
 try {
@@ -16,5 +14,3 @@ try {
 		$ERROR('#1.2: new RegExp("x{0,1}{1,}") throw SyntaxError. Actual: ' + (e));
 	}
 }
-
-

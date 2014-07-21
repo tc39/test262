@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Evaluating the nested productions TryStatement
- *
- * @path ch12/12.14/S12.14_A7_T2.js
- * @description Checking if the production of nested TryStatement statements evaluates correct
- */
+/*---
+info: Evaluating the nested productions TryStatement
+description: >
+    Checking if the production of nested TryStatement statements
+    evaluates correct
+---*/
 
 // CHECK#1
 try{
@@ -149,4 +149,3 @@ catch(er1){
   if (er1!=="ex3") $ERROR('#7.1: Exception === "ex3". Actual:  Exception ==='+er1 );
 }
 if (c7!==2) $ERROR('#7.2: Embedded "try/finally" blocks must be evaluated');
-

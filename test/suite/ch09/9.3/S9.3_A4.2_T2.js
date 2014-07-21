@@ -1,13 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Result of number conversion from number value equals to the input argument (no conversion)
- *
- * @path ch09/9.3/S9.3_A4.2_T2.js
- * @description Number.NaN, +0, -0, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY,
- * Number.MAX_VALUE and Number.MIN_VALUE convert to Number by implicit transformation
- */
+/*---
+info: >
+    Result of number conversion from number value equals to the input
+    argument (no conversion)
+description: >
+    Number.NaN, +0, -0, Number.POSITIVE_INFINITY,
+    Number.NEGATIVE_INFINITY,  Number.MAX_VALUE and Number.MIN_VALUE
+    convert to Number by implicit transformation
+---*/
 
 // CHECK#1
 if (isNaN(+(Number.NaN)) !== true) {
@@ -51,4 +53,3 @@ if (+(Number.MAX_VALUE) !== Number.MAX_VALUE) {
 if (+(Number.MIN_VALUE) !== Number.MIN_VALUE) {
   $ERROR('#7: +(Number.MIN_VALUE) === Number.MIN_VALUE. Actual: ' + (+(Number.MIN_VALUE))); 
 }
-

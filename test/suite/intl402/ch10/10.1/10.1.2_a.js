@@ -2,12 +2,11 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that Intl.Collator can be subclassed.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+description: Tests that Intl.Collator can be subclassed.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 // get a collator and have it sort an array for comparison with the subclass
 var locales = ["tlh", "id", "en"];
@@ -27,4 +26,3 @@ MyCollator.prototype.constructor = MyCollator;
 var collator = new MyCollator(locales);
 a.sort(collator.compare);
 testArraysAreSame(referenceSorted, a);
-

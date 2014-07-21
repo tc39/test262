@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String.prototype.toLowerCase()
- *
- * @path ch15/15.5/15.5.4/15.5.4.16/S15.5.4.16_A1_T4.js
- * @description Call toLowerCase() function without arguments of string and from empty string
- */
+/*---
+info: String.prototype.toLowerCase()
+description: >
+    Call toLowerCase() function without arguments of string and from
+    empty string
+---*/
 
 var __lowerCase = "".toLowerCase();
 
@@ -43,4 +43,3 @@ if (__lowerCase[0]!==__expected[0]) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

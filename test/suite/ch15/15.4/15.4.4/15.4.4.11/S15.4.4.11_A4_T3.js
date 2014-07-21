@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Check ToUint32(length) for non Array objects
- *
- * @path ch15/15.4/15.4.4/15.4.4.11/S15.4.4.11_A4_T3.js
- * @description length = -4294967294
- */
+/*---
+info: Check ToUint32(length) for non Array objects
+description: length = -4294967294
+---*/
 
 var obj = {};
 obj.sort = Array.prototype.sort;
@@ -38,5 +36,4 @@ if (obj[1] !== "z") {
 //CHECK#5
 if (obj[2] !== "x") {
   $ERROR('#5: var obj = {}; obj.sort = Array.prototype.sort; obj[0] = "z"; obj[1] = "y"; obj[2] = "x"; obj.length = -4294967294; obj.sort(); obj[2] === "x". Actual: ' + (obj[2]));
-}  
-
+}

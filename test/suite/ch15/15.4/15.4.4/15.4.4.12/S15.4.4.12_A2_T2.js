@@ -1,14 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The splice function is intentionally generic.
- * It does not require that its this value be an Array object
- *
- * @path ch15/15.4/15.4.4/15.4.4.12/S15.4.4.12_A2_T2.js
- * @description If start is negative, use max(start + length, 0).
- * If deleteCount is negative, use 0
- */
+/*---
+info: >
+    The splice function is intentionally generic.
+    It does not require that its this value be an Array object
+description: >
+    If start is negative, use max(start + length, 0).  If deleteCount
+    is negative, use 0
+---*/
 
 var obj = {0:0,1:1};
 obj.length = 2;
@@ -54,5 +54,4 @@ if (obj[3] !== 1) {
 //CHECK#7
 if (obj[4] !== undefined) {
   $ERROR('#7: var obj = {0:0,1:1}; obj.length = 2; obj.splice = Array.prototype.splice; var arr = obj.splice(-2,-1,2,3); obj[4] === undefined. Actual: ' + (obj[4]));
-}        
-
+}

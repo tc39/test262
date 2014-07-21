@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * 1. Evaluate Expression
- *
- * @path ch12/12.13/S12.13_A3_T3.js
- * @description Evaluating number expression
- */
+/*---
+info: 1. Evaluate Expression
+description: Evaluating number expression
+---*/
 
 // CHECK#1
 try{
@@ -89,4 +87,3 @@ try{
 catch(e){
   if (e!==23) $ERROR('#10: Exception ===23(operaton %). Actual:  Exception ==='+ e);
 }
-

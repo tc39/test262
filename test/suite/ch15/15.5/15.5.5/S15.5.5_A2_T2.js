@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String instance has not [[construct]] property
- *
- * @path ch15/15.5/15.5.5/S15.5.5_A2_T2.js
- * @description Checking if creating "new String" fails
- */
+/*---
+info: String instance has not [[construct]] property
+description: Checking if creating "new String" fails
+includes: [$FAIL.js]
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -20,4 +19,3 @@ try {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

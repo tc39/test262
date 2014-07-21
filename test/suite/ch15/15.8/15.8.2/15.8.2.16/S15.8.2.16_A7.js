@@ -1,15 +1,18 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Math.sin it is recommended that implementations use the approximation algorithms for IEEE 754 arithmetic contained in fdlibm
- *
- * @path ch15/15.8/15.8.2/15.8.2.16/S15.8.2.16_A7.js
- * @description Checking if Math.sin is approximately equals to its mathematical values on the set of 64 argument values; all the sample values is calculated with LibC
- */
-
-$INCLUDE("math_precision.js");
-$INCLUDE("math_isequal.js");
+/*---
+info: >
+    Math.sin it is recommended that implementations use the approximation
+    algorithms for IEEE 754 arithmetic contained in fdlibm
+description: >
+    Checking if Math.sin is approximately equals to its mathematical
+    values on the set of 64 argument values; all the sample values is
+    calculated with LibC
+includes:
+    - math_precision.js
+    - math_isequal.js
+---*/
 
 // CHECK#1
 vnum = 64;
@@ -159,4 +162,3 @@ for (i = 0; i < vnum; i++)
 		$ERROR("\nx = " + x[i] + "\nlibc.sin(x) = " + y[i] + "\nMath.sin(x) = " + Math.sin(x[i]) + "\nMath.abs(libc.sin(x) - Math.sin(x)) > " + prec + "\n\n"); 
 	}
 }
-

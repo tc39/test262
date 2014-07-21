@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Step 9: If x >= 10^21, let m = ToString(x)
- *
- * @path ch15/15.7/15.7.4/15.7.4.5/S15.7.4.5_A1.4_T01.js
- * @description x is 10^21
- */
+/*---
+info: "Step 9: If x >= 10^21, let m = ToString(x)"
+description: x is 10^21
+---*/
 
 //CHECK#1
 if((new Number(1e21)).toFixed() !== String(1e21)){
@@ -68,4 +66,3 @@ catch(e){
     $ERROR('#10: (new Number(1e21)).toFixed(Number.POSITIVE_INFINITY) should throw RangeError, not '+e);
   }
 }
-

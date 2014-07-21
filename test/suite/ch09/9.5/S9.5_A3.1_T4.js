@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator uses ToNumber
- *
- * @path ch09/9.5/S9.5_A3.1_T4.js
- * @description Type(x) is Object
- */
+/*---
+info: Operator uses ToNumber
+description: Type(x) is Object
+---*/
 
 //CHECK#1
 var object = {valueOf: function() {return 1}};
@@ -76,4 +74,3 @@ catch (e) {
     $ERROR('#8.2: var object = {valueOf: function() {return {}}, toString: function() {return {}}}; ~object throw TypeError. Actual: ' + (e));
   } 
 }
-

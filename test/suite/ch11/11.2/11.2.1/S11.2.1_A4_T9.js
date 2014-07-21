@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Check type of various properties
- *
- * @path ch11/11.2/11.2.1/S11.2.1_A4_T9.js
- * @description Checking properties of the Date object
- */
+/*---
+info: Check type of various properties
+description: Checking properties of the Date object
+---*/
 
 //CHECK#1-86
 if (typeof Date.parse !== "function")  $ERROR('#1: typeof Date.parse === "function". Actual: ' + (typeof Date.parse ));
@@ -89,6 +87,3 @@ if (typeof Date.prototype.toLocaleString !== "function")  $ERROR('#81: typeof Da
 if (typeof Date.prototype['toLocaleString'] !== "function")  $ERROR('#82: typeof Date.prototype["toLocaleString"] === "function". Actual: ' + (typeof Date.prototype["toLocaleString"] ));
 if (typeof Date.prototype.toUTCString !== "function")  $ERROR('#83: typeof Date.prototype.toUTCString === "function". Actual: ' + (typeof Date.prototype.toUTCString ));
 if (typeof Date.prototype['toUTCString'] !== "function")  $ERROR('#84: typeof Date.prototype["toUTCString"] === "function". Actual: ' + (typeof Date.prototype["toUTCString"] ));
-
-
-

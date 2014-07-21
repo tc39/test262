@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If Type(x) as well as Type(y) is Undefined or Null, return true
- *
- * @path ch11/11.9/11.9.2/S11.9.2_A6.1.js
- * @description Checking all combinations
- */
+/*---
+info: If Type(x) as well as Type(y) is Undefined or Null, return true
+description: Checking all combinations
+---*/
 
 //CHECK#1
 if ((undefined != undefined) !== false) {
@@ -37,4 +35,3 @@ if ((null != void 0) !== false) {
 if ((null != null) !== false) {
   $ERROR('#6: (null != null) === false');
 }
-

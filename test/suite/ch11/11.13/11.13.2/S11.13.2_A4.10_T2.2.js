@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The production x ^= y is the same as x = x ^ y
- *
- * @path ch11/11.13/11.13.2/S11.13.2_A4.10_T2.2.js
- * @description Type(x) is different from Type(y) and both types vary between Number (primitive or object) and String (primitive and object)
- */
+/*---
+info: The production x ^= y is the same as x = x ^ y
+description: >
+    Type(x) is different from Type(y) and both types vary between
+    Number (primitive or object) and String (primitive and object)
+---*/
 
 //CHECK#1
 x = "1";
@@ -77,4 +77,3 @@ x ^= "x";
 if (x !== 1) {
   $ERROR('#10: x = 1; x ^= "x"; x === 1. Actual: ' + (x));
 }
-

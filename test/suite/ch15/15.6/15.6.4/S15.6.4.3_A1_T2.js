@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Boolean.prototype.valueOf() returns this boolean value
- *
- * @path ch15/15.6/15.6.4/S15.6.4.3_A1_T2.js
- * @description calling with argument
- */
+/*---
+info: Boolean.prototype.valueOf() returns this boolean value
+description: calling with argument
+---*/
 
 //CHECK#1
 if(Boolean.prototype.valueOf(true) !== false){
@@ -37,5 +35,3 @@ if((new Boolean(1)).valueOf(false) !== true){
 if((new Boolean(new Object())).valueOf(false) !== true){
   $ERROR('#6: (new Boolean(new Object())).valueOf(false) === true');
 }
-
-

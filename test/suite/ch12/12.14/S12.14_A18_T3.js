@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Catching objects with try/catch/finally statement
- *
- * @path ch12/12.14/S12.14_A18_T3.js
- * @description Catching boolean
- */
+/*---
+info: Catching objects with try/catch/finally statement
+description: Catching boolean
+---*/
 
 // CHECK#1
 try{
@@ -59,4 +57,3 @@ try{
 catch(e){
   if (e!==true) $ERROR('#6: Exception ===true. Actual:  Exception ==='+ e  );
 }
-

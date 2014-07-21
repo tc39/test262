@@ -1,15 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When the [[Construct]] property for a Function object F is called:
- * A new native ECMAScript object is created.
- * Invoke the [[Call]] property of F, providing native ECMAScript object just created as the this value and
- * providing the argument list passed into [[Construct]] as the argument values
- *
- * @path ch13/13.2/S13.2.2_A5_T2.js
- * @description Declaring a function with "__FACTORY = function(arg1, arg2)"
- */
+/*---
+info: >
+    When the [[Construct]] property for a Function object F is called:
+    A new native ECMAScript object is created.
+    Invoke the [[Call]] property of F, providing native ECMAScript object just created as the this value and
+    providing the argument list passed into [[Construct]] as the argument values
+description: Declaring a function with "__FACTORY = function(arg1, arg2)"
+---*/
 
 __VOLUME=8;
 __RED="red";
@@ -77,4 +76,3 @@ if (__device.bottom !== __BOTTOM) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

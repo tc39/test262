@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Using "try" with "catch" or "finally" statement in a constructor
- *
- * @path ch12/12.14/S12.14_A17.js
- * @description Creating exceptions within constructor
- */
+/*---
+info: Using "try" with "catch" or "finally" statement in a constructor
+description: Creating exceptions within constructor
+---*/
 
 var i=1;
 function Integer( value, exception ) {
@@ -42,4 +40,3 @@ new Integer(Infinity, false);
 new Integer(-1.23, true);
 // CHECK#6
 new Integer(Math.LN2, true);
-

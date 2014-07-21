@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If the argument len is a Number and ToUint32(len) is not equal to len,
- * a RangeError exception is thrown
- *
- * @path ch15/15.4/15.4.2/15.4.2.2/S15.4.2.2_A2.2_T3.js
- * @description Use try statement. len = 1.5, Number.MAX_VALUE, Number.MIN_VALUE
- */
+/*---
+info: >
+    If the argument len is a Number and ToUint32(len) is not equal to len,
+    a RangeError exception is thrown
+description: Use try statement. len = 1.5, Number.MAX_VALUE, Number.MIN_VALUE
+---*/
 
 //CHECK#1
 try {  
@@ -38,4 +37,3 @@ try {
     $ERROR('#3.2: new Array(Number.MIN_VALUE) throw RangeError. Actual: ' + (e));
   }
 }
-

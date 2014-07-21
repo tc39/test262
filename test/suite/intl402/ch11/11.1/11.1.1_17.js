@@ -1,10 +1,10 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that the option currency is processed correctly.
- * @author Norbert Lindenberg
- */
+/*---
+description: Tests that the option currency is processed correctly.
+author: Norbert Lindenberg
+---*/
 
 var validValues = ["CNY", "USD", "EUR", "IDR", "jpy", {toString: function () {return "INR";}}];
 var invalidValues = ["$", "SFr.", "US$", "ßP", {toString: function () {return;}}];
@@ -78,4 +78,3 @@ invalidValues.forEach(function (value) {
             return new Intl.NumberFormat([defaultLocale + "-u-cu-krw"], {currency: value});
     });
 });
-

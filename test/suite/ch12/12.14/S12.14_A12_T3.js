@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Using "try" with "catch" or "finally" statement within/without a "for-in" statement
- *
- * @path ch12/12.14/S12.14_A12_T3.js
- * @description Try statement inside loop, where use break
- */
+/*---
+info: >
+    Using "try" with "catch" or "finally" statement within/without a "for-in"
+    statement
+description: Try statement inside loop, where use break
+---*/
 
 var x;
 var mycars = new Array();
@@ -159,4 +159,3 @@ if(fin7!==1){
 if(c7!==1){
   $ERROR('#7.2: "try finally{break}" must work correctly');
 }
-

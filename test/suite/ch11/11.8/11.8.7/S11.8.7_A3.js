@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If ShiftExpression is not an object, throw TypeError
- *
- * @path ch11/11.8/11.8.7/S11.8.7_A3.js
- * @description Checking all the types of primitives
- */
+/*---
+info: If ShiftExpression is not an object, throw TypeError
+description: Checking all the types of primitives
+---*/
 
 //CHECK#1
 try {
@@ -62,4 +60,3 @@ catch (e) {
     $ERROR('#5: "toString" in null throw TypeError');  
   }
 }
-

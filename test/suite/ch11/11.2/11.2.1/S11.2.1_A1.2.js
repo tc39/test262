@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * White Space and Line Terminator between "[" and MemberExpression or CallExpression and between Identifier and "]" are allowed
- *
- * @path ch11/11.2/11.2.1/S11.2.1_A1.2.js
- * @description Checking by using eval
- */
+/*---
+info: >
+    White Space and Line Terminator between "[" and MemberExpression or
+    CallExpression and between Identifier and "]" are allowed
+description: Checking by using eval
+---*/
 
 //CHECK#1
 if (eval('Number[\u0009"POSITIVE_INFINITY"\u0009]') !== Number.POSITIVE_INFINITY) {
@@ -57,4 +57,3 @@ if (eval('Number[\u2029"POSITIVE_INFINITY"\u2029]') !== Number.POSITIVE_INFINITY
 if (eval('Number[\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u2029"POSITIVE_INFINITY"\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u2029]') !== Number.POSITIVE_INFINITY) {
   $ERROR('#10: Number[\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029"POSITIVE_INFINITY"\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029] === Number.POSITIVE_INFINITY');
 }
-

@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If start is negative, use max(start + length, 0).
- * If end is positive, use min(end, length)
- *
- * @path ch15/15.4/15.4.4/15.4.4.10/S15.4.4.10_A1.2_T4.js
- * @description abs(start) > length = end > 0, start < 0
- */
+/*---
+info: >
+    If start is negative, use max(start + length, 0).
+    If end is positive, use min(end, length)
+description: abs(start) > length = end > 0, start < 0
+---*/
 
 var x = [0,1,2,3,4];
 var arr = x.slice(-9,5);
@@ -51,5 +50,4 @@ if (arr[4] !== 4) {
 //CHECK#8
 if (arr[5] !== undefined) {
   $ERROR('#8: var x = [0,1,2,3,4]; var arr = x.slice(-9,5); arr[5] === undefined. Actual: ' + (arr[5]));
-}   
-
+}

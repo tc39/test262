@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator use ToInteger from end
- *
- * @path ch15/15.4/15.4.4/15.4.4.10/S15.4.4.10_A2.2_T5.js
- * @description ToInteger use ToNumber
- */
+/*---
+info: Operator use ToInteger from end
+description: ToInteger use ToNumber
+---*/
 
 var x = [0,1,2,3,4];
 var arr = x.slice(0,{valueOf: function() {return 3}, toString: function() {return 0}});
@@ -40,5 +38,4 @@ if (arr[2] !== 2) {
 //CHECK#6
 if (arr[3] !== undefined) {
   $ERROR('#6: var x = [0,1,2,3,4]; var arr = x.slice(0,{valueOf: function() {return 3}, toString: function() {return 0}}); arr[3] === undefined. Actual: ' + (arr[3]));
-}   
-
+}

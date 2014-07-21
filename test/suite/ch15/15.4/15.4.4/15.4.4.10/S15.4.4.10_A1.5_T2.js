@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If end is undefined use length
- *
- * @path ch15/15.4/15.4.4/15.4.4.10/S15.4.4.10_A1.5_T2.js
- * @description end is absent
- */
+/*---
+info: If end is undefined use length
+description: end is absent
+---*/
 
 var x = [0,1,2,3,4];
 var arr = x.slice(-2);
@@ -35,5 +33,4 @@ if (arr[1] !== 4) {
 //CHECK#5
 if (arr[2] !== undefined) {
   $ERROR('#5: var x = [0,1,2,3,4]; var arr = x.slice(-2); arr[2] === undefined. Actual: ' + (arr[2]));
-} 
-
+}

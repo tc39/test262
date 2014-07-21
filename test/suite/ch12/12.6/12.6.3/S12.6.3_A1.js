@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The "for {;;}" for Statement with empty expressions is allowed and leads to performing an infinite loop
- *
- * @path ch12/12.6/12.6.3/S12.6.3_A1.js
- * @description Breaking an infinite loop by throwing exception
- */
+/*---
+info: >
+    The "for {;;}" for Statement with empty expressions is allowed and leads
+    to performing an infinite loop
+description: Breaking an infinite loop by throwing exception
+---*/
 
 var __in__for = 0;
 
@@ -32,5 +32,3 @@ if (__in__for !== 101) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-
-

@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * While evaluating "for (ExpressionNoIn; FirstExpression; SecondExpression) Statement", ExpressionNoIn is evaulated first, FirstExpressoin is evaluated second
- *
- * @path ch12/12.6/12.6.3/S12.6.3_A3.js
- * @description Using "(function(){throw "FirstExpression"})()" as FirstExpression
- */
+/*---
+info: >
+    While evaluating "for (ExpressionNoIn; FirstExpression; SecondExpression)
+    Statement", ExpressionNoIn is evaulated first, FirstExpressoin is
+    evaluated second
+description: Using "(function(){throw "FirstExpression"})()" as FirstExpression
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -38,4 +39,3 @@ if (typeof __in__for !== "undefined") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

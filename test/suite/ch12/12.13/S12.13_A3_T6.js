@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * 1. Evaluate Expression
- *
- * @path ch12/12.13/S12.13_A3_T6.js
- * @description Evaluating functions
- */
+/*---
+info: 1. Evaluate Expression
+description: Evaluating functions
+---*/
 
 // CHECK#1
 var i=0;
@@ -55,4 +53,3 @@ try{
 catch(e){
   if (e!==2) $ERROR('#4: Exception ===2. Actual:  Exception ==='+ e);
 }
-

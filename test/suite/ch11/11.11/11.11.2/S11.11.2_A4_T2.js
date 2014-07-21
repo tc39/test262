@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If ToBoolean(x) is true, return x
- *
- * @path ch11/11.11/11.11.2/S11.11.2_A4_T2.js
- * @description Type(x) and Type(y) vary between primitive number and Number object
- */
+/*---
+info: If ToBoolean(x) is true, return x
+description: Type(x) and Type(y) vary between primitive number and Number object
+---*/
 
 //CHECK#1
 if ((-1 || 1) !== -1) {
@@ -40,4 +38,3 @@ var x = new Number(0);
 if ((x || new Number(NaN)) !== x) {
   $ERROR('#6: (var x = new Number(0); (x || new Number(NaN)) === x');
 }
-

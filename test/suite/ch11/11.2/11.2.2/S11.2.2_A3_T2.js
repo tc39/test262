@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If Type(NewExpression) or Type(MemberExpression) is not Object, throw TypeError
- *
- * @path ch11/11.2/11.2.2/S11.2.2_A3_T2.js
- * @description Checking "number primitive" case
- */
+/*---
+info: >
+    If Type(NewExpression) or Type(MemberExpression) is not Object, throw
+    TypeError
+description: Checking "number primitive" case
+---*/
 
 //CHECK#1
 try {
@@ -42,4 +42,3 @@ catch (e) {
     $ERROR('#3: var x = 1; new x() throw TypeError'); 
   }
 }
-

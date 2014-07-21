@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * CARRIAGE RETURN (U+000D) may occur between any two tokens
- *
- * @path ch07/7.3/S7.3_A1.2_T1.js
- * @description Insert CARRIAGE RETURN (\u000D and \r) between tokens of var x=1
- */
+/*---
+info: CARRIAGE RETURN (U+000D) may occur between any two tokens
+description: Insert CARRIAGE RETURN (\u000D and \r) between tokens of var x=1
+---*/
 
 // CHECK#1
 eval("\u000Dvar\u000Dx\u000D=\u000D1\u000D");
@@ -37,4 +35,3 @@ eval("\u000D" + "var" + "\r" + "x" + "\u000D" + "=" + "\r" + "1" + "\u000D");
 if (x !== 1) {
   $ERROR('#5: eval("\\u000D" + "var" + "\\r" + "x" + "\\u000D" + "=" + "\\r" + "1" + "\\u000D"); x === 1. Actual: ' + (x));
 }
-

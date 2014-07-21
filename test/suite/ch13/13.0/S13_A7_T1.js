@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The FunctionBody must be SourceElements
- *
- * @path ch13/13.0/S13_A7_T1.js
- * @description Using only SourceElements within the FunctionBody
- */
+/*---
+info: The FunctionBody must be SourceElements
+description: Using only SourceElements within the FunctionBody
+---*/
 
 function __func(){'ground control to major tom'};
 //////////////////////////////////////////////////////////////////////////////
@@ -70,4 +68,3 @@ if (typeof __func__6 !== "function") {
 //}
 //
 //////////////////////////////////////////////////////////////////////////////
-

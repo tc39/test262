@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator use ToInteger from deleteCount
- *
- * @path ch15/15.4/15.4.4/15.4.4.12/S15.4.4.12_A2.2_T3.js
- * @description deleteCount = Infinity
- */
+/*---
+info: Operator use ToInteger from deleteCount
+description: deleteCount = Infinity
+---*/
 
 var x = [0,1,2,3];
 var arr = x.splice(0,Number.POSITIVE_INFINITY);
@@ -45,5 +43,4 @@ if (arr[3] !== 3) {
 //CHECK#7
 if (x.length !== 0) {
   $ERROR('#7: var x = [0,1,2,3]; var arr = x.splice(0,Number.POSITIVE_INFINITY); x.length === 0. Actual: ' + (x.length));
-} 
-
+}

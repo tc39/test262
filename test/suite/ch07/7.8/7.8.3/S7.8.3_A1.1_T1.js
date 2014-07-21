@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * DecimalLiteral :: DecimalIntegerLiteral
- *
- * @path ch07/7.8/7.8.3/S7.8.3_A1.1_T1.js
- * @description DecimalIntegerLiteral :: 0, NoNZeroDigit
- */
+/*---
+info: "DecimalLiteral :: DecimalIntegerLiteral"
+description: "DecimalIntegerLiteral :: 0, NoNZeroDigit"
+---*/
 
 //CHECK#0
 if (0 !== 0) {
@@ -57,4 +55,3 @@ if (8 !== 8) {
 if (9 !== 9) {
   $ERROR('#9: 9 === 9');
 }
-

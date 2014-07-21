@@ -1,10 +1,12 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that Date.prototype.toLocaleString & Co. handle non-finite values correctly.
- * @author Norbert Lindenberg
- */
+/*---
+description: >
+    Tests that Date.prototype.toLocaleString & Co. handle non-finite
+    values correctly.
+author: Norbert Lindenberg
+---*/
 
 var functions = {
     toLocaleString: Date.prototype.toLocaleString,
@@ -23,4 +25,3 @@ Object.getOwnPropertyNames(functions).forEach(function (p) {
         }
     });
 });
-

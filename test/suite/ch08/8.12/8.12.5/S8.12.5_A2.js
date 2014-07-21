@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When the [[Put]] method of O is called with property P and value V,
- * then set the value of the property to V. The attributes of the property are not changed
- *
- * @path ch08/8.12/8.12.5/S8.12.5_A2.js
- * @description Put to existent properties
- */
+/*---
+info: >
+    When the [[Put]] method of O is called with property P and value V,
+    then set the value of the property to V. The attributes of the property are not changed
+description: Put to existent properties
+---*/
 
 var _map={1:"one",two:2};
 
@@ -46,4 +45,3 @@ if (_map.two !== "duo") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

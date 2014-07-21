@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Nested "var-loops" nine blocks depth is evaluated properly
- *
- * @path ch12/12.6/12.6.3/S12.6.3_A10.js
- * @description Checking if executing nested "var-loops" nine blocks depth is evaluated properly
- */
+/*---
+info: Nested "var-loops" nine blocks depth is evaluated properly
+description: >
+    Checking if executing nested "var-loops" nine blocks depth is
+    evaluated properly
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#
@@ -48,4 +48,3 @@ if (__str!== "000000000\n100000000\n110000000\n110000001\n111000000\n111000001\n
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

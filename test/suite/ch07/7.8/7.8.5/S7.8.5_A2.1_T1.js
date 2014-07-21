@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * RegularExpressionChar :: NonTerminator but not \ or /,
- * RegularExpressionFlags :: [empty]
- *
- * @path ch07/7.8/7.8.5/S7.8.5_A2.1_T1.js
- * @description Without eval
- */
+/*---
+info: >
+    RegularExpressionChar :: NonTerminator but not \ or /,
+    RegularExpressionFlags :: [empty]
+description: Without eval
+---*/
 
 //CHECK#1
 if (/1a/.source !== "1a") {
@@ -32,5 +31,4 @@ if (/  /.source !== "  ") {
 //CHECK#5
 if (/a\u0041/.source !== "a\\u0041") {
   $ERROR('#5: /a\\u0041/');
-}  
-
+}

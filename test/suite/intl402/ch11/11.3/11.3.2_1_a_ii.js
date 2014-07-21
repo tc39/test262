@@ -1,11 +1,12 @@
 // Copyright 2012 Google Inc.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that Intl.NumberFormat.prototype.format
- * converts other types to numbers.
- * @author: Roozbeh Pournader
- */
+/*---
+description: >
+    Tests that Intl.NumberFormat.prototype.format  converts other
+    types to numbers.
+author:: Roozbeh Pournader
+---*/
 
 var formatter = new Intl.NumberFormat();
 var testData = [undefined, null, true, '0.6666666', {valueOf: function () { return '0.1234567';}}];
@@ -24,4 +25,3 @@ for (i in testData) {
             'Expected output: "'+correctResult+'"');
     }
 }
-

@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator x ^ y returns ToNumber(x) ^ ToNumber(y)
- *
- * @path ch11/11.10/11.10.2/S11.10.2_A3_T2.3.js
- * @description Type(x) is different from Type(y) and both types vary between Number (primitive or object) and Null
- */
+/*---
+info: Operator x ^ y returns ToNumber(x) ^ ToNumber(y)
+description: >
+    Type(x) is different from Type(y) and both types vary between
+    Number (primitive or object) and Null
+---*/
 
 //CHECK#1
 if ((1 ^ null) !== 1) {
@@ -27,4 +27,3 @@ if ((new Number(1) ^ null) !== 1) {
 if ((null ^ new Number(1)) !== 1) {
   $ERROR('#4: (null ^ new Number(1)) === 1. Actual: ' + ((null ^ new Number(1))));
 }
-

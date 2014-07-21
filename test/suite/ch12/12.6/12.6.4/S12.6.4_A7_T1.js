@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Properties of the object being enumerated may be deleted during enumeration
- *
- * @path ch12/12.6/12.6.4/S12.6.4_A7_T1.js
- * @description Checking "for (LeftHandSideExpression in Expression) Statement" case
- */
+/*---
+info: >
+    Properties of the object being enumerated may be deleted during
+    enumeration
+description: >
+    Checking "for (LeftHandSideExpression in Expression) Statement"
+    case
+---*/
 
 __obj={aa:1,ba:2,ca:3};
 
@@ -46,4 +48,3 @@ function erasator_T_1000(hash_map, charactr){
 		};
 	}
 }
-

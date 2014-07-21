@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * toString: If radix is an integer from 2 to 36, but not 10,
- * the result is a string, the choice of which is implementation-dependent
- *
- * @path ch15/15.7/15.7.4/15.7.4.2/S15.7.4.2_A2_T15.js
- * @description radix is 17
- */
+/*---
+info: >
+    toString: If radix is an integer from 2 to 36, but not 10,
+    the result is a string, the choice of which is implementation-dependent
+description: radix is 17
+---*/
 
 //CHECK#1
 if(Number.prototype.toString(17) !== "0"){
@@ -48,4 +47,3 @@ if((new Number(Number.POSITIVE_INFINITY)).toString(17) !== "Infinity"){
 if((new Number(Number.NEGATIVE_INFINITY)).toString(17) !== "-Infinity"){
   $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString(17) === "-Infinity"');
 }
-

@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Since a function is an object, it might be set to [[Prototype]] property of a new created object through [[Construct]] property
- *
- * @path ch13/13.2/S13.2.2_A1_T2.js
- * @description Declaring a function with "var __PROTO = function()"
- */
+/*---
+info: >
+    Since a function is an object, it might be set to [[Prototype]] property
+    of a new created object through [[Construct]] property
+description: Declaring a function with "var __PROTO = function()"
+includes: [$FAIL.js]
+---*/
 
 var __MONSTER="monster";
 var __PREDATOR="predator";
@@ -41,4 +42,3 @@ if (__monster.type !==__MONSTER) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The [[Value]] property of the newly constructed object
- * is set to ToBoolean(value)
- *
- * @path ch15/15.6/15.6.2/S15.6.2.1_A3.js
- * @description Checking value of the newly created object
- */
+/*---
+info: >
+    The [[Value]] property of the newly constructed object
+    is set to ToBoolean(value)
+description: Checking value of the newly created object
+---*/
 
 // CHECK#1
 var x1 = new Boolean(1);
@@ -32,4 +31,3 @@ var x2 = new Boolean(new Object());
 if (x2.valueOf() !== true) {
   $ERROR('#4: var x2 = new Boolean(new Object()); x2.valueOf() === true');
 }
-

@@ -1,17 +1,16 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Return the string consisting of the most significant
- * digit of the decimal representation of s, followed by a decimal point '.',
- * followed by the remaining k-1 digits of the decimal representation of s,
- * followed by the lowercase character 'e', followed by a plus sign '+' or
- * minus sign '-' according to whether n-1 is positive or negative, followed
- * by the decimal representation of the integer abs(n-1) (with no leading zeros)
- *
- * @path ch09/9.8/9.8.1/S9.8.1_A10.js
- * @description Various float numbers convert to String by explicit transformation
- */
+/*---
+info: >
+    Return the string consisting of the most significant
+    digit of the decimal representation of s, followed by a decimal point '.',
+    followed by the remaining k-1 digits of the decimal representation of s,
+    followed by the lowercase character 'e', followed by a plus sign '+' or
+    minus sign '-' according to whether n-1 is positive or negative, followed
+    by the decimal representation of the integer abs(n-1) (with no leading zeros)
+description: Various float numbers convert to String by explicit transformation
+---*/
 
 // CHECK#1
 if (String(1.2345) !== "1.2345") {
@@ -57,4 +56,3 @@ if (String(.0000012345) !== "0.0000012345") {
 if (String(.00000012345) !== "1.2345e-7") {
   $ERROR('#9: String(.00000012345) === "1.2345e-7". Actual: ' + (String(.00000012345)));
 }
-

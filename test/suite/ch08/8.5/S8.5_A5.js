@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * NaN not greater or equal zero
- *
- * @path ch08/8.5/S8.5_A5.js
- * @description Compare NaN with zero
- */
+/*---
+info: NaN not greater or equal zero
+description: Compare NaN with zero
+includes: [$PRINT.js]
+---*/
 
 var x = NaN;
 var x_geq_0=(x >= 0.0);
@@ -54,4 +53,3 @@ if (x_geq_0_ADD_leq_0){
 }
 //
 ///////////////////////////////////////////////////
-

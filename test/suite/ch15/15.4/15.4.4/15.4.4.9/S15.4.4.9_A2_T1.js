@@ -1,14 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The shift function is intentionally generic.
- * It does not require that its this value be an Array object
- *
- * @path ch15/15.4/15.4.4/15.4.4.9/S15.4.4.9_A2_T1.js
- * @description If ToUint32(length) equal zero, call the [[Put]] method
- * of this object with arguments "length" and 0 and return undefined
- */
+/*---
+info: >
+    The shift function is intentionally generic.
+    It does not require that its this value be an Array object
+description: >
+    If ToUint32(length) equal zero, call the [[Put]] method  of this
+    object with arguments "length" and 0 and return undefined
+---*/
 
 var obj = {};
 obj.shift = Array.prototype.shift;
@@ -50,4 +50,3 @@ if (shift !== undefined) {
 if (obj.length !== 0) {
   $ERROR('#6: var obj = {}; obj.length = null; obj.shift = Array.prototype.shift; obj.shift(); obj.length === 0. Actual: ' + (obj.length));
 }
-

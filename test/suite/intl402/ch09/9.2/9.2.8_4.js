@@ -1,13 +1,13 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that the array returned by SupportedLocales is extensible,
- *     but its properties are non-writable/non-configurable.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+description: >
+    Tests that the array returned by SupportedLocales is extensible,
+    but its properties are non-writable/non-configurable.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 function testFrozenProperty(obj, property) {
     var desc = Object.getOwnPropertyDescriptor(obj, property);
@@ -32,4 +32,3 @@ testWithIntlConstructors(function (Constructor) {
 
     return true;
 });
-

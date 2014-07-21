@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Check operator x << y in distinct points
- *
- * @path ch11/11.7/11.7.1/S11.7.1_A4_T2.js
- * @description ShiftExpression = 2^n - 1, n = 16...31
- */
+/*---
+info: Check operator x << y in distinct points
+description: ShiftExpression = 2^n - 1, n = 16...31
+---*/
 
 //CHECK
 
@@ -2567,6 +2565,4 @@ if (-1073741824 << 31 !== 0) {
 
 if (-2147483648 << 31 !== 0) { 
   $ERROR('#1024: -2147483648 << 31 === 0. Actual: ' + (-2147483648 << 31)); 
-} 
-
-
+}

@@ -1,13 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When "String" is called as part of a new expression, it is a constructor: it initialises the newly created object and
- * The [[Value]] property of the newly constructed object is set to ToString(value), or to the empty string if value is not supplied
- *
- * @path ch15/15.5/15.5.2/S15.5.2.1_A1_T17.js
- * @description Creating string object with "new String()" initialized with numbers that have more than 1 significant digit following the point
- */
+/*---
+info: >
+    When "String" is called as part of a new expression, it is a constructor: it initialises the newly created object and
+    The [[Value]] property of the newly constructed object is set to ToString(value), or to the empty string if value is not supplied
+description: >
+    Creating string object with "new String()" initialized with
+    numbers that have more than 1 significant digit following the point
+---*/
 
 var __str = new String(1.2345);
 //////////////////////////////////////////////////////////////////////////////
@@ -83,4 +84,3 @@ if (__str !="1.2345") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

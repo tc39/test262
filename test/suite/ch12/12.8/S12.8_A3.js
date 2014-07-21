@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When "break" is evaluated, (break, empty, empty) is returned
- *
- * @path ch12/12.8/S12.8_A3.js
- * @description Using "break" without Identifier within labeled loop
- */
+/*---
+info: When "break" is evaluated, (break, empty, empty) is returned
+description: Using "break" without Identifier within labeled loop
+---*/
 
 LABEL_OUT : var x=0, y=0;
 
@@ -31,4 +29,3 @@ if ((x!==2)&&(y!==0)) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If y is NaN, return false (if result in 11.8.5 is undefined, return false)
- *
- * @path ch11/11.8/11.8.1/S11.8.1_A4.2.js
- * @description x is number primitive
- */
+/*---
+info: If y is NaN, return false (if result in 11.8.5 is undefined, return false)
+description: x is number primitive
+---*/
 
 //CHECK#1
 if ((0 < Number.NaN) !== false) {
@@ -47,5 +45,3 @@ if ((Number.MAX_VALUE < Number.NaN) !== false) {
 if ((Number.MIN_VALUE < Number.NaN) !== false) {
   $ERROR('#8: (Number.MIN_VALUE < NaN) === false');
 }
-
-

@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * A property is created with name length with property
- * attributes { DontEnum } and no others
- *
- * @path ch10/10.6/S10.6_A5_T4.js
- * @description Overriding arguments.length property
- */
+/*---
+info: >
+    A property is created with name length with property
+    attributes { DontEnum } and no others
+description: Overriding arguments.length property
+---*/
 
 var str = "something different";
 //CHECK#1
@@ -38,4 +37,3 @@ try{
 catch(e){
   $ERROR("#2: arguments object don't exists");
 }
-

@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If the argument "message" is not undefined, the message property of the newly constructed object is
- * set to ToString(message)
- *
- * @path ch15/15.11/15.11.1/S15.11.1.1_A1_T1.js
- * @description Checking message property of different error objects
- */
+/*---
+info: >
+    If the argument "message" is not undefined, the message property of the newly constructed object is
+    set to ToString(message)
+description: Checking message property of different error objects
+---*/
 
 function otherScope(msg)
 {
@@ -49,4 +48,3 @@ if(err4.message!=="msg4"){
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

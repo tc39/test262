@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Appearing of "continue" within a "try/catch" Block yields SyntaxError
- *
- * @path ch12/12.7/S12.7_A8_T1.js
- * @description Checking if execution of "continue Identifier" within catch Block fails
- * @negative
- */
+/*---
+info: Appearing of "continue" within a "try/catch" Block yields SyntaxError
+description: >
+    Checking if execution of "continue Identifier" within catch Block
+    fails
+flags: [negative]
+---*/
 
 var x=0,y=0;
 
@@ -25,4 +25,3 @@ try{
 		y++;
 	} while(0);
 };
-

@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator use ToString
- *
- * @path ch15/15.1/15.1.3/15.1.3.1/S15.1.3.1_A6_T1.js
- * @description If Type(value) is Object, evaluate ToPrimitive(value, String)
- */
+/*---
+info: Operator use ToString
+description: If Type(value) is Object, evaluate ToPrimitive(value, String)
+---*/
 
 //CHECK#1
 var object = {valueOf: function() {return "%5E"}};
@@ -76,4 +74,3 @@ catch (e) {
     $ERROR('#8.2: var object = {valueOf: function() {return {}}, toString: function() {return {}}}; decodeURI(object) throw TypeError. Actual: ' + (e));
   } 
 }
-

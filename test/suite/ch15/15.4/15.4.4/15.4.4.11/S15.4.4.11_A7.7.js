@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The sort property of Array can't be used as constructor
- *
- * @path ch15/15.4/15.4.4/15.4.4.11/S15.4.4.11_A7.7.js
- * @description If property does not implement the internal [[Construct]] method, throw a TypeError exception
- */
+/*---
+info: The sort property of Array can't be used as constructor
+description: >
+    If property does not implement the internal [[Construct]] method,
+    throw a TypeError exception
+---*/
 
 //CHECK#1
 
@@ -18,4 +18,3 @@ try {
     $ERROR('#1.2: new Array.prototype.sort() throw TypeError. Actual: ' + (e));
   }
 }
-

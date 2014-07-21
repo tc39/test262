@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * White Space and Line Terminator between LogicalORExpression and "?" or between "?" and AssignmentExpression or between AssignmentExpression and ":" or between ":" and AssignmentExpression are allowed
- *
- * @path ch11/11.12/S11.12_A1.js
- * @description Checking by using eval
- */
+/*---
+info: >
+    White Space and Line Terminator between LogicalORExpression and "?" or
+    between "?" and AssignmentExpression or between AssignmentExpression and
+    ":" or between ":" and AssignmentExpression are allowed
+description: Checking by using eval
+---*/
 
 //CHECK#1
 if ((eval("false\u0009?\u0009true\u0009:\u0009true")) !== true) {
@@ -57,4 +58,3 @@ if ((eval("false\u2029?\u2029true\u2029:\u2029true")) !== true) {
 if ((eval("false\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u2029?\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u2029true\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u2029:\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u2029true")) !== true) {
   $ERROR('#10: (false\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029?\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029true\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029:\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029true) === true');
 }
-

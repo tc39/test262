@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Any variable that has not been assigned a value has the value undefined
- *
- * @path ch08/8.1/S8.1_A2_T1.js
- * @description Check that var x have value and type undefined
- */
+/*---
+info: Any variable that has not been assigned a value has the value undefined
+description: Check that var x have value and type undefined
+---*/
 
 var x;
 
@@ -33,4 +31,3 @@ if (!(x === void 0)) {
 }
 //
 ///////////////////////////////////////////////////////////////////
-

@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When "instanceof" returns true it means that GetValue(RelationalExpression) is constructed with ShiftExpression
- *
- * @path ch11/11.8/11.8.6/S11.8.6_A7_T2.js
- * @description Checking Array object
- */
+/*---
+info: >
+    When "instanceof" returns true it means that
+    GetValue(RelationalExpression) is constructed with ShiftExpression
+description: Checking Array object
+---*/
 
 var __arr=[];
 
@@ -19,4 +19,3 @@ if (!(__arr instanceof Array)) {
 if (__arr.constructor !== Array) {
 	$ERROR('#2: If instanceof returns true then GetValue(RelationalExpression) was constructed with ShiftExpression');
 }
-

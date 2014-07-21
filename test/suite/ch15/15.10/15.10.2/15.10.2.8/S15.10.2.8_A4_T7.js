@@ -1,14 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The production Atom :: . evaluates as follows:
- * i) Let A be the set of all characters except the four line terminator characters <LF>, <CR>, <LS>, or <PS>
- * ii) Call CharacterSetMatcher(A, false) and return its Matcher result
- *
- * @path ch15/15.10/15.10.2/15.10.2.8/S15.10.2.8_A4_T7.js
- * @description Execute /.+/.exec("ABCDEFGHIJKLMNOPQRSTUVWXYZ") and check results
- */
+/*---
+info: >
+    The production Atom :: . evaluates as follows:
+    i) Let A be the set of all characters except the four line terminator characters <LF>, <CR>, <LS>, or <PS>
+    ii) Call CharacterSetMatcher(A, false) and return its Matcher result
+description: Execute /.+/.exec("ABCDEFGHIJKLMNOPQRSTUVWXYZ") and check results
+---*/
 
 __string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 __executed = /.+/.exec(__string);
@@ -38,5 +37,3 @@ for(var index=0; index<__expected.length; index++) {
 		$ERROR('#4: __string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; __executed = /.+/.exec(__string); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
 	}
 }
-
-

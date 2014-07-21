@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * isNaN applies ToNumber to its argument, then return true if the result is NaN, and otherwise return false
- *
- * @path ch15/15.1/15.1.2/15.1.2.4/S15.1.2.4_A1_T1.js
- * @description Checking all primitive
- */
+/*---
+info: >
+    isNaN applies ToNumber to its argument, then return true if the result is
+    NaN, and otherwise return false
+description: Checking all primitive
+---*/
 
 // CHECK#1
 if (!(isNaN(NaN) === true)) {
@@ -67,8 +67,3 @@ if (isNaN(true) === true) {
 if (isNaN("1") === true) {
   $ERROR('#12: "1" !== Not-a-Number'); 
 }
-
-
-
-
-

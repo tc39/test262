@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator use ToString
- *
- * @path ch15/15.1/15.1.2/15.1.2.2/S15.1.2.2_A1_T6.js
- * @description Checking for String object
- */
+/*---
+info: Operator use ToString
+description: Checking for String object
+---*/
 
 //CHECK#1
 if (parseInt(new String("-1")) !== parseInt("-1")) {
@@ -27,4 +25,3 @@ if (String(parseInt(new String("NaN"))) !== "NaN") {
 if (String(parseInt(new String("false"))) !== "NaN") {
   $ERROR('#4: String(parseInt(new String("false"))) === "NaN". Actual: ' + (String(parseInt(new String("false")))));
 }
-

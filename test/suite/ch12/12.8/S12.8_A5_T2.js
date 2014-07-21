@@ -1,13 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Identifier must be label in the label set of an enclosing (but not crossing function boundaries) IterationStatement
- *
- * @path ch12/12.8/S12.8_A5_T2.js
- * @description Checking if using function name as an Identifier appears to be invalid
- * @negative
- */
+/*---
+info: >
+    Identifier must be label in the label set of an enclosing (but not
+    crossing function boundaries) IterationStatement
+description: >
+    Checking if using function name as an Identifier appears to be
+    invalid
+flags: [negative]
+---*/
 
 (function(){
     LABEL_OUT : var x=0, y=0;
@@ -26,4 +28,3 @@
     
     function OUT_FUNC(){}
 })();
-

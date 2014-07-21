@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When String is called as a function rather than as a constructor, it performs a type conversion
- *
- * @path ch15/15.5/15.5.1/S15.5.1.1_A1_T8.js
- * @description Call String(new Array)
- */
+/*---
+info: >
+    When String is called as a function rather than as a constructor, it
+    performs a type conversion
+description: Call String(new Array)
+---*/
 
 var __old__Array__prototype__toString = Array.prototype.toString;
 
@@ -32,4 +32,3 @@ if (__str !== "__ARRAY__") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

@@ -1,12 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The Object.prototype.hasOwnProperty.length property has the attribute DontEnum
- *
- * @path ch15/15.2/15.2.4/15.2.4.5/S15.2.4.5_A8.js
- * @description Checking if enumerating the Object.prototype.hasOwnProperty.length property fails
- */
+/*---
+info: >
+    The Object.prototype.hasOwnProperty.length property has the attribute
+    DontEnum
+description: >
+    Checking if enumerating the Object.prototype.hasOwnProperty.length
+    property fails
+includes: [$FAIL.js]
+---*/
 
 //CHECK#0
 if (!(Object.prototype.hasOwnProperty.hasOwnProperty('length'))) {
@@ -25,4 +28,3 @@ for (p in Object.prototype.hasOwnProperty){
         $ERROR('#2: the Object.prototype.hasOwnProperty.length property has the attributes DontEnum');
 }
 //
-

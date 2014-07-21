@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * EscapeSequence :: UnicodeEscapeSequence :: u HexDigit HexDigit HexDigit HexDigit
- *
- * @path ch07/7.8/7.8.4/S7.8.4_A7.1_T1.js
- * @description Check similar to ("\u0000" === String.fromCharCode("0"))
- */
+/*---
+info: >
+    EscapeSequence :: UnicodeEscapeSequence :: u HexDigit HexDigit HexDigit
+    HexDigit
+description: Check similar to ("\u0000" === String.fromCharCode("0"))
+---*/
 
 //CHECK#0
 if ("\u0000" !== String.fromCharCode("0")) {
@@ -87,4 +87,3 @@ if ("\u000E" !== String.fromCharCode("14")) {
 if ("\u000F" !== String.fromCharCode("15")) {
   $ERROR('#F: "\\u000F" === String.fromCharCode("15")');
 }
-

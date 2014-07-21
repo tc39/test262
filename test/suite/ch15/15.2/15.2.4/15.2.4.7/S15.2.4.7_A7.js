@@ -1,12 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Object.prototype.propertyIsEnumerable can't be used as a constructor
- *
- * @path ch15/15.2/15.2.4/15.2.4.7/S15.2.4.7_A7.js
- * @description Checking if creating "new Object.prototype.propertyIsEnumerable" fails
- */
+/*---
+info: Object.prototype.propertyIsEnumerable can't be used as a constructor
+description: >
+    Checking if creating "new Object.prototype.propertyIsEnumerable"
+    fails
+includes:
+    - $PRINT.js
+    - $FAIL.js
+---*/
 
 var FACTORY = Object.prototype.propertyIsEnumerable;
 
@@ -17,4 +20,3 @@ try {
   $PRINT(e);
 
 }
-

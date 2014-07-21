@@ -1,13 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Sanity test for "catch(Indetifier) statement"
- *
- * @path ch12/12.14/S12.14_A4.js
- * @description Checking if deleting an exception fails
- * @noStrict
- */
+/*---
+info: Sanity test for "catch(Indetifier) statement"
+description: Checking if deleting an exception fails
+flags: [noStrict]
+---*/
 
 // CHECK#1
 try {
@@ -34,4 +32,3 @@ try{
   $ERROR('#2.2: Deleting catching exception after ending "catch" block');
 }
 catch(err){}
-

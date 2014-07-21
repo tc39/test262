@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * VariableDeclaration within Eval statement is initialized as the program reaches the eval statement
- *
- * @path ch12/12.2/S12.2_A5.js
- * @description Executing eval("var x")
- */
+/*---
+info: >
+    VariableDeclaration within Eval statement is initialized as the program
+    reaches the eval statement
+description: Executing eval("var x")
+includes: [$PRINT.js]
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -30,4 +31,3 @@ try{
 };
 //
 //////////////////////////////////////////////////////////////////////////////
-

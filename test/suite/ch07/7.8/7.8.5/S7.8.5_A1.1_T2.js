@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * RegularExpressionFirstChar :: NonTerminator but not * or \ or /,
- * RegularExpressionChars :: [empty], RegularExpressionFlags :: [empty]
- *
- * @path ch07/7.8/7.8.5/S7.8.5_A1.1_T2.js
- * @description Complex test with eval, using syntax pattern
- */
+/*---
+info: >
+    RegularExpressionFirstChar :: NonTerminator but not * or \ or /,
+    RegularExpressionChars :: [empty], RegularExpressionFlags :: [empty]
+description: Complex test with eval, using syntax pattern
+---*/
 
 //CHECK
 var errorCount = 0;
@@ -52,4 +51,3 @@ for (var i1 = 0; i1 < 16; i1++) {
 if (errorCount > 0) {
   $ERROR('Total error: ' + errorCount + ' bad Regular Expression First Char in ' + count);
 }
-

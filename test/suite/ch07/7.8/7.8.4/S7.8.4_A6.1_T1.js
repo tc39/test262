@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * EscapeSequence :: HexEscapeSequence :: x HexDigit HexDigit
- *
- * @path ch07/7.8/7.8.4/S7.8.4_A6.1_T1.js
- * @description HexEscapeSequence ::  HexDigit
- */
+/*---
+info: "EscapeSequence :: HexEscapeSequence :: x HexDigit HexDigit"
+description: "HexEscapeSequence ::  HexDigit"
+---*/
 
 //CHECK#0
 if ("\x00" !== String.fromCharCode("0")) {
@@ -87,4 +85,3 @@ if ("\x0E" !== String.fromCharCode("14")) {
 if ("\x0F" !== String.fromCharCode("15")) {
   $ERROR('#F: "\\x0F" === String.fromCharCode("15")');
 }
-

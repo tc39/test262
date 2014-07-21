@@ -1,13 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Result of boolean conversion from number value is false if the argument is +0, -0, or NaN; otherwise, is true
- *
- * @path ch09/9.2/S9.2_A4_T3.js
- * @description Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY,
- * Number.MAX_VALUE, Number.MIN_VALUE and some numbers convert to Boolean by explicit transformation
- */
+/*---
+info: >
+    Result of boolean conversion from number value is false if the argument
+    is +0, -0, or NaN; otherwise, is true
+description: >
+    Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY,
+    Number.MAX_VALUE, Number.MIN_VALUE and some numbers convert to
+    Boolean by explicit transformation
+---*/
 
 // CHECK#1
 if (Boolean(Number.POSITIVE_INFINITY) !== true) {
@@ -47,5 +49,4 @@ if (Boolean(1.3) !== true) {
 // CHECK#8
 if (Boolean(-1.3) !== true) {
   $ERROR('#8: Boolean(-1.3) === true. Actual: ' + (Boolean(-1.3)));	
-}	
-
+}

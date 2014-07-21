@@ -1,13 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Delete unary operator can't delete object to be referenced
- *
- * @path ch08/8.7/S8.7_A5_T2.js
- * @description Delete referenced object, __ref = obj
- * @noStrict
- */
+/*---
+info: Delete unary operator can't delete object to be referenced
+description: Delete referenced object, __ref = obj
+flags: [noStrict]
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -51,4 +49,3 @@ if (typeof(obj) !== "object"){
 };
 //
 //////////////////////////////////////////////////////////////////////////////
-

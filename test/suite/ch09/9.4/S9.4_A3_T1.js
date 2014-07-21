@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Result of ToInteger(value) conversion is the result of computing
- * sign(ToNumber(value)) * floor(abs(ToNumber(value)))
- *
- * @path ch09/9.4/S9.4_A3_T1.js
- * @description For testing constructor Date(Number) is used
- */
+/*---
+info: >
+    Result of ToInteger(value) conversion is the result of computing
+    sign(ToNumber(value)) * floor(abs(ToNumber(value)))
+description: For testing constructor Date(Number) is used
+---*/
 
 // CHECK#1
 var d1 = new Date(6.54321);
@@ -80,4 +79,3 @@ var d12 = new Date(-1.23e-15);
 if (d12.valueOf() !== -0) {
   $ERROR('#12: var d12 = new Date(-1.23e-15); d12.valueOf() === -0;');
 }
-

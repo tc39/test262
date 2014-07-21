@@ -1,15 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * parseInt may interpret only a leading portion of the string as
- * a number value; it ignores any characters that cannot be interpreted as part
- * of the notation of an decimal literal, and no indication is given that any such
- * characters were ignored.
- *
- * @path ch15/15.1/15.1.2/15.1.2.2/S15.1.2.2_A8.js
- * @description Complex test without eval
- */
+/*---
+info: >
+    parseInt may interpret only a leading portion of the string as
+    a number value; it ignores any characters that cannot be interpreted as part
+    of the notation of an decimal literal, and no indication is given that any such
+    characters were ignored.
+description: Complex test without eval
+---*/
 
 //CHECK
 var errorCount = 0;
@@ -80,4 +79,3 @@ function decimalToHexString(n) {
   }
   return h;
 }
-

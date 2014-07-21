@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Cosine is a periodic function with period 2*PI
- *
- * @path ch15/15.8/15.8.2/15.8.2.7/S15.8.2.7_A6.js
- * @description Checking if Math.cos(x) equals to Math.cos(x+n*2*Math.PI) with precision 0.000000000003, where n is an integer from 1 to 100 and x is one of 10 float point values from -Math.PI to +Math.PI
- */
+/*---
+info: Cosine is a periodic function with period 2*PI
+description: >
+    Checking if Math.cos(x) equals to Math.cos(x+n*2*Math.PI) with
+    precision 0.000000000003, where n is an integer from 1 to 100 and
+    x is one of 10 float point values from -Math.PI to +Math.PI
+includes: [$FAIL.js]
+---*/
 
 // CHECK#1
   prec = 0.000000000003;
@@ -43,4 +45,3 @@ for (i = 0; i < snum; i++)
 		}
 	}
 }
-

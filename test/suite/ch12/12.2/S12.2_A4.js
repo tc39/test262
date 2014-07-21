@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Unicode characters in variable Identifier are allowed
- *
- * @path ch12/12.2/S12.2_A4.js
- * @description Create and use unicode characters in variable Identifier
- */
+/*---
+info: Unicode characters in variable Identifier are allowed
+description: Create and use unicode characters in variable Identifier
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -27,4 +25,3 @@ if (__var !== 1) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

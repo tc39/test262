@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The FunctionBody must be SourceElements
- *
- * @path ch13/13.0/S13_A7_T2.js
- * @description Inserting elements that is different from SourceElements into the FunctionBody
- */
+/*---
+info: The FunctionBody must be SourceElements
+description: >
+    Inserting elements that is different from SourceElements into the
+    FunctionBody
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -46,4 +46,3 @@ try{
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Correct interpretation of RUSSIAN ALPHABET
- *
- * @path ch07/7.6/S7.6_A4.2_T1.js
- * @description Check RUSSIAN CAPITAL ALPHABET
- */
+/*---
+info: Correct interpretation of RUSSIAN ALPHABET
+description: Check RUSSIAN CAPITAL ALPHABET
+---*/
 
 //CHECK#А-Я
 var \u0410 = 1;
@@ -141,4 +139,3 @@ var \u0401 = 1;
 if (Ё !== 1) {
   $ERROR('#Ё');
 }
-

@@ -1,15 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Compute the mathematical integer value
- * that is represented by Z in radix-R notation, using the
- * letters A-Z and a-z for digits with values 10 through 35.
- * Compute the number value for Result(16)
- *
- * @path ch15/15.1/15.1.2/15.1.2.2/S15.1.2.2_A7.2_T2.js
- * @description Checking algorithm for R = 2
- */
+/*---
+info: >
+    Compute the mathematical integer value
+    that is represented by Z in radix-R notation, using the
+    letters A-Z and a-z for digits with values 10 through 35.
+    Compute the number value for Result(16)
+description: Checking algorithm for R = 2
+---*/
 
 //CHECK#1
 if (parseInt("1", 2)  !== 1) {
@@ -110,4 +109,3 @@ if (parseInt("1111111111111111111", 2)  !== 524287) {
 if (parseInt("11111111111111111111", 2)  !== 1048575) {
   $ERROR('#20: parseInt("11111111111111111111", 2) === 1048575. Actual: ' + (parseInt("11111111111111111111", 2)));
 }
-

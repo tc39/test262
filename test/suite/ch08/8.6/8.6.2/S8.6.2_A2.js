@@ -1,13 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Properties of the [[Prototype]] object
- * are visible as properties of the child object for the purposes of get access, but not for put access
- *
- * @path ch08/8.6/8.6.2/S8.6.2_A2.js
- * @description Check visibility properties of the child object for the purposes of get access, but not for put access
- */
+/*---
+info: >
+    Properties of the [[Prototype]] object
+    are visible as properties of the child object for the purposes of get access, but not for put access
+description: >
+    Check visibility properties of the child object for the purposes
+    of get access, but not for put access
+---*/
 
 //Establish foo object
 function FooObj(){};
@@ -34,4 +35,3 @@ if (foo__.prop !== "some"){
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

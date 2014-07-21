@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * 1, true, non-empty string in expression is evaluated to true
- *
- * @path ch12/12.5/S12.5_A1_T2.js
- * @description Using "if/else" construction
- */
+/*---
+info: 1, true, non-empty string in expression is evaluated to true
+description: Using "if/else" construction
+---*/
 
 var c=0;
 //////////////////////////////////////////////////////////////////////////////
@@ -48,5 +46,3 @@ else
 if (c!=4) $ERROR('#4.2: else branch don`t execute');
 //
 //////////////////////////////////////////////////////////////////////////////
-
-

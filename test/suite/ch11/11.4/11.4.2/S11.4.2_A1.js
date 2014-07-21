@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * White Space and Line Terminator between "void" and UnaryExpression are allowed
- *
- * @path ch11/11.4/11.4.2/S11.4.2_A1.js
- * @description Checking by using eval
- */
+/*---
+info: >
+    White Space and Line Terminator between "void" and UnaryExpression are
+    allowed
+description: Checking by using eval
+---*/
 
 //CHECK#1
 if (eval("void\u00090") !== undefined) {
@@ -57,4 +57,3 @@ if (eval("void\u20290") !== undefined) {
 if (eval("void\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u20290") !== undefined) {
   $ERROR('#10: void\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u20290 === undefined');
 }
-

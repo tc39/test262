@@ -1,14 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The with statement adds a computed object to the front of the
- * scope chain of the current execution context
- *
- * @path ch12/12.10/S12.10_A1.10_T1.js
- * @description Using interation statement within "with" statement leading to normal completion
- * @noStrict
- */
+/*---
+info: >
+    The with statement adds a computed object to the front of the
+    scope chain of the current execution context
+description: >
+    Using interation statement within "with" statement leading to
+    normal completion
+flags: [noStrict]
+---*/
 
 this.p1 = 1;
 this.p2 = 2;
@@ -136,4 +137,3 @@ if(!(value === undefined)){
 if(!(myObj.value === "value")){
   $ERROR('#19: myObj.value === "value". Actual:  myObj.value ==='+ myObj.value  );
 }
-

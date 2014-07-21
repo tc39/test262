@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Since Error prototype object is not function it has not [[create]] method
- *
- * @path ch15/15.11/15.11.4/S15.11.4_A4.js
- * @description Checking if creating "new Error.prototype" fails
- */
+/*---
+info: Since Error prototype object is not function it has not [[create]] method
+description: Checking if creating "new Error.prototype" fails
+includes:
+    - $FAIL.js
+    - Test262Error.js
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -18,4 +19,3 @@ try {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

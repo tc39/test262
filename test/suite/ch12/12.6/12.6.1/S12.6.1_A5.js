@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * After "do-while" is broken, (normal, V, empty) is returned
- *
- * @path ch12/12.6/12.6.1/S12.6.1_A5.js
- * @description Using eval
- */
+/*---
+info: After "do-while" is broken, (normal, V, empty) is returned
+description: Using eval
+---*/
 
 __evaluated = eval("do {__in__do__before__break=1; break; __in__do__after__break=2;} while(0)");
 
@@ -33,4 +31,3 @@ if (__evaluated !== 1) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

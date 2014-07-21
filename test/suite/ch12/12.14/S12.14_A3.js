@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Catching system exception with "try" statement
- *
- * @path ch12/12.14/S12.14_A3.js
- * @description Checking if execution of "catch" catches system exceptions
- */
+/*---
+info: Catching system exception with "try" statement
+description: Checking if execution of "catch" catches system exceptions
+---*/
 
 // CHECK#1
 try{
@@ -50,4 +48,3 @@ if (x3!==1){
 if (c3!==1){
   $ERROR('#3.3: "finally" block must be evaluated');
 }
-

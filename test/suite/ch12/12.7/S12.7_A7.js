@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Appearing of continue within eval statement that is within an IterationStatement yields SyntaxError
- *
- * @path ch12/12.7/S12.7_A7.js
- * @description Using eval "eval("continue LABEL1")"
- */
+/*---
+info: >
+    Appearing of continue within eval statement that is within an
+    IterationStatement yields SyntaxError
+description: Using eval "eval("continue LABEL1")"
+---*/
 
 var x=0,y=0;
 
@@ -26,4 +26,3 @@ try{
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

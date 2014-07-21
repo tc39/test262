@@ -1,10 +1,12 @@
 // Copyright (c) 2014 Matthew Meyers. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @path
- * @description Elements removed from array after find has been called should not be visited
- */
+/*---
+description: >
+    Elements removed from array after find has been called should not
+    be visited
+flags: [path]
+---*/
 
 [1, 'string', 2].find(function (v, i, arr) {
 	var stringIndex = arr.indexOf('string');

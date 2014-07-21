@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Single line comments can contain any Unicode character without Line Terminators
- *
- * @path ch07/7.4/S7.4_A5.js
- * @description //var " + xx + "yy = -1", insert instead of xx all Unicode characters
- */
+/*---
+info: >
+    Single line comments can contain any Unicode character without Line
+    Terminators
+description: >
+    //var " + xx + "yy = -1", insert instead of xx all Unicode
+    characters
+---*/
 
 //CHECK
 var errorCount = 0;
@@ -46,4 +48,3 @@ for (var i1 = 0; i1 < 16; i1++) {
 if (errorCount > 0) {
   $ERROR('Total error: ' + errorCount + ' bad Unicode character in ' + count);
 }
-

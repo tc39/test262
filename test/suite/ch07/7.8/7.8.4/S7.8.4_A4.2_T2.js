@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * CharacterEscapeSequnce :: NonEscapeSequence
- *
- * @path ch07/7.8/7.8.4/S7.8.4_A4.2_T2.js
- * @description NonEscapeSequence :: ENGLISH CAPITAL ALPHABET
- */
+/*---
+info: "CharacterEscapeSequnce :: NonEscapeSequence"
+description: "NonEscapeSequence :: ENGLISH CAPITAL ALPHABET"
+---*/
 
 //CHECK#A-Z
 if ("A" !== "\A") {
@@ -112,4 +110,3 @@ if ("Y" !== "\Y") {
 if ("Z" !== "\Z") {
   $ERROR('#Z');
 }
-

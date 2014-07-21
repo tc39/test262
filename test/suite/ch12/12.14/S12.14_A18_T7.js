@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Catching objects with try/catch/finally statement
- *
- * @path ch12/12.14/S12.14_A18_T7.js
- * @description Catching Array
- */
+/*---
+info: Catching objects with try/catch/finally statement
+description: Catching Array
+---*/
 
 var mycars = new Array();
 mycars[0] = "Saab";
@@ -63,4 +61,3 @@ catch(e){
     if (e[i]!==mycars2[i-3]) $ERROR('#4.'+i+': Exception['+i+']===mycars2['+(i-3)+']. Actual:  Exception['+i+']==='+ e[i]);
   }
 }
-

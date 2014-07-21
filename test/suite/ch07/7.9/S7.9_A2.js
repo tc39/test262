@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Check Break Statement for automatic semicolon insertion
- *
- * @path ch07/7.9/S7.9_A2.js
- * @description Try use break \n Label construction
- */
+/*---
+info: Check Break Statement for automatic semicolon insertion
+description: Try use break \n Label construction
+---*/
 
 //CHECK#1
 label1: for (var i = 0; i <= 0; i++) {
@@ -29,4 +27,3 @@ label2: for (var i = 0; i <= 0; i++) {
 if (result !== true) {
   $ERROR('#2: Check break statement for automatic semicolon insertion');
 }
-

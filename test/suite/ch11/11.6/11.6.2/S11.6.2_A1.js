@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * White Space and Line Terminator between AdditiveExpression and "-" or between "-" and MultiplicativeExpression are allowed
- *
- * @path ch11/11.6/11.6.2/S11.6.2_A1.js
- * @description Checking by using eval
- */
+/*---
+info: >
+    White Space and Line Terminator between AdditiveExpression and "-" or
+    between "-" and MultiplicativeExpression are allowed
+description: Checking by using eval
+---*/
 
 //CHECK#1
 if (eval("1\u0009-\u00091") !== 0) {
@@ -57,4 +57,3 @@ if (eval("1\u2029-\u20291") !== 0) {
 if (eval("1\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u2029-\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u20291") !== 0) {
   $ERROR('#10: 1\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029-\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u20291 === 0');
 }
-

@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator use ToString
- *
- * @path ch15/15.1/15.1.2/15.1.2.3/S15.1.2.3_A1_T2.js
- * @description Checking for number primitive
- */
+/*---
+info: Operator use ToString
+description: Checking for number primitive
+---*/
 
 //CHECK#1
 if (parseFloat(-1.1) !== parseFloat("-1.1")) {
@@ -35,5 +33,4 @@ if (parseFloat(-0) !== 0) {
   if (1 / parseFloat(-0) !== Number.POSITIVE_INFINITY) {
     $ERROR('#5: parseFloat(-0) === +0. Actual: ' + (parseFloat(-0)));
   }
-}    
-
+}

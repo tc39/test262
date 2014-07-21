@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * [[Get]] from not an inherited property
- *
- * @path ch15/15.4/15.4.4/15.4.4.4/S15.4.4.4_A3_T1.js
- * @description [[Prototype]] of Array instance is Array.prototype, [[Prototype] of Array.prototype is Object.prototype
- */
+/*---
+info: "[[Get]] from not an inherited property"
+description: >
+    [[Prototype]] of Array instance is Array.prototype, [[Prototype]
+    of Array.prototype is Object.prototype
+---*/
 
 Array.prototype[1] = 1;
 var x = [0];
@@ -48,4 +48,3 @@ if (arr[1] !== 1) {
 if (arr.hasOwnProperty('1') !== false) {  
   $ERROR('#6: Object.prototype[1] = 1; Object.prototype.length = 2; Object.prototype.concat = Array.prototype.concat; x = {0:0}; var arr = x.concat(); arr.hasOwnProperty(\'1\') === false. Actual: ' + (arr.hasOwnProperty('1')));    
 }
-

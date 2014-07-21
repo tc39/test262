@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The result of an addition is determined using the rules of IEEE 754 double-precision arithmetics
- *
- * @path ch11/11.6/11.6.1/S11.6.1_A4_T1.js
- * @description If either operand is NaN, the result is NaN
- */
+/*---
+info: >
+    The result of an addition is determined using the rules of IEEE 754
+    double-precision arithmetics
+description: If either operand is NaN, the result is NaN
+---*/
 
 //CHECK#1
 if (isNaN(Number.NaN + 1) !== true ) {
@@ -37,5 +37,3 @@ if (isNaN(Number.NaN + Number.NEGATIVE_INFINITY) !== true ) {
 if (isNaN(Number.NEGATIVE_INFINITY + Number.NaN) !== true ) {
   $ERROR('#6: Infinity + NaN === Not-a-Number. Actual: ' + (Infinity + NaN));
 }
-
-

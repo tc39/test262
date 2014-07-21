@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Returns a boolean value (not a Boolean object) computed by
- * ToBoolean(value)
- *
- * @path ch15/15.6/15.6.1/S15.6.1.1_A1_T2.js
- * @description Used various number values as argument
- */
+/*---
+info: >
+    Returns a boolean value (not a Boolean object) computed by
+    ToBoolean(value)
+description: Used various number values as argument
+---*/
 
 //CHECK#1
 if( typeof Boolean(0) !== "boolean" ) {
@@ -40,4 +39,3 @@ if( typeof Boolean(NaN) !== "boolean" ) {
 if( Boolean(NaN) !== false ) {
   $ERROR('#4.2: Boolean(NaN) should be false, actual is '+Boolean(NaN));
 }
-

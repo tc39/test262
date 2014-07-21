@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator use ToString from array arguments
- *
- * @path ch15/15.4/15.4.4/15.4.4.5/S15.4.4.5_A3.2_T2.js
- * @description If Type(argument) is Object, evaluate ToPrimitive(argument, String)
- */
+/*---
+info: Operator use ToString from array arguments
+description: If Type(argument) is Object, evaluate ToPrimitive(argument, String)
+---*/
 
 //CHECK#1
 var object = {valueOf: function() {return "+"}};
@@ -84,4 +82,3 @@ catch (e) {
     $ERROR('#8.2: var object = {valueOf: function() {return {}}, toString: function() {return {}}} var x = new Array(object); x.join() throw TypeError. Actual: ' + (e));
   } 
 }
-

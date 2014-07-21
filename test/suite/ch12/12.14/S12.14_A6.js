@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The production TryStatement: "try Block Catch Finally"
- *
- * @path ch12/12.14/S12.14_A6.js
- * @description Executing sequence of "try" statements, using counters with varying values within
- */
+/*---
+info: "The production TryStatement: \"try Block Catch Finally\""
+description: >
+    Executing sequence of "try" statements, using counters with
+    varying values within
+---*/
 
 // CHECK#1
 var c1=0;
@@ -63,5 +63,4 @@ finally{
 }
 if (c4!==2){
   $ERROR('#4: Sequence evaluation of commands try/catch/finally(without exception) is 1. try, 2. finally');
-}	
-
+}

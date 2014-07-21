@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The length property of the charAt method is 1
- *
- * @path ch15/15.5/15.5.4/15.5.4.4/S15.5.4.4_A11.js
- * @description Checking String.prototype.charAt.length
- */
+/*---
+info: The length property of the charAt method is 1
+description: Checking String.prototype.charAt.length
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -23,4 +21,3 @@ if (String.prototype.charAt.length !== 1) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

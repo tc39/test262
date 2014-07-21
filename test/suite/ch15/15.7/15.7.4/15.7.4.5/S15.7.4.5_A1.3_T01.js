@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Step 4: If this number value is NaN, return the string "NaN"
- *
- * @path ch15/15.7/15.7.4/15.7.4.5/S15.7.4.5_A1.3_T01.js
- * @description NaN is computed by new Number("string")
- */
+/*---
+info: "Step 4: If this number value is NaN, return the string \"NaN\""
+description: NaN is computed by new Number("string")
+---*/
 
 //CHECK#1
 if((new Number("a")).toFixed() !== "NaN"){
@@ -68,4 +66,3 @@ catch(e){
     $ERROR('#10: (new Number("a")).toFixed(Number.POSITIVE_INFINITY) should throw RangeError, not '+e);
   }
 }
-

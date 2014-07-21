@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If [[Get]] ToString(j) and [[Get]] ToString(k)
- * are both undefined, return +0
- *
- * @path ch15/15.4/15.4.4/15.4.4.11/S15.4.4.11_A1.3_T1.js
- * @description If comparefn is undefined, use SortCompare operator
- */
+/*---
+info: >
+    If [[Get]] ToString(j) and [[Get]] ToString(k)
+    are both undefined, return +0
+description: If comparefn is undefined, use SortCompare operator
+---*/
 
 var x = new Array(undefined, undefined); 
 x.sort();
@@ -25,5 +24,4 @@ if (x[0] !== undefined) {
 //CHECK#3
 if (x[1] !== undefined) {
   $ERROR('#3: var x = new Array(undefined, undefined); x.sort(); x[1] === undefined. Actual: ' + (x[1]));
-}  
-
+}

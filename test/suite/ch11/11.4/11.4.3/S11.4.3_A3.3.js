@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Result of applying "typeof" operator to boolean is "boolean"
- *
- * @path ch11/11.4/11.4.3/S11.4.3_A3.3.js
- * @description typeof (boolean value) === "boolean"
- */
+/*---
+info: Result of applying "typeof" operator to boolean is "boolean"
+description: typeof (boolean value) === "boolean"
+---*/
 
 //CHECK#1
 if (typeof true !== "boolean") {
@@ -22,4 +20,3 @@ if (typeof false !== "boolean") {
 if (typeof !-1 !== "boolean") {
   $ERROR('#3: typeof !-1 === "boolean". Actual: ' + (typeof !-1));
 }
-

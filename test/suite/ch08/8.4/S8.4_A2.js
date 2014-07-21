@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Empty string has type string
- *
- * @path ch08/8.4/S8.4_A2.js
- * @description Create empty string and check it type
- */
+/*---
+info: Empty string has type string
+description: Create empty string and check it type
+---*/
 
 /////////////////////////////////////////////////////////
 // CHECK#1
@@ -25,4 +23,3 @@ if (typeof(str) !== "string"){
 }
 //
 ////////////////////////////////////////////////////////
-

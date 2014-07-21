@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Large string 8192 bytes
- *
- * @path ch08/8.4/S8.4_A6.2.js
- * @description Assign variable by large string
- */
+/*---
+info: Large string 8192 bytes
+description: Assign variable by large string
+---*/
 
 ////////////////////////////////////////////////////
 // Check#2
@@ -16,4 +14,3 @@ if(largeStr !== 'Standard ECMA-2623r d Edition - December 1999S t a n d a r d i 
 }
 //
 ////////////////////////////////////////////////////
-

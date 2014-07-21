@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The result of a ECMAScript floating-point remainder operation is determined by the rules of IEEE arithmetics
- *
- * @path ch11/11.5/11.5.3/S11.5.3_A4_T3.js
- * @description If the dividend is an infinity results is NaN
- */
+/*---
+info: >
+    The result of a ECMAScript floating-point remainder operation is
+    determined by the rules of IEEE arithmetics
+description: If the dividend is an infinity results is NaN
+---*/
 
 //CHECK#1
 if (isNaN(Number.NEGATIVE_INFINITY % Number.POSITIVE_INFINITY) !== true) {
@@ -67,4 +67,3 @@ if (isNaN(Number.POSITIVE_INFINITY % Number.MAX_VALUE) !== true) {
 if (isNaN(Number.POSITIVE_INFINITY % -Number.MAX_VALUE) !== true) {
   $ERROR('#12: Infinity % -Number.MAX_VALUE === Not-a-Number. Actual: ' + (Infinity % -Number.MAX_VALUE));
 }
-

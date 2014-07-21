@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Catching system exceptions of different types with try statement
- *
- * @path ch12/12.14/S12.14_A19_T2.js
- * @description Testing try/catch/finally syntax construction
- */
+/*---
+info: Catching system exceptions of different types with try statement
+description: Testing try/catch/finally syntax construction
+---*/
 
 var fin=0;
 // CHECK#1
@@ -98,5 +96,4 @@ catch(e){
 finally{
   fin=1;
 }
-if (fin!==1) $ERROR('#7.2: "finally" block must be evaluated'); 
-
+if (fin!==1) $ERROR('#7.2: "finally" block must be evaluated');

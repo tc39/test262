@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Result of applying "typeof" operator to the object that is native and implements [[Call]] is "function"
- *
- * @path ch11/11.4/11.4.3/S11.4.3_A3.7.js
- * @description typeof (object with [[Call]]) === "function"
- */
+/*---
+info: >
+    Result of applying "typeof" operator to the object that is native and
+    implements [[Call]] is "function"
+description: typeof (object with [[Call]]) === "function"
+---*/
 
 //CHECK#1
 if (typeof new Function() !== "function") {
@@ -52,4 +52,3 @@ if (typeof Error !== "function") {
 if (typeof RegExp !== "function") {
   $ERROR('#9: typeof RegExp === "function". Actual: ' + (typeof RegExp));
 }
-

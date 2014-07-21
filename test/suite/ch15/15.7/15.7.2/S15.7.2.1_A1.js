@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When Number is called as part of a new expression it is
- * a constructor: it initialises the newly created object
- *
- * @path ch15/15.7/15.7.2/S15.7.2.1_A1.js
- * @description Checking type of the newly created object and it value
- */
+/*---
+info: >
+    When Number is called as part of a new expression it is
+    a constructor: it initialises the newly created object
+description: Checking type of the newly created object and it value
+---*/
 
 //CHECK#1
 if (typeof new Number() !== "object") {
@@ -52,4 +51,3 @@ var x8 = new Number(10);
 if(x8 === undefined){
   $ERROR("#8: new Number(10) should not be undefined");
 }
-

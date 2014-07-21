@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The last element of the array is removed from the array
- * and returned
- *
- * @path ch15/15.4/15.4.4/15.4.4.6/S15.4.4.6_A1.2_T1.js
- * @description Checking this use new Array() and []
- */
+/*---
+info: >
+    The last element of the array is removed from the array
+    and returned
+description: Checking this use new Array() and []
+---*/
 
 //CHECK#1
 var x = new Array(0,1,2,3);
@@ -66,4 +65,3 @@ if (pop !== 0) {
 if (x.length !== 0) {
   $ERROR('#10: x = []; x[0] = 0; x[3] = 3; x.pop(); x.length = 1; x.pop(); x.length === 0. Actual: ' + (x.length));
 }
-

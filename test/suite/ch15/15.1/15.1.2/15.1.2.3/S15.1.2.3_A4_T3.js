@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Compute the longest prefix of Result(2), which might be Result(2) itself,
- * which satisfies the syntax of a StrDecimalLiteral
- *
- * @path ch15/15.1/15.1.2/15.1.2.3/S15.1.2.3_A4_T3.js
- * @description StrDecimalLiteral not contain HexIntegerLiteral
- */
+/*---
+info: >
+    Compute the longest prefix of Result(2), which might be Result(2) itself,
+    which satisfies the syntax of a StrDecimalLiteral
+description: StrDecimalLiteral not contain HexIntegerLiteral
+---*/
 
 //CHECK#0
 if (parseFloat("0x0") !== 0) {
@@ -88,4 +87,3 @@ if (parseFloat("0xE") !== 0) {
 if (parseFloat("0xF") !== 0) {
   $ERROR('#F: parseFloat("0xF") === 0. Actual: ' + (parseFloat("0xF")));
 }
-

@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * ToObject conversion from String: create a new String object
- * whose [[value]] property is set to the value of the string
- *
- * @path ch09/9.9/S9.9_A5.js
- * @description Converting from various strings to Object
- */
+/*---
+info: >
+    ToObject conversion from String: create a new String object
+    whose [[value]] property is set to the value of the string
+description: Converting from various strings to Object
+---*/
 
 // CHECK#1
 if (Object("some string").valueOf() !== "some string"){
@@ -68,4 +67,3 @@ if (typeof Object(String(10)) !== "object"){
 if (Object(String(10)).constructor.prototype !== String.prototype){
   $ERROR('#12: Object(String(10)).constructor.prototype === String.prototype. Actual: ' + (Object(String(10)).constructor.prototype));
 }
-

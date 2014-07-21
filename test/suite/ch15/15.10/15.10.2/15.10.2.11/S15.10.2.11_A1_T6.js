@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * DecimalEscape :: DecimalIntegerLiteral [lookahead not in DecimalDigit]
- *
- * @path ch15/15.10/15.10.2/15.10.2.11/S15.10.2.11_A1_T6.js
- * @description DecimalIntegerLiteral is not 0
- */
+/*---
+info: "DecimalEscape :: DecimalIntegerLiteral [lookahead not in DecimalDigit]"
+description: DecimalIntegerLiteral is not 0
+---*/
 
 var arr = /(A)\1(B)\2/.exec("AABB");
 
@@ -23,5 +21,4 @@ if ((arr === null) || (arr[1] !== "A")) {
 //CHECK#3
 if ((arr === null) || (arr[2] !== "B")) {
   $ERROR('#3: var arr = /(A)\\1(B)\\2/.exec("AABB"); arr[2] === "B". Actual. ' + (arr && arr[2]));
-}      
-
+}

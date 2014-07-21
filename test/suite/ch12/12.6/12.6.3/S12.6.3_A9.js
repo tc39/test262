@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The result of evaluating "for(var ExpNoIn;Exp;Exp)" loop is returning (normal, evalValue, empty)
- *
- * @path ch12/12.6/12.6.3/S12.6.3_A9.js
- * @description Using eval
- */
+/*---
+info: >
+    The result of evaluating "for(var ExpNoIn;Exp;Exp)" loop is returning
+    (normal, evalValue, empty)
+description: Using eval
+---*/
 
 supreme=5;
 
@@ -22,4 +22,3 @@ try {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If Type(x) is different from Type(y), return true
- *
- * @path ch11/11.9/11.9.5/S11.9.5_A8_T4.js
- * @description x or y is null or undefined
- */
+/*---
+info: If Type(x) is different from Type(y), return true
+description: x or y is null or undefined
+---*/
 
 //CHECK#1
 if (!(undefined !== null)) {
@@ -77,4 +75,3 @@ if (!(undefined !== "undefined")) {
 if (!("undefined" !== undefined)) {
   $ERROR('#14: "undefined" !== undefined');
 }
-

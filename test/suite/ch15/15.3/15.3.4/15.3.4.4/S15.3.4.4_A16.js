@@ -1,12 +1,14 @@
 // Copyright 2011 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If IsCallable(func) is false, then throw a TypeError exception.
- *
- * @path ch15/15.3/15.3.4/15.3.4.4/S15.3.4.4_A16.js
- * @description A RegExp is not a function, but it may be callable. Iff it is, it's typeof should be 'function', in which case call should accept it as a valid this value.
- */
+/*---
+info: If IsCallable(func) is false, then throw a TypeError exception.
+description: >
+    A RegExp is not a function, but it may be callable. Iff it is,
+    it's typeof should be 'function', in which case call should accept
+    it as a valid this value.
+includes: [$FAIL.js]
+---*/
 
 var re = (/x/);
 if (typeof re === 'function') {
@@ -22,4 +24,3 @@ if (typeof re === 'function') {
     }
   }
 }
-

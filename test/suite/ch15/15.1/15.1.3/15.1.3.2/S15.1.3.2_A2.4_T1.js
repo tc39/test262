@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If B1 = 1110xxxx ([0xE0 - 0xEF]), B2, B3 = 10xxxxxxx ([0x80 - 0xBF]), without [B1, B2] = [0xE0, 0x80 - 0x9F], [0xED, 0xA0 - 0xBF] (0xD800 - 0xDFFF), return UTF8(B1, B2, B3)
- *
- * @path ch15/15.1/15.1.3/15.1.3.2/S15.1.3.2_A2.4_T1.js
- * @description Complex tests, use RFC 3629
- */
+/*---
+info: >
+    If B1 = 1110xxxx ([0xE0 - 0xEF]), B2, B3 = 10xxxxxxx ([0x80 - 0xBF]),
+    without [B1, B2] = [0xE0, 0x80 - 0x9F], [0xED, 0xA0 - 0xBF] (0xD800 -
+    0xDFFF), return UTF8(B1, B2, B3)
+description: Complex tests, use RFC 3629
+includes: [Test262Error.js]
+---*/
 
 errorCount = 0;
 count = 0;
@@ -85,4 +87,3 @@ function decimalToHexString(n) {
   }
   return h;
 }
-

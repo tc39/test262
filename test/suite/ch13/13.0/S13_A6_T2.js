@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * FunctionDeclaration can be overrided by other FunctionDeclaration with the same Identifier
- *
- * @path ch13/13.0/S13_A6_T2.js
- * @description Calling a function before it is declared one more time
- */
+/*---
+info: >
+    FunctionDeclaration can be overrided by other FunctionDeclaration with
+    the same Identifier
+description: Calling a function before it is declared one more time
+includes: [$FAIL.js]
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -33,4 +34,3 @@ if (__result !== "SECOND") {
 //////////////////////////////////////////////////////////////////////////////
 
 function __func(){return "SECOND";};
-

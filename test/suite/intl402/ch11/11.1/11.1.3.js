@@ -1,10 +1,12 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that objects constructed by Intl.NumberFormat have the specified internal properties.
- * @author Norbert Lindenberg
- */
+/*---
+description: >
+    Tests that objects constructed by Intl.NumberFormat have the
+    specified internal properties.
+author: Norbert Lindenberg
+---*/
 
 var obj = new Intl.NumberFormat();
 
@@ -16,4 +18,3 @@ if (actualPrototype !== Intl.NumberFormat.prototype) {
 if (!Object.isExtensible(obj)) {
     $ERROR("Object constructed by Intl.NumberFormat must be extensible.");
 }
-

@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Type(x) and Type(y) are String-s.
- * Return true, if x and y are exactly the same sequence of characters; otherwise, return false
- *
- * @path ch11/11.9/11.9.4/S11.9.4_A5.js
- * @description x and y are primitive strings
- */
+/*---
+info: >
+    Type(x) and Type(y) are String-s.
+    Return true, if x and y are exactly the same sequence of characters; otherwise, return false
+description: x and y are primitive strings
+---*/
 
 //CHECK#1
 if (!("" === "")) {
@@ -33,4 +32,3 @@ if (" string" === "string ") {
 if ("1.0" === "1") {
   $ERROR('#5: "1.0" !== "1"');
 }
-

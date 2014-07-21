@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * 1, true, non-empty string in expression is evaluated to true
- *
- * @path ch12/12.5/S12.5_A1_T1.js
- * @description Using "if" without "else" construction
- */
+/*---
+info: 1, true, non-empty string in expression is evaluated to true
+description: Using "if" without "else" construction
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -35,5 +33,3 @@ if(!("A"))
 	$ERROR('#4: "A" in expression is evaluated to true');
 //
 //////////////////////////////////////////////////////////////////////////////
-
-

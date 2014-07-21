@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Number.prototype.valueOf() returns this number value
- *
- * @path ch15/15.7/15.7.4/15.7.4.4/S15.7.4.4_A1_T01.js
- * @description Call without argument
- */
+/*---
+info: Number.prototype.valueOf() returns this number value
+description: Call without argument
+---*/
 
 //CHECK#1
 if(Number.prototype.valueOf() !== 0){
@@ -47,4 +45,3 @@ if((new Number(Number.POSITIVE_INFINITY)).valueOf() !== Number.POSITIVE_INFINITY
 if((new Number(Number.NEGATIVE_INFINITY)).valueOf() !== Number.NEGATIVE_INFINITY){
   $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).valueOf() === -Infinity');
 }
-

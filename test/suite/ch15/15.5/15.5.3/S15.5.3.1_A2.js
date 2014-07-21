@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The String.prototype property has the attribute DontEnum
- *
- * @path ch15/15.5/15.5.3/S15.5.3.1_A2.js
- * @description Checking if enumerating the String.prototype property fails
- */
+/*---
+info: The String.prototype property has the attribute DontEnum
+description: Checking if enumerating the String.prototype property fails
+includes: [$FAIL.js]
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#0
@@ -39,4 +38,3 @@ if (count !== 0) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If x is a prefix of y, return true
- *
- * @path ch11/11.8/11.8.3/S11.8.3_A4.11.js
- * @description x and y are string primitives
- */
+/*---
+info: If x is a prefix of y, return true
+description: x and y are string primitives
+---*/
 
 //CHECK#1
 if (("x" <= "x") !== true) {
@@ -48,6 +46,3 @@ if (("a\u0000" <= "a\u0000a") !== true) {
 if (("x" <= " x") !== false) {
   $ERROR('#8: ("x" <= " x") === false');
 }
-
-
-

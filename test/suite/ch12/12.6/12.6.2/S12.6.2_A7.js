@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The "while" Statement is evaluted according to 12.6.2 and returns (normal, V, empty)
- *
- * @path ch12/12.6/12.6.2/S12.6.2_A7.js
- * @description using eval
- */
+/*---
+info: >
+    The "while" Statement is evaluted according to 12.6.2 and returns
+    (normal, V, empty)
+description: using eval
+---*/
 
 var __condition=0
 
@@ -27,5 +27,3 @@ if (__evaluated !== 4) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-
-

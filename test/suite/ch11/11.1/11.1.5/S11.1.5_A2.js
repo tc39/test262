@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Evaluate the production ObjectLiteral: { PropertyName : AssignmentExpression }
- *
- * @path ch11/11.1/11.1.5/S11.1.5_A2.js
- * @description Creating property "prop" of various types(boolean, number and etc.)
- */
+/*---
+info: >
+    Evaluate the production ObjectLiteral: { PropertyName :
+    AssignmentExpression }
+description: Creating property "prop" of various types(boolean, number and etc.)
+---*/
 
 //CHECK#1
 var x = true;
@@ -91,4 +91,3 @@ var object = {prop : x};
 if (object.prop !== x) {
   $ERROR('#12: var x = this; var object = {prop : x}; object.prop === x. Actual: ' + (object.prop));
 }
-

@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Compute the longest prefix of Result(2), which might be Result(2) itself,
- * which satisfies the syntax of a StrDecimalLiteral
- *
- * @path ch15/15.1/15.1.2/15.1.2.3/S15.1.2.3_A4_T1.js
- * @description Some wrong number
- */
+/*---
+info: >
+    Compute the longest prefix of Result(2), which might be Result(2) itself,
+    which satisfies the syntax of a StrDecimalLiteral
+description: Some wrong number
+---*/
 
 //CHECK#1
 if (parseFloat("0x") !== 0) {
@@ -53,4 +52,3 @@ if (parseFloat("0.1.1") !== 0.1) {
 if (parseFloat("0. 1") !== 0) {
   $ERROR('#9: parseFloat("0. 1") === 0. Actual: ' + (parseFloat("0. 1")));
 }
-

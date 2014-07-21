@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If Result.type is break and Result.target is in the current
- * label set, return (normal, Result.value, empty)
- *
- * @path ch12/12.11/S12.11_A1_T3.js
- * @description Using case with null, NaN, Infinity
- */
+/*---
+info: >
+    If Result.type is break and Result.target is in the current
+    label set, return (normal, Result.value, empty)
+description: Using case with null, NaN, Infinity
+---*/
 
 function SwitchTest(value){
   var result = 0;
@@ -89,4 +88,3 @@ if(!(SwitchTest(NaN) === 32)){
 if(!(SwitchTest(Infinity) === 768)){
   $ERROR("#10: SwitchTest(NaN) === 768. Actual:  SwitchTest(NaN) ==="+ SwitchTest(NaN)  );
 }
-

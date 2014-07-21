@@ -1,16 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The 0 property of the newly constructed object is set to item0
- * (if supplied); the 1 property of the newly constructed object is set to item1
- * (if supplied); and, in general, for as many arguments as there are, the k property
- * of the newly constructed object is set to argument k, where the first argument is
- * considered to be argument number 0
- *
- * @path ch15/15.4/15.4.1/S15.4.1_A2.2_T1.js
- * @description Checking correct work this algorithm
- */
+/*---
+info: >
+    The 0 property of the newly constructed object is set to item0
+    (if supplied); the 1 property of the newly constructed object is set to item1
+    (if supplied); and, in general, for as many arguments as there are, the k property
+    of the newly constructed object is set to argument k, where the first argument is
+    considered to be argument number 0
+description: Checking correct work this algorithm
+---*/
 
 //CHECK#
 var x = Array(
@@ -35,5 +34,4 @@ for (var i = 0; i < 100; i++) {
 
 if (result !== true) {
   $ERROR('#1: x[i] === i. Actual: ' + (x[i]));
-}    
-
+}

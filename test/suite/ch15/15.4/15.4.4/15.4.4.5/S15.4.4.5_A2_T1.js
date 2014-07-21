@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The join function is intentionally generic.
- * It does not require that its this value be an Array object
- *
- * @path ch15/15.4/15.4.4/15.4.4.5/S15.4.4.5_A2_T1.js
- * @description If ToUint32(length) is zero, return the empty string
- */
+/*---
+info: >
+    The join function is intentionally generic.
+    It does not require that its this value be an Array object
+description: If ToUint32(length) is zero, return the empty string
+---*/
 
 var obj = {};
 obj.join = Array.prototype.join;
@@ -46,4 +45,3 @@ if (obj.join() !== "") {
 if (obj.length !== null) {
   $ERROR('#6: var obj = {}; obj.length = null; obj.join = Array.prototype.join; obj.join(); obj.length === null. Actual: ' + (obj.length));
 }
-

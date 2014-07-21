@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * IdentifierPart :: IdentifierStart
- *
- * @path ch07/7.6/S7.6_A2.1_T3.js
- * @description IdentifierStart :: _
- */
+/*---
+info: "IdentifierPart :: IdentifierStart"
+description: "IdentifierStart :: _"
+---*/
 
 //CHECK#1
 try {
@@ -72,4 +70,3 @@ try {
 } catch (e) {
   $ERROR('#6.2: var \\u0078_ = 1; x_ === 6. Actual: ' + (x_));
 }
-

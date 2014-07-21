@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * White Space and Line Terminator between RelationalExpression and "in" and between "in" and ShiftExpression are allowed
- *
- * @path ch11/11.8/11.8.7/S11.8.7_A1.js
- * @description Checking by using eval
- */
+/*---
+info: >
+    White Space and Line Terminator between RelationalExpression and "in" and
+    between "in" and ShiftExpression are allowed
+description: Checking by using eval
+---*/
 
 //CHECK#1
 if (eval("'MAX_VALUE'\u0009in\u0009Number") !== true) {
@@ -57,4 +57,3 @@ if (eval("'MAX_VALUE'\u2029in\u2029Number") !== true) {
 if (eval("'MAX_VALUE'\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u2029in\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u2029Number") !== true) {
   $ERROR('#10: "MAX_VALUE"\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029in\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029Number === true');
 }
-

@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator x * y returns ToNumber(x) * ToNumber(y)
- *
- * @path ch11/11.5/11.5.1/S11.5.1_A3_T1.3.js
- * @description Type(x) and Type(y) vary between primitive string and String object
- */
+/*---
+info: Operator x * y returns ToNumber(x) * ToNumber(y)
+description: Type(x) and Type(y) vary between primitive string and String object
+---*/
 
 //CHECK#1
 if ("1" * "1" !== 1) {
@@ -37,4 +35,3 @@ if (isNaN("x" * "1") !== true) {
 if (isNaN("1" * "x") !== true) {
   $ERROR('#6: "1" * "x" === Not-a-Number. Actual: ' + ("1" * "x"));
 }
-

@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Check operator x >>> y in distinct points
- *
- * @path ch11/11.7/11.7.3/S11.7.3_A4_T3.js
- * @description ShiftExpression = 2^n - 1, n = 0...15
- */
+/*---
+info: Check operator x >>> y in distinct points
+description: ShiftExpression = 2^n - 1, n = 0...15
+---*/
 
 //CHECK
  
@@ -2647,5 +2645,4 @@ if (2147483647 >>> 15 !== 65535) {
 
 if (4294967295 >>> 15 !== 131071) { 
   $ERROR('#528: 4294967295 >>> 15 === 131071. Actual: ' + (4294967295 >>> 15)); 
-} 
-
+}

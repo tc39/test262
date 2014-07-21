@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If NewExpression or MemberExpression does not implement internal [[Construct]] method, throw TypeError
- *
- * @path ch11/11.2/11.2.2/S11.2.2_A4_T2.js
- * @description Checking Number object case
- */
+/*---
+info: >
+    If NewExpression or MemberExpression does not implement internal
+    [[Construct]] method, throw TypeError
+description: Checking Number object case
+---*/
 
 //CHECK#1
 try {
@@ -42,5 +42,3 @@ catch (e) {
     $ERROR('#3: var x = new Number(1); new x() throw TypeError');
   }
 }
-
-

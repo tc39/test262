@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Passing arguments by reference do change values of reference to be passed
- *
- * @path ch08/8.7/S8.7_A7.js
- * @description Add new property to original variable inside function
- */
+/*---
+info: Passing arguments by reference do change values of reference to be passed
+description: Add new property to original variable inside function
+---*/
 
 var n = {};
 var m = n;
@@ -31,5 +29,3 @@ if (n.age !== 50) {
 
 //
 //////////////////////////////////////////////////////////////////////////////
-
-

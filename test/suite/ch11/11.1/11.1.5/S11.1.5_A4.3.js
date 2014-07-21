@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The PropertyName is undefined, ToString(BooleanLiteral), ToString(nullLiteral)
- *
- * @path ch11/11.1/11.1.5/S11.1.5_A4.3.js
- * @description Creating properties with following names: undefined, 'true', 'null'
- */
+/*---
+info: >
+    The PropertyName is undefined, ToString(BooleanLiteral),
+    ToString(nullLiteral)
+description: "Creating properties with following names: undefined, 'true', 'null'"
+---*/
 
 //CHECK#1
 var object = {undefined : true};
@@ -31,4 +31,3 @@ var object = {"null" : true};
 if (object["null"] !== true) {
   $ERROR('#4: var object = {"null" : true}; object["null"] === true');
 }
-

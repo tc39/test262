@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If R < 2 or R > 36, then return NaN
- *
- * @path ch15/15.1/15.1.2/15.1.2.2/S15.1.2.2_A4.2_T2.js
- * @description R = 37
- */
+/*---
+info: If R < 2 or R > 36, then return NaN
+description: R = 37
+---*/
 
 //CHECK#0
 if (isNaN(parseInt("0", 37)) !== true) {
@@ -66,5 +64,4 @@ if (isNaN(parseInt("10", 37)) !== true) {
 //CHECK#11
 if (isNaN(parseInt("11", 37)) !== true) {
   $ERROR('#11: parseInt("11", 37) === Not-a-Number. Actual: ' + (parseInt("11", 37)));
-}  
-
+}

@@ -1,16 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When the [[Construct]] property for a Function object F is called:
- * A new native ECMAScript object is created.
- * It gets the value of the [[Prototype]] property of the F(Denote it PROTO_VAL).
- * If PROTO_VAL is not an object, sets the [[Prototype]] property of native ECMAScript object just created
- *  to the original Object prototype object as described in 15.2.3.1
- *
- * @path ch13/13.2/S13.2.2_A3_T2.js
- * @description Declaring a function with "var __FACTORY = function()"
- */
+/*---
+info: >
+    When the [[Construct]] property for a Function object F is called:
+    A new native ECMAScript object is created.
+    It gets the value of the [[Prototype]] property of the F(Denote it PROTO_VAL).
+    If PROTO_VAL is not an object, sets the [[Prototype]] property of native ECMAScript object just created
+    to the original Object prototype object as described in 15.2.3.1
+description: Declaring a function with "var __FACTORY = function()"
+---*/
 
 var __FACTORY = function(){};
 __FACTORY.prototype=1;
@@ -32,4 +31,3 @@ if (!(Object.prototype.isPrototypeOf(__device))) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

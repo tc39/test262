@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Correct interpretation of ENGLISH ALPHABET
- *
- * @path ch07/7.6/S7.6_A4.1_T1.js
- * @description Check ENGLISH CAPITAL ALPHABET
- */
+/*---
+info: Correct interpretation of ENGLISH ALPHABET
+description: Check ENGLISH CAPITAL ALPHABET
+---*/
 
 //CHECK#A-Z
 var \u0041 = 1;
@@ -113,4 +111,3 @@ var \u005A = 1;
 if (Z !== 1) {
   $ERROR('#Z');
 }
-

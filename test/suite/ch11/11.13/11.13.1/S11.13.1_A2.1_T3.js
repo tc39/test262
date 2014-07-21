@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator x = y uses GetValue and PutValue
- *
- * @path ch11/11.13/11.13.1/S11.13.1_A2.1_T3.js
- * @description If Type(LeftHandSideExpression) is not Reference, throw ReferenceError (or SyntaxError)
- * @negative
- */
+/*---
+info: Operator x = y uses GetValue and PutValue
+description: >
+    If Type(LeftHandSideExpression) is not Reference, throw
+    ReferenceError (or SyntaxError)
+flags: [negative]
+---*/
 
 //CHECK#1
 try {
@@ -21,4 +21,3 @@ catch (e) {
     1 = 1;
   }
 }
-

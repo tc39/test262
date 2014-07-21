@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The length property of encodeURI has the attribute DontDelete
- *
- * @path ch15/15.1/15.1.3/15.1.3.3/S15.1.3.3_A5.2.js
- * @description Checking use hasOwnProperty, delete
- */
+/*---
+info: The length property of encodeURI has the attribute DontDelete
+description: Checking use hasOwnProperty, delete
+includes: [$FAIL.js]
+---*/
 
 //CHECK#1
 if (encodeURI.hasOwnProperty('length') !== true) {
@@ -24,7 +23,3 @@ if (encodeURI.hasOwnProperty('length') !== true) {
 if (encodeURI.length === undefined) {
   $ERROR('#3: delete encodeURI.length; encodeURI.length !== undefined');
 }
-
-
-
-

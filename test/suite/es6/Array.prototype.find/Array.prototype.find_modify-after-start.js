@@ -1,10 +1,10 @@
 // Copyright (c) 2014 Matthew Meyers. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @path
- * @description Array may be mutated by calls to the predicate
- */
+/*---
+description: Array may be mutated by calls to the predicate
+flags: [path]
+---*/
 
 [1, 2, 3].find(function (v, i, arr) {
 	arr[i + 1] = arr[i + 1] + 1;

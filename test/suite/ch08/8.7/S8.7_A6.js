@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Passing arguments by value differs from by reference and do not change values to be passed
- *
- * @path ch08/8.7/S8.7_A6.js
- * @description Adding original variable with referenced one inside function
- */
+/*---
+info: >
+    Passing arguments by value differs from by reference and do not change
+    values to be passed
+description: Adding original variable with referenced one inside function
+---*/
 
 var n = 1;
 var m = n;
@@ -23,5 +23,3 @@ if (m !== 1) {
 
 //
 //////////////////////////////////////////////////////////////////////////////
-
-

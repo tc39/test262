@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * let P be ToString(pattern) and let F be ToString(flags)
- *
- * @path ch15/15.10/15.10.4/S15.10.4.1_A8_T11.js
- * @description Checking by using eval, pattern is Math and flags is eval("\"g\"")
- */
+/*---
+info: let P be ToString(pattern) and let F be ToString(flags)
+description: Checking by using eval, pattern is Math and flags is eval("\"g\"")
+---*/
 
 __re = new RegExp(Math,eval("\"g\""));
 
@@ -34,5 +32,3 @@ if (__re.lastIndex !== 0) {
 if (typeof __re.source === "undefined") {
 	$ERROR('#5: __re = new RegExp(Math,eval("\\"g\\"")); typeof __re.source !== "undefined"');
 }
-
-

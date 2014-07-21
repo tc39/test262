@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The function call Function(…) is equivalent to the object creation expression
- * new Function(…) with the same arguments.
- *
- * @path ch15/15.3/S15.3.1_A1_T1.js
- * @description Create simple functions and check returned values
- */
+/*---
+info: >
+    The function call Function(…) is equivalent to the object creation expression
+    new Function(…) with the same arguments.
+description: Create simple functions and check returned values
+---*/
 
 var f = Function("return arguments[0];");
 
@@ -38,4 +37,3 @@ if (g("A") !== "A") {
 if (g("A") !== f("A")) {
   $ERROR('#5: g("A") !== f("A")');
 }
-

@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator use ToString from separator
- *
- * @path ch15/15.4/15.4.4/15.4.4.5/S15.4.4.5_A3.1_T2.js
- * @description If Type(separator) is Object, evaluate ToPrimitive(separator, String)
- */
+/*---
+info: Operator use ToString from separator
+description: >
+    If Type(separator) is Object, evaluate ToPrimitive(separator,
+    String)
+---*/
 
 var x = new Array(0,1,2,3);
 //CHECK#1

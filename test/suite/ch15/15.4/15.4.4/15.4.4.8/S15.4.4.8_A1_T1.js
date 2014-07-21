@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The elements of the array are rearranged so as to reverse their order.
- * The object is returned as the result of the call
- *
- * @path ch15/15.4/15.4.4/15.4.4.8/S15.4.4.8_A1_T1.js
- * @description Checking case when reverse is given no arguments or one argument
- */
+/*---
+info: >
+    The elements of the array are rearranged so as to reverse their order.
+    The object is returned as the result of the call
+description: Checking case when reverse is given no arguments or one argument
+---*/
 
 //CHECK#1
 var x = [];
@@ -44,5 +43,4 @@ if (x[1] !== 1) {
 //CHECK#6
 if (x.length !== 2) {
   $ERROR('#6: x = new Array(1,2); x.reverse(); x.length === 2. Actual: ' + (x.length));
-}              
-
+}

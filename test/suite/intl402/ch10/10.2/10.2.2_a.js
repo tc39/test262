@@ -1,10 +1,11 @@
 // Copyright 2012 Google Inc.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that Intl.Collator has a supportedLocalesOf
- * property, and it works as planned.
- */
+/*---
+description: >
+    Tests that Intl.Collator has a supportedLocalesOf  property, and
+    it works as planned.
+---*/
 
 var defaultLocale = new Intl.Collator().resolvedOptions().locale;
 var notSupported = 'zxx'; // "no linguistic content"
@@ -24,4 +25,3 @@ if (supportedLocales.length !== 1) {
 if (supportedLocales[0] !== defaultLocale) {
     $ERROR('The default locale is not returned in the supported list.');
 }
-

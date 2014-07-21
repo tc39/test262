@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * FunctionExpression within a "do-while" statement is allowed, but no function with the given name will appear in the global context
- *
- * @path ch12/12.6/12.6.1/S12.6.1_A10.js
- * @description Also this a test on FunctionExpression
- */
+/*---
+info: >
+    FunctionExpression within a "do-while" statement is allowed, but no
+    function with the given name will appear in the global context
+description: Also this a test on FunctionExpression
+---*/
 
 var check = 0;
 do {    
@@ -26,4 +26,3 @@ if (check !== 1) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

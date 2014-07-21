@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Using "try" with "catch" or "finally" statement with a "return" statement
- *
- * @path ch12/12.14/S12.14_A13_T2.js
- * @description Using try/finally syntax construction
- */
+/*---
+info: Using "try" with "catch" or "finally" statement with a "return" statement
+description: Using try/finally syntax construction
+---*/
 
 // CHECK#1
 var c1=0;
@@ -179,4 +177,3 @@ catch(ex1){
 if (c8!==1){
   $ERROR('#8: "finally" block must be evaluated');
 }
-

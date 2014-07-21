@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Check type of various properties
- *
- * @path ch11/11.2/11.2.1/S11.2.1_A4_T8.js
- * @description Checking properties of the Math Object
- */
+/*---
+info: Check type of various properties
+description: Checking properties of the Math Object
+---*/
 
 //CHECK#1-52
 if (typeof Math.E !== "number")  $ERROR('#1: typeof Math.E === "number". Actual: ' + (typeof Math.E ));
@@ -61,5 +59,3 @@ if (typeof Math.sqrt !== "function")  $ERROR('#49: typeof Math.sqrt === "functio
 if (typeof Math['sqrt'] !== "function")  $ERROR('#50: typeof Math["sqrt"] === "function". Actual: ' + (typeof Math["sqrt"] ));
 if (typeof Math.tan !== "function")  $ERROR('#51: typeof Math.tan === "function". Actual: ' + (typeof Math.tan ));
 if (typeof Math['tan'] !== "function")  $ERROR('#52: typeof Math["tan"] === "function". Actual: ' + (typeof Math["tan"] ));
-
-

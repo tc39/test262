@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * FunctionDeclaration inside the "if" Expression is evaluated as true and function will not be declarated
- *
- * @path ch12/12.5/S12.5_A5.js
- * @description The "if" Expression is "function __func(){throw "FunctionExpression";}"
- */
+/*---
+info: >
+    FunctionDeclaration inside the "if" Expression is evaluated as true and
+    function will not be declarated
+description: >
+    The "if" Expression is "function __func(){throw
+    "FunctionExpression";}"
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -42,7 +44,3 @@ try {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-
-
-
-

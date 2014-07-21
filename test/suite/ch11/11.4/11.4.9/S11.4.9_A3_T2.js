@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator !x returns !ToBoolean(x)
- *
- * @path ch11/11.4/11.4.9/S11.4.9_A3_T2.js
- * @description Type(x) is number primitive or Number object
- */
+/*---
+info: Operator !x returns !ToBoolean(x)
+description: Type(x) is number primitive or Number object
+---*/
 
 //CHECK#1
 if (!0.1 !== false) {
@@ -42,4 +40,3 @@ if (!new Number(0) !== false) {
 if (!Infinity !== false) {
   $ERROR('#7: !Infinity === false');
 }
-

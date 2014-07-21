@@ -1,14 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The with statement adds a computed object to the front of the
- * scope chain of the current execution context
- *
- * @path ch12/12.10/S12.10_A1.4_T4.js
- * @description Using "with" statement within iteration statement, leading to completion by break
- * @noStrict
- */
+/*---
+info: >
+    The with statement adds a computed object to the front of the
+    scope chain of the current execution context
+description: >
+    Using "with" statement within iteration statement, leading to
+    completion by break
+flags: [noStrict]
+---*/
 
 this.p1 = 1;
 this.p2 = 2;
@@ -137,4 +138,3 @@ if(!(value === undefined)){
 if(!(myObj.value === "value")){
   $ERROR('#19: myObj.value === "value". Actual:  myObj.value ==='+ myObj.value  );
 }
-

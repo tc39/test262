@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * White Space between LeftHandSideExpression and "++" are allowed
- *
- * @path ch11/11.3/11.3.1/S11.3.1_A1.2_T1.js
- * @description Checking by using eval
- */
+/*---
+info: White Space between LeftHandSideExpression and "++" are allowed
+description: Checking by using eval
+---*/
 
 //CHECK#1
 if (eval("var x = 0; x\u0009++; x") !== 1) {
@@ -37,4 +35,3 @@ if (eval("var x = 0; x\u00A0++; x") !== 1) {
 if (eval("var x = 0; x\u0009\u000B\u000C\u0020\u00A0++; x") !== 1) {
     $ERROR('#6: var x = 0; x\\u0009\\u000B\\u000C\\u0020\\u00A0++; x === 1. Actual: ' + (x));
 }
-

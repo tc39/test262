@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * ExponentPart :: ExponentIndicator ( /+/-) 0 DecimalDigits is allowed
- *
- * @path ch07/7.8/7.8.3/S7.8.3_A4.2_T2.js
- * @description ExponentIndicator :: E
- */
+/*---
+info: "ExponentPart :: ExponentIndicator ( /+/-) 0 DecimalDigits is allowed"
+description: "ExponentIndicator :: E"
+---*/
 
 //CHECK#0
 if (0E01 !== 0) {
@@ -57,4 +55,3 @@ if (8E01 !== 80) {
 if (9E01 !== 90) {
   $ERROR('#9: 9E01 === 90');
 }
-

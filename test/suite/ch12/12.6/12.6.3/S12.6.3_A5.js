@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * "in"-expression wrapped into "eval" statement is allowed as a ExpressionNoIn in "for (ExpressionNoIn; FirstExpression; SecondExpression) Statement" IterationStatement
- *
- * @path ch12/12.6/12.6.3/S12.6.3_A5.js
- * @description Using eval "for(eval("i in arr");1;)"
- */
+/*---
+info: >
+    "in"-expression wrapped into "eval" statement is allowed as a
+    ExpressionNoIn in "for (ExpressionNoIn; FirstExpression;
+    SecondExpression) Statement" IterationStatement
+description: Using eval "for(eval("i in arr");1;)"
+---*/
 
 arr = [1,2,3,4,5];
 i = 1;
@@ -39,4 +40,3 @@ try {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

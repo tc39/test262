@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String.prototype.lastIndexOf(searchString, position)
- *
- * @path ch15/15.5/15.5.4/15.5.4.8/S15.5.4.8_A1_T6.js
- * @description Call lastIndexOf(searchString, position) function with x argument of new String object, where x is undefined variable
- */
+/*---
+info: String.prototype.lastIndexOf(searchString, position)
+description: >
+    Call lastIndexOf(searchString, position) function with x argument
+    of new String object, where x is undefined variable
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -18,4 +18,3 @@ if (new String("undefined").lastIndexOf(x) !== 0) {
 //////////////////////////////////////////////////////////////////////////////
 
 var x;
-

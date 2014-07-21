@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When String is called as a function rather than as a constructor, it performs a type conversion
- *
- * @path ch15/15.5/15.5.1/S15.5.1.1_A1_T6.js
- * @description Checking by using eval, Call String(eval());
- */
+/*---
+info: >
+    When String is called as a function rather than as a constructor, it
+    performs a type conversion
+description: Checking by using eval, Call String(eval());
+---*/
 
 var __str = String(eval());
 
@@ -25,4 +25,3 @@ if (__str !== "undefined") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

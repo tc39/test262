@@ -2,12 +2,13 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that the digits are determined correctly when specifying significant digits.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+description: >
+    Tests that the digits are determined correctly when specifying
+    significant digits.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 var locales = [
     new Intl.NumberFormat().resolvedOptions().locale,
@@ -53,4 +54,3 @@ var testData = {
 testNumberFormat(locales, numberingSystems,
     {useGrouping: false, minimumSignificantDigits: 3, maximumSignificantDigits: 5},
     testData);
-

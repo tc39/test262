@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The production CharacterClassEscape :: d evaluates by returning the ten-element set of characters containing the characters 0 through 9 inclusive
- *
- * @path ch15/15.10/15.10.2/15.10.2.12/S15.10.2.12_A5_T1.js
- * @description 0 - 9
- */
+/*---
+info: >
+    The production CharacterClassEscape :: d evaluates by returning the
+    ten-element set of characters containing the characters 0 through 9
+    inclusive
+description: 0 - 9
+---*/
 
 var i0 = "";
 for (var j = 0; j < 1024; j++)
@@ -519,4 +520,3 @@ var o63 = i63;
 if (i63.replace(/\d+/g, "") !== o63) {
   $ERROR("#63: Error matching character class \d between character fc00 and ffff");
 }
-

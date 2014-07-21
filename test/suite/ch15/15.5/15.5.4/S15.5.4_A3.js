@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The value of the internal [[Prototype]] property of the String prototype object is the Object prototype object (15.2.3.1)
- *
- * @path ch15/15.5/15.5.4/S15.5.4_A3.js
- * @description Checking Object.prototype.isPrototypeOf(String.prototype)
- */
+/*---
+info: >
+    The value of the internal [[Prototype]] property of the String prototype
+    object is the Object prototype object (15.2.3.1)
+description: Checking Object.prototype.isPrototypeOf(String.prototype)
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -25,4 +25,3 @@ if (String.prototype.toString() != "[object "+"String"+"]") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

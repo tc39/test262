@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * CharacterEscape :: c ControlLetter
- *
- * @path ch15/15.10/15.10.2/15.10.2.10/S15.10.2.10_A2.1_T2.js
- * @description ControlLetter :: a - z
- */
+/*---
+info: "CharacterEscape :: c ControlLetter"
+description: "ControlLetter :: a - z"
+---*/
 
 //CHECK#0061-007A
 var result = true; 
@@ -20,5 +18,4 @@ for (alpha = 0x0061; alpha <= 0x007A; alpha++) {
 
 if (result !== true) {
   $ERROR('#1: CharacterEscape :: c a - z');
-}    
-
+}

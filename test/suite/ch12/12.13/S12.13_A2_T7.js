@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * "throw Expression" returns (throw, GetValue(Result(1)), empty), where 1 evaluates Expression
- *
- * @path ch12/12.13/S12.13_A2_T7.js
- * @description Throwing Array
- */
+/*---
+info: >
+    "throw Expression" returns (throw, GetValue(Result(1)), empty), where 1
+    evaluates Expression
+description: Throwing Array
+---*/
 
 var mycars = new Array();
 mycars[0] = "Saab";
@@ -27,4 +27,3 @@ catch(e){
     if (e[i]!==mycars[i]) $ERROR('#1.'+i+': Exception['+i+'] === mycars['+i+']. Actual:  Exception['+i+'] ==='+ e[i]  );
   }
 }
-

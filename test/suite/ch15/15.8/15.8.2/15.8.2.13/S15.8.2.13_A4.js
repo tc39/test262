@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If x is NaN and y is nonzero, Math.pow(x,y) is NaN
- *
- * @path ch15/15.8/15.8.2/15.8.2.13/S15.8.2.13_A4.js
- * @description Checking if Math.pow(x,y) is NaN, where x is NaN and y is nonzero
- */
+/*---
+info: If x is NaN and y is nonzero, Math.pow(x,y) is NaN
+description: Checking if Math.pow(x,y) is NaN, where x is NaN and y is nonzero
+---*/
 
 // CHECK#1
 
@@ -28,4 +26,3 @@ for (i = 0; i < ynum; i++)
 		$ERROR("#1: isNaN(Math.pow(" + x + ", " + y[i] + ")) === false");
 	}
 }
-

@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If x or y is NaN, return false
- *
- * @path ch11/11.9/11.9.4/S11.9.4_A4.1_T1.js
- * @description x is NaN
- */
+/*---
+info: If x or y is NaN, return false
+description: x is NaN
+---*/
 
 //CHECK#1
 if (Number.NaN === true) {
@@ -52,5 +50,3 @@ if (Number.NaN === "string") {
 if (Number.NaN === new Object()) {
   $ERROR('#9: NaN !== new Object()');
 }
-
-

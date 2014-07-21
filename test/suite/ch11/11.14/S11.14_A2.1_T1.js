@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator uses GetValue
- *
- * @path ch11/11.14/S11.14_A2.1_T1.js
- * @description Either Expression is not Reference or GetBase is not null
- */
+/*---
+info: Operator uses GetValue
+description: Either Expression is not Reference or GetBase is not null
+---*/
 
 //CHECK#1
 if ((1,2) !== 2) {
@@ -50,5 +48,3 @@ if ((objectx.prop = false, objecty.prop) !== objecty.prop) {
     $ERROR('#6: var objectx = new Object(); var objecty = new Object(); objectx.prop = true; objecty.prop = 1; objectx.prop = false, objecty.prop; objectx.prop === false');
   } 
 }
-
-

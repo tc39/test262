@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * CharacterEscapeSequnce :: SingleEscapeSequence
- *
- * @path ch07/7.8/7.8.4/S7.8.4_A4.1_T1.js
- * @description SingleEscapeSequence :: one of b f n r t v
- */
+/*---
+info: "CharacterEscapeSequnce :: SingleEscapeSequence"
+description: "SingleEscapeSequence :: one of b f n r t v"
+---*/
 
 //CHECK#1
 if (String.fromCharCode(0x0008) !== "\b") {
@@ -37,4 +35,3 @@ if (String.fromCharCode(0x000C) !== "\f") {
 if (String.fromCharCode(0x000D) !== "\r") {
   $ERROR('#6: String.fromCharCode(0x000D) === "\\r"');
 }
-

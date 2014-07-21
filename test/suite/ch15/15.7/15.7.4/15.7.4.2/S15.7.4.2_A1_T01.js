@@ -1,14 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * toString: If radix is the number 10 or undefined, then this
- * number value is given as an argument to the ToString operator.
- * the resulting string value is returned
- *
- * @path ch15/15.7/15.7.4/15.7.4.2/S15.7.4.2_A1_T01.js
- * @description undefined radix
- */
+/*---
+info: >
+    toString: If radix is the number 10 or undefined, then this
+    number value is given as an argument to the ToString operator.
+    the resulting string value is returned
+description: undefined radix
+---*/
 
 //CHECK#1
 if(Number.prototype.toString() !== "0"){
@@ -49,4 +48,3 @@ if((new Number(Number.POSITIVE_INFINITY)).toString() !== "Infinity"){
 if((new Number(Number.NEGATIVE_INFINITY)).toString() !== "-Infinity"){
   $ERROR('#8: (new Number(Number.NEGATIVE_INFINITY)).toString() === "-Infinity"');
 }
-

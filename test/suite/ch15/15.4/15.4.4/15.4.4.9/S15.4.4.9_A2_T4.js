@@ -1,14 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The shift function is intentionally generic.
- * It does not require that its this value be an Array object
- *
- * @path ch15/15.4/15.4.4/15.4.4.9/S15.4.4.9_A2_T4.js
- * @description The first element of the array is removed from the array and
- * returned
- */
+/*---
+info: >
+    The shift function is intentionally generic.
+    It does not require that its this value be an Array object
+description: >
+    The first element of the array is removed from the array and
+    returned
+---*/
 
 var obj = {};
 obj["0"] = 0;
@@ -49,4 +49,3 @@ if (shift !== undefined) {
 if (obj.length !== 0) {
   $ERROR('#6: var obj = {}; obj["0"] = 0; obj["3"] = 3; obj.length = 4; obj.shift = Array.prototype.shift; obj.shift(); obj.shift(); obj.length = 1; obj.shift(); obj.length === 0. Actual: ' + (obj.length));
 }
-

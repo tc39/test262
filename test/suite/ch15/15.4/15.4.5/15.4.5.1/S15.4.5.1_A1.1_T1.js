@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If ToUint32(length) !== ToNumber(length), throw RangeError
- *
- * @path ch15/15.4/15.4.5/15.4.5.1/S15.4.5.1_A1.1_T1.js
- * @description length in [4294967296, -1, 1.5]
- */
+/*---
+info: If ToUint32(length) !== ToNumber(length), throw RangeError
+description: length in [4294967296, -1, 1.5]
+---*/
 
 //CHECK#1
 try {
@@ -40,4 +38,3 @@ try {
     $ERROR('#3.2: x = []; x.length = 1.5 throw RangeError. Actual: ' + (e));
   }    
 }
-

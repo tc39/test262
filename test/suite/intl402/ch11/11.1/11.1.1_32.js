@@ -1,11 +1,12 @@
 // Copyright 2013 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that the options minimumSignificantDigits and
- *     maximumSignificantDigits are read in the right sequence.
- * @author Norbert Lindenberg
- */
+/*---
+description: >
+    Tests that the options minimumSignificantDigits and
+    maximumSignificantDigits are read in the right sequence.
+author: Norbert Lindenberg
+---*/
 
 var read = 0;
 

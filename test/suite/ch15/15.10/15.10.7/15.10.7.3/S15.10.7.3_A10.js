@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The RegExp instance ignoreCase property has the attribute ReadOnly
- *
- * @path ch15/15.10/15.10.7/15.10.7.3/S15.10.7.3_A10.js
- * @description Checking if varying the ignoreCase property fails
- */
+/*---
+info: The RegExp instance ignoreCase property has the attribute ReadOnly
+description: Checking if varying the ignoreCase property fails
+includes: [$FAIL.js]
+---*/
 
 __re = /a|b|c/;
 
@@ -23,5 +22,3 @@ __re.ignoreCase = "shifted";
 if (__re.ignoreCase !== __obj) {
   $ERROR('#2: __re = /a|b|c/; __obj = __re.ignoreCase; __re.ignoreCase = "shifted"; __re.ignoreCase === __obj. Actual: ' + (__re.ignoreCase));
 }
-
-

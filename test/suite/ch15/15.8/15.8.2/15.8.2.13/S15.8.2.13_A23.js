@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If x<0 and x is finite and y is finite and y is not an integer, Math.pow(x,y) is NaN
- *
- * @path ch15/15.8/15.8.2/15.8.2.13/S15.8.2.13_A23.js
- * @description Checking if Math.pow(x,y) is NaN, where x<0 and x is finite and y is finite and y is not an integer
- */
+/*---
+info: >
+    If x<0 and x is finite and y is finite and y is not an integer,
+    Math.pow(x,y) is NaN
+description: >
+    Checking if Math.pow(x,y) is NaN, where x<0 and x is finite and y
+    is finite and y is not an integer
+---*/
 
 // CHECK#1
 
@@ -32,4 +34,3 @@ for (i = 0; i < xnum; i++)
 	for (j = 0; j < ynum; j++)
 		if (!isNaN(Math.pow(x[i],y[j])))
 			$ERROR("#1: isNaN(Math.pow(" + x[i] + ", " + y[j] + ")) === false");
-

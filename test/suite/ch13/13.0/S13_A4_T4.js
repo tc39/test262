@@ -1,12 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The production FunctionDeclaration: "function Identifier ( FormalParameterList_opt ) { FunctionBody }" is processed by function declarations
- *
- * @path ch13/13.0/S13_A4_T4.js
- * @description Declaring a function that uses strings concatenaion opeator within its "return" Expression
- */
+/*---
+info: >
+    The production FunctionDeclaration: "function Identifier (
+    FormalParameterList_opt ) { FunctionBody }" is processed by function
+    declarations
+description: >
+    Declaring a function that uses strings concatenaion opeator within
+    its "return" Expression
+---*/
 
 function __func(){return arguments[0].name + " " + arguments[0].surname;};
 
@@ -43,4 +46,3 @@ if (func__({name:'john', surname:'lennon'}) !== "john lennon") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

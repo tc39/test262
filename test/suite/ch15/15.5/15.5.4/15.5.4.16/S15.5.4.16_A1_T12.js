@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String.prototype.toLowerCase()
- *
- * @path ch15/15.5/15.5.4/15.5.4.16/S15.5.4.16_A1_T12.js
- * @description Override toString and valueOf functions, valueOf throw exception, then call toLowerCase() function for this object
- */
+/*---
+info: String.prototype.toLowerCase()
+description: >
+    Override toString and valueOf functions, valueOf throw exception,
+    then call toLowerCase() function for this object
+includes: [$FAIL.js]
+---*/
 
 var __obj = {toString:function(){return {};},valueOf:function(){throw "intostr";}}
 __obj.toLowerCase = String.prototype.toLowerCase;
@@ -23,4 +24,3 @@ try {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

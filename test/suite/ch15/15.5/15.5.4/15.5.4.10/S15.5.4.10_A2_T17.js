@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * match returns array as specified in 15.10.6.2
- *
- * @path ch15/15.5/15.5.4/15.5.4.10/S15.5.4.10_A2_T17.js
- * @description Regular expression is /0./
- */
+/*---
+info: match returns array as specified in 15.10.6.2
+description: Regular expression is /0./
+---*/
 
 var __re = /0./;
 
@@ -47,4 +45,3 @@ if (__num.match(__re).input !==String(__num)) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

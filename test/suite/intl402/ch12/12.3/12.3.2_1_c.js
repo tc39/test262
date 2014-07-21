@@ -1,12 +1,11 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that format function is bound to its Intl.DateTimeFormat.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+description: Tests that format function is bound to its Intl.DateTimeFormat.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 var dates = [new Date(), new Date(0), new Date(Date.parse("1989-11-09T17:57:00Z"))];
 var locales = [undefined, ["de"], ["th-u-ca-gregory-nu-thai"], ["en"], ["ja-u-ca-japanese"], ["ar-u-ca-islamicc-nu-arab"]];
@@ -31,4 +30,3 @@ locales.forEach(function (locales) {
         });
     });
 });
-

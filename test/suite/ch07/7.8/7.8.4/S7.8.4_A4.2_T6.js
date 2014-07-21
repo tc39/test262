@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * CharacterEscapeSequnce :: NonEscapeSequence
- *
- * @path ch07/7.8/7.8.4/S7.8.4_A4.2_T6.js
- * @description NonEscapeSequence :: RUSSIAN CAPITAL ALPHABET
- */
+/*---
+info: "CharacterEscapeSequnce :: NonEscapeSequence"
+description: "NonEscapeSequence :: RUSSIAN CAPITAL ALPHABET"
+---*/
 
 //CHECK#А-Я
 
@@ -141,4 +139,3 @@ if ("Я" !== "\Я") {
 if ("Ё" !== "\Ё") {
   $ERROR('#Ё');
 }
-

@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * FunctionExpression containing "with" statement is admitted
- *
- * @path ch13/13.2/S13.2.2_A17_T2.js
- * @description Throwing an exception within "with" statement
- */
+/*---
+info: FunctionExpression containing "with" statement is admitted
+description: Throwing an exception within "with" statement
+---*/
 
 this.p1="alert";
 
@@ -68,5 +66,3 @@ if (resukt !== "alert") {
 //////////////////////////////////////////////////////////////////////////////
 
 var resukt;
-
-

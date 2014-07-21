@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If either x or y is NaN, Math(x,y) is NaN
- *
- * @path ch15/15.8/15.8.2/15.8.2.5/S15.8.2.5_A1.js
- * @description Checking if Math.atan2(NaN,y) and Math.atan2(x,NaN) is NaN for different x and y values
- */
+/*---
+info: If either x or y is NaN, Math(x,y) is NaN
+description: >
+    Checking if Math.atan2(NaN,y) and Math.atan2(x,NaN) is NaN for
+    different x and y values
+---*/
 
 // CHECK#1
 
@@ -33,4 +33,3 @@ for (i = 0; i < 2; i++)
 		}
 	}
 }
-

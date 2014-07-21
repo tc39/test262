@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If Type(x) is different from Type(y), return false
- *
- * @path ch11/11.9/11.9.4/S11.9.4_A8_T1.js
- * @description x or y is primitive boolean
- */
+/*---
+info: If Type(x) is different from Type(y), return false
+description: x or y is primitive boolean
+---*/
 
 //CHECK#1
 if (true === new Boolean(true)) {
@@ -62,4 +60,3 @@ if (false === new String(false)) {
 if (true === {valueOf: function () {return true}}) {
   $ERROR('#11: true === {valueOf: function () {return true}}');
 }
-

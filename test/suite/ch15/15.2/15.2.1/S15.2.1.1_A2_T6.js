@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When the Object function is called with one argument value,
- * and the value neither is null nor undefined, and is supplied, return ToObject(value)
- *
- * @path ch15/15.2/15.2.1/S15.2.1.1_A2_T6.js
- * @description Calling Object function with Infinity argument value
- */
+/*---
+info: >
+    When the Object function is called with one argument value,
+    and the value neither is null nor undefined, and is supplied, return ToObject(value)
+description: Calling Object function with Infinity argument value
+---*/
 
 var num = Infinity;
 
@@ -32,5 +31,3 @@ if (typeof obj!=="object") {
 if ((obj != Infinity)||(obj === Infinity)) {
   $ERROR('#4: Object(Infinity) returns ToObject(Infinity)');
 }
-
-

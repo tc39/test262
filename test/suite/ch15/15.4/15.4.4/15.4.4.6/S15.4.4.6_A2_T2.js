@@ -1,14 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The pop function is intentionally generic.
- * It does not require that its this value be an Array object
- *
- * @path ch15/15.4/15.4.4/15.4.4.6/S15.4.4.6_A2_T2.js
- * @description If ToUint32(length) equal zero, call the [[Put]] method
- * of this object with arguments "length" and 0 and return undefined
- */
+/*---
+info: >
+    The pop function is intentionally generic.
+    It does not require that its this value be an Array object
+description: >
+    If ToUint32(length) equal zero, call the [[Put]] method  of this
+    object with arguments "length" and 0 and return undefined
+---*/
 
 var obj = {};
 obj.pop = Array.prototype.pop;
@@ -88,4 +88,3 @@ if (pop !== undefined) {
 if (obj.length !== 0) {
   $ERROR('#12: var obj = {}; obj.length = new Number(0); obj.pop = Array.prototype.pop; obj.pop(); obj.length === 0. Actual: ' + (obj.length));
 }
-

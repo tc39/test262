@@ -1,14 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Arguments property of activation object contains real params to be passed
- *
- * @path ch13/13.0/S13_A8_T2.js
- * @description Creating a function with no parameters and using arguments.length property in order to perform the test
- */
+/*---
+info: Arguments property of activation object contains real params to be passed
+description: >
+    Creating a function with no parameters and using arguments.length
+    property in order to perform the test
+---*/
 
- function __func() {
+function __func() {
  	return arguments.length;
  }
  
@@ -35,4 +35,3 @@ if (__func() !== 0) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

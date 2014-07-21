@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Evaluate the production ObjectLiteral: { }
- *
- * @path ch11/11.1/11.1.5/S11.1.5_A1.1.js
- * @description Checking various properteis of the object defined with "var object = {}"
- */
+/*---
+info: "Evaluate the production ObjectLiteral: { }"
+description: >
+    Checking various properteis of the object defined with "var object
+    = {}"
+---*/
 
 var object = {};
 
@@ -29,4 +29,3 @@ if (object.toString !== Object.prototype.toString) {
 if (object.toString() !== "[object Object]") {
   $ERROR('#4: var object = {}; object.toString === "[object Object]". Actual: ' + (object.toString));
 }
-

@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * +Infinity expression has a type Number
- *
- * @path ch08/8.5/S8.5_A7.js
- * @description Check type of +Infinity
- */
+/*---
+info: +Infinity expression has a type Number
+description: Check type of +Infinity
+---*/
 
 var x=+Infinity;
 
@@ -25,4 +23,3 @@ if (typeof(+Infinity) !== "number"){
 }
 //
 //////////////////////////////////////////////////////////
-

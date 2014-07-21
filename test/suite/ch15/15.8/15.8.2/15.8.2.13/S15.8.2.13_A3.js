@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If y is -0, Math.pow(x,y) is 1, even if x is NaN
- *
- * @path ch15/15.8/15.8.2/15.8.2.13/S15.8.2.13_A3.js
- * @description Checking if Math.pow(x,y) equals to 1, where x is number or NaN and y is -0
- */
+/*---
+info: If y is -0, Math.pow(x,y) is 1, even if x is NaN
+description: >
+    Checking if Math.pow(x,y) equals to 1, where x is number or NaN
+    and y is -0
+---*/
 
 // CHECK#1
 
@@ -30,4 +30,3 @@ for (i = 0; i < xnum; i++)
 		$ERROR("#1: Math.pow(" + x[i] + ", -0) !== 1");
 	}
 }
-

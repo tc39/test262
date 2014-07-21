@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Any variable that has been assigned with string literal has the type string
- *
- * @path ch08/8.4/S8.4_A1.js
- * @description Check type of variable that has been assigned with string literal
- */
+/*---
+info: >
+    Any variable that has been assigned with string literal has the type
+    string
+description: Check type of variable that has been assigned with string literal
+---*/
 
 /////////////////////////////////////////////////////////
 // CHECK#1
@@ -43,4 +43,3 @@ if (typeof(str__)!=="string"){
 }
 //
 ////////////////////////////////////////////////////////
-

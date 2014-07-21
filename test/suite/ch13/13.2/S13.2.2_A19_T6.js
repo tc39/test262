@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Function's scope chain is started when it is declared
- *
- * @path ch13/13.2/S13.2.2_A19_T6.js
- * @description Function is declared in the "object->do-while" scope, then the object is deleted and another object with the same name is declared
- */
+/*---
+info: Function's scope chain is started when it is declared
+description: >
+    Function is declared in the "object->do-while" scope, then the
+    object is deleted and another object with the same name is declared
+---*/
 
 var a = 1;
 
@@ -38,9 +38,3 @@ if (result !== 2) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-

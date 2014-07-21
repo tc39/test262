@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator x - y produces the same result as x + (-y)
- *
- * @path ch11/11.6/11.6.2/S11.6.2_A4_T5.js
- * @description Using the rule of sum of two zeroes and the fact that a - b = a + (-b)
- */
+/*---
+info: Operator x - y produces the same result as x + (-y)
+description: >
+    Using the rule of sum of two zeroes and the fact that a - b = a +
+    (-b)
+---*/
 
 //CHECK#1
 if (-0 - -0 !== 0 ) {  
@@ -43,4 +43,3 @@ if (0 - 0 !== 0 ) {
     $ERROR('#4.2: 0 - 0 === + 0. Actual: -0');
   }
 }
-

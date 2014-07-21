@@ -1,15 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If B = 1110xxxx (n = 3) and (string.charAt(k + 4) and
- * string.charAt(k + 5)) or (string.charAt(k + 7) and
- * string.charAt(k + 8)) do not represent hexadecimal digits, throw URIError
- *
- * @path ch15/15.1/15.1.3/15.1.3.2/S15.1.3.2_A1.11_T2.js
- * @description Complex tests, string.charAt(k + 7) and string.charAt(k + 8)
- * do not represent hexadecimal digits
- */
+/*---
+info: >
+    If B = 1110xxxx (n = 3) and (string.charAt(k + 4) and
+    string.charAt(k + 5)) or (string.charAt(k + 7) and
+    string.charAt(k + 8)) do not represent hexadecimal digits, throw URIError
+description: >
+    Complex tests, string.charAt(k + 7) and string.charAt(k + 8)  do
+    not represent hexadecimal digits
+---*/
 
 //CHECK
 result = true;
@@ -30,4 +30,3 @@ for (indexI = 0; indexI < interval.length; indexI++) {
 if (result !== true) {    
   $ERROR('#1: If B = 1110xxxx (n = 3) and (string.charAt(k + 7) and  string.charAt(k + 8)) do not represent hexadecimal digits, throw URIError');
 }
-

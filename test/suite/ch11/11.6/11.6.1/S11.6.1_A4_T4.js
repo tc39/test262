@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The result of an addition is determined using the rules of IEEE 754 double-precision arithmetics
- *
- * @path ch11/11.6/11.6.1/S11.6.1_A4_T4.js
- * @description The sum of an infinity and a finite value is equal to the infinite operand
- */
+/*---
+info: >
+    The result of an addition is determined using the rules of IEEE 754
+    double-precision arithmetics
+description: >
+    The sum of an infinity and a finite value is equal to the infinite
+    operand
+---*/
 
 //CHECK#1
 if (Number.POSITIVE_INFINITY + 1 !== Number.POSITIVE_INFINITY ) {
@@ -47,7 +49,3 @@ if (Number.NEGATIVE_INFINITY + Number.MAX_VALUE !== Number.NEGATIVE_INFINITY ) {
 if (-Number.MAX_VALUE + Number.NEGATIVE_INFINITY !== Number.NEGATIVE_INFINITY ) {
   $ERROR('#8: -Number.MAX_VALUE + -Infinity === -Infinity. Actual: ' + (-Number.MAX_VALUE + -Infinity));
 }
-
-
-
-

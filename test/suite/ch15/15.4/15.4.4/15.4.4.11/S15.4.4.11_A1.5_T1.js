@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If comparefn is undefined, use SortCompare operator
- *
- * @path ch15/15.4/15.4.4/15.4.4.11/S15.4.4.11_A1.5_T1.js
- * @description Checking sort() and sort(undefined)
- */
+/*---
+info: If comparefn is undefined, use SortCompare operator
+description: Checking sort() and sort(undefined)
+---*/
 
 var x = new Array(1,0);
 x.sort();
@@ -43,4 +41,3 @@ if (x[0] !== 0) {
 if (x[1] !== 1) {
   $ERROR('#6: var x = new Array(1,0);  x.sort(undefined); x[1] === 1. Actual: ' + (x[1]));
 }
-

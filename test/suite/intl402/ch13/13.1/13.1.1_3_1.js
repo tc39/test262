@@ -1,10 +1,10 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that localeCompare coerces that to a string.
- * @author Norbert Lindenberg
- */
+/*---
+description: Tests that localeCompare coerces that to a string.
+author: Norbert Lindenberg
+---*/
 
 var thisValues = ["true", "5", "hello", "good bye"];
 var thatValues = [true, 5, "hello", {toString: function () { return "good bye"; }}];
@@ -23,4 +23,3 @@ for (i = 0; i < thisValues.length; i++) {
         }
     }
 }
-

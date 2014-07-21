@@ -1,12 +1,13 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that Intl.NumberFormat.prototype functions throw a
- *     TypeError if called on a non-object value or an object that hasn't been
- *     initialized as a NumberFormat.
- * @author Norbert Lindenberg
- */
+/*---
+description: >
+    Tests that Intl.NumberFormat.prototype functions throw a
+    TypeError if called on a non-object value or an object that hasn't
+    been  initialized as a NumberFormat.
+author: Norbert Lindenberg
+---*/
 
 var functions = {
     "format getter": Object.getOwnPropertyDescriptor(Intl.NumberFormat.prototype, "format").get,
@@ -30,4 +31,3 @@ Object.getOwnPropertyNames(functions).forEach(function (functionName) {
         }
     });
 });
-

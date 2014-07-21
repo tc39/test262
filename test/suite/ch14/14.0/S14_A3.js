@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Global FunctionDeclaration cannot be defined within the body of another FunctionDeclaration
- *
- * @path ch14/14.0/S14_A3.js
- * @description Declaring a function within the body of another function
- */
+/*---
+info: >
+    Global FunctionDeclaration cannot be defined within the body of another
+    FunctionDeclaration
+description: Declaring a function within the body of another function
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -27,4 +27,3 @@ if (typeof __gunc !== "undefined") {
 function __func(){
     function __gunc(){return true};
 }
-

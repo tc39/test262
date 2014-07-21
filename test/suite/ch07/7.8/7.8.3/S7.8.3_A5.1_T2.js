@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * DecimalLiteral :: HexIntegerLiteral
- *
- * @path ch07/7.8/7.8.3/S7.8.3_A5.1_T2.js
- * @description HexIntegerLiteral :: 0X Digit
- */
+/*---
+info: "DecimalLiteral :: HexIntegerLiteral"
+description: "HexIntegerLiteral :: 0X Digit"
+---*/
 
 //CHECK#0
 if (0X0 !== 0) {
@@ -87,4 +85,3 @@ if (0XE !== 14) {
 if (0XF !== 15) {
   $ERROR('#F: 0XF === 15');
 }
-

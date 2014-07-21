@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When "while" IterationStatement is evaluated, (normal, V, empty) is returned
- *
- * @path ch12/12.6/12.6.2/S12.6.2_A3.js
- * @description Using eval
- */
+/*---
+info: >
+    When "while" IterationStatement is evaluated, (normal, V, empty) is
+    returned
+description: Using eval
+---*/
 
 var __in__do;
 
@@ -27,4 +27,3 @@ if (__evaluated !== undefined) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

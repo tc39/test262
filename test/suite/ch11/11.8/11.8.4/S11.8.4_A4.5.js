@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If x is +Infinity, return true
- *
- * @path ch11/11.8/11.8.4/S11.8.4_A4.5.js
- * @description y is number primitive
- */
+/*---
+info: If x is +Infinity, return true
+description: y is number primitive
+---*/
 
 //CHECK#1
 if ((Number.POSITIVE_INFINITY >= 0) !== true) {
@@ -37,5 +35,3 @@ if ((Number.POSITIVE_INFINITY >= Number.MAX_VALUE) !== true) {
 if ((Number.POSITIVE_INFINITY >= Number.MIN_VALUE) !== true) {
   $ERROR('#6: (+Infinity >= Number.MIN_VALUE) === true');
 }
-
-

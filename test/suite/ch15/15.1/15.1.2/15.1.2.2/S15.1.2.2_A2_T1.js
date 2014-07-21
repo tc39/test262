@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator remove leading StrWhiteSpaceChar
- *
- * @path ch15/15.1/15.1.2/15.1.2.2/S15.1.2.2_A2_T1.js
- * @description StrWhiteSpaceChar :: TAB (U+0009)
- */
+/*---
+info: Operator remove leading StrWhiteSpaceChar
+description: "StrWhiteSpaceChar :: TAB (U+0009)"
+---*/
 
 //CHECK#1
 if (parseInt("\u00091") !== parseInt("1")) {
@@ -37,4 +35,3 @@ if (parseInt("			\u0009			\u0009-1") !== parseInt("-1")) {
 if (isNaN(parseInt("\u0009")) !== true) {
   $ERROR('#6: parseInt("\\u0009") === Not-a-Number. Actual: ' + (parseInt("\u0009")));
 }
-

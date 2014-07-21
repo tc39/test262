@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The Array.prototype property has the attribute DontDelete
- *
- * @path ch15/15.4/15.4.3/15.4.3.1/S15.4.3.1_A3.js
- * @description Checking if deleting the Array.prototype property fails
- * @noStrict
- */
+/*---
+info: The Array.prototype property has the attribute DontDelete
+description: Checking if deleting the Array.prototype property fails
+flags: [noStrict]
+includes: [$FAIL.js]
+---*/
 
 //CHECK#1
 if (Array.hasOwnProperty('prototype') !== true) {
@@ -25,6 +24,3 @@ if (Array.hasOwnProperty('prototype') !== true) {
 if (Array.prototype === undefined) {
   $ERROR('#3: delete Array.prototype; Array.prototype !== undefined');
 }
-
-
-

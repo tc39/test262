@@ -1,14 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If the argument len is not a Number, then the length property of
- * the newly constructed object is set to 1 and the 0 property of
- * the newly constructed object is set to len
- *
- * @path ch15/15.4/15.4.2/15.4.2.2/S15.4.2.2_A2.3_T2.js
- * @description Checking for boolean primitive and Boolean object
- */
+/*---
+info: >
+    If the argument len is not a Number, then the length property of
+    the newly constructed object is set to 1 and the 0 property of
+    the newly constructed object is set to len
+description: Checking for boolean primitive and Boolean object
+---*/
 
 var x = new Array(true);
 
@@ -34,4 +33,3 @@ if (x.length !== 1) {
 if (x[0] !== obj) {
   $ERROR('#4: var obj = new Boolean(false); var x = new Array(obj); x[0] === obj. Actual: ' + (x[0]));
 }
-

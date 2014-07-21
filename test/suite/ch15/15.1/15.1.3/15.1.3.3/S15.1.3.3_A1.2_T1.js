@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If string.charAt(k) in [0xD800 - 0xDBFF] and string.length = k + 1, throw URIError
- *
- * @path ch15/15.1/15.1.3/15.1.3.3/S15.1.3.3_A1.2_T1.js
- * @description Complex tests
- */
+/*---
+info: >
+    If string.charAt(k) in [0xD800 - 0xDBFF] and string.length = k + 1, throw
+    URIError
+description: Complex tests
+---*/
 
 errorCount = 0;
 count = 0;
@@ -76,4 +76,3 @@ function decimalToHexString(n) {
   }
   return h;
 }
-

@@ -1,12 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The production CharacterClass :: [ [lookahead \notin {^}] ClassRanges ] evaluates by evaluating ClassRanges to obtain a CharSet and returning that CharSet and the boolean false
- *
- * @path ch15/15.10/15.10.2/15.10.2.13/S15.10.2.13_A1_T16.js
- * @description Execute /[\d][\12-\14]{1,}[^\d]/.exec("line1\n\n\n\n\nline2") and check results
- */
+/*---
+info: >
+    The production CharacterClass :: [ [lookahead \notin {^}] ClassRanges ]
+    evaluates by evaluating ClassRanges to obtain a CharSet and returning
+    that CharSet and the boolean false
+description: >
+    Execute /[\d][\12-\14]{1,}[^\d]/.exec("line1\n\n\n\n\nline2") and
+    check results
+---*/
 
 __executed = /[\d][\12-\14]{1,}[^\d]/.exec("line1\n\n\n\n\nline2");
 
@@ -35,5 +38,3 @@ for(var index=0; index<__expected.length; index++) {
 		$ERROR('#4: __executed = /[\\d][\\12-\\14]{1,}[^\\d]/.exec("line1\\n\\n\\n\\n\\nline2"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
 	}
 }
-
-

@@ -1,16 +1,17 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When the [[Construct]] property for a Function object F is called:
- * A new native ECMAScript object is created.
- * Invoke the [[Call]] property of F, providing just created native ECMAScript object as the this value and providing the argument
- * list passed into [[Construct]] as the argument values.
- * If Type( [[Call]] returned) is an Function then return this just as obtained function
- *
- * @path ch13/13.2/S13.2.2_A8_T1.js
- * @description Creating a function whose prototype contains "return" followed by declaration of another function
- */
+/*---
+info: >
+    When the [[Construct]] property for a Function object F is called:
+    A new native ECMAScript object is created.
+    Invoke the [[Call]] property of F, providing just created native ECMAScript object as the this value and providing the argument
+    list passed into [[Construct]] as the argument values.
+    If Type( [[Call]] returned) is an Function then return this just as obtained function
+description: >
+    Creating a function whose prototype contains "return" followed by
+    declaration of another function
+---*/
 
 var __FRST="one";
 var __SCND="two";
@@ -50,5 +51,3 @@ if (__instance(1)!== 2) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-
-

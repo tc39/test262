@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * 1. Evaluate Expression
- *
- * @path ch12/12.13/S12.13_A3_T4.js
- * @description Evaluating array expression
- */
+/*---
+info: 1. Evaluate Expression
+description: Evaluating array expression
+---*/
 
 var mycars = new Array();
 mycars[0] = "Saab";
@@ -53,4 +51,3 @@ catch(e){
     if (e[i]!==mycars2[i-3]) $ERROR('#3.'+i+': Exception['+i+']===mycars2['+(i-3)+'](operation .concat(new)). Actual:  Exception['+i+']==='+ e[i] );
   }
 }
-

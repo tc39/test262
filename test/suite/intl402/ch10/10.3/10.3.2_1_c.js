@@ -1,12 +1,11 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that compare function is bound to its Intl.Collator.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+description: Tests that compare function is bound to its Intl.Collator.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 var strings = ["d", "O", "od", "oe", "of", "ö", "o\u0308", "X", "y", "Z", "Z.", "𠮷野家", "吉野家", "!A", "A", "b", "C"];
 var locales = [undefined, ["de"], ["de-u-co-phonebk"], ["en"], ["ja"], ["sv"]];
@@ -33,4 +32,3 @@ locales.forEach(function (locales) {
         }
     });
 });
-

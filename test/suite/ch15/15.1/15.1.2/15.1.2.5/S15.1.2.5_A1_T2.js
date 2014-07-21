@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * isFinite applies ToNumber to its argument, then return false if the result is NaN, +Infinity, -Infinity, and otherwise return true
- *
- * @path ch15/15.1/15.1.2/15.1.2.5/S15.1.2.5_A1_T2.js
- * @description Checking all object
- */
+/*---
+info: >
+    isFinite applies ToNumber to its argument, then return false if the
+    result is NaN, +Infinity, -Infinity, and otherwise return true
+description: Checking all object
+---*/
 
 // CHECK#1
 if (!(isFinite({}) === false)) {
@@ -37,4 +37,3 @@ if (!(isFinite(new Number(NaN)) === false)) {
 if (isFinite(new Boolean(true)) === false) {
   $ERROR('#6: new Boolean(true) !== Not-a-Finite'); 
 }
-

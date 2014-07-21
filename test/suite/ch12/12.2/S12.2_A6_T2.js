@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * VariableDeclaration within "try-catch" statement is allowed
- *
- * @path ch12/12.2/S12.2_A6_T2.js
- * @description Declaring variables within "try-catch" statement
- */
+/*---
+info: VariableDeclaration within "try-catch" statement is allowed
+description: Declaring variables within "try-catch" statement
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -35,4 +33,3 @@ try{
     }
     
 };
-

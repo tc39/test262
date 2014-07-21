@@ -1,13 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The [[Class]] property of the newly constructed object
- * is set to "Date"
- *
- * @path ch15/15.9/15.9.3/S15.9.3.1_A3_T1.2.js
- * @description Test based on overwriting prototype.toString - 2 arguments, (year, month)
- */
+/*---
+info: >
+    The [[Class]] property of the newly constructed object
+    is set to "Date"
+description: >
+    Test based on overwriting prototype.toString - 2 arguments, (year,
+    month)
+includes: [$FAIL.js]
+---*/
 
 Date.prototype.toString = Object.prototype.toString;
 
@@ -70,5 +72,3 @@ var x12 = new Date(2100, 0);
 if (x12.toString() !== "[object Date]") {
   $FAIL("#12: The [[Class]] property of the newly constructed object is set to 'Date'");
 }
-
-

@@ -1,13 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * ToObject conversion from undefined value must throw TypeError
- *
- * @path ch09/9.9/S9.9_A1.js
- * @description Trying to convert undefined to Object
- * @noStrict
- */
+/*---
+info: ToObject conversion from undefined value must throw TypeError
+description: Trying to convert undefined to Object
+flags: [noStrict]
+---*/
 
 // CHECK#1
 try{
@@ -30,4 +28,3 @@ catch(e){
     $ERROR('#2.2: with(undefined) x = 2 must throw TypeError. Actual: ' + (e));
   }
 }
-

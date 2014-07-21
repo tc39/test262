@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * "try" with "catch" or "finally" statement within/without an "if" statement
- *
- * @path ch12/12.14/S12.14_A8.js
- * @description Throwing exception within an "if" statement
- */
+/*---
+info: "\"try\" with \"catch\" or \"finally\" statement within/without an \"if\" statement"
+description: Throwing exception within an "if" statement
+---*/
 
 // CHECK#1
 var c1=1;
@@ -32,4 +30,3 @@ if(c2===1){
     if(er1!="ex1") $ERROR('#2.2: Exception ==="ex1". Actual:  Exception ==='+er1);
   }
 }
-

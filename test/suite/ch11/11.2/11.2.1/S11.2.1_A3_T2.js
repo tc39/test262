@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * MemberExpression calls ToObject(MemberExpression) and ToString(Expression). CallExpression calls ToObject(CallExpression) and ToString(Expression)
- *
- * @path ch11/11.2/11.2.1/S11.2.1_A3_T2.js
- * @description Checking Number case
- */
+/*---
+info: >
+    MemberExpression calls ToObject(MemberExpression) and
+    ToString(Expression). CallExpression calls ToObject(CallExpression) and
+    ToString(Expression)
+description: Checking Number case
+---*/
 
 //CHECK#1
 if (1..toString() !== "1") {
@@ -36,5 +37,4 @@ if (new Number(1).toString() !== "1") {
 //CHECK#6
 if (new Number(1)["toFixed"](5) !== "1.00000") {
   $ERROR('#6: new Number(1)["toFixed"](5) === "1.00000". Actual: ' + (new Number(1)["toFixed"](5)));
-} 
-
+}

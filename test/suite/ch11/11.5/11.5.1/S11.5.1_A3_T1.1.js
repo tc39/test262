@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator x * y returns ToNumber(x) * ToNumber(y)
- *
- * @path ch11/11.5/11.5.1/S11.5.1_A3_T1.1.js
- * @description Type(x) and Type(y) vary between primitive boolean and Boolean object
- */
+/*---
+info: Operator x * y returns ToNumber(x) * ToNumber(y)
+description: >
+    Type(x) and Type(y) vary between primitive boolean and Boolean
+    object
+---*/
 
 //CHECK#1
 if (true * true !== 1) {
@@ -27,4 +27,3 @@ if (true * new Boolean(true) !== 1) {
 if (new Boolean(true) * new Boolean(true) !== 1) {
   $ERROR('#4: new Boolean(true) * new Boolean(true) === 1. Actual: ' + (new Boolean(true) * new Boolean(true)));
 }
-

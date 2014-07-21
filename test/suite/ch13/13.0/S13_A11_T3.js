@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Since arguments property has attribute { DontDelete }, only its elements can be deleted
- *
- * @path ch13/13.0/S13_A11_T3.js
- * @description Deleting arguments[i] and returning result of the operation
- */
+/*---
+info: >
+    Since arguments property has attribute { DontDelete }, only its elements
+    can be deleted
+description: Deleting arguments[i] and returning result of the operation
+---*/
 
 function __func(){
     was_del=false;
@@ -22,4 +22,3 @@ if (!__func("A","B",1,2)) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

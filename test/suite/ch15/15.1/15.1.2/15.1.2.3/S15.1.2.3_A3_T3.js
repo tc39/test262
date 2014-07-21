@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If neither Result(2) nor any prefix of Result(2) satisfies the syntax of a
- * StrDecimalLiteral (see 9.3.1), return NaN
- *
- * @path ch15/15.1/15.1.2/15.1.2.3/S15.1.2.3_A3_T3.js
- * @description parseFloat("wrong numbr format") return NaN
- */
+/*---
+info: >
+    If neither Result(2) nor any prefix of Result(2) satisfies the syntax of a
+    StrDecimalLiteral (see 9.3.1), return NaN
+description: parseFloat("wrong numbr format") return NaN
+---*/
 
 //CHECK#1
 if (isNaN(parseFloat(".x")) !== true) {
@@ -48,4 +47,3 @@ if (String(parseFloat("infinity")) !== "NaN") {
 if (String(parseFloat("A")) !== "NaN") {
   $ERROR('#8: String(parseFloat("A")) === "NaN". Actual: ' + (String(parseFloat("A"))));
 }
-

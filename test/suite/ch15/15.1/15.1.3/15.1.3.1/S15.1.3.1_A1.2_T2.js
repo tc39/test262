@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If B = string.charAt(k+1) + string.charAt(k+2) do not represent
- * hexadecimal digits, throw URIError
- *
- * @path ch15/15.1/15.1.3/15.1.3.1/S15.1.3.1_A1.2_T2.js
- * @description Complex tests
- */
+/*---
+info: >
+    If B = string.charAt(k+1) + string.charAt(k+2) do not represent
+    hexadecimal digits, throw URIError
+description: Complex tests
+---*/
 
 //CHECK
 var result = true;
@@ -28,4 +27,3 @@ for (var indexI = 0; indexI < interval.length; indexI++) {
 if (result !== true) {    
   $ERROR('#1: If string.charAt(k+2) does not represent hexadecimal digits, throw URIError');
 }
-

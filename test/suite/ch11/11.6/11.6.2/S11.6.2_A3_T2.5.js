@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator x - y returns ToNumber(x) - ToNumber(y)
- *
- * @path ch11/11.6/11.6.2/S11.6.2_A3_T2.5.js
- * @description Type(x) is different from Type(y) and both types vary between String (primitive or object) and Boolean (primitive and object)
- */
+/*---
+info: Operator x - y returns ToNumber(x) - ToNumber(y)
+description: >
+    Type(x) is different from Type(y) and both types vary between
+    String (primitive or object) and Boolean (primitive and object)
+---*/
 
 //CHECK#1
 if (true - "1" !== 0) {
@@ -47,4 +47,3 @@ if (new Boolean(true) - new String("1") !== 0) {
 if (new String("1") - new Boolean(true) !== 0) {
   $ERROR('#8: new String("1") - new Boolean(true) === 0. Actual: ' + (new String("1") - new Boolean(true)));
 }
-

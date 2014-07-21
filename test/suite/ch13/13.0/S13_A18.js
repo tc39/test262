@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Closures are admitted
- *
- * @path ch13/13.0/S13_A18.js
- * @description Using a function declaration as a function parameter
- */
+/*---
+info: Closures are admitted
+description: Using a function declaration as a function parameter
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -29,4 +27,3 @@ if (typeof sinx !== 'undefined') {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

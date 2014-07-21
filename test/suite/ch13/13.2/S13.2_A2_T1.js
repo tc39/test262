@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Nested function are admitted
- *
- * @path ch13/13.2/S13.2_A2_T1.js
- * @description Nesting level is two
- */
+/*---
+info: Nested function are admitted
+description: Nesting level is two
+---*/
 
 var __JEDI="jedi";
 
@@ -25,4 +23,3 @@ if (__FUNC()(__JEDI) !== __JEDI) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

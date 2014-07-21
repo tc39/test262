@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * "try" with "catch" or "finally" statement within/without an "do while" statement
- *
- * @path ch12/12.14/S12.14_A9_T4.js
- * @description "try" statement within a loop, the statement contains "continue" and "break" statements
- */
+/*---
+info: >
+    "try" with "catch" or "finally" statement within/without an "do while"
+    statement
+description: >
+    "try" statement within a loop, the statement contains "continue"
+    and "break" statements
+---*/
 
 // CHECK#1
 var c1=0,fin=0;
@@ -55,4 +57,3 @@ if(fin2!==1){
 if(c2!==2){
   $ERROR('#2.2: "try catch{break} finally{continue}" must work correctly');
 }
-

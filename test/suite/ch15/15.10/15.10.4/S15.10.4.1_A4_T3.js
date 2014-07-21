@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * let F be the empty string if flags is undefined
- *
- * @path ch15/15.10/15.10.4/S15.10.4.1_A4_T3.js
- * @description Use undefined properties of object as flags of RegExp
- */
+/*---
+info: let F be the empty string if flags is undefined
+description: Use undefined properties of object as flags of RegExp
+---*/
 
 __re = new RegExp({}.p, {}.q);
 
@@ -24,5 +22,3 @@ if (__re.global !== false) {
 if (__re.ignoreCase !== false) {
   $ERROR('#4: __re = new RegExp({}.p, {}.q); __re.ignoreCase === false. Actual: ' + (__re.ignoreCase));
 }
-
-

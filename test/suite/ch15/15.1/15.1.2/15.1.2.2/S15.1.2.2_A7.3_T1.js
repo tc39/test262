@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Return sign * Result(17)
- *
- * @path ch15/15.1/15.1.2/15.1.2.2/S15.1.2.2_A7.3_T1.js
- * @description Complex test. Check algorithm
- */
+/*---
+info: Return sign * Result(17)
+description: Complex test. Check algorithm
+---*/
 
 //CHECK#
 var R_digit1 = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -35,5 +33,4 @@ for (var i = 2; i <= 36; i++) {
       $ERROR('#' + i + '.' + j + ' : ');      
     }
   }  
-}  
-
+}

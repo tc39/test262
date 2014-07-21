@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The integer 0 has two representations, +0 and -0
- *
- * @path ch08/8.5/S8.5_A11_T2.js
- * @description Compare positive_zero and negative_zero
- */
+/*---
+info: The integer 0 has two representations, +0 and -0
+description: Compare positive_zero and negative_zero
+---*/
 
 var p_zero=+0;
 var n_zero=-0;
@@ -35,4 +33,3 @@ if ((p_zero === 0) !== true){
 if ((n_zero === -0) !== true){
   $ERROR('#5: var p_zero=+0; var n_zero=-0; n_zero === -0');
 }
-

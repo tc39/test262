@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When String.prototype.charAt(pos) calls if ToInteger(pos) less than 0 the empty string returns
- *
- * @path ch15/15.5/15.5.4/15.5.4.4/S15.5.4.4_A2.js
- * @description Call charAt(pos) with negative pos
- */
+/*---
+info: >
+    When String.prototype.charAt(pos) calls if ToInteger(pos) less than 0 the
+    empty string returns
+description: Call charAt(pos) with negative pos
+---*/
 
 function __FACTORY(){};
 
@@ -21,4 +21,3 @@ if (__instance.charAt(-1) !== "") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

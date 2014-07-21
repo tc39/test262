@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Compute result modulo 2^32
- *
- * @path ch09/9.6/S9.6_A2.2.js
- * @description Use operator >>>0
- */
+/*---
+info: Compute result modulo 2^32
+description: Use operator >>>0
+---*/
 
 // CHECK#1
 if ((-2147483647 >>> 0) !== 2147483649) {
@@ -67,4 +65,3 @@ if ((8589934592 >>> 0) !== 0) {
 if ((8589934593 >>> 0) !== 1) {
   $ERROR('#12: (8589934593 >>> 0) === 1. Actual: ' + ((8589934593 >>> 0)));
 }
-

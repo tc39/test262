@@ -1,16 +1,16 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When Date is called as part of a new expression it is
- * a constructor: it initialises the newly created object
- *
- * @path ch15/15.9/15.9.3/S15.9.3.2_A1_T1.js
- * @description Checking types of newly created objects and it values
- */
+/*---
+info: >
+    When Date is called as part of a new expression it is
+    a constructor: it initialises the newly created object
+description: Checking types of newly created objects and it values
+includes:
+    - $FAIL.js
+    - Date_constants.js
+---*/
 
-$INCLUDE("Date_constants.js");
- 
 if (typeof new Date(date_1899_end) !== "object") {
   $FAIL("#1.1: typeof new Date(date_1899_end) === 'object'");
 }
@@ -154,4 +154,3 @@ var x84 = new Date(date_2100_start);
 if(x84 === undefined){
   $FAIL("#8.4: new Date(date_2100_start) !== undefined");
 }
-

@@ -1,10 +1,11 @@
 // Copyright (c) 2014 Hank Yates. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Testing Array#fill
- * @author Hank Yates (hankyates@gmail.com)
- */
+/*---
+description: Testing Array#fill
+author: Hank Yates (hankyates@gmail.com)
+includes: [runTestCase.js]
+---*/
 
 runTestCase(function () {
   var testArr = new Array('testString', 'anotherTestString', 3),

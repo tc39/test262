@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When the Object constructor is called with one argument value and
- * the type of value is Number, return ToObject(number)
- *
- * @path ch15/15.2/15.2.2/S15.2.2.1_A5_T3.js
- * @description Argument value is Infinity
- */
+/*---
+info: >
+    When the Object constructor is called with one argument value and
+    the type of value is Number, return ToObject(number)
+description: Argument value is Infinity
+includes: [$FAIL.js]
+---*/
 
 var num = Infinity;
 
@@ -37,4 +37,3 @@ if ( n_obj != num) {
 if ( n_obj === num) {
   $ERROR('#5: When the Object constructor is called with Number argument return ToObject(number)');
 }
-

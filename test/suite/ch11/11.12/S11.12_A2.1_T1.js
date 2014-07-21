@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator x ? y : z uses GetValue
- *
- * @path ch11/11.12/S11.12_A2.1_T1.js
- * @description Either Type is not Reference or GetBase is not null
- */
+/*---
+info: "Operator x ? y : z uses GetValue"
+description: Either Type is not Reference or GetBase is not null
+---*/
 
 //CHECK#1
 if ((true ? false : true) !== false) {
@@ -46,4 +44,3 @@ var z = new Boolean(true);
 if ((x ? y : z) !== z) {
   $ERROR('#6: var x = false; var y = new Boolean(false); var z = new Boolean(true); (x ? y : z) === z');
 }
-

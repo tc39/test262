@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If result is greater than or equal to 2^31, return result -2^32
- *
- * @path ch09/9.5/S9.5_A2.3_T1.js
- * @description Use operator <<0
- */
+/*---
+info: If result is greater than or equal to 2^31, return result -2^32
+description: Use operator <<0
+---*/
 
 // CHECK#1
 if ((2147483647 << 0) !== 2147483647) {
@@ -37,6 +35,3 @@ if ((4294967296 << 0) !== 0) {
 if ((4294967297 << 0) !== 1) {
   $ERROR('#6: (4294967297 << 0) === 1. Actual: ' + ((4294967297 << 0)));
 }
-
-
-

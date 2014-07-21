@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Expression from "while" IterationStatement is evaluated first; "false", "0", "null", "undefined" and "empty" strings used as the Expression are evaluated to "false"
- *
- * @path ch12/12.6/12.6.2/S12.6.2_A1.js
- * @description Evaluating various Expressions
- */
+/*---
+info: >
+    Expression from "while" IterationStatement is evaluated first; "false",
+    "0", "null", "undefined" and "empty" strings used as the Expression are
+    evaluated to "false"
+description: Evaluating various Expressions
+---*/
 
 var __in__do;
 
@@ -59,4 +60,3 @@ if (__in__do !== undefined) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

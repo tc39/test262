@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * FunctionExpression within a "while" IterationStatement is allowed, but no function with the given name will appear in the global context
- *
- * @path ch12/12.6/12.6.2/S12.6.2_A10.js
- * @description Testing FunctionExpression too
- */
+/*---
+info: >
+    FunctionExpression within a "while" IterationStatement is allowed, but no
+    function with the given name will appear in the global context
+description: Testing FunctionExpression too
+---*/
 
 var check=0;
 while(function f(){}){    
@@ -26,4 +26,3 @@ if (check !== 1) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

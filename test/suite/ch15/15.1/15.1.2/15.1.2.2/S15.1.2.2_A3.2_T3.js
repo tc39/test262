@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator use ToInt32
- *
- * @path ch15/15.1/15.1.2/15.1.2.2/S15.1.2.2_A3.2_T3.js
- * @description ToInt32 use modulo
- */
+/*---
+info: Operator use ToInt32
+description: ToInt32 use modulo
+---*/
 
 //CHECK#1
 if (parseInt("11", 4294967298) !== parseInt("11", 2)) {
@@ -27,4 +25,3 @@ if (isNaN(parseInt("11", -2147483650)) !== true) {
 if (parseInt("11", -4294967294) !== parseInt("11", 2)) {
   $ERROR('#4: parseInt("11", -4294967294) === parseInt("11", 2). Actual: ' + (parseInt("11", -4294967294)));
 }
-

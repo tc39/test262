@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * First expression is evaluated first, and then second expression
- *
- * @path ch11/11.9/11.9.4/S11.9.4_A2.4_T3.js
- * @description Checking with undeclarated variables
- */
+/*---
+info: First expression is evaluated first, and then second expression
+description: Checking with undeclarated variables
+---*/
 
 //CHECK#1
 try {
@@ -23,5 +21,3 @@ catch (e) {
 if (!((y = 1) === y)) {
   $ERROR('#2: (y = 1) === y');
 }
-
-

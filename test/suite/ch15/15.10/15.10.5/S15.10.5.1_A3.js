@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The RegExp.prototype property has the attribute DontDelete
- *
- * @path ch15/15.10/15.10.5/S15.10.5.1_A3.js
- * @description Checking if deleting the RegExp.prototype property fails
- */
+/*---
+info: The RegExp.prototype property has the attribute DontDelete
+description: Checking if deleting the RegExp.prototype property fails
+includes: [$FAIL.js]
+---*/
 
 //CHECK#0
 if (RegExp.hasOwnProperty('prototype') !== true) {
@@ -22,5 +21,3 @@ if (delete RegExp.prototype !== false) {
 if (RegExp.hasOwnProperty('prototype') !== true) {
 	$ERROR('#2: delete RegExp.prototype; RegExp.hasOwnProperty(\'prototype\') === true');
 }
-
-

@@ -1,13 +1,13 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the license found in the LICENSE file.
 
-/**
- * @description Tests that Intl.DateTimeFormat provides the required date-time
- *     format component subsets.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+description: >
+    Tests that Intl.DateTimeFormat provides the required date-time
+    format component subsets.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 var locales = ["de-DE", "en-US", "hi-IN", "id-ID", "ja-JP", "th-TH", "zh-Hans-CN", "zh-Hant-TW", "zxx"];
 var subsets = [
@@ -49,4 +49,3 @@ locales.forEach(function (locale) {
         });
     });
 });
-

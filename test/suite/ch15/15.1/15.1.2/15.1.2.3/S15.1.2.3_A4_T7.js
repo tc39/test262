@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Compute the longest prefix of Result(2), which might be Result(2) itself,
- * which satisfies the syntax of a StrDecimalLiteral
- *
- * @path ch15/15.1/15.1.2/15.1.2.3/S15.1.2.3_A4_T7.js
- * @description Checking DecimalDigits ExponentPart_opt
- */
+/*---
+info: >
+    Compute the longest prefix of Result(2), which might be Result(2) itself,
+    which satisfies the syntax of a StrDecimalLiteral
+description: Checking DecimalDigits ExponentPart_opt
+---*/
 
 //CHECK#1
 if (parseFloat("-11string") !== -11) {
@@ -43,4 +42,3 @@ if (parseFloat("1e001string") !== 10) {
 if (parseFloat("010string") !== 10) {
   $ERROR('#7: parseFloat("010string") === 10. Actual: ' + (parseFloat("010string")));
 }
-

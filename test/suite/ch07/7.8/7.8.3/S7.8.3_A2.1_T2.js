@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * DecimalLiteral :: .DecimalDigits
- *
- * @path ch07/7.8/7.8.3/S7.8.3_A2.1_T2.js
- * @description Use .DecimalDigits
- */
+/*---
+info: "DecimalLiteral :: .DecimalDigits"
+description: Use .DecimalDigits
+---*/
 
 //CHECK#0
 if (.00 !== 0.00) {
@@ -57,4 +55,3 @@ if (.88 !== 0.88) {
 if (.99 !== 0.99) {
   $ERROR('#9: .99 === 0.99');
 }
-

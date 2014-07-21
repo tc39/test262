@@ -1,12 +1,11 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that structurally valid language tags are accepted.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+description: Tests that structurally valid language tags are accepted.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 var validLanguageTags = [
     "de", // ISO 639 language code
@@ -37,4 +36,3 @@ testWithIntlConstructors(function (Constructor) {
     });
     return true;
 });
-

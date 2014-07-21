@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When the [[Get]] method of O is called with property name P value of P returns
- *
- * @path ch08/8.12/8.12.3/S8.12.3_A3.js
- * @description Try to get P property P exist in instance
- */
+/*---
+info: >
+    When the [[Get]] method of O is called with property name P value of P
+    returns
+description: Try to get P property P exist in instance
+---*/
 
 var __map={shape:"cube", 5:"five", "6":"six"};
 
@@ -57,4 +57,3 @@ if (__map[6] !== "six"){
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

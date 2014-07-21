@@ -1,14 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The shift function is intentionally generic.
- * It does not require that its this value be an Array object
- *
- * @path ch15/15.4/15.4.4/15.4.4.9/S15.4.4.9_A2_T5.js
- * @description Operator use ToNumber from length.
- * If Type(value) is Object, evaluate ToPrimitive(value, Number)
- */
+/*---
+info: >
+    The shift function is intentionally generic.
+    It does not require that its this value be an Array object
+description: >
+    Operator use ToNumber from length.  If Type(value) is Object,
+    evaluate ToPrimitive(value, Number)
+---*/
 
 var obj = {};
 obj.shift = Array.prototype.shift;
@@ -95,4 +95,3 @@ catch (e) {
     $ERROR('#8.2: obj[0] = -1; obj.length = {valueOf: function() {return {}}, toString: function() {return {}}}  obj.shift() throw TypeError. Actual: ' + (e));
   } 
 }
-

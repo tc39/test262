@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Appearing of "break" within "try/catch" Block yields SyntaxError
- *
- * @path ch12/12.8/S12.8_A8_T2.js
- * @description Checking if using "break Identifier" from within catch Block appears to be invalid
- * @negative
- */
+/*---
+info: Appearing of "break" within "try/catch" Block yields SyntaxError
+description: >
+    Checking if using "break Identifier" from within catch Block
+    appears to be invalid
+flags: [negative]
+---*/
 
 var x=0,y=0;
 
@@ -25,5 +25,3 @@ try{
 		y++;
 	} while(0);
 }
-
-

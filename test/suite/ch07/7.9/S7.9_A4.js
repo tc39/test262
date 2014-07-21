@@ -1,13 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Check Throw Statement for automatic semicolon insertion
- *
- * @path ch07/7.9/S7.9_A4.js
- * @description Try use Throw \n Expression construction
- * @negative
- */
+/*---
+info: Check Throw Statement for automatic semicolon insertion
+description: Try use Throw \n Expression construction
+flags: [negative]
+---*/
 
 //CHECK#1
 try {
@@ -16,4 +14,3 @@ try {
 } catch(e) {  
 }  
 $ERROR('#1: Check throw statement for automatic semicolon insertion');
-

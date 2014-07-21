@@ -3,12 +3,13 @@
 // Copyright 2013 Microsoft Corporation. All rights reserved.
 // This code is governed by the license found in the LICENSE file.
 
-/**
- * @description Tests that String.prototype.localeCompare
- *     returns 0 when comparing Strings that are considered canonically equivalent
- *     by the Unicode standard.
- * @author Norbert Lindenberg
- */
+/*---
+description: >
+    Tests that String.prototype.localeCompare  returns 0 when
+    comparing Strings that are considered canonically equivalent  by
+    the Unicode standard.
+author: Norbert Lindenberg
+---*/
 
 // pairs with characters not in Unicode 3.0 are commented out
 var pairs = [

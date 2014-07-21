@@ -1,10 +1,11 @@
 // Copyright (c) 2014 Matthew Meyers. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @path
- * @description Array.prototype.find should convert thisArg into an object
- */
+/*---
+description: Array.prototype.find should convert thisArg into an object
+flags: [path]
+---*/
+
 var dataTypes = [
     undefined,
     null,

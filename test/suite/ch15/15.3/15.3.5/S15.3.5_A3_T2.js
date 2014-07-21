@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * every function instance has a [[Construct]] property
- *
- * @path ch15/15.3/15.3.5/S15.3.5_A3_T2.js
- * @description As constructor use new Function("arg1,arg2","var x =1; this.y=arg1+arg2;return \"OK\";")
- */
+/*---
+info: every function instance has a [[Construct]] property
+description: >
+    As constructor use new Function("arg1,arg2","var x =1;
+    this.y=arg1+arg2;return \"OK\";")
+---*/
 
 FACTORY = new Function("arg1,arg2","var x =1; this.y=arg1+arg2;return \"OK\";");
 obj = new FACTORY("1",2);
@@ -25,4 +25,3 @@ if (obj.constructor !== FACTORY) {
 if (obj.y !== "12") {
   $ERROR('#3: every function instance has a [[Construct]] property');
 }
-

@@ -1,13 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Result of ToInteger(value) conversion is the result of computing
- * sign(ToNumber(value)) * floor(abs(ToNumber(value)))
- *
- * @path ch09/9.4/S9.4_A3_T2.js
- * @description For testing constructor Date(NaN, Infinity, Infinity, +0 and -0) is used
- */
+/*---
+info: >
+    Result of ToInteger(value) conversion is the result of computing
+    sign(ToNumber(value)) * floor(abs(ToNumber(value)))
+description: >
+    For testing constructor Date(NaN, Infinity, Infinity, +0 and -0)
+    is used
+---*/
 
 // CHECK#1
 var d1 = new Date(Number.NaN);
@@ -38,4 +39,3 @@ var d5 = new Date(-0);
 if (d5.valueOf() !== -0) {
   $ERROR('#5: var d5 = new Date(-0); d5.valueOf() === -0;');
 }
-

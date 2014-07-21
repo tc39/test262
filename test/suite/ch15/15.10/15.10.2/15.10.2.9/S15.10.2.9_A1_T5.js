@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * An escape sequence of the form \ followed by a nonzero decimal number n matches the result of the nth set of capturing parentheses (see 15.10.2.11)
- *
- * @path ch15/15.10/15.10.2/15.10.2.9/S15.10.2.9_A1_T5.js
- * @description Execute /(a*)b\1+/.exec("baaac") and check results
- */
+/*---
+info: >
+    An escape sequence of the form \ followed by a nonzero decimal number n
+    matches the result of the nth set of capturing parentheses (see
+    15.10.2.11)
+description: Execute /(a*)b\1+/.exec("baaac") and check results
+---*/
 
 __executed = /(a*)b\1+/.exec("baaac");
 
@@ -35,5 +36,3 @@ for(var index=0; index<__expected.length; index++) {
 		$ERROR('#4: __executed = /(a*)b\\1+/.exec("baaac"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
 	}
 }
-
-

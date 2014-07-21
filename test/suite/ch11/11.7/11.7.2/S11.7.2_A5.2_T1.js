@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator x >> y uses ToUint32(AdditiveExpression) & 31
- *
- * @path ch11/11.7/11.7.2/S11.7.2_A5.2_T1.js
- * @description Checking distinct points
- */
+/*---
+info: Operator x >> y uses ToUint32(AdditiveExpression) & 31
+description: Checking distinct points
+---*/
 
 //CHECK#1
 if (2147483647 >> -32.1 !== 2147483647) { 
@@ -326,5 +324,4 @@ if (2147483647 >> 62.1 !== 1) {
 //CHECK#64
 if (2147483647 >> 63.1 !== 0) { 
   $ERROR('#64: 2147483647 >> 63.1 === 0. Actual: ' + (2147483647 >> 63.1)); 
-} 
-
+}

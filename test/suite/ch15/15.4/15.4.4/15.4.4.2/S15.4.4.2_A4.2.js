@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The length property of toString has the attribute DontDelete
- *
- * @path ch15/15.4/15.4.4/15.4.4.2/S15.4.4.2_A4.2.js
- * @description Checking use hasOwnProperty, delete
- * @noStrict
- */
+/*---
+info: The length property of toString has the attribute DontDelete
+description: Checking use hasOwnProperty, delete
+flags: [noStrict]
+includes: [$FAIL.js]
+---*/
 
 //CHECK#1
 if (Array.prototype.toString.hasOwnProperty('length') !== true) {
@@ -25,6 +24,3 @@ if (Array.prototype.toString.hasOwnProperty('length') !== true) {
 if (Array.prototype.toString.length === undefined) {
   $ERROR('#3: delete Array.prototype.toString.length; Array.prototype.toString.length !== undefined');
 }
-
-
-

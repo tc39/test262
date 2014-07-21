@@ -1,14 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * RegExp.prototype.exec behavior depends on global property.
- * If global is true and lastIndex not changed manually,
- * next exec calling start to match from position where current match finished
- *
- * @path ch15/15.10/15.10.6/15.10.6.2/S15.10.6.2_A3_T4.js
- * @description RegExp is /([Nn]?ever|([Nn]othing\s{1,}))more/g and tested string is very long string
- */
+/*---
+info: >
+    RegExp.prototype.exec behavior depends on global property.
+    If global is true and lastIndex not changed manually,
+    next exec calling start to match from position where current match finished
+description: >
+    RegExp is /([Nn]?ever|([Nn]othing\s{1,}))more/g and tested string
+    is very long string
+---*/
 
 __the__raven = "	Once upon a midnight dreary, while I pondered weak and weary," +
         "Over many a quaint and curious volume of forgotten lore," +
@@ -152,5 +153,3 @@ do{
 if (__matched !== ALL_THE_HOPELESS_MORE) {
 	$ERROR('#1: __re = /([Nn]?ever|([Nn]othing\\s{1,}))more/g; __executed = __re.exec(__the__raven)'+__matched);
 }
-
-

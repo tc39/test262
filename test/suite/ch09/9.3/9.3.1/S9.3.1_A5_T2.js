@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The MV of StrDecimalLiteral::: - StrUnsignedDecimalLiteral is the negative
- * of the MV of StrUnsignedDecimalLiteral. (the negative of this 0 is also 0)
- *
- * @path ch09/9.3/9.3.1/S9.3.1_A5_T2.js
- * @description Compare Number('-[or +]any_number') with -[or without -]any_number)
- */
+/*---
+info: >
+    The MV of StrDecimalLiteral::: - StrUnsignedDecimalLiteral is the negative
+    of the MV of StrUnsignedDecimalLiteral. (the negative of this 0 is also 0)
+description: Compare Number('-[or +]any_number') with -[or without -]any_number)
+---*/
 
 // CHECK#1
 if (Number("1") !== 1) {
@@ -143,4 +142,3 @@ if (Number("+9") !== 9) {
 if (Number("-9") !== -9) {
   $ERROR('#27: Number("-9") === -9');
 }
-

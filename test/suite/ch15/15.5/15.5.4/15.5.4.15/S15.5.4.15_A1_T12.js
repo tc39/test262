@@ -1,14 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String.prototype.substring (start, end)
- *
- * @path ch15/15.5/15.5.4/15.5.4.15/S15.5.4.15_A1_T12.js
- * @description Arguments are objects, and instance is string.
- * First object have overrided valueOf function and toString function, that return exception.
- * Second object have overrided valueOf function, that return exception
- */
+/*---
+info: String.prototype.substring (start, end)
+description: >
+    Arguments are objects, and instance is string.  First object have
+    overrided valueOf function and toString function, that return
+    exception.  Second object have overrided valueOf function, that
+    return exception
+includes: [$FAIL.js]
+---*/
 
 var __obj = {valueOf:function(){return {};}, toString:function(){throw "instart";}};
 var __obj2 = {valueOf:function(){throw "inend";}};
@@ -28,4 +29,3 @@ with(__str){
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

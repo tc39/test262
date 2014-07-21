@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The production Assertion :: $ evaluates by returning an internal AssertionTester closure that takes a State argument x and performs the ...
- *
- * @path ch15/15.10/15.10.2/15.10.2.6/S15.10.2.6_A1_T5.js
- * @description Execute /es$/mg.exec("pairs\nmakes\tdoubl\u0065s") and check results
- */
+/*---
+info: >
+    The production Assertion :: $ evaluates by returning an internal
+    AssertionTester closure that takes a State argument x and performs the ...
+description: >
+    Execute /es$/mg.exec("pairs\nmakes\tdoubl\u0065s") and check
+    results
+---*/
 
 __executed = /es$/mg.exec("pairs\nmakes\tdoubl\u0065s");
 
@@ -35,5 +37,3 @@ for(var index=0; index<__expected.length; index++) {
 		$ERROR('#4: __executed = /es$/mg.exec("pairs\\nmakes\\tdoubl\\u0065s"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
 	}
 }
-
-

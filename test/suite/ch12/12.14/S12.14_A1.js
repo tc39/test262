@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The production TryStatement : try Block Catch is evaluated as follows: 2. If Result(1).type is not throw, return Result(1)
- *
- * @path ch12/12.14/S12.14_A1.js
- * @description Executing TryStatement : try Block Catch. The statements doesn't cause actual exceptions
- */
+/*---
+info: >
+    The production TryStatement : try Block Catch is evaluated as follows: 2.
+    If Result(1).type is not throw, return Result(1)
+description: >
+    Executing TryStatement : try Block Catch. The statements doesn't
+    cause actual exceptions
+---*/
 
 // CHECK#1
 try {
@@ -49,4 +51,3 @@ if(x2!==1){
 if (c2!==1){
   $ERROR('#3.3: "finally" block must be evaluated. Actual: finally Block has not been evaluated');
 }
-

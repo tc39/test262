@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * 1, true, non-empty string and others in expression is evaluated to true when using operator "new"
- *
- * @path ch12/12.5/S12.5_A1.2_T2.js
- * @description Using "if/else" construction
- */
+/*---
+info: >
+    1, true, non-empty string and others in expression is evaluated to true
+    when using operator "new"
+description: Using "if/else" construction
+---*/
 
 var c=0;
 //////////////////////////////////////////////////////////////////////////////
@@ -98,4 +98,3 @@ else
 if (c!=9) $ERROR('#9.2: else branch don`t execute');
 //
 //////////////////////////////////////////////////////////////////////////////
-

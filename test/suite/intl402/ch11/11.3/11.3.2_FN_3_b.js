@@ -1,11 +1,12 @@
 // Copyright 2012 Google Inc.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that Intl.NumberFormat.prototype.format
- * formats percent values properly.
- * @author: Roozbeh Pournader
- */
+/*---
+description: >
+    Tests that Intl.NumberFormat.prototype.format  formats percent
+    values properly.
+author:: Roozbeh Pournader
+---*/
 
 var numberFormatter = new Intl.NumberFormat();
 var percentFormatter = new Intl.NumberFormat(undefined, {style: 'percent'});
@@ -24,4 +25,3 @@ if (formattedTwentyPercent.indexOf(formattedTwenty) === -1) {
 if (percentFormatter.format(0.011) === percentFormatter.format(0.02)) {
     $ERROR('Intl.NumberFormat is formatting 1.1% and 2% the same way.');
 }
-

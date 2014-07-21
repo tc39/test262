@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String.prototype.match (regexp)
- *
- * @path ch15/15.5/15.5.4/15.5.4.10/S15.5.4.10_A1_T10.js
- * @description Call match (regexp) function with object argument
- */
+/*---
+info: String.prototype.match (regexp)
+description: Call match (regexp) function with object argument
+---*/
 
 var __obj = {toString:function(){return "\u0041B";}}
 var __str = "ABB\u0041BABAB";
@@ -22,4 +20,3 @@ with(__str){
 //////////////////////////////////////////////////////////////////////////////
 
 var x;
-

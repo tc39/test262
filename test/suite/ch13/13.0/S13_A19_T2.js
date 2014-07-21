@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * "var" does not override function declaration
- *
- * @path ch13/13.0/S13_A19_T2.js
- * @description Creating a function and a variable with identical Identifiers within function scope
- */
+/*---
+info: "\"var\" does not override function declaration"
+description: >
+    Creating a function and a variable with identical Identifiers
+    within function scope
+---*/
 
 (function (){
 
@@ -31,5 +31,4 @@
     //////////////////////////////////////////////////////////////////////////////
 
     function __decl(){return 1;}
-})();    
-
+})();

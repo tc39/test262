@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String.prototype.match (regexp)
- *
- * @path ch15/15.5/15.5.4/15.5.4.10/S15.5.4.10_A1_T11.js
- * @description Override toString function, toString throw exception, then call match (regexp) function with this object as argument
- */
+/*---
+info: String.prototype.match (regexp)
+description: >
+    Override toString function, toString throw exception, then call
+    match (regexp) function with this object as argument
+includes: [$FAIL.js]
+---*/
 
 var __obj = {toString:function(){throw "intostr";}}
 var __str = {str__:"ABB\u0041BABAB"};
@@ -27,4 +28,3 @@ with(__str){
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

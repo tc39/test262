@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The MV of StrDecimalLiteral::: + StrUnsignedDecimalLiteral is the MV of StrUnsignedDecimalLiteral
- *
- * @path ch09/9.3/9.3.1/S9.3.1_A4_T1.js
- * @description Compare Number('+any_number') with Number('any_number')
- */
+/*---
+info: >
+    The MV of StrDecimalLiteral::: + StrUnsignedDecimalLiteral is the MV of
+    StrUnsignedDecimalLiteral
+description: Compare Number('+any_number') with Number('any_number')
+---*/
 
 // CHECK#1
 if (Number("+0") !== Number("0")) {
@@ -47,4 +47,3 @@ if (Number("+1234.5678e-90") !== Number("1234.5678e-90")) {
 if (Number("+1234.5678E-90") !== Number("1234.5678E-90")) {
   $ERROR('#8: Number("+1234.5678E-90") === Number("1234.5678E-90")');
 }
-

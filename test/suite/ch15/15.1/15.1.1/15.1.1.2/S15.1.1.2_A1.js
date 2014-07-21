@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The initial value of Infinity is Number.POSITIVE_INFINITY
- *
- * @path ch15/15.1/15.1.1/15.1.1.2/S15.1.1.2_A1.js
- * @description Use typeof, isNaN, isFinite
- */
+/*---
+info: The initial value of Infinity is Number.POSITIVE_INFINITY
+description: Use typeof, isNaN, isFinite
+---*/
 
 // CHECK#1
 if (typeof(Infinity) !== "number") {
@@ -28,4 +26,3 @@ if (isNaN(Infinity) !== false) {
 if (Infinity !== Number.POSITIVE_INFINITY) {
 	$ERROR('#4: Infinity === Number.POSITIVE_INFINITY. Actual: ' + (Infinity)); 
 }
-

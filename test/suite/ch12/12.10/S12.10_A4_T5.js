@@ -1,13 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Changing property using "eval" statement containing "with" statement
- *
- * @path ch12/12.10/S12.10_A4_T5.js
- * @description Changing array property
- * @noStrict
- */
+/*---
+info: Changing property using "eval" statement containing "with" statement
+description: Changing array property
+flags: [noStrict]
+---*/
 
 this.p1 = 'a';
 var myObj = {
@@ -30,4 +28,3 @@ if(myObj.p1 === 'a'){
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

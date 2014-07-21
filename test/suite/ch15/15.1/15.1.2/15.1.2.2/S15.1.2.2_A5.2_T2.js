@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If the length of S is at least 2 and the first two characters of S
- * are either 0x or 0X, then remove the first two characters from S and let R = 16
- *
- * @path ch15/15.1/15.1.2/15.1.2.2/S15.1.2.2_A5.2_T2.js
- * @description : 0X
- */
+/*---
+info: >
+    If the length of S is at least 2 and the first two characters of S
+    are either 0x or 0X, then remove the first two characters from S and let R = 16
+description: ": 0X"
+---*/
 
 //CHECK#0
 if (parseInt("0X0", 0)  !== parseInt("0", 16)) {
@@ -97,5 +96,4 @@ if (parseInt("0XE")  !== parseInt("E", 16)) {
 //CHECK#ABCDEF
 if (parseInt("0XABCDEF")  !== parseInt("ABCDEF", 16)) {
   $ERROR('#ABCDEF: parseInt("0XABCDEF") === parseInt("ABCDEF", 16). Actual: ' + (parseInt("0XABCDEF")));
-}     
-
+}

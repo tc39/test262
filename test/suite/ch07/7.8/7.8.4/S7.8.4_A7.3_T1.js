@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * \u HexDigit HexDigit HexDigit HexDigit DoubleStringCharacter
- *
- * @path ch07/7.8/7.8.4/S7.8.4_A7.3_T1.js
- * @description Check similar to ("\u0001F" === String.fromCharCode("1") + "F")
- */
+/*---
+info: \u HexDigit HexDigit HexDigit HexDigit DoubleStringCharacter
+description: Check similar to ("\u0001F" === String.fromCharCode("1") + "F")
+---*/
 
 //CHECK#1
 if ("\u0001F" !== String.fromCharCode("1") + "F") {
@@ -82,4 +80,3 @@ if ("\u000E2" !== String.fromCharCode("14") + "2") {
 if ("\u000F1" !== String.fromCharCode("15") + "1") {
   $ERROR('#F: "\\u000F1" === String.fromCharCode("15") + "1"');
 }
-

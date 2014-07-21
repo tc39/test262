@@ -1,13 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If pattern is an object R whose [[Class]] property is "RegExp" and flags is undefined, then let P be
- * the pattern used to construct R and let F be the flags used to construct R
- *
- * @path ch15/15.10/15.10.4/S15.10.4.1_A1_T2.js
- * @description Pattern is /\t/m and RegExp is new RegExp(pattern,x), where x is undefined variable
- */
+/*---
+info: >
+    If pattern is an object R whose [[Class]] property is "RegExp" and flags is undefined, then let P be
+    the pattern used to construct R and let F be the flags used to construct R
+description: >
+    Pattern is /\t/m and RegExp is new RegExp(pattern,x), where x is
+    undefined variable
+---*/
 
 __pattern = /\t/m;
 __re = new RegExp(__pattern, x);
@@ -33,4 +34,3 @@ if (__re.ignoreCase !== __pattern.ignoreCase) {
 }
 
 var x;
-

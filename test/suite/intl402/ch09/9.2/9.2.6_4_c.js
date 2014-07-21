@@ -1,13 +1,13 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that LookupSupportedLocales includes the default locale
- *     and doesn't include the "no linguistic content" locale.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+description: >
+    Tests that LookupSupportedLocales includes the default locale  and
+    doesn't include the "no linguistic content" locale.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 testWithIntlConstructors(function (Constructor) {
     // this test should work equally for both matching algorithms
@@ -29,4 +29,3 @@ testWithIntlConstructors(function (Constructor) {
 
     return true;
 });
-

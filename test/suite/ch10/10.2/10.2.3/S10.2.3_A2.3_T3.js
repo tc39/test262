@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Global object properties have attributes { DontEnum }
- *
- * @path ch10/10.2/10.2.3/S10.2.3_A2.3_T3.js
- * @description Global execution context - Constructor Properties
- */
+/*---
+info: Global object properties have attributes { DontEnum }
+description: Global execution context - Constructor Properties
+---*/
 
 var evalStr = 
 '//CHECK#1\n'+
@@ -45,4 +43,3 @@ var evalStr =
 '}\n';
 
 eval(evalStr);
-

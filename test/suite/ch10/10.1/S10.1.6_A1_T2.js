@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The activation object is initialised with a property with name arguments and attributes {DontDelete}
- *
- * @path ch10/10.1/S10.1.6_A1_T2.js
- * @description Checking funtion which returns property "arguments"
- */
+/*---
+info: >
+    The activation object is initialised with a property with name arguments
+    and attributes {DontDelete}
+description: Checking funtion which returns property "arguments"
+---*/
 
 var ARG_STRING = "value of the argument property";
 
@@ -30,4 +30,3 @@ if (delete x[3] !== true)
   
 if (x[3] === 4)
   $ERROR('#3.2: Function parameters have attribute {DontDelete}');
-

@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The result of an addition is determined using the rules of IEEE 754 double-precision arithmetics
- *
- * @path ch11/11.6/11.6.1/S11.6.1_A4_T7.js
- * @description The sum of two nonzero finite values of the same magnitude and opposite sign is +0
- */
+/*---
+info: >
+    The result of an addition is determined using the rules of IEEE 754
+    double-precision arithmetics
+description: >
+    The sum of two nonzero finite values of the same magnitude and
+    opposite sign is +0
+---*/
 
 //CHECK#1
 if (-Number.MIN_VALUE + Number.MIN_VALUE !== +0) {  
@@ -34,4 +36,3 @@ if (-1 / Number.MAX_VALUE + 1 / Number.MAX_VALUE !== +0) {
     $ERROR('#3.2: -1 / Number.MAX_VALUE + 1 / Number.MAX_VALUE === + 0. Actual: -0');
   }
 }
-

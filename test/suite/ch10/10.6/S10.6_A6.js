@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The initial value of the created property length is the number
- * of actual parameter values supplied by the caller
- *
- * @path ch10/10.6/S10.6_A6.js
- * @description Create function, that returned arguments.length
- */
+/*---
+info: >
+    The initial value of the created property length is the number
+    of actual parameter values supplied by the caller
+description: Create function, that returned arguments.length
+---*/
 
 function f1(){
   return arguments.length;
@@ -64,4 +63,3 @@ if(!(f2(0, 1, 2) === 3)){
 if(!(f2(0, 1, 2, 3) === 4)){
   $ERROR('#10: argument.length === 4');
 }
-

@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Only constructor call (with "new" keyword) makes instance
- *
- * @path ch11/11.8/11.8.6/S11.8.6_A4_T3.js
- * @description Checking String case
- */
+/*---
+info: Only constructor call (with "new" keyword) makes instance
+description: Checking String case
+---*/
 
 //CHECK#1
 if ("" instanceof String) {
@@ -22,4 +20,3 @@ if (String("") instanceof String) {
 if (new String instanceof String !== true) {
 	$ERROR('#3: new String instanceof String');
 }
-

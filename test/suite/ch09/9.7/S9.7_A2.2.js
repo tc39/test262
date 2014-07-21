@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Compute result modulo 2^16
- *
- * @path ch09/9.7/S9.7_A2.2.js
- * @description For testing use String.fromCharCode(Number).charCodeAt(0) construction
- */
+/*---
+info: Compute result modulo 2^16
+description: >
+    For testing use String.fromCharCode(Number).charCodeAt(0)
+    construction
+---*/
 
 // CHECK#1
 if (String.fromCharCode(-32767).charCodeAt(0) !== 32769) {
@@ -67,4 +67,3 @@ if (String.fromCharCode(131072).charCodeAt(0) !== 0) {
 if (String.fromCharCode(131073).charCodeAt(0) !== 1) {
   $ERROR('#12: String.fromCharCode(131073).charCodeAt(0) === 1. Actual: ' + (String.fromCharCode(131073).charCodeAt(0)));
 }
-

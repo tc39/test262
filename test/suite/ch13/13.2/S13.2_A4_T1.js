@@ -1,16 +1,17 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When Function object(F) is constructed the following steps from 9 to 11 take place
- * 9.Create a new object as would be constructed by the expression new Object().
- * 10. Set the constructor property of Result(9) to F. This property is given attributes { DontEnum }.
- * 11. Set the "prototype" property of F to Result(9).
- *
- * @path ch13/13.2/S13.2_A4_T1.js
- * @description Checking prototype, prototype.constructor properties and {DontEnum} property of a constructor.
- * Using "function __func(){}" as a FunctionDeclaration
- */
+/*---
+info: >
+    When Function object(F) is constructed the following steps from 9 to 11 take place
+    9.Create a new object as would be constructed by the expression new Object().
+    10. Set the constructor property of Result(9) to F. This property is given attributes { DontEnum }.
+    11. Set the "prototype" property of F to Result(9).
+description: >
+    Checking prototype, prototype.constructor properties and
+    {DontEnum} property of a constructor.  Using "function __func(){}"
+    as a FunctionDeclaration
+---*/
 
 function __func(){};
 
@@ -44,9 +45,3 @@ if (__constructor_was__enumed) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-

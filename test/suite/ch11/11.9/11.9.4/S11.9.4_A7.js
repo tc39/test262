@@ -1,13 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Type(x) and Type(y) are Object-s.
- * Return true, if x and y are references to the same Object; otherwise, return false
- *
- * @path ch11/11.9/11.9.4/S11.9.4_A7.js
- * @description Checking Boolean object, Number object, String object, Object object
- */
+/*---
+info: >
+    Type(x) and Type(y) are Object-s.
+    Return true, if x and y are references to the same Object; otherwise, return false
+description: >
+    Checking Boolean object, Number object, String object, Object
+    object
+---*/
 
 //CHECK#1
 if (new Object() === new Object()) {
@@ -50,4 +51,3 @@ if (new Number(1) === new String("1")) {
 if (new String("1") === new Boolean(true)) {
   $ERROR('#8: new String("x") === new Boolean(true)');
 }
-

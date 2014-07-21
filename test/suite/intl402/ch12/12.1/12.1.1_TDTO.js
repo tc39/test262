@@ -1,12 +1,13 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that the set of options for the date and time components is processed correctly.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+description: >
+    Tests that the set of options for the date and time components is
+    processed correctly.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 var locales = [[], ["zh-Hans-CN"], ["hi-IN"], ["en-US"], ["id-ID"]];
 var dates = [new Date(), new Date(0), new Date(Date.parse("1989-11-09T17:57:00Z"))];
@@ -103,5 +104,3 @@ testWithToLocale("toLocaleTimeString", {weekday: "short", year: "numeric", month
 
 // time/time: steps 6a
 testWithToLocale("toLocaleTimeString", {hour: "numeric", minute: "numeric"}, {hour: "numeric", minute: "numeric"});
-
-

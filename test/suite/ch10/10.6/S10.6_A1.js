@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When control enters an execution context for function code,
- * an arguments object is created and initialised
- *
- * @path ch10/10.6/S10.6_A1.js
- * @description Executing function which uses arguments object
- */
+/*---
+info: >
+    When control enters an execution context for function code,
+    an arguments object is created and initialised
+description: Executing function which uses arguments object
+---*/
 
 //CHECK#1
 function f1(){
@@ -32,4 +31,3 @@ try{
 catch(e){
   $ERROR("#2: arguments doesn't exists");
 }
-

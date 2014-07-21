@@ -1,14 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Result of number conversion from object value is the result
- * of conversion from primitive value
- *
- * @path ch09/9.3/S9.3_A5_T1.js
- * @description new Number(), new Number(0), new Number(Number.NaN), new Number(null),
- * new Number(void 0) and others convert to Number by explicit transformation
- */
+/*---
+info: >
+    Result of number conversion from object value is the result
+    of conversion from primitive value
+description: >
+    new Number(), new Number(0), new Number(Number.NaN), new
+    Number(null),  new Number(void 0) and others convert to Number by
+    explicit transformation
+---*/
 
 // CHECK#1
 if (Number(new Number()) !== 0) {
@@ -123,4 +124,3 @@ var myobj5 = {
 if (isNaN(Number(myobj5)) !== true){
   $ERROR("#15: Number(myobj5) calls ToPrimitive with hint Number. Exptected: Not-a-Number.  Actual: " + (Number(myobj5)));
 }
-

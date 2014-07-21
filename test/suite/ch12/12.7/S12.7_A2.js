@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Since LineTerminator between "continue" and Identifier is not allowed, "continue" is evaluated without label
- *
- * @path ch12/12.7/S12.7_A2.js
- * @description Checking by using eval, inserting LineTerminator between continue and Identifier
- */
+/*---
+info: >
+    Since LineTerminator between "continue" and Identifier is not allowed,
+    "continue" is evaluated without label
+description: >
+    Checking by using eval, inserting LineTerminator between continue
+    and Identifier
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -59,6 +61,3 @@ try{
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-
-
-

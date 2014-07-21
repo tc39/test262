@@ -1,15 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The push function is intentionally generic.
- * It does not require that its this value be an Array object
- *
- * @path ch15/15.4/15.4.4/15.4.4.7/S15.4.4.7_A2_T2.js
- * @description The arguments are appended to the end of the array, in
- * the order in which they appear. The new length of the array is returned
- * as the result of the call
- */
+/*---
+info: >
+    The push function is intentionally generic.
+    It does not require that its this value be an Array object
+description: >
+    The arguments are appended to the end of the array, in  the order
+    in which they appear. The new length of the array is returned  as
+    the result of the call
+---*/
 
 var obj = {};
 obj.push = Array.prototype.push;
@@ -114,5 +114,4 @@ if (obj.length !== 1) {
 //CHECK#18
 if (obj["0"] !== -16) {
   $ERROR('#18: var obj = {}; obj.length = new Number(0); obj.push = Array.prototype.push; obj.push(-16); obj["0"] === -16. Actual: ' + (obj["0"]));
-}   
-
+}

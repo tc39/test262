@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The result of a floating-point multiplication is governed by the rules of IEEE 754 double-precision arithmetics
- *
- * @path ch11/11.5/11.5.1/S11.5.1_A4_T2.js
- * @description The sign of the result is positive if both operands have the same sign, negative if the operands have different signs
- */
+/*---
+info: >
+    The result of a floating-point multiplication is governed by the rules of
+    IEEE 754 double-precision arithmetics
+description: >
+    The sign of the result is positive if both operands have the same
+    sign, negative if the operands have different signs
+---*/
 
 //CHECK#1
 if (1 * 1 !== 1) {
@@ -63,4 +65,3 @@ if (-0 * -0 !== 0) {
     $ERROR('#8.2: 0 * -0 === - 0. Actual: +0');
   }
 }
-

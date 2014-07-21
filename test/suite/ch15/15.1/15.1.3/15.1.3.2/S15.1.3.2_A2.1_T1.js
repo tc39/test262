@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If string.charAt(k) not equal "%", return this char
- *
- * @path ch15/15.1/15.1.3/15.1.3.2/S15.1.3.2_A2.1_T1.js
- * @description Complex tests
- */
+/*---
+info: If string.charAt(k) not equal "%", return this char
+description: Complex tests
+---*/
 
 //CHECK
 errorCount = 0;
@@ -55,4 +53,3 @@ function decimalToHexString(n) {
   }
   return h;
 }
-

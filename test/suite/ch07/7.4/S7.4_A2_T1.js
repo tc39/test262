@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Correct interpretation of multi line comments
- *
- * @path ch07/7.4/S7.4_A2_T1.js
- * @description Create comments with any code
- */
+/*---
+info: Correct interpretation of multi line comments
+description: Create comments with any code
+---*/
 
 /*CHECK#1*/
 /* $ERROR('#1: Correct interpretation multi line comments');
@@ -74,5 +72,3 @@ $ERROR('#8: var string = "/*var y = 0" /* y = 1;*/ string === "//var y = 0"');
 
 **********
 **/
-
-

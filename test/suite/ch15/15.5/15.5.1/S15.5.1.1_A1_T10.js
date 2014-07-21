@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When String is called as a function rather than as a constructor, it performs a type conversion
- *
- * @path ch15/15.5/15.5.1/S15.5.1.1_A1_T10.js
- * @description Call String(1) and String(-1)
- */
+/*---
+info: >
+    When String is called as a function rather than as a constructor, it
+    performs a type conversion
+description: Call String(1) and String(-1)
+---*/
 
 var __str = String(1);
 
@@ -43,4 +43,3 @@ if (__str !== "-1") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

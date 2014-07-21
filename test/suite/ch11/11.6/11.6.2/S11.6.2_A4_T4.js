@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator x - y produces the same result as x + (-y)
- *
- * @path ch11/11.6/11.6.2/S11.6.2_A4_T4.js
- * @description The difference of an infinity and a finite value is equal to infinity of appropriate sign
- */
+/*---
+info: Operator x - y produces the same result as x + (-y)
+description: >
+    The difference of an infinity and a finite value is equal to
+    infinity of appropriate sign
+---*/
 
 //CHECK#1
 if (Number.POSITIVE_INFINITY - 1 !== Number.POSITIVE_INFINITY ) {
@@ -47,7 +47,3 @@ if (Number.NEGATIVE_INFINITY - Number.MAX_VALUE !== Number.NEGATIVE_INFINITY ) {
 if (-Number.MAX_VALUE - Number.NEGATIVE_INFINITY !== Number.POSITIVE_INFINITY ) {
   $ERROR('#8: -Number.MAX_VALUE - -Infinity === Infinity. Actual: ' + (-Number.MAX_VALUE - -Infinity));
 }
-
-
-
-

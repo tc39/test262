@@ -1,14 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String.prototype.split() returns an Array object with:
- *  i) length equaled to 1,
- * ii) [[Get]](0) equaled to the result of converting this object to a string
- *
- * @path ch15/15.5/15.5.4/15.5.4.14/S15.5.4.14_A3_T9.js
- * @description Instance is Boolean
- */
+/*---
+info: >
+    String.prototype.split() returns an Array object with:
+    i) length equaled to 1,
+    ii) [[Get]](0) equaled to the result of converting this object to a string
+description: Instance is Boolean
+---*/
 
 var __instance = new Boolean;
 
@@ -39,4 +38,3 @@ if (__split[0] !== "false") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

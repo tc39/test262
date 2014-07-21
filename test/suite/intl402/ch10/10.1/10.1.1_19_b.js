@@ -1,10 +1,10 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests the special handling of the "co" key in Intl.Collator.
- * @author Norbert Lindenberg
- */
+/*---
+description: Tests the special handling of the "co" key in Intl.Collator.
+author: Norbert Lindenberg
+---*/
 
 function checkCollation(extensionCoValue, usageValue, expectedCollations, expectedUsage) {
     var requestLocale = extensionCoValue !== undefined ? "de-DE-u-co-" + extensionCoValue : "de-DE";
@@ -41,4 +41,3 @@ checkCollation("search", undefined, ["default"], "sort");
 checkCollation("search", "search", ["default"], "search");
 
 checkCollation("search", "sort", ["default"], "sort");
-

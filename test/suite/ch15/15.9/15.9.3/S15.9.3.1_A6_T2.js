@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The [[Value]] property of the newly constructed object
- * with supplied "undefined" argument should be NaN
- *
- * @path ch15/15.9/15.9.3/S15.9.3.1_A6_T2.js
- * @description 3 arguments, (year, month, date)
- */
+/*---
+info: >
+    The [[Value]] property of the newly constructed object
+    with supplied "undefined" argument should be NaN
+description: 3 arguments, (year, month, date)
+includes: [$FAIL.js]
+---*/
 
 function DateValue(year, month, date, hours, minutes, seconds, ms){
   return new Date(year, month, date, hours, minutes, seconds, ms).valueOf();
@@ -60,4 +60,3 @@ if (!isNaN(DateValue(2099, 12, 1))) {
 if (!isNaN(DateValue(2100, 0, 1))) {
   $FAIL("#12: The value should be NaN");
 }
-

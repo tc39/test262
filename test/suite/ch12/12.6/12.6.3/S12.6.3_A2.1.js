@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * While evaluating "for (ExpressionNoIn ;  ; Expression) Statement", Statement is evaulated first
- *
- * @path ch12/12.6/12.6.3/S12.6.3_A2.1.js
- * @description Using "(function(){throw "NoInExpression"})()" as ExpressionNoIn
- */
+/*---
+info: >
+    While evaluating "for (ExpressionNoIn ;  ; Expression) Statement",
+    Statement is evaulated first
+description: Using "(function(){throw "NoInExpression"})()" as ExpressionNoIn
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -22,4 +22,3 @@ try {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

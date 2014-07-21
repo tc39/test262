@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When the [[Delete]] method of O is called with property name P,
- * removes the property with name P from O and return true
- *
- * @path ch08/8.12/8.12.7/S8.12.7_A3.js
- * @description Delete existent properties
- */
+/*---
+info: >
+    When the [[Delete]] method of O is called with property name P,
+    removes the property with name P from O and return true
+description: Delete existent properties
+---*/
 
 var BLUE_NUM=1;
 var BLUE_STR="1";
@@ -46,4 +45,3 @@ if (__color__map[BLUE_NUM] !== undefined) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

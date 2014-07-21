@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Splice with undefined arguments
- *
- * @path ch15/15.4/15.4.4/15.4.4.12/S15.4.4.12_A1.5_T1.js
- * @description start === undefined, end === undefined
- */
+/*---
+info: Splice with undefined arguments
+description: start === undefined, end === undefined
+---*/
 
 var x = [0,1,2,3];
 var arr = x.splice(undefined, undefined);
@@ -46,4 +44,3 @@ if (x[2] !== 2) {
 if (x[3] !== 3) {
   $ERROR('#7: var x = [0,1,2,3]; var arr = x.splice(undefined, undefined); x[3] === 3. Actual: ' + (x[3]));
 }
-

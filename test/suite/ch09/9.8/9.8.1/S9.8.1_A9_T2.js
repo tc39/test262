@@ -1,15 +1,16 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Return the string consisting of the single digit of s,
- * followed by lowercase character 'e', followed by a plus sign '+' or minus
- * sign '-' according to whether n-1 is positive or negative, followed by the
- * decimal representation of the integer abs(n-1) (with no leading zeros)
- *
- * @path ch09/9.8/9.8.1/S9.8.1_A9_T2.js
- * @description Various float numbers with many zeros convert to String by explicit transformation
- */
+/*---
+info: >
+    Return the string consisting of the single digit of s,
+    followed by lowercase character 'e', followed by a plus sign '+' or minus
+    sign '-' according to whether n-1 is positive or negative, followed by the
+    decimal representation of the integer abs(n-1) (with no leading zeros)
+description: >
+    Various float numbers with many zeros convert to String by
+    explicit transformation
+---*/
 
 // CHECK#1
 if (String(0.0000001) !== "1e-7") {
@@ -70,4 +71,3 @@ if (String(-1E-7) !== "-1e-7") {
 if (String(-1.0E-10) !== "-1e-10") {
   $ERROR('#12: String(-1.0E-10) === "-1e-10". Actual: ' + (String(-1.0E-10)));
 }
-

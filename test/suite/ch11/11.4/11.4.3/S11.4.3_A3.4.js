@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Result of appying "typeof" operator to number is "number"
- *
- * @path ch11/11.4/11.4.3/S11.4.3_A3.4.js
- * @description typeof (number value) === "number"
- */
+/*---
+info: Result of appying "typeof" operator to number is "number"
+description: typeof (number value) === "number"
+---*/
 
 //CHECK#1
 if (typeof 1 !== "number") {
@@ -32,4 +30,3 @@ if (typeof Number.NEGATIVE_INFINITY !== "number") {
 if (typeof Math.PI !== "number") {
   $ERROR('#5: typeof Math.PI === "number". Actual: ' + (typeof Math.PI));
 }
-

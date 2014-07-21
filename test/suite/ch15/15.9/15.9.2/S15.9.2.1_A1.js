@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When Date is called as a function rather than as a constructor,
- * it should be "string" representing the current time (UTC)
- *
- * @path ch15/15.9/15.9.2/S15.9.2.1_A1.js
- * @description Checking type of returned value
- */
+/*---
+info: >
+    When Date is called as a function rather than as a constructor,
+    it should be "string" representing the current time (UTC)
+description: Checking type of returned value
+---*/
 
 //CHECK#1
 if( typeof Date() !== "string" ) {
@@ -78,4 +77,3 @@ if( typeof Date(undefined) !== "string"  ) {
 if( typeof Date(null) !== "string"  ) {
   $ERROR('#15: typeof Date(null) should be "string", actual is '+(typeof Date(null)));
 }
-

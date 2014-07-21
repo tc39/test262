@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * White Space and Line Terminator between RelationalExpression and "instanceof" and between "instanceof" and ShiftExpression are allowed
- *
- * @path ch11/11.8/11.8.6/S11.8.6_A1.js
- * @description Checking by using eval
- */
+/*---
+info: >
+    White Space and Line Terminator between RelationalExpression and
+    "instanceof" and between "instanceof" and ShiftExpression are allowed
+description: Checking by using eval
+---*/
 
 //CHECK#1
 if (eval("({})\u0009instanceof\u0009Object") !== true) {
@@ -57,4 +57,3 @@ if (eval("({})\u2029instanceof\u2029Object") !== true) {
 if (eval("({})\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u2029instanceof\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u2029Object") !== true) {
   $ERROR('#10: ({})\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029instanceof\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029Object === true');
 }
-

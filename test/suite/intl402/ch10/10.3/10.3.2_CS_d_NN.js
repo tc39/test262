@@ -2,13 +2,13 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that the compare function supports different sensitivity settings.
- *     This test is not normative.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+description: >
+    Tests that the compare function supports different sensitivity
+    settings.  This test is not normative.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 // this test should be valid at least for the following locales
 var locales = ["de", "en", "es", "it"];
@@ -31,4 +31,3 @@ locales.forEach(function (locale) {
         testArraysAreSame(expected[sensitivity], matches);
     });
 });
-

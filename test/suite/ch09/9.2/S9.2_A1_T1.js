@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Result of boolean conversion from undefined value is false
- *
- * @path ch09/9.2/S9.2_A1_T1.js
- * @description Undefined, void and others are converted to Boolean by explicit transformation
- */
+/*---
+info: Result of boolean conversion from undefined value is false
+description: >
+    Undefined, void and others are converted to Boolean by explicit
+    transformation
+---*/
 
 // CHECK#1
 if (Boolean(undefined) !== false) {
@@ -27,4 +27,3 @@ if (Boolean(eval("var x")) !== false) {
 if (Boolean() !== false) {
   $ERROR('#4: Boolean() === false. Actual: ' + (Boolean()));
 }
-

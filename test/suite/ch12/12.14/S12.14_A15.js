@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Using "try" with "catch" or "finally" statement within/without a "switch" statement
- *
- * @path ch12/12.14/S12.14_A15.js
- * @description Insert try/catch/finally to switch statement
- */
+/*---
+info: >
+    Using "try" with "catch" or "finally" statement within/without a "switch"
+    statement
+description: Insert try/catch/finally to switch statement
+---*/
 
 // CHECK#1
 function SwitchTest1(value){
@@ -89,4 +89,3 @@ try{
 catch(e){
   $ERROR('#3.2: Catching exception inside function does not lead to throwing exception outside this function');
 }
-

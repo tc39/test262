@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The initial value of Object.prototype.constructor is the built-in Object constructor
- *
- * @path ch15/15.2/15.2.4/S15.2.4.1_A1_T2.js
- * @description Creating "new Object.prototype.constructor" and checking its properties
- */
+/*---
+info: >
+    The initial value of Object.prototype.constructor is the built-in Object
+    constructor
+description: >
+    Creating "new Object.prototype.constructor" and checking its
+    properties
+---*/
 
 var constr = Object.prototype.constructor;
 
@@ -37,4 +39,3 @@ if (obj.toString() !== to_string_result) {
 if (obj.valueOf().toString() !== to_string_result) {
   $ERROR('#4: when new Object() calls the newly constructed object has no [[Value]] property.');
 }
-

@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator --x uses [[Default Value]]
- *
- * @path ch11/11.4/11.4.5/S11.4.5_A2.2_T1.js
- * @description If Type(value) is Object, evaluate ToPrimitive(value, Number)
- */
+/*---
+info: Operator --x uses [[Default Value]]
+description: If Type(value) is Object, evaluate ToPrimitive(value, Number)
+---*/
 
 //CHECK#1
 var object = {valueOf: function() {return 1}};
@@ -101,4 +99,3 @@ catch (e) {
     $ERROR('#8.2: var object = {valueOf: function() {return {}}, toString: function() {return {}}}; --object throw TypeError. Actual: ' + (e));
   } 
 }
-

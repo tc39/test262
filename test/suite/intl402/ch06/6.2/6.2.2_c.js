@@ -1,12 +1,13 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that language tags with invalid subtag sequences are not accepted.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+description: >
+    Tests that language tags with invalid subtag sequences are not
+    accepted.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 var invalidLanguageTags = [
     "", // empty tag
@@ -44,4 +45,3 @@ testWithIntlConstructors(function (Constructor) {
     });
     return true;
 });
-

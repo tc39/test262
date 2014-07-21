@@ -1,12 +1,10 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String.prototype.concat([,[...]]) can accept at least 128
- *
- * @path ch15/15.5/15.5.4/15.5.4.6/S15.5.4.6_A2.js
- * @description Call concat([,[...]]) function with 128 arguments
- */
+/*---
+info: String.prototype.concat([,[...]]) can accept at least 128
+description: Call concat([,[...]]) function with 128 arguments
+---*/
 
 var __instance = new Number();
 
@@ -28,6 +26,3 @@ if (__instance.concat(
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-
-
-

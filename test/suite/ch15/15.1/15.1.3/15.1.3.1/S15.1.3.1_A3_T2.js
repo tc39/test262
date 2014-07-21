@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Let reservedURISet be a string containing one instance of each character valid
- * in uriReserved plus "#"
- *
- * @path ch15/15.1/15.1.3/15.1.3.1/S15.1.3.1_A3_T2.js
- * @description Checking all character in reservedURISet. HexDigit in [0..9, a..f]
- */
+/*---
+info: >
+    Let reservedURISet be a string containing one instance of each character valid
+    in uriReserved plus "#"
+description: Checking all character in reservedURISet. HexDigit in [0..9, a..f]
+---*/
 
 //CHECK#1
 if (decodeURI("%3b") !== "%3b") {
@@ -63,4 +62,3 @@ if (decodeURI("%2c") !== "%2c") {
 if (decodeURI("%23") !== "%23") {
   $ERROR('#11: decodeURI("%23") equal "%23", not "#"');
 }
-
