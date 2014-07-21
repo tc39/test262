@@ -91,6 +91,9 @@ function BrowserRunner() {
         currentTest.code = codeString;
     }
 
+    function isAsyncTest(code) {
+        return /\$DONE()/.test(code));
+    }
 
     /* Run the test. */
     this.run = function (test, code) {
@@ -208,8 +211,8 @@ function BrowserRunner() {
 
         //this is mainly applicable for consoles that do not have setTimeout support
 		//idoc.writeln("<script type='text/javascript' src='harness/timer.js' defer>" + "</script>");
-        if(setTimeout === undefined && /\$DONE()/.test(code)){
-         idoc.writeln("<script type='text/javascript'>");
+        if(setTimeout === undefined && isAsyncTest(code)) {
+        idoc.writeln("<script type='text/javascript'>");
          idoc.writeln(timerContents);
          idoc.writeln("</script>");
         }
@@ -225,15 +228,15 @@ function BrowserRunner() {
 		
         idoc.writeln("<script type='text/javascript'>");
 		
-        if(!/\$DONE()/.test(code))
-        //if the test is synchronous - call $DONE immediately
+        if (!isAsyncTest(code)) {
+            //if the test is synchronous - call $DONE immediately
             idoc.writeln("if(typeof $DONE === 'function') $DONE()");
-        else{
-        //in case the test does not call $DONE asynchronously then
-        //bailout after 1 min or given bailout time by calling $DONE
+        } else {
+            //in case the test does not call $DONE asynchronously then
+            //bailout after 1 min or given bailout time by calling $DONE
             var asyncval = parseInt(test.timeout);
             var testTimeout = asyncval !== asyncval ? 2000 : asyncval;
-			idoc.writeln("setTimeout(function() {$ERROR(\" Test Timed Out at " + testTimeout +"\" )} ," + testTimeout + ")");
+	    idoc.writeln("setTimeout(function() {$ERROR(\" Test Timed Out at " + testTimeout +"\" )} ," + testTimeout + ")");
         }
         idoc.writeln("</script>");
         idoc.close();
