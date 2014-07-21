@@ -12,7 +12,7 @@ if(Promise !== undefined && this.setTimeout === undefined)
             var end = start + delay;
             function check(){
                 var timeLeft = end - Date.now();        
-                if(timeLeft)
+                if(timeLeft > 0)
                     p.then(check);
                 else
                     callback();

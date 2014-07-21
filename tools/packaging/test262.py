@@ -260,11 +260,14 @@ class TestCase(object):
     # "var testDescrip = " + str(self.testRecord) + ';\n\n' + \
     source = self.suite.GetInclude("cth.js") + \
         self.suite.GetInclude("sta.js") + \
-        self.suite.GetInclude("ed.js") + \
-        self.suite.GetInclude("testBuiltInObject.js") + \
-        self.suite.GetInclude("testIntl.js") + \
-	self.suite.GetInclude("timer.js") + \
-	self.suite.GetInclude("doneprintHandle.js").replace('print', self.suite.print_handle) + \
+        self.suite.GetInclude("ed.js")
+
+    if self.IsAsyncTest():
+      source = source + \
+               self.suite.GetInclude("timer.js") + \
+               self.suite.GetInclude("doneprintHandle.js").replace('print', self.suite.print_handle)
+
+    source = source + \
         self.GetAdditionalIncludes() + \
         self.test + '\n'
 
