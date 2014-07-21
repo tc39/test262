@@ -1,6 +1,6 @@
 // Copyright (c) 2014 Hank Yates. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-//
+
 /**
  * @description Testing Array#of when passed Strings
  * @author Hank Yates (hankyates@gmail.com)
