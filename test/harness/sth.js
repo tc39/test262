@@ -92,7 +92,7 @@ function BrowserRunner() {
     }
 
     function isAsyncTest(code) {
-        return /\$DONE()/.test(code));
+        return /\$DONE()/.test(code);
     }
 
     /* Run the test. */
