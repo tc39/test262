@@ -66,6 +66,20 @@ The COMMAND argument can be a quoted string.  This is useful when testing ECMASc
 $ test262.py --command="node --harmony" es6
 ``` 
 
+#### Async Tests
+
+Async tests require a 'print' function to be supplied to the test runner.  Here are some good defaults:
+
+Engine | Filename | Print Function
+-------|----------|---------------
+V8/Node | node | console.log
+V8/shell | shell | print
+SpiderMonkey<sup>1</sup> | js | print
+JavaScriptCore<sup>2</sup> | jsc | print
+
+***Notes:***
+1. As of 2014-Jul-23, SpiderMonkey does not support Promise in the `js` executable ([see bug 911216](https://bugzilla.mozilla.org/show_bug.cgi?id=911216) )
+2. As of 2014-Jul-23, JavaScriptCore does not support Promise in the `jsc` executable 
 
 ## Test262 Authoring Guidelines
 
