@@ -251,7 +251,9 @@ class TestCase(object):
 	return '$DONE' in self.test
 
   def GetIncludeList(self):
-    return re.findall('\$INCLUDE\([\'"]([^\)]+)[\'"]\)' ,self.test)
+    if self.testRecord['includes']:
+      return self.testRecord['includes']
+    return re.findall('\$INCLUDE\([\'"]([^\)]+)[\'"]\)', self.test)
 
   def GetAdditionalIncludes(self):
     return '\n'.join([self.suite.GetInclude(include) for include in self.GetIncludeList()])
