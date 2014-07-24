@@ -3,6 +3,7 @@
 
 /*---
 info: List of words that are not reserved
+es5id: 7.6.1_A2
 description: Try assign 1 for not reserved words
 ---*/
 

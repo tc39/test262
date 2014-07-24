@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 9.2.6_4_c
 description: >
     Tests that LookupSupportedLocales includes the default locale  and
     doesn't include the "no linguistic content" locale.

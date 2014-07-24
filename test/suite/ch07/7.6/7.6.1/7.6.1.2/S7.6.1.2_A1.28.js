@@ -3,6 +3,7 @@
 
 /*---
 info: The "synchronized" token can be used as identifier
+es5id: 7.6.1.2_A1.28
 description: Checking if execution of "synchronized=1" succeeds
 ---*/
 

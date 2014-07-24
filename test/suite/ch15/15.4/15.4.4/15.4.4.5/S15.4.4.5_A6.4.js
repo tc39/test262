@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of join is 1
+es5id: 15.4.4.5_A6.4
 description: join.length === 1
 ---*/
 

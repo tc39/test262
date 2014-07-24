@@ -3,6 +3,7 @@
 
 /*---
 info: Single line comments can contain Line Terminator at the end of line
+es5id: 7.3_A4_T1
 description: Insert LINE FEED (U+000A) into the end of single line comment
 ---*/
 

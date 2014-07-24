@@ -2,10 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 11.3.1
 description: >
     Tests that Intl.NumberFormat.prototype.constructor is the
     Intl.NumberFormat.
-author:: Roozbeh Pournader
+author: Roozbeh Pournader
 ---*/
 
 if (Intl.NumberFormat.prototype.constructor !== Intl.NumberFormat) {

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.20-9-5
 description: >
     Array.prototype.filter doesn't consider newly added elements in
     sparse array

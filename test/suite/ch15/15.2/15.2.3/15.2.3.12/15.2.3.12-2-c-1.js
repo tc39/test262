@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.12-2-c-1
 description: >
     Object.isFrozen returns false if 'O' contains own configurable
     data property

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-1-2
 description: Array.prototype.lastIndexOf applied to null throws a TypeError
 includes: [runTestCase.js]
 ---*/

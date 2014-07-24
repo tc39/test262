@@ -3,6 +3,7 @@
 
 /*---
 info: PARAGRAPH SEPARATOR (U+2029) may occur between any two tokens
+es5id: 7.3_A1.4
 description: Insert PARAGRAPH SEPARATOR (\u2029) between tokens of var x=1
 ---*/
 

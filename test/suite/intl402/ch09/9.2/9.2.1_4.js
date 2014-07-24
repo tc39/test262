@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 9.2.1_4
 description: >
     Tests that non-objects are converted to objects before
     canonicalization.

@@ -3,6 +3,7 @@
 
 /*---
 info: Value Property LOG2E of the Math Object has the attribute ReadOnly
+es5id: 15.8.1.4_A4
 description: Checking if Math.LOG2E property has the attribute ReadOnly
 flags: [noStrict]
 ---*/

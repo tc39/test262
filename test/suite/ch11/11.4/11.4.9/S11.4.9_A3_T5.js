@@ -3,6 +3,7 @@
 
 /*---
 info: Operator !x returns !ToBoolean(x)
+es5id: 11.4.9_A3_T5
 description: Type(x) is Object object or Function object
 ---*/
 

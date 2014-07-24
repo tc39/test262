@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.13.2-6-s
 description: >
     Strict Mode - ReferenceError is thrown if the
     LeftHandSideExpression of a Compound Assignment operator(<<=)

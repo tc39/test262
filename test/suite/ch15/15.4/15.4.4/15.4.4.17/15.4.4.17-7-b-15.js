@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.17-7-b-15
 description: >
     Array.prototype.some - decreasing length of array with prototype
     property causes prototype index property to be visited

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-5-b-227
 description: >
     Object.defineProperties - 'set' property of 'descObj' is not
     present (8.10.5 step 8)

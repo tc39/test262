@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.3.4.5-15-1
 description: Function.prototype.bind, 'length' is a data valued own property
 includes: [runTestCase.js]
 ---*/

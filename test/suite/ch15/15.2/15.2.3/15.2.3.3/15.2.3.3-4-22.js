@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.3-4-22
 description: >
     Object.getOwnPropertyDescriptor returns data desc for functions on
     built-ins (Object.preventExtensions)

@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.substring (start, end) returns a string value(not object)
+es5id: 15.5.4.15_A2_T5
 description: start is Infinity, end is Infinity
 ---*/
 

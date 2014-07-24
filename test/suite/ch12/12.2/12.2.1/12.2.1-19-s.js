@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.2.1-19-s
 description: >
     A direct eval assigning into 'arguments' throws SyntaxError in
     strict mode

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-2-9
 description: >
     Object.defineProperties - argument 'Properties' is a Function
     object

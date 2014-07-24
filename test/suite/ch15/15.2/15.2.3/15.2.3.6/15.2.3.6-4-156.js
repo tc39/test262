@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-156
 description: >
     Object.defineProperty - 'O' is an Array, 'name' is the length
     property of 'O', test RangeError is thrown when the [[Value]]

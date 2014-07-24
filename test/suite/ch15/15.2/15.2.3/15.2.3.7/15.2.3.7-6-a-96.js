@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-96
 description: >
     Object.defineProperties - 'P' is data property, properties.value
     is present and P.value is undefined (8.12.9 step 12)

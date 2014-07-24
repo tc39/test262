@@ -3,6 +3,7 @@
 
 /*---
 info: If any value is NaN, the result of Math.max is NaN
+es5id: 15.8.2.11_A2
 description: >
     The script tests Math.max giving 1, 2 and 3 arguments to the
     function where at least one of the arguments is NaN

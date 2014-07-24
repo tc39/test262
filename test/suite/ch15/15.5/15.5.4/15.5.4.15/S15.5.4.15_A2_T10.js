@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.substring (start, end) returns a string value(not object)
+es5id: 15.5.4.15_A2_T10
 description: start is 0, end is 8
 ---*/
 

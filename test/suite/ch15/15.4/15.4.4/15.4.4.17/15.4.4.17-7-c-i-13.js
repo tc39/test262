@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.17-7-c-i-13
 description: >
     Array.prototype.some - element to be retrieved is own accessor
     property that overrides an inherited accessor property on an

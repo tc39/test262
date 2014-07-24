@@ -6,6 +6,7 @@ info: >
     All of the arguments are optional, any arguments supplied are
     accepted but are completely ignored. A string is created and returned as
     if by the expression (new Date()).toString()
+es5id: 15.9.2.1_A2
 description: Use various number arguments and various types of ones
 ---*/
 

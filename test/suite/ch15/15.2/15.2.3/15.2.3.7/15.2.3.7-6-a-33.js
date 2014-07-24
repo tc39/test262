@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-33
 description: >
     Object.defineProperties - 'P' doesn't exist in 'O', test [[Get]]
     of 'P' is set as undefined value if absent in accessor descriptor

@@ -7,6 +7,7 @@ info: >
     the length property of A but not less than ToUint32(length),
     if A itself has a property (not an inherited property) named ToString(k),
     then delete that property
+es5id: 15.4.5.1_A1.2_T1
 description: Change length of array
 ---*/
 

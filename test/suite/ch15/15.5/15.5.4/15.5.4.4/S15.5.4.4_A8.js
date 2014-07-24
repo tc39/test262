@@ -3,6 +3,7 @@
 
 /*---
 info: The String.prototype.charAt.length property has the attribute DontEnum
+es5id: 15.5.4.4_A8
 description: >
     Checking if enumerating the String.prototype.charAt.length
     property fails

@@ -5,6 +5,7 @@
 info: >
     The value of the internal [[Class]] property of Error prototype object is
     "Error"
+es5id: 15.11.4_A2
 description: >
     Getting the value of the internal [[Class]] property using
     Error.prototype.toString() function

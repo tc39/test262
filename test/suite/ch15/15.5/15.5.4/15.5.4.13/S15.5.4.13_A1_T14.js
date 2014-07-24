@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.slice (start, end)
+es5id: 15.5.4.13_A1_T14
 description: Used one argument, that is function(){}(). Instance is string
 ---*/
 

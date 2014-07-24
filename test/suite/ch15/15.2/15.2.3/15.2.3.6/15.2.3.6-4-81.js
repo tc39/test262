@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-81
 description: >
     Object.defineProperty - both desc.configurable and
     name.configurable are booleans with the same value (8.12.9 step 6)

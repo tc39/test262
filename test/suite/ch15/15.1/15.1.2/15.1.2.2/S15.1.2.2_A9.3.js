@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of parseInt has the attribute ReadOnly
+es5id: 15.1.2.2_A9.3
 description: Checking if varying the length property fails
 flags: [noStrict]
 ---*/

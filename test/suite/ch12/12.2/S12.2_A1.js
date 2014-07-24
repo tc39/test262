@@ -6,6 +6,7 @@ info: >
     Variables are created when the program is entered. Variables are initialised to "undefined"
     when created. A variable with an Initialiser is assigned the value of its AssignmentExpression when the
     VariableStatement is executed, not when the variable is created
+es5id: 12.2_A1
 description: Creating variables after entering the execution scope
 includes: [$PRINT.js]
 ---*/

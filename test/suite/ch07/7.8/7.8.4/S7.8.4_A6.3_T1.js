@@ -3,6 +3,7 @@
 
 /*---
 info: \x HexDigit HexDigit SingleStringCharacter
+es5id: 7.8.4_A6.3_T1
 description: Check similar to ('\x01F' === String.fromCharCode('1') + 'F')
 ---*/
 

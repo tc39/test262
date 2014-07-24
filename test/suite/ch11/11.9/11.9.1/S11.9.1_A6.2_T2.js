@@ -3,6 +3,7 @@
 
 /*---
 info: If one expression is undefined or null and another is not, return false
+es5id: 11.9.1_A6.2_T2
 description: y is null or undefined, x is not
 ---*/
 

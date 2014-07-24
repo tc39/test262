@@ -5,6 +5,7 @@
 info: >
     The production CharacterClassEscape :: w evaluates by returning the set of characters containing the sixty-three characters:
     a - z, A - Z, 0 - 9, _
+es5id: 15.10.2.12_A3_T1
 description: A - Z
 ---*/
 

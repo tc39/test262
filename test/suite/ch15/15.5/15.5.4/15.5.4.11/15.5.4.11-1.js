@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.5.4.11-1
 description: >
     'this' object used by the replaceValue function of a
     String.prototype.replace invocation

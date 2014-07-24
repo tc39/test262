@@ -3,6 +3,7 @@
 
 /*---
 info: "Evaluate the production ArrayLiteral: [ Elision ]"
+es5id: 11.1.4_A1.2
 description: >
     Checking various properties the array defined with "var array =
     [,,,,,]"

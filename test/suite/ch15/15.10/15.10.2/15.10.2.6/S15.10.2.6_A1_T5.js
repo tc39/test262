@@ -5,6 +5,7 @@
 info: >
     The production Assertion :: $ evaluates by returning an internal
     AssertionTester closure that takes a State argument x and performs the ...
+es5id: 15.10.2.6_A1_T5
 description: >
     Execute /es$/mg.exec("pairs\nmakes\tdoubl\u0065s") and check
     results

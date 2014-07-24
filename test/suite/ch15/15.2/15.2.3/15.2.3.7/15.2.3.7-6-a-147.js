@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-147
 description: >
     Object.defineProperties - 'O' is an Array, 'name' is the length
     property of 'O', test using inherited valueOf method when the

@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.search (regexp) ignores global properties of regexp
+es5id: 15.5.4.12_A3_T2
 description: >
     Checking results of search regexp with and without global
     properties. Unicode symbols used

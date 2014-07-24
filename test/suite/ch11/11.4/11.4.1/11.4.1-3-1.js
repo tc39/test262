@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.4.1-3-1
 description: >
     delete operator returns true when deleting an unresolvable
     reference

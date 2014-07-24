@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.3.2-0-4
 description: Array.isArray return false if its argument is not an Array
 includes: [runTestCase.js]
 ---*/

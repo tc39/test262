@@ -3,6 +3,7 @@
 
 /*---
 info: The result of evaluating an Identifier is always a value of type Reference
+es5id: 11.1.2_A1_T2
 description: Trying to generate ReferenceError
 ---*/
 

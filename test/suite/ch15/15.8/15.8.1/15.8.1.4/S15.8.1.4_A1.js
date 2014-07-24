@@ -3,6 +3,7 @@
 
 /*---
 info: Math.LOG2E is approximately 1.4426950408889634
+es5id: 15.8.1.4_A1
 description: Comparing Math.LOG2E with 1.4426950408889634
 includes:
     - math_precision.js

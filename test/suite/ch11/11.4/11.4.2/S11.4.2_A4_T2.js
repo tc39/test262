@@ -3,6 +3,7 @@
 
 /*---
 info: Operator "void" evaluates UnaryExpression and returns undefined
+es5id: 11.4.2_A4_T2
 description: Type(x) is number primitive or Number object
 ---*/
 

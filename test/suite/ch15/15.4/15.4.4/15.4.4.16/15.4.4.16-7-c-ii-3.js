@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.16-7-c-ii-3
 description: >
     Array.prototype.every immediately returns false if callbackfn
     returns false

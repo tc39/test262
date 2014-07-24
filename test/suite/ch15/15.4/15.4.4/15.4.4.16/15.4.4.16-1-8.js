@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.16-1-8
 description: Array.prototype.every applied to String object
 includes: [runTestCase.js]
 ---*/

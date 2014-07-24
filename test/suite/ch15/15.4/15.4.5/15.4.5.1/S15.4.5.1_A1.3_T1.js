@@ -3,6 +3,7 @@
 
 /*---
 info: Set the value of property length of A to Uint32(length)
+es5id: 15.4.5.1_A1.3_T1
 description: length is object or primitve
 ---*/
 

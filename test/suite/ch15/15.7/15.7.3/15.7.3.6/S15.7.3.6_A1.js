@@ -3,6 +3,7 @@
 
 /*---
 info: Number.POSITIVE_INFINITY is +Infinity
+es5id: 15.7.3.6_A1
 description: Checking sign and finiteness of Number.POSITIVE_INFINITY
 ---*/
 

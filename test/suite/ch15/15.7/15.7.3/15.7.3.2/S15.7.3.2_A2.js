@@ -3,6 +3,7 @@
 
 /*---
 info: Number.MAX_VALUE is ReadOnly
+es5id: 15.7.3.2_A2
 description: Checking if varying Number.MAX_VALUE fails
 ---*/
 

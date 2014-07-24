@@ -5,6 +5,7 @@
 info: >
     LineTerminator between return and Identifier_opt yields return without
     Identifier_opt
+es5id: 12.9_A2
 description: >
     Checking by using eval, inserting LineTerminator between return
     and Variable

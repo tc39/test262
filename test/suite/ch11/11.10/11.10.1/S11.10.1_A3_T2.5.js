@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x & y returns ToNumber(x) & ToNumber(y)
+es5id: 11.10.1_A3_T2.5
 description: >
     Type(x) us different from Type(y) and both types are String
     (primitive or object) or Boolean (primitive and object)

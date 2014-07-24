@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.20-9-c-i-22
 description: >
     Array.prototype.filter - element to be retrieved is inherited
     accessor property without a get function on an Array

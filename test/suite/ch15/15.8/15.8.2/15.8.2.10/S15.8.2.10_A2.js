@@ -3,6 +3,7 @@
 
 /*---
 info: If x is less than 0, Math.log(x) is NaN
+es5id: 15.8.2.10_A2
 description: Checking if Math.log(x) is NaN, where x is less than 0
 ---*/
 

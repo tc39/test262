@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.3-4-3
 description: >
     Object.getOwnPropertyDescriptor returns an object representing an
     accessor desc for valid accessor properties

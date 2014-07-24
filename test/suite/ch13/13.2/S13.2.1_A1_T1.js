@@ -3,6 +3,7 @@
 
 /*---
 info: The depth of nested function calls reaches 32
+es5id: 13.2.1_A1_T1
 description: Creating function calls 32 elements depth
 ---*/
 

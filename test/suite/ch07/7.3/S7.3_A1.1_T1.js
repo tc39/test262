@@ -3,6 +3,7 @@
 
 /*---
 info: LINE FEED (U+000A) may occur between any two tokens
+es5id: 7.3_A1.1_T1
 description: Insert LINE FEED (\u000A and \n) between tokens of var x=1
 ---*/
 

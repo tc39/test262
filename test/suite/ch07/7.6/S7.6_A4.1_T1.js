@@ -3,6 +3,7 @@
 
 /*---
 info: Correct interpretation of ENGLISH ALPHABET
+es5id: 7.6_A4.1_T1
 description: Check ENGLISH CAPITAL ALPHABET
 ---*/
 

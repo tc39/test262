@@ -5,6 +5,7 @@
 info: >
     The with statement adds a computed object to the front of the
     scope chain of the current execution context
+es5id: 12.10_A1.10_T2
 description: >
     Using iteration statement within "with" statement leading to
     completion by exception

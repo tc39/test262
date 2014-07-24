@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-5-24
 description: >
     Array.prototype.lastIndexOf throws TypeError exception when value
     of 'fromIndex' is an object that both toString and valueOf methods

@@ -3,6 +3,7 @@
 
 /*---
 info: When length of searchString less than length of ToString(this) -1 returns
+es5id: 15.5.4.7_A2_T2
 description: Call "abcd".indexOf("abcdab",0) and check result
 ---*/
 

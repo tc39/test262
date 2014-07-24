@@ -3,6 +3,7 @@
 
 /*---
 info: Use replace with regexp as searchValue and use $ in replaceValue
+es5id: 15.5.4.11_A5_T1
 description: searchValue is  regexp /^(a+)\1*,\1+$/ and replaceValue is "$1"
 ---*/
 

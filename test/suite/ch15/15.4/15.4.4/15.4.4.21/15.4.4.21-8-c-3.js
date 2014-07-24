@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-8-c-3
 description: >
     Array.prototype.reduce throws TypeError when elements assigned
     values are deleted and initialValue is not present

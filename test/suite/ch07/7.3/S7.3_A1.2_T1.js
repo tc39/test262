@@ -3,6 +3,7 @@
 
 /*---
 info: CARRIAGE RETURN (U+000D) may occur between any two tokens
+es5id: 7.3_A1.2_T1
 description: Insert CARRIAGE RETURN (\u000D and \r) between tokens of var x=1
 ---*/
 

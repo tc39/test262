@@ -6,6 +6,7 @@ info: >
     Expression from "while" IterationStatement is evaluated first; "false",
     "0", "null", "undefined" and "empty" strings used as the Expression are
     evaluated to "false"
+es5id: 12.6.2_A1
 description: Evaluating various Expressions
 ---*/
 

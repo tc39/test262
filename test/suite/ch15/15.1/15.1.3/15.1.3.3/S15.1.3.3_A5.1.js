@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of encodeURI has the attribute DontEnum
+es5id: 15.1.3.3_A5.1
 description: Checking use propertyIsEnumerable, for-in
 ---*/
 

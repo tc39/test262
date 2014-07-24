@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.1.1-3-s
 description: >
     Strict Mode - Use Strict Directive Prologue is '' use strict';'
     which the first character is space

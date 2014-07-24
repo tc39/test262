@@ -3,6 +3,7 @@
 
 /*---
 info: Delete unary operator can't delete object to be referenced
+es5id: 8.7_A5_T1
 description: Delete referenced object, var __ref = obj
 flags: [noStrict]
 ---*/

@@ -5,6 +5,7 @@
 info: >
     While evaluating "for ( ;  ; Expression) Statement", Statement is
     evaluated first and then Expression is evaluated
+es5id: 12.6.3_A6
 description: Using "(function(){throw "SecondExpression";})()" as an Expression
 ---*/
 

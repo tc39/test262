@@ -3,6 +3,7 @@
 
 /*---
 info: The FunctionBody must be SourceElements
+es5id: 13_A7_T1
 description: Using only SourceElements within the FunctionBody
 ---*/
 

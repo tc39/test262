@@ -5,6 +5,7 @@
 info: >
     If pattern is an object R whose [[Class]] property is "RegExp" and flags
     is not undefined, then throw a TypeError exception
+es5id: 15.10.4.1_A2_T1
 description: >
     Checking if execution of "new RegExp(pattern, "i")", where the
     pattern is "/\u0042/i", fails

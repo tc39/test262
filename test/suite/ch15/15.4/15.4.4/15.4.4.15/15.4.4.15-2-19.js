@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-2-19
 description: >
     Array.prototype.lastIndexOf applied to String object which
     implements its own property get method

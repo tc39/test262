@@ -3,6 +3,7 @@
 
 /*---
 info: If string.charAt(k) in [0xDC00 - 0xDFFF], throw URIError
+es5id: 15.1.3.4_A1.1_T2
 description: Complex tests
 ---*/
 

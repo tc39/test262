@@ -3,6 +3,7 @@
 
 /*---
 info: Assertions in combination
+es5id: 15.10.2.6_A6_T2
 description: Execute /^.*?/.exec("Hello World") and check results
 ---*/
 

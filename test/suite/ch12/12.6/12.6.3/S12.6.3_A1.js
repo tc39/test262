@@ -5,6 +5,7 @@
 info: >
     The "for {;;}" for Statement with empty expressions is allowed and leads
     to performing an infinite loop
+es5id: 12.6.3_A1
 description: Breaking an infinite loop by throwing exception
 ---*/
 

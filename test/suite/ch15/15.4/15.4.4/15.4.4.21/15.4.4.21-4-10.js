@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-4-10
 description: >
     Array.prototype.reduce - the exception is not thrown if exception
     was thrown by step 2

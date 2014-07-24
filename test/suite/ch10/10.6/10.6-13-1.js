@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.6-13-1
 description: Accessing caller property of Arguments object is allowed
 includes: [runTestCase.js]
 ---*/

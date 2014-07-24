@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-82-12
 description: >
     Object.defineProperty - Update [[Enumerable]] attributes of 'name'
     property to true successfully when [[Enumerable]] attribute of

@@ -5,6 +5,7 @@
 info: >
     If Type(Primitive(x)) is String and Type(Primitive(y)) is String, then
     operator x > y returns ToString(x) > ToString(y)
+es5id: 11.8.2_A3.2_T1.1
 description: >
     Type(Primitive(x)) and Type(Primitive(y)) vary between primitive
     string and String object

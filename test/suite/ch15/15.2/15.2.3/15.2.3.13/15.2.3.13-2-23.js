@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.13-2-23
 description: Object.isExtensible returns false if 'O' is not extensible
 includes: [runTestCase.js]
 ---*/

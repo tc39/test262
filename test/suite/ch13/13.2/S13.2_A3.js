@@ -5,6 +5,7 @@
 info: >
     When Function object(F) is constructed the length property of F is set to
     the number of formal properties specified in FormalParameterList
+es5id: 13.2_A3
 description: >
     Creating functions with various FormalParameterList and checking
     their lengths

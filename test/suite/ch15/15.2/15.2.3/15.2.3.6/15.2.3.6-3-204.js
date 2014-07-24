@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-3-204
 description: >
     Object.defineProperty - 'writable' property in 'Attributes' is
     treated as true when it is new Boolean(false) (8.10.5 step 6.b)

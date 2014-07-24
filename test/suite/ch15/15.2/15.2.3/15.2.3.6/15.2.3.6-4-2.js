@@ -9,6 +9,7 @@ info: >
     Step 4 of defineProperty calls the [[DefineOwnProperty]] internal method
     of O to define the property. For newly defined data properties, attributes
     missing from desc should have values set to the defaults from 8.6.1.
+es5id: 15.2.3.6-4-2
 description: >
     Object.defineProperty sets missing attributes to their default
     values (data properties)(8.12.9 step 4.a.i)

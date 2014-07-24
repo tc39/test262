@@ -5,6 +5,7 @@
 info: >
     StatementList: StatementList Statement inside the Block is evaluated from
     left to right
+es5id: 12.1_A5
 description: Throwing exceptions within embedded/sequence Blocks
 ---*/
 

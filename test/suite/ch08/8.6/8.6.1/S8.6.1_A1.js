@@ -3,6 +3,7 @@
 
 /*---
 info: A property can have attribute ReadOnly like E in Math
+es5id: 8.6.1_A1
 description: Try change Math.E property
 flags: [noStrict]
 ---*/

@@ -12,6 +12,7 @@ info: >
     vi) Create a new Function object as specified in 13.2 with parameters specified by parsing P as a FormalParameterListopt and body specified by parsing body as a FunctionBody
     Pass in a scope chain consisting of the global object as the Scope parameter
     vii) Return Result(vi)
+es5id: 15.3.2.1_A3_T3
 description: >
     Values of the function constructor arguments are
     "{toString:function(){p=1;return "a";}}" and

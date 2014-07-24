@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.3.4.5-8-2
 description: >
     Function.prototype.bind, [[Class]] of bound function must be
     'Function'

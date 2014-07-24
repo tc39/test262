@@ -3,6 +3,7 @@
 
 /*---
 info: If x is NaN, Math.exp(x) is NaN
+es5id: 15.8.2.8_A1
 description: Checking if Math.exp(NaN) is NaN
 ---*/
 

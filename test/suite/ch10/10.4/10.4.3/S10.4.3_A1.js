@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 10.4.3_A1
 description: >
     When calling a strict anonymous function as a  function, "this"
     should be bound to undefined.

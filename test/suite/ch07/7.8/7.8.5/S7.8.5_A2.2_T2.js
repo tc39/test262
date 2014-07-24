@@ -3,6 +3,7 @@
 
 /*---
 info: "RegularExpressionChar :: \\ or / is incorrect"
+es5id: 7.8.5_A2.2_T2
 description: /
 flags: [negative]
 ---*/

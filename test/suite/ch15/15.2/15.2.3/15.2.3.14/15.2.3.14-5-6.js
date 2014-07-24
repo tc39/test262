@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.14-5-6
 description: >
     Object.keys - inherited enumerable accessor property of 'O' is not
     defined in returned array

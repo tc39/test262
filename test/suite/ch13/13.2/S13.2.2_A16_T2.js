@@ -3,6 +3,7 @@
 
 /*---
 info: FunctionExpression within a new statement is admitted
+es5id: 13.2.2_A16_T2
 description: >
     Using "var __obj = new function __func(arg){this.prop=arg;}(5)" as
     FunctionExpression

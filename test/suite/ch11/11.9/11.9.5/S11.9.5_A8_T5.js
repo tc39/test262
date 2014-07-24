@@ -3,6 +3,7 @@
 
 /*---
 info: If Type(x) is different from Type(y), return true
+es5id: 11.9.5_A8_T5
 description: >
     Checking such x and y that either x or y is primitive string and
     the other is primitive number

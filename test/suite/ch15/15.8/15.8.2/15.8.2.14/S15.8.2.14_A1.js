@@ -5,6 +5,7 @@
 info: >
     Math.random() returns a number value with positive sign, greater than or
     equal to 0 but less than 1
+es5id: 15.8.2.14_A1
 description: >
     Checking if Math.random() is a number between 0 and 1, calling
     Math.random() 100 times

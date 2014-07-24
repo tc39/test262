@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.4-4-50
 description: >
     Object.getOwnPropertyNames - non-enumerable own property of 'O' is
     pushed into the returned Array

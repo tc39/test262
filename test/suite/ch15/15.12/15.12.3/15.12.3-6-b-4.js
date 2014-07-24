@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.3-6-b-4
 description: >
     JSON.stringify treats numeric space arguments (in the range 1..10)
     is equivalent to a string of spaces of that length.

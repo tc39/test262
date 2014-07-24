@@ -3,6 +3,7 @@
 
 /*---
 info: Using "try" with "catch" or "finally" statement in a constructor
+es5id: 12.14_A17
 description: Creating exceptions within constructor
 ---*/
 

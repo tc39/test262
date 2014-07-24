@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.4.1-5-a-28-s
 description: Strict Mode - TypeError is thrown when deleting RegExp.length
 flags: [onlyStrict]
 includes: [runTestCase.js]

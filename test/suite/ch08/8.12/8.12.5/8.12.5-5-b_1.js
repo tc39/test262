@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 8.12.5-5-b_1
 description: >
     Changing the value of an accessor property should not affect it's
     property descriptor attributes.

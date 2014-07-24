@@ -5,6 +5,7 @@
 info: >
     If NewExpression or MemberExpression does not implement internal
     [[Construct]] method, throw TypeError
+es5id: 11.2.2_A4_T3
 description: Checking String object case
 ---*/
 

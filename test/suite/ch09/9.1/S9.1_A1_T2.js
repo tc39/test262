@@ -5,6 +5,7 @@
 info: >
     Result of primitive conversion from object is a default value for the
     Object
+es5id: 9.1_A1_T2
 description: >
     Using operator Number. This operator calls ToPrimitive with hint
     Number

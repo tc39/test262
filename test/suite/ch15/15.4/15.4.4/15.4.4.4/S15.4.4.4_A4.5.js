@@ -3,6 +3,7 @@
 
 /*---
 info: The concat property of Array has the attribute DontEnum
+es5id: 15.4.4.4_A4.5
 description: Checking use propertyIsEnumerable, for-in
 ---*/
 

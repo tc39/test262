@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.4.2.1-1gs
 description: >
     Strict Mode - eval code cannot instantiate variable in the
     variable environment of the calling context that invoked the eval

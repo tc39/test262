@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-2-10
 description: Object.defineProperties - argument 'Properties' is an Array object
 includes: [runTestCase.js]
 ---*/

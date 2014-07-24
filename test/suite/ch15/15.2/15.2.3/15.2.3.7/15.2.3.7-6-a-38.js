@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-38
 description: >
     Object.defineProperties - 'P' exists in 'O', test 'P' makes no
     change if 'desc' is generic descriptor without any attribute

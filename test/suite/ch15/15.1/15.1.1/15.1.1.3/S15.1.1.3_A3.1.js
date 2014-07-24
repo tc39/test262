@@ -3,6 +3,7 @@
 
 /*---
 info: The undefined is DontDelete
+es5id: 15.1.1.3_A3.1
 description: Use delete
 flags: [noStrict]
 ---*/

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.16-7-b-5
 description: >
     Array.prototype.every - properties added into own object after
     current position are visited on an Array

@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.toUpperCase()
+es5id: 15.5.4.18_A1_T8
 description: Call toUpperCase() function of Infinity;
 ---*/
 

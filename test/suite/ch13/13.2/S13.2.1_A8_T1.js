@@ -6,6 +6,7 @@ info: >
     When the [[Call]] property for a Function object F is called, the following steps are taken:
     2. Evaluate F's FunctionBody;
     if Result.type is thrown then Result.value is thrown too
+es5id: 13.2.1_A8_T1
 description: >
     Throwing an exception within a function body. Declaring function
     with "function __func()"

@@ -5,6 +5,7 @@
 info: >
     The Date.prototype.getMilliseconds property "length" has { ReadOnly,
     DontDelete, DontEnum } attributes
+es5id: 15.9.5.24_A3_T3
 description: Checking DontEnum attribute
 ---*/
 

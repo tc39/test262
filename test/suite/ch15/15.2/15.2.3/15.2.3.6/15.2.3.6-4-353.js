@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-353
 description: >
     ES5 Attributes - fail to update the data property ([[Writable]] is
     true, [[Enumerable]] is false, [[Configurable]] is false) to an

@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 15.3.4.2_A14
 description: >
     The toString function is not generic; it throws a TypeError
     exception if its this value is not a Function object.

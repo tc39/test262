@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-5-15
 description: >
     Array.prototype.lastIndexOf - value of 'fromIndex' is a string
     containing a negative number

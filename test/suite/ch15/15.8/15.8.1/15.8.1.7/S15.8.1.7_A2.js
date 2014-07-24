@@ -3,6 +3,7 @@
 
 /*---
 info: Value Property SQRT1_2 of the Math Object has the attribute DontEnum
+es5id: 15.8.1.7_A2
 description: Checking if Math.SQRT1_2 property has the attribute DontEnum
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.concat([,[...]])
+es5id: 15.5.4.6_A1_T10
 description: Call concat([,[...]]) function with object arguments
 ---*/
 

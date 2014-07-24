@@ -3,6 +3,7 @@
 
 /*---
 info: Check Function Expression for automatic semicolon insertion
+es5id: 7.9_A5.5_T4
 description: Insert some LineTerminators into function body
 ---*/
 

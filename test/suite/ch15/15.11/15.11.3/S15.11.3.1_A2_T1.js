@@ -3,6 +3,7 @@
 
 /*---
 info: Error.prototype property has the attributes {DontEnum}
+es5id: 15.11.3.1_A2_T1
 description: Checking if enumerating the Error.prototype property fails
 ---*/
 

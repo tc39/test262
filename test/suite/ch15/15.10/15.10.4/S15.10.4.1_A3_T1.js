@@ -3,6 +3,7 @@
 
 /*---
 info: let P be the empty string if pattern is undefined
+es5id: 15.10.4.1_A3_T1
 description: RegExp is new RegExp
 ---*/
 

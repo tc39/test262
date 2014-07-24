@@ -3,6 +3,7 @@
 
 /*---
 info: HORIZONTAL TAB (U+0009) may occur within strings
+es5id: 7.2_A2.1_T1
 description: Use HORIZONTAL TAB(\u0009 and \t)
 ---*/
 

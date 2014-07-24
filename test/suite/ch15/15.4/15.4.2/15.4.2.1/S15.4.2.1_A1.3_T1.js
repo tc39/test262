@@ -5,6 +5,7 @@
 info: >
     This description of Array constructor applies if and only if
     the Array constructor is given no arguments or at least two arguments
+es5id: 15.4.2.1_A1.3_T1
 description: Checking case when Array constructor is given one argument
 ---*/
 

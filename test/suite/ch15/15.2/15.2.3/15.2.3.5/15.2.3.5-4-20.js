@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.5-4-20
 description: >
     Object.create - own accessor property in 'Properties' which is not
     enumerable is not defined in 'obj' (15.2.3.7 step 3)

@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 9.2.8_4
 description: >
     Tests that the array returned by SupportedLocales is extensible,
     but its properties are non-writable/non-configurable.

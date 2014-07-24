@@ -3,6 +3,7 @@
 
 /*---
 info: The RegExp.prototype.toString.length property has the attribute DontEnum
+es5id: 15.10.6.4_A8
 description: >
     Checking if enumerating the RegExp.prototype.toString.length
     property fails

@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of isFinite has the attribute ReadOnly
+es5id: 15.1.2.5_A2.3
 description: Checking if varying the length property fails
 flags: [noStrict]
 ---*/

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.17-7-c-iii-21
 description: Array.prototype.some - return value of callbackfn is a Date object
 includes: [runTestCase.js]
 ---*/

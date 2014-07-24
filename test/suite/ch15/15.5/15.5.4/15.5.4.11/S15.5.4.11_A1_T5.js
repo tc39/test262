@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.replace (searchValue, replaceValue)
+es5id: 15.5.4.11_A1_T5
 description: >
     Call replace (searchValue, replaceValue) function with null and
     Function() arguments of function object

@@ -5,6 +5,7 @@
 info: >
     Calling a function as a constructor is possible as long as
     this.any_Function is declared and called
+es5id: 13.2.2_A12
 description: >
     Calling a function as a constructor after it has been declared
     with "function func()"

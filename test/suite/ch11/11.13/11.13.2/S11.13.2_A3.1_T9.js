@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x @= y uses PutValue(x, x @ y)
+es5id: 11.13.2_A3.1_T9
 description: Checking Expression and Variable statements for x &= y
 ---*/
 

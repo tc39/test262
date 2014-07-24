@@ -5,6 +5,7 @@
 info: >
     If start is positive, use min(start, length).
     If deleteCount is negative, use 0
+es5id: 15.4.4.12_A1.3_T5
 description: -start < -length < deleteCount < 0, itemCount > 0
 ---*/
 

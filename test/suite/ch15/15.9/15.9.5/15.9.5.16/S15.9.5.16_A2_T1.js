@@ -3,6 +3,7 @@
 
 /*---
 info: The "length" property of the "getDay" is 0
+es5id: 15.9.5.16_A2_T1
 description: The "length" property of the "getDay" is 0
 ---*/
 

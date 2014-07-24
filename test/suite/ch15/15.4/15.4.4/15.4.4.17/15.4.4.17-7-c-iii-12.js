@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.17-7-c-iii-12
 description: >
     Array.prototype.some - return value of callbackfn is a number
     (value is NaN)

@@ -3,6 +3,7 @@
 
 /*---
 info: Equivalent to the expression RegExp.prototype.exec(string) != null
+es5id: 15.10.6.3_A1_T20
 description: RegExp is /[a-f]d/ and tested string is x, where x is undefined
 ---*/
 

@@ -5,6 +5,7 @@
 info: >
     When the [[Put]] method of O is called with property P and value V,
     then set the value of the property to V. The attributes of the property are not changed
+es5id: 8.12.5_A2
 description: Put to existent properties
 ---*/
 

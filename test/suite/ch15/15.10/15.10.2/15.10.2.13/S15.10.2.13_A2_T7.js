@@ -6,6 +6,7 @@ info: >
     The production CharacterClass :: [ ^ ClassRanges ] evaluates by
     evaluating ClassRanges to  obtain a CharSet and returning that CharSet
     and the boolean true
+es5id: 15.10.2.13_A2_T7
 description: Execute /[^a-z]{4}/.exec("abc#$%def%&*@ghi") and check results
 ---*/
 

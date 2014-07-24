@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-9-1
 description: >
     Array.prototype.reduce doesn't consider new elements added to
     array after it is called

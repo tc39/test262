@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.13.1-2-s
 description: >
     Strict Mode - TypeError is thrown if The LeftHandSide is a
     reference to an accessor property with the attribute value

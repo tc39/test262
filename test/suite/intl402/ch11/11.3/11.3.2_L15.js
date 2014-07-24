@@ -2,6 +2,7 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
+es5id: 11.3.2_L15
 description: >
     Tests that the getter for Intl.NumberFormat.prototype.format
     meets the requirements for built-in objects defined by the

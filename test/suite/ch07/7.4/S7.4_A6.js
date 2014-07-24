@@ -5,6 +5,7 @@
 info: >
     If multi line comments csn not nest, they can contain any Unicode
     character
+es5id: 7.4_A6
 description: "\"var\"+ yy+ \"xx = 1\", insert instead of yy all Unicode characters"
 ---*/
 

@@ -5,6 +5,7 @@
 info: >
     The [[Class]] property of the newly constructed object
     is set to "Date"
+es5id: 15.9.3.2_A3_T1.2
 description: Test based on overwriting prototype.toString
 includes:
     - $FAIL.js

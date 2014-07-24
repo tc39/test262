@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.8.2-4
 description: >
     11.8.2 Greater-than Operator - Partial left to right order
     enforced when using Greater-than operator: toString > toString

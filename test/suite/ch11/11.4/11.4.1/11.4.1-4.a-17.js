@@ -8,6 +8,7 @@
 info: >
     This test is actually testing the [[Delete]] internal method (8.12.8). Since the
     language provides no way to directly exercise [[Delete]], the tests are placed here.
+es5id: 11.4.1-4.a-17
 description: delete operator returns true on deleting a arguments element
 includes: [runTestCase.js]
 ---*/

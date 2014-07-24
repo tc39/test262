@@ -5,6 +5,7 @@
 info: >
     Global object has properties such as built-in objects such as
     Math, String, Date, parseInt, etc
+es5id: 10.2.3_A1.2_T3
 description: Function execution context - Constructor Properties
 ---*/
 

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-9-b-1
 description: >
     Array.prototype.reduce returns initialvalue when Array is empty
     and initialValue is present

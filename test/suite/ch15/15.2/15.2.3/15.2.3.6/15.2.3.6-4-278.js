@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-278
 description: >
     Object.defineProperty - 'name' is generic property that won't
     exist on 'O', and 'desc' is accessor descriptor, test 'name' is

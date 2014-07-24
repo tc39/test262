@@ -3,6 +3,7 @@
 
 /*---
 info: URI tests
+es5id: 15.1.3.1_A4_T4
 description: Test some url
 ---*/
 

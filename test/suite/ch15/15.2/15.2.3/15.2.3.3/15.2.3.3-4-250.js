@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.3-4-250
 description: >
     Object.getOwnPropertyDescriptor - returned object contains the
     property 'get' if the value of property 'get' is not explicitly

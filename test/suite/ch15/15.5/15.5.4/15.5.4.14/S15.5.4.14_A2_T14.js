@@ -7,6 +7,7 @@ info: >
     been stored. The substrings are determined by searching from left to right for occurrences of
     separator; these occurrences are not part of any substring in the returned array, but serve to divide up
     the string value. The value of separator may be a string of any length or it may be a RegExp object
+es5id: 15.5.4.14_A2_T14
 description: Call split("on"), instance is String("one-1 two-2 four-4")
 ---*/
 

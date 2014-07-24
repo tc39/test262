@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.3-2-36
 description: >
     Object.getOwnPropertyDescriptor - argument 'P' is applied to
     string '123���¦�cd'

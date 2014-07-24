@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-5-a-13
 description: >
     Object.defineProperties - 'Properties' is a Date object which
     implements its own [[Get]] method to get enumerable own property

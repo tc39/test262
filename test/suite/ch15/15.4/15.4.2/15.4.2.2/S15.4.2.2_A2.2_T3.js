@@ -5,6 +5,7 @@
 info: >
     If the argument len is a Number and ToUint32(len) is not equal to len,
     a RangeError exception is thrown
+es5id: 15.4.2.2_A2.2_T3
 description: Use try statement. len = 1.5, Number.MAX_VALUE, Number.MIN_VALUE
 ---*/
 

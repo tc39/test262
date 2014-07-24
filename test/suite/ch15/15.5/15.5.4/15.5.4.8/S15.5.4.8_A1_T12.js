@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.lastIndexOf(searchString, position)
+es5id: 15.5.4.8_A1_T12
 description: Argument is string, and instance is array of strings
 ---*/
 

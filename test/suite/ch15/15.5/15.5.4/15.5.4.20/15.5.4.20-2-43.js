@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.5.4.20-2-43
 description: >
     String.prototype.trim - 'this' is an object with an own valueOf
     and inherited toString methods with hint string, verify inherited

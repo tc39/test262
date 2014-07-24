@@ -3,6 +3,7 @@
 
 /*---
 info: The isFinite property has not prototype property
+es5id: 15.1.2.5_A2.6
 description: Checking isFinit.prototype
 ---*/
 

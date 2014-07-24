@@ -5,6 +5,7 @@
 info: >
     If the argument "message" is not undefined, the message property of the newly constructed object is
     set to ToString(message)
+es5id: 15.11.1.1_A1_T1
 description: Checking message property of different error objects
 ---*/
 

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-71
 description: >
     Object.defineProperties throws TypeError when 'P' is data property
     and  P.configurable is false, P.writable is false, desc is data

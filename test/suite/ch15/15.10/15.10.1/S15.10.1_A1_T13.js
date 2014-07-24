@@ -3,6 +3,7 @@
 
 /*---
 info: RegExp syntax errors must be caught when matcher(s) compiles
+es5id: 15.10.1_A1_T13
 description: Tested RegExp is "x{1}{1,}"
 ---*/
 

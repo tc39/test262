@@ -2,6 +2,7 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
+es5id: 13.2.1_4_2
 description: >
     Tests that Number.prototype.toLocaleString uses the standard
     built-in Intl.NumberFormat constructor.

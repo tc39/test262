@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 7.8.5-1gs
 description: Empty literal RegExp should result in a SyntaxError
 negative: ^((?!NotEarlyError).)*$
 ---*/

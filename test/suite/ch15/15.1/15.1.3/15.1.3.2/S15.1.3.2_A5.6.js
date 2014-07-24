@@ -3,6 +3,7 @@
 
 /*---
 info: The decodeURIComponent property has not prototype property
+es5id: 15.1.3.2_A5.6
 description: Checking decodeURIComponent.prototype
 ---*/
 

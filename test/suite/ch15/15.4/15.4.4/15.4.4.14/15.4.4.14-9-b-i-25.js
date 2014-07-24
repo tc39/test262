@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.14-9-b-i-25
 description: >
     Array.prototype.indexOf applied to Arguments object which
     implements its own property get method (number of arguments is

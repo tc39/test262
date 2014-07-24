@@ -2,10 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 12.3.1
 description: >
     Tests that Intl.DateTimeFormat.prototype.constructor is the
     Intl.DateTimeFormat.
-author:: Roozbeh Pournader
+author: Roozbeh Pournader
 ---*/
 
 if (Intl.DateTimeFormat.prototype.constructor !== Intl.DateTimeFormat) {

@@ -5,6 +5,7 @@
 info: >
     The Date.UTC property "length" has { ReadOnly, DontDelete, DontEnum }
     attributes
+es5id: 15.9.4.3_A3_T2
 description: Checking DontDelete attribute
 includes: [$FAIL.js]
 ---*/

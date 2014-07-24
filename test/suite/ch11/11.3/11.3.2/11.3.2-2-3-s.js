@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.3.2-2-3-s
 description: >
     Strict Mode - SyntaxError is not thrown if the identifier
     'arguments[...]' appears as a PostfixExpression(arguments--)

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.10-3-24
 description: >
     Object.preventExtensions - [[Extensible]]: false on a prototype
     doesn't prevent adding properties to an instance that inherits

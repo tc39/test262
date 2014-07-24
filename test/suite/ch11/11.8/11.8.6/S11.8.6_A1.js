@@ -5,6 +5,7 @@
 info: >
     White Space and Line Terminator between RelationalExpression and
     "instanceof" and between "instanceof" and ShiftExpression are allowed
+es5id: 11.8.6_A1
 description: Checking by using eval
 ---*/
 

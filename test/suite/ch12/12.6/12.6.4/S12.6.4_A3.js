@@ -5,6 +5,7 @@
 info: >
     The production IterationStatement: "for (var VariableDeclarationNoIn in
     Expression) Statement"
+es5id: 12.6.4_A3
 description: >
     Using an array as an Expression is appropriate. Here Expression is
     an array of numbers. Eval is used

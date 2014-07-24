@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-5-b-137
 description: >
     Object.defineProperties - 'descObj' is the global object which
     implements its own [[Get]] method to get 'value' property (8.10.5

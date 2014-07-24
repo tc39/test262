@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.10.1-15-s
 description: >
     Strict Mode - SyntaxError is thrown when the RHS of a dot property
     assignment utilizes WithStatement

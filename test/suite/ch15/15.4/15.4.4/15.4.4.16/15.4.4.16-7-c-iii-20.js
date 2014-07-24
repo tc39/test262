@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.16-7-c-iii-20
 description: >
     Array.prototype.every - return value of callbackfn is the Math
     object

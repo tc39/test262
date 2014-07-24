@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.search (regexp) returns ...
+es5id: 15.5.4.12_A2_T3
 description: Checking disabling of case sensitive of search, argument is RegExp
 ---*/
 

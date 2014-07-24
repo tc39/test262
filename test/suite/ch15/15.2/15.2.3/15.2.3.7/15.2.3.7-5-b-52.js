@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-5-b-52
 description: >
     Object.defineProperties - value of 'enumerable' property of
     'descObj' is the JSON object (8.10.5 step 3.b)

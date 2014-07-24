@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.slice (start, end)
+es5id: 15.5.4.13_A1_T15
 description: >
     Call slice without arguments. Instance is Number with
     prototype.slice = String.prototype.slice

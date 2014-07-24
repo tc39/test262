@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.3-4-242
 description: >
     Object.getOwnPropertyDescriptor - ensure that 'get' property of
     returned object is data property with correct 'configurable'

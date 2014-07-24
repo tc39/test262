@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 6.2.2_b
 description: Tests that language tags with "_" are not accepted.
 author: Norbert Lindenberg
 includes: [testIntl.js]

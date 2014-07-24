@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.8-1
 description: >
     The break Statement - a break statement without an identifier may
     have a LineTerminator before the semi-colon

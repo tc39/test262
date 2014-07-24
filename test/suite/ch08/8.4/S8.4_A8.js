@@ -5,6 +5,7 @@
 info: >
     Empty string, 0, false are all equal (==) to each other, since they all
     evaluate to 0
+es5id: 8.4_A8
 description: Compare empty string with undefined, null, 0 and false
 ---*/
 

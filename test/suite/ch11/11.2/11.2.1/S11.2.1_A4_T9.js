@@ -3,6 +3,7 @@
 
 /*---
 info: Check type of various properties
+es5id: 11.2.1_A4_T9
 description: Checking properties of the Date object
 ---*/
 

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.3.2-1-12
 description: Array.isArray applied to Error object
 includes: [runTestCase.js]
 ---*/

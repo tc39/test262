@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.5-4-8
 description: >
     Object.create - argument 'Properties' is a Boolean object whose
     primitive value is true (15.2.3.7 step 2).

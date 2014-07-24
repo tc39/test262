@@ -6,6 +6,7 @@ info: >
     The Identifier in a FunctionExpression can be referenced from inside the
     FunctionExpression's FunctionBody to allow the function calling itself
     recursively
+es5id: 13_A3_T3
 description: Creating simple recursive function that calculates factorial
 ---*/
 

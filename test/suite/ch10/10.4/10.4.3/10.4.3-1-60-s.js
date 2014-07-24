@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.4.3-1-60-s
 description: >
     Strict Mode - checking 'this' (Injected setter defined within
     strict mode)

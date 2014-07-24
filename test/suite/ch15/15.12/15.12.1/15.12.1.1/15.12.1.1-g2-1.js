@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.1.1-g2-1
 description: JSONStrings can be written using double quotes
 includes: [runTestCase.js]
 ---*/

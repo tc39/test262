@@ -5,6 +5,7 @@
 info: >
     If y>0 and y is finite and x is equal to -Infinity, Math.atan2(y,x) is an
     implementation-dependent approximation to +PI
+es5id: 15.8.2.5_A15
 description: >
     Checking if Math.atan2(y,x) is an approximation to +PI, where y>0
     and y is finite and x is equal to -Infinity

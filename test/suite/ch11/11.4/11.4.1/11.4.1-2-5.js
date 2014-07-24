@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.4.1-2-5
 description: delete operator returns true when deleting a non-reference (obj)
 includes: [runTestCase.js]
 ---*/

@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.localeCompare can't be used as constructor
+es5id: 15.5.4.9_A7
 description: >
     Checking if creating the String.prototype.localeCompare object
     fails

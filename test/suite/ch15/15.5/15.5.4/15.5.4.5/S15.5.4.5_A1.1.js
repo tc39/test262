@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.charCodeAt() can accept many arguments
+es5id: 15.5.4.5_A1.1
 description: Checking by using eval
 ---*/
 

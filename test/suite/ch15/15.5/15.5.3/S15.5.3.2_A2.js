@@ -3,6 +3,7 @@
 
 /*---
 info: String.fromCharCode () returns empty string
+es5id: 15.5.3.2_A2
 description: Call String.fromCharCode()
 ---*/
 

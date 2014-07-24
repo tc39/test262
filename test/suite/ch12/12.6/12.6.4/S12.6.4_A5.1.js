@@ -5,6 +5,7 @@
 info: >
     The production IterationStatement: "for (var VariableDeclarationNoIn in
     Expression) Statement"
+es5id: 12.6.4_A5.1
 description: >
     Using hierarchical Object as an Expression is appropriate. The
     depth is two

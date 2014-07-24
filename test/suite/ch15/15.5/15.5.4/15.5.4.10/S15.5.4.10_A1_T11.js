@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.match (regexp)
+es5id: 15.5.4.10_A1_T11
 description: >
     Override toString function, toString throw exception, then call
     match (regexp) function with this object as argument

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 7.3-15
 description: 7.3 - ES5 recognize <BOM> (\uFFFF) as a whitespace character
 includes: [runTestCase.js]
 ---*/

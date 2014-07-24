@@ -9,6 +9,7 @@ info: >
     iii) If O doesn't have a property with the name given by Result(ii), return false
     iv) If the property has the DontEnum attribute, return false
     v) Return true
+es5id: 15.2.4.7_A2_T2
 description: >
     Argument of the propertyIsEnumerable method is a custom boolean
     property

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.4.2-2-c-1
 description: >
     Direct val code in non-strict mode - can instantiate variable in
     calling context

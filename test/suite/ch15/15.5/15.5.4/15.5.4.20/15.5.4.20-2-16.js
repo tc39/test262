@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.5.4.20-2-16
 description: >
     String.prototype.trim - argument 'this' is a number that converts
     to string (value is 1e+21)

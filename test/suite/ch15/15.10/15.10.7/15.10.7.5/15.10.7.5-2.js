@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.10.7.5-2
 description: >
     RegExp.prototype.lastIndex is a data property with specified
     attribute values

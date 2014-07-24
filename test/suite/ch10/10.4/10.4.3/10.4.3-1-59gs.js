@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.4.3-1-59gs
 description: >
     Strict - checking 'this' from a global scope (Injected getter
     includes strict directive prologue)

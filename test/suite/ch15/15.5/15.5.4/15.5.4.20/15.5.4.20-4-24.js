@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.5.4.20-4-24
 description: >
     String.prototype.trim handles whitepace and lineterminators
     (\u00A0abc\u00A0)

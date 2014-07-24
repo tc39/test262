@@ -5,6 +5,7 @@
 info: >
     Since arguments property has attribute { DontDelete }, only its elements
     can be deleted
+es5id: 13_A11_T3
 description: Deleting arguments[i] and returning result of the operation
 ---*/
 

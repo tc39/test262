@@ -3,6 +3,7 @@
 
 /*---
 info: Equivalent to the expression RegExp.prototype.exec(string) != null
+es5id: 15.10.6.3_A1_T8
 description: >
     RegExp is /[a-z]/ and tested string is {toString:void 0,
     valueOf:function(){throw "invalof";}}

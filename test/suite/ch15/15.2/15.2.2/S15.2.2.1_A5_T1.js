@@ -5,6 +5,7 @@
 info: >
     When the Object constructor is called with one argument value and
     the type of value is Number, return ToObject(number)
+es5id: 15.2.2.1_A5_T1
 description: Argument value is any number
 includes: [$FAIL.js]
 ---*/

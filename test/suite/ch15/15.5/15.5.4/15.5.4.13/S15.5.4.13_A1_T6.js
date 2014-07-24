@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.slice (start, end)
+es5id: 15.5.4.13_A1_T6
 description: >
     Arguments are x and number, and instance is new String, x is
     undefined variable

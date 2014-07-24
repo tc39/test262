@@ -3,6 +3,7 @@
 
 /*---
 info: The value of the [[Class]] property is "Function"
+es5id: 15.3.5_A1_T2
 description: For testing use variable f = Function()
 ---*/
 

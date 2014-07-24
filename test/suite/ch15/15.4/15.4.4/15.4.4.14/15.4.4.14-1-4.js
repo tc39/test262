@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.14-1-4
 description: Array.prototype.indexOf applied to Boolean Object
 includes: [runTestCase.js]
 ---*/

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.1.1-28-s
 description: >
     Strict Mode - Function code of Accessor PropertyAssignment
     contains Use Strict Directive which appears at the end of the

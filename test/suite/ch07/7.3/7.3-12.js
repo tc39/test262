@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 7.3-12
 description: >
     7.3 - ES5 specifies that a multiline comment that contains a line
     terminator character <PS> (\u2029) must be treated as a single

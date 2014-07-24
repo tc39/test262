@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 14.1-1-s
 description: "'use strict' directive - correct usage"
 flags: [noStrict]
 includes: [runTestCase.js]

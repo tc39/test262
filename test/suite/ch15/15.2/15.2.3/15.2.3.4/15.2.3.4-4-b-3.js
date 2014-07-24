@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.4-4-b-3
 description: >
     Object.getOwnPropertyNames - own property named empty('') is
     pushed into the returned array

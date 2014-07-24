@@ -3,6 +3,7 @@
 
 /*---
 info: regExp exec() acts like regExp.exec('undefined') (step 2)
+es5id: 15.10.6.2_A12
 description: Checking RegExp.prototype.exec
 includes: [$FAIL.js]
 ---*/

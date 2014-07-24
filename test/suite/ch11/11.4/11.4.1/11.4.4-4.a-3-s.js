@@ -8,6 +8,7 @@
 info: >
     This test is actually testing the [[Delete]] internal method (8.12.8). Since the
     language provides no way to directly exercise [[Delete]], the tests are placed here.
+es5id: 11.4.4-4.a-3-s
 description: >
     delete operator throws TypeError when deleting a non-configurable
     data property in strict mode

@@ -3,6 +3,7 @@
 
 /*---
 info: If ToNumber(value) is NaN, ToInteger(value) returns +0
+es5id: 9.4_A1
 description: >
     Check what position is defined by Number.NaN in string "abc":
     "abc".charAt(Number.NaN)

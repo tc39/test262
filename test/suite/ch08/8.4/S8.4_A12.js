@@ -3,6 +3,7 @@
 
 /*---
 info: Assignment to string literal calls String constructor
+es5id: 8.4_A12
 description: Check constructor of simple assigned variable
 ---*/
 

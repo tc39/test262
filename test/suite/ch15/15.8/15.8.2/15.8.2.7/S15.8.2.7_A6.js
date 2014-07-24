@@ -3,6 +3,7 @@
 
 /*---
 info: Cosine is a periodic function with period 2*PI
+es5id: 15.8.2.7_A6
 description: >
     Checking if Math.cos(x) equals to Math.cos(x+n*2*Math.PI) with
     precision 0.000000000003, where n is an integer from 1 to 100 and

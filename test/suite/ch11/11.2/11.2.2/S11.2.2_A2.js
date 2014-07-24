@@ -3,6 +3,7 @@
 
 /*---
 info: Operator "new" uses GetValue
+es5id: 11.2.2_A2
 description: >
     If GetBase(NewExpression) or GetBase(MemberExpression) is null,
     throw ReferenceError

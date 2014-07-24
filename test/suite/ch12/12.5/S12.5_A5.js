@@ -5,6 +5,7 @@
 info: >
     FunctionDeclaration inside the "if" Expression is evaluated as true and
     function will not be declarated
+es5id: 12.5_A5
 description: >
     The "if" Expression is "function __func(){throw
     "FunctionExpression";}"

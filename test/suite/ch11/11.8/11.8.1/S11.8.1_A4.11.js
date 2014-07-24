@@ -3,6 +3,7 @@
 
 /*---
 info: If x is a prefix of y and x !== y, return true
+es5id: 11.8.1_A4.11
 description: x and y are string primitives
 ---*/
 

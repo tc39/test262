@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x = y uses GetValue and PutValue
+es5id: 11.13.1_A2.1_T2
 description: If GetBase(AssigmentExpression) is null, throw ReferenceError
 ---*/
 

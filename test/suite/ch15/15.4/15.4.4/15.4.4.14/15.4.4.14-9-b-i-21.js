@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.14-9-b-i-21
 description: >
     Array.prototype.indexOf - element to be retrieved is inherited
     accessor property without a get function on an Array

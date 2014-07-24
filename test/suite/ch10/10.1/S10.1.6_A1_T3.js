@@ -5,6 +5,7 @@
 info: >
     The activation object is initialised with a property with name arguments
     and attributes {DontDelete}
+es5id: 10.1.6_A1_T3
 description: Checking function which returns "this"
 flags: [noStrict]
 ---*/

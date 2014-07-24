@@ -5,6 +5,7 @@
 info: >
     If x is +Infinity, Math.atan(x) is an implementation-dependent
     approximation to +PI/2
+es5id: 15.8.2.4_A4
 description: Checking if Math.atan(+Infinity) is an approximation to +PI/2
 includes:
     - math_precision.js

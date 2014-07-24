@@ -5,6 +5,7 @@
 info: >
     When control enters an execution context for function code,
     an arguments object is created and initialised
+es5id: 10.6_A1
 description: Executing function which uses arguments object
 ---*/
 

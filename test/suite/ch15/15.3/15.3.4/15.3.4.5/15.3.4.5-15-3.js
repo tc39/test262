@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.3.4.5-15-3
 description: >
     Function.prototype.bind - The [[Writable]] attribute of length
     property in F set as false

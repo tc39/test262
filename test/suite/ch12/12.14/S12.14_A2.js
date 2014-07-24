@@ -3,6 +3,7 @@
 
 /*---
 info: Throwing exception with "throw" and catching it with "try" statement
+es5id: 12.14_A2
 description: >
     Checking if execution of "catch" catches an exception thrown with
     "throw"

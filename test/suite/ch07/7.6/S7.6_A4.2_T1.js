@@ -3,6 +3,7 @@
 
 /*---
 info: Correct interpretation of RUSSIAN ALPHABET
+es5id: 7.6_A4.2_T1
 description: Check RUSSIAN CAPITAL ALPHABET
 ---*/
 

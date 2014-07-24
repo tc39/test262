@@ -7,6 +7,7 @@ info: >
     component, return the string consisting of the most significant n digits of
     the decimal representation of s, followed by a decimal point '.',
     followed by the remaining k-n digits of the decimal representation of s
+es5id: 9.8.1_A7
 description: >
     1.0000001 and -1.0000001 convert to String by explicit
     transformation

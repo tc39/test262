@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.1.1.1-0
 description: Global.NaN is a data property with default attribute values (false)
 includes:
     - runTestCase.js

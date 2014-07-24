@@ -3,6 +3,7 @@
 
 /*---
 info: If x or y is NaN, return true
+es5id: 11.9.5_A4.1_T1
 description: x is NaN
 ---*/
 

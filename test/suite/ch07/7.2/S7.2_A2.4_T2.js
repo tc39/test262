@@ -3,6 +3,7 @@
 
 /*---
 info: SPACE (U+0020) may occur within strings
+es5id: 7.2_A2.4_T2
 description: Use real SPACE
 ---*/
 

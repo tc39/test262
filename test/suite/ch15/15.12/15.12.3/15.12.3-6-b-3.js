@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.3-6-b-3
 description: >
     JSON.stringify treats numeric space arguments less than 1 (-5) the
     same as emptry string space argument.

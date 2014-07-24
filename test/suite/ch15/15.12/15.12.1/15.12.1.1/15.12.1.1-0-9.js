@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.1.1-0-9
 description: Whitespace characters can appear before/after any JSONtoken
 includes: [runTestCase.js]
 ---*/

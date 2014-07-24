@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.7.3.1-1
 description: >
     Number.prototype is a data property with default attribute values
     (false)

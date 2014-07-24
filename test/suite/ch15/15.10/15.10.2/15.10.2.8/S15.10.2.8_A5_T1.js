@@ -5,6 +5,7 @@
 info: >
     In case-insignificant matches all characters are implicitly converted to
     upper case immediately before they are compared
+es5id: 15.10.2.8_A5_T1
 description: Execute /[a-z]+/ig.exec("ABC def ghi") and check results
 ---*/
 

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.6.4-1
 description: >
     The for-in Statement - a property name must not be visited more
     than once in any enumeration.

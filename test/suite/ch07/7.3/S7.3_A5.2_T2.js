@@ -3,6 +3,7 @@
 
 /*---
 info: Multi line comment can contain CARRIAGE RETURN (U+000D)
+es5id: 7.3_A5.2_T2
 description: Insert real CARRIAGE RETURN into multi line comment
 ---*/
 

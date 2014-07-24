@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-26
 description: >
     Object.defineProperty - 'name' is own accessor property (8.12.9
     step 1)

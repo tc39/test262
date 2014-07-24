@@ -3,6 +3,7 @@
 
 /*---
 info: Every function call enters a new execution context
+es5id: 10.4_A1.1_T1
 description: Sequence of function calls
 ---*/
 

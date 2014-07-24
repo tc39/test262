@@ -3,6 +3,7 @@
 
 /*---
 info: Sanity test for "catch(Indetifier) statement"
+es5id: 12.14_A4
 description: Checking if deleting an exception fails
 flags: [noStrict]
 ---*/

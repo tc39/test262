@@ -5,6 +5,7 @@
 info: >
     Properties of the [[Prototype]] object
     are visible as properties of the child object for the purposes of get access, but not for put access
+es5id: 8.6.2_A2
 description: >
     Check visibility properties of the child object for the purposes
     of get access, but not for put access

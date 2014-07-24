@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 13.2-32-s
 description: >
     StrictMode - property named 'caller' of function objects is not
     configurable

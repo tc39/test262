@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.19-3-25
 description: >
     Array.prototype.map - value of 'length' is a negative non-integer,
     ensure truncation occurs in the proper direction

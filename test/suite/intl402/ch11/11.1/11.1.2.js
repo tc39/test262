@@ -3,6 +3,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 11.1.2
 description: Tests that Intl.NumberFormat can be subclassed.
 author: Norbert Lindenberg
 includes: [testIntl.js]

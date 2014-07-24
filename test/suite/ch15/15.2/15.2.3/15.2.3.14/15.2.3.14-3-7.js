@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.14-3-7
 description: >
     Object.keys - length of the returned array equals the number of
     own enumerable properties of 'O'

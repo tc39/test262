@@ -3,6 +3,7 @@
 
 /*---
 info: Empty string variable has a length property
+es5id: 8.4_A4
 description: Try read length property of empty string variable
 ---*/
 

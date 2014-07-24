@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 15.4.4_A1.1_T2
 description: >
     The Array prototype object is itself an array; its [[Class]] is
     "Array",

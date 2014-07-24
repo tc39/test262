@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.indexOf can't be used as constructor
+es5id: 15.5.4.7_A7
 description: Checking if creating the String.prototype.indexOf object fails
 includes:
     - $PRINT.js

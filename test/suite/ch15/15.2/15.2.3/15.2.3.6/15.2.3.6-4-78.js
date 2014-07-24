@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-78
 description: >
     Object.defineProperty - desc.[[Set]] and name.[[Set]] are two
     objects which refer to the different objects (8.12.9 step 6)

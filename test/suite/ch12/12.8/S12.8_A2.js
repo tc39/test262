@@ -5,6 +5,7 @@
 info: >
     Since LineTerminator between "break" and Identifier is not allowed,
     "break" is evaluated without label
+es5id: 12.8_A2
 description: >
     Checking by using eval, inserting LineTerminator between break and
     Identifier

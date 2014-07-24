@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.3-4-202
 description: >
     Object.getOwnPropertyDescriptor returns data desc (all false) for
     properties on built-ins (Math.E)

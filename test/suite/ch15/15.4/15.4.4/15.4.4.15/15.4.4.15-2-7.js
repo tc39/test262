@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-2-7
 description: >
     Array.prototype.lastIndexOf - 'length' is own accessor property on
     an Array-like object

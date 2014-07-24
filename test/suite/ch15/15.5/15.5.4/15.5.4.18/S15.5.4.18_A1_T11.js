@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.toUpperCase()
+es5id: 15.5.4.18_A1_T11
 description: >
     Override toString function, toString throw exception, then call
     toUpperCase() function for this object

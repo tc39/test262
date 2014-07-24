@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 8.14.4-8-b_2
 description: Non-writable property on a prototype written to in strict mode.
 flags: [onlyStrict]
 includes: [runTestCase.js]

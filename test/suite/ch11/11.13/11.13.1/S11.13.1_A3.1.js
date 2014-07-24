@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x = y PutValue(x, y)
+es5id: 11.13.1_A3.1
 description: Checking Expression and Variable statements
 ---*/
 

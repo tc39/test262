@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.3.4.5-6-8
 description: >
     Function.prototype.bind - F can get own accessor property that
     overrides an inherited accessor property

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.22-9-b-19
 description: >
     Array.prototype.reduceRight - properties added to prototype are
     visited on an Array-like object

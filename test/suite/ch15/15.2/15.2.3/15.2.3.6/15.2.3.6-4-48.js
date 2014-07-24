@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-48
 description: >
     Object.defineProperty - 'name' property doesn't exist in 'O', test
     [[Writable]] of 'name' property of 'Attributes' is set as false

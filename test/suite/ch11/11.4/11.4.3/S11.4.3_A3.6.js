@@ -5,6 +5,7 @@
 info: >
     Result of applying "typeof" operator to the object that is native and
     doesn't implement [[Call]] is "object"
+es5id: 11.4.3_A3.6
 description: typeof (object without [[Call]]) === "object"
 ---*/
 

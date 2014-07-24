@@ -3,6 +3,7 @@
 
 /*---
 info: Operator "void" evaluates UnaryExpression and returns undefined
+es5id: 11.4.2_A4_T5
 description: Type(x) is Object object or Function object
 ---*/
 

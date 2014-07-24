@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 7.6.1-4-5
 description: >
     Allow reserved words as property names by set function within an
     object, verified with hasOwnProperty: finally, return, void

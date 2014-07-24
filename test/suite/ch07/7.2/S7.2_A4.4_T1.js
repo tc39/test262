@@ -3,6 +3,7 @@
 
 /*---
 info: Multi line comment can contain SPACE (U+0020)
+es5id: 7.2_A4.4_T1
 description: Use SPACE(\u0020)
 ---*/
 

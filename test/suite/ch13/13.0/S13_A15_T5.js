@@ -3,6 +3,7 @@
 
 /*---
 info: "''arguments'' variable overrides ActivationObject.arguments"
+es5id: 13_A15_T5
 description: Creating a variable named with "arguments" without a function
 ---*/
 

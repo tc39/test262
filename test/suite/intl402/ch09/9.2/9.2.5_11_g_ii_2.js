@@ -3,6 +3,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 9.2.5_11_g_ii_2
 description: >
     Tests that missing Unicode extension values default to true for
     boolean keys.

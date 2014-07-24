@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 7.6.1.2-13-s
 description: >
     Strict Mode - SyntaxError isn't thrown when 'implementss' occurs
     in strict mode code

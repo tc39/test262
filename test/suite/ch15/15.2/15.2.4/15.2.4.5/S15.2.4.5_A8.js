@@ -5,6 +5,7 @@
 info: >
     The Object.prototype.hasOwnProperty.length property has the attribute
     DontEnum
+es5id: 15.2.4.5_A8
 description: >
     Checking if enumerating the Object.prototype.hasOwnProperty.length
     property fails

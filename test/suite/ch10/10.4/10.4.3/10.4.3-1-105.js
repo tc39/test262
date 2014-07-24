@@ -8,6 +8,7 @@
 info: >
     Created based on feedback in
     https://bugs.ecmascript.org/show_bug.cgi?id=333
+es5id: 10.4.3-1-105
 description: >
     Non strict mode should ToObject thisArg if not an object.  Return
     type should be object and strict equality should fail.

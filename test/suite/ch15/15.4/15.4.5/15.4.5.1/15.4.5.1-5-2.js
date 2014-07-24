@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.5.1-5-2
 description: >
     Defining a property named 4294967295 (2**32-1) doesn't change
     length of the array

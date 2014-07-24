@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-440
 description: >
     ES5 Attributes - [[Get]] attribute of accessor property ([[Get]]
     is undefined, [[Set]] is undefined, [[Enumerable]] is false,

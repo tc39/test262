@@ -5,6 +5,7 @@
 info: >
     The production QuantifierPrefix :: + evaluates by returning the two
     results 1 and \infty
+es5id: 15.10.2.7_A3_T7
 description: >
     Execute /[a-z]+(\d+)/.exec("x 2 ff 55 x2 as1 z12 abc12.0") and
     check results

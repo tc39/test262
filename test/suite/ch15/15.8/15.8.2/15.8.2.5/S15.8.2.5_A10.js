@@ -5,6 +5,7 @@
 info: >
     If y is -0 and x is -0, Math.atan2(y,x) is an implementation-dependent
     approximation to -PI
+es5id: 15.8.2.5_A10
 description: Checking if Math.atan2(-0,-0) is an approximation to -PI
 includes:
     - math_precision.js

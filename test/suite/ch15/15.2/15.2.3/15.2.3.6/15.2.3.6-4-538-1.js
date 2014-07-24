@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-538-1
 description: >
     ES5 Attributes - Updating an indexed 'P' whose [[Configurable]]
     attribute is true to a data property is successful, 'A' is an

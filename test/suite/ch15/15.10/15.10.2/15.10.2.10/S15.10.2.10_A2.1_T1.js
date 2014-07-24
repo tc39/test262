@@ -3,6 +3,7 @@
 
 /*---
 info: "CharacterEscape :: c ControlLetter"
+es5id: 15.10.2.10_A2.1_T1
 description: "ControlLetter :: A - Z"
 ---*/
 

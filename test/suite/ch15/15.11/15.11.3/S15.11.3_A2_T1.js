@@ -3,6 +3,7 @@
 
 /*---
 info: The length property value is 1
+es5id: 15.11.3_A2_T1
 description: Checking length property
 ---*/
 

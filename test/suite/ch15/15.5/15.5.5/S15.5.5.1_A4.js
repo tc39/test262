@@ -3,6 +3,7 @@
 
 /*---
 info: length property has the attributes {ReadOnly}
+es5id: 15.5.5.1_A4
 description: Checking if varying the length property of String fails
 ---*/
 

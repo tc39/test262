@@ -3,6 +3,7 @@
 
 /*---
 info: The parseInt property has not prototype property
+es5id: 15.1.2.2_A9.6
 description: Checking parseInt.prototype
 ---*/
 

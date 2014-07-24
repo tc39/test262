@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.14-9-b-i-23
 description: Array.prototype.indexOf - This object is the global object
 includes:
     - runTestCase.js

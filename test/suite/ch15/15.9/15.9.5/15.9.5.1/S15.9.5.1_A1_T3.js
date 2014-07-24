@@ -3,6 +3,7 @@
 
 /*---
 info: The Date.prototype property "constructor" has { DontEnum } attributes
+es5id: 15.9.5.1_A1_T3
 description: Checking DontEnum attribute
 ---*/
 

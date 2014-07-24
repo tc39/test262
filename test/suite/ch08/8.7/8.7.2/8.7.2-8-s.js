@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 8.7.2-8-s
 description: >
     Strict Mode - TypeError isn't thrown if LeftHandSide is a
     reference to a property of an extensible object

@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.slice (start, end)
+es5id: 15.5.4.13_A1_T8
 description: >
     Arguments are negative number and void 0, and instance is
     String(object), object have overrided toString function

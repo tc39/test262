@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-596
 description: >
     ES5 Attributes - Fail to update value of property into of
     [[Proptotype]] internal property (Function.prototype.bind)

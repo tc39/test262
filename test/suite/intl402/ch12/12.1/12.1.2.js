@@ -3,6 +3,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 12.1.2
 description: Tests that Intl.DateTimeFormat can be subclassed.
 author: Norbert Lindenberg
 includes: [testIntl.js]

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 7.3-2
 description: >
     7.3 - ES5 recognizes the character <PS> (\u2029) as line
     terminators when parsing statements

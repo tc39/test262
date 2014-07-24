@@ -6,6 +6,7 @@ info: >
     The | regular expression operator separates two alternatives.
     The pattern first tries to match the left Alternative (followed by the sequel of the regular expression).
     If it fails, it tries to match the right Disjunction (followed by the sequel of the regular expression)
+es5id: 15.10.2.3_A1_T4
 description: >
     Execute /\d{3}|[a-z]{4}/.exec("2, 12 and 234 AND of course repeat
     12") and check results

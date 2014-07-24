@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.19-9-13
 description: >
     Array.prototype.map - if there are no side effects of the
     functions, O is unmodified

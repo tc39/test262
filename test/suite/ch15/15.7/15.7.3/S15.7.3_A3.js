@@ -3,6 +3,7 @@
 
 /*---
 info: The Number constructor has the property "MIN_VALUE"
+es5id: 15.7.3_A3
 description: Checking existence of the property "MIN_VALUE"
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: The Function.prototype.call.length property has the attribute DontDelete
+es5id: 15.3.4.4_A9
 description: >
     Checking if deleting the Function.prototype.call.length property
     fails

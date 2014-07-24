@@ -3,6 +3,7 @@
 
 /*---
 info: Operator remove leading StrWhiteSpaceChar
+es5id: 15.1.2.3_A2_T5
 description: "StrWhiteSpaceChar :: VT (U+000B)"
 ---*/
 

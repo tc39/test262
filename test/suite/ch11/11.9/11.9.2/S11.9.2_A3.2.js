@@ -5,6 +5,7 @@
 info: >
     If Type(x) is Boolean and Type(y) is Number,
     return the result of comparison ToNumber(x) != y
+es5id: 11.9.2_A3.2
 description: x is primitive boolean, y is primitive number
 ---*/
 

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.1.1.2-0
 description: >
     Global.Infinity is a data property with default attribute values
     (false)

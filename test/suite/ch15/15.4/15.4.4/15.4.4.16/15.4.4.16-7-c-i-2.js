@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.16-7-c-i-2
 description: >
     Array.prototype.every - element to be retrieved is own data
     property on an Array

@@ -3,6 +3,7 @@
 
 /*---
 info: let F be the empty string if flags is undefined
+es5id: 15.10.4.1_A4_T4
 description: RegExp is new RegExp(null,void 0)
 ---*/
 

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.3-8-a-5
 description: >
     JSON.stringify treats non-Number or String object space arguments
     the same as a missing space argument.

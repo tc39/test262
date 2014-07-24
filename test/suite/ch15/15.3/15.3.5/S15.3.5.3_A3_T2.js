@@ -10,6 +10,7 @@ info: >
     iv) If V is null, return false.
     v)  If O and V refer to the same object or if they refer to objects joined to each other (13.1.2), return true.
     vi) Go to step iii)
+es5id: 15.3.5.3_A3_T2
 description: F.prototype is Object.prototype, and V is empty object
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: The push property of Array has not prototype property
+es5id: 15.4.4.7_A6.6
 description: Checking Array.prototype.push.prototype
 ---*/
 

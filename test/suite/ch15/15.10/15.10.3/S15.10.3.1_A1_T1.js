@@ -5,6 +5,7 @@
 info: >
     If pattern is an object R whose [[Class]] property is "RegExp" and flags
     is undefined, then return R unchanged
+es5id: 15.10.3.1_A1_T1
 description: R is /x/i and instance is RegExp(R)
 ---*/
 

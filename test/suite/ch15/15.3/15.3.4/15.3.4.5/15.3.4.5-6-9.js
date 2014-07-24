@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.3.4.5-6-9
 description: >
     Function.prototype.bind - F can get own accessor property without
     a get function

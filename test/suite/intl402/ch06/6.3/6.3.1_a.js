@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 6.3.1_a
 description: Tests that well-formed currency codes are accepted.
 author: Norbert Lindenberg
 ---*/

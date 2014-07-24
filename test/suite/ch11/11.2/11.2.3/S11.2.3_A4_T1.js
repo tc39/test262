@@ -5,6 +5,7 @@
 info: >
     If MemberExpression does not implement the internal [[Call]] method,
     throw TypeError
+es5id: 11.2.3_A4_T1
 description: Checking Boolean object case
 ---*/
 

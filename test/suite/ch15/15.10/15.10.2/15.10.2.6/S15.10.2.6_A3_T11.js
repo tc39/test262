@@ -5,6 +5,7 @@
 info: >
     The production Assertion :: \b evaluates by returning an internal
     AssertionTester closure that takes a State argument x and performs the ...
+es5id: 15.10.2.6_A3_T11
 description: >
     Execute /\b\w{5}\b/.exec("pilot\nsoviet robot\topenoffice") and
     check results

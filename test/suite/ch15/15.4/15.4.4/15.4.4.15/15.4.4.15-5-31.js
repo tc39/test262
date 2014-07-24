@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-5-31
 description: >
     Array.prototype.lastIndexOf - 'fromIndex' is a positive
     non-integer, verify truncation occurs in the proper direction

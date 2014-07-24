@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.14-4-10
 description: Array.prototype.indexOf - 'length' is a number of value -6e-1
 includes: [runTestCase.js]
 ---*/

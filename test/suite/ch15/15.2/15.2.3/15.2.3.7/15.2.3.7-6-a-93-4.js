@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-93-4
 description: >
     Object.defineProperties will fail to update [[Value]] attribute of
     indexed data property 'P' when [[Configurable]] attribute of first

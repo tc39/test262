@@ -3,6 +3,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 10.3.2_CS_d_NN
 description: >
     Tests that the compare function supports different sensitivity
     settings.  This test is not normative.

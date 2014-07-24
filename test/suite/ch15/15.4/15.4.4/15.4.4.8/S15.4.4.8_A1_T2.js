@@ -5,6 +5,7 @@
 info: >
     The elements of the array are rearranged so as to reverse their order.
     The object is returned as the result of the call
+es5id: 15.4.4.8_A1_T2
 description: Checking this algorithm, elements are objects and primitives
 ---*/
 

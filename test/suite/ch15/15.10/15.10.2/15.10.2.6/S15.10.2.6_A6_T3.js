@@ -3,6 +3,7 @@
 
 /*---
 info: Assertions in combination
+es5id: 15.10.2.6_A6_T3
 description: while asterix is non greedy it is run till matches end or colon
 ---*/
 

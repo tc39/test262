@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.22-2-15
 description: >
     Array.prototype.reduceRight - 'length' is property of the global
     object

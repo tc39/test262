@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.6-14-b-4-s
 description: >
     Strict Mode - TypeError is thrown when accessing the [[Set]]
     attribute in 'caller' under strict mode

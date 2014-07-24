@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 12.3.2_TLT_2
 description: >
     Tests that the behavior of a Record is not affected by
     adversarial  changes to Object.prototype.

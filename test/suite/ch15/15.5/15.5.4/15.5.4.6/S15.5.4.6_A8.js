@@ -3,6 +3,7 @@
 
 /*---
 info: The String.prototype.concat.length property has the attribute DontEnum
+es5id: 15.5.4.6_A8
 description: >
     Checking if enumerating the String.prototype.concat.length
     property fails

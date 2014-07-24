@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.19-8-c-ii-2
 description: Array.prototype.map - callbackfn takes 3 arguments
 includes: [runTestCase.js]
 ---*/

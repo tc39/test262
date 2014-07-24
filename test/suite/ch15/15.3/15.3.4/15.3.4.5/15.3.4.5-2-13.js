@@ -8,6 +8,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.3.4.5-2-13
 description: Function.prototype.bind throws TypeError if 'Target' is a number
 includes: [runTestCase.js]
 ---*/

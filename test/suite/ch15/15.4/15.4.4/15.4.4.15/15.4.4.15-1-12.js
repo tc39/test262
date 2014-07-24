@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-1-12
 description: Array.prototype.lastIndexOf applied to RegExp object
 includes: [runTestCase.js]
 ---*/

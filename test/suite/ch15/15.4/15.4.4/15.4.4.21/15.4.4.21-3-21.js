@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-3-21
 description: >
     Array.prototype.reduce - 'length' is an object that has an own
     valueOf method that returns an object and toString method that

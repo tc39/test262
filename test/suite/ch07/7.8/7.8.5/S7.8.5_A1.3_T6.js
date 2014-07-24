@@ -3,6 +3,7 @@
 
 /*---
 info: "RegularExpressionFirstChar :: LineTerminator is incorrect"
+es5id: 7.8.5_A1.3_T6
 description: Paragraph separator, with eval
 ---*/
 

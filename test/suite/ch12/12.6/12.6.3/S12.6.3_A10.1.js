@@ -3,6 +3,7 @@
 
 /*---
 info: Nested "var-loops" nine blocks depth is evaluated properly
+es5id: 12.6.3_A10.1
 description: >
     Checking if executing nested "var-loops" nine blocks depth is
     evaluated properly

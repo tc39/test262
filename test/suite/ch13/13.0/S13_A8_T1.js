@@ -3,6 +3,7 @@
 
 /*---
 info: Arguments property of activation object contains real params to be passed
+es5id: 13_A8_T1
 description: >
     Creating a function declared with "function __func(param1, param2,
     param3)" and using arguments.length property in order to perform

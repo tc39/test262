@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of encodeURIComponent is 1
+es5id: 15.1.3.4_A5.4
 description: encodeURIComponent.length === 1
 ---*/
 

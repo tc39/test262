@@ -3,6 +3,7 @@
 
 /*---
 info: The join property of Array has not prototype property
+es5id: 15.4.4.5_A6.6
 description: Checking Array.prototype.join.prototype
 ---*/
 

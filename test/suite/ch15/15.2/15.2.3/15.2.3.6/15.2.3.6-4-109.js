@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-109
 description: >
     Object.defineProperty - 'name' and 'desc' are accessor properties,
     name.[[Get]] is undefined and desc.[[Get]] is function (8.12.9

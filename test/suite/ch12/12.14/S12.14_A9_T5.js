@@ -5,6 +5,7 @@
 info: >
     "try" with "catch" or "finally" statement within/without an "do while"
     statement
+es5id: 12.14_A9_T5
 description: >
     Checking if exceptions are thrown correctly from wherever of loop
     body

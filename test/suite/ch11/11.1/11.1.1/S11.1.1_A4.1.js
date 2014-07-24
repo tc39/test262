@@ -5,6 +5,7 @@
 info: >
     Being in anonymous code, "this" and eval("this"), called as a function,
     return the global object
+es5id: 11.1.1_A4.1
 description: Creating function with new Function() constructor
 ---*/
 

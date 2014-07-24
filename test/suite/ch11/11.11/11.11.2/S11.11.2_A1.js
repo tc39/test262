@@ -5,6 +5,7 @@
 info: >
     White Space and Line Terminator between LogicalORExpression and "||" or
     between "||" and LogicalANDExpression are allowed
+es5id: 11.11.2_A1
 description: Checking by using eval
 ---*/
 

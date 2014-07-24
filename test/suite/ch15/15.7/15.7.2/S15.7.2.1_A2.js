@@ -6,6 +6,7 @@ info: >
     The [[Prototype]] property of the newly constructed object
     is set to the original Number prototype object, the one that is the
     initial value of Number.prototype
+es5id: 15.7.2.1_A2
 description: Checking prototype property of the newly created objects
 ---*/
 

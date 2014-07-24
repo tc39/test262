@@ -3,6 +3,7 @@
 
 /*---
 info: The RegExp instance ignoreCase property has the attribute DontDelete
+es5id: 15.10.7.3_A9
 description: Checking if deleting the ignoreCase property fails
 includes: [$FAIL.js]
 ---*/

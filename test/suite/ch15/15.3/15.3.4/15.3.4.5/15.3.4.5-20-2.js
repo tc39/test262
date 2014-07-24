@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.3.4.5-20-2
 description: >
     Function.prototype.bind - [[Get]] attribute of 'caller' property
     in 'F' is thrower

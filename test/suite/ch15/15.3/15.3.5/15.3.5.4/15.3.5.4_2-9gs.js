@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.3.5.4_2-9gs
 description: >
     Strict mode - checking access to non-strict function caller from
     strict function (New'ed Function constructor defined within strict

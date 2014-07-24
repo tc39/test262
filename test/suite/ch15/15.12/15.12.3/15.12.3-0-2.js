@@ -16,6 +16,7 @@ info: >
     parameters.
     This default applies to JSON.stringify, and it must exist as a function
     taking 3 parameters.
+es5id: 15.12.3-0-2
 description: JSON.stringify must exist as be a function taking 3 parameters
 includes: [runTestCase.js]
 ---*/

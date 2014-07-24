@@ -3,6 +3,7 @@
 
 /*---
 info: "The MV of HexDigit ::: e or of HexDigit ::: E is 14"
+es5id: 9.3.1_A30
 description: >
     Compare Number('0xE'), Number('0XE'), Number('0xe') and
     Number('0Xe') with 14

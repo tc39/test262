@@ -5,6 +5,7 @@
 info: >
     The value of the internal [[Prototype]] property of the Function constructor
     is the Function prototype object
+es5id: 15.3.3_A2_T2
 description: Add new property to Function.prototype and check it
 ---*/
 

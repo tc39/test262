@@ -3,6 +3,7 @@
 
 /*---
 info: "DecimalLiteral :: ExponentPart is incorrect"
+es5id: 7.8.3_A4.1_T8
 description: "ExponentPart :: E 0"
 flags: [negative]
 ---*/

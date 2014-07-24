@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.3.4.5-8-1
 description: Function.prototype.bind, type of bound function must be 'function'
 includes: [runTestCase.js]
 ---*/

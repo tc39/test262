@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of pop has the attribute DontDelete
+es5id: 15.4.4.6_A5.2
 description: Checking use hasOwnProperty, delete
 flags: [noStrict]
 includes: [$FAIL.js]

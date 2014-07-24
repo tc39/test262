@@ -5,6 +5,7 @@
 info: >
     The initial value of the created property length is the number
     of actual parameter values supplied by the caller
+es5id: 10.6_A6
 description: Create function, that returned arguments.length
 ---*/
 

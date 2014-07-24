@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-307
 description: >
     Object.defineProperties - 'O' is an Arguments object, 'P' is
     generic own data property of 'O', test TypeError is thrown when

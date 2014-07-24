@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of the Math.min method is 2
+es5id: 15.8.2.12_A4
 description: Checking if Math.min.length property is defined and equals to 2
 ---*/
 

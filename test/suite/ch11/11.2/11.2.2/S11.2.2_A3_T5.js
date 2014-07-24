@@ -5,6 +5,7 @@
 info: >
     If Type(NewExpression) or Type(MemberExpression) is not Object, throw
     TypeError
+es5id: 11.2.2_A3_T5
 description: Checking "null primitive" case
 ---*/
 

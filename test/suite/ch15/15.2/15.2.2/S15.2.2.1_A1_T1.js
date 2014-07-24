@@ -10,6 +10,7 @@ info: >
     iii) 	The [[Class]] property of the newly constructed object is set to "Object".
     iv) 	The newly constructed object has no [[Value]] property.
     v) 	Return the newly created native object
+es5id: 15.2.2.1_A1_T1
 description: Creating new Object() and checking its properties
 ---*/
 

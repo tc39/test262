@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.22-5-11
 description: >
     Array.prototype.reduceRight - side-effects produced by step 3 when
     an exception occurs

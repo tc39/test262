@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x-- uses GetValue and PutValue
+es5id: 11.3.2_A2.1_T3
 description: If Type(x) is not Reference, throw ReferenceError (or SyntaxError)
 flags: [negative]
 ---*/

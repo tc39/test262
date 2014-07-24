@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.10-3-7
 description: >
     Object.preventExtensions - indexed properties cannot be added into
     a Number object

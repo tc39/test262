@@ -5,6 +5,7 @@
 info: >
     If thisArg is null or undefined, the called function is passed the global
     object as the this value
+es5id: 15.3.4.3_A3_T5
 description: >
     No any arguments at apply function and it called inside function
     declaration

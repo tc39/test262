@@ -3,6 +3,7 @@
 
 /*---
 info: The parseInt property can't be used as constructor
+es5id: 15.1.2.2_A9.7
 description: >
     If property does not implement the internal [[Construct]] method,
     throw a TypeError exception

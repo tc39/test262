@@ -6,6 +6,7 @@ info: >
     The production CharacterClass :: [ [lookahead \notin {^}] ClassRanges ]
     evaluates by evaluating ClassRanges to obtain a CharSet and returning
     that CharSet and the boolean false
+es5id: 15.10.2.13_A1_T12
 description: Execute /a[b]c/.exec("abc") and check results
 ---*/
 

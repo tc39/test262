@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of the hasOwnProperty method is 1
+es5id: 15.2.4.7_A11
 description: Checking the value of Object.prototype.hasOwnProperty.length
 ---*/
 

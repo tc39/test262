@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-2-39
 description: >
     Object.defineProperty - argument 'P' is an array that converts to
     a string

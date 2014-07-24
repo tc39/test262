@@ -3,6 +3,7 @@
 
 /*---
 info: Array prototype object has length property whose value is +0
+es5id: 15.4.4_A1.3_T1
 description: Array.prototype.length === 0
 ---*/
 

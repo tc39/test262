@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.5.4.20-2-28
 description: String.prototype.trim - argument 'this' is an empty string
 includes: [runTestCase.js]
 ---*/

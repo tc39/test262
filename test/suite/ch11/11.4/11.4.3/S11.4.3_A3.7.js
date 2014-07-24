@@ -5,6 +5,7 @@
 info: >
     Result of applying "typeof" operator to the object that is native and
     implements [[Call]] is "function"
+es5id: 11.4.3_A3.7
 description: typeof (object with [[Call]]) === "function"
 ---*/
 

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.17-7-c-ii-17
 description: >
     Array.prototype.some - 'this' of 'callbackfn' is a Number object
     when T is not an object (T is a number primitive)

@@ -3,6 +3,7 @@
 
 /*---
 info: The toLocaleString property of Array has not prototype property
+es5id: 15.4.4.3_A4.6
 description: Checking Array.prototype.toLocaleString.prototype
 ---*/
 

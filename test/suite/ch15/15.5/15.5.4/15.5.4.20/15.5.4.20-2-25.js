@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.5.4.20-2-25
 description: >
     String.prototype.trim - argument 'this' is a decimal that converts
     to a string (value is 123.456)

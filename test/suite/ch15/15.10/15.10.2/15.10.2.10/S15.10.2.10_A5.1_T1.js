@@ -5,6 +5,7 @@
 info: >
     CharacterEscape :: IdentityEscapeSequence :: SourceCharacter but not
     IdentifierPart
+es5id: 15.10.2.10_A5.1_T1
 description: "Tested string is \"~`!@#$%^&*()-+={[}]|\\\\:;'<,>./?\" + '\"'"
 ---*/
 

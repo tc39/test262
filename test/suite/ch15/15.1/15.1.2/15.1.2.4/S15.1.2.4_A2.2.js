@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of isNaN has the attribute DontDelete
+es5id: 15.1.2.4_A2.2
 description: Checking use hasOwnProperty, delete
 flags: [noStrict]
 includes: [$FAIL.js]

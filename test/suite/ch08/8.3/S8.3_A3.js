@@ -3,6 +3,7 @@
 
 /*---
 info: Applaing negation to boolean works well
+es5id: 8.3_A3
 description: Check not false equals true, not true equals false
 ---*/
 

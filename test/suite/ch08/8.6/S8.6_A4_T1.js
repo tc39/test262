@@ -3,6 +3,7 @@
 
 /*---
 info: An Object is an unordered collection of properties
+es5id: 8.6_A4_T1
 description: Simple using a few custom properties
 ---*/
 

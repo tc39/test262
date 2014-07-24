@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-9-b-3
 description: >
     Array.prototype.reduce - deleted properties in step 2 are visible
     here

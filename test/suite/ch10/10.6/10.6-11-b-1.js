@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.6-11-b-1
 description: >
     Arguments Object has index property '0' as its own property, it
     shoulde be writable, enumerable, configurable and does not invoke

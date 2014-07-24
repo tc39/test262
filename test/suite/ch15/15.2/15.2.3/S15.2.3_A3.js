@@ -3,6 +3,7 @@
 
 /*---
 info: Object constructor has length property whose value is 1
+es5id: 15.2.3_A3
 description: Checking Object.length
 ---*/
 

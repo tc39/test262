@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 14.1-9-s
 description: "'use strict' directive - may occur multiple times"
 flags: [noStrict]
 includes: [runTestCase.js]

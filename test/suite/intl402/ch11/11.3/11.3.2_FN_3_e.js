@@ -2,10 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 11.3.2_FN_3_e
 description: >
     Tests that Intl.NumberFormat.prototype.format  supports all
     alternative numbering systems.
-author:: Roozbeh Pournader
+author: Roozbeh Pournader
 ---*/
 
 var numberingSystems = {

@@ -3,6 +3,7 @@
 
 /*---
 info: Using "try" with "catch" or "finally" statement with a "return" statement
+es5id: 12.14_A13_T2
 description: Using try/finally syntax construction
 ---*/
 

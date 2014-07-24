@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.localeCompare(that)
+es5id: 15.5.4.9_A1_T1
 description: This string is symbol and arguments are symbols
 ---*/
 

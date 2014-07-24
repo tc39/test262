@@ -3,6 +3,7 @@
 
 /*---
 info: If Type(x) and Type(y) are Undefined-s, return false
+es5id: 11.9.5_A6.1
 description: void 0, eval("var x") is undefined
 ---*/
 

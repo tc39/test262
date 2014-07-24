@@ -3,6 +3,7 @@
 
 /*---
 info: "[[Call]] executes code associated with the object"
+es5id: 8.6.2_A5_T2
 description: >
     Call function-property of object, property defined  as
     seat['move']=function(){position++}

@@ -3,6 +3,7 @@
 
 /*---
 info: Closures are admitted
+es5id: 13.2.1_A5_T2
 description: >
     Returning a function that approximates the derivative of f  using
     an interval of dx, which should be appropriately small

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.3-4-1
 description: >
     JSON.stringify ignores replacer aruguments that are not functions
     or arrays..

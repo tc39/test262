@@ -6,6 +6,7 @@ info: >
     The arguments are appended to the end of the array, in
     the order in which they appear. The new length of the array is returned
     as the result of the call
+es5id: 15.4.4.7_A1_T1
 description: Checking case when push is given no arguments or one argument
 ---*/
 

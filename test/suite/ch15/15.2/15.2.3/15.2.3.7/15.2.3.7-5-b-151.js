@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-5-b-151
 description: >
     Object.defineProperties - 'descObj' is a Function object which
     implements its own [[Get]] method to get 'writable' property

@@ -3,6 +3,7 @@
 
 /*---
 info: Operator uses GetValue
+es5id: 11.14_A2.1_T2
 description: If GetBase(Expression) is null, throw ReferenceError
 ---*/
 

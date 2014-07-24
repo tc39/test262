@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.18-2-18
 description: >
     Array.prototype.forEach applied to String object, which implements
     its own property get method

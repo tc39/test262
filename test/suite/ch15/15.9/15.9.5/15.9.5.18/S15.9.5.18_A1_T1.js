@@ -3,6 +3,7 @@
 
 /*---
 info: The Date.prototype property "getHours" has { DontEnum } attributes
+es5id: 15.9.5.18_A1_T1
 description: Checking absence of ReadOnly attribute
 ---*/
 

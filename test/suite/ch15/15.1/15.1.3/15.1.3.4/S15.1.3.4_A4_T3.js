@@ -3,6 +3,7 @@
 
 /*---
 info: URI tests
+es5id: 15.1.3.4_A4_T3
 description: Checking URL with Line Terminator
 ---*/
 

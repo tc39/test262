@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-9-c-ii-4
 description: >
     Array.prototype.reduce - k values are passed in acending numeric
     order on an Array

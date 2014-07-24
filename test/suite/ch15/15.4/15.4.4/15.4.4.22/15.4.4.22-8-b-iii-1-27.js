@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.22-8-b-iii-1-27
 description: >
     Array.prototype.reduceRight - This object is the Arguments object
     which implements its own property get method (number of arguments

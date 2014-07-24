@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.2.1-31-s
 description: >
     eval as local var identifier defined twice throws SyntaxError in
     strict mode

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.12-2-a-11
 description: Object.isFrozen - 'O' is the Arguments object
 includes: [runTestCase.js]
 ---*/

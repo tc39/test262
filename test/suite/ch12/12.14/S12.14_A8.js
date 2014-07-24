@@ -3,6 +3,7 @@
 
 /*---
 info: "\"try\" with \"catch\" or \"finally\" statement within/without an \"if\" statement"
+es5id: 12.14_A8
 description: Throwing exception within an "if" statement
 ---*/
 

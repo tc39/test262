@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.3.2-0-5
 description: >
     Array.isArray return true if its argument is an Array
     (Array.prototype)

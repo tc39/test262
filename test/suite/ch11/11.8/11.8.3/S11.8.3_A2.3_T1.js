@@ -3,6 +3,7 @@
 
 /*---
 info: In ES5, First expression should be evaluated first.
+es5id: 11.8.3_A2.3_T1
 description: Checking that operands of a "<=" evaluate left-to-right
 ---*/
 

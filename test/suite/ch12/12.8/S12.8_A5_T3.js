@@ -5,6 +5,7 @@
 info: >
     Identifier must be label in the label set of an enclosing (but not
     crossing function boundaries) IterationStatement
+es5id: 12.8_A5_T3
 description: >
     Checking if using internal loop label as an Identifier appears to
     be invalid

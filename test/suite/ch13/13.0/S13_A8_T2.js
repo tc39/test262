@@ -3,6 +3,7 @@
 
 /*---
 info: Arguments property of activation object contains real params to be passed
+es5id: 13_A8_T2
 description: >
     Creating a function with no parameters and using arguments.length
     property in order to perform the test

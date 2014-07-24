@@ -5,6 +5,7 @@
 info: >
     The value of the length property is usually an integer that indicates the
     'typical' number of arguments expected by the function
+es5id: 15.3.5.1_A1_T3
 description: >
     Checking length property of
     Function("arg1,arg2,arg3","arg1,arg2","arg3", null)

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.19-8-b-9
 description: >
     Array.prototype.map - deleting own property causes index property
     not to be visited on an Array

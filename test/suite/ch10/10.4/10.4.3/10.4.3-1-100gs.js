@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.4.3-1-100gs
 description: >
     Strict Mode - checking 'this' (strict function passed as arg to
     String.prototype.replace from non-strict context)

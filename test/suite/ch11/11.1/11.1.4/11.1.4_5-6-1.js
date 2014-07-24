@@ -11,6 +11,7 @@ info: >
     ElementList : ElementList , Elisionopt AssignmentExpression
     6.Call the [[DefineOwnProperty]] internal method of array with arguments ToString(ToUint32((pad+len)) and the Property Descriptor { [[Value]]: initValue
     , [[Writable]]: true, [[Enumerable]]: true, [[Configurable]]: true}, and false.
+es5id: 11.1.4_5-6-1
 description: >
     Initialize array using ElementList (ElementList , Elisionopt
     AssignmentExpression) when index property (read-only) exists in

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-269
 description: >
     Object.defineProperties - 'O' is an Array, 'P' is generic own data
     property of 'O', and 'desc' is data descriptor, test updating

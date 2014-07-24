@@ -6,6 +6,7 @@
 
 /*---
 info: Promise.all([]) is resolved immediately
+es5id: 25.4.4.1_A2.2_T1
 author: Sam Mikes
 includes: [PromiseHelper.js]
 ---*/

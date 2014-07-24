@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.12-4-1
 description: Object.isFrozen returns false if extensible is true
 includes: [runTestCase.js]
 ---*/

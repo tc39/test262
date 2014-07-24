@@ -2,6 +2,7 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
+es5id: 12.3.3
 description: >
     Tests that the object returned by
     Intl.DateTimeFormat.prototype.resolvedOptions  has the right

@@ -3,6 +3,7 @@
 
 /*---
 info: Function.prototype.apply has not prototype property
+es5id: 15.3.4.3_A12
 description: >
     Checking if obtaining the prototype property of
     Function.prototype.apply fails

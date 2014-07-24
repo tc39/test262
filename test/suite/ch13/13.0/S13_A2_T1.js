@@ -3,6 +3,7 @@
 
 /*---
 info: function must be evaluated inside the expression
+es5id: 13_A2_T1
 description: Defining function body with "return arg"
 ---*/
 

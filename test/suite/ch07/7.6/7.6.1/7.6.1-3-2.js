@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 7.6.1-3-2
 description: >
     Allow reserved words as property names by index
     assignment,verified with hasOwnProperty: break, case, do

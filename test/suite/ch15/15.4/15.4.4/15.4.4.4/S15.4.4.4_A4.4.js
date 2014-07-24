@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of concat is 1
+es5id: 15.4.4.4_A4.4
 description: concat.length === 1
 ---*/
 

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.22-8-c-8
 description: >
     Array.prototype.reduceRight - the exception is not thrown if
     exception was thrown by step 3

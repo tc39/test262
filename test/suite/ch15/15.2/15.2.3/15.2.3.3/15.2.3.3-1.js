@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.3-1
 description: >
     Object.getOwnPropertyDescriptor throws TypeError if type of first
     param is not Object

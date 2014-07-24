@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of the toLocaleUpperCase method is 0
+es5id: 15.5.4.19_A11
 description: Checking String.prototype.toLocaleUpperCase.length
 ---*/
 

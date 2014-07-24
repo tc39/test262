@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.6-7-1
 description: >
     Arguments Object has length as its own property and does not
     invoke the setter defined on Object.prototype.length (Step 7)

@@ -6,6 +6,7 @@ info: >
     The value of the internal [[Prototype]] property of the
     created arguments object is the original Object prototype object, the one
     that is the initial value of Object.prototype
+es5id: 10.6_A2
 description: Checking arguments.constructor.prototype===Object.prototype
 ---*/
 

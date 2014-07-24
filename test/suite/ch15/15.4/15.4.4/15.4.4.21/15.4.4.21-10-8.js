@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-10-8
 description: Array.prototype.reduce doesn't visit expandos
 includes: [runTestCase.js]
 ---*/

@@ -3,6 +3,7 @@
 
 /*---
 info: "RegularExpressionChar :: LineTerminator is incorrect"
+es5id: 7.8.5_A2.3_T1
 description: Line Feed, without eval
 flags: [negative]
 ---*/

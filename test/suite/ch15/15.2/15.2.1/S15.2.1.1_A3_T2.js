@@ -5,6 +5,7 @@
 info: >
     Since calling Object as a function is identical to calling a function,
     list of arguments bracketing is allowed
+es5id: 15.2.1.1_A3_T2
 description: Creating an object with "Object(null,2,3)"
 ---*/
 

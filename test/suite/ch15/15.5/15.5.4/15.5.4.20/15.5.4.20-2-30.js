@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.5.4.20-2-30
 description: >
     String.prototype.trim - argument 'this' is a string(value is
     'undefined')

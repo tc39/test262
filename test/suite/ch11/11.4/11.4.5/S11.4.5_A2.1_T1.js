@@ -3,6 +3,7 @@
 
 /*---
 info: Operator --x uses GetValue and PutValue
+es5id: 11.4.5_A2.1_T1
 description: Type(x) is Reference and GetBase(x) is not null
 ---*/
 

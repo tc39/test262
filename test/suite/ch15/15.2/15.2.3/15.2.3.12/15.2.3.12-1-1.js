@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.12-1-1
 description: >
     Object.isFrozen - TypeError is thrown when the first param 'O' is
     undefined

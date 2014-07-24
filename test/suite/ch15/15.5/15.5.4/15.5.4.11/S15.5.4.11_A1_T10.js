@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.replace (searchValue, replaceValue)
+es5id: 15.5.4.11_A1_T10
 description: >
     Call replace (searchValue, replaceValue) function with object and
     function arguments of string. Object have overrided toString

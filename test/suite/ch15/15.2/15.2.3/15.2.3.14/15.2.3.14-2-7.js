@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.14-2-7
 description: >
     Object.keys - 'n' is 0 when 'O' doesn't contain own enumerable
     data or accessor properties

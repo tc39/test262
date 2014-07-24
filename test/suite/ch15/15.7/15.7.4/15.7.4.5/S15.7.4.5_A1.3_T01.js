@@ -3,6 +3,7 @@
 
 /*---
 info: "Step 4: If this number value is NaN, return the string \"NaN\""
+es5id: 15.7.4.5_A1.3_T01
 description: NaN is computed by new Number("string")
 ---*/
 

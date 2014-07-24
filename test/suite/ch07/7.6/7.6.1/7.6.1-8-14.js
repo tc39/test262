@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 7.6.1-8-14
 description: >
     Allow reserved words as property names by set function within an
     object, accessed via indexing: public, yield, interface

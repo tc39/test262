@@ -5,6 +5,7 @@
 info: >
     "Delete" operator removes property, which is reference to the object, not
     the object
+es5id: 11.4.1_A4
 description: Checking two reference by one object
 ---*/
 

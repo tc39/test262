@@ -3,6 +3,7 @@
 
 /*---
 info: The decodeURIComponent property can't be used as constructor
+es5id: 15.1.3.2_A5.7
 description: >
     If property does not implement the internal [[Construct]] method,
     throw a TypeError exception

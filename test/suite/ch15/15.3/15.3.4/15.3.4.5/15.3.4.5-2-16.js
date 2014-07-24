@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.3.4.5-2-16
 description: Function.prototype.bind - 'Target' is a function
 includes: [runTestCase.js]
 ---*/

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-297
 description: >
     Object.defineProperties - 'O' is an Arguments object, 'P' is an
     array index named data property of 'O' but not defined in

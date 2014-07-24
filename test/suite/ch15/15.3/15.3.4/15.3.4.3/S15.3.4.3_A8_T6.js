@@ -3,6 +3,7 @@
 
 /*---
 info: Function.prototype.apply can`t be used as [[create]] caller
+es5id: 15.3.4.3_A8_T6
 description: >
     Checking if creating "new (Function("function
     f(){this.p1=1;};return f").apply())" fails

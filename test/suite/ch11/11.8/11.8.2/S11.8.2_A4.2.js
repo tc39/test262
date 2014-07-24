@@ -3,6 +3,7 @@
 
 /*---
 info: If y is NaN, return false (if result in 11.8.5 is undefined, return false)
+es5id: 11.8.2_A4.2
 description: x is number primitive
 ---*/
 

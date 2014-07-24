@@ -5,6 +5,7 @@
 info: >
     The result of a floating-point multiplication is governed by the rules of
     IEEE 754 double-precision arithmetics
+es5id: 11.5.1_A4_T2
 description: >
     The sign of the result is positive if both operands have the same
     sign, negative if the operands have different signs

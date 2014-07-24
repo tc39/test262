@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.2.1-4-s
 description: >
     eval - a function expr assigning into 'eval' throws a SyntaxError
     in strict mode

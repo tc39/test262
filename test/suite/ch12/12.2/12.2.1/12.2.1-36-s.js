@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.2.1-36-s
 description: "'for(var arguments in ...) {...}' throws SyntaxError in strict mode"
 flags: [onlyStrict]
 includes: [runTestCase.js]

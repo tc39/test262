@@ -3,6 +3,7 @@
 
 /*---
 info: If IsCallable(func) is false, then throw a TypeError exception.
+es5id: 15.3.4.5_A16
 description: >
     A RegExp is not a function, but it may be callable. Iff it is,
     it's typeof should be 'function', in which case bind should accept

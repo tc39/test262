@@ -3,6 +3,7 @@
 
 /*---
 info: Let reservedURIComponentSet be the empty string
+es5id: 15.1.3.2_A3_T3
 description: Complex test
 ---*/
 

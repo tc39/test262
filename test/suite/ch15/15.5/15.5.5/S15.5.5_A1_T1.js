@@ -3,6 +3,7 @@
 
 /*---
 info: String instance has not [[call]] property
+es5id: 15.5.5_A1_T1
 description: Create new String and try call it
 includes: [$FAIL.js]
 ---*/

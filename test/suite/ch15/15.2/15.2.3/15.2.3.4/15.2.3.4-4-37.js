@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.4-4-37
 description: >
     Object.getOwnPropertyNames - inherited accessor properties are not
     pushed into the returned array

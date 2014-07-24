@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.19-9-10
 description: >
     Array.prototype.map - empty array to be returned if 'length' is 0
     (subclassed Array, length overridden with obj with valueOf)

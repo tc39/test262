@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.search (regexp)
+es5id: 15.5.4.12_A1_T11
 description: >
     Argument is object, and instance is string.  Object with overrided
     toString function, that throw exception

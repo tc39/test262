@@ -3,6 +3,7 @@
 
 /*---
 info: "\"continue\" statement within a \"do-while\" Statement is allowed"
+es5id: 12.6.1_A8
 description: Using eval
 ---*/
 

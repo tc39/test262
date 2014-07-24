@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.10-2-1
 description: >
     Object.preventExtensions - repeated calls to preventExtensions
     have no side effects

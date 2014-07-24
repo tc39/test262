@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.6-13-a-1
 description: >
     In non-strict mode, arguments object should have its own 'callee'
     property defined (Step 13.a)

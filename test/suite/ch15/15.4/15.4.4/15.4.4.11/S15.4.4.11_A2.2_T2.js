@@ -3,6 +3,7 @@
 
 /*---
 info: My comparefn is inverse implementation comparefn
+es5id: 15.4.4.11_A2.2_T2
 description: Checking RUSSIAN ALPHABET
 ---*/
 

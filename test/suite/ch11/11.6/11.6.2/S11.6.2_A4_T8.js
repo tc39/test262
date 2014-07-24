@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x - y produces the same result as x + (-y)
+es5id: 11.6.2_A4_T8
 description: >
     If the magnitude is too large to represent, the operation
     overflows and the result is then an infinity of appropriate sign

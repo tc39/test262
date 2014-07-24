@@ -3,6 +3,7 @@
 
 /*---
 info: Assignment to string literals calls String constructor
+es5id: 8.4_A9_T3
 description: Simple empty string variable compare with empty object String
 ---*/
 

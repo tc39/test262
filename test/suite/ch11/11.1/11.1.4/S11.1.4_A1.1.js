@@ -3,6 +3,7 @@
 
 /*---
 info: "Evaluate the production ArrayLiteral: [ ]"
+es5id: 11.1.4_A1.1
 description: >
     Checking various properties of the array defined with expression
     "var array = []"

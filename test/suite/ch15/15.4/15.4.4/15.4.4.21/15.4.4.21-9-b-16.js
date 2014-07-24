@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-9-b-16
 description: >
     Array.prototype.reduce - decreasing length of array in step 8 does
     not delete non-configurable properties

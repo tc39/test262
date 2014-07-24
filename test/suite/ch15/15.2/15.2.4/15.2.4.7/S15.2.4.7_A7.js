@@ -3,6 +3,7 @@
 
 /*---
 info: Object.prototype.propertyIsEnumerable can't be used as a constructor
+es5id: 15.2.4.7_A7
 description: >
     Checking if creating "new Object.prototype.propertyIsEnumerable"
     fails

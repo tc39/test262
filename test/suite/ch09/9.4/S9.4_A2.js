@@ -5,6 +5,7 @@
 info: >
     If ToNumber(value) is +0, -0, +Infinity, or -Infinity,
     return ToNumber(value)
+es5id: 9.4_A2
 description: >
     Check what position is defined by Number.NaN in string "abc":
     "abc".charAt(Number.NaN)

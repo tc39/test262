@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of the toLocaleLowerCase method is 0
+es5id: 15.5.4.17_A11
 description: Checking String.prototype.toLocaleLowerCase.length
 ---*/
 

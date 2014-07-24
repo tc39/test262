@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.12-2-a-6
 description: >
     Object.isFrozen - 'P' is own accessor property that overrides an
     inherited accessor property

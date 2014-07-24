@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 13.2-18-1
 description: >
     Function Object has 'prototype' as its own property, it is not
     enumerable and does not invoke the setter defined on

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-333-7
 description: >
     Object.defineProperty will update [[Value]] attribute of named
     property 'P' successfully when [[Configurable]] attribute is

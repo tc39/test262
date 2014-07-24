@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.5.4.20-2-40
 description: >
     String.prototype.trim - 'this' is an object that has an own
     toString method that returns an object and valueOf method that

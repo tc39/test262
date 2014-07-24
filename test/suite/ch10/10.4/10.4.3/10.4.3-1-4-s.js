@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.4.3-1-4-s
 description: this is not coerced to an object in strict mode (boolean)
 flags: [noStrict]
 includes: [runTestCase.js]

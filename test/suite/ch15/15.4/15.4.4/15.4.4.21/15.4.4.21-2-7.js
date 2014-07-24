@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-2-7
 description: >
     Array.prototype.reduce applied to Array-like object, 'length' is
     an own accessor property

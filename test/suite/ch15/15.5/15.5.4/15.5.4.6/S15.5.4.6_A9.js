@@ -3,6 +3,7 @@
 
 /*---
 info: The String.prototype.concat.length property has the attribute DontDelete
+es5id: 15.5.4.6_A9
 description: >
     Checking if deleting the String.prototype.concat.length property
     fails

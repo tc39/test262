@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.20-9-6
 description: >
     Array.prototype.filter visits deleted element in array after the
     call when same index is also present in prototype

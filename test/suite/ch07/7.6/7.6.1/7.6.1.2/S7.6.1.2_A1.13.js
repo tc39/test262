@@ -3,6 +3,7 @@
 
 /*---
 info: The "float" token can be used as identifier
+es5id: 7.6.1.2_A1.13
 description: Checking if execution of "float=1" succeeds
 ---*/
 

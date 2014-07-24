@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.replace (searchValue, replaceValue)
+es5id: 15.5.4.11_A1_T17
 description: Instance is String object, searchValue is regular expression
 ---*/
 

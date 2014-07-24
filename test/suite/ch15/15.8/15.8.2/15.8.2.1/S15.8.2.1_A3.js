@@ -3,6 +3,7 @@
 
 /*---
 info: If x is -Infinity, Math.abs(x) is +Infinity
+es5id: 15.8.2.1_A3
 description: Checking if Math.abs(-Infinity) equals to +Infinity
 ---*/
 

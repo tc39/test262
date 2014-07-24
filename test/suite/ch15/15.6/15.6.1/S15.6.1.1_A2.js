@@ -3,6 +3,7 @@
 
 /*---
 info: Boolean() returns false
+es5id: 15.6.1.1_A2
 description: Call Boolean() and check result
 ---*/
 

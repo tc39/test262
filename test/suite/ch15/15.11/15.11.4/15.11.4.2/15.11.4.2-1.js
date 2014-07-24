@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.11.4.2-1
 description: Error.prototype.name is not enumerable.
 includes: [runTestCase.js]
 ---*/

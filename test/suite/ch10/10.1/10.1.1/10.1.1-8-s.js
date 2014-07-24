@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.1.1-8-s
 description: >
     Strict Mode - Use Strict Directive Prologue is ''use strict';'
     which appears twice in the directive prologue

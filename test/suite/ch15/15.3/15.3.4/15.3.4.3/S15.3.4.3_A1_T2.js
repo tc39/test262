@@ -6,6 +6,7 @@ info: >
     The apply method performs a function call using the [[Call]] property of
     the object. If the object does not have a [[Call]] property, a TypeError
     exception is thrown
+es5id: 15.3.4.3_A1_T2
 description: >
     Calling "apply" method of the object that does not have a [[Call]]
     property.  Prototype of the object is Function.prototype

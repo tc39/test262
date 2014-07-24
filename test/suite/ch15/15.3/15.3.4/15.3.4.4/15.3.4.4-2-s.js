@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.3.4.4-2-s
 description: >
     Strict Mode - 'this' value is a number which cannot be converted
     to wrapper objects  when the function is called without an array

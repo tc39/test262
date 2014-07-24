@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of toLocaleString has the attribute DontEnum
+es5id: 15.4.4.3_A4.1
 description: Checking use propertyIsEnumerable, for-in
 ---*/
 

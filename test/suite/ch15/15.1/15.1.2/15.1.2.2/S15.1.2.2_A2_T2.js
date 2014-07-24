@@ -3,6 +3,7 @@
 
 /*---
 info: Operator remove leading StrWhiteSpaceChar
+es5id: 15.1.2.2_A2_T2
 description: "StrWhiteSpaceChar :: SP (U+0020)"
 ---*/
 

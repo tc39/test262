@@ -3,6 +3,7 @@
 
 /*---
 info: Operator ~x returns ~ToInt32(x)
+es5id: 11.4.8_A3_T1
 description: Type(x) is boolean primitive or Boolean object
 ---*/
 

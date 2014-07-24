@@ -9,6 +9,7 @@ info: >
     Step 4 of defineProperty calls the [[DefineOwnProperty]] internal method
     of O to define the property. For non-configurable properties, step 11.a.i
     of [[DefineOwnProperty]] rejects changing the setter if present.
+es5id: 15.2.3.6-4-18
 description: >
     Object.defineProperty throws TypeError when changing setter of
     non-configurable accessor properties(8.12.9 step 11.a.i)

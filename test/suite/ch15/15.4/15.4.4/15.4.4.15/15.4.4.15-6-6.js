@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-6-6
 description: >
     Array.prototype.lastIndexOf returns correct index when 'fromIndex'
     is 1

@@ -5,6 +5,7 @@
 info: >
     The production CharacterClassEscape :: s evaluates by returning the set of characters
     containing the characters that are on the right-hand side of the WhiteSpace (7.2) or LineTerminator (7.3) productions
+es5id: 15.10.2.12_A1_T5
 description: >
     Tested string is
     "0123456789_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~`!@#$%^&*()-+={[}]|\\:;'<,>./?"

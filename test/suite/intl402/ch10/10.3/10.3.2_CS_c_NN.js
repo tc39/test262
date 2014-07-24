@@ -3,6 +3,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 10.3.2_CS_c_NN
 description: >
     Tests that the compare function supports phonebook sorting if it
     says it does.  This test is not normative.

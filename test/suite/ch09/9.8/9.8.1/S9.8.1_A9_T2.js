@@ -7,6 +7,7 @@ info: >
     followed by lowercase character 'e', followed by a plus sign '+' or minus
     sign '-' according to whether n-1 is positive or negative, followed by the
     decimal representation of the integer abs(n-1) (with no leading zeros)
+es5id: 9.8.1_A9_T2
 description: >
     Various float numbers with many zeros convert to String by
     explicit transformation

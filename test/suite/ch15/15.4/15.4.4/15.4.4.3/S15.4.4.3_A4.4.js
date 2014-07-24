@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of toLocaleString is 0
+es5id: 15.4.4.3_A4.4
 description: toLocaleString.length === 1
 ---*/
 

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.10.4.1-4
 description: RegExp - the SyntaxError is not thrown when flags is 'gim'
 includes: [runTestCase.js]
 ---*/

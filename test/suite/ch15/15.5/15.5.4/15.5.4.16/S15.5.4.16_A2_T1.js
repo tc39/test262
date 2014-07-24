@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.toLowerCase() return a string, but not a String object
+es5id: 15.5.4.16_A2_T1
 description: Checking returned result
 ---*/
 

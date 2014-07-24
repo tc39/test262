@@ -3,6 +3,7 @@
 
 /*---
 info: Operator use ToString from array arguments
+es5id: 15.4.4.5_A3.2_T2
 description: If Type(argument) is Object, evaluate ToPrimitive(argument, String)
 ---*/
 

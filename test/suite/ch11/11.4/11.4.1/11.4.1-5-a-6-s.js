@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.4.1-5-a-6-s
 description: >
     Strict Mode - SyntaxError is thrown when deleting a variable which
     is a primitive type (string)

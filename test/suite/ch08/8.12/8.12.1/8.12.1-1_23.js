@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 8.12.1-1_23
 description: Properties - [[HasOwnProperty]] (literal inherited getter property)
 includes: [runTestCase.js]
 ---*/

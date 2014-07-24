@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 10.3.1
 description: >
     Tests that Intl.Collator.prototype.constructor is the
     Intl.Collator.

@@ -5,6 +5,7 @@
 info: >
     The initial value of String.prototype.constructor is the built-in String
     constructor
+es5id: 15.5.4.1_A1_T2
 description: Create new String.prototype.constructor object and check it
 ---*/
 

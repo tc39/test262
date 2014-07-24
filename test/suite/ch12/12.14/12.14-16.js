@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.14-16
 description: >
     Exception object is a function which update in catch block, when
     an exception parameter is called as a function in catch block,

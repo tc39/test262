@@ -3,6 +3,7 @@
 
 /*---
 info: Function.prototype.toString can't be used as constructor
+es5id: 15.3.4.2_A7
 description: Checking if creating "new Function.prototype.toString" fails
 includes:
     - $PRINT.js

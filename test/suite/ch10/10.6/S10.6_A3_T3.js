@@ -5,6 +5,7 @@
 info: >
     A property is created with name callee with property
     attributes { DontEnum } and no others
+es5id: 10.6_A3_T3
 description: Checking if deleting arguments.callee property fails
 flags: [noStrict]
 ---*/

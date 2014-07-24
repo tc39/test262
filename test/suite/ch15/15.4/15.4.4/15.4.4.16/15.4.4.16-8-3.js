@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.16-8-3
 description: >
     Array.prototype.every returns true if 'length' is 0 (subclassed
     Array, length overridden to false (type conversion))

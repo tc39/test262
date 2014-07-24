@@ -3,6 +3,7 @@
 
 /*---
 info: "AssignmentExpression : LeftHandSideExpression = AssignmentExpression"
+es5id: 11.13.1_A4_T2
 description: Syntax check if "x = x" throws ReferenceError
 ---*/
 

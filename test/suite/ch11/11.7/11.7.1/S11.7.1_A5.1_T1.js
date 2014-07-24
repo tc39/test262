@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x << y uses ToInt32(ShiftExpression)
+es5id: 11.7.1_A5.1_T1
 description: Checking boundary points
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: Global object properties have attributes { DontEnum }
+es5id: 10.2.3_A2.1_T1
 description: Global execution context - Value Properties
 ---*/
 

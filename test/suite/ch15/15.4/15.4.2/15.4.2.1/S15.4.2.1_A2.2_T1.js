@@ -8,6 +8,7 @@ info: >
     (if supplied); and, in general, for as many arguments as there are, the k property
     of the newly constructed object is set to argument k, where the first argument is
     considered to be argument number 0
+es5id: 15.4.2.1_A2.2_T1
 description: Checking correct work this algorithm
 ---*/
 

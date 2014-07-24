@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-2-16
 description: >
     Object.defineProperty - argument 'P' is a number that converts to
     a string (value is 1(following 22 zeros))

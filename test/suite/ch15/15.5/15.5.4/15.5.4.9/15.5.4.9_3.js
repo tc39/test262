@@ -2,6 +2,7 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
+es5id: 15.5.4.9_3
 description: >
     Tests that String.prototype.localeCompare treats a missing  "that"
     argument, undefined, and "undefined" as equivalent.

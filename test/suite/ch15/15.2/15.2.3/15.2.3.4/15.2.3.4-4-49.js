@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.4-4-49
 description: >
     Object.getOwnPropertyNames - own index properties of Array objcect
     are pushed into the returned Array

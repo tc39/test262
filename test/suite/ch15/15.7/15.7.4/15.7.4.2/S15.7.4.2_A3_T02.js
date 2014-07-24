@@ -3,6 +3,7 @@
 
 /*---
 info: "toString: radix should be an integer between 2 and 36"
+es5id: 15.7.4.2_A3_T02
 description: radix is 37
 ---*/
 

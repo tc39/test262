@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.3-6-a-2
 description: >
     JSON.stringify truccates non-integer numeric space arguments to
     their integer part.

@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 13.1.1_6_1
 description: >
     Tests that String.prototype.localeCompare throws the same
     exceptions as Intl.Collator.

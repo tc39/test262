@@ -5,6 +5,7 @@
 info: >
     Result of String conversion from Object value is conversion
     from primitive value
+es5id: 9.8_A5_T1
 description: Some objects convert to String by explicit transformation
 ---*/
 

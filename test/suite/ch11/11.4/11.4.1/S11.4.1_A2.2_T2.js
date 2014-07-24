@@ -3,6 +3,7 @@
 
 /*---
 info: If GetBase(x) doesn't have a property GetPropertyName(x), return true
+es5id: 11.4.1_A2.2_T2
 description: Checking Object object and Function object cases
 ---*/
 

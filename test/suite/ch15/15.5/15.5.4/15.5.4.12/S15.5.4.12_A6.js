@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.search has not prototype property
+es5id: 15.5.4.12_A6
 description: Checking String.prototype.search.prototype
 ---*/
 

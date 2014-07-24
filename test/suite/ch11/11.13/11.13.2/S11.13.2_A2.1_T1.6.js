@@ -3,6 +3,7 @@
 
 /*---
 info: Operator uses GetValue
+es5id: 11.13.2_A2.1_T1.6
 description: >
     Either Type is not Reference or GetBase is not null, check
     opeartor is "x <<= y"

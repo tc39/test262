@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 10.1.1_19_b
 description: Tests the special handling of the "co" key in Intl.Collator.
 author: Norbert Lindenberg
 ---*/

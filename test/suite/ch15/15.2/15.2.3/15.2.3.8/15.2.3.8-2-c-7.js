@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.8-2-c-7
 description: Object.seal - 'O' is a RegExp object
 includes: [runTestCase.js]
 ---*/

@@ -5,6 +5,7 @@
 info: >
     White Space and Line Terminator between MemberExpression or
     CallExpression and "." and between "." and Identifier are allowed
+es5id: 11.2.1_A1.1
 description: Checking by using eval
 ---*/
 

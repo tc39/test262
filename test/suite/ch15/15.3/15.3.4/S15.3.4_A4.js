@@ -6,6 +6,7 @@ info: >
     The Function prototype object does not have a valueOf property of its
     own. however, it inherits the valueOf property from the Object prototype
     Object
+es5id: 15.3.4_A4
 description: Checking valueOf property at Function.prototype
 ---*/
 

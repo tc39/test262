@@ -3,6 +3,7 @@
 
 /*---
 info: Operator -x uses GetValue
+es5id: 11.4.7_A2.1_T1
 description: Either Type(x) is not Reference or GetBase(x) is not null
 ---*/
 

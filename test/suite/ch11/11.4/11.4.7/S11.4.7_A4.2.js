@@ -3,6 +3,7 @@
 
 /*---
 info: Negating +0 produces -0, negating -0 produces +0
+es5id: 11.4.7_A4.2
 description: Checking Infinity
 ---*/
 

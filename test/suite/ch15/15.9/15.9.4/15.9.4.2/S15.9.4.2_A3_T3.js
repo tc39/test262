@@ -5,6 +5,7 @@
 info: >
     The Date.parse property "length" has { ReadOnly, DontDelete, DontEnum }
     attributes
+es5id: 15.9.4.2_A3_T3
 description: Checking DontEnum attribute
 ---*/
 

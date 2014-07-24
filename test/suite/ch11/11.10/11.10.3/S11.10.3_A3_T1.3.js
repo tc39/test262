@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x | y returns ToNumber(x) | ToNumber(y)
+es5id: 11.10.3_A3_T1.3
 description: Type(x) and Type(y) vary between primitive string and String object
 ---*/
 

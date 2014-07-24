@@ -3,6 +3,7 @@
 
 /*---
 info: The Date property "UTC" has { DontEnum } attributes
+es5id: 15.9.4.3_A1_T3
 description: Checking DontEnum attribute
 ---*/
 

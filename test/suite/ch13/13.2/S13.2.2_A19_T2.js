@@ -3,6 +3,7 @@
 
 /*---
 info: Function's scope chain is started when it is declared
+es5id: 13.2.2_A19_T2
 description: Function is declared in the object scope. Using "with" statement
 ---*/
 

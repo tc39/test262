@@ -5,6 +5,7 @@
 info: >
     Math.atan2, recommended that implementations use the approximation
     algorithms for IEEE 754 arithmetic contained in fdlibm
+es5id: 15.8.2.5_A24
 description: >
     Checking if Math.atan2(argument1, argument2) is approximately
     equals to its mathematical values on the set of 64 argument1

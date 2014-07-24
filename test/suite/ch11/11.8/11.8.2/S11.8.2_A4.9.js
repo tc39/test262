@@ -5,6 +5,7 @@
 info: >
     If is x greater than y and these values are both finite non-zero, return
     true; otherwise, return false
+es5id: 11.8.2_A4.9
 description: x and y are number primitives
 ---*/
 

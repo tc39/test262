@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.14-2-8
 description: >
     Object.keys - 'n' is the correct value when enumerable properties
     exist in 'O'

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-94
 description: >
     Object.defineProperties - 'P' is data property, properties.value
     and P.value are two different values (8.12.9 step 12)

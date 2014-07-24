@@ -2,6 +2,7 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
+es5id: 12.3.2_1_a_L15
 description: >
     Tests that the function returned by
     Intl.DateTimeFormat.prototype.format  meets the requirements for

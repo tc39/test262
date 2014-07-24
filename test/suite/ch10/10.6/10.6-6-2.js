@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.6-6-2
 description: "'length' property of arguments object has correct attributes"
 includes: [runTestCase.js]
 ---*/

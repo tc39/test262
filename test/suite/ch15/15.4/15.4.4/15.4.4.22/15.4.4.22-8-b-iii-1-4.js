@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.22-8-b-iii-1-4
 description: >
     Array.prototype.reduceRight - element to be retrieved is own data
     property that overrides an inherited data property on an Array

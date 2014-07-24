@@ -5,6 +5,7 @@
 info: >
     The Object.prototype.isPrototypeOf.length property has the attribute
     DontEnum
+es5id: 15.2.4.6_A8
 description: >
     Checknig if enumerating the Object.prototype.isPrototypeOf.length
     property fails

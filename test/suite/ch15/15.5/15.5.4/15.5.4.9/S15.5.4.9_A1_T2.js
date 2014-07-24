@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.localeCompare(that)
+es5id: 15.5.4.9_A1_T2
 description: >
     Call string_1.localeCompare(string_2) is equal
     -string_2.localeCompare(string_1)

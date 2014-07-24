@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-3-8
 description: >
     Object.defineProperties - no additional property is defined in 'O'
     when 'Properties' doesn't contain enumerable own property

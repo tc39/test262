@@ -3,6 +3,7 @@
 
 /*---
 info: The reverse property of Array has not prototype property
+es5id: 15.4.4.8_A5.6
 description: Checking Array.prototype.reverse.prototype
 ---*/
 

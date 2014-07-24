@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 9.2.6_2
 description: >
     Tests that the behavior of a List is not affected by adversarial
     changes to Array.prototype.

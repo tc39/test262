@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-5-29
 description: >
     Array.prototype.lastIndexOf - side effects produced by step 2 are
     visible when an exception occurs

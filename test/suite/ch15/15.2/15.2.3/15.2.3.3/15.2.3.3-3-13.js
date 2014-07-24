@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.3-3-13
 description: >
     Object.getOwnPropertyDescriptor applied to the Arguments object
     which implements its own property get method

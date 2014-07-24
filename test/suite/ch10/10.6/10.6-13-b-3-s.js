@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.6-13-b-3-s
 description: arguments.caller is non-configurable in strict mode
 flags: [onlyStrict]
 includes: [runTestCase.js]

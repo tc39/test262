@@ -5,6 +5,7 @@
 info: >
     Since when call is used for Function constructor themself new function instance creates
     and then first argument(thisArg) should be ignored
+es5id: 15.3_A3_T6
 description: >
     First argument is this, and this have needed variable. Function
     return this.var_name

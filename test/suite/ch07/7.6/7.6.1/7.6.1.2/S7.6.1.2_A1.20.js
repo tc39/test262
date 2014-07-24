@@ -3,6 +3,7 @@
 
 /*---
 info: The "native" token can be used as identifier
+es5id: 7.6.1.2_A1.20
 description: Checking if execution of "native=1" succeeds
 ---*/
 

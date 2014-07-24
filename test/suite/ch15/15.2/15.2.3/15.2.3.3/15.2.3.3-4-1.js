@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.3-4-1
 description: >
     Object.getOwnPropertyDescriptor returns an object representing a
     data desc for valid data valued properties

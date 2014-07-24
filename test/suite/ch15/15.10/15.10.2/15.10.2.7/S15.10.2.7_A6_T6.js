@@ -6,6 +6,7 @@ info: >
     The production QuantifierPrefix :: { DecimalDigits , }evaluates as follows:
     i) Let i be the MV of DecimalDigits
     ii) Return the two results i and \infty
+es5id: 15.10.2.7_A6_T6
 description: Execute /x{1,2}x{1,}/.exec("xxxxxxx") and check results
 ---*/
 

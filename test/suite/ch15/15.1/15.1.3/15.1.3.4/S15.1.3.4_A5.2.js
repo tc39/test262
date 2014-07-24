@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of encodeURIComponent has the attribute DontDelete
+es5id: 15.1.3.4_A5.2
 description: Checking use hasOwnProperty, delete
 includes: [$FAIL.js]
 ---*/

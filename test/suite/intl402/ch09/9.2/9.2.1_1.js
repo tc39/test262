@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 9.2.1_1
 description: >
     Tests that canonicalization of locale lists treats undefined and
     empty lists the same.

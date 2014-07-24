@@ -3,6 +3,7 @@
 
 /*---
 info: The isFinite property has the attribute DontEnum
+es5id: 15.1.2.5_A2.5
 description: Checking use propertyIsEnumerable, for-in
 ---*/
 

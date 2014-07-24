@@ -3,6 +3,7 @@
 
 /*---
 info: The Date.prototype property "valueOf" has { DontEnum } attributes
+es5id: 15.9.5.8_A1_T2
 description: Checking absence of DontDelete attribute
 includes: [$FAIL.js]
 ---*/

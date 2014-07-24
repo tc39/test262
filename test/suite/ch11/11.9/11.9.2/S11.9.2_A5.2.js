@@ -5,6 +5,7 @@
 info: >
     If Type(x) is Number and Type(y) is String,
     return the result of comparison x != ToNumber(y)
+es5id: 11.9.2_A5.2
 description: x is primitive number, y is primitive string
 ---*/
 

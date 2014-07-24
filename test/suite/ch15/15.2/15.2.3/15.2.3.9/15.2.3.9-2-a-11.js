@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.9-2-a-11
 description: >
     Object.freeze - 'P' is own index property of the Arguments object
     that implements its own [[GetOwnProperty]]

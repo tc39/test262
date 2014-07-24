@@ -3,6 +3,7 @@
 
 /*---
 info: The toString property of Array has not prototype property
+es5id: 15.4.4.2_A4.6
 description: Checking Array.prototype.toString.prototype
 ---*/
 

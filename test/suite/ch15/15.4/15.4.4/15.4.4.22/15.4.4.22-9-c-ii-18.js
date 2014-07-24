@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.22-9-c-ii-18
 description: >
     Array.prototype.reduceRight - 'accumulator' used for first
     iteration is the value of 'initialValue' when it is present on an

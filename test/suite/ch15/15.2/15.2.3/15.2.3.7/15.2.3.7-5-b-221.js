@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-5-b-221
 description: >
     Object.defineProperties - value of 'get' property of 'descObj' is
     primitive values( value is string) (8.10.5 step 7.b)

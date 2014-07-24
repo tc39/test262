@@ -8,6 +8,7 @@ info: >
     are taken: i) Call the [[Get]] method of F with property name
     "prototype". ii) Let O be Result(i). iii) O is not an object,
     throw a TypeError exception
+es5id: 15.3.5.3_A2_T5
 description: F.prototype is void 0, and V is new F
 includes: [$FAIL.js]
 ---*/

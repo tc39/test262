@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 8.12.1-1_22
 description: >
     Properties - [[HasOwnProperty]] (literal own getter/setter
     property)

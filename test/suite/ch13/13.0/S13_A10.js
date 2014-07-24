@@ -3,6 +3,7 @@
 
 /*---
 info: Function is a data
+es5id: 13_A10
 description: Using function as a property of an object
 ---*/
 

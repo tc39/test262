@@ -3,6 +3,7 @@
 
 /*---
 info: Number() returns +0
+es5id: 15.7.1.1_A2
 description: Call Number() and check result
 ---*/
 

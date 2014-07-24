@@ -3,6 +3,7 @@
 
 /*---
 info: Number.MAX_VALUE has the attribute DontEnum
+es5id: 15.7.3.2_A4
 description: Checking if enumerating Number.MAX_VALUE fails
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: The Date.prototype has the property "getDay"
+es5id: 15.9.5_A16_T1
 description: The Date.prototype has the property "getDay"
 ---*/
 

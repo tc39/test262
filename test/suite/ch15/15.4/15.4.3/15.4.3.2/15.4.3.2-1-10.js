@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.3.2-1-10
 description: Array.isArray applied to RegExp object
 includes: [runTestCase.js]
 ---*/

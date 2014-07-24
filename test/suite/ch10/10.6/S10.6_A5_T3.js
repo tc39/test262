@@ -5,6 +5,7 @@
 info: >
     A property is created with name length with property
     attributes { DontEnum } and no others
+es5id: 10.6_A5_T3
 description: Checking if deleting arguments.length property fails
 ---*/
 

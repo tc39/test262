@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.9-1-1
 description: Object.freeze throws TypeError if type of first param is undefined
 includes: [runTestCase.js]
 ---*/

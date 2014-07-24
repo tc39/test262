@@ -3,6 +3,7 @@
 
 /*---
 info: VariableDeclaration within "for" statement is allowed
+es5id: 12.2_A7
 description: Declaring variable within "for" statement
 ---*/
 

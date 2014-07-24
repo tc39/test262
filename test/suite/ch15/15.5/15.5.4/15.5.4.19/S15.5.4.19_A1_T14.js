@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.toLocaleUpperCase()
+es5id: 15.5.4.19_A1_T14
 description: Call toLocaleUpperCase() function for RegExp object
 ---*/
 

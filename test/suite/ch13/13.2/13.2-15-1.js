@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 13.2-15-1
 description: >
     Function Object has length as its own property and does not invoke
     the setter defined on Function.prototype.length (Step 15)

@@ -3,6 +3,7 @@
 
 /*---
 info: The Function.prototype.apply.length property has the attribute ReadOnly
+es5id: 15.3.4.3_A10
 description: >
     Checking if varying the Function.prototype.apply.length property
     fails

@@ -5,6 +5,7 @@
 info: >
     RegularExpressionFirstChar :: NonTerminator but not * or \ or /,
     RegularExpressionChars :: [empty], RegularExpressionFlags :: [empty]
+es5id: 7.8.5_A1.1_T2
 description: Complex test with eval, using syntax pattern
 ---*/
 

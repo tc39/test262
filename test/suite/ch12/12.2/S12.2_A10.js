@@ -3,6 +3,7 @@
 
 /*---
 info: "\"var\" statement within \"for\" statement is allowed"
+es5id: 12.2_A10
 description: Declaring variable within a "for" IterationStatement
 ---*/
 

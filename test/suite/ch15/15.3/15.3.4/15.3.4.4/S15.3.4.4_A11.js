@@ -3,6 +3,7 @@
 
 /*---
 info: The Function.prototype.call.length property has the attribute DontEnum
+es5id: 15.3.4.4_A11
 description: >
     Checking if enumerating the Function.prototype.call.length
     property fails

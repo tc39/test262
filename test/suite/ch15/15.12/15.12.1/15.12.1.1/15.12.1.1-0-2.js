@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.1.1-0-2
 description: >
     <VT> is not valid JSON whitespace as specified by the production
     JSONWhitespace.

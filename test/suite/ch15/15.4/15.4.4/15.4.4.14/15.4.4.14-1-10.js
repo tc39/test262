@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.14-1-10
 description: Array.prototype.indexOf applied to the Math object
 includes: [runTestCase.js]
 ---*/

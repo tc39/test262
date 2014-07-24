@@ -5,6 +5,7 @@
 info: >
     The Object.prototype.toLocaleString.length property has the attribute
     DontEnum
+es5id: 15.2.4.3_A8
 description: >
     Checking if enumerating the Object.prototype.toLocaleString.length
     property fails

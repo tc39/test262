@@ -3,6 +3,7 @@
 
 /*---
 info: The RegExp instance source property has the attribute DontEnum
+es5id: 15.10.7.1_A8
 description: >
     Checking if enumerating the source property of RegExp instance
     fails

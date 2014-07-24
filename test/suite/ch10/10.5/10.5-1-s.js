@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.5-1-s
 description: Strict Mode - arguments object is immutable
 flags: [onlyStrict]
 includes: [runTestCase.js]

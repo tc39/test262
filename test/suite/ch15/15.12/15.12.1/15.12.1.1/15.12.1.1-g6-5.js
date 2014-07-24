@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.1.1-g6-5
 description: >
     The JSON lexical grammer allows 'n' as a JSONEscapeCharacter after
     '' in a JSONString

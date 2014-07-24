@@ -7,6 +7,7 @@ info: >
     A new native ECMAScript object is created.
     Invoke the [[Call]] property of F, providing native ECMAScript object just created as the this value and
     providing the argument list passed into [[Construct]] as the argument values
+es5id: 13.2.2_A5_T1
 description: Declaring a function with "function __FACTORY(arg1, arg2)"
 ---*/
 

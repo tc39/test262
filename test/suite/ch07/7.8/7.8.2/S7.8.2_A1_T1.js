@@ -3,6 +3,7 @@
 
 /*---
 info: "Literal :: BooleanLiteral"
+es5id: 7.8.2_A1_T1
 description: "BooleanLiteral :: true"
 ---*/
 

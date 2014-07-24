@@ -3,6 +3,7 @@
 
 /*---
 info: RegExp instance has not [[call]] property
+es5id: 15.10.7_A1_T1
 description: Checking if call of RegExp instance fails
 ---*/
 

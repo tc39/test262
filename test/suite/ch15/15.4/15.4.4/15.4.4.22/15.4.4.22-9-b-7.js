@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.22-9-b-7
 description: >
     Array.prototype.reduceRight - properties added to prototype in
     step 8 visited on an Array

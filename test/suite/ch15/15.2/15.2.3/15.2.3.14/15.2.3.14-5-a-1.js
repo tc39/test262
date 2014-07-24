@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.14-5-a-1
 description: >
     Object.keys - 'value' attribute of element in returned array is
     correct.

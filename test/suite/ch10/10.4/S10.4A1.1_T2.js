@@ -3,6 +3,7 @@
 
 /*---
 info: Every function call enters a new execution context
+es5id: 10.4A1.1_T2
 description: Recursive function call
 ---*/
 

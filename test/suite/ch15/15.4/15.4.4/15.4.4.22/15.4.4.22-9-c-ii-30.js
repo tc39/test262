@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.22-9-c-ii-30
 description: >
     Array.prototype.reduceRight - the Math Object can be used as
     accumulator

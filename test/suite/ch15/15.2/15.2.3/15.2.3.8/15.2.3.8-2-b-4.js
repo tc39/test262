@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.8-2-b-4
 description: >
     Object.seal - all own properties of 'O' are already
     non-configurable

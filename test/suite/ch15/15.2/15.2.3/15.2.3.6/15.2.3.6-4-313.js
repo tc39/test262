@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-313
 description: >
     Object.defineProperty - 'O' is an Arguments object, 'P' is generic
     property, and 'desc' is data descriptor, test 'P' is defined in

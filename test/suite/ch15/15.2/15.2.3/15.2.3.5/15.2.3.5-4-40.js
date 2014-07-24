@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.5-4-40
 description: >
     Object.create - ensure that if an exception is thrown it occurs in
     the correct order relative to prior and subsequent side-effects

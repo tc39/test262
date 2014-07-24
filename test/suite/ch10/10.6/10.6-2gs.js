@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.6-2gs
 description: >
     Strict Mode - arguments.callee cannot be accessed in a strict
     function

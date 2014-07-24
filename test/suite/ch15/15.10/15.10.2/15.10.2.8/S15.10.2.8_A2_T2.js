@@ -6,6 +6,7 @@ info: >
     The form (?! Disjunction ) specifies a zero-width negative lookahead.
     In order for it to succeed, the pattern inside Disjunction must fail to match at the current position.
     The current position is not advanced before matching the sequel
+es5id: 15.10.2.8_A2_T2
 description: >
     Execute /Java(?!Script)([A-Z]\w*)/.exec("using of JavaBeans
     technology") and check results

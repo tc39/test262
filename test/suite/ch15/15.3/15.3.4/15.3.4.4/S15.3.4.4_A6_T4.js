@@ -5,6 +5,7 @@
 info: >
     The call method takes one or more arguments, thisArg and (optionally) arg1, arg2 etc, and performs
     a function call using the [[Call]] property of the object
+es5id: 15.3.4.4_A6_T4
 description: >
     Argunemts of call function is (empty object, ( function(){return
     arguments;})("a","b","c","d"),"",2)

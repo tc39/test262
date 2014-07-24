@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.3.4.5.2-4-2
 description: >
     [[Construct]] - the provided arguments is used as the latter part
     of arguments of calling the [[Construct]] internal method of 'F''s

@@ -3,6 +3,7 @@
 
 /*---
 info: Embedded "if/else" constructions are allowed
+es5id: 12.5_A12_T3
 description: Using embedded "if/else" into "if" without "else" constructions
 ---*/
 

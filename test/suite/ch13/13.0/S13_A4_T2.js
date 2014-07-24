@@ -6,6 +6,7 @@ info: >
     The production FunctionDeclaration: "function Identifier (
     FormalParameterList_opt ) { FunctionBody }" is processed by function
     declarations
+es5id: 13_A4_T2
 description: >
     Declaring a function that uses prefix increment operator within
     its "return" Expression

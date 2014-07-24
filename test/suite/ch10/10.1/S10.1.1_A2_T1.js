@@ -5,6 +5,7 @@
 info: >
     There are two types of Function objects. Internal functions
     are built-in objects of the language, such as parseInt and Math.exp
+es5id: 10.1.1_A2_T1
 description: Checking types of parseInt and Math.exp
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: Values of the List type are simply ordered sequences of values
+es5id: 8.8_A2_T3
 description: Call function, that concatenate all it`s arguments
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: The encodeURIComponent property has not prototype property
+es5id: 15.1.3.4_A5.6
 description: Checking encodeURIComponent.prototype
 ---*/
 

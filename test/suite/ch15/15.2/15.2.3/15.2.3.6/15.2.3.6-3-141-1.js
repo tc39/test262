@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-3-141-1
 description: >
     Object.defineProperty - 'Attributes' is a String object that uses
     Object's [[Get]] method to access the 'value' property of

@@ -3,6 +3,7 @@
 
 /*---
 info: "Evaluate the production ObjectLiteral: { }"
+es5id: 11.1.5_A1.1
 description: >
     Checking various properteis of the object defined with "var object
     = {}"

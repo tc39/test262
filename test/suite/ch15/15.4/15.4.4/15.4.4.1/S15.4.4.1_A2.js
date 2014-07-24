@@ -3,6 +3,7 @@
 
 /*---
 info: The constructor property of Array has the attribute DontEnum
+es5id: 15.4.4.1_A2
 description: Checking use propertyIsEnumerable, for-in
 ---*/
 

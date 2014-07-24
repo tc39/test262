@@ -8,6 +8,7 @@
 info: >
     Created based on feedback in
     https://bugs.ecmascript.org/show_bug.cgi?id=333
+es5id: 10.4.3-1-106
 description: >
     Strict mode should not ToObject thisArg if not an object.  Return
     type should be 'number'.

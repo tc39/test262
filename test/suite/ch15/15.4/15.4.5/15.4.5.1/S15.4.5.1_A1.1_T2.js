@@ -3,6 +3,7 @@
 
 /*---
 info: If ToUint32(length) !== ToNumber(length), throw RangeError
+es5id: 15.4.5.1_A1.1_T2
 description: length in [NaN, Infinity, -Infinity, undefined]
 ---*/
 

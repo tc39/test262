@@ -3,6 +3,7 @@
 
 /*---
 info: Equivalent to the expression RegExp.prototype.exec(string) != null
+es5id: 15.10.6.3_A1_T4
 description: >
     RegExp is /a[a-z]{2,4}?/ and tested string is
     {toString:function(){return "abcdefghi";}}

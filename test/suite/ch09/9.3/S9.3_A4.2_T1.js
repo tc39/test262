@@ -5,6 +5,7 @@
 info: >
     Result of number conversion from number value equals to the input
     argument (no conversion)
+es5id: 9.3_A4.2_T1
 description: >
     Number.NaN, +0, -0, Number.POSITIVE_INFINITY,
     Number.NEGATIVE_INFINITY,  Number.MAX_VALUE and Number.MIN_VALUE

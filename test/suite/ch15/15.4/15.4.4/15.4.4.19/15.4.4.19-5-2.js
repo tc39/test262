@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.19-5-2
 description: Array.prototype.map - thisArg is Object
 includes: [runTestCase.js]
 ---*/

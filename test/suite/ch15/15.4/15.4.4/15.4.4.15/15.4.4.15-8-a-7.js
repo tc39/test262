@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-8-a-7
 description: >
     Array.prototype.lastIndexOf -  properties added into own object
     after current position are visited on an Array-like object

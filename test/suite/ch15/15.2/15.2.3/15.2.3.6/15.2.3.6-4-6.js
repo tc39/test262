@@ -10,6 +10,7 @@ info: >
     of O to define the property. Step 6 of [[DefineOwnProperty]] returns if
     every field of desc also occurs in current and every field in desc has
     the same value as current.
+es5id: 15.2.3.6-4-6
 description: >
     Object.defineProperty is no-op if current and desc are the same
     accessor desc

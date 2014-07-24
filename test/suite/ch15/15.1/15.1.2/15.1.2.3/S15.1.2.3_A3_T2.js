@@ -5,6 +5,7 @@
 info: >
     If neither Result(2) nor any prefix of Result(2) satisfies the syntax of a
     StrDecimalLiteral (see 9.3.1), return NaN
+es5id: 15.1.2.3_A3_T2
 description: parseFloat("wrong number format with ExponentIndicator") return NaN
 ---*/
 

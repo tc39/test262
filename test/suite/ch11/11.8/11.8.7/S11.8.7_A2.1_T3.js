@@ -3,6 +3,7 @@
 
 /*---
 info: Operator "in" uses GetValue
+es5id: 11.8.7_A2.1_T3
 description: If GetBase(ShiftExpression) is null, throw ReferenceError
 ---*/
 

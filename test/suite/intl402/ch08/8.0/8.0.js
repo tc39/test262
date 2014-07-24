@@ -2,6 +2,7 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
+es5id: 8.0
 description: Tests that Intl has Object.prototype as its prototype.
 author: Norbert Lindenberg
 ---*/

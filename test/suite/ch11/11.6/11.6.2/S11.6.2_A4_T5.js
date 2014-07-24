@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x - y produces the same result as x + (-y)
+es5id: 11.6.2_A4_T5
 description: >
     Using the rule of sum of two zeroes and the fact that a - b = a +
     (-b)

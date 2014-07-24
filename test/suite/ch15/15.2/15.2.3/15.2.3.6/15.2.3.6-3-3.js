@@ -9,6 +9,7 @@ info: >
     The abtract operation ToPropertyDescriptor  is used to package the
     into a property desc. Step 10 of ToPropertyDescriptor throws a TypeError
     if the property desc ends up having a mix of accessor and data property elements.
+es5id: 15.2.3.6-3-3
 description: >
     Object.defineProperty throws TypeError if desc has 'set' and
     'value' present(8.10.5 step 9.a)

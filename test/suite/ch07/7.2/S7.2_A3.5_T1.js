@@ -3,6 +3,7 @@
 
 /*---
 info: Single line comment can contain NO-BREAK SPACE (U+00A0)
+es5id: 7.2_A3.5_T1
 description: Use NO-BREAK SPACE(\u00A0)
 ---*/
 

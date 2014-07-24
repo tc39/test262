@@ -3,6 +3,7 @@
 
 /*---
 info: "Arguments : (ArgumentList)"
+es5id: 11.2.4_A1.2_T1
 description: Function is declared with no FormalParameterList
 ---*/
 

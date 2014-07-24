@@ -3,6 +3,7 @@
 
 /*---
 info: If y is -Infinity and x !== y, return false
+es5id: 11.8.3_A4.8
 description: x is number primitive
 ---*/
 

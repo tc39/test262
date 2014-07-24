@@ -3,6 +3,7 @@
 
 /*---
 info: Changing the Reference of an Object While Maintaining Integrity
+es5id: 8.7_A3
 description: >
     Create a reference to the array, and redefine original array with
     new array

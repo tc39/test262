@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-3-160
 description: >
     Object.defineProperty - 'writable' property in 'Attributes' is own
     accessor property that overrides an inherited data property

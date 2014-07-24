@@ -3,6 +3,7 @@
 
 /*---
 info: Catching objects with try/catch/finally statement
+es5id: 12.14_A18_T3
 description: Catching boolean
 ---*/
 

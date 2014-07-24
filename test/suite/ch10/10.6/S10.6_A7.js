@@ -3,6 +3,7 @@
 
 /*---
 info: Get arguments of function
+es5id: 10.6_A7
 description: Use property arguments
 ---*/
 

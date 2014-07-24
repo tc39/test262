@@ -6,6 +6,7 @@ info: >
     If two or more formal parameters share the same name, hence
     the same property, the corresponding property is given the value that was
     supplied for the last parameter with this name
+es5id: 10.2.1_A2
 description: >
     Creating functions initialized with two or more formal parameters,
     which have the same name

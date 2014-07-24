@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.9-2-1
 description: >
     Object.freeze - extensible of 'O' is set as false even if 'O' has
     no own property

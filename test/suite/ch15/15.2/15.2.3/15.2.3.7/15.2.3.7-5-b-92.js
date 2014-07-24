@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-5-b-92
 description: >
     Object.defineProperties - value of 'configurable' property of
     'descObj' is NaN (8.10.5 step 4.b)

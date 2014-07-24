@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.12-2-1
 description: >
     Object.isFrozen - inherited data property is not considered into
     the for each loop

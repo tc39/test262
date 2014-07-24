@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-6-1
 description: >
     Array.prototype.lastIndexOf when fromIndex greater than
     Array.length

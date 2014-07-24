@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-183
 description: >
     Object.defineProperty - 'O' is an Array, 'name' is an array index
     named property, 'name' is boundary value 2^32 - 2 (15.4.5.1 step

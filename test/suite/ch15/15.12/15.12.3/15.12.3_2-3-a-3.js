@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.3_2-3-a-3
 description: >
     JSON.stringify converts Boolean wrapper objects returned from
     replacer functions to literal numbers.

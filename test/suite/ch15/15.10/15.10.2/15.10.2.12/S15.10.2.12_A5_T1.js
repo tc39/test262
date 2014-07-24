@@ -6,6 +6,7 @@ info: >
     The production CharacterClassEscape :: d evaluates by returning the
     ten-element set of characters containing the characters 0 through 9
     inclusive
+es5id: 15.10.2.12_A5_T1
 description: 0 - 9
 ---*/
 

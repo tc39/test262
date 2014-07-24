@@ -6,6 +6,7 @@ info: >
     The production CharacterClassEscape :: S evaluates by returning
     the set of all characters not included in the set returned by
     CharacterClassEscape :: s
+es5id: 15.10.2.12_A2_T3
 description: ENGLISH ALPHABET
 ---*/
 

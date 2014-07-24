@@ -2,10 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 11.3.2_FN_1
 description: >
     Tests that Intl.NumberFormat.prototype.format  doesn't treat all
     numbers as negative.
-author:: Roozbeh Pournader
+author: Roozbeh Pournader
 ---*/
 
 var formatter = new Intl.NumberFormat();

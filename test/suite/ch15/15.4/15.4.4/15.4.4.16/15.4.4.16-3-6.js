@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.16-3-6
 description: >
     Array.prototype.every - value of 'length' is a number (value is
     positive)

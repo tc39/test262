@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.17-7-4
 description: >
     Array.prototype.some doesn't visit deleted elements when
     Array.length is decreased

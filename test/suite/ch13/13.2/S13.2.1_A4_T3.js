@@ -3,6 +3,7 @@
 
 /*---
 info: Objects as arguments are passed by reference
+es5id: 13.2.1_A4_T3
 description: >
     Adding new number property to a function argument within the
     function body,  where array element "arguments[0]" is an object

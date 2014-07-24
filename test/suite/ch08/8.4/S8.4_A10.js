@@ -3,6 +3,7 @@
 
 /*---
 info: Both unicode and ascii chars are allowed
+es5id: 8.4_A10
 description: Create string using both unicode and ascii chars
 ---*/
 

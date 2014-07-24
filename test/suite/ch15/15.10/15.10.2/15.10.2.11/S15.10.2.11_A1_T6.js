@@ -3,6 +3,7 @@
 
 /*---
 info: "DecimalEscape :: DecimalIntegerLiteral [lookahead not in DecimalDigit]"
+es5id: 15.10.2.11_A1_T6
 description: DecimalIntegerLiteral is not 0
 ---*/
 

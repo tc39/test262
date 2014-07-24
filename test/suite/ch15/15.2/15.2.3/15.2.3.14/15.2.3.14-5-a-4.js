@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.14-5-a-4
 description: >
     Object.keys - Verify that 'configurable' attribute of element of
     returned array is correct

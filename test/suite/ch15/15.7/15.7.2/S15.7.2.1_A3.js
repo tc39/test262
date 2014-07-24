@@ -5,6 +5,7 @@
 info: >
     The [[Value]] property of the newly constructed object
     is set to ToNumber(value) if value was supplied, else to +0
+es5id: 15.7.2.1_A3
 description: Checking value of the newly created object
 ---*/
 

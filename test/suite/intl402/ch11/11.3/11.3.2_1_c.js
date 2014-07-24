@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 11.3.2_1_c
 description: Tests that format function is bound to its Intl.NumberFormat.
 author: Norbert Lindenberg
 includes: [testIntl.js]

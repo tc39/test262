@@ -3,6 +3,7 @@
 
 /*---
 info: Value Property LN10 of the Math Object has the attribute DontEnum
+es5id: 15.8.1.2_A2
 description: Checking if Math.LN10 property has the attribute DontEnum
 ---*/
 

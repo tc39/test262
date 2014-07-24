@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.2.1-5-s
 description: >
     Strict Mode - a Function declaring var named 'eval' does not throw
     SyntaxError

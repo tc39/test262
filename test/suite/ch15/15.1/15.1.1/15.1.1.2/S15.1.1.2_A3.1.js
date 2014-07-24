@@ -3,6 +3,7 @@
 
 /*---
 info: The Infinity is DontDelete
+es5id: 15.1.1.2_A3.1
 description: Use delete
 flags: [noStrict]
 ---*/

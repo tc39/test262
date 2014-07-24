@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.3-2-39
 description: >
     Object.getOwnPropertyDescriptor - argument 'P' is a String Object
     that converts to a string

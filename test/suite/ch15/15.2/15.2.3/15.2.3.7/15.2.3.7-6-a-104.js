@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-104
 description: >
     Object.defineProperties - 'P' is accessor property, both
     properties.[[Set]] and P.[[Set]] are two different values (8.12.9

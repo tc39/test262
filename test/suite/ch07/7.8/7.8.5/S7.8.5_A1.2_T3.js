@@ -3,6 +3,7 @@
 
 /*---
 info: "RegularExpressionFirstChar :: * or \\ or / or [empty] is incorrect"
+es5id: 7.8.5_A1.2_T3
 description: /
 flags: [negative]
 ---*/

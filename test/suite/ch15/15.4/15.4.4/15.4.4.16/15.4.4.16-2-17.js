@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.16-2-17
 description: >
     Array.prototype.every applied to the Arguments object, which
     implements its own property get method

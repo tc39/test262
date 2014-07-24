@@ -5,6 +5,7 @@
 info: >
     The production IterationStatement: "for (var VariableDeclarationNoIn in
     Expression) Statement"
+es5id: 12.6.4_A6
 description: >
     Using Object with custom prototype as an Expression is
     appropriate. The prototype is "{feat:2,hint:"protohint"}"

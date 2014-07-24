@@ -3,6 +3,7 @@
 
 /*---
 info: FunctionExpression containing "with" statement is admitted
+es5id: 13.2.2_A17_T3
 description: >
     In the check 4 we populate field getRight in __obj object since
     var getRight declaration adds variable to function scope  but

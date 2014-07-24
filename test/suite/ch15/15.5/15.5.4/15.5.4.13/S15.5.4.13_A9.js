@@ -3,6 +3,7 @@
 
 /*---
 info: The String.prototype.slice.length property has the attribute DontDelete
+es5id: 15.5.4.13_A9
 description: >
     Checking if deleting the String.prototype.slice.length property
     fails

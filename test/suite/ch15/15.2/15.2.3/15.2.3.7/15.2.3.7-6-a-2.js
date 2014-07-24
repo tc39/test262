@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-2
 description: >
     Object.defineProperties - 'P' is inherited data property (8.12.9
     step 1 )

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 14.1-13-s
 description: semicolon insertion works for'use strict' directive
 flags: [noStrict]
 includes: [runTestCase.js]

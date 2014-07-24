@@ -3,6 +3,7 @@
 
 /*---
 info: The join property of Array has the attribute DontEnum
+es5id: 15.4.4.5_A6.5
 description: Checking use propertyIsEnumerable, for-in
 ---*/
 

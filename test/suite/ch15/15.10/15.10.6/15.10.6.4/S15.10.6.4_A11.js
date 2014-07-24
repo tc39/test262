@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of the toString method is 1
+es5id: 15.10.6.4_A11
 description: Checking RegExp.prototype.toString.length
 includes: [$FAIL.js]
 ---*/

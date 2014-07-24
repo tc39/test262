@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x = y uses GetValue and PutValue
+es5id: 11.13.1_A2.1_T3
 description: >
     If Type(LeftHandSideExpression) is not Reference, throw
     ReferenceError (or SyntaxError)

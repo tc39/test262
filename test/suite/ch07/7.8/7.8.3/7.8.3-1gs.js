@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 7.8.3-1gs
 description: Strict Mode - octal extension(010) is forbidden in strict mode
 negative: ^((?!NotEarlyError).)*$
 flags: [onlyStrict]

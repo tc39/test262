@@ -5,6 +5,7 @@
 info: >
     [[Get]](P) method should return value when property P does not exist in
     instance but prototype contain it
+es5id: 8.12.3_A1
 description: >
     Try to get P when property P does not exist in instance but
     prototype contain it

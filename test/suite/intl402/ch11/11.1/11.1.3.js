@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 11.1.3
 description: >
     Tests that objects constructed by Intl.NumberFormat have the
     specified internal properties.

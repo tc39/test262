@@ -3,6 +3,7 @@
 
 /*---
 info: "CharacterEscape :: HexEscapeSequence :: x HexDigit HexDigit"
+es5id: 15.10.2.10_A3.1_T1
 description: Tested string include equal unicode symbols
 ---*/
 

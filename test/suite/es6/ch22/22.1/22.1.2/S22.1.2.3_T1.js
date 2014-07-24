@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 22.1.2.3_T1
 description: Testing Array#of when passed Strings
 author: Hank Yates (hankyates@gmail.com)
 includes: [runTestCase.js]

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 13.0-3
 description: >
     13.0 - property names in function definition is not allowed, add a
     new property into object

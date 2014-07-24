@@ -5,6 +5,7 @@
 info: >
     No matter how control leaves the embedded 'Statement',
     the scope chain is always restored to its former state
+es5id: 12.10_A3.11_T1
 description: >
     Calling a function within "with" statement declared without the
     statement, leading to normal completion

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-3-154
 description: >
     Object.defineProperty - 'writable' property in 'Attributes' is own
     data property  (8.10.5 step 6.a)

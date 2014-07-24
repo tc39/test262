@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x - y produces the same result as x + (-y)
+es5id: 11.6.2_A4_T3
 description: The difference of two infinities of the same sign is NaN
 ---*/
 

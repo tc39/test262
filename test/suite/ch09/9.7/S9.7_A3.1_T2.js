@@ -3,6 +3,7 @@
 
 /*---
 info: Operator uses ToNumber
+es5id: 9.7_A3.1_T2
 description: Type(x) is Number
 ---*/
 

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.1.1-1gs
 description: Strict Mode - 'this' object at the global scope is not undefined
 flags: [onlyStrict]
 ---*/

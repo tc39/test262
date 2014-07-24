@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-267
 description: >
     Object.defineProperties - 'O' is an Array, 'P' is generic
     property, and 'desc' is accessor descriptor, test 'P' is defined

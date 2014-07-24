@@ -3,6 +3,7 @@
 
 /*---
 info: every function instance has a [[Construct]] property
+es5id: 15.3.5_A3_T1
 description: As constructor use Function("var x =1; this.y=2;return \"OK\";")
 ---*/
 

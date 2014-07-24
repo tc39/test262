@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 11.1.1_19
 description: >
     Tests that the currency style can not be used without a specified
     currency.

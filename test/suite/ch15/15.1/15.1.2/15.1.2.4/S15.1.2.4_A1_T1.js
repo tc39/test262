@@ -5,6 +5,7 @@
 info: >
     isNaN applies ToNumber to its argument, then return true if the result is
     NaN, and otherwise return false
+es5id: 15.1.2.4_A1_T1
 description: Checking all primitive
 ---*/
 

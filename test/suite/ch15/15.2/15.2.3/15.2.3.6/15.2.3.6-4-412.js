@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-412
 description: >
     ES5 Attributes - [[Value]] field of inherited property of
     [[Prototype]] internal property is correct(Object.create)

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-8-b-i-28
 description: >
     Array.prototype.lastIndexOf - side-effects are visible in
     subsequent iterations on an Array

@@ -5,6 +5,7 @@
 info: >
     The production TryStatement: "try Block Finally" and the production
     TryStatement: "try Block Catch Finally"
+es5id: 12.14_A5
 description: Checking "catch" catches the Identifier in appropriate way
 ---*/
 

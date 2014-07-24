@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.toLocaleLowerCase has not prototype property
+es5id: 15.5.4.17_A6
 description: Checking String.prototype.toLocaleLowerCase.prototype
 ---*/
 

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.10.1-11gs
 description: Strict Mode - SyntaxError is thrown when using with statement
 negative: ^((?!NotEarlyError).)*$
 flags: [onlyStrict]

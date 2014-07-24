@@ -5,6 +5,7 @@
 info: >
     The function call Error(...) is equivalent to the object creation expression new
     Error(...) with the same arguments
+es5id: 15.11.1_A1_T1
 description: Checking constructor of the newly constructed Error object
 ---*/
 

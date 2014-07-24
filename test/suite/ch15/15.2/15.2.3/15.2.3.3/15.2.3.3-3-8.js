@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.3-3-8
 description: >
     Object.getOwnPropertyDescriptor - 'P' is own accessor property
     that overrides an inherited accessor property

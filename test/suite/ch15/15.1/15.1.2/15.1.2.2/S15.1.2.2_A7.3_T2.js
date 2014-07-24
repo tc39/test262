@@ -3,6 +3,7 @@
 
 /*---
 info: Return sign * Result(17)
+es5id: 15.1.2.2_A7.3_T2
 description: Checking algorithm for R = 2
 ---*/
 

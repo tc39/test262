@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-409
 description: >
     ES5 Attributes - Inherited property whose [[Enumerable]] attribute
     is set to false is enumerable (RegExp instance)

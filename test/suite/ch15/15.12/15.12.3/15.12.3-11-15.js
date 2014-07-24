@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.3-11-15
 description: >
     Applying JSON.stringify with a replacer function to a function
     returns the replacer value.

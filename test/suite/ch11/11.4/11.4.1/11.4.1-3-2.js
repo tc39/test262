@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.4.1-3-2
 description: >
     delete operator throws ReferenceError when deleting an explicitly
     qualified yet unresolvable reference (base obj undefined)

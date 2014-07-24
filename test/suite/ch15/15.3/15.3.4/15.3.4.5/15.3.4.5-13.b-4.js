@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.3.4.5-13.b-4
 description: >
     Function.prototype.bind, 'length' set to remaining number of
     expected args (target takes 0 args)

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.4-4-38
 description: >
     Object.getOwnPropertyNames - own data properties are pushed into
     the returned array

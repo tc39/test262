@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 7.3-1
 description: >
     7.3 - ES5 recognizes the character <LS> (\u2028) as line
     terminators when parsing statements

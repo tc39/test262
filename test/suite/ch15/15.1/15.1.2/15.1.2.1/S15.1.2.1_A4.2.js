@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of eval has the attribute DontDelete
+es5id: 15.1.2.1_A4.2
 description: Checking use hasOwnProperty, delete
 includes: [$FAIL.js]
 ---*/

@@ -5,6 +5,7 @@
 info: >
     The Object.prototype.propertyIsEnumerable.length property has the
     attribute DontDelete
+es5id: 15.2.4.7_A9
 description: >
     Checking if deleting the
     Object.prototype.propertyIsEnumerable.length property fails

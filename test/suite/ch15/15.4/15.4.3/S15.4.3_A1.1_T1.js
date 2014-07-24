@@ -5,6 +5,7 @@
 info: >
     The value of the internal [[Prototype]] property of
     the Array constructor is the Function prototype object
+es5id: 15.4.3_A1.1_T1
 description: >
     Create new property of Function.prototype. When Array constructor
     has this property

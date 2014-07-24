@@ -5,6 +5,7 @@
 info: >
     Using "try" with "catch" or "finally" statement within/without a "while"
     statement
+es5id: 12.14_A10_T5
 description: Throw some exceptions from different place of loop body
 ---*/
 

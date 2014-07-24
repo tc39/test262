@@ -3,6 +3,7 @@
 
 /*---
 info: Operator "typeof" uses GetValue
+es5id: 11.4.3_A2_T2
 description: If GetBase(x) is null, return "undefined"
 ---*/
 

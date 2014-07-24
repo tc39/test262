@@ -3,6 +3,7 @@
 
 /*---
 info: Object prototype object has not prototype
+es5id: 15.2.4_A1_T1
 description: Checking if obtaining Object.prototype.prototype fails
 ---*/
 

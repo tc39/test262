@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.5-4-309
 description: >
     Object.create - [[Configurable]] is set as false if it is absent
     in data descriptor of one property in 'Properties' (8.12.9 step

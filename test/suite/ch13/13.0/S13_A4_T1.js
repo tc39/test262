@@ -6,6 +6,7 @@ info: >
     The production FunctionDeclaration: "function Identifier (
     FormalParameterList_opt ) { FunctionBody }" is processed by function
     declarations
+es5id: 13_A4_T1
 description: Declaring a function that returns string
 ---*/
 

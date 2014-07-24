@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.20-2-10
 description: >
     Array.prototype.filter applied to Array-like object, 'length' is
     inherited accessor property

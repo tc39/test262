@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 13.1.1_3_1
 description: Tests that localeCompare coerces that to a string.
 author: Norbert Lindenberg
 ---*/

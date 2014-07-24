@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-3-5
 description: >
     Object.defineProperties - own accessor property of 'Properties'
     which is not enumerable is not defined in 'O'

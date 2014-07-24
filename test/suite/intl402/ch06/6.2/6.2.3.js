@@ -3,6 +3,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 6.2.3
 description: Tests that language tags are canonicalized in return values.
 author: Norbert Lindenberg
 includes: [testIntl.js]

@@ -3,6 +3,7 @@
 
 /*---
 info: let P be ToString(pattern) and let F be ToString(flags)
+es5id: 15.10.4.1_A8_T5
 description: >
     Pattern is new Object("abc{1}") and flags is
     {toString:function(){return "";}}

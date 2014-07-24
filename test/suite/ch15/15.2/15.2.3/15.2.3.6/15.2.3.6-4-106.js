@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-106
 description: >
     Object.defineProperty - 'name' and 'desc' are data properties,
     several attributes values of name and desc are different (8.12.9

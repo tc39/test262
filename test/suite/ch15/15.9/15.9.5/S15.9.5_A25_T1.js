@@ -3,6 +3,7 @@
 
 /*---
 info: The Date.prototype has the property "getUTCMilliseconds"
+es5id: 15.9.5_A25_T1
 description: The Date.prototype has the property "getUTCMilliseconds"
 ---*/
 

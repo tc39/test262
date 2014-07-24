@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.4.1-3-3
 description: >
     delete operator returns true when deleting an explicitly qualified
     yet unresolvable reference (property undefined for base obj)

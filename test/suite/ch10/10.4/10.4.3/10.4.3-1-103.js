@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.4.3-1-103
 description: >
     Non strict mode should ToObject thisArg if not an object.
     Abstract equality operator should succeed.

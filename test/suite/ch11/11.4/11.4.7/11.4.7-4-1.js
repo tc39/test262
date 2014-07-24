@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.4.7-4-1
 description: -"" should be zero
 includes: [runTestCase.js]
 ---*/

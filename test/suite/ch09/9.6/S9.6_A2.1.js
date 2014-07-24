@@ -3,6 +3,7 @@
 
 /*---
 info: ToUint32 returns values between 0 and 2^32-1
+es5id: 9.6_A2.1
 description: >
     Converting numbers, which are in\outside of Uint32 scopes, with
     >>>0 operator

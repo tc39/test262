@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.5-4-37
 description: >
     Object.create - 'Properties' is an Error object that uses Object's
     [[Get]] method to access own enumerable property (15.2.3.7 step

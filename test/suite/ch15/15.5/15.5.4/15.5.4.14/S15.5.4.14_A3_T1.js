@@ -6,6 +6,7 @@ info: >
     String.prototype.split() returns an Array object with:
     i) length equaled to 1,
     ii) [[Get]](0) equaled to the result of converting this object to a string
+es5id: 15.5.4.14_A3_T1
 description: Instance is String("one,two,three,four,five")
 ---*/
 

@@ -5,6 +5,7 @@
 info: >
     The initial value of Number.prototype.constructor is the
     built-in Number constructor
+es5id: 15.7.4.1_A1
 description: Compare Number.prototype.constructor with Number
 ---*/
 

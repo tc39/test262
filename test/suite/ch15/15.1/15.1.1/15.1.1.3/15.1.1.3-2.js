@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.1.1.3-2
 description: undefined is not writable, should throw TypeError in strict mode
 flags: [onlyStrict]
 includes:

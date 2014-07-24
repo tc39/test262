@@ -5,6 +5,7 @@
 info: >
     We overload valueOf method so it return non Primitive value and toString method so it return non Primitive value too
     Thus [[DefaultValue]] must generate TypeError error
+es5id: 8.12.8_A4
 description: >
     Try to overload toString and valueOf methods, they returned new
     Objects

@@ -6,6 +6,7 @@ info: >
     The production Atom :: . evaluates as follows:
     i) Let A be the set of all characters except the four line terminator characters <LF>, <CR>, <LS>, or <PS>
     ii) Call CharacterSetMatcher(A, false) and return its Matcher result
+es5id: 15.10.2.8_A4_T7
 description: Execute /.+/.exec("ABCDEFGHIJKLMNOPQRSTUVWXYZ") and check results
 ---*/
 

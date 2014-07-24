@@ -5,6 +5,7 @@
 info: >
     The Date.prototype.setUTCSeconds property "length" has { ReadOnly,
     DontDelete, DontEnum } attributes
+es5id: 15.9.5.31_A3_T1
 description: Checking ReadOnly attribute
 ---*/
 

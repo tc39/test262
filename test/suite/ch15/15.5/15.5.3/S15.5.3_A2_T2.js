@@ -5,6 +5,7 @@
 info: >
     The value of the internal [[Prototype]] property of the String
     constructor is the Function prototype object
+es5id: 15.5.3_A2_T2
 description: Add custom property to Function.prototype and check it at String
 ---*/
 

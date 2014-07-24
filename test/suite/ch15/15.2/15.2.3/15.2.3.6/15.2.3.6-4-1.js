@@ -11,6 +11,7 @@ info: >
     [[DefineOwnProperty]] requires that it throw a TypeError exception when
     current is undefined and extensible is false. The value of desc does not
     matter.
+es5id: 15.2.3.6-4-1
 description: >
     Object.defineProperty throws TypeError when adding properties to
     non-extensible objects(8.12.9 step 3)

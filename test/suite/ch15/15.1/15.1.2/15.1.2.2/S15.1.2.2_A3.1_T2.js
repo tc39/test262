@@ -3,6 +3,7 @@
 
 /*---
 info: Operator use ToNumber
+es5id: 15.1.2.2_A3.1_T2
 description: Checking for string primitive
 ---*/
 

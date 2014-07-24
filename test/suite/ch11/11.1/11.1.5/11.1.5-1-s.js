@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.1.5-1-s
 description: >
     Strict Mode - SyntaxError is thrown when 'eval' occurs as the
     Identifier in a PropertySetParameterList of a PropertyAssignment

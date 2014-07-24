@@ -3,6 +3,7 @@
 
 /*---
 info: The String.prototype.match.length property has the attribute DontDelete
+es5id: 15.5.4.10_A9
 description: >
     Checking if deleting the String.prototype.match.length property
     fails

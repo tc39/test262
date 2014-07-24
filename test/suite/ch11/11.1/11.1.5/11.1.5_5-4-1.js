@@ -10,6 +10,7 @@ info: >
     The production
     PropertyAssignment : PropertyName : AssignmentExpression 
     4.Let desc be the Property Descriptor{[[Value]]: propValue, [[Writable]]: true, [[Enumerable]]: true, [[Configurable]]: true}
+es5id: 11.1.5_5-4-1
 description: Object literal - property descriptor for assignment expression
 includes: [runTestCase.js]
 ---*/

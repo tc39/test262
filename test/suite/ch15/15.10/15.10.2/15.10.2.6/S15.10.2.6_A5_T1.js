@@ -5,6 +5,7 @@
 info: >
     Since assertion evaluating do not change endIndex repetition of assertion
     does the same result
+es5id: 15.10.2.6_A5_T1
 description: Execute /^^^^^^^robot$$$$/.exec("robot") and check results
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: Correct interpretation of DIGITS
+es5id: 7.8.4_A2.3_T1
 description: Check DIGITS
 ---*/
 

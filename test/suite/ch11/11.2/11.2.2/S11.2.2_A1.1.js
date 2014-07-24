@@ -5,6 +5,7 @@
 info: >
     White Space and Line Terminator between "new" and NewExpression are
     allowed
+es5id: 11.2.2_A1.1
 description: Checking by using eval
 ---*/
 

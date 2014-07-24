@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x ^ y returns ToNumber(x) ^ ToNumber(y)
+es5id: 11.10.2_A3_T1.4
 description: Type(x) and Type(y) are null and undefined
 ---*/
 

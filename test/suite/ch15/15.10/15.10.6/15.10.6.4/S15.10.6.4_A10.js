@@ -3,6 +3,7 @@
 
 /*---
 info: The RegExp.prototype.toString.length property has the attribute ReadOnly
+es5id: 15.10.6.4_A10
 description: >
     Checking if varying the RegExp.prototype.toString.length property
     fails

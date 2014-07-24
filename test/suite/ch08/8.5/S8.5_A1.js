@@ -3,6 +3,7 @@
 
 /*---
 info: NaN !== NaN
+es5id: 8.5_A1
 description: Compare NaN with NaN
 ---*/
 

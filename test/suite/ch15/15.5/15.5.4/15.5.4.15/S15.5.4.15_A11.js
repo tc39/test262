@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of the substring method is 2
+es5id: 15.5.4.15_A11
 description: Checking String.prototype.substring.length
 ---*/
 

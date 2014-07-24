@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 9.2.1_3
 description: >
     Tests that a single string instead of a locale list is treated  as
     the locale list containing that string.

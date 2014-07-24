@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.3.4.5-2-14
 description: Function.prototype.bind throws TypeError if 'Target' is a string
 includes: [runTestCase.js]
 ---*/

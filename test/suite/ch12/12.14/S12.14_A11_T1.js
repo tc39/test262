@@ -5,6 +5,7 @@
 info: >
     Using "try" with "catch" or "finally" statement within/without a "for"
     statement
+es5id: 12.14_A11_T1
 description: Loop inside try Block, where throw exception
 ---*/
 

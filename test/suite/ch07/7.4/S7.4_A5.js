@@ -5,6 +5,7 @@
 info: >
     Single line comments can contain any Unicode character without Line
     Terminators
+es5id: 7.4_A5
 description: >
     //var " + xx + "yy = -1", insert instead of xx all Unicode
     characters

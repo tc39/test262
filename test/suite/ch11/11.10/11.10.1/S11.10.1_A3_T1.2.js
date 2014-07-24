@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x & y returns ToNumber(x) & ToNumber(y)
+es5id: 11.10.1_A3_T1.2
 description: Type(x) and Type(y) are primitive number and Number object
 ---*/
 

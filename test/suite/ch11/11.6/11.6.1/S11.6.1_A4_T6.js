@@ -5,6 +5,7 @@
 info: >
     The result of an addition is determined using the rules of IEEE 754
     double-precision arithmetics
+es5id: 11.6.1_A4_T6
 description: >
     The sum of a zero and a nonzero finite value is equal to the
     nonzero operand

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.3-11-26
 description: >
     JSON.stringify - the last element of the concatenation is ']' (The
     abstract operation JA(value) step 10.b.iii)

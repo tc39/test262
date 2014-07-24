@@ -5,6 +5,7 @@
 info: >
     A TypeError exception is thrown if the this value is not an object for
     which the value of the internal [[Class]] property is "RegExp"
+es5id: 15.10.6.2_A2_T6
 description: The tested object is new Number(1.0)
 ---*/
 

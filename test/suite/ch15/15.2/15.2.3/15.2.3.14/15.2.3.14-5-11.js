@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.14-5-11
 description: >
     Object.keys - own enumerable indexed data property of dense array
     'O' is defined in returned array

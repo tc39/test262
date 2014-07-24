@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 7.6.1.2-2-s
 description: >
     Strict Mode - SyntaxError is thrown when FutureReservedWord 'let'
     occurs in strict mode code

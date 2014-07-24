@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.4.5-2-2-s
 description: Strict Mode - SyntaxError is thrown for --arguments
 flags: [onlyStrict]
 includes: [runTestCase.js]

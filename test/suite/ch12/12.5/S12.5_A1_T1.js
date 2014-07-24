@@ -3,6 +3,7 @@
 
 /*---
 info: 1, true, non-empty string in expression is evaluated to true
+es5id: 12.5_A1_T1
 description: Using "if" without "else" construction
 ---*/
 

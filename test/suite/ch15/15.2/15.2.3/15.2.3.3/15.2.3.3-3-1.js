@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.3-3-1
 description: Object.getOwnPropertyDescriptor - 'P' is own data property
 includes: [runTestCase.js]
 ---*/

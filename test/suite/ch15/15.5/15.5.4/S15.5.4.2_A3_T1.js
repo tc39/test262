@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.toString() is equal String.prototype.valueOf()
+es5id: 15.5.4.2_A3_T1
 description: >
     Create new String() with various arguments and compare returned
     results of toString() and valueOf()

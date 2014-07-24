@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.14-9-11
 description: >
     Array.prototype.indexOf - the length of iteration isn't changed by
     adding elements to the array during iteration

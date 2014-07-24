@@ -3,6 +3,7 @@
 
 /*---
 info: When using property attributes, {DontEnum} is not used
+es5id: 12.2_A9
 description: >
     Enumerating property attributes of "this" and then searching for
     the declared variable

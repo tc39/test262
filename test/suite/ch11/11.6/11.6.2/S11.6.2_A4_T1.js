@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x - y produces the same result as x + (-y)
+es5id: 11.6.2_A4_T1
 description: If either operand is NaN, the result is NaN
 ---*/
 

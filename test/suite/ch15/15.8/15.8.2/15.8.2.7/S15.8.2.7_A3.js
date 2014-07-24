@@ -3,6 +3,7 @@
 
 /*---
 info: If x is -0, Math.cos(x) is 1
+es5id: 15.8.2.7_A3
 description: Checking if Math.cos(-0) is 1
 ---*/
 

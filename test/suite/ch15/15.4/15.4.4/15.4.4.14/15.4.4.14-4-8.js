@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.14-4-8
 description: >
     Array.prototype.indexOf returns -1 if 'length' is 0 (length is an
     empty array)

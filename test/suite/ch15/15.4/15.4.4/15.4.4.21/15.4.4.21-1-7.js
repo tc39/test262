@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-1-7
 description: Array.prototype.reduce applied to string primitive
 includes: [runTestCase.js]
 ---*/

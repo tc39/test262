@@ -3,6 +3,7 @@
 
 /*---
 info: Operator uses GetValue
+es5id: 11.13.2_A2.1_T3.2
 description: >
     If GetBase(LeftHandSideExpression) is null, throw ReferenceError.
     Check operator is "x /= y"

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 8.7.2-1-s
 description: >
     Strict Mode - ReferenceError is thrown if LeftHandSide evaluates
     to an unresolvable Reference

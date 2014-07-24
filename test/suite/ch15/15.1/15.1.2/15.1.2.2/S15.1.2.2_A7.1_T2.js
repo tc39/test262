@@ -3,6 +3,7 @@
 
 /*---
 info: If Z is empty, return NaN
+es5id: 15.1.2.2_A7.1_T2
 description: x is not a radix-R digit
 ---*/
 

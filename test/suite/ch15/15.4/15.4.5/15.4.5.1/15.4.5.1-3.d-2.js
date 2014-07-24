@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.5.1-3.d-2
 description: >
     Throw RangeError if attempt to set array length property to
     4294967297 (1+2**32)

@@ -5,6 +5,7 @@
 info: >
     The result of calling this function is the same as if
     the built-in join method were invoked for this object with no argument
+es5id: 15.4.4.2_A1_T3
 description: Operator use ToString from array arguments
 ---*/
 

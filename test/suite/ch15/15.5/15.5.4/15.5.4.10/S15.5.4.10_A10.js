@@ -3,6 +3,7 @@
 
 /*---
 info: The String.prototype.match.length property has the attribute ReadOnly
+es5id: 15.5.4.10_A10
 description: >
     Checking if varying the String.prototype.match.length property
     fails

@@ -3,6 +3,7 @@
 
 /*---
 info: The pop property of Array has not prototype property
+es5id: 15.4.4.6_A5.6
 description: Checking Array.prototype.pop.prototype
 ---*/
 

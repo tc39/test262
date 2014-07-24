@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of parseInt has the attribute DontEnum
+es5id: 15.1.2.2_A9.1
 description: Checking use propertyIsEnumerable, for-in
 ---*/
 

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.10.6
 description: RegExp.prototype is itself a RegExp
 includes: [runTestCase.js]
 ---*/

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-8-b-ii-11
 description: >
     Array.prototype.lastIndexOf - both array element and search
     element are Objects, and they refer to the same object

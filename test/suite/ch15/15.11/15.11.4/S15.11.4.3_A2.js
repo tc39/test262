@@ -3,6 +3,7 @@
 
 /*---
 info: The initial value of Error.prototype.message is ""
+es5id: 15.11.4.3_A2
 description: Checking value of Error.prototype.message
 ---*/
 

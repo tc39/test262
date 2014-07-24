@@ -3,6 +3,7 @@
 
 /*---
 info: Line Terminators between operators are allowed
+es5id: 7.3_A7_T1
 description: Insert Line Terminator in var x=y+z
 ---*/
 

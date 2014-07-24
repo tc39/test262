@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.7.4-1
 description: "Number prototype object: its [[Class]] must be 'Number'"
 includes: [runTestCase.js]
 ---*/

@@ -3,6 +3,7 @@
 
 /*---
 info: Result of boolean conversion from null value is false
+es5id: 9.2_A2_T1
 description: null convert to Boolean by explicit transformation
 ---*/
 

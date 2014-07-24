@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 7.8.4-24-s
 description: An OctalEscapeSequence is not allowed in a String under Strict Mode
 flags: [onlyStrict]
 includes: [runTestCase.js]

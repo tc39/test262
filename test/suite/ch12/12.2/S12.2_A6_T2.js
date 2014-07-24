@@ -3,6 +3,7 @@
 
 /*---
 info: VariableDeclaration within "try-catch" statement is allowed
+es5id: 12.2_A6_T2
 description: Declaring variables within "try-catch" statement
 ---*/
 

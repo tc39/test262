@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.16-8-11
 description: >
     Array.prototype.every returns true when all calls to callbackfn
     return true

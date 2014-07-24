@@ -3,6 +3,7 @@
 
 /*---
 info: -Infinity is the same as Number.NEGATIVE_INFINITY
+es5id: 8.5_A12.2
 description: Compare -Infinity with Number.NEGATIVE_INFINITY
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: Continue inside of try-catch nested in a loop is allowed
+es5id: 12.7_A9_T1
 description: >
     Using "continue Identifier" within catch Block that is within a
     loop

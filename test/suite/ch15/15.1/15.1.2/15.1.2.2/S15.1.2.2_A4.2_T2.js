@@ -3,6 +3,7 @@
 
 /*---
 info: If R < 2 or R > 36, then return NaN
+es5id: 15.1.2.2_A4.2_T2
 description: R = 37
 ---*/
 

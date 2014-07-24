@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.11.4.4-9-1
 description: >
     Error.prototype.toString return 'name' when 'name' is non-empty
     string and 'msg' is empty string

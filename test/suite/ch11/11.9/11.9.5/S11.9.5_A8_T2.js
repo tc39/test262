@@ -3,6 +3,7 @@
 
 /*---
 info: If Type(x) is different from Type(y), return true
+es5id: 11.9.5_A8_T2
 description: x or y is primitive number
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: The Object.prototype.toString.length property has the attribute DontEnum
+es5id: 15.2.4.2_A8
 description: >
     Checking if enumerating the Object.prototype.toString.length
     property fails

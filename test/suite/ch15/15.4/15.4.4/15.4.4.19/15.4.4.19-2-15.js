@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.19-2-15
 description: >
     Array.prototype.map - when 'length' is property of the global
     object

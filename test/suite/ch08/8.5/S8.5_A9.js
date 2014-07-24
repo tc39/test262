@@ -3,6 +3,7 @@
 
 /*---
 info: Globally defined variable NaN has not been altered by program execution
+es5id: 8.5_A9
 description: Try alter globally defined variable NaN
 flags: [noStrict]
 ---*/

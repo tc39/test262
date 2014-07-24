@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.9.5.44-0-1
 description: Date.prototype.toJSON must exist as a function
 includes: [runTestCase.js]
 ---*/

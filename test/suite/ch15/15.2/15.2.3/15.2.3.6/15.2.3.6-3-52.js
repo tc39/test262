@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-3-52
 description: >
     Object.defineProperty - value of 'enumerable' property in
     'Attributes' is -0 (8.10.5 step 3.b)

@@ -5,6 +5,7 @@
 info: >
     When the [[Delete]] method of O is called with property name P,
     removes the property with name P from O and return true
+es5id: 8.12.7_A3
 description: Delete existent properties
 ---*/
 

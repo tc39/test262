@@ -9,6 +9,7 @@ info: >
     Step 4 of defineProperty calls the [[DefineOwnProperty]] internal method
     of O to define the property. For non-configurable properties, step 10.a.ii.1
     of [[DefineOwnProperty]] rejects changing the value of non-writable properties.
+es5id: 15.2.3.6-4-17
 description: >
     Object.defineProperty throws TypeError when changing value of
     non-writable non-configurable data properties

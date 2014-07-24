@@ -5,6 +5,7 @@
 info: >
     If P's characters do not have the form Pattern, then throw a SyntaxError
     exception
+es5id: 15.10.4.1_A9_T1
 description: Pattern is "??"
 ---*/
 

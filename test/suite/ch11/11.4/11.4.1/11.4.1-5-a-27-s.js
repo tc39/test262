@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.4.1-5-a-27-s
 description: >
     Strict Mode - TypeError is thrown after deleting a property,
     calling preventExtensions, and attempting to reassign the property

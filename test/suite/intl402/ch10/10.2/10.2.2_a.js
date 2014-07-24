@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 10.2.2_a
 description: >
     Tests that Intl.Collator has a supportedLocalesOf  property, and
     it works as planned.

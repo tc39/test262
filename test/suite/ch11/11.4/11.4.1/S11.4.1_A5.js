@@ -6,6 +6,7 @@ info: >
     A strict delete should either succeed, returning true, or it
     should fail by throwing a TypeError. Under no circumstances
     should a strict delete return false.
+es5id: 11.4.1_A5
 description: >
     See if a strict delete returns false when deleting a  non-standard
     property.

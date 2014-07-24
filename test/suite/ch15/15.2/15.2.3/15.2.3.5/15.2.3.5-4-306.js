@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.5-4-306
 description: >
     Object.create - [[Value]] is set as undefined if it is absent in
     data descriptor of one property in 'Properties' (8.12.9 step 4.a.i)

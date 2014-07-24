@@ -3,6 +3,7 @@
 
 /*---
 info: Infinity is the same as +Infinity
+es5id: 8.5_A8
 description: Compare Infinity and +Infinity
 ---*/
 

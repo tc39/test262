@@ -5,6 +5,7 @@
 info: >
     isFinite applies ToNumber to its argument, then return false if the
     result is NaN, +Infinity, -Infinity, and otherwise return true
+es5id: 15.1.2.5_A1_T2
 description: Checking all object
 ---*/
 

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.14-10
 description: catch introduces scope - name lookup finds function parameter
 includes: [runTestCase.js]
 ---*/

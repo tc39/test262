@@ -3,6 +3,7 @@
 
 /*---
 info: The NaN is DontDelete
+es5id: 15.1.1.1_A3.1
 description: Use delete
 flags: [noStrict]
 ---*/

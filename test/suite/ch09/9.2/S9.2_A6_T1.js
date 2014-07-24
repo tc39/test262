@@ -3,6 +3,7 @@
 
 /*---
 info: Result of boolean conversion from object is true
+es5id: 9.2_A6_T1
 description: Different objects convert to Boolean by explicit transformation
 ---*/
 

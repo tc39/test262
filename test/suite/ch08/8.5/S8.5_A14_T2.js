@@ -3,6 +3,7 @@
 
 /*---
 info: When number absolute value is bigger of 2**1024 should convert to Infinity
+es5id: 8.5_A14_T2
 description: Create number smaller of -2**1024
 ---*/
 

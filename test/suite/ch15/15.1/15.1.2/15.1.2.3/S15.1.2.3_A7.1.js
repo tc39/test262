@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of parseFloat has the attribute DontEnum
+es5id: 15.1.2.3_A7.1
 description: Checking use propertyIsEnumerable, for-in
 ---*/
 

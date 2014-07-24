@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.20-3-2
 description: >
     Array.prototype.filter applied on an Array-like object if 'length'
     is 1 (length overridden to true(type conversion))

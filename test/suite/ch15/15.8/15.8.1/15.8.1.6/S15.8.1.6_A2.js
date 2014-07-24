@@ -3,6 +3,7 @@
 
 /*---
 info: Value Property PI of the Math Object has the attribute DontEnum
+es5id: 15.8.1.6_A2
 description: Checking if Math.PI property has the attribute DontEnum
 ---*/
 

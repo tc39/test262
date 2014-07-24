@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.charAt can't be used as constructor
+es5id: 15.5.4.4_A7
 description: Checking if creating the String.prototype.charAt object fails
 includes: [$FAIL.js]
 ---*/

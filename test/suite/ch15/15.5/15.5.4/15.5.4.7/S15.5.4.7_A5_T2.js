@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.indexOf works properly
+es5id: 15.5.4.7_A5_T2
 description: Search one symbol from it`s position in the string
 ---*/
 

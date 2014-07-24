@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-5-b-262
 description: >
     Object.defineProperties - TypeError is thrown if both 'set'
     property and 'writable' property of 'descObj' are present (8.10.5

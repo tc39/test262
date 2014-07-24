@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.1.1-11-s
 description: >
     Strict Mode - Eval code is strict code with a Use Strict Directive
     at the beginning of the block

@@ -5,6 +5,7 @@
 info: >
     Global FunctionDeclaration cannot be defined within the body of another
     FunctionDeclaration
+es5id: 14_A3
 description: Declaring a function within the body of another function
 ---*/
 

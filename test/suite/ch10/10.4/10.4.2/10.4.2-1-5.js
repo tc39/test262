@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.4.2-1-5
 description: >
     Indirect call to eval has context set to global context (inside
     another eval)

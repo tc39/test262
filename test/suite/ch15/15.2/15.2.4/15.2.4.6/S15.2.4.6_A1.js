@@ -5,6 +5,7 @@
 info: >
     When the isPrototypeOf method is called with argument V and when O and
     V refer to the same object or to objects joined to each other, return true
+es5id: 15.2.4.6_A1
 description: Creating two objects with the same prototype
 includes: [$PRINT.js]
 ---*/

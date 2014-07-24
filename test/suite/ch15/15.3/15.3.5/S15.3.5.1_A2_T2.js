@@ -3,6 +3,7 @@
 
 /*---
 info: the length property has the attributes { DontDelete }
+es5id: 15.3.5.1_A2_T2
 description: >
     Checking if deleting the length property of
     Function("arg1,arg2,arg3","arg4,arg5", null) fails

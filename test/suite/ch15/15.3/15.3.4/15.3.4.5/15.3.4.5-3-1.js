@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.3.4.5-3-1
 description: Function.prototype.bind - each arg is defined in A in list order
 includes: [runTestCase.js]
 ---*/

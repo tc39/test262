@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.14-9-b-iii-1
 description: >
     Array.prototype.indexOf - returns index of last one when more than
     two elements in array are eligible

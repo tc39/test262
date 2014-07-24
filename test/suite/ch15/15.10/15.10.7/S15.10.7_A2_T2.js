@@ -3,6 +3,7 @@
 
 /*---
 info: RegExp instance has not [[construct]] property
+es5id: 15.10.7_A2_T2
 description: Checking if creating "new RegExp" instance fails
 ---*/
 

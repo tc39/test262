@@ -3,6 +3,7 @@
 
 /*---
 info: If either x or y is +0 and the other is -0, return true
+es5id: 11.8.3_A4.4
 description: Checking all combinations
 ---*/
 

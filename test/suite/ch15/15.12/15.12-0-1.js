@@ -9,6 +9,7 @@ info: >
     This test should be run without any built-ins being added/augmented.
     The name JSON must be bound to an object.
     4.2 calls out JSON as one of the built-in objects.
+es5id: 15.12-0-1
 description: JSON must be a built-in object
 includes: [runTestCase.js]
 ---*/

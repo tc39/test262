@@ -3,6 +3,7 @@
 
 /*---
 info: The production x /= y is the same as x = x / y
+es5id: 11.13.2_A4.2_T2.7
 description: >
     Type(x) is different from Type(y) and both types vary between
     String (primitive or object) and Null

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 7.6.1.2-4-s
 description: >
     Strict Mode - SyntaxError is thrown when FutureReservedWord
     'public' occurs in strict mode code

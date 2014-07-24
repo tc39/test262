@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.10.2.2-1
 description: Pattern - SyntaxError was thrown when compile a pattern
 includes: [runTestCase.js]
 ---*/

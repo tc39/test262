@@ -3,6 +3,7 @@
 
 /*---
 info: If string.charAt(k) not equal "%", return this char
+es5id: 15.1.3.1_A2.1_T1
 description: Complex tests
 ---*/
 

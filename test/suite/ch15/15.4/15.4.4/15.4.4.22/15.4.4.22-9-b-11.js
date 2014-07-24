@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.22-9-b-11
 description: >
     Array.prototype.reduceRight - deleting property of prototype in
     step 8 causes deleted index property not to be visited on an Array

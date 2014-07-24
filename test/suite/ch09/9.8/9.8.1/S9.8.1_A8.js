@@ -7,6 +7,7 @@ info: >
     character '0', followed by a decimal point '.', followed by -n occurrences
     of the character '0', followed by the k digits of the decimal
     representation of s
+es5id: 9.8.1_A8
 description: Various float numbers convert to String by explicit transformation
 ---*/
 

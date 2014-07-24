@@ -3,6 +3,7 @@
 
 /*---
 info: The String.prototype property has the attribute DontEnum
+es5id: 15.5.3.1_A2
 description: Checking if enumerating the String.prototype property fails
 includes: [$FAIL.js]
 ---*/

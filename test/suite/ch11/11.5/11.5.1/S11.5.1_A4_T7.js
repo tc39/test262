@@ -5,6 +5,7 @@
 info: >
     The result of a floating-point multiplication is governed by the rules of
     IEEE 754 double-precision arithmetics
+es5id: 11.5.1_A4_T7
 description: >
     If the magnitude is too small to represent, the result is then a
     zero of appropriate sign

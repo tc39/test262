@@ -5,6 +5,7 @@
 info: >
     White Space and Line Terminator between MultiplicativeExpression and "/"
     or between "/" and UnaryExpression are allowed
+es5id: 11.5.2_A1
 description: Checking by using eval
 ---*/
 

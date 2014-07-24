@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.1.5-2gs
 description: >
     Strict Mode - SyntaxError is thrown when eval code contains an
     ObjectLiteral with more than one definition of any data property

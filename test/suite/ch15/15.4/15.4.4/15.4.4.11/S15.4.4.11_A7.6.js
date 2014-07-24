@@ -3,6 +3,7 @@
 
 /*---
 info: The sort property of Array has not prototype property
+es5id: 15.4.4.11_A7.6
 description: Checking Array.prototype.sort.prototype
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: "Evaluate the production ArrayLiteral: [ Elision, AssignmentExpression ]"
+es5id: 11.1.4_A1.4
 description: >
     Checking various properteis and content of the array defined with
     "var array = [,,,1,2]"

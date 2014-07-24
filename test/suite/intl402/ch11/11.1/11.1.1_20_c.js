@@ -3,6 +3,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 11.1.1_20_c
 description: >
     Tests that the number of fractional digits is determined correctly
     for currencies.

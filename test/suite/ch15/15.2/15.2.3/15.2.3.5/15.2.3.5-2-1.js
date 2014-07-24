@@ -8,6 +8,7 @@
 info: >
     create sets the [[Prototype]] of the created object to first parameter.
     This can be checked using isPrototypeOf, or getPrototypeOf.
+es5id: 15.2.3.5-2-1
 description: Object.create creates new Object
 includes: [runTestCase.js]
 ---*/

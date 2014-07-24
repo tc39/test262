@@ -5,6 +5,7 @@
 info: >
     FunctionExpression within a "while" IterationStatement is allowed, but no
     function with the given name will appear in the global context
+es5id: 12.6.2_A10
 description: Testing FunctionExpression too
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: The production x |= y is the same as x = x | y
+es5id: 11.13.2_A4.11_T2.2
 description: >
     Type(x) is different from Type(y) and both types vary between
     Number (primitive or object) and String (primitive and object)

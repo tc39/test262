@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 9.1_a
 description: Tests that default locale is available.
 author: Norbert Lindenberg
 includes: [testIntl.js]

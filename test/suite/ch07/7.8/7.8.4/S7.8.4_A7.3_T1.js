@@ -3,6 +3,7 @@
 
 /*---
 info: \u HexDigit HexDigit HexDigit HexDigit DoubleStringCharacter
+es5id: 7.8.4_A7.3_T1
 description: Check similar to ("\u0001F" === String.fromCharCode("1") + "F")
 ---*/
 

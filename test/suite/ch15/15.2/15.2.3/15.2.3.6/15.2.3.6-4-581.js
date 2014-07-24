@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-581
 description: ES5 Attributes - Fail to add property into object (Number instance)
 includes: [runTestCase.js]
 ---*/

@@ -5,6 +5,7 @@
 info: >
     The Date.prototype property "getUTCMilliseconds" has { DontEnum }
     attributes
+es5id: 15.9.5.25_A1_T1
 description: Checking absence of ReadOnly attribute
 ---*/
 

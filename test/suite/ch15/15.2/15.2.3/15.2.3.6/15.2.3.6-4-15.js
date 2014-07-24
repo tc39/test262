@@ -9,6 +9,7 @@ info: >
     Step 4 of defineProperty calls the [[DefineOwnProperty]] internal method
     of O to define the property. For configurable properties, step 9c of
     [[DefineOwnProperty]] permits changing the kind of a property.
+es5id: 15.2.3.6-4-15
 description: >
     Object.defineProperty permits changing accessor property to data
     property for configurable properties

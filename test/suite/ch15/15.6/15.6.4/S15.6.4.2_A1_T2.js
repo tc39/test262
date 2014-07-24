@@ -6,6 +6,7 @@ info: >
     toString: If this boolean value is true, then the string "true"
     is returned, otherwise, this boolean value must be false, and the string
     "false" is returned
+es5id: 15.6.4.2_A1_T2
 description: with some argument
 ---*/
 

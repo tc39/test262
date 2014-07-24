@@ -5,6 +5,7 @@
 info: >
     The MV of DecimalDigits ::: DecimalDigits DecimalDigit is
     (the MV of DecimalDigits times 10) plus the MV of DecimalDigit
+es5id: 9.3.1_A13
 description: Compare '12' with Number("1")*10+Number("2") and analogous
 ---*/
 

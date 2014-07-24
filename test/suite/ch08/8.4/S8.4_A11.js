@@ -3,6 +3,7 @@
 
 /*---
 info: Presence of reserved words in string literal are allowed
+es5id: 8.4_A11
 description: Create string variable, thet include all reserved words
 ---*/
 

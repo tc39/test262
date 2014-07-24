@@ -6,6 +6,7 @@ info: >
     "in"-expression wrapped into "eval" statement is allowed as a
     ExpressionNoIn in "for (ExpressionNoIn; FirstExpression;
     SecondExpression) Statement" IterationStatement
+es5id: 12.6.3_A5
 description: Using eval "for(eval("i in arr");1;)"
 ---*/
 

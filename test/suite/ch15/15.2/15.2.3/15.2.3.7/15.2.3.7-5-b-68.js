@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-5-b-68
 description: >
     Object.defineProperties - 'configurable' property of 'descObj' is
     own accessor property that overrides an inherited accessor

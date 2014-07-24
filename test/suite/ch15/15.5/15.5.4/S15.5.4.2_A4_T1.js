@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.toString have length property and it is equal 0
+es5id: 15.5.4.2_A4_T1
 description: Checking String.prototype.toString.length property
 ---*/
 

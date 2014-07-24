@@ -5,6 +5,7 @@
 info: >
     when String.prototype.indexOf(searchString, position) is called first Call ToString, giving it the this value as its argument.
     Then Call ToString(searchString) and Call ToNumber(position)
+es5id: 15.5.4.7_A4_T1
 description: Override toString and valueOf functions, valueOf throw exception
 includes: [$FAIL.js]
 ---*/

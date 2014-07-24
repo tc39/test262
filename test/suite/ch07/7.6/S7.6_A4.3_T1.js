@@ -3,6 +3,7 @@
 
 /*---
 info: Correct interpretation of DIGITS
+es5id: 7.6_A4.3_T1
 description: Identifier is $+ANY_DIGIT
 ---*/
 

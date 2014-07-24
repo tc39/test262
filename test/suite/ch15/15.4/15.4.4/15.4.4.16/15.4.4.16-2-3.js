@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.16-2-3
 description: >
     Array.prototype.every applied to Array-like object, 'length' is an
     own data property that overrides an inherited data property

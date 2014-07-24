@@ -3,6 +3,7 @@
 
 /*---
 info: Deleting arguments[i] leads to breaking the connection to local reference
+es5id: 13_A13_T1
 description: Deleting arguments[i]
 ---*/
 

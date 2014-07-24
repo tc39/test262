@@ -3,6 +3,7 @@
 
 /*---
 info: The initial value of NaN is NaN
+es5id: 15.1.1.1_A1
 description: Use typeof, isNaN, isFinite
 ---*/
 

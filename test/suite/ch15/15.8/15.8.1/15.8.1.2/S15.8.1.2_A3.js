@@ -3,6 +3,7 @@
 
 /*---
 info: Value Property LN10 of the Math Object has the attribute DontDelete
+es5id: 15.8.1.2_A3
 description: Checking if Math.LN10 property has the attribute DontDelete
 flags: [noStrict]
 ---*/

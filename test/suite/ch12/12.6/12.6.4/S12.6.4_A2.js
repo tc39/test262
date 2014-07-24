@@ -3,6 +3,7 @@
 
 /*---
 info: "\"for(key in null)\" Expression is allowed"
+es5id: 12.6.4_A2
 description: Checking if execution of "for(key in null)" passes
 ---*/
 

@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 13.3.0_1
 description: >
     Tests that Date.prototype.toLocaleString & Co. handle "this time
     value" correctly.

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.2.1-34-s
 description: "'for(var eval in ...) {...}' throws SyntaxError in strict mode"
 flags: [onlyStrict]
 includes: [runTestCase.js]

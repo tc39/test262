@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.3-4-188
 description: >
     Object.getOwnPropertyDescriptor returns undefined for non-existent
     properties on built-ins (Function (instance).name)

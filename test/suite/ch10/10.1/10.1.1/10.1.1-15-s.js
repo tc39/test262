@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.1.1-15-s
 description: >
     Strict Mode - Function code that is part of a FunctionDeclaration
     is strict function code if FunctionDeclaration is contained in use

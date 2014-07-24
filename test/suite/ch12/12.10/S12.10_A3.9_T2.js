@@ -5,6 +5,7 @@
 info: >
     No matter how control leaves the embedded 'Statement',
     the scope chain is always restored to its former state
+es5id: 12.10_A3.9_T2
 description: >
     Using "for-in" statement within "with" statement, leading to
     completion by break

@@ -3,6 +3,7 @@
 
 /*---
 info: +Infinity expression has a type Number
+es5id: 8.5_A7
 description: Check type of +Infinity
 ---*/
 

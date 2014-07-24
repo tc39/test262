@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 6.2.2_c
 description: >
     Tests that language tags with invalid subtag sequences are not
     accepted.

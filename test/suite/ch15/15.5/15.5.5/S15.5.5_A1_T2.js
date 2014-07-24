@@ -3,6 +3,7 @@
 
 /*---
 info: String instance has not [[call]] property
+es5id: 15.5.5_A1_T2
 description: Checking if creating new "String("a|b")()" fails
 includes: [$FAIL.js]
 ---*/

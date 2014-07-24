@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.3.2-1-13
 description: Array.isArray applied to Arguments object
 includes: [runTestCase.js]
 ---*/

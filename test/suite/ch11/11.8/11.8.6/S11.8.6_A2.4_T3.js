@@ -3,6 +3,7 @@
 
 /*---
 info: First expression is evaluated first, and then second expression
+es5id: 11.8.6_A2.4_T3
 description: Checking with undeclarated variables
 ---*/
 

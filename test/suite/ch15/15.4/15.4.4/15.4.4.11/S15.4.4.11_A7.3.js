@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of sort has the attribute ReadOnly
+es5id: 15.4.4.11_A7.3
 description: Checking if varying the length fails
 flags: [noStrict]
 ---*/

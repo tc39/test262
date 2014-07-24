@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.5.4.20-0-2
 description: String.prototype.trim must exist as a function taking 0 parameters
 includes: [runTestCase.js]
 ---*/

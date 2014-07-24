@@ -3,6 +3,7 @@
 
 /*---
 info: Number.NaN is DontDelete
+es5id: 15.7.3.4_A3
 description: Checking if deleting Number.NaN fails
 flags: [noStrict]
 ---*/

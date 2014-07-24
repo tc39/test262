@@ -3,6 +3,7 @@
 
 /*---
 info: If x is less than -1, Math.asin(x) is NaN
+es5id: 15.8.2.3_A3
 description: Checking if Math.asin(x) is NaN, where x is less than -1
 ---*/
 

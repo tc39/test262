@@ -3,6 +3,7 @@
 
 /*---
 info: The String.prototype.slice.length property has the attribute DontEnum
+es5id: 15.5.4.13_A8
 description: >
     Checking if enumerating the String.prototype.slice.length property
     fails

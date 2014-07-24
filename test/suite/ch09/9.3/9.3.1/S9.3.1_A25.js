@@ -3,6 +3,7 @@
 
 /*---
 info: "The MV of DecimalDigit ::: 9 or of HexDigit ::: 9 is 9"
+es5id: 9.3.1_A25
 description: Compare Number('0x9') and Number('0X9') with 9
 ---*/
 

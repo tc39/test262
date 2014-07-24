@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.20-9-b-9
 description: >
     Array.prototype.filter - deleting own property causes index
     property not to be visited on an Array

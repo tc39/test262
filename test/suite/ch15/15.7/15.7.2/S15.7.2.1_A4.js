@@ -5,6 +5,7 @@
 info: >
     The [[Class]] property of the newly constructed object
     is set to "Number"
+es5id: 15.7.2.1_A4
 description: For testing toString function is used
 ---*/
 

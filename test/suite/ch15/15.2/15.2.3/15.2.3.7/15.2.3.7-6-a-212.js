@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-212
 description: >
     Object.defineProperties - 'O' is an Array, 'name' is an array
     index property, both the [[Value]] field of 'desc' and the

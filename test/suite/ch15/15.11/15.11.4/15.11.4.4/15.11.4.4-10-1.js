@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.11.4.4-10-1
 description: >
     Error.prototype.toString return the result of concatenating
     'name', ':', a single space character, and 'msg' when 'name' and

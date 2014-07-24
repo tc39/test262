@@ -3,6 +3,7 @@
 
 /*---
 info: The Number prototype object has the property toFixed
+es5id: 15.7.4_A3.5
 description: The test uses hasOwnProperty() method
 ---*/
 

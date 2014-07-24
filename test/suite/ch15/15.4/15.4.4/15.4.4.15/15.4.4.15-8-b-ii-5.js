@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-8-b-ii-5
 description: Array.prototype.lastIndexOf - search element is -NaN
 includes: [runTestCase.js]
 ---*/

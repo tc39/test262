@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-8-a-18
 description: >
     Array.prototype.lastIndexOf -  decreasing length of array with
     prototype property causes prototype index property to be visited

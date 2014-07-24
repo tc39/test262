@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.5-1gs
 description: Strict Mode - arguments cannot be assigned to in a strict function
 negative: ^((?!NotEarlyError).)*$
 flags: [onlyStrict]

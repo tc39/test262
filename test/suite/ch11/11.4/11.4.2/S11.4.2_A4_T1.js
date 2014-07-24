@@ -3,6 +3,7 @@
 
 /*---
 info: Operator "void" evaluates UnaryExpression and returns undefined
+es5id: 11.4.2_A4_T1
 description: Type(x) is boolean primitive or Boolean object
 ---*/
 

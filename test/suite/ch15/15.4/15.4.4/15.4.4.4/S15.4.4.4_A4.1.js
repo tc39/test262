@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of concat has the attribute DontEnum
+es5id: 15.4.4.4_A4.1
 description: Checking use propertyIsEnumerable, for-in
 ---*/
 

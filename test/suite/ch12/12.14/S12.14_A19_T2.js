@@ -3,6 +3,7 @@
 
 /*---
 info: Catching system exceptions of different types with try statement
+es5id: 12.14_A19_T2
 description: Testing try/catch/finally syntax construction
 ---*/
 

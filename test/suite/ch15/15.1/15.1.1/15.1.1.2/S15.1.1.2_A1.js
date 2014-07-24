@@ -3,6 +3,7 @@
 
 /*---
 info: The initial value of Infinity is Number.POSITIVE_INFINITY
+es5id: 15.1.1.2_A1
 description: Use typeof, isNaN, isFinite
 ---*/
 

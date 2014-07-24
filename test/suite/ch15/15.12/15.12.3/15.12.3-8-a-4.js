@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.3-8-a-4
 description: >
     JSON.stringify treats an Boolean wrapper space argument the same
     as a missing space argument.

@@ -5,6 +5,7 @@
 info: >
     The initial value of Object.prototype.constructor is the built-in Object
     constructor
+es5id: 15.2.4.1_A1_T2
 description: >
     Creating "new Object.prototype.constructor" and checking its
     properties

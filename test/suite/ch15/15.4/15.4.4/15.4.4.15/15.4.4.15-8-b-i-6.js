@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-8-b-i-6
 description: >
     Array.prototype.lastIndexOf - element to be retrieved is own data
     property that overrides an inherited accessor property on an

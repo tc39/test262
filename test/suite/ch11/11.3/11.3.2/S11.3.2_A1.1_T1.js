@@ -3,6 +3,7 @@
 
 /*---
 info: Line Terminator between LeftHandSideExpression and "--" is not allowed
+es5id: 11.3.2_A1.1_T1
 description: Checking Line Feed
 flags: [negative]
 ---*/

@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.toLocaleLowerCase()
+es5id: 15.5.4.17_A1_T6
 description: Call toLocaleLowerCase() function of Number.NEGATIVE_INFINITY
 ---*/
 

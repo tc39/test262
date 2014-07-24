@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.4.3-1-55-s
 description: >
     Strict Mode - checking 'this' (Literal getter includes strict
     directive prologue)

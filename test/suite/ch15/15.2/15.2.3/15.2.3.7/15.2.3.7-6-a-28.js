@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-28
 description: >
     Object.defineProperties - 'P' doesn't exist in 'O', test
     [[Writable]] of 'P' is set as false value if absent in data

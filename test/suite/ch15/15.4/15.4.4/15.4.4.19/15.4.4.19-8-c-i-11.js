@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.19-8-c-i-11
 description: >
     Array.prototype.map - element to be retrieved is own accessor
     property that overrides an inherited data property on an

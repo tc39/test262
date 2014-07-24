@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.2-2-4
 description: >
     JSON.parse - parsing an object where property name starts and ends
     with a null character

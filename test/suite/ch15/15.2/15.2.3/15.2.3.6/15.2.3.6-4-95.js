@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-95
 description: >
     Object.defineProperty will throw TypeError when name.configurable
     = false, name.writable = false, desc.value and name.value are two

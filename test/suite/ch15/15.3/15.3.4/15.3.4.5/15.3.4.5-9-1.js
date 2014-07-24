@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.3.4.5-9-1
 description: Function.prototype.bind, [[Prototype]] is Function.prototype
 includes: [runTestCase.js]
 ---*/

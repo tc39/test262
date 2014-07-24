@@ -3,6 +3,7 @@
 
 /*---
 info: The String.prototype.replace.length property has the attribute DontEnum
+es5id: 15.5.4.11_A8
 description: >
     Checking if enumerating the String.prototype.replace.length
     property fails

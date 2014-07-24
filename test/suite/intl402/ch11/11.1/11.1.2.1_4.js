@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 11.1.2.1_4
 description: >
     Tests that for non-object values passed as this to NumberFormat a
     wrapper object will be initialized and returned.

@@ -3,6 +3,7 @@
 
 /*---
 info: Do not crash with pefixincrement custom property
+es5id: 8.6_A3_T2
 description: Try to implement pefixincrement for not declared custom property
 ---*/
 

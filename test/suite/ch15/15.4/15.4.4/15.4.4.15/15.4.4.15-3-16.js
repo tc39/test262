@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-3-16
 description: >
     Array.prototype.lastIndexOf - value of 'length' is a string which
     is able to be converted into hex number

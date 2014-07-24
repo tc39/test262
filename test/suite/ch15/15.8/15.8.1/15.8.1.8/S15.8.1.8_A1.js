@@ -3,6 +3,7 @@
 
 /*---
 info: Math.SQRT2 is approximately 1.4142135623730951
+es5id: 15.8.1.8_A1
 description: Comparing Math.SQRT2 with 1.4142135623730951
 includes:
     - math_precision.js

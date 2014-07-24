@@ -5,6 +5,7 @@
 info: >
     Since the Object prototype object is not a function, it has not
     [[create]] method
+es5id: 15.2.4_A4
 description: Checking if creating "new Object.prototype" fails
 includes:
     - $PRINT.js

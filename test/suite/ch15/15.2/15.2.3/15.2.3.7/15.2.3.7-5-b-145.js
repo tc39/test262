@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-5-b-145
 description: >
     Object.defineProperties - 'writable' property of 'descObj' is
     inherited accessor property (8.10.5 step 6.a)

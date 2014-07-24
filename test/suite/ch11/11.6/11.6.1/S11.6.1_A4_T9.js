@@ -5,6 +5,7 @@
 info: >
     The result of an addition is determined using the rules of IEEE 754
     double-precision arithmetics
+es5id: 11.6.1_A4_T9
 description: >
     The addition operator is not always associative ( x + y + z is the
     same (x + y) + z, not x + (y + z))

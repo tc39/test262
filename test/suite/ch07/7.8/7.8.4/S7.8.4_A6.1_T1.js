@@ -3,6 +3,7 @@
 
 /*---
 info: "EscapeSequence :: HexEscapeSequence :: x HexDigit HexDigit"
+es5id: 7.8.4_A6.1_T1
 description: "HexEscapeSequence ::  HexDigit"
 ---*/
 

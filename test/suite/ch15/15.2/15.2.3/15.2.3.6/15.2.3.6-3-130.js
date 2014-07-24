@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-3-130
 description: >
     Object.defineProperty - 'value' property in 'Attributes' is own
     data property that overrides an inherited data property  (8.10.5

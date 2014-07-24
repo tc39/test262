@@ -3,6 +3,7 @@
 
 /*---
 info: Unicode characters in variable Identifier are allowed
+es5id: 12.2_A4
 description: Create and use unicode characters in variable Identifier
 ---*/
 

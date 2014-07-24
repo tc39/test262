@@ -6,6 +6,7 @@ info: >
     If ToString([[Get]] ToString(j)) < ToString([[Get]] ToString(k)), return -1.
     If ToString([[Get]] ToString(j)) > ToString([[Get]] ToString(k)), return 1;
     return -1
+es5id: 15.4.4.11_A2.1_T1
 description: Checking ENGLISH ALPHABET
 ---*/
 

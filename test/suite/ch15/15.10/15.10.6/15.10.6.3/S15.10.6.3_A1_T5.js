@@ -3,6 +3,7 @@
 
 /*---
 info: Equivalent to the expression RegExp.prototype.exec(string) != null
+es5id: 15.10.6.3_A1_T5
 description: >
     RegExp is /(aa|aabaac|ba|b|c)* / and tested string is
     {toString:function(){return {};}, valueOf:function(){return

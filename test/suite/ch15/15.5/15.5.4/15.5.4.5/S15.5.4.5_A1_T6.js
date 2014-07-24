@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.charCodeAt(pos)
+es5id: 15.5.4.5_A1_T6
 description: >
     Call charCodeAt() function with x argument of new String object,
     where x is undefined variable

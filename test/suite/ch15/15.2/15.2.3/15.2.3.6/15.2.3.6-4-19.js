@@ -9,6 +9,7 @@ info: >
     Step 4 of defineProperty calls the [[DefineOwnProperty]] internal method
     of O to define the property. For non-configurable properties, step 11.a.i
     of [[DefineOwnProperty]] permits setting a setter (if absent).
+es5id: 15.2.3.6-4-19
 description: >
     Object.defineProperty permits setting a setter (if absent) of
     non-configurable accessor properties(8.12.9 step 10.a.ii.1)

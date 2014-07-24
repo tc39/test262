@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.1.2.3-2-1
 description: >
     pareseFloat - 'trimmedString' is the empty string when inputString
     does not contain any such characters

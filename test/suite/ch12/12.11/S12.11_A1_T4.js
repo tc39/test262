@@ -5,6 +5,7 @@
 info: >
     If Result.type is break and Result.target is in the current
     label set, return (normal, Result.value, empty)
+es5id: 12.11_A1_T4
 description: Using case with isNaN and isNaN(value)
 ---*/
 

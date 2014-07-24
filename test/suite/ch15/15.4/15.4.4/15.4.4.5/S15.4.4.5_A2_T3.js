@@ -5,6 +5,7 @@
 info: >
     The join function is intentionally generic.
     It does not require that its this value be an Array object
+es5id: 15.4.4.5_A2_T3
 description: If ToUint32(length) is zero, return the empty string
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x @= y returns x @ y
+es5id: 11.13.2_A3.2_T1
 description: Checking Expression and Variable statements for x *= y
 ---*/
 

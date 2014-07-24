@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.19-8-8
 description: >
     Array.prototype.map - no observable effects occur if length is 0
     on an Array-like object

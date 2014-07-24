@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.8.2.11-1
 description: Math.max({}) is NaN
 includes: [runTestCase.js]
 ---*/

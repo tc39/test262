@@ -5,6 +5,7 @@
 info: >
     RegularExpressionChar :: NonTerminator but not \ or /,
     RegularExpressionFlags :: [empty]
+es5id: 7.8.5_A2.1_T1
 description: Without eval
 ---*/
 

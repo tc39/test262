@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.16-8-13
 description: Array.prototype.every doesn't visit expandos
 includes: [runTestCase.js]
 ---*/

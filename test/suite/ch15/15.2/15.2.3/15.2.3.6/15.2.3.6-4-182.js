@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-182
 description: >
     Object.defineProperty - 'O' is an Array, 'name' is an array index
     named property, 'name' is available String values that convert to

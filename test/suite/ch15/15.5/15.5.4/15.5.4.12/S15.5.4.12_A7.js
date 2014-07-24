@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.search can't be used as constructor
+es5id: 15.5.4.12_A7
 description: Checking if creating the String.prototype.search object fails
 includes:
     - $PRINT.js

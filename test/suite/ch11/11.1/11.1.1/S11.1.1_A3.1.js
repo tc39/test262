@@ -5,6 +5,7 @@
 info: >
     Being in function code, "this" and eval("this"), called as a functions,
     return the global object
+es5id: 11.1.1_A3.1
 description: Creating function which returns "this" or eval("this")
 flags: [noStrict]
 ---*/

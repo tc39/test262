@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 13.2.3_A1
 description: >
     check that all poisoning use the [[ThrowTypeError]]  function
     object.

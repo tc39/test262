@@ -3,6 +3,7 @@
 
 /*---
 info: "DecimalEscape :: DecimalIntegerLiteral [lookahead not in DecimalDigit]"
+es5id: 15.10.2.11_A1_T1
 description: >
     DecimalEscape :: 0. If i is zero, return the EscapeValue
     consisting of a <NUL> character (Unicodevalue0000)

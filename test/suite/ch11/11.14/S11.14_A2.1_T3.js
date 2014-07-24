@@ -3,6 +3,7 @@
 
 /*---
 info: Operator uses GetValue
+es5id: 11.14_A2.1_T3
 description: If GetBase(AssigmentExpression) is null, throw ReferenceError
 ---*/
 

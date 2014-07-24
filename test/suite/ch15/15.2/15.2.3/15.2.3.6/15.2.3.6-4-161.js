@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-161
 description: >
     Object.defineProperty - 'O' is an Array, 'name' is the length
     property of 'O', set the [[Value]] field of 'desc' to a value

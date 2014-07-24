@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.search (regexp)
+es5id: 15.5.4.12_A1_T6
 description: Argument is x, and instance is new String, x is undefined variable
 ---*/
 

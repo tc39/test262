@@ -5,6 +5,7 @@
 info: >
     If Type(Primitive(x)) is not String and Type(Primitive(y)) is not String,
     then operator x + y returns ToNumber(x) + ToNumber(y)
+es5id: 11.6.1_A3.1_T1.1
 description: >
     Type(Primitive(x)) and Type(Primitive(y)) vary between primitive
     boolean and Boolean object

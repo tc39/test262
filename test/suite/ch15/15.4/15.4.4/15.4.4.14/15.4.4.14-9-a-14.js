@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.14-9-a-14
 description: >
     Array.prototype.indexOf - deleting property of prototype causes
     prototype index property not to be visited on an Array

@@ -3,6 +3,7 @@
 
 /*---
 info: the length property has the attributes { DontEnum }
+es5id: 15.3.5.1_A4_T1
 description: >
     Checking if enumerating the length property of
     Function("arg1,arg2,arg3", null) fails

@@ -5,6 +5,7 @@
 info: >
     The Function prototype object is itself a Function object that, when
     invoked, accepts any arguments and returns undefined
+es5id: 15.3.4_A2_T1
 description: Call Function.prototype()
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: Result of applying "typeof" operator to null is "object"
+es5id: 11.4.3_A3.2
 description: typeof null === "object"
 ---*/
 

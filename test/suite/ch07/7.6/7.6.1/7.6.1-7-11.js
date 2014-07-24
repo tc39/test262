@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 7.6.1-7-11
 description: >
     Allow reserved words as property names by index assignment,
     accessed via indexing: enum, extends, super

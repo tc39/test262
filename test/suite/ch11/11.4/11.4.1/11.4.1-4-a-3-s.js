@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.4.1-4-a-3-s
 description: >
     Strict Mode - TypeError isn't thrown when deleting configurable
     data property

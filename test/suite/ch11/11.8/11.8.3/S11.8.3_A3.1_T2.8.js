@@ -5,6 +5,7 @@
 info: >
     Operator x <= y returns ToNumber(x) <= ToNumber(y), if Type(Primitive(x))
     is not String or Type(Primitive(y)) is not String
+es5id: 11.8.3_A3.1_T2.8
 description: >
     Type(Primitive(x)) is different from Type(Primitive(y)) and both
     types vary between Boolean (primitive or object) and Undefined

@@ -3,6 +3,7 @@
 
 /*---
 info: Closures are admitted
+es5id: 13_A18
 description: Using a function declaration as a function parameter
 ---*/
 

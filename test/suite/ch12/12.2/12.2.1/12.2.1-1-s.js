@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.2.1-1-s
 description: >
     eval - a function declaring a var named 'eval' throws SyntaxError
     in strict mode

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 13.1-8gs
 description: >
     Strict Mode - SyntaxError is thrown if a FunctionExpression has
     two identical parameters

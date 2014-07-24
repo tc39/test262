@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of Array is 1
+es5id: 15.4.3_A2.4
 description: Array.length === 1
 ---*/
 

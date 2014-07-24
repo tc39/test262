@@ -6,6 +6,7 @@ info: >
     When the concat method is called with zero or more arguments item1, item2,
     etc., it returns an array containing the array elements of the object followed by
     the array elements of each argument in order
+es5id: 15.4.4.4_A1_T4
 description: Checking this algorithm, items are [], [,]
 ---*/
 

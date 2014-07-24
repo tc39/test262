@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-113
 description: >
     Object.defineProperties - 'O' is an Array, test the length
     property of 'O' is own data property that overrides an inherited

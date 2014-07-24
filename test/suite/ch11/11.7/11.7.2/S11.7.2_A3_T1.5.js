@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x >> y returns ToNumber(x) >> ToNumber(y)
+es5id: 11.7.2_A3_T1.5
 description: Type(x) and Type(y) vary between Object object and Function object
 ---*/
 

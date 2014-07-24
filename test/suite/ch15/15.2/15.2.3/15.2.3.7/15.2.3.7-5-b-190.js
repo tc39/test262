@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-5-b-190
 description: >
     Object.defineProperties - value of 'writable' property of
     'descObj' is  new Boolean(false) which is treated as true value

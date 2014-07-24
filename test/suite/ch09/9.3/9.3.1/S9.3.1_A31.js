@@ -3,6 +3,7 @@
 
 /*---
 info: "The MV of HexDigit ::: f or of HexDigit ::: F is 15"
+es5id: 9.3.1_A31
 description: >
     Compare Number('0xF'), Number('0XF'), Number('0xf') and
     Number('0Xf') with 15

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.1.1-g5-3
 description: >
     A JSONStringCharacter UnicodeEscape may not include any non=hex
     characters

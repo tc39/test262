@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.18-5-9
 description: Array.prototype.forEach - Function Object can be used as thisArg
 includes: [runTestCase.js]
 ---*/

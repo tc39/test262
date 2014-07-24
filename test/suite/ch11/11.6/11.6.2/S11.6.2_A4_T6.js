@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x - y produces the same result as x + (-y)
+es5id: 11.6.2_A4_T6
 description: >
     Using the rule of sum of a zero and a nonzero finite value and the
     fact that a - b = a + (-b)

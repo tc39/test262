@@ -3,6 +3,7 @@
 
 /*---
 info: Object.prototype.toString has not prototype property
+es5id: 15.2.4.2_A6
 description: >
     Checking if obtaining the prototype property of
     Object.prototype.toString fails

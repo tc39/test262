@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.8-2-a-12
 description: >
     Object.seal - 'P' is own property of a Date object that uses
     Object's [[GetOwnProperty]]

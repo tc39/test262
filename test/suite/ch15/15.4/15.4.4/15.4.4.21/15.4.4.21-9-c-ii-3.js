@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-9-c-ii-3
 description: Array.prototype.reduce - callbackfn takes 4 arguments
 includes: [runTestCase.js]
 ---*/

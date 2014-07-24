@@ -5,6 +5,7 @@
 info: >
     The production Assertion :: ^ evaluates by returning an internal
     AssertionTester closure that takes a State argument x and performs the ...
+es5id: 15.10.2.6_A2_T5
 description: >
     Execute /^[^p]/m.exec("pairs\nmakes\tdouble\npesos") and check
     results

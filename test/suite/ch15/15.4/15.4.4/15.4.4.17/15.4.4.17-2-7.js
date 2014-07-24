@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.17-2-7
 description: >
     Array.prototype.some - 'length' is an own accessor property on an
     Array-like object

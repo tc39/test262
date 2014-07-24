@@ -8,6 +8,7 @@ info: >
     Invoke the [[Call]] property of F, providing just created native ECMAScript object as the this value and providing the argument
     list passed into [[Construct]] as the argument values.
     If Type( [[Call]] returned) is an Function then return this just as obtained function
+es5id: 13.2.2_A8_T1
 description: >
     Creating a function whose prototype contains "return" followed by
     declaration of another function

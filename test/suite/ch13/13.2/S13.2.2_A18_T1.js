@@ -5,6 +5,7 @@
 info: >
     Using arguments object within a "with" Expression that is nested in a
     function is admitted
+es5id: 13.2.2_A18_T1
 description: "Object is declared with \"var __obj={callee:\"a\"}\""
 ---*/
 

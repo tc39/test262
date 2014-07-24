@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.indexOf works properly
+es5id: 15.5.4.7_A5_T4
 description: Search substring from begin of string
 ---*/
 

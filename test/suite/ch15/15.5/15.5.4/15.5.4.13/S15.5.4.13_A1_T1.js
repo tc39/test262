@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.slice (start, end)
+es5id: 15.5.4.13_A1_T1
 description: Arguments are false and true, and instance is object
 ---*/
 

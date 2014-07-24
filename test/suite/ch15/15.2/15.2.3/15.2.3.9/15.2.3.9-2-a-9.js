@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.9-2-a-9
 description: >
     Object.freeze - 'P' is own property of the Function object that
     uses Object's [[GetOwnProperty]]

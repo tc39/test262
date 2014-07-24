@@ -3,6 +3,7 @@
 
 /*---
 info: Every function instance has a [[Call]] property
+es5id: 15.3.5_A2_T2
 description: >
     For testing call (new Function("arg1,arg2","var x =arg1;
     this.y=arg2;return arg1+arg2;"))("1",2)

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 8.12.1-1_7
 description: >
     Properties - [[HasOwnProperty]] (writable, non-configurable,
     non-enumerable own value property)

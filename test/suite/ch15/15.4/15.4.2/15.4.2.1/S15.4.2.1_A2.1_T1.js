@@ -5,6 +5,7 @@
 info: >
     The length property of the newly constructed object;
     is set to the number of arguments
+es5id: 15.4.2.1_A2.1_T1
 description: Array constructor is given no arguments or at least two arguments
 ---*/
 

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.3-4-243
 description: >
     Object.getOwnPropertyDescriptor - ensure that 'set' property of
     returned object is data property with correct 'value' attribute

@@ -6,6 +6,7 @@ info: >
     If the argument len is not a Number, then the length property of
     the newly constructed object is set to 1 and the 0 property of
     the newly constructed object is set to len
+es5id: 15.4.2.2_A2.3_T3
 description: Checking for boolean primitive and Boolean object
 ---*/
 

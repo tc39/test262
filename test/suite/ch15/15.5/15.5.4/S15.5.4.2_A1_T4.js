@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.toString() returns this string value
+es5id: 15.5.4.2_A1_T4
 description: Create new String(function(){}()) and check it`s method toString()
 ---*/
 

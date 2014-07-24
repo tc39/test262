@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-9-b-14
 description: >
     Array.prototype.reduce - decreasing length of array in step 8
     causes deleted index property not to be visited

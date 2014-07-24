@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 7.8.4-1gs
 description: >
     Strict Mode - OctalEscapeSequence(\0110) is forbidden in strict
     mode

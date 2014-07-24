@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.5.4.20-2-42
 description: >
     String.prototype.trim - TypeError exception was thrown  when
     'this' is an object that both toString and valueOf wouldn't return

@@ -3,6 +3,7 @@
 
 /*---
 info: Result of appying "typeof" operator to number is "number"
+es5id: 11.4.3_A3.4
 description: typeof (number value) === "number"
 ---*/
 

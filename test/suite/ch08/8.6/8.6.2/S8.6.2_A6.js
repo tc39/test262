@@ -5,6 +5,7 @@
 info: >
     [[Construct]] constructs an object. Invoked via the new operator. Objects
     that implement this internal method are called constructors
+es5id: 8.6.2_A6
 description: Create a few Objects via the new operator
 ---*/
 

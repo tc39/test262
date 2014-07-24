@@ -3,6 +3,7 @@
 
 /*---
 info: The "case" token can not be used as identifier
+es5id: 7.6.1.1_A1.2
 description: Checking if execution of "case=1" fails
 flags: [negative]
 ---*/

@@ -7,6 +7,7 @@ info: >
     toLocaleString methods, and these strings are then concatenated, separated
     by occurrences of a separator string that has been derived in an
     implementation-defined locale-specific way
+es5id: 15.4.4.3_A1_T1
 description: it is the function that should be invoked
 ---*/
 

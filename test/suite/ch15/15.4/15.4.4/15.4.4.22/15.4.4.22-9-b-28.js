@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.22-9-b-28
 description: >
     Array.prototype.reduceRight - decreasing length of array with
     prototype property causes prototype index property to be visited

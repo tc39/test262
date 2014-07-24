@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.3-11-8
 description: JSON.stringify correctly works on top level String objects.
 includes: [runTestCase.js]
 ---*/

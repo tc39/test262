@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.16-7-b-2
 description: Array.prototype.every - added properties in step 2 are visible here
 includes: [runTestCase.js]
 ---*/

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-8-b-i-23
 description: Array.prototype.lastIndexOf - This object is the global object
 includes:
     - runTestCase.js

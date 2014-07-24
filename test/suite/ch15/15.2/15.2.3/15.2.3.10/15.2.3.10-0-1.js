@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.10-0-1
 description: Object.preventExtensions must exist as a function
 includes: [runTestCase.js]
 ---*/

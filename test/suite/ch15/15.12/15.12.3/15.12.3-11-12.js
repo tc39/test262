@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.3-11-12
 description: >
     A JSON.stringify replacer function applied to a top level scalar
     can return an Array.

@@ -3,6 +3,7 @@
 
 /*---
 info: Function can be passed as argument
+es5id: 13_A9
 description: Using function as argument of another function
 ---*/
 

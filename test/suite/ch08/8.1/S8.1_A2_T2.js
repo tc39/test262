@@ -3,6 +3,7 @@
 
 /*---
 info: Any variable that has not been assigned a value has the value undefined
+es5id: 8.1_A2_T2
 description: Function return undefined
 ---*/
 

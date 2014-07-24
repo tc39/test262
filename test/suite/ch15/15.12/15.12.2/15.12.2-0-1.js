@@ -16,6 +16,7 @@ info: >
     parameters.
     This default applies to JSON.parse, and it must exist as a function
     taking 2 parameters.
+es5id: 15.12.2-0-1
 description: JSON.parse must exist as a function
 includes: [runTestCase.js]
 ---*/

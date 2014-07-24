@@ -5,6 +5,7 @@
 info: >
     "This" operator doesn't use GetValue. The operators "delete" and "typeof"
     can be applied to parenthesised expressions
+es5id: 11.1.6_A2
 description: >
     Applying "delete" and "typeof" operators to an undefined variable
     and a property of an object

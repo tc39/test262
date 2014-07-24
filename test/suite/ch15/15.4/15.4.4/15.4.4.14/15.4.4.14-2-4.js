@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.14-2-4
 description: >
     Array.prototype.indexOf - 'length' is own data property that
     overrides an inherited data property on an Array

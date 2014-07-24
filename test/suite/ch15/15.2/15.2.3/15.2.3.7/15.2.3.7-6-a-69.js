@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-69
 description: >
     Object.defineProperties - 'P' is data property and P.configurable
     is true, desc is accessor property (8.12.9 step 9.b.i)

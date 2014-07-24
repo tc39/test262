@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-531-17
 description: >
     ES5 Attributes - Updating an indexed accessor property 'P' using
     simple assignment is successful, 'O' is the global object (8.12.5

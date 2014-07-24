@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x-- returns ToNumber(x)
+es5id: 11.3.2_A4_T1
 description: Type(x) is boolean primitive or Boolean object
 ---*/
 

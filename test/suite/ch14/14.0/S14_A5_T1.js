@@ -5,6 +5,7 @@
 info: >
     The Identifer within a FunctionDeclaration can be written in both letters
     and unicode
+es5id: 14_A5_T1
 description: >
     Declaring a function with "function
     __\u0066\u0075\u006e\u0063(){return "both"}"

@@ -5,6 +5,7 @@
 info: >
     Since a function is an object, it might be set to [[Prototype]] property
     of a new created object through [[Construct]] property
+es5id: 13.2.2_A1_T2
 description: Declaring a function with "var __PROTO = function()"
 includes: [$FAIL.js]
 ---*/

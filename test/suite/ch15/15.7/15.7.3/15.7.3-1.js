@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.7.3-1
 description: Number constructor - [[Prototype]] is the Function prototype object
 includes: [runTestCase.js]
 ---*/

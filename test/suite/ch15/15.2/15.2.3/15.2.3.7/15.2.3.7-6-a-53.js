@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-53
 description: >
     Object.defineProperties - both desc.value and P.value are Ojbects
     which refer to the same Object (8.12.9 step 6)

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.14-2-6
 description: Array.prototype.indexOf - 'length' is an inherited data property
 includes: [runTestCase.js]
 ---*/

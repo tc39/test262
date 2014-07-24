@@ -5,6 +5,7 @@
 info: >
     In the "if" statement empty statement is allowed and is evaluated to
     "undefined"
+es5id: 12.5_A7
 description: Checking by using eval "eval("if(1);"))"
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: Number.POSITIVE_INFINITY has the attribute DontEnum
+es5id: 15.7.3.6_A4
 description: Checking if enumerating Number.POSITIVE_INFINITY fails
 ---*/
 

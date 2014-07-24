@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.14-9
 description: catch introduces scope - name lookup finds outer variable
 includes: [runTestCase.js]
 ---*/

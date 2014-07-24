@@ -3,6 +3,7 @@
 
 /*---
 info: First expression is evaluated first, and then second expression
+es5id: 11.11.2_A2.4_T2
 description: Checking with "throw"
 ---*/
 

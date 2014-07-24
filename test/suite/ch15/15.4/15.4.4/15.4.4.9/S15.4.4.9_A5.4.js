@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of shift is 0
+es5id: 15.4.4.9_A5.4
 description: shift.length === 1
 ---*/
 

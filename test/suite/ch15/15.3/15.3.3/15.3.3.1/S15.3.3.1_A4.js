@@ -6,6 +6,7 @@ info: >
     Detects whether the value of a function's "prototype" property
     as seen by normal object operations might deviate from the value
     as seem by Object.getOwnPropertyDescriptor
+es5id: 15.3.3.1_A4
 description: >
     Checks if reading a function's .prototype directly  agrees with
     reading it via Object.getOwnPropertyDescriptor, after  having set

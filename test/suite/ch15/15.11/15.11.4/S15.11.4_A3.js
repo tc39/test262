@@ -3,6 +3,7 @@
 
 /*---
 info: Since Error prototype object is not function it has not [[call]] method
+es5id: 15.11.4_A3
 description: Checking if call of Error prototype as a function fails
 includes:
     - $FAIL.js

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.4-0-2
 description: >
     Object.getOwnPropertyNames must exist as a function taking 1
     parameter

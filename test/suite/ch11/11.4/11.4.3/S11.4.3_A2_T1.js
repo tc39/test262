@@ -3,6 +3,7 @@
 
 /*---
 info: Operator "typeof" uses GetValue
+es5id: 11.4.3_A2_T1
 description: Either Type(x) is not Reference or GetBase(x) is not null
 ---*/
 

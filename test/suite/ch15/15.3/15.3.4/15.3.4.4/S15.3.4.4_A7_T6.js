@@ -3,6 +3,7 @@
 
 /*---
 info: Function.prototype.call can't be used as [[create]] caller
+es5id: 15.3.4.4_A7_T6
 description: >
     Checking if creating "new (Function("function
     f(){this.p1=1;};return f").call())" fails

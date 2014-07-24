@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-101
 description: >
     Object.defineProperties - 'P' is accessor property, both
     properties.[[Get]] and P.[[Get]] are two different values (8.12.9

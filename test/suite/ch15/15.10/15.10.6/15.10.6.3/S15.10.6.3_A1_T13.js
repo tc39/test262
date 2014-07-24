@@ -3,6 +3,7 @@
 
 /*---
 info: Equivalent to the expression RegExp.prototype.exec(string) != null
+es5id: 15.10.6.3_A1_T13
 description: RegExp is /t[a-b|q-s]/ and tested string is true
 ---*/
 

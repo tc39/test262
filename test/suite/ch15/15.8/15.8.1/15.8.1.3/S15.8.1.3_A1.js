@@ -3,6 +3,7 @@
 
 /*---
 info: Math.LN2 is approximately 0.6931471805599453
+es5id: 15.8.1.3_A1
 description: Comparing Math.LN2 with 0.6931471805599453
 includes:
     - math_precision.js

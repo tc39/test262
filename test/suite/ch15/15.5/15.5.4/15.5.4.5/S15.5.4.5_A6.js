@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.charCodeAt has not prototype property
+es5id: 15.5.4.5_A6
 description: Checking String.prototype.charCodeAt.prototype
 ---*/
 

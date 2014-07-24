@@ -3,6 +3,7 @@
 
 /*---
 info: "The MV of DecimalDigit ::: 2 or of HexDigit ::: 2 is 2"
+es5id: 9.3.1_A18
 description: Compare Number('0x2') and Number('0X2') with 2
 ---*/
 

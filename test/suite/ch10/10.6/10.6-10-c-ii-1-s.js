@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.6-10-c-ii-1-s
 description: >
     arguments[i] remains same after changing actual parameters in
     strict mode

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.5.4.20-2-1
 description: >
     String.prototype.trim - argument 'this' is a boolean whose value
     is false

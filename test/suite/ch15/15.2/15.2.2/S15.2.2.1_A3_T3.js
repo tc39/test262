@@ -5,6 +5,7 @@
 info: >
     When the Object constructor is called with one argument value and
     the type of value is String, return ToObject(string)
+es5id: 15.2.2.1_A3_T3
 description: Argument value is sum of empty string and number
 ---*/
 

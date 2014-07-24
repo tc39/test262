@@ -3,6 +3,7 @@
 
 /*---
 info: The RegExp instance source property has the attribute ReadOnly
+es5id: 15.10.7.1_A10
 description: Checking if varying the source property fails
 includes: [$FAIL.js]
 ---*/

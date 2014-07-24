@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-110
 description: >
     Object.defineProperties - all own properties (data property and
     accessor property)

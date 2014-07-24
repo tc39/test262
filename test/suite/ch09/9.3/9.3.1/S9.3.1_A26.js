@@ -3,6 +3,7 @@
 
 /*---
 info: "The MV of HexDigit ::: a or of HexDigit ::: A is 10"
+es5id: 9.3.1_A26
 description: >
     Compare Number('0xA'), Number('0XA'), Number('0xa') and
     Number('0Xa') with 10

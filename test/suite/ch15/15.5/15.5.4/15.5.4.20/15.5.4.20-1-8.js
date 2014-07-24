@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.5.4.20-1-8
 description: >
     String.prototype.trim works for a primitive string (value is '
     abc')

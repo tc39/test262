@@ -5,6 +5,7 @@
 info: >
     The Object.prototype.hasOwnProperty.length property has the attribute
     DontDelete
+es5id: 15.2.4.5_A9
 description: >
     Checking if deleting the Object.prototype.hasOwnProperty.length
     property fails

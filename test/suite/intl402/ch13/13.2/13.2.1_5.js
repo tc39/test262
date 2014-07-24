@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 13.2.1_5
 description: >
     Tests that Number.prototype.toLocaleString produces the same
     results as Intl.NumberFormat.

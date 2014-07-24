@@ -3,6 +3,7 @@
 
 /*---
 info: "Literal :: NullLiteral"
+es5id: 7.8.1_A1_T1
 description: Check null === null
 ---*/
 

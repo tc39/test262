@@ -5,6 +5,7 @@
 info: >
     When String.prototype.charCodeAt(pos) calls first calls ToString, giving
     it the this value as its argument
+es5id: 15.5.4.5_A4
 description: Change toString function, it trow exception, and call charCodeAt()
 includes: [$FAIL.js]
 ---*/

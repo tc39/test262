@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.19-8-b-11
 description: >
     Array.prototype.map - deleting property of prototype causes
     prototype index property not to be visited on an Array

@@ -6,6 +6,7 @@ info: >
     When the [[Call]] property for a Function object F is called, the following steps are taken:
     2. Evaluate F's FunctionBody;
     if Result.type is returned  then Result.value is returned too
+es5id: 13.2.1_A7_T1
 description: Returning null. Declaring a function with "function __func()"
 ---*/
 

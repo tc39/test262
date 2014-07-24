@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-2-2
 description: >
     Object.defineProperties throws TypeError if 'Properties' is
     undefined

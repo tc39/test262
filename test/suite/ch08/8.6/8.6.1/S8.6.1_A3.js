@@ -5,6 +5,7 @@
 info: >
     A property can have attribute DontDelete like NaN propertie of Number
     object
+es5id: 8.6.1_A3
 description: Try to delete Number.NaN
 flags: [noStrict]
 ---*/

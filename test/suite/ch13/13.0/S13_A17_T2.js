@@ -5,6 +5,7 @@
 info: >
     Function call cannot appear in the program before the FunctionExpression
     appears
+es5id: 13_A17_T2
 description: >
     Trying to call a function before the FunctionExpression appears
     and then using the FunctionExpression one more time

@@ -8,6 +8,7 @@ info: >
     Invoke the [[Call]] property of F, providing just created native ECMAScript object as the this value and providing the argument
     list passed into [[Construct]] as the argument values.
     If Type( [[Call]] returned) is an Object then return this just as obtained object
+es5id: 13.2.2_A7_T1
 description: Declaring a function with "as __func = function(arg)"
 ---*/
 

@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 12.1.1_1
 description: Tests that an object can't be re-initialized as a DateTimeFormat.
 author: Norbert Lindenberg
 includes: [testIntl.js]

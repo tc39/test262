@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.1.1-0-7
 description: >
     other category z spaces are not valid JSON whitespace as specified
     by the production JSONWhitespace.

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 13.2-4-s
 description: >
     StrictMode - A TypeError is thrown when a code in strict mode
     tries to write to 'arguments' of function instances.

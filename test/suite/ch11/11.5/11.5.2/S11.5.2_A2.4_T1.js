@@ -3,6 +3,7 @@
 
 /*---
 info: First expression is evaluated first, and then second expression
+es5id: 11.5.2_A2.4_T1
 description: Checking with "="
 ---*/
 

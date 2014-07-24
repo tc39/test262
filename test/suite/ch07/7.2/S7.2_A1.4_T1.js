@@ -3,6 +3,7 @@
 
 /*---
 info: SPACE (U+0020) between any two tokens is allowed
+es5id: 7.2_A1.4_T1
 description: Insert SPACE(\u0020) between tokens of var x=1
 ---*/
 

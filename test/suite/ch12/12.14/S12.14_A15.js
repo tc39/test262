@@ -5,6 +5,7 @@
 info: >
     Using "try" with "catch" or "finally" statement within/without a "switch"
     statement
+es5id: 12.14_A15
 description: Insert try/catch/finally to switch statement
 ---*/
 

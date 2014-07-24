@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of Array has the attribute DontDelete
+es5id: 15.4.3_A2.2
 description: Checking use hasOwnProperty, delete
 includes: [$FAIL.js]
 ---*/

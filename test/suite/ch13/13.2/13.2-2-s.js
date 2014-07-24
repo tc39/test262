@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 13.2-2-s
 description: >
     StrictMode - A TypeError is thrown when a strict mode code writes
     to properties named 'caller' of function instances.

@@ -6,6 +6,7 @@ info: >
     The toString function is not generic, it cannot be transferred
     to other kinds of objects for use as a method and there is should be
     a TypeError exception if its this value is not a Number object
+es5id: 15.7.4.2_A4_T01
 description: transferring to the String objects
 ---*/
 

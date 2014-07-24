@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-99
 description: >
     Object.defineProperty will throw TypeError when name.configurable
     = false, name.[[Get]] is undefined, desc.[[Get]] refers to an

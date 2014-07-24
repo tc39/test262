@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.3.3.2-1
 description: Function.length - data property with value 1
 includes: [runTestCase.js]
 ---*/

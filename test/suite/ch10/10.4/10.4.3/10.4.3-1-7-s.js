@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.4.3-1-7-s
 description: >
     Strict Mode - checking 'this' (FunctionDeclaration defined within
     strict mode)

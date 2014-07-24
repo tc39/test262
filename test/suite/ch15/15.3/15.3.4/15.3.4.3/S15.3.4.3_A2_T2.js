@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of the apply method is 2
+es5id: 15.3.4.3_A2_T2
 description: Checking f.apply.length, where f is new Function
 ---*/
 

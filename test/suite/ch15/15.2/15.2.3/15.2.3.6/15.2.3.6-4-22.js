@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-22
 description: >
     Object.defineProperty - 'name' is existing own data property
     (8.12.9 step 1)

@@ -3,6 +3,7 @@
 
 /*---
 info: If Expression is omitted, the return value is undefined
+es5id: 12.9_A3
 description: Return without Expression
 ---*/
 

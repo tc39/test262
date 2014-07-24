@@ -3,6 +3,7 @@
 
 /*---
 info: The String.prototype.substring.length property has the attribute ReadOnly
+es5id: 15.5.4.15_A10
 description: >
     Checking if varying the String.prototype.substring.length property
     fails

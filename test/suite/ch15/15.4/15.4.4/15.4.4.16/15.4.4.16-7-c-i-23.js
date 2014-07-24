@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.16-7-c-i-23
 description: >
     Array.prototype.every - This object is an global object which
     contains index property

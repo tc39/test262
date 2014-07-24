@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of the fromCharCode function is 1
+es5id: 15.5.3.2_A1
 description: Checking String.fromCharCode.length
 ---*/
 

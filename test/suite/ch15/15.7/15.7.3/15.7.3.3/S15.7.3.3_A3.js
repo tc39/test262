@@ -3,6 +3,7 @@
 
 /*---
 info: Number.MIN_VALUE is DontDelete
+es5id: 15.7.3.3_A3
 description: Checking if deleting Number.MIN_VALUE fails
 flags: [noStrict]
 ---*/

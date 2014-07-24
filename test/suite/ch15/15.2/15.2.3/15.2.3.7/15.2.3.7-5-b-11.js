@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-5-b-11
 description: >
     Object.defineProperties - 'enumerable' property of 'descObj' is
     own data property that overrides an inherited accessor property

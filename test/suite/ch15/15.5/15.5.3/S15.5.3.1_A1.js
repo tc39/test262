@@ -3,6 +3,7 @@
 
 /*---
 info: The String has property prototype
+es5id: 15.5.3.1_A1
 description: Checking String.hasOwnProperty('prototype')
 ---*/
 

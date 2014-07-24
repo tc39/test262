@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.17-7-8
 description: Array.prototype.some - no observable effects occur if length is 0
 includes: [runTestCase.js]
 ---*/

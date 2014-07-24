@@ -6,6 +6,7 @@ info: >
     If there is already a property of the variable object with the
     name of a declared variable, the value of the property and its attributes
     are not changed
+es5id: 10.2.1_A5.2_T1
 description: >
     Checking existence of the variable object property with formal
     parameter

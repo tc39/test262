@@ -2,6 +2,7 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
+es5id: 11.3.3_L15
 description: >
     Tests that Intl.NumberFormat.prototype.resolvedOptions  meets the
     requirements for built-in objects defined by the introduction of

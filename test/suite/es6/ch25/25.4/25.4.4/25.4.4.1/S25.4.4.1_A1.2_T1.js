@@ -6,6 +6,7 @@
 
 /*---
 info: Promise.all expects 1 argument
+es5id: 25.4.4.1_A1.2_T1
 author: Sam Mikes
 ---*/
 

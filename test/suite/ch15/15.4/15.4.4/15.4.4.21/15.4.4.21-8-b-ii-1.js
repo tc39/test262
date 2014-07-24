@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-8-b-ii-1
 description: >
     Array.prototype.reduce - added properties in step 2 are visible
     here

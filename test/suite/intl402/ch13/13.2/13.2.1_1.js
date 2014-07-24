@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 13.2.1_1
 description: Tests that toLocaleString handles "this Number value" correctly.
 author: Norbert Lindenberg
 ---*/

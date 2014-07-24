@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 8.7.2-7-s
 description: >
     Strict Mode - TypeError isn't thrown if LeftHandSide is a
     reference to an accessor property with setter

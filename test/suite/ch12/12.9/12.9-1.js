@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.9-1
 description: >
     The return Statement - a return statement without an expression
     may have a LineTerminator before the semi-colon

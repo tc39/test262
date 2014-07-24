@@ -3,6 +3,7 @@
 
 /*---
 info: Any statement within "do-while" construction must be a compound
+es5id: 12.6.1_A12
 description: Checking if execution of "do var x=1; var y =2; while (0)" fails
 flags: [negative]
 ---*/

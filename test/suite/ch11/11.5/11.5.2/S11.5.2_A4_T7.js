@@ -5,6 +5,7 @@
 info: >
     The result of division is determined by the specification of IEEE 754
     arithmetics
+es5id: 11.5.2_A4_T7
 description: Division of a zero by a zero results in NaN
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: "The MV of DecimalDigit ::: 8 or of HexDigit ::: 8 is 8"
+es5id: 9.3.1_A24
 description: Compare Number('0x8') and Number('0X8') with 8
 ---*/
 

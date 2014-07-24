@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-2-6
 description: >
     Object.defineProperties - argument 'Properties' is a Number object
     whose primitive value is any interesting number

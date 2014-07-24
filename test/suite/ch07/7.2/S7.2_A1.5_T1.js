@@ -3,6 +3,7 @@
 
 /*---
 info: NO-BREAK SPACE (U+00A0) between any two tokens is allowed
+es5id: 7.2_A1.5_T1
 description: Insert NO-BREAK SPACE(\u00A0) between tokens of var x=1
 ---*/
 

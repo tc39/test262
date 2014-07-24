@@ -3,6 +3,7 @@
 
 /*---
 info: length property has the attributes {DontDelete}
+es5id: 15.5.5.1_A3
 description: Checking if deleting the length property of String fails
 ---*/
 

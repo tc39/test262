@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.17-3-10
 description: Array.prototype.some - value of 'length' is a number (value is NaN)
 includes: [runTestCase.js]
 ---*/

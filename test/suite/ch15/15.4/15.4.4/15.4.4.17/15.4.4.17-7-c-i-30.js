@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.17-7-c-i-30
 description: >
     Array.prototype.some - unhandled exceptions happened in getter
     terminate iteration on an Array-like object

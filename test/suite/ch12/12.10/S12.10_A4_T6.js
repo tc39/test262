@@ -3,6 +3,7 @@
 
 /*---
 info: Changing property using "eval" statement containing "with" statement
+es5id: 12.10_A4_T6
 description: Changing function property
 flags: [noStrict]
 ---*/

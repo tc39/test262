@@ -5,6 +5,7 @@
 info: >
     When the Object constructor is called with one argument value and
     the type of value is Boolean, return ToObject(boolean)
+es5id: 15.2.2.1_A4_T1
 description: Argument value is "true"
 includes: [$FAIL.js]
 ---*/

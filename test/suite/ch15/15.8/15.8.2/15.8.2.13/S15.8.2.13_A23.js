@@ -5,6 +5,7 @@
 info: >
     If x<0 and x is finite and y is finite and y is not an integer,
     Math.pow(x,y) is NaN
+es5id: 15.8.2.13_A23
 description: >
     Checking if Math.pow(x,y) is NaN, where x<0 and x is finite and y
     is finite and y is not an integer

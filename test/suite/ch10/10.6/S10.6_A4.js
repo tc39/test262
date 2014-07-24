@@ -5,6 +5,7 @@
 info: >
     The initial value of the created property callee is the
     Function object being executed
+es5id: 10.6_A4
 description: Checking that arguments.callee === function object
 flags: [noStrict]
 ---*/

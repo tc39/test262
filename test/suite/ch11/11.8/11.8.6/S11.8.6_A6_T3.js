@@ -5,6 +5,7 @@
 info: >
     Only Function objects implement [[HasInstance]] and can be proper
     ShiftExpression for the "instanceof" operator consequently
+es5id: 11.8.6_A6_T3
 description: Checking if RelationalExpression is function
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: "DecimalLiteral :: .DecimalDigits"
+es5id: 7.8.3_A2.1_T3
 description: Use .DecimalDigits that have at the end zeros
 ---*/
 

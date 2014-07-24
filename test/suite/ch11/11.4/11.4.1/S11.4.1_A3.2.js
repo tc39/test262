@@ -3,6 +3,7 @@
 
 /*---
 info: If the property doesn't have the DontDelete attribute, return true
+es5id: 11.4.1_A3.2
 description: Checking declared variable
 ---*/
 

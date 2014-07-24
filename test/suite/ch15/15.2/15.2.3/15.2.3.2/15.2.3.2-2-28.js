@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.2-2-28
 description: >
     Object.getPrototypeOf returns the [[Prototype]] of its parameter
     (the Arguments object)

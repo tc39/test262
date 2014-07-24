@@ -3,6 +3,7 @@
 
 /*---
 info: JSON.parse must create a property with the given property name
+es5id: 15.12.2_A1
 description: Tests that JSON.parse treats "__proto__" as a regular property name
 includes: [$FAIL.js]
 ---*/

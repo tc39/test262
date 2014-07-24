@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x % y uses [[Default Value]]
+es5id: 11.5.3_A2.2_T1
 description: If Type(value) is Object, evaluate ToPrimitive(value, Number)
 ---*/
 

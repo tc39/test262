@@ -3,6 +3,7 @@
 
 /*---
 info: Operator "in" calls ToString(ShiftExpression)
+es5id: 11.8.7_A4
 description: Checking ToString coversion;
 ---*/
 

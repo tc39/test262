@@ -3,6 +3,7 @@
 
 /*---
 info: Function declarations in global or function scope are {DontDelete}
+es5id: 13_A12_T2
 description: >
     Checking if deleting a function that is declared in function scope
     fails

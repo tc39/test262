@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.5.4.20-3-7
 description: >
     String.prototype.trim - 'S' is a string that union of
     LineTerminator and WhiteSpace in the middle

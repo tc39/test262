@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-5-b-258
 description: >
     Object.defineProperties - value of 'set' property of 'descObj' is
     a function (8.10.5 step 8.b)

@@ -5,6 +5,7 @@
 info: >
     The initial value of RegExp.prototype.constructor is the built-in RegExp
     constructor
+es5id: 15.10.6.1_A1_T2
 description: >
     Compare instance.constructor !== RegExp, where instance is new
     RegExp.prototype.constructor

@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 11.1.1_21
 description: Tests that the option currencyDisplay is processed correctly.
 author: Norbert Lindenberg
 includes: [testIntl.js]

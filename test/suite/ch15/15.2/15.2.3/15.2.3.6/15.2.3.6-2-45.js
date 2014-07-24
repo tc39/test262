@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-2-45
 description: >
     Object.defineProperty - argument 'P' is an object whose toString
     method returns an object and whose valueOf method returns a

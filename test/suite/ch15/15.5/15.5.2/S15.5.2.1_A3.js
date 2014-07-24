@@ -3,6 +3,7 @@
 
 /*---
 info: The [[Class]] property of the newly constructed object is set to "String"
+es5id: 15.5.2.1_A3
 description: >
     Creating string object with "new String(string)" and changing
     toString property to Object.prototype.toString

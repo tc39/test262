@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.5-2-2
 description: Object.create - returned object is an instance of Object
 includes: [runTestCase.js]
 ---*/

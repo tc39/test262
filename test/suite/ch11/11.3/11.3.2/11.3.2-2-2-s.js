@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.3.2-2-2-s
 description: >
     Strict Mode - SyntaxError is thrown if the identifier 'eval'
     appear as a PostfixExpression(eval--)

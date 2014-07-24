@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.5.4.20-1-9
 description: >
     String.prototype.trim works for a String object which value is
     undefined

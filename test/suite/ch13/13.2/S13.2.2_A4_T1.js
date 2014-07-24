@@ -8,6 +8,7 @@ info: >
     Gets the value of the [[Prototype]] property of the F(Denote it PROTO_VAL).
     If PROTO_VAL is an object, sets the [[Prototype]] property of native ECMAScript object just created
     to the PROTO_VAL
+es5id: 13.2.2_A4_T1
 description: Declaring a function with "function __FACTORY()"
 ---*/
 

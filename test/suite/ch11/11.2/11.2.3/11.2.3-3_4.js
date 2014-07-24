@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.2.3-3_4
 description: >
     Call arguments are evaluated before the check is made to see if
     the object is actually callable (property)

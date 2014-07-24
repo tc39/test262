@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.toLocaleUpperCase()
+es5id: 15.5.4.19_A1_T1
 description: Arguments is true, and instance is object
 ---*/
 

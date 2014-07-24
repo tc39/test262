@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 7.8.4-33-s
 description: >
     Three OctalEscapeSequences in a String are not allowed in a String
     under Strict Mode

@@ -3,6 +3,7 @@
 
 /*---
 info: Equivalent to the expression RegExp.prototype.exec(string) != null
+es5id: 15.10.6.3_A1_T14
 description: RegExp is /AL|se/ and tested string is new Boolean
 ---*/
 

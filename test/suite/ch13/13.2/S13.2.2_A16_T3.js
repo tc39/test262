@@ -3,6 +3,7 @@
 
 /*---
 info: FunctionExpression within a new statement is admitted
+es5id: 13.2.2_A16_T3
 description: >
     Using "is __obj = new function __func(arg){this.prop=arg; return
     {feat: ++arg}}(5)" as FunctionExpression

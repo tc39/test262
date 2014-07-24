@@ -3,6 +3,7 @@
 
 /*---
 info: Multi line comment can contain LINE FEED (U+000A)
+es5id: 7.3_A5.1_T1
 description: Insert LINE FEED (U+000A) into multi line comment
 ---*/
 

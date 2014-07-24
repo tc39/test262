@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.9.4.4-0-4
 description: Date.now - returns number
 includes: [runTestCase.js]
 ---*/

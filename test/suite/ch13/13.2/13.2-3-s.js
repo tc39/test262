@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 13.2-3-s
 description: >
     StrictMode - Writing or reading from a property named 'arguments'
     of function objects is allowed under both strict and normal modes.

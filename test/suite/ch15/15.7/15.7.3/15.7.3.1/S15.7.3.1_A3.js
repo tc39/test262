@@ -3,6 +3,7 @@
 
 /*---
 info: Number.prototype value is +0
+es5id: 15.7.3.1_A3
 description: Checking value of Number.prototype property
 ---*/
 

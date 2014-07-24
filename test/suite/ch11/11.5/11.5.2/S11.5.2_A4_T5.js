@@ -5,6 +5,7 @@
 info: >
     The result of division is determined by the specification of IEEE 754
     arithmetics
+es5id: 11.5.2_A4_T5
 description: >
     Division of an infinity by a finite non-zero value results in a
     signed infinity

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 13.2-33-s
 description: >
     StrictMode - property named 'arguments' of function objects is not
     configurable

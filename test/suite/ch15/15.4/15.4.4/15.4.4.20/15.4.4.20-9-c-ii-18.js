@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.20-9-c-ii-18
 description: >
     Array.prototype.filter - 'this' of 'callbackfn' is an String
     object when T is not an object (T is a string)

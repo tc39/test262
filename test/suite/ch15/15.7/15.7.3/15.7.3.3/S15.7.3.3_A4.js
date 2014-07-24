@@ -3,6 +3,7 @@
 
 /*---
 info: Number.MIN_VALUE has the attribute DontEnum
+es5id: 15.7.3.3_A4
 description: Checking if enumerating Number.MIN_VALUE fails
 ---*/
 

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.14-2-14
 description: Array.prototype.indexOf - 'length' is undefined property
 includes: [runTestCase.js]
 ---*/

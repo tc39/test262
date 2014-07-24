@@ -5,6 +5,7 @@
 info: >
     The slice function is intentionally generic.
     It does not require that its this value be an Array object
+es5id: 15.4.4.10_A2_T6
 description: If end is undefined use length
 ---*/
 

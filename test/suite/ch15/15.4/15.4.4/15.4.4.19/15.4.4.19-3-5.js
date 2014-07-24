@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.19-3-5
 description: Array.prototype.map - value of 'length' is a number (value is -0)
 includes: [runTestCase.js]
 ---*/

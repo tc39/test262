@@ -3,6 +3,7 @@
 
 /*---
 info: The Date property "parse" has { DontEnum } attributes
+es5id: 15.9.4.2_A1_T3
 description: Checking DontEnum attribute
 ---*/
 

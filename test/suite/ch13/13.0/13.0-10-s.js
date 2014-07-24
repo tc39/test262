@@ -8,6 +8,7 @@
 info: >
     Refer 13; 
     The production FunctionBody : SourceElementsopt is evaluated as follows:
+es5id: 13.0-10-s
 description: >
     Strict Mode - SourceElements is evaluated as strict mode code when
     the code of this FunctionBody with an inner function contains a

@@ -3,6 +3,7 @@
 
 /*---
 info: Object.prototype.isPrototypeOf has not prototype property
+es5id: 15.2.4.6_A6
 description: >
     Checking if obtaining the prototype property of
     Object.prototype.isPrototypeOf fails

@@ -3,6 +3,7 @@
 
 /*---
 info: Compute result modulo 2^16
+es5id: 9.7_A2.2
 description: >
     For testing use String.fromCharCode(Number).charCodeAt(0)
     construction

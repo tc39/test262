@@ -3,6 +3,7 @@
 
 /*---
 info: If ToBoolean(x) is true, return y
+es5id: 11.12_A4_T3
 description: Type(y) and Type(z) are string primitives
 ---*/
 

@@ -3,6 +3,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 11.3.2_TRF
 description: >
     Tests that the digits are determined correctly when specifying
     pre/post decimal digits.

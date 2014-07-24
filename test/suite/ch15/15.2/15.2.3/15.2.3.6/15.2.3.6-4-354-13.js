@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-354-13
 description: >
     Object.defineProperty will update [[Value]] attribute of indexed
     property successfully when [[Configurable]] attribute is true and

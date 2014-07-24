@@ -6,6 +6,7 @@ info: >
     RegExp.prototype.exec behavior depends on global property.
     Let global is true and let I = If ToInteger(lastIndex).
     Then if I<0 orI>length then set lastIndex to 0 and return null
+es5id: 15.10.6.2_A5_T2
 description: "Set lastIndex to 100 and call /(?:ab|cd)\\d?/g.exec(\"aacd22 \")"
 ---*/
 

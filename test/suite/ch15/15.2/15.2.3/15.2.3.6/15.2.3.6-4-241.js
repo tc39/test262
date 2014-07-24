@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-241
 description: >
     Object.defineProperty - 'O' is an Array, 'name' is an array index
     named property, TypeError is thrown if  'name' is data property,

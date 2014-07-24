@@ -5,6 +5,7 @@
 info: >
     Number instances have no special properties beyond those
     inherited from the Number prototype object
+es5id: 15.7.5_A1_T03
 description: Checking property toLocaleString
 ---*/
 

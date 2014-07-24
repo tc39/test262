@@ -3,6 +3,7 @@
 
 /*---
 info: If m is infinity, return the string "Infinity"
+es5id: 9.8.1_A4
 description: +/-Infinity convert to String by explicit transformation
 ---*/
 

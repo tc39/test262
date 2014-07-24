@@ -3,6 +3,7 @@
 
 /*---
 info: When using property attributes, {ReadOnly} is not used
+es5id: 12.2_A11
 description: Changing variable value using property attributes
 ---*/
 

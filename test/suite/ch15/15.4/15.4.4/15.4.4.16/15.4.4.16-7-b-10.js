@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.16-7-b-10
 description: >
     Array.prototype.every - deleting property of prototype causes
     prototype index property not to be visited on an Array-like Object

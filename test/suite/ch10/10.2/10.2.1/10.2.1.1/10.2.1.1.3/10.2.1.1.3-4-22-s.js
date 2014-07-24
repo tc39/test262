@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.2.1.1.3-4-22-s
 description: >
     Strict Mode - TypeError is not thrown when changing the value of
     the Constructor Properties of the Global Object under strict mode

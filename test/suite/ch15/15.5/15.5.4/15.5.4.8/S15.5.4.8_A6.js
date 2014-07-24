@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.lastIndexOf has not prototype property
+es5id: 15.5.4.8_A6
 description: Checking String.prototype.lastIndexOf.prototype
 ---*/
 

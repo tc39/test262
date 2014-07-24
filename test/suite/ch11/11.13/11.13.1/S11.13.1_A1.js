@@ -5,6 +5,7 @@
 info: >
     White Space and Line Terminator between LeftHandSideExpression and "=" or
     between "=" and AssignmentExpression are allowed
+es5id: 11.13.1_A1
 description: Checking by using eval
 flags: [noStrict]
 ---*/

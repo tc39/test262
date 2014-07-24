@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-471
 description: >
     ES5 Attributes - fail to update [[Get]] attribute of accessor
     property ([[Get]] is undefined, [[Set]] is a Function,

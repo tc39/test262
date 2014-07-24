@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of push is 1
+es5id: 15.4.4.7_A6.4
 description: push.length === 1
 ---*/
 

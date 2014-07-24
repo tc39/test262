@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.20-9-3
 description: >
     Array.prototype.filter doesn't visit deleted elements in array
     after the call

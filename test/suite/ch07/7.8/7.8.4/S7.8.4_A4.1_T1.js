@@ -3,6 +3,7 @@
 
 /*---
 info: "CharacterEscapeSequnce :: SingleEscapeSequence"
+es5id: 7.8.4_A4.1_T1
 description: "SingleEscapeSequence :: one of b f n r t v"
 ---*/
 

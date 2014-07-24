@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.5-7-b-4-s
 description: >
     Strict Mode - Deleting property of the arguments object successful
     under strict mode

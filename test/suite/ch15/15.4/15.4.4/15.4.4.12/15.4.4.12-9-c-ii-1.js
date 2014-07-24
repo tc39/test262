@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.12-9-c-ii-1
 description: >
     Array.prototype.splice will splice an array even when
     Array.prototype has index '0' set to read-only and 'fromPresent'

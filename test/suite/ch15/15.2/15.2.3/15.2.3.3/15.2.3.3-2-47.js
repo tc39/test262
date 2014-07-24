@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.3-2-47
 description: >
     Object.getOwnPropertyDescriptor - uses inherited toString method
     when 'P' is an object with an own valueOf and inherited toString

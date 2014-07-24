@@ -3,6 +3,7 @@
 
 /*---
 info: The toString property of Array has the attribute DontEnum
+es5id: 15.4.4.2_A4.5
 description: Checking use propertyIsEnumerable, for-in
 ---*/
 

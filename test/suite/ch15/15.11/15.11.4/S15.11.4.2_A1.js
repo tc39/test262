@@ -3,6 +3,7 @@
 
 /*---
 info: The Error.prototype has name property
+es5id: 15.11.4.2_A1
 description: Checking Error.prototype.name
 ---*/
 

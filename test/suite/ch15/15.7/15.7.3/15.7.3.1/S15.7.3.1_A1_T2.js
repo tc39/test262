@@ -5,6 +5,7 @@
 info: >
     The Number property "prototype" has { DontEnum, DontDelete, ReadOnly }
     attributes
+es5id: 15.7.3.1_A1_T2
 description: Checking if deleting the Number.prototype property fails
 flags: [noStrict]
 includes: [$FAIL.js]

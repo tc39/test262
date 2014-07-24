@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.3.4.5-6-2
 description: Function.prototype.bind - F can get inherited data property
 includes: [runTestCase.js]
 ---*/

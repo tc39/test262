@@ -3,6 +3,7 @@
 
 /*---
 info: Compute result modulo 2^32
+es5id: 9.5_A2.2_T2
 description: Use operator ~
 ---*/
 

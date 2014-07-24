@@ -3,6 +3,7 @@
 
 /*---
 info: VariableDeclaration within "do-while" loop is allowed
+es5id: 12.2_A12
 description: Declaring variable within "do-while" statement
 ---*/
 

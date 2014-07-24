@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.3-11-2
 description: >
     A JSON.stringify replacer function works is applied to a top level
     undefined value.

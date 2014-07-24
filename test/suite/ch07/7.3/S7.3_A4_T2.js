@@ -3,6 +3,7 @@
 
 /*---
 info: Single line comments can contain Line Terminator at the end of line
+es5id: 7.3_A4_T2
 description: Insert CARRIAGE RETURN (U+000D) into the end of single line comment
 ---*/
 

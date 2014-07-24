@@ -6,6 +6,7 @@ info: >
     The [[Prototype]] property of the newly constructed object is set to the
     original RegExp prototype object, the one that is the initial value of
     RegExp.prototype
+es5id: 15.10.4.1_A7_T2
 description: Checking [[Prototype]] property of the newly constructed object
 ---*/
 

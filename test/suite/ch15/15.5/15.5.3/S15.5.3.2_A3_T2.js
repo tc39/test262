@@ -3,6 +3,7 @@
 
 /*---
 info: String.fromCharCode ( [ char0 [ , char1 [ , ... ] ] ] )
+es5id: 15.5.3.2_A3_T2
 description: >
     Create function variable, that equal String.fromCharCode, delete
     original String.fromCharCode and use created variable

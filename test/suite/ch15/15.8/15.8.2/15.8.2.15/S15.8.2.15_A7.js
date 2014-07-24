@@ -5,6 +5,7 @@
 info: >
     If x is less than or equal to -0 and x is greater than or equal to -0.5,
     Math.round(x) is equal to -0
+es5id: 15.8.2.15_A7
 description: >
     Checking if Math.round(x) is equal -0, where x is equal to 0,
     equal to -0.5, or less than -0 while greater than -0.5

@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.concat has not prototype property
+es5id: 15.5.4.6_A6
 description: Checking String.prototype.concat.prototype
 ---*/
 

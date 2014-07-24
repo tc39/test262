@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.16-3-16
 description: >
     Array.prototype.every - 'length' is a string containing a hex
     number

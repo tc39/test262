@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.slice (start, end)
+es5id: 15.5.4.13_A1_T9
 description: >
     Arguments are undefined and object, and instance is
     String(object), object have overrided valueOf and toString

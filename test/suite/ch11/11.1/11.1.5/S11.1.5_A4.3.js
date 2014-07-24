@@ -5,6 +5,7 @@
 info: >
     The PropertyName is undefined, ToString(BooleanLiteral),
     ToString(nullLiteral)
+es5id: 11.1.5_A4.3
 description: "Creating properties with following names: undefined, 'true', 'null'"
 ---*/
 

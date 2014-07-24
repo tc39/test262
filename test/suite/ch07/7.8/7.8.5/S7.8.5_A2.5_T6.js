@@ -3,6 +3,7 @@
 
 /*---
 info: "RegularExpressionChar :: BackslashSequence :: \\LineTerminator is incorrect"
+es5id: 7.8.5_A2.5_T6
 description: Paragraph separator, with eval
 ---*/
 

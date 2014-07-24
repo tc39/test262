@@ -3,6 +3,7 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
+es5id: 10.3.2_CS_a
 description: >
     Tests that the function returned by
     Intl.Collator.prototype.compare  returns 0 when comparing Strings

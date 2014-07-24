@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 13.2-1-s
 description: >
     StrictMode -  Writing or reading from a property named 'caller' of
     function objects is allowed under both strict and normal modes.

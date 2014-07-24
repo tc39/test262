@@ -3,6 +3,7 @@
 
 /*---
 info: The Number constructor has the property "prototype"
+es5id: 15.7.3_A1
 description: Checking existence of the property "prototype"
 ---*/
 

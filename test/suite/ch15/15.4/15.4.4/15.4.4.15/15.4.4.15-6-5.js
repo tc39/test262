@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-6-5
 description: Array.prototype.lastIndexOf returns -1 when 'fromIndex' is 1
 includes: [runTestCase.js]
 ---*/

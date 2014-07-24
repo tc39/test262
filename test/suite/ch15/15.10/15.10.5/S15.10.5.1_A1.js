@@ -3,6 +3,7 @@
 
 /*---
 info: The RegExp has property prototype
+es5id: 15.10.5.1_A1
 description: Checking RegExp.prototype property
 ---*/
 

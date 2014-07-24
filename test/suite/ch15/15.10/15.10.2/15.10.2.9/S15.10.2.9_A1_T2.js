@@ -6,6 +6,7 @@ info: >
     An escape sequence of the form \ followed by a nonzero decimal number n
     matches the result of the nth set of capturing parentheses (see
     15.10.2.11)
+es5id: 15.10.2.9_A1_T2
 description: >
     Execute
     /([xu]\d{2}([A-H]{2})?)\1/.exec("x09x12x01x01u00FFu00FFx04x04x23")

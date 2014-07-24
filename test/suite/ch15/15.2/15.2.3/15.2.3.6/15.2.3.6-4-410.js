@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-410
 description: >
     ES5 Attributes - Failed to add a property to an object when the
     object's prototype has a property with the same name and

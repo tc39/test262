@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.10.7.4-1
 description: RegExp.prototype.multiline is of type Boolean
 includes: [runTestCase.js]
 ---*/

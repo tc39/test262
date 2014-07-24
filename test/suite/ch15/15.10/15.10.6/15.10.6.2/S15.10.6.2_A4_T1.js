@@ -5,6 +5,7 @@
 info: >
     RegExp.prototype.exec behavior depends on global property.
     If global is true next exec calling start to match from lastIndex position
+es5id: 15.10.6.2_A4_T1
 description: Call first exec, then set re.lastIndex = 12 and again call exec
 ---*/
 

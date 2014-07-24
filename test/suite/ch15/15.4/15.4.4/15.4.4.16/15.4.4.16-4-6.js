@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.16-4-6
 description: Array.prototype.every throws TypeError if callbackfn is string
 includes: [runTestCase.js]
 ---*/

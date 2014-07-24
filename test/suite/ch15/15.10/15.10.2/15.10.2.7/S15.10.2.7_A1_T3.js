@@ -5,6 +5,7 @@
 info: >
     The production QuantifierPrefix :: { DecimalDigits , DecimalDigits }
     evaluates as ...
+es5id: 15.10.2.7_A1_T3
 description: >
     Execute /\d{2,4}/.exec("the 20000 Leagues Under the Sea book") and
     check results

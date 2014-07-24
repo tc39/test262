@@ -5,6 +5,7 @@
 info: >
     Type(x) and Type(y) are Object-s.
     Return false, if x and y are references to the same Object; otherwise, return true
+es5id: 11.9.5_A7
 description: >
     Checking Boolean object, Number object, String object, Object
     object

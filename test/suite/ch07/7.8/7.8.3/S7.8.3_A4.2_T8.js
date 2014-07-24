@@ -3,6 +3,7 @@
 
 /*---
 info: "ExponentPart :: ExponentIndicator ( /+/-) 0 DecimalDigits is allowed"
+es5id: 7.8.3_A4.2_T8
 description: "ExponentIndicator :: E"
 ---*/
 

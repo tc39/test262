@@ -3,6 +3,7 @@
 
 /*---
 info: Result of appying "typeof" operator to string is "string"
+es5id: 11.4.3_A3.5
 description: typeof (string value) === "string"
 ---*/
 

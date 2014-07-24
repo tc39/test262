@@ -3,6 +3,7 @@
 
 /*---
 info: Operator !x returns !ToBoolean(x)
+es5id: 11.4.9_A3_T3
 description: Type(x) is string primitive or String object
 ---*/
 

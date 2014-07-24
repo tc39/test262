@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.19-3-18
 description: >
     Array.prototype.map - value of 'length' is a string that can't
     convert to a number

@@ -5,6 +5,7 @@
 info: >
     The function call Function(…) is equivalent to the object creation expression
     new Function(…) with the same arguments.
+es5id: 15.3.1_A1_T1
 description: Create simple functions and check returned values
 ---*/
 

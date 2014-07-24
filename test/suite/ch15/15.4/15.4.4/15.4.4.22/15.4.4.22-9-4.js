@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.22-9-4
 description: >
     Array.prototype.reduceRight doesn't consider unvisited deleted
     elements when Array.length is decreased

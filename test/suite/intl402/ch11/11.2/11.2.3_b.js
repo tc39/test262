@@ -2,6 +2,7 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
+es5id: 11.2.3_b
 description: >
     Tests that Intl.NumberFormat does not accept Unicode locale
     extension keys and values that are not allowed.

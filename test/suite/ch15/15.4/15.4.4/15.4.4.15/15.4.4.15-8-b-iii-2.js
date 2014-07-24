@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-8-b-iii-2
 description: >
     Array.prototype.lastIndexOf returns without visiting subsequent
     element once search value is found

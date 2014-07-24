@@ -3,6 +3,7 @@
 
 /*---
 info: Result of applying "typeof" operator to undefined is "undefined"
+es5id: 11.4.3_A3.1
 description: typeof undefined === "undefined"
 ---*/
 

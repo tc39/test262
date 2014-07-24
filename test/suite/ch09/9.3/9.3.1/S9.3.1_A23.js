@@ -3,6 +3,7 @@
 
 /*---
 info: "The MV of DecimalDigit ::: 7 or of HexDigit ::: 7 is 7"
+es5id: 9.3.1_A23
 description: Compare Number('0x7') and Number('0X7') with 7
 ---*/
 

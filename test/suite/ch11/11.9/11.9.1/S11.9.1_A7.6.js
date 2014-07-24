@@ -5,6 +5,7 @@
 info: >
     If Type(x) is Object and Type(y) is String,
     return ToPrimitive(x) == y
+es5id: 11.9.1_A7.6
 description: x is object, y is primitive string
 ---*/
 

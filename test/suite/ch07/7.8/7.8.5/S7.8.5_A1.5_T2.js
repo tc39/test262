@@ -5,6 +5,7 @@
 info: >
     RegularExpressionFirstChar :: BackslashSequence :: \LineTerminator is
     incorrect
+es5id: 7.8.5_A1.5_T2
 description: Line Feed, with eval
 ---*/
 

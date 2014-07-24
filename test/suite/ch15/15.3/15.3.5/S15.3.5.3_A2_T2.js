@@ -7,6 +7,7 @@ info: >
     i) Call the [[Get]] method of F with property name "prototype".
     ii) Let O be Result(i).
     iii) O is not an object, throw a TypeError exception
+es5id: 15.3.5.3_A2_T2
 description: F.prototype is undefined, and V is empty object
 includes: [$FAIL.js]
 ---*/

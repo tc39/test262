@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-531-12
 description: >
     Object.defineProperty will update [[Get]] and [[Set]] attributes
     of indexed accessor property successfully when [[Configurable]]

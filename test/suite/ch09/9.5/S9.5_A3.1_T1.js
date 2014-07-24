@@ -3,6 +3,7 @@
 
 /*---
 info: Operator uses ToNumber
+es5id: 9.5_A3.1_T1
 description: Type(x) is Boolean
 ---*/
 

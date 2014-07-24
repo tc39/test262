@@ -8,6 +8,7 @@ info: >
     separator and limit can be any kinds of object since:
     ii) if separator is not RegExp ToString(separator) performs and
     iii) ToInteger(limit) performs
+es5id: 15.5.4.14_A1_T8
 description: >
     Argument is void 0, and instance is String(object), object have
     overrided toString function

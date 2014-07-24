@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.5.4.20-3-11
 description: >
     String.prototype.trim - 'S' is a string that starts with null
     character

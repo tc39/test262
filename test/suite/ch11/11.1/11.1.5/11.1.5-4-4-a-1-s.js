@@ -11,6 +11,7 @@ info: >
     PropertyNameAndValueList :  PropertyNameAndValueList , PropertyAssignment
     4. If previous is not undefined then throw a SyntaxError exception if any of the following conditions are true
     a. This production is contained in strict code and IsDataDescriptor(previous) is true and IsDataDescriptor(propId.descriptor) is true
+es5id: 11.1.5-4-4-a-1-s
 description: >
     Object literal - SyntaxError for duplicate date property name in
     strict mode

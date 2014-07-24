@@ -2,6 +2,7 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
+es5id: 10.2.1
 description: Tests that Intl.Collator.prototype has the required attributes.
 author: Norbert Lindenberg
 ---*/

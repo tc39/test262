@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x-- returns x = ToNumber(x) - 1
+es5id: 11.3.2_A3_T3
 description: Type(x) is string primitive or String object
 ---*/
 

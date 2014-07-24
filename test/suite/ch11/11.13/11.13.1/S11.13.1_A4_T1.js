@@ -3,6 +3,7 @@
 
 /*---
 info: "AssignmentExpression : LeftHandSideExpression = AssignmentExpression"
+es5id: 11.13.1_A4_T1
 description: Syntax check
 ---*/
 

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.16-2-13
 description: >
     Array.prototype.every applied to the Array-like object that
     'length' is inherited accessor property without a get function

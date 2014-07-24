@@ -3,6 +3,7 @@
 
 /*---
 info: replace with regexp /([a-z]+)([0-9]+)/ and replace function returns
+es5id: 15.5.4.11_A4_T3
 description: searchValue is /([a-z]+)([0-9]+)/i
 ---*/
 

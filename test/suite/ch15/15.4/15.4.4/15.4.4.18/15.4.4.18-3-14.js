@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.18-3-14
 description: >
     Array.prototype.forEach - 'length' is a string containing
     +/-Infinity

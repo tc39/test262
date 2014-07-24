@@ -3,6 +3,7 @@
 
 /*---
 info: Sanity test for throw statement
+es5id: 12.13_A1
 description: Trying to throw exception with "throw"
 flags: [negative]
 ---*/

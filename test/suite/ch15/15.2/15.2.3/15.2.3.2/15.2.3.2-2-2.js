@@ -8,6 +8,7 @@
 info: >
     Let 'x' be the return value from getPrototypeOf when called on d.
     Then, x.isPrototypeOf(d) must be true.
+es5id: 15.2.3.2-2-2
 description: >
     Object.getPrototypeOf returns the [[Prototype]] of its parameter
     (custom object)

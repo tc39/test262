@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.14-9-1
 description: Array.prototype.indexOf must return correct index (boolean)
 includes: [runTestCase.js]
 ---*/

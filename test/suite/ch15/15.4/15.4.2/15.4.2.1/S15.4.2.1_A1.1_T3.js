@@ -6,6 +6,7 @@ info: >
     The [[Prototype]] property of the newly constructed object
     is set to the original Array prototype object, the one that
     is the initial value of Array.prototype
+es5id: 15.4.2.1_A1.1_T3
 description: Checking use isPrototypeOf
 ---*/
 

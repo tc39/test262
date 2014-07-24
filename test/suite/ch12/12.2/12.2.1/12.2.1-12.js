@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.2.1-12
 description: arguments as local var identifier is allowed
 includes: [runTestCase.js]
 ---*/

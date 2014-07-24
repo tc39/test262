@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of the toFixed method is 1
+es5id: 15.7.4.5_A2_T01
 description: Checking Number prototype itself
 ---*/
 

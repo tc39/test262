@@ -5,6 +5,7 @@
 info: >
     The String.prototype.lastIndexOf.length property has the attribute
     DontDelete
+es5id: 15.5.4.8_A9
 description: >
     Checking if deleting the String.prototype.lastIndexOf.length
     property fails

@@ -3,6 +3,7 @@
 
 /*---
 info: VERTICAL TAB (U+000B) may occur within strings
+es5id: 7.2_A2.2_T2
 description: Use real VERTICAL TAB
 ---*/
 

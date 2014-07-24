@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.3.2-1-3
 description: Array.isArray applied to number primitive
 includes: [runTestCase.js]
 ---*/

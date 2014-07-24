@@ -6,6 +6,7 @@ info: >
     Variables are defined with global scope (that is, they are created as
     members of the global object, as described in 10.1.3) using property
     attributes { DontDelete}
+es5id: 12.2_A2
 description: >
     Checking if deleting global variables that have the attributes
     {DontDelete} fails

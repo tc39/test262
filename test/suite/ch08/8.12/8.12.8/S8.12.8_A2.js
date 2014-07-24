@@ -7,6 +7,7 @@ info: >
     Cause we overload toString method so it return non Primitive value
     but we overloaded valueOf method too.
     See ECMA reference at http://bugzilla.mozilla.org/show_bug.cgi?id=167325
+es5id: 8.12.8_A2
 description: >
     Try to overload toString, that returned new Object, and valueOf
     methods

@@ -3,6 +3,7 @@
 
 /*---
 info: Math.LN10 is approximately 2.302585092994046
+es5id: 15.8.1.2_A1
 description: Comparing Math.LN10 with 2.302585092994046
 includes:
     - math_precision.js

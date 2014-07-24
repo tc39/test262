@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.11.4.3-1
 description: Error.prototype.message is not enumerable.
 includes: [runTestCase.js]
 ---*/

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.9-2-3
 description: Object.freeze - inherited accessor properties are not frozen
 includes: [runTestCase.js]
 ---*/

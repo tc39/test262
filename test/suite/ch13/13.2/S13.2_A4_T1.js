@@ -7,6 +7,7 @@ info: >
     9.Create a new object as would be constructed by the expression new Object().
     10. Set the constructor property of Result(9) to F. This property is given attributes { DontEnum }.
     11. Set the "prototype" property of F to Result(9).
+es5id: 13.2_A4_T1
 description: >
     Checking prototype, prototype.constructor properties and
     {DontEnum} property of a constructor.  Using "function __func(){}"

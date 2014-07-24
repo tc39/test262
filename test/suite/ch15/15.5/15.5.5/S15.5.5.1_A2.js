@@ -3,6 +3,7 @@
 
 /*---
 info: length property has the attributes {DontEnum}
+es5id: 15.5.5.1_A2
 description: Checking if enumerating the length property of String fails
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: Number.NEGATIVE_INFINITY is DontDelete
+es5id: 15.7.3.5_A3
 description: Checking if deleting Number.NEGATIVE_INFINITY fails
 flags: [noStrict]
 ---*/

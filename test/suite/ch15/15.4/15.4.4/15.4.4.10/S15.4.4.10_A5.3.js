@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of slice has the attribute ReadOnly
+es5id: 15.4.4.10_A5.3
 description: Checking if varying the length property fails
 flags: [noStrict]
 ---*/

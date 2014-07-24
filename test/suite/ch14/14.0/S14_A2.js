@@ -3,6 +3,7 @@
 
 /*---
 info: FunctionDeclaration cannot be localed inside an Expression
+es5id: 14_A2
 description: Declaring a function within an "if" Expression
 ---*/
 

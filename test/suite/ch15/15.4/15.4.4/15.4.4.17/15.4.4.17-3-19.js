@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.17-3-19
 description: >
     Array.prototype.some - value of 'length' is an Object which has an
     own toString method

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.1.1-29-s
 description: >
     Strict Mode - The built-in Function constructor is contained in
     use strict code

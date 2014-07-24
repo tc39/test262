@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 8.7.2-3-a-2gs
 description: >
     Strict Mode - 'runtime' error is thrown before LeftHandSide
     evaluates to an unresolvable Reference

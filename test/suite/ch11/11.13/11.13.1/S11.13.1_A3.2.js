@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x = y returns GetValue(y)
+es5id: 11.13.1_A3.2
 description: Checking Expression and Variable statements
 ---*/
 

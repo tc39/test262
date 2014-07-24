@@ -3,6 +3,7 @@
 
 /*---
 info: The push property of Array has the attribute DontEnum
+es5id: 15.4.4.7_A6.5
 description: Checking use propertyIsEnumerable, for-in
 ---*/
 

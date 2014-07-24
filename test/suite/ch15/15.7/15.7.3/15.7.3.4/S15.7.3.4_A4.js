@@ -3,6 +3,7 @@
 
 /*---
 info: Number.NaN has the attribute DontEnum
+es5id: 15.7.3.4_A4
 description: Checking if enumerating Number.NaN fails
 ---*/
 

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.3-2-46
 description: >
     Object.getOwnPropertyDescriptor - TypeError exception was thrown
     when 'P' is an object that both toString and valueOf wouldn't

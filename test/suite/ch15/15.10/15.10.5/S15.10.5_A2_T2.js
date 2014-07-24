@@ -5,6 +5,7 @@
 info: >
     The value of the internal [[Prototype]] property of the RegExp
     constructor is the Function prototype object
+es5id: 15.10.5_A2_T2
 description: >
     Add new property to Function.prototype and then check this
     property of RegExp

@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of toString is 0
+es5id: 15.4.4.2_A4.4
 description: toString.length === 1
 ---*/
 

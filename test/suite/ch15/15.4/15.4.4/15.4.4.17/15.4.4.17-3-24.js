@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.17-3-24
 description: >
     Array.prototype.some - value of 'length' is a positive
     non-integer, ensure truncation occurs in the proper direction

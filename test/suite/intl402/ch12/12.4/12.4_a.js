@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 12.4_a
 description: >
     Tests that Intl.DateTimeFormat instances have the specified
     properties.

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.6.4-2
 description: >
     The for-in Statement - the values of [[Enumerable]] attributes are
     not considered when determining if a property of a prototype

@@ -10,6 +10,7 @@ info: >
     The production
     PropertyNameAndValueList : PropertyAssignment 
     3.Call the [[DefineOwnProperty]] internal method of obj with arguments propId.name, propId.descriptor, and false.
+es5id: 11.1.5_3-3-1
 description: >
     Object initialization using PropertyNameAndValueList
     (PropertyAssignment) when property (read-only) exists in

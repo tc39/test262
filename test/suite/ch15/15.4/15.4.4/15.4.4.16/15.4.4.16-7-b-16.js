@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.16-7-b-16
 description: >
     Array.prototype.every - decreasing length of array does not delete
     non-configurable properties

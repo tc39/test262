@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.12-3-15
 description: Object.isFrozen returns false for all built-in objects (Date)
 includes: [runTestCase.js]
 ---*/

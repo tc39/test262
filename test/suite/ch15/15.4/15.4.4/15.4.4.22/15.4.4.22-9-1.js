@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.22-9-1
 description: >
     Array.prototype.reduceRight doesn't consider new elements which
     index is larger than array original length added to array after it

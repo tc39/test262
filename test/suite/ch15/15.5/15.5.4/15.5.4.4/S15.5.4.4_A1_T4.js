@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.charAt(pos)
+es5id: 15.5.4.4_A1_T4
 description: Call charAt() function without argument of string object
 ---*/
 

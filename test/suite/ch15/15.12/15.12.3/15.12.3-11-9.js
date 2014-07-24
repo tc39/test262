@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.3-11-9
 description: JSON.stringify correctly works on top level Boolean objects.
 includes: [runTestCase.js]
 ---*/

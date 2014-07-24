@@ -13,6 +13,7 @@ info: >
     local functions must shadow outer functions
     local function expresssions must shadow outer function expressions
     eval should use the appended object to the scope chain
+es5id: 12.14-6
 description: >
     catch introduces scope - block-local function expression must
     shadow outer function expression

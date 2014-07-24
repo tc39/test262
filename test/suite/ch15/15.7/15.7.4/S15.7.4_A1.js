@@ -5,6 +5,7 @@
 info: >
     The Number prototype object is itself a Number object
     (its [[Class]] is "Number") whose value is +0
+es5id: 15.7.4_A1
 description: Checking type and value of Number.prototype property
 ---*/
 

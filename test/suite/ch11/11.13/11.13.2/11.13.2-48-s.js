@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.13.2-48-s
 description: >
     Strict Mode - TypeError is thrown if The LeftHandSide of a
     Compound Assignment operator(+=) is a reference to a non-existent

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-5-a-5
 description: >
     Object.defineProperties - enumerable own accessor property of
     'Properties' without a get function is defined in 'O'

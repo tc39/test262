@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.3-8-a-3
 description: >
     JSON.stringify treats an null space argument the same as a missing
     space argument.

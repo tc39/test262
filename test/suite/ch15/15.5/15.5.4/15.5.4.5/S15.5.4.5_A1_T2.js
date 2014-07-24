@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.charCodeAt(pos)
+es5id: 15.5.4.5_A1_T2
 description: pos is equation with false and true, and instance is Boolean object
 ---*/
 

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.5-4-15
 description: >
     Object.create - argument 'Properties' is the Aguments object
     (15.2.3.7 step 2)

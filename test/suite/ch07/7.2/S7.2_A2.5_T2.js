@@ -3,6 +3,7 @@
 
 /*---
 info: NO-BREAK SPACE (U+00A0) may occur within strings
+es5id: 7.2_A2.5_T2
 description: Use real NO-BREAK SPACE
 ---*/
 

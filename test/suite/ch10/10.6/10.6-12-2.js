@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.6-12-2
 description: arguments.callee has correct attributes
 includes: [runTestCase.js]
 ---*/

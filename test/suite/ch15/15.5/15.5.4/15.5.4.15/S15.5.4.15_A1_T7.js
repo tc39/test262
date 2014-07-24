@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.substring (start, end)
+es5id: 15.5.4.15_A1_T7
 description: Arguments are symbol and undefined, and instance is String
 ---*/
 

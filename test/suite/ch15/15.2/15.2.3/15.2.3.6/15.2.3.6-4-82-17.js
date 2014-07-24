@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-82-17
 description: >
     Object.defineProperty - Update [[Enumerable]] and [[Configurable]]
     attributes of 'name' property to false successfully when

@@ -3,6 +3,7 @@
 
 /*---
 info: Operator use ToString
+es5id: 15.1.2.3_A1_T4
 description: Checking for Boolean object
 ---*/
 

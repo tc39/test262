@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-3-78
 description: >
     Object.defineProperty - 'configurable' property in 'Attributes' is
     own data property that overrides an inherited accessor property

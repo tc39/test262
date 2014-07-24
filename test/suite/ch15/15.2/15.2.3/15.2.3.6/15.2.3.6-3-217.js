@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-3-217
 description: >
     Object.defineProperty - 'get' property in 'Attributes' is an
     inherited accessor property without a get function (8.10.5 step

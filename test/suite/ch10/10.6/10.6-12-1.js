@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.6-12-1
 description: Accessing callee property of Arguments object is allowed
 includes: [runTestCase.js]
 ---*/

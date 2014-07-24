@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.22-9-c-i-29
 description: >
     Array.prototype.reduceRight applied to Function object which
     implements its own property get method

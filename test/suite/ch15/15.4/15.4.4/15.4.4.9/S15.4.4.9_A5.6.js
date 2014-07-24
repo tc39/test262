@@ -3,6 +3,7 @@
 
 /*---
 info: The shift property of Array has not prototype property
+es5id: 15.4.4.9_A5.6
 description: Checking Array.prototype.shift.prototype
 ---*/
 

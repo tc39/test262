@@ -6,6 +6,7 @@
 
 /*---
 info: Promise.all([]) is a Promise
+es5id: 25.4.4.1_A2.1_T1
 author: Sam Mikes
 ---*/
 

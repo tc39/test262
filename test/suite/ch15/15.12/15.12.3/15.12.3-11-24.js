@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.3-11-24
 description: >
     JSON.stringify - stringifying an object where property value
     starts and ends with the union of all null character (The abstract

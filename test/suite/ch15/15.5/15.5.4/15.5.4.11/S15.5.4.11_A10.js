@@ -3,6 +3,7 @@
 
 /*---
 info: The String.prototype.replace.length property has the attribute ReadOnly
+es5id: 15.5.4.11_A10
 description: >
     Checking if varying the String.prototype.replace.length property
     fails

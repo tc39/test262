@@ -5,6 +5,7 @@
 info: >
     The initial value of Error.prototype.constructor is the built-in Error
     constructor
+es5id: 15.11.4.1_A1_T2
 description: >
     Checking if creating "new Error.prototype.constructor" passes and
     checking its properties

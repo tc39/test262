@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.12-1-5
 description: Object.isFrozen applies to dense array
 includes: [runTestCase.js]
 ---*/

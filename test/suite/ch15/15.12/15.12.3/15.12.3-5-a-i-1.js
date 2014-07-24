@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.3-5-a-i-1
 description: >
     JSON.stringify converts Number wrapper object space aruguments to
     Number values

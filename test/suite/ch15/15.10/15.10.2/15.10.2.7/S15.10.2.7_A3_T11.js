@@ -5,6 +5,7 @@
 info: >
     The production QuantifierPrefix :: + evaluates by returning the two
     results 1 and \infty
+es5id: 15.10.2.7_A3_T11
 description: Execute /d+/.exec("abcdefg") and check results
 ---*/
 

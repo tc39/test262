@@ -2,10 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 11.3.2_1_a_ii
 description: >
     Tests that Intl.NumberFormat.prototype.format  converts other
     types to numbers.
-author:: Roozbeh Pournader
+author: Roozbeh Pournader
 ---*/
 
 var formatter = new Intl.NumberFormat();

@@ -5,6 +5,7 @@
 info: >
     CharacterEscape :: UnicodeEscapeSequence :: u HexDigit HexDigit HexDigit
     HexDigit
+es5id: 15.10.2.10_A4.1_T2
 description: >
     Tested string include ENGLISH CAPITAL ALPHABET and english small
     alphabet

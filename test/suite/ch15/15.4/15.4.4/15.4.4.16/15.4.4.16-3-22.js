@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.16-3-22
 description: >
     Array.prototype.every throws TypeError exception when 'length' is
     an object with toString and valueOf methods that don�t return

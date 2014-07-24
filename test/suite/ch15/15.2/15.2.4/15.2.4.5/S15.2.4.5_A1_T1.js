@@ -8,6 +8,7 @@ info: >
     ii) Call ToString(V)
     iii) If O doesn't have a property with the name given by Result(ii), return false
     iv) Return true
+es5id: 15.2.4.5_A1_T1
 description: >
     Checking type of the Object.prototype.hasOwnProperty and the
     returned result

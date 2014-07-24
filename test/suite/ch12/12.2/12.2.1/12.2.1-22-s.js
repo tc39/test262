@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.2.1-22-s
 description: >
     arguments as global var identifier throws SyntaxError in strict
     mode

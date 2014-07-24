@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of push has the attribute DontEnum
+es5id: 15.4.4.7_A6.1
 description: Checking use propertyIsEnumerable, for-in
 ---*/
 

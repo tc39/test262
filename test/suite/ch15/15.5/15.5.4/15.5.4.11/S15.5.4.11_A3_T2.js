@@ -3,6 +3,7 @@
 
 /*---
 info: replace with regexp /(uid=)(\d+)/ returns
+es5id: 15.5.4.11_A3_T2
 description: replaceValue is "$11" + '15'
 ---*/
 

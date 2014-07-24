@@ -5,6 +5,7 @@
 info: >
     ToInt32(first expression) is called first, and then ToInt32(second
     expression)
+es5id: 11.10.3_A2.3_T1
 description: Checking with "throw"
 ---*/
 

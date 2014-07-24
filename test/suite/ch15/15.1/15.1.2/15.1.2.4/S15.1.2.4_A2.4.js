@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of isNaN is 1
+es5id: 15.1.2.4_A2.4
 description: isNaN.length === 1
 ---*/
 

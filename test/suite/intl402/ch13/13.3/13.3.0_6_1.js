@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 13.3.0_6_1
 description: >
     Tests that Date.prototype.toLocaleString & Co. throws the same
     exceptions as Intl.DateTimeFormat.

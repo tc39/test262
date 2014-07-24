@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of parseInt is 2
+es5id: 15.1.2.2_A9.4
 description: parseInt.length === 2
 ---*/
 

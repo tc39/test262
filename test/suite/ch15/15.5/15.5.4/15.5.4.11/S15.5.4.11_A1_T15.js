@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.replace (searchValue, replaceValue)
+es5id: 15.5.4.11_A1_T15
 description: Instance is Object, searchValue is regular expression
 includes: [$FAIL.js]
 ---*/

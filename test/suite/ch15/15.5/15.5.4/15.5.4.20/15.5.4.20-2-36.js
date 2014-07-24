@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.5.4.20-2-36
 description: >
     String.prototype.trim - 'this' is a Boolean Object that converts
     to a string

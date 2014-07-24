@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.14-5-a-2
 description: >
     Object.keys - 'writable' attribute of element of returned array is
     correct

@@ -3,6 +3,7 @@
 
 /*---
 info: String.fromCharCode has not [[construct]] method
+es5id: 15.5.3.2_A4
 description: Checking if creating "new String.fromCharCode" fails
 includes:
     - $FAIL.js

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 8.12.1-1_19
 description: >
     Properties - [[HasOwnProperty]] (writable, configurable,
     enumerable inherited value property)

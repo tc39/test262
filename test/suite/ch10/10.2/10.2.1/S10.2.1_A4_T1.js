@@ -7,6 +7,7 @@ info: >
     already has a property with the name of Function Identifier, replace its
     value and attributes. Semantically, this step must follow the creation of
     FormalParameterList properties
+es5id: 10.2.1_A4_T1
 description: Checking existence of a function with passed parameter
 flags: [noStrict]
 ---*/

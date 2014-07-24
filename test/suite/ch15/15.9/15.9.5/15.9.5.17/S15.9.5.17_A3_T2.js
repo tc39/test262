@@ -5,6 +5,7 @@
 info: >
     The Date.prototype.getUTCDay property "length" has { ReadOnly,
     DontDelete, DontEnum } attributes
+es5id: 15.9.5.17_A3_T2
 description: Checking DontDelete attribute
 includes: [$FAIL.js]
 ---*/

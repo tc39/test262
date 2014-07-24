@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.2.1-32-s
 description: >
     arguments as local var identifier defined twice and assigned once
     throws SyntaxError in strict mode

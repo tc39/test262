@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 15.2.3.6_A2
 description: >
     Checks if an inherited accessor property appears to be  an own
     property.

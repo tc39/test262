@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.1.1-18-s
 description: >
     Strict Mode - Function code that is part of a Accessor
     PropertyAssignment is in Strict Mode if Accessor

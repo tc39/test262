@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-60
 description: >
     Object.defineProperty - type of desc.value is different from type
     of name.value (8.12.9 step 6)

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.13.1-4-28-s
 description: >
     Strict Mode - SyntaxError is thrown if the identifier 'eval'
     appears as the LeftHandSideExpression of simple assignment(=)

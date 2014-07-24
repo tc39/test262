@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.19-9-3
 description: Array.prototype.map - subclassed array when length is reduced
 includes: [runTestCase.js]
 ---*/

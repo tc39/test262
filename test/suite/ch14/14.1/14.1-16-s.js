@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 14.1-16-s
 description: >
     'use strict' directive - not recognized if it follow an empty
     statement

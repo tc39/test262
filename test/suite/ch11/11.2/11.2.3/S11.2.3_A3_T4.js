@@ -3,6 +3,7 @@
 
 /*---
 info: If MemberExpression is not Object, throw TypeError
+es5id: 11.2.3_A3_T4
 description: Checking "undefined" case
 ---*/
 

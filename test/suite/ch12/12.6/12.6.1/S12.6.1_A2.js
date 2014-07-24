@@ -5,6 +5,7 @@
 info: >
     While evaluating "do Statement while ( Expression )", Statement is
     evaluated first and only after it is done Expression is checked
+es5id: 12.6.1_A2
 description: Evaluating Statement with error Expression
 includes: [Test262Error.js]
 ---*/

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 8.7.2-3-1-s
 description: eval - a property named 'eval' is permitted
 flags: [onlyStrict]
 includes: [runTestCase.js]

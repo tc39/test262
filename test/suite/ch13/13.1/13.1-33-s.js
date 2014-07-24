@@ -9,6 +9,7 @@ info: >
     Refer 13.1; 
     It is a SyntaxError if any Identifier value occurs more than once within a FormalParameterList of a strict mode
     FunctionDeclaration or FunctionExpression.
+es5id: 13.1-33-s
 description: >
     Strict Mode - SyntaxError is thrown if function is created using a
     FunctionExpression that is contained in eval strict code and the

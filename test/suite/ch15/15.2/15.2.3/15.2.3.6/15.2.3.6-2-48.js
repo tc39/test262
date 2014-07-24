@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-2-48
 description: >
     Object.defineProperty - an inherited toString method  is invoked
     when 'P' is an object with an own valueOf and an inherited

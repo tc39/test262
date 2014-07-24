@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-461
 description: >
     ES5 Attributes - property ([[Get]] is undefined, [[Set]] is a
     Function, [[Enumerable]] is true, [[Configurable]] is true) is

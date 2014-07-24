@@ -5,6 +5,7 @@
 info: >
     The production CharacterEscape :: n evaluates by returning
     the character \u000A
+es5id: 15.10.2.10_A1.2_T1
 description: Use \n in RegExp and \u000A in tested string
 ---*/
 

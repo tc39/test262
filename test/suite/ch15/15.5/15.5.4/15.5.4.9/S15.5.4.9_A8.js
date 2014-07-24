@@ -5,6 +5,7 @@
 info: >
     The String.prototype.localeCompare.length property has the attribute
     DontEnum
+es5id: 15.5.4.9_A8
 description: >
     Checking if enumerating the String.prototype.localeCompare.length
     property fails

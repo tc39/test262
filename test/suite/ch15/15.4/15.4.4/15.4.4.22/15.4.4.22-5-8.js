@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.22-5-8
 description: >
     Array.prototype.reduceRight throws TypeError if 'length' is 0
     (subclassed Array, length overridden with []), no initVal

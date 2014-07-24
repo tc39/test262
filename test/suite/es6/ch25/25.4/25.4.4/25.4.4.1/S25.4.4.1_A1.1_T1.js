@@ -6,6 +6,7 @@
 
 /*---
 info: Promise.all is callable
+es5id: 25.4.4.1_A1.1_T1
 author: Sam Mikes
 ---*/
 

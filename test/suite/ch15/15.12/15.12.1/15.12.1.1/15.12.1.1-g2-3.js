@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.1.1-g2-3
 description: A JSONString may not be delimited by Uncode escaped quotes
 includes: [runTestCase.js]
 ---*/

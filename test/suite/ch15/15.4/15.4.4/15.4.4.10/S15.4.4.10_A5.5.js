@@ -3,6 +3,7 @@
 
 /*---
 info: The slice property of Array has the attribute DontEnum
+es5id: 15.4.4.10_A5.5
 description: Checking use propertyIsEnumerable, for-in
 ---*/
 

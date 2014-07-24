@@ -3,6 +3,7 @@
 
 /*---
 info: String type has a length property
+es5id: 8.4_A3
 description: Try read length property of string variable
 ---*/
 

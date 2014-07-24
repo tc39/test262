@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of isNaN has the attribute DontEnum
+es5id: 15.1.2.4_A2.1
 description: Checking use propertyIsEnumerable, for-in
 ---*/
 

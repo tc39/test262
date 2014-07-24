@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.9-2-a-3
 description: >
     Object.freeze - 'P' is own data property that overrides an
     inherited accessor property

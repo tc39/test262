@@ -3,6 +3,7 @@
 
 /*---
 info: Multi line comment can contain FORM FEED (U+000C)
+es5id: 7.2_A4.3_T1
 description: Use FORM FEED(\u000C)
 ---*/
 

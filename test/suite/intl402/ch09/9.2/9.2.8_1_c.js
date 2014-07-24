@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 9.2.8_1_c
 description: Tests that the option localeMatcher is processed correctly.
 author: Norbert Lindenberg
 includes: [testIntl.js]

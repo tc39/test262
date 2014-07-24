@@ -3,6 +3,7 @@
 
 /*---
 info: Operator ++x returns ToNumber(x) + 1
+es5id: 11.4.4_A4_T3
 description: Type(x) is string primitive or String object
 ---*/
 

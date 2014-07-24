@@ -5,6 +5,7 @@
 info: >
     When "instanceof" returns true it means that
     GetValue(RelationalExpression) is constructed with ShiftExpression
+es5id: 11.8.6_A7_T1
 description: Checking Object object
 ---*/
 

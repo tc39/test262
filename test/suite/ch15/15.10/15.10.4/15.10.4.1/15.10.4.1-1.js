@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.10.4.1-1
 description: >
     RegExp - the thrown error is TypeError instead of RegExpError when
     pattern is an object whose [[Class]] property is 'RegExp' and

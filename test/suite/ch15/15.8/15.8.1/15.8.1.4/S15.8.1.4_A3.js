@@ -3,6 +3,7 @@
 
 /*---
 info: Value Property LOG2E of the Math Object has the attribute DontDelete
+es5id: 15.8.1.4_A3
 description: Checking if Math.LOG2E property has the attribute DontDelete
 flags: [noStrict]
 ---*/

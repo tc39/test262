@@ -7,6 +7,7 @@ info: >
     following:
     If A does not contain exactly one character or B does not contain exactly one character then throw
     a SyntaxError exception
+es5id: 15.10.2.15_A1_T2
 description: >
     Checking if execution of "/[a-dc-b]/.exec("a")" leads to throwing
     the correct exception

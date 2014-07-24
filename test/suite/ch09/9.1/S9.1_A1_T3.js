@@ -5,6 +5,7 @@
 info: >
     Result of primitive conversion from object is a default value for the
     Object
+es5id: 9.1_A1_T3
 description: >
     Using operator "+". This operator firstly calls ToPrimitive and
     then calls ToString or ToNumber

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.3-7-a-1
 description: >
     JSON.stringify only uses the first 10 characters of a string space
     arguments.

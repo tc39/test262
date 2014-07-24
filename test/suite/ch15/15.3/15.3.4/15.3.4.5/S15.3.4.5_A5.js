@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 15.3.4.5_A5
 description: >
     Function.prototype.bind must curry [[Construct]] as  well as
     [[Call]].

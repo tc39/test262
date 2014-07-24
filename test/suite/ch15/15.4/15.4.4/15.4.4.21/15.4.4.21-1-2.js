@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-1-2
 description: Array.prototype.reduce applied to null
 includes: [runTestCase.js]
 ---*/

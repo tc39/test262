@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-83
 description: >
     Object.defineProperty will not throw TypeError if
     name.configurable = false, name.writable = false, name.value =

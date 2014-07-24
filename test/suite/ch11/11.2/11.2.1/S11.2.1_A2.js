@@ -3,6 +3,7 @@
 
 /*---
 info: MemberExpression and CallExpression uses GetValue
+es5id: 11.2.1_A2
 description: >
     If GetBase(MemberExpression or CallExpression) is null, throw
     ReferenceError

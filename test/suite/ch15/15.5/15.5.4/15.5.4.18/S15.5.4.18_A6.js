@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.toUpperCase has not prototype property
+es5id: 15.5.4.18_A6
 description: Checking String.prototype.toUpperCase.prototype
 ---*/
 

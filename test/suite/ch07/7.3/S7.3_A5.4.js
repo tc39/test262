@@ -3,6 +3,7 @@
 
 /*---
 info: Multi line comment can contain LINE SEPARATOR (U+2029)
+es5id: 7.3_A5.4
 description: Insert PARAGRAPH SEPARATOR (U+2029) into multi line comment
 ---*/
 

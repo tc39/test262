@@ -3,6 +3,7 @@
 
 /*---
 info: Inside a CharacterClass, \b means the backspace character
+es5id: 15.10.2.13_A3_T2
 description: Execute /c[\b]{3}d/.exec("abc\b\b\bdef") and check results
 ---*/
 

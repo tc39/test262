@@ -6,6 +6,7 @@ info: >
     When the [[Put]] method of O is called with property P and value V,
     and If O doesn't have a property with name P, then
     creates a property with name P, set its value to V and give it empty attributes
+es5id: 8.12.5_A1
 description: Put to not existent properties
 ---*/
 

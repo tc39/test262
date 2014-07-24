@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 6.1
 description: Test for handling of supplementary characters
 ---*/
 

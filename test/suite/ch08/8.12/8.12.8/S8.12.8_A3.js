@@ -5,6 +5,7 @@
 info: >
     We overload valueOf method so it return non Primitive value
     Thus [[DefaultValue]] must return Object.toString() value
+es5id: 8.12.8_A3
 description: >
     Try to overload toString method, that returned Primitive, and
     valueOf method, that returned new Object

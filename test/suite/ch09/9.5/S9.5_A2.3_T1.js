@@ -3,6 +3,7 @@
 
 /*---
 info: If result is greater than or equal to 2^31, return result -2^32
+es5id: 9.5_A2.3_T1
 description: Use operator <<0
 ---*/
 

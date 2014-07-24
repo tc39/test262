@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-5-b-237
 description: >
     Object.defineProperties - 'set' property of 'descObj' is own
     accessor property without a get function that overrides an

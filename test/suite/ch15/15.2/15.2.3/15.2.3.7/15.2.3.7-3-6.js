@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-3-6
 description: >
     Object.defineProperties - enumerable inherited accessor property
     of 'Properties' is not defined in 'O'

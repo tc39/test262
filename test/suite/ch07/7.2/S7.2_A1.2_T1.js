@@ -3,6 +3,7 @@
 
 /*---
 info: VERTICAL TAB (U+000B) between any two tokens is allowed
+es5id: 7.2_A1.2_T1
 description: Insert VERTICAL TAB(\u000B and \v) between tokens of var x=1
 ---*/
 

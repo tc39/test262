@@ -2,10 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 11.3.2_FN_3_b
 description: >
     Tests that Intl.NumberFormat.prototype.format  formats percent
     values properly.
-author:: Roozbeh Pournader
+author: Roozbeh Pournader
 ---*/
 
 var numberFormatter = new Intl.NumberFormat();

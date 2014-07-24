@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.14.1-3-s
 description: >
     Strict Mode - SyntaxError isn't thrown if a TryStatement with a
     Catch occurs within strict code and the Identifier of the Catch

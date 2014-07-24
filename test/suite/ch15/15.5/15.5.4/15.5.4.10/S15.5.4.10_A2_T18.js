@@ -3,6 +3,7 @@
 
 /*---
 info: match returns array as specified in 15.10.6.2
+es5id: 15.5.4.10_A2_T18
 description: >
     Regular expression is /0./.  And regular expression object have
     property lastIndex = 0

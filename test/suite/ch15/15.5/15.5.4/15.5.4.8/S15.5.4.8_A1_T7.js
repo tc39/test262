@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.lastIndexOf(searchString, position)
+es5id: 15.5.4.8_A1_T7
 description: >
     Call lastIndexOf(searchString, position) function with undefined
     argument of string object

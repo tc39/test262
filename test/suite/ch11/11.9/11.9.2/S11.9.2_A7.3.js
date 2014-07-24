@@ -5,6 +5,7 @@
 info: >
     If Type(x) is Boolean and Type(y) is Object,
     return x != ToPrimitive(y)
+es5id: 11.9.2_A7.3
 description: y is object, x is primitive boolean
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: Correct interpretation of multi line comments
+es5id: 7.4_A2_T1
 description: Create comments with any code
 ---*/
 

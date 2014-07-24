@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.3-4-248
 description: >
     Object.getOwnPropertyDescriptor - returned object contains the
     property 'value' if the value of property 'value' is not

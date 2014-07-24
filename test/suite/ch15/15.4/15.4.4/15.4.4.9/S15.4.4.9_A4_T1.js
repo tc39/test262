@@ -3,6 +3,7 @@
 
 /*---
 info: "[[Get]], [[Delete]] from not an inherited property"
+es5id: 15.4.4.9_A4_T1
 description: >
     [[Prototype]] of Array instance is Array.prototype, [[Prototype]
     of Array.prototype is Object.prototype

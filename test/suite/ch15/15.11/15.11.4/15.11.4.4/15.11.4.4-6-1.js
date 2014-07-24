@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.11.4.4-6-1
 description: >
     Error.prototype.toString - 'Error' is returned when 'name' is
     absent and empty string is returned when 'msg' is undefined

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.1.1-g4-4
 description: >
     The JSON lexical grammar does not allow a JSONStringCharacter to
     be any of the Unicode characters U+0018 thru U+001F

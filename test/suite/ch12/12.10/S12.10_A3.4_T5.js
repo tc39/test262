@@ -5,6 +5,7 @@
 info: >
     No matter how control leaves the embedded 'Statement',
     the scope chain is always restored to its former state
+es5id: 12.10_A3.4_T5
 description: >
     Using "with" statement within iteration statement, leading to
     completion by break

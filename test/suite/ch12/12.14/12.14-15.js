@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.14-15
 description: >
     Exception object is a function which is a property of an object,
     when an exception parameter is called as a function in catch

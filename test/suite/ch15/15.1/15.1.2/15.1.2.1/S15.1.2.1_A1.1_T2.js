@@ -3,6 +3,7 @@
 
 /*---
 info: If x is not a string value, return x
+es5id: 15.1.2.1_A1.1_T2
 description: Checking all object
 ---*/
 

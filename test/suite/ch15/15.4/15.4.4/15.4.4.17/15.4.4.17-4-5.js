@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.17-4-5
 description: Array.prototype.some throws TypeError if callbackfn is number
 includes: [runTestCase.js]
 ---*/

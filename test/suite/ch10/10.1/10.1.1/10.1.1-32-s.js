@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.1.1-32-s
 description: >
     Strict Mode - Function code of built-in Function constructor
     contains Use Strict Directive which appears at the end of the block

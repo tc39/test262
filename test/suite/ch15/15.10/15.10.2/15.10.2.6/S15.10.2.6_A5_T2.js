@@ -5,6 +5,7 @@
 info: >
     Since assertion evaluating do not change endIndex repetition of assertion
     does the same result
+es5id: 15.10.2.6_A5_T2
 description: >
     Execute /\B\B\B\B\B\Bbot\b\b\b\b\b\b\b/.exec("robot wall-e") and
     check results

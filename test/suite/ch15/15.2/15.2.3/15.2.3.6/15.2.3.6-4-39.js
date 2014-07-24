@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-39
 description: >
     Object.defineProperty - 'O' is a Date object that uses Object's
     [[GetOwnProperty]] method to access the 'name' property (8.12.9

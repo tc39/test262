@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.14-7-2
 description: >
     Array.prototype.indexOf returns correct index when 'fromIndex' is
     length of array - 1

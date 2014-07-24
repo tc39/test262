@@ -5,6 +5,7 @@
 info: >
     String.prototype.toLocaleLowerCase() return a string, but not a String
     object
+es5id: 15.5.4.17_A2_T1
 description: Checking returned result
 ---*/
 

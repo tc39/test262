@@ -5,6 +5,7 @@
 info: >
     If start is positive, use min(start, length).
     If deleteCount is positive, use min(deleteCount, length - start)
+es5id: 15.4.4.12_A1.1_T3
 description: length = deleteCount > start = 0
 ---*/
 

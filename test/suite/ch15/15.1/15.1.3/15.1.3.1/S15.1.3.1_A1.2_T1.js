@@ -5,6 +5,7 @@
 info: >
     If B = string.charAt(k+1) + string.charAt(k+2) do not represent
     hexadecimal digits, throw URIError
+es5id: 15.1.3.1_A1.2_T1
 description: Complex tests
 ---*/
 

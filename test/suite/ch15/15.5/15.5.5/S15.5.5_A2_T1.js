@@ -3,6 +3,7 @@
 
 /*---
 info: String instance has not [[construct]] property
+es5id: 15.5.5_A2_T1
 description: Create new string object and try new created_string
 includes: [$FAIL.js]
 ---*/

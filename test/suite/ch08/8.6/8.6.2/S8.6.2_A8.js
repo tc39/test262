@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 8.6.2_A8
 description: >
     It should not be possible to change the [[Prototype]]  of a
     non-extensible object

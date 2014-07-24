@@ -2,6 +2,7 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
+es5id: 10.3.3
 description: >
     Tests that the object returned by
     Intl.Collator.prototype.resolvedOptions  has the right properties.

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-3-105
 description: >
     Object.defineProperty - 'configurable' property in 'Attributes' is
     -0 (8.10.5 step 4.b)

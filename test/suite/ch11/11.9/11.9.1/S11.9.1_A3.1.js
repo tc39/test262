@@ -5,6 +5,7 @@
 info: >
     Return true, if x and y are both true or both false; otherwise, return
     false
+es5id: 11.9.1_A3.1
 description: x and y are boolean primitives
 ---*/
 

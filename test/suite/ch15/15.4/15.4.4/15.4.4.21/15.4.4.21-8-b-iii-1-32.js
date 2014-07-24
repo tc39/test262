@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-8-b-iii-1-32
 description: >
     Array.prototype.reduce - exception in getter terminates iteration
     on an Array-like object

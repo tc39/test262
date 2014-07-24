@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-295
 description: >
     Object.defineProperty - 'O' is an Arguments object, 'name' is own
     data property of 'O', test TypeError is thrown when updating the

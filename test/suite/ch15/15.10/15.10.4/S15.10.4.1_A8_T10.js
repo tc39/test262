@@ -3,6 +3,7 @@
 
 /*---
 info: let P be ToString(pattern) and let F be ToString(flags)
+es5id: 15.10.4.1_A8_T10
 description: Pattern is true and flags is "m"
 ---*/
 

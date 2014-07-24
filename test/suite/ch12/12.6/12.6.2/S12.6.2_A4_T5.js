@@ -5,6 +5,7 @@
 info: >
     "break" within a "while" Statement is allowed and performed as described
     in 12.8
+es5id: 12.6.2_A4_T5
 description: Using labeled "break" in order to continue a "while" loop
 ---*/
 

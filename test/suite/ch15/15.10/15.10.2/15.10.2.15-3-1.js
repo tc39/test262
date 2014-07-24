@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.10.2.15-3-1
 description: >
     Pattern - SyntaxError was thrown when 'A' does not contain exactly
     one character (15.10.2.5 step 3)

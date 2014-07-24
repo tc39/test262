@@ -5,6 +5,7 @@
 info: >
     The value of the internal [[Prototype]] property of the RegExp prototype
     object is the Object prototype
+es5id: 15.10.6_A1_T1
 description: Checking Object.prototype.isPrototypeOf(RegExp.prototype)
 ---*/
 

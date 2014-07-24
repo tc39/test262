@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.2.1-17-s
 description: >
     A Function constructor (called as a function) assigning into
     'arguments' will not throw any error if contained within strict

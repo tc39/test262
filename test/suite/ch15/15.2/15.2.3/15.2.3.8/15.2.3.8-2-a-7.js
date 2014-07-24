@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.8-2-a-7
 description: >
     Object.seal - 'P' is own property of a Function object that uses
     Object's [[GetOwnProperty]]

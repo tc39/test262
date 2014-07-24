@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of join has the attribute ReadOnly
+es5id: 15.4.4.5_A6.3
 description: Checking if varying the length property fails
 flags: [noStrict]
 ---*/

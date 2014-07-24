@@ -3,6 +3,7 @@
 
 /*---
 info: "''arguments'' variable overrides ActivationObject.arguments"
+es5id: 13_A15_T1
 description: Declaring a function with "__func(arguments)"
 ---*/
 

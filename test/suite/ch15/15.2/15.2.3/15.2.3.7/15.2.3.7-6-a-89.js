@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-89
 description: >
     Object.defineProperties will not throw TypeError when
     P.configurable is false, P.[[Set]] and properties.[[Set]] are

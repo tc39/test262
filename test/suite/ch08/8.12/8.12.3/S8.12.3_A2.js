@@ -5,6 +5,7 @@
 info: >
     [[Get]](P) method should return undefined when property P does not exist
     both in instance and prototype
+es5id: 8.12.3_A2
 description: >
     Try to get P when property P does not exist both in instance and
     prototype

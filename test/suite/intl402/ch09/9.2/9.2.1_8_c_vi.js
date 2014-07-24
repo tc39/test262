@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 9.2.1_8_c_vi
 description: >
     Tests that canonicalization of locale lists removes duplicate
     language tags.

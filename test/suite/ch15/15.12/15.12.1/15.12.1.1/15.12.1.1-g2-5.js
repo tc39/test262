@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.1.1-g2-5
 description: >
     A JSONStrings can contain no JSONStringCharacters (Empty
     JSONStrings)

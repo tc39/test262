@@ -3,6 +3,7 @@
 
 /*---
 info: Embedded syntax constructions of switch statement
+es5id: 12.11_A4_T1
 description: Nesting one "switch" statement into StatementList of the other's
 ---*/
 

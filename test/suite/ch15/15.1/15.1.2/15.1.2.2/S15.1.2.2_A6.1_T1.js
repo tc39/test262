@@ -6,6 +6,7 @@ info: >
     If S contains any character that is not a radix-R digit,
     then let Z be the substring of S consisting of all characters before
     the first such character; otherwise, let Z be S
+es5id: 15.1.2.2_A6.1_T1
 description: Complex test. R in [2, 36]
 ---*/
 

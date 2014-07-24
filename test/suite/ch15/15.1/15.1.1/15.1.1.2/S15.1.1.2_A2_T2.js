@@ -3,6 +3,7 @@
 
 /*---
 info: The Infinity is not ReadOnly
+es5id: 15.1.1.2_A2_T2
 description: Checking typeof Functions
 ---*/
 

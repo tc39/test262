@@ -3,6 +3,7 @@
 
 /*---
 info: RegExp.prototype.toString can't be used as constructor
+es5id: 15.10.6.4_A7
 description: Checking if creating the RegExp.prototype.toString object fails
 ---*/
 

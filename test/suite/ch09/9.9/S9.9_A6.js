@@ -5,6 +5,7 @@
 info: >
     ToObject conversion from Object: The result is the input
     argument (no conversion)
+es5id: 9.9_A6
 description: Converting from Objects to Object
 ---*/
 

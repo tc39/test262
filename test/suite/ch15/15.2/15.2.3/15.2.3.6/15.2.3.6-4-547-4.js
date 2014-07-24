@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-547-4
 description: >
     ES5 Attributes - Updating an indexed accessor property 'P' whose
     [[Configurable]] attribute is false to a data property does not

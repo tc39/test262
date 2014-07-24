@@ -3,6 +3,7 @@
 
 /*---
 info: If x is +Infinity and y>0, Math.pow(x,y) is +Infinity
+es5id: 15.8.2.13_A11
 description: >
     Checking if Math.pow(x,y) equals to +Infinity, where x is
     +Infinity and y>0

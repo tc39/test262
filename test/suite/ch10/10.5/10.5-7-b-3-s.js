@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.5-7-b-3-s
 description: >
     Strict Mode - Adding property to the arguments object successful
     under strict mode

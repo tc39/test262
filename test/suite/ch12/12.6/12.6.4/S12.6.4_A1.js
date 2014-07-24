@@ -3,6 +3,7 @@
 
 /*---
 info: "\"for(key in undefined)\" Statement is allowed"
+es5id: 12.6.4_A1
 description: Checking if execution of "for(key in undefined)" passes
 ---*/
 

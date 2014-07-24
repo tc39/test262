@@ -3,6 +3,7 @@
 
 /*---
 info: Equivalent to the expression RegExp.prototype.exec(string) != null
+es5id: 15.10.6.3_A1_T18
 description: RegExp is /nd|ne/ and tested string is undefined
 ---*/
 

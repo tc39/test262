@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.14-3-5
 description: Object.keys must return a fresh array on each invocation
 includes: [runTestCase.js]
 ---*/

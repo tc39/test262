@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-360-1
 description: >
     ES5 Attributes - Updating indexed data property 'P' whose
     attributes are [[Writable]]: false, [[Enumerable]]: true,

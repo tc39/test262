@@ -3,6 +3,7 @@
 
 /*---
 info: If ToBoolean(x) is false, return y
+es5id: 11.11.2_A3_T1
 description: >
     Type(x) and Type(y) vary between primitive boolean and Boolean
     object

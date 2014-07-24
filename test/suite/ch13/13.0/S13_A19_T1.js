@@ -3,6 +3,7 @@
 
 /*---
 info: "\"var\" does not override function declaration"
+es5id: 13_A19_T1
 description: >
     Creating a function and a variable with identical Identifiers in
     global scope

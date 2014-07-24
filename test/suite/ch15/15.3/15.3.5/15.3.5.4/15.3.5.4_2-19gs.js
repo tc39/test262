@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.3.5.4_2-19gs
 description: >
     Strict mode - checking access to strict function caller from
     strict function (New'ed object from Anonymous FunctionExpression

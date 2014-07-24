@@ -3,6 +3,7 @@
 
 /*---
 info: Code after ReturnStatement is not evaluated
+es5id: 12.9_A5
 description: Using code after Return statement
 ---*/
 

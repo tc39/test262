@@ -3,6 +3,7 @@
 
 /*---
 info: FORM FEED (U+000C) may occur within strings
+es5id: 7.2_A2.3_T2
 description: Use real FORM FEED
 ---*/
 

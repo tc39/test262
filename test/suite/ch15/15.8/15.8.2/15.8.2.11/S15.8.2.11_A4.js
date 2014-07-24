@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of the Math.max method is 2
+es5id: 15.8.2.11_A4
 description: Checking if Math.max.length property is defined and equals to 2
 ---*/
 

@@ -5,6 +5,7 @@
 info: >
     Let reservedURISet be a string containing one instance of each character valid
     in uriReserved plus "#"
+es5id: 15.1.3.1_A3_T1
 description: Checking all character in reservedURISet. HexDigit in [0..9, A..F]
 ---*/
 

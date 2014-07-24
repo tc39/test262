@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 13.2-22-s
 description: >
     StrictMode - writing a property named 'caller' of function objects
     is not allowed outside the function

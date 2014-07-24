@@ -3,6 +3,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 10.1.2_a
 description: Tests that Intl.Collator can be subclassed.
 author: Norbert Lindenberg
 includes: [testIntl.js]

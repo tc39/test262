@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.14-5-33
 description: >
     Array.prototype.indexOf match on the first element, a middle
     element and the last element when 'fromIndex' is passed

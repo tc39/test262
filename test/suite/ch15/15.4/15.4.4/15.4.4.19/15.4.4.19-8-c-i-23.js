@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.19-8-c-i-23
 description: >
     Array.prototype.map - This object is the global object which
     contains index property

@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 10.3.2_1_c
 description: Tests that compare function is bound to its Intl.Collator.
 author: Norbert Lindenberg
 includes: [testIntl.js]

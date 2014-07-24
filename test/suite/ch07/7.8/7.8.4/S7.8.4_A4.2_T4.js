@@ -3,6 +3,7 @@
 
 /*---
 info: "CharacterEscapeSequnce :: NonEscapeSequence"
+es5id: 7.8.4_A4.2_T4
 description: "NonEscapeSequence :: ENGLISH SMALL ALPHABET"
 ---*/
 

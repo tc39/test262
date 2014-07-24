@@ -3,6 +3,7 @@
 
 /*---
 info: If abs(x)==1 and y is -Infinity, Math.pow(x,y) is NaN
+es5id: 15.8.2.13_A8
 description: >
     Checking if Math.pow(x,y) is NaN, where abs(x)==1 and y is
     -Infinity

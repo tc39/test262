@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.17-7-c-ii-3
 description: >
     Array.prototype.some immediately returns true if callbackfn
     returns true

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.3.5.4_2-97gs
 description: >
     Strict mode - checking access to strict function caller from bound
     non-strict function (FunctionDeclaration includes strict directive

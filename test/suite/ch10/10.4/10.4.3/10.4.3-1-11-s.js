@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.4.3-1-11-s
 description: >
     Strict Mode - checking 'this' (Anonymous FunctionExpression
     defined within strict mode)

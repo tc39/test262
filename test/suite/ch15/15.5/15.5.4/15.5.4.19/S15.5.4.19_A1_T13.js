@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.toLocaleUpperCase()
+es5id: 15.5.4.19_A1_T13
 description: >
     Override toString and valueOf functions, then call
     toLocaleUpperCase() function for this object

@@ -6,6 +6,7 @@ info: >
     If (Evaluate Statement).type is "continue" and (Evaluate
     Statement).target is in the current label set, iteration of labeled
     "var-loop" breaks
+es5id: 12.6.3_A11.1_T2
 description: Embedded loops
 ---*/
 

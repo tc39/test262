@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 8.12.1-1_1
 description: Properties - [[HasOwnProperty]] (property does not exist)
 includes: [runTestCase.js]
 ---*/

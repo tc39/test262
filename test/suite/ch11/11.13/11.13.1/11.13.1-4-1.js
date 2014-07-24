@@ -6,6 +6,7 @@
 
 /*---
 info: PutValue operates only on references (see step 3.b).
+es5id: 11.13.1-4-1
 description: >
     simple assignment creates property on the global object if
     LeftHandSide is an unresolvable reference

@@ -3,6 +3,7 @@
 
 /*---
 info: Since Error prototype object is not function it has not [[create]] method
+es5id: 15.11.4_A4
 description: Checking if creating "new Error.prototype" fails
 includes:
     - $FAIL.js

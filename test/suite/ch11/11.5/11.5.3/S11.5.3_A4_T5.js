@@ -5,6 +5,7 @@
 info: >
     The result of a ECMAScript floating-point remainder operation is
     determined by the rules of IEEE arithmetics
+es5id: 11.5.3_A4_T5
 description: >
     If dividend is finite and the divisor is an infinity, the result
     equals the dividend

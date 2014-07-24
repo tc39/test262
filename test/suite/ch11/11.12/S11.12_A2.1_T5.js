@@ -3,6 +3,7 @@
 
 /*---
 info: "Operator x ? y : z uses GetValue"
+es5id: 11.12_A2.1_T5
 description: If ToBoolean(x) is true and GetBase(z) is null, return y
 ---*/
 

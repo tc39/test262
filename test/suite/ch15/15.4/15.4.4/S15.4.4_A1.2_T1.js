@@ -3,6 +3,7 @@
 
 /*---
 info: The [[Class]] property of the Array prototype object is set to "Array"
+es5id: 15.4.4_A1.2_T1
 description: Checking use Object.prototype.toString
 ---*/
 

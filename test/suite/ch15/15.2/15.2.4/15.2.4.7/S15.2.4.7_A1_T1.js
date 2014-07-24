@@ -5,6 +5,7 @@
 info: >
     The propertyIsEnumerable method does not consider objects in the
     prototype chain
+es5id: 15.2.4.7_A1_T1
 description: >
     Calling the propertyIsEnumerable method for object in the
     prototype chain

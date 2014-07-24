@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-3-137
 description: >
     Object.defineProperty - 'value' property in 'Attributes' is own
     accessor property(without a get function) that overrides an

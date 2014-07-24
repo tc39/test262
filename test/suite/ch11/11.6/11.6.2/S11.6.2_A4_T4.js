@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x - y produces the same result as x + (-y)
+es5id: 11.6.2_A4_T4
 description: >
     The difference of an infinity and a finite value is equal to
     infinity of appropriate sign

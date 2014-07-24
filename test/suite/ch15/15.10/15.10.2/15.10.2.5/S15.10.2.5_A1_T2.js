@@ -5,6 +5,7 @@
 info: >
     An Atom followed by a Quantifier is repeated the number of times
     specified by the Quantifier
+es5id: 15.10.2.5_A1_T2
 description: Execute /a[a-z]{2,4}?/.exec("abcdefghi") and check results
 ---*/
 

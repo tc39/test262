@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.substring (start, end)
+es5id: 15.5.4.15_A1_T15
 description: >
     Call substring without arguments. Instance is Number with
     prototype.substring = String.prototype.substring

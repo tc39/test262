@@ -3,6 +3,7 @@
 
 /*---
 info: Single line comment can contain HORIZONTAL TAB (U+0009)
+es5id: 7.2_A3.1_T1
 description: Use HORIZONTAL TAB(\u0009)
 ---*/
 

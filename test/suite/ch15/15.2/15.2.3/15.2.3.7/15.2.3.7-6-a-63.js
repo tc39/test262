@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-63
 description: >
     Object.defineProperties - both desc.configurable and
     P.configurable are boolean values with the same value (8.12.9 step

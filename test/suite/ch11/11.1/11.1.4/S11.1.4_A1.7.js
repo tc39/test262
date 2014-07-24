@@ -5,6 +5,7 @@
 info: >
     Evaluate the production ArrayLiteral: [ AssignmentExpression, Elision,
     AssignmentExpression ]
+es5id: 11.1.4_A1.7
 description: >
     Checking various properteis and contents of the array defined with
     "var array = [1,2,,4,5]"

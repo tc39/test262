@@ -3,6 +3,7 @@
 
 /*---
 info: The Date.prototype property "toTimeString" has { DontEnum } attributes
+es5id: 15.9.5.4_A1_T3
 description: Checking DontEnum attribute
 ---*/
 

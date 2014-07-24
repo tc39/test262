@@ -5,6 +5,7 @@
 info: >
     The result of an addition is determined using the rules of IEEE 754
     double-precision arithmetics
+es5id: 11.6.1_A4_T4
 description: >
     The sum of an infinity and a finite value is equal to the infinite
     operand

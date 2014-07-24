@@ -3,6 +3,7 @@
 
 /*---
 info: "The MV of StringNumericLiteral ::: StrWhiteSpace is 0"
+es5id: 9.3.1_A2
 description: >
     Strings with various WhiteSpaces convert to Number by explicit
     transformation

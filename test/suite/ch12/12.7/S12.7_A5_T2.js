@@ -6,6 +6,7 @@ info: >
     When "continue Identifier" is evaluated Identifier must be label in the
     label set of an enclosing (but not crossing function boundaries)
     IterationStatement
+es5id: 12.7_A5_T2
 description: Identifier is a function name
 flags: [negative]
 ---*/

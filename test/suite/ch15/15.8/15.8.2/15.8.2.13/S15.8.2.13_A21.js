@@ -3,6 +3,7 @@
 
 /*---
 info: If x is -0 and y<0 and y is an odd integer, Math.pow(x,y) is -Infinity
+es5id: 15.8.2.13_A21
 description: >
     Checking if Math.pow(x,y) equals to -Infinity, where x is -0 and y
     is an odd integer

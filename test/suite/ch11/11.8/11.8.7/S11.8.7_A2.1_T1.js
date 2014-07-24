@@ -3,6 +3,7 @@
 
 /*---
 info: Operator "in" uses GetValue
+es5id: 11.8.7_A2.1_T1
 description: Either Expression is not Reference or GetBase is not null
 ---*/
 

@@ -5,6 +5,7 @@
 info: >
     The push function is intentionally generic.
     It does not require that its this value be an Array object
+es5id: 15.4.4.7_A2_T3
 description: >
     Operator use ToNumber from length.  If Type(value) is Object,
     evaluate ToPrimitive(value, Number)

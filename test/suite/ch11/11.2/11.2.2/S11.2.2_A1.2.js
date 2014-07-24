@@ -5,6 +5,7 @@
 info: >
     White Space and Line Terminator between "new" and MemberExpression are
     allowed
+es5id: 11.2.2_A1.2
 description: Checking by using eval
 ---*/
 

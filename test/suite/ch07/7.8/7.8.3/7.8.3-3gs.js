@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 7.8.3-3gs
 description: >
     Strict Mode - octal extension is forbidden in strict mode (after a
     hex number is assigned to a variable from an eval)

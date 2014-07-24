@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.22-10-5
 description: >
     Array.prototype.reduceRight reduces array in descending order of
     indices(initialvalue present)

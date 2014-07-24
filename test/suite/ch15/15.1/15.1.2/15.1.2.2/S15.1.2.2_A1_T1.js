@@ -3,6 +3,7 @@
 
 /*---
 info: Operator use ToString
+es5id: 15.1.2.2_A1_T1
 description: Checking for boolean primitive
 ---*/
 

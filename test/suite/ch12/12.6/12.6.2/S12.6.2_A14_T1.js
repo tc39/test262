@@ -3,6 +3,7 @@
 
 /*---
 info: FunctionExpression within a "while" Expression is allowed
+es5id: 12.6.2_A14_T1
 description: Using "function __func(){return 0;}" as an Expression
 ---*/
 

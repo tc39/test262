@@ -3,6 +3,7 @@
 
 /*---
 info: If any value is NaN, the result of Math.min is NaN
+es5id: 15.8.2.12_A2
 description: >
     The script tests Math.min giving 1, 2 and 3 arguments to the
     function where at least one of the arguments is NaN

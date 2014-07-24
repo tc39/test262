@@ -3,6 +3,7 @@
 
 /*---
 info: The String.prototype.split.length property has the attribute ReadOnly
+es5id: 15.5.4.14_A10
 description: >
     Checking if varying the String.prototype.split.length property
     fails

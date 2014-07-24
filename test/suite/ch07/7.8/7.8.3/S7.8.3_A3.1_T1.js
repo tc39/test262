@@ -3,6 +3,7 @@
 
 /*---
 info: "DecimalLiteral :: DecimalIntegerLiteral."
+es5id: 7.8.3_A3.1_T1
 description: "DecimalIntegerLiteral :: 0, NoNZeroDigit"
 ---*/
 

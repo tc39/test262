@@ -3,6 +3,7 @@
 
 /*---
 info: The "double" token can be used as identifier
+es5id: 7.6.1.2_A1.8
 description: Checking if execution of "double=1" succeeds
 ---*/
 

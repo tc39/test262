@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-5-b-2
 description: Object.defineProperties - 'descObj' is null (8.10.5 step 1)
 includes: [runTestCase.js]
 ---*/

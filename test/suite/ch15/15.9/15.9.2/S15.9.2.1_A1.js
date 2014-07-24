@@ -5,6 +5,7 @@
 info: >
     When Date is called as a function rather than as a constructor,
     it should be "string" representing the current time (UTC)
+es5id: 15.9.2.1_A1
 description: Checking type of returned value
 ---*/
 

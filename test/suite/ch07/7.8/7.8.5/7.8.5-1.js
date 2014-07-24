@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 7.8.5-1
 description: >
     Literal RegExp Objects - SyntaxError exception is thrown if the
     RegularExpressionNonTerminator position of a

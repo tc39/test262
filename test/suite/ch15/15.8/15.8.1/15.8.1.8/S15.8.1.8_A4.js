@@ -3,6 +3,7 @@
 
 /*---
 info: Value Property SQRT2 of the Math Object has the attribute ReadOnly
+es5id: 15.8.1.8_A4
 description: Checking if Math.SQRT2 property has the attribute ReadOnly
 flags: [noStrict]
 ---*/

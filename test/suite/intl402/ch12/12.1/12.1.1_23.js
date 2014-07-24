@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 12.1.1_23
 description: >
     Tests that the options for the date and time components are
     processed correctly.

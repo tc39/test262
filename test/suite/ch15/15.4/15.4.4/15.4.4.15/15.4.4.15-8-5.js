@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-8-5
 description: Array.prototype.lastIndexOf must return correct index(Object)
 includes: [runTestCase.js]
 ---*/

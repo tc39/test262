@@ -5,6 +5,7 @@
 info: >
     When the Object function is called with one argument value,
     and the value neither is null nor undefined, and is supplied, return ToObject(value)
+es5id: 15.2.1.1_A2_T12
 description: Calling Object function with numeric expression as argument value
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.match can't be used as constructor
+es5id: 15.5.4.10_A7
 description: Checking if creating "String.prototype.match object" fails
 includes:
     - $FAIL.js

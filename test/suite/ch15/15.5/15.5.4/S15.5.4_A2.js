@@ -5,6 +5,7 @@
 info: >
     The String prototype object is itself a String object whose value is an
     empty string
+es5id: 15.5.4_A2
 description: Checking String.prototype
 ---*/
 

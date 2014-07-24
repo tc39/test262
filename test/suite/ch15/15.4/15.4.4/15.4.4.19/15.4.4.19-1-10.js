@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.19-1-10
 description: Array.prototype.map - applied to the Math object
 includes: [runTestCase.js]
 ---*/

@@ -5,6 +5,7 @@
 info: >
     Variable instantiation is performed using the global object as
     the variable object and using property attributes { DontDelete }
+es5id: 10.4.1_A1_T1
 description: >
     Checking if deleting variable x, that is defined as var x = 1,
     fails

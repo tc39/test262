@@ -3,6 +3,7 @@
 
 /*---
 info: If x and y are the same number value, return false
+es5id: 11.8.1_A4.3
 description: x and y are number primitives
 ---*/
 

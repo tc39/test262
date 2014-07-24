@@ -5,6 +5,7 @@
 info: >
     Result of number conversion from boolean value is 1 if the argument is
     true, else is +0
+es5id: 9.3_A3_T2
 description: False and true convert to Number by implicit transformation
 ---*/
 

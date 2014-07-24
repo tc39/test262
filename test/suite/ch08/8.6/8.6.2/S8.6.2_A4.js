@@ -5,6 +5,7 @@
 info: >
     [[HasInstance]] returns a boolean value indicating whether Value
     delegates behaviour to this object
+es5id: 8.6.2_A4
 description: >
     Check that the obj instance of Object, but not instance  of
     Function, String, Number, Array

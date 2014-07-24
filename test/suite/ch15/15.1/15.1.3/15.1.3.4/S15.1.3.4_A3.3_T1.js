@@ -3,6 +3,7 @@
 
 /*---
 info: unescapedURIComponentSet not containing "#"
+es5id: 15.1.3.4_A3.3_T1
 description: encodeURIComponent("#") === "%23"
 ---*/
 

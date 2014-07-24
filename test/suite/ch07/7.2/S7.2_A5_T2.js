@@ -5,6 +5,7 @@
 info: >
     White space cannot be expressed as a Unicode escape sequence consisting
     of six characters, namely \u plus four hexadecimal digits
+es5id: 7.2_A5_T2
 description: Use VERTICAL TAB (U+000B)
 flags: [negative]
 ---*/

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.2.1-14-s
 description: >
     arguments - a function expr declaring a var named 'arguments'
     throws SyntaxError in strict mode

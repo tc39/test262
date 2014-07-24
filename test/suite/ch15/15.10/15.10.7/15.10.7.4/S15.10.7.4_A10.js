@@ -3,6 +3,7 @@
 
 /*---
 info: The RegExp instance multiline property has the attribute ReadOnly
+es5id: 15.10.7.4_A10
 description: Checking if varying the multiline property fails
 includes: [$FAIL.js]
 ---*/

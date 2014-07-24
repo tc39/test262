@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.2.1-37-s
 description: >
     'for(var arguments = 42 in ...) {...}' throws SyntaxError in
     strict mode

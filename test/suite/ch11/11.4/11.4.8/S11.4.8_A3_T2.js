@@ -3,6 +3,7 @@
 
 /*---
 info: Operator ~x returns ~ToInt32(x)
+es5id: 11.4.8_A3_T2
 description: Type(x) is number primitive or Number object
 ---*/
 

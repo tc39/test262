@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 13.1-1-1
 description: >
     Duplicate identifier allowed in non-strict function declaration
     parameter list

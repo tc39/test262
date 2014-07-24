@@ -2,6 +2,7 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
+es5id: 10.3.2_1_a_L15
 description: >
     Tests that the function returned by
     Intl.Collator.prototype.compare  meets the requirements for

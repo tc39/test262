@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.14-6-5
 description: >
     Object.keys - the order of elements in returned array is the same
     with the order of properties in 'O' (any other built-in object)

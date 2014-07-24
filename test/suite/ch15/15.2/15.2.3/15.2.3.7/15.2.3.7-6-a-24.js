@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-24
 description: >
     Object.defineProperties - 'O' is the global object which
     implements its own [[GetOwnProperty]] method to get 'P' (8.12.9

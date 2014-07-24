@@ -5,6 +5,7 @@
 info: >
     Type(x) and Type(y) are Number-s minus NaN, +0, -0.
     Return false, if x is the same number value as y; otherwise, return true
+es5id: 11.9.5_A4.3
 description: x and y are primitive numbers
 ---*/
 

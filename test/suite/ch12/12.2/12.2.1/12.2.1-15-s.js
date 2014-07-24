@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.2.1-15-s
 description: >
     arguments - a function expr assigning into 'arguments' throws a
     SyntaxError in strict mode

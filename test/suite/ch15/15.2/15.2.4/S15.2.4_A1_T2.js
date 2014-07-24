@@ -3,6 +3,7 @@
 
 /*---
 info: Object prototype object has not prototype
+es5id: 15.2.4_A1_T2
 description: >
     Since the Object prototype object has not prototype, deleted
     toString method can not be found in prototype chain

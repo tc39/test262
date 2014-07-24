@@ -5,6 +5,7 @@
 info: >
     Since LineTerminator between "continue" and Identifier is not allowed,
     "continue" is evaluated without label
+es5id: 12.7_A2
 description: >
     Checking by using eval, inserting LineTerminator between continue
     and Identifier

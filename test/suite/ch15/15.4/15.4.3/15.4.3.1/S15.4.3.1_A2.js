@@ -3,6 +3,7 @@
 
 /*---
 info: The Array.prototype property has the attribute DontEnum
+es5id: 15.4.3.1_A2
 description: Checking if enumerating the Array.prototype property fails
 ---*/
 

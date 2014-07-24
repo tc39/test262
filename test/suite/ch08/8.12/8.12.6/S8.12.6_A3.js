@@ -3,6 +3,7 @@
 
 /*---
 info: "[[hasProperty]] is sensitive to property existence but [[Get]] is not"
+es5id: 8.12.6_A3
 description: >
     Use [[hasProperty]] and [[Get]] for existent and not existent
     properties

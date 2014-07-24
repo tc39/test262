@@ -3,6 +3,7 @@
 
 /*---
 info: Multi line comment can contain VERTICAL TAB (U+000B)
+es5id: 7.2_A4.2_T1
 description: Use VERTICAL TAB(\u000B)
 ---*/
 

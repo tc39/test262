@@ -5,6 +5,7 @@
 info: >
     The String.prototype.toUpperCase.length property has the attribute
     ReadOnly
+es5id: 15.5.4.18_A10
 description: >
     Checking if varying the String.prototype.toUpperCase.length
     property fails

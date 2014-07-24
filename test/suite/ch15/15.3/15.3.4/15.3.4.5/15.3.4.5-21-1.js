@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.3.4.5-21-1
 description: >
     Function.prototype.bind - 'arguments' is defined as one property
     of 'F'

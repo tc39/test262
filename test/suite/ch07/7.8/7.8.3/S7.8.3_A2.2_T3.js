@@ -3,6 +3,7 @@
 
 /*---
 info: "DecimalLiteral :: .DecimalDigits ExponentPart"
+es5id: 7.8.3_A2.2_T3
 description: "ExponentPart :: e +DecimalDigits"
 ---*/
 

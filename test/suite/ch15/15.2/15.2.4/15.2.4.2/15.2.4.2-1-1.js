@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.4.2-1-1
 description: >
     Object.prototype.toString - '[object Undefined]' will be returned
     when 'this' value is undefined

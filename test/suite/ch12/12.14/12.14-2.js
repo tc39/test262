@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.14-2
 description: >
     catch doesn't change declaration scope - var initializer in catch
     with same name as catch parameter changes parameter

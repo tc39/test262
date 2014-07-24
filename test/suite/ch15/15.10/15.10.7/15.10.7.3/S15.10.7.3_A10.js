@@ -3,6 +3,7 @@
 
 /*---
 info: The RegExp instance ignoreCase property has the attribute ReadOnly
+es5id: 15.10.7.3_A10
 description: Checking if varying the ignoreCase property fails
 includes: [$FAIL.js]
 ---*/

@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x - y produces the same result as x + (-y)
+es5id: 11.6.2_A4_T7
 description: >
     The mathematical difference of two nonzero finite values of the
     same magnitude and same sign is +0

@@ -5,6 +5,7 @@
 info: >
     If start is positive, use min(start, length).
     If end is positive, use min(end, length)
+es5id: 15.4.4.10_A1.1_T5
 description: length = end > start > 0
 ---*/
 

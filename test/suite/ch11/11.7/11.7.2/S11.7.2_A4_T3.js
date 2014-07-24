@@ -3,6 +3,7 @@
 
 /*---
 info: Check x >> y operator in distinct points
+es5id: 11.7.2_A4_T3
 description: ShiftExpression = 2^n - 1, n = 0...15
 ---*/
 

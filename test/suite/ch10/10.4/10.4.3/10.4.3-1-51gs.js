@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.4.3-1-51gs
 description: >
     Strict - checking 'this' from a global scope (FunctionDeclaration
     with a strict directive prologue defined within an Anonymous

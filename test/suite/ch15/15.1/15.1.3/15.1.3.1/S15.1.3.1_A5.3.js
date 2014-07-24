@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of decodeURI has the attribute ReadOnly
+es5id: 15.1.3.1_A5.3
 description: Checking if varying the length property fails
 flags: [noStrict]
 ---*/

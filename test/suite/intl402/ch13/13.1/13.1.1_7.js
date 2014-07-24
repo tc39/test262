@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 13.1.1_7
 description: >
     Tests that localeCompare produces the same results as
     Intl.Collator.

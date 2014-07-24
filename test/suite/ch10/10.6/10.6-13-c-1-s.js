@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.6-13-c-1-s
 description: >
     Accessing callee property of Arguments object throws TypeError in
     strict mode

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-3-20
 description: >
     Object.defineProperty - 'enumerable' property in 'Attributes' is
     present (8.10.5 step 3)

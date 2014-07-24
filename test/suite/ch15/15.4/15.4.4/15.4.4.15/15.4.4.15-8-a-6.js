@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-8-a-6
 description: >
     Array.prototype.lastIndexOf -  deleted properties of step 5 are
     visible here on an Array

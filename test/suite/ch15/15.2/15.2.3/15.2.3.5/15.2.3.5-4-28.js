@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.5-4-28
 description: >
     Object.create - 'Properties' is a Function object which implements
     its own [[Get]] method to access own enumerable property (15.2.3.7

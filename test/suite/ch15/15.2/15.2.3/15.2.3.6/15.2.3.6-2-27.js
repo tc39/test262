@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-2-27
 description: >
     Object.defineProperty - argument 'P' is a decimal that converts to
     a string (value is 123.456)

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.1.1.3-0
 description: >
     Global.undefined is a data property with default attribute values
     (false)

@@ -5,6 +5,7 @@
 info: >
     The result of a floating-point multiplication is governed by the rules of
     IEEE 754 double-precision arithmetics
+es5id: 11.5.1_A4_T3
 description: Multiplication of an infinity by a zero results in NaN
 ---*/
 

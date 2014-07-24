@@ -6,6 +6,7 @@ info: >
     MemberExpression calls ToObject(MemberExpression) and
     ToString(Expression). CallExpression calls ToObject(CallExpression) and
     ToString(Expression)
+es5id: 11.2.1_A3_T4
 description: Checking "undefined" case
 ---*/
 

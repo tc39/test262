@@ -5,6 +5,7 @@
 info: >
     The production EmptyStatement ; is evaluated as follows Return (normal,
     empty, empty)
+es5id: 12.3_A1
 description: Using EmptyStatement ;
 ---*/
 

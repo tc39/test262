@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.valueOf() returns this string value
+es5id: 15.5.4.3_A1_T1
 description: Create String object as new String(1) and check it`s valueOf()
 ---*/
 

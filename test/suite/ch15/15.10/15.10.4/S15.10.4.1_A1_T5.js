@@ -5,6 +5,7 @@
 info: >
     If pattern is an object R whose [[Class]] property is "RegExp" and flags is undefined, then let P be
     the pattern used to construct R and let F be the flags used to construct R
+es5id: 15.10.4.1_A1_T5
 description: >
     Pattern is RegExp("1?","mig") and RegExp is new
     RegExp(pattern,(function(){})())

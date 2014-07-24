@@ -3,6 +3,7 @@
 
 /*---
 info: If value is NaN, +0, -0, +Infinity, or -Infinity, return +0
+es5id: 9.5_A1_T1
 description: For testing use operator <<0
 ---*/
 

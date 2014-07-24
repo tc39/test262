@@ -3,6 +3,7 @@
 
 /*---
 info: The Boolean type have two values, called true and false
+es5id: 8.3_A1_T2
 description: Check type of true/false and it`s equality
 ---*/
 

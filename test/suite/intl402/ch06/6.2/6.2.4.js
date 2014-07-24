@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 6.2.4
 description: >
     Tests that the default locale is a String value representing the
     structurally valid and canonicalized BCP 47 language tag.

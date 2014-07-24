@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.3.4.5-6-12
 description: Function.prototype.bind - F cannot get property which doesn't exist
 includes: [runTestCase.js]
 ---*/

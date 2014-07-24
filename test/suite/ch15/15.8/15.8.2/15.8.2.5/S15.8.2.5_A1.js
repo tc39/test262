@@ -3,6 +3,7 @@
 
 /*---
 info: If either x or y is NaN, Math(x,y) is NaN
+es5id: 15.8.2.5_A1
 description: >
     Checking if Math.atan2(NaN,y) and Math.atan2(x,NaN) is NaN for
     different x and y values

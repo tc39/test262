@@ -5,6 +5,7 @@
 info: >
     If a property is added whose name is an array index,
     the length property is changed
+es5id: 15.4.5.2_A2_T1
 description: Checking length property
 ---*/
 

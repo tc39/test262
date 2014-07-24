@@ -3,6 +3,7 @@
 
 /*---
 info: If x is NaN, operator -x returns NaN
+es5id: 11.4.7_A4.1
 description: Checking NaN
 ---*/
 

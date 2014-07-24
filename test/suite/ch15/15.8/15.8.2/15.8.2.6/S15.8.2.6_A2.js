@@ -3,6 +3,7 @@
 
 /*---
 info: If x is +0, Math.ceil(x) is +0
+es5id: 15.8.2.6_A2
 description: Checking if Math.ceil(x) is +0, where x is +0
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: The RegExp instance global property has the attribute DontEnum
+es5id: 15.10.7.2_A8
 description: >
     Checking if enumerating the global property of RegExp instance
     fails

@@ -5,6 +5,7 @@
 info: >
     Being in anonymous code, "this" and eval("this"), called as a
     constructor, return the object
+es5id: 11.1.1_A4.2
 description: >
     Creating function by using new Function() constructor. It has the
     property, which returns "this"

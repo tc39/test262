@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.10-10-c-ii-1
 description: >
     Array.prototype.slice will slice a string from start to end when
     index property (read-only) exists in Array.prototype (Step 10.c.ii)

@@ -3,6 +3,7 @@
 
 /*---
 info: Check Return Statement for automatic semicolon insertion
+es5id: 7.9_A3
 description: Try use return \n Expression construction
 ---*/
 

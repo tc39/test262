@@ -3,6 +3,7 @@
 
 /*---
 info: Large string 8192 bytes
+es5id: 8.4_A6.2
 description: Assign variable by large string
 ---*/
 

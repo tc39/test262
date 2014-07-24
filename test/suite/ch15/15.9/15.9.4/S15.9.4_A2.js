@@ -3,6 +3,7 @@
 
 /*---
 info: The Date constructor has the property "parse"
+es5id: 15.9.4_A2
 description: Checking existence of the property "parse"
 ---*/
 

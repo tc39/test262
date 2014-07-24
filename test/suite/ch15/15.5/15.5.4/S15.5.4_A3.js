@@ -5,6 +5,7 @@
 info: >
     The value of the internal [[Prototype]] property of the String prototype
     object is the Object prototype object (15.2.3.1)
+es5id: 15.5.4_A3
 description: Checking Object.prototype.isPrototypeOf(String.prototype)
 ---*/
 

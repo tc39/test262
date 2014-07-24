@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-206
 description: >
     Object.defineProperties - 'O' is an Array, 'P' is an array index
     named property, 'P' makes no change if every field in 'desc' is

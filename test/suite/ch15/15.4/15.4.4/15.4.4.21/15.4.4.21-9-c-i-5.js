@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-9-c-i-5
 description: >
     Array.prototype.reduce - element to be retrieved is own data
     property that overrides an inherited accessor property on an

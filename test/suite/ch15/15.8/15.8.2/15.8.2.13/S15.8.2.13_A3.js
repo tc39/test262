@@ -3,6 +3,7 @@
 
 /*---
 info: If y is -0, Math.pow(x,y) is 1, even if x is NaN
+es5id: 15.8.2.13_A3
 description: >
     Checking if Math.pow(x,y) equals to 1, where x is number or NaN
     and y is -0

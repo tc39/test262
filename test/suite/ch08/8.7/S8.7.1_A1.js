@@ -5,6 +5,7 @@
 info: >
     Delete operator deletes pure property, so it returns true to be applyed
     to this.property
+es5id: 8.7.1_A1
 description: Try to delete this.y, where y is this.y=1
 ---*/
 

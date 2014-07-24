@@ -3,6 +3,7 @@
 
 /*---
 info: The Function.prototype property has the attribute DontDelete
+es5id: 15.3.3.1_A3
 description: Checking if deleting the Function.prototype property fails
 ---*/
 

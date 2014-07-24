@@ -5,6 +5,7 @@
 info: >
     FunctionExpression within a "do-while" statement is allowed, but no
     function with the given name will appear in the global context
+es5id: 12.6.1_A10
 description: Also this a test on FunctionExpression
 ---*/
 

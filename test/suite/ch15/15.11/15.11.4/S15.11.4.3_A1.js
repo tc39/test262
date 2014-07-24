@@ -3,6 +3,7 @@
 
 /*---
 info: The Error.prototype has message property
+es5id: 15.11.4.3_A1
 description: Checking Error.prototype.message
 ---*/
 

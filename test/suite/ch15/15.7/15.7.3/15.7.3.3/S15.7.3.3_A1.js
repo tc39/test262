@@ -3,6 +3,7 @@
 
 /*---
 info: Number.MIN_VALUE is approximately 5e-324
+es5id: 15.7.3.3_A1
 description: Checking Number.MIN_VALUE value
 includes:
     - math_precision.js

@@ -5,6 +5,7 @@
 info: >
     Properties of the object being enumerated may be deleted during
     enumeration
+es5id: 12.6.4_A7_T1
 description: >
     Checking "for (LeftHandSideExpression in Expression) Statement"
     case

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-8-a-3
 description: >
     Array.prototype.lastIndexOf -  added properties in step 5 are
     visible here on an Array

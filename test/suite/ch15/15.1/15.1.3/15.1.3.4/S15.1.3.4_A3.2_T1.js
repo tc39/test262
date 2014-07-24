@@ -5,6 +5,7 @@
 info: >
     unescapedURIComponentSet containing one instance of each character valid
     in uriUnescaped
+es5id: 15.1.3.4_A3.2_T1
 description: "Complex tests, uriUnescaped :: uriAlpha"
 ---*/
 

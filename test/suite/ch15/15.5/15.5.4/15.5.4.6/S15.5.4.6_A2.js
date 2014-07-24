@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.concat([,[...]]) can accept at least 128
+es5id: 15.5.4.6_A2
 description: Call concat([,[...]]) function with 128 arguments
 ---*/
 

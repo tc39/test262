@@ -10,6 +10,7 @@ info: >
     iv) Create a new Function object as specified in 13.2 with parameters specified by parsing P as a FormalParameterListopt and body specified by parsing body as a FunctionBody.
     Pass in a scope chain consisting of the global object as the Scope parameter
     v) Return Result(iv)
+es5id: 15.3.2.1_A1_T2
 description: >
     The body of the function is "{toString:function(){return "return
     1;";}}"

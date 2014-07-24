@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.19-8-c-ii-6
 description: Array.prototype.map - arguments to callbackfn are self consistent.
 includes: [runTestCase.js]
 ---*/

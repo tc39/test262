@@ -3,6 +3,7 @@
 
 /*---
 info: Operator ~x returns ~ToInt32(x)
+es5id: 11.4.8_A3_T5
 description: Type(x) is Object object or Function object
 ---*/
 

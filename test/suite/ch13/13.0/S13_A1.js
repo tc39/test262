@@ -5,6 +5,7 @@
 info: >
     "x=function y(){}" statement does not store a reference to the new
     function in the varaible y(Identifier)
+es5id: 13_A1
 description: Checking the type of y
 ---*/
 

@@ -10,6 +10,7 @@ info: >
     of O to define the property. Step 7b of [[DefineOwnProperty]] rejects if
     current.[[Enumerable]] and desc.[[Enumerable]] are the boolean negations
     of each other.
+es5id: 15.2.3.6-4-8
 description: >
     Object.defineProperty throws TypeError when changing
     [[Enumerable]] from false to true on non-configurable data

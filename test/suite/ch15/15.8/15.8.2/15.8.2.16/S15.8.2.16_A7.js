@@ -5,6 +5,7 @@
 info: >
     Math.sin it is recommended that implementations use the approximation
     algorithms for IEEE 754 arithmetic contained in fdlibm
+es5id: 15.8.2.16_A7
 description: >
     Checking if Math.sin is approximately equals to its mathematical
     values on the set of 64 argument values; all the sample values is

@@ -3,6 +3,7 @@
 
 /*---
 info: Operator !x uses [[Default Value]]
+es5id: 11.4.9_A2.2_T1
 description: If Type(value) is Object, return false
 ---*/
 

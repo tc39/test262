@@ -5,6 +5,7 @@
 info: >
     When the production "IfStatement: if ( Expression ) Statement else
     Statement" is evaluated, Statement(s) is(are) evaluated second
+es5id: 12.5_A4
 description: The first statement is "(function(){throw "instatement"})()"
 includes: [$FAIL.js]
 ---*/

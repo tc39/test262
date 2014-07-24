@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.11-0-2
 description: Object.isSealed must exist as a function taking 1 parameter
 includes: [runTestCase.js]
 ---*/

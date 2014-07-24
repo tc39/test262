@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.17-2-13
 description: >
     Array.prototype.some - 'length' is inherited accessor property
     without a get function on an Array-like object

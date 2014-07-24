@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-279
 description: >
     Object.defineProperties - 'O' is an Arguments object, 'P' is own
     property which is ever defined in both [[ParameterMap]] of 'O' and

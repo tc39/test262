@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.14-14
 description: >
     Exception object is a function, when an exception parameter is
     called as a function in catch block, global object is passed as

@@ -2,6 +2,7 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
+es5id: 10.3.2_L15
 description: >
     Tests that the getter for Intl.Collator.prototype.compare  meets
     the requirements for built-in objects defined by the introduction

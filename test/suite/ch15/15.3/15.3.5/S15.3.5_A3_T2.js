@@ -3,6 +3,7 @@
 
 /*---
 info: every function instance has a [[Construct]] property
+es5id: 15.3.5_A3_T2
 description: >
     As constructor use new Function("arg1,arg2","var x =1;
     this.y=arg1+arg2;return \"OK\";")

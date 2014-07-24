@@ -3,6 +3,7 @@
 
 /*---
 info: Function's scope chain is started when it is declared
+es5id: 13.2.2_A19_T6
 description: >
     Function is declared in the "object->do-while" scope, then the
     object is deleted and another object with the same name is declared

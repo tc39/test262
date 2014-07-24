@@ -3,6 +3,7 @@
 
 /*---
 info: If m is NaN, return the string "NaN"
+es5id: 9.8.1_A1
 description: NaN convert to String by explicit transformation
 ---*/
 

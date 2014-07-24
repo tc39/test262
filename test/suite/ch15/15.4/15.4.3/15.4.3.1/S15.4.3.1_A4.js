@@ -3,6 +3,7 @@
 
 /*---
 info: The Array.prototype property has the attribute ReadOnly
+es5id: 15.4.3.1_A4
 description: Checking if varying the Array.prototype property fails
 flags: [noStrict]
 ---*/

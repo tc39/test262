@@ -3,6 +3,7 @@
 
 /*---
 info: Operator uses floor, abs
+es5id: 9.5_A3.2_T2
 description: Use operator ~
 ---*/
 

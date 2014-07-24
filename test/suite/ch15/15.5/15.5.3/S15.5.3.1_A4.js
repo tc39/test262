@@ -3,6 +3,7 @@
 
 /*---
 info: The String.prototype property has the attribute ReadOnly
+es5id: 15.5.3.1_A4
 description: Checking if varying the String.prototype property fails
 includes: [$FAIL.js]
 ---*/

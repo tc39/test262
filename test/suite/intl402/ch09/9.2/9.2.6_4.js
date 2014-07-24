@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 9.2.6_4
 description: >
     Tests that LookupSupportedLocales returns an empty list when
     given an empty list.

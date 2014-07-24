@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.8-2-b-3
 description: >
     Object.seal - the [[Configurable]] attribute of all own properties
     of 'O' are set from true to false and other attributes of the

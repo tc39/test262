@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.substring can't be used as constructor
+es5id: 15.5.4.15_A7
 description: Checking if creating the String.prototype.substring object fails
 includes:
     - $PRINT.js

@@ -5,6 +5,7 @@
 info: >
     The MV of StrUnsignedDecimalLiteral::: Infinity is 10<sup><small>10000</small></sup>
     (a value so large that it will round to <b><tt>+&infin;</tt></b>)
+es5id: 9.3.1_A6_T2
 description: >
     Compare Number('Infi'+'nity') with Number.POSITIVE_INFINITY,
     10e10000, 10E10000 and Number("10e10000")

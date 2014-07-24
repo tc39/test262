@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-7-7
 description: >
     Array.prototype.reduce returns initialValue if 'length' is 0 and
     initialValue is present (subclassed Array, length overridden with

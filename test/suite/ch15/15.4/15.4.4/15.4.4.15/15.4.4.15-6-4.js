@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-6-4
 description: >
     Array.prototype.lastIndexOf returns -1 when 'fromIndex' and
     'length' are both 0

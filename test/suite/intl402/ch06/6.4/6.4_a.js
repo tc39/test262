@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 6.4_a
 description: Tests that valid time zone names are accepted.
 author: Norbert Lindenberg
 ---*/

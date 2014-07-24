@@ -3,6 +3,7 @@
 
 /*---
 info: The sort property of Array has the attribute DontEnum
+es5id: 15.4.4.11_A7.5
 description: Checking use propertyIsEnumerable, for-in
 ---*/
 

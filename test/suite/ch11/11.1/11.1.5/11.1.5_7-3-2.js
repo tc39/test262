@@ -10,6 +10,7 @@ info: >
     The production
     PropertyAssignment : get PropertyName ( ) { FunctionBody } 
     3.Let desc be the Property Descriptor{[[Get]]: closure, [[Enumerable]]: true, [[Configurable]]: true}
+es5id: 11.1.5_7-3-2
 description: >
     Object literal - property descriptor for set property assignment
     should not create a get function

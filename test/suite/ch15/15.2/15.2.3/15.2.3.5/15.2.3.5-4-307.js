@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.5-4-307
 description: >
     Object.create - [[Writable]] is set as false if it is absent in
     data descriptor of one property in 'Properties' (8.12.9 step 4.a.i)

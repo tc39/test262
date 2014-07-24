@@ -3,6 +3,7 @@
 
 /*---
 info: ToInt32 returns values between -2^31 and 2^31-1
+es5id: 9.5_A2.1_T1
 description: >
     Converting some numbers, which are in\outside of Int32 scopes,
     with <<0 operator

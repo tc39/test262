@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.8-2-4
 description: Object.seal - non-enumerable own property of 'O' is sealed
 includes: [runTestCase.js]
 ---*/

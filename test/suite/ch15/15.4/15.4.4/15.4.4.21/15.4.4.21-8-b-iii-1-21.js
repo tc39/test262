@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-8-b-iii-1-21
 description: >
     Array.prototype.reduce - element to be retrieved is inherited
     accessor property without a get function on an Array-like object

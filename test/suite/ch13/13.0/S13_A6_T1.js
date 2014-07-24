@@ -5,6 +5,7 @@
 info: >
     FunctionDeclaration can be overrided by other FunctionDeclaration with
     the same Identifier
+es5id: 13_A6_T1
 description: Duplicating function declaration
 ---*/
 

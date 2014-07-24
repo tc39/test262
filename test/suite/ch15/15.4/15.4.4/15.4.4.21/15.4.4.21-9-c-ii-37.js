@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-9-c-ii-37
 description: >
     Array.prototype.reduce - the global object can be used as
     accumulator

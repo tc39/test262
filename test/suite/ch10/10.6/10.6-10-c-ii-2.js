@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.6-10-c-ii-2
 description: arguments[i] map to actual parameter
 includes: [runTestCase.js]
 ---*/

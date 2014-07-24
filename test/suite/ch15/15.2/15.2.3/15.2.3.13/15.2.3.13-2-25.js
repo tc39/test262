@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.13-2-25
 description: >
     Object.isExtensible returns true if O is extensible and has a
     prototype that is not extensible

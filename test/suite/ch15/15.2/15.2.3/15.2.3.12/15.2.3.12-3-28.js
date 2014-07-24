@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.12-3-28
 description: >
     Object.isFrozen returns true when all own properties of 'O' are
     not writable and not configurable, and 'O' is not extensible

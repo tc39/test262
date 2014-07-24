@@ -5,6 +5,7 @@
 info: >
     The value of the internal [[Prototype]] property of
     the Array prototype object is the Object prototype object
+es5id: 15.4.4_A1.1_T3
 description: Checking use isPrototypeOf
 ---*/
 

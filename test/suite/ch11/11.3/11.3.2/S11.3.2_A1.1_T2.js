@@ -3,6 +3,7 @@
 
 /*---
 info: Line Terminator between LeftHandSideExpression and "--" is not allowed
+es5id: 11.3.2_A1.1_T2
 description: Checking Carriage Return
 flags: [negative]
 ---*/

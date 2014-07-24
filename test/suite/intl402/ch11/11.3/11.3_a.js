@@ -2,10 +2,11 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 11.3_a
 description: >
     Tests that Intl.NumberFormat.prototype is an object that  has been
     initialized as an Intl.NumberFormat.
-author:: Roozbeh Pournader
+author: Roozbeh Pournader
 ---*/
 
 // test by calling a function that would fail if "this" were not an object

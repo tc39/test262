@@ -2,6 +2,7 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
+es5id: 10.2.2_b
 description: >
     Tests that Intl.Collator.supportedLocalesOf  doesn't access
     arguments that it's not given.

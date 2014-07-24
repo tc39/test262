@@ -5,6 +5,7 @@
 info: >
     The production CharacterEscape :: r evaluates by returning
     the character \u000D
+es5id: 15.10.2.10_A1.5_T1
 description: Use \r in RegExp and \u000D in tested string
 ---*/
 

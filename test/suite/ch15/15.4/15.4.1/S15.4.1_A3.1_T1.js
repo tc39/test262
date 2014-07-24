@@ -5,6 +5,7 @@
 info: >
     When Array is called as a function rather than as a constructor,
     it creates and initialises a new Array object
+es5id: 15.4.1_A3.1_T1
 description: Checking use typeof, instanceof
 ---*/
 

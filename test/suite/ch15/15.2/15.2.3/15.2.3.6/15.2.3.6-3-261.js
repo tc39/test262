@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-3-261
 description: >
     Object.defineProperty - value of 'set' property in 'Attributes' is
     undefined (8.10.5 step 8.b)

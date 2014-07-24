@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 13.2-19-s
 description: >
     StrictMode - enumerating over a function object looking for
     'arguments' fails outside of the function

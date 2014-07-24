@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-540-7
 description: >
     Object.defineProperty fails to update [[Get]] and [[Set]]
     attributes of a named property 'P' whose [[Configurable]]

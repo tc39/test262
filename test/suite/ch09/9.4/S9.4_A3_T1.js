@@ -5,6 +5,7 @@
 info: >
     Result of ToInteger(value) conversion is the result of computing
     sign(ToNumber(value)) * floor(abs(ToNumber(value)))
+es5id: 9.4_A3_T1
 description: For testing constructor Date(Number) is used
 ---*/
 

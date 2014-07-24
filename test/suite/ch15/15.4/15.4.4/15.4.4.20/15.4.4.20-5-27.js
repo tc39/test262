@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.20-5-27
 description: >
     Array.prototype.filter - Array.isArray(arg) returns true when arg
     is the returned array

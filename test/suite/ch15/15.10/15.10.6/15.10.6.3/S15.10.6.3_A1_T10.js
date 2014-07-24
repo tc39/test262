@@ -3,6 +3,7 @@
 
 /*---
 info: Equivalent to the expression RegExp.prototype.exec(string) != null
+es5id: 15.10.6.3_A1_T10
 description: RegExp is /1|12/ and tested string is 1.01
 ---*/
 

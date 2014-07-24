@@ -5,6 +5,7 @@
 info: >
     The production QuantifierPrefix :: * evaluates by returning the two
     results 0 and \infty
+es5id: 15.10.2.7_A4_T7
 description: >
     Execute /["'][^"']*["']/.exec('alice cries out: \'don\'t\'') and
     check results

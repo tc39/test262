@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.1.4-0
 description: >
     elements elided at the end of an array do not contribute to its
     length

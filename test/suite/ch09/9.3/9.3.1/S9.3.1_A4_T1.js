@@ -5,6 +5,7 @@
 info: >
     The MV of StrDecimalLiteral::: + StrUnsignedDecimalLiteral is the MV of
     StrUnsignedDecimalLiteral
+es5id: 9.3.1_A4_T1
 description: Compare Number('+any_number') with Number('any_number')
 ---*/
 

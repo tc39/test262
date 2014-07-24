@@ -3,6 +3,7 @@
 
 /*---
 info: "RegularExpressionFlags :: IdentifierPart"
+es5id: 7.8.5_A3.1_T2
 description: "IdentifierPart :: i"
 ---*/
 

@@ -5,6 +5,7 @@
 info: >
     1, true, non-empty string and others in expression is evaluated to true
     when using operator "new"
+es5id: 12.5_A1.2_T2
 description: Using "if/else" construction
 ---*/
 

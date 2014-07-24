@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of splice is 2
+es5id: 15.4.4.12_A5.4
 description: splice.length === 1
 ---*/
 

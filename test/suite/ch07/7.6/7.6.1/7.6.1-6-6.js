@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 7.6.1-6-6
 description: >
     Allow reserved words as property names by dot operator assignment,
     accessed via indexing: continue, for, switch

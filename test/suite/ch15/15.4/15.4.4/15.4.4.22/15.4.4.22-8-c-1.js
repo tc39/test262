@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.22-8-c-1
 description: >
     Array.prototype.reduceRight throws TypeError when Array is empty
     and initialValue is not present

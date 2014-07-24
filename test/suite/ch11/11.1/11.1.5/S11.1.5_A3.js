@@ -3,6 +3,7 @@
 
 /*---
 info: "Evaluate the production ObjectLiteral: { PropertyNameAndValueList }"
+es5id: 11.1.5_A3
 description: >
     Creating the object defined with "var object = {0 : 1, "1" : "x",
     o : {}}"

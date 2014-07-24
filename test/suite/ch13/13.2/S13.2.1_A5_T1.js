@@ -3,6 +3,7 @@
 
 /*---
 info: Closures are admitted
+es5id: 13.2.1_A5_T1
 description: Sorting with closure
 ---*/
 

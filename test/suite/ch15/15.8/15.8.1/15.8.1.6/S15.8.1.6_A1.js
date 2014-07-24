@@ -3,6 +3,7 @@
 
 /*---
 info: Math.PI is approximately 3.1415926535897932
+es5id: 15.8.1.6_A1
 description: Comparing Math.PI with 3.1415926535897932
 includes:
     - math_precision.js

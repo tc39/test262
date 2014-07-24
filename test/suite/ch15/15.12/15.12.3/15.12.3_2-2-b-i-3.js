@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.3_2-2-b-i-3
 description: >
     JSON.stringify converts Boolean wrapper objects returned from a
     toJSON call to literal Boolean values.

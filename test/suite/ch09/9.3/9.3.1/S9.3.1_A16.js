@@ -3,6 +3,7 @@
 
 /*---
 info: "The MV of DecimalDigit ::: 0 or of HexDigit ::: 0 is 0"
+es5id: 9.3.1_A16
 description: Compare Number('0x0') and Number('0X0') with 0
 ---*/
 

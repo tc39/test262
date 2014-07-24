@@ -5,6 +5,7 @@
 info: >
     when String.prototype.concat([,[...]]) is called first Call ToString,
     giving it the this value as its argument
+es5id: 15.5.4.6_A4_T1
 description: Override toString function
 ---*/
 

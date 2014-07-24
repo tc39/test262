@@ -3,6 +3,7 @@
 
 /*---
 info: If abs(x)<1 and y is -Infinity, Math.pow(x,y) is +Infinity
+es5id: 15.8.2.13_A10
 description: >
     Checking if Math.pow(x,y) equals to +Infinity, where abs(x)<1 and
     y is -Infinity

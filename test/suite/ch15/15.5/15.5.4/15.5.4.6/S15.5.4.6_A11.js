@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of the concat method is 1
+es5id: 15.5.4.6_A11
 description: Checking String.prototype.concat.length
 ---*/
 

@@ -11,6 +11,7 @@ info: >
     PropertyNameAndValueList :  PropertyNameAndValueList , PropertyAssignment
     4. If previous is not undefined then throw a SyntaxError exception if any of the following conditions are true
     c.IsAccessorDescriptor(previous) is true and IsDataDescriptor(propId.descriptor) is true.
+es5id: 11.1.5_4-4-c-1
 description: >
     Object literal - SyntaxError if a get accessor property definition
     is followed by a data property definition with the same name

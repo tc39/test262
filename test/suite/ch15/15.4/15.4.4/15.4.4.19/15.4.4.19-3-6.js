@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.19-3-6
 description: >
     Array.prototype.map - 'length' is a string containing a positive
     number

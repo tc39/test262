@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.22-3-18
 description: >
     Array.prototype.reduceRight - value of 'length' is a string that
     can't convert to a number

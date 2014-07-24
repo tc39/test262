@@ -5,6 +5,7 @@
 info: >
     If pattern is an object R whose [[Class]] property is "RegExp" and flags
     is not undefined, then throw a TypeError exception
+es5id: 15.10.4.1_A2_T2
 description: >
     Checking if execution of "new RegExp(pattern, {})", where the
     pattern is "/1?1/mig", fails

@@ -3,6 +3,7 @@
 
 /*---
 info: RegExp.prototype.test can't be used as constructor
+es5id: 15.10.6.3_A7
 description: Checking if creating the RegExp.prototype.test object fails
 ---*/
 

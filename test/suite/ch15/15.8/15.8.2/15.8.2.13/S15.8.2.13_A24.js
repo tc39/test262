@@ -5,6 +5,7 @@
 info: >
     Math.pow, recommended that implementations use the approximation
     algorithms for IEEE 754 arithmetic contained in fdlibm
+es5id: 15.8.2.13_A24
 description: >
     Checking if Math.pow(argument1, argument2) is approximately equals
     to its mathematical value on the set of 64 argument1 values and 64

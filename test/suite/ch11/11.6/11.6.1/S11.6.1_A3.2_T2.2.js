@@ -6,6 +6,7 @@ info: >
     If Type(Primitive(x)) is String or Type(Primitive(y)) is String, then
     operator x + y returns the result of concatenating ToString(x) followed
     by ToString(y)
+es5id: 11.6.1_A3.2_T2.2
 description: >
     Type(Primitive(x)) is different from Type(Primitive(y)) and both
     types vary between String (primitive or object) and Boolean

@@ -3,6 +3,7 @@
 
 /*---
 info: If ToBoolean(x) is true, return y
+es5id: 11.11.1_A4_T2
 description: Type(x) and Type(y) vary between primitive number and Number object
 ---*/
 

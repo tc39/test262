@@ -5,6 +5,7 @@
 info: >
     Result of String conversion from string value is the input argument (no
     conversion)
+es5id: 9.8_A4_T2
 description: Some strings convert to String by implicit transformation
 ---*/
 

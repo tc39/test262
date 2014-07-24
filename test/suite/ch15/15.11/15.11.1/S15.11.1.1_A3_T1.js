@@ -3,6 +3,7 @@
 
 /*---
 info: The [[Class]] property of the newly constructed object is set to "Error"
+es5id: 15.11.1.1_A3_T1
 description: >
     Checking Class of the newly constructed Error object using
     toSting() function

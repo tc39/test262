@@ -3,6 +3,7 @@
 
 /*---
 info: The RegExp instance ignoreCase property has the attribute DontEnum
+es5id: 15.10.7.3_A8
 description: >
     Checking if enumerating the ignoreCase property of RegExp instance
     fails

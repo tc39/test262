@@ -5,6 +5,7 @@
 info: >
     The production CharacterClassEscape :: W evaluates by returning the set of all characters not
     included in the set returned by CharacterClassEscape :: w
+es5id: 15.10.2.12_A4_T5
 description: non-w
 ---*/
 

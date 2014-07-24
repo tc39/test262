@@ -5,6 +5,7 @@
 info: >
     The Object.prototype.isPrototypeOf.length property has the attribute
     DontDelete
+es5id: 15.2.4.6_A9
 description: >
     Checking deleting the Object.prototype.isPrototypeOf.length
     property fails

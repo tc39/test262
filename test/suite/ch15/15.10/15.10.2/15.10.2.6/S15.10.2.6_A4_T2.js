@@ -5,6 +5,7 @@
 info: >
     The production Assertion :: \B evaluates by returning an internal
     AssertionTester closure that takes a State argument x and performs the ...
+es5id: 15.10.2.6_A4_T2
 description: >
     Execute /[f-z]e\B/.exec("devils arise\tfor\nevil") and check
     results

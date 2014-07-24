@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.4-2-3
 description: >
     Object.getOwnPropertyNames - length of returned array is
     initialized to 0

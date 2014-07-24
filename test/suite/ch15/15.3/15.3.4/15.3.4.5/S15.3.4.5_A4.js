@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 15.3.4.5_A4
 description: >
     Function.prototype.bind call the original's internal  [[Call]]
     method rather than its .apply method.

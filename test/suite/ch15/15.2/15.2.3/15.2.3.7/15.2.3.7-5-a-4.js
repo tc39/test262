@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-5-a-4
 description: >
     Object.defineProperties - enumerable own accessor property of
     'Properties' that overrides enumerable inherited accessor property

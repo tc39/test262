@@ -3,6 +3,7 @@
 
 /*---
 info: Number.MAX_VALUE is approximately 1.7976931348623157e308
+es5id: 15.7.3.2_A1
 description: Checking Number.MAX_VALUE value
 includes:
     - math_precision.js

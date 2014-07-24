@@ -5,6 +5,7 @@
 info: >
     The concat function is intentionally generic.
     It does not require that its this value be an Array object
+es5id: 15.4.4.4_A2_T1
 description: Checking this for Object object, items are objects and primitives
 ---*/
 

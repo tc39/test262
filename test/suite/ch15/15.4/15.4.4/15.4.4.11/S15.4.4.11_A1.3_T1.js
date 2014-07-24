@@ -5,6 +5,7 @@
 info: >
     If [[Get]] ToString(j) and [[Get]] ToString(k)
     are both undefined, return +0
+es5id: 15.4.4.11_A1.3_T1
 description: If comparefn is undefined, use SortCompare operator
 ---*/
 

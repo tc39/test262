@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-3-89
 description: >
     Object.defineProperty - 'Attributes' is a Boolean object that uses
     Object's [[Get]] method to access the 'configurable' property

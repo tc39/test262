@@ -6,6 +6,7 @@ info: >
     The call method performs a function call using the [[Call]] property of
     the object. If the object does not have a [[Call]] property, a TypeError
     exception is thrown
+es5id: 15.3.4.4_A1_T1
 description: >
     Call "call" method of the object that does not have a [[Call]]
     property.  Prototype of the object is Function()

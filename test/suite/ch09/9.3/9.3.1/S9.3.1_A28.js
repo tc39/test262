@@ -3,6 +3,7 @@
 
 /*---
 info: "The MV of HexDigit ::: c or of HexDigit ::: C is 12"
+es5id: 9.3.1_A28
 description: >
     Compare Number('0xC'), Number('0XC'), Number('0xc') and
     Number('0Xc') with 12

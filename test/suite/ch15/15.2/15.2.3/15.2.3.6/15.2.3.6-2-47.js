@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-2-47
 description: >
     Object.defineProperty - TypeError exception is thrown  when 'P' is
     an object that neither toString nor valueOf returns a primitive

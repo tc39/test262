@@ -5,6 +5,7 @@
 info: >
     Using "try" with "catch" or "finally" statement within/without a "while"
     statement
+es5id: 12.14_A10_T2
 description: Try statement inside loop, where use continue loop
 ---*/
 

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 7.6.1-1-6
 description: >
     Allow reserved words as property names at object initialization,
     verified with hasOwnProperty: continue, for, switch

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 13.0-4
 description: >
     13.0 - multiple names in one function declaration is not allowed,
     add a new property into a property which is a object

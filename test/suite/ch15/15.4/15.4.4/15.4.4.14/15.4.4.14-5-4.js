@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.14-5-4
 description: Array.prototype.indexOf returns 0 if fromIndex is 'undefined'
 includes: [runTestCase.js]
 ---*/

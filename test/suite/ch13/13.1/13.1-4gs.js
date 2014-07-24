@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 13.1-4gs
 description: >
     Strict Mode - SyntaxError is thrown if the identifier 'arguments'
     appears within a FormalParameterList of a strict mode

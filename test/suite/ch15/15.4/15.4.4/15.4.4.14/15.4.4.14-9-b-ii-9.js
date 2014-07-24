@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.14-9-b-ii-9
 description: >
     Array.prototype.indexOf - both array element and search element
     are String, and they have exactly the same sequence of characters

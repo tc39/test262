@@ -3,6 +3,7 @@
 
 /*---
 info: Boolean.prototype has the attribute ReadOnly
+es5id: 15.6.3.1_A2
 description: Checking if varying the Boolean.prototype property fails
 ---*/
 

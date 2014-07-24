@@ -8,6 +8,7 @@ info: >
     obey the constraints that even host objects must obey. In this
     case, that if defineProperty seems to have successfully installed a
     non-configurable getter, that it is still there.
+es5id: 15.2.3.6_A1
 description: Do getters on HTMLFormElements disappear?
 ---*/
 

@@ -5,6 +5,7 @@
 info: >
     The MV of StrDecimalLiteral::: - StrUnsignedDecimalLiteral is the negative
     of the MV of StrUnsignedDecimalLiteral. (the negative of this 0 is also 0)
+es5id: 9.3.1_A5_T2
 description: Compare Number('-[or +]any_number') with -[or without -]any_number)
 ---*/
 

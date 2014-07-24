@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 9.2.2
 description: >
     Tests that locales that are reported by resolvedOptions  are also
     reported by supportedLocalesOf.

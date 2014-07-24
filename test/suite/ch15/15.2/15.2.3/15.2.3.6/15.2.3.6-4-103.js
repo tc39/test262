@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-103
 description: >
     Object.defineProperty - 'name' and 'desc' are data properties,
     name.writable and desc.writable are different values (8.12.9 step

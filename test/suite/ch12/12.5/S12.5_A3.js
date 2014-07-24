@@ -5,6 +5,7 @@
 info: >
     When the production "IfStatement: if ( Expression ) Statement else
     Statement" is evaluated, Expression is evaluated first
+es5id: 12.5_A3
 description: The Expression is "(function(){throw 1})()"
 ---*/
 

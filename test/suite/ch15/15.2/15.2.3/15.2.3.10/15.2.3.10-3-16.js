@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.10-3-16
 description: >
     Object.preventExtensions - named properties cannot be added into a
     Boolean object

@@ -5,6 +5,7 @@
 info: >
     It is permissible but not necessary to have one argument for each formal
     parameter to be specified
+es5id: 15.3.2.1_A2_T6
 description: >
     Values of the function constructor arguments are "return"-s of
     various results and a concotenation of strings

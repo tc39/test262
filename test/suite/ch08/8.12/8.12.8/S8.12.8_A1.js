@@ -6,6 +6,7 @@ info: >
     This should generate a TypeError,
     Cause we overload toString method so it return non Primitive value
     See ECMA reference at http://bugzilla.mozilla.org/show_bug.cgi?id=167325
+es5id: 8.12.8_A1
 description: Try to overload toString method
 ---*/
 

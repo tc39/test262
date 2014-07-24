@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 7.6.1-23-s
 description: >
     7.6 - SyntaxError expected: reserved words used as Identifier
     Names in UTF8: packag\u0065 (package)

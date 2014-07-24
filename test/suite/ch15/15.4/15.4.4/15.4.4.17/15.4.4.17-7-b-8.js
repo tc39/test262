@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.17-7-b-8
 description: >
     Array.prototype.some - deleting own property causes index property
     not to be visited on an Array-like object

@@ -9,6 +9,7 @@ info: >
     Step 4 of defineProperty calls the [[DefineOwnProperty]] internal method
     of O to define the property. For newly defined properties, step 4.a.1 of
     [[DefineOwnProperty]] creates a data property if handed a generic desc.
+es5id: 15.2.3.6-4-4
 description: >
     Object.defineProperty defines a data property if given a generic
     desc(8.12.9 step 4.a.i)

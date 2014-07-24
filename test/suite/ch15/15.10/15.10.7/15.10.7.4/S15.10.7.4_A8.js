@@ -3,6 +3,7 @@
 
 /*---
 info: The RegExp instance multiline property has the attribute DontEnum
+es5id: 15.10.7.4_A8
 description: >
     Checking if enumerating the multiline property of RegExp instance
     fails

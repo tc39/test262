@@ -3,6 +3,7 @@
 
 /*---
 info: FunctionExpression within a "while" Expression is allowed
+es5id: 12.6.2_A14_T2
 description: Using function call as an Expression
 ---*/
 

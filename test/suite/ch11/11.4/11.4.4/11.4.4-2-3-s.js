@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.4.4-2-3-s
 description: Strict Mode - SyntaxError is not thrown for ++arguments[...]
 flags: [onlyStrict]
 includes: [runTestCase.js]

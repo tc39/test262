@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 10.1.1_19_c
 description: >
     Tests that the options numeric and caseFirst can be  set through
     either the locale or the options.

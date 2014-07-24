@@ -3,6 +3,7 @@
 
 /*---
 info: toLocaleString function returns the result of calling toString()
+es5id: 15.2.4.3_A1
 description: >
     Checking the type of Object.prototype.toLocaleString and the
     returned result

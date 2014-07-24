@@ -3,6 +3,7 @@
 
 /*---
 info: "DecimalLiteral :: HexIntegerLiteral"
+es5id: 7.8.3_A5.1_T5
 description: "HexIntegerLiteral :: 0x0 Digits"
 ---*/
 

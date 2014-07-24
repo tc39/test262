@@ -3,6 +3,7 @@
 
 /*---
 info: The production x %= y is the same as x = x % y
+es5id: 11.13.2_A4.3_T1.2
 description: Type(x) and Type(y) vary between primitive number and Number object
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: Operator -x returns -ToNumber(x)
+es5id: 11.4.7_A3_T5
 description: Type(x) is Object object or Function object
 ---*/
 

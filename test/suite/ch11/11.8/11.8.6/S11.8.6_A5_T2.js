@@ -3,6 +3,7 @@
 
 /*---
 info: TypeError is subclass of Error from instanceof operator point of view
+es5id: 11.8.6_A5_T2
 description: Checking TypeError case
 ---*/
 

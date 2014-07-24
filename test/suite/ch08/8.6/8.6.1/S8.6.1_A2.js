@@ -3,6 +3,7 @@
 
 /*---
 info: A property can have attribute DontEnum like all properties of Number
+es5id: 8.6.1_A2
 description: Try to enumerate properties of Number
 ---*/
 

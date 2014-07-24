@@ -9,6 +9,7 @@ info: >
     Step 4 of defineProperty calls the [[DefineOwnProperty]] internal method
     of O to define the property. Step 7a of [[DefineOwnProperty]] rejects if
     current.[[Configurable]] is false and desc.[[Configurable]] is true.
+es5id: 15.2.3.6-4-7
 description: >
     Object.defineProperty throws TypeError when changing
     [[Configurable]] from false to true

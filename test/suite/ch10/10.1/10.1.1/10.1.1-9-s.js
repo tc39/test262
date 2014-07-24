@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.1.1-9-s
 description: >
     Strict Mode - Use Strict Directive Prologue is ''Use strict';' in
     which the first character is uppercase

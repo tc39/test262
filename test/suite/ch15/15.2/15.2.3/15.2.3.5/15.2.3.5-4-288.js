@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.5-4-288
 description: >
     Object.create - one property in 'Properties' is an Error object
     that uses Object's [[Get]] method to access the 'set' property

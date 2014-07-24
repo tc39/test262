@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-64
 description: >
     Object.defineProperty - desc.value = +0 and name.value = -0
     (8.12.9 step 6)

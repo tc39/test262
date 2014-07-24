@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.11-2
 description: Error - RegExpError has been removed from IE9 standard mode
 includes: [runTestCase.js]
 ---*/

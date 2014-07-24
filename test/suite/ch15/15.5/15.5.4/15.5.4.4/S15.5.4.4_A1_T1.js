@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.charAt(pos)
+es5id: 15.5.4.4_A1_T1
 description: pos is false and true, and instance is object
 ---*/
 

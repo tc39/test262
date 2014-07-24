@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.16-7-c-ii-22
 description: >
     Array.prototype.every - callbackfn called with correct parameters
     (the index k is correct)

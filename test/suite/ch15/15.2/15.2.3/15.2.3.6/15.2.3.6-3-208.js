@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-3-208
 description: >
     Object.defineProperty - 'get' property in 'Attributes' is an
     inherited data property (8.10.5 step 7.a)

@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of the slice method is 2
+es5id: 15.5.4.13_A11
 description: Checking String.prototype.slice.length
 ---*/
 

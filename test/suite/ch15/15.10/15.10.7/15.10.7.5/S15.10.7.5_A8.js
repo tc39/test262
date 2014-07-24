@@ -3,6 +3,7 @@
 
 /*---
 info: The RegExp instance lastIndex property has the attribute DontEnum
+es5id: 15.10.7.5_A8
 description: >
     Checking if enumerating the lastIndex property of RegExp instance
     fails

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.10.7.1-2
 description: >
     RegExp.prototype.source is a data property with default attribute
     values (false)

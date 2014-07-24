@@ -3,6 +3,7 @@
 
 /*---
 info: The Array.prototype property has the attribute DontDelete
+es5id: 15.4.3.1_A3
 description: Checking if deleting the Array.prototype property fails
 flags: [noStrict]
 includes: [$FAIL.js]

@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 10.3.2_CS_b_NN
 description: >
     Tests that the compare function isn't entirely unreasonable.  This
     test is not normative.

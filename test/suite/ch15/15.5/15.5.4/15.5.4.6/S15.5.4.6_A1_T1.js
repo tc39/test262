@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.concat([,[...]])
+es5id: 15.5.4.6_A1_T1
 description: Arguments are false and true, and instance is object
 ---*/
 

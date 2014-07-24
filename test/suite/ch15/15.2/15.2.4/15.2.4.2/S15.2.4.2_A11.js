@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of the toString method is 0
+es5id: 15.2.4.2_A11
 description: Checking the Object.prototype.toString.length property
 ---*/
 

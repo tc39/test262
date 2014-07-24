@@ -5,6 +5,7 @@
 info: >
     When the [[Get]] method of O is called with property name P value of P
     returns
+es5id: 8.12.3_A3
 description: Try to get P property P exist in instance
 ---*/
 

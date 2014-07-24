@@ -3,6 +3,7 @@
 
 /*---
 info: If ShiftExpression is not an object, throw TypeError
+es5id: 11.8.6_A3
 description: Checking all the types of primitives
 ---*/
 

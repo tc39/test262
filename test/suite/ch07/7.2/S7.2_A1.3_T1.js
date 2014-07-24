@@ -3,6 +3,7 @@
 
 /*---
 info: FORM FEED (U+000C) between any two tokens is allowed
+es5id: 7.2_A1.3_T1
 description: Insert FORM FEED(\u000C and \f) between tokens of var x=1
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: Function.prototype.apply can`t be used as [[create]] caller
+es5id: 15.3.4.3_A8_T5
 description: Checking if creating "new Function("this.p1=1").apply" fails
 ---*/
 

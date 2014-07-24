@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 10.4.2.1_A1
 description: >
     Strict indirect eval should not leak top level  declarations into
     the global scope

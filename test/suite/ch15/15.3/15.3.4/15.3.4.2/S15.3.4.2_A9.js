@@ -5,6 +5,7 @@
 info: >
     The Function.prototype.toString.length property has the attribute
     DontDelete
+es5id: 15.3.4.2_A9
 description: >
     Checking if deleting the Function.prototype.toString.length
     property fails

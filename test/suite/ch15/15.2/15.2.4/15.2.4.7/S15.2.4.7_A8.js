@@ -5,6 +5,7 @@
 info: >
     The Object.prototype.propertyIsEnumerable.length property has the
     attribute DontEnum
+es5id: 15.2.4.7_A8
 description: >
     Checking if enumerating the
     Object.prototype.propertyIsEnumerable.length property fails

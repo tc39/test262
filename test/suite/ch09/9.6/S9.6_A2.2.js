@@ -3,6 +3,7 @@
 
 /*---
 info: Compute result modulo 2^32
+es5id: 9.6_A2.2
 description: Use operator >>>0
 ---*/
 

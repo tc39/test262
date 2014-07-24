@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.14-9-b-ii-10
 description: >
     Array.prototype.indexOf - both array element and search element
     are Boolean type, and they have same value

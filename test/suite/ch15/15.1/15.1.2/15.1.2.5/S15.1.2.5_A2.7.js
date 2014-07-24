@@ -3,6 +3,7 @@
 
 /*---
 info: The isFinite property can't be used as constructor
+es5id: 15.1.2.5_A2.7
 description: >
     If property does not implement the internal [[Construct]] method,
     throw a TypeError exception

@@ -3,6 +3,7 @@
 
 /*---
 info: If B = 11110xxx (n = 4) and (k + 2) + 9 >= length, throw URIError
+es5id: 15.1.3.2_A1.6_T1
 description: Complex tests. B = [0xF0 - 0xF7]
 ---*/
 

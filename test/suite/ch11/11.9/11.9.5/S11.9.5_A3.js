@@ -5,6 +5,7 @@
 info: >
     Type(x) and Type(y) are Boolean-s.
     Return false, if x and y are both true or both false; otherwise, return true
+es5id: 11.9.5_A3
 description: x and y are primitive booleans
 ---*/
 

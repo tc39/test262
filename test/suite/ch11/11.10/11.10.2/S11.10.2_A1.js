@@ -5,6 +5,7 @@
 info: >
     White Space and Line Terminator between BitwiseXORExpression and "^" or
     between "^" and BitwiseANDExpression are allowed
+es5id: 11.10.2_A1
 description: The check uses eval
 ---*/
 

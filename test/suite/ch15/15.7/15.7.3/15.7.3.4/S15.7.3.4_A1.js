@@ -3,6 +3,7 @@
 
 /*---
 info: Number.NaN is Not-a-Number
+es5id: 15.7.3.4_A1
 description: Checking isNaN(Number.NaN)
 ---*/
 

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.8.2.12-1
 description: Math.min({}) is NaN
 includes: [runTestCase.js]
 ---*/

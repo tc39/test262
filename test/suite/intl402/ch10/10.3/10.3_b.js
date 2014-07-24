@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 10.3_b
 description: >
     Tests that Intl.Collator.prototype functions throw a  TypeError if
     called on a non-object value or an object that hasn't been

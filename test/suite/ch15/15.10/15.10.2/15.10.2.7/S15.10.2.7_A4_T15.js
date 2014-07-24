@@ -5,6 +5,7 @@
 info: >
     The production QuantifierPrefix :: * evaluates by returning the two
     results 0 and \infty
+es5id: 15.10.2.7_A4_T15
 description: Execute /(\d*)\d(\d+)/.exec('1234567890') and check results
 ---*/
 

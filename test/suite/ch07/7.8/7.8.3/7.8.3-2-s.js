@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 7.8.3-2-s
 description: Strict Mode - octal extension (00) is forbidden in strict mode
 flags: [onlyStrict]
 includes: [runTestCase.js]

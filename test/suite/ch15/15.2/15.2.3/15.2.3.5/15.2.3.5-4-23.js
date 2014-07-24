@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.5-4-23
 description: >
     Object.create - own enumerable data property that overrides an
     enumerable inherited accessor property in 'Properties' is defined

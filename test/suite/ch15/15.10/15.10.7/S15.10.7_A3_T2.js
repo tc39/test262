@@ -3,6 +3,7 @@
 
 /*---
 info: RegExp instance type is RegExp
+es5id: 15.10.7_A3_T2
 description: >
     Checking type of RegExp instance with operators typeof, instanceof
     and check it constructor.  RegExp instance is new RegExp

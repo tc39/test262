@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-292
 description: >
     Object.defineProperty - 'O' is an Arguments object, 'name' is own
     data property of 'O', and 'desc' is data descriptor, test updating

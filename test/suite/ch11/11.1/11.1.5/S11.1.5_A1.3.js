@@ -5,6 +5,7 @@
 info: >
     Evaluate the production ObjectLiteral: { StringLiteral :
     AssignmentExpression}
+es5id: 11.1.5_A1.3
 description: >
     Checking various properteis and contents of the object defined
     with "var object = {"x" : true}"

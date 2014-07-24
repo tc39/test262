@@ -9,6 +9,7 @@ info: >
     and
     http://bugs.ecmascript.org/ticket/250
     for example
+es5id: 8.2_A3
 description: Check type of null
 ---*/
 

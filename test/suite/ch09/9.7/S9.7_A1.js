@@ -3,6 +3,7 @@
 
 /*---
 info: If value is NaN, +0, -0, +Infinity, or -Infinity, return +0
+es5id: 9.7_A1
 description: >
     For testing use String.fromCharCode(Number).charCodeAt(0)
     construction

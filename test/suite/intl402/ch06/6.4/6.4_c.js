@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 6.4_c
 description: >
     Tests that additional time zone names, if accepted, are handled
     correctly.

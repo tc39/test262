@@ -3,6 +3,7 @@
 
 /*---
 info: Function constructor has length property whose value is 1
+es5id: 15.3.3_A3
 description: Checking Function.length property
 ---*/
 

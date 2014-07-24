@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x >>> y uses ToUint32(AdditiveExpression) & 31
+es5id: 11.7.3_A5.2_T1
 description: Checking distinct points
 ---*/
 

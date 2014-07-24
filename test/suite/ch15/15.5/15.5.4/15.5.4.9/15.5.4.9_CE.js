@@ -4,6 +4,7 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
+es5id: 15.5.4.9_CE
 description: >
     Tests that String.prototype.localeCompare  returns 0 when
     comparing Strings that are considered canonically equivalent  by

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-8-b-iii-1-30
 description: >
     Array.prototype.reduce - element changed by getter on current
     iterations is observed in subsequent iterations on an Array

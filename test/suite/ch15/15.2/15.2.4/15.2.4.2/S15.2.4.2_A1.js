@@ -7,6 +7,7 @@ info: >
     i) Get the [[Class]] property of this object
     ii) Compute a string value by concatenating the three strings "[object ", Result(1), and "]"
     iii) Return Result(2)
+es5id: 15.2.4.2_A1
 description: >
     Checking the type of Object.prototype.toString and the returned
     result

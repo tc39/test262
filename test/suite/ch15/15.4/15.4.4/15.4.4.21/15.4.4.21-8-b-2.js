@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-8-b-2
 description: >
     Array.prototype.reduce - modifications to length don't change
     number of iterations in step 9

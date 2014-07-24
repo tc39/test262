@@ -3,6 +3,7 @@
 
 /*---
 info: Zero "\0" not terminates the string(C string)
+es5id: 8.4_A5
 description: Insert "\0" into string
 ---*/
 

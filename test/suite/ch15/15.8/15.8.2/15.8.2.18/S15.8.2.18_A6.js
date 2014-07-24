@@ -3,6 +3,7 @@
 
 /*---
 info: Tangent is a periodic function with period PI
+es5id: 15.8.2.18_A6
 description: >
     Checking if Math.tan(x) equals to Math.tan(x+n*Math.PI) with
     precision 0.000000000003, where n is an integer from 1 to 100 and

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-31
 description: >
     Object.defineProperty - 'name' is own accessor property without a
     get function that overrides an inherited accessor property(8.12.9

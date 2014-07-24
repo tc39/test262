@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.14-3-3
 description: >
     Object.keys returns the standard built-in Array containing own
     enumerable properties (array)

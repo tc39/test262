@@ -3,6 +3,7 @@
 
 /*---
 info: Reference to Self-Modifying Object remain the integrity
+es5id: 8.7_A2
 description: Create a reference to the array, and change original array
 ---*/
 

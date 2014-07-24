@@ -5,6 +5,7 @@
 info: >
     Let reservedURISet be a string containing one instance of each character valid
     in uriReserved plus "#"
+es5id: 15.1.3.1_A3_T3
 description: Complex test
 ---*/
 

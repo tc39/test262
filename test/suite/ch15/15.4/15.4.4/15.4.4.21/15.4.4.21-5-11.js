@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-5-11
 description: >
     Array.prototype.reduce - if the exception occurs, it occurs after
     any side-effects that might be produced by step 3

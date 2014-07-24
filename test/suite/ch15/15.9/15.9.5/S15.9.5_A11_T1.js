@@ -3,6 +3,7 @@
 
 /*---
 info: The Date.prototype has the property "getUTCFullYear"
+es5id: 15.9.5_A11_T1
 description: The Date.prototype has the property "getUTCFullYear"
 ---*/
 

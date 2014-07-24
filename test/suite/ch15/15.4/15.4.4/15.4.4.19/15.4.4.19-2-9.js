@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.19-2-9
 description: >
     Array.prototype.map - applied to Array-like object when 'length'
     is an own accessor property that overrides an inherited accessor

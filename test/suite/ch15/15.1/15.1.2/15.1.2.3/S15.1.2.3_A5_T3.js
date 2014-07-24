@@ -3,6 +3,7 @@
 
 /*---
 info: Return the number value for the MV of Result(4)
+es5id: 15.1.2.3_A5_T3
 description: Checking . DecimalDigits ExponentPart_opt
 ---*/
 

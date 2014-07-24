@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-354
 description: >
     ES5 Attributes - property ([[Writable]] is false, [[Enumerable]]
     is true, [[Configurable]] is true) is unwritable

@@ -3,6 +3,7 @@
 
 /*---
 info: The Array has property prototype
+es5id: 15.4.3.1_A1
 description: Checking use hasOwnProperty
 includes: [$FAIL.js]
 ---*/

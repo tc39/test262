@@ -3,6 +3,7 @@
 
 /*---
 info: If length is zero, return the empty string
+es5id: 15.4.4.5_A1.1_T1
 description: Checking this use new Array() and []
 ---*/
 

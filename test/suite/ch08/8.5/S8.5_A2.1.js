@@ -3,6 +3,7 @@
 
 /*---
 info: Number type represented as the double precision 64-bit format IEEE 754
+es5id: 8.5_A2.1
 description: Use 2^53 + 2 number and do some operation with it
 ---*/
 

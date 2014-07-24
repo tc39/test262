@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.22-1-5
 description: Array.prototype.reduceRight applied to number primitive
 includes: [runTestCase.js]
 ---*/

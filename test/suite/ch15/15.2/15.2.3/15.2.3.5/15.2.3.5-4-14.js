@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.5-4-14
 description: >
     Object.create - argument 'Properties' is an Error object (15.2.3.7
     step 2)

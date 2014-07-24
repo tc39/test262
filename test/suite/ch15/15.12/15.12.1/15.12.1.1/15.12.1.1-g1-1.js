@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.12.1.1-g1-1
 description: The JSON lexical grammar treats <TAB> as a whitespace character
 includes: [runTestCase.js]
 ---*/

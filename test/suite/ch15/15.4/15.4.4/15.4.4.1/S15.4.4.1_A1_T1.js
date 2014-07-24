@@ -5,6 +5,7 @@
 info: >
     The initial value of Array.prototype.constructor is
     the built-in Array constructor
+es5id: 15.4.4.1_A1_T1
 description: Array.prototype.constructor === Array
 ---*/
 

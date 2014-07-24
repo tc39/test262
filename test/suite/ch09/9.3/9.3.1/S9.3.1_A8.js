@@ -5,6 +5,7 @@
 info: >
     The MV of StrUnsignedDecimalLiteral::: DecimalDigits. ExponentPart
     is the MV of DecimalDigits times 10<sup><small>e</small></sup> , where e is the MV of ExponentPart
+es5id: 9.3.1_A8
 description: >
     Compare Number('1234e5') and Number('1234.e5') with
     Number('1234')*1e5

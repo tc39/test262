@@ -5,6 +5,7 @@
 info: >
     Passing arguments by value differs from by reference and do not change
     values to be passed
+es5id: 8.7_A6
 description: Adding original variable with referenced one inside function
 ---*/
 

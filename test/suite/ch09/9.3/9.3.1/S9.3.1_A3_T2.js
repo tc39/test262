@@ -6,6 +6,7 @@ info: >
     The MV of StringNumericLiteral ::: StrWhiteSpaceopt StrNumericLiteral
     StrWhiteSpaceopt is the MV of StrNumericLiteral, no matter whether white
     space is present or not
+es5id: 9.3.1_A3_T2
 description: dynamic string
 ---*/
 

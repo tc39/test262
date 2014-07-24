@@ -3,6 +3,7 @@
 
 /*---
 info: If x is NaN and y is nonzero, Math.pow(x,y) is NaN
+es5id: 15.8.2.13_A4
 description: Checking if Math.pow(x,y) is NaN, where x is NaN and y is nonzero
 ---*/
 

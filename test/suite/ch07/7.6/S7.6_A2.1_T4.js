@@ -3,6 +3,7 @@
 
 /*---
 info: "IdentifierPart :: IdentifierStart"
+es5id: 7.6_A2.1_T4
 description: "IdentifierStart :: \\UnicodeEscapeSequence"
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: Function expession inside the "if" expression is allowed
+es5id: 12.5_A10_T2
 description: >
     Using function expession "function __func(){return 0;}()" within
     "if" expression

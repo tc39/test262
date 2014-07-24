@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 12.3.2_FDT_1
 description: Tests that format handles non-finite values correctly.
 author: Norbert Lindenberg
 ---*/

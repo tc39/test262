@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 7.6.1-21-s
 description: >
     7.6 - SyntaxError expected: reserved words used as Identifier
     Names in UTF8: \u0079ield (yield)

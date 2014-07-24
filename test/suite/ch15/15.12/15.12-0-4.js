@@ -11,6 +11,7 @@ info: >
     in this section has the attribute {... [[Enumerable]] : false ...}
     unless otherwise specified. This default applies to the properties on
     JSON, and we should not be able to enumerate them.
+es5id: 15.12-0-4
 description: JSON object's properties must be non enumerable
 includes: [runTestCase.js]
 ---*/

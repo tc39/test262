@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-6-a-32
 description: >
     Object.defineProperties - 'desc' is generic descriptor without any
     attribute, test 'P' is defined in 'obj' with all default attribute

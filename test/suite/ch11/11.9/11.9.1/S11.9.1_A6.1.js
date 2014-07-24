@@ -3,6 +3,7 @@
 
 /*---
 info: If Type(x) as well as Type(y) is undefined or null, return true
+es5id: 11.9.1_A6.1
 description: Checking all combinations
 ---*/
 

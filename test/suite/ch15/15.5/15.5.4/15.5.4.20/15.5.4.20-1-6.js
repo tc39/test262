@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.5.4.20-1-6
 description: String.prototype.trim works for an String
 includes: [runTestCase.js]
 ---*/

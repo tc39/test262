@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of isFinite is 1
+es5id: 15.1.2.5_A2.4
 description: isFinite.length === 1
 ---*/
 

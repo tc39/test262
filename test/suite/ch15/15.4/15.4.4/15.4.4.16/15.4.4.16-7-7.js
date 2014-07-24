@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.16-7-7
 description: >
     Array.prototype.every - Deleting the array itself within the
     callbackfn of Array.prototype.every is successful once

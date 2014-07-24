@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.toLocaleUpperCase()
+es5id: 15.5.4.19_A1_T4
 description: >
     Call toLocaleUpperCase() function without arguments of string and
     from empty string

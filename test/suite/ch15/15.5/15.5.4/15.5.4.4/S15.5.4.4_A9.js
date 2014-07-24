@@ -3,6 +3,7 @@
 
 /*---
 info: The String.prototype.charAt.length property has the attribute DontDelete
+es5id: 15.5.4.4_A9
 description: >
     Checking if deleting the String.prototype.charAt.length property
     fails

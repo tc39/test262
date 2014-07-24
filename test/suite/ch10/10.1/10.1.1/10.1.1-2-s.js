@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.1.1-2-s
 description: >
     Strict Mode - Use Strict Directive Prologue is ''use strict''
     which lost the last character ';'

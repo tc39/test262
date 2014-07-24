@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.4.1-5-a-23-s
 description: >
     Strict Mode - SyntaxError is thrown when deleting a built-in
     (Number)

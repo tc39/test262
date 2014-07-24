@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.18-4-11
 description: >
     Array.prototype.forEach - the exception is not thrown if exception
     was thrown by step 3

@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.search (regexp) returns ...
+es5id: 15.5.4.12_A2_T6
 description: Searching the non-existent "notexist" substring
 ---*/
 

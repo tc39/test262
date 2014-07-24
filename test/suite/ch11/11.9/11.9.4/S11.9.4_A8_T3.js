@@ -3,6 +3,7 @@
 
 /*---
 info: If Type(x) is different from Type(y), return false
+es5id: 11.9.4_A8_T3
 description: x or y is primitive string
 ---*/
 

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.17-5-24
 description: Array.prototype.some - string primitive can be used as thisArg
 includes: [runTestCase.js]
 ---*/

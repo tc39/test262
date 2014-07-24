@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.13-2-29
 description: Object.isExtensible returns true for the global object
 includes:
     - runTestCase.js

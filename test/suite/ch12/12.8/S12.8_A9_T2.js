@@ -5,6 +5,7 @@
 info: >
     Using "break" within "try/catch" statement that is nested in a loop is
     allowed
+es5id: 12.8_A9_T2
 description: Using "continue Identifier" within "catch" statement
 ---*/
 

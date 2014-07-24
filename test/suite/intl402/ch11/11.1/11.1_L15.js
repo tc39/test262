@@ -2,6 +2,7 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
+es5id: 11.1_L15
 description: >
     Tests that Intl.NumberFormat  meets the requirements for built-in
     objects defined by the introduction of  chapter 15 of the

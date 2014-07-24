@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.10.7.5-1
 description: RegExp.prototype.lastIndex is of type Number
 includes: [runTestCase.js]
 ---*/

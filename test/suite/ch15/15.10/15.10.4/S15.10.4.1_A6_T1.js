@@ -3,6 +3,7 @@
 
 /*---
 info: The [[Class]] property of the newly constructed object is set to "RegExp"
+es5id: 15.10.4.1_A6_T1
 description: Checking [[Class]] property of the newly constructed object
 ---*/
 

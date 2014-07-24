@@ -3,6 +3,7 @@
 
 /*---
 info: Correct interpretation of ENGLISH ALPHABET
+es5id: 7.8.4_A2.1_T2
 description: Check ENGLISH SMALL ALPHABET
 ---*/
 

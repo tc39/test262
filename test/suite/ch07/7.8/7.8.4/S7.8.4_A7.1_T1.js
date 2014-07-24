@@ -5,6 +5,7 @@
 info: >
     EscapeSequence :: UnicodeEscapeSequence :: u HexDigit HexDigit HexDigit
     HexDigit
+es5id: 7.8.4_A7.1_T1
 description: Check similar to ("\u0000" === String.fromCharCode("0"))
 ---*/
 

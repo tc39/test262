@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.18-2-10
 description: >
     Array.prototype.forEach applied to Array-like object, 'length' is
     an inherited accessor property

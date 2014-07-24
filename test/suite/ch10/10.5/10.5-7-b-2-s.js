@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.5-7-b-2-s
 description: Strict Mode - arguments object index assignment is allowed
 flags: [onlyStrict]
 includes: [runTestCase.js]

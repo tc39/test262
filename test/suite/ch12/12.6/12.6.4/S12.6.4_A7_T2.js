@@ -5,6 +5,7 @@
 info: >
     Properties of the object being enumerated may be deleted during
     enumeration
+es5id: 12.6.4_A7_T2
 description: >
     Checking "for (var VariableDeclarationNoIn in Expression)
     Statement" case

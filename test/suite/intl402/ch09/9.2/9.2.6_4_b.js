@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 9.2.6_4_b
 description: >
     Tests that Unicode locale extension sequences do not affect
     whether a locale is considered supported, but are reported back.

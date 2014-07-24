@@ -8,6 +8,7 @@ info: >
     ii) Call ToString(V)
     iii) If O doesn't have a property with the name given by Result(ii), return false
     iv) Return true
+es5id: 15.2.4.5_A1_T2
 description: Argument of the hasOwnProperty method is a custom boolean property
 ---*/
 

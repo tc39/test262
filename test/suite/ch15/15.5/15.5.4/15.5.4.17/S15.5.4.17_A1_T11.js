@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.toLocaleLowerCase()
+es5id: 15.5.4.17_A1_T11
 description: >
     Override toString function, toString throw exception, then call
     toLocaleLowerCase() function for this object

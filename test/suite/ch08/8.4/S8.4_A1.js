@@ -5,6 +5,7 @@
 info: >
     Any variable that has been assigned with string literal has the type
     string
+es5id: 8.4_A1
 description: Check type of variable that has been assigned with string literal
 ---*/
 

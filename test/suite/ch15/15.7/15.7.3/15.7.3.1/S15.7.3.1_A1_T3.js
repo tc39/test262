@@ -5,6 +5,7 @@
 info: >
     The Number property "prototype" has { DontEnum, DontDelete, ReadOnly }
     attributes
+es5id: 15.7.3.1_A1_T3
 description: Checking if enumerating the Number.prototype property fails
 ---*/
 

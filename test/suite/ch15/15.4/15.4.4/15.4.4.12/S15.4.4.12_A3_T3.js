@@ -3,6 +3,7 @@
 
 /*---
 info: Check ToUint32(length) for non Array objects
+es5id: 15.4.4.12_A3_T3
 description: length is arbitrarily
 ---*/
 

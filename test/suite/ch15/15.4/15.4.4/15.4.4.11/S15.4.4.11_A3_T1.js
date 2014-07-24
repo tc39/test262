@@ -5,6 +5,7 @@
 info: >
     The sort function is intentionally generic.
     It does not require that its this value be an Array object
+es5id: 15.4.4.11_A3_T1
 description: If comparefn is undefined, use SortCompare operator
 ---*/
 

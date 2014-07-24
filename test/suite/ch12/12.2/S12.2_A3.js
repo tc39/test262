@@ -3,6 +3,7 @@
 
 /*---
 info: FunctionDeclaration produces a new scope
+es5id: 12.2_A3
 description: Using Global scope and Function scope together
 ---*/
 

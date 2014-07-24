@@ -5,6 +5,7 @@
 info: >
     VariableDeclaration in "var VariableDeclarationListNoIn" of for
     IterationStatement is allowed
+es5id: 12.6.3_A13
 description: Declaring variable in "for" ExpressionNoIn
 ---*/
 

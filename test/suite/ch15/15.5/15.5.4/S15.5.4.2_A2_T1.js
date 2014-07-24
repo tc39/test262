@@ -6,6 +6,7 @@ info: >
     The toString function is not generic; it throws a TypeError exception if
     its this value is not a String object. Therefore, it cannot be
     transferred to other kinds of objects for use as a method
+es5id: 15.5.4.2_A2_T1
 description: Checking if creating variable String.prototype.toString fails
 includes: [$FAIL.js]
 ---*/

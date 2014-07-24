@@ -3,6 +3,7 @@
 
 /*---
 info: The Undefined type has one value, called undefined
+es5id: 8.1_A1_T2
 description: Check typeof(undefined) and typeof(void 0)
 ---*/
 

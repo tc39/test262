@@ -5,6 +5,7 @@
 info: >
     0, null, undefined, false, empty string, NaN in expression is evaluated
     to false
+es5id: 12.5_A1.1_T2
 description: Using "if/else" construction
 ---*/
 

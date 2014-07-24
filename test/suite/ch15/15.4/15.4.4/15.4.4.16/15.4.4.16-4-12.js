@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.16-4-12
 description: Array.prototype.every - 'callbackfn' is a function
 includes: [runTestCase.js]
 ---*/

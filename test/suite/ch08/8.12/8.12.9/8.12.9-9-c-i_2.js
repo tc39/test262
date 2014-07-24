@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 8.12.9-9-c-i_2
 description: >
     Redefine a configurable accessor property to be a data property on
     a non-extensible object

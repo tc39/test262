@@ -9,6 +9,7 @@ info: >
     Step 4 of defineProperty calls the [[DefineOwnProperty]] internal method
     of O to define the property. For non-configurable properties, step 11.a.ii
     of [[DefineOwnProperty]] permits setting a getter if absent.
+es5id: 15.2.3.6-4-21
 description: >
     Object.defineProperty permits setting a getter (if absent) of
     non-configurable accessor properties(8.12.9 step 11.a.ii)

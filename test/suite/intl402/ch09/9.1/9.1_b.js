@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+es5id: 9.1_b
 description: >
     Tests that appropriate fallback locales are provided for
     supported locales.

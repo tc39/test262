@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.split can't be used as constructor
+es5id: 15.5.4.14_A7
 description: Checking if creating the String.prototype.split object fails
 includes:
     - $FAIL.js

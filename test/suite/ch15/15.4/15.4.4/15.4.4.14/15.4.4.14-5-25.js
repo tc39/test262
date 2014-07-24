@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.14-5-25
 description: >
     Array.prototype.indexOf uses inherited valueOf method when value
     of 'fromIndex' is an object with an own toString and inherited

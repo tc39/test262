@@ -3,6 +3,7 @@
 
 /*---
 info: Equivalent to the expression RegExp.prototype.exec(string) != null
+es5id: 15.10.6.3_A1_T21
 description: >
     RegExp is /[a-z]n/ and tested string is x, where x is
     function(){}()

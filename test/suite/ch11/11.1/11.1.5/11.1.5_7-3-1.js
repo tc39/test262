@@ -10,6 +10,7 @@ info: >
     The production
     PropertyAssignment : set PropertyName( PropertySetParameterList ) { FunctionBody } 
     3.Let desc be the Property Descriptor{[[Set]]: closure, [[Enumerable]]: true, [[Configurable]]: true}
+es5id: 11.1.5_7-3-1
 description: Object literal - property descriptor for set property assignment
 includes: [runTestCase.js]
 ---*/

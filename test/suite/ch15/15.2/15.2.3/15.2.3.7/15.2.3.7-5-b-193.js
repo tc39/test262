@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.7-5-b-193
 description: >
     Object.defineProperties - 'get' property of 'descObj' is own data
     property (8.10.5 step 7.a)

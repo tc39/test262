@@ -9,6 +9,7 @@ info: >
     Step 4 of defineProperty calls the [[DefineOwnProperty]] internal method
     of O to define the property. For non-configurable properties, step 10.a.i
     of [[DefineOwnProperty]] rejects if relaxing the [[Writable]] attribute.
+es5id: 15.2.3.6-4-16
 description: >
     Object.defineProperty throws TypeError when relaxing [[Writable]]
     on non-configurable data properties

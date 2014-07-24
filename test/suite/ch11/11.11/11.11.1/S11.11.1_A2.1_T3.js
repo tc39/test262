@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x && y uses GetValue
+es5id: 11.11.1_A2.1_T3
 description: >
     If ToBoolean(x) is true and GetBase(y) is null, throw
     ReferenceError

@@ -3,6 +3,7 @@
 
 /*---
 info: Operator x * y returns ToNumber(x) * ToNumber(y)
+es5id: 11.5.1_A3_T2.9
 description: >
     Type(x) is different from Type(y) and both types vary between
     Boolean (primitive or object) and Null

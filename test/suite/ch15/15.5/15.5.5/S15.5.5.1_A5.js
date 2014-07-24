@@ -3,6 +3,7 @@
 
 /*---
 info: Once a String object is created, the length property is unchanging
+es5id: 15.5.5.1_A5
 description: >
     Change valueOf and toString of String object and check length
     property

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-2-4
 description: >
     Array.prototype.lastIndexOf when 'length' is own data property
     that overrides an inherited data property on an Array

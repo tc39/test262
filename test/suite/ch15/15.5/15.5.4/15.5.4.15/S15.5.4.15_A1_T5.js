@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.substring (start, end)
+es5id: 15.5.4.15_A1_T5
 description: >
     Arguments are null and Function(), and instance is function
     object, that have overrided valueOf function

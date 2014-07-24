@@ -5,6 +5,7 @@
 info: >
     RegularExpressionChar :: BackslashSequence :: \NonTerminator,
     RegularExpressionFlags :: [empty]
+es5id: 7.8.5_A2.4_T1
 description: Check similar to (/a\1/.source === "a\\1")
 ---*/
 

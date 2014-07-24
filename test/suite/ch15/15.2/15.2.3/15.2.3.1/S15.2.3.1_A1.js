@@ -3,6 +3,7 @@
 
 /*---
 info: The Object.prototype property has the attribute ReadOnly
+es5id: 15.2.3.1_A1
 description: Checking if varying "Object.prototype" property fails
 ---*/
 

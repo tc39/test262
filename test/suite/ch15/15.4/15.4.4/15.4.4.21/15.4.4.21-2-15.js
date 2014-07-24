@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.21-2-15
 description: Array.prototype.reduce - 'length' is property of the global object
 includes:
     - runTestCase.js

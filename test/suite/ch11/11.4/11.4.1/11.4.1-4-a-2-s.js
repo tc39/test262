@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 11.4.1-4-a-2-s
 description: >
     Strict Mode - TypeError is thrown when deleting non-configurable
     accessor property

@@ -3,6 +3,7 @@
 
 /*---
 info: Empty string has type string
+es5id: 8.4_A2
 description: Create empty string and check it type
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: The length property of slice is 2
+es5id: 15.4.4.10_A5.4
 description: slice.length === 2
 ---*/
 

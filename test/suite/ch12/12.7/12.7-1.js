@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 12.7-1
 description: >
     The continue Statement - a continue statement without an
     identifier may have a LineTerminator before the semi-colon

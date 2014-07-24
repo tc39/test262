@@ -3,6 +3,7 @@
 
 /*---
 info: Only constructor call (with "new" keyword) makes instance
+es5id: 11.8.6_A4_T1
 description: Checking Boolean case
 ---*/
 

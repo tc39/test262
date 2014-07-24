@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 10.6-14-b-1-s
 description: >
     Strict Mode - [[Enumerable]] attribute value in 'caller' is false
     under strict mode

@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-113
 description: >
     Object.defineProperty - 'name' and 'desc' are accessor properties,
     name.enumerable and desc.enumerable are different values (8.12.9

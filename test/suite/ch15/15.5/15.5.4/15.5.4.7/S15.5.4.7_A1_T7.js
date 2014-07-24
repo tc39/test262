@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.indexOf(searchString, position)
+es5id: 15.5.4.7_A1_T7
 description: >
     Call indexOf(searchString, position) function with undefined
     argument of string object

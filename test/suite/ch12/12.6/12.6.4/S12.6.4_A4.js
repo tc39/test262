@@ -5,6 +5,7 @@
 info: >
     The production IterationStatement: "for (var VariableDeclarationNoIn in
     Expression) Statement"
+es5id: 12.6.4_A4
 description: Using Object as an Expression is appropriate. Eval is used
 ---*/
 

@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.search (regexp)
+es5id: 15.5.4.12_A1_T1
 description: Argument is true, and instance is object
 ---*/
 

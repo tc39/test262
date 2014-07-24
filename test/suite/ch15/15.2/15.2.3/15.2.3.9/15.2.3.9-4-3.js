@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.9-4-3
 description: Object.freeze - the extensions of 'O' is prevented already
 includes: [runTestCase.js]
 ---*/

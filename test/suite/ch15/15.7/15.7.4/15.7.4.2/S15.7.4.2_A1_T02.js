@@ -6,6 +6,7 @@ info: >
     toString: If radix is the number 10 or undefined, then this
     number value is given as an argument to the ToString operator.
     the resulting string value is returned
+es5id: 15.7.4.2_A1_T02
 description: radix is 10
 ---*/
 

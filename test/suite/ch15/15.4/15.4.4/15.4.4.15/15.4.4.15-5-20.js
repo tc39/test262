@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.4.4.15-5-20
 description: >
     Array.prototype.lastIndexOf - value of 'fromIndex' which is a
     string containing a number with leading zeros

@@ -3,6 +3,7 @@
 
 /*---
 info: "\"{}\" Block within a \"while\" Expression is evaluated to true"
+es5id: 12.6.2_A11
 description: Checking if execution of "while({}){}" passes
 ---*/
 

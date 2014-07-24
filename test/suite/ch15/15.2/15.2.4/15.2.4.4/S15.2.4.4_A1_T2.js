@@ -3,6 +3,7 @@
 
 /*---
 info: The valueOf method returns its "this" value
+es5id: 15.2.4.4_A1_T2
 description: "\"this\" value is a boolean"
 ---*/
 

@@ -5,6 +5,7 @@
 info: >
     Evaluate the production ObjectLiteral: { PropertyName :
     AssignmentExpression }
+es5id: 11.1.5_A2
 description: Creating property "prop" of various types(boolean, number and etc.)
 ---*/
 

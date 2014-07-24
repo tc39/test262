@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.2.3.6-4-55
 description: >
     Object.defineProperty - 'name' property doesn't exist in 'O', test
     [[Enumerable]] of 'name' property of 'Attributes' is set as false

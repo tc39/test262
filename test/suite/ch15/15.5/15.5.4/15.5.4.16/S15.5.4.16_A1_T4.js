@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.toLowerCase()
+es5id: 15.5.4.16_A1_T4
 description: >
     Call toLowerCase() function without arguments of string and from
     empty string

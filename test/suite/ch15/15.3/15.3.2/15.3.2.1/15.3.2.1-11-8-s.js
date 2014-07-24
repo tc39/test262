@@ -5,6 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
+es5id: 15.3.2.1-11-8-s
 description: >
     Strict Mode - SyntaxError is not thrown if a function is created
     using a Function constructor that has two identical parameters,

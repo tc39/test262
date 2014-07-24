@@ -3,6 +3,7 @@
 
 /*---
 info: String.prototype.slice (start, end) can be applied to object instances
+es5id: 15.5.4.13_A3_T1
 description: Apply String.prototype.slice to Object instance
 ---*/
 

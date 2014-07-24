@@ -3,6 +3,7 @@
 
 /*---
 info: Number.NEGATIVE_INFINITY is ReadOnly
+es5id: 15.7.3.5_A2
 description: Checking if varying Number.NEGATIVE_INFINITY fails
 ---*/
 
