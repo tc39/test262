@@ -11,8 +11,13 @@
  */
 
 //CHECK#1
-if(Number.prototype.toString(undefined) !== "0"){
-  $ERROR('#1: Number.prototype.toString(undefined) === "0"');
+try {
+  Number.prototype.toString(undefined);
+  $FAIL('#1: "Number.prototype.toString(undefined);" lead to throwing exception. Actual: '+Number.prototype.toString(undefined));
+} catch (e) {
+  if (!(e instanceof TypeError)) {
+    $ERROR('#1.1: "Number.prototype.toString(undefined)" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
+  }
 }
 
 //CHECK#2

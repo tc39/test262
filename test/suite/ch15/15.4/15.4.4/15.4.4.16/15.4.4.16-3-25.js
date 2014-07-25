@@ -5,7 +5,7 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.4/15.4.4/15.4.4.16/15.4.4.16-3-25.js
- * @description Array.prototype.every - value of 'length' is a negative non-integer, ensure truncation occurs in the proper direction
+ * @description Array.prototype.every - value of 'length' is a negative non-integer
  */
 
 
@@ -26,6 +26,6 @@ function testcase() {
         };
 
         return Array.prototype.every.call(obj, callbackfn1) &&
-            !Array.prototype.every.call(obj, callbackfn2);
+            Array.prototype.every.call(obj, callbackfn2);
     }
 runTestCase(testcase);

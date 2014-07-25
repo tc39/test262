@@ -5,11 +5,11 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.10/15.10.7/15.10.7.5/15.10.7.5-1.js
- * @description RegExp.prototype.lastIndex is of type Number
+ * @description RegExp.prototype.lastIndex is of type Undefined
  */
 
 
 function testcase() {
-  return (typeof(RegExp.prototype.lastIndex)) === 'number';
+  return (typeof(RegExp.prototype.lastIndex)) === 'undefined';
  }
 runTestCase(testcase);

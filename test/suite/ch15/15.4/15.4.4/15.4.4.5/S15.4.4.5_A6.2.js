@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * The length property of join has the attribute DontDelete
+ * The length property of join does not have the attribute DontDelete
  *
  * @path ch15/15.4/15.4.4/15.4.4.5/S15.4.4.5_A6.2.js
  * @description Checking use hasOwnProperty, delete
@@ -17,8 +17,8 @@ if (Array.prototype.join.hasOwnProperty('length') !== true) {
 delete Array.prototype.join.length;
  
 //CHECK#2
-if (Array.prototype.join.hasOwnProperty('length') !== true) {
-  $ERROR('#2: delete Array.prototype.join.length; Array.prototype.join.hasOwnProperty(\'length\') === true. Actual: ' + (Array.prototype.join.hasOwnProperty('length')));
+if (Array.prototype.join.hasOwnProperty('length') !== false) {
+  $ERROR('#2: delete Array.prototype.join.length; Array.prototype.join.hasOwnProperty(\'length\') === false. Actual: ' + (Array.prototype.join.hasOwnProperty('length')));
 }
 
 //CHECK#3

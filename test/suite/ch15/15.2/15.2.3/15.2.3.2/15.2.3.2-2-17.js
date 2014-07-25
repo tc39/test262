@@ -10,7 +10,7 @@
 
 
 function testcase() {
-  if (Object.getPrototypeOf(URIError) === Function.prototype) {
+  if (Object.getPrototypeOf(URIError) === Error) {
     return true;
   }
  }

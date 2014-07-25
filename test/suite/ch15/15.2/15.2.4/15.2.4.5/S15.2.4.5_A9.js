@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * The Object.prototype.hasOwnProperty.length property has the attribute DontDelete
+ * The Object.prototype.hasOwnProperty.length property does not have the attribute DontDelete
  *
  * @path ch15/15.2/15.2.4/15.2.4.5/S15.2.4.5_A9.js
  * @description Checking if deleting the Object.prototype.hasOwnProperty.length property fails
@@ -14,12 +14,12 @@ if (!(Object.prototype.hasOwnProperty.hasOwnProperty('length'))) {
 }
 
 //CHECK#1
-if (delete Object.prototype.hasOwnProperty.length) {
-  $ERROR('#1: The Object.prototype.hasOwnProperty.length property has the attributes DontDelete');
+if (!delete Object.prototype.hasOwnProperty.length) {
+  $ERROR('#1: The Object.prototype.hasOwnProperty.length property does not have the attributes DontDelete');
 }
 
 //CHECK#2
-if (!(Object.prototype.hasOwnProperty.hasOwnProperty('length'))) {
-  $FAIL('#2: The Object.prototype.hasOwnProperty.length property has the attributes DontDelete');
+if (Object.prototype.hasOwnProperty.hasOwnProperty('length')) {
+  $FAIL('#2: The Object.prototype.hasOwnProperty.length property does not have the attributes DontDelete');
 }
 

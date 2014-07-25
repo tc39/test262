@@ -35,7 +35,7 @@ if (typeof String.prototype.toLowerCase !== "function")  $ERROR('#23: typeof Str
 if (typeof String.prototype['toLowerCase'] !== "function")  $ERROR('#24: typeof String.prototype["toLowerCase"] === "function". Actual: ' + (typeof String.prototype["toLowerCase"] ));
 if (typeof String.prototype.toUpperCase !== "function")  $ERROR('#25: typeof String.prototype.toUpperCase === "function". Actual: ' + (typeof String.prototype.toUpperCase ));
 if (typeof String.prototype['toUpperCase'] !== "function")  $ERROR('#26: typeof Array.prototype === "object". Actual: ' + (typeof Array.prototype ));
-if (typeof String.prototype.length  !== "number")  $ERROR('#27: typeof String.prototype.length === "number". Actual: ' + (typeof String.prototype.length ));
-if (typeof String.prototype['length']  !== "number")  $ERROR('#28: typeof String.prototype["length"] === "number". Actual: ' + (typeof String.prototype["length"] ));
+if (typeof String.prototype.length  !== "undefined")  $ERROR('#27: typeof String.prototype.length === "undefined". Actual: ' + (typeof String.prototype.length ));
+if (typeof String.prototype['length']  !== "undefined")  $ERROR('#28: typeof String.prototype["length"] === "undefined". Actual: ' + (typeof String.prototype["length"] ));
 
 

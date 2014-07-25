@@ -5,11 +5,18 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.10/15.10.7/15.10.7.1/15.10.7.1-1.js
- * @description RegExp.prototype.source is of type String
+ * @description RegExp.prototype.source is a non-generic accessor property
  */
 
 
 function testcase() {
-  return (typeof(RegExp.prototype.source)) === 'string';
- }
+  try {
+    RegExp.prototype.source;
+  } catch (e) {
+    if (e instanceof TypeError) {
+      return true;
+    }
+  }
+  return false;
+}
 runTestCase(testcase);

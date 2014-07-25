@@ -30,6 +30,6 @@ function testcase() {
             delete fun.length;
             verifyConfigurable = fun.hasOwnProperty("length");
 
-            return verifyValue && !verifyWritable && !verifyEnumerable && verifyConfigurable;
+            return verifyValue && !verifyWritable && !verifyEnumerable && !verifyConfigurable;
         }
 runTestCase(testcase);

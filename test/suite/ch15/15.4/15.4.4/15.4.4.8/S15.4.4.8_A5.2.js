@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * The length property of reverse has the attribute DontDelete
+ * The length property of reverse does not have the attribute DontDelete
  *
  * @path ch15/15.4/15.4.4/15.4.4.8/S15.4.4.8_A5.2.js
  * @description Checking use hasOwnProperty, delete
@@ -17,8 +17,8 @@ if (Array.prototype.reverse.hasOwnProperty('length') !== true) {
 delete Array.prototype.reverse.length;
 
 //CHECK#2
-if (Array.prototype.reverse.hasOwnProperty('length') !== true) {
-  $ERROR('#2: delete Array.prototype.reverse.length; Array.prototype.reverse.hasOwnProperty(\'length\') === true. Actual: ' + (Array.prototype.reverse.hasOwnProperty('length')));
+if (Array.prototype.reverse.hasOwnProperty('length') !== false) {
+  $ERROR('#2: delete Array.prototype.reverse.length; Array.prototype.reverse.hasOwnProperty(\'length\') === false. Actual: ' + (Array.prototype.reverse.hasOwnProperty('length')));
 }
 
 //CHECK#3

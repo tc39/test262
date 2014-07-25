@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * The length property of splice has the attribute DontDelete
+ * The length property of splice does not have the attribute DontDelete
  *
  * @path ch15/15.4/15.4.4/15.4.4.12/S15.4.4.12_A5.2.js
  * @description Checking use hasOwnProperty, delete
@@ -17,8 +17,8 @@ if (Array.prototype.splice.hasOwnProperty('length') !== true) {
 delete Array.prototype.splice.length;
 
 //CHECK#2
-if (Array.prototype.splice.hasOwnProperty('length') !== true) {
-  $ERROR('#2: delete Array.prototype.splice.length; Array.prototype.splice.hasOwnProperty(\'length\') === true. Actual: ' + (Array.prototype.splice.hasOwnProperty('length')));
+if (Array.prototype.splice.hasOwnProperty('length') !== false) {
+  $ERROR('#2: delete Array.prototype.splice.length; Array.prototype.splice.hasOwnProperty(\'length\') === false. Actual: ' + (Array.prototype.splice.hasOwnProperty('length')));
 }
 
 //CHECK#3

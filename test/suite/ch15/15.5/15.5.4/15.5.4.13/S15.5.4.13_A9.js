@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * The String.prototype.slice.length property has the attribute DontDelete
+ * The String.prototype.slice.length property does not have the attribute DontDelete
  *
  * @path ch15/15.5/15.5.4/15.5.4.13/S15.5.4.13_A9.js
  * @description Checking if deleting the String.prototype.slice.length property fails
@@ -18,16 +18,16 @@ if (!(String.prototype.slice.hasOwnProperty('length'))) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (delete String.prototype.slice.length) {
-  $ERROR('#1: delete String.prototype.slice.length return false');
+if (!delete String.prototype.slice.length) {
+  $ERROR('#1: delete String.prototype.slice.length return true');
 }
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (!(String.prototype.slice.hasOwnProperty('length'))) {
-  $FAIL('#2: delete String.prototype.slice.length; String.prototype.slice.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.slice.hasOwnProperty('length'));
+if (String.prototype.slice.hasOwnProperty('length')) {
+  $FAIL('#2: delete String.prototype.slice.length; String.prototype.slice.hasOwnProperty(\'length\') return false. Actual: '+String.prototype.slice.hasOwnProperty('length'));
 }
 //
 //////////////////////////////////////////////////////////////////////////////

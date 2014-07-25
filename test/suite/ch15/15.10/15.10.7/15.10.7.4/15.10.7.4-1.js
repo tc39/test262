@@ -5,11 +5,18 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.10/15.10.7/15.10.7.4/15.10.7.4-1.js
- * @description RegExp.prototype.multiline is of type Boolean
+ * @description RegExp.prototype.multiline is a non-generic accessor property
  */
 
 
 function testcase() {
-  return (typeof(RegExp.prototype.multiline)) === 'boolean';
- }
+  try {
+    RegExp.prototype.multiline;
+  } catch (e) {
+    if (e instanceof TypeError) {
+      return true;
+    }
+  }
+  return false;
+}
 runTestCase(testcase);

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * The length property of isFinite has the attribute DontDelete
+ * The length property of isFinite does not have the attribute DontDelete
  *
  * @path ch15/15.1/15.1.2/15.1.2.5/S15.1.2.5_A2.2.js
  * @description Checking use hasOwnProperty, delete
@@ -17,8 +17,8 @@ if (isFinite.hasOwnProperty('length') !== true) {
 delete isFinite.length;
 
 //CHECK#2
-if (isFinite.hasOwnProperty('length') !== true) {
-  $ERROR('#2: delete isFinite.length; isFinite.hasOwnProperty(\'length\') === true. Actual: ' + (isFinite.hasOwnProperty('length')));
+if (isFinite.hasOwnProperty('length') !== false) {
+  $ERROR('#2: delete isFinite.length; isFinite.hasOwnProperty(\'length\') === false. Actual: ' + (isFinite.hasOwnProperty('length')));
 }
 
 //CHECK#3

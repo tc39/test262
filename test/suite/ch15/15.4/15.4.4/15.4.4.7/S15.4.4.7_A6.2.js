@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * The length property of push has the attribute DontDelete
+ * The length property of push does not have the attribute DontDelete
  *
  * @path ch15/15.4/15.4.4/15.4.4.7/S15.4.4.7_A6.2.js
  * @description Checking use hasOwnProperty, delete
@@ -17,8 +17,8 @@ if (Array.prototype.push.hasOwnProperty('length') !== true) {
 delete Array.prototype.push.length;
 
 //CHECK#2
-if (Array.prototype.push.hasOwnProperty('length') !== true) {
-  $ERROR('#2: delete Array.prototype.push.length; Array.prototype.push.hasOwnProperty(\'length\') === true. Actual: ' + (Array.prototype.push.hasOwnProperty('length')));
+if (Array.prototype.push.hasOwnProperty('length') !== false) {
+  $ERROR('#2: delete Array.prototype.push.length; Array.prototype.push.hasOwnProperty(\'length\') === false. Actual: ' + (Array.prototype.push.hasOwnProperty('length')));
 }
 
 //CHECK#3

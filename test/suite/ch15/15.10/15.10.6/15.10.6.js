@@ -5,12 +5,12 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.10/15.10.6/15.10.6.js
- * @description RegExp.prototype is itself a RegExp
+ * @description RegExp.prototype is itself a not RegExp
  */
 
 
 function testcase() {
   var s = Object.prototype.toString.call(RegExp.prototype);
-  return s === '[object RegExp]';
+  return s === '[object Object]';
  }
 runTestCase(testcase);

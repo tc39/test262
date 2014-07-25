@@ -5,9 +5,11 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch12/12.14/12.14-2.js
- * @description catch doesn't change declaration scope - var initializer in catch with same name as catch parameter changes parameter
+ * @description var initializer in catch with same name as catch parameter is a SyntaxError
+ * @negative ^((?!NotEarlyError).)*$
  */
 
+throw NotEarlyError;
 
 function testcase() {
   function capturedFoo() {return foo};

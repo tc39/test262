@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * The length property of eval has the attribute DontDelete
+ * The length property of eval does not have the attribute DontDelete
  *
  * @path ch15/15.1/15.1.2/15.1.2.1/S15.1.2.1_A4.2.js
  * @description Checking use hasOwnProperty, delete
@@ -16,8 +16,8 @@ if (eval.hasOwnProperty('length') !== true) {
 delete eval.length;
 
 //CHECK#2
-if (eval.hasOwnProperty('length') !== true) {
-  $ERROR('#2: delete eval.length; eval.hasOwnProperty(\'length\') === true. Actual: ' + (eval.hasOwnProperty('length')));
+if (eval.hasOwnProperty('length') !== false) {
+  $ERROR('#2: delete eval.length; eval.hasOwnProperty(\'length\') === false. Actual: ' + (eval.hasOwnProperty('length')));
 }
 
 //CHECK#3

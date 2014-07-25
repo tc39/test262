@@ -9,8 +9,13 @@
  */
 
 //CHECK#1
-if(Boolean.prototype.valueOf(true) !== false){
-  $ERROR('#1: Boolean.prototype.valueOf(true) === false');
+try {
+  (Boolean.prototype.valueOf(true) !== false);
+  $FAIL('#1: "(Boolean.prototype.valueOf(true) !== false);" lead to throwing exception. Actual: '+(Boolean.prototype.valueOf(true) !== false));
+} catch (e) {
+  if (!(e instanceof TypeError)) {
+    $ERROR('#1.1: "(Boolean.prototype.valueOf(true) !== false)" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
+  }
 }
 
 //CHECK#2

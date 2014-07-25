@@ -14,7 +14,8 @@
 function f1() {
     function f() {
         "use strict";
-        return gNonStrict();
+        var r = gNonStrict();
+        return r;
     }
     return f();
 }

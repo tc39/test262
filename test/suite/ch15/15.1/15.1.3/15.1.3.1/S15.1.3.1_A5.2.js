@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * The length property of decodeURI has the attribute DontDelete
+ * The length property of decodeURI does not have the attribute DontDelete
  *
  * @path ch15/15.1/15.1.3/15.1.3.1/S15.1.3.1_A5.2.js
  * @description Checking use hasOwnProperty, delete
@@ -17,8 +17,8 @@ if (decodeURI.hasOwnProperty('length') !== true) {
 delete decodeURI.length;
 
 //CHECK#2
-if (decodeURI.hasOwnProperty('length') !== true) {
-  $ERROR('#2: delete decodeURI.length; decodeURI.hasOwnProperty(\'length\') === true. Actual: ' + (decodeURI.hasOwnProperty('length')));
+if (decodeURI.hasOwnProperty('length') !== false) {
+  $ERROR('#2: delete decodeURI.length; decodeURI.hasOwnProperty(\'length\') === false. Actual: ' + (decodeURI.hasOwnProperty('length')));
 }
 
 //CHECK#3

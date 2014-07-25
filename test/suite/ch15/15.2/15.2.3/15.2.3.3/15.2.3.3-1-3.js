@@ -5,15 +5,12 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.2/15.2.3/15.2.3.3/15.2.3.3-1-3.js
- * @description Object.getOwnPropertyDescriptor - TypeError is thrown when first param is a boolean
+ * @description Object.getOwnPropertyDescriptor - TypeError is not thrown when first param is a boolean
  */
 
 
 function testcase() {
-        try {
-            Object.getOwnPropertyDescriptor(true, "foo");
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
+    Object.getOwnPropertyDescriptor(true, "foo");
+    return true;
+}
 runTestCase(testcase);

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * Check ToUint32(length) for non Array objects
+ * Check ToLength(length) for non Array objects
  *
  * @path ch15/15.4/15.4.4/15.4.4.7/S15.4.4.7_A4_T2.js
  * @description length = 4294967295

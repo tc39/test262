@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * The length property of toLocaleString has the attribute DontDelete
+ * The length property of toLocaleString does not have the attribute DontDelete
  *
  * @path ch15/15.4/15.4.4/15.4.4.3/S15.4.4.3_A4.2.js
  * @description Checking use hasOwnProperty, delete
@@ -16,8 +16,8 @@ if (Array.prototype.toLocaleString.hasOwnProperty('length') !== true) {
 delete Array.prototype.toLocaleString.length;
 
 //CHECK#2
-if (Array.prototype.toLocaleString.hasOwnProperty('length') !== true) {
-  $ERROR('#2: delete Array.prototype.toLocaleString.length; Array.prototype.toLocaleString.hasOwnProperty(\'length\') === true. Actual: ' + (Array.prototype.toLocaleString.hasOwnProperty('length')));
+if (Array.prototype.toLocaleString.hasOwnProperty('length') !== false) {
+  $ERROR('#2: delete Array.prototype.toLocaleString.length; Array.prototype.toLocaleString.hasOwnProperty(\'length\') === false. Actual: ' + (Array.prototype.toLocaleString.hasOwnProperty('length')));
 }
 
 //CHECK#3

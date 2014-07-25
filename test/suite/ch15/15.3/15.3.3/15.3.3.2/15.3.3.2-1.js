@@ -15,7 +15,7 @@ function testcase() {
   if(desc.value === 1 &&
      desc.writable === false &&
      desc.enumerable === false &&
-     desc.configurable === false)
+     desc.configurable === true)
     return true; 
 
  }

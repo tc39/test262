@@ -5,15 +5,12 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.2/15.2.3/15.2.3.12/15.2.3.12-1-4.js
- * @description Object.isFrozen - TypeError is thrown when the first param 'O' is a string
+ * @description Object.isFrozen - TypeError is not thrown when the first param 'O' is a string
  */
 
 
 function testcase() {
-        try {
-            Object.isFrozen("abc");
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
+    Object.isFrozen("abc");
+    return true;
+}
 runTestCase(testcase);

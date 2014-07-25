@@ -5,7 +5,7 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.2/15.2.3/15.2.3.7/15.2.3.7-6-a-93-3.js
- * @description Object.defineProperties will fail to update [[Value]] attribute of named data property 'P' when [[Configurable]] attribute of first updating property is false  (8.12.9 - step Note & 10.a.ii.1)
+ * @description Object.defineProperties will not fail to update [[Value]] attribute of named data property 'P' when [[Configurable]] attribute of first updating property is false  (8.12.9 - step Note & 10.a.ii.1)
  */
 
 
@@ -39,7 +39,7 @@ function testcase() {
         } catch (e) {
             return e instanceof TypeError &&
                 dataPropertyAttributesAreCorrect(obj, "property", 1001, false, false, false) &&
-                dataPropertyAttributesAreCorrect(obj, "property1", 1003, false, false, true);
+                dataPropertyAttributesAreCorrect(obj, "property1", 1004, false, false, true);
         }
     }
 runTestCase(testcase);

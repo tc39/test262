@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * The Object.prototype.propertyIsEnumerable.length property has the attribute DontDelete
+ * The Object.prototype.propertyIsEnumerable.length property does not have the attribute DontDelete
  *
  * @path ch15/15.2/15.2.4/15.2.4.7/S15.2.4.7_A9.js
  * @description Checking if deleting the Object.prototype.propertyIsEnumerable.length property fails
@@ -14,8 +14,8 @@ if (!(Object.prototype.propertyIsEnumerable.hasOwnProperty('length'))) {
 }
 
 //CHECK#1
-if (delete Object.prototype.propertyIsEnumerable.length) {
-  $ERROR('#1: The Object.prototype.propertyIsEnumerable.length property has the attributes DontDelete');
+if (!delete Object.prototype.propertyIsEnumerable.length) {
+  $ERROR('#1: The Object.prototype.propertyIsEnumerable.length property does not have the attributes DontDelete');
 }
 //
 

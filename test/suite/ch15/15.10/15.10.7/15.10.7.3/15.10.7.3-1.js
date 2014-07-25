@@ -5,11 +5,18 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.10/15.10.7/15.10.7.3/15.10.7.3-1.js
- * @description RegExp.prototype.ignoreCase is of type Boolean
+ * @description RegExp.prototype.ignoreCase is a non-generic accessor property
  */
 
 
 function testcase() {
-  return (typeof(RegExp.prototype.ignoreCase)) === 'boolean';
- }
+  try {
+    RegExp.prototype.ignoreCase;
+  } catch (e) {
+    if (e instanceof TypeError) {
+      return true;
+    }
+  }
+  return false;
+}
 runTestCase(testcase);

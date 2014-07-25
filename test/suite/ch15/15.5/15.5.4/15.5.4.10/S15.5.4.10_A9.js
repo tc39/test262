@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /**
- * The String.prototype.match.length property has the attribute DontDelete
+ * The String.prototype.match.length property does not have the attribute DontDelete
  *
  * @path ch15/15.5/15.5.4/15.5.4.10/S15.5.4.10_A9.js
  * @description Checking if deleting the String.prototype.match.length property fails
@@ -18,16 +18,16 @@ if (!(String.prototype.match.hasOwnProperty('length'))) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (delete String.prototype.match.length) {
-  $ERROR('#1: delete String.prototype.match.length return false');
+if (!delete String.prototype.match.length) {
+  $ERROR('#1: delete String.prototype.match.length return true');
 }
 //
 //////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-if (!(String.prototype.match.hasOwnProperty('length'))) {
-  $FAIL('#2: delete String.prototype.match.length; String.prototype.match.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.match.hasOwnProperty('length'));
+if (String.prototype.match.hasOwnProperty('length')) {
+  $FAIL('#2: delete String.prototype.match.length; String.prototype.match.hasOwnProperty(\'length\') return false. Actual: '+String.prototype.match.hasOwnProperty('length'));
 }
 //
 //////////////////////////////////////////////////////////////////////////////
