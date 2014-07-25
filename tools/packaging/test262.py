@@ -257,8 +257,6 @@ class TestCase(object):
       source = '"use strict";\nvar strict_mode = true;\n' + source
     else:
       source =  "var strict_mode = false; \n" + source
-    with open('/tmp/foo.js', 'a') as fd:
-      fd.write(source)
     return source
 
   def InstantiateTemplate(self, template, params):
