@@ -1,12 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Tangent is a periodic function with period PI
- *
- * @path ch15/15.8/15.8.2/15.8.2.18/S15.8.2.18_A6.js
- * @description Checking if Math.tan(x) equals to Math.tan(x+n*Math.PI) with precision 0.000000000003, where n is an integer from 1 to 100 and x is one of 10 float point values from 0 to Math.PI
- */
+/*---
+info: Tangent is a periodic function with period PI
+es5id: 15.8.2.18_A6
+description: >
+    Checking if Math.tan(x) equals to Math.tan(x+n*Math.PI) with
+    precision 0.000000000003, where n is an integer from 1 to 100 and
+    x is one of 10 float point values from 0 to Math.PI
+includes: [$FAIL.js]
+---*/
 
 // CHECK#1
   prec = 0.00000000003;
@@ -43,4 +46,3 @@ for (i = 0; i < snum; i++)
 		}
 	}
 }
-

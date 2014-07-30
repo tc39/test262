@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * toString: radix should be an integer between 2 and 36
- *
- * @path ch15/15.7/15.7.4/15.7.4.2/S15.7.4.2_A3_T01.js
- * @description radix is 1
- */
+/*---
+info: "toString: radix should be an integer between 2 and 36"
+es5id: 15.7.4.2_A3_T01
+description: radix is 1
+---*/
 
 //CHECK#1
 try{
@@ -71,4 +70,3 @@ try{
 }
 catch(e){
 }
-

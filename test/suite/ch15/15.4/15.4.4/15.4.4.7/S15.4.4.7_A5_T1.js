@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * [[Get]] from not an inherited property
- *
- * @path ch15/15.4/15.4.4/15.4.4.7/S15.4.4.7_A5_T1.js
- * @description [[Prototype]] of Array instance is Array.prototype, [[Prototype] of Array.prototype is Object.prototype
- */
+/*---
+info: "[[Get]] from not an inherited property"
+es5id: 15.4.4.7_A5_T1
+description: >
+    [[Prototype]] of Array instance is Array.prototype, [[Prototype]
+    of Array.prototype is Object.prototype
+---*/
 
 Object.prototype[1] = -1;
 Object.prototype.length = 1;
@@ -40,5 +41,3 @@ delete x.length;
 if (x.length !== 1) {  
   $ERROR('#5: Object.prototype[1] = 1; Object.prototype.length = -1; Object.prototype.push = Array.prototype.push; x = {0:0}; delete x; x.push(1); x.length === 1. Actual: ' + (x.length));    
 }
-
-

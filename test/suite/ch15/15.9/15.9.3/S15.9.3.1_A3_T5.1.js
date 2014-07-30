@@ -1,13 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The [[Class]] property of the newly constructed object
- * is set to "Date"
- *
- * @path ch15/15.9/15.9.3/S15.9.3.1_A3_T5.1.js
- * @description 6 arguments, (year, month, date, hours, minutes, seconds)
- */
+/*---
+info: >
+    The [[Class]] property of the newly constructed object
+    is set to "Date"
+es5id: 15.9.3.1_A3_T5.1
+description: 6 arguments, (year, month, date, hours, minutes, seconds)
+includes: [$FAIL.js]
+---*/
 
 var x1 = new Date(1899, 11, 31, 23, 59, 59);
 if (Object.prototype.toString.call(x1) !== "[object Date]") {
@@ -68,4 +69,3 @@ var x12 = new Date(2100, 0, 1, 0, 0, 0);
 if (Object.prototype.toString.call(x12) !== "[object Date]") {
   $FAIL("#12: The [[Class]] property of the newly constructed object is set to 'Date'");
 }
-

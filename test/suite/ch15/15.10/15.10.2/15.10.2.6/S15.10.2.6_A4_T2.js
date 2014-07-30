@@ -1,12 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The production Assertion :: \B evaluates by returning an internal AssertionTester closure that takes a State argument x and performs the ...
- *
- * @path ch15/15.10/15.10.2/15.10.2.6/S15.10.2.6_A4_T2.js
- * @description Execute /[f-z]e\B/.exec("devils arise\tfor\nevil") and check results
- */
+/*---
+info: >
+    The production Assertion :: \B evaluates by returning an internal
+    AssertionTester closure that takes a State argument x and performs the ...
+es5id: 15.10.2.6_A4_T2
+description: >
+    Execute /[f-z]e\B/.exec("devils arise\tfor\nevil") and check
+    results
+---*/
 
 __executed = /[f-z]e\B/.exec("devils arise\tfor\nrevil");
 
@@ -35,5 +38,3 @@ for(var index=0; index<__expected.length; index++) {
 		$ERROR('#4: __executed = /[f-z]e\\B/.exec("devils arise\\tfor\\nrevil"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
 	}
 }
-
-

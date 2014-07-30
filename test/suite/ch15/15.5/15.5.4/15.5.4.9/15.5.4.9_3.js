@@ -1,11 +1,13 @@
 // Copyright 2013 Mozilla Corporation. All rights reserved.
 // This code is governed by the license found in the LICENSE file.
 
-/**
- * @description Tests that String.prototype.localeCompare treats a missing
- *     "that" argument, undefined, and "undefined" as equivalent.
- * @author Norbert Lindenberg
- */
+/*---
+es5id: 15.5.4.9_3
+description: >
+    Tests that String.prototype.localeCompare treats a missing  "that"
+    argument, undefined, and "undefined" as equivalent.
+author: Norbert Lindenberg
+---*/
 
 var thisValues = ["a", "t", "u", "undefined", "UNDEFINED", "nicht definiert", "xyz", "未定义"];
 
@@ -19,4 +21,3 @@ for (i = 0; i < thisValues.length; i++) {
         $ERROR("String.prototype.localeCompare does not treat undefined 'that' argument as \"undefined\".");
     }
 }
-

@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator x % y returns ToNumber(x) % ToNumber(y)
- *
- * @path ch11/11.5/11.5.3/S11.5.3_A3_T2.2.js
- * @description Type(x) is different from Type(y) and both types vary between Number (primitive or object) and String (primitive and object)
- */
+/*---
+info: Operator x % y returns ToNumber(x) % ToNumber(y)
+es5id: 11.5.3_A3_T2.2
+description: >
+    Type(x) is different from Type(y) and both types vary between
+    Number (primitive or object) and String (primitive and object)
+---*/
 
 //CHECK#1
 if ("1" % 1 !== 0) {
@@ -57,4 +58,3 @@ if (isNaN("x" % 1) !== true) {
 if (isNaN(1 % "x") !== true) {
   $ERROR('#10: 1 % "x" === Not-a-Number. Actual: ' + (1 % "x"));
 }
-

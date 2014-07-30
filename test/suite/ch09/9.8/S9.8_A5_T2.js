@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Result of String conversion from Object value is conversion
- * from primitive value
- *
- * @path ch09/9.8/S9.8_A5_T2.js
- * @description Some objects convert to String by implicit transformation
- */
+/*---
+info: >
+    Result of String conversion from Object value is conversion
+    from primitive value
+es5id: 9.8_A5_T2
+description: Some objects convert to String by implicit transformation
+---*/
 
 // CHECK#1
 if (new Number() + "" !== "0") {
@@ -89,4 +89,3 @@ var myobj3 = {
 if (myobj3 + "" !== "[object Object]"){
   $ERROR('#13: myobj3 + "" calls ToPrimitive with hint Number.  Exptected: "[object Object]". Actual: ' + (myobj3 + ""));
 }
-

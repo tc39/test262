@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The production x >>= y is the same as x = x >> y
- *
- * @path ch11/11.13/11.13.2/S11.13.2_A4.7_T2.8.js
- * @description Type(x) is different from Type(y) and both types vary between Boolean (primitive or object) and Undefined
- */
+/*---
+info: The production x >>= y is the same as x = x >> y
+es5id: 11.13.2_A4.7_T2.8
+description: >
+    Type(x) is different from Type(y) and both types vary between
+    Boolean (primitive or object) and Undefined
+---*/
 
 //CHECK#1
 x = true;
@@ -35,4 +36,3 @@ x >>= new Boolean(true);
 if (x !== 0) {
   $ERROR('#4: x = undefined; x >>= new Boolean(true); x === 0. Actual: ' + (x));
 }
-

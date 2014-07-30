@@ -1,16 +1,16 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When the [[Construct]] property for a Function object F is called:
- * A new native ECMAScript object is created.
- * Invoke the [[Call]] property of F, providing just created native ECMAScript object as the this value and providing the argument
- * list passed into [[Construct]] as the argument values.
- * If Type( [[Call]] returned) is not Object then return passed as this into [[Call]] object
- *
- * @path ch13/13.2/S13.2.2_A6_T1.js
- * @description Declaring a function with "__func = function(arg)"
- */
+/*---
+info: >
+    When the [[Construct]] property for a Function object F is called:
+    A new native ECMAScript object is created.
+    Invoke the [[Call]] property of F, providing just created native ECMAScript object as the this value and providing the argument
+    list passed into [[Construct]] as the argument values.
+    If Type( [[Call]] returned) is not Object then return passed as this into [[Call]] object
+es5id: 13.2.2_A6_T1
+description: Declaring a function with "__func = function(arg)"
+---*/
 
 __FOO="fooValue";
 __BAR="barValue";
@@ -38,4 +38,3 @@ if (__obj.bar!==undefined) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

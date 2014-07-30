@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator -x returns -ToNumber(x)
- *
- * @path ch11/11.4/11.4.7/S11.4.7_A3_T3.js
- * @description Type(x) is string primitive or String object
- */
+/*---
+info: Operator -x returns -ToNumber(x)
+es5id: 11.4.7_A3_T3
+description: Type(x) is string primitive or String object
+---*/
 
 //CHECK#1
 if (-"1" !== -1) {
@@ -22,4 +21,3 @@ if (isNaN(-"x") !== true) {
 if (-new String("-1") !== 1) {
   $ERROR('#3: -new String("-1") === 1. Actual: ' + (-new String("-1")));
 }
-

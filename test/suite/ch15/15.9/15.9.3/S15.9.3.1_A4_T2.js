@@ -1,20 +1,20 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The [[Value]] property of the newly constructed object
- * is set by following steps:
- * 1. Call ToNumber(year)
- * 2. Call ToNumber(month)
- * 3. If date is supplied use ToNumber(date)
- * 4. If hours is supplied use ToNumber(hours)
- * 5. If minutes is supplied use ToNumber(minutes)
- * 6. If seconds is supplied use ToNumber(seconds)
- * 7. If ms is supplied use ToNumber(ms)
- *
- * @path ch15/15.9/15.9.3/S15.9.3.1_A4_T2.js
- * @description 3 arguments, (year, month, date)
- */
+/*---
+info: >
+    The [[Value]] property of the newly constructed object
+    is set by following steps:
+    1. Call ToNumber(year)
+    2. Call ToNumber(month)
+    3. If date is supplied use ToNumber(date)
+    4. If hours is supplied use ToNumber(hours)
+    5. If minutes is supplied use ToNumber(minutes)
+    6. If seconds is supplied use ToNumber(seconds)
+    7. If ms is supplied use ToNumber(ms)
+es5id: 15.9.3.1_A4_T2
+description: 3 arguments, (year, month, date)
+---*/
 
 var myObj = function(val){
   this.value = val;
@@ -54,4 +54,3 @@ catch(e){
     $ERROR("#3: The 3rd step is calling ToNumber(date)");
   }
 }
-

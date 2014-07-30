@@ -1,10 +1,10 @@
 // Copyright (c) 2014 Matthew Meyers. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @path
- * @description thisArg should be undefined if not provided
- */
+/*---
+description: thisArg should be undefined if not provided
+flags: [path]
+---*/
 
 var globalThis = this;
 

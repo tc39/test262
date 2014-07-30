@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator x >>> y uses ToUint32(ShiftExpression)
- *
- * @path ch11/11.7/11.7.3/S11.7.3_A5.1_T1.js
- * @description Checking boundary points
- */
+/*---
+info: Operator x >>> y uses ToUint32(ShiftExpression)
+es5id: 11.7.3_A5.1_T1
+description: Checking boundary points
+---*/
 
 //CHECK#1
 if (2147483648.1 >>> 0 !== 2147483648) { 
@@ -56,5 +55,4 @@ if (-4294967296.1 >>> 0 !== 0) {
 //CHECK#10
 if (-6442450944.1 >>> 0 !== 2147483648) { 
   $ERROR('#10: -6442450944.1 >>> 0 === 2147483648. Actual: ' + (-6442450944.1 >>> 0)); 
-} 
-
+}

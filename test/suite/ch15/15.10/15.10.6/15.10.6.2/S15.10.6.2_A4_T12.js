@@ -1,13 +1,16 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * RegExp.prototype.exec behavior depends on global property.
- * If global is true next exec calling start to match from lastIndex position
- *
- * @path ch15/15.10/15.10.6/15.10.6.2/S15.10.6.2_A4_T12.js
- * @description Call first exec, then set re.lastIndex = {toString:function(){return 12;},valueOf:function(){return {};}} and again call exec
- */
+/*---
+info: >
+    RegExp.prototype.exec behavior depends on global property.
+    If global is true next exec calling start to match from lastIndex position
+es5id: 15.10.6.2_A4_T12
+description: >
+    Call first exec, then set re.lastIndex =
+    {toString:function(){return 12;},valueOf:function(){return {};}}
+    and again call exec
+---*/
 
 __re = /(?:ab|cd)\d?/g;
 
@@ -70,5 +73,3 @@ for(var index=0; index<__expected.length; index++) {
 		$ERROR('#8: __re = /(?:ab|cd)\\d?/g; __obj = {toString:function(){return 12;},valueOf:function(){return {};}}; __re.lastIndex = __obj; __executed = __re.exec("aacd2233ab12nm444ab42"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
 	}
 }
-
-

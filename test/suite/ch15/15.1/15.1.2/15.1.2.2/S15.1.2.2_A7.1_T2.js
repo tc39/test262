@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If Z is empty, return NaN
- *
- * @path ch15/15.1/15.1.2/15.1.2.2/S15.1.2.2_A7.1_T2.js
- * @description x is not a radix-R digit
- */
+/*---
+info: If Z is empty, return NaN
+es5id: 15.1.2.2_A7.1_T2
+description: x is not a radix-R digit
+---*/
 
 //CHECK#1
 if (isNaN(parseInt("$0x")) !== true) {
@@ -31,5 +30,4 @@ if (isNaN(parseInt("")) !== true) {
 //CHECK#5
 if (isNaN(parseInt(" ")) !== true) {
   $ERROR('#5: parseInt(" ") === Not-a-Number. Actual: ' + (parseInt(" ")));
-}          
-
+}

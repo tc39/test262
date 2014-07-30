@@ -1,14 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * toString: If this boolean value is true, then the string "true"
- * is returned, otherwise, this boolean value must be false, and the string
- * "false" is returned
- *
- * @path ch15/15.6/15.6.4/S15.6.4.2_A1_T1.js
- * @description no arguments
- */
+/*---
+info: >
+    toString: If this boolean value is true, then the string "true"
+    is returned, otherwise, this boolean value must be false, and the string
+    "false" is returned
+es5id: 15.6.4.2_A1_T1
+description: no arguments
+---*/
 
 //CHECK#1
 if(Boolean.prototype.toString() !== "false"){
@@ -44,4 +44,3 @@ if((new Boolean(0)).toString() !== "false"){
 if((new Boolean(new Object())).toString() !== "true"){
   $ERROR('#7: (new Boolean(new Object())).toString() === "true"');
 }
-

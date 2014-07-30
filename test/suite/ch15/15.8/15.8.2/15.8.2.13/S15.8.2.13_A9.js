@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If abs(x)<1 and y is +Infinity, Math.pow(x,y) is +0
- *
- * @path ch15/15.8/15.8.2/15.8.2.13/S15.8.2.13_A9.js
- * @description Checking if Math.pow(x,y) equals to +0, where abs(x)<1 and y is +Infinity
- */
+/*---
+info: If abs(x)<1 and y is +Infinity, Math.pow(x,y) is +0
+es5id: 15.8.2.13_A9
+description: >
+    Checking if Math.pow(x,y) equals to +0, where abs(x)<1 and y is
+    +Infinity
+---*/
 
 // CHECK#1
 
@@ -27,4 +28,3 @@ for (i = 0; i < xnum; i++)
 		$ERROR("#1: Math.pow(" + x[i] + ", " + y + ") !== +0");
 	}
 }
-

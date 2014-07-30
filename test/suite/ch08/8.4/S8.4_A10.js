@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Both unicode and ascii chars are allowed
- *
- * @path ch08/8.4/S8.4_A10.js
- * @description Create string using both unicode and ascii chars
- */
+/*---
+info: Both unicode and ascii chars are allowed
+es5id: 8.4_A10
+description: Create string using both unicode and ascii chars
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -34,4 +33,3 @@ if (str__ !== "ABCABC"){
 };
 //
 //////////////////////////////////////////////////////////////////////////////
-

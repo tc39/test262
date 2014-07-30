@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * White Space and Line Terminator between "delete" and UnaryExpression are allowed
- *
- * @path ch11/11.4/11.4.1/S11.4.1_A1.js
- * @description Checking by using eval
- */
+/*---
+info: >
+    White Space and Line Terminator between "delete" and UnaryExpression are
+    allowed
+es5id: 11.4.1_A1
+description: Checking by using eval
+---*/
 
 //CHECK#1
 if (eval("delete\u00090") !== true) {
@@ -57,4 +58,3 @@ if (eval("delete\u20290") !== true) {
 if (eval("delete\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u20290") !== true) {
   $ERROR('#10: delete\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u20290 === true');
 }
-

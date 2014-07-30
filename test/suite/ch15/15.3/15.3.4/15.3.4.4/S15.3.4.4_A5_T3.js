@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If thisArg is not null(defined) the called function is passed ToObject(thisArg) as the this value
- *
- * @path ch15/15.3/15.3.4/15.3.4.4/S15.3.4.4_A5_T3.js
- * @description thisArg is string
- */
+/*---
+info: >
+    If thisArg is not null(defined) the called function is passed
+    ToObject(thisArg) as the this value
+es5id: 15.3.4.4_A5_T3
+description: thisArg is string
+---*/
 
 var obj="soap";
 
@@ -21,5 +22,3 @@ if (typeof obj.touched !== "undefined") {
 if (!(retobj["touched"])) {
   $ERROR('#2: If thisArg is not null(defined) the called function is passed ToObject(thisArg) as the this value');
 }
-
-

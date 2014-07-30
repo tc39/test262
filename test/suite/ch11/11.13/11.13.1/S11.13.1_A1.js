@@ -1,13 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * White Space and Line Terminator between LeftHandSideExpression and "=" or between "=" and AssignmentExpression are allowed
- *
- * @path ch11/11.13/11.13.1/S11.13.1_A1.js
- * @description Checking by using eval
- * @noStrict
- */
+/*---
+info: >
+    White Space and Line Terminator between LeftHandSideExpression and "=" or
+    between "=" and AssignmentExpression are allowed
+es5id: 11.13.1_A1
+description: Checking by using eval
+flags: [noStrict]
+---*/
 
 //CHECK#1
 if ((eval("x\u0009=\u0009true")) !== true) {
@@ -59,4 +60,3 @@ if ((eval("x\u2029=\u2029true")) !== true) {
 if ((eval("x\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u2029=\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u2029true")) !== true) {
   $ERROR('#10: (x\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029=\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029true) === true');
 }
-

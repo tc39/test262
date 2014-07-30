@@ -1,14 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The arguments are appended to the end of the array, in
- * the order in which they appear. The new length of the array is returned
- * as the result of the call
- *
- * @path ch15/15.4/15.4.4/15.4.4.7/S15.4.4.7_A1_T2.js
- * @description Checking case when push is given many arguments
- */
+/*---
+info: >
+    The arguments are appended to the end of the array, in
+    the order in which they appear. The new length of the array is returned
+    as the result of the call
+es5id: 15.4.4.7_A1_T2
+description: Checking case when push is given many arguments
+---*/
 
 //CHECK#1
 var x = [];
@@ -57,4 +57,3 @@ if (x[5] !== -1) {
 if (x.length !== 6) {
   $ERROR('#9: x = []; x[0] = 0; x.push(true, Number.POSITIVE_INFINITY, "NaN", "1", -1); x.length === 6. Actual: ' + (x.length));
 }
-

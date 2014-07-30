@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Return true, if x and y are both true or both false; otherwise, return false
- *
- * @path ch11/11.9/11.9.1/S11.9.1_A3.1.js
- * @description x and y are boolean primitives
- */
+/*---
+info: >
+    Return true, if x and y are both true or both false; otherwise, return
+    false
+es5id: 11.9.1_A3.1
+description: x and y are boolean primitives
+---*/
 
 //CHECK#1
 if ((true == true) !== true) {
@@ -27,4 +28,3 @@ if ((true == false) !== false) {
 if ((false == true) !== false) {
   $ERROR('#4: (false == true) === false');
 }
-

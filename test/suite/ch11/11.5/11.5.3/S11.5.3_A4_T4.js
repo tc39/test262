@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The result of a ECMAScript floating-point remainder operation is determined by the rules of IEEE arithmetics
- *
- * @path ch11/11.5/11.5.3/S11.5.3_A4_T4.js
- * @description If the divisor is zero results is NaN
- */
+/*---
+info: >
+    The result of a ECMAScript floating-point remainder operation is
+    determined by the rules of IEEE arithmetics
+es5id: 11.5.3_A4_T4
+description: If the divisor is zero results is NaN
+---*/
 
 //CHECK#1
 if (isNaN(-0 % 0) !== true) {
@@ -87,4 +88,3 @@ if (isNaN(Number.MAX_VALUE % 0) !== true) {
 if (isNaN(Number.MAX_VALUE % -0) !== true) {
   $ERROR('#16: Number.MAX_VALUE % -0 === Not-a-Number. Actual: ' + (Number.MAX_VALUE % -0));
 }
-

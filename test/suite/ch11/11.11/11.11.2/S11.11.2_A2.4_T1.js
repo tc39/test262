@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * First expression is evaluated first, and then second expression
- *
- * @path ch11/11.11/11.11.2/S11.11.2_A2.4_T1.js
- * @description Checking with "="
- */
+/*---
+info: First expression is evaluated first, and then second expression
+es5id: 11.11.2_A2.4_T1
+description: Checking with "="
+---*/
 
 //CHECK#1
 var x = true; 
@@ -19,4 +18,3 @@ var x = true;
 if ((x || (x = false)) !== true) {
   $ERROR('#2: var x = true; (x || (x = false)) === true');
 }
-

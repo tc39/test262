@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * CharacterEscapeSequnce :: NonEscapeSequence
- *
- * @path ch07/7.8/7.8.4/S7.8.4_A4.2_T4.js
- * @description NonEscapeSequence :: ENGLISH SMALL ALPHABET
- */
+/*---
+info: "CharacterEscapeSequnce :: NonEscapeSequence"
+es5id: 7.8.4_A4.2_T4
+description: "NonEscapeSequence :: ENGLISH SMALL ALPHABET"
+---*/
 
 //CHECK#a-z without b, f, n, r, t, v, x, u
 
@@ -82,5 +81,3 @@ if ("y" !== "\y") {
 if ("z" !== "\z") {
   $ERROR('#z');
 }
-
-

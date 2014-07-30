@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The length property of decodeURIComponent has the attribute DontDelete
- *
- * @path ch15/15.1/15.1.3/15.1.3.2/S15.1.3.2_A5.2.js
- * @description Checking use hasOwnProperty, delete
- */
+/*---
+info: The length property of decodeURIComponent has the attribute DontDelete
+es5id: 15.1.3.2_A5.2
+description: Checking use hasOwnProperty, delete
+includes: [$FAIL.js]
+---*/
 
 //CHECK#1
 if (decodeURIComponent.hasOwnProperty('length') !== true) {
@@ -24,7 +24,3 @@ if (decodeURIComponent.hasOwnProperty('length') !== true) {
 if (decodeURIComponent.length === undefined) {
   $ERROR('#3: delete decodeURIComponent.length; decodeURIComponent.length !== undefined');
 }
-
-
-
-

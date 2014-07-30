@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * FunctionExpression within a new statement is admitted
- *
- * @path ch13/13.2/S13.2.2_A16_T2.js
- * @description Using "var __obj = new function __func(arg){this.prop=arg;}(5)" as FunctionExpression
- */
+/*---
+info: FunctionExpression within a new statement is admitted
+es5id: 13.2.2_A16_T2
+description: >
+    Using "var __obj = new function __func(arg){this.prop=arg;}(5)" as
+    FunctionExpression
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -33,4 +34,3 @@ if (typeof __func !== "undefined") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

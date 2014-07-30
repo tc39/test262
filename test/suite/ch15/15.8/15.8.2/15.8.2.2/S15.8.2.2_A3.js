@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If x is less than -1, Math.acos(x) is NaN
- *
- * @path ch15/15.8/15.8.2/15.8.2.2/S15.8.2.2_A3.js
- * @description Checking if Math.acos(x) is NaN, where x is less than -1
- */
+/*---
+info: If x is less than -1, Math.acos(x) is NaN
+es5id: 15.8.2.2_A3
+description: Checking if Math.acos(x) is NaN, where x is less than -1
+---*/
 
 // CHECK#1
 var x = -1.000000000000001;
@@ -28,4 +27,3 @@ if (!isNaN(Math.acos(x)))
 {
 	$ERROR("#3: 'x = -Infinity; isNaN(Math.acos(x)) === false'");
 }
-

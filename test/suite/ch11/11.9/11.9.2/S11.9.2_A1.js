@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * White Space and Line Terminator between EqualityExpression and "!=" or between "!=" and RelationalExpression are allowed
- *
- * @path ch11/11.9/11.9.2/S11.9.2_A1.js
- * @description Checking by using eval
- */
+/*---
+info: >
+    White Space and Line Terminator between EqualityExpression and "!=" or
+    between "!=" and RelationalExpression are allowed
+es5id: 11.9.2_A1
+description: Checking by using eval
+---*/
 
 //CHECK#1
 if (eval("true\u0009!=\u00091") !== false) {
@@ -57,4 +58,3 @@ if (eval("true\u2029!=\u20291") !== false) {
 if (eval("true\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u2029!=\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u20291") !== false) {
   $ERROR('#10: (true\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029!=\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u20291) === false');
 }
-

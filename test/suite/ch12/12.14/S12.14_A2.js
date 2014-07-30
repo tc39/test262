@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Throwing exception with "throw" and catching it with "try" statement
- *
- * @path ch12/12.14/S12.14_A2.js
- * @description Checking if execution of "catch" catches an exception thrown with "throw"
- */
+/*---
+info: Throwing exception with "throw" and catching it with "try" statement
+es5id: 12.14_A2
+description: >
+    Checking if execution of "catch" catches an exception thrown with
+    "throw"
+---*/
 
 // CHECK#1
 try {
@@ -49,4 +50,3 @@ if (x3!==1){
 if (c3!==1){
   $ERROR('#3.3: "finally" block must be evaluated');
 }
-

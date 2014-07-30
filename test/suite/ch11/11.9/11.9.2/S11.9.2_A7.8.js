@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If Type(x) is Object and Type(y) is primitive type,
- * return ToPrimitive(x) != y
- *
- * @path ch11/11.9/11.9.2/S11.9.2_A7.8.js
- * @description x is object, y is primtitive
- */
+/*---
+info: >
+    If Type(x) is Object and Type(y) is primitive type,
+    return ToPrimitive(x) != y
+es5id: 11.9.2_A7.8
+description: x is object, y is primtitive
+---*/
 
 //CHECK#1
 if ((true != {valueOf: function() {return 1}}) !== false) {
@@ -73,4 +73,3 @@ catch (e) {
     $ERROR('#8: (1 != {valueOf: function() {return {}}, toString: function() {return {}}}) throw TypeError');
   } 
 }
-

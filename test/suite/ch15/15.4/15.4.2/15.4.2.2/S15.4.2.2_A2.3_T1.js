@@ -1,14 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If the argument len is not a Number, then the length property of
- * the newly constructed object is set to 1 and the 0 property of
- * the newly constructed object is set to len
- *
- * @path ch15/15.4/15.4.2/15.4.2.2/S15.4.2.2_A2.3_T1.js
- * @description Checking for null and undefined
- */
+/*---
+info: >
+    If the argument len is not a Number, then the length property of
+    the newly constructed object is set to 1 and the 0 property of
+    the newly constructed object is set to len
+es5id: 15.4.2.2_A2.3_T1
+description: Checking for null and undefined
+---*/
 
 var x = new Array(null);
 
@@ -33,4 +33,3 @@ if (x.length !== 1) {
 if (x[0] !== undefined) {
   $ERROR('#4: var x = new Array(undefined); x[0] === undefined. Actual: ' + (x[0]));
 }
-

@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If x is greater or equal than y and these values are both finite non-zero, return true; otherwise, return false
- *
- * @path ch11/11.8/11.8.4/S11.8.4_A4.9.js
- * @description x and y are number primitives
- */
+/*---
+info: >
+    If x is greater or equal than y and these values are both finite
+    non-zero, return true; otherwise, return false
+es5id: 11.8.4_A4.9
+description: x and y are number primitives
+---*/
 
 //CHECK#1
 if ((1 >= 1.1) !== false) {
@@ -47,6 +48,3 @@ if ((Number.MAX_VALUE >= Number.MAX_VALUE/2) !== true) {
 if ((Number.MIN_VALUE*2 >= Number.MIN_VALUE) !== true) {
   $ERROR('#8: (Number.MIN_VALUE*2 >= Number.MIN_VALUE) === true');
 }
-
-
-

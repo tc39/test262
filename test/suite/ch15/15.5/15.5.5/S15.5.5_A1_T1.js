@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String instance has not [[call]] property
- *
- * @path ch15/15.5/15.5.5/S15.5.5_A1_T1.js
- * @description Create new String and try call it
- */
+/*---
+info: String instance has not [[call]] property
+es5id: 15.5.5_A1_T1
+description: Create new String and try call it
+includes: [$FAIL.js]
+---*/
 
 var __str = new String;
 
@@ -22,4 +22,3 @@ try {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

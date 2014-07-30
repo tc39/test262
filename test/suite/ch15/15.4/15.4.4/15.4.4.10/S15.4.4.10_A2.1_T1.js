@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator use ToInteger from start
- *
- * @path ch15/15.4/15.4.4/15.4.4.10/S15.4.4.10_A2.1_T1.js
- * @description start is not integer
- */
+/*---
+info: Operator use ToInteger from start
+es5id: 15.4.4.10_A2.1_T1
+description: start is not integer
+---*/
 
 var x = [0,1,2,3,4];
 var arr = x.slice(2.5,4);
@@ -35,5 +34,4 @@ if (arr[1] !== 3) {
 //CHECK#5
 if (arr[3] !== undefined) {
   $ERROR('#5: var x = [0,1,2,3,4]; var arr = x.slice(2.5,4); arr[3] === undefined. Actual: ' + (arr[3]));
-} 
-
+}

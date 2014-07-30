@@ -1,12 +1,16 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The String.prototype.toLocaleLowerCase.length property has the attribute DontDelete
- *
- * @path ch15/15.5/15.5.4/15.5.4.17/S15.5.4.17_A9.js
- * @description Checking if deleting the String.prototype.toLocaleLowerCase.length property fails
- */
+/*---
+info: >
+    The String.prototype.toLocaleLowerCase.length property has the attribute
+    DontDelete
+es5id: 15.5.4.17_A9
+description: >
+    Checking if deleting the String.prototype.toLocaleLowerCase.length
+    property fails
+includes: [$FAIL.js]
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#0
@@ -31,4 +35,3 @@ if (!(String.prototype.toLocaleLowerCase.hasOwnProperty('length'))) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When "break Identifier" is evaluated, (break, empty, Identifier) is returned
- *
- * @path ch12/12.8/S12.8_A4_T3.js
- * @description Using embedded and labeled loops, breaking to outer loop
- */
+/*---
+info: >
+    When "break Identifier" is evaluated, (break, empty, Identifier) is
+    returned
+es5id: 12.8_A4_T3
+description: Using embedded and labeled loops, breaking to outer loop
+---*/
 
 LABEL_OUT : var x=0, y=0, xx=0, yy=0;
 (function(){
@@ -38,4 +39,3 @@ if ((x!==1)&&(y!==0)&&(xx!==1)&(yy!==0)) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

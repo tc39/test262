@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * let F be the empty string if flags is undefined
- *
- * @path ch15/15.10/15.10.4/S15.10.4.1_A4_T1.js
- * @description RegExp is new RegExp(undefined)
- */
+/*---
+info: let F be the empty string if flags is undefined
+es5id: 15.10.4.1_A4_T1
+description: RegExp is new RegExp(undefined)
+---*/
 
 __re = new RegExp(null, void 0);
 
@@ -29,6 +28,3 @@ if (__re.global !== false) {
 if (__re.ignoreCase !== false) {
   $ERROR('#4: __re = new RegExp(null, void 0); __re.ignoreCase === false. Actual: ' + (__re.ignoreCase));
 }
-
-
-

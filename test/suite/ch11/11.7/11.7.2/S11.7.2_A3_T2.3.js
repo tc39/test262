@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator x >> y returns ToNumber(x) >> ToNumber(y)
- *
- * @path ch11/11.7/11.7.2/S11.7.2_A3_T2.3.js
- * @description Type(x) is different from Type(y) and both types vary between Number (primitive or object) and Null
- */
+/*---
+info: Operator x >> y returns ToNumber(x) >> ToNumber(y)
+es5id: 11.7.2_A3_T2.3
+description: >
+    Type(x) is different from Type(y) and both types vary between
+    Number (primitive or object) and Null
+---*/
 
 //CHECK#1
 if (1 >> null !== 1) {
@@ -27,4 +28,3 @@ if (new Number(1) >> null !== 1) {
 if (null >> new Number(1) !== 0) {
   $ERROR('#4: null >> new Number(1) === 0. Actual: ' + (null >> new Number(1)));
 }
-

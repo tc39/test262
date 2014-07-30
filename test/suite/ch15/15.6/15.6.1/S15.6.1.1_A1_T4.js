@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Returns a boolean value (not a Boolean object) computed by
- * ToBoolean(value)
- *
- * @path ch15/15.6/15.6.1/S15.6.1.1_A1_T4.js
- * @description Used various undefined values and null as argument
- */
+/*---
+info: >
+    Returns a boolean value (not a Boolean object) computed by
+    ToBoolean(value)
+es5id: 15.6.1.1_A1_T4
+description: Used various undefined values and null as argument
+---*/
 
 //CHECK#1
 if( typeof Boolean(undefined) !== "boolean" ) {
@@ -49,4 +49,3 @@ if( Boolean(x) !== false ) {
   $ERROR('#5.2: var x; Boolean(x) should be false');
 }
 var x;
-

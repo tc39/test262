@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The MV of HexDigit ::: c or of HexDigit ::: C is 12
- *
- * @path ch09/9.3/9.3.1/S9.3.1_A28.js
- * @description Compare Number('0xC'), Number('0XC'), Number('0xc') and Number('0Xc') with 12
- */
+/*---
+info: "The MV of HexDigit ::: c or of HexDigit ::: C is 12"
+es5id: 9.3.1_A28
+description: >
+    Compare Number('0xC'), Number('0XC'), Number('0xc') and
+    Number('0Xc') with 12
+---*/
 
 // CHECK#1
 if (Number("0xc") !== 12)  {
@@ -27,4 +28,3 @@ if (Number("0Xc") !== 12)  {
 if (Number("0XC") !== 12)  {
   $ERROR('#4: Number("0XC") === 12. Actual: ' + (Number("0XC")));
 }
-

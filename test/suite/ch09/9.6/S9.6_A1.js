@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If value is NaN, +0, -0, +Infinity, or -Infinity, return +0
- *
- * @path ch09/9.6/S9.6_A1.js
- * @description For testing use operator >>>0
- */
+/*---
+info: If value is NaN, +0, -0, +Infinity, or -Infinity, return +0
+es5id: 9.6_A1
+description: For testing use operator >>>0
+---*/
 
 // CHECK#1
 if ((Number.NaN >>> 0) !== +0) {
@@ -49,6 +48,3 @@ if ((Number.NEGATIVE_INFINITY >>> 0) !== +0) {
 } else if (1/(Number.NEGATIVE_INFINITY >>> 0) !== Number.POSITIVE_INFINITY) {
   $ERROR("#6.2: (Number.NEGATIVE_INFINITY >>> 0) === +0. Actual: -0");
 }
-
-
-

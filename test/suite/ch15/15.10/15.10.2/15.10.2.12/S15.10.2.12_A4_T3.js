@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The production CharacterClassEscape :: W evaluates by returning the set of all characters not
- * included in the set returned by CharacterClassEscape :: w
- *
- * @path ch15/15.10/15.10.2/15.10.2.12/S15.10.2.12_A4_T3.js
- * @description 0 - 9
- */
+/*---
+info: >
+    The production CharacterClassEscape :: W evaluates by returning the set of all characters not
+    included in the set returned by CharacterClassEscape :: w
+es5id: 15.10.2.12_A4_T3
+description: 0 - 9
+---*/
 
 var regexp_W = /\W/;
 
@@ -33,4 +33,3 @@ var arr = regexp_W.exec(" ");
 if ((arr === null) || (arr[0] !== "\u0020")) {
   $ERROR('#2:  ');
 }
-

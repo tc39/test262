@@ -1,12 +1,14 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that Intl.Collator.prototype functions throw a
- *     TypeError if called on a non-object value or an object that hasn't been
- *     initialized as a Collator.
- * @author Norbert Lindenberg
- */
+/*---
+es5id: 10.3_b
+description: >
+    Tests that Intl.Collator.prototype functions throw a  TypeError if
+    called on a non-object value or an object that hasn't been
+    initialized as a Collator.
+author: Norbert Lindenberg
+---*/
 
 var functions = {
     "compare getter": Object.getOwnPropertyDescriptor(Intl.Collator.prototype, "compare").get,
@@ -30,4 +32,3 @@ Object.getOwnPropertyNames(functions).forEach(function (functionName) {
         }
     });
 });
-

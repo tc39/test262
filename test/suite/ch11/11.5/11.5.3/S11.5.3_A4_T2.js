@@ -1,12 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The result of a ECMAScript floating-point remainder operation is determined by the rules of IEEE arithmetics
- *
- * @path ch11/11.5/11.5.3/S11.5.3_A4_T2.js
- * @description The sign of the finite non-zero value result equals the sign of the divided
- */
+/*---
+info: >
+    The result of a ECMAScript floating-point remainder operation is
+    determined by the rules of IEEE arithmetics
+es5id: 11.5.3_A4_T2
+description: >
+    The sign of the finite non-zero value result equals the sign of
+    the divided
+---*/
 
 //CHECK#1
 if (1 % 1 !== 0) {
@@ -63,4 +66,3 @@ if (-101 % 51 !== -50) {
 if (-101 % -51 !== -50) {
   $ERROR('#8: -101 % -51 === -50. Actual: ' + (-101 % -51));
 }
-

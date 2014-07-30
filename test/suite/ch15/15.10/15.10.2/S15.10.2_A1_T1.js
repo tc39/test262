@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * XML Shallow Parsing with Regular Expressions
- *
- * @path ch15/15.10/15.10.2/S15.10.2_A1_T1.js
- * @description See bug http://bugzilla.mozilla.org/show_bug.cgi?id=103087
- */
+/*---
+info: XML Shallow Parsing with Regular Expressions
+es5id: 15.10.2_A1_T1
+description: "See bug http://bugzilla.mozilla.org/show_bug.cgi?id=103087"
+---*/
 
 // REX/Javascript 1.0 
 // Robert D. Cameron "REX: XML Shallow Parsing with Regular Expressions",
@@ -85,5 +84,3 @@ try {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-
-

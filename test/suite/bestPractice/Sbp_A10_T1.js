@@ -1,13 +1,12 @@
 // Copyright 2011 Google Inc.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @path bestPractice/Sbp_A10_T1.js
- * @description Built-in functions should not have a non-deletable,
- * non-poisoned "caller" property.
- * @bestPractice
- * http://wiki.ecmascript.org/doku.php?id=conventions:make_non-standard_properties_configurable
- */
+/*---
+description: >
+    Built-in functions should not have a non-deletable,  non-poisoned
+    "caller" property.
+bestPractice: "http://wiki.ecmascript.org/doku.php?id=conventions:make_non-standard_properties_configurable"
+---*/
 
 (function() {
    var map = Array.prototype.map;

@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Primitive types are passed by value
- *
- * @path ch13/13.2/S13.2.1_A6_T2.js
- * @description Declaring a function with "__func = function(arg1, arg2)"
- */
+/*---
+info: Primitive types are passed by value
+es5id: 13.2.1_A6_T2
+description: Declaring a function with "__func = function(arg1, arg2)"
+---*/
 
 __func = function(arg1, arg2){
     arg1++;
@@ -28,4 +27,3 @@ if (x!==1 || y!==2 || a!=="AB" || b!=="SAM") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

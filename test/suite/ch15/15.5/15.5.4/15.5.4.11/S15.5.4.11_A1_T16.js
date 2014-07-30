@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String.prototype.replace (searchValue, replaceValue)
- *
- * @path ch15/15.5/15.5.4/15.5.4.11/S15.5.4.11_A1_T16.js
- * @description Instance is Number, searchValue is regular expression
- */
+/*---
+info: String.prototype.replace (searchValue, replaceValue)
+es5id: 15.5.4.11_A1_T16
+description: Instance is Number, searchValue is regular expression
+includes: [$FAIL.js]
+---*/
 
 var __re = /77/;
 
@@ -30,4 +30,3 @@ try {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If value is NaN, +0, -0, +Infinity, or -Infinity, return +0
- *
- * @path ch09/9.7/S9.7_A1.js
- * @description For testing use String.fromCharCode(Number).charCodeAt(0) construction
- */
+/*---
+info: If value is NaN, +0, -0, +Infinity, or -Infinity, return +0
+es5id: 9.7_A1
+description: >
+    For testing use String.fromCharCode(Number).charCodeAt(0)
+    construction
+---*/
 
 // CHECK#1
 if (String.fromCharCode(Number.NaN).charCodeAt(0) !== +0) {
@@ -49,6 +50,3 @@ if (String.fromCharCode(Number.NEGATIVE_INFINITY).charCodeAt(0) !== +0) {
 } else if (1/String.fromCharCode(Number.NEGATIVE_INFINITY).charCodeAt(0) !== Number.POSITIVE_INFINITY) {
   $ERROR("#6.2: String.fromCharCode(Number.NEGATIVE_INFINITY).charCodeAt(0) === +0. Actual: -0");
 }
-
-
-

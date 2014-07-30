@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Evaluate the production ArrayLiteral: [ Elision, AssignmentExpression ]
- *
- * @path ch11/11.1/11.1.4/S11.1.4_A1.4.js
- * @description Checking various properteis and content of the array defined with "var array = [,,,1,2]"
- */
+/*---
+info: "Evaluate the production ArrayLiteral: [ Elision, AssignmentExpression ]"
+es5id: 11.1.4_A1.4
+description: >
+    Checking various properteis and content of the array defined with
+    "var array = [,,,1,2]"
+---*/
 
 var array = [,,,1,2];
 
@@ -54,4 +55,3 @@ if (array[3] !== 1) {
 if (array[4] !== 2) {
   $ERROR('#9: var array = [,,,1,2]; array[4] === 2. Actual: ' + (array[4]));
 }
-

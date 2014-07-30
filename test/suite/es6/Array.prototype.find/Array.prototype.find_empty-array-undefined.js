@@ -1,10 +1,10 @@
 // Copyright (c) 2014 Matthew Meyers. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @path
- * @description Find on empty array should return undefined
- */
+/*---
+description: Find on empty array should return undefined
+flags: [path]
+---*/
 
 var a = [].find(function () {
 	return true;

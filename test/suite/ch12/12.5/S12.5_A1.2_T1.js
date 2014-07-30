@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * 1, true, non-empty string and others in expression is evaluated to true when using operator "new"
- *
- * @path ch12/12.5/S12.5_A1.2_T1.js
- * @description Using "if" without "else" construction
- */
+/*---
+info: >
+    1, true, non-empty string and others in expression is evaluated to true
+    when using operator "new"
+es5id: 12.5_A1.2_T1
+description: Using "if" without "else" construction
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -70,4 +71,3 @@ if(!(new String("")))
     $ERROR('#9: new empty string in expression is evaluated to true ');
 //
 //////////////////////////////////////////////////////////////////////////////
-

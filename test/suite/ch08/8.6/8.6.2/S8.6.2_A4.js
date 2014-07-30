@@ -1,13 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * [[HasInstance]] returns a boolean value indicating whether Value delegates behaviour to this object
- *
- * @path ch08/8.6/8.6.2/S8.6.2_A4.js
- * @description Check that the obj instance of Object, but not instance
- *  of Function, String, Number, Array
- */
+/*---
+info: >
+    [[HasInstance]] returns a boolean value indicating whether Value
+    delegates behaviour to this object
+es5id: 8.6.2_A4
+description: >
+    Check that the obj instance of Object, but not instance  of
+    Function, String, Number, Array
+---*/
 
 var __obj={};
 
@@ -50,4 +52,3 @@ if (__obj instanceof Array) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

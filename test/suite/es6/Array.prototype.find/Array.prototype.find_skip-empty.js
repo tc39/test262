@@ -1,10 +1,12 @@
 // Copyright (c) 2014 Matthew Meyers. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @path
- * @description predicate is called only for elements of the array which actually exist; it is not called for missing elements of the array
- */
+/*---
+description: >
+    predicate is called only for elements of the array which actually
+    exist; it is not called for missing elements of the array
+flags: [path]
+---*/
 
 var a = [];
 

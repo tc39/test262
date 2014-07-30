@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator x | y returns ToNumber(x) | ToNumber(y)
- *
- * @path ch11/11.10/11.10.3/S11.10.3_A3_T2.6.js
- * @description Type(x) is different from Type(y) and both types vary between String (primitive or object) and Undefined
- */
+/*---
+info: Operator x | y returns ToNumber(x) | ToNumber(y)
+es5id: 11.10.3_A3_T2.6
+description: >
+    Type(x) is different from Type(y) and both types vary between
+    String (primitive or object) and Undefined
+---*/
 
 //CHECK#1
 if (("1" | undefined) !== 1) {
@@ -27,4 +28,3 @@ if ((new String("1") | undefined) !== 1) {
 if ((undefined | new String("1")) !== 1) {
   $ERROR('#4: (undefined | new String("1")) === 1. Actual: ' + ((undefined | new String("1"))));
 }
-

@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * let P be the empty string if pattern is undefined
- *
- * @path ch15/15.10/15.10.4/S15.10.4.1_A3_T3.js
- * @description RegExp is new RegExp(x), where x is undefined variable
- */
+/*---
+info: let P be the empty string if pattern is undefined
+es5id: 15.10.4.1_A3_T3
+description: RegExp is new RegExp(x), where x is undefined variable
+---*/
 
 __re = new RegExp(x);
 
@@ -26,5 +25,3 @@ if (__re.ignoreCase !== false) {
 }
 
 var x;
-
-

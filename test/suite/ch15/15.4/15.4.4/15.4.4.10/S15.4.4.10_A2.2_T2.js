@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator use ToInteger from end
- *
- * @path ch15/15.4/15.4.4/15.4.4.10/S15.4.4.10_A2.2_T2.js
- * @description end = NaN
- */
+/*---
+info: Operator use ToInteger from end
+es5id: 15.4.4.10_A2.2_T2
+description: end = NaN
+---*/
 
 var x = [0,1,2,3,4];
 var arr = x.slice(0,NaN);
@@ -26,4 +25,3 @@ if (arr.length !== 0) {
 if (arr[0] !== undefined) {
   $ERROR('#3: var x = [0,1,2,3,4]; var arr = x.slice(0,NaN); arr[0] === undefined. Actual: ' + (arr[0]));
 }
-

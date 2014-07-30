@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * White Space and Line Terminator between BitwiseORExpression and "|" or between "|" and BitwiseXORExpression are allowed
- *
- * @path ch11/11.10/11.10.3/S11.10.3_A1.js
- * @description Checking by using eval
- */
+/*---
+info: >
+    White Space and Line Terminator between BitwiseORExpression and "|" or
+    between "|" and BitwiseXORExpression are allowed
+es5id: 11.10.3_A1
+description: Checking by using eval
+---*/
 
 //CHECK#1
 if ((eval("0\u0009|\u00091")) !== 1) {
@@ -58,4 +59,3 @@ if ((eval("0\u2029|\u20291")) !== 1) {
 if ((eval("0\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u2029|\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u20291")) !== 1) {
   $ERROR('#10: (0\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029|\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u20291) === 1');
 }
-

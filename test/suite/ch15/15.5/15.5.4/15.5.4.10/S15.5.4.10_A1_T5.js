@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String.prototype.match (regexp)
- *
- * @path ch15/15.5/15.5.4/15.5.4.10/S15.5.4.10_A1_T5.js
- * @description Call match (regexp) function with null argument of function object
- */
+/*---
+info: String.prototype.match (regexp)
+es5id: 15.5.4.10_A1_T5
+description: Call match (regexp) function with null argument of function object
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -16,4 +15,3 @@ if (function(){return "gnulluna"}().match(null)[0] !== "null") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

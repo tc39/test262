@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Date constructor has length property whose value is 7
- *
- * @path ch15/15.9/15.9.4/S15.9.4_A5.js
- * @description Checking Date.length property
- */
+/*---
+info: Date constructor has length property whose value is 7
+es5id: 15.9.4_A5
+description: Checking Date.length property
+---*/
 
 //CHECK#1
 if (!Date.hasOwnProperty("length")){
@@ -17,4 +16,3 @@ if (!Date.hasOwnProperty("length")){
 if (Date.length !== 7) {
   $ERROR('#2: Date constructor length property value should be 7');
 }
-

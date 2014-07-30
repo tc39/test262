@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String.prototype.substring (start, end)
- *
- * @path ch15/15.5/15.5.4/15.5.4.15/S15.5.4.15_A1_T5.js
- * @description Arguments are null and Function(), and instance is function object, that have overrided valueOf function
- */
+/*---
+info: String.prototype.substring (start, end)
+es5id: 15.5.4.15_A1_T5
+description: >
+    Arguments are null and Function(), and instance is function
+    object, that have overrided valueOf function
+---*/
 
 __func.valueOf=function(){return "gnulluna"};
 
@@ -22,4 +23,3 @@ if (__func.substring(null, Function()) !== "") {
 //////////////////////////////////////////////////////////////////////////////
 
 function __func(){};
-

@@ -1,13 +1,14 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that the options numeric and caseFirst can be
- *     set through either the locale or the options.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+es5id: 10.1.1_19_c
+description: >
+    Tests that the options numeric and caseFirst can be  set through
+    either the locale or the options.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 var options = [
     {key: "kn", property: "numeric", type: "boolean", values: [true, false]},
@@ -60,4 +61,3 @@ options.forEach(function (option) {
         }
     });
 });
-

@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Since arguments property has attribute { DontDelete }, only its elements can be deleted
- *
- * @path ch13/13.0/S13_A11_T4.js
- * @description Deleting arguments[i] and checking the type of arguments[i]
- */
+/*---
+info: >
+    Since arguments property has attribute { DontDelete }, only its elements
+    can be deleted
+es5id: 13_A11_T4
+description: Deleting arguments[i] and checking the type of arguments[i]
+---*/
 
 function __func(){
     is_undef=true;
@@ -25,4 +26,3 @@ if (!__func("A","B",1,2)) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

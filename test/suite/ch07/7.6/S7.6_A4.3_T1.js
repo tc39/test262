@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Correct interpretation of DIGITS
- *
- * @path ch07/7.6/S7.6_A4.3_T1.js
- * @description Identifier is $+ANY_DIGIT
- */
+/*---
+info: Correct interpretation of DIGITS
+es5id: 7.6_A4.3_T1
+description: Identifier is $+ANY_DIGIT
+---*/
 
 //CHECK#0-9
 var $\u0030 = 0;
@@ -49,4 +48,3 @@ var $\u0039 = 9;
 if ($9 !== 9) {
   $ERROR('#9: $\\u0039 = 9; $9 === 9');
 }
-

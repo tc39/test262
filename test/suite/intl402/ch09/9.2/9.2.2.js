@@ -1,13 +1,14 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that locales that are reported by resolvedOptions
- *     are also reported by supportedLocalesOf.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+es5id: 9.2.2
+description: >
+    Tests that locales that are reported by resolvedOptions  are also
+    reported by supportedLocalesOf.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 testWithIntlConstructors(function (Constructor) {
     var info = getLocaleSupportInfo(Constructor);
@@ -42,4 +43,3 @@ testWithIntlConstructors(function (Constructor) {
 
     return true;
 });
-

@@ -1,13 +1,17 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The Object.prototype.toLocaleString.length property has the attribute DontDelete
- *
- * @path ch15/15.2/15.2.4/15.2.4.3/S15.2.4.3_A9.js
- * @description Checknig if deleting of the Object.prototype.toLocaleString.length property fails
- * @noStrict
- */
+/*---
+info: >
+    The Object.prototype.toLocaleString.length property has the attribute
+    DontDelete
+es5id: 15.2.4.3_A9
+description: >
+    Checknig if deleting of the Object.prototype.toLocaleString.length
+    property fails
+flags: [noStrict]
+includes: [$FAIL.js]
+---*/
 
 //CHECK#0
 if (!(Object.prototype.toLocaleString.hasOwnProperty('length'))) {
@@ -23,4 +27,3 @@ if (delete Object.prototype.toLocaleString.length) {
 if (!(Object.prototype.toLocaleString.hasOwnProperty('length'))) {
   $FAIL('#2: The Object.prototype.toLocaleString.length property has the attributes DontDelete');
 }
-

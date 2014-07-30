@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * DecimalLiteral :: HexIntegerLiteral
- *
- * @path ch07/7.8/7.8.3/S7.8.3_A5.1_T6.js
- * @description HexIntegerLiteral :: 0X0 Digits
- */
+/*---
+info: "DecimalLiteral :: HexIntegerLiteral"
+es5id: 7.8.3_A5.1_T6
+description: "HexIntegerLiteral :: 0X0 Digits"
+---*/
 
 //CHECK#0
 if (0X00 !== 0) {
@@ -52,4 +51,3 @@ if (0X01000000 !== 16777216) {
 if (0X010000000 !== 268435456) {
   $ERROR('#8: 0X010000000 === 268435456');
 }
-

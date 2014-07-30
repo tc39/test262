@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Catching objects with try/catch/finally statement
- *
- * @path ch12/12.14/S12.14_A18_T6.js
- * @description Catching Object
- */
+/*---
+info: Catching objects with try/catch/finally statement
+es5id: 12.14_A18_T6
+description: Catching Object
+---*/
 
 var myObj = {p1: 'a', 
              p2: 'b', 
@@ -52,4 +51,3 @@ catch(e){
   e.i=10;
 }
 if (myObj.i!==10) $ERROR('#5: Handling of catch must be correct');
-

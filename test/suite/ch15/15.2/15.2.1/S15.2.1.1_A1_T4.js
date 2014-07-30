@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When the Object(value) is called and the value is null, undefined or not supplied,
- * create and return a new Object object if the object constructor had been called with the same arguments (15.2.2.1)
- *
- * @path ch15/15.2/15.2.1/S15.2.1.1_A1_T4.js
- * @description Creating Object(undefined) and checking its properties
- */
+/*---
+info: >
+    When the Object(value) is called and the value is null, undefined or not supplied,
+    create and return a new Object object if the object constructor had been called with the same arguments (15.2.2.1)
+es5id: 15.2.1.1_A1_T4
+description: Creating Object(undefined) and checking its properties
+---*/
 
 var __obj = Object(undefined);
 
@@ -32,4 +32,3 @@ if (__obj.toLocaleString() !== n__obj.toLocaleString()) {
 if (typeof __obj !== typeof n__obj) {
 	$ERROR('#5');
 }
-

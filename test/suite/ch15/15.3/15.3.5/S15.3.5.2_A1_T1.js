@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * the prototype property has the attributes { DontDelete }
- *
- * @path ch15/15.3/15.3.5/S15.3.5.2_A1_T1.js
- * @description Checking if deleting the prototype property of Function("", null) fails
- */
+/*---
+info: the prototype property has the attributes { DontDelete }
+es5id: 15.3.5.2_A1_T1
+description: >
+    Checking if deleting the prototype property of Function("", null)
+    fails
+includes: [$FAIL.js]
+---*/
 
 f = new Function("", null);
 
@@ -26,4 +28,3 @@ if (delete f.prototype) {
 if (f.prototype !== fproto) {
   $ERROR('#3: the prototype property has the attributes { DontDelete }');
 }
-

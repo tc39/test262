@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String.prototype.lastIndexOf(searchString, position)
- *
- * @path ch15/15.5/15.5.4/15.5.4.8/S15.5.4.8_A1_T8.js
- * @description Call lastIndexOf(searchString, position) function with void 0 argument of string object
- */
+/*---
+info: String.prototype.lastIndexOf(searchString, position)
+es5id: 15.5.4.8_A1_T8
+description: >
+    Call lastIndexOf(searchString, position) function with void 0
+    argument of string object
+---*/
 
 var __obj = {toString:function(){}};
 
@@ -18,4 +19,3 @@ if (String(__obj).lastIndexOf(void 0) !== 0) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

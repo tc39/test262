@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Type(x) and Type(y) are Number-s minus NaN, +0, -0.
- * Return true, if x is the same number value as y; otherwise, return false
- *
- * @path ch11/11.9/11.9.1/S11.9.1_A4.3.js
- * @description x and y are primitive numbers
- */
+/*---
+info: >
+    Type(x) and Type(y) are Number-s minus NaN, +0, -0.
+    Return true, if x is the same number value as y; otherwise, return false
+es5id: 11.9.1_A4.3
+description: x and y are primitive numbers
+---*/
 
 //CHECK#1
 if ((Number.POSITIVE_INFINITY == Number.POSITIVE_INFINITY) !== true) {
@@ -33,4 +33,3 @@ if ((1 == 0.999999999999) !== false) {
 if ((1.0 == 1) !== true) {
   $ERROR('#5: (1.0 == 1) === true');
 }
-

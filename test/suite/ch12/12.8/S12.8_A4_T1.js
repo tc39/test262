@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When "break Identifier" is evaluated, (break, empty, Identifier) is returned
- *
- * @path ch12/12.8/S12.8_A4_T1.js
- * @description Using "break Identifier" within labaeled loop
- */
+/*---
+info: >
+    When "break Identifier" is evaluated, (break, empty, Identifier) is
+    returned
+es5id: 12.8_A4_T1
+description: Using "break Identifier" within labaeled loop
+---*/
 
 LABEL_OUT : var x=0, y=0;
 (function(){
@@ -32,4 +33,3 @@ if ((x!==1)&&(y!==0)) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

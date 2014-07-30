@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator x >= y uses GetValue
- *
- * @path ch11/11.8/11.8.4/S11.8.4_A2.1_T3.js
- * @description If GetBase(y) is null, throw ReferenceError
- */
+/*---
+info: Operator x >= y uses GetValue
+es5id: 11.8.4_A2.1_T3
+description: If GetBase(y) is null, throw ReferenceError
+---*/
 
 //CHECK#1
 try {
@@ -18,5 +17,3 @@ catch (e) {
     $ERROR('#1.2: 1 >= y throw ReferenceError. Actual: ' + (e));  
   }
 }
-
-

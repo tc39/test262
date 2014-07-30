@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator use ToInteger from end
- *
- * @path ch15/15.4/15.4.4/15.4.4.10/S15.4.4.10_A2.2_T3.js
- * @description end = Infinity
- */
+/*---
+info: Operator use ToInteger from end
+es5id: 15.4.4.10_A2.2_T3
+description: end = Infinity
+---*/
 
 var x = [0,1,2,3,4];
 var arr = x.slice(0,Number.POSITIVE_INFINITY);
@@ -50,5 +49,4 @@ if (arr[4] !== 4) {
 //CHECK#8
 if (arr[5] !== undefined) {
   $ERROR('#8: var x = [0,1,2,3,4]; var arr = x.slice(0,Number.POSITIVE_INFINITY); arr[5] === undefined. Actual: ' + (arr[5]));
-} 
-
+}

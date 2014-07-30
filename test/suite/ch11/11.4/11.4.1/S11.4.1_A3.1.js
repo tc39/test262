@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If the property has the DontDelete attribute, return false
- *
- * @path ch11/11.4/11.4.1/S11.4.1_A3.1.js
- * @description Checking declared variable
- */
+/*---
+info: If the property has the DontDelete attribute, return false
+es5id: 11.4.1_A3.1
+description: Checking declared variable
+---*/
 
 //CHECK#1
 var x = 1;
@@ -37,4 +36,3 @@ if (delete MyObject !== false) {
 if (delete MyObject !== false) {
   $ERROR('#5: function MyFunction(){}; var MyObject = new MyFunction(); delete MyObject === false');
 }
-

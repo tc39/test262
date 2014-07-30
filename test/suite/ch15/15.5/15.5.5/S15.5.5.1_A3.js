@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * length property has the attributes {DontDelete}
- *
- * @path ch15/15.5/15.5.5/S15.5.5.1_A3.js
- * @description Checking if deleting the length property of String fails
- */
+/*---
+info: length property has the attributes {DontDelete}
+es5id: 15.5.5.1_A3
+description: Checking if deleting the length property of String fails
+---*/
 
 var __str__instance = new String("globglob");
 
@@ -33,4 +32,3 @@ if (!(__str__instance.hasOwnProperty("length"))) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

@@ -1,14 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String.prototype.split (separator, limit) returns an Array object into which substrings of the result of converting this object to a string have
- * been stored. If separator is a regular expression then
- * inside of SplitMatch helper the [[Match]] method of R is called giving it the arguments corresponding
- *
- * @path ch15/15.5/15.5.4/15.5.4.14/S15.5.4.14_A4_T24.js
- * @description Argument is regexp /[a-z]/, and instance is String("abc")
- */
+/*---
+info: >
+    String.prototype.split (separator, limit) returns an Array object into which substrings of the result of converting this object to a string have
+    been stored. If separator is a regular expression then
+    inside of SplitMatch helper the [[Match]] method of R is called giving it the arguments corresponding
+es5id: 15.5.4.14_A4_T24
+description: Argument is regexp /[a-z]/, and instance is String("abc")
+---*/
 
 var __string = new String("abc");
 
@@ -43,4 +43,3 @@ for(var index=0; index<__expected.length; index++) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

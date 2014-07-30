@@ -1,12 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Object Modification Resulting in a New Object for Not a Self-Modified Object leads to loss of integrity
- *
- * @path ch08/8.7/S8.7_A4.js
- * @description Create a reference to the string, and Concatenate some new text onto the string object
- */
+/*---
+info: >
+    Object Modification Resulting in a New Object for Not a Self-Modified
+    Object leads to loss of integrity
+es5id: 8.7_A4
+description: >
+    Create a reference to the string, and Concatenate some new text
+    onto the string object
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#
@@ -25,4 +28,3 @@ if( item == itemRef ){
 };
 //
 //////////////////////////////////////////////////////////////////////////////
-

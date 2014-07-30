@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Do not crash with postincrement custom property
- *
- * @path ch08/8.6/S8.6_A2_T2.js
- * @description Try to implement postincrement for not declared custom property
- */
+/*---
+info: Do not crash with postincrement custom property
+es5id: 8.6_A2_T2
+description: Try to implement postincrement for not declared custom property
+---*/
 
 var __map={};
 
@@ -25,4 +24,3 @@ if (!("foo" in __map)) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

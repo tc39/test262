@@ -1,14 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The production CharacterClassEscape :: S evaluates by returning
- * the set of all characters not included in the set returned by
- * CharacterClassEscape :: s
- *
- * @path ch15/15.10/15.10.2/15.10.2.12/S15.10.2.12_A2_T4.js
- * @description RUSSIAN ALPHABET
- */
+/*---
+info: >
+    The production CharacterClassEscape :: S evaluates by returning
+    the set of all characters not included in the set returned by
+    CharacterClassEscape :: s
+es5id: 15.10.2.12_A2_T4
+description: RUSSIAN ALPHABET
+---*/
 
 var regexp_S = /\S/;
 
@@ -39,4 +39,3 @@ for (alpha = 0x0430; alpha <= 0x044F; alpha++) {
 if (result !== true) {
   $ERROR('#2: russian small alphabet');
 }
-

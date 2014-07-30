@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * NaN expression has a type Number
- *
- * @path ch08/8.5/S8.5_A3.js
- * @description Check type of NaN
- */
+/*---
+info: NaN expression has a type Number
+es5id: 8.5_A3
+description: Check type of NaN
+---*/
 
 var x=NaN;
 
@@ -25,4 +24,3 @@ if (typeof(NaN) !== "number"){
 }
 //
 //////////////////////////////////////////////////////////
-

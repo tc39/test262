@@ -1,10 +1,11 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that valid time zone names are accepted.
- * @author Norbert Lindenberg
- */
+/*---
+es5id: 6.4_a
+description: Tests that valid time zone names are accepted.
+author: Norbert Lindenberg
+---*/
 
 var validTimeZoneNames = [
     "UTC",
@@ -19,4 +20,3 @@ validTimeZoneNames.forEach(function (name) {
             format.resolvedOptions().timeZone + ".");
     }
 });
-

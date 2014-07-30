@@ -1,10 +1,11 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that format handles non-finite values correctly.
- * @author Norbert Lindenberg
- */
+/*---
+es5id: 12.3.2_FDT_1
+description: Tests that format handles non-finite values correctly.
+author: Norbert Lindenberg
+---*/
 
 var invalidValues = [NaN, Infinity, -Infinity];
 
@@ -23,4 +24,3 @@ invalidValues.forEach(function (value) {
         $ERROR("Invalid value " + value + " was rejected with wrong error " + error.name + ".");
     }
 });
-

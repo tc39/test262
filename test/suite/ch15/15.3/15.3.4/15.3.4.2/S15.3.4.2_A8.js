@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The Function.prototype.toString.length property has the attribute DontEnum
- *
- * @path ch15/15.3/15.3.4/15.3.4.2/S15.3.4.2_A8.js
- * @description Checking if enumerating the Function.prototype.toString.length property fails
- */
+/*---
+info: The Function.prototype.toString.length property has the attribute DontEnum
+es5id: 15.3.4.2_A8
+description: >
+    Checking if enumerating the Function.prototype.toString.length
+    property fails
+includes: [$FAIL.js]
+---*/
 
 //CHECK#0
 if (!(Function.prototype.toString.hasOwnProperty('length'))) {
@@ -24,4 +26,3 @@ for (p in Function.prototype.toString){
   if (p==="length")
       $ERROR('#2: the Function.prototype.toString.length property has the attributes DontEnum');
 }
-

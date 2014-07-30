@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * "break" within a "while" Statement is allowed and performed as described in 12.8
- *
- * @path ch12/12.6/12.6.2/S12.6.2_A4_T1.js
- * @description "break" within a "while" Statement
- */
+/*---
+info: >
+    "break" within a "while" Statement is allowed and performed as described
+    in 12.8
+es5id: 12.6.2_A4_T1
+description: "\"break\" within a \"while\" Statement"
+---*/
 
 while(1===1){
     __in__do__before__break="reached"; 
@@ -29,4 +30,3 @@ if (typeof __in__do__after__break !== "undefined") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

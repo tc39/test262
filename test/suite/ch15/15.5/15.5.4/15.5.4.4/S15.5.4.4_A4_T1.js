@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If pos is a value of Number type that is an integer, then the result of x.charAt(pos) is equal to the result of x.substring(pos, pos+1)
- *
- * @path ch15/15.5/15.5.4/15.5.4.4/S15.5.4.4_A4_T1.js
- * @description Compare results of x.charAt(pos) and x.substring(pos, pos+1)
- */
+/*---
+info: >
+    If pos is a value of Number type that is an integer, then the result of
+    x.charAt(pos) is equal to the result of x.substring(pos, pos+1)
+es5id: 15.5.4.4_A4_T1
+description: Compare results of x.charAt(pos) and x.substring(pos, pos+1)
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -18,4 +19,3 @@ for(var i=0; i<6; i++) {
     
 //
 //////////////////////////////////////////////////////////////////////////////
-

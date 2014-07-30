@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If Type(x) is different from Type(y), return true
- *
- * @path ch11/11.9/11.9.5/S11.9.5_A8_T3.js
- * @description x or y is primitive string
- */
+/*---
+info: If Type(x) is different from Type(y), return true
+es5id: 11.9.5_A8_T3
+description: x or y is primitive string
+---*/
 
 //CHECK#1
 if (!("1" !== new String("1"))) {
@@ -62,5 +61,3 @@ if (!(false !== new Number(false))) {
 if (!("1" !== {valueOf: function () {return "1"}})) {
   $ERROR('#11: "1" !== {valueOf: function () {return "1"}}');
 }
-
-

@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * White Space and Line Terminator between LeftHandSideExpression and "@=" or between "@=" and AssignmentExpression are allowed
- *
- * @path ch11/11.13/11.13.2/S11.13.2_A1_T1.js
- * @description Checking by using eval, check operator is x *= y
- */
+/*---
+info: >
+    White Space and Line Terminator between LeftHandSideExpression and "@="
+    or between "@=" and AssignmentExpression are allowed
+es5id: 11.13.2_A1_T1
+description: Checking by using eval, check operator is x *= y
+---*/
 
 //CHECK#1
 x = -1;
@@ -68,4 +69,3 @@ x = -1;
 if ((eval("x\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u2029*=\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u2029-1")) !== 1) {
   $ERROR('#10: x = -1; (x\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029*=\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029-1) === 1');
 }
-

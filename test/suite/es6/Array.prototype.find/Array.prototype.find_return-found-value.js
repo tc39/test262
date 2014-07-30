@@ -1,10 +1,10 @@
 // Copyright (c) 2014 Matthew Meyers. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @path
- * @description Find should return value if predicate returns true
- */
+/*---
+description: Find should return value if predicate returns true
+flags: [path]
+---*/
 
 var testVals = [
 	undefined,

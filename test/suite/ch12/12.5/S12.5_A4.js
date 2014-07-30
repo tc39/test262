@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When the production "IfStatement: if ( Expression ) Statement else Statement" is evaluated, Statement(s) is(are) evaluated second
- *
- * @path ch12/12.5/S12.5_A4.js
- * @description The first statement is "(function(){throw "instatement"})()"
- */
+/*---
+info: >
+    When the production "IfStatement: if ( Expression ) Statement else
+    Statement" is evaluated, Statement(s) is(are) evaluated second
+es5id: 12.5_A4
+description: The first statement is "(function(){throw "instatement"})()"
+includes: [$FAIL.js]
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -33,5 +35,3 @@ try {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-
-

@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Function's scope chain is started when it is declared
- *
- * @path ch13/13.2/S13.2.2_A19_T7.js
- * @description Function is declared in the object scope as a variable
- */
+/*---
+info: Function's scope chain is started when it is declared
+es5id: 13.2.2_A19_T7
+description: Function is declared in the object scope as a variable
+---*/
 
 var a = 1;
 
@@ -51,4 +50,3 @@ if (this.__func === undefined) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

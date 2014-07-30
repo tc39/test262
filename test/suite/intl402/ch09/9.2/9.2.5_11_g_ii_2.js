@@ -2,11 +2,13 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that missing Unicode extension values default to true for
- *     boolean keys.
- * @author Norbert Lindenberg
- */
+/*---
+es5id: 9.2.5_11_g_ii_2
+description: >
+    Tests that missing Unicode extension values default to true for
+    boolean keys.
+author: Norbert Lindenberg
+---*/
 
 var extensions = ["-u-co-phonebk-kn", "-u-kn-co-phonebk"];
 extensions.forEach(function (extension) {
@@ -23,4 +25,3 @@ extensions.forEach(function (extension) {
         }
     }
 });
-

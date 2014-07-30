@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * "continue" statement within a "do-while" Statement is allowed
- *
- * @path ch12/12.6/12.6.1/S12.6.1_A8.js
- * @description Using eval
- */
+/*---
+info: "\"continue\" statement within a \"do-while\" Statement is allowed"
+es5id: 12.6.1_A8
+description: Using eval
+---*/
 
 var __condition = 0, __odds=0;
 
@@ -27,5 +26,3 @@ if (__evaluated !== 4) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-
-

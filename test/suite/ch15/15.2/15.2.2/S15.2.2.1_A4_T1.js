@@ -1,13 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When the Object constructor is called with one argument value and
- * the type of value is Boolean, return ToObject(boolean)
- *
- * @path ch15/15.2/15.2.2/S15.2.2.1_A4_T1.js
- * @description Argument value is "true"
- */
+/*---
+info: >
+    When the Object constructor is called with one argument value and
+    the type of value is Boolean, return ToObject(boolean)
+es5id: 15.2.2.1_A4_T1
+description: Argument value is "true"
+includes: [$FAIL.js]
+---*/
 
 var bool = true;
 
@@ -37,4 +38,3 @@ if ( n_obj != bool) {
 if ( n_obj === bool) {
   $ERROR('#5: When the Object constructor is called with Boolean argument return ToObject(boolean)');
 }
-

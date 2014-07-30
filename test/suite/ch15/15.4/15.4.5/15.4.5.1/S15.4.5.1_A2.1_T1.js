@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If P is not an array index, return
- * (Create a property with name P, set its value to V and give it empty attributes)
- *
- * @path ch15/15.4/15.4.5/15.4.5.1/S15.4.5.1_A2.1_T1.js
- * @description P in [4294967295, -1, true]
- */
+/*---
+info: >
+    If P is not an array index, return
+    (Create a property with name P, set its value to V and give it empty attributes)
+es5id: 15.4.5.1_A2.1_T1
+description: P in [4294967295, -1, true]
+---*/
 
 //CHECK#1
 var x = [];
@@ -41,4 +41,3 @@ if (x.length !== 0) {
 if (x[true] !== 1) {  
   $ERROR('#3.2: x = []; x[true] = 1; x[true] === 1. Actual: ' + (x[true]));    
 }
-

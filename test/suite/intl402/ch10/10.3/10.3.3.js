@@ -1,13 +1,14 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the license found in the LICENSE file.
 
-/**
- * @description Tests that the object returned by Intl.Collator.prototype.resolvedOptions
- *     has the right properties.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+es5id: 10.3.3
+description: >
+    Tests that the object returned by
+    Intl.Collator.prototype.resolvedOptions  has the right properties.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 var actual = new Intl.Collator().resolvedOptions();
 
@@ -44,4 +45,3 @@ mustHaveProperty(actual, "ignorePunctuation", [false]);
 mustHaveProperty(actual, "collation", collations);
 mayHaveProperty(actual, "numeric", [true, false]);
 mayHaveProperty(actual, "caseFirst", ["upper", "lower", "false"]);
-

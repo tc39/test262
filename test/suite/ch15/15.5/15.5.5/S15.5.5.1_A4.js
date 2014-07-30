@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * length property has the attributes {ReadOnly}
- *
- * @path ch15/15.5/15.5.5/S15.5.5.1_A4.js
- * @description Checking if varying the length property of String fails
- */
+/*---
+info: length property has the attributes {ReadOnly}
+es5id: 15.5.5.1_A4
+description: Checking if varying the length property of String fails
+---*/
 
 var __str__instance = new String("globglob");
 
@@ -56,4 +55,3 @@ if (__str__instance.length !== 8) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Check type of various properties
- *
- * @path ch11/11.2/11.2.1/S11.2.1_A4_T7.js
- * @description Checking properties of the Number object
- */
+/*---
+info: Check type of various properties
+es5id: 11.2.1_A4_T7
+description: Checking properties of the Number object
+---*/
 
 //CHECK#1-16
 if (typeof Number.MAX_VALUE  !== "number")  $ERROR('#1: typeof Number.MAX_VALUE === "number". Actual: ' + (typeof Number.MAX_VALUE ));
@@ -25,6 +24,3 @@ if (typeof Number.prototype.constructor !== "function")  $ERROR('#13: typeof Num
 if (typeof Number.prototype['constructor'] !== "function")  $ERROR('#14: typeof Number.prototype["constructor"] === "function". Actual: ' + (typeof Number.prototype["constructor"] ));
 if (typeof Number.prototype.valueOf  !== "function")  $ERROR('#15: typeof Number.prototype.valueOf === "function". Actual: ' + (typeof Number.prototype.valueOf ));
 if (typeof Number.prototype['valueOf']  !== "function")  $ERROR('#16: typeof Number.prototype["valueOf"] === "function". Actual: ' + (typeof Number.prototype["valueOf"] ));
-
-
-

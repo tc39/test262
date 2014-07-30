@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Using "try" with "catch" or "finally" statement with a "return" statement
- *
- * @path ch12/12.14/S12.14_A13_T1.js
- * @description Using try/catch syntax construction
- */
+/*---
+info: Using "try" with "catch" or "finally" statement with a "return" statement
+es5id: 12.14_A13_T1
+description: Using try/catch syntax construction
+---*/
 
 // CHECK#1
 function myFunction1(){
@@ -76,4 +75,3 @@ catch(e){
     $ERROR('#4.3: Exception ==="ex2". Actual:  Exception ==='+ e  );
   }
 }
-

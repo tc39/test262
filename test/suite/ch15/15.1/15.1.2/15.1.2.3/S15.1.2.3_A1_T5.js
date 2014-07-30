@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator use ToString
- *
- * @path ch15/15.1/15.1.2/15.1.2.3/S15.1.2.3_A1_T5.js
- * @description Checking for Number object
- */
+/*---
+info: Operator use ToString
+es5id: 15.1.2.3_A1_T5
+description: Checking for Number object
+---*/
 
 //CHECK#1
 if (parseFloat(new Number(-1.1)) !== parseFloat("-1.1")) {
@@ -27,4 +26,3 @@ if (String(parseFloat(new Number(NaN))) !== "NaN") {
 if (parseFloat(new Number(.01e+2)) !== parseFloat(".01e+2")) {
   $ERROR('#4: parseFloat(new Number(.01e+2)) === parseFloat(".01e+2"). Actual: ' + (parseFloat(new Number(.01e+2))));
 }
-

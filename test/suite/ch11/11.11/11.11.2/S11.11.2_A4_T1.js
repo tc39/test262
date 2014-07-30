@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If ToBoolean(x) is true, return x
- *
- * @path ch11/11.11/11.11.2/S11.11.2_A4_T1.js
- * @description Type(x) and Type(y) vary between primitive boolean and Boolean object
- */
+/*---
+info: If ToBoolean(x) is true, return x
+es5id: 11.11.2_A4_T1
+description: >
+    Type(x) and Type(y) vary between primitive boolean and Boolean
+    object
+---*/
 
 //CHECK#1
 if (((true || true)) !== true) {
@@ -41,4 +42,3 @@ var x = new Boolean(false);
 if ((x || new Boolean(false)) !== x) {
   $ERROR('#6: (var x = new Boolean(false); (x || new Boolean(false)) === x');
 }
-

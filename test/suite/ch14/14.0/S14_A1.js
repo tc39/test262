@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * FunctionExpression must be localed in a reacheable fragment of the program
- *
- * @path ch14/14.0/S14_A1.js
- * @description Declaring a function within an "if" Expression
- */
+/*---
+info: FunctionExpression must be localed in a reacheable fragment of the program
+es5id: 14_A1
+description: Declaring a function within an "if" Expression
+---*/
 
 var THERE = "I'm there";
 var HERE = "I'm here";
@@ -32,4 +31,3 @@ if (__func() !== HERE) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * x++ calls GetValue then PutValue so after applying postfix increment(actually conrete operator type is unimportant)
- * we must have reference to defined value
- *
- * @path ch08/8.7/S8.7.2_A2.js
- * @description Execute x++, where x is var x
- */
+/*---
+info: >
+    x++ calls GetValue then PutValue so after applying postfix increment(actually conrete operator type is unimportant)
+    we must have reference to defined value
+es5id: 8.7.2_A2
+description: Execute x++, where x is var x
+---*/
 
 var x;
 //////////////////////////////////////////////////////////////////////////////
@@ -25,4 +25,3 @@ if (x === undefined) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

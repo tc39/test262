@@ -1,14 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The pop function is intentionally generic.
- * It does not require that its this value be an Array object
- *
- * @path ch15/15.4/15.4.4/15.4.4.6/S15.4.4.6_A2_T3.js
- * @description The last element ToUint32(length) - 1 of the array is removed from the array
- * and returned
- */
+/*---
+info: >
+    The pop function is intentionally generic.
+    It does not require that its this value be an Array object
+es5id: 15.4.4.6_A2_T3
+description: >
+    The last element ToUint32(length) - 1 of the array is removed from
+    the array  and returned
+---*/
 
 var obj = {};
 obj.pop = Array.prototype.pop;
@@ -35,5 +36,4 @@ if (pop !== undefined) {
 //CHECK#3
 if (obj.length !== 1) {
   $ERROR('#12: var obj = {}; obj.length = new Number(2); obj.pop = Array.prototype.pop; obj.pop(); obj.length === 1. Actual: ' + (obj.length));
-} 
-
+}

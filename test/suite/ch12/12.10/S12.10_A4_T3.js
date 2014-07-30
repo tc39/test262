@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Changing property using "eval" statement containing "with" statement
- *
- * @path ch12/12.10/S12.10_A4_T3.js
- * @description Changing boolean property
- * @noStrict
- */
+/*---
+info: Changing property using "eval" statement containing "with" statement
+es5id: 12.10_A4_T3
+description: Changing boolean property
+flags: [noStrict]
+---*/
 
 this.p1 = 'a';
 var myObj = {
@@ -30,4 +29,3 @@ if(myObj.p1 === 'a'){
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

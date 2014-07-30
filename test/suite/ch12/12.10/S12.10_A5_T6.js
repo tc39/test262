@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Deleting property using "eval" statement containing "with" statement
- *
- * @path ch12/12.10/S12.10_A5_T6.js
- * @description Deleting function property
- * @noStrict
- */
+/*---
+info: Deleting property using "eval" statement containing "with" statement
+es5id: 12.10_A5_T6
+description: Deleting function property
+flags: [noStrict]
+---*/
 
 this.p1 = 'a';
 var myObj = {
@@ -52,4 +51,3 @@ if(myObj.p1 === 'a'){
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

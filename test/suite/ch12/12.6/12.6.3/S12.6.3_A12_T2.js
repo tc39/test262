@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If (Evaluate Statement).type is "break" and (Evaluate Statement).target is in the current label set, (normal, (Evaluate Statement), empty) is returned while evaluating a loop
- *
- * @path ch12/12.6/12.6.3/S12.6.3_A12_T2.js
- * @description Embedded loops
- */
+/*---
+info: >
+    If (Evaluate Statement).type is "break" and (Evaluate Statement).target
+    is in the current label set, (normal, (Evaluate Statement), empty) is
+    returned while evaluating a loop
+es5id: 12.6.3_A12_T2
+description: Embedded loops
+---*/
 
 __str="";
 
@@ -58,7 +60,3 @@ if (__str !== "00101120213031") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-
-
-
-

@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * In ES5, First expression should be evaluated first.
- *
- * @path ch11/11.8/11.8.2/S11.8.2_A2.3_T1.js
- * @description Checking that operands of a "<" evaluate left-to-right
- */
+/*---
+info: In ES5, First expression should be evaluated first.
+es5id: 11.8.2_A2.3_T1
+description: Checking that operands of a "<" evaluate left-to-right
+---*/
 
 //CHECK#1
 var x = { valueOf: function () { throw "x"; } };
@@ -23,4 +22,3 @@ try {
      }
    }
 }
-

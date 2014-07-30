@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Using arguments object within a "with" Expression that is nested in a function is admitted
- *
- * @path ch13/13.2/S13.2.2_A18_T1.js
- * @description Object is declared with "var __obj={callee:"a"}"
- */
+/*---
+info: >
+    Using arguments object within a "with" Expression that is nested in a
+    function is admitted
+es5id: 13.2.2_A18_T1
+description: "Object is declared with \"var __obj={callee:\"a\"}\""
+---*/
 
 var callee=0, b;
 
@@ -51,4 +52,3 @@ if (!(this.b)) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

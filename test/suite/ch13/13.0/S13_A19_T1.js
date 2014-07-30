@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * "var" does not override function declaration
- *
- * @path ch13/13.0/S13_A19_T1.js
- * @description Creating a function and a variable with identical Identifiers in global scope
- */
+/*---
+info: "\"var\" does not override function declaration"
+es5id: 13_A19_T1
+description: >
+    Creating a function and a variable with identical Identifiers in
+    global scope
+---*/
 
 // since "var" does not override function declaration __decl is set to function
 //////////////////////////////////////////////////////////////////////////////
@@ -29,4 +30,3 @@ if (__decl !== 1) {
 //////////////////////////////////////////////////////////////////////////////
 
 function __decl(){return 1;}
-

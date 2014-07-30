@@ -1,14 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When the [[Call]] property for a Function object F is called, the following steps are taken:
- * 2. Evaluate F's FunctionBody;
- * if Result.type is returned  then Result.value is returned too
- *
- * @path ch13/13.2/S13.2.1_A7_T4.js
- * @description Returning boolean. Declaring a function with "function __func()"
- */
+/*---
+info: >
+    When the [[Call]] property for a Function object F is called, the following steps are taken:
+    2. Evaluate F's FunctionBody;
+    if Result.type is returned  then Result.value is returned too
+es5id: 13.2.1_A7_T4
+description: Returning boolean. Declaring a function with "function __func()"
+includes: [Test262Error.js]
+---*/
 
 function __func(){
     var x = true;
@@ -54,5 +55,3 @@ try {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-
-

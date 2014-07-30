@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Check x >> y operator in distinct points
- *
- * @path ch11/11.7/11.7.2/S11.7.2_A4_T1.js
- * @description ShiftExpression = -2^n, n = 0...15
- */
+/*---
+info: Check x >> y operator in distinct points
+es5id: 11.7.2_A4_T1
+description: ShiftExpression = -2^n, n = 0...15
+---*/
 
 //CHECK
 
@@ -2567,5 +2566,4 @@ if (-1073741824 >> 15 !== -32768) {
 
 if (-2147483648 >> 15 !== -65536) { 
   $ERROR('#512: -2147483648 >> 15 === -65536. Actual: ' + (-2147483648 >> 15)); 
-}  
-
+}

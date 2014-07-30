@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Set the value of property length of A to Uint32(length)
- *
- * @path ch15/15.4/15.4.5/15.4.5.1/S15.4.5.1_A1.3_T2.js
- * @description Uint32 use ToNumber and ToPrimitve
- */
+/*---
+info: Set the value of property length of A to Uint32(length)
+es5id: 15.4.5.1_A1.3_T2
+description: Uint32 use ToNumber and ToPrimitve
+---*/
 
 //CHECK#1
 var x = [];
@@ -84,4 +83,3 @@ catch (e) {
     $ERROR('#8.2: x = []; x.length = {valueOf: function() {return {}}, toString: function() {return {}}}  x.length throw TypeError. Actual: ' + (e));
   } 
 }
-

@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * FunctionDeclaration cannot be localed inside an Expression
- *
- * @path ch14/14.0/S14_A2.js
- * @description Declaring a function within an "if" Expression
- */
+/*---
+info: FunctionDeclaration cannot be localed inside an Expression
+es5id: 14_A2
+description: Declaring a function within an "if" Expression
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -28,4 +27,3 @@ if (function f(arg){
 };
 //
 //////////////////////////////////////////////////////////////////////////////
-

@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The production CharacterClassEscape :: D evaluates by returning the set of all characters not
- * included in the set returned by CharacterClassEscape :: d
- *
- * @path ch15/15.10/15.10.2/15.10.2.12/S15.10.2.12_A6_T2.js
- * @description ENGLISH ALPHABET
- */
+/*---
+info: >
+    The production CharacterClassEscape :: D evaluates by returning the set of all characters not
+    included in the set returned by CharacterClassEscape :: d
+es5id: 15.10.2.12_A6_T2
+description: ENGLISH ALPHABET
+---*/
 
 var regexp_D = /\D/;
 
@@ -37,5 +37,4 @@ for (alpha = 0x0061; alpha <= 0x007A; alpha++) {
 
 if (result !== true) {
   $ERROR('#2: english small alphabet');
-} 
-
+}

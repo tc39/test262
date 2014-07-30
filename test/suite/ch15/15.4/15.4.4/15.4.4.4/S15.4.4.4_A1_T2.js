@@ -1,14 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When the concat method is called with zero or more arguments item1, item2,
- * etc., it returns an array containing the array elements of the object followed by
- * the array elements of each argument in order
- *
- * @path ch15/15.4/15.4.4/15.4.4.4/S15.4.4.4_A1_T2.js
- * @description Checking this algorithm, items are objects and primitives
- */
+/*---
+info: >
+    When the concat method is called with zero or more arguments item1, item2,
+    etc., it returns an array containing the array elements of the object followed by
+    the array elements of each argument in order
+es5id: 15.4.4.4_A1_T2
+description: Checking this algorithm, items are objects and primitives
+---*/
 
 var x = [0];
 var y = new Object();
@@ -59,5 +59,4 @@ if (arr[6] !== "NaN") {
 //CHECK#8
 if (arr.length !== 7) {
   $ERROR('#8: var x = [0]; var y = new Object(); var z = new Array(1,2); var arr = x.concat(y,z, -1, true, "NaN"); arr.length === 7. Actual: ' + (arr.length));
-}                
-
+}

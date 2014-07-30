@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * FunctionDeclaration produces a new scope
- *
- * @path ch12/12.2/S12.2_A3.js
- * @description Using Global scope and Function scope together
- */
+/*---
+info: FunctionDeclaration produces a new scope
+es5id: 12.2_A3
+description: Using Global scope and Function scope together
+---*/
 
 var __var = "OUT";
 
@@ -52,4 +51,3 @@ if (__var!=="INNERED") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

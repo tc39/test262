@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When String.prototype.charAt(pos) calls first calls ToString, giving it the this value as its argument
- *
- * @path ch15/15.5/15.5.4/15.5.4.4/S15.5.4.4_A5.js
- * @description Change toString function, it trow exception, and call charAt()
- */
+/*---
+info: >
+    When String.prototype.charAt(pos) calls first calls ToString, giving it
+    the this value as its argument
+es5id: 15.5.4.4_A5
+description: Change toString function, it trow exception, and call charAt()
+includes: [$FAIL.js]
+---*/
 
 var __obj={
     valueOf:1,
@@ -26,4 +28,3 @@ try {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

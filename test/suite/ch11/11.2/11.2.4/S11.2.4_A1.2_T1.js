@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Arguments : (ArgumentList)
- *
- * @path ch11/11.2/11.2.4/S11.2.4_A1.2_T1.js
- * @description Function is declared with no FormalParameterList
- */
+/*---
+info: "Arguments : (ArgumentList)"
+es5id: 11.2.4_A1.2_T1
+description: Function is declared with no FormalParameterList
+---*/
 
 f_arg = function() {
   return arguments;
@@ -36,4 +35,3 @@ if (f_arg(1,2,3)[2] !== 3) {
 if (f_arg(1,2,3)[3] !== undefined) {
   $ERROR('#5: f_arg = function()() {return arguments;} f_arg(1,2,3)[3] === undefined. Actual: ' + (f_arg(1,2,3)[3]));
 }
-

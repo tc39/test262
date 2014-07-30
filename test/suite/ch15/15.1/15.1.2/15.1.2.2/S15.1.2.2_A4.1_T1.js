@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If R = 0 or R = undefined, then R = 10
- *
- * @path ch15/15.1/15.1.2/15.1.2.2/S15.1.2.2_A4.1_T1.js
- * @description R = 0
- */
+/*---
+info: If R = 0 or R = undefined, then R = 10
+es5id: 15.1.2.2_A4.1_T1
+description: R = 0
+---*/
 
 //CHECK#0
 if (parseInt("0", 0) !== parseInt("0", 10)) {
@@ -71,5 +70,4 @@ if (parseInt("11", 0) !== parseInt("11", 10)) {
 //CHECK#12
 if (parseInt("9999", 0) !== parseInt("9999", 10)) {
   $ERROR('#12: parseInt("9999", 0) === parseInt("9999", 10). Actual: ' + (parseInt("9999", 0)));
-}  
-
+}

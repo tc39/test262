@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * RegExp instance type is RegExp
- *
- * @path ch15/15.10/15.10.7/S15.10.7_A3_T1.js
- * @description Checking type of RegExp instance with operators typeof, instanceof and check it constructor.
- * RegExp instance is /[^a]* /
- */
+/*---
+info: RegExp instance type is RegExp
+es5id: 15.10.7_A3_T1
+description: >
+    Checking type of RegExp instance with operators typeof, instanceof
+    and check it constructor.  RegExp instance is /[^a]* /
+---*/
 
 __re = /[^a]*/;
 
@@ -25,5 +25,3 @@ if (__re.constructor !== RegExp) {
 if ((__re instanceof RegExp) !== true) {
 	$ERROR('#3: __re = /[^a]*/; (__re instanceof RegExp) === true');
 }
-
-

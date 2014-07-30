@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String.prototype.slice (start, end)
- *
- * @path ch15/15.5/15.5.4/15.5.4.13/S15.5.4.13_A1_T10.js
- * @description Arguments are object and function call, and instance is String, object have overrided valueOf function
- */
+/*---
+info: String.prototype.slice (start, end)
+es5id: 15.5.4.13_A1_T10
+description: >
+    Arguments are object and function call, and instance is String,
+    object have overrided valueOf function
+---*/
 
 var __obj = {valueOf:function(){return 2;}};
 
@@ -23,4 +24,3 @@ with(__str){
 //////////////////////////////////////////////////////////////////////////////
 
 var x;
-

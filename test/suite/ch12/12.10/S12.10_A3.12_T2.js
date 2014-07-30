@@ -1,14 +1,16 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * No matter how control leaves the embedded 'Statement',
- * the scope chain is always restored to its former state
- *
- * @path ch12/12.10/S12.10_A3.12_T2.js
- * @description Calling a function without "with" statement declared within the statement, leading to normal completion by "return"
- * @noStrict
- */
+/*---
+info: >
+    No matter how control leaves the embedded 'Statement',
+    the scope chain is always restored to its former state
+es5id: 12.10_A3.12_T2
+description: >
+    Calling a function without "with" statement declared within the
+    statement, leading to normal completion by "return"
+flags: [noStrict]
+---*/
 
 this.p1 = 1;
 var result = "result";
@@ -38,4 +40,3 @@ if(!(myObj.p1 === "x1")){
 if(!(result === "myObj_value")){
   $ERROR('#3: result === "myObj_value". Actual:  result ==='+ result  );
 }
-

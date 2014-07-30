@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The Function.prototype.apply.length property has the attribute DontDelete
- *
- * @path ch15/15.3/15.3.4/15.3.4.3/S15.3.4.3_A9.js
- * @description Checking if deleting the Function.prototype.apply.length property fails
- */
+/*---
+info: The Function.prototype.apply.length property has the attribute DontDelete
+es5id: 15.3.4.3_A9
+description: >
+    Checking if deleting the Function.prototype.apply.length property
+    fails
+includes: [$FAIL.js]
+---*/
 
 //CHECK#0
 if (!(Function.prototype.apply.hasOwnProperty('length'))) {
@@ -22,4 +24,3 @@ if (delete Function.prototype.apply.length) {
 if (!(Function.prototype.apply.hasOwnProperty('length'))) {
   $FAIL('#2: The Function.prototype.apply.length property has the attributes DontDelete');
 }
-

@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * ToObject conversion from Number: create a new Number object
- * whose [[value]] property is set to the value of the number
- *
- * @path ch09/9.9/S9.9_A4.js
- * @description Converting from various numbers to Object
- */
+/*---
+info: >
+    ToObject conversion from Number: create a new Number object
+    whose [[value]] property is set to the value of the number
+es5id: 9.9_A4
+description: Converting from various numbers to Object
+---*/
 
 // CHECK#1
 if (Object(0).valueOf() !== 0){
@@ -175,4 +175,3 @@ if (typeof Object(-1.2345) !== "object"){
 if (Object(-1.2345).constructor.prototype !== Number.prototype){
   $ERROR('#33: Object(-1.2345).constructor.prototype === Number.prototype. Actual: ' + (Object(-1.2345).constructor.prototype));
 }
-

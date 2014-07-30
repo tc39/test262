@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator x / y returns ToNumber(x) / ToNumber(y)
- *
- * @path ch11/11.5/11.5.2/S11.5.2_A3_T1.4.js
- * @description Type(x) and Type(y) vary between Null and Undefined
- */
+/*---
+info: Operator x / y returns ToNumber(x) / ToNumber(y)
+es5id: 11.5.2_A3_T1.4
+description: Type(x) and Type(y) vary between Null and Undefined
+---*/
 
 //CHECK#1
 if (isNaN(null / undefined) !== true) {
@@ -27,4 +26,3 @@ if (isNaN(undefined / undefined) !== true) {
 if (isNaN(null / null) !== true) {
   $ERROR('#4: null / null === Not-a-Number. Actual: ' + (null / null));
 }
-

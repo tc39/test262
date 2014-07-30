@@ -1,13 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator uses PutValue
- *
- * @path ch11/11.13/11.13.2/S11.13.2_A2.2_T1.js
- * @description If Type(LeftHandSideExpression) is not Reference, throw ReferenceError (or SyntaxError). Check operator is "x *= y"
- * @negative
- */
+/*---
+info: Operator uses PutValue
+es5id: 11.13.2_A2.2_T1
+description: >
+    If Type(LeftHandSideExpression) is not Reference, throw
+    ReferenceError (or SyntaxError). Check operator is "x *= y"
+flags: [negative]
+---*/
 
 //CHECK#1
 try {
@@ -21,4 +22,3 @@ catch (e) {
     var z = (1 *= 1);
   }
 }
-

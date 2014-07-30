@@ -1,13 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When the Object constructor is called with one argument value and
- * the type of value is Number, return ToObject(number)
- *
- * @path ch15/15.2/15.2.2/S15.2.2.1_A5_T2.js
- * @description Argument value is NaN
- */
+/*---
+info: >
+    When the Object constructor is called with one argument value and
+    the type of value is Number, return ToObject(number)
+es5id: 15.2.2.1_A5_T2
+description: Argument value is NaN
+includes: [$FAIL.js]
+---*/
 
 var num = NaN;
 
@@ -27,4 +28,3 @@ if (n_obj.constructor !== Number) {
 if (typeof n_obj !== 'object') {
   $ERROR('#3: When the Object constructor is called with Number argument return ToObject(number)');
 }
-

@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The result of calling this function is the same as if
- * the built-in join method were invoked for this object with no argument
- *
- * @path ch15/15.4/15.4.4/15.4.4.2/S15.4.4.2_A1_T3.js
- * @description Operator use ToString from array arguments
- */
+/*---
+info: >
+    The result of calling this function is the same as if
+    the built-in join method were invoked for this object with no argument
+es5id: 15.4.4.2_A1_T3
+description: Operator use ToString from array arguments
+---*/
 
 //CHECK#0
 var x = new Array("","","");
@@ -87,5 +87,4 @@ if (x.toString() !== x.join()) {
   if (x.toString() !== "NaN,NaN,NaN") {
     $ERROR('#7.2: var x = new Array(NaN,NaN,NaN); x.toString(NaN,NaN,NaN) === "NaN,NaN,NaN". Actual: ' + (x.toString(NaN,NaN,NaN)));
   }
-}   
-
+}

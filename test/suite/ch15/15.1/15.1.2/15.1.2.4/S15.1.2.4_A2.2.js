@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The length property of isNaN has the attribute DontDelete
- *
- * @path ch15/15.1/15.1.2/15.1.2.4/S15.1.2.4_A2.2.js
- * @description Checking use hasOwnProperty, delete
- * @noStrict
- */
+/*---
+info: The length property of isNaN has the attribute DontDelete
+es5id: 15.1.2.4_A2.2
+description: Checking use hasOwnProperty, delete
+flags: [noStrict]
+includes: [$FAIL.js]
+---*/
 
 //CHECK#1
 if (isNaN.hasOwnProperty('length') !== true) {
@@ -25,4 +25,3 @@ if (isNaN.hasOwnProperty('length') !== true) {
 if (isNaN.length === undefined) {
   $ERROR('#3: delete isNaN.length; isNaN.length !== undefined');
 }
-

@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If string.charAt(k) in [0x0000 - 0x007F]\[uriReserved, uriUnescaped, #], return 1 octet (00000000 0zzzzzzz -> 0zzzzzzz)
- *
- * @path ch15/15.1/15.1.3/15.1.3.3/S15.1.3.3_A2.1_T1.js
- * @description Complex tests, use RFC 3629
- */
+/*---
+info: >
+    If string.charAt(k) in [0x0000 - 0x007F]\[uriReserved, uriUnescaped, #],
+    return 1 octet (00000000 0zzzzzzz -> 0zzzzzzz)
+es5id: 15.1.3.3_A2.1_T1
+description: Complex tests, use RFC 3629
+---*/
 
 uriReserved = [";", "/", "?", ":", "@", "&", "=", "+", "$", ","];
 uriUnescaped = ["-", "_", ".", "!", "~", "*", "'", "(", ")", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]; 
@@ -84,4 +85,3 @@ function decimalToHexString(n) {
   }
   return h;
 }
-

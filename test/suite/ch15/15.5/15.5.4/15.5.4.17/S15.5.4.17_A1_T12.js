@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String.prototype.toLocaleLowerCase()
- *
- * @path ch15/15.5/15.5.4/15.5.4.17/S15.5.4.17_A1_T12.js
- * @description Override toString and valueOf functions, valueOf throw exception, then call toLocaleLowerCase() function for this object
- */
+/*---
+info: String.prototype.toLocaleLowerCase()
+es5id: 15.5.4.17_A1_T12
+description: >
+    Override toString and valueOf functions, valueOf throw exception,
+    then call toLocaleLowerCase() function for this object
+includes: [$FAIL.js]
+---*/
 
 var __obj = {toString:function(){return {};},valueOf:function(){throw "intostr";}}
 __obj.toLocaleLowerCase = String.prototype.toLocaleLowerCase;
@@ -23,4 +25,3 @@ try {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

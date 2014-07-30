@@ -1,14 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If this object does not have a property named by
- * ToString(j), return 1. If this object does not have a property
- * named by ToString(k), return -1
- *
- * @path ch15/15.4/15.4.4/15.4.4.11/S15.4.4.11_A1.2_T1.js
- * @description If comparefn is undefined, use SortCompare operator
- */
+/*---
+info: >
+    If this object does not have a property named by
+    ToString(j), return 1. If this object does not have a property
+    named by ToString(k), return -1
+es5id: 15.4.4.11_A1.2_T1
+description: If comparefn is undefined, use SortCompare operator
+---*/
 
 var x = new Array(2);
 x[1] = 1; 
@@ -46,5 +46,4 @@ if (x[0] !== 1) {
 //CHECK#6
 if (x[1] !== undefined) {
   $ERROR('#6: var x = new Array(2); x[0] = 1;  x.sort(); x[1] === undefined. Actual: ' + (x[1]));
-}  
-
+}

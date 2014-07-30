@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If start is negative, use max(start + length, 0).
- * If deleteCount is positive, use min(deleteCount, length - start)
- *
- * @path ch15/15.4/15.4.4/15.4.4.12/S15.4.4.12_A1.4_T1.js
- * @description length = -start > deleteCount > 0, itemCount = 0
- */
+/*---
+info: >
+    If start is negative, use max(start + length, 0).
+    If deleteCount is positive, use min(deleteCount, length - start)
+es5id: 15.4.4.12_A1.4_T1
+description: length = -start > deleteCount > 0, itemCount = 0
+---*/
 
 var x = [0,1,2,3];
 var arr = x.splice(-4,3);
@@ -46,5 +46,4 @@ if (x.length !== 1) {
 //CHECK#7
 if (x[0] !== 3) {
   $ERROR('#7: var x = [0,1,2,3]; var arr = x.splice(-4,3); x[0] === 3. Actual: ' + (x[0]));
-} 
-
+}

@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Calling a function as a constructor is possible as long as this.any_Function is declared
- *
- * @path ch13/13.2/S13.2.2_A10.js
- * @description Calling a function as a constructor after it has been declared
- */
+/*---
+info: >
+    Calling a function as a constructor is possible as long as
+    this.any_Function is declared
+es5id: 13.2.2_A10
+description: Calling a function as a constructor after it has been declared
+---*/
 
 function FACTORY(){
    this.id = 0;
@@ -35,4 +36,3 @@ if (obj.id !== 5) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

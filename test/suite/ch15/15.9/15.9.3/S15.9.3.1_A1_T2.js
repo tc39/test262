@@ -1,13 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When Date is called as part of a new expression it is
- * a constructor: it initializes the newly created object
- *
- * @path ch15/15.9/15.9.3/S15.9.3.1_A1_T2.js
- * @description 3 arguments, (year, month, date)
- */
+/*---
+info: >
+    When Date is called as part of a new expression it is
+    a constructor: it initializes the newly created object
+es5id: 15.9.3.1_A1_T2
+description: 3 arguments, (year, month, date)
+includes: [$FAIL.js]
+---*/
 
 if (typeof new Date(1899, 11, 31) !== "object") {
   $FAIL("#1.1: typeof new Date(1899, 11, 31) should be 'object'");
@@ -224,4 +225,3 @@ var x124 = new Date(2100, 0, 1);
 if(x124 === undefined){
   $FAIL("#12.4: new Date(2100, 0, 1) should not be undefined");
 }
-

@@ -1,14 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The [[Prototype]] property of the newly constructed object
- * is set to the original Date prototype object, the one that is the
- * initial value of Date.prototype
- *
- * @path ch15/15.9/15.9.3/S15.9.3.1_A2_T1.js
- * @description 2 arguments, (year, month)
- */
+/*---
+info: >
+    The [[Prototype]] property of the newly constructed object
+    is set to the original Date prototype object, the one that is the
+    initial value of Date.prototype
+es5id: 15.9.3.1_A2_T1
+description: 2 arguments, (year, month)
+includes: [$FAIL.js]
+---*/
 
 var x11 = new Date(1899, 11);
 if (typeof x11.constructor.prototype !== "object") {
@@ -189,4 +190,3 @@ var x123 = new Date(2100, 0);
 if(Date.prototype !== x123.constructor.prototype){
   $FAIL("#12.3: Date.prototype === x123.constructor.prototype");
 }
-

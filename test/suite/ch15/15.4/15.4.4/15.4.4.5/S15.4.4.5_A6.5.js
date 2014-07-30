@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The join property of Array has the attribute DontEnum
- *
- * @path ch15/15.4/15.4.4/15.4.4.5/S15.4.4.5_A6.5.js
- * @description Checking use propertyIsEnumerable, for-in
- */
+/*---
+info: The join property of Array has the attribute DontEnum
+es5id: 15.4.4.5_A6.5
+description: Checking use propertyIsEnumerable, for-in
+---*/
 
 //CHECK#1
 if (Array.propertyIsEnumerable('join') !== false) {
@@ -24,5 +23,3 @@ for (var p in Array){
 if (result !== true) {
   $ERROR('#2: result = true; for (p in Array) { if (p === "join") result = false; }  result === true;');
 }
-
-

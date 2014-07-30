@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The function call Error(...) is equivalent to the object creation expression new
- * Error(...) with the same arguments
- *
- * @path ch15/15.11/15.11.1/S15.11.1_A1_T1.js
- * @description Checking constructor of the newly constructed Error object
- */
+/*---
+info: >
+    The function call Error(...) is equivalent to the object creation expression new
+    Error(...) with the same arguments
+es5id: 15.11.1_A1_T1
+description: Checking constructor of the newly constructed Error object
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -18,4 +18,3 @@ if(err1.constructor!==Error){
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

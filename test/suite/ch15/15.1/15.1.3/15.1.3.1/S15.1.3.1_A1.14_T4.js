@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If B = 1110xxxx (n = 3) and C != 10xxxxxx (C - first of octets after B), throw URIError
- *
- * @path ch15/15.1/15.1.3/15.1.3.1/S15.1.3.1_A1.14_T4.js
- * @description Complex tests. B = [0xE0 - 0xEF], C = [0xC0, 0xFF]
- */
+/*---
+info: >
+    If B = 1110xxxx (n = 3) and C != 10xxxxxx (C - first of octets after B),
+    throw URIError
+es5id: 15.1.3.1_A1.14_T4
+description: Complex tests. B = [0xE0 - 0xEF], C = [0xC0, 0xFF]
+---*/
 
 var errorCount = 0;
 var count = 0;
@@ -83,4 +84,3 @@ function decimalToHexString(n) {
   }
   return h;
 }
-

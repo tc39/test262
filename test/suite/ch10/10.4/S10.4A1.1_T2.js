@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Every function call enters a new execution context
- *
- * @path ch10/10.4/S10.4A1.1_T2.js
- * @description Recursive function call
- */
+/*---
+info: Every function call enters a new execution context
+es5id: 10.4A1.1_T2
+description: Recursive function call
+---*/
 
 var y;
 
@@ -30,4 +29,3 @@ y = f(0);
 if(!(y === undefined)){
   $ERROR("#1: Recursive function calls shares execution context");
 }
-

@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The production TryStatement: "try Block Finally" and the production TryStatement: "try Block Catch Finally"
- *
- * @path ch12/12.14/S12.14_A5.js
- * @description Checking "catch" catches the Identifier in appropriate way
- */
+/*---
+info: >
+    The production TryStatement: "try Block Finally" and the production
+    TryStatement: "try Block Catch Finally"
+es5id: 12.14_A5
+description: Checking "catch" catches the Identifier in appropriate way
+---*/
 
 // CHECK#1
 try {
@@ -48,4 +49,3 @@ function SwitchTest1(value){
 }
 if (SwitchTest1(1)!==4) $ERROR('#2.3: "finally" block must be evaluated');
 if (SwitchTest1(4)!==64)$ERROR('#2.4: "finally" block must be evaluated');
-

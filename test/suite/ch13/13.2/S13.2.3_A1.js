@@ -1,12 +1,13 @@
 // Copyright 2011 Google Inc.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @path ch13/13.2/S13.2.3_A1.js
- * @description check that all poisoning use the [[ThrowTypeError]]
- * function object.
- * @onlyStrict
- */
+/*---
+es5id: 13.2.3_A1
+description: >
+    check that all poisoning use the [[ThrowTypeError]]  function
+    object.
+flags: [onlyStrict]
+---*/
 
 "use strict";
 var poison = Object.getOwnPropertyDescriptor(function() {}, 'caller').get;
@@ -46,4 +47,3 @@ checkPoison((function() { return arguments; })(), 'caller');
 checkPoison((function() { return arguments; })(), 'callee');
 checkPoison((function() {}).bind(null), 'caller');
 checkPoison((function() {}).bind(null), 'arguments');
-

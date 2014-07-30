@@ -1,13 +1,14 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that LookupSupportedLocales returns an empty list when
- *     given an empty list.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+es5id: 9.2.6_4
+description: >
+    Tests that LookupSupportedLocales returns an empty list when
+    given an empty list.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 testWithIntlConstructors(function (Constructor) {
     // this test should work equally for both matching algorithms
@@ -20,4 +21,3 @@ testWithIntlConstructors(function (Constructor) {
 
     return true;
 });
-

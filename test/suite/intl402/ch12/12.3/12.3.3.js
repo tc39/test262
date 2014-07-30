@@ -1,13 +1,15 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the license found in the LICENSE file.
 
-/**
- * @description Tests that the object returned by Intl.DateTimeFormat.prototype.resolvedOptions
- *     has the right properties.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+es5id: 12.3.3
+description: >
+    Tests that the object returned by
+    Intl.DateTimeFormat.prototype.resolvedOptions  has the right
+    properties.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 var actual = new Intl.DateTimeFormat().resolvedOptions();
 
@@ -49,4 +51,3 @@ mustNotHaveProperty(actual, "minute");
 mustNotHaveProperty(actual, "second");
 mustNotHaveProperty(actual, "timeZoneName");
 mustNotHaveProperty(actual, "hour12");
-

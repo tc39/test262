@@ -1,12 +1,13 @@
-/// Copyright (c) 2012 Ecma International.  All rights reserved. 
-/// Ecma International makes this code available under the terms and conditions set
-/// forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the 
-/// "Use Terms").   Any redistribution of this code must retain the above 
-/// copyright and this notice and otherwise comply with the Use Terms.
-/**
- * @path ch08/8.5/8.5.1.js
- * @description Valid Number ranges
- */
+// Copyright (c) 2012 Ecma International.  All rights reserved.
+// Ecma International makes this code available under the terms and conditions set
+// forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the
+// "Use Terms").   Any redistribution of this code must retain the above
+// copyright and this notice and otherwise comply with the Use Terms.
+
+/*---
+es5id: 8.5.1
+description: Valid Number ranges
+---*/
 
 // Check range support for Number values (IEEE 754 64-bit floats having the form s*m*2**e)
 //

@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The length property of the fromCharCode function is 1
- *
- * @path ch15/15.5/15.5.3/S15.5.3.2_A1.js
- * @description Checking String.fromCharCode.length
- */
+/*---
+info: The length property of the fromCharCode function is 1
+es5id: 15.5.3.2_A1
+description: Checking String.fromCharCode.length
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -31,5 +30,3 @@ if (String.fromCharCode.length !== 1) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-
-

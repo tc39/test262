@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Assertions in combination
- *
- * @path ch15/15.10/15.10.2/15.10.2.6/S15.10.2.6_A6_T3.js
- * @description while asterix is non greedy it is run till matches end or colon
- */
+/*---
+info: Assertions in combination
+es5id: 15.10.2.6_A6_T3
+description: while asterix is non greedy it is run till matches end or colon
+---*/
 
 __executed = /^.*?(:|$)/.exec("Hello: World");
 
@@ -35,5 +34,3 @@ for(var index=0; index<__expected.length; index++) {
 		$ERROR('#4: __executed = /^.*?(:|$)/.exec("Hello: World"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
 	}
 }
-
-

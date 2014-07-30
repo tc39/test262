@@ -1,12 +1,14 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that Date.prototype.toLocaleString & Co. produces the same results as Intl.DateTimeFormat.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+es5id: 13.3.0_7
+description: >
+    Tests that Date.prototype.toLocaleString & Co. produces the same
+    results as Intl.DateTimeFormat.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 var functions = {
     toLocaleString: [Date.prototype.toLocaleString,
@@ -55,4 +57,3 @@ Object.getOwnPropertyNames(functions).forEach(function (p) {
         });
     });
 });
-

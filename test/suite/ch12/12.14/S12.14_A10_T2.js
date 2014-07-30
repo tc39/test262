@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Using "try" with "catch" or "finally" statement within/without a "while" statement
- *
- * @path ch12/12.14/S12.14_A10_T2.js
- * @description Try statement inside loop, where use continue loop
- */
+/*---
+info: >
+    Using "try" with "catch" or "finally" statement within/without a "while"
+    statement
+es5id: 12.14_A10_T2
+description: Try statement inside loop, where use continue loop
+---*/
 
 // CHECK#1
 var c1=0,fin=0;
@@ -113,4 +114,3 @@ if(fin6!==1){
 if(c6!==2){
   $ERROR('#6.2: "try finally{continue}" must work correctly');
 }
-

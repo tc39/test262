@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * TypeError is subclass of Error from instanceof operator point of view
- *
- * @path ch11/11.8/11.8.6/S11.8.6_A5_T2.js
- * @description Checking TypeError case
- */
+/*---
+info: TypeError is subclass of Error from instanceof operator point of view
+es5id: 11.8.6_A5_T2
+description: Checking TypeError case
+---*/
 
 var __t__err = new TypeError;
 
@@ -32,5 +31,3 @@ if (!(err__t__ instanceof Error)) {
 if (!(err__t__ instanceof TypeError)) {
 	$ERROR('#4: TypeError is subclass of Error from instanceof operator point of view');
 }
-
-

@@ -1,12 +1,16 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The String.prototype.lastIndexOf.length property has the attribute DontDelete
- *
- * @path ch15/15.5/15.5.4/15.5.4.8/S15.5.4.8_A9.js
- * @description Checking if deleting the String.prototype.lastIndexOf.length property fails
- */
+/*---
+info: >
+    The String.prototype.lastIndexOf.length property has the attribute
+    DontDelete
+es5id: 15.5.4.8_A9
+description: >
+    Checking if deleting the String.prototype.lastIndexOf.length
+    property fails
+includes: [$FAIL.js]
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#0
@@ -31,4 +35,3 @@ if (!(String.prototype.lastIndexOf.hasOwnProperty('length'))) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

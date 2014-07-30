@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The slice function is intentionally generic.
- * It does not require that its this value be an Array object
- *
- * @path ch15/15.4/15.4.4/15.4.4.10/S15.4.4.10_A2_T5.js
- * @description If end is undefined use length
- */
+/*---
+info: >
+    The slice function is intentionally generic.
+    It does not require that its this value be an Array object
+es5id: 15.4.4.10_A2_T5
+description: If end is undefined use length
+---*/
 
 var obj = {};
 obj.slice = Array.prototype.slice;
@@ -48,5 +48,4 @@ if (arr[2] !== 4) {
 //CHECK#6
 if (arr[3] !== undefined) {
   $ERROR('#6: var obj = {}; obj.slice = Array.prototype.slice; obj[0] = 0; obj[1] = 1; obj[2] = 2; obj[3] = 3; obj[4] = 4; obj.length = 5; var arr = obj.slice(2); arr[3] === undefined. Actual: ' + (arr[3]));
-}   
-
+}

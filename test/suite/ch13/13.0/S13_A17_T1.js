@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Function call cannot appear in the program before the FunctionExpression appears
- *
- * @path ch13/13.0/S13_A17_T1.js
- * @description Trying to call a function before the FunctionExpression appears
- */
+/*---
+info: >
+    Function call cannot appear in the program before the FunctionExpression
+    appears
+es5id: 13_A17_T1
+description: Trying to call a function before the FunctionExpression appears
+includes: [$FAIL.js]
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -42,4 +44,3 @@ if (__result !== "TWO") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

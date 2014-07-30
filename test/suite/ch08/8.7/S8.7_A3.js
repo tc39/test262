@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Changing the Reference of an Object While Maintaining Integrity
- *
- * @path ch08/8.7/S8.7_A3.js
- * @description Create a reference to the array, and redefine original array with new array
- */
+/*---
+info: Changing the Reference of an Object While Maintaining Integrity
+es5id: 8.7_A3
+description: >
+    Create a reference to the array, and redefine original array with
+    new array
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#
@@ -26,4 +27,3 @@ if( items == itemsRef ){
 };
 //
 //////////////////////////////////////////////////////////////////////////////
-

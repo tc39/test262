@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator x = y uses GetValue and PutValue
- *
- * @path ch11/11.13/11.13.1/S11.13.1_A2.1_T1.js
- * @description Either AssigmentExpression is not Reference or GetBase is not null
- */
+/*---
+info: Operator x = y uses GetValue and PutValue
+es5id: 11.13.1_A2.1_T1
+description: Either AssigmentExpression is not Reference or GetBase is not null
+---*/
 
 //CHECK#1
 x = 1;
@@ -46,5 +45,3 @@ if (objectx.prop !== objecty.prop) {
     $ERROR('#5: var objectx = new Object(); var objecty = new Object(); objecty.prop = 1; objectx.prop = objecty.prop; objectx !== objecty');
   } 
 }
-
-

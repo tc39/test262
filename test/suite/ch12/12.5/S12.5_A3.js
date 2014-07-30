@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When the production "IfStatement: if ( Expression ) Statement else Statement" is evaluated, Expression is evaluated first
- *
- * @path ch12/12.5/S12.5_A3.js
- * @description The Expression is "(function(){throw 1})()"
- */
+/*---
+info: >
+    When the production "IfStatement: if ( Expression ) Statement else
+    Statement" is evaluated, Expression is evaluated first
+es5id: 12.5_A3
+description: The Expression is "(function(){throw 1})()"
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -31,5 +32,3 @@ try {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-
-

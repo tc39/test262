@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator "in" calls ToString(ShiftExpression)
- *
- * @path ch11/11.8/11.8.7/S11.8.7_A4.js
- * @description Checking ToString coversion;
- */
+/*---
+info: Operator "in" calls ToString(ShiftExpression)
+es5id: 11.8.7_A4
+description: Checking ToString coversion;
+---*/
 
 //CHECK#1
 var object = {};
@@ -35,4 +34,3 @@ object["null"] = 1;
 if (null in object !== "null" in object) {  
   $ERROR('#5: "var object = {}; object["null"] = 1; null in object === "null" in object');  
 }
-

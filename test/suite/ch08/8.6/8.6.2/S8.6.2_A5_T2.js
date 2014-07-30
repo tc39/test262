@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * [[Call]] executes code associated with the object
- *
- * @path ch08/8.6/8.6.2/S8.6.2_A5_T2.js
- * @description Call function-property of object, property defined
- *  as seat['move']=function(){position++}
- */
+/*---
+info: "[[Call]] executes code associated with the object"
+es5id: 8.6.2_A5_T2
+description: >
+    Call function-property of object, property defined  as
+    seat['move']=function(){position++}
+---*/
 
 this.position=0;
 var seat = {};
@@ -29,4 +29,3 @@ if (position !==2) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

@@ -1,12 +1,12 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that format function is bound to its Intl.NumberFormat.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+es5id: 11.3.2_1_c
+description: Tests that format function is bound to its Intl.NumberFormat.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 var numbers = [0, -0, 1, -1, 5.5, 123, -123, -123.45, 123.44501, 0.001234,
     -0.00000000123, 0.00000000000000000000000000000123, 1.2, 0.0000000012344501,
@@ -38,4 +38,3 @@ locales.forEach(function (locales) {
         });
     });
 });
-

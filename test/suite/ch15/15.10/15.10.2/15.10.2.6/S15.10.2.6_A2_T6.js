@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The production Assertion :: ^ evaluates by returning an internal AssertionTester closure that takes a State argument x and performs the ...
- *
- * @path ch15/15.10/15.10.2/15.10.2.6/S15.10.2.6_A2_T6.js
- * @description Execute /^ab/.exec("abcde") and check results
- */
+/*---
+info: >
+    The production Assertion :: ^ evaluates by returning an internal
+    AssertionTester closure that takes a State argument x and performs the ...
+es5id: 15.10.2.6_A2_T6
+description: Execute /^ab/.exec("abcde") and check results
+---*/
 
 __executed = /^ab/.exec("abcde");
 
@@ -35,5 +36,3 @@ for(var index=0; index<__expected.length; index++) {
 		$ERROR('#4: __executed = /^ab/.exec("abcde"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
 	}
 }
-
-

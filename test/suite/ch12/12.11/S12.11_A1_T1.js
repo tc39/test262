@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If Result.type is break and Result.target is in the current
- * label set, return (normal, Result.value, empty)
- *
- * @path ch12/12.11/S12.11_A1_T1.js
- * @description Simple test using switch statement
- */
+/*---
+info: >
+    If Result.type is break and Result.target is in the current
+    label set, return (normal, Result.value, empty)
+es5id: 12.11_A1_T1
+description: Simple test using switch statement
+---*/
 
 function SwitchTest(value){
   var result = 0;
@@ -71,4 +71,3 @@ if(!(SwitchTest(void 0) === 32)){
 if(!(SwitchTest('0') === 32)){
   $ERROR("#10: SwitchTest('0') === 32. Actual:  SwitchTest('0') ==="+ SwitchTest('0')  );
 }
-

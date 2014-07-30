@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The value of the length property is usually an integer that indicates the 'typical' number of arguments expected by the function
- *
- * @path ch15/15.3/15.3.5/S15.3.5.1_A1_T1.js
- * @description Checking length property of Function("arg1,arg2,arg3", null)
- */
+/*---
+info: >
+    The value of the length property is usually an integer that indicates the
+    'typical' number of arguments expected by the function
+es5id: 15.3.5.1_A1_T1
+description: Checking length property of Function("arg1,arg2,arg3", null)
+includes: [$FAIL.js]
+---*/
 
 f = new Function("arg1,arg2,arg3", null);
 
@@ -19,4 +21,3 @@ if (!(f.hasOwnProperty('length'))) {
 if (f.length !== 3) {
   $ERROR('#2: The value of the length property is usually an integer that indicates the "typical" number of arguments expected by the function');
 }
-

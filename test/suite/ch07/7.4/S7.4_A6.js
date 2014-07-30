@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If multi line comments csn not nest, they can contain any Unicode character
- *
- * @path ch07/7.4/S7.4_A6.js
- * @description "var"+ yy+ "xx = 1", insert instead of yy all Unicode characters
- */
+/*---
+info: >
+    If multi line comments csn not nest, they can contain any Unicode
+    character
+es5id: 7.4_A6
+description: "\"var\"+ yy+ \"xx = 1\", insert instead of yy all Unicode characters"
+---*/
 
 //CHECK
 var errorCount = 0;
@@ -54,4 +55,3 @@ function decimalToHexString(n) {
   }
   return h;
 }
-

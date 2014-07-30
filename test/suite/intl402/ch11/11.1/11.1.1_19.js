@@ -1,10 +1,13 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that the currency style can not be used without a specified currency.
- * @author Norbert Lindenberg
- */
+/*---
+es5id: 11.1.1_19
+description: >
+    Tests that the currency style can not be used without a specified
+    currency.
+author: Norbert Lindenberg
+---*/
 
 var defaultLocale = new Intl.NumberFormat().resolvedOptions().locale;
 
@@ -28,4 +31,3 @@ expectError(function () {
 expectError(function () {
         return new Intl.NumberFormat([defaultLocale + "-u-cu-krw"], {style: "currency"});
 });
-

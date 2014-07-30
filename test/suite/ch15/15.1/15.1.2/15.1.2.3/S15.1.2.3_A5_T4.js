@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Return the number value for the MV of Result(4)
- *
- * @path ch15/15.1/15.1.2/15.1.2.3/S15.1.2.3_A5_T4.js
- * @description Checking DecimalDigits ExponentPart_opt
- */
+/*---
+info: Return the number value for the MV of Result(4)
+es5id: 15.1.2.3_A5_T4
+description: Checking DecimalDigits ExponentPart_opt
+---*/
 
 //CHECK#1
 if (parseFloat("-11") !== -11) {
@@ -42,4 +41,3 @@ if (parseFloat("1e001") !== 10) {
 if (parseFloat("010") !== 10) {
   $ERROR('#7: parseFloat("010") === 10. Actual: ' + (parseFloat("010")));
 }
-

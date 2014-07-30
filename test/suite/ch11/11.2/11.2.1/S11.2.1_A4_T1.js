@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Check type of various properties
- *
- * @path ch11/11.2/11.2.1/S11.2.1_A4_T1.js
- * @description Checking properties of this object
- */
+/*---
+info: Check type of various properties
+es5id: 11.2.1_A4_T1
+description: Checking properties of this object
+---*/
 
 //CHECK#1-32
 if (typeof (this.NaN)  === "undefined")  $ERROR('#1: typeof (this.NaN) !== "undefined"');
@@ -37,4 +36,3 @@ if (typeof this.Date === "undefined")  $ERROR('#29: typeof this.Date !== "undefi
 if (typeof this['Date'] === "undefined")  $ERROR('#30: typeof this["Date"] !== "undefined"');
 if (typeof this.Math === "undefined")  $ERROR('#31: typeof this.Math !== "undefined"');
 if (typeof this['Math'] === "undefined")  $ERROR('#32: typeof this["Math"] !== "undefined"');
-

@@ -1,15 +1,16 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The unshift function is intentionally generic.
- * It does not require that its this value be an Array object
- *
- * @path ch15/15.4/15.4.4/15.4.4.13/S15.4.4.13_A2_T1.js
- * @description The arguments are prepended to the start of the array, such that
- * their order within the array is the same as the order in which they appear in
- * the argument list
- */
+/*---
+info: >
+    The unshift function is intentionally generic.
+    It does not require that its this value be an Array object
+es5id: 15.4.4.13_A2_T1
+description: >
+    The arguments are prepended to the start of the array, such that
+    their order within the array is the same as the order in which
+    they appear in  the argument list
+---*/
 
 var obj = {};
 obj.unshift = Array.prototype.unshift;
@@ -65,4 +66,3 @@ if (obj.length !== 1) {
 if (obj["0"] !== -7) {
   $ERROR('#9: var obj = {}; obj.length = null; obj.unshift = Array.prototype.unshift; obj.unshift(-7); obj["0"] === -7. Actual: ' + (obj["0"]));
 }
-

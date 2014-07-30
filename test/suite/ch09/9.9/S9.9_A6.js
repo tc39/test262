@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * ToObject conversion from Object: The result is the input
- * argument (no conversion)
- *
- * @path ch09/9.9/S9.9_A6.js
- * @description Converting from Objects to Object
- */
+/*---
+info: >
+    ToObject conversion from Object: The result is the input
+    argument (no conversion)
+es5id: 9.9_A6
+description: Converting from Objects to Object
+---*/
 
 function MyObject( val ) {
     this.value = val;
@@ -37,4 +37,3 @@ if (y.constructor.prototype !== x.constructor.prototype){
 if (y !== x){
   $ERROR('#4: Object(obj) === obj');
 }
-

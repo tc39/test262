@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Using "try" with "catch" or "finally" statement within/without a "while" statement
- *
- * @path ch12/12.14/S12.14_A10_T5.js
- * @description Throw some exceptions from different place of loop body
- */
+/*---
+info: >
+    Using "try" with "catch" or "finally" statement within/without a "while"
+    statement
+es5id: 12.14_A10_T5
+description: Throw some exceptions from different place of loop body
+---*/
 
 // CHECK#1
 var c=0, i=0;
@@ -36,4 +37,3 @@ while(i<10){
 if(fin!==10){
   $ERROR('#1.4: "finally" block must be evaluated');
 }
-

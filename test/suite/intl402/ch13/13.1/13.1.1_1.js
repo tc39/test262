@@ -1,10 +1,13 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that localeCompare rejects values that can't be coerced to an object.
- * @author Norbert Lindenberg
- */
+/*---
+es5id: 13.1.1_1
+description: >
+    Tests that localeCompare rejects values that can't be coerced to
+    an object.
+author: Norbert Lindenberg
+---*/
 
 var invalidValues = [undefined, null];
  
@@ -21,4 +24,3 @@ invalidValues.forEach(function (value) {
         $ERROR("String.prototype.localeCompare rejected this = " + value + " with wrong error " + error.name + ".");
     }
 });
-

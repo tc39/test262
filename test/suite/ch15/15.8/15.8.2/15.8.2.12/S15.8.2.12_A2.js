@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If any value is NaN, the result of Math.min is NaN
- *
- * @path ch15/15.8/15.8.2/15.8.2.12/S15.8.2.12_A2.js
- * @description The script tests Math.min giving 1, 2 and 3 arguments to the function where at least one of the arguments is NaN
- */
+/*---
+info: If any value is NaN, the result of Math.min is NaN
+es5id: 15.8.2.12_A2
+description: >
+    The script tests Math.min giving 1, 2 and 3 arguments to the
+    function where at least one of the arguments is NaN
+---*/
 
 // CHECK#1
 if (!isNaN(Math.min(NaN)))
@@ -65,4 +66,3 @@ for (i = 0; i <= 2; i++)
 		}
 	}
 }
-

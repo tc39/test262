@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * \x HexDigit HexDigit SingleStringCharacter
- *
- * @path ch07/7.8/7.8.4/S7.8.4_A6.3_T1.js
- * @description Check similar to ('\x01F' === String.fromCharCode('1') + 'F')
- */
+/*---
+info: \x HexDigit HexDigit SingleStringCharacter
+es5id: 7.8.4_A6.3_T1
+description: Check similar to ('\x01F' === String.fromCharCode('1') + 'F')
+---*/
 
 //CHECK#1
 if ('\x01F' !== String.fromCharCode('1') + 'F') {
@@ -82,4 +81,3 @@ if ('\x0E2' !== String.fromCharCode('14') + '2') {
 if ('\x0F1' !== String.fromCharCode('15') + '1') {
   $ERROR("#F: '\x0F1' === String.fromCharCode('15') + '1'");
 }
-

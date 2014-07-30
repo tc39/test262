@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Result of applying "typeof" operator to the object that is native and doesn't implement [[Call]] is "object"
- *
- * @path ch11/11.4/11.4.3/S11.4.3_A3.6.js
- * @description typeof (object without [[Call]]) === "object"
- */
+/*---
+info: >
+    Result of applying "typeof" operator to the object that is native and
+    doesn't implement [[Call]] is "object"
+es5id: 11.4.3_A3.6
+description: typeof (object without [[Call]]) === "object"
+---*/
 
 //CHECK#1
 if (typeof this !== "object") {
@@ -70,4 +71,3 @@ if (typeof new RegExp() !== "object") {
 if (typeof RegExp() !== "object") {
   $ERROR('#12: typeof RegExp() === "object". Actual: ' + (typeof RegExp()));
 }
-

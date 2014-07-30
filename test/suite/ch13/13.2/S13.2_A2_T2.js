@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Nested function are admitted
- *
- * @path ch13/13.2/S13.2_A2_T2.js
- * @description Nesting level is three
- */
+/*---
+info: Nested function are admitted
+es5id: 13.2_A2_T2
+description: Nesting level is three
+---*/
 
 var __ROBOT="C3PO";
 
@@ -27,4 +26,3 @@ if (__FUNC()()(__ROBOT) !== __ROBOT) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

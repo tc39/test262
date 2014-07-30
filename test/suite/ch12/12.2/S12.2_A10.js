@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * "var" statement within "for" statement is allowed
- *
- * @path ch12/12.2/S12.2_A10.js
- * @description Declaring variable within a "for" IterationStatement
- */
+/*---
+info: "\"var\" statement within \"for\" statement is allowed"
+es5id: 12.2_A10
+description: Declaring variable within a "for" IterationStatement
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -21,4 +20,3 @@ try {
 for (var __ind;;){
     break;
 }
-

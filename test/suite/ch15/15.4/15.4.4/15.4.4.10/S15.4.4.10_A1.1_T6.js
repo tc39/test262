@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If start is positive, use min(start, length).
- * If end is positive, use min(end, length)
- *
- * @path ch15/15.4/15.4.4/15.4.4.10/S15.4.4.10_A1.1_T6.js
- * @description length > end > start > 0;
- */
+/*---
+info: >
+    If start is positive, use min(start, length).
+    If end is positive, use min(end, length)
+es5id: 15.4.4.10_A1.1_T6
+description: length > end > start > 0;
+---*/
 
 var x = [0,1,2,3,4];
 var arr = x.slice(2,4);
@@ -36,5 +36,4 @@ if (arr[1] !== 3) {
 //CHECK#5
 if (arr[3] !== undefined) {
   $ERROR('#5: var x = [0,1,2,3,4]; var arr = x.slice(2,4); arr[3] === undefined. Actual: ' + (arr[3]));
-}   
-
+}

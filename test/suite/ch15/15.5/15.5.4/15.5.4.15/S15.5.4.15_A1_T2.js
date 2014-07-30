@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String.prototype.substring (start, end)
- *
- * @path ch15/15.5/15.5.4/15.5.4.15/S15.5.4.15_A1_T2.js
- * @description Arguments are function call and x, and instance is Boolean. x is undefined variable
- */
+/*---
+info: String.prototype.substring (start, end)
+es5id: 15.5.4.15_A1_T2
+description: >
+    Arguments are function call and x, and instance is Boolean. x is
+    undefined variable
+---*/
 
 var __instance = new Boolean;
 
@@ -21,4 +22,3 @@ if (__instance.substring(function(){return true;}(),x) !== "alse") {
 //////////////////////////////////////////////////////////////////////////////
 
 var x;
-

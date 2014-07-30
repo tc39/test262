@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * In the "if" statement empty statement is allowed and is evaluated to "undefined"
- *
- * @path ch12/12.5/S12.5_A7.js
- * @description Checking by using eval "eval("if(1);"))"
- */
+/*---
+info: >
+    In the "if" statement empty statement is allowed and is evaluated to
+    "undefined"
+es5id: 12.5_A7
+description: Checking by using eval "eval("if(1);"))"
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -22,4 +23,3 @@ try {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

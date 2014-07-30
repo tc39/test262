@@ -1,10 +1,12 @@
 // Copyright (c) 2014 Matthew Meyers. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @path
- * @description predicate is called with three arguments: the value of the element, the index of the element, and the object being traversed.
- */
+/*---
+description: >
+    predicate is called with three arguments: the value of the
+    element, the index of the element, and the object being traversed.
+flags: [path]
+---*/
 
 var a = [1];
 

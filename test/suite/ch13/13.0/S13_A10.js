@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Function is a data
- *
- * @path ch13/13.0/S13_A10.js
- * @description Using function as a property of an object
- */
+/*---
+info: Function is a data
+es5id: 13_A10
+description: Using function as a property of an object
+---*/
 
 function __ziggy__func(){return "ziggy stardust"}
 
@@ -29,4 +28,3 @@ if (__music_box.ziggy() !== "ziggy stardust") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

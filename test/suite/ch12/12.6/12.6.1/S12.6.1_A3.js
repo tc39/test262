@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When the production "do Statement while ( Expression )" is evaluated, then (normal, V, empty) is returned
- *
- * @path ch12/12.6/12.6.1/S12.6.1_A3.js
- * @description Using eval "eval("do __in__do=1; while (false)")"
- */
+/*---
+info: >
+    When the production "do Statement while ( Expression )" is evaluated,
+    then (normal, V, empty) is returned
+es5id: 12.6.1_A3
+description: Using eval "eval("do __in__do=1; while (false)")"
+---*/
 
 __evaluated = eval("do __in__do=1; while (false)");
 
@@ -25,4 +26,3 @@ if (__evaluated !== 1) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

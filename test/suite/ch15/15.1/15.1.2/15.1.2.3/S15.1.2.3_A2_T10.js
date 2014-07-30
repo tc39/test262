@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator remove leading StrWhiteSpaceChar
- *
- * @path ch15/15.1/15.1.2/15.1.2.3/S15.1.2.3_A2_T10.js
- * @description StrWhiteSpaceChar :: USP
- */
+/*---
+info: Operator remove leading StrWhiteSpaceChar
+es5id: 15.1.2.3_A2_T10
+description: "StrWhiteSpaceChar :: USP"
+---*/
 
 //CHECK#
 var count = 0;
@@ -36,4 +35,3 @@ for (var index = 0; index < uspU.length; index++) {
 if (errorCount > 0) {  
   $ERROR('Total error: ' + errorCount + ' bad Unicode character in ' + count);
 }
-

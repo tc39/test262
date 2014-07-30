@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The result of a floating-point multiplication is governed by the rules of IEEE 754 double-precision arithmetics
- *
- * @path ch11/11.5/11.5.1/S11.5.1_A4_T1.2.js
- * @description If right operand is NaN, the result is NaN
- */
+/*---
+info: >
+    The result of a floating-point multiplication is governed by the rules of
+    IEEE 754 double-precision arithmetics
+es5id: 11.5.1_A4_T1.2
+description: If right operand is NaN, the result is NaN
+---*/
 
 //CHECK#1
 if (isNaN(Number.NaN * Number.NaN) !== true) {
@@ -47,4 +48,3 @@ if (isNaN(Number.MIN_VALUE * Number.NaN) !== true) {
 if (isNaN(1 * Number.NaN) !== true) {
   $ERROR('#8: 1 * NaN === Not-a-Number. Actual: ' + (1 * NaN));  
 }
-

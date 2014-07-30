@@ -1,12 +1,13 @@
 // Copyright 2011 Google Inc.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @path ch10/10.4/10.4.2/S10.4.2.1_A1.js
- * @description Strict indirect eval should not leak top level
- * declarations into the global scope
- * @onlyStrict
- */
+/*---
+es5id: 10.4.2.1_A1
+description: >
+    Strict indirect eval should not leak top level  declarations into
+    the global scope
+flags: [onlyStrict]
+---*/
 
 "use strict";
 if (!('foo' in this)) {

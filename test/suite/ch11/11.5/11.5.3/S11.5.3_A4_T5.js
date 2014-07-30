@@ -1,12 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The result of a ECMAScript floating-point remainder operation is determined by the rules of IEEE arithmetics
- *
- * @path ch11/11.5/11.5.3/S11.5.3_A4_T5.js
- * @description If dividend is finite and the divisor is an infinity, the result equals the dividend
- */
+/*---
+info: >
+    The result of a ECMAScript floating-point remainder operation is
+    determined by the rules of IEEE arithmetics
+es5id: 11.5.3_A4_T5
+description: >
+    If dividend is finite and the divisor is an infinity, the result
+    equals the dividend
+---*/
 
 //CHECK#1
 if (1 % Number.NEGATIVE_INFINITY !== 1) {
@@ -101,4 +104,3 @@ if (-Number.MIN_VALUE % Number.POSITIVE_INFINITY !== -Number.MIN_VALUE) {
 if (-Number.MIN_VALUE % Number.NEGATIVE_INFINITY !== -Number.MIN_VALUE) {
   $ERROR('#16: -Number.MIN_VALUE % -Infinity === -Number.MIN_VALUE. Actual: ' + (-Number.MIN_VALUE % -Infinity));
 }
-

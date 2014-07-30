@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The production CharacterClassEscape :: s evaluates by returning the set of characters
- * containing the characters that are on the right-hand side of the WhiteSpace (7.2) or LineTerminator (7.3) productions
- *
- * @path ch15/15.10/15.10.2/15.10.2.12/S15.10.2.12_A1_T3.js
- * @description ENGLISH ALPHABET
- */
+/*---
+info: >
+    The production CharacterClassEscape :: s evaluates by returning the set of characters
+    containing the characters that are on the right-hand side of the WhiteSpace (7.2) or LineTerminator (7.3) productions
+es5id: 15.10.2.12_A1_T3
+description: ENGLISH ALPHABET
+---*/
 
 var regexp_s = /\s/;
 
@@ -33,5 +33,4 @@ for (alpha = 0x0061; alpha <= 0x007A; alpha++) {
 
 if (result !== true) {
   $ERROR('#2: english small alphabet');
-} 
-
+}

@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator "typeof" uses GetValue
- *
- * @path ch11/11.4/11.4.3/S11.4.3_A2_T1.js
- * @description Either Type(x) is not Reference or GetBase(x) is not null
- */
+/*---
+info: Operator "typeof" uses GetValue
+es5id: 11.4.3_A2_T1
+description: Either Type(x) is not Reference or GetBase(x) is not null
+---*/
 
 //CHECK#1
 if (typeof 0 !== "number") {
@@ -24,4 +23,3 @@ var x = new Object();
 if (typeof x !== "object") {
   $ERROR('#3: var x = new Object(); typeof x === "object". Actual: ' + (typeof x));
 }
-

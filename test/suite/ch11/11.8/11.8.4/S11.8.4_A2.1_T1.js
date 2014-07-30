@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator x >= y uses GetValue
- *
- * @path ch11/11.8/11.8.4/S11.8.4_A2.1_T1.js
- * @description Either Type is not Reference or GetBase is not null
- */
+/*---
+info: Operator x >= y uses GetValue
+es5id: 11.8.4_A2.1_T1
+description: Either Type is not Reference or GetBase is not null
+---*/
 
 //CHECK#1
 if (1 >= 1 !== true) {
@@ -40,4 +39,3 @@ objecty.prop = 1;
 if (objectx.prop >= objecty.prop !== true) {
   $ERROR('#5: var objectx = new Object(); var objecty = new Object(); objectx.prop = 1; objecty.prop = 1; objectx.prop >= objecty.prop === true');
 }
-

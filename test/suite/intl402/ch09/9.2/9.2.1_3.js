@@ -1,13 +1,14 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that a single string instead of a locale list is treated
- *     as the locale list containing that string.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+es5id: 9.2.1_3
+description: >
+    Tests that a single string instead of a locale list is treated  as
+    the locale list containing that string.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 var validAndInvalidLanguageTags = [
     "de", // ISO 639 language code
@@ -84,4 +85,3 @@ testWithIntlConstructors(function (Constructor) {
     
     return true;
 });
-

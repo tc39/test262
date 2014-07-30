@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Since calling Object as a function is identical to calling a function, list of arguments bracketing is allowed
- *
- * @path ch15/15.2/15.2.2/S15.2.2.1_A6_T3.js
- * @description Creating an object with "new Object((null,2,3),2,3)"
- */
+/*---
+info: >
+    Since calling Object as a function is identical to calling a function,
+    list of arguments bracketing is allowed
+es5id: 15.2.2.1_A6_T3
+description: Creating an object with "new Object((null,2,3),2,3)"
+---*/
 
 var obj = new Object((null,2,3),1,2);
 
@@ -24,4 +25,3 @@ if (typeof obj !== "object") {
 if ((obj != 3)||(obj === 3)) {
   $ERROR('3#: Since Object as a function calling is the same as function calling list of arguments can appears in braces;');
 }
-

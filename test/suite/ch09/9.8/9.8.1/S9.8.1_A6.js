@@ -1,14 +1,16 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If 1 <= s < 1e21 or -1e21 s < -1, return the string
- * consisting of the k digits of the decimal representation of s (in order,
- * with no leading zeroes), followed by n-k occurrences of the character '0'
- *
- * @path ch09/9.8/9.8.1/S9.8.1_A6.js
- * @description Various integer numbers convert to String by explicit transformation
- */
+/*---
+info: >
+    If 1 <= s < 1e21 or -1e21 s < -1, return the string
+    consisting of the k digits of the decimal representation of s (in order,
+    with no leading zeroes), followed by n-k occurrences of the character '0'
+es5id: 9.8.1_A6
+description: >
+    Various integer numbers convert to String by explicit
+    transformation
+---*/
 
 // CHECK#1
 if (String(1) !== "1") {
@@ -89,5 +91,3 @@ if (String(1E20) !== "100000000000000000000") {
 if (String(-1E20) !== "-100000000000000000000") {
   $ERROR('#15: String(-1E20) === "-100000000000000000000". Actual: ' + (String(-1E20)));
 }
-
-

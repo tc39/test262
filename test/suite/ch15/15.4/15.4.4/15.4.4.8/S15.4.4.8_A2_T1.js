@@ -1,13 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The reverse function is intentionally generic.
- * It does not require that its this value be an Array object
- *
- * @path ch15/15.4/15.4.4/15.4.4.8/S15.4.4.8_A2_T1.js
- * @description Checking this for Object object, elements are objects and primitives, length is integer
- */
+/*---
+info: >
+    The reverse function is intentionally generic.
+    It does not require that its this value be an Array object
+es5id: 15.4.4.8_A2_T1
+description: >
+    Checking this for Object object, elements are objects and
+    primitives, length is integer
+---*/
 
 //CHECK#1
 var obj = {};
@@ -127,4 +129,3 @@ if (obj[7] !== "NaN") {
 if (obj[8] !== "-1") {
    $ERROR('#20: var obj = {}; obj.reverse = Array.prototype.reverse; obj.length = 10; obj[0] = true; obj[2] = Infinity; obj[4] = undefined; obj[5] = undefined; obj[8] = "NaN"; obj[9] = "-1"; obj.reverse(); obj.length = 9; obj.reverse(); obj[8] === "-1". Actual: ' + (obj[8]));
 }
-

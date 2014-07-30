@@ -1,13 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When the isPrototypeOf method is called with argument V and when O and
- * V refer to the same object or to objects joined to each other, return true
- *
- * @path ch15/15.2/15.2.4/15.2.4.6/S15.2.4.6_A1.js
- * @description Creating two objects with the same prototype
- */
+/*---
+info: >
+    When the isPrototypeOf method is called with argument V and when O and
+    V refer to the same object or to objects joined to each other, return true
+es5id: 15.2.4.6_A1
+description: Creating two objects with the same prototype
+includes: [$PRINT.js]
+---*/
 
 function USER_FACTORY( name ) {
   this.name = name;
@@ -51,4 +52,3 @@ if(Number.isPrototypeOf(luke)){
 }
 //
 /////////
-

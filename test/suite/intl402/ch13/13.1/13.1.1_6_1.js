@@ -1,10 +1,13 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that String.prototype.localeCompare throws the same exceptions as Intl.Collator.
- * @author Norbert Lindenberg
- */
+/*---
+es5id: 13.1.1_6_1
+description: >
+    Tests that String.prototype.localeCompare throws the same
+    exceptions as Intl.Collator.
+author: Norbert Lindenberg
+---*/
 
 var locales = [null, [NaN], ["i"], ["de_DE"]];
 var options = [
@@ -62,4 +65,3 @@ options.forEach(function (options) {
             " for options " + JSON.stringify(options) + "; expected " + referenceError.name + ".");
     }
 });
-

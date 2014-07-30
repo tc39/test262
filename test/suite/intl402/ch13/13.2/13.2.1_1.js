@@ -1,10 +1,11 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that toLocaleString handles "this Number value" correctly.
- * @author Norbert Lindenberg
- */
+/*---
+es5id: 13.2.1_1
+description: Tests that toLocaleString handles "this Number value" correctly.
+author: Norbert Lindenberg
+---*/
 
 var invalidValues = [undefined, null, "5", false, {valueOf: function () { return 5; }}];
 var validValues = [5, NaN, -1234567.89, -Infinity];
@@ -34,4 +35,3 @@ validValues.forEach(function (value) {
             value + " and corresponding Number object: " + valueResult + " vs. " + objectResult + ".");
     }
 });
-

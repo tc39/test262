@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Boolean.prototype.valueOf() returns this boolean value
- *
- * @path ch15/15.6/15.6.4/S15.6.4.3_A1_T1.js
- * @description no arguments
- */
+/*---
+info: Boolean.prototype.valueOf() returns this boolean value
+es5id: 15.6.4.3_A1_T1
+description: no arguments
+---*/
 
 //CHECK#1
 if(Boolean.prototype.valueOf() !== false){
@@ -37,5 +36,3 @@ if((new Boolean(1)).valueOf() !== true){
 if((new Boolean(new Object())).valueOf() !== true){
   $ERROR('#6: (new Boolean(new Object())).valueOf() === true');
 }
-
-

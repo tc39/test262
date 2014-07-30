@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * White Space and Line Terminator between BitwiseANDExpression and "&" or between "&" and EqualityExpression are allowed
- *
- * @path ch11/11.10/11.10.1/S11.10.1_A1.js
- * @description Checking uses eval
- */
+/*---
+info: >
+    White Space and Line Terminator between BitwiseANDExpression and "&" or
+    between "&" and EqualityExpression are allowed
+es5id: 11.10.1_A1
+description: Checking uses eval
+---*/
 
 //CHECK#1
 if ((eval("1\u0009&\u00091")) !== 1) {
@@ -58,4 +59,3 @@ if ((eval("1\u2029&\u20291")) !== 1) {
 if ((eval("1\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u2029&\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u20291")) !== 1) {
   $ERROR('#10: (1\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029&\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u20291) === 1');
 }
-

@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * White Space and Line Terminator inside "grouping" operator are allowed
- *
- * @path ch11/11.1/11.1.6/S11.1.6_A1.js
- * @description Inserting WhiteSpaces and LineTerminators into grouping operator. Eval is used
- */
+/*---
+info: White Space and Line Terminator inside "grouping" operator are allowed
+es5id: 11.1.6_A1
+description: >
+    Inserting WhiteSpaces and LineTerminators into grouping operator.
+    Eval is used
+---*/
 
 //CHECK#1
 if (eval("(\u00091\u0009)") !== 1) {
@@ -57,4 +58,3 @@ if (eval("(\u20291\u2029)") !== 1) {
 if (eval("(\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u20291\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u2029)") !== 1) {
   $ERROR('#10: (\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u20291\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029) === 1');
 }
-

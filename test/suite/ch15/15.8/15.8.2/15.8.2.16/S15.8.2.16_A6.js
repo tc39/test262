@@ -1,12 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Sine is a periodic function with period 2*PI
- *
- * @path ch15/15.8/15.8.2/15.8.2.16/S15.8.2.16_A6.js
- * @description Checking if Math.sin(x) equals to Math.sin(x+n*2*Math.PI) with precision 0.000000000003, where n is an integer from 1 to 100 and x is one of 10 float point values from 0 to 2*Math.PI
- */
+/*---
+info: Sine is a periodic function with period 2*PI
+es5id: 15.8.2.16_A6
+description: >
+    Checking if Math.sin(x) equals to Math.sin(x+n*2*Math.PI) with
+    precision 0.000000000003, where n is an integer from 1 to 100 and
+    x is one of 10 float point values from 0 to 2*Math.PI
+includes: [$FAIL.js]
+---*/
 
 // CHECK#1
   prec = 0.000000000003;
@@ -43,4 +46,3 @@ for (i = 0; i < snum; i++)
 		}
 	}
 }
-

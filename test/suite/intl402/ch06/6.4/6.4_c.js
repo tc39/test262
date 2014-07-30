@@ -1,10 +1,13 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that additional time zone names, if accepted, are handled correctly.
- * @author Norbert Lindenberg
- */
+/*---
+es5id: 6.4_c
+description: >
+    Tests that additional time zone names, if accepted, are handled
+    correctly.
+author: Norbert Lindenberg
+---*/
 
 // canonicalization specified in conformance clause
 var additionalTimeZoneNames = {
@@ -33,4 +36,3 @@ Object.getOwnPropertyNames(additionalTimeZoneNames).forEach(function (name) {
         $ERROR("Time zone name " + name + " was rejected with wrong error " + error.name + ".");
     }
 });
-

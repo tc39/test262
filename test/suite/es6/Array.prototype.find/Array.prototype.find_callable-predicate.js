@@ -1,10 +1,13 @@
 // Copyright (c) 2014 Matthew Meyers. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @path
- * @description Array.prototype.find shouldn't throw a TypeError if IsCallable(predicate) is true
- */
+/*---
+description: >
+    Array.prototype.find shouldn't throw a TypeError if
+    IsCallable(predicate) is true
+flags: [path]
+includes: [runTestCase.js]
+---*/
 
 var callableValues = [
     function () {},

@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * [[hasProperty]] is sensitive to property existence but [[Get]] is not
- *
- * @path ch08/8.12/8.12.6/S8.12.6_A3.js
- * @description Use [[hasProperty]] and [[Get]] for existent and not existent properties
- */
+/*---
+info: "[[hasProperty]] is sensitive to property existence but [[Get]] is not"
+es5id: 8.12.6_A3
+description: >
+    Use [[hasProperty]] and [[Get]] for existent and not existent
+    properties
+---*/
 
 var __obj={}; __obj.hole=undefined;
 
@@ -41,4 +42,3 @@ if (("notexist" in __obj)) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

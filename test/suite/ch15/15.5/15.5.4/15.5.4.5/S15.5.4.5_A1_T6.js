@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String.prototype.charCodeAt(pos)
- *
- * @path ch15/15.5/15.5.4/15.5.4.5/S15.5.4.5_A1_T6.js
- * @description Call charCodeAt() function with x argument of new String object, where x is undefined variable
- */
+/*---
+info: String.prototype.charCodeAt(pos)
+es5id: 15.5.4.5_A1_T6
+description: >
+    Call charCodeAt() function with x argument of new String object,
+    where x is undefined variable
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -18,4 +19,3 @@ if (new String("lego").charCodeAt(x) !== 0x6C) {
 //////////////////////////////////////////////////////////////////////////////
 
 var x;
-

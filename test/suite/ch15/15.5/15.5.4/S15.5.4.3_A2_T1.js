@@ -1,13 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The valueOf function is not generic; it throws a TypeError exception if its this value is not a String object.
- * Therefore, it cannot be transferred to other kinds of objects for use as a method
- *
- * @path ch15/15.5/15.5.4/S15.5.4.3_A2_T1.js
- * @description Checking if creating variable String.prototype.valueOf fails
- */
+/*---
+info: >
+    The valueOf function is not generic; it throws a TypeError exception if its this value is not a String object.
+    Therefore, it cannot be transferred to other kinds of objects for use as a method
+es5id: 15.5.4.3_A2_T1
+description: Checking if creating variable String.prototype.valueOf fails
+includes: [$FAIL.js]
+---*/
 
 var __valueOf = String.prototype.valueOf;
 
@@ -32,4 +33,3 @@ try {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

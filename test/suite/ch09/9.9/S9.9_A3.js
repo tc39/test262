@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * ToObject conversion from Boolean: create a new Boolean object
- * whose [[value]] property is set to the value of the boolean
- *
- * @path ch09/9.9/S9.9_A3.js
- * @description Trying to convert from Boolean to Object
- */
+/*---
+info: >
+    ToObject conversion from Boolean: create a new Boolean object
+    whose [[value]] property is set to the value of the boolean
+es5id: 9.9_A3
+description: Trying to convert from Boolean to Object
+---*/
 
 // CHECK#1
 if (Object(true).valueOf() !== true){
@@ -38,4 +38,3 @@ if (typeof Object(false) !== "object"){
 if (Object(false).constructor.prototype !== Boolean.prototype){
   $ERROR('#6: Object(false).constructor.prototype === Boolean.prototype. Actual: ' + (Object(false).constructor.prototype));
 }
-

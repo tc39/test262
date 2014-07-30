@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * IdentifierPart :: IdentifierStart
- *
- * @path ch07/7.6/S7.6_A2.1_T4.js
- * @description IdentifierStart :: \UnicodeEscapeSequence
- */
+/*---
+info: "IdentifierPart :: IdentifierStart"
+es5id: 7.6_A2.1_T4
+description: "IdentifierStart :: \\UnicodeEscapeSequence"
+---*/
 
 //CHECK#1
 try {
@@ -47,4 +46,3 @@ try {
 } catch (e) {
   $ERROR('#4.2: var \\u005F\\u005F = 1; __ === 4. Actual: ' + (__));
 }
-

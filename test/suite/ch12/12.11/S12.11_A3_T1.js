@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Syntax constructions of switch statement
- *
- * @path ch12/12.11/S12.11_A3_T1.js
- * @description Checking if execution of "switch() {}" fails
- * @negative
- */
+/*---
+info: Syntax constructions of switch statement
+es5id: 12.11_A3_T1
+description: Checking if execution of "switch() {}" fails
+flags: [negative]
+---*/
 
 function SwitchTest(value){
   var result = 0;
@@ -24,4 +23,3 @@ function SwitchTest(value){
 }
 
 var x = SwitchTest(0);
-

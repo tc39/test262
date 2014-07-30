@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * An Atom followed by a Quantifier is repeated the number of times specified by the Quantifier
- *
- * @path ch15/15.10/15.10.2/15.10.2.5/S15.10.2.5_A1_T4.js
- * @description Execute /(z)((a+)?(b+)?(c))* /.exec("zaacbbbcac") and check results
- */
+/*---
+info: >
+    An Atom followed by a Quantifier is repeated the number of times
+    specified by the Quantifier
+es5id: 15.10.2.5_A1_T4
+description: Execute /(z)((a+)?(b+)?(c))* /.exec("zaacbbbcac") and check results
+---*/
 
 __executed = /(z)((a+)?(b+)?(c))*/.exec("zaacbbbcac");
 
@@ -35,5 +36,3 @@ for(var index=0; index<__expected.length; index++) {
 		$ERROR('#4: __executed = /(z)((a+)?(b+)?(c))*/.exec("zaacbbbcac"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
 	}
 }
-
-

@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator !x returns !ToBoolean(x)
- *
- * @path ch11/11.4/11.4.9/S11.4.9_A3_T3.js
- * @description Type(x) is string primitive or String object
- */
+/*---
+info: Operator !x returns !ToBoolean(x)
+es5id: 11.4.9_A3_T3
+description: Type(x) is string primitive or String object
+---*/
 
 //CHECK#1
 if (!"1" !== false) {
@@ -32,4 +31,3 @@ if (!"" !== true) {
 if (!new String("") !== false) {
   $ERROR('#5: !new String("") === false');
 }
-

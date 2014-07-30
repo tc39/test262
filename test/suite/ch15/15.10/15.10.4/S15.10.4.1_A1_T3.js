@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If pattern is an object R whose [[Class]] property is "RegExp" and flags is undefined, then let P be
- * the pattern used to construct R and let F be the flags used to construct R
- *
- * @path ch15/15.10/15.10.4/S15.10.4.1_A1_T3.js
- * @description Pattern is /[a-b]/g and RegExp is new RegExp(pattern,void 0)
- */
+/*---
+info: >
+    If pattern is an object R whose [[Class]] property is "RegExp" and flags is undefined, then let P be
+    the pattern used to construct R and let F be the flags used to construct R
+es5id: 15.10.4.1_A1_T3
+description: Pattern is /[a-b]/g and RegExp is new RegExp(pattern,void 0)
+---*/
 
 __pattern = /[a-b]/g;
 __re = new RegExp(__pattern, void 0);
@@ -31,6 +31,3 @@ if (__re.global !== __pattern.global) {
 if (__re.ignoreCase !== __pattern.ignoreCase) {
   $ERROR('#4: __pattern = /[a-b]/g; __re = new RegExp(__pattern, void 0); __re.ignoreCase === __pattern.ignoreCase. Actual: ' + (__re.ignoreCase));
 }
-
-
-

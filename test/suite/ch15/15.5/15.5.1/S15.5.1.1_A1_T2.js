@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When String is called as a function rather than as a constructor, it performs a type conversion
- *
- * @path ch15/15.5/15.5.1/S15.5.1.1_A1_T2.js
- * @description Call String(null)
- */
+/*---
+info: >
+    When String is called as a function rather than as a constructor, it
+    performs a type conversion
+es5id: 15.5.1.1_A1_T2
+description: Call String(null)
+---*/
 
 var __str = String(null);
 
@@ -25,4 +26,3 @@ if (__str !== "null") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

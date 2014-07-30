@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Catching system exceptions of different types with try statement
- *
- * @path ch12/12.14/S12.14_A19_T1.js
- * @description Testing try/catch syntax construction
- */
+/*---
+info: Catching system exceptions of different types with try statement
+es5id: 12.14_A19_T1
+description: Testing try/catch syntax construction
+---*/
 
 // CHECK#1
 try{
@@ -65,4 +64,3 @@ try{
 catch(e){
   if (e.toString()!=="URIError: message") $ERROR('#7: Exception.toString()==="URIError: message". Actual: Exception is '+e);
 }
-

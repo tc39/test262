@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If separator is undefined, a single comma is used as the separator
- *
- * @path ch15/15.4/15.4.4/15.4.4.5/S15.4.4.5_A1.2_T1.js
- * @description Checking this use new Array() and []
- */
+/*---
+info: If separator is undefined, a single comma is used as the separator
+es5id: 15.4.4.5_A1.2_T1
+description: Checking this use new Array() and []
+---*/
 
 //CHECK#1
 var x = new Array(0,1,2,3);
@@ -28,4 +27,3 @@ x[0] = 0;
 if (x.join() !== "0") {
   $ERROR('#3: x = []; x[0] = 0; x.join() === "0". Actual: ' + (x.join()));
 }
-

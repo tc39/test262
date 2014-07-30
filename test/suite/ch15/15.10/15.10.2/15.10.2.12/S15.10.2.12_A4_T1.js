@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The production CharacterClassEscape :: W evaluates by returning the set of all characters not
- * included in the set returned by CharacterClassEscape :: w
- *
- * @path ch15/15.10/15.10.2/15.10.2.12/S15.10.2.12_A4_T1.js
- * @description A - Z
- */
+/*---
+info: >
+    The production CharacterClassEscape :: W evaluates by returning the set of all characters not
+    included in the set returned by CharacterClassEscape :: w
+es5id: 15.10.2.12_A4_T1
+description: A - Z
+---*/
 
 var i0 = "";
 for (var j = 0; j < 1024; j++)
@@ -520,4 +520,3 @@ var o63 = "";
 if (i63.replace(/\W+/g, "") !== o63) {
   $ERROR("#63: Error matching character class \W between character fc00 and ffff");
 }
-

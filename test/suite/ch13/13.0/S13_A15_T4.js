@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * ''arguments'' variable overrides ActivationObject.arguments
- *
- * @path ch13/13.0/S13_A15_T4.js
- * @description Declaring a variable named with "arguments" and following a "return" statement within a function body
- */
+/*---
+info: "''arguments'' variable overrides ActivationObject.arguments"
+es5id: 13_A15_T4
+description: >
+    Declaring a variable named with "arguments" and following a
+    "return" statement within a function body
+---*/
 
 THE_ANSWER="Answer to Life, the Universe, and Everything";
 
@@ -22,4 +23,3 @@ if (__func(42,42,42) !== "object") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

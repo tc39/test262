@@ -1,13 +1,17 @@
-/// Copyright (c) 2012 Ecma International.  All rights reserved. 
-/// Ecma International makes this code available under the terms and conditions set
-/// forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the 
-/// "Use Terms").   Any redistribution of this code must retain the above 
-/// copyright and this notice and otherwise comply with the Use Terms.
-/**
- * @path ch15/15.4/15.4.4/15.4.4.12/15.4.4.12-9-c-ii-1.js
- * @description Array.prototype.splice will splice an array even when Array.prototype has index '0' set to read-only and 'fromPresent' less than 'actualDeleteCount (Step 9.c.ii)
- */
+// Copyright (c) 2012 Ecma International.  All rights reserved.
+// Ecma International makes this code available under the terms and conditions set
+// forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the
+// "Use Terms").   Any redistribution of this code must retain the above
+// copyright and this notice and otherwise comply with the Use Terms.
 
+/*---
+es5id: 15.4.4.12-9-c-ii-1
+description: >
+    Array.prototype.splice will splice an array even when
+    Array.prototype has index '0' set to read-only and 'fromPresent'
+    less than 'actualDeleteCount (Step 9.c.ii)
+includes: [runTestCase.js]
+---*/
 
 function testcase() {
         try {

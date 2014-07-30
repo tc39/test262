@@ -1,12 +1,12 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that an object can't be re-initialized as a Collator.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+es5id: 10.1.1_1
+description: Tests that an object can't be re-initialized as a Collator.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 testWithIntlConstructors(function (Constructor) {
     var obj, error;
@@ -40,4 +40,3 @@ testWithIntlConstructors(function (Constructor) {
     
     return true;
 });
-

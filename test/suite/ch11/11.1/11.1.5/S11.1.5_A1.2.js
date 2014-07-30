@@ -1,12 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Evaluate the production ObjectLiteral: { NumericLiteral : AssignmentExpression}
- *
- * @path ch11/11.1/11.1.5/S11.1.5_A1.2.js
- * @description Checking various properteis and contents of the object defined with "var object = {1 : true}"
- */
+/*---
+info: >
+    Evaluate the production ObjectLiteral: { NumericLiteral :
+    AssignmentExpression}
+es5id: 11.1.5_A1.2
+description: >
+    Checking various properteis and contents of the object defined
+    with "var object = {1 : true}"
+---*/
 
 var object = {1 : true};
 
@@ -34,5 +37,3 @@ if (object[1] !== true) {
 if (object["1"] !== true) {
   $ERROR('#5: var object = {1 : true}; object["1"] === true');
 }
-
-

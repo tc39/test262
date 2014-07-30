@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Object prototype object has not prototype
- *
- * @path ch15/15.2/15.2.4/S15.2.4_A1_T2.js
- * @description Since the Object prototype object has not prototype, deleted toString method can not be found in prototype chain
- */
+/*---
+info: Object prototype object has not prototype
+es5id: 15.2.4_A1_T2
+description: >
+    Since the Object prototype object has not prototype, deleted
+    toString method can not be found in prototype chain
+---*/
 
 //CHECK#1
 if (Object.prototype.toString() == false) {
@@ -25,4 +26,3 @@ try {
   }
 }
 //
-

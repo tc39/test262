@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If y is a prefix of x, return false
- *
- * @path ch11/11.8/11.8.1/S11.8.1_A4.10.js
- * @description x and y are string primitives
- */
+/*---
+info: If y is a prefix of x, return false
+es5id: 11.8.1_A4.10
+description: x and y are string primitives
+---*/
 
 //CHECK#1
 if (("x" < "x") !== false) {
@@ -38,5 +37,3 @@ var x = "x";
 if ((x + "y" < x) !== false) {
   $ERROR('#6: var x = "x"; (x + "y" < x) === false');
 }
-
-

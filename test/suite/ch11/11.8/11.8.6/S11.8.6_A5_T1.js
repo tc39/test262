@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * TypeError is subclass of Error from instanceof operator point of view
- *
- * @path ch11/11.8/11.8.6/S11.8.6_A5_T1.js
- * @description Checking Error case
- */
+/*---
+info: TypeError is subclass of Error from instanceof operator point of view
+es5id: 11.8.6_A5_T1
+description: Checking Error case
+---*/
 
 var __err = new Error;
 
@@ -43,5 +42,3 @@ if (err__ instanceof TypeError) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-
-

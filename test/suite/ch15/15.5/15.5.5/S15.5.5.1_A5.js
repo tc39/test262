@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Once a String object is created, the length property is unchanging
- *
- * @path ch15/15.5/15.5.5/S15.5.5.1_A5.js
- * @description Change valueOf and toString of String object and check length property
- */
+/*---
+info: Once a String object is created, the length property is unchanging
+es5id: 15.5.5.1_A5
+description: >
+    Change valueOf and toString of String object and check length
+    property
+---*/
 
 var __str__instance = new String("ABC\u0041\u0042\u0043");
 
@@ -36,4 +37,3 @@ if (__str__instance.length !== 6) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

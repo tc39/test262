@@ -1,12 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The result of a floating-point multiplication is governed by the rules of IEEE 754 double-precision arithmetics
- *
- * @path ch11/11.5/11.5.1/S11.5.1_A4_T5.js
- * @description Multiplication of an infinity by a finite non-zero value results in a signed infinity
- */
+/*---
+info: >
+    The result of a floating-point multiplication is governed by the rules of
+    IEEE 754 double-precision arithmetics
+es5id: 11.5.1_A4_T5
+description: >
+    Multiplication of an infinity by a finite non-zero value results
+    in a signed infinity
+---*/
 
 //CHECK#1
 if (Number.NEGATIVE_INFINITY * -1 !== Number.POSITIVE_INFINITY) {
@@ -46,5 +49,4 @@ if (Number.NEGATIVE_INFINITY * Number.MIN_VALUE !== Number.NEGATIVE_INFINITY) {
 //CHECK#8
 if (Number.NEGATIVE_INFINITY * Number.MIN_VALUE !== Number.MIN_VALUE * Number.NEGATIVE_INFINITY) {
   $ERROR('#8: -Infinity * Number.MIN_VALUE === Number.MIN_VALUE * -Infinity. Actual: ' + (-Infinity * Number.MIN_VALUE));
-}  
-
+}

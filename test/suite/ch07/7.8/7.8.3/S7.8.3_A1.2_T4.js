@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * DecimalLiteral :: DecimalIntegerLiteral ExponentPart
- *
- * @path ch07/7.8/7.8.3/S7.8.3_A1.2_T4.js
- * @description ExponentPart :: E -DecimalDigits
- */
+/*---
+info: "DecimalLiteral :: DecimalIntegerLiteral ExponentPart"
+es5id: 7.8.3_A1.2_T4
+description: "ExponentPart :: E -DecimalDigits"
+---*/
 
 //CHECK#0
 if (0E-1 !== 0) {
@@ -57,4 +56,3 @@ if (8E-1 !== 0.8) {
 if (9E-1 !== 0.9) {
   $ERROR('#9: 9E-1 === 0.9');
 }
-

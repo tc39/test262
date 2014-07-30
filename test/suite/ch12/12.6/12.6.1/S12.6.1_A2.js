@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * While evaluating "do Statement while ( Expression )", Statement is evaluated first and only after it is done Expression is checked
- *
- * @path ch12/12.6/12.6.1/S12.6.1_A2.js
- * @description Evaluating Statement with error Expression
- */
+/*---
+info: >
+    While evaluating "do Statement while ( Expression )", Statement is
+    evaluated first and only after it is done Expression is checked
+es5id: 12.6.1_A2
+description: Evaluating Statement with error Expression
+includes: [Test262Error.js]
+---*/
 
 try {
 	do __in__do = "reached"; while (abbracadabra);
@@ -22,6 +24,3 @@ if (__in__do !== "reached") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-
-
-

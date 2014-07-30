@@ -1,14 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The arguments are prepended to the start of the array, such that
- * their order within the array is the same as the order in which they appear in
- * the argument list
- *
- * @path ch15/15.4/15.4.4/15.4.4.13/S15.4.4.13_A1_T1.js
- * @description Checking case when unsift is given no arguments or one argument
- */
+/*---
+info: >
+    The arguments are prepended to the start of the array, such that
+    their order within the array is the same as the order in which they appear in
+    the argument list
+es5id: 15.4.4.13_A1_T1
+description: Checking case when unsift is given no arguments or one argument
+---*/
 
 //CHECK#1
 var x = new Array();
@@ -52,5 +52,4 @@ if (x[1] !== 1) {
 //CHECK#8
 if (x.length !== 2) {
   $ERROR('#8: x = new Array(); x.unshift(1); x.unshift(); x.unshift(-1); x.length === 2. Actual: ' + (x.length));
-} 
-
+}

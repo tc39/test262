@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Using "try" with "catch" or "finally" statement within/without a "for-in" statement
- *
- * @path ch12/12.14/S12.14_A12_T1.js
- * @description Loop inside try Block, where throw exception
- */
+/*---
+info: >
+    Using "try" with "catch" or "finally" statement within/without a "for-in"
+    statement
+es5id: 12.14_A12_T1
+description: Loop inside try Block, where throw exception
+---*/
 
 var x;
 var mycars = new Array();
@@ -23,6 +24,3 @@ try{
 catch(e){
   if(e!=="ex")$ERROR('#1: Exception ==="ex". Actual:  Exception ==='+ e  );
 }
-
-
-

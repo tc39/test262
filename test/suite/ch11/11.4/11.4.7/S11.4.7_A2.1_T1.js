@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator -x uses GetValue
- *
- * @path ch11/11.4/11.4.7/S11.4.7_A2.1_T1.js
- * @description Either Type(x) is not Reference or GetBase(x) is not null
- */
+/*---
+info: Operator -x uses GetValue
+es5id: 11.4.7_A2.1_T1
+description: Either Type(x) is not Reference or GetBase(x) is not null
+---*/
 
 //CHECK#1
 if (-1 !== -1) {
@@ -36,4 +35,3 @@ object.prop = 1;
 if (-object.prop !== -1) {
   $ERROR('#5: var object = new Object(); object.prop = -1; -object.prop === -1. Actual: ' + (-object.prop));
 }
-

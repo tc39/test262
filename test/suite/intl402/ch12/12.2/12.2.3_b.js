@@ -1,13 +1,14 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the license found in the LICENSE file.
 
-/**
- * @description Tests that Intl.DateTimeFormat does not accept Unicode locale
- *     extension keys and values that are not allowed.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+es5id: 12.2.3_b
+description: >
+    Tests that Intl.DateTimeFormat does not accept Unicode locale
+    extension keys and values that are not allowed.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 var locales = ["ja-JP", "zh-Hans-CN", "zh-Hant-TW"];
 var input = new Date(Date.parse("1989-11-09T17:57:00Z"));
@@ -44,4 +45,3 @@ locales.forEach(function (locale) {
         });
     });
 });
-

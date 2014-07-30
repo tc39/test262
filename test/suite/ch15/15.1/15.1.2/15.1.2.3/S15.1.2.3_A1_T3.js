@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator use ToString
- *
- * @path ch15/15.1/15.1.2/15.1.2.3/S15.1.2.3_A1_T3.js
- * @description Checking for undefined and null
- */
+/*---
+info: Operator use ToString
+es5id: 15.1.2.3_A1_T3
+description: Checking for undefined and null
+---*/
 
 //CHECK#1
 if (!(isNaN(parseFloat(undefined)) && isNaN(parseFloat("NaN")))) {
@@ -28,4 +27,3 @@ if (String(parseFloat(undefined)) !== "NaN") {
 if (String(parseFloat(null)) !== "NaN") {
   $ERROR('#4: String(parseFloat(null)) === "NaN". Actual: ' + (String(parseFloat(null))));
 }
-

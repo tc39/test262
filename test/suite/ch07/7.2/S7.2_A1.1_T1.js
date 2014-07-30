@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * HORIZONTAL TAB (U+0009) between any two tokens is allowed
- *
- * @path ch07/7.2/S7.2_A1.1_T1.js
- * @description Insert HORIZONTAL TAB(\u0009 and \t) between tokens of var x=1
- */
+/*---
+info: HORIZONTAL TAB (U+0009) between any two tokens is allowed
+es5id: 7.2_A1.1_T1
+description: Insert HORIZONTAL TAB(\u0009 and \t) between tokens of var x=1
+---*/
 
 // CHECK#1
 eval("\u0009var\u0009x\u0009=\u00091\u0009");
@@ -37,4 +36,3 @@ eval("\u0009" + "var" + "\t" + "x" + "\u0009" + "=" + "\t" + "1" + "\u0009");
 if (x !== 1) {
   $ERROR('#5: eval("\\u0009" + "var" + "\\t" + "x" + "\\u0009" + "=" + "\\t" + "1" + "\\u0009"); x === 1. Actual: ' + (x));
 }
-

@@ -1,13 +1,14 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that Unicode locale extension sequences do not affect
- *    whether a locale is considered supported, but are reported back.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+es5id: 9.2.6_4_b
+description: >
+    Tests that Unicode locale extension sequences do not affect
+    whether a locale is considered supported, but are reported back.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 testWithIntlConstructors(function (Constructor) {
     // this test should work equally for both matching algorithms
@@ -43,4 +44,3 @@ testWithIntlConstructors(function (Constructor) {
 
     return true;
 });
-

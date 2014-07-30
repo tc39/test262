@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If B = 110xxxxx (n = 2) and string.charAt(k + 3) not equal "%", throw URIError
- *
- * @path ch15/15.1/15.1.3/15.1.3.2/S15.1.3.2_A1.7_T1.js
- * @description Complex tests. B = [0xC0 - 0xDF]
- */
+/*---
+info: >
+    If B = 110xxxxx (n = 2) and string.charAt(k + 3) not equal "%", throw
+    URIError
+es5id: 15.1.3.2_A1.7_T1
+description: Complex tests. B = [0xC0 - 0xDF]
+---*/
 
 errorCount = 0;
 count = 0;
@@ -76,4 +77,3 @@ function decimalToHexString(n) {
   }
   return h;
 }
-

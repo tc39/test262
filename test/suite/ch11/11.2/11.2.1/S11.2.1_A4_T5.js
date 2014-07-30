@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Check type of various properties
- *
- * @path ch11/11.2/11.2.1/S11.2.1_A4_T5.js
- * @description Checking properties of the String object
- */
+/*---
+info: Check type of various properties
+es5id: 11.2.1_A4_T5
+description: Checking properties of the String object
+---*/
 
 //CHECK#1-28
 if (typeof String.prototype  !== "object")  $ERROR('#1: typeof String.prototype === "object". Actual: ' + (typeof String.prototype ));
@@ -37,5 +36,3 @@ if (typeof String.prototype.toUpperCase !== "function")  $ERROR('#25: typeof Str
 if (typeof String.prototype['toUpperCase'] !== "function")  $ERROR('#26: typeof Array.prototype === "object". Actual: ' + (typeof Array.prototype ));
 if (typeof String.prototype.length  !== "number")  $ERROR('#27: typeof String.prototype.length === "number". Actual: ' + (typeof String.prototype.length ));
 if (typeof String.prototype['length']  !== "number")  $ERROR('#28: typeof String.prototype["length"] === "number". Actual: ' + (typeof String.prototype["length"] ));
-
-

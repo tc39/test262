@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If Type(x) is Number and Type(y) is Object,
- * return x != ToPrimitive(y)
- *
- * @path ch11/11.9/11.9.2/S11.9.2_A7.5.js
- * @description y is object, x is primitive number
- */
+/*---
+info: >
+    If Type(x) is Number and Type(y) is Object,
+    return x != ToPrimitive(y)
+es5id: 11.9.2_A7.5
+description: y is object, x is primitive number
+---*/
 
 //CHECK#1
 if ((1 != new Boolean(true)) !== false) {
@@ -23,4 +23,3 @@ if ((-1 != new Number(-1)) !== false) {
 if ((-1 != new String("-1")) !== false) {
   $ERROR('#3: (-1 != new String("-1")) === false');
 }
-

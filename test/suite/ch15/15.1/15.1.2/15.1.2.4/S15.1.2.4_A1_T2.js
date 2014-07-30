@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * isNaN applies ToNumber to its argument, then return true if the result is NaN, and otherwise return false
- *
- * @path ch15/15.1/15.1.2/15.1.2.4/S15.1.2.4_A1_T2.js
- * @description Checking all object
- */
+/*---
+info: >
+    isNaN applies ToNumber to its argument, then return true if the result is
+    NaN, and otherwise return false
+es5id: 15.1.2.4_A1_T2
+description: Checking all object
+---*/
 
 // CHECK#1
 if (!(isNaN({}) === true)) {
@@ -37,8 +38,3 @@ if (!(isNaN(new Number(NaN)) === true)) {
 if (isNaN(new Boolean(true)) === true) {
   $ERROR('#6: new Boolean(true) !== Not-a-Number'); 
 }
-
-
-
-
-

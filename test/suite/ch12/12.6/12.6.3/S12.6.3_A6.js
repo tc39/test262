@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * While evaluating "for ( ;  ; Expression) Statement", Statement is evaluated first and then Expression is evaluated
- *
- * @path ch12/12.6/12.6.3/S12.6.3_A6.js
- * @description Using "(function(){throw "SecondExpression";})()" as an Expression
- */
+/*---
+info: >
+    While evaluating "for ( ;  ; Expression) Statement", Statement is
+    evaluated first and then Expression is evaluated
+es5id: 12.6.3_A6
+description: Using "(function(){throw "SecondExpression";})()" as an Expression
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -30,4 +31,3 @@ if (__in__for !== "reached") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

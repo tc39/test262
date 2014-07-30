@@ -1,14 +1,16 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * No matter how control leaves the embedded 'Statement',
- * the scope chain is always restored to its former state
- *
- * @path ch12/12.10/S12.10_A3.2_T3.js
- * @description Declaring "with" statement within a function body, leading to normal completion by "return"
- * @noStrict
- */
+/*---
+info: >
+    No matter how control leaves the embedded 'Statement',
+    the scope chain is always restored to its former state
+es5id: 12.10_A3.2_T3
+description: >
+    Declaring "with" statement within a function body, leading to
+    normal completion by "return"
+flags: [noStrict]
+---*/
 
 this.p1 = 1;
 
@@ -44,4 +46,3 @@ if(myObj.p1 !== "a"){
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

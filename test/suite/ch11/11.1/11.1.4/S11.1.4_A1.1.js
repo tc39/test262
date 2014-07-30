@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Evaluate the production ArrayLiteral: [ ]
- *
- * @path ch11/11.1/11.1.4/S11.1.4_A1.1.js
- * @description Checking various properties of the array defined with expression "var array = []"
- */
+/*---
+info: "Evaluate the production ArrayLiteral: [ ]"
+es5id: 11.1.4_A1.1
+description: >
+    Checking various properties of the array defined with expression
+    "var array = []"
+---*/
 
 var array = [];
 
@@ -29,4 +30,3 @@ if (array.toString !== Array.prototype.toString) {
 if (array.length !== 0) {
   $ERROR('#4: var array = []; array.length === 0. Actual: ' + (array.length));
 }
-

@@ -2,12 +2,15 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the license found in the LICENSE file.
 
-/**
- * @description Tests that the function returned by Intl.Collator.prototype.compare
- *     returns 0 when comparing Strings that are considered canonically equivalent
- *     by the Unicode standard.
- * @author Norbert Lindenberg
- */
+/*---
+es5id: 10.3.2_CS_a
+description: >
+    Tests that the function returned by
+    Intl.Collator.prototype.compare  returns 0 when comparing Strings
+    that are considered canonically equivalent  by the Unicode
+    standard.
+author: Norbert Lindenberg
+---*/
 
 var collator = new Intl.Collator();
 var pairs = [
@@ -65,4 +68,3 @@ function toU(s) {
     }
     return result;
 }
-

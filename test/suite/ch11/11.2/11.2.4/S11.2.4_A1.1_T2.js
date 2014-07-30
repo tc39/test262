@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Arguments : ()
- *
- * @path ch11/11.2/11.2.4/S11.2.4_A1.1_T2.js
- * @description Function is declared with FormalParameterList
- */
+/*---
+info: "Arguments : ()"
+es5id: 11.2.4_A1.1_T2
+description: Function is declared with FormalParameterList
+---*/
 
 function f_arg(x,y) {
   return arguments;
@@ -26,4 +25,3 @@ if (f_arg()[0] !== undefined) {
 if (f_arg.length !== 2) {
   $ERROR('#3: function f_arg(x,y) {return arguments;} f_arg.length === 2. Actual: ' + (f_arg.length));
 }
-

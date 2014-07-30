@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When the Object constructor is called with one argument value and
- * the value is a native ECMAScript object, do not create a new object but simply return value
- *
- * @path ch15/15.2/15.2.2/S15.2.2.1_A2_T2.js
- * @description The value is a function variable
- */
+/*---
+info: >
+    When the Object constructor is called with one argument value and
+    the value is a native ECMAScript object, do not create a new object but simply return value
+es5id: 15.2.2.1_A2_T2
+description: The value is a function variable
+---*/
 
 var func = function(){return 1;};
 
@@ -23,4 +23,3 @@ if (n_obj() !== 1) {
   $ERROR('When the Object constructor is called and if the value is an Object simply value returns');
 }
 //
-

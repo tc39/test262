@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The first element of the array is removed from the array and
- * returned
- *
- * @path ch15/15.4/15.4.4/15.4.4.9/S15.4.4.9_A1.2_T1.js
- * @description Checking this use new Array() and []
- */
+/*---
+info: >
+    The first element of the array is removed from the array and
+    returned
+es5id: 15.4.4.9_A1.2_T1
+description: Checking this use new Array() and []
+---*/
 
 //CHECK#1
 var x = new Array(0,1,2,3);
@@ -66,4 +66,3 @@ if (shift !== undefined) {
 if (x.length !== 0) {
   $ERROR('#10: x = []; x[0] = 0; x[3] = 3; x.shift(); x.length = 1; x.shift(); x.length === 0. Actual: ' + (x.length));
 }
-

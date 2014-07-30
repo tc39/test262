@@ -1,10 +1,11 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that invalid currency codes are not accepted.
- * @author Norbert Lindenberg
- */
+/*---
+es5id: 6.3.1_b
+description: Tests that invalid currency codes are not accepted.
+author: Norbert Lindenberg
+---*/
 
 var invalidCurrencyCodes = [
     "",
@@ -32,4 +33,3 @@ invalidCurrencyCodes.forEach(function (code) {
         $ERROR("Invalid currency code '" + code + "' was rejected with wrong error " + error.name + ".");
     }
 });
-

@@ -1,15 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * parseFloat may interpret only a leading portion of the string as
- * a number value; it ignores any characters that cannot be interpreted as part
- * of the notation of an decimal literal, and no indication is given that any such
- * characters were ignored.
- *
- * @path ch15/15.1/15.1.2/15.1.2.3/S15.1.2.3_A6.js
- * @description Complex test without eval
- */
+/*---
+info: >
+    parseFloat may interpret only a leading portion of the string as
+    a number value; it ignores any characters that cannot be interpreted as part
+    of the notation of an decimal literal, and no indication is given that any such
+    characters were ignored.
+es5id: 15.1.2.3_A6
+description: Complex test without eval
+---*/
 
 //CHECK
 var errorCount = 0;
@@ -78,4 +78,3 @@ function decimalToHexString(n) {
   }
   return h;
 }
-

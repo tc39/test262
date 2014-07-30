@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If neither x, nor y is a prefix of each other, returned result of strings comparison applies a simple lexicographic ordering to the sequences of code point value values
- *
- * @path ch11/11.8/11.8.4/S11.8.4_A4.12_T1.js
- * @description x and y are string primitives
- */
+/*---
+info: >
+    If neither x, nor y is a prefix of each other, returned result of strings
+    comparison applies a simple lexicographic ordering to the sequences of
+    code point value values
+es5id: 11.8.4_A4.12_T1
+description: x and y are string primitives
+---*/
 
 //CHECK#1
 if (("xy" >= "xx") !== true) {
@@ -42,4 +44,3 @@ if (("a\u0000b" >= "a\u0000a") !== true) {
 if (("aa" >= "aB") !== true) {
   $ERROR('#7: ("aa" >= aB") === true');
 }
-

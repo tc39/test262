@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * List of words that are not reserved
- *
- * @path ch07/7.6/7.6.1/S7.6.1_A2.js
- * @description Try assign 1 for not reserved words
- */
+/*---
+info: List of words that are not reserved
+es5id: 7.6.1_A2
+description: Try assign 1 for not reserved words
+---*/
 
 // a
 var and = 1;
@@ -118,4 +117,3 @@ var xor = 1;
 var xor_eq = 1;
 // y
 // z
-

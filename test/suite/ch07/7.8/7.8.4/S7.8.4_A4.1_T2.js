@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * CharacterEscapeSequnce :: SingleEscapeSequence
- *
- * @path ch07/7.8/7.8.4/S7.8.4_A4.1_T2.js
- * @description SingleEscapeSequence :: one of ' " \
- */
+/*---
+info: "CharacterEscapeSequnce :: SingleEscapeSequence"
+es5id: 7.8.4_A4.1_T2
+description: "SingleEscapeSequence :: one of ' \" \\"
+---*/
 
 //CHECK#1
 if (String.fromCharCode(0x0027) !== "\'") {
@@ -32,4 +31,3 @@ if ("\'" !== "'") {
 if ('\"' !== '"') {
   $ERROR('#5: \'\"\' === \'\\\"\'');
 }
-

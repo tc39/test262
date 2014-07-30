@@ -1,12 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The result of an addition is determined using the rules of IEEE 754 double-precision arithmetics
- *
- * @path ch11/11.6/11.6.1/S11.6.1_A4_T6.js
- * @description The sum of a zero and a nonzero finite value is equal to the nonzero operand
- */
+/*---
+info: >
+    The result of an addition is determined using the rules of IEEE 754
+    double-precision arithmetics
+es5id: 11.6.1_A4_T6
+description: >
+    The sum of a zero and a nonzero finite value is equal to the
+    nonzero operand
+---*/
 
 //CHECK#1
 if (1 + -0 !== 1 ) {  
@@ -46,5 +49,4 @@ if (-0 + Number.MIN_VALUE !== Number.MIN_VALUE ) {
 //CHECK#8
 if (0 + Number.MIN_VALUE !== Number.MIN_VALUE ) {  
   $ERROR('#8: 0 + Number.MIN_VALUE === Number.MIN_VALUE. Actual: ' + (0 + Number.MIN_VALUE));
-} 
-
+}

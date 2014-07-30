@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If Result.type is break and Result.target is in the current
- * label set, return (normal, Result.value, empty)
- *
- * @path ch12/12.11/S12.11_A1_T2.js
- * @description Switch with different types of variables
- */
+/*---
+info: >
+    If Result.type is break and Result.target is in the current
+    label set, return (normal, Result.value, empty)
+es5id: 12.11_A1_T2
+description: Switch with different types of variables
+---*/
 
 var x = new Number(2);
 
@@ -85,4 +85,3 @@ if(!(SwitchTest('0') === 32)){
 if(!(SwitchTest(x) === 128)){
   $ERROR("#10: SwitchTest(x) === 128. Actual:  SwitchTest(x) ==="+ SwitchTest(x)  );
 }
-

@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * ToNumber(first expression) is called first, and then ToNumber(second expression)
- *
- * @path ch11/11.8/11.8.1/S11.8.1_A2.3_T1.js
- * @description Checking with "throw"
- */
+/*---
+info: >
+    ToNumber(first expression) is called first, and then ToNumber(second
+    expression)
+es5id: 11.8.1_A2.3_T1
+description: Checking with "throw"
+---*/
 
 //CHECK#1
 var x = { valueOf: function () { throw "x"; } };
@@ -23,4 +24,3 @@ try {
      }
    }
 }
-

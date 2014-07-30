@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String.fromCharCode has not [[construct]] method
- *
- * @path ch15/15.5/15.5.3/S15.5.3.2_A4.js
- * @description Checking if creating "new String.fromCharCode" fails
- */
+/*---
+info: String.fromCharCode has not [[construct]] method
+es5id: 15.5.3.2_A4
+description: Checking if creating "new String.fromCharCode" fails
+includes:
+    - $FAIL.js
+    - Test262Error.js
+---*/
 
 var __fcc__func = String.fromCharCode;
 
@@ -22,4 +24,3 @@ try {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

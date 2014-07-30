@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The scope chain is initialised to contain the same objects,
- * in the same order, as the calling context's scope chain
- *
- * @path ch10/10.4/10.4.2/S10.4.2_A1.1_T2.js
- * @description eval within global execution context
- */
+/*---
+info: >
+    The scope chain is initialised to contain the same objects,
+    in the same order, as the calling context's scope chain
+es5id: 10.4.2_A1.1_T2
+description: eval within global execution context
+---*/
 
 var i;
 var j;
@@ -26,4 +26,3 @@ if(!(str1 === str2)){
 
 var x = 1;
 var y = 2;
-

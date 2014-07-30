@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If one expression is undefined or null and another is not, return false
- *
- * @path ch11/11.9/11.9.1/S11.9.1_A6.2_T1.js
- * @description x is null or undefined, y is not
- */
+/*---
+info: If one expression is undefined or null and another is not, return false
+es5id: 11.9.1_A6.2_T1
+description: x is null or undefined, y is not
+---*/
 
 //CHECK#1
 if ((undefined == true) !== false) {
@@ -47,4 +46,3 @@ if ((null == "null") !== false) {
 if ((null == {}) !== false) {
   $ERROR('#8: (null == {}) === false');
 }
-

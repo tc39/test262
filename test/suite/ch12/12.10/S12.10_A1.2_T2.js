@@ -1,14 +1,17 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The with statement adds a computed object to the front of the
- * scope chain of the current execution context
- *
- * @path ch12/12.10/S12.10_A1.2_T2.js
- * @description Calling a function without "with" statement when the statement itself is declared within the function declaration, leading to normal completion by "return"
- * @noStrict
- */
+/*---
+info: >
+    The with statement adds a computed object to the front of the
+    scope chain of the current execution context
+es5id: 12.10_A1.2_T2
+description: >
+    Calling a function without "with" statement when the statement
+    itself is declared within the function declaration, leading to
+    normal completion by "return"
+flags: [noStrict]
+---*/
 
 this.p1 = 1;
 this.p2 = 2;
@@ -146,4 +149,3 @@ catch(e){
 if(!(myObj.value === "value")){
   $ERROR('#19: myObj.value === "value". Actual:  myObj.value ==='+ myObj.value  );
 }
-

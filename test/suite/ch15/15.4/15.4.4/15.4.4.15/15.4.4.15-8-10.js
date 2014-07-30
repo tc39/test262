@@ -1,16 +1,17 @@
-/// Copyright (c) 2012 Ecma International.  All rights reserved. 
-/// Ecma International makes this code available under the terms and conditions set
-/// forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the 
-/// "Use Terms").   Any redistribution of this code must retain the above 
-/// copyright and this notice and otherwise comply with the Use Terms.
-/**
- * note that prior to the finally ES5 draft SameValue was used for comparisions
- * and hence NaNs could be found using lastIndexOf *
- *
- * @path ch15/15.4/15.4.4/15.4.4.15/15.4.4.15-8-10.js
- * @description Array.prototype.lastIndexOf must return correct index (NaN)
- */
+// Copyright (c) 2012 Ecma International.  All rights reserved.
+// Ecma International makes this code available under the terms and conditions set
+// forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the
+// "Use Terms").   Any redistribution of this code must retain the above
+// copyright and this notice and otherwise comply with the Use Terms.
 
+/*---
+info: >
+    note that prior to the finally ES5 draft SameValue was used for comparisions
+    and hence NaNs could be found using lastIndexOf *
+es5id: 15.4.4.15-8-10
+description: Array.prototype.lastIndexOf must return correct index (NaN)
+includes: [runTestCase.js]
+---*/
 
 function testcase() {
   var _NaN = NaN;

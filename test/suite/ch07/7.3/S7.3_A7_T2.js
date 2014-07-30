@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Line Terminators between operators are allowed
- *
- * @path ch07/7.3/S7.3_A7_T2.js
- * @description Insert Line Terminator in var x=y-z
- */
+/*---
+info: Line Terminators between operators are allowed
+es5id: 7.3_A7_T2
+description: Insert Line Terminator in var x=y-z
+---*/
 
 // CHECK#1
 var y=3;
@@ -54,4 +53,3 @@ eval("\u2029var\u2029x\u2029=\u2029y\u2029-\u2029z\u2029");
 if (x !== 1) {
   $ERROR('#4: eval("\\u2029var\\u2029x\\u2029=\\u2029y\\u2029-\\u2029z\\u2029"); x === 1. Actual: ' + (x));
 }
-

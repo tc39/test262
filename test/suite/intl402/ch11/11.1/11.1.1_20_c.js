@@ -2,10 +2,13 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that the number of fractional digits is determined correctly for currencies.
- * @author Norbert Lindenberg
- */
+/*---
+es5id: 11.1.1_20_c
+description: >
+    Tests that the number of fractional digits is determined correctly
+    for currencies.
+author: Norbert Lindenberg
+---*/
 
 // data from http://www.currency-iso.org/dl_iso_table_a1.xml, 2013-02-25
 var currencyDigits = {
@@ -193,4 +196,3 @@ Object.getOwnPropertyNames(currencyDigits).forEach(function (currency) {
             currency + "; expected " + digits + ", got " + max + ".");
     }
 });
-

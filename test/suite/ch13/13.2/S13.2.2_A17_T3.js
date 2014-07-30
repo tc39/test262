@@ -1,13 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * FunctionExpression containing "with" statement is admitted
- *
- * @path ch13/13.2/S13.2.2_A17_T3.js
- * @description In the check 4 we populate field getRight in __obj object since var getRight declaration adds variable to function scope
- * but getRight in statement resolves within with(__obj) scope and searchs getRight in __obj first
- */
+/*---
+info: FunctionExpression containing "with" statement is admitted
+es5id: 13.2.2_A17_T3
+description: >
+    In the check 4 we populate field getRight in __obj object since
+    var getRight declaration adds variable to function scope  but
+    getRight in statement resolves within with(__obj) scope and
+    searchs getRight in __obj first
+---*/
 
 p1="alert";
 
@@ -64,5 +66,3 @@ if (resukt !== "w1") {
 //////////////////////////////////////////////////////////////////////////////
 
 var resukt;
-
-

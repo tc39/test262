@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Error.prototype property has the attributes {DontEnum}
- *
- * @path ch15/15.11/15.11.3/S15.11.3.1_A2_T1.js
- * @description Checking if enumerating the Error.prototype property fails
- */
+/*---
+info: Error.prototype property has the attributes {DontEnum}
+es5id: 15.11.3.1_A2_T1
+description: Checking if enumerating the Error.prototype property fails
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#0
@@ -39,4 +38,3 @@ if (cout !== 0) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

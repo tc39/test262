@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * 0, null, undefined, false, empty string, NaN in expression is evaluated to false
- *
- * @path ch12/12.5/S12.5_A1.1_T2.js
- * @description Using "if/else" construction
- */
+/*---
+info: >
+    0, null, undefined, false, empty string, NaN in expression is evaluated
+    to false
+es5id: 12.5_A1.1_T2
+description: Using "if/else" construction
+---*/
 
 var c=0;
 //////////////////////////////////////////////////////////////////////////////
@@ -68,4 +69,3 @@ else
 if (c!=6) $ERROR('#6.2: else branch don`t execute');
 //
 //////////////////////////////////////////////////////////////////////////////
-

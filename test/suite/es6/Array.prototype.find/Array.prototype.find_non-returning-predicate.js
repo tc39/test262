@@ -1,10 +1,10 @@
 // Copyright (c) 2014 Matthew Meyers. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @path
- * @description Find with a predicate with no return value should return undefined
- */
+/*---
+description: Find with a predicate with no return value should return undefined
+flags: [path]
+---*/
 
 var a = [1, 2, 3].find(function () {});
 

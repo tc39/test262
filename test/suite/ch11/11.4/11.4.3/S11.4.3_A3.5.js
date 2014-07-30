@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Result of appying "typeof" operator to string is "string"
- *
- * @path ch11/11.4/11.4.3/S11.4.3_A3.5.js
- * @description typeof (string value) === "string"
- */
+/*---
+info: Result of appying "typeof" operator to string is "string"
+es5id: 11.4.3_A3.5
+description: typeof (string value) === "string"
+---*/
 
 //CHECK#1
 if (typeof "1" !== "string") {
@@ -37,4 +36,3 @@ if (typeof "true" !== "string") {
 if (typeof Date() !== "string") {
   $ERROR('#6: typeof Date() === "string". Actual: ' + (typeof Date()));
 }
-

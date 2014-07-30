@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If x is greater than 0 but less than 1, Math.floor(x) is +0
- *
- * @path ch15/15.8/15.8.2/15.8.2.9/S15.8.2.9_A6.js
- * @description Checking if Math.floor(x) is +0, where x is greater than 0 but less than 1
- */
+/*---
+info: If x is greater than 0 but less than 1, Math.floor(x) is +0
+es5id: 15.8.2.9_A6
+description: >
+    Checking if Math.floor(x) is +0, where x is greater than 0 but
+    less than 1
+---*/
 
 // CHECK#1
 var x = 0.000000000000001;
@@ -28,4 +29,3 @@ if (Math.floor(x) !== +0)
 {
 	$ERROR("#3: 'var x = 0.5; Math.ceil(x) !== +0'");
 }
-

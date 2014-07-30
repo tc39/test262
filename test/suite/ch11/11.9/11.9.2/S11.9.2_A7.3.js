@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If Type(x) is Boolean and Type(y) is Object,
- * return x != ToPrimitive(y)
- *
- * @path ch11/11.9/11.9.2/S11.9.2_A7.3.js
- * @description y is object, x is primitive boolean
- */
+/*---
+info: >
+    If Type(x) is Boolean and Type(y) is Object,
+    return x != ToPrimitive(y)
+es5id: 11.9.2_A7.3
+description: y is object, x is primitive boolean
+---*/
 
 //CHECK#1
 if ((true != new Boolean(true)) !== false) {
@@ -23,4 +23,3 @@ if ((true != new Number(1)) !== false) {
 if ((true != new String("+1")) !== false) {
   $ERROR('#3: (true != new String("+1")) === false');
 }
-

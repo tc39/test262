@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If ToBoolean(x) is true, return y
- *
- * @path ch11/11.11/11.11.1/S11.11.1_A4_T3.js
- * @description Type(x) and Type(y) vary between primitive string and String object
- */
+/*---
+info: If ToBoolean(x) is true, return y
+es5id: 11.11.1_A4_T3
+description: Type(x) and Type(y) vary between primitive string and String object
+---*/
 
 //CHECK#1
 if (("0" && "-1") !== "-1") {
@@ -41,4 +40,3 @@ var y = new String(-1);
 if ((new String(NaN) && y) !== y) {
   $ERROR('#6: (var y = new String(-1); (new String(NaN) && y) === y');
 }
-

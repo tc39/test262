@@ -1,14 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If the length property is changed, every property whose name
- * is an array index whose value is not smaller than the new length is automatically deleted
- *
- * @path ch15/15.4/15.4.5/15.4.5.2/S15.4.5.2_A3_T2.js
- * @description If new length greater than the name of every property whose name
- * is an array index
- */
+/*---
+info: >
+    If the length property is changed, every property whose name
+    is an array index whose value is not smaller than the new length is automatically deleted
+es5id: 15.4.5.2_A3_T2
+description: >
+    If new length greater than the name of every property whose name
+    is an array index
+---*/
 
 //CHECK#1
 var x = [];
@@ -47,4 +48,3 @@ x.length = 1;
 if (x[1] !== undefined) {      
   $ERROR('#6: x = []; x[1] = 1; x[3] = 3; x[5] = 5; x.length = 4; x.length = new Number(6); x.length = 0; x.length = 1; x[1] === undefined. Actual: ' + (x[1]));
 }
-

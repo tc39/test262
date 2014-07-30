@@ -1,10 +1,11 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the license found in the LICENSE file.
 
-/**
- * @description Tests that Intl.Collator.prototype has the required attributes.
- * @author Norbert Lindenberg
- */
+/*---
+es5id: 10.2.1
+description: Tests that Intl.Collator.prototype has the required attributes.
+author: Norbert Lindenberg
+---*/
 
 var desc = Object.getOwnPropertyDescriptor(Intl.Collator, "prototype");
 if (desc === undefined) {
@@ -19,4 +20,3 @@ if (desc.enumerable) {
 if (desc.configurable) {
     $ERROR("Intl.Collator.prototype must not be configurable.");
 }
-

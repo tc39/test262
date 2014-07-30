@@ -1,14 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * All of the arguments are optional, any arguments supplied are
- * accepted but are completely ignored. A string is created and returned as
- * if by the expression (new Date()).toString()
- *
- * @path ch15/15.9/15.9.2/S15.9.2.1_A2.js
- * @description Use various number arguments and various types of ones
- */
+/*---
+info: >
+    All of the arguments are optional, any arguments supplied are
+    accepted but are completely ignored. A string is created and returned as
+    if by the expression (new Date()).toString()
+es5id: 15.9.2.1_A2
+description: Use various number arguments and various types of ones
+---*/
 
 function isEqual(d1, d2) {
   if (d1 === d2) {
@@ -89,4 +89,3 @@ if( !isEqual(Date(undefined), (new Date()).toString()) ) {
 if( !isEqual(Date(null), (new Date()).toString()) ) {
   $ERROR('#15: Date(null) is equal to (new Date()).toString()');
 }
-

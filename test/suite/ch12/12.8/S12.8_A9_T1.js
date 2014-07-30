@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Using "break" within "try/catch" statement that is nested in a loop is allowed
- *
- * @path ch12/12.8/S12.8_A9_T1.js
- * @description Using "continue Identifier" within "catch" statement
- */
+/*---
+info: >
+    Using "break" within "try/catch" statement that is nested in a loop is
+    allowed
+es5id: 12.8_A9_T1
+description: Using "continue Identifier" within "catch" statement
+---*/
 
 var x=0,y=0;
 
@@ -29,4 +30,3 @@ if (x!==1) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

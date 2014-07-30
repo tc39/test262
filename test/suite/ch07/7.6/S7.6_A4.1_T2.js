@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Correct interpretation of ENGLISH ALPHABET
- *
- * @path ch07/7.6/S7.6_A4.1_T2.js
- * @description Check ENGLISH SMALL ALPHABET
- */
+/*---
+info: Correct interpretation of ENGLISH ALPHABET
+es5id: 7.6_A4.1_T2
+description: Check ENGLISH SMALL ALPHABET
+---*/
 
 //CHECK#a-z
 var \u0061 = 1;
@@ -113,5 +112,3 @@ var \u007A = 1;
 if (z !== 1) {
   $ERROR('#z');
 }
-
-

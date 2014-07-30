@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String.prototype.match (regexp)
- *
- * @path ch15/15.5/15.5.4/15.5.4.10/S15.5.4.10_A1_T8.js
- * @description Call match (regexp) function with void 0 argument of string object;
- */
+/*---
+info: String.prototype.match (regexp)
+es5id: 15.5.4.10_A1_T8
+description: Call match (regexp) function with void 0 argument of string object;
+---*/
 
 var __obj = {toString:function(){}};
 
@@ -47,4 +46,3 @@ for(var index=0; index<__expected.length; index++) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

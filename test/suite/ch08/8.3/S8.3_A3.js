@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Applaing negation to boolean works well
- *
- * @path ch08/8.3/S8.3_A3.js
- * @description Check not false equals true, not true equals false
- */
+/*---
+info: Applaing negation to boolean works well
+es5id: 8.3_A3
+description: Check not false equals true, not true equals false
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -39,4 +38,3 @@ if (!true != false){
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

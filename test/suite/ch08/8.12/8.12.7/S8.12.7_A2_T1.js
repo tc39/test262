@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When the [[Delete]] method of O is called with property name P,
- * and if O doesn't have a property with name P, return true
- *
- * @path ch08/8.12/8.12.7/S8.12.7_A2_T1.js
- * @description Try to delete not existent properties
- */
+/*---
+info: >
+    When the [[Delete]] method of O is called with property name P,
+    and if O doesn't have a property with name P, return true
+es5id: 8.12.7_A2_T1
+description: Try to delete not existent properties
+---*/
 
 var __color__map = {};
 
@@ -35,5 +35,3 @@ if (delete __color__map[blue] !== true){
 };
 //
 //////////////////////////////////////////////////////////////////////////////
-
-

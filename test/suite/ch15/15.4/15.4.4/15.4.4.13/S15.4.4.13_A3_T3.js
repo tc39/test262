@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Check ToUint32(length) for non Array objects
- *
- * @path ch15/15.4/15.4.4/15.4.4.13/S15.4.4.13_A3_T3.js
- * @description length = 4294967297
- */
+/*---
+info: Check ToUint32(length) for non Array objects
+es5id: 15.4.4.13_A3_T3
+description: length = 4294967297
+---*/
 
 var obj = {};
 obj.unshift = Array.prototype.unshift;
@@ -42,5 +41,4 @@ if (obj[2] !== "z") {
 //CHECK#6
 if (obj[3] !== "") {
    $ERROR('#6: var obj = {}; obj.unshift = Array.prototype.unshift; obj[0] = ""; obj.length = 4294967297; obj.unshift("x", "y", "z"); obj[3] === "". Actual: ' + (obj[3]));
-}  
-
+}

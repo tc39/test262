@@ -2,12 +2,12 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that Intl.DateTimeFormat can be subclassed.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+es5id: 12.1.2
+description: Tests that Intl.DateTimeFormat can be subclassed.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 // get a date-time format and have it format an array of dates for comparison with the subclass
 var locales = ["tlh", "id", "en"];
@@ -27,4 +27,3 @@ MyDateTimeFormat.prototype.constructor = MyDateTimeFormat;
 var format = new MyDateTimeFormat(locales);
 var actual = a.map(format.format);
 testArraysAreSame(referenceFormatted, actual);
-

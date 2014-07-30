@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The RegExp instance lastIndex property has the attribute DontDelete
- *
- * @path ch15/15.10/15.10.7/15.10.7.5/S15.10.7.5_A9.js
- * @description Checking if deleting the lastIndex property fails
- */
+/*---
+info: The RegExp instance lastIndex property has the attribute DontDelete
+es5id: 15.10.7.5_A9
+description: Checking if deleting the lastIndex property fails
+includes: [$FAIL.js]
+---*/
 
 __re = new RegExp;
 
@@ -24,5 +24,3 @@ if ((delete __re.lastIndex) !== false) {
 if (__re.hasOwnProperty('lastIndex') !== true) {
   $ERROR('#2: __re = new RegExp;delete __re.lastIndex === true; __re.hasOwnProperty(\'lastIndex\') === true');
 }
-
-

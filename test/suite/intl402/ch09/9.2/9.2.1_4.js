@@ -1,12 +1,14 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that non-objects are converted to objects before canonicalization.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+es5id: 9.2.1_4
+description: >
+    Tests that non-objects are converted to objects before
+    canonicalization.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 testWithIntlConstructors(function (Constructor) {
     // undefined is handled separately
@@ -43,4 +45,3 @@ testWithIntlConstructors(function (Constructor) {
     
     return true;
 });
-

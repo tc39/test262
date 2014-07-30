@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If B = 110xxxxx (n = 2) and (k + 2) + 3 >= length, throw URIError
- *
- * @path ch15/15.1/15.1.3/15.1.3.1/S15.1.3.1_A1.4_T1.js
- * @description Complex tests. B = [0xC0 - 0xDF]
- */
+/*---
+info: If B = 110xxxxx (n = 2) and (k + 2) + 3 >= length, throw URIError
+es5id: 15.1.3.1_A1.4_T1
+description: Complex tests. B = [0xC0 - 0xDF]
+---*/
 
 var errorCount = 0;
 var count = 0;
@@ -84,4 +83,3 @@ function decimalToHexString(n) {
   }
   return h;
 }
-

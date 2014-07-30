@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Step 4: If this number value is NaN, return the string "NaN"
- *
- * @path ch15/15.7/15.7.4/15.7.4.5/S15.7.4.5_A1.3_T02.js
- * @description direct usage of NaN
- */
+/*---
+info: "Step 4: If this number value is NaN, return the string \"NaN\""
+es5id: 15.7.4.5_A1.3_T02
+description: direct usage of NaN
+---*/
 
 //CHECK#1
 if(Number.NaN.toFixed() !== "NaN"){
@@ -68,4 +67,3 @@ catch(e){
     $ERROR('#10: Number.NaN.toFixed(Number.POSITIVE_INFINITY) should throw RangeError, not '+e);
   }
 }
-

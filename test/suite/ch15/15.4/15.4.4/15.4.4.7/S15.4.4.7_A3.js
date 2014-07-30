@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Check ToUint32(length) for Array object
- *
- * @path ch15/15.4/15.4.4/15.4.4.7/S15.4.4.7_A3.js
- * @description If ToUint32(length) !== length, throw RangeError
- */
+/*---
+info: Check ToUint32(length) for Array object
+es5id: 15.4.4.7_A3
+description: If ToUint32(length) !== length, throw RangeError
+---*/
 
 var x = [];
 x.length = 4294967295;
@@ -36,4 +35,3 @@ if (x[4294967295] !== "x") {
 if (x.length !== 4294967295) {
    $ERROR('#4: x = []; x.length = 4294967295; try {x.push("x")}catch(e){}; x.length === 4294967295. Actual: ' + (x.length));
 }
-

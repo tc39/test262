@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * DecimalLiteral :: HexIntegerLiteral
- *
- * @path ch07/7.8/7.8.3/S7.8.3_A5.1_T7.js
- * @description HexIntegerLiteral :: 0x one of a, b, c, d, e, f
- */
+/*---
+info: "DecimalLiteral :: HexIntegerLiteral"
+es5id: 7.8.3_A5.1_T7
+description: "HexIntegerLiteral :: 0x one of a, b, c, d, e, f"
+---*/
 
 //CHECK#a
 if (0xa !== 10) {
@@ -37,4 +36,3 @@ if (0xe !== 14) {
 if (0xf !== 15) {
   $ERROR('#f: 0xf === 15');
 }
-

@@ -1,12 +1,16 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator x <= y returns ToNumber(x) <= ToNumber(y), if Type(Primitive(x)) is not String or Type(Primitive(y)) is not String
- *
- * @path ch11/11.8/11.8.3/S11.8.3_A3.1_T2.2.js
- * @description Type(Primitive(x)) is different from Type(Primitive(y)) and both types vary between Number (primitive or object) and String (primitive and object)
- */
+/*---
+info: >
+    Operator x <= y returns ToNumber(x) <= ToNumber(y), if Type(Primitive(x))
+    is not String or Type(Primitive(y)) is not String
+es5id: 11.8.3_A3.1_T2.2
+description: >
+    Type(Primitive(x)) is different from Type(Primitive(y)) and both
+    types vary between Number (primitive or object) and String
+    (primitive and object)
+---*/
 
 //CHECK#1
 if ("1" <= 1 !== true) {
@@ -57,4 +61,3 @@ if ("x" <= 1 !== false) {
 if (1 <= "x" !== false) {
   $ERROR('#10: 1 <= "x" === false');
 }
-

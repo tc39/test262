@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * First expression is evaluated first, and then second expression
- *
- * @path ch11/11.8/11.8.3/S11.8.3_A2.4_T2.js
- * @description Checking with "throw"
- */
+/*---
+info: First expression is evaluated first, and then second expression
+es5id: 11.8.3_A2.4_T2
+description: Checking with "throw"
+---*/
 
 //CHECK#1
 var x = function () { throw "x"; };
@@ -23,4 +22,3 @@ try {
      }
    }
 }
-

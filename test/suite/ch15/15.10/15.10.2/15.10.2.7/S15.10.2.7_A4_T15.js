@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The production QuantifierPrefix :: * evaluates by returning the two results 0 and \infty
- *
- * @path ch15/15.10/15.10.2/15.10.2.7/S15.10.2.7_A4_T15.js
- * @description Execute /(\d*)\d(\d+)/.exec('1234567890') and check results
- */
+/*---
+info: >
+    The production QuantifierPrefix :: * evaluates by returning the two
+    results 0 and \infty
+es5id: 15.10.2.7_A4_T15
+description: Execute /(\d*)\d(\d+)/.exec('1234567890') and check results
+---*/
 
 __executed = /(\d*)\d(\d+)/.exec('1234567890');
 
@@ -35,5 +36,3 @@ for(var index=0; index<__expected.length; index++) {
 		$ERROR('#4: __executed = /(\\d*)\\d(\\d+)/.exec(\'1234567890\'); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
 	}
 }
-
-

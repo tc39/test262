@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * CharacterEscape :: UnicodeEscapeSequence :: u HexDigit HexDigit HexDigit HexDigit
- *
- * @path ch15/15.10/15.10.2/15.10.2.10/S15.10.2.10_A4.1_T1.js
- * @description RegExp and tested string include uncode symbols
- */
+/*---
+info: >
+    CharacterEscape :: UnicodeEscapeSequence :: u HexDigit HexDigit HexDigit
+    HexDigit
+es5id: 15.10.2.10_A4.1_T1
+description: RegExp and tested string include uncode symbols
+---*/
 
 //CHECK#0
 var arr = /\u0000/.exec("\u0000"); 
@@ -43,4 +44,3 @@ var arr = /\uFFFF/.exec("\uFFFF");
 if ((arr === null) || (arr[0] !== "\uFFFF")) {
   $ERROR('#5: var arr = /\\uFFFF/.exec(\\uFFFF); arr[0] === "\\uFFFF". Actual. ' + (arr && arr[0]));
 }
-

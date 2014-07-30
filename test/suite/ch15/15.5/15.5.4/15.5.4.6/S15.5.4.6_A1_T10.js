@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String.prototype.concat([,[...]])
- *
- * @path ch15/15.5/15.5.4/15.5.4.6/S15.5.4.6_A1_T10.js
- * @description Call concat([,[...]]) function with object arguments
- */
+/*---
+info: String.prototype.concat([,[...]])
+es5id: 15.5.4.6_A1_T10
+description: Call concat([,[...]]) function with object arguments
+---*/
 
 var __obj = {toString:function(){return "\u0041";}}
 var __obj2 = {toString:function(){return true;}}
@@ -24,4 +23,3 @@ with(__str){
 //////////////////////////////////////////////////////////////////////////////
 
 var x;
-

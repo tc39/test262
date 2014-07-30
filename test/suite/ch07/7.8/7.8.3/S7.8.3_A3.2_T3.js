@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * DecimalLiteral :: DecimalIntegerLiteral. DecimalDigits
- *
- * @path ch07/7.8/7.8.3/S7.8.3_A3.2_T3.js
- * @description After DecimalIntegerLiteral. used NoNZeroDigit
- */
+/*---
+info: "DecimalLiteral :: DecimalIntegerLiteral. DecimalDigits"
+es5id: 7.8.3_A3.2_T3
+description: After DecimalIntegerLiteral. used NoNZeroDigit
+---*/
 
 //CHECK#0
 if (0.0 !== 0.0) {
@@ -57,4 +56,3 @@ if (8.8 !== 8.8) {
 if (9.9 !== 9.9) {
   $ERROR('#9: 9.9 === 9.9');
 }
-

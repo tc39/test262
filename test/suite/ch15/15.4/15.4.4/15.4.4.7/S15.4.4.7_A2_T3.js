@@ -1,14 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The push function is intentionally generic.
- * It does not require that its this value be an Array object
- *
- * @path ch15/15.4/15.4.4/15.4.4.7/S15.4.4.7_A2_T3.js
- * @description Operator use ToNumber from length.
- * If Type(value) is Object, evaluate ToPrimitive(value, Number)
- */
+/*---
+info: >
+    The push function is intentionally generic.
+    It does not require that its this value be an Array object
+es5id: 15.4.4.7_A2_T3
+description: >
+    Operator use ToNumber from length.  If Type(value) is Object,
+    evaluate ToPrimitive(value, Number)
+---*/
 
 var obj = {};
 obj.push = Array.prototype.push;
@@ -90,4 +91,3 @@ catch (e) {
     $ERROR('#8.2:  obj.length = {valueOf: function() {return {}}, toString: function() {return {}}}  obj.push() throw TypeError. Actual: ' + (e));
   } 
 }
-

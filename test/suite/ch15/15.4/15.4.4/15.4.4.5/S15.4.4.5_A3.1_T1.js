@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator use ToString from separator
- *
- * @path ch15/15.4/15.4.4/15.4.4.5/S15.4.4.5_A3.1_T1.js
- * @description Checking separator in ["", "\\", "&", true, Infinity, null, undefind, NaN]
- */
+/*---
+info: Operator use ToString from separator
+es5id: 15.4.4.5_A3.1_T1
+description: >
+    Checking separator in ["", "\\", "&", true, Infinity, null,
+    undefind, NaN]
+---*/
 
 //CHECK#0
 var x = new Array(0,1,2,3);
@@ -49,4 +50,3 @@ if (x.join(undefined) !== "0,1,2,3") {
 if (x.join(NaN) !== "0NaN1NaN2NaN3") {
   $ERROR('#7: x = new Array(0,1,2,3); x.join("NaN") === "0NaN1NaN2NaN3". Actual: ' + (x.join("NaN")));
 }
-

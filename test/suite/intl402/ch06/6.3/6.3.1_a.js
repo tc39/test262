@@ -1,10 +1,11 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that well-formed currency codes are accepted.
- * @author Norbert Lindenberg
- */
+/*---
+es5id: 6.3.1_a
+description: Tests that well-formed currency codes are accepted.
+author: Norbert Lindenberg
+---*/
 
 var wellFormedCurrencyCodes = [
     "BOB",
@@ -22,4 +23,3 @@ wellFormedCurrencyCodes.forEach(function (code) {
             format.resolvedOptions().currency + ".");
     }
 });
-

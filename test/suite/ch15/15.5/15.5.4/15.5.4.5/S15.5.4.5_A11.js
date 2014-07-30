@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The length property of the charCodeAt method is 1
- *
- * @path ch15/15.5/15.5.4/15.5.4.5/S15.5.4.5_A11.js
- * @description Checking String.prototype.charCodeAt.length
- */
+/*---
+info: The length property of the charCodeAt method is 1
+es5id: 15.5.4.5_A11
+description: Checking String.prototype.charCodeAt.length
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -23,4 +22,3 @@ if (String.prototype.charCodeAt.length !== 1) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

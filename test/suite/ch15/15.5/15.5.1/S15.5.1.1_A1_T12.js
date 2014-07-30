@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * When String is called as a function rather than as a constructor, it performs a type conversion
- *
- * @path ch15/15.5/15.5.1/S15.5.1.1_A1_T12.js
- * @description Call String(1/"a"), String("b"* null) and String(Number.NaN)
- */
+/*---
+info: >
+    When String is called as a function rather than as a constructor, it
+    performs a type conversion
+es5id: 15.5.1.1_A1_T12
+description: Call String(1/"a"), String("b"* null) and String(Number.NaN)
+---*/
 
 var __str = String(1/"a");
 
@@ -61,4 +62,3 @@ if (__str !== "NaN") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

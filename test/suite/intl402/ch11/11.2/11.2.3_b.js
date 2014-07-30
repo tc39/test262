@@ -1,13 +1,14 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the license found in the LICENSE file.
 
-/**
- * @description Tests that Intl.NumberFormat does not accept Unicode locale
- *     extension keys and values that are not allowed.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+es5id: 11.2.3_b
+description: >
+    Tests that Intl.NumberFormat does not accept Unicode locale
+    extension keys and values that are not allowed.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 var locales = ["ja-JP", "zh-Hans-CN", "zh-Hant-TW"];
 var input = 1234567.89;
@@ -43,4 +44,3 @@ locales.forEach(function (locale) {
         });
     });
 });
-

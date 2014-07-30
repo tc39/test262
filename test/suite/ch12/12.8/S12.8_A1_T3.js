@@ -1,13 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Appearing of break without an IterationStatement leads to syntax error
- *
- * @path ch12/12.8/S12.8_A1_T3.js
- * @description Checking if break statement with no loop, placed into a block, fails
- * @negative
- */
+/*---
+info: Appearing of break without an IterationStatement leads to syntax error
+es5id: 12.8_A1_T3
+description: >
+    Checking if break statement with no loop, placed into a block,
+    fails
+flags: [negative]
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -18,4 +19,3 @@
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

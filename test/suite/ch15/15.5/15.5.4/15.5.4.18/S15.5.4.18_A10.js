@@ -1,12 +1,16 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The String.prototype.toUpperCase.length property has the attribute ReadOnly
- *
- * @path ch15/15.5/15.5.4/15.5.4.18/S15.5.4.18_A10.js
- * @description Checking if varying the String.prototype.toUpperCase.length property fails
- */
+/*---
+info: >
+    The String.prototype.toUpperCase.length property has the attribute
+    ReadOnly
+es5id: 15.5.4.18_A10
+description: >
+    Checking if varying the String.prototype.toUpperCase.length
+    property fails
+includes: [$FAIL.js]
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -27,4 +31,3 @@ if (String.prototype.toUpperCase.length !== __obj) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

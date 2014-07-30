@@ -1,11 +1,13 @@
 // Copyright 2012 Google Inc.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that Intl.NumberFormat.prototype.format
- * handles NaN, Infinity, and -Infinity properly.
- * @author: Roozbeh Pournader
- */
+/*---
+es5id: 11.3.2_FN_2
+description: >
+    Tests that Intl.NumberFormat.prototype.format  handles NaN,
+    Infinity, and -Infinity properly.
+author: Roozbeh Pournader
+---*/
 
 // FIXME: We are only listing Numeric_Type=Decimal. May need to add more
 // when the spec clarifies. Current as of Unicode 6.1.
@@ -56,4 +58,3 @@ if (hasUnicodeDigits.test(formattedNegativeInfinity)) {
     $ERROR('Intl.NumberFormat formats negative Infinity ' + 
         'using a digit.');
 }
-

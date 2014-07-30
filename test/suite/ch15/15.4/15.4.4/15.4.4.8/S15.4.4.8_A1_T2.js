@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The elements of the array are rearranged so as to reverse their order.
- * The object is returned as the result of the call
- *
- * @path ch15/15.4/15.4.4/15.4.4.8/S15.4.4.8_A1_T2.js
- * @description Checking this algorithm, elements are objects and primitives
- */
+/*---
+info: >
+    The elements of the array are rearranged so as to reverse their order.
+    The object is returned as the result of the call
+es5id: 15.4.4.8_A1_T2
+description: Checking this algorithm, elements are objects and primitives
+---*/
 
 //CHECK#1
 var x = [];
@@ -124,5 +124,3 @@ if (x[7] !== "NaN") {
 if (x[8] !== "-1") {
    $ERROR('#20: x = []; x[0] = true; x[2] = Infinity; x[4] = undefined; x[5] = undefined; x[8] = "NaN"; x[9] = "-1"; x.reverse(); x.length = 9; x.reverse(); x[8] === "-1". Actual: ' + (x[8]));
 }
-    
-

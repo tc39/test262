@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String.prototype.charAt() can accept many arguments
- *
- * @path ch15/15.5/15.5.4/15.5.4.4/S15.5.4.4_A1.1.js
- * @description Checking by using eval
- */
+/*---
+info: String.prototype.charAt() can accept many arguments
+es5id: 15.5.4.4_A1.1
+description: Checking by using eval
+---*/
 
 function __FACTORY(){this.toString = function(){ return "wizard";};};
 
@@ -23,5 +22,3 @@ with(__instance){
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-
-

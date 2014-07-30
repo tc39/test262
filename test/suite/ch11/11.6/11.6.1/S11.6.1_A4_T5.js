@@ -1,12 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The result of an addition is determined using the rules of IEEE 754 double-precision arithmetics
- *
- * @path ch11/11.6/11.6.1/S11.6.1_A4_T5.js
- * @description The sum of two negative zeros is -0. The sum of two positive zeros, or of two zeros of opposite sign is +0
- */
+/*---
+info: >
+    The result of an addition is determined using the rules of IEEE 754
+    double-precision arithmetics
+es5id: 11.6.1_A4_T5
+description: >
+    The sum of two negative zeros is -0. The sum of two positive
+    zeros, or of two zeros of opposite sign is +0
+---*/
 
 //CHECK#1
 if (-0 + -0 !== -0 ) {  
@@ -43,4 +46,3 @@ if (0 + 0 !== 0 ) {
     $ERROR('#4.2: 0 + 0 === + 0. Actual: -0');
   }
 }
-

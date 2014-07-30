@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String.prototype.toString() returns this string value
- *
- * @path ch15/15.5/15.5.4/S15.5.4.2_A1_T4.js
- * @description Create new String(function(){}()) and check it`s method toString()
- */
+/*---
+info: String.prototype.toString() returns this string value
+es5id: 15.5.4.2_A1_T4
+description: Create new String(function(){}()) and check it`s method toString()
+---*/
 
 var __string__obj = new String(function(){}());
 
@@ -17,4 +16,3 @@ if (__string__obj.toString() !== "undefined") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

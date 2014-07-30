@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator x & y returns ToNumber(x) & ToNumber(y)
- *
- * @path ch11/11.10/11.10.1/S11.10.1_A3_T1.3.js
- * @description Type(x) and Type(y) are primitive string and String object
- */
+/*---
+info: Operator x & y returns ToNumber(x) & ToNumber(y)
+es5id: 11.10.1_A3_T1.3
+description: Type(x) and Type(y) are primitive string and String object
+---*/
 
 //CHECK#1
 if (("1" & "1") !== 1) {
@@ -37,4 +36,3 @@ if (("x" & "1") !== 0) {
 if (("1" & "x") !== 0) {
   $ERROR('#6: ("1" & "x") === 0. Actual: ' + (("1" & "x")));
 }
-

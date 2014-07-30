@@ -1,10 +1,13 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the license found in the LICENSE file.
 
-/**
- * @description Tests that Intl.DateTimeFormat.prototype has the required attributes.
- * @author Norbert Lindenberg
- */
+/*---
+es5id: 12.2.1
+description: >
+    Tests that Intl.DateTimeFormat.prototype has the required
+    attributes.
+author: Norbert Lindenberg
+---*/
 
 var desc = Object.getOwnPropertyDescriptor(Intl.DateTimeFormat, "prototype");
 if (desc === undefined) {
@@ -19,4 +22,3 @@ if (desc.enumerable) {
 if (desc.configurable) {
     $ERROR("Intl.DateTimeFormat.prototype must not be configurable.");
 }
-

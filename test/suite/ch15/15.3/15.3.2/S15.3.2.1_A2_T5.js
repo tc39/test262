@@ -1,12 +1,16 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * It is permissible but not necessary to have one argument for each formal parameter to be specified
- *
- * @path ch15/15.3/15.3.2/S15.3.2.1_A2_T5.js
- * @description Values of the function constructor arguments are "return"-s of various results and a concotenation of strings
- */
+/*---
+info: >
+    It is permissible but not necessary to have one argument for each formal
+    parameter to be specified
+es5id: 15.3.2.1_A2_T5
+description: >
+    Values of the function constructor arguments are "return"-s of
+    various results and a concotenation of strings
+includes: [$FAIL.js]
+---*/
 
 var i=0;
 
@@ -28,4 +32,3 @@ if (!(f instanceof Function)){
 if (f("",1,2) !== "12") {
   $ERROR('#3: It is permissible but not necessary to have one argument for each formal parameter to be specified');
 }
-

@@ -1,12 +1,15 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The production IterationStatement: "for (var VariableDeclarationNoIn in Expression) Statement"
- *
- * @path ch12/12.6/12.6.4/S12.6.4_A6.1.js
- * @description Using Object with custom prototype as an Expression is appropriate. The prototype is "{feat:2,hint:"protohint"}"
- */
+/*---
+info: >
+    The production IterationStatement: "for (var VariableDeclarationNoIn in
+    Expression) Statement"
+es5id: 12.6.4_A6.1
+description: >
+    Using Object with custom prototype as an Expression is
+    appropriate. The prototype is "{feat:2,hint:"protohint"}"
+---*/
 
 function FACTORY(){this.prop=1;this.hint="hinted"};
 
@@ -35,4 +38,3 @@ if (__accum.indexOf("hintprotohint")!==-1) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

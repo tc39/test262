@@ -1,12 +1,14 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that canonicalization of locale lists treats undefined and empty lists the same.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+es5id: 9.2.1_1
+description: >
+    Tests that canonicalization of locale lists treats undefined and
+    empty lists the same.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 testWithIntlConstructors(function (Constructor) {
     var supportedForUndefined = Constructor.supportedLocalesOf(undefined);
@@ -20,4 +22,3 @@ testWithIntlConstructors(function (Constructor) {
     }
     return true;
 });
-

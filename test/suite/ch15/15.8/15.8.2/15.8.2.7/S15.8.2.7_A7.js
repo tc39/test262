@@ -1,15 +1,19 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Math.cos it is recommended that implementations use the approximation algorithms for IEEE 754 arithmetic contained in fdlibm
- *
- * @path ch15/15.8/15.8.2/15.8.2.7/S15.8.2.7_A7.js
- * @description Checking if Math.cos is approximately equals to its mathematical values on the set of 64 argument values; all the sample values is calculated with LibC
- */
-
-$INCLUDE("math_precision.js");
-$INCLUDE("math_isequal.js");
+/*---
+info: >
+    Math.cos it is recommended that implementations use the approximation
+    algorithms for IEEE 754 arithmetic contained in fdlibm
+es5id: 15.8.2.7_A7
+description: >
+    Checking if Math.cos is approximately equals to its mathematical
+    values on the set of 64 argument values; all the sample values is
+    calculated with LibC
+includes:
+    - math_precision.js
+    - math_isequal.js
+---*/
 
 // CHECK#1
 vnum = 64;
@@ -156,4 +160,3 @@ for (i = 0; i < vnum; i++)
 		$ERROR("\nx = " + x[i] + "\nlibc.cos(x) = " + y[i] + "\nMath.cos(x) = " + Math.cos(x[i]) + "\nMath.abs(libc.cos(x) - Math.cos(x)) > " + prec + "\n\n"); 
 	}
 }
-

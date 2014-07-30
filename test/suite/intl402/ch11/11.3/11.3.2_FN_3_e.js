@@ -1,11 +1,13 @@
 // Copyright 2012 Google Inc.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that Intl.NumberFormat.prototype.format
- * supports all alternative numbering systems.
- * @author: Roozbeh Pournader
- */
+/*---
+es5id: 11.3.2_FN_3_e
+description: >
+    Tests that Intl.NumberFormat.prototype.format  supports all
+    alternative numbering systems.
+author: Roozbeh Pournader
+---*/
 
 var numberingSystems = {
     arab: 0x0660,
@@ -44,4 +46,3 @@ for (s in numberingSystems) {
 }
 
 // FIXME: Unfinished
-

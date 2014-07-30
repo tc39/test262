@@ -1,13 +1,14 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that the compare function isn't entirely unreasonable.
- *     This test is not normative.
- * @author Norbert Lindenberg
- */
-
-$INCLUDE("testIntl.js");
+/*---
+es5id: 10.3.2_CS_b_NN
+description: >
+    Tests that the compare function isn't entirely unreasonable.  This
+    test is not normative.
+author: Norbert Lindenberg
+includes: [testIntl.js]
+---*/
 
 // this test should be valid at least for the following locales
 var locales = ["de", "en", "es", "fr", "it"];
@@ -19,4 +20,3 @@ locales.forEach(function (locale) {
     var expected = ["A", "b", "C", "d", "E", "f", "g", "H", "i", "J", "k", "L", "m", "N", "V", "w", "X", "y", "Z"];
     testArraysAreSame(expected, a);
 });
-

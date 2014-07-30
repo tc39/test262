@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The result of a ECMAScript floating-point remainder operation is determined by the rules of IEEE arithmetics
- *
- * @path ch11/11.5/11.5.3/S11.5.3_A4_T1.1.js
- * @description If either operand is NaN, the result is NaN
- */
+/*---
+info: >
+    The result of a ECMAScript floating-point remainder operation is
+    determined by the rules of IEEE arithmetics
+es5id: 11.5.3_A4_T1.1
+description: If either operand is NaN, the result is NaN
+---*/
 
 //CHECK#1
 if (isNaN(Number.NaN % Number.NaN) !== true) {
@@ -47,4 +48,3 @@ if (isNaN(Number.NaN % Number.MIN_VALUE) !== true) {
 if (isNaN(Number.NaN % 1) !== true) {
   $ERROR('#8: NaN % 1 === Not-a-Number. Actual: ' + (NaN % 1));  
 }
-

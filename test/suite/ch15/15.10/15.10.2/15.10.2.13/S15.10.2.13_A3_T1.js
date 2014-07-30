@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Inside a CharacterClass, \b means the backspace character
- *
- * @path ch15/15.10/15.10.2/15.10.2.13/S15.10.2.13_A3_T1.js
- * @description Execute /.[\b]./.exec("abc\bdef") and check results
- */
+/*---
+info: Inside a CharacterClass, \b means the backspace character
+es5id: 15.10.2.13_A3_T1
+description: Execute /.[\b]./.exec("abc\bdef") and check results
+---*/
 
 __executed = /.[\b]./.exec("abc\bdef");
 
@@ -35,5 +34,3 @@ for(var index=0; index<__expected.length; index++) {
 		$ERROR('#4: __executed = /.[\\b]./.exec("abc\\bdef"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
 	}
 }
-
-

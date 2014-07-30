@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Reference to Self-Modifying Object remain the integrity
- *
- * @path ch08/8.7/S8.7_A2.js
- * @description Create a reference to the array, and change original array
- */
+/*---
+info: Reference to Self-Modifying Object remain the integrity
+es5id: 8.7_A2
+description: Create a reference to the array, and change original array
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -39,4 +38,3 @@ if( itemsRef[1] !== "duo"){
 };
 //
 //////////////////////////////////////////////////////////////////////////////
-

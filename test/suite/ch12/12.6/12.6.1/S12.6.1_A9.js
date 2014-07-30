@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * "do-while" Statement is evaluated without syntax checks
- *
- * @path ch12/12.6/12.6.1/S12.6.1_A9.js
- * @description Throwing system exception whithin a "do-while" loop
- */
+/*---
+info: "\"do-while\" Statement is evaluated without syntax checks"
+es5id: 12.6.1_A9
+description: Throwing system exception whithin a "do-while" loop
+includes: [Test262Error.js]
+---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
@@ -26,4 +26,3 @@ if (x !== 1) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator "new" uses GetValue
- *
- * @path ch11/11.2/11.2.2/S11.2.2_A2.js
- * @description If GetBase(NewExpression) or GetBase(MemberExpression) is null, throw ReferenceError
- */
+/*---
+info: Operator "new" uses GetValue
+es5id: 11.2.2_A2
+description: >
+    If GetBase(NewExpression) or GetBase(MemberExpression) is null,
+    throw ReferenceError
+---*/
 
 //CHECK#1
 try {
@@ -29,4 +30,3 @@ catch (e) {
     $ERROR('#2: new x() throw ReferenceError'); 
   }
 }
-

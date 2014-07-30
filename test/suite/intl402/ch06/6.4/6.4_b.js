@@ -1,10 +1,11 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that invalid time zone names are not accepted.
- * @author Norbert Lindenberg
- */
+/*---
+es5id: 6.4_b
+description: Tests that invalid time zone names are not accepted.
+author: Norbert Lindenberg
+---*/
 
 var invalidTimeZoneNames = [
     "",
@@ -31,4 +32,3 @@ invalidTimeZoneNames.forEach(function (name) {
         $ERROR("Invalid time zone name " + name + " was rejected with wrong error " + error.name + ".");
     }
 });
-

@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Create multi dimensional array
- *
- * @path ch11/11.1/11.1.4/S11.1.4_A2.js
- * @description Checking various properteis and contents of the arrya defined with "var array = [[1,2], [3], []]"
- */
+/*---
+info: Create multi dimensional array
+es5id: 11.1.4_A2
+description: >
+    Checking various properteis and contents of the arrya defined with
+    "var array = [[1,2], [3], []]"
+---*/
 
 var array = [[1,2], [3], []];
 
@@ -125,4 +126,3 @@ if (array[0][1] !== 2) {
 if (array[1][0] !== 3) {
   $ERROR('#722: var array = [[1,2], [3], []]; array[1][0] === 3. Actual: ' + (array[1][0]));
 }
-

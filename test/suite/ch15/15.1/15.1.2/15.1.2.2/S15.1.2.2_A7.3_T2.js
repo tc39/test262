@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Return sign * Result(17)
- *
- * @path ch15/15.1/15.1.2/15.1.2.2/S15.1.2.2_A7.3_T2.js
- * @description Checking algorithm for R = 2
- */
+/*---
+info: Return sign * Result(17)
+es5id: 15.1.2.2_A7.3_T2
+description: Checking algorithm for R = 2
+---*/
 
 //CHECK#1
 if (parseInt("-1", 2)  !== -1) {
@@ -107,4 +106,3 @@ if (parseInt("-1111111111111111111", 2)  !== -524287) {
 if (parseInt("-11111111111111111111", 2)  !== -1048575) {
   $ERROR('#20: parseInt("-11111111111111111111", 2) === -1048575. Actual: ' + (parseInt("-11111111111111111111", 2)));
 }
-

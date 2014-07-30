@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Assignment to string literals calls String constructor
- *
- * @path ch08/8.4/S8.4_A9_T2.js
- * @description Compare empty string variable, object String('') and object String()
- */
+/*---
+info: Assignment to string literals calls String constructor
+es5id: 8.4_A9_T2
+description: >
+    Compare empty string variable, object String('') and object
+    String()
+---*/
 
 var str="";
 var strObj=new String("");
@@ -59,4 +60,3 @@ if (str === strObj_){
 }
 //
 /////////////////////////////////////////////////////////////
-

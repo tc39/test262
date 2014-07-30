@@ -1,14 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The toString function is not generic, it cannot be transferred
- * to other kinds of objects for use as a method and there is should be
- * a TypeError exception if its this value is not a Boolean object
- *
- * @path ch15/15.6/15.6.4/S15.6.4.2_A2_T4.js
- * @description transferring to the Object objects
- */
+/*---
+info: >
+    The toString function is not generic, it cannot be transferred
+    to other kinds of objects for use as a method and there is should be
+    a TypeError exception if its this value is not a Boolean object
+es5id: 15.6.4.2_A2_T4
+description: transferring to the Object objects
+---*/
 
 //CHECK#1
 try{
@@ -35,5 +35,3 @@ catch(e){
     $ERROR('#2: Boolean.prototype.toString on not a Boolean object should throw TypeError, not '+e);
   }
 }
-
-

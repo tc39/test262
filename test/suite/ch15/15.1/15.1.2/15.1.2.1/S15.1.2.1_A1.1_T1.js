@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If x is not a string value, return x
- *
- * @path ch15/15.1/15.1.2/15.1.2.1/S15.1.2.1_A1.1_T1.js
- * @description Checking all primitive
- */
+/*---
+info: If x is not a string value, return x
+es5id: 15.1.2.1_A1.1_T1
+description: Checking all primitive
+---*/
 
 //CHECK#1
 var x = 1;
@@ -32,5 +31,4 @@ if (eval(null) !== null) {
 //CHECK#5
 if (eval(undefined) !== undefined) {
   $ERROR('#5: eval(undefined) === undefined. Actual: ' + (eval(undefined)));
-}        
-
+}

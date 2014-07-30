@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If string.charAt(k) in [0x0800 - 0xD7FF], return 3 octets (xxxxyyyy yyzzzzzz -> 1110xxxx 10yyyyyy 10zzzzzz)
- *
- * @path ch15/15.1/15.1.3/15.1.3.4/S15.1.3.4_A2.3_T1.js
- * @description Complex tests, use RFC 3629
- */
+/*---
+info: >
+    If string.charAt(k) in [0x0800 - 0xD7FF], return 3 octets (xxxxyyyy
+    yyzzzzzz -> 1110xxxx 10yyyyyy 10zzzzzz)
+es5id: 15.1.3.4_A2.3_T1
+description: Complex tests, use RFC 3629
+---*/
 
 errorCount = 0;
 count = 0;
@@ -76,4 +77,3 @@ function decimalToHexString(n) {
   }
   return h;
 }
-

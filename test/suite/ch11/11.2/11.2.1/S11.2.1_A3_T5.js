@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * MemberExpression calls ToObject(MemberExpression) and ToString(Expression). CallExpression calls ToObject(CallExpression) and ToString(Expression)
- *
- * @path ch11/11.2/11.2.1/S11.2.1_A3_T5.js
- * @description Checking "null" case
- */
+/*---
+info: >
+    MemberExpression calls ToObject(MemberExpression) and
+    ToString(Expression). CallExpression calls ToObject(CallExpression) and
+    ToString(Expression)
+es5id: 11.2.1_A3_T5
+description: Checking "null" case
+---*/
 
 //CHECK#1
 try {
@@ -29,4 +31,3 @@ catch (e) {
     $ERROR('#2.2: null["toString"]() throw TypeError. Actual: ' + (e)); 
   }
 }
-

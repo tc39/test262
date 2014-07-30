@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * White Space and Line Terminator between ShiftExpression and ">>" or between ">>" and AdditiveExpression are allowed
- *
- * @path ch11/11.7/11.7.2/S11.7.2_A1.js
- * @description Checking by using eval
- */
+/*---
+info: >
+    White Space and Line Terminator between ShiftExpression and ">>" or
+    between ">>" and AdditiveExpression are allowed
+es5id: 11.7.2_A1
+description: Checking by using eval
+---*/
 
 //CHECK#1
 if (eval("-4\u0009>>\u00091") !== -2) {
@@ -57,4 +58,3 @@ if (eval("-4\u2029>>\u20291") !== -2) {
 if (eval("-4\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u2029>>\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u20291") !== -2) {
   $ERROR('#10: -4\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029>>\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u20291 === -2');
 }
-

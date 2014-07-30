@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator use ToNumber
- *
- * @path ch15/15.1/15.1.2/15.1.2.2/S15.1.2.2_A3.1_T7.js
- * @description If Type(value) is Object, evaluate ToPrimitive(value, Number)
- */
+/*---
+info: Operator use ToNumber
+es5id: 15.1.2.2_A3.1_T7
+description: If Type(value) is Object, evaluate ToPrimitive(value, Number)
+---*/
 
 //CHECK#1
 var object = {valueOf: function() {return 2}};
@@ -76,4 +75,3 @@ catch (e) {
     $ERROR('#8.2: var object = {valueOf: function() {return {}}, toString: function() {return {}}}; parseInt("11", object) throw TypeError. Actual: ' + (e));
   } 
 }
-

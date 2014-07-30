@@ -1,12 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The RegExp instance source property has the attribute ReadOnly
- *
- * @path ch15/15.10/15.10.7/15.10.7.1/S15.10.7.1_A10.js
- * @description Checking if varying the source property fails
- */
+/*---
+info: The RegExp instance source property has the attribute ReadOnly
+es5id: 15.10.7.1_A10
+description: Checking if varying the source property fails
+includes: [$FAIL.js]
+---*/
 
 __re = /./;
 
@@ -23,5 +23,3 @@ __re.source = "shifted";
 if (__re.source !== __obj) {
   $ERROR('#2: __re = /./; __obj = __re.source; __re.source = "shifted"; __re.source === __obj. Actual: ' + (__re.source));
 }
-
-

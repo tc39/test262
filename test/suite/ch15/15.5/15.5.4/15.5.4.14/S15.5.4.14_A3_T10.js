@@ -1,14 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * String.prototype.split() returns an Array object with:
- *  i) length equaled to 1,
- * ii) [[Get]](0) equaled to the result of converting this object to a string
- *
- * @path ch15/15.5/15.5.4/15.5.4.14/S15.5.4.14_A3_T10.js
- * @description Instance is new String
- */
+/*---
+info: >
+    String.prototype.split() returns an Array object with:
+    i) length equaled to 1,
+    ii) [[Get]](0) equaled to the result of converting this object to a string
+es5id: 15.5.4.14_A3_T10
+description: Instance is new String
+---*/
 
 var __string = new String;
 
@@ -37,4 +37,3 @@ if (__split[0] !== "") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

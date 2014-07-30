@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If either variable x or y is +0 and the other is -0, return false
- *
- * @path ch11/11.8/11.8.2/S11.8.2_A4.4.js
- * @description Checking all combinations
- */
+/*---
+info: If either variable x or y is +0 and the other is -0, return false
+es5id: 11.8.2_A4.4
+description: Checking all combinations
+---*/
 
 //CHECK#1
 if ((0 > 0) !== false) {
@@ -27,5 +26,3 @@ if ((+0 > -0) !== false) {
 if ((-0 > +0) !== false) {
   $ERROR('#4: (-0 > +0) === false');
 }
-
-

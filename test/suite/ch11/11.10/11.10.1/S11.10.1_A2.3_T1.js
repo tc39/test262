@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * ToInt32(first expression) is called first, and then ToInt32(second expression)
- *
- * @path ch11/11.10/11.10.1/S11.10.1_A2.3_T1.js
- * @description Checking by using "throw"
- */
+/*---
+info: >
+    ToInt32(first expression) is called first, and then ToInt32(second
+    expression)
+es5id: 11.10.1_A2.3_T1
+description: Checking by using "throw"
+---*/
 
 //CHECK#1
 var x = { valueOf: function () { throw "x"; } };
@@ -23,4 +24,3 @@ try {
      }
    }
 }
-

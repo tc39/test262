@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The production CharacterClass :: [ [lookahead \notin {^}] ClassRanges ] evaluates by evaluating ClassRanges to obtain a CharSet and returning that CharSet and the boolean false
- *
- * @path ch15/15.10/15.10.2/15.10.2.13/S15.10.2.13_A1_T10.js
- * @description Execute /[a-c\d]+/.exec("\n\n\abc324234\n") and check results
- */
+/*---
+info: >
+    The production CharacterClass :: [ [lookahead \notin {^}] ClassRanges ]
+    evaluates by evaluating ClassRanges to obtain a CharSet and returning
+    that CharSet and the boolean false
+es5id: 15.10.2.13_A1_T10
+description: Execute /[a-c\d]+/.exec("\n\n\abc324234\n") and check results
+---*/
 
 __executed = /[a-c\d]+/.exec("\n\n\abc324234\n");
 
@@ -35,5 +37,3 @@ for(var index=0; index<__expected.length; index++) {
 		$ERROR('#4: __executed = /[a-c\\d]+/.exec("\\n\\n\\abc324234\\n"); __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
 	}
 }
-
-

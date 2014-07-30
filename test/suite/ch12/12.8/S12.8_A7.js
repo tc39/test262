@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Appearing of "break" within eval statement that is nested in an IterationStatement yields SyntaxError
- *
- * @path ch12/12.8/S12.8_A7.js
- * @description Using eval "eval("break LABEL1")"
- */
+/*---
+info: >
+    Appearing of "break" within eval statement that is nested in an
+    IterationStatement yields SyntaxError
+es5id: 12.8_A7
+description: Using eval "eval("break LABEL1")"
+---*/
 
 var x=0,y=0;
 
@@ -26,4 +27,3 @@ try{
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

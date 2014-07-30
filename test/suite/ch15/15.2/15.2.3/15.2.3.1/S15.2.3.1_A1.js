@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The Object.prototype property has the attribute ReadOnly
- *
- * @path ch15/15.2/15.2.3/15.2.3.1/S15.2.3.1_A1.js
- * @description Checking if varying "Object.prototype" property fails
- */
+/*---
+info: The Object.prototype property has the attribute ReadOnly
+es5id: 15.2.3.1_A1
+description: Checking if varying "Object.prototype" property fails
+---*/
 
 var obj = Object.prototype;
 Object.prototype = function(){return "shifted";};
@@ -23,4 +22,3 @@ try {
 } catch (e) {
   ;
 }
-

@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * CharacterEscape :: HexEscapeSequence :: x HexDigit HexDigit
- *
- * @path ch15/15.10/15.10.2/15.10.2.10/S15.10.2.10_A3.1_T2.js
- * @description Checking ENGLISH CAPITAL ALPHABET and english small alphabet
- */
+/*---
+info: "CharacterEscape :: HexEscapeSequence :: x HexDigit HexDigit"
+es5id: 15.10.2.10_A3.1_T2
+description: Checking ENGLISH CAPITAL ALPHABET and english small alphabet
+---*/
 
 //CHECK#41-5A
 hex = ["\\x41", "\\x42", "\\x43", "\\x44", "\\x45", "\\x46", "\\x47", "\\x48", "\\x49", "\\x4A", "\\x4B", "\\x4C", "\\x4D", "\\x4E", "\\x4F", "\\x50", "\\x51", "\\x52", "\\x53", "\\x54", "\\x55", "\\x56", "\\x57", "\\x58", "\\x59", "\\x5A"];
@@ -36,5 +35,4 @@ for (index = 0; index < hex.length; index++) {
 
 if (result !== true) {
   $ERROR('#1: english small alphabet');
-} 
-
+}

@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * A property is created with name callee with property
- * attributes { DontEnum } and no others
- *
- * @path ch10/10.6/S10.6_A3_T1.js
- * @description Checking existence of arguments.callee property
- */
+/*---
+info: >
+    A property is created with name callee with property
+    attributes { DontEnum } and no others
+es5id: 10.6_A3_T1
+description: Checking existence of arguments.callee property
+---*/
 
 //CHECK#1
 function f1(){
@@ -32,4 +32,3 @@ try{
 catch(e){
   $ERROR("#2: arguments object doesn't exists");
 }
-

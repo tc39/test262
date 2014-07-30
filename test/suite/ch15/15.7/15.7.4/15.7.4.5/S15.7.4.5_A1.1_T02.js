@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Step 1: Let f be ToInteger(fractionDigits). (If fractionDigits
- * is undefined, this step produces the value 0)
- *
- * @path ch15/15.7/15.7.4/15.7.4.5/S15.7.4.5_A1.1_T02.js
- * @description calling on Number object
- */
+/*---
+info: >
+    Step 1: Let f be ToInteger(fractionDigits). (If fractionDigits
+    is undefined, this step produces the value 0)
+es5id: 15.7.4.5_A1.1_T02
+description: calling on Number object
+---*/
 
 //CHECK#1
 if((new Number(1)).toFixed() !== "1"){
@@ -68,4 +68,3 @@ try{
 catch(e){
   $ERROR('#10: (new Number(1)).toFixed(-0.1) should not throw '+e);
 }
-

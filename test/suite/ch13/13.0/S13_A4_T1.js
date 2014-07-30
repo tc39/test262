@@ -1,12 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The production FunctionDeclaration: "function Identifier ( FormalParameterList_opt ) { FunctionBody }" is processed by function declarations
- *
- * @path ch13/13.0/S13_A4_T1.js
- * @description Declaring a function that returns string
- */
+/*---
+info: >
+    The production FunctionDeclaration: "function Identifier (
+    FormalParameterList_opt ) { FunctionBody }" is processed by function
+    declarations
+es5id: 13_A4_T1
+description: Declaring a function that returns string
+---*/
 
 function __func(){return "zig-zig-sputnik";};
 
@@ -25,4 +27,3 @@ if (__func() !== "zig-zig-sputnik") {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

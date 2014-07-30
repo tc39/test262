@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Function argument that isn't provided has a value of undefined
- *
- * @path ch08/8.1/S8.1_A5.js
- * @description Call function without provided argument
- */
+/*---
+info: Function argument that isn't provided has a value of undefined
+es5id: 8.1_A5
+description: Call function without provided argument
+---*/
 
 ///////////////////////////////////////
 //
@@ -20,4 +19,3 @@ function test(arg) {
 test();
 //
 ////////////////////////////////////////
-

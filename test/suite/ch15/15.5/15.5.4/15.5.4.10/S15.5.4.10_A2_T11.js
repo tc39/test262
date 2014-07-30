@@ -1,13 +1,14 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * match returns array as specified in 15.10.6.2
- *
- * @path ch15/15.5/15.5.4/15.5.4.10/S15.5.4.10_A2_T11.js
- * @description Regular expression is /([\d]{5})([-\ ]?[\d]{4})?$/. Last match is undefined.
- * And regular expression object have property lastIndex = tested_string.lastIndexOf("0")+1
- */
+/*---
+info: match returns array as specified in 15.10.6.2
+es5id: 15.5.4.10_A2_T11
+description: >
+    Regular expression is /([\d]{5})([-\ ]?[\d]{4})?$/. Last match is
+    undefined.  And regular expression object have property lastIndex
+    = tested_string.lastIndexOf("0")+1
+---*/
 
 var __string = "Boston, MA 02134";
 
@@ -42,4 +43,3 @@ for(var mi=0; mi<__matches.length; mi++) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
-

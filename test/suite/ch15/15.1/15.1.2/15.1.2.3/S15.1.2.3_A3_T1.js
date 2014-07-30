@@ -1,13 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * If neither Result(2) nor any prefix of Result(2) satisfies the syntax of a
- * StrDecimalLiteral (see 9.3.1), return NaN
- *
- * @path ch15/15.1/15.1.2/15.1.2.3/S15.1.2.3_A3_T1.js
- * @description parseFloat("some string") return NaN
- */
+/*---
+info: >
+    If neither Result(2) nor any prefix of Result(2) satisfies the syntax of a
+    StrDecimalLiteral (see 9.3.1), return NaN
+es5id: 15.1.2.3_A3_T1
+description: parseFloat("some string") return NaN
+---*/
 
 //CHECK#1
 if (isNaN(parseFloat("str")) !== true) {
@@ -43,4 +43,3 @@ if (String(parseFloat("")) !== "NaN") {
 if (String(parseFloat("+")) !== "NaN") {
   $ERROR('#7: String(parseFloat("+")) === "NaN". Actual: ' + (String(parseFloat("+"))));
 }
-

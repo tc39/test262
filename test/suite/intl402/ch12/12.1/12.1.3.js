@@ -1,10 +1,13 @@
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * @description Tests that objects constructed by Intl.DateTimeFormat have the specified internal properties.
- * @author Norbert Lindenberg
- */
+/*---
+es5id: 12.1.3
+description: >
+    Tests that objects constructed by Intl.DateTimeFormat have the
+    specified internal properties.
+author: Norbert Lindenberg
+---*/
 
 var obj = new Intl.DateTimeFormat();
 
@@ -16,4 +19,3 @@ if (actualPrototype !== Intl.DateTimeFormat.prototype) {
 if (!Object.isExtensible(obj)) {
     $ERROR("Object constructed by Intl.DateTimeFormat must be extensible.");
 }
-

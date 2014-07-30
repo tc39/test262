@@ -1,12 +1,13 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * White Space and Line Terminator between "--" and UnaryExpression are allowed
- *
- * @path ch11/11.4/11.4.5/S11.4.5_A1.js
- * @description Checking by using eval
- */
+/*---
+info: >
+    White Space and Line Terminator between "--" and UnaryExpression are
+    allowed
+es5id: 11.4.5_A1
+description: Checking by using eval
+---*/
 
 //CHECK#1
 if (eval("var x = 1; --\u0009x") !== 0) {
@@ -57,4 +58,3 @@ if (eval("var x = 1; --\u2029x") !== 0) {
 if (eval("var x = 1; --\u0009\u000B\u000C\u0020\u00A0\u000A\u000D\u2028\u2029x") !== 0) {
   $ERROR('#10: var x = 1; --\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029x; x === 0. Actual: ' + (x));
 }
-

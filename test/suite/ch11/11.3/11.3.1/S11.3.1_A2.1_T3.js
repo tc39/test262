@@ -1,13 +1,12 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * Operator x++ uses GetValue and PutValue
- *
- * @path ch11/11.3/11.3.1/S11.3.1_A2.1_T3.js
- * @description If Type(x) is not Reference, throw ReferenceError (or SyntaxError)
- * @negative
- */
+/*---
+info: Operator x++ uses GetValue and PutValue
+es5id: 11.3.1_A2.1_T3
+description: If Type(x) is not Reference, throw ReferenceError (or SyntaxError)
+flags: [negative]
+---*/
 
 //CHECK#1
 try {
@@ -21,4 +20,3 @@ catch (e) {
     1++;
   }
 }
-

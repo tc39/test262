@@ -1,12 +1,11 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/**
- * The length property of unshift has the attribute DontEnum
- *
- * @path ch15/15.4/15.4.4/15.4.4.13/S15.4.4.13_A5.1.js
- * @description Checking use propertyIsEnumerable, for-in
- */
+/*---
+info: The length property of unshift has the attribute DontEnum
+es5id: 15.4.4.13_A5.1
+description: Checking use propertyIsEnumerable, for-in
+---*/
 
 //CHECK#1
 if (Array.prototype.unshift.propertyIsEnumerable('length') !== false) {
@@ -24,5 +23,3 @@ for (var p in Array.unshift){
 if (result !== true) {
   $ERROR('#2: result = true; for (p in Array.unshift) { if (p === "length") result = false; }  result === true;');
 }
-
-
