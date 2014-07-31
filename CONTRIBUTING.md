@@ -1,86 +1,3 @@
-## Using the Console Test Runner
-
-The console test runner is used to test browserless implementations of ECMAScript, e.g., [v8](http://en.wikipedia.org/wiki/V8_(JavaScript_engine), [node](http://en.wikipedia.org/wiki/Node.js), or [js24](http://packages.ubuntu.com/trusty/libmozjs-24-bin) 
-
-### Requirements
-
-To use the `test262.py` runner, you must have the following:
-
- * a checkout of the [test262 project](https://github.com/tc39/test262/)
- * Python 2.7
- * the Python YAML library [PyYAML](http://www.pyyaml.org)
- * the javascript engine you intend to test (node, v8, etc.)
-
-### Quick Start
-
-To confirm the console test runner is working on a UNIX-like system
-
-```
-test262$ ./tools/packaging/test262.py --command "node" 7.2_A1.1_T1
-ch07/7.2/S7.2_A1.1_T1 passed in non-strict mode
-
-test262$
-```
-
-On a Windows system:
-
-```
-Z:\test262>tools\packaging\test262.py --command="node" 7.2_A1.1_T1
-ch07\7.2\S7.2_A1.1_T1 passed in non-strict mode
-
-
-Z:\test262>
-```
-
-### Options
-
-Name | Action
------|-------
--h, --help | displays a brief help message
---command=COMMAND | **required** command which invokes javascript engine to be tested
---tests=TESTS | path to the test suite; default is current directory
---cat | don't execute tests, just print code that would be run
---summary | generate a summary at end of execution
---full-summary | generate a longer summary with details of test failures
---strict_only | run only tests that are marked **@onlyStrict**
---non_strict_only | run only tests that are marked **@noStrict**
---unmarked_default=MODE | mode to use for tests that are not marked **@onlyStrict** or **@noStrict** ; MODE can be `strict` or `non_strict` or `both`
---logname=LOGNAME | write output to file (in addition to stdout)
---junitname=JUNITNAME | write test results to file in JUnit XML format
---loglevel=LOGLEVEL | set log level, primarily useful for debugging `test262.py` 
---print-handle=FUNC | enable async test logging via javascript function e.g., `console.log`
- 
-### Usage Notes
-
-Non-option arguments are used as filters to match test names.  If no filters are found, the whole test suite is run.
-
-Example | Result
--|-
-test262.py --command="node" | run all tests
-test262.py --command="node" ch07 ch11 | run tests from chapters 7 and 11
-test262.py --command="node" 4.4 | run all tests with "4.4" in the name
-
-The COMMAND argument can be a quoted string.  This is useful when testing ECMAScript6 features in node, because node requires the command-line argument `--harmony` to enable ES6:
-
-```
-$ test262.py --command="node --harmony" es6
-``` 
-
-#### Async Tests
-
-Async tests require a 'print' function to be supplied to the test runner.  Here are some good defaults:
-
-Engine | Filename | Print Function
--------|----------|---------------
-V8/Node | node | console.log
-V8/shell | shell | print
-SpiderMonkey<sup>1</sup> | js | print
-JavaScriptCore<sup>2</sup> | jsc | print
-
-***Notes:***
-1. As of 2014-Jul-23, SpiderMonkey does not support Promise in the `js` executable ([see bug 911216](https://bugzilla.mozilla.org/show_bug.cgi?id=911216) )
-2. As of 2014-Jul-23, JavaScriptCore does not support Promise in the `jsc` executable 
-
 ## Test262 Authoring Guidelines
 
 ### Test Case Names
@@ -101,62 +18,150 @@ One common convention is to break down a section into a number of testable asser
 
 with test case `S25.4.4.1_A1.1_T1.js` being the first test for assertion A1.1, and `S25.4.4.1_A2.3_T3.js` being the third test for assertion A2.3.
 
+
 ### Test Case Style
-A test file has the following style format:
+
+A test file has three sections: Copyright, Frontmatter, and Body.  A test looks roughly like this:
+
 ```javascript
 // Copyright (C) 2014 [Contributor Name]. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/* 
- * Tags...
- */
+/*--- 
+ info: >
+   verbose test description, multiple lines OK.
+ description: brief description
+---*/
  
 [Test Code]
 ```
 
-### Tags
-Test262 officially supports the following tags: **@description**, **@negative**, **@path** & **@author**
+#### Copyright
 
-##### @description
-This tag is used to describe the purpose of a particular testcase. 
+The copyright block must be the first section of the test.  The copyright block must use `//` style comments.
+
+#### Frontmatter
+
+The Test262 frontmatter is a string of YAML enclosed by the comment start tag `/*---` and end tag `---*/`.  There must be exactly one Frontmatter per test.
+
+Test262 supports the following tags: **info**, **description**, **negative**, **es5id**, **includes**, and **author**
+
+##### info: long-desc
+This allows a long, free-form comment.
+Eg: Single line comments can contain Line Terminator at the end of line
+
+##### description: short-desc
+This should be a short, one-line description of the purpose of this testcase.  This is the string displayed by the browser runnner.
 Eg: Insert &lt;LS&gt; between chunks of one string
 
-##### @negative [.] \(not supported by Python console harness)
-Negative means the test will throw an error and given the error there will be a string comparison on the error message. It has an optional second parameter (it's a *regex-dot* if not provided) that will be used to compare. For best practices on how to use negative tag please see Handling Errors and Negative Test Cases.
+##### negative: [regex]
 
-##### @path
-This tag is used by the JSON packaging. Do not manually enter this tag.  
+This means the test is expected to throw an error of the given type.  If no error is thrown, a test failure is reported.
 
-##### @author
+If an error is thrown, it is implicitly converted to a string.  The second parameter is a regular expression that will be matched against this string.  If the match fails, a test failure is reported.  Thus the regular expression can match either the error name, or the message contents, or both.
+
+For best practices on how to use the negative tag please see Handling Errors and Negative Test Cases, below.
+
+##### author: [author-name]
 This tag is used to identify the author of a test case. It's optional.
 
-Some tags which are used only by the Python runner: **@onlyStrict**, **@noStrict**
+##### es5id: [es5-test-id]
+This tag identifies the portion of the ECMAScript 5.1 standard that is tested by this test.  It was automatically generated for tests that were originally written for the ES5 version of the test suite and are now part of the ES6 version.
 
-##### @onlyStrict
+When writing a new test for ES6, it is only necessary to include this tag when the test covers a part of the ES5 spec that is incorporated into ES6.
+
+##### includes: [file-list]
+This tag is a list of helper files that should be included in the test environment prior to running the test.  Filenames **must** include the `.js` extension.
+
+The helper files are found in `test/harness/`.  The packaging script will ensure that files from `test/harness` will be copied to `website/harness` when it prepares the `website/` directory for publishing.
+
+You can compactly include a single file like this: `includes: [helperFile.js]`, or use the full YAML list syntax
+
+```
+includes:
+ - helperOne.js
+ - helperTwo.js
+```
+
+##### flags: [list]
+This tag is for boolean properties associated with the test.
+
+Some flags  are used only by the Python runner: **flags** **onlyStrict**, **noStrict**
+
+##### flags: [onlyStrict]
 Will only run the test in strict mode
 
-##### @noStrict
-Will only not run the test in non-strict mode
+##### flags: [noStrict]
+Will only run the test in non-strict mode
+
+#### Obsolete Tags
+
+##### path
+This tag is obsolete. Do not manually enter this tag.  
+
+##### flags: [negative]
+This is an old-style way of documenting a negative test.  New tests should use the **negative: [errortype]** style documented above.
+
+### Test Environment
+
+Each test case is run in a fresh JavaScript environment; in a browser, this will be a new `IFRAME`; for a console runner, this will be a new process.  The test harness code is loaded before the test is run.  The test harness defines the following helper functions:
+
+Function | Purpose
+---------|--------
+Test262Error(message) | constructor for an error object that indicates a test failure
+$ERROR(message) | helper function: construct a Test262Error object and throw it
+$DONE(arg) | helper function for asynchronous tests; see Writing Asynchronous Tests, below
+NotEarlyError | preconstructed error object used for testing syntax and other early errors; see Syntax Error & Eearly Error, below
+
+```
+/// error class
+function Test262Error(message) {
+//[omitted body]
+}
+
+/// helper function that throws
+function $ERROR(message) {
+    throw new Test262Error(message);
+}
+
+/// helper function for asynchronous tests
+function $DONE(arg) {
+//[omitted body]
+}
+
+var NotEarlyError = new Error(...);
+```
+
+### Custom Helpers
+
+When some code is used repeatedly across a group of tests, a new helper function (or group of helpers) can be defined.  To define new helpers, create a file in `test/harness/` with extension `.js`.
+
+To use a custom helper file, name it in the `includes` directive of the Frontmatter, e.g., 
+
+```
+/*---
+  includes: [helper.js]
+---*/
+```
+
+**Note:** Helper inclusion used to be performed by the `$INCLUDE` function, which is now obsolete.  New tests should use the YAML `includes`.
+
+
 
 ### Handling Errors and Negative Test Cases
+
 The following patterns are considered the best practice:
+
 #### Runtime Error:
 ```javascript
-var error;
 
-try {
-    [test code]
-} catch (e) {
-    error = e;
-}
+/*---
+ negative: ReferenceError
+---*/
 
-if (error === undefined) {
-    $ERROR('expected to throw an error but no error was thrown');
-} else if(!(e instanceof ReferenceError)) {
-    $ERROR('expected to have ReferenceError, got ' + error.name + ' instead.');
-}
+[test code]
 ```
-The example uses ReferenceError however it's also possible to use any of the following error here:
+The example uses ReferenceError however it's also possible to use any of the following errors here:
 
 - EvalError
 - RangeError
@@ -170,7 +175,7 @@ The example uses ReferenceError however it's also possible to use any of the fol
  * @negative ^((?!NotEarlyError).)*$
  */
  
-throw "NotEarlyError"; 
+throw NotEarlyError; 
 [test code]
 ```
 
@@ -197,10 +202,9 @@ p.then(function checkAssertions(arg) {
 }).then($DONE, $DONE);
 ```
 
-Function `checkAssertions` implicitly returns `undefined` if the expected condition is observed.  The return value of function `checkAssertions` is then passed to the first function of the final `then` call, resulting in a call to `$DONE(undefined)`, which signals a passing test.
+Function `checkAssertions` implicitly returns `undefined` if the expected condition is observed.  The return value of function `checkAssertions` is then used to asynchronously invoke the first function of the final `then` call, resulting in a call to `$DONE(undefined)`, which signals a passing test.
 
-If the expected condition is not observed, function `checkAssertions` throws a `Test262Error` via function $ERROR.  This is caught by the Promise and passed to the second function in the call -- which is also `$DONE` -- resulting in a call to `$DONE(error_object)`, which signals
-a failing test. 
+If the expected condition is not observed, function `checkAssertions` throws a `Test262Error` via function $ERROR.  This is caught by the Promise and then used to asynchronously invoke the second function in the call -- which is also `$DONE` -- resulting in a call to `$DONE(error_object)`, which signals a failing test. 
 
 #### Checking Exception Type and Message in Asynchronous Tests
 
@@ -229,4 +233,4 @@ p.then(function () {
 
 #### &#36;INCLUDE(fileName) method
 
-&#36;INCLUDE will load an external Javascript file in the same context before executing a test. In most cases usage of this method should be avoided. It's a good practice only when a large amount of tests need a special check that's not provided by the default harness. If that's the case, please explain the use case in detail.
+This method is obsolete.  Use the `includes:` frontmatter.
