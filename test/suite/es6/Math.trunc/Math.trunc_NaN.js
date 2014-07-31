@@ -13,7 +13,7 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  if(Math.trunc(NaN) === NaN) {
+  if(Number.isNaN(Math.trunc(NaN))) {
   	return true;
   }
  }
