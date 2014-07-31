@@ -44,29 +44,29 @@ The copyright block must be the first section of the test.  The copyright block 
 
 The Test262 frontmatter is a string of YAML enclosed by the comment start tag `/*---` and end tag `---*/`.  There must be exactly one Frontmatter per test.
 
-Test262 supports the following tags: **info**, **description**, **negative**, **es5id** and **author**
+Test262 supports the following tags: **info**, **description**, **negative**, **es5id**, **includes**, and **author**
 
 ##### info: long-desc
-This allows a long, free-form comment which is preserved by future reformatting
+This allows a long, free-form comment.
 Eg: Single line comments can contain Line Terminator at the end of line
 
 ##### description: short-desc
-This tag should be a short, one-line description of the purpose of this testcase. 
+This should be a short, one-line description of the purpose of this testcase.  This is the string displayed by the browser runnner.
 Eg: Insert &lt;LS&gt; between chunks of one string
 
-##### negative: [type]
+##### negative: [regex]
 
-Negative means the test is expected to throw an error of the given type.  If no error is thrown, a test failure is reported.
+This means the test is expected to throw an error of the given type.  If no error is thrown, a test failure is reported.
 
-If an error is thrown, it is implicitly converted to a string.  The second parameter is a regular expression that will be matched against this string.  If the match fails, a test failure is reported.
+If an error is thrown, it is implicitly converted to a string.  The second parameter is a regular expression that will be matched against this string.  If the match fails, a test failure is reported.  Thus the regular expression can match either the error name, or the message contents, or both.
 
-For best practices on how to use negative tag please see Handling Errors and Negative Test Cases.
+For best practices on how to use the negative tag please see Handling Errors and Negative Test Cases, below.
 
 ##### author: [author-name]
 This tag is used to identify the author of a test case. It's optional.
 
 ##### es5id: [es5-test-id]
-This tag identifies the portion of the ECMAScript 5.0 standard that is tested by this test.  It was automatically generated for tests that were originally written for the ES5 version of the test suite and are now part of the ES6 version.
+This tag identifies the portion of the ECMAScript 5.1 standard that is tested by this test.  It was automatically generated for tests that were originally written for the ES5 version of the test suite and are now part of the ES6 version.
 
 When writing a new test for ES6, it is only necessary to include this tag when the test covers a part of the ES5 spec that is incorporated into ES6.
 
@@ -75,16 +75,24 @@ This tag is a list of helper files that should be included in the test environme
 
 The helper files are found in `test/harness/`.  The packaging script will ensure that files from `test/harness` will be copied to `website/harness` when it prepares the `website/` directory for publishing.
 
+You can compactly include a single file like this: `includes: [helperFile.js]`, or use the full YAML list syntax
+
+```
+includes:
+ - helperOne.js
+ - helperTwo.js
+```
+
 ##### flags: [list]
 This tag is for boolean properties associated with the test.
 
-Some tags which are used only by the Python runner: **flags** **onlyStrict**, **noStrict**
+Some flags  are used only by the Python runner: **flags** **onlyStrict**, **noStrict**
 
 ##### flags: [onlyStrict]
 Will only run the test in strict mode
 
 ##### flags: [noStrict]
-Will only not run the test in non-strict mode
+Will only run the test in non-strict mode
 
 #### Obsolete Tags
 
@@ -148,7 +156,7 @@ The following patterns are considered the best practice:
 ```javascript
 
 /*---
- negative: ReferenceError`
+ negative: ReferenceError
 ---*/
 
 [test code]
