@@ -15,7 +15,7 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  if(Math.hypot(NaN, 3) === NaN) {
+  if(Number.isNaN(Math.hypot(NaN, 3))) {
   	return true;
   }
  }
