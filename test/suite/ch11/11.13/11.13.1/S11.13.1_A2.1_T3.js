@@ -6,18 +6,18 @@ info: Operator x = y uses GetValue and PutValue
 es5id: 11.13.1_A2.1_T3
 description: >
     If Type(LeftHandSideExpression) is not Reference, throw
-    ReferenceError (or SyntaxError)
-flags: [negative]
+    ReferenceError
+negative: ReferenceError
 ---*/
 
 //CHECK#1
 try {
   1 = 1;
-  $ERROR('#1.1: 1 = 1 throw ReferenceError (or SyntaxError). Actual: ' + (1 = 1));  
+  $ERROR('#1.1: 1 = 1 throw ReferenceError. Actual: ' + (1 = 1));  
 }
 catch (e) {
   if ((e instanceof ReferenceError) !== true) {
-    $ERROR('#1.2: 1 = 1 throw ReferenceError (or SyntaxError). Actual: ' + (e));  
+    $ERROR('#1.2: 1 = 1 throw ReferenceError. Actual: ' + (e));  
   } else {
     1 = 1;
   }

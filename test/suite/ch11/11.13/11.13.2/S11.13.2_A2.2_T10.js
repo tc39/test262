@@ -6,18 +6,18 @@ info: Operator uses PutValue
 es5id: 11.13.2_A2.2_T10
 description: >
     If Type(LeftHandSideExpression) is not Reference, throw
-    ReferenceError (or SyntaxError). Check operator is "x ^= y"
-flags: [negative]
+    ReferenceError. Check operator is "x ^= y"
+negative: ReferenceError
 ---*/
 
 //CHECK#1
 try {
   var z = (1 ^= 1);
-  $ERROR('#1.1: 1 ^= 1 throw ReferenceError (or SyntaxError). Actual: ' + (z));  
+  $ERROR('#1.1: 1 ^= 1 throw ReferenceError. Actual: ' + (z));  
 }
 catch (e) {
   if ((e instanceof ReferenceError) !== true) {
-    $ERROR('#1.2: 1 ^= 1 throw ReferenceError (or SyntaxError). Actual: ' + (e));  
+    $ERROR('#1.2: 1 ^= 1 throw ReferenceError. Actual: ' + (e));  
   } else {
     var z = (1 ^= 1);
   }

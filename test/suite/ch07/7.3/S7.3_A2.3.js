@@ -5,7 +5,7 @@
 info: LINE SEPARATOR (U+2028) within strings is not allowed
 es5id: 7.3_A2.3
 description: Insert LINE SEPARATOR (\u2028) into string
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 // CHECK#1

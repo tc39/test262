@@ -5,7 +5,7 @@
 info: The "for" token can not be used as identifier
 es5id: 7.6.1.1_A1.10
 description: Checking if execution of "for=1" fails
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 for = 1;

@@ -5,7 +5,7 @@
 info: When appears not closed single-quote program failes
 es5id: 8.4_A13_T1
 description: Try to create variable using 3 single-quote
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 var str = ''';

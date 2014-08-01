@@ -8,7 +8,7 @@ info: >
     Use one semicolon
 es5id: 7.9_A6.2_T8
 description: For header is (false \n semicolon false \n)
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 //CHECK#1

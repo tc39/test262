@@ -10,7 +10,7 @@ description: >
     Strict Mode - SyntaxError is thrown when 'eval' occurs as the
     Identifier in a PropertySetParameterList of a PropertyAssignment
     that is contained in strict code
-negative: ^((?!NotEarlyError).)*$
+negative: SyntaxError
 flags: [onlyStrict]
 ---*/
 

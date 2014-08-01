@@ -5,7 +5,7 @@
 info: "StringLiteral :: \"\\\\\\\" or '\\\\\\' is not correct"
 es5id: 7.8.4_A3.2_T1
 description: Checking if execution of "\\\" fails
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 //CHECK#1

@@ -5,7 +5,7 @@
 info: The "export" token can not be used as identifier
 es5id: 7.6.1.2_A1.10
 description: Checking if execution of "export=1" fails
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 var export = 1;

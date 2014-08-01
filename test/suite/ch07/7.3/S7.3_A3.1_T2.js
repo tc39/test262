@@ -5,7 +5,7 @@
 info: Single line comments can not contain LINE FEED (U+000A) inside
 es5id: 7.3_A3.1_T2
 description: Insert LINE FEED (\u000A) into begin of single line comment
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 // CHECK#1

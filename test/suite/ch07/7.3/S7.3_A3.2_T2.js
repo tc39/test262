@@ -5,7 +5,7 @@
 info: Single line comments can not contain CARRIAGE RETURN (U+000D) inside
 es5id: 7.3_A3.2_T2
 description: Insert CARRIAGE RETURN (\u000D) into begin of single line comment
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 // CHECK#1

@@ -9,7 +9,7 @@ es5id: 14.1-4gs
 description: >
     StrictMode - a Use Strict Directive followed by a strict mode
     violation
-negative: ^((?!NotEarlyError).)*$
+negative: SyntaxError
 flags: [onlyStrict]
 ---*/
 

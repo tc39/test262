@@ -9,7 +9,7 @@ es5id: 15.3.5-2gs
 description: >
     StrictMode - error is thrown when reading the 'caller' property of
     a function object
-negative: ^((?!NotEarlyError).)*$
+negative: TypeError
 flags: [onlyStrict]
 ---*/
 

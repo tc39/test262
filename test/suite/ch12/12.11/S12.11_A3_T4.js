@@ -7,7 +7,7 @@ es5id: 12.11_A3_T4
 description: >
     Using "case" that has no Expresson after it. "CaseClause: case
     Expression : [StatementList]"
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 function SwitchTest(value){

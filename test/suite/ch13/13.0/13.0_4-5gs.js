@@ -9,7 +9,7 @@ es5id: 13.0_4-5gs
 description: >
     Strict Mode - SourceElements is evaluated as strict mode code when
     a FunctionDeclaration is contained in strict mode code
-negative: ^((?!NotEarlyError).)*$
+negative: SyntaxError
 flags: [onlyStrict]
 ---*/
 

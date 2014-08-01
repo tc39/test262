@@ -7,7 +7,7 @@ es5id: 7.9_A6.4_T1
 description: >
     Three semicolons. For header is (false semicolon false semicolon
     false semicolon)
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 //CHECK#1

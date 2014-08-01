@@ -9,7 +9,7 @@ es5id: 13.1-8gs
 description: >
     Strict Mode - SyntaxError is thrown if a FunctionExpression has
     two identical parameters
-negative: ^((?!NotEarlyError).)*$
+negative: SyntaxError
 flags: [onlyStrict]
 ---*/
 

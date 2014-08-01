@@ -6,16 +6,10 @@
 
 /*---
 es5id: 15.2.3.4-1-4
+info: >
+  ES5 requires a `TypeError` here, while ES6 requires `ToObject` (19.1.2.7, 19.1.2.8.1)
 description: Object.getOwnPropertyNames throws TypeError if 'O' is a boolean
-includes: [runTestCase.js]
+negative: TypeError
 ---*/
 
-function testcase() {
-        try {
-            Object.getOwnPropertyNames(true);
-            return false;
-        } catch (e) {
-            return e instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+Object.getOwnPropertyNames(true);

@@ -9,7 +9,7 @@ es5id: 12.14_A16_T5
 description: >
     Catch: "catch (Identifier ) Block". Checking if execution of
     "catch" with no Block fails
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 // CHECK#1

@@ -9,7 +9,7 @@ es5id: 12.8_A6
 description: >
     Checking if using "break Identifier" within a function body
     appears to be invalid
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 var x=0,y=0;

@@ -7,7 +7,7 @@ es5id: 7.8.4_A1.2_T2
 description: >
     SingleStringCharacter :: SourceCharacter but not single-quote ' or
     LineTerminator
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 //CHECK#1

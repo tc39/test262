@@ -6,7 +6,7 @@ info: FunctionDeclaration within a "while" Statement is not allowed
 description: >
     Checking if declaring a function within a "while" Statement that
     is in a function body leads to an exception
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 function(){

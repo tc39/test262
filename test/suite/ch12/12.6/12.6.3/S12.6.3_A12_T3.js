@@ -8,7 +8,7 @@ info: >
     returned while evaluating a loop
 es5id: 12.6.3_A12_T3
 description: Trying to break non-existent label
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 __str="";

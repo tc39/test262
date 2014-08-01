@@ -7,7 +7,7 @@ info: >
     Catch Finally"
 es5id: 12.14_A16_T10
 description: "Catch: \"catch (Identifier ) Block\""
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 // CHECK#1

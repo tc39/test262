@@ -6,7 +6,7 @@ es5id: 15.2.4.5_A12
 description: >
     Let O be the result of calling ToObject passing the this value as
     the argument.
-flags: [negative]
+negative: TypeError
 ---*/
 
 Object.prototype.hasOwnProperty.call(undefined, 'foo');

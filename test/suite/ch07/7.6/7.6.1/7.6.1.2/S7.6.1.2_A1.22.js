@@ -5,9 +5,8 @@
 info: The "private" token can not be used as identifier in strict code
 es5id: 7.6.1.2_A1.22
 description: Checking if execution of "private=1" fails in strict code
-flags:
-    - onlyStrict
-    - negative
+negative: SyntaxError
+flags: [onlyStrict]
 ---*/
 
 "use strict";

@@ -7,7 +7,7 @@
 /*---
 es5id: 7.8.5-1gs
 description: Empty literal RegExp should result in a SyntaxError
-negative: ^((?!NotEarlyError).)*$
+negative: SyntaxError
 ---*/
 
 throw NotEarlyError;

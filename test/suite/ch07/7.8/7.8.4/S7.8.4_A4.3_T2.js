@@ -5,9 +5,8 @@
 info: NonEscapeSequence is not EscapeCharacter
 es5id: 7.8.4_A4.3_T2
 description: "EscapeCharacter :: DecimalDigits :: 7"
-flags:
-    - onlyStrict
-    - negative
+negative: SyntaxError
+flags: [onlyStrict]
 ---*/
 
 "use strict";

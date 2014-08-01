@@ -5,7 +5,7 @@
 info: The "class" token can not be used as identifier
 es5id: 7.6.1.2_A1.5
 description: Checking if execution of "class=1" fails
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 var class = 1;

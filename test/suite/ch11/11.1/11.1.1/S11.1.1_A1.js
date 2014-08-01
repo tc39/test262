@@ -5,7 +5,7 @@
 info: The "this" is reserved word
 es5id: 11.1.1_A1
 description: Checking if execution of "this=1" fails
-flags: [negative]
+negative: ReferenceError
 ---*/
 
 this = 1;

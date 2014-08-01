@@ -7,7 +7,7 @@ es5id: 7.9.2_A1_T6
 description: >
     if(a>b) \n else c=d is not a valid sentence in the ECMAScript
     grammar
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 //CHECK#1

@@ -9,12 +9,13 @@ es5id: 15.11.4.4-8-2
 description: >
     Error.prototype.toString return empty string when 'name' is empty
     string and 'msg' is undefined
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        var errObj = new Error();
-        errObj.name = "";
-        return errObj.toString() === "";
-    }
-runTestCase(testcase);
+var errObj = new Error();
+errObj.name = "";
+if (errObj.name !== "") {
+    $ERROR("Expected errObj.name to be '', actually " + errObj.name);
+}
+if (errObj.toString() !== "") {
+    $ERROR("Expected errObj.toString() to be '', actually " + errObj.toString());
+}

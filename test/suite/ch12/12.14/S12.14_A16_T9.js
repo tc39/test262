@@ -7,7 +7,7 @@ info: >
     Catch Finally"
 es5id: 12.14_A16_T9
 description: Checking if execution of "catch(){} finally{}" fails
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 // CHECK#1

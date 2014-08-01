@@ -9,7 +9,7 @@ es5id: 12.6.3_A7_T1
 description: >
     Checking if execution of "for(index=0; index<10; index++;
     index--)" fails
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////

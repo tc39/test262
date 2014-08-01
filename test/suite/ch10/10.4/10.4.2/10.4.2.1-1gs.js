@@ -10,7 +10,7 @@ description: >
     Strict Mode - eval code cannot instantiate variable in the
     variable environment of the calling context that invoked the eval
     if the code of the calling context is strict code
-negative: ^((?!NotEarlyError).)*$
+negative: ReferenceError
 flags: [onlyStrict]
 ---*/
 

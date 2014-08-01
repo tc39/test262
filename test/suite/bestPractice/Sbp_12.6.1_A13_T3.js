@@ -6,7 +6,7 @@ info: FunctionDeclaration within a "do-while" Block is not allowed
 description: >
     Declaring a function within a "do-while" loop that is within a
     function declaration itself
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 function(){
