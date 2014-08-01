@@ -74,7 +74,7 @@ def BuildOptions():
   result.add_option("--junitname", help="Filename to save test results in JUnit XML format")
   result.add_option("--loglevel", default="warning",
                     help="sets log level to debug, info, warning, error, or critical") 
-  result.add_option("--print-handle", default="", help="Command to print from console")
+  result.add_option("--print-handle", default="print", help="Command to print from console")
   result.add_option("--list-includes", default=False, action="store_true",
                     help="List includes required by tests")
   return result
@@ -261,11 +261,22 @@ class TestCase(object):
   def GetAdditionalIncludes(self):
     return '\n'.join([self.suite.GetInclude(include) for include in self.GetIncludeList()])
 
-  def GetSource(self):
+  def WrapTest(self, command):
+    if "cscript" not in command:
+      return self.test
+
+    return """
+try {
+""" + self.test + """
+} catch(e) {
+    $ERROR(e.message);
+}
+"""
+
+  def GetSource(self, command_template):
     # "var testDescrip = " + str(self.testRecord) + ';\n\n' + \
-    source = self.suite.GetInclude("cth.js") + \
-        self.suite.GetInclude("sta.js") + \
-        self.suite.GetInclude("ed.js")
+    source = self.suite.GetInclude("sta.js") + \
+        self.suite.GetInclude("cth.js")
 
     if self.IsAsyncTest():
       source = source + \
@@ -274,12 +285,14 @@ class TestCase(object):
 
     source = source + \
         self.GetAdditionalIncludes() + \
-        self.test + '\n'
+        self.WrapTest(command_template) + '\n'
 
     if self.strict_mode:
       source = '"use strict";\nvar strict_mode = true;\n' + source
     else:
-      source =  "var strict_mode = false; \n" + source
+      # add comment line so line numbers match in both strict and non-strict version
+      source =  '//"no strict";\nvar strict_mode = false;\n' + source
+
     return source
 
   def InstantiateTemplate(self, template, params):
@@ -312,7 +325,7 @@ class TestCase(object):
     return (code, out, err)
 
   def RunTestIn(self, command_template, tmp):
-    tmp.Write(self.GetSource())
+    tmp.Write(self.GetSource(command_template))
     tmp.Close()
     command = self.InstantiateTemplate(command_template, {
       'path': tmp.name
@@ -329,7 +342,7 @@ class TestCase(object):
     return result
 
   def Print(self):
-    print self.GetSource()
+    print self.GetSource("")
 
 
 class ProgressIndicator(object):

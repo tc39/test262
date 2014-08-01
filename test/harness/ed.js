@@ -12,20 +12,3 @@ if (this.window!==undefined) {  //for console support
     };
 }
 
-//This doesn't work with early errors in current versions of Opera
-/*
-if (/opera/i.test(navigator.userAgent)) {
-    (function() {
-        var origError = window.Error;
-        window.Error = function() {
-            if (arguments.length>0) {
-                try {
-                    window.onerror(arguments[0]);
-                } catch(e) {
-                    alert("Failed to invoke window.onerror (from ed.js)");
-                }
-            }
-            return origError.apply(this, arguments);
-        }
-    })();
-}*/
