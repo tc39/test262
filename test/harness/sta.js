@@ -4,31 +4,23 @@
 /// "Use Terms").   Any redistribution of this code must retain the above 
 /// copyright and this notice and otherwise comply with the Use Terms.
 
-
-
-//-----------------------------------------------------------------------------
 var NotEarlyErrorString = "NotEarlyError";
 var EarlyErrorRePat = "^((?!" + NotEarlyErrorString + ").)*$";
 var NotEarlyError = new Error(NotEarlyErrorString);
 
-//-----------------------------------------------------------------------------
-// Copyright 2009 the Sputnik authors.  All rights reserved.
-// This code is governed by the BSD license found in the LICENSE file.
-
 function Test262Error(message) {
-    if (message) this.message = message;
+    this.message = message || "";
 }
 
 Test262Error.prototype.toString = function () {
     return "Test262 Error: " + this.message;
 };
 
-function testFailed(message) {
+var $ERROR;
+$ERROR = function $ERROR(message) {
     throw new Test262Error(message);
-}
+};
 
-function $INCLUDE(message) { }
-function $ERROR(message) {
-    testFailed(message);
+function testFailed(message) {
+    $ERROR(message);
 }
-

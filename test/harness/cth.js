@@ -10,6 +10,30 @@ function testRun(id, path, description, codeString, result, error) {
   }
 }
 
-function testFinished() {
-    //no-op
+// define a default `print` function for async tests where there is no 
+// global `print`
+var print;
+
+// in node use console.log
+if (typeof console === "object") {
+    print = function () {
+        var args = Array.prototype.slice.call(arguments);
+        console.log(args.join(" "));
+    };
+}
+
+// in WScript, use WScript.Echo
+if (typeof WScript === "object") {
+    print = function () {
+        var args = Array.prototype.slice.call(arguments);
+        WScript.Echo(args.join(" "));
+    };
+
+    // also override $ERROR to force a nonzero exit code exit 
+    // TODO? report syntax errors
+    var oldError = $ERROR;
+    $ERROR = function (message) {
+        print("Test262 Error: " + message);
+        WScript.Quit(1);
+    };
 }
