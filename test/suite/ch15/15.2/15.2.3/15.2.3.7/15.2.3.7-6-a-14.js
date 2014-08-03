@@ -9,29 +9,28 @@ es5id: 15.2.3.7-6-a-14
 description: >
     Object.defineProperties - 'O' is a String object which implements
     its own [[GetOwnProperty]] method to get 'P' (8.12.9 step 1 )
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var str = new String();
+var str = new String();
 
-        Object.defineProperty(str, "prop", {
-            value: 11,
-            configurable: false
-        });
+Object.defineProperty(str, "prop", {
+    value: 11,
+    configurable: false
+});
 
-        try {
-            Object.defineProperties(str, {
-                prop: {
-                    value: 12,
-                    configurable: true
-                }
-            });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && dataPropertyAttributesAreCorrect(str, "prop", 11, false, false, false);
+try {
+    Object.defineProperties(str, {
+        prop: {
+            value: 12,
+            configurable: true
         }
+    });
+} catch (e) {
+    dataPropertyAttributesAreCorrect(str, "prop", 11, false, false, false);
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

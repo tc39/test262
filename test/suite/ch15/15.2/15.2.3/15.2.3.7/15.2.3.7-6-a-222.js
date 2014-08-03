@@ -11,31 +11,22 @@ description: >
     property, the [[Set]] field of 'desc' and the [[Set]] attribute
     value of 'P' are two objects which refer to the same object
     (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
+var arr = [];
 
-        function set_func(value) {
-            arr.setVerifyHelpProp = value;
-        }
+function set_func(value) {
+    arr.setVerifyHelpProp = value;
+}
 
-        Object.defineProperty(arr, "0", {
-            set: set_func
-        });
+Object.defineProperty(arr, "0", {
+    set: set_func
+});
 
-        try {
-            Object.defineProperties(arr, {
-                "0": {
-                    set: set_func
-                }
-            });
-            return accessorPropertyAttributesAreCorrect(arr, "0", undefined, set_func, "setVerifyHelpProp", false, false);
-        } catch (e) {
-            return false;
-        }
+Object.defineProperties(arr, {
+    "0": {
+        set: set_func
     }
-runTestCase(testcase);
+});
+accessorPropertyAttributesAreCorrect(arr, "0", undefined, set_func, "setVerifyHelpProp", false, false);

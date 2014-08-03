@@ -9,39 +9,41 @@ es5id: 15.2.3.8-2-b-4
 description: >
     Object.seal - all own properties of 'O' are already
     non-configurable
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
-        obj.variableForHelpVerify = "data";
+var obj = {};
+obj.variableForHelpVerify = "data";
 
-        Object.defineProperty(obj, "foo1", {
-            value: 10,
-            writable: true,
-            enumerable: true,
-            configurable: false
-        });
+Object.defineProperty(obj, "foo1", {
+    value: 10,
+    writable: true,
+    enumerable: true,
+    configurable: false
+});
 
-        function set_func(value) {
-            obj.variableForHelpVerify = value;
-        }
-        function get_func() {
-            return 10;
-        }
-        Object.defineProperty(obj, "foo2", {
-            get: get_func,
-            set: set_func,
-            enumerable: true,
-            configurable: false
-        });
-        var preCheck = Object.isExtensible(obj);
-        Object.seal(obj);
+function set_func(value) {
+    obj.variableForHelpVerify = value;
+}
+function get_func() {
+    return 10;
+}
+Object.defineProperty(obj, "foo2", {
+    get: get_func,
+    set: set_func,
+    enumerable: true,
+    configurable: false
+});
 
-        return preCheck && dataPropertyAttributesAreCorrect(obj, "foo1", 10, true, true, false) &&
-            accessorPropertyAttributesAreCorrect(obj, "foo2", get_func, set_func, "variableForHelpVerify", true, false);
-    }
-runTestCase(testcase);
+if (!Object.isExtensible(obj)) {
+    $ERROR('Expected obj to be extensible, actually ' + Object.isExtensible(obj));
+}
+
+Object.seal(obj);
+
+if (Object.isExtensible(obj)) {
+    $ERROR('Expected obj NOT to be extensible, actually ' + Object.isExtensible(obj));
+}
+
+dataPropertyAttributesAreCorrect(obj, "foo1", 10, true, true, false);
+accessorPropertyAttributesAreCorrect(obj, "foo2", get_func, set_func, "variableForHelpVerify", true, false);

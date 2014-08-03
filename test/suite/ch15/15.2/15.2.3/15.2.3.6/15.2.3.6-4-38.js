@@ -10,21 +10,17 @@ description: >
     Object.defineProperty - 'O' is the Math object that uses Object's
     [[GetOwnProperty]] method to access the 'name' property (8.12.9
     step 1)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        try {
-            Object.defineProperty(Math, "foo", {
-                value: 12,
-                configurable: true
-            });
-        
-            return dataPropertyAttributesAreCorrect(Math, "foo", 12, false, false, true);
-        } finally {
-            delete Math.foo;
-        }
-    }
-runTestCase(testcase);
+try {
+    Object.defineProperty(Math, "foo", {
+        value: 12,
+        configurable: true
+    });
+    
+    dataPropertyAttributesAreCorrect(Math, "foo", 12, false, false, true);
+} finally {
+    delete Math.foo;
+}
+

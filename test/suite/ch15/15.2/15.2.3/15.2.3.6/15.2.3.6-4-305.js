@@ -12,27 +12,26 @@ description: >
     [[ParameterMap]] of 'O', test TypeError is thrown when updating
     the [[Value]] attribute value of 'name' which is not writable and
     not configurable (10.6 [[DefineOwnProperty]] step 4)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        return (function () {
-            Object.defineProperty(arguments, "0", {
-                value: 0,
-                writable: false,
-                configurable: false
-            });
+(function () {
+    Object.defineProperty(arguments, "0", {
+        value: 0,
+        writable: false,
+        configurable: false
+    });
 
-            try {
-                Object.defineProperty(arguments, "0", {
-                    value: 10
-                });
-            } catch (e) {
-                return e instanceof TypeError && dataPropertyAttributesAreCorrect(arguments, "0", 0, false, false, false);
-            }
-            return false;
-        }());
+    try {
+        Object.defineProperty(arguments, "0", {
+            value: 10
+        });
+    } catch (e) {
+        dataPropertyAttributesAreCorrect(arguments, "0", 0, false, false, false);
+
+        if (!(e instanceof TypeError)) {
+            $ERROR("Expected TypeError, got " + e);
+        }
+
     }
-runTestCase(testcase);
+}());

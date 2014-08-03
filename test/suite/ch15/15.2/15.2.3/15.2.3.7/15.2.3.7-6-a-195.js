@@ -11,20 +11,15 @@ description: >
     named property, 'P' property doesn't exist in 'O', test 'P' is
     defined as data property when 'desc' is generic descriptor
     (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
+var arr = [];
 
-        Object.defineProperties(arr, {
-            "0": {
-                enumerable: true
-            }
-        });
-
-        return dataPropertyAttributesAreCorrect(arr, "0", undefined, false, true, false);
+Object.defineProperties(arr, {
+    "0": {
+        enumerable: true
     }
-runTestCase(testcase);
+});
+
+dataPropertyAttributesAreCorrect(arr, "0", undefined, false, true, false);

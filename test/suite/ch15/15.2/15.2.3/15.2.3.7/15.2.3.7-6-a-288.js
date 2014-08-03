@@ -12,39 +12,38 @@ description: >
     of 'O', test TypeError is thrown when updating the [[Enumerable]]
     attribute value of 'P' which is defined as non-configurable (10.6
     [[DefineOwnProperty]] step 4)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arg;
+var arg;
 
-        (function fun(a, b, c) {
-            arg = arguments;
-        }(0, 1, 2));
+(function fun(a, b, c) {
+    arg = arguments;
+}(0, 1, 2));
 
-        function get_func() {
-            return 0;
+function get_func() {
+    return 0;
+}
+
+Object.defineProperty(arg, "0", {
+    get: get_func,
+    enumerable: true,
+    configurable: false
+});
+
+try {
+    Object.defineProperties(arg, {
+        "0": {
+            enumerable: false
         }
+    });
 
-        Object.defineProperty(arg, "0", {
-            get: get_func,
-            enumerable: true,
-            configurable: false
-        });
+} catch (e) {
+    accessorPropertyAttributesAreCorrect(arg, "0", get_func, undefined, undefined, true, false);
 
-        try {
-            Object.defineProperties(arg, {
-                "0": {
-                    enumerable: false
-                }
-            });
-
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError) && accessorPropertyAttributesAreCorrect(arg, "0", get_func, undefined, undefined, true, false);
-        }
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

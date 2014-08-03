@@ -9,25 +9,20 @@ es5id: 15.2.3.7-6-a-61
 description: >
     Object.defineProperties - both desc.enumerable and P.enumerable
     are boolean values with the same value (8.12.9 step 6)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "foo", { 
-            value: 10, 
-            enumerable: false 
-        });
+Object.defineProperty(obj, "foo", { 
+    value: 10, 
+    enumerable: false 
+});
 
-        Object.defineProperties(obj, {
-            foo: {
-                enumerable: false
-            }
-        });
-        return dataPropertyAttributesAreCorrect(obj, "foo", 10, false, false, false);
+Object.defineProperties(obj, {
+    foo: {
+        enumerable: false
     }
-runTestCase(testcase);
+});
+dataPropertyAttributesAreCorrect(obj, "foo", 10, false, false, false);

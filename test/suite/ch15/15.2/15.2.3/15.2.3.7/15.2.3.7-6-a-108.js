@@ -9,34 +9,29 @@ es5id: 15.2.3.7-6-a-108
 description: >
     Object.defineProperties - 'P' is accessor property, P.configurable
     is true and properties.configurable is false
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        function get_func() {
-            return 10;
-        }
-        function set_func(value) {
-            obj.setVerifyHelpProp = value;
-        }
+function get_func() {
+    return 10;
+}
+function set_func(value) {
+    obj.setVerifyHelpProp = value;
+}
 
-        Object.defineProperty(obj, "foo", {
-            get: get_func,
-            set: set_func,
-            enumerable: true,
-            configurable: true
-        });
+Object.defineProperty(obj, "foo", {
+    get: get_func,
+    set: set_func,
+    enumerable: true,
+    configurable: true
+});
 
-        Object.defineProperties(obj, {
-            foo: {
-                configurable: false
-            }
-        });
-        return accessorPropertyAttributesAreCorrect(obj, "foo", get_func, set_func, "setVerifyHelpProp", true, false);
+Object.defineProperties(obj, {
+    foo: {
+        configurable: false
     }
-runTestCase(testcase);
+});
+accessorPropertyAttributesAreCorrect(obj, "foo", get_func, set_func, "setVerifyHelpProp", true, false);

@@ -11,29 +11,22 @@ description: >
     index property, the [[Value]] field of 'desc' and the [[Value]]
     attribute value of 'name' are two objects which refer to the same
     object  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
+var arr = [];
 
-        var obj1 = { length: 10 };
-        Object.defineProperty(arr, "0", {
-            value: obj1
-        });
+var obj1 = { length: 10 };
+Object.defineProperty(arr, "0", {
+    value: obj1
+});
 
-        var properties = {
-            "0": {
-                value: obj1
-            }
-        };
-        try {
-            Object.defineProperties(arr, properties);
-            return dataPropertyAttributesAreCorrect(arr, "0", obj1, false, false, false);
-        } catch (e) {
-            return false;
-        }
+var properties = {
+    "0": {
+        value: obj1
     }
-runTestCase(testcase);
+};
+
+Object.defineProperties(arr, properties);
+dataPropertyAttributesAreCorrect(arr, "0", obj1, false, false, false);
+

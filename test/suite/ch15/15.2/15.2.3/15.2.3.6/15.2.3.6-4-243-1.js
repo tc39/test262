@@ -11,25 +11,21 @@ description: >
     named property,  'name' is accessor property and  assignment to
     the accessor property, fails to convert accessor property from
     accessor property to data property (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
+flags: [noStrict]
 ---*/
 
-function testcase() {
 
-        var arrObj = [];
+var arrObj = [];
 
-        function getFunc() {
-            return 3;
-        }
-        Object.defineProperty(arrObj, "1", {
-            get: getFunc,
-            configurable: true
-        });
+function getFunc() {
+    return 3;
+}
+Object.defineProperty(arrObj, "1", {
+    get: getFunc,
+    configurable: true
+});
 
-        arrObj[1] = 4;
+arrObj[1] = 4;
 
-        return accessorPropertyAttributesAreCorrect(arrObj, "1", getFunc, undefined, undefined, false, true);
-    }
-runTestCase(testcase);
+accessorPropertyAttributesAreCorrect(arrObj, "1", getFunc, undefined, undefined, false, true);

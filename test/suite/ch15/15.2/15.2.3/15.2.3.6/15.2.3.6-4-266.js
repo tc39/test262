@@ -11,26 +11,21 @@ description: >
     named property, name is accessor property and 'desc' is accessor
     descriptor, test setting the [[Get]] attribute value of 'name' as
     undefined (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arrObj = [];
-        function getFunc() {
-            return 12;
-        }
+var arrObj = [];
+function getFunc() {
+    return 12;
+}
 
-        Object.defineProperty(arrObj, "0", {
-            get: getFunc,
-            configurable: true
-        });
+Object.defineProperty(arrObj, "0", {
+    get: getFunc,
+    configurable: true
+});
 
-        Object.defineProperty(arrObj, "0", {
-            get: undefined
-        });
-        return accessorPropertyAttributesAreCorrect(arrObj, "0", undefined, undefined, undefined, false, true);
-    }
-runTestCase(testcase);
+Object.defineProperty(arrObj, "0", {
+    get: undefined
+});
+accessorPropertyAttributesAreCorrect(arrObj, "0", undefined, undefined, undefined, false, true);

@@ -13,29 +13,28 @@ description: >
     false, test TypeError is thrown if the [[Set]] field of 'desc' is
     present, and the [[Set]] field of 'desc' is an object and the
     [[Set]] attribute value of 'name' is undefined (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arrObj = [];
-        function getFunc() {
-            return 12;
-        }
+var arrObj = [];
+function getFunc() {
+    return 12;
+}
 
-        Object.defineProperty(arrObj, "1", {
-            get: getFunc,
-            set: undefined
-        });
+Object.defineProperty(arrObj, "1", {
+    get: getFunc,
+    set: undefined
+});
 
-        try {
-            Object.defineProperty(arrObj, "1", {
-                set: function () { }
-            });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && accessorPropertyAttributesAreCorrect(arrObj, "1", getFunc, undefined, undefined, false, false);
-        }
+try {
+    Object.defineProperty(arrObj, "1", {
+        set: function () { }
+    });
+} catch (e) {
+    accessorPropertyAttributesAreCorrect(arrObj, "1", getFunc, undefined, undefined, false, false);
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

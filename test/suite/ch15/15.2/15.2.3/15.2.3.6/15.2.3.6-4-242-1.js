@@ -11,21 +11,17 @@ description: >
     named property,  'name' is data property and 'desc' is data
     descriptor, and the [[Configurable]] attribute value of 'name' is
     true, test 'name' is updated successfully (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arrObj = [3];
+var arrObj = [3];
 
-        Object.defineProperty(arrObj, "0", {
-            value: 1001,
-            writable: false,
-            enumerable: false
-        });
+Object.defineProperty(arrObj, "0", {
+    value: 1001,
+    writable: false,
+    enumerable: false
+});
 
-        return dataPropertyAttributesAreCorrect(arrObj, "0", 1001, false, false, true);
-    }
-runTestCase(testcase);
+dataPropertyAttributesAreCorrect(arrObj, "0", 1001, false, false, true);
+

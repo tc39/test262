@@ -11,26 +11,24 @@ description: >
     data property of 'O', test TypeError is thrown when updating the
     [[Enumerable]] attribute value of 'P' which is not configurable
     (10.6 [[DefineOwnProperty]] step 4)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        return (function () {
-            Object.defineProperty(arguments, "genericProperty", {
-                enumerable: true,
-                configurable: false
-            });
-            try {
-                Object.defineProperty(arguments, "genericProperty", {
-                    enumerable: false
-                });
-            } catch (e) {
-                return e instanceof TypeError &&
-                    dataPropertyAttributesAreCorrect(arguments, "genericProperty", undefined, false, true, false);
-            }
-            return false;
-        }(1, 2, 3));
+(function () {
+    Object.defineProperty(arguments, "genericProperty", {
+        enumerable: true,
+        configurable: false
+    });
+    try {
+        Object.defineProperty(arguments, "genericProperty", {
+            enumerable: false
+        });
+    } catch (e) {
+        dataPropertyAttributesAreCorrect(arguments, "genericProperty", undefined, false, true, false);
+
+        if (!(e instanceof TypeError)) {
+            $ERROR("Expected TypeError, got " + e);
+        }
+
     }
-runTestCase(testcase);
+}(1, 2, 3));

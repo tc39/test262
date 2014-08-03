@@ -11,31 +11,26 @@ description: >
     generic property, and 'desc' is accessor descriptor, test 'P' is
     defined in 'O' with all correct attribute values (10.6
     [[DefineOwnProperty]] step 4)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arg = (function () {
-            return arguments;
-        }(1, 2, 3));
+var arg = (function () {
+    return arguments;
+}(1, 2, 3));
 
-        function getFun() {
-            return "getFunctionString";
-        }
-        function setFun(value) {
-            arg.testGetFunction = value;
-        }
-        Object.defineProperties(arg, {
-            "genericProperty": {
-                get: getFun,
-                set: setFun,
-                enumerable: true,
-                configurable: true
-            }
-        });
-
-        return accessorPropertyAttributesAreCorrect(arg, "genericProperty", getFun, setFun, "testGetFunction", true, true);
+function getFun() {
+    return "getFunctionString";
+}
+function setFun(value) {
+    arg.testGetFunction = value;
+}
+Object.defineProperties(arg, {
+    "genericProperty": {
+        get: getFun,
+        set: setFun,
+        enumerable: true,
+        configurable: true
     }
-runTestCase(testcase);
+});
+
+accessorPropertyAttributesAreCorrect(arg, "genericProperty", getFun, setFun, "testGetFunction", true, true);

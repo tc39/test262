@@ -11,48 +11,53 @@ description: >
     attributes of an indexed accessor property 'P' whose
     [[Configurable]] attribute is false and throws TypeError
     exception, 'O' is an Object object (8.12.9 step 11.a)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        obj.verifySetFunction = "data";
-        var getFunc = function () {
-            return obj.verifySetFunction;
-        };
-        var setFunc = function (value) {
-            obj.verifySetFunction = value;
-        };
-        Object.defineProperty(obj, "0", {
-            get: getFunc,
-            set: setFunc,
-            configurable: false
-        });
+obj.verifySetFunction = "data";
+var getFunc = function () {
+    return obj.verifySetFunction;
+};
+var setFunc = function (value) {
+    obj.verifySetFunction = value;
+};
+Object.defineProperty(obj, "0", {
+    get: getFunc,
+    set: setFunc,
+    configurable: false
+});
 
-        var result = false;
-        try {
-            Object.defineProperty(obj, "0", {
-                get: function () {
-                    return 100;
-                }
-            });
-        } catch (e) {
-            result = e instanceof TypeError &&
-                accessorPropertyAttributesAreCorrect(obj, "0", getFunc, setFunc, "verifySetFunction", false, false);
+var result = false;
+try {
+    Object.defineProperty(obj, "0", {
+        get: function () {
+            return 100;
         }
+    });
+} catch (e) {
+    result = e instanceof TypeError;
 
-        try {
-            Object.defineProperty(obj, "0", {
-                set: function (value) {
-                    obj.verifySetFunction1 = value;
-                }
-            });
-        } catch (e1) {
-            return result && e1 instanceof TypeError &&
-                accessorPropertyAttributesAreCorrect(obj, "0", getFunc, setFunc, "verifySetFunction", false, false);
+    accessorPropertyAttributesAreCorrect(obj, "0", getFunc, setFunc, "verifySetFunction", false, false);
+}
+
+try {
+    Object.defineProperty(obj, "0", {
+        set: function (value) {
+            obj.verifySetFunction1 = value;
         }
+    });
+} catch (e1) {
+    if (!result) {
+        $ERROR('Expected result to be true, actually ' + result);
     }
-runTestCase(testcase);
+    
+    accessorPropertyAttributesAreCorrect(obj, "0", getFunc, setFunc, "verifySetFunction", false, false);
+
+
+    if (!(e1 instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e1);
+    }
+
+}

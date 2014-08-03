@@ -9,23 +9,18 @@ es5id: 15.2.3.7-6-a-47
 description: >
     Object.defineProperties - desc.value and P.value are two numbers
     with the same value (8.12.9 step 6)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        var desc = { value: 101 };
-        Object.defineProperty(obj, "foo", desc);
+var desc = { value: 101 };
+Object.defineProperty(obj, "foo", desc);
 
-        Object.defineProperties(obj, {
-            foo: {
-                value: 101
-            }
-        });
-        return dataPropertyAttributesAreCorrect(obj, "foo", 101, false, false, false);
+Object.defineProperties(obj, {
+    foo: {
+        value: 101
     }
-runTestCase(testcase);
+});
+dataPropertyAttributesAreCorrect(obj, "foo", 101, false, false, false);

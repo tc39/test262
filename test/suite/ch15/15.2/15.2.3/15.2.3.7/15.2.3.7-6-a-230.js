@@ -11,29 +11,28 @@ description: >
     property, TypeError is thrown if  'P' is data property, and'desc'
     is accessor descriptor, and the [[Configurable]] attribute value
     of 'P' is false  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arr = [];
+var arr = [];
 
-        Object.defineProperty(arr, "1", {
-            value: 3,
-            configurable: false
-        });
+Object.defineProperty(arr, "1", {
+    value: 3,
+    configurable: false
+});
 
-        try {
-            Object.defineProperties(arr, {
-                "1": {
-                    set: function () { }
-                }
-            });
-            return false;
-        } catch (ex) {
-            return (ex instanceof TypeError) && dataPropertyAttributesAreCorrect(arr, "1", 3, false, false, false);
+try {
+    Object.defineProperties(arr, {
+        "1": {
+            set: function () { }
         }
+    });
+} catch (ex) {
+    dataPropertyAttributesAreCorrect(arr, "1", 3, false, false, false);
+
+    if (!(ex instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + ex);
     }
-runTestCase(testcase);
+
+}

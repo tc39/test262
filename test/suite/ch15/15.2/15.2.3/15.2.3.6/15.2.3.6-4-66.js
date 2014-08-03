@@ -9,18 +9,14 @@ es5id: 15.2.3.6-4-66
 description: >
     Object.defineProperty - desc.value and name.value are two numbers
     with different values (8.12.9 step 6)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        obj.foo = 101; // default value of attributes: writable: true, configurable: true, enumerable: true
+obj.foo = 101; // default value of attributes: writable: true, configurable: true, enumerable: true
 
-        Object.defineProperty(obj, "foo", { value: 102 });
-        return dataPropertyAttributesAreCorrect(obj, "foo", 102, true, true, true);
-    }
-runTestCase(testcase);
+Object.defineProperty(obj, "foo", { value: 102 });
+dataPropertyAttributesAreCorrect(obj, "foo", 102, true, true, true);
+

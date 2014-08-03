@@ -11,36 +11,36 @@ description: >
     P.configurable is false, both properties.[[Set]] and P.[[Set]] are
     two objects which refer to the same object and the object has been
     updated after defined(8.12.9 step 11.a.i)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        var set_func = function (value) {
-            obj.setVerifyHelpProp = value;
+var set_func = function (value) {
+    obj.setVerifyHelpProp = value;
+};
+
+Object.defineProperty(obj, "foo", {
+    set: set_func,
+    configurable: false
+});
+
+set_func = function (value) {
+    obj.setVerifyHelpProp1 = value;
+};
+
+try {
+    Object.defineProperties(obj, {
+        foo: {
+            set: set_func
         }
+    });
+} catch (e) {
+    accessorPropertyAttributesAreCorrect(obj, "foo", undefined, set_func, "setVerifyHelpProp", false, false);
 
-        Object.defineProperty(obj, "foo", {
-            set: set_func,
-            configurable: false
-        });
-
-        set_func = function (value) {
-            obj.setVerifyHelpProp1 = value;
-        }
-
-        try {
-            Object.defineProperties(obj, {
-                foo: {
-                    set: set_func
-                }
-            });
-        } catch (e) {
-            return accessorPropertyAttributesAreCorrect(obj, "foo", undefined, set_func, "setVerifyHelpProp", false, false);
-        }
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

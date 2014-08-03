@@ -10,23 +10,23 @@ description: >
     Object.defineProperties - 'O' is an Array, 'P' is generic own data
     property of 'O', and 'desc' is data descriptor, test updating
     multiple attribute values of 'P' (15.4.5.1 step 5)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arr = [];
-        arr.property = 12; // default value of attributes: writable: true, configurable: true, enumerable: true
+var arr = [];
+arr.property = 12; // default value of attributes: writable: true, configurable: true, enumerable: true
 
-        Object.defineProperties(arr, {
-            "property": {
-                writable: false,
-                enumerable: false,
-                configurable: false
-            }
-        });
-        return dataPropertyAttributesAreCorrect(arr, "property", 12, false, false, false) && arr.length === 0;
+Object.defineProperties(arr, {
+    "property": {
+        writable: false,
+        enumerable: false,
+        configurable: false
     }
-runTestCase(testcase);
+});
+dataPropertyAttributesAreCorrect(arr, "property", 12, false, false, false)
+
+if (arr.length !== 0) {
+    $ERROR('Expected arr.length === 0, actually ' + arr.length);
+}
+

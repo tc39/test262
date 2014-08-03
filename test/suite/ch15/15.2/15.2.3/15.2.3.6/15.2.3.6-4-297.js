@@ -11,32 +11,31 @@ description: >
     accessor property of 'O', test TypeError is thrown when updating
     the [[Get]] attribute value of 'name' which is defined as
     non-configurable (10.6 [[DefineOwnProperty]] step 4)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        return (function () {
-            function getFunc1() {
-                return 10;
-            }
-            Object.defineProperty(arguments, "0", {
-                get: getFunc1,
-                enumerable: false,
-                configurable: false
-            });
-            function getFunc2() {
-                return 20;
-            }
-            try {
-                Object.defineProperty(arguments, "0", {
-                    get: getFunc2
-                });
-            } catch (e) {
-                return e instanceof TypeError && accessorPropertyAttributesAreCorrect(arguments, "0", getFunc1, undefined, undefined, false, false);
-            }
-            return false;
-        }(0, 1, 2));
+(function () {
+    function getFunc1() {
+        return 10;
     }
-runTestCase(testcase);
+    Object.defineProperty(arguments, "0", {
+        get: getFunc1,
+        enumerable: false,
+        configurable: false
+    });
+    function getFunc2() {
+        return 20;
+    }
+    try {
+        Object.defineProperty(arguments, "0", {
+            get: getFunc2
+        });
+    } catch (e) {
+        accessorPropertyAttributesAreCorrect(arguments, "0", getFunc1, undefined, undefined, false, false);
+
+        if (!(e instanceof TypeError)) {
+            $ERROR("Expected TypeError, got " + e);
+        }
+
+    }
+}(0, 1, 2));

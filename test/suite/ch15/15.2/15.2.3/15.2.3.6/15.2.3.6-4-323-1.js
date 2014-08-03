@@ -12,31 +12,32 @@ description: >
     test TypeError is thrown when updating the [[Enumerable]]
     attribute value of 'P' which is not configurable (10.6
     [[DefineOwnProperty]] step 4)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        return (function (a, b, c) {
-            function setFunc(value) {
-                this.genericPropertyString = value;
-            }
-            Object.defineProperty(arguments, "genericProperty", {
-                set: setFunc,
-                enumerable: true,
-                configurable: false
-            });
-            try {
-                Object.defineProperty(arguments, "genericProperty", {
-                    enumerable: false
-                });
-            } catch (e) {
-                verifyFormal = c === 3;
-                return e instanceof TypeError &&
-                    accessorPropertyAttributesAreCorrect(arguments, "genericProperty", undefined, setFunc, "genericPropertyString", true, false) && verifyFormal;
-            }
-            return false;
-        }(1, 2, 3));
+(function (a, b, c) {
+    function setFunc(value) {
+        this.genericPropertyString = value;
     }
-runTestCase(testcase);
+    Object.defineProperty(arguments, "genericProperty", {
+        set: setFunc,
+        enumerable: true,
+        configurable: false
+    });
+    try {
+        Object.defineProperty(arguments, "genericProperty", {
+            enumerable: false
+        });
+    } catch (e) {
+        if (c !== 3) {
+            $ERROR('Expected c === 3, actually ' + c);
+        }
+        accessorPropertyAttributesAreCorrect(arguments, "genericProperty", undefined, setFunc, "genericPropertyString", true, false);
+
+        if (!(e instanceof TypeError)) {
+            $ERROR("Expected TypeError, got " + e);
+        }
+
+    }
+
+}(1, 2, 3));

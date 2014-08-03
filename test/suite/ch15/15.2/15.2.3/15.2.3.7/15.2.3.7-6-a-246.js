@@ -14,28 +14,20 @@ description: >
     field of 'desc' is present, and the [[Get]] field of 'desc' and
     the [[Get]] attribute value of 'P' are undefined (15.4.5.1 step
     4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
+var arr = [];
 
-        Object.defineProperty(arr, "1", {
-            get: undefined
-        });
+Object.defineProperty(arr, "1", {
+    get: undefined
+});
 
-        try {
-            Object.defineProperties(arr, {
-                "1": {
-                    get: undefined
-                }
-            });
-
-            return accessorPropertyAttributesAreCorrect(arr, "1", undefined, undefined, undefined, false, false);
-        } catch (ex) {
-            return false;
-        }
+Object.defineProperties(arr, {
+    "1": {
+        get: undefined
     }
-runTestCase(testcase);
+});
+
+accessorPropertyAttributesAreCorrect(arr, "1", undefined, undefined, undefined, false, false);
+

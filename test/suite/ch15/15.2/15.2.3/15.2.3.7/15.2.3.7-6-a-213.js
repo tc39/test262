@@ -10,27 +10,26 @@ description: >
     Object.defineProperties - 'O' is an Array, 'name' is an array
     index property, the [[Value]] field of 'desc' is +0, and the
     [[Value]] attribute value of 'name' is -0  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
+var arr = [];
 
-        Object.defineProperty(arr, "0", {
-            value: -0
-        });
+Object.defineProperty(arr, "0", {
+    value: -0
+});
 
-        try {
-            Object.defineProperties(arr, {
-                "0": {
-                    value: +0
-                }
-            });
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError) && dataPropertyAttributesAreCorrect(arr, "0", -0, false, false, false);
+try {
+    Object.defineProperties(arr, {
+        "0": {
+            value: +0
         }
+    });
+} catch (e) {
+    dataPropertyAttributesAreCorrect(arr, "0", -0, false, false, false);
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

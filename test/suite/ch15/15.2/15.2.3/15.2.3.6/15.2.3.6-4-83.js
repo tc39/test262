@@ -10,26 +10,21 @@ description: >
     Object.defineProperty will not throw TypeError if
     name.configurable = false, name.writable = false, name.value =
     undefined and desc.value = undefined (8.12.9 step 10.a.ii.1)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "foo", { 
-            value: undefined, 
-            writable: false, 
-            configurable: false 
-        });
+Object.defineProperty(obj, "foo", { 
+    value: undefined, 
+    writable: false, 
+    configurable: false 
+});
 
-        Object.defineProperty(obj, "foo", { 
-            value: undefined, 
-            writable: false, 
-            configurable: false
-        });
-        return dataPropertyAttributesAreCorrect(obj, "foo", undefined, false, false, false);
-    }
-runTestCase(testcase);
+Object.defineProperty(obj, "foo", { 
+    value: undefined, 
+    writable: false, 
+    configurable: false
+});
+dataPropertyAttributesAreCorrect(obj, "foo", undefined, false, false, false);

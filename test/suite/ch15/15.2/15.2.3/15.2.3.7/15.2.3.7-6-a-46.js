@@ -9,27 +9,26 @@ es5id: 15.2.3.7-6-a-46
 description: >
     Object.defineProperties - desc.value is -0 and P.value is +0
     (8.12.9 step 6)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        var desc = { value: +0 };
-        Object.defineProperty(obj, "foo", desc);
+var desc = { value: +0 };
+Object.defineProperty(obj, "foo", desc);
 
-        try {
-            Object.defineProperties(obj, {
-                foo: {
-                    value: -0
-                }
-            });
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError) && dataPropertyAttributesAreCorrect(obj, "foo", +0, false, false, false); 
+try {
+    Object.defineProperties(obj, {
+        foo: {
+            value: -0
         }
+    });
+} catch (e) {
+    dataPropertyAttributesAreCorrect(obj, "foo", +0, false, false, false);
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

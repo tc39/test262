@@ -10,43 +10,53 @@ description: >
     ES5 Attributes - Updating a named accessor property 'P' whose
     [[Configurable]] attribute is true to a data property is
     successful, 'O' is the global object
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js, fnGlobalObject.js]
 ---*/
 
-function testcase() {
-        var obj = fnGlobalObject();
+var obj = fnGlobalObject();
 
-        obj.verifySetFunc = "data";
-        var getFunc = function () {
-            return obj.verifySetFunc;
-        };
+obj.verifySetFunc = "data";
+var getFunc = function () {
+    return obj.verifySetFunc;
+};
 
-        var setFunc = function (value) {
-            obj.verifySetFunc = value;
-        };
-        try {
-            Object.defineProperty(obj, "prop", {
-                get: getFunc,
-                set: setFunc,
-                enumerable: true,
-                configurable: true
-            });
-            var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
+var setFunc = function (value) {
+    obj.verifySetFunc = value;
+};
+try {
+    Object.defineProperty(obj, "prop", {
+        get: getFunc,
+        set: setFunc,
+        enumerable: true,
+        configurable: true
+    });
+    var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-            Object.defineProperty(obj, "prop", {
-                value: 1001
-            });
-            var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
+    Object.defineProperty(obj, "prop", {
+        value: 1001
+    });
+    var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-            return desc1.hasOwnProperty("get") && desc2.hasOwnProperty("value") &&
-                typeof desc2.get === "undefined" && typeof desc2.get === "undefined" &&
-                dataPropertyAttributesAreCorrect(obj, "prop", 1001, false, true, true);
-        } finally {
-            delete obj.prop;
-            delete obj.verifySetFunc;
-        }
+    if (!desc1.hasOwnProperty("get")) {
+        $ERROR('Expected desc1.hasOwnProperty("get") to be true, actually ' + desc1.hasOwnProperty("get"));
     }
-runTestCase(testcase);
+
+    if (!desc2.hasOwnProperty("value")) {
+        $ERROR('Expected desc2.hasOwnProperty("value") to be true, actually ' + desc2.hasOwnProperty("value"));
+    }
+    
+    if (typeof desc2.get !== "undefined") {
+        $ERROR('Expected typeof desc2.get === "undefined", actually ' + typeof desc2.get);
+    }
+
+    if (typeof desc2.set !== "undefined") {
+        $ERROR('Expected typeof desc2.set === "undefined", actually ' + typeof desc2.set);
+    }
+
+    dataPropertyAttributesAreCorrect(obj, "prop", 1001, false, true, true);
+
+} finally {
+    delete obj.prop;
+    delete obj.verifySetFunc;
+}
+

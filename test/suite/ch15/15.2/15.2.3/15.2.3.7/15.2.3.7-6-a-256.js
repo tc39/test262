@@ -11,29 +11,24 @@ description: >
     named property that already exists on 'O' is accessor property and
     'desc' is accessor descriptor, test updating the [[Get]] attribute
     value of 'P' from undefined to function (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arr = [];
+var arr = [];
 
-        function get_fun() {
-            return 36;
-        }
+function get_fun() {
+    return 36;
+}
 
-        Object.defineProperty(arr, "0", {
-            get: undefined,
-            configurable: true
-        });
+Object.defineProperty(arr, "0", {
+    get: undefined,
+    configurable: true
+});
 
-        Object.defineProperties(arr, {
-            "0": {
-                get: get_fun
-            }
-        });
-        return accessorPropertyAttributesAreCorrect(arr, "0", get_fun, undefined, undefined, false, true);
+Object.defineProperties(arr, {
+    "0": {
+        get: get_fun
     }
-runTestCase(testcase);
+});
+accessorPropertyAttributesAreCorrect(arr, "0", get_fun, undefined, undefined, false, true);

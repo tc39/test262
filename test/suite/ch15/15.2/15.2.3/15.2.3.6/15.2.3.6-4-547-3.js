@@ -10,42 +10,49 @@ description: >
     ES5 Attributes - Updating a named accessor property 'P' whose
     [[Configurable]] attribute is false to a data property does not
     succeed, 'A' is an Array object (8.12.9 step 9.a)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = [];
-        
-        obj.verifySetFunc = "data";
-        var getFunc = function () {
-            return obj.verifySetFunc;
-        };
+var obj = [];
 
-        var setFunc = function (value) {
-            obj.verifySetFunc = value;
-        };
+obj.verifySetFunc = "data";
+var getFunc = function () {
+    return obj.verifySetFunc;
+};
 
-        Object.defineProperty(obj, "prop", {
-            get: getFunc,
-            set: setFunc,
-            enumerable: true,
-            configurable: false
-        });
-        var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
+var setFunc = function (value) {
+    obj.verifySetFunc = value;
+};
 
-        try {
-            Object.defineProperty(obj, "prop", {
-                value: 1001
-            });
+Object.defineProperty(obj, "prop", {
+    get: getFunc,
+    set: setFunc,
+    enumerable: true,
+    configurable: false
+});
+var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-            return false;
-        } catch (e) {
-            var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
+try {
+    Object.defineProperty(obj, "prop", {
+        value: 1001
+    });
 
-            return desc1.hasOwnProperty("get") && !desc2.hasOwnProperty("value") && e instanceof TypeError &&
-                accessorPropertyAttributesAreCorrect(obj, "prop", getFunc, setFunc, "verifySetFunc", true, false);
-        }
+} catch (e) {
+    var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
+
+    if (!desc1.hasOwnProperty("get")) {
+        $ERROR('Expected desc1.hasOwnProperty("get") to be true, actually ' + desc1.hasOwnProperty("get"));
     }
-runTestCase(testcase);
+    
+    if (desc2.hasOwnProperty("value")) {
+        $ERROR('Expected !desc2.hasOwnProperty("value") to be true, actually ' + !desc2.hasOwnProperty("value"));
+    }
+    
+
+    accessorPropertyAttributesAreCorrect(obj, "prop", getFunc, setFunc, "verifySetFunc", true, false);
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
+    }
+
+}

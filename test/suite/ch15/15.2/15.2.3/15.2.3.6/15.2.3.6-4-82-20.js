@@ -13,33 +13,28 @@ description: >
     'desc' is a generic descriptor which contains [Enumerable]]
     attribute as false and [[Configurable]] property is true, 'name'
     property is an index accessor property (8.12.9 step 8)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
-        obj.verifySetFunction = "data";
-        var get_func = function () {
-            return obj.verifySetFunction;
-        };
-        var set_func = function (value) {
-            obj.verifySetFunction = value;
-        };
-        Object.defineProperty(obj, "0", {
-            get: get_func,
-            set: set_func,
-            enumerable: true,
-            configurable: true
-        });
+var obj = {};
+obj.verifySetFunction = "data";
+var get_func = function () {
+    return obj.verifySetFunction;
+};
+var set_func = function (value) {
+    obj.verifySetFunction = value;
+};
+Object.defineProperty(obj, "0", {
+    get: get_func,
+    set: set_func,
+    enumerable: true,
+    configurable: true
+});
 
-        Object.defineProperty(obj, "0", {
-            enumerable: false,
-            configurable: true
-        });
+Object.defineProperty(obj, "0", {
+    enumerable: false,
+    configurable: true
+});
 
-        return accessorPropertyAttributesAreCorrect(obj, "0", get_func, set_func, "verifySetFunction", false, true);
-    }
-runTestCase(testcase);
+accessorPropertyAttributesAreCorrect(obj, "0", get_func, set_func, "verifySetFunction", false, true);

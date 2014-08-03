@@ -12,36 +12,37 @@ description: >
     test TypeError is thrown when updating the [[Get]] attribute value
     of 'P' which is not configurable (10.6 [[DefineOwnProperty]] step
     4)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        return (function (a, b, c) {
-            function getFunc() {
-                return "genericPropertyString";
-            }
-            function setFunc(value) {
-                this.helpVerifyGet = value;
-            }
-            Object.defineProperty(arguments, "genericProperty", {
-                get: getFunc,
-                set: setFunc,
-                configurable: false
-            });
-            try {
-                Object.defineProperty(arguments, "genericProperty", {
-                    get: function () {
-                        return "overideGenericPropertyString";
-                    }
-                });
-            } catch (e) {
-                var verifyFormal = a === 1;
-                return e instanceof TypeError &&
-                    accessorPropertyAttributesAreCorrect(arguments, "genericProperty", getFunc, setFunc, "helpVerifyGet", false, false, false) && verifyFormal;
-            }
-            return false;
-        }(1, 2, 3));
+(function (a, b, c) {
+    function getFunc() {
+        return "genericPropertyString";
     }
-runTestCase(testcase);
+    function setFunc(value) {
+        this.helpVerifyGet = value;
+    }
+    Object.defineProperty(arguments, "genericProperty", {
+        get: getFunc,
+        set: setFunc,
+        configurable: false
+    });
+    try {
+        Object.defineProperty(arguments, "genericProperty", {
+            get: function () {
+                return "overideGenericPropertyString";
+            }
+        });
+    } catch (e) {
+        if (a !== 1) {
+            $ERROR('Expected a === 1, actually ' + a);
+        }
+
+        accessorPropertyAttributesAreCorrect(arguments, "genericProperty", getFunc, setFunc, "helpVerifyGet", false, false, false)
+
+        if (!(e instanceof TypeError)) {
+            $ERROR("Expected TypeError, got " + e);
+        }
+
+    }
+}(1, 2, 3));

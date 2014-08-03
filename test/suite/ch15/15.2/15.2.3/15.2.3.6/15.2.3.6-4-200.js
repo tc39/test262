@@ -12,20 +12,16 @@ description: >
     [[Value]] of 'name' property of 'Attributes' is set as undefined
     if [[Value]] is absent in data descriptor 'desc' (15.4.5.1 step
     4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arrObj = [];
+var arrObj = [];
 
-        Object.defineProperty(arrObj, "0", {
-            writable: true,
-            enumerable: true,
-            configurable: false
-        });
+Object.defineProperty(arrObj, "0", {
+    writable: true,
+    enumerable: true,
+    configurable: false
+});
 
-        return dataPropertyAttributesAreCorrect(arrObj, "0", undefined, true, true, false);
-    }
-runTestCase(testcase);
+dataPropertyAttributesAreCorrect(arrObj, "0", undefined, true, true, false);
+

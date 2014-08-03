@@ -11,25 +11,24 @@ description: >
     property, test TypeError is thrown  when the [[Value]] field of
     'desc' and the [[Value]] attribute value of 'name' are two strings
     with different values (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arrObj = [];
+var arrObj = [];
 
-        Object.defineProperty(arrObj, 0, {
-            value: "abcd",
-            writable: false,
-            configurable: false
-        });
+Object.defineProperty(arrObj, 0, {
+    value: "abcd",
+    writable: false,
+    configurable: false
+});
 
-        try {
-            Object.defineProperty(arrObj, "0", { value: "fghj" });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && dataPropertyAttributesAreCorrect(arrObj, "0", "abcd", false, false, false);
-        }
+try {
+    Object.defineProperty(arrObj, "0", { value: "fghj" });
+} catch (e) {
+    dataPropertyAttributesAreCorrect(arrObj, "0", "abcd", false, false, false);
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

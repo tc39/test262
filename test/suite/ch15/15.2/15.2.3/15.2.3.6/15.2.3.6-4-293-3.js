@@ -13,22 +13,21 @@ description: >
     is not thrown when updating the [[Value]] attribute value of
     'name' which is defined as non-writable and configurable (10.6
     [[DefineOwnProperty]] step 3 and step 5.b)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
+flags: [noStrict]
 ---*/
 
-function testcase() {
-        return (function (a, b, c) {
-        Object.defineProperty(arguments, "0", {
-            value: 10,
-            writable: false,
-        });
-        Object.defineProperty(arguments, "0", {
-            value: 20
-        });
-        var verifyFormal = a === 10;        
-        return dataPropertyAttributesAreCorrect(arguments, "0", 20, false, true, true) && verifyFormal;
-        }(0, 1, 2));
+(function (a, b, c) {
+    Object.defineProperty(arguments, "0", {
+        value: 10,
+        writable: false,
+    });
+    Object.defineProperty(arguments, "0", {
+        value: 20
+    });
+    if (a !== 10) {
+        $ERROR('Expected "a === 10", actually ' + a);
     }
-runTestCase(testcase);
+
+    dataPropertyAttributesAreCorrect(arguments, "0", 20, false, true, true);
+}(0, 1, 2));

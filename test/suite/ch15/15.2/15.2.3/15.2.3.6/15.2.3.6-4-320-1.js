@@ -12,25 +12,23 @@ description: >
     TypeError is thrown when updating the [[Configurable]] attribute
     value of 'P' which is not configurable (10.6 [[DefineOwnProperty]]
     step 4)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        return (function (a, b, c) {
-            Object.defineProperty(arguments, "genericProperty", {
-                configurable: false
-            });
-            try {
-                Object.defineProperty(arguments, "genericProperty", {
-                    configurable: true
-                });
-            } catch (e) {
-                return e instanceof TypeError &&
-                    dataPropertyAttributesAreCorrect(arguments, "genericProperty", undefined, false, false, false);
-            }
-            return false;
-        }(1, 2, 3));
+(function (a, b, c) {
+    Object.defineProperty(arguments, "genericProperty", {
+        configurable: false
+    });
+    try {
+        Object.defineProperty(arguments, "genericProperty", {
+            configurable: true
+        });
+    } catch (e) {
+        dataPropertyAttributesAreCorrect(arguments, "genericProperty", undefined, false, false, false);
+
+        if (!(e instanceof TypeError)) {
+            $ERROR("Expected TypeError, got " + e);
+        }
+
     }
-runTestCase(testcase);
+}(1, 2, 3));

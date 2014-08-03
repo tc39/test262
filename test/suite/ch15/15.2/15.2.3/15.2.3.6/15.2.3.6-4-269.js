@@ -11,23 +11,18 @@ description: >
     named property, name is accessor property and 'desc' is accessor
     descriptor, test setting the [[Set]] attribute value of 'name' as
     undefined (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arrObj = [];
+var arrObj = [];
 
-        Object.defineProperty(arrObj, "0", {
-            set: function () { },
-            configurable: true
-        });
+Object.defineProperty(arrObj, "0", {
+    set: function () { },
+    configurable: true
+});
 
-        Object.defineProperty(arrObj, "0", {
-            set: undefined
-        });
-        return accessorPropertyAttributesAreCorrect(arrObj, "0", undefined, undefined, undefined, false, true);
-    }
-runTestCase(testcase);
+Object.defineProperty(arrObj, "0", {
+    set: undefined
+});
+accessorPropertyAttributesAreCorrect(arrObj, "0", undefined, undefined, undefined, false, true);

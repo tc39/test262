@@ -11,25 +11,24 @@ description: >
     data property of 'O', test TypeError is thrown when updating the
     [[Configurable]] attribute value of 'name' which is defined as
     non-configurable (15.4.5.1 step 5)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arrObj = [];
+var arrObj = [];
 
-        Object.defineProperty(arrObj, "property", {
-            value: 12
-        });
-        try {
-            Object.defineProperty(arrObj, "property", {
-                configurable: true
-            });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && dataPropertyAttributesAreCorrect(arrObj, "property", 12, false, false, false);
-        }
+Object.defineProperty(arrObj, "property", {
+    value: 12
+});
+try {
+    Object.defineProperty(arrObj, "property", {
+        configurable: true
+    });
+} catch (e) {
+    dataPropertyAttributesAreCorrect(arrObj, "property", 12, false, false, false);
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

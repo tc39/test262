@@ -10,26 +10,25 @@ description: >
     Object.defineProperty will throw TypeError when name.configurable
     = false, name.writable = false, desc.value and name.value are two
     booleans with different values (8.12.9 step 10.a.ii.1)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "foo", {
-            value: false,
-            writable: false,
-            configurable: false 
-        });
+Object.defineProperty(obj, "foo", {
+    value: false,
+    writable: false,
+    configurable: false 
+});
 
-        try {
-            Object.defineProperty(obj, "foo", { value: true });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && dataPropertyAttributesAreCorrect(obj, "foo", false, false, false, false);
-        }
+try {
+    Object.defineProperty(obj, "foo", { value: true });
+} catch (e) {
+    dataPropertyAttributesAreCorrect(obj, "foo", false, false, false, false);
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

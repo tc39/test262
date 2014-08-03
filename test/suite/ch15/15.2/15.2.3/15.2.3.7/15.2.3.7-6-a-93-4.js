@@ -10,42 +10,40 @@ description: >
     Object.defineProperties will fail to update [[Value]] attribute of
     indexed data property 'P' when [[Configurable]] attribute of first
     updating property are false  (8.12.9 - step Note & 10.a.ii.1)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "0", {
-            value: 1001,
-            writable: false,
-            configurable: false
-        });
-        
-        Object.defineProperty(obj, "1", {
-            value: 1003,
-            writable: false,
-            configurable: true
-        });
+Object.defineProperty(obj, "0", {
+    value: 1001,
+    writable: false,
+    configurable: false
+});
 
-        try {
-            Object.defineProperties(obj, {
-                0: {
-                    value: 1002
-                },
-                1: {
-                    value: 1004
-                }
-            });
+Object.defineProperty(obj, "1", {
+    value: 1003,
+    writable: false,
+    configurable: true
+});
 
-            return false;
-        } catch (e) {
-            return e instanceof TypeError &&
-                dataPropertyAttributesAreCorrect(obj, "0", 1001, false, false, false) &&
-                dataPropertyAttributesAreCorrect(obj, "1", 1003, false, false, true);
+try {
+    Object.defineProperties(obj, {
+        0: {
+            value: 1002
+        },
+        1: {
+            value: 1004
         }
+    });
+
+} catch (e) {
+    dataPropertyAttributesAreCorrect(obj, "0", 1001, false, false, false);
+    dataPropertyAttributesAreCorrect(obj, "1", 1003, false, false, true);
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

@@ -11,35 +11,33 @@ description: >
     generic own accessor property of 'O', test TypeError is thrown
     when updating the [[Configurable]] attribute value of 'P' which is
     not configurable (10.6 [[DefineOwnProperty]] step 4)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arg = (function () {
-            return arguments;
-        }(1, 2, 3));
+var arg = (function () {
+    return arguments;
+}(1, 2, 3));
 
-        function setFun(value) {
-            arg.genericPropertyString = value;
+function setFun(value) {
+    arg.genericPropertyString = value;
+}
+Object.defineProperty(arg, "genericProperty", {
+    set: setFun,
+    configurable: false
+});
+
+try {
+    Object.defineProperties(arg, {
+        "genericProperty": {
+            configurable: true
         }
-        Object.defineProperty(arg, "genericProperty", {
-            set: setFun,
-            configurable: false
-        });
+    });
 
-        try {
-            Object.defineProperties(arg, {
-                "genericProperty": {
-                    configurable: true
-                }
-            });
+} catch (e) {
+    accessorPropertyAttributesAreCorrect(arg, "genericProperty", undefined, setFun, "genericPropertyString", false, false, false);
 
-            return false;
-        } catch (ex) {
-            return ex instanceof TypeError &&
-                accessorPropertyAttributesAreCorrect(arg, "genericProperty", undefined, setFun, "genericPropertyString", false, false, false);
-        }
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

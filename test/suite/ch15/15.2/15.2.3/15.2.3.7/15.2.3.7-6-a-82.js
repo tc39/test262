@@ -11,26 +11,21 @@ description: >
     P.configurable is false, P.writalbe is false, properties.value and
     P.value are two booleans with the same value (8.12.9 step
     10.a.ii.1)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "foo", {
-            value: false,
-            writable: false,
-            configurable: false 
-        });
+Object.defineProperty(obj, "foo", {
+    value: false,
+    writable: false,
+    configurable: false 
+});
 
-        Object.defineProperties(obj, {
-            foo: {
-                value: false
-            }
-        });
-        return dataPropertyAttributesAreCorrect(obj, "foo", false, false, false, false);
+Object.defineProperties(obj, {
+    foo: {
+        value: false
     }
-runTestCase(testcase);
+});
+dataPropertyAttributesAreCorrect(obj, "foo", false, false, false, false);

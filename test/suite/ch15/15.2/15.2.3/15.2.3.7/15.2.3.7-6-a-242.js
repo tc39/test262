@@ -13,31 +13,30 @@ description: >
     descriptor, the [[Set]] field of 'desc' is present, and the
     [[Set]] field of 'desc' is an object and the [[Set]] attribute
     value of 'P' is undefined   (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
+var arr = [];
 
-        function set_fun(value) {
-            arr.setVerifyHelpProp = value;
+function set_fun(value) {
+    arr.setVerifyHelpProp = value;
+}
+Object.defineProperty(arr, "1", {
+    set: set_fun
+});
+
+try {
+    Object.defineProperties(arr, {
+        "1": {
+            set: undefined
         }
-        Object.defineProperty(arr, "1", {
-            set: set_fun
-        });
+    });
 
-        try {
-            Object.defineProperties(arr, {
-                "1": {
-                    set: undefined
-                }
-            });
+} catch (ex) {
+    accessorPropertyAttributesAreCorrect(arr, "1", undefined, set_fun, "setVerifyHelpProp", false, false);
 
-            return false;
-        } catch (ex) {
-            return (ex instanceof TypeError) && accessorPropertyAttributesAreCorrect(arr, "1", undefined, set_fun, "setVerifyHelpProp", false, false);
-        }
+    if (!(ex instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + ex);
     }
-runTestCase(testcase);
+
+}

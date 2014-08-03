@@ -9,25 +9,20 @@ es5id: 15.2.3.7-6-a-64
 description: >
     Object.defineProperties - desc.configurable and P.configurable are
     two boolean values with different values (8.12.9 step 6)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "foo", {
-            value: 10,
-            configurable: true 
-        });
+Object.defineProperty(obj, "foo", {
+    value: 10,
+    configurable: true 
+});
 
-        Object.defineProperties(obj, {
-            foo: {
-                configurable: false
-            }
-        });
-        return dataPropertyAttributesAreCorrect(obj, "foo", 10, false, false, false);
+Object.defineProperties(obj, {
+    foo: {
+        configurable: false
     }
-runTestCase(testcase);
+});
+dataPropertyAttributesAreCorrect(obj, "foo", 10, false, false, false);
