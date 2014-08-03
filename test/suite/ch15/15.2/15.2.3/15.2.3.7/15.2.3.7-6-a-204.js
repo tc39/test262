@@ -12,33 +12,37 @@ description: >
     [[Configurable]] of 'P' property in 'Attributes' is set as false
     value if [[Configurable]] is absent in accessor descriptor 'desc'
     (15.4.5.1 step 4.c)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
-        var beforeDeleted = false;
-        var afterDeleted = false;
-        arr.verifySetter = 100;
+var arr = [];
+var beforeDeleted = false;
+var afterDeleted = false;
+arr.verifySetter = 100;
 
-        Object.defineProperties(arr, {
-            "0": {
-                set: function (value) {
-                    arr.verifySetter = value;
-                },
-                get: function () {
-                    return arr.verifySetter;
-                },
-                enumerable: true
-            }
-        });
-
-        beforeDeleted = arr.hasOwnProperty("0");
-        delete arr[0];
-        afterDeleted = arr.hasOwnProperty("0");
-
-        arr[0] = 101;
-
-        return beforeDeleted && afterDeleted && arr[0] === 101 && arr.verifySetter === 101;
+Object.defineProperties(arr, {
+    "0": {
+        set: function (value) {
+            arr.verifySetter = value;
+        },
+        get: function () {
+            return arr.verifySetter;
+        },
+        enumerable: true
     }
-runTestCase(testcase);
+});
+
+if (isConfigurable(arr, "0")) {
+    $ERROR("Expected arr[0] to not be configurable (cannot delete)");
+}
+
+arr[0] = 101;
+
+if (arr[0] !== 101) {
+    $ERROR('Expected arr[0] === 101, actually ' + arr[0]);
+}
+
+if (arr.verifySetter !== 101) {
+    $ERROR('Expected arr.verifySetter === 101, actually ' + arr.verifySetter);
+}
+

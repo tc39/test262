@@ -9,30 +9,26 @@ es5id: 15.2.3.7-6-a-15
 description: >
     Object.defineProperties - 'O' is a Boolean object which implements
     its own [[GetOwnProperty]] method to get 'P' (8.12.9 step 1 )
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
+negative: TypeError
 ---*/
 
-function testcase() {
-       
-        var obj = new Boolean(false);
 
-        Object.defineProperty(obj, "prop", {
-            value: 11,
-            configurable: false
-        });
+var obj = new Boolean(false);
 
-        try {
-            Object.defineProperties(obj, {
-                prop: {
-                    value: 12,
-                    configurable: true
-                }
-            });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && dataPropertyAttributesAreCorrect(obj, "prop", 11, false, false, false);
+Object.defineProperty(obj, "prop", {
+    value: 11,
+    configurable: false
+});
+
+try {
+    Object.defineProperties(obj, {
+        prop: {
+            value: 12,
+            configurable: true
         }
-    }
-runTestCase(testcase);
+    });
+} catch (e) {
+    dataPropertyAttributesAreCorrect(obj, "prop", 11, false, false, false);
+    throw e;
+}

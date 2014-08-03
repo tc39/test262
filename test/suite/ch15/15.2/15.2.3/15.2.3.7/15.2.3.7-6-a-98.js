@@ -9,27 +9,22 @@ es5id: 15.2.3.7-6-a-98
 description: >
     Object.defineProperties - 'P' is data property, P.enumerable and
     properties.enumerable are different values (8.12.9 step 12)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "foo", { 
-            value: 200, 
-            enumerable: false, 
-            writable: true, 
-            configurable: true 
-        });
+Object.defineProperty(obj, "foo", { 
+    value: 200, 
+    enumerable: false, 
+    writable: true, 
+    configurable: true 
+});
 
-        Object.defineProperties(obj, {
-            foo: {
-                enumerable: true
-            }
-        });
-        return dataPropertyAttributesAreCorrect(obj, "foo", 200, true, true, true);
+Object.defineProperties(obj, {
+    foo: {
+        enumerable: true
     }
-runTestCase(testcase);
+});
+dataPropertyAttributesAreCorrect(obj, "foo", 200, true, true, true);

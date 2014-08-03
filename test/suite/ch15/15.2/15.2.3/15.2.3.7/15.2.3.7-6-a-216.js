@@ -11,27 +11,19 @@ description: >
     index property, the [[Value]] field of 'desc' and the [[Value]]
     attribute value of 'name' are two strings which have same length
     and same characters in corresponding positions  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
+var arr = [];
 
-        Object.defineProperty(arr, "0", {
-            value: "abcd"
-        });
+Object.defineProperty(arr, "0", {
+    value: "abcd"
+});
 
-        try {
-            Object.defineProperties(arr, {
-                "0": {
-                    value: "abcd"
-                }
-            });
-            return dataPropertyAttributesAreCorrect(arr, "0", "abcd", false, false, false);
-        } catch (e) {
-            return false;
-        }
+Object.defineProperties(arr, {
+    "0": {
+        value: "abcd"
     }
-runTestCase(testcase);
+});
+dataPropertyAttributesAreCorrect(arr, "0", "abcd", false, false, false);
+

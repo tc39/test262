@@ -11,17 +11,13 @@ description: >
     property, the [[Enumerable]] field of 'desc' and the
     [[Enumerable]] attribute value of 'name' are two booleans with
     same value (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arrObj = [];
+var arrObj = [];
 
-        Object.defineProperty(arrObj, "0", { enumerable: false });
+Object.defineProperty(arrObj, "0", { enumerable: false });
 
-        Object.defineProperty(arrObj, "0", { enumerable: false });
-        return dataPropertyAttributesAreCorrect(arrObj, "0", undefined, false, false, false);
-    }
-runTestCase(testcase);
+Object.defineProperty(arrObj, "0", { enumerable: false });
+dataPropertyAttributesAreCorrect(arrObj, "0", undefined, false, false, false);
+

@@ -13,30 +13,26 @@ description: >
     descriptor, the [[Get]] field of 'desc' is present, and  the
     [[Get]] field of 'desc' is an object and the [[Get]] attribute
     value of 'P' is undefined  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
+negative: TypeError
 ---*/
 
-function testcase() {
-        var arr = [];
+var arr = [];
 
-        function get_fun() {
-            return 36;
-        }
-        Object.defineProperty(arr, "1", {
-            get: get_fun
-        });
+function get_fun() {
+    return 36;
+}
+Object.defineProperty(arr, "1", {
+    get: get_fun
+});
 
-        try {
-            Object.defineProperties(arr, {
-                "1": {
-                    get: undefined
-                }
-            });
-            return false;
-        } catch (ex) {
-            return (ex instanceof TypeError) && accessorPropertyAttributesAreCorrect(arr, "1", get_fun, undefined, undefined, false, false);
+try {
+    Object.defineProperties(arr, {
+        "1": {
+            get: undefined
         }
-    }
-runTestCase(testcase);
+    });
+} catch (ex) {
+    accessorPropertyAttributesAreCorrect(arr, "1", get_fun, undefined, undefined, false, false);
+    throw ex;
+}

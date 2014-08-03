@@ -9,30 +9,26 @@ es5id: 15.2.3.7-6-a-21
 description: >
     Object.defineProperties - 'O' is an Error object which implements
     its own [[GetOwnProperty]] method to get 'P' (8.12.9 step 1 )
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
+negative: TypeError
 ---*/
 
-function testcase() {
 
-        var obj = new Error();
+var obj = new Error();
 
-        Object.defineProperty(obj, "prop", {
-            value: 11,
-            configurable: false
-        });
+Object.defineProperty(obj, "prop", {
+    value: 11,
+    configurable: false
+});
 
-        try {
-            Object.defineProperties(obj, {
-                prop: {
-                    value: 12,
-                    configurable: true
-                }
-            });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && dataPropertyAttributesAreCorrect(obj, "prop", 11, false, false, false);
+try {
+    Object.defineProperties(obj, {
+        prop: {
+            value: 12,
+            configurable: true
         }
-    }
-runTestCase(testcase);
+    });
+} catch (e) {
+    dataPropertyAttributesAreCorrect(obj, "prop", 11, false, false, false);
+    throw e;
+}

@@ -9,24 +9,19 @@ es5id: 15.2.3.7-6-a-56
 description: >
     Object.defineProperties - desc.writable and P.writable are two
     boolean values with different values (8.12.9 step 6)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        var desc = { writable: false, configurable: true };
-        Object.defineProperty(obj, "foo", desc);
+var desc = { writable: false, configurable: true };
+Object.defineProperty(obj, "foo", desc);
 
-        Object.defineProperties(obj, {
-            foo: {
-                writable: true,
-                configurable: true
-            }
-        });
-        return dataPropertyAttributesAreCorrect(obj, "foo", undefined, true, false, true);
+Object.defineProperties(obj, {
+    foo: {
+        writable: true,
+        configurable: true
     }
-runTestCase(testcase);
+});
+dataPropertyAttributesAreCorrect(obj, "foo", undefined, true, false, true);

@@ -12,28 +12,23 @@ description: >
     [[ParameterMap]] of 'O', and 'desc' is data descriptor, test
     updating multiple attribute values of 'P' (10.6
     [[DefineOwnProperty]] step 3)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arg;
+var arg;
 
-        (function fun() {
-            arg = arguments;
-        }(0, 1, 2));
+(function fun() {
+    arg = arguments;
+}(0, 1, 2));
 
-        Object.defineProperties(arg, {
-            "0": {
-                value: 20,
-                writable: false,
-                enumerable: false,
-                configurable: false
-            }
-        });
-
-        return dataPropertyAttributesAreCorrect(arg, "0", 20, false, false, false);
+Object.defineProperties(arg, {
+    "0": {
+        value: 20,
+        writable: false,
+        enumerable: false,
+        configurable: false
     }
-runTestCase(testcase);
+});
+
+dataPropertyAttributesAreCorrect(arg, "0", 20, false, false, false);

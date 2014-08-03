@@ -11,27 +11,22 @@ description: >
     property of 'O', and is deleted afterwards, and 'desc' is accessor
     descriptor, test 'name' is redefined in 'O' with all correct
     attribute values (10.6 [[DefineOwnProperty]] step 3)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        return (function () { 
-            delete arguments[0];
-            function getFunc() {
-                return 10;
-            }
-            function setFunc(value) {
-                this.setVerifyHelpProp = value;
-            }
-            Object.defineProperty(arguments, "0", {
-                get: getFunc,
-                set: setFunc,
-                enumerable: true,
-                configurable: true
-            });
-            return accessorPropertyAttributesAreCorrect(arguments, "0", getFunc, setFunc, "setVerifyHelpProp", true, true);
-        }(0, 1, 2));    
+(function () { 
+    delete arguments[0];
+    function getFunc() {
+        return 10;
     }
-runTestCase(testcase);
+    function setFunc(value) {
+        this.setVerifyHelpProp = value;
+    }
+    Object.defineProperty(arguments, "0", {
+        get: getFunc,
+        set: setFunc,
+        enumerable: true,
+        configurable: true
+    });
+    accessorPropertyAttributesAreCorrect(arguments, "0", getFunc, setFunc, "setVerifyHelpProp", true, true);
+}(0, 1, 2));    

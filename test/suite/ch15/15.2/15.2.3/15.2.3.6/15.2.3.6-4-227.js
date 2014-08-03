@@ -11,28 +11,24 @@ description: >
     property, test TypeError is thrown when the [[Value]] field of
     'desc' and the [[Value]] attribute value of 'name' are two objects
     which refer to two different objects (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
+negative: TypeError
 ---*/
 
-function testcase() {
-        var arrObj = [];
+var arrObj = [];
 
-        var obj1 = { length: 10 };
-        Object.defineProperty(arrObj, 0, {
-            value: obj1,
-            writable: false,
-            configurable: false
-        });
+var obj1 = { length: 10 };
+Object.defineProperty(arrObj, 0, {
+    value: obj1,
+    writable: false,
+    configurable: false
+});
 
-        var obj2 = { length: 20 };
+var obj2 = { length: 20 };
 
-        try {
-            Object.defineProperty(arrObj, "0", { value: obj2 });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && dataPropertyAttributesAreCorrect(arrObj, "0", obj1, false, false, false);
-        }
-    }
-runTestCase(testcase);
+try {
+    Object.defineProperty(arrObj, "0", { value: obj2 });
+} catch (e) {
+    dataPropertyAttributesAreCorrect(arrObj, "0", obj1, false, false, false);
+    throw e;
+}

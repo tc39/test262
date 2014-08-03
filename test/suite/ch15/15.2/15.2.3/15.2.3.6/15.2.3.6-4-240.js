@@ -11,32 +11,28 @@ description: >
     named property, TypeError is thrown if 'name' is accessor
     property, and 'desc' is data descriptor, and the [[Configurable]]
     attribute value of 'name' is false (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
+negative: TypeError
 ---*/
 
-function testcase() {
 
-        var arrObj = [];
+var arrObj = [];
 
-        function setFunc(value) {
-            arrObj.setVerifyHelpProp = value;
-        }
+function setFunc(value) {
+    arrObj.setVerifyHelpProp = value;
+}
 
-        Object.defineProperty(arrObj, "1", {
-            set: setFunc,
-            configurable: false
-        });
+Object.defineProperty(arrObj, "1", {
+    set: setFunc,
+    configurable: false
+});
 
-        try {
-            Object.defineProperty(arrObj, "1", {
-                value: 13
-            });
-            return false;
+try {
+    Object.defineProperty(arrObj, "1", {
+        value: 13
+    });
 
-        } catch (e) {
-            return e instanceof TypeError && accessorPropertyAttributesAreCorrect(arrObj, "1", undefined, setFunc, "setVerifyHelpProp", false, false);
-        }
-    }
-runTestCase(testcase);
+} catch (e) {
+    accessorPropertyAttributesAreCorrect(arrObj, "1", undefined, setFunc, "setVerifyHelpProp", false, false);
+    throw e;
+}

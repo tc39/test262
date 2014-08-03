@@ -13,28 +13,25 @@ description: >
     false, test TypeError is thrown if the [[Writable]] attribute
     value of 'name' is false and the [[Writable]] field of 'desc' is
     true (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
+negative: TypeError
 ---*/
 
-function testcase() {
 
-        var arrObj = [];
+var arrObj = [];
 
-        Object.defineProperty(arrObj, "1", {
-            writable: false,
-            configurable: false
-        });
+Object.defineProperty(arrObj, "1", {
+    writable: false,
+    configurable: false
+});
 
-        try {
+try {
 
-            Object.defineProperty(arrObj, "1", {
-                writable: true
-            });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && dataPropertyAttributesAreCorrect(arrObj, "1", undefined, false, false, false);
-        }
-    }
-runTestCase(testcase);
+    Object.defineProperty(arrObj, "1", {
+        writable: true
+    });
+
+} catch (e) {
+    dataPropertyAttributesAreCorrect(arrObj, "1", undefined, false, false, false);
+    throw e;
+}

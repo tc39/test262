@@ -10,23 +10,15 @@ description: >
     Object.defineProperties - 'O' is an Array, 'P' is an array index
     named property, 'P' makes no change if every field in 'desc' is
     absent (name is data property)  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
+var arr = [];
 
-        arr[0] = 101; // default value of attributes: writable: true, configurable: true, enumerable: true
+arr[0] = 101; // default value of attributes: writable: true, configurable: true, enumerable: true
 
-        try {
-            Object.defineProperties(arr, {
-                "0": {}
-            });
-            return dataPropertyAttributesAreCorrect(arr, "0", 101, true, true, true);
-        } catch (e) {
-            return false;
-        }
-    }
-runTestCase(testcase);
+
+Object.defineProperties(arr, {
+    "0": {}
+});
+dataPropertyAttributesAreCorrect(arr, "0", 101, true, true, true);

@@ -11,31 +11,27 @@ description: >
     named property, TypeError is thrown if the [[Configurable]]
     attribute value of 'name' is false  and the [[Configurable]] field
     of 'desc' is true (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
+negative: TypeError
 ---*/
 
-function testcase() {
 
-        var arrObj = [];
+var arrObj = [];
 
-        Object.defineProperty(arrObj, "1", {
-            value: 3,
-            writable: true,
-            configurable: false
-        });
+Object.defineProperty(arrObj, "1", {
+    value: 3,
+    writable: true,
+    configurable: false
+});
 
-        try {
-            Object.defineProperty(arrObj, "1", {
-                value: 13,
-                writable: true,
-                configurable: true
-            });
-            return false;
+try {
+    Object.defineProperty(arrObj, "1", {
+        value: 13,
+        writable: true,
+        configurable: true
+    });
 
-        } catch (e) {
-            return e instanceof TypeError && dataPropertyAttributesAreCorrect(arrObj, "1", 3, true, false, false);
-        }
-    }
-runTestCase(testcase);
+} catch (e) {
+    dataPropertyAttributesAreCorrect(arrObj, "1", 3, true, false, false);
+    throw e;
+}

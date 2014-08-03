@@ -10,23 +10,19 @@ description: >
     Object.defineProperties - 'O' is an Array, 'P' is an array index
     named property, 'desc' is data descriptor, test updating all
     attribute values of 'P'  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [1]; // default value of attributes: writable: true, configurable: true, enumerable: true
+var arr = [1]; // default value of attributes: writable: true, configurable: true, enumerable: true
 
-        Object.defineProperties(arr, {
-            "0": {
-                value: 1001,
-                writable: false,
-                enumerable: false,
-                configurable: false
-            }
-        });
-
-        return dataPropertyAttributesAreCorrect(arr, "0", 1001, false, false, false);
+Object.defineProperties(arr, {
+    "0": {
+        value: 1001,
+        writable: false,
+        enumerable: false,
+        configurable: false
     }
-runTestCase(testcase);
+});
+
+dataPropertyAttributesAreCorrect(arr, "0", 1001, false, false, false);
+

@@ -11,33 +11,28 @@ description: >
     generic own data property of 'O', test TypeError is thrown when
     updating the [[Value]] attribute value of 'P' which is not
     writable and not configurable (10.6 [[DefineOwnProperty]] step 4)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
+negative: TypeError
 ---*/
 
-function testcase() {
-        var arg = (function () {
-            return arguments;
-        }(1, 2, 3));
+var arg = (function () {
+    return arguments;
+}(1, 2, 3));
 
-        Object.defineProperty(arg, "genericProperty", {
-            value: 1001,
-            writable: false,
-            configurable: false
-        });
+Object.defineProperty(arg, "genericProperty", {
+    value: 1001,
+    writable: false,
+    configurable: false
+});
 
-        try {
-            Object.defineProperties(arg, {
-                "genericProperty": {
-                    value: 1002
-                }
-            });
-
-            return false;
-        } catch (ex) {
-            return ex instanceof TypeError &&
-                dataPropertyAttributesAreCorrect(arg, "genericProperty", 1001, false, false, false);
+try {
+    Object.defineProperties(arg, {
+        "genericProperty": {
+            value: 1002
         }
-    }
-runTestCase(testcase);
+    });
+
+} catch (ex) {
+    dataPropertyAttributesAreCorrect(arg, "genericProperty", 1001, false, false, false);
+    throw ex;
+}

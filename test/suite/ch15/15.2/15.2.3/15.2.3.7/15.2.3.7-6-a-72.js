@@ -11,30 +11,26 @@ description: >
     and  P.configurable is false, P.writable is false, desc is data
     property and  desc.value is not equal to P.value (8.12.9 step
     10.a.ii.1)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
+negative: TypeError
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "foo", { 
-            value: 10, 
-            writable: false, 
-            configurable: false 
-        });
+Object.defineProperty(obj, "foo", { 
+    value: 10, 
+    writable: false, 
+    configurable: false 
+});
 
-        try {
-            Object.defineProperties(obj, {
-                foo: {
-                    value: 20
-                }
-            });
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError) && dataPropertyAttributesAreCorrect(obj, "foo", 10, false, false, false);
+try {
+    Object.defineProperties(obj, {
+        foo: {
+            value: 20
         }
-    }
-runTestCase(testcase);
+    });
+} catch (e) {
+    dataPropertyAttributesAreCorrect(obj, "foo", 10, false, false, false);
+    throw e;
+}

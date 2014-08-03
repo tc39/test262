@@ -14,25 +14,21 @@ description: >
     value of 'name' is false, and the [[Value]] field of 'desc' and
     the [[Value]] attribute value of 'name' are two objects which
     refer to the different objects (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
+negative: TypeError
 ---*/
 
-function testcase() {
-        var arrObj = [];
-        var obj = { length: 10 };
+var arrObj = [];
+var obj = { length: 10 };
 
-        Object.defineProperty(arrObj, "1", {
-            value: obj
-        });
+Object.defineProperty(arrObj, "1", {
+    value: obj
+});
 
-        try {
-            Object.defineProperty(arrObj, "1", { value: {} });
+try {
+    Object.defineProperty(arrObj, "1", { value: {} });
+} catch (e) {
+    dataPropertyAttributesAreCorrect(arrObj, "1", obj, false, false, false);
+    throw e;
+}
 
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && dataPropertyAttributesAreCorrect(arrObj, "1", obj, false, false, false);
-        }
-    }
-runTestCase(testcase);

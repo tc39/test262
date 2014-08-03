@@ -11,27 +11,38 @@ description: >
     [[Configurable]] of 'P' is set as false value if absent in
     accessor descriptor 'desc' (8.12.9 step 4.b.i)
 includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+    - propertyHelper.js
 ---*/
 
-function testcase() {
-        var obj = {};
-        var getFun = function () {
-            return 10;
-        };
-        var setFun = function (value) {
-            obj.setVerifyHelpProp = value;
-        };
+var obj = {};
+var getFun = function () {
+    return 10;
+};
+var setFun = function (value) {
+    obj.setVerifyHelpProp = value;
+};
 
-        Object.defineProperties(obj, {
-            prop: {
-                set: setFun,
-                get: getFun,
-                enumerable: true
-            }
-        });
-        return accessorPropertyAttributesAreCorrect(obj, "prop", getFun, setFun, "setVerifyHelpProp", true, false);
-
+Object.defineProperties(obj, {
+    prop: {
+        set: setFun,
+        get: getFun,
+        enumerable: true
     }
-runTestCase(testcase);
+});
+
+if (obj.prop !== 10) {
+  $ERROR("Expected obj.prop getter to return 10, actually " + obj.prop);
+}
+
+obj.prop = "toBeSetValue";
+if (obj.setVerifyHelpProp !== "toBeSetValue") {
+  $ERROR("Expected obj.prop setter to set 'setVerifyHelpProp' to 'toBeSetValue', actually " + obj.setVerifyHelpProp);
+}
+
+if (!isEnumerable(obj, 'prop')) {
+  $ERROR("Expected obj.prop to be enumerable, actually was not");
+}
+
+if (isConfigurable(obj, 'prop')) {
+  $ERROR("Expected obj.prop to not be configurable, actually was");
+}
