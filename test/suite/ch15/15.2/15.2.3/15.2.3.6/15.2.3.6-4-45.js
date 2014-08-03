@@ -10,22 +10,18 @@ description: >
     Object.defineProperty - 'O' is the global object that uses
     Object's [[GetOwnProperty]] method to access the 'name' property
     (8.12.9 step 1)
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js, fnGlobalObject.js]
 ---*/
 
-function testcase() {
-        try {
-            Object.defineProperty(fnGlobalObject(), "foo", {
-                value: 12,
-                configurable: true
-            });
+Object.defineProperty(fnGlobalObject(), "foo", {
+    value: 12,
+    configurable: true
+});
 
-            return dataPropertyAttributesAreCorrect(fnGlobalObject(), "foo", 12, false, false, true);
-        } finally {
-            delete fnGlobalObject().foo;
-        }
-    }
-runTestCase(testcase);
+verifyEqualTo(fnGlobalObject(), "foo", 12);
+
+verifyNotWritable(fnGlobalObject(), "foo");
+
+verifyNotEnumerable(fnGlobalObject(), "foo");
+
+verifyConfigurable(fnGlobalObject(), "foo");

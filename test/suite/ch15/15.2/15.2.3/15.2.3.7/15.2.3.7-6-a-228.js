@@ -12,32 +12,37 @@ description: >
     value of 'P' is false, and [[Enumerable]] of 'desc' is present and
     its value is different from the [[Enumerable]] attribute value of
     'P'  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arr = [];
+var arr = [];
 
-        Object.defineProperty(arr, "1", {
-            value: 3,
-            configurable: false,
-            enumerable: false
+Object.defineProperty(arr, "1", {
+    value: 3,
+    configurable: false,
+    enumerable: false
 
-        });
+});
 
-        try {
-            Object.defineProperties(arr, {
-                "1": {
-                    value: 13,
-                    enumerable: true
-                }
-            });
-            return false;
-        } catch (ex) {
-            return (ex instanceof TypeError) && dataPropertyAttributesAreCorrect(arr, "1", 3, false, false, false);
+try {
+    Object.defineProperties(arr, {
+        "1": {
+            value: 13,
+            enumerable: true
         }
+    });
+} catch (e) {
+    verifyEqualTo(arr, "1", 3);
+
+    verifyNotWritable(arr, "1");
+
+    verifyNotEnumerable(arr, "1");
+
+    verifyNotConfigurable(arr, "1");
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Epected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

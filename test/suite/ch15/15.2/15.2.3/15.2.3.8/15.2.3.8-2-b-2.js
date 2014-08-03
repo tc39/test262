@@ -10,30 +10,35 @@ description: >
     Object.seal - the [[Configurable]] attribute of own accessor
     property of 'O' is set from true to false and other attributes of
     the property are unaltered
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
-        obj.variableForHelpVerify = "data";
+var obj = {};
+obj.variableForHelpVerify = "data";
 
-        function setFunc(value) {
-            obj.variableForHelpVerify = value;
-        }
-        function getFunc() {
-            return 10;
-        }
-        Object.defineProperty(obj, "foo", {
-            get: getFunc,
-            set: setFunc,
-            enumerable: true,
-            configurable: true
-        });
-        var preCheck = Object.isExtensible(obj);
-        Object.seal(obj);
+function setFunc(value) {
+    obj.variableForHelpVerify = value;
+}
+function getFunc() {
+    return 10;
+}
+Object.defineProperty(obj, "foo", {
+    get: getFunc,
+    set: setFunc,
+    enumerable: true,
+    configurable: true
+});
+var preCheck = Object.isExtensible(obj);
+Object.seal(obj);
 
-        return preCheck && accessorPropertyAttributesAreCorrect(obj, "foo", getFunc, setFunc, "variableForHelpVerify", true, false);
-    }
-runTestCase(testcase);
+if (!preCheck) {
+    $ERROR('Expected preCheck to be true, actually ' + preCheck);
+}
+
+verifyEqualTo(obj, "foo", getFunc());
+
+verifyWritable(obj, "foo", "variableForHelpVerify");
+
+verifyEnumerable(obj, "foo");
+
+verifyNotConfigurable(obj, "foo");

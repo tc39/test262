@@ -10,39 +10,40 @@ description: >
     Object.defineProperties - 'P' is accessor property, both
     properties.[[Set]] and P.[[Set]] are two different values (8.12.9
     step 12)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        function get_func() {
-            return 10;
-        }
+function get_func() {
+    return 10;
+}
 
-        function set_func() {
-            return 10;
-        }
+function set_func() {
+    return 10;
+}
 
-        Object.defineProperty(obj, "foo", {
-            get: get_func,
-            set: set_func,
-            enumerable: true,
-            configurable: true
-        });
+Object.defineProperty(obj, "foo", {
+    get: get_func,
+    set: set_func,
+    enumerable: true,
+    configurable: true
+});
 
-        function set_func2(value) {
-            obj.setVerifyHelpProp = value;
-        }
+function set_func2(value) {
+    obj.setVerifyHelpProp = value;
+}
 
-        Object.defineProperties(obj, {
-            foo: {
-                set: set_func2
-            }
-        });
-        return accessorPropertyAttributesAreCorrect(obj, "foo", get_func, set_func2, "setVerifyHelpProp", true, true);
+Object.defineProperties(obj, {
+    foo: {
+        set: set_func2
     }
-runTestCase(testcase);
+});
+verifyEqualTo(obj, "foo", get_func());
+
+verifyWritable(obj, "foo", "setVerifyHelpProp");
+
+verifyEnumerable(obj, "foo");
+
+verifyConfigurable(obj, "foo");

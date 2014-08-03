@@ -12,21 +12,23 @@ description: >
     the [[Value]] attribute value of 'name' which is defined as
     non-writable and configurable (10.6 [[DefineOwnProperty]] step 3
     and 5b)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        return (function () {
-            Object.defineProperty(arguments, "0", {
-                value: 10,
-                writable: false
-            });
-            Object.defineProperty(arguments, "0", {
-                value: 20
-            });
-            return dataPropertyAttributesAreCorrect(arguments, "0", 20, false, true, true);
-        }(0, 1, 2));
-    }
-runTestCase(testcase);
+(function () {
+    Object.defineProperty(arguments, "0", {
+        value: 10,
+        writable: false
+    });
+    Object.defineProperty(arguments, "0", {
+        value: 20
+    });
+    verifyEqualTo(arguments, "0", 20);
+
+    verifyNotWritable(arguments, "0");
+
+    verifyEnumerable(arguments, "0");
+
+    verifyConfigurable(arguments, "0");
+}(0, 1, 2));
+

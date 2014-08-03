@@ -11,25 +11,26 @@ description: >
     named property, 'P' makes no change if the value of every field in
     'desc' is the same value as the corresponding field in 'P'(desc is
     data property)  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
+var arr = [];
 
-        arr[0] = 100; // default value of attributes: writable: true, configurable: true, enumerable: true
+arr[0] = 100; // default value of attributes: writable: true, configurable: true, enumerable: true
 
-        Object.defineProperties(arr, {
-            "0": {
-                value: 100,
-                writable: true,
-                enumerable: true,
-                configurable: true
-            }
-        });
-
-        return dataPropertyAttributesAreCorrect(arr, "0", 100, true, true, true);
+Object.defineProperties(arr, {
+    "0": {
+        value: 100,
+        writable: true,
+        enumerable: true,
+        configurable: true
     }
-runTestCase(testcase);
+});
+
+verifyEqualTo(arr, "0", 100);
+
+verifyWritable(arr, "0");
+
+verifyEnumerable(arr, "0");
+
+verifyConfigurable(arr, "0");

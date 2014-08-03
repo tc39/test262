@@ -11,25 +11,30 @@ description: >
     data property of 'O', test TypeError is thrown when updating the
     [[Writable]] attribute value of 'name' which is defined as
     non-configurable (15.4.5.1 step 5)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arrObj = [];
+var arrObj = [];
 
-        Object.defineProperty(arrObj, "property", {
-            writable: false
-        });
-        try {
-            Object.defineProperty(arrObj, "property", {
-                writable: true
-            });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && dataPropertyAttributesAreCorrect(arrObj, "property", undefined, false, false, false);
-        }
+Object.defineProperty(arrObj, "property", {
+    writable: false
+});
+try {
+    Object.defineProperty(arrObj, "property", {
+        writable: true
+    });
+} catch (e) {
+    verifyEqualTo(arrObj, "property", undefined);
+
+    verifyNotWritable(arrObj, "property");
+
+    verifyNotEnumerable(arrObj, "property");
+
+    verifyNotConfigurable(arrObj, "property");
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

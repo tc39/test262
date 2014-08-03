@@ -13,31 +13,26 @@ description: >
     false, test TypeError is not thrown if the [[Get]] field of 'desc'
     is present, and the [[Get]] field of 'desc' and the [[Get]]
     attribute value of 'name' are undefined (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arrObj = [];
-        function setFunc(value) {
-            arrObj.setVerifyHelpProp = value;
-        }
+var arrObj = [];
+function setFunc(value) {
+    arrObj.setVerifyHelpProp = value;
+}
 
-        Object.defineProperty(arrObj, "1", {
-            get: undefined,
-            set: setFunc,
-            configurable: false
-        });
+Object.defineProperty(arrObj, "1", {
+    get: undefined,
+    set: setFunc,
+    configurable: false
+});
 
-        try {
-            Object.defineProperty(arrObj, "1", {
-                get: undefined
-            });
+Object.defineProperty(arrObj, "1", {
+    get: undefined
+});
 
-            return accessorPropertyAttributesAreCorrect(arrObj, "1", undefined, setFunc, "setVerifyHelpProp", false, false);
-        } catch (e) {
-            return false;
-        }
-    }
-runTestCase(testcase);
+verifyWritable(arrObj, "1", "setVerifyHelpProp");
+
+verifyNotEnumerable(arrObj, "1");
+
+verifyNotConfigurable(arrObj, "1");

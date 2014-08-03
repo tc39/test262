@@ -9,31 +9,30 @@ es5id: 15.2.3.7-6-a-60
 description: >
     Object.defineProperties - desc.[[Set]] and P.[[Set]] are two
     objects which refer to the different objects (8.12.9 step 6)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        function set_func1() {}
+function set_func1() {}
 
-        Object.defineProperty(obj, "foo", {
-            set: set_func1,
-            configurable: true
-        });
+Object.defineProperty(obj, "foo", {
+    set: set_func1,
+    configurable: true
+});
 
-        function set_func2(value) {
-            obj.setVerifyHelpProp = value;
-        }
+function set_func2(value) {
+    obj.setVerifyHelpProp = value;
+}
 
-        Object.defineProperties(obj, {
-            foo: {
-                set: set_func2
-            }
-        });
-        return accessorPropertyAttributesAreCorrect(obj, "foo", undefined, set_func2, "setVerifyHelpProp", false, true);
+Object.defineProperties(obj, {
+    foo: {
+        set: set_func2
     }
-runTestCase(testcase);
+});
+verifyWritable(obj, "foo", "setVerifyHelpProp");
+
+verifyNotEnumerable(obj, "foo");
+
+verifyConfigurable(obj, "foo");

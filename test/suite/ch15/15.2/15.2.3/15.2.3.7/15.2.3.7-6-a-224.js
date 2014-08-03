@@ -10,28 +10,26 @@ description: >
     Object.defineProperties - 'O' is an Array, 'P' is an array index
     property that already exists on 'O' with  [[Enumerable]] true, the
     [[Enumerable]] field of 'desc' is false  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
+var arr = [];
 
-        Object.defineProperty(arr, "0", {
-            enumerable: true,
-            configurable: true
-        });
+Object.defineProperty(arr, "0", {
+    enumerable: true,
+    configurable: true
+});
 
-        try {
-            Object.defineProperties(arr, {
-                "0": {
-                    enumerable: false
-                }
-            });
-            return dataPropertyAttributesAreCorrect(arr, "0", undefined, false, false, true);
-        } catch (e) {
-            return false;
-        }
+Object.defineProperties(arr, {
+    "0": {
+        enumerable: false
     }
-runTestCase(testcase);
+});
+verifyEqualTo(arr, "0", undefined);
+
+verifyNotWritable(arr, "0");
+
+verifyNotEnumerable(arr, "0");
+
+verifyConfigurable(arr, "0");
+

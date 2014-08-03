@@ -11,30 +11,31 @@ description: >
     property, the [[Get]] field of 'desc' and the [[Get]] attribute
     value of 'name' are two objects which refer to the same object
     (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arrObj = [];
-        arrObj.helpVerifySet = 10;
+var arrObj = [];
+arrObj.helpVerifySet = 10;
 
-        function getFunc() {
-            return arrObj.helpVerifySet;
-        }
-        function setFunc(value) {
-            arrObj.helpVerifySet = value;
-        }
+function getFunc() {
+    return arrObj.helpVerifySet;
+}
+function setFunc(value) {
+    arrObj.helpVerifySet = value;
+}
 
-        Object.defineProperty(arrObj, "0", {
-            get: getFunc,
-            set: setFunc
-        });
+Object.defineProperty(arrObj, "0", {
+    get: getFunc,
+    set: setFunc
+});
 
-        Object.defineProperty(arrObj, "0", {
-            get: getFunc
-        });
-        return accessorPropertyAttributesAreCorrect(arrObj, "0", getFunc, setFunc, "helpVerifySet", false, false);
-    }
-runTestCase(testcase);
+Object.defineProperty(arrObj, "0", {
+    get: getFunc
+});
+verifyEqualTo(arrObj, "0", getFunc());
+
+verifyWritable(arrObj, "0", "helpVerifySet");
+
+verifyNotEnumerable(arrObj, "0");
+
+verifyNotConfigurable(arrObj, "0");

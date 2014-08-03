@@ -10,22 +10,23 @@ description: >
     Object.defineProperty - 'name' and 'desc' are data properties,
     name.writable and desc.writable are different values (8.12.9 step
     12)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
+var obj = {};
 
-        var obj = {};
+Object.defineProperty(obj, "foo", {
+    writable: false, configurable: true
+});
 
-        Object.defineProperty(obj, "foo", {
-            writable: false, configurable: true
-        });
+Object.defineProperty(obj, "foo", {
+    writable: true
+});
+verifyEqualTo(obj, "foo", undefined);
 
-        Object.defineProperty(obj, "foo", {
-            writable: true
-        });
-        return dataPropertyAttributesAreCorrect(obj, "foo", undefined, true, false, true);
-    }
-runTestCase(testcase);
+verifyWritable(obj, "foo");
+
+verifyNotEnumerable(obj, "foo");
+
+verifyConfigurable(obj, "foo");
+

@@ -11,34 +11,39 @@ description: >
     accessor property of 'O', test TypeError is thrown when updating
     the [[Get]] attribute value of 'name' which is defined as
     non-configurable (15.4.5.1 step 5)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arrObj = [];
+var arrObj = [];
 
-        function getFunc() {
-            return 12;
+function getFunc() {
+    return 12;
+}
+function setFunc(value) {
+    arrObj.setVerifyHelpProp = value;
+}
+Object.defineProperty(arrObj, "property", {
+    get: getFunc,
+    set: setFunc
+});
+try {
+    Object.defineProperty(arrObj, "property", {
+        get: function () {
+            return 36;
         }
-        function setFunc(value) {
-            arrObj.setVerifyHelpProp = value;
-        }
-        Object.defineProperty(arrObj, "property", {
-            get: getFunc,
-            set: setFunc
-        });
-        try {
-            Object.defineProperty(arrObj, "property", {
-                get: function () {
-                    return 36;
-                }
-            });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && accessorPropertyAttributesAreCorrect(arrObj, "property", getFunc, setFunc, "setVerifyHelpProp", false, false);
-        }
+    });
+} catch (e) {
+    verifyEqualTo(arrObj, "property", getFunc());
+
+    verifyWritable(arrObj, "property", "setVerifyHelpProp");
+
+    verifyNotEnumerable(arrObj, "property");
+
+    verifyNotConfigurable(arrObj, "property");
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

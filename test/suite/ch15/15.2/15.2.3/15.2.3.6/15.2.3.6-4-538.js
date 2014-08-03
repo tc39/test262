@@ -10,38 +10,53 @@ description: >
     ES5 Attributes - success to update the accessor property ([[Get]]
     is a Function, [[Set]] is a Function, [[Enumerable]] is true,
     [[Configurable]] is true) to a data property
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        var getFunc = function () {
-            return 1001;
-        };
+var getFunc = function () {
+    return 1001;
+};
 
-        var verifySetFunc = "data";
-        var setFunc = function (value) {
-            verifySetFunc = value;
-        };
+var verifySetFunc = "data";
+var setFunc = function (value) {
+    verifySetFunc = value;
+};
 
-        Object.defineProperty(obj, "prop", {
-            get: getFunc,
-            set: setFunc,
-            enumerable: true,
-            configurable: true
-        });
-        var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
+Object.defineProperty(obj, "prop", {
+    get: getFunc,
+    set: setFunc,
+    enumerable: true,
+    configurable: true
+});
+var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        Object.defineProperty(obj, "prop", {
-            value: 1001
-        });
-        var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
+Object.defineProperty(obj, "prop", {
+    value: 1001
+});
+var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return desc1.hasOwnProperty("get") && desc2.hasOwnProperty("value") &&
-            typeof desc2.get === "undefined" && typeof desc2.get === "undefined" &&
-            dataPropertyAttributesAreCorrect(obj, "prop", 1001, false, true, true);
-    }
-runTestCase(testcase);
+if (!desc1.hasOwnProperty("get") ) {
+    $ERROR('Expected desc1.hasOwnProperty("get") to be true, actually ' + desc1.hasOwnProperty("get"));
+}
+
+if (!desc2.hasOwnProperty("value") ) {
+    $ERROR('Expected desc2.hasOwnProperty("value") to be true, actually ' + desc2.hasOwnProperty("value"));
+}
+
+if (typeof desc2.get !== "undefined" ) {
+    $ERROR('Expected typeof desc2.get === "undefined" , actually ' + typeof desc2.get );
+}
+
+
+verifyEqualTo(obj, "prop", 1001);
+
+verifyNotWritable(obj, "prop");
+
+verifyEnumerable(obj, "prop");
+
+verifyConfigurable(obj, "prop");
+
+
+    

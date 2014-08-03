@@ -10,27 +10,28 @@ description: >
     Object.defineProperty - 'name' and 'desc' are data properties,
     several attributes values of name and desc are different (8.12.9
     step 12)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
+var obj = {};
 
-        var obj = {};
+Object.defineProperty(obj, "foo", { 
+    value: 100, 
+    writable: true, 
+    enumerable: true, 
+    configurable: true 
+});
 
-        Object.defineProperty(obj, "foo", { 
-            value: 100, 
-            writable: true, 
-            enumerable: true, 
-            configurable: true 
-        });
-        
-        Object.defineProperty(obj, "foo", { 
-            value: 200, 
-            writable: false, 
-            enumerable: false 
-        });
-        return dataPropertyAttributesAreCorrect(obj, "foo", 200, false, false, true);
-    }
-runTestCase(testcase);
+Object.defineProperty(obj, "foo", { 
+    value: 200, 
+    writable: false, 
+    enumerable: false 
+});
+verifyEqualTo(obj, "foo", 200);
+
+verifyNotWritable(obj, "foo");
+
+verifyNotEnumerable(obj, "foo");
+
+verifyConfigurable(obj, "foo");
+

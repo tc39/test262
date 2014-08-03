@@ -13,24 +13,21 @@ description: >
     accessor descriptor, the [[Set]] field of 'desc' is present, and
     the [[Set]] field of 'desc' and the [[Set]] attribute value of 'P'
     are undefined  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
+var arr = [];
 
-        Object.defineProperty(arr, "1", {
-            set: undefined
-        });
+Object.defineProperty(arr, "1", {
+    set: undefined
+});
 
-        Object.defineProperties(arr, {
-            "1": {
-                set: undefined
-            }
-        });
-
-        return accessorPropertyAttributesAreCorrect(arr, "1", undefined, undefined, undefined, false, false);
+Object.defineProperties(arr, {
+    "1": {
+        set: undefined
     }
-runTestCase(testcase);
+});
+
+verifyNotEnumerable(arr, "1");
+
+verifyNotConfigurable(arr, "1");

@@ -10,30 +10,35 @@ description: >
     Object.defineProperties throws TypeError when P.configurable is
     false, P.enumerable and desc.enumerable has different values
     (8.12.9 step 7.b)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "foo", { 
-            value: 10, 
-            enumerable: true, 
-            configurable: false 
-        });
+Object.defineProperty(obj, "foo", { 
+    value: 10, 
+    enumerable: true, 
+    configurable: false 
+});
 
-        try {
-            Object.defineProperties(obj, {
-                foo: {
-                    enumerable: false
-                }
-            });
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError) && dataPropertyAttributesAreCorrect(obj, "foo", 10, false, true, false);
+try {
+    Object.defineProperties(obj, {
+        foo: {
+            enumerable: false
         }
+    });
+} catch (e) {
+    verifyEqualTo(obj, "foo", 10);
+
+    verifyNotWritable(obj, "foo");
+
+    verifyEnumerable(obj, "foo");
+
+    verifyNotConfigurable(obj, "foo");
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

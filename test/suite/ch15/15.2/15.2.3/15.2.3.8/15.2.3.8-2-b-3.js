@@ -10,39 +10,51 @@ description: >
     Object.seal - the [[Configurable]] attribute of all own properties
     of 'O' are set from true to false and other attributes of the
     property are unaltered
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
-        obj.variableForHelpVerify = "data";
+var obj = {};
+obj.variableForHelpVerify = "data";
 
-        Object.defineProperty(obj, "foo1", {
-            value: 10,
-            writable: true,
-            enumerable: true,
-            configurable: true
-        });
+Object.defineProperty(obj, "foo1", {
+    value: 10,
+    writable: true,
+    enumerable: true,
+    configurable: true
+});
 
-        function set_func(value) {
-            obj.variableForHelpVerify = value;
-        }
-        function get_func() {
-            return 10;
-        }
-        Object.defineProperty(obj, "foo2", {
-            get: get_func,
-            set: set_func,
-            enumerable: true,
-            configurable: true
-        });
-        var preCheck = Object.isExtensible(obj);
-        Object.seal(obj);
+function set_func(value) {
+    obj.variableForHelpVerify = value;
+}
+function get_func() {
+    return 10;
+}
+Object.defineProperty(obj, "foo2", {
+    get: get_func,
+    set: set_func,
+    enumerable: true,
+    configurable: true
+});
+var preCheck = Object.isExtensible(obj);
+Object.seal(obj);
 
-        return preCheck && dataPropertyAttributesAreCorrect(obj, "foo1", 10, true, true, false) &&
-            accessorPropertyAttributesAreCorrect(obj, "foo2", get_func, set_func, "variableForHelpVerify", true, false);
-    }
-runTestCase(testcase);
+if (!preCheck) {
+    $ERROR('Expected preCheck to be true, actually ' + preCheck);
+}
+
+
+verifyEqualTo(obj, "foo1", 10);
+
+verifyWritable(obj, "foo1");
+
+verifyEnumerable(obj, "foo1");
+
+verifyNotConfigurable(obj, "foo1");
+
+verifyEqualTo(obj, "foo2", get_func());
+
+verifyWritable(obj, "foo2", "variableForHelpVerify");
+
+verifyEnumerable(obj, "foo2");
+
+verifyNotConfigurable(obj, "foo2");

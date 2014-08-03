@@ -10,23 +10,28 @@ description: >
     Object.seal - the [[Configurable]] attribute of own data property
     of 'O' is set from true to false and other attributes of the
     property are unaltered
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "foo", {
-            value: 10,
-            writable: true,
-            enumerable: true,
-            configurable: true
-        });
-        var preCheck = Object.isExtensible(obj);
-        Object.seal(obj);
+Object.defineProperty(obj, "foo", {
+    value: 10,
+    writable: true,
+    enumerable: true,
+    configurable: true
+});
+var preCheck = Object.isExtensible(obj);
+Object.seal(obj);
 
-        return preCheck && dataPropertyAttributesAreCorrect(obj, "foo", 10, true, true, false);
-    }
-runTestCase(testcase);
+if (!preCheck) {
+    $ERROR('Expected preCheck to be true, actually ' + preCheck);
+}
+
+verifyEqualTo(obj, "foo", 10);
+
+verifyWritable(obj, "foo");
+
+verifyEnumerable(obj, "foo");
+
+verifyNotConfigurable(obj, "foo");

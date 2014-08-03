@@ -11,28 +11,27 @@ description: >
     named property, name is accessor property and 'desc' is accessor
     descriptor, test updating the [[Enumerable]] attribute value of
     'name' (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arrObj = [];
+var arrObj = [];
 
-        function setFunc(value) {
-            arrObj.setVerifyHelpProp = value;
-        }
+function setFunc(value) {
+    arrObj.setVerifyHelpProp = value;
+}
 
-        Object.defineProperty(arrObj, "0", {
-            set: setFunc,
-            enumerable: true,
-            configurable: true
-        });
+Object.defineProperty(arrObj, "0", {
+    set: setFunc,
+    enumerable: true,
+    configurable: true
+});
 
-        Object.defineProperty(arrObj, "0", {
-            enumerable: false
-        });
-        return accessorPropertyAttributesAreCorrect(arrObj, "0", undefined, setFunc, "setVerifyHelpProp", false, true);
-    }
-runTestCase(testcase);
+Object.defineProperty(arrObj, "0", {
+    enumerable: false
+});
+verifyWritable(arrObj, "0", "setVerifyHelpProp");
+
+verifyNotEnumerable(arrObj, "0");
+
+verifyConfigurable(arrObj, "0");

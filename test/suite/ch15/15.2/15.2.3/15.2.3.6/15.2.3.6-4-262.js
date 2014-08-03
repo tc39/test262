@@ -11,18 +11,20 @@ description: >
     named property, name is data property and 'desc' is data
     descriptor, test updating the [[Enumerable]] attribute value of
     'name' (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arrObj = [100];
+var arrObj = [100];
 
-        Object.defineProperty(arrObj, "0", {
-            enumerable: false
-        });
-        return dataPropertyAttributesAreCorrect(arrObj, "0", 100, true, false, true);
-    }
-runTestCase(testcase);
+Object.defineProperty(arrObj, "0", {
+    enumerable: false
+});
+verifyEqualTo(arrObj, "0", 100);
+
+verifyWritable(arrObj, "0");
+
+verifyNotEnumerable(arrObj, "0");
+
+verifyConfigurable(arrObj, "0");
+

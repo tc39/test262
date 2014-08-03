@@ -12,19 +12,21 @@ description: >
     [[Writable]] is absent in data descriptor 'desc', test
     [[Writable]] attribute of  property 'name' is set to false
     (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arrObj = [];
+var arrObj = [];
 
-        Object.defineProperty(arrObj, "0", {
-            value: 1001,
-            enumerable: true,
-            configurable: false
-        });
-        return dataPropertyAttributesAreCorrect(arrObj, "0", 1001, false, true, false);
-    }
-runTestCase(testcase);
+Object.defineProperty(arrObj, "0", {
+    value: 1001,
+    enumerable: true,
+    configurable: false
+});
+verifyEqualTo(arrObj, "0", 1001);
+
+verifyNotWritable(arrObj, "0");
+
+verifyEnumerable(arrObj, "0");
+
+verifyNotConfigurable(arrObj, "0");
+

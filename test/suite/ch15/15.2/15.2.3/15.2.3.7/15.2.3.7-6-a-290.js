@@ -12,30 +12,31 @@ description: >
     [[ParameterMap]] of 'O', and 'desc' is data descriptor, test 'P'
     is defined in 'O' with all correct attribute values (10.6
     [[DefineOwnProperty]] step 3)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arg;
+var arg;
 
-        (function fun() {
-            arg = arguments;
-        }(0, 1, 2));
+(function fun() {
+    arg = arguments;
+}(0, 1, 2));
 
-        delete arg[0];
+delete arg[0];
 
-        Object.defineProperties(arg, {
-            "0": {
-                value: 10,
-                writable: false,
-                enumerable: false,
-                configurable: false
-            }
-        });
-
-        return dataPropertyAttributesAreCorrect(arg, "0", 10, false, false, false);
+Object.defineProperties(arg, {
+    "0": {
+        value: 10,
+        writable: false,
+        enumerable: false,
+        configurable: false
     }
-runTestCase(testcase);
+});
+
+verifyEqualTo(arg, "0", 10);
+
+verifyNotWritable(arg, "0");
+
+verifyNotEnumerable(arg, "0");
+
+verifyNotConfigurable(arg, "0");
