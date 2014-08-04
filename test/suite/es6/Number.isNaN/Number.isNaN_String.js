@@ -13,6 +13,6 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  return !Number.isNaN('string');
+  return Number.isNaN('string') === false;
  }
 runTestCase(testcase);

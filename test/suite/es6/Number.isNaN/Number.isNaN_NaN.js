@@ -13,6 +13,6 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  return Number.isNaN(NaN);
+  return Number.isNaN(NaN) === true;
  }
 runTestCase(testcase);

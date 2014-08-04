@@ -15,7 +15,7 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  if('word'.contains('w')) {
+  if('word'.contains('w') === true) {
   	return true;
   }
  }
