@@ -148,25 +148,27 @@ class TestResult(object):
     if self.HasUnexpectedOutcome():
       if self.case.IsNegative():
         print "=== %s was expected to fail in %s, but didn't ===" % (name, mode)
+        print "--- expected error: %s ---\n" % self.case.GetNegative()
       else:
         if long_format:
           print "=== %s failed in %s ===" % (name, mode)
         else:
           print "%s in %s: " % (name, mode)
-        out = self.stdout.strip()
-        if len(out) > 0:
-          print "--- output ---"
-          print out
-        err = self.stderr.strip()
-        if len(err) > 0:
-          print "--- errors ---"
-          print err
-        if long_format:
-          print "==="
+      self.WriteOutput(sys.stdout)
+      if long_format:
+        print "==="
     elif self.case.IsNegative():
       print "%s failed in %s as expected" % (name, mode)
     else:
       print "%s passed in %s" % (name, mode)
+
+  def WriteOutput(self, target):
+    out = self.stdout.strip()
+    if len(out) > 0:
+       target.write("--- output --- \n %s" % out)
+    err = self.stderr.strip()
+    if len(err) > 0:
+       target.write("--- errors ---  \n %s" % err)
     
   def XmlAssemble(self, result):
     test_name = self.case.GetName()
@@ -205,11 +207,12 @@ class TestResult(object):
 
   def HasUnexpectedOutcome(self):
     if self.case.IsAsyncTest():		
-	return self.AsyncHasFailed() or self.HasFailed()
+       return self.AsyncHasFailed() or self.HasFailed()
     elif self.case.IsNegative():      
-       return not self.HasFailed()
+       return not (self.HasFailed() and self.case.NegativeMatch(self.stderr))
     else:      
        return self.HasFailed()
+
 
 class TestCase(object):
 
@@ -228,6 +231,12 @@ class TestCase(object):
     testRecord.pop("commentary", None)    # do not throw if missing
     self.testRecord = testRecord;
     
+  def NegativeMatch(self, stderr):
+    neg = re.compile(self.GetNegative())
+    return re.search(neg, stderr)
+
+  def GetNegative(self):
+    return self.testRecord['negative']
 
   def GetName(self):
     return path.join(*self.name)
@@ -549,17 +558,14 @@ class TestSuite(object):
     name = result.case.GetName()
     mode = result.case.GetMode()
     if result.HasUnexpectedOutcome():
-       if result.case.IsNegative():
+      if result.case.IsNegative():
           self.logf.write("=== %s was expected to fail in %s, but didn't === \n" % (name, mode))
-       else:
+          self.logf.write("--- expected error: %s ---\n" % result.case.GetNegative())
+          result.WriteOutput(self.logf)
+      else:
           self.logf.write("=== %s failed in %s === \n" % (name, mode))
-          out = result.stdout.strip()
-          if len(out) > 0:
-             self.logf.write("--- output --- \n %s" % out)
-          err = result.stderr.strip()
-          if len(err) > 0:
-             self.logf.write("--- errors ---  \n %s" % err)
-             self.logf.write("=== \n")
+          result.WriteOutput(self.logf)
+      self.logf.write("===\n")
     elif result.case.IsNegative():
        self.logf.write("%s failed in %s as expected \n" % (name, mode))
     else:
