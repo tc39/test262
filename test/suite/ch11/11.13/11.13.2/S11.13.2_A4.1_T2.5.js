@@ -9,6 +9,8 @@ description: >
     String (primitive or object) amd Boolean (primitive and object)
 ---*/
 
+var x;
+
 //CHECK#1
 x = true;
 x *= "1";

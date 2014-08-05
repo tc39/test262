@@ -11,7 +11,7 @@ description: >
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-for (__prop in this){
+for (var __prop in this){
     if (__prop === "__declared__var")
         enumed=true;
 }

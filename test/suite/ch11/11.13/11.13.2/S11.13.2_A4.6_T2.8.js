@@ -9,6 +9,8 @@ description: >
     Boolean (primitive or object) and Undefined
 ---*/
 
+var x;
+
 //CHECK#1
 x = true;
 x <<= undefined;

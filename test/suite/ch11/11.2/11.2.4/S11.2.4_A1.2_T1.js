@@ -7,7 +7,7 @@ es5id: 11.2.4_A1.2_T1
 description: Function is declared with no FormalParameterList
 ---*/
 
-f_arg = function() {
+var f_arg = function() {
   return arguments;
 }
 

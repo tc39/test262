@@ -7,6 +7,8 @@ es5id: 12.6.4_A14_T2
 description: "Using \"function __func(){return {a:1};}()\" as Expession"
 ---*/
 
+var x;
+
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#
 for(x in function __func(){return {a:1};}()){

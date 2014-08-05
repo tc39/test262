@@ -32,6 +32,7 @@ if ((new Object() == new Object()) !== false) {
 }
 
 //CHECK#5
+var x, y;
 x = {}; 
 y = x;
 if ((x == y) !== true) {

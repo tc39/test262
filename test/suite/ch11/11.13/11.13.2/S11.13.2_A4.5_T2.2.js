@@ -9,6 +9,8 @@ description: >
     Number (primitive or object) and String (primitive and object)
 ---*/
 
+var x;
+
 //CHECK#1
 x = "1";
 x -= 1;
