@@ -9,6 +9,8 @@ description: >
     Boolean (primitive or object) and Number (primitive and object)
 ---*/
 
+var x;
+
 //CHECK#1
 x = true;
 x *= 1;

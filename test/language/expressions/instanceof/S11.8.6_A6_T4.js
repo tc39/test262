@@ -9,8 +9,8 @@ es5id: 11.8.6_A6_T4
 description: Checking if RelationalExpression is object
 ---*/
 
-MyFunct = function(){};
-__my__funct = new MyFunct;
+var MyFunct = function(){};
+var __my__funct = new MyFunct;
 
 
 //CHECK#1

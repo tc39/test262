@@ -9,6 +9,8 @@ es5id: 12.6.1_A3
 description: Using eval "eval("do __in__do=1; while (false)")"
 ---*/
 
+var __evaluated, __in__do;
+
 __evaluated = eval("do __in__do=1; while (false)");
 
 //////////////////////////////////////////////////////////////////////////////

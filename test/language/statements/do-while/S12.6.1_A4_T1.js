@@ -9,6 +9,8 @@ es5id: 12.6.1_A4_T1
 description: Using "break" within a "do-while" loop
 ---*/
 
+var __in__do__before__break, __in__do__after__break;
+
 do {
     __in__do__before__break="reached"; 
     break; 

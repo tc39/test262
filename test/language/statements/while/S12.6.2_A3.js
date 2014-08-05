@@ -9,7 +9,7 @@ es5id: 12.6.2_A3
 description: Using eval
 ---*/
 
-var __in__do;
+var __evaluated, __in__do;
 
 __evaluated = eval("while (false) __in__do=1;");
 

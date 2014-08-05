@@ -9,6 +9,8 @@ es5id: 12.6.2_A5
 description: Using eval
 ---*/
 
+var __evaluated, __in__do__before__break, __in__do__after__break;
+
 __evaluated = eval("while(1) {__in__do__before__break=1; break; __in__do__after__break=2;}");
 
 //////////////////////////////////////////////////////////////////////////////

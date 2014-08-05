@@ -13,7 +13,7 @@ var obj = {bar:true, some:1, foo:"a"};
 
 var count=0;
 
-for (property in obj)	count++;
+for (var property in obj)	count++;
 
 if (count !== 3){
   $ERROR('#1: obj = {bar:true, some:1, foo:"a"}; count=0; for (property in obj) count++; count === 3. Actual: ' + (count));

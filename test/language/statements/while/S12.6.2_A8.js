@@ -7,6 +7,7 @@ es5id: 12.6.2_A8
 description: using eval
 ---*/
 
+var __evaluated;
 var __condition = 0, __odds=0;
 
 __evaluated = eval("while(__condition < 10) { __condition++; if (((''+__condition/2).split('.')).length>1) continue; __odds++;}");

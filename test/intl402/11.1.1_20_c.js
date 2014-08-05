@@ -184,7 +184,7 @@ var currencyDigits = {
 
 Object.getOwnPropertyNames(currencyDigits).forEach(function (currency) {
     var digits = currencyDigits[currency];
-    format = Intl.NumberFormat([], {style: "currency", currency: currency});
+    var format = Intl.NumberFormat([], {style: "currency", currency: currency});
     var min = format.resolvedOptions().minimumFractionDigits;
     var max = format.resolvedOptions().maximumFractionDigits;
     if (min !== digits) {

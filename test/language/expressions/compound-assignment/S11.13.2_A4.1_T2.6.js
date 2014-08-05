@@ -9,6 +9,8 @@ description: >
     primitive String (primitive or object) and Undefined
 ---*/
 
+var x;
+
 //CHECK#1
 x = "1";
 x *= undefined;

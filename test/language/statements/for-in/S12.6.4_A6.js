@@ -11,6 +11,8 @@ description: >
     appropriate. The prototype is "{feat:2,hint:"protohint"}"
 ---*/
 
+var __accum, key;
+
 function FACTORY(){this.prop=1;this.hint="hinted"};
 
 FACTORY.prototype = {feat:2,hint:"protohint"};

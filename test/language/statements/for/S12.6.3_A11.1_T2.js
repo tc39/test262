@@ -10,6 +10,7 @@ es5id: 12.6.3_A11.1_T2
 description: Embedded loops
 ---*/
 
+var __str;
 __str="";
 
 outer : for(var index=0; index<4; index+=1) {

@@ -11,6 +11,8 @@ description: >
     depth is two
 ---*/
 
+var __hash__map, __arr, __key, __ind;
+
 __hash__map={a:{aa:1,ab:2,ac:3,ad:4},b:{ba:1,bb:2,bc:3,bd:4},c:{ca:1,cb:2,cc:3,cd:4},d:{da:1,db:2,dc:3,dd:4}};
 
 __arr = "";
