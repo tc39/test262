@@ -15,6 +15,6 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  return !Number.isNaN(new Object());
+  return Number.isNaN(new Object()) === false;
  }
 runTestCase(testcase);

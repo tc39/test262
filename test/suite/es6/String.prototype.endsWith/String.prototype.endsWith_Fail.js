@@ -13,7 +13,7 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  if('word'.endsWith('r')) {
+  if('word'.endsWith('r') === false) {
   	return true;
   }
  }

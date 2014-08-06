@@ -15,7 +15,7 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  if('word'.endsWith('d', 25)) {
+  if('word'.endsWith('d', 25) === true) {
   	return true;
   }
  }
