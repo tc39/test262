@@ -7,13 +7,12 @@
 /*---
 author: Ryan Lewis
 email: ryanhlewis@hotmail.com
-spec: "http://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.prototype.clz"
-description: Number.prototype.clz should return 31 if passed 1.
+description: Math.clz32 should return 32 if passed 0.
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  if(Number.prototype.clz(1) === 31) {
+  if(Math.clz32(0) === 32) {
   	return true;
   }
  }
