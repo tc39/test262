@@ -12,7 +12,7 @@ runTestCase(function () {
   var testArr = new Array('testString', 'anotherTestString', 3),
       updatedArr = testArr.fill('newValue', 1, 3);
 
-  if (updatedArr[3] !== 'newValue') {
+  if (updatedArr[3] !== void 0) {
     return false;
   }
 
@@ -20,11 +20,15 @@ runTestCase(function () {
     return false;
   }
 
+  if (updatedArr[1] !== 'newValue') {
+    return false;
+  }
+
   if (updatedArr[0] !== 'testString') {
     return false;
   }
 
-  if (updatedArr.length !== 4) {
+  if (updatedArr.length !== 3) {
     return false;
   }
 
