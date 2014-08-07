@@ -6,9 +6,20 @@
 
 //Error Detector
 if (this.window!==undefined) {  //for console support
-    this.window.onerror = function(errorMsg, url, lineNumber) {
-        this.window.iframeError = errorMsg;
-        if(typeof $DONE === 'function') $DONE();
+    this.window.onerror = function(errorMsg, url, lineNumber, colNumber, error) {
+        var cookedError;
+
+        if (error) {
+            cookedError = error.toString();
+        } else {
+            if (/Error:/.test(errorMsg)) {
+                cookedError = errorMsg;
+            } else {
+                cookedError = "UnknownError: " + errorMsg;
+            }
+        }
+
+        $DONE(cookedError);
     };
 }
 

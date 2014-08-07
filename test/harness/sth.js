@@ -129,7 +129,7 @@ function BrowserRunner() {
 
             //TODO - 500ms *should* be a sufficient delay
             setTimeout(function() {
-                instance.supportsWindowOnerror = iwinPrereqs.failCount === 2;
+                instance.supportsWindowOnerror = (iwinPrereqs.failCount === 2);
                 //alert(iwinPrereqs.failCount);
                 document.body.removeChild(iframePrereqs);
                 instance.run(test, code);
