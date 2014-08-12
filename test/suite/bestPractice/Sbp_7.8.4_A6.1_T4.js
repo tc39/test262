@@ -4,7 +4,7 @@
 /*---
 info: "EscapeSequence :: HexEscapeSequence :: x HexDigit HexDigit"
 description: "HexEscapeSequence :: x0G is incorrect"
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 //CHECK#

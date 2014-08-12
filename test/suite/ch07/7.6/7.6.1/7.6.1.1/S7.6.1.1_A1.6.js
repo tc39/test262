@@ -5,7 +5,7 @@
 info: The "delete" token can not be used as identifier
 es5id: 7.6.1.1_A1.6
 description: Checking if execution of "delete=1" fails
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 delete = 1;

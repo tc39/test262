@@ -7,7 +7,7 @@ info: >
     consisting of six characters, namely \u plus four hexadecimal digits
 es5id: 7.3_A6_T2
 description: Insert CARRIAGE RETURN (U+000D) in var x
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 var\u000Dx;

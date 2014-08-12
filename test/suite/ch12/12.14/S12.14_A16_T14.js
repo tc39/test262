@@ -7,7 +7,7 @@ info: >
     Catch Finally"
 es5id: 12.14_A16_T14
 description: Checking if passing argument to "try" statement fails
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 // CHECK#1

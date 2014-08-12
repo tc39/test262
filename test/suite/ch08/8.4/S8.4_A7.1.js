@@ -5,7 +5,7 @@
 info: <LF> between chunks of one string not allowed
 es5id: 8.4_A7.1
 description: Insert <LF> between chunks of one string
-flags: [negative]
+negative: ReferenceError
 ---*/
 
 eval("var x = asdf\u000Aghjk");

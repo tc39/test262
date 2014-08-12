@@ -6,7 +6,7 @@ info: Function declaration within an "if" statement is not allowed
 description: >
     Declaring function within an "if" statement that is declared
     within the function declaration
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 function(){

@@ -5,7 +5,7 @@
 info: "RegularExpressionChar :: \\ or / is incorrect"
 es5id: 7.8.5_A2.2_T1
 description: \
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 //CHECK#1

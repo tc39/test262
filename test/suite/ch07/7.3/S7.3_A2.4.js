@@ -5,7 +5,7 @@
 info: PARAGRAPH SEPARATOR (U+2029) within strings is not allowed
 es5id: 7.3_A2.4
 description: Insert PARAGRAPH SEPARATOR (\u2029) into string
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 // CHECK#1

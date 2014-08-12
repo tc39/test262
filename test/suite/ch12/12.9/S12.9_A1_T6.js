@@ -7,7 +7,7 @@ es5id: 12.9_A1_T6
 description: >
     Checking if execution of "return" with no function, placed into a
     loop, fails
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////

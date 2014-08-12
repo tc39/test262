@@ -9,7 +9,7 @@ es5id: 10.1.1-8gs
 description: >
     Strict Mode - Use Strict Directive Prologue is ''use strict';'
     which appears twice in the code
-negative: ^((?!NotEarlyError).)*$
+negative: NotEarlyError
 flags: [noStrict]
 ---*/
 

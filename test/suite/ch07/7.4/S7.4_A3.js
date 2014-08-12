@@ -5,7 +5,7 @@
 info: Multi line comments cannot nest
 es5id: 7.4_A3
 description: Try use nested comments
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 /*CHECK#1*/

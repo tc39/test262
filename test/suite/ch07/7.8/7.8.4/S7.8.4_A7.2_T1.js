@@ -5,7 +5,7 @@
 info: "UnicodeEscapeSequence :: u HexDigit (one, two or three time) is incorrect"
 es5id: 7.8.4_A7.2_T1
 description: ":: HexDigit :: 1"
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 //CHECK#1

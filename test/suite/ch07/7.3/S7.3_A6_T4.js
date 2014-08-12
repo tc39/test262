@@ -7,7 +7,7 @@ info: >
     consisting of six characters, namely \u plus four hexadecimal digits
 es5id: 7.3_A6_T4
 description: Insert PARAGRAPH SEPARATOR (U+2029) in var x
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 var\u2029x;

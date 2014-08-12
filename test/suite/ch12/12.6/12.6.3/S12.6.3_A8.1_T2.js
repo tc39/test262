@@ -7,7 +7,7 @@ es5id: 12.6.3_A8.1_T2
 description: >
     Checking if execution of "for(var index=0; {index++;index<100;};
     index*2;) {  arr.add(""+index);}" fails
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 var arr = [];

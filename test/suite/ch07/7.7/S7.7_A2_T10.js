@@ -7,7 +7,7 @@ info: >
     six characters, namely \u plus four hexadecimal digits
 es5id: 7.7_A2_T10
 description: Try to use / as a Unicode \u002F
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 1\u002F2;

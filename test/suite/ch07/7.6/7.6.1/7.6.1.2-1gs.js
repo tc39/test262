@@ -9,7 +9,7 @@ es5id: 7.6.1.2-1gs
 description: >
     Strict Mode - SyntaxError is thrown when FutureReservedWord
     'implements' occurs in strict mode code
-negative: ^((?!NotEarlyError).)*$
+negative: SyntaxError
 flags: [onlyStrict]
 ---*/
 

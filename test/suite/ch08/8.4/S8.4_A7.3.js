@@ -5,7 +5,7 @@
 info: <PS> between chunks of one string not allowed
 es5id: 8.4_A7.3
 description: Insert <PS> between chunks of one string
-flags: [negative]
+negative: ReferenceError
 ---*/
 
 eval("var x = asdf\u2028ghjk");

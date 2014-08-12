@@ -6,20 +6,12 @@
 
 /*---
 es5id: 15.2.3.4-1
+info: >
+  ES5 requires a `TypeError` here, while ES6 requires `ToObject` (19.1.2.7, 19.1.2.8.1)
 description: >
     Object.getOwnPropertyNames throws TypeError if type of first param
     is not Object
-includes: [runTestCase.js]
+negative: TypeError
 ---*/
 
-function testcase() {
-    try {
-      Object.getOwnPropertyNames(0);
-    }
-    catch (e) {
-      if (e instanceof TypeError) {
-        return true;
-      }
-    }
- }
-runTestCase(testcase);
+Object.getOwnPropertyNames(0);

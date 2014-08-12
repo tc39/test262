@@ -5,7 +5,7 @@
 info: If the parse fails, throw a SyntaxError exception (but see also clause 16)
 es5id: 15.1.2.1_A2_T2
 description: Checking if execution of "eval("x = 1; x\u000A++")" fails
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 //CHECK#1

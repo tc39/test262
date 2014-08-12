@@ -7,7 +7,7 @@
 /*---
 es5id: 10.5-1gs
 description: Strict Mode - arguments cannot be assigned to in a strict function
-negative: ^((?!NotEarlyError).)*$
+negative: SyntaxError
 flags: [onlyStrict]
 ---*/
 

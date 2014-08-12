@@ -7,7 +7,7 @@ es5id: 12.8_A1_T4
 description: >
     Checking if break Identifier with no loop, placed into a  block,
     fails
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 LABEL : x=3.14;

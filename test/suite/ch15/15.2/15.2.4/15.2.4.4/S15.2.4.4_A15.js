@@ -7,7 +7,7 @@ info: >
     argument.
 es5id: 15.2.4.4_A15
 description: Checking Object.prototype.valueOf when called as a global function.
-flags: [negative]
+negative: TypeError
 ---*/
 
 var v = Object.prototype.valueOf;

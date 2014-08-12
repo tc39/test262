@@ -7,7 +7,7 @@ es5id: 12.8_A1_T3
 description: >
     Checking if break statement with no loop, placed into a block,
     fails
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////

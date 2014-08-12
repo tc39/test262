@@ -7,7 +7,7 @@
 /*---
 es5id: 12.10.1-11gs
 description: Strict Mode - SyntaxError is thrown when using with statement
-negative: ^((?!NotEarlyError).)*$
+negative: SyntaxError
 flags: [onlyStrict]
 ---*/
 

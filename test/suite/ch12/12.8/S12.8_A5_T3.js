@@ -9,7 +9,7 @@ es5id: 12.8_A5_T3
 description: >
     Checking if using internal loop label as an Identifier appears to
     be invalid
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 (function(){

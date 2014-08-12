@@ -7,7 +7,7 @@ es5id: 12.9_A1_T7
 description: >
     Checking if execution of "return x" with no function, placed
     inside Block, fails
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////

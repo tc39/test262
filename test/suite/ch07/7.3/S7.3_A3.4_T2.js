@@ -7,7 +7,7 @@ es5id: 7.3_A3.4_T2
 description: >
     Insert PARAGRAPH SEPARATOR (\u2029) into begin of single line
     comment
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 // CHECK#1

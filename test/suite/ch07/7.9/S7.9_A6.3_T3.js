@@ -8,7 +8,7 @@ info: >
     Don`t use semicolons
 es5id: 7.9_A6.3_T3
 description: For header is (\n \n \n)
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 //CHECK#1

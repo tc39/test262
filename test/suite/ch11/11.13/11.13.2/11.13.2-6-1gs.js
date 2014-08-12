@@ -9,10 +9,9 @@ es5id: 11.13.2-6-1gs
 description: >
     Strict Mode - SyntaxError is throw if the identifier eval appears
     as the LeftHandSideExpression of a Compound Assignment operator(*=)
-negative: ^((?!NotEarlyError).)*$
+negative: SyntaxError
 flags: [onlyStrict]
 ---*/
 
 "use strict";
-throw NotEarlyError;
 eval *= 20;

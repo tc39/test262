@@ -7,7 +7,7 @@ info: >
     of six characters, namely \u plus four hexadecimal digits
 es5id: 7.2_A5_T2
 description: Use VERTICAL TAB (U+000B)
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 var\u000Bx;

@@ -5,7 +5,7 @@
 info: Correct interpretation of multi line comments
 es5id: 7.4_A2_T2
 description: Try use /*CHECK#1/. This is not closed multi line comment
-flags: [negative]
+negative: SyntaxError
 ---*/
 
 /*CHECK#1/

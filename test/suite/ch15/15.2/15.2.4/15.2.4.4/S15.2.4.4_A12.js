@@ -7,7 +7,7 @@ info: >
     argument.
 es5id: 15.2.4.4_A12
 description: Checking Object.prototype.valueOf invoked by the 'call' property.
-flags: [negative]
+negative: TypeError
 ---*/
 
 Object.prototype.valueOf.call(undefined);
