@@ -17,8 +17,6 @@ import sys
 import tempfile
 import time
 
-import yaml
-
 # from TestCasePackagerConfig import *
 
 headerPatternStr = r"(?:(?:\s*\/\/.*)?\s*\n)*"
@@ -38,6 +36,8 @@ atattrs = re.compile(r"\s*\n\s*\*\s*@")
 
 yamlPattern = re.compile(r"---((?:\s|\S)*)---")
 newlinePattern = re.compile(r"\n")
+
+yamlLoad = None
 
 def stripStars(text):
     return stars.sub('\n', text).strip()
@@ -76,7 +76,8 @@ def oldAttrParser(testRecord, body, name):
 def yamlAttrParser(testRecord, attrs, name):
     match = yamlPattern.match(attrs)
     body = match.group(1)
-    parsed = yaml.load(body)
+    importYamlLoad()
+    parsed = yamlLoad(body)
 
     if (parsed is None):
         print "Failed to parse yaml in name %s"%(name)
@@ -106,3 +107,14 @@ def parseTestRecord(src, name):
             oldAttrParser(testRecord, attrs, name)
 
     return testRecord
+
+def importYamlLoad():
+    global yamlLoad
+    if yamlLoad:
+        return
+    try:
+        import yaml
+        yamlLoad = yaml.load
+    except ImportError:
+        import monkeyYaml
+        yamlLoad = monkeyYaml.load
