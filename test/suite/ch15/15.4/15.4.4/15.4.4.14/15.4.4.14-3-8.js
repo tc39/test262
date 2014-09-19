@@ -13,6 +13,6 @@ function testcase() {
 
         var obj = { 0: 0, length: Infinity };
 
-        return Array.prototype.indexOf.call(obj, 0) === 0;
+        return Array.prototype.indexOf.call(obj, 0) === -1;
     }
 runTestCase(testcase);

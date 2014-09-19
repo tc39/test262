@@ -23,6 +23,6 @@ function testcase() {
             length: 4294967296
         };
 
-        return Array.prototype.some.call(obj, callbackfn) && accessed;
+        return !Array.prototype.some.call(obj, callbackfn) && !accessed;
     }
 runTestCase(testcase);

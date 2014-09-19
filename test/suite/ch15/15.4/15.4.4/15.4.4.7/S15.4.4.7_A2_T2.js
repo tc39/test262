@@ -34,18 +34,18 @@ if (obj["0"] !== -1) {
 //CHECK#4
 obj.length = Number.POSITIVE_INFINITY;
 var push = obj.push(-4);
-if (push !== 9007199254740992) {
-  $ERROR('#4: var obj = {}; obj.length = Number.POSITIVE_INFINITY; obj.push = Array.prototype.push; obj.push(-4) === 9007199254740992. Actual: ' + (push));
+if (push !== 1) {
+  $ERROR('#4: var obj = {}; obj.length = Number.POSITIVE_INFINITY; obj.push = Array.prototype.push; obj.push(-4) === 1. Actual: ' + (push));
 }
 
 //CHECK#5
-if (obj.length !== 9007199254740992) {
-  $ERROR('#6: var obj = {}; obj.length = Number.POSITIVE_INFINITY; obj.push = Array.prototype.push; obj.push(-4); obj.length === 9007199254740992. Actual: ' + (obj.length));
+if (obj.length !== 1) {
+  $ERROR('#6: var obj = {}; obj.length = Number.POSITIVE_INFINITY; obj.push = Array.prototype.push; obj.push(-4); obj.length === 1. Actual: ' + (obj.length));
 }
 
 //CHECK#6
-if (obj[9007199254740991] !== -4) {
-  $ERROR('#6: var obj = {}; obj.length = Number.POSITIVE_INFINITY; obj.push = Array.prototype.push; obj.push(-4); obj[9007199254740991] === -4. Actual: ' + (obj["0"]));
+if (obj["0"] !== -4) {
+  $ERROR('#6: var obj = {}; obj.length = Number.POSITIVE_INFINITY; obj.push = Array.prototype.push; obj.push(-4); obj["0"] === -4. Actual: ' + (obj["0"]));
 }
 
 //CHECK#7

@@ -20,6 +20,6 @@ function testcase() {
 
         var obj = { 0: 9, length: Infinity };
 
-        return !Array.prototype.every.call(obj, callbackfn) && accessed;
+        return Array.prototype.every.call(obj, callbackfn) && !accessed;
     }
 runTestCase(testcase);

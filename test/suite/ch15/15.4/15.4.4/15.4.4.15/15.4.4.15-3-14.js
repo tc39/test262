@@ -5,14 +5,18 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.4/15.4.4/15.4.4.15/15.4.4.15-3-14.js
- * @description Array.prototype.lastIndexOf - value of 'length' is a string containing -Infinity
+ * @description Array.prototype.lastIndexOf - value of 'length' is a string containing +/-Infinity
  */
 
 
 function testcase() {
 
+        var objOne = { 0: true, 1: true, length: "Infinity" };
+        var objTwo = { 0: true, 1: true, length: "+Infinity" };
         var objThree = { 0: true, 1: true, length: "-Infinity" };
 
-        return Array.prototype.lastIndexOf.call(objThree, true) === -1;
+        return Array.prototype.lastIndexOf.call(objOne, true) === -1 &&
+            Array.prototype.lastIndexOf.call(objTwo, true) === -1 &&
+            Array.prototype.lastIndexOf.call(objThree, true) === -1;
     }
 runTestCase(testcase);

@@ -5,7 +5,7 @@
 /// copyright and this notice and otherwise comply with the Use Terms.
 /**
  * @path ch15/15.4/15.4.4/15.4.4.18/15.4.4.18-3-25.js
- * @description Array.prototype.forEach - value of 'length' is a negative non-integer
+ * @description Array.prototype.forEach - value of 'length' is a negative non-integer, ensure truncation occurs in the proper direction
  */
 
 
@@ -25,6 +25,6 @@ function testcase() {
 
         Array.prototype.forEach.call(obj, callbackfn);
 
-        return !testResult;
+        return testResult;
     }
 runTestCase(testcase);

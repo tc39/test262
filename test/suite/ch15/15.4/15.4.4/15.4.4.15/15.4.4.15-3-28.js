@@ -19,6 +19,6 @@ function testcase() {
             length: 4294967296
         };
 
-        return Array.prototype.lastIndexOf.call(obj, targetObj) === 4294967295; //verify length is 4294967296 finally
+        return Array.prototype.lastIndexOf.call(obj, targetObj) === -1; //verify length is 0 finally
     }
 runTestCase(testcase);

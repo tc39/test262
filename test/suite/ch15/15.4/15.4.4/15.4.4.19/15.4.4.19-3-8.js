@@ -16,12 +16,8 @@ function testcase() {
 
         var obj = { 0: 9, length: Infinity };
 
-        try {
-            Array.prototype.map.call(obj, callbackfn);
-        } catch (e) {
-            if (e instanceof RangeError) {
-                return true;
-            }
-        }
+        var newArr = Array.prototype.map.call(obj, callbackfn);
+
+        return newArr.length === 0;
     }
 runTestCase(testcase);
