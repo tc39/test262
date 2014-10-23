@@ -1,0 +1,23 @@
+// Copyright 2014 Cubane Canada, Inc.  All rights reserved.
+// See LICENSE for details.
+
+/*---
+info: >
+    Promise reaction jobs have predictable environment
+author: Sam Mikes
+description: Promise.onFulfilled gets undefined as 'this'
+---*/
+
+var expectedThis,
+    obj = {};
+
+(function () { expectedThis = this; }());
+
+var p = Promise.resolve(obj).then(function(arg) {
+    if (this !== expectedThis) {
+        $ERROR("'this' must be same as for function called without explicit this got " + this);
+    }
+    if (arg !== obj) {
+        $ERROR("Expected promise to be fulfilled by obj, actually " + arg);
+    }
+}).then($DONE, $DONE);
