@@ -3,7 +3,6 @@
 
 /*---
 description: Find on empty array should return undefined
-flags: [path]
 ---*/
 
 var a = [].find(function () {

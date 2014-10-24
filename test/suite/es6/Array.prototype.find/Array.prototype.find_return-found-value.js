@@ -3,7 +3,6 @@
 
 /*---
 description: Find should return value if predicate returns true
-flags: [path]
 ---*/
 
 var testVals = [

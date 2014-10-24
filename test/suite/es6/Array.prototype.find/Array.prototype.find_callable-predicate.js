@@ -5,7 +5,6 @@
 description: >
     Array.prototype.find shouldn't throw a TypeError if
     IsCallable(predicate) is true
-flags: [path]
 includes: [runTestCase.js]
 ---*/
 

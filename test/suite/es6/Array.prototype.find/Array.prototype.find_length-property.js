@@ -3,7 +3,6 @@
 
 /*---
 description: The length property of the find method is 1
-flags: [path]
 ---*/
 
 if ([].find.length !== 1) {

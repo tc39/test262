@@ -5,7 +5,6 @@
 description: >
     predicate is called with three arguments: the value of the
     element, the index of the element, and the object being traversed.
-flags: [path]
 ---*/
 
 var a = [1];

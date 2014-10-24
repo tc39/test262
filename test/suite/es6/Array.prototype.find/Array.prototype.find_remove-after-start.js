@@ -5,7 +5,6 @@
 description: >
     Elements removed from array after find has been called should not
     be visited
-flags: [path]
 ---*/
 
 [1, 'string', 2].find(function (v, i, arr) {

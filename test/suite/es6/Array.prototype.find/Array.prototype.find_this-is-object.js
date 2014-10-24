@@ -3,7 +3,6 @@
 
 /*---
 description: Array.prototype.find should convert thisArg into an object
-flags: [path]
 ---*/
 
 var dataTypes = [
