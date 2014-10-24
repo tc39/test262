@@ -3,7 +3,6 @@
 
 /*---
 description: thisArg should be undefined if not provided
-flags: [path]
 ---*/
 
 var globalThis = this;

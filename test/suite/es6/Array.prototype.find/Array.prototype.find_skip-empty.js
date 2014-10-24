@@ -5,7 +5,6 @@
 description: >
     predicate is called only for elements of the array which actually
     exist; it is not called for missing elements of the array
-flags: [path]
 ---*/
 
 var a = [];

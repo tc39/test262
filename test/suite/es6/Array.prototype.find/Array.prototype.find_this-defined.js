@@ -3,7 +3,6 @@
 
 /*---
 description: thisArg should be bound to this if provided
-flags: [path]
 ---*/
 
 var globalThis = this;

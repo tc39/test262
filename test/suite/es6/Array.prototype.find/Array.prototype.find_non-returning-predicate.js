@@ -3,7 +3,6 @@
 
 /*---
 description: Find with a predicate with no return value should return undefined
-flags: [path]
 ---*/
 
 var a = [1, 2, 3].find(function () {});
