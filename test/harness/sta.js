@@ -13,7 +13,7 @@ function Test262Error(message) {
 }
 
 Test262Error.prototype.toString = function () {
-    return "Test262 Error: " + this.message;
+    return "Test262Error: " + this.message;
 };
 
 var $ERROR;

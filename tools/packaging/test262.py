@@ -209,9 +209,14 @@ class TestResult(object):
     if self.case.IsAsyncTest():		
        return self.AsyncHasFailed() or self.HasFailed()
     elif self.case.IsNegative():      
-       return not (self.HasFailed() and self.case.NegativeMatch(self.stderr))
+       return not (self.HasFailed() and self.case.NegativeMatch(self.GetErrorOutput()))
     else:      
        return self.HasFailed()
+
+  def GetErrorOutput(self):
+    if len(self.stderr) != 0:
+      return self.stderr
+    return self.stdout
 
 
 class TestCase(object):
