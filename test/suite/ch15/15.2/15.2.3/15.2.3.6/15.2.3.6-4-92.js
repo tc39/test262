@@ -11,26 +11,17 @@ description: >
     name.configurable = false, name.writable = false, desc.value and
     name.value are two booleans with the same value (8.12.9 step
     10.a.ii.1)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "foo", {
-            value: false,
-            writable: false,
-            configurable: false 
-        });
+Object.defineProperty(obj, "foo", {
+    value: false,
+    writable: false,
+    configurable: false 
+});
 
-        try {
-            Object.defineProperty(obj, "foo", { value: false });
-            return dataPropertyAttributesAreCorrect(obj, "foo", false, false, false, false);
-        } catch (e) {
-            return false;
-        }
-    }
-runTestCase(testcase);
+Object.defineProperty(obj, "foo", { value: false });
+dataPropertyAttributesAreCorrect(obj, "foo", false, false, false, false);

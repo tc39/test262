@@ -10,33 +10,28 @@ description: >
     Object.defineProperty - 'name' and 'desc' are accessor properties,
     name.configurable = true and desc.configurable = false (8.12.9
     step 12)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        function setFunc(value) {
-            obj.setVerifyHelpProp = value;
-        }
+function setFunc(value) {
+    obj.setVerifyHelpProp = value;
+}
 
-        function getFunc() {
-            return 10;
-        }
+function getFunc() {
+    return 10;
+}
 
-        Object.defineProperty(obj, "foo", {
-            get: getFunc,
-            set: setFunc,
-            configurable: true
-        });
+Object.defineProperty(obj, "foo", {
+    get: getFunc,
+    set: setFunc,
+    configurable: true
+});
 
-        Object.defineProperty(obj, "foo", {
-            get: getFunc,
-            configurable: false
-        });
-        return accessorPropertyAttributesAreCorrect(obj, "foo", getFunc, setFunc, "setVerifyHelpProp", false, false);
-    }
-runTestCase(testcase);
+Object.defineProperty(obj, "foo", {
+    get: getFunc,
+    configurable: false
+});
+accessorPropertyAttributesAreCorrect(obj, "foo", getFunc, setFunc, "setVerifyHelpProp", false, false);

@@ -10,23 +10,18 @@ description: >
     Object.defineProperties - both desc.value and P.value are two
     strings which have same length and same characters in
     corresponding positions (8.12.9 step 6)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        var desc = { value: "abcd" };
-        Object.defineProperty(obj, "foo", desc);
+var desc = { value: "abcd" };
+Object.defineProperty(obj, "foo", desc);
 
-        Object.defineProperties(obj, {
-            foo: {
-                value: "abcd"
-            }
-        });
-        return dataPropertyAttributesAreCorrect(obj, "foo", "abcd", false, false, false);
+Object.defineProperties(obj, {
+    foo: {
+        value: "abcd"
     }
-runTestCase(testcase);
+});
+dataPropertyAttributesAreCorrect(obj, "foo", "abcd", false, false, false);

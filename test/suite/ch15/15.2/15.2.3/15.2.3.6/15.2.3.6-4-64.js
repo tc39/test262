@@ -9,22 +9,19 @@ es5id: 15.2.3.6-4-64
 description: >
     Object.defineProperty - desc.value = +0 and name.value = -0
     (8.12.9 step 6)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
+negative: TypeError
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "foo", { value: -0 });
+Object.defineProperty(obj, "foo", { value: -0 });
 
-        try {
-            Object.defineProperty(obj, "foo", { value: +0 });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && dataPropertyAttributesAreCorrect(obj, "foo", -0, false, false, false);
-        }
-    }
-runTestCase(testcase);
+try {
+    Object.defineProperty(obj, "foo", { value: +0 });
+} catch (e) {
+
+    dataPropertyAttributesAreCorrect(obj, "foo", -0, false, false, false);
+    throw e;
+}

@@ -10,35 +10,30 @@ description: >
     Object.defineProperty - 'O' is an Array, 'name' is generic own
     accessor property of 'O', and 'desc' is accessor descriptor, test
     updating multiple attribute values of 'name' (15.4.5.1 step 5)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arrObj = [];
+var arrObj = [];
 
-        function getFunc() {
-            return 12;
-        }
-        function setFunc(value) {
-            arrObj.setVerifyHelpProp = value;
-        }
-        Object.defineProperty(arrObj, "property", {
-            get: function () {
-                return 24;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(arrObj, "property", {
-            get: getFunc,
-            set: setFunc,
-            enumerable: false,
-            configurable: false
-        });
+function getFunc() {
+    return 12;
+}
+function setFunc(value) {
+    arrObj.setVerifyHelpProp = value;
+}
+Object.defineProperty(arrObj, "property", {
+    get: function () {
+        return 24;
+    },
+    enumerable: true,
+    configurable: true
+});
+Object.defineProperty(arrObj, "property", {
+    get: getFunc,
+    set: setFunc,
+    enumerable: false,
+    configurable: false
+});
 
-        return accessorPropertyAttributesAreCorrect(arrObj, "property", getFunc, setFunc, "setVerifyHelpProp", false, false);
-    }
-runTestCase(testcase);
+accessorPropertyAttributesAreCorrect(arrObj, "property", getFunc, setFunc, "setVerifyHelpProp", false, false);

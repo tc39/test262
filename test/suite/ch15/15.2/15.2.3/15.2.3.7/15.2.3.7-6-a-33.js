@@ -10,25 +10,20 @@ description: >
     Object.defineProperties - 'P' doesn't exist in 'O', test [[Get]]
     of 'P' is set as undefined value if absent in accessor descriptor
     'desc' (8.12.9 step 4.b)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
-        var setFun = function (value) {
-            obj.setVerifyHelpProp = value;
-        };
+var obj = {};
+var setFun = function (value) {
+    obj.setVerifyHelpProp = value;
+};
 
-        Object.defineProperties(obj, {
-            prop: {
-                set: setFun,
-                enumerable: true,
-                configurable: true
-            }
-        });
-        return accessorPropertyAttributesAreCorrect(obj, "prop", undefined, setFun, "setVerifyHelpProp", true, true);
-
+Object.defineProperties(obj, {
+    prop: {
+        set: setFun,
+        enumerable: true,
+        configurable: true
     }
-runTestCase(testcase);
+});
+accessorPropertyAttributesAreCorrect(obj, "prop", undefined, setFun, "setVerifyHelpProp", true, true);
+

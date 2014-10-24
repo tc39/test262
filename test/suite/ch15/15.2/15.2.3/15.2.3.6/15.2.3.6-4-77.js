@@ -9,22 +9,17 @@ es5id: 15.2.3.6-4-77
 description: >
     Object.defineProperty - both desc.[[Set]] and name.[[Set]] are two
     objects which refer to the same object (8.12.9 step 6)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        function setFunc(value) {
-            obj.setVerifyHelpProp = value;
-        }
+function setFunc(value) {
+    obj.setVerifyHelpProp = value;
+}
 
-        Object.defineProperty(obj, "foo", { set: setFunc });
+Object.defineProperty(obj, "foo", { set: setFunc });
 
-        Object.defineProperty(obj, "foo", { set: setFunc });
-        return accessorPropertyAttributesAreCorrect(obj, "foo", undefined, setFunc, "setVerifyHelpProp", false, false);
-    }
-runTestCase(testcase);
+Object.defineProperty(obj, "foo", { set: setFunc });
+accessorPropertyAttributesAreCorrect(obj, "foo", undefined, setFunc, "setVerifyHelpProp", false, false);

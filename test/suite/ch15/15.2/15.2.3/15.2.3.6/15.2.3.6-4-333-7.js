@@ -11,25 +11,21 @@ description: >
     property 'P' successfully when [[Configurable]] attribute is
     false, [[Writable]] attribute is true and 'A' is an Array object
     (8.12.9 - step 10)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = [];
+var obj = [];
 
-        Object.defineProperty(obj, "prop", {
-            value: 1001,
-            writable: true,
-            configurable: false
-        });
+Object.defineProperty(obj, "prop", {
+    value: 1001,
+    writable: true,
+    configurable: false
+});
 
-        Object.defineProperty(obj, "prop", {
-            value: 1002
-        });
+Object.defineProperty(obj, "prop", {
+    value: 1002
+});
 
-        return dataPropertyAttributesAreCorrect(obj, "prop", 1002, true, false, false);
-    }
-runTestCase(testcase);
+dataPropertyAttributesAreCorrect(obj, "prop", 1002, true, false, false);
+

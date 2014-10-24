@@ -11,23 +11,23 @@ description: >
     that won't exist on 'O', and 'desc' is data descriptor, test 'P'
     is defined in 'O' with all correct attribute values (15.4.5.1 step
     5)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arr = [];
+var arr = [];
 
-        Object.defineProperties(arr, {
-            "property": {
-                value: 12,
-                writable: true,
-                enumerable: true,
-                configurable: true
-            }
-        });
-        return dataPropertyAttributesAreCorrect(arr, "property", 12, true, true, true) && arr.length === 0;
+Object.defineProperties(arr, {
+    "property": {
+        value: 12,
+        writable: true,
+        enumerable: true,
+        configurable: true
     }
-runTestCase(testcase);
+});
+dataPropertyAttributesAreCorrect(arr, "property", 12, true, true, true);
+
+if (arr.length !== 0) {
+    $ERROR('Expected arr.length === 0, actually ' + arr.length);
+}
+

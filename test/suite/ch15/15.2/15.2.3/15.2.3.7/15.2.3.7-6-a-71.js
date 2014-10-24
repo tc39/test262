@@ -10,30 +10,26 @@ description: >
     Object.defineProperties throws TypeError when 'P' is data property
     and  P.configurable is false, P.writable is false, desc is data
     property and  desc.writable is true (8.12.9 step 10.a.i)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
+negative: TypeError
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "foo", { 
-            value: 10, 
-            writable: false, 
-            configurable: false 
-        });
+Object.defineProperty(obj, "foo", { 
+    value: 10, 
+    writable: false, 
+    configurable: false 
+});
 
-        try {
-            Object.defineProperties(obj, {
-                foo: {
-                    writable: true
-                }
-            });
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError) && dataPropertyAttributesAreCorrect(obj, "foo", 10, false, false, false);
+try {
+    Object.defineProperties(obj, {
+        foo: {
+            writable: true
         }
-    }
-runTestCase(testcase);
+    });
+} catch (e) {
+    dataPropertyAttributesAreCorrect(obj, "foo", 10, false, false, false);
+    throw e;
+}

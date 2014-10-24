@@ -11,20 +11,16 @@ description: >
     that has formal parameters, 'P' is own property, and 'desc' is
     data descriptor, test 'P' is defined in 'O' with all correct
     attribute values (10.6 [[DefineOwnProperty]] step 3)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        return (function (a, b, c) {
-            Object.defineProperty(arguments, "genericProperty", {
-                value: 1001,
-                writable: true,
-                enumerable: true,
-                configurable: true
-            });
-            return dataPropertyAttributesAreCorrect(arguments, "genericProperty", 1001, true, true, true);
-        }(1, 2, 3));
-    }
-runTestCase(testcase);
+(function (a, b, c) {
+    Object.defineProperty(arguments, "genericProperty", {
+        value: 1001,
+        writable: true,
+        enumerable: true,
+        configurable: true
+    });
+    dataPropertyAttributesAreCorrect(arguments, "genericProperty", 1001, true, true, true);
+}(1, 2, 3));
+

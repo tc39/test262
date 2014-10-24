@@ -11,27 +11,22 @@ description: >
     named property, name is accessor property and 'desc' is accessor
     descriptor, test updating the [[Get]] attribute value of 'name'
     (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arrObj = [];
+var arrObj = [];
 
-        function getFunc() {
-            return 100;
-        }
-        Object.defineProperty(arrObj, "0", {
-            get: function () {
-                return 12;
-            },
-            configurable: true
-        });
-        Object.defineProperty(arrObj, "0", {
-            get: getFunc
-        });
-        return accessorPropertyAttributesAreCorrect(arrObj, "0", getFunc, undefined, undefined, false, true);
-    }
-runTestCase(testcase);
+function getFunc() {
+    return 100;
+}
+Object.defineProperty(arrObj, "0", {
+    get: function () {
+        return 12;
+    },
+    configurable: true
+});
+Object.defineProperty(arrObj, "0", {
+    get: getFunc
+});
+accessorPropertyAttributesAreCorrect(arrObj, "0", getFunc, undefined, undefined, false, true);

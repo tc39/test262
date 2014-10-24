@@ -9,27 +9,22 @@ es5id: 15.2.3.7-6-a-99
 description: >
     Object.defineProperties - 'P' is data property, P.configurable is
     true and properties.configurable is false
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "foo", { 
-            value: 200, 
-            enumerable: true, 
-            writable: true, 
-            configurable: true 
-        });
+Object.defineProperty(obj, "foo", { 
+    value: 200, 
+    enumerable: true, 
+    writable: true, 
+    configurable: true 
+});
 
-        Object.defineProperties(obj, {
-            foo: {
-                configurable: false
-            }
-        });
-        return dataPropertyAttributesAreCorrect(obj, "foo", 200, true, true, false);
+Object.defineProperties(obj, {
+    foo: {
+        configurable: false
     }
-runTestCase(testcase);
+});
+dataPropertyAttributesAreCorrect(obj, "foo", 200, true, true, false);

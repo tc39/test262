@@ -10,36 +10,32 @@ description: >
     Object.defineProperty will throw TypeError when name.configurable
     = false, name.[[Get]] is undefined, desc.[[Get]] refers to an
     object (8.12.9 step 11.a.ii)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
+negative: TypeError
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        function setFunc(value) {
-            obj.setVerifyHelpProp = value;
-        }
+function setFunc(value) {
+    obj.setVerifyHelpProp = value;
+}
 
-        Object.defineProperty(obj, "foo", {
-            set: setFunc,
-            configurable: false
-        });
+Object.defineProperty(obj, "foo", {
+    set: setFunc,
+    configurable: false
+});
 
-        function getFunc() {
-            return 10;
-        }
+function getFunc() {
+    return 10;
+}
 
-        try {
-            Object.defineProperty(obj, "foo", {
-                get: getFunc,
-                set: setFunc
-            });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && accessorPropertyAttributesAreCorrect(obj, "foo", undefined, setFunc, "setVerifyHelpProp", false, false);
-        }
-    }
-runTestCase(testcase);
+try {
+    Object.defineProperty(obj, "foo", {
+        get: getFunc,
+        set: setFunc
+    });
+} catch (e) {
+    accessorPropertyAttributesAreCorrect(obj, "foo", undefined, setFunc, "setVerifyHelpProp", false, false);
+    throw e;
+}

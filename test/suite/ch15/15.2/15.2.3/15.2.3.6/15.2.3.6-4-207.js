@@ -12,24 +12,19 @@ description: >
     [[Enumerable]] is absent in accessor descriptor 'desc', test
     [[Enumerable]] attribute of property 'name' is set to false
     (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arrObj = [];
+var arrObj = [];
 
-        var setFunc = function (value) {
-            arrObj.setVerifyHelpProp = value;
-        };
-        var getFunc = function () { };
+var setFunc = function (value) {
+    arrObj.setVerifyHelpProp = value;
+};
+var getFunc = function () { };
 
-        Object.defineProperty(arrObj, "0", {
-            set: setFunc,
-            get: getFunc,
-            configurable: true
-        });
-        return accessorPropertyAttributesAreCorrect(arrObj, "0", getFunc, setFunc, "setVerifyHelpProp", false, true);
-    }
-runTestCase(testcase);
+Object.defineProperty(arrObj, "0", {
+    set: setFunc,
+    get: getFunc,
+    configurable: true
+});
+accessorPropertyAttributesAreCorrect(arrObj, "0", getFunc, setFunc, "setVerifyHelpProp", false, true);

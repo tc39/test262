@@ -11,18 +11,14 @@ description: >
     named property, name is data property and 'desc' is data
     descriptor, test setting the [[Value]] attribute value of 'name'
     as undefined (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arrObj = [100];
+var arrObj = [100];
 
-        Object.defineProperty(arrObj, "0", {
-            value: undefined
-        });
-        return dataPropertyAttributesAreCorrect(arrObj, "0", undefined, true, true, true);
-    }
-runTestCase(testcase);
+Object.defineProperty(arrObj, "0", {
+    value: undefined
+});
+dataPropertyAttributesAreCorrect(arrObj, "0", undefined, true, true, true);
+

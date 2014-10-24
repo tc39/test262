@@ -10,17 +10,13 @@ description: >
     Object.defineProperty - 'O' is an Array, 'name' is an array index
     property, both the [[Value]] field of 'desc' and the [[Value]]
     attribute value of 'name' are undefined (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arrObj = [];
+var arrObj = [];
 
-        Object.defineProperty(arrObj, "0", { value: undefined });
+Object.defineProperty(arrObj, "0", { value: undefined });
 
-        Object.defineProperty(arrObj, "0", { value: undefined });
-        return dataPropertyAttributesAreCorrect(arrObj, "0", undefined, false, false, false);
-    }
-runTestCase(testcase);
+Object.defineProperty(arrObj, "0", { value: undefined });
+dataPropertyAttributesAreCorrect(arrObj, "0", undefined, false, false, false);
+

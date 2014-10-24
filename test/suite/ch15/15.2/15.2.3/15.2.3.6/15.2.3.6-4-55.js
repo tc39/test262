@@ -10,26 +10,21 @@ description: >
     Object.defineProperty - 'name' property doesn't exist in 'O', test
     [[Enumerable]] of 'name' property of 'Attributes' is set as false
     value if absent in accessor descriptor 'desc' (8.12.9 step 4.b.i)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        var setFunc = function (value) {
-            obj.setVerifyHelpProp = value;
-        };
-        var getFunc = function () {
-            return 10;
-        };
+var setFunc = function (value) {
+    obj.setVerifyHelpProp = value;
+};
+var getFunc = function () {
+    return 10;
+};
 
-        Object.defineProperty(obj, "property", {
-            set: setFunc,
-            get: getFunc,
-            configurable: true
-        });
-        return accessorPropertyAttributesAreCorrect(obj, "property", getFunc, setFunc, "setVerifyHelpProp", false, true);
-    }
-runTestCase(testcase);
+Object.defineProperty(obj, "property", {
+    set: setFunc,
+    get: getFunc,
+    configurable: true
+});
+accessorPropertyAttributesAreCorrect(obj, "property", getFunc, setFunc, "setVerifyHelpProp", false, true);

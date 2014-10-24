@@ -10,25 +10,27 @@ description: >
     Object.freeze - The [[Configurable]] attribute of own data
     property of 'O' is set to false while other attributes are
     unchanged
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "foo", {
-            value: 10,
-            writable: false,
-            enumerable: true,
-            configurable: true
-        });
+Object.defineProperty(obj, "foo", {
+    value: 10,
+    writable: false,
+    enumerable: true,
+    configurable: true
+});
 
-        Object.freeze(obj);
-        var desc = Object.getOwnPropertyDescriptor(obj, "foo");
+Object.freeze(obj);
+var desc = Object.getOwnPropertyDescriptor(obj, "foo");
 
-        return dataPropertyAttributesAreCorrect(obj, "foo", 10, false, true, false) &&
-            desc.configurable === false && desc.writable === false;
-    }
-runTestCase(testcase);
+if (desc.configurable) {
+    $ERROR("Expected desc.configurable to be false, actually " + desc.configurable);
+}
+if (desc.writable) {
+    $ERROR("Expected desc.writable to be false, actually " + desc.writable);
+}
+
+dataPropertyAttributesAreCorrect(obj, "foo", 10, false, true, false);
+

@@ -10,30 +10,25 @@ description: >
     Object.defineProperty will update [[Value]] attribute successfully
     when [[Configurable]] attribute is true and [[Writable]] attribute
     is false, 'O' is the global object (8.12.9 - step Note)
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js, fnGlobalObject.js]
 ---*/
 
-function testcase() {
 
-        var obj = fnGlobalObject();
+var obj = fnGlobalObject();
 
-        try {
-            Object.defineProperty(obj, "property", {
-                value: 1001,
-                writable: false,
-                configurable: true
-            });
+try {
+    Object.defineProperty(obj, "property", {
+        value: 1001,
+        writable: false,
+        configurable: true
+    });
 
-            Object.defineProperty(obj, "property", {
-                value: 1002
-            });
+    Object.defineProperty(obj, "property", {
+        value: 1002
+    });
 
-            return dataPropertyAttributesAreCorrect(obj, "property", 1002, false, false, true);
-        } finally {
-            delete obj.property;
-        }
-    }
-runTestCase(testcase);
+    dataPropertyAttributesAreCorrect(obj, "property", 1002, false, false, true);
+} finally {
+    delete obj.property;
+}
+

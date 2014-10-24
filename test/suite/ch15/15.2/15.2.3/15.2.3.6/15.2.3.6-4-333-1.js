@@ -11,25 +11,21 @@ description: >
     property 'P' successfully when [[Configurable]] attribute is
     false, [[Writable]] attribute is true and 'O' is an Object object
     (8.12.9 - step 10)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "property", {
-            value: 1001,
-            writable: true,
-            configurable: false
-        });
+Object.defineProperty(obj, "property", {
+    value: 1001,
+    writable: true,
+    configurable: false
+});
 
-        Object.defineProperty(obj, "property", {
-            value: 1002
-        });
+Object.defineProperty(obj, "property", {
+    value: 1002
+});
 
-        return dataPropertyAttributesAreCorrect(obj, "property", 1002, true, false, false);
-    }
-runTestCase(testcase);
+dataPropertyAttributesAreCorrect(obj, "property", 1002, true, false, false);
+

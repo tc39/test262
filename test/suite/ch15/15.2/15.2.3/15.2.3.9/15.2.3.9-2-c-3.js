@@ -10,62 +10,62 @@ description: >
     Object.freeze - The [[Configurable]] attribute of all own data
     property of 'O' is set to false while other attributes are
     unchanged
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
+var obj = {};
+var resultSetFun = false;
 
-        var obj = {};
-        var resultSetFun = false;
+Object.defineProperty(obj, "foo1", {
+    value: 10,
+    writable: false,
+    enumerable: true,
+    configurable: true
+});
 
-        Object.defineProperty(obj, "foo1", {
-            value: 10,
-            writable: false,
-            enumerable: true,
-            configurable: true
-        });
+function get_func() {
+    return 10;
+}
 
-        function get_func() {
-            return 10;
-        }
+function set_func() {
+    resultSetFun = true;
+}
 
-        function set_func() {
-            resultSetFun = true;
-        }
+Object.defineProperty(obj, "foo2", {
+    get: get_func,
+    set: set_func,
+    enumerable: true,
+    configurable: true
+});
 
-        Object.defineProperty(obj, "foo2", {
-            get: get_func,
-            set: set_func,
-            enumerable: true,
-            configurable: true
-        });
+Object.freeze(obj);
 
-        Object.freeze(obj);
+if (isConfigurable(obj, "foo2")) {
+    $ERROR('Expected obj["foo2"] to not be configurable.');
+}
 
-        var res1 = obj.hasOwnProperty("foo2");
-        delete obj.foo2;
-        var res2 = obj.hasOwnProperty("foo2");
-        var resultConfigurable = (res1 && res2);
+if (obj.foo2 !== 10) {
+    $ERROR('Expected obj["foo2"] get() to return 10, actually ', obj.foo2);
+}
 
-        var resultGetFun = (obj.foo2 === 10);
-        obj.foo2 = 12;
+obj.foo2 = 12;
+if (!resultSetFun) {
+    $ERROR('Expected obj["foo2"] set() to be called, but was not.');
+}
 
-        var resultEnumerable = false;
-        for (var prop in obj) {
-            if (prop === "foo2") {
-                resultEnumerable = true;
-            }
-        }
+if (!isEnumerable(obj, "foo2")) {
+    $ERROR('Expected obj["foo2"] to be enumerable.');
+}
 
-        var desc1 = Object.getOwnPropertyDescriptor(obj, "foo1");
-        var desc2 = Object.getOwnPropertyDescriptor(obj, "foo2");
+var desc1 = Object.getOwnPropertyDescriptor(obj, "foo1");
+if (desc1.configurable || desc1.writable) {
+    $ERROR('Expected obj["foo1"] to be non-writable, non-configurable; actually ' + JSON.stringify(desc1));
+}
 
-        var result = resultConfigurable && resultEnumerable && resultGetFun && resultSetFun;
+var desc2 = Object.getOwnPropertyDescriptor(obj, "foo2");
+if (desc2.configurable || desc2.writable) {
+    $ERROR('Expected obj["foo2"] to be non-writable, non-configurable; actually ' + JSON.stringify(desc2));
+}
 
-        return dataPropertyAttributesAreCorrect(obj, "foo1", 10, false, true, false) && result &&
-            desc1.configurable === false && desc1.writable === false && desc2.configurable === false;
+dataPropertyAttributesAreCorrect(obj, "foo1", 10, false, true, false);
 
-    }
-runTestCase(testcase);

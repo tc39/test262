@@ -9,18 +9,14 @@ es5id: 15.2.3.6-4-70
 description: >
     Object.defineProperty - desc.value and name.value are two boolean
     values with different values (8.12.9 step 6)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        obj.foo = true; // default value of attributes: writable: true, configurable: true, enumerable: true
+obj.foo = true; // default value of attributes: writable: true, configurable: true, enumerable: true
 
-        Object.defineProperty(obj, "foo", { value: false });
-        return dataPropertyAttributesAreCorrect(obj, "foo", false, true, true, true);
-    }
-runTestCase(testcase);
+Object.defineProperty(obj, "foo", { value: false });
+dataPropertyAttributesAreCorrect(obj, "foo", false, true, true, true);
+

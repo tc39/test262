@@ -11,24 +11,16 @@ description: >
     named property that already exists on 'O' is data property and
     'desc' is data descriptor, test setting the [[Value]] attribute
     value of 'P' from undefined to normal value  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arr = [undefined];
+var arr = [undefined];
 
-        try {
-            Object.defineProperties(arr, {
-                "0": {
-                    value: 12
-                }
-            });
-            return dataPropertyAttributesAreCorrect(arr, "0", 12, true, true, true);
-        } catch (ex) {
-            return false;
-        }
+Object.defineProperties(arr, {
+    "0": {
+        value: 12
     }
-runTestCase(testcase);
+});
+dataPropertyAttributesAreCorrect(arr, "0", 12, true, true, true);
+

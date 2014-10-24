@@ -11,27 +11,22 @@ description: >
     named property that already exists on 'O' is accessor property and
     'desc' is accessor descriptor, test setting the [[Get]] attribute
     value of 'P' as undefined  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arr = [];
+var arr = [];
 
-        Object.defineProperty(arr, "0", {
-            get: function () {
-                return 12;
-            },
-            configurable: true
-        });
+Object.defineProperty(arr, "0", {
+    get: function () {
+        return 12;
+    },
+    configurable: true
+});
 
-        Object.defineProperties(arr, {
-            "0": {
-                get: undefined
-            }
-        });
-        return accessorPropertyAttributesAreCorrect(arr, "0", undefined, undefined, undefined, false, true);
+Object.defineProperties(arr, {
+    "0": {
+        get: undefined
     }
-runTestCase(testcase);
+});
+accessorPropertyAttributesAreCorrect(arr, "0", undefined, undefined, undefined, false, true);

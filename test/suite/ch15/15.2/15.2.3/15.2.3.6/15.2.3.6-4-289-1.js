@@ -7,19 +7,16 @@
 /*---
 es5id: 15.2.3.6-4-289-1
 description: >
-    Object.defineProperty - 'O' is an Arguments object of a function
-    that has formal parameters, 'name' is own property which is
-    defined in both [[ParameterMap]] of 'O' and 'O', and is deleted
-    afterwards, and 'desc' is data descriptor, test 'name' is
-    redefined in 'O' with all correct attribute values (10.6
-    [[DefineOwnProperty]] step 3)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
----*/
+ Object.defineProperty - 'O' is an Arguments object of a function
+ that has formal parameters, 'name' is own property which is
+ defined in both [[ParameterMap]] of 'O' and 'O', and is deleted
+ afterwards, and 'desc' is data descriptor, test 'name' is
+ redefined in 'O' with all correct attribute values (10.6
+ [[DefineOwnProperty]] step 3)
+includes: [propertyHelper.js]
+ ---*/
 
-function testcase() {
-        return (function (a, b, c) {
+(function (a, b, c) {
             delete arguments[0];
             Object.defineProperty(arguments, "0", {
                 value: 10,
@@ -27,8 +24,9 @@ function testcase() {
                 enumerable: true,
                 configurable: true
             });
-            var verifyFormal = a === 0;
-            return dataPropertyAttributesAreCorrect(arguments, "0", 10, true, true, true) && verifyFormal;
-        }(0, 1, 2));
+    dataPropertyAttributesAreCorrect(arguments, "0", 10, true, true, true);
+    if (a !== 0) {
+        $ERROR("Expected a === 0, actually " + a);
     }
-runTestCase(testcase);
+    
+}(0, 1, 2));

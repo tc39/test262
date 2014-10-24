@@ -9,40 +9,35 @@ es5id: 15.2.3.7-6-a-110
 description: >
     Object.defineProperties - all own properties (data property and
     accessor property)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        function get_func() {
-            return 10;
-        }
-        function set_func(value) {
-            obj.setVerifyHelpProp = value;
-        }
+function get_func() {
+    return 10;
+}
+function set_func(value) {
+    obj.setVerifyHelpProp = value;
+}
 
-        var properties = {
-            foo1: {
-                value: 200,
-                enumerable: true,
-                writable: true,
-                configurable: true
-            },
-            foo2: {
-                get: get_func,
-                set: set_func,
-                enumerable: true,
-                configurable: true
-            }
-        };
-
-        Object.defineProperties(obj, properties);
-        return dataPropertyAttributesAreCorrect(obj, "foo1", 200, true, true, true) && accessorPropertyAttributesAreCorrect(obj, "foo2", get_func, set_func, "setVerifyHelpProp", true, true);
-
+var properties = {
+    foo1: {
+        value: 200,
+        enumerable: true,
+        writable: true,
+        configurable: true
+    },
+    foo2: {
+        get: get_func,
+        set: set_func,
+        enumerable: true,
+        configurable: true
     }
-runTestCase(testcase);
+};
+
+Object.defineProperties(obj, properties);
+dataPropertyAttributesAreCorrect(obj, "foo1", 200, true, true, true);
+accessorPropertyAttributesAreCorrect(obj, "foo2", get_func, set_func, "setVerifyHelpProp", true, true);
+

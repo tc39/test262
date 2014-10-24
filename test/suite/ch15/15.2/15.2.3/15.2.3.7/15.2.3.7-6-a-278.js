@@ -12,30 +12,25 @@ description: >
     'O', and is deleted afterwards, and 'desc' is data descriptor,
     test 'P' is redefined in 'O' with all correct attribute values
     (10.6 [[DefineOwnProperty]] step 3)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arg;
+var arg;
 
-        (function fun(a, b, c) {
-            arg = arguments;
-        }(0, 1, 2));
+(function fun(a, b, c) {
+    arg = arguments;
+}(0, 1, 2));
 
-        delete arg[0];
+delete arg[0];
 
-        Object.defineProperties(arg, {
-            "0": {
-                value: 10,
-                writable: true,
-                enumerable: true,
-                configurable: true
-            }
-        });
-
-        return dataPropertyAttributesAreCorrect(arg, "0", 10, true, true, true);
+Object.defineProperties(arg, {
+    "0": {
+        value: 10,
+        writable: true,
+        enumerable: true,
+        configurable: true
     }
-runTestCase(testcase);
+});
+
+dataPropertyAttributesAreCorrect(arg, "0", 10, true, true, true);

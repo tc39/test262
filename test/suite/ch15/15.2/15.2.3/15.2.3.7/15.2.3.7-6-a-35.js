@@ -10,28 +10,23 @@ description: >
     Object.defineProperties - 'P' doesn't exist in 'O', test
     [[Enumerable]] of 'P' is set as false value if absent in accessor
     descriptor 'desc' (8.12.9 step 4.b.i)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
-        var getFun = function () {
-            return 10;
-        };
-        var setFun = function (value) {
-            obj.setVerifyHelpProp = value;
-        };
+var obj = {};
+var getFun = function () {
+    return 10;
+};
+var setFun = function (value) {
+    obj.setVerifyHelpProp = value;
+};
 
-        Object.defineProperties(obj, {
-            prop: {
-                set: setFun,
-                get: getFun,
-                configurable: true
-            }
-        });
-        return accessorPropertyAttributesAreCorrect(obj, "prop", getFun, setFun, "setVerifyHelpProp", false, true);
-
+Object.defineProperties(obj, {
+    prop: {
+        set: setFun,
+        get: getFun,
+        configurable: true
     }
-runTestCase(testcase);
+});
+accessorPropertyAttributesAreCorrect(obj, "prop", getFun, setFun, "setVerifyHelpProp", false, true);
+

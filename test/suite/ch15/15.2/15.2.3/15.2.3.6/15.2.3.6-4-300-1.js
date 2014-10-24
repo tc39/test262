@@ -13,31 +13,28 @@ description: >
     is thrown when updating the [[Configurable]] attribute value of
     'name' which is defined as non-configurable (10.6
     [[DefineOwnProperty]] step 4 and step 5a)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
+negative: TypeError
 ---*/
 
-function testcase() {
-        return (function (a, b, c) {
-            function getFunc() {
-                return 0;
-            }
-            Object.defineProperty(arguments, "0", {
-                get: getFunc,
-                enumerable: true,
-                configurable: false
-            });
-            try {
-                Object.defineProperty(arguments, "0", {
-                    configurable: true
-                });
-            } catch (e) {
-                var verifyFormal = a === 0;
-                return e instanceof TypeError &&
-                    accessorPropertyAttributesAreCorrect(arguments, "0", getFunc, undefined, undefined, true, false) && verifyFormal;
-            }
-            return false;
-        }(0, 1, 2));
+(function (a, b, c) {
+    function getFunc() {
+        return 0;
     }
-runTestCase(testcase);
+    Object.defineProperty(arguments, "0", {
+        get: getFunc,
+        enumerable: true,
+        configurable: false
+    });
+    try {
+        Object.defineProperty(arguments, "0", {
+            configurable: true
+        });
+    } catch (e) {
+        if (a !== 0) {
+            $ERROR('Expected a === 0, actually ' + a);
+        }
+        accessorPropertyAttributesAreCorrect(arguments, "0", getFunc, undefined, undefined, true, false);
+        throw e;
+    }
+}(0, 1, 2));

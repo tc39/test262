@@ -9,29 +9,24 @@ es5id: 15.2.3.7-6-a-37
 description: >
     Object.defineProperties - 'desc' is accessor descriptor, test
     setting all attribute values of 'P' (8.12.9 step 4.b.i)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
-        var getFun = function () {
-            return 10;
-        };
-        var setFun = function (value) {
-            obj.setVerifyHelpProp = value;
-        };
+var obj = {};
+var getFun = function () {
+    return 10;
+};
+var setFun = function (value) {
+    obj.setVerifyHelpProp = value;
+};
 
-        Object.defineProperties(obj, {
-            prop: {
-                get: getFun,
-                set: setFun,
-                enumerable: false,
-                configurable: false
-            }
-        });
-        return accessorPropertyAttributesAreCorrect(obj, "prop", getFun, setFun, "setVerifyHelpProp", false, false);
-
+Object.defineProperties(obj, {
+    prop: {
+        get: getFun,
+        set: setFun,
+        enumerable: false,
+        configurable: false
     }
-runTestCase(testcase);
+});
+accessorPropertyAttributesAreCorrect(obj, "prop", getFun, setFun, "setVerifyHelpProp", false, false);
+

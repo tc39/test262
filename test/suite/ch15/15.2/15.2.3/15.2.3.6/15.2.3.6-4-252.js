@@ -14,29 +14,25 @@ description: >
     present, and the [[Set]] field of 'desc' and the [[Set]] attribute
     value of 'name' are two objects which refer to the different
     objects (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
+negative: TypeError
 ---*/
 
-function testcase() {
-        var arrObj = [];
+var arrObj = [];
 
-        function setFunc(value) {
-            arrObj.setVerifyHelpProp = value;
-        }
-        Object.defineProperty(arrObj, "1", {
-            set: setFunc
-        });
+function setFunc(value) {
+    arrObj.setVerifyHelpProp = value;
+}
+Object.defineProperty(arrObj, "1", {
+    set: setFunc
+});
 
-        try {
-            Object.defineProperty(arrObj, "1", {
-                set: function () { }
-            });
+try {
+    Object.defineProperty(arrObj, "1", {
+        set: function () { }
+    });
 
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && accessorPropertyAttributesAreCorrect(arrObj, "1", undefined, setFunc, "setVerifyHelpProp", false, false);
-        }
-    }
-runTestCase(testcase);
+} catch (e) {
+    accessorPropertyAttributesAreCorrect(arrObj, "1", undefined, setFunc, "setVerifyHelpProp", false, false);
+    throw e;
+}

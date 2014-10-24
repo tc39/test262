@@ -11,36 +11,31 @@ description: >
     named property, 'name' makes no change if the value of every field
     in 'desc' is the same value as the corresponding field in
     'name'(desc is accessor property) (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arrObj = [];
-        var getFunc = function () {
-            return "100";
-        };
-        var setFunc = function (value) {
-            arrObj.setVerifyHelpProp = value;
-        };
+var arrObj = [];
+var getFunc = function () {
+    return "100";
+};
+var setFunc = function (value) {
+    arrObj.setVerifyHelpProp = value;
+};
 
-        var desc = {
-            get: getFunc,
-            set: setFunc,
-            enumerable: true,
-            configurable: true
-        };
+var desc = {
+    get: getFunc,
+    set: setFunc,
+    enumerable: true,
+    configurable: true
+};
 
-        Object.defineProperty(arrObj, "0", {
-            get: getFunc,
-            set: setFunc,
-            enumerable: true,
-            configurable: true
-        });
+Object.defineProperty(arrObj, "0", {
+    get: getFunc,
+    set: setFunc,
+    enumerable: true,
+    configurable: true
+});
 
-        Object.defineProperty(arrObj, "0", desc);
+Object.defineProperty(arrObj, "0", desc);
 
-        return accessorPropertyAttributesAreCorrect(arrObj, "0", getFunc, setFunc, "setVerifyHelpProp", true, true);
-    }
-runTestCase(testcase);
+accessorPropertyAttributesAreCorrect(arrObj, "0", getFunc, setFunc, "setVerifyHelpProp", true, true);

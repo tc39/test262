@@ -9,18 +9,14 @@ es5id: 15.2.3.6-4-58
 description: >
     Object.defineProperty - 'name' is data descriptor and every fields
     in 'desc' is absent (8.12.9 step 5)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        obj.foo = 101; // default value of attributes: writable: true, configurable: true, enumerable: true
+obj.foo = 101; // default value of attributes: writable: true, configurable: true, enumerable: true
 
-        Object.defineProperty(obj, "foo", {});
-        return dataPropertyAttributesAreCorrect(obj, "foo", 101, true, true, true);
-    }
-runTestCase(testcase);
+Object.defineProperty(obj, "foo", {});
+dataPropertyAttributesAreCorrect(obj, "foo", 101, true, true, true);
+

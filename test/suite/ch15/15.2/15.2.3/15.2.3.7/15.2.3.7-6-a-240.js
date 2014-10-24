@@ -13,30 +13,26 @@ description: >
     is data descriptor, [[Value]] field of 'desc' and the [[Value]]
     attribute value of 'P' are two objects which refer to the
     different objects (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
+negative: TypeError
 ---*/
 
-function testcase() {
-        var arr = [];
-        var obj1 = { value: 12 };
-        var obj2 = { value: 36 };
+var arr = [];
+var obj1 = { value: 12 };
+var obj2 = { value: 36 };
 
-        Object.defineProperty(arr, "1", {
-            value: obj1
-        });
+Object.defineProperty(arr, "1", {
+    value: obj1
+});
 
-        try {
-            Object.defineProperties(arr, {
-                "1": {
-                    value: obj2
-                }
-            });
-
-            return false;
-        } catch (ex) {
-            return (ex instanceof TypeError) && dataPropertyAttributesAreCorrect(arr, "1", obj1, false, false, false);
+try {
+    Object.defineProperties(arr, {
+        "1": {
+            value: obj2
         }
-    }
-runTestCase(testcase);
+    });
+
+} catch (ex) {
+    dataPropertyAttributesAreCorrect(arr, "1", obj1, false, false, false);
+    throw ex;
+}

@@ -10,35 +10,27 @@ description: >
     Object.defineProperties - 'O' is an Array, 'P' is an array index
     named property, 'P' makes no change if every field in 'desc' is
     absent (name is accessor property)  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
+var arr = [];
 
-        function get_func() {
-            return 11;
-        }
-        function set_func(value) {
-            arr.setVerifyHelpProp = value;
-        }
+function get_func() {
+    return 11;
+}
+function set_func(value) {
+    arr.setVerifyHelpProp = value;
+}
 
-        Object.defineProperty(arr, "0", {
-            get: get_func,
-            set: set_func,
-            enumerable: true,
-            configurable: true
-        });
+Object.defineProperty(arr, "0", {
+    get: get_func,
+    set: set_func,
+    enumerable: true,
+    configurable: true
+});
 
-        try {
-            Object.defineProperties(arr, {
-                "0": {}
-            });
-            return accessorPropertyAttributesAreCorrect(arr, "0", get_func, set_func, "setVerifyHelpProp", true, true);
-        } catch (e) {
-            return false;
-        }
-    }
-runTestCase(testcase);
+Object.defineProperties(arr, {
+    "0": {}
+});
+accessorPropertyAttributesAreCorrect(arr, "0", get_func, set_func, "setVerifyHelpProp", true, true);
+
