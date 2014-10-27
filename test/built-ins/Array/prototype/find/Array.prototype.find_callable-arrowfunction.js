@@ -4,10 +4,10 @@
 /*---
 description: >
     Array.prototype.find shouldn't throw a TypeError if
-    IsCallable(predicate) is true; a function is callable
-features: [Array#find]
+    IsCallable(predicate) is true; arrow functions are callable
+features: [Array#find, arrow-function]
 ---*/
 
 
-[].find(function () {});
+[].find(x => x);
 
