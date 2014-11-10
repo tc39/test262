@@ -39,11 +39,11 @@ try {
         }
     });
 
-} catch (ex) {
+} catch (e) {
     accessorPropertyAttributesAreCorrect(arg, "genericProperty", getFun, setFun, "verifySetFun", false, false, false);
 
-    if (!(ex instanceof TypeError)) {
-        $ERROR("Expected TypeError, got " + ex);
+    if (!(e instanceof TypeError)) {
+        $ERROR("Epected TypeError, got " + e);
     }
 
 }

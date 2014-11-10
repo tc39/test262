@@ -31,11 +31,11 @@ try {
             get: undefined
         }
     });
-} catch (ex) {
+} catch (e) {
     accessorPropertyAttributesAreCorrect(arr, "1", get_fun, undefined, undefined, false, false);
 
-    if (!(ex instanceof TypeError)) {
-        $ERROR("Expected TypeError, got " + ex);
+    if (!(e instanceof TypeError)) {
+        $ERROR("Epected TypeError, got " + e);
     }
 
 }

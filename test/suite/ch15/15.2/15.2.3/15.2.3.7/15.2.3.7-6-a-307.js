@@ -30,11 +30,11 @@ try {
         }
     });
 
-} catch (ex) {
+} catch (e) {
     dataPropertyAttributesAreCorrect(arg, "genericProperty", undefined, false, false, false);
 
-    if (!(ex instanceof TypeError)) {
-        $ERROR("Expected TypeError, got " + ex);
+    if (!(e instanceof TypeError)) {
+        $ERROR("Epected TypeError, got " + e);
     }
 
 }

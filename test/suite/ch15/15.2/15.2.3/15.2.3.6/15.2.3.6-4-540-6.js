@@ -48,7 +48,7 @@ try {
             obj.verifySetFunction1 = value;
         }
     });
-} catch (e1) {
+} catch (e) {
     if (!result) {
         $ERROR('Expected result to be true, actually ' + result);
     }
@@ -56,8 +56,8 @@ try {
     accessorPropertyAttributesAreCorrect(obj, "0", getFunc, setFunc, "verifySetFunction", false, false);
 
 
-    if (!(e1 instanceof TypeError)) {
-        $ERROR("Expected TypeError, got " + e1);
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
 
 }

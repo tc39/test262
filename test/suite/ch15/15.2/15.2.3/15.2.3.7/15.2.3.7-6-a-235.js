@@ -27,11 +27,11 @@ try {
             value: -0
         }
     });
-} catch (ex) {
+} catch (e) {
     dataPropertyAttributesAreCorrect(arr, "1", +0, false, false, false);
 
-    if (!(ex instanceof TypeError)) {
-        $ERROR("Expected TypeError, got " + ex);
+    if (!(e instanceof TypeError)) {
+        $ERROR("Epected TypeError, got " + e);
     }
 
 }
