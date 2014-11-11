@@ -10,29 +10,30 @@ description: >
     Object.defineProperties - 'P' is accessor property and
     P.configurable is true, 'desc' in 'Properties' is data property
     (8.12.9 step 9.c.i)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        function get_func() {
-            return 10;
-        }
+function get_func() {
+    return 10;
+}
 
-        Object.defineProperty(obj, "foo", {
-            get: get_func,
-            configurable: true
-        });
+Object.defineProperty(obj, "foo", {
+    get: get_func,
+    configurable: true
+});
 
-        Object.defineProperties(obj, {
-            foo: {
-                value: 12
-            }
-        });
-        return dataPropertyAttributesAreCorrect(obj, "foo", 12, false, false, true);
+Object.defineProperties(obj, {
+    foo: {
+        value: 12
     }
-runTestCase(testcase);
+});
+verifyEqualTo(obj, "foo", 12);
+
+verifyNotWritable(obj, "foo");
+
+verifyNotEnumerable(obj, "foo");
+
+verifyConfigurable(obj, "foo");

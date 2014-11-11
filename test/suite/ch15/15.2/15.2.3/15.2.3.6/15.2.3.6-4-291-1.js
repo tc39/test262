@@ -12,31 +12,33 @@ description: >
     which is also defined in [[ParameterMap]] of 'O', and 'desc' is
     accessor descriptor, test updating multiple attribute values of
     'name' (10.6 [[DefineOwnProperty]] step 3 and 5.a.i)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        return (function (a, b, c) { 
-            function getFunc1() {
-                return 10;
-            }
-            Object.defineProperty(arguments, "0", {
-                get: getFunc1,
-                enumerable: true,
-                configurable: true
-            });
-            function getFunc2() {
-                return 20;
-            }
-            Object.defineProperty(arguments, "0", {
-                get: getFunc2,
-                enumerable: false,
-                configurable: false
-            });
-            var verifyFormal = a === 0;
-            return accessorPropertyAttributesAreCorrect(arguments, "0", getFunc2, undefined, undefined, false, false) && verifyFormal;
-        }(0, 1, 2));
+(function (a, b, c) { 
+    function getFunc1() {
+        return 10;
     }
-runTestCase(testcase);
+    Object.defineProperty(arguments, "0", {
+        get: getFunc1,
+        enumerable: true,
+        configurable: true
+    });
+    function getFunc2() {
+        return 20;
+    }
+    Object.defineProperty(arguments, "0", {
+        get: getFunc2,
+        enumerable: false,
+        configurable: false
+    });
+    if (a !== 0) {
+        $ERROR('Expected a === 0, actually ' + a);
+    }
+
+    verifyEqualTo(arguments, "0", getFunc2());
+
+    verifyNotEnumerable(arguments, "0");
+
+    verifyNotConfigurable(arguments, "0");
+}(0, 1, 2));

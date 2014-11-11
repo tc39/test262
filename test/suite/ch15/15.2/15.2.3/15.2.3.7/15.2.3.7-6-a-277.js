@@ -11,32 +11,35 @@ description: >
     accessor property of 'O', test TypeError is thrown when updating
     the [[Configurable]] attribute value of 'P' which is defined as
     non-configurable (15.4.5.1 step 5)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arr = [];
+var arr = [];
 
-        function set_fun(value) {
-            arr.setVerifyHelpProp = value;
+function set_fun(value) {
+    arr.setVerifyHelpProp = value;
+}
+Object.defineProperty(arr, "property", {
+    set: set_fun,
+    configurable: false
+});
+
+try {
+    Object.defineProperties(arr, {
+        "property": {
+            configurable: true
         }
-        Object.defineProperty(arr, "property", {
-            set: set_fun,
-            configurable: false
-        });
+    });
+} catch (e) {
+    verifyWritable(arr, "property", "setVerifyHelpProp");
 
-        try {
-            Object.defineProperties(arr, {
-                "property": {
-                    configurable: true
-                }
-            });
-            return false;
-        } catch (ex) {
-            return (ex instanceof TypeError) && accessorPropertyAttributesAreCorrect(arr, "property", undefined, set_fun, "setVerifyHelpProp", false, false);
-        }
+    verifyNotEnumerable(arr, "property");
+
+    verifyNotConfigurable(arr, "property");
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Epected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

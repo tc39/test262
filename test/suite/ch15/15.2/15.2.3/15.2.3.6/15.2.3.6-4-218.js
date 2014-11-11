@@ -11,21 +11,26 @@ description: >
     property, test TypeError is thrown when the [[Value]] field of
     'desc' is +0, and the [[Value]] attribute value of 'name' is -0
     (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arrObj = [];
+var arrObj = [];
 
-        Object.defineProperty(arrObj, "0", { value: -0 });
+Object.defineProperty(arrObj, "0", { value: -0 });
 
-        try {
-            Object.defineProperty(arrObj, "0", { value: +0 });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && dataPropertyAttributesAreCorrect(arrObj, "0", -0, false, false, false);
-        }
+try {
+    Object.defineProperty(arrObj, "0", { value: +0 });
+} catch (e) {
+    verifyEqualTo(arrObj, "0", -0);
+
+    verifyNotWritable(arrObj, "0");
+
+    verifyNotEnumerable(arrObj, "0");
+
+    verifyNotConfigurable(arrObj, "0");
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

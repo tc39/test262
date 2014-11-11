@@ -9,27 +9,28 @@ es5id: 15.2.3.7-6-a-97
 description: >
     Object.defineProperties - 'P' is data property, P.writable and
     properties.writable are different values (8.12.9 step 12)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "foo", { 
-            value: 100, 
-            enumerable: true, 
-            writable: false, 
-            configurable: true 
-        });
+Object.defineProperty(obj, "foo", { 
+    value: 100, 
+    enumerable: true, 
+    writable: false, 
+    configurable: true 
+});
 
-        Object.defineProperties(obj, {
-            foo: {
-                writable: true
-            }
-        });
-        return dataPropertyAttributesAreCorrect(obj, "foo", 100, true, true, true);
+Object.defineProperties(obj, {
+    foo: {
+        writable: true
     }
-runTestCase(testcase);
+});
+verifyEqualTo(obj, "foo", 100);
+
+verifyWritable(obj, "foo");
+
+verifyEnumerable(obj, "foo");
+
+verifyConfigurable(obj, "foo");

@@ -12,27 +12,29 @@ description: >
     descriptor, and the [[Configurable]] attribute value of 'name' is
     true, test 'name' is converted from accessor property to data
     property (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arrObj = [];
+var arrObj = [];
 
-        function getFunc() {
-            return 3;
-        }
-        Object.defineProperty(arrObj, "1", {
-            get: getFunc,
-            configurable: true
-        });
+function getFunc() {
+    return 3;
+}
+Object.defineProperty(arrObj, "1", {
+    get: getFunc,
+    configurable: true
+});
 
-        Object.defineProperty(arrObj, "1", {
-            value: 12
-        });
+Object.defineProperty(arrObj, "1", {
+    value: 12
+});
 
-        return dataPropertyAttributesAreCorrect(arrObj, "1", 12, false, false, true);
-    }
-runTestCase(testcase);
+verifyEqualTo(arrObj, "1", 12);
+
+verifyNotWritable(arrObj, "1");
+
+verifyNotEnumerable(arrObj, "1");
+
+verifyConfigurable(arrObj, "1");
+

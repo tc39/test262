@@ -11,35 +11,39 @@ description: >
     accessor property of 'O', test TypeError is thrown when updating
     the [[Get]] attribute value of 'P' which is not configurable (10.6
     [[DefineOwnProperty]] step 4)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        return (function () {
-            function getFunc() {
-                return "genericPropertyString";
-            }
-            function setFunc(value) {
-                this.helpVerifyGet = value;
-            }
-            Object.defineProperty(arguments, "genericProperty", {
-                get: getFunc,
-                set: setFunc,
-                configurable: false
-            });
-            try {
-                Object.defineProperty(arguments, "genericProperty", {
-                    get: function () {
-                        return "overideGenericPropertyString";
-                    }
-                });
-            } catch (e) {
-                return e instanceof TypeError &&
-                    accessorPropertyAttributesAreCorrect(arguments, "genericProperty", getFunc, setFunc, "helpVerifyGet", false, false, false);
-            }
-            return false;
-        }(1, 2, 3));
+(function () {
+    function getFunc() {
+        return "genericPropertyString";
     }
-runTestCase(testcase);
+    function setFunc(value) {
+        this.helpVerifyGet = value;
+    }
+    Object.defineProperty(arguments, "genericProperty", {
+        get: getFunc,
+        set: setFunc,
+        configurable: false
+    });
+    try {
+        Object.defineProperty(arguments, "genericProperty", {
+            get: function () {
+                return "overideGenericPropertyString";
+            }
+        });
+    } catch (e) {
+        verifyEqualTo(arguments, "genericProperty", getFunc());
+
+        verifyWritable(arguments, "genericProperty", "helpVerifyGet");
+
+        verifyNotEnumerable(arguments, "genericProperty");
+
+        verifyNotConfigurable(arguments, "genericProperty");
+
+        if (!(e instanceof TypeError)) {
+            $ERROR("Expected TypeError, got " + e);
+        }
+
+    }
+}(1, 2, 3));

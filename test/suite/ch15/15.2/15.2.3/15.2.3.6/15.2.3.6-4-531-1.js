@@ -10,38 +10,39 @@ description: >
     Object.defineProperty will update [[Get]] and [[Set]] attributes
     of named accessor property 'P' successfully when [[Configurable]]
     attribute is true, 'O' is an Object object (8.12.9 step 11)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
-        obj.verifySetFunction = "data";
-        Object.defineProperty(obj, "property", {
-            get: function () {
-                return obj.verifySetFunction;
-            },
-            set: function (value) {
-                obj.verifySetFunction = value;
-            },
-            configurable: true
-        });
+var obj = {};
+obj.verifySetFunction = "data";
+Object.defineProperty(obj, "property", {
+    get: function () {
+        return obj.verifySetFunction;
+    },
+    set: function (value) {
+        obj.verifySetFunction = value;
+    },
+    configurable: true
+});
 
-        obj.verifySetFunction1 = "data1";
-        var getFunc = function () {
-            return obj.verifySetFunction1;
-        };
-        var setFunc = function (value) {
-            obj.verifySetFunction1 = value;
-        };
+obj.verifySetFunction1 = "data1";
+var getFunc = function () {
+    return obj.verifySetFunction1;
+};
+var setFunc = function (value) {
+    obj.verifySetFunction1 = value;
+};
 
-        Object.defineProperty(obj, "property", {
-            get: getFunc,
-            set: setFunc
-        });
+Object.defineProperty(obj, "property", {
+    get: getFunc,
+    set: setFunc
+});
 
-        return accessorPropertyAttributesAreCorrect(obj, "property", getFunc, setFunc, "verifySetFunction1", false, true);
-    }
-runTestCase(testcase);
+verifyEqualTo(obj, "property", getFunc());
+
+verifyWritable(obj, "property", "verifySetFunction1");
+
+verifyNotEnumerable(obj, "property");
+
+verifyConfigurable(obj, "property");

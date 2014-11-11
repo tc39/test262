@@ -10,30 +10,29 @@ description: >
     Object.defineProperty - 'name' and 'desc' are accessor properties,
     name.enumerable and desc.enumerable are different values (8.12.9
     step 12)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        function getFunc() {
-            return 10;
-        }
+function getFunc() {
+    return 10;
+}
 
-        Object.defineProperty(obj, "foo", {
-            get: getFunc,
-            enumerable: true,
-            configurable: true
-        });
+Object.defineProperty(obj, "foo", {
+    get: getFunc,
+    enumerable: true,
+    configurable: true
+});
 
-        Object.defineProperty(obj, "foo", {
-            get: getFunc,
-            enumerable: false
-        });
+Object.defineProperty(obj, "foo", {
+    get: getFunc,
+    enumerable: false
+});
 
-        return accessorPropertyAttributesAreCorrect(obj, "foo", getFunc, undefined, undefined, false, true);
-    }
-runTestCase(testcase);
+verifyEqualTo(obj, "foo", getFunc());
+
+verifyNotEnumerable(obj, "foo");
+
+verifyConfigurable(obj, "foo");

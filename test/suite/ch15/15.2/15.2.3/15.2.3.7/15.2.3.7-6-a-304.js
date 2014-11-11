@@ -11,42 +11,43 @@ description: >
     generic own accessor property of 'O', and 'desc' is accessor
     descriptor, test updating multiple attribute values of 'P' (10.6
     [[DefineOwnProperty]] step 4)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arg = (function () {
-            return arguments;
-        }(1, 2, 3));
+var arg = (function () {
+    return arguments;
+}(1, 2, 3));
 
-        Object.defineProperty(arg, "genericProperty", {
-            get: function () {
-                return 1001;
-            },
-            set: function (value) {
-                arg.testGetFunction1 = value;
-            },
-            enumerable: true,
-            configurable: true
-        });
+Object.defineProperty(arg, "genericProperty", {
+    get: function () {
+        return 1001;
+    },
+    set: function (value) {
+        arg.testGetFunction1 = value;
+    },
+    enumerable: true,
+    configurable: true
+});
 
-        function getFun() {
-            return "getFunctionString";
-        }
-        function setFun(value) {
-            arg.testGetFunction = value;
-        }
-        Object.defineProperties(arg, {
-            "genericProperty": {
-                get: getFun,
-                set: setFun,
-                enumerable: false,
-                configurable: false
-            }
-        });
-
-        return accessorPropertyAttributesAreCorrect(arg, "genericProperty", getFun, setFun, "testGetFunction", false, false);
+function getFun() {
+    return "getFunctionString";
+}
+function setFun(value) {
+    arg.testGetFunction = value;
+}
+Object.defineProperties(arg, {
+    "genericProperty": {
+        get: getFun,
+        set: setFun,
+        enumerable: false,
+        configurable: false
     }
-runTestCase(testcase);
+});
+
+verifyEqualTo(arg, "genericProperty", getFun());
+
+verifyWritable(arg, "genericProperty", "testGetFunction");
+
+verifyNotEnumerable(arg, "genericProperty");
+
+verifyNotConfigurable(arg, "genericProperty");

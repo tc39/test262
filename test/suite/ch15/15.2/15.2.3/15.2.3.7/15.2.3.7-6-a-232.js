@@ -12,28 +12,29 @@ description: >
     and the [[Configurable]] attribute value of 'P' is true, test 'P'
     is converted from accessor property to data property  (15.4.5.1
     step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
+var arr = [];
 
-        Object.defineProperty(arr, "1", {
-            get: function () {
-                return 3;
-            },
-            configurable: true
+Object.defineProperty(arr, "1", {
+    get: function () {
+        return 3;
+    },
+    configurable: true
 
-        });
+});
 
-        Object.defineProperties(arr, {
-            "1": {
-                value: 12
-            }
-        });
-
-        return dataPropertyAttributesAreCorrect(arr, "1", 12, false, false, true);
+Object.defineProperties(arr, {
+    "1": {
+        value: 12
     }
-runTestCase(testcase);
+});
+
+verifyEqualTo(arr, "1", 12);
+
+verifyNotWritable(arr, "1");
+
+verifyNotEnumerable(arr, "1");
+
+verifyConfigurable(arr, "1");

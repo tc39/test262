@@ -10,17 +10,19 @@ description: >
     Object.defineProperty - 'O' is an Array, 'name' is an array index
     property, both the [[Value]] field of 'desc' and the [[Value]]
     attribute value of 'name' are null  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arrObj = [];
+var arrObj = [];
 
-        Object.defineProperty(arrObj, "0", { value: null });
+Object.defineProperty(arrObj, "0", { value: null });
 
-        Object.defineProperty(arrObj, "0", { value: null });
-        return dataPropertyAttributesAreCorrect(arrObj, "0", null, false, false, false);
-    }
-runTestCase(testcase);
+Object.defineProperty(arrObj, "0", { value: null });
+verifyEqualTo(arrObj, "0", null);
+
+verifyNotWritable(arrObj, "0");
+
+verifyNotEnumerable(arrObj, "0");
+
+verifyNotConfigurable(arrObj, "0");
+

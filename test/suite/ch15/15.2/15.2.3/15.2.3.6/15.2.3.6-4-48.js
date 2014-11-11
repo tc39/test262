@@ -10,20 +10,22 @@ description: >
     Object.defineProperty - 'name' property doesn't exist in 'O', test
     [[Writable]] of 'name' property of 'Attributes' is set as false
     value if absent in data descriptor 'desc' (8.12.9 step 4.a.i)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "property", {
-            value: 1001,
-            enumerable: true,
-            configurable: false
-        });
+Object.defineProperty(obj, "property", {
+    value: 1001,
+    enumerable: true,
+    configurable: false
+});
 
-        return dataPropertyAttributesAreCorrect(obj, "property", 1001, false, true, false);
-    }
-runTestCase(testcase);
+verifyEqualTo(obj, "property", 1001);
+
+verifyNotWritable(obj, "property");
+
+verifyEnumerable(obj, "property");
+
+verifyNotConfigurable(obj, "property");
+

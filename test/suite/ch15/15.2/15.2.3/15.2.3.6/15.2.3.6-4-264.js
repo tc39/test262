@@ -11,19 +11,21 @@ description: >
     named property, name is data property and 'desc' is data
     descriptor, test updating multiple attribute values of 'name'
     (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arrObj = [100];
-        Object.defineProperty(arrObj, "0", {
-            writable: false,
-            enumerable: false,
-            configurable: false
-        });
-        return dataPropertyAttributesAreCorrect(arrObj, "0", 100, false, false, false);
-    }
-runTestCase(testcase);
+var arrObj = [100];
+Object.defineProperty(arrObj, "0", {
+    writable: false,
+    enumerable: false,
+    configurable: false
+});
+verifyEqualTo(arrObj, "0", 100);
+
+verifyNotWritable(arrObj, "0");
+
+verifyNotEnumerable(arrObj, "0");
+
+verifyNotConfigurable(arrObj, "0");
+

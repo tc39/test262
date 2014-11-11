@@ -11,25 +11,22 @@ description: >
     named property that already exists on 'O' is accessor property and
     'desc' is accessor descriptor, test setting the [[Set]] attribute
     value of 'P' as undefined  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arr = [];
+var arr = [];
 
-        Object.defineProperty(arr, "0", {
-            set: function () { },
-            configurable: true
-        });
+Object.defineProperty(arr, "0", {
+    set: function () { },
+    configurable: true
+});
 
-        Object.defineProperties(arr, {
-            "0": {
-                set: undefined
-            }
-        });
-        return accessorPropertyAttributesAreCorrect(arr, "0", undefined, undefined, undefined, false, true);
+Object.defineProperties(arr, {
+    "0": {
+        set: undefined
     }
-runTestCase(testcase);
+});
+verifyNotEnumerable(arr, "0");
+
+verifyConfigurable(arr, "0");

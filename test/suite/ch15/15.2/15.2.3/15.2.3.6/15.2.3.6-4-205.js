@@ -11,23 +11,22 @@ description: >
     named property, 'name' property doesn't exist in 'O' and [[Get]]
     is absent in accessor descriptor 'desc', test [[Get]] attribute of
     property 'name' is set to undefined (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arrObj = [];
-        var setFunc = function (value) {
-            arrObj.setVerifyHelpProp = value;
-        };
+var arrObj = [];
+var setFunc = function (value) {
+    arrObj.setVerifyHelpProp = value;
+};
 
-        Object.defineProperty(arrObj, "0", {
-            set: setFunc,
-            enumerable: true,
-            configurable: true
-        });
+Object.defineProperty(arrObj, "0", {
+    set: setFunc,
+    enumerable: true,
+    configurable: true
+});
 
-        return accessorPropertyAttributesAreCorrect(arrObj, "0", undefined, setFunc, "setVerifyHelpProp", true, true);
-    }
-runTestCase(testcase);
+verifyWritable(arrObj, "0", "setVerifyHelpProp");
+
+verifyEnumerable(arrObj, "0");
+
+verifyConfigurable(arrObj, "0");

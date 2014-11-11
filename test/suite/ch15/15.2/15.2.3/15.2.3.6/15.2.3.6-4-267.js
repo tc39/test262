@@ -11,26 +11,25 @@ description: >
     named property, name is accessor property and 'desc' is accessor
     descriptor, test updating the [[Get]] attribute value of 'name'
     from undefined to function object (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arrObj = [];
+var arrObj = [];
 
-        function getFunc() {
-            return 12;
-        }
-        Object.defineProperty(arrObj, "0", {
-            get: undefined,
-            configurable: true
-        });
+function getFunc() {
+    return 12;
+}
+Object.defineProperty(arrObj, "0", {
+    get: undefined,
+    configurable: true
+});
 
-        Object.defineProperty(arrObj, "0", {
-            get: getFunc
-        });
-        return accessorPropertyAttributesAreCorrect(arrObj, "0", getFunc, undefined, undefined, false, true);
-    }
-runTestCase(testcase);
+Object.defineProperty(arrObj, "0", {
+    get: getFunc
+});
+verifyEqualTo(arrObj, "0", getFunc());
+
+verifyNotEnumerable(arrObj, "0");
+
+verifyConfigurable(arrObj, "0");

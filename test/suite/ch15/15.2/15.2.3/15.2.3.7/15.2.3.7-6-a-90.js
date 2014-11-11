@@ -10,34 +10,35 @@ description: >
     Object.defineProperties will not throw TypeError when
     P.configurable is false, both properties.[[Get]] and P.[[Get]] are
     two objects which refer to the same object (8.12.9 step 11.a.ii)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        function set_func(value) {
-            obj.setVerifyHelpProp = value;
-        }
-        function get_func() {
-            return 10;
-        }
+function set_func(value) {
+    obj.setVerifyHelpProp = value;
+}
+function get_func() {
+    return 10;
+}
 
-        Object.defineProperty(obj, "foo", {
-            get: get_func,
-            set: set_func,
-            enumerable: false,
-            configurable: false
-        });
+Object.defineProperty(obj, "foo", {
+    get: get_func,
+    set: set_func,
+    enumerable: false,
+    configurable: false
+});
 
-        Object.defineProperties(obj, {
-            foo: {
-                get: get_func
-            }
-        });
-        return accessorPropertyAttributesAreCorrect(obj, "foo", get_func, set_func, "setVerifyHelpProp", false, false);
+Object.defineProperties(obj, {
+    foo: {
+        get: get_func
     }
-runTestCase(testcase);
+});
+verifyEqualTo(obj, "foo", get_func());
+
+verifyWritable(obj, "foo", "setVerifyHelpProp");
+
+verifyNotEnumerable(obj, "foo");
+
+verifyNotConfigurable(obj, "foo");

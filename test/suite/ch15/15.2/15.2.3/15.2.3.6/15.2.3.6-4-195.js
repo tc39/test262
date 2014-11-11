@@ -10,40 +10,42 @@ description: >
     Object.defineProperty - 'O' is an Array, 'name' is an array index
     named property, 'name' is an inherited accessor property (15.4.5.1
     step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        try {
-            Object.defineProperty(Array.prototype, "0", {
-                get: function () {
-                    return 11;
-                },
-                configurable: true
-            });
+function getFunc() {
+    return arrObj.helpVerifySet;
+}
+function setFunc(value) {
+    arrObj.helpVerifySet = value;
+}
 
-            var arrObj = [];
+try {
+    Object.defineProperty(Array.prototype, "0", {
+        get: function () {
+            return 11;
+        },
+        configurable: true
+    });
 
-            function getFunc() {
-                return arrObj.helpVerifySet;
-            }
-            function setFunc(value) {
-                arrObj.helpVerifySet = value;
-            }
+    var arrObj = [];
 
-            Object.defineProperty(arrObj, "0", {
-                get: getFunc,
-                set: setFunc,
-                configurable: false
-            });
 
-            arrObj[0] = 13;
+    Object.defineProperty(arrObj, "0", {
+        get: getFunc,
+        set: setFunc,
+        configurable: false
+    });
 
-            return accessorPropertyAttributesAreCorrect(arrObj, "0", getFunc, setFunc, "helpVerifySet", false, false);
-        } finally {
-            delete Array.prototype[0];
-        }
-    }
-runTestCase(testcase);
+    arrObj[0] = 13;
+
+    verifyEqualTo(arrObj, "0", getFunc());
+
+    verifyWritable(arrObj, "0", "helpVerifySet");
+
+    verifyNotEnumerable(arrObj, "0");
+
+    verifyNotConfigurable(arrObj, "0");
+} finally {
+    delete Array.prototype[0];
+}

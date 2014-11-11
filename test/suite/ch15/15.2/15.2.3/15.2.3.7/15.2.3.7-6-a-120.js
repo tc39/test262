@@ -11,23 +11,20 @@ description: >
     property of 'O', the [[Value]] field of 'desc' is absent, test
     updating the [[Writable]] attribute of the length property from
     true to false (15.4.5.1 step 3.a.i)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
+var arr = [];
 
-        var arr = [];
+Object.defineProperties(arr, {
+    length: { writable: false }
+});
 
-        try {
-            Object.defineProperties(arr, {
-                length: { writable: false }
-            });
+verifyEqualTo(arr, "length", 0);
 
-            return dataPropertyAttributesAreCorrect(arr, "length", 0, false, false, false);
-        } catch (e) {
-            return false;
-        }
-    }
-runTestCase(testcase);
+verifyNotWritable(arr, "length");
+
+verifyNotEnumerable(arr, "length");
+
+verifyNotConfigurable(arr, "length");
+

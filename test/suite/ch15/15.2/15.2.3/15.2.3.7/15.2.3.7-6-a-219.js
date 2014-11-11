@@ -10,27 +10,25 @@ description: >
     Object.defineProperties - 'O' is an Array, 'P' is an array index
     property that already exists on 'O' with [[Writable]] true, and
     the [[Writable]] field of 'desc' is true  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
+var arr = [];
 
-        Object.defineProperty(arr, "0", {
-            writable: true
-        });
+Object.defineProperty(arr, "0", {
+    writable: true
+});
 
-        try {
-            Object.defineProperties(arr, {
-                "0": {
-                    writable: true
-                }
-            });
-            return dataPropertyAttributesAreCorrect(arr, "0", undefined, true, false, false);
-        } catch (e) {
-            return false;
-        }
+Object.defineProperties(arr, {
+    "0": {
+        writable: true
     }
-runTestCase(testcase);
+});
+verifyEqualTo(arr, "0", undefined);
+
+verifyWritable(arr, "0");
+
+verifyNotEnumerable(arr, "0");
+
+verifyNotConfigurable(arr, "0");
+

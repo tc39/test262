@@ -12,23 +12,24 @@ description: >
     [[Configurable]] is absent in accessor descriptor 'desc', test
     [[Configurable]] attribute of property 'name' is set to false
     (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arrObj = [];
-        var setFunc = function (value) {
-            arrObj.setVerifyHelpProp = value;
-        };
-        var getFunc = function () { };
+var arrObj = [];
+var setFunc = function (value) {
+    arrObj.setVerifyHelpProp = value;
+};
+var getFunc = function () { };
 
-        Object.defineProperty(arrObj, "0", {
-            set: setFunc,
-            get: getFunc,
-            enumerable: true
-        });
-        return accessorPropertyAttributesAreCorrect(arrObj, "0", getFunc, setFunc, "setVerifyHelpProp", true, false);
-    }
-runTestCase(testcase);
+Object.defineProperty(arrObj, "0", {
+    set: setFunc,
+    get: getFunc,
+    enumerable: true
+});
+verifyEqualTo(arrObj, "0", getFunc());
+
+verifyWritable(arrObj, "0", "setVerifyHelpProp");
+
+verifyEnumerable(arrObj, "0");
+
+verifyNotConfigurable(arrObj, "0");

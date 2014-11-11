@@ -10,32 +10,23 @@ description: >
     Object.defineProperties - 'O' is an Array, 'P' is the length
     property of 'O', the [[Value]] field of 'desc' is absent, test
     every field in 'desc' is absent (15.4.5.1 step 3.a.i)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
+var arr = [];
 
-        Object.defineProperties(arr, { length: {} });
+Object.defineProperties(arr, { length: {} });
 
-        var verifyValue = false;
-        verifyValue = (arr.length === 0);
+if (arr.length !== 0) {
+    $ERROR("Expected arr.length to be 0, actually " + arr.length);
+}
 
-        var verifyWritable = false;
-        arr.length = 2;
-        verifyWritable = (arr.length === 2);
+arr.length = 2;
 
-        var verifyEnumerable = false;
-        for (var p in arr) {
-            if (p === "length") {
-                verifyEnumerable = true;
-            }
-        }
+verifyEqualTo(arr, "length", 2);
 
-        var verifyConfigurable = false;
-        delete arr.length;
-        verifyConfigurable = arr.hasOwnProperty("length");
+verifyNotWritable(arr, "length");
 
-        return verifyValue && verifyWritable && !verifyEnumerable && verifyConfigurable;
-    }
-runTestCase(testcase);
+verifyNotEnumerable(arr, "length");
+
+verifyNotConfigurable(arr, "length");
