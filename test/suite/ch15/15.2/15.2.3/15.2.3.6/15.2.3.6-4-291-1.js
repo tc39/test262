@@ -36,5 +36,9 @@ includes: [propertyHelper.js]
         $ERROR('Expected a === 0, actually ' + a);
     }
 
-    accessorPropertyAttributesAreCorrect(arguments, "0", getFunc2, undefined, undefined, false, false);
+    verifyEqualTo(arguments, "0", getFunc2());
+
+    verifyNotEnumerable(arguments, "0");
+
+    verifyNotConfigurable(arguments, "0");
 }(0, 1, 2));

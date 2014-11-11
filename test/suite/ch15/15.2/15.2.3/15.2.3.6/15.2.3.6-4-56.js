@@ -26,4 +26,10 @@ Object.defineProperty(obj, "property", {
     get: getFunc,
     enumerable: true
 });
-accessorPropertyAttributesAreCorrect(obj, "property", getFunc, setFunc, "setVerifyHelpProp", true, false);
+verifyEqualTo(obj, "property", getFunc());
+
+verifyWritable(obj, "property", "setVerifyHelpProp");
+
+verifyEnumerable(obj, "property");
+
+verifyNotConfigurable(obj, "property");

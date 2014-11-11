@@ -45,5 +45,11 @@ verifyWritable(obj, "foo1");
 verifyEnumerable(obj, "foo1");
 
 verifyConfigurable(obj, "foo1");
-accessorPropertyAttributesAreCorrect(obj, "foo2", get_func, set_func, "setVerifyHelpProp", true, true);
+verifyEqualTo(obj, "foo2", get_func());
+
+verifyWritable(obj, "foo2", "setVerifyHelpProp");
+
+verifyEnumerable(obj, "foo2");
+
+verifyConfigurable(obj, "foo2");
 

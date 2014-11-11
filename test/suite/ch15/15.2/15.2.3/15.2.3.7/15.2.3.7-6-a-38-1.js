@@ -28,4 +28,8 @@ Object.defineProperties(obj, {
 
 Object.defineProperties(obj, { foo: {} });
 
-accessorPropertyAttributesAreCorrect(obj, "foo", getFunc, undefined, undefined, true, true);
+verifyEqualTo(obj, "foo", getFunc());
+
+verifyEnumerable(obj, "foo");
+
+verifyConfigurable(obj, "foo");

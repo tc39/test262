@@ -36,4 +36,10 @@ Object.defineProperty(obj, "0", {
     configurable: false
 });
 
-accessorPropertyAttributesAreCorrect(obj, "0", get_func, set_func, "verifySetFunction", true, false);
+verifyEqualTo(obj, "0", get_func());
+
+verifyWritable(obj, "0", "verifySetFunction");
+
+verifyEnumerable(obj, "0");
+
+verifyNotConfigurable(obj, "0");

@@ -31,4 +31,8 @@ Object.defineProperties(obj, {
         set: set_func2
     }
 });
-accessorPropertyAttributesAreCorrect(obj, "foo", undefined, set_func2, "setVerifyHelpProp", false, true);
+verifyWritable(obj, "foo", "setVerifyHelpProp");
+
+verifyNotEnumerable(obj, "foo");
+
+verifyConfigurable(obj, "foo");

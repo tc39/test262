@@ -33,7 +33,11 @@ try {
     });
 
 } catch (e) {
-    accessorPropertyAttributesAreCorrect(obj, "property", getFunc, undefined, undefined, false, false);
+    verifyEqualTo(obj, "property", getFunc());
+
+    verifyNotEnumerable(obj, "property");
+
+    verifyNotConfigurable(obj, "property");
 
     if (!(e instanceof TypeError)) {
         $ERROR("Expected TypeError, got " + e);

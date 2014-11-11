@@ -35,7 +35,11 @@ try {
         set: setFunc
     });
 } catch (e) {
-    accessorPropertyAttributesAreCorrect(obj, "foo", undefined, setFunc, "setVerifyHelpProp", false, false);
+    verifyWritable(obj, "foo", "setVerifyHelpProp");
+
+    verifyNotEnumerable(obj, "foo");
+
+    verifyNotConfigurable(obj, "foo");
 
     if (!(e instanceof TypeError)) {
         $ERROR("Expected TypeError, got " + e);

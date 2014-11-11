@@ -41,7 +41,13 @@ try {
         set: setFunc
     });
 
-    accessorPropertyAttributesAreCorrect(obj, "0", getFunc, setFunc, "verifySetFunction1", false, true);
+    verifyEqualTo(obj, "0", getFunc());
+
+    verifyWritable(obj, "0", "verifySetFunction1");
+
+    verifyNotEnumerable(obj, "0");
+
+    verifyConfigurable(obj, "0");
 } finally {
     delete obj[0];
     delete obj.verifySetFunction;

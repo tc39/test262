@@ -29,4 +29,8 @@ Object.defineProperties(arr, {
         get: get_func
     }
 });
-accessorPropertyAttributesAreCorrect(arr, "0", get_func, undefined, undefined, false, false);
+verifyEqualTo(arr, "0", get_func());
+
+verifyNotEnumerable(arr, "0");
+
+verifyNotConfigurable(arr, "0");

@@ -37,7 +37,11 @@ includes: [propertyHelper.js]
             $ERROR('Expected a === 0, actually ' + a);
         }
 
-        accessorPropertyAttributesAreCorrect(arguments, "0", getFunc1, undefined, undefined, false, false);
+        verifyEqualTo(arguments, "0", getFunc1());
+
+        verifyNotEnumerable(arguments, "0");
+
+        verifyNotConfigurable(arguments, "0");
 
         if (!(e instanceof TypeError)) {
             $ERROR("Expected TypeError, got " + e);

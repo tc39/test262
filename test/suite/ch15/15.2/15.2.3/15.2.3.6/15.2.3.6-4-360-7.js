@@ -43,8 +43,12 @@ try {
         $ERROR("Expected desc2 to be as configured.");
     }
 
-    accessorPropertyAttributesAreCorrect(obj, "0", getFunc, undefined, undefined,
-                                         true, true);
+    verifyEqualTo(obj, "0", getFunc());
+
+    verifyEnumerable(obj, "0");
+
+    verifyConfigurable(obj, "0");
+
 } finally {
     delete obj[0];
 }

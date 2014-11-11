@@ -29,5 +29,7 @@ Object.defineProperties(arr, {
     }
 });
 
-accessorPropertyAttributesAreCorrect(arr, "1", undefined, undefined, undefined, false, false);
+verifyNotEnumerable(arr, "1");
+
+verifyNotConfigurable(arr, "1");
 

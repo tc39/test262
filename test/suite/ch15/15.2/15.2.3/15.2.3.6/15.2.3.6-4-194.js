@@ -29,7 +29,11 @@ try {
         configurable: true
     });
 } catch (e) {
-    accessorPropertyAttributesAreCorrect(arrObj, "0", getFunc, undefined, undefined, false, false);
+    verifyEqualTo(arrObj, "0", getFunc());
+
+    verifyNotEnumerable(arrObj, "0");
+
+    verifyNotConfigurable(arrObj, "0");
 
     if (!(e instanceof TypeError)) {
         $ERROR("Expected TypeError, got " + e.name);

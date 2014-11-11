@@ -33,7 +33,11 @@ try {
     });
 
 } catch (e) {
-    accessorPropertyAttributesAreCorrect(arr, "1", undefined, set_fun, "setVerifyHelpProp", false, false);
+    verifyWritable(arr, "1", "setVerifyHelpProp");
+
+    verifyNotEnumerable(arr, "1");
+
+    verifyNotConfigurable(arr, "1");
 
     if (!(e instanceof TypeError)) {
         $ERROR("Epected TypeError, got " + e);

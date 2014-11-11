@@ -38,7 +38,13 @@ try {
     });
 } catch (e) {
     result = e instanceof TypeError;
-    accessorPropertyAttributesAreCorrect(obj, "prop", getFunc, setFunc, "verifySetFunction", false, false);
+    verifyEqualTo(obj, "prop", getFunc());
+
+    verifyWritable(obj, "prop", "verifySetFunction");
+
+    verifyNotEnumerable(obj, "prop");
+
+    verifyNotConfigurable(obj, "prop");
 }
 
 try {
@@ -53,7 +59,13 @@ try {
     }
     
 
-    accessorPropertyAttributesAreCorrect(obj, "prop", getFunc, setFunc, "verifySetFunction", false, false);
+    verifyEqualTo(obj, "prop", getFunc());
+
+    verifyWritable(obj, "prop", "verifySetFunction");
+
+    verifyNotEnumerable(obj, "prop");
+
+    verifyNotConfigurable(obj, "prop");
 
 
     if (!(e1 instanceof TypeError)) {

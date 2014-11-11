@@ -31,7 +31,11 @@ try {
         set: function () { }
     });
 } catch (e) {
-    accessorPropertyAttributesAreCorrect(arrObj, "1", getFunc, undefined, undefined, false, false);
+    verifyEqualTo(arrObj, "1", getFunc());
+
+    verifyNotEnumerable(arrObj, "1");
+
+    verifyNotConfigurable(arrObj, "1");
 
     if (!(e instanceof TypeError)) {
         $ERROR("Expected TypeError, got " + e);

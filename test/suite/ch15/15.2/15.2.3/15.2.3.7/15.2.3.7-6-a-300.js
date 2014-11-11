@@ -39,7 +39,11 @@ try {
         }
     });
 } catch (e) {
-    accessorPropertyAttributesAreCorrect(arg, "0", get_func, undefined, undefined, true, false);
+    verifyEqualTo(arg, "0", get_func());
+
+    verifyEnumerable(arg, "0");
+
+    verifyNotConfigurable(arg, "0");
 
     if (!(e instanceof TypeError)) {
         $ERROR("Expected TypeError, got " + e);

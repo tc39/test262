@@ -28,4 +28,8 @@ Object.defineProperties(arr, {
     }
 });
 
-accessorPropertyAttributesAreCorrect(arr, "1", undefined, set_fun, "setVerifyHelpProp", true, true);
+verifyWritable(arr, "1", "setVerifyHelpProp");
+
+verifyEnumerable(arr, "1");
+
+verifyConfigurable(arr, "1");

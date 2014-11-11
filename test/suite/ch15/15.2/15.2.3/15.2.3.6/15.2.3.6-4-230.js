@@ -32,4 +32,10 @@ Object.defineProperty(arrObj, "0", {
 Object.defineProperty(arrObj, "0", {
     get: getFunc
 });
-accessorPropertyAttributesAreCorrect(arrObj, "0", getFunc, setFunc, "helpVerifySet", false, false);
+verifyEqualTo(arrObj, "0", getFunc());
+
+verifyWritable(arrObj, "0", "helpVerifySet");
+
+verifyNotEnumerable(arrObj, "0");
+
+verifyNotConfigurable(arrObj, "0");

@@ -32,7 +32,11 @@ includes: [propertyHelper.js]
         if (c !== 3) {
             $ERROR('Expected c === 3, actually ' + c);
         }
-        accessorPropertyAttributesAreCorrect(arguments, "genericProperty", undefined, setFunc, "genericPropertyString", true, false);
+        verifyWritable(arguments, "genericProperty", "genericPropertyString");
+
+        verifyEnumerable(arguments, "genericProperty");
+
+        verifyNotConfigurable(arguments, "genericProperty");
 
         if (!(e instanceof TypeError)) {
             $ERROR("Expected TypeError, got " + e);

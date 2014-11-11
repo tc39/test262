@@ -33,5 +33,11 @@ includes: [propertyHelper.js]
     if (a !== 0) {
         $ERROR('Expected a === 0, actually ' + a);
     }
-    accessorPropertyAttributesAreCorrect(arguments, "0", getFunc, setFunc, "setVerifyHelpProp", false, false);
+    verifyEqualTo(arguments, "0", getFunc());
+
+    verifyWritable(arguments, "0", "setVerifyHelpProp");
+
+    verifyNotEnumerable(arguments, "0");
+
+    verifyNotConfigurable(arguments, "0");
 }(0, 1, 2));

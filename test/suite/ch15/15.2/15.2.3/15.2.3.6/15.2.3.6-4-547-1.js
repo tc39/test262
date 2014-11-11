@@ -49,7 +49,13 @@ try {
         }
     
 
-    accessorPropertyAttributesAreCorrect(obj, "0", getFunc, setFunc, "verifySetFunc", true, false);
+    verifyEqualTo(obj, "0", getFunc());
+
+    verifyWritable(obj, "0", "verifySetFunc");
+
+    verifyEnumerable(obj, "0");
+
+    verifyNotConfigurable(obj, "0");
 
 
     if (!(e instanceof TypeError)) {

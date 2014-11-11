@@ -28,4 +28,8 @@ Object.defineProperty(arrObj, "1", {
 
 arrObj[1] = 4;
 
-accessorPropertyAttributesAreCorrect(arrObj, "1", getFunc, undefined, undefined, false, true);
+verifyEqualTo(arrObj, "1", getFunc());
+
+verifyNotEnumerable(arrObj, "1");
+
+verifyConfigurable(arrObj, "1");

@@ -27,5 +27,11 @@ includes: [propertyHelper.js]
         enumerable: true,
         configurable: true
     });
-    accessorPropertyAttributesAreCorrect(arguments, "genericProperty", getFunc, setFunc, "testgetFunction", true, true);
+    verifyEqualTo(arguments, "genericProperty", getFunc());
+
+    verifyWritable(arguments, "genericProperty", "testgetFunction");
+
+    verifyEnumerable(arguments, "genericProperty");
+
+    verifyConfigurable(arguments, "genericProperty");
 }(1, 2, 3));

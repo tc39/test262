@@ -23,4 +23,8 @@ function setFunc(value) {
 Object.defineProperty(arrObj, "0", { set: setFunc });
 
 Object.defineProperty(arrObj, "0", { set: setFunc });
-accessorPropertyAttributesAreCorrect(arrObj, "0", undefined, setFunc, "setVerifyHelpProp", false, false);
+verifyWritable(arrObj, "0", "setVerifyHelpProp");
+
+verifyNotEnumerable(arrObj, "0");
+
+verifyNotConfigurable(arrObj, "0");

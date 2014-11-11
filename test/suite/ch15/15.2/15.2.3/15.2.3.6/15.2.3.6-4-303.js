@@ -32,5 +32,9 @@ includes: [propertyHelper.js]
         enumerable: false,
         configurable: false
     });
-    accessorPropertyAttributesAreCorrect(arguments, "0", getFunc2, undefined, undefined, false, false);
+    verifyEqualTo(arguments, "0", getFunc2());
+
+    verifyNotEnumerable(arguments, "0");
+
+    verifyNotConfigurable(arguments, "0");
 }());

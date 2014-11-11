@@ -25,4 +25,8 @@ Object.defineProperty(arrObj, "0", {
     set: setFunc
 });
 
-accessorPropertyAttributesAreCorrect(arrObj, "0", undefined, setFunc, "setVerifyHelpProp", true, true);
+verifyWritable(arrObj, "0", "setVerifyHelpProp");
+
+verifyEnumerable(arrObj, "0");
+
+verifyConfigurable(arrObj, "0");

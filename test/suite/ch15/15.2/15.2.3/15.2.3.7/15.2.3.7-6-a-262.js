@@ -39,4 +39,10 @@ Object.defineProperties(arr, {
         configurable: false
     }
 });
-accessorPropertyAttributesAreCorrect(arr, "0", get_fun, set_fun, "setVerifyHelpProp", false, false);
+verifyEqualTo(arr, "0", get_fun());
+
+verifyWritable(arr, "0", "setVerifyHelpProp");
+
+verifyNotEnumerable(arr, "0");
+
+verifyNotConfigurable(arr, "0");

@@ -28,7 +28,11 @@ try {
         set: function () {}
     });
 } catch (e) {
-    accessorPropertyAttributesAreCorrect(arrObj, "property", undefined, setFunc, "setVerifyHelpProp", false, false);
+    verifyWritable(arrObj, "property", "setVerifyHelpProp");
+
+    verifyNotEnumerable(arrObj, "property");
+
+    verifyNotConfigurable(arrObj, "property");
 
     if (!(e instanceof TypeError)) {
         $ERROR("Expected TypeError, got " + e);

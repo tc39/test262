@@ -41,5 +41,11 @@ includes: [propertyHelper.js]
         $ERROR('Expected c === 3, actually ' + c);
     }
 
-    accessorPropertyAttributesAreCorrect(arguments, "genericProperty", getFunc, setFunc, "testgetFunction", false, false);
+    verifyEqualTo(arguments, "genericProperty", getFunc());
+
+    verifyWritable(arguments, "genericProperty", "testgetFunction");
+
+    verifyNotEnumerable(arguments, "genericProperty");
+
+    verifyNotConfigurable(arguments, "genericProperty");
 }(1, 2, 3));

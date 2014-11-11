@@ -33,4 +33,10 @@ Object.defineProperties(arg, {
     }
 });
 
-accessorPropertyAttributesAreCorrect(arg, "genericProperty", getFun, setFun, "testGetFunction", true, true);
+verifyEqualTo(arg, "genericProperty", getFun());
+
+verifyWritable(arg, "genericProperty", "testGetFunction");
+
+verifyEnumerable(arg, "genericProperty");
+
+verifyConfigurable(arg, "genericProperty");

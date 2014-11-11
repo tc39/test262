@@ -39,7 +39,13 @@ try {
 } catch (e) {
     result = e instanceof TypeError;
 
-    accessorPropertyAttributesAreCorrect(obj, "0", getFunc, setFunc, "verifySetFunction", false, false);
+    verifyEqualTo(obj, "0", getFunc());
+
+    verifyWritable(obj, "0", "verifySetFunction");
+
+    verifyNotEnumerable(obj, "0");
+
+    verifyNotConfigurable(obj, "0");
 }
 
 try {
@@ -53,7 +59,13 @@ try {
         $ERROR('Expected result to be true, actually ' + result);
     }
     
-    accessorPropertyAttributesAreCorrect(obj, "0", getFunc, setFunc, "verifySetFunction", false, false);
+    verifyEqualTo(obj, "0", getFunc());
+
+    verifyWritable(obj, "0", "verifySetFunction");
+
+    verifyNotEnumerable(obj, "0");
+
+    verifyNotConfigurable(obj, "0");
 
 
     if (!(e instanceof TypeError)) {

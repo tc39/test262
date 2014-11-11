@@ -35,4 +35,10 @@ if (!preCheck) {
     $ERROR('Expected preCheck to be true, actually ' + preCheck);
 }
 
-accessorPropertyAttributesAreCorrect(obj, "foo", getFunc, setFunc, "variableForHelpVerify", true, false);
+verifyEqualTo(obj, "foo", getFunc());
+
+verifyWritable(obj, "foo", "variableForHelpVerify");
+
+verifyEnumerable(obj, "foo");
+
+verifyNotConfigurable(obj, "foo");

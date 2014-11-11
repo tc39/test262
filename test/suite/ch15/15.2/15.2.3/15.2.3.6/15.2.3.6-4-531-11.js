@@ -40,4 +40,10 @@ Object.defineProperty(obj, "prop", {
     set: setFunc
 });
 
-accessorPropertyAttributesAreCorrect(obj, "prop", getFunc, setFunc, "verifySetFunction1", false, true);
+verifyEqualTo(obj, "prop", getFunc());
+
+verifyWritable(obj, "prop", "verifySetFunction1");
+
+verifyNotEnumerable(obj, "prop");
+
+verifyConfigurable(obj, "prop");

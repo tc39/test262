@@ -43,4 +43,10 @@ verifyEnumerable(newObj, "foo1");
 
 verifyConfigurable(newObj, "foo1");
 
-accessorPropertyAttributesAreCorrect(newObj, "foo2", getFunc, setFunc, "setVerifyHelpProp", true, true);
+verifyEqualTo(newObj, "foo2", getFunc());
+
+verifyWritable(newObj, "foo2", "setVerifyHelpProp");
+
+verifyEnumerable(newObj, "foo2");
+
+verifyConfigurable(newObj, "foo2");

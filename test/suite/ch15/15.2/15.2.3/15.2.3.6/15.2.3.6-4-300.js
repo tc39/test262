@@ -28,7 +28,11 @@ includes: [propertyHelper.js]
             configurable: true
         });
     } catch (e) {
-        accessorPropertyAttributesAreCorrect(arguments, "0", getFunc, undefined, undefined, true, false);
+        verifyEqualTo(arguments, "0", getFunc());
+
+        verifyEnumerable(arguments, "0");
+
+        verifyNotConfigurable(arguments, "0");
 
         if (!(e instanceof TypeError)) {
             $ERROR("Expected TypeError, got " + e);

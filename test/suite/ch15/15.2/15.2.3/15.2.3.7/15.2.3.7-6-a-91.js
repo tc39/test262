@@ -41,7 +41,13 @@ try {
         }
     });
 } catch (e) {
-    accessorPropertyAttributesAreCorrect(obj, "foo", get_func1, set_func, "setVerifyHelpProp", false, false);
+    verifyEqualTo(obj, "foo", get_func1());
+
+    verifyWritable(obj, "foo", "setVerifyHelpProp");
+
+    verifyNotEnumerable(obj, "foo");
+
+    verifyNotConfigurable(obj, "foo");
 
     if (!(e instanceof TypeError)) {
         $ERROR("Expected TypeError, got " + e);

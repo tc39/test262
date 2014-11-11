@@ -33,7 +33,13 @@ includes: [propertyHelper.js]
             }
         });
     } catch (e) {
-        accessorPropertyAttributesAreCorrect(arguments, "genericProperty", getFunc, setFunc, "helpVerifyGet", false, false, false);
+        verifyEqualTo(arguments, "genericProperty", getFunc());
+
+        verifyWritable(arguments, "genericProperty", "helpVerifyGet");
+
+        verifyNotEnumerable(arguments, "genericProperty");
+
+        verifyNotConfigurable(arguments, "genericProperty");
 
         if (!(e instanceof TypeError)) {
             $ERROR("Expected TypeError, got " + e);

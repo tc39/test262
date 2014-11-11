@@ -28,4 +28,6 @@ Object.defineProperty(arrObj, "0", {
 Object.defineProperty(arrObj, "0", {
     get: undefined
 });
-accessorPropertyAttributesAreCorrect(arrObj, "0", undefined, undefined, undefined, false, true);
+verifyNotEnumerable(arrObj, "0");
+
+verifyConfigurable(arrObj, "0");

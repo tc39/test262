@@ -31,4 +31,8 @@ Object.defineProperties(arr, {
         get: get_fun
     }
 });
-accessorPropertyAttributesAreCorrect(arr, "0", get_fun, undefined, undefined, false, true);
+verifyEqualTo(arr, "0", get_fun());
+
+verifyNotEnumerable(arr, "0");
+
+verifyConfigurable(arr, "0");

@@ -38,7 +38,13 @@ try {
     });
 } catch (e) {
     result = e instanceof TypeError;
-    accessorPropertyAttributesAreCorrect(obj, "property", getFunc, setFunc, "verifySetFunction", false, false);
+    verifyEqualTo(obj, "property", getFunc());
+
+    verifyWritable(obj, "property", "verifySetFunction");
+
+    verifyNotEnumerable(obj, "property");
+
+    verifyNotConfigurable(obj, "property");
 }
 
 try {
@@ -52,7 +58,13 @@ try {
         $ERROR('Expected result to be true, actually ' + result);
     }
     
-    accessorPropertyAttributesAreCorrect(obj, "property", getFunc, setFunc, "verifySetFunction", false, false);
+    verifyEqualTo(obj, "property", getFunc());
+
+    verifyWritable(obj, "property", "verifySetFunction");
+
+    verifyNotEnumerable(obj, "property");
+
+    verifyNotConfigurable(obj, "property");
 
     if (!(e instanceof TypeError)) {
         $ERROR("Expected TypeError, got " + e);

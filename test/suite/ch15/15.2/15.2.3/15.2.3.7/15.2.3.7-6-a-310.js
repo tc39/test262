@@ -40,7 +40,13 @@ try {
     });
 
 } catch (e) {
-    accessorPropertyAttributesAreCorrect(arg, "genericProperty", getFun, setFun, "verifySetFun", false, false, false);
+    verifyEqualTo(arg, "genericProperty", getFun());
+
+    verifyWritable(arg, "genericProperty", "verifySetFun");
+
+    verifyNotEnumerable(arg, "genericProperty");
+
+    verifyNotConfigurable(arg, "genericProperty");
 
     if (!(e instanceof TypeError)) {
         $ERROR("Epected TypeError, got " + e);

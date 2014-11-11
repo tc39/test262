@@ -44,4 +44,8 @@ Object.defineProperties(arg, {
     }
 });
 
-accessorPropertyAttributesAreCorrect(arg, "0", get_func2, undefined, undefined, false, false);
+verifyEqualTo(arg, "0", get_func2());
+
+verifyNotEnumerable(arg, "0");
+
+verifyNotConfigurable(arg, "0");

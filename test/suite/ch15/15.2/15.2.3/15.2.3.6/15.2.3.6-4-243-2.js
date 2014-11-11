@@ -29,7 +29,11 @@ Object.defineProperty(arrObj, "1", {
 try {
     arrObj[1] = 4;
 } catch (e) {
-    accessorPropertyAttributesAreCorrect(arrObj, "1", getFunc, undefined, undefined, false, true);
+    verifyEqualTo(arrObj, "1", getFunc());
+
+    verifyNotEnumerable(arrObj, "1");
+
+    verifyConfigurable(arrObj, "1");
 
     if (!(e instanceof TypeError)) {
         $ERROR("Expected TypeError, got " + e);

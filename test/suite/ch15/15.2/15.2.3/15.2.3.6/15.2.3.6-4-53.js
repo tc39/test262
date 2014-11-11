@@ -24,4 +24,8 @@ Object.defineProperty(obj, "property", {
     configurable: true
 });
 
-accessorPropertyAttributesAreCorrect(obj, "property", undefined, setFunc, "setVerifyHelpProp", true, true);
+verifyWritable(obj, "property", "setVerifyHelpProp");
+
+verifyEnumerable(obj, "property");
+
+verifyConfigurable(obj, "property");

@@ -36,7 +36,11 @@ try {
     });
 
 } catch (e) {
-    accessorPropertyAttributesAreCorrect(arr, "1", get_fun, undefined, undefined, false, false);
+    verifyEqualTo(arr, "1", get_fun());
+
+    verifyNotEnumerable(arr, "1");
+
+    verifyNotConfigurable(arr, "1");
 
     if (!(e instanceof TypeError)) {
         $ERROR("Epected TypeError, got " + e);

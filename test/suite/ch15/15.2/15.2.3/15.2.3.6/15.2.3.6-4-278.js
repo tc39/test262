@@ -30,4 +30,10 @@ Object.defineProperty(arrObj, "property", {
     configurable: true
 });
 
-accessorPropertyAttributesAreCorrect(arrObj, "property", getFunc, setFunc, "setVerifyHelpProp", true, true);
+verifyEqualTo(arrObj, "property", getFunc());
+
+verifyWritable(arrObj, "property", "setVerifyHelpProp");
+
+verifyEnumerable(arrObj, "property");
+
+verifyConfigurable(arrObj, "property");

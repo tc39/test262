@@ -49,7 +49,13 @@ try {
         $ERROR('Expected !desc2.hasOwnProperty("value") to be true, actually ' + !desc2.hasOwnProperty("value"));
     }
     
-    accessorPropertyAttributesAreCorrect(obj, "0", getFunc, setFunc, "verifySetFunc", true, false);
+    verifyEqualTo(obj, "0", getFunc());
+
+    verifyWritable(obj, "0", "verifySetFunc");
+
+    verifyEnumerable(obj, "0");
+
+    verifyNotConfigurable(obj, "0");
 
 
     if (!(e instanceof TypeError)) {

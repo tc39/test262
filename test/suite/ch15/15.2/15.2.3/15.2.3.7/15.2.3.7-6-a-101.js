@@ -39,4 +39,10 @@ Object.defineProperties(obj, {
         get: get_func2
     }
 });
-accessorPropertyAttributesAreCorrect(obj, "foo", get_func2, set_func, "setVerifyHelpProp", true, true);
+verifyEqualTo(obj, "foo", get_func2());
+
+verifyWritable(obj, "foo", "setVerifyHelpProp");
+
+verifyEnumerable(obj, "foo");
+
+verifyConfigurable(obj, "foo");

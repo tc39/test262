@@ -42,4 +42,10 @@ Object.defineProperty(obj, "0", {
     set: setFunc
 });
 
-accessorPropertyAttributesAreCorrect(obj, "0", getFunc, setFunc, "verifySetFunction1", false, true);
+verifyEqualTo(obj, "0", getFunc());
+
+verifyWritable(obj, "0", "verifySetFunction1");
+
+verifyNotEnumerable(obj, "0");
+
+verifyConfigurable(obj, "0");

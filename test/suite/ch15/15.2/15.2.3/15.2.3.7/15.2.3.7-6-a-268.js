@@ -35,4 +35,10 @@ Object.defineProperties(arr, {
         enumerable: false
     }
 });
-accessorPropertyAttributesAreCorrect(arr, "property", get_fun, set_fun, "verifySetFun", false, true);
+verifyEqualTo(arr, "property", get_fun());
+
+verifyWritable(arr, "property", "verifySetFun");
+
+verifyNotEnumerable(arr, "property");
+
+verifyConfigurable(arr, "property");

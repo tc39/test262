@@ -31,7 +31,13 @@ Object.defineProperties(arr, {
         configurable: true
     }
 });
-accessorPropertyAttributesAreCorrect(arr, "property", get_fun, set_fun, "setVerifyHelpProp", true, true);
+verifyEqualTo(arr, "property", get_fun());
+
+verifyWritable(arr, "property", "setVerifyHelpProp");
+
+verifyEnumerable(arr, "property");
+
+verifyConfigurable(arr, "property");
 
 if (arr.length !== 0) {
     $ERROR('Expected arr.length === 0, actually ' + arr.length);
