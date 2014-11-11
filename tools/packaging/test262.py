@@ -382,6 +382,11 @@ def MakePlural(n):
   else:
     return (n, "s")
 
+def PercentFormat(partial, total):
+  return "%i test%s (%.1f%%)" % (MakePlural(partial) +
+                                 ((100.0 * partial)/total,))
+
+
 class TestSuite(object):
 
   def __init__(self, root, strict_only, non_strict_only, unmarked_default, print_handle):
@@ -464,49 +469,37 @@ class TestSuite(object):
     logging.info("Done listing tests")
     return cases
 
+
   def PrintSummary(self, progress, logfile):
+
+    def write(s):
+      if logfile:
+        self.logf.write(s + "\n")
+      print s
+
     print
-    if logfile:
-       self.logf.write("=== Summary === \n")
-    print "=== Summary ==="
+    write("=== Summary ===");
     count = progress.count
     succeeded = progress.succeeded
     failed = progress.failed
-    if logfile:
-      self.logf.write(" - Ran %i test%s \n" % MakePlural(count))
-    print " - Ran %i test%s" % MakePlural(count)
+    write(" - Ran %i test%s" % MakePlural(count))
     if progress.failed == 0:
-      if logfile:
-        self.logf.write(" - All tests succeeded \n")
-      print " - All tests succeeded"
-   
+      write(" - All tests succeeded")
     else:
-      percent = ((100.0 * succeeded) / count,)
-      if logfile:
-        self.logf.write(" - Passed %i test%s (%.1f%%)\n" % (MakePlural(succeeded) + percent))
-      print " - Passed %i test%s (%.1f%%)" % (MakePlural(succeeded) + percent)
-      percent = ((100.0 * failed) / count,)
-      if logfile:
-        self.logf.write(" - Failed %i test%s (%.1f%%) \n" % (MakePlural(failed) + percent))
-      print " - Failed %i test%s (%.1f%%)" % (MakePlural(failed) + percent)
+      write(" - Passed " + PercentFormat(succeeded, count))
+      write(" - Failed " + PercentFormat(failed, count))
       positive = [c for c in progress.failed_tests if not c.case.IsNegative()]
       negative = [c for c in progress.failed_tests if c.case.IsNegative()]
       if len(positive) > 0:
         print
-        if logfile:
-          self.logf.write("Failed Tests \n") 
-        print "Failed tests"
+        write("Failed Tests")
         for result in positive:
-          if logfile:
-            self.logf.write("  %s in %s \n" % (result.case.GetName(), result.case.GetMode()))
-          print "  %s in %s" % (result.case.GetName(), result.case.GetMode())
+          write("  %s in %s" % (result.case.GetName(), result.case.GetMode()))
       if len(negative) > 0:
         print
-        print "Expected to fail but passed ---"
+        write("Expected to fail but passed ---")
         for result in negative:
-          if logfile:
-            self.logfile.append(" %s in %s \n" % (result.case.GetName(), result.case.GetMode()))
-          print " %s in %s" % (result.case.GetName(), result.case.GetMode())
+          write("  %s in %s" % (result.case.GetName(), result.case.GetMode()))
 
   def PrintFailureOutput(self, progress, logfile):
     for result in progress.failed_tests:

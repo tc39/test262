@@ -6,6 +6,6 @@ This directory holds tests for the python code, not tests of EMCAScript
 
 ````
 $ cd tools/packaging/test
-$ python test*.py
+$ for x in test*.py; do python $x; done
 ````
 
