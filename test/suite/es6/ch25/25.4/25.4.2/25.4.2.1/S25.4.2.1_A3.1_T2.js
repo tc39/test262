@@ -6,16 +6,15 @@ info: >
     Promise reaction jobs have predictable environment
 author: Sam Mikes
 description: Promise.onFulfilled gets undefined as 'this'
-flags: [noStrict]
-includes: [fnGlobalObject.js]
+flags: [onlyStrict]
 ---*/
 
-var expectedThis = fnGlobalObject(),
+var expectedThis = undefined,
     obj = {};
 
 var p = Promise.resolve(obj).then(function(arg) {
     if (this !== expectedThis) {
-        $ERROR("'this' must be global object, got " + this);
+        $ERROR("'this' must be undefined, got " + this);
     }
     if (arg !== obj) {
         $ERROR("Expected promise to be fulfilled by obj, actually " + arg);

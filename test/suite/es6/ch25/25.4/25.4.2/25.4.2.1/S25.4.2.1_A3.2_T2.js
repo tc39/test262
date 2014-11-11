@@ -8,18 +8,17 @@ info: >
     undefined in strict mode
 author: Sam Mikes
 description: onRejected gets default 'this'
-flags: [noStrict]
-includes: [fnGlobalObject.js]
+flags: [onlyStrict]
 ---*/
 
-var expectedThis = fnGlobalObject(),
+var expectedThis = undefined,
     obj = {};
 
 var p = Promise.reject(obj).then(function () {
     $ERROR("Unexpected fulfillment; expected rejection.");
 }, function(arg) {
     if (this !== expectedThis) {
-        $ERROR("'this' must be global object, got " + this);
+        $ERROR("'this' must be undefined, got " + this);
     }
 
     if (arg !== obj) {

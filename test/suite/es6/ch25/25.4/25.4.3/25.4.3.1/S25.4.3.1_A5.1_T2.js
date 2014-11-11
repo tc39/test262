@@ -8,15 +8,14 @@ info: >
     undefined in strict mode
 author: Sam Mikes
 description: Promise executor gets default handling for 'this'
-flags: [noStrict]
-includes: [fnGlobalObject.js]
+flags: [onlyStrict]
 ---*/
 
-var expectedThis = fnGlobalObject();
+var expectedThis = undefined;
 
 var p = new Promise(function (resolve) {
     if (this !== expectedThis) {
-        $ERROR("'this' must be global object, got " + this);
+        $ERROR("'this' must be undefined, got " + this);
     }
 
     resolve();
