@@ -29,7 +29,13 @@ try {
         value: -0
     });
 } catch (e) {
-    dataPropertyAttributesAreCorrect(arrObj, "1", +0, false, false, false);
+    verifyEqualTo(arrObj, "1", +0);
+
+    verifyNotWritable(arrObj, "1");
+
+    verifyNotEnumerable(arrObj, "1");
+
+    verifyNotConfigurable(arrObj, "1");
 
     if (!(e instanceof TypeError)) {
         $ERROR("Expected TypeError, got " + e);

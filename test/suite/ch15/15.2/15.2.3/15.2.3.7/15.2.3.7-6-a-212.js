@@ -25,4 +25,10 @@ Object.defineProperties(arr, {
     }
 });
 
-dataPropertyAttributesAreCorrect(arr, "0", NaN, false, false, false);
+verifyEqualTo(arr, "0", NaN);
+
+verifyNotWritable(arr, "0");
+
+verifyNotEnumerable(arr, "0");
+
+verifyNotConfigurable(arr, "0");

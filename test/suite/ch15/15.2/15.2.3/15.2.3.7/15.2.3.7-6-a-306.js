@@ -32,7 +32,13 @@ try {
     });
 
 } catch (e) {
-    dataPropertyAttributesAreCorrect(arg, "genericProperty", 1001, false, false, false);
+    verifyEqualTo(arg, "genericProperty", 1001);
+
+    verifyNotWritable(arg, "genericProperty");
+
+    verifyNotEnumerable(arg, "genericProperty");
+
+    verifyNotConfigurable(arg, "genericProperty");
 
     if (!(e instanceof TypeError)) {
         $ERROR("Epected TypeError, got " + e);

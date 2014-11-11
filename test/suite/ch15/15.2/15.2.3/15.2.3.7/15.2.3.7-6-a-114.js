@@ -23,4 +23,10 @@ if (arr.length !== 0) {
 
 arr.length = 2;
 
-dataPropertyAttributesAreCorrect(arr, "length", 2, false, false, false);
+verifyEqualTo(arr, "length", 2);
+
+verifyNotWritable(arr, "length");
+
+verifyNotEnumerable(arr, "length");
+
+verifyNotConfigurable(arr, "length");

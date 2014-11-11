@@ -18,5 +18,11 @@ var arrObj = [];
 arrObj[0] = 101; // default value of attributes: writable: true, configurable: true, enumerable: true
 
 Object.defineProperty(arrObj, "0", {});
-dataPropertyAttributesAreCorrect(arrObj, "0", 101, true, true, true);
+verifyEqualTo(arrObj, "0", 101);
+
+verifyWritable(arrObj, "0");
+
+verifyEnumerable(arrObj, "0");
+
+verifyConfigurable(arrObj, "0");
 

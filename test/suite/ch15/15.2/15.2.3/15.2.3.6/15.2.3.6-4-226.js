@@ -21,5 +21,11 @@ var obj1 = { length: 10 };
 Object.defineProperty(arrObj, "0", { value: obj1 });
 
 Object.defineProperty(arrObj, "0", { value: obj1 });
-dataPropertyAttributesAreCorrect(arrObj, "0", obj1, false, false, false);
+verifyEqualTo(arrObj, "0", obj1);
+
+verifyNotWritable(arrObj, "0");
+
+verifyNotEnumerable(arrObj, "0");
+
+verifyNotConfigurable(arrObj, "0");
 

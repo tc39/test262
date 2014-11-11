@@ -22,4 +22,10 @@ Object.defineProperties(obj, {
         value: 200
     }
 });
-dataPropertyAttributesAreCorrect(obj, "foo", 200, true, true, true);
+verifyEqualTo(obj, "foo", 200);
+
+verifyWritable(obj, "foo");
+
+verifyEnumerable(obj, "foo");
+
+verifyConfigurable(obj, "foo");

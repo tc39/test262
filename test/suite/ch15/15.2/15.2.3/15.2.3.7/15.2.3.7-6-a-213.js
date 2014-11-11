@@ -26,7 +26,13 @@ try {
         }
     });
 } catch (e) {
-    dataPropertyAttributesAreCorrect(arr, "0", -0, false, false, false);
+    verifyEqualTo(arr, "0", -0);
+
+    verifyNotWritable(arr, "0");
+
+    verifyNotEnumerable(arr, "0");
+
+    verifyNotConfigurable(arr, "0");
 
     if (!(e instanceof TypeError)) {
         $ERROR("Expected TypeError, got " + e);

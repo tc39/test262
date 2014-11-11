@@ -24,4 +24,10 @@ Object.defineProperty(obj, "foo", {
 });
 
 Object.defineProperty(obj, "foo", { value: false });
-dataPropertyAttributesAreCorrect(obj, "foo", false, false, false, false);
+verifyEqualTo(obj, "foo", false);
+
+verifyNotWritable(obj, "foo");
+
+verifyNotEnumerable(obj, "foo");
+
+verifyNotConfigurable(obj, "foo");

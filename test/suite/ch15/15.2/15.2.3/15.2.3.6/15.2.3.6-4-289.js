@@ -22,6 +22,12 @@ includes: [propertyHelper.js]
         enumerable: true,
         configurable: true
     });
-    dataPropertyAttributesAreCorrect(arguments, "0", 10, true, true, true);
+    verifyEqualTo(arguments, "0", 10);
+
+    verifyWritable(arguments, "0");
+
+    verifyEnumerable(arguments, "0");
+
+    verifyConfigurable(arguments, "0");
 }(0, 1, 2));
 

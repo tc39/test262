@@ -22,5 +22,11 @@ Object.defineProperty(arrObj, "0", {
     configurable: false
 });
 
-dataPropertyAttributesAreCorrect(arrObj, "0", 1001, false, false, false);
+verifyEqualTo(arrObj, "0", 1001);
+
+verifyNotWritable(arrObj, "0");
+
+verifyNotEnumerable(arrObj, "0");
+
+verifyNotConfigurable(arrObj, "0");
 

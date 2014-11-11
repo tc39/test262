@@ -25,7 +25,13 @@ Object.defineProperties(arr, {
         configurable: true
     }
 });
-dataPropertyAttributesAreCorrect(arr, "property", 12, true, true, true);
+verifyEqualTo(arr, "property", 12);
+
+verifyWritable(arr, "property");
+
+verifyEnumerable(arr, "property");
+
+verifyConfigurable(arr, "property");
 
 if (arr.length !== 0) {
     $ERROR('Expected arr.length === 0, actually ' + arr.length);

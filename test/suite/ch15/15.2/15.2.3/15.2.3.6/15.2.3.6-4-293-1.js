@@ -23,6 +23,12 @@ includes: [propertyHelper.js]
     Object.defineProperty(arguments, "0", {
         value: 20
     });
-    dataPropertyAttributesAreCorrect(arguments, "0", 20, false, true, true);
+    verifyEqualTo(arguments, "0", 20);
+
+    verifyNotWritable(arguments, "0");
+
+    verifyEnumerable(arguments, "0");
+
+    verifyConfigurable(arguments, "0");
 }(0, 1, 2));
 

@@ -29,7 +29,13 @@ try {
         }
     });
 } catch (e) {
-    dataPropertyAttributesAreCorrect(obj, "foo", 10, false, true, false);
+    verifyEqualTo(obj, "foo", 10);
+
+    verifyNotWritable(obj, "foo");
+
+    verifyEnumerable(obj, "foo");
+
+    verifyNotConfigurable(obj, "foo");
 
     if (!(e instanceof TypeError)) {
         $ERROR("Expected TypeError, got " + e);

@@ -34,7 +34,13 @@ flags: [noStrict]
             $ERROR("Expected TypeError, got " + e);
         }
 
-        dataPropertyAttributesAreCorrect(arguments, "0", 10, false, true, false);
+        verifyEqualTo(arguments, "0", 10);
+
+        verifyNotWritable(arguments, "0");
+
+        verifyEnumerable(arguments, "0");
+
+        verifyNotConfigurable(arguments, "0");
 
         if (a !== 10) {
             $ERROR('Expected "a === 10", actually ' + a);

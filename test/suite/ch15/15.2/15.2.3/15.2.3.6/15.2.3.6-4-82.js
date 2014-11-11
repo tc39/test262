@@ -18,4 +18,10 @@ var obj = {};
 Object.defineProperty(obj, "foo", { configurable: true });
 
 Object.defineProperty(obj, "foo", { configurable: false });
-dataPropertyAttributesAreCorrect(obj, "foo", undefined, false, false, false);
+verifyEqualTo(obj, "foo", undefined);
+
+verifyNotWritable(obj, "foo");
+
+verifyNotEnumerable(obj, "foo");
+
+verifyNotConfigurable(obj, "foo");

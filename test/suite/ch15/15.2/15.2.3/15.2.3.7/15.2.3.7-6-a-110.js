@@ -38,6 +38,12 @@ var properties = {
 };
 
 Object.defineProperties(obj, properties);
-dataPropertyAttributesAreCorrect(obj, "foo1", 200, true, true, true);
+verifyEqualTo(obj, "foo1", 200);
+
+verifyWritable(obj, "foo1");
+
+verifyEnumerable(obj, "foo1");
+
+verifyConfigurable(obj, "foo1");
 accessorPropertyAttributesAreCorrect(obj, "foo2", get_func, set_func, "setVerifyHelpProp", true, true);
 

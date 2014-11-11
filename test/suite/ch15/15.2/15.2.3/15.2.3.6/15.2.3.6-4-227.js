@@ -28,7 +28,13 @@ var obj2 = { length: 20 };
 try {
     Object.defineProperty(arrObj, "0", { value: obj2 });
 } catch (e) {
-    dataPropertyAttributesAreCorrect(arrObj, "0", obj1, false, false, false);
+    verifyEqualTo(arrObj, "0", obj1);
+
+    verifyNotWritable(arrObj, "0");
+
+    verifyNotEnumerable(arrObj, "0");
+
+    verifyNotConfigurable(arrObj, "0");
 
     if (!(e instanceof TypeError)) {
         $ERROR("Expected TypeError, got " + e);

@@ -27,7 +27,13 @@ Object.defineProperty(arrObj, "1", {
 try {
     Object.defineProperty(arrObj, "1", { value: {} });
 } catch (e) {
-    dataPropertyAttributesAreCorrect(arrObj, "1", obj, false, false, false);
+    verifyEqualTo(arrObj, "1", obj);
+
+    verifyNotWritable(arrObj, "1");
+
+    verifyNotEnumerable(arrObj, "1");
+
+    verifyNotConfigurable(arrObj, "1");
 
     if (!(e instanceof TypeError)) {
         $ERROR("Expected TypeError, got " + e);

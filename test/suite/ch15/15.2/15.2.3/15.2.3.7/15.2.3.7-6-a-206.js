@@ -21,4 +21,10 @@ arr[0] = 101; // default value of attributes: writable: true, configurable: true
 Object.defineProperties(arr, {
     "0": {}
 });
-dataPropertyAttributesAreCorrect(arr, "0", 101, true, true, true);
+verifyEqualTo(arr, "0", 101);
+
+verifyWritable(arr, "0");
+
+verifyEnumerable(arr, "0");
+
+verifyConfigurable(arr, "0");

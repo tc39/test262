@@ -55,6 +55,12 @@ if (typeof desc2.set !== "undefined" ) {
     $ERROR('Expected typeof desc2.set === "undefined" , actually ' + typeof desc2.set );
 }
 
-dataPropertyAttributesAreCorrect(obj, "prop", 1001, false, true, true);
+verifyEqualTo(obj, "prop", 1001);
+
+verifyNotWritable(obj, "prop");
+
+verifyEnumerable(obj, "prop");
+
+verifyConfigurable(obj, "prop");
 
 

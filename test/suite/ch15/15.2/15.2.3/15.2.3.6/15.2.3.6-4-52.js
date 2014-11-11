@@ -17,5 +17,11 @@ var obj = {};
 
 Object.defineProperty(obj, "property", {});
 
-dataPropertyAttributesAreCorrect(obj, "property", undefined, false, false, false);
+verifyEqualTo(obj, "property", undefined);
+
+verifyNotWritable(obj, "property");
+
+verifyNotEnumerable(obj, "property");
+
+verifyNotConfigurable(obj, "property");
 

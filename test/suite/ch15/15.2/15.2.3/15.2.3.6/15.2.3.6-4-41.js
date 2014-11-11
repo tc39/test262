@@ -19,7 +19,13 @@ value: 12,
 configurable: true
 });
 
-dataPropertyAttributesAreCorrect(JSON, "foo", 12, false, false, true);
+verifyEqualTo(JSON, "foo", 12);
+
+verifyNotWritable(JSON, "foo");
+
+verifyNotEnumerable(JSON, "foo");
+
+verifyConfigurable(JSON, "foo");
 
 delete JSON.foo;
 

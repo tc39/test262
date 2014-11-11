@@ -27,7 +27,13 @@ try {
         }
     });
 } catch (e) {
-    dataPropertyAttributesAreCorrect(str, "prop", 11, false, false, false);
+    verifyEqualTo(str, "prop", 11);
+
+    verifyNotWritable(str, "prop");
+
+    verifyNotEnumerable(str, "prop");
+
+    verifyNotConfigurable(str, "prop");
 
     if (!(e instanceof TypeError)) {
         $ERROR("Expected TypeError, got " + e);

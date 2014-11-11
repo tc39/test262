@@ -25,7 +25,13 @@ includes: [propertyHelper.js]
             enumerable: false
         });
     } catch (e) {
-        dataPropertyAttributesAreCorrect(arguments, "genericProperty", undefined, false, true, false);
+        verifyEqualTo(arguments, "genericProperty", undefined);
+
+        verifyNotWritable(arguments, "genericProperty");
+
+        verifyEnumerable(arguments, "genericProperty");
+
+        verifyNotConfigurable(arguments, "genericProperty");
 
 
         if (!(e instanceof TypeError)) {

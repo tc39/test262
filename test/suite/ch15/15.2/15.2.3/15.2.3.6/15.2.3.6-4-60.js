@@ -18,5 +18,11 @@ var obj = {};
 obj.foo = 101; // default value of attributes: writable: true, configurable: true, enumerable: true
 
 Object.defineProperty(obj, "foo", { value: "abc" });
-dataPropertyAttributesAreCorrect(obj, "foo", "abc", true, true, true);
+verifyEqualTo(obj, "foo", "abc");
+
+verifyWritable(obj, "foo");
+
+verifyEnumerable(obj, "foo");
+
+verifyConfigurable(obj, "foo");
 

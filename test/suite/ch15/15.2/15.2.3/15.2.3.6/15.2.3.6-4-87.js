@@ -25,7 +25,13 @@ Object.defineProperty(obj, "foo", {
 try {
     Object.defineProperty(obj, "foo", { value: -0 });
 } catch (e) {
-    dataPropertyAttributesAreCorrect(obj, "foo", +0, false, false, false);
+    verifyEqualTo(obj, "foo", +0);
+
+    verifyNotWritable(obj, "foo");
+
+    verifyNotEnumerable(obj, "foo");
+
+    verifyNotConfigurable(obj, "foo");
 
     if (!(e instanceof TypeError)) {
         $ERROR("Expected TypeError, got " + e);

@@ -27,7 +27,13 @@ try {
         value: 1002
     });
 
-    dataPropertyAttributesAreCorrect(obj, "property", 1002, false, false, true);
+    verifyEqualTo(obj, "property", 1002);
+
+    verifyNotWritable(obj, "property");
+
+    verifyNotEnumerable(obj, "property");
+
+    verifyConfigurable(obj, "property");
 } finally {
     delete obj.property;
 }

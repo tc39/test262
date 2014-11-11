@@ -25,7 +25,13 @@ includes: [propertyHelper.js]
             value: 1002
         });
     } catch (e) {
-        dataPropertyAttributesAreCorrect(arguments, "genericProperty", 1001, false, false, false);
+        verifyEqualTo(arguments, "genericProperty", 1001);
+
+        verifyNotWritable(arguments, "genericProperty");
+
+        verifyNotEnumerable(arguments, "genericProperty");
+
+        verifyNotConfigurable(arguments, "genericProperty");
 
         if (!(e instanceof TypeError)) {
             $ERROR("Expected TypeError, got " + e);

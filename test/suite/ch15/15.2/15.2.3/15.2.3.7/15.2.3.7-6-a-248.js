@@ -22,4 +22,10 @@ Object.defineProperties(arr, {
         value: undefined
     }
 });
-dataPropertyAttributesAreCorrect(arr, "0", undefined, true, true, true);
+verifyEqualTo(arr, "0", undefined);
+
+verifyWritable(arr, "0");
+
+verifyEnumerable(arr, "0");
+
+verifyConfigurable(arr, "0");

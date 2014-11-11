@@ -39,8 +39,20 @@ try {
     });
 
 } catch (e) {
-    dataPropertyAttributesAreCorrect(obj, "0", 1001, false, false, false);
-    dataPropertyAttributesAreCorrect(obj, "1", 1003, false, false, true);
+    verifyEqualTo(obj, "0", 1001);
+
+    verifyNotWritable(obj, "0");
+
+    verifyNotEnumerable(obj, "0");
+
+    verifyNotConfigurable(obj, "0");
+    verifyEqualTo(obj, "1", 1003);
+
+    verifyNotWritable(obj, "1");
+
+    verifyNotEnumerable(obj, "1");
+
+    verifyConfigurable(obj, "1");
 
     if (!(e instanceof TypeError)) {
         $ERROR("Expected TypeError, got " + e);

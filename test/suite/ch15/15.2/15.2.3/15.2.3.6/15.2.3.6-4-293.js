@@ -27,7 +27,13 @@ includes: [propertyHelper.js]
             value: 20
         });
     } catch (e) {
-        dataPropertyAttributesAreCorrect(arguments, "0", 10, false, false, false);
+        verifyEqualTo(arguments, "0", 10);
+
+        verifyNotWritable(arguments, "0");
+
+        verifyNotEnumerable(arguments, "0");
+
+        verifyNotConfigurable(arguments, "0");
 
         if (!(e instanceof TypeError)) {
             $ERROR("Expected TypeError, got " + e);

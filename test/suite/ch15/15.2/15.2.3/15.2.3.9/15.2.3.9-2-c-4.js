@@ -60,4 +60,10 @@ if (desc2.configurable || desc2.writable) {
     $ERROR('Expected obj["foo2"] to be non-writable, non-configurable; actually ' + JSON.stringify(desc2));
 }
 
-dataPropertyAttributesAreCorrect(obj, "foo1", 10, false, true, false);
+verifyEqualTo(obj, "foo1", 10);
+
+verifyNotWritable(obj, "foo1");
+
+verifyEnumerable(obj, "foo1");
+
+verifyNotConfigurable(obj, "foo1");

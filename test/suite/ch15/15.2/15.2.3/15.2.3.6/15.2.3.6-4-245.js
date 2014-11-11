@@ -31,7 +31,13 @@ try {
         value: "abc"
     });
 } catch (e) {
-    dataPropertyAttributesAreCorrect(arrObj, "1", 3, false, false, false);
+    verifyEqualTo(arrObj, "1", 3);
+
+    verifyNotWritable(arrObj, "1");
+
+    verifyNotEnumerable(arrObj, "1");
+
+    verifyNotConfigurable(arrObj, "1");
 
     if (!(e instanceof TypeError)) {
         $ERROR("Expected TypeError, got " + e);

@@ -18,4 +18,10 @@ Object.defineProperty(fnGlobalObject(), "foo", {
     configurable: true
 });
 
-dataPropertyAttributesAreCorrect(fnGlobalObject(), "foo", 12, false, false, true);
+verifyEqualTo(fnGlobalObject(), "foo", 12);
+
+verifyNotWritable(fnGlobalObject(), "foo");
+
+verifyNotEnumerable(fnGlobalObject(), "foo");
+
+verifyConfigurable(fnGlobalObject(), "foo");

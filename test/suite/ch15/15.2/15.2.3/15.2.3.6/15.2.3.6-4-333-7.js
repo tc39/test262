@@ -27,5 +27,11 @@ Object.defineProperty(obj, "prop", {
     value: 1002
 });
 
-dataPropertyAttributesAreCorrect(obj, "prop", 1002, true, false, false);
+verifyEqualTo(obj, "prop", 1002);
+
+verifyWritable(obj, "prop");
+
+verifyNotEnumerable(obj, "prop");
+
+verifyNotConfigurable(obj, "prop");
 

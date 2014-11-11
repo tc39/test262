@@ -28,4 +28,10 @@ if (!preCheck) {
     $ERROR('Expected preCheck to be true, actually ' + preCheck);
 }
 
-dataPropertyAttributesAreCorrect(obj, "foo", 10, true, true, false);
+verifyEqualTo(obj, "foo", 10);
+
+verifyWritable(obj, "foo");
+
+verifyEnumerable(obj, "foo");
+
+verifyNotConfigurable(obj, "foo");

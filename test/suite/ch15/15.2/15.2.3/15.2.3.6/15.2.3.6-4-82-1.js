@@ -30,4 +30,10 @@ Object.defineProperty(obj, "foo", {
     enumerable: false
 });
 
-dataPropertyAttributesAreCorrect(obj, "foo", 1001, true, false, true);
+verifyEqualTo(obj, "foo", 1001);
+
+verifyWritable(obj, "foo");
+
+verifyNotEnumerable(obj, "foo");
+
+verifyConfigurable(obj, "foo");

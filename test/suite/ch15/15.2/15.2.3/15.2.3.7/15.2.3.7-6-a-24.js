@@ -27,6 +27,12 @@ Object.defineProperties(fnGlobalObject(), {
     }
 });
 
-dataPropertyAttributesAreCorrect(fnGlobalObject(), "prop", 12, true, true, true);
+verifyEqualTo(fnGlobalObject(), "prop", 12);
+
+verifyWritable(fnGlobalObject(), "prop");
+
+verifyEnumerable(fnGlobalObject(), "prop");
+
+verifyConfigurable(fnGlobalObject(), "prop");
 
 delete fnGlobalObject().prop;

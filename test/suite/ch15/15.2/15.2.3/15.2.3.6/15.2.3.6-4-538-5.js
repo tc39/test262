@@ -54,6 +54,12 @@ if (typeof desc2.set !== "undefined" ) {
 }
 
 
-dataPropertyAttributesAreCorrect(obj, "prop", 1001, false, true, true);
+verifyEqualTo(obj, "prop", 1001);
+
+verifyNotWritable(obj, "prop");
+
+verifyEnumerable(obj, "prop");
+
+verifyConfigurable(obj, "prop");
 
 

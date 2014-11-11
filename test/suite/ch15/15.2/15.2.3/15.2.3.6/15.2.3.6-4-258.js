@@ -20,5 +20,11 @@ var arrObj = [100];
 Object.defineProperty(arrObj, "0", {
     value: 200
 });
-dataPropertyAttributesAreCorrect(arrObj, "0", 200, true, true, true);
+verifyEqualTo(arrObj, "0", 200);
+
+verifyWritable(arrObj, "0");
+
+verifyEnumerable(arrObj, "0");
+
+verifyConfigurable(arrObj, "0");
 

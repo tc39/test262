@@ -19,7 +19,13 @@ try {
         configurable: true
     });
     
-    dataPropertyAttributesAreCorrect(Math, "foo", 12, false, false, true);
+    verifyEqualTo(Math, "foo", 12);
+
+    verifyNotWritable(Math, "foo");
+
+    verifyNotEnumerable(Math, "foo");
+
+    verifyConfigurable(Math, "foo");
 } finally {
     delete Math.foo;
 }

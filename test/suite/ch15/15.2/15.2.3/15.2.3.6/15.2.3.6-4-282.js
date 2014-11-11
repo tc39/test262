@@ -25,7 +25,13 @@ try {
         writable: true
     });
 } catch (e) {
-    dataPropertyAttributesAreCorrect(arrObj, "property", undefined, false, false, false);
+    verifyEqualTo(arrObj, "property", undefined);
+
+    verifyNotWritable(arrObj, "property");
+
+    verifyNotEnumerable(arrObj, "property");
+
+    verifyNotConfigurable(arrObj, "property");
 
     if (!(e instanceof TypeError)) {
         $ERROR("Expected TypeError, got " + e);

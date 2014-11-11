@@ -27,4 +27,10 @@ Object.defineProperties(arr, {
     }
 });
 
-dataPropertyAttributesAreCorrect(arr, "0", 100, true, true, true);
+verifyEqualTo(arr, "0", 100);
+
+verifyWritable(arr, "0");
+
+verifyEnumerable(arr, "0");
+
+verifyConfigurable(arr, "0");

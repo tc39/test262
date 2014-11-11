@@ -33,5 +33,11 @@ if (desc.writable !== false) {
     $ERROR("Expected desc.writable to be false, actually " + desc.writable);
 }
 
-dataPropertyAttributesAreCorrect(obj, "foo", 10, false, true, false);
+verifyEqualTo(obj, "foo", 10);
+
+verifyNotWritable(obj, "foo");
+
+verifyEnumerable(obj, "foo");
+
+verifyNotConfigurable(obj, "foo");
 

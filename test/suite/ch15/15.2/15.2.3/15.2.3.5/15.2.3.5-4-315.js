@@ -35,6 +35,12 @@ newObj = Object.create({}, {
     }
 });
 
-dataPropertyAttributesAreCorrect(newObj, "foo1", 200, true, true, true);
+verifyEqualTo(newObj, "foo1", 200);
+
+verifyWritable(newObj, "foo1");
+
+verifyEnumerable(newObj, "foo1");
+
+verifyConfigurable(newObj, "foo1");
 
 accessorPropertyAttributesAreCorrect(newObj, "foo2", getFunc, setFunc, "setVerifyHelpProp", true, true);

@@ -23,7 +23,13 @@ includes: [propertyHelper.js]
             configurable: true
         });
     } catch (e) {
-        dataPropertyAttributesAreCorrect(arguments, "genericProperty", undefined, false, false, false);
+        verifyEqualTo(arguments, "genericProperty", undefined);
+
+        verifyNotWritable(arguments, "genericProperty");
+
+        verifyNotEnumerable(arguments, "genericProperty");
+
+        verifyNotConfigurable(arguments, "genericProperty");
 
 
         if (!(e instanceof TypeError)) {

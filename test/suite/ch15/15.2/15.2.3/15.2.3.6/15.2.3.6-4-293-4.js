@@ -29,5 +29,11 @@ flags: [onlyStrict]
         $ERROR('Expected "a === 0", actually ' + a);
     }
 
-    dataPropertyAttributesAreCorrect(arguments, "0", 20, false, true, true);
+    verifyEqualTo(arguments, "0", 20);
+
+    verifyNotWritable(arguments, "0");
+
+    verifyEnumerable(arguments, "0");
+
+    verifyConfigurable(arguments, "0");
 }(0, 1, 2));

@@ -24,4 +24,10 @@ Object.defineProperties(arr, {
         value: null
     }
 });
-dataPropertyAttributesAreCorrect(arr, "0", null, false, false, false);
+verifyEqualTo(arr, "0", null);
+
+verifyNotWritable(arr, "0");
+
+verifyNotEnumerable(arr, "0");
+
+verifyNotConfigurable(arr, "0");

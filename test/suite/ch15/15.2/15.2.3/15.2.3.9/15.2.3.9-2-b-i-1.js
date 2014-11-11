@@ -24,7 +24,13 @@ Object.defineProperty(obj, "foo", {
 Object.freeze(obj);
 var desc = Object.getOwnPropertyDescriptor(obj, "foo");
 
-dataPropertyAttributesAreCorrect(obj, "foo", 10, false, true, false);
+verifyEqualTo(obj, "foo", 10);
+
+verifyNotWritable(obj, "foo");
+
+verifyEnumerable(obj, "foo");
+
+verifyNotConfigurable(obj, "foo");
 
 if (desc.writable !== false) {
     $ERROR('Expected desc.writable === false, actually ' + desc.writable);

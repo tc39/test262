@@ -30,7 +30,13 @@ includes: [propertyHelper.js]
             $ERROR('Expected "b === 2;", actually ' + b);
         }
 
-        dataPropertyAttributesAreCorrect(arguments, "genericProperty", 1001, false, false, false);
+        verifyEqualTo(arguments, "genericProperty", 1001);
+
+        verifyNotWritable(arguments, "genericProperty");
+
+        verifyNotEnumerable(arguments, "genericProperty");
+
+        verifyNotConfigurable(arguments, "genericProperty");
 
         if (!(e instanceof TypeError)) {
             $ERROR("Expected TypeError, got " + e);

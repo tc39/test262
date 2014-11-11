@@ -26,7 +26,13 @@ includes: [propertyHelper.js]
             enumerable: false
         });
     } catch (e) {
-        dataPropertyAttributesAreCorrect(arguments, "0", 10, false, true, false);
+        verifyEqualTo(arguments, "0", 10);
+
+        verifyNotWritable(arguments, "0");
+
+        verifyEnumerable(arguments, "0");
+
+        verifyNotConfigurable(arguments, "0");
 
         if (!(e instanceof TypeError)) {
             $ERROR("Expected TypeError, got " + e);

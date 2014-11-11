@@ -43,6 +43,12 @@ if (!preCheck) {
 }
 
 
-dataPropertyAttributesAreCorrect(obj, "foo1", 10, true, true, false);
+verifyEqualTo(obj, "foo1", 10);
+
+verifyWritable(obj, "foo1");
+
+verifyEnumerable(obj, "foo1");
+
+verifyNotConfigurable(obj, "foo1");
 
 accessorPropertyAttributesAreCorrect(obj, "foo2", get_func, set_func, "variableForHelpVerify", true, false);

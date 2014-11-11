@@ -33,4 +33,10 @@ Object.defineProperties(arg, {
     }
 });
 
-dataPropertyAttributesAreCorrect(arg, "genericProperty", 1002, true, false, false);
+verifyEqualTo(arg, "genericProperty", 1002);
+
+verifyWritable(arg, "genericProperty");
+
+verifyNotEnumerable(arg, "genericProperty");
+
+verifyNotConfigurable(arg, "genericProperty");

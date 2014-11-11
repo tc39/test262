@@ -34,9 +34,21 @@ Object.freeze(obj);
 var desc1 = Object.getOwnPropertyDescriptor(obj, "foo1");
 var desc2 = Object.getOwnPropertyDescriptor(obj, "foo2");
 
-dataPropertyAttributesAreCorrect(obj, "foo1", 10, false, true, false)
+verifyEqualTo(obj, "foo1", 10);
 
-dataPropertyAttributesAreCorrect(obj, "foo2", 20, false, false, false)
+verifyNotWritable(obj, "foo1");
+
+verifyEnumerable(obj, "foo1");
+
+verifyNotConfigurable(obj, "foo1");
+
+verifyEqualTo(obj, "foo2", 20);
+
+verifyNotWritable(obj, "foo2");
+
+verifyNotEnumerable(obj, "foo2");
+
+verifyNotConfigurable(obj, "foo2");
 
 if (desc1.configurable !== false) {
     $ERROR('Expected desc1.configurable === false, actually ' + desc1.configurable);

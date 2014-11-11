@@ -19,5 +19,11 @@ var arrObj = [];
 Object.defineProperty(arrObj, "0", { value: true });
 
 Object.defineProperty(arrObj, "0", { value: true });
-dataPropertyAttributesAreCorrect(arrObj, "0", true, false, false, false);
+verifyEqualTo(arrObj, "0", true);
+
+verifyNotWritable(arrObj, "0");
+
+verifyNotEnumerable(arrObj, "0");
+
+verifyNotConfigurable(arrObj, "0");
 
