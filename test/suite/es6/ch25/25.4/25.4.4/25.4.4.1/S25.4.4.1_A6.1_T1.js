@@ -2,13 +2,14 @@
 // See LICENSE for details.
 
 /*---
-info: Promise.all([]) is a Promise
-es5id: 25.4.4.1_A2.1_T1
+info: >
+    Promise.all with 0-element array
 author: Sam Mikes
-description: Promise.all returns a Promise
+description: Promise.all([]) produces a promise
 ---*/
 
 var p = Promise.all([]);
+
 if (!(p instanceof Promise)) {
-    $ERROR('Expected p to be a Promise');
+    $ERROR('Expected Promise.all([]) to be instanceof Promise' + err);
 }
