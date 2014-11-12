@@ -6,7 +6,6 @@
 
 /*---
 author: Ryan Lewis
-email: ryanhlewis@hotmail.com
 description: Math.clz32 should return 32 if passed 0.
 includes: [runTestCase.js]
 ---*/

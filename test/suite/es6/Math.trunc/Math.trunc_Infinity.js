@@ -6,8 +6,6 @@
 
 /*---
 author: Ryan Lewis
-email: ryanhlewis@hotmail.com
-spec: "http://people.mozilla.org/~jorendorff/es6-draft.html#sec-math.trunc"
 description: Math.trunc should return Infinity when called with Infinity.
 includes: [runTestCase.js]
 ---*/

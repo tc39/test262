@@ -6,8 +6,6 @@
 
 /*---
 author: Ryan Lewis
-email: ryanhlewis@hotmail.com
-spec: "http://people.mozilla.org/~jorendorff/es6-draft.html#sec-math.hypot"
 description: Math.hypot.length should return 2.
 includes: [runTestCase.js]
 ---*/
