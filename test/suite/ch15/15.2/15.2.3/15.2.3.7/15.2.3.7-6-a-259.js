@@ -11,32 +11,27 @@ description: >
     named property that already exists on 'O' is accessor property and
     'desc' is accessor descriptor, test updating the [[Set]] attribute
     value of 'P' from undefined to function  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arr = [];
+var arr = [];
 
-        function set_fun(value) {
-            arr.setVerifyHelpProp = value;
-        }
-        Object.defineProperty(arr, "0", {
-            set: undefined,
-            configurable: true
-        });
+function set_fun(value) {
+    arr.setVerifyHelpProp = value;
+}
+Object.defineProperty(arr, "0", {
+    set: undefined,
+    configurable: true
+});
 
-        try {
-            Object.defineProperties(arr, {
-                "0": {
-                    set: set_fun
-                }
-            });
-            return accessorPropertyAttributesAreCorrect(arr, "0", undefined, set_fun, "setVerifyHelpProp", false, true);
-        } catch (ex) {
-            return false;
-        }
+Object.defineProperties(arr, {
+    "0": {
+        set: set_fun
     }
-runTestCase(testcase);
+});
+verifyWritable(arr, "0", "setVerifyHelpProp");
+
+verifyNotEnumerable(arr, "0");
+
+verifyConfigurable(arr, "0");

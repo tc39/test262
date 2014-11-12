@@ -10,29 +10,34 @@ description: >
     Object.defineProperties - 'O' is a Function object which
     implements its own [[GetOwnProperty]] method to get 'P' (8.12.9
     step 1 )
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var fun = function () { };
+var fun = function () { };
 
-        Object.defineProperty(fun, "prop", {
-            value: 11,
-            configurable: false
-        });
+Object.defineProperty(fun, "prop", {
+    value: 11,
+    configurable: false
+});
 
-        try {
-            Object.defineProperties(fun, {
-                prop: {
-                    value: 12,
-                    configurable: true
-                }
-            });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && dataPropertyAttributesAreCorrect(fun, "prop", 11, false, false, false);
+try {
+    Object.defineProperties(fun, {
+        prop: {
+            value: 12,
+            configurable: true
         }
+    });
+} catch (e) {
+    verifyEqualTo(fun, "prop", 11);
+
+    verifyNotWritable(fun, "prop");
+
+    verifyNotEnumerable(fun, "prop");
+
+    verifyNotConfigurable(fun, "prop");
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

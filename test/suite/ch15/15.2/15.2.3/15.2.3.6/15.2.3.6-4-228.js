@@ -11,17 +11,19 @@ description: >
     property, the [[Writable]] field of 'desc' and the [[Writable]]
     attribute value of 'name' are two booleans with same value
     (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arrObj = [];
+var arrObj = [];
 
-        Object.defineProperty(arrObj, "0", { writable: false });
+Object.defineProperty(arrObj, "0", { writable: false });
 
-        Object.defineProperty(arrObj, "0", { writable: false });
-        return dataPropertyAttributesAreCorrect(arrObj, "0", undefined, false, false, false);
-    }
-runTestCase(testcase);
+Object.defineProperty(arrObj, "0", { writable: false });
+verifyEqualTo(arrObj, "0", undefined);
+
+verifyNotWritable(arrObj, "0");
+
+verifyNotEnumerable(arrObj, "0");
+
+verifyNotConfigurable(arrObj, "0");
+

@@ -7,46 +7,55 @@
 /*---
 es5id: 15.2.3.7-6-a-93-4
 description: >
-    Object.defineProperties will not fail to update [[Value]]
-    attribute of indexed data property 'P' when [[Configurable]]
-    attribute of first updating property are false  (8.12.9 - step
-    Note & 10.a.ii.1)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+    Object.defineProperties will not fail to update [[Value]] attribute of
+    indexed data property 'P' when [[Configurable]] attribute of first
+    updating property are false  (8.12.9 - step Note & 10.a.ii.1)
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "0", {
-            value: 1001,
-            writable: false,
-            configurable: false
-        });
-        
-        Object.defineProperty(obj, "1", {
-            value: 1003,
-            writable: false,
-            configurable: true
-        });
+Object.defineProperty(obj, "0", {
+    value: 1001,
+    writable: false,
+    configurable: false
+});
 
-        try {
-            Object.defineProperties(obj, {
-                0: {
-                    value: 1002
-                },
-                1: {
-                    value: 1004
-                }
-            });
+Object.defineProperty(obj, "1", {
+    value: 1003,
+    writable: false,
+    configurable: true
+});
 
-            return false;
-        } catch (e) {
-            return e instanceof TypeError &&
-                dataPropertyAttributesAreCorrect(obj, "0", 1001, false, false, false) &&
-                dataPropertyAttributesAreCorrect(obj, "1", 1004, false, false, true);
+try {
+    Object.defineProperties(obj, {
+        0: {
+            value: 1002
+        },
+        1: {
+            value: 1004
         }
+    });
+
+} catch (e) {
+    verifyEqualTo(obj, "0", 1001);
+
+    verifyNotWritable(obj, "0");
+
+    verifyNotEnumerable(obj, "0");
+
+    verifyNotConfigurable(obj, "0");
+    verifyEqualTo(obj, "1", 1003);
+
+    verifyNotWritable(obj, "1");
+
+    verifyNotEnumerable(obj, "1");
+
+    verifyConfigurable(obj, "1");
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

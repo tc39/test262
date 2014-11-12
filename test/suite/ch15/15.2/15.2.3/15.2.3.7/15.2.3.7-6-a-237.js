@@ -13,27 +13,33 @@ description: >
     is data descriptor, [[Value]] field of 'desc' and the [[Value]]
     attribute value of 'P' are two numbers with different vaule
     (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
 
-        Object.defineProperty(arr, "1", {
-            value: 12
-        });
+var arr = [];
 
-        try {
-            Object.defineProperties(arr, {
-                "1": {
-                    value: 36
-                }
-            });
-            return false;
-        } catch (ex) {
-            return (ex instanceof TypeError) && dataPropertyAttributesAreCorrect(arr, "1", 12, false, false, false);
+Object.defineProperty(arr, "1", {
+    value: 12
+});
+
+try {
+    Object.defineProperties(arr, {
+        "1": {
+            value: 36
         }
+    });
+} catch (e) {
+    verifyEqualTo(arr, "1", 12);
+
+    verifyNotWritable(arr, "1");
+
+    verifyNotEnumerable(arr, "1");
+
+    verifyNotConfigurable(arr, "1");
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Epected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

@@ -10,44 +10,58 @@ description: >
     ES5 Attributes - Updating a named accessor property 'P' whose
     [[Configurable]] attribute is false to a data property does not
     succeed, 'A' is an Arguments object (8.12.9 step 9.a)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = (function () {
-            return arguments;
-        }());
+var obj = (function () {
+    return arguments;
+}());
 
-        obj.verifySetFunc = "data";
-        var getFunc = function () {
-            return obj.verifySetFunc;
-        };
+obj.verifySetFunc = "data";
+var getFunc = function () {
+    return obj.verifySetFunc;
+};
 
-        var setFunc = function (value) {
-            obj.verifySetFunc = value;
-        };
+var setFunc = function (value) {
+    obj.verifySetFunc = value;
+};
 
-        Object.defineProperty(obj, "prop", {
-            get: getFunc,
-            set: setFunc,
-            enumerable: true,
-            configurable: false
-        });
-        var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
+Object.defineProperty(obj, "prop", {
+    get: getFunc,
+    set: setFunc,
+    enumerable: true,
+    configurable: false
+});
+var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        try {
-            Object.defineProperty(obj, "prop", {
-                value: 1001
-            });
+try {
+    Object.defineProperty(obj, "prop", {
+        value: 1001
+    });
 
-            return false;
-        } catch (e) {
-            var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
+} catch (e) {
+    var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-            return desc1.hasOwnProperty("get") && !desc2.hasOwnProperty("value") && e instanceof TypeError &&
-                accessorPropertyAttributesAreCorrect(obj, "prop", getFunc, setFunc, "verifySetFunc", true, false);
+    if (!desc1.hasOwnProperty("get")) {
+        $ERROR('Expected desc1.hasOwnProperty("get") to be true, actually ' + desc1.hasOwnProperty("get"));
         }
+    
+    if (desc2.hasOwnProperty("value")) {
+        $ERROR('Expected !desc2.hasOwnProperty("value") to be true, actually ' + !desc2.hasOwnProperty("value"));
     }
-runTestCase(testcase);
+    
+
+    verifyEqualTo(obj, "prop", getFunc());
+
+    verifyWritable(obj, "prop", "verifySetFunc");
+
+    verifyEnumerable(obj, "prop");
+
+    verifyNotConfigurable(obj, "prop");
+    
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
+    }
+
+}

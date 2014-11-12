@@ -10,20 +10,22 @@ description: >
     Object.defineProperty - 'name' property doesn't exist in 'O',
     [[Value]] of 'name' property is set as undefined if it is absent
     in data descriptor 'desc' (8.12.9 step 4.a.i)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "property", {
-            writable: true,
-            enumerable: true,
-            configurable: false
-        });
+Object.defineProperty(obj, "property", {
+    writable: true,
+    enumerable: true,
+    configurable: false
+});
 
-        return dataPropertyAttributesAreCorrect(obj, "property", undefined, true, true, false);
-    }
-runTestCase(testcase);
+verifyEqualTo(obj, "property", undefined);
+
+verifyWritable(obj, "property");
+
+verifyEnumerable(obj, "property");
+
+verifyNotConfigurable(obj, "property");
+

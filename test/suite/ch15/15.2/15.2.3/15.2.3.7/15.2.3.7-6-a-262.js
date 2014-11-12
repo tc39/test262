@@ -11,41 +11,38 @@ description: >
     named property that already exists on 'O' is accessor property and
     'desc' is accessor descriptor, test updating multiple attribute
     values of 'P'  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arr = [];
+var arr = [];
 
-        function get_fun() {
-            return 36;
-        }
-        function set_fun(value) {
-            arr.setVerifyHelpProp = value;
-        }
-        Object.defineProperty(arr, "0", {
-            get: function () {
-                return 12;
-            },
-            set: set_fun,
-            enumerable: true,
-            configurable: true
-        });
+function get_fun() {
+    return 36;
+}
+function set_fun(value) {
+    arr.setVerifyHelpProp = value;
+}
+Object.defineProperty(arr, "0", {
+    get: function () {
+        return 12;
+    },
+    set: set_fun,
+    enumerable: true,
+    configurable: true
+});
 
-        try {
-            Object.defineProperties(arr, {
-                "0": {
-                    get: get_fun,
-                    enumerable: false,
-                    configurable: false
-                }
-            });
-            return accessorPropertyAttributesAreCorrect(arr, "0", get_fun, set_fun, "setVerifyHelpProp", false, false);
-        } catch (ex) {
-            return false;
-        }
+Object.defineProperties(arr, {
+    "0": {
+        get: get_fun,
+        enumerable: false,
+        configurable: false
     }
-runTestCase(testcase);
+});
+verifyEqualTo(arr, "0", get_fun());
+
+verifyWritable(arr, "0", "setVerifyHelpProp");
+
+verifyNotEnumerable(arr, "0");
+
+verifyNotConfigurable(arr, "0");

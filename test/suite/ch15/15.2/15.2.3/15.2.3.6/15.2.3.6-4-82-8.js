@@ -13,33 +13,34 @@ description: >
     'desc' is a generic descriptor which contains [Enumerable]]
     attribute as false and [[Configurable]] property is true, 'name'
     property is an accessor property (8.12.9 step 8)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
-        obj.verifySetFunction = "data";
-        var get_func = function () {
-            return obj.verifySetFunction;
-        };
-        var set_func = function (value) {
-            obj.verifySetFunction = value;
-        };
-        Object.defineProperty(obj, "foo", {
-            get: get_func,
-            set: set_func,
-            enumerable: true,
-            configurable: true
-        });
+var obj = {};
+obj.verifySetFunction = "data";
+var get_func = function () {
+    return obj.verifySetFunction;
+};
+var set_func = function (value) {
+    obj.verifySetFunction = value;
+};
+Object.defineProperty(obj, "foo", {
+    get: get_func,
+    set: set_func,
+    enumerable: true,
+    configurable: true
+});
 
-        Object.defineProperty(obj, "foo", {
-            enumerable: false,
-            configurable: true
-        });
+Object.defineProperty(obj, "foo", {
+    enumerable: false,
+    configurable: true
+});
 
-        return accessorPropertyAttributesAreCorrect(obj, "foo", get_func, set_func, "verifySetFunction", false, true);
-    }
-runTestCase(testcase);
+verifyEqualTo(obj, "foo", get_func());
+
+verifyWritable(obj, "foo", "verifySetFunction");
+
+verifyNotEnumerable(obj, "foo");
+
+verifyConfigurable(obj, "foo");

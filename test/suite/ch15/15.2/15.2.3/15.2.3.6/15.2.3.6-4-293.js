@@ -12,27 +12,32 @@ description: >
     [[Value]] attribute value of 'name' which is defined as
     non-writable and non-configurable (10.6 [[DefineOwnProperty]] step
     3)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        return (function () {
-            Object.defineProperty(arguments, "0", {
-                value: 10,
-                writable: false,
-                enumerable: false,
-                configurable: false
-            });
-            try {
-                Object.defineProperty(arguments, "0", {
-                    value: 20
-                });
-            } catch (e) {
-                return e instanceof TypeError && dataPropertyAttributesAreCorrect(arguments, "0", 10, false, false, false);
-            }
-            return false;
-        }(0, 1, 2));
+(function () {
+    Object.defineProperty(arguments, "0", {
+        value: 10,
+        writable: false,
+        enumerable: false,
+        configurable: false
+    });
+    try {
+        Object.defineProperty(arguments, "0", {
+            value: 20
+        });
+    } catch (e) {
+        verifyEqualTo(arguments, "0", 10);
+
+        verifyNotWritable(arguments, "0");
+
+        verifyNotEnumerable(arguments, "0");
+
+        verifyNotConfigurable(arguments, "0");
+
+        if (!(e instanceof TypeError)) {
+            $ERROR("Expected TypeError, got " + e);
+        }
+
     }
-runTestCase(testcase);
+}(0, 1, 2));

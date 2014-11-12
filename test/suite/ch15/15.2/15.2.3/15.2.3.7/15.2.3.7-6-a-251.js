@@ -11,24 +11,21 @@ description: >
     named property that already exists on 'O' is data property and
     'desc' is data descriptor, test updating the [[Enumerable]]
     attribute value of 'P'  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arr = [12];
+var arr = [12];
 
-        try {
-            Object.defineProperties(arr, {
-                "0": {
-                    enumerable: false
-                }
-            });
-            return dataPropertyAttributesAreCorrect(arr, "0", 12, true, false, true);
-        } catch (ex) {
-            return false;
-        }
+Object.defineProperties(arr, {
+    "0": {
+        enumerable: false
     }
-runTestCase(testcase);
+});
+verifyEqualTo(arr, "0", 12);
+
+verifyWritable(arr, "0");
+
+verifyNotEnumerable(arr, "0");
+
+verifyConfigurable(arr, "0");

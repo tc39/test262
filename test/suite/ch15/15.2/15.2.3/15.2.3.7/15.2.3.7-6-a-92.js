@@ -10,39 +10,42 @@ description: >
     Object.defineProperties throws TypeError when P.configurable is
     false, P.[[Get]] is undefined, properties.[[Get]] refers to an
     objcet (8.12.9 step 11.a.ii)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        function set_func(value) {
-            obj.setVerifyHelpProp = value;
+function set_func(value) {
+    obj.setVerifyHelpProp = value;
+}
+
+Object.defineProperty(obj, "foo", {
+    get: undefined,
+    set: set_func,
+    enumerable: false,
+    configurable: false
+});
+
+function get_func() {
+    return 0;
+}
+
+try {
+    Object.defineProperties(obj, {
+        foo: {
+            get: get_func
         }
+    });
+} catch (e) {
+    verifyWritable(obj, "foo", "setVerifyHelpProp");
 
-        Object.defineProperty(obj, "foo", {
-            get: undefined,
-            set: set_func,
-            enumerable: false,
-            configurable: false
-        });
+    verifyNotEnumerable(obj, "foo");
 
-        function get_func() {
-            return 0;
-        }
+    verifyNotConfigurable(obj, "foo");
 
-        try {
-            Object.defineProperties(obj, {
-                foo: {
-                    get: get_func
-                }
-            });
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError) && accessorPropertyAttributesAreCorrect(obj, "foo", undefined, set_func, "setVerifyHelpProp", false, false);
-        }
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

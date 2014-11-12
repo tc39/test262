@@ -14,31 +14,36 @@ description: >
     false, and the type of the [[Value]] field of 'desc' is different
     from the type of the [[Value]] attribute value of 'P'  (15.4.5.1
     step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arr = [];
+var arr = [];
 
-        Object.defineProperty(arr, "1", {
-            value: 3,
-            configurable: false,
-            writable: false
-        });
+Object.defineProperty(arr, "1", {
+    value: 3,
+    configurable: false,
+    writable: false
+});
 
-        try {
+try {
 
-            Object.defineProperties(arr, {
-                "1": {
-                    value: "abc"
-                }
-            });
-            return false;
-        } catch (ex) {
-            return (ex instanceof TypeError) && dataPropertyAttributesAreCorrect(arr, "1", 3, false, false, false);
+    Object.defineProperties(arr, {
+        "1": {
+            value: "abc"
         }
+    });
+} catch (e) {
+    verifyEqualTo(arr, "1", 3);
+
+    verifyNotWritable(arr, "1");
+
+    verifyNotEnumerable(arr, "1");
+
+    verifyNotConfigurable(arr, "1");
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Epected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

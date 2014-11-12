@@ -11,31 +11,32 @@ description: >
     generic own data property of 'O', and 'desc' is data descriptor,
     test updating multiple attribute values of 'P' (10.6
     [[DefineOwnProperty]] step 4)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arg = (function () {
-            return arguments;
-        }(1, 2, 3));
+var arg = (function () {
+    return arguments;
+}(1, 2, 3));
 
-        Object.defineProperty(arg, "genericProperty", {
-            value: 1001,
-            writable: true,
-            enumerable: true,
-            configurable: true
-        });
+Object.defineProperty(arg, "genericProperty", {
+    value: 1001,
+    writable: true,
+    enumerable: true,
+    configurable: true
+});
 
-        Object.defineProperties(arg, {
-            "genericProperty": {
-                value: 1002,
-                enumerable: false,
-                configurable: false
-            }
-        });
-
-        return dataPropertyAttributesAreCorrect(arg, "genericProperty", 1002, true, false, false);
+Object.defineProperties(arg, {
+    "genericProperty": {
+        value: 1002,
+        enumerable: false,
+        configurable: false
     }
-runTestCase(testcase);
+});
+
+verifyEqualTo(arg, "genericProperty", 1002);
+
+verifyWritable(arg, "genericProperty");
+
+verifyNotEnumerable(arg, "genericProperty");
+
+verifyNotConfigurable(arg, "genericProperty");

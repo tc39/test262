@@ -12,36 +12,41 @@ description: >
     [[ParameterMap]] of 'O', test TypeError is thrown when updating
     the [[Configurable]] attribute value of 'P' which is not
     configurable (10.6 [[DefineOwnProperty]] step 4)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arg;
+var arg;
 
-        (function fun() {
-            arg = arguments;
-        }());
+(function fun() {
+    arg = arguments;
+}());
 
-        Object.defineProperty(arg, "0", {
-            value: 0,
-            writable: false,
-            enumerable: false,
-            configurable: false
-        });
+Object.defineProperty(arg, "0", {
+    value: 0,
+    writable: false,
+    enumerable: false,
+    configurable: false
+});
 
-        try {
-            Object.defineProperties(arg, {
-                "0": {
-                    configurable: true
-                }
-            });
-
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError) && dataPropertyAttributesAreCorrect(arg, "0", 0, false, false, false);
+try {
+    Object.defineProperties(arg, {
+        "0": {
+            configurable: true
         }
+    });
+
+} catch (e) {
+    verifyEqualTo(arg, "0", 0);
+
+    verifyNotWritable(arg, "0");
+
+    verifyNotEnumerable(arg, "0");
+
+    verifyNotConfigurable(arg, "0");
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

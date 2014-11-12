@@ -11,22 +11,24 @@ description: >
     property that won't exist on 'O', and 'desc' is data descriptor,
     test 'name' is defined in 'O' with all correct attribute values
     (15.4.5.1 step 5)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arrObj = [];
+var arrObj = [];
 
-        Object.defineProperty(arrObj, "property", {
-            value: 12,
-            writable: true,
-            enumerable: true,
-            configurable: true
-        });
+Object.defineProperty(arrObj, "property", {
+    value: 12,
+    writable: true,
+    enumerable: true,
+    configurable: true
+});
 
-        return dataPropertyAttributesAreCorrect(arrObj, "property", 12, true, true, true);
-    }
-runTestCase(testcase);
+verifyEqualTo(arrObj, "property", 12);
+
+verifyWritable(arrObj, "property");
+
+verifyEnumerable(arrObj, "property");
+
+verifyConfigurable(arrObj, "property");
+

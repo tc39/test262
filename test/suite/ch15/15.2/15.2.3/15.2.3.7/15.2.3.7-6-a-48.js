@@ -9,22 +9,23 @@ es5id: 15.2.3.7-6-a-48
 description: >
     Object.defineProperties - desc.value and P.value are two numbers
     with different values (8.12.9 step 6)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        obj.foo = 101; // default value of attributes: writable: true, configurable: true, enumerable: true
+obj.foo = 101; // default value of attributes: writable: true, configurable: true, enumerable: true
 
-        Object.defineProperties(obj, {
-            foo: {
-                value: 102
-            }
-        });
-        return dataPropertyAttributesAreCorrect(obj, "foo", 102, true, true, true);
+Object.defineProperties(obj, {
+    foo: {
+        value: 102
     }
-runTestCase(testcase);
+});
+verifyEqualTo(obj, "foo", 102);
+
+verifyWritable(obj, "foo");
+
+verifyEnumerable(obj, "foo");
+
+verifyConfigurable(obj, "foo");

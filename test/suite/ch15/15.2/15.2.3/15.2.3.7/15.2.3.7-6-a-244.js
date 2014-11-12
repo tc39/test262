@@ -14,33 +14,36 @@ description: >
     [[Get]] field of 'desc' and the [[Get]] attribute value of 'P' are
     two objects which refer to the different objects  (15.4.5.1 step
     4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
+var arr = [];
 
-        function get_fun() {
-            return 36;
+function get_fun() {
+    return 36;
+}
+Object.defineProperty(arr, "1", {
+    get: get_fun
+});
+
+try {
+    Object.defineProperties(arr, {
+        "1": {
+            get: function () {
+                return 12;
+            }
         }
-        Object.defineProperty(arr, "1", {
-            get: get_fun
-        });
+    });
 
-        try {
-            Object.defineProperties(arr, {
-                "1": {
-                    get: function () {
-                        return 12;
-                    }
-                }
-            });
+} catch (e) {
+    verifyEqualTo(arr, "1", get_fun());
 
-            return false;
-        } catch (ex) {
-            return (ex instanceof TypeError) && accessorPropertyAttributesAreCorrect(arr, "1", get_fun, undefined, undefined, false, false);
-        }
+    verifyNotEnumerable(arr, "1");
+
+    verifyNotConfigurable(arr, "1");
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Epected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

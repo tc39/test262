@@ -11,26 +11,30 @@ description: >
     named property, 'name' is own data property, test TypeError is
     thrown on updating the configurable attribute from false to true
     (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arrObj = [];
-        Object.defineProperty(arrObj, 0, {
-            value: "ownDataProperty",
-            configurable: false
-        });
+var arrObj = [];
 
-        try {
-            Object.defineProperty(arrObj, 0, {
-                configurable: true
-            });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError &&
-                dataPropertyAttributesAreCorrect(arrObj, "0", "ownDataProperty", false, false, false);
-        }
+Object.defineProperty(arrObj, 0, {
+    value: "ownDataProperty",
+    configurable: false
+});
+
+try {
+    Object.defineProperty(arrObj, 0, {
+        configurable: true
+    });
+} catch (e) {
+    verifyEqualTo(arrObj, "0", "ownDataProperty");
+
+    verifyNotWritable(arrObj, "0");
+
+    verifyNotEnumerable(arrObj, "0");
+
+    verifyNotConfigurable(arrObj, "0");
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+}

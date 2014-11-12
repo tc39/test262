@@ -10,31 +10,36 @@ description: >
     Object.defineProperties - 'O' is an Array, 'P' is generic
     property, and 'desc' is accessor descriptor, test 'P' is defined
     in 'O' with all correct attribute values (15.4.5.1 step 5)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arr = [];
+var arr = [];
 
-        function get_fun() {
-            return 12;
-        }
-        function set_fun(value) {
-            arr.setVerifyHelpProp = value;
-        }
+function get_fun() {
+    return 12;
+}
+function set_fun(value) {
+    arr.setVerifyHelpProp = value;
+}
 
-        Object.defineProperties(arr, {
-            "property": {
-                get: get_fun,
-                set: set_fun,
-                enumerable: true,
-                configurable: true
-            }
-        });
-        return accessorPropertyAttributesAreCorrect(arr, "property", get_fun, set_fun, "setVerifyHelpProp", true, true) &&
-            arr.length === 0;
+Object.defineProperties(arr, {
+    "property": {
+        get: get_fun,
+        set: set_fun,
+        enumerable: true,
+        configurable: true
     }
-runTestCase(testcase);
+});
+verifyEqualTo(arr, "property", get_fun());
+
+verifyWritable(arr, "property", "setVerifyHelpProp");
+
+verifyEnumerable(arr, "property");
+
+verifyConfigurable(arr, "property");
+
+if (arr.length !== 0) {
+    $ERROR('Expected arr.length === 0, actually ' + arr.length);
+}
+

@@ -13,27 +13,28 @@ description: >
     are true, the 'desc' is a generic descriptor which contains
     [[Enumerable]] and [[Configurable]] attributes as false, 'name'
     property is an index data property (8.12.9 step 8)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-    
-        var obj = {};
 
-        Object.defineProperty(obj, "0", {
-            value: 1001,
-            writable: true,
-            enumerable: true,
-            configurable: true
-        });
+var obj = {};
 
-        Object.defineProperty(obj, "0", {
-            enumerable: false,
-            configurable: false
-        });
+Object.defineProperty(obj, "0", {
+    value: 1001,
+    writable: true,
+    enumerable: true,
+    configurable: true
+});
 
-        return dataPropertyAttributesAreCorrect(obj, "0", 1001, true, false, false);
-    }
-runTestCase(testcase);
+Object.defineProperty(obj, "0", {
+    enumerable: false,
+    configurable: false
+});
+
+verifyEqualTo(obj, "0", 1001);
+
+verifyWritable(obj, "0");
+
+verifyNotEnumerable(obj, "0");
+
+verifyNotConfigurable(obj, "0");

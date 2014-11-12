@@ -9,28 +9,29 @@ es5id: 15.2.3.6-4-75
 description: >
     Object.defineProperty - both desc.[[Get]] and name.[[Get]] are two
     objects which refer to the same object (8.12.9 step 6)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        function getFunc() {
-            return 10;
-        }
-        function setFunc(value) {
-            obj.helpVerifySet = value;
-        }
+function getFunc() {
+    return 10;
+}
+function setFunc(value) {
+    obj.helpVerifySet = value;
+}
 
-        Object.defineProperty(obj, "foo", {
-            get: getFunc,
-            set: setFunc
-        });
+Object.defineProperty(obj, "foo", {
+    get: getFunc,
+    set: setFunc
+});
 
-        Object.defineProperty(obj, "foo", { get: getFunc });
-        return accessorPropertyAttributesAreCorrect(obj, "foo", getFunc, setFunc, "helpVerifySet", false, false);
-    }
-runTestCase(testcase);
+Object.defineProperty(obj, "foo", { get: getFunc });
+verifyEqualTo(obj, "foo", getFunc());
+
+verifyWritable(obj, "foo", "helpVerifySet");
+
+verifyNotEnumerable(obj, "foo");
+
+verifyNotConfigurable(obj, "foo");

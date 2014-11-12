@@ -10,33 +10,38 @@ description: >
     Object.defineProperties throws TypeError when P is data property
     and  P.configurable is false, desc is accessor property (8.12.9
     step 9.a)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "foo", {
-            value: 10,
-            configurable: false
-        });
+Object.defineProperty(obj, "foo", {
+    value: 10,
+    configurable: false
+});
 
-        function get_func() {
-            return 11;
+function get_func() {
+    return 11;
+}
+
+try {
+    Object.defineProperties(obj, {
+        foo: {
+            get: get_func
         }
+    });
+} catch (e) {
+    verifyEqualTo(obj, "foo", 10);
 
-        try {
-            Object.defineProperties(obj, {
-                foo: {
-                    get: get_func
-                }
-            });
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError) && dataPropertyAttributesAreCorrect(obj, "foo", 10, false, false, false);
-        }
+    verifyNotWritable(obj, "foo");
+
+    verifyNotEnumerable(obj, "foo");
+
+    verifyNotConfigurable(obj, "foo");
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

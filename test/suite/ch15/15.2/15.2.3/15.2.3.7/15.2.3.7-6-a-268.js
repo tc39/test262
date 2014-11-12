@@ -10,34 +10,35 @@ description: >
     Object.defineProperties - 'O' is an Array, 'P' is generic own
     accessor property of 'O', and 'desc' is accessor descriptor, test
     updating multiple attribute values of 'P' (15.4.5.1 step 5)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
-        function get_fun() {
-            return 12;
-        }
-        function set_fun(value) {
-            arr.verifySetFun = value;
-        }
-        Object.defineProperty(arr, "property", {
-            get: function () {
-                return 36;
-            },
-            enumerable: true,
-            configurable: true
-        });
+var arr = [];
+function get_fun() {
+    return 12;
+}
+function set_fun(value) {
+    arr.verifySetFun = value;
+}
+Object.defineProperty(arr, "property", {
+    get: function () {
+        return 36;
+    },
+    enumerable: true,
+    configurable: true
+});
 
-        Object.defineProperties(arr, {
-            "property": {
-                get: get_fun,
-                set: set_fun,
-                enumerable: false
-            }
-        });
-        return accessorPropertyAttributesAreCorrect(arr, "property", get_fun, set_fun, "verifySetFun", false, true);
+Object.defineProperties(arr, {
+    "property": {
+        get: get_fun,
+        set: set_fun,
+        enumerable: false
     }
-runTestCase(testcase);
+});
+verifyEqualTo(arr, "property", get_fun());
+
+verifyWritable(arr, "property", "verifySetFun");
+
+verifyNotEnumerable(arr, "property");
+
+verifyConfigurable(arr, "property");
