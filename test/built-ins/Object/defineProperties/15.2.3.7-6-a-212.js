@@ -10,24 +10,25 @@ description: >
     Object.defineProperties - 'O' is an Array, 'name' is an array
     index property, both the [[Value]] field of 'desc' and the
     [[Value]] attribute value of 'name' are NaN  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
+var arr = [];
 
-        Object.defineProperty(arr, "0", {
-            value: NaN
-        });
+Object.defineProperty(arr, "0", {
+    value: NaN
+});
 
-        Object.defineProperties(arr, {
-            "0": {
-                value: NaN
-            }
-        });
-
-        return dataPropertyAttributesAreCorrect(arr, "0", NaN, false, false, false);
+Object.defineProperties(arr, {
+    "0": {
+        value: NaN
     }
-runTestCase(testcase);
+});
+
+verifyEqualTo(arr, "0", NaN);
+
+verifyNotWritable(arr, "0");
+
+verifyNotEnumerable(arr, "0");
+
+verifyNotConfigurable(arr, "0");

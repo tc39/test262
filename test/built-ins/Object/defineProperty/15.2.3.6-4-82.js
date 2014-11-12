@@ -9,18 +9,19 @@ es5id: 15.2.3.6-4-82
 description: >
     Object.defineProperty - desc.configurable and name.configurable
     are boolean negation of each other (8.12.9 step 6)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-    
-        var obj = {};
 
-        Object.defineProperty(obj, "foo", { configurable: true });
+var obj = {};
 
-        Object.defineProperty(obj, "foo", { configurable: false });
-        return dataPropertyAttributesAreCorrect(obj, "foo", undefined, false, false, false);
-    }
-runTestCase(testcase);
+Object.defineProperty(obj, "foo", { configurable: true });
+
+Object.defineProperty(obj, "foo", { configurable: false });
+verifyEqualTo(obj, "foo", undefined);
+
+verifyNotWritable(obj, "foo");
+
+verifyNotEnumerable(obj, "foo");
+
+verifyNotConfigurable(obj, "foo");

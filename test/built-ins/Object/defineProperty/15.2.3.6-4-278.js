@@ -10,29 +10,30 @@ description: >
     Object.defineProperty - 'name' is generic property that won't
     exist on 'O', and 'desc' is accessor descriptor, test 'name' is
     defined in 'O' with all correct attribute values (15.4.5.1 step 5)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arrObj = [];
+var arrObj = [];
 
-        function getFunc() {
-            return 12;
-        }
-        function setFunc(value) {
-            arrObj.setVerifyHelpProp = value;
-        }
+function getFunc() {
+    return 12;
+}
+function setFunc(value) {
+    arrObj.setVerifyHelpProp = value;
+}
 
-        Object.defineProperty(arrObj, "property", {
-            get: getFunc,
-            set: setFunc,
-            enumerable: true,
-            configurable: true
-        });
+Object.defineProperty(arrObj, "property", {
+    get: getFunc,
+    set: setFunc,
+    enumerable: true,
+    configurable: true
+});
 
-        return accessorPropertyAttributesAreCorrect(arrObj, "property", getFunc, setFunc, "setVerifyHelpProp", true, true);
-    }
-runTestCase(testcase);
+verifyEqualTo(arrObj, "property", getFunc());
+
+verifyWritable(arrObj, "property", "setVerifyHelpProp");
+
+verifyEnumerable(arrObj, "property");
+
+verifyConfigurable(arrObj, "property");

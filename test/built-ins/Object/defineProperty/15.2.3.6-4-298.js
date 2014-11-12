@@ -11,33 +11,37 @@ description: >
     accessor property of 'O', test TypeError is thrown when updating
     the [[Set]] attribute value of 'name' which is defined as
     non-configurable (10.6 [[DefineOwnProperty]] step 4)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        return (function () {
-            function getFunc() {
-                return 10;
-            }
-            Object.defineProperty(arguments, "0", {
-                get: getFunc,
-                set: undefined,
-                enumerable: false,
-                configurable: false
-            });
-            function setFunc(value) {
-                this.setVerifyHelpProp = value;
-            }
-            try {
-                Object.defineProperty(arguments, "0", {
-                    set: setFunc
-                });
-            } catch (e) {
-                return e instanceof TypeError && accessorPropertyAttributesAreCorrect(arguments, "0", getFunc, undefined, undefined, false, false);
-            }
-            return false;
-        }(0, 1, 2));
+(function () {
+    function getFunc() {
+        return 10;
     }
-runTestCase(testcase);
+    Object.defineProperty(arguments, "0", {
+        get: getFunc,
+        set: undefined,
+        enumerable: false,
+        configurable: false
+    });
+    function setFunc(value) {
+        this.setVerifyHelpProp = value;
+    }
+    try {
+        Object.defineProperty(arguments, "0", {
+            set: setFunc
+        });
+        $ERROR("Expected an exception.");
+    } catch (e) {
+        verifyEqualTo(arguments, "0", getFunc());
+
+        verifyNotEnumerable(arguments, "0");
+
+        verifyNotConfigurable(arguments, "0");
+
+        if (!(e instanceof TypeError)) {
+            $ERROR("Expected TypeError, got " + e);
+        }
+
+    }
+}(0, 1, 2));

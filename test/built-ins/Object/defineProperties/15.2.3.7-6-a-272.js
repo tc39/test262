@@ -11,29 +11,35 @@ description: >
     property of 'O', test TypeError is thrown when updating the
     [[Enumerable]] attribute value of 'P' which is defined as
     non-configurable (15.4.5.1 step 5)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arr = [];
+var arr = [];
 
-        Object.defineProperty(arr, "property", {
-            value: 12,
-            enumerable: false
-        });
+Object.defineProperty(arr, "property", {
+    value: 12,
+    enumerable: false
+});
 
-        try {
-            Object.defineProperties(arr, {
-                "property": {
-                    enumerable: true
-                }
-            });
-            return false;
-        } catch (ex) {
-            return (ex instanceof TypeError) && dataPropertyAttributesAreCorrect(arr, "property", 12, false, false, false);
+try {
+    Object.defineProperties(arr, {
+        "property": {
+            enumerable: true
         }
+    });
+    $ERROR("Expected an exception.");
+} catch (e) {
+    verifyEqualTo(arr, "property", 12);
+
+    verifyNotWritable(arr, "property");
+
+    verifyNotEnumerable(arr, "property");
+
+    verifyNotConfigurable(arr, "property");
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

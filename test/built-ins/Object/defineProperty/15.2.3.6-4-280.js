@@ -10,23 +10,25 @@ description: >
     Object.defineProperty - 'O' is an Array, 'name' is generic own
     data property of 'O', and 'desc' is data descriptor, test updating
     multiple attribute values of 'name' (15.4.5.1 step 5)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arrObj = [];
+var arrObj = [];
 
-        arrObj.property = 12; // default value of attributes: writable: true, configurable: true, enumerable: true
+arrObj.property = 12; // default value of attributes: writable: true, configurable: true, enumerable: true
 
-        Object.defineProperty(arrObj, "property", {
-            writable: false,
-            enumerable: false,
-            configurable: false
-        });
+Object.defineProperty(arrObj, "property", {
+    writable: false,
+    enumerable: false,
+    configurable: false
+});
 
-        return dataPropertyAttributesAreCorrect(arrObj, "property", 12, false, false, false);
-    }
-runTestCase(testcase);
+verifyEqualTo(arrObj, "property", 12);
+
+verifyNotWritable(arrObj, "property");
+
+verifyNotEnumerable(arrObj, "property");
+
+verifyNotConfigurable(arrObj, "property");
+

@@ -12,22 +12,26 @@ description: >
     'O', and 'desc' is data descriptor, test 'name' is defined in 'O'
     with all correct attribute values (10.6 [[DefineOwnProperty]] step
     3)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        return (function (a, b, c) {
-            delete arguments[0];
-            Object.defineProperty(arguments, "0", {
-                value: 10,
-                writable: false,
-                enumerable: false,
-                configurable: false
-            });
-            var verifyFormal = a === 0;
-            return dataPropertyAttributesAreCorrect(arguments, "0", 10, false, false, false) && verifyFormal;
-        }(0, 1, 2));
+(function (a, b, c) {
+    delete arguments[0];
+    Object.defineProperty(arguments, "0", {
+        value: 10,
+        writable: false,
+        enumerable: false,
+        configurable: false
+    });
+    if (a !== 0) {
+        $ERROR("Expected a === 0, actually " + a);
     }
-runTestCase(testcase);
+    verifyEqualTo(arguments, "0", 10);
+
+    verifyNotWritable(arguments, "0");
+
+    verifyNotEnumerable(arguments, "0");
+
+    verifyNotConfigurable(arguments, "0");
+}(0, 1, 2));
+

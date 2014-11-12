@@ -12,37 +12,38 @@ description: >
     'O', and is deleted afterwards, and 'desc' is accessor descriptor,
     test 'P' is redefined in 'O' with all correct attribute values
     (10.6 [[DefineOwnProperty]] step 3)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arg;
+var arg;
 
-        (function fun(a, b, c) {
-            arg = arguments;
-        }(0, 1, 2));
+(function fun(a, b, c) {
+    arg = arguments;
+}(0, 1, 2));
 
-        delete arg[0];
+delete arg[0];
 
-        function get_func() {
-            return 10;
-        }
-        function set_func(value) {
-            arg.setVerifyHelpProp = value;
-        }
+function get_func() {
+    return 10;
+}
+function set_func(value) {
+    arg.setVerifyHelpProp = value;
+}
 
-        Object.defineProperties(arg, {
-            "0": {
-                get: get_func,
-                set: set_func,
-                enumerable: true,
-                configurable: true
-            }
-        });
-
-        return accessorPropertyAttributesAreCorrect(arg, "0", get_func, set_func, "setVerifyHelpProp", true, true);
+Object.defineProperties(arg, {
+    "0": {
+        get: get_func,
+        set: set_func,
+        enumerable: true,
+        configurable: true
     }
-runTestCase(testcase);
+});
+
+verifyEqualTo(arg, "0", get_func());
+
+verifyWritable(arg, "0", "setVerifyHelpProp");
+
+verifyEnumerable(arg, "0");
+
+verifyConfigurable(arg, "0");

@@ -11,27 +11,24 @@ description: >
     index property, the [[Value]] field of 'desc' and the [[Value]]
     attribute value of 'name' are two numbers with same vaule
     (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
+var arr = [];
 
-        Object.defineProperty(arr, "0", {
-            value: 101
-        });
+Object.defineProperty(arr, "0", {
+    value: 101
+});
 
-        try {
-            Object.defineProperties(arr, {
-                "0": {
-                    value: 101
-                }
-            });
-            return dataPropertyAttributesAreCorrect(arr, "0", 101, false, false, false);
-        } catch (e) {
-            return false;
-        }
+Object.defineProperties(arr, {
+    "0": {
+        value: 101
     }
-runTestCase(testcase);
+});
+verifyEqualTo(arr, "0", 101);
+
+verifyNotWritable(arr, "0");
+
+verifyNotEnumerable(arr, "0");
+
+verifyNotConfigurable(arr, "0");

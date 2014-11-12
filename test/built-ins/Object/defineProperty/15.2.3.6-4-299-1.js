@@ -13,31 +13,36 @@ description: >
     is thrown when updating the [[Enumerable]] attribute value of
     'name' which is defined as non-configurable (10.6
     [[DefineOwnProperty]] steps 4 and 5a)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        return (function (a, b, c) {
-            function getFunc() {
-                return 10;
-            }
-            Object.defineProperty(arguments, "0", {
-                get: getFunc,
-                enumerable: true,
-                configurable: false
-            });
-            try {
-                Object.defineProperty(arguments, "0", {
-                    enumerable: false
-                });
-            } catch (e) {
-                var verifyFormal = a === 0;
-                return e instanceof TypeError &&
-                    accessorPropertyAttributesAreCorrect(arguments, "0", getFunc, undefined, undefined, true, false) && verifyFormal;
-            }
-            return false;
-        }(0, 1, 2));
+(function (a, b, c) {
+    function getFunc() {
+        return 10;
     }
-runTestCase(testcase);
+    Object.defineProperty(arguments, "0", {
+        get: getFunc,
+        enumerable: true,
+        configurable: false
+    });
+    try {
+        Object.defineProperty(arguments, "0", {
+            enumerable: false
+        });
+        $ERROR("Expected an exception.");
+    } catch (e) {
+        if (a !== 0) {
+            $ERROR('Expected a === 0, actually ' + a);
+        }
+        verifyEqualTo(arguments, "0", getFunc());
+
+        verifyEnumerable(arguments, "0");
+
+        verifyNotConfigurable(arguments, "0");
+
+        if (!(e instanceof TypeError)) {
+            $ERROR("Expected TypeError, got " + e);
+        }
+
+    }
+}(0, 1, 2));

@@ -9,49 +9,46 @@ es5id: 15.2.3.7-6-a-88
 description: >
     Object.defineProperties throws TypeError when P.configurable is
     false, P.[[Set]] is undefined, properties.[[Set]] refers to an
-    objcet (8.12.9 step 11.a.i)
-includes: [runTestCase.js]
+    object (8.12.9 step 11.a.i)
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        function get_Func() {
-            return 0;
+function get_Func() {
+    return 0;
+}
+
+Object.defineProperty(obj, "foo", {
+    set: undefined,
+    get: get_Func,
+    enumerable: false,
+    configurable: false
+});
+
+function set_Func() {}
+
+try {
+    Object.defineProperties(obj, {
+        foo: {
+            set: set_Func
         }
+    });
+    $ERROR("Expected an exception.");
+} catch (e) {
+    verifyNotEnumerable(obj, "foo");
 
-        Object.defineProperty(obj, "foo", {
-            set: undefined,
-            get: get_Func,
-            enumerable: false,
-            configurable: false
-        });
+    verifyNotConfigurable(obj, "foo");
+    var desc = Object.getOwnPropertyDescriptor(obj, "foo");
 
-        function set_Func() { }
-
-        try {
-            Object.defineProperties(obj, {
-                foo: {
-                    set: set_Func
-                }
-            });
-            return false;
-        } catch (e) {
-            var verifyEnumerable = false;
-            for (var p in obj) {
-                if (p === "foo") {
-                    verifyEnumerable = true;
-                }
-            }
-
-            var desc = Object.getOwnPropertyDescriptor(obj, "foo");
-
-            var verifyConfigurable = false;
-            delete obj.foo;
-            verifyConfigurable = obj.hasOwnProperty("foo");
-
-            return e instanceof TypeError && !verifyEnumerable && verifyConfigurable && typeof (desc.set) === "undefined";
-        }
+    if (typeof (desc.set) !== "undefined") {
+        $ERROR('Expected typeof (desc.set) === "undefined", actually ' + typeof (desc.set));
     }
-runTestCase(testcase);
+
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
+    }
+
+}

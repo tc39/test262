@@ -9,30 +9,31 @@ es5id: 15.2.3.7-6-a-2
 description: >
     Object.defineProperties - 'P' is inherited data property (8.12.9
     step 1 )
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var proto = {};
-        Object.defineProperty(proto, "prop", {
-            value: 11,
-            configurable: false
-        });
-        var Con = function () { };
-        Con.prototype = proto;
+var proto = {};
+Object.defineProperty(proto, "prop", {
+    value: 11,
+    configurable: false
+});
+var Con = function () { };
+Con.prototype = proto;
 
-        var obj = new Con();
+var obj = new Con();
 
-        Object.defineProperties(obj, {
-            prop: {
-                value: 12,
-                configurable: true
-            }
-        });
-
-        return dataPropertyAttributesAreCorrect(obj, "prop", 12, false, false, true);
-
+Object.defineProperties(obj, {
+    prop: {
+        value: 12,
+        configurable: true
     }
-runTestCase(testcase);
+});
+
+verifyEqualTo(obj, "prop", 12);
+
+verifyNotWritable(obj, "prop");
+
+verifyNotEnumerable(obj, "prop");
+
+verifyConfigurable(obj, "prop");
+

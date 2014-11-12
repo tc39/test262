@@ -11,30 +11,33 @@ description: >
     named property, 'name' is own accessor property, test TypeError is
     thrown on updating the configurable attribute from false to true
     (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arrObj = [];
-        var getFunc = function () {
-            return 11;
-        };
+var arrObj = [];
+var getFunc = function () {
+    return 11;
+};
 
-        Object.defineProperty(arrObj, "0", {
-            get: getFunc,
-            configurable: false
-        });
+Object.defineProperty(arrObj, "0", {
+    get: getFunc,
+    configurable: false
+});
 
-        try {
-            Object.defineProperty(arrObj, "0", {
-                configurable: true
-            });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError &&
-                accessorPropertyAttributesAreCorrect(arrObj, "0", getFunc, undefined, undefined, false, false);
-        }
+try {
+    Object.defineProperty(arrObj, "0", {
+        configurable: true
+    });
+    $ERROR("Expected an exception.");
+} catch (e) {
+    verifyEqualTo(arrObj, "0", getFunc());
+
+    verifyNotEnumerable(arrObj, "0");
+
+    verifyNotConfigurable(arrObj, "0");
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e.name);
     }
-runTestCase(testcase);
+
+}

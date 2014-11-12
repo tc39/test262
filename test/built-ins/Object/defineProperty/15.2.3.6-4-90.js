@@ -11,26 +11,23 @@ description: >
     name.configurable = false, name.writable = false, desc.value and
     name.value are two strings with the same value (8.12.9 step
     10.a.ii.1)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "foo", {
-            value: "abcd",
-            writable: false,
-            configurable: false 
-        });
+Object.defineProperty(obj, "foo", {
+    value: "abcd",
+    writable: false,
+    configurable: false 
+});
 
-        try {
-            Object.defineProperty(obj, "foo", { value: "abcd" });
-            return dataPropertyAttributesAreCorrect(obj, "foo", "abcd", false, false, false);
-        } catch (e) {
-            return false;
-        }
-    }
-runTestCase(testcase);
+Object.defineProperty(obj, "foo", { value: "abcd" });
+verifyEqualTo(obj, "foo", "abcd");
+
+verifyNotWritable(obj, "foo");
+
+verifyNotEnumerable(obj, "foo");
+
+verifyNotConfigurable(obj, "foo");

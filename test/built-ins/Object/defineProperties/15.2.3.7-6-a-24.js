@@ -10,30 +10,29 @@ description: >
     Object.defineProperties - 'O' is the global object which
     implements its own [[GetOwnProperty]] method to get 'P' (8.12.9
     step 1 )
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js, fnGlobalObject.js]
 ---*/
 
-function testcase() {
 
-        try {
-            Object.defineProperty(fnGlobalObject(), "prop", {
-                value: 11,
-                writable: true,
-                enumerable: true,
-                configurable: true
-            });
+Object.defineProperty(fnGlobalObject(), "prop", {
+value: 11,
+writable: true,
+enumerable: true,
+configurable: true
+});
 
-            Object.defineProperties(fnGlobalObject(), {
-                prop: {
-                    value: 12
-                }
-            });
-            return dataPropertyAttributesAreCorrect(fnGlobalObject(), "prop", 12, true, true, true);
-        }  finally {
-            delete fnGlobalObject().prop;
-        }
+Object.defineProperties(fnGlobalObject(), {
+    prop: {
+        value: 12
     }
-runTestCase(testcase);
+});
+
+verifyEqualTo(fnGlobalObject(), "prop", 12);
+
+verifyWritable(fnGlobalObject(), "prop");
+
+verifyEnumerable(fnGlobalObject(), "prop");
+
+verifyConfigurable(fnGlobalObject(), "prop");
+
+delete fnGlobalObject().prop;

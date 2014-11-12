@@ -11,27 +11,26 @@ description: >
     property, the [[Get]] field of 'desc' and the [[Get]] attribute
     value of 'P' are two objects which refer to the same object
     (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
+var arr = [];
 
-        function get_func() {
-            return 10;
-        }
+function get_func() {
+    return 10;
+}
 
-        Object.defineProperty(arr, "0", {
-            get: get_func
-        });
+Object.defineProperty(arr, "0", {
+    get: get_func
+});
 
-        Object.defineProperties(arr, {
-            "0": {
-                get: get_func
-            }
-        });
-        return accessorPropertyAttributesAreCorrect(arr, "0", get_func, undefined, undefined, false, false);
+Object.defineProperties(arr, {
+    "0": {
+        get: get_func
     }
-runTestCase(testcase);
+});
+verifyEqualTo(arr, "0", get_func());
+
+verifyNotEnumerable(arr, "0");
+
+verifyNotConfigurable(arr, "0");

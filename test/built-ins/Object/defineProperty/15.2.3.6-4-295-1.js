@@ -13,28 +13,38 @@ description: >
     is thrown when updating the [[Enumerable]] attribute value of
     'name' which is defined as non-configurable (10.6
     [[DefineOwnProperty]] step 4 and step 5b)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
+flags: [noStrict]
 ---*/
 
-function testcase() {
-        return (function (a, b, c) {
-            Object.defineProperty(arguments, "0", {
-                value: 10,
-                writable: false,
-                enumerable: true,
-                configurable: false
-            });
-            try {
-                Object.defineProperty(arguments, "0", {
-                    enumerable: false
-                });
-            } catch (e) {
-                var verifyFormal = a === 10;
-                return e instanceof TypeError && dataPropertyAttributesAreCorrect(arguments, "0", 10, false, true, false) && verifyFormal;
-            }
-            return false;
-        }(0, 1, 2));
+
+(function (a, b, c) {
+    Object.defineProperty(arguments, "0", {
+        value: 10,
+        writable: false,
+        enumerable: true,
+        configurable: false
+    });
+    try {
+        Object.defineProperty(arguments, "0", {
+            enumerable: false
+        });
+        $ERROR("Expected an exception.");
+    } catch (e) {
+        if (!(e instanceof TypeError)) {
+            $ERROR("Expected TypeError, got " + e);
+        }
+
+        verifyEqualTo(arguments, "0", 10);
+
+        verifyNotWritable(arguments, "0");
+
+        verifyEnumerable(arguments, "0");
+
+        verifyNotConfigurable(arguments, "0");
+
+        if (a !== 10) {
+            $ERROR('Expected "a === 10", actually ' + a);
+        }
     }
-runTestCase(testcase);
+}(0, 1, 2));

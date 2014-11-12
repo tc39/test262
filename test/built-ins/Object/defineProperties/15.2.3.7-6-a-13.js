@@ -9,29 +9,35 @@ es5id: 15.2.3.7-6-a-13
 description: >
     Object.defineProperties - 'O' is an Array object which implements
     its own [[GetOwnProperty]] method to get 'P' (8.12.9 step 1 )
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
+var arr = [];
 
-        Object.defineProperty(arr, "prop", {
-            value: 11,
-            configurable: false
-        });
+Object.defineProperty(arr, "prop", {
+    value: 11,
+    configurable: false
+});
 
-        try {
-            Object.defineProperties(arr, {
-                prop: {
-                    value: 12,
-                    configurable: true
-                }
-            });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && dataPropertyAttributesAreCorrect(arr, "prop", 11, false, false, false);
+try {
+    Object.defineProperties(arr, {
+        prop: {
+            value: 12,
+            configurable: true
         }
+    });
+    $ERROR("Expected an exception.");
+} catch (e) {
+    verifyEqualTo(arr, "prop", 11);
+
+    verifyNotWritable(arr, "prop");
+
+    verifyNotEnumerable(arr, "prop");
+
+    verifyNotConfigurable(arr, "prop");
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

@@ -14,25 +14,31 @@ description: >
     value of 'name' is false, and the [[Value]] field of 'desc' and
     the [[Value]] attribute value of 'name' are two numbers with
     different vaules (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arrObj = [];
+var arrObj = [];
 
-        Object.defineProperty(arrObj, "1", {
-            value: 12
-        });
+Object.defineProperty(arrObj, "1", {
+    value: 12
+});
 
-        try {
-            Object.defineProperty(arrObj, "1", {
-                value: 15
-            });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && dataPropertyAttributesAreCorrect(arrObj, "1", 12, false, false, false);
-        }
+try {
+    Object.defineProperty(arrObj, "1", {
+        value: 15
+    });
+    $ERROR("Expected an exception.");
+} catch (e) {
+    verifyEqualTo(arrObj, "1", 12);
+
+    verifyNotWritable(arrObj, "1");
+
+    verifyNotEnumerable(arrObj, "1");
+
+    verifyNotConfigurable(arrObj, "1");
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

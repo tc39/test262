@@ -11,25 +11,31 @@ description: >
     property, test TypeError is thrown when the [[Value]] field of
     'desc' and the [[Value]] attribute value of 'name' are two
     booleans with different values (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arrObj = [];
+var arrObj = [];
 
-        Object.defineProperty(arrObj, 0, {
-            value: true,
-            writable: false,
-            configurable: false
-        });
+Object.defineProperty(arrObj, 0, {
+    value: true,
+    writable: false,
+    configurable: false
+});
 
-        try {
-            Object.defineProperty(arrObj, "0", { value: false });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && dataPropertyAttributesAreCorrect(arrObj, "0", true, false, false, false);
-        }
+try {
+    Object.defineProperty(arrObj, "0", { value: false });
+    $ERROR("Expected an exception.");
+} catch (e) {
+    verifyEqualTo(arrObj, "0", true);
+
+    verifyNotWritable(arrObj, "0");
+
+    verifyNotEnumerable(arrObj, "0");
+
+    verifyNotConfigurable(arrObj, "0");
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}
