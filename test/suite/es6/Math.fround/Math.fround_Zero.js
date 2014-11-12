@@ -6,8 +6,6 @@
 
 /*---
 author: Ryan Lewis
-email: ryanhlewis@hotmail.com
-spec: "http://people.mozilla.org/~jorendorff/es6-draft.html#sec-math.froun"
 description: Math.fround should return 0 if called with 0.
 includes: [runTestCase.js]
 ---*/

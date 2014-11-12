@@ -3,9 +3,6 @@
 
 /*---
 es5id: 15.2.3.1_A3
-name: S15.2.3.1_A3;
-section: 15.2.3.1, 15.2.4;
-assertion: The Object.prototype property has the attribute DontDelete;
 description: Checking if deleting "Object.prototype" property fails;
 flags: [noStrict]
 ---*/
