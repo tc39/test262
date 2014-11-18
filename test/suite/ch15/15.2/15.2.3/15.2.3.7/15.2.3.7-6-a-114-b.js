@@ -5,7 +5,7 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
-es5id: 15.2.3.7-6-a-114
+es5id: 15.2.3.7-6-a-114-b
 description: >
     Object.defineProperties - 'O' is an Array, 'P' is the length
     property of 'O', the [[Value]] field of 'desc' is absent, test
@@ -21,11 +21,9 @@ if (arr.length !== 0) {
     $ERROR("Expected arr.length to be 0, actually " + arr.length);
 }
 
-arr.length = 2;
+verifyEqualTo(arr, "length", 0);
 
-verifyEqualTo(arr, "length", 2);
-
-verifyWritable(arr, "length", "length", 5);
+verifyWritable(arr, "length", "length", 1);
 
 verifyNotEnumerable(arr, "length");
 

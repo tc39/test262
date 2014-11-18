@@ -40,8 +40,8 @@ function isEqualTo(obj, name, expectedValue) {
     return sameValue(actualValue, expectedValue);
 }
 
-function isWritable(obj, name, verifyProp) {
-    var newValue = "unlikelyValue";
+function isWritable(obj, name, verifyProp, value) {
+    var newValue = value || "unlikelyValue";
 
     try {
         obj[name] = newValue;
@@ -66,13 +66,13 @@ function verifyEqualTo(obj, name, value) {
     }
 }
 
-function verifyWritable(obj, name, verifyProp) {
-    if (!isWritable(obj, name, verifyProp)) {
+function verifyWritable(obj, name, verifyProp, value) {
+    if (!isWritable(obj, name, verifyProp, value)) {
         $ERROR("Expected obj[" + String(name) + "] to be writable, but was not.");
     }
 }
 
-function verifyNotWritable(obj, name, verifyProp) {
+function verifyNotWritable(obj, name, verifyProp, value) {
     if (isWritable(obj, name, verifyProp)) {
         $ERROR("Expected obj[" + String(name) + "] NOT to be writable, but was.");
     }
