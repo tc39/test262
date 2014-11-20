@@ -6,14 +6,12 @@
 
 /*---
 author: Ryan Lewis
-description: >
-    String should return true when called on 'word' and passed 'w' and
-    the location 0.
+description: String should return false if a letter is not found in the word.
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  if('word'.contains('w', 0) === true) {
+  if('word'.includes('a', 0) === false) {
   	return true;
   }
  }

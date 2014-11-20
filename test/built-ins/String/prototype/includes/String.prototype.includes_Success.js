@@ -6,12 +6,14 @@
 
 /*---
 author: Ryan Lewis
-description: String should have the property length with size of 1.
+description: >
+    String should return true when called on 'word' and passed 'w' and
+    the location 0.
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  if('word'.contains.length === 1) {
+  if('word'.includes('w', 0) === true) {
   	return true;
   }
  }

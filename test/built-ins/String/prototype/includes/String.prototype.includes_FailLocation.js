@@ -7,13 +7,13 @@
 /*---
 author: Ryan Lewis
 description: >
-    String should return true when called on 'word' and passed 'w' and
-    with no location (defaults to 0).
+    String should return false if a letter is not found in the word
+    starting from the passed location.
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  if('word'.contains('w') === true) {
+  if('word'.includes('o', 3) === false) {
   	return true;
   }
  }

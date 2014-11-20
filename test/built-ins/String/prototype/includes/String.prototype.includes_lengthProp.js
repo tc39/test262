@@ -6,14 +6,12 @@
 
 /*---
 author: Ryan Lewis
-description: >
-    String should return false if a location is passed that is
-    greather than the length of the string.
+description: String should have the property length with size of 1.
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  if('word'.contains('w', 5) === false) {
+  if('word'.includes.length === 1) {
   	return true;
   }
  }

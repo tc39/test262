@@ -6,12 +6,14 @@
 
 /*---
 author: Ryan Lewis
-description: String should return false if a letter is not found in the word.
+description: >
+    String should return false if a location is passed that is
+    greather than the length of the string.
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  if('word'.contains('a', 0) === false) {
+  if('word'.includes('w', 5) === false) {
   	return true;
   }
  }
