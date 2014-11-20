@@ -29,6 +29,7 @@ try {
     Object.defineProperty(arrObj, "1", {
         writable: true
     });
+    $ERROR("Expected an exception.");
 
 } catch (e) {
     verifyEqualTo(arrObj, "1", undefined);

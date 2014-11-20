@@ -28,6 +28,8 @@ flags: [noStrict]
         Object.defineProperty(arguments, "0", {
             value: 20
         });
+        $ERROR("Expected an exception.");
+	
     } catch (e) {
 
         if (!(e instanceof TypeError)) {

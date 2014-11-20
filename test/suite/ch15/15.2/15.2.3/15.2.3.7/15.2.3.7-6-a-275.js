@@ -38,7 +38,7 @@ try {
     verifyNotConfigurable(arr, "property");
 
     if (!(e instanceof TypeError)) {
-        $ERROR("Epected TypeError, got " + e);
+        $ERROR("Expected TypeError, got " + e);
     }
 
 }

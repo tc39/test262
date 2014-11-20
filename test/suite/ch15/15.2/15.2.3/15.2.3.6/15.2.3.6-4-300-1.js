@@ -29,6 +29,7 @@ includes: [propertyHelper.js]
         Object.defineProperty(arguments, "0", {
             configurable: true
         });
+        $ERROR("Expected an exception.");
     } catch (e) {
         if (a !== 0) {
             $ERROR('Expected a === 0, actually ' + a);

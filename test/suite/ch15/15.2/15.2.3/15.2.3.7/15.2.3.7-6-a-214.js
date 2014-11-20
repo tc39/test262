@@ -25,6 +25,7 @@ try {
             value: -0
         }
     });
+    $ERROR("Expected an exception.");
 } catch (e) {
     verifyEqualTo(arr, "0", +0);
 

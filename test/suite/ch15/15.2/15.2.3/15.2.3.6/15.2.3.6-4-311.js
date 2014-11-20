@@ -28,6 +28,7 @@ includes: [propertyHelper.js]
         Object.defineProperty(arguments, "0", {
             enumerable: false
         });
+        $ERROR("Expected an exception.");
     } catch (e) {
         verifyEqualTo(arguments, "0", getFunc());
 

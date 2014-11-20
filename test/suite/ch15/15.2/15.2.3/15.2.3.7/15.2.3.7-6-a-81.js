@@ -28,6 +28,7 @@ try {
             value: "defg"
         }
     });
+    $ERROR("Expected an exception.");
 } catch (e) {
     verifyEqualTo(obj, "foo", "abcd");
 

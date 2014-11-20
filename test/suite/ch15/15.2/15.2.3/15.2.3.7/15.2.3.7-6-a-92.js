@@ -37,6 +37,7 @@ try {
             get: get_func
         }
     });
+    $ERROR("Expected an exception.");
 } catch (e) {
     verifyWritable(obj, "foo", "setVerifyHelpProp");
 

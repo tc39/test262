@@ -33,6 +33,7 @@ try {
             return 36;
         }
     });
+    $ERROR("Expected an exception.");
 } catch (e) {
     verifyEqualTo(arrObj, "property", getFunc());
 

@@ -27,6 +27,7 @@ includes: [propertyHelper.js]
         Object.defineProperty(arguments, "genericProperty", {
             configurable: true
         });
+        $ERROR("Expected an exception.");
     } catch (e) {
         verifyWritable(arguments, "genericProperty", "genericPropertyString");
 

@@ -32,6 +32,7 @@ includes: [propertyHelper.js]
                 return "overideGenericPropertyString";
             }
         });
+        $ERROR("Expected an exception.");
     } catch (e) {
         verifyEqualTo(arguments, "genericProperty", getFunc());
 

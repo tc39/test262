@@ -29,6 +29,7 @@ flags: [noStrict]
         Object.defineProperty(arguments, "0", {
             enumerable: false
         });
+        $ERROR("Expected an exception.");
     } catch (e) {
         if (!(e instanceof TypeError)) {
             $ERROR("Expected TypeError, got " + e);

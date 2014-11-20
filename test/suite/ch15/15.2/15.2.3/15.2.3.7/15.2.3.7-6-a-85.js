@@ -32,6 +32,7 @@ try {
             value: obj2
         }
     });
+    $ERROR("Expected an exception.");
 } catch (e) {
     verifyEqualTo(obj, "foo", obj1);
 

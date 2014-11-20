@@ -26,6 +26,7 @@ includes: [propertyHelper.js]
         Object.defineProperty(arguments, "0", {
             writable: true
         });
+        $ERROR("Expected an exception.");
     } catch (e) {
         verifyEqualTo(arguments, "0", 0);
 

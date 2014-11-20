@@ -25,6 +25,7 @@ includes: [propertyHelper.js]
         Object.defineProperty(arguments, "genericProperty", {
             value: 1002
         });
+        $ERROR("Expected an exception.");
     } catch (e) {
         if (b !== 2) {
             $ERROR('Expected "b === 2;", actually ' + b);

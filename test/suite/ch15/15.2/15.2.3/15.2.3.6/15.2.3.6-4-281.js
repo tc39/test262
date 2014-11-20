@@ -24,6 +24,7 @@ try {
     Object.defineProperty(arrObj, "property", {
         value: 36
     });
+    $ERROR("Expected an exception.");
 } catch (e) {
     verifyEqualTo(arrObj, "property", 12);
 

@@ -31,6 +31,7 @@ try {
         writable: true,
         enumerable: true
     });
+    $ERROR("Expected an exception.");
 
 } catch (e) {
     verifyEqualTo(arrObj, "1", 3);

@@ -33,6 +33,7 @@ try {
         }
     });
 
+    $ERROR("Expected an exception.");
 } catch (e) {
     verifyWritable(arg, "genericProperty", "genericPropertyString");
 

@@ -30,6 +30,7 @@ try {
     Object.defineProperty(arrObj, "1", {
         set: function () { }
     });
+    $ERROR("Expected an exception.");
 
 } catch (e) {
     verifyWritable(arrObj, "1", "setVerifyHelpProp");

@@ -27,6 +27,7 @@ try {
             configurable: true
         }
     });
+    $ERROR("Expected an exception.");
 } catch (e) {
     verifyEqualTo(arr, "property", 12);
 
@@ -37,7 +38,7 @@ try {
     verifyNotConfigurable(arr, "property");
 
     if (!(e instanceof TypeError)) {
-        $ERROR("Epected TypeError, got " + e);
+        $ERROR("Expected TypeError, got " + e);
     }
 
 }

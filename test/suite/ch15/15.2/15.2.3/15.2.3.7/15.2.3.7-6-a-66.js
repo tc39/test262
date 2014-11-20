@@ -28,6 +28,7 @@ try {
             enumerable: false
         }
     });
+    $ERROR("Expected an exception.");
 } catch (e) {
     verifyEqualTo(obj, "foo", 10);
 

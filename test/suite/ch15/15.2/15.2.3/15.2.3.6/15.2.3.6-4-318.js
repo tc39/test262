@@ -23,6 +23,7 @@ includes: [propertyHelper.js]
         Object.defineProperty(arguments, "genericProperty", {
             writable: true
         });
+        $ERROR("Expected an exception.");
     } catch (e) {
         verifyEqualTo(arguments, "genericProperty", undefined);
 

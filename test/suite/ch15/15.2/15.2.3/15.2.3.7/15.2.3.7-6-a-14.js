@@ -26,6 +26,7 @@ try {
             configurable: true
         }
     });
+    $ERROR("Expected an exception.");
 } catch (e) {
     verifyEqualTo(str, "prop", 11);
 

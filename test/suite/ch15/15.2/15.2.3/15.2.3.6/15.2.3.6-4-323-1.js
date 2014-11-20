@@ -28,6 +28,7 @@ includes: [propertyHelper.js]
         Object.defineProperty(arguments, "genericProperty", {
             enumerable: false
         });
+        $ERROR("Expected an exception.");
     } catch (e) {
         if (c !== 3) {
             $ERROR('Expected c === 3, actually ' + c);

@@ -33,6 +33,7 @@ includes: [propertyHelper.js]
                 return "overideGenericPropertyString";
             }
         });
+        $ERROR("Expected an exception.");
     } catch (e) {
         if (a !== 1) {
             $ERROR('Expected a === 1, actually ' + a);

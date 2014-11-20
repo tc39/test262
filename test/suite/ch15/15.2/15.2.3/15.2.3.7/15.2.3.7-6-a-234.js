@@ -33,6 +33,7 @@ try {
             value: "abc"
         }
     });
+    $ERROR("Expected an exception.");
 } catch (e) {
     verifyEqualTo(arr, "1", 3);
 
@@ -43,7 +44,7 @@ try {
     verifyNotConfigurable(arr, "1");
 
     if (!(e instanceof TypeError)) {
-        $ERROR("Epected TypeError, got " + e);
+        $ERROR("Expected TypeError, got " + e);
     }
 
 }

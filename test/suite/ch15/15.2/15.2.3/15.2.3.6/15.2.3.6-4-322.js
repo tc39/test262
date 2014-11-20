@@ -28,6 +28,7 @@ includes: [propertyHelper.js]
                 this.genericPropertyString1 = value;
             }
         });
+        $ERROR("Expected an exception.");
     } catch (e) {
         verifyWritable(arguments, "genericProperty", "genericPropertyString");
 

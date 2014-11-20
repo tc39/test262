@@ -33,6 +33,7 @@ try {
             set: set_func2
         }
     });
+    $ERROR("Expected an exception.");
 } catch (e) {
     verifyWritable(obj, "foo", "setVerifyHelpProp");
 

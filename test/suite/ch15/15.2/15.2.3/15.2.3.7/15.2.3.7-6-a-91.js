@@ -40,6 +40,7 @@ try {
             get: get_func2
         }
     });
+    $ERROR("Expected an exception");
 } catch (e) {
     verifyEqualTo(obj, "foo", get_func1());
 

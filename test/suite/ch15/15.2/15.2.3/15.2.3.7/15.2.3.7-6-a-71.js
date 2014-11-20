@@ -28,6 +28,7 @@ try {
             writable: true
         }
     });
+    $ERROR("Expected an exception.");
 } catch (e) {
     verifyEqualTo(obj, "foo", 10);
 

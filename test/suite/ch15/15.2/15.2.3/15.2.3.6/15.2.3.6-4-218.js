@@ -20,6 +20,7 @@ Object.defineProperty(arrObj, "0", { value: -0 });
 
 try {
     Object.defineProperty(arrObj, "0", { value: +0 });
+    $ERROR("Expected an exception.");
 } catch (e) {
     verifyEqualTo(arrObj, "0", -0);
 

@@ -24,6 +24,7 @@ Object.defineProperty(obj, "foo", {
 
 try {
     Object.defineProperty(obj, "foo", { value: 20 });
+    $ERROR("Expected an exception.");
 } catch (e) {
     verifyEqualTo(obj, "foo", 10);
 

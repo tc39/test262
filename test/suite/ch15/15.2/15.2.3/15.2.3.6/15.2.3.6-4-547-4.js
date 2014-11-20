@@ -38,6 +38,7 @@ try {
     Object.defineProperty(obj, "0", {
         value: 1001
     });
+    $ERROR("Expected an exception.");
 } catch (e) {
     var desc2 = Object.getOwnPropertyDescriptor(obj, "0");
 

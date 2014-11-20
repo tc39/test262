@@ -41,6 +41,7 @@ try {
             get: get_func2
         }
     });
+    $ERROR("Expected an exception.");
 } catch (e) {
     verifyEqualTo(arg, "0", get_func1());
 

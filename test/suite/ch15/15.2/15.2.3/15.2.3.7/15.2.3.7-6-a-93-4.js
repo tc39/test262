@@ -38,6 +38,7 @@ try {
         }
     });
 
+    $ERROR("Expected an exception.");
 } catch (e) {
     verifyEqualTo(obj, "0", 1001);
 

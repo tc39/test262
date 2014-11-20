@@ -32,6 +32,7 @@ try {
         configurable: false
     });
 
+    $ERROR("Expected an exception.");
 } catch (e) {
     verifyEqualTo(obj, "property", getFunc());
 

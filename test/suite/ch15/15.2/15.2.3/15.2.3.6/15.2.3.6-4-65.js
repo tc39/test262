@@ -19,6 +19,7 @@ Object.defineProperty(obj, "foo", { value: +0 });
 
 try {
     Object.defineProperty(obj, "foo", { value: -0 });
+    $ERROR("Expected an exception.");
 } catch (e) {
     verifyEqualTo(obj, "foo", +0);
 

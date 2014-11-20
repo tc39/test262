@@ -32,6 +32,7 @@ try {
         }
     });
 
+    $ERROR("Expected an exception.");
 } catch (e) {
     verifyWritable(arr, "1", "setVerifyHelpProp");
 
@@ -40,7 +41,7 @@ try {
     verifyNotConfigurable(arr, "1");
 
     if (!(e instanceof TypeError)) {
-        $ERROR("Epected TypeError, got " + e);
+        $ERROR("Expected TypeError, got " + e);
     }
 
 }

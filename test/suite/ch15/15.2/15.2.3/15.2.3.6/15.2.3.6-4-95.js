@@ -29,6 +29,7 @@ var obj2 = { length: 20 };
 
 try {
     Object.defineProperty(obj, "foo", { value: obj2 });
+    $ERROR("Expected an exception.");
 } catch (e) {
     verifyEqualTo(obj, "foo", obj1);
 

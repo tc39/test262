@@ -35,6 +35,7 @@ try {
             set: set_Func
         }
     });
+    $ERROR("Expected an exception.");
 } catch (e) {
     verifyNotEnumerable(obj, "foo");
 

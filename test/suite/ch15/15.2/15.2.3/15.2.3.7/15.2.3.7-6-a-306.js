@@ -31,6 +31,7 @@ try {
         }
     });
 
+    $ERROR("Expected an exception.");
 } catch (e) {
     verifyEqualTo(arg, "genericProperty", 1001);
 
@@ -41,7 +42,7 @@ try {
     verifyNotConfigurable(arg, "genericProperty");
 
     if (!(e instanceof TypeError)) {
-        $ERROR("Epected TypeError, got " + e);
+        $ERROR("Expected TypeError, got " + e);
     }
 
 }

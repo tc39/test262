@@ -31,6 +31,7 @@ includes: [propertyHelper.js]
         Object.defineProperty(arguments, "0", {
             get: getFunc2
         });
+        $ERROR("Expected an exception.");
     } catch (e) {
         verifyEqualTo(arguments, "0", getFunc1());
 
