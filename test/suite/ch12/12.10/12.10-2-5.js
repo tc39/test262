@@ -3,23 +3,11 @@
 
 /*---
 info: ToObject conversion from null value must throw TypeError
-es5id: 9.9_A2
+es5id: 12.10-2-5
 description: Trying to convert null to Object
 flags: [noStrict]
 ---*/
 
-// CHECK#1
-try{
-  null['foo'];
-  $ERROR('#1.1: null[\'foo\'] throw TypeError. Actual: ' + (null['foo']));
-}
-catch(e){
-  if((e instanceof TypeError) !== true){
-    $ERROR('#1.2: null[\'foo\'] must throw TypeError. Actual: ' + (e));
-  }
-}
-
-// CHECK#2
 try{
   with(null) x = 2;
   $ERROR('#2.1: with(null) x = 2 must throw TypeError. Actual: x === . Actual: ' + (x));

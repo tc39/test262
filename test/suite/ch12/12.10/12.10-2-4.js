@@ -3,23 +3,11 @@
 
 /*---
 info: ToObject conversion from undefined value must throw TypeError
-es5id: 9.9_A1
+es5id: 12.10-2-4
 description: Trying to convert undefined to Object
 flags: [noStrict]
 ---*/
 
-// CHECK#1
-try{
-  undefined['foo'];
-  $ERROR('#1.1: undefined[\'foo\'] must throw TypeError. Actual: ' + (undefined['foo']));
-}
-catch(e){
-  if((e instanceof TypeError) !== true){
-    $ERROR('#1.2: undefined[\'foo\'] must throw TypeError. Actual: ' + (e));
-  }
-}
-
-// CHECK#2
 try{
   with(undefined) x = 2;
   $ERROR('#2.1: with(undefined) x = 2 must throw TypeError. Actual: x === ' + (x));
