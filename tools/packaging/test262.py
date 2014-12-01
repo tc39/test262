@@ -265,7 +265,7 @@ class TestCase(object):
     return 'noStrict' in self.testRecord
 
   def IsAsyncTest(self):
-	return '$DONE' in self.test
+    return '$DONE' in self.test
 
   def GetIncludeList(self):
     if self.testRecord.get('includes'):
