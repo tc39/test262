@@ -1,7 +1,7 @@
-# Copyright (c) 2012 Ecma International.  All rights reserved. 
+# Copyright (c) 2012 Ecma International.  All rights reserved.
 # Ecma International makes this code available under the terms and conditions set
-# forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the 
-# "Use Terms").   Any redistribution of this code must retain the above 
+# forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the
+# "Use Terms").   Any redistribution of this code must retain the above
 # copyright and this notice and otherwise comply with the Use Terms.
 
 #--Imports---------------------------------------------------------------------
@@ -14,7 +14,7 @@ import re
 
 #List of regular expressions covering suspect code snippets which might be
 #invalid from an ES5 POV
-QUESTIONABLE_RE_LIST = ["window", 
+QUESTIONABLE_RE_LIST = ["window",
                         "document(?!ation)",
                         "alert",
                         "setTimeout",
@@ -42,7 +42,7 @@ def getAllJSFiles(dirName):
 def handleFile(filePath):
     with open(filePath, "r") as f:
         origLines = f.readlines()
-    
+
     for line in origLines:
         for tempRe in QUESTIONABLE_RE_LIST:
             if tempRe.search(line)!=None:
@@ -58,7 +58,7 @@ if __name__=="__main__":
     if not os.path.exists(ARGS.tpath):
         print "Cannot examine tests in '%s' when it doesn't exist!" % ARGS.tpath
         sys.exit(1)
-    
+
     ALL_JS_FILES = getAllJSFiles(ARGS.tpath)
     for fileName in ALL_JS_FILES:
         handleFile(fileName)

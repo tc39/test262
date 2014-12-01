@@ -21,7 +21,7 @@ def load(str):
         line = lines.pop(0)
         if myIsAllSpaces(line):
             continue
-        result = mYamlKV.match(line) 
+        result = mYamlKV.match(line)
         if result:
             if not dict:
                 dict = {}
@@ -62,7 +62,7 @@ def myMultilineList(lines, value):
             indent = indent or leading
             value += [myReadOneLine(myRemoveListHeader(indent, line))]
     return (lines, value)
-    
+
 def myRemoveListHeader(indent, line):
     line = line[indent:]
     return mYamlMultilineList.match(line).group(1)
@@ -81,7 +81,7 @@ def myReadOneLine(value):
         except ValueError:
             pass
     return value
-        
+
 def myFlowList(value):
     result = mYamlListPattern.match(value)
     values = result.group(1).split(",")

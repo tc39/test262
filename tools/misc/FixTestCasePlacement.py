@@ -1,7 +1,7 @@
-# Copyright (c) 2012 Ecma International.  All rights reserved. 
+# Copyright (c) 2012 Ecma International.  All rights reserved.
 # Ecma International makes this code available under the terms and conditions set
-# forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the 
-# "Use Terms").   Any redistribution of this code must retain the above 
+# forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the
+# "Use Terms").   Any redistribution of this code must retain the above
 # copyright and this notice and otherwise comply with the Use Terms.
 
 #--Imports---------------------------------------------------------------------
@@ -32,20 +32,20 @@ def getAllJSFiles(dirName):
 #------------------------------------------------------------------------------
 def handleFile(filePath, partialPath):
     global PRE_PATH
-    
+
     tempPath = filePath.replace(partialPath + os.path.sep, "", 1)
     tempPath = tempPath.replace(os.path.sep, "/")
     tempId   = tempPath.rsplit("/", 1)[1][:-3]
-    
+
     with open(filePath, "r") as f:
         origLines = f.readlines()
-    
+
     with open(filePath, "w") as f:
         pathHit = False
         idHit = False
         testHit = False
         descriptHit = False
-        
+
         for line in origLines:
             if (not testHit) and re.match("^$", line)!=None:
                 #Throw away empty lines until we hit the first test function
@@ -71,7 +71,7 @@ def getPartialPath(tc):
         sys.exit(1)
     elif not ("." in tc):
         tc = tc.replace("-", ".0-", 1)
-    
+
     #Generate the partial path of the test case
     tempList = tc.split("-",1)[0].split(".")
     partialPath = ""
@@ -96,15 +96,15 @@ if __name__=="__main__":
                           help='Command used to remove a test file from source control')
     __parser.add_argument('tc', action='store',
                           help='test case to move')
-                          
+
     ARGS = __parser.parse_args()
     if not os.path.exists(ARGS.path):
         print "Cannot fix tests in '%s' when it doesn't exist!" % ARGS.path
         sys.exit(1)
     elif not os.path.isfile(ARGS.tc):
         print "Cannot move '%s' when it doesn't exist!" % ARGS.tc
-        
+
     partialPath = getPartialPath(ARGS.tc)
-    
-    
+
+
     print "Done!", partialPath

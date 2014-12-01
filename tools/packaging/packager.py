@@ -1,7 +1,7 @@
-# Copyright (c) 2012 Ecma International.  All rights reserved. 
+# Copyright (c) 2012 Ecma International.  All rights reserved.
 # Ecma International makes this code available under the terms and conditions set
-# forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the 
-# "Use Terms").   Any redistribution of this code must retain the above 
+# forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the
+# "Use Terms").   Any redistribution of this code must retain the above
 # copyright and this notice and otherwise comply with the Use Terms.
 
 #--Imports---------------------------------------------------------------------
@@ -87,14 +87,14 @@ def createDepDirs(dirName):
             os.mkdir(dirName)
 
 def test262PathToConsoleFile(path):
-    stuff = os.path.join(TEST262_CONSOLE_CASES_DIR, 
+    stuff = os.path.join(TEST262_CONSOLE_CASES_DIR,
                          path.replace("/", os.path.sep))
     createDepDirs(os.path.dirname(stuff))
     return stuff
-    
+
 def getJSCount(dirName):
     '''
-    Returns the total number of *.js files (recursively) under a given 
+    Returns the total number of *.js files (recursively) under a given
     directory, dirName.
     '''
     retVal = 0
@@ -143,7 +143,7 @@ def dirWalker(dirName):
 def isTestStarted(line):
     '''
     Used to detect if we've gone past extraneous test comments in a test case.
-    
+
     Note this is a naive approach on the sense that "/*abc*/" could be on one
     line.  However, we know for a fact this is not the case in IE Test Center
     or Sputnik tests.
@@ -170,7 +170,7 @@ for temp in os.listdir(TEST262_CASES_DIR):
     if not os.path.exists(temp):
         print "The expected ES5 test directory,", temp, "did not exist!"
         sys.exit(1)
-    
+
     if temp.find("/.") != -1:
         # skip hidden files on Unix, such as ".DS_Store" on Mac
         continue
@@ -187,11 +187,11 @@ for chapter in TEST_SUITE_SECTIONS:
     testsList = {}
     sect = {}
     sect["name"] = "Chapter - " + chapterName
-    
+
     #create an array for tests in a chapter
     tests = []
     sourceFiles = getAllJSFiles(chapter)
-    
+
     if len(sourceFiles)!=0:
         excluded = 0
         testCount = 0
@@ -199,13 +199,13 @@ for chapter in TEST_SUITE_SECTIONS:
             #TODO - use something other than the hard-coded 'TestCases' below
             testPath =  "TestCases" + \
                 test.split(TEST262_CASES_DIR, 1)[1].replace("\\", "/")
-            testName=test.rsplit(".", 1)[0] 
+            testName=test.rsplit(".", 1)[0]
             testName=testName.rsplit(os.path.sep, 1)[1]
             if EXCLUDE_LIST.count(testName)==0:
                 # dictionary for each test
                 testDict = {}
                 testDict["path"] = testPath
-                
+
                 tempFile = open(test, "rb")
                 scriptCode = tempFile.readlines()
                 tempFile.close()
@@ -232,7 +232,7 @@ for chapter in TEST_SUITE_SECTIONS:
                 scriptCodeContentB64 = base64.b64encode(scriptCodeContent)
 
                 #add the test encoded code node to our test dictionary
-                testDict["code"] = scriptCodeContentB64 
+                testDict["code"] = scriptCodeContentB64
                 #now close the dictionary for the test
 
                 #now get the metadata added.
@@ -245,7 +245,7 @@ for chapter in TEST_SUITE_SECTIONS:
 
                 #this adds the test to our tests array
                 tests.append(testDict)
-                
+
                 if ARGS.console:
                     with open(test262PathToConsoleFile(testDict["path"]),
                                   "w") as fConsole:
@@ -268,7 +268,7 @@ for chapter in TEST_SUITE_SECTIONS:
 
         #create a node for the tests and add it to our testsLists
         testsList["testsCollection"] = sect
-        with open(os.path.join(TEST262_WEB_CASES_DIR, chapterName + ".json"), 
+        with open(os.path.join(TEST262_WEB_CASES_DIR, chapterName + ".json"),
                   "w") as f:
             json.dump(testsList, f, separators=(',',':'), sort_keys=True,
                       indent=0)
@@ -279,12 +279,12 @@ for chapter in TEST_SUITE_SECTIONS:
             CHAPTER_TEST_CASES_JSON["numTests"] = int(sect["numTests"])
             CHAPTER_TEST_CASES_JSON["testSuite"] = \
                 [WEBSITE_CASES_PATH + chapterName + ".json"]
-            with open(os.path.join(TEST262_WEB_CASES_DIR, 
-                                   "testcases_%s.json" % chapterName), 
+            with open(os.path.join(TEST262_WEB_CASES_DIR,
+                                   "testcases_%s.json" % chapterName),
                       "w") as f:
                 json.dump(CHAPTER_TEST_CASES_JSON, f, separators=(',',':'),
                           sort_keys=True, indent=0)
-            generateHarness(ARGS.type, "testcases_%s.json" % chapterName, 
+            generateHarness(ARGS.type, "testcases_%s.json" % chapterName,
                             chapterName.replace("ch", "Chapter "))
 
         #add the name of the chapter test to our complete list
@@ -321,9 +321,9 @@ if TEST262_HARNESS_DIR!=TEST262_WEB_HARNESS_DIR:
                          if x.endswith(".js")]:
         toFilenameList = [ os.path.join(TEST262_WEB_HARNESS_DIR, filename)]
         if ARGS.console:
-            toFilenameList.append(os.path.join(TEST262_CONSOLE_HARNESS_DIR, 
+            toFilenameList.append(os.path.join(TEST262_CONSOLE_HARNESS_DIR,
                                                filename))
-        
+
         for toFilename in toFilenameList:
             if not os.path.exists(os.path.dirname(toFilename)):
                 os.mkdir(os.path.dirname(toFilename))

@@ -47,7 +47,7 @@ class TestYAMLParsing(unittest.TestCase):
         name = 'fixtures/test262-yaml-headers.js'
         contents = slurpFile(name)
         record = convertDocString(contents)
-        
+
         self.assertEqual("The production Block { } in strict code can't contain function declaration;\n", record['commentary'])
 
         self.assertEqual("Trying to declare function at the Block statement",

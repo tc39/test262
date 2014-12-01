@@ -54,7 +54,7 @@ EXCLUDE_LIST = [x.getAttribute("id") for x in EXCLUDE_LIST]
 def BuildOptions():
   result = optparse.OptionParser()
   result.add_option("--command", default=None, help="The command-line to run")
-  result.add_option("--tests", default=path.abspath('.'), 
+  result.add_option("--tests", default=path.abspath('.'),
                     help="Path to the tests")
   result.add_option("--cat", default=False, action="store_true",
                     help="Print packaged test code that would be run")
@@ -62,18 +62,18 @@ def BuildOptions():
                     help="Print summary after running tests")
   result.add_option("--full-summary", default=False, action="store_true",
                     help="Print summary and test output after running tests")
-  result.add_option("--strict_only", default=False, action="store_true", 
+  result.add_option("--strict_only", default=False, action="store_true",
                     help="Test only strict mode")
-  result.add_option("--non_strict_only", default=False, action="store_true", 
+  result.add_option("--non_strict_only", default=False, action="store_true",
                     help="Test only non-strict mode")
   # TODO: Once enough tests are made strict compat, change the default
   # to "both"
-  result.add_option("--unmarked_default", default="non_strict", 
+  result.add_option("--unmarked_default", default="non_strict",
                     help="default mode for tests of unspecified strictness")
   result.add_option("--logname", help="Filename to save stdout to")
   result.add_option("--junitname", help="Filename to save test results in JUnit XML format")
   result.add_option("--loglevel", default="warning",
-                    help="sets log level to debug, info, warning, error, or critical") 
+                    help="sets log level to debug, info, warning, error, or critical")
   result.add_option("--print-handle", default="print", help="Command to print from console")
   result.add_option("--list-includes", default=False, action="store_true",
                     help="List includes required by tests")
@@ -169,13 +169,13 @@ class TestResult(object):
     err = self.stderr.strip()
     if len(err) > 0:
        target.write("--- errors ---  \n %s" % err)
-    
+
   def XmlAssemble(self, result):
     test_name = self.case.GetName()
     test_mode = self.case.GetMode()
     testCaseElement = xmlj.Element("testcase")
     testpath = self.TestPathManipulation(test_name)
-    testCaseElement.attrib["classname"] = "%s.%s" % (testpath[0] , testpath[1]) 
+    testCaseElement.attrib["classname"] = "%s.%s" % (testpath[0] , testpath[1])
     testCaseElement.attrib["name"] = "%s %s" % (testpath[2].replace('.','_') , test_mode)
     if self.HasUnexpectedOutcome():
       failureElement = xmlj.Element("failure")
@@ -198,19 +198,19 @@ class TestResult(object):
     else:
        testpackage = testclass
     return(testpackage,testclass,testcase)
-  
-  def HasFailed(self):    
+
+  def HasFailed(self):
     return self.exit_code != 0
 
-  def AsyncHasFailed(self):   
+  def AsyncHasFailed(self):
     return 'Test262:AsyncTestComplete' not in self.stdout
 
   def HasUnexpectedOutcome(self):
-    if self.case.IsAsyncTest():		
+    if self.case.IsAsyncTest():
        return self.AsyncHasFailed() or self.HasFailed()
-    elif self.case.IsNegative():      
+    elif self.case.IsNegative():
        return not (self.HasFailed() and self.case.NegativeMatch(self.GetErrorOutput()))
-    else:      
+    else:
        return self.HasFailed()
 
   def GetErrorOutput(self):
@@ -235,7 +235,7 @@ class TestCase(object):
     del testRecord["header"]
     testRecord.pop("commentary", None)    # do not throw if missing
     self.testRecord = testRecord;
-    
+
   def NegativeMatch(self, stderr):
     neg = re.compile(self.GetNegative())
     return re.search(neg, stderr)
@@ -264,7 +264,7 @@ class TestCase(object):
   def IsNoStrict(self):
     return 'noStrict' in self.testRecord
 
-  def IsAsyncTest(self):	
+  def IsAsyncTest(self):
 	return '$DONE' in self.test
 
   def GetIncludeList(self):
@@ -398,7 +398,7 @@ class TestSuite(object):
     self.unmarked_default = unmarked_default
     self.print_handle = print_handle
     self.include_cache = { }
-	
+
 
   def Validate(self):
     if not path.exists(self.test_root):
@@ -530,7 +530,7 @@ class TestSuite(object):
           SkipElement.attrib["message"] = unicode(EXCLUDE_REASON[x].firstChild.nodeValue)
           SkipCaseElement.append(SkipElement)
           TestSuiteElement.append(SkipCaseElement)
-       
+
     for case in cases:
       result = case.Run(command_template)
       if junitfile:
@@ -541,7 +541,7 @@ class TestSuite(object):
       if logname:
         self.WriteLog(result)
       progress.HasRun(result)
-    
+
     if print_summary:
       self.PrintSummary(progress, logname)
       if full_summary:
@@ -582,15 +582,15 @@ class TestSuite(object):
       includes_dict.update(includes)
 
     print includes_dict
-        
+
 
 def Main():
   code = 0
   parser = BuildOptions()
   (options, args) = parser.parse_args()
   ValidateOptions(options)
-  test_suite = TestSuite(options.tests, 
-                         options.strict_only, 
+  test_suite = TestSuite(options.tests,
+                         options.strict_only,
                          options.non_strict_only,
                          options.unmarked_default,
 			 options.print_handle)
@@ -616,7 +616,7 @@ def Main():
                           options.logname,
                           options.junitname)
   return code
-       
+
 if __name__ == '__main__':
   try:
     code = Main()

@@ -43,7 +43,7 @@ class MockResult(object):
     def __init__(self, case):
         self.case = case
 
-    
+
 
 class TestTestSuite(unittest.TestCase):
 
