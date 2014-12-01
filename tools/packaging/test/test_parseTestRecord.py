@@ -29,7 +29,7 @@ class TestOldParsing(unittest.TestCase):
         name = 'fixtures/test262-old-headers.js'
         contents = slurpFile(name)
         record = parseTestRecord(contents, name)
-        
+
         self.assertEqual("""// Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.""",
                          record['header'])
@@ -69,7 +69,7 @@ declaration;""", record['commentary'])
 1;
 """
                             , "name")
-        
+
     def test_malformed(self):
         with self.assertRaisesRegexp(Exception, 'Malformed "@" attribute: name'):
             parseTestRecord("""
@@ -90,7 +90,7 @@ declaration;""", record['commentary'])
         self.assertEqual("@foo bar", stripStars("\n* @foo bar"))
         self.assertEqual("@foo bar", stripStars("\n  *@foo bar"))
 
-        
+
 class TestYAMLParsing(unittest.TestCase):
     def test_test(self):
         self.assertTrue(True)
@@ -112,7 +112,7 @@ flags: [onlyStrict]
 
     def test_yamlParse(self):
         text = """
-info: > 
+info: >
     The production Block { } in strict code can't contain function
     declaration;
 description: Trying to declare function at the Block statement
@@ -150,7 +150,7 @@ flags: [onlyStrict]"""
         name = 'fixtures/test262-yaml-headers.js'
         contents = slurpFile(name)
         record = parseTestRecord(contents, name)
-        
+
         self.assertEqual("""// Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.""",
                          record['header'])

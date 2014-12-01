@@ -1,7 +1,7 @@
-# Copyright (c) 2012 Ecma International.  All rights reserved. 
+# Copyright (c) 2012 Ecma International.  All rights reserved.
 # Ecma International makes this code available under the terms and conditions set
-# forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the 
-# "Use Terms").   Any redistribution of this code must retain the above 
+# forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the
+# "Use Terms").   Any redistribution of this code must retain the above
 # copyright and this notice and otherwise comply with the Use Terms.
 
 #--Imports---------------------------------------------------------------------
@@ -22,7 +22,7 @@ ONE_JSON_PER_CHAPTER = False
 TESTCASELIST_PER_JSON = True
 
 #Path to the root of the Hg repository (relative to this file's location)
-TEST262_ROOT = os.path.join(os.path.dirname(os.path.realpath(__file__)), 
+TEST262_ROOT = os.path.join(os.path.dirname(os.path.realpath(__file__)),
                             "..", "..")
 TEST262_ROOT = os.path.abspath(TEST262_ROOT)
 
@@ -40,9 +40,9 @@ TEST262_CONSOLE_CASES_DIR = os.path.join(TEST262_ROOT, CONSOLE_SHORT_NAME)
 
 #Directory containing the website's test harness (ported over from
 #TEST262_HARNESS_DIR)
-TEST262_WEB_HARNESS_DIR = os.path.join(TEST262_ROOT, WEBSITE_SHORT_NAME, 
+TEST262_WEB_HARNESS_DIR = os.path.join(TEST262_ROOT, WEBSITE_SHORT_NAME,
                                        "harness")
-TEST262_CONSOLE_HARNESS_DIR = os.path.join(TEST262_ROOT, CONSOLE_SHORT_NAME, 
+TEST262_CONSOLE_HARNESS_DIR = os.path.join(TEST262_ROOT, CONSOLE_SHORT_NAME,
                                            "harness")
 
 #Path to the ported test case files on the actual website as opposed
@@ -66,20 +66,20 @@ __lastHarnessType = None
 def generateHarness(harnessType, jsonName, title):
     global TEMPLATE_LINES
     global __lastHarnessType
-    
+
     #TODO: temp hack to make experimental internationalization tests work
     if jsonName=="testcases_intl402.json":
         harnessType = "intl402"
     elif jsonName=="testcases_bestPractice.json":
         harnessType = "bestPractice"
-        
+
     if TEMPLATE_LINES==None or harnessType!=__lastHarnessType:
         __lastHarnessType = harnessType
         TEMPLATE_LINES = []
         with open(os.path.join(os.getcwd(), "templates",
                                "runner." + harnessType + ".html"), "r") as f:
             TEMPLATE_LINES = f.readlines()
-    fileName = os.path.join(TEST262_ROOT, WEBSITE_SHORT_NAME, 
+    fileName = os.path.join(TEST262_ROOT, WEBSITE_SHORT_NAME,
                             jsonName.replace(".json", ".html"))
     fileNameExists = False
     if os.path.exists(fileName):
@@ -91,7 +91,7 @@ def generateHarness(harnessType, jsonName, title):
                 f.write("    var TEST_LIST_PATH = \"json/" + jsonName + \
                         "\";" + os.linesep)
             #elif "ECMAScript 5" in line:
-            #    f.write(line.replace("ECMAScript 5", 
+            #    f.write(line.replace("ECMAScript 5",
             #            "ECMAScript 5: %s" % title))
             else:
                 f.write(line)
@@ -101,7 +101,7 @@ def generateHarness(harnessType, jsonName, title):
 #------------------------------------------------------------------------------
 class SCAbstraction(object):
     '''
-    A class which abstracts working with source control systems in relation to 
+    A class which abstracts working with source control systems in relation to
     generated test262 files.  Useful when test262 is also used internally by
     browser implementors.
     '''
@@ -112,11 +112,11 @@ class SCAbstraction(object):
         '''
         if not(os.stat(filename).st_mode & stat.S_IWRITE):
             os.chmod(filename, stat.S_IWRITE)
-    
+
     def add(self, filename):
         '''
         Source control add of a file.
         '''
         subprocess.call(["git", "add", filename])
-        
+
 SC_HELPER = SCAbstraction()

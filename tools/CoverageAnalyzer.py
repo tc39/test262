@@ -1,7 +1,7 @@
-# Copyright (c) 2012 Ecma International.  All rights reserved. 
+# Copyright (c) 2012 Ecma International.  All rights reserved.
 # Ecma International makes this code available under the terms and conditions set
-# forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the 
-# "Use Terms").   Any redistribution of this code must retain the above 
+# forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the
+# "Use Terms").   Any redistribution of this code must retain the above
 # copyright and this notice and otherwise comply with the Use Terms.
 
 
@@ -19,13 +19,13 @@ def getCoverageData(directory):
   dirList = [x for x in tempList if os.path.isdir(os.path.join(directory, x))]
   #Build up a list of JavaScript files under the current directory
   jsList = [x for xin in tempList if x.endswith(".js")]
-  
-  #If the directory contains JavaScript files we'll assume they're all test 
+
+  #If the directory contains JavaScript files we'll assume they're all test
   #cases
   if len(jsList)!=0:
     CVG_DICT[os.path.split(directory)[1]] = len(jsList)
-  
-  #This might have just been a directory containing other dirs. Call ourself on 
+
+  #This might have just been a directory containing other dirs. Call ourself on
   #it as well
   for x in dirList:
     getCoverageData(os.path.join(directory, x))

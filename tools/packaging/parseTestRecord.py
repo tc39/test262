@@ -69,7 +69,7 @@ def oldAttrParser(testRecord, body, name):
             raise Exception('Malformed "@" attribute: ' + name)
         propName = propMatch.group(0)
         propVal = stripStars(propText[len(propName):])
-            
+
         if propName in testRecord:
             raise Exception('duplicate: ' + propName)
         testRecord[propName] = propVal;
@@ -89,7 +89,7 @@ def yamlAttrParser(testRecord, attrs, name):
         if key == "info":
             key = "commentary"
         testRecord[key] = value
-        
+
     if 'flags' in testRecord:
         for flag in testRecord['flags']:
             testRecord[flag] = ""

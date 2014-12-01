@@ -1,7 +1,7 @@
-# Copyright (c) 2012 Ecma International.  All rights reserved. 
+# Copyright (c) 2012 Ecma International.  All rights reserved.
 # Ecma International makes this code available under the terms and conditions set
-# forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the 
-# "Use Terms").   Any redistribution of this code must retain the above 
+# forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the
+# "Use Terms").   Any redistribution of this code must retain the above
 # copyright and this notice and otherwise comply with the Use Terms.
 
 #--Imports---------------------------------------------------------------------
@@ -34,7 +34,7 @@ def getAllJSFiles(dirName):
 def handleFile(filePath):
     with open(filePath, "r") as f:
         origLines = f.readlines()
-    
+
     testCase = False
     runTestCaseCalled = False
     for line in origLines:
@@ -42,15 +42,15 @@ def handleFile(filePath):
             testCase = True
         if runTestCaseRe.search(line)!=None:
             runTestCaseCalled = True
-            
+
     if testCase==True and runTestCaseCalled==True:
         pass #print "testcase TEST:", filePath
     elif testCase==False and runTestCaseCalled==False:
         pass #print "GLOBAL TEST:", filePath
     else:
         print "ERROR:", filePath
-        
-    
+
+
 
 #--Main------------------------------------------------------------------------
 if __name__=="__main__":
@@ -61,7 +61,7 @@ if __name__=="__main__":
     if not os.path.exists(ARGS.tpath):
         print "Cannot examine tests in '%s' when it doesn't exist!" % ARGS.tpath
         sys.exit(1)
-    
+
     ALL_JS_FILES = getAllJSFiles(ARGS.tpath)
     for fileName in ALL_JS_FILES:
         handleFile(fileName)

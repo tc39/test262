@@ -1,7 +1,7 @@
-# Copyright (c) 2012 Ecma International.  All rights reserved. 
+# Copyright (c) 2012 Ecma International.  All rights reserved.
 # Ecma International makes this code available under the terms and conditions set
-# forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the 
-# "Use Terms").   Any redistribution of this code must retain the above 
+# forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the
+# "Use Terms").   Any redistribution of this code must retain the above
 # copyright and this notice and otherwise comply with the Use Terms.
 
 #--Imports---------------------------------------------------------------------
@@ -34,15 +34,15 @@ def handleFile(filePath, partialPath):
     global PRE_PATH
     tempPath = filePath.replace(partialPath + os.path.sep, "", 1)
     tempPath = tempPath.replace(os.path.sep, "/")
-    
+
     with open(filePath, "rb") as f:
         origLines = f.readlines()
-    
+
     with open(filePath, "wb") as f:
         pathHit = False
         #testHit = False
         #descriptHit = False
-        
+
         for line in origLines:
             #TODO?
             #if (not testHit) and re.match("^$", line)!=None:
@@ -56,8 +56,8 @@ def handleFile(filePath, partialPath):
                 if line.endswith("\r\n"):
                     lineEnding = "\r\n"
                 pathHit = True
-                line = re.sub(r"@path\s+[^$]+$", #"\"[^\"]*\"", 
-                              r"@path %s%s" % (PRE_PATH + tempPath, lineEnding), 
+                line = re.sub(r"@path\s+[^$]+$", #"\"[^\"]*\"",
+                              r"@path %s%s" % (PRE_PATH + tempPath, lineEnding),
                               line)
             #TODO?
             #elif (not descriptHit) and re.search("description\s*:\s*\"", line)!=None:
@@ -74,7 +74,7 @@ if __name__=="__main__":
     if not os.path.exists(ARGS.tpath):
         print "Cannot fix tests in '%s' when it doesn't exist!" % ARGS.tpath
         sys.exit(1)
-    
+
     ALL_JS_FILES = getAllJSFiles(ARGS.tpath)
     for fileName in ALL_JS_FILES:
         handleFile(fileName, ARGS.tpath)

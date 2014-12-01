@@ -1,7 +1,7 @@
-# Copyright (c) 2012 Ecma International.  All rights reserved. 
+# Copyright (c) 2012 Ecma International.  All rights reserved.
 # Ecma International makes this code available under the terms and conditions set
-# forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the 
-# "Use Terms").   Any redistribution of this code must retain the above 
+# forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the
+# "Use Terms").   Any redistribution of this code must retain the above
 # copyright and this notice and otherwise comply with the Use Terms.
 
 #--Imports---------------------------------------------------------------------
@@ -12,10 +12,10 @@ import re
 import codecs
 
 #--Globals---------------------------------------------------------------------
-ECMA_LICENSE = '''/// Copyright (c) 2012 Ecma International.  All rights reserved. 
+ECMA_LICENSE = '''/// Copyright (c) 2012 Ecma International.  All rights reserved.
 /// Ecma International makes this code available under the terms and conditions set
-/// forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the 
-/// "Use Terms").   Any redistribution of this code must retain the above 
+/// forth on http://hg.ecmascript.org/tests/test262/raw-file/tip/LICENSE (the
+/// "Use Terms").   Any redistribution of this code must retain the above
 /// copyright and this notice and otherwise comply with the Use Terms.
 '''
 
@@ -50,12 +50,12 @@ def handleFile(filePath):
     '''
     with open(filePath, "rb") as f:
         origLines = f.readlines()
-    
+
     #See if it's already there
     if NEW_LICENSE_FIRST_LINE.search(origLines[0])!=None:
         #print "\talready there:\t", filePath
         return
-    #TODO: Google employee needs to remove this elif 
+    #TODO: Google employee needs to remove this elif
     #      and fix the next elif clause
     elif GOOGLE_RE.search(filePath)!=None:
         if DEBUG:
@@ -65,13 +65,13 @@ def handleFile(filePath):
         errMsg = "\tno idea which license should be used for:\t" + filePath
         raise Exception(errMsg)
         return
-    
+
     with codecs.open(filePath,'r','utf8') as f:
         bomPresent = f.read(2).startswith(u"\ufeff")
         if bomPresent:
             print "\tnon-ASCII file detected. Please modify by hand:", filePath
             return
-    
+
     with open(filePath, "wb") as f:
         if DEBUG:
             print "\tmodified:\t", filePath
@@ -80,14 +80,14 @@ def handleFile(filePath):
         #    print "\tBOM was detected for:", filePath
         #    f.write(u"\ufeff")
         f.write(ECMA_LICENSE)
-        
+
         writeIt = False
         for line in origLines:
             if writeIt:
                 f.write(line)
             elif OLD_LICENSE_LAST_LINE.search(line)!=None:
                 writeIt = True
-                
+
         if not writeIt:
             print "\tError - didn't find end of the original license:\t", filePath
 
@@ -100,7 +100,7 @@ if __name__=="__main__":
     if not os.path.exists(ARGS.tpath):
         print "Cannot fix tests in '%s' when it doesn't exist!" % ARGS.tpath
         sys.exit(1)
-    
+
     ALL_JS_FILES = getAllJSFiles(ARGS.tpath)
     for fileName in ALL_JS_FILES:
         handleFile(fileName)
