@@ -290,7 +290,8 @@ try {
   def GetSource(self, command_template):
     # "var testDescrip = " + str(self.testRecord) + ';\n\n' + \
     source = self.suite.GetInclude("sta.js") + \
-        self.suite.GetInclude("cth.js")
+        self.suite.GetInclude("cth.js") + \
+        self.suite.GetInclude("assert.js")
 
     if self.IsAsyncTest():
       source = source + \
