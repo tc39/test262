@@ -8,10 +8,6 @@ description: thisArg should be bound to this if provided
 var globalThis = this;
 
 [1].find(function () {
-    if (this !== Array) {
-      $ERROR('#1: this !== Array');
-    }
-    if (this === globalThis) {
-      $ERROR('#2: this === globalThis. Should be Array');
-    }
+    assert.sameValue(this, Array, 'this should equal Array');
+    assert.notSameValue(this, globalThis, 'this should not equal globalThis');
 }, Array);
