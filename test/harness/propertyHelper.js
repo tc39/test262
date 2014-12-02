@@ -13,7 +13,7 @@ function isConfigurable(obj, name) {
 function isEnumerable(obj, name) {
     for (var prop in obj) {
         if (Object.prototype.hasOwnProperty.call(obj, prop) && 
-            sameValue(prop, name)) {
+            assert._isSameValue(prop, name)) {
             return true;
         }
     }
@@ -21,23 +21,10 @@ function isEnumerable(obj, name) {
     return false;
 }
 
-function sameValue(x, y) {
-  if ((typeof x === "number") && (typeof y === "number")) {
-     // special case NaN and ±0
-     if (isNaN(x) && isNaN(y)) {
-       return true;
-     } else if ((x === 0) && (y === 0)) {
-       return (1 / x) === (1 / y);
-     }
-  }
-
-  return x === y;
-}
-
 function isEqualTo(obj, name, expectedValue) {
     var actualValue = obj[name];
 
-    return sameValue(actualValue, expectedValue);
+    return assert._isSameValue(actualValue, expectedValue);
 }
 
 function isWritable(obj, name, verifyProp, value) {
