@@ -2,13 +2,13 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: thisArg should be undefined if not provided
+description: thisArg should be undefined if not provided (Strict mode)
+flags: [onlyStrict]
 ---*/
 
-var globalThis = this;
 
 [1].find(function () {
-	if (this !== globalThis) {
-	  $ERROR('#1: this !== globalThis');
+	if (this !== undefined) {
+	  $ERROR('#1: this !== undefined');
 	}
 });
