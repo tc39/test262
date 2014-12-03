@@ -40,3 +40,25 @@ assert.notSameValue = function (actual, unexpected, message) {
     }
     $ERROR(message);
 };
+
+assert.throws = function (expectedErrorConstructor, func) {
+    if (func === undefined) {
+        $ERROR('assert.throws requires two arguments: the error constructor and a function to run');
+        return;
+    }
+
+    try {
+        func();
+    } catch (thrown) {
+        if (typeof thrown !== 'object' || thrown === null) {
+            $ERROR('Thrown value was not an object!');
+            return;
+        }
+        if (thrown.constructor !== expectedErrorConstructor) {
+            $ERROR('Expected a ' + expectedErrorConstructor.name + ' but got a ' + thrown.constructor.name);
+        }
+        return;
+    }
+
+    $ERROR('Expected a ' + expectedErrorConstructor.name + ' to be thrown but no exception was thrown at all');
+};
