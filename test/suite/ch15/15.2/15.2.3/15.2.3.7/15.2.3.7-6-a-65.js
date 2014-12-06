@@ -9,29 +9,35 @@ es5id: 15.2.3.7-6-a-65
 description: >
     Object.defineProperties throws TypeError when P.configurable is
     false and desc.configurable is true (8.12.9 step 7.a)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "foo", {
-            value: 10,
-            configurable: false 
-        });
+Object.defineProperty(obj, "foo", {
+    value: 10,
+    configurable: false 
+});
 
-        try {
-            Object.defineProperties(obj, {
-                foo: {
-                    configurable: true
-                }
-            });
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError) && dataPropertyAttributesAreCorrect(obj, "foo", 10, false, false, false);
+try {
+    Object.defineProperties(obj, {
+        foo: {
+            configurable: true
         }
+    });
+    $ERROR("Expected an exception.");
+} catch (e) {
+    verifyEqualTo(obj, "foo", 10);
+
+    verifyNotWritable(obj, "foo");
+
+    verifyNotEnumerable(obj, "foo");
+
+    verifyNotConfigurable(obj, "foo");
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}

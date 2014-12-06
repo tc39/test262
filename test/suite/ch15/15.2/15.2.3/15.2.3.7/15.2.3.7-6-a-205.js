@@ -10,40 +10,41 @@ description: >
     Object.defineProperties - 'O' is an Array, 'P' is an array index
     named property, 'desc' is accessor descriptor, test updating all
     attribute values of 'P'  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
+var arr = [];
 
-        Object.defineProperties(arr, {
-            "0": {
-                get: function () {
-                    return 11;
-                },
-                set: function () { },
-                configurable: true,
-                enumerable: true
-            }
-        });
-
-        var setFun = function (value) {
-            arr.setVerifyHelpProp = value;
-        };
-        var getFun = function () {
-            return 14;
-        };
-        Object.defineProperties(arr, {
-            "0": {
-                get: getFun,
-                set: setFun,
-                configurable: false,
-                enumerable: false
-            }
-        });
-
-        return accessorPropertyAttributesAreCorrect(arr, "0", getFun, setFun, "setVerifyHelpProp", false, false);
+Object.defineProperties(arr, {
+    "0": {
+        get: function () {
+            return 11;
+        },
+        set: function () { },
+        configurable: true,
+        enumerable: true
     }
-runTestCase(testcase);
+});
+
+var setFun = function (value) {
+    arr.setVerifyHelpProp = value;
+};
+var getFun = function () {
+    return 14;
+};
+Object.defineProperties(arr, {
+    "0": {
+        get: getFun,
+        set: setFun,
+        configurable: false,
+        enumerable: false
+    }
+});
+
+verifyEqualTo(arr, "0", getFun());
+
+verifyWritable(arr, "0", "setVerifyHelpProp");
+
+verifyNotEnumerable(arr, "0");
+
+verifyNotConfigurable(arr, "0");

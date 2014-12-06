@@ -11,35 +11,36 @@ description: >
     named property, 'P' makes no change if the value of every field in
     'desc' is the same value as the corresponding field in 'P'(desc is
     accessor property)  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
-        var get_func = function () {
-            return "100";
-        };
-        var set_func = function (value) {
-            arr.setVerifyHelpProp = value;
-        };
+var arr = [];
+var get_func = function () {
+    return "100";
+};
+var set_func = function (value) {
+    arr.setVerifyHelpProp = value;
+};
 
-        var descObj = {
-            get: get_func,
-            set: set_func,
-            enumerable: true,
-            configurable: true
-        };
-        
-        var properties = {
-            "0": descObj
-        };
+var descObj = {
+    get: get_func,
+    set: set_func,
+    enumerable: true,
+    configurable: true
+};
 
-        Object.defineProperty(arr, "0", descObj);
+var properties = {
+    "0": descObj
+};
 
-        Object.defineProperties(arr, properties);
+Object.defineProperty(arr, "0", descObj);
 
-        return accessorPropertyAttributesAreCorrect(arr, "0", get_func, set_func, "setVerifyHelpProp", true, true);
-    }
-runTestCase(testcase);
+Object.defineProperties(arr, properties);
+
+verifyEqualTo(arr, "0", get_func());
+
+verifyWritable(arr, "0", "setVerifyHelpProp");
+
+verifyEnumerable(arr, "0");
+
+verifyConfigurable(arr, "0");

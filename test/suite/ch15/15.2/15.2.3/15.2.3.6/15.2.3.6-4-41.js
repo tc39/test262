@@ -10,22 +10,22 @@ description: >
     Object.defineProperty - 'O' is the JSON object that uses Object's
     [[GetOwnProperty]] method to access the 'name' property (8.12.9
     step 1)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        try {
-            Object.defineProperty(JSON, "foo", {
-                value: 12,
-                configurable: true
-            });
+Object.defineProperty(JSON, "foo", {
+value: 12,
+configurable: true
+});
 
-            return dataPropertyAttributesAreCorrect(JSON, "foo", 12, false, false, true);
-        } finally {
-            delete JSON.foo;
-        }
-    }
-runTestCase(testcase);
+verifyEqualTo(JSON, "foo", 12);
+
+verifyNotWritable(JSON, "foo");
+
+verifyNotEnumerable(JSON, "foo");
+
+verifyConfigurable(JSON, "foo");
+
+delete JSON.foo;
+

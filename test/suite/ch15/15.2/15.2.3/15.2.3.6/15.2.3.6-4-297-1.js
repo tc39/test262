@@ -13,33 +13,40 @@ description: >
     is thrown when updating the [[Get]] attribute value of 'name'
     which is defined as non-configurable (10.6 [[DefineOwnProperty]]
     step 4 and step 5a)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        return (function (a, b, c) {
-            function getFunc1() {
-                return 10;
-            }
-            Object.defineProperty(arguments, "0", {
-                get: getFunc1,
-                enumerable: false,
-                configurable: false
-            });
-            function getFunc2() {
-                return 20;
-            }
-            try {
-                Object.defineProperty(arguments, "0", {
-                    get: getFunc2
-                });
-            } catch (e) {
-                var verifyFormal = a === 0;
-                return e instanceof TypeError && accessorPropertyAttributesAreCorrect(arguments, "0", getFunc1, undefined, undefined, false, false) && verifyFormal;
-            }
-            return false;
-        }(0, 1, 2));
+(function (a, b, c) {
+    function getFunc1() {
+        return 10;
     }
-runTestCase(testcase);
+    Object.defineProperty(arguments, "0", {
+        get: getFunc1,
+        enumerable: false,
+        configurable: false
+    });
+    function getFunc2() {
+        return 20;
+    }
+    try {
+        Object.defineProperty(arguments, "0", {
+            get: getFunc2
+        });
+        $ERROR("Expected an exception.");
+    } catch (e) {
+        if (a !== 0) {
+            $ERROR('Expected a === 0, actually ' + a);
+        }
+
+        verifyEqualTo(arguments, "0", getFunc1());
+
+        verifyNotEnumerable(arguments, "0");
+
+        verifyNotConfigurable(arguments, "0");
+
+        if (!(e instanceof TypeError)) {
+            $ERROR("Expected TypeError, got " + e);
+        }
+
+    }
+}(0, 1, 2));

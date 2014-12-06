@@ -10,26 +10,27 @@ description: >
     Object.defineProperties will not throw TypeError when
     P.configurable is false, P.writalbe is false, properties.value and
     P.value are two strings with the same value (8.12.9 step 10.a.ii.1)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "foo", {
-            value: "abcd",
-            writable: false,
-            configurable: false 
-        });
+Object.defineProperty(obj, "foo", {
+    value: "abcd",
+    writable: false,
+    configurable: false 
+});
 
-        Object.defineProperties(obj, {
-            foo: {
-                value: "abcd"
-            }
-        });
-        return dataPropertyAttributesAreCorrect(obj, "foo", "abcd", false, false, false);
+Object.defineProperties(obj, {
+    foo: {
+        value: "abcd"
     }
-runTestCase(testcase);
+});
+verifyEqualTo(obj, "foo", "abcd");
+
+verifyNotWritable(obj, "foo");
+
+verifyNotEnumerable(obj, "foo");
+
+verifyNotConfigurable(obj, "foo");

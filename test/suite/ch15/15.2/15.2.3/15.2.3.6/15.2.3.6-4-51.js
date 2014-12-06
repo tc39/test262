@@ -9,21 +9,23 @@ es5id: 15.2.3.6-4-51
 description: >
     Object.defineProperty - desc is data descriptor, test updating all
     attribute values of 'name' (8.12.9 step 4.a.i)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = { "property": 1 }; // default value of attributes: writable: true, configurable: true, enumerable: true
+var obj = { "property": 1 }; // default value of attributes: writable: true, configurable: true, enumerable: true
 
-        Object.defineProperty(obj, "property", {
-            value: 1001,
-            writable: false,
-            enumerable: false,
-            configurable: false
-        });
+Object.defineProperty(obj, "property", {
+    value: 1001,
+    writable: false,
+    enumerable: false,
+    configurable: false
+});
 
-        return dataPropertyAttributesAreCorrect(obj, "property", 1001, false, false, false);
-    }
-runTestCase(testcase);
+verifyEqualTo(obj, "property", 1001);
+
+verifyNotWritable(obj, "property");
+
+verifyNotEnumerable(obj, "property");
+
+verifyNotConfigurable(obj, "property");
+

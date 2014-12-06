@@ -12,28 +12,36 @@ description: >
     TypeError is thrown when updating the [[Value]] attribute value of
     'P' which is not writable and not configurable (10.6
     [[DefineOwnProperty]] step 4)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        return (function (a, b, c) {
-            Object.defineProperty(arguments, "genericProperty", {
-                value: 1001,
-                writable: false,
-                configurable: false
-            });
-            try {
-                Object.defineProperty(arguments, "genericProperty", {
-                    value: 1002
-                });
-            } catch (e) {
-                var verifyFormal = b === 2;
-                return e instanceof TypeError &&
-                    dataPropertyAttributesAreCorrect(arguments, "genericProperty", 1001, false, false, false) && verifyFormal;
-            }
-            return false;
-        }(1, 2, 3));
+(function (a, b, c) {
+    Object.defineProperty(arguments, "genericProperty", {
+        value: 1001,
+        writable: false,
+        configurable: false
+    });
+    try {
+        Object.defineProperty(arguments, "genericProperty", {
+            value: 1002
+        });
+        $ERROR("Expected an exception.");
+    } catch (e) {
+        if (b !== 2) {
+            $ERROR('Expected "b === 2;", actually ' + b);
+        }
+
+        verifyEqualTo(arguments, "genericProperty", 1001);
+
+        verifyNotWritable(arguments, "genericProperty");
+
+        verifyNotEnumerable(arguments, "genericProperty");
+
+        verifyNotConfigurable(arguments, "genericProperty");
+
+        if (!(e instanceof TypeError)) {
+            $ERROR("Expected TypeError, got " + e);
+        }
+
     }
-runTestCase(testcase);
+}(1, 2, 3));

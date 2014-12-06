@@ -11,24 +11,21 @@ description: >
     named property that already exists on 'O' is data property and
     'desc' is data descriptor, test setting the [[Value]] attribute
     value of 'P' as undefined  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arr = [12];
+var arr = [12];
 
-        try {
-            Object.defineProperties(arr, {
-                "0": {
-                    value: undefined
-                }
-            });
-            return dataPropertyAttributesAreCorrect(arr, "0", undefined, true, true, true);
-        } catch (ex) {
-            return false;
-        }
+Object.defineProperties(arr, {
+    "0": {
+        value: undefined
     }
-runTestCase(testcase);
+});
+verifyEqualTo(arr, "0", undefined);
+
+verifyWritable(arr, "0");
+
+verifyEnumerable(arr, "0");
+
+verifyConfigurable(arr, "0");

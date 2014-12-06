@@ -11,31 +11,32 @@ description: >
     P.configurable is false, P.writalbe is false, properties.value and
     P.value are two Objects refer to the same object which has been
     updated before use it to update the object (8.12.9 step 10.a.ii.1)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        var obj1 = { length: 10 };
+var obj1 = { length: 10 };
 
-        Object.defineProperty(obj, "foo", {
-            value: obj1,
-            writable: false,
-            configurable: false
-        });
+Object.defineProperty(obj, "foo", {
+    value: obj1,
+    writable: false,
+    configurable: false
+});
 
-        var obj2 = obj1;
-        obj2.y = "hello";
+var obj2 = obj1;
+obj2.y = "hello";
 
-        Object.defineProperties(obj, {
-            foo: {
-                value: obj2
-            }
-        });
-        return dataPropertyAttributesAreCorrect(obj, "foo", obj1, false, false, false);
+Object.defineProperties(obj, {
+    foo: {
+        value: obj2
     }
-runTestCase(testcase);
+});
+verifyEqualTo(obj, "foo", obj1);
+
+verifyNotWritable(obj, "foo");
+
+verifyNotEnumerable(obj, "foo");
+
+verifyNotConfigurable(obj, "foo");

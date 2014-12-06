@@ -9,18 +9,20 @@ es5id: 15.2.3.6-4-60
 description: >
     Object.defineProperty - type of desc.value is different from type
     of name.value (8.12.9 step 6)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        obj.foo = 101; // default value of attributes: writable: true, configurable: true, enumerable: true
+obj.foo = 101; // default value of attributes: writable: true, configurable: true, enumerable: true
 
-        Object.defineProperty(obj, "foo", { value: "abc" });
-        return dataPropertyAttributesAreCorrect(obj, "foo", "abc", true, true, true);
-    }
-runTestCase(testcase);
+Object.defineProperty(obj, "foo", { value: "abc" });
+verifyEqualTo(obj, "foo", "abc");
+
+verifyWritable(obj, "foo");
+
+verifyEnumerable(obj, "foo");
+
+verifyConfigurable(obj, "foo");
+

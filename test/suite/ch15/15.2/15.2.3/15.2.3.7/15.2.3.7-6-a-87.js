@@ -10,36 +10,40 @@ description: >
     Object.defineProperties throws TypeError when P.configurable is
     false, both properties.[[Set]] and P.[[Set]] are two objects which
     refer to different objects (8.12.9 step 11.a.i)
-includes:
-    - runTestCase.js
-    - accessorPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        function set_func1(value) {
-            obj.setVerifyHelpProp = value;
+function set_func1(value) {
+    obj.setVerifyHelpProp = value;
+}
+
+Object.defineProperty(obj, "foo", {
+    set: set_func1,
+    configurable: false
+});
+
+function set_func2() {}
+
+try {
+    Object.defineProperties(obj, {
+        foo: {
+            set: set_func2
         }
+    });
+    $ERROR("Expected an exception.");
+} catch (e) {
+    verifyWritable(obj, "foo", "setVerifyHelpProp");
 
-        Object.defineProperty(obj, "foo", {
-            set: set_func1,
-            configurable: false
-        });
+    verifyNotEnumerable(obj, "foo");
 
-        function set_func2() {}
+    verifyNotConfigurable(obj, "foo");
 
-        try {
-            Object.defineProperties(obj, {
-                foo: {
-                    set: set_func2
-                }
-            });
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError) && accessorPropertyAttributesAreCorrect(obj, "foo", undefined, set_func1, "setVerifyHelpProp", false, false);
-        }
-
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}
+

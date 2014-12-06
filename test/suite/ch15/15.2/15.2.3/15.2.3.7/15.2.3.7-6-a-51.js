@@ -9,23 +9,24 @@ es5id: 15.2.3.7-6-a-51
 description: >
     Object.defineProperties - both desc.value and P.value are boolean
     values with the same value (8.12.9 step 6)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        var desc = { value: true };
-        Object.defineProperty(obj, "foo", desc);
+var desc = { value: true };
+Object.defineProperty(obj, "foo", desc);
 
-        Object.defineProperties(obj, {
-            foo: {
-                value: true
-            }
-        });
-        return dataPropertyAttributesAreCorrect(obj, "foo", true, false, false, false);
+Object.defineProperties(obj, {
+    foo: {
+        value: true
     }
-runTestCase(testcase);
+});
+verifyEqualTo(obj, "foo", true);
+
+verifyNotWritable(obj, "foo");
+
+verifyNotEnumerable(obj, "foo");
+
+verifyNotConfigurable(obj, "foo");

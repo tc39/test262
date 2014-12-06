@@ -11,24 +11,22 @@ description: >
     named property that already exists on 'O' is data property and
     'desc' is data descriptor, test updating the [[Writable]]
     attribute value of 'P'  (15.4.5.1 step 4.c)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arr = [100];
+var arr = [100];
 
-        try {
-            Object.defineProperties(arr, {
-                "0": {
-                    writable: false
-                }
-            });
-            return dataPropertyAttributesAreCorrect(arr, "0", 100, false, true, true);
-        } catch (ex) {
-            return false;
-        }
+Object.defineProperties(arr, {
+    "0": {
+        writable: false
     }
-runTestCase(testcase);
+});
+verifyEqualTo(arr, "0", 100);
+
+verifyNotWritable(arr, "0");
+
+verifyEnumerable(arr, "0");
+
+verifyConfigurable(arr, "0");
+

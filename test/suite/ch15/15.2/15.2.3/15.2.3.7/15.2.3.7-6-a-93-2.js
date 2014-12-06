@@ -11,42 +11,53 @@ description: >
     data property 'P' successfully when [[Configurable]] attribute is
     true and [[Writable]] attribute is false but not when both are
     false (8.12.9 - step Note & 10.a.ii.1)
-includes:
-    - runTestCase.js
-    - dataPropertyAttributesAreCorrect.js
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "0", {
-            value: 1001,
-            writable: false,
-            configurable: true
-        });
-        
-        Object.defineProperty(obj, "1", {
-            value: 1003,
-            writable: false,
-            configurable: false
-        });
+Object.defineProperty(obj, "0", {
+    value: 1001,
+    writable: false,
+    configurable: true
+});
 
-        try {
-            Object.defineProperties(obj, {
-                0: {
-                    value: 1002
-                },
-                1: {
-                    value: 1004
-                }
-            });
+Object.defineProperty(obj, "1", {
+    value: 1003,
+    writable: false,
+    configurable: false
+});
 
-            return false;
-        } catch (e) {
-            return e instanceof TypeError &&
-                dataPropertyAttributesAreCorrect(obj, "0", 1002, false, false, true) &&
-                dataPropertyAttributesAreCorrect(obj, "1", 1003, false, false, false);
+try {
+    Object.defineProperties(obj, {
+        0: {
+            value: 1002
+        },
+        1: {
+            value: 1004
         }
+    });
+
+    $ERROR("Expected an exception.");
+} catch (e) {
+    verifyEqualTo(obj, "0", 1002);
+
+    verifyNotWritable(obj, "0");
+
+    verifyNotEnumerable(obj, "0");
+
+    verifyConfigurable(obj, "0");
+    verifyEqualTo(obj, "1", 1003);
+
+    verifyNotWritable(obj, "1");
+
+    verifyNotEnumerable(obj, "1");
+
+    verifyNotConfigurable(obj, "1");
+
+    if (!(e instanceof TypeError)) {
+        $ERROR("Expected TypeError, got " + e);
     }
-runTestCase(testcase);
+
+}
