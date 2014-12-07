@@ -28,11 +28,11 @@ TEST262_ROOT = os.path.abspath(TEST262_ROOT)
 
 #Directory full of test cases we want to port to the website's test
 #harness runner
-TEST262_CASES_DIR = os.path.join(TEST262_ROOT, "test", "suite")
+TEST262_CASES_DIR = os.path.join(TEST262_ROOT, "test")
 
 #Directory containing test harness files to be ported over to the
 #website. Note that only *.js files will be migrated from this dir.
-TEST262_HARNESS_DIR = os.path.join(TEST262_ROOT, "test", "harness")
+TEST262_HARNESS_DIR = os.path.join(TEST262_ROOT, "harness")
 
 #Directory full of website test cases (ported over from TEST262_CASES_DIR)
 TEST262_WEB_CASES_DIR = os.path.join(TEST262_ROOT, WEBSITE_SHORT_NAME, "json")
@@ -52,8 +52,7 @@ WEBSITE_CASES_PATH = "json/"
 #The name of a file which contains a list of tests which should be
 #disabled in test262.  These tests are either invalid as-per ES5 or
 #have issues with the test262 web harness.
-EXCLUDED_FILENAME = os.path.join(TEST262_ROOT, "test", "config",
-                                 "excludelist.xml")
+EXCLUDED_FILENAME = os.path.join(TEST262_ROOT, "test", "excludelist.xml")
 
 WEBSITE_EXCLUDE_RE_LIST = ["bestPractice", "intl402"]
 WEBSITE_EXCLUDE_RE_LIST = [ re.compile(x) for x in WEBSITE_EXCLUDE_RE_LIST]
