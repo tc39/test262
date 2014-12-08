@@ -9,6 +9,8 @@ description: >
     String (primitive or object) and Null
 ---*/
 
+var x;
+
 //CHECK#1
 x = "1";
 x += null;

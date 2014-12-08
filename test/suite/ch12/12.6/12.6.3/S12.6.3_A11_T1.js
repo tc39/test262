@@ -10,6 +10,7 @@ es5id: 12.6.3_A11_T1
 description: Simple test of continue loop with using "continue"
 ---*/
 
+var __str, index;
 __str=""
 
 for(index=0; index<10; index+=1) {

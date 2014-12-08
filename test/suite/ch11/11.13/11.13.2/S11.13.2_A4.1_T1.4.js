@@ -7,6 +7,8 @@ es5id: 11.13.2_A4.1_T1.4
 description: Type(x) and Type(y) vary between Null and Undefined
 ---*/
 
+var x;
+
 //CHECK#1
 x = null;
 x *= undefined;

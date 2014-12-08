@@ -7,6 +7,8 @@ es5id: 11.13.2_A4.7_T1.3
 description: Type(x) and Type(y) vary between primitive string and String object
 ---*/
 
+var x;
+
 //CHECK#1
 x = "1";
 x >>= "1";

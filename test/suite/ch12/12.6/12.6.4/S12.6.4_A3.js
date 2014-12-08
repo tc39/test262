@@ -11,6 +11,7 @@ description: >
     an array of numbers. Eval is used
 ---*/
 
+var __str, __evaluated, arr, ind;
 __str="";
 
 __evaluated = eval("for(ind in (arr=[2,1,4,3]))__str+=arr[ind]");

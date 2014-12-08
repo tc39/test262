@@ -19,6 +19,8 @@ function truncate(x) {
   }
 }
 
+var x, y;
+
 //CHECK#1
 x = 1.3; 
 y = 1.1;

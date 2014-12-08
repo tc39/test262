@@ -11,6 +11,8 @@ es5id: 12.4_A2_T2
 description: Checking by using eval(eval(x), where x is any string)
 ---*/
 
+var __evaluated;
+
 x="5+1|0===0";
 
 __evaluated = eval(x);

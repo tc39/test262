@@ -10,6 +10,8 @@ description: Evaluating Statement with error Expression
 includes: [Test262Error.js]
 ---*/
 
+var __in__do;
+
 try {
 	do __in__do = "reached"; while (abbracadabra);
 	$ERROR('#1: \'do __in__do = "reached"; while (abbracadabra)\' lead to throwing exception');

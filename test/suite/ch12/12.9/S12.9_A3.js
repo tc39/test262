@@ -7,6 +7,7 @@ es5id: 12.9_A3
 description: Return without Expression
 ---*/
 
+var __evaluated;
 __evaluated = (function (){return;})();
 
 //////////////////////////////////////////////////////////////////////////////

@@ -9,6 +9,8 @@ es5id: 11.13.2_A1_T5
 description: Checking by using eval, check operator is x -= y
 ---*/
 
+var x;
+
 //CHECK#1
 x = -1;
 if ((eval("x\u0009-=\u00091")) !== -2) {

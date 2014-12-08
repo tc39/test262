@@ -18,8 +18,8 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-
-  eval("var o = {get foo(){return 1;}};");
+  var o;
+  eval("o = {get foo(){return 1;}};");
   var desc = Object.getOwnPropertyDescriptor(o,"foo");
   return desc.set === undefined
  }

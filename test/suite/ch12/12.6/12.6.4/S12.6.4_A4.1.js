@@ -9,6 +9,7 @@ es5id: 12.6.4_A4.1
 description: Using Object as an Expression is appropriate. Eval is used
 ---*/
 
+var __str, __evaluated, hash;
 __str="";
 
 __evaluated = eval("for(var ind in (hash={2:'b',1:'a',4:'d',3:'c'}))__str+=hash[ind]");

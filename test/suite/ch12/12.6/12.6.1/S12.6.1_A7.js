@@ -9,6 +9,7 @@ es5id: 12.6.1_A7
 description: Using eval
 ---*/
 
+var __evaluated;
 var __condition=0
 
 __evaluated = eval("do eval(\"__condition++\"); while (__condition<5)");

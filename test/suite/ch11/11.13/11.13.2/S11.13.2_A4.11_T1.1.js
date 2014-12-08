@@ -9,6 +9,8 @@ description: >
     object
 ---*/
 
+var x;
+
 //CHECK#1
 x = true;
 x |= true;

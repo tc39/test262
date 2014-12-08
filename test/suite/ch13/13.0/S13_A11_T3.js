@@ -10,8 +10,8 @@ description: Deleting arguments[i] and returning result of the operation
 ---*/
 
 function __func(){
-    was_del=false;
-    for (i=0; i < arguments.length; i++)
+    var was_del=false;
+    for (var i=0; i < arguments.length; i++)
        was_del= was_del || delete arguments[i];
     return was_del;
 }

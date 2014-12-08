@@ -14,6 +14,7 @@ description: Return very sophisticated expression and function
 // second derivative 
 function DD_operator(f, delta){return function(x){return (f(x+delta)-2*f(x)+f(x-delta))/(delta*delta)};}
 
+var DDsin;
 DDsin = DD_operator(Math.sin, 0.00001);
 
 

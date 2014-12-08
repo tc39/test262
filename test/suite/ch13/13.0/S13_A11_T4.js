@@ -10,8 +10,8 @@ description: Deleting arguments[i] and checking the type of arguments[i]
 ---*/
 
 function __func(){
-    is_undef=true;
-    for (i=0; i < arguments.length; i++)
+    var is_undef=true;
+    for (var i=0; i < arguments.length; i++)
     {
         delete arguments[i];
         is_undef= is_undef && (typeof arguments[i] === "undefined");

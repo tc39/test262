@@ -10,6 +10,8 @@ es5id: 12.6.3_A3
 description: Using "(function(){throw "FirstExpression"})()" as FirstExpression
 ---*/
 
+var __in__NotInExpression__, __in__NotInExpression__2, __in__for;
+
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 try {
