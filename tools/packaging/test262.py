@@ -392,8 +392,8 @@ class TestSuite(object):
 
   def __init__(self, root, strict_only, non_strict_only, unmarked_default, print_handle):
     # TODO: derive from packagerConfig.py
-    self.test_root = path.join(root, 'test', 'suite')
-    self.lib_root = path.join(root, 'test', 'harness')
+    self.test_root = path.join(root, 'test')
+    self.lib_root = path.join(root, 'harness')
     self.strict_only = strict_only
     self.non_strict_only = non_strict_only
     self.unmarked_default = unmarked_default
