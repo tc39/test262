@@ -52,7 +52,7 @@ WEBSITE_CASES_PATH = "json/"
 #The name of a file which contains a list of tests which should be
 #disabled in test262.  These tests are either invalid as-per ES5 or
 #have issues with the test262 web harness.
-EXCLUDED_FILENAME = os.path.join(TEST262_ROOT, "test", "excludelist.xml")
+EXCLUDED_FILENAME = os.path.join(TEST262_ROOT, "excludelist.xml")
 
 WEBSITE_EXCLUDE_RE_LIST = ["bestPractice", "intl402"]
 WEBSITE_EXCLUDE_RE_LIST = [ re.compile(x) for x in WEBSITE_EXCLUDE_RE_LIST]
