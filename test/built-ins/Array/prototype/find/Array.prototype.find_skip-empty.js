@@ -16,6 +16,6 @@ var b = a.find(function (v) {
 	return v !== 1;
 });
 
-if (b !== 2) {
-	$ERROR('#1: b !== 2. Actual: ' + b);
+if (b !== undefined) {
+	$ERROR('#1: b !== undefined. Actual: ' + b);
 }
