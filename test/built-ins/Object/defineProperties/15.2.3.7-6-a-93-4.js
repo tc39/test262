@@ -7,7 +7,7 @@
 /*---
 es5id: 15.2.3.7-6-a-93-4
 description: >
-    Object.defineProperties will not fail to update [[Value]] attribute of
+    Object.defineProperties will fail to update [[Value]] attribute of
     indexed data property 'P' when [[Configurable]] attribute of first
     updating property are false  (8.12.9 - step Note & 10.a.ii.1)
 includes: [propertyHelper.js]
