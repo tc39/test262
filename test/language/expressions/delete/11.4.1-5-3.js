@@ -9,6 +9,7 @@ es5id: 11.4.1-5-3
 description: >
     delete operator returns false when deleting a direct reference to
     a function name
+flags: [noStrict]
 includes:
     - runTestCase.js
     - fnExists.js

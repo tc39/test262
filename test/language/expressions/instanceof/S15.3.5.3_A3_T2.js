@@ -14,8 +14,10 @@ es5id: 15.3.5.3_A3_T2
 description: F.prototype is Object.prototype, and V is empty object
 ---*/
 
+var FAKEFACTORY;
 FAKEFACTORY = Function();
 
+var fakeinstance;
 fakeinstance = {};
 
 //CHECK#1

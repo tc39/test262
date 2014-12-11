@@ -7,6 +7,7 @@ info: >
     the object
 es5id: 11.4.1_A4
 description: Checking two reference by one object
+flags: [noStrict]
 ---*/
 
 //CHECK#1

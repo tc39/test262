@@ -10,6 +10,7 @@ info: >
     language provides no way to directly exercise [[Delete]], the tests are placed here.
 es5id: 11.4.1-4.a-16
 description: delete operator returns false on deleting arguments object
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

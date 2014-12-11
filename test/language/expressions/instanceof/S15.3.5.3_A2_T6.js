@@ -13,6 +13,7 @@ description: F.prototype is string, and V is function
 includes: [$FAIL.js]
 ---*/
 
+var FACTORY;
 FACTORY = new Function;
 
 FACTORY.prototype = "error";

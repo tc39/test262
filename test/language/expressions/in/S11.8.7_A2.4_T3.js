@@ -17,8 +17,3 @@ catch (e) {
     $ERROR('#1.2: max_value in (max_value = "MAX_VALUE", Number) throw ReferenceError. Actual: ' + (e));  
   }
 }
-
-//CHECK#2
-if ((NUMBER = Number, "MAX_VALUE") in NUMBER !== true) {
-  $ERROR('#2: (NUMBER = Number, "MAX_VALUE") in NUMBER !== true');
-}

@@ -12,6 +12,7 @@ es5id: 11.4.1-4.a-9
 description: >
     delete operator returns false when deleting a non-configurable
     data property (Math.LN2)
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

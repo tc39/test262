@@ -10,6 +10,7 @@ info: >
     language provides no way to directly exercise [[Delete]], the tests are placed here.
 es5id: 11.4.1-0-1
 description: delete operator as UnaryExpression
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

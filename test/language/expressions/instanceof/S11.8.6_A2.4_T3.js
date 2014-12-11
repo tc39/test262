@@ -17,8 +17,3 @@ catch (e) {
     $ERROR('#1.2: object instanceof (object = {}, Object) throw ReferenceError. Actual: ' + (e));  
   }
 }
-
-//CHECK#2
-if ((OBJECT = Object, {}) instanceof OBJECT !== true) {
-  $ERROR('#2: (OBJECT = Object, {}) instanceof OBJECT !== true');
-}

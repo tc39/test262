@@ -8,6 +8,7 @@ description: Using grouping operator in declaration of variables
 ---*/
 
 //CHECK#1
+var x;
 (x) = 1;
 if (x !== 1) {
   $ERROR('#1: (x) = 1; x === 1. Actual: ' + (x));

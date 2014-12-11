@@ -10,6 +10,7 @@ es5id: 11.13.1-4-1
 description: >
     simple assignment creates property on the global object if
     LeftHandSide is an unresolvable reference
+flags: [noStrict]
 includes:
     - runTestCase.js
     - fnGlobalObject.js
