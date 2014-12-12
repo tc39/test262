@@ -48,6 +48,11 @@ verifyEnumerable(unscopables, 'findIndex');
 verifyWritable(unscopables, 'findIndex');
 verifyConfigurable(unscopables, 'findIndex');
 
+assert.sameValue(unscopables.includes, true, '`includes` property value');
+verifyEnumerable(unscopables, 'includes');
+verifyWritable(unscopables, 'includes');
+verifyConfigurable(unscopables, 'includes');
+
 assert.sameValue(unscopables.keys, true, '`keys` property value');
 verifyEnumerable(unscopables, 'keys');
 verifyWritable(unscopables, 'keys');
