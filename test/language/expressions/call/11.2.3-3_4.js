@@ -21,7 +21,7 @@ function testcase() {
                                      set: function(x) {this.barSetter = true; }});
     try {
         o.bar( foo() );
-        throw new Exception("o.bar does not exist!");
+        $ERROR("o.bar does not exist!");
     } catch(e) {
         return (e instanceof TypeError) && (fooCalled===true) && (o.barGetter===true) && (o.barSetter===undefined);
     }

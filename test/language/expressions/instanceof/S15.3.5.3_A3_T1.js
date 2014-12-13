@@ -14,10 +14,12 @@ es5id: 15.3.5.3_A3_T1
 description: F.prototype.type is 1, and V is new F
 ---*/
 
+var FACTORY;
 FACTORY = Function("this.name=\"root\"");
 
 FACTORY.prototype.type=1;
 
+var instance;
 instance = new FACTORY;
 
 //CHECK#1

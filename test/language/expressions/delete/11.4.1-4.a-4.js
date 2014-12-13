@@ -12,6 +12,7 @@ es5id: 11.4.1-4.a-4
 description: >
     delete operator returns false when deleting a non-configurable
     data property (NaN)
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

@@ -17,8 +17,3 @@ catch (e) {
     $ERROR('#1.2: x + (x = 1) throw ReferenceError. Actual: ' + (e));  
   }
 }
-
-//CHECK#2
-if ((y = 1) + y !== 2) {
-  $ERROR('#2: (y = 1) + y === 2. Actual: ' + ((y = 1) + y));
-}

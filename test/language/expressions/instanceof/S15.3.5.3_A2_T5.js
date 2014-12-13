@@ -13,10 +13,12 @@ description: F.prototype is void 0, and V is new F
 includes: [$FAIL.js]
 ---*/
 
+var FACTORY;
 FACTORY = Function("this.prop=1;");
 
 FACTORY.prototype.name = "fairy";
 
+var instance;
 instance = new FACTORY;
 
 FACTORY.prototype = void 0;

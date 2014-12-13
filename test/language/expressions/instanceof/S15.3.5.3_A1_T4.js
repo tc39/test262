@@ -10,6 +10,7 @@ es5id: 15.3.5.3_A1_T4
 description: V is boolean false
 ---*/
 
+var FACTORY;
 FACTORY = Function("name","this.name=name;");
 
 //CHECK#1

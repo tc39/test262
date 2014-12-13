@@ -10,6 +10,7 @@ info: >
     language provides no way to directly exercise [[Delete]], the tests are placed here.
 es5id: 11.4.1-4.a-8
 description: delete operator returns true for built-in objects (JSON)
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

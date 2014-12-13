@@ -10,6 +10,7 @@ info: >
     language provides no way to directly exercise [[Delete]], the tests are placed here.
 es5id: 11.4.1-4.a-6
 description: delete operator returns true when deleting a property inside 'with'
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

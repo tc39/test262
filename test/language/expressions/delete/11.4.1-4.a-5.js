@@ -12,6 +12,7 @@ es5id: 11.4.1-4.a-5
 description: >
     delete operator returns false when deleting the environment object
     inside 'with'
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

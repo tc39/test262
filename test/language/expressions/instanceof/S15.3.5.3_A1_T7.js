@@ -10,6 +10,7 @@ es5id: 15.3.5.3_A1_T7
 description: V is undefined
 ---*/
 
+var FACTORY;
 FACTORY = Function("name","this.name=name;");
 
 //CHECK#1

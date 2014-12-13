@@ -10,6 +10,7 @@ description: >
     ArgumentList, in order,  followed at the end by
     GetValue(AssignmentExpression), which is the last item of  the new
     list
+flags: [noStrict]
 ---*/
 
 function f_arg(x,y,z) {

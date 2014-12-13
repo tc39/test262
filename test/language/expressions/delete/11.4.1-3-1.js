@@ -9,6 +9,7 @@ es5id: 11.4.1-3-1
 description: >
     delete operator returns true when deleting an unresolvable
     reference
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

@@ -5,14 +5,10 @@
 info: If GetBase(x) doesn't have a property GetPropertyName(x), return true
 es5id: 11.4.1_A2.2_T1
 description: Checking undeclared variable case
+flags: [noStrict]
 ---*/
 
 //CHECK#1
 if (delete x !== true) {
   $ERROR('#1: delete x === true');
-}
-
-//CHECK#2
-if (delete this.x !== true) {
-  $ERROR('#2: delete this.x === true');
 }

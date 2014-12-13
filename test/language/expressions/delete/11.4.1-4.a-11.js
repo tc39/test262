@@ -12,6 +12,7 @@ es5id: 11.4.1-4.a-11
 description: >
     delete operator returns true on deleting arguments
     propterties(arguments.callee)
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

@@ -12,10 +12,12 @@ description: F.prototype is undefined, and V is empty object
 includes: [$FAIL.js]
 ---*/
 
+var FACTORY;
 FACTORY = new Function;
 
 FACTORY.prototype = undefined;
 
+var obj;
 obj={};
 
 //CHECK#1
