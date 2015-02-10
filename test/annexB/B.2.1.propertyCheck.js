@@ -3,6 +3,7 @@
 
 /*---
 info: Check type of various properties
+es5id: B.2.1
 description: Checking properties of this object (escape)
 ---*/
 

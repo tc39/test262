@@ -3,8 +3,9 @@
 
 /*---
 info: >
-    PerformPromiseThen 
+    PerformPromiseThen
     Ref 25.4.5.3.1
+es6id: S25.4.5.3_A5.2_T1
 author: Sam Mikes
 description: Promise.prototype.then immediately queues handler if fulfilled
 includes: [PromiseHelper.js]

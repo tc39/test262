@@ -4,6 +4,7 @@
 /*---
 info: >
     Promise throws TypeError when 'this' is resolved promise
+es6id: S25.4.3.1_A2.3_T1
 author: Sam Mikes
 description: Promise.call(resolved Promise) throws TypeError
 ---*/

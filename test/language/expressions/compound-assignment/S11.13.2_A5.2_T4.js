@@ -3,6 +3,7 @@
 
 /*---
 info: Compound Assignment Operator calls PutValue(lref, v)
+es5id: S11.13.2_A5.2_T4
 description: >
     Evaluating LeftHandSideExpression lref returns Reference type; Reference
     base value is an environment record and environment record kind is

@@ -3,8 +3,9 @@
 
 /*---
 info: >
-    PerformPromiseThen 
+    PerformPromiseThen
     Ref 25.4.5.3.1
+es6id: S25.4.5.3_A5.1_T1
 author: Sam Mikes
 description: Promise.prototype.then enqueues handler if pending
 includes: [PromiseHelper.js]

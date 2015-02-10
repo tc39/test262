@@ -3,6 +3,7 @@
 
 /*---
 info: Check type of various properties
+es5id: B.2.5
 description: Checking properties of the Date object (setYear)
 ---*/
 

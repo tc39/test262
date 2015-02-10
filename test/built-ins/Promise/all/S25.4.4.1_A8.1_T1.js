@@ -2,6 +2,7 @@
 // See LICENSE for details.
 
 /*---
+es6id: S25.4.4.1_A8.1_T1
 author: Sam Mikes
 description: Promise.all([p1, p2]) resolution functions are called in predictable sequence
 includes: [PromiseHelper.js]

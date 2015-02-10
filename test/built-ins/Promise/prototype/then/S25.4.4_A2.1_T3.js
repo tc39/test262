@@ -6,6 +6,7 @@ info: >
    Misc sequencing tests
    inspired by https://github.com/promises-aplus/promises-tests/issues/61
    Case "T2b"
+es6id: S25.4.4_A2.1_T3
 author: Sam Mikes
 description: Promise onResolved functions are called in predictable sequence
 includes: [PromiseHelper.js]
@@ -28,7 +29,7 @@ Promise.resolve().then(function () {
     p1.then(function (msg) {
         sequence.push(msg);
     });
-    
+
     p2.catch(function (msg) {
         sequence.push(msg);
     }).then(function () {

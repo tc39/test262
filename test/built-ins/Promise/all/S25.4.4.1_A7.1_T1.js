@@ -5,6 +5,7 @@
 info: >
     Promise.all with 1-element array
     should accept an array with settled promise
+es6id: S25.4.4.1_A6.1_T2
 author: Sam Mikes
 description: Promise.all([p1]) is resolved with a promise for a one-element array
 ---*/

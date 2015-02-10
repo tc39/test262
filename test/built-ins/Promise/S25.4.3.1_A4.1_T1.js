@@ -5,6 +5,7 @@
 info: >
     Promise catches exceptions thrown from executor and turns
     them into reject
+es6id: S25.4.3.1_A4.1_T1
 author: Sam Mikes
 description: new Promise(function () { throw }) should reject
 ---*/

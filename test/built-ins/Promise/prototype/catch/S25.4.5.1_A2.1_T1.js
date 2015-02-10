@@ -4,6 +4,7 @@
 /*---
 info: >
     catch is a method on a Promise
+es6id: S25.4.5.1_A2.1_T1
 author: Sam Mikes
 description: catch is a method on a Promise
 ---*/

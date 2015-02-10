@@ -3,8 +3,9 @@
 
 /*---
 info: >
-    Promise.all expects an iterable argument; 
+    Promise.all expects an iterable argument;
     fails if GetIterator returns an abrupt completion.
+es6id: S25.4.4.1_A3.1_T3
 author: Sam Mikes
 description: Promise.all((throw on GetIterator)) returns Promise rejected with TypeError
 ---*/

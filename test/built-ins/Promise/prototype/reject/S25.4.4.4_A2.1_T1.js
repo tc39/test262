@@ -4,6 +4,7 @@
 /*---
 info: >
    Promise.reject
+es6id: S25.4.4.4_A2.1_T1
 author: Sam Mikes
 description: Promise.reject creates a new settled promise
 ---*/
