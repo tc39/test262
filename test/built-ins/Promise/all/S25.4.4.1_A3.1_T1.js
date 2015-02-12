@@ -3,10 +3,10 @@
 
 /*---
 info: >
-    Promise.all expects an iterable argument; 
+    Promise.all expects an iterable argument;
     ref 7.4.1 non-Object fails CheckIterable
     ref 7.4.2 GetIterator throws TypeError if CheckIterable fails
-es5id: 25.4.4.1_A3.1_T1
+es6id: 25.4.4.1_A3.1_T1
 author: Sam Mikes
 description: Promise.all(3) returns Promise rejected with TypeError
 ---*/

@@ -3,7 +3,8 @@
 
 /*---
 info: >
-    Section 25.4.1.4.2 
+    Section 25.4.1.4.2
+es6id: S25.4.4.5_A3.1_T1
 author: Sam Mikes
 description: self-resolved Promise throws TypeError
 ---*/

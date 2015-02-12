@@ -4,6 +4,7 @@
 /*---
 info: >
     Promise reaction jobs have predictable environment
+es6id: S25.4.2.1_A3.1_T1
 author: Sam Mikes
 description: Promise.onFulfilled gets undefined as 'this'
 flags: [noStrict]

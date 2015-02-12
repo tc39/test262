@@ -3,10 +3,10 @@
 
 /*---
 info: Promise.all([]) is resolved immediately
-es5id: 25.4.4.1_A2.2_T1
+es6id: 25.4.4.1_A2.2_T1
 author: Sam Mikes
 includes: [PromiseHelper.js]
-description: Promise.all([]) returns immediately 
+description: Promise.all([]) returns immediately
 ---*/
 
 var sequence = [];

@@ -3,7 +3,7 @@
 
 /*---
 info: Promise.all([]) returns a promise for a new empty array
-es5id: 25.4.4.1_A2.3_T1
+es6id: 25.4.4.1_A2.3_T1
 author: Sam Mikes
 description: Promise.all([]) returns a promise for an array
 ---*/

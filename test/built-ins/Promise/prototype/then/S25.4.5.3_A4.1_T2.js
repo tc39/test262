@@ -3,8 +3,9 @@
 
 /*---
 info: >
-    PerformPromiseThen 
+    PerformPromiseThen
     Ref 25.4.5.3.1
+es6id: S25.4.5.3_A4.1_T2
 author: Sam Mikes
 description: Promise.prototype.then accepts 'undefined' as arg1, arg2
 ---*/

@@ -4,6 +4,7 @@
 /*---
 info: >
     Promise throws TypeError when 'this' is rejected promise
+es6id: S25.4.3.1_A2.4_T1
 author: Sam Mikes
 description: Promise.call(rejected Promise) throws TypeError
 ---*/

@@ -4,6 +4,7 @@
 /*---
 info: >
     Promise.all with 0-element array
+es6id: S25.4.4.1_A5.1_T1
 author: Sam Mikes
 description: Promise.all([]) produces a promise
 ---*/

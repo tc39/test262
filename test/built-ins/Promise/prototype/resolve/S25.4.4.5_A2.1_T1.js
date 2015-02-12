@@ -2,6 +2,7 @@
 // See LICENSE for details.
 
 /*---
+es6id: S25.4.4.5_A2.1_T1
 author: Sam Mikes
 description: Promise.resolve passes through a promise w/ same Constructor
 ---*/
