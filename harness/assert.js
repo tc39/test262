@@ -127,7 +127,7 @@ assert.throws = function (expectedErrorConstructor, func) {
     }
     if (objectClass === "String" || objectClass === "Number" ||
       objectClass === "Boolean" || objectClass === "Date") {
-      if (a.valueOf() !== b.valueOf()) return false;
+      if (!assert._isSameValue(a.valueOf(), b.valueOf())) return false;
     }
     return deepObjectEquals(a, b);
   }
