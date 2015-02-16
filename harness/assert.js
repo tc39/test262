@@ -118,6 +118,7 @@ assert.throws = function (expectedErrorConstructor, func) {
     }
     return deepObjectEquals(a, b);
   }
+
   assert.deepEquals = function (actual, expected, message) {
     assert(deepEquals(actual, expected), message);
   };
