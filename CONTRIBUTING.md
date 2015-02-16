@@ -2,21 +2,16 @@
 
 ## Test Case Names
 
-These are guidelines. There is a substantial amount of variation in existing test names.
+There is a substantial amount of variation in existing test names and that's ok.
 
-Test cases are often named by the portion of the spec or draft spec they reference.  A test for ECMAScript 5.1 section [8.7.2 PutValue](http://www.ecma-international.org/ecma-262/5.1/#sec-8.7.2) should be placed in the directory `test262/suite/ch08/8.7/8.7.2/` and have a filename which contains the substring `8.7.2`.  A test for ECMAScript 6.0 draft section [25.4.4.1 Promise.all](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-promise.all) should be placed in directory `test262/suite/es6/ch25/25.4/25.4.4/25.4.4.1` and have a filename that contains the substring `25.4.4.1`.
+Test cases should be created in files that are named to identify a feature, API (or aspect of either), that's being tested. Previously, there was a naming system based on the specification section and algorithm step that was the focus of the test. This protocol doesn't work if the section or algorithm step changes. 
 
-One common convention is to break down a section into a number of testable assertions (A) and to test each assertion with one or more test cases (T).  For example, section 25.4.4.1 of ES6 could be broken down like this:
+Take a look at these examples:
 
- * A1 Promise.all is a function of one argument
-  - A1.1 Promise.all is callable
-  - A1.2 Promise.all expects 1 argument
- * A2 Promise.all([]) is a Promise immediately resolved with []
-  - A2.1 Promise.all([]) returns a Promise
-  - A2.2 Promise.all([]) is resolved immediately
-  - A2.3 Promise.all([]) is resolved with a new empty array
+- `Math.fround` handling of `Infinity`: `test/built-ins/Math/fround/Math.fround_Infinity.js`
+- `Array.prototype.find` use with `Proxy`: `test/Array/prototype/find/Array.prototype.find_callable-Proxy-1.js`
+- `arguments` implements an `iterator` interface: `test/language/arguments-object/iterator-interface.js`
 
-with test case `S25.4.4.1_A1.1_T1.js` being the first test for assertion A1.1, and `S25.4.4.1_A2.3_T3.js` being the third test for assertion A2.3.
 
 
 ## Test Case Style
