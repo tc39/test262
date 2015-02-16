@@ -1,6 +1,6 @@
 ## Using the Console Test Runner
 
-The console test runner is used to test browserless implementations of ECMAScript, e.g., [v8](http://en.wikipedia.org/wiki/V8_(JavaScript_engine), [node](http://en.wikipedia.org/wiki/Node.js), or [js24](http://packages.ubuntu.com/trusty/libmozjs-24-bin) 
+The console test runner is used to test browserless implementations of ECMAScript, e.g., [v8](http://en.wikipedia.org/wiki/V8_(JavaScript_engine)), [node](http://en.wikipedia.org/wiki/Node.js), or [js24](http://packages.ubuntu.com/trusty/libmozjs-24-bin) 
 
 ### Requirements
 
