@@ -72,10 +72,23 @@ assert.throws = function (expectedErrorConstructor, func) {
   }
 
   function deepObjectEquals(a, b) {
-    var aProps = Object.keys(a);
+    var aProps = [];
+    var bProps = [];
+
+    for (key in a) {
+      if (Object.hasOwnProperty.call(a, key)) {
+        aProps.push(key);
+      }
+    }
     aProps.sort();
-    var bProps = Object.keys(b);
+
+    for (key in b) {
+      if (Object.hasOwnProperty.call(b, key)) {
+        bProps.push(key);
+      }
+    }
     bProps.sort();
+
     if (!deepEquals(aProps, bProps)) {
       return false;
     }
