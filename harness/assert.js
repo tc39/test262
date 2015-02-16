@@ -91,7 +91,7 @@ assert.throws = function (expectedErrorConstructor, func) {
     if (asset._isSameValue(a, b)) {
       return true;
     }
-    if (typeof a != typeof b) return false;
+    if (typeof a !== typeof b) return false;
     if (typeof a !== "object" && typeof a !== "function") return false;
     // Neither a nor b is primitive.
     var objectClass = classOf(a);
@@ -104,7 +104,7 @@ assert.throws = function (expectedErrorConstructor, func) {
     if (objectClass === "Function") return false;
     if (objectClass === "Array") {
       var elementCount = 0;
-      if (a.length != b.length) {
+      if (a.length !== b.length) {
         return false;
       }
       for (var i = 0; i < a.length; i++) {
@@ -112,8 +112,8 @@ assert.throws = function (expectedErrorConstructor, func) {
       }
       return true;
     }
-    if (objectClass == "String" || objectClass == "Number" ||
-      objectClass == "Boolean" || objectClass == "Date") {
+    if (objectClass === "String" || objectClass === "Number" ||
+      objectClass === "Boolean" || objectClass === "Date") {
       if (a.valueOf() !== b.valueOf()) return false;
     }
     return deepObjectEquals(a, b);
