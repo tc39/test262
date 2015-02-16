@@ -88,7 +88,7 @@ assert.throws = function (expectedErrorConstructor, func) {
   }
 
   function deepEquals(a, b) {
-    if (asset._isSameValue(a, b)) {
+    if (assert._isSameValue(a, b)) {
       return true;
     }
     if (typeof a !== typeof b) return false;
