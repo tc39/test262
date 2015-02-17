@@ -19,7 +19,7 @@ Take a look at these examples:
 A test file has three sections: Copyright, Frontmatter, and Body.  A test looks roughly like this:
 
 ```javascript
-// Copyright (C) 2014 [Contributor Name]. All rights reserved.
+// Copyright (C) 2015 [Contributor Name]. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*--- 
