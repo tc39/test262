@@ -7,7 +7,7 @@ info: >
 es6id: 14.4.1
 author: Sam Mikes
 description: GeneratorMethod uses SuperProperty (allowed)
-feature: default-arg, generator, super
+features: [ default-arg, generator, super ]
 ---*/
 
 var obj = {
