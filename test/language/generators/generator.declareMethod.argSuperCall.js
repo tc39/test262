@@ -12,6 +12,6 @@ negative: SyntaxError
 ---*/
 
 var obj = {
-    *foo(a = super) {
+    *foo(a = super()) {
     }
 };

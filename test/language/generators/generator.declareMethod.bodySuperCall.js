@@ -13,6 +13,6 @@ negative: SyntaxError
 
 var obj = {
     *foo(a) {
-        super;
+        super();
     }
 };
