@@ -170,6 +170,15 @@ class TestResult(object):
     if len(err) > 0:
        target.write("--- errors ---  \n %s" % err)
 
+  # This is a way to make the output from the "whitespace" tests into valid XML
+  def SafeFormat(self, msg):
+    try:
+      msg = msg.encode(encoding='ascii', errors='strict')
+      msg = msg.replace('\u000Bx', '?')
+      msg = msg.replace('\u000Cx', '?')
+    except:
+      return 'Output contained invalid characters'
+
   def XmlAssemble(self, result):
     test_name = self.case.GetName()
     test_mode = self.case.GetMode()
@@ -182,9 +191,9 @@ class TestResult(object):
       out = self.stdout.strip().decode('utf-8')
       err = self.stderr.strip().decode('utf-8')
       if len(out) > 0:
-        failureElement.text = out
+        failureElement.text = self.SafeFormat(out)
       if len(err) > 0:
-        failureElement.text = err
+        failureElement.text = self.SafeFormat(err)
       testCaseElement.append(failureElement)
     return testCaseElement
 
@@ -520,7 +529,9 @@ class TestSuite(object):
       self.logf = open(logname, "w")
     if junitfile:
       self.outfile = open(junitfile, "w")
+      TestSuitesElement = xmlj.Element("testsuites")
       TestSuiteElement = xmlj.Element("testsuite")
+      TestSuitesElement.append(TestSuiteElement)
       TestSuiteElement.attrib["name "] = "test262"
       for x in range(len(EXCLUDE_LIST)):
         if self.ShouldRun (unicode(EXCLUDE_LIST[x].encode('utf-8','ignore')), tests):
@@ -538,7 +549,7 @@ class TestSuite(object):
         TestCaseElement = result.XmlAssemble(result)
         TestSuiteElement.append(TestCaseElement)
         if case == cases[len(cases)-1]:
-             xmlj.ElementTree(TestSuiteElement).write(junitfile, "UTF-8")
+             xmlj.ElementTree(TestSuitesElement).write(junitfile, "UTF-8")
       if logname:
         self.WriteLog(result)
       progress.HasRun(result)
