@@ -29,6 +29,9 @@ function isEqualTo(obj, name, expectedValue) {
 
 function isWritable(obj, name, verifyProp, value) {
     var newValue = value || "unlikelyValue";
+    var hadValue = Object.prototype.hasOwnProperty.call(obj, name);
+    var oldValue = obj[name];
+    var result;
 
     try {
         obj[name] = newValue;
@@ -38,12 +41,16 @@ function isWritable(obj, name, verifyProp, value) {
         }
     }
 
-    if ((verifyProp && isEqualTo(obj, verifyProp, newValue)) ||
-        isEqualTo(obj, name, newValue)) {
-        return true;
+    result = (verifyProp && isEqualTo(obj, verifyProp, newValue)) ||
+        isEqualTo(obj, name, newValue);
+
+    if (hadValue) {
+      obj[name] = oldValue;
+    } else {
+      delete obj[name];
     }
 
-    return false;
+    return result;
 }
 
 function verifyEqualTo(obj, name, value) {
