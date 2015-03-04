@@ -1,19 +1,15 @@
 
 //-----------------------------------------------------------------------------
-function compareArray(aExpected, aActual) {
-    if (aActual.length != aExpected.length) {
-        return false;
-    }
+function compareArray(a, b) {
+  if (b.length !== a.length) {
+    return false;
+  }
 
-    aExpected.sort();
-    aActual.sort();
-
-    var s;
-    for (var i = 0; i < aExpected.length; i++) {
-        if (aActual[i] !== aExpected[i]) {
-            return false;
-        }
+  for (var i = 0; i < a.length; i++) {
+    if (b[i] !== a[i]) {
+      return false;
     }
-    return true;
+  }
+  return true;
 }
 

@@ -15,12 +15,10 @@ includes:
 ---*/
 
 function testcase() {
-        var arr = [0, 1, 2];
+  var arr = [0, 1, 2];
+  var expected = ["0", "1", "2", "length"];
+  var actual = Object.getOwnPropertyNames(arr);
 
-        var expResult = ["0", "1", "2", "length"];
-
-        var result = Object.getOwnPropertyNames(arr);
-
-        return compareArray(expResult, result);
-    }
+  return compareArray(actual.sort(), expected.sort());
+}
 runTestCase(testcase);

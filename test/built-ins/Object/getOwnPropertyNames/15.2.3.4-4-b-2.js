@@ -7,41 +7,41 @@
 /*---
 es5id: 15.2.3.4-4-b-2
 description: >
-    Object.getOwnPropertyNames - all own properties are pushed into
-    the returned array
+  Object.getOwnPropertyNames - all own properties are pushed into
+  the returned array
 includes:
-    - runTestCase.js
-    - compareArray.js
+  - runTestCase.js
+  - compareArray.js
 ---*/
 
 function testcase() {
-        var obj = { "a": "a" };
+  var obj = { "a": "a" };
 
-        Object.defineProperty(obj, "b", {
-            get: function () {
-                return "b";
-            },
-            enumerable: false,
-            configurable: true
-        });
+  Object.defineProperty(obj, "b", {
+    get: function () {
+      return "b";
+    },
+    enumerable: false,
+    configurable: true
+  });
 
-        Object.defineProperty(obj, "c", {
-            get: function () {
-                return "c";
-            },
-            enumerable: true,
-            configurable: true
-        });
+  Object.defineProperty(obj, "c", {
+    get: function () {
+      return "c";
+    },
+    enumerable: true,
+    configurable: true
+  });
 
-        Object.defineProperty(obj, "d", {
-            value: "d",
-            enumerable: false,
-            configurable: true
-        });
+  Object.defineProperty(obj, "d", {
+    value: "d",
+    enumerable: false,
+    configurable: true
+  });
 
-        var result = Object.getOwnPropertyNames(obj);
-        var expResult = ["a", "b", "c", "d"];
+  var actual = Object.getOwnPropertyNames(obj);
+  var expected = ["a", "b", "c", "d"];
 
-        return compareArray(expResult, result);
-    }
+  return compareArray(actual.sort(), expected.sort());
+}
 runTestCase(testcase);
