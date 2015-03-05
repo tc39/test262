@@ -7,49 +7,10 @@ description: >
     that name, whose value is the value of the last property of that name.
 ---*/
 var calls = 0;
-var object = {
+var A = {
   set ['a'](_) {
     calls++;
   }
 };
-object.a = 'A';
-assert.sameValue(calls, 1);
-
-calls = 0;
-object = {
-  set b(_) {
-    assert(false);
-  },
-  set ['b'](_) {
-    calls++;
-  }
-};
-object.b = 'B';
-assert.sameValue(calls, 1);
-
-calls = 0;
-object = {
-  set c(_) {
-    assert(false)
-  },
-  set ['c'](_) {
-    assert(false)
-  },
-  set ['c'](_) {
-    calls++
-  }
-};
-object.c = 'C';
-assert.sameValue(calls, 1);
-
-calls = 0;
-object = {
-  set ['d'](_) {
-    assert(false)
-  },
-  set d(_) {
-    calls++
-  }
-};
-object.d = 'D';
-assert.sameValue(calls, 1);
+A.a = 'A';
+assert.sameValue(calls, 1, "The value of `calls` is `1`, after executing `A.a = 'A';`");

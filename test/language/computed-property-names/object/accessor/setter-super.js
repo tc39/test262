@@ -26,10 +26,10 @@ var object = {
 Object.setPrototypeOf(object, proto);
 
 object.a = 2;
-assert.sameValue(value, 'a 2');
+assert.sameValue(value, 'a 2', "The value of `value` is `'a 2'`, after executing `object.a = 2;`");
 object.b = 3;
-assert.sameValue(value, 'b 3');
+assert.sameValue(value, 'b 3', "The value of `value` is `'b 3'`, after executing `object.b = 3;`");
 object[0] = 4;
-assert.sameValue(value, '0 4');
+assert.sameValue(value, '0 4', "The value of `value` is `'0 4'`, after executing `object[0] = 4;`");
 object[1] = 5;
-assert.sameValue(value, '1 5');
+assert.sameValue(value, '1 5', "The value of `value` is `'1 5'`, after executing `object[1] = 5;`");

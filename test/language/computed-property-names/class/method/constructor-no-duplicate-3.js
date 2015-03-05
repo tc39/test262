@@ -3,10 +3,10 @@
 /*---
 es6id: 12.2.5
 description: >
-    In a class, computed property names for static
-    generators cannot be "constructor"
+    computed property names can be "constructor", but duplicates are not allowed, 2
 negative: SyntaxError
 ---*/
 class C {
-  static *['constructor']() {}
+  ['constructor']() {}
+  ['constructor']() {}
 }

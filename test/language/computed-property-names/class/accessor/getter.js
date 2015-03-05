@@ -10,4 +10,4 @@ class C {
     return 'A';
   }
 }
-assert.sameValue(new C().a, 'A');
+assert.sameValue(new C().a, 'A', "The value of `new C().a` is `'A'`");

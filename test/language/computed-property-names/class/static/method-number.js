@@ -12,9 +12,15 @@ class C {
   static c() { return 'C'; }
   static [2]() { return 'D'; }
 }
-assert.sameValue(C.a(), 'A');
-assert.sameValue(C[1](), 'B');
-assert.sameValue(C.c(), 'C');
-assert.sameValue(C[2](), 'D');
-assert(compareArray(Object.keys(C), []));
-assert(compareArray(Object.getOwnPropertyNames(C), ['1', '2', 'length', 'name', 'prototype', 'a', 'c']));
+assert.sameValue(C.a(), 'A', "`C.a()` returns `'A'`. Defined as `static a() { return 'A'; }`");
+assert.sameValue(C[1](), 'B', "`C[1]()` returns `'B'`. Defined as `static [1]() { return 'B'; }`");
+assert.sameValue(C.c(), 'C', "`C.c()` returns `'C'`. Defined as `static c() { return 'C'; }`");
+assert.sameValue(C[2](), 'D', "`C[2]()` returns `'D'`. Defined as `static [2]() { return 'D'; }`");
+assert(
+  compareArray(Object.keys(C), []),
+  "`compareArray(Object.keys(C), [])` returns `true`"
+);
+assert(
+  compareArray(Object.getOwnPropertyNames(C), ['1', '2', 'length', 'name', 'prototype', 'a', 'c']),
+  "`compareArray(Object.getOwnPropertyNames(C), ['1', '2', 'length', 'name', 'prototype', 'a', 'c'])` returns `true`"
+);

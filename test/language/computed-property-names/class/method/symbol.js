@@ -19,12 +19,18 @@ class C {
   c() { return 'C'; }
   [ID(sym2)]() { return 'D'; }
 }
-assert.sameValue(new C().a(), 'A');
-assert.sameValue(new C()[sym1](), 'B');
-assert.sameValue(new C().c(), 'C');
-assert.sameValue(new C()[sym2](), 'D');
-assert(compareArray(Object.keys(C.prototype), []));
-assert(compareArray(Object.getOwnPropertyNames(C.prototype), ['constructor', 'a', 'c']));
+assert.sameValue(new C().a(), 'A', "`new C().a()` returns `'A'`. Defined as `a() { return 'A'; }`");
+assert.sameValue(new C()[sym1](), 'B', "`new C()[sym1]()` returns `'B'`. Defined as `[sym1]() { return 'B'; }`");
+assert.sameValue(new C().c(), 'C', "`new C().c()` returns `'C'`. Defined as `c() { return 'C'; }`");
+assert.sameValue(new C()[sym2](), 'D', "`new C()[sym2]()` returns `'D'`. Defined as `[ID(sym2)]() { return 'D'; }`");
+assert(
+  compareArray(Object.keys(C.prototype), []),
+  "`compareArray(Object.keys(C.prototype), [])` returns `true`"
+);
+assert(
+  compareArray(Object.getOwnPropertyNames(C.prototype), ['constructor', 'a', 'c']),
+  "`compareArray(Object.getOwnPropertyNames(C.prototype), ['constructor', 'a', 'c'])` returns `true`"
+);
 
 // compareArray expects arguments to be sorted,
 // which will cause an array containing symbols to
@@ -37,6 +43,12 @@ assert(compareArray(Object.getOwnPropertyNames(C.prototype), ['constructor', 'a'
 //
 var symbols = Object.getOwnPropertySymbols(C.prototype);
 
-assert(symbols.indexOf(sym1) !== -1);
-assert(symbols.indexOf(sym2) !== -1);
-assert.sameValue(symbols.length, 2);
+assert(
+  symbols.indexOf(sym1) !== -1,
+  "The result of `symbols.indexOf(sym1) !== -1` is `true`, after executing `var symbols = Object.getOwnPropertySymbols(C.prototype);`"
+);
+assert(
+  symbols.indexOf(sym2) !== -1,
+  "The result of `symbols.indexOf(sym2) !== -1` is `true`, after executing `var symbols = Object.getOwnPropertySymbols(C.prototype);`"
+);
+assert.sameValue(symbols.length, 2, "The value of `symbols.length` is `2`, after executing `var symbols = Object.getOwnPropertySymbols(C.prototype);`");

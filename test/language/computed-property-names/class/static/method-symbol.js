@@ -14,12 +14,18 @@ class C {
   static c() { return 'C'; }
   static [sym2]() { return 'D'; }
 }
-assert.sameValue(C.a(), 'A');
-assert.sameValue(C[sym1](), 'B');
-assert.sameValue(C.c(), 'C');
-assert.sameValue(C[sym2](), 'D');
-assert(compareArray(Object.keys(C), []));
-assert(compareArray(Object.getOwnPropertyNames(C), ['length', 'name', 'prototype', 'a', 'c']));
+assert.sameValue(C.a(), 'A', "`C.a()` returns `'A'`. Defined as `static a() { return 'A'; }`");
+assert.sameValue(C[sym1](), 'B', "`C[sym1]()` returns `'B'`. Defined as `static [sym1]() { return 'B'; }`");
+assert.sameValue(C.c(), 'C', "`C.c()` returns `'C'`. Defined as `static c() { return 'C'; }`");
+assert.sameValue(C[sym2](), 'D', "`C[sym2]()` returns `'D'`. Defined as `static [sym2]() { return 'D'; }`");
+assert(
+  compareArray(Object.keys(C), []),
+  "`compareArray(Object.keys(C), [])` returns `true`"
+);
+assert(
+  compareArray(Object.getOwnPropertyNames(C), ['length', 'name', 'prototype', 'a', 'c']),
+  "`compareArray(Object.getOwnPropertyNames(C), ['length', 'name', 'prototype', 'a', 'c'])` returns `true`"
+);
 
 
 // compareArray expects arguments to be sorted,
@@ -33,6 +39,16 @@ assert(compareArray(Object.getOwnPropertyNames(C), ['length', 'name', 'prototype
 //
 var symbols = Object.getOwnPropertySymbols(C);
 
-assert(symbols.indexOf(sym1) !== -1);
-assert(symbols.indexOf(sym2) !== -1);
-assert.sameValue(symbols.length, 2);
+assert(
+  symbols.indexOf(sym1) !== -1,
+  "The result of `symbols.indexOf(sym1) !== -1` is `true`, after executing `var symbols = Object.getOwnPropertySymbols(C);`"
+);
+assert(
+  symbols.indexOf(sym2) !== -1,
+  "The result of `symbols.indexOf(sym2) !== -1` is `true`, after executing `var symbols = Object.getOwnPropertySymbols(C);`"
+);
+assert.sameValue(
+  symbols.length,
+  2,
+  "The value of `symbols.length` is `2`, after executing `var symbols = Object.getOwnPropertySymbols(C);`"
+);

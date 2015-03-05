@@ -9,13 +9,13 @@ includes: [compareArray.js]
 var counter = 0;
 var key1 = {
   toString: function() {
-    assert.sameValue(counter++, 0);
+    assert.sameValue(counter++, 0, "The result of `counter++` is `0`");
     return 'b';
   }
 };
 var key2 = {
   toString: function() {
-    assert.sameValue(counter++, 1);
+    assert.sameValue(counter++, 1, "The result of `counter++` is `1`");
     return 'd';
   }
 };
@@ -25,9 +25,12 @@ var object = {
   c() { return 'C'; },
   [key2]() { return 'D'; },
 };
-assert.sameValue(counter, 2);
-assert.sameValue(object.a(), 'A');
-assert.sameValue(object.b(), 'B');
-assert.sameValue(object.c(), 'C');
-assert.sameValue(object.d(), 'D');
-assert(compareArray(Object.keys(object), ['a', 'b', 'c', 'd']));
+assert.sameValue(counter, 2, "The value of `counter` is `2`");
+assert.sameValue(object.a(), 'A', "`object.a()` returns `'A'`. Defined as `a() { return 'A'; }`");
+assert.sameValue(object.b(), 'B', "`object.b()` returns `'B'`. Defined as `[key1]() { return 'B'; }`");
+assert.sameValue(object.c(), 'C', "`object.c()` returns `'C'`. Defined as `c() { return 'C'; }`");
+assert.sameValue(object.d(), 'D', "`object.d()` returns `'D'`. Defined as `[key2]() { return 'D'; }`");
+assert(
+  compareArray(Object.keys(object), ['a', 'b', 'c', 'd']),
+  "`compareArray(Object.keys(object), ['a', 'b', 'c', 'd'])` returns `true`"
+);
