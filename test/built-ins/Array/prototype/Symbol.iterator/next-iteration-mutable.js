@@ -6,8 +6,8 @@
       When an item is added to the array after the iterator is created but
       before the iterator is "done" (as defined by 22.1.5.2.1), the new item
       should be accessible via iteration. When an item is added to the array
-      after the iterator is is "done", the new item should not be accessible
-      via iteration.
+      after the iterator is "done", the new item should not be accessible via
+      iteration.
   es6id: 22.1.3.30
  ---*/
 
