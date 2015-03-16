@@ -7,7 +7,7 @@ info: >
 es6id: 23.1.2.2
 author: Sam Mikes
 description: Map[Symbol.species] exists per spec
-includes: 
+includes:
   - propertyHelper.js
 ---*/
 

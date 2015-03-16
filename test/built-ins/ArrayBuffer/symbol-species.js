@@ -8,7 +8,7 @@ es6id: 24.1.3.3
 author: Sam Mikes
 description: ArrayBuffer[Symbol.species] exists per spec
 features: [ ArrayBuffer, Symbol.species ]
-includes: 
+includes:
   - propertyHelper.js
 ---*/
 
