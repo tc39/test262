@@ -1,4 +1,4 @@
-// Copyright 2014 Ecma International.  All rights reserved.
+// Copyright (c) 2014 Ecma International.  All rights reserved.
 // See LICENSE or https://github.com/tc39/test262/blob/master/LICENSE
 
 /*---
