@@ -3,7 +3,7 @@
 /*---
 es6id: 14.5.3
 description: >
-    computed property getter names cannot be "constructor"
+    computed property getter names can be called "constructor"
 negative: SyntaxError
 ---*/
 class C4 {

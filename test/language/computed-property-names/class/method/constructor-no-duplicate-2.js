@@ -3,8 +3,7 @@
 /*---
 es6id: 12.2.5
 description: >
-    computed property names can be "constructor", but duplicates are not allowed, 2
-negative: SyntaxError
+    computed property names can be "constructor"
 ---*/
 class C {
   ['constructor']() {}
