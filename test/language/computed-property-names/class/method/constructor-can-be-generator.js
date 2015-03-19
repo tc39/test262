@@ -3,10 +3,8 @@
 /*---
 es6id: 14.5.3
 description: >
-    computed property generator method names cannot be "constructor"
-negative: SyntaxError
+    computed property generator method names can be called "constructor"
 ---*/
 class C4 {
-  *['constructor']() {
-  }
+  *['constructor']() {}
 }
