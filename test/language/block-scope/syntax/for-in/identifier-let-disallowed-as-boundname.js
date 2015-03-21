@@ -1,9 +1,10 @@
 // Copyright (C) Copyright 2011 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-es6id: 13.1
+es6id: 13.6.4.1
 description: >
-    let declarations without initialisers in statement positions:
-    default : StatementList
+    It is a Syntax Error if the BoundNames of ForDeclaration contains "let".
+negative: SyntaxError
 ---*/
-switch (true) { default: let x; }
+for (let let in {}) { }
+
