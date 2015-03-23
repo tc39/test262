@@ -11,7 +11,7 @@ es5id: 12.4_A2_T1
 description: Checking by using eval "(eval("x+1+x==1"))"
 ---*/
 
-var __evaluated;
+var x, __evaluated;
 
 x=1;
 

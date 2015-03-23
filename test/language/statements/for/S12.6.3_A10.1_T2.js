@@ -9,6 +9,8 @@ description: >
     evaluated properly
 ---*/
 
+var __str, index2, index3, index6;
+
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 try {

@@ -7,6 +7,7 @@ es5id: 13.2.2_A19_T4
 description: >
     Function is declared in the hierarchical object scope and then an
     exception is thrown
+flags: [noStrict]
 ---*/
 
 var a = 1;

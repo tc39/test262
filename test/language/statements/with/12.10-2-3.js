@@ -8,6 +8,7 @@
 es5id: 12.10-2-3
 description: with - expression being string
 includes: [runTestCase.js]
+flags: [noStrict]
 ---*/
 
 function testcase() {

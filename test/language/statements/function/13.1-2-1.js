@@ -10,6 +10,7 @@ description: >
     eval allowed as formal parameter name of a non-strict function
     declaration
 includes: [runTestCase.js]
+flags: [noStrict]
 ---*/
 
 function testcase()

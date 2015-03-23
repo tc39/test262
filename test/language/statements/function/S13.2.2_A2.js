@@ -21,7 +21,7 @@ catch(e){
     $ERROR('#0: __PROTO.type=__PLANT does not lead to throwing exception')
 }
 
-function __FACTORY(){this.name=__ROSE};
+function __FACTORY(){};
 
 __FACTORY.prototype=__PROTO;
 

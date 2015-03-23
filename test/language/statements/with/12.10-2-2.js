@@ -8,6 +8,7 @@
 es5id: 12.10-2-2
 description: with - expression being Boolean
 includes: [runTestCase.js]
+flags: [noStrict]
 ---*/
 
 function testcase() {

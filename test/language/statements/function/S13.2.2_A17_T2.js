@@ -5,6 +5,7 @@
 info: FunctionExpression containing "with" statement is admitted
 es5id: 13.2.2_A17_T2
 description: Throwing an exception within "with" statement
+flags: [noStrict]
 ---*/
 
 this.p1="alert";

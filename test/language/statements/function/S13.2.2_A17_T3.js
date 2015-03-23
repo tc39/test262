@@ -9,6 +9,7 @@ description: >
     var getRight declaration adds variable to function scope  but
     getRight in statement resolves within with(__obj) scope and
     searchs getRight in __obj first
+flags: [noStrict]
 ---*/
 
 p1="alert";

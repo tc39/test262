@@ -12,6 +12,8 @@ es5id: 13.2.2_A7_T2
 description: Declaring a "function as function __func (arg)"
 ---*/
 
+var __FRST, __SCND, __func, __obj__;
+
 __FRST="one";
 __SCND="two";
 

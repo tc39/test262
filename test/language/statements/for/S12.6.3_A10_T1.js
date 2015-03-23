@@ -7,6 +7,7 @@ es5id: 12.6.3_A10
 description: >
     Checking if executing nested "var-loops" nine blocks depth is
     evaluated properly
+flags: [noStrict]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////

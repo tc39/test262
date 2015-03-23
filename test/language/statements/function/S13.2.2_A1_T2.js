@@ -22,7 +22,7 @@ catch(e){
     $FAIL('#0: __PROTO.type=__MONSTER does not lead to throwing exception')
 }
 
-var __FACTORY = function(){this.name=__PREDATOR};
+var __FACTORY = function(){};
 
 __FACTORY.prototype=__PROTO;
 

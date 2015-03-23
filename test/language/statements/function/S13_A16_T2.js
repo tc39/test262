@@ -37,6 +37,4 @@ z
 
 z();
 
-eval("function\u0009\u2029w(\u000C)\u00A0{\u000D};");
-
-w();
+eval("function\u0009\u2029w(\u000C)\u00A0{\u000D}; w()");

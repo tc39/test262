@@ -5,6 +5,7 @@
 info: Function's scope chain is started when it is declared
 es5id: 13.2.2_A19_T8
 description: Function is declared multiply times
+flags: [noStrict]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////

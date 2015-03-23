@@ -10,6 +10,7 @@ description: >
     arguments allowed as function identifier in non-strict function
     declaration
 includes: [runTestCase.js]
+flags: [noStrict]
 ---*/
 
 function testcase()

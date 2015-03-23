@@ -9,6 +9,8 @@ description: >
     the declared variable
 ---*/
 
+var enumed;
+
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 for (var __prop in this){

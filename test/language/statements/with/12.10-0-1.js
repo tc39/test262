@@ -10,6 +10,7 @@ description: >
     with does not change declaration scope - vars in with are visible
     outside
 includes: [runTestCase.js]
+flags: [noStrict]
 ---*/
 
 function testcase() {

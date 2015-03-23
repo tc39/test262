@@ -3,12 +3,13 @@
 
 /*---
 info: Primitive types are passed by value
-es5id: 13.2.1_A6_T1
-description: Declaring a function with "function __func(arg1, arg2)"
-flags: [noStrict]
+es5id: 13.2.1_A6_T2
+description: Declaring a function with "__func = function(arg1, arg2)"
 ---*/
 
-function __func(arg1, arg2){
+var __func, y, b;
+
+__func = function(arg1, arg2){
     arg1++;
     arg2+="BA";
 };

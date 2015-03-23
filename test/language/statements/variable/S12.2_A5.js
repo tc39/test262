@@ -8,6 +8,7 @@ info: >
 es5id: 12.2_A5
 description: Executing eval("var x")
 includes: [$PRINT.js]
+flags: [noStrict]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////

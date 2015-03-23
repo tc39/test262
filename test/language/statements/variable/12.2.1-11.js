@@ -8,6 +8,7 @@
 es5id: 12.2.1-11
 description: arguments as var identifier in eval code is allowed
 includes: [runTestCase.js]
+flags: [noStrict]
 ---*/
 
 function testcase() {

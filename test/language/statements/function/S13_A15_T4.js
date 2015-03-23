@@ -7,6 +7,7 @@ es5id: 13_A15_T4
 description: >
     Declaring a variable named with "arguments" and following a
     "return" statement within a function body
+flags: [noStrict]
 ---*/
 
 THE_ANSWER="Answer to Life, the Universe, and Everything";

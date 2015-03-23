@@ -5,6 +5,7 @@
 info: Primitive types are passed by value
 es5id: 13.2.1_A6_T2
 description: Declaring a function with "__func = function(arg1, arg2)"
+flags: [noStrict]
 ---*/
 
 __func = function(arg1, arg2){

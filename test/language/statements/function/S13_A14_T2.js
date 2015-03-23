@@ -2,20 +2,17 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: "''arguments'' variable overrides ActivationObject.arguments"
-es5id: 13_A15_T1
-description: Declaring a function with "__func(arguments)"
-flags: [noStrict]
+info: Unicode symbols in function name are allowed
+es5id: 13_A14
+description: Defining function name with unicode symbols
 ---*/
 
-function __func(arguments){
-    return arguments;
-};
+var funcA = eval("function __func\u0041(__arg){return __arg;}; __funcA");
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (__func(42) !== 42) {
-	$ERROR('#1: "arguments" variable overrides ActivationObject.arguments');
+if (typeof funcA !== "function") {
+	$ERROR('#1: unicode symbols in function name are allowed');
 }
 //
 //////////////////////////////////////////////////////////////////////////////

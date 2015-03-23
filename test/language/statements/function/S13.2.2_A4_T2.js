@@ -12,6 +12,8 @@ es5id: 13.2.2_A4_T2
 description: Declaring a function with "__FACTORY = function()"
 ---*/
 
+var __CUBE, __FACTORY, __device;
+
 __CUBE="cube";
 
 __FACTORY = function(){};
