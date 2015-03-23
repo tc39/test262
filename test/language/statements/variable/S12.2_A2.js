@@ -10,6 +10,7 @@ es5id: 12.2_A2
 description: >
     Checking if deleting global variables that have the attributes
     {DontDelete} fails
+flags: [noStrict]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
