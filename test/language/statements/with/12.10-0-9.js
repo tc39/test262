@@ -8,6 +8,7 @@
 es5id: 12.10-0-9
 description: with introduces scope - name lookup finds outer variable
 includes: [runTestCase.js]
+flags: [noStrict]
 ---*/
 
 function testcase() {

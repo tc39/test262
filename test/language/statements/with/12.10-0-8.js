@@ -8,6 +8,7 @@
 es5id: 12.10-0-8
 description: with introduces scope - var initializer sets like named property
 includes: [runTestCase.js]
+flags: [noStrict]
 ---*/
 
 function testcase() {
