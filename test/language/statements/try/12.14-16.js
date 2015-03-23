@@ -13,6 +13,7 @@ description: >
 includes:
     - runTestCase.js
     - fnGlobalObject.js
+flags: [noStrict]
 ---*/
 
 function testcase() {
