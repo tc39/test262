@@ -11,6 +11,8 @@ es5id: 13.2.2_A5_T2
 description: Declaring a function with "__FACTORY = function(arg1, arg2)"
 ---*/
 
+var __VOLUME, __RED, __ID, __TOP, __BOTTOM, __LEFT, __FACTORY, color, top, left, __device;
+
 __VOLUME=8;
 __RED="red";
 __ID=12342;

@@ -7,6 +7,7 @@ info: >
     can be deleted
 es5id: 13_A11_T1
 description: Returning result of "delete arguments"
+flags: [noStrict]
 ---*/
 
 function __func(){ return delete arguments;}

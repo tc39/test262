@@ -9,6 +9,7 @@ es5id: 13_A11_T2
 description: >
     Checking if deleting the arguments property fails and then
     returning it
+flags: [noStrict]
 ---*/
 
 function __func(){ 

@@ -11,6 +11,8 @@ description: >
     declared with "obj = {}"
 ---*/
 
+var __FACTORY, __obj, obj;
+
 __FACTORY = function(){
     this.prop = 1;
     obj = {};

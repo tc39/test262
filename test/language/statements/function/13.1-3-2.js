@@ -10,6 +10,7 @@ description: >
     eval allowed as function identifier in non-strict function
     expression
 includes: [runTestCase.js]
+flags: [noStrict]
 ---*/
 
 function testcase()

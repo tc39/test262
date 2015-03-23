@@ -7,6 +7,7 @@ es5id: 13.2.2_A19_T5
 description: >
     Function is declared in the object scope, then an exception is
     thrown and the object is deleted
+flags: [noStrict]
 ---*/
 
 var a = 1;

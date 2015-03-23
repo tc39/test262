@@ -5,6 +5,7 @@
 info: "''arguments'' variable overrides ActivationObject.arguments"
 es5id: 13_A15_T2
 description: Overriding arguments within functions body
+flags: [noStrict]
 ---*/
 
 THE_ANSWER="Answer to Life, the Universe, and Everything";

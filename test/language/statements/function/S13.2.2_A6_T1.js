@@ -12,6 +12,8 @@ es5id: 13.2.2_A6_T1
 description: Declaring a function with "__func = function(arg)"
 ---*/
 
+var __FOO, __BAR, __func, __obj;
+
 __FOO="fooValue";
 __BAR="barValue";
 

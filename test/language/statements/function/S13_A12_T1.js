@@ -7,6 +7,7 @@ es5id: 13_A12_T1
 description: >
     Checking if deleting a function that is declared in global scope
     fails
+flags: [noStrict]
 ---*/
 
 ALIVE="Letov is alive"

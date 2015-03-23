@@ -10,6 +10,7 @@ description: >
     Duplicate identifier allowed in non-strict function expression
     parameter list
 includes: [runTestCase.js]
+flags: [noStrict]
 ---*/
 
 function testcase()
