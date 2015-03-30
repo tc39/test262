@@ -90,7 +90,7 @@ def myFlowList(value):
 def myMultiline(lines, value):
     # assume no explcit indentor (otherwise have to parse value)
     value = []
-    indent = 1
+    indent = myLeadingSpaces(lines[0])
     while lines:
         line = lines.pop(0)
         if myIsAllSpaces(line):
