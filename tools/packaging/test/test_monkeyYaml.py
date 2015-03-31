@@ -58,13 +58,28 @@ class TestMonkeyYAMLParsing(unittest.TestCase):
         self.assertEqual(lines, [])
         self.assertEqual(value, yaml.load(y))
 
-    def test_Multiline_1(self):
+    def test_Multiline_2(self):
         lines = [" foo", " bar"]
         value = ">"
         y = "\n".join([value] + lines)
         (lines, value) = monkeyYaml.myMultiline(lines, value)
         self.assertEqual(lines, [])
         self.assertEqual(value, yaml.load(y))
+
+    def test_Multiline_3(self):
+        lines = ["  foo", "  bar"]
+        value = ">"
+        y = "\n".join([value] + lines)
+        (lines, value) = monkeyYaml.myMultiline(lines, value)
+        self.assertEqual(lines, [])
+        self.assertEqual(value, yaml.load(y))
+
+    def test_Multiline_4(self):
+        lines = ["    foo", "    bar", "  other: 42"]
+        value = ">"
+        (lines, value) = monkeyYaml.myMultiline(lines, value)
+        self.assertEqual(lines, ["  other: 42"])
+        self.assertEqual(value, "foo bar")
 
     def test_myLeading(self):
         self.assertEqual(2, monkeyYaml.myLeadingSpaces("  foo"))
@@ -83,15 +98,39 @@ class TestMonkeyYAMLParsing(unittest.TestCase):
         y = "foo:\n - bar\n - baz"
         self.assertEqual(monkeyYaml.load(y), yaml.load(y))
 
-    def test_mulineline_list2(self):
+    def test_multiline_list2(self):
         self.assertEqual(monkeyYaml.myRemoveListHeader(2, "  - foo"), "foo")
 
-    def test_mulineline_list3(self):
+    def test_multiline_list3(self):
         (lines, value) = monkeyYaml.myMultilineList([" - foo", " - bar", "baz: bletch"], "")
         self.assertEqual(lines, ["baz: bletch"])
         self.assertEqual(value, ["foo", "bar"])
 
+    def test_oneline_indented(self):
+      y = "  foo: bar\n  baz: baf\n"
+      self.assertEqual(monkeyYaml.load(y), yaml.load(y))
 
+
+    def test_indentation_215(self):
+      self.maxDiff = None
+      y = """
+  description: >
+      The method should exist on the Array prototype, and it should be writable
+      and configurable, but not enumerable.
+  includes: [propertyHelper.js]
+  es6id: 22.1.3.13
+ """
+      self.assertEqual(monkeyYaml.load(y), yaml.load(y))
+
+    def test_indentation_215_2(self):
+      self.maxDiff = None
+      y = """
+  description: >
+   The method should exist
+  includes: [propertyHelper.js]
+  es6id: 22.1.3.13
+ """
+      self.assertEqual(monkeyYaml.load(y), yaml.load(y))
 
 if __name__ == '__main__':
     unittest.main()
