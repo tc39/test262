@@ -13,10 +13,6 @@ var templateObject;
   templateObject = parameter;
 })`${1}`;
 
-templateObject.test262Prop = true;
-assert.sameValue(
-  templateObject.test262Prop, undefined, 'The template object is frozen'
-);
 assert(Array.isArray(templateObject.raw), 'The template object is an array');
 
 assert(templateObject.hasOwnProperty('raw'));
@@ -24,10 +20,6 @@ verifyNotEnumerable(templateObject, 'raw');
 verifyNotWritable(templateObject, 'raw')
 verifyNotConfigurable(templateObject, 'raw');
 
-templateObject.raw.test262Prop = true;
-assert.sameValue(
-  templateObject.raw.test262Prop, undefined, 'The "raw" object is frozen'
-);
 assert(Array.isArray(templateObject), 'The "raw" object is an array');
 
 verifyEnumerable(templateObject, '0');
