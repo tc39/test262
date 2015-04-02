@@ -3,7 +3,7 @@
 /*---
 es6id: 12.2.8
 description: >
-    Expressions should be evaluated and converted to Stings according to the
+    Expressions should be evaluated and converted to Strings according to the
     ToString abstract operation.
 ---*/
 var plain = {};
