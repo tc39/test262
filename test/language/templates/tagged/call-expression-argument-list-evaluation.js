@@ -27,7 +27,6 @@ assert.sameValue(calls, 1, 'NoSubstitutionTemplate function invocation');
 calls = 0;
 (function(site, n, s, o, f, r) {
   calls++;
-  assert.sameValue(arguments.length, 6);
   assert.sameValue(n, number);
   assert.sameValue(s, string);
   assert.sameValue(o, object);
