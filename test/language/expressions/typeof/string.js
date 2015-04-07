@@ -8,32 +8,38 @@ es6id: 12.5.6.1
 description: typeof (string value) === "string"
 ---*/
 
-//CHECK#1
-if (typeof "1" !== "string") {
-  $ERROR('#1: typeof "1" === "string". Actual: ' + (typeof "1"));
-}
+assert.sameValue(
+  typeof "1",
+  "string",
+  '#1: typeof "1" === "string". Actual: ' + (typeof "1")
+);
 
-//CHECK#2
-if (typeof "NaN" !== "string") {
-  $ERROR('#2: typeof "NaN" === "string". Actual: ' + (typeof "NaN"));
-}
+assert.sameValue(
+  typeof "NaN",
+  "string",
+  '#2: typeof "NaN" === "string". Actual: ' + (typeof "NaN")
+);
 
-//CHECK#3
-if (typeof "Infinity" !== "string") {
-  $ERROR('#3: typeof "Infinity" === "string". Actual: ' + (typeof "Infinity"));
-}
+assert.sameValue(
+  typeof "Infinity",
+  "string",
+  '#3: typeof "Infinity" === "string". Actual: ' + (typeof "Infinity")
+);
 
-//CHECK#4
-if (typeof "" !== "string") {
-  $ERROR('#4: typeof "" === "string". Actual: ' + (typeof ""));
-}
+assert.sameValue(
+  typeof "",
+  "string",
+  '#4: typeof "" === "string". Actual: ' + (typeof "")
+);
 
-//CHECK#5
-if (typeof "true" !== "string") {
-  $ERROR('#5: typeof "true" === "string". Actual: ' + (typeof "true"));
-}
+assert.sameValue(
+  typeof "true",
+  "string",
+  '#5: typeof "true" === "string". Actual: ' + (typeof "true")
+);
 
-//CHECK#6
-if (typeof Date() !== "string") {
-  $ERROR('#6: typeof Date() === "string". Actual: ' + (typeof Date()));
-}
+assert.sameValue(
+  typeof Date(),
+  "string",
+  '#6: typeof Date() === "string". Actual: ' + (typeof Date())
+);

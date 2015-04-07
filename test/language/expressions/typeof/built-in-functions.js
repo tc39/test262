@@ -10,10 +10,14 @@ es6id: 12.5.6.1
 description: Checking types of parseInt and Math.exp
 ---*/
 
-//CHECK#1
-if(typeof(Math.exp)!=="function")
-  $ERROR('#1: typeof(Math.exp)!=="function" '+typeof(Math.exp));
+assert.sameValue(
+  typeof(Math.exp),
+  "function",
+  '#1: typeof(Math.exp)!=="function" '+typeof(Math.exp)
+);
 
-//CHECK#2
-if(typeof(parseInt)!=="function")
-  $ERROR('#2: typeof(parseInt)!=="function" '+typeof(parseInt));
+assert.sameValue(
+  typeof(parseInt),
+  "function",
+  '#2: typeof(parseInt)!=="function" '+typeof(parseInt)
+);

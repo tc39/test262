@@ -8,27 +8,32 @@ es6id: 12.5.6.1
 description: typeof (number value) === "number"
 ---*/
 
-//CHECK#1
-if (typeof 1 !== "number") {
-  $ERROR('#1: typeof 1 === "number". Actual: ' + (typeof 1));
-}
+assert.sameValue(
+  typeof 1,
+  "number",
+  '#1: typeof 1 === "number". Actual: ' + (typeof 1)
+);
 
-//CHECK#2
-if (typeof Number.NaN !== "number") {
-  $ERROR('#2: typeof NaN === "number". Actual: ' + (typeof NaN));
-}
+assert.sameValue(
+  typeof Number.NaN,
+  "number",
+  '#2: typeof NaN === "number". Actual: ' + (typeof NaN)
+);
 
-//CHECK#3
-if (typeof Number.POSITIVE_INFINITY !== "number") {
-  $ERROR('#3: typeof Infinity === "number". Actual: ' + (typeof Infinity));
-}
+assert.sameValue(
+  typeof Number.POSITIVE_INFINITY,
+  "number",
+  '#3: typeof Infinity === "number". Actual: ' + (typeof Infinity)
+);
 
-//CHECK#4
-if (typeof Number.NEGATIVE_INFINITY !== "number") {
-  $ERROR('#4: typeof -Infinity === "number". Actual: ' + (typeof -Infinity));
-}
+assert.sameValue(
+  typeof Number.NEGATIVE_INFINITY,
+  "number",
+  '#4: typeof -Infinity === "number". Actual: ' + (typeof -Infinity)
+);
 
-//CHECK#5
-if (typeof Math.PI !== "number") {
-  $ERROR('#5: typeof Math.PI === "number". Actual: ' + (typeof Math.PI));
-}
+assert.sameValue(
+  typeof Math.PI,
+  "number",
+  '#5: typeof Math.PI === "number". Actual: ' + (typeof Math.PI)
+);

@@ -8,12 +8,14 @@ es6id: 12.5.6.1
 description: typeof undefined === "undefined"
 ---*/
 
-//CHECK#1
-if (typeof undefined !== "undefined") {
-  $ERROR('#1: typeof undefined === "undefined". Actual: ' + (typeof undefined));
-}
+assert.sameValue(
+  typeof undefined,
+  "undefined",
+  '#1: typeof undefined === "undefined". Actual: ' + (typeof undefined)
+);
 
-//CHECK#2
-if (typeof void 0 !== "undefined") {
-  $ERROR('#2: typeof void 0 === "undefined". Actual: ' + (typeof void 0));
-}
+assert.sameValue(
+  typeof void 0,
+  "undefined",
+  '#2: typeof void 0 === "undefined". Actual: ' + (typeof void 0)
+);

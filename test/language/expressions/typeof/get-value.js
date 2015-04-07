@@ -8,19 +8,22 @@ es6id: 12.5.6.1
 description: Either Type(x) is not Reference or GetBase(x) is not null
 ---*/
 
-//CHECK#1
-if (typeof 0 !== "number") {
-  $ERROR('#1: typeof 0 === "number". Actual: ' + (typeof 0));
-}
+assert.sameValue(
+  typeof 0,
+   "number",
+  '#1: typeof 0 === "number". Actual: ' + (typeof 0)
+);
 
-//CHECK#2
 var x = 0;
-if (typeof x !== "number") {
-  $ERROR('#2: typeof x === "number". Actual: ' + (typeof x));
-}
+assert.sameValue(
+  typeof x,
+   "number",
+  '#2: typeof x === "number". Actual: ' + (typeof x)
+);
 
-//CHECK#3
 var x = new Object();
-if (typeof x !== "object") {
-  $ERROR('#3: var x = new Object(); typeof x === "object". Actual: ' + (typeof x));
-}
+assert.sameValue(
+  typeof x,
+   "object",
+  '#3: var x = new Object(); typeof x === "object". Actual: ' + (typeof x)
+);

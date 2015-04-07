@@ -8,12 +8,14 @@ es6id: 12.5.6.1
 description: typeof null === "object"
 ---*/
 
-//CHECK#1
-if (typeof null !== "object") {
-  $ERROR('#1: typeof null === "object". Actual: ' + (typeof null));
-}
+assert.sameValue(
+  typeof null,
+   "object",
+  '#1: typeof null === "object". Actual: ' + (typeof null)
+);
 
-//CHECK#2
-if (typeof RegExp("0").exec("1") !== "object") {
-  $ERROR('#2: typeof RegExp("0").exec("1") === "object". Actual: ' + (typeof RegExp("0").exec("1")));
-}
+assert.sameValue(
+  typeof RegExp("0").exec("1"),
+   "object",
+  '#2: typeof RegExp("0").exec("1") === "object". Actual: ' + (typeof RegExp("0").exec("1"))
+);
