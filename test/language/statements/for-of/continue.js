@@ -3,27 +3,22 @@
 /*---
 es6id: 13.6.4.13 S5.n
 description: >
-    Control flow during body evaluation should honor `break` statements within
-    the `catch` block of `try` statements.
+    Control flow during body evaluation should honor `continue` statements.
+features: [generators]
 ---*/
 
 function* values() {
   yield 1;
   yield 1;
 }
-var iterable = values();
+var iterator = values();
 var i = 0;
 
-for (var x of iterable) {
+for (var x of iterator) {
   i++;
-
-  try {
-    throw new Error();
-  } catch (err) {
-    break;
-  }
+  continue;
 
   $ERROR('This code is unreachable.');
 }
 
-assert.sameValue(i, 1);
+assert.sameValue(i, 2);

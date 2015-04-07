@@ -5,12 +5,13 @@ es6id: 13.6.4.13 S5.n
 description: >
     Control flow during body evaluation should honor labeled `continue`
     statements.
+features: [generators]
 ---*/
 
 function* values() {
   yield 1;
 }
-var iterable = values();
+var iterator = values();
 var i = 0;
 var loop = true;
 
@@ -18,7 +19,7 @@ outer:
 while (loop) {
   loop = false;
 
-  for (var x of iterable) {
+  for (var x of iterator) {
     i++;
     continue outer;
 
