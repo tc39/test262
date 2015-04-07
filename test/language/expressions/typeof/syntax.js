@@ -69,3 +69,9 @@ assert.sameValue(
   "number",
   '#10: var x = 0; typeof\\u0009\\u000B\\u000C\\u0020\\u00A0\\u000A\\u000D\\u2028\\u2029x; x === "number". Actual: ' + (x)
 );
+
+assert.sameValue(
+  eval("typeof(0)"),
+  "number",
+  'applied with grouping operator enclosing operand'
+);

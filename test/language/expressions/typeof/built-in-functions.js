@@ -11,13 +11,13 @@ description: Checking types of parseInt and Math.exp
 ---*/
 
 assert.sameValue(
-  typeof(Math.exp),
+  typeof Math.exp,
   "function",
-  '#1: typeof(Math.exp)!=="function" '+typeof(Math.exp)
+  '#1: typeof Math.exp!=="function" '+typeof Math.exp
 );
 
 assert.sameValue(
-  typeof(parseInt),
+  typeof parseInt,
   "function",
-  '#2: typeof(parseInt)!=="function" '+typeof(parseInt)
+  '#2: typeof parseInt!=="function" '+typeof parseInt
 );
