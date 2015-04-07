@@ -4,6 +4,7 @@
 /*---
 info: Result of applying "typeof" operator to boolean is "boolean"
 es5id: 11.4.3_A3.3
+es6id: 12.5.6.1
 description: typeof (boolean value) === "boolean"
 ---*/
 

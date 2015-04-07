@@ -6,6 +6,7 @@ info: >
     White Space and Line Terminator between "typeof" and UnaryExpression are
     allowed
 es5id: 11.4.3_A1
+es6id: 12.5.6.1
 description: Checking by using eval
 ---*/
 

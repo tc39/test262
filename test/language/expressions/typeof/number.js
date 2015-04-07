@@ -4,6 +4,7 @@
 /*---
 info: Result of appying "typeof" operator to number is "number"
 es5id: 11.4.3_A3.4
+es6id: 12.5.6.1
 description: typeof (number value) === "number"
 ---*/
 

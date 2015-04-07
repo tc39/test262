@@ -4,6 +4,7 @@
 /*---
 info: Result of appying "typeof" operator to string is "string"
 es5id: 11.4.3_A3.5
+es6id: 12.5.6.1
 description: typeof (string value) === "string"
 ---*/
 
