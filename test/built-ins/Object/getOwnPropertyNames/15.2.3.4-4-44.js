@@ -16,13 +16,12 @@ includes:
 
 function testcase() {
 
-        var str = new String("abc");
-        str[5] = "de";
+  var str = new String("abc");
+  str[5] = "de";
 
-        var expResult = ["0", "1", "2", "length", "5"];
+  var expected = ["0", "1", "2", "length", "5"];
+  var actual = Object.getOwnPropertyNames(str);
 
-        var result = Object.getOwnPropertyNames(str);
-
-        return compareArray(expResult, result);
-    }
+  return compareArray(actual.sort(), expected.sort());
+}
 runTestCase(testcase);
