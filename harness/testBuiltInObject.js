@@ -69,8 +69,8 @@ function testBuiltInObject(obj, isFunction, isConstructor, properties, length) {
         if (desc.enumerable) {
             $ERROR("The length property of a built-in function must not be enumerable.");
         }
-        if (desc.configurable) {
-            $ERROR("The length property of a built-in function must not be configurable.");
+        if (!desc.configurable) {
+            $ERROR("The length property of a built-in function must be configurable.");
         }
     }
 
