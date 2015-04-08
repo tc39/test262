@@ -10,7 +10,7 @@ description: >
 author: Norbert Lindenberg
 ---*/
 
-// data from http://www.currency-iso.org/dl_iso_table_a1.xml, 2013-02-25
+// data from http://www.currency-iso.org/dam/downloads/table_a1.xml, 2015-03-23
 var currencyDigits = {
     AED: 2,
     AFN: 2,
@@ -43,7 +43,7 @@ var currencyDigits = {
     CHE: 2,
     CHF: 2,
     CHW: 2,
-    CLF: 0,
+    CLF: 4,
     CLP: 0,
     CNY: 2,
     COP: 2,
@@ -99,8 +99,6 @@ var currencyDigits = {
     LKR: 2,
     LRD: 2,
     LSL: 2,
-    LTL: 2,
-    LVL: 2,
     LYD: 3,
     MAD: 2,
     MDL: 2,
@@ -164,7 +162,6 @@ var currencyDigits = {
     UGX: 0,
     USD: 2,
     USN: 2,
-    USS: 2,
     UYI: 0,
     UYU: 2,
     UZS: 2,
