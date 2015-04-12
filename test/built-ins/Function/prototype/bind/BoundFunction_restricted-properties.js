@@ -2,15 +2,15 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*--- 
- description: >
+description: >
     Functions created using Function.prototype.bind() do not have own
     properties "caller" or "arguments", but inherit them from
     %FunctionPrototype%.
+es6id: 16.1
 ---*/
 
 function target() {}
-var self = {};
-var bound = target.bind(self);
+var bound = target.bind(null);
 
 assert.sameValue(bound.hasOwnProperty('caller'), false, 'Functions created using Function.prototype.bind() do not have own property "caller"');
 assert.sameValue(bound.hasOwnProperty('arguments'), false, 'Functions created using Function.prototype.bind() do not have own property "arguments"');
