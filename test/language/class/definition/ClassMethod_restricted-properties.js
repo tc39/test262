@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*--- 
- description: >
+description: >
     Functions created using MethodDefinition syntactic form do not
     have own properties "caller" or "arguments", but inherit them from
     %FunctionPrototype%.

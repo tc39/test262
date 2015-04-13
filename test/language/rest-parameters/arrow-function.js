@@ -2,7 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 es6id: 14.1
-description: >arrow functions
+description: >
+    arrow functions
 includes: [compareArray.js]
 ---*/
 var fn = (a, b, ...c) => c;
