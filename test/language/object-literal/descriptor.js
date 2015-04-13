@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 es6id: 12.2.5
-desciption: >
+description: >
     object literal property shorthand desciptor defaults
 ---*/
 var x = 1;
