@@ -8,6 +8,11 @@
   es6id: 12.1.1
  ---*/
 
+var result;
 function* g() {
   ({  yield: 1 });
 }
+
+result = g().next();
+assert.sameValue(result.value, undefined);
+assert.sameValue(result.done, true);

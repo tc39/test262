@@ -9,8 +9,13 @@
   flags: [noStrict]
  ---*/
 
+var result;
 function* g() {
   function h() {
     yield = 1;
   }
 }
+
+result = g().next();
+assert.sameValue(result.value, undefined);
+assert.sameValue(result.done, true);

@@ -9,4 +9,19 @@
   flags: [noStrict]
  ---*/
 
+var iter, result;
 function* yield() { (yield 3) + (yield 4); }
+
+iter = yield();
+
+result = iter.next();
+assert.sameValue(result.value, 3, 'First result `value`');
+assert.sameValue(result.done, false, 'First result `done` flag');
+
+result = iter.next();
+assert.sameValue(result.value, 4, 'Second result `value`');
+assert.sameValue(result.done, false, 'Second result `done` flag');
+
+result = iter.next();
+assert.sameValue(result.value, undefined, 'Third result `value`');
+assert.sameValue(result.done, true, 'Third result `done` flag');

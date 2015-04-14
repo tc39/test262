@@ -7,5 +7,38 @@
   es6id: 14.4
  ---*/
 
-function* g() { yield; }
-function* g() { yield 1; }
+var iter, result;
+function* g1() { yield; }
+function* g2() { yield 1; }
+
+iter = g1();
+result = iter.next();
+assert.sameValue(
+  result.value, undefined, 'Without right-hand-side: first result `value`'
+);
+assert.sameValue(
+  result.done, false, 'Without right-hand-side: first result `done` flag'
+);
+result = iter.next();
+assert.sameValue(
+  result.value, undefined, 'Without right-hand-side: second result `value`'
+);
+assert.sameValue(
+  result.done, true, 'Without right-hand-eside: second result `done` flag'
+);
+
+iter = g2();
+result = iter.next();
+assert.sameValue(
+  result.value, 1, 'With right-hand-side: first result `value`'
+);
+assert.sameValue(
+  result.done, false, 'With right-hand-side: first result `done` flag'
+);
+result = iter.next();
+assert.sameValue(
+  result.value, undefined, 'With right-hand-side: second result `value`'
+);
+assert.sameValue(
+  result.done, true, 'With right-hand-eside: second result `done` flag'
+);

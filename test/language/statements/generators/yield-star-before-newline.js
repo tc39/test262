@@ -7,7 +7,13 @@
   es6id: 14.4
  ---*/
 
+var result;
 function* g() {
   yield *
-  1
+  g2();
 }
+function* g2() {}
+
+result = g().next();
+assert.sameValue(result.value, undefined);
+assert.sameValue(result.done, true);
