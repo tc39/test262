@@ -5,6 +5,7 @@
 info: >
  GeneratorMethod early SyntaxError when lexical declaration
  inside generator shadows parameter name 
+features: [generators]
 es6id: 14.4.1
 author: Sam Mikes
 description: GeneratorMethod error with lexical shadowing
@@ -13,6 +14,6 @@ negative: SyntaxError
 
 var obj = {
     *foo(a) {
-        const a = 3;
+        let a = 3;
     }
 };

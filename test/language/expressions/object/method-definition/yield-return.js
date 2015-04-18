@@ -4,6 +4,7 @@
 /*---
 info: >
     Generator can be declared with GeneratorMethod syntax
+features: [generators]
 es6id: 14.4
 author: Sam Mikes
 description: can declare generator methods
