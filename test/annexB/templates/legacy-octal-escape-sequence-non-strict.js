@@ -10,4 +10,4 @@ description: >
 flags: [noStrict]
 ---*/
 
-assert.sameValue(`${'\07'}`, '');
+assert.sameValue(`${'\07'}`, '\u0007');
