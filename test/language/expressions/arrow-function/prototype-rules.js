@@ -1,4 +1,4 @@
-// Copyright (C) 2014 the V8 project authors. All rights reserved.
+// Copyright (C) 2015 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 es6id: 14.2
@@ -9,5 +9,4 @@ description: >
 
 assert.sameValue(typeof (() => {}), "function");
 assert.sameValue(Object.getPrototypeOf(() => {}), Function.prototype);
-assert.throws(TypeError, function() { new (() => {}); });
 assert.sameValue("prototype" in (() => {}), false);
