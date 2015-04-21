@@ -5,7 +5,6 @@ es6id: 13.1
 description: >
     Mixed values in iteration
 ---*/
-"use strict";
 function fn(x) {
   let a = [];
   for (let p in x) {
