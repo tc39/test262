@@ -25,8 +25,13 @@ assert.sameValue = function (actual, expected, message) {
     }
 
     if (message === undefined) {
-        message = 'Expected SameValue(' + String(actual) + ', ' + String(expected) + ') to be true';
+        message = '';
+    } else {
+        message += ' ';
     }
+
+    message += 'Expected SameValue(' + String(actual) + ', ' + String(expected) + ') to be true';
+
     $ERROR(message);
 };
 
@@ -36,8 +41,13 @@ assert.notSameValue = function (actual, unexpected, message) {
     }
 
     if (message === undefined) {
-        message = 'Expected SameValue(' + String(actual) + ', ' + String(unexpected) + ') to be false';
+        message = '';
+    } else {
+        message += ' ';
     }
+
+    message += 'Expected SameValue(' + String(actual) + ', ' + String(unexpected) + ') to be false';
+
     $ERROR(message);
 };
 
