@@ -5,24 +5,25 @@ es6id: 13.6.4.13 S5.n
 description: >
     Control flow during body evaluation should honor labeled `break`
     statements.
+features: [generators]
 ---*/
 
 function* values() {
   yield 1;
-  yield 1;
+  $ERROR('This code is unreachable (following `yield` statement).');
 }
-var iterable = values();
+var iterator = values();
 var i = 0;
 
 outer:
 while (true) {
-  for (var x of iterable) {
+  for (var x of iterator) {
     i++;
     break outer;
 
-    $ERROR('This code is unreachable.');
+    $ERROR('This code is unreachable (following `break` statement).');
   }
-  $ERROR('This code is unreachable.');
+  $ERROR('This code is unreachable (following `for..of` statement).');
 }
 
 assert.sameValue(i, 1);

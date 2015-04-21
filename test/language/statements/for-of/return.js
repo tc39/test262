@@ -4,24 +4,25 @@
 es6id: 13.6.4.13
 description: >
     Control flow during body evaluation should honor `return` statements.
+features: [generators]
 ---*/
 
 function* values() {
   yield 1;
-  yield 1;
+  $ERROR('This code is unreachable (following `yield` statement).');
 }
-var iterable = values();
+var iterator = values();
 var i = 0;
 
 var result = (function() {
-  for (var x of iterable) {
+  for (var x of iterator) {
     i++;
     return 34;
 
-    $ERROR('This code is unreachable.');
+    $ERROR('This code is unreachable (following `return` statement).');
   }
 
-  $ERROR('This code is unreachable.');
+  $ERROR('This code is unreachable (following `for..of` statement).');
 })();
 
 assert.sameValue(result, 34);
