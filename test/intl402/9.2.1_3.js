@@ -22,7 +22,6 @@ var validAndInvalidLanguageTags = [
     "es-419-u-nu-latn-cu-bob", // + Unicode locale extension sequence
     "i-klingon", // grandfathered tag
     "cmn-hans-cn-t-ca-u-ca-x-t-u", // singleton subtags can also be used as private use subtags
-    "enochian-enochian", // language and variant subtags may be the same
     "de-gregory-u-ca-gregory", // variant and extension subtags may be the same
     "de_DE",
     "DE_de",

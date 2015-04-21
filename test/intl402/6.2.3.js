@@ -20,7 +20,6 @@ var canonicalizedTags = {
     "es-419-u-nu-latn": ["es-419-u-nu-latn", "es-419", "es", "es-u-nu-latn"],
     // -u-ca is incomplete, so it will not show up in resolvedOptions().locale
     "cmn-hans-cn-u-ca-t-ca-x-t-u": ["cmn-Hans-CN-t-ca-u-ca-x-t-u", "cmn-Hans-CN-t-ca-x-t-u", "cmn-Hans-CN-t-ca-x-t", "cmn-Hans-CN-t-ca", "cmn-Hans-CN", "cmn-Hans", "cmn"],
-    "enochian-enochian": ["enochian-enochian", "enochian"],
     "de-gregory-u-ca-gregory": ["de-gregory-u-ca-gregory", "de-gregory", "de-u-ca-gregory", "de"],
     "no-nyn": ["nn"],
     "i-klingon": ["tlh"],
