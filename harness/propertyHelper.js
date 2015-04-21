@@ -31,7 +31,7 @@ function isWritable(obj, name, verifyProp, value) {
     var newValue = value || "unlikelyValue";
     var hadValue = Object.prototype.hasOwnProperty.call(obj, name);
     var oldValue = obj[name];
-    var result;
+    var writeSucceeded;
 
     try {
         obj[name] = newValue;
@@ -41,16 +41,21 @@ function isWritable(obj, name, verifyProp, value) {
         }
     }
 
-    result = (verifyProp && isEqualTo(obj, verifyProp, newValue)) ||
+    writeSucceeded = (verifyProp && isEqualTo(obj, verifyProp, newValue)) ||
         isEqualTo(obj, name, newValue);
 
-    if (hadValue) {
-      obj[name] = oldValue;
-    } else {
-      delete obj[name];
+    // Revert the change only if it was successful (in other cases, reverting
+    // is unnecessary and may trigger exceptions for certain property
+    // configurations)
+    if (writeSucceeded) {
+      if (hadValue) {
+        obj[name] = oldValue;
+      } else {
+        delete obj[name];
+      }
     }
 
-    return result;
+    return writeSucceeded;
 }
 
 function verifyEqualTo(obj, name, value) {
