@@ -15,7 +15,7 @@ assert.throws(TypeError, function() {
 assert.throws(TypeError, function() {
   var sym = Symbol('66');
   sym['a' + 'b'] = 0;
-  ;
+});
 
 assert.throws(TypeError, function() {
   var sym = Symbol('66');
