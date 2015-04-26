@@ -218,7 +218,7 @@ class TestResult(object):
     if self.case.IsAsyncTest():
        return self.AsyncHasFailed() or self.HasFailed()
     elif self.case.IsNegative():
-       return not (self.HasFailed() and self.case.NegativeMatch(self.GetErrorOutput()))
+       return not (not self.HasFailed() and self.case.NegativeMatch(self.GetErrorOutput()))
     else:
        return self.HasFailed()
 
