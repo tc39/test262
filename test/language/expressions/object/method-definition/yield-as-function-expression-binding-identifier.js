@@ -17,7 +17,7 @@ var obj = {
   }
 };
 
-result = A.prototype.g().next();
+result = obj.g().next();
 
 assert.sameValue(result.value, undefined);
 assert.sameValue(result.done, true);

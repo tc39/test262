@@ -3,21 +3,15 @@
 
 /*---
   description: >
-      `yield` may be used as the binding identifier of a function expression
-      within generator bodies.
+      `yield` may not be used as the binding identifier of a function
+      expression within classes.
   features: [generators]
   es6id: 14.1
-  flags: [noStrict]
+  negative: SyntaxError
  ---*/
 
-var result;
 class A {
   *g() {
     (function yield() {});
   }
 }
-
-result = A.prototype.g().next();
-
-assert.sameValue(result.value, undefined);
-assert.sameValue(result.done, true);

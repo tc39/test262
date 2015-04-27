@@ -21,6 +21,6 @@ assert(
   "`compareArray(Object.keys(C), [])` returns `true`"
 );
 assert(
-  compareArray(Object.getOwnPropertyNames(C), ['1', '2', 'length', 'name', 'prototype', 'a', 'c']),
-  "`compareArray(Object.getOwnPropertyNames(C), ['1', '2', 'length', 'name', 'prototype', 'a', 'c'])` returns `true`"
+  compareArray(Object.getOwnPropertyNames(C), ['1', '2', 'length', 'prototype', 'a', 'c', 'name']),
+  "`compareArray(Object.getOwnPropertyNames(C), ['1', '2', 'length', 'prototype', 'a', 'c', 'name'])` returns `true`"
 );

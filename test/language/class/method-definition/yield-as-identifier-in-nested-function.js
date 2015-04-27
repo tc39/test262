@@ -3,14 +3,13 @@
 
 /*---
   description: >
-      `yield` is not a reserved keyword within normal function bodies declared
-      within generator function bodies.
+      `yield` is a reserved keyword within normal function bodies declared
+      within classes.
   features: [generators]
   es6id: 12.1.1
-  flags: [noStrict]
+  negative: SyntaxError
  ---*/
 
-var result;
 class A {
   *g() {
     function h() {
@@ -18,7 +17,3 @@ class A {
     }
   }
 }
-
-result = A.prototype.g().next();
-assert.sameValue(result.value, undefined);
-assert.sameValue(result.done, true);

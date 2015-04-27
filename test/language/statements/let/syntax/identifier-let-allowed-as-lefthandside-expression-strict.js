@@ -6,7 +6,7 @@ description: >
     for declaration:
     identifier "let" disallowed as lefthandside expression in strict mode
 flags: [onlyStrict]
-negative: ReferrenceError
+negative: SyntaxError
 ---*/
 var o = { a: 1 };
 for (let in o) { }

@@ -27,24 +27,7 @@ assert(
   compareArray(Object.keys(object), ['a', 'c']),
   "`compareArray(Object.keys(object), ['a', 'c'])` returns `true`"
 );
-
-// compareArray expects arguments to be sorted,
-// which will cause an array containing symbols to
-// throw an exception when toString() is called.
-//
-// Since there is no guarantee of order:
-//
-//    - Assert only that the symbol is present
-//    - Assert that the length is correct
-//
-var symbols = Object.getOwnPropertySymbols(object);
-
 assert(
-  symbols.indexOf(sym1) !== -1,
-  "The result of `symbols.indexOf(sym1) !== -1` is `true`, after executing `var symbols = Object.getOwnPropertySymbols(object);`"
+  compareArray(Object.getOwnPropertySymbols(object), [sym1, sym2]),
+  "`compareArray(Object.getOwnPropertySymbols(object), [sym1, sym2])` returns `true`"
 );
-assert(
-  symbols.indexOf(sym2) !== -1,
-  "The result of `symbols.indexOf(sym2) !== -1` is `true`, after executing `var symbols = Object.getOwnPropertySymbols(object);`"
-);
-assert.sameValue(symbols.length, 2, "The value of `symbols.length` is `2`, after executing `var symbols = Object.getOwnPropertySymbols(object);`");
