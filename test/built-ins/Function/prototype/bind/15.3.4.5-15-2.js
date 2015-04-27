@@ -8,7 +8,6 @@
 es5id: 15.3.4.5-15-2
 description: >
     Function.prototype.bind, 'length' is a data valued own property
-    with default attributes (false)
 includes: [runTestCase.js]
 ---*/
 
@@ -21,7 +20,7 @@ function testcase() {
   if (desc.value === 0 &&
       desc.enumerable === false &&
       desc.writable === false &&
-      desc.configurable == false) {
+      desc.configurable == true) {
     return true;
   }
  }

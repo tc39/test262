@@ -5,28 +5,15 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
-info: >
-    Refer 11.1.5; 
-    The production
-    PropertyNameAndValueList :  PropertyNameAndValueList , PropertyAssignment
-    4. If previous is not undefined then throw a SyntaxError exception if any of the following conditions are true
-    b.IsDataDescriptor(previous) is true and IsAccessorDescriptor(propId.descriptor) is true.
 es5id: 11.1.5_4-4-b-2
 description: >
-    Object literal - SyntaxError if a data property definition is
+    Object literal - No SyntaxError if a data property definition is
     followed by set accessor definition with the same name
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  try
-  {
-    eval("({foo : 1, set foo(x){}});");
-    return false;
-  }
-  catch(e)
-  {
-    return e instanceof SyntaxError;
-  }
- }
+  eval("({foo : 1, set foo(x){}});");
+  return true;
+}
 runTestCase(testcase);

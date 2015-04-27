@@ -3,19 +3,14 @@
 
 /*---
 info: >
-    If pattern is an object R whose [[Class]] property is "RegExp" and flags
-    is not undefined, then throw a TypeError exception
+    pattern is an object R whose [[Class]] property is "RegExp" and flags
+    is not undefined
 es5id: 15.10.4.1_A2_T1
 description: >
     Checking if execution of "new RegExp(pattern, "i")", where the
-    pattern is "/\u0042/i", fails
+    pattern is "/\u0042/i", does not fail
 ---*/
 
 //CHECK#1
-try {
-	$ERROR('#1.1: new RegExp(/\\u0042/i, "i") throw TypeError. Actual: ' + (new RegExp(/\u0042/i, "i"))); 
-} catch (e) {
-	if ((e instanceof TypeError) !== true) {
-		$ERROR('#1.2: new RegExp(/\\u0042/i, "i") throw TypeError. Actual: ' + (e));
-	}
-}
+var regExpObj = new RegExp(/\u0042/i, "i");
+assert(regExpObj.ignoreCase);

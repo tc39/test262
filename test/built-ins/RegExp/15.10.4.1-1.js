@@ -7,20 +7,14 @@
 /*---
 es5id: 15.10.4.1-1
 description: >
-    RegExp - the thrown error is TypeError instead of RegExpError when
-    pattern is an object whose [[Class]] property is 'RegExp' and
-    flags is not undefined
+    RegExp - no TypeError is thrown when pattern is an object whose
+    [[Class]] property is 'RegExp' and flags is not undefined
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        var regObj = new RegExp();
-        try {
-            var regExpObj = new RegExp(regObj, true);
-
-            return false;
-        } catch (e) {
-            return e instanceof TypeError;
-        }
-    }
+    var regObj = new RegExp();
+    var regExpObj = new RegExp(regObj, "g");
+    return regExpObj.global;
+}
 runTestCase(testcase);
