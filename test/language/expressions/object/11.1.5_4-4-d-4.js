@@ -5,28 +5,15 @@
 // copyright and this notice and otherwise comply with the Use Terms.
 
 /*---
-info: >
-    Refer 11.1.5; 
-    The production
-    PropertyNameAndValueList :  PropertyNameAndValueList , PropertyAssignment
-    4. If previous is not undefined then throw a SyntaxError exception if any of the following conditions are true
-    d.	IsAccessorDescriptor(previous) is true and IsAccessorDescriptor(propId.descriptor) is true and either both previous and propId.descriptor have [[Get]] fields or both previous and propId.descriptor have [[Set]] fields
 es5id: 11.1.5_4-4-d-4
 description: >
-    Object literal - SyntaxError for duplicate property name
+    Object literal - No SyntaxError for duplicate property name
     (set,get,set)
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  try
-  {
-    eval("({set foo(arg){}, get foo(){}, set foo(arg1){}});");
-    return false;
-  }
-  catch(e)
-  {
-    return e instanceof SyntaxError;
-  }
- }
+  eval("({set foo(arg){}, get foo(){}, set foo(arg1){}});");
+  return true;
+}
 runTestCase(testcase);

@@ -14,7 +14,7 @@ includes: [runTestCase.js]
 
 function testcase() {
   var b = Array.isArray(Array.prototype);
-  if (b === false) {
+  if (b === true) {
     return true;
   }
  }

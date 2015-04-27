@@ -7,12 +7,8 @@
 /*---
 es5id: 11.1.5-2gs
 description: >
-    Strict Mode - SyntaxError is thrown when eval code contains an
-    ObjectLiteral with more than one definition of any data property
-negative: SyntaxError
-flags: [onlyStrict]
+    Duplicate definitions of data properties are allowed in ObjectLiterals.
 ---*/
 
-"use strict";
-throw NotEarlyError;
-var obj = { _11_1_5_2_gs: 10, _11_1_5_2_gs: 10 };
+var obj = { _11_1_5_2_gs: 10, _11_1_5_2_gs: 20 };
+assert.sameValue(obj._11_1_5_2_gs, 20);
