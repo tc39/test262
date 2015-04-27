@@ -42,6 +42,6 @@ function testcase() {
   var actual = Object.getOwnPropertyNames(obj);
   var expected = ["a", "b", "c", "d"];
 
-  return compareArray(actual.sort(), expected.sort());
+  return compareArray(actual, expected);
 }
 runTestCase(testcase);

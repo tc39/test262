@@ -3,8 +3,9 @@
 /*---
 es6id: 13.1
 description: >
-    function declarations in statement position in strict mode:
+    function declarations in statement position in non-strict mode:
     label: Statement
+flags: [noStrict]
 ---*/
 label: function g() {}
 

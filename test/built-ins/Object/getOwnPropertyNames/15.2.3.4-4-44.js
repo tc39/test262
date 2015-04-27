@@ -19,9 +19,9 @@ function testcase() {
   var str = new String("abc");
   str[5] = "de";
 
-  var expected = ["0", "1", "2", "length", "5"];
+  var expected = ["0", "1", "2", "5", "length"];
   var actual = Object.getOwnPropertyNames(str);
 
-  return compareArray(actual.sort(), expected.sort());
+  return compareArray(actual, expected);
 }
 runTestCase(testcase);

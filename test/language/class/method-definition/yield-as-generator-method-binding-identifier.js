@@ -7,7 +7,6 @@
       strict mode.
   features: [generators]
   es6id: 12.1.1
-  flags: [noStrict]
  ---*/
 
 var iter, result;
