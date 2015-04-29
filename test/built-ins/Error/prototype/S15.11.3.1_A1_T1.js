@@ -5,6 +5,7 @@
 info: Error.prototype property has the attributes {DontDelete}
 es5id: 15.11.3.1_A1_T1
 description: Checking if deleting the Error.prototype property fails
+flags: [noStrict]
 ---*/
 
 var proto=Error.prototype;

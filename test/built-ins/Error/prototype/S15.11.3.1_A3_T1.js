@@ -5,6 +5,7 @@
 info: Error.prototype property has the attributes {ReadOnly}
 es5id: 15.11.3.1_A3_T1
 description: Checking if varying the Error.prototype property fails
+flags: [noStrict]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
