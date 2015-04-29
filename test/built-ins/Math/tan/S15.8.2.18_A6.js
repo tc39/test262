@@ -12,17 +12,17 @@ includes: [$FAIL.js]
 ---*/
 
 // CHECK#1
-  prec = 0.00000000003;
+var prec = 0.00000000003;
 //prec = 0.000000000000001;
-period = Math.PI;
-pernum = 100;
+var period = Math.PI;
+var pernum = 100;
 
-a = -pernum * period + period/2;
-b = pernum * period - period/2;
-snum = 9; 
-step = period/(snum + 2);
-x = new Array();
-for (i = 0; i <= snum; i++)    //// We exlude special points 
+var a = -pernum * period + period/2;
+var b = pernum * period - period/2;
+var snum = 9;
+var step = period/(snum + 2);
+var x = new Array();
+for (var i = 0; i <= snum; i++)    //// We exlude special points
 {							   ////           in this cycle.
 	x[i] = a + (i+1)*step;     ////
 }							   ////
@@ -35,7 +35,7 @@ for (i = 0; i < snum; i++)
 {
 	curval = Math.tan(x[i]);
 	curx = x[i] + period;
-	j = 0;
+	var j = 0;
 	while (curx <= b)
 	{
 		curx += period;

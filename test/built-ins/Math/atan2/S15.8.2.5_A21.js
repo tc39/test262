@@ -16,8 +16,8 @@ includes:
 
 // CHECK#1
 //prec = 0.00000000000001;
-y = +Infinity;
-x = -Infinity;
+var y = +Infinity;
+var x = -Infinity;
 
 if (!isEqual(Math.atan2(y,x), (3*Math.PI)/4))
 	$ERROR("#1: Math.abs(Math.atan2(" + y + ", " + x + ") - (3*Math.PI/4)) >= " + prec);

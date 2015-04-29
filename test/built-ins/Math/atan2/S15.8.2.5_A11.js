@@ -14,15 +14,15 @@ includes:
 ---*/
 
 // CHECK#1
-y = -0;
+var y = -0;
 //prec = 0.00000000000001;
-x = new Array();
+var x = new Array();
 x[0] = -0.000000000000001;
 x[2] = -Infinity;
 x[1] = -1; 
-xnum = 3;
+var xnum = 3;
 
-for (i = 0; i < xnum; i++)
+for (var i = 0; i < xnum; i++)
 {
 	if (!isEqual(Math.atan2(y,x[i]), - Math.PI))
 		$FAIL("#1: Math.abs(Math.atan2(" + y + ", " + x[i] + ") + Math.PI) >= " + prec);

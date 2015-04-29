@@ -12,9 +12,9 @@ description: >
 ---*/
 
 // CHECK#1
-for (i = 0; i < 100; i++)
+for (var i = 0; i < 100; i++)
 {
-	val = Math.random();
+	var val = Math.random();
 	if (val < 0 || val >= 1)
 	{
 		$ERROR("#1: Math.random() = " + val);

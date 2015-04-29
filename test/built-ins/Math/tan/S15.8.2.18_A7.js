@@ -16,7 +16,7 @@ includes:
 ---*/
 
 // CHECK#1
-vnum = 64;
+var vnum = 64;
 var x = new Array();
 // Result is implementation dependent and varies on platform as you approach limits. 
 // e.g. Output approaches Infinity as input approaches PI / 2 (1.5707963267948966)
@@ -157,7 +157,7 @@ y[63] = 10381.32741756979;
 
 
 var val;
-for (i = 0; i < vnum; i++)
+for (var i = 0; i < vnum; i++)
 {
 	val = Math.tan(x[i]);
 	if (!isEqual(val, y[i]))

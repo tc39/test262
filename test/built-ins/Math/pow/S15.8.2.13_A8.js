@@ -12,13 +12,13 @@ includes: [$FAIL.js]
 
 // CHECK#1
 
-y = -Infinity;
-x = new Array();
+var y = -Infinity;
+var x = new Array();
 x[0] = -1;
 x[1] = 1
-xnum = 2;
+var xnum = 2;
 
-for (i = 0; i < xnum; i++)
+for (var i = 0; i < xnum; i++)
 {
 	if (!isNaN(Math.pow(x[i],y)))
 	{

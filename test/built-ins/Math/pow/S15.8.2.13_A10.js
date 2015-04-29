@@ -11,17 +11,17 @@ description: >
 
 // CHECK#1
 
-y = -Infinity;
-x = new Array();
+var y = -Infinity;
+var x = new Array();
 x[0] = 0.999999999999999;
 x[1] = 0.5;
 x[2] = +0;
 x[3] = -0;
 x[4] = -0.5;
 x[5] = -0.999999999999999;
-xnum = 6;
+var xnum = 6;
 
-for (i = 0; i < xnum; i++)
+for (var i = 0; i < xnum; i++)
 {
 	if (Math.pow(x[i],y) !== +Infinity)
 	{

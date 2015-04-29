@@ -16,7 +16,7 @@ includes:
 ---*/
 
 // CHECK#1
-vnum = 64;
+var vnum = 64;
 var x = new Array();
 x[0] = 0.00000000000000000000;
 x[1] = 0.09973310011396169200;
@@ -155,7 +155,7 @@ y[62] = -0.09956784659581728600;
 y[63] = -0.00008530717948287973;
 
 var val;
-for (i = 0; i < vnum; i++)
+for (var i = 0; i < vnum; i++)
 {
 	val = Math.sin(x[i]);
 	if (!isEqual(val, y[i]))

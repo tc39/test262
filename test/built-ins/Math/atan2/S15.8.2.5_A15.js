@@ -16,14 +16,14 @@ includes:
 ---*/
 
 // CHECK#1
-x = -Infinity;
-y = new Array();
+var x = -Infinity;
+var y = new Array();
 y[0] = 0.000000000000001;
 y[1] = 1;
 y[2] = 1.7976931348623157E308; //largest finite number 
-ynum = 3;
+var ynum = 3;
 
-for (i = 0; i < ynum; i++)
+for (var i = 0; i < ynum; i++)
 {
 	if (!isEqual(Math.atan2(y[i],x),Math.PI))
 		$FAIL("#1: Math.abs(Math.atan2(" + y[i] + ", " + x + ") - Math.PI) >= " + prec);

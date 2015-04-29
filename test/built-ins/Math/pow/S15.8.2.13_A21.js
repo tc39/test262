@@ -11,14 +11,14 @@ description: >
 
 // CHECK#1
 
-x = -0;
-y = new Array();
+var x = -0;
+var y = new Array();
 y[2] = -1;
 y[1] = -111; 
 y[0] = -111111;
-ynum = 3;
+var ynum = 3;
 
-for (i = 0; i < ynum; i++)
+for (var i = 0; i < ynum; i++)
 {
 	if (Math.pow(x,y[i]) !== -Infinity)
 	{

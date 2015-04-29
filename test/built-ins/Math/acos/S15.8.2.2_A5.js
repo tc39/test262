@@ -16,7 +16,7 @@ includes:
 ---*/
 
 // CHECK#1
-vnum = 64;
+var vnum = 64;
 var x = new Array();
 x[0] = -1.00000000000000000000;
 x[1] = -0.96825396825396826000;
@@ -156,7 +156,7 @@ y[63] = 0.00000000000000000000;
 
 
 var val;
-for (i = 0; i < vnum; i++)
+for (var i = 0; i < vnum; i++)
 {
 	val = Math.acos(x[i]);
 	if (!isEqual(val, y[i]))

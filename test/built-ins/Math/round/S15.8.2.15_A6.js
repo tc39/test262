@@ -13,9 +13,9 @@ description: >
 ---*/
 
 // CHECK#1
-for (i = 0; i <= 1000; i++)
+for (var i = 0; i <= 1000; i++)
 {
-	x = i/10.0;
+	var x = i/10.0;
 	if (Math.round(x) !== Math.floor(x + 0.5))
 	{
 		$ERROR("#1: 'x = " + x + "; Math.round(x) !== Math.floor(x + 0.5)'")

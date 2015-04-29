@@ -11,16 +11,16 @@ description: >
 
 // CHECK#1
 
-x = -0;
-y = new Array();
+var x = -0;
+var y = new Array();
 y[4] = -0.000000000000001;
 y[3] = -2;
 y[2] = -Math.PI;
 y[1] = -1.7976931348623157E308; //largest (by module) finite number
 y[0] = -Infinity;
-ynum = 5;
+var ynum = 5;
 
-for (i = 0; i < ynum; i++)
+for (var i = 0; i < ynum; i++)
 {
 	if (Math.pow(x,y[i]) !== +Infinity)
 	{

@@ -11,17 +11,17 @@ description: >
 
 // CHECK#1
 
-y = +Infinity;
-x = new Array();
+var y = +Infinity;
+var x = new Array();
 x[0] = -Infinity;
 x[1] = -1.7976931348623157E308; //largest (by module) finite number
 x[2] = -1.000000000000001;
 x[3] = 1.000000000000001;
 x[4] = 1.7976931348623157E308; //largest finite number
 x[5] = +Infinity;
-xnum = 6;
+var xnum = 6;
 
-for (i = 0; i < xnum; i++)
+for (var i = 0; i < xnum; i++)
 {
 	if (Math.pow(x[i],y) !== +Infinity)
 	{

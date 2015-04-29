@@ -8,7 +8,7 @@ description: Checking if Math.E property has the attribute DontEnum
 ---*/
 
 // CHECK#1
-for(x in Math) {
+for(var x in Math) {
   if(x === "E") {
     $ERROR('#1: Value Property E of the Math Object hasn\'t attribute DontEnum: \'for(x in Math) {x==="E"}\'');
   }

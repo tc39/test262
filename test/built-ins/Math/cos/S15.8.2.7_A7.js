@@ -16,7 +16,7 @@ includes:
 ---*/
 
 // CHECK#1
-vnum = 64;
+var vnum = 64;
 var x = new Array();
 x[0] = -3.14159265358979310000;
 x[1] = -3.04185955347583150000;
@@ -152,7 +152,7 @@ y[63] = -1.00000000000000000000;
 
 
 var val;
-for (i = 0; i < vnum; i++)
+for (var i = 0; i < vnum; i++)
 {
 	val = Math.cos(x[i]);
 	if (!isEqual(val, y[i]))

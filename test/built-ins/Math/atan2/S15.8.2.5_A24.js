@@ -17,7 +17,7 @@ includes:
 ---*/
 
 // CHECK#1
-vnum = 64;
+var vnum = 64;
 var x1 = new Array();
 x1[0] = -16.00000000000000000000;
 x1[1] = -15.49206349206349200000;
@@ -221,7 +221,7 @@ y[63] = 1.10714871779409040000;
 
 
 var val;
-for (i = 0; i < vnum; i++)
+for (var i = 0; i < vnum; i++)
 {
 	val = Math.atan2(x1[i], x2[i]);
 	if (!isEqual(val, y[i]))
