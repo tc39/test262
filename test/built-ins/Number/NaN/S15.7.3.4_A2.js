@@ -5,6 +5,7 @@
 info: Number.NaN is ReadOnly
 es5id: 15.7.3.4_A2
 description: Checking if varying Number.NaN fails
+flags: [noStrict]
 ---*/
 
 // CHECK#1

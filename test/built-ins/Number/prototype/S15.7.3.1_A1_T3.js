@@ -13,7 +13,7 @@ if (Number.propertyIsEnumerable('prototype')) {
   $ERROR('#1: The Number.prototype property has the attribute DontEnum');
 }
 
-for(x in Number) {
+for(var x in Number) {
   if(x === "prototype") {
     $ERROR('#2: The Number.prototype has the attribute DontEnum');
   }
