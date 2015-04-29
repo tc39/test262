@@ -9,6 +9,8 @@ es5id: 15.6.1.1_A1_T5
 description: Used various assigning values to any variable as argument
 ---*/
 
+var x;
+
 //CHECK#1
 if( typeof Boolean(x=0) !== "boolean" ) {
   $ERROR('#1.1: typeof Boolean(x=0) should be "boolean", actual is "'+typeof Boolean(x=0)+'"');
