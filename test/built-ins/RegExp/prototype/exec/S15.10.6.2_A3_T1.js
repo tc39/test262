@@ -10,14 +10,14 @@ es5id: 15.10.6.2_A3_T1
 description: "RegExp is /(?:ab|cd)\\d?/g and tested string is \"ab  cd2  ab34  cd\""
 ---*/
 
-__re = /(?:ab|cd)\d?/g;
+var __re = /(?:ab|cd)\d?/g;
 
-__matched = [];
+var __matched = [];
 
-__expected = ["ab", "cd2", "ab3", "cd"];
+var __expected = ["ab", "cd2", "ab3", "cd"];
 
 do{
-    __executed = __re.exec("ab  cd2  ab34  cd");
+    var __executed = __re.exec("ab  cd2  ab34  cd");
     if (__executed !== null) {
       __matched.push(__executed[0]);
     } else {

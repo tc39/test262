@@ -10,9 +10,9 @@ es5id: 15.10.2.3_A1_T11
 description: Execute /11111|111/.exec("1111111111111111") and check results
 ---*/
 
-__executed = /11111|111/.exec("1111111111111111");
+var __executed = /11111|111/.exec("1111111111111111");
 
-__expected = ["11111"];
+var __expected = ["11111"];
 __expected.index = 0;
 __expected.input = "1111111111111111";
 

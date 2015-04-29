@@ -10,10 +10,10 @@ es5id: 15.10.2.8_A4_T8
 description: Execute /.+/.exec("`1234567890-=~!@#$%^&*()_+") and check results
 ---*/
 
-__string = "`1234567890-=~!@#$%^&*()_+";
-__executed = /.+/.exec(__string);
+var __string = "`1234567890-=~!@#$%^&*()_+";
+var __executed = /.+/.exec(__string);
 
-__expected = ["`1234567890-=~!@#$%^&*()_+"];
+var __expected = ["`1234567890-=~!@#$%^&*()_+"];
 __expected.index = 0;
 __expected.input = __string;
 

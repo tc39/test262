@@ -9,9 +9,9 @@ es5id: 15.10.2.6_A2_T9
 description: Execute /^\^+/.exec("^^^x") and check results
 ---*/
 
-__executed = /^\^+/.exec("^^^x");
+var __executed = /^\^+/.exec("^^^x");
 
-__expected = ["^^^"];
+var __expected = ["^^^"];
 __expected.index = 0;
 __expected.input = "^^^x";
 

@@ -7,7 +7,7 @@ es5id: 15.10.4.1_A8_T1
 description: Pattern is "a|b" and flags is "i"
 ---*/
 
-__re = new RegExp("a|b","i");
+var __re = new RegExp("a|b","i");
 
 //CHECK#1
 if (__re.ignoreCase !== true) {

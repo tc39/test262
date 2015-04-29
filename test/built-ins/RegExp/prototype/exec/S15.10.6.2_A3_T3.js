@@ -10,7 +10,7 @@ es5id: 15.10.6.2_A3_T3
 description: RegExp is /[Nn]?evermore/g and tested string is very long string
 ---*/
 
-__the__raven = "	Once upon a midnight dreary, while I pondered weak and weary," +
+var __the__raven = "	Once upon a midnight dreary, while I pondered weak and weary," +
         "Over many a quaint and curious volume of forgotten lore," +
         "While I nodded, nearly napping, suddenly there came a tapping," +
         "As of some one gently rapping, rapping at my chamber door." +
@@ -134,13 +134,13 @@ __the__raven = "	Once upon a midnight dreary, while I pondered weak and weary," 
         "And my soul from out that shadow that lies floating on the floor" +
         "Shall be lifted - nevermore!"
 
-NEVERMORE_AND_EVERMORE=12;       
+var NEVERMORE_AND_EVERMORE=12;       
        
-__re = /[Nn]?evermore/g;
-__matched=0;
+var __re = /[Nn]?evermore/g;
+var __matched=0;
 
 do{
-    __executed = __re.exec(__the__raven);
+    var __executed = __re.exec(__the__raven);
     if (__executed !== null) {
     	__matched++;
     } else {

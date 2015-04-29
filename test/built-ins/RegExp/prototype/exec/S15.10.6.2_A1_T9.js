@@ -12,7 +12,7 @@ description: String is undefined variable and RegExp is /1|12/
 var __string;
 
 //CHECK#1
-__re = /1|12/;
+var __re = /1|12/;
 if (__re.exec(__string) !== null) {
 	$ERROR('#1: var __string; /1|12/.exec(__string) === null; function __string(){}. Actual: ' + (__re));
 }

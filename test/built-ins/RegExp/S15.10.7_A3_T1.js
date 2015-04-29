@@ -9,7 +9,7 @@ description: >
     and check it constructor.  RegExp instance is /[^a]* /
 ---*/
 
-__re = /[^a]*/;
+var __re = /[^a]*/;
 
 //CHECK#1
 if (typeof __re !== "object") {

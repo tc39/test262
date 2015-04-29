@@ -7,10 +7,10 @@ es5id: 15.10.6.2_A7
 description: Checking if creating the RegExp.prototype.exec object fails
 ---*/
 
-__FACTORY = RegExp.prototype.exec;
+var __FACTORY = RegExp.prototype.exec;
 
 try {
-  __instance = new __FACTORY;
+  var __instance = new __FACTORY;
   $ERROR('#1.1: __FACTORY = RegExp.prototype.exec throw TypeError. Actual: ' + (__instance));
 } catch (e) {
   if ((e instanceof TypeError) !== true) {

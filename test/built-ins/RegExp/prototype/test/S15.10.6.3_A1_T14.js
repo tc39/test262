@@ -8,7 +8,7 @@ description: RegExp is /AL|se/ and tested string is new Boolean
 ---*/
 
 var __string = new Boolean;
-__re = /AL|se/;
+var __re = /AL|se/;
 
 //CHECK#0
 if (__re.test(__string) !== (__re.exec(__string) !== null)) {

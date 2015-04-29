@@ -9,9 +9,9 @@ es5id: 15.10.2.5_A1_T3
 description: Execute /(aa|aabaac|ba|b|c)* /.exec("aabaac") and check results
 ---*/
 
-__executed = /(aa|aabaac|ba|b|c)*/.exec("aabaac");
+var __executed = /(aa|aabaac|ba|b|c)*/.exec("aabaac");
 
-__expected = ["aaba", "ba"];
+var __expected = ["aaba", "ba"];
 __expected.index = 0;
 __expected.input = "aabaac";
 

@@ -10,7 +10,7 @@ es5id: 15.10.4.1_A7_T2
 description: Checking [[Prototype]] property of the newly constructed object
 ---*/
 
-__re = new RegExp();
+var __re = new RegExp();
 
 //CHECK#1
 if (RegExp.prototype.isPrototypeOf(__re) !== true) {

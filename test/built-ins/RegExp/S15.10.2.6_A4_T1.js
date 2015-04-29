@@ -11,9 +11,9 @@ description: >
     results
 ---*/
 
-__executed = /\Bevil\B/.exec("devils arise\tfor\nevil");
+var __executed = /\Bevil\B/.exec("devils arise\tfor\nevil");
 
-__expected = ["evil"];
+var __expected = ["evil"];
 __expected.index = 1;
 __expected.input = "devils arise\tfor\nevil";
 

@@ -5,6 +5,7 @@
 info: The RegExp.prototype property has the attribute ReadOnly
 es5id: 15.10.5.1_A4
 description: Checking if varying the RegExp.prototype property fails
+flags: [noStrict]
 includes: [$FAIL.js]
 ---*/
 

@@ -9,9 +9,9 @@ es5id: 15.10.2.7_A5_T10
 description: Execute /ab?c?d?x?y?z/.exec("123az789") and check results
 ---*/
 
-__executed = /ab?c?d?x?y?z/.exec("123az789");
+var __executed = /ab?c?d?x?y?z/.exec("123az789");
 
-__expected = ["az"];
+var __expected = ["az"];
 __expected.index = 3;
 __expected.input = "123az789";
 

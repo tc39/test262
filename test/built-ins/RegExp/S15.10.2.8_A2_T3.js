@@ -12,7 +12,7 @@ description: >
     and check results
 ---*/
 
-__executed = /Java(?!Script)([A-Z]\w*)/.test("using of Java language");
+var __executed = /Java(?!Script)([A-Z]\w*)/.test("using of Java language");
 
 //CHECK#1
 if (__executed) {

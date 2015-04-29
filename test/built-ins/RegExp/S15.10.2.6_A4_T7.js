@@ -11,7 +11,7 @@ description: >
     check results
 ---*/
 
-__executed = /\B\[^z]{4}\B/.test("devil arise\tforzzx\nevils");
+var __executed = /\B\[^z]{4}\B/.test("devil arise\tforzzx\nevils");
 
 //CHECK#1
 if (__executed) {

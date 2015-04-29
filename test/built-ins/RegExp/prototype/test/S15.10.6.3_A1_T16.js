@@ -7,7 +7,7 @@ es5id: 15.10.6.3_A1_T16
 description: RegExp is /undefined/ and call test() without arguments
 ---*/
 
-__re = /undefined/;
+var __re = /undefined/;
 
 //CHECK#0
 if (__re.test() !== (__re.exec() !== null)) {

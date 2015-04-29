@@ -10,7 +10,7 @@ es5id: 15.10.2.3_A1_T7
 description: Execute /ab|cd|ef/.test("AEKFCD") and check results
 ---*/
 
-__executed = /ab|cd|ef/.test("AEKFCD");
+var __executed = /ab|cd|ef/.test("AEKFCD");
 
 //CHECK#1
 if (__executed) {

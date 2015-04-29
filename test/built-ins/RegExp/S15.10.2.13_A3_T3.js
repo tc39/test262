@@ -7,9 +7,9 @@ es5id: 15.10.2.13_A3_T3
 description: Execute /[^\[\b\]]+/.exec("abc\bdef") and check results
 ---*/
 
-__executed = /[^\[\b\]]+/.exec("abc\bdef");
+var __executed = /[^\[\b\]]+/.exec("abc\bdef");
 
-__expected = ["abc"];
+var __expected = ["abc"];
 __expected.index = 0;
 __expected.input = "abc\bdef";
 

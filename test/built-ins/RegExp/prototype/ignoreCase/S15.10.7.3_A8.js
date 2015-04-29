@@ -10,7 +10,7 @@ description: >
 includes: [$FAIL.js]
 ---*/
 
-__re = RegExp.prototype;
+var __re = RegExp.prototype;
 
 //CHECK#0
 if (__re.hasOwnProperty('ignoreCase') !== true) {
@@ -23,8 +23,8 @@ if (__re.propertyIsEnumerable('ignoreCase') !== false) {
 }
 
  //CHECK#2
-count = 0
-for (p in __re){
+var count = 0
+for (var p in __re){
   if (p==="ignoreCase") count++   
 }
 

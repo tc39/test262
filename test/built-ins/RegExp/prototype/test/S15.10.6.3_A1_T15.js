@@ -10,7 +10,7 @@ description: >
 ---*/
 
 var __string = {toString:function(){return false;}};
-__re = /LS/i;
+var __re = /LS/i;
 
 //CHECK#0
 if (__re.test(__string) !== (__re.exec(__string) !== null)) {

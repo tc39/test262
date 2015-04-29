@@ -10,10 +10,10 @@ es5id: 15.10.2.8_A4_T1
 description: Execute /ab.de/.exec("abcde") and check results
 ---*/
 
-__string = "abcde";
-__executed = /ab.de/.exec(__string);
+var __string = "abcde";
+var __executed = /ab.de/.exec(__string);
 
-__expected = ["abcde"];
+var __expected = ["abcde"];
 __expected.index = 0;
 __expected.input = __string;
 

@@ -9,9 +9,9 @@ es5id: 15.10.2.6_A2_T10
 description: Execute /^\d+/m.exec("abc\n123xyz") and check results
 ---*/
 
-__executed = /^\d+/m.exec("abc\n123xyz");
+var __executed = /^\d+/m.exec("abc\n123xyz");
 
-__expected = ["123"];
+var __expected = ["123"];
 __expected.index = 4;
 __expected.input = "abc\n123xyz";
 

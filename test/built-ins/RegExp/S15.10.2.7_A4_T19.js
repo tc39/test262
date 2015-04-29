@@ -9,9 +9,9 @@ es5id: 15.10.2.7_A4_T19
 description: Execute /bc..[\d]*[\s]* /.exec('abcdef') and check results
 ---*/
 
-__executed = /bc..[\d]*[\s]*/.exec('abcdef');
+var __executed = /bc..[\d]*[\s]*/.exec('abcdef');
 
-__expected = ["bcde"];
+var __expected = ["bcde"];
 __expected.index = 1;
 __expected.input = 'abcdef';
 

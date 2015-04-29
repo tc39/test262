@@ -12,7 +12,7 @@ description: >
     engine") and check results
 ---*/
 
-__executed = /[Jj]ava([Ss]cript)?(?=\:)/.test("rhino is JavaScript engine");
+var __executed = /[Jj]ava([Ss]cript)?(?=\:)/.test("rhino is JavaScript engine");
 
 //CHECK#1
 if (__executed) {

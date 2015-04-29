@@ -10,10 +10,10 @@ es5id: 15.10.2.8_A4_T6
 description: Execute /.+/.exec("abcdefghijklmnopqrstuvwxyz") and check results
 ---*/
 
-__string = "abcdefghijklmnopqrstuvwxyz";
-__executed = /.+/.exec(__string);
+var __string = "abcdefghijklmnopqrstuvwxyz";
+var __executed = /.+/.exec(__string);
 
-__expected = ["abcdefghijklmnopqrstuvwxyz"];
+var __expected = ["abcdefghijklmnopqrstuvwxyz"];
 __expected.index = 0;
 __expected.input = __string;
 

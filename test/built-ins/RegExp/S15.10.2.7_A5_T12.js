@@ -9,9 +9,9 @@ es5id: 15.10.2.7_A5_T12
 description: Execute /.?.?.?.?.?.?.?/.exec("test") and check results
 ---*/
 
-__executed = /.?.?.?.?.?.?.?/.exec("test");
+var __executed = /.?.?.?.?.?.?.?/.exec("test");
 
-__expected = ["test"];
+var __expected = ["test"];
 __expected.index = 0;
 __expected.input = "test";
 

@@ -9,9 +9,9 @@ es5id: 15.10.2.7_A1_T12
 description: Execute /.{0,93}/.exec("weirwerdf") and check results
 ---*/
 
-__executed = /.{0,93}/.exec("weirwerdf");
+var __executed = /.{0,93}/.exec("weirwerdf");
 
-__expected = ["weirwerdf"];
+var __expected = ["weirwerdf"];
 __expected.index = 0;
 __expected.input = "weirwerdf";
 

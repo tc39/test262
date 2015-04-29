@@ -9,9 +9,9 @@ es5id: 15.10.2.6_A4_T6
 description: Execute /\B\w/.exec("devils arise\tfor\nevil") and check results
 ---*/
 
-__executed = /\B\w/.exec("devils arise\tfor\nrevil");
+var __executed = /\B\w/.exec("devils arise\tfor\nrevil");
 
-__expected = ["e"];
+var __expected = ["e"];
 __expected.index = 1;
 __expected.input = "devils arise\tfor\nrevil";
 

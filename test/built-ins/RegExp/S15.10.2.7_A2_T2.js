@@ -9,9 +9,9 @@ es5id: 15.10.2.7_A2_T2
 description: Execute /\w{3}\d?/.exec("CELL\uFFDDbox127") and check results
 ---*/
 
-__executed = /\w{3}\d?/.exec("CELL\uFFDDbox127");
+var __executed = /\w{3}\d?/.exec("CELL\uFFDDbox127");
 
-__expected = ["CEL"];
+var __expected = ["CEL"];
 __expected.index = 0;
 __expected.input = "CELL\uFFDDbox127";
 

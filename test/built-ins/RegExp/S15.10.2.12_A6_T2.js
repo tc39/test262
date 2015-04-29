@@ -13,9 +13,9 @@ var regexp_D = /\D/;
 
 //CHECK#0041-005A
 var result = true; 
-for (alpha = 0x0041; alpha <= 0x005A; alpha++) {
-  str = String.fromCharCode(alpha);
-  arr = regexp_D.exec(str); 
+for (var alpha = 0x0041; alpha <= 0x005A; alpha++) {
+  var str = String.fromCharCode(alpha);
+  var arr = regexp_D.exec(str); 
   if ((arr === null) || (arr[0] !== str)) {
     result = false;
   }

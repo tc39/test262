@@ -10,9 +10,9 @@ es5id: 15.10.2.8_A2_T6
 description: Execute /(\.(?!com|org)|\/)/.exec("ah.info") and check results
 ---*/
 
-__executed = /(\.(?!com|org)|\/)/.exec("ah.info");
+var __executed = /(\.(?!com|org)|\/)/.exec("ah.info");
 
-__expected = ['.', '.'];
+var __expected = ['.', '.'];
 __expected.index = 2;
 __expected.input = "ah.info";
 

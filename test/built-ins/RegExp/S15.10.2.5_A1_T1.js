@@ -9,9 +9,9 @@ es5id: 15.10.2.5_A1_T1
 description: Execute /a[a-z]{2,4}/.exec("abcdefghi") and check results
 ---*/
 
-__executed = /a[a-z]{2,4}/.exec("abcdefghi");
+var __executed = /a[a-z]{2,4}/.exec("abcdefghi");
 
-__expected = ["abcde"];
+var __expected = ["abcde"];
 __expected.index = 0;
 __expected.input = "abcdefghi";
 

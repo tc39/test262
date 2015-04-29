@@ -9,7 +9,7 @@ es5id: 15.10.6.3_A2_T7
 description: The tested object is false
 ---*/
 
-__instance = false;
+var __instance = false;
 
 Object.prototype.test = RegExp.prototype.test;
 

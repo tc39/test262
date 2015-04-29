@@ -11,9 +11,9 @@ es5id: 15.10.2.8_A3_T12
 description: Execute /(a(b(c)))(d(e(f)))/.exec("xabcdefg") and check results
 ---*/
 
-__executed = /(a(b(c)))(d(e(f)))/.exec("xabcdefg");
+var __executed = /(a(b(c)))(d(e(f)))/.exec("xabcdefg");
 
-__expected = ["abcdef","abc","bc","c","def","ef","f"];
+var __expected = ["abcdef","abc","bc","c","def","ef","f"];
 __expected.index = 1;
 __expected.input = "xabcdefg";
 

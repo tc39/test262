@@ -13,9 +13,9 @@ var regexp_w = /\w/;
 
 //CHECK#0030-0039
 var result = true; 
-for (alpha = 0x0030; alpha <= 0x0039; alpha++) {
-  str = String.fromCharCode(alpha);
-  arr = regexp_w.exec(str); 
+for (var alpha = 0x0030; alpha <= 0x0039; alpha++) {
+  var str = String.fromCharCode(alpha);
+  var arr = regexp_w.exec(str); 
   if ((arr === null) || (arr[0] !== str)) {
     result = false;
   }

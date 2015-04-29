@@ -12,9 +12,9 @@ description: >
     check results
 ---*/
 
-__executed = /\b(\w+) \1\b/.exec("do you listen the the band");
+var __executed = /\b(\w+) \1\b/.exec("do you listen the the band");
 
-__expected = ["the the", "the"];
+var __expected = ["the the", "the"];
 __expected.index = 14;
 __expected.input = "do you listen the the band";
 

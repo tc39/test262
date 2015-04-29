@@ -10,7 +10,7 @@ es5id: 15.10.2.13_A2_T6
 description: Execute /a[^b]c/.test("abc") and check results
 ---*/
 
-__executed = /a[^b]c/.test("abc");
+var __executed = /a[^b]c/.test("abc");
 
 //CHECK#1
 if (__executed) {

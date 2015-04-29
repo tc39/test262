@@ -10,9 +10,9 @@ es5id: 15.10.2.3_A1_T10
 description: "Execute /(?:ab|cd)+|ef/i.exec(\"AEKeFCDab\") and check results"
 ---*/
 
-__executed = /(?:ab|cd)+|ef/i.exec("AEKeFCDab");
+var __executed = /(?:ab|cd)+|ef/i.exec("AEKeFCDab");
 
-__expected = ["eF"];
+var __expected = ["eF"];
 __expected.index = 3;
 __expected.input = "AEKeFCDab";
 

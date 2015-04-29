@@ -9,9 +9,9 @@ es5id: 15.10.2.6_A2_T6
 description: Execute /^ab/.exec("abcde") and check results
 ---*/
 
-__executed = /^ab/.exec("abcde");
+var __executed = /^ab/.exec("abcde");
 
-__expected = ["ab"];
+var __expected = ["ab"];
 __expected.index = 0;
 __expected.input = "abcde";
 

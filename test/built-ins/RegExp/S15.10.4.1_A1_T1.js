@@ -9,8 +9,8 @@ es5id: 15.10.4.1_A1_T1
 description: Pattern is /./i and RegExp is new RegExp(pattern)
 ---*/
 
-__pattern = /./i;
-__re = new RegExp(__pattern); 
+var __pattern = /./i;
+var __re = new RegExp(__pattern); 
 
 //CHECK#1
 if (__re.source !== __pattern.source) {

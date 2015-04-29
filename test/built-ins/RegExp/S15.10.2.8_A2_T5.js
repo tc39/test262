@@ -12,9 +12,9 @@ description: >
     check results
 ---*/
 
-__executed = /Java(?!Script)([A-Z]\w*)/.exec("JavaScr oops ipt ");
+var __executed = /Java(?!Script)([A-Z]\w*)/.exec("JavaScr oops ipt ");
 
-__expected = ["JavaScr", "Scr"];
+var __expected = ["JavaScr", "Scr"];
 __expected.index = 0;
 __expected.input = "JavaScr oops ipt ";
 

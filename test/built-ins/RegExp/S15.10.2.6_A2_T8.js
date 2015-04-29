@@ -9,7 +9,7 @@ es5id: 15.10.2.6_A2_T8
 description: Execute /^xxx/.test("yyyyy") and check results
 ---*/
 
-__executed = /^xxx/.test("yyyyy");
+var __executed = /^xxx/.test("yyyyy");
 
 //CHECK#1
 if (__executed) {

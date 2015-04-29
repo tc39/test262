@@ -10,9 +10,9 @@ es5id: 15.10.2.13_A1_T10
 description: Execute /[a-c\d]+/.exec("\n\n\abc324234\n") and check results
 ---*/
 
-__executed = /[a-c\d]+/.exec("\n\n\abc324234\n");
+var __executed = /[a-c\d]+/.exec("\n\n\abc324234\n");
 
-__expected = ["abc324234"];
+var __expected = ["abc324234"];
 __expected.index = 2;
 __expected.input = "\n\n\abc324234\n";
 

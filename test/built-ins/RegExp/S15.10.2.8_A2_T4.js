@@ -12,7 +12,7 @@ description: >
     check results
 ---*/
 
-__executed = /Java(?!Script)([A-Z]\w*)/.test("i'm a JavaScripter ");
+var __executed = /Java(?!Script)([A-Z]\w*)/.test("i'm a JavaScripter ");
 
 //CHECK#1
 if (__executed) {

@@ -9,9 +9,9 @@ es5id: 15.10.6.2_A1_T17
 description: String is null and RegExp is /ll|l/
 ---*/
 
-__executed = /ll|l/.exec(null);
+var __executed = /ll|l/.exec(null);
 
-__expected = ["ll"];
+var __expected = ["ll"];
 __expected.index=2;
 __expected.input="null";
 

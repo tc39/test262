@@ -9,8 +9,8 @@ es5id: 15.10.3.1_A3_T1
 description: R is "d+" and instance is RegExp(R,"i")
 ---*/
 
-__re = "d+";
-__instance = RegExp(__re, "i");
+var __re = "d+";
+var __instance = RegExp(__re, "i");
 
 //CHECK#1
 if (__instance.constructor !== RegExp) {

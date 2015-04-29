@@ -10,9 +10,9 @@ es5id: 15.10.2.7_A6_T3
 description: Execute /\d{1,}/.exec("wqe456646dsff") and check results
 ---*/
 
-__executed = /\d{1,}/.exec("wqe456646dsff");
+var __executed = /\d{1,}/.exec("wqe456646dsff");
 
-__expected = ["456646"];
+var __expected = ["456646"];
 __expected.index = 3;
 __expected.input = "wqe456646dsff";
 

@@ -5,6 +5,7 @@
 info: The RegExp.prototype global property does not have a set accessor
 es5id: 15.10.7.2_A10
 description: Checking if varying the global property fails
+flags: [noStrict]
 includes: [$FAIL.js]
 ---*/
 

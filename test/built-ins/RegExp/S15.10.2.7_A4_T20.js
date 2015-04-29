@@ -9,9 +9,9 @@ es5id: 15.10.2.7_A4_T20
 description: Execute /.* /.exec('a1b2c3') and check results
 ---*/
 
-__executed = /.*/.exec('a1b2c3');
+var __executed = /.*/.exec('a1b2c3');
 
-__expected = ["a1b2c3"];
+var __expected = ["a1b2c3"];
 __expected.index = 0;
 __expected.input = 'a1b2c3';
 

@@ -9,9 +9,9 @@ es5id: 15.10.2.7_A1_T1
 description: Execute /\d{2,4}/.exec("the answer is 42") and check results
 ---*/
 
-__executed = /\d{2,4}/.exec("the answer is 42");
+var __executed = /\d{2,4}/.exec("the answer is 42");
 
-__expected = ["42"];
+var __expected = ["42"];
 __expected.index = 14;
 __expected.input = "the answer is 42";
 

@@ -11,9 +11,9 @@ es5id: 15.10.2.8_A3_T6
 description: Execute /(.{3})(.{4})/.exec("abcdefgh") and check results
 ---*/
 
-__executed = /(.{3})(.{4})/.exec("abcdefgh");
+var __executed = /(.{3})(.{4})/.exec("abcdefgh");
 
-__expected = ["abcdefg","abc","defg"];
+var __expected = ["abcdefg","abc","defg"];
 __expected.index = 0;
 __expected.input = "abcdefgh";
 

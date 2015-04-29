@@ -9,7 +9,7 @@ es5id: 15.10.6.3_A2_T1
 description: The tested object is new Object
 ---*/
 
-__instance = new Object;
+var __instance = new Object;
 
 __instance.test = RegExp.prototype.test;
 

@@ -10,10 +10,10 @@ es5id: 15.10.2.8_A4_T3
 description: Execute /.*a.* /.exec("this is a test") and check results
 ---*/
 
-__string = "this is a test";
-__executed = /.*a.*/.exec(__string);
+var __string = "this is a test";
+var __executed = /.*a.*/.exec(__string);
 
-__expected = ["this is a test"];
+var __expected = ["this is a test"];
 __expected.index = 0;
 __expected.input = __string;
 

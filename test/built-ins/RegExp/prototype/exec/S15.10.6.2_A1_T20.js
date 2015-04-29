@@ -9,9 +9,9 @@ es5id: 15.10.6.2_A1_T20
 description: String is x and RegExp is /[a-f]d/, where x is undefined variable
 ---*/
 
-__executed = /[a-f]d/.exec(x);
+var __executed = /[a-f]d/.exec(x);
 
-__expected = ["ed"];
+var __expected = ["ed"];
 __expected.index=7;
 __expected.input="undefined";
 

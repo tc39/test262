@@ -9,9 +9,9 @@ es5id: 15.10.2.7_A4_T3
 description: Execute /[^"]* /.exec("before\'i\'start") and check results
 ---*/
 
-__executed = /[^"]*/.exec("before\'i\'start");
+var __executed = /[^"]*/.exec("before\'i\'start");
 
-__expected = ["before\'i\'start"];
+var __expected = ["before\'i\'start"];
 __expected.index = 0;
 __expected.input = "before\'i\'start";
 

@@ -9,9 +9,9 @@ es5id: 15.10.2.7_A4_T15
 description: Execute /(\d*)\d(\d+)/.exec('1234567890') and check results
 ---*/
 
-__executed = /(\d*)\d(\d+)/.exec('1234567890');
+var __executed = /(\d*)\d(\d+)/.exec('1234567890');
 
-__expected = ["1234567890","12345678","0"];
+var __expected = ["1234567890","12345678","0"];
 __expected.index = 0;
 __expected.input = '1234567890';
 

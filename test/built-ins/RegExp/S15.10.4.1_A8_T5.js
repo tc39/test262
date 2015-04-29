@@ -9,7 +9,7 @@ description: >
     {toString:function(){return "";}}
 ---*/
 
-__re = new RegExp(new Object("abc{1}"), {toString:function(){return "";}});
+var __re = new RegExp(new Object("abc{1}"), {toString:function(){return "";}});
 
 //CHECK#1
 if (__re.ignoreCase !== false) {

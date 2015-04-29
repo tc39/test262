@@ -9,7 +9,7 @@ es5id: 15.10.2.7_A1_T9
 description: Execute /b{42,93}c/.exec("aaabbbbcccddeeeefffff") and check results
 ---*/
 
-__executed = /b{42,93}c/.test("aaabbbbcccddeeeefffff");
+var __executed = /b{42,93}c/.test("aaabbbbcccddeeeefffff");
 
 //CHECK#1
 if (__executed) {

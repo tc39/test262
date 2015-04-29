@@ -11,9 +11,9 @@ description: >
     results
 ---*/
 
-__executed = /^p[b-z]/m.exec("pairs\nmakes\tdouble\npesos");
+var __executed = /^p[b-z]/m.exec("pairs\nmakes\tdouble\npesos");
 
-__expected = ["pe"];
+var __expected = ["pe"];
 __expected.index = 19;
 __expected.input = "pairs\nmakes\tdouble\npesos";
 

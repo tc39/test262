@@ -9,8 +9,8 @@ es5id: 15.10.3.1_A1_T5
 description: R is /\b/m and instance is RegExp(R, undefined)
 ---*/
 
-__re = /\b/m;
-__instance = RegExp(__re, undefined);
+var __re = /\b/m;
+var __instance = RegExp(__re, undefined);
 __re.indicator = 1;
 
 //CHECK#1

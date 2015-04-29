@@ -9,9 +9,9 @@ es5id: 15.10.2.7_A4_T2
 description: "Execute /[^\"]* /.exec('alice said: \"don\\'t\"') and check results"
 ---*/
 
-__executed = /[^"]*/.exec('alice said: "don\'t"');
+var __executed = /[^"]*/.exec('alice said: "don\'t"');
 
-__expected = ["alice said: "];
+var __expected = ["alice said: "];
 __expected.index = 0;
 __expected.input = 'alice said: "don\'t"';
 

@@ -11,8 +11,8 @@ description: >
     undefined variable
 ---*/
 
-__pattern = /\t/m;
-__re = new RegExp(__pattern, x);
+var __pattern = /\t/m;
+var __re = new RegExp(__pattern, x);
 
 //CHECK#1
 if (__re.source !== __pattern.source) {

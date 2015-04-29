@@ -12,7 +12,7 @@ description: >
     property of the newly constructed object
 ---*/
 
-__re = new RegExp;
+var __re = new RegExp;
 RegExp.prototype.indicator = 1;
 
 //CHECK#1

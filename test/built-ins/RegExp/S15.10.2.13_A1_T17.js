@@ -10,7 +10,7 @@ es5id: 15.10.2.13_A1_T17
 description: Execute /[]/.exec("a[b\n[]\tc]d") and check results
 ---*/
 
-__executed = /[]/.exec("a[b\n[]\tc]d");
+var __executed = /[]/.exec("a[b\n[]\tc]d");
 
 //CHECK#1
 if (__executed !== null) {

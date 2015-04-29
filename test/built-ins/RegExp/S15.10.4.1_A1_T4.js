@@ -9,8 +9,8 @@ es5id: 15.10.4.1_A1_T4
 description: Pattern is new RegExp and RegExp is new RegExp(pattern,undefined)
 ---*/
 
-__pattern = new RegExp;
-__re = new RegExp(__pattern, undefined);
+var __pattern = new RegExp;
+var __re = new RegExp(__pattern, undefined);
 
 //CHECK#1
 if (__re.source !== __pattern.source) {

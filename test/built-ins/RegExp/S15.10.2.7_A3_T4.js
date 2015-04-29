@@ -9,7 +9,7 @@ es5id: 15.10.2.7_A3_T4
 description: Execute /\s+java\s+/.test("java\n\nobject") and check results
 ---*/
 
-__executed = /\s+java\s+/.test("java\n\nobject");
+var __executed = /\s+java\s+/.test("java\n\nobject");
 
 //CHECK#1
 if (__executed) {

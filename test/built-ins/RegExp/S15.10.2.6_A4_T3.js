@@ -9,9 +9,9 @@ es5id: 15.10.2.6_A4_T3
 description: Execute /\Bo\B/.exec("devils arise\tfor\nevil") and check results
 ---*/
 
-__executed = /\Bo\B/i.exec("devils arise\tfOr\nrevil");
+var __executed = /\Bo\B/i.exec("devils arise\tfOr\nrevil");
 
-__expected = ["O"];
+var __expected = ["O"];
 __expected.index = 14;
 __expected.input = "devils arise\tfOr\nrevil";
 

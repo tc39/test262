@@ -10,9 +10,9 @@ es5id: 15.10.2.13_A2_T1
 description: Execute /[^]a/m.exec("a\naba") and check results
 ---*/
 
-__executed = /[^]a/m.exec("a\naba");
+var __executed = /[^]a/m.exec("a\naba");
 
-__expected = ["\na"];
+var __expected = ["\na"];
 __expected.index = 1;
 __expected.input = "a\naba";
 

@@ -11,7 +11,7 @@ description: >
     RegExp(R,"gm")
 ---*/
 
-__instance = RegExp({toString:function(){return "[a-c]*";}}, "gm");
+var __instance = RegExp({toString:function(){return "[a-c]*";}}, "gm");
 
 //CHECK#1
 if (__instance.constructor !== RegExp) {

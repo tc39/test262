@@ -7,10 +7,10 @@ es5id: 15.10.6.4_A7
 description: Checking if creating the RegExp.prototype.toString object fails
 ---*/
 
-__FACTORY = RegExp.prototype.toString;
+var __FACTORY = RegExp.prototype.toString;
 
 try {
-	__instance = new __FACTORY;
+	var __instance = new __FACTORY;
 	$ERROR('#1.1: __FACTORY = RegExp.prototype.toString throw TypeError. Actual: ' + (__instance));
 } catch (e) {
   if ((e instanceof TypeError) !== true) {

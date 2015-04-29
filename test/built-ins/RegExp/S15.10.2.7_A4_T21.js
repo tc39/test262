@@ -9,7 +9,7 @@ es5id: 15.10.2.7_A4_T21
 description: Execute /[xyz]*1/.test('a0.b2.c3') and check results
 ---*/
 
-__executed = /[xyz]*1/.test('a0.b2.c3');
+var __executed = /[xyz]*1/.test('a0.b2.c3');
 
 //CHECK#1
 if (__executed) {

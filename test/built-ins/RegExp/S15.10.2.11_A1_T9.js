@@ -14,7 +14,7 @@ if ((arr === null) || (arr[0] !== "AAAAAAAAAAA")) {
   $ERROR('#1: var arr = /((((((((((A))))))))))\\10\\9\\8\\7\\6\\5\\4\\3\\2\\1/.exec("AAAAAAAAAAA"); arr[0] === "AAAAAAAAAAA". Actual. ' + (arr && arr[0]));
 }
 
-for (i = 1; i <= 10; i++) {
+for (var i = 1; i <= 10; i++) {
   //CHECK#i
   if ((arr === null) || (arr[i] !== "A")) {
     $ERROR('#2: var arr = /((((((((((A))))))))))\\10\\9\\8\\7\\6\\5\\4\\3\\2\\1/.exec("AAAAAAAAAAA"); arr[' + i + '] === "A". Actual. ' + (arr && arr[i]));

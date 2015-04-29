@@ -7,7 +7,7 @@ es5id: 15.10.4.1_A4_T1
 description: RegExp is new RegExp(undefined)
 ---*/
 
-__re = new RegExp(null, void 0);
+var __re = new RegExp(null, void 0);
 
 //CHECK#1
 if (__re.source !== "null") {

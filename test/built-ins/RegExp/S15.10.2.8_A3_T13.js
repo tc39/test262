@@ -13,9 +13,9 @@ description: >
     results
 ---*/
 
-__executed = /(a(b(c)))(d(e(f)))\2\5/.exec("xabcdefbcefg");
+var __executed = /(a(b(c)))(d(e(f)))\2\5/.exec("xabcdefbcefg");
 
-__expected = ["abcdefbcef","abc","bc","c","def","ef","f"];
+var __expected = ["abcdefbcef","abc","bc","c","def","ef","f"];
 __expected.index = 1;
 __expected.input = "xabcdefbcefg";
 

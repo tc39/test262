@@ -13,9 +13,9 @@ description: >
     \t]*[\S]+/.exec("Course_Creator = Test") and check results
 ---*/
 
-__executed = /([\S]+([ \t]+[\S]+)*)[ \t]*=[ \t]*[\S]+/.exec("Course_Creator = Test");
+var __executed = /([\S]+([ \t]+[\S]+)*)[ \t]*=[ \t]*[\S]+/.exec("Course_Creator = Test");
 
-__expected = ["Course_Creator = Test","Course_Creator",undefined];
+var __expected = ["Course_Creator = Test","Course_Creator",undefined];
 __expected.index = 0;
 __expected.input = "Course_Creator = Test";
 

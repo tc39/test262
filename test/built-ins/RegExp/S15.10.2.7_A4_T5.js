@@ -11,9 +11,9 @@ description: >
     check results
 ---*/
 
-__executed = /[^"]*/.exec('alice \u0022sweep\u0022: "don\'t"');
+var __executed = /[^"]*/.exec('alice \u0022sweep\u0022: "don\'t"');
 
-__expected = ["alice "];
+var __expected = ["alice "];
 __expected.index = 0;
 __expected.input = 'alice "sweep": "don\'t"';
 

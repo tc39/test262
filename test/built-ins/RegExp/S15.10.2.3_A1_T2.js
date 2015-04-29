@@ -10,9 +10,9 @@ es5id: 15.10.2.3_A1_T2
 description: Execute /((a)|(ab))((c)|(bc))/.exec("abc") and check results
 ---*/
 
-__executed = /((a)|(ab))((c)|(bc))/.exec("abc");
+var __executed = /((a)|(ab))((c)|(bc))/.exec("abc");
 
-__expected = ["abc", "a", "a", undefined, "bc", undefined, "bc"];
+var __expected = ["abc", "a", "a", undefined, "bc", undefined, "bc"];
 __expected.index = 0;
 __expected.input = "abc";
 

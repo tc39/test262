@@ -10,14 +10,14 @@ es5id: 15.10.6.2_A3_T6
 description: RegExp is /(\d+)/g and tested string is "123 456 789"
 ---*/
 
-__re = /(\d+)/g;
+var __re = /(\d+)/g;
 
-__matched = [];
+var __matched = [];
 
-__expected = ["123","456","789"];
+var __expected = ["123","456","789"];
 
 do{
-    __executed = __re.exec("123 456 789");
+    var __executed = __re.exec("123 456 789");
     if (__executed !== null) {
     	__matched.push(__executed[0]);
     } else {

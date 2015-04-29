@@ -9,7 +9,7 @@ es5id: 15.10.2.6_A1_T1
 description: Execute /s$/.test("pairs\nmakes\tdouble") and check results
 ---*/
 
-__executed = /s$/.test("pairs\nmakes\tdouble");
+var __executed = /s$/.test("pairs\nmakes\tdouble");
 
 //CHECK#1
 if (__executed) {

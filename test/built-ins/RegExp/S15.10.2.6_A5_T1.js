@@ -9,9 +9,9 @@ es5id: 15.10.2.6_A5_T1
 description: Execute /^^^^^^^robot$$$$/.exec("robot") and check results
 ---*/
 
-__executed = /^^^^^^^robot$$$$/.exec("robot");
+var __executed = /^^^^^^^robot$$$$/.exec("robot");
 
-__expected = ["robot"];
+var __expected = ["robot"];
 __expected.index = 0;
 __expected.input = "robot";
 

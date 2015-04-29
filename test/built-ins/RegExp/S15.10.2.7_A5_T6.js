@@ -9,9 +9,9 @@ es5id: 15.10.2.7_A5_T6
 description: Execute /o?pqrst/.exec("pqrstuvw") and check results
 ---*/
 
-__executed = /o?pqrst/.exec("pqrstuvw");
+var __executed = /o?pqrst/.exec("pqrstuvw");
 
-__expected = ["pqrst"];
+var __expected = ["pqrst"];
 __expected.index = 0;
 __expected.input = "pqrstuvw";
 

@@ -7,7 +7,7 @@ es5id: 15.10.6.3_A1_T17
 description: RegExp is /ll|l/ and tested string is null
 ---*/
 
-__re = /ll|l/;
+var __re = /ll|l/;
 
 //CHECK#0
 if (__re.test(null) !== (__re.exec(null) !== null)) {

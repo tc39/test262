@@ -12,9 +12,9 @@ description: >
     /(aa|aabaac|ba|b|c)* /
 ---*/
 
-__executed = /(aa|aabaac|ba|b|c)*/.exec({toString:function(){return {};}, valueOf:function(){return "aabaac";}});
+var __executed = /(aa|aabaac|ba|b|c)*/.exec({toString:function(){return {};}, valueOf:function(){return "aabaac";}});
 
-__expected = ["aaba", "ba"];
+var __expected = ["aaba", "ba"];
 __expected.index=0;
 __expected.input="aabaac";
 

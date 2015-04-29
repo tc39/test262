@@ -10,10 +10,10 @@ es5id: 15.10.2.8_A4_T2
 description: Execute /.+/.exec("line 1\nline 2") and check results
 ---*/
 
-__string = "line 1\nline 2";
-__executed = /.+/.exec(__string);
+var __string = "line 1\nline 2";
+var __executed = /.+/.exec(__string);
 
-__expected = ["line 1"];
+var __expected = ["line 1"];
 __expected.index = 0;
 __expected.input = __string;
 

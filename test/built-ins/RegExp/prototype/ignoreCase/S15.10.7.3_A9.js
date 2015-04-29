@@ -10,7 +10,7 @@ description: Checking if deleting the ignoreCase property succeeds
 includes: [$FAIL.js]
 ---*/
 
-__re = RegExp.prototype;
+var __re = RegExp.prototype;
 
 //CHECK#0
 if (__re.hasOwnProperty('ignoreCase') !== true) {

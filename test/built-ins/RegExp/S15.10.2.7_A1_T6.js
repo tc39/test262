@@ -9,9 +9,9 @@ es5id: 15.10.2.7_A1_T6
 description: Execute /\d{2,4}/.exec("0a0\u0031\u0031b") and check results
 ---*/
 
-__executed = /\d{2,4}/.exec("0a0\u0031\u0031b");
+var __executed = /\d{2,4}/.exec("0a0\u0031\u0031b");
 
-__expected = ["011"];
+var __expected = ["011"];
 __expected.index = 2;
 __expected.input = "0a011b";
 

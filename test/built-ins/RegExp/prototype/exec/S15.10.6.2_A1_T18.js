@@ -9,9 +9,9 @@ es5id: 15.10.6.2_A1_T18
 description: String is undefined and RegExp is /nd|ne/
 ---*/
 
-__executed = /nd|ne/.exec(undefined);
+var __executed = /nd|ne/.exec(undefined);
 
-__expected = ["nd"];
+var __expected = ["nd"];
 __expected.index=1;
 __expected.input="undefined";
 

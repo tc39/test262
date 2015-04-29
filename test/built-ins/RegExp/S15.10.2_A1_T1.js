@@ -16,41 +16,41 @@ description: "See bug http://bugzilla.mozilla.org/show_bug.cgi?id=103087"
 // this copyright and citation notice remains intact and that modifications
 // or additions are clearly identified.
 
-TextSE = "[^<]+";
-UntilHyphen = "[^-]*-";
-Until2Hyphens = UntilHyphen + "([^-]" + UntilHyphen + ")*-";
-CommentCE = Until2Hyphens + ">?";
-UntilRSBs = "[^]]*]([^]]+])*]+";
-CDATA_CE = UntilRSBs + "([^]>]" + UntilRSBs + ")*>";
-S = "[ \\n\\t\\r]+";
-NameStrt = "[A-Za-z_:]|[^\\x00-\\x7F]";
-NameChar = "[A-Za-z0-9_:.-]|[^\\x00-\\x7F]";
-Name = "(" + NameStrt + ")(" + NameChar + ")*";
-QuoteSE = '"[^"]' + "*" + '"' + "|'[^']*'";
-DT_IdentSE = S + Name + "(" + S + "(" + Name + "|" + QuoteSE + "))*";
-MarkupDeclCE = "([^]\"'><]+|" + QuoteSE + ")*>";
-S1 = "[\\n\\r\\t ]";
-UntilQMs = "[^?]*\\?+";
-PI_Tail = "\\?>|" + S1 + UntilQMs + "([^>?]" + UntilQMs + ")*>";
-DT_ItemSE = "<(!(--" + Until2Hyphens + ">|[^-]" + MarkupDeclCE + ")|\\?" + Name + "(" + PI_Tail + "))|%" + Name + ";|" + S;
-DocTypeCE = DT_IdentSE + "(" + S + ")?(\\[(" + DT_ItemSE + ")*](" + S + ")?)?>?";
-DeclCE = "--(" + CommentCE + ")?|\\[CDATA\\[(" + CDATA_CE + ")?|DOCTYPE(" + DocTypeCE + ")?";
-PI_CE = Name + "(" + PI_Tail + ")?";
-EndTagCE = Name + "(" + S + ")?>?";
-AttValSE = '"[^<"]' + "*" + '"' + "|'[^<']*'";
-ElemTagCE = Name + "(" + S + Name + "(" + S + ")?=(" + S + ")?(" + AttValSE + "))*(" + S + ")?/?>?";
-MarkupSPE = "<(!(" + DeclCE + ")?|\\?(" + PI_CE + ")?|/(" + EndTagCE + ")?|(" + ElemTagCE + ")?)";
-XML_SPE = TextSE + "|" + MarkupSPE;
+var TextSE = "[^<]+";
+var UntilHyphen = "[^-]*-";
+var Until2Hyphens = UntilHyphen + "([^-]" + UntilHyphen + ")*-";
+var CommentCE = Until2Hyphens + ">?";
+var UntilRSBs = "[^]]*]([^]]+])*]+";
+var CDATA_CE = UntilRSBs + "([^]>]" + UntilRSBs + ")*>";
+var S = "[ \\n\\t\\r]+";
+var NameStrt = "[A-Za-z_:]|[^\\x00-\\x7F]";
+var NameChar = "[A-Za-z0-9_:.-]|[^\\x00-\\x7F]";
+var Name = "(" + NameStrt + ")(" + NameChar + ")*";
+var QuoteSE = '"[^"]' + "*" + '"' + "|'[^']*'";
+var DT_IdentSE = S + Name + "(" + S + "(" + Name + "|" + QuoteSE + "))*";
+var MarkupDeclCE = "([^]\"'><]+|" + QuoteSE + ")*>";
+var S1 = "[\\n\\r\\t ]";
+var UntilQMs = "[^?]*\\?+";
+var PI_Tail = "\\?>|" + S1 + UntilQMs + "([^>?]" + UntilQMs + ")*>";
+var DT_ItemSE = "<(!(--" + Until2Hyphens + ">|[^-]" + MarkupDeclCE + ")|\\?" + Name + "(" + PI_Tail + "))|%" + Name + ";|" + S;
+var DocTypeCE = DT_IdentSE + "(" + S + ")?(\\[(" + DT_ItemSE + ")*](" + S + ")?)?>?";
+var DeclCE = "--(" + CommentCE + ")?|\\[CDATA\\[(" + CDATA_CE + ")?|DOCTYPE(" + DocTypeCE + ")?";
+var PI_CE = Name + "(" + PI_Tail + ")?";
+var EndTagCE = Name + "(" + S + ")?>?";
+var AttValSE = '"[^<"]' + "*" + '"' + "|'[^<']*'";
+var ElemTagCE = Name + "(" + S + Name + "(" + S + ")?=(" + S + ")?(" + AttValSE + "))*(" + S + ")?/?>?";
+var MarkupSPE = "<(!(" + DeclCE + ")?|\\?(" + PI_CE + ")?|/(" + EndTagCE + ")?|(" + ElemTagCE + ")?)";
+var XML_SPE = TextSE + "|" + MarkupSPE;
 
 ///
 ////
 /////
 
-__patterns = [TextSE,UntilHyphen,Until2Hyphens,CommentCE,UntilRSBs,CDATA_CE,S,NameStrt, NameChar, 
+var __patterns = [TextSE,UntilHyphen,Until2Hyphens,CommentCE,UntilRSBs,CDATA_CE,S,NameStrt, NameChar, 
 Name, QuoteSE, DT_IdentSE, MarkupDeclCE, S1,UntilQMs, PI_Tail, DT_ItemSE, DocTypeCE, DeclCE, 
 PI_CE, EndTagCE, AttValSE, ElemTagCE, MarkupSPE, XML_SPE];
 
-__html=""+
+var __html=""+
 '<html xmlns="http://www.w3.org/1999/xhtml"\n' +
 '      xmlns:xlink="http://www.w3.org/XML/XLink/0.9">\n' +
 '  <head><title>Three Namespaces</title></head>\n' +
@@ -76,7 +76,7 @@ __html=""+
 //CHECK#1
 try {
     for(var index=0; index<__patterns.length; index++) {
-    	__re = new RegExp(__patterns[index]);
+    	var __re = new RegExp(__patterns[index]);
     	__re.test(__html);
     }
 } catch (e) {

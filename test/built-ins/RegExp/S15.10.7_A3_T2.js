@@ -9,7 +9,7 @@ description: >
     and check it constructor.  RegExp instance is new RegExp
 ---*/
 
-__re = new RegExp;
+var __re = new RegExp;
 
 //CHECK#1
 if (typeof __re !== "object") {

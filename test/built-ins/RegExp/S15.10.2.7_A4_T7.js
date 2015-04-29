@@ -11,9 +11,9 @@ description: >
     check results
 ---*/
 
-__executed = /["'][^"']*["']/.exec('alice cries out: \'don\'t\'');
+var __executed = /["'][^"']*["']/.exec('alice cries out: \'don\'t\'');
 
-__expected = ["\'don\'"];
+var __expected = ["\'don\'"];
 __expected.index = 17;
 __expected.input = 'alice cries out: \'don\'t\'';
 

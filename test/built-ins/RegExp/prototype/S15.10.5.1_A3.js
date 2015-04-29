@@ -5,6 +5,7 @@
 info: The RegExp.prototype property has the attribute DontDelete
 es5id: 15.10.5.1_A3
 description: Checking if deleting the RegExp.prototype property fails
+flags: [noStrict]
 includes: [$FAIL.js]
 ---*/
 

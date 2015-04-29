@@ -9,9 +9,9 @@ es5id: 15.10.2.7_A5_T9
 description: Execute /b?b?b?b/.exec("abbbbc") and check results
 ---*/
 
-__executed = /b?b?b?b/.exec("abbbbc");
+var __executed = /b?b?b?b/.exec("abbbbc");
 
-__expected = ["bbbb"];
+var __expected = ["bbbb"];
 __expected.index = 1;
 __expected.input = "abbbbc";
 

@@ -10,7 +10,7 @@ es5id: 15.10.2.13_A1_T7
 description: Execute /ab[erst]de/.test("abcde") and check results
 ---*/
 
-__executed = /ab[erst]de/.test("abcde");
+var __executed = /ab[erst]de/.test("abcde");
 
 //CHECK#1
 if (__executed) {

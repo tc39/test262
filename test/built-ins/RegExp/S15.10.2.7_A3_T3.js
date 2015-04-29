@@ -9,7 +9,7 @@ es5id: 15.10.2.7_A3_T3
 description: Execute /\s+java\s+/.test("\t javax package") and check results
 ---*/
 
-__executed = /\s+java\s+/.test("\t javax package");
+var __executed = /\s+java\s+/.test("\t javax package");
 
 //CHECK#1
 if (__executed) {

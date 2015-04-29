@@ -9,9 +9,9 @@ description: "ControlLetter :: A - Z"
 
 //CHECK#0041-005A
 var result = true; 
-for (alpha = 0x0041; alpha <= 0x005A; alpha++) {
-  str = String.fromCharCode(alpha % 32);
-  arr = (new RegExp("\\c" + String.fromCharCode(alpha))).exec(str);  
+for (var alpha = 0x0041; alpha <= 0x005A; alpha++) {
+  var str = String.fromCharCode(alpha % 32);
+  var arr = (new RegExp("\\c" + String.fromCharCode(alpha))).exec(str);  
   if ((arr === null) || (arr[0] !== str)) {
     result = false;
   }

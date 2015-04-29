@@ -10,7 +10,7 @@ description: >
 includes: [$FAIL.js]
 ---*/
 
-__re = new RegExp("A?B");
+var __re = new RegExp("A?B");
 
 //CHECK#0
 if (__re.hasOwnProperty('lastIndex') !== true) {
@@ -23,8 +23,8 @@ if (__re.propertyIsEnumerable('lastIndex') !== false) {
 }
 
  //CHECK#2
-count = 0
-for (p in __re){
+var count = 0
+for (var p in __re){
   if (p==="lastIndex") count++   
 }
 

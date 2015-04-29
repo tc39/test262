@@ -10,9 +10,9 @@ es5id: 15.10.2.8_A2_T10
 description: Execute /(?!a|b)|c/.exec("bc") and check results
 ---*/
 
-__executed = /(?!a|b)|c/.exec("bc");
+var __executed = /(?!a|b)|c/.exec("bc");
 
-__expected = [""];
+var __expected = [""];
 __expected.index = 1;
 __expected.input = "bc";
 

@@ -10,9 +10,9 @@ es5id: 15.10.2.13_A1_T9
 description: Execute /[1234567].{2}/.exec("abc6defghijkl") and check results
 ---*/
 
-__executed = /[1234567].{2}/.exec("abc6defghijkl");
+var __executed = /[1234567].{2}/.exec("abc6defghijkl");
 
-__expected = ["6de"];
+var __expected = ["6de"];
 __expected.index = 3;
 __expected.input = "abc6defghijkl";
 

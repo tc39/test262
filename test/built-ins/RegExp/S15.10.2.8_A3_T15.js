@@ -11,11 +11,11 @@ es5id: 15.10.2.8_A3_T15
 description: "see bug http:bugzilla.mozilla.org/show_bug.cgi?id=119909"
 ---*/
 
-__strOriginal = "hello";
-__openParen = '(';
-__closeParen = ')';
-__pattern = '';
- numParens = 200;
+var __strOriginal = "hello";
+var __openParen = '(';
+var __closeParen = ')';
+var __pattern = '';
+var numParens = 200;
   
 for (var i=0; i<numParens; i++)
     __pattern += __openParen;
@@ -25,11 +25,11 @@ __pattern += __strOriginal;
 for (i=0; i<numParens; i++) 
     __pattern += __closeParen;
     
-__re = new RegExp(__pattern);
+var __re = new RegExp(__pattern);
 
-__executed = __re.exec(__strOriginal);
+var __executed = __re.exec(__strOriginal);
 
-__expected = [];
+var __expected = [];
 for (var i=0; i<=numParens; i++)
     __expected.push(__strOriginal);
 __expected.index = 0;

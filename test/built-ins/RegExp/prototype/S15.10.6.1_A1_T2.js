@@ -11,9 +11,9 @@ description: >
     RegExp.prototype.constructor
 ---*/
 
-__FACTORY = RegExp.prototype.constructor;
+var __FACTORY = RegExp.prototype.constructor;
 
-__instance = new __FACTORY;
+var __instance = new __FACTORY;
 
 //CHECK#1
 if ((__instance instanceof RegExp) !== true) {

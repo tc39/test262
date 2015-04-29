@@ -13,7 +13,7 @@ var regexp_s = /\s/;
 
 //CHECK#0410-042F
 var result = true;  
-for (alpha = 0x0410; alpha <= 0x042F; alpha++) {
+for (var alpha = 0x0410; alpha <= 0x042F; alpha++) {
   if (regexp_s.exec(String.fromCharCode(alpha)) !== null) {
     result = false;
   }

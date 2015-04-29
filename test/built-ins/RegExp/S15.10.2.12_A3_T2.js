@@ -13,9 +13,9 @@ var regexp_w = /\w/;
 
 //CHECK#0061-007A
 var result = true; 
-for (alpha = 0x0061; alpha <= 0x007A; alpha++) {
-  str = String.fromCharCode(alpha);
-  arr = regexp_w.exec(str); 
+for (var alpha = 0x0061; alpha <= 0x007A; alpha++) {
+  var str = String.fromCharCode(alpha);
+  var arr = regexp_w.exec(str); 
   if ((arr === null) || (arr[0] !== str)) {
     result = false;
   }

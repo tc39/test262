@@ -10,9 +10,9 @@ es5id: 15.10.2.7_A6_T5
 description: Execute /(123){1,}x\1/.exec("123123x123") and check results
 ---*/
 
-__executed = /(123){1,}x\1/.exec("123123x123");
+var __executed = /(123){1,}x\1/.exec("123123x123");
 
-__expected = ["123123x123","123"];
+var __expected = ["123123x123","123"];
 __expected.index = 0;
 __expected.input = "123123x123";
 

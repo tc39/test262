@@ -7,9 +7,9 @@ es5id: 15.10.2.6_A6_T4
 description: "Execute /^.*(:|$)/.exec(\"Hello: World\") and check results"
 ---*/
 
-__executed = /^.*(:|$)/.exec("Hello: World");
+var __executed = /^.*(:|$)/.exec("Hello: World");
 
-__expected = ["Hello: World", ""];
+var __expected = ["Hello: World", ""];
 __expected.index = 0;
 __expected.input = "Hello: World";
 
