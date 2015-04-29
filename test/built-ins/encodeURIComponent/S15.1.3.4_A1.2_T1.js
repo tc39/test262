@@ -9,14 +9,14 @@ es5id: 15.1.3.4_A1.2_T1
 description: Complex tests
 ---*/
 
-errorCount = 0;
-count = 0;
+var errorCount = 0;
+var count = 0;
 var indexP;
 var indexO = 0;
 
-for (index = 0xD800; index <= 0xDBFF; index++) {
+for (var index = 0xD800; index <= 0xDBFF; index++) {
   count++;   
-  hex = decimalToHexString(index);
+  var hex = decimalToHexString(index);
   try {
     encodeURIComponent(String.fromCharCode(index));
   } catch (e) { 

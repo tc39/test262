@@ -13,8 +13,8 @@ if (this.propertyIsEnumerable('decodeURI') !== false) {
 }
 
 //CHECK#2
-result = true;
-for (p in this){
+var result = true;
+for (var p in this){
   if (p === "decodeURI") {
     result = false;
   }  

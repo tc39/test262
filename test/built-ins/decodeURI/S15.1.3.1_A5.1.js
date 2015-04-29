@@ -13,8 +13,8 @@ if (decodeURI.propertyIsEnumerable('length') !== false) {
 }
 
 //CHECK#2
-result = true;
-for (p in decodeURI){
+var result = true;
+for (var p in decodeURI){
   if (p === "length") {
     result = false;
   }  

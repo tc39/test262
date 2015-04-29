@@ -9,16 +9,16 @@ es5id: 15.1.3.3_A2.5_T1
 description: Complex tests, use RFC 3629
 ---*/
 
-errorCount = 0;
-count = 0;
+var errorCount = 0;
+var count = 0;
 var indexP;
 var indexO = 0; 
-for (index = 0xE000; index <= 0xFFFF; index++) {
+for (var index = 0xE000; index <= 0xFFFF; index++) {
   count++;  
-  hex1 = decimalToHexString(0x0080 + (index & 0x003F)).substring(2);
-  hex2 = decimalToHexString(0x0080 + (index & 0x0FC0) / 0x0040).substring(2);
-  hex3 = decimalToHexString(0x00E0 + (index & 0xF000) / 0x1000).substring(2);
-  str = String.fromCharCode(index);
+  var hex1 = decimalToHexString(0x0080 + (index & 0x003F)).substring(2);
+  var hex2 = decimalToHexString(0x0080 + (index & 0x0FC0) / 0x0040).substring(2);
+  var hex3 = decimalToHexString(0x00E0 + (index & 0xF000) / 0x1000).substring(2);
+  var str = String.fromCharCode(index);
   try {
     if (encodeURI(str).toUpperCase() === "%" + hex3 + "%" + hex2 + "%" + hex1) continue;
   } catch(e) {}      

@@ -9,18 +9,18 @@ es5id: 15.1.3.3_A2.1_T1
 description: Complex tests, use RFC 3629
 ---*/
 
-uriReserved = [";", "/", "?", ":", "@", "&", "=", "+", "$", ","];
-uriUnescaped = ["-", "_", ".", "!", "~", "*", "'", "(", ")", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]; 
-errorCount = 0;
-count = 0;
+var uriReserved = [";", "/", "?", ":", "@", "&", "=", "+", "$", ","];
+var uriUnescaped = ["-", "_", ".", "!", "~", "*", "'", "(", ")", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var errorCount = 0;
+var count = 0;
 var indexP;
 var indexO = 0;
 
 l : 
-for (index = 0x0000; index <= 0x007F; index++) {
+for (var index = 0x0000; index <= 0x007F; index++) {
   count++;
-  str = String.fromCharCode(index);
-  for (indexC = 0; indexC < uriReserved.length; indexC++) {    
+  var str = String.fromCharCode(index);
+  for (var indexC = 0; indexC < uriReserved.length; indexC++) {
     if (uriReserved[indexC] === str) continue l;
   }
    for (indexC = 0; indexC < uriUnescaped.length; indexC++) {

@@ -9,17 +9,17 @@ es5id: 15.1.3.2_A1.14_T2
 description: Complex tests. B = [0xE0 - 0xEF], C = [0x00, 0x7F]
 ---*/
 
-errorCount = 0;
-count = 0;
+var errorCount = 0;
+var count = 0;
 var indexP;
 var indexO = 0;
 
-for (indexB = 0xE0; indexB <= 0xEF; indexB++) {
+for (var indexB = 0xE0; indexB <= 0xEF; indexB++) {
   count++; 
-  hexB = decimalToHexString(indexB);  
-  result = true;
-  for (indexC = 0x00; indexC <= 0x7F; indexC++) {
-    hexC = decimalToHexString(indexC);  
+  var hexB = decimalToHexString(indexB);
+  var result = true;
+  for (var indexC = 0x00; indexC <= 0x7F; indexC++) {
+    var hexC = decimalToHexString(indexC);
     try {
       decodeURIComponent("%" + hexB.substring(2) + "%A0" + "%" + hexC.substring(2));
     } catch (e) { 

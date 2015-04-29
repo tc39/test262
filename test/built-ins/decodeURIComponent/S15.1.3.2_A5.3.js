@@ -5,6 +5,7 @@
 info: The length property of decodeURIComponent has the attribute ReadOnly
 es5id: 15.1.3.2_A5.3
 description: Checking if varying the length property fails
+flags: [noStrict]
 ---*/
 
 //CHECK#1

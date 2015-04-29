@@ -13,8 +13,8 @@ if (encodeURIComponent.propertyIsEnumerable('length') !== false) {
 }
 
 //CHECK#2
-result = true;
-for (p in encodeURIComponent){
+var result = true;
+for (var p in encodeURIComponent){
   if (p === "length") {
     result = false;
   }  

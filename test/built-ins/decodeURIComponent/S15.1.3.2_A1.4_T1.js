@@ -7,17 +7,17 @@ es5id: 15.1.3.2_A1.4_T1
 description: Complex tests. B = [0xC0 - 0xDF]
 ---*/
 
-errorCount = 0;
-count = 0;
+var errorCount = 0;
+var count = 0;
 var indexP;
 var indexO = 0;
 
-for (index = 0xC0; index <= 0xDF; index++) {
+for (var index = 0xC0; index <= 0xDF; index++) {
   count++; 
-  str = "";
-  result = true;
-  for (len = 0; len < 3; len++) {
-    hex = decimalToHexString(index);
+  var str = "";
+  var result = true;
+  for (var len = 0; len < 3; len++) {
+    var hex = decimalToHexString(index);
     try {
       decodeURIComponent("%" + hex.substring(2) + str);      
     } catch (e) { 
