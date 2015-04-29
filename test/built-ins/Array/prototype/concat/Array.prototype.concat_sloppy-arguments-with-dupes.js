@@ -6,6 +6,7 @@
 /*---
 es6id: 22.1.3.1_3
 description: Array.prototype.concat sloppy arguments with dupes
+flags: [noStrict]
 includes: [compareArray.js]
 ---*/
 var args = (function(a, a, a) { return arguments; })(1,2,3);

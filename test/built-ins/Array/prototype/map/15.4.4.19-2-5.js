@@ -30,7 +30,6 @@ function testcase() {
         Con.prototype = proto;
 
         var child = new Con();
-        child.length = 2;
         Object.defineProperty(child, "length", {
             value: 2,
             configurable: true

@@ -7,6 +7,7 @@
 /*---
 es5id: 15.4.4.18-5-1
 description: Array.prototype.forEach - thisArg is passed
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 
