@@ -8,7 +8,7 @@ description: Use for-in statement
 ---*/
 
 // CHECK#1
-for (prop in this) {
+for (var prop in this) {
   if (prop === "undefined") {
 	$ERROR('#1: The undefined is DontEnum');
   }	 	

@@ -14,7 +14,7 @@ if (this.propertyIsEnumerable('isNaN') !== false) {
 
 //CHECK#2
 var result = true;
-for (p in this){
+for (var p in this){
   if (p === "isNaN") {
     result = false;
   }  
