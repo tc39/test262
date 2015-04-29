@@ -7,6 +7,7 @@
 /*---
 es5id: 15.4.4.20-5-1
 description: Array.prototype.filter - thisArg is passed
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

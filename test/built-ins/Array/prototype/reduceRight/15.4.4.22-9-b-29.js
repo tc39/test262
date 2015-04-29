@@ -9,6 +9,7 @@ es5id: 15.4.4.22-9-b-29
 description: >
     Array.prototype.reduceRight - decreasing length of array does not
     delete non-configurable properties
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

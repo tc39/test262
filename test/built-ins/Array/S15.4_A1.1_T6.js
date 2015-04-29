@@ -10,7 +10,7 @@ description: Checking for Boolean object
 ---*/
 
 //CHECK#1
-x = [];
+var x = [];
 x[new Boolean(true)] = 1;
 if (x[1] !== undefined) {
   $ERROR('#1: x = []; x[new Boolean(true)] = 1; x[1] === undefined. Actual: ' + (x[1]));  

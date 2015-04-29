@@ -10,7 +10,7 @@ description: Checking for boolean primitive
 ---*/
 
 //CHECK#1
-x = [];
+var x = [];
 x[true] = 1;
 if (x[1] !== undefined) {
   $ERROR('#1: x = []; x[true] = 1; x[1] === undefined. Actual: ' + (x[1]));  

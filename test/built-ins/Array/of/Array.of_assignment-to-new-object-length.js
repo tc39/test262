@@ -14,7 +14,4 @@ function Empty() {}
 Empty.of = Array.of;
 Object.defineProperty(Empty.prototype, "length", {get: function() { return 0; }});
 
-var nothing = new Empty;
-nothing.length = 2;  // no exception; this is not a strict mode assignment
-
 assert.throws(TypeError, function() { Empty.of(); });

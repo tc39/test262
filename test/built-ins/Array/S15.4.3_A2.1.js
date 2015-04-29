@@ -13,8 +13,8 @@ if (Array.propertyIsEnumerable('length') !== false) {
 }
 
 //CHECK#2
-result = true;
-for (p in Array){
+var result = true;
+for (var p in Array){
   if (p === "length") {
     result = false;
   }  

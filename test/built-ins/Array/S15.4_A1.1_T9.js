@@ -10,7 +10,7 @@ description: If Type(value) is Object, evaluate ToPrimitive(value, String)
 ---*/
 
 //CHECK#1
-x = [];
+var x = [];
 var object = {valueOf: function() {return 1}};
 x[object] = 0;
 if (x["[object Object]"] !== 0) {

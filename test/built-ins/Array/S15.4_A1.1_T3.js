@@ -10,7 +10,7 @@ description: Checking for number primitive
 ---*/
 
 //CHECK#1
-x = [];
+var x = [];
 x[4294967296] = 1;
 if (x[0] !== undefined) {
   $ERROR('#1: x = []; x[4294967296] = 1; x[0] === undefined. Actual: ' + (x[0]));  
@@ -22,7 +22,7 @@ if (x["4294967296"] !== 1) {
 }
 
 //CHECK#3
-y = [];
+var y = [];
 y[4294967297] = 1;
 if (y[1] !== undefined) {
   $ERROR('#3: y = []; y[4294967297] = 1; y[1] === undefined. Actual: ' + (y[1]));  
@@ -34,7 +34,7 @@ if (y["4294967297"] !== 1) {
 }
 
 //CHECK#5
-z = [];
+var z = [];
 z[1.1] = 1;
 if (z[1] !== undefined) {
   $ERROR('#5: z = []; z[1.1] = 1; z[1] === undefined. Actual: ' + (z[1]));  

@@ -10,9 +10,9 @@ description: Array index is power of two
 ---*/
 
 //CHECK#
-x = [];
-k = 1;
-for (i = 0; i < 32; i++) {
+var x = [];
+var k = 1;
+for (var i = 0; i < 32; i++) {
   k = k * 2;
   x[k - 2] = k;  
 }

@@ -10,7 +10,7 @@ description: Checking for number primitive
 ---*/
 
 //CHECK#1
-x = [];
+var x = [];
 x[NaN] = 1;
 if (x[0] !== undefined) {
   $ERROR('#1: x = []; x[NaN] = 1; x[0] === undefined. Actual: ' + (x[0]));  
@@ -22,7 +22,7 @@ if (x["NaN"] !== 1) {
 } 
 
 //CHECK#3
-y = [];
+var y = [];
 y[Number.POSITIVE_INFINITY] = 1;
 if (y[0] !== undefined) {
   $ERROR('#3: y = []; y[Number.POSITIVE_INFINITY] = 1; y[0] === undefined. Actual: ' + (y[0]));  
@@ -34,7 +34,7 @@ if (y["Infinity"] !== 1) {
 } 
 
 //CHECK#5
-z = [];
+var z = [];
 z[Number.NEGATIVE_INFINITY] = 1;
 if (z[0] !== undefined) {
   $ERROR('#5: z = []; z[Number.NEGATIVE_INFINITY] = 1; z[0] === undefined. Actual: ' + (z[0]));  

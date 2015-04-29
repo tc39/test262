@@ -7,6 +7,7 @@
 /*---
 es5id: 15.4.4.16-5-1
 description: Array.prototype.every - thisArg not passed
+flags: [noStrict]
 includes:
     - runTestCase.js
     - fnGlobalObject.js

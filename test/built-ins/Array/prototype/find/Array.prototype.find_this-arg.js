@@ -31,14 +31,8 @@ found = ["a", "b", "c"].find(function(val, key) {
 }, thisArg);
 assert.sameValue("b", found);
 
-// Create a new object in each function call when receiver is a
-// primitive value. See ECMA-262, Annex C.
-a = [];
-[1, 2].find(function() { a.push(this) }, "");
-assert(a[0] !== a[1]);
-
-// Do not create a new object otherwise.
-a = [];
+// Check thisArg parameter does not change.
+var a = [];
 [1, 2].find(function() { a.push(this) }, {});
 assert.sameValue(a[0], a[1]);
 

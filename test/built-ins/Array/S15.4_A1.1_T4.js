@@ -10,14 +10,14 @@ description: Checking for string primitive
 ---*/
 
 //CHECK#1
-x = [];
+var x = [];
 x["0"] = 0;
 if (x[0] !== 0) {
   $ERROR('#1: x = []; x["0"] = 0; x[0] === 0. Actual: ' + (x[0]));  
 } 
 
 //CHECK#2
-y = [];
+var y = [];
 y["1"] = 1;
 if (y[1] !== 1) {
   $ERROR('#2: y = []; y["1"] = 1; y[1] === 1. Actual: ' + (y[1]));  

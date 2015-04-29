@@ -30,14 +30,8 @@ index = ["a", "b", "c"].findIndex(function(val, key) {
 }, thisArg);
 assert.sameValue(index, 1);
 
-// Create a new object in each function call when receiver is a
-// primitive value. See ECMA-262, Annex C.
-a = [];
-[1, 2].findIndex(function() { a.push(this) }, "");
-assert(a[0] !== a[1]);
-
-// Do not create a new object otherwise.
-a = [];
+// Check thisArg parameter does not change.
+var a = [];
 [1, 2].findIndex(function() { a.push(this) }, {});
 assert.sameValue(a[1], a[0]);
 

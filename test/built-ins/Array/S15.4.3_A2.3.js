@@ -8,7 +8,7 @@ description: Checking if varying the length property fails
 ---*/
 
 //CHECK#1
-x = Array.length;
+var x = Array.length;
 Array.length = Infinity;
 if (Array.length !== x) {
   $ERROR('#1: x = Array.length; Array.length = Infinity; Array.length === x. Actual: ' + (Array.length));

@@ -7,6 +7,7 @@
 /*---
 es5id: 15.4.4.17-5-25
 description: Array.prototype.some - thisArg not passed
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

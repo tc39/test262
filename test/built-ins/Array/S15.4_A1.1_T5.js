@@ -10,7 +10,7 @@ description: Checking for null and undefined
 ---*/
 
 //CHECK#1
-x = [];
+var x = [];
 x[null] = 0;
 if (x[0] !== undefined) {
   $ERROR('#1: x = []; x[null] = 1; x[0] === undefined. Actual: ' + (x[0]));  
@@ -22,7 +22,7 @@ if (x["null"] !== 0) {
 }
 
 //CHECK#3
-y = [];
+var y = [];
 y[undefined] = 0;
 if (y[0] !== undefined) {
   $ERROR('#3: y = []; y[undefined] = 0; y[0] === undefined. Actual: ' + (y[0]));  
