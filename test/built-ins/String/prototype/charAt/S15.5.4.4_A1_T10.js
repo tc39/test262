@@ -12,10 +12,8 @@ var __str = "lego";
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-with(__str){
-  if (charAt(__obj) !== "e") {
-    $ERROR('#1: var __obj = {toString:function(){return 1;}}; var __str = "lego"; charAt(__obj) === "e". Actual: charAt(__obj) ==='+charAt(__obj) ); 
+  if (__str.charAt(__obj) !== "e") {
+    $ERROR('#1: var __obj = {toString:function(){return 1;}}; var __str = "lego"; __str.charAt(__obj) === "e". Actual: '+__str.charAt(__obj) );
   }
-}
 //
 //////////////////////////////////////////////////////////////////////////////

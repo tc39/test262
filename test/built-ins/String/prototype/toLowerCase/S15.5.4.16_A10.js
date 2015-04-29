@@ -9,6 +9,7 @@ es5id: 15.5.4.16_A10
 description: >
     Checking if varying the String.prototype.toLowerCase.length
     property fails
+flags: [noStrict]
 includes: [$FAIL.js]
 ---*/
 

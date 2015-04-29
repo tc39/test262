@@ -7,7 +7,7 @@ es5id: 15.5.4.16_A1_T2
 description: Instance is Boolean object
 ---*/
 
-__instance = new Boolean;
+var __instance = new Boolean;
 
 __instance.toLowerCase = String.prototype.toLowerCase;
 

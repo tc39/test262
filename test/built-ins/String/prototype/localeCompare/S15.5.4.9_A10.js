@@ -9,6 +9,7 @@ es5id: 15.5.4.9_A10
 description: >
     Checking if varying the String.prototype.localeCompare.length
     property fails
+flags: [noStrict]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////

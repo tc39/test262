@@ -33,7 +33,7 @@ if (String.prototype.toLowerCase.propertyIsEnumerable('length')) {
 // CHECK#2
 var count=0;
 
-for (p in String.prototype.toLowerCase){
+for (var p in String.prototype.toLowerCase){
   if (p==="length") count++;
 }
 

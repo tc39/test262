@@ -9,6 +9,7 @@ es5id: 15.5.4.11-1
 description: >
     'this' object used by the replaceValue function of a
     String.prototype.replace invocation
+flags: [noStrict]
 includes:
     - runTestCase.js
     - fnGlobalObject.js

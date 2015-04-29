@@ -31,7 +31,7 @@ if (String.prototype.charCodeAt.propertyIsEnumerable('length')) {
 // CHECK#2
 var count=0;
 
-for (p in String.prototype.charCodeAt){
+for (var p in String.prototype.charCodeAt){
   if (p==="length") count++;
 }
 

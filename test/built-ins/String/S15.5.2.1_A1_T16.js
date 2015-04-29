@@ -11,7 +11,7 @@ description: >
     and other numbers
 ---*/
 
-__str =new String(.12345);
+var __str =new String(.12345);
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 if (typeof __str !== "object") {

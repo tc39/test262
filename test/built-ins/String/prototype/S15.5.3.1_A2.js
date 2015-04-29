@@ -30,7 +30,7 @@ if (String.propertyIsEnumerable('prototype')) {
 // CHECK#2
 var count=0;
 
-for (p in String){
+for (var p in String){
   if (p==="prototype") count++;
 }
 

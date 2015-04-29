@@ -31,7 +31,7 @@ if (String.prototype.match.propertyIsEnumerable('length')) {
 // CHECK#2
 var count=0;
 
-for (p in String.prototype.match){
+for (var p in String.prototype.match){
   if (p==="length") count++;
 }
 

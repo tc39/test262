@@ -29,9 +29,9 @@ if (String.prototype.concat.propertyIsEnumerable('length')) {
 
 //////////////////////////////////////////////////////////////////////////////
 // CHECK#2
-count = 0;
+var count = 0;
 
-for (p in String.prototype.concat){
+for (var p in String.prototype.concat){
   if (p==="length") count++;
 }
 

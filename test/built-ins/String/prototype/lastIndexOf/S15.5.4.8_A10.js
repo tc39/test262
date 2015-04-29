@@ -9,6 +9,7 @@ es5id: 15.5.4.8_A10
 description: >
     Checking if varying the String.prototype.lastIndexOf.length
     property fails
+flags: [noStrict]
 includes: [$FAIL.js]
 ---*/
 

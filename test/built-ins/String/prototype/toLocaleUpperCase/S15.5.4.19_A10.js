@@ -9,6 +9,7 @@ es5id: 15.5.4.19_A10
 description: >
     Checking if varying the String.prototype.toLocaleUpperCase.length
     property fails
+flags: [noStrict]
 includes: [$FAIL.js]
 ---*/
 

@@ -30,7 +30,7 @@ if (String.prototype.indexOf.propertyIsEnumerable('length')) {
 // CHECK#2
 var count=0;
 
-for (p in String.prototype.indexOf){
+for (var p in String.prototype.indexOf){
   if (p==="length") count++;
 }
 

@@ -31,7 +31,7 @@ if (String.prototype.split.propertyIsEnumerable('length')) {
 // CHECK#2
 var count=0;
 
-for (p in String.prototype.split){
+for (var p in String.prototype.split){
   if (p==="length") count++;
 }
 
