@@ -9,7 +9,6 @@ es5id: 15.2.4.2_A9
 description: >
     Checknig if deleting of the Object.prototype.toString.length
     property fails
-flags: [noStrict]
 includes: [$FAIL.js]
 ---*/
 

@@ -13,7 +13,7 @@ includes:
 var FACTORY = Object.prototype.toLocaleString;
 
 try {
-  instance = new FACTORY;
+  var instance = new FACTORY;
   $FAIL('#1: Object.prototype.toLocaleString can\'t be used as a constructor');
 } catch (e) {
   $PRINT(e);

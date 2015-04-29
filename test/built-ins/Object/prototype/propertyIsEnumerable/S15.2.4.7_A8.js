@@ -24,7 +24,7 @@ if (Object.prototype.propertyIsEnumerable.propertyIsEnumerable('length')) {
 }
 
 // CHECK#2
-for (p in Object.prototype.propertyIsEnumerable){
+for (var p in Object.prototype.propertyIsEnumerable){
   if (p==="length")
         $ERROR('#2: the Object.prototype.propertyIsEnumerable.length property has the attributes DontEnum');
 }
