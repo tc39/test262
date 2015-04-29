@@ -13,7 +13,7 @@ if (Date.prototype.setUTCDate.propertyIsEnumerable('length')) {
   $ERROR('#1: The Date.prototype.setUTCDate.length property has the attribute DontEnum');
 }
 
-for(x in Date.prototype.setUTCDate) {
+for(var x in Date.prototype.setUTCDate) {
   if(x === "length") {
     $ERROR('#2: The Date.prototype.setUTCDate.length has the attribute DontEnum');
   }

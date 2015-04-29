@@ -11,7 +11,7 @@ if (Date.propertyIsEnumerable('UTC')) {
   $ERROR('#1: The Date.UTC property has the attribute DontEnum');
 }
 
-for(x in Date) {
+for(var x in Date) {
   if(x === "UTC") {
     $ERROR('#2: The Date.UTC has the attribute DontEnum');
   }

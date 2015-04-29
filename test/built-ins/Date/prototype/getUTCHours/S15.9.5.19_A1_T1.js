@@ -7,7 +7,7 @@ es5id: 15.9.5.19_A1_T1
 description: Checking absence of ReadOnly attribute
 ---*/
 
-x = Date.prototype.getUTCHours;
+var x = Date.prototype.getUTCHours;
 if(x === 1)
   Date.prototype.getUTCHours = 2;
 else

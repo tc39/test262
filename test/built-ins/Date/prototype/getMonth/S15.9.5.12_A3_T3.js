@@ -13,7 +13,7 @@ if (Date.prototype.getMonth.propertyIsEnumerable('length')) {
   $ERROR('#1: The Date.prototype.getMonth.length property has the attribute DontEnum');
 }
 
-for(x in Date.prototype.getMonth) {
+for(var x in Date.prototype.getMonth) {
   if(x === "length") {
     $ERROR('#2: The Date.prototype.getMonth.length has the attribute DontEnum');
   }

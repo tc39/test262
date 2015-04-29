@@ -11,7 +11,7 @@ if (Date.prototype.propertyIsEnumerable('toLocaleString')) {
   $ERROR('#1: The Date.prototype.toLocaleString property has the attribute DontEnum');
 }
 
-for(x in Date.prototype) {
+for(var x in Date.prototype) {
   if(x === "toLocaleString") {
     $ERROR('#2: The Date.prototype.toLocaleString has the attribute DontEnum');
   }

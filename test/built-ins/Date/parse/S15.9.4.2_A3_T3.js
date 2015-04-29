@@ -13,7 +13,7 @@ if (Date.parse.propertyIsEnumerable('length')) {
   $ERROR('#1: The Date.parse.length property has the attribute DontEnum');
 }
 
-for(x in Date.parse) {
+for(var x in Date.parse) {
   if(x === "length") {
     $ERROR('#2: The Date.parse.length has the attribute DontEnum');
   }
