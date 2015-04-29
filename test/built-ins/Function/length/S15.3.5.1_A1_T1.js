@@ -10,7 +10,7 @@ description: Checking length property of Function("arg1,arg2,arg3", null)
 includes: [$FAIL.js]
 ---*/
 
-f = new Function("arg1,arg2,arg3", null);
+var f = new Function("arg1,arg2,arg3", null);
 
 //CHECK#1
 if (!(f.hasOwnProperty('length'))) {

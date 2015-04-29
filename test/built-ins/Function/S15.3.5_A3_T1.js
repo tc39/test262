@@ -7,8 +7,8 @@ es5id: 15.3.5_A3_T1
 description: As constructor use Function("var x =1; this.y=2;return \"OK\";")
 ---*/
 
-FACTORY = Function("var x =1; this.y=2;return \"OK\";");
-obj = new FACTORY;
+var FACTORY = Function("var x =1; this.y=2;return \"OK\";");
+var obj = new FACTORY;
 
 //CHECK#1
 if (typeof obj !== "object") {

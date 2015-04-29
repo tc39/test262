@@ -10,14 +10,14 @@ description: >
 includes: [$FAIL.js]
 ---*/
 
-f = new Function("arg1,arg2,arg3", null);
+var f = new Function("arg1,arg2,arg3", null);
 
 //CHECK#1
 if (!(f.hasOwnProperty('length'))) {
   $FAIL('#1: the function has length property.');
 }
 
-for(key in f)    
+for(var key in f)
   if(key=="length")
       var lengthenumed=true;
       

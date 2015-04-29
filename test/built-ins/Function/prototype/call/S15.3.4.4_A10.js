@@ -7,6 +7,7 @@ es5id: 15.3.4.4_A10
 description: >
     Checking if varying the Function.prototype.call.length property
     fails
+flags: [noStrict]
 includes: [$FAIL.js]
 ---*/
 

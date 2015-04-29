@@ -11,11 +11,11 @@ description: >
     ("a","b","c"))
 ---*/
 
-i=0;
+var i=0;
 
-p={toString:function(){return "a"+(++i);}};
+var p={toString:function(){return "a"+(++i);}};
 
-obj={};
+var obj={};
 
 new Function(p,p,p, "this.shifted=a3;").apply( obj,( function(){return arguments;}) ("a","b","c") );
 

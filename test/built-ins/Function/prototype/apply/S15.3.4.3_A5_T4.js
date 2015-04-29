@@ -7,6 +7,7 @@ info: >
     ToObject(thisArg) as the this value
 es5id: 15.3.4.3_A5_T4
 description: thisArg is function variable that return this
+flags: [noStrict]
 ---*/
 
 f = function(){this.touched= true; return this;};

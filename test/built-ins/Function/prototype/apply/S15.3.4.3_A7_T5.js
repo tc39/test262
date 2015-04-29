@@ -13,7 +13,7 @@ function FACTORY(){
   Function("a1,a2,a3","this.shifted=a1+a2+a3;").apply(null,arguments);
 }
 
-obj=new FACTORY("",1,2);
+var obj=new FACTORY("",1,2);
 
 //CHECK#1
 if (this["shifted"] !== "12") {

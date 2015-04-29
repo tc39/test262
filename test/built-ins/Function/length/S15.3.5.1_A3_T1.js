@@ -7,6 +7,7 @@ es5id: 15.3.5.1_A3_T1
 description: >
     Checking if varying the length property of
     Function("arg1,arg2,arg3","arg4,arg5", null) fails
+flags: [noStrict]
 includes: [$FAIL.js]
 ---*/
 

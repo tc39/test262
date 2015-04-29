@@ -10,7 +10,7 @@ description: argArray is (object,"1,3,4")
 includes: [$FAIL.js]
 ---*/
 
-obj={};
+var obj={};
 
 //CHECK#1
 try {
