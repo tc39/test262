@@ -5,6 +5,7 @@
 info: Number.MIN_VALUE is ReadOnly
 es5id: 15.7.3.3_A2
 description: Checking if varying Number.MIN_VALUE fails
+flags: [noStrict]
 ---*/
 
 // CHECK#1

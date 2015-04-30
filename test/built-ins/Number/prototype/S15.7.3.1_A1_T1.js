@@ -7,6 +7,7 @@ info: >
     attributes
 es5id: 15.7.3.1_A1_T1
 description: Checking if varying the Number.prototype property fails
+flags: [noStrict]
 ---*/
 
 //CHECK#1
