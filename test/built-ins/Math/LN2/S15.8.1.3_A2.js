@@ -8,7 +8,7 @@ description: Checking if Math.LN2 property has the attribute DontEnum
 ---*/
 
 // CHECK#1
-for(x in Math) {
+for(var x in Math) {
   if(x === "LN2") {
     $ERROR('#1: Value Property LN2 of the Math Object hasn\'t attribute DontEnum: \'for(x in Math) {x==="LN2"}\'');
   }

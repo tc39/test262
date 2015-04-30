@@ -9,14 +9,14 @@ description: Checking if Math.pow(x,y) equals to -0, where x is -0 and y>0
 
 // CHECK#1
 
-x = -0;
-y = new Array();
+var x = -0;
+var y = new Array();
 y[0] = 1;
 y[1] = 111;
 y[2] = 111111;
-ynum = 3;
+var ynum = 3;
 
-for (i = 0; i < ynum; i++)
+for (var i = 0; i < ynum; i++)
 {
 	if (Math.pow(x,y[i]) !== -0)
 	{

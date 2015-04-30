@@ -11,15 +11,15 @@ description: >
 
 // CHECK#1
 
-x = +Infinity;
-y = new Array();
+var x = +Infinity;
+var y = new Array();
 y[0] = -Infinity;
 y[1] = -1.7976931348623157E308; //largest (by module) finite number
 y[2] = -1;
 y[3] = -0.000000000000001;
-ynum = 4;
+var ynum = 4;
 
-for (i = 0; i < ynum; i++)
+for (var i = 0; i < ynum; i++)
 {
 	if (Math.pow(x,y[i]) !== +0)
 	{

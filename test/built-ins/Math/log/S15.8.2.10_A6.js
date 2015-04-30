@@ -16,7 +16,7 @@ includes:
 ---*/
 
 // CHECK#1
-vnum = 64;
+var vnum = 64;
 var x = new Array();
 x[0] = 0.00000000000000000000;
 x[1] = 0.25396825396825395000;
@@ -153,7 +153,7 @@ y[63] = 2.77258872223978110000;
 
 
 var val;
-for (i = 0; i < vnum; i++)
+for (var i = 0; i < vnum; i++)
 {
 	val = Math.log(x[i]);
 	if (!isEqual(val, y[i]))

@@ -16,8 +16,8 @@ includes:
 ---*/
 
 // CHECK#1
-y = +Infinity;
-x = new Array();
+var y = +Infinity;
+var x = new Array();
 x[0] = 0.000000000000001;
 x[1] = 1;
 x[2] = 1.7976931348623157E308; //largest finite number
@@ -25,9 +25,9 @@ x[3] = -0.000000000000001;
 x[4] = -1;
 x[5] = -1.7976931348623157E308; //largest (by module) finite number 
  
-xnum = 6;
+var xnum = 6;
 
-for (i = 0; i < xnum; i++)
+for (var i = 0; i < xnum; i++)
 {
 	if (!isEqual(Math.atan2(y,x[i]), (Math.PI)/2))
 		$FAIL("#1: Math.abs(Math.atan2(" + y + ", " + x[i] + ") - (Math.PI/2)) >= " + prec);

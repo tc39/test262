@@ -12,17 +12,17 @@ includes: [$FAIL.js]
 ---*/
 
 // CHECK#1
-  prec = 0.000000000003;
+var prec = 0.000000000003;
 //prec = 0.000000000000001;
-period = 2*Math.PI;
-pernum = 100;
+var period = 2*Math.PI;
+var pernum = 100;
 
-a = -pernum * period;
-b = pernum * period;
-snum = 9; 
-step = period/snum + 0.0;
-x = new Array();
-for (i = 0; i < snum; i++)
+var a = -pernum * period;
+var b = pernum * period;
+var snum = 9;
+var step = period/snum + 0.0;
+var x = new Array();
+for (var i = 0; i < snum; i++)
 {
 	x[i] = a + i*step;
 }
@@ -35,7 +35,7 @@ for (i = 0; i < snum; i++)
 {
 	curval = Math.sin(x[i]);
 	curx = x[i] + period;
-	j = 0;
+	var j = 0;
 	while (curx <= b)
 	{
 		curx += period;
