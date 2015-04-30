@@ -9,7 +9,7 @@ es5id: 15.9.5.7_A1_T1
 description: Checking absence of ReadOnly attribute
 ---*/
 
-x = Date.prototype.toLocaleTimeString;
+var x = Date.prototype.toLocaleTimeString;
 if(x === 1)
   Date.prototype.toLocaleTimeString = 2;
 else

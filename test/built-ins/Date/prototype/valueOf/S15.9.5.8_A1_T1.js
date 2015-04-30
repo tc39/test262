@@ -7,7 +7,7 @@ es5id: 15.9.5.8_A1_T1
 description: Checking absence of ReadOnly attribute
 ---*/
 
-x = Date.prototype.valueOf;
+var x = Date.prototype.valueOf;
 if(x === 1)
   Date.prototype.valueOf = 2;
 else

@@ -11,7 +11,7 @@ if (Date.prototype.propertyIsEnumerable('getUTCMonth')) {
   $ERROR('#1: The Date.prototype.getUTCMonth property has the attribute DontEnum');
 }
 
-for(x in Date.prototype) {
+for(var x in Date.prototype) {
   if(x === "getUTCMonth") {
     $ERROR('#2: The Date.prototype.getUTCMonth has the attribute DontEnum');
   }

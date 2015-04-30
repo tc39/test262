@@ -7,7 +7,7 @@ es5id: 15.9.4.2_A1_T1
 description: Checking absence of ReadOnly attribute
 ---*/
 
-x = Date.parse;
+var x = Date.parse;
 if(x === 1)
   Date.parse = 2;
 else

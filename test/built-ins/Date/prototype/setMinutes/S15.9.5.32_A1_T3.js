@@ -11,7 +11,7 @@ if (Date.prototype.propertyIsEnumerable('setMinutes')) {
   $ERROR('#1: The Date.prototype.setMinutes property has the attribute DontEnum');
 }
 
-for(x in Date.prototype) {
+for(var x in Date.prototype) {
   if(x === "setMinutes") {
     $ERROR('#2: The Date.prototype.setMinutes has the attribute DontEnum');
   }

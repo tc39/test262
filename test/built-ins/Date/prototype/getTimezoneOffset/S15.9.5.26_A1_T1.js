@@ -9,7 +9,7 @@ es5id: 15.9.5.26_A1_T1
 description: Checking absence of ReadOnly attribute
 ---*/
 
-x = Date.prototype.getTimezoneOffset;
+var x = Date.prototype.getTimezoneOffset;
 if(x === 1)
   Date.prototype.getTimezoneOffset = 2;
 else

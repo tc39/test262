@@ -7,6 +7,7 @@ info: >
     DontEnum } attributes
 es5id: 15.9.5.38_A3_T1
 description: Checking ReadOnly attribute
+flags: [noStrict]
 ---*/
 
 x = Date.prototype.setMonth.length;

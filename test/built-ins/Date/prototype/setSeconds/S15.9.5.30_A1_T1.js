@@ -7,7 +7,7 @@ es5id: 15.9.5.30_A1_T1
 description: Checking absence of ReadOnly attribute
 ---*/
 
-x = Date.prototype.setSeconds;
+var x = Date.prototype.setSeconds;
 if(x === 1)
   Date.prototype.setSeconds = 2;
 else

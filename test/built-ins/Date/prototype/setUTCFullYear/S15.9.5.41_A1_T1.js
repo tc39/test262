@@ -7,7 +7,7 @@ es5id: 15.9.5.41_A1_T1
 description: Checking absence of ReadOnly attribute
 ---*/
 
-x = Date.prototype.setUTCFullYear;
+var x = Date.prototype.setUTCFullYear;
 if(x === 1)
   Date.prototype.setUTCFullYear = 2;
 else

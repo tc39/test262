@@ -7,6 +7,7 @@ info: >
     attributes
 es5id: 15.9.4.1_A1_T2
 description: Checking DontDelete attribute
+flags: [noStrict]
 includes: [$FAIL.js]
 ---*/
 
