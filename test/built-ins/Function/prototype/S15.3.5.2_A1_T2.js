@@ -7,6 +7,7 @@ es5id: 15.3.5.2_A1_T2
 description: >
     Checking if deleting the prototype property of Function(void 0,
     "") fails
+flags: [noStrict]
 includes: [$FAIL.js]
 ---*/
 

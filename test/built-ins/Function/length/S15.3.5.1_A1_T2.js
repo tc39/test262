@@ -12,7 +12,7 @@ description: >
 includes: [$FAIL.js]
 ---*/
 
-f = Function("arg1,arg2,arg3","arg4,arg5", null);
+var f = Function("arg1,arg2,arg3","arg4,arg5", null);
 
 //CHECK#1
 if (!(f.hasOwnProperty('length'))) {

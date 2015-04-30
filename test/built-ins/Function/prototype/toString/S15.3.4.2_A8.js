@@ -22,7 +22,7 @@ if (Function.prototype.toString.propertyIsEnumerable('length')) {
 }
 
 // CHECK#2
-for (p in Function.prototype.toString){
+for (var p in Function.prototype.toString){
   if (p==="length")
       $ERROR('#2: the Function.prototype.toString.length property has the attributes DontEnum');
 }

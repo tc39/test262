@@ -7,6 +7,7 @@ info: >
     object as the this value
 es5id: 15.3.4.4_A3_T10
 description: Checking by using eval, no any arguments at call function
+flags: [noStrict]
 ---*/
 
 eval(" (function(){this.feat=1}).call()");

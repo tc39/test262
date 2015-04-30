@@ -9,6 +9,7 @@ es5id: 15.3.4.3_A3_T6
 description: >
     Argument at apply function is null and it called inside function
     declaration
+flags: [noStrict]
 ---*/
 
 function FACTORY(){

@@ -7,6 +7,7 @@ info: >
     ToObject(thisArg) as the this value
 es5id: 15.3.4.3_A5_T3
 description: thisArg is string
+flags: [noStrict]
 ---*/
 
 var obj="soap";

@@ -9,6 +9,7 @@ es5id: 15.3.4.4_A3_T8
 description: >
     Argument at call function is undefined and it called inside
     function declaration
+flags: [noStrict]
 ---*/
 
 (function FACTORY(){
