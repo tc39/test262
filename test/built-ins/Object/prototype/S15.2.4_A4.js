@@ -14,7 +14,7 @@ includes:
 
 //CHECK#1
 try {
-  instance = new Object.prototype;
+  var instance = new Object.prototype;
   $FAIL('#1: Since Object prototype object is not function it has not [[create]] method');
 } catch (e) {
   $PRINT(e);

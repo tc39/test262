@@ -10,7 +10,7 @@ description: Object.isExtensible returns true for all built-in objects (Global)
 includes: [runTestCase.js]
 ---*/
 
-global = this;
+var global = this;
 function testcase() {
   // in non-strict mode, 'this' is bound to the global object.
   var e = Object.isExtensible(this);

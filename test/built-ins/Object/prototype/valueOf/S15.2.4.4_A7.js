@@ -13,7 +13,7 @@ includes:
 var FACTORY = Object.prototype.valueOf;
 
 try {
-  instance = new FACTORY;
+  var instance = new FACTORY;
   $FAIL('#1: Object.prototype.valueOf can\'t be used as a constructor');
 } catch (e) {
   $PRINT(e);

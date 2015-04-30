@@ -15,7 +15,7 @@ includes:
 var FACTORY = Object.prototype.propertyIsEnumerable;
 
 try {
-  instance = new FACTORY;
+  var instance = new FACTORY;
   $FAIL('#1: Object.prototype.propertyIsEnumerable can\'t be used as a constructor');
 } catch (e) {
   $PRINT(e);
