@@ -5,7 +5,6 @@
 info: The length property of parseInt does not have the attribute DontDelete
 es5id: 15.1.2.2_A9.2
 description: Checking use hasOwnProperty, delete
-flags: [noStrict]
 includes: [$FAIL.js]
 ---*/
 
