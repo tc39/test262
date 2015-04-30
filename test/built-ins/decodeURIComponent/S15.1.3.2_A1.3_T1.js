@@ -7,14 +7,14 @@ es5id: 15.1.3.2_A1.3_T1
 description: Complex tests. B = 10xxxxxx -> B in [0x80 - 0xBF]
 ---*/
 
-errorCount = 0;
-count = 0;
+var errorCount = 0;
+var count = 0;
 var indexP;
 var indexO = 0;
 
-for (index = 0x80; index <= 0xBF; index++) {
+for (var index = 0x80; index <= 0xBF; index++) {
   count++; 
-  hex = decimalToHexString(index);
+  var hex = decimalToHexString(index);
   try {
     decodeURIComponent("%" + hex.substring(2));
   } catch (e) { 

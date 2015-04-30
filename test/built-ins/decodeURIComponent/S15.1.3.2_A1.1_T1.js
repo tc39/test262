@@ -7,7 +7,7 @@ es5id: 15.1.3.2_A1.1_T1
 description: Complex tests
 ---*/
 
-result = true;
+var result = true;
 
 //CHECK#1
 try {

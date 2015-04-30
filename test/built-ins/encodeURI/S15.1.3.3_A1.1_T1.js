@@ -7,14 +7,14 @@ es5id: 15.1.3.3_A1.1_T1
 description: Complex tests
 ---*/
 
-errorCount = 0;
-count = 0;
+var errorCount = 0;
+var count = 0;
 var indexP;
 var indexO = 0;
 
-for (index = 0xDC00; index <= 0xDFFF; index++) {
+for (var index = 0xDC00; index <= 0xDFFF; index++) {
   count++; 
-  hex = decimalToHexString(index);
+  var hex = decimalToHexString(index);
   try {
     encodeURI(String.fromCharCode(index));
   } catch (e) { 

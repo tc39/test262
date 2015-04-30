@@ -9,8 +9,8 @@ es5id: 15.1.3.3_A3.1_T1
 description: Complex tests
 ---*/
 
-uriReserved = [";", "/", "?", ":", "@", "&", "=", "+", "$", ","];
-for (indexC = 0; indexC < uriReserved.length; indexC++) {
+var uriReserved = [";", "/", "?", ":", "@", "&", "=", "+", "$", ","];
+for (var indexC = 0; indexC < uriReserved.length; indexC++) {
   var str = uriReserved[indexC];    
   if (encodeURI(str) !== str) {
     $ERROR('#' + (indexC + 1) + ': unescapedURISet containing' + str);

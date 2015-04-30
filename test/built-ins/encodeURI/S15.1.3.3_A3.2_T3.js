@@ -9,8 +9,8 @@ es5id: 15.1.3.3_A3.2_T3
 description: "Complex tests, uriUnescaped :: uriMark"
 ---*/
 
-uriMark = ["-", "_", ".", "!", "~", "*", "'", "(", ")"];
-for (indexC = 0; indexC < uriMark.length; indexC++) {
+var uriMark = ["-", "_", ".", "!", "~", "*", "'", "(", ")"];
+for (var indexC = 0; indexC < uriMark.length; indexC++) {
   var str = uriMark[indexC];    
   if (encodeURI(str) !== str) {
     $ERROR('#' + (indexC + 1) + ': unescapedURISet containing' + str);

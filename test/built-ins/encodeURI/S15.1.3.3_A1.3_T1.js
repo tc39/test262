@@ -11,17 +11,17 @@ description: >
     0xDBFE, 0xDBFF, 0xE000, 0xFFFF]
 ---*/
 
-chars = [0x0000, 0xD7FF, 0xD800, 0xDBFE, 0xDBFF, 0xE000, 0xFFFF];
-errorCount = 0;
-count = 0;
+var chars = [0x0000, 0xD7FF, 0xD800, 0xDBFE, 0xDBFF, 0xE000, 0xFFFF];
+var errorCount = 0;
+var count = 0;
 var indexP;
 var indexO = 0;
 
-for (index = 0xD800; index <= 0xDBFF; index++) {
+for (var index = 0xD800; index <= 0xDBFF; index++) {
   count++; 
-  res = true;
-  for (indexC = 0; indexC < chars.length; indexC++) {  
-    hex = decimalToHexString(index);
+  var res = true;
+  for (var indexC = 0; indexC < chars.length; indexC++) {
+    var hex = decimalToHexString(index);
     try {
       encodeURI(String.fromCharCode(index, chars[indexC]));    
     } catch (e) { 

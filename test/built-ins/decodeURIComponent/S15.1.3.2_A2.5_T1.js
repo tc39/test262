@@ -11,20 +11,20 @@ description: Complex tests, use RFC 3629
 includes: [Test262Error.js]
 ---*/
 
-errorCount = 0;
-count = 0;
+var errorCount = 0;
+var count = 0;
 var indexP;
 var indexO = 0;
 
-for (indexB1 = 0xF0; indexB1 <= 0xF4; indexB1++) {     
+for (var indexB1 = 0xF0; indexB1 <= 0xF4; indexB1++) {
   var hexB1 = decimalToHexString(indexB1);
-  for (indexB2 = 0x80; indexB2 <= 0xBF; indexB2++) {
+  for (var indexB2 = 0x80; indexB2 <= 0xBF; indexB2++) {
     if ((indexB1 === 0xF0) && (indexB2 <= 0x9F)) continue;            
     if ((indexB1 === 0xF4) && (indexB2 >= 0x90)) continue;
     var hexB2 = decimalToHexString(indexB2);
-    for (indexB3 = 0x80; indexB3 <= 0xBF; indexB3++) {
+    for (var indexB3 = 0x80; indexB3 <= 0xBF; indexB3++) {
       var hexB3 = decimalToHexString(indexB3);
-      for (indexB4 = 0x80; indexB4 <= 0xBF; indexB4++) {
+      for (var indexB4 = 0x80; indexB4 <= 0xBF; indexB4++) {
         var hexB4 = decimalToHexString(indexB4);
         count++;
         var index = (indexB1 & 0x07) * 0x40000 + (indexB2 & 0x3F) * 0x1000 + (indexB3 & 0x3F) * 0x40 + (indexB4 & 0x3F);

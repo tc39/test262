@@ -12,20 +12,20 @@ description: >
     0xD9FF]
 ---*/
 
-chars = [0xD800, 0xDBFF, 0xD9FF]; 
-errorCount = 0;
-count = 0;
+var chars = [0xD800, 0xDBFF, 0xD9FF];
+var errorCount = 0;
+var count = 0;
 var indexP;
 var indexO = 0; 
-for (index = 0xDC00; index <= 0xDFFF; index++) {
-  res = true;
-  for (indexC = 0; indexC < chars.length; indexC++) {
-    index1 = (chars[indexC] - 0xD800) * 0x400 + (index - 0xDC00) + 0x10000; 
-    hex1 = decimalToHexString(0x0080 + (index1 & 0x003F)).substring(2);
-    hex2 = decimalToHexString(0x0080 + (index1 & 0x0FC0) / 0x0040).substring(2);
-    hex3 = decimalToHexString(0x0080 + (index1 & 0x3F000) / 0x1000).substring(2);
-    hex4 = decimalToHexString(0x00F0 + (index1 & 0x1C0000) / 0x40000).substring(2);
-    str = String.fromCharCode(chars[indexC], index);
+for (var index = 0xDC00; index <= 0xDFFF; index++) {
+  var res = true;
+  for (var indexC = 0; indexC < chars.length; indexC++) {
+    var index1 = (chars[indexC] - 0xD800) * 0x400 + (index - 0xDC00) + 0x10000;
+    var hex1 = decimalToHexString(0x0080 + (index1 & 0x003F)).substring(2);
+    var hex2 = decimalToHexString(0x0080 + (index1 & 0x0FC0) / 0x0040).substring(2);
+    var hex3 = decimalToHexString(0x0080 + (index1 & 0x3F000) / 0x1000).substring(2);
+    var hex4 = decimalToHexString(0x00F0 + (index1 & 0x1C0000) / 0x40000).substring(2);
+    var str = String.fromCharCode(chars[indexC], index);
     try {
       if (encodeURI(str).toUpperCase() !== "%" + hex4 + "%" + hex3 + "%" + hex2 + "%" + hex1) {
         res = false;

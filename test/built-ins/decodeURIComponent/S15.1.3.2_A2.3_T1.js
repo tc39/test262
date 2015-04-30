@@ -10,14 +10,14 @@ description: Complex tests, use RFC 3629
 includes: [Test262Error.js]
 ---*/
 
-errorCount = 0;
-count = 0;
+var errorCount = 0;
+var count = 0;
 var indexP;
 var indexO = 0;
 
-for (indexB1 = 0xC2; indexB1 <= 0xDF; indexB1++) {     
+for (var indexB1 = 0xC2; indexB1 <= 0xDF; indexB1++) {
   var hexB1 = decimalToHexString(indexB1);
-  for (indexB2 = 0x80; indexB2 <= 0xBF; indexB2++) {
+  for (var indexB2 = 0x80; indexB2 <= 0xBF; indexB2++) {
     count++;
     var hexB2 = decimalToHexString(indexB2);
     var index = (indexB1 & 0x1F) * 0x40 + (indexB2 & 0x3F);  
