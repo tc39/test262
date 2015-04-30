@@ -11,9 +11,9 @@ description: >
     checking its properties
 ---*/
 
-constr = Error.prototype.constructor;
+var constr = Error.prototype.constructor;
 
-err = new constr;
+var err = new constr;
 
 //////////////////////////////////////////////////////////////////////////////
 // CHECK#0
@@ -42,7 +42,7 @@ if (!(Error.prototype.isPrototypeOf(err))) {
 //////////////////////////////////////////////////////////////////////////////
 // CHECK#3
 Error.prototype.toString=Object.prototype.toString;
-to_string_result = '[object '+ 'Error' +']';
+var to_string_result = '[object '+ 'Error' +']';
 if (err.toString() !== to_string_result) {
 	$ERROR('#3: constr = Error.prototype.constructor; err = new constr; Error.prototype.toString=Object.prototype.toString; err.toString() === \'[object Error]\'. Actual: '+err.toString() );
 }

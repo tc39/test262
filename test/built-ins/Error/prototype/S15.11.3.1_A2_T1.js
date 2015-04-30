@@ -27,9 +27,9 @@ if (Error.propertyIsEnumerable('prototype')) {
 
 //////////////////////////////////////////////////////////////////////////////
 // CHECK#2
-cout=0;
+var cout=0;
 
-for (p in Error){
+for (var p in Error){
   if (p==="prototype") cout++;
 }
 

@@ -12,7 +12,7 @@ description: >
 ---*/
 
 Error.prototype.toString=Object.prototype.toString;
-__tostr = Error.prototype.toString();
+var __tostr = Error.prototype.toString();
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
