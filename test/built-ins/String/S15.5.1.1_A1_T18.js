@@ -9,7 +9,7 @@ es5id: 15.5.1.1_A1_T18
 description: Call String() with numbers that have more than 1 significant digit
 ---*/
 
-__str = String(1000000000000000000000);  
+var __str = String(1000000000000000000000);
      
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1

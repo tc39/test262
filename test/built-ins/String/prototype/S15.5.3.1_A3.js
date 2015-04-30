@@ -5,6 +5,7 @@
 info: The String.prototype property has the attribute DontDelete
 es5id: 15.5.3.1_A3
 description: Checking if deleting the String.prototype property fails
+flags: [noStrict]
 includes: [$FAIL.js]
 ---*/
 

@@ -18,21 +18,17 @@ includes: [$FAIL.js]
 
 var __obj = {toString:function(){return "\u0041B";}}
 var __obj2 = {valueOf:function(){throw "intointeger";}}
-var __str = {str__:"ABB\u0041BABAB"};
+var __str = "ABB\u0041BABAB";
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-with(__str){
-    with(str__){
         try {
-          var x = split(__obj, __obj2);
-          $FAIL('#1: "var x = split(__obj, __obj2)" lead to throwing exception');
+          var x = __str.split(__obj, __obj2);
+          $FAIL('#1: "var x = __str.split(__obj, __obj2)" lead to throwing exception');
         } catch (e) {
           if (e!=="intointeger") {
             $ERROR('#1.1: Exception === "intointeger". Actual: '+e);
           }
         }
-    }
-}
 //
 //////////////////////////////////////////////////////////////////////////////

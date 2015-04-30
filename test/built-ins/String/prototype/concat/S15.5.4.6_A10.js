@@ -7,6 +7,7 @@ es5id: 15.5.4.6_A10
 description: >
     Checking if varying the String.prototype.concat.length property
     fails
+flags: [noStrict]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////

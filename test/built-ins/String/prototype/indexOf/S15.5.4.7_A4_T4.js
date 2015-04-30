@@ -17,15 +17,13 @@ Number.prototype.indexOf=String.prototype.indexOf;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-with(__instance){
     try {
-      var x = indexOf(__obj, __obj2);
-      $FAIL('#1: "var x = indexOf(__obj, __obj2)" lead to throwing exception');
+      var x = __instance.indexOf(__obj, __obj2);
+      $FAIL('#1: "var x = __instance.indexOf(__obj, __obj2)" lead to throwing exception');
     } catch (e) {
       if (e!=="intostr") {
         $ERROR('#1.1: Exception === "intostr". Actual: '+e); 
       }
     }
-}
 //
 //////////////////////////////////////////////////////////////////////////////

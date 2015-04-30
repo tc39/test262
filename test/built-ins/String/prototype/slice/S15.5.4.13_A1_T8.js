@@ -9,7 +9,7 @@ description: >
     String(object), object have overrided toString function
 ---*/
 
-__obj = {toString:function(){}};
+var __obj = {toString:function(){}};
 
 //since void 0 yelds 0
 //////////////////////////////////////////////////////////////////////////////

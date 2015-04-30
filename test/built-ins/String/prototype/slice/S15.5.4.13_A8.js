@@ -31,7 +31,7 @@ if (String.prototype.slice.propertyIsEnumerable('length')) {
 // CHECK#2
 var count=0;
 
-for (p in String.prototype.slice){
+for (var p in String.prototype.slice){
   if (p==="length") count++;
 }
 

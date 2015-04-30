@@ -16,11 +16,9 @@ var __str = "ABB\u0041BABAB";
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-with(__str){
-    if (replace(__obj, function(){return x;}) !== "undefinedBABABAB") {
-      $ERROR('#1: var x; var __obj = {toString:function(){return "\u0041B";}}; var __str = "ABB\u0041BABAB"; replace(__obj, function(){return x;}) === "undefinedBABABAB". Actual: '+replace(__obj, function(){return x;}) );
+    if (__str.replace(__obj, function(){return x;}) !== "undefinedBABABAB") {
+      $ERROR('#1: var x; var __obj = {toString:function(){return "\u0041B";}}; var __str = "ABB\u0041BABAB"; replace(__obj, function(){return x;}) === "undefinedBABABAB". Actual: '+__str.replace(__obj, function(){return x;}) );
     }
-}
 //
 //////////////////////////////////////////////////////////////////////////////
 

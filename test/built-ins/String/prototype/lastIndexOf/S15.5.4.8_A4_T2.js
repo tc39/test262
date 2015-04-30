@@ -18,15 +18,13 @@ var __str = new String("ABB\u0041BABAB");
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-with(__str){
     try {
-      var x = lastIndexOf(__obj, __obj2);
-      $FAIL('#1: var x = lastIndexOf(__obj, __obj2) lead to throwing exception');
+      var x = __str.lastIndexOf(__obj, __obj2);
+      $FAIL('#1: var x = __str.lastIndexOf(__obj, __obj2) lead to throwing exception');
     } catch (e) {
       if (e!=="intointeger") {
         $ERROR('#1.1: Exception === "intointeger". Actual: '+e);
       }
     }
-}
 //
 //////////////////////////////////////////////////////////////////////////////

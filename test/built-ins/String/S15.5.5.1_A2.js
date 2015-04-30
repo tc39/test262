@@ -19,7 +19,7 @@ if (!(__str__instance.hasOwnProperty("length"))) {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-for(prop in __str__instance){
+for(var prop in __str__instance){
     if (prop === "length") {
       $ERROR('#2: length property has the attributes {DontEnum}');
     }

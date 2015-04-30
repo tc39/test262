@@ -32,7 +32,7 @@ if (String.prototype.localeCompare.propertyIsEnumerable('length')) {
 // CHECK#2
 var count=0;
 
-for (p in String.prototype.localeCompare){
+for (var p in String.prototype.localeCompare){
   if (p==="length") count++;
 }
 

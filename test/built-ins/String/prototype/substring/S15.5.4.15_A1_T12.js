@@ -18,15 +18,13 @@ var __str = new String("ABB\u0041BABAB");
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-with(__str){
     try {
-      var x = substring(__obj, __obj2);
-      $FAIL('#1: "var x = substring(__obj,__obj2)" lead to throw exception');
+      var x = __str.substring(__obj, __obj2);
+      $FAIL('#1: "var x = __str.substring(__obj,__obj2)" lead to throw exception');
     } catch (e) {
       if (e!=="instart") {
         $ERROR('#1.1: Exception ==="instart". Actual: '+e);
       }
     }
-}
 //
 //////////////////////////////////////////////////////////////////////////////

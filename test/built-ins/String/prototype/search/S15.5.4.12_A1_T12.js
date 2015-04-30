@@ -15,15 +15,13 @@ var __str = new String("ABB\u0041BABAB");
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-with(__str){
     try {
-      var x = search(__obj);
-      $FAIL('#1: var x = search(__obj) lead to throwing exception');
+      var x = __str.search(__obj);
+      $FAIL('#1: var x = __str.search(__obj) lead to throwing exception');
     } catch (e) {
       if (e!=="intostr") {
         $ERROR('#1.1: Exception === "intostr". Actual: '+e);
       }
     }
-}
 //
 //////////////////////////////////////////////////////////////////////////////

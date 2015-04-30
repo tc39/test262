@@ -7,6 +7,7 @@ es5id: 15.5.4.12_A10
 description: >
     Checking if varying the String.prototype.search.length property
     fails
+flags: [noStrict]
 includes: [$FAIL.js]
 ---*/
 

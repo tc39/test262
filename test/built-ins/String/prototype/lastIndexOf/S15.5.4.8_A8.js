@@ -31,9 +31,9 @@ if (String.prototype.lastIndexOf.propertyIsEnumerable('length')) {
 
 //////////////////////////////////////////////////////////////////////////////
 // CHECK#2
-count=0;
+var count=0;
 
-for (p in String.prototype.lastIndexOf){
+for (var p in String.prototype.lastIndexOf){
   if (p==="length") count++;
 }
 

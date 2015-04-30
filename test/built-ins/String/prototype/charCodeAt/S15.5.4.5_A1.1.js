@@ -15,11 +15,8 @@ var __instance = new __FACTORY;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-with(__instance){
-   
     if (__instance.charCodeAt(eval("1"),true,null,{})!== 0x69) {
       $ERROR('#1: __instance.charCodeAt(eval("1"),true,null,{})=== 0x69. Actual: __instance.charCodeAt(eval("1"),true,null,{})==='+__instance.charCodeAt(eval("1"),true,null,{})); 
     }
-}
 //
 //////////////////////////////////////////////////////////////////////////////

@@ -11,14 +11,12 @@ function __FACTORY(){this.toString = function(){ return "wizard";};};
 
 __FACTORY.prototype.charAt = String.prototype.charAt;
 
-__instance = new __FACTORY;
+var __instance = new __FACTORY;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-with(__instance){
   if (__instance.charAt(eval("1"),true,null,{})!== "i") {
     $ERROR('#1: __instance.charAt(eval("1"),true,null,{})=== "i". Actual: '+__instance.charAt(eval("1"),true,null,{})); 
   }
-}
 //
 //////////////////////////////////////////////////////////////////////////////
