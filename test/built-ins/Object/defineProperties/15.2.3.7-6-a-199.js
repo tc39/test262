@@ -12,25 +12,21 @@ description: >
     [[Configurable]] of 'P' property in 'Attributes' is set as false
     value if [[Configurable]] is absent in data descriptor 'desc'
     (15.4.5.1 step 4.c)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
-        var beforeDeleted = false;
-        var afterDeleted = false;
+var arr = [];
+var beforeDeleted = false;
+var afterDeleted = false;
 
-        Object.defineProperties(arr, {
-            "0": {
-                value: 1001,
-                writable: true,
-                enumerable: true
-            }
-        });
-
-        beforeDeleted = arr.hasOwnProperty("0");
-        delete arr[0];
-        afterDeleted = arr.hasOwnProperty("0");
-        return beforeDeleted && afterDeleted && arr[0] === 1001;
+Object.defineProperties(arr, {
+    "0": {
+        value: 1001,
+        writable: true,
+        enumerable: true
     }
-runTestCase(testcase);
+});
+
+assert(arr.hasOwnProperty("0"));
+verifyNotConfigurable(arr, "0");
+assert(arr.hasOwnProperty("0"));

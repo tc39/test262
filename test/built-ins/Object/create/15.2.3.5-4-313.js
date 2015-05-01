@@ -10,20 +10,16 @@ description: >
     Object.create - [[Configurable]] is set as false if it is absent
     in accessor descriptor of one property in 'Properties' (8.12.9
     step 4.b)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {       
-        var newObj = Object.create({}, {
-            prop: {
-                set: function () { },
-                get: function () { },
-                enumerable: true
-            }
-        });
-        var hasProperty = newObj.hasOwnProperty("prop");
-        delete newObj.prop;
-        var isNotConfigurable = newObj.hasOwnProperty("prop");
-        return hasProperty && isNotConfigurable;
+var newObj = Object.create({}, {
+    prop: {
+        set: function () { },
+        get: function () { },
+        enumerable: true
     }
-runTestCase(testcase);
+});
+
+assert(newObj.hasOwnProperty("prop"));
+verifyNotConfigurable(newObj, "prop");

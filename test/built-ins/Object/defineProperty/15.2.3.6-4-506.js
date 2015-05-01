@@ -10,10 +10,9 @@ description: >
     ES5 Attributes - property ([[Get]] is a Function, [[Set]] is
     undefined, [[Enumerable]] is true, [[Configurable]] is false) is
     undeletable
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var getFunc = function () {
@@ -34,4 +33,3 @@ function testcase() {
 
         return propertyDefineCorrect && desc.configurable === false && obj.hasOwnProperty("prop");
     }
-runTestCase(testcase);

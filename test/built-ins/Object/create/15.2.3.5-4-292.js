@@ -9,19 +9,14 @@ es5id: 15.2.3.5-4-292
 description: >
     Object.create - 'set' property of one property in 'Properties' is
     undefined (8.10.5 step 8.b)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-
-        var newObj = Object.create({}, {
-            prop: {
-                set: undefined
-            }
-        });
-
-        newObj.prop = "overrideData";
-
-        return newObj.hasOwnProperty("prop") && typeof (newObj.prop) === "undefined";
+var newObj = Object.create({}, {
+    prop: {
+        set: undefined
     }
-runTestCase(testcase);
+});
+
+assert(newObj.hasOwnProperty("prop"));
+verifyNotWritable(newObj, "prop");

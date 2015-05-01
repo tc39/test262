@@ -9,20 +9,15 @@ es5id: 15.2.3.5-4-210
 description: >
     Object.create - 'writable' property of one property in
     'Properties' is -0 (8.10.5 step 6.b)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-
-        var newObj = Object.create({}, {
-            prop: {
-                writable: -0
-            }
-        });
-        var hasProperty = newObj.hasOwnProperty("prop") && typeof newObj.prop === "undefined";
-
-        newObj.prop = 121;
-
-        return hasProperty && typeof newObj.prop === "undefined";
+var newObj = Object.create({}, {
+    prop: {
+        writable: -0
     }
-runTestCase(testcase);
+});
+
+assert(newObj.hasOwnProperty("prop"))
+assert.sameValue(typeof newObj.prop, "undefined");
+verifyNotWritable(newObj, "prop");

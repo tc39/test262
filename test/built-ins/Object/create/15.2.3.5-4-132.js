@@ -9,23 +9,14 @@ es5id: 15.2.3.5-4-132
 description: >
     Object.create - 'configurable' property of one property in
     'Properties' is NaN (8.10.5 step 4.b)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-
-        var newObj = Object.create({}, {
-            prop: {
-                configurable: NaN
-            }
-        });
-
-        var beforeDeleted = newObj.hasOwnProperty("prop");
-
-        delete newObj.prop;
-
-        var afterDeleted = newObj.hasOwnProperty("prop");
-
-        return beforeDeleted === true && afterDeleted === true;
+var newObj = Object.create({}, {
+    prop: {
+        configurable: NaN
     }
-runTestCase(testcase);
+});
+
+assert(newObj.hasOwnProperty("prop"));
+verifyNotConfigurable(newObj, "prop");

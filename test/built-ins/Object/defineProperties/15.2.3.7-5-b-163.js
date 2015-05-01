@@ -11,26 +11,25 @@ description: >
     implements its own [[Get]] method to get 'writable' property
     (8.10.5 step 6.a)
 includes:
-    - runTestCase.js
+    - propertyHelper.js
     - fnGlobalObject.js
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        try {
-            fnGlobalObject().writable = false;
+try {
+    fnGlobalObject().writable = false;
 
-            Object.defineProperties(obj, {
-                property: fnGlobalObject()
-            });
+    Object.defineProperties(obj, {
+        property: fnGlobalObject()
+    });
 
-            obj.property = "isWritable";
+    assert(obj.hasOwnProperty("property"));
+    verifyNotWritable(obj, "property");
 
-            return obj.hasOwnProperty("property") && typeof (obj.property) === "undefined";
-        } finally {
-            delete fnGlobalObject().writable;
-        }
-    }
-runTestCase(testcase);
+} finally {
+    delete fnGlobalObject().writable;
+}
+
+

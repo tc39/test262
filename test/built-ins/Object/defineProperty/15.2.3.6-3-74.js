@@ -9,10 +9,9 @@ es5id: 15.2.3.6-3-74
 description: >
     Object.defineProperty - 'configurable' property in 'Attributes' is
     not present (8.10.5 step 4)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
         var obj = { };
 
         Object.defineProperty(obj, "property", { value: 100 });
@@ -26,4 +25,3 @@ function testcase() {
         return beforeDeleted === true && afterDeleted === true;
 
     }
-runTestCase(testcase);

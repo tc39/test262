@@ -9,23 +9,14 @@ es5id: 15.2.3.5-4-179
 description: >
     Object.create - 'writable' property of one property in
     'Properties' is not present (8.10.5 step 6)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-
-        var newObj = Object.create({}, {
-            prop: {
-                value: 100
-            }
-        });
-
-        var beforeWrite = (newObj.prop === 100);
-
-        newObj.prop = "isWritable";
-
-        var afterWrite = (newObj.prop === 100);
-
-        return beforeWrite === true && afterWrite === true;
+var newObj = Object.create({}, {
+    prop: {
+        value: 100
     }
-runTestCase(testcase);
+});
+
+assert.sameValue(newObj.prop, 100);
+verifyNotWritable(newObj, "prop");

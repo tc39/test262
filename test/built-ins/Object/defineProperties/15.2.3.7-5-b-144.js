@@ -9,26 +9,22 @@ es5id: 15.2.3.7-5-b-144
 description: >
     Object.defineProperties - 'writable' property of 'descObj' is own
     accessor property (8.10.5 step 6.a)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        var descObj = {};
+var descObj = {};
 
-        Object.defineProperty(descObj, "writable", {
-            get: function () {
-                return false;
-            }
-        });
-
-        Object.defineProperties(obj, {
-            property: descObj
-        });
-
-        obj.property = "isWritable";
-
-        return obj.hasOwnProperty("property") && typeof (obj.property) === "undefined";
+Object.defineProperty(descObj, "writable", {
+    get: function () {
+        return false;
     }
-runTestCase(testcase);
+});
+
+Object.defineProperties(obj, {
+    property: descObj
+});
+
+assert(obj.hasOwnProperty("property"));
+verifyNotWritable(obj, "property");

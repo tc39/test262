@@ -10,10 +10,9 @@ description: >
     Object.defineProperty - 'writable' property in 'Attributes' is an
     inherited accessor property without a get function  (8.10.5 step
     6.a)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var proto = {};
@@ -36,4 +35,3 @@ function testcase() {
 
         return beforeWrite === true && afterWrite === true;
     }
-runTestCase(testcase);

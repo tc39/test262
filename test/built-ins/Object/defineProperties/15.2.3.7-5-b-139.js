@@ -9,20 +9,16 @@ es5id: 15.2.3.7-5-b-139
 description: >
     Object.defineProperties - 'writable' property of 'descObj' is not
     present (8.10.5 step 6)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        Object.defineProperties(obj, {
-            property: {
-                value: "abc"
-            }
-        });
-
-        obj.property = "isWritable";
-
-        return obj.property === "abc";
+Object.defineProperties(obj, {
+    property: {
+        value: "abc"
     }
-runTestCase(testcase);
+});
+
+verifyNotWritable(obj, "property");
+

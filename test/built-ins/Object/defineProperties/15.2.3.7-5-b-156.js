@@ -10,25 +10,22 @@ description: >
     Object.defineProperties - 'descObj' is the Math object which
     implements its own [[Get]] method to get 'writable' property
     (8.10.5 step 6.a)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
+var obj = {};
 
-        try {
-            Math.writable = false;
+try {
+    Math.writable = false;
 
-            Object.defineProperties(obj, {
-                property: Math
-            });
+    Object.defineProperties(obj, {
+        property: Math
+    });
 
-            obj.property = "isWritable";
+    assert(obj.hasOwnProperty("property"));
+    verifyNotWritable(obj, "property");
 
-            return obj.hasOwnProperty("property") && typeof (obj.property) === "undefined";
-        } finally {
-            delete Math.writable;
-        }
-    }
-runTestCase(testcase);
+} finally {
+    delete Math.writable;
+}

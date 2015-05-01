@@ -9,22 +9,16 @@ es5id: 15.2.3.5-4-267
 description: >
     Object.create - 'set' property of one property in 'Properties' is
     not present (8.10.5 step 8)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var newObj = Object.create({}, {
-            prop: {
-                get: function () {
-                    return "data";
-                }
-            }
-        });
-
-        var hasProperty = newObj.hasOwnProperty("prop");
-
-        newObj.prop = "overrideData";
-
-        return hasProperty && newObj.prop === "data";
+var newObj = Object.create({}, {
+    prop: {
+        get: function () {
+            return "data";
+        }
     }
-runTestCase(testcase);
+});
+
+assert(newObj.hasOwnProperty("prop"));
+verifyNotWritable(newObj, "prop");

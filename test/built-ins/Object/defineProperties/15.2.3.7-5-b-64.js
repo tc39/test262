@@ -10,34 +10,29 @@ description: >
     Object.defineProperties - 'configurable' property of 'descObj' is
     own data property that overrides an inherited accessor property
     (8.10.5 step 4.a)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var obj = {};
-        var proto = {};
-        Object.defineProperty(proto, "configurable", {
-            get: function () {
-                return true;
-            }
-        });
-
-        var Con = function () { };
-        Con.prototype = proto;
-        var descObj = new Con();
-
-        Object.defineProperty(descObj, "configurable", {
-            value: false
-        });
-
-        Object.defineProperties(obj, {
-            prop: descObj
-        });
-        var result1 = obj.hasOwnProperty("prop");
-        delete obj.prop;
-        var result2 = obj.hasOwnProperty("prop");
-
-        return result1 === true && result2 === true;
+var obj = {};
+var proto = {};
+Object.defineProperty(proto, "configurable", {
+    get: function () {
+        return true;
     }
-runTestCase(testcase);
+});
+
+var Con = function () { };
+Con.prototype = proto;
+var descObj = new Con();
+
+Object.defineProperty(descObj, "configurable", {
+    value: false
+});
+
+Object.defineProperties(obj, {
+    prop: descObj
+});
+
+assert(obj.hasOwnProperty("prop"));
+verifyNotConfigurable(obj, "prop");

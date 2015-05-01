@@ -10,30 +10,23 @@ description: >
     Object.defineProperties - 'configurable' property of 'descObj' is
     inherited accessor property without a get function (8.10.5 step
     4.a)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
+var obj = {};
+var proto = {};
 
-        var obj = {};
-        var proto = {};
+Object.defineProperty(proto, "configurable", {
+    set: function () { }
+});
 
-        Object.defineProperty(proto, "configurable", {
-            set: function () { }
-        });
+var Con = function () { };
+Con.prototype = proto;
+var descObj = new Con();
 
-        var Con = function () { };
-        Con.prototype = proto;
-        var descObj = new Con();
+Object.defineProperties(obj, {
+    prop: descObj
+});
 
-        Object.defineProperties(obj, {
-            prop: descObj
-        });
-
-        var result1 = obj.hasOwnProperty("prop");
-        delete obj.prop;
-        var result2 = obj.hasOwnProperty("prop");
-
-        return result1 === true && result2 === true;
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("prop"));
+verifyNotConfigurable(obj, "prop");

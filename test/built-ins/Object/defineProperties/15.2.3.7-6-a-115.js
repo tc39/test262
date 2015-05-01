@@ -11,38 +11,24 @@ description: >
     property of 'O', the [[Value]] field of 'desc' is absent, test
     every field in 'desc' is same with corresponding attribute value
     of the length property in 'O' (15.4.5.1 step 3.a.i)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
+var arr = [];
 
-        Object.defineProperties(arr, {
-            length: {
-                writable: true,
-                enumerable: false,
-                configurable: false
-            }
-        });
-
-        var verifyValue = false;
-        verifyValue = (arr.length === 0);
-
-        var verifyWritable = false;
-        arr.length = 2;
-        verifyWritable = (arr.length === 2);
-
-        var verifyEnumerable = false;
-        for (var p in arr) {
-            if (p === "length") {
-                verifyEnumerable = true;
-            }
-        }
-
-        var verifyConfigurable = false;
-        delete arr.length;
-        verifyConfigurable = arr.hasOwnProperty("length");
-
-        return verifyValue && verifyWritable && !verifyEnumerable && verifyConfigurable;
+Object.defineProperties(arr, {
+    length: {
+        writable: true,
+        enumerable: false,
+        configurable: false
     }
-runTestCase(testcase);
+});
+
+assert.sameValue(arr.length, 0);
+
+arr.length = 2;
+assert.sameValue(arr.length, 2);
+
+verifyNotEnumerable(arr, "length");
+
+verifyNotConfigurable(arr, "length");

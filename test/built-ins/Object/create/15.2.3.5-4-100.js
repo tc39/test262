@@ -9,21 +9,14 @@ es5id: 15.2.3.5-4-100
 description: >
     Object.create - 'configurable' property of one property in
     'Properties' is not present (8.10.5 step 4)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-
-        var newObj = Object.create({}, {
-            prop: {
-                value: "ownDataProperty"
-            }
-        });
-
-        var result1 = newObj.hasOwnProperty("prop");
-        delete newObj.prop;
-        var result2 = newObj.hasOwnProperty("prop");
-
-        return result1 === true && result2 === true;
+var newObj = Object.create({}, {
+    prop: {
+        value: "ownDataProperty"
     }
-runTestCase(testcase);
+});
+
+assert(newObj.hasOwnProperty("prop"), "expected newObj to have 'prop'");
+verifyNotConfigurable(newObj, "prop");

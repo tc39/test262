@@ -14,10 +14,9 @@ description: >
     present, and the [[Get]] field of 'desc' and the [[Get]] attribute
     value of 'name' are two objects which refer to the different
     objects (15.4.5.1 step 4.c)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
         var arrObj = [];
 
         function getFunc() {
@@ -58,4 +57,3 @@ function testcase() {
                 verifySet && !verifyEnumerable && verifyConfigurable;
         }
     }
-runTestCase(testcase);

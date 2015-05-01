@@ -11,10 +11,9 @@ description: >
     property of 'O', the [[Value]] field of 'desc' is absent, test
     every field in 'desc' is same with corresponding attribute value
     of the length property in 'O' (15.4.5.1 step 3.a.i)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
         var arrObj = [];
         Object.defineProperty(arrObj, "length", {
@@ -43,4 +42,3 @@ function testcase() {
 
         return verifyValue && verifyWritable && !verifyEnumerable && verifyConfigurable;
     }
-runTestCase(testcase);

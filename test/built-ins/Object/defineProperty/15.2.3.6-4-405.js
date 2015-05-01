@@ -10,10 +10,9 @@ description: >
     ES5 Attributes - Failed to add a property to an object when the
     object's object has a property with same name and [[Writable]]
     attribute is set to false (Number instance)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
         try {
             Object.defineProperty(Number.prototype, "prop", {
                 value: 1001,
@@ -29,4 +28,3 @@ function testcase() {
             delete Number.prototype.prop;
         }
     }
-runTestCase(testcase);

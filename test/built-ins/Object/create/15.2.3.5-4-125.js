@@ -9,21 +9,15 @@ es5id: 15.2.3.5-4-125
 description: >
     Object.create - 'configurable' property of one property in
     'Properties' is undefined (8.10.5 step 4.b)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-
-        var newObj = Object.create({}, {
-            prop: {
-                configurable: undefined
-            }
-        });
-
-        var result1 = newObj.hasOwnProperty("prop");
-        delete newObj.prop;
-        var result2 = newObj.hasOwnProperty("prop");
-
-        return result1 === true && result2 === true;
+var newObj = Object.create({}, {
+    prop: {
+        configurable: undefined
     }
-runTestCase(testcase);
+});
+
+
+assert(newObj.hasOwnProperty("prop"));
+verifyNotConfigurable(newObj, "prop");

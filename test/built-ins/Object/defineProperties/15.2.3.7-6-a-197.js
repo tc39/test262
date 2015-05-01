@@ -12,28 +12,21 @@ description: >
     [[Writable]] of 'P' property in 'Attributes' is set as false value
     if [[Writable]] is absent in data descriptor 'desc'  (15.4.5.1
     step 4.c)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arr = [];
-        var isOwnProperty = false;
-        var canWritable = false;
+var arr = [];
+var isOwnProperty = false;
+var canWritable = false;
 
-        Object.defineProperties(arr, {
-            "0": {
-                value: 1001,
-                enumerable: true,
-                configurable: false
-            }
-        });
-
-        isOwnProperty = arr.hasOwnProperty("0");
-
-        arr[0] = 12;
-
-        canWritable = (arr[0] === 12);
-
-        return isOwnProperty && !canWritable && arr[0] === 1001;
+Object.defineProperties(arr, {
+    "0": {
+        value: 1001,
+        enumerable: true,
+        configurable: false
     }
-runTestCase(testcase);
+});
+
+assert(arr.hasOwnProperty("0"));
+verifyNotWritable(arr, "0");
+assert.sameValue(arr[0], 1001);
