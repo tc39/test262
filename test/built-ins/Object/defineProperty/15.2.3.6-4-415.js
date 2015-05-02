@@ -10,10 +10,9 @@ description: >
     ES5 Attributes - Failed to add properties to an object when the
     object's prototype has properties with the same name and
     [[Writable]] set to false (Object.create)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
         var appointment = new Object();
 
         Object.defineProperty(appointment, "startTime", {
@@ -51,4 +50,3 @@ function testcase() {
             teamMeeting.startTime === 1001 &&
             teamMeeting.conferenceCall === "In-person meeting";
     }
-runTestCase(testcase);

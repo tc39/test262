@@ -10,10 +10,9 @@ description: >
     ES5 Attributes - Updating an indexed accessor property 'P' without
     [[Set]] using simple assignment is failed, 'A' is an Array object
     (8.12.5 step 5.b)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
         var obj = [];
 
         var verifySetFunc = "data";
@@ -33,4 +32,3 @@ function testcase() {
 
         return propertyDefineCorrect && typeof desc.set === "undefined" && obj[0] === "data";
     }
-runTestCase(testcase);

@@ -10,10 +10,9 @@ description: >
     ES5 Attributes - Failed to add a property to an object when the
     object's prototype has a property with the same name and
     [[Writable]] set to false (JSON)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
         try {
             Object.defineProperty(Object.prototype, "prop", {
                 value: 1001,
@@ -28,4 +27,3 @@ function testcase() {
             delete Object.prototype.prop;
         }
     }
-runTestCase(testcase);

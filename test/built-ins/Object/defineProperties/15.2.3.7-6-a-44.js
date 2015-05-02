@@ -9,10 +9,9 @@ es5id: 15.2.3.7-6-a-44
 description: >
     Object.defineProperties - both desc.value and P.value are NaN
     (8.12.9 step 6)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
         var obj = {};
 
@@ -42,4 +41,3 @@ function testcase() {
 
         return verifyConfigurable && !verifyEnumerable && verifyValue;
     }
-runTestCase(testcase);

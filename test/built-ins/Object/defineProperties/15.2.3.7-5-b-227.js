@@ -9,30 +9,24 @@ es5id: 15.2.3.7-5-b-227
 description: >
     Object.defineProperties - 'set' property of 'descObj' is not
     present (8.10.5 step 8)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var data = "data";
-        var obj = {};
+var data = "data";
+var obj = {};
 
-        try {
-            Object.defineProperties(obj, {
-                descObj: {
-                    get: function () {
-                        return data;
-                    }
-                }
-            });
-
-
-            obj.descObj = "overrideData";
-
-            var desc = Object.getOwnPropertyDescriptor(obj, "descObj");
-            return obj.hasOwnProperty("descObj") && typeof (desc.set) === "undefined" && data === "data";
-        } catch (e) {
-            return false;
+Object.defineProperties(obj, {
+    descObj: {
+        get: function () {
+            return data;
         }
-
     }
-runTestCase(testcase);
+});
+
+
+assert(obj.hasOwnProperty("descObj"));
+verifyNotWritable(obj, "descObj");
+
+var desc = Object.getOwnPropertyDescriptor(obj, "descObj");
+assert.sameValue(typeof (desc.set), "undefined")
+

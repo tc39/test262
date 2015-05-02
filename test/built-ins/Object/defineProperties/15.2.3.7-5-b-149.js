@@ -10,35 +10,31 @@ description: >
     Object.defineProperties - 'writable' property of 'descObj' is own
     accessor property without a get function that overrides an
     inherited accessor property (8.10.5 step 6.a)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        var proto = {};
+var proto = {};
 
-        Object.defineProperty(proto, "writable", {
-            get: function () {
-                return true;
-            }
-        });
-
-        var Con = function () { };
-        Con.prototype = proto;
-
-        var descObj = new Con();
-
-        Object.defineProperty(descObj, "writable", {
-            set: function () { }
-        });
-
-        Object.defineProperties(obj, {
-            property: descObj
-        });
-
-        obj.property = "isWritable";
-
-        return obj.hasOwnProperty("property") && typeof (obj.property) === "undefined";
+Object.defineProperty(proto, "writable", {
+    get: function () {
+        return true;
     }
-runTestCase(testcase);
+});
+
+var Con = function () { };
+Con.prototype = proto;
+
+var descObj = new Con();
+
+Object.defineProperty(descObj, "writable", {
+    set: function () { }
+});
+
+Object.defineProperties(obj, {
+    property: descObj
+});
+
+assert(obj.hasOwnProperty("property"));
+verifyNotWritable(obj, "property");

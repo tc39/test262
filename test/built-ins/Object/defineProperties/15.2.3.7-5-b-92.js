@@ -9,22 +9,16 @@ es5id: 15.2.3.7-5-b-92
 description: >
     Object.defineProperties - value of 'configurable' property of
     'descObj' is NaN (8.10.5 step 4.b)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        Object.defineProperties(obj, {
-            property: {
-                configurable: NaN
-            }
-        });
-
-        var hadOwnProperty = obj.hasOwnProperty("property");
-
-        delete obj.property;
-
-        return obj.hasOwnProperty("property") && hadOwnProperty;
+Object.defineProperties(obj, {
+    property: {
+        configurable: NaN
     }
-runTestCase(testcase);
+});
+
+assert(obj.hasOwnProperty("property"));
+verifyNotConfigurable(obj, "property");

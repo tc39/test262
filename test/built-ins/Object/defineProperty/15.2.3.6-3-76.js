@@ -9,10 +9,9 @@ es5id: 15.2.3.6-3-76
 description: >
     Object.defineProperty - 'configurable' property in 'Attributes' is
     an inherited data property (8.10.5 step 4.a)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
         var obj = { };
 
         var proto = {
@@ -33,4 +32,3 @@ function testcase() {
         var afterDeleted = obj.hasOwnProperty("property");
         return beforeDeleted && afterDeleted && typeof (obj.property) === "undefined";
     }
-runTestCase(testcase);

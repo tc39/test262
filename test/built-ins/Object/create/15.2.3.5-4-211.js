@@ -9,20 +9,15 @@ es5id: 15.2.3.5-4-211
 description: >
     Object.create - 'writable' property of one property in
     'Properties' is NaN (8.10.5 step 6.b)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-
-        var newObj = Object.create({}, {
-            prop: {
-                writable: NaN
-            }
-        });
-        var hasProperty = newObj.hasOwnProperty("prop") && typeof newObj.prop === "undefined";
-
-        newObj.prop = 121;
-
-        return hasProperty && typeof newObj.prop === "undefined";
+var newObj = Object.create({}, {
+    prop: {
+        writable: NaN
     }
-runTestCase(testcase);
+});
+
+assert(newObj.hasOwnProperty("prop"));
+assert.sameValue(typeof newObj.prop, "undefined")
+verifyNotWritable(newObj, "prop");

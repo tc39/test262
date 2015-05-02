@@ -10,22 +10,18 @@ description: >
     Object.defineProperties - 'descObj' is a String object which
     implements its own [[Get]] method to get 'writable' property
     (8.10.5 step 6.a)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        var str = new String("abc");
+var str = new String("abc");
 
-        str.writable = false;
+str.writable = false;
 
-        Object.defineProperties(obj, {
-            property: str
-        });
+Object.defineProperties(obj, {
+    property: str
+});
 
-        obj.property = "isWritable";
-
-        return obj.hasOwnProperty("property") && typeof (obj.property) === "undefined";
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("property"));
+verifyNotWritable(obj, "property");

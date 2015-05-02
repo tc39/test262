@@ -9,10 +9,9 @@ es5id: 15.2.3.7-5-b-174
 description: >
     Object.defineProperties - value of 'writable' property of
     'descObj' is empty string (8.10.5 step 6.b)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperties(obj, {
@@ -26,4 +25,6 @@ function testcase() {
         return obj.hasOwnProperty("property") && typeof (obj.property) === "undefined";
 
     }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("property"));
+verifyNotWritable(obj, "property");
+assert(obj.hasOwnProperty("property"));

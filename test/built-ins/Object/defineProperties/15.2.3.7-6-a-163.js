@@ -13,21 +13,22 @@ description: >
     length property is set to false at last after deleting properties
     with large index named if the [[Writable]] field of 'desc' is
     false (15.4.5.1 step 3.i.ii)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
     
-        var arr = [0, 1];
+var arr = [0, 1];
 
-        Object.defineProperties(arr, {
-            length: {
-                value: 1,
-                writable: false
-            }
-        });
-
-        arr.length = 10; //try to overwrite length value of arr
-        return !arr.hasOwnProperty("1") && arr.length === 1 && arr[0] === 0;
+Object.defineProperties(arr, {
+    length: {
+        value: 1,
+        writable: false
     }
-runTestCase(testcase);
+});
+
+//try to overwrite length value of arr
+verifyNotWritable(arr, "length")
+
+assert(!arr.hasOwnProperty("1"));
+assert.sameValue(arr.length, 1);
+assert.sameValue(arr[0], 0);

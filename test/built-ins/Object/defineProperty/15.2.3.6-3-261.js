@@ -9,10 +9,9 @@ es5id: 15.2.3.6-3-261
 description: >
     Object.defineProperty - value of 'set' property in 'Attributes' is
     undefined (8.10.5 step 8.b)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "property", {
@@ -24,4 +23,3 @@ function testcase() {
         return obj.hasOwnProperty("property") && typeof obj.property === "undefined" &&
             typeof desc.set === "undefined";
     }
-runTestCase(testcase);

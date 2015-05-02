@@ -10,23 +10,17 @@ description: >
     Object.create - 'configurable' property of one property in
     'Properties' is own accessor property without a get function
     (8.10.5 step 4.a)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
+var descObj = {};
+Object.defineProperty(descObj, "configurable", {
+    set: function () { }
+});
 
-        var descObj = {};
-        Object.defineProperty(descObj, "configurable", {
-            set: function () { }
-        });
+var newObj = Object.create({}, {
+    prop: descObj 
+});
 
-        var newObj = Object.create({}, {
-            prop: descObj 
-        });
-        var result1 = newObj.hasOwnProperty("prop");
-        delete newObj.prop;
-        var result2 = newObj.hasOwnProperty("prop");
-
-        return result1 === true && result2 === true;
-    }
-runTestCase(testcase);
+assert(newObj.hasOwnProperty("prop"));
+verifyNotConfigurable(newObj, "prop");

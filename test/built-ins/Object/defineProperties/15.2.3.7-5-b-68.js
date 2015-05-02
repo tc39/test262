@@ -10,10 +10,9 @@ description: >
     Object.defineProperties - 'configurable' property of 'descObj' is
     own accessor property that overrides an inherited accessor
     property (8.10.5 step 4.a)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
         var obj = {};
         var proto = {};
@@ -42,4 +41,3 @@ function testcase() {
 
         return result1 === true && result2 === true;
     }
-runTestCase(testcase);

@@ -10,29 +10,25 @@ description: >
     Object.defineProperties - 'writable' property of 'descObj' is own
     data property that overrides an inherited data property (8.10.5
     step 6.a)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        var proto = {
-            writable: true
-        };
+var proto = {
+    writable: true
+};
 
-        var Con = function () { };
-        Con.prototype = proto;
+var Con = function () { };
+Con.prototype = proto;
 
-        var descObj = new Con();
+var descObj = new Con();
 
-        descObj.writable = false;
+descObj.writable = false;
 
-        Object.defineProperties(obj, {
-            property: descObj
-        });
+Object.defineProperties(obj, {
+    property: descObj
+});
 
-        obj.property = "isWritable";
-
-        return obj.hasOwnProperty("property") && typeof (obj.property) === "undefined";
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("property"));
+verifyNotWritable(obj, "property");

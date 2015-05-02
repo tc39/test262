@@ -10,10 +10,9 @@ description: >
     Object.defineProperty - Indexed property 'P' with attributes
     [[Writable]]: false, [[Enumerable]]: true, [[Configurable]]: true
     is non-writable using simple assignment, 'A' is an Array object
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
         var obj = [];
 
         Object.defineProperty(obj, "0", {
@@ -27,4 +26,3 @@ function testcase() {
 
         return verifyValue && obj[0] === 2010;
     }
-runTestCase(testcase);

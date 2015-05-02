@@ -11,10 +11,9 @@ description: >
     accessor property ([[Get]] is undefined, [[Set]] is undefined,
     [[Enumerable]] is true, [[Configurable]] is false) to different
     value
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
@@ -38,4 +37,3 @@ function testcase() {
             return desc1.configurable === false && desc2.configurable === false && obj.hasOwnProperty("prop") && e instanceof TypeError;
         }
     }
-runTestCase(testcase);

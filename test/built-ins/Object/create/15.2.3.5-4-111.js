@@ -10,28 +10,22 @@ description: >
     Object.create - 'configurable' property of one property in
     'Properties' is an inherited accessor property without a get
     function (8.10.5 step 4.a)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
+var proto = {};
 
-        var proto = {};
+Object.defineProperty(proto, "configurable", {
+    set: function () { }
+});
 
-        Object.defineProperty(proto, "configurable", {
-            set: function () { }
-        });
+var ConstructFun = function () { };
+ConstructFun.prototype = proto;
+var descObj = new ConstructFun();
 
-        var ConstructFun = function () { };
-        ConstructFun.prototype = proto;
-        var descObj = new ConstructFun();
+var newObj = Object.create({}, {
+    prop: descObj 
+});
 
-        var newObj = Object.create({}, {
-            prop: descObj 
-        });
-        var result1 = newObj.hasOwnProperty("prop");
-        delete newObj.prop;
-        var result2 = newObj.hasOwnProperty("prop");
-
-        return result1 === true && result2 === true;
-    }
-runTestCase(testcase);
+assert(newObj.hasOwnProperty("prop"));
+verifyNotConfigurable(newObj, "prop");

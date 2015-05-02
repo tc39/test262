@@ -10,22 +10,18 @@ description: >
     Object.defineProperties - 'descObj' is an Array object which
     implements its own [[Get]] method to get 'writable' property
     (8.10.5 step 6.a)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        var arr = [1, 2, 3];
+var arr = [1, 2, 3];
 
-        arr.writable = false;
+arr.writable = false;
 
-        Object.defineProperties(obj, {
-            property: arr
-        });
+Object.defineProperties(obj, {
+    property: arr
+});
 
-        obj.property = "isWritable";
-
-        return obj.hasOwnProperty("property") && typeof (obj.property) === "undefined";
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("property"));
+verifyNotWritable(obj, "property");

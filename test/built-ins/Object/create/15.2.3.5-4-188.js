@@ -10,27 +10,18 @@ description: >
     Object.create - 'writable' property of one property in
     'Properties' is own accessor property without a get function
     (8.10.5 step 6.a)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
+var descObj = { value: 100 };
 
-        var descObj = { value: 100 };
+Object.defineProperty(descObj, "writable", {
+    set: function () { }
+});
 
-        Object.defineProperty(descObj, "writable", {
-            set: function () { }
-        });
+var newObj = Object.create({}, {
+    prop: descObj
+});
 
-        var newObj = Object.create({}, {
-            prop: descObj
-        });
-
-        var beforeWrite = (newObj.prop === 100);
-
-        newObj.prop = "isWritable";
-
-        var afterWrite = (newObj.prop === 100);
-
-        return beforeWrite === true && afterWrite === true;
-    }
-runTestCase(testcase);
+assert.sameValue(newObj.prop, 100);
+verifyNotWritable(newObj, "prop");

@@ -13,29 +13,31 @@ description: >
     length property is set to false at last when the [[Writable]]
     field of 'desc' is false and 'O' contains non-configurable large
     index named property (15.4.5.1 step 3.l.iii.2)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var arr = [0, 1];
+var arr = [0, 1];
 
-        try {
-            Object.defineProperty(arr, "1", {
-                configurable: false
-            });
+try {
+    Object.defineProperty(arr, "1", {
+        configurable: false
+    });
 
-            Object.defineProperties(arr, {
-                length: {
-                    value: 1,
-                    writable: false
-                }
-            });
-            return false;
-        } catch (e) {
-            arr.length = 10; //try to overwrite length value of arr
-            return e instanceof TypeError && arr.hasOwnProperty("1") &&
-                arr.length === 2 && arr[0] === 0 && arr[1] === 1;
+    Object.defineProperties(arr, {
+        length: {
+            value: 1,
+            writable: false
         }
-    }
-runTestCase(testcase);
+    });
+
+    $ERROR("Expected to throw TypeError");
+} catch (e) {
+    assert(e instanceof TypeError);
+    assert(arr.hasOwnProperty("1"));
+    verifyNotWritable(arr, "length");
+    assert.sameValue(arr[0], 0);
+    assert.sameValue(arr[1], 1);
+    assert.sameValue(arr.length, 2)
+}
+

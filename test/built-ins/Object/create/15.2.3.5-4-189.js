@@ -10,38 +10,30 @@ description: >
     Object.create - 'writable' property of one property in
     'Properties' is own accessor property without a get function,
     which overrides an inherited accessor property (8.10.5 step 6.a)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
+var proto = {};
 
-        var proto = {};
-
-        Object.defineProperty(proto, "writable", {
-            get: function () {
-                return true;
-            }
-        });
-
-        var ConstructFun = function () { };
-        ConstructFun.prototype = proto;
-
-        var descObj = new ConstructFun();
-
-        Object.defineProperty(descObj, "writable", {
-            set: function () { }
-        });
-
-        var newObj = Object.create({}, {
-            prop: descObj
-        });
-
-        var beforeWrite = (newObj.hasOwnProperty("prop") && typeof (newObj.prop) === "undefined");
-
-        newObj.prop = "isWritable";
-
-        var afterWrite = (newObj.prop === "isWritable");
-
-        return beforeWrite === true && afterWrite === false;
+Object.defineProperty(proto, "writable", {
+    get: function () {
+        return true;
     }
-runTestCase(testcase);
+});
+
+var ConstructFun = function () { };
+ConstructFun.prototype = proto;
+
+var descObj = new ConstructFun();
+
+Object.defineProperty(descObj, "writable", {
+    set: function () { }
+});
+
+var newObj = Object.create({}, {
+    prop: descObj
+});
+
+assert(newObj.hasOwnProperty("prop"))
+assert.sameValue(typeof (newObj.prop), "undefined");
+verifyNotWritable(newObj, "prop");

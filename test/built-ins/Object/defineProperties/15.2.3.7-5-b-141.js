@@ -9,27 +9,23 @@ es5id: 15.2.3.7-5-b-141
 description: >
     Object.defineProperties - 'writable' property of 'descObj' is
     inherited data property (8.10.5 step 6.a)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        var proto = {
-            writable: false
-        };
+var proto = {
+    writable: false
+};
 
-        var Con = function () { };
-        Con.prototype = proto;
+var Con = function () { };
+Con.prototype = proto;
 
-        var descObj = new Con();
+var descObj = new Con();
 
-        Object.defineProperties(obj, {
-            property: descObj
-        });
+Object.defineProperties(obj, {
+    property: descObj
+});
 
-        obj.property = "isWritable";
-
-        return obj.hasOwnProperty("property") && typeof (obj.property) === "undefined";
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("property"));
+verifyNotWritable(obj, "property");

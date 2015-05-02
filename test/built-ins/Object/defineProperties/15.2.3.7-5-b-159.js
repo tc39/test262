@@ -10,25 +10,22 @@ description: >
     Object.defineProperties - 'descObj' is the JSON object which
     implements its own [[Get]] method to get 'writable' property
     (8.10.5 step 6.a)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
+var obj = {};
 
-        var obj = {};
+try {
+    JSON.writable = false;
 
-        try {
-            JSON.writable = false;
+    Object.defineProperties(obj, {
+        property: JSON
+    });
 
-            Object.defineProperties(obj, {
-                property: JSON
-            });
+    assert(obj.hasOwnProperty("property"));
+    verifyNotWritable(obj, "property");
 
-            obj.property = "isWritable";
+} finally {
+    delete JSON.writable;
+}
 
-            return obj.hasOwnProperty("property") && typeof (obj.property) === "undefined";
-        } finally {
-            delete JSON.writable;
-        }
-    }
-runTestCase(testcase);

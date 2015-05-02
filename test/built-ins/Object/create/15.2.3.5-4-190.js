@@ -10,32 +10,23 @@ description: >
     Object.create - 'writable' property of one property in
     'Properties' is an inherited accessor property without a get
     function (8.10.5 step 6.a)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
+var proto = { value: 100 };
 
-        var proto = { value: 100 };
+Object.defineProperty(proto, "writable", {
+    set: function () { }
+});
 
-        Object.defineProperty(proto, "writable", {
-            set: function () { }
-        });
+var ConstructFun = function () { };
+ConstructFun.prototype = proto;
 
-        var ConstructFun = function () { };
-        ConstructFun.prototype = proto;
+var descObj = new ConstructFun();
 
-        var descObj = new ConstructFun();
+var newObj = Object.create({}, {
+    prop: descObj
+});
 
-        var newObj = Object.create({}, {
-            prop: descObj
-        });
-
-        var beforeWrite = (newObj.prop === 100);
-
-        newObj.prop = "isWritable";
-
-        var afterWrite = (newObj.prop === 100);
-
-        return beforeWrite === true && afterWrite === true;
-    }
-runTestCase(testcase);
+assert.sameValue(newObj.prop, 100);
+verifyNotWritable(newObj, "prop");
