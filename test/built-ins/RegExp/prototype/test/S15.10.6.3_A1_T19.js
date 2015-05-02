@@ -7,7 +7,7 @@ es5id: 15.10.6.3_A1_T19
 description: RegExp is /e{1}/ and tested string is void 0
 ---*/
 
-__re = /e{1}/;
+var __re = /e{1}/;
 
 //CHECK#0
 if (__re.test(void 0) !== (__re.exec(void 0) !== null)) {

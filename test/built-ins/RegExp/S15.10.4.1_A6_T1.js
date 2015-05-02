@@ -7,7 +7,7 @@ es5id: 15.10.4.1_A6_T1
 description: Checking [[Class]] property of the newly constructed object
 ---*/
 
-__re = new RegExp;
+var __re = new RegExp;
 __re.toString = Object.prototype.toString;
 
 //CHECK#1

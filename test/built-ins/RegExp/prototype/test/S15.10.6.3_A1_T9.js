@@ -8,7 +8,7 @@ description: RegExp is /1|12/ and tested string is function object
 ---*/
 
 var __string;
-__re = /1|12/;
+var __re = /1|12/;
 
 //CHECK#0
 if (__re.test(__string) !== (__re.exec(__string) !== null)) {

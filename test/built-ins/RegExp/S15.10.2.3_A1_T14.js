@@ -10,9 +10,9 @@ es5id: 15.10.2.3_A1_T14
 description: "Execute /.+: gr(a|e)y/.exec(\"color: grey\") and check results"
 ---*/
 
-__executed = /.+: gr(a|e)y/.exec("color: grey");
+var __executed = /.+: gr(a|e)y/.exec("color: grey");
 
-__expected = ["color: grey","e"];
+var __expected = ["color: grey","e"];
 __expected.index = 0;
 __expected.input = "color: grey";
 

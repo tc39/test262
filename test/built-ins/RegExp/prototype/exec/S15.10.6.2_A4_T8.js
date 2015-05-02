@@ -9,11 +9,11 @@ es5id: 15.10.6.2_A4_T8
 description: Call first exec, then set re.lastIndex = "12" and again call exec
 ---*/
 
-__re = /(?:ab|cd)\d?/g;
+var __re = /(?:ab|cd)\d?/g;
 
-__executed = __re.exec("aacd2233ab12nm444ab42");
+var __executed = __re.exec("aacd2233ab12nm444ab42");
 
-__expected = ["cd2"];
+var __expected = ["cd2"];
 __expected.index = 2;
 __expected.input = "aacd2233ab12nm444ab42";
 

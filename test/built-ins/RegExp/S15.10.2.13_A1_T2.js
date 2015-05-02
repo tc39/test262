@@ -10,7 +10,7 @@ es5id: 15.10.2.13_A1_T2
 description: Execute /a[]/.test("\0a\0a") and check results
 ---*/
 
-__executed = /a[]/.test("\0a\0a");;
+var __executed = /a[]/.test("\0a\0a");;
 
 //CHECK#1
 if (__executed) {

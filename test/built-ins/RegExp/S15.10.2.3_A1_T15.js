@@ -12,9 +12,9 @@ description: >
     results
 ---*/
 
-__executed = /(Rob)|(Bob)|(Robert)|(Bobby)/.exec("Hi Bob");
+var __executed = /(Rob)|(Bob)|(Robert)|(Bobby)/.exec("Hi Bob");
 
-__expected = ["Bob",undefined,"Bob", undefined, undefined];
+var __expected = ["Bob",undefined,"Bob", undefined, undefined];
 __expected.index = 3;
 __expected.input = "Hi Bob";
 

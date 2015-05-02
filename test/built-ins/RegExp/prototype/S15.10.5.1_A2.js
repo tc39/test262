@@ -18,8 +18,8 @@ if (RegExp.propertyIsEnumerable('prototype') !== false) {
 }
 
  //CHECK#2
-count=0;
-for (p in RegExp){
+var count=0;
+for (var p in RegExp){
 	if (p==="prototype") count++;
 }
 

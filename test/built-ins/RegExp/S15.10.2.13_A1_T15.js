@@ -10,9 +10,9 @@ es5id: 15.10.2.13_A1_T15
 description: Execute /[\d][\n][^\d]/.exec("line1\nline2") and check results
 ---*/
 
-__executed = /[\d][\n][^\d]/.exec("line1\nline2");
+var __executed = /[\d][\n][^\d]/.exec("line1\nline2");
 
-__expected = ["1\nl"];
+var __expected = ["1\nl"];
 __expected.index = 4;
 __expected.input = "line1\nline2";
 

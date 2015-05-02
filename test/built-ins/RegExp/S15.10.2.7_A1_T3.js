@@ -11,9 +11,9 @@ description: >
     check results
 ---*/
 
-__executed = /\d{2,4}/.exec("the 20000 Leagues Under the Sea book");
+var __executed = /\d{2,4}/.exec("the 20000 Leagues Under the Sea book");
 
-__expected = ["2000"];
+var __expected = ["2000"];
 __expected.index = 4;
 __expected.input = "the 20000 Leagues Under the Sea book";
 

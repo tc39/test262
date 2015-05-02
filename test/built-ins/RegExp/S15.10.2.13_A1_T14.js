@@ -10,9 +10,9 @@ es5id: 15.10.2.13_A1_T14
 description: Execute /[*&$]{3}/.exec("123*&$abc") and check results
 ---*/
 
-__executed = /[*&$]{3}/.exec("123*&$abc");
+var __executed = /[*&$]{3}/.exec("123*&$abc");
 
-__expected = ["*&$"];
+var __expected = ["*&$"];
 __expected.index = 3;
 __expected.input = "123*&$abc";
 

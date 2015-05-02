@@ -10,7 +10,7 @@ es5id: 15.10.2.8_A2_T8
 description: Execute /(\.(?!com|org)|\/)/.test("ah.com") and check results
 ---*/
 
-__executed = /(\.(?!com|org)|\/)/.test("ah.com");
+var __executed = /(\.(?!com|org)|\/)/.test("ah.com");
 
 //CHECK#1
 if (__executed) {

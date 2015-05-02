@@ -11,7 +11,7 @@ description: >
     check results
 ---*/
 
-__executed = /\be/.test("pilot\nsoviet robot\topenoffic\u0065");
+var __executed = /\be/.test("pilot\nsoviet robot\topenoffic\u0065");
 
 //CHECK#1
 if (__executed) {

@@ -9,9 +9,9 @@ es5id: 15.10.2.5_A1_T4
 description: Execute /(z)((a+)?(b+)?(c))* /.exec("zaacbbbcac") and check results
 ---*/
 
-__executed = /(z)((a+)?(b+)?(c))*/.exec("zaacbbbcac");
+var __executed = /(z)((a+)?(b+)?(c))*/.exec("zaacbbbcac");
 
-__expected = ["zaacbbbcac", "z", "ac", "a", undefined, "c"];
+var __expected = ["zaacbbbcac", "z", "ac", "a", undefined, "c"];
 __expected.index = 0;
 __expected.input = "zaacbbbcac";
 

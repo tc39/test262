@@ -12,9 +12,9 @@ description: >
     af jedi") and check results
 ---*/
 
-__executed = /[Jj]ava([Ss]cript)?(?=\:)/.exec("just Javascript: the way af jedi");
+var __executed = /[Jj]ava([Ss]cript)?(?=\:)/.exec("just Javascript: the way af jedi");
 
-__expected = ["Javascript", "script"];
+var __expected = ["Javascript", "script"];
 __expected.index = 5;
 __expected.input = "just Javascript: the way af jedi";
 

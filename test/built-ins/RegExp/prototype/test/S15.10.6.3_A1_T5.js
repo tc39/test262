@@ -11,7 +11,7 @@ description: >
 ---*/
 
 var __string = {toString:function(){return {};}, valueOf:function(){return "aabaac";}};
-__re = /(aa|aabaac|ba|b|c)*/;
+var __re = /(aa|aabaac|ba|b|c)*/;
 
 //CHECK#0
 if (__re.test(__string) !== (__re.exec(__string) !== null)) {

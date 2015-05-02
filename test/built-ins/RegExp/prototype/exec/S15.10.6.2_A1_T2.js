@@ -9,37 +9,36 @@ es5id: 15.10.6.2_A1_T2
 description: String is new String("123") and RegExp is /((1)|(12))((3)|(23))/
 ---*/
 
-with(/((1)|(12))((3)|(23))/){
-    __executed = exec(new String("123"));
-}
+var __re = /((1)|(12))((3)|(23))/;
+var __executed = __re.exec(new String("123"));
 
-__expected = ["123", "1", "1", undefined, "23", undefined, "23"];
+var __expected = ["123", "1", "1", undefined, "23", undefined, "23"];
 __expected.index=0;
 __expected.input="123";
 
 //CHECK#0
 if ((__executed instanceof Array) !== true) {
-	$ERROR('#0: with(/((1)|(12))((3)|(23))/){__executed = exec(new String("123"));} (__executed instanceof Array) === true');
+	$ERROR('#0: __re = /((1)|(12))((3)|(23))/; __executed = __re.exec(new String("123"));} (__executed instanceof Array) === true');
 }
 
 //CHECK#1
 if (__executed.length !== __expected.length) {
-  $ERROR('#1: with(/((1)|(12))((3)|(23))/){__executed = exec(new String("123"));} __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);
+  $ERROR('#1: __re = /((1)|(12))((3)|(23))/; __executed = __re.exec(new String("123"));} __executed.length === ' + __expected.length + '. Actual: ' + __executed.length);
 }
 
 //CHECK#2
 if (__executed.index !== __expected.index) {
-  $ERROR('#2: with(/((1)|(12))((3)|(23))/){__executed = exec(new String("123"));} __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);
+  $ERROR('#2: __re = /((1)|(12))((3)|(23))/; __executed = __re.exec(new String("123"));} __executed.index === ' + __expected.index + '. Actual: ' + __executed.index);
 }
 
 //CHECK#3
 if (__executed.input !== __expected.input) {
-  $ERROR('#3: with(/((1)|(12))((3)|(23))/){__executed = exec(new String("123"));} __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);
+  $ERROR('#3: __re = /((1)|(12))((3)|(23))/; __executed = __re.exec(new String("123"));} __executed.input === ' + __expected.input + '. Actual: ' + __executed.input);
 }
 
 //CHECK#4
 for(var index=0; index<__expected.length; index++) {
   if (__executed[index] !== __expected[index]) {
-    $ERROR('#4: with(/((1)|(12))((3)|(23))/){__executed = exec(new String("123"));} __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
+    $ERROR('#4: __re = /((1)|(12))((3)|(23))/; __executed = __re.exec(new String("123"));} __executed[' + index + '] === ' + __expected[index] + '. Actual: ' + __executed[index]);
   }
 }

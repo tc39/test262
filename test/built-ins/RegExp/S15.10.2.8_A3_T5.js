@@ -11,9 +11,9 @@ es5id: 15.10.2.8_A3_T5
 description: Execute /a(bc)d(ef)g/.exec("abcdefg") and check results
 ---*/
 
-__executed = /a(bc)d(ef)g/.exec("abcdefg");
+var __executed = /a(bc)d(ef)g/.exec("abcdefg");
 
-__expected = ["abcdefg","bc","ef"];
+var __expected = ["abcdefg","bc","ef"];
 __expected.index = 0;
 __expected.input = "abcdefg";
 

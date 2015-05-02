@@ -12,9 +12,9 @@ description: >
     results
 ---*/
 
-__executed = /(.*?)a(?!(a+)b\2c)\2(.*)/.exec("baaabaac");
+var __executed = /(.*?)a(?!(a+)b\2c)\2(.*)/.exec("baaabaac");
 
-__expected = ["baaabaac", "ba", undefined, "abaac"];
+var __expected = ["baaabaac", "ba", undefined, "abaac"];
 __expected.index = 0;
 __expected.input = "baaabaac";
 

@@ -9,9 +9,9 @@ es5id: 15.10.6.2_A1_T19
 description: String is void 0 and RegExp is /e{1}/
 ---*/
 
-__executed = /e{1}/.exec(void 0);
+var __executed = /e{1}/.exec(void 0);
 
-__expected = ["e"];
+var __expected = ["e"];
 __expected.index=3;
 __expected.input="undefined";
 

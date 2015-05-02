@@ -9,9 +9,9 @@ es5id: 15.10.6.2_A1_T15
 description: "String is {toString:function(){return false;}} and RegExp is /LS/i"
 ---*/
 
-__executed = /LS/i.exec({toString:function(){return false}});
+var __executed = /LS/i.exec({toString:function(){return false}});
 
-__expected = ["ls"];
+var __expected = ["ls"];
 __expected.index=2;
 __expected.input="false";
 

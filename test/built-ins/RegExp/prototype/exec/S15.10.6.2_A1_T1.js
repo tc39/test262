@@ -9,9 +9,9 @@ es5id: 15.10.6.2_A1_T1
 description: String is "123" and RegExp is /1|12/
 ---*/
 
-__executed = /1|12/.exec("123");
+var __executed = /1|12/.exec("123");
 
-__expected = ["1"];
+var __expected = ["1"];
 __expected.index=0;
 __expected.input="123";
 

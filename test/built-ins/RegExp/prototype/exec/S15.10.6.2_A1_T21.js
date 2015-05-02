@@ -9,9 +9,9 @@ es5id: 15.10.6.2_A1_T21
 description: String is function(){}() and RegExp is /[a-z]n/
 ---*/
 
-__executed = /[a-z]n/.exec(function(){}());
+var __executed = /[a-z]n/.exec(function(){}());
 
-__expected = ["un"];
+var __expected = ["un"];
 __expected.index=0;
 __expected.input="undefined";
 

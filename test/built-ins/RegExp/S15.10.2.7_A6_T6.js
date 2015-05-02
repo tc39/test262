@@ -10,9 +10,9 @@ es5id: 15.10.2.7_A6_T6
 description: Execute /x{1,2}x{1,}/.exec("xxxxxxx") and check results
 ---*/
 
-__executed = /x{1,2}x{1,}/.exec("xxxxxxx");
+var __executed = /x{1,2}x{1,}/.exec("xxxxxxx");
 
-__expected = ["xxxxxxx"];
+var __expected = ["xxxxxxx"];
 __expected.index = 0;
 __expected.input = "xxxxxxx";
 

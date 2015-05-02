@@ -7,9 +7,9 @@ es5id: 15.10.2.6_A6_T3
 description: while asterix is non greedy it is run till matches end or colon
 ---*/
 
-__executed = /^.*?(:|$)/.exec("Hello: World");
+var __executed = /^.*?(:|$)/.exec("Hello: World");
 
-__expected = ["Hello:", ":"];
+var __expected = ["Hello:", ":"];
 __expected.index = 0;
 __expected.input = "Hello: World";
 

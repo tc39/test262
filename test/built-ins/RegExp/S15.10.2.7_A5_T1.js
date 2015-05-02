@@ -11,9 +11,9 @@ description: >
     ecma script") and check results
 ---*/
 
-__executed = /java(script)?/.exec("state: javascript is extension of ecma script");
+var __executed = /java(script)?/.exec("state: javascript is extension of ecma script");
 
-__expected = ["javascript", "script"];
+var __expected = ["javascript", "script"];
 __expected.index = 7;
 __expected.input = "state: javascript is extension of ecma script";
 

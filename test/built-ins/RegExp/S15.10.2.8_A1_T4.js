@@ -12,9 +12,9 @@ description: >
     cookbook ") and check results
 ---*/
 
-__executed = /[Jj]ava([Ss]cript)?(?=\:)/.exec("taste of java: the cookbook ");
+var __executed = /[Jj]ava([Ss]cript)?(?=\:)/.exec("taste of java: the cookbook ");
 
-__expected = ["java", undefined];
+var __expected = ["java", undefined];
 __expected.index = 9;
 __expected.input = "taste of java: the cookbook ";
 

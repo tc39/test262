@@ -9,9 +9,9 @@ es5id: 15.10.2.7_A4_T17
 description: Execute /x*y+$/.exec('xxxxxxyyyyyy') and check results
 ---*/
 
-__executed = /x*y+$/.exec('xxxxxxyyyyyy');
+var __executed = /x*y+$/.exec('xxxxxxyyyyyy');
 
-__expected = ["xxxxxxyyyyyy"];
+var __expected = ["xxxxxxyyyyyy"];
 __expected.index = 0;
 __expected.input = 'xxxxxxyyyyyy';
 

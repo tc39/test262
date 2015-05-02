@@ -11,9 +11,9 @@ es5id: 15.10.2.8_A3_T10
 description: Execute /(\d{3})(\d{3})\1\2/.exec("123456123456") and check results
 ---*/
 
-__executed = /(\d{3})(\d{3})\1\2/.exec("123456123456");
+var __executed = /(\d{3})(\d{3})\1\2/.exec("123456123456");
 
-__expected = ["123456123456","123","456"];
+var __expected = ["123456123456","123","456"];
 __expected.index = 0;
 __expected.input = "123456123456";
 

@@ -10,10 +10,10 @@ es5id: 15.10.2.8_A4_T4
 description: Execute /.+/.exec("this is a *&^%$# test") and check results
 ---*/
 
-__string = "this is a *&^%$# test";
-__executed = /.+/.exec(__string);
+var __string = "this is a *&^%$# test";
+var __executed = /.+/.exec(__string);
 
-__expected = ["this is a *&^%$# test"];
+var __expected = ["this is a *&^%$# test"];
 __expected.index = 0;
 __expected.input = __string;
 

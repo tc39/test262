@@ -11,7 +11,7 @@ description: >
     results
 ---*/
 
-__executed = /\bot/.test("pilot\nsoviet robot\topenoffice");
+var __executed = /\bot/.test("pilot\nsoviet robot\topenoffice");
 
 //CHECK#1
 if (__executed) {

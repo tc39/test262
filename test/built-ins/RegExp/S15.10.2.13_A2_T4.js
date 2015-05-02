@@ -10,9 +10,9 @@ es5id: 15.10.2.13_A2_T4
 description: Execute /[^\b]+/g.exec("easy\bto\u0008ride") and check results
 ---*/
 
-__executed = /[^\b]+/g.exec("easy\bto\u0008ride");
+var __executed = /[^\b]+/g.exec("easy\bto\u0008ride");
 
-__expected = ["easy"];
+var __expected = ["easy"];
 __expected.index = 0;
 __expected.input = "easy\bto\u0008ride";
 

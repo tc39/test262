@@ -8,7 +8,7 @@ description: RegExp is /2|12/ and tested string is new Number(1.012)
 ---*/
 
 var __string = new Number(1.012);
-__re = /2|12/;
+var __re = /2|12/;
 
 //CHECK#0
 if (__re.test(__string) !== (__re.exec(__string) !== null)) {

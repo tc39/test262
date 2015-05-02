@@ -9,7 +9,7 @@ description: >
     (function(){return "zaacbbbcac"})()
 ---*/
 
-__re = /(z)((a+)?(b+)?(c))*/;
+var __re = /(z)((a+)?(b+)?(c))*/;
 
 //CHECK#0
 if (__re.test((function(){return "zaacbbbcac"})()) !== (__re.exec((function(){return "zaacbbbcac"})()) !== null)) {

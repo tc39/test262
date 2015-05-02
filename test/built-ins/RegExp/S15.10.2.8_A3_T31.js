@@ -11,11 +11,11 @@ es5id: 15.10.2.8_A3_T31
 description: "See bug http:bugzilla.mozilla.org/show_bug.cgi?id=165353"
 ---*/
 
-__string = "abc";
+var __string = "abc";
 
-__executed = /^([a-z]+)*[a-z]$/.exec(__string);
+var __executed = /^([a-z]+)*[a-z]$/.exec(__string);
 
-__expected = ['abc', "ab"];
+var __expected = ['abc', "ab"];
 __expected.index = 0;
 __expected.input = __string;
 

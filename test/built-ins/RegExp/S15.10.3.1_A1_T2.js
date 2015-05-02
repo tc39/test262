@@ -9,8 +9,8 @@ es5id: 15.10.3.1_A1_T2
 description: R is new RegExp and instance is RegExp(R, function(){}())
 ---*/
 
-__re = new RegExp;
-__instance = RegExp(__re, function(){}());
+var __re = new RegExp;
+var __instance = RegExp(__re, function(){}());
 __re.indicator = 1;
 
 //CHECK#1

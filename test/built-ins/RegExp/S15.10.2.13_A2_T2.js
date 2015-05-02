@@ -10,9 +10,9 @@ es5id: 15.10.2.13_A2_T2
 description: Execute /a[^]/.exec("   a\t\n") and check results
 ---*/
 
-__executed = /a[^]/.exec("   a\t\n");
+var __executed = /a[^]/.exec("   a\t\n");
 
-__expected = ["a\t"];
+var __expected = ["a\t"];
 __expected.index = 3;
 __expected.input = "   a\t\n";
 

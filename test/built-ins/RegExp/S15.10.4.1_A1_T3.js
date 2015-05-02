@@ -9,8 +9,8 @@ es5id: 15.10.4.1_A1_T3
 description: Pattern is /[a-b]/g and RegExp is new RegExp(pattern,void 0)
 ---*/
 
-__pattern = /[a-b]/g;
-__re = new RegExp(__pattern, void 0);
+var __pattern = /[a-b]/g;
+var __re = new RegExp(__pattern, void 0);
 
 //CHECK#1
 if (__re.source !== __pattern.source) {

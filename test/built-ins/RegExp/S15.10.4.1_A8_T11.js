@@ -7,7 +7,7 @@ es5id: 15.10.4.1_A8_T11
 description: Checking by using eval, pattern is Math and flags is eval("\"g\"")
 ---*/
 
-__re = new RegExp(Math,eval("\"g\""));
+var __re = new RegExp(Math,eval("\"g\""));
 
 //CHECK#1
 if (__re.ignoreCase !== false) {

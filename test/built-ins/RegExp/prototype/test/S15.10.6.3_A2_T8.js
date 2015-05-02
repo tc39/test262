@@ -9,7 +9,7 @@ es5id: 15.10.6.3_A2_T8
 description: The tested object is "."
 ---*/
 
-__instance = ".";
+var __instance = ".";
 
 Object.prototype.test = RegExp.prototype.test;
 

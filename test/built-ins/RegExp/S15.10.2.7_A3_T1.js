@@ -9,9 +9,9 @@ es5id: 15.10.2.7_A3_T1
 description: Execute /\s+java\s+/.exec("language  java\n") and check results
 ---*/
 
-__executed = /\s+java\s+/.exec("language  java\n");
+var __executed = /\s+java\s+/.exec("language  java\n");
 
-__expected = ["  java\n"];
+var __expected = ["  java\n"];
 __expected.index = 8;
 __expected.input = "language  java\n";
 

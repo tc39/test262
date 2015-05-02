@@ -12,10 +12,10 @@ description: >
     then First call /(?:ab|cd)\d?/g.exec("aacd22")
 ---*/
 
-__re = /(?:ab|cd)\d?/g;
-__executed = __re.exec("aac1dz2233a1bz12nm444ab42");
+var __re = /(?:ab|cd)\d?/g;
+var __executed = __re.exec("aac1dz2233a1bz12nm444ab42");
 
-__expected = ["ab4"];
+var __expected = ["ab4"];
 __expected.index = 21;
 __expected.input = "aac1dz2233a1bz12nm444ab42";
 

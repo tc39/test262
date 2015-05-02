@@ -7,7 +7,7 @@ es5id: 15.10.4.1_A4_T3
 description: Use undefined properties of object as flags of RegExp
 ---*/
 
-__re = new RegExp({}.p, {}.q);
+var __re = new RegExp({}.p, {}.q);
 
 //CHECK#2
 if (__re.multiline !== false) {

@@ -9,8 +9,8 @@ es5id: 15.10.3.1_A1_T1
 description: R is /x/i and instance is RegExp(R)
 ---*/
 
-__re = /x/i;
-__instance = RegExp(__re);
+var __re = /x/i;
+var __instance = RegExp(__re);
 __re.indicator = 1;
 
 //CHECK#1

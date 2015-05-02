@@ -10,10 +10,10 @@ es5id: 15.10.2.8_A4_T5
 description: Execute /.+/.exec("....") and check results
 ---*/
 
-__string = "....";
-__executed = /.+/.exec(__string);
+var __string = "....";
+var __executed = /.+/.exec(__string);
 
-__expected = ["...."];
+var __expected = ["...."];
 __expected.index = 0;
 __expected.input = __string;
 

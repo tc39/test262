@@ -11,11 +11,11 @@ es5id: 15.10.2.8_A3_T32
 description: "See bug http:bugzilla.mozilla.org/show_bug.cgi?id=165353"
 ---*/
 
-__string = "www.netscape.com";
+var __string = "www.netscape.com";
 
-__executed = /^(([a-z]+)*[a-z]\.)+[a-z]{2,}$/.exec(__string);
+var __executed = /^(([a-z]+)*[a-z]\.)+[a-z]{2,}$/.exec(__string);
 
-__expected = ['www.netscape.com', 'netscape.', 'netscap'];
+var __expected = ['www.netscape.com', 'netscape.', 'netscap'];
 __expected.index = 0;
 __expected.input = __string;
 

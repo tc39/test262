@@ -9,9 +9,9 @@ es5id: 15.10.2.5_A1_T5
 description: Execute /(a*)b\1+/.exec("baaaac") and check results
 ---*/
 
-__executed = /(a*)b\1+/.exec("baaaac");
+var __executed = /(a*)b\1+/.exec("baaaac");
 
-__expected = ["b", ""];
+var __expected = ["b", ""];
 __expected.index = 0;
 __expected.input = "baaaac";
 

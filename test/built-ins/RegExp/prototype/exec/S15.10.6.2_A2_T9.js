@@ -9,7 +9,7 @@ es5id: 15.10.6.2_A2_T9
 description: The tested object is 1.0
 ---*/
 
-__instance = 1.0;
+var __instance = 1.0;
 
 Object.prototype.exec = RegExp.prototype.exec;
 

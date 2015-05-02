@@ -20,9 +20,9 @@ if (RegExp.prototype.toString.propertyIsEnumerable('length') !== false) {
 }
 
  //CHECK#2
-count=0;
+var count=0;
 
-for (p in RegExp.prototype.toString){
+for (var p in RegExp.prototype.toString){
 	if (p==="length") count++;
 }
 

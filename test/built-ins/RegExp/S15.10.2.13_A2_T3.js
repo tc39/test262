@@ -10,9 +10,9 @@ es5id: 15.10.2.13_A2_T3
 description: Execute /a[^b-z]\s+/.exec("ab an az aY n") and check results
 ---*/
 
-__executed = /a[^b-z]\s+/.exec("ab an az aY n");
+var __executed = /a[^b-z]\s+/.exec("ab an az aY n");
 
-__expected = ["aY "];
+var __expected = ["aY "];
 __expected.index = 9;
 __expected.input = "ab an az aY n";
 

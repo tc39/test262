@@ -9,9 +9,9 @@ description: "ControlLetter :: RUSSIAN ALPHABET is incorrect"
 
 //CHECK#0410-042F
 var result = true;  
-for (alpha = 0x0410; alpha <= 0x042F; alpha++) {
-  str = String.fromCharCode(alpha % 32);
-  arr = (new RegExp("\\c" + String.fromCharCode(alpha))).exec(str);  
+for (var alpha = 0x0410; alpha <= 0x042F; alpha++) {
+  var str = String.fromCharCode(alpha % 32);
+  var arr = (new RegExp("\\c" + String.fromCharCode(alpha))).exec(str);  
   if (arr !== null) {
     result = false;
   }

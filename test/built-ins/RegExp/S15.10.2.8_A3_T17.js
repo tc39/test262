@@ -11,20 +11,20 @@ es5id: 15.10.2.8_A3_T17
 description: "see bug http:bugzilla.mozilla.org/show_bug.cgi?id=169497"
 ---*/
 
-__body="";
+var __body="";
 __body += '<body onXXX="alert(event.type);">\n';
 __body += '<p>Kibology for all<\/p>\n';
 __body += '<p>All for Kibology<\/p>\n';
 __body += '<\/body>';
 
-__html="";
+var __html="";
 __html += '<html>\n';
 __html += __body;
 __html += '\n<\/html>';
 
-__executed = /<body.*>((.*\n?)*?)<\/body>/i.exec(__html);
+var __executed = /<body.*>((.*\n?)*?)<\/body>/i.exec(__html);
 
-__expected = [__body, '\n<p>Kibology for all</p>\n<p>All for Kibology</p>\n', '<p>All for Kibology</p>\n'];
+var __expected = [__body, '\n<p>Kibology for all</p>\n<p>All for Kibology</p>\n', '<p>All for Kibology</p>\n'];
 __expected.index = 7;
 __expected.input = __html;
 

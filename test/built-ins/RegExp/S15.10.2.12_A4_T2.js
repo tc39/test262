@@ -13,7 +13,7 @@ var regexp_W = /\W/;
 
 //CHECK#0061-007A
 var result = true; 
-for (alpha = 0x0061; alpha <= 0x007A; alpha++) {
+for (var alpha = 0x0061; alpha <= 0x007A; alpha++) {
   if (regexp_W.exec(String.fromCharCode(alpha)) !== null) {
     result = false;
   }

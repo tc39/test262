@@ -11,9 +11,9 @@ description: >
     /(z)((a+)?(b+)?(c))* /
 ---*/
 
-__executed = /(z)((a+)?(b+)?(c))*/.exec((function(){return "zaacbbbcac"})());
+var __executed = /(z)((a+)?(b+)?(c))*/.exec((function(){return "zaacbbbcac"})());
 
-__expected = ["zaacbbbcac", "z", "ac", "a", undefined, "c"];
+var __expected = ["zaacbbbcac", "z", "ac", "a", undefined, "c"];
 __expected.index=0;
 __expected.input="zaacbbbcac";
 

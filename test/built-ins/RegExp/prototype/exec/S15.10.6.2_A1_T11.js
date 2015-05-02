@@ -9,9 +9,9 @@ es5id: 15.10.6.2_A1_T11
 description: String is new Number(1.012) and RegExp is /2|12/
 ---*/
 
-__executed = /2|12/.exec(new Number(1.012));
+var __executed = /2|12/.exec(new Number(1.012));
 
-__expected = ["12"];
+var __expected = ["12"];
 __expected.index=3;
 __expected.input="1.012";
 

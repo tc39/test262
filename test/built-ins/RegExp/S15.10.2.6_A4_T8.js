@@ -11,9 +11,9 @@ description: >
     results
 ---*/
 
-__executed = /\B\w{4}\B/.exec("devil arise\tforzzx\nevils");
+var __executed = /\B\w{4}\B/.exec("devil arise\tforzzx\nevils");
 
-__expected = ["orzz"];
+var __expected = ["orzz"];
 __expected.index = 13;
 __expected.input = "devil arise\tforzzx\nevils";
 

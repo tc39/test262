@@ -11,9 +11,9 @@ description: >
     results
 ---*/
 
-__executed = /\bp/.exec("pilot\nsoviet robot\topenoffice");
+var __executed = /\bp/.exec("pilot\nsoviet robot\topenoffice");
 
-__expected = ["p"];
+var __expected = ["p"];
 __expected.index = 0;
 __expected.input = "pilot\nsoviet robot\topenoffice";
 

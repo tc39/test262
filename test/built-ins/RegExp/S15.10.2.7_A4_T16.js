@@ -9,9 +9,9 @@ es5id: 15.10.2.7_A4_T16
 description: Execute /(x+)(x*)/.exec('xxxxxxx') and check results
 ---*/
 
-__executed = /(x+)(x*)/.exec('xxxxxxx');
+var __executed = /(x+)(x*)/.exec('xxxxxxx');
 
-__expected = ["xxxxxxx","xxxxxxx",""];
+var __expected = ["xxxxxxx","xxxxxxx",""];
 __expected.index = 0;
 __expected.input = 'xxxxxxx';
 

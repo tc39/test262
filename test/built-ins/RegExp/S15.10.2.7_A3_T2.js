@@ -9,9 +9,9 @@ es5id: 15.10.2.7_A3_T2
 description: Execute /\s+java\s+/.exec("\t java object") and check results
 ---*/
 
-__executed = /\s+java\s+/.exec("\t java object");
+var __executed = /\s+java\s+/.exec("\t java object");
 
-__expected = ["\t java "];
+var __expected = ["\t java "];
 __expected.index = 0;
 __expected.input = "\t java object";
 

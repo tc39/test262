@@ -9,17 +9,15 @@ es5id: 15.10.6.3_A2_T5
 description: The tested object is new Boolean(false)
 ---*/
 
-__instance = new Boolean(false);
+var __instance = new Boolean(false);
 
 __instance.test = RegExp.prototype.test;
 
 //CHECK#1
-with(__instance) {
   try {
-   $ERROR('#1.1: __instance = new Boolean(false); __instance.test = RegExp.prototype.test; test("message to investigate"). Actual: ' + (test("message to investigate")));
+   $ERROR('#1.1: __instance = new Boolean(false); __instance.test = RegExp.prototype.test; test("message to investigate"). Actual: ' + (__instance.test("message to investigate")));
   } catch (e) {
     if ((e instanceof TypeError !== true)) {
       $ERROR('#1.2: __instance = new Boolean(false); __instance.test = RegExp.prototype.test; test("message to investigate"). Actual: ' + (e));
     }
-  }  
-}
+  }

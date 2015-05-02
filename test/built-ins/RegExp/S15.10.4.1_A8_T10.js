@@ -7,7 +7,7 @@ es5id: 15.10.4.1_A8_T10
 description: Pattern is true and flags is "m"
 ---*/
 
-__re = new RegExp(true,"m");
+var __re = new RegExp(true,"m");
 
 //CHECK#1
 if (__re.ignoreCase !== false) {

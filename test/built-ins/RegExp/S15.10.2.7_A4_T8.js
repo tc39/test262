@@ -11,7 +11,7 @@ description: >
     results
 ---*/
 
-__executed = /["'][^"']*["']/.test('alice cries out: don\'t');
+var __executed = /["'][^"']*["']/.test('alice cries out: don\'t');
 
 //CHECK#1
 if (__executed) {

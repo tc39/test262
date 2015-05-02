@@ -9,10 +9,10 @@ es5id: 15.10.2.8_A5_T2
 description: Execute /[a-z]+/.exec("ABC def ghi") and check results
 ---*/
 
-__string = "ABC def ghi";
-__executed = /[a-z]+/.exec(__string);
+var __string = "ABC def ghi";
+var __executed = /[a-z]+/.exec(__string);
 
-__expected = ["def"];
+var __expected = ["def"];
 __expected.index = 4;
 __expected.input = __string;
 

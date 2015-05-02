@@ -7,7 +7,7 @@ es5id: 15.10.4.1_A3_T4
 description: RegExp is new RegExp(undefined)
 ---*/
 
-__re = new RegExp(undefined);
+var __re = new RegExp(undefined);
 
 //CHECK#2
 if (__re.multiline !== false) {

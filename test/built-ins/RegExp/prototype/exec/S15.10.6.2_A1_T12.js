@@ -11,9 +11,9 @@ description: >
     /\.14/
 ---*/
 
-__executed = /\.14/.exec({toString:function(){return Math.PI}});
+var __executed = /\.14/.exec({toString:function(){return Math.PI}});
 
-__expected = [".14"];
+var __expected = [".14"];
 __expected.index=1;
 __expected.input=String(Math.PI);
 

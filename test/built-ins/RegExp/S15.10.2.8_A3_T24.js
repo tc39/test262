@@ -13,11 +13,11 @@ description: >
     check results
 ---*/
 
-__string = "zxcasd;fl\\\  ^AAaaAAaaaf;lrlrzs";
+var __string = "zxcasd;fl\\\  ^AAaaAAaaaf;lrlrzs";
 
-__executed = /(A)?(A.*)/.exec(__string);
+var __executed = /(A)?(A.*)/.exec(__string);
 
-__expected = ["AAaaAAaaaf;lrlrzs","A","AaaAAaaaf;lrlrzs"];
+var __expected = ["AAaaAAaaaf;lrlrzs","A","AaaAAaaaf;lrlrzs"];
 __expected.index = 13;
 __expected.input = __string;
 

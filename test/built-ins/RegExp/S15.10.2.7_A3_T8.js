@@ -9,9 +9,9 @@ es5id: 15.10.2.7_A3_T8
 description: Execute /[a-z]+(\d+)/.exec("__abc123.0") and check results
 ---*/
 
-__executed = /[a-z]+(\d+)/.exec("__abc123.0");
+var __executed = /[a-z]+(\d+)/.exec("__abc123.0");
 
-__expected = ["abc123","123"];
+var __expected = ["abc123","123"];
 __expected.index = 2;
 __expected.input = "__abc123.0";
 

@@ -9,9 +9,9 @@ es5id: 15.10.6.2_A1_T13
 description: String is true and RegExp is /t[a-b|q-s]/
 ---*/
 
-__executed = /t[a-b|q-s]/.exec(true);
+var __executed = /t[a-b|q-s]/.exec(true);
 
-__expected = ["tr"];
+var __expected = ["tr"];
 __expected.index=0;
 __expected.input="true";
 

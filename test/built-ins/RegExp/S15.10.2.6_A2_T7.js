@@ -9,7 +9,7 @@ es5id: 15.10.2.6_A2_T7
 description: Execute /^..^e/.test("ab\ncde") and check results
 ---*/
 
-__executed = /^..^e/.test("ab\ncde");
+var __executed = /^..^e/.test("ab\ncde");
 
 //CHECK#1
 if (__executed) {

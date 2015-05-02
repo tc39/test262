@@ -9,7 +9,7 @@ es5id: 15.10.2.7_A3_T10
 description: Execute /o+/.test("abcdefg") and check results
 ---*/
 
-__executed = /o+/.test("abcdefg");
+var __executed = /o+/.test("abcdefg");
 
 //CHECK#1
 if (__executed) {

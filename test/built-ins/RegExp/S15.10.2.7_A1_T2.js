@@ -9,7 +9,7 @@ es5id: 15.10.2.7_A1_T2
 description: Execute /\d{2,4}/.test("the 7 movie") and check results
 ---*/
 
-__executed = /\d{2,4}/.test("the 7 movie");
+var __executed = /\d{2,4}/.test("the 7 movie");
 
 //CHECK#1
 if (__executed) {

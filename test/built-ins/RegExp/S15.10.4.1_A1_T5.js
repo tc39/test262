@@ -11,8 +11,8 @@ description: >
     RegExp(pattern,(function(){})())
 ---*/
 
-__pattern = RegExp("1?","mig");
-__re = new RegExp(__pattern, (function(){})());
+var __pattern = RegExp("1?","mig");
+var __re = new RegExp(__pattern, (function(){})());
 
 //CHECK#1
 if (__re.source !== __pattern.source) {

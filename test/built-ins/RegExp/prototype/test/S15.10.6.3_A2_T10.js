@@ -9,7 +9,7 @@ es5id: 15.10.6.3_A2_T10
 description: The tested object is undefined
 ---*/
 
-test = RegExp.prototype.test;
+var test = RegExp.prototype.test;
 
 //CHECK#1
 try {

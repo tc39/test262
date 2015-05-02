@@ -9,7 +9,7 @@ description: >
     (function(){return "m";})()
 ---*/
 
-__re = new RegExp({toString:function(){return "[0-9]";}}, (function(){return "m";})());
+var __re = new RegExp({toString:function(){return "[0-9]";}}, (function(){return "m";})());
 
 //CHECK#1
 if (__re.ignoreCase !== false) {

@@ -10,9 +10,9 @@ es5id: 15.10.2.8_A1_T2
 description: Execute /(?=(a+))a*b\1/.exec("baaabac") and check results
 ---*/
 
-__executed = /(?=(a+))a*b\1/.exec("baaabac");
+var __executed = /(?=(a+))a*b\1/.exec("baaabac");
 
-__expected = ["aba", "a"];
+var __expected = ["aba", "a"];
 __expected.index = 3;
 __expected.input = "baaabac";
 

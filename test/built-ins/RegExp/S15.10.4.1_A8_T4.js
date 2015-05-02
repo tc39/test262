@@ -9,7 +9,7 @@ description: >
     and flags is {toString:void 0,valueOf:function(){return "mig";}}
 ---*/
 
-__re = new RegExp({toString:void 0,valueOf:function(){return "[z-z]";}}, {toString:void 0,valueOf:function(){return "mig";}});
+var __re = new RegExp({toString:void 0,valueOf:function(){return "[z-z]";}}, {toString:void 0,valueOf:function(){return "mig";}});
 
 //CHECK#1
 if (__re.ignoreCase !== true) {

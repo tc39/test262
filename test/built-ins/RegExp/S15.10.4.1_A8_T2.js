@@ -7,7 +7,7 @@ es5id: 15.10.4.1_A8_T2
 description: Pattern is function(){return "a|b|[]";}() and flags is "ig"
 ---*/
 
-__re = new RegExp(function(){return "a|b|[]";}(),"ig");
+var __re = new RegExp(function(){return "a|b|[]";}(),"ig");
 
 //CHECK#1
 if (__re.ignoreCase !== true) {

@@ -9,9 +9,9 @@ es5id: 15.10.2.7_A4_T11
 description: Execute /cd* /.exec('abcddddefg') and check results
 ---*/
 
-__executed = /cd*/.exec('abcddddefg');
+var __executed = /cd*/.exec('abcddddefg');
 
-__expected = ["cdddd"];
+var __expected = ["cdddd"];
 __expected.index = 2;
 __expected.input = 'abcddddefg';
 

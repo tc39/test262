@@ -9,16 +9,16 @@ es5id: 15.10.6.3_A2_T2
 description: The tested object is Math
 ---*/
 
-__instance = Math;
+var __instance = Math;
 
 __instance.test = RegExp.prototype.test;
 
 //CHECK#1
 try { 
-  with(__instance) test("message to investigate");
-  $ERROR('#1.1: __instance = Math; __instance.test = RegExp.prototype.test;  with(__instance) test("message to investigate")');
+  __instance.test("message to investigate");
+  $ERROR('#1.1: __instance = Math; __instance.test = RegExp.prototype.test;  __instance.test("message to investigate")');
 } catch (e) {
   if ((e instanceof TypeError) !== true) {
-    $ERROR('#1.2: __instance = Math; __instance.test = RegExp.prototype.test;  with(__instance) test("message to investigate"). Actual: ' + (e));
+    $ERROR('#1.2: __instance = Math; __instance.test = RegExp.prototype.test;  __instance.test("message to investigate"). Actual: ' + (e));
   }
 }

@@ -11,9 +11,9 @@ description: >
     check results
 ---*/
 
-__executed = /[^o]t\b/i.exec("pilOt\nsoviet robot\topenoffice");
+var __executed = /[^o]t\b/i.exec("pilOt\nsoviet robot\topenoffice");
 
-__expected = ["et"];
+var __expected = ["et"];
 __expected.index = 10;
 __expected.input = "pilOt\nsoviet robot\topenoffice";
 

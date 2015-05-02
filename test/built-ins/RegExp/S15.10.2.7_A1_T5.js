@@ -9,9 +9,9 @@ es5id: 15.10.2.7_A1_T5
 description: Execute /\d{2,4}/.exec("the 1984 novel") and check results
 ---*/
 
-__executed = /\d{2,4}/.exec("the 1984 novel");
+var __executed = /\d{2,4}/.exec("the 1984 novel");
 
-__expected = ["1984"];
+var __expected = ["1984"];
 __expected.index = 4;
 __expected.input = "the 1984 novel";
 

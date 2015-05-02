@@ -10,7 +10,7 @@ description: >
 ---*/
 
 var __string = {toString:function(){return "abcdefghi";}};
-__re = /a[a-z]{2,4}?/;
+var __re = /a[a-z]{2,4}?/;
 
 //CHECK#0
 if (__re.test(__string) !== (__re.exec(__string) !== null)) {

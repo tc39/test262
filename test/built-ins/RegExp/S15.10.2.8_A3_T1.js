@@ -13,9 +13,9 @@ description: >
     javaScript is funny, really") and check results
 ---*/
 
-__executed = /([Jj]ava([Ss]cript)?)\sis\s(fun\w*)/.exec("Learning javaScript is funny, really");
+var __executed = /([Jj]ava([Ss]cript)?)\sis\s(fun\w*)/.exec("Learning javaScript is funny, really");
 
-__expected = ["javaScript is funny","javaScript","Script","funny"];
+var __expected = ["javaScript is funny","javaScript","Script","funny"];
 __expected.index = 9;
 __expected.input = "Learning javaScript is funny, really";
 

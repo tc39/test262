@@ -9,9 +9,9 @@ es5id: 15.10.2.7_A1_T4
 description: Execute /\d{2,4}/.exec("the Fahrenheit 451 book") and check results
 ---*/
 
-__executed = /\d{2,4}/.exec("the Fahrenheit 451 book");
+var __executed = /\d{2,4}/.exec("the Fahrenheit 451 book");
 
-__expected = ["451"];
+var __expected = ["451"];
 __expected.index = 15;
 __expected.input = "the Fahrenheit 451 book";
 

@@ -9,9 +9,9 @@ es5id: 15.10.6.2_A1_T14
 description: String is new Boolean and RegExp is /AL|se/
 ---*/
 
-__executed = /AL|se/.exec(new Boolean);
+var __executed = /AL|se/.exec(new Boolean);
 
-__expected = ["se"];
+var __expected = ["se"];
 __expected.index=3;
 __expected.input="false";
 

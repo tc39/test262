@@ -10,7 +10,7 @@ description: >
 ---*/
 
 var __string = {toString:function(){return Math.PI;}};
-__re = /\.14/;
+var __re = /\.14/;
 
 //CHECK#0
 if (__re.test(__string) !== (__re.exec(__string) !== null)) {

@@ -10,9 +10,9 @@ es5id: 15.10.2.3_A1_T13
 description: Execute /(.)..|abc/.exec("abc") and check results
 ---*/
 
-__executed = /(.)..|abc/.exec("abc");
+var __executed = /(.)..|abc/.exec("abc");
 
-__expected = ["abc","a"];
+var __expected = ["abc","a"];
 __expected.index = 0;
 __expected.input = "abc";
 

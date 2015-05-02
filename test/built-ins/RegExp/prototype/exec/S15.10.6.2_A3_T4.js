@@ -12,7 +12,7 @@ description: >
     is very long string
 ---*/
 
-__the__raven = "	Once upon a midnight dreary, while I pondered weak and weary," +
+var __the__raven = "	Once upon a midnight dreary, while I pondered weak and weary," +
         "Over many a quaint and curious volume of forgotten lore," +
         "While I nodded, nearly napping, suddenly there came a tapping," +
         "As of some one gently rapping, rapping at my chamber door." +
@@ -136,13 +136,13 @@ __the__raven = "	Once upon a midnight dreary, while I pondered weak and weary," 
         "And my soul from out that shadow that lies floating on the floor" +
         "Shall be lifted - nevermore!"
 
-ALL_THE_HOPELESS_MORE=18;       
+var ALL_THE_HOPELESS_MORE=18;       
        
-__re = /([Nn]?ever|([Nn]othing\s{1,}))more/g;
-__matched=0;
+var __re = /([Nn]?ever|([Nn]othing\s{1,}))more/g;
+var __matched=0;
 
 do{
-    __executed = __re.exec(__the__raven);
+    var __executed = __re.exec(__the__raven);
     if (__executed !== null) {
     	__matched++;
     } else {

@@ -11,7 +11,7 @@ description: >
     in web development") and check results
 ---*/
 
-__executed = /java(script)?/.test("state: both Java and JavaScript used in web development");
+var __executed = /java(script)?/.test("state: both Java and JavaScript used in web development");
 
 //CHECK#1
 if (__executed) {

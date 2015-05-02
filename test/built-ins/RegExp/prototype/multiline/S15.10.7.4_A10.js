@@ -5,6 +5,7 @@
 info: The RegExp.prototype multiline property does not have a set accessor
 es5id: 15.10.7.4_A10
 description: Checking if varying the multiline property fails
+flags: [noStrict]
 includes: [$FAIL.js]
 ---*/
 

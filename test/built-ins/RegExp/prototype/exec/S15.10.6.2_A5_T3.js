@@ -10,9 +10,9 @@ es5id: 15.10.6.2_A5_T3
 description: "Set lastIndex to -1 and call /(?:ab|cd)\\d?/g.exec(\"aacd22 \")"
 ---*/
 
-__re = /(?:ab|cd)\d?/g;
+var __re = /(?:ab|cd)\d?/g;
 __re.lastIndex=-1;
-__executed = __re.test("aacd22 ");
+var __executed = __re.test("aacd22 ");
 
 //CHECK#1
 if (!__executed) {

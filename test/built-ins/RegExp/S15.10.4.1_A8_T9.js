@@ -7,7 +7,7 @@ es5id: 15.10.4.1_A8_T9
 description: Pattern is 1 and flags is new Object("gi")
 ---*/
 
-__re = new RegExp(1, new Object("gi"));
+var __re = new RegExp(1, new Object("gi"));
 
 //CHECK#1
 if (__re.ignoreCase !== true) {

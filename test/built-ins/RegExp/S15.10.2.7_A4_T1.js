@@ -9,9 +9,9 @@ es5id: 15.10.2.7_A4_T1
 description: Execute /[^"]* /.exec('"beast"-nickname') and check results
 ---*/
 
-__executed = /[^"]*/.exec('"beast"-nickname');
+var __executed = /[^"]*/.exec('"beast"-nickname');
 
-__expected = [""];
+var __expected = [""];
 __expected.index = 0;
 __expected.input = '"beast"-nickname';
 

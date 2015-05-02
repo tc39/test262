@@ -9,7 +9,7 @@ es5id: 15.10.6.2_A2_T1
 description: The internal [[Class]] property is "Object"
 ---*/
 
-__instance = new Object;
+var __instance = new Object;
 
 __instance.exec = RegExp.prototype.exec;
 

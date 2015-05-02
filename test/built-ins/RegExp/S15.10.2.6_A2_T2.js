@@ -9,9 +9,9 @@ es5id: 15.10.2.6_A2_T2
 description: Execute /^m/m.exec("pairs\nmakes\tdouble") and check results
 ---*/
 
-__executed = /^m/m.exec("pairs\nmakes\tdouble");
+var __executed = /^m/m.exec("pairs\nmakes\tdouble");
 
-__expected = ["m"];
+var __expected = ["m"];
 __expected.index = 6;
 __expected.input = "pairs\nmakes\tdouble";
 

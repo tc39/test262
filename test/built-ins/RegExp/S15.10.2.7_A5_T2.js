@@ -11,9 +11,9 @@ description: >
     vastly different") and check results
 ---*/
 
-__executed = /java(script)?/.exec("state: java and javascript are vastly different");
+var __executed = /java(script)?/.exec("state: java and javascript are vastly different");
 
-__expected = ["java", undefined];
+var __expected = ["java", undefined];
 __expected.index = 7;
 __expected.input = "state: java and javascript are vastly different";
 

@@ -9,9 +9,9 @@ es5id: 15.10.2.7_A3_T11
 description: Execute /d+/.exec("abcdefg") and check results
 ---*/
 
-__executed = /d+/.exec("abcdefg");
+var __executed = /d+/.exec("abcdefg");
 
-__expected = ["d"];
+var __expected = ["d"];
 __expected.index = 3;
 __expected.input = "abcdefg";
 

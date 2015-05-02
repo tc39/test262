@@ -10,9 +10,9 @@ es5id: 15.10.2.13_A2_T7
 description: Execute /[^a-z]{4}/.exec("abc#$%def%&*@ghi") and check results
 ---*/
 
-__executed = /[^a-z]{4}/.exec("abc#$%def%&*@ghi");
+var __executed = /[^a-z]{4}/.exec("abc#$%def%&*@ghi");
 
-__expected = ["%&*@"];
+var __expected = ["%&*@"];
 __expected.index = 9;
 __expected.input = "abc#$%def%&*@ghi";
 

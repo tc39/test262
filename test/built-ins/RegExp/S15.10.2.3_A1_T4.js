@@ -12,9 +12,9 @@ description: >
     12") and check results
 ---*/
 
-__executed = /\d{3}|[a-z]{4}/.exec("2, 12 and 234 AND of course repeat 12");
+var __executed = /\d{3}|[a-z]{4}/.exec("2, 12 and 234 AND of course repeat 12");
 
-__expected = ["234"];
+var __expected = ["234"];
 __expected.index = 10;
 __expected.input = "2, 12 and 234 AND of course repeat 12";
 

@@ -13,9 +13,9 @@ description: >
     with Java is fun, try it") and check results
 ---*/
 
-__executed = /([Jj]ava([Ss]cript)?)\sis\s(fun\w*)/.exec("Developing with Java is fun, try it");
+var __executed = /([Jj]ava([Ss]cript)?)\sis\s(fun\w*)/.exec("Developing with Java is fun, try it");
 
-__expected = ["Java is fun","Java",undefined,"fun"];
+var __expected = ["Java is fun","Java",undefined,"fun"];
 __expected.index = 16;
 __expected.input = "Developing with Java is fun, try it";
 

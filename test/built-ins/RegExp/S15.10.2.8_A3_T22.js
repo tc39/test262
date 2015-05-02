@@ -11,9 +11,9 @@ es5id: 15.10.2.8_A3_T22
 description: Execute /^(A)?(A.*)$/.exec("A") and check results
 ---*/
 
-__executed = /^(A)?(A.*)$/.exec("A");
+var __executed = /^(A)?(A.*)$/.exec("A");
 
-__expected = ["A",undefined,"A"];
+var __expected = ["A",undefined,"A"];
 __expected.index = 0;
 __expected.input = "A";
 

@@ -10,9 +10,9 @@ es5id: 15.10.2.13_A1_T4
 description: Execute /q[ax-zb](?=\s+)/.exec("tqaqy ") and check results
 ---*/
 
-__executed = /q[ax-zb](?=\s+)/.exec("tqaqy ");
+var __executed = /q[ax-zb](?=\s+)/.exec("tqaqy ");
 
-__expected = ["qy"];
+var __expected = ["qy"];
 __expected.index = 3;
 __expected.input = "tqaqy ";
 

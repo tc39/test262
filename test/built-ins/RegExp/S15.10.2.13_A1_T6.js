@@ -10,9 +10,9 @@ es5id: 15.10.2.13_A1_T6
 description: Execute /ab[ercst]de/.exec("abcde") and check results
 ---*/
 
-__executed = /ab[ercst]de/.exec("abcde");
+var __executed = /ab[ercst]de/.exec("abcde");
 
-__expected = ["abcde"];
+var __expected = ["abcde"];
 __expected.index = 0;
 __expected.input = "abcde";
 

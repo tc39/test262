@@ -12,9 +12,9 @@ description: >
     technology") and check results
 ---*/
 
-__executed = /Java(?!Script)([A-Z]\w*)/.exec("using of JavaBeans technology");
+var __executed = /Java(?!Script)([A-Z]\w*)/.exec("using of JavaBeans technology");
 
-__expected = ["JavaBeans", "Beans"];
+var __expected = ["JavaBeans", "Beans"];
 __expected.index = 9;
 __expected.input = "using of JavaBeans technology";
 

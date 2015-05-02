@@ -11,11 +11,11 @@ es5id: 15.10.2.8_A3_T26
 description: Execute /(a)?a/.exec("a") and check results
 ---*/
 
-__string = "a";
+var __string = "a";
 
-__executed = /(a)?a/.exec(__string);
+var __executed = /(a)?a/.exec(__string);
 
-__expected = ["a",undefined];
+var __expected = ["a",undefined];
 __expected.index = 0;
 __expected.input = __string;
 
