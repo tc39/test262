@@ -12,7 +12,7 @@ class Base {
   }
 }
 class Derived extends Base {}
-var object = new Derived;
+var object = new Derived();
 assert.sameValue(calls, 1, "The value of `calls` is `1`");
 
 calls = 0;
