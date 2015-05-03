@@ -12,16 +12,9 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-        var obj = { };
+var obj = { };
 
-        Object.defineProperty(obj, "property", { value: 100 });
+Object.defineProperty(obj, "property", { value: 100 });
 
-        var beforeDeleted = obj.hasOwnProperty("property");
-
-        delete obj.property;
-
-        var afterDeleted = (obj.property === 100);
-
-        return beforeDeleted === true && afterDeleted === true;
-
-    }
+assert(obj.hasOwnProperty("property"));
+verifyNotConfigurable(obj, "property");

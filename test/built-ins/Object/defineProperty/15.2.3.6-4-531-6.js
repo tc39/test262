@@ -13,22 +13,23 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-        var obj = [];
+var obj = [];
 
-        var verifySetFunc = "data";
-        var getFunc = function () {
-            return verifySetFunc;
-        };
+var verifySetFunc = "data";
+var getFunc = function () {
+    return verifySetFunc;
+};
 
-        Object.defineProperty(obj, "0", {
-            get: getFunc,
-            enumerable: true,
-            configurable: true
-        });
+Object.defineProperty(obj, "0", {
+    get: getFunc,
+    enumerable: true,
+    configurable: true
+});
 
-        obj[0] = "overrideData";
-        var propertyDefineCorrect = obj.hasOwnProperty("0");
-        var desc = Object.getOwnPropertyDescriptor(obj, "0");
+verifyNotWritable(obj, "0");
 
-        return propertyDefineCorrect && typeof desc.set === "undefined" && obj[0] === "data";
-    }
+assert(obj.hasOwnProperty("0"));
+var desc = Object.getOwnPropertyDescriptor(obj, "0");
+
+assert.sameValue(typeof desc.set, "undefined");
+

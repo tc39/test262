@@ -14,31 +14,36 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-        var obj = {};
+var obj = {};
 
-        var verifySetFunc = "data";
-        var setFunc = function (value) {
-            verifySetFunc = value;
-        };
+var verifySetFunc = "data";
+var setFunc = function (value) {
+    verifySetFunc = value;
+};
 
-        Object.defineProperty(obj, "prop", {
-            get: undefined,
-            set: setFunc,
-            enumerable: true,
-            configurable: false
-        });
-        var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
+Object.defineProperty(obj, "prop", {
+    get: undefined,
+    set: setFunc,
+    enumerable: true,
+    configurable: false
+});
+var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        try {
-            Object.defineProperty(obj, "prop", {
-                configurable: true
-            });
+try {
+    Object.defineProperty(obj, "prop", {
+        configurable: true
+    });
 
-            return false;
-        } catch (e) {
-            var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
-            delete obj.prop;
+    $ERROR("Expected TypeError");
+} catch (e) {
+    assert(e instanceof TypeError);
 
-            return desc1.configurable === false && desc2.configurable === false && obj.hasOwnProperty("prop") && e instanceof TypeError;
-        }
-    }
+    var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
+
+    assert.sameValue(desc1.configurable, false);
+    assert.sameValue(desc2.configurable, false);
+
+    verifyNotConfigurable(obj, "prop");
+
+    assert(obj.hasOwnProperty("prop"));
+}

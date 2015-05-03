@@ -12,16 +12,15 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "prop", {
-            value: 2010,
-            writable: true,
-            enumerable: false,
-            configurable: false
-        });
-        var beforeDelete = obj.hasOwnProperty("prop");
-        delete obj.prop;
-        var afterDelete = obj.hasOwnProperty("prop");
-        return beforeDelete && obj.prop === 2010 && afterDelete;
-    }
+Object.defineProperty(obj, "prop", {
+    value: 2010,
+    writable: true,
+    enumerable: false,
+    configurable: false
+});
+
+assert(obj.hasOwnProperty("prop"));
+verifyNotConfigurable(obj, "prop");
+assert.sameValue(obj.prop, 2010);

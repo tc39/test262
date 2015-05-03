@@ -16,40 +16,31 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-        var arrObj = [];
-        function getFunc() {
-            return 12;
-        }
+var arrObj = [];
+function getFunc() {
+    return 12;
+}
 
-        Object.defineProperty(arrObj, "1", {
-            get: getFunc
-        });
+Object.defineProperty(arrObj, "1", {
+    get: getFunc
+});
 
-        try {
-            Object.defineProperty(arrObj, "1", {
-                get: undefined
-            });
-            return false;
-        } catch (e) {
-            var hasProperty = arrObj.hasOwnProperty("1");
-            var desc = Object.getOwnPropertyDescriptor(arrObj, "1");
+try {
+    Object.defineProperty(arrObj, "1", {
+        get: undefined
+    });
+    $ERROR("Expected TypeError");
+} catch (e) {
+    assert(e instanceof TypeError);
+    assert(arrObj.hasOwnProperty("1"));
 
-            var verifyGet = arrObj[1] === getFunc();
+    var desc = Object.getOwnPropertyDescriptor(arrObj, "1");
 
-            var verifySet = desc.hasOwnProperty("set") && typeof desc.set === "undefined";
+    assert(arrObj[1] === getFunc());
+    assert(desc.hasOwnProperty("set") && typeof desc.set === "undefined");
 
-            var verifyEnumerable = false;
-            for (var p in arrObj) {
-                if (p === "1") {
-                    verifyEnumerable = true
-                }
-            }
+    verifyNotWritable(arrObj, "1");
 
-            var verifyConfigurable = false;
-            delete arrObj[1];
-            verifyConfigurable = arrObj.hasOwnProperty("1");
+    verifyNotWritable(arrObj, "1");
+}
 
-            return e instanceof TypeError && hasProperty && verifyGet &&
-                verifySet && !verifyEnumerable && verifyConfigurable;
-        }
-    }

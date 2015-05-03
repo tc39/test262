@@ -12,15 +12,13 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-        var obj = { };
+var obj = { };
 
-        Object.defineProperty(obj, "property", { writable:  NaN});
+Object.defineProperty(obj, "property", { writable:  NaN});
 
-        var beforeWrite = obj.hasOwnProperty("property");
+assert(obj.hasOwnProperty("property"));
 
-        obj.property = "isWritable";
+verifyNotWritable(obj, "property");
 
-        var afterWrite = (typeof (obj.property) === "undefined");
+assert.sameValue(typeof (obj.property), "undefined");
 
-        return beforeWrite === true && afterWrite === true;
-    }

@@ -12,23 +12,23 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-        var obj = { };
+var obj = { };
 
-        var proto = {
-            configurable: false
-        };
+var proto = {
+    configurable: false
+};
 
-        var ConstructFun = function () { };
-        ConstructFun.prototype = proto;
+var ConstructFun = function () { };
+ConstructFun.prototype = proto;
 
-        var child = new ConstructFun();
+var child = new ConstructFun();
 
-        Object.defineProperty(obj, "property", child);
+Object.defineProperty(obj, "property", child);
 
-        var beforeDeleted = obj.hasOwnProperty("property");
+assert(obj.hasOwnProperty("property"));
 
-        delete obj.property;
+verifyNotConfigurable(obj, "property");
 
-        var afterDeleted = obj.hasOwnProperty("property");
-        return beforeDeleted && afterDeleted && typeof (obj.property) === "undefined";
-    }
+assert(obj.hasOwnProperty("property"));
+
+assert.sameValue(typeof (obj.property), "undefined");
