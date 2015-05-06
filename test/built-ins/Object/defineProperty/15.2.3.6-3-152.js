@@ -9,9 +9,10 @@ es5id: 15.2.3.6-3-152
 description: >
     Object.defineProperty - 'writable' property in 'Attributes' is
     present (8.10.5 step 6)
-includes: [propertyHelper.js]
+includes: [runTestCase.js]
 ---*/
 
+function testcase() {
         var obj = {};
 
         var attr = {
@@ -28,3 +29,4 @@ includes: [propertyHelper.js]
 
         return beforeWrite === true && afterWrite === false;
     }
+runTestCase(testcase);

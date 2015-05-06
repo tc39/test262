@@ -9,9 +9,10 @@ es5id: 15.2.3.6-3-178
 description: >
     Object.defineProperty - 'writable' property in 'Attributes' is
     undefined  (8.10.5 step 6.b)
-includes: [propertyHelper.js]
+includes: [runTestCase.js]
 ---*/
 
+function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "property", {
@@ -26,3 +27,4 @@ includes: [propertyHelper.js]
 
         return beforeWrite === true && afterWrite === true;
     }
+runTestCase(testcase);

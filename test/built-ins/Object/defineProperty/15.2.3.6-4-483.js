@@ -11,9 +11,10 @@ description: >
     accessor property ([[Get]] is undefined, [[Set]] is a Function,
     [[Enumerable]] is false, [[Configurable]] is true) to different
     value
-includes: [propertyHelper.js]
+includes: [runTestCase.js]
 ---*/
 
+function testcase() {
         var obj = {};
 
         var verifySetFunc = "data";
@@ -37,3 +38,4 @@ includes: [propertyHelper.js]
 
         return desc1.configurable === true && desc2.configurable === false && obj.hasOwnProperty("prop");
     }
+runTestCase(testcase);

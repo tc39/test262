@@ -10,9 +10,10 @@ description: >
     Object.defineProperty - 'Attributes' is a Date object that uses
     Object's [[Get]] method to access the 'writable' property of
     prototype object (8.10.5 step 6.b)
-includes: [propertyHelper.js]
+includes: [runTestCase.js]
 ---*/
 
+function testcase() {
         var obj = {};
         try {
             Date.prototype.writable = true;
@@ -32,3 +33,4 @@ includes: [propertyHelper.js]
             delete Date.prototype.writable;
         }
     }
+runTestCase(testcase);

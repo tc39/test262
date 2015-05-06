@@ -13,9 +13,10 @@ description: >
     false, test TypeError is thrown if the [[Get]] field of 'desc' is
     present, and the [[Get]] field of 'desc' is an object and the
     [[Get]] attribute value of 'name' is undefined (15.4.5.1 step 4.c)
-includes: [propertyHelper.js]
+includes: [runTestCase.js]
 ---*/
 
+function testcase() {
         var arrObj = [];
         function getFunc() {
             return 12;
@@ -53,3 +54,4 @@ includes: [propertyHelper.js]
                 verifySet && !verifyEnumerable && verifyConfigurable;
         }
     }
+runTestCase(testcase);

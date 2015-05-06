@@ -9,9 +9,10 @@ es5id: 15.2.3.6-4-375
 description: >
     ES5 Attributes - property ([[Writable]] is false, [[Enumerable]]
     is false, [[Configurable]] is false) is unwritable
-includes: [propertyHelper.js]
+includes: [runTestCase.js]
 ---*/
 
+function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
@@ -25,3 +26,4 @@ includes: [propertyHelper.js]
 
         return propertyDefineCorrect && obj.prop === 2010;
     }
+runTestCase(testcase);

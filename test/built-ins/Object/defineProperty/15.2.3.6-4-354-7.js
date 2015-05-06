@@ -10,9 +10,10 @@ description: >
     ES5 Attributes - property 'P' with attributes [[Writable]]: false,
     [[Enumerable]]: true, [[Configurable]] : true) is non-writable
     using simple assignment, 'O' is an Arguments object
-includes: [propertyHelper.js]
+includes: [runTestCase.js]
 ---*/
 
+function testcase() {
         var obj = (function () {
             return arguments;
         }());
@@ -28,3 +29,4 @@ includes: [propertyHelper.js]
 
         return valueVerify && obj.prop === 2010;
     }
+runTestCase(testcase);

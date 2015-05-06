@@ -9,9 +9,10 @@ es5id: 15.2.3.6-3-162
 description: >
     Object.defineProperty - 'writable' property in 'Attributes' is own
     accessor property without a get function  (8.10.5 step 6.a)
-includes: [propertyHelper.js]
+includes: [runTestCase.js]
 ---*/
 
+function testcase() {
         var obj = {};
 
         var attr = {};
@@ -29,3 +30,4 @@ includes: [propertyHelper.js]
 
         return beforeWrite === true && afterWrite === true;
     }
+runTestCase(testcase);

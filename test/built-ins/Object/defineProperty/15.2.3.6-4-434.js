@@ -10,9 +10,10 @@ description: >
     ES5 Attributes - property ([[Get]] is undefined, [[Set]] is
     undefined, [[Enumerable]] is true, [[Configurable]] is false) is
     undeletable
-includes: [propertyHelper.js]
+includes: [runTestCase.js]
 ---*/
 
+function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
@@ -29,3 +30,4 @@ includes: [propertyHelper.js]
 
         return propertyDefineCorrect && desc.configurable === false && obj.hasOwnProperty("prop");
     }
+runTestCase(testcase);
