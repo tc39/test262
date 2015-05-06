@@ -10,9 +10,10 @@ description: >
     ES5 Attributes - Failed to add a property to an object when the
     object's prototype has a property with the same name and
     [[Writable]] set to false(Function.prototype.bind)
-includes: [propertyHelper.js]
+includes: [runTestCase.js]
 ---*/
 
+function testcase() {
         var foo = function () { };
         try {
             Object.defineProperty(Function.prototype, "prop", {
@@ -30,3 +31,4 @@ includes: [propertyHelper.js]
             delete Function.prototype.prop;
         }
     }
+runTestCase(testcase);

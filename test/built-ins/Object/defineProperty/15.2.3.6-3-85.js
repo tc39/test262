@@ -10,9 +10,10 @@ description: >
     Object.defineProperty - 'configurable' property in 'Attributes' is
     an inherited accessor property without a get function (8.10.5 step
     4.a)
-includes: [propertyHelper.js]
+includes: [runTestCase.js]
 ---*/
 
+function testcase() {
         var obj = {};
 
         var proto = {};
@@ -35,3 +36,4 @@ includes: [propertyHelper.js]
 
         return beforeDeleted === true && afterDeleted === true;
     }
+runTestCase(testcase);

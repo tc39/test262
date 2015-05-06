@@ -11,10 +11,11 @@ description: >
     [[Enumerable]]: true, [[Configurable]]: true is non-writable using
     simple assignment, 'O' is the global object
 includes:
-    - propertyHelper.js
+    - runTestCase.js
     - fnGlobalObject.js
 ---*/
 
+function testcase() {
         var obj = fnGlobalObject();
         try {
             Object.defineProperty(obj, "prop", {
@@ -31,3 +32,4 @@ includes:
             delete obj.prop;
         }
     }
+runTestCase(testcase);

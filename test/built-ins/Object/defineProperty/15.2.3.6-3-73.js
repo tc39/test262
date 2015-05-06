@@ -9,9 +9,10 @@ es5id: 15.2.3.6-3-73
 description: >
     Object.defineProperty - 'configurable' property in 'Attributes' is
     present (8.10.5 step 4)
-includes: [propertyHelper.js]
+includes: [runTestCase.js]
 ---*/
 
+function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "property", {
@@ -26,3 +27,4 @@ includes: [propertyHelper.js]
 
         return beforeDeleted === true && afterDeleted === true;
     }
+runTestCase(testcase);

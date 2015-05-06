@@ -13,9 +13,10 @@ description: >
     length property is set to false after deleting properties with
     large index named if the [[Writable]] field of 'desc' is false
     (15.4.5.1 step 3.i.ii)
-includes: [propertyHelper.js]
+includes: [runTestCase.js]
 ---*/
 
+function testcase() {
 
         var arrObj = [0, 1];
 
@@ -30,3 +31,4 @@ includes: [propertyHelper.js]
 
         return indexDeleted && arrObj.length === 1;
     }
+runTestCase(testcase);

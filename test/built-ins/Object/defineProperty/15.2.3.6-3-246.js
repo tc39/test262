@@ -10,9 +10,10 @@ description: >
     Object.defineProperty - 'set' property in 'Attributes' is own
     accessor property(without a get function) that overrides an
     inherited accessor property (8.10.5 step 8.a)
-includes: [propertyHelper.js]
+includes: [runTestCase.js]
 ---*/
 
+function testcase() {
         var obj = {};
         var proto = {};
         var data = "data";
@@ -37,3 +38,4 @@ includes: [propertyHelper.js]
         obj.property = "overrideData";
         return obj.hasOwnProperty("property") && typeof obj.property === "undefined" && data === "data";
     }
+runTestCase(testcase);

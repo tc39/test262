@@ -9,9 +9,10 @@ es5id: 15.2.3.6-4-349
 description: >
     ES5 Attributes - property ([[Writable]] is true, [[Enumerable]] is
     false, [[Configurable]] is false) is undeletable
-includes: [propertyHelper.js]
+includes: [runTestCase.js]
 ---*/
 
+function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
@@ -25,3 +26,4 @@ includes: [propertyHelper.js]
         var afterDelete = obj.hasOwnProperty("prop");
         return beforeDelete && obj.prop === 2010 && afterDelete;
     }
+runTestCase(testcase);

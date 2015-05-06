@@ -10,9 +10,10 @@ description: >
     Object.defineProperty - Named property 'P' with attributes
     [[Writable]]: false, [[Enumerable]]: true, [[Configurable]]: true
     is non-writable using simple assignment, 'A' is an Array object
-includes: [propertyHelper.js]
+includes: [runTestCase.js]
 ---*/
 
+function testcase() {
         var obj = [];
 
         Object.defineProperty(obj, "prop", {
@@ -26,3 +27,4 @@ includes: [propertyHelper.js]
 
         return verifyValue && obj.prop === 2010;
     }
+runTestCase(testcase);

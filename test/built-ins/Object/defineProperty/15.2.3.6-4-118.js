@@ -10,9 +10,10 @@ description: >
     Object.defineProperty - 'O' is an Array, 'name' is the length
     property of 'O', the [[Value]] field of 'desc' is absent, test
     every field in 'desc' is absent (15.4.5.1 step 3.a.i)
-includes: [propertyHelper.js]
+includes: [runTestCase.js]
 ---*/
 
+function testcase() {
         var arrObj = [];
 
         Object.defineProperty(arrObj, "length", {});
@@ -37,3 +38,4 @@ includes: [propertyHelper.js]
 
         return verifyValue && verifyWritable && !verifyEnumerable && verifyConfigurable;
     }
+runTestCase(testcase);
