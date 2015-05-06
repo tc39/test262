@@ -11,32 +11,30 @@ description: >
     [[Set]] using simple assignment is failed, 'O' is the global
     object (8.12.5 step 5.b)
 includes:
-    - runTestCase.js
+    - propertyHelper.js
     - fnGlobalObject.js
 ---*/
 
-function testcase() {
-        var obj = fnGlobalObject();
-        try {
-            obj.verifySetFunc = "data";
-            var getFunc = function () {
-                return obj.verifySetFunc;
-            };
+var obj = fnGlobalObject();
+try {
+    obj.verifySetFunc = "data";
+    var getFunc = function () {
+        return obj.verifySetFunc;
+    };
 
-            Object.defineProperty(obj, "prop", {
-                get: getFunc,
-                enumerable: true,
-                configurable: true
-            });
+    Object.defineProperty(obj, "prop", {
+        get: getFunc,
+        enumerable: true,
+        configurable: true
+    });
 
-            obj.prop = "overrideData";
-            var propertyDefineCorrect = obj.hasOwnProperty("prop");
-            var desc = Object.getOwnPropertyDescriptor(obj, "prop");
+    assert(obj.hasOwnProperty("prop"));
+    var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-            return propertyDefineCorrect && typeof desc.set === "undefined" && obj.prop === "data";
-        } finally {
-            delete obj.prop;
-            delete obj.verifySetFunc;
-        }
-    }
-runTestCase(testcase);
+    verifyNotWritable(obj, "prop");
+    assert.sameValue(typeof desc.set, "undefined");
+    assert.sameValue(obj.prop, "data");
+} finally {
+    delete obj.prop;
+    delete obj.verifySetFunc;
+}

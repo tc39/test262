@@ -10,38 +10,24 @@ description: >
     Object.defineProperty - 'name' property doesn't exist in 'O', test
     [[Set]] of 'name' property of 'Attributes' is set as undefined
     value if absent in accessor descriptor 'desc' (8.12.9 step 4.b.i)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "property", {
-            get: function () {
-                return "property";
-            },
-            enumerable: false,
-            configurable: false
-        });
+Object.defineProperty(obj, "property", {
+    get: function () {
+        return "property";
+    },
+    enumerable: false,
+    configurable: false
+});
 
 
-        if (obj.property !== "property") {
-            return false;
-        }
-        var desc = Object.getOwnPropertyDescriptor(obj, "property");
-        if (typeof desc.set !== "undefined") {
-            return false;
-        }
-        for (var p in obj) {
-            if (p === "property") {
-                return false;
-            }
-        }
-        delete obj.property;
-        if (!obj.hasOwnProperty("property")) {
-            return false;
-        }
+assert.sameValue(obj.property, "property");
 
-        return true;
-    }
-runTestCase(testcase);
+var desc = Object.getOwnPropertyDescriptor(obj, "property");
+assert.sameValue(typeof desc.set, "undefined");
+
+verifyNotEnumerable(obj, "property");
+verifyNotConfigurable(obj, "property");

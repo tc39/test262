@@ -9,24 +9,23 @@ es5id: 15.2.3.6-4-586
 description: >
     ES5 Attributes - Fail to update value of property into of
     [[Proptotype]] internal property  (JSON)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var data = "data";
-        try {
-            Object.defineProperty(Object.prototype, "prop", {
-                get: function () {
-                    return data;
-                },
-                enumerable: false,
-                configurable: true
-            });
-            JSON.prop = "myOwnProperty";
+var data = "data";
+try {
+    Object.defineProperty(Object.prototype, "prop", {
+        get: function () {
+            return data;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    verifyNotWritable(JSON, "prop", "nocheck");
 
-            return !JSON.hasOwnProperty("prop") && JSON.prop === "data" && data === "data";
-        } finally {
-            delete Object.prototype.prop;
-        }
-    }
-runTestCase(testcase);
+    assert(!JSON.hasOwnProperty("prop"));
+    assert.sameValue(JSON.prop, "data");
+    assert.sameValue(data, "data");
+} finally {
+    delete Object.prototype.prop;
+}

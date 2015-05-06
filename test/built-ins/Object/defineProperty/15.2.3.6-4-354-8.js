@@ -26,7 +26,7 @@ try {
 
     assert.sameValue(obj.prop, 2010);
     verifyNotWritable(obj, "prop");
-
+    assert.sameValue(obj.prop, 2010);
 } finally {
     delete obj.prop;
 }

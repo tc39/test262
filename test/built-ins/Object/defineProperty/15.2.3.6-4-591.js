@@ -9,51 +9,61 @@ es5id: 15.2.3.6-4-591
 description: >
     ES5 Attributes - Fail to update value of property of
     [[Proptotype]] internal property (Object.create)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var appointment = {};
+var appointment = {};
 
-        var data1 = 1001;
-        Object.defineProperty(appointment, "startTime", {
-            get: function () {
-                return data1;
-            },
-            enumerable: false,
-            configurable: false
-        });
-        var data2 = "NAME";
-        Object.defineProperty(appointment, "name", {
-            get: function () {
-                return data2;
-            },
-            enumerable: false,
-            configurable: true
-        });
+var data1 = 1001;
+Object.defineProperty(appointment, "startTime", {
+    get: function () {
+        return data1;
+    },
+    enumerable: false,
+    configurable: false
+});
+var data2 = "NAME";
+Object.defineProperty(appointment, "name", {
+    get: function () {
+        return data2;
+    },
+    enumerable: false,
+    configurable: true
+});
 
-        var meeting = Object.create(appointment);
-        var data3 = "In-person meeting";
-        Object.defineProperty(meeting, "conferenceCall", {
-            get: function () {
-                return data3;
-            },
-            enumerable: false,
-            configurable: false
-        });
+var meeting = Object.create(appointment);
+var data3 = "In-person meeting";
+Object.defineProperty(meeting, "conferenceCall", {
+    get: function () {
+        return data3;
+    },
+    enumerable: false,
+    configurable: false
+});
 
-        var teamMeeting = Object.create(meeting);
-        teamMeeting.name = "IE Team Meeting";
-        var dateObj = new Date("10/31/2010 08:00");
-        teamMeeting.startTime = dateObj;
-        teamMeeting.conferenceCall = "4255551212";
+var teamMeeting = Object.create(meeting);
 
-        var hasOwnProperty = !teamMeeting.hasOwnProperty("name") &&
-            !teamMeeting.hasOwnProperty("startTime") &&
-            !teamMeeting.hasOwnProperty('conferenceCall');
+verifyNotWritable(teamMeeting, "name", "nocheck");
+verifyNotWritable(teamMeeting, "startTime", "nocheck");
+verifyNotWritable(teamMeeting, "conferenceCall", "nocheck");
 
-        return hasOwnProperty && teamMeeting.name === "NAME" &&
-            teamMeeting.startTime === 1001 &&
-            teamMeeting.conferenceCall === "In-person meeting";
-    }
-runTestCase(testcase);
+try {
+    teamMeeting.name = "IE Team Meeting";
+} catch (e) {}
+
+try {
+    var dateObj = new Date("10/31/2010 08:00");
+    teamMeeting.startTime = dateObj;
+} catch (e) {}
+
+try {
+    teamMeeting.conferenceCall = "4255551212";
+} catch (e) {}
+
+assert(!teamMeeting.hasOwnProperty("name"));
+assert(!teamMeeting.hasOwnProperty("startTime"));
+assert(!teamMeeting.hasOwnProperty('conferenceCall'));
+
+assert.sameValue(teamMeeting.name, "NAME");
+assert.sameValue(teamMeeting.startTime, 1001);
+assert.sameValue(teamMeeting.conferenceCall, "In-person meeting");
