@@ -11,40 +11,36 @@ description: >
     accessor property ([[Get]] is a Function, [[Set]] is a Function,
     [[Enumerable]] is false, [[Configurable]] is false) to different
     value
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        var getFunc = function () {
-            return 1001;
-        };
+var getFunc = function () {
+    return 1001;
+};
 
-        var verifySetFunc = "data";
-        var setFunc = function (value) {
-            verifySetFunc = value;
-        };
+var verifySetFunc = "data";
+var setFunc = function (value) {
+    verifySetFunc = value;
+};
 
-        Object.defineProperty(obj, "prop", {
-            get: getFunc,
-            set: setFunc,
-            enumerable: false,
-            configurable: false
-        });
-        var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
+Object.defineProperty(obj, "prop", {
+    get: getFunc,
+    set: setFunc,
+    enumerable: false,
+    configurable: false
+});
+var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        try {
-            Object.defineProperty(obj, "prop", {
-                configurable: true
-            });
+try {
+    Object.defineProperty(obj, "prop", {
+        configurable: true
+    });
 
-            return false;
-        } catch (e) {
-            var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
-            delete obj.prop;
-
-            return desc1.configurable === false && desc2.configurable === false && obj.hasOwnProperty("prop") && e instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+    $ERROR("Expected TypeError");
+} catch (e) {
+    assert(e instanceof TypeError);
+    assert.sameValue(desc1.configurable, false);
+    verifyNotConfigurable(obj, "prop");
+}

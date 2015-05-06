@@ -10,45 +10,27 @@ description: >
     Object.defineProperty will not throw TypeError if
     name.configurable = false, name.writable = false, name.value = NaN
     and desc.value = NaN (8.12.9 step 10.a.ii.1)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
+var obj = {};
 
-        var obj = {};
+Object.defineProperty(obj, "foo", {
+    value: NaN,
+    writable: false,
+    configurable: false
+});
 
-        Object.defineProperty(obj, "foo", {
-            value: NaN,
-            writable: false,
-            configurable: false
-        });
+Object.defineProperty(obj, "foo", {
+    value: NaN,
+    writable: false,
+    configurable: false
+});
 
-        Object.defineProperty(obj, "foo", {
-            value: NaN,
-            writable: false,
-            configurable: false
-        });
+assert(isNaN(obj.foo)); 
 
-        if (!isNaN(obj.foo)) {
-            return false;
-        }
+verifyNotWritable(obj, "foo");
 
-        obj.foo = "verifyValue";
-        if (obj.foo === "verifyValue") {
-            return false;
-        }
+verifyNotEnumerable(obj, "foo");
 
-        for (var prop in obj) {
-            if (obj.hasOwnProperty(prop) && prop === "foo") {
-                return false;
-            }
-        }
-
-        delete obj.foo;
-        if (!obj.hasOwnProperty("foo")) {
-            return false;
-        }
-
-        return true;
-    }
-runTestCase(testcase);
+verifyNotConfigurable(obj, "foo");

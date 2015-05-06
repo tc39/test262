@@ -7,25 +7,25 @@
 /*---
 es5id: 15.2.3.6-4-581
 description: ES5 Attributes - Fail to add property into object (Number instance)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var data = "data";
-        try {
-            Object.defineProperty(Number.prototype, "prop", {
-                get: function () {
-                    return data;
-                },
-                enumerable: false,
-                configurable: true
-            });
-            var numObj = new Number();
-            numObj.prop = "myOwnProperty";
+var data = "data";
+try {
+    Object.defineProperty(Number.prototype, "prop", {
+        get: function () {
+            return data;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    var numObj = new Number();
 
-            return !numObj.hasOwnProperty("prop") && numObj.prop === "data" && data === "data";
-        } finally {
-            delete Number.prototype.prop;
-        }
-    }
-runTestCase(testcase);
+    verifyNotWritable(numObj, "prop", "nocheck");
+
+    assert(!numObj.hasOwnProperty("prop"));
+    assert.sameValue(numObj.prop, "data");
+    assert.sameValue(data, "data");
+} finally {
+    delete Number.prototype.prop;
+}

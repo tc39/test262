@@ -11,35 +11,35 @@ description: >
     accessor property ([[Get]] is a Function, [[Set]] is a Function,
     [[Enumerable]] is true, [[Configurable]] is true) to different
     value
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        var getFunc = function () {
-            return 1001;
-        };
+var getFunc = function () {
+    return 1001;
+};
 
-        var verifySetFunc = "data";
-        var setFunc = function (value) {
-            verifySetFunc = value;
-        };
+var verifySetFunc = "data";
+var setFunc = function (value) {
+    verifySetFunc = value;
+};
 
-        Object.defineProperty(obj, "prop", {
-            get: getFunc,
-            set: setFunc,
-            enumerable: true,
-            configurable: true
-        });
-        var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
+Object.defineProperty(obj, "prop", {
+    get: getFunc,
+    set: setFunc,
+    enumerable: true,
+    configurable: true
+});
 
-        Object.defineProperty(obj, "prop", {
-            configurable: false
-        });
-        var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
-        delete obj.prop;
+var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return desc1.configurable === true && desc2.configurable === false && obj.hasOwnProperty("prop");
-    }
-runTestCase(testcase);
+Object.defineProperty(obj, "prop", {
+    configurable: false
+});
+var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
+
+verifyNotConfigurable(obj, "prop");
+assert.sameValue(desc1.configurable, true);
+assert.sameValue(desc2.configurable, false);
+assert(obj.hasOwnProperty("prop"));

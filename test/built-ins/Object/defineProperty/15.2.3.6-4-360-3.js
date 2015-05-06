@@ -12,34 +12,35 @@ description: >
     to an accessor property, 'O' is the global object (8.12.9 - step
     9.b.i)
 includes:
-    - runTestCase.js
+    - propertyHelper.js
     - fnGlobalObject.js
 ---*/
 
-function testcase() {
-        var obj = fnGlobalObject();
-        try {
-            Object.defineProperty(obj, "prop", {
-                value: 2010,
-                writable: false,
-                enumerable: true,
-                configurable: true
-            });
-            var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
+var obj = fnGlobalObject();
+try {
+    Object.defineProperty(obj, "prop", {
+        value: 2010,
+        writable: false,
+        enumerable: true,
+        configurable: true
+    });
+    var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-            function getFunc() {
-                return 20;
-            }
-            Object.defineProperty(obj, "prop", {
-                get: getFunc
-            });
-            var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
-
-            return desc1.hasOwnProperty("value") && desc2.hasOwnProperty("get") &&
-                desc2.enumerable === true && desc2.configurable === true &&
-                obj.prop === 20 && typeof desc2.set === "undefined" && desc2.get === getFunc;
-        } finally {
-            delete obj.prop;
-        }
+    function getFunc() {
+        return 20;
     }
-runTestCase(testcase);
+    Object.defineProperty(obj, "prop", {
+        get: getFunc
+    });
+    var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
+
+    assert(desc1.hasOwnProperty("value"));
+    assert(desc2.hasOwnProperty("get"));
+    assert.sameValue(desc2.enumerable, true);
+    assert.sameValue(desc2.configurable, true);
+    assert.sameValue(obj.prop, 20);
+    assert.sameValue(typeof desc2.set, "undefined");
+    assert.sameValue(desc2.get, getFunc);
+} finally {
+    delete obj.prop;
+}

@@ -10,33 +10,26 @@ description: >
     ES5 Attributes - property ([[Get]] is a Function, [[Set]] is a
     Function, [[Enumerable]] is false, [[Configurable]] is false) is
     undeletable
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        var getFunc = function () {
-            return 1001;
-        };
+var getFunc = function () {
+    return 1001;
+};
 
-        var verifySetFunc = "data";
-        var setFunc = function (value) {
-            verifySetFunc = value;
-        };
+var verifySetFunc = "data";
+var setFunc = function (value) {
+    verifySetFunc = value;
+};
 
-        Object.defineProperty(obj, "prop", {
-            get: getFunc,
-            set: setFunc,
-            enumerable: false,
-            configurable: false
-        });
+Object.defineProperty(obj, "prop", {
+    get: getFunc,
+    set: setFunc,
+    enumerable: false,
+    configurable: false
+});
 
-        var propertyDefineCorrect = obj.hasOwnProperty("prop");
-        var desc = Object.getOwnPropertyDescriptor(obj, "prop");
-
-        delete obj.prop;
-
-        return propertyDefineCorrect && desc.configurable === false && obj.hasOwnProperty("prop");
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("prop"));
+verifyNotConfigurable(obj, "prop");
