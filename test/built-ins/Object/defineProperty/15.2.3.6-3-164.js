@@ -13,25 +13,19 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-        var obj = {};
+var obj = {};
 
-        var proto = {};
-        Object.defineProperty(proto, "writable", {
-            set: function () { }
-        });
+var proto = {};
+Object.defineProperty(proto, "writable", {
+    set: function () { }
+});
 
-        var ConstructFun = function () { };
-        ConstructFun.prototype = proto;
+var ConstructFun = function () { };
+ConstructFun.prototype = proto;
 
-        var child = new ConstructFun();
+var child = new ConstructFun();
 
-        Object.defineProperty(obj, "property", child);
+Object.defineProperty(obj, "property", child);
 
-        var beforeWrite = obj.hasOwnProperty("property");
-
-        obj.property = "isWritable";
-
-        var afterWrite = (typeof (obj.property) === "undefined");
-
-        return beforeWrite === true && afterWrite === true;
-    }
+assert(obj.hasOwnProperty("property"));
+verifyNotWritable(obj, "property");

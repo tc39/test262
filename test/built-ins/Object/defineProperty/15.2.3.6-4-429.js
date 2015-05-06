@@ -14,21 +14,22 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "prop", {
-            get: undefined,
-            set: undefined,
-            enumerable: true,
-            configurable: true
-        });
-        var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
+Object.defineProperty(obj, "prop", {
+    get: undefined,
+    set: undefined,
+    enumerable: true,
+    configurable: true
+});
+var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        Object.defineProperty(obj, "prop", {
-            configurable: false
-        });
-        var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
-        delete obj.prop;
+Object.defineProperty(obj, "prop", {
+    configurable: false
+});
+var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return desc1.configurable === true && desc2.configurable === false && obj.hasOwnProperty("prop");
-    }
+verifyNotConfigurable(obj, "prop");
+assert.sameValue(desc1.configurable, true);
+assert.sameValue(desc2.configurable, false);
+assert(obj.hasOwnProperty("prop"));

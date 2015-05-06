@@ -13,31 +13,18 @@ includes: [propertyHelper.js]
 ---*/
 
 
-        var obj = {};
+var obj = {};
 
-        var desc = { value: NaN };
-        Object.defineProperty(obj, "foo", desc);
+var desc = { value: NaN };
+Object.defineProperty(obj, "foo", desc);
 
-        Object.defineProperties(obj, {
-            foo: {
-                value: NaN
-            }
-        });
-
-        var verifyEnumerable = false;
-        for (var p in obj) {
-            if (p === "foo") {
-                verifyEnumerable = true;
-            }
-        }
-
-        var verifyValue = false;
-        obj.prop = "overrideData";
-        verifyValue = obj.foo !== obj.foo && isNaN(obj.foo);
-
-        var verifyConfigurable = false;
-        delete obj.foo;
-        verifyConfigurable = obj.hasOwnProperty("foo");
-
-        return verifyConfigurable && !verifyEnumerable && verifyValue;
+Object.defineProperties(obj, {
+    foo: {
+        value: NaN
     }
+});
+
+verifyNotEnumerable(obj, "foo");
+verifyNotWritable(obj, "foo");
+verifyNotConfigurable(obj, "foo");
+

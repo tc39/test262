@@ -12,18 +12,20 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-        var obj = {};
+var obj = {};
 
-        var attributes = {};
-        Object.defineProperty(attributes, "set", {
-            set: function () { }
-        });
+var attributes = {};
+Object.defineProperty(attributes, "set", {
+    set: function () { }
+});
 
-        Object.defineProperty(obj, "property", attributes);
+Object.defineProperty(obj, "property", attributes);
 
-        obj.property = "overrideOwnData";
+verifyNotWritable(obj, "property");
 
-        var desc = Object.getOwnPropertyDescriptor(obj, "property");
-        return obj.hasOwnProperty("property") && typeof obj.property === "undefined" &&
-            typeof desc.set === "undefined";
-    }
+var desc = Object.getOwnPropertyDescriptor(obj, "property");
+
+assert(obj.hasOwnProperty("property"));
+assert.sameValue(typeof obj.property, "undefined");
+assert.sameValue(typeof desc.set, "undefined");
+

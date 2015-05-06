@@ -13,24 +13,25 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-        var obj = {};
+var obj = {};
 
-        var verifySetFunc = "data";
-        var setFunc = function (value) {
-            verifySetFunc = value;
-        };
+var verifySetFunc = "data";
+var setFunc = function (value) {
+    verifySetFunc = value;
+};
 
-        Object.defineProperty(obj, "prop", {
-            get: undefined,
-            set: setFunc,
-            enumerable: false,
-            configurable: false
-        });
+Object.defineProperty(obj, "prop", {
+    get: undefined,
+    set: setFunc,
+    enumerable: false,
+    configurable: false
+});
 
-        var propertyDefineCorrect = obj.hasOwnProperty("prop");
-        var desc = Object.getOwnPropertyDescriptor(obj, "prop");
+assert(obj.hasOwnProperty("prop"));
 
-        delete obj.prop;
+var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return propertyDefineCorrect && desc.configurable === false && obj.hasOwnProperty("prop");
-    }
+verifyNotConfigurable(obj, "prop");
+assert.sameValue(desc.configurable, false);
+
+assert(obj.hasOwnProperty("prop"));

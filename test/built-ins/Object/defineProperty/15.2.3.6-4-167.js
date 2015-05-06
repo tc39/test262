@@ -17,16 +17,13 @@ includes: [propertyHelper.js]
 ---*/
 
 
-        var arrObj = [0, 1];
+var arrObj = [0, 1];
 
-        Object.defineProperty(arrObj, "length", {
-            value: 1,
-            writable: false
-        });
+Object.defineProperty(arrObj, "length", {
+    value: 1,
+    writable: false
+});
 
-        var indexDeleted = !arrObj.hasOwnProperty("1");
-
-        arrObj.length = 10;
-
-        return indexDeleted && arrObj.length === 1;
-    }
+assert(!arrObj.hasOwnProperty("1"))
+assert.sameValue(arrObj.length, 1);
+verifyNotWritable(arrObj, "length");

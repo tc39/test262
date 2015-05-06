@@ -12,15 +12,13 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "property", {
-            get: function () {
-                return 11;
-            }
-        });
-
-        obj.property = 14;
-        var desc = Object.getOwnPropertyDescriptor(obj, "property");
-        return obj.hasOwnProperty("property") && obj.property === 11 && typeof desc.set === "undefined";
+Object.defineProperty(obj, "property", {
+    get: function () {
+        return 11;
     }
+});
+
+assert(obj.hasOwnProperty("property"));
+verifyNotWritable(obj, "property");

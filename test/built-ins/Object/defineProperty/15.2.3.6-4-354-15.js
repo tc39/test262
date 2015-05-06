@@ -13,16 +13,15 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-        var obj = [];
+var obj = [];
 
-        Object.defineProperty(obj, "prop", {
-            value: 2010,
-            writable: false,
-            enumerable: true,
-            configurable: true
-        });
-        var verifyValue = (obj.prop === 2010);
-        obj.prop = 1001;
+Object.defineProperty(obj, "prop", {
+    value: 2010,
+    writable: false,
+    enumerable: true,
+    configurable: true
+});
 
-        return verifyValue && obj.prop === 2010;
-    }
+assert.sameValue(obj.prop, 2010);
+verifyNotWritable(obj, "prop");
+

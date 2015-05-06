@@ -12,20 +12,14 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-        var obj = { };
+var obj = { };
 
-        var attr = {};
-        Object.defineProperty(attr, "configurable", {
-            set : function () { }
-        });
+var attr = {};
+Object.defineProperty(attr, "configurable", {
+    set : function () { }
+});
 
-        Object.defineProperty(obj, "property", attr);
+Object.defineProperty(obj, "property", attr);
 
-        var beforeDeleted = obj.hasOwnProperty("property");
-
-        delete obj.property;
-
-        var afterDeleted = obj.hasOwnProperty("property") && typeof (obj.property) === "undefined";
-
-        return beforeDeleted === true && afterDeleted === true;
-    }
+assert(obj.hasOwnProperty("property"));
+verifyNotConfigurable(obj, "property");

@@ -13,18 +13,19 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-        try {
-            Object.defineProperty(Number.prototype, "prop", {
-                value: 1001,
-                writable: false,
-                enumerable: false,
-                configurable: true
-            });
-            var numObj = new Number();
-            numObj.prop = 1002;
+try {
+    Object.defineProperty(Number.prototype, "prop", {
+        value: 1001,
+        writable: false,
+        enumerable: false,
+        configurable: true
+    });
+    
+    var numObj = new Number();
 
-            return !numObj.hasOwnProperty("prop") && numObj.prop === 1001;
-        } finally {
-            delete Number.prototype.prop;
-        }
-    }
+    assert(!numObj.hasOwnProperty("prop"));
+    verifyNotWritable(numObj, "prop", "noCheckOwnProp");
+} finally {
+    delete Number.prototype.prop;
+}
+

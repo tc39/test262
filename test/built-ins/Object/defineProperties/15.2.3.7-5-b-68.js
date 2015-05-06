@@ -14,30 +14,28 @@ includes: [propertyHelper.js]
 ---*/
 
 
-        var obj = {};
-        var proto = {};
-        Object.defineProperty(proto, "configurable", {
-            get: function () {
-                return true;
-            }
-        });
-
-        var Con = function () { };
-        Con.prototype = proto;
-        var descObj = new Con();
-
-        Object.defineProperty(descObj, "configurable", {
-            get: function () {
-                return false;
-            }
-        });
-
-        Object.defineProperties(obj, {
-            prop: descObj
-        });
-        var result1 = obj.hasOwnProperty("prop");
-        delete obj.prop;
-        var result2 = obj.hasOwnProperty("prop");
-
-        return result1 === true && result2 === true;
+var obj = {};
+var proto = {};
+Object.defineProperty(proto, "configurable", {
+    get: function () {
+        return true;
     }
+});
+
+var Con = function () { };
+Con.prototype = proto;
+var descObj = new Con();
+
+Object.defineProperty(descObj, "configurable", {
+    get: function () {
+        return false;
+    }
+});
+
+Object.defineProperties(obj, {
+    prop: descObj
+});
+
+assert(obj.hasOwnProperty("prop"));
+verifyNotConfigurable(obj, "prop");
+assert(obj.hasOwnProperty("prop"));

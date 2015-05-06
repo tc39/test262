@@ -13,19 +13,18 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-        var obj = {};
-        var proto = {};
-        Object.defineProperty(proto, "set", {
-            set: function () { }
-        });
+var obj = {};
+var proto = {};
+Object.defineProperty(proto, "set", {
+    set: function () { }
+});
 
-        var ConstructFun = function () { };
-        ConstructFun.prototype = proto;
+var ConstructFun = function () { };
+ConstructFun.prototype = proto;
 
-        var child = new ConstructFun();
+var child = new ConstructFun();
 
-        Object.defineProperty(obj, "property", child);
+Object.defineProperty(obj, "property", child);
 
-        obj.property = "overrideData";
-        return obj.hasOwnProperty("property") && typeof obj.property === "undefined";
-    }
+assert(obj.hasOwnProperty("property"));
+verifyNotWritable(obj, "property");

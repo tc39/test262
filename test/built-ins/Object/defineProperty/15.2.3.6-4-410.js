@@ -13,17 +13,19 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-        try {
-            Object.defineProperty(Object.prototype, "prop", {
-                value: 1001,
-                writable: false,
-                enumerable: false,
-                configurable: true
-            });
-            JSON.prop = 1002;
+try {
+    Object.defineProperty(Object.prototype, "prop", {
+        value: 1001,
+        writable: false,
+        enumerable: false,
+        configurable: true
+    });
 
-            return !JSON.hasOwnProperty("prop") && JSON.prop === 1001;
-        } finally {
-            delete Object.prototype.prop;
-        }
-    }
+    assert(!JSON.hasOwnProperty("prop"));
+    verifyNotWritable(JSON, "prop", "noCheckOwnProp");
+    assert.sameValue(JSON.prop, 1001);
+
+} finally {
+    delete Object.prototype.prop;
+}
+

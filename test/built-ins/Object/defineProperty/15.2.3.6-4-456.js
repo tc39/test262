@@ -14,26 +14,31 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "prop", {
-            get: undefined,
-            set: undefined,
-            enumerable: false,
-            configurable: false
-        });
-        var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
+Object.defineProperty(obj, "prop", {
+    get: undefined,
+    set: undefined,
+    enumerable: false,
+    configurable: false
+});
+var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        try {
-            Object.defineProperty(obj, "prop", {
-                configurable: true
-            });
+try {
+    Object.defineProperty(obj, "prop", {
+        configurable: true
+    });
 
-            return false;
-        } catch (e) {
-            var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
-            delete obj.prop;
+    $ERROR("Expected TypeError");
+} catch (e) {
+    assert(e instanceof TypeError);
+    
+    var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-            return desc1.configurable === false && desc2.configurable === false && obj.hasOwnProperty("prop") && e instanceof TypeError;
-        }
-    }
+    assert.sameValue(desc1.configurable, false);
+    assert.sameValue(desc2.configurable, false);
+
+    verifyNotConfigurable(obj, "prop");
+
+    assert(obj.hasOwnProperty("prop"));
+}

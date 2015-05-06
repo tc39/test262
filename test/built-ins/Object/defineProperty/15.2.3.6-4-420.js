@@ -13,20 +13,19 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-        var foo = function () { };
-        try {
-            Object.defineProperty(Function.prototype, "prop", {
-                value: 1001,
-                writable: false,
-                enumerable: false,
-                configurable: true
-            });
+var foo = function () { };
+try {
+    Object.defineProperty(Function.prototype, "prop", {
+        value: 1001,
+        writable: false,
+        enumerable: false,
+        configurable: true
+    });
 
-            var obj = foo.bind({});
-            obj.prop = 1002;
+    var obj = foo.bind({});
+    assert(!obj.hasOwnProperty("prop"));
+    verifyNotWritable(foo, "prop", "noCheckOwnProp");
+} finally {
+    delete Function.prototype.prop;
+}
 
-            return !obj.hasOwnProperty("prop") && obj.prop === 1001;
-        } finally {
-            delete Function.prototype.prop;
-        }
-    }

@@ -14,25 +14,29 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-        var obj = {};
+var obj = {};
 
-        var getFunc = function () {
-            return 1001;
-        };
+var getFunc = function () {
+    return 1001;
+};
 
-        Object.defineProperty(obj, "prop", {
-            get: getFunc,
-            set: undefined,
-            enumerable: true,
-            configurable: true
-        });
-        var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
+Object.defineProperty(obj, "prop", {
+    get: getFunc,
+    set: undefined,
+    enumerable: true,
+    configurable: true
+});
+var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        Object.defineProperty(obj, "prop", {
-            configurable: false
-        });
-        var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
-        delete obj.prop;
+Object.defineProperty(obj, "prop", {
+    configurable: false
+});
 
-        return desc1.configurable === true && desc2.configurable === false && obj.hasOwnProperty("prop");
-    }
+var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
+
+assert.sameValue(desc1.configurable, true);
+assert.sameValue(desc2.configurable, false);
+
+verifyNotWritable(obj, "prop");
+
+assert(obj.hasOwnProperty("prop"));
