@@ -22,4 +22,5 @@ var desc = Object.getOwnPropertyDescriptor(argObj, "0");
 
 verifyNotWritable(argObj, "0");
 verifyNotConfigurable(argObj, "0");
+assert.sameValue(argObj[0], 1);
 

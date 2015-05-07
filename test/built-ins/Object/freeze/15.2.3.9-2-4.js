@@ -21,4 +21,5 @@ Object.defineProperty(obj, "foo", {
 Object.freeze(obj);
 
 assert(obj.hasOwnProperty("foo"));
+verifyNotWritable(obj, "foo");
 verifyNotConfigurable(obj, "foo");

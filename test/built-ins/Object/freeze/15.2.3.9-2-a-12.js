@@ -20,3 +20,5 @@ Object.freeze(strObj);
 
 verifyNotWritable(strObj, "0");
 verifyNotConfigurable(strObj, "0");
+
+assert.sameValue(strObj[0], "a");

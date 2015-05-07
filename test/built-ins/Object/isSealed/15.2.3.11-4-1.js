@@ -7,8 +7,7 @@
 /*---
 es5id: 15.2.3.11-4-1
 description: Object.isSealed returns false for all built-in objects (Global)
-flags: [noStrict]
+includes: [fnGlobalObject.js]
 ---*/
 
-// in non-strict mode, 'this' is bound to the global object.
-assert(!Object.isSealed(this));
+assert(!Object.isSealed(fnGlobalObject()));

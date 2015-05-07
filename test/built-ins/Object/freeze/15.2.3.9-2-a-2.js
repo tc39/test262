@@ -26,3 +26,5 @@ Object.freeze(child);
 
 verifyNotWritable(child, "foo");
 verifyNotConfigurable(child, "foo");
+
+assert.sameValue(child.foo, 10);
