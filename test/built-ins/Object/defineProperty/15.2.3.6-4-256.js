@@ -41,6 +41,6 @@ try {
 
     verifyNotWritable(arrObj, "1");
 
-    verifyNotWritable(arrObj, "1");
+    verifyNotConfigurable(arrObj, "1");
 }
 

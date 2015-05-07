@@ -38,5 +38,6 @@ assert.sameValue(desc1.configurable, true);
 assert.sameValue(desc2.configurable, false);
 
 verifyNotWritable(obj, "prop");
+verifyNotConfigurable(obj, "prop");
 
 assert(obj.hasOwnProperty("prop"));

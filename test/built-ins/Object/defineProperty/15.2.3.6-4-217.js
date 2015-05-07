@@ -24,4 +24,4 @@ assert(arrObj[0] !== arrObj[0]);
 
 verifyNotWritable(arrObj, "0");
 verifyNotEnumerable(arrObj, "0");
-verifyNotWritable(arrObj, "0");
+verifyNotConfigurable(arrObj, "0");
