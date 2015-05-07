@@ -9,17 +9,15 @@ es5id: 15.2.3.8-2-a-11
 description: >
     Object.seal - 'P' is own property of a Number object that uses
     Object's [[GetOwnProperty]]
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var numObj = new Number(-1);
+var obj = new Number(-1);
 
-        numObj.foo = 10;
-        var preCheck = Object.isExtensible(numObj);
-        Object.seal(numObj);
+obj.foo = 10;
 
-        delete numObj.foo;
-        return preCheck && numObj.foo === 10;
-    }
-runTestCase(testcase);
+assert(Object.isExtensible(obj));
+Object.seal(obj);
+
+verifyNotConfigurable(obj, "foo");
+assert.sameValue(obj.foo, 10);

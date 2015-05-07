@@ -9,36 +9,31 @@ es5id: 15.2.3.9-2-a-6
 description: >
     Object.freeze - 'P' is own accessor property that overrides an
     inherited accessor property
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var proto = {};
+var proto = {};
 
-        Object.defineProperty(proto, "foo", {
-            get: function () {
-                return 0;
-            },
-            configurable: true
-        });
+Object.defineProperty(proto, "foo", {
+    get: function () {
+        return 0;
+    },
+    configurable: true
+});
 
-        var Con = function () { };
-        Con.prototype = proto;
+var Con = function () { };
+Con.prototype = proto;
 
-        var child = new Con();
+var child = new Con();
 
-        Object.defineProperty(child, "foo", {
-            get: function () {
-                return 10;
-            },
-            configurable: true
-        });
+Object.defineProperty(child, "foo", {
+    get: function () {
+        return 10;
+    },
+    configurable: true
+});
 
-        Object.freeze(child);
+Object.freeze(child);
 
-        var desc = Object.getOwnPropertyDescriptor(child, "foo");
-
-        delete child.foo;
-        return child.foo === 10 && desc.configurable === false;
-    }
-runTestCase(testcase);
+verifyNotConfigurable(child, "foo");
+assert.sameValue(child.foo, 10);

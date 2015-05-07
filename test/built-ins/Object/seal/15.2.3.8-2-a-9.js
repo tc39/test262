@@ -9,17 +9,15 @@ es5id: 15.2.3.8-2-a-9
 description: >
     Object.seal - 'P' is own property of a String object which
     implements its own [[GetOwnProperty]]
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var strObj = new String("abc");
+var obj = new String("abc");
 
-        strObj.foo = 10; // default [[Configurable]] attribute value of foo: true
-        var preCheck = Object.isExtensible(strObj);
-        Object.seal(strObj);
+obj.foo = 10;
 
-        delete strObj.foo;
-        return preCheck && strObj.foo === 10;
-    }
-runTestCase(testcase);
+assert(Object.isExtensible(obj));
+Object.seal(obj);
+
+verifyNotConfigurable(obj, "foo");
+assert.sameValue(obj.foo, 10);

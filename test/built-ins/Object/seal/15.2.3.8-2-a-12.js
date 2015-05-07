@@ -9,17 +9,15 @@ es5id: 15.2.3.8-2-a-12
 description: >
     Object.seal - 'P' is own property of a Date object that uses
     Object's [[GetOwnProperty]]
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var dateObj = new Date();
+var obj = new Date();
 
-        dateObj.foo = 10;
-        var preCheck = Object.isExtensible(dateObj);
-        Object.seal(dateObj);
+obj.foo = 10;
 
-        delete dateObj.foo;
-        return preCheck && dateObj.foo === 10;
-    }
-runTestCase(testcase);
+assert(Object.isExtensible(obj));
+Object.seal(obj);
+
+verifyNotConfigurable(obj, "foo");
+assert.sameValue(obj.foo, 10);

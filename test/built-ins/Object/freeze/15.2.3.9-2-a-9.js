@@ -9,19 +9,16 @@ es5id: 15.2.3.9-2-a-9
 description: >
     Object.freeze - 'P' is own property of the Function object that
     uses Object's [[GetOwnProperty]]
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var funObj = function () { };
+var funObj = function () { };
 
-        funObj.foo = 10; // default [[Configurable]] attribute value of foo: true
+funObj.foo = 10; // default [[Configurable]] attribute value of foo: true
 
-        Object.freeze(funObj);
+Object.freeze(funObj);
 
-        var desc = Object.getOwnPropertyDescriptor(funObj, "foo");
+verifyNotWritable(funObj, "foo");
+verifyNotConfigurable(funObj, "foo");
 
-        delete funObj.foo;
-        return funObj.foo === 10 && desc.configurable === false && desc.writable === false;
-    }
-runTestCase(testcase);
+assert.sameValue(funObj.foo, 10);

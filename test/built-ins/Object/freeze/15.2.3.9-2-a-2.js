@@ -9,25 +9,20 @@ es5id: 15.2.3.9-2-a-2
 description: >
     Object.freeze - 'P' is own data property that overrides an
     inherited data property
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        var proto = { foo: 0 }; // default [[Configurable]] attribute value of foo: true
+var proto = { foo: 0 }; // default [[Configurable]] attribute value of foo: true
 
-        var Con = function () { };
-        Con.prototype = proto;
+var Con = function () { };
+Con.prototype = proto;
 
-        var child = new Con();
+var child = new Con();
 
-        child.foo = 10; // default [[Configurable]] attribute value of foo: true
- 
-        Object.freeze(child);
+child.foo = 10; // default [[Configurable]] attribute value of foo: true
 
-        var desc = Object.getOwnPropertyDescriptor(child, "foo");
+Object.freeze(child);
 
-        delete child.foo;
-        return child.foo === 10 && desc.configurable === false && desc.writable === false;
-    }
-runTestCase(testcase);
+verifyNotWritable(child, "foo");
+verifyNotConfigurable(child, "foo");

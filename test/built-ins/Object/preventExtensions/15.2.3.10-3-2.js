@@ -9,16 +9,15 @@ es5id: 15.2.3.10-3-2
 description: >
     Object.preventExtensions - indexed properties cannot be added into
     the returned object
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
+var obj = {};
 
-        var obj = {};
-        var preCheck = Object.isExtensible(obj);
-        Object.preventExtensions(obj);
+assert(Object.isExtensible(obj));
+Object.preventExtensions(obj);
+assert(!Object.isExtensible(obj));
 
-        obj[0] = 12;
-        return preCheck && !obj.hasOwnProperty("0");
-    }
-runTestCase(testcase);
+verifyNotWritable(obj, "0", "nocheck");
+
+assert(!obj.hasOwnProperty("0"));

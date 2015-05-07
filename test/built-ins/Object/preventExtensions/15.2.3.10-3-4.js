@@ -9,15 +9,15 @@ es5id: 15.2.3.10-3-4
 description: >
     Object.preventExtensions - indexed properties cannot be added into
     an Array object
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arrObj = [];
-        var preCheck = Object.isExtensible(arrObj);
-        Object.preventExtensions(arrObj);
+var obj = [];
 
-        arrObj[0] = 12;
-        return preCheck && !arrObj.hasOwnProperty("0");
-    }
-runTestCase(testcase);
+assert(Object.isExtensible(obj));
+Object.preventExtensions(obj);
+assert(!Object.isExtensible(obj));
+
+verifyNotWritable(obj, "0", "nocheck");
+
+assert(!obj.hasOwnProperty("0"));

@@ -7,26 +7,18 @@
 /*---
 es5id: 15.2.3.9-2-4
 description: Object.freeze - Non-enumerable own properties of 'O' are frozen
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "foo", {
-            value: 10,
-            enumerable: false,
-            configurable: true
-        });
+Object.defineProperty(obj, "foo", {
+    value: 10,
+    enumerable: false,
+    configurable: true
+});
 
-        Object.freeze(obj);
+Object.freeze(obj);
 
-        var desc = Object.getOwnPropertyDescriptor(obj, "foo");
-
-        var beforeDeleted = obj.hasOwnProperty("foo");
-        delete obj.foo;
-        var afterDeleted = obj.hasOwnProperty("foo");
-
-        return beforeDeleted && afterDeleted && desc.configurable === false && desc.writable === false;
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("foo"));
+verifyNotConfigurable(obj, "foo");

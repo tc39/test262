@@ -9,15 +9,15 @@ es5id: 15.2.3.10-3-7
 description: >
     Object.preventExtensions - indexed properties cannot be added into
     a Number object
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var numObj = new Number(123);
-        var preCheck = Object.isExtensible(numObj);
-        Object.preventExtensions(numObj);
+var obj = new Number(123);
 
-        numObj[0] = 12;
-        return preCheck && !numObj.hasOwnProperty("0");
-    }
-runTestCase(testcase);
+assert(Object.isExtensible(obj));
+Object.preventExtensions(obj);
+assert(!Object.isExtensible(obj));
+
+verifyNotWritable(obj, "0", "nocheck");
+
+assert(!obj.hasOwnProperty("0"));

@@ -7,14 +7,8 @@
 /*---
 es5id: 15.2.3.12-3-1
 description: Object.isFrozen returns false for all built-in objects (Global)
-includes: [runTestCase.js]
+flags: [noStrict]
 ---*/
 
-function testcase() {
-  // in non-strict mode, 'this' is bound to the global object.
-  var b = Object.isFrozen(this);
-  if (b === false) {
-    return true;
-  }
- }
-runTestCase(testcase);
+// in non-strict mode, 'this' is bound to the global object.
+assert(!Object.isFrozen(this));

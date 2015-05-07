@@ -9,15 +9,15 @@ es5id: 15.2.3.10-3-20
 description: >
     Object.preventExtensions - named properties cannot be added into
     an Error object
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var errObj = new Error();
-        var preCheck = Object.isExtensible(errObj);
-        Object.preventExtensions(errObj);
+var obj = new Error();
 
-        errObj.exName = 2;
-        return preCheck && !errObj.hasOwnProperty("exName");
-    }
-runTestCase(testcase);
+assert(Object.isExtensible(obj));
+Object.preventExtensions(obj);
+assert(!Object.isExtensible(obj));
+
+verifyNotWritable(obj, "exName", "nocheck");
+
+assert(!obj.hasOwnProperty("exName"));

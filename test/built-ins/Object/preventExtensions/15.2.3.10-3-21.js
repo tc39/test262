@@ -9,18 +9,18 @@ es5id: 15.2.3.10-3-21
 description: >
     Object.preventExtensions - named properties cannot be added into
     an Arguments object
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var argObj;
-        (function () {
-            argObj = arguments;
-        }());
-        var preCheck = Object.isExtensible(argObj);
-        Object.preventExtensions(argObj);
+var obj;
+(function () {
+    obj = arguments;
+}());
 
-        argObj.exName = 2;
-        return preCheck && !argObj.hasOwnProperty("exName");
-    }
-runTestCase(testcase);
+assert(Object.isExtensible(obj));
+Object.preventExtensions(obj);
+assert(!Object.isExtensible(obj));
+
+verifyNotWritable(obj, "exName", "nocheck");
+
+assert(!obj.hasOwnProperty("exName"));

@@ -9,19 +9,17 @@ es5id: 15.2.3.9-2-a-11
 description: >
     Object.freeze - 'P' is own index property of the Arguments object
     that implements its own [[GetOwnProperty]]
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
 
-        // default [[Configurable]] attribute value of "0": true
-        var argObj = (function () { return arguments; }(1, 2, 3));
+// default [[Configurable]] attribute value of "0": true
+var argObj = (function () { return arguments; }(1, 2, 3));
 
-        Object.freeze(argObj);
+Object.freeze(argObj);
 
-        var desc = Object.getOwnPropertyDescriptor(argObj, "0");
+var desc = Object.getOwnPropertyDescriptor(argObj, "0");
 
-        delete argObj[0];
-        return argObj[0] === 1 && desc.configurable === false && desc.writable === false;
-    }
-runTestCase(testcase);
+verifyNotWritable(argObj, "0");
+verifyNotConfigurable(argObj, "0");
+

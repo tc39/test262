@@ -7,22 +7,20 @@
 /*---
 es5id: 15.2.3.8-2-a-4
 description: Object.seal - 'P' is own accessor property
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "foo", {
-            get: function () {
-                return 10;
-            },
-            configurable: true
-        });
-        var preCheck = Object.isExtensible(obj);
-        Object.seal(obj);
+Object.defineProperty(obj, "foo", {
+    get: function () {
+        return 10;
+    },
+    configurable: true
+});
 
-        delete obj.foo;
-        return preCheck && obj.foo === 10;
-    }
-runTestCase(testcase);
+assert(Object.isExtensible(obj));
+Object.seal(obj);
+
+verifyNotConfigurable(obj, "foo");
+assert.sameValue(obj.foo, 10);

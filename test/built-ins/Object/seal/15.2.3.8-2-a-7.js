@@ -9,17 +9,15 @@ es5id: 15.2.3.8-2-a-7
 description: >
     Object.seal - 'P' is own property of a Function object that uses
     Object's [[GetOwnProperty]]
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var funObj = function () { };
+var obj = function () { };
 
-        funObj.foo = 10; // default [[Configurable]] attribute value of foo: true
-        var preCheck = Object.isExtensible(funObj);
-        Object.seal(funObj);
+obj.foo = 10;
 
-        delete funObj.foo;
-        return preCheck && funObj.foo === 10;
-    }
-runTestCase(testcase);
+assert(Object.isExtensible(obj));
+Object.seal(obj);
+
+verifyNotConfigurable(obj, "foo");
+assert.sameValue(obj.foo, 10);

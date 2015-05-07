@@ -7,15 +7,11 @@
 /*---
 es5id: 15.2.3.13-2-1
 description: Object.isExtensible returns true for all built-in objects (Global)
-includes: [runTestCase.js]
+flags: [noStrict]
 ---*/
 
 var global = this;
-function testcase() {
-  // in non-strict mode, 'this' is bound to the global object.
-  var e = Object.isExtensible(this);
-  if (e === true) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+// in non-strict mode, 'this' is bound to the global object.
+assert(Object.isExtensible(this));
+

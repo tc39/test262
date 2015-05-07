@@ -9,17 +9,15 @@ es5id: 15.2.3.8-2-a-13
 description: >
     Object.seal - 'P' is own property of a RegExp object that uses
     Object's [[GetOwnProperty]]
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var regObj = new RegExp();
+var obj = new RegExp();
 
-        regObj.foo = 10;
-        var preCheck = Object.isExtensible(regObj);
-        Object.seal(regObj);
+obj.foo = 10;
 
-        delete regObj.foo;
-        return preCheck && regObj.foo === 10;
-    }
-runTestCase(testcase);
+assert(Object.isExtensible(obj));
+Object.seal(obj);
+
+verifyNotConfigurable(obj, "foo");
+assert.sameValue(obj.foo, 10);
