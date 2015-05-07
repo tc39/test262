@@ -49,16 +49,23 @@ verifyNotWritable(teamMeeting, "conferenceCall", "nocheck");
 
 try {
     teamMeeting.name = "IE Team Meeting";
-} catch (e) {}
+} catch (e) {
+    assert(e instanceof TypeError);
+}
 
 try {
     var dateObj = new Date("10/31/2010 08:00");
     teamMeeting.startTime = dateObj;
-} catch (e) {}
+} catch (e) {
+    assert(e instanceof TypeError);
+}
 
 try {
     teamMeeting.conferenceCall = "4255551212";
-} catch (e) {}
+} catch (e) {
+    assert(e instanceof TypeError);
+}
+
 
 assert(!teamMeeting.hasOwnProperty("name"));
 assert(!teamMeeting.hasOwnProperty("startTime"));
