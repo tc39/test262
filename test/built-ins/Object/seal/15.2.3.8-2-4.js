@@ -7,24 +7,20 @@
 /*---
 es5id: 15.2.3.8-2-4
 description: Object.seal - non-enumerable own property of 'O' is sealed
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "foo", {
-            value: 10,
-            enumerable: false,
-            configurable: true
-        });
-        var preCheck = Object.isExtensible(obj);
-        Object.seal(obj);
+Object.defineProperty(obj, "foo", {
+    value: 10,
+    enumerable: false,
+    configurable: true
+});
 
-        var beforeDeleted = obj.hasOwnProperty("foo");
-        delete obj.foo;
-        var afterDeleted = obj.hasOwnProperty("foo");
+assert(Object.isExtensible(obj));
+Object.seal(obj);
 
-        return preCheck && beforeDeleted && afterDeleted;
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("foo"));
+verifyNotConfigurable(obj, "foo");
+

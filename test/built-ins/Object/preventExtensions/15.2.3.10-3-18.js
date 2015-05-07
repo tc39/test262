@@ -9,15 +9,15 @@ es5id: 15.2.3.10-3-18
 description: >
     Object.preventExtensions - named properties cannot be added into a
     Date object
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var dateObj = new Date();
-        var preCheck = Object.isExtensible(dateObj);
-        Object.preventExtensions(dateObj);
+var obj = new Date();
 
-        dateObj.exName = 2;
-        return preCheck && !dateObj.hasOwnProperty("exName");
-    }
-runTestCase(testcase);
+assert(Object.isExtensible(obj));
+Object.preventExtensions(obj);
+assert(!Object.isExtensible(obj));
+
+verifyNotWritable(obj, "exName", "nocheck");
+
+assert(!obj.hasOwnProperty("exName"));

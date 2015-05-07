@@ -9,15 +9,15 @@ es5id: 15.2.3.10-3-6
 description: >
     Object.preventExtensions - indexed properties cannot be added into
     a Boolean object
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var boolObj = new Boolean(true);
-        var preCheck = Object.isExtensible(boolObj);
-        Object.preventExtensions(boolObj);
+var obj = new Boolean(true);
 
-        boolObj[0] = 12;
-        return preCheck && !boolObj.hasOwnProperty("0");
-    }
-runTestCase(testcase);
+assert(Object.isExtensible(obj));
+Object.preventExtensions(obj);
+assert(!Object.isExtensible(obj));
+
+verifyNotWritable(obj, "0", "nocheck");
+
+assert(!obj.hasOwnProperty("0"));

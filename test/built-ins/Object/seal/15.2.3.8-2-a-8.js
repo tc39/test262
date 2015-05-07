@@ -9,17 +9,15 @@ es5id: 15.2.3.8-2-a-8
 description: >
     Object.seal - 'P' is own property of an Array object that uses
     Object's [[GetOwnProperty]]
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arrObj = [];
+var obj = [];
 
-        arrObj.foo = 10;
-        var preCheck = Object.isExtensible(arrObj);
-        Object.seal(arrObj);
+obj.foo = 10;
 
-        delete arrObj.foo;
-        return preCheck && arrObj.foo === 10;
-    }
-runTestCase(testcase);
+assert(Object.isExtensible(obj));
+Object.seal(obj);
+
+verifyNotConfigurable(obj, "foo");
+assert.sameValue(obj.foo, 10);

@@ -7,19 +7,16 @@
 /*---
 es5id: 15.2.3.9-2-a-1
 description: Object.freeze - 'P' is own data property
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        obj.foo = 10; // default [[Configurable]] attribute value of foo: true
+obj.foo = 10; // default [[Configurable]] attribute value of foo: true
 
-        Object.freeze(obj);
+Object.freeze(obj);
 
-        var desc = Object.getOwnPropertyDescriptor(obj, "foo");
+verifyNotWritable(obj, "foo");
+verifyNotConfigurable(obj, "foo");
 
-        delete obj.foo;
-        return obj.foo === 10 && desc.configurable === false && desc.writable === false;
-    }
-runTestCase(testcase);
+assert.sameValue(obj.foo, 10);

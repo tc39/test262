@@ -9,18 +9,18 @@ es5id: 15.2.3.10-3-11
 description: >
     Object.preventExtensions - indexed properties cannot be added into
     an Arguments object
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var argObj;
-        (function () {
-            argObj = arguments;
-        }());
-        var preCheck = Object.isExtensible(argObj);
-        Object.preventExtensions(argObj);
+var argObj;
+(function () {
+    argObj = arguments;
+}());
 
-        argObj[0] = 12;
-        return preCheck && !argObj.hasOwnProperty("0");
-    }
-runTestCase(testcase);
+assert(Object.isExtensible(argObj));
+Object.preventExtensions(argObj);
+assert(!Object.isExtensible(argObj));
+
+verifyNotWritable(argObj, "0", "nocheck");
+
+assert(!argObj.hasOwnProperty("0"));

@@ -9,17 +9,15 @@ es5id: 15.2.3.8-2-a-15
 description: >
     Object.seal - 'P' is own property of an Arguments object which
     implements its own [[GetOwnProperty]]
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var argObj = (function () { return arguments; })();
+var obj = (function () { return arguments; })();
 
-        argObj.foo = 10; // default [[Configurable]] attribute value of foo: true
-        var preCheck = Object.isExtensible(argObj);
-        Object.seal(argObj);
+obj.foo = 10;
 
-        delete argObj.foo;
-        return preCheck && argObj.foo === 10;
-    }
-runTestCase(testcase);
+assert(Object.isExtensible(obj));
+Object.seal(obj);
+
+verifyNotConfigurable(obj, "foo");
+assert.sameValue(obj.foo, 10);

@@ -9,19 +9,16 @@ es5id: 15.2.3.9-2-a-10
 description: >
     Object.freeze - 'P' is own named property of an Array object that
     uses Object's [[GetOwnProperty]]
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arrObj = [];
+var arrObj = [];
 
-        arrObj.foo = 10; // default [[Configurable]] attribute value of foo: true
+arrObj.foo = 10; // default [[Configurable]] attribute value of foo: true
 
-        Object.freeze(arrObj);
+Object.freeze(arrObj);
 
-        var desc = Object.getOwnPropertyDescriptor(arrObj, "foo");
+verifyNotWritable(arrObj, "foo");
+verifyNotConfigurable(arrObj, "foo");
 
-        delete arrObj.foo;
-        return arrObj.foo === 10 && desc.configurable === false && desc.writable === false;
-    }
-runTestCase(testcase);
+assert.sameValue(arrObj.foo, 10);

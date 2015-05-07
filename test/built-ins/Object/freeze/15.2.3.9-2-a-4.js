@@ -7,24 +7,19 @@
 /*---
 es5id: 15.2.3.9-2-a-4
 description: Object.freeze - 'P' is own accessor property
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        Object.defineProperty(obj, "foo", {
-            get: function () {
-                return 10;
-            },
-            configurable: true
-        });
+Object.defineProperty(obj, "foo", {
+    get: function () {
+        return 10;
+    },
+    configurable: true
+});
 
-        Object.freeze(obj);
+Object.freeze(obj);
 
-        var desc = Object.getOwnPropertyDescriptor(obj, "foo");
-
-        delete obj.foo;
-        return obj.foo === 10 && desc.configurable === false;
-    }
-runTestCase(testcase);
+verifyNotConfigurable(obj, "foo");
+assert.sameValue(obj.foo, 10);

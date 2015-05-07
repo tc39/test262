@@ -9,15 +9,15 @@ es5id: 15.2.3.10-3-9
 description: >
     Object.preventExtensions - indexed properties cannot be added into
     a RegExp object
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var regObj = new RegExp();
-        var preCheck = Object.isExtensible(regObj);
-        Object.preventExtensions(regObj);
+var obj = new RegExp();
 
-        regObj[0] = 12;
-        return preCheck && !regObj.hasOwnProperty("0");
-    }
-runTestCase(testcase);
+assert(Object.isExtensible(obj));
+Object.preventExtensions(obj);
+assert(!Object.isExtensible(obj));
+
+verifyNotWritable(obj, "0", "nocheck");
+
+assert(!obj.hasOwnProperty("0"));

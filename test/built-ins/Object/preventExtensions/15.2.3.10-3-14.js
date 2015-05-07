@@ -9,15 +9,15 @@ es5id: 15.2.3.10-3-14
 description: >
     Object.preventExtensions - named properties cannot be added into
     an Array object
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var arrObj = [];
-        var preCheck = Object.isExtensible(arrObj);
-        Object.preventExtensions(arrObj);
+var obj = [];
 
-        arrObj.exName = 2;
-        return preCheck && !arrObj.hasOwnProperty("exName");
-    }
-runTestCase(testcase);
+assert(Object.isExtensible(obj));
+Object.preventExtensions(obj);
+assert(!Object.isExtensible(obj));
+
+verifyNotWritable(obj, "exName", "nocheck");
+
+assert(!obj.hasOwnProperty("exName"));

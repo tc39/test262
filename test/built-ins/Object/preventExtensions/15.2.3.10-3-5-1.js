@@ -9,15 +9,15 @@ es5id: 15.2.3.10-3-5-1
 description: >
     Object.preventExtensions - indexed properties cannot be added into
     a String object
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var strObj = new String("bbq");
-        var preCheck = Object.isExtensible(strObj);
-        Object.preventExtensions(strObj);
+var obj = new String("bbq");
 
-        strObj[10] = 12;
-        return preCheck && !strObj.hasOwnProperty("10");
-    }
-runTestCase(testcase);
+assert(Object.isExtensible(obj));
+Object.preventExtensions(obj);
+assert(!Object.isExtensible(obj));
+
+verifyNotWritable(obj, "10", "nocheck");
+
+assert(!obj.hasOwnProperty("10"));

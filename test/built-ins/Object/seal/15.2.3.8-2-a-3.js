@@ -9,31 +9,29 @@ es5id: 15.2.3.8-2-a-3
 description: >
     Object.seal - 'P' is own data property that overrides an inherited
     accessor property
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var proto = {};
+var proto = {};
 
-        Object.defineProperty(proto, "foo", {
-            get: function () {
-                return 0;
-            },
-            configurable: true
-        });
+Object.defineProperty(proto, "foo", {
+    get: function () {
+        return 0;
+    },
+    configurable: true
+});
 
-        var ConstructFun = function () { };
-        ConstructFun.prototype = proto;
+var ConstructFun = function () { };
+ConstructFun.prototype = proto;
 
-        var child = new ConstructFun();
-        Object.defineProperty(child, "foo", {
-            value: 10,
-            configurable: true
-        });
-        var preCheck = Object.isExtensible(child);
-        Object.seal(child);
+var obj = new ConstructFun();
+Object.defineProperty(obj, "foo", {
+    value: 10,
+    configurable: true
+});
 
-        delete child.foo;
-        return preCheck && child.foo === 10;
-    }
-runTestCase(testcase);
+assert(Object.isExtensible(obj));
+Object.seal(obj);
+
+verifyNotConfigurable(obj, "foo");
+assert.sameValue(obj.foo, 10);

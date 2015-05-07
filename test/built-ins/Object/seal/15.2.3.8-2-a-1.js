@@ -7,17 +7,15 @@
 /*---
 es5id: 15.2.3.8-2-a-1
 description: Object.seal - 'P' is own data property
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var obj = {};
+var obj = {};
 
-        obj.foo = 10; // default [[Configurable]] attribute value of foo: true
-        var preCheck = Object.isExtensible(obj);
-        Object.seal(obj);
+obj.foo = 10; // default [[Configurable]] attribute value of foo: true
 
-        delete obj.foo;
-        return preCheck && obj.foo === 10;
-    }
-runTestCase(testcase);
+assert(Object.isExtensible(obj));
+Object.seal(obj);
+
+verifyNotConfigurable(obj, "foo");
+assert.sameValue(obj.foo, 10);

@@ -9,15 +9,15 @@ es5id: 15.2.3.10-3-3
 description: >
     Object.preventExtensions - indexed properties cannot be added into
     a Function object
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-        var funObj = function () { };
-        var preCheck = Object.isExtensible(funObj);
-        Object.preventExtensions(funObj);
+var obj = function () { };
 
-        funObj[0] = 12;
-        return preCheck && !funObj.hasOwnProperty("0");
-    }
-runTestCase(testcase);
+assert(Object.isExtensible(obj));
+Object.preventExtensions(obj);
+assert(!Object.isExtensible(obj));
+
+verifyNotWritable(obj, "0", "nocheck");
+
+assert(!obj.hasOwnProperty("0"));
