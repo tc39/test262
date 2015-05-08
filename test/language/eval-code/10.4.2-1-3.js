@@ -14,9 +14,6 @@ includes: [runTestCase.js]
 
 var __10_4_2_1_3 = "str";
 function testcase() {
-
-        try {
-
             var _eval = eval;
             var __10_4_2_1_3 = "str1";
             try {
@@ -31,8 +28,5 @@ function testcase() {
                     return false;
                 }
             }
-        } finally {
-            delete this.__10_4_2_1_3;
-        }
     }
 runTestCase(testcase);

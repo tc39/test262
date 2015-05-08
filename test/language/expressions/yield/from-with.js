@@ -5,6 +5,7 @@ es6id: 25.2
 description: >
     The operand to a `yield` expression should honor the semantics of the
     `with` statement.
+flags: [noStrict]
 ---*/
 
 function* g() {

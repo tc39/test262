@@ -11,6 +11,7 @@ description: >
     Creating functions with two or more formal parameters,  that have
     the same name. Calling this function excluding a few last
     parameters
+flags: [noStrict]
 ---*/
 
 //CHECK#1

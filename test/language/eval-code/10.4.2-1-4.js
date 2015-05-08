@@ -9,12 +9,12 @@ es5id: 10.4.2-1-4
 description: >
     Indirect call to eval has context set to global context (with
     block)
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 
 var __10_4_2_1_4 = "str";
 function testcase() {
-        try {
             var o = new Object();
             o.__10_4_2_1_4 = "str2";
             var _eval = eval;
@@ -26,8 +26,5 @@ function testcase() {
                 }
             }
             return false;
-        } finally {
-            delete this.__10_4_2_1_4;
-        }
     }
 runTestCase(testcase);

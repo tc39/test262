@@ -7,6 +7,7 @@
 /*---
 es5id: 10.6-10-c-ii-2
 description: arguments[i] map to actual parameter
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 
