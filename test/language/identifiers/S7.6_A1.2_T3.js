@@ -9,9 +9,10 @@ description: The $ as unicode character \u0024
 
 //CHECK#1
 var identifier = String.fromCharCode(0x0024);
-eval("var " + identifier + "=1");
-if (eval(identifier + "===1") !== true) {
-  $ERROR('#1: var identifier = String.fromCharCode(0x0024); eval("var " + identifier + "=1"); eval(identifier + "===1") === true');
+var result;
+eval("var " + identifier + "=1; result = " + identifier);
+if (result !== 1) {
+  $ERROR('#1: var identifier = String.fromCharCode(0x0024); eval("var " + identifier + "=1; result = " + identifier); result === 1');
 }
 
 //CHECK#2

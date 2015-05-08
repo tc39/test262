@@ -7,14 +7,16 @@ es5id: 7.2_A1.5_T1
 description: Insert NO-BREAK SPACE(\u00A0) between tokens of var x=1
 ---*/
 
+var result;
+
 // CHECK#1
-eval("\u00A0var\u00A0x\u00A0=\u00A01\u00A0");
-if (x !== 1) {
-  $ERROR('#1: eval("\\u00A0var\\u00A0x\\u00A0=\\u00A01\\u00A0"); x === 1. Actual: ' + (x));
+eval("\u00A0var\u00A0x\u00A0=\u00A01\u00A0; result = x;");
+if (result !== 1) {
+  $ERROR('#1: eval("\\u00A0var\\u00A0x\\u00A0=\\u00A01\\u00A0; result = x;"); result === 1. Actual: ' + (result));
 }
 
 //CHECK#2
-eval("\u00A0" + "var" + "\u00A0" + "x" + "\u00A0" + "=" + "\u00A0" + "1" + "\u00A0");
-if (x !== 1) {
-  $ERROR('#2: eval("\\u00A0" + "var" + "\\u00A0" + "x" + "\\u00A0" + "=" + "\\u00A0" + "1" + "\\u00A0"); x === 1. Actual: ' + (x));
+eval("\u00A0" + "var" + "\u00A0" + "x" + "\u00A0" + "=" + "\u00A0" + "2" + "\u00A0; result = x;");
+if (result !== 2) {
+  $ERROR('#2: eval("\\u00A0" + "var" + "\\u00A0" + "x" + "\\u00A0" + "=" + "\\u00A0" + "2" + "\\u00A0; result = x;"); result === 2. Actual: ' + (result));
 }

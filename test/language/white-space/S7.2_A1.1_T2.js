@@ -14,7 +14,8 @@ if (x !== 1) {
 }
 
 //CHECK#2
-eval("	var\tx	=\t2	");
-if (x !== 2) {
-  $ERROR('#2: 	var\\tx	=\\t1	; x === 2. Actual: ' + (x));
+var result;
+eval("	var\tx	=\t2	; result = x;");
+if (result !== 2) {
+  $ERROR('#2: 	var\\tx	=\\t1	; result = x; result === 2. Actual: ' + (result));
 }
