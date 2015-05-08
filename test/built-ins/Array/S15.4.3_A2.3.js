@@ -5,6 +5,7 @@
 info: The length property of Array has the attribute ReadOnly
 es5id: 15.4.3_A2.3
 description: Checking if varying the length property fails
+flags: [noStrict]
 ---*/
 
 //CHECK#1

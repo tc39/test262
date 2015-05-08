@@ -16,7 +16,7 @@ iter.next();
 
 assert.throws(E, function() { iter.throw(new E()); });
 
-result = iter.next();
+var result = iter.next();
 
 assert.sameValue(result.value, undefined, 'Result `value`');
 assert.sameValue(result.done, true, 'Result `done` flag');
