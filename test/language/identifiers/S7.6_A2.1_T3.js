@@ -7,59 +7,61 @@ es5id: 7.6_A2.1_T3
 description: "IdentifierStart :: _"
 ---*/
 
+var result;
+
 //CHECK#1
 try {
   var identifier = "x" + "_";     
-  eval("var " + identifier + "=1");
-  if (x_ !== 1) {
-    $ERROR('#1.1: var identifier = "x" + "_"; eval("var " + identifier + "=1"); x_ === 1. Actual: ' + (x_));
+  eval("var " + identifier + "=1; result = x_");
+  if (result !== 1) {
+    $ERROR('#1.1: var identifier = "x" + "_"; eval("var " + identifier + "=1; result = x_"); result === 1. Actual: ' + (result));
   }
 } catch (e) {
-  $ERROR('#1.2: var identifier = "x" + "_"; eval("var " + identifier + "=1"); x_ === 1. Actual: ' + (x_));
+  $ERROR('#1.2: var identifier = "x" + "_"; eval("var " + identifier + "=1; result = x_"); result === 1. Actual: ' + (result));
 }
 
 //CHECK#2
 try {
   var identifier = String.fromCharCode(0x0078) + "_";     
-  eval("var " + identifier + "=2");
-  if (x_ !== 2) {
-    $ERROR('#2.1: var identifier = String.fromCharCode(0x0078) + "_"; eval("var " + identifier + "=2"); x_ === 2. Actual: ' + (x_));
+  eval("var " + identifier + "=2; result = x_");
+  if (result !== 2) {
+    $ERROR('#2.1: var identifier = String.fromCharCode(0x0078) + "_"; eval("var " + identifier + "=2; result = x_"); result === 2. Actual: ' + (result));
   }
 } catch (e) {
-  $ERROR('#2.2: var identifier = String.fromCharCode(0x0078) + "_"; eval("var " + identifier + "=2"); x_ === 2. Actual: ' + (x_));
+  $ERROR('#2.2: var identifier = String.fromCharCode(0x0078) + "_"; eval("var " + identifier + "=2; result = x_"); result === 2. Actual: ' + (result));
 }
 
 //CHECK#3
 try {
   var identifier = "_" + "_";     
-  eval("var " + identifier + "=3");
-  if (__ !== 3) {
-    $ERROR('#3.1: var identifier = "_" + "_"; eval("var " + identifier + "=3"); __ === 3. Actual: ' + (__));
+  eval("var " + identifier + "=3; result = __");
+  if (result !== 3) {
+    $ERROR('#3.1: var identifier = "_" + "_"; eval("var " + identifier + "=3; result = __"); result === 3. Actual: ' + (result));
   }
 } catch (e) {
-  $ERROR('#3.2: var identifier = "_" + "_"; eval("var " + identifier + "=3"); __ === 3. Actual: ' + (__));
+  $ERROR('#3.2: var identifier = "_" + "_"; eval("var " + identifier + "=3; result = __"); result === 3. Actual: ' + (result));
 }
 
 //CHECK#4
 try {
   var identifier = String.fromCharCode(0x005F) + String.fromCharCode(0x005F);     
-  eval("var " + identifier + "=4");
-  if (__ !== 4) {
-    $ERROR('#4.1: var identifier = String.fromCharCode(0x005F) + String.fromCharCode(0x005F); eval("var " + identifier + "=4"); __ === 4. Actual: ' + (__));
+  eval("var " + identifier + "=4; result = __");
+  if (result !== 4) {
+    $ERROR('#4.1: var identifier = String.fromCharCode(0x005F) + String.fromCharCode(0x005F); eval("var " + identifier + "=4; result = __"); result === 4. Actual: ' + (result));
   }
 } catch (e) {
-  $ERROR('#4.2: var identifier = String.fromCharCode(0x005F) + String.fromCharCode(0x005F); eval("var " + identifier + "=4"); __ === 4. Actual: ' + (__));
+  $ERROR('#4.2: var identifier = String.fromCharCode(0x005F) + String.fromCharCode(0x005F); eval("var " + identifier + "=4; result = __"); result === 4. Actual: ' + (result));
 }
 
 //CHECK#5
 try {
   var identifier = "_" + "_";     
-  eval("var " + identifier + "=5");
-  if (__ !== 5) {
-    $ERROR('#5.1: var identifier = "_" + "_"; eval("var " + identifier + "=5"); __ === 5. Actual: ' + (__));
+  eval("var " + identifier + "=5; result = __");
+  if (result !== 5) {
+    $ERROR('#5.1: var identifier = "_" + "_"; eval("var " + identifier + "=5; result = __"); result === 5. Actual: ' + (result));
   }
 } catch (e) {
-  $ERROR('#5.2: var identifier = "_" + "_"; eval("var " + identifier + "=5"); __ === 5. Actual: ' + (__));
+  $ERROR('#5.2: var identifier = "_" + "_"; eval("var " + identifier + "=5; result = __"); result === 5. Actual: ' + (result));
 }
 
 //CHECK#6

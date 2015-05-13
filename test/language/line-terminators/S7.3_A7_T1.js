@@ -38,18 +38,19 @@ if (x !== 5) {
 x=0;
 
 // CHECK#3
+var result;
 var y=2;
 var z=3;
-eval("\u2028var\u2028x\u2028=\u2028y\u2028+\u2028z\u2028");
-if (x !== 5) {
-  $ERROR('#3: eval("\\u2028var\\u2028x\\u2028=\\u2028y\\u2028+\\u2028z\\u2028"); x === 5. Actual: ' + (x));
+eval("\u2028var\u2028x\u2028=\u2028y\u2028+\u2028z\u2028; result = x;");
+if (result !== 5) {
+  $ERROR('#3: eval("\\u2028var\\u2028x\\u2028=\\u2028y\\u2028+\\u2028z\\u2028; result = x;"); result === 5. Actual: ' + (result));
 }
-x=0;
+result=0;
 
 // CHECK#4
 var y=2;
 var z=3;
-eval("\u2029var\u2029x\u2029=\u2029y\u2029+\u2029z\u2029");
-if (x !== 5) {
-  $ERROR('#4: eval("\\u2029var\\u2029x\\u2029=\\u2029y\\u2029+\\u2029z\\u2029"); x === 5. Actual: ' + (x));
+eval("\u2029var\u2029x\u2029=\u2029y\u2029+\u2029z\u2029; result = x;");
+if (result !== 5) {
+  $ERROR('#4: eval("\\u2029var\\u2029x\\u2029=\\u2029y\\u2029+\\u2029z\\u2029; result = x;"); result === 5. Actual: ' + (result));
 }

@@ -13,7 +13,8 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        eval("var test7_3_2\u2029prop = 66;");
+        var test7_3_2, prop;
+        eval("test7_3_2\u2029prop = 66;");
         return (prop===66) && ((typeof test7_3_2) === "undefined");
     }
 runTestCase(testcase);

@@ -7,59 +7,61 @@ es5id: 7.6_A2.1_T1
 description: "IdentifierStart :: UnicodeLetter"
 ---*/
 
+var result;
+
 //CHECK#1
 try {
   var identifier = "x" + "x";     
-  eval("var " + identifier + "=1");
-  if (xx !== 1) {
-    $ERROR('#1.1: var identifier = "x" + "x"; eval("var " + identifier + "=1"); xx === 1. Actual: ' + (xx));
+  eval("var " + identifier + "=1; result = xx");
+  if (result !== 1) {
+    $ERROR('#1.1: var identifier = "x" + "x"; eval("var " + identifier + "=1; result = xx"); result === 1. Actual: ' + (result));
   }
 } catch (e) {
-  $ERROR('#1.2: var identifier = "x" + "x"; eval("var " + identifier + "=1"); xx === 1. Actual: ' + (xx));
+  $ERROR('#1.2: var identifier = "x" + "x"; eval("var " + identifier + "=1; result = xx"); result === 1. Actual: ' + (result));
 }
 
 //CHECK#2
 try {
   var identifier = "x" + String.fromCharCode(0x0078);     
-  eval("var " + identifier + "=2");
-  if (xx !== 2) {
-    $ERROR('#2.1: var identifier = "x" + String.fromCharCode(0x0078); eval("var " + identifier + "=2"); xx === 2. Actual: ' + (xx));
+  eval("var " + identifier + "=2; result = xx");
+  if (result !== 2) {
+    $ERROR('#2.1: var identifier = "x" + String.fromCharCode(0x0078); eval("var " + identifier + "=2; result = xx"); result === 2. Actual: ' + (result));
   }
 } catch (e) {
-  $ERROR('#2.2: var identifier = "x" + String.fromCharCode(0x0078); eval("var " + identifier + "=2"); xx === 2. Actual: ' + (xx));
+  $ERROR('#2.2: var identifier = "x" + String.fromCharCode(0x0078); eval("var " + identifier + "=2; result = xx"); result === 2. Actual: ' + (result));
 }
 
 //CHECK#3
 try {
   var identifier = String.fromCharCode(0x0078) + String.fromCharCode(0x0078);     
-  eval("var " + identifier + "=3");
-  if (xx !== 3) {
-    $ERROR('#3.1: var identifier = String.fromCharCode(0x0078) + String.fromCharCode(0x0078); eval("var " + identifier + "=3"); xx === 3. Actual: ' + (xx));
+  eval("var " + identifier + "=3; result = xx");
+  if (result !== 3) {
+    $ERROR('#3.1: var identifier = String.fromCharCode(0x0078) + String.fromCharCode(0x0078); eval("var " + identifier + "=3; result = xx"); result === 3. Actual: ' + (result));
   }
 } catch (e) {
-  $ERROR('#3.2: var identifier = String.fromCharCode(0x0078) + String.fromCharCode(0x0078); eval("var " + identifier + "=3"); xx === 3. Actual: ' + (xx));
+  $ERROR('#3.2: var identifier = String.fromCharCode(0x0078) + String.fromCharCode(0x0078); eval("var " + identifier + "=3; result = xx"); result === 3. Actual: ' + (result));
 }
 
 //CHECK#4
 try {
   var identifier = "$" + String.fromCharCode(0x0078);     
-  eval("var " + identifier + "=4");
-  if ($x !== 4) {
-    $ERROR('#4.1: var identifier = "$" + String.fromCharCode(0x0078); eval("var " + identifier + "=4"); $x === 4. Actual: ' + ($x));
+  eval("var " + identifier + "=4; result = $x");
+  if (result !== 4) {
+    $ERROR('#4.1: var identifier = "$" + String.fromCharCode(0x0078); eval("var " + identifier + "=4; result = $x"); result === 4. Actual: ' + (result));
   }
 } catch (e) {
-  $ERROR('#4.2: var identifier = "$" + String.fromCharCode(0x0078); eval("var " + identifier + "=4"); $x === 4. Actual: ' + ($x));
+  $ERROR('#4.2: var identifier = "$" + String.fromCharCode(0x0078); eval("var " + identifier + "=4; result = $x"); result === 4. Actual: ' + (result));
 }
 
 //CHECK#5
 try {
   var identifier = "_" + String.fromCharCode(0x0078);     
-  eval("var " + identifier + "=5");
-  if (_x !== 5) {
-    $ERROR('#5.1: var identifier = "_" + String.fromCharCode(0x0078); eval("var " + identifier + "=5"); _x === 5. Actual: ' + (_x));
+  eval("var " + identifier + "=5; result = _x");
+  if (result !== 5) {
+    $ERROR('#5.1: var identifier = "_" + String.fromCharCode(0x0078); eval("var " + identifier + "=5; result = _x"); result === 5. Actual: ' + (result));
   }
 } catch (e) {
-  $ERROR('#5.2: var identifier = "_" + String.fromCharCode(0x0078); eval("var " + identifier + "=5"); _x === 5. Actual: ' + (_x));
+  $ERROR('#5.2: var identifier = "_" + String.fromCharCode(0x0078); eval("var " + identifier + "=5; result = _x"); result === 5. Actual: ' + (result));
 }
 
 //CHECK#6
