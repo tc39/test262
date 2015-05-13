@@ -7,6 +7,7 @@ info: >
     in the same order, as the calling context's scope chain
 es5id: 10.4.2_A1.2_T7
 description: eval within global execution context
+flags: [noStrict]
 ---*/
 
 function f(){

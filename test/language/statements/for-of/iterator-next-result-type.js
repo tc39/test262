@@ -97,7 +97,7 @@ firstIterResult = new Proxy({}, {
     $ERROR('This code is unreachable.');
   }
 });
-i = 0;
+var i = 0;
 for (var x of iterable) {
   assert.sameValue(x, 23);
   i++;

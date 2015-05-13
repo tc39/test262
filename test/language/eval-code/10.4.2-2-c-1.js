@@ -9,6 +9,7 @@ es5id: 10.4.2-2-c-1
 description: >
     Direct val code in non-strict mode - can instantiate variable in
     calling context
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

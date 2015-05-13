@@ -7,14 +7,16 @@ es5id: 7.7_A1
 description: Using all punctuators
 ---*/
 
+this.nan = NaN;
+
 //CHECK#1
   ({});[];
-  this.NaN; 
+  this.nan;
   1 < 2 > 3 <= 4 >= 5 == 6 != 7 === 8 !== 9;
   1 + 2 - 3 * 4 % 5 / 6 << 7 >> 8 >>> 9;
-  this.NaN++; ++this.NaN; this.NaN--; --this.NaN;
+  this.nan++; ++this.nan; this.nan--; --this.nan;
   1 & 2 | 3 ^ 4 && !5 || ~6;
   1 ? 2 : 3;
-  this.NaN = 1; this.NaN += 2; this.NaN -= 3; this.NaN *= 4; this.NaN /= 5;
-  this.NaN %= 6; this.NaN <<= 7; this.NaN >>= 8; this.NaN >>>= 9;
-  this.NaN &= 1; this.NaN |= 2; this.NaN ^= 3;
+  this.nan = 1; this.nan += 2; this.nan -= 3; this.nan *= 4; this.nan /= 5;
+  this.nan %= 6; this.nan <<= 7; this.nan >>= 8; this.nan >>>= 9;
+  this.nan &= 1; this.nan |= 2; this.nan ^= 3;

@@ -5,16 +5,15 @@
 info: >
     The scope chain is initialised to contain the same objects,
     in the same order, as the calling context's scope chain
-es5id: 10.4.2_A1.1_T8
+es5id: 10.4.2_A1.1_T14
 description: eval within global execution context
-flags: [noStrict]
 ---*/
 
 var i;
 var j;
-str1 = '';
-str2 = '';
-this.x = 1;
+var str1 = '';
+var str2 = '';
+var x = 1;
 
 for(i in this){
   str1+=i;

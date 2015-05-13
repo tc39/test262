@@ -5,16 +5,16 @@
 info: >
     The scope chain is initialised to contain the same objects,
     in the same order, as the calling context's scope chain
-es5id: 10.4.2_A1.1_T8
+es5id: 10.4.2_A1.1_T13
 description: eval within global execution context
-flags: [noStrict]
 ---*/
 
 var i;
 var j;
-str1 = '';
-str2 = '';
+var str1 = '';
+var str2 = '';
 this.x = 1;
+this.y = 2;
 
 for(i in this){
   str1+=i;
@@ -25,5 +25,3 @@ eval('for(j in this){\nstr2+=j;\n}');
 if(!(str1 === str2)){
   $ERROR("#1: scope chain must contain same objects in the same order as the calling context");
 }
-
-var y = 2;
