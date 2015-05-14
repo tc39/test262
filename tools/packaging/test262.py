@@ -66,9 +66,7 @@ def BuildOptions():
                     help="Test only strict mode")
   result.add_option("--non_strict_only", default=False, action="store_true",
                     help="Test only non-strict mode")
-  # TODO: Once enough tests are made strict compat, change the default
-  # to "both"
-  result.add_option("--unmarked_default", default="non_strict",
+  result.add_option("--unmarked_default", default="both",
                     help="default mode for tests of unspecified strictness")
   result.add_option("--logname", help="Filename to save stdout to")
   result.add_option("--junitname", help="Filename to save test results in JUnit XML format")
