@@ -4,10 +4,20 @@
 /*---
 es5id: 15.2.3.1_A3
 description: Checking if deleting "Object.prototype" property fails;
-flags: [noStrict]
+includes: [propertyHelper.js]
 ---*/
 
-delete Object.prototype;
+verifyNotConfigurable(Object, "prototype");
+
+//CHECK#1
+try {
+  if((delete Object.prototype) !== false){
+    $ERROR('#1: Object.prototype has the attribute DontDelete');
+  }
+} catch (e) {
+  if (e instanceof Test262Error) throw e;
+  assert(e instanceof TypeError);
+}
 
 //CHECK#2
 if (!(Object.hasOwnProperty('prototype'))) {

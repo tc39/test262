@@ -5,12 +5,12 @@
 info: The length property of encodeURI has the attribute ReadOnly
 es5id: 15.1.3.3_A5.3
 description: Checking if varying the length property fails
-flags: [noStrict]
+includes: [propertyHelper.js]
 ---*/
 
 //CHECK#1
-x = encodeURI.length;
-encodeURI.length = Infinity;
+var x = encodeURI.length;
+verifyNotWritable(encodeURI, "length", null, Infinity);
 if (encodeURI.length !== x) {
   $ERROR('#1: x = encodeURI.length; encodeURI.length = Infinity; encodeURI.length === x. Actual: ' + (encodeURI.length));
 }

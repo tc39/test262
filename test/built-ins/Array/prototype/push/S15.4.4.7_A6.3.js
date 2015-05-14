@@ -5,12 +5,12 @@
 info: The length property of push has the attribute ReadOnly
 es5id: 15.4.4.7_A6.3
 description: Checking if varying the length property fails
-flags: [noStrict]
+includes: [propertyHelper.js]
 ---*/
 
 //CHECK#1
 var x = Array.prototype.push.length;
-Array.prototype.push.length = Infinity;
+verifyNotWritable(Array.prototype.push, "length", null, Infinity);
 if (Array.prototype.push.length !== x) {
   $ERROR('#1: x = Array.prototype.push.length; Array.prototype.push.length = Infinity; Array.prototype.push.length === x. Actual: ' + (Array.prototype.push.length));
 }

@@ -5,21 +5,20 @@
 info: The RegExp.prototype ignoreCase property does not have a set accessor
 es5id: 15.10.7.3_A10
 description: Checking if varying the ignoreCase property fails
-flags: [noStrict]
-includes: [$FAIL.js]
+includes: [$FAIL.js, propertyHelper.js]
 ---*/
 
-__re = RegExp.prototype;
+var __re = RegExp.prototype;
 
 //CHECK#1
 if (__re.hasOwnProperty('ignoreCase') !== true) {
   $FAIL('#1: __re = RegExp.prototype; __re.hasOwnProperty(\'ignoreCase\') === true');
 }
 
-__sample = /a|b|c/;
-__obj = __sample.ignoreCase;
+var __sample = /a|b|c/;
+var __obj = __sample.ignoreCase;
 
-__sample.ignoreCase = "shifted";
+verifyNotWritable(__sample, "ignoreCase", "ignoreCase", "shifted");
 
 //CHECK#2
 if (__sample.ignoreCase !== __obj) {

@@ -7,8 +7,7 @@ es5id: 15.5.4.13_A10
 description: >
     Checking if varying the String.prototype.slice.length property
     fails
-flags: [noStrict]
-includes: [$FAIL.js]
+includes: [$FAIL.js, propertyHelper.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
@@ -21,7 +20,7 @@ if (!(String.prototype.slice.hasOwnProperty('length'))) {
 
 var __obj = String.prototype.slice.length;
 
-String.prototype.slice.length = function(){return "shifted";};
+verifyNotWritable(String.prototype.slice, "length", null, function(){return "shifted";});
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2

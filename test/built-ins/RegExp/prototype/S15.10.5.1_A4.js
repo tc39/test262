@@ -5,8 +5,7 @@
 info: The RegExp.prototype property has the attribute ReadOnly
 es5id: 15.10.5.1_A4
 description: Checking if varying the RegExp.prototype property fails
-flags: [noStrict]
-includes: [$FAIL.js]
+includes: [$FAIL.js, propertyHelper.js]
 ---*/
 
 //CHECK#1
@@ -14,9 +13,9 @@ if (RegExp.hasOwnProperty('prototype') !== true) {
 	$FAIL('#1: RegExp.hasOwnProperty(\'prototype\') === true');
 }
 
-__obj = RegExp.prototype;
+var __obj = RegExp.prototype;
 
-RegExp.prototype = function(){return "shifted";};
+verifyNotWritable(RegExp, "prototype", null, function(){return "shifted";});
 
 //CHECK#2
 if (RegExp.prototype !== __obj) {

@@ -7,11 +7,11 @@ info: >
     DontDelete, DontEnum } attributes
 es5id: 15.9.5.10_A3_T1
 description: Checking ReadOnly attribute
-flags: [noStrict]
+includes: [propertyHelper.js]
 ---*/
 
-x = Date.prototype.getFullYear.length;
-Date.prototype.getFullYear.length = 1;
+var x = Date.prototype.getFullYear.length;
+verifyNotWritable(Date.prototype.getFullYear, "length", null, 1);
 if (Date.prototype.getFullYear.length !== x) {
   $ERROR('#1: The Date.prototype.getFullYear.length has the attribute ReadOnly');
 }

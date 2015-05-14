@@ -9,8 +9,7 @@ es5id: 15.2.4.5_A10
 description: >
     Checking if varying the Object.prototype.hasOwnProperty.length
     property fails
-flags: [noStrict]
-includes: [$FAIL.js]
+includes: [$FAIL.js, propertyHelper.js]
 ---*/
 
 //CHECK#1
@@ -20,7 +19,7 @@ if (!(Object.prototype.hasOwnProperty.hasOwnProperty('length'))) {
 
 var obj = Object.prototype.hasOwnProperty.length;
 
-Object.prototype.hasOwnProperty.length = function(){return "shifted";};
+verifyNotWritable(Object.prototype.hasOwnProperty, "length", null, function(){return "shifted";});
 
 //CHECK#2
 if (Object.prototype.hasOwnProperty.length !== obj) {

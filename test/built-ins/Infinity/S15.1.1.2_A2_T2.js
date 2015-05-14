@@ -2,13 +2,14 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: The Infinity is not ReadOnly
+info: The Infinity is ReadOnly
 es5id: 15.1.1.2_A2_T2
 description: Checking typeof Functions
+flags: [noStrict]
 ---*/
 
 // CHECK#1
-var Finite = true;
-if (typeof(Finite) !== "boolean") {
-	$ERROR('#1: Finite = true; typeof(NaN) === "boolean". Actual: ' + (typeof(NaN))); 
+Infinity = true;
+if (typeof(Infinity) === "boolean") {
+	$ERROR('#1: Infinity = true; typeof(Infinity) !== "boolean". Actual: ' + (typeof(Infinity)));
 }

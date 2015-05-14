@@ -5,8 +5,7 @@
 info: The RegExp.prototype property has the attribute DontDelete
 es5id: 15.10.5.1_A3
 description: Checking if deleting the RegExp.prototype property fails
-flags: [noStrict]
-includes: [$FAIL.js]
+includes: [$FAIL.js, propertyHelper.js]
 ---*/
 
 //CHECK#0
@@ -14,9 +13,16 @@ if (RegExp.hasOwnProperty('prototype') !== true) {
 	$FAIL('#0: RegExp.hasOwnProperty(\'prototype\') === true');
 }
 
+verifyNotConfigurable(RegExp, "prototype");
+
 //CHECK#1
-if (delete RegExp.prototype !== false) {
-  $ERROR('#1: delete RegExp.prototype === false');
+try {
+  if (delete RegExp.prototype !== false) {
+    $ERROR('#1: delete RegExp.prototype === false');
+  }
+} catch (e) {
+  if (e instanceof Test262Error) throw e;
+  assert(e instanceof TypeError);
 }
 
 //CHECK#2

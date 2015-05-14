@@ -5,7 +5,6 @@
 info: The length property of join does not have the attribute DontDelete
 es5id: 15.4.4.5_A6.2
 description: Checking use hasOwnProperty, delete
-flags: [noStrict]
 includes: [$FAIL.js]
 ---*/
 

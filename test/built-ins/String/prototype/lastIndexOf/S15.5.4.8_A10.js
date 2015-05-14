@@ -9,8 +9,7 @@ es5id: 15.5.4.8_A10
 description: >
     Checking if varying the String.prototype.lastIndexOf.length
     property fails
-flags: [noStrict]
-includes: [$FAIL.js]
+includes: [$FAIL.js, propertyHelper.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
@@ -23,7 +22,7 @@ if (!(String.prototype.lastIndexOf.hasOwnProperty('length'))) {
 
 var __obj = String.prototype.lastIndexOf.length;
 
-String.prototype.lastIndexOf.length = function(){return "shifted";};
+verifyNotWritable(String.prototype.lastIndexOf, "length", null, function(){return "shifted";});
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2

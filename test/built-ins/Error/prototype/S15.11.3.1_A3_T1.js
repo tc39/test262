@@ -5,7 +5,7 @@
 info: Error.prototype property has the attributes {ReadOnly}
 es5id: 15.11.3.1_A3_T1
 description: Checking if varying the Error.prototype property fails
-flags: [noStrict]
+includes: [propertyHelper.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
@@ -16,9 +16,9 @@ if (!(Error.hasOwnProperty('prototype'))) {
 //
 //////////////////////////////////////////////////////////////////////////////
 
-__obj = Error.prototype;
+var __obj = Error.prototype;
 
-Error.prototype = function(){return "shifted";};
+verifyNotWritable(Error, "prototype", null, function(){return "shifted";});
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
@@ -34,7 +34,7 @@ try {
   Error.prototype();
   $ERROR('#3: "Error.prototype()" lead to throwing exception');
 } catch (e) {
-  ;
+  if (e instanceof Test262Error) throw e;
 }
 //
 //////////////////////////////////////////////////////////////////////////////

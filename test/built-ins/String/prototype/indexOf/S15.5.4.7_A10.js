@@ -7,8 +7,7 @@ es5id: 15.5.4.7_A10
 description: >
     Checking if varying the String.prototype.indexOf.length property
     fails
-flags: [noStrict]
-includes: [$FAIL.js]
+includes: [$FAIL.js, propertyHelper.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
@@ -21,7 +20,7 @@ if (!(String.prototype.indexOf.hasOwnProperty('length'))) {
 
 var __obj = String.prototype.indexOf.length;
 
-String.prototype.indexOf.length = function(){return "shifted";};
+verifyNotWritable(String.prototype.indexOf, "length", null, function(){return "shifted";});
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2

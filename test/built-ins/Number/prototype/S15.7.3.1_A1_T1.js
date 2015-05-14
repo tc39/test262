@@ -7,12 +7,12 @@ info: >
     attributes
 es5id: 15.7.3.1_A1_T1
 description: Checking if varying the Number.prototype property fails
-flags: [noStrict]
+includes: [propertyHelper.js]
 ---*/
 
 //CHECK#1
 var x = Number.prototype;
-Number.prototype = 1;
+verifyNotWritable(Number, "prototype", null, 1);
 if (Number.prototype !== x) {
   $ERROR('#1: The Number.prototype property has the attributes ReadOnly');
 }

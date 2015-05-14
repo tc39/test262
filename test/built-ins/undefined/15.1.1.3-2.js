@@ -8,23 +8,13 @@
 es5id: 15.1.1.3-2
 description: undefined is not writable, should throw TypeError in strict mode
 flags: [onlyStrict]
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
 
-function testcase(){
-  "use strict";
-  var global = fnGlobalObject();
-  try{
-    global["undefined"] = 5;  // Should throw a TypeError as per 8.12.5
-  } catch (ex) {
-    if(ex instanceof TypeError){
-      return true;
-    } else {
-      return false;
-    }
-  }
-}
+var global = fnGlobalObject();
 
-runTestCase(testcase);
+assert.throws(TypeError, function() {
+  global["undefined"] = 5;  // Should throw a TypeError as per 8.12.5
+});
+assert.sameValue(global["undefined"], void 0);
+assert.sameValue(undefined, void 0);

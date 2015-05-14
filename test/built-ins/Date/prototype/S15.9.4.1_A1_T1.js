@@ -7,11 +7,11 @@ info: >
     attributes
 es5id: 15.9.4.1_A1_T1
 description: Checking ReadOnly attribute
-flags: [noStrict]
+includes: [propertyHelper.js]
 ---*/
 
-x = Date.prototype;
-Date.prototype = 1;
+var x = Date.prototype;
+verifyNotWritable(Date, "prototype", null, 1);
 if (Date.prototype !== x) {
   $ERROR('#1: The Date.prototype has the attribute ReadOnly');
 }

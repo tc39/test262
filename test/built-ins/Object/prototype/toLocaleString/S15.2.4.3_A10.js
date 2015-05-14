@@ -9,8 +9,7 @@ es5id: 15.2.4.3_A10
 description: >
     Checking if varying the Object.prototype.toLocaleString.length
     property fails
-flags: [noStrict]
-includes: [$FAIL.js]
+includes: [$FAIL.js, propertyHelper.js]
 ---*/
 
 //CHECK#1
@@ -20,7 +19,7 @@ if (!(Object.prototype.toLocaleString.hasOwnProperty('length'))) {
 
 var obj = Object.prototype.toLocaleString.length;
 
-Object.prototype.toLocaleString.length = function(){return "shifted";};
+verifyNotWritable(Object.prototype.toLocaleString, "length", null, function(){return "shifted";});
 
 //CHECK#2
 if (Object.prototype.toLocaleString.length !== obj) {

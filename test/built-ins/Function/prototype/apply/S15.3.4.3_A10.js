@@ -7,8 +7,7 @@ es5id: 15.3.4.3_A10
 description: >
     Checking if varying the Function.prototype.apply.length property
     fails
-flags: [noStrict]
-includes: [$FAIL.js]
+includes: [$FAIL.js, propertyHelper.js]
 ---*/
 
 //CHECK#1
@@ -18,7 +17,7 @@ if (!(Function.prototype.apply.hasOwnProperty('length'))) {
 
 var obj = Function.prototype.apply.length;
 
-Function.prototype.apply.length = function(){return "shifted";};
+verifyNotWritable(Function.prototype.apply, "length", null, function(){return "shifted";});
 
 //CHECK#2
 if (Function.prototype.apply.length !== obj) {

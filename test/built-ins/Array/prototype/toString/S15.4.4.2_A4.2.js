@@ -5,7 +5,6 @@
 info: The length property of toString does not have the attribute DontDelete
 es5id: 15.4.4.2_A4.2
 description: Checking use hasOwnProperty, delete
-flags: [noStrict]
 includes: [$FAIL.js]
 ---*/
 

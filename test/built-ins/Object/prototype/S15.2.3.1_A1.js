@@ -5,11 +5,11 @@
 info: The Object.prototype property has the attribute ReadOnly
 es5id: 15.2.3.1_A1
 description: Checking if varying "Object.prototype" property fails
-flags: [noStrict]
+includes: [propertyHelper.js]
 ---*/
 
 var obj = Object.prototype;
-Object.prototype = function(){return "shifted";};
+verifyNotWritable(Object, "prototype", null, function(){return "shifted";});
 
 //CHECK#1
 if (Object.prototype !== obj) {
@@ -21,5 +21,5 @@ try {
   Object.prototype();
   $ERROR('#2: the Object.prototype property has the attributes ReadOnly');
 } catch (e) {
-  ;
+  if (e instanceof Test262Error) throw e;
 }

@@ -7,7 +7,7 @@ es5id: 15.5.4.6_A10
 description: >
     Checking if varying the String.prototype.concat.length property
     fails
-flags: [noStrict]
+includes: [propertyHelper.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
@@ -20,7 +20,7 @@ if (!(String.prototype.concat.hasOwnProperty('length'))) {
 
 var __obj = String.prototype.concat.length;
 
-String.prototype.concat.length = function(){return "shifted";};
+verifyNotWritable(String.prototype.concat, "length", null, function(){return "shifted";});
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2

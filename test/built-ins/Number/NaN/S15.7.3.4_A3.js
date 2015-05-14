@@ -5,10 +5,17 @@
 info: Number.NaN is DontDelete
 es5id: 15.7.3.4_A3
 description: Checking if deleting Number.NaN fails
-flags: [noStrict]
+includes: [propertyHelper.js]
 ---*/
 
+verifyNotConfigurable(Number, "NaN");
+
 // CHECK#1
-if (delete Number.NaN !== false) {
-  $ERROR('#1: delete Number.NaN === false');
+try {
+  if (delete Number.NaN !== false) {
+    $ERROR('#1: delete Number.NaN === false');
+  }
+} catch (e) {
+  if (e instanceof Test262Error) throw e;
+  assert(e instanceof TypeError);
 }
