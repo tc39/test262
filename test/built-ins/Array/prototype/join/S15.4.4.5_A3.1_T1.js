@@ -48,5 +48,5 @@ if (x.join(undefined) !== "0,1,2,3") {
 
 //CHECK#7
 if (x.join(NaN) !== "0NaN1NaN2NaN3") {
-  $ERROR('#7: x = new Array(0,1,2,3); x.join("NaN") === "0NaN1NaN2NaN3". Actual: ' + (x.join("NaN")));
+  $ERROR('#7: x = new Array(0,1,2,3); x.join(NaN) === "0NaN1NaN2NaN3". Actual: ' + (x.join(NaN)));
 }
