@@ -5,10 +5,17 @@
 info: Number.POSITIVE_INFINITY is DontDelete
 es5id: 15.7.3.6_A3
 description: Checking if deleting Number.POSITIVE_INFINITY fails
-flags: [noStrict]
+includes: [propertyHelper.js]
 ---*/
 
+verifyNotConfigurable(Number, "POSITIVE_INFINITY");
+
 // CHECK#1
-if (delete Number.POSITIVE_INFINITY !== false) {
-  $ERROR('#1: delete Number.POSITIVE_INFINITY === false');
+try {
+  if (delete Number.POSITIVE_INFINITY !== false) {
+    $ERROR('#1: delete Number.POSITIVE_INFINITY === false');
+  }
+} catch (e) {
+  if (e instanceof Test262Error) throw e;
+  assert(e instanceof TypeError);
 }

@@ -5,8 +5,7 @@
 info: The String.prototype property has the attribute ReadOnly
 es5id: 15.5.3.1_A4
 description: Checking if varying the String.prototype property fails
-flags: [noStrict]
-includes: [$FAIL.js]
+includes: [$FAIL.js, propertyHelper.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
@@ -19,7 +18,7 @@ if (!(String.hasOwnProperty('prototype'))) {
 
 var __obj = String.prototype;
 
-String.prototype = function(){return "shifted";};
+verifyNotWritable(String, "prototype", null, function(){return "shifted";});
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2

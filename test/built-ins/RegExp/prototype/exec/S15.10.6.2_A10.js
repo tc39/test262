@@ -5,8 +5,7 @@
 info: The RegExp.prototype.exec.length property has the attribute ReadOnly
 es5id: 15.10.6.2_A10
 description: Checking if varying the RegExp.prototype.exec.length property fails
-flags: [noStrict]
-includes: [$FAIL.js]
+includes: [$FAIL.js, propertyHelper.js]
 ---*/
 
 //CHECK#1
@@ -14,9 +13,9 @@ if (RegExp.prototype.exec.hasOwnProperty('length') !== true) {
   $FAIL('#1: RegExp.prototype.exec.hasOwnProperty(\'length\') === true');
 }
 
-__obj = RegExp.prototype.exec.length;
+var __obj = RegExp.prototype.exec.length;
 
-RegExp.prototype.exec.length = function(){return "shifted";};
+verifyNotWritable(RegExp.prototype.exec, "length", null, function(){return "shifted";});
 
 //CHECK#2
 if (RegExp.prototype.exec.length !== __obj) {

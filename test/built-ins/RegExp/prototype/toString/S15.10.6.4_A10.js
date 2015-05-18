@@ -7,8 +7,7 @@ es5id: 15.10.6.4_A10
 description: >
     Checking if varying the RegExp.prototype.toString.length property
     fails
-flags: [noStrict]
-includes: [$FAIL.js]
+includes: [$FAIL.js, propertyHelper.js]
 ---*/
 
 //CHECK#1
@@ -16,9 +15,9 @@ if (RegExp.prototype.toString.hasOwnProperty('length') !== true) {
 	$FAIL('#1: RegExp.prototype.toString.hasOwnProperty(\'length\') === true');
 }
 
-__obj = RegExp.prototype.toString.length;
+var __obj = RegExp.prototype.toString.length;
 
-RegExp.prototype.toString.length = function(){return "shifted";};
+verifyNotWritable(RegExp.prototype.toString, "length", null, function(){return "shifted";});
 
 //CHECK#2
 if (RegExp.prototype.toString.length !== __obj) {

@@ -5,12 +5,12 @@
 info: The length property of decodeURIComponent has the attribute ReadOnly
 es5id: 15.1.3.2_A5.3
 description: Checking if varying the length property fails
-flags: [noStrict]
+includes: [propertyHelper.js]
 ---*/
 
 //CHECK#1
-x = decodeURIComponent.length;
-decodeURIComponent.length = Infinity;
+var x = decodeURIComponent.length;
+verifyNotWritable(decodeURIComponent, "length", null, Infinity);
 if (decodeURIComponent.length !== x) {
   $ERROR('#1: x = decodeURIComponent.length; decodeURIComponent.length = Infinity; decodeURIComponent.length === x. Actual: ' + (decodeURIComponent.length));
 }

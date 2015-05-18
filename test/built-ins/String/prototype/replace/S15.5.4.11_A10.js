@@ -7,8 +7,7 @@ es5id: 15.5.4.11_A10
 description: >
     Checking if varying the String.prototype.replace.length property
     fails
-flags: [noStrict]
-includes: [$FAIL.js]
+includes: [$FAIL.js, propertyHelper.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
@@ -21,7 +20,7 @@ if (!(String.prototype.replace.hasOwnProperty('length'))) {
 
 var __obj = String.prototype.replace.length;
 
-String.prototype.replace.length = function(){return "shifted";};
+verifyNotWritable(String.prototype.replace, "length", null, function(){return "shifted";});
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2

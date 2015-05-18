@@ -7,11 +7,11 @@ info: >
     DontEnum } attributes
 es5id: 15.9.5.38_A3_T1
 description: Checking ReadOnly attribute
-flags: [noStrict]
+includes: [propertyHelper.js]
 ---*/
 
-x = Date.prototype.setMonth.length;
-Date.prototype.setMonth.length = 1;
+var x = Date.prototype.setMonth.length;
+verifyNotWritable(Date.prototype.setMonth, "length", null, 1);
 if (Date.prototype.setMonth.length !== x) {
   $ERROR('#1: The Date.prototype.setMonth.length has the attribute ReadOnly');
 }

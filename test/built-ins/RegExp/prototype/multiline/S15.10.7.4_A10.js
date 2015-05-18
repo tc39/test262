@@ -5,21 +5,20 @@
 info: The RegExp.prototype multiline property does not have a set accessor
 es5id: 15.10.7.4_A10
 description: Checking if varying the multiline property fails
-flags: [noStrict]
-includes: [$FAIL.js]
+includes: [$FAIL.js, propertyHelper.js]
 ---*/
 
-__re = RegExp.prototype;
+var __re = RegExp.prototype;
 
 //CHECK#1
 if (__re.hasOwnProperty('multiline') !== true) {
   $FAIL('#1: __re = RegExp.prototype; __re.hasOwnProperty(\'multiline\') === true');
 }
 
-__sample = /\n/;
-__obj = __sample.multiline;
+var __sample = /\n/;
+var __obj = __sample.multiline;
 
-__sample.multiline = "shifted";
+verifyNotWritable(__sample, "multiline", "multiline", "shifted");
 
 //CHECK#2
 if (__sample.multiline !== __obj) {

@@ -7,13 +7,19 @@ info: >
     attributes
 es5id: 15.7.3.1_A1_T2
 description: Checking if deleting the Number.prototype property fails
-flags: [noStrict]
-includes: [$FAIL.js]
+includes: [$FAIL.js, propertyHelper.js]
 ---*/
 
+verifyNotConfigurable(Number, "prototype");
+
 // CHECK#1
-if (delete Number.prototype !== false) {
-  $ERROR('#1: The Number.prototype property has the attributes DontDelete');
+try {
+  if (delete Number.prototype !== false) {
+    $ERROR('#1: The Number.prototype property has the attributes DontDelete');
+  }
+} catch (e) {
+  if (e instanceof Test262Error) throw e;
+  assert(e instanceof TypeError);
 }
 
 if (!Number.hasOwnProperty('prototype')) {

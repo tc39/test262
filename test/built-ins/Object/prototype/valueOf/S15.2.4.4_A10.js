@@ -7,8 +7,7 @@ es5id: 15.2.4.4_A10
 description: >
     Checking if varying the Object.prototype.valueOf.length property
     fails
-flags: [noStrict]
-includes: [$FAIL.js]
+includes: [$FAIL.js, propertyHelper.js]
 ---*/
 
 //CHECK#1
@@ -18,7 +17,7 @@ if (!(Object.prototype.valueOf.hasOwnProperty('length'))) {
 
 var obj = Object.prototype.valueOf.length;
 
-Object.prototype.valueOf.length = function(){return "shifted";};
+verifyNotWritable(Object.prototype.valueOf, "length", null, function(){return "shifted";});
 
 //CHECK#2
 if (Object.prototype.valueOf.length !== obj) {

@@ -5,12 +5,12 @@
 info: The length property of sort has the attribute ReadOnly
 es5id: 15.4.4.11_A7.3
 description: Checking if varying the length fails
-flags: [noStrict]
+includes: [propertyHelper.js]
 ---*/
 
 //CHECK#1
 var x = Array.prototype.sort.length;
-Array.prototype.sort.length = Infinity;
+verifyNotWritable(Array.prototype.sort, "length", null, Infinity);
 if (Array.prototype.sort.length !== x) {
   $ERROR('#1: x = Array.prototype.sort.length; Array.prototype.sort.length = Infinity; Array.prototype.sort.length === x. Actual: ' + (Array.prototype.sort.length));
 }

@@ -9,19 +9,13 @@ es5id: 15.3.4.5-15-3
 description: >
     Function.prototype.bind - The [[Writable]] attribute of length
     property in F set as false
-flags: [noStrict]
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
+function foo() { }
+var obj = foo.bind({});
+var flength = obj.length;
 
-        var canWritable = false;
-        var hasProperty = false;
-        function foo() { }
-        var obj = foo.bind({});
-        hasProperty = obj.hasOwnProperty("length");
-        obj.length = 100;
-        canWritable = (obj.length === 100);
-        return hasProperty && !canWritable;
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("length"));
+verifyNotWritable(obj, "length", null, 100);
+assert.sameValue(obj.length, flength);

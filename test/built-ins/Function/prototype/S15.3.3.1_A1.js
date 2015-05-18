@@ -5,11 +5,12 @@
 info: The Function.prototype property has the attribute ReadOnly
 es5id: 15.3.3.1_A1
 description: Checking if varying the Function.prototype property fails
-flags: [noStrict]
+includes: [propertyHelper.js]
 ---*/
 
 var obj = Function.prototype;
-Function.prototype = function(){return "shifted";};
+
+verifyNotWritable(Function, "prototype", null, function(){return "shifted";});
 
 //CHECK#1
 if (Function.prototype !== obj) {

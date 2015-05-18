@@ -5,12 +5,12 @@
 info: The length property of isNaN has the attribute ReadOnly
 es5id: 15.1.2.4_A2.3
 description: Checking if varying the length property fails
-flags: [noStrict]
+includes: [propertyHelper.js]
 ---*/
 
 //CHECK#1
-x = isNaN.length;
-isNaN.length = Infinity;
+var x = isNaN.length;
+verifyNotWritable(isNaN, "length", null, Infinity);
 if (isNaN.length !== x) {
   $ERROR('#1: x = isNaN.length; isNaN.length = Infinity; isNaN.length === x. Actual: ' + (isNaN.length));
 }

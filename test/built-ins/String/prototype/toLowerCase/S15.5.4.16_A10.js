@@ -9,8 +9,7 @@ es5id: 15.5.4.16_A10
 description: >
     Checking if varying the String.prototype.toLowerCase.length
     property fails
-flags: [noStrict]
-includes: [$FAIL.js]
+includes: [$FAIL.js, propertyHelper.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
@@ -23,7 +22,7 @@ if (!(String.prototype.toLowerCase.hasOwnProperty('length'))) {
 
 var __obj = String.prototype.toLowerCase.length;
 
-String.prototype.toLowerCase.length = function(){return "shifted";};
+verifyNotWritable(String.prototype.toLowerCase, "length", null, function(){return "shifted";});
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2

@@ -7,8 +7,7 @@ es5id: 15.2.4.2_A10
 description: >
     Checking if varying the Object.prototype.toString.length property
     fails
-flags: [noStrict]
-includes: [$FAIL.js]
+includes: [$FAIL.js, propertyHelper.js]
 ---*/
 
 //CHECK#1
@@ -18,7 +17,7 @@ if (!(Object.prototype.toString.hasOwnProperty('length'))) {
 
 var obj = Object.prototype.toString.length;
 
-Object.prototype.toString.length = function(){return "shifted";};
+verifyNotWritable(Object.prototype.toString, "length", null, function(){return "shifted";});
 
 //CHECK#2
 if (Object.prototype.toString.length !== obj) {

@@ -5,10 +5,17 @@
 info: Number.NEGATIVE_INFINITY is DontDelete
 es5id: 15.7.3.5_A3
 description: Checking if deleting Number.NEGATIVE_INFINITY fails
-flags: [noStrict]
+includes: [propertyHelper.js]
 ---*/
 
+verifyNotConfigurable(Number, "NEGATIVE_INFINITY");
+
 // CHECK#1
-if (delete Number.NEGATIVE_INFINITY !== false) {
-  $ERROR('#1: delete Number.NEGATIVE_INFINITY === false');
+try {
+  if (delete Number.NEGATIVE_INFINITY !== false) {
+    $ERROR('#1: delete Number.NEGATIVE_INFINITY === false');
+  }
+} catch (e) {
+  if (e instanceof Test262Error) throw e;
+  assert(e instanceof TypeError);
 }

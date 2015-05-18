@@ -5,14 +5,20 @@
 info: Error.prototype property has the attributes {DontDelete}
 es5id: 15.11.3.1_A1_T1
 description: Checking if deleting the Error.prototype property fails
-flags: [noStrict]
+includes: [propertyHelper.js]
 ---*/
 
 var proto=Error.prototype;
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if(delete Error.prototype){
-  $ERROR('#1: delete Error.prototype return false');
+verifyNotConfigurable(Error, "prototype");
+try {
+  if ((delete Error.prototype) !== false) {
+    $ERROR('#1: Error.prototype has the attribute DontDelete');
+  }
+} catch (e) {
+  if (e instanceof Test262Error) throw e;
+  assert(e instanceof TypeError);
 }
 //
 //////////////////////////////////////////////////////////////////////////////

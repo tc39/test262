@@ -5,8 +5,7 @@
 info: The String.prototype property has the attribute DontDelete
 es5id: 15.5.3.1_A3
 description: Checking if deleting the String.prototype property fails
-flags: [noStrict]
-includes: [$FAIL.js]
+includes: [$FAIL.js, propertyHelper.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
@@ -17,12 +16,25 @@ if (!(String.hasOwnProperty('prototype'))) {
 //
 //////////////////////////////////////////////////////////////////////////////
 
-delete String.prototype;
+verifyNotConfigurable(String, "prototype");
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
+try {
+  if ((delete String.prototype) !== false) {
+    $ERROR('#2: String.prototype has the attribute DontDelete');
+  }
+} catch (e) {
+  if (e instanceof Test262Error) throw e;
+  assert(e instanceof TypeError);
+}
+//
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+//CHECK#3
 if (!(String.hasOwnProperty('prototype'))) {
-  $ERROR('#2: delete String.prototype; String.hasOwnProperty(\'prototype\') return true. Actual: '+String.hasOwnProperty('prototype'));
+  $ERROR('#3: delete String.prototype; String.hasOwnProperty(\'prototype\') return true. Actual: '+String.hasOwnProperty('prototype'));
 }
 //
 //////////////////////////////////////////////////////////////////////////////

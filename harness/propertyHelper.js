@@ -41,8 +41,7 @@ function isWritable(obj, name, verifyProp, value) {
         }
     }
 
-    writeSucceeded = (verifyProp && isEqualTo(obj, verifyProp, newValue)) ||
-        isEqualTo(obj, name, newValue);
+    writeSucceeded = isEqualTo(obj, verifyProp || name, newValue);
 
     // Revert the change only if it was successful (in other cases, reverting
     // is unnecessary and may trigger exceptions for certain property

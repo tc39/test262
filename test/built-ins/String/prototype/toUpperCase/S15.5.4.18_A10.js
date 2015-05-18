@@ -9,8 +9,7 @@ es5id: 15.5.4.18_A10
 description: >
     Checking if varying the String.prototype.toUpperCase.length
     property fails
-flags: [noStrict]
-includes: [$FAIL.js]
+includes: [$FAIL.js, propertyHelper.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
@@ -23,7 +22,7 @@ if (!(String.prototype.toUpperCase.hasOwnProperty('length'))) {
 
 var __obj = String.prototype.toUpperCase.length;
 
-String.prototype.toUpperCase.length = function(){return "shifted";};
+verifyNotWritable(String.prototype.toUpperCase, "length", null, function(){return "shifted";});
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2

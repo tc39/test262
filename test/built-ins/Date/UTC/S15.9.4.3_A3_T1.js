@@ -7,11 +7,11 @@ info: >
     attributes
 es5id: 15.9.4.3_A3_T1
 description: Checking ReadOnly attribute
-flags: [noStrict]
+includes: [propertyHelper.js]
 ---*/
 
-x = Date.UTC.length;
-Date.UTC.length = 1;
+var x = Date.UTC.length;
+verifyNotWritable(Date.UTC, "length", null, 1);
 if (Date.UTC.length !== x) {
   $ERROR('#1: The Date.UTC.length has the attribute ReadOnly');
 }

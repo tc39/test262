@@ -9,7 +9,7 @@ es5id: 15.5.4.9_A10
 description: >
     Checking if varying the String.prototype.localeCompare.length
     property fails
-flags: [noStrict]
+includes: [propertyHelper.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
@@ -22,7 +22,7 @@ if (!(String.prototype.localeCompare.hasOwnProperty('length'))) {
 
 var __obj = String.prototype.localeCompare.length;
 
-String.prototype.localeCompare.length = function(){return "shifted";};
+verifyNotWritable(String.prototype.localeCompare, "length", null, function(){return "shifted";});
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2

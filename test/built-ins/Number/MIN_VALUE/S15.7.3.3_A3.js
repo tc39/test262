@@ -5,10 +5,17 @@
 info: Number.MIN_VALUE is DontDelete
 es5id: 15.7.3.3_A3
 description: Checking if deleting Number.MIN_VALUE fails
-flags: [noStrict]
+includes: [propertyHelper.js]
 ---*/
 
+verifyNotConfigurable(Number, "MIN_VALUE");
+
 //CHECK#1
-if (delete Number.MIN_VALUE !== false) {
-  $ERROR('#1: delete Number.MIN_VALUE === false');
+try {
+  if (delete Number.MIN_VALUE !== false) {
+    $ERROR('#1: delete Number.MIN_VALUE === false');
+  }
+} catch (e) {
+  if (e instanceof Test262Error) throw e;
+  assert(e instanceof TypeError);
 }
