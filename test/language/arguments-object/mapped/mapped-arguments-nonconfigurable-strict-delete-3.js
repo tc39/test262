@@ -8,7 +8,6 @@ description: >
     was not deleted. [[Delete]] operations throws TypeError if called
     from strict-mode code. Arguments property is changed with
     [[DefineOwnProperty]].
-includes: [assert.js]
 flags: [noStrict]
 ---*/
 

@@ -8,7 +8,7 @@ description: >
     non-writable. Perform property attribute changes with two
     [[DefineOwnProperty]] calls. Add intervening call to
     SetMutableBinding.
-includes: [assert.js]
+    Specification bug: https://bugs.ecmascript.org/show_bug.cgi?id=4371
 flags: [noStrict]
 ---*/
 

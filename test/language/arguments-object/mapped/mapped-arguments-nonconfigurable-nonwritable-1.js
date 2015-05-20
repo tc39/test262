@@ -8,7 +8,6 @@ description: >
     non-writable. Perform property attribute changes with a single
     [[DefineOwnProperty]] call. Mapped values are unchanged, mapping
     itself is removed.
-includes: [assert.js]
 flags: [noStrict]
 ---*/
 

@@ -8,7 +8,6 @@ description: >
     non-configurable. Perform property attribute changes with two
     consecutive [[DefineOwnProperty]] calls. Mapped values are
     unchanged, mapping itself is removed.
-includes: [assert.js]
 flags: [noStrict]
 ---*/
 

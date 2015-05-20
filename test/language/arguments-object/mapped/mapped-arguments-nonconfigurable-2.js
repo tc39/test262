@@ -6,7 +6,6 @@ info: Mapped arguments object with non-configurable property
 description: >
     Mapping works when property is non-configurable, variable is
     changed with SetMutableBinding.
-includes: [assert.js]
 flags: [noStrict]
 ---*/
 

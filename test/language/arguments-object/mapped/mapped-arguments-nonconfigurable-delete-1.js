@@ -6,7 +6,6 @@ info: Mapped arguments object with non-configurable property
 description: >
     Mapping works when property is non-configurable, arguments property
     was not deleted. [[Delete]] operation returns false.
-includes: [assert.js]
 flags: [noStrict]
 ---*/
 

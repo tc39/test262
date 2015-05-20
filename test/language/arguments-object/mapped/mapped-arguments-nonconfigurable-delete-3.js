@@ -7,7 +7,6 @@ description: >
     Mapping works when property is non-configurable, arguments property
     was not deleted. Arguments property is changed with
     [[DefineOwnProperty]].
-includes: [assert.js]
 flags: [noStrict]
 ---*/
 

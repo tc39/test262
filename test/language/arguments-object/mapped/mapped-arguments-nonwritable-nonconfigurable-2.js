@@ -8,7 +8,6 @@ description: >
     non-configurable. Perform property attribute changes with two
     [[DefineOwnProperty]] calls. Add intervening call to
     SetMutableBinding.
-includes: [assert.js]
 flags: [noStrict]
 ---*/
 

@@ -5,7 +5,6 @@
 info: Mapped arguments object with non-configurable property
 description: >
     Mapped value is not changed when property was made non-configurable.
-includes: [assert.js]
 flags: [noStrict]
 ---*/
 

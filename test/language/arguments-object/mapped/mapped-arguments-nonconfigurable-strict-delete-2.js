@@ -7,7 +7,6 @@ description: >
     Mapping works when property is non-configurable, arguments property
     was not deleted. [[Delete]] operations throws TypeError if called
     from strict-mode code. Variable is changed with SetMutableBinding.
-includes: [assert.js]
 flags: [noStrict]
 ---*/
 
