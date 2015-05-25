@@ -19,9 +19,8 @@ function* g() {
   }
   yield 3;
 }
-var iter, result, exception;
+var iter, result;
 
-exception = new Test262Error();
 iter = g();
 result = iter.next();
 assert.sameValue(result.value, 1, 'First result `value`');
