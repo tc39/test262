@@ -2,9 +2,7 @@
 
 ## Test Case Names
 
-There is a substantial amount of variation in existing test names and that's ok.
-
-Test cases should be created in files that are named to identify a feature, API (or aspect of either), that's being tested. Previously, there was a naming system based on the specification section and algorithm step that was the focus of the test. This protocol doesn't work if the section or algorithm step changes. 
+Test cases should be created in files that are named to identify the feature or API that's being tested.
 
 Take a look at these examples:
 
@@ -12,7 +10,7 @@ Take a look at these examples:
 - `Array.prototype.find` use with `Proxy`: `test/Array/prototype/find/Array.prototype.find_callable-Proxy-1.js`
 - `arguments` implements an `iterator` interface: `test/language/arguments-object/iterator-interface.js`
 
-
+**Note** The project is currently transitioning from a naming system based on specification section numbers. There remains a substantial number of tests that conform to this outdated convention; contributors should ignore that approach when introducing new tests and instead encode this information using the [es5id](#es5id) or [es6id](#es6id) frontmatter tags.
 
 ## Test Case Style
 
@@ -22,13 +20,13 @@ A test file has three sections: Copyright, Frontmatter, and Body.  A test looks 
 // Copyright (C) 2015 [Contributor Name]. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-/*--- 
+/*---
  description: brief description
  info: >
    verbose test description, multiple lines OK.
    (this is rarely necessary, usually description is enough)
 ---*/
- 
+
 [Test Code]
 ```
 
@@ -38,24 +36,27 @@ The copyright block must be the first section of the test.  The copyright block 
 
 ### Frontmatter
 
-The Test262 frontmatter is a string of YAML enclosed by the comment start tag `/*---` and end tag `---*/`.  There must be exactly one Frontmatter per test.
+The Test262 frontmatter is a string of [YAML](https://en.wikipedia.org/wiki/YAML) enclosed by the comment start tag `/*---` and end tag `---*/`.  There must be exactly one Frontmatter per test.
 
-Test262 supports the following tags: 
+Test262 supports the following tags:
 
- - [**description**](#description)
+ - [**description**](#description) (required)
  - [**info**](#info)
  - [**negative**](#negative)
  - [**es5id**](#es5id)
+ - [**es6id**](#es6id)
  - [**includes**](#includes)
  - [**timeout**](#timeout)
  - [**author**](#author)
  - [**flags**](#flags)
+ - [**features**](#features)
 
 #### description
 **description**: [string]
 
-This should be a short, one-line description of the purpose of this
-testcase.  This is the string displayed by the browser runnner.
+This is the only required frontmatter tag. It should be a short, one-line
+description of the purpose of this testcase.  This is the string displayed by
+the browser runnner.
 
 Eg: Insert &lt;LS&gt; between chunks of one string
 
@@ -81,60 +82,44 @@ For best practices on how to use the negative tag please see Handling Errors and
 
 This tag identifies the portion of the ECMAScript 5.1 standard that is tested by this test.  It was automatically generated for tests that were originally written for the ES5 version of the test suite and are now part of the ES6 version.
 
-When writing a new test for ES6, it is only necessary to include this tag when the test covers a part of the ES5 spec that is incorporated into ES6.
+When writing a new test for ES6, it is only necessary to include this tag when the test covers a part of the ES5 spec that is incorporated into ES6. All other tests should specify the `es6id` (see below) instead.
+
+#### es6id
+**es6id**: [es6-test-id]
+
+This tag identifies the portion of the ECMAScript 6 standard that is tested by this test.
 
 #### includes
 **includes**: [file-list]
 
 This tag names a list of helper files that will be included in the test environment prior to running the test.  Filenames **must** include the `.js` extension.
 
-The helper files are found in `test/harness/`.  The packaging script will ensure that files from `test/harness` will be copied to `website/harness` when it prepares the `website/` directory for publishing.
-
-You can compactly include one or more like this: `includes: [helperFile.js]` ; `includes: [helper1.js, helper2.js]`, or use the full YAML list syntax
-
-```
-includes:
- - helperOne.js
- - helperTwo.js
-```
+The helper files are found in the `test/harness/` directory. When some code is used repeatedly across a group of tests, a new helper function (or group of helpers) can be defined. Helpers increase test complexity, so they should be created and used sparingly.
 
 #### timeout
 **timeout**: [integer]
 
 This tag specifies the number of milliseconds to wait before the test runner declares an [asynchronous test](#writing-asynchronous-tests) to have timed out.  It has no effect on synchronous tests.
 
-Test authors **should not** use this tag except as a last resort.  Each runner is allowed to provide its own default timeout, and the user may be permitted to override this in order to account for unusually fast or slow hardware, network delays, etc. 
+Test authors **should not** use this tag except as a last resort.  Each runner is allowed to provide its own default timeout, and the user may be permitted to override this in order to account for unusually fast or slow hardware, network delays, etc.
 
 #### author
 **author**: [string]
 
-This tag is used to identify the author of a test case. It's optional.
+This tag is used to identify the author of a test case.
 
 #### flags
 **flags**: [list]
 
 This tag is for boolean properties associated with the test.
 
-Flags are not honored in all runners.  For example, the browser runner does 
-not supply a `strict` context to tests marked **onlyStrict**.
+- **`onlyStrict`** - only run the test in strict mode (*not supported by the browser runner*)
+- **`noStrict`** - only run the test in "sloppy" mode
 
-The included python console runner honors both **onlyStrict**, and **noStrict**.
+#### features
+**features**: [list]
 
-The experimental [node console runner](https://github.com/bterlson/test262-harness) also honors both flags.
-
-- **`onlyStrict`**
-Will only run the test in strict mode
-
-- **`noStrict`**
-Will only run the test in "sloppy" mode
-
-### Obsolete Tags
-
-#### path
-This tag is obsolete. Do not manually enter this tag.  
-
-#### flags: [negative]
-This is an old-style way of documenting a negative test.  New tests should use the **negative: [errortype]** style documented above.
+Some tests require the use of language features that are not directly described by the test file's location in the directory structure. These features should be formally listed here.
 
 ## Test Environment
 
@@ -143,8 +128,17 @@ Each test case is run in a fresh JavaScript environment; in a browser, this will
 Function | Purpose
 ---------|--------
 Test262Error(message) | constructor for an error object that indicates a test failure
-$ERROR(message) | helper function: construct a Test262Error object and throw it
-$DONE(arg) | helper function for asynchronous tests; see Writing Asynchronous Tests, below
+$ERROR(message) | construct a Test262Error object and throw it
+$DONE(arg) | see Writing Asynchronous Tests, below
+assert(value, message) | throw a new Test262Error instance if the specified value is not strictly equal to the JavaScript `true` value; accepts an optional string message for use in creating the error
+assert.sameValue(actual, expected, message) | throw a new Test262Error instance if the first two arguments are not [the same value](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-samevalue); accepts an optional string message for use in creating the error
+assert.notSameValue(actual, unexpected, message) | throw a new Test262Error instance if the first two arguments are [the same value](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-samevalue); accepts an optional string message for use in creating the error
+assert.throws(expectedErrorConstructor, fn) | throw a new Test262Error instance if the provided function does not throw an error, or if the constructor of the value thrown does not match the provided constructor
+
+The test harness also defines the following objects:
+
+Identifier | Purpose
+-----------|--------
 NotEarlyError | preconstructed error object used for testing syntax and other early errors; see Syntax Error & Early Error, below
 
 ```
@@ -166,54 +160,28 @@ function $DONE(arg) {
 var NotEarlyError = new Error(...);
 ```
 
-## Custom Helpers
-
-When some code is used repeatedly across a group of tests, a new helper function (or group of helpers) can be defined.  To define new helpers, create a file in `test/harness/` with extension `.js`.
-
-To use a custom helper file, name it in the `includes` directive of the Frontmatter, e.g., 
-
-```
-/*---
-  includes: [helper.js]
----*/
-```
-
-**Style Note:** Avoid the use of helpers, if possible.
-
 ## Handling Errors and Negative Test Cases
 
-The following patterns are considered the best practice:
+Expectations for **parsing errors** should be declared using [the `negative` frontmatter flag](#negative):
 
-### Runtime Error:
 ```javascript
 /*---
- negative: ReferenceError
+negative: SyntaxError
 ---*/
 
-1 += 1; // expect this to throw ReferenceError
-```
-The example uses ReferenceError however it's also possible to use any of the following errors:
-
-- EvalError
-- RangeError
-- ReferenceError
-- TypeError
-- URIError
-
-### Syntax Error & Early Error:
-
-To assert that an error is thrown during lexing or parsing, before any lines of JavaScript are executed, use the following pattern:
-
-```javascript
-/*
- * @negative ^((?!NotEarlyError).)*$
- */
- 
-throw NotEarlyError; 
+// This `throw` statement guarantees that no code is executed in order to
+// trigger the SyntaxError.
+throw NotEarlyError;
 var var = var;
 ```
 
-There are *very* few cases where a syntax error is **not** an early error. In those cases use the Runtime Error pattern but wrap the test code in an eval statement. Be careful, eval code is not global code!
+Expectations for **runtime errors** should be defined using the `assert.throws` method and the appropriate JavaScript Error constructor function:
+
+```javascript
+assert.throws(ReferenceError, function() {
+  1 += 1; // expect this to throw ReferenceError
+});
+```
 
 ## Writing Asynchronous Tests
 
@@ -238,7 +206,7 @@ p.then(function checkAssertions(arg) {
 
 Function `checkAssertions` implicitly returns `undefined` if the expected condition is observed.  The return value of function `checkAssertions` is then used to asynchronously invoke the first function of the final `then` call, resulting in a call to `$DONE(undefined)`, which signals a passing test.
 
-If the expected condition is not observed, function `checkAssertions` throws a `Test262Error` via function $ERROR.  This is caught by the Promise and then used to asynchronously invoke the second function in the call -- which is also `$DONE` -- resulting in a call to `$DONE(error_object)`, which signals a failing test. 
+If the expected condition is not observed, function `checkAssertions` throws a `Test262Error` via function $ERROR.  This is caught by the Promise and then used to asynchronously invoke the second function in the call -- which is also `$DONE` -- resulting in a call to `$DONE(error_object)`, which signals a failing test.
 
 ### Checking Exception Type and Message in Asynchronous Tests
 
@@ -262,5 +230,4 @@ p.then(function () {
 
 ```
 
-As above, exceptions that are thrown from a `then` clause are passed to a later `$DONE` function and reported asynchronously.  
-
+As above, exceptions that are thrown from a `then` clause are passed to a later `$DONE` function and reported asynchronously.
