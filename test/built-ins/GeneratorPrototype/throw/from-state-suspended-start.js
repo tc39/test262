@@ -3,7 +3,7 @@
 /*---
 es6id: 25.3.1.4
 description: >
-    Resuming abuptly from a generator in the 'suspendedStart' state should
+    Resuming abruptly from a generator in the 'suspendedStart' state should
     honor the abrupt completion and trigger a transition into the 'completed'
     state.
 ---*/

@@ -3,7 +3,7 @@
 /*---
 es6id: 25.3.1.4
 description: >
-    When a generator is puased after a `try..catch` statement, `throw` should
+    When a generator is paused after a `try..catch` statement, `throw` should
     interrupt control flow as if a `throw` statement had appeared at that
     location in the function body.
 ---*/
