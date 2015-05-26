@@ -3,26 +3,16 @@
 
 /*---
 description: >
-    When the `yield` keyword occurs within the Initializer of a
-    SingleNameBinding witihn the FormalParameters of a GeneratorMethod, it
-    behaves as a YieldExpression.
+    The Initializer of a SingleNameBinding witihn the FormalParameters of a
+    GeneratorMethod may not contain the `yield` keyword.
 es6id: 14.4
 features: [generators]
 flags: [noStrict]
+negative: SyntaxError
 ---*/
 
-var yield = 'defaultViaIdentifier';
-var obj;
-var iter = (function*() {
-  obj = {
-    *method(x = yield) {
-      return x;
-    }
-  };
-}());
-
-iter.next();
-
-iter.next('defaultViaExpression');
-
-assert.sameValue(obj.method().next(), 'defaultViaExpression');
+(function*() {
+  ({
+    *method(x = yield) {}
+  });
+});
