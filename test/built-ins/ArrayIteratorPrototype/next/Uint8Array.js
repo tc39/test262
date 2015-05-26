@@ -5,8 +5,9 @@ es6id: 22.1.5.2.1
 description: >
     Visits each element of the array in order and ceases iteration once all
     values have been visited.
+features: [TypedArray]
 ---*/
-var array = new Float32Array([3, 1, 2]);
+var array = new Uint8Array([3, 1, 2]);
 var iterator = array[Symbol.iterator]();
 var result;
 
@@ -19,8 +20,8 @@ assert.sameValue(result.value, 1, 'second result `value`');
 assert.sameValue(result.done, false, 'second result `done` flag');
 
 result = iterator.next();
-assert.sameValue(result.value, 2, 'second result `value`');
-assert.sameValue(result.done, false, 'second result `done` flag');
+assert.sameValue(result.value, 2, 'third result `value`');
+assert.sameValue(result.done, false, 'third result `done` flag');
 
 result = iterator.next();
 assert.sameValue(result.value, undefined, 'exhausted result `value`');

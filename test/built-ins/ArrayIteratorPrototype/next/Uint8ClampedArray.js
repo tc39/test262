@@ -5,6 +5,7 @@ es6id: 22.1.5.2.1
 description: >
     Visits each element of the array in order and ceases iteration once all
     values have been visited.
+features: [TypedArray]
 ---*/
 var array = new Uint8ClampedArray([3, 1, 2]);
 var iterator = array[Symbol.iterator]();
