@@ -1,10 +1,10 @@
 // Copyright (C) 2013 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-es6id: 13.6.4.13 S5.c
+es6id: 13.6.4.13 S5.f
 description: >
-    The `done` value of iteration result objects should be interpreted as
-    incomplete as per `ToBoolean` (7.1.2).
+    The `value` of iteration result objects should be retrieved using the Get
+    abstract operation.
 ---*/
 
 var iterable = {};
