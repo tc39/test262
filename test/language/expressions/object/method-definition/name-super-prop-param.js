@@ -8,19 +8,12 @@ es6id: 14.3.8
 features: [super]
 ---*/
 
-var value = {};
-var obj;
+var obj = {
+  method(x = super.toString) {
+    return x;
+  }
+};
 
-try {
-  Object.prototype.Test262Attr = value;
-  obj = {
-    Test262Attr: null,
-    method(x = super.Test262Attr) {
-      return x;
-    }
-  };
+obj.toString = null;
 
-  assert.sameValue(obj.method(), value);
-} finally {
-  delete Object.prototype.Test262Attr;
-}
+assert.sameValue(obj.method(), Object.prototype.toString);

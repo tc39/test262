@@ -11,18 +11,12 @@ description: GeneratorMethod uses SuperProperty (allowed)
 features: [ default-arg, generator, super ]
 ---*/
 
-var value = {};
-var obj;
+var obj = {
+  *foo(a = super.toString) {
+    return a;
+  }
+};
 
-try {
-  Object.prototype.Test262Attr = value;
-  obj = {
-    *foo(a = super.Test262Attr) {
-      return a;
-    }
-  };
+obj.toString = null;
 
-  assert.sameValue(obj.foo().next().value, value);
-} finally {
-  delete Object.prototype.Test262Attr;
-}
+assert.sameValue(obj.foo().next().value, Object.prototype.toString);
