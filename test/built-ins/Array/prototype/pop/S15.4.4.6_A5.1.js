@@ -14,12 +14,12 @@ if (Array.prototype.pop.propertyIsEnumerable('length') !== false) {
 
 //CHECK#2
 var result = true;
-for (var p in Array.pop){
+for (var p in Array.prototype.pop){
   if (p === "length") {
     result = false;
   }  
 }
 
 if (result !== true) {
-  $ERROR('#2: result = true; for (p in Array.pop) { if (p === "length") result = false; }  result === true;');
+  $ERROR('#2: result = true; for (p in Array.prototype.pop) { if (p === "length") result = false; }  result === true;');
 }

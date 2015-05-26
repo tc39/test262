@@ -14,12 +14,12 @@ if (Array.prototype.unshift.propertyIsEnumerable('length') !== false) {
 
 //CHECK#2
 var result = true;
-for (var p in Array.unshift){
+for (var p in Array.prototype.unshift){
   if (p === "length") {
     result = false;
   }  
 }
 
 if (result !== true) {
-  $ERROR('#2: result = true; for (p in Array.unshift) { if (p === "length") result = false; }  result === true;');
+  $ERROR('#2: result = true; for (p in Array.prototype.unshift) { if (p === "length") result = false; }  result === true;');
 }

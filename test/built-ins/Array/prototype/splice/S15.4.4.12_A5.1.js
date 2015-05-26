@@ -14,12 +14,12 @@ if (Array.prototype.splice.propertyIsEnumerable('length') !== false) {
 
 //CHECK#2
 var result = true;
-for (var p in Array.splice){
+for (var p in Array.prototype.splice){
   if (p === "length") {
     result = false;
   }  
 }
 
 if (result !== true) {
-  $ERROR('#2: result = true; for (p in Array.splice) { if (p === "length") result = false; }  result === true;');
+  $ERROR('#2: result = true; for (p in Array.prototype.splice) { if (p === "length") result = false; }  result === true;');
 }

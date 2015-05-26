@@ -14,12 +14,12 @@ if (Array.prototype.reverse.propertyIsEnumerable('length') !== false) {
 
 //CHECK#2
 var result = true;
-for (p in Array.reverse){
+for (p in Array.prototype.reverse){
   if (p === "length") {
     var result = false;
   }  
 }
 
 if (result !== true) {
-  $ERROR('#2: result = true; for (p in Array.reverse) { if (p === "length") result = false; }  result === true;');
+  $ERROR('#2: result = true; for (p in Array.prototype.reverse) { if (p === "length") result = false; }  result === true;');
 }
