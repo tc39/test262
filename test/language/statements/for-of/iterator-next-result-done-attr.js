@@ -5,6 +5,7 @@ es6id: 7.4.3
 description: >
     The `done` value of iteration result objects should be interpreted as
     incomplete as per `ToBoolean` (7.1.2).
+features: [Symbol.iterator]
 ---*/
 
 var iterable = {};

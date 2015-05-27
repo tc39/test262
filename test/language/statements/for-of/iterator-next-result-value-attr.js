@@ -5,6 +5,7 @@ es6id: 13.6.4.13 S5.f
 description: >
     The `value` of iteration result objects should be retrieved using the Get
     abstract operation.
+features: [Symbol.iterator]
 ---*/
 
 var iterable = {};
