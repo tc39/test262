@@ -115,6 +115,8 @@ This tag is for boolean properties associated with the test.
 
 - **`onlyStrict`** - only run the test in strict mode (*not supported by the browser runner*)
 - **`noStrict`** - only run the test in "sloppy" mode
+- **`module`** - interpret the source text as [module
+  code](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-modules)
 
 #### features
 **features**: [list]
