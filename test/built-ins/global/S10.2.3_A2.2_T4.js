@@ -5,6 +5,7 @@
 info: Global object properties have attributes { DontEnum }
 es5id: 10.2.3_A2.2_T4
 description: Function execution context - Other Properties
+flags: [noStrict]
 ---*/
 
 function test() {

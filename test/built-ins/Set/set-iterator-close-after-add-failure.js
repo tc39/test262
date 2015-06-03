@@ -33,7 +33,9 @@ iterable[Symbol.iterator] = function() {
 };
 Set.prototype.add = function() { throw new Error(); }
 
-new Set(iterable);
+assert.throws(Error, function() {
+  new Set(iterable);
+});
 
 assert.sameValue(
   count, 1, "The iterator is closed when `Set.prototype.add` throws an error."

@@ -21,5 +21,5 @@ for (var p in Array.prototype.concat){
 }
 
 if (result !== true) {
-  $ERROR('#2: result = true; for (p in Array.concat) { if (p === "length") result = false; }  result === true;');
+  $ERROR('#2: result = true; for (p in Array.prototype.concat) { if (p === "length") result = false; }  result === true;');
 }

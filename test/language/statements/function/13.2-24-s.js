@@ -23,6 +23,6 @@ function testcase() {
                 } 
                 return true;
             }
-            return foo();
+            return foo.call(foo);
 }
 runTestCase(testcase);

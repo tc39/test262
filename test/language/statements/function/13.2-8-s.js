@@ -15,6 +15,6 @@ includes: [runTestCase.js]
 
 function testcase() {
             var foo = new Function("'use strict'; for (var tempIndex in this) {if (tempIndex===\"caller\") {return false;}}; return true;");
-            return foo();
+            return foo.call(foo);
     }
 runTestCase(testcase);

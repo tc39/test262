@@ -14,12 +14,12 @@ if (Array.prototype.toLocaleString.propertyIsEnumerable('length') !== false) {
 
 //CHECK#2
 var result = true;
-for (var p in Array.toLocaleString){
+for (var p in Array.prototype.toLocaleString){
   if (p === "length") {
     result = false;
   }  
 }
 
 if (result !== true) {
-  $ERROR('#2: result = true; for (p in Array.toLocaleString) { if (p === "length") result = false; }  result === true;');
+  $ERROR('#2: result = true; for (p in Array.prototype.toLocaleString) { if (p === "length") result = false; }  result === true;');
 }
