@@ -1,22 +1,21 @@
 // Copyright (C) 2014 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-es6id: 25.3.1.4
+es6id: 25.3.1.3
 description: >
-    Resuming abruptly from a generator in the 'completed' state should honor
-    the abrupt completion and remain in the 'completed' state.
+    Resuming abruptly from a generator in the 'completed' state should honor the
+    abrupt completion and remain in the 'completed' state.
 ---*/
 
-function E() {}
 function* G() {}
-var iter;
+var iter, result;
 
 iter = G();
 iter.next();
 
-assert.throws(E, function() { iter.throw(new E()); });
+iter.return(33);
 
-var result = iter.next();
+result = iter.next();
 
 assert.sameValue(result.value, undefined, 'Result `value`');
 assert.sameValue(result.done, true, 'Result `done` flag');

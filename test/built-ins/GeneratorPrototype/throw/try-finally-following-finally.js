@@ -16,6 +16,7 @@ function* g() {
     yield 3;
   }
   yield 4;
+  $ERROR('This code is unreachable');
 }
 var iter = g();
 var result;
@@ -28,8 +29,12 @@ result = iter.next();
 assert.sameValue(result.value, 2, 'Second result `value`');
 assert.sameValue(result.done, false, 'Second result `done` flag');
 
-result = iter.throw(new Error());
+result = iter.next();
 assert.sameValue(result.value, 3, 'Third result `value`');
+assert.sameValue(result.done, false, 'Third result `done` flag');
+
+result = iter.next();
+assert.sameValue(result.value, 4, 'Third result `value`');
 assert.sameValue(result.done, false, 'Third result `done` flag');
 
 assert.throws(Test262Error, function() { iter.throw(new Test262Error()); });

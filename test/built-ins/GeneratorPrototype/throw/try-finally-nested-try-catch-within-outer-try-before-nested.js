@@ -26,8 +26,6 @@ function* g() {
 var iter = g();
 var result;
 
-iter = g();
-
 result = iter.next();
 assert.sameValue(result.value, 1, 'First result `value`');
 assert.sameValue(result.done, false, 'First result `done` flag');

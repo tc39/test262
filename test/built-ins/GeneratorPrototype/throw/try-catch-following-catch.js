@@ -3,23 +3,24 @@
 /*---
 es6id: 25.3.1.4
 description: >
-    When a generator is puased after a `try..catch` statement, `throw` should
+    When a generator is paused after a `try..catch` statement, `throw` should
     interrupt control flow as if a `throw` statement had appeared at that
     location in the function body.
 ---*/
 
+var obj = {};
 function* g() {
   yield 1;
   try {
     yield 2;
+    throw obj;
   } catch (e) {
     yield e;
   }
   yield 3;
 }
-var iter, result, exception;
+var iter, result;
 
-exception = new Test262Error();
 iter = g();
 result = iter.next();
 assert.sameValue(result.value, 1, 'First result `value`');
@@ -29,9 +30,14 @@ result = iter.next();
 assert.sameValue(result.value, 2, 'Second result `value`');
 assert.sameValue(result.done, false, 'Second result `done` flag');
 
-result = iter.throw(exception);
-assert.sameValue(result.value, exception, 'Third result `value`');
+result = iter.next();
+assert.sameValue(result.value, obj, 'Third result `value`');
 assert.sameValue(result.done, false, 'Third result `done` flag');
+
+result = iter.next();
+assert.sameValue(result.value, 3, 'Fourth result `value`');
+assert.sameValue(result.done, false, 'Fourth result `done` flag');
+
 assert.throws(Test262Error, function() { iter.throw(new Test262Error()); });
 
 result = iter.next();
