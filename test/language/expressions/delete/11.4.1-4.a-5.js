@@ -17,7 +17,7 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  var o = new Object();
+  o = new Object();
   o.x = 1;
   var d;
   with(o)
