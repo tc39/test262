@@ -6,6 +6,7 @@ description: >
     Functions created using GeneratorFunction syntactic form do not
     have own properties "caller" or "arguments", but inherit them from
     %FunctionPrototype%.
+features: [generators]
 ---*/
 
 function* generator() {}
