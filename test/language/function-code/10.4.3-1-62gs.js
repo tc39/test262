@@ -7,9 +7,8 @@
 /*---
 es5id: 10.4.3-1-62gs
 description: >
-    Strict - checking 'this' from a global scope (strict function
-    declaration called by non-strict function declaration)
-flags: [onlyStrict]
+    checking 'this' from a global scope (strict function declaration called by
+    non-strict function declaration)
 ---*/
 
 function f() { "use strict"; return this;};

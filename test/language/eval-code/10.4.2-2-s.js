@@ -14,7 +14,6 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
         eval("function fun(x){ return x }");
         return typeof (fun) === "undefined";
     }

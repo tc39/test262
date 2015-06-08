@@ -9,7 +9,7 @@ es5id: 10.4.3-1-80-s
 description: >
     Strict Mode - checking 'this' (strict function declaration called
     by Function.prototype.bind(globalObject)())
-flags: [onlyStrict]
+flags: [noStrict]
 includes:
     - runTestCase.js
     - fnGlobalObject.js

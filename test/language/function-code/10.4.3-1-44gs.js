@@ -10,7 +10,7 @@ description: >
     Strict - checking 'this' from a global scope (Anonymous
     FunctionExpression defined within an Anonymous FunctionExpression
     with a strict directive prologue)
-flags: [onlyStrict]
+flags: [noStrict]
 ---*/
 
 if (! ((function () {

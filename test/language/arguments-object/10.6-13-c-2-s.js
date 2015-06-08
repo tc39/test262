@@ -6,14 +6,11 @@
 
 /*---
 es5id: 10.6-13-c-2-s
-description: arguments.callee is exists in strict mode
-flags: [onlyStrict]
+description: arguments.callee is exists
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  
-  'use strict';    
   var desc = Object.getOwnPropertyDescriptor(arguments,"callee");
   return desc !== undefined;
  }

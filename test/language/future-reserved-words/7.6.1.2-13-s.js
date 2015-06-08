@@ -7,14 +7,11 @@
 /*---
 es5id: 7.6.1.2-13-s
 description: >
-    Strict Mode - SyntaxError isn't thrown when 'implementss' occurs
-    in strict mode code
-flags: [onlyStrict]
+    SyntaxError isn't thrown when 'implementss' occurs
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
         var implementss = 1;
         return implementss === 1;
     }

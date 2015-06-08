@@ -14,7 +14,6 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
        try {
             eval("var argObj = (function (a, b) { delete arguments; }(1, 2));");
 

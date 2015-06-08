@@ -7,14 +7,12 @@
 /*---
 es5id: 11.3.2-2-3-s
 description: >
-    Strict Mode - SyntaxError is not thrown if the identifier
-    'arguments[...]' appears as a PostfixExpression(arguments--)
-flags: [onlyStrict]
+    SyntaxError is not thrown if the identifier 'arguments[...]' appears as a
+    PostfixExpression(arguments--)
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
         arguments[1] = 7;
         arguments[1]--;
         return arguments[1]===6;

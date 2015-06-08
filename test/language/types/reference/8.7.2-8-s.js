@@ -7,14 +7,12 @@
 /*---
 es5id: 8.7.2-8-s
 description: >
-    Strict Mode - TypeError isn't thrown if LeftHandSide is a
-    reference to a property of an extensible object
-flags: [onlyStrict]
+    TypeError isn't thrown if LeftHandSide is a reference to a property of an
+    extensible object
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
         var _8_7_2_8 = {};
 
         _8_7_2_8.b = 11;

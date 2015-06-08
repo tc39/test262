@@ -6,8 +6,7 @@
 
 /*---
 es5id: 10.4.3-1-5-s
-description: this is not coerced to an object in strict mode (function)
-flags: [onlyStrict]
+description: this is not coerced to an object (function)
 includes: [runTestCase.js]
 ---*/
 

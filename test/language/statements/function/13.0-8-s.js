@@ -13,7 +13,7 @@ description: >
     Strict Mode - SourceElements is evaluated as strict mode code when
     the code of this FunctionExpression is contained in non-strict
     mode but the call to eval is a direct call in strict mode code
-flags: [onlyStrict]
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

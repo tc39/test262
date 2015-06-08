@@ -6,7 +6,6 @@ description: >
     Objects whose specified property is not writable satisfy the assertion in
     strict mode.
 includes: [propertyHelper.js]
-flags: [onlyStrict]
 ---*/
 
 var obj = {};

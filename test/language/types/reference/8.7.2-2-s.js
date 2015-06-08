@@ -7,14 +7,12 @@
 /*---
 es5id: 8.7.2-2-s
 description: >
-    Strict Mode - ReferenceError isn't thrown if LeftHandSide
-    evaluates to a resolvable Reference
-flags: [onlyStrict]
+    ReferenceError isn't thrown if LeftHandSide evaluates to a resolvable
+    Reference
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
         var b = 11;
         return b === 11;
     }

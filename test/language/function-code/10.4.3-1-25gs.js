@@ -13,7 +13,6 @@ flags: [onlyStrict]
 includes: [fnGlobalObject.js]
 ---*/
 
-"use strict";
 var obj = new (function () {
     return this;
 });

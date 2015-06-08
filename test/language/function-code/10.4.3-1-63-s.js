@@ -7,9 +7,7 @@
 /*---
 es5id: 10.4.3-1-63-s
 description: >
-    Strict Mode - checking 'this' (strict function declaration called
-    by non-strict eval)
-flags: [onlyStrict]
+    checking 'this' (strict function declaration called by non-strict eval)
 includes: [runTestCase.js]
 ---*/
 

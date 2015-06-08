@@ -15,7 +15,6 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
         var blah = eval;
         try {
             eval("var eval = 20;");

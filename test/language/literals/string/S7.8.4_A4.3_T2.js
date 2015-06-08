@@ -9,7 +9,4 @@ negative: SyntaxError
 flags: [onlyStrict]
 ---*/
 
-"use strict";
-
-//CHECK#1
 "\7"

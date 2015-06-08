@@ -9,13 +9,10 @@ es5id: 13.2-3-s
 description: >
     StrictMode - Writing or reading from a property named 'arguments'
     of function objects is allowed under both strict and normal modes.
-flags: [onlyStrict]
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
-
         var foo = function () {
             this.arguments = 12;
         } 

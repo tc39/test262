@@ -14,7 +14,7 @@ description: >
     Strict Mode - SyntaxError is thrown if a function is created using
     a FunctionExpression that is contained in eval strict code and the
     function has two identical parameters
-flags: [onlyStrict]
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

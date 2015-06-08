@@ -7,14 +7,11 @@
 /*---
 es5id: 10.4.3-1-56-s
 description: >
-    Strict Mode - checking 'this' (Literal setter defined within
-    strict mode)
-flags: [onlyStrict]
+    checking 'this' (Literal setter)
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-"use strict";
 var x = 2;
 var o = { set foo(stuff) { x=this; } }
 o.foo = 3;

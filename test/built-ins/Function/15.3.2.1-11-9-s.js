@@ -11,13 +11,10 @@ description: >
     the Function constructor that has three identical parameters and
     there is no explicit 'use strict' in the function constructor's
     body
-flags: [onlyStrict]
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
-
         var foo = new Function("baz", "baz", "baz", "return 0;");
         return true;
     }

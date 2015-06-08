@@ -14,7 +14,6 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
         var errorBackup = Error;
         try {
             eval("delete Error;");

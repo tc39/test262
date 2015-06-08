@@ -9,7 +9,7 @@ es5id: 10.4.3-1-89-s
 description: >
     Strict Mode - checking 'this' (non-strict function declaration
     called by strict Function.prototype.apply(globalObject))
-flags: [onlyStrict]
+flags: [noStrict]
 includes:
     - runTestCase.js
     - fnGlobalObject.js

@@ -14,7 +14,7 @@ description: >
     StrictMode - SyntaxError is thrown if the identifier 'eval'
     appears within a FormalParameterList of a strict mode
     FunctionExpression in strict eval code
-flags: [onlyStrict]
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

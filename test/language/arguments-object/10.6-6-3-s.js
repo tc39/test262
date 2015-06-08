@@ -9,12 +9,10 @@ es5id: 10.6-6-3
 description: >
     'length' property of arguments object for 0 argument function
     exists
-flags: [onlyStrict]
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  'use strict';
 	return (function () {return arguments.length !== undefined})();
  }
 runTestCase(testcase);

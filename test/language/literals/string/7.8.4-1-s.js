@@ -9,7 +9,6 @@ es5id: 7.8.4-1-s
 description: >
     A directive preceeding an 'use strict' directive may not contain
     an OctalEscapeSequence
-flags: [onlyStrict]
 includes: [runTestCase.js]
 ---*/
 

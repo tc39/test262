@@ -15,8 +15,6 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
-
         function fun() {
             return (this instanceof Boolean);
         }

@@ -9,12 +9,10 @@ es5id: 10.6-6-4
 description: >
     'length' property of arguments object for 0 argument function call
     is 0 even with formal parameters
-flags: [onlyStrict]
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  'use strict';
 	return (function (a,b,c) {return arguments.length === 0})();
  }
 runTestCase(testcase);

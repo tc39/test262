@@ -9,7 +9,7 @@ es5id: 10.4.3-1-20gs
 description: >
     Strict - checking 'this' from a global scope (indirect eval
     includes strict directive prologue)
-flags: [onlyStrict]
+flags: [noStrict]
 includes: [fnGlobalObject.js]
 ---*/
 

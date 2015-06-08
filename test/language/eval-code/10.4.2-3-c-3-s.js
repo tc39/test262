@@ -16,7 +16,6 @@ includes: [runTestCase.js]
 var _10_4_2_3_c_3_s = 0;
 function testcase() {
   function _10_4_2_3_c_3_sFunc() {
-     'use strict';
      eval("var _10_4_2_3_c_3_s = 1");
      return _10_4_2_3_c_3_s===0;
   }

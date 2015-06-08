@@ -17,8 +17,6 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  'use strict';
-
   var o = {};
   var desc = { value : 1 }; // all other attributes default to false
   Object.defineProperty(o, "foo", desc);

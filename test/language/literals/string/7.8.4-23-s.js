@@ -15,7 +15,7 @@ function testcase()
 {
   try 
   {
-    eval('"use strict"; var x = "\\000";');
+    eval('var x = "\\000";');
     return false;
   }
   catch (e) {

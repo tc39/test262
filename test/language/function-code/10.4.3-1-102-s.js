@@ -8,8 +8,7 @@
 es5id: 10.4.3-1-102-s
 description: >
     Strict Mode - checking 'this' (strict anonymous function passed as
-    arg to String.prototype.replace from non-strict context)
-flags: [onlyStrict]
+    arg to String.prototype.replace)
 includes: [runTestCase.js]
 ---*/
 

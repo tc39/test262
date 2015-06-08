@@ -10,7 +10,7 @@ description: >
     Strict Mode - checking 'this' (Anonymous FunctionExpression
     defined within a FunctionExpression with a strict directive
     prologue)
-flags: [onlyStrict]
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

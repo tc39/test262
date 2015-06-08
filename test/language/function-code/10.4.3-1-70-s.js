@@ -7,9 +7,8 @@
 /*---
 es5id: 10.4.3-1-70-s
 description: >
-    Strict Mode - checking 'this' (strict function declaration called
-    by Function.prototype.apply(globalObject))
-flags: [onlyStrict]
+    checking 'this' (strict function declaration called by
+    Function.prototype.apply(globalObject))
 includes:
     - runTestCase.js
     - fnGlobalObject.js

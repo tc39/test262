@@ -9,7 +9,7 @@ es5id: 13.2-26-s
 description: >
     StrictMode - writing a property named 'arguments' of function
     objects is not allowed outside the function
-flags: [onlyStrict]
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

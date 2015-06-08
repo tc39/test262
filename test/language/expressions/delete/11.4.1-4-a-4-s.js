@@ -7,14 +7,11 @@
 /*---
 es5id: 11.4.1-4-a-4-s
 description: >
-    Strict Mode - TypeError isn't thrown when deleting configurable
-    accessor property
-flags: [onlyStrict]
+    TypeError isn't thrown when deleting configurable accessor property
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
         var obj = {};
         Object.defineProperty(obj, "prop", {
             get: function () {

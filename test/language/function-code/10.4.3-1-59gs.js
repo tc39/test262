@@ -7,9 +7,8 @@
 /*---
 es5id: 10.4.3-1-59gs
 description: >
-    Strict - checking 'this' from a global scope (Injected getter
-    includes strict directive prologue)
-flags: [onlyStrict]
+    checking 'this' from a global scope (Injected getter includes strict
+    directive prologue)
 ---*/
 
 var o = {};

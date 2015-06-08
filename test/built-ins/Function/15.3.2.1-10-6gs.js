@@ -10,7 +10,7 @@ description: >
     Strict Mode - SyntaxError is thrown if a function using the
     Function constructor has two identical parameters in (local)
     strict mode
-flags: [onlyStrict]
+flags: [noStrict]
 ---*/
 
 assert.throws(SyntaxError, function() {

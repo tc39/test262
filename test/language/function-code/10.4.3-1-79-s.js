@@ -7,9 +7,8 @@
 /*---
 es5id: 10.4.3-1-79-s
 description: >
-    Strict Mode - checking 'this' (strict function declaration called
-    by Function.prototype.bind(someObject)())
-flags: [onlyStrict]
+    checking 'this' (strict function declaration called by
+    Function.prototype.bind(someObject)())
 includes: [runTestCase.js]
 ---*/
 

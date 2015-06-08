@@ -7,12 +7,9 @@
 /*---
 es5id: 10.4.3-1-58gs
 description: >
-    Strict - checking 'this' from a global scope (Injected getter
-    defined within strict mode)
-flags: [onlyStrict]
+    checking 'this' from a global scope (Injected getter defined)
 ---*/
 
-"use strict";
 var o = {};
 Object.defineProperty(o, "foo",  { get : function() { return this; } });
 if (o.foo!==o) {

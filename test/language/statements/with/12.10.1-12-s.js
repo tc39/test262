@@ -7,7 +7,7 @@
 /*---
 es5id: 12.10.1-12-s
 description: with statement in strict mode throws SyntaxError (strict eval)
-flags: [onlyStrict]
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 
