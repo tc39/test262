@@ -235,11 +235,7 @@ function BrowserRunner() {
 
         //Run the code
         idoc.writeln("<script type='text/javascript'>");
-        if (! instance.supportsWindowOnerror) {
-            idoc.writeln("try {eval(\"" + this.convertForEval(code) + "\");} catch(e) {window.onerror(e.toString(), null, null);}");
-        } else {
-            idoc.writeln(code);
-        }
+        idoc.writeln(this.compileSource(test, code));
         idoc.writeln("</script>");
 		
         idoc.writeln("<script type='text/javascript'>");
@@ -268,6 +264,30 @@ function BrowserRunner() {
         return txt;
     };
 }
+
+/**
+ * Transform the test source code according to the test metadata and the
+ * capabilities of the current environment.
+ *
+ * @param {object} test - a test object as retrieved by TestLoader
+ * @param {string} code - unmodified test source code
+ *
+ * @returns {string} the transformed source code
+ */
+BrowserRunner.prototype.compileSource = function(test, code) {
+    var flags = test.flags;
+
+    if (flags && flags.indexOf("onlyStrict") > -1) {
+        code = "'use strict';\n" + code;
+    }
+
+    if (!this.supportsWindowOnerror) {
+        code = "try {eval(\"" + this.convertForEval(code) +
+            "\");} catch(e) {window.onerror(e.toString(), null, null);}";
+    }
+
+    return code;
+};
 
 /* Loads tests from the sections specified in testcases.json.
  * Public Methods:
