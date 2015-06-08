@@ -5,6 +5,7 @@ es6id: 13.6.4.13
 description: >
     Iterators that are implemented as proxies should behave identically to
     non-proxy versions.
+features: [Proxy, Symbol.iterator]
 ---*/
 
 var iterable = {};

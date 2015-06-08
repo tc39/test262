@@ -5,6 +5,7 @@ es6id: 13.6.4.13 S5.c
 description: >
     If Type(result) is not Object, throw a TypeError exception as per
     `IteratorNext` (7.4.2 S4)
+features: [Symbol.iterator]
 ---*/
 
 var iterable = {};

@@ -4,6 +4,7 @@
 es6id: 13.6.4.13
 description: >
     Generator function should return valid iterable objects.
+features: [generators]
 ---*/
 
 function* values() {
