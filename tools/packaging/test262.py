@@ -243,6 +243,8 @@ class TestCase(object):
     testRecord.pop("commentary", None)    # do not throw if missing
     self.testRecord = testRecord;
 
+    self.validate()
+
   def NegativeMatch(self, stderr):
     neg = re.compile(self.GetNegative())
     return re.search(neg, stderr)
@@ -269,7 +271,10 @@ class TestCase(object):
     return 'onlyStrict' in self.testRecord
 
   def IsNoStrict(self):
-    return 'noStrict' in self.testRecord
+    return 'noStrict' in self.testRecord or self.IsRaw()
+
+  def IsRaw(self):
+    return 'raw' in self.testRecord
 
   def IsAsyncTest(self):
     return '$DONE' in self.test
@@ -282,20 +287,10 @@ class TestCase(object):
   def GetAdditionalIncludes(self):
     return '\n'.join([self.suite.GetInclude(include) for include in self.GetIncludeList()])
 
-  def WrapTest(self, command):
-    if "cscript" not in command:
-      return self.test
+  def GetSource(self):
+    if self.IsRaw():
+        return self.test
 
-    return """
-try {
-""" + self.test + """
-} catch(e) {
-    $ERROR(e.message);
-}
-"""
-
-  def GetSource(self, command_template):
-    # "var testDescrip = " + str(self.testRecord) + ';\n\n' + \
     source = self.suite.GetInclude("sta.js") + \
         self.suite.GetInclude("cth.js") + \
         self.suite.GetInclude("assert.js")
@@ -307,7 +302,7 @@ try {
 
     source = source + \
         self.GetAdditionalIncludes() + \
-        self.WrapTest(command_template) + '\n'
+        self.test + '\n'
 
     if self.strict_mode:
       source = '"use strict";\nvar strict_mode = true;\n' + source
@@ -347,7 +342,7 @@ try {
     return (code, out, err)
 
   def RunTestIn(self, command_template, tmp):
-    tmp.Write(self.GetSource(command_template))
+    tmp.Write(self.GetSource())
     tmp.Close()
     command = self.InstantiateTemplate(command_template, {
       'path': tmp.name
@@ -364,8 +359,23 @@ try {
     return result
 
   def Print(self):
-    print self.GetSource("")
+    print self.GetSource()
 
+  def validate(self):
+    flags = self.testRecord.get("flags")
+
+    if not flags:
+        return
+
+    if 'raw' in flags:
+        if 'noStrict' in flags:
+            raise TypeError("The `raw` flag implies the `noStrict` flag")
+        elif 'onlyStrict' in flags:
+            raise TypeError(
+                "The `raw` flag is incompatible with the `onlyStrict` flag")
+        elif len(self.GetIncludeList()) > 0:
+            raise TypeError(
+                "The `raw` flag is incompatible with the `includes` tag")
 
 class ProgressIndicator(object):
 

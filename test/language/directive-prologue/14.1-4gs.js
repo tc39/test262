@@ -10,9 +10,9 @@ description: >
     StrictMode - a Use Strict Directive followed by a strict mode
     violation
 negative: SyntaxError
-flags: [onlyStrict]
+flags: [raw]
 ---*/
 
 "use strict";
-throw NotEarlyError;
+throw new Error("This code should not execute");
 eval = 42;

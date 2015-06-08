@@ -117,6 +117,9 @@ This tag is for boolean properties associated with the test.
 - **`noStrict`** - only run the test in "sloppy" mode
 - **`module`** - interpret the source text as [module
   code](http://www.ecma-international.org/ecma-262/6.0/#sec-modules)
+- **`raw`** - execute the test without any modification (no helpers will be
+  available); necessary to test the behavior of directive prologue; implies
+  `noStrict`
 
 #### features
 **features**: [list]
