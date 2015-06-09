@@ -8,13 +8,12 @@ info: >
     the resulting string value is returned
 es5id: 15.7.4.2_A1_T01
 description: undefined radix
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 try {
   Number.prototype.toString();
-  $FAIL('#1: "Number.prototype.toString();" lead to throwing exception. Actual: '+Number.prototype.toString());
+  $ERROR('#1: "Number.prototype.toString();" lead to throwing exception. Actual: '+Number.prototype.toString());
 } catch (e) {
   if (!(e instanceof TypeError)) {
     $ERROR('#1.1: "Number.prototype.toString()" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);

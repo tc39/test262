@@ -6,7 +6,6 @@ info: String.prototype.match can't be used as constructor
 es5id: 15.5.4.10_A7
 description: Checking if creating "String.prototype.match object" fails
 includes:
-    - $FAIL.js
     - Test262Error.js
 ---*/
 
@@ -14,7 +13,7 @@ var __FACTORY = String.prototype.match;
 
 try {
   var __instance = new __FACTORY;
-  $FAIL('#1: __FACTORY = String.prototype.match; __FACTORY = String.prototype.match; __instance = new __FACTORY lead to throwing exception');
+  $ERROR('#1: __FACTORY = String.prototype.match; __FACTORY = String.prototype.match; __instance = new __FACTORY lead to throwing exception');
 } catch (e) {
     if (e instanceof Test262Error) throw e;
 }

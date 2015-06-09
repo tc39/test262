@@ -7,12 +7,12 @@ es5id: 15.3.4.2_A10
 description: >
     Checking if varying the Function.prototype.toString.length
     property fails
-includes: [$FAIL.js, propertyHelper.js]
+includes: [propertyHelper.js]
 ---*/
 
 //CHECK#1
 if (!(Function.prototype.toString.hasOwnProperty('length'))) {
-  $FAIL('#1: the Function.prototype.toString has length property.');
+  $ERROR('#1: the Function.prototype.toString has length property.');
 }
 
 var obj = Function.prototype.toString.length;

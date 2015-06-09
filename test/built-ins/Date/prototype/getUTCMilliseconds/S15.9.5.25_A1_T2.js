@@ -7,7 +7,6 @@ info: >
     attributes
 es5id: 15.9.5.25_A1_T2
 description: Checking absence of DontDelete attribute
-includes: [$FAIL.js]
 ---*/
 
 if (delete Date.prototype.getUTCMilliseconds  === false) {
@@ -15,5 +14,5 @@ if (delete Date.prototype.getUTCMilliseconds  === false) {
 }
 
 if (Date.prototype.hasOwnProperty('getUTCMilliseconds')) {
-  $FAIL('#2: The Date.prototype.getUTCMilliseconds property has not the attributes DontDelete');
+  $ERROR('#2: The Date.prototype.getUTCMilliseconds property has not the attributes DontDelete');
 }

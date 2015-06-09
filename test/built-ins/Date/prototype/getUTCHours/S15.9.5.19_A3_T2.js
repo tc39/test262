@@ -7,7 +7,6 @@ info: >
     DontDelete, DontEnum } attributes
 es5id: 15.9.5.19_A3_T2
 description: Checking DontDelete attribute
-includes: [$FAIL.js]
 ---*/
 
 if (delete Date.prototype.getUTCHours.length  !== true) {
@@ -15,5 +14,5 @@ if (delete Date.prototype.getUTCHours.length  !== true) {
 }
 
 if (Date.prototype.getUTCHours.hasOwnProperty('length')) {
-  $FAIL('#2: The Date.prototype.getUTCHours.length property does not have the attributes DontDelete');
+  $ERROR('#2: The Date.prototype.getUTCHours.length property does not have the attributes DontDelete');
 }

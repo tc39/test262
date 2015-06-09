@@ -5,12 +5,11 @@
 info: The length property of eval does not have the attribute DontDelete
 es5id: 15.1.2.1_A4.2
 description: Checking use hasOwnProperty, delete
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 if (eval.hasOwnProperty('length') !== true) {
-  $FAIL('#1: eval.hasOwnProperty(\'length\') === true. Actual: ' + (eval.hasOwnProperty('length')));
+  $ERROR('#1: eval.hasOwnProperty(\'length\') === true. Actual: ' + (eval.hasOwnProperty('length')));
 }
 
 delete eval.length;

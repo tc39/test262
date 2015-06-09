@@ -7,12 +7,11 @@ es5id: 15.3.4.4_A11
 description: >
     Checking if enumerating the Function.prototype.call.length
     property fails
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#0
 if (!(Function.prototype.call.hasOwnProperty('length'))) {
-  $FAIL('#0: the Function.prototype.call has length property.');
+  $ERROR('#0: the Function.prototype.call has length property.');
 }
 
 

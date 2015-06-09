@@ -7,14 +7,13 @@ info: >
     and the value neither is null nor undefined, and is supplied, return ToObject(value)
 es5id: 15.2.1.1_A2_T4
 description: Calling Object function with object argument value
-includes: [$FAIL.js]
 ---*/
 
 var obj = {flag:true};
 
 //CHECK#1
 if (typeof(obj) !== 'object') {
-  $FAIL('#1: obj = {flag:true} should be an Object');
+  $ERROR('#1: obj = {flag:true} should be an Object');
 }
 
 var n_obj = Object(obj);

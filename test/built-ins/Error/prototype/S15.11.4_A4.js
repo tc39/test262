@@ -6,7 +6,6 @@ info: Since Error prototype object is not function it has no [[Construct]] metho
 es5id: 15.11.4_A4
 description: Checking if creating "new Error.prototype" fails
 includes:
-    - $FAIL.js
     - Test262Error.js
 ---*/
 
@@ -14,7 +13,7 @@ includes:
 //CHECK#1
 try {
 	var __instance = new Error.prototype;
-	$FAIL('#1: "var __instance = new Error.prototype" lead to throwing exception');
+	$ERROR('#1: "var __instance = new Error.prototype" lead to throwing exception');
 } catch (e) {
     if (e instanceof Test262Error) throw e;
 }

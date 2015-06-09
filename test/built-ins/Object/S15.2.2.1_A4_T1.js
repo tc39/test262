@@ -7,14 +7,13 @@ info: >
     the type of value is Boolean, return ToObject(boolean)
 es5id: 15.2.2.1_A4_T1
 description: Argument value is "true"
-includes: [$FAIL.js]
 ---*/
 
 var bool = true;
 
 //CHECK#1
 if (typeof bool  !== 'boolean') {
-  $FAIL('#1: true is NOT a boolean');
+  $ERROR('#1: true is NOT a boolean');
 }
 
 var n_obj = new Object(bool);

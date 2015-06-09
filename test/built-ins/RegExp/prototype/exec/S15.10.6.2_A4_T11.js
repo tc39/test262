@@ -9,7 +9,6 @@ es5id: 15.10.6.2_A4_T11
 description: >
     Call first exec, then set re.lastIndex = {valueOf:function(){throw
     "intoint";}} and again call exec
-includes: [$FAIL.js]
 ---*/
 
 var __re = /(?:ab|cd)\d?/g;
@@ -48,7 +47,7 @@ __re.lastIndex = __obj;
 
 //CHECK#5
 try {
-  $FAIL('#5.1: __obj = {valueOf:function(){throw "intoint";}}; __re.lastIndex = __obj; __executed = __re.exec("aacd2233ab12nm444ab42") throw "intoint". Actual: ' + (__re.exec("aacd2233ab12nm444ab42")));
+  $ERROR('#5.1: __obj = {valueOf:function(){throw "intoint";}}; __re.lastIndex = __obj; __executed = __re.exec("aacd2233ab12nm444ab42") throw "intoint". Actual: ' + (__re.exec("aacd2233ab12nm444ab42")));
 } catch (e) {
 	if (e !== "intoint") {
 		$ERROR('#5.2: __obj = {valueOf:function(){throw "intoint";}}; __re.lastIndex = __obj; __executed = __re.exec("aacd2233ab12nm444ab42")  throw "intoint". Actual: ' + (e));

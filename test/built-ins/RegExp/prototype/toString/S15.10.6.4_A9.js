@@ -9,12 +9,11 @@ es5id: 15.10.6.4_A9
 description: >
     Checking if deleting the RegExp.prototype.toString.length property
     fails
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#0
 if ((RegExp.prototype.toString.hasOwnProperty('length') !== true)) {
-	$FAIL('#0: RegExp.prototype.toString.hasOwnProperty(\'length\') === true');
+	$ERROR('#0: RegExp.prototype.toString.hasOwnProperty(\'length\') === true');
 }
 
 //CHECK#1

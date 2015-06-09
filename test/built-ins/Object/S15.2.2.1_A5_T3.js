@@ -7,14 +7,13 @@ info: >
     the type of value is Number, return ToObject(number)
 es5id: 15.2.2.1_A5_T3
 description: Argument value is Infinity
-includes: [$FAIL.js]
 ---*/
 
 var num = Infinity;
 
 //CHECK#1
 if (typeof num  !== 'number') {
-  $FAIL('#1: Infinity is NOT a number');
+  $ERROR('#1: Infinity is NOT a number');
 }
 
 var n_obj = new Object(num);

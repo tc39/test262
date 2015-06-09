@@ -9,12 +9,11 @@ es5id: 15.2.4.5_A9
 description: >
     Checking if deleting the Object.prototype.hasOwnProperty.length
     property fails
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#0
 if (!(Object.prototype.hasOwnProperty.hasOwnProperty('length'))) {
-  $FAIL('#0: the Object.prototype.hasOwnProperty has length property');
+  $ERROR('#0: the Object.prototype.hasOwnProperty has length property');
 }
 
 //CHECK#1
@@ -24,5 +23,5 @@ if (!delete Object.prototype.hasOwnProperty.length) {
 
 //CHECK#2
 if (Object.prototype.hasOwnProperty.hasOwnProperty('length')) {
-  $FAIL('#2: The Object.prototype.hasOwnProperty.length property does not have the attributes DontDelete');
+  $ERROR('#2: The Object.prototype.hasOwnProperty.length property does not have the attributes DontDelete');
 }

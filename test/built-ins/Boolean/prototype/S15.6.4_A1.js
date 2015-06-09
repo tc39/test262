@@ -7,7 +7,6 @@ info: >
     (its [[Class]] is "Object")
 es5id: 15.6.4_A1
 description: Checking type and value of Boolean.prototype
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
@@ -18,7 +17,7 @@ if (typeof Boolean.prototype !== "object") {
 //CHECK#2
 try {
   (Boolean.prototype != false);
-  $FAIL('#2: "(Boolean.prototype != false);" lead to throwing exception. Actual: '+(Boolean.prototype != false));
+  $ERROR('#2: "(Boolean.prototype != false);" lead to throwing exception. Actual: '+(Boolean.prototype != false));
 } catch (e) {
   if (!(e instanceof TypeError)) {
     $ERROR('#2.1: "(Boolean.prototype != false)" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);

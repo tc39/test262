@@ -14,14 +14,13 @@ es5id: 15.3.2.1_A1_T6
 description: >
     Value of the function constructor argument is the string "return
     true;"
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 try {
   var f = new Function("return true;");
 } catch (e) {
-  $FAIL('#1: test failed with error '+e);
+  $ERROR('#1: test failed with error '+e);
 }
 
 //CHECK#2

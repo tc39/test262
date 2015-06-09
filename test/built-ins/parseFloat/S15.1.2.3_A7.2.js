@@ -5,12 +5,11 @@
 info: The length property of parseFloat does not have the attribute DontDelete
 es5id: 15.1.2.3_A7.2
 description: Checking use hasOwnProperty, delete
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 if (parseFloat.hasOwnProperty('length') !== true) {
-  $FAIL('#1: parseFloat.hasOwnProperty(\'length\') === true. Actual: ' + (parseFloat.hasOwnProperty('length')));
+  $ERROR('#1: parseFloat.hasOwnProperty(\'length\') === true. Actual: ' + (parseFloat.hasOwnProperty('length')));
 }
 
 delete parseFloat.length;

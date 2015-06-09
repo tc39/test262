@@ -7,7 +7,6 @@ es5id: 15.8.2.13_A8
 description: >
     Checking if Math.pow(x,y) is NaN, where abs(x)==1 and y is
     -Infinity
-includes: [$FAIL.js]
 ---*/
 
 // CHECK#1
@@ -22,6 +21,6 @@ for (var i = 0; i < xnum; i++)
 {
 	if (!isNaN(Math.pow(x[i],y)))
 	{
-		$FAIL("#1: isNaN(Math.pow(" + x[i] + ", " + y + ")) === false");
+		$ERROR("#1: isNaN(Math.pow(" + x[i] + ", " + y + ")) === false");
 	}
 }

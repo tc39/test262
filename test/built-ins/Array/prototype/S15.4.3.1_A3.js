@@ -5,12 +5,12 @@
 info: The Array.prototype property has the attribute DontDelete
 es5id: 15.4.3.1_A3
 description: Checking if deleting the Array.prototype property fails
-includes: [$FAIL.js, propertyHelper.js]
+includes: [propertyHelper.js]
 ---*/
 
 //CHECK#1
 if (Array.hasOwnProperty('prototype') !== true) {
-	$FAIL('#1: Array.hasOwnProperty(\'prototype\') === true. Actual: ' + (Array.hasOwnProperty('prototype')));
+	$ERROR('#1: Array.hasOwnProperty(\'prototype\') === true. Actual: ' + (Array.hasOwnProperty('prototype')));
 }
 
 verifyNotConfigurable(Array, "prototype");

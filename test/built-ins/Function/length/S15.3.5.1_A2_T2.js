@@ -7,14 +7,13 @@ es5id: 15.3.5.1_A2_T2
 description: >
     Checking if deleting the length property of
     Function("arg1,arg2,arg3","arg4,arg5", null) succeeds
-includes: [$FAIL.js]
 ---*/
 
 var f =  Function("arg1,arg2,arg3","arg4,arg5", null);
 
 //CHECK#1
 if (!(f.hasOwnProperty('length'))) {
-  $FAIL('#1: the function has length property.');
+  $ERROR('#1: the function has length property.');
 }
 
 delete f.length;

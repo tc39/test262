@@ -5,12 +5,11 @@
 info: The length property of isFinite does not have the attribute DontDelete
 es5id: 15.1.2.5_A2.2
 description: Checking use hasOwnProperty, delete
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 if (isFinite.hasOwnProperty('length') !== true) {
-  $FAIL('#1: isFinite.hasOwnProperty(\'length\') === true. Actual: ' + (isFinite.hasOwnProperty('length')));
+  $ERROR('#1: isFinite.hasOwnProperty(\'length\') === true. Actual: ' + (isFinite.hasOwnProperty('length')));
 }
 
 delete isFinite.length;

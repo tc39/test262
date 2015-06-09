@@ -12,13 +12,12 @@ info: >
     v) Return Result(iv)
 es5id: 15.3.2.1_A1_T13
 description: Value of the function constructor argument is "{}"
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 try {
   var f = new Function({});
-  $FAIL('#1: test failed with error '+e);
+  $ERROR('#1: test failed with error '+e);
 } catch (e) {
   if (!(e instanceof SyntaxError)) {
   	$ERROR('#1.1: If body is not parsable as FunctionBody then throw a SyntaxError exception');

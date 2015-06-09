@@ -5,7 +5,6 @@
 info: The Date.prototype property "constructor" has { DontEnum } attributes
 es5id: 15.9.5.1_A1_T2
 description: Checking absence of DontDelete attribute
-includes: [$FAIL.js]
 ---*/
 
 if (delete Date.prototype.constructor  === false) {
@@ -13,5 +12,5 @@ if (delete Date.prototype.constructor  === false) {
 }
 
 if (Date.prototype.hasOwnProperty('constructor')) {
-  $FAIL('#2: The Date.prototype.constructor property has not the attributes DontDelete');
+  $ERROR('#2: The Date.prototype.constructor property has not the attributes DontDelete');
 }

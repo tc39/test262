@@ -12,7 +12,6 @@ info: >
     v) Return Result(iv)
 es5id: 15.3.2.1_A1_T7
 description: Value of the function constructor argument is "Object(1)"
-includes: [$FAIL.js]
 ---*/
 
 var body = new Object(1);
@@ -21,7 +20,7 @@ var body = new Object(1);
 try {
   var f = new Function(body);
 } catch (e) {
-  $FAIL('#1: test failed with error '+e);
+  $ERROR('#1: test failed with error '+e);
 }
 
 //CHECK#2

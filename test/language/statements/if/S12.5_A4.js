@@ -7,14 +7,13 @@ info: >
     Statement" is evaluated, Statement(s) is(are) evaluated second
 es5id: 12.5_A4
 description: The first statement is "(function(){throw "instatement"})()"
-includes: [$FAIL.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 try {
 	if (true) (function(){throw "instatement"})();
-	$FAIL("#1 failed")
+	$ERROR("#1 failed")
 } catch (e) {
 	if (e !== "instatement") {
 		$ERROR('#1: Exception === "instatement". Actual:  Exception ==='+ e);
@@ -27,7 +26,7 @@ try {
 //CHECK#2
 try {
 	if (false) (function(){throw "truebranch"})(); (function(){throw "missbranch"})();
-	$FAIL("#2 failed")
+	$ERROR("#2 failed")
 } catch (e) {
 	if (e !== "missbranch") {
 		$ERROR('#2: Exception === "missbranch". Actual:  Exception ==='+ e);

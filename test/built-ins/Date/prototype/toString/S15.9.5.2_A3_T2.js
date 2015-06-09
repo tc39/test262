@@ -7,7 +7,6 @@ info: >
     DontDelete, DontEnum } attributes
 es5id: 15.9.5.2_A3_T2
 description: Checking DontDelete attribute
-includes: [$FAIL.js]
 ---*/
 
 if (delete Date.prototype.toString.length  !== true) {
@@ -15,5 +14,5 @@ if (delete Date.prototype.toString.length  !== true) {
 }
 
 if (Date.prototype.toString.hasOwnProperty('length')) {
-  $FAIL('#2: The Date.prototype.toString.length property does not have the attributes DontDelete');
+  $ERROR('#2: The Date.prototype.toString.length property does not have the attributes DontDelete');
 }

@@ -7,14 +7,13 @@ es5id: 15.5.4.12_A7
 description: Checking if creating the String.prototype.search object fails
 includes:
     - $PRINT.js
-    - $FAIL.js
 ---*/
 
 var __FACTORY = String.prototype.search;
 
 try {
   var __instance = new __FACTORY;
-  $FAIL('#1: __FACTORY = String.prototype.search; "__instance = new __FACTORY" lead to throwing exception');
+  $ERROR('#1: __FACTORY = String.prototype.search; "__instance = new __FACTORY" lead to throwing exception');
 } catch (e) {
   if ((e instanceof TypeError) !== true) {
     $ERROR('#1.1: __FACTORY = String.prototype.search; "__instance = new __FACTORY" throw a TypeError. Actual: ' + (e));  

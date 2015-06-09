@@ -22,5 +22,5 @@ try {
 }
 
 if (!Date.hasOwnProperty('prototype')) {
-  $FAIL('#2: The Date.prototype property has the attributes DontDelete');
+  $ERROR('#2: The Date.prototype property has the attributes DontDelete');
 }

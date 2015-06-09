@@ -5,12 +5,11 @@
 info: The length property of the test method is 1
 es5id: 15.10.6.3_A11
 description: Checking RegExp.prototype.test.length
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 if (RegExp.prototype.test.hasOwnProperty("length") !== true) {
-  $FAIL('#1: RegExp.prototype.test.hasOwnProperty(\'length\') === true');
+  $ERROR('#1: RegExp.prototype.test.hasOwnProperty(\'length\') === true');
 }
 
 //CHECK#2

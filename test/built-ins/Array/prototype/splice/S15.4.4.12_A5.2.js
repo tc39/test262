@@ -5,12 +5,11 @@
 info: The length property of splice does not have the attribute DontDelete
 es5id: 15.4.4.12_A5.2
 description: Checking use hasOwnProperty, delete
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 if (Array.prototype.splice.hasOwnProperty('length') !== true) {
-  $FAIL('#1: Array.prototype.splice.hasOwnProperty(\'length\') === true. Actual: ' + (Array.prototype.splice.hasOwnProperty('length')));
+  $ERROR('#1: Array.prototype.splice.hasOwnProperty(\'length\') === true. Actual: ' + (Array.prototype.splice.hasOwnProperty('length')));
 }
 
 delete Array.prototype.splice.length;

@@ -15,7 +15,6 @@ info: >
 es5id: 15.9.3.1_A5_T3
 description: 4 arguments, (year, month, date, hours)
 includes:
-    - $FAIL.js
     - environment.js
     - numeric_conversion.js
     - Date_constants.js
@@ -23,49 +22,49 @@ includes:
 ---*/
 
 if (-2208963600000 !== new Date(1899, 11, 31, 23).valueOf()) {
-  $FAIL("#1: Incorrect value of Date");
+  $ERROR("#1: Incorrect value of Date");
 }
 
 if (-2208960000000 !== new Date(1899, 12, 1, 0).valueOf()) {
-  $FAIL("#2: Incorrect value of Date");
+  $ERROR("#2: Incorrect value of Date");
 }
 
 if (-2208960000000 !== new Date(1900, 0, 1, 0).valueOf()) {
-  $FAIL("#3: Incorrect value of Date");
+  $ERROR("#3: Incorrect value of Date");
 }
 
 if (25200000 !== new Date(1969, 11, 31, 23).valueOf()) {
-  $FAIL("#4: Incorrect value of Date");
+  $ERROR("#4: Incorrect value of Date");
 }
 
 if (28800000 !== new Date(1969, 12, 1, 0).valueOf()) {
-  $FAIL("#5: Incorrect value of Date");
+  $ERROR("#5: Incorrect value of Date");
 }
 
 if (28800000 !== new Date(1970, 0, 1, 0).valueOf()) {
-  $FAIL("#6: Incorrect value of Date");
+  $ERROR("#6: Incorrect value of Date");
 }
 
 if (946710000000 !== new Date(1999, 11, 31, 23).valueOf()) {
-  $FAIL("#7: Incorrect value of Date");
+  $ERROR("#7: Incorrect value of Date");
 }
 
 if (946713600000 !== new Date(1999, 12, 1, 0).valueOf()) {
-  $FAIL("#8: Incorrect value of Date");
+  $ERROR("#8: Incorrect value of Date");
 }
 
 if (946713600000 !== new Date(2000, 0, 1, 0).valueOf()) {
-  $FAIL("#9: Incorrect value of Date");
+  $ERROR("#9: Incorrect value of Date");
 }
 
 if (4102470000000 !== new Date(2099, 11, 31, 23).valueOf()) {
-  $FAIL("#10: Incorrect value of Date");
+  $ERROR("#10: Incorrect value of Date");
 }
 
 if (4102473600000 !== new Date(2099, 12, 1, 0).valueOf()) {
-  $FAIL("#11: Incorrect value of Date");
+  $ERROR("#11: Incorrect value of Date");
 }
 
 if (4102473600000 !== new Date(2100, 0, 1, 0).valueOf()) {
-  $FAIL("#12: Incorrect value of Date");
+  $ERROR("#12: Incorrect value of Date");
 }

@@ -5,12 +5,11 @@
 info: The length property of the toString method is 1
 es5id: 15.10.6.4_A11
 description: Checking RegExp.prototype.toString.length
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 if (RegExp.prototype.toString.hasOwnProperty("length") !== true) {
-	$FAIL('#1: RegExp.prototype.toString.hasOwnProperty(\'length\') === true');
+	$ERROR('#1: RegExp.prototype.toString.hasOwnProperty(\'length\') === true');
 }
 
 //CHECK#2

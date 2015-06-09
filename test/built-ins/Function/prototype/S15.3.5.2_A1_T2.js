@@ -7,14 +7,14 @@ es5id: 15.3.5.2_A1_T2
 description: >
     Checking if deleting the prototype property of Function(void 0,
     "") fails
-includes: [$FAIL.js, propertyHelper.js]
+includes: [propertyHelper.js]
 ---*/
 
 var f = Function(void 0, "");
 
 //CHECK#1
 if (!(f.hasOwnProperty('prototype'))) {
-  $FAIL('#1: the function has length property.');
+  $ERROR('#1: the function has length property.');
 }
 
 var fproto = f.prototype;

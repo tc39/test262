@@ -7,12 +7,11 @@ es5id: 15.2.4.2_A8
 description: >
     Checking if enumerating the Object.prototype.toString.length
     property fails
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#0
 if (!(Object.prototype.toString.hasOwnProperty('length'))) {
-  $FAIL('#0: the Object.prototype.toString has length property.');
+  $ERROR('#0: the Object.prototype.toString has length property.');
 }
 
 

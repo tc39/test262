@@ -9,14 +9,13 @@ es5id: 15.3.2.1_A2_T2
 description: >
     Values of the function constructor arguments are "arg1, arg2",
     "arg3", "return arg1+arg2+arg3;"
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 try {
   var f = Function("arg1, arg2", "arg3", "return arg1+arg2+arg3;");
 } catch (e) {
-  $FAIL('#1: test failed');
+  $ERROR('#1: test failed');
 }
 
 //CHECK#2

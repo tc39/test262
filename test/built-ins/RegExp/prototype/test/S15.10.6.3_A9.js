@@ -7,12 +7,11 @@ info: >
     DontDelete
 es5id: 15.10.6.3_A9
 description: Checking if deleting RegExp.prototype.test.length property fails
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#0
 if ((RegExp.prototype.exec.hasOwnProperty('length') !== true)) {
-  $FAIL('#0: RegExp.prototype.exec.hasOwnProperty(\'length\') === true');
+  $ERROR('#0: RegExp.prototype.exec.hasOwnProperty(\'length\') === true');
 }
 
 //CHECK#1

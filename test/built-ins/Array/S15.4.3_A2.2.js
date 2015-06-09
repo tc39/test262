@@ -5,12 +5,11 @@
 info: The length property of Array does not have the attribute DontDelete
 es5id: 15.4.3_A2.2
 description: Checking use hasOwnProperty, delete
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 if (Array.hasOwnProperty('length') !== true) {
-  $FAIL('#1: Array.hasOwnProperty(\'length\') === true. Actual: ' + (Array.hasOwnProperty('length')));
+  $ERROR('#1: Array.hasOwnProperty(\'length\') === true. Actual: ' + (Array.hasOwnProperty('length')));
 }
 
 delete Array.length;

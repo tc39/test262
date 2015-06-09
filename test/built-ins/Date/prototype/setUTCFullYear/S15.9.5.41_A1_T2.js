@@ -5,7 +5,6 @@
 info: The Date.prototype property "setUTCFullYear" has { DontEnum } attributes
 es5id: 15.9.5.41_A1_T2
 description: Checking absence of DontDelete attribute
-includes: [$FAIL.js]
 ---*/
 
 if (delete Date.prototype.setUTCFullYear  === false) {
@@ -13,5 +12,5 @@ if (delete Date.prototype.setUTCFullYear  === false) {
 }
 
 if (Date.prototype.hasOwnProperty('setUTCFullYear')) {
-  $FAIL('#2: The Date.prototype.setUTCFullYear property has not the attributes DontDelete');
+  $ERROR('#2: The Date.prototype.setUTCFullYear property has not the attributes DontDelete');
 }

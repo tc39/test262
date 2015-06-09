@@ -10,7 +10,6 @@ info: >
     throw a TypeError exception
 es5id: 15.3.5.3_A2_T5
 description: F.prototype is void 0, and V is new F
-includes: [$FAIL.js]
 ---*/
 
 var FACTORY;
@@ -26,7 +25,7 @@ FACTORY.prototype = void 0;
 // CHECK#1
 try {
   instance instanceof FACTORY;
-  $FAIL('#1: O is not an object, throw a TypeError exception');
+  $ERROR('#1: O is not an object, throw a TypeError exception');
 } catch (e) {
   if (!(e instanceof TypeError)) {
     $ERROR('#1.1: O is not an object, throw a TypeError exception');

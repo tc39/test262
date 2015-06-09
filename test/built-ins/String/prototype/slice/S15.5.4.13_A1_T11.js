@@ -7,7 +7,6 @@ es5id: 15.5.4.13_A1_T11
 description: >
     Arguments are objects, and instance is string, objects have
     overrided valueOf function, that return exception
-includes: [$FAIL.js]
 ---*/
 
 var __obj = {valueOf:function(){throw "instart";}};
@@ -18,7 +17,7 @@ var __str = "ABB\u0041BABAB";
 //CHECK#1
         try {
           var x = __str.slice(__obj,__obj2);
-          $FAIL('#1: "var x = __str.slice(__obj,__obj2)" lead to throwing exception');
+          $ERROR('#1: "var x = __str.slice(__obj,__obj2)" lead to throwing exception');
         } catch (e) {
           if (e!=="instart") {
             $ERROR('#1.1: Exception === "instart". Actual: '+e);

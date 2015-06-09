@@ -9,7 +9,6 @@ es5id: 15.3.2.1_A2_T4
 description: >
     Values of the function constructor arguments are "return"-s of
     various results
-includes: [$FAIL.js]
 ---*/
 
 var i=0;
@@ -20,7 +19,7 @@ var p={toString:function(){return "arg"+(++i);}};
 try {
   var f = Function(p, p, p, "return arg1+arg2+arg3;");
 } catch (e) {
-  $FAIL('#1: test failed');
+  $ERROR('#1: test failed');
 }
 
 //CHECK#2

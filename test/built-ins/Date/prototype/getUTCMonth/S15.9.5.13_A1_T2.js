@@ -5,7 +5,6 @@
 info: The Date.prototype property "getUTCMonth" has { DontEnum } attributes
 es5id: 15.9.5.13_A1_T2
 description: Checking absence of DontDelete attribute
-includes: [$FAIL.js]
 ---*/
 
 if (delete Date.prototype.getUTCMonth  === false) {
@@ -13,5 +12,5 @@ if (delete Date.prototype.getUTCMonth  === false) {
 }
 
 if (Date.prototype.hasOwnProperty('getUTCMonth')) {
-  $FAIL('#2: The Date.prototype.getUTCMonth property has not the attributes DontDelete');
+  $ERROR('#2: The Date.prototype.getUTCMonth property has not the attributes DontDelete');
 }

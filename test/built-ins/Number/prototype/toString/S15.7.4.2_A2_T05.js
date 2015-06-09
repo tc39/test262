@@ -7,13 +7,12 @@ info: >
     the result is a string, the choice of which is implementation-dependent
 es5id: 15.7.4.2_A2_T05
 description: radix is 6
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 try {
   Number.prototype.toString(6);
-  $FAIL('#1: "Number.prototype.toString(6);" lead to throwing exception. Actual: '+Number.prototype.toString(6));
+  $ERROR('#1: "Number.prototype.toString(6);" lead to throwing exception. Actual: '+Number.prototype.toString(6));
 } catch (e) {
   if (!(e instanceof TypeError)) {
     $ERROR('#1.1: "Number.prototype.toString(6)" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);

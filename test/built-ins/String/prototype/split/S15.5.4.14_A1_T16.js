@@ -12,7 +12,6 @@ es5id: 15.5.4.14_A1_T16
 description: >
     Argument is object, and instance is Number.  Object have overrided
     toString function, that return regexp
-includes: [$FAIL.js]
 ---*/
 
 var __obj = {toString:function(){return /\u0037\u0037/g;}};
@@ -21,7 +20,7 @@ Number.prototype.split=String.prototype.split;
 
 try {
   var __split = 6776767677.006771122677555.split(__obj);
-  $FAIL('#1: "__split = 6776767677.006771122677555.split(__obj)" lead to throwing exception');
+  $ERROR('#1: "__split = 6776767677.006771122677555.split(__obj)" lead to throwing exception');
 } catch (e) {
   if (!(e instanceof TypeError)) {
     $ERROR('#1.1: Exception is instance of TypeError. Actual: '+e);

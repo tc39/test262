@@ -8,7 +8,6 @@ description: >
     Checking if Math.cos(x) equals to Math.cos(x+n*2*Math.PI) with
     precision 0.000000000003, where n is an integer from 1 to 100 and
     x is one of 10 float point values from -Math.PI to +Math.PI
-includes: [$FAIL.js]
 ---*/
 
 // CHECK#1
@@ -42,7 +41,7 @@ for (i = 0; i < snum; i++)
 		j++;
 		if (Math.abs(Math.cos(curx) - curval) >= prec)
 		{
-			$FAIL("#1: cos is found out to not be periodic:\n Math.abs(Math.cos(" + x[i] + ") - Math.cos(" + x[i] + " + 2*Math.PI*" + j + ")) >= " + prec + "\n Math.cos(" + x[i] + ") === " + curval + "\n Math.cos(" + curx + ") === " + Math.cos(curx));
+			$ERROR("#1: cos is found out to not be periodic:\n Math.abs(Math.cos(" + x[i] + ") - Math.cos(" + x[i] + " + 2*Math.PI*" + j + ")) >= " + prec + "\n Math.cos(" + x[i] + ") === " + curval + "\n Math.cos(" + curx + ") === " + Math.cos(curx));
 		}
 	}
 }

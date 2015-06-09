@@ -7,14 +7,13 @@ info: >
     the type of value is Number, return ToObject(number)
 es5id: 15.2.2.1_A5_T1
 description: Argument value is any number
-includes: [$FAIL.js]
 ---*/
 
 var num = 1.0;
 
 //CHECK#1
 if (typeof num  !== 'number') {
-  $FAIL('#1: 1.0 is NOT a number');
+  $ERROR('#1: 1.0 is NOT a number');
 }
 
 var n_obj = new Object(num);

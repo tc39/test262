@@ -16,7 +16,6 @@ es5id: 15.3.2.1_A3_T4
 description: >
     Values of the function constructor arguments are an undefined
     variable and "return 1.1;"
-includes: [$FAIL.js]
 ---*/
 
 var body = "return 1.1;";
@@ -25,7 +24,7 @@ var body = "return 1.1;";
 try {
   var f = new Function(p,body);
 } catch (e) {
-  $FAIL('#1: test failed with error '+e);
+  $ERROR('#1: test failed with error '+e);
 }
 
 //CHECK#2

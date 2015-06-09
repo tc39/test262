@@ -7,14 +7,13 @@ es5id: 15.3.5.1_A4_T1
 description: >
     Checking if enumerating the length property of
     Function("arg1,arg2,arg3", null) fails
-includes: [$FAIL.js]
 ---*/
 
 var f = new Function("arg1,arg2,arg3", null);
 
 //CHECK#1
 if (!(f.hasOwnProperty('length'))) {
-  $FAIL('#1: the function has length property.');
+  $ERROR('#1: the function has length property.');
 }
 
 for(var key in f)

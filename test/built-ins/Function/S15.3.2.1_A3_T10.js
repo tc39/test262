@@ -16,7 +16,6 @@ es5id: 15.3.2.1_A3_T10
 description: >
     Values of the function constructor arguments are
     "{toString:function(){return "z;x"}}" and "return this;"
-includes: [$FAIL.js]
 ---*/
 
 var body = "return this;";
@@ -25,7 +24,7 @@ var p={toString:function(){return "z;x"}};
 //CHECK#1
 try {
   var f = new Function(p,body);
-  $FAIL('#1: If P is not parsable as a FormalParameterList_opt then throw a SyntaxError exception');
+  $ERROR('#1: If P is not parsable as a FormalParameterList_opt then throw a SyntaxError exception');
 } catch (e) {
   if (!(e instanceof SyntaxError)) {
   	$ERROR('#1.1: If P is not parsable as a FormalParameterList_opt then throw a SyntaxError exception');

@@ -7,14 +7,13 @@ info: >
     appears
 es5id: 13_A17_T1
 description: Trying to call a function before the FunctionExpression appears
-includes: [$FAIL.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 try{
     var __result = __func();
-	$FAIL("#1.1: var __result = __func() lead to throwing exception");
+	$ERROR("#1.1: var __result = __func() lead to throwing exception");
 } catch(e) {
   if ((e instanceof TypeError) !== true) {
     $ERROR('#1.2: func should throw a TypeError  Actual: ' + (e));  

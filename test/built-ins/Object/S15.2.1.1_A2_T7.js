@@ -7,14 +7,13 @@ info: >
     and the value neither is null nor undefined, and is supplied, return ToObject(value)
 es5id: 15.2.1.1_A2_T7
 description: Calling Object function with empty string argument value
-includes: [$FAIL.js]
 ---*/
 
 var str = '';
 
 // CHECK#1
 if (typeof(str) !== 'string') {
-  $FAIL('#1: "" is NOT a String');
+  $ERROR('#1: "" is NOT a String');
 }
 
 var obj = Object(str);

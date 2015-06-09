@@ -5,13 +5,12 @@
 info: JSON.parse must create a property with the given property name
 es5id: 15.12.2_A1
 description: Tests that JSON.parse treats "__proto__" as a regular property name
-includes: [$FAIL.js]
 ---*/
 
 var x = JSON.parse('{"__proto__":[]}');
 if (Object.getPrototypeOf(x) !== Object.prototype) {
-  $FAIL('#1: JSON.parse confused by "__proto__"');
+  $ERROR('#1: JSON.parse confused by "__proto__"');
 }
 if (!Array.isArray(x.__proto__)) {
-  $FAIL('#2: JSON.parse did not set "__proto__" as a regular property');
+  $ERROR('#2: JSON.parse did not set "__proto__" as a regular property');
 }

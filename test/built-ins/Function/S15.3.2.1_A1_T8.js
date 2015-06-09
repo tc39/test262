@@ -12,7 +12,6 @@ info: >
     v) Return Result(iv)
 es5id: 15.3.2.1_A1_T8
 description: Value of the function constructor argument is "var 1=1;"
-includes: [$FAIL.js]
 ---*/
 
 var body = "var 1=1;";
@@ -20,7 +19,7 @@ var body = "var 1=1;";
 //CHECK#1
 try {
   var f = new Function(body);
-  $FAIL('#1: If body is not parsable as FunctionBody then throw a SyntaxError exception');
+  $ERROR('#1: If body is not parsable as FunctionBody then throw a SyntaxError exception');
 } catch (e) {
   if (!(e instanceof SyntaxError)) {
   	$ERROR('#1.1: If body is not parsable as FunctionBody then throw a SyntaxError exception');

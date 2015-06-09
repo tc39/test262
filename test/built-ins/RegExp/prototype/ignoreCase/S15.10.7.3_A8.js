@@ -7,14 +7,13 @@ es5id: 15.10.7.3_A8
 description: >
     Checking if enumerating the ignoreCase property of
     RegExp.prototype fails
-includes: [$FAIL.js]
 ---*/
 
 var __re = RegExp.prototype;
 
 //CHECK#0
 if (__re.hasOwnProperty('ignoreCase') !== true) {
-  $FAIL('#0: __re = RegExp.prototype; __re.hasOwnProperty(\'ignoreCase\') === true');
+  $ERROR('#0: __re = RegExp.prototype; __re.hasOwnProperty(\'ignoreCase\') === true');
 }
 
  //CHECK#1

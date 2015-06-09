@@ -8,7 +8,6 @@ description: >
     Checking if Math.sin(x) equals to Math.sin(x+n*2*Math.PI) with
     precision 0.000000000003, where n is an integer from 1 to 100 and
     x is one of 10 float point values from 0 to 2*Math.PI
-includes: [$FAIL.js]
 ---*/
 
 // CHECK#1
@@ -42,7 +41,7 @@ for (i = 0; i < snum; i++)
 		j++;
 		if (Math.abs(Math.sin(curx) - curval) >= prec)
 		{
-			$FAIL("#1: sin is found out to not be periodic:\n Math.abs(Math.sin(" + x[i] + ") - Math.sin(" + x[i] + " + 2*Math.PI*" + j + ")) >= " + prec + "\n Math.sin(" + x[i] + ") === " + curval + "\n Math.sin(" + curx + ") === " + Math.sin(curx));
+			$ERROR("#1: sin is found out to not be periodic:\n Math.abs(Math.sin(" + x[i] + ") - Math.sin(" + x[i] + " + 2*Math.PI*" + j + ")) >= " + prec + "\n Math.sin(" + x[i] + ") === " + curval + "\n Math.sin(" + curx + ") === " + Math.sin(curx));
 		}
 	}
 }

@@ -7,7 +7,6 @@ es5id: 15.5.4.10_A1_T11
 description: >
     Override toString function, toString throw exception, then call
     match (regexp) function with this object as argument
-includes: [$FAIL.js]
 ---*/
 
 var __obj = {toString:function(){throw "intostr";}}
@@ -17,7 +16,7 @@ var __str = "ABB\u0041BABAB";
 //CHECK#1
         try {
           var x = __str.match(__obj);
-          $FAIL('#1: "var x = __str.match(__obj)" lead to throwing exception');
+          $ERROR('#1: "var x = __str.match(__obj)" lead to throwing exception');
         } catch (e) {
           if (e!=="intostr") {
             $ERROR('#1.1: Exception === "intostr". Actual: '+e);

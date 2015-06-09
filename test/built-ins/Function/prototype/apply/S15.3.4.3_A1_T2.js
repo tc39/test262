@@ -10,7 +10,6 @@ es5id: 15.3.4.3_A1_T2
 description: >
     Calling "apply" method of the object that does not have a [[Call]]
     property.  Prototype of the object is Function.prototype
-includes: [$FAIL.js]
 ---*/
 
 function FACTORY(){};
@@ -27,7 +26,7 @@ if (typeof obj.apply !== "function") {
 //CHECK#2
 try {
   obj.apply();
-  $FAIL('#2: If the object does not have a [[Call]] property, a TypeError exception is thrown');
+  $ERROR('#2: If the object does not have a [[Call]] property, a TypeError exception is thrown');
 } catch (e) {
   if (!(e instanceof TypeError)) {
   	$ERROR('#2.1: If the object does not have a [[Call]] property, a TypeError exception is thrown');

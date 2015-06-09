@@ -9,14 +9,13 @@ description: >
     fails
 includes:
     - $PRINT.js
-    - $FAIL.js
 ---*/
 
 var FACTORY = Object.prototype.propertyIsEnumerable;
 
 try {
   var instance = new FACTORY;
-  $FAIL('#1: Object.prototype.propertyIsEnumerable can\'t be used as a constructor');
+  $ERROR('#1: Object.prototype.propertyIsEnumerable can\'t be used as a constructor');
 } catch (e) {
   $PRINT(e);
 

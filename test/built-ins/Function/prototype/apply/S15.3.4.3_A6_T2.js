@@ -7,13 +7,12 @@ info: >
     TypeError exception is thrown
 es5id: 15.3.4.3_A6_T2
 description: argArray is (null,1)
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 try {
   Function().apply(null,1);
-  $FAIL('#1: if argArray is neither an array nor an arguments object (see 10.1.8), a TypeError exception is thrown');
+  $ERROR('#1: if argArray is neither an array nor an arguments object (see 10.1.8), a TypeError exception is thrown');
 } catch (e) {
   if (!(e instanceof TypeError)) {
   	$ERROR('#1.1: if argArray is neither an array nor an arguments object (see 10.1.8), a TypeError exception is thrown');
