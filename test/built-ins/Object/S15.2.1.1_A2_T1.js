@@ -7,13 +7,12 @@ info: >
     and the value neither is null nor undefined, and is supplied, return ToObject(value)
 es5id: 15.2.1.1_A2_T1
 description: Calling Object function with boolean argument value
-includes: [$FAIL.js]
 ---*/
 
 var bool = true;
 
 if(typeof bool !== 'boolean'){
-  $FAIL('#1: bool should be boolean primitive');
+  $ERROR('#1: bool should be boolean primitive');
 }
 
 var obj = Object(bool);

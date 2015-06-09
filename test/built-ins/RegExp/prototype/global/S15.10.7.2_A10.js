@@ -5,14 +5,14 @@
 info: The RegExp.prototype global property does not have a set accessor
 es5id: 15.10.7.2_A10
 description: Checking if varying the global property fails
-includes: [$FAIL.js, propertyHelper.js]
+includes: [propertyHelper.js]
 ---*/
 
 var __re = RegExp.prototype;
 
 //CHECK#1
 if (__re.hasOwnProperty('global') !== true) {
-  $FAIL('#1: __re = RegExp.prototype; __re.hasOwnProperty(\'global\') === true');
+  $ERROR('#1: __re = RegExp.prototype; __re.hasOwnProperty(\'global\') === true');
 }
 
 var __sample = /^|^/;

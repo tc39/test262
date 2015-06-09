@@ -9,13 +9,12 @@ es5id: 15.5.4.14_A9
 description: >
     Checking if deleting the String.prototype.split.length property
     fails
-includes: [$FAIL.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#0
 if (!(String.prototype.split.hasOwnProperty('length'))) {
-  $FAIL('#0: String.prototype.split.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.split.hasOwnProperty('length'));
+  $ERROR('#0: String.prototype.split.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.split.hasOwnProperty('length'));
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -31,7 +30,7 @@ if (!delete String.prototype.split.length) {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
 if (String.prototype.split.hasOwnProperty('length')) {
-  $FAIL('#2: delete String.prototype.split.length; String.prototype.split.hasOwnProperty(\'length\') return false. Actual: '+String.prototype.split.hasOwnProperty('length'));
+  $ERROR('#2: delete String.prototype.split.length; String.prototype.split.hasOwnProperty(\'length\') return false. Actual: '+String.prototype.split.hasOwnProperty('length'));
 }
 //
 //////////////////////////////////////////////////////////////////////////////

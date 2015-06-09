@@ -12,14 +12,13 @@ info: >
     v) Return Result(iv)
 es5id: 15.3.2.1_A1_T3
 description: Value of the function constructor argument is 1
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 try {
   var f = new Function(1);
 } catch (e) {
-  $FAIL('#1: test failed with error '+e);
+  $ERROR('#1: test failed with error '+e);
 }
 
 //CHECK#2

@@ -5,12 +5,11 @@
 info: The length property of reverse does not have the attribute DontDelete
 es5id: 15.4.4.8_A5.2
 description: Checking use hasOwnProperty, delete
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 if (Array.prototype.reverse.hasOwnProperty('length') !== true) {
-  $FAIL('#1: Array.prototype.reverse.hasOwnProperty(\'length\') === true. Actual: ' + (Array.prototype.reverse.hasOwnProperty('length')));
+  $ERROR('#1: Array.prototype.reverse.hasOwnProperty(\'length\') === true. Actual: ' + (Array.prototype.reverse.hasOwnProperty('length')));
 }
 
 delete Array.prototype.reverse.length;

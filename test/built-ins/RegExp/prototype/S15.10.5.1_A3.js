@@ -5,12 +5,12 @@
 info: The RegExp.prototype property has the attribute DontDelete
 es5id: 15.10.5.1_A3
 description: Checking if deleting the RegExp.prototype property fails
-includes: [$FAIL.js, propertyHelper.js]
+includes: [propertyHelper.js]
 ---*/
 
 //CHECK#0
 if (RegExp.hasOwnProperty('prototype') !== true) {
-	$FAIL('#0: RegExp.hasOwnProperty(\'prototype\') === true');
+	$ERROR('#0: RegExp.hasOwnProperty(\'prototype\') === true');
 }
 
 verifyNotConfigurable(RegExp, "prototype");

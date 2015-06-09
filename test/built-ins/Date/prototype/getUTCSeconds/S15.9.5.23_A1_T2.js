@@ -5,7 +5,6 @@
 info: The Date.prototype property "getUTCSeconds" has { DontEnum } attributes
 es5id: 15.9.5.23_A1_T2
 description: Checking absence of DontDelete attribute
-includes: [$FAIL.js]
 ---*/
 
 if (delete Date.prototype.getUTCSeconds  === false) {
@@ -13,5 +12,5 @@ if (delete Date.prototype.getUTCSeconds  === false) {
 }
 
 if (Date.prototype.hasOwnProperty('getUTCSeconds')) {
-  $FAIL('#2: The Date.prototype.getUTCSeconds property has not the attributes DontDelete');
+  $ERROR('#2: The Date.prototype.getUTCSeconds property has not the attributes DontDelete');
 }

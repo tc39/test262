@@ -7,7 +7,6 @@ info: >
     attributes
 es5id: 15.9.5.7_A1_T2
 description: Checking absence of DontDelete attribute
-includes: [$FAIL.js]
 ---*/
 
 if (delete Date.prototype.toLocaleTimeString  === false) {
@@ -15,5 +14,5 @@ if (delete Date.prototype.toLocaleTimeString  === false) {
 }
 
 if (Date.prototype.hasOwnProperty('toLocaleTimeString')) {
-  $FAIL('#2: The Date.prototype.toLocaleTimeString property has not the attributes DontDelete');
+  $ERROR('#2: The Date.prototype.toLocaleTimeString property has not the attributes DontDelete');
 }

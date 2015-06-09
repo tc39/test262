@@ -7,7 +7,6 @@ info: >
     of a new created object through [[Construct]] property
 es5id: 13.2.2_A1_T2
 description: Declaring a function with "var __PROTO = function()"
-includes: [$FAIL.js]
 ---*/
 
 var __MONSTER="monster";
@@ -19,7 +18,7 @@ try{
     __PROTO.type=__MONSTER;
 }
 catch(e){
-    $FAIL('#0: __PROTO.type=__MONSTER does not lead to throwing exception')
+    $ERROR('#0: __PROTO.type=__MONSTER does not lead to throwing exception')
 }
 
 var __FACTORY = function(){};

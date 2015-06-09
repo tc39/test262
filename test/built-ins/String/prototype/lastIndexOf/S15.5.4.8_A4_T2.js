@@ -9,7 +9,6 @@ es5id: 15.5.4.8_A4_T2
 description: >
     Override toString and valueOf functions, second toString throw
     exception
-includes: [$FAIL.js]
 ---*/
 
 var __obj = {toString:function(){return "\u0041B";}}
@@ -20,7 +19,7 @@ var __str = new String("ABB\u0041BABAB");
 //CHECK#1
     try {
       var x = __str.lastIndexOf(__obj, __obj2);
-      $FAIL('#1: var x = __str.lastIndexOf(__obj, __obj2) lead to throwing exception');
+      $ERROR('#1: var x = __str.lastIndexOf(__obj, __obj2) lead to throwing exception');
     } catch (e) {
       if (e!=="intointeger") {
         $ERROR('#1.1: Exception === "intointeger". Actual: '+e);

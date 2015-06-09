@@ -6,7 +6,6 @@ info: Since Error prototype object is not function it has no [[Call]] method
 es5id: 15.11.4_A3
 description: Checking if call of Error prototype as a function fails
 includes:
-    - $FAIL.js
     - Test262Error.js
 ---*/
 
@@ -14,7 +13,7 @@ includes:
 //CHECK#1
 try {
 	Error.prototype();
-	$FAIL('#1: "Error.prototype()" lead to throwing exception');
+	$ERROR('#1: "Error.prototype()" lead to throwing exception');
 } catch (e) {
     if (e instanceof Test262Error) throw e;
 }

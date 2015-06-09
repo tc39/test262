@@ -7,14 +7,13 @@ es5id: 15.10.7.5_A8
 description: >
     Checking if enumerating the lastIndex property of RegExp instance
     fails
-includes: [$FAIL.js]
 ---*/
 
 var __re = new RegExp("A?B");
 
 //CHECK#0
 if (__re.hasOwnProperty('lastIndex') !== true) {
-  $FAIL('#0: __re = new RegExp("A?B"); __re.hasOwnProperty(\'lastIndex\') === true');
+  $ERROR('#0: __re = new RegExp("A?B"); __re.hasOwnProperty(\'lastIndex\') === true');
 }
 
  //CHECK#1

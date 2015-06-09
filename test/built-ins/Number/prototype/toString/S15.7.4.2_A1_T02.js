@@ -8,13 +8,12 @@ info: >
     the resulting string value is returned
 es5id: 15.7.4.2_A1_T02
 description: radix is 10
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 try {
   Number.prototype.toString(10);
-  $FAIL('#1: "Number.prototype.toString(10);" lead to throwing exception. Actual: '+Number.prototype.toString(10));
+  $ERROR('#1: "Number.prototype.toString(10);" lead to throwing exception. Actual: '+Number.prototype.toString(10));
 } catch (e) {
   if (!(e instanceof TypeError)) {
     $ERROR('#1.1: "Number.prototype.toString(10)" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);

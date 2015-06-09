@@ -7,14 +7,13 @@ es5id: 15.5.4.8_A7
 description: Checking if creating the String.prototype.lastIndexOf object fails
 includes:
     - $PRINT.js
-    - $FAIL.js
 ---*/
 
 var __FACTORY = String.prototype.lastIndexOf;
 
 try {
   var __instance = new __FACTORY;
-  $FAIL('#1: __FACTORY = String.prototype.lastIndexOf; __instance = new __FACTORY lead to throwing exception');
+  $ERROR('#1: __FACTORY = String.prototype.lastIndexOf; __instance = new __FACTORY lead to throwing exception');
 } catch (e) {
   $PRINT(e);
 }

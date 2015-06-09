@@ -5,12 +5,11 @@
 info: The length property of encodeURI does not have the attribute DontDelete
 es5id: 15.1.3.3_A5.2
 description: Checking use hasOwnProperty, delete
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 if (encodeURI.hasOwnProperty('length') !== true) {
-  $FAIL('#1: encodeURI.hasOwnProperty(\'length\') === true. Actual: ' + (encodeURI.hasOwnProperty('length')));
+  $ERROR('#1: encodeURI.hasOwnProperty(\'length\') === true. Actual: ' + (encodeURI.hasOwnProperty('length')));
 }
 
 delete encodeURI.length;

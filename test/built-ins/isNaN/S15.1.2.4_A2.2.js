@@ -5,12 +5,11 @@
 info: The length property of isNaN does not have the attribute DontDelete
 es5id: 15.1.2.4_A2.2
 description: Checking use hasOwnProperty, delete
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 if (isNaN.hasOwnProperty('length') !== true) {
-  $FAIL('#1: isNaN.hasOwnProperty(\'length\') === true. Actual: ' + (isNaN.hasOwnProperty('length')));
+  $ERROR('#1: isNaN.hasOwnProperty(\'length\') === true. Actual: ' + (isNaN.hasOwnProperty('length')));
 }
 
 delete isNaN.length;

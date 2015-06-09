@@ -7,12 +7,12 @@ es5id: 15.10.6.4_A10
 description: >
     Checking if varying the RegExp.prototype.toString.length property
     fails
-includes: [$FAIL.js, propertyHelper.js]
+includes: [propertyHelper.js]
 ---*/
 
 //CHECK#1
 if (RegExp.prototype.toString.hasOwnProperty('length') !== true) {
-	$FAIL('#1: RegExp.prototype.toString.hasOwnProperty(\'length\') === true');
+	$ERROR('#1: RegExp.prototype.toString.hasOwnProperty(\'length\') === true');
 }
 
 var __obj = RegExp.prototype.toString.length;

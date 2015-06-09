@@ -5,10 +5,9 @@
 info: The Array has property prototype
 es5id: 15.4.3.1_A1
 description: Checking use hasOwnProperty
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 if (Array.hasOwnProperty('prototype') !== true) {
-	$FAIL('#1: Array.hasOwnProperty(\'prototype\') === true. Actual: ' + (Array.hasOwnProperty('prototype')));
+	$ERROR('#1: Array.hasOwnProperty(\'prototype\') === true. Actual: ' + (Array.hasOwnProperty('prototype')));
 }

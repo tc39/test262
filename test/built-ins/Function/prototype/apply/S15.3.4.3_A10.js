@@ -7,12 +7,12 @@ es5id: 15.3.4.3_A10
 description: >
     Checking if varying the Function.prototype.apply.length property
     fails
-includes: [$FAIL.js, propertyHelper.js]
+includes: [propertyHelper.js]
 ---*/
 
 //CHECK#1
 if (!(Function.prototype.apply.hasOwnProperty('length'))) {
-  $FAIL('#1: the Function.prototype.apply has length property.');
+  $ERROR('#1: the Function.prototype.apply has length property.');
 }
 
 var obj = Function.prototype.apply.length;

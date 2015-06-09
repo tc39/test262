@@ -5,14 +5,14 @@
 info: The RegExp.prototype source property does not have a set accessor
 es5id: 15.10.7.1_A10
 description: Checking if varying the source property fails
-includes: [$FAIL.js, propertyHelper.js]
+includes: [propertyHelper.js]
 ---*/
 
 var __re = RegExp.prototype;
 
 //CHECK#1
 if (__re.hasOwnProperty('source') !== true) {
-  $FAIL('#1: __re = RegExp.prototype; __re.hasOwnProperty(\'source\') === true');
+  $ERROR('#1: __re = RegExp.prototype; __re.hasOwnProperty(\'source\') === true');
 }
 
 var __sample = /./;

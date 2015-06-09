@@ -5,13 +5,13 @@
 info: The String.prototype property has the attribute ReadOnly
 es5id: 15.5.3.1_A4
 description: Checking if varying the String.prototype property fails
-includes: [$FAIL.js, propertyHelper.js]
+includes: [propertyHelper.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 if (!(String.hasOwnProperty('prototype'))) {
-  $FAIL('#1: String.hasOwnProperty(\'prototype\') return true. Actual: '+String.hasOwnProperty('prototype'));
+  $ERROR('#1: String.hasOwnProperty(\'prototype\') return true. Actual: '+String.hasOwnProperty('prototype'));
 }
 //
 //////////////////////////////////////////////////////////////////////////////

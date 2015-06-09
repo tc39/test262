@@ -14,7 +14,6 @@ info: >
     vii) Return Result(vi)
 es5id: 15.3.2.1_A3_T13
 description: Values of the function constructor arguments are "a,b,c" and "null"
-includes: [$FAIL.js]
 ---*/
 
 var p = "a,b,c";
@@ -23,7 +22,7 @@ var p = "a,b,c";
 try {
   var f = new Function(p, null);
 } catch (e) {
-  $FAIL('#1: test failed with error '+e);
+  $ERROR('#1: test failed with error '+e);
 }
 
 //CHECK#2

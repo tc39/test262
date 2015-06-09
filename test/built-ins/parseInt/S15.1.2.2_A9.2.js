@@ -5,12 +5,11 @@
 info: The length property of parseInt does not have the attribute DontDelete
 es5id: 15.1.2.2_A9.2
 description: Checking use hasOwnProperty, delete
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 if (parseInt.hasOwnProperty('length') !== true) {
-  $FAIL('#1: parseInt.hasOwnProperty(\'length\') === true. Actual: ' + (parseInt.hasOwnProperty('length')));
+  $ERROR('#1: parseInt.hasOwnProperty(\'length\') === true. Actual: ' + (parseInt.hasOwnProperty('length')));
 }
 
 delete parseInt.length;

@@ -9,12 +9,11 @@ es5id: 15.3.4.2_A9
 description: >
     Checking if deleting the Function.prototype.toString.length
     property fails
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#0
 if (!(Function.prototype.toString.hasOwnProperty('length'))) {
-  $FAIL('#0: the Function.prototype.toString has length property');
+  $ERROR('#0: the Function.prototype.toString has length property');
 }
 
 //CHECK#1
@@ -24,5 +23,5 @@ if (!delete Function.prototype.toString.length) {
 
 //CHECK#2
 if (Function.prototype.toString.hasOwnProperty('length')) {
-  $FAIL('#2: The Function.prototype.toString.length property does not have the attributes DontDelete');
+  $ERROR('#2: The Function.prototype.toString.length property does not have the attributes DontDelete');
 }

@@ -16,14 +16,13 @@ es5id: 15.3.2.1_A3_T15
 description: >
     Values of the function constructor arguments are are two empty
     strings
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 try {
   var f = new Function("", "");
 } catch (e) {
-  $FAIL('#1: test failed with error '+e);
+  $ERROR('#1: test failed with error '+e);
 }
 
 //CHECK#2

@@ -5,12 +5,11 @@
 info: The length property of push does not have the attribute DontDelete
 es5id: 15.4.4.7_A6.2
 description: Checking use hasOwnProperty, delete
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 if (Array.prototype.push.hasOwnProperty('length') !== true) {
-  $FAIL('#1: Array.prototype.push.hasOwnProperty(\'length\') === true. Actual: ' + (Array.prototype.push.hasOwnProperty('length')));
+  $ERROR('#1: Array.prototype.push.hasOwnProperty(\'length\') === true. Actual: ' + (Array.prototype.push.hasOwnProperty('length')));
 }
 
 delete Array.prototype.push.length;

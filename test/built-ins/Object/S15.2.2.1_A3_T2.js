@@ -7,14 +7,13 @@ info: >
     the type of value is String, return ToObject(string)
 es5id: 15.2.2.1_A3_T2
 description: Argument value is an empty string
-includes: [$FAIL.js]
 ---*/
 
 var str = '';
 
 //CHECK#1
 if (typeof str  !== 'string') {
-  $FAIL('#1: "" is NOT a String');
+  $ERROR('#1: "" is NOT a String');
 }
 
 var n_obj = new Object(str);

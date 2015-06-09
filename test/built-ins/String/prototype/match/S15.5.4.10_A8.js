@@ -7,13 +7,12 @@ es5id: 15.5.4.10_A8
 description: >
     Checking if enumerating the String.prototype.match.length property
     fails
-includes: [$FAIL.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#0
 if (!(String.prototype.match.hasOwnProperty('length'))) {
-  $FAIL('#0: String.prototype.match.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.match.hasOwnProperty('length'));
+  $ERROR('#0: String.prototype.match.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.match.hasOwnProperty('length'));
 }
 //
 //////////////////////////////////////////////////////////////////////////////

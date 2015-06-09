@@ -8,7 +8,6 @@ description: >
     Checking if Math.tan(x) equals to Math.tan(x+n*Math.PI) with
     precision 0.000000000003, where n is an integer from 1 to 100 and
     x is one of 10 float point values from 0 to Math.PI
-includes: [$FAIL.js]
 ---*/
 
 // CHECK#1
@@ -42,7 +41,7 @@ for (i = 0; i < snum; i++)
 		j++;
 		if (Math.abs(Math.tan(curx) - curval) >= prec)
 		{
-			$FAIL("#1: tan is found out to not be periodic:\n Math.abs(Math.tan(" + x[i] + ") - Math.tan(" + x[i] + " + 2*Math.PI*" + j + ")) >= " + prec + "\n Math.tan(" + x[i] + ") === " + curval + "\n Math.tan(" + curx + ") === " + Math.tan(curx));
+			$ERROR("#1: tan is found out to not be periodic:\n Math.abs(Math.tan(" + x[i] + ") - Math.tan(" + x[i] + " + 2*Math.PI*" + j + ")) >= " + prec + "\n Math.tan(" + x[i] + ") === " + curval + "\n Math.tan(" + curx + ") === " + Math.tan(curx));
 		}
 	}
 }

@@ -7,14 +7,13 @@ info: >
     DontDelete
 es5id: 15.10.7.2_A9
 description: Checking if deleting the global property succeeds
-includes: [$FAIL.js]
 ---*/
 
 var __re = RegExp.prototype;
 
 //CHECK#0
 if (__re.hasOwnProperty('global') !== true) {
-  $FAIL('#0: __re = RegExp.prototype; __re.hasOwnProperty(\'global\') === true');
+  $ERROR('#0: __re = RegExp.prototype; __re.hasOwnProperty(\'global\') === true');
 }
 
 //CHECK#1

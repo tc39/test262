@@ -10,7 +10,6 @@ description: >
     Checking if Math.atan2(y,x) is an approximation to -PI/2, where y
     is -Infinity and x is finite
 includes:
-    - $FAIL.js
     - math_precision.js
     - math_isequal.js
 ---*/
@@ -31,5 +30,5 @@ var xnum = 6;
 for (var i = 0; i < xnum; i++)
 {
 	if (!isEqual(Math.atan2(y,x[i]), -(Math.PI)/2))
-		$FAIL("#1: Math.abs(Math.atan2(" + y + ", " + x[i] + ") + (Math.PI/2)) >= " + prec);
+		$ERROR("#1: Math.abs(Math.atan2(" + y + ", " + x[i] + ") + (Math.PI/2)) >= " + prec);
 }

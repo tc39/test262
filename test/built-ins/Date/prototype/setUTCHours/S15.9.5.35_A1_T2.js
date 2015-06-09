@@ -5,7 +5,6 @@
 info: The Date.prototype property "setUTCHours" has { DontEnum } attributes
 es5id: 15.9.5.35_A1_T2
 description: Checking absence of DontDelete attribute
-includes: [$FAIL.js]
 ---*/
 
 if (delete Date.prototype.setUTCHours  === false) {
@@ -13,5 +12,5 @@ if (delete Date.prototype.setUTCHours  === false) {
 }
 
 if (Date.prototype.hasOwnProperty('setUTCHours')) {
-  $FAIL('#2: The Date.prototype.setUTCHours property has not the attributes DontDelete');
+  $ERROR('#2: The Date.prototype.setUTCHours property has not the attributes DontDelete');
 }

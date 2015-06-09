@@ -6,7 +6,6 @@ info: Call replaceValue passing undefined as the this value
 es5id: 15.5.4.11_A12
 description: replaceValue tests that its this value is undefined
 flags: [onlyStrict]
-includes: [$FAIL.js]
 ---*/
 
 var global = this;
@@ -14,10 +13,10 @@ var global = this;
   "use strict";
 
   if (this === global) {
-    $FAIL('#1: String replace leaks global');
+    $ERROR('#1: String replace leaks global');
   }
   if (this !== undefined) {
-    $FAIL('#2: replaceValue should be called with this===undefined. ' +
+    $ERROR('#2: replaceValue should be called with this===undefined. ' +
           'Actual: ' + this);
   }
   return 'y';

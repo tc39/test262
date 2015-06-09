@@ -9,7 +9,6 @@ info: >
     iii) O is not an object, throw a TypeError exception
 es5id: 15.3.5.3_A2_T2
 description: F.prototype is undefined, and V is empty object
-includes: [$FAIL.js]
 ---*/
 
 var FACTORY;
@@ -23,7 +22,7 @@ obj={};
 //CHECK#1
 try {
   obj instanceof  FACTORY;
-  $FAIL('#1: O is not an object, throw a TypeError exception');
+  $ERROR('#1: O is not an object, throw a TypeError exception');
 } catch (e) {
   if (!(e instanceof TypeError)) {
   	$ERROR('#1.1: O is not an object, throw a TypeError exception');

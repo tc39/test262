@@ -7,7 +7,6 @@ info: >
     attributes
 es5id: 15.9.5.26_A1_T2
 description: Checking absence of DontDelete attribute
-includes: [$FAIL.js]
 ---*/
 
 if (delete Date.prototype.getTimezoneOffset  === false) {
@@ -15,5 +14,5 @@ if (delete Date.prototype.getTimezoneOffset  === false) {
 }
 
 if (Date.prototype.hasOwnProperty('getTimezoneOffset')) {
-  $FAIL('#2: The Date.prototype.getTimezoneOffset property has not the attributes DontDelete');
+  $ERROR('#2: The Date.prototype.getTimezoneOffset property has not the attributes DontDelete');
 }

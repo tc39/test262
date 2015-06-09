@@ -7,7 +7,6 @@ es5id: 15.5.4.17_A1_T12
 description: >
     Override toString and valueOf functions, valueOf throw exception,
     then call toLocaleLowerCase() function for this object
-includes: [$FAIL.js]
 ---*/
 
 var __obj = {toString:function(){return {};},valueOf:function(){throw "intostr";}}
@@ -17,7 +16,7 @@ __obj.toLocaleLowerCase = String.prototype.toLocaleLowerCase;
 //CHECK#1
 try {
   var x = __obj.toLocaleLowerCase();
- 	$FAIL('#1: "var x = __obj.toLocaleLowerCase()" lead to throwing exception');
+ 	$ERROR('#1: "var x = __obj.toLocaleLowerCase()" lead to throwing exception');
 } catch (e) {
   if (e!=="intostr") {
     $ERROR('#1.1: Exception === "intostr". Actual: '+e);

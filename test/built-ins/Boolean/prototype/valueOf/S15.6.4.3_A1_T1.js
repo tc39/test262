@@ -5,13 +5,12 @@
 info: Boolean.prototype.valueOf() returns this boolean value
 es5id: 15.6.4.3_A1_T1
 description: no arguments
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 try {
   (Boolean.prototype.valueOf() !== false);
-  $FAIL('#1: "(Boolean.prototype.valueOf() !== false);" lead to throwing exception. Actual: '+(Boolean.prototype.valueOf() !== false));
+  $ERROR('#1: "(Boolean.prototype.valueOf() !== false);" lead to throwing exception. Actual: '+(Boolean.prototype.valueOf() !== false));
 } catch (e) {
   if (!(e instanceof TypeError)) {
     $ERROR('#1.1: "(Boolean.prototype.valueOf() !== false)" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);

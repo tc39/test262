@@ -5,7 +5,6 @@
 info: The Date property "parse" has { DontEnum } attributes
 es5id: 15.9.4.2_A1_T2
 description: Checking absence of DontDelete attribute
-includes: [$FAIL.js]
 ---*/
 
 if (delete Date.parse  === false) {
@@ -13,5 +12,5 @@ if (delete Date.parse  === false) {
 }
 
 if (Date.hasOwnProperty('parse')) {
-  $FAIL('#2: The Date.parse property has not the attributes DontDelete');
+  $ERROR('#2: The Date.parse property has not the attributes DontDelete');
 }

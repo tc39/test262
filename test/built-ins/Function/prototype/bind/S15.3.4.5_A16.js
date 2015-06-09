@@ -8,7 +8,6 @@ description: >
     A RegExp is not a function, but it may be callable. Iff it is,
     it's typeof should be 'function', in which case bind should accept
     it as a valid this value.
-includes: [$FAIL.js]
 ---*/
 
 var re = (/x/);
@@ -17,7 +16,7 @@ if (typeof re === 'function') {
 } else {
   try {
     Function.prototype.bind.call(re, undefined);
-    $FAIL('#1: If IsCallable(func) is false, ' +
+    $ERROR('#1: If IsCallable(func) is false, ' +
           'then (bind should) throw a TypeError exception');
   } catch (e) {
     if (!(e instanceof TypeError)) {

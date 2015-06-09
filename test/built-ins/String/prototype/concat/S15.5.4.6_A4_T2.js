@@ -7,7 +7,6 @@ info: >
     giving it the this value as its argument
 es5id: 15.5.4.6_A4_T2
 description: Override toString function onto function, that throw exception
-includes: [$FAIL.js]
 ---*/
 
 var __instance = {toString:function(){throw "intostring";}};
@@ -19,7 +18,7 @@ __instance.concat = String.prototype.concat;
 //CHECK#1
 try {
   String.prototype.concat.call(__instance,__obj, notexist);
-  $FAIL('#1: "String.prototype.concat.call(__instance,__obj, notexist)" lead to throwing exception');
+  $ERROR('#1: "String.prototype.concat.call(__instance,__obj, notexist)" lead to throwing exception');
 } catch (e) {
   if (e !== "intostring") {
     $ERROR('#1: e === "intostring". Actual: '+e ); 

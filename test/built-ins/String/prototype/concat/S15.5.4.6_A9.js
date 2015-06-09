@@ -9,13 +9,12 @@ es5id: 15.5.4.6_A9
 description: >
     Checking if deleting the String.prototype.concat.length property
     fails
-includes: [$FAIL.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#0
 if (!(String.prototype.concat.hasOwnProperty('length'))) {
-  $FAIL('#0: String.prototype.concat.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.concat.hasOwnProperty('length')); 
+  $ERROR('#0: String.prototype.concat.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.concat.hasOwnProperty('length')); 
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -31,7 +30,7 @@ if (!delete String.prototype.concat.length) {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
 if (String.prototype.concat.hasOwnProperty('length')) {
-  $FAIL('#2: delete String.prototype.concat.length; String.prototype.concat.hasOwnProperty(\'length\') return false. Actual: '+String.prototype.concat.hasOwnProperty('length')); 
+  $ERROR('#2: delete String.prototype.concat.length; String.prototype.concat.hasOwnProperty(\'length\') return false. Actual: '+String.prototype.concat.hasOwnProperty('length')); 
 }
 //
 //////////////////////////////////////////////////////////////////////////////

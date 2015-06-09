@@ -9,13 +9,12 @@ es5id: 15.5.4.15_A9
 description: >
     Checking if deleting the String.prototype.substring.length
     property fails
-includes: [$FAIL.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#0
 if (!(String.prototype.substring.hasOwnProperty('length'))) {
-  $FAIL('#0: String.prototype.substring.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.substring.hasOwnProperty('length'));
+  $ERROR('#0: String.prototype.substring.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.substring.hasOwnProperty('length'));
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -31,7 +30,7 @@ if (!delete String.prototype.substring.length) {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
 if (String.prototype.substring.hasOwnProperty('length')) {
-  $FAIL('#2: delete String.prototype.substring.length; String.prototype.substring.hasOwnProperty(\'length\') return false. Actual: '+String.prototype.substring.hasOwnProperty('length'));
+  $ERROR('#2: delete String.prototype.substring.length; String.prototype.substring.hasOwnProperty(\'length\') return false. Actual: '+String.prototype.substring.hasOwnProperty('length'));
 }
 //
 //////////////////////////////////////////////////////////////////////////////

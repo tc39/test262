@@ -7,7 +7,6 @@ info: >
     Therefore, it cannot be transferred to other kinds of objects for use as a method
 es5id: 15.5.4.3_A2_T1
 description: Checking if creating variable String.prototype.valueOf fails
-includes: [$FAIL.js]
 ---*/
 
 var __valueOf = String.prototype.valueOf;
@@ -25,7 +24,7 @@ if (typeof __valueOf !== "function") {
 //CHECK#2
 try {
   var x = __valueOf();
-  $FAIL('#2: "__valueOf = String.prototype.valueOf; var x = __valueOf()" lead to throwing exception');
+  $ERROR('#2: "__valueOf = String.prototype.valueOf; var x = __valueOf()" lead to throwing exception');
 } catch (e) {
   if (!(e instanceof TypeError)) {
     $ERROR('#2.1: Exception is instance of TypeError. Actual: exception is '+e);

@@ -17,7 +17,6 @@ description: >
     Values of the function constructor arguments are
     "{toString:function(){throw 1;}}" and "{toString:function(){throw
     'body';}}"
-includes: [$FAIL.js]
 ---*/
 
 var p = {toString:function(){throw 1;}};
@@ -26,7 +25,7 @@ var body = {toString:function(){throw "body";}};
 //CHECK#1
 try {
   var f = new Function(p,body);
-  $FAIL('#1: test failed');
+  $ERROR('#1: test failed');
 } catch (e) {
   if (e !== 1) {
   	$ERROR('#1.1: i) Let Result(i) be the first argument; ii) Let P be ToString(Result(i))');

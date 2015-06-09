@@ -5,12 +5,11 @@
 info: The length property of concat does not have the attribute DontDelete
 es5id: 15.4.4.4_A4.2
 description: Checking use hasOwnProperty, delete
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 if (Array.prototype.concat.hasOwnProperty('length') !== true) {
-  $FAIL('#1: Array.prototype.concat.hasOwnProperty(\'length\') === true. Actual: ' + (Array.prototype.concat.hasOwnProperty('length')));
+  $ERROR('#1: Array.prototype.concat.hasOwnProperty(\'length\') === true. Actual: ' + (Array.prototype.concat.hasOwnProperty('length')));
 }
 
 delete Array.prototype.concat.length;

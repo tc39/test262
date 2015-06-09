@@ -14,7 +14,6 @@ description: >
     overrided toString function and valueOf function, that throw
     exception.  Second object have overrided valueOf function, that
     throw exception
-includes: [$FAIL.js]
 ---*/
 
 var __obj = {toString:function(){return {};},valueOf:function(){throw "intostr";}};
@@ -29,7 +28,7 @@ var __instance = new __FACTORY(void 0);
 //CHECK#1
 try {
   var x = __instance.split(__obj, __obj2);
-  $FAIL('#1: "var x = __instance.split(__obj, __obj2)" lead to throwing exception');
+  $ERROR('#1: "var x = __instance.split(__obj, __obj2)" lead to throwing exception');
 } catch (e) {
   if (e!=="intointeger") {
     $ERROR('#1.1: Exception === "intointeger". Actual: '+e);

@@ -9,13 +9,12 @@ es5id: 15.5.4.11_A9
 description: >
     Checking if deleting the String.prototype.replace.length property
     fails
-includes: [$FAIL.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#0
 if (!(String.prototype.replace.hasOwnProperty('length'))) {
-  $FAIL('#0: String.prototype.replace.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.replace.hasOwnProperty('length'));
+  $ERROR('#0: String.prototype.replace.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.replace.hasOwnProperty('length'));
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -31,7 +30,7 @@ if (!delete String.prototype.replace.length) {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
 if (String.prototype.replace.hasOwnProperty('length')) {
-  $FAIL('#2: delete String.prototype.replace.length; String.prototype.replace.hasOwnProperty(\'length\') return false. Actual: '+String.prototype.replace.hasOwnProperty('length'));
+  $ERROR('#2: delete String.prototype.replace.length; String.prototype.replace.hasOwnProperty(\'length\') return false. Actual: '+String.prototype.replace.hasOwnProperty('length'));
 }
 //
 //////////////////////////////////////////////////////////////////////////////

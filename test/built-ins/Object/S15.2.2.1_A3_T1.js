@@ -7,14 +7,13 @@ info: >
     the type of value is String, return ToObject(string)
 es5id: 15.2.2.1_A3_T1
 description: Argument value is a nonempty string
-includes: [$FAIL.js]
 ---*/
 
 var str = 'Obi-Wan Kenobi';
 
 //CHECK#1
 if (typeof str  !== 'string') {
-  $FAIL('#1: "Obi-Wan Kenobi" is NOT a String');
+  $ERROR('#1: "Obi-Wan Kenobi" is NOT a String');
 }
 
 

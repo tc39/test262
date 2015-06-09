@@ -8,7 +8,6 @@ info: >
     transferred to other kinds of objects for use as a method
 es5id: 15.5.4.2_A2_T1
 description: Checking if creating variable String.prototype.toString fails
-includes: [$FAIL.js]
 ---*/
 
 var __toString = String.prototype.toString;
@@ -26,7 +25,7 @@ if (typeof __toString !== "function") {
 //CHECK#2
 try {
   var x = __toString();
-  $FAIL('#2: "__toString = String.prototype.toString; var x = __toString();" lead to throwing exception');
+  $ERROR('#2: "__toString = String.prototype.toString; var x = __toString();" lead to throwing exception');
 } catch (e) {
   if (!(e instanceof TypeError)) {
     $ERROR('#2.1: "__toString = String.prototype.toString; var x = __toString();" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);

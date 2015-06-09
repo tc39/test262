@@ -9,13 +9,12 @@ es5id: 15.5.4.5_A9
 description: >
     Checking if deleting the String.prototype.charCodeAt.length
     property fails
-includes: [$FAIL.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#0
 if (!(String.prototype.charCodeAt.hasOwnProperty('length'))) {
-  $FAIL('#0: String.prototype.charCodeAt.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.charCodeAt.hasOwnProperty('length')); 
+  $ERROR('#0: String.prototype.charCodeAt.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.charCodeAt.hasOwnProperty('length')); 
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -31,7 +30,7 @@ if (!delete String.prototype.charCodeAt.length) {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
 if (String.prototype.charCodeAt.hasOwnProperty('length')) {
-  $FAIL('#2: delete String.prototype.charCodeAt.length; String.prototype.charCodeAt.hasOwnProperty(\'length\') return false. Actual: '+String.prototype.charCodeAt.hasOwnProperty('length')); 
+  $ERROR('#2: delete String.prototype.charCodeAt.length; String.prototype.charCodeAt.hasOwnProperty(\'length\') return false. Actual: '+String.prototype.charCodeAt.hasOwnProperty('length')); 
 }
 //
 //////////////////////////////////////////////////////////////////////////////

@@ -7,12 +7,11 @@ info: >
     DontDelete
 es5id: 15.1.3.4_A5.2
 description: Checking use hasOwnProperty, delete
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 if (encodeURIComponent.hasOwnProperty('length') !== true) {
-  $FAIL('#1: encodeURIComponent.hasOwnProperty(\'length\') === true. Actual: ' + (encodeURIComponent.hasOwnProperty('length')));
+  $ERROR('#1: encodeURIComponent.hasOwnProperty(\'length\') === true. Actual: ' + (encodeURIComponent.hasOwnProperty('length')));
 }
 
 delete encodeURIComponent.length;

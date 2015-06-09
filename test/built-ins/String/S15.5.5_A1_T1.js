@@ -5,7 +5,6 @@
 info: String instance has not [[call]] property
 es5id: 15.5.5_A1_T1
 description: Create new String and try call it
-includes: [$FAIL.js]
 ---*/
 
 var __str = new String;
@@ -14,7 +13,7 @@ var __str = new String;
 //CHECK#1
 try {
   __str();
-  $FAIL('#1: __str = new String; __str() lead to throwing exception');
+  $ERROR('#1: __str = new String; __str() lead to throwing exception');
 } catch (e) {
   if (!(e instanceof TypeError)) {
     $ERROR('#1.1: Exception is instance of TypeError. Actual: exception is '+e);

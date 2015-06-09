@@ -5,7 +5,6 @@
 info: The Date.prototype property "toLocaleString" has { DontEnum } attributes
 es5id: 15.9.5.5_A1_T2
 description: Checking absence of DontDelete attribute
-includes: [$FAIL.js]
 ---*/
 
 if (delete Date.prototype.toLocaleString  === false) {
@@ -13,5 +12,5 @@ if (delete Date.prototype.toLocaleString  === false) {
 }
 
 if (Date.prototype.hasOwnProperty('toLocaleString')) {
-  $FAIL('#2: The Date.prototype.toLocaleString property has not the attributes DontDelete');
+  $ERROR('#2: The Date.prototype.toLocaleString property has not the attributes DontDelete');
 }

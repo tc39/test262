@@ -14,7 +14,6 @@ es5id: 15.3.2.1_A1_T2
 description: >
     The body of the function is "{toString:function(){return "return
     1;";}}"
-includes: [$FAIL.js]
 ---*/
 
 var body={toString:function(){return "return 1;";}};
@@ -23,7 +22,7 @@ var body={toString:function(){return "return 1;";}};
 try {
   var f = new Function(body);	
 } catch (e) {
-  $FAIL('#1: test failed with error '+e);
+  $ERROR('#1: test failed with error '+e);
 }
 
 //CHECK#2

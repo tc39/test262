@@ -16,7 +16,6 @@ es5id: 15.3.2.1_A3_T5
 description: >
     Values of the function constructor arguments are "void 0" and
     "return \"A\";"
-includes: [$FAIL.js]
 ---*/
 
 var body = "return \"A\";";
@@ -25,7 +24,7 @@ var body = "return \"A\";";
 try {
   var f = new Function(void 0,body);
 } catch (e) {
-  $FAIL('#1: test failed with error '+e);
+  $ERROR('#1: test failed with error '+e);
 }
 
 //CHECK#2

@@ -5,7 +5,6 @@
 info: The Date.prototype property "toDateString" has { DontEnum } attributes
 es5id: 15.9.5.3_A1_T2
 description: Checking absence of DontDelete attribute
-includes: [$FAIL.js]
 ---*/
 
 if (delete Date.prototype.toDateString  === false) {
@@ -13,5 +12,5 @@ if (delete Date.prototype.toDateString  === false) {
 }
 
 if (Date.prototype.hasOwnProperty('toDateString')) {
-  $FAIL('#2: The Date.prototype.toDateString property has not the attributes DontDelete');
+  $ERROR('#2: The Date.prototype.toDateString property has not the attributes DontDelete');
 }

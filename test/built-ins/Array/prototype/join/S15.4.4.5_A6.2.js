@@ -5,12 +5,11 @@
 info: The length property of join does not have the attribute DontDelete
 es5id: 15.4.4.5_A6.2
 description: Checking use hasOwnProperty, delete
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 if (Array.prototype.join.hasOwnProperty('length') !== true) {
-  $FAIL('#1: Array.prototype.join.hasOwnProperty(\'length\') === true. Actual: ' + (Array.prototype.join.hasOwnProperty('length')));
+  $ERROR('#1: Array.prototype.join.hasOwnProperty(\'length\') === true. Actual: ' + (Array.prototype.join.hasOwnProperty('length')));
 }
 
 delete Array.prototype.join.length;

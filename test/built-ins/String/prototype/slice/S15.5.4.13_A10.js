@@ -7,13 +7,13 @@ es5id: 15.5.4.13_A10
 description: >
     Checking if varying the String.prototype.slice.length property
     fails
-includes: [$FAIL.js, propertyHelper.js]
+includes: [propertyHelper.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
 if (!(String.prototype.slice.hasOwnProperty('length'))) {
-  $FAIL('#1: String.prototype.slice.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.slice.hasOwnProperty('length'));
+  $ERROR('#1: String.prototype.slice.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.slice.hasOwnProperty('length'));
 }
 //
 //////////////////////////////////////////////////////////////////////////////

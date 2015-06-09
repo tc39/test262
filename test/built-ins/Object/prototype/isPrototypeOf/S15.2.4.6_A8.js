@@ -9,12 +9,11 @@ es5id: 15.2.4.6_A8
 description: >
     Checknig if enumerating the Object.prototype.isPrototypeOf.length
     property fails
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#0
 if (!(Object.prototype.isPrototypeOf.hasOwnProperty('length'))) {
-  $FAIL('#0: the Object.prototype.isPrototypeOf has length property');
+  $ERROR('#0: the Object.prototype.isPrototypeOf has length property');
 }
 
 

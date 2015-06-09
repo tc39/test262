@@ -5,7 +5,6 @@
 info: The Date.prototype property "setMinutes" has { DontEnum } attributes
 es5id: 15.9.5.32_A1_T2
 description: Checking absence of DontDelete attribute
-includes: [$FAIL.js]
 ---*/
 
 if (delete Date.prototype.setMinutes  === false) {
@@ -13,5 +12,5 @@ if (delete Date.prototype.setMinutes  === false) {
 }
 
 if (Date.prototype.hasOwnProperty('setMinutes')) {
-  $FAIL('#2: The Date.prototype.setMinutes property has not the attributes DontDelete');
+  $ERROR('#2: The Date.prototype.setMinutes property has not the attributes DontDelete');
 }

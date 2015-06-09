@@ -9,13 +9,12 @@ es5id: 15.5.4.10_A9
 description: >
     Checking if deleting the String.prototype.match.length property
     fails
-includes: [$FAIL.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#0
 if (!(String.prototype.match.hasOwnProperty('length'))) {
-  $FAIL('#0: String.prototype.match.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.match.hasOwnProperty('length'));
+  $ERROR('#0: String.prototype.match.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.match.hasOwnProperty('length'));
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -31,7 +30,7 @@ if (!delete String.prototype.match.length) {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
 if (String.prototype.match.hasOwnProperty('length')) {
-  $FAIL('#2: delete String.prototype.match.length; String.prototype.match.hasOwnProperty(\'length\') return false. Actual: '+String.prototype.match.hasOwnProperty('length'));
+  $ERROR('#2: delete String.prototype.match.length; String.prototype.match.hasOwnProperty(\'length\') return false. Actual: '+String.prototype.match.hasOwnProperty('length'));
 }
 //
 //////////////////////////////////////////////////////////////////////////////

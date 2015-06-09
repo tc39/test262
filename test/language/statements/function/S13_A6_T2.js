@@ -7,7 +7,6 @@ info: >
     the same Identifier
 es5id: 13_A6_T2
 description: Calling a function before it is declared one more time
-includes: [$FAIL.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
@@ -15,7 +14,7 @@ includes: [$FAIL.js]
 try{
     var __result = __func();
 } catch(e) {
-    $FAIL("#1: Function call can appears in the program before the FunctionDeclaration appears");
+    $ERROR("#1: Function call can appears in the program before the FunctionDeclaration appears");
 }
 if (__result !== "SECOND") {
 	$ERROR('#1.1: __result === "SECOND". Actual: __result ==='+__result);

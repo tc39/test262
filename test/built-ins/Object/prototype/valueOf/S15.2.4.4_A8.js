@@ -7,12 +7,11 @@ es5id: 15.2.4.4_A8
 description: >
     Checking if enumerating the Object.prototype.valueOf.length
     property fails
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#0
 if (!(Object.prototype.valueOf.hasOwnProperty('length'))) {
-  $FAIL('#0: the Object.prototype.valueOf has length property.');
+  $ERROR('#0: the Object.prototype.valueOf has length property.');
 }
 
 

@@ -7,7 +7,6 @@ info: >
     DontDelete, DontEnum } attributes
 es5id: 15.9.5.12_A3_T2
 description: Checking DontDelete attribute
-includes: [$FAIL.js]
 ---*/
 
 if (delete Date.prototype.getMonth.length  !== true) {
@@ -15,5 +14,5 @@ if (delete Date.prototype.getMonth.length  !== true) {
 }
 
 if (Date.prototype.getMonth.hasOwnProperty('length')) {
-  $FAIL('#2: The Date.prototype.getMonth.length property does not have the attributes DontDelete');
+  $ERROR('#2: The Date.prototype.getMonth.length property does not have the attributes DontDelete');
 }

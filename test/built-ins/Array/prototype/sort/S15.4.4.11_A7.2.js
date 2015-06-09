@@ -5,12 +5,11 @@
 info: The length property of sort does not have the attribute DontDelete
 es5id: 15.4.4.11_A7.2
 description: Checking use hasOwnProperty, delete
-includes: [$FAIL.js]
 ---*/
 
 //CHECK#1
 if (Array.prototype.sort.hasOwnProperty('length') !== true) {
-  $FAIL('#1: Array.sort.prototype.hasOwnProperty(\'length\') === true. Actual: ' + (Array.sort.prototype.hasOwnProperty('length')));
+  $ERROR('#1: Array.sort.prototype.hasOwnProperty(\'length\') === true. Actual: ' + (Array.sort.prototype.hasOwnProperty('length')));
 }
 
 delete Array.prototype.sort.length;

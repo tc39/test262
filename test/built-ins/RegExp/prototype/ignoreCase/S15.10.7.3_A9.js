@@ -7,14 +7,13 @@ info: >
     DontDelete
 es5id: 15.10.7.3_A9
 description: Checking if deleting the ignoreCase property succeeds
-includes: [$FAIL.js]
 ---*/
 
 var __re = RegExp.prototype;
 
 //CHECK#0
 if (__re.hasOwnProperty('ignoreCase') !== true) {
-  $FAIL('#0: __re = RegExp.prototype; __re.hasOwnProperty(\'ignoreCase\') === true');
+  $ERROR('#0: __re = RegExp.prototype; __re.hasOwnProperty(\'ignoreCase\') === true');
 }
 
 //CHECK#1

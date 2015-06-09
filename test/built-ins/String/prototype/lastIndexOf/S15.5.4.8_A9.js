@@ -9,13 +9,12 @@ es5id: 15.5.4.8_A9
 description: >
     Checking if deleting the String.prototype.lastIndexOf.length
     property fails
-includes: [$FAIL.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#0
 if (!(String.prototype.lastIndexOf.hasOwnProperty('length'))) {
-  $FAIL('#0: String.prototype.lastIndexOf.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.lastIndexOf.hasOwnProperty('length'));
+  $ERROR('#0: String.prototype.lastIndexOf.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.lastIndexOf.hasOwnProperty('length'));
 }
 //
 //////////////////////////////////////////////////////////////////////////////
@@ -31,7 +30,7 @@ if (!delete String.prototype.lastIndexOf.length) {
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
 if (String.prototype.lastIndexOf.hasOwnProperty('length')) {
-  $FAIL('#2: delete String.prototype.lastIndexOf.length; String.prototype.lastIndexOf.hasOwnProperty(\'length\') return false. Actual: '+String.prototype.lastIndexOf.hasOwnProperty('length'));
+  $ERROR('#2: delete String.prototype.lastIndexOf.length; String.prototype.lastIndexOf.hasOwnProperty(\'length\') return false. Actual: '+String.prototype.lastIndexOf.hasOwnProperty('length'));
 }
 //
 //////////////////////////////////////////////////////////////////////////////

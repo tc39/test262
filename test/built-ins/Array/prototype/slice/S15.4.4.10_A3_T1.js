@@ -5,7 +5,6 @@
 info: Check ToLength(length) for non Array objects
 es5id: 15.4.4.10_A3_T1
 description: length = 4294967296
-includes: [$FAIL.js]
 ---*/
 
 var obj = {};
@@ -16,7 +15,7 @@ obj.length = 4294967296;
 
 try {
   var arr = obj.slice(0,4294967296);
-  $FAIL('#1: var obj = {}; obj.slice = Array.prototype.slice; obj[0] = "x"; obj[4294967295] = "y"; obj.length = 4294967296; var arr = obj.slice(0,4294967296); lead to throwing exception. Actual: '+arr);
+  $ERROR('#1: var obj = {}; obj.slice = Array.prototype.slice; obj[0] = "x"; obj[4294967295] = "y"; obj.length = 4294967296; var arr = obj.slice(0,4294967296); lead to throwing exception. Actual: '+arr);
 } catch (e) {
   if (!(e instanceof RangeError)) {
     $ERROR('#1.1: var obj = {}; obj.slice = Array.prototype.slice; obj[0] = "x"; obj[4294967295] = "y"; obj.length = 4294967296; var arr = obj.slice(0,4294967296); lead to throwing exception. Exception is instance of RangeError. Actual: exception is '+e);

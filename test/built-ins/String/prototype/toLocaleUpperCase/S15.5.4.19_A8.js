@@ -9,13 +9,12 @@ es5id: 15.5.4.19_A8
 description: >
     Checking if enumerating the
     String.prototype.toLocaleUpperCase.length property fails
-includes: [$FAIL.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#0
 if (!(String.prototype.toLocaleUpperCase.hasOwnProperty('length'))) {
-  $FAIL('#0: String.prototype.toLocaleUpperCase.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.toLocaleUpperCase.hasOwnProperty('length'));
+  $ERROR('#0: String.prototype.toLocaleUpperCase.hasOwnProperty(\'length\') return true. Actual: '+String.prototype.toLocaleUpperCase.hasOwnProperty('length'));
 }
 //
 //////////////////////////////////////////////////////////////////////////////

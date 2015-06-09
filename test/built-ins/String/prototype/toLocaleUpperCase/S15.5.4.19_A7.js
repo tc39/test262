@@ -7,14 +7,13 @@ es5id: 15.5.4.19_A7
 description: >
     Checking if creating the String.prototype.toLocaleUpperCase object
     fails
-includes: [$FAIL.js]
 ---*/
 
 var __FACTORY = String.prototype.toLocaleUpperCase;
 
 try {
   var __instance = new __FACTORY;
-  $FAIL('#1: __FACTORY = String.prototype.toLocaleUpperCase; "__instance = new __FACTORY" lead to throwing exception');
+  $ERROR('#1: __FACTORY = String.prototype.toLocaleUpperCase; "__instance = new __FACTORY" lead to throwing exception');
 } catch (e) {
   if ((e instanceof TypeError) !== true) {
     $ERROR('#1.1:  var __instance = new __FACTORY;  Object has no construct lead  a TypeError. Actual: ' + (e));  

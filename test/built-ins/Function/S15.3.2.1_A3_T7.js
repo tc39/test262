@@ -16,7 +16,6 @@ es5id: 15.3.2.1_A3_T7
 description: >
     Values of the function constructor arguments are "Object("a")" and
     "return a;"
-includes: [$FAIL.js]
 ---*/
 
 var body = "return a;";
@@ -27,7 +26,7 @@ var p=Object("a");
 try {
   var f = new Function(p, body);
 } catch (e) {
-  $FAIL('#1: test failed with error '+e);
+  $ERROR('#1: test failed with error '+e);
 }
 
 //CHECK#2

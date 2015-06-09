@@ -7,7 +7,6 @@ info: >
     it the this value as its argument
 es5id: 15.5.4.5_A4
 description: Change toString function, it trow exception, and call charCodeAt()
-includes: [$FAIL.js]
 ---*/
 
 var __obj={
@@ -20,7 +19,7 @@ var __obj={
 //CHECK#1
 try {
   var x = __obj.charCodeAt();
-  $FAIL('#1:  "var x = __obj.charCodeAt()" lead to throwing exception');
+  $ERROR('#1:  "var x = __obj.charCodeAt()" lead to throwing exception');
 } catch (e) {
   if (e !== 'intostring') {
     $ERROR('#1.1: Exception === \'intostring\'. Actual: exception ==='+e ); 
