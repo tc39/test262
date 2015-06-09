@@ -10,14 +10,14 @@ info: >
     language provides no way to directly exercise [[Delete]], the tests are placed here.
 es5id: 11.4.1-4.a-5
 description: >
-    delete operator returns false when deleting the environment object
+    delete operator returns false when deleting the declaration of the environment object
     inside 'with'
 flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  o = new Object();
+  var o = new Object();
   o.x = 1;
   var d;
   with(o)
