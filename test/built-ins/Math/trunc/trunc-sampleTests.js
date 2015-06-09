@@ -3,7 +3,6 @@
 
 /*---
 description: sample tests for trunc
-includes: [assert.js]
 es6id: 20.2.2.35
 ---*/
 

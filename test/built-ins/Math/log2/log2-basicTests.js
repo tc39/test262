@@ -3,7 +3,6 @@
 
 /*---
 description: Math.Log2 with sample values.
-includes: [assert.js]
 es6id: 20.2.2.23
 ---*/
 
