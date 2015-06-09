@@ -3,8 +3,6 @@
 
 /*---
 description: Testing length property of Math.expm1
-includes:
-    - assert.js
 es6id: 20.2.2.15
 ---*/
 

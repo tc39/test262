@@ -3,8 +3,6 @@
 
 /*---
 description: Math.atanh with special values
-includes:
-    - assert.js
 es6id: 20.2.2.7
 ---*/
 

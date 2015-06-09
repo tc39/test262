@@ -3,8 +3,6 @@
 
 /*---
 description: Math.sign with special values
-includes:
-    - assert.js
 es6id: 20.2.2.29
 ---*/
 
