@@ -3,8 +3,6 @@
 
 /*---
 description: Testing length property of Math.sign
-includes:
-    - assert.js
 es6id: 20.2.2.29
 ---*/
 

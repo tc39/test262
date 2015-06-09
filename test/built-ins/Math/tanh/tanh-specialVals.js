@@ -3,8 +3,6 @@
 
 /*---
 description: Math.tanh with special values
-includes:
-    - assert.js
 es6id: 20.2.2.34
 ---*/
 
