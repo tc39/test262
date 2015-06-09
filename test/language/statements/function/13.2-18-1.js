@@ -10,7 +10,7 @@ description: >
     Function Object has 'prototype' as its own property, it is not
     enumerable and does not invoke the setter defined on
     Function.prototype (Step 18)
-includes: [assert.js, propertyHelper.js]
+includes: [propertyHelper.js]
 ---*/
 
 try {
