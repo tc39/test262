@@ -106,6 +106,10 @@ class TestMonkeyYAMLParsing(unittest.TestCase):
         self.assertEqual(lines, ["baz: bletch"])
         self.assertEqual(value, ["foo", "bar"])
 
+    def test_multiline_list_carriage_return(self):
+        y = "foo:\r\n - bar\r\n - baz"
+        self.assertEqual(monkeyYaml.load(y), yaml.load(y))
+
     def test_oneline_indented(self):
       y = "  foo: bar\n  baz: baf\n"
       self.assertEqual(monkeyYaml.load(y), yaml.load(y))
