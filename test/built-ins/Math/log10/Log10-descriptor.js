@@ -3,8 +3,7 @@
 
 /*---
 description: Testing length property of Math.log10
-includes:
-    - propertyHelper.js
+includes: [propertyHelper.js]
 es6id: 20.2.2.20
 ---*/
 
