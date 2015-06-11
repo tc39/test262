@@ -3,8 +3,7 @@
 
 /*---
 description: Testing descriptor property of Math.sign
-includes:
-    - propertyHelper.js
+includes: [propertyHelper.js]
 es6id: 20.2.2.29
 ---*/
 
