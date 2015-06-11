@@ -16,7 +16,7 @@ mYamlMultilineList = re.compile(r"^ *- (.*)$")
 def load(str):
     dict = None
 
-    lines = str.split("\n")
+    lines = str.splitlines()
     while lines:
         line = lines.pop(0)
         if myIsAllSpaces(line):
