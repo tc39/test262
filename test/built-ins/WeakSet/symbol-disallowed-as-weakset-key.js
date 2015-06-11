@@ -3,7 +3,7 @@
 /*---
 es6id: 23.4.3.1_S2
 description: >
-    Symbol may not be used as a WeakSet entry
+  Symbol may not be used as a WeakSet entry
 features: [WeakSet]
 ---*/
 var weakset = new WeakSet();
