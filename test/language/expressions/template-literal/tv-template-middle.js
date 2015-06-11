@@ -4,8 +4,6 @@
 es6id: 11.8.6
 description: >
     The TV and TRV of TemplateMiddle :: }${ is the empty code unit sequence.
-    The TV of TemplateMiddle :: } TemplateCharacters ${ is the TV of
-    TemplateCharacters.
     The TRV of TemplateMiddle :: } TemplateCharacters ${ is the TRV of
     TemplateCharacters.
 ---*/

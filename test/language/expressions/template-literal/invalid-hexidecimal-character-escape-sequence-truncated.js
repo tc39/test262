@@ -8,4 +8,4 @@ description: >
 negative: SyntaxError
 ---*/
 
-(function() {})`\x`;
+`\x0`;
