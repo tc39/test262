@@ -2,8 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 es6id: 12.2.8
-description: >
-    Expressions should be evaluated in left-to-right order.
+description: Expressions should be evaluated in left-to-right order.
 ---*/
 
 var tag = function(templateObject, a, b, c) {

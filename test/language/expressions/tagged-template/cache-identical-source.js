@@ -2,7 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 es6id: 12.2.8
-description: >
+description: Template caching using identical expressions
+info: >
     Previously-created template objects should be retrieved from the internal
     template registry when their source is identical.
 ---*/

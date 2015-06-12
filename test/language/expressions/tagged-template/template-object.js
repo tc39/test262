@@ -2,7 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 es6id: 12.3.7
-description: >
+description: Properties of the template object
+info: >
     The first argument to a tagged template should be a template object as
     defined by the GetTemplateObject abstract operation.
 includes: [propertyHelper.js]

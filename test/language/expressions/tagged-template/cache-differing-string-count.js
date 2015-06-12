@@ -2,7 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 es6id: 12.2.8
-description: >
+description: Templates are cached according to the number of "raw" strings
+info: >
     The internal template registry should be queried according to the number of
     "raw" strings in the tagged template.
 ---*/

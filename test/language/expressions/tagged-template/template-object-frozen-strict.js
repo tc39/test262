@@ -2,7 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 es6id: 12.3.7
-description: >
+description: Template objects are frozen (as demonstrated within strict mode)
+info: >
     The first argument to a tagged template should be frozen and define a `raw`
     property that is also frozen.
 flags: [onlyStrict]

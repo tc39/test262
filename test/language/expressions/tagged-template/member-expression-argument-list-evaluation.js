@@ -2,7 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 es6id: 12.3.7
-description: >
+description: Argument list evalution for member expresions
+info: >
     A tagged template is a function call where the arguments of the call are
     derived from a TemplateLiteral. The actual arguments include a template
     object and the values produced by evaluating the expressions embedded
