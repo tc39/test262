@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es5id: 22.1.3.6_T1
+es6id: 22.1.3.6_T1
 description: Testing Array#fill
 author: Hank Yates (hankyates@gmail.com)
 includes: [runTestCase.js]
