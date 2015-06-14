@@ -3,6 +3,7 @@
 
 /*---
 description: Find on empty array should return undefined
+features: [Array#find]
 ---*/
 
 var a = [].find(function () {

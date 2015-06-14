@@ -5,6 +5,7 @@
 description: >
     predicate is called with three arguments: the value of the
     element, the index of the element, and the object being traversed.
+features: [Array#find]
 ---*/
 
 var a = [1];

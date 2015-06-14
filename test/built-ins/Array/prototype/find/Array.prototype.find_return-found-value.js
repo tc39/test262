@@ -3,6 +3,7 @@
 
 /*---
 description: Find should return value if predicate returns true
+features: [Array#find]
 ---*/
 
 var testVals = [
