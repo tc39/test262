@@ -13,8 +13,3 @@ description: Promise prototype exists
 if (Promise.prototype === undefined) {
     $ERROR("Expected Promise.prototype to be defined.");
 }
-
-if (!(Promise.prototype instanceof Object)) {
-    $ERROR("Expected Promise.prototype to be an object.");
-}
-
