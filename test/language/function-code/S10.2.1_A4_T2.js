@@ -9,7 +9,6 @@ info: >
     FormalParameterList properties
 es5id: 10.2.1_A4_T2
 description: Checking existence of a function with declared variable
-includes: [$PRINT.js]
 ---*/
 
 //CHECK#1
@@ -22,9 +21,8 @@ function f1(){
     return 7;
   }
 }
-if(!(f1().constructor.prototype === Function.prototype)){
-  $PRINT('#1: f1() returns function');
-}
+
+assert.sameValue(f1().constructor.prototype, Function.prototype);
 
 //CHECK#2
 function f2(){
@@ -36,6 +34,5 @@ function f2(){
     return 7;
   }
 }
-if(!(f2() === "function")){
-  $PRINT('#2: f2() === "function"');
-}
+
+assert.sameValue(f2(), "function");

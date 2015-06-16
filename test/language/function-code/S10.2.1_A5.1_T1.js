@@ -9,7 +9,6 @@ info: >
     undefined and whose attributes are determined by the type of code
 es5id: 10.2.1_A5.1_T1
 description: Checking variable existence only
-includes: [$PRINT.js]
 ---*/
 
 //CHECK#1
@@ -19,9 +18,7 @@ function f1(){
   return typeof x;
 }
 
-if(!(f1() === "undefined")){
-  $PRINT('#1: f1() === "undefined"');
-}
+assert.sameValue(f1(), "undefined");
 
 //CHECK#2
 function f2(){
@@ -30,6 +27,4 @@ function f2(){
   return x;
 }
 
-if(!(f2() === undefined)){
-  $PRINT('#1: f2() === undefined');
-}
+assert.sameValue(f2(), undefined);

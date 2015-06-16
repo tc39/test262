@@ -5,8 +5,6 @@
 info: String.prototype.search can't be used as constructor
 es5id: 15.5.4.12_A7
 description: Checking if creating the String.prototype.search object fails
-includes:
-    - $PRINT.js
 ---*/
 
 var __FACTORY = String.prototype.search;
@@ -18,5 +16,4 @@ try {
   if ((e instanceof TypeError) !== true) {
     $ERROR('#1.1: __FACTORY = String.prototype.search; "__instance = new __FACTORY" throw a TypeError. Actual: ' + (e));  
   }
-  $PRINT(e);
 }

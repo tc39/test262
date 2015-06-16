@@ -7,7 +7,6 @@ info: >
     V refer to the same object or to objects joined to each other, return true
 es5id: 15.2.4.6_A1
 description: Creating two objects with the same prototype
-includes: [$PRINT.js]
 ---*/
 
 function USER_FACTORY( name ) {
@@ -29,20 +28,22 @@ FORCEDUSER_FACTORY.prototype = proto;
 var luke = new FORCEDUSER_FACTORY("Luke Skywalker", 12);
 //////
 // CHECK#1
-if(proto.isPrototypeOf(luke)){
-  $PRINT('#1: Native ECMAScript objects have an internal property called [[Prototype]].');
-} else {
-  $ERROR('#1: native ECMAScript objects have an internal property called [[Prototype]].');
-}
+assert.sameValue(
+  proto.isPrototypeOf(luke),
+  true,
+  '#1: native ECMAScript objects have an internal property called [[Prototype]].'
+);
+
 //
 /////////
 //////
 // CHECK#2
-if(USER_FACTORY.prototype.isPrototypeOf(luke)){
-  $PRINT('#2: Native ECMAScript objects have an internal property called [[Prototype]].');
-} else {
-  $ERROR('#2: native ECMAScript objects have an internal property called [[Prototype]].');
-}
+assert.sameValue(
+  USER_FACTORY.prototype.isPrototypeOf(luke),
+  true,
+  '#2: native ECMAScript objects have an internal property called [[Prototype]].'
+);
+
 //
 /////////
 //////
