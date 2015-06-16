@@ -7,18 +7,14 @@ info: >
     reaches the eval statement
 es5id: 12.2_A5
 description: Executing eval("var x")
-includes: [$PRINT.js]
 flags: [noStrict]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-try{
+assert.throws(ReferenceError, function() {
 	x=x;
-	$ERROR('#1: "x=x" lead to throwing exception');
-}catch(e){
-	$PRINT(e.message);
-};
+});
 //
 //////////////////////////////////////////////////////////////////////////////
 

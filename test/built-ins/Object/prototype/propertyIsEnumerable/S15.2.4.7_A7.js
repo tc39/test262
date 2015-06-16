@@ -7,16 +7,10 @@ es5id: 15.2.4.7_A7
 description: >
     Checking if creating "new Object.prototype.propertyIsEnumerable"
     fails
-includes:
-    - $PRINT.js
 ---*/
 
 var FACTORY = Object.prototype.propertyIsEnumerable;
 
-try {
-  var instance = new FACTORY;
-  $ERROR('#1: Object.prototype.propertyIsEnumerable can\'t be used as a constructor');
-} catch (e) {
-  $PRINT(e);
-
-}
+assert.throws(TypeError, function() {
+  new FACTORY;
+});

@@ -8,7 +8,6 @@ info: >
     VariableStatement is executed, not when the variable is created
 es5id: 12.2_A1
 description: Creating variables after entering the execution scope
-includes: [$PRINT.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
@@ -25,12 +24,9 @@ try {
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#2
-try{
+assert.throws(ReferenceError, function() {
     __something__undefined = __something__undefined;
-    $ERROR('#2: "__something__undefined = __something__undefined" lead to throwing exception');
-} catch(e){
-    $PRINT(e.message);
-}
+});
 //
 //////////////////////////////////////////////////////////////////////////////
 
