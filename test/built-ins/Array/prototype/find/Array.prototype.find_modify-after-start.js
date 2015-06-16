@@ -3,6 +3,7 @@
 
 /*---
 description: Array may be mutated by calls to the predicate
+features: [Array#find]
 ---*/
 
 [1, 2, 3].find(function (v, i, arr) {

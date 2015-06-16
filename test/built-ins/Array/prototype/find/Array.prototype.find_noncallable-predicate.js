@@ -6,6 +6,7 @@ description: >
     Array.prototype.find should throw a TypeError if
     IsCallable(predicate) is false
 includes: [runTestCase.js]
+features: [Array#find]
 ---*/
 
 var uncallableValues = [

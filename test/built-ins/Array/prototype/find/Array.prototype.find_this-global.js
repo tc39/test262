@@ -5,6 +5,7 @@
 description: thisArg should be global object if not provided (not Strict mode)
 flags: [noStrict]
 includes: [fnGlobalObject.js]
+features: [Array#find]
 ---*/
 
 

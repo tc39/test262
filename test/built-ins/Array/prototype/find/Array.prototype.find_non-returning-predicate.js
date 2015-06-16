@@ -3,6 +3,7 @@
 
 /*---
 description: Find with a predicate with no return value should return undefined
+features: [Array#find]
 ---*/
 
 var a = [1, 2, 3].find(function () {});

@@ -5,6 +5,7 @@
 description: >
     Elements removed from array after find has been called should be
     visited
+features: [Array#find]
 ---*/
 
 var elementsVisited;

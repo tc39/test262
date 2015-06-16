@@ -3,6 +3,7 @@
 
 /*---
 description: The length property of the find method is 1
+features: [Array#find]
 ---*/
 
 if ([].find.length !== 1) {

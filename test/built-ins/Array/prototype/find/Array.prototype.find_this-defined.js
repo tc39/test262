@@ -3,6 +3,7 @@
 
 /*---
 description: thisArg should be bound to this if provided
+features: [Array#find]
 ---*/
 
 var globalThis = this;

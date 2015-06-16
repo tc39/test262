@@ -5,6 +5,7 @@
 description: >
     Elements added to array after find has been called should not be
     visited
+features: [Array#find]
 ---*/
 
 [1].find(function (v, i, arr) {

@@ -4,6 +4,7 @@
 /*---
 description: Array.prototype.find should convert thisArg into an object
 flags: [noStrict]
+features: [Array#find]
 ---*/
 
 var dataTypes = [

@@ -4,6 +4,7 @@
 /*---
 description: thisArg should be undefined if not provided (Strict mode)
 flags: [onlyStrict]
+features: [Array#find]
 ---*/
 
 
