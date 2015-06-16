@@ -8,14 +8,15 @@ info: >
     derived from a TemplateLiteral. The actual arguments include a template
     object and the values produced by evaluating the expressions embedded
     within the TemplateLiteral.
+flags: [onlyStrict]
 ---*/
-var context;
+var context = null;
 var fn = function() {
   return function() {
     context = this;
   };
 };
 
-fn`NoSubstitutionTemplate`;
+fn()`NoSubstitutionTemplate`;
 
 assert.sameValue(context, undefined);
