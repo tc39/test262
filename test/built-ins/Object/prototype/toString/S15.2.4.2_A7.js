@@ -5,15 +5,10 @@
 info: Object.prototype.toString can't be used as a constructor
 es5id: 15.2.4.2_A7
 description: Checking if creating "new Object.prototype.toString" fails
-includes:
-    - $PRINT.js
 ---*/
 
 var FACTORY = Object.prototype.toString;
 
-try {
-  var instance = new FACTORY;
-  $ERROR('#1: Object.prototype.toString can\'t be used as a constructor');
-} catch (e) {
-  $PRINT(e);
-}
+assert.throws(TypeError, function() {
+  new FACTORY;
+});

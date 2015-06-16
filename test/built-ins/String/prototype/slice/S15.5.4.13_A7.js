@@ -5,15 +5,10 @@
 info: String.prototype.slice can't be used as constructor
 es5id: 15.5.4.13_A7
 description: Checking if creating the String.prototype.slice object fails
-includes:
-    - $PRINT.js
 ---*/
 
-var __FACTORY = String.prototype.slice;
+var FACTORY = String.prototype.slice;
 
-try {
-  var __instance = new __FACTORY;
-  $ERROR('#1: __FACTORY = String.prototype.slice; "__instance = new __FACTORY" lead to throwing exception');
-} catch (e) {
-  $PRINT(e);
-}
+assert.throws(TypeError, function() {
+  new FACTORY;
+});

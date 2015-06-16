@@ -5,16 +5,10 @@
 info: Object.prototype.isPrototypeOf can't be used as a constructor
 es5id: 15.2.4.6_A7
 description: Checking if creating new "Object.prototype.isPrototypeOf" fails
-includes:
-    - $PRINT.js
 ---*/
 
 var FACTORY = Object.prototype.isPrototypeOf;
 
-try {
-  var instance = new FACTORY;
-  $ERROR('#1: Object.prototype.isPrototypeOf can\'t be used as a constructor');
-} catch (e) {
-  $PRINT(e);
-
-}
+assert.throws(TypeError, function() {
+  new FACTORY;
+});

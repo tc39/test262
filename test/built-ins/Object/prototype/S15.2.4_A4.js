@@ -7,14 +7,8 @@ info: >
     [[create]] method
 es5id: 15.2.4_A4
 description: Checking if creating "new Object.prototype" fails
-includes:
-    - $PRINT.js
 ---*/
 
-//CHECK#1
-try {
-  var instance = new Object.prototype;
-  $ERROR('#1: Since Object prototype object is not function it has not [[create]] method');
-} catch (e) {
-  $PRINT(e);
-}
+assert.throws(TypeError, function() {
+  new Object.prototype;
+});

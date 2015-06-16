@@ -11,10 +11,6 @@ includes:
 
 var FACTORY = Object.prototype.hasOwnProperty;
 
-try {
-  var instance = new FACTORY;
-  $ERROR('#1: Object.prototype.hasOwnProperty can\'t be used as a constructor');
-} catch (e) {
-  $PRINT(e);
-
-}
+assert.throws(TypeError, function() {
+  new FACTORY;
+});
