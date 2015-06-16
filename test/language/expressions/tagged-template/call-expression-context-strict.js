@@ -20,3 +20,12 @@ var fn = function() {
 fn()`NoSubstitutionTemplate`;
 
 assert.sameValue(context, undefined);
+
+fn = function() {
+  return () => { context = this; };
+};
+
+context = null;
+fn()`NoSubstitutionTemplate`;
+
+assert.sameValue(context, undefined);
