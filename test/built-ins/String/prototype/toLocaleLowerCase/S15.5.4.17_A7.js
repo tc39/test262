@@ -7,8 +7,6 @@ es5id: 15.5.4.17_A7
 description: >
     Checking if creating the String.prototype.toLocaleLowerCase object
     fails
-includes:
-    - $PRINT.js
 ---*/
 
 var __FACTORY = String.prototype.toLocaleLowerCase;
@@ -20,5 +18,4 @@ try {
   if ((e instanceof TypeError) !== true) {
     $ERROR('#1.1: var __FACTORY = String.prototype.toLocaleLowerCase; "var __instance = new __FACTORY" throw a TypeError. Actual: ' + (e));  
   }
-  $PRINT(e);
 }

@@ -11,7 +11,6 @@ es5id: 10.2.1_A5.1_T2
 description: >
     Checking existence of the variable object property with formal
     parameter
-includes: [$PRINT.js]
 ---*/
 
 //CHECK#1
@@ -21,9 +20,7 @@ function f1(x){
   return typeof x;
 }
 
-if(!(f1() === "undefined")){
-  $PRINT('#1: f1(1) === "undefined"');
-}
+assert.sameValue(f1(), "undefined");
 
 //CHECK#2
 function f2(x){
@@ -32,6 +29,4 @@ function f2(x){
   return x;
 }
 
-if(!(f2() === undefined)){
-  $PRINT('#1: f2(1) === undefined');
-}
+assert.sameValue(f2(), undefined);

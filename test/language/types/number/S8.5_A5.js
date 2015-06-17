@@ -5,7 +5,6 @@
 info: NaN not greater or equal zero
 es5id: 8.5_A5
 description: Compare NaN with zero
-includes: [$PRINT.js]
 ---*/
 
 var x = NaN;
@@ -19,8 +18,6 @@ var x_geq_0_ADD_leq_0=(x >= 0.0) + (x <= 0.0);
 // CHECK#1
 if (x_geq_0){
   $ERROR('#1: NaN not greater or equal zero');
-} else {
-  $PRINT('#1: NaN not greater or equal zero');
 }
 //
 ///////////////////////////////////////////////////
@@ -29,8 +26,6 @@ if (x_geq_0){
 // CHECK#2
 if (x_leq_0){
   $ERROR('#2: NaN not less or equal zero');
-} else {
-  $PRINT('#2: NaN not less or equal zero');
 }
 //
 ///////////////////////////////////////////////////
@@ -39,8 +34,6 @@ if (x_leq_0){
 // CHECK#3
 if (x_leq_0_OR_geq_0){
   $ERROR('#3: NaN not less or equal zero OR greater or equal zero');
-} else {
-  $PRINT('#3: NaN not less or equal zero OR greater or equal zero');
 }
 //
 ///////////////////////////////////////////////////
@@ -49,8 +42,6 @@ if (x_leq_0_OR_geq_0){
 // CHECK#4
 if (x_geq_0_ADD_leq_0){
   $ERROR('#4: NaN not less or equal zero ADD greater or equal zero');
-} else {
-  $PRINT('#4: NaN not less or equal zero ADD greater or equal zero');
 }
 //
 ///////////////////////////////////////////////////

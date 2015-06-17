@@ -10,7 +10,6 @@ es5id: 10.2.1_A5.2_T1
 description: >
     Checking existence of the variable object property with formal
     parameter
-includes: [$PRINT.js]
 ---*/
 
 //CHECK#1
@@ -20,9 +19,7 @@ function f1(x){
   return typeof x;
 }
 
-if(!(f1(1) === "number")){
-  $PRINT('#1: f1(1) === "number"');
-}
+assert.sameValue(f1(1), "number");
 
 //CHECK#2
 function f2(x){
@@ -31,6 +28,4 @@ function f2(x){
   return x;
 }
 
-if(!(f2(1) === 1)){
-  $PRINT('#1: f2(1) === 1');
-}
+assert.sameValue(f2(1), 1);

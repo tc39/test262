@@ -5,8 +5,6 @@
 info: String.prototype.substring can't be used as constructor
 es5id: 15.5.4.15_A7
 description: Checking if creating the String.prototype.substring object fails
-includes:
-    - $PRINT.js
 ---*/
 
 var __FACTORY = String.prototype.substring;
@@ -18,5 +16,4 @@ try {
   if ((e instanceof TypeError) !== true) {
     $ERROR('#1.2: undefined = 1 throw a TypeError. Actual: ' + (e));  
   }
-  $PRINT(e);
 }
