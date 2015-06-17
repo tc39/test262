@@ -10,8 +10,14 @@ author: Sam Mikes
 description: GeneratorMethod body uses SuperProperty (allowed)
 ---*/
 
+var obj;
+
 var obj = {
-    *foo(a) {
-        yield super.x;
-    }
+  *foo() {
+    return super.toString;
+  }
 };
+
+obj.toString = null;
+
+assert.sameValue(obj.foo().next().value, Object.prototype.toString);

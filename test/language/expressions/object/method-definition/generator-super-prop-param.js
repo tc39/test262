@@ -12,7 +12,11 @@ features: [ default-arg, generator, super ]
 ---*/
 
 var obj = {
-    *foo(a = super.x) {
-        yield;
-    }
+  *foo(a = super.toString) {
+    return a;
+  }
 };
+
+obj.toString = null;
+
+assert.sameValue(obj.foo().next().value, Object.prototype.toString);
