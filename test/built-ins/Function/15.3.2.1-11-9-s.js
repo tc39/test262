@@ -7,7 +7,7 @@
 /*---
 es5id: 15.3.2.1-11-9-s
 description: >
-    Strict Mode - SyntaxError is thrown if a function is created using
+    Strict Mode - No SyntaxError is thrown if a function is created using
     the Function constructor that has three identical parameters and
     there is no explicit 'use strict' in the function constructor's
     body
