@@ -27,6 +27,7 @@ function BrowserRunner() {
         errorDetectorFileContents,
         simpleTestAPIContents,
         globalScopeContents,
+        assertContents,
         timerContents,
         startTime,
         harnessDir = "harness/";
@@ -45,6 +46,11 @@ function BrowserRunner() {
             dataType: "text",
             success: function(data){globalScopeContents = data;},
             url:harnessDir+"gs.js"});
+
+    $.ajax({async: false,
+            dataType: "text",
+            success: function(data){assertContents = data;},
+            url:harnessDir+"assert.js"});
     
 	$.ajax({async: false,
 		dataType: "text",
@@ -213,6 +219,10 @@ function BrowserRunner() {
         //idoc.writeln("<script type='text/javascript' src='harness/gs.js' defer>" + "</script>");
         idoc.writeln("<script type='text/javascript'>");
         idoc.writeln(globalScopeContents);
+        idoc.writeln("</script>");
+
+        idoc.writeln("<script type='text/javascript'>");
+        idoc.writeln(assertContents);
         idoc.writeln("</script>");
 
         //this is mainly applicable for consoles that do not have setTimeout support
