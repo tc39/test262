@@ -33,6 +33,7 @@ TEST262_CASES_DIR = os.path.join(TEST262_ROOT, "test")
 #Directory containing test harness files to be ported over to the
 #website. Note that only *.js files will be migrated from this dir.
 TEST262_HARNESS_DIR = os.path.join(TEST262_ROOT, "harness")
+TEST262_INCLUDES_DIR = os.path.join(TEST262_ROOT, "includes")
 
 #Directory full of website test cases (ported over from TEST262_CASES_DIR)
 TEST262_WEB_CASES_DIR = os.path.join(TEST262_ROOT, WEBSITE_SHORT_NAME, "json")
@@ -44,6 +45,10 @@ TEST262_WEB_HARNESS_DIR = os.path.join(TEST262_ROOT, WEBSITE_SHORT_NAME,
                                        "harness")
 TEST262_CONSOLE_HARNESS_DIR = os.path.join(TEST262_ROOT, CONSOLE_SHORT_NAME,
                                            "harness")
+TEST262_WEB_INCLUDES_DIR = os.path.join(TEST262_ROOT, WEBSITE_SHORT_NAME,
+                                        "includes")
+TEST262_CONSOLE_INCLUDES_DIR = os.path.join(TEST262_ROOT, CONSOLE_SHORT_NAME,
+                                            "includes")
 
 #Path to the ported test case files on the actual website as opposed
 #to the Hg layout

@@ -184,7 +184,7 @@ function BrowserRunner() {
                 if (typeof scriptCache[include] === "undefined") {
                     $.ajax({
                         async: false,
-                        url: 'harness/' + include,
+                        url: 'includes/' + include,
                         success: function (s) { scriptCache[include] = s; }
                     });
                 }

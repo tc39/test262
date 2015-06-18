@@ -65,11 +65,17 @@ if not os.path.exists(TEST262_HARNESS_DIR):
     print "Cannot copy the test harness from a path, %s, that does not exist!" % TEST262_HARNESS_DIR
     sys.exit(1)
 
+if not os.path.exists(TEST262_INCLUDES_DIR):
+    print "Cannot copy the test includes files from a path, %s, that does not exist!" % TEST262_INCLUDES_DIR
+
 if not os.path.exists(TEST262_WEB_CASES_DIR):
     os.mkdir(TEST262_WEB_CASES_DIR)
 
 if not os.path.exists(TEST262_WEB_HARNESS_DIR):
     os.mkdir(TEST262_WEB_HARNESS_DIR)
+
+if not os.path.exists(TEST262_WEB_INCLUDES_DIR):
+    os.mkdir(TEST262_WEB_INCLUDES_DIR)
 
 if not hasattr(ARGS, "version"):
     print "A test262 suite version must be specified from the command-line to run this script!"
@@ -313,26 +319,32 @@ SUITE_DESCRIP_JSON["date"] = str(datetime.datetime.now().date())
 with open(os.path.join(TEST262_WEB_CASES_DIR, "suiteDescrip.json"), "w") as f:
     json.dump(SUITE_DESCRIP_JSON, f, separators=(',',':'), sort_keys=True)
 
-#Deploy test harness to website as well
-print ""
-print "Deploying test harness files to 'TEST262_WEB_HARNESS_DIR'..."
-if TEST262_HARNESS_DIR!=TEST262_WEB_HARNESS_DIR:
-    for filename in [x for x in os.listdir(TEST262_HARNESS_DIR) \
-                         if x.endswith(".js")]:
-        toFilenameList = [ os.path.join(TEST262_WEB_HARNESS_DIR, filename)]
-        if ARGS.console:
-            toFilenameList.append(os.path.join(TEST262_CONSOLE_HARNESS_DIR,
-                                               filename))
+#Deploy test harness and includes to website as well
 
-        for toFilename in toFilenameList:
-            if not os.path.exists(os.path.dirname(toFilename)):
-                os.mkdir(os.path.dirname(toFilename))
-            fileExists = os.path.exists(toFilename)
-            if fileExists:
-                SC_HELPER.edit(toFilename)
-            shutil.copy(os.path.join(TEST262_HARNESS_DIR, filename),
-                        toFilename)
-            if not fileExists:
-                SC_HELPER.add(toFilename)
+def deployJS(name, sourceDir, destDir):
+    if sourceDir == destDir:
+        return
+    print "Deploying '%s' files to '%s'..." % (name, destDir)
+
+    for filename in [x for x in os.listdir(sourceDir) \
+                         if x.endswith(".js")]:
+        toFilename = os.path.join(destDir, filename)
+
+        if not os.path.exists(os.path.dirname(toFilename)):
+            os.mkdir(os.path.dirname(toFilename))
+        fileExists = os.path.exists(toFilename)
+        if fileExists:
+            SC_HELPER.edit(toFilename)
+        shutil.copy(os.path.join(sourceDir, filename), toFilename)
+        if not fileExists:
+            SC_HELPER.add(toFilename)
+
+deployJS("web harness", TEST262_HARNESS_DIR, TEST262_WEB_HARNESS_DIR)
+deployJS("web includes", TEST262_INCLUDES_DIR, TEST262_WEB_INCLUDES_DIR)
+
+if ARGS.console:
+  deployJS("console harness", TEST262_HARNESS_DIR, TEST262_CONSOLE_HARNESS_DIR)
+  deployJS("console includes", TEST262_INCLUDES_DIR,
+           TEST262_CONSOLE_INCLUDES_DIR)
 
 print "Done."
