@@ -12,7 +12,3 @@ description: Promise.resolve is a function
 if ((typeof Promise.resolve) !== "function") {
     $ERROR("Expected Promise.resolve to be a function");
 }
-
-if (Promise.resolve.length !== 1) {
-    $ERROR("Expected Promise.resolve to be a function of one argument");
-}
