@@ -14,21 +14,14 @@ var p = Promise.resolve("foo");
 
 Object.defineProperty(p, "constructor", {
     get: function () {
-        throw new Error("abrupt completion");
+        throw new Test262Error();
     }
 });
 
-try {
-    p.then(function () {
-        $ERROR("Should never be called.");
-    }, function () {
-        $ERROR("Should never be called.");
-    });
-} catch (e) {
-    if (!(e instanceof Error)) {
-        $ERROR("Expected Error, got " + e);
-    }
-    if (e.message !== "abrupt completion") {
-        $ERROR("Expected the Error we threw, got " + e);
-    }
-}
+assert.throws(Test262Error, function() {
+  p.then(function() {
+    $ERROR("Should never be called.");
+  }, function() {
+    $ERROR("Should never be called.");
+  });
+});

@@ -11,20 +11,17 @@ description: iterator.next throws, causing Promise.all to reject
 ---*/
 
 var iterThrows = {};
-Object.defineProperty(iterThrows, Symbol.iterator, {
-    get: function () {
-        return {
-            next: function () {
-                throw new Error("abrupt completion");
-            }
-        };
-    }
-});
+var error = new Test262Error();
+iterThrows[Symbol.iterator] = function() {
+    return {
+        next: function () {
+            throw error;
+        }
+    };
+};
 
 Promise.all(iterThrows).then(function () {
     $ERROR('Promise unexpectedly resolved: Promise.all(iterThrows) should throw TypeError');
-},function (err) {
-    if (!(err instanceof TypeError)) {
-        $ERROR('Expected TypeError, got ' + err);
-    }
+},function (reason) {
+    assert.sameValue(reason, error);
 }).then($DONE,$DONE);
