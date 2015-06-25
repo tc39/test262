@@ -9,7 +9,7 @@ es5id: 10.4.3-1-43-s
 description: >
     Strict Mode - checking 'this' (FunctionExpression defined within
     an Anonymous FunctionExpression with a strict directive prologue)
-flags: [onlyStrict]
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

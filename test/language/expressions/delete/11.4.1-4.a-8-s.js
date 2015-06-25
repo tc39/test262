@@ -19,8 +19,6 @@ includes:
 ---*/
 
 function testcase() {
-  'use strict';
-  
   // NaN (15.1.1.1) has [[Configurable]] set to false.
   try {
     delete fnGlobalObject().NaN;

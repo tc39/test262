@@ -9,7 +9,7 @@ es5id: 13.1-37-s
 description: >
     StrictMode - SyntaxError is thrown if 'eval' occurs as the
     Identifier of a FunctionExpression in strict eval code
-flags: [onlyStrict]
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

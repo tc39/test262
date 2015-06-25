@@ -9,7 +9,6 @@ es5id: 10.4.3-1-55-s
 description: >
     Strict Mode - checking 'this' (Literal getter includes strict
     directive prologue)
-flags: [onlyStrict]
 includes: [runTestCase.js]
 ---*/
 

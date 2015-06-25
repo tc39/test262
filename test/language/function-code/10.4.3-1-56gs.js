@@ -7,12 +7,9 @@
 /*---
 es5id: 10.4.3-1-56gs
 description: >
-    Strict - checking 'this' from a global scope (Literal setter
-    defined within strict mode)
-flags: [onlyStrict]
+    checking 'this' from a global scope (Literal setter)
 ---*/
 
-"use strict";
 var x = 2;
 var o = { set foo(stuff) { x=this; } }
 o.foo = 3;

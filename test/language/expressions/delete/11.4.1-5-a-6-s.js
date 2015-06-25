@@ -14,7 +14,6 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
         var _11_4_1_5 = "abc";
 
         try {

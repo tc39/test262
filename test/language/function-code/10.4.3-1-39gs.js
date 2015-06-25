@@ -10,7 +10,7 @@ description: >
     Strict - checking 'this' from a global scope (FunctionDeclaration
     defined within a FunctionExpression with a strict directive
     prologue)
-flags: [onlyStrict]
+flags: [noStrict]
 ---*/
 
 var f1 = function () {

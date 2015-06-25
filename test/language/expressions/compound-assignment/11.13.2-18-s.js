@@ -7,15 +7,12 @@
 /*---
 es5id: 11.13.2-18-s
 description: >
-    Strict Mode - ReferenceError isn't thrown if the
-    LeftHandSideExpression of a Compound Assignment operator(>>=)
-    evaluates to a resolvable reference
-flags: [onlyStrict]
+    ReferenceError isn't thrown if the LeftHandSideExpression of a Compound
+    Assignment operator(>>=) evaluates to a resolvable reference
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
         var _11_13_2_18 = 4
         _11_13_2_18 >>= 2;
         return _11_13_2_18 === 1;

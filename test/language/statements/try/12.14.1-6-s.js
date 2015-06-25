@@ -10,13 +10,10 @@ description: >
     Strict Mode - SyntaxError isn't thrown if a TryStatement with a
     Catch occurs within strict code and the Identifier of the Catch
     production is ARGUMENTS
-flags: [onlyStrict]
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
-
         try {
             throw new Error("...");
             return false;

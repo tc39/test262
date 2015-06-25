@@ -7,5 +7,4 @@ description: check if "arguments" poisoning poisons  hasOwnProperty too
 flags: [onlyStrict]
 ---*/
 
-"use strict";
 (function(){}).hasOwnProperty('arguments');

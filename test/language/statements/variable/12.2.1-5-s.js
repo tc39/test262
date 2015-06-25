@@ -7,14 +7,11 @@
 /*---
 es5id: 12.2.1-5-s
 description: >
-    Strict Mode - a Function declaring var named 'eval' does not throw
-    SyntaxError
-flags: [onlyStrict]
+    a Function declaring var named 'eval' does not throw SyntaxError
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        'use strict';
         Function('var eval;');
         return true;
     }

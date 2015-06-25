@@ -15,7 +15,7 @@ description: >
     a FunctionExpression that is contained in eval strict code and the
     function has two identical parameters, which are separated by a
     unique parameter name
-flags: [onlyStrict]
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

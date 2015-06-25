@@ -13,7 +13,6 @@ negative: TypeError
 flags: [onlyStrict]
 ---*/
 
-"use strict";
 var o = {};
 Object.defineProperty(o, "foo",  { get: function() { return gNonStrict(); } });
 o.foo;

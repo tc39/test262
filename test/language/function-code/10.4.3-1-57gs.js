@@ -7,9 +7,8 @@
 /*---
 es5id: 10.4.3-1-57gs
 description: >
-    Strict - checking 'this' from a global scope (Literal setter
+    Checking 'this' from a global scope (Literal setter
     includes strict directive prologue)
-flags: [onlyStrict]
 ---*/
 
 var x = 2;

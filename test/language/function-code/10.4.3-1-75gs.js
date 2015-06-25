@@ -7,9 +7,8 @@
 /*---
 es5id: 10.4.3-1-75gs
 description: >
-    Strict - checking 'this' from a global scope (strict function
-    declaration called by Function.prototype.call(globalObject))
-flags: [onlyStrict]
+    checking 'this' from a global scope (strict function declaration called by
+    Function.prototype.call(globalObject))
 includes: [fnGlobalObject.js]
 ---*/
 

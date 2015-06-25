@@ -7,14 +7,11 @@
 /*---
 es5id: 10.4.3-1-54-s
 description: >
-    Strict Mode - checking 'this' (Literal getter defined within
-    strict mode)
-flags: [onlyStrict]
+    checking 'this' (Literal getter)
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-"use strict";
 var o = { get foo() { return this; } }
 return o.foo===o;
 }

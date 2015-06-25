@@ -7,15 +7,12 @@
 /*---
 es5id: 11.13.2-2-s
 description: >
-    Strict Mode - ReferenceError is thrown if the
-    LeftHandSideExpression of a Compound Assignment operator(/=)
-    evaluates to an unresolvable reference
-flags: [onlyStrict]
+    Strict Mode - ReferenceError is thrown if the LeftHandSideExpression of a
+    Compound Assignment operator(/=) evaluates to an unresolvable reference
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
         try {
             eval("_11_13_2_2 /= 1;");
             return false;

@@ -13,7 +13,7 @@ description: >
     Strict Mode - SourceElements is not evaluated as strict mode code
     when a Function constructor is contained in strict mode code
     within eval code
-flags: [onlyStrict]
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

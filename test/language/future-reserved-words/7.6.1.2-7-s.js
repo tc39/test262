@@ -14,8 +14,6 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
-
         try {
             eval("var package = 1;");
             return false;

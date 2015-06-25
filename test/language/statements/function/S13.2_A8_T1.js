@@ -7,5 +7,4 @@ description: check if "caller" poisoning poisons  "in" too
 flags: [onlyStrict]
 ---*/
 
-"use strict";
 'caller' in function() {};

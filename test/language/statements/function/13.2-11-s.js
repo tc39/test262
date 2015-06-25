@@ -9,7 +9,6 @@ es5id: 13.2-11-s
 description: >
     StrictMode - enumerating over a function object looking for
     'caller' fails outside of the function
-flags: [onlyStrict]
 includes: [runTestCase.js]
 ---*/
 

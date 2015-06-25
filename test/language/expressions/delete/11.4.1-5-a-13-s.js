@@ -14,7 +14,6 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
         var numObj = new Number(0);
 
         try {

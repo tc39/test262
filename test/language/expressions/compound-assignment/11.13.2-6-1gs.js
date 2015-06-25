@@ -13,5 +13,4 @@ negative: SyntaxError
 flags: [onlyStrict]
 ---*/
 
-"use strict";
 eval *= 20;

@@ -7,9 +7,8 @@
 /*---
 es5id: 10.4.3-1-78gs
 description: >
-    Strict - checking 'this' from a global scope (strict function
-    declaration called by Function.prototype.bind(undefined)())
-flags: [onlyStrict]
+    checking 'this' from a global scope (strict function declaration called by
+    Function.prototype.bind(undefined)())
 ---*/
 
 function f() { "use strict"; return this===undefined;};

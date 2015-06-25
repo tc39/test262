@@ -14,8 +14,6 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
-
         try {
             eval("var obj = {\
                 get _11_1_5_6_2_1() {\

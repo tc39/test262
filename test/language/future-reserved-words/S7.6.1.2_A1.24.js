@@ -9,5 +9,4 @@ negative: SyntaxError
 flags: [onlyStrict]
 ---*/
 
-"use strict";
 var public = 1;

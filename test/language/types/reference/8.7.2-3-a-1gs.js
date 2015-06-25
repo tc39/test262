@@ -13,5 +13,4 @@ negative: .
 flags: [onlyStrict]
 ---*/
 
-"use strict";
 b = 11;

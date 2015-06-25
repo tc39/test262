@@ -8,6 +8,6 @@ description: >
 flags: [onlyStrict]
 ---*/
 var a = [];
-[1, 2].findIndex(function() { "use strict"; a.push(this); }, "");
+[1, 2].findIndex(function() { a.push(this); }, "");
 assert.sameValue(a[0], "");
 assert.sameValue(a[1], a[0]);

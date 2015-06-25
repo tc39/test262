@@ -14,7 +14,6 @@ negative: TypeError
 flags: [onlyStrict]
 ---*/
 
-"use strict";
 function f1() {
     return (function () {
         return gNonStrict();

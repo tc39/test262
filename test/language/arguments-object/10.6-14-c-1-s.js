@@ -7,15 +7,11 @@
 /*---
 es5id: 10.6-14-c-1-s
 description: >
-    Strict Mode - [[Enumerable]] attribute value in 'callee' is false
-    under strict mode
-flags: [onlyStrict]
+    [[Enumerable]] attribute value in 'callee' is false
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
-
         var argObj = function () {
             return arguments;
         } ();

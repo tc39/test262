@@ -9,6 +9,4 @@ negative: SyntaxError
 flags: [onlyStrict]
 ---*/
 
-"use strict";
-
 var implements = 1;

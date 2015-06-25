@@ -5,7 +5,7 @@
 info: Call replaceValue passing undefined as the this value
 es5id: 15.5.4.11_A12
 description: replaceValue tests that its this value is undefined
-flags: [onlyStrict]
+flags: [noStrict]
 ---*/
 
 var global = this;

@@ -14,8 +14,6 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
-
         try {
             eval("var privat\u0065 = 123;");
             return false;

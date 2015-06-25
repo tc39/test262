@@ -7,14 +7,12 @@
 /*---
 es5id: 8.7.2-7-s
 description: >
-    Strict Mode - TypeError isn't thrown if LeftHandSide is a
-    reference to an accessor property with setter
-flags: [onlyStrict]
+    TypeError isn't thrown if LeftHandSide is a reference to an accessor
+    property with setter
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
         var _8_7_2_7 = {};
         var _8_7_2_7_bValue = 1;
         Object.defineProperty(_8_7_2_7, "b", {

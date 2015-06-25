@@ -7,14 +7,11 @@
 /*---
 es5id: 10.4.3-1-58-s
 description: >
-    Strict Mode - checking 'this' (Injected getter defined within
-    strict mode)
-flags: [onlyStrict]
+    checking 'this' (Injected getter)
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-"use strict";
 var o = {};
 Object.defineProperty(o, "foo",  { get: function() { return this; } });
 return o.foo===o;

@@ -7,7 +7,7 @@
 /*---
 es5id: 15.4.4.18-5-1-s
 description: Array.prototype.forEach - thisArg not passed to strict callbackfn
-flags: [onlyStrict]
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

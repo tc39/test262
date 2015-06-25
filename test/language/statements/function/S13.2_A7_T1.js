@@ -7,5 +7,4 @@ description: check if "caller" poisoning poisons  hasOwnProperty too
 flags: [onlyStrict]
 ---*/
 
-"use strict";
 (function(){}).hasOwnProperty('caller');

@@ -17,8 +17,6 @@ flags: [onlyStrict]
 ---*/
 
 (function (a, b, c) {
-    "use strict";
-
     Object.defineProperty(arguments, "0", {
         value: 20,
         writable: false,

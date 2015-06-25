@@ -13,8 +13,6 @@ description: >
 flags: [onlyStrict]
 ---*/
 
-"use strict";
-
 var reNames = Object.getOwnPropertyNames(RegExp);
 for (var i = 0, len = reNames.length; i < len; i++) {
   var reName = reNames[i];

@@ -18,8 +18,6 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
-
         var _13_0_9_fun = function () {
             function _13_0_9_inner() { eval("eval = 42;"); }
             _13_0_9_inner();

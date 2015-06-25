@@ -15,7 +15,6 @@ includes: [runTestCase.js]
 
 function testcase()
 { 
-  "use strict"; 
   try {
     Function('a','a','return;');
     return true;

@@ -12,8 +12,6 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
-
         try {
             eval("delete Date;");
             return false;

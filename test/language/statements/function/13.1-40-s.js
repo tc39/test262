@@ -10,7 +10,7 @@ description: >
     StrictMode - SyntaxError is thrown if 'arguments' occurs as the
     Identifier of a FunctionDeclaration whose FunctionBody is
     contained in strict code
-flags: [onlyStrict]
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

@@ -7,9 +7,8 @@
 /*---
 es5id: 10.4.3-1-64-s
 description: >
-    Strict Mode - checking 'this' (strict function declaration called
-    by non-strict Function constructor)
-flags: [onlyStrict]
+    checking 'this' (strict function declaration called by non-strict Function
+    constructor)
 includes:
     - runTestCase.js
     - fnGlobalObject.js

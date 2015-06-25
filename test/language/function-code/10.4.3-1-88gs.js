@@ -9,7 +9,7 @@ es5id: 10.4.3-1-88gs
 description: >
     Strict - checking 'this' from a global scope (non-strict function
     declaration called by strict Function.prototype.apply(someObject))
-flags: [onlyStrict]
+flags: [noStrict]
 ---*/
 
 var o = {};

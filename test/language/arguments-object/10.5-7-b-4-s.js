@@ -7,15 +7,11 @@
 /*---
 es5id: 10.5-7-b-4-s
 description: >
-    Strict Mode - Deleting property of the arguments object successful
-    under strict mode
-flags: [onlyStrict]
+    Deleting property of the arguments object successful under strict mode
 includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
-
         function _10_5_7_b_4_fun() {
             var _10_5_7_b_4_1 = arguments[0] === 30 && arguments[1] === 12;
             delete arguments[1];

@@ -15,8 +15,6 @@ includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-        "use strict";
-
         var numBak = Number;
         try {
             Number = 12;

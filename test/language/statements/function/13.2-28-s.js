@@ -9,7 +9,7 @@ es5id: 13.2-28-s
 description: >
     StrictMode - enumerating over a function object looking for
     'arguments' fails inside the function
-flags: [onlyStrict]
+flags: [noStrict]
 includes: [runTestCase.js]
 ---*/
 

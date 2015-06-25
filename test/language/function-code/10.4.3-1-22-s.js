@@ -9,7 +9,7 @@ es5id: 10.4.3-1-22-s
 description: >
     Strict Mode - checking 'this' (New'ed object from
     FunctionDeclaration includes strict directive prologue)
-flags: [onlyStrict]
+flags: [noStrict]
 includes:
     - runTestCase.js
     - fnGlobalObject.js

@@ -13,6 +13,5 @@ negative: SyntaxError
 flags: [onlyStrict]
 ---*/
 
-"use strict";
 throw NotEarlyError;
 var implements = 1;
