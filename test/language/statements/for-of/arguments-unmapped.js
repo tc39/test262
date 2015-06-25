@@ -2,13 +2,17 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 es6id: 13.6.4
-description: >
-    Arguments objects should be able to be traversed using a `for..of` loop.
+description: Unmapped arguments object traversal using for..of
+info: >
+    "Umapped" arguments objects should be able to be traversed using a
+    `for..of` loop.
+flags: [noStrict]
 ---*/
 
 var i = 0;
 
 (function() {
+  'use strict';
   for (var value of arguments) {
     assert.sameValue(value, arguments[i], 'argument at index ' + i);
     i++;
