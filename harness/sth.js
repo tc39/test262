@@ -173,12 +173,7 @@ function BrowserRunner() {
             include;
         
         includes = test.includes;
-        if (!includes || !(includes.length)) {
-            // includes not specified via frontmatter;  find all of the $INCLUDE statements
-            includes = code.match(/\$INCLUDE\(([^\)]+)\)/g);
-        }
-
-        if (includes !== null) {
+        if (includes && includes.length) {
             // We have some includes, so loop through each include and
             // pull in the dependencies.
             for (var i = 0; i < includes.length; i++) {
@@ -189,7 +184,7 @@ function BrowserRunner() {
                 if (typeof scriptCache[include] === "undefined") {
                     $.ajax({
                         async: false,
-                        url: 'harness/' + include,
+                        url: 'includes/' + include,
                         success: function (s) { scriptCache[include] = s; }
                     });
                 }

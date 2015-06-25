@@ -277,10 +277,10 @@ class TestCase(object):
   def GetIncludeList(self):
     if self.testRecord.get('includes'):
       return self.testRecord['includes']
-    return re.findall('\$INCLUDE\([\'"]([^\)]+)[\'"]\)', self.test)
+    return []
 
   def GetAdditionalIncludes(self):
-    return '\n'.join([self.suite.GetInclude(include) for include in self.GetIncludeList()])
+    return '\n'.join([self.suite.GetIncludeFile(include) for include in self.GetIncludeList()])
 
   def WrapTest(self, command):
     if "cscript" not in command:
@@ -296,14 +296,14 @@ try {
 
   def GetSource(self, command_template):
     # "var testDescrip = " + str(self.testRecord) + ';\n\n' + \
-    source = self.suite.GetInclude("sta.js") + \
-        self.suite.GetInclude("cth.js") + \
-        self.suite.GetInclude("assert.js")
+    source = self.suite.GetSetupFile("sta.js") + \
+        self.suite.GetSetupFile("cth.js") + \
+        self.suite.GetSetupFile("assert.js")
 
     if self.IsAsyncTest():
       source = source + \
-               self.suite.GetInclude("timer.js") + \
-               self.suite.GetInclude("doneprintHandle.js").replace('print', self.suite.print_handle)
+               self.suite.GetSetupFile("timer.js") + \
+               self.suite.GetSetupFile("doneprintHandle.js").replace('print', self.suite.print_handle)
 
     source = source + \
         self.GetAdditionalIncludes() + \
@@ -400,7 +400,8 @@ class TestSuite(object):
   def __init__(self, root, strict_only, non_strict_only, unmarked_default, print_handle):
     # TODO: derive from packagerConfig.py
     self.test_root = path.join(root, 'test')
-    self.lib_root = path.join(root, 'harness')
+    self.setup_file_root = path.join(root, 'harness')
+    self.include_file_root = path.join(root, 'includes')
     self.strict_only = strict_only
     self.non_strict_only = non_strict_only
     self.unmarked_default = unmarked_default
@@ -411,8 +412,10 @@ class TestSuite(object):
   def Validate(self):
     if not path.exists(self.test_root):
       ReportError("No test repository found")
-    if not path.exists(self.lib_root):
-      ReportError("No test library found")
+    if not path.exists(self.setup_file_root):
+      ReportError("No test setup file directory found")
+    if not path.exists(self.include_file_root):
+      ReportError("No 'includes' file directory found")
 
   def IsHidden(self, path):
     return path.startswith('.') or path == 'CVS'
@@ -428,9 +431,9 @@ class TestSuite(object):
         return True
     return False
 
-  def GetInclude(self, name):
+  def _getFile(self, name, root):
     if not name in self.include_cache:
-      static = path.join(self.lib_root, name)
+      static = path.join(root, name)
       if path.exists(static):
         f = open(static)
         contents = stripHeader(f.read())
@@ -440,6 +443,12 @@ class TestSuite(object):
       else:
         ReportError("Can't find: " + static)
     return self.include_cache[name]
+
+  def GetSetupFile(self, name):
+    return self._getFile(name, self.setup_file_root)
+
+  def GetIncludeFile(self, name):
+    return self._getFile(name, self.include_file_root)
 
   def EnumerateTests(self, tests):
     logging.info("Listing tests in %s", self.test_root)

@@ -94,7 +94,7 @@ This tag identifies the portion of the ECMAScript 6 standard that is tested by t
 
 This tag names a list of helper files that will be included in the test environment prior to running the test.  Filenames **must** include the `.js` extension.
 
-The helper files are found in the `test/harness/` directory. When some code is used repeatedly across a group of tests, a new helper function (or group of helpers) can be defined. Helpers increase test complexity, so they should be created and used sparingly.
+The helper files are found in the `includes/` directory. When some code is used repeatedly across a group of tests, a new helper function (or group of helpers) can be defined. Helpers increase test complexity, so they should be created and used sparingly.
 
 #### timeout
 **timeout**: [integer]
