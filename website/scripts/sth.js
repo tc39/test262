@@ -35,7 +35,7 @@ function BrowserRunner() {
     $.ajax({async: false,
             dataType: "text",
             success: function(data){errorDetectorFileContents = data;},
-            url:harnessDir+"ed.js"});
+            url:"scripts/ed.js"});
 
     $.ajax({async: false,
             dataType: "text",
@@ -45,7 +45,7 @@ function BrowserRunner() {
     $.ajax({async: false,
             dataType: "text",
             success: function(data){globalScopeContents = data;},
-            url:harnessDir+"gs.js"});
+            url:"scripts/gs.js"});
 
     $.ajax({async: false,
             dataType: "text",
