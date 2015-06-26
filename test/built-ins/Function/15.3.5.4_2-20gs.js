@@ -10,13 +10,14 @@ description: >
     Strict mode - checking access to strict function caller from
     non-strict function (New'ed object from Anonymous
     FunctionExpression includes strict directive prologue)
-negative: TypeError
 flags: [noStrict]
 ---*/
 
-var obj = new (function () {
-    "use strict";
-    return gNonStrict();
+assert.throws(TypeError, function() {
+    var obj = new (function () {
+        "use strict";
+        return gNonStrict();
+    });
 });
 
 

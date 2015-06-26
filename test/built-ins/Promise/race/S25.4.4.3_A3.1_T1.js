@@ -9,10 +9,11 @@ info: >
 es6id: S25.4.4.3_A3.1_T1
 author: Sam Mikes
 description: Promise.race throws if 'this' does not conform to Promise constructor
-negative: TypeError
 ---*/
 
 function ZeroArgConstructor() {
 }
 
-Promise.race.call(ZeroArgConstructor, [3]);
+assert.throws(TypeError, function() {
+  Promise.race.call(ZeroArgConstructor, [3]);
+});

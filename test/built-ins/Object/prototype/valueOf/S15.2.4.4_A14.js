@@ -7,7 +7,8 @@ info: >
     argument.
 es5id: 15.2.4.4_A14
 description: Checking Object.prototype.valueOf invoked by the 'call' property.
-negative: TypeError
 ---*/
 
-(1,Object.prototype.valueOf)();
+assert.throws(TypeError, function() {
+    (1,Object.prototype.valueOf)();
+});

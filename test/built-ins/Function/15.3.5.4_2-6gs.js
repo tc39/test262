@@ -10,14 +10,15 @@ description: >
     Strict mode - checking access to strict function caller from
     non-strict function (Anonymous FunctionExpression includes strict
     directive prologue)
-negative: TypeError
 flags: [noStrict]
 ---*/
 
-(function () {
-    "use strict";
-    return gNonStrict();
-})();
+assert.throws(TypeError, function() {
+    (function () {
+        "use strict";
+        return gNonStrict();
+    })();
+});
 
 
 function gNonStrict() {

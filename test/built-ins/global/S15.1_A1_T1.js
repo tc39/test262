@@ -7,7 +7,10 @@ es5id: 15.1_A1_T1
 description: >
     It is not possible to use the global object as a constructor  with
     the new operator
-negative: TypeError
 ---*/
 
-new this;
+var global = this;
+
+assert.throws(TypeError, function() {
+    new global;
+});

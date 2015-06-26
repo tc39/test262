@@ -9,7 +9,8 @@ es5id: 15.3.4.2_A15
 description: >
     Whether or not they are callable, RegExp objects are not Function
     objects, so toString should throw a TypeError.
-negative: TypeError
 ---*/
 
-Function.prototype.toString.call(/x/);
+assert.throws(TypeError, function() {
+  Function.prototype.toString.call(/x/);
+});

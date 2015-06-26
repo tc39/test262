@@ -10,7 +10,6 @@ description: >
     Strict mode - checking access to strict function caller from bound
     non-strict function (FunctionDeclaration includes strict directive
     prologue)
-negative: TypeError
 flags: [noStrict]
 ---*/
 
@@ -20,8 +19,10 @@ function f() {
     "use strict";
     return gNonStrict();
 }
-f();
 
+assert.throws(TypeError, function() {
+    f();
+});
 
 function gNonStrictBindee() {
     return gNonStrictBindee.caller || gNonStrictBindee.caller.throwTypeError;

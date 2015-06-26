@@ -9,9 +9,11 @@ es5id: 13.2-19-b-3gs
 description: >
     StrictMode - error is thrown when assign a value to the 'caller'
     property of a function object
-negative: TypeError
 flags: [onlyStrict]
 ---*/
 
 function _13_2_19_b_3_gs() {}
-_13_2_19_b_3_gs.caller = 1;
+
+assert.throws(TypeError, function() {
+  _13_2_19_b_3_gs.caller = 1;
+});

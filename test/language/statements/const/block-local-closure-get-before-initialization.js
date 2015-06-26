@@ -9,7 +9,11 @@ negative: ReferenceError
 ---*/
 {
   function f() { return x + 1; }
-  f();
+
+  assert.throws(ReferenceError, function() {
+    f();
+  });
+
   const x = 1;
 }
 

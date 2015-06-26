@@ -10,13 +10,14 @@ description: >
     Strict mode - checking access to strict function caller from
     non-strict function (Function constructor includes strict
     directive prologue)
-negative: TypeError
 flags: [noStrict]
 ---*/
 
 var f = Function("\"use strict\";\nreturn gNonStrict();");
-f();
 
+assert.throws(TypeError, function() {
+    f();
+});
 
 function gNonStrict() {
     return gNonStrict.caller || gNonStrict.caller.throwTypeError;

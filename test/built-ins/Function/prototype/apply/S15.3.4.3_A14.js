@@ -4,7 +4,8 @@
 /*---
 es5id: 15.3.4.3_A14
 description: If IsCallable(func) is false, then throw a TypeError exception.
-negative: TypeError
 ---*/
 
-Function.prototype.apply.call(null, {}, []);
+assert.throws(TypeError, function() {
+  Function.prototype.apply.call(null, {}, []);
+});

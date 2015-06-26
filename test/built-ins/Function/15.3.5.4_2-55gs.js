@@ -10,14 +10,15 @@ description: >
     Strict mode - checking access to strict function caller from
     non-strict function (Injected setter includes strict directive
     prologue)
-negative: TypeError
 flags: [noStrict]
 ---*/
 
 var o = {};
 Object.defineProperty(o, "foo", { set: function(stuff) { "use strict"; return gNonStrict(); } });
-o.foo = 10;
 
+assert.throws(TypeError, function() {
+    o.foo = 10;
+});
 
 function gNonStrict() {
     return gNonStrict.caller || gNonStrict.caller.throwTypeError;

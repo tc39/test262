@@ -7,11 +7,8 @@ info: >
     constructors. Math object is NOT constructor
 es5id: 8.6.2_A7
 description: Checking if execution of "var objMath=new Math" passes
-negative: TypeError
 ---*/
 
-//////////////////////////////////////////////////////////////////////////////
-//CHECK#1
-var objMath=new Math;
-
-//////////////////////////////////////////////////////////////////////////////
+assert.throws(TypeError, function() {
+  var objMath=new Math;
+});

@@ -10,14 +10,15 @@ description: >
     Strict mode - checking access to strict function caller from
     non-strict function (strict function declaration called by
     Function.prototype.apply(globalObject))
-negative: TypeError
 flags: [noStrict]
 includes: [fnGlobalObject.js]
 ---*/
 
 function f() { "use strict"; return gNonStrict();};
-f.apply(fnGlobalObject());
 
+assert.throws(TypeError, function() {
+    f.apply(fnGlobalObject());
+});
 
 function gNonStrict() {
     return gNonStrict.caller || gNonStrict.caller.throwTypeError;
