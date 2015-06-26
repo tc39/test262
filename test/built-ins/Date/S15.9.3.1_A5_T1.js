@@ -15,7 +15,6 @@ info: >
 es5id: 15.9.3.1_A5_T1
 description: 2 arguments, (year, month)
 includes:
-    - environment.js
     - numeric_conversion.js
     - Date_constants.js
     - Date_library.js
