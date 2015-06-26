@@ -12,7 +12,6 @@ description: >
 flags: [noStrict]
 includes:
     - runTestCase.js
-    - fnExists.js
 ---*/
 
 function testcase() {
@@ -20,7 +19,7 @@ function testcase() {
 
   // Now, deleting 'foo' directly should fail;
   var d = delete foo;
-  if(d === false && fnExists(foo))
+  if(d === false && typeof foo === 'function')
     return true;
  }
 runTestCase(testcase);
