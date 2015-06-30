@@ -1,12 +1,11 @@
 // Copyright (C) 2014 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
-  description: >
-      `Object.prototype.getOwnPropertyDescriptor` should reflect the value and
-      writability of the @@toStringTag attribute.
-  includes: [propertyHelper.js]
-  es6id: 23.1.3.13
+es6id: 23.1.5.2.2
+description: >
+  `Object.prototype.getOwnPropertyDescriptor` should reflect the value and
+  writability of the @@toStringTag attribute.
+includes: [propertyHelper.js]
  ---*/
 
 var MapIteratorProto = Object.getPrototypeOf(new Map()[Symbol.iterator]());
