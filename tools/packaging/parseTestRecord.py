@@ -113,12 +113,8 @@ def importYamlLoad():
     global yamlLoad
     if yamlLoad:
         return
-    try:
-        import yaml
-        yamlLoad = yaml.load
-    except:
-        monkeyYaml = loadMonkeyYaml()
-        yamlLoad = monkeyYaml.load
+    monkeyYaml = loadMonkeyYaml()
+    yamlLoad = monkeyYaml.load
 
 def loadMonkeyYaml():
     f = None
