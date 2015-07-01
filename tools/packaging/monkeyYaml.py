@@ -15,13 +15,17 @@ mYamlMultilineList = re.compile(r"^ *- (.*)$")
 
 def load(str):
     dict = None
+    key = None
+    emptyLines = 0
 
     lines = str.splitlines()
     while lines:
         line = lines.pop(0)
         if myIsAllSpaces(line):
+            emptyLines += 1
             continue
         result = mYamlKV.match(line)
+
         if result:
             if not dict:
                 dict = {}
@@ -30,7 +34,12 @@ def load(str):
             (lines, value) = myReadValue(lines, value)
             dict[key] = value
         else:
-            raise Exception("monkeyYaml is confused at " + line)
+            if dict and key and key in dict:
+                c = " " if emptyLines == 0 else "\n" * emptyLines
+                dict[key] += c + line.strip()
+            else:
+                raise Exception("monkeyYaml is confused at " + line)
+        emptyLines = 0
     return dict
 
 def myReadValue(lines, value):
