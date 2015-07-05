@@ -10,6 +10,7 @@ description: >
     String should return true when called on 'word' and passed 'w' and
     the location 0.
 includes: [runTestCase.js]
+features: [String#includes]
 ---*/
 
 function testcase() {

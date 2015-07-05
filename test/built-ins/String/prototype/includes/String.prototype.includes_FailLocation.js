@@ -10,6 +10,7 @@ description: >
     String should return false if a letter is not found in the word
     starting from the passed location.
 includes: [runTestCase.js]
+features: [String#includes]
 ---*/
 
 function testcase() {

@@ -10,6 +10,7 @@ description: >
     String should return false if a location is passed that is
     greather than the length of the string.
 includes: [runTestCase.js]
+features: [String#includes]
 ---*/
 
 function testcase() {
