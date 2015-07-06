@@ -111,30 +111,75 @@ class TestMonkeyYAMLParsing(unittest.TestCase):
         self.assertEqual(monkeyYaml.load(y), yaml.load(y))
 
     def test_oneline_indented(self):
-      y = "  foo: bar\n  baz: baf\n"
-      self.assertEqual(monkeyYaml.load(y), yaml.load(y))
+        y = "  foo: bar\n  baz: baf\n"
+        self.assertEqual(monkeyYaml.load(y), yaml.load(y))
 
 
     def test_indentation_215(self):
-      self.maxDiff = None
-      y = """
+        self.maxDiff = None
+        y = """
   description: >
       The method should exist on the Array prototype, and it should be writable
       and configurable, but not enumerable.
   includes: [propertyHelper.js]
   es6id: 22.1.3.13
  """
-      self.assertEqual(monkeyYaml.load(y), yaml.load(y))
+        self.assertEqual(monkeyYaml.load(y), yaml.load(y))
 
     def test_indentation_215_2(self):
-      self.maxDiff = None
-      y = """
+        self.maxDiff = None
+        y = """
   description: >
    The method should exist
   includes: [propertyHelper.js]
   es6id: 22.1.3.13
  """
-      self.assertEqual(monkeyYaml.load(y), yaml.load(y))
+        self.assertEqual(monkeyYaml.load(y), yaml.load(y))
+
+    def test_line_folding(self):
+        self.maxDiff = None
+        y = """
+description: aaa
+             bbb
+es6id:  19.1.2.1
+"""
+        self.assertEqual(monkeyYaml.load(y), yaml.load(y))
+
+    def test_line_folding_2(self):
+        self.maxDiff = None
+        y = """
+description: ccc
+
+             ddd
+
+es6id:  19.1.2.1
+"""
+        self.assertEqual(monkeyYaml.load(y), yaml.load(y))
+
+    def test_line_folding_3(self):
+        self.maxDiff = None
+        y = """
+description: eee
+
+
+             fff
+es6id:  19.1.2.1
+"""
+        self.assertEqual(monkeyYaml.load(y), yaml.load(y))
+
+    def test_line_folding_4(self):
+        self.maxDiff = None
+        y = """
+description: ggg
+
+             hhh
+             iii
+
+             jjj
+es6id:  19.1.2.1
+"""
+        self.assertEqual(monkeyYaml.load(y), yaml.load(y))
+
 
 if __name__ == '__main__':
     unittest.main()
