@@ -8,6 +8,7 @@
 author: Ryan Lewis
 description: endsWith should return false when called on 'word' and passed 'r'.
 includes: [runTestCase.js]
+features: [String#endsWith]
 ---*/
 
 function testcase() {

@@ -8,6 +8,7 @@
 author: Ryan Lewis
 description: String should return false if a letter is not found in the word.
 includes: [runTestCase.js]
+features: [String#includes]
 ---*/
 
 function testcase() {

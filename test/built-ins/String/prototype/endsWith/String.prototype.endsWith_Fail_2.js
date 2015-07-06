@@ -10,6 +10,7 @@ description: >
     endsWith should return false when called on 'word' and passed 'd',
     with an endPosition of 3.
 includes: [runTestCase.js]
+features: [String#endsWith]
 ---*/
 
 function testcase() {

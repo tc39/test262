@@ -8,6 +8,7 @@
 author: Ryan Lewis
 description: String should have the property length with size of 1.
 includes: [runTestCase.js]
+features: [String#includes]
 ---*/
 
 function testcase() {
