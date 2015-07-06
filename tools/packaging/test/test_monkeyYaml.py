@@ -15,14 +15,14 @@ import sys
 
 f = None
 try:
-  (f, pathname, description) = imp.find_module("monkeyYaml", [os.path.join(os.getcwd(), "../")])
-  module = imp.load_module("monkeyYaml", f, pathname, description)
-  monkeyYaml = module
+    (f, pathname, description) = imp.find_module("monkeyYaml", [os.path.join(os.getcwd(), "../")])
+    module = imp.load_module("monkeyYaml", f, pathname, description)
+    monkeyYaml = module
 except:
-  raise ImportError("Cannot load monkeyYaml")
+    raise ImportError("Cannot load monkeyYaml")
 finally:
-  if f:
-    f.close()
+    if f:
+        f.close()
 
 #import monkeyYaml
 
