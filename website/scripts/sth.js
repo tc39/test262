@@ -272,7 +272,8 @@ function BrowserRunner() {
 BrowserRunner.prototype.compileSource = function(test, code) {
     var flags = test.flags;
 
-    if (flags && flags.indexOf("onlyStrict") > -1) {
+    if (flags && flags.indexOf("raw") === -1 &&
+        flags.indexOf("onlyStrict") > -1) {
         code = "'use strict';\n" + code;
     }
 

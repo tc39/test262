@@ -9,10 +9,10 @@ es5id: 10.1.1-2gs
 description: >
     Strict Mode - Use Strict Directive Prologue is ''use strict''
     which lost the last character ';'
-negative: NotEarlyError
-flags: [noStrict]
+negative: SyntaxError
+flags: [raw]
 ---*/
 
 "use strict"
-throw NotEarlyError;
+throw new Error("This code should not execute");
 var public = 1;
