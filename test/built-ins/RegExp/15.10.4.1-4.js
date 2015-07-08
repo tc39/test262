@@ -7,16 +7,6 @@
 /*---
 es5id: 15.10.4.1-4
 description: RegExp - the SyntaxError is not thrown when flags is 'gim'
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
-            var regExpObj = new RegExp('abc', 'gim');
-
-            return true;
-        } catch (e) {
-            return false;
-        }
-    }
-runTestCase(testcase);
+var regExpObj = new RegExp('abc', 'gim');

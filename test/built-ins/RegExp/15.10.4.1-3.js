@@ -9,16 +9,8 @@ es5id: 15.10.4.1-3
 description: >
     RegExp - the thrown error is SyntaxError instead of RegExpError
     when 'F' contains any character other than 'g', 'i', or 'm'
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
-            var regExpObj = new RegExp('abc', 'a');
-
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+assert.throws(SyntaxError, function() {
+  var regExpObj = new RegExp('abc', 'a');
+});

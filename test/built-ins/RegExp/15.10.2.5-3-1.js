@@ -9,16 +9,8 @@ es5id: 15.10.2.5-3-1
 description: >
     Term - SyntaxError was thrown when max is finite and less than min
     (15.10.2.5 step 3)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
-            var regExp = new RegExp("0{2,1}");
-
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+assert.throws(SyntaxError, function() {
+  var regExp = new RegExp("0{2,1}");
+});

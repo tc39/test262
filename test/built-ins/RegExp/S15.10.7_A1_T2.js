@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: RegExp instance has not [[call]] property
+info: RegExp instance has no [[Call]] internal method
 es5id: 15.10.7_A1_T2
 description: Checking if call of RegExp("a|b","g")() fails
 ---*/
