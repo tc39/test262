@@ -1148,6 +1148,43 @@ function testValidDateTimeComponentValue(component, value) {
 
 
 /**
+ * @description Tests whether timeZone is a String value representing a
+ * structurally valid and canonicalized time zone name, as defined in
+ * sections 6.4.1 and 6.4.2 of the ECMAScript Internationalization API
+ * Specification.
+ * @param {String} timeZone the string to be tested.
+ * @result {Boolean} whether the test succeeded.
+ */
+
+function isCanonicalizedStructurallyValidTimeZoneName(timeZone) {
+    /**
+     * Regular expression defining IANA Time Zone names.
+     *
+     * Spec: IANA Time Zone Database, Theory file
+     */
+    var fileNameComponent = "(?:[A-Za-z_]|\\.(?!\\.?(?:/|$)))[A-Za-z.\\-_]{0,13}";
+    var fileName = fileNameComponent + "(?:/" + fileNameComponent + ")*";
+    var etcName = "(?:Etc/)?GMT[+-]\\d{1,2}";
+    var systemVName = "SystemV/[A-Z]{3}\\d{1,2}(?:[A-Z]{3})?";
+    var legacyName = etcName + "|" + systemVName + "|CST6CDT|EST5EDT|MST7MDT|PST8PDT|NZ|Canada/East-Saskatchewan";
+    var zoneNamePattern = new RegExp("^(?:" + fileName + "|" + legacyName + ")$");
+
+    if (typeof timeZone !== "string") {
+        return false;
+    }
+    // 6.4.2 CanonicalizeTimeZoneName (timeZone), step 3
+    if (timeZone === "UTC") {
+        return true;
+    }
+    // 6.4.2 CanonicalizeTimeZoneName (timeZone), step 3
+    if (timeZone === "Etc/UTC" || timeZone === "Etc/GMT") {
+        return false;
+    }
+    return zoneNamePattern.test(timeZone);
+}
+
+
+/**
  * Verifies that the actual array matches the expected one in length, elements,
  * and element order.
  * @param {Array} expected the expected array.
