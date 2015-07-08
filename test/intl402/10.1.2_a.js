@@ -15,14 +15,13 @@ var a = ["A", "C", "E", "B", "D", "F"];
 var referenceCollator = new Intl.Collator(locales);
 var referenceSorted = a.slice().sort(referenceCollator.compare);
 
-function MyCollator(locales, options) {
-    Intl.Collator.call(this, locales, options);
+class MyCollator extends Intl.Collator {
+  constructor(locales, options) {
+    super(locales, options);
     // could initialize MyCollator properties
+  }
+  // could add methods to MyCollator.prototype
 }
-
-MyCollator.prototype = Object.create(Intl.Collator.prototype);
-MyCollator.prototype.constructor = MyCollator;
-// could add methods to MyCollator.prototype
 
 var collator = new MyCollator(locales);
 a.sort(collator.compare);
