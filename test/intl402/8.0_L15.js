@@ -4,8 +4,8 @@
 /*---
 es5id: 8.0_L15
 description: >
-    Tests that Intl  meets the requirements for built-in objects
-    defined by the introduction of  chapter 15 of the ECMAScript
+    Tests that Intl meets the requirements for built-in objects
+    defined by the introduction of chapter 17 of the ECMAScript
     Language Specification.
 author: Norbert Lindenberg
 includes:

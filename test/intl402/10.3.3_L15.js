@@ -4,9 +4,9 @@
 /*---
 es5id: 10.3.3_L15
 description: >
-    Tests that Intl.Collator.prototype.resolvedOptions  meets the
+    Tests that Intl.Collator.prototype.resolvedOptions meets the
     requirements for built-in objects defined by the introduction of
-    chapter 15 of the ECMAScript Language Specification.
+    chapter 17 of the ECMAScript Language Specification.
 author: Norbert Lindenberg
 includes: [testBuiltInObject.js]
 ---*/
