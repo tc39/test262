@@ -9,16 +9,8 @@ es5id: 15.10.4.1-2
 description: >
     RegExp - the thrown error is SyntaxError instead of RegExpError
     when the characters of 'P' do not have the syntactic form Pattern
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
-            var regExpObj = new RegExp('\\');
-
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+assert.throws(SyntaxError, function() {
+  var regExpObj = new RegExp('\\');
+});

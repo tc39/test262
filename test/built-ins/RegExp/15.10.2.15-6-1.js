@@ -10,16 +10,8 @@ description: >
     Pattern - SyntaxError was thrown when one character in CharSet 'A'
     greater than one character in CharSet 'B' (15.10.2.15
     CharacterRange step 6)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
-            var regExp = new RegExp("^[z-a]$");
-
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+assert.throws(SyntaxError, function() {
+  var regExp = new RegExp("^[z-a]$");
+});

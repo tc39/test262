@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: RegExp instance has not [[construct]] property
+info: RegExp instance has no [[Construct]] internal method
 es5id: 15.10.7_A2_T1
 description: Checking if creating new RegExp instance fails
 ---*/
