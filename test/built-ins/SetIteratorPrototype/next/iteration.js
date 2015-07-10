@@ -1,11 +1,12 @@
 // Copyright (C) 2014 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
-  description: >
-      The method should return a valid iterator with the context as the
-      IteratedObject.
-  es6id: 23.2.3.11
+es6id: 23.2.3.11
+description: >
+  The method should return a valid iterator with the context as the
+  IteratedObject.
+features:
+  - Symbol.iterator
  ---*/
 
 var set = new Set();
