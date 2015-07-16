@@ -40,7 +40,7 @@ var calendars = [
 mustHaveProperty(actual, "locale", isCanonicalizedStructurallyValidLanguageTag);
 mustHaveProperty(actual, "calendar", calendars);
 mustHaveProperty(actual, "numberingSystem", isValidNumberingSystem);
-mustHaveProperty(actual, "timeZone", [undefined]);
+mustHaveProperty(actual, "timeZone", isCanonicalizedStructurallyValidTimeZoneName);
 mustNotHaveProperty(actual, "weekday");
 mustNotHaveProperty(actual, "era");
 mustHaveProperty(actual, "year", ["2-digit", "numeric"]);

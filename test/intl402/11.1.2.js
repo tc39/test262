@@ -15,14 +15,13 @@ var a = [0, 1, -1, -123456.789, -Infinity, NaN];
 var referenceNumberFormat = new Intl.NumberFormat(locales);
 var referenceFormatted = a.map(referenceNumberFormat.format);
 
-function MyNumberFormat(locales, options) {
-    Intl.NumberFormat.call(this, locales, options);
+class MyNumberFormat extends Intl.NumberFormat {
+  constructor(locales, options) {
+    super(locales, options);
     // could initialize MyNumberFormat properties
+  }
+  // could add methods to MyNumberFormat.prototype
 }
-
-MyNumberFormat.prototype = Object.create(Intl.NumberFormat.prototype);
-MyNumberFormat.prototype.constructor = MyNumberFormat;
-// could add methods to MyNumberFormat.prototype
 
 var format = new MyNumberFormat(locales);
 var actual = a.map(format.format);

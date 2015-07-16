@@ -4,9 +4,9 @@
 /*---
 es5id: 13.3.3_L15
 description: >
-    Tests that Date.prototype.toLocaleTimeString  meets the
+    Tests that Date.prototype.toLocaleTimeString meets the
     requirements for built-in objects defined by the introduction of
-    chapter 15 of the ECMAScript Language Specification.
+    chapter 17 of the ECMAScript Language Specification.
 author: Norbert Lindenberg
 includes: [testBuiltInObject.js]
 ---*/

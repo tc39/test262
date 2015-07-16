@@ -3,40 +3,27 @@
 
 /*---
 es5id: 11.1.1_1
-description: Tests that an object can't be re-initialized as a NumberFormat.
+description: Tests that the this-value is ignored in NumberFormat.
 author: Norbert Lindenberg
 includes: [testIntl.js]
 ---*/
 
 testWithIntlConstructors(function (Constructor) {
-    var obj, error;
-    
+    var obj, newObj;
+
     // variant 1: use constructor in a "new" expression
     obj = new Constructor();
-    try {
-        Intl.NumberFormat.call(obj);
-    } catch (e) {
-        error = e;
+    newObj = Intl.NumberFormat.call(obj);
+    if (obj === newObj) {
+      $ERROR("NumberFormat object created with \"new\" was not ignored as this-value.");
     }
-    if (error === undefined) {
-        $ERROR("Re-initializing object created with \"new\" as NumberFormat was not rejected.");
-    } else if (error.name !== "TypeError") {
-        $ERROR("Re-initializing object created with \"new\" as NumberFormat was rejected with wrong error " + error.name + ".");
-    }
-    
+
     // variant 2: use constructor as a function
-    obj = Constructor.call({});
-    error = undefined;
-    try {
-        Intl.NumberFormat.call(obj);
-    } catch (e) {
-        error = e;
+    obj = Constructor();
+    newObj = Intl.NumberFormat.call(obj);
+    if (obj === newObj) {
+      $ERROR("NumberFormat object created with constructor as function was not ignored as this-value.");
     }
-    if (error === undefined) {
-        $ERROR("Re-initializing object created with constructor as function as NumberFormat was not rejected.");
-    } else if (error.name !== "TypeError") {
-        $ERROR("Re-initializing object created with constructor as function as NumberFormat was rejected with wrong error " + error.name + ".");
-    }
-    
+
     return true;
 });

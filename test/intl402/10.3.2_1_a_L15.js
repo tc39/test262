@@ -5,8 +5,8 @@
 es5id: 10.3.2_1_a_L15
 description: >
     Tests that the function returned by
-    Intl.Collator.prototype.compare  meets the requirements for
-    built-in objects defined by the introduction of  chapter 15 of the
+    Intl.Collator.prototype.compare meets the requirements for
+    built-in objects defined by the introduction of chapter 17 of the
     ECMAScript Language Specification.
 author: Norbert Lindenberg
 includes: [testBuiltInObject.js]

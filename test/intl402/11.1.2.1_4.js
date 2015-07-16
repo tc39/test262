@@ -4,8 +4,8 @@
 /*---
 es5id: 11.1.2.1_4
 description: >
-    Tests that for non-object values passed as this to NumberFormat a
-    wrapper object will be initialized and returned.
+    Tests that non-object values passed as this to NumberFormat are ignored
+    and a normal number format object will be initialized and returned.
 author: Norbert Lindenberg
 ---*/
 
