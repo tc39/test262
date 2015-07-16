@@ -10,7 +10,6 @@ description: >
     Strict mode - checking access to strict function caller from
     strict function (FunctionExpression defined within a
     FunctionDeclaration inside strict mode)
-negative: TypeError
 flags: [onlyStrict]
 ---*/
 
@@ -20,8 +19,10 @@ function f1() {
     }
     return f();
 }
-f1();
 
+assert.throws(TypeError, function() {
+    f1();
+});
 
 function gNonStrict() {
     return gNonStrict.caller;

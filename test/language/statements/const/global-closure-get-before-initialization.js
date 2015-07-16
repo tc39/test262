@@ -5,8 +5,12 @@ es6id: 13.1
 description: >
     const: global closure [[Get]] before initialization.
     (TDZ, Temporal Dead Zone)
-negative: ReferenceError
 ---*/
+
 function f() { return x + 1; }
-f();
+
+assert.throws(ReferenceError, function() {
+  f();
+});
+
 const x = 1;

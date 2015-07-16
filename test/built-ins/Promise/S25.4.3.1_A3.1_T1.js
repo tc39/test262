@@ -7,7 +7,8 @@ info: >
 es6id: S25.4.3.1_A3.1_T1
 author: Sam Mikes
 description: new Promise("not callable") throws TypeError
-negative: TypeError
 ---*/
 
-new Promise("not callable");
+assert.throws(TypeError, function() {
+  new Promise("not callable");
+});

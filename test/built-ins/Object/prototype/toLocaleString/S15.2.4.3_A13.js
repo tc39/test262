@@ -6,7 +6,8 @@ es5id: 15.2.4.3_A13
 description: >
     Let O be the result of calling ToObject passing the this value as
     the argument.
-negative: TypeError
 ---*/
 
-Object.prototype.toLocaleString.call(null);
+assert.throws(TypeError, function() {
+  Object.prototype.toLocaleString.call(null);
+});

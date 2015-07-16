@@ -10,13 +10,14 @@ description: >
     Strict mode - checking access to strict function caller from
     non-strict function (Literal setter includes strict directive
     prologue)
-negative: TypeError
 flags: [noStrict]
 ---*/
 
 var o = { set foo(stuff) { "use strict"; return gNonStrict(); } }
-o.foo = 8;
 
+assert.throws(TypeError, function() {
+    o.foo = 8;
+});
 
 function gNonStrict() {
     return gNonStrict.caller || gNonStrict.caller.throwTypeError;

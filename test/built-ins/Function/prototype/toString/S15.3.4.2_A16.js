@@ -10,9 +10,10 @@ description: >
     The String constructor, given an object, should invoke that
     object's toString method as a method, i.e., with its this value
     bound to that object.
-negative: TypeError
 ---*/
 
 var obj = {toString: Function.prototype.toString};
 
-String(obj);
+assert.throws(TypeError, function() {
+  String(obj);
+});

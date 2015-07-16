@@ -6,7 +6,8 @@ es5id: 15.3.4.2_A13
 description: >
     The toString function is not generic; it throws a TypeError
     exception if its this value is not a Function object.
-negative: TypeError
 ---*/
 
-Function.prototype.toString.call(null);
+assert.throws(TypeError, function() {
+  Function.prototype.toString.call(null);
+});

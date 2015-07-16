@@ -9,9 +9,10 @@ info: >
 es6id: S25.4.4.3_A3.1_T2
 author: Sam Mikes
 description: Promise.race throws TypeError, even on empty array, when 'this' does not conform to Promise constructor
-negative: TypeError
 ---*/
 
 function BadPromiseConstructor(f) { f(undefined, undefined); }
 
-Promise.race.call(BadPromiseConstructor, []);
+assert.throws(TypeError, function() {
+  Promise.race.call(BadPromiseConstructor, []);
+});

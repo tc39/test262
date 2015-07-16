@@ -5,7 +5,8 @@
 info: <LS> between chunks of one string not allowed
 es5id: 8.4_A7.4
 description: Insert <LS> between chunks of one string
-negative: ReferenceError
 ---*/
 
-eval("var x = asdf\u2029ghjk");
+assert.throws(ReferenceError, function() {
+  eval("var x = asdf\u2029ghjk");
+});

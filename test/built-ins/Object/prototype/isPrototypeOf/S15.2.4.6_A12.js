@@ -6,7 +6,8 @@ es5id: 15.2.4.6_A12
 description: >
     Let O be the result of calling ToObject passing the this value as
     the argument.
-negative: TypeError
 ---*/
 
-Object.prototype.isPrototypeOf.call(undefined, {});
+assert.throws(TypeError, function() {
+  Object.prototype.isPrototypeOf.call(undefined, {});
+});

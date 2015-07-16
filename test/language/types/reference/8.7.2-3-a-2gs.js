@@ -9,10 +9,11 @@ es5id: 8.7.2-3-a-2gs
 description: >
     Strict Mode - 'runtime' error is thrown before LeftHandSide
     evaluates to an unresolvable Reference
-negative: Test262Error
 flags: [onlyStrict]
 includes: [Test262Error.js]
 ---*/
 
-throw new Test262Error();
-b = 11;
+assert.throws(Test262Error, function() {
+  throw new Test262Error();
+  b = 11;
+});

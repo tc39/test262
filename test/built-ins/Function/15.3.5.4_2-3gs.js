@@ -9,15 +9,16 @@ es5id: 15.3.5.4_2-3gs
 description: >
     Strict mode - checking access to strict function caller from
     strict function (FunctionExpression defined within strict mode)
-negative: TypeError
 flags: [onlyStrict]
 ---*/
 
 var f = function () {
     return gNonStrict();
 }
-f();
 
+assert.throws(TypeError, function() {
+    f();
+});
 
 function gNonStrict() {
     return gNonStrict.caller;

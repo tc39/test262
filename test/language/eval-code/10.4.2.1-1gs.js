@@ -10,10 +10,10 @@ description: >
     Strict Mode - eval code cannot instantiate variable in the
     variable environment of the calling context that invoked the eval
     if the code of the calling context is strict code
-negative: ReferenceError
 flags: [onlyStrict]
 ---*/
 
 eval("var x = 7;");
-x = 9;
-throw NotEarlyError;
+assert.throws(ReferenceError, function() {
+  x = 9;
+});

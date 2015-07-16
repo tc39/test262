@@ -10,17 +10,17 @@ description: >
     Strict mode - checking access to strict function caller from
     strict function (FunctionDeclaration defined within an Anonymous
     FunctionExpression inside strict mode)
-negative: TypeError
 flags: [onlyStrict]
 ---*/
 
-(function () {
-    function f() {
-        return gNonStrict();
-    }
-    return f();
-})();
-
+assert.throws(TypeError, function() {
+    (function () {
+        function f() {
+            return gNonStrict();
+        }
+        return f();
+    })();
+});
 
 function gNonStrict() {
     return gNonStrict.caller;

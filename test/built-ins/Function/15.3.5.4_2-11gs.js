@@ -9,11 +9,12 @@ es5id: 15.3.5.4_2-11gs
 description: >
     Strict mode - checking access to strict function caller from
     strict function (eval used within strict mode)
-negative: TypeError
 flags: [onlyStrict]
 ---*/
 
-eval("gNonStrict();");
+assert.throws(TypeError, function() {
+    eval("gNonStrict();");
+});
 
 
 function gNonStrict() {

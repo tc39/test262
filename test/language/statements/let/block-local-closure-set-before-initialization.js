@@ -5,10 +5,13 @@ es6id: 13.1
 description: >
     let: block local closure [[Set]] before initialization.
     (TDZ, Temporal Dead Zone)
-negative: ReferenceError
 ---*/
 {
   function f() { x = 1; }
-  f();
+
+  assert.throws(ReferenceError, function() {
+    f();
+  });
+
   let x;
 }

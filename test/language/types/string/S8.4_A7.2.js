@@ -5,7 +5,8 @@
 info: <CR> between chunks of one string not allowed
 es5id: 8.4_A7.2
 description: Insert <CR> between chunks of one string
-negative: ReferenceError
 ---*/
 
-eval("var x = asdf\u000Dghjk");
+assert.throws(ReferenceError, function() {
+  eval("var x = asdf\u000Dghjk");
+});

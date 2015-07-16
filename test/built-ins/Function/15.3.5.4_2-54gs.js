@@ -9,14 +9,15 @@ es5id: 15.3.5.4_2-54gs
 description: >
     Strict mode - checking access to strict function caller from
     strict function (Injected setter defined within strict mode)
-negative: TypeError
 flags: [onlyStrict]
 ---*/
 
 var o = {};
 Object.defineProperty(o, "foo", { set: function(stuff) { return gNonStrict(); } });
-o.foo = 9; 
 
+assert.throws(TypeError, function() {
+    o.foo = 9;
+});
 
 function gNonStrict() {
     return gNonStrict.caller;

@@ -4,6 +4,8 @@
 es6id: 12.2.5
 description: >
     Throws when IdentifierReference is undefined
-negative: ReferenceError
 ---*/
-var o = {notDefined};
+
+assert.throws(ReferenceError, function() {
+  var o = {notDefined};
+});
