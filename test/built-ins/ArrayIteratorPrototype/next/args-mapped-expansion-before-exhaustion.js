@@ -1,4 +1,4 @@
-// Copyright (C) Copyright 2014 the V8 project authors. All rights reserved.
+// Copyright (C) 2014 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 es6id: 9.4.4.7 S22
