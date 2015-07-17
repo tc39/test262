@@ -17,7 +17,7 @@ var gNonStrict = gNonStrictBindee.bind(null);
 
 function f() {
     "use strict";
-    return gNonStrict();
+    gNonStrict();
 }
 
 assert.throws(TypeError, function() {

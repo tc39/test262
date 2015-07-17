@@ -19,7 +19,7 @@ var gNonStrict = function () {
 
 function f() {
     "use strict";
-    return gNonStrict();
+    gNonStrict();
 }
 
 assert.throws(TypeError, function() {

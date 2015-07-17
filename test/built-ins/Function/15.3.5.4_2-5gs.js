@@ -15,7 +15,7 @@ flags: [onlyStrict]
 
 assert.throws(TypeError, function() {
     (function () {
-        return gNonStrict();
+        gNonStrict();
     })();
 });
 

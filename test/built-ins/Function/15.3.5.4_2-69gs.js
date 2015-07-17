@@ -14,7 +14,7 @@ flags: [noStrict]
 includes: [fnGlobalObject.js]
 ---*/
 
-function f() { "use strict"; return gNonStrict();};
+function f() { "use strict"; gNonStrict();};
 
 assert.throws(TypeError, function() {
     f.call(fnGlobalObject());

@@ -16,9 +16,9 @@ flags: [noStrict]
 var f1 = function () {
     "use strict";
     function f() {
-        return gNonStrict();
+        gNonStrict();
     }
-    return f();
+    f();
 }
 
 assert.throws(TypeError, function() {

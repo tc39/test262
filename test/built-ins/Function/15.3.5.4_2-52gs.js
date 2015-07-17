@@ -13,7 +13,7 @@ flags: [onlyStrict]
 ---*/
 
 var o = {};
-Object.defineProperty(o, "foo",  { get: function() { return gNonStrict(); } });
+Object.defineProperty(o, "foo",  { get: function() { gNonStrict(); } });
 
 assert.throws(TypeError, function() {
     o.foo;

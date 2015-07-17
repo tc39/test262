@@ -16,7 +16,7 @@ flags: [noStrict]
 assert.throws(TypeError, function() {
     var obj = new (function () {
         "use strict";
-        return gNonStrict();
+        gNonStrict();
     });
 });
 

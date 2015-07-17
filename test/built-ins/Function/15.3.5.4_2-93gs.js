@@ -15,7 +15,7 @@ includes: [fnGlobalObject.js]
 ---*/
 
 function f() { return gNonStrict();};
-(function () {"use strict"; return f.bind(fnGlobalObject())(); })();
+(function () {"use strict"; f.bind(fnGlobalObject())(); })();
 
 
 function gNonStrict() {

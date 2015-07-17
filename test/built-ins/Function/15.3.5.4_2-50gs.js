@@ -12,7 +12,7 @@ description: >
 flags: [onlyStrict]
 ---*/
 
-var o = { set foo(stuff) { return gNonStrict(); } }
+var o = { set foo(stuff) { gNonStrict(); } }
 
 assert.throws(TypeError, function() {
     o.foo = 7;
