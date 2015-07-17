@@ -12,7 +12,7 @@ includes: [fnGlobalObject.js]
 ---*/
 
 function f() { return gNonStrict();};
-(function () {"use strict"; return f.call(fnGlobalObject()); })();
+(function () {"use strict"; f.call(fnGlobalObject()); })();
 
 
 function gNonStrict() {

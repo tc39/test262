@@ -11,7 +11,7 @@ flags: [noStrict]
 ---*/
 
 var o = {};
-Object.defineProperty(o, "foo", { get: function() { "use strict"; return gNonStrict(); } });
+Object.defineProperty(o, "foo", { get: function() { "use strict"; gNonStrict(); } });
 
 assert.throws(TypeError, function() {
     o.foo;

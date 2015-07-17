@@ -11,8 +11,8 @@ flags: [onlyStrict]
 ---*/
 
 function f1() {
-    return (function () {
-        return gNonStrict();
+    (function () {
+        gNonStrict();
     })();
 }
 

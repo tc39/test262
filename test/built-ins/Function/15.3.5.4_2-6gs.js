@@ -13,7 +13,7 @@ flags: [noStrict]
 assert.throws(TypeError, function() {
     (function () {
         "use strict";
-        return gNonStrict();
+        gNonStrict();
     })();
 });
 

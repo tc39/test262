@@ -12,7 +12,7 @@ flags: [onlyStrict]
 
 assert.throws(TypeError, function() {
     var obj = new (function () {
-        return gNonStrict();
+        gNonStrict();
     });
 });
 

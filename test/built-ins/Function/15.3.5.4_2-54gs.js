@@ -10,7 +10,7 @@ flags: [onlyStrict]
 ---*/
 
 var o = {};
-Object.defineProperty(o, "foo", { set: function(stuff) { return gNonStrict(); } });
+Object.defineProperty(o, "foo", { set: function(stuff) { gNonStrict(); } });
 
 assert.throws(TypeError, function() {
     o.foo = 9;

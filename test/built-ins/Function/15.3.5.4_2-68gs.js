@@ -10,7 +10,7 @@ description: >
 flags: [noStrict]
 ---*/
 
-function f() { "use strict"; return gNonStrict();};
+function f() { "use strict"; gNonStrict();};
 var o = {};
 
 assert.throws(TypeError, function() {

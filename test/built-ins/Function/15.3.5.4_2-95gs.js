@@ -14,7 +14,7 @@ var gNonStrict = Function("return gNonStrict.caller || gNonStrict.caller.throwTy
 
 function f() {
     "use strict";
-    return gNonStrict();
+    gNonStrict();
 }
 
 assert.throws(TypeError, function() {

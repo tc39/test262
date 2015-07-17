@@ -14,8 +14,7 @@ assert.throws(TypeError, function() {
     (function () {
         var f = function () {
             "use strict";
-            var r = gNonStrict();
-            return r;
+            gNonStrict();
         }
         return f();
     })();

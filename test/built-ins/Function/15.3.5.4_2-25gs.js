@@ -12,9 +12,9 @@ flags: [onlyStrict]
 
 var f1 = function () {
     var f = function () {
-        return gNonStrict();
+        gNonStrict();
     }
-    return f();
+    f();
 }
 
 assert.throws(TypeError, function() {

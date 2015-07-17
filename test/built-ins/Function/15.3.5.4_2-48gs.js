@@ -9,7 +9,7 @@ description: >
 flags: [onlyStrict]
 ---*/
 
-var o = { get foo() { return gNonStrict(); } }
+var o = { get foo() { gNonStrict(); } }
 
 assert.throws(TypeError, function() {
     o.foo;

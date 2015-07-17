@@ -11,7 +11,7 @@ flags: [noStrict]
 ---*/
 
 function f() {return gNonStrict();};
-(function () {"use strict"; return Function("return f();")(); })();
+(function () {"use strict"; Function("return f();")(); })();
 
 
 function gNonStrict() {
