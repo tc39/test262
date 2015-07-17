@@ -206,8 +206,8 @@ function Presenter() {
 
         innerHTML += '<br /><b>Path</b>';
         innerHTML += '<pre>' + test.path + '</pre>';
-        innerHTML += '<br /><a href="javascript:void(window.open(\'http://hg.ecmascript.org/tests/test262/file/tip/test/suite'
-        innerHTML += test.path.replace("TestCases", "") + '\'));">' + 'Hg source' + '</a> (might be newer than the testcase source shown above)\n'
+        innerHTML += '<br /><a href="javascript:void(window.open(\'https://github.com/tc39/test262/raw/master/test'
+        innerHTML += test.path.replace("TestCases", "") + '\'));">' + 'GitHub source' + '</a> (might be newer than the testcase source shown above)\n'
         
         popWnd.document.write(innerHTML);
     }
@@ -222,7 +222,7 @@ function Presenter() {
         bugDetails    += "DESCRIPTION\n*Please insert your description here!*\n\n";
         bugDetails    += "------------------\n";
         bugDetails    += "TEST:            " + test.path + "\n";
-        bugDetails    += "SOURCE:          http://hg.ecmascript.org/tests/test262/file/tip/test/suite" + test.path.replace("TestCases", "") + "\n";
+        bugDetails    += "SOURCE:          https://github.com/tc39/test262/raw/master/test" + test.path.replace("TestCases", "") + "\n";
         bugDetails    += "TEST SUITE DATE: " + date + "\n";
         bugDetails    += "PLATFORM:        " + navigator.userAgent + "\n";
         bugDetails    += "ERROR:           " + test.error + "\n\n";
