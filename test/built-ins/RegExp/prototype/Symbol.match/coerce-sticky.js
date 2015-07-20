@@ -17,7 +17,7 @@ info: >
 
     [...]
     8. Let sticky be ToBoolean(Get(R, "sticky")).
-features: [Symbol, Symbol.match]
+features: [Symbol.match]
 ---*/
 
 var r = /a/;
@@ -41,13 +41,13 @@ assert.notSameValue(r[Symbol.match]('ba'), null);
 r.sticky = 0;
 assert.notSameValue(r[Symbol.match]('ba'), null);
 
-r.sticky = 86;
-assert.sameValue(r[Symbol.match]('ba'), null);
-
 r.sticky = '';
 assert.notSameValue(r[Symbol.match]('ba'), null);
 
-r.sticky = Symbol();
+r.sticky = 86;
+assert.sameValue(r[Symbol.match]('ba'), null);
+
+r.sticky = Symbol.match;
 assert.sameValue(r[Symbol.match]('ba'), null);
 
 r.sticky = {};
