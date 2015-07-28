@@ -3,26 +3,21 @@
 /*---
 es6id: 22.1.3.13
 description: >
-  The method should return an Iterator instance.
+  Creates an iterator from a custom object.
 info: >
   22.1.3.13 Array.prototype.keys ( )
 
   1. Let O be ToObject(this value).
   2. ReturnIfAbrupt(O).
   3. Return CreateArrayIterator(O, "key").
-
-  22.1.5.1 CreateArrayIterator Abstract Operation
-
-  ...
-  2. Let iterator be ObjectCreate(%ArrayIteratorPrototype%, «‍[[IteratedObject]],
-  [[ArrayIteratorNextIndex]], [[ArrayIterationKind]]»).
-  ...
-  6. Return iterator.
 features: [Symbol.iterator]
 ---*/
 
+var obj = {
+  length: 2
+};
+var iter = Array.prototype.keys.call(obj);
 var ArrayIteratorProto = Object.getPrototypeOf([][Symbol.iterator]());
-var iter = [].keys();
 
 assert.sameValue(
   Object.getPrototypeOf(iter), ArrayIteratorProto,
