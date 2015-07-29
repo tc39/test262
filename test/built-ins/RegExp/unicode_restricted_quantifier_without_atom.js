@@ -11,18 +11,42 @@ es6id: 21.1.2
 ---*/
 
 // Quantifier without atom.
-assert.throws(SyntaxError, function() { RegExp("*", "u"); });
-assert.throws(SyntaxError, function() { RegExp("+", "u"); });
-assert.throws(SyntaxError, function() { RegExp("?", "u"); });
-assert.throws(SyntaxError, function() { RegExp("{1}", "u"); });
-assert.throws(SyntaxError, function() { RegExp("{1,}", "u"); });
-assert.throws(SyntaxError, function() { RegExp("{1,2}", "u"); });
+assert.throws(SyntaxError, function() {
+  RegExp("*", "u");
+}, 'RegExp("*", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("+", "u");
+}, 'RegExp("+", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("?", "u");
+}, 'RegExp("?", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("{1}", "u");
+}, 'RegExp("{1}", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("{1,}", "u");
+}, 'RegExp("{1,}", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("{1,2}", "u");
+}, 'RegExp("{1,2}", "u"): ');
 
 
 // Reluctant quantifier without atom.
-assert.throws(SyntaxError, function() { RegExp("*?", "u"); });
-assert.throws(SyntaxError, function() { RegExp("+?", "u"); });
-assert.throws(SyntaxError, function() { RegExp("??", "u"); });
-assert.throws(SyntaxError, function() { RegExp("{1}?", "u"); });
-assert.throws(SyntaxError, function() { RegExp("{1,}?", "u"); });
-assert.throws(SyntaxError, function() { RegExp("{1,2}?", "u"); });
+assert.throws(SyntaxError, function() {
+  RegExp("*?", "u");
+}, 'RegExp("*?", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("+?", "u");
+}, 'RegExp("+?", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("??", "u");
+}, 'RegExp("??", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("{1}?", "u");
+}, 'RegExp("{1}?", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("{1,}?", "u");
+}, 'RegExp("{1,}?", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("{1,2}?", "u");
+}, 'RegExp("{1,2}?", "u"): ');

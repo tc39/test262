@@ -68,7 +68,7 @@ for (var cu = 0x41 /* A */; cu <= 0x5a /* Z */; ++cu) {
   if (!isValidAlphaEscapeInAtom(s)) {
     assert.throws(SyntaxError, function() {
       RegExp("\\" + s, "u");
-    }, "IdentityEscape '" + s + "'");
+    }, "IdentityEscape in AtomEscape: '" + s + "'");
   }
 }
 for (var cu = 0x61 /* a */; cu <= 0x7a /* z */; ++cu) {
@@ -76,7 +76,7 @@ for (var cu = 0x61 /* a */; cu <= 0x7a /* z */; ++cu) {
   if (!isValidAlphaEscapeInAtom(s)) {
     assert.throws(SyntaxError, function() {
       RegExp("\\" + s, "u");
-    }, "IdentityEscape '" + s + "'");
+    }, "IdentityEscape in AtomEscape: '" + s + "'");
   }
 }
 
@@ -87,7 +87,7 @@ for (var cu = 0x41 /* A */; cu <= 0x5a /* Z */; ++cu) {
   if (!isValidAlphaEscapeInClass(s)) {
     assert.throws(SyntaxError, function() {
       RegExp("[\\" + s + "]", "u");
-    }, "IdentityEscape '" + s + "'");
+    }, "IdentityEscape in ClassEscape: '" + s + "'");
   }
 }
 for (var cu = 0x61 /* a */; cu <= 0x7a /* z */; ++cu) {
@@ -95,6 +95,6 @@ for (var cu = 0x61 /* a */; cu <= 0x7a /* z */; ++cu) {
   if (!isValidAlphaEscapeInClass(s)) {
     assert.throws(SyntaxError, function() {
       RegExp("[\\" + s + "]", "u");
-    }, "IdentityEscape '" + s + "'");
+    }, "IdentityEscape in ClassEscape: '" + s + "'");
   }
 }

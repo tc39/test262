@@ -25,7 +25,7 @@ for (var cu = 0x00; cu <= 0x7f; ++cu) {
   if (!isAlpha(s)) {
     assert.throws(SyntaxError, function() {
       RegExp("\\c" + s, "u");
-    }, "ControlLetter '" + s + "'");
+    }, "ControlLetter escape in AtomEscape: '" + s + "'");
   }
 }
 
@@ -40,6 +40,6 @@ for (var cu = 0x00; cu <= 0x7f; ++cu) {
   if (!isAlpha(s)) {
     assert.throws(SyntaxError, function() {
       RegExp("[\\c" + s + "]", "u");
-    }, "ControlLetter '" + s + "'");
+    }, "ControlLetter escape in ClassEscape: '" + s + "'");
   }
 }

@@ -14,27 +14,63 @@ es6id: 21.1.2
 //
 // AtomEscape[U] :: CharacterEscape[?U]
 // CharacterEscape[U] :: RegExpUnicodeEscapeSequence[?U]
-assert.throws(SyntaxError, function() { RegExp("\\u", "u"); });
-assert.throws(SyntaxError, function() { RegExp("\\u1", "u"); });
-assert.throws(SyntaxError, function() { RegExp("\\u12", "u"); });
-assert.throws(SyntaxError, function() { RegExp("\\u123", "u"); });
-assert.throws(SyntaxError, function() { RegExp("\\u{", "u"); });
-assert.throws(SyntaxError, function() { RegExp("\\u{}", "u"); });
-assert.throws(SyntaxError, function() { RegExp("\\u{1", "u"); });
-assert.throws(SyntaxError, function() { RegExp("\\u{12", "u"); });
-assert.throws(SyntaxError, function() { RegExp("\\u{123", "u"); });
+assert.throws(SyntaxError, function() {
+  RegExp("\\u", "u");
+}, 'RegExp("\\u", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("\\u1", "u");
+}, 'RegExp("\\u1", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("\\u12", "u");
+}, 'RegExp("\\u12", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("\\u123", "u");
+}, 'RegExp("\\u123", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("\\u{", "u");
+}, 'RegExp("\\u{", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("\\u{}", "u");
+}, 'RegExp("\\u{}", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("\\u{1", "u");
+}, 'RegExp("\\u{1", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("\\u{12", "u");
+}, 'RegExp("\\u{12", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("\\u{123", "u");
+}, 'RegExp("\\u{123", "u"): ');
 
 
 // Incomplete RegExpUnicodeEscapeSequence in ClassEscape not parsed as IdentityEscape.
 //
 // ClassEscape[U] :: CharacterEscape[?U]
 // CharacterEscape[U] :: RegExpUnicodeEscapeSequence[?U]
-assert.throws(SyntaxError, function() { RegExp("[\\u]", "u"); });
-assert.throws(SyntaxError, function() { RegExp("[\\u1]", "u"); });
-assert.throws(SyntaxError, function() { RegExp("[\\u12]", "u"); });
-assert.throws(SyntaxError, function() { RegExp("[\\u123]", "u"); });
-assert.throws(SyntaxError, function() { RegExp("[\\u{]", "u"); });
-assert.throws(SyntaxError, function() { RegExp("[\\u{}]", "u"); });
-assert.throws(SyntaxError, function() { RegExp("[\\u{1]", "u"); });
-assert.throws(SyntaxError, function() { RegExp("[\\u{12]", "u"); });
-assert.throws(SyntaxError, function() { RegExp("[\\u{123]", "u"); });
+assert.throws(SyntaxError, function() {
+  RegExp("[\\u]", "u");
+}, 'RegExp("[\\u]", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("[\\u1]", "u");
+}, 'RegExp("[\\u1]", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("[\\u12]", "u");
+}, 'RegExp("[\\u12]", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("[\\u123]", "u");
+}, 'RegExp("[\\u123]", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("[\\u{]", "u");
+}, 'RegExp("[\\u{]", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("[\\u{}]", "u");
+}, 'RegExp("[\\u{}]", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("[\\u{1]", "u");
+}, 'RegExp("[\\u{1]", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("[\\u{12]", "u");
+}, 'RegExp("[\\u{12]", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("[\\u{123]", "u");
+}, 'RegExp("[\\u{123]", "u"): ');

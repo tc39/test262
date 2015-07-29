@@ -14,13 +14,21 @@ es6id: 21.1.2
 //
 // AtomEscape[U] :: CharacterEscape[?U]
 // CharacterEscape[U] :: HexEscapeSequence
-assert.throws(SyntaxError, function() { RegExp("\\x", "u"); });
-assert.throws(SyntaxError, function() { RegExp("\\x1", "u"); });
+assert.throws(SyntaxError, function() {
+  RegExp("\\x", "u");
+}, 'RegExp("\\x", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("\\x1", "u");
+}, 'RegExp("\\x1", "u"): ');
 
 
 // Incomplete HexEscapeSequence in ClassEscape not parsed as IdentityEscape.
 //
 // ClassEscape[U] :: CharacterEscape[?U]
 // CharacterEscape[U] :: HexEscapeSequence
-assert.throws(SyntaxError, function() { RegExp("[\\x]", "u"); });
-assert.throws(SyntaxError, function() { RegExp("[\\x1]", "u"); });
+assert.throws(SyntaxError, function() {
+  RegExp("[\\x]", "u");
+}, 'RegExp("[\\x]", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("[\\x1]", "u");
+}, 'RegExp("[\\x1]", "u"): ');

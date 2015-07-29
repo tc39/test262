@@ -11,9 +11,21 @@ es6id: 21.1.2
 ---*/
 
 // Single parentheses and brackets.
-assert.throws(SyntaxError, function() { RegExp("(", "u"); });
-assert.throws(SyntaxError, function() { RegExp(")", "u"); });
-assert.throws(SyntaxError, function() { RegExp("[", "u"); });
-assert.throws(SyntaxError, function() { RegExp("]", "u"); });
-assert.throws(SyntaxError, function() { RegExp("{", "u"); });
-assert.throws(SyntaxError, function() { RegExp("}", "u"); });
+assert.throws(SyntaxError, function() {
+  RegExp("(", "u");
+}, 'RegExp("(", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp(")", "u");
+}, 'RegExp(")", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("[", "u");
+}, 'RegExp("[", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("]", "u");
+}, 'RegExp("]", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("{", "u");
+}, 'RegExp("{", "u"): ');
+assert.throws(SyntaxError, function() {
+  RegExp("}", "u");
+}, 'RegExp("}", "u"): ');

@@ -18,36 +18,36 @@ es6id: 21.1.2
 //   ^ $ \ . * + ? ( ) [ ] { } |
 
 // IdentityEscape in AtomEscape
-assert(/\^/u.test("^"));
-assert(/\$/u.test("$"));
-assert(/\\/u.test("\\"));
-assert(/\./u.test("."));
-assert(/\*/u.test("*"));
-assert(/\+/u.test("+"));
-assert(/\?/u.test("?"));
-assert(/\(/u.test("("));
-assert(/\)/u.test(")"));
-assert(/\[/u.test("["));
-assert(/\]/u.test("]"));
-assert(/\{/u.test("{"));
-assert(/\}/u.test("}"));
-assert(/\|/u.test("|"));
-assert(/\//u.test("/"));
+assert(/\^/u.test("^"), "IdentityEscape in AtomEscape: /\\^/");
+assert(/\$/u.test("$"), "IdentityEscape in AtomEscape: /\\$/");
+assert(/\\/u.test("\\"), "IdentityEscape in AtomEscape: /\\\\/");
+assert(/\./u.test("."), "IdentityEscape in AtomEscape: /\\./");
+assert(/\*/u.test("*"), "IdentityEscape in AtomEscape: /\\*/");
+assert(/\+/u.test("+"), "IdentityEscape in AtomEscape: /\\+/");
+assert(/\?/u.test("?"), "IdentityEscape in AtomEscape: /\\?/");
+assert(/\(/u.test("("), "IdentityEscape in AtomEscape: /\\(/");
+assert(/\)/u.test(")"), "IdentityEscape in AtomEscape: /\\)/");
+assert(/\[/u.test("["), "IdentityEscape in AtomEscape: /\\[/");
+assert(/\]/u.test("]"), "IdentityEscape in AtomEscape: /\\]/");
+assert(/\{/u.test("{"), "IdentityEscape in AtomEscape: /\\{/");
+assert(/\}/u.test("}"), "IdentityEscape in AtomEscape: /\\}/");
+assert(/\|/u.test("|"), "IdentityEscape in AtomEscape: /\\|/");
+assert(/\//u.test("/"), "IdentityEscape in AtomEscape: /\\//");
 
 
 // IdentityEscape in ClassEscape
-assert(/[\^]/u.test("^"));
-assert(/[\$]/u.test("$"));
-assert(/[\\]/u.test("\\"));
-assert(/[\.]/u.test("."));
-assert(/[\*]/u.test("*"));
-assert(/[\+]/u.test("+"));
-assert(/[\?]/u.test("?"));
-assert(/[\(]/u.test("("));
-assert(/[\)]/u.test(")"));
-assert(/[\[]/u.test("["));
-assert(/[\]]/u.test("]"));
-assert(/[\{]/u.test("{"));
-assert(/[\}]/u.test("}"));
-assert(/[\|]/u.test("|"));
-assert(/[\/]/u.test("/"));
+assert(/[\^]/u.test("^"), "IdentityEscape in ClassEscape: /[\\^]/");
+assert(/[\$]/u.test("$"), "IdentityEscape in ClassEscape: /[\\$]/");
+assert(/[\\]/u.test("\\"), "IdentityEscape in ClassEscape: /[\\\\]/");
+assert(/[\.]/u.test("."), "IdentityEscape in ClassEscape: /[\\.]/");
+assert(/[\*]/u.test("*"), "IdentityEscape in ClassEscape: /[\\*]/");
+assert(/[\+]/u.test("+"), "IdentityEscape in ClassEscape: /[\\+]/");
+assert(/[\?]/u.test("?"), "IdentityEscape in ClassEscape: /[\\?]/");
+assert(/[\(]/u.test("("), "IdentityEscape in ClassEscape: /[\\(]/");
+assert(/[\)]/u.test(")"), "IdentityEscape in ClassEscape: /[\\)]/");
+assert(/[\[]/u.test("["), "IdentityEscape in ClassEscape: /[\\[]/");
+assert(/[\]]/u.test("]"), "IdentityEscape in ClassEscape: /[\\]]/");
+assert(/[\{]/u.test("{"), "IdentityEscape in ClassEscape: /[\\{]/");
+assert(/[\}]/u.test("}"), "IdentityEscape in ClassEscape: /[\\}]/");
+assert(/[\|]/u.test("|"), "IdentityEscape in ClassEscape: /[\\|]/");
+assert(/[\/]/u.test("/"), "IdentityEscape in ClassEscape: /[\\/]/");

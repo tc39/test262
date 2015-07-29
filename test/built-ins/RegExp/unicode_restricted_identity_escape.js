@@ -46,7 +46,7 @@ for (var cu = 0x00; cu <= 0x7f; ++cu) {
   if (!isAlphaDigit(s) && !isSyntaxCharacter(s) && s !== "/") {
     assert.throws(SyntaxError, function() {
       RegExp("\\" + s, "u");
-    }, "Invalid IdentityEscape '\\" + s + "'");
+    }, "Invalid IdentityEscape in AtomEscape: '\\" + s + "'");
   }
 }
 
@@ -60,6 +60,6 @@ for (var cu = 0x00; cu <= 0x7f; ++cu) {
   if (!isAlphaDigit(s) && !isSyntaxCharacter(s) && s !== "/" && s !== "-") {
     assert.throws(SyntaxError, function() {
       RegExp("[\\" + s + "]", "u");
-    }, "Invalid IdentityEscape '\\" + s + "'");
+    }, "Invalid IdentityEscape in ClassEscape: '\\" + s + "'");
   }
 }
