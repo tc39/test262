@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: Extension B.1.4 is not applied for Unicode RegExp
+description: B.1.4 is not applied for Unicode RegExp - Identity escape with basic latin characters
 info: >
     The compatibility extensions defined in B.1.4 Regular Expressions Patterns
     are not applied for Unicode RegExps.
