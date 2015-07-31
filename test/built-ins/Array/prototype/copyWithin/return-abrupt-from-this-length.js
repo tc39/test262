@@ -18,8 +18,7 @@ var o1 = {};
 Object.defineProperty(o1, 'length', {
   get: function() {
     throw new Test262Error();
-  },
-  configurable: true
+  }
 });
 assert.throws(Test262Error, function() {
   [].copyWithin.call(o1);

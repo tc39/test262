@@ -4,12 +4,15 @@
 es6id: 22.1.3.3
 description: >
   Loop from each property, even empty holes.
-includes: [compareArray.js]
 ---*/
 
-assert(
-  compareArray(
-    [0, 1, , , 1].copyWithin(0, 1, 4),
-    [1, , , , 1]
-  )
-);
+var arr = [0, 1, , , 1];
+
+arr.copyWithin(0, 1, 4);
+
+assert.sameValue(arr.length, 5);
+assert.sameValue(arr[0], 1);
+assert.sameValue(arr[4], 1);
+assert.sameValue(arr.hasOwnProperty(1), false);
+assert.sameValue(arr.hasOwnProperty(2), false);
+assert.sameValue(arr.hasOwnProperty(3), false);
