@@ -11,6 +11,7 @@ info: >
   8. Let relativeStart be ToInteger(start).
   9. ReturnIfAbrupt(relativeStart).
   ...
+features: [Symbol]
 ---*/
 
 var s = Symbol(1);

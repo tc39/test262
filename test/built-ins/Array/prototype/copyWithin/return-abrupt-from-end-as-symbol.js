@@ -12,6 +12,7 @@ info: >
   ToInteger(end).
   12. ReturnIfAbrupt(relativeEnd).
   ...
+features: [Symbol]
 ---*/
 
 var s = Symbol(1);
