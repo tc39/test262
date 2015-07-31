@@ -14,9 +14,6 @@ description: >
 ---*/
 
 assert.throws(TypeError, function() {
-  Proxy();
+  Proxy({}, {});
 });
 
-assert.throws(TypeError, function() {
-  Proxy([]);
-});
