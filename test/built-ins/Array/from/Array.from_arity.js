@@ -4,9 +4,20 @@
 /*---
 es6id: 22.1.2.1
 description: >
-    The Array.from() method creates a new Array instance
-    from an array-like or iterable object.
-    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
+    The length property of the Array.from method is 1.
+
+info: >
+
+    ES6 Section 17:
+
+    Unless otherwise specified, the length property of a built-in Function
+    object has the attributes { [[Writable]]: false, [[Enumerable]]: false,
+    [[Configurable]]: true }.
+includes: [propertyHelper.js]
 ---*/
 
 assert.sameValue(Array.from.length, 1);
+
+verifyNotEnumerable(Array.from, 'length');
+verifyNotWritable(Array.from, 'length');
+verifyConfigurable(Array.from, 'length');
