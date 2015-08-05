@@ -4,14 +4,13 @@
 /*---
 es6id: 22.1.2.1
 description: >
-    The length property of the Array.from method is 1.
-
+  The length property of the Array.from method is 1.
 info: >
-    ES6 Section 17:
+  22.1.2.1 Array.from ( items [ , mapfn [ , thisArg ] ] )
 
-    Unless otherwise specified, the length property of a built-in Function
-    object has the attributes { [[Writable]]: false, [[Enumerable]]: false,
-    [[Configurable]]: true }.
+  ...
+
+  The length property of the from method is 1.
 includes: [propertyHelper.js]
 ---*/
 
