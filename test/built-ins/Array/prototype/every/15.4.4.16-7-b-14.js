@@ -6,10 +6,8 @@ es5id: 15.4.4.16-7-b-14
 description: >
     Array.prototype.every - decreasing length of array causes index
     property not to be visited
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var accessed = false;
         function callbackfn(val, idx, obj) {
             accessed = true;
@@ -25,6 +23,5 @@ function testcase() {
             configurable: true
         });
 
-        return arr.every(callbackfn) && accessed;
-    }
-runTestCase(testcase);
+assert(arr.every(callbackfn), 'arr.every(callbackfn) !== true');
+assert(accessed, 'accessed !== true');

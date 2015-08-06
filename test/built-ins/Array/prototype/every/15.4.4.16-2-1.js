@@ -6,10 +6,8 @@ es5id: 15.4.4.16-2-1
 description: >
     Array.prototype.every applied to Array-like object, 'length' is an
     own data property
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn1(val, idx, obj) {
             return val > 10;
         }
@@ -25,7 +23,5 @@ function testcase() {
             length: 2
         };
 
-        return Array.prototype.every.call(obj, callbackfn1) &&
-            !Array.prototype.every.call(obj, callbackfn2);
-    }
-runTestCase(testcase);
+assert(Array.prototype.every.call(obj, callbackfn1), 'Array.prototype.every.call(obj, callbackfn1) !== true');
+assert.sameValue(Array.prototype.every.call(obj, callbackfn2), false, 'Array.prototype.every.call(obj, callbackfn2)');

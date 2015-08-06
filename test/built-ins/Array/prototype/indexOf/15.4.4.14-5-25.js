@@ -7,10 +7,7 @@ description: >
     Array.prototype.indexOf uses inherited valueOf method when value
     of 'fromIndex' is an object with an own toString and inherited
     valueOf methods
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var toStringAccessed = false;
         var valueOfAccessed = false;
@@ -31,6 +28,6 @@ function testcase() {
             return 2;
         };
 
-        return [0, true].indexOf(true, child) === 1 && valueOfAccessed && !toStringAccessed;
-    }
-runTestCase(testcase);
+assert.sameValue([0, true].indexOf(true, child), 1, '[0, true].indexOf(true, child)');
+assert(valueOfAccessed, 'valueOfAccessed !== true');
+assert.sameValue(toStringAccessed, false, 'toStringAccessed');

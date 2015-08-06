@@ -6,10 +6,7 @@ es5id: 15.4.4.20-9-9
 description: >
     Array.prototype.filter - modifications to length don't change
     number of iterations
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var called = 0;
 
@@ -30,6 +27,5 @@ function testcase() {
 
         var newArr = Array.prototype.filter.call(obj, callbackfn);
 
-        return newArr.length === 2 && 2 === called;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 2, 'newArr.length');
+assert.sameValue(called, 2, 'called');

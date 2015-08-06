@@ -7,10 +7,8 @@ description: >
     Array.prototype.forEach doesn't call callbackfn if 'length' is 0
     (subclassed Array, length overridden with obj w/o valueOf
     (toString))
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   foo.prototype = new Array(1, 2, 3);
   function foo() {}
   var f = new foo();
@@ -26,8 +24,5 @@ function testcase() {
   var callCnt = 0;
   function cb(){callCnt++}
   var i = f.forEach(cb);  
-  if (callCnt === 0) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(callCnt, 0, 'callCnt');

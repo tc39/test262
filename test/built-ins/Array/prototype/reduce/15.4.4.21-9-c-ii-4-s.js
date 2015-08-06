@@ -7,10 +7,8 @@ description: >
     Array.prototype.reduce - undefined passed as thisValue to strict
     callbackfn
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
   var innerThisCorrect = false;
   function callbackfn(prevVal, curVal, idx, obj)
   { 
@@ -19,6 +17,5 @@ function testcase() {
      return true;
   }
   [0].reduce(callbackfn,true);
-  return innerThisCorrect;    
- }
-runTestCase(testcase);
+
+assert(innerThisCorrect, 'innerThisCorrect !== true');

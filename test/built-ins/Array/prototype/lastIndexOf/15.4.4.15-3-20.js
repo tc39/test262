@@ -6,10 +6,7 @@ es5id: 15.4.4.15-3-20
 description: >
     Array.prototype.lastIndexOf - value of 'length' is an Object which
     has an own valueOf method
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         //valueOf method will be invoked first, since hint is Number
         var obj = {
@@ -23,7 +20,5 @@ function testcase() {
             }
         };
 
-        return Array.prototype.lastIndexOf.call(obj, true) === 1 &&
-            Array.prototype.lastIndexOf.call(obj, 2) === -1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.call(obj, true), 1, 'Array.prototype.lastIndexOf.call(obj, true)');
+assert.sameValue(Array.prototype.lastIndexOf.call(obj, 2), -1, 'Array.prototype.lastIndexOf.call(obj, 2)');

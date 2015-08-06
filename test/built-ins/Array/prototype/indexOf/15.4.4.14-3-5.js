@@ -6,13 +6,8 @@ es5id: 15.4.4.14-3-5
 description: >
     Array.prototype.indexOf - value of 'length' is a number (value is
     -0)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = { 0: true, length: -0 };
 
-        return Array.prototype.indexOf.call(obj, true) === -1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.indexOf.call(obj, true), -1, 'Array.prototype.indexOf.call(obj, true)');

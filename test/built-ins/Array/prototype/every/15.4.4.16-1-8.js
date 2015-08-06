@@ -4,16 +4,12 @@
 /*---
 es5id: 15.4.4.16-1-8
 description: Array.prototype.every applied to String object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             return !(obj instanceof String);
         }
 
         var obj = new String("hello\nworld\\!");
 
-        return !Array.prototype.every.call(obj, callbackfn);
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.every.call(obj, callbackfn), false, 'Array.prototype.every.call(obj, callbackfn)');

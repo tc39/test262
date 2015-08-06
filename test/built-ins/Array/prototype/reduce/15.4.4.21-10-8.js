@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.21-10-8
 description: Array.prototype.reduce doesn't visit expandos
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
   var callCnt = 0;
   function callbackfn(prevVal, curVal,  idx, obj)
@@ -20,10 +17,4 @@ function testcase() {
   srcArr[true] = 11;
   srcArr.reduce(callbackfn);
 
-  if(callCnt == 4)
-  {
-    return true;
-  }
-
- }
-runTestCase(testcase);
+assert.sameValue(callCnt, 4, 'callCnt');

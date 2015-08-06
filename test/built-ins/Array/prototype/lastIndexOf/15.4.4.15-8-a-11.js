@@ -6,10 +6,7 @@ es5id: 15.4.4.15-8-a-11
 description: >
     Array.prototype.lastIndexOf - deleting own property causes index
     property not to be visited on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = { length: 200 };
 
@@ -28,6 +25,4 @@ function testcase() {
             configurable: true
         });
 
-        return -1 === Array.prototype.lastIndexOf.call(arr, 6.99);
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.call(arr, 6.99), -1, 'Array.prototype.lastIndexOf.call(arr, 6.99)');

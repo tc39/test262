@@ -6,10 +6,7 @@ es5id: 15.4.4.22-3-20
 description: >
     Array.prototype.reduceRight - value of 'length' is an Object which
     has an own valueOf method
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult1 = true;
         var testResult2 = false;
@@ -39,6 +36,7 @@ function testcase() {
         };
 
         Array.prototype.reduceRight.call(obj, callbackfn, 1);
-        return testResult1 && testResult2 && valueOfAccessed;
-    }
-runTestCase(testcase);
+
+assert(testResult1, 'testResult1 !== true');
+assert(testResult2, 'testResult2 !== true');
+assert(valueOfAccessed, 'valueOfAccessed !== true');

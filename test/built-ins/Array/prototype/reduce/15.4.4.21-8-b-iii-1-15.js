@@ -6,10 +6,7 @@ es5id: 15.4.4.21-8-b-iii-1-15
 description: >
     Array.prototype.reduce - element to be retrieved is inherited
     accessor property on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
         function callbackfn(prevVal, curVal, idx, obj) {
@@ -34,6 +31,5 @@ function testcase() {
         child.length = 3;
 
         Array.prototype.reduce.call(child, callbackfn);
-        return testResult;
-    }
-runTestCase(testcase);
+
+assert(testResult, 'testResult !== true');

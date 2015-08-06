@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.18-5-11
 description: Array.prototype.forEach - String Object can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var result = false;
         var objString = new String();
@@ -17,6 +14,5 @@ function testcase() {
         }
 
         [11].forEach(callbackfn, objString);
-        return result;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

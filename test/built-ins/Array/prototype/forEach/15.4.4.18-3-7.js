@@ -6,10 +6,7 @@ es5id: 15.4.4.18-3-7
 description: >
     Array.prototype.forEach - value of 'length' is a number (value is
     negative)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult1 = false;
 
@@ -21,6 +18,4 @@ function testcase() {
 
         Array.prototype.forEach.call(obj, callbackfn);
 
-        return !testResult1;
-    }
-runTestCase(testcase);
+assert.sameValue(testResult1, false, 'testResult1');

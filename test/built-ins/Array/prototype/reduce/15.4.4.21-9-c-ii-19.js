@@ -7,10 +7,7 @@ description: >
     Array.prototype.reduce - value of 'accumulator' used for first
     iteration is the value of least index property which is not
     undefined when 'initialValue' is not present on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var called = 0;
         var result = false;
@@ -22,6 +19,6 @@ function testcase() {
         }
 
         [11, 9].reduce(callbackfn);
-        return result && called === 1;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');
+assert.sameValue(called, 1, 'called');

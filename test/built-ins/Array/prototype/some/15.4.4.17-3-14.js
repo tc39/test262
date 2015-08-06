@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.17-3-14
 description: Array.prototype.some - 'length' is a string containing +/-Infinity
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -20,8 +17,7 @@ function testcase() {
         var objTwo = { 0: 11, length: "+Infinity" };
         var objThree = { 0: 11, length: "-Infinity" };
 
-        return Array.prototype.some.call(objOne, callbackfn) &&
-            Array.prototype.some.call(objTwo, callbackfn) &&
-            !Array.prototype.some.call(objThree, callbackfn) && accessed;
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(objOne, callbackfn), 'Array.prototype.some.call(objOne, callbackfn) !== true');
+assert(Array.prototype.some.call(objTwo, callbackfn), 'Array.prototype.some.call(objTwo, callbackfn) !== true');
+assert.sameValue(Array.prototype.some.call(objThree, callbackfn), false, 'Array.prototype.some.call(objThree, callbackfn)');
+assert(accessed, 'accessed !== true');

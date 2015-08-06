@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.22-3-1
 description: Array.prototype.reduceRight - value of 'length' is undefined
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -17,6 +14,5 @@ function testcase() {
 
         var obj = { 0: 9, length: undefined };
 
-        return Array.prototype.reduceRight.call(obj, callbackfn, 1) === 1 && !accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.reduceRight.call(obj, callbackfn, 1), 1, 'Array.prototype.reduceRight.call(obj, callbackfn, 1)');
+assert.sameValue(accessed, false, 'accessed');

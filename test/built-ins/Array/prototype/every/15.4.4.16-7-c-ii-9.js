@@ -6,10 +6,7 @@ es5id: 15.4.4.16-7-c-ii-9
 description: >
     Array.prototype.every - callbackfn is called with 0 formal
     parameter
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var called = 0;
 
@@ -18,6 +15,5 @@ function testcase() {
             return true;
         }
 
-        return [11, 12].every(callbackfn) && 2 === called;
-    }
-runTestCase(testcase);
+assert([11, 12].every(callbackfn), '[11, 12].every(callbackfn) !== true');
+assert.sameValue(called, 2, 'called');

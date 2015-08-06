@@ -4,14 +4,10 @@
 /*---
 es5id: 15.4.4.17-1-7
 description: Array.prototype.some applied to applied to string primitive
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             return obj instanceof String;
         }
 
-        return Array.prototype.some.call("hello\nw_orld\\!", callbackfn);
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call("hello\nw_orld\\!", callbackfn), 'Array.prototype.some.call("hello\nw_orld\\!", callbackfn) !== true');

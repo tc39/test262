@@ -6,10 +6,7 @@ es5id: 15.4.4.22-9-c-ii-16
 description: >
     Array.prototype.reduceRight - non-indexed properties are not
     called on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
 
@@ -21,6 +18,5 @@ function testcase() {
 
         var obj = { 0: 11, 10: 12, non_index_property: 8, length: 20 };
         Array.prototype.reduceRight.call(obj, callbackfn, "initialValue");
-        return !testResult;
-    }
-runTestCase(testcase);
+
+assert.sameValue(testResult, false, 'testResult');

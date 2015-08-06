@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.17-7-b-2
 description: Array.prototype.some - added properties in step 2 are visible here
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             if (idx === 2 && val === "length") {
                 return true;
@@ -26,6 +24,4 @@ function testcase() {
             configurable: true
         });
 
-        return Array.prototype.some.call(arr, callbackfn);
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(arr, callbackfn), 'Array.prototype.some.call(arr, callbackfn) !== true');

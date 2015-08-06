@@ -4,12 +4,8 @@
 /*---
 es5id: 15.4.4.20-5-21
 description: Array.prototype.filter - the global object can be used as thisArg
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -20,6 +16,5 @@ function testcase() {
 
         var newArr = [11].filter(callbackfn, fnGlobalObject());
 
-        return newArr[0] === 11 && accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr[0], 11, 'newArr[0]');
+assert(accessed, 'accessed !== true');

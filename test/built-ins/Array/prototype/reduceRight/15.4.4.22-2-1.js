@@ -6,10 +6,7 @@ es5id: 15.4.4.22-2-1
 description: >
     Array.prototype.reduceRight applied to Array-like object, 'length'
     is an own data property
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var obj = {
@@ -24,6 +21,5 @@ function testcase() {
             return obj.length === 2;
         }
 
-        return Array.prototype.reduceRight.call(obj, callbackfn, 11) && accessed;
-    }
-runTestCase(testcase);
+assert(Array.prototype.reduceRight.call(obj, callbackfn, 11), 'Array.prototype.reduceRight.call(obj, callbackfn, 11) !== true');
+assert(accessed, 'accessed !== true');

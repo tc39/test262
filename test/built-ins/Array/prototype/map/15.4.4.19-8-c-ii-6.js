@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.19-8-c-ii-6
 description: Array.prototype.map - arguments to callbackfn are self consistent.
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = { 0: 11, length: 1 };
         var thisArg = {};
@@ -21,6 +18,4 @@ function testcase() {
 
         var testResult = Array.prototype.map.call(obj, callbackfn, thisArg);
 
-        return testResult[0] === true;
-    }
-runTestCase(testcase);
+assert.sameValue(testResult[0], true, 'testResult[0]');

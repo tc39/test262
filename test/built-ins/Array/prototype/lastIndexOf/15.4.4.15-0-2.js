@@ -4,12 +4,6 @@
 /*---
 es5id: 15.4.4.15-0-2
 description: Array.prototype.lastIndexOf has a length property whose value is 1.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if (Array.prototype.lastIndexOf.length === 1) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.length, 1, 'Array.prototype.lastIndexOf.length');

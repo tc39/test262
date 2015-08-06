@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.21-3-14
 description: Array.prototype.reduce - 'length' is a string containing -Infinity
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed2 = false;
 
@@ -18,7 +15,5 @@ function testcase() {
 
         var obj2 = { 0: 9, length: "-Infinity" };
 
-        return Array.prototype.reduce.call(obj2, callbackfn2, 1) === 1
-            && !accessed2;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.reduce.call(obj2, callbackfn2, 1), 1, 'Array.prototype.reduce.call(obj2, callbackfn2, 1)');
+assert.sameValue(accessed2, false, 'accessed2');

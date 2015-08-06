@@ -6,10 +6,7 @@ es5id: 15.4.4.19-9-6
 description: >
     Array.prototype.map - empty array to be returned if 'length' is 0
     (subclassed Array, length overridden to null (type conversion))
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return val > 10;
@@ -21,6 +18,5 @@ function testcase() {
         obj.length = null;
 
         var testResult = Array.prototype.map.call(obj, callbackfn);
-        return testResult.length === 0;
-    }
-runTestCase(testcase);
+
+assert.sameValue(testResult.length, 0, 'testResult.length');

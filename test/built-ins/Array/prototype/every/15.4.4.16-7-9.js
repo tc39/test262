@@ -6,10 +6,7 @@ es5id: 15.4.4.16-7-9
 description: >
     Array.prototype.every - modifications to length don't change
     number of iterations
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var called = 0;
 
@@ -28,6 +25,5 @@ function testcase() {
             configurable: true
         });
 
-        return Array.prototype.every.call(obj, callbackfn) && 2 === called;
-    }
-runTestCase(testcase);
+assert(Array.prototype.every.call(obj, callbackfn), 'Array.prototype.every.call(obj, callbackfn) !== true');
+assert.sameValue(called, 2, 'called');

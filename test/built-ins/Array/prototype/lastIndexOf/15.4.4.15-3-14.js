@@ -6,13 +6,8 @@ es5id: 15.4.4.15-3-14
 description: >
     Array.prototype.lastIndexOf - value of 'length' is a string
     containing -Infinity
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var objThree = { 0: true, 1: true, length: "-Infinity" };
 
-        return Array.prototype.lastIndexOf.call(objThree, true) === -1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.call(objThree, true), -1, 'Array.prototype.lastIndexOf.call(objThree, true)');

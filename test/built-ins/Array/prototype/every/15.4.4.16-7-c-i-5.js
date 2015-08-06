@@ -7,10 +7,7 @@ description: >
     Array.prototype.every - element to be retrieved is own data
     property that overrides an inherited accessor property on an
     Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             if (idx === 0) {
@@ -40,6 +37,4 @@ function testcase() {
         });
         child[1] = 12;
 
-        return !Array.prototype.every.call(child, callbackfn);
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.every.call(child, callbackfn), false, 'Array.prototype.every.call(child, callbackfn)');

@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.19-3-5
 description: Array.prototype.map - value of 'length' is a number (value is -0)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             return val > 10;
         }
@@ -16,6 +14,4 @@ function testcase() {
 
         var newArr = Array.prototype.map.call(obj, callbackfn);
 
-        return newArr.length === 0;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 0, 'newArr.length');

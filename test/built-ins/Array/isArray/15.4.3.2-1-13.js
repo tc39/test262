@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.3.2-1-13
 description: Array.isArray applied to Arguments object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arg;
 
@@ -15,6 +12,4 @@ function testcase() {
             arg = arguments;
         }(1, 2, 3));
 
-        return !Array.isArray(arg);
-    }
-runTestCase(testcase);
+assert.sameValue(Array.isArray(arg), false, 'Array.isArray(arg)');

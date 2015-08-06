@@ -6,10 +6,8 @@ es5id: 15.4.4.18-2-7
 description: >
     Array.prototype.forEach applied to Array-like object, 'length' is
     an own accessor property
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var result = false;
         function callbackfn(val, idx, obj) {
             result = (obj.length === 2);
@@ -29,6 +27,5 @@ function testcase() {
         obj[2] = 9;
 
         Array.prototype.forEach.call(obj, callbackfn);
-        return result;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.16-7-c-iii-28
 description: Array.prototype.every - false prevents further side effects
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var result = false;
         var obj = { length: 20 };
@@ -41,6 +38,5 @@ function testcase() {
             configurable: true
         });
 
-        return !Array.prototype.every.call(obj, callbackfn) && !result;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.every.call(obj, callbackfn), false, 'Array.prototype.every.call(obj, callbackfn)');
+assert.sameValue(result, false, 'result');

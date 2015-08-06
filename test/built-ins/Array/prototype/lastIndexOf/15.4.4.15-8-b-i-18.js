@@ -6,10 +6,7 @@ es5id: 15.4.4.15-8-b-i-18
 description: >
     Array.prototype.lastIndexOf - element to be retrieved is own
     accessor property without a get function on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = { length: 1 };
         Object.defineProperty(obj, "0", {
@@ -17,6 +14,4 @@ function testcase() {
             configurable: true
         });
 
-        return 0 === Array.prototype.lastIndexOf.call(obj, undefined);
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.call(obj, undefined), 0, 'Array.prototype.lastIndexOf.call(obj, undefined)');

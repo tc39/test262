@@ -4,15 +4,12 @@
 /*---
 es5id: 15.4.4.17-1-8
 description: Array.prototype.some applied to String object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             return obj instanceof String;
         }
 
         var obj = new String("hello\nw_orld\\!");
-        return Array.prototype.some.call(obj, callbackfn);
-    }
-runTestCase(testcase);
+
+assert(Array.prototype.some.call(obj, callbackfn), 'Array.prototype.some.call(obj, callbackfn) !== true');

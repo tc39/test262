@@ -6,10 +6,7 @@ es5id: 15.4.4.15-8-a-8
 description: >
     Array.prototype.lastIndexOf -  properties added into own object
     after current position are visited on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [0, , 2];
 
@@ -26,6 +23,4 @@ function testcase() {
             configurable: true
         });
 
-        return arr.lastIndexOf(1) === 1;
-    }
-runTestCase(testcase);
+assert.sameValue(arr.lastIndexOf(1), 1, 'arr.lastIndexOf(1)');

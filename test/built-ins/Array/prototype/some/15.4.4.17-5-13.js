@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.17-5-13
 description: Array.prototype.some - Number object can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var objNumber = new Number();
 
@@ -15,6 +12,4 @@ function testcase() {
             return this === objNumber;
         }
 
-        return [11].some(callbackfn, objNumber);
-    }
-runTestCase(testcase);
+assert([11].some(callbackfn, objNumber), '[11].some(callbackfn, objNumber) !== true');

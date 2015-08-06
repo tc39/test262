@@ -6,10 +6,7 @@ es5id: 15.4.4.15-2-8
 description: >
     Array.prototype.lastIndexOf - 'length' is own accessor property
     that overrides an inherited data property on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var proto = { length: 0 };
 
@@ -26,6 +23,4 @@ function testcase() {
             configurable: true
         });
 
-        return Array.prototype.lastIndexOf.call(child, eval) === 1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.call(child, eval), 1, 'Array.prototype.lastIndexOf.call(child, eval)');

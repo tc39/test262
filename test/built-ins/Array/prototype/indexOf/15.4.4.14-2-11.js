@@ -6,10 +6,7 @@ es5id: 15.4.4.14-2-11
 description: >
     Array.prototype.indexOf - 'length' is own accessor property
     without a get function
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = { 1: true };
         Object.defineProperty(obj, "length", {
@@ -17,6 +14,4 @@ function testcase() {
             configurable: true
         });
 
-        return Array.prototype.indexOf.call(obj, true) === -1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.indexOf.call(obj, true), -1, 'Array.prototype.indexOf.call(obj, true)');

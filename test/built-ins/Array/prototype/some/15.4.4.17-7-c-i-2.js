@@ -6,10 +6,7 @@ es5id: 15.4.4.17-7-c-i-2
 description: >
     Array.prototype.some - element to be retrieved is own data
     property on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var kValue = {};
 
@@ -20,6 +17,4 @@ function testcase() {
             return false;
         }
 
-        return [kValue].some(callbackfn);
-    }
-runTestCase(testcase);
+assert([kValue].some(callbackfn), '[kValue].some(callbackfn) !== true');

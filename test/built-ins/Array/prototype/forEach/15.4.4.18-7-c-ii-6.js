@@ -6,10 +6,7 @@ es5id: 15.4.4.18-7-c-ii-6
 description: >
     Array.prototype.forEach - arguments to callbackfn are self
     consistent
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var result = false;
         var obj = { 0: 11, length: 1 };
@@ -23,6 +20,5 @@ function testcase() {
         }
 
         Array.prototype.forEach.call(obj, callbackfn, thisArg);
-        return result;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

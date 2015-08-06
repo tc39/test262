@@ -6,10 +6,7 @@ es5id: 15.4.4.22-9-c-ii-28
 description: >
     Array.prototype.reduceRight - Boolean Object can be used as
     accumulator
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var objBoolean = new Boolean();
@@ -20,6 +17,5 @@ function testcase() {
 
         var obj = { 0: 11, length: 1 };
 
-        return Array.prototype.reduceRight.call(obj, callbackfn, objBoolean) === true && accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.reduceRight.call(obj, callbackfn, objBoolean), true, 'Array.prototype.reduceRight.call(obj, callbackfn, objBoolean)');
+assert(accessed, 'accessed !== true');

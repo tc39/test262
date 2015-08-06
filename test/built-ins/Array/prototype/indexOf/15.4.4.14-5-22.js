@@ -6,10 +6,7 @@ es5id: 15.4.4.14-5-22
 description: >
     Array.prototype.indexOf - value of 'fromIndex' is an Object, which
     has an own valueOf method
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var fromIndex = {
             valueOf: function () {
@@ -18,6 +15,4 @@ function testcase() {
         };
 
 
-        return [0, true].indexOf(true, fromIndex) === 1;
-    }
-runTestCase(testcase);
+assert.sameValue([0, true].indexOf(true, fromIndex), 1, '[0, true].indexOf(true, fromIndex)');

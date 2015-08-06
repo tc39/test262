@@ -6,10 +6,8 @@ es5id: 15.4.4.21-9-9
 description: >
     Array.prototype.reduce - modifications to length don't change
     number of iterations in step 9
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var called = 0;
         function callbackfn(accum, val, idx, obj) {
             called++;
@@ -27,6 +25,5 @@ function testcase() {
 
         var newAccum = arr.reduce(callbackfn, "initialValue");
 
-        return newAccum === "initialValue01" && called === 2;
-    }
-runTestCase(testcase);
+assert.sameValue(newAccum, "initialValue01", 'newAccum');
+assert.sameValue(called, 2, 'called');

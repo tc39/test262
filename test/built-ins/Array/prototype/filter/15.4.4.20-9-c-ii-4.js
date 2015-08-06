@@ -6,10 +6,7 @@ es5id: 15.4.4.20-9-c-ii-4
 description: >
     Array.prototype.filter - k values are passed in ascending numeric
     order
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [0, 1, 2, 3, 4, 5];
         var lastIdx = 0;
@@ -25,6 +22,4 @@ function testcase() {
         }
         var newArr = arr.filter(callbackfn);
 
-        return newArr.length === called;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, called, 'newArr.length');

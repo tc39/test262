@@ -6,10 +6,7 @@ es5id: 15.4.4.16-7-c-i-15
 description: >
     Array.prototype.every - element to be retrieved is inherited
     accessor property on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             if (idx === 1) {
@@ -34,6 +31,4 @@ function testcase() {
         var child = new Con();
         child.length = 20;
 
-        return !Array.prototype.every.call(child, callbackfn);
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.every.call(child, callbackfn), false, 'Array.prototype.every.call(child, callbackfn)');

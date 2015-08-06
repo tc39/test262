@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.20-9-c-ii-19
 description: Array.prototype.filter - non-indexed properties are not called
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -19,6 +16,5 @@ function testcase() {
         var obj = { 0: 11, non_index_property: 8, 2: 5, length: 20 };
         var newArr = Array.prototype.filter.call(obj, callbackfn);
 
-        return newArr.length === 0 && accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 0, 'newArr.length');
+assert(accessed, 'accessed !== true');

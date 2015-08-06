@@ -6,10 +6,7 @@ es5id: 15.4.4.15-5-21
 description: >
     Array.prototype.lastIndexOf - value of 'fromIndex' which is an
     Object, and has an own toString method
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         // objects inherit the default valueOf() method from Object
         // that simply returns itself. Since the default valueOf() method
@@ -23,7 +20,5 @@ function testcase() {
         };
         var targetObj = new RegExp();
 
-        return [0, true, targetObj, 3, false].lastIndexOf(targetObj, fromIndex) === 2 &&
-        [0, true, 3, targetObj, false].lastIndexOf(targetObj, fromIndex) === -1;
-    }
-runTestCase(testcase);
+assert.sameValue([0, true, targetObj, 3, false].lastIndexOf(targetObj, fromIndex), 2, '[0, true, targetObj, 3, false].lastIndexOf(targetObj, fromIndex)');
+assert.sameValue([0, true, 3, targetObj, false].lastIndexOf(targetObj, fromIndex), -1, '[0, true, 3, targetObj, false].lastIndexOf(targetObj, fromIndex)');

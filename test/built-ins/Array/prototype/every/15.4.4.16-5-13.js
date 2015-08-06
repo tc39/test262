@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.16-5-13
 description: Array.prototype.every - Number Object can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var objNumber = new Number();
@@ -17,6 +14,5 @@ function testcase() {
             return this === objNumber;
         }
 
-        return [11].every(callbackfn, objNumber) && accessed;
-    }
-runTestCase(testcase);
+assert([11].every(callbackfn, objNumber), '[11].every(callbackfn, objNumber) !== true');
+assert(accessed, 'accessed !== true');

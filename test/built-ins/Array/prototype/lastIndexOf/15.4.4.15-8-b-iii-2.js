@@ -6,10 +6,8 @@ es5id: 15.4.4.15-8-b-iii-2
 description: >
     Array.prototype.lastIndexOf returns without visiting subsequent
     element once search value is found
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var arr = [2, 1, , 1, 2];
         var elementFirstAccessed = false;
         var elementThirdAccessed = false;
@@ -30,6 +28,6 @@ function testcase() {
         });
 
         arr.lastIndexOf(2);
-        return !elementThirdAccessed && !elementFirstAccessed;
-    }
-runTestCase(testcase);
+
+assert.sameValue(elementThirdAccessed, false, 'elementThirdAccessed');
+assert.sameValue(elementFirstAccessed, false, 'elementFirstAccessed');

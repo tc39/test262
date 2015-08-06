@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.17-5-11
 description: Array.prototype.some - String object can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var objString = new String();
 
@@ -15,6 +12,4 @@ function testcase() {
             return this === objString;
         }
 
-        return [11].some(callbackfn, objString);
-    }
-runTestCase(testcase);
+assert([11].some(callbackfn, objString), '[11].some(callbackfn, objString) !== true');

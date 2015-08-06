@@ -6,10 +6,7 @@ es5id: 15.4.4.22-2-19
 description: >
     Array.prototype.reduceRight applied to Function object, which
     implements its own property get method
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var fun = function (a, b) {
@@ -24,6 +21,5 @@ function testcase() {
             return obj.length === 2;
         }
 
-        return Array.prototype.reduceRight.call(fun, callbackfn, 11) && accessed;
-    }
-runTestCase(testcase);
+assert(Array.prototype.reduceRight.call(fun, callbackfn, 11), 'Array.prototype.reduceRight.call(fun, callbackfn, 11) !== true');
+assert(accessed, 'accessed !== true');

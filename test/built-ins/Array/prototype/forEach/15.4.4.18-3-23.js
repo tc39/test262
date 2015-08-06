@@ -7,10 +7,7 @@ description: >
     Array.prototype.forEach uses inherited valueOf method when
     'length' is an object with an own toString and inherited valueOf
     methods
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
         var valueOfAccessed = false;
@@ -45,6 +42,6 @@ function testcase() {
 
         Array.prototype.forEach.call(obj, callbackfn);
 
-        return testResult && valueOfAccessed && !toStringAccessed;
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');
+assert(valueOfAccessed, 'valueOfAccessed !== true');
+assert.sameValue(toStringAccessed, false, 'toStringAccessed');

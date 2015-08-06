@@ -6,10 +6,7 @@ es5id: 15.4.4.20-3-18
 description: >
     Array.prototype.filter - value of 'length' is a string that can't
     convert to a number
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         function callbackfn(val, idx, obj) {
@@ -21,6 +18,5 @@ function testcase() {
 
         var newArr = Array.prototype.filter.call(obj, callbackfn);
 
-        return !accessed && newArr.length === 0;
-    }
-runTestCase(testcase);
+assert.sameValue(accessed, false, 'accessed');
+assert.sameValue(newArr.length, 0, 'newArr.length');

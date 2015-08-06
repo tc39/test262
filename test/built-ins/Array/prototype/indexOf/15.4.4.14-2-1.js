@@ -6,13 +6,10 @@ es5id: 15.4.4.14-2-1
 description: >
     Array.prototype.indexOf - 'length' is own data property on an
     Array-like object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var objOne = { 1: true, length: 2 };
         var objTwo = { 2: true, length: 2 };
-        return Array.prototype.indexOf.call(objOne, true) === 1 &&
-            Array.prototype.indexOf.call(objTwo, true) === -1;
-    }
-runTestCase(testcase);
+
+assert.sameValue(Array.prototype.indexOf.call(objOne, true), 1, 'Array.prototype.indexOf.call(objOne, true)');
+assert.sameValue(Array.prototype.indexOf.call(objTwo, true), -1, 'Array.prototype.indexOf.call(objTwo, true)');

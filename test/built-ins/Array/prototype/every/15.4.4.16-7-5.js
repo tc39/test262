@@ -6,11 +6,8 @@ es5id: 15.4.4.16-7-5
 description: >
     Array.prototype.every doesn't consider newly added elements in
     sparse array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   function callbackfn(val, Idx, obj)
   {
     arr[1000] = 3;
@@ -24,8 +21,5 @@ function testcase() {
   arr[1] = 1;
   arr[2] = 2;
   
-  if(arr.every(callbackfn) === true)    
-      return true;  
-  
- }
-runTestCase(testcase);
+
+assert.sameValue(arr.every(callbackfn), true, 'arr.every(callbackfn)');

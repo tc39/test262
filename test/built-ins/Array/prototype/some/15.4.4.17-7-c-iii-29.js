@@ -6,15 +6,10 @@ es5id: 15.4.4.17-7-c-iii-29
 description: >
     Array.prototype.some - return value (new Boolean(false)) of
     callbackfn is treated as true value
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn() {
             return new Boolean(false);
         }
 
-        return [11].some(callbackfn);
-    }
-runTestCase(testcase);
+assert([11].some(callbackfn), '[11].some(callbackfn) !== true');

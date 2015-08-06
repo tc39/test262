@@ -6,10 +6,7 @@ es5id: 15.4.4.21-3-9
 description: >
     Array.prototype.reduce - value of 'length' is a number (value is
     -Infinity)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -19,6 +16,5 @@ function testcase() {
 
         var obj = { 0: 9, length: -Infinity };
 
-        return Array.prototype.reduce.call(obj, callbackfn, 1) === 1 && !accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.reduce.call(obj, callbackfn, 1), 1, 'Array.prototype.reduce.call(obj, callbackfn, 1)');
+assert.sameValue(accessed, false, 'accessed');

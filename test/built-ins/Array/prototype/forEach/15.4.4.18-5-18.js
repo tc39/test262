@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.18-5-18
 description: Array.prototype.forEach - Error Object can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var result = false;
         var objError = new RangeError();
@@ -17,6 +14,5 @@ function testcase() {
         }
 
         [11].forEach(callbackfn, objError);
-        return result;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

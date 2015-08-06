@@ -6,10 +6,7 @@ es5id: 15.4.4.18-7-c-ii-5
 description: >
     Array.prototype.forEach - k values are accessed during each
     iteration and not prior to starting the loop on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var result = true;
         var kIndex = [];
@@ -30,6 +27,4 @@ function testcase() {
 
         [11, 12, 13, 14].forEach(callbackfn, undefined);
 
-        return result;
-    }
-runTestCase(testcase);
+assert(result, 'result !== true');

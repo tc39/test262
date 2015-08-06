@@ -6,10 +6,7 @@ es5id: 15.4.4.16-7-c-ii-4
 description: >
     Array.prototype.every - k values are passed in ascending numeric
     order
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [0, 1, 2, 3, 4, 5];
         var lastIdx = 0;
@@ -24,6 +21,5 @@ function testcase() {
             }
         }
 
-        return arr.every(callbackfn) &&  arr.length === called;
-    }
-runTestCase(testcase);
+assert(arr.every(callbackfn), 'arr.every(callbackfn) !== true');
+assert.sameValue(arr.length, called, 'arr.length');

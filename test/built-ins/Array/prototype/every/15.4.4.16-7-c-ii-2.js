@@ -4,11 +4,8 @@
 /*---
 es5id: 15.4.4.16-7-c-ii-2
 description: Array.prototype.every - callbackfn takes 3 arguments
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   function callbackfn(val, Idx, obj)
   {
     if(arguments.length === 3)   //verify if callbackfn was called with 3 parameters
@@ -18,7 +15,5 @@ function testcase() {
   var arr = [0,1,true,null,new Object(),"five"];
   arr[999999] = -6.6;
   
-  if(arr.every(callbackfn) === true)
-    return true;
- }
-runTestCase(testcase);
+
+assert.sameValue(arr.every(callbackfn), true, 'arr.every(callbackfn)');

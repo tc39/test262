@@ -6,10 +6,8 @@ es5id: 15.4.4.17-3-24
 description: >
     Array.prototype.some - value of 'length' is a positive
     non-integer, ensure truncation occurs in the proper direction
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn1(val, idx, obj) {
             return val > 10;
         }
@@ -25,7 +23,5 @@ function testcase() {
             length: 11.5
         };
 
-        return Array.prototype.some.call(obj, callbackfn1) &&
-            !Array.prototype.some.call(obj, callbackfn2);
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(obj, callbackfn1), 'Array.prototype.some.call(obj, callbackfn1) !== true');
+assert.sameValue(Array.prototype.some.call(obj, callbackfn2), false, 'Array.prototype.some.call(obj, callbackfn2)');

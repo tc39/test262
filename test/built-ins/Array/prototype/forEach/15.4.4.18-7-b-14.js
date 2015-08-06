@@ -6,10 +6,7 @@ es5id: 15.4.4.18-7-b-14
 description: >
     Array.prototype.forEach - decreasing length of array causes index
     property not to be visited
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var testResult = true;
@@ -33,6 +30,5 @@ function testcase() {
 
         arr.forEach(callbackfn);
 
-        return testResult && accessed;
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');
+assert(accessed, 'accessed !== true');

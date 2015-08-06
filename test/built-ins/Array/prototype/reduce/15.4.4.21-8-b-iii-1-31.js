@@ -7,10 +7,7 @@ description: >
     Array.prototype.reduce - element changed by getter on current
     iterations is observed in subsequent iterations on an Array-like
     object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
         function callbackfn(prevVal, curVal, idx, obj) {
@@ -42,7 +39,5 @@ function testcase() {
         });
 
         Array.prototype.reduce.call(obj, callbackfn);
-        return testResult;
 
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');

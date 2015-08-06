@@ -6,10 +6,7 @@ es5id: 15.4.4.19-8-b-9
 description: >
     Array.prototype.map - deleting own property causes index property
     not to be visited on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             if (idx === 1) {
@@ -36,6 +33,6 @@ function testcase() {
         });
 
         var testResult = arr.map(callbackfn);
-        return testResult[0] === true && typeof testResult[1] === "undefined";
-    }
-runTestCase(testcase);
+
+assert.sameValue(testResult[0], true, 'testResult[0]');
+assert.sameValue(typeof testResult[1], "undefined", 'typeof testResult[1]');

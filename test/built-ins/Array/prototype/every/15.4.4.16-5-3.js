@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.16-5-3
 description: Array.prototype.every - thisArg is Array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var res = false;
   var a = new Array();
   a.res = true;
@@ -18,8 +16,4 @@ function testcase() {
 
   var arr = [1];
 
-  if(arr.every(callbackfn, a) === true)
-    return true;    
-
- }
-runTestCase(testcase);
+assert.sameValue(arr.every(callbackfn, a), true, 'arr.every(callbackfn, a)');

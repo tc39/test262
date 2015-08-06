@@ -6,10 +6,7 @@ es5id: 15.4.4.17-7-9
 description: >
     Array.prototype.some - modifications to length don't change number
     of iterations
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var called = 0;
 
@@ -28,6 +25,5 @@ function testcase() {
             configurable: true
         });
 
-        return Array.prototype.some.call(obj, callbackfn) && called === 3;
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(obj, callbackfn), 'Array.prototype.some.call(obj, callbackfn) !== true');
+assert.sameValue(called, 3, 'called');

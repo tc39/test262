@@ -6,10 +6,7 @@ es5id: 15.4.4.18-3-2
 description: >
     Array.prototype.forEach - value of 'length' is a boolean (value is
     true)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
         function callbackfn(val, idx, obj) {
@@ -20,6 +17,4 @@ function testcase() {
 
         Array.prototype.forEach.call(obj, callbackfn);
 
-        return testResult;
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');

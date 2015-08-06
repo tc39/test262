@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.22-1-6
 description: Array.prototype.reduceRight applied to Number object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = new Number(-128);
         obj.length = 2;
@@ -20,6 +17,5 @@ function testcase() {
             return o instanceof Number;
         }
 
-        return Array.prototype.reduceRight.call(obj, callbackfn, 11) && accessed;
-    }
-runTestCase(testcase);
+assert(Array.prototype.reduceRight.call(obj, callbackfn, 11), 'Array.prototype.reduceRight.call(obj, callbackfn, 11) !== true');
+assert(accessed, 'accessed !== true');

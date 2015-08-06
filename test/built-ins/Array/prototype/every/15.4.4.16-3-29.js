@@ -6,10 +6,8 @@ es5id: 15.4.4.16-3-29
 description: >
     Array.prototype.every - value of 'length' is boundary value (2^32
     + 1)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn1(val, idx, obj) {
             return val > 10;
         }
@@ -24,7 +22,5 @@ function testcase() {
             length: 4294967297
         };
 
-        return !Array.prototype.every.call(obj, callbackfn1) &&
-            !Array.prototype.every.call(obj, callbackfn2);
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.every.call(obj, callbackfn1), false, 'Array.prototype.every.call(obj, callbackfn1)');
+assert.sameValue(Array.prototype.every.call(obj, callbackfn2), false, 'Array.prototype.every.call(obj, callbackfn2)');

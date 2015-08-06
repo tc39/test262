@@ -6,10 +6,7 @@ es5id: 15.4.4.19-8-c-ii-17
 description: >
     Array.prototype.map - 'this' object when T is not an object (T is
     a number)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return this.valueOf() === 5;
@@ -19,6 +16,4 @@ function testcase() {
 
         var testResult = Array.prototype.map.call(obj, callbackfn, 5);
 
-        return testResult[0] === true;
-    }
-runTestCase(testcase);
+assert.sameValue(testResult[0], true, 'testResult[0]');

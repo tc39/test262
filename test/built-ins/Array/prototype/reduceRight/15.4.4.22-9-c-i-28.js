@@ -6,10 +6,7 @@ es5id: 15.4.4.22-9-c-i-28
 description: >
     Array.prototype.reduceRight applied to String object, which
     implements its own property get method
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
         function callbackfn(prevVal, curVal, idx, obj) {
@@ -20,7 +17,5 @@ function testcase() {
 
         var str = new String("012");
         Array.prototype.reduceRight.call(str, callbackfn, "initialValue");
-        return testResult;
 
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');

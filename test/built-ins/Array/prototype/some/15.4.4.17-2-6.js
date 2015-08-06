@@ -6,10 +6,8 @@ es5id: 15.4.4.17-2-6
 description: >
     Array.prototype.some - 'length' is an inherited data property on
     an Array-like object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn1(val, idx, obj) {
             return val > 10;
         }
@@ -28,7 +26,5 @@ function testcase() {
         child[1] = 11;
         child[2] = 12;
 
-        return Array.prototype.some.call(child, callbackfn1) &&
-            !Array.prototype.some.call(child, callbackfn2);
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(child, callbackfn1), 'Array.prototype.some.call(child, callbackfn1) !== true');
+assert.sameValue(Array.prototype.some.call(child, callbackfn2), false, 'Array.prototype.some.call(child, callbackfn2)');

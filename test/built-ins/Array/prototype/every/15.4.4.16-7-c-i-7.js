@@ -6,10 +6,7 @@ es5id: 15.4.4.16-7-c-i-7
 description: >
     Array.prototype.every - element to be retrieved is inherited data
     property on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var kValue = 'abc';
 
@@ -29,6 +26,4 @@ function testcase() {
         var child = new Con();
         child.length = 10;
 
-        return !Array.prototype.every.call(child, callbackfn);
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.every.call(child, callbackfn), false, 'Array.prototype.every.call(child, callbackfn)');

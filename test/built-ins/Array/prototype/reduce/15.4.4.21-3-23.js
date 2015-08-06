@@ -6,10 +6,7 @@ es5id: 15.4.4.21-3-23
 description: >
     Array.prototype.reduce uses inherited valueOf method - 'length' is
     an object with an own toString and inherited valueOf methods
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var valueOfAccessed = false;
         var toStringAccessed = false;
@@ -41,6 +38,6 @@ function testcase() {
             length: child
         };
 
-        return Array.prototype.reduce.call(obj, callbackfn, 1) === true && valueOfAccessed && !toStringAccessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.reduce.call(obj, callbackfn, 1), true, 'Array.prototype.reduce.call(obj, callbackfn, 1)');
+assert(valueOfAccessed, 'valueOfAccessed !== true');
+assert.sameValue(toStringAccessed, false, 'toStringAccessed');

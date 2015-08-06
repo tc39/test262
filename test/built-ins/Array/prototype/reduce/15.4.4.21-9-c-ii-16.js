@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.21-9-c-ii-16
 description: Array.prototype.reduce - non-indexed properties are not called
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var result1 = true;
@@ -27,6 +24,7 @@ function testcase() {
         var obj = { 0: 11, 10: 12, non_index_property: 8, length: 20 };
 
         Array.prototype.reduce.call(obj, callbackfn, 1);
-        return result1 && result2 && accessed;
-    }
-runTestCase(testcase);
+
+assert(result1, 'result1 !== true');
+assert(result2, 'result2 !== true');
+assert(accessed, 'accessed !== true');

@@ -6,16 +6,12 @@ es5id: 15.4.4.21-5-9
 description: >
     Array.prototype.reduce - 'initialValue' is returned if 'len' is 0
     and 'initialValue' is present
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         function callbackfn(prevVal, curVal, idx, obj) {
             accessed = true;
         }
 
-        return [].reduce(callbackfn, 3) === 3 && !accessed;
-    }
-runTestCase(testcase);
+assert.sameValue([].reduce(callbackfn, 3), 3, '[].reduce(callbackfn, 3)');
+assert.sameValue(accessed, false, 'accessed');

@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.16-7-c-ii-19
 description: Array.prototype.every - non-indexed properties are not called
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var called = 0;
 
@@ -18,6 +15,5 @@ function testcase() {
 
         var obj = { 0: 11, 10: 12, non_index_property: 8, length: 20 };
 
-        return Array.prototype.every.call(obj, callbackfn) && 2 === called;
-    }
-runTestCase(testcase);
+assert(Array.prototype.every.call(obj, callbackfn), 'Array.prototype.every.call(obj, callbackfn) !== true');
+assert.sameValue(called, 2, 'called');

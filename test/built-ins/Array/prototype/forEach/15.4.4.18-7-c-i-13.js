@@ -7,10 +7,7 @@ description: >
     Array.prototype.forEach - element to be retrieved is own accessor
     property that overrides an inherited accessor property on an
     Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
 
@@ -45,6 +42,4 @@ function testcase() {
 
         Array.prototype.forEach.call(child, callbackfn);
 
-        return testResult;
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');

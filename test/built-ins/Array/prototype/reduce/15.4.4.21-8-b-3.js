@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.21-8-b-3
 description: Array.prototype.reduce - loop is broken once 'kPresent' is true
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var called = 0;
         var testResult = false;
@@ -40,6 +37,7 @@ function testcase() {
         });
 
         arr.reduce(callbackfn);
-        return testResult && firstCalled === 1 && secondCalled === 1;
-    }
-runTestCase(testcase);
+
+assert(testResult, 'testResult !== true');
+assert.sameValue(firstCalled, 1, 'firstCalled');
+assert.sameValue(secondCalled, 1, 'secondCalled');

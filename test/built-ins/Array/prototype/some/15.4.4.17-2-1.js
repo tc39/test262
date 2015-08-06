@@ -6,10 +6,7 @@ es5id: 15.4.4.17-2-1
 description: >
     Array.prototype.some - 'length' is own data property on an
     Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn1(val, idx, obj) {
             return val > 10;
@@ -26,7 +23,5 @@ function testcase() {
             length: 2
         };
 
-        return Array.prototype.some.call(obj, callbackfn1) &&
-            !Array.prototype.some.call(obj, callbackfn2);
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(obj, callbackfn1), 'Array.prototype.some.call(obj, callbackfn1) !== true');
+assert.sameValue(Array.prototype.some.call(obj, callbackfn2), false, 'Array.prototype.some.call(obj, callbackfn2)');

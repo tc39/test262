@@ -6,10 +6,7 @@ es5id: 15.4.4.20-9-c-ii-21
 description: >
     Array.prototype.filter - callbackfn called with correct parameters
     (kValue is correct)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             if (idx === 0) {
@@ -26,6 +23,6 @@ function testcase() {
         var obj = { 0: 11, 1: 12, length: 2 };
         var newArr = Array.prototype.filter.call(obj, callbackfn);
 
-        return newArr.length === 2 && newArr[0] === 11 && newArr[1] === 12;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 2, 'newArr.length');
+assert.sameValue(newArr[0], 11, 'newArr[0]');
+assert.sameValue(newArr[1], 12, 'newArr[1]');

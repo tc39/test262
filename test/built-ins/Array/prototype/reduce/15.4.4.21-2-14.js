@@ -6,10 +6,7 @@ es5id: 15.4.4.21-2-14
 description: >
     Array.prototype.reduce applied to the Array-like object that
     'length' property doesn't exist
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -19,7 +16,5 @@ function testcase() {
 
         var obj = { 0: 11, 1: 12 };
 
-        return Array.prototype.reduce.call(obj, callbackfn, 1) === 1 && !accessed;
-
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.reduce.call(obj, callbackfn, 1), 1, 'Array.prototype.reduce.call(obj, callbackfn, 1)');
+assert.sameValue(accessed, false, 'accessed');

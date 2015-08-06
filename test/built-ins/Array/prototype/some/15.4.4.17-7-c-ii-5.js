@@ -6,10 +6,7 @@ es5id: 15.4.4.17-7-c-ii-5
 description: >
     Array.prototype.some - k values are accessed during each iteration
     and not prior to starting the loop
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var kIndex = [];
 
@@ -28,6 +25,4 @@ function testcase() {
             }
         }
 
-        return ![11, 12, 13, 14].some(callbackfn, undefined);
-    }
-runTestCase(testcase);
+assert.sameValue([11, 12, 13, 14].some(callbackfn, undefined), false, '[11, 12, 13, 14].some(callbackfn, undefined)');

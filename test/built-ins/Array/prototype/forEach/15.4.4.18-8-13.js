@@ -6,10 +6,7 @@ es5id: 15.4.4.18-8-13
 description: >
     Array.prototype.forEach - undefined will be returned when 'len' is
     0
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         function callbackfn(val, idx, obj) {
@@ -17,6 +14,6 @@ function testcase() {
         }
 
         var result = [].forEach(callbackfn);
-        return typeof result === "undefined" && !accessed;
-    }
-runTestCase(testcase);
+
+assert.sameValue(typeof result, "undefined", 'typeof result');
+assert.sameValue(accessed, false, 'accessed');

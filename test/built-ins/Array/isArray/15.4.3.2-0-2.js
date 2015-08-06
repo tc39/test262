@@ -4,12 +4,6 @@
 /*---
 es5id: 15.4.3.2-0-2
 description: Array.isArray must exist as a function taking 1 parameter
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if (Array.isArray.length === 1) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Array.isArray.length, 1, 'Array.isArray.length');

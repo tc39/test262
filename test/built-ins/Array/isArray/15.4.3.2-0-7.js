@@ -4,15 +4,10 @@
 /*---
 es5id: 15.4.3.2-0-7
 description: Array.isArray returns false if its argument is not an Array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var o = new Object();
   o[12] = 13;
   var b = Array.isArray(o);
-  if (b === false) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(b, false, 'b');

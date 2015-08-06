@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.19-8-c-ii-4
 description: Array.prototype.map - k values are passed in acending numeric order
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [0, 1, 2, 3, 4, 5];
         var lastIdx = 0;
@@ -23,6 +20,6 @@ function testcase() {
         }
 
         arr.map(callbackfn);
-        return result && arr.length === called;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');
+assert.sameValue(arr.length, called, 'arr.length');

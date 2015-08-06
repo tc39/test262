@@ -6,11 +6,8 @@ es5id: 15.4.4.22-9-4
 description: >
     Array.prototype.reduceRight doesn't consider unvisited deleted
     elements when Array.length is decreased
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   function callbackfn(prevVal, curVal, idx, obj)
   {
     arr.length = 2;
@@ -18,8 +15,5 @@ function testcase() {
   }
 
   var arr = [1,2,3,4,5];
-  if(arr.reduceRight(callbackfn) === 12 )
-    return true;  
-  
- }
-runTestCase(testcase);
+
+assert.sameValue(arr.reduceRight(callbackfn), 12, 'arr.reduceRight(callbackfn)');

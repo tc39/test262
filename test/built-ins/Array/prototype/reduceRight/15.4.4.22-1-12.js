@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.22-1-12
 description: Array.prototype.reduceRight applied to RegExp object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = new RegExp();
         obj.length = 1;
@@ -19,6 +16,5 @@ function testcase() {
             return o instanceof RegExp;
         }
 
-        return Array.prototype.reduceRight.call(obj, callbackfn, 1) && accessed;
-    }
-runTestCase(testcase);
+assert(Array.prototype.reduceRight.call(obj, callbackfn, 1), 'Array.prototype.reduceRight.call(obj, callbackfn, 1) !== true');
+assert(accessed, 'accessed !== true');

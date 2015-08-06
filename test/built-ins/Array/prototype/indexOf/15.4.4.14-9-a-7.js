@@ -6,11 +6,8 @@ es5id: 15.4.4.14-9-a-7
 description: >
     Array.prototype.indexOf - properties added into own object after
     current position are visited on an Array-like object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-    
         var arr = { length: 2 };
 
         Object.defineProperty(arr, "0", {
@@ -26,6 +23,4 @@ function testcase() {
             configurable: true
         });
 
-        return Array.prototype.indexOf.call(arr, 1) === 1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.indexOf.call(arr, 1), 1, 'Array.prototype.indexOf.call(arr, 1)');

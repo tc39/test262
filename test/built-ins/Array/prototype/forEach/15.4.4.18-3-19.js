@@ -6,10 +6,7 @@ es5id: 15.4.4.18-3-19
 description: >
     Array.prototype.forEach - value of 'length' is an Object which has
     an own toString method.
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
 
@@ -29,6 +26,4 @@ function testcase() {
 
         Array.prototype.forEach.call(obj, callbackfn);
 
-        return testResult;
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');

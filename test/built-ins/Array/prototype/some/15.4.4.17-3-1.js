@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.17-3-1
 description: Array.prototype.some - value of 'length' is undefined
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -18,6 +15,5 @@ function testcase() {
 
         var obj = { 0: 11, length: undefined };
 
-        return !Array.prototype.some.call(obj, callbackfn) && !accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.some.call(obj, callbackfn), false, 'Array.prototype.some.call(obj, callbackfn)');
+assert.sameValue(accessed, false, 'accessed');

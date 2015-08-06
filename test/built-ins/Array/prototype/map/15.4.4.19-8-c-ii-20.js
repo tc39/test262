@@ -6,10 +6,7 @@ es5id: 15.4.4.19-8-c-ii-20
 description: >
     Array.prototype.map - callbackfn called with correct parameters
     (thisArg is correct)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return this.threshold === 10;
@@ -21,6 +18,4 @@ function testcase() {
 
         var testResult = Array.prototype.map.call(obj, callbackfn, thisArg);
 
-        return testResult[0] === true;
-    }
-runTestCase(testcase);
+assert.sameValue(testResult[0], true, 'testResult[0]');

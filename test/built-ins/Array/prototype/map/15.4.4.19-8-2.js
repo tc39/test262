@@ -6,11 +6,8 @@ es5id: 15.4.4.19-8-2
 description: >
     Array.prototype.map considers new value of elements in array after
     it is called
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   function callbackfn(val, idx, obj)
   {    
     srcArr[4] = -1;
@@ -22,8 +19,6 @@ function testcase() {
 
   var srcArr = [1,2,3,4,5];
   var resArr = srcArr.map(callbackfn);
-  if(resArr.length === 5 && resArr[4] === 0)
-    return true;  
-  
- }
-runTestCase(testcase);
+
+assert.sameValue(resArr.length, 5, 'resArr.length');
+assert.sameValue(resArr[4], 0, 'resArr[4]');

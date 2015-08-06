@@ -6,11 +6,8 @@ es5id: 15.4.4.21-9-c-ii-1
 description: >
     Array.prototype.reduce - callbackfn called with correct parameters
     (initialvalue not passed)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   function callbackfn(prevVal, curVal, idx, obj)
   {
     if(idx > 0 && obj[idx] === curVal && obj[idx-1] === prevVal)
@@ -20,7 +17,5 @@ function testcase() {
   }
 
   var arr = [0,1,true,null,new Object(),"five"];
-  if( arr.reduce(callbackfn) === "five") 
-    return true;
- }
-runTestCase(testcase);
+
+assert.sameValue(arr.reduce(callbackfn), "five", 'arr.reduce(callbackfn)');

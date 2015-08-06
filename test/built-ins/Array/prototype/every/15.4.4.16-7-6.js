@@ -6,11 +6,8 @@ es5id: 15.4.4.16-7-6
 description: >
     Array.prototype.every visits deleted element in array after the
     call when same index is also present in prototype
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   function callbackfn(val, Idx, obj)
   {
     delete arr[2];
@@ -26,8 +23,4 @@ function testcase() {
   var res = arr.every(callbackfn);
   delete Array.prototype[2];
 
-  if(res === false)    
-      return true;  
-  
- }
-runTestCase(testcase);
+assert.sameValue(res, false, 'res');

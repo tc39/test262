@@ -5,10 +5,8 @@
 es5id: 15.4.4.18-5-1-s
 description: Array.prototype.forEach - thisArg not passed to strict callbackfn
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var innerThisCorrect = false;
   
   function callbackfn(val, idx, obj) {
@@ -18,6 +16,5 @@ function testcase() {
   }
 
   [1].forEach(callbackfn);
-  return innerThisCorrect;    
- }
-runTestCase(testcase);
+
+assert(innerThisCorrect, 'innerThisCorrect !== true');

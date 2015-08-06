@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.17-1-6
 description: Array.prototype.some applied to Number object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             return obj instanceof Number;
         }
@@ -17,6 +15,4 @@ function testcase() {
         obj[0] = 11;
         obj[1] = 9;
 
-        return Array.prototype.some.call(obj, callbackfn);
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(obj, callbackfn), 'Array.prototype.some.call(obj, callbackfn) !== true');

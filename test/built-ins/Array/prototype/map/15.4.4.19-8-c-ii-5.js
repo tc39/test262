@@ -6,10 +6,7 @@ es5id: 15.4.4.19-8-c-ii-5
 description: >
     Array.prototype.map - k values are accessed during each iteration
     and not prior to starting the loop.
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var kIndex = [];
 
@@ -30,8 +27,8 @@ function testcase() {
 
         var testResult = [11, 12, 13, 14].map(callbackfn);
 
-        return testResult.length === 4 && testResult[0] === false &&
-            testResult[1] === false && testResult[2] === false &&
-            testResult[3] === false;
-    }
-runTestCase(testcase);
+assert.sameValue(testResult.length, 4, 'testResult.length');
+assert.sameValue(testResult[0], false, 'testResult[0]');
+assert.sameValue(testResult[1], false, 'testResult[1]');
+assert.sameValue(testResult[2], false, 'testResult[2]');
+assert.sameValue(testResult[3], false, 'testResult[3]');

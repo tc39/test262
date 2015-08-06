@@ -6,10 +6,7 @@ es5id: 15.4.4.21-2-19
 description: >
     Array.prototype.reduce applied to Function object, which
     implements its own property get method
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(prevVal, curVal, idx, obj) {
             return (obj.length === 2);
@@ -22,6 +19,4 @@ function testcase() {
         fun[1] = 11;
         fun[2] = 9;
 
-        return Array.prototype.reduce.call(fun, callbackfn, 1) === true;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.reduce.call(fun, callbackfn, 1), true, 'Array.prototype.reduce.call(fun, callbackfn, 1)');

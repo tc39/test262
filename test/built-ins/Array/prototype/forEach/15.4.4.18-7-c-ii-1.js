@@ -4,11 +4,8 @@
 /*---
 es5id: 15.4.4.18-7-c-ii-1
 description: Array.prototype.forEach - callbackfn called with correct parameters
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   var bPar = true;
   var bCalled = false;
   function callbackfn(val, idx, obj)
@@ -21,7 +18,6 @@ function testcase() {
   var arr = [0,1,true,null,new Object(),"five"];
   arr[999999] = -6.6;
   arr.forEach(callbackfn);
-  if(bCalled === true && bPar === true)
-    return true;
- }
-runTestCase(testcase);
+
+assert.sameValue(bCalled, true, 'bCalled');
+assert.sameValue(bPar, true, 'bPar');

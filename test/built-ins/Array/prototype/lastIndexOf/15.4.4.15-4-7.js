@@ -6,10 +6,8 @@ es5id: 15.4.4.15-4-7
 description: >
     Array.prototype.lastIndexOf returns -1 if 'length' is 0 ( length
     is object overridden with obj w/o valueOf (toString))
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   foo.prototype = new Array(1, 2, 3);
   function foo() {}
   var f = new foo();
@@ -24,8 +22,5 @@ function testcase() {
   // resulting string to a number.
  var i = Array.prototype.lastIndexOf.call({length: { toString: function () { return '0';}}}, 1);
   
-  if (i === -1) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(i, -1, 'i');

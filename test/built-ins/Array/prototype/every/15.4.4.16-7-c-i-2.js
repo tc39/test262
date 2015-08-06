@@ -6,10 +6,7 @@ es5id: 15.4.4.16-7-c-i-2
 description: >
     Array.prototype.every - element to be retrieved is own data
     property on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var called = 0;
 
@@ -18,6 +15,5 @@ function testcase() {
             return val === 11;
         }
 
-        return [11].every(callbackfn) && 1 === called;
-    }
-runTestCase(testcase);
+assert([11].every(callbackfn), '[11].every(callbackfn) !== true');
+assert.sameValue(called, 1, 'called');

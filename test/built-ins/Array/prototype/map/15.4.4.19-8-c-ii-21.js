@@ -6,10 +6,7 @@ es5id: 15.4.4.19-8-c-ii-21
 description: >
     Array.prototype.map - callbackfn called with correct parameters
     (kValue is correct)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             if (idx === 0) {
@@ -27,6 +24,5 @@ function testcase() {
 
         var testResult = Array.prototype.map.call(obj, callbackfn);
 
-        return testResult[0] === true && testResult[1] === true;
-    }
-runTestCase(testcase);
+assert.sameValue(testResult[0], true, 'testResult[0]');
+assert.sameValue(testResult[1], true, 'testResult[1]');

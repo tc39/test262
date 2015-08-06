@@ -6,13 +6,8 @@ es5id: 15.4.4.15-2-14
 description: >
     Array.prototype.lastIndexOf - 'length' is undefined property on an
     Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = { 0: null, 1: undefined };
 
-        return Array.prototype.lastIndexOf.call(obj, null) === -1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.call(obj, null), -1, 'Array.prototype.lastIndexOf.call(obj, null)');

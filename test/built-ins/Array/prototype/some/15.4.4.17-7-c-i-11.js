@@ -7,10 +7,7 @@ description: >
     Array.prototype.some - element to be retrieved is own accessor
     property that overrides an inherited data property on an
     Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var kValue = "abc";
 
@@ -36,6 +33,4 @@ function testcase() {
             configurable: true
         });
 
-        return Array.prototype.some.call(child, callbackfn);
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(child, callbackfn), 'Array.prototype.some.call(child, callbackfn) !== true');

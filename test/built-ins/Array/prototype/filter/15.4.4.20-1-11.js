@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.20-1-11
 description: Array.prototype.filter applied to Date object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return obj instanceof Date;
@@ -19,6 +16,4 @@ function testcase() {
 
         var newArr = Array.prototype.filter.call(obj, callbackfn);
 
-        return newArr[0] === 1;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr[0], 1, 'newArr[0]');

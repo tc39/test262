@@ -5,10 +5,8 @@
 es5id: 15.4.4.18-5-25
 description: Array.prototype.forEach - thisArg not passed
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function innerObj() {
             this._15_4_4_18_5_25 = true;
             var _15_4_4_18_5_25 = false;
@@ -20,6 +18,5 @@ function testcase() {
             arr.forEach(callbackfn)
             this.retVal = !result;
         }
-        return new innerObj().retVal;
-    }
-runTestCase(testcase);
+
+assert(new innerObj().retVal, 'new innerObj().retVal !== true');

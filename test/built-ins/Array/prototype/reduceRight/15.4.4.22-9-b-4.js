@@ -6,10 +6,7 @@ es5id: 15.4.4.22-9-b-4
 description: >
     Array.prototype.reduceRight - properties added into own object in
     step 8 can be visited on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
 
@@ -35,6 +32,5 @@ function testcase() {
         });
 
         Array.prototype.reduceRight.call(obj, callbackfn);
-        return testResult;
-    }
-runTestCase(testcase);
+
+assert(testResult, 'testResult !== true');

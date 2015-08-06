@@ -6,16 +6,12 @@ es5id: 15.4.4.20-9-c-ii-13
 description: >
     Array.prototype.filter - callbackfn that uses arguments object to
     get parameter value
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn() {
             return arguments[2][arguments[1]] === arguments[0];
         }
         var newArr = [11].filter(callbackfn);
 
-        return newArr.length === 1 && newArr[0] === 11;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 1, 'newArr.length');
+assert.sameValue(newArr[0], 11, 'newArr[0]');

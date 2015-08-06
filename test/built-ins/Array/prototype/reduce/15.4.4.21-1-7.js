@@ -4,15 +4,10 @@
 /*---
 es5id: 15.4.4.21-1-7
 description: Array.prototype.reduce applied to string primitive
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(prevVal, curVal, idx, obj) {
             return obj instanceof String;
         }
 
-        return Array.prototype.reduce.call("abc", callbackfn, 1);
-    }
-runTestCase(testcase);
+assert(Array.prototype.reduce.call("abc", callbackfn, 1), 'Array.prototype.reduce.call("abc", callbackfn, 1) !== true');

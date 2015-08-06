@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.16-5-22
 description: Array.prototype.every - boolean primitive can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -16,6 +13,5 @@ function testcase() {
             return this.valueOf() === false;
         }
 
-        return [11].every(callbackfn, false) && accessed;
-    }
-runTestCase(testcase);
+assert([11].every(callbackfn, false), '[11].every(callbackfn, false) !== true');
+assert(accessed, 'accessed !== true');

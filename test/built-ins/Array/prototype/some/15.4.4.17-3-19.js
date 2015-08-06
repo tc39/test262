@@ -6,10 +6,8 @@ es5id: 15.4.4.17-3-19
 description: >
     Array.prototype.some - value of 'length' is an Object which has an
     own toString method
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn1(val, idx, obj) {
             return val > 10;
         }
@@ -32,7 +30,6 @@ function testcase() {
             }
         };
 
-        return Array.prototype.some.call(obj, callbackfn1) &&
-            !Array.prototype.some.call(obj, callbackfn2) && toStringAccessed;
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(obj, callbackfn1), 'Array.prototype.some.call(obj, callbackfn1) !== true');
+assert.sameValue(Array.prototype.some.call(obj, callbackfn2), false, 'Array.prototype.some.call(obj, callbackfn2)');
+assert(toStringAccessed, 'toStringAccessed !== true');

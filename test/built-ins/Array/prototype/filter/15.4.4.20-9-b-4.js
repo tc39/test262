@@ -6,10 +6,7 @@ es5id: 15.4.4.20-9-b-4
 description: >
     Array.prototype.filter - properties added into own object after
     current position are visited on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return true;
@@ -32,6 +29,5 @@ function testcase() {
 
         var newArr = Array.prototype.filter.call(obj, callbackfn);
 
-        return newArr.length === 2 && newArr[1] === 6.99;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 2, 'newArr.length');
+assert.sameValue(newArr[1], 6.99, 'newArr[1]');

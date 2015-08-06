@@ -6,10 +6,7 @@ es5id: 15.4.4.19-2-13
 description: >
     Array.prototype.map - applied to the Array-like object when
     'length' is inherited accessor property without a get function
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return val > 10;
@@ -30,6 +27,4 @@ function testcase() {
 
         var testResult = Array.prototype.map.call(child, callbackfn);
 
-        return 0 === testResult.length;
-    }
-runTestCase(testcase);
+assert.sameValue(testResult.length, 0, 'testResult.length');

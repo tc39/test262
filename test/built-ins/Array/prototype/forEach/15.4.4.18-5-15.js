@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.18-5-15
 description: Array.prototype.forEach - Date Object can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var result = false;
         var objDate = new Date();
@@ -17,6 +14,5 @@ function testcase() {
         }
 
         [11].forEach(callbackfn, objDate);
-        return result;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

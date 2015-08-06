@@ -6,10 +6,7 @@ es5id: 15.4.4.19-3-23
 description: >
     Array.prototype.map uses inherited valueOf method when 'length' is
     an object with an own toString and inherited valueOf methods
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return val < 10;
@@ -43,6 +40,6 @@ function testcase() {
 
         var newArr = Array.prototype.map.call(obj, callbackfn);
 
-        return newArr.length === 2 && valueOfAccessed && !toStringAccessed;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 2, 'newArr.length');
+assert(valueOfAccessed, 'valueOfAccessed !== true');
+assert.sameValue(toStringAccessed, false, 'toStringAccessed');

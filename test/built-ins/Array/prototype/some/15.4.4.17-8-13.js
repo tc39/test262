@@ -4,11 +4,8 @@
 /*---
 es5id: 15.4.4.17-8-13
 description: Array.prototype.some doesn't visit expandos
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   var callCnt = 0;
   function callbackfn(val, idx, obj)
   {
@@ -20,7 +17,6 @@ function testcase() {
   arr["i"] = 10;
   arr[true] = 11;
   
-  if(arr.some(callbackfn) === false && callCnt === 10) 
-    return true;
- }
-runTestCase(testcase);
+
+assert.sameValue(arr.some(callbackfn), false, 'arr.some(callbackfn)');
+assert.sameValue(callCnt, 10, 'callCnt');

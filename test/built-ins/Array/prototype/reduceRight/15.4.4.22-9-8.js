@@ -6,10 +6,7 @@ es5id: 15.4.4.22-9-8
 description: >
     Array.prototype.reduceRight - no observable effects occur if 'len'
     is 0
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         function callbackfn() {
@@ -27,6 +24,5 @@ function testcase() {
         });
 
         Array.prototype.reduceRight.call(obj, function () { }, "initialValue");
-        return !accessed;
-    }
-runTestCase(testcase);
+
+assert.sameValue(accessed, false, 'accessed');

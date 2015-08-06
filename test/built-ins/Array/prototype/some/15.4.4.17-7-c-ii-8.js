@@ -6,10 +6,7 @@ es5id: 15.4.4.17-7-c-ii-8
 description: >
     Array.prototype.some - element changed by callbackfn on previous
     iterations is observed
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             if (idx === 0) {
@@ -20,6 +17,4 @@ function testcase() {
 
         var obj = { 0: 9, 1: 8, length: 2 };
 
-        return Array.prototype.some.call(obj, callbackfn);
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(obj, callbackfn), 'Array.prototype.some.call(obj, callbackfn) !== true');

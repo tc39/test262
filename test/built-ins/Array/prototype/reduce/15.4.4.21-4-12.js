@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.21-4-12
 description: Array.prototype.reduce - 'callbackfn' is a function
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         function callbackfn(prevVal, curVal, idx, obj) {
@@ -15,6 +12,5 @@ function testcase() {
             return curVal > 10;
         }
 
-        return [11, 9].reduce(callbackfn, 1) === false && accessed;
-    }
-runTestCase(testcase);
+assert.sameValue([11, 9].reduce(callbackfn, 1), false, '[11, 9].reduce(callbackfn, 1)');
+assert(accessed, 'accessed !== true');

@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.19-1-15
 description: Array.prototype.map - applied to the Arguments object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             return ('[object Arguments]' === Object.prototype.toString.call(obj));
         }
@@ -18,6 +16,4 @@ function testcase() {
 
         var testResult = Array.prototype.map.call(obj, callbackfn);
 
-        return testResult[1] === true;
-    }
-runTestCase(testcase);
+assert.sameValue(testResult[1], true, 'testResult[1]');

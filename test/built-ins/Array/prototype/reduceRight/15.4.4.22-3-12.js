@@ -6,10 +6,7 @@ es5id: 15.4.4.22-3-12
 description: >
     Array.prototype.reduceRight - value of 'length' is a string
     containing a negative number
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult1 = true;
         var testResult2 = false;
@@ -27,6 +24,6 @@ function testcase() {
         var obj = { 0: 11, 1: 12, 2: 9, length: "-4294967294" };
 
         Array.prototype.reduceRight.call(obj, callbackfn, 1);
-        return testResult1 && !testResult2;
-    }
-runTestCase(testcase);
+
+assert(testResult1, 'testResult1 !== true');
+assert.sameValue(testResult2, false, 'testResult2');

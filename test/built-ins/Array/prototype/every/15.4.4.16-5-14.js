@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.16-5-14
 description: Array.prototype.every - the Math object can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -16,6 +13,5 @@ function testcase() {
             return this === Math;
         }
 
-        return [11].every(callbackfn, Math) && accessed;
-    }
-runTestCase(testcase);
+assert([11].every(callbackfn, Math), '[11].every(callbackfn, Math) !== true');
+assert(accessed, 'accessed !== true');

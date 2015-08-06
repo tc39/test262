@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.17-3-28
 description: Array.prototype.some - value of 'length' is boundary value (2^32)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -21,6 +18,5 @@ function testcase() {
             length: 4294967296
         };
 
-        return Array.prototype.some.call(obj, callbackfn) && accessed;
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(obj, callbackfn), 'Array.prototype.some.call(obj, callbackfn) !== true');
+assert(accessed, 'accessed !== true');

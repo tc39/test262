@@ -6,10 +6,7 @@ es5id: 15.4.4.22-9-b-3
 description: >
     Array.prototype.reduceRight - deleted properties in step 2 are
     visible here
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var testResult = true;
@@ -33,6 +30,5 @@ function testcase() {
 
         Array.prototype.reduceRight.call(obj, callbackfn, "initialValue");
 
-        return accessed && testResult;
-    }
-runTestCase(testcase);
+assert(accessed, 'accessed !== true');
+assert(testResult, 'testResult !== true');

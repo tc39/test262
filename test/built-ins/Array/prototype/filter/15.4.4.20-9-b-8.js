@@ -6,10 +6,8 @@ es5id: 15.4.4.20-9-b-8
 description: >
     Array.prototype.filter - deleting own property causes index
     property not to be visited on an Array-like object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var accessed = false;
         var obj = { length: 2 };
 
@@ -35,6 +33,5 @@ function testcase() {
 
         var newArr = Array.prototype.filter.call(obj, callbackfn);
 
-        return newArr.length === 1 && newArr[0] === 0;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 1, 'newArr.length');
+assert.sameValue(newArr[0], 0, 'newArr[0]');

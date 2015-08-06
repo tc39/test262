@@ -6,10 +6,7 @@ es5id: 15.4.4.21-2-3
 description: >
     Array.prototype.reduce - 'length' is an own data property that
     overrides an inherited data property on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(prevVal, curVal, idx, obj) {
             return (obj.length === 2);
@@ -26,6 +23,4 @@ function testcase() {
         child[1] = 11;
         child[2] = 9;
 
-        return Array.prototype.reduce.call(child, callbackfn, 1) === true;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.reduce.call(child, callbackfn, 1), true, 'Array.prototype.reduce.call(child, callbackfn, 1)');

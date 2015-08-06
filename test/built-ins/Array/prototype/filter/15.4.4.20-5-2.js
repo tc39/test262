@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.20-5-2
 description: Array.prototype.filter - thisArg is Object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var res = false;
   var o = new Object();
   o.res = true;
@@ -18,7 +16,5 @@ function testcase() {
 
   var srcArr = [1];
   var resArr = srcArr.filter(callbackfn,o);
-  if( resArr.length === 1)
-    return true;
- }
-runTestCase(testcase);
+
+assert.sameValue(resArr.length, 1, 'resArr.length');

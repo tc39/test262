@@ -6,10 +6,7 @@ es5id: 15.4.4.20-2-14
 description: >
     Array.prototype.filter applied to the Array-like object that
     'length property doesn't exist
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         function callbackfn(val, idx, obj) {
@@ -20,6 +17,6 @@ function testcase() {
         var obj = { 0: 11, 1: 12 };
 
         var newArr = Array.prototype.filter.call(obj, callbackfn);
-        return newArr.length === 0 && !accessed;
-    }
-runTestCase(testcase);
+
+assert.sameValue(newArr.length, 0, 'newArr.length');
+assert.sameValue(accessed, false, 'accessed');

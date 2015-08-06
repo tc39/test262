@@ -7,10 +7,7 @@ description: >
     Array.prototype.reduceRight - deleting own property in step 8
     causes deleted index property not to be visited on an Array-like
     object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var testResult = true;
@@ -40,6 +37,6 @@ function testcase() {
         });
 
         Array.prototype.reduceRight.call(obj, callbackfn);
-        return testResult && accessed;
-    }
-runTestCase(testcase);
+
+assert(testResult, 'testResult !== true');
+assert(accessed, 'accessed !== true');

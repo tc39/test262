@@ -6,10 +6,7 @@ es5id: 15.4.4.22-9-c-i-7
 description: >
     Array.prototype.reduceRight - element to be retrieved is inherited
     data property on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
         function callbackfn(prevVal, curVal, idx, obj) {
@@ -26,6 +23,5 @@ function testcase() {
         child.length = 3;
 
         Array.prototype.reduceRight.call(child, callbackfn, "initialValue");
-        return testResult;
-    }
-runTestCase(testcase);
+
+assert(testResult, 'testResult !== true');

@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.20-1-4
 description: Array.prototype.filter applied to Boolean Object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return obj instanceof Boolean;
@@ -20,6 +17,5 @@ function testcase() {
 
         var newArr = Array.prototype.filter.call(obj, callbackfn);
 
-        return newArr[0] === 11 && newArr[1] === 12;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr[0], 11, 'newArr[0]');
+assert.sameValue(newArr[1], 12, 'newArr[1]');

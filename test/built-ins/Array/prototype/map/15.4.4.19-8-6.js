@@ -6,11 +6,8 @@ es5id: 15.4.4.19-8-6
 description: >
     Array.prototype.map visits deleted element in array after the call
     when same index is also present in prototype
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   function callbackfn(val, idx, obj)
   {
     delete srcArr[4];
@@ -25,8 +22,6 @@ function testcase() {
   var srcArr = [1,2,3,4,5];
   var resArr = srcArr.map(callbackfn);
   delete Array.prototype[4];
-  if(resArr.length === 5 && resArr[4] === 1)
-    return true;  
-  
- }
-runTestCase(testcase);
+
+assert.sameValue(resArr.length, 5, 'resArr.length');
+assert.sameValue(resArr[4], 1, 'resArr[4]');

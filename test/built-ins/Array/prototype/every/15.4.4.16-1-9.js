@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.16-1-9
 description: Array.prototype.every applied to Function object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             return !(obj instanceof Function);
         }
@@ -18,6 +16,4 @@ function testcase() {
         obj[0] = 11;
         obj[1] = 9;
 
-        return !Array.prototype.every.call(obj, callbackfn);
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.every.call(obj, callbackfn), false, 'Array.prototype.every.call(obj, callbackfn)');

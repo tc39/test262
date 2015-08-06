@@ -7,10 +7,7 @@ description: >
     Array.prototype.reduceRight - value of 'accumulator' used for
     first iteration is the value of max index property which is not
     undefined when 'initialValue' is not present on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [11, 12, 13];
         var testResult = false;
@@ -23,6 +20,4 @@ function testcase() {
         }
         arr.reduceRight(callbackfn);
 
-        return testResult;
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');

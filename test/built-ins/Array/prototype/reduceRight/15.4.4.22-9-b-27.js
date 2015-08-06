@@ -6,10 +6,7 @@ es5id: 15.4.4.22-9-b-27
 description: >
     Array.prototype.reduceRight - decreasing length of array causes
     deleted index property not to be visited
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var testResult = true;
@@ -33,6 +30,5 @@ function testcase() {
 
         arr.reduceRight(callbackfn, "initialValue");
 
-        return testResult && accessed;
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');
+assert(accessed, 'accessed !== true');

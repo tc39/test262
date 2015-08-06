@@ -6,10 +6,7 @@ es5id: 15.4.4.16-7-c-iii-23
 description: >
     Array.prototype.every - return value of callbackfn is the JSON
     object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -18,6 +15,5 @@ function testcase() {
             return JSON;
         }
 
-        return [11].every(callbackfn) && accessed;
-    }
-runTestCase(testcase);
+assert([11].every(callbackfn), '[11].every(callbackfn) !== true');
+assert(accessed, 'accessed !== true');

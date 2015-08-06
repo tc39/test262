@@ -6,10 +6,7 @@ es5id: 15.4.4.21-8-b-iii-1-2
 description: >
     Array.prototype.reduce - element to be retrieved is own data
     property on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
         function callbackfn(prevVal, curVal, idx, obj) {
@@ -20,6 +17,5 @@ function testcase() {
 
         var arr = [0, 1, 2];
         arr.reduce(callbackfn);
-        return testResult;
-    }
-runTestCase(testcase);
+
+assert(testResult, 'testResult !== true');

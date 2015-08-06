@@ -6,10 +6,8 @@ es5id: 15.4.4.17-3-23
 description: >
     Array.prototype.some uses inherited valueOf method when 'length'
     is an object with an own toString and inherited valueOf methods
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn1(val, idx, obj) {
             return val > 10;
         }
@@ -45,8 +43,7 @@ function testcase() {
             length: child
         };
 
-        return Array.prototype.some.call(obj, callbackfn1) &&
-            !Array.prototype.some.call(obj, callbackfn2) &&
-            valueOfAccessed && !toStringAccessed;
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(obj, callbackfn1), 'Array.prototype.some.call(obj, callbackfn1) !== true');
+assert.sameValue(Array.prototype.some.call(obj, callbackfn2), false, 'Array.prototype.some.call(obj, callbackfn2)');
+assert(valueOfAccessed, 'valueOfAccessed !== true');
+assert.sameValue(toStringAccessed, false, 'toStringAccessed');

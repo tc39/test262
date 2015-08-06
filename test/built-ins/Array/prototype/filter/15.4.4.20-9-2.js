@@ -6,11 +6,8 @@ es5id: 15.4.4.20-9-2
 description: >
     Array.prototype.filter considers new value of elements in array
     after it is called
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   function callbackfn(val, idx, obj)
   {    
     srcArr[2] = -1;
@@ -23,8 +20,7 @@ function testcase() {
 
   var srcArr = [1,2,3,4,5];
   var resArr = srcArr.filter(callbackfn);
-  if(resArr.length === 3 && resArr[0] === 1 && resArr[2] === 4)
-      return true;  
-  
- }
-runTestCase(testcase);
+
+assert.sameValue(resArr.length, 3, 'resArr.length');
+assert.sameValue(resArr[0], 1, 'resArr[0]');
+assert.sameValue(resArr[2], 4, 'resArr[2]');

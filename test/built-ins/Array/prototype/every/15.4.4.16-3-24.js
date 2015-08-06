@@ -6,10 +6,8 @@ es5id: 15.4.4.16-3-24
 description: >
     Array.prototype.every - value of 'length' is a positive
     non-integer, ensure truncation occurs in the proper direction
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn1(val, idx, obj) {
             return val > 10;
         }
@@ -20,7 +18,5 @@ function testcase() {
 
         var obj = { 0: 12, 1: 11, 2: 9, length: 2.685 };
 
-        return Array.prototype.every.call(obj, callbackfn1) &&
-            !Array.prototype.every.call(obj, callbackfn2);
-    }
-runTestCase(testcase);
+assert(Array.prototype.every.call(obj, callbackfn1), 'Array.prototype.every.call(obj, callbackfn1) !== true');
+assert.sameValue(Array.prototype.every.call(obj, callbackfn2), false, 'Array.prototype.every.call(obj, callbackfn2)');

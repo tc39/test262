@@ -6,10 +6,7 @@ es5id: 15.4.4.20-9-c-iii-1-5
 description: >
     Array.prototype.filter - values of 'to' are passed in acending
     numeric order
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [0, 1, 2, 3, 4];
         var lastToIdx = 0;
@@ -25,6 +22,5 @@ function testcase() {
         }
         var newArr = arr.filter(callbackfn);
 
-        return newArr.length === 5 && called === 5;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 5, 'newArr.length');
+assert.sameValue(called, 5, 'called');

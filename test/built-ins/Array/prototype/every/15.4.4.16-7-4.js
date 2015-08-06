@@ -6,11 +6,8 @@ es5id: 15.4.4.16-7-4
 description: >
     Array.prototype.every doesn't visit deleted elements when
     Array.length is decreased
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   function callbackfn(val, Idx, obj)
   {
     arr.length = 3;
@@ -22,8 +19,5 @@ function testcase() {
 
   var arr = [1,2,3,4,6];
   
-  if(arr.every(callbackfn) === true)    
-      return true;  
-  
- }
-runTestCase(testcase);
+
+assert.sameValue(arr.every(callbackfn), true, 'arr.every(callbackfn)');

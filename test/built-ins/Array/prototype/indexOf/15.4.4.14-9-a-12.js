@@ -6,10 +6,7 @@ es5id: 15.4.4.14-9-a-12
 description: >
     Array.prototype.indexOf - deleting own property causes index
     property not to be visited on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [1, 2];
 
@@ -28,6 +25,4 @@ function testcase() {
             configurable: true
         });
 
-        return -1 === arr.indexOf("6.99");
-    }
-runTestCase(testcase);
+assert.sameValue(arr.indexOf("6.99"), -1, 'arr.indexOf("6.99")');

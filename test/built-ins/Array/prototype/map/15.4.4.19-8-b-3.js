@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.19-8-b-3
 description: Array.prototype.map - deleted properties in step 2 are visible here
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             if (idx === 2) {
                 return false;
@@ -26,6 +24,5 @@ function testcase() {
         });
 
         var testResult = Array.prototype.map.call(obj, callbackfn);
-        return typeof testResult[2] === "undefined";
-    }
-runTestCase(testcase);
+
+assert.sameValue(typeof testResult[2], "undefined", 'typeof testResult[2]');

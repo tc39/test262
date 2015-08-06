@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.18-3-14
 description: Array.prototype.forEach - 'length' is a string containing -Infinity
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed2 = false;
 
@@ -19,6 +16,4 @@ function testcase() {
 
         Array.prototype.forEach.call(obj2, callbackfn2);
 
-        return !accessed2;
-    }
-runTestCase(testcase);
+assert.sameValue(accessed2, false, 'accessed2');

@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.17-7-c-ii-19
 description: Array.prototype.some - non-indexed properties are not called
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var called = 0;
 
@@ -18,6 +15,5 @@ function testcase() {
 
         var obj = { 0: 9, 10: 8, non_index_property: 11, length: 20 };
 
-        return !Array.prototype.some.call(obj, callbackfn) && (2 === called);
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.some.call(obj, callbackfn), false, 'Array.prototype.some.call(obj, callbackfn)');
+assert.sameValue(called, 2, 'called');

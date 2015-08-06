@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.19-8-b-2
 description: Array.prototype.map - added properties in step 2 are visible here
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             if (idx === 2 && val === "length") {
                 return false;
@@ -27,6 +25,5 @@ function testcase() {
         });
 
         var testResult = Array.prototype.map.call(obj, callbackfn);
-        return testResult[2] === false;
-    }
-runTestCase(testcase);
+
+assert.sameValue(testResult[2], false, 'testResult[2]');

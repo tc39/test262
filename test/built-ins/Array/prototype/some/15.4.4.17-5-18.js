@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.17-5-18
 description: Array.prototype.some - Error object can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var objError = new RangeError();
 
@@ -15,6 +12,4 @@ function testcase() {
             return this === objError;
         }
 
-        return [11].some(callbackfn, objError);
-    }
-runTestCase(testcase);
+assert([11].some(callbackfn, objError), '[11].some(callbackfn, objError) !== true');

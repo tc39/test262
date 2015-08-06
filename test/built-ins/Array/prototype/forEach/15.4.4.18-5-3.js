@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.18-5-3
 description: Array.prototype.forEach - thisArg is Array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var res = false;
   var a = new Array();
   a.res = true;
@@ -19,8 +17,5 @@ function testcase() {
 
   var arr = [1];
   arr.forEach(callbackfn,a)
-  if( result === true)
-    return true;    
 
- }
-runTestCase(testcase);
+assert.sameValue(result, true, 'result');

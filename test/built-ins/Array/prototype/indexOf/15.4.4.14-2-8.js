@@ -6,10 +6,7 @@ es5id: 15.4.4.14-2-8
 description: >
     Array.prototype.indexOf - 'length' is own accessor property that
     overrides an inherited data property
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var proto = { length: 0 };
 
@@ -26,6 +23,4 @@ function testcase() {
             configurable: true
         });
 
-        return Array.prototype.indexOf.call(child, true) === 1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.indexOf.call(child, true), 1, 'Array.prototype.indexOf.call(child, true)');

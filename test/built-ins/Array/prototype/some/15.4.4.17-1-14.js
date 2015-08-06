@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.17-1-14
 description: Array.prototype.some applied to Error object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             return obj instanceof Error;
         }
@@ -16,6 +14,4 @@ function testcase() {
         obj.length = 1;
         obj[0] = 1;
 
-        return Array.prototype.some.call(obj, callbackfn);
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(obj, callbackfn), 'Array.prototype.some.call(obj, callbackfn) !== true');

@@ -6,15 +6,10 @@ es5id: 15.4.4.17-7-c-iii-25
 description: >
     Array.prototype.some - return value of callbackfn is the Arguments
     object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return arguments;
         }
 
-        return [11].some(callbackfn);
-    }
-runTestCase(testcase);
+assert([11].some(callbackfn), '[11].some(callbackfn) !== true');

@@ -6,10 +6,7 @@ es5id: 15.4.4.21-9-b-14
 description: >
     Array.prototype.reduce - decreasing length of array in step 8
     causes deleted index property not to be visited
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var testResult = true;
@@ -33,6 +30,5 @@ function testcase() {
 
         arr.reduce(callbackfn);
 
-        return testResult && accessed;
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');
+assert(accessed, 'accessed !== true');

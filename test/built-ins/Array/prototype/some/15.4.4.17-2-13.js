@@ -6,10 +6,7 @@ es5id: 15.4.4.17-2-13
 description: >
     Array.prototype.some - 'length' is inherited accessor property
     without a get function on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -31,6 +28,5 @@ function testcase() {
         child[0] = 11;
         child[1] = 12;
 
-        return !Array.prototype.some.call(child, callbackfn) && !accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.some.call(child, callbackfn), false, 'Array.prototype.some.call(child, callbackfn)');
+assert.sameValue(accessed, false, 'accessed');

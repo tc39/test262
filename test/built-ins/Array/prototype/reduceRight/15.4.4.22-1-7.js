@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.22-1-7
 description: Array.prototype.reduceRight applied to string primitive
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -16,6 +13,5 @@ function testcase() {
             return obj instanceof String;
         }
 
-        return Array.prototype.reduceRight.call("hello\nworld\\!", callbackfn, "h") && accessed;
-    }
-runTestCase(testcase);
+assert(Array.prototype.reduceRight.call("hello\nworld\\!", callbackfn, "h"), 'Array.prototype.reduceRight.call("hello\nworld\\!", callbackfn, "h") !== true');
+assert(accessed, 'accessed !== true');

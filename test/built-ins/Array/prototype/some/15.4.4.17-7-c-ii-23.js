@@ -6,10 +6,7 @@ es5id: 15.4.4.17-7-c-ii-23
 description: >
     Array.prototype.some - callbackfn called with correct parameters
     (this object O is correct)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = { 0: 11, 1: 12, length: 2 };
 
@@ -17,6 +14,4 @@ function testcase() {
             return obj === o;
         }
 
-        return Array.prototype.some.call(obj, callbackfn);
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(obj, callbackfn), 'Array.prototype.some.call(obj, callbackfn) !== true');

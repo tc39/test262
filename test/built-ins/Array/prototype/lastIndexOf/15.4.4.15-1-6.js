@@ -4,15 +4,10 @@
 /*---
 es5id: 15.4.4.15-1-6
 description: Array.prototype.lastIndexOf applied to Number object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = new Number(-3);
         obj.length = 2;
         obj[1] = true;
 
-        return Array.prototype.lastIndexOf.call(obj, true) === 1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.call(obj, true), 1, 'Array.prototype.lastIndexOf.call(obj, true)');

@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.19-1-11
 description: Array.prototype.map - applied to Date object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             return obj instanceof Date;
         }
@@ -18,6 +16,4 @@ function testcase() {
 
         var testResult = Array.prototype.map.call(obj, callbackfn);
 
-        return testResult[0] === true;
-    }
-runTestCase(testcase);
+assert.sameValue(testResult[0], true, 'testResult[0]');

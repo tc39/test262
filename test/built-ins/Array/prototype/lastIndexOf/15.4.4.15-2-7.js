@@ -6,10 +6,7 @@ es5id: 15.4.4.15-2-7
 description: >
     Array.prototype.lastIndexOf - 'length' is own accessor property on
     an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = { 1: true, 2: false };
 
@@ -20,7 +17,5 @@ function testcase() {
             configurable: true
         });
 
-        return Array.prototype.lastIndexOf.call(obj, true) === 1 &&
-            Array.prototype.lastIndexOf.call(obj, false) === -1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.call(obj, true), 1, 'Array.prototype.lastIndexOf.call(obj, true)');
+assert.sameValue(Array.prototype.lastIndexOf.call(obj, false), -1, 'Array.prototype.lastIndexOf.call(obj, false)');

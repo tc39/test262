@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.16-5-12
 description: Array.prototype.every - Boolean Object can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var objBoolean = new Boolean();
@@ -19,6 +16,5 @@ function testcase() {
 
        
 
-        return [11].every(callbackfn, objBoolean) && accessed;
-    }
-runTestCase(testcase);
+assert([11].every(callbackfn, objBoolean), '[11].every(callbackfn, objBoolean) !== true');
+assert(accessed, 'accessed !== true');

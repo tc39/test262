@@ -6,10 +6,7 @@ es5id: 15.4.4.22-8-b-iii-1-9
 description: >
     Array.prototype.reduceRight - element to be retrieved is own
     accessor property on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
         function callbackfn(prevVal, curVal, idx, obj) {
@@ -27,7 +24,5 @@ function testcase() {
         });
 
         Array.prototype.reduceRight.call(obj, callbackfn);
-        return testResult;
 
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');

@@ -6,10 +6,7 @@ es5id: 15.4.4.20-9-c-ii-20
 description: >
     Array.prototype.filter - callbackfn called with correct parameters
     (thisArg is correct)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var thisArg = { threshold: 10 };
 
@@ -20,6 +17,5 @@ function testcase() {
         var obj = { 0: 11, length: 1 };
         var newArr = Array.prototype.filter.call(obj, callbackfn, thisArg);
 
-        return newArr.length === 1 && newArr[0] === 11;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 1, 'newArr.length');
+assert.sameValue(newArr[0], 11, 'newArr[0]');

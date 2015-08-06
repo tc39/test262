@@ -6,10 +6,7 @@ es5id: 15.4.4.19-8-c-iii-4
 description: >
     Array.prototype.map - value of returned array element can be
     enumerated
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return true;
@@ -28,6 +25,4 @@ function testcase() {
             }
         }
 
-        return enumerable;
-    }
-runTestCase(testcase);
+assert(enumerable, 'enumerable !== true');

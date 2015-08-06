@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.14-2-10
 description: Array.prototype.indexOf - 'length' is inherited accessor property
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var proto = {};
         Object.defineProperty(proto, "length", {
@@ -25,7 +22,5 @@ function testcase() {
         var childTwo = new Con();
         childTwo[2] = true;
 
-        return Array.prototype.indexOf.call(childOne, true) === 1 &&
-            Array.prototype.indexOf.call(childTwo, true) === -1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.indexOf.call(childOne, true), 1, 'Array.prototype.indexOf.call(childOne, true)');
+assert.sameValue(Array.prototype.indexOf.call(childTwo, true), -1, 'Array.prototype.indexOf.call(childTwo, true)');

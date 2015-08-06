@@ -6,12 +6,8 @@ es5id: 15.4.4.15-3-19
 description: >
     Array.prototype.lastIndexOf - value of 'length' is an Object which
     has an own toString method
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
-
-function testcase() {
 
         // objects inherit the default valueOf() method from Object
         // that simply returns itself. Since the default valueOf() method
@@ -31,7 +27,5 @@ function testcase() {
             }
         };
 
-        return Array.prototype.lastIndexOf.call(obj, targetObj) === 1 &&
-            Array.prototype.lastIndexOf.call(obj, 2) === -1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.call(obj, targetObj), 1, 'Array.prototype.lastIndexOf.call(obj, targetObj)');
+assert.sameValue(Array.prototype.lastIndexOf.call(obj, 2), -1, 'Array.prototype.lastIndexOf.call(obj, 2)');

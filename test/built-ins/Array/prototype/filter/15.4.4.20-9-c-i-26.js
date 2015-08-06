@@ -7,10 +7,7 @@ description: >
     Array.prototype.filter - This object is the Arguments object which
     implements its own property get method (number of arguments equals
     number of parameters)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             if (idx === 0) {
@@ -27,7 +24,6 @@ function testcase() {
         };
         var newArr = func(11, 9);
 
-        return newArr.length === 2 && newArr[0] === 11 &&
-            newArr[1] === 9;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 2, 'newArr.length');
+assert.sameValue(newArr[0], 11, 'newArr[0]');
+assert.sameValue(newArr[1], 9, 'newArr[1]');

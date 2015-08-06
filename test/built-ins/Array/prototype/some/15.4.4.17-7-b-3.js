@@ -6,10 +6,8 @@ es5id: 15.4.4.17-7-b-3
 description: >
     Array.prototype.some - deleted properties in step 2 are visible
     here
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var accessed = false;
         function callbackfn(val, idx, obj) {
             accessed = true;
@@ -25,6 +23,5 @@ function testcase() {
             configurable: true
         });
 
-        return !Array.prototype.some.call(arr, callbackfn) && accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.some.call(arr, callbackfn), false, 'Array.prototype.some.call(arr, callbackfn)');
+assert(accessed, 'accessed !== true');

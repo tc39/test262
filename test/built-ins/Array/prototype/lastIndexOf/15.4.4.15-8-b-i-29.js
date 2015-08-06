@@ -6,10 +6,7 @@ es5id: 15.4.4.15-8-b-i-29
 description: >
     Array.prototype.lastIndexOf - side-effects are visible in
     subsequent iterations on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var preIterVisible = false;
         var obj = { length: 3 };
@@ -33,6 +30,4 @@ function testcase() {
             configurable: true
         });
 
-        return Array.prototype.lastIndexOf.call(obj, true) === 1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.call(obj, true), 1, 'Array.prototype.lastIndexOf.call(obj, true)');

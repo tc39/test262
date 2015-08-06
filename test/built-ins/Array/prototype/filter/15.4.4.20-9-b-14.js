@@ -6,10 +6,7 @@ es5id: 15.4.4.20-9-b-14
 description: >
     Array.prototype.filter - decreasing length of array causes index
     property not to be visited
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return true;
@@ -27,6 +24,5 @@ function testcase() {
         var newArr = arr.filter(callbackfn);
 
 
-        return newArr.length === 3 && newArr[2] === 2;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 3, 'newArr.length');
+assert.sameValue(newArr[2], 2, 'newArr[2]');

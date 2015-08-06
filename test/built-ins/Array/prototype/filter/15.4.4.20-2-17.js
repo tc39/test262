@@ -6,10 +6,7 @@ es5id: 15.4.4.20-2-17
 description: >
     Array.prototype.filter applied to the Arguments object, which
     implements its own property get method
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return obj.length === 2;
@@ -20,6 +17,4 @@ function testcase() {
             return newArr.length === 2;
         };
 
-        return func(12, 11);
-    }
-runTestCase(testcase);
+assert(func(12, 11), 'func(12, 11) !== true');

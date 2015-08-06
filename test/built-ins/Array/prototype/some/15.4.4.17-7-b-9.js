@@ -6,10 +6,8 @@ es5id: 15.4.4.17-7-b-9
 description: >
     Array.prototype.some - deleting own property causes index property
     not to be visited on an Array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var accessed = false;
         function callbackfn(val, idx, obj) {
             accessed = true;
@@ -32,6 +30,5 @@ function testcase() {
             configurable: true
         });
 
-        return !arr.some(callbackfn) && accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(arr.some(callbackfn), false, 'arr.some(callbackfn)');
+assert(accessed, 'accessed !== true');

@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.20-3-14
 description: Array.prototype.filter - 'length' is a string containing -Infinity
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed2 = false;
 
@@ -20,6 +17,5 @@ function testcase() {
 
         var newArr2 = Array.prototype.filter.call(obj2, callbackfn2);
 
-        return !accessed2 && newArr2.length === 0;
-    }
-runTestCase(testcase);
+assert.sameValue(accessed2, false, 'accessed2');
+assert.sameValue(newArr2.length, 0, 'newArr2.length');

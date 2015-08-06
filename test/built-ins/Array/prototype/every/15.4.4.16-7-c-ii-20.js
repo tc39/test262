@@ -6,10 +6,7 @@ es5id: 15.4.4.16-7-c-ii-20
 description: >
     Array.prototype.every - callbackfn called with correct parameters
     (thisArg is correct)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -22,6 +19,4 @@ function testcase() {
 
         var obj = { 0: 11, length: 1 };
 
-        return Array.prototype.every.call(obj, callbackfn, thisArg);
-    }
-runTestCase(testcase);
+assert(Array.prototype.every.call(obj, callbackfn, thisArg), 'Array.prototype.every.call(obj, callbackfn, thisArg) !== true');

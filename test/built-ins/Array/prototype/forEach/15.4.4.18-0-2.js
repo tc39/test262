@@ -4,12 +4,6 @@
 /*---
 es5id: 15.4.4.18-0-2
 description: Array.prototype.forEach.length must be 1
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if (Array.prototype.forEach.length === 1) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.forEach.length, 1, 'Array.prototype.forEach.length');

@@ -5,12 +5,8 @@
 es5id: 15.4.4.16-5-1
 description: Array.prototype.every - thisArg not passed
 flags: [noStrict]
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
-
-function testcase() {
 
   function callbackfn(val, idx, obj)
   {
@@ -18,7 +14,5 @@ function testcase() {
   }
 
   var arr = [1];
-  if(arr.every(callbackfn) === true)
-    return true;    
- }
-runTestCase(testcase);
+
+assert.sameValue(arr.every(callbackfn), true, 'arr.every(callbackfn)');

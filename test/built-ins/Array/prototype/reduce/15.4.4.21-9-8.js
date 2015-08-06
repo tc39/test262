@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.21-9-8
 description: Array.prototype.reduce - no observable effects occur if 'len' is 0
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var callbackAccessed = false;
@@ -26,6 +23,6 @@ function testcase() {
         });
 
         Array.prototype.reduce.call(obj, function () { }, "initialValue");
-        return !accessed && !callbackAccessed;
-    }
-runTestCase(testcase);
+
+assert.sameValue(accessed, false, 'accessed');
+assert.sameValue(callbackAccessed, false, 'callbackAccessed');

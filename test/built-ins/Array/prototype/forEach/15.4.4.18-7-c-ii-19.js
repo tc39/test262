@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.18-7-c-ii-19
 description: Array.prototype.forEach - non-indexed properties are not called
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var result = true;
@@ -21,6 +18,6 @@ function testcase() {
         var obj = { 0: 11, 10: 12, non_index_property: 8, length: 20 };
 
         Array.prototype.forEach.call(obj, callbackfn);
-        return result && accessed;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');
+assert(accessed, 'accessed !== true');

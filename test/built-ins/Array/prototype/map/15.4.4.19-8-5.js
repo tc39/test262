@@ -6,11 +6,8 @@ es5id: 15.4.4.19-8-5
 description: >
     Array.prototype.map doesn't consider newly added elements in
     sparse array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   var callCnt = 0;
   function callbackfn(val, idx, obj)
   {
@@ -23,8 +20,6 @@ function testcase() {
   srcArr[1] = 1;
   srcArr[2] = 2;
   var resArr = srcArr.map(callbackfn);
-  if( resArr.length === 10 && callCnt === 2)    
-      return true;  
-  
- }
-runTestCase(testcase);
+
+assert.sameValue(resArr.length, 10, 'resArr.length');
+assert.sameValue(callCnt, 2, 'callCnt');

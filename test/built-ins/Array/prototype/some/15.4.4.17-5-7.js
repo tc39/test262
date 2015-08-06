@@ -4,15 +4,10 @@
 /*---
 es5id: 15.4.4.17-5-7
 description: Array.prototype.some - built-in functions can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return this === eval;
         }
 
-        return [11].some(callbackfn, eval);
-    }
-runTestCase(testcase);
+assert([11].some(callbackfn, eval), '[11].some(callbackfn, eval) !== true');

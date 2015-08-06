@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.17-5-3
 description: Array.prototype.some - thisArg is Array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var res = false;
   var a = new Array();
   a.res = true;
@@ -18,8 +16,4 @@ function testcase() {
 
   var arr = [1];
 
-  if(arr.some(callbackfn, a) === true)
-    return true;    
-
- }
-runTestCase(testcase);
+assert.sameValue(arr.some(callbackfn, a), true, 'arr.some(callbackfn, a)');

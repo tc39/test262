@@ -7,10 +7,7 @@ description: >
     Array.prototype.lastIndexOf uses inherited valueOf method when
     'length' is an object with an own toString and an inherited
     valueOf methods
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var toStringAccessed = false;
         var valueOfAccessed = false;
@@ -36,6 +33,6 @@ function testcase() {
             length: child
         };
 
-        return Array.prototype.lastIndexOf.call(obj, child) === 1 && valueOfAccessed && !toStringAccessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.call(obj, child), 1, 'Array.prototype.lastIndexOf.call(obj, child)');
+assert(valueOfAccessed, 'valueOfAccessed !== true');
+assert.sameValue(toStringAccessed, false, 'toStringAccessed');

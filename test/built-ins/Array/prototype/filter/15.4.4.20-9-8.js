@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.20-9-8
 description: Array.prototype.filter - no observable effects occur if len is 0
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -20,6 +17,6 @@ function testcase() {
 
         var newArr = Array.prototype.filter.call(obj, callbackfn);
 
-        return accessed === false && obj.length === 0 && newArr.length === 0;
-    }
-runTestCase(testcase);
+assert.sameValue(accessed, false, 'accessed');
+assert.sameValue(obj.length, 0, 'obj.length');
+assert.sameValue(newArr.length, 0, 'newArr.length');

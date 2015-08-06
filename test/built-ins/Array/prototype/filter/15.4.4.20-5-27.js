@@ -6,13 +6,8 @@ es5id: 15.4.4.20-5-27
 description: >
     Array.prototype.filter - Array.isArray(arg) returns true when arg
     is the returned array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var newArr = [11].filter(function () { });
 
-        return Array.isArray(newArr);
-    }
-runTestCase(testcase);
+assert(Array.isArray(newArr), 'Array.isArray(newArr) !== true');

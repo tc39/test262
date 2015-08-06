@@ -4,16 +4,11 @@
 /*---
 es5id: 15.4.4.14-1-9
 description: Array.prototype.indexOf applied to Function object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = function (a, b) {
             return a + b;
         };
         obj[1] = true;
 
-        return Array.prototype.indexOf.call(obj, true) === 1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.indexOf.call(obj, true), 1, 'Array.prototype.indexOf.call(obj, true)');

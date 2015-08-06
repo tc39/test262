@@ -6,10 +6,7 @@ es5id: 15.4.4.19-8-c-i-10
 description: >
     Array.prototype.map - element to be retrieved is own accessor
     property on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var kValue = "abc";
 
@@ -31,6 +28,4 @@ function testcase() {
 
         var testResult = arr.map(callbackfn);
 
-        return testResult[0] === true;
-    }
-runTestCase(testcase);
+assert.sameValue(testResult[0], true, 'testResult[0]');

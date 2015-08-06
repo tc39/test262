@@ -4,13 +4,8 @@
 /*---
 es5id: 15.4.4.19-6-2
 description: Array.prototype.map - the returned array is instanceof Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var newArr = [11].map(function () { });
 
-        return newArr instanceof Array;
-    }
-runTestCase(testcase);
+assert(newArr instanceof Array, 'newArr instanceof Array !== true');

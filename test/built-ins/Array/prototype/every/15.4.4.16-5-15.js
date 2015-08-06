@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.16-5-15
 description: Array.prototype.every - Date Object can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var objDate = new Date();
@@ -17,6 +14,5 @@ function testcase() {
             return this === objDate;
         }
 
-        return [11].every(callbackfn, objDate) && accessed;
-    }
-runTestCase(testcase);
+assert([11].every(callbackfn, objDate), '[11].every(callbackfn, objDate) !== true');
+assert(accessed, 'accessed !== true');

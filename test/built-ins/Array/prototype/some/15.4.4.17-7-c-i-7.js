@@ -6,10 +6,7 @@ es5id: 15.4.4.17-7-c-i-7
 description: >
     Array.prototype.some - element to be retrieved is inherited data
     property on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var kValue = 'abc';
 
@@ -28,6 +25,4 @@ function testcase() {
         var child = new Con();
         child.length = 10;
 
-        return Array.prototype.some.call(child, callbackfn);
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(child, callbackfn), 'Array.prototype.some.call(child, callbackfn) !== true');

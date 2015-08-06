@@ -4,16 +4,13 @@
 /*---
 es5id: 15.4.4.18-2-2
 description: Array.prototype.forEach - 'length' is own data property on an Array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var result = false;
         function callbackfn(val, idx, obj) {
             result = (obj.length === 2);
         }
 
         [12, 11].forEach(callbackfn);
-        return result;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

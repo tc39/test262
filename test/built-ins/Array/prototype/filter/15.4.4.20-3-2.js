@@ -6,10 +6,7 @@ es5id: 15.4.4.20-3-2
 description: >
     Array.prototype.filter applied on an Array-like object if 'length'
     is 1 (length overridden to true(type conversion))
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return true;
@@ -18,6 +15,5 @@ function testcase() {
         var obj = { 0: 11, 1: 9, length: true };
         var newArr = Array.prototype.filter.call(obj, callbackfn);
 
-        return newArr.length === 1 && newArr[0] === 11;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 1, 'newArr.length');
+assert.sameValue(newArr[0], 11, 'newArr[0]');

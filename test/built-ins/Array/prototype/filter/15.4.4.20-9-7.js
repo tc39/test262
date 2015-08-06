@@ -6,10 +6,8 @@ es5id: 15.4.4.20-9-7
 description: >
     Array.prototype.filter stops calling callbackfn once the array is
     deleted during the call
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var o = new Object();
         o.srcArr = [1, 2, 3, 4, 5];
 
@@ -22,6 +20,6 @@ function testcase() {
         }
 
         var resArr = o.srcArr.filter(callbackfn);
-        return resArr.length === 5 && typeof o.srcArr === "undefined";
-    }
-runTestCase(testcase);
+
+assert.sameValue(resArr.length, 5, 'resArr.length');
+assert.sameValue(typeof o.srcArr, "undefined", 'typeof o.srcArr');

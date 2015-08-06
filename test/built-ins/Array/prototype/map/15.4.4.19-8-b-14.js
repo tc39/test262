@@ -6,10 +6,7 @@ es5id: 15.4.4.19-8-b-14
 description: >
     Array.prototype.map - decreasing length of array causes index
     property not to be visited
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return idx === 3 && typeof val === "undefined";
@@ -26,6 +23,5 @@ function testcase() {
         });
 
         var testResult = arr.map(callbackfn);
-        return typeof testResult[3] === "undefined";
-    }
-runTestCase(testcase);
+
+assert.sameValue(typeof testResult[3], "undefined", 'typeof testResult[3]');

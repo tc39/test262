@@ -4,11 +4,8 @@
 /*---
 es5id: 15.4.4.19-8-c-ii-1
 description: Array.prototype.map - callbackfn called with correct parameters
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   var bPar = true;
   var bCalled = false;
   function callbackfn(val, idx, obj)
@@ -22,7 +19,6 @@ function testcase() {
   srcArr[999999] = -6.6;
   var resArr = srcArr.map(callbackfn);
   
-  if(bCalled === true && bPar === true)
-    return true;
- }
-runTestCase(testcase);
+
+assert.sameValue(bCalled, true, 'bCalled');
+assert.sameValue(bPar, true, 'bPar');

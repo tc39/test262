@@ -4,12 +4,6 @@
 /*---
 es5id: 15.4.4.19-0-2
 description: Array.prototype.map.length must be 1
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if (Array.prototype.map.length === 1) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.map.length, 1, 'Array.prototype.map.length');

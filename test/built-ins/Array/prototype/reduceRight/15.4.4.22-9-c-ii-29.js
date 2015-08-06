@@ -6,10 +6,7 @@ es5id: 15.4.4.22-9-c-ii-29
 description: >
     Array.prototype.reduceRight - Number Object can be used as
     accumulator
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var objNumber = new Number();
@@ -20,6 +17,5 @@ function testcase() {
 
         var obj = { 0: 11, length: 1 };
 
-        return Array.prototype.reduceRight.call(obj, callbackfn, objNumber) === true && accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.reduceRight.call(obj, callbackfn, objNumber), true, 'Array.prototype.reduceRight.call(obj, callbackfn, objNumber)');
+assert(accessed, 'accessed !== true');

@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.18-1-9
 description: Array.prototype.forEach applied to Function object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var result = false;
         function callbackfn(val, idx, obj) {
             result = obj instanceof Function;
@@ -20,6 +18,5 @@ function testcase() {
         obj[1] = 9;
 
         Array.prototype.forEach.call(obj, callbackfn);
-        return result;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

@@ -6,10 +6,8 @@ es5id: 15.4.4.16-2-8
 description: >
     Array.prototype.every applied to Array-like object, 'length' is an
     own accessor property that overrides an inherited data property
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn1(val, idx, obj) {
             return val > 10;
         }
@@ -36,7 +34,5 @@ function testcase() {
         child[1] = 11;
         child[2] = 9;
 
-        return Array.prototype.every.call(child, callbackfn1) &&
-            !Array.prototype.every.call(child, callbackfn2);
-    }
-runTestCase(testcase);
+assert(Array.prototype.every.call(child, callbackfn1), 'Array.prototype.every.call(child, callbackfn1) !== true');
+assert.sameValue(Array.prototype.every.call(child, callbackfn2), false, 'Array.prototype.every.call(child, callbackfn2)');

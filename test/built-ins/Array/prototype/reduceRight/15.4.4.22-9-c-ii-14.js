@@ -4,15 +4,10 @@
 /*---
 es5id: 15.4.4.22-9-c-ii-14
 description: Array.prototype.reduceRight - callbackfn uses arguments
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn() {
             return arguments[0] === 100 && arguments[3][arguments[2]] === arguments[1];
         }
 
-        return [11].reduceRight(callbackfn, 100) === true;
-    }
-runTestCase(testcase);
+assert.sameValue([11].reduceRight(callbackfn, 100), true, '[11].reduceRight(callbackfn, 100)');

@@ -6,10 +6,7 @@ es5id: 15.4.4.19-8-c-ii-8
 description: >
     Array.prototype.map - element changed by callbackfn on previous
     iterations is observed
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = { 0: 9, 1: 12, length: 2 };
 
@@ -22,6 +19,4 @@ function testcase() {
 
         var testResult = Array.prototype.map.call(obj, callbackfn);
 
-        return testResult[1] === false;
-    }
-runTestCase(testcase);
+assert.sameValue(testResult[1], false, 'testResult[1]');

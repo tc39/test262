@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.22-4-12
 description: Array.prototype.reduceRight - 'callbackfn' is a function
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var initialValue = 0;
         function callbackfn(accum, val, idx, obj) {
@@ -15,6 +12,4 @@ function testcase() {
             return accum;
         }
 
-        return 20 === [11, 9].reduceRight(callbackfn, initialValue);
-    }
-runTestCase(testcase);
+assert.sameValue([11, 9].reduceRight(callbackfn, initialValue), 20, '[11, 9].reduceRight(callbackfn, initialValue)');

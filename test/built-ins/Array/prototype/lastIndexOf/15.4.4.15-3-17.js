@@ -6,14 +6,9 @@ es5id: 15.4.4.15-3-17
 description: >
     Array.prototype.lastIndexOf - value of 'length' is a string
     containing a number with leading zeros
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = { 1: 1, 2: 2, length: "0002.0" };
 
-        return Array.prototype.lastIndexOf.call(obj, 1) === 1 &&
-            Array.prototype.lastIndexOf.call(obj, 2) === -1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.call(obj, 1), 1, 'Array.prototype.lastIndexOf.call(obj, 1)');
+assert.sameValue(Array.prototype.lastIndexOf.call(obj, 2), -1, 'Array.prototype.lastIndexOf.call(obj, 2)');
