@@ -5,12 +5,6 @@
 es6id: 20.2.2.18
 author: Ryan Lewis
 description: Math.hypot should return 5 if called with 3 and 4.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if(Math.hypot(3,4) === 5) {
-  	return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Math.hypot(3,4), 5, 'Math.hypot(3,4)');

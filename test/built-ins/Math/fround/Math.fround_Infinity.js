@@ -5,12 +5,6 @@
 es6id: 20.2.2.17
 author: Ryan Lewis
 description: Math.fround should return Infinity if called with Infinity.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if(Math.fround(Infinity) === Infinity) {
-  	return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Math.fround(Infinity), Infinity, 'Math.fround(Infinity)');

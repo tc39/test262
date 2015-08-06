@@ -5,12 +5,6 @@
 es6id: 20.2.2.35
 author: Ryan Lewis
 description: Math.trunc should return 4578 if called with 4578.584949
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if(Math.trunc(4578.584949) === 4578) {
-  	return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Math.trunc(4578.584949), 4578, 'Math.trunc(4578.584949)');

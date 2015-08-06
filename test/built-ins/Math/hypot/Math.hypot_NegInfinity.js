@@ -7,12 +7,6 @@ author: Ryan Lewis
 description: >
     Math.hypot should return Infinity if called with any argument that
     is -Infinity.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if(Math.hypot(3, -Infinity) === Infinity) {
-  	return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Math.hypot(3, -Infinity), Infinity, 'Math.hypot(3, -Infinity)');

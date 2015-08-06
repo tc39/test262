@@ -5,12 +5,6 @@
 es6id: 20.2.2.35
 author: Ryan Lewis
 description: Math.trunc should return 0 when called with 0.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if(Math.trunc(0) === 0) {
-  	return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Math.trunc(0), 0, 'Math.trunc(0)');
