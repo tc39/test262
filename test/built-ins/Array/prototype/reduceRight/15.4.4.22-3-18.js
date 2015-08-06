@@ -6,10 +6,7 @@ es5id: 15.4.4.22-3-18
 description: >
     Array.prototype.reduceRight - value of 'length' is a string that
     can't convert to a number
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -19,6 +16,5 @@ function testcase() {
 
         var obj = { 0: 9, 1: 8, length: "two" };
 
-        return Array.prototype.reduceRight.call(obj, callbackfn, 11) === 11 && !accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.reduceRight.call(obj, callbackfn, 11), 11, 'Array.prototype.reduceRight.call(obj, callbackfn, 11)');
+assert.sameValue(accessed, false, 'accessed');

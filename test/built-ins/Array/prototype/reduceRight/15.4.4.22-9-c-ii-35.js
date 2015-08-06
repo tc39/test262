@@ -6,10 +6,7 @@ es5id: 15.4.4.22-9-c-ii-35
 description: >
     Array.prototype.reduceRight - the Arguments object can be used as
     accumulator
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var arg;
@@ -25,6 +22,5 @@ function testcase() {
             arg = arguments;
         }(10, 11, 12, 13));
 
-        return Array.prototype.reduceRight.call(obj, callbackfn, arg) === true && accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.reduceRight.call(obj, callbackfn, arg), true, 'Array.prototype.reduceRight.call(obj, callbackfn, arg)');
+assert(accessed, 'accessed !== true');

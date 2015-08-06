@@ -6,10 +6,7 @@ es5id: 15.4.4.22-9-c-ii-10
 description: >
     Array.prototype.reduceRight - callbackfn is called with 1 formal
     parameter
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var called = 0;
 
@@ -18,6 +15,5 @@ function testcase() {
             return prevVal;
         }
 
-        return [11, 12].reduceRight(callbackfn, 100) === 100 && 2 === called;
-    }
-runTestCase(testcase);
+assert.sameValue([11, 12].reduceRight(callbackfn, 100), 100, '[11, 12].reduceRight(callbackfn, 100)');
+assert.sameValue(called, 2, 'called');

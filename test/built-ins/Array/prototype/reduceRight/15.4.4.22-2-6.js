@@ -6,10 +6,7 @@ es5id: 15.4.4.22-2-6
 description: >
     Array.prototype.reduceRight applied to Array-like object, 'length'
     is an inherited data property
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var proto = { length: 2 };
@@ -26,6 +23,5 @@ function testcase() {
             return obj.length === 2;
         }
 
-        return Array.prototype.reduceRight.call(child, callbackfn1, 11) && accessed;
-    }
-runTestCase(testcase);
+assert(Array.prototype.reduceRight.call(child, callbackfn1, 11), 'Array.prototype.reduceRight.call(child, callbackfn1, 11) !== true');
+assert(accessed, 'accessed !== true');

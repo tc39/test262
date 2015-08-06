@@ -7,10 +7,7 @@ description: >
     Array.prototype.reduceRight uses inherited valueOf method when
     'length' is an object with an own toString and inherited valueOf
     methods
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult1 = true;
         var testResult2 = false;
@@ -51,6 +48,8 @@ function testcase() {
         };
 
         Array.prototype.reduceRight.call(obj, callbackfn, 1);
-        return testResult1 && testResult2 && valueOfAccessed && !toStringAccessed;
-    }
-runTestCase(testcase);
+
+assert(testResult1, 'testResult1 !== true');
+assert(testResult2, 'testResult2 !== true');
+assert(valueOfAccessed, 'valueOfAccessed !== true');
+assert.sameValue(toStringAccessed, false, 'toStringAccessed');

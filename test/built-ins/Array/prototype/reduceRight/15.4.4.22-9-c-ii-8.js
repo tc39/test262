@@ -6,10 +6,7 @@ es5id: 15.4.4.22-9-c-ii-8
 description: >
     Array.prototype.reduceRight - element changed by callbackfn on
     previous iterations is observed
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var obj = { 0: 11, 1: 12, length: 2 };
@@ -21,6 +18,5 @@ function testcase() {
             return curVal > 10;
         }
 
-        return Array.prototype.reduceRight.call(obj, callbackfn, 1) === false && accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.reduceRight.call(obj, callbackfn, 1), false, 'Array.prototype.reduceRight.call(obj, callbackfn, 1)');
+assert(accessed, 'accessed !== true');

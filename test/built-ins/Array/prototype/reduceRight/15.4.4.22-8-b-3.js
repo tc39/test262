@@ -6,10 +6,7 @@ es5id: 15.4.4.22-8-b-3
 description: >
     Array.prototype.reduceRight -  while loop is breaken once
     'kPresent' is true
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var called = 0;
         var testResult = false;
@@ -43,6 +40,6 @@ function testcase() {
 
         arr.reduceRight(callbackfn);
 
-        return testResult && firstCalled === 1 && secondCalled === 1;
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');
+assert.sameValue(firstCalled, 1, 'firstCalled');
+assert.sameValue(secondCalled, 1, 'secondCalled');

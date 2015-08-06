@@ -6,10 +6,7 @@ es5id: 15.4.4.22-9-b-9
 description: >
     Array.prototype.reduceRight - deleting own property in step 8
     causes deleted index property not to be visited on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var testResult = true;
@@ -39,6 +36,6 @@ function testcase() {
         });
 
         arr.reduceRight(callbackfn);
-        return testResult && accessed;
-    }
-runTestCase(testcase);
+
+assert(testResult, 'testResult !== true');
+assert(accessed, 'accessed !== true');

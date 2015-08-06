@@ -6,10 +6,8 @@ es5id: 15.4.4.22-8-b-2
 description: >
     Array.prototype.reduceRight - modifications to length don't change
     number of iterations in step 9
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var called = 0;
         function callbackfn(prevVal, curVal, idx, obj) {
             called++;
@@ -27,6 +25,5 @@ function testcase() {
 
         var preVal = arr.reduceRight(callbackfn);
 
-        return preVal === 11 && called === 2;
-    }
-runTestCase(testcase);
+assert.sameValue(preVal, 11, 'preVal');
+assert.sameValue(called, 2, 'called');

@@ -6,10 +6,7 @@ es5id: 15.4.4.22-3-24
 description: >
     Array.prototype.reduceRight - value of 'length' is a positive
     non-integer, ensure truncation occurs in the proper direction
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult1 = true;
         var testResult2 = false;
@@ -27,6 +24,6 @@ function testcase() {
         var obj = { 0: 12, 1: 11, 2: 9, length: 2.685 };
 
         Array.prototype.reduceRight.call(obj, callbackfn, 1);
-        return testResult1 && testResult2;
-    }
-runTestCase(testcase);
+
+assert(testResult1, 'testResult1 !== true');
+assert(testResult2, 'testResult2 !== true');

@@ -8,10 +8,8 @@ description: >
     index is larger than array original length added to array after it
     is called, consider new elements which index is smaller than array
     length
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(prevVal, curVal, idx, obj) {
             arr[5] = 6;
             arr[2] = 3;
@@ -19,6 +17,5 @@ function testcase() {
         }
 
         var arr = ['1', 2, , 4, '5'];
-        return arr.reduceRight(callbackfn) === "54321";
-    }
-runTestCase(testcase);
+
+assert.sameValue(arr.reduceRight(callbackfn), "54321", 'arr.reduceRight(callbackfn)');

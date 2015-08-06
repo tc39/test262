@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.22-1-8
 description: Array.prototype.reduceRight applied to String object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = new String("hello\nworld\\!");
         var accessed = false;
@@ -17,6 +14,5 @@ function testcase() {
             return o instanceof String;
         }
 
-        return Array.prototype.reduceRight.call(obj, callbackfn, "h") && accessed;
-    }
-runTestCase(testcase);
+assert(Array.prototype.reduceRight.call(obj, callbackfn, "h"), 'Array.prototype.reduceRight.call(obj, callbackfn, "h") !== true');
+assert(accessed, 'accessed !== true');

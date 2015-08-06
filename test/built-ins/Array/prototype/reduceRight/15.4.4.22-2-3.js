@@ -6,10 +6,7 @@ es5id: 15.4.4.22-2-3
 description: >
     Array.prototype.reduceRight applied to Array-like object, 'length'
     is an own data property that overrides an inherited data property
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = true;
 
@@ -29,6 +26,5 @@ function testcase() {
         child[1] = 11;
         child[2] = 9;
 
-        return Array.prototype.reduceRight.call(child, callbackfn) && accessed;
-    }
-runTestCase(testcase);
+assert(Array.prototype.reduceRight.call(child, callbackfn), 'Array.prototype.reduceRight.call(child, callbackfn) !== true');
+assert(accessed, 'accessed !== true');

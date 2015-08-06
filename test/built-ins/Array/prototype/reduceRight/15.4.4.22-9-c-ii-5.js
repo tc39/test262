@@ -6,10 +6,8 @@ es5id: 15.4.4.22-9-c-ii-5
 description: >
     Array.prototype.reduceRight - k values are accessed during each
     iteration and not prior to starting the loop on an Array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var arr = [11, 12, 13, 14];
         var kIndex = [];
         var result = true;
@@ -31,6 +29,6 @@ function testcase() {
         }
 
         arr.reduceRight(callbackfn, 1);
-        return result && called === 4;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');
+assert.sameValue(called, 4, 'called');

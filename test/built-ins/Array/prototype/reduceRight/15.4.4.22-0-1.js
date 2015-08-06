@@ -4,13 +4,8 @@
 /*---
 es5id: 15.4.4.22-0-1
 description: Array.prototype.reduceRight must exist as a function
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var f = Array.prototype.reduceRight;
-  if (typeof(f) === "function") {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(typeof(f), "function", 'typeof(f)');

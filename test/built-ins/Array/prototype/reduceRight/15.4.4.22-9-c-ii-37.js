@@ -6,12 +6,8 @@ es5id: 15.4.4.22-9-c-ii-37
 description: >
     Array.prototype.reduceRight - the global object can be used as
     accumulator
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         function callbackfn(prevVal, curVal, idx, obj) {
@@ -21,6 +17,5 @@ function testcase() {
 
         var obj = { 0: 11, length: 1 };
 
-        return Array.prototype.reduceRight.call(obj, callbackfn, fnGlobalObject()) === true && accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.reduceRight.call(obj, callbackfn, fnGlobalObject()), true, 'Array.prototype.reduceRight.call(obj, callbackfn, fnGlobalObject())');
+assert(accessed, 'accessed !== true');

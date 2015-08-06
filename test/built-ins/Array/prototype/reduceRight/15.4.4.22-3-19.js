@@ -6,10 +6,7 @@ es5id: 15.4.4.22-3-19
 description: >
     Array.prototype.reduceRight - value of 'length' is an object which
     has an own toString method
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult1 = true;
         var testResult2 = false;
@@ -44,6 +41,7 @@ function testcase() {
         // resulting string to a number.
 
         Array.prototype.reduceRight.call(obj, callbackfn, 1);
-        return testResult1 && testResult2 && toStringAccessed;
-    }
-runTestCase(testcase);
+
+assert(testResult1, 'testResult1 !== true');
+assert(testResult2, 'testResult2 !== true');
+assert(toStringAccessed, 'toStringAccessed !== true');

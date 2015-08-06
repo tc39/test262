@@ -7,10 +7,7 @@ description: >
     Array.prototype.reduceRight - This object is the Arguments object
     which implements its own property get method (number of arguments
     is greater than number of parameters)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
         function callbackfn(prevVal, curVal, idx, obj) {
@@ -24,6 +21,5 @@ function testcase() {
         };
 
         func(0, 1, 2, 3);
-        return testResult;
-    }
-runTestCase(testcase);
+
+assert(testResult, 'testResult !== true');

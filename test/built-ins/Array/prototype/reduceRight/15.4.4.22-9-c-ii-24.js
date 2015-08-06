@@ -6,10 +6,7 @@ es5id: 15.4.4.22-9-c-ii-24
 description: >
     Array.prototype.reduceRight - string primitive can be used as
     accumulator
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         function callbackfn(prevVal, curVal, idx, obj) {
@@ -19,6 +16,5 @@ function testcase() {
 
         var obj = { 0: 11, length: 1 };
 
-        return Array.prototype.reduceRight.call(obj, callbackfn, "hello_") === true && accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.reduceRight.call(obj, callbackfn, "hello_"), true, 'Array.prototype.reduceRight.call(obj, callbackfn, "hello_")');
+assert(accessed, 'accessed !== true');

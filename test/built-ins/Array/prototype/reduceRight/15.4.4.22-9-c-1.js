@@ -6,11 +6,8 @@ es5id: 15.4.4.22-9-c-1
 description: >
     Array.prototype.reduceRight - callbackfn not called for indexes
     never been assigned values
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   var callCnt = 0;
   function callbackfn(prevVal, curVal, idx, obj)
   {
@@ -20,7 +17,6 @@ function testcase() {
 
   var arr = new Array(10);
   arr[0] = arr[1] = undefined; //explicitly assigning a value
-  if( arr.reduceRight(callbackfn) === undefined && callCnt === 1)
-    return true;    
- }
-runTestCase(testcase);
+
+assert.sameValue(arr.reduceRight(callbackfn), undefined, 'arr.reduceRight(callbackfn)');
+assert.sameValue(callCnt, 1, 'callCnt');

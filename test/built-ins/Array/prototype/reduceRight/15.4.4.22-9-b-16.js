@@ -7,10 +7,7 @@ description: >
     Array.prototype.reduceRight - decreasing length of array in step 8
     does not delete non-configurable properties
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
 
@@ -39,6 +36,4 @@ function testcase() {
 
         arr.reduceRight(callbackfn);
 
-        return testResult;
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');

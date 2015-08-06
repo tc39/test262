@@ -7,10 +7,7 @@ description: >
     Array.prototype.reduceRight - 'accumulator' used for first
     iteration is the value of 'initialValue' when it is present on an
     Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [11, 12];
         var testResult = false;
@@ -25,6 +22,4 @@ function testcase() {
 
         arr.reduceRight(callbackfn, initVal);
 
-        return testResult;
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');
