@@ -4,13 +4,8 @@
 /*---
 es5id: 15.5.4.20-0-1
 description: String.prototype.trim must exist as a function
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var f = String.prototype.trim;
-  if (typeof(f) === "function") {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(typeof(f), "function", 'typeof(f)');

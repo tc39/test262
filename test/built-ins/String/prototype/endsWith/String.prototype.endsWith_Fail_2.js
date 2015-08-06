@@ -6,13 +6,7 @@ author: Ryan Lewis
 description: >
     endsWith should return false when called on 'word' and passed 'd',
     with an endPosition of 3.
-includes: [runTestCase.js]
 features: [String#endsWith]
 ---*/
 
-function testcase() {
-  if('word'.endsWith('d', 3) === false) {
-  	return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue('word'.endsWith('d', 3), false, '"word".endsWith("d", 3)');

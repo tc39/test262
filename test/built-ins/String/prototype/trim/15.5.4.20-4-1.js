@@ -6,16 +6,11 @@ es5id: 15.5.4.20-4-1
 description: >
     String.prototype.trim handles multiline string with whitepace and
     lineterminators
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 var s = "\u0009a b\
 c \u0009"
 
             
-  if (s.trim() === "a bc") {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(s.trim(), "a bc", 's.trim()');

@@ -6,13 +6,7 @@ author: Ryan Lewis
 description: >
     String should return true when called on 'word' and passed 'w' and
     with no location (defaults to 0).
-includes: [runTestCase.js]
 features: [String#includes]
 ---*/
 
-function testcase() {
-  if('word'.includes('w') === true) {
-  	return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue('word'.includes('w'), true, '"word".includes("w")');

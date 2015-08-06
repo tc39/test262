@@ -7,14 +7,9 @@ info: >
     notation to look up non numeric property names.
 es5id: 15.5.5.5.2-3-2
 description: String value indexing returns undefined for missing data properties
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var s = String("hello world");
   
-  if (s["foo"] === undefined) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(s["foo"], undefined, 's["foo"]');

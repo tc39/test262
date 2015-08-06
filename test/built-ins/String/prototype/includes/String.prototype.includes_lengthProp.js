@@ -4,13 +4,7 @@
 /*---
 author: Ryan Lewis
 description: String should have the property length with size of 1.
-includes: [runTestCase.js]
 features: [String#includes]
 ---*/
 
-function testcase() {
-  if('word'.includes.length === 1) {
-  	return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue('word'.includes.length, 1, '"word".includes.length');

@@ -9,14 +9,8 @@ es5id: 15.5.5.5.2-7-3
 description: >
     String object indexing returns undefined if the numeric index is
     greater than the string length
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var s = new String("hello world");
 
-  if (s[11] === undefined) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(s[11], undefined, 's[11]');

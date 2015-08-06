@@ -6,13 +6,7 @@ author: Ryan Lewis
 description: >
     endsWith should return true when called on 'word' and passed 'd'
     and with no endPosition (defaults to 4).
-includes: [runTestCase.js]
 features: [String#endsWith]
 ---*/
 
-function testcase() {
-  if('word'.endsWith('d') === true) {
-  	return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue('word'.endsWith('d'), true, '"word".endsWith("d")');

@@ -4,13 +4,7 @@
 /*---
 author: Ryan Lewis
 description: String should return false if a letter is not found in the word.
-includes: [runTestCase.js]
 features: [String#includes]
 ---*/
 
-function testcase() {
-  if('word'.includes('a', 0) === false) {
-  	return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue('word'.includes('a', 0), false, '"word".includes("a", 0)');

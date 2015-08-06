@@ -7,10 +7,7 @@ description: >
     String.prototype.trim - 'this' is an object with an own valueOf
     and inherited toString methods with hint string, verify inherited
     toString method will be called first
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var toStringAccessed = false;
         var valueOfAccessed = false;
@@ -30,6 +27,7 @@ function testcase() {
             valueOfAccessed = true;
             return "efg";
         };
-        return (String.prototype.trim.call(child) === "abc") && toStringAccessed && !valueOfAccessed;
-    }
-runTestCase(testcase);
+
+assert.sameValue(String.prototype.trim.call(child), "abc", 'String.prototype.trim.call(child)');
+assert(toStringAccessed, 'toStringAccessed !== true');
+assert.sameValue(valueOfAccessed, false, 'valueOfAccessed');

@@ -9,14 +9,8 @@ es5id: 15.5.5.5.2-3-6
 description: >
     String value indexing returns undefined if the numeric index (NaN)
     is not an array index
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var s = String("hello world");
 
-  if (s[NaN] === undefined) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(s[NaN], undefined, 's[NaN]');

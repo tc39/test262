@@ -6,13 +6,7 @@ author: Ryan Lewis
 description: >
     String should return false if a location is passed that is
     greather than the length of the string.
-includes: [runTestCase.js]
 features: [String#includes]
 ---*/
 
-function testcase() {
-  if('word'.includes('w', 5) === false) {
-  	return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue('word'.includes('w', 5), false, '"word".includes("w", 5)');

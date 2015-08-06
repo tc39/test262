@@ -6,12 +6,6 @@ es5id: 15.5.4.20-4-42
 description: >
     String.prototype.trim handles whitepace and lineterminators
     (ab\uFEFFc)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if ("ab\uFEFFc".trim() === "ab\uFEFFc") {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue("ab\uFEFFc".trim(), "ab\uFEFFc", '"ab\uFEFFc".trim()');

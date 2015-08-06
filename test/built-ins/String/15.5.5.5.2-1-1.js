@@ -9,15 +9,10 @@ es5id: 15.5.5.5.2-1-1
 description: >
     String object supports bracket notation to lookup of data
     properties
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var s = new String("hello world");
   s.foo = 1;
   
-  if (s["foo"] === 1) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(s["foo"], 1, 's["foo"]');
