@@ -6,11 +6,8 @@ es5id: 10.4.3-1-66-s
 description: >
     checking 'this' (strict function declaration called by
     Function.prototype.apply())
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 function f() { "use strict"; return this===undefined;};
-return f.apply();
-}
-runTestCase(testcase);
+
+assert(f.apply(), 'f.apply() !== true');

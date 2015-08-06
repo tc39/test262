@@ -6,15 +6,12 @@ es5id: 11.4.1-2-2
 description: >
     delete operator returns true when deleting returned value from a
     function
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var bIsFooCalled = false;
   var foo = function(){bIsFooCalled = true;};
 
   var d = delete foo();
-  if(d === true && bIsFooCalled === true)
-    return true;
- }
-runTestCase(testcase);
+
+assert.sameValue(d, true, 'd');
+assert.sameValue(bIsFooCalled, true, 'bIsFooCalled');

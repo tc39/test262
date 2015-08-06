@@ -6,12 +6,9 @@ es5id: 11.13.2-21-s
 description: >
     ReferenceError isn't thrown if the LeftHandSideExpression of a Compound
     Assignment operator(^=) evaluates to a resolvable reference
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var _11_13_2_21 = 5
         _11_13_2_21 ^= 3;
-        return _11_13_2_21 === 6;
-    }
-runTestCase(testcase);
+
+assert.sameValue(_11_13_2_21, 6, '_11_13_2_21');

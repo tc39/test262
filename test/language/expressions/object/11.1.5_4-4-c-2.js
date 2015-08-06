@@ -6,11 +6,6 @@ es5id: 11.1.5_4-4-c-2
 description: >
     Object literal - No SyntaxError if a set accessor property definition
     is followed by a data property definition with the same name
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   eval("({set foo(x){}, foo : 1});");
-  return true;
-}
-runTestCase(testcase);

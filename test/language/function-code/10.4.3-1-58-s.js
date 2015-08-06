@@ -5,12 +5,9 @@
 es5id: 10.4.3-1-58-s
 description: >
     checking 'this' (Injected getter)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 var o = {};
 Object.defineProperty(o, "foo",  { get: function() { return this; } });
-return o.foo===o;
-}
-runTestCase(testcase);
+
+assert.sameValue(o.foo, o, 'o.foo');

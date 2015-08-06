@@ -8,10 +8,8 @@ info: >
 es5id: 11.4.1-4.a-6
 description: delete operator returns true when deleting a property inside 'with'
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var o = new Object();
   o.x = 1;
   var d;
@@ -19,8 +17,6 @@ function testcase() {
   {
     d = delete x;
   }
-  if (d === true && o.x === undefined) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(d, true, 'd');
+assert.sameValue(o.x, undefined, 'o.x');

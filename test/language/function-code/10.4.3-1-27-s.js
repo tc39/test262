@@ -7,16 +7,13 @@ description: >
     Strict Mode - checking 'this' (FunctionDeclaration defined within
     a FunctionDeclaration inside strict mode)
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 function f1() {
     function f() {
         return typeof this;
     }
     return (f()==="undefined") && ((typeof this)==="undefined");
 }
-return f1();
-}
-runTestCase(testcase);
+
+assert(f1(), 'f1() !== true');

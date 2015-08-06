@@ -11,16 +11,13 @@ es5id: 12.6.3_2-3-a-ii-2
 description: >
     The for Statement - (normal, V, empty) will be returned when first
     Expression is a Boolean object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var accessed = false;
         var boolObj = new Boolean(false);
         for (var i = 0; boolObj;) {
             accessed = true;
             break;
         }
-        return accessed;
-    }
-runTestCase(testcase);
+
+assert(accessed, 'accessed !== true');

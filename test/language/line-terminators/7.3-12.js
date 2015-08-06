@@ -7,14 +7,9 @@ description: >
     7.3 - ES5 specifies that a multiline comment that contains a line
     terminator character <PS> (\u2029) must be treated as a single
     line terminator for the purposes of semicolon insertion
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         /*MultiLine
         Comments 
         \u2029 var = ;
         */
-        return true;
-    }
-runTestCase(testcase);

@@ -11,16 +11,13 @@ es5id: 12.6.3_2-3-a-ii-1
 description: >
     The for Statement - (normal, V, empty) will be returned when first
     Expression is an Object with value false
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var accessed = false;
         var obj = { value: false };
         for (var i = 0; obj; ) {
             accessed = true;
             break;
         }
-        return accessed;
-    }
-runTestCase(testcase);
+
+assert(accessed, 'accessed !== true');

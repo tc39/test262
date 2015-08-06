@@ -7,10 +7,8 @@ description: >
     Strict Mode - [[Enumerable]] attribute value in 'caller' is false
     under strict mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var argObj = function () {
             return arguments;
         } ();
@@ -21,6 +19,6 @@ function testcase() {
                 verifyEnumerable = true;
             }
         }
-        return !verifyEnumerable && argObj.hasOwnProperty("caller");
-    }
-runTestCase(testcase);
+
+assert.sameValue(verifyEnumerable, false, 'verifyEnumerable');
+assert(argObj.hasOwnProperty("caller"), 'argObj.hasOwnProperty("caller") !== true');

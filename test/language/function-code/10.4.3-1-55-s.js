@@ -6,11 +6,8 @@ es5id: 10.4.3-1-55-s
 description: >
     Strict Mode - checking 'this' (Literal getter includes strict
     directive prologue)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 var o = { get foo() { "use strict"; return this; } }
-return o.foo===o;
-}
-runTestCase(testcase);
+
+assert.sameValue(o.foo, o, 'o.foo');

@@ -5,11 +5,8 @@
 es5id: 7.6.1.2-16-s
 description: >
     SyntaxError isn't thrown when '_implements' occurs
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var _implements = 1;
-        return _implements === 1;
-    }
-runTestCase(testcase);
+
+assert.sameValue(_implements, 1, '_implements');

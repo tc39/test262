@@ -7,15 +7,12 @@ description: >
     Strict Mode - checking 'this' (New'ed object from
     FunctionDeclaration defined within strict mode)
 flags: [onlyStrict]
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
 
-function testcase() {
 function f() {
     return this;
 }
-return ( (new f())!==fnGlobalObject()) && (typeof (new f()) !== "undefined");
-}
-runTestCase(testcase);
+
+assert.notSameValue((new f()), fnGlobalObject(), '(new f())');
+assert.notSameValue(typeof (new f()), "undefined", 'typeof (new f())');

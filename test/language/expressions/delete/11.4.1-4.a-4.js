@@ -10,14 +10,9 @@ description: >
     delete operator returns false when deleting a non-configurable
     data property (NaN)
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   // NaN (15.1.1.1) has [[Configurable]] set to false.
   var d = delete NaN;
-  if (d === false) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(d, false, 'd');

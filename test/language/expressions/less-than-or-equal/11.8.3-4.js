@@ -7,10 +7,8 @@ description: >
     11.8.3 Less-than-or-equal Operator - Partial left to right order
     enforced when using Less-than-or-equal operator: toString <=
     toString
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var accessed = false;
         var obj1 = {
             toString: function () {
@@ -27,6 +25,5 @@ function testcase() {
                 }
             }
         };
-        return (obj1 <= obj2);
-    }
-runTestCase(testcase);
+
+assert((obj1 <= obj2), '(obj1 <= obj2) !== true');

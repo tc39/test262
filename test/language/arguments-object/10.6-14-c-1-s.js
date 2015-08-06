@@ -5,10 +5,8 @@
 es5id: 10.6-14-c-1-s
 description: >
     [[Enumerable]] attribute value in 'callee' is false
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var argObj = function () {
             return arguments;
         } ();
@@ -19,6 +17,6 @@ function testcase() {
                 verifyEnumerable = true;
             }
         }
-        return !verifyEnumerable && argObj.hasOwnProperty("callee");
-    }
-runTestCase(testcase);
+
+assert.sameValue(verifyEnumerable, false, 'verifyEnumerable');
+assert(argObj.hasOwnProperty("callee"), 'argObj.hasOwnProperty("callee") !== true');

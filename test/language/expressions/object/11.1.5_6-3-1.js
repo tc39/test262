@@ -9,15 +9,11 @@ info: >
     3.Let desc be the Property Descriptor{[[Get]]: closure, [[Enumerable]]: true, [[Configurable]]: true}
 es5id: 11.1.5_6-3-1
 description: Object literal - property descriptor for get property assignment
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var o;
   eval("o = {get foo(){return 1;}};");
   var desc = Object.getOwnPropertyDescriptor(o,"foo");
-  if(desc.enumerable === true &&
-     desc.configurable === true)
-    return true;
- }
-runTestCase(testcase);
+
+assert.sameValue(desc.enumerable, true, 'desc.enumerable');
+assert.sameValue(desc.configurable, true, 'desc.configurable');

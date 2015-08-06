@@ -6,11 +6,6 @@ es5id: 11.1.5_4-4-d-3
 description: >
     Object literal - No SyntaxError for duplicate property name
     (get,set,get)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   eval("({get foo(){}, set foo(arg){}, get foo(){}});");
-  return true;
-}
-runTestCase(testcase);

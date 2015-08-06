@@ -5,14 +5,11 @@
 es5id: 10.4.3-1-61-s
 description: >
     checking 'this' (Injected setter includes strict directive prologue)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 var o = {};
 var x = 2;
 Object.defineProperty(o, "foo", { set: function(stuff) { "use strict"; x=this; } });
 o.foo = 3;
-return x===o;
-}
-runTestCase(testcase);
+
+assert.sameValue(x, o, 'x');

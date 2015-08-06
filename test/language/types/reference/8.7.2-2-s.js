@@ -6,11 +6,8 @@ es5id: 8.7.2-2-s
 description: >
     ReferenceError isn't thrown if LeftHandSide evaluates to a resolvable
     Reference
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var b = 11;
-        return b === 11;
-    }
-runTestCase(testcase);
+
+assert.sameValue(b, 11, 'b');

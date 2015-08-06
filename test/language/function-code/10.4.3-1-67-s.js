@@ -6,11 +6,8 @@ es5id: 10.4.3-1-67-s
 description: >
     checking 'this' (strict function declaration called by
     Function.prototype.apply(null))
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 function f() { "use strict"; return this===null;};
-return f.apply(null);
-}
-runTestCase(testcase);
+
+assert(f.apply(null), 'f.apply(null) !== true');

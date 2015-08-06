@@ -7,15 +7,11 @@ info: >
     language provides no way to directly exercise [[Delete]], the tests are placed here.
 es5id: 11.4.1-4.a-14
 description: delete operator returns true when deleting Array elements
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
   var a = [1,2,3]
   a.x = 10;
   var d = delete a[1]
-  if(d === true && a[1] === undefined)
-    return true;
- }
-runTestCase(testcase);
+
+assert.sameValue(d, true, 'd');
+assert.sameValue(a[1], undefined, 'a[1]');

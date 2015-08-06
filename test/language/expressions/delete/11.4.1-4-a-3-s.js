@@ -5,10 +5,8 @@
 es5id: 11.4.1-4-a-3-s
 description: >
     TypeError isn't thrown when deleting configurable data property
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         Object.defineProperty(obj, "prop", {
             value: "abc",
@@ -16,6 +14,5 @@ function testcase() {
         });
 
         delete obj.prop;
-        return !obj.hasOwnProperty("prop");
-    }
-runTestCase(testcase);
+
+assert.sameValue(obj.hasOwnProperty("prop"), false, 'obj.hasOwnProperty("prop")');

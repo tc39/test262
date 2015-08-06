@@ -8,15 +8,11 @@ info: >
 es5id: 11.4.1-4.a-12
 description: delete operator returns false when deleting a property(length)
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
   var a = [1,2,3]
   a.x = 10;
   var d = delete a.length
-  if(d === false && a.length === 3)
-    return true;
- }
-runTestCase(testcase);
+
+assert.sameValue(d, false, 'd');
+assert.sameValue(a.length, 3, 'a.length');

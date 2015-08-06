@@ -5,10 +5,7 @@
 es5id: 10.4.3-1-3-s
 description: this is not coerced to an object in strict mode (undefined)
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
   function foo()
   {
@@ -20,6 +17,6 @@ function testcase() {
   {
     return typeof(this);
   }
-  return foo.call(undefined) === 'undefined' && bar.call() === 'object';
- }
-runTestCase(testcase);
+
+assert.sameValue(foo.call(undefined), 'undefined', 'foo.call(undefined)');
+assert.sameValue(bar.call(), 'object', 'bar.call()');

@@ -5,11 +5,6 @@
 es5id: 12.2.1-5-s
 description: >
     a Function declaring var named 'eval' does not throw SyntaxError
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         Function('var eval;');
-        return true;
-    }
-runTestCase(testcase);

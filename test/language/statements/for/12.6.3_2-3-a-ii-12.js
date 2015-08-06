@@ -11,14 +11,11 @@ es5id: 12.6.3_2-3-a-ii-12
 description: >
     The for Statement - (normal, V, empty) will be returned when first
     Expression is null
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var count = 0;
         for (var i = 0; null;) {
             count++;
         }
-        return count === 0;
-    }
-runTestCase(testcase);
+
+assert.sameValue(count, 0, 'count');

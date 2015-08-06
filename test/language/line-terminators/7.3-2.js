@@ -6,12 +6,10 @@ es5id: 7.3-2
 description: >
     7.3 - ES5 recognizes the character <PS> (\u2029) as line
     terminators when parsing statements
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var test7_3_2, prop;
         eval("test7_3_2\u2029prop = 66;");
-        return (prop===66) && ((typeof test7_3_2) === "undefined");
-    }
-runTestCase(testcase);
+
+assert.sameValue(prop, 66, 'prop');
+assert.sameValue((typeof test7_3_2), "undefined", '(typeof test7_3_2)');

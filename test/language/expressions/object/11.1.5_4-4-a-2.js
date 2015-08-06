@@ -12,12 +12,6 @@ es5id: 11.1.5_4-4-a-2
 description: >
     Object literal - Duplicate data property name allowed if not in
     strict mode
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  
   eval("({foo:0,foo:1});");
-  return true;
-  }
-runTestCase(testcase);

@@ -5,11 +5,8 @@
 es5id: 10.4.3-1-54-s
 description: >
     checking 'this' (Literal getter)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 var o = { get foo() { return this; } }
-return o.foo===o;
-}
-runTestCase(testcase);
+
+assert.sameValue(o.foo, o, 'o.foo');

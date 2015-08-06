@@ -4,15 +4,11 @@
 /*---
 es5id: 10.5-7-b-2-s
 description: Arguments object index assignment is allowed
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function _10_5_7_b_2_fun() {
             arguments[7] = 12;
             return arguments[7] === 12;
         };
 
-        return _10_5_7_b_2_fun(30);
-    }
-runTestCase(testcase);
+assert(_10_5_7_b_2_fun(30), '_10_5_7_b_2_fun(30) !== true');
