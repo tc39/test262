@@ -6,10 +6,8 @@ es5id: 8.7.2-7-s
 description: >
     TypeError isn't thrown if LeftHandSide is a reference to an accessor
     property with setter
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var _8_7_2_7 = {};
         var _8_7_2_7_bValue = 1;
         Object.defineProperty(_8_7_2_7, "b", {
@@ -18,6 +16,5 @@ function testcase() {
         });
 
         _8_7_2_7.b = 11;
-        return _8_7_2_7.b === 11;
-    }
-runTestCase(testcase);
+
+assert.sameValue(_8_7_2_7.b, 11, '_8_7_2_7.b');

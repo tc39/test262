@@ -6,10 +6,8 @@ es5id: 8.7.2-6-s
 description: >
     TypeError isn't thrown if LeftHandSide is a reference to a writable data
     property
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var _8_7_2_6 = {};
         Object.defineProperty(_8_7_2_6, "b", {
             writable: true
@@ -17,6 +15,4 @@ function testcase() {
 
         _8_7_2_6.b = 11;
 
-        return _8_7_2_6.b === 11;
-    }
-runTestCase(testcase);
+assert.sameValue(_8_7_2_6.b, 11, '_8_7_2_6.b');

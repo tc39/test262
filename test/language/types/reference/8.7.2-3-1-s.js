@@ -4,11 +4,6 @@
 /*---
 es5id: 8.7.2-3-1-s
 description: eval - a property named 'eval' is permitted
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var o = { eval: 42};
-  return true;
- }
-runTestCase(testcase);
