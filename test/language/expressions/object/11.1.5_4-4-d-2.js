@@ -4,11 +4,6 @@
 /*---
 es5id: 11.1.5_4-4-d-2
 description: Object literal - No SyntaxError for duplicate property name (set,set)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   eval("({set foo(arg){}, set foo(arg1){}});");
-  return true;
-}
-runTestCase(testcase);

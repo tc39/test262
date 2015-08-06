@@ -12,12 +12,8 @@ es5id: 11.1.5_4-4-a-3
 description: >
     Object literal - Duplicate data property name allowed gets last
     defined value
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  
   var o = eval("({foo:0,foo:1});");
-  return o.foo===1;
-  }
-runTestCase(testcase);
+
+assert.sameValue(o.foo, 1, 'o.foo');

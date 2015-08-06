@@ -5,11 +5,6 @@
 es5id: 11.1.5-4-4-a-1-s
 description: >
     Object literal - No SyntaxError for duplicate data property names
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   eval("({foo:0,foo:1});");
-  return true;
-}
-runTestCase(testcase);

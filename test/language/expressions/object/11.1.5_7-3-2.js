@@ -11,13 +11,10 @@ es5id: 11.1.5_7-3-2
 description: >
     Object literal - property descriptor for set property assignment
     should not create a get function
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var o;
   eval("o = {set foo(arg){}};");
   var desc = Object.getOwnPropertyDescriptor(o,"foo");
-  return desc.get === undefined
- }
-runTestCase(testcase);
+
+assert.sameValue(desc.get, undefined, 'desc.get');
