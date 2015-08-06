@@ -7,10 +7,8 @@ description: >
     Strict Mode - checking 'this' (FunctionExpression defined within a
     FunctionDeclaration with a strict directive prologue)
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 function f1() {
     "use strict";
     var f = function () {
@@ -18,6 +16,5 @@ function f1() {
     }
     return (f()==="undefined") && ((typeof this)==="undefined");
 }
-return f1();
-}
-runTestCase(testcase);
+
+assert(f1(), 'f1() !== true');

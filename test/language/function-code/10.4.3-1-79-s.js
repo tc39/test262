@@ -6,12 +6,9 @@ es5id: 10.4.3-1-79-s
 description: >
     checking 'this' (strict function declaration called by
     Function.prototype.bind(someObject)())
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 var o = {};
 function f() { "use strict"; return this===o;};
-return f.bind(o)();
-}
-runTestCase(testcase);
+
+assert(f.bind(o)(), 'f.bind(o)() !== true');

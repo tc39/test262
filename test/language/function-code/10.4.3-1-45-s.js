@@ -7,12 +7,9 @@ description: >
     Strict Mode - checking 'this' (FunctionDeclaration with a strict
     directive prologue defined within a FunctionDeclaration)
 flags: [noStrict]
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
 
-function testcase() {
 function f1() {
     function f() {
         "use strict";
@@ -20,6 +17,5 @@ function f1() {
     }
     return (f()==="undefined") && (this===fnGlobalObject());
 }
-return f1();
-}
-runTestCase(testcase);
+
+assert(f1(), 'f1() !== true');

@@ -7,11 +7,8 @@ description: >
     Strict Mode - checking 'this' (New'ed Function constructor defined
     within strict mode)
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 var f = new Function("return typeof this;");
-return f() !== "undefined";
-}
-runTestCase(testcase);
+
+assert.notSameValue(f(), "undefined", 'f()');

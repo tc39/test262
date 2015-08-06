@@ -5,13 +5,10 @@
 es5id: 10.4.3-1-56-s
 description: >
     checking 'this' (Literal setter)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 var x = 2;
 var o = { set foo(stuff) { x=this; } }
 o.foo = 3;
-return x===o;
-}
-runTestCase(testcase);
+
+assert.sameValue(x, o, 'x');

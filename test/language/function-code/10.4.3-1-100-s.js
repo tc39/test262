@@ -6,10 +6,8 @@ es5id: 10.4.3-1-100-s
 description: >
     Strict Mode - checking 'this' (strict function passed as arg to
     String.prototype.replace)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 var x = 3;
 
 function f() {
@@ -17,6 +15,6 @@ function f() {
     x = this;
     return "a";
 }
-return ("ab".replace("b", f)==="aa") && (x===undefined);
-}
-runTestCase(testcase);
+
+assert.sameValue("ab".replace("b", f), "aa", '"ab".replace("b", f)');
+assert.sameValue(x, undefined, 'x');

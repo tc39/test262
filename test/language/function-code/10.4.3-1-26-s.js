@@ -7,16 +7,13 @@ description: >
     Strict Mode - checking 'this' (New'ed object from Anonymous
     FunctionExpression includes strict directive prologue)
 flags: [noStrict]
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
 
-function testcase() {
 var obj = new (function () {
     "use strict";
     return this;
 });
-return (obj !== fnGlobalObject()) && ((typeof obj) !== "undefined");
-}
-runTestCase(testcase);
+
+assert.notSameValue(obj, fnGlobalObject(), 'obj');
+assert.notSameValue((typeof obj), "undefined", '(typeof obj)');

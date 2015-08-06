@@ -8,16 +8,13 @@ description: >
     defined within a FunctionExpression with a strict directive
     prologue)
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 var f1 = function () {
     "use strict";
     return ((function () {
         return typeof this;
     })()==="undefined") && ((typeof this)==="undefined");
 }
-return f1();
-}
-runTestCase(testcase);
+
+assert(f1(), 'f1() !== true');

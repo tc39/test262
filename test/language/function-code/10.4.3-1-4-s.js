@@ -5,10 +5,7 @@
 es5id: 10.4.3-1-4-s
 description: this is not coerced to an object in strict mode (boolean)
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
   function foo()
   {
@@ -22,6 +19,5 @@ function testcase() {
   }
 
 
-  return foo.call(true) === 'boolean' && bar.call(true) === 'object';
- }
-runTestCase(testcase);
+assert.sameValue(foo.call(true), 'boolean', 'foo.call(true)');
+assert.sameValue(bar.call(true), 'object', 'bar.call(true)');

@@ -4,10 +4,7 @@
 /*---
 es5id: 10.4.3-1-5-s
 description: this is not coerced to an object (function)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
   function foo()
   {
@@ -24,6 +21,5 @@ function testcase() {
   {
   }
 
-  return foo.call(foobar) === 'function' && bar.call(foobar) === 'function';
- }
-runTestCase(testcase);
+assert.sameValue(foo.call(foobar), 'function', 'foo.call(foobar)');
+assert.sameValue(bar.call(foobar), 'function', 'bar.call(foobar)');

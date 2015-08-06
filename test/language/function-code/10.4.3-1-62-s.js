@@ -6,12 +6,9 @@ es5id: 10.4.3-1-62-s
 description: >
     checking 'this' (strict function declaration called by non-strict function
     declaration)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 function f() { "use strict"; return this;};
 function foo() { return f();}
-return foo()===undefined;
-}
-runTestCase(testcase);
+
+assert.sameValue(foo(), undefined, 'foo()');
