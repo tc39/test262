@@ -6,10 +6,8 @@ es5id: 11.8.3-1
 description: >
     11.8.3 Less-than-or-equal Operator - Partial left to right order
     enforced when using Less-than-or-equal operator: valueOf <= valueOf
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var accessed = false;
         var obj1 = {
             valueOf: function () {
@@ -26,6 +24,5 @@ function testcase() {
                 }
             }
         };
-        return (obj1 <= obj2);
-    }
-runTestCase(testcase);
+
+assert((obj1 <= obj2), '(obj1 <= obj2) !== true');

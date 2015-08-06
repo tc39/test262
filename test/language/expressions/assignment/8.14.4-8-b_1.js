@@ -5,15 +5,13 @@
 es5id: 8.14.4-8-b_1
 description: Non-writable property on a prototype written to.
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {   
     function foo() {};
     Object.defineProperty(foo.prototype, "bar", {value: "unwritable"}); 
     
     var o = new foo(); 
     o.bar = "overridden"; 
-    return o.hasOwnProperty("bar")===false && o.bar==="unwritable";
-}
-runTestCase(testcase);
+
+assert.sameValue(o.hasOwnProperty("bar"), false, 'o.hasOwnProperty("bar")');
+assert.sameValue(o.bar, "unwritable", 'o.bar');
