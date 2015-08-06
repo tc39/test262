@@ -6,12 +6,9 @@ es5id: 15.11.4.4-9-1
 description: >
     Error.prototype.toString return 'name' when 'name' is non-empty
     string and 'msg' is empty string
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var errObj = new Error();
         errObj.name = "ErrorName";
-        return errObj.toString() === "ErrorName";
-    }
-runTestCase(testcase);
+
+assert.sameValue(errObj.toString(), "ErrorName", 'errObj.toString()');
