@@ -6,13 +6,9 @@ es5id: 15.9.5.43-0-4
 description: >
     Date.prototype.toISOString - format of returned string is
     'YYYY-MM-DDTHH:mm:ss.sssZ', the time zone is UTC(0)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var date = new Date(1999, 9, 10, 10, 10, 10, 10);
         var localDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
 
-        return localDate.toISOString() === "1999-10-10T10:10:10.010Z";
-    }
-runTestCase(testcase);
+assert.sameValue(localDate.toISOString(), "1999-10-10T10:10:10.010Z", 'localDate.toISOString()');

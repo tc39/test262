@@ -4,12 +4,8 @@
 /*---
 es5id: 15.9.4.4-0-3
 description: Date.now must exist as a function
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
         var fun = Date.now;
-        return (typeof (fun) === "function");
-    }
-runTestCase(testcase);
+
+assert.sameValue(typeof (fun), "function", 'typeof (fun)');

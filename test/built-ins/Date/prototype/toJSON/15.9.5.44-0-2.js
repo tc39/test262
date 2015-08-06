@@ -4,12 +4,6 @@
 /*---
 es5id: 15.9.5.44-0-2
 description: Date.prototype.toJSON must exist as a function taking 1 parameter
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if (Date.prototype.toJSON.length === 1) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Date.prototype.toJSON.length, 1, 'Date.prototype.toJSON.length');
