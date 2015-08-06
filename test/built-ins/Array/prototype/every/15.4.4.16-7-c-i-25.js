@@ -7,10 +7,7 @@ description: >
     Array.prototype.every - This object is the Arguments object which
     implements its own property get method (number of arguments is
     less than number of parameters)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var called = 0;
 
@@ -23,6 +20,5 @@ function testcase() {
             return Array.prototype.every.call(arguments, callbackfn);
         };
 
-        return func(11) && called === 1;
-    }
-runTestCase(testcase);
+assert(func(11), 'func(11) !== true');
+assert.sameValue(called, 1, 'called');

@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.16-7-c-ii-6
 description: Array.prototype.every - arguments to callbackfn are self consistent
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var thisArg = {};
@@ -21,6 +18,5 @@ function testcase() {
                 arguments[2] === obj;
         }
 
-        return Array.prototype.every.call(obj, callbackfn, thisArg) && accessed;
-    }
-runTestCase(testcase);
+assert(Array.prototype.every.call(obj, callbackfn, thisArg), 'Array.prototype.every.call(obj, callbackfn, thisArg) !== true');
+assert(accessed, 'accessed !== true');

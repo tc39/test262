@@ -6,10 +6,7 @@ es5id: 15.4.4.16-7-c-ii-17
 description: >
     Array.prototype.every -'this' of 'callbackfn' is a Number object
     when T is not an object (T is a number primitive)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -20,6 +17,5 @@ function testcase() {
 
         var obj = { 0: 11, length: 2 };
 
-        return Array.prototype.every.call(obj, callbackfn, 5) && accessed;
-    }
-runTestCase(testcase);
+assert(Array.prototype.every.call(obj, callbackfn, 5), 'Array.prototype.every.call(obj, callbackfn, 5) !== true');
+assert(accessed, 'accessed !== true');

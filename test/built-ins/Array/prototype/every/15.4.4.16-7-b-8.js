@@ -6,10 +6,8 @@ es5id: 15.4.4.16-7-b-8
 description: >
     Array.prototype.every - deleting own property causes index
     property not to be visited on an Array-like object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var accessed = false;
         function callbackfn(val, idx, obj) {
             accessed = true;
@@ -32,6 +30,5 @@ function testcase() {
             configurable: true
         });
 
-        return Array.prototype.every.call(obj, callbackfn) && accessed;
-    }
-runTestCase(testcase);
+assert(Array.prototype.every.call(obj, callbackfn), 'Array.prototype.every.call(obj, callbackfn) !== true');
+assert(accessed, 'accessed !== true');

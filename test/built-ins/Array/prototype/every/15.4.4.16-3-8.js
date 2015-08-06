@@ -6,10 +6,7 @@ es5id: 15.4.4.16-3-8
 description: >
     Array.prototype.every - value of 'length' is a number (value is
     Infinity)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -20,6 +17,5 @@ function testcase() {
 
         var obj = { 0: 9, length: Infinity };
 
-        return !Array.prototype.every.call(obj, callbackfn) && accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.every.call(obj, callbackfn), false, 'Array.prototype.every.call(obj, callbackfn)');
+assert(accessed, 'accessed !== true');

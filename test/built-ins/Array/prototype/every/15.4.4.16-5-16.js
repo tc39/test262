@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.16-5-16
 description: Array.prototype.every - RegExp Object can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var objRegExp = new RegExp();
@@ -17,6 +14,5 @@ function testcase() {
             return this === objRegExp;
         }
 
-        return [11].every(callbackfn, objRegExp) && accessed;
-    }
-runTestCase(testcase);
+assert([11].every(callbackfn, objRegExp), '[11].every(callbackfn, objRegExp) !== true');
+assert(accessed, 'accessed !== true');

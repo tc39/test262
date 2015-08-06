@@ -6,11 +6,8 @@ es5id: 15.4.4.16-7-3
 description: >
     Array.prototype.every doesn't visit deleted elements in array
     after the call
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   function callbackfn(val, Idx, obj)
   {
     delete arr[2];
@@ -22,8 +19,5 @@ function testcase() {
 
   var arr = [1,2,3,4,5];
   
-  if(arr.every(callbackfn) === true)    
-      return true;  
-  
- }
-runTestCase(testcase);
+
+assert.sameValue(arr.every(callbackfn), true, 'arr.every(callbackfn)');

@@ -6,10 +6,7 @@ es5id: 15.4.4.16-7-c-ii-16
 description: >
     Array.prototype.every - 'this' of 'callbackfn' is a Boolean object
     when T is not an object (T is a boolean primitive)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -20,6 +17,5 @@ function testcase() {
 
         var obj = { 0: 11, length: 2 };
 
-        return !Array.prototype.every.call(obj, callbackfn, false) && accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.every.call(obj, callbackfn, false), false, 'Array.prototype.every.call(obj, callbackfn, false)');
+assert(accessed, 'accessed !== true');

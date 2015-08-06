@@ -6,11 +6,8 @@ es5id: 15.4.4.16-7-2
 description: >
     Array.prototype.every considers new value of elements in array
     after the call
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   function callbackfn(val, Idx, obj)
   {
     arr[4] = 6;
@@ -22,8 +19,5 @@ function testcase() {
 
   var arr = [1,2,3,4,5];
   
-  if(arr.every(callbackfn) === false)    
-      return true;  
-  
- }
-runTestCase(testcase);
+
+assert.sameValue(arr.every(callbackfn), false, 'arr.every(callbackfn)');

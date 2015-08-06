@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.16-3-25
 description: Array.prototype.every - value of 'length' is a negative non-integer
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn1(val, idx, obj) {
             return val > 10;
         }
@@ -23,7 +21,5 @@ function testcase() {
             length: -4294967294.5
         };
 
-        return Array.prototype.every.call(obj, callbackfn1) &&
-            Array.prototype.every.call(obj, callbackfn2);
-    }
-runTestCase(testcase);
+assert(Array.prototype.every.call(obj, callbackfn1), 'Array.prototype.every.call(obj, callbackfn1) !== true');
+assert(Array.prototype.every.call(obj, callbackfn2), 'Array.prototype.every.call(obj, callbackfn2) !== true');

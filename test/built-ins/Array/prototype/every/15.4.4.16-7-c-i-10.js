@@ -6,10 +6,7 @@ es5id: 15.4.4.16-7-c-i-10
 description: >
     Array.prototype.every - element to be retrieved is own accessor
     property on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             if (idx === 2) {
@@ -28,6 +25,4 @@ function testcase() {
             configurable: true
         });
 
-        return !arr.every(callbackfn);
-    }
-runTestCase(testcase);
+assert.sameValue(arr.every(callbackfn), false, 'arr.every(callbackfn)');

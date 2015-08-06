@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.16-8-10
 description: Array.prototype.every - subclassed array when length is reduced
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   foo.prototype = new Array(1, 2, 3);
   function foo() {}
   var f = new foo();
@@ -22,8 +20,5 @@ function testcase() {
   }
   var i = f.every(cb);
   
-  if (i === true) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(i, true, 'i');

@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.16-5-17
 description: Array.prototype.every - the JSON object can be used as thisArg
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var accessed = false;
 
         function callbackfn(val, idx, obj) {
@@ -15,6 +13,5 @@ function testcase() {
             return this === JSON;
         }
 
-        return [11].every(callbackfn, JSON) && accessed;
-    }
-runTestCase(testcase);
+assert([11].every(callbackfn, JSON), '[11].every(callbackfn, JSON) !== true');
+assert(accessed, 'accessed !== true');

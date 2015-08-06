@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.16-1-11
 description: Array.prototype.every applied to Date object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             return !(obj instanceof Date);
         }
@@ -16,6 +14,4 @@ function testcase() {
         obj.length = 1;
         obj[0] = 1;
 
-        return !Array.prototype.every.call(obj, callbackfn);
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.every.call(obj, callbackfn), false, 'Array.prototype.every.call(obj, callbackfn)');

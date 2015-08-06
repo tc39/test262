@@ -6,10 +6,7 @@ es5id: 15.4.4.16-7-c-iii-4
 description: >
     Array.prototype.every - return value of callbackfn is a boolean
     (value is true)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var obj = { 0: 11, length: 1 };
@@ -21,6 +18,5 @@ function testcase() {
 
        
 
-        return Array.prototype.every.call(obj, callbackfn) && accessed;
-    }
-runTestCase(testcase);
+assert(Array.prototype.every.call(obj, callbackfn), 'Array.prototype.every.call(obj, callbackfn) !== true');
+assert(accessed, 'accessed !== true');

@@ -6,10 +6,8 @@ es5id: 15.4.4.16-3-12
 description: >
     Array.prototype.every - 'length' is a string containing a negative
     number
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn1(val, idx, obj) {
             return val > 10;
         }
@@ -20,7 +18,5 @@ function testcase() {
 
         var obj = { 0: 11, 1: 12, 2: 9, length: "-4294967294" };
 
-        return Array.prototype.every.call(obj, callbackfn1) &&
-            Array.prototype.every.call(obj, callbackfn2);
-    }
-runTestCase(testcase);
+assert(Array.prototype.every.call(obj, callbackfn1), 'Array.prototype.every.call(obj, callbackfn1) !== true');
+assert(Array.prototype.every.call(obj, callbackfn2), 'Array.prototype.every.call(obj, callbackfn2) !== true');

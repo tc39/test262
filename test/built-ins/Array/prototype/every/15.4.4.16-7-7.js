@@ -7,10 +7,8 @@ description: >
     Array.prototype.every - Deleting the array itself within the
     callbackfn of Array.prototype.every is successful once
     Array.prototype.every is called for all elements
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var o = new Object();
         o.arr = [1, 2, 3, 4, 5];
 
@@ -22,6 +20,5 @@ function testcase() {
                 return false;
         }
 
-        return o.arr.every(callbackfn) && !o.hasOwnProperty("arr");
-    }
-runTestCase(testcase);
+assert(o.arr.every(callbackfn), 'o.arr.every(callbackfn) !== true');
+assert.sameValue(o.hasOwnProperty("arr"), false, 'o.hasOwnProperty("arr")');

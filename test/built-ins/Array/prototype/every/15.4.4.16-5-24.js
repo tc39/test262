@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.16-5-24
 description: Array.prototype.every - string primitive can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -16,6 +13,5 @@ function testcase() {
             return this.valueOf() === "abc";
         }
 
-        return [11].every(callbackfn, "abc") && accessed;
-    }
-runTestCase(testcase);
+assert([11].every(callbackfn, "abc"), '[11].every(callbackfn, "abc") !== true');
+assert(accessed, 'accessed !== true');

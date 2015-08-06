@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.16-1-6
 description: Array.prototype.every applied to Number object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var accessed = false;
         function callbackfn(val, idx, obj) {
             accessed = true;
@@ -18,6 +16,6 @@ function testcase() {
         obj.length = 2;
         obj[0] = 11;
         obj[1] = 12;
-        return Array.prototype.every.call(obj, callbackfn) && accessed;
-    }
-runTestCase(testcase);
+
+assert(Array.prototype.every.call(obj, callbackfn), 'Array.prototype.every.call(obj, callbackfn) !== true');
+assert(accessed, 'accessed !== true');

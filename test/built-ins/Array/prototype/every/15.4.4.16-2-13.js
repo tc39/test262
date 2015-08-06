@@ -6,10 +6,7 @@ es5id: 15.4.4.16-2-13
 description: >
     Array.prototype.every applied to the Array-like object that
     'length' is inherited accessor property without a get function
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -31,6 +28,5 @@ function testcase() {
         child[0] = 9;
         child[1] = 8;
 
-        return Array.prototype.every.call(child, callbackfn) && !accessed;
-    }
-runTestCase(testcase);
+assert(Array.prototype.every.call(child, callbackfn), 'Array.prototype.every.call(child, callbackfn) !== true');
+assert.sameValue(accessed, false, 'accessed');

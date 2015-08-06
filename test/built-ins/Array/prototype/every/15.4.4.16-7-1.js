@@ -6,11 +6,8 @@ es5id: 15.4.4.16-7-1
 description: >
     Array.prototype.every considers new elements added to array after
     the call
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   var calledForThree = false;
 
   function callbackfn(val, Idx, obj)
@@ -25,6 +22,4 @@ function testcase() {
   
   var res = arr.every(callbackfn);
 
-  return calledForThree; 
- }
-runTestCase(testcase);
+assert(calledForThree, 'calledForThree !== true');

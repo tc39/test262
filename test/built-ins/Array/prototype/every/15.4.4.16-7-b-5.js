@@ -6,10 +6,8 @@ es5id: 15.4.4.16-7-b-5
 description: >
     Array.prototype.every - properties added into own object after
     current position are visited on an Array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             if (idx === 1 && val === 1) {
                 return false;
@@ -33,6 +31,4 @@ function testcase() {
             configurable: true
         });
 
-        return !arr.every(callbackfn);
-    }
-runTestCase(testcase);
+assert.sameValue(arr.every(callbackfn), false, 'arr.every(callbackfn)');

@@ -6,10 +6,7 @@ es5id: 15.4.4.16-7-c-ii-8
 description: >
     Array.prototype.every - element changed by callbackfn on previous
     iterations is observed
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = { 0: 11, 1: 12, length: 2 };
 
@@ -22,6 +19,4 @@ function testcase() {
 
        
 
-        return !Array.prototype.every.call(obj, callbackfn);
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.every.call(obj, callbackfn), false, 'Array.prototype.every.call(obj, callbackfn)');

@@ -6,10 +6,7 @@ es5id: 15.4.4.16-7-c-ii-22
 description: >
     Array.prototype.every - callbackfn called with correct parameters
     (the index k is correct)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -27,6 +24,5 @@ function testcase() {
 
         var obj = { 0: 11, 1: 12, length: 2 };
 
-        return Array.prototype.every.call(obj, callbackfn) && accessed;
-    }
-runTestCase(testcase);
+assert(Array.prototype.every.call(obj, callbackfn), 'Array.prototype.every.call(obj, callbackfn) !== true');
+assert(accessed, 'accessed !== true');

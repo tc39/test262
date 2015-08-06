@@ -6,10 +6,7 @@ es5id: 15.4.4.16-3-10
 description: >
     Array.prototype.every - value of 'length' is a number (value is
     NaN)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -20,6 +17,5 @@ function testcase() {
 
         var obj = { 0: 9, length: NaN };
 
-        return Array.prototype.every.call(obj, callbackfn) && !accessed;
-    }
-runTestCase(testcase);
+assert(Array.prototype.every.call(obj, callbackfn), 'Array.prototype.every.call(obj, callbackfn) !== true');
+assert.sameValue(accessed, false, 'accessed');

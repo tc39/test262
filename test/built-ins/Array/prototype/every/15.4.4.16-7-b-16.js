@@ -7,10 +7,8 @@ description: >
     Array.prototype.every - decreasing length of array does not delete
     non-configurable properties
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             if (idx === 2 && val === "unconfigurable") {
                 return false;
@@ -36,6 +34,4 @@ function testcase() {
             configurable: true
         });
 
-        return !arr.every(callbackfn);
-    }
-runTestCase(testcase);
+assert.sameValue(arr.every(callbackfn), false, 'arr.every(callbackfn)');

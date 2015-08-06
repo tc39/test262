@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.16-7-b-2
 description: Array.prototype.every - added properties in step 2 are visible here
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             if (idx === 2 && val === "length") {
                 return false;
@@ -26,6 +24,4 @@ function testcase() {
             configurable: true
         });
 
-        return !Array.prototype.every.call(arr, callbackfn);
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.every.call(arr, callbackfn), false, 'Array.prototype.every.call(arr, callbackfn)');

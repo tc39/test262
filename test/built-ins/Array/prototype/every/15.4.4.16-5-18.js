@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.16-5-18
 description: Array.prototype.every - Error Object can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var objError = new RangeError();
@@ -17,6 +14,5 @@ function testcase() {
             return this === objError;
         }
 
-        return [11].every(callbackfn, objError) && accessed;
-    }
-runTestCase(testcase);
+assert([11].every(callbackfn, objError), '[11].every(callbackfn, objError) !== true');
+assert(accessed, 'accessed !== true');

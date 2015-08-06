@@ -6,10 +6,8 @@ es5id: 15.4.4.16-8-7
 description: >
     Array.prototype.every returns true if 'length' is 0 (subclassed
     Array, length overridden with obj w/o valueOf (toString))
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   foo.prototype = new Array(1, 2, 3);
   function foo() {}
   var f = new foo();
@@ -25,8 +23,5 @@ function testcase() {
   function cb(){}
   var i = f.every(cb);
   
-  if (i === true) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(i, true, 'i');

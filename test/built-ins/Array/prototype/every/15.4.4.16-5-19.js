@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.16-5-19
 description: Array.prototype.every - the Arguments object can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var arg;
@@ -21,6 +18,5 @@ function testcase() {
             arg = arguments;
         }(1, 2, 3));
 
-        return [11].every(callbackfn, arg) && accessed;
-    }
-runTestCase(testcase);
+assert([11].every(callbackfn, arg), '[11].every(callbackfn, arg) !== true');
+assert(accessed, 'accessed !== true');

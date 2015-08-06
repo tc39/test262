@@ -4,12 +4,8 @@
 /*---
 es5id: 15.4.4.16-5-21
 description: Array.prototype.every - the global object can be used as thisArg
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -18,6 +14,5 @@ function testcase() {
             return this === fnGlobalObject();
         }
 
-        return [11].every(callbackfn, fnGlobalObject()) && accessed;
-    }
-runTestCase(testcase);
+assert([11].every(callbackfn, fnGlobalObject()), '[11].every(callbackfn, fnGlobalObject()) !== true');
+assert(accessed, 'accessed !== true');

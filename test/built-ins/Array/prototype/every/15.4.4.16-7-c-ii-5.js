@@ -6,10 +6,8 @@ es5id: 15.4.4.16-7-c-ii-5
 description: >
     Array.prototype.every - k values are accessed during each
     iteration and not prior to starting the loop on an Array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var called = 0;
         var kIndex = [];
 
@@ -29,6 +27,5 @@ function testcase() {
             }
         }
 
-        return [11, 12, 13, 14].every(callbackfn, undefined) && 4 === called;
-    }
-runTestCase(testcase);
+assert([11, 12, 13, 14].every(callbackfn, undefined), '[11, 12, 13, 14].every(callbackfn, undefined) !== true');
+assert.sameValue(called, 4, 'called');

@@ -6,10 +6,7 @@ es5id: 15.4.4.16-7-c-i-17
 description: >
     Array.prototype.every - element to be retrieved is own accessor
     property without a get function on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -24,6 +21,5 @@ function testcase() {
             configurable: true
         });
 
-        return Array.prototype.every.call(obj, callbackfn) && accessed;
-    }
-runTestCase(testcase);
+assert(Array.prototype.every.call(obj, callbackfn), 'Array.prototype.every.call(obj, callbackfn) !== true');
+assert(accessed, 'accessed !== true');

@@ -6,10 +6,8 @@ es5id: 15.4.4.16-7-b-3
 description: >
     Array.prototype.every - deleted properties in step 2 are visible
     here
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var accessed = false;
         function callbackfn(val, idx, obj) {
             accessed = true;
@@ -25,6 +23,5 @@ function testcase() {
             configurable: true
         });
 
-        return Array.prototype.every.call(arr, callbackfn) && accessed;
-    }
-runTestCase(testcase);
+assert(Array.prototype.every.call(arr, callbackfn), 'Array.prototype.every.call(arr, callbackfn) !== true');
+assert(accessed, 'accessed !== true');

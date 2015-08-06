@@ -6,10 +6,8 @@ es5id: 15.4.4.16-2-19
 description: >
     Array.prototype.every applied to Function object, which implements
     its own property get method
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn1(val, idx, obj) {
             return val > 10;
         }
@@ -25,7 +23,5 @@ function testcase() {
         fun[1] = 11;
         fun[2] = 9;
 
-        return Array.prototype.every.call(fun, callbackfn1) &&
-            !Array.prototype.every.call(fun, callbackfn2);
-    }
-runTestCase(testcase);
+assert(Array.prototype.every.call(fun, callbackfn1), 'Array.prototype.every.call(fun, callbackfn1) !== true');
+assert.sameValue(Array.prototype.every.call(fun, callbackfn2), false, 'Array.prototype.every.call(fun, callbackfn2)');
