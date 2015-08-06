@@ -6,18 +6,14 @@ es5id: 15.4.4.15-9-2
 description: >
     Array.prototype.lastIndexOf returns -1 if 'length' is 0 and does
     not access any other properties
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var accessed = false;
   var f = {length: 0};
   Object.defineProperty(f,"0",{get: function () {accessed = true; return 1;}});
   
   var i = Array.prototype.lastIndexOf.call(f,1);
   
-  if (i === -1 && accessed==false) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(i, -1, 'i');
+assert.sameValue(accessed, false, 'accessed');

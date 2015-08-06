@@ -7,10 +7,8 @@ description: >
     Array.prototype.lastIndexOf - 'length' is own accessor property
     that overrides an inherited accessor property on an Array-like
     object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var proto = {};
         Object.defineProperty(proto, "length", {
             get: function () {
@@ -32,6 +30,4 @@ function testcase() {
             configurable: true
         });
 
-        return Array.prototype.lastIndexOf.call(child, true) === 1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.call(child, true), 1, 'Array.prototype.lastIndexOf.call(child, true)');

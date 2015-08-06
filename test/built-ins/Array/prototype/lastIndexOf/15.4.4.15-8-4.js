@@ -4,17 +4,11 @@
 /*---
 es5id: 15.4.4.15-8-4
 description: Array.prototype.lastIndexOf must return correct index(undefined)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var obj = {toString:function (){return undefined;}};
   var _undefined1 = undefined;
   var _undefined2;
   var a = new Array(_undefined1,_undefined2,undefined,true,0,false,null,1,"undefined",obj,1);
-  if (a.lastIndexOf(undefined) === 2) 
-  {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(a.lastIndexOf(undefined), 2, 'a.lastIndexOf(undefined)');

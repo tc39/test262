@@ -7,10 +7,7 @@ description: >
     Array.prototype.lastIndexOf -  decreasing length of array does not
     delete non-configurable properties
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [0, 1, 2, 3];
 
@@ -29,6 +26,4 @@ function testcase() {
             configurable: true
         });
 
-        return 2 === arr.lastIndexOf("unconfigurable");
-    }
-runTestCase(testcase);
+assert.sameValue(arr.lastIndexOf("unconfigurable"), 2, 'arr.lastIndexOf("unconfigurable")');

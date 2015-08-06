@@ -6,15 +6,9 @@ es5id: 15.4.4.15-4-5
 description: >
     Array.prototype.lastIndexOf returns -1 if 'length' is 0 ( length
     overridden to '0' (type conversion))
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  
  var i = Array.prototype.lastIndexOf.call({length: '0'}, 1);
   
-  if (i === -1) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(i, -1, 'i');

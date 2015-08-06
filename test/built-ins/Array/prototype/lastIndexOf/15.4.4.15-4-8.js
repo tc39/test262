@@ -6,12 +6,8 @@ es5id: 15.4.4.15-4-8
 description: >
     Array.prototype.lastIndexOf returns -1 if 'length' is 0 (length is
     an empty array)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-  
   // objects inherit the default valueOf method of the Object object;
   // that simply returns the itself. Since the default valueOf() method
   // does not return a primitive value, ES next tries to convert the object
@@ -27,8 +23,5 @@ function testcase() {
   // or if its one element is not a number, the array converts to NaN.
  var i = Array.prototype.lastIndexOf.call({length: [ ]}, 1);
   
-  if (i === -1) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(i, -1, 'i');

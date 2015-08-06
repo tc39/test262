@@ -6,10 +6,7 @@ es5id: 15.4.4.15-8-11
 description: >
     Array.prototype.lastIndexOf - the length of iteration isn't
     changed by adding elements to the array during iteration
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [20];
 
@@ -21,6 +18,4 @@ function testcase() {
             configurable: true
         });
 
-        return arr.lastIndexOf(1) === -1;
-    }
-runTestCase(testcase);
+assert.sameValue(arr.lastIndexOf(1), -1, 'arr.lastIndexOf(1)');

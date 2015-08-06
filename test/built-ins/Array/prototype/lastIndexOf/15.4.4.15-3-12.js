@@ -6,14 +6,9 @@ es5id: 15.4.4.15-3-12
 description: >
     Array.prototype.lastIndexOf - value of 'length' is a string
     containing negative number
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {1: null, 2: undefined, length: "-4294967294"};
 
-        return Array.prototype.lastIndexOf.call(obj, null) === -1 &&
-            Array.prototype.lastIndexOf.call(obj, undefined) === -1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.call(obj, null), -1, 'Array.prototype.lastIndexOf.call(obj, null)');
+assert.sameValue(Array.prototype.lastIndexOf.call(obj, undefined), -1, 'Array.prototype.lastIndexOf.call(obj, undefined)');

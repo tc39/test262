@@ -4,13 +4,8 @@
 /*---
 es5id: 15.4.4.15-3-1
 description: Array.prototype.lastIndexOf - value of 'length' is undefined
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = { 0: 1, 1: 1, length: undefined };
 
-        return Array.prototype.lastIndexOf.call(obj, 1) === -1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.call(obj, 1), -1, 'Array.prototype.lastIndexOf.call(obj, 1)');

@@ -7,10 +7,7 @@ description: >
     Array.prototype.lastIndexOf - 'length' is an object that has an
     own valueOf method that returns an object and toString method that
     returns a string
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var toStringAccessed = false;
         var valueOfAccessed = false;
@@ -31,6 +28,6 @@ function testcase() {
             }
         };
 
-        return Array.prototype.lastIndexOf.call(obj, targetObj) === 1 && toStringAccessed && valueOfAccessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.call(obj, targetObj), 1, 'Array.prototype.lastIndexOf.call(obj, targetObj)');
+assert(toStringAccessed, 'toStringAccessed !== true');
+assert(valueOfAccessed, 'valueOfAccessed !== true');

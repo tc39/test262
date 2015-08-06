@@ -6,10 +6,7 @@ es5id: 15.4.4.15-8-a-5
 description: >
     Array.prototype.lastIndexOf -  deleted properties of step 5 are
     visible here on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = { 10: false, length: 30 };
 
@@ -20,6 +17,4 @@ function testcase() {
             }
         };
 
-        return -1 === Array.prototype.lastIndexOf.call(arr, false, fromIndex);
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.call(arr, false, fromIndex), -1, 'Array.prototype.lastIndexOf.call(arr, false, fromIndex)');

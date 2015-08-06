@@ -6,10 +6,7 @@ es5id: 15.4.4.15-2-6
 description: >
     Array.prototype.lastIndexOf - 'length' is an inherited data
     property on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var proto = { length: 2 };
 
@@ -20,7 +17,5 @@ function testcase() {
         child[1] = "x";
         child[2] = "y";
 
-        return Array.prototype.lastIndexOf.call(child, "x") === 1 &&
-             Array.prototype.lastIndexOf.call(child, "y") === -1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.call(child, "x"), 1, 'Array.prototype.lastIndexOf.call(child, "x")');
+assert.sameValue(Array.prototype.lastIndexOf.call(child, "y"), -1, 'Array.prototype.lastIndexOf.call(child, "y")');

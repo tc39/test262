@@ -6,13 +6,9 @@ es5id: 15.4.4.15-5-32
 description: >
     Array.prototype.lastIndexOf - 'fromIndex' is a negative
     non-integer, verify truncation occurs in the proper direction
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var targetObj = {};
-        return [0, targetObj, true].lastIndexOf(targetObj, -2.5) === 1 &&
-            [0, true, targetObj].lastIndexOf(targetObj, -2.5) === -1;
 
-    }
-runTestCase(testcase);
+assert.sameValue([0, targetObj, true].lastIndexOf(targetObj, -2.5), 1, '[0, targetObj, true].lastIndexOf(targetObj, -2.5)');
+assert.sameValue([0, true, targetObj].lastIndexOf(targetObj, -2.5), -1, '[0, true, targetObj].lastIndexOf(targetObj, -2.5)');

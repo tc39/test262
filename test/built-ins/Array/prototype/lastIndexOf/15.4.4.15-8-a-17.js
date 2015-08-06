@@ -6,10 +6,7 @@ es5id: 15.4.4.15-8-a-17
 description: >
     Array.prototype.lastIndexOf -  decreasing length of array causes
     index property not to be visited
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [0, 1, 2, "last", 4];
 
@@ -21,6 +18,4 @@ function testcase() {
             configurable: true
         });
 
-        return -1 === arr.lastIndexOf("last");
-    }
-runTestCase(testcase);
+assert.sameValue(arr.lastIndexOf("last"), -1, 'arr.lastIndexOf("last")');

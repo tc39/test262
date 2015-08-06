@@ -6,10 +6,7 @@ es5id: 15.4.4.15-8-a-2
 description: >
     Array.prototype.lastIndexOf -  added properties in step 5 are
     visible here on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = { length: 30 };
         var targetObj = function () { };
@@ -21,6 +18,5 @@ function testcase() {
             }
         };
         
-        return 4 === Array.prototype.lastIndexOf.call(arr, targetObj, fromIndex);
-    }
-runTestCase(testcase);
+
+assert.sameValue(Array.prototype.lastIndexOf.call(arr, targetObj, fromIndex), 4, 'Array.prototype.lastIndexOf.call(arr, targetObj, fromIndex)');

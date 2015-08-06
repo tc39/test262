@@ -6,10 +6,7 @@ es5id: 15.4.4.15-2-13
 description: >
     Array.prototype.lastIndexOf - 'length' is inherited accessor
     property without a get function on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var proto = {};
         Object.defineProperty(proto, "length", {
@@ -23,6 +20,4 @@ function testcase() {
         var child = new Con();
         child[0] = true;
 
-        return Array.prototype.lastIndexOf.call(child, true) === -1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.call(child, true), -1, 'Array.prototype.lastIndexOf.call(child, true)');
