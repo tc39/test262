@@ -6,10 +6,8 @@ es5id: 15.4.4.14-3-29
 description: >
     Array.prototype.indexOf - value of 'length' is boundary value
     (2^32 + 1)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var targetObj = {};
         var obj = {
             0: targetObj,
@@ -17,7 +15,5 @@ function testcase() {
             length: 4294967297
         };
 
-        return Array.prototype.indexOf.call(obj, targetObj) === 0 &&
-            Array.prototype.indexOf.call(obj, 4294967297) === 1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.indexOf.call(obj, targetObj), 0, 'Array.prototype.indexOf.call(obj, targetObj)');
+assert.sameValue(Array.prototype.indexOf.call(obj, 4294967297), 1, 'Array.prototype.indexOf.call(obj, 4294967297)');

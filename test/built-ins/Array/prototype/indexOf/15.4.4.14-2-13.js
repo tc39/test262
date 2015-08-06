@@ -6,10 +6,7 @@ es5id: 15.4.4.14-2-13
 description: >
     Array.prototype.indexOf - 'length' is inherited accessor property
     without a get function
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var proto = {};
         Object.defineProperty(proto, "length", {
@@ -23,6 +20,4 @@ function testcase() {
         var child = new Con();
         child[1] = true;
 
-        return Array.prototype.indexOf.call(child, true) === -1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.indexOf.call(child, true), -1, 'Array.prototype.indexOf.call(child, true)');

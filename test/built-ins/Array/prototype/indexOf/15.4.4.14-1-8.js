@@ -4,13 +4,8 @@
 /*---
 es5id: 15.4.4.14-1-8
 description: Array.prototype.indexOf applied to String object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = new String("null");
 
-        return Array.prototype.indexOf.call(obj, 'l') === 2;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.indexOf.call(obj, 'l'), 2, 'Array.prototype.indexOf.call(obj, "l")');

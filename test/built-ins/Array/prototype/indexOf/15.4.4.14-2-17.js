@@ -6,10 +6,7 @@ es5id: 15.4.4.14-2-17
 description: >
     Array.prototype.indexOf applied to Arguments object which
     implements its own property get method
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var func = function (a, b) {
             arguments[2] = false;
@@ -17,6 +14,4 @@ function testcase() {
                 Array.prototype.indexOf.call(arguments, false) === -1;
         };
 
-        return func(0, true);
-    }
-runTestCase(testcase);
+assert(func(0, true), 'func(0, true) !== true');

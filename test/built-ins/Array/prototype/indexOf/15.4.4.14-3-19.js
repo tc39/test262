@@ -6,10 +6,7 @@ es5id: 15.4.4.14-3-19
 description: >
     Array.prototype.indexOf - value of 'length' is an Object which has
     an own toString method.
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         // objects inherit the default valueOf() method from Object
         // that simply returns itself. Since the default valueOf() method
@@ -28,7 +25,5 @@ function testcase() {
             }
         };
 
-        return Array.prototype.indexOf.call(obj, true) === 1 &&
-            Array.prototype.indexOf.call(obj, 2) === -1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.indexOf.call(obj, true), 1, 'Array.prototype.indexOf.call(obj, true)');
+assert.sameValue(Array.prototype.indexOf.call(obj, 2), -1, 'Array.prototype.indexOf.call(obj, 2)');

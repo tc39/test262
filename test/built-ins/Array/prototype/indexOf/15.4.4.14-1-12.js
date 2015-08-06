@@ -4,15 +4,10 @@
 /*---
 es5id: 15.4.4.14-1-12
 description: Array.prototype.indexOf applied to RegExp object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = new RegExp();
         obj.length = 2;
         obj[1] = true;
 
-        return Array.prototype.indexOf.call(obj, true) === 1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.indexOf.call(obj, true), 1, 'Array.prototype.indexOf.call(obj, true)');

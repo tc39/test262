@@ -6,10 +6,7 @@ es5id: 15.4.4.14-9-b-i-28
 description: >
     Array.prototype.indexOf - side-effects are visible in subsequent
     iterations on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var preIterVisible = false;
         var arr = [];
@@ -33,6 +30,4 @@ function testcase() {
             configurable: true
         });
 
-        return arr.indexOf(true) === 1;
-    }
-runTestCase(testcase);
+assert.sameValue(arr.indexOf(true), 1, 'arr.indexOf(true)');

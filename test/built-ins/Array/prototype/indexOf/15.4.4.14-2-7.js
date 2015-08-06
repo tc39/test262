@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.14-2-7
 description: Array.prototype.indexOf - 'length' is own accessor property
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var objOne = { 1: true };
         var objTwo = { 2: true };
         Object.defineProperty(objOne, "length", {
@@ -23,7 +21,5 @@ function testcase() {
             configurable: true
         });
 
-        return Array.prototype.indexOf.call(objOne, true) === 1 &&
-            Array.prototype.indexOf.call(objTwo, true) === -1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.indexOf.call(objOne, true), 1, 'Array.prototype.indexOf.call(objOne, true)');
+assert.sameValue(Array.prototype.indexOf.call(objTwo, true), -1, 'Array.prototype.indexOf.call(objTwo, true)');

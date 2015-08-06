@@ -6,10 +6,7 @@ es5id: 15.4.4.14-5-21
 description: >
     Array.prototype.indexOf - value of 'fromIndex' is an Object, which
     has an own toString method
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         // objects inherit the default valueOf() method from Object
         // that simply returns itself. Since the default valueOf() method
@@ -22,6 +19,4 @@ function testcase() {
             }
         };
 
-        return [0, true].indexOf(true, fromIndex) === 1;
-    }
-runTestCase(testcase);
+assert.sameValue([0, true].indexOf(true, fromIndex), 1, '[0, true].indexOf(true, fromIndex)');

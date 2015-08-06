@@ -6,10 +6,7 @@ es5id: 15.4.4.14-9-b-i-10
 description: >
     Array.prototype.indexOf - element to be retrieved is own accessor
     property on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = { length: 3 };
         Object.defineProperty(obj, "0", {
@@ -33,8 +30,6 @@ function testcase() {
             configurable: true
         });
 
-        return 0 === Array.prototype.indexOf.call(obj, 0) &&
-            1 === Array.prototype.indexOf.call(obj, 1) &&
-            2 === Array.prototype.indexOf.call(obj, 2);
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.indexOf.call(obj, 0), 0, 'Array.prototype.indexOf.call(obj, 0)');
+assert.sameValue(Array.prototype.indexOf.call(obj, 1), 1, 'Array.prototype.indexOf.call(obj, 1)');
+assert.sameValue(Array.prototype.indexOf.call(obj, 2), 2, 'Array.prototype.indexOf.call(obj, 2)');

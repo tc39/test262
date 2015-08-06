@@ -7,10 +7,7 @@ description: >
     Array.prototype.indexOf - element to be retrieved is own accessor
     property without a get function that overrides an inherited
     accessor property on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var proto = {};
         Object.defineProperty(proto, "0", {
@@ -31,6 +28,4 @@ function testcase() {
             configurable: true
         });
 
-        return Array.prototype.indexOf.call(child, undefined) === 0;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.indexOf.call(child, undefined), 0, 'Array.prototype.indexOf.call(child, undefined)');

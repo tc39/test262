@@ -7,10 +7,7 @@ description: >
     Array.prototype.indexOf - value of 'fromIndex' is an object that
     has an own valueOf method that returns an object and toString
     method that returns a string
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var toStringAccessed = false;
         var valueOfAccessed = false;
@@ -27,6 +24,6 @@ function testcase() {
             }
         };
 
-        return [0, true].indexOf(true, fromIndex) === 1 && toStringAccessed && valueOfAccessed;
-    }
-runTestCase(testcase);
+assert.sameValue([0, true].indexOf(true, fromIndex), 1, '[0, true].indexOf(true, fromIndex)');
+assert(toStringAccessed, 'toStringAccessed !== true');
+assert(valueOfAccessed, 'valueOfAccessed !== true');

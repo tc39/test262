@@ -6,12 +6,9 @@ es5id: 15.4.4.14-5-16
 description: >
     Array.prototype.indexOf - value of 'fromIndex' is a string
     containing Infinity
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var arr = [];
         arr[Math.pow(2, 32) - 2] = true; //length is the max value of Uint type
-        return arr.indexOf(true, "Infinity") === -1;
-    }
-runTestCase(testcase);
+
+assert.sameValue(arr.indexOf(true, "Infinity"), -1, 'arr.indexOf(true, "Infinity")');

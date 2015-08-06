@@ -6,10 +6,7 @@ es5id: 15.4.4.14-9-a-3
 description: >
     Array.prototype.indexOf - added properties in step 5 are visible
     here on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [];
         arr.length = 30;
@@ -22,6 +19,4 @@ function testcase() {
             }
         };
 
-        return 4 === arr.indexOf(targetObj, fromIndex);
-    }
-runTestCase(testcase);
+assert.sameValue(arr.indexOf(targetObj, fromIndex), 4, 'arr.indexOf(targetObj, fromIndex)');

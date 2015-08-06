@@ -6,10 +6,7 @@ es5id: 15.4.4.14-9-11
 description: >
     Array.prototype.indexOf - the length of iteration isn't changed by
     adding elements to the array during iteration
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [20];
 
@@ -21,6 +18,4 @@ function testcase() {
             configurable: true
         });
 
-        return arr.indexOf(1) === -1;
-    }
-runTestCase(testcase);
+assert.sameValue(arr.indexOf(1), -1, 'arr.indexOf(1)');

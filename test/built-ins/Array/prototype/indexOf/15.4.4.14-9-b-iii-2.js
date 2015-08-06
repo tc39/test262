@@ -6,10 +6,8 @@ es5id: 15.4.4.14-9-b-iii-2
 description: >
     Array.prototype.indexOf - returns without visiting subsequent
     element once search value is found
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var arr = [1, 2, , 1, 2];
         var elementThirdAccessed = false;
         var elementFifthAccessed = false;
@@ -30,6 +28,6 @@ function testcase() {
         });
 
         arr.indexOf(2);
-        return !elementThirdAccessed && !elementFifthAccessed;
-    }
-runTestCase(testcase);
+
+assert.sameValue(elementThirdAccessed, false, 'elementThirdAccessed');
+assert.sameValue(elementFifthAccessed, false, 'elementFifthAccessed');

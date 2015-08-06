@@ -6,15 +6,9 @@ es5id: 15.4.4.14-4-6
 description: >
     Array.prototype.indexOf returns -1 if 'length' is 0 (subclassed
     Array, length overridden with obj with valueOf)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  
  var i = Array.prototype.indexOf.call({length: { valueOf: function () { return 0;}}}, 1);
   
-  if (i === -1) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(i, -1, 'i');

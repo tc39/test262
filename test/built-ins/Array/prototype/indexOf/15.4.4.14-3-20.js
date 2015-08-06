@@ -6,10 +6,7 @@ es5id: 15.4.4.14-3-20
 description: >
     Array.prototype.indexOf - value of 'length' is an Object which has
     an own valueOf method.
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         //valueOf method will be invoked first, since hint is Number
         var obj = {
@@ -22,7 +19,5 @@ function testcase() {
             }
         };
 
-        return Array.prototype.indexOf.call(obj, true) === 1 &&
-            Array.prototype.indexOf.call(obj, 2) === -1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.indexOf.call(obj, true), 1, 'Array.prototype.indexOf.call(obj, true)');
+assert.sameValue(Array.prototype.indexOf.call(obj, 2), -1, 'Array.prototype.indexOf.call(obj, 2)');

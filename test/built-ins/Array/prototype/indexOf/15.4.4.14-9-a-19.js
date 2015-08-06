@@ -7,10 +7,7 @@ description: >
     Array.prototype.indexOf - decreasing length of array does not
     delete non-configurable properties
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [0, 1, 2];
 
@@ -29,6 +26,5 @@ function testcase() {
             configurable: true
         });
         
-        return 2 === arr.indexOf("unconfigurable");
-    }
-runTestCase(testcase);
+
+assert.sameValue(arr.indexOf("unconfigurable"), 2, 'arr.indexOf("unconfigurable")');

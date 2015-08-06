@@ -7,10 +7,7 @@ description: >
     Array.prototype.indexOf - 'length' is an object that has an own
     valueOf method that returns an object and toString method that
     returns a string
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var toStringAccessed = false;
         var valueOfAccessed = false;
@@ -30,6 +27,6 @@ function testcase() {
             }
         };
 
-        return Array.prototype.indexOf.call(obj, true) === 1 && toStringAccessed && valueOfAccessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.indexOf.call(obj, true), 1, 'Array.prototype.indexOf.call(obj, true)');
+assert(toStringAccessed, 'toStringAccessed !== true');
+assert(valueOfAccessed, 'valueOfAccessed !== true');
