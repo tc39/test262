@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.20-1-12
 description: Array.prototype.filter applied to RegExp object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return obj instanceof RegExp;
@@ -18,6 +15,5 @@ function testcase() {
         obj[1] = true;
 
         var newArr = Array.prototype.filter.call(obj, callbackfn);
-        return newArr[0] === true;
-    }
-runTestCase(testcase);
+
+assert.sameValue(newArr[0], true, 'newArr[0]');

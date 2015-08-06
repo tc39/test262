@@ -4,13 +4,8 @@
 /*---
 es5id: 15.4.4.20-5-28
 description: Array.prototype.filter - the returned array is instanceof Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var newArr = [11].filter(function () { });
 
-        return newArr instanceof Array;
-    }
-runTestCase(testcase);
+assert(newArr instanceof Array, 'newArr instanceof Array !== true');

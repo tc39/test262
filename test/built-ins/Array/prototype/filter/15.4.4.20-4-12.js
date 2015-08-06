@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.20-4-12
 description: Array.prototype.filter - 'callbackfn' is a function
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             if (idx === 1) {
@@ -17,6 +14,6 @@ function testcase() {
         }
 
         var newArr = [11, 9].filter(callbackfn);
-        return newArr.length === 1 && newArr[0] === 9;
-    }
-runTestCase(testcase);
+
+assert.sameValue(newArr.length, 1, 'newArr.length');
+assert.sameValue(newArr[0], 9, 'newArr[0]');

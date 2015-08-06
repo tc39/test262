@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.20-3-3
 description: Array.prototype.filter - value of 'length' is a number (value is 0)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         function callbackfn(val, idx, obj) {
@@ -18,6 +15,5 @@ function testcase() {
         var obj = { 0: 11, length: 0 };
         var newArr = Array.prototype.filter.call(obj, callbackfn);
 
-        return newArr.length === 0 && !accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 0, 'newArr.length');
+assert.sameValue(accessed, false, 'accessed');

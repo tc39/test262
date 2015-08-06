@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.20-1-9
 description: Array.prototype.filter applied to Function object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return obj instanceof Function;
@@ -21,6 +18,5 @@ function testcase() {
 
         var newArr = Array.prototype.filter.call(obj, callbackfn);
 
-        return newArr[0] === 11 && newArr[1] === 9;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr[0], 11, 'newArr[0]');
+assert.sameValue(newArr[1], 9, 'newArr[1]');

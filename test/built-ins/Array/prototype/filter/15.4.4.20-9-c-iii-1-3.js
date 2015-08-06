@@ -6,10 +6,7 @@ es5id: 15.4.4.20-9-c-iii-1-3
 description: >
     Array.prototype.filter - value of returned array element can be
     enumerated
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return true;
@@ -28,6 +25,4 @@ function testcase() {
             }
         }
 
-        return enumerable;
-    }
-runTestCase(testcase);
+assert(enumerable, 'enumerable !== true');

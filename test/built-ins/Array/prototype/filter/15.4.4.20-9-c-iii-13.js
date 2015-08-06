@@ -6,10 +6,7 @@ es5id: 15.4.4.20-9-c-iii-13
 description: >
     Array.prototype.filter return value of callbackfn is a number
     (value is NaN)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -19,6 +16,6 @@ function testcase() {
         }
 
         var newArr = [11].filter(callbackfn);
-        return newArr.length === 0 && accessed;
-    }
-runTestCase(testcase);
+
+assert.sameValue(newArr.length, 0, 'newArr.length');
+assert(accessed, 'accessed !== true');

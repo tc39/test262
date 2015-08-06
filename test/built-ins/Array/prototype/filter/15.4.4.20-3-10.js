@@ -6,10 +6,7 @@ es5id: 15.4.4.20-3-10
 description: >
     Array.prototype.filter - value of 'length' is a number (value is
     NaN)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         function callbackfn(val, idx, obj) {
@@ -21,6 +18,5 @@ function testcase() {
 
         var newArr = Array.prototype.filter.call(obj, callbackfn);
 
-        return newArr.length === 0 && !accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 0, 'newArr.length');
+assert.sameValue(accessed, false, 'accessed');

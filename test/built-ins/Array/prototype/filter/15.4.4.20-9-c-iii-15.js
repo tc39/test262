@@ -6,16 +6,13 @@ es5id: 15.4.4.20-9-c-iii-15
 description: >
     Array.prototype.filter return value of callbackfn is a non-empty
     string
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-    
         function callbackfn(val, idx, obj) {
             return "non-empty string";
         }
 
         var newArr = [11].filter(callbackfn);
-        return newArr.length === 1 && newArr[0] === 11;
-    }
-runTestCase(testcase);
+
+assert.sameValue(newArr.length, 1, 'newArr.length');
+assert.sameValue(newArr[0], 11, 'newArr[0]');

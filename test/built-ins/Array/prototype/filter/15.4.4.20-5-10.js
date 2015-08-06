@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.20-5-10
 description: Array.prototype.filter - Array Object can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var objArray = new Array(10);
@@ -20,6 +17,5 @@ function testcase() {
 
         var newArr = [11].filter(callbackfn, objArray);
 
-        return newArr[0] === 11 && accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr[0], 11, 'newArr[0]');
+assert(accessed, 'accessed !== true');

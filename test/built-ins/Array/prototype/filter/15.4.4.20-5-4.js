@@ -6,10 +6,8 @@ es5id: 15.4.4.20-5-4
 description: >
     Array.prototype.filter - thisArg is object from object
     template(prototype)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var res = false;
   function callbackfn(val, idx, obj)
   {
@@ -22,8 +20,5 @@ function testcase() {
 
   var srcArr = [1];
   var resArr = srcArr.filter(callbackfn,f);
-  if( resArr.length === 1)
-    return true;    
 
- }
-runTestCase(testcase);
+assert.sameValue(resArr.length, 1, 'resArr.length');

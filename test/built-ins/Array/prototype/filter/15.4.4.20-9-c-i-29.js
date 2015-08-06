@@ -6,10 +6,8 @@ es5id: 15.4.4.20-9-c-i-29
 description: >
     Array.prototype.filter - element changed by getter on previous
     iterations is observed on an Array-like object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             return val === 9 && idx === 1;
         }
@@ -37,6 +35,5 @@ function testcase() {
         });
         var newArr = Array.prototype.filter.call(obj, callbackfn);
 
-        return newArr.length === 1 && newArr[0] === 9;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 1, 'newArr.length');
+assert.sameValue(newArr[0], 9, 'newArr[0]');

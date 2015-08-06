@@ -6,10 +6,7 @@ es5id: 15.4.4.20-3-24
 description: >
     Array.prototype.filter - value of 'length' is a positive
     non-integer, ensure truncation occurs in the proper direction
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return true;
@@ -23,6 +20,5 @@ function testcase() {
 
         var newArr = Array.prototype.filter.call(obj, callbackfn);
 
-        return newArr.length === 1 && newArr[0] === 11;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 1, 'newArr.length');
+assert.sameValue(newArr[0], 11, 'newArr[0]');

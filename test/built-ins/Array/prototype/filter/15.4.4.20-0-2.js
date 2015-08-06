@@ -4,12 +4,6 @@
 /*---
 es5id: 15.4.4.20-0-2
 description: Array.prototype.filter.length must be 1
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if (Array.prototype.filter.length === 1) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.filter.length, 1, 'Array.prototype.filter.length');

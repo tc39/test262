@@ -5,10 +5,8 @@
 es5id: 15.4.4.20-5-30
 description: Array.prototype.filter - thisArg not passed
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function innerObj() {
             this._15_4_4_20_5_30 = true;
             var _15_4_4_20_5_30 = false;
@@ -20,6 +18,5 @@ function testcase() {
             var resArr = srcArr.filter(callbackfn);
             this.retVal = resArr.length === 0;
         }
-        return new innerObj().retVal;
-    }
-runTestCase(testcase);
+
+assert(new innerObj().retVal, 'new innerObj().retVal !== true');

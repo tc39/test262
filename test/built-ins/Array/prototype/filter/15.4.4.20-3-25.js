@@ -6,10 +6,7 @@ es5id: 15.4.4.20-3-25
 description: >
     Array.prototype.filter - value of 'length' is a negative
     non-integer
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return true;
@@ -23,6 +20,5 @@ function testcase() {
 
         var newArr = Array.prototype.filter.call(obj, callbackfn);
 
-        return newArr.length === 0 && newArr[0] === undefined;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 0, 'newArr.length');
+assert.sameValue(newArr[0], undefined, 'newArr[0]');

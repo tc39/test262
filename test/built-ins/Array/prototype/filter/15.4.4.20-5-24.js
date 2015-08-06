@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.20-5-24
 description: Array.prototype.filter - string primitive can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -18,6 +15,5 @@ function testcase() {
 
         var newArr = [11].filter(callbackfn, "abc");
 
-        return newArr[0] === 11 && accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr[0], 11, 'newArr[0]');
+assert(accessed, 'accessed !== true');

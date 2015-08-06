@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.20-1-15
 description: Array.prototype.filter applied to the Arguments object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return '[object Arguments]' === Object.prototype.toString.call(obj);
@@ -19,6 +16,5 @@ function testcase() {
 
         var newArr = Array.prototype.filter.call(obj, callbackfn);
 
-        return newArr[0] === "a" && newArr[1] === "b";
-    }
-runTestCase(testcase);
+assert.sameValue(newArr[0], "a", 'newArr[0]');
+assert.sameValue(newArr[1], "b", 'newArr[1]');

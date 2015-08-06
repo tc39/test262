@@ -6,10 +6,7 @@ es5id: 15.4.4.20-9-c-ii-5
 description: >
     Array.prototype.filter - k values are accessed during each
     iteration and not prior to starting the loop on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var kIndex = [];
         var called = 0;
@@ -31,6 +28,5 @@ function testcase() {
         }
         var newArr = [11, 12, 13, 14].filter(callbackfn, undefined);
 
-        return newArr.length === 0 && called === 4;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 0, 'newArr.length');
+assert.sameValue(called, 4, 'called');

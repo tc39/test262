@@ -6,10 +6,7 @@ es5id: 15.4.4.20-9-c-ii-18
 description: >
     Array.prototype.filter - 'this' of 'callbackfn' is an String
     object when T is not an object (T is a string)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return 'hello' === this.valueOf();
@@ -18,6 +15,5 @@ function testcase() {
         var obj = { 0: 11, length: 2 };
         var newArr = Array.prototype.filter.call(obj, callbackfn, "hello");
 
-        return newArr.length === 1 && newArr[0] === 11;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 1, 'newArr.length');
+assert.sameValue(newArr[0], 11, 'newArr[0]');

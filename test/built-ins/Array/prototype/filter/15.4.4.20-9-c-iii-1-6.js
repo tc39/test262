@@ -7,10 +7,7 @@ description: >
     Array.prototype.filter - values of 'to' are accessed during each
     iteration when 'selected' is converted to true and not prior to
     starting the loop
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var toIndex = [];
         var called = 0;
@@ -32,6 +29,5 @@ function testcase() {
         }
         var newArr = [11, 12, 13, 14].filter(callbackfn, undefined);
 
-        return newArr.length === 4 && called === 4;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 4, 'newArr.length');
+assert.sameValue(called, 4, 'called');

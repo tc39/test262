@@ -7,10 +7,8 @@ description: >
     Array.prototype.filter - element to be retrieved is own accessor
     property that overrides an inherited accessor property on an
     Array-like object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             return idx === 1 && val === 12;
         }
@@ -38,6 +36,5 @@ function testcase() {
         });
         var newArr = Array.prototype.filter.call(child, callbackfn);
 
-        return newArr.length === 1 && newArr[0] === 12;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 1, 'newArr.length');
+assert.sameValue(newArr[0], 12, 'newArr[0]');

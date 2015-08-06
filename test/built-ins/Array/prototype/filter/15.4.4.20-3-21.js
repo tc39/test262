@@ -7,10 +7,7 @@ description: >
     Array.prototype.filter - 'length' is an object that has an own
     valueOf method that returns an object and toString method that
     returns a string
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var firstStepOccured = false;
         var secondStepOccured = false;
@@ -36,6 +33,7 @@ function testcase() {
 
         var newArr = Array.prototype.filter.call(obj, callbackfn);
 
-        return newArr.length === 1 && newArr[0] === 11 && firstStepOccured && secondStepOccured;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 1, 'newArr.length');
+assert.sameValue(newArr[0], 11, 'newArr[0]');
+assert(firstStepOccured, 'firstStepOccured !== true');
+assert(secondStepOccured, 'secondStepOccured !== true');

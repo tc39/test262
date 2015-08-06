@@ -6,10 +6,7 @@ es5id: 15.4.4.20-9-c-iii-4
 description: >
     Array.prototype.filter - return value of callbackfn is a boolean
     (value is false)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -21,6 +18,6 @@ function testcase() {
         var obj = { 0: 11, length: 1 };
 
         var newArr = Array.prototype.filter.call(obj, callbackfn);
-        return newArr.length === 0 && accessed;
-    }
-runTestCase(testcase);
+
+assert.sameValue(newArr.length, 0, 'newArr.length');
+assert(accessed, 'accessed !== true');

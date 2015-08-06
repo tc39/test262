@@ -6,10 +6,7 @@ es5id: 15.4.4.20-2-11
 description: >
     Array.prototype.filter applied to Array-like object, 'length' is
     own accessor property without a get function
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         function callbackfn(val, idx, obj) {
@@ -27,6 +24,6 @@ function testcase() {
         });
 
         var newArr = Array.prototype.filter.call(obj, callbackfn);
-        return newArr.length === 0 && !accessed;
-    }
-runTestCase(testcase);
+
+assert.sameValue(newArr.length, 0, 'newArr.length');
+assert.sameValue(accessed, false, 'accessed');

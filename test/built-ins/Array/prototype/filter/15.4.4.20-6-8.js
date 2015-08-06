@@ -6,10 +6,8 @@ es5id: 15.4.4.20-6-8
 description: >
     Array.prototype.filter returns an empty array if 'length' is 0
     (subclassed Array, length overridden with []
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   foo.prototype = new Array(1, 2, 3);
   function foo() {}
   var f = new foo();
@@ -33,9 +31,6 @@ function testcase() {
   function cb(){}
   var a = f.filter(cb);
   
-  if (Array.isArray(a) &&
-      a.length === 0) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert(Array.isArray(a), 'Array.isArray(a) !== true');
+assert.sameValue(a.length, 0, 'a.length');

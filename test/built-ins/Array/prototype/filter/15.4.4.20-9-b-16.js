@@ -7,10 +7,7 @@ description: >
     Array.prototype.filter - decreasing length of array does not
     delete non-configurable properties
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return true;
@@ -35,6 +32,5 @@ function testcase() {
 
         var newArr = arr.filter(callbackfn);
 
-        return newArr.length === 3 && newArr[2] === "unconfigurable";
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 3, 'newArr.length');
+assert.sameValue(newArr[2], "unconfigurable", 'newArr[2]');

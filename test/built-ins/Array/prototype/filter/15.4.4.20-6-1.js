@@ -6,15 +6,10 @@ es5id: 15.4.4.20-6-1
 description: >
     Array.prototype.filter returns an empty array if 'length' is 0
     (empty array)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   function cb(){}
   var a = [].filter(cb);
-  if (Array.isArray(a) &&
-      a.length === 0) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert(Array.isArray(a), 'Array.isArray(a) !== true');
+assert.sameValue(a.length, 0, 'a.length');

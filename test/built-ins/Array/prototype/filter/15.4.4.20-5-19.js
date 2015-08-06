@@ -6,10 +6,7 @@ es5id: 15.4.4.20-5-19
 description: >
     Array.prototype.filter - the Arguments object can be used as
     thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var arg;
@@ -24,6 +21,6 @@ function testcase() {
         }(1, 2, 3));
 
         var newArr = [11].filter(callbackfn, arg);
-        return newArr[0] === 11 && accessed;
-    }
-runTestCase(testcase);
+
+assert.sameValue(newArr[0], 11, 'newArr[0]');
+assert(accessed, 'accessed !== true');
