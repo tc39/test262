@@ -5,11 +5,8 @@
 es5id: 7.6.1.2-13-s
 description: >
     SyntaxError isn't thrown when 'implementss' occurs
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var implementss = 1;
-        return implementss === 1;
-    }
-runTestCase(testcase);
+
+assert.sameValue(implementss, 1, 'implementss');
