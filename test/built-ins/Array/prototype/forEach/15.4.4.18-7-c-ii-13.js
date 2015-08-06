@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.18-7-c-ii-13
 description: Array.prototype.forEach - callbackfn that uses arguments
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var result = false;
         function callbackfn() {
@@ -15,6 +12,5 @@ function testcase() {
         }
 
         [11].forEach(callbackfn);
-        return result;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

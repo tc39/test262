@@ -6,10 +6,7 @@ es5id: 15.4.4.18-7-7
 description: >
     Array.prototype.forEach - considers new value of elements in array
     after the call
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var result = false;
         var arr = [1, 2, 3, 4, 5];
@@ -22,6 +19,5 @@ function testcase() {
         }
 
         arr.forEach(callbackfn);
-        return result;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

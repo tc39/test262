@@ -6,10 +6,7 @@ es5id: 15.4.4.18-7-c-ii-22
 description: >
     Array.prototype.forEach - callbackfn called with correct
     parameters (the index k is correct)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var resultOne = false;
         var resultTwo = false;
@@ -28,6 +25,6 @@ function testcase() {
         var obj = { 0: 11, 1: 12, length: 2 };
 
         Array.prototype.forEach.call(obj, callbackfn);
-        return resultOne && resultTwo;
-    }
-runTestCase(testcase);
+
+assert(resultOne, 'resultOne !== true');
+assert(resultTwo, 'resultTwo !== true');

@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.18-1-8
 description: Array.prototype.forEach applied to String object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var result = false;
         function callbackfn(val, idx, obj) {
             result = obj instanceof String;
@@ -16,6 +14,4 @@ function testcase() {
         var obj = new String("abc");
         Array.prototype.forEach.call(obj, callbackfn);
 
-        return result;
-    }
-runTestCase(testcase);
+assert(result, 'result !== true');

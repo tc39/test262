@@ -6,10 +6,7 @@ es5id: 15.4.4.18-7-9
 description: >
     Array.prototype.forEach - modifications to length don't change
     number of iterations
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var called = 0;
         function callbackfn(val, idx, obj) {
@@ -27,6 +24,5 @@ function testcase() {
         });
 
         Array.prototype.forEach.call(obj, callbackfn);
-        return 2 === called;
-    }
-runTestCase(testcase);
+
+assert.sameValue(called, 2, 'called');

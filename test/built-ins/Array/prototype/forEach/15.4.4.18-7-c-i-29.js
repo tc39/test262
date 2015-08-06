@@ -6,10 +6,7 @@ es5id: 15.4.4.18-7-c-i-29
 description: >
     Array.prototype.forEach - element changed by getter on previous
     iterations is observed on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var preIterVisible = false;
         var obj = { length: 2 };
@@ -42,6 +39,4 @@ function testcase() {
 
         Array.prototype.forEach.call(obj, callbackfn);
 
-        return testResult;
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');

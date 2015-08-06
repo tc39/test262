@@ -6,10 +6,8 @@ es5id: 15.4.4.18-2-19
 description: >
     Array.prototype.forEach applied to Function object, which
     implements its own property get method
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var result = false;
         function callbackfn(val, idx, obj) {
             result = (obj.length === 2);
@@ -23,6 +21,5 @@ function testcase() {
         fun[2] = 9;
 
         Array.prototype.forEach.call(fun, callbackfn);
-        return result;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

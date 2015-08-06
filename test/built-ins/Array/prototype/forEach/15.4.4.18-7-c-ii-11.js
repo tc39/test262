@@ -6,10 +6,7 @@ es5id: 15.4.4.18-7-c-ii-11
 description: >
     Array.prototype.forEach - callbackfn is called with 2 formal
     parameter
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var result = false;
         function callbackfn(val, idx) {
@@ -17,6 +14,5 @@ function testcase() {
         }
 
         [11].forEach(callbackfn); 
-        return result;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

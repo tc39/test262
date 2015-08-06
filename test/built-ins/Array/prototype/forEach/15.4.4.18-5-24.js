@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.18-5-24
 description: Array.prototype.forEach - string primitive can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var result = false;
         function callbackfn(val, idx, obj) {
@@ -15,6 +12,5 @@ function testcase() {
         }
 
         [11].forEach(callbackfn, "abc");
-        return result;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

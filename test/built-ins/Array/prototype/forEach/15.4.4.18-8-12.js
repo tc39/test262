@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.18-8-12
 description: Array.prototype.forEach doesn't visit expandos
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
   var callCnt = 0;
   function callbackfn(val, idx, obj)
@@ -19,10 +16,5 @@ function testcase() {
   arr[true] = 11;
 
   arr.forEach(callbackfn);
-  if(callCnt == 5)
-  {
-    return true;
-  }
 
- }
-runTestCase(testcase);
+assert.sameValue(callCnt, 5, 'callCnt');

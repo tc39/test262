@@ -6,10 +6,8 @@ es5id: 15.4.4.18-2-3
 description: >
     Array.prototype.forEach - 'length' is an own data property that
     overrides an inherited data property on an Array-like object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var result = false;
         function callbackfn(val, idx, obj) {
             result = (obj.length === 2);
@@ -27,6 +25,5 @@ function testcase() {
         child[2] = 9;
 
         Array.prototype.forEach.call(child, callbackfn);
-        return result;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

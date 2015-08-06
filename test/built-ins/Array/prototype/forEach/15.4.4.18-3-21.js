@@ -7,10 +7,7 @@ description: >
     Array.prototype.forEach - 'length' is an object that has an own
     valueOf method that returns an object and toString method that
     returns a string
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
         var firstStepOccured = false;
@@ -37,6 +34,6 @@ function testcase() {
 
         Array.prototype.forEach.call(obj, callbackfn);
 
-        return testResult && firstStepOccured && secondStepOccured;
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');
+assert(firstStepOccured, 'firstStepOccured !== true');
+assert(secondStepOccured, 'secondStepOccured !== true');

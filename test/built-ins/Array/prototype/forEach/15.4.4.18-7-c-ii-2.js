@@ -4,11 +4,8 @@
 /*---
 es5id: 15.4.4.18-7-c-ii-2
 description: Array.prototype.forEach - callbackfn takes 3 arguments
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   var parCnt = 3;
   var bCalled = false
   function callbackfn(val, idx, obj)
@@ -20,8 +17,6 @@ function testcase() {
 
   var arr = [0,1,2,3,4,5,6,7,8,9];
   arr.forEach(callbackfn);
-  if(bCalled === true && parCnt === 3)
-    return true;
 
- }
-runTestCase(testcase);
+assert.sameValue(bCalled, true, 'bCalled');
+assert.sameValue(parCnt, 3, 'parCnt');

@@ -6,10 +6,7 @@ es5id: 15.4.4.18-3-4
 description: >
     Array.prototype.forEach - value of 'length' is a number (value is
     +0)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -21,6 +18,4 @@ function testcase() {
 
         Array.prototype.forEach.call(obj, callbackfn);
 
-        return !accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(accessed, false, 'accessed');

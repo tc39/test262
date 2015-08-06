@@ -7,10 +7,7 @@ description: >
     Array.prototype.forEach - This object is the Arguments object
     which implements its own property get method (number of arguments
     equals number of parameters)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var called = 0;
         var testResult = false;
@@ -35,6 +32,4 @@ function testcase() {
 
         func(11, 9);
 
-        return testResult;
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');

@@ -6,10 +6,7 @@ es5id: 15.4.4.18-2-13
 description: >
     Array.prototype.forEach applied to the Array-like object that
     'length' is inherited accessor property without a get function
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -31,6 +28,5 @@ function testcase() {
         child[1] = 12;
 
         Array.prototype.forEach.call(child, callbackfn);
-        return !accessed;
-    }
-runTestCase(testcase);
+
+assert.sameValue(accessed, false, 'accessed');
