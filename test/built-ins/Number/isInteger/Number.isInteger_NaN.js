@@ -5,12 +5,6 @@
 es6id: 20.1.2.3
 author: Ryan Lewis
 description: Number.isInteger should return false if called with NaN.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if(Number.isInteger(NaN) === false) {
-  	return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Number.isInteger(NaN), false, 'Number.isInteger(NaN)');

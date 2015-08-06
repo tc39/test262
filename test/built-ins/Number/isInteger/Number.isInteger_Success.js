@@ -5,12 +5,6 @@
 es6id: 20.1.2.3
 author: Ryan Lewis
 description: Number.isInteger should return true if called with an integer.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if(Number.isInteger(478) === true) {
-  	return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Number.isInteger(478), true, 'Number.isInteger(478)');

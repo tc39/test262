@@ -4,12 +4,6 @@
 /*---
 es5id: 15.7.3-1
 description: Number constructor - [[Prototype]] is the Function prototype object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if (Function.prototype.isPrototypeOf(Number) === true) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Function.prototype.isPrototypeOf(Number), true, 'Function.prototype.isPrototypeOf(Number)');

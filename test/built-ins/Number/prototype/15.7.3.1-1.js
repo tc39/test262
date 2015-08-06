@@ -6,16 +6,11 @@ es5id: 15.7.3.1-1
 description: >
     Number.prototype is a data property with default attribute values
     (false)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var d = Object.getOwnPropertyDescriptor(Number, 'prototype');
   
-  if (d.writable === false &&
-      d.enumerable === false &&
-      d.configurable === false) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(d.writable, false, 'd.writable');
+assert.sameValue(d.enumerable, false, 'd.enumerable');
+assert.sameValue(d.configurable, false, 'd.configurable');
