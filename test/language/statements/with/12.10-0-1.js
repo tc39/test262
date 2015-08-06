@@ -6,11 +6,9 @@ es5id: 12.10-0-1
 description: >
     with does not change declaration scope - vars in with are visible
     outside
-includes: [runTestCase.js]
 flags: [noStrict]
 ---*/
 
-function testcase() {
   var o = {};
   var f = function () {
 	/* capture foo binding before executing with */
@@ -21,7 +19,4 @@ function testcase() {
     var foo = "12.10-0-1";
   }
 
-  return f()==="12.10-0-1"
-
- }
-runTestCase(testcase);
+assert.sameValue(f(), "12.10-0-1", 'f()');

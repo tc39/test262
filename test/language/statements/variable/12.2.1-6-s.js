@@ -8,12 +8,7 @@ description: >
     if contained within strict mode and its body does not start with
     strict mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
     var f = Function('eval = 42;');
     f();
-    return true;
- }
-runTestCase(testcase);

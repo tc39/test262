@@ -6,10 +6,8 @@ es5id: 12.8-1
 description: >
     The break Statement - a break statement without an identifier may
     have a LineTerminator before the semi-colon
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var sum = 0;
         for (var i = 1; i <= 10; i++) {
             if (i === 6) {
@@ -18,6 +16,5 @@ function testcase() {
             }
             sum += i;
         }
-        return sum === 15;
-    }
-runTestCase(testcase);
+
+assert.sameValue(sum, 15, 'sum');

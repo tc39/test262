@@ -6,10 +6,8 @@ es5id: 12.6.4-1
 description: >
     The for-in Statement - a property name must not be visited more
     than once in any enumeration.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { prop1: "abc", prop2: "bbc", prop3: "cnn" };
 
         var countProp1 = 0;
@@ -29,6 +27,7 @@ function testcase() {
                 }
             }
         }
-        return countProp1 === 1 && countProp2 === 1 && countProp3 === 1;
-    }
-runTestCase(testcase);
+
+assert.sameValue(countProp1, 1, 'countProp1');
+assert.sameValue(countProp2, 1, 'countProp2');
+assert.sameValue(countProp3, 1, 'countProp3');

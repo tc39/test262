@@ -7,10 +7,8 @@ description: >
     The for-in Statement - the values of [[Enumerable]] attributes are
     not considered when determining if a property of a prototype
     object is shadowed by a previous object on the prototype chain
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var proto = {
             prop: "enumerableValue"
         };
@@ -32,6 +30,5 @@ function testcase() {
                 accessedProp = true;
             }
         }
-        return !accessedProp;
-    }
-runTestCase(testcase);
+
+assert.sameValue(accessedProp, false, 'accessedProp');

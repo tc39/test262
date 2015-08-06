@@ -6,16 +6,13 @@ es5id: 12.7-1
 description: >
     The continue Statement - a continue statement without an
     identifier may have a LineTerminator before the semi-colon
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var sum = 0;
         for (var i = 1; i <= 10; i++) {
             continue
             ;
             sum += i;
         }
-        return sum === 0;
-    }
-runTestCase(testcase);
+
+assert.sameValue(sum, 0, 'sum');

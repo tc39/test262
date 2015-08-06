@@ -4,11 +4,9 @@
 /*---
 es5id: 12.10-0-3
 description: with introduces scope - that is captured by function expression
-includes: [runTestCase.js]
 flags: [noStrict]
 ---*/
 
-function testcase() {
   var o = {prop: "12.10-0-3 before"};
   var f;
 
@@ -16,6 +14,5 @@ function testcase() {
     f = function () { return prop; }
   }
   o.prop = "12.10-0-3 after";
-  return f()==="12.10-0-3 after"
- }
-runTestCase(testcase);
+
+assert.sameValue(f(), "12.10-0-3 after", 'f()');

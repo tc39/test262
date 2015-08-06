@@ -11,13 +11,7 @@ description: >
     when a Function constructor is contained in strict mode code and
     the function constructor body is not strict
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var _13_0_12_fun = new Function(" ","eval = 42;");
         _13_0_12_fun();
-        return true;
-
-    }
-runTestCase(testcase);
