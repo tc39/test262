@@ -6,11 +6,8 @@ es5id: 15.4.4.21-9-5
 description: >
     Array.prototype.reduce - callbackfn not called for array with one
     element
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   var callCnt = 0;
   function callbackfn(prevVal, curVal, idx, obj)
   {
@@ -19,7 +16,6 @@ function testcase() {
   }
 
   var arr = [1];
-  if(arr.reduce(callbackfn) === 1 && callCnt === 0 )
-    return true;    
- }
-runTestCase(testcase);
+
+assert.sameValue(arr.reduce(callbackfn), 1, 'arr.reduce(callbackfn)');
+assert.sameValue(callCnt, 0, 'callCnt');

@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.21-9-c-ii-26
 description: Array.prototype.reduce - Array object can be used as accumulator
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var objArray = new Array(10);
 
@@ -19,6 +16,5 @@ function testcase() {
 
         var obj = { 0: 11, length: 1 };
 
-        return Array.prototype.reduce.call(obj, callbackfn, objArray) === true && accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.reduce.call(obj, callbackfn, objArray), true, 'Array.prototype.reduce.call(obj, callbackfn, objArray)');
+assert(accessed, 'accessed !== true');

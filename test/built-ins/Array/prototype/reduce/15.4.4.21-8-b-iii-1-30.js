@@ -6,10 +6,7 @@ es5id: 15.4.4.21-8-b-iii-1-30
 description: >
     Array.prototype.reduce - element changed by getter on current
     iterations is observed in subsequent iterations on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
         function callbackfn(prevVal, curVal, idx, obj) {
@@ -41,6 +38,5 @@ function testcase() {
         });
 
         arr.reduce(callbackfn);
-        return testResult;
-    }
-runTestCase(testcase);
+
+assert(testResult, 'testResult !== true');

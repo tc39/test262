@@ -4,16 +4,12 @@
 /*---
 es5id: 15.4.4.21-10-4
 description: Array.prototype.reduce - subclassed array with length more than 1
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   foo.prototype = new Array(1, 2, 3, 4);
   function foo() {}
   var f = new foo();
   
   function cb(prevVal, curVal, idx, obj){return prevVal + curVal;}
-  if(f.reduce(cb) === 10)
-    return true;
- }
-runTestCase(testcase);
+
+assert.sameValue(f.reduce(cb), 10, 'f.reduce(cb)');

@@ -6,10 +6,8 @@ es5id: 15.4.4.21-9-1
 description: >
     Array.prototype.reduce doesn't consider new elements added to
     array after it is called
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(prevVal, curVal, idx, obj) {
             arr[5] = 6;
             arr[2] = 3;
@@ -17,6 +15,5 @@ function testcase() {
         }
 
         var arr = [1, 2, , 4, '5'];
-        return arr.reduce(callbackfn) === "105";
-    }
-runTestCase(testcase);
+
+assert.sameValue(arr.reduce(callbackfn), "105", 'arr.reduce(callbackfn)');

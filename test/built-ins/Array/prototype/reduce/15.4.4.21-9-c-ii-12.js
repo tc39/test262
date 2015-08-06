@@ -6,10 +6,7 @@ es5id: 15.4.4.21-9-c-ii-12
 description: >
     Array.prototype.reduce - callbackfn is called with 3 formal
     parameter
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var result = false;
         function callbackfn(prevVal, curVal, idx) {
@@ -17,6 +14,5 @@ function testcase() {
         }
 
         [11].reduce(callbackfn, 1);
-        return result;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

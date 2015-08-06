@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.21-9-c-ii-30
 description: Array.prototype.reduce - the Math object can be used as accumulator
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         function callbackfn(prevVal, curVal, idx, obj) {
@@ -17,6 +14,5 @@ function testcase() {
 
         var obj = { 0: 11, length: 1 };
 
-        return Array.prototype.reduce.call(obj, callbackfn, Math) === true && accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.reduce.call(obj, callbackfn, Math), true, 'Array.prototype.reduce.call(obj, callbackfn, Math)');
+assert(accessed, 'accessed !== true');

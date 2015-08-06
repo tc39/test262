@@ -6,10 +6,7 @@ es5id: 15.4.4.21-3-25
 description: >
     Array.prototype.reduce - value of 'length' is a negative
     non-integer
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(prevVal, curVal, idx, obj) {
             return (curVal === 11 && idx === 1);
@@ -21,6 +18,4 @@ function testcase() {
             length: -4294967294.5
         };
 
-        return Array.prototype.reduce.call(obj, callbackfn, 1) === 1;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.reduce.call(obj, callbackfn, 1), 1, 'Array.prototype.reduce.call(obj, callbackfn, 1)');

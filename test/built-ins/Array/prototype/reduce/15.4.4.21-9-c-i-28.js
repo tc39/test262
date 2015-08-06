@@ -6,10 +6,7 @@ es5id: 15.4.4.21-9-c-i-28
 description: >
     Array.prototype.reduce - applied to String object, which
     implements its own property get method
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
         var initialValue = 0;
@@ -22,7 +19,5 @@ function testcase() {
         var str = new String("012");
      
         Array.prototype.reduce.call(str, callbackfn, initialValue);
-        return testResult;
-        
-    }
-runTestCase(testcase);
+
+assert(testResult, 'testResult !== true');

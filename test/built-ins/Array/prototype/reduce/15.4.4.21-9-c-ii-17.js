@@ -6,10 +6,7 @@ es5id: 15.4.4.21-9-c-ii-17
 description: >
     Array.prototype.reduce - 'accumulator' used for current iteration
     is the result of previous iteration on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var result = true;
         var accessed = false;
@@ -24,6 +21,6 @@ function testcase() {
         }
 
         [11, 12, 13].reduce(callbackfn, 1);
-        return result && accessed;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');
+assert(accessed, 'accessed !== true');

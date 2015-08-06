@@ -7,10 +7,7 @@ description: >
     Array.prototype.reduce - value of 'accumulator' used for first
     iteration is the value of 'initialValue' when it is present on an
     Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var result = false;
         function callbackfn(prevVal, curVal, idx, obj) {
@@ -22,6 +19,5 @@ function testcase() {
         var obj = { 0: 11, 1: 9, length: 2 };
 
         Array.prototype.reduce.call(obj, callbackfn, 1);
-        return result;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

@@ -6,10 +6,7 @@ es5id: 15.4.4.21-9-c-ii-4
 description: >
     Array.prototype.reduce - k values are passed in acending numeric
     order on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [0, 1, 2];
         var lastIdx = 0;
@@ -26,6 +23,6 @@ function testcase() {
         }
 
         arr.reduce(callbackfn, 11);
-        return result && accessed;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');
+assert(accessed, 'accessed !== true');

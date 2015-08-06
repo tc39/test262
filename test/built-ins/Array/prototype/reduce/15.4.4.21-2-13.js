@@ -6,10 +6,7 @@ es5id: 15.4.4.21-2-13
 description: >
     Array.prototype.reduce applied to Array-like object that 'length'
     is inherited accessor property without a get function
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -30,6 +27,5 @@ function testcase() {
         child[0] = 11;
         child[1] = 12;
 
-        return Array.prototype.reduce.call(child, callbackfn, 1) === 1 && !accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.reduce.call(child, callbackfn, 1), 1, 'Array.prototype.reduce.call(child, callbackfn, 1)');
+assert.sameValue(accessed, false, 'accessed');

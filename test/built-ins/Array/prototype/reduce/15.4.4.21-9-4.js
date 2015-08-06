@@ -6,11 +6,8 @@ es5id: 15.4.4.21-9-4
 description: >
     Array.prototype.reduce doesn't visit deleted elements when
     Array.length is decreased
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   function callbackfn(prevVal, curVal, idx, obj)
   {
     arr.length = 2;
@@ -18,8 +15,5 @@ function testcase() {
   }
 
   var arr = [1,2,3,4,5];
-  if(arr.reduce(callbackfn) === 3 )
-    return true;  
-  
- }
-runTestCase(testcase);
+
+assert.sameValue(arr.reduce(callbackfn), 3, 'arr.reduce(callbackfn)');

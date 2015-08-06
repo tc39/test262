@@ -6,10 +6,7 @@ es5id: 15.4.4.21-9-c-ii-8
 description: >
     Array.prototype.reduce - element changed by callbackfn on previous
     iterations is observed
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var result = false;
         function callbackfn(prevVal, curVal, idx, obj) {
@@ -25,6 +22,5 @@ function testcase() {
         var obj = { 0: 11, 1: 12, length: 2 };
 
         Array.prototype.reduce.call(obj, callbackfn, 1);
-        return result;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

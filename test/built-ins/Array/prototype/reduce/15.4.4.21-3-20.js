@@ -6,10 +6,7 @@ es5id: 15.4.4.21-3-20
 description: >
     Array.prototype.reduce - value of 'length' is an object which has
     an own valueOf method
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(prevVal, curVal, idx, obj) {
             return (curVal === 11 && idx === 1);
@@ -25,6 +22,4 @@ function testcase() {
             }
         };
 
-        return Array.prototype.reduce.call(obj, callbackfn, 1) === true;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.reduce.call(obj, callbackfn, 1), true, 'Array.prototype.reduce.call(obj, callbackfn, 1)');

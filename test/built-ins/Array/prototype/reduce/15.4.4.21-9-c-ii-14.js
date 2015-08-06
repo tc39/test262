@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.21-9-c-ii-14
 description: Array.prototype.reduce - callbackfn that uses arguments
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var result = false;
         function callbackfn() {
@@ -15,6 +12,5 @@ function testcase() {
         }
 
         [11].reduce(callbackfn, 1);
-        return result;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

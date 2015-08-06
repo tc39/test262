@@ -7,10 +7,7 @@ description: >
     Array.prototype.reduce - 'length' is an object that has an own
     valueOf method that returns an object and toString method that
     returns a string
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var valueOfOccured = false;
         var toStringOccured = false;
@@ -34,6 +31,6 @@ function testcase() {
             }
         };
 
-        return Array.prototype.reduce.call(obj, callbackfn, 1) === true && valueOfOccured && toStringOccured;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.reduce.call(obj, callbackfn, 1), true, 'Array.prototype.reduce.call(obj, callbackfn, 1)');
+assert(valueOfOccured, 'valueOfOccured !== true');
+assert(toStringOccured, 'toStringOccured !== true');
