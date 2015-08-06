@@ -5,12 +5,6 @@
 es6id: 20.1.2.3
 author: Ryan Lewis
 description: Number.isInteger should return false if called with Infinity.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if(Number.isInteger(Infinity) === false) {
-  	return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Number.isInteger(Infinity), false, 'Number.isInteger(Infinity)');

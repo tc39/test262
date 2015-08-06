@@ -7,12 +7,9 @@ description: >
     'this' object used by the replaceValue function of a
     String.prototype.replace invocation
 flags: [noStrict]
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
 
-function testcase() {
   var retVal = 'x'.replace(/x/, 
                            function() { 
                                if (this===fnGlobalObject()) {
@@ -21,6 +18,5 @@ function testcase() {
                                    return 'z';
                                }
                            });
-  return retVal==='y';
-}
-runTestCase(testcase);
+
+assert.sameValue(retVal, 'y', 'retVal');

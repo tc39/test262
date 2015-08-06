@@ -4,12 +4,9 @@
 /*---
 es5id: 15.7.4-1
 description: "Number prototype object: its [[Class]] must be 'Object'"
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var numProto = Object.getPrototypeOf(new Number(42));
   var s = Object.prototype.toString.call(numProto );
-  return (s === '[object Object]') ;
- }
-runTestCase(testcase);
+
+assert.sameValue(s, '[object Object]', 's');

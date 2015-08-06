@@ -5,12 +5,6 @@
 es6id: 20.1.2.3
 author: Ryan Lewis
 description: Number.isInteger should return false if called with a double.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if(Number.isInteger(6.75) === false) {
-  	return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Number.isInteger(6.75), false, 'Number.isInteger(6.75)');

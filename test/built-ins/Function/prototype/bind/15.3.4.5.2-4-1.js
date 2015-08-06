@@ -7,10 +7,8 @@ description: >
     [[Construct]] - 'F''s [[BoundArgs]] is used as the former part of
     arguments of calling the [[Construct]] internal method of 'F''s
     [[TargetFunction]] when 'F' is called as constructor
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var func = function (x, y, z) {
             var objResult = {};
             objResult.returnValue = x + y + z;
@@ -22,7 +20,7 @@ function testcase() {
 
         var newInstance = new NewFunc();
 
-        return newInstance.hasOwnProperty("returnValue") && newInstance.returnValue === "abc" &&
-            newInstance.hasOwnProperty("returnVerifyResult") && newInstance.returnVerifyResult === true;
-    }
-runTestCase(testcase);
+assert(newInstance.hasOwnProperty("returnValue"), 'newInstance.hasOwnProperty("returnValue") !== true');
+assert.sameValue(newInstance.returnValue, "abc", 'newInstance.returnValue');
+assert(newInstance.hasOwnProperty("returnVerifyResult"), 'newInstance.hasOwnProperty("returnVerifyResult") !== true');
+assert.sameValue(newInstance.returnVerifyResult, true, 'newInstance.returnVerifyResult');

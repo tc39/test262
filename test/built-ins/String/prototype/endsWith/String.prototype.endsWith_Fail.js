@@ -4,13 +4,7 @@
 /*---
 author: Ryan Lewis
 description: endsWith should return false when called on 'word' and passed 'r'.
-includes: [runTestCase.js]
 features: [String#endsWith]
 ---*/
 
-function testcase() {
-  if('word'.endsWith('r') === false) {
-  	return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue('word'.endsWith('r'), false, '"word".endsWith("r")');

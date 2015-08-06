@@ -4,13 +4,8 @@
 /*---
 es5id: 15.9.5.44-0-1
 description: Date.prototype.toJSON must exist as a function
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var f = Date.prototype.toJSON;
-  if (typeof(f) === "function") {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(typeof(f), "function", 'typeof(f)');

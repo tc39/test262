@@ -8,13 +8,10 @@ description: >
     to wrapper objects  when the function is called without an array
     argument
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function fun() {
             return (this instanceof Number);
         }
-        return !fun.call(-12);
-    }
-runTestCase(testcase);
+
+assert.sameValue(fun.call(-12), false, 'fun.call(-12)');

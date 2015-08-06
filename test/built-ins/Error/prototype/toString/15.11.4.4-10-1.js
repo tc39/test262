@@ -7,12 +7,9 @@ description: >
     Error.prototype.toString return the result of concatenating
     'name', ':', a single space character, and 'msg' when 'name' and
     'msg' are non-empty string
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var errObj = new Error("ErrorMessage");
         errObj.name = "ErrorName";
-        return errObj.toString() === "ErrorName: ErrorMessage";
-    }
-runTestCase(testcase);
+
+assert.sameValue(errObj.toString(), "ErrorName: ErrorMessage", 'errObj.toString()');

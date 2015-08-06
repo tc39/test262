@@ -6,16 +6,11 @@ es5id: 15.3.4.5-13.b-2
 description: >
     Function.prototype.bind, 'length' set to remaining number of
     expected args
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   function foo(x, y) { }
   var o = {};
   
   var bf = foo.bind(o);
-  if (bf.length === 2) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(bf.length, 2, 'bf.length');

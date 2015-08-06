@@ -6,10 +6,8 @@ es5id: 15.5.4.20-2-41
 description: >
     String.prototype.trim - 'this' is an object which has an own
     toString and valueOf method.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var toStringAccessed = false;
         var valueOfAccessed = false;
         var obj = {
@@ -22,6 +20,7 @@ function testcase() {
                 return "cef";
             }
         };
-        return (String.prototype.trim.call(obj) === "abc") && !valueOfAccessed && toStringAccessed;
-    }
-runTestCase(testcase);
+
+assert.sameValue(String.prototype.trim.call(obj), "abc", 'String.prototype.trim.call(obj)');
+assert.sameValue(valueOfAccessed, false, 'valueOfAccessed');
+assert(toStringAccessed, 'toStringAccessed !== true');

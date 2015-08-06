@@ -4,15 +4,11 @@
 /*---
 es5id: 15.3.4.5-6-1
 description: Function.prototype.bind - F can get own data property
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var foo = function () { };
 
         var obj = foo.bind({});
         obj.property = 12;
-        return obj.property === 12;
-    }
-runTestCase(testcase);
+
+assert.sameValue(obj.property, 12, 'obj.property');

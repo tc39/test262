@@ -4,11 +4,8 @@
 /*---
 es5id: 15.10.6
 description: RegExp.prototype is itself a not RegExp
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var s = Object.prototype.toString.call(RegExp.prototype);
-  return s === '[object Object]';
- }
-runTestCase(testcase);
+
+assert.sameValue(s, '[object Object]', 's');

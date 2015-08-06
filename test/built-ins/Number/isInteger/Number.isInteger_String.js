@@ -7,12 +7,6 @@ author: Ryan Lewis
 description: >
     Number.isInteger should return false if called with a string
     (non-Number)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if(Number.isInteger('word') === false) {
-  	return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Number.isInteger('word'), false, 'Number.isInteger("word")');

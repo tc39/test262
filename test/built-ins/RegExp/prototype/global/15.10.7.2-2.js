@@ -6,17 +6,12 @@ es5id: 15.10.7.2-2
 description: >
     RegExp.prototype.global is an accessor property whose set accessor
     function is undefined
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var desc = Object.getOwnPropertyDescriptor(RegExp.prototype, 'global');
   
-  if (typeof desc.get === 'function' &&
-      desc.set === undefined &&
-      desc.enumerable === false &&
-      desc.configurable === true) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(typeof desc.get, 'function', 'typeof desc.get');
+assert.sameValue(desc.set, undefined, 'desc.set');
+assert.sameValue(desc.enumerable, false, 'desc.enumerable');
+assert.sameValue(desc.configurable, true, 'desc.configurable');

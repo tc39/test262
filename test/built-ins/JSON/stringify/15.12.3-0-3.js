@@ -8,14 +8,9 @@ info: >
     should be able to delete (8.6.2.5) the stringify and parse properties.
 es5id: 15.12.3-0-3
 description: JSON.stringify must be deletable (configurable)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var o = JSON;
   var desc = Object.getOwnPropertyDescriptor(o, "stringify");
-  if (desc.configurable === true) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(desc.configurable, true, 'desc.configurable');

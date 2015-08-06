@@ -6,14 +6,11 @@ es5id: 15.12.3_2-2-b-i-1
 description: >
     JSON.stringify converts string wrapper objects returned from a
     toJSON call to literal strings.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var obj = {
     prop:42,
     toJSON: function () {return 'fortytwo objects'}
     };
-  return JSON.stringify([obj]) === '["fortytwo objects"]';
-  }
-runTestCase(testcase);
+
+assert.sameValue(JSON.stringify([obj]), '["fortytwo objects"]', 'JSON.stringify([obj])');

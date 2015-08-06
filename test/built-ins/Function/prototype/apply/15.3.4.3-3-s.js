@@ -8,13 +8,10 @@ description: >
     to wrapper objects when the function is called with an array of
     arguments
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function fun() {
             return (this instanceof Boolean);
         }
-        return !fun.apply(false, Array);
-    }
-runTestCase(testcase);
+
+assert.sameValue(fun.apply(false, Array), false, 'fun.apply(false, Array)');

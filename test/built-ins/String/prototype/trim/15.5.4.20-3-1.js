@@ -4,12 +4,8 @@
 /*---
 es5id: 15.5.4.20-3-1
 description: String.prototype.trim - 'S' is a string with all LineTerminator
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
         var lineTerminatorsStr = "\u000A\u000D\u2028\u2029";
-        return (lineTerminatorsStr.trim() === "");
-    }
-runTestCase(testcase);
+
+assert.sameValue(lineTerminatorsStr.trim(), "", 'lineTerminatorsStr.trim()');

@@ -6,11 +6,8 @@ es5id: 15.12.3-8-a-4
 description: >
     JSON.stringify treats an Boolean wrapper space argument the same
     as a missing space argument.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var obj = {a1: {b1: [1,2,3,4], b2: {c1: 1, c2: 2}},a2: 'a2'};
-  return JSON.stringify(obj)=== JSON.stringify(obj,null, new Boolean(true));
-  }
-runTestCase(testcase);
+
+assert.sameValue(JSON.stringify(obj), JSON.stringify(obj,null, new Boolean(true)), 'JSON.stringify(obj)');

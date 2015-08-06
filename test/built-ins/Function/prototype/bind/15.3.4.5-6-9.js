@@ -6,10 +6,7 @@ es5id: 15.3.4.5-6-9
 description: >
     Function.prototype.bind - F can get own accessor property without
     a get function
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var foo = function () { };
 
@@ -17,6 +14,6 @@ function testcase() {
         Object.defineProperty(obj, "property", {
             set: function () {}
         });
-        return obj.hasOwnProperty("property") && typeof (obj.property) === "undefined";
-    }
-runTestCase(testcase);
+
+assert(obj.hasOwnProperty("property"), 'obj.hasOwnProperty("property") !== true');
+assert.sameValue(typeof (obj.property), "undefined", 'typeof (obj.property)');

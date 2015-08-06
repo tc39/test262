@@ -7,12 +7,6 @@ author: Ryan Lewis
 description: >
     Math.hypot should return Infinity if called with any argument that
     is Infinity.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if(Math.hypot(NaN, Infinity) === Infinity) {
-  	return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Math.hypot(NaN, Infinity), Infinity, 'Math.hypot(NaN, Infinity)');

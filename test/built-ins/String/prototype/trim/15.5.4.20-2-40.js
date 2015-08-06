@@ -7,10 +7,8 @@ description: >
     String.prototype.trim - 'this' is an object that has an own
     toString method that returns an object and valueOf method that
     returns a primitive value
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var toStringAccessed = false;
         var valueOfAccessed = false;
         var obj = {
@@ -23,6 +21,7 @@ function testcase() {
                 return "abc";
             }
         };
-        return (String.prototype.trim.call(obj) === "abc") && valueOfAccessed && toStringAccessed;
-    }
-runTestCase(testcase);
+
+assert.sameValue(String.prototype.trim.call(obj), "abc", 'String.prototype.trim.call(obj)');
+assert(valueOfAccessed, 'valueOfAccessed !== true');
+assert(toStringAccessed, 'toStringAccessed !== true');

@@ -7,16 +7,12 @@ description: >
     [[Call]] - length of parameters of 'target' is 0, length of
     'boundArgs' is 0, length of 'ExtraArgs' is 0, and without
     'boundThis'
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var func = function () {
             return arguments.length === 0;
         };
 
         var newFunc = Function.prototype.bind.call(func);
 
-        return newFunc();
-    }
-runTestCase(testcase);
+assert(newFunc(), 'newFunc() !== true');

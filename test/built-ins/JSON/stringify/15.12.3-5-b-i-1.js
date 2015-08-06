@@ -6,11 +6,8 @@ es5id: 15.12.3-5-b-i-1
 description: >
     JSON.stringify converts String wrapper object space aruguments to
     String values
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var obj = {a1: {b1: [1,2,3,4], b2: {c1: 1, c2: 2}},a2: 'a2'};
-  return JSON.stringify(obj,null, new String('xxx'))=== JSON.stringify(obj,null, 'xxx');
-  }
-runTestCase(testcase);
+
+assert.sameValue(JSON.stringify(obj,null, new String('xxx')), JSON.stringify(obj,null, 'xxx'), 'JSON.stringify(obj,null, new String("xxx"))');

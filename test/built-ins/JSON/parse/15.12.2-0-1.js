@@ -15,14 +15,8 @@ info: >
     taking 2 parameters.
 es5id: 15.12.2-0-1
 description: JSON.parse must exist as a function
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var f = JSON.parse;
 
-  if (typeof(f) === "function") {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(typeof(f), "function", 'typeof(f)');

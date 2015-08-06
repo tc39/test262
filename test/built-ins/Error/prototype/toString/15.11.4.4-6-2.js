@@ -7,11 +7,8 @@ description: >
     Error.prototype.toString - 'Error' is returned when 'name' is
     absent and value of 'msg' is returned when 'msg' is non-empty
     string
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var errObj = new Error("ErrorMessage");
-        return errObj.toString() === "Error: ErrorMessage";
-    }
-runTestCase(testcase);
+
+assert.sameValue(errObj.toString(), "Error: ErrorMessage", 'errObj.toString()');

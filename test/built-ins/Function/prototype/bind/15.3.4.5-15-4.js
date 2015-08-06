@@ -6,10 +6,7 @@ es5id: 15.3.4.5-15-4
 description: >
     Function.prototype.bind - The [[Enumerable]] attribute of length
     property in F set as false
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var canEnumerable = false;
         var hasProperty = false;
@@ -21,6 +18,6 @@ function testcase() {
                 canEnumerable = true;
             }
         }
-        return hasProperty && !canEnumerable;
-    }
-runTestCase(testcase);
+
+assert(hasProperty, 'hasProperty !== true');
+assert.sameValue(canEnumerable, false, 'canEnumerable');

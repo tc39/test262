@@ -7,16 +7,12 @@ description: >
     [[Call]] - 'F''s [[BoundArgs]] is used as the former part of
     arguments of calling the [[Call]] internal method of 'F''s
     [[TargetFunction]] when 'F' is called
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var func = function (x, y, z) {
             return x + y + z;
         };
 
         var newFunc = Function.prototype.bind.call(func, {}, "a", "b", "c");
 
-        return newFunc() === "abc";
-    }
-runTestCase(testcase);
+assert.sameValue(newFunc(), "abc", 'newFunc()');

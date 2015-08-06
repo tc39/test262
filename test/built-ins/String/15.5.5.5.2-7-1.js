@@ -9,14 +9,8 @@ es5id: 15.5.5.5.2-7-1
 description: >
     String object indexing returns undefined if the numeric index is
     less than 0
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var s = new String("hello world");
 
-  if (s[-1] === undefined) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(s[-1], undefined, 's[-1]');

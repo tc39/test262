@@ -6,17 +6,12 @@ es5id: 15.10.7.1-2
 description: >
     RegExp.prototype.source is an accessor property whose set accessor
     function is undefined
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var d = Object.getOwnPropertyDescriptor(RegExp.prototype, 'source');
   
-  if (typeof d.get === 'function' &&
-      d.set === undefined &&
-      d.enumerable === false &&
-      d.configurable === true) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(typeof d.get, 'function', 'typeof d.get');
+assert.sameValue(d.set, undefined, 'd.set');
+assert.sameValue(d.enumerable, false, 'd.enumerable');
+assert.sameValue(d.configurable, true, 'd.configurable');

@@ -8,13 +8,8 @@ info: >
     4.2 calls out JSON as one of the built-in objects.
 es5id: 15.12-0-1
 description: JSON must be a built-in object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var o = JSON;
-  if (typeof(o) === "object") {  
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(typeof(o), "object", 'typeof(o)');

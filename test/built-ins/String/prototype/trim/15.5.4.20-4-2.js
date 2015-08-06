@@ -6,12 +6,6 @@ es5id: 15.5.4.20-4-2
 description: >
     String.prototype.trim handles whitepace and lineterminators (
     \u0009abc \u0009)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if (" \u0009abc \u0009".trim() === "abc") {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(" \u0009abc \u0009".trim(), "abc", '" \u0009abc \u0009".trim()');

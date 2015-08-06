@@ -7,12 +7,6 @@ author: Ryan Lewis
 description: >
     Math.hypot should return NaN if called with any argument that is
     NaN.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if(Number.isNaN(Math.hypot(NaN, 3))) {
-  	return true;
-  }
- }
-runTestCase(testcase);
+assert(Number.isNaN(Math.hypot(NaN, 3)), 'Number.isNaN(Math.hypot(NaN, 3)) !== true');

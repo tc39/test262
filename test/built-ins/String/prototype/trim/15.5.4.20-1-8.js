@@ -6,11 +6,9 @@ es5id: 15.5.4.20-1-8
 description: >
     String.prototype.trim works for a primitive string (value is '
     abc')
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var strObj = String("    abc");
-        return "abc" === strObj.trim() && strObj.toString() === "    abc";
-    }
-runTestCase(testcase);
+
+assert.sameValue(strObj.trim(), "abc", 'strObj.trim()');
+assert.sameValue(strObj.toString(), "    abc", 'strObj.toString()');

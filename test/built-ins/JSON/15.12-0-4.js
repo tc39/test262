@@ -10,18 +10,13 @@ info: >
     JSON, and we should not be able to enumerate them.
 es5id: 15.12-0-4
 description: JSON object's properties must be non enumerable
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
   var o = JSON;
   var i = 0;
   for (var p in o) {
     i++;
   }
     
-  if (i === 0) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(i, 0, 'i');

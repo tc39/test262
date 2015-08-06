@@ -9,14 +9,8 @@ es5id: 15.5.5.5.2-3-4
 description: >
     String object indexing returns undefined if the numeric index
     (Infinity) is not an array index
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var s = new String("hello world");
 
-  if (s[Infinity] === undefined) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(s[Infinity], undefined, 's[Infinity]');

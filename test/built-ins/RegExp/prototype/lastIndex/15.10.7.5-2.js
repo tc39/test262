@@ -4,11 +4,8 @@
 /*---
 es5id: 15.10.7.5-2
 description: RegExp.prototype.lastIndex is not present
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var d = Object.getOwnPropertyDescriptor(RegExp.prototype, 'lastIndex');
-  return d === undefined;
- }
-runTestCase(testcase);
+
+assert.sameValue(d, undefined, 'd');

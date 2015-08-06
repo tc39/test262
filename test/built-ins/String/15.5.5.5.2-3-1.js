@@ -9,14 +9,9 @@ es5id: 15.5.5.5.2-3-1
 description: >
     String object indexing returns undefined for missing data
     properties
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var s = new String("hello world");
   
-  if (s["foo"] === undefined) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(s["foo"], undefined, 's["foo"]');
