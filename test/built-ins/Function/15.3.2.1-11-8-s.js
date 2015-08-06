@@ -9,13 +9,6 @@ description: >
     which are separated by a unique parameter name and there is no
     explicit 'use strict' in the function constructor's body
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
         var foo = new Function("baz", "qux", "baz", "return 0;");
-        return true;
-
-    }
-runTestCase(testcase);

@@ -7,14 +7,9 @@ info: >
     is not callable.
 es5id: 15.3.4.5-2-6
 description: Function.prototype.bind allows Target to be a constructor (Object)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var boc = Object.bind(null);
   var o = boc(42);
-  if (o == 42) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert((o == 42), '(o == 42) !== true');

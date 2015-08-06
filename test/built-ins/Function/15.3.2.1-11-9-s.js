@@ -8,11 +8,6 @@ description: >
     the Function constructor that has three identical parameters and
     there is no explicit 'use strict' in the function constructor's
     body
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var foo = new Function("baz", "baz", "baz", "return 0;");
-        return true;
-    }
-runTestCase(testcase);

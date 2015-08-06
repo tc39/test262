@@ -6,10 +6,8 @@ es5id: 15.3.4.5.1-4-14
 description: >
     [[Call]] - length of parameters of 'target' is 1, length of
     'boundArgs' is 1, length of 'ExtraArgs' is 1, and with 'boundThis'
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { prop: "abc" };
 
         var func = function (x) {
@@ -19,6 +17,4 @@ function testcase() {
 
         var newFunc = Function.prototype.bind.call(func, obj, 1);
 
-        return newFunc(2);
-    }
-runTestCase(testcase);
+assert(newFunc(2), 'newFunc(2) !== true');

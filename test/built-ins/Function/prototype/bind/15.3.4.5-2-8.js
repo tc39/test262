@@ -7,15 +7,13 @@ info: >
     is not callable.
 es5id: 15.3.4.5-2-8
 description: Function.prototype.bind allows Target to be a constructor (Array)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var bac = Array.bind(null);
         var a = bac(42);
         a.prop = "verifyPropertyExist";
         a[41] = 41;
 
-        return a.prop === "verifyPropertyExist" && a[41] === 41 && a.length === 42;
-    }
-runTestCase(testcase);
+assert.sameValue(a.prop, "verifyPropertyExist", 'a.prop');
+assert.sameValue(a[41], 41, 'a[41]');
+assert.sameValue(a.length, 42, 'a.length');

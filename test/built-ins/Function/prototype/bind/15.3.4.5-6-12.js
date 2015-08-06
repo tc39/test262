@@ -4,14 +4,10 @@
 /*---
 es5id: 15.3.4.5-6-12
 description: Function.prototype.bind - F cannot get property which doesn't exist
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var foo = function () { };
 
         var obj = foo.bind({});
-        return typeof (obj.property) === "undefined";
-    }
-runTestCase(testcase);
+
+assert.sameValue(typeof (obj.property), "undefined", 'typeof (obj.property)');

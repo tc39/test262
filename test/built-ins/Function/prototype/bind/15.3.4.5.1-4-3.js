@@ -7,16 +7,12 @@ description: >
     [[Call]] - the provided arguments is used as the latter part of
     arguments of calling the [[Call]] internal method of 'F''s
     [[TargetFunction]] when 'F' is called
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var func = function (x, y, z) {
             return z;
         };
 
         var newFunc = Function.prototype.bind.call(func, {}, "a", "b");
 
-        return newFunc("c") === "c";
-    }
-runTestCase(testcase);
+assert.sameValue(newFunc("c"), "c", 'newFunc("c")');

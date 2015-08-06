@@ -4,10 +4,7 @@
 /*---
 es5id: 15.3.4.5-3-1
 description: Function.prototype.bind - each arg is defined in A in list order
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var foo = function (x, y) {
             return new Boolean((x + y) === "ab" && arguments[0] === "a" &&
@@ -15,6 +12,5 @@ function testcase() {
         };
 
         var obj = foo.bind({}, "a", "b");
-        return obj()==true;
-    }
-runTestCase(testcase);
+
+assert((obj() == true), '(obj() == true) !== true');

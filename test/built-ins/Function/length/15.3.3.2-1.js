@@ -4,17 +4,11 @@
 /*---
 es5id: 15.3.3.2-1
 description: Function.length - data property with value 1
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
   var desc = Object.getOwnPropertyDescriptor(Function,"length");
-  if(desc.value === 1 &&
-     desc.writable === false &&
-     desc.enumerable === false &&
-     desc.configurable === true)
-    return true; 
 
- }
-runTestCase(testcase);
+assert.sameValue(desc.value, 1, 'desc.value');
+assert.sameValue(desc.writable, false, 'desc.writable');
+assert.sameValue(desc.enumerable, false, 'desc.enumerable');
+assert.sameValue(desc.configurable, true, 'desc.configurable');

@@ -7,10 +7,8 @@ description: >
     [[Construct]] - length of parameters of 'target' is 0, length of
     'boundArgs' is 0, length of 'ExtraArgs' is 0, and without
     'boundThis'
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var func = function () {
             return new Boolean(arguments.length === 0);
         };
@@ -19,6 +17,4 @@ function testcase() {
 
         var newInstance = new NewFunc();
 
-        return newInstance.valueOf() === true;
-    }
-runTestCase(testcase);
+assert.sameValue(newInstance.valueOf(), true, 'newInstance.valueOf()');

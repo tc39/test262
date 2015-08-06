@@ -4,10 +4,7 @@
 /*---
 es5id: 15.3.4.5-6-5
 description: Function.prototype.bind - F can get own accessor property
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var foo = function () { };
 
@@ -17,6 +14,5 @@ function testcase() {
                 return 12;
             }
         });
-        return obj.property === 12;
-    }
-runTestCase(testcase);
+
+assert.sameValue(obj.property, 12, 'obj.property');

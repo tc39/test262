@@ -7,10 +7,8 @@ description: >
     [[Call]] - 'F''s [[BoundThis]] is used as the 'this' value of
     calling the [[Call]] internal method of 'F''s [[TargetFunction]]
     when 'F' is called
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { "prop": "a" };
 
         var func = function () {
@@ -19,6 +17,4 @@ function testcase() {
 
         var newFunc = Function.prototype.bind.call(func, obj);
 
-        return newFunc() === obj;
-    }
-runTestCase(testcase);
+assert.sameValue(newFunc(), obj, 'newFunc()');

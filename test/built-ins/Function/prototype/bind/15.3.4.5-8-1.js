@@ -4,16 +4,11 @@
 /*---
 es5id: 15.3.4.5-8-1
 description: Function.prototype.bind, type of bound function must be 'function'
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   function foo() { }
   var o = {};
   
   var bf = foo.bind(o);
-  if (typeof(bf) === 'function') {
-    return  true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(typeof(bf), 'function', 'typeof(bf)');

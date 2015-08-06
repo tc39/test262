@@ -4,12 +4,6 @@
 /*---
 es5id: 15.3.4.5-0-2
 description: Function.prototype.bind must exist as a function taking 1 parameter
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if (Function.prototype.bind.length === 1) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Function.prototype.bind.length, 1, 'Function.prototype.bind.length');
