@@ -7,11 +7,8 @@ description: >
     delete operator returns false when deleting a direct reference to
     a function argument
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  
   function foo(a,b) {
   
     // Now, deleting 'a' directly should fail
@@ -19,6 +16,5 @@ function testcase() {
     var d = delete a;
     return (d === false && a === 1);
   }
-  return foo(1,2);  
- }
-runTestCase(testcase);
+
+assert(foo(1,2), 'foo(1,2) !== true');

@@ -9,18 +9,14 @@ es5id: 11.4.1-4.a-1
 description: >
     delete operator returns true when deleting a configurable data
     property
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var o = {};
 
   var desc = { value: 1, configurable: true };
   Object.defineProperty(o, "foo", desc);
 
   var d = delete o.foo;
-  if (d === true && o.hasOwnProperty("foo") === false) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(d, true, 'd');
+assert.sameValue(o.hasOwnProperty("foo"), false, 'o.hasOwnProperty("foo")');

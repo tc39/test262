@@ -10,13 +10,8 @@ description: >
     delete operator returns false when deleting a non-configurable
     data property (Math.LN2)
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var d = delete Math.LN2;
-  if (d === false) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(d, false, 'd');

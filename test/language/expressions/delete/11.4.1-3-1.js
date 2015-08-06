@@ -7,14 +7,9 @@ description: >
     delete operator returns true when deleting an unresolvable
     reference
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   // just cooking up a long/veryLikely unique name
   var d = delete __ES3_1_test_suite_test_11_4_1_3_unique_id_0__;
-  if (d === true) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(d, true, 'd');
