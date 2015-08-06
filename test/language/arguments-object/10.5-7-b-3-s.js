@@ -5,15 +5,11 @@
 es5id: 10.5-7-b-3-s
 description: >
     Adding property to the arguments object successful under strict mode
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function _10_5_7_b_3_fun() {
             arguments[1] = 12;
             return arguments[0] === 30 && arguments[1] === 12;
         };
 
-        return _10_5_7_b_3_fun(30);
-    }
-runTestCase(testcase);
+assert(_10_5_7_b_3_fun(30), '_10_5_7_b_3_fun(30) !== true');

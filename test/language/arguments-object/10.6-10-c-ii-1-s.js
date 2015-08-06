@@ -7,15 +7,12 @@ description: >
     arguments[i] remains same after changing actual parameters in
     strict mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   function foo(a,b,c)
   {
     a = 1; b = 'str'; c = 2.1;
     return (arguments[0] === 10 && arguments[1] === 'sss' && arguments[2] === 1);
   }
-  return foo(10, 'sss', 1);
- }
-runTestCase(testcase);
+
+assert(foo(10, 'sss', 1), 'foo(10, "sss", 1) !== true');

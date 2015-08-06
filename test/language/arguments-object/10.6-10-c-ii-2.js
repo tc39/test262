@@ -5,17 +5,13 @@
 es5id: 10.6-10-c-ii-2
 description: arguments[i] map to actual parameter
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  
   function foo(a,b,c)
   {
     arguments[0] = 1; arguments[1] = 'str'; arguments[2] = 2.1;
     if(1 === a && 'str' === b && 2.1 === c)
       return true;   
   }
-  return foo(10,'sss',1);
- }
-runTestCase(testcase);
+
+assert(foo(10,'sss',1), 'foo(10,"sss",1) !== true');
