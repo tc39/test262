@@ -1193,6 +1193,7 @@ function isCanonicalizedStructurallyValidTimeZoneName(timeZone) {
  * @exception if the test fails.
  */
 function testArraysAreSame(expected, actual) {
+    var i;
     for (i = 0; i < Math.max(actual.length, expected.length); i++) {
         if (actual[i] !== expected[i]) {
             $ERROR("Result array element at index " + i + " should be \"" +
