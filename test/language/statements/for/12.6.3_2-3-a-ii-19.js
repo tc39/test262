@@ -11,15 +11,12 @@ es5id: 12.6.3_2-3-a-ii-19
 description: >
     The for Statement - (normal, V, empty) will be returned when first
     Expression is a string (value is 'undefined')
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var accessed = false;
         for (var i = 0; "undefined";) {
             accessed = true;
             break;
         }
-        return accessed;
-    }
-runTestCase(testcase);
+
+assert(accessed, 'accessed !== true');

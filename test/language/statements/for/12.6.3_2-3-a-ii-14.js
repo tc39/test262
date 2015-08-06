@@ -11,14 +11,11 @@ es5id: 12.6.3_2-3-a-ii-14
 description: >
     The for Statement - (normal, V, empty) will be returned when first
     Expression is a number (value is NaN)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var count = 0;
         for (var i = 0; NaN;) {
             count++;
         }
-        return count === 0;
-    }
-runTestCase(testcase);
+
+assert.sameValue(count, 0, 'count');
