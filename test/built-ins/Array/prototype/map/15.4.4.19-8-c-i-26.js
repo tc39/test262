@@ -7,10 +7,7 @@ description: >
     Array.prototype.map - This object is the Arguments object which
     implements its own property get method (number of arguments equals
     number of parameters)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             if (idx === 0) {
@@ -28,6 +25,5 @@ function testcase() {
 
         var testResult = func(9, 11);
 
-        return testResult[0] === true && testResult[1] === true;
-    }
-runTestCase(testcase);
+assert.sameValue(testResult[0], true, 'testResult[0]');
+assert.sameValue(testResult[1], true, 'testResult[1]');

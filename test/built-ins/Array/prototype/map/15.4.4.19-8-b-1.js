@@ -6,11 +6,8 @@ es5id: 15.4.4.19-8-b-1
 description: >
     Array.prototype.map - callbackfn not called for indexes never been
     assigned values
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   var callCnt = 0;
   function callbackfn(val, idx, obj)
   {
@@ -21,7 +18,6 @@ function testcase() {
   var srcArr = new Array(10);
   srcArr[1] = undefined; //explicitly assigning a value
   var resArr = srcArr.map(callbackfn);
-  if( resArr.length === 10 && callCnt === 1)
-      return true;    
- }
-runTestCase(testcase);
+
+assert.sameValue(resArr.length, 10, 'resArr.length');
+assert.sameValue(callCnt, 1, 'callCnt');

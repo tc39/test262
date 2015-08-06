@@ -7,10 +7,7 @@ description: >
     Array.prototype.map - 'length' is an object that has an own
     valueOf method that returns an object and toString method that
     returns a string
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return val < 10;
@@ -36,6 +33,6 @@ function testcase() {
 
         var newArr = Array.prototype.map.call(obj, callbackfn);
 
-        return newArr.length === 2 && firstStepOccured && secondStepOccured;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 2, 'newArr.length');
+assert(firstStepOccured, 'firstStepOccured !== true');
+assert(secondStepOccured, 'secondStepOccured !== true');

@@ -6,10 +6,7 @@ es5id: 15.4.4.19-3-24
 description: >
     Array.prototype.map - value of 'length' is a positive non-integer,
     ensure truncation occurs in the proper direction
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return val < 10;
@@ -23,6 +20,4 @@ function testcase() {
 
         var newArr = Array.prototype.map.call(obj, callbackfn);
 
-        return newArr.length === 2;
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 2, 'newArr.length');

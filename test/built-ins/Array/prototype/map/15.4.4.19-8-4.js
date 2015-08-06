@@ -6,11 +6,8 @@ es5id: 15.4.4.19-8-4
 description: >
     Array.prototype.map doesn't visit deleted elements when
     Array.length is decreased
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   var callCnt = 0;
   function callbackfn(val, idx, obj)
   {
@@ -21,8 +18,7 @@ function testcase() {
 
   var srcArr = [1,2,3,4,5];
   var resArr = srcArr.map(callbackfn);
-  if(resArr.length === 5  && callCnt === 2 && resArr[2] === undefined)
-    return true;  
-  
- }
-runTestCase(testcase);
+
+assert.sameValue(resArr.length, 5, 'resArr.length');
+assert.sameValue(callCnt, 2, 'callCnt');
+assert.sameValue(resArr[2], undefined, 'resArr[2]');

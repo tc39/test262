@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.19-5-3
 description: Array.prototype.map - thisArg is Array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var res = false;
   var a = new Array();
   a.res = true;
@@ -18,8 +16,5 @@ function testcase() {
 
   var srcArr = [1];
   var resArr = srcArr.map(callbackfn,a);
-  if( resArr[0] === true)
-    return true;    
 
- }
-runTestCase(testcase);
+assert.sameValue(resArr[0], true, 'resArr[0]');

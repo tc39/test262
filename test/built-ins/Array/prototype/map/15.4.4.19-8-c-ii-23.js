@@ -6,10 +6,7 @@ es5id: 15.4.4.19-8-c-ii-23
 description: >
     Array.prototype.map - callbackfn called with correct parameters
     (this object O is correct)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = { 0: 11, length: 2 };
 
@@ -19,6 +16,4 @@ function testcase() {
 
         var testResult = Array.prototype.map.call(obj, callbackfn);
 
-        return testResult[0] === true;
-    }
-runTestCase(testcase);
+assert.sameValue(testResult[0], true, 'testResult[0]');

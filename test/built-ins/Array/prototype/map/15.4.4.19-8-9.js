@@ -6,10 +6,8 @@ es5id: 15.4.4.19-8-9
 description: >
     Array.prototype.map - modifications to length don't change number
     of iterations on an Array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var called = 0;
         function callbackfn(val, idx, obj) {
             called += 1;
@@ -28,6 +26,6 @@ function testcase() {
 
         var testResult = arr.map(callbackfn);
 
-        return testResult.length === 3 && called === 2 && typeof testResult[2] === "undefined";
-    }
-runTestCase(testcase);
+assert.sameValue(testResult.length, 3, 'testResult.length');
+assert.sameValue(called, 2, 'called');
+assert.sameValue(typeof testResult[2], "undefined", 'typeof testResult[2]');

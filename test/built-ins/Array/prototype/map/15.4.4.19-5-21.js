@@ -4,18 +4,13 @@
 /*---
 es5id: 15.4.4.19-5-21
 description: Array.prototype.map - the global object can be used as thisArg
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return this === fnGlobalObject();
         }
 
         var testResult = [11].map(callbackfn, fnGlobalObject());
-        return testResult[0] === true;
-    }
-runTestCase(testcase);
+
+assert.sameValue(testResult[0], true, 'testResult[0]');

@@ -6,10 +6,7 @@ es5id: 15.4.4.19-9-13
 description: >
     Array.prototype.map - if there are no side effects of the
     functions, O is unmodified
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var called = 0;
 
@@ -22,8 +19,8 @@ function testcase() {
 
         arr.map(callbackfn);
 
-        return 1 === arr[0] && 2 === arr[1] && 3 === arr[2] && 4 === arr[3] && 4 === called;
-
-
-    }
-runTestCase(testcase);
+assert.sameValue(arr[0], 1, 'arr[0]');
+assert.sameValue(arr[1], 2, 'arr[1]');
+assert.sameValue(arr[2], 3, 'arr[2]');
+assert.sameValue(arr[3], 4, 'arr[3]');
+assert.sameValue(called, 4, 'called');

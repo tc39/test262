@@ -6,10 +6,7 @@ es5id: 15.4.4.19-8-c-i-29
 description: >
     Array.prototype.map - element changed by getter on previous
     iterations is observed on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var preIterVisible = false;
         var obj = { length: 2 };
@@ -45,6 +42,5 @@ function testcase() {
 
         var testResult = Array.prototype.map.call(obj, callbackfn);
 
-        return testResult[0] === true && testResult[1] === true;
-    }
-runTestCase(testcase);
+assert.sameValue(testResult[0], true, 'testResult[0]');
+assert.sameValue(testResult[1], true, 'testResult[1]');

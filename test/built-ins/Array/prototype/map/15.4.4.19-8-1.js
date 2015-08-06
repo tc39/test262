@@ -6,11 +6,8 @@ es5id: 15.4.4.19-8-1
 description: >
     Array.prototype.map doesn't consider new elements added to array
     after it is called
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   function callbackfn(val, idx, obj)
   {
     srcArr[2] = 3;
@@ -20,8 +17,5 @@ function testcase() {
 
   var srcArr = [1,2,,4,5];
   var resArr = srcArr.map(callbackfn);
-  if(resArr.length === 5)
-      return true;  
-  
- }
-runTestCase(testcase);
+
+assert.sameValue(resArr.length, 5, 'resArr.length');

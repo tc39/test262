@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.19-5-10
 description: Array.prototype.map - Array object can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var objArray = new Array(2);
 
@@ -16,6 +13,5 @@ function testcase() {
         }
 
         var testResult = [11].map(callbackfn, objArray);
-        return testResult[0] === true;
-    }
-runTestCase(testcase);
+
+assert.sameValue(testResult[0], true, 'testResult[0]');

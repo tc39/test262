@@ -6,10 +6,8 @@ es5id: 15.4.4.19-2-19
 description: >
     Array.prototype.map - applied to Function object, which implements
     its own property get method
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             return val > 10;
         }
@@ -23,6 +21,4 @@ function testcase() {
 
         var testResult = Array.prototype.map.call(fun, callbackfn);
 
-        return 2 === testResult.length;
-    }
-runTestCase(testcase);
+assert.sameValue(testResult.length, 2, 'testResult.length');

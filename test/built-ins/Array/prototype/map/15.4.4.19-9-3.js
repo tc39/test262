@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.19-9-3
 description: Array.prototype.map - subclassed array when length is reduced
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   foo.prototype = new Array(1, 2, 3);
   function foo() {}
   var f = new foo();
@@ -16,9 +14,6 @@ function testcase() {
   function cb(){}
   var a = f.map(cb);
   
-  if (Array.isArray(a) &&
-      a.length === 1) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert(Array.isArray(a), 'Array.isArray(a) !== true');
+assert.sameValue(a.length, 1, 'a.length');

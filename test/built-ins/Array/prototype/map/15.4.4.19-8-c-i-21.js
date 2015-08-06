@@ -6,10 +6,7 @@ es5id: 15.4.4.19-8-c-i-21
 description: >
     Array.prototype.map - element to be retrieved is inherited
     accessor property without a get function on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             if (idx === 0) {
@@ -31,6 +28,4 @@ function testcase() {
 
         var testResult = Array.prototype.map.call(child, callbackfn);
 
-        return testResult[0] === true;
-    }
-runTestCase(testcase);
+assert.sameValue(testResult[0], true, 'testResult[0]');

@@ -6,10 +6,8 @@ es5id: 15.4.4.19-2-1
 description: >
     Array.prototype.map - applied to Array-like object when 'length'
     is an own data property
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             return val > 10;
         }
@@ -23,6 +21,4 @@ function testcase() {
 
         var testResult = Array.prototype.map.call(obj, callbackfn);
 
-        return testResult.length === 2;
-    }
-runTestCase(testcase);
+assert.sameValue(testResult.length, 2, 'testResult.length');

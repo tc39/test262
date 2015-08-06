@@ -7,10 +7,8 @@ description: >
     Array.prototype.map - decreasing length of array does not delete
     non-configurable properties
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             if (idx === 2 && val === "unconfigurable") {
                 return false;
@@ -37,6 +35,6 @@ function testcase() {
         });
 
         var testResult = arr.map(callbackfn);
-        return testResult.length === 3 && testResult[2] === false;
-    }
-runTestCase(testcase);
+
+assert.sameValue(testResult.length, 3, 'testResult.length');
+assert.sameValue(testResult[2], false, 'testResult[2]');

@@ -6,10 +6,7 @@ es5id: 15.4.4.19-8-b-4
 description: >
     Array.prototype.map - properties added into own object after
     current position are visited on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             if (idx === 1 && val === 1) {
@@ -35,6 +32,6 @@ function testcase() {
         });
 
         var testResult = Array.prototype.map.call(obj, callbackfn);
-        return testResult[0] === true && testResult[1] === false;
-    }
-runTestCase(testcase);
+
+assert.sameValue(testResult[0], true, 'testResult[0]');
+assert.sameValue(testResult[1], false, 'testResult[1]');

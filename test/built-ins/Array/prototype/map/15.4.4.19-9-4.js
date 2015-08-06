@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.19-9-4
 description: Array.prototype.map doesn't visit expandos
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
   var callCnt = 0;
   function callbackfn(val, idx, obj)
@@ -19,10 +16,5 @@ function testcase() {
   srcArr[true] = 11;
 
   var resArr = srcArr.map(callbackfn);
-  if(callCnt == 5)
-  {
-    return true;
-  }
 
- }
-runTestCase(testcase);
+assert.sameValue(callCnt, 5, 'callCnt');

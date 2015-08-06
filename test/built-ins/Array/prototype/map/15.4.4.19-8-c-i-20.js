@@ -7,10 +7,7 @@ description: >
     Array.prototype.map - element to be retrieved is own accessor
     property without a get function that overrides an inherited
     accessor property on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             if (idx === 0) {
@@ -41,6 +38,4 @@ function testcase() {
 
         var testResult = Array.prototype.map.call(child, callbackfn);
 
-        return testResult[0] === true;
-    }
-runTestCase(testcase);
+assert.sameValue(testResult[0], true, 'testResult[0]');
