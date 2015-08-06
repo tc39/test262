@@ -6,10 +6,7 @@ es5id: 15.4.4.17-7-b-1
 description: >
     Array.prototype.some - callbackfn not called for indexes never
     been assigned values
-includes: [runTestCase.js]
 ---*/
-
-function testcase() { 
 
   var callCnt = 0; 
   function callbackfn(val, idx, obj)
@@ -21,8 +18,5 @@ function testcase() {
   var arr = new Array(10);
   arr[1] = undefined;
   arr.some(callbackfn);
-  if(callCnt === 1)    
-      return true;  
-  
- }
-runTestCase(testcase);
+
+assert.sameValue(callCnt, 1, 'callCnt');

@@ -6,11 +6,8 @@ es5id: 15.4.4.17-7-5
 description: >
     Array.prototype.some doesn't consider newly added elements in
     sparse array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   function callbackfn(val, idx, obj)
   {
     arr[1000] = 5;
@@ -24,8 +21,5 @@ function testcase() {
   arr[1] = 1;
   arr[2] = 2;
   
-  if(arr.some(callbackfn) === false)    
-    return true;  
- 
- }
-runTestCase(testcase);
+
+assert.sameValue(arr.some(callbackfn), false, 'arr.some(callbackfn)');

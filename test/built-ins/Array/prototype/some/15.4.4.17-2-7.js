@@ -6,10 +6,8 @@ es5id: 15.4.4.17-2-7
 description: >
     Array.prototype.some - 'length' is an own accessor property on an
     Array-like object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn1(val, idx, obj) {
             return val > 10;
         }
@@ -31,7 +29,5 @@ function testcase() {
         obj[1] = 11;
         obj[2] = 12;
 
-        return Array.prototype.some.call(obj, callbackfn1) &&
-            !Array.prototype.some.call(obj, callbackfn2);
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(obj, callbackfn1), 'Array.prototype.some.call(obj, callbackfn1) !== true');
+assert.sameValue(Array.prototype.some.call(obj, callbackfn2), false, 'Array.prototype.some.call(obj, callbackfn2)');

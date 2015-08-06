@@ -6,10 +6,7 @@ es5id: 15.4.4.17-7-c-iii-12
 description: >
     Array.prototype.some - return value of callbackfn is a number
     (value is NaN)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -18,6 +15,4 @@ function testcase() {
             return NaN;
         }
 
-        return ![11].some(callbackfn);
-    }
-runTestCase(testcase);
+assert.sameValue([11].some(callbackfn), false, '[11].some(callbackfn)');

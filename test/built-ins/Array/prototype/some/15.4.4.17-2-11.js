@@ -6,10 +6,7 @@ es5id: 15.4.4.17-2-11
 description: >
     Array.prototype.some - 'length' is an own accessor property
     without a get function on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -27,6 +24,5 @@ function testcase() {
             configurable: true
         });
 
-        return !Array.prototype.some.call(obj, callbackfn) && !accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.some.call(obj, callbackfn), false, 'Array.prototype.some.call(obj, callbackfn)');
+assert.sameValue(accessed, false, 'accessed');

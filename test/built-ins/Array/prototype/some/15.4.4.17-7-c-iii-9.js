@@ -6,15 +6,10 @@ es5id: 15.4.4.17-7-c-iii-9
 description: >
     Array.prototype.some - return value of callbackfn is a number
     (value is negative number)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return -5;
         }
 
-        return [11].some(callbackfn);
-    }
-runTestCase(testcase);
+assert([11].some(callbackfn), '[11].some(callbackfn) !== true');

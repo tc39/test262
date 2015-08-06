@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.17-5-10
 description: Array.prototype.some - Array Object can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var objArray = [];
 
@@ -15,6 +12,4 @@ function testcase() {
             return this === objArray;
         }
 
-        return [11].some(callbackfn, objArray);
-    }
-runTestCase(testcase);
+assert([11].some(callbackfn, objArray), '[11].some(callbackfn, objArray) !== true');

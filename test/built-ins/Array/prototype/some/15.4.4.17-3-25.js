@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.17-3-25
 description: Array.prototype.some - value of 'length' is a negative non-integer
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn1(val, idx, obj) {
             return val > 10;
         }
@@ -23,7 +21,5 @@ function testcase() {
             length: -4294967294.5
         };
 
-        return !Array.prototype.some.call(obj, callbackfn1) &&
-            !Array.prototype.some.call(obj, callbackfn2);
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.some.call(obj, callbackfn1), false, 'Array.prototype.some.call(obj, callbackfn1)');
+assert.sameValue(Array.prototype.some.call(obj, callbackfn2), false, 'Array.prototype.some.call(obj, callbackfn2)');

@@ -6,10 +6,8 @@ es5id: 15.4.4.17-7-1
 description: >
     Array.prototype.some considers new elements added to array after
     it is called
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
   var calledForThree = false;
  
   function callbackfn(val, idx, obj)
@@ -24,6 +22,5 @@ function testcase() {
   var arr = [1,2,,4,5];
   
   var val = arr.some(callbackfn);
-  return calledForThree;
- }
-runTestCase(testcase);
+
+assert(calledForThree, 'calledForThree !== true');

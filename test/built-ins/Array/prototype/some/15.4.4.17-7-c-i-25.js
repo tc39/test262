@@ -7,10 +7,7 @@ description: >
     Array.prototype.some - This object is the Arguments object which
     implements its own property get method (number of arguments is
     less than number of parameters)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             if (idx === 0) {
@@ -23,6 +20,4 @@ function testcase() {
             return Array.prototype.some.call(arguments, callbackfn);
         };
 
-        return func(11);
-    }
-runTestCase(testcase);
+assert(func(11), 'func(11) !== true');

@@ -6,10 +6,7 @@ es5id: 15.4.4.17-7-c-ii-17
 description: >
     Array.prototype.some - 'this' of 'callbackfn' is a Number object
     when T is not an object (T is a number primitive)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return this.valueOf() === 5;
@@ -17,6 +14,4 @@ function testcase() {
 
         var obj = { 0: 11, length: 1 };
 
-        return Array.prototype.some.call(obj, callbackfn, 5);
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(obj, callbackfn, 5), 'Array.prototype.some.call(obj, callbackfn, 5) !== true');

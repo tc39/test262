@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.17-5-19
 description: Array.prototype.some - the Arguments object can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arg;
 
@@ -19,6 +16,4 @@ function testcase() {
             arg = arguments;
         }(1, 2, 3));
 
-        return [11].some(callbackfn, arg);
-    }
-runTestCase(testcase);
+assert([11].some(callbackfn, arg), '[11].some(callbackfn, arg) !== true');

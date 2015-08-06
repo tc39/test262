@@ -6,10 +6,7 @@ es5id: 15.4.4.17-7-c-ii-16
 description: >
     Array.prototype.some - 'this' of 'callback' is a Boolean object
     when 'T' is not an object ('T' is a boolean primitive)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return this.valueOf() === false;
@@ -17,6 +14,4 @@ function testcase() {
 
         var obj = { 0: 11, length: 1 };
 
-        return Array.prototype.some.call(obj, callbackfn, false);
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(obj, callbackfn, false), 'Array.prototype.some.call(obj, callbackfn, false) !== true');

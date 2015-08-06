@@ -7,10 +7,7 @@ description: >
     Array.prototype.some - This object is the Arguments object which
     implements its own property get method (number of arguments equals
     number of parameters)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var firstResult = false;
         var secondResult = false;
@@ -31,6 +28,6 @@ function testcase() {
             return Array.prototype.some.call(arguments, callbackfn);
         };
 
-        return !func(11, 9) && firstResult && secondResult;
-    }
-runTestCase(testcase);
+assert.sameValue(func(11, 9), false, 'func(11, 9)');
+assert(firstResult, 'firstResult !== true');
+assert(secondResult, 'secondResult !== true');

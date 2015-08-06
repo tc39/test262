@@ -5,10 +5,8 @@
 es5id: 15.4.4.17-5-25
 description: Array.prototype.some - thisArg not passed
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function innerObj() {
             this._15_4_4_17_5_25 = true;
             var _15_4_4_17_5_25 = false;
@@ -19,6 +17,5 @@ function testcase() {
             var arr = [1];
             this.retVal = !arr.some(callbackfn);
         }
-        return new innerObj().retVal;
-    }
-runTestCase(testcase);
+
+assert(new innerObj().retVal, 'new innerObj().retVal !== true');

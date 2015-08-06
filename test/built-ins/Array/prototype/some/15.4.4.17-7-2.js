@@ -6,11 +6,8 @@ es5id: 15.4.4.17-7-2
 description: >
     Array.prototype.some considers new value of elements in array
     after it is called
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   function callbackfn(val, idx, obj)
   {
     arr[4] = 6;
@@ -22,8 +19,5 @@ function testcase() {
 
   var arr = [1,2,3,4,5];
   
-  if(arr.some(callbackfn) === true)    
-    return true;  
-  
- }
-runTestCase(testcase);
+
+assert.sameValue(arr.some(callbackfn), true, 'arr.some(callbackfn)');

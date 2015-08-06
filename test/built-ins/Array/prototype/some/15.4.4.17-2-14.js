@@ -6,10 +6,7 @@ es5id: 15.4.4.17-2-14
 description: >
     Array.prototype.some - 'length' property doesn't exist on an
     Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -20,6 +17,5 @@ function testcase() {
 
         var obj = { 0: 11, 1: 12 };
 
-        return !Array.prototype.some.call(obj, callbackfn) && !accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.some.call(obj, callbackfn), false, 'Array.prototype.some.call(obj, callbackfn)');
+assert.sameValue(accessed, false, 'accessed');

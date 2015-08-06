@@ -4,12 +4,6 @@
 /*---
 es5id: 15.4.4.17-0-2
 description: Array.prototype.some.length must be 1
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if (Array.prototype.some.length === 1) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.some.length, 1, 'Array.prototype.some.length');

@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.17-5-15
 description: Array.prototype.some - Date object can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var objDate = new Date();
 
@@ -15,6 +12,4 @@ function testcase() {
             return this === objDate;
         }
 
-        return [11].some(callbackfn, objDate);
-    }
-runTestCase(testcase);
+assert([11].some(callbackfn, objDate), '[11].some(callbackfn, objDate) !== true');

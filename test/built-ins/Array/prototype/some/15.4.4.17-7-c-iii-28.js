@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.17-7-c-iii-28
 description: Array.prototype.some - true prevents further side effects
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var result = false;
         function callbackfn(val, idx, obj) {
             if (idx > 1) {
@@ -40,6 +38,5 @@ function testcase() {
             configurable: true
         });
 
-        return Array.prototype.some.call(obj, callbackfn) && !result;
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(obj, callbackfn), 'Array.prototype.some.call(obj, callbackfn) !== true');
+assert.sameValue(result, false, 'result');

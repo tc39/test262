@@ -4,14 +4,10 @@
 /*---
 es5id: 15.4.4.17-7-c-ii-11
 description: Array.prototype.some - callbackfn is called with 2 formal parameter
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx) {
             return val > 10 && arguments[2][idx] === val;
         }
 
-        return [9, 12].some(callbackfn);
-    }
-runTestCase(testcase);
+assert([9, 12].some(callbackfn), '[9, 12].some(callbackfn) !== true');

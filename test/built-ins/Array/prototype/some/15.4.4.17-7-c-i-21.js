@@ -6,10 +6,7 @@ es5id: 15.4.4.17-7-c-i-21
 description: >
     Array.prototype.some - element to be retrieved is inherited
     accessor property without a get function on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             if (idx === 1) {
@@ -30,6 +27,4 @@ function testcase() {
         var child = new Con();
         child.length = 2;
 
-        return Array.prototype.some.call(child, callbackfn);
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(child, callbackfn), 'Array.prototype.some.call(child, callbackfn) !== true');

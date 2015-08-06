@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.17-5-12
 description: Array.prototype.some - Boolean object can be used as thisArg
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var objBoolean = new Boolean();
 
@@ -15,6 +12,4 @@ function testcase() {
             return this === objBoolean;
         }
 
-        return [11].some(callbackfn, objBoolean);
-    }
-runTestCase(testcase);
+assert([11].some(callbackfn, objBoolean), '[11].some(callbackfn, objBoolean) !== true');

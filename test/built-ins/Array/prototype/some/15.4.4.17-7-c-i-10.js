@@ -6,10 +6,7 @@ es5id: 15.4.4.17-7-c-i-10
 description: >
     Array.prototype.some - element to be retrieved is own accessor
     property on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var kValue = "abc";
 
@@ -29,6 +26,4 @@ function testcase() {
             configurable: true
         });
 
-        return arr.some(callbackfn);
-    }
-runTestCase(testcase);
+assert(arr.some(callbackfn), 'arr.some(callbackfn) !== true');

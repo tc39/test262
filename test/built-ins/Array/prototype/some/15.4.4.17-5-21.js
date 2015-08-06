@@ -4,18 +4,11 @@
 /*---
 es5id: 15.4.4.17-5-21
 description: Array.prototype.some - the global object can be used as thisArg
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
-
-function testcase() {
-
 
         function callbackfn(val, idx, obj) {
             return this === fnGlobalObject();
         }
 
-        return [11].some(callbackfn, fnGlobalObject());
-    }
-runTestCase(testcase);
+assert([11].some(callbackfn, fnGlobalObject()), '[11].some(callbackfn, fnGlobalObject()) !== true');

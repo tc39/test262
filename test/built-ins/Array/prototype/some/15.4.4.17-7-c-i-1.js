@@ -6,10 +6,7 @@ es5id: 15.4.4.17-7-c-i-1
 description: >
     Array.prototype.some - element to be retrieved is own data
     property on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var kValue = {};
 
@@ -22,6 +19,4 @@ function testcase() {
 
         var obj = { 5: kValue, length: 100 };
 
-        return Array.prototype.some.call(obj, callbackfn);
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(obj, callbackfn), 'Array.prototype.some.call(obj, callbackfn) !== true');

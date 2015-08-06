@@ -6,10 +6,7 @@ es5id: 15.4.4.17-3-8
 description: >
     Array.prototype.some - value of 'length' is a number (value is
     Infinity)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -20,6 +17,5 @@ function testcase() {
 
         var obj = { 0: 11, length: Infinity };
 
-        return Array.prototype.some.call(obj, callbackfn) && accessed;
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(obj, callbackfn), 'Array.prototype.some.call(obj, callbackfn) !== true');
+assert(accessed, 'accessed !== true');

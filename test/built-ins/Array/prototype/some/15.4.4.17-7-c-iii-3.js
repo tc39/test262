@@ -6,10 +6,7 @@ es5id: 15.4.4.17-7-c-iii-3
 description: >
     Array.prototype.some - return value of callbackfn is a boolean
     (value is false)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -20,6 +17,5 @@ function testcase() {
 
         var obj = { 0: 11, length: 2 };
 
-        return !Array.prototype.some.call(obj, callbackfn) && accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.some.call(obj, callbackfn), false, 'Array.prototype.some.call(obj, callbackfn)');
+assert(accessed, 'accessed !== true');

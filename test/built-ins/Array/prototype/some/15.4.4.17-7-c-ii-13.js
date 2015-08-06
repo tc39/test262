@@ -6,15 +6,10 @@ es5id: 15.4.4.17-7-c-ii-13
 description: >
     Array.prototype.some - callbackfn that uses arguments object to
     get parameter value
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn() {
             return arguments[2][arguments[1]] === arguments[0];
         }
 
-        return [9, 12].some(callbackfn);
-    }
-runTestCase(testcase);
+assert([9, 12].some(callbackfn), '[9, 12].some(callbackfn) !== true');

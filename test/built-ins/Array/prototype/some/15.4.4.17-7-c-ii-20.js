@@ -6,10 +6,7 @@ es5id: 15.4.4.17-7-c-ii-20
 description: >
     Array.prototype.some - callbackfn called with correct parameters
     (thisArg is correct)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var thisArg = { threshold: 10 };
 
@@ -19,6 +16,4 @@ function testcase() {
 
         var obj = { 0: 11, length: 2 };
 
-        return Array.prototype.some.call(obj, callbackfn, thisArg);
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(obj, callbackfn, thisArg), 'Array.prototype.some.call(obj, callbackfn, thisArg) !== true');

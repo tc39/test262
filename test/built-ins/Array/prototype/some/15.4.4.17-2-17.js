@@ -6,10 +6,8 @@ es5id: 15.4.4.17-2-17
 description: >
     Array.prototype.some applied to the Arguments object which
     implements its own property get method
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn1(val, idx, obj) {
             return val > 10;
         }
@@ -24,6 +22,4 @@ function testcase() {
                 !Array.prototype.some.call(arguments, callbackfn2);
         };
 
-        return func(9, 11);
-    }
-runTestCase(testcase);
+assert(func(9, 11), 'func(9, 11) !== true');
