@@ -6,14 +6,11 @@ es5id: 15.12.3_2-2-b-i-2
 description: >
     JSON.stringify converts Number wrapper objects returned from a
     toJSON call to literal Number.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var obj = {
     prop:42,
     toJSON: function () {return new Number(42)}
     };
-  return JSON.stringify([obj]) === '[42]';
-  }
-runTestCase(testcase);
+
+assert.sameValue(JSON.stringify([obj]), '[42]', 'JSON.stringify([obj])');

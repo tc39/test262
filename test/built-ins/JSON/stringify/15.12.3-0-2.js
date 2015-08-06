@@ -15,14 +15,9 @@ info: >
     taking 3 parameters.
 es5id: 15.12.3-0-2
 description: JSON.stringify must exist as be a function taking 3 parameters
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var f = JSON.stringify;
 
-  if (typeof(f) === "function" && f.length === 3) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(typeof(f), "function", 'typeof(f)');
+assert.sameValue(f.length, 3, 'f.length');
