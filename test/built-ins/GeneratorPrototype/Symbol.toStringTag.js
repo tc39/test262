@@ -3,9 +3,16 @@
 
 /*---
 description: >
-    The Generator prototype defines a `@@toStringTag` attribute.
+    `Symbol.toStringTag` property descriptor
+info: >
+    The initial value of the @@toStringTag property is the String value
+    "Generator".
+
+    This property has the attributes { [[Writable]]: false, [[Enumerable]]:
+    false, [[Configurable]]: true }.
 es6id: 25.3.1.5
 includes: [propertyHelper.js]
+features: [Symbol.toStringTag]
 ---*/
 
 var GeneratorPrototype = Object.getPrototypeOf(
