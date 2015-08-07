@@ -6,11 +6,6 @@ es5id: 15.4.4.14-7-2
 description: >
     Array.prototype.indexOf returns correct index when 'fromIndex' is
     length of array - 1
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        return [1, 2, 3].indexOf(3, 2) === 2;
-    }
-runTestCase(testcase);
+assert.sameValue([1, 2, 3].indexOf(3, 2), 2, '[1, 2, 3].indexOf(3, 2)');

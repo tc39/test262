@@ -4,11 +4,6 @@
 /*---
 es5id: 15.4.3.2-1-12
 description: Array.isArray applied to Error object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        return !Array.isArray(new SyntaxError());
-    }
-runTestCase(testcase);
+assert.sameValue(Array.isArray(new SyntaxError()), false, 'Array.isArray(new SyntaxError())');

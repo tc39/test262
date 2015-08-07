@@ -4,11 +4,6 @@
 /*---
 es5id: 15.4.3.2-1-4
 description: Array.isArray applied to Number object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        return !Array.isArray(new Number(-3));
-    }
-runTestCase(testcase);
+assert.sameValue(Array.isArray(new Number(-3)), false, 'Array.isArray(new Number(-3))');

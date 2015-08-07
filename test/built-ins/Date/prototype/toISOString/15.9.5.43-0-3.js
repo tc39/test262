@@ -4,10 +4,6 @@
 /*---
 es5id: 15.9.5.43-0-3
 description: Date.prototype.toISOString must exist as a function
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        return typeof (Date.prototype.toISOString) === "function";
-    }
-runTestCase(testcase);
+assert.sameValue(typeof (Date.prototype.toISOString), "function", 'typeof (Date.prototype.toISOString)');

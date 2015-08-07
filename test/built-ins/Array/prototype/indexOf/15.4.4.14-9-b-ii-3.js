@@ -6,11 +6,6 @@ es5id: 15.4.4.14-9-b-ii-3
 description: >
     Array.prototype.indexOf - both type of array element and type of
     search element are null
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        return [null].indexOf(null) === 0;
-    }
-runTestCase(testcase);
+assert.sameValue([null].indexOf(null), 0, '[null].indexOf(null)');

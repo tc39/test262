@@ -4,10 +4,6 @@
 /*---
 es5id: 15.8.2.12-1
 description: Math.min({}) is NaN
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-    return isNaN(Math.min({}));
-}
-runTestCase(testcase);
+assert(isNaN(Math.min({})), 'isNaN(Math.min({})) !== true');

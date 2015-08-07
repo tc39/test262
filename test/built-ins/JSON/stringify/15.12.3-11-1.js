@@ -4,10 +4,6 @@
 /*---
 es5id: 15.12.3-11-1
 description: JSON.stringify(undefined) returns undefined
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  return JSON.stringify(undefined) === undefined;
-  }
-runTestCase(testcase);
+assert.sameValue(JSON.stringify(undefined), undefined, 'JSON.stringify(undefined)');

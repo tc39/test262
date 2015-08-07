@@ -6,10 +6,6 @@ es5id: 15.12.3-11-15
 description: >
     Applying JSON.stringify with a replacer function to a function
     returns the replacer value.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  return JSON.stringify(function() {}, function(k,v) {return 99}) === '99';
-  }
-runTestCase(testcase);
+assert.sameValue(JSON.stringify(function() {}, function(k,v) {return 99}), '99', 'JSON.stringify(function() {}, function(k,v) {return 99})');

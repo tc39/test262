@@ -7,11 +7,6 @@ description: >
     Array.prototype.lastIndexOf - both array element and search
     element are strings, and they have exactly the same sequence of
     characters
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        return ["abc", "ab", "bca", ""].lastIndexOf("abc") === 0;
-    }
-runTestCase(testcase);
+assert.sameValue(["abc", "ab", "bca", ""].lastIndexOf("abc"), 0, '["abc", "ab", "bca", ""].lastIndexOf("abc")');

@@ -6,10 +6,6 @@ es5id: 15.9.5.43-0-2
 description: >
     Date.prototype.toISOString must exist as a function taking 0
     parameters
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        return Date.prototype.toISOString.length === 0;
-    }
-runTestCase(testcase);
+assert.sameValue(Date.prototype.toISOString.length, 0, 'Date.prototype.toISOString.length');

@@ -7,10 +7,8 @@ description: >
     Array.prototype.reduceRight returns initialValue if 'length' is 0
     and initialValue is present (subclassed Array, length overridden
     with [])
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   foo.prototype = new Array(1, 2, 3);
   function foo() {}
   var f = new foo();
@@ -32,10 +30,4 @@ function testcase() {
   // or if its one element is not a number, the array converts to NaN.
 
   function cb(){}
-  try {
-    if(f.reduceRight(cb,1) === 1)
-      return true;
-  }
-  catch (e) {  }  
- }
-runTestCase(testcase);
+assert.sameValue(f.reduceRight(cb,1), 1, 'f.reduceRight(cb,1)');

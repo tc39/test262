@@ -4,10 +4,6 @@
 /*---
 es5id: 15.12.3-11-3
 description: A JSON.stringify correctly works on top level string values.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  return JSON.stringify("a string") === '"a string"';
-  }
-runTestCase(testcase);
+assert.sameValue(JSON.stringify("a string"), '"a string"', 'JSON.stringify("a string")');

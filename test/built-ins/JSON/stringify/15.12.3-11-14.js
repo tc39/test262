@@ -4,10 +4,6 @@
 /*---
 es5id: 15.12.3-11-14
 description: Applying JSON.stringify to a  function returns undefined.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  return JSON.stringify(function() {}) === undefined;
-  }
-runTestCase(testcase);
+assert.sameValue(JSON.stringify(function() {}), undefined, 'JSON.stringify(function() {})');

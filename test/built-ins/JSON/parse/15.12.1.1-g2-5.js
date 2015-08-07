@@ -6,10 +6,6 @@ es5id: 15.12.1.1-g2-5
 description: >
     A JSONStrings can contain no JSONStringCharacters (Empty
     JSONStrings)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  return JSON.parse('""')===""; 
-  }
-runTestCase(testcase);
+assert.sameValue(JSON.parse('""'), "", 'JSON.parse(\'""\')');

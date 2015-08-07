@@ -4,11 +4,6 @@
 /*---
 es5id: 15.4.4.15-1-7
 description: Array.prototype.lastIndexOf applied to string primitive
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        return Array.prototype.lastIndexOf.call("abc", "c") === 2;
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.call("abc", "c"), 2, 'Array.prototype.lastIndexOf.call("abc", "c")');

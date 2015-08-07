@@ -4,10 +4,6 @@
 /*---
 es5id: 15.12.3-11-6
 description: JSON.stringify correctly works on top level null values.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  return JSON.stringify(null) === 'null';
-  }
-runTestCase(testcase);
+assert.sameValue(JSON.stringify(null), 'null', 'JSON.stringify(null)');

@@ -6,11 +6,6 @@ es5id: 15.4.4.14-9-b-ii-10
 description: >
     Array.prototype.indexOf - both array element and search element
     are Boolean type, and they have same value
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        return [false, true].indexOf(true) === 1;
-    }
-runTestCase(testcase);
+assert.sameValue([false, true].indexOf(true), 1, '[false, true].indexOf(true)');

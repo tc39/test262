@@ -6,11 +6,6 @@ es5id: 15.4.4.15-8-b-ii-7
 description: >
     Array.prototype.lastIndexOf - array element is -0 and search
     element is +0
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        return [-0].lastIndexOf(+0) === 0;
-    }
-runTestCase(testcase);
+assert.sameValue([-0].lastIndexOf(+0), 0, '[-0].lastIndexOf(+0)');

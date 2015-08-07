@@ -4,11 +4,6 @@
 /*---
 es5id: 15.4.3.2-1-8
 description: Array.isArray applied to the Math object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        return !Array.isArray(Math);
-    }
-runTestCase(testcase);
+assert.sameValue(Array.isArray(Math), false, 'Array.isArray(Math)');

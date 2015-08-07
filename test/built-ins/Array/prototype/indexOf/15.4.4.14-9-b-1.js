@@ -4,11 +4,6 @@
 /*---
 es5id: 15.4.4.14-9-b-1
 description: Array.prototype.indexOf - non-existent property wouldn't be called
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        return [0, , 2].indexOf(undefined) === -1;
-    }
-runTestCase(testcase);
+assert.sameValue([0, , 2].indexOf(undefined), -1, '[0, , 2].indexOf(undefined)');
