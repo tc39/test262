@@ -6,10 +6,7 @@ es5id: 15.2.3.7-3-1
 description: >
     Object.defineProperties - enumerable own data property of
     'Properties' is defined in 'O'
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};      
         var props = {};
@@ -20,6 +17,4 @@ function testcase() {
 
         Object.defineProperties(obj, props);
 
-        return obj.hasOwnProperty("prop");
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("prop"), 'obj.hasOwnProperty("prop") !== true');

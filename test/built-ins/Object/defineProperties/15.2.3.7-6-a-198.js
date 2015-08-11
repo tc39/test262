@@ -9,10 +9,8 @@ description: >
     [[Enumerable]] of 'P' property in 'Attributes' is set as false
     value if [[Enumerable]] is absent in data descriptor 'desc'
     (15.4.5.1 step 4.c)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var arr = [];
         var isOwnProperty = false;
         var canEnumerable = false;
@@ -31,6 +29,7 @@ function testcase() {
                 canEnumerable = true;
             }
         }
-        return isOwnProperty && !canEnumerable && arr[0] === 1001;
-    }
-runTestCase(testcase);
+
+assert(isOwnProperty, 'isOwnProperty !== true');
+assert.sameValue(canEnumerable, false, 'canEnumerable');
+assert.sameValue(arr[0], 1001, 'arr[0]');

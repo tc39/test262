@@ -6,12 +6,9 @@ es5id: 15.2.3.7-5-b-188
 description: >
     Object.defineProperties - value of 'writable' property of
     'descObj' is the global object (8.10.5 step 6.b)
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperties(obj, {
@@ -22,6 +19,4 @@ function testcase() {
 
         obj.property = "isWritable";
 
-        return obj.property === "isWritable";
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "isWritable", 'obj.property');

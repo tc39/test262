@@ -6,10 +6,8 @@ es5id: 15.2.3.7-5-b-119
 description: >
     Object.defineProperties - 'value' property of 'descObj' is
     inherited accessor property (8.10.5 step 5.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var proto = {};
@@ -29,7 +27,4 @@ function testcase() {
             property: descObj
         });
 
-        return obj.property === "inheritedAccessorProperty";
-
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "inheritedAccessorProperty", 'obj.property');

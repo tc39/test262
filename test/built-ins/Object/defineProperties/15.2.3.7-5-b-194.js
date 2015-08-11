@@ -6,10 +6,8 @@ es5id: 15.2.3.7-5-b-194
 description: >
     Object.defineProperties - 'get' property of 'descObj' is inherited
     data property (8.10.5 step 7.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var getter = function () {
@@ -29,6 +27,4 @@ function testcase() {
             property: descObj
         });
 
-        return obj.property === "inheritedDataProperty";
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "inheritedDataProperty", 'obj.property');

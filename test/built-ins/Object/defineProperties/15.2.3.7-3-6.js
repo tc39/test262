@@ -6,10 +6,7 @@ es5id: 15.2.3.7-3-6
 description: >
     Object.defineProperties - enumerable inherited accessor property
     of 'Properties' is not defined in 'O'
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         var proto = {};
@@ -27,6 +24,4 @@ function testcase() {
 
         Object.defineProperties(obj, child);
 
-        return !obj.hasOwnProperty("prop");
-    }
-runTestCase(testcase);
+assert.sameValue(obj.hasOwnProperty("prop"), false, 'obj.hasOwnProperty("prop")');

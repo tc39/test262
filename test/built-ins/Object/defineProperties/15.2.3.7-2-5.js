@@ -6,14 +6,9 @@ es5id: 15.2.3.7-2-5
 description: >
     Object.defineProperties - argument 'Properties' is any interesting
     number
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = { "123": 100 };
         var obj1 = Object.defineProperties(obj, -12);
-        return obj === obj1;
 
-    }
-runTestCase(testcase);
+assert.sameValue(obj, obj1, 'obj');

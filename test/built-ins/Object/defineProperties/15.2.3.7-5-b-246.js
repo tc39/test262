@@ -7,10 +7,7 @@ description: >
     Object.defineProperties - 'descObj' is a RegExp object which
     implements its own [[Get]] method to get 'set' property (8.10.5
     step 8.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var data = "data";
         var descObj = new RegExp();
@@ -24,6 +21,6 @@ function testcase() {
         var obj = {};
         Object.defineProperties(obj, descObj);
         obj.prop = "regExpData";
-        return obj.hasOwnProperty("prop") && data === "regExpData";
-    }
-runTestCase(testcase);
+
+assert(obj.hasOwnProperty("prop"), 'obj.hasOwnProperty("prop") !== true');
+assert.sameValue(data, "regExpData", 'data');

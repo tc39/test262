@@ -7,10 +7,8 @@ description: >
     Object.defineProperties - 'P' doesn't exist in 'O', test [[Set]]
     of 'P' is set as undefined value if absent in accessor descriptor
     'desc' (8.12.9 step 4.b.i)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var getFunc = function () {
             return 10; 
@@ -25,7 +23,6 @@ function testcase() {
         });
 
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
-        return obj.hasOwnProperty("prop") && typeof (desc.set) === "undefined";
 
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("prop"), 'obj.hasOwnProperty("prop") !== true');
+assert.sameValue(typeof (desc.set), "undefined", 'typeof (desc.set)');

@@ -7,10 +7,8 @@ description: >
     Object.defineProperties - 'descObj' is a String object which
     implements its own [[Get]] method to get 'value' property (8.10.5
     step 5.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var str = new String("abc");
@@ -21,6 +19,4 @@ function testcase() {
             property: str
         });
 
-        return obj.property === "String";
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "String", 'obj.property');

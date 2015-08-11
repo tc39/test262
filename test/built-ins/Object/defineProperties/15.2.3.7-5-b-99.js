@@ -6,10 +6,8 @@ es5id: 15.2.3.7-5-b-99
 description: >
     Object.defineProperties - value of 'configurable' property of
     'descObj' is String object (8.10.5 step 4.b)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperties(obj, {
@@ -22,6 +20,5 @@ function testcase() {
 
         delete obj.property;
 
-        return !obj.hasOwnProperty("property") && hadOwnProperty;
-    }
-runTestCase(testcase);
+assert.sameValue(obj.hasOwnProperty("property"), false, 'obj.hasOwnProperty("property")');
+assert(hadOwnProperty, 'hadOwnProperty !== true');

@@ -7,10 +7,7 @@ description: >
     Object.defineProperties - 'P' is own data property that overrides
     enumerable inherited data property of 'Properties' is defined in
     'O'
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
 
@@ -36,6 +33,5 @@ function testcase() {
 
         Object.defineProperties(obj, child);
 
-        return obj.hasOwnProperty("prop") && obj.prop === 12;
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("prop"), 'obj.hasOwnProperty("prop") !== true');
+assert.sameValue(obj.prop, 12, 'obj.prop');

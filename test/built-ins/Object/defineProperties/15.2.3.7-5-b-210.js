@@ -7,10 +7,8 @@ description: >
     Object.defineProperties - 'descObj' is a Date object which
     implements its own [[Get]] method to get 'get' property (8.10.5
     step 7.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var descObj = new Date();
@@ -23,6 +21,4 @@ function testcase() {
             property: descObj
         });
 
-        return obj.property === "Date";
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "Date", 'obj.property');

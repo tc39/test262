@@ -6,10 +6,8 @@ es5id: 15.2.3.7-5-b-223
 description: >
     Object.defineProperties - value of 'get' property of 'descObj' is
     a function (8.10.5 step 7.b)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var getter = function () {
@@ -22,6 +20,4 @@ function testcase() {
             }
         });
 
-        return obj.property === 100;
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, 100, 'obj.property');

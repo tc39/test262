@@ -7,10 +7,8 @@ description: >
     Object.defineProperties - 'value' property of 'descObj' is own
     accessor property that overrides an inherited accessor property
     (8.10.5 step 5.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var proto = {};
@@ -36,7 +34,4 @@ function testcase() {
             property: descObj
         });
 
-        return obj.property === "ownAccessorProperty";
-
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "ownAccessorProperty", 'obj.property');

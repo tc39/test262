@@ -7,10 +7,8 @@ description: >
     Object.defineProperties - 'descObj' is a Number object which
     implements its own [[Get]] method to get 'value' property (8.10.5
     step 5.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var descObj = new Number(-9);
@@ -21,6 +19,4 @@ function testcase() {
             property: descObj
         });
 
-        return obj.property === "Number";
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "Number", 'obj.property');

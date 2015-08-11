@@ -4,10 +4,7 @@
 /*---
 es5id: 15.2.3.7-2-10
 description: Object.defineProperties - argument 'Properties' is an Array object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         var props = [];
@@ -22,6 +19,5 @@ function testcase() {
         });
 
         Object.defineProperties(obj, props);
-        return result;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

@@ -7,10 +7,7 @@ description: >
     Object.defineProperties - 'descObj' is a String object which
     implements its own [[Get]] method to get 'enumerable' property
     (8.10.5 step 3.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         var descObj = new String();
@@ -25,6 +22,5 @@ function testcase() {
                 accessed = true;
             }
         }
-        return accessed;
-    }
-runTestCase(testcase);
+
+assert(accessed, 'accessed !== true');

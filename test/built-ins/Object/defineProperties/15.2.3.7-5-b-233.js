@@ -6,10 +6,8 @@ es5id: 15.2.3.7-5-b-233
 description: >
     Object.defineProperties - 'set' property of 'descObj' is inherited
     accessor property (8.10.5 step 8.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var data = "data";
         var setFun = function (value) {
             data = value;
@@ -32,7 +30,5 @@ function testcase() {
         });
         obj.prop = "overrideData";
 
-        return obj.hasOwnProperty("prop") && data === "overrideData";
-
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("prop"), 'obj.hasOwnProperty("prop") !== true');
+assert.sameValue(data, "overrideData", 'data');

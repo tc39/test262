@@ -7,10 +7,8 @@ description: >
     Object.defineProperties - 'P' doesn't exist in 'O', test 'P' is
     defined as data property when 'desc' is generic descriptor (8.12.9
     step 4.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperties(obj, {
@@ -21,10 +19,13 @@ function testcase() {
         });
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return desc.hasOwnProperty("value") && typeof desc.value === "undefined" &&
-            desc.hasOwnProperty("writable") && desc.writable === false &&
-            desc.hasOwnProperty("configurable") && desc.configurable === true &&
-            desc.hasOwnProperty("enumerable") && desc.enumerable === true &&
-            !desc.hasOwnProperty("get") && !desc.hasOwnProperty("set");
-    }
-runTestCase(testcase);
+assert(desc.hasOwnProperty("value"), 'desc.hasOwnProperty("value") !== true');
+assert.sameValue(typeof desc.value, "undefined", 'typeof desc.value');
+assert(desc.hasOwnProperty("writable"), 'desc.hasOwnProperty("writable") !== true');
+assert.sameValue(desc.writable, false, 'desc.writable');
+assert(desc.hasOwnProperty("configurable"), 'desc.hasOwnProperty("configurable") !== true');
+assert.sameValue(desc.configurable, true, 'desc.configurable');
+assert(desc.hasOwnProperty("enumerable"), 'desc.hasOwnProperty("enumerable") !== true');
+assert.sameValue(desc.enumerable, true, 'desc.enumerable');
+assert.sameValue(desc.hasOwnProperty("get"), false, 'desc.hasOwnProperty("get")');
+assert.sameValue(desc.hasOwnProperty("set"), false, 'desc.hasOwnProperty("set")');

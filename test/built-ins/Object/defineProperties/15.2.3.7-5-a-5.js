@@ -6,10 +6,7 @@ es5id: 15.2.3.7-5-a-5
 description: >
     Object.defineProperties - enumerable own accessor property of
     'Properties' without a get function is defined in 'O'
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
 
@@ -25,6 +22,5 @@ function testcase() {
 
         Object.defineProperties(obj, props);
 
-        return obj.hasOwnProperty("prop") && typeof obj.prop === "undefined";
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("prop"), 'obj.hasOwnProperty("prop") !== true');
+assert.sameValue(typeof obj.prop, "undefined", 'typeof obj.prop');

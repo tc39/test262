@@ -7,10 +7,7 @@ description: >
     Object.defineProperties - 'descObj' is the Arguments object which
     implements its own [[Get]] method to get 'enumerable' property
     (8.10.5 step 3.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         var arg;
@@ -30,6 +27,5 @@ function testcase() {
                 accessed = true;
             }
         }
-        return accessed;
-    }
-runTestCase(testcase);
+
+assert(accessed, 'accessed !== true');

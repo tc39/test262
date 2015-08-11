@@ -7,10 +7,7 @@ description: >
     Object.defineProperties - 'O' is an Array, 'name' is the length
     property of 'O', test the [[Value]] field of 'desc' is boundary
     value 2^32 - 2 (15.4.5.1 step 3.c)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [];
 
@@ -20,6 +17,4 @@ function testcase() {
             }
         });
 
-        return arr.length === 4294967294;
-    }
-runTestCase(testcase);
+assert.sameValue(arr.length, 4294967294, 'arr.length');

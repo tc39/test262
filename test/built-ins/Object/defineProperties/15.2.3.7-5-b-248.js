@@ -7,10 +7,7 @@ description: >
     Object.defineProperties - 'descObj' is an Error object which
     implements its own [[Get]] method to get 'set' property (8.10.5
     step 8.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var data = "data";
         var descObj = new Error("test");
@@ -28,6 +25,6 @@ function testcase() {
         var obj = {};
         Object.defineProperties(obj, descObj);
         obj.prop = "errorData";
-        return obj.hasOwnProperty("prop") && data === "errorData";
-    }
-runTestCase(testcase);
+
+assert(obj.hasOwnProperty("prop"), 'obj.hasOwnProperty("prop") !== true');
+assert.sameValue(data, "errorData", 'data');

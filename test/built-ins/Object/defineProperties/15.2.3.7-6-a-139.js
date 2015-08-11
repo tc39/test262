@@ -7,10 +7,7 @@ description: >
     Object.defineProperties - 'O' is an Array, 'name' is the length
     property of 'O', test the [[Value]] field of 'desc' is a string
     containing an hex number (15.4.5.1 step 3.c)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [];
 
@@ -19,6 +16,5 @@ function testcase() {
                 value: "0x00B"
             }
         });
-        return arr.length === 0x00B;
-    }
-runTestCase(testcase);
+
+assert.sameValue(arr.length, 0x00B, 'arr.length');

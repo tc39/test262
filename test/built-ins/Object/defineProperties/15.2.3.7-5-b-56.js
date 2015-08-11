@@ -6,12 +6,8 @@ es5id: 15.2.3.7-5-b-56
 description: >
     Object.defineProperties - value of 'enumerable' property of
     'descObj' is the global object (8.10.5 step 3.b)
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         var accessed = false;
@@ -26,6 +22,5 @@ function testcase() {
                 accessed = true;
             }
         }
-        return accessed;
-    }
-runTestCase(testcase);
+
+assert(accessed, 'accessed !== true');

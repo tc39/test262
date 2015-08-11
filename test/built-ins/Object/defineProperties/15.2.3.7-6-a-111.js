@@ -4,10 +4,7 @@
 /*---
 es5id: 15.2.3.7-6-a-111
 description: Object.defineProperties - each properties are in list order
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
 
@@ -39,7 +36,7 @@ function testcase() {
         };
 
         Object.defineProperties(obj, properties);
-        return (obj["a"] === 100 && obj["b"] === 20 && obj["c"] === 200);
 
-    }
-runTestCase(testcase);
+assert.sameValue(obj["a"], 100, 'obj["a"]');
+assert.sameValue(obj["b"], 20, 'obj["b"]');
+assert.sameValue(obj["c"], 200, 'obj["c"]');

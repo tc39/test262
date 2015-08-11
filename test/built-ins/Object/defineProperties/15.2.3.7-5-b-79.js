@@ -7,10 +7,7 @@ description: >
     Object.defineProperties - 'descObj' is a RegExp object which
     implements its own [[Get]] method to get 'configurable' property
     (8.10.5 step 4.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
 
@@ -25,6 +22,5 @@ function testcase() {
         delete obj.prop;
         var result2 = obj.hasOwnProperty("prop");
 
-        return result1 === true && result2 === false;
-    }
-runTestCase(testcase);
+assert.sameValue(result1, true, 'result1');
+assert.sameValue(result2, false, 'result2');
