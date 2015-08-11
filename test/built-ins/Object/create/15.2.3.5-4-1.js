@@ -9,23 +9,17 @@ es5id: 15.2.3.5-4-1
 description: >
     Object.create sets the prototype of the passed-in object and adds
     new properties
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
     function base() {}
     var b = new base();
     var prop = new Object();
     var d = Object.create(b,{ "x": {value: true,writable: false},
                               "y": {value: "str",writable: false} });
 
-    if (Object.getPrototypeOf(d) === b &&
-        b.isPrototypeOf(d) === true &&
-        d.x === true &&
-        d.y === "str" &&
-        b.x === undefined &&
-        b.y === undefined) {
-      return true;
-    }
- }
-runTestCase(testcase);
+assert.sameValue(Object.getPrototypeOf(d), b, 'Object.getPrototypeOf(d)');
+assert.sameValue(b.isPrototypeOf(d), true, 'b.isPrototypeOf(d)');
+assert.sameValue(d.x, true, 'd.x');
+assert.sameValue(d.y, "str", 'd.y');
+assert.sameValue(b.x, undefined, 'b.x');
+assert.sameValue(b.y, undefined, 'b.y');

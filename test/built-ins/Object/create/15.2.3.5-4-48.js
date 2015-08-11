@@ -6,10 +6,7 @@ es5id: 15.2.3.5-4-48
 description: >
     Object.create  - 'enumerable' property of one property in
     'Properties' is own data property (8.10.5 step 3.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -24,6 +21,5 @@ function testcase() {
                 accessed = true;
             }
         }
-        return accessed;
-    }
-runTestCase(testcase);
+
+assert(accessed, 'accessed !== true');

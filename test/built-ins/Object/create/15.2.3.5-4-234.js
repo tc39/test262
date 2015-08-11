@@ -6,10 +6,7 @@ es5id: 15.2.3.5-4-234
 description: >
     Object.create - 'get' property of one property in 'Properties' is
     an inherited data property (8.10.5 step 7.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var proto = {
             get: function () {
@@ -26,6 +23,4 @@ function testcase() {
             prop: descObj
         });
 
-        return newObj.prop === "inheritedDataProperty";
-    }
-runTestCase(testcase);
+assert.sameValue(newObj.prop, "inheritedDataProperty", 'newObj.prop');

@@ -7,10 +7,8 @@ description: >
     Object.create - [[Get]] is set as undefined if it is absent in
     accessor descriptor of one property in 'Properties' (8.12.9 step
     4.b)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var newObj = Object.create({}, {
             prop: {
                 set: function () { },
@@ -18,6 +16,6 @@ function testcase() {
                 configurable: true
             }
         });
-        return newObj.hasOwnProperty("prop") && newObj.prop === undefined;
-    }
-runTestCase(testcase);
+
+assert(newObj.hasOwnProperty("prop"), 'newObj.hasOwnProperty("prop") !== true');
+assert.sameValue(newObj.prop, undefined, 'newObj.prop');

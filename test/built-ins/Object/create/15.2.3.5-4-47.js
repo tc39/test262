@@ -6,10 +6,7 @@ es5id: 15.2.3.5-4-47
 description: >
     Object.create  - 'enumerable' property of one property in
     'Properties' is not present (8.10.5 step 3)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -21,7 +18,5 @@ function testcase() {
                 accessed = true;
             }
         }
-        return !accessed;
 
-    }
-runTestCase(testcase);
+assert.sameValue(accessed, false, 'accessed');

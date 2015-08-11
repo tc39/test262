@@ -7,10 +7,8 @@ description: >
     Object.create - one property in 'Properties' is an Arguments
     object which implements its own [[Get]] method to access the 'set'
     property (8.10.5 step 8.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var argObj = (function () { return arguments; })();
 
         var data = "data";
@@ -27,6 +25,5 @@ function testcase() {
 
         newobj.prop = "overrideData";
 
-        return hasProperty && data === "overrideData";
-    }
-runTestCase(testcase);
+assert(hasProperty, 'hasProperty !== true');
+assert.sameValue(data, "overrideData", 'data');

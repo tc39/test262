@@ -7,10 +7,7 @@ description: >
     Object.create - one property in 'Properties' is an Arguments
     object which implements its own [[Get]] method to access the
     'value' property (8.10.5 step 5.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var argObj = (function () { return arguments; })();
 
@@ -20,6 +17,4 @@ function testcase() {
             prop: argObj
         });
 
-        return newObj.prop === "ArgValue";
-    }
-runTestCase(testcase);
+assert.sameValue(newObj.prop, "ArgValue", 'newObj.prop');

@@ -7,10 +7,8 @@ description: >
     Object.create - one property in 'Properties' is a Number object
     that uses Object's [[Get]] method to access the 'get' property
     (8.10.5 step 7.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var numObj = new Number(5);
 
         numObj.get = function () {
@@ -21,6 +19,4 @@ function testcase() {
             prop: numObj 
         });
 
-        return newObj.prop === "VerifyNumberObject";
-    }
-runTestCase(testcase);
+assert.sameValue(newObj.prop, "VerifyNumberObject", 'newObj.prop');

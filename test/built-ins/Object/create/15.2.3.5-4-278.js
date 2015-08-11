@@ -7,10 +7,8 @@ description: >
     Object.create - 'set' property of one property in 'Properties' is
     an inherited accessor property without a get function (8.10.5 step
     8.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var proto = {};
         Object.defineProperty(proto, "set", {
             set: function () { }
@@ -26,6 +24,5 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(newObj, "prop");
 
-        return newObj.hasOwnProperty("prop") && typeof desc.set === "undefined";
-    }
-runTestCase(testcase);
+assert(newObj.hasOwnProperty("prop"), 'newObj.hasOwnProperty("prop") !== true');
+assert.sameValue(typeof desc.set, "undefined", 'typeof desc.set');

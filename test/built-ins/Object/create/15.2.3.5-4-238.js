@@ -6,10 +6,7 @@ es5id: 15.2.3.5-4-238
 description: >
     Object.create - 'get' property of one property in 'Properties' is
     an inherited accessor property (8.10.5 step 7.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var proto = {};
 
@@ -29,6 +26,4 @@ function testcase() {
             prop: descObj 
         });
 
-        return newObj.prop === "inheritedAccessorProperty";
-    }
-runTestCase(testcase);
+assert.sameValue(newObj.prop, "inheritedAccessorProperty", 'newObj.prop');

@@ -6,10 +6,7 @@ es5id: 15.2.3.5-4-12
 description: >
     Object.create - argument 'Properties' is a RegExp object (15.2.3.7
     step 2)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var props = new RegExp();
         var result = false;
@@ -22,6 +19,6 @@ function testcase() {
             enumerable: true
         });
         var newObj = Object.create({}, props);
-        return result && newObj.hasOwnProperty("prop");
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');
+assert(newObj.hasOwnProperty("prop"), 'newObj.hasOwnProperty("prop") !== true');

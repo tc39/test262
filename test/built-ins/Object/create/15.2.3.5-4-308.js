@@ -6,10 +6,8 @@ es5id: 15.2.3.5-4-308
 description: >
     Object.create - [[Enumerable]] is set as false if it is absent in
     data descriptor of one property in 'Properties' (8.12.9 step 4.a.i)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var isEnumerable = false;
 
         var newObj = Object.create({}, {
@@ -27,6 +25,6 @@ function testcase() {
                 isEnumerable = true;
             }
         }
-        return hasProperty && !isEnumerable;
-    }
-runTestCase(testcase);
+
+assert(hasProperty, 'hasProperty !== true');
+assert.sameValue(isEnumerable, false, 'isEnumerable');

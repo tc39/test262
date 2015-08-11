@@ -7,10 +7,7 @@ description: >
     Object.create - one property in 'Properties' is an Array object
     that uses Object's [[Get]] method to access the 'writable'
     property (8.10.5 step 6.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var array = [1, 2, 3];
 
@@ -26,6 +23,5 @@ function testcase() {
 
         var afterWrite = (newObj.prop === "isWritable");
 
-        return beforeWrite === true && afterWrite === true;
-    }
-runTestCase(testcase);
+assert.sameValue(beforeWrite, true, 'beforeWrite');
+assert.sameValue(afterWrite, true, 'afterWrite');

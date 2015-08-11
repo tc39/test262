@@ -7,17 +7,11 @@ info: >
     This can be checked using isPrototypeOf, or getPrototypeOf.
 es5id: 15.2.3.5-3-1
 description: Object.create sets the prototype of the passed-in object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
     function base() {}
     var b = new base();
     var d = Object.create(b);
 
-    if (Object.getPrototypeOf(d) === b &&
-        b.isPrototypeOf(d) === true) {
-      return true;
-    }
- }
-runTestCase(testcase);
+assert.sameValue(Object.getPrototypeOf(d), b, 'Object.getPrototypeOf(d)');
+assert.sameValue(b.isPrototypeOf(d), true, 'b.isPrototypeOf(d)');

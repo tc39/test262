@@ -7,10 +7,7 @@ description: >
     Object.create - 'Properties' is a String object that uses Object's
     [[Get]] method to access own enumerable property (15.2.3.7 step
     5.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var props = new String();
         props.prop = {
@@ -19,6 +16,4 @@ function testcase() {
         };
         var newObj = Object.create({}, props);
 
-        return newObj.hasOwnProperty("prop");
-    }
-runTestCase(testcase);
+assert(newObj.hasOwnProperty("prop"), 'newObj.hasOwnProperty("prop") !== true');

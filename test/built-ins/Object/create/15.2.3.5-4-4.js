@@ -6,10 +6,7 @@ es5id: 15.2.3.5-4-4
 description: >
     Object.create - argument 'Properties' is an object (15.2.3.7 step
     2).
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var props = {};
         var result = false;
@@ -22,6 +19,5 @@ function testcase() {
             enumerable: true
         });
         Object.create({}, props);
-        return result;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

@@ -7,10 +7,7 @@ description: >
     Object.create - 'Properties' is an Error object that uses Object's
     [[Get]] method to access own enumerable property (15.2.3.7 step
     5.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var props = new Error("test");
 
@@ -23,6 +20,5 @@ function testcase() {
             enumerable: true
         };
         var newObj = Object.create({}, props);
-        return newObj.hasOwnProperty("prop15_2_3_5_4_37");
-    }
-runTestCase(testcase);
+
+assert(newObj.hasOwnProperty("prop15_2_3_5_4_37"), 'newObj.hasOwnProperty("prop15_2_3_5_4_37") !== true');

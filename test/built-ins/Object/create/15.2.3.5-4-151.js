@@ -7,10 +7,7 @@ description: >
     Object.create - 'configurable' property of one property in
     'Properties' is new Boolean(false) which is treated as the value
     true (8.10.5 step 4.b)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var newObj = Object.create({}, {
             prop: {
@@ -24,6 +21,5 @@ function testcase() {
 
         var afterDeleted = newObj.hasOwnProperty("prop");
 
-        return beforeDeleted === true && afterDeleted === false;
-    }
-runTestCase(testcase);
+assert.sameValue(beforeDeleted, true, 'beforeDeleted');
+assert.sameValue(afterDeleted, false, 'afterDeleted');

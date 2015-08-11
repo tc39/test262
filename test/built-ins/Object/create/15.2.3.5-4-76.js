@@ -6,10 +6,7 @@ es5id: 15.2.3.5-4-76
 description: >
     Object.create - 'enumerable' property of one property in
     'Properties' is 0 (8.10.5 step 3.b)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -23,6 +20,6 @@ function testcase() {
                 accessed = true;
             }
         }
-        return !accessed && newObj.hasOwnProperty("prop");
-    }
-runTestCase(testcase);
+
+assert.sameValue(accessed, false, 'accessed');
+assert(newObj.hasOwnProperty("prop"), 'newObj.hasOwnProperty("prop") !== true');

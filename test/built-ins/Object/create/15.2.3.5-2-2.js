@@ -4,12 +4,8 @@
 /*---
 es5id: 15.2.3.5-2-2
 description: Object.create - returned object is an instance of Object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
         var newObj = Object.create({});
-        return newObj instanceof Object;
-    }
-runTestCase(testcase);
+
+assert(newObj instanceof Object, 'newObj instanceof Object !== true');

@@ -7,10 +7,8 @@ description: >
     Object.create - [[Enumerable]] is set as false if it is absent in
     accessor descriptor of one property in 'Properties' (8.12.9 step
     4.b)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var isEnumerable = false;
         var newObj = Object.create({}, {
             prop: {
@@ -25,6 +23,6 @@ function testcase() {
                 isEnumerable = true;
             }
         }
-        return hasProperty && !isEnumerable;
-    }
-runTestCase(testcase);
+
+assert(hasProperty, 'hasProperty !== true');
+assert.sameValue(isEnumerable, false, 'isEnumerable');

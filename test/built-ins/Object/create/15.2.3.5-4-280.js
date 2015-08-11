@@ -7,10 +7,8 @@ description: >
     Object.create - one property in 'Properties' is an Array object
     that uses Object's [[Get]] method to access the 'set' property
     (8.10.5 step 8.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var arrObj = [];
         var data = "data";
         arrObj.set = function (value) {
@@ -25,6 +23,5 @@ function testcase() {
 
         newObj.prop = "overrideData";
 
-        return hasProperty && data === "overrideData";
-    }
-runTestCase(testcase);
+assert(hasProperty, 'hasProperty !== true');
+assert.sameValue(data, "overrideData", 'data');

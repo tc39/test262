@@ -6,10 +6,7 @@ es5id: 15.2.3.5-4-181
 description: >
     Object.create - 'writable' property of one property in
     'Properties' is an inherited data property (8.10.5 step 6.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var proto = {
             writable: true
@@ -30,6 +27,5 @@ function testcase() {
 
         var afterWrite = (newObj.prop === "isWritable");
 
-        return beforeWrite === true && afterWrite === true;
-    }
-runTestCase(testcase);
+assert.sameValue(beforeWrite, true, 'beforeWrite');
+assert.sameValue(afterWrite, true, 'afterWrite');

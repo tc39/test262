@@ -7,10 +7,7 @@ description: >
     Object.create - 'enumerable' property of one property in
     'Properties' is own accessor property without a get function
     (8.10.5 step 3.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var descObj = {};
@@ -26,6 +23,5 @@ function testcase() {
                 accessed = true;
             }
         }
-        return !accessed;
-    }
-runTestCase(testcase);
+
+assert.sameValue(accessed, false, 'accessed');

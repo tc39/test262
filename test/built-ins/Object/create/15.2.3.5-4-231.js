@@ -6,10 +6,7 @@ es5id: 15.2.3.5-4-231
 description: >
     Object.create - 'get'  property of one property in 'Properties' is
     present (8.10.5 step 7)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var newObj = Object.create({}, {
             prop: {
@@ -18,6 +15,5 @@ function testcase() {
                 }
             }
         });
-        return newObj.prop === "present";
-    }
-runTestCase(testcase);
+
+assert.sameValue(newObj.prop, "present", 'newObj.prop');

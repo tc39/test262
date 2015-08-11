@@ -7,17 +7,11 @@ info: >
     This can be checked using isPrototypeOf, or getPrototypeOf.
 es5id: 15.2.3.5-2-1
 description: Object.create creates new Object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
     function base() {}
     var b = new base();
     var prop = new Object();
     var d = Object.create(b);
 
-    if (typeof d === 'object') {
-      return true;
-    }
- }
-runTestCase(testcase);
+assert.sameValue(typeof d, 'object', 'typeof d');

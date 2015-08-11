@@ -6,10 +6,7 @@ es5id: 15.2.3.5-4-154
 description: >
     Object.create - 'value' property of one property in 'Properties'
     is own data property (8.10.5 step 5.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var newObj = Object.create({}, {
             prop: {
@@ -17,6 +14,4 @@ function testcase() {
             }
         });
 
-        return newObj.prop === "ownDataProperty";
-    }
-runTestCase(testcase);
+assert.sameValue(newObj.prop, "ownDataProperty", 'newObj.prop');

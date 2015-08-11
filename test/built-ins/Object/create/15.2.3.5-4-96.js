@@ -6,13 +6,9 @@ es5id: 15.2.3.5-4-96
 description: >
     Object.create - 'enumerable' property of one property in
     'Properties' is the global object (8.10.5 step 3.b)
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
 
-function testcase() {
-        
         var accessed = false;
 
         var newObj = Object.create({}, {
@@ -25,6 +21,5 @@ function testcase() {
                 accessed = true;
             }
         }
-        return accessed;
-    }
-runTestCase(testcase);
+
+assert(accessed, 'accessed !== true');

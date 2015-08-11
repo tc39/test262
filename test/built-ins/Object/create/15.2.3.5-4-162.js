@@ -6,10 +6,7 @@ es5id: 15.2.3.5-4-162
 description: >
     Object.create - 'value' property of one property in 'Properties'
     is own accessor property without a get function (8.10.5 step 5.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var descObj = {};
 
@@ -21,6 +18,5 @@ function testcase() {
             prop: descObj
         });
 
-        return newObj.hasOwnProperty("prop") && typeof (newObj.prop) === "undefined";
-    }
-runTestCase(testcase);
+assert(newObj.hasOwnProperty("prop"), 'newObj.hasOwnProperty("prop") !== true');
+assert.sameValue(typeof (newObj.prop), "undefined", 'typeof (newObj.prop)');

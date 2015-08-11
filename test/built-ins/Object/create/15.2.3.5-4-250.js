@@ -7,10 +7,8 @@ description: >
     Object.create - one property in 'Properties' is a RegExp object
     that uses Object's [[Get]] method to access the 'get' property
     (8.10.5 step 7.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var regObj = new RegExp();
 
         regObj.get = function () {
@@ -21,6 +19,4 @@ function testcase() {
             prop: regObj
         });
 
-        return newObj.prop === "VerifyRegExpObject";
-    }
-runTestCase(testcase);
+assert.sameValue(newObj.prop, "VerifyRegExpObject", 'newObj.prop');

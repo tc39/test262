@@ -7,10 +7,7 @@ description: >
     Object.create - one property in 'Properties' is a Function object
     which implements its own [[Get]] method to access the 'enumerable'
     property (8.10.5 step 3.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var descObj = function () { };
@@ -25,6 +22,5 @@ function testcase() {
                 accessed = true;
             }
         }
-        return accessed;
-    }
-runTestCase(testcase);
+
+assert(accessed, 'accessed !== true');
