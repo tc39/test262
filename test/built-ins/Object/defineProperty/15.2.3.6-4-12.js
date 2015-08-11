@@ -10,10 +10,8 @@ es5id: 15.2.3.6-4-12
 description: >
     Object.defineProperty throws TypeError when changing
     non-configurable data properties to accessor properties
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var o = {};
 
   // create a data valued property; all other attributes default to false.
@@ -27,20 +25,12 @@ function testcase() {
   var getter = function () { return 1; }
 
   var desc = { get: getter };
-  try {
+assert.throws(TypeError, function() {
     Object.defineProperty(o, "foo", desc);
-  }
-  catch (e) {
-    if (e instanceof TypeError) {
+});
       // the property should remain a data valued property.
       var d2 = Object.getOwnPropertyDescriptor(o, "foo");
-      if (d2.value === 101 &&
-          d2.writable === false &&
-          d2.enumerable === false &&
-          d2.configurable === false) {
-        return true;
-      }
-    }
-  }
- }
-runTestCase(testcase);
+assert.sameValue(d2.value, 101, 'd2.value');
+assert.sameValue(d2.writable, false, 'd2.writable');
+assert.sameValue(d2.enumerable, false, 'd2.enumerable');
+assert.sameValue(d2.configurable, false, 'd2.configurable');

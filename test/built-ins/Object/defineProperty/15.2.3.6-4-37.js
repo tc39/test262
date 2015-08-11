@@ -7,25 +7,18 @@ description: >
     Object.defineProperty - 'O' is a Number object that uses Object's
     [[GetOwnProperty]] method to access the 'name' property (8.12.9
     step 1)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = new Number(-2);
 
         Object.defineProperty(obj, "foo", {
             value: 12,
             configurable: false
         });
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperty(obj, "foo", {
                 value: 11,
                 configurable: true
             });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && obj.foo === 12;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(obj.foo, 12, 'obj.foo');

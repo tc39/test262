@@ -6,23 +6,16 @@ es5id: 15.2.3.7-6-a-25
 description: >
     Object.defineProperties - 'P' doesn't exist in 'O', test TypeError
     is thrown when 'O' is not extensible (8.12.9 step 3)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         Object.preventExtensions(obj);
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperties(obj, {
                 prop: {
                     value: 12,
                     configurable: true
                 }
             });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && !obj.hasOwnProperty("prop");
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(obj.hasOwnProperty("prop"), false, 'obj.hasOwnProperty("prop")');

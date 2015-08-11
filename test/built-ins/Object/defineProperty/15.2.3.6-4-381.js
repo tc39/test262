@@ -7,10 +7,8 @@ description: >
     ES5 Attributes - fail to update the data property ([[Writable]] is
     false, [[Enumerable]] is false, [[Configurable]] is false) to an
     accessor property
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
@@ -25,14 +23,13 @@ function testcase() {
         function getFunc() {
             return 20;
         }
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperty(obj, "prop", {
                 get: getFunc
             });
-            return false;
-        } catch (e) {
+});
             var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
-            return propertyDefineCorrect && desc1.value === 2010 && obj.prop === 2010 && typeof desc2.get === "undefined" && e instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+assert(propertyDefineCorrect, 'propertyDefineCorrect !== true');
+assert.sameValue(desc1.value, 2010, 'desc1.value');
+assert.sameValue(obj.prop, 2010, 'obj.prop');
+assert.sameValue(typeof desc2.get, "undefined", 'typeof desc2.get');

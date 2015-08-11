@@ -12,22 +12,12 @@ es5id: 15.2.3.6-4-1
 description: >
     Object.defineProperty throws TypeError when adding properties to
     non-extensible objects(8.12.9 step 3)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var o = {};
   Object.preventExtensions(o);
-
-  try {
+assert.throws(TypeError, function() {
     var desc = { value: 1 };
     Object.defineProperty(o, "foo", desc);
-  }
-  catch (e) {
-      if (e instanceof TypeError &&
-          (o.hasOwnProperty("foo") === false)) {
-      return true;
-    }
-  }
- }
-runTestCase(testcase);
+});
+assert.sameValue(o.hasOwnProperty("foo"), false, 'o.hasOwnProperty("foo")');

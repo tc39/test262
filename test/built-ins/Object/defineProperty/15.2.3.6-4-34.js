@@ -7,25 +7,18 @@ description: >
     Object.defineProperty - 'O' is an Array object that uses Object's
     [[GetOwnProperty]] method to access the 'name' property (8.12.9
     step 1)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var arrObj = [];
 
         Object.defineProperty(arrObj, "foo", {
             value: 12,
             configurable: false
         });
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperty(arrObj, "foo", {
                 value: 11,
                 configurable: true
             });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && arrObj.foo === 12;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(arrObj.foo, 12, 'arrObj.foo');

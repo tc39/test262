@@ -8,10 +8,7 @@ description: >
     property of 'O', the [[Value]] field of 'desc' is less than value
     of  the length property, test the length property is decreased by
     1 (15.4.5.1 step 3.l.i)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [0, 1, 2];
 
@@ -22,17 +19,14 @@ function testcase() {
         Object.defineProperty(arr, "2", {
             configurable: true
         });
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperties(arr, {
                 length: {
                     value: 1
                 }
             });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && arr.length === 2 &&
-                !arr.hasOwnProperty("2") && arr[0] === 0 && arr[1] === 1;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(arr.length, 2, 'arr.length');
+assert.sameValue(arr.hasOwnProperty("2"), false, 'arr.hasOwnProperty("2")');
+assert.sameValue(arr[0], 0, 'arr[0]');
+assert.sameValue(arr[1], 1, 'arr[1]');

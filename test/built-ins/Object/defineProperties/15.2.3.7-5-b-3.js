@@ -4,20 +4,12 @@
 /*---
 es5id: 15.2.3.7-5-b-3
 description: Object.defineProperties - 'descObj' is a boolean (8.10.5 step 1)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
         var obj = {};
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperties(obj, {
                 prop: true
             });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && !obj.hasOwnProperty("prop");
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(obj.hasOwnProperty("prop"), false, 'obj.hasOwnProperty("prop")');

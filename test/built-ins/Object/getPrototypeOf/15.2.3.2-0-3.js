@@ -4,18 +4,9 @@
 /*---
 es5id: 15.2.3.2-0-3
 description: Object.getPrototypeOf must take 1 parameter
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  try
-  {
+
+assert.throws(TypeError, function() {
     Object.getPrototypeOf();
-  }
-  catch(e)
-  {
-    if(e instanceof TypeError)
-      return true;
-  }
- }
-runTestCase(testcase);
+});

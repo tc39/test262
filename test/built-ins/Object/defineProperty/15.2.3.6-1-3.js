@@ -6,15 +6,8 @@ es5id: 15.2.3.6-1-3
 description: >
     Object.defineProperty applied to number primitive throws a
     TypeError
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperty(5, "foo", {});
-            return false;
-        } catch (e) {
-            return e instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+});

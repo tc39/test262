@@ -8,10 +8,8 @@ description: >
     accessor property ([[Get]] is a Function, [[Set]] is a Function,
     [[Enumerable]] is true, [[Configurable]] is false) to different
     value
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var getFunc = function () {
@@ -36,14 +34,11 @@ function testcase() {
                 result1 = true;
             }
         }
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperty(obj, "prop", {
                 enumerable: false
             });
-
-            return false;
-        } catch (e) {
+});
             var result2 = false;
             var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
             for (var p2 in obj) {
@@ -52,7 +47,7 @@ function testcase() {
                 }
             }
 
-            return result1 && result2 && desc1.enumerable === true && desc2.enumerable === true && e instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+assert(result1, 'result1 !== true');
+assert(result2, 'result2 !== true');
+assert.sameValue(desc1.enumerable, true, 'desc1.enumerable');
+assert.sameValue(desc2.enumerable, true, 'desc2.enumerable');

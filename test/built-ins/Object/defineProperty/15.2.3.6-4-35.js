@@ -7,25 +7,18 @@ description: >
     Object.defineProperty - 'O' is a String object which implements
     its own [[GetOwnProperty]] method to access the 'name' property
     (8.12.9 step 1)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var str = new String("abc");
 
         Object.defineProperty(str, "foo", {
             value: 12,
             configurable: false
         });
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperty(str, "foo", {
                 value: 11,
                 configurable: true
             });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && str.foo === 12;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(str.foo, 12, 'str.foo');

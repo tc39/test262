@@ -6,17 +6,8 @@ es5id: 15.2.3.7-1
 description: >
     Object.defineProperties throws TypeError if type of first param is
     not Object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-    try {
+assert.throws(TypeError, function() {
       Object.defineProperties(0, {});
-    }
-    catch (e) {
-      if (e instanceof TypeError) {
-        return true;
-      }
-    }
- }
-runTestCase(testcase);
+});

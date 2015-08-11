@@ -8,16 +8,12 @@ description: >
     property of 'O', test TypeError is thrown when the [[Value]] field
     of 'desc' is an Object that both toString and valueOf wouldn't
     return primitive value (15.4.5.1 step 3.c)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arrObj = [];
         var toStringAccessed = false;
         var valueOfAccessed = false;
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperty(arrObj, "length", {
                 value: {
                     toString: function () {
@@ -31,10 +27,6 @@ function testcase() {
                     }
                 }
             });
-            return false;
-
-        } catch (e) {
-            return e instanceof TypeError && toStringAccessed && valueOfAccessed;
-        }
-    }
-runTestCase(testcase);
+});
+assert(toStringAccessed, 'toStringAccessed !== true');
+assert(valueOfAccessed, 'valueOfAccessed !== true');

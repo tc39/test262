@@ -4,16 +4,8 @@
 /*---
 es5id: 15.2.3.7-1-1
 description: Object.defineProperties throws TypeError if 'O' is undefined
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperties(undefined, {});
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
-runTestCase(testcase);
+});

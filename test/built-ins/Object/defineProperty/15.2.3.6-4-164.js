@@ -9,24 +9,15 @@ description: >
     of  the length property, test TypeError is thrown when the
     [[Writable]] attribute of the length property is false (15.4.5.1
     step 3.g)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arrObj = [0, 1];
 
         Object.defineProperty(arrObj, "length", {
             writable: false
         });
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperty(arrObj, "length", {
                 value: 0
             });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+});

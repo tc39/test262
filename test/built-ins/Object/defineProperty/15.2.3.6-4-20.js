@@ -11,10 +11,8 @@ description: >
     Object.defineProperty throws TypeError when changing getter (if
     present) of non-configurable accessor properties(8.12.9 step
     11.a.ii)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var o = {};
 
   // create an accessor property; all other attributes default to false.
@@ -26,20 +24,11 @@ function testcase() {
   // now, trying to change the setter should fail, since [[Configurable]]
   // on the original property will be false.
   var desc = { get: undefined };
-
-  try {
+assert.throws(TypeError, function() {
     Object.defineProperty(o, "foo", desc);
-  }
-  catch (e) {
-    if (e instanceof TypeError) {
+});
       var d2 = Object.getOwnPropertyDescriptor(o, "foo");
 
-      if (d2.get === getter &&
-	      d2.configurable === false &&
-          d2.enumerable === false) {
-        return true;
-      }
-    }
-  }
- }
-runTestCase(testcase);
+assert.sameValue(d2.get, getter, 'd2.get');
+assert.sameValue(d2.configurable, false, 'd2.configurable');
+assert.sameValue(d2.enumerable, false, 'd2.enumerable');

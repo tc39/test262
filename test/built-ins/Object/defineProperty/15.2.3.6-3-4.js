@@ -10,24 +10,14 @@ es5id: 15.2.3.6-3-4
 description: >
     Object.defineProperty throws TypeError if desc has 'set' and
     'writable' present(8.10.5 step 9.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
     var o = {};
     
     // dummy getter
     var setter = function () { }
     var desc = { set: setter, writable: false };
-    
-    try {
+assert.throws(TypeError, function() {
       Object.defineProperty(o, "foo", desc);
-    }
-    catch (e) {
-      if (e instanceof TypeError &&
-          (o.hasOwnProperty("foo") === false)) {
-        return true;
-      }
-    }
- }
-runTestCase(testcase);
+});
+assert.sameValue(o.hasOwnProperty("foo"), false, 'o.hasOwnProperty("foo")');

@@ -7,10 +7,7 @@ description: >
     Object.create - ensure that if an exception is thrown it occurs in
     the correct order relative to prior and subsequent side-effects
     (15.2.3.7 step 5.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var newObj = {};
         var props = {};
@@ -34,12 +31,8 @@ function testcase() {
             },
             enumerable: true
         });
-
-        try {
+assert.throws(RangeError, function() {
             newObj = Object.create({}, props);
-            return false;
-        } catch (e) {
-            return (e instanceof RangeError) && !newObj.hasOwnProperty("prop1") && i === 2;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(newObj.hasOwnProperty("prop1"), false, 'newObj.hasOwnProperty("prop1")');
+assert.sameValue(i, 2, 'i');
