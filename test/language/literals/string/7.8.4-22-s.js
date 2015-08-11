@@ -5,18 +5,9 @@
 es5id: 7.8.4-22-s
 description: An OctalEscapeSequence is not allowed in a String under Strict Mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase()
-{
-  try 
-  {
+
+assert.throws(SyntaxError, function() {
     eval('var x = "\\777";');
-    return false;
-  }
-  catch (e) {
-    return (e instanceof SyntaxError);
-  }
-}
-runTestCase(testcase);
+});

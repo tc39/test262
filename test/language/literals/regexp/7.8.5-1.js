@@ -7,15 +7,9 @@ description: >
     Literal RegExp Objects - SyntaxError exception is thrown if the
     RegularExpressionNonTerminator position of a
     RegularExpressionBackslashSequence is a LineTerminator.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("var regExp = /\\\rn/;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

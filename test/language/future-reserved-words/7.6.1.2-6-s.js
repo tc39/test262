@@ -7,15 +7,9 @@ description: >
     Strict Mode - SyntaxError is thrown when FutureReservedWord
     'interface' occurs in strict mode code
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("var interface = 1;")
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-}
-runTestCase(testcase);
+});

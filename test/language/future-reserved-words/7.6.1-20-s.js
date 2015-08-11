@@ -7,15 +7,9 @@ description: >
     7.6 - SyntaxError expected: reserved words used as Identifier
     Names in UTF8: \u0070\u0075\u0062\u006c\u0069\u0063 (public)
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("var \u0070\u0075\u0062\u006c\u0069\u0063 = 123;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-}
-runTestCase(testcase);
+});

@@ -6,15 +6,9 @@ es5id: 7.3-7
 description: >
     7.3 - ES5 recognizes the character <LS> (\u2028) as terminating
     regular expression literals
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("var regExp =  /[\u2028]/");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});
