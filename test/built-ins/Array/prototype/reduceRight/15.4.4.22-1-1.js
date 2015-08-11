@@ -4,15 +4,9 @@
 /*---
 es5id: 15.4.4.22-1-1
 description: Array.prototype.reduceRight applied to undefined throws a TypeError
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
-            Array.prototype.reduceRight.call(undefined); 
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
-runTestCase(testcase);
+
+assert.throws(TypeError, function() {
+            Array.prototype.reduceRight.call(undefined);
+});

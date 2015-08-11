@@ -4,19 +4,9 @@
 /*---
 es5id: 15.4.4.19-4-3
 description: Array.prototype.map throws TypeError if callbackfn is null
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
   var arr = new Array(10);
-  try {
-    arr.map(null);    
-  }
-  catch(e) {
-    if(e instanceof TypeError)
-      return true;  
-  }
-
- }
-runTestCase(testcase);
+assert.throws(TypeError, function() {
+    arr.map(null);
+});

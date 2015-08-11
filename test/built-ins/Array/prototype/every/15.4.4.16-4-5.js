@@ -4,19 +4,9 @@
 /*---
 es5id: 15.4.4.16-4-5
 description: Array.prototype.every throws TypeError if callbackfn is number
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
   var arr = new Array(10);
-  try {
-    arr.every(5);    
-  }
-  catch(e) {
-    if(e instanceof TypeError)
-      return true;  
-  }
-
- }
-runTestCase(testcase);
+assert.throws(TypeError, function() {
+    arr.every(5);
+});

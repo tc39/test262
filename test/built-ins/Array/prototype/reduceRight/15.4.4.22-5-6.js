@@ -7,10 +7,8 @@ description: >
     Array.prototype.reduceRight throws TypeError if 'length' is 0
     (subclassed Array, length overridden with obj with valueOf), no
     initVal
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   foo.prototype = new Array(1, 2, 3);
   function foo() {}
   var f = new foo();
@@ -19,13 +17,6 @@ function testcase() {
   f.length = o;
   
   function cb(){}
-  try {
+assert.throws(TypeError, function() {
     f.reduceRight(cb);
-  }
-  catch (e) {
-    if (e instanceof TypeError) {
-      return true;
-    }
-  }
- }
-runTestCase(testcase);
+});

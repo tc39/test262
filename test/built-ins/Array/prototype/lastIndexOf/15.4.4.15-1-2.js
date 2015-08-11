@@ -4,18 +4,9 @@
 /*---
 es5id: 15.4.4.15-1-2
 description: Array.prototype.lastIndexOf applied to null throws a TypeError
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 
-        try {
+assert.throws(TypeError, function() {
             Array.prototype.lastIndexOf.call(null);
-            return false;
-        } catch (e) {
-            if (e instanceof TypeError) {
-                return true;
-            }
-        }
-    }
-runTestCase(testcase);
+});

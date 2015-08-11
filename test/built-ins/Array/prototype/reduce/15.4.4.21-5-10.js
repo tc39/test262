@@ -6,10 +6,7 @@ es5id: 15.4.4.21-5-10
 description: >
     Array.prototype.reduce - if exception occurs, it occurs after any
     side-effects that might be produced by step 2
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(prevVal, curVal, idx, obj) {
             return (curVal > 10);
@@ -26,12 +23,7 @@ function testcase() {
             },
             configurable: true
         });
-
-        try {
+assert.throws(TypeError, function() {
             Array.prototype.reduce.call(obj, callbackfn);
-            return false;
-        } catch (ex) {
-            return (ex instanceof TypeError) && accessed;
-        }
-    }
-runTestCase(testcase);
+});
+assert(accessed, 'accessed !== true');

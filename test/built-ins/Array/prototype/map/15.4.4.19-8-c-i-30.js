@@ -6,10 +6,7 @@ es5id: 15.4.4.19-8-c-i-30
 description: >
     Array.prototype.map - unhandled exceptions happened in getter
     terminate iteration on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = { 0: 11, 5: 10, 10: 8, length: 20 };
         var accessed = false;
@@ -34,12 +31,7 @@ function testcase() {
             },
             configurable: true
         });
-
-        try {
+assert.throws(RangeError, function() {
             Array.prototype.map.call(obj, callbackfn);
-            return false;
-        } catch (ex) {
-            return (ex instanceof RangeError) && !accessed;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(accessed, false, 'accessed');

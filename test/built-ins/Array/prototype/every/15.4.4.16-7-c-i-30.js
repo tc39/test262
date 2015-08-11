@@ -6,10 +6,7 @@ es5id: 15.4.4.16-7-c-i-30
 description: >
     Array.prototype.every - unnhandled exceptions happened in getter
     terminate iteration on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         function callbackfn(val, idx, obj) {
@@ -26,12 +23,7 @@ function testcase() {
             },
             configurable: true
         });
-
-        try {
+assert.throws(RangeError, function() {
             Array.prototype.every.call(obj, callbackfn);
-            return false;
-        } catch (ex) {
-            return (ex instanceof RangeError) && !accessed;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(accessed, false, 'accessed');

@@ -6,19 +6,9 @@ es5id: 15.4.4.22-4-7
 description: >
     Array.prototype.reduceRight throws TypeError if callbackfn is
     Object without [[Call]] internal method
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
   var arr = new Array(10);
-  try {
-    arr.reduceRight(new Object());    
-  }
-  catch(e) {
-    if(e instanceof TypeError)
-      return true;  
-  }
-
- }
-runTestCase(testcase);
+assert.throws(TypeError, function() {
+    arr.reduceRight(new Object());
+});

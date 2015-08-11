@@ -4,16 +4,9 @@
 /*---
 es5id: 15.4.4.14-1-1
 description: Array.prototype.indexOf applied to undefined throws a TypeError
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  try {
+
+assert.throws(TypeError, function() {
      Array.prototype.indexOf.call(undefined);
-     return false;
-  }
-  catch (e) {
-     return e instanceof TypeError;
-  }
- }
-runTestCase(testcase);
+});

@@ -4,15 +4,9 @@
 /*---
 es5id: 15.4.4.20-1-2
 description: Array.prototype.filter applied to null throws a TypeError
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(TypeError, function() {
             Array.prototype.filter.call(null);
-            return false;
-        } catch (ex) {
-            return ex instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+});

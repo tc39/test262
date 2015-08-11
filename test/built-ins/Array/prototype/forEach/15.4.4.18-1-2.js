@@ -4,15 +4,9 @@
 /*---
 es5id: 15.4.4.18-1-2
 description: Array.prototype.forEach applied to null
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(TypeError, function() {
             Array.prototype.forEach.call(null); // TypeError is thrown if value is null
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
-runTestCase(testcase);
+});
