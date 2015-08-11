@@ -6,14 +6,9 @@ es5id: 8.12.1-1_33
 description: >
     Properties - [[HasOwnProperty]] (configurable, enumerable own
     setter property)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
     var o = {};
     Object.defineProperty(o, "foo", {set: function() {;}, enumerable:true, configurable:true});
-    return o.hasOwnProperty("foo");
 
-}
-runTestCase(testcase);
+assert(o.hasOwnProperty("foo"), 'o.hasOwnProperty("foo") !== true');

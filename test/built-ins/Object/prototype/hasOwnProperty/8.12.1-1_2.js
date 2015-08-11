@@ -4,13 +4,8 @@
 /*---
 es5id: 8.12.1-1_2
 description: Properties - [[HasOwnProperty]] (old style own property)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
     var o = {foo: 42};
-    return o.hasOwnProperty("foo");
 
-}
-runTestCase(testcase);
+assert(o.hasOwnProperty("foo"), 'o.hasOwnProperty("foo") !== true');

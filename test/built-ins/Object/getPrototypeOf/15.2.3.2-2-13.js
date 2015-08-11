@@ -6,12 +6,6 @@ es5id: 15.2.3.2-2-13
 description: >
     Object.getPrototypeOf returns the [[Prototype]] of its parameter
     (RangeError)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if (Object.getPrototypeOf(RangeError) === Error) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Object.getPrototypeOf(RangeError), Error, 'Object.getPrototypeOf(RangeError)');

@@ -6,15 +6,10 @@ es5id: 8.12.1-1_42
 description: >
     Properties - [[HasOwnProperty]] (non-configurable, non-enumerable
     inherited setter property)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
     var base = {};
     Object.defineProperty(base, "foo", {set: function() {;}});
     var o = Object.create(base);
-    return o.hasOwnProperty("foo")===false;
 
-}
-runTestCase(testcase);
+assert.sameValue(o.hasOwnProperty("foo"), false, 'o.hasOwnProperty("foo")');

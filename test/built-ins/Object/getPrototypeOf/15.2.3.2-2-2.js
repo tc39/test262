@@ -9,10 +9,8 @@ es5id: 15.2.3.2-2-2
 description: >
     Object.getPrototypeOf returns the [[Prototype]] of its parameter
     (custom object)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   function base() {}
 
   function derived() {}
@@ -20,8 +18,5 @@ function testcase() {
 
   var d = new derived();
   var x = Object.getPrototypeOf(d);
-  if (x.isPrototypeOf(d) === true) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(x.isPrototypeOf(d), true, 'x.isPrototypeOf(d)');

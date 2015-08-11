@@ -4,14 +4,9 @@
 /*---
 es5id: 8.12.1-1_23
 description: Properties - [[HasOwnProperty]] (literal inherited getter property)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
     var base = { get foo() { return 42;} };
     var o = Object.create(base);
-    return o.hasOwnProperty("foo")===false;
 
-}
-runTestCase(testcase);
+assert.sameValue(o.hasOwnProperty("foo"), false, 'o.hasOwnProperty("foo")');

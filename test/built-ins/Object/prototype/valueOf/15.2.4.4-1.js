@@ -6,10 +6,6 @@ es5id: 15.2.4.4-1
 description: >
     Object.prototype.valueOf - typeof
     Object.prototype.valueOf.call(true)==="object"
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        return (typeof Object.prototype.valueOf.call(true)) === "object";
-}
-runTestCase(testcase);
+assert.sameValue(typeof Object.prototype.valueOf.call(true), "object", 'typeof Object.prototype.valueOf.call(true)');

@@ -4,13 +4,8 @@
 /*---
 es5id: 8.12.1-1_21
 description: Properties - [[HasOwnProperty]] (literal own setter property)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
     var o = { set foo(x) {;} };
-    return o.hasOwnProperty("foo");
 
-}
-runTestCase(testcase);
+assert(o.hasOwnProperty("foo"), 'o.hasOwnProperty("foo") !== true');

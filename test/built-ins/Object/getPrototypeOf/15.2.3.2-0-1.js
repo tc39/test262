@@ -4,12 +4,6 @@
 /*---
 es5id: 15.2.3.2-0-1
 description: Object.getPrototypeOf must exist as a function
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if (typeof(Object.getPrototypeOf) === "function") {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(typeof(Object.getPrototypeOf), "function", 'typeof(Object.getPrototypeOf)');

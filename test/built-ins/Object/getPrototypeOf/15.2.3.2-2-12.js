@@ -6,12 +6,6 @@ es5id: 15.2.3.2-2-12
 description: >
     Object.getPrototypeOf returns the [[Prototype]] of its parameter
     (EvalError)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if (Object.getPrototypeOf(EvalError) === Error) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Object.getPrototypeOf(EvalError), Error, 'Object.getPrototypeOf(EvalError)');

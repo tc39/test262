@@ -6,14 +6,10 @@ es5id: 15.2.3.2-2-20
 description: >
     Object.getPrototypeOf returns the [[Prototype]] of its parameter
     (Function Object)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = function (a, b) {
             return a + b;
         };
 
-        return Object.getPrototypeOf(obj) === Function.prototype;
-    }
-runTestCase(testcase);
+assert.sameValue(Object.getPrototypeOf(obj), Function.prototype, 'Object.getPrototypeOf(obj)');

@@ -4,11 +4,6 @@
 /*---
 es5id: 15.2.3.2-2-31
 description: Object.getPrototypeOf returns null
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        return (Object.getPrototypeOf(Object.prototype) === null);
-    }
-runTestCase(testcase);
+assert.sameValue(Object.getPrototypeOf(Object.prototype), null, 'Object.getPrototypeOf(Object.prototype)');
