@@ -6,14 +6,10 @@ es5id: 15.2.3.9-2-1
 description: >
     Object.freeze - extensible of 'O' is set as false even if 'O' has
     no own property
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.freeze(obj);
 
-        return !Object.isExtensible(obj);
-    }
-runTestCase(testcase);
+assert.sameValue(Object.isExtensible(obj), false, 'Object.isExtensible(obj)');

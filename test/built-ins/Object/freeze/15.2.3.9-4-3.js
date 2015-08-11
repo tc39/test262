@@ -4,10 +4,7 @@
 /*---
 es5id: 15.2.3.9-4-3
 description: Object.freeze - the extensions of 'O' is prevented already
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
 
@@ -16,6 +13,5 @@ function testcase() {
         Object.preventExtensions(obj);
 
         Object.freeze(obj);
-        return Object.isFrozen(obj);
-    }
-runTestCase(testcase);
+
+assert(Object.isFrozen(obj), 'Object.isFrozen(obj) !== true');

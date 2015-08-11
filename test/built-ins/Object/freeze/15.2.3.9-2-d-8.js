@@ -4,14 +4,10 @@
 /*---
 es5id: 15.2.3.9-2-d-8
 description: Object.freeze - 'O' is an Error object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var errObj = new SyntaxError();
 
         Object.freeze(errObj);
 
-        return Object.isFrozen(errObj);
-    }
-runTestCase(testcase);
+assert(Object.isFrozen(errObj), 'Object.isFrozen(errObj) !== true');

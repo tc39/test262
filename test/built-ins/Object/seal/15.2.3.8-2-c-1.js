@@ -4,16 +4,11 @@
 /*---
 es5id: 15.2.3.8-2-c-1
 description: Object.seal - 'O' is a Function object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var fun = function () { };
         var preCheck = Object.isExtensible(fun);
         Object.seal(fun);
 
-        return preCheck && Object.isSealed(fun);
-
-    }
-runTestCase(testcase);
+assert(preCheck, 'preCheck !== true');
+assert(Object.isSealed(fun), 'Object.isSealed(fun) !== true');

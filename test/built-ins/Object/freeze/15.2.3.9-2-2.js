@@ -4,10 +4,8 @@
 /*---
 es5id: 15.2.3.9-2-2
 description: Object.freeze - inherited data properties are not frozen
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var proto = {};
 
         Object.defineProperty(proto, "Father", {
@@ -25,6 +23,5 @@ function testcase() {
         delete proto.Father;
         var afterDeleted = proto.hasOwnProperty("Father");
 
-        return beforeDeleted && !afterDeleted;
-    }
-runTestCase(testcase);
+assert(beforeDeleted, 'beforeDeleted !== true');
+assert.sameValue(afterDeleted, false, 'afterDeleted');

@@ -4,14 +4,10 @@
 /*---
 es5id: 15.2.3.9-2-d-4
 description: Object.freeze - 'O' is a Boolean object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var boolObj = new Boolean(false);
 
         Object.freeze(boolObj);
 
-        return Object.isFrozen(boolObj);
-    }
-runTestCase(testcase);
+assert(Object.isFrozen(boolObj), 'Object.isFrozen(boolObj) !== true');

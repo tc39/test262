@@ -4,16 +4,11 @@
 /*---
 es5id: 15.2.3.8-2-c-2
 description: Object.seal - 'O' is an Array object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [0, 1];
         var preCheck = Object.isExtensible(arr);
         Object.seal(arr);
 
-        return preCheck && Object.isSealed(arr);
-
-    }
-runTestCase(testcase);
+assert(preCheck, 'preCheck !== true');
+assert(Object.isSealed(arr), 'Object.isSealed(arr) !== true');

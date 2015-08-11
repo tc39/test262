@@ -4,14 +4,10 @@
 /*---
 es5id: 15.2.3.9-2-d-1
 description: Object.freeze - 'O' is a Function object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var funObj = function () { };
 
         Object.freeze(funObj);
 
-        return Object.isFrozen(funObj);
-    }
-runTestCase(testcase);
+assert(Object.isFrozen(funObj), 'Object.isFrozen(funObj) !== true');

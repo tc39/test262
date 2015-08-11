@@ -4,10 +4,7 @@
 /*---
 es5id: 15.2.3.8-4-2
 description: Object.seal - 'O' is frozen already
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
 
@@ -16,6 +13,6 @@ function testcase() {
         Object.freeze(obj);
 
         Object.seal(obj);
-        return preCheck && Object.isSealed(obj);
-    }
-runTestCase(testcase);
+
+assert(preCheck, 'preCheck !== true');
+assert(Object.isSealed(obj), 'Object.isSealed(obj) !== true');

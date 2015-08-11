@@ -6,11 +6,6 @@ es5id: 15.2.3.8-1-3
 description: >
     Object.seal does not throw TypeError if type of first param is a
     boolean primitive
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
     Object.seal(false);
-    return true;
-}
-runTestCase(testcase);

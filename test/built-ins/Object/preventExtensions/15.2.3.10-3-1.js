@@ -6,14 +6,11 @@ es5id: 15.2.3.10-3-1
 description: >
     Object.preventExtensions - Object.isExtensible(arg) returns false
     if arg is the returned object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var preCheck = Object.isExtensible(obj);
         Object.preventExtensions(obj);
 
-        return preCheck && !Object.isExtensible(obj);
-    }
-runTestCase(testcase);
+assert(preCheck, 'preCheck !== true');
+assert.sameValue(Object.isExtensible(obj), false, 'Object.isExtensible(obj)');

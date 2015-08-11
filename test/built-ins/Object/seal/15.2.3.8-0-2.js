@@ -4,12 +4,6 @@
 /*---
 es5id: 15.2.3.8-0-2
 description: Object.seal must exist as a function taking 1 parameter
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if (Object.seal.length === 1) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Object.seal.length, 1, 'Object.seal.length');
