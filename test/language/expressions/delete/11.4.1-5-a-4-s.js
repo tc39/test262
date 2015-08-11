@@ -7,19 +7,11 @@ description: >
     Strict Mode - SyntaxError is thrown when deleting a function
     parameter
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function funObj(x, y, z) {
             eval("delete y;");
         }
-
-        try {
+assert.throws(SyntaxError, function() {
             funObj(1);
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

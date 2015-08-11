@@ -7,11 +7,10 @@ description: >
     Strict Mode - SyntaxError is thrown when an assignment to a
     reserved word or a future reserved word is contained in strict code
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("var obj = {\
                 get _11_1_5_6_2_1() {\
                    public = 42;\
@@ -20,9 +19,4 @@ function testcase() {
             };");
 
             var _11_1_5_6_2_1 = obj._11_1_5_6_2_1;
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

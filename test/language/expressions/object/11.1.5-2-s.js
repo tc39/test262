@@ -8,15 +8,9 @@ description: >
     Identifier in a PropertySetParameterList of a PropertyAssignment
     that is contained in strict code
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("var obj = {set _11_1_5_2_fun(arguments) {} };");
-             return false;
-        } catch (e) {
-            return (e instanceof SyntaxError);
-        }
-    }
-runTestCase(testcase);
+});

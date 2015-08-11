@@ -6,19 +6,14 @@ es5id: 11.2.3-3_2
 description: >
     Call arguments are evaluated before the check is made to see if
     the object is actually callable (FunctionExpression)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
     var fooCalled = false;
     var foo = function (){ fooCalled = true; } 
     
     var o = { }; 
-    try {
+assert.throws(TypeError, function() {
         o.bar( foo() );
         $ERROR("o.bar does not exist!");
-    } catch(e) {
-        return (e instanceof TypeError) && (fooCalled===true);
-    }
-}
-runTestCase(testcase);
+});
+assert.sameValue(fooCalled, true, 'fooCalled');

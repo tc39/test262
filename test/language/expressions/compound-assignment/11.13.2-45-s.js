@@ -9,18 +9,10 @@ description: >
     property of an object whose [[Extensible]] internal property is
     false
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         Object.preventExtensions(obj);
-
-        try {
+assert.throws(TypeError, function() {
             obj.len *= 10;
-            return false;
-        } catch (e) {
-            return e instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+});

@@ -7,17 +7,9 @@ es5id: 11.13.1-1-2
 description: >
     simple assignment throws ReferenceError if LeftHandSide is not a
     reference (string)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  try {
+
+assert.throws(ReferenceError, function() {
     eval("'x' = 42");
-  }
-  catch (e) {
-    if (e instanceof ReferenceError) {
-      return true;
-    }
-  }
- }
-runTestCase(testcase);
+});

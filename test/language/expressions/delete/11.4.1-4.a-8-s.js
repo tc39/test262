@@ -10,19 +10,10 @@ description: >
     delete operator throws TypeError when deleting a non-configurable
     data property in strict mode
 flags: [onlyStrict]
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
 
-function testcase() {
   // NaN (15.1.1.1) has [[Configurable]] set to false.
-  try {
+assert.throws(TypeError, function() {
     delete fnGlobalObject().NaN;
-    return false;
-  }
-  catch (e) {
-    return (e instanceof TypeError);
-  }
- }
-runTestCase(testcase);
+});

@@ -8,15 +8,9 @@ description: >
     LeftHandSideExpression of a Compound Assignment operator(>>=)
     evaluates to an unresolvable reference
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(ReferenceError, function() {
             eval("_11_13_2_7 >>= 1;");
-            return false;
-        } catch (e) {
-            return e instanceof ReferenceError;
-        }
-    }
-runTestCase(testcase);
+});

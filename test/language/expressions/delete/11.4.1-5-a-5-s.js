@@ -7,17 +7,9 @@ description: >
     Strict Mode - SyntaxError is thrown when deleting a variable which
     is a primitive type (boolean)
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var _11_4_1_5 = true;
-
-        try {
+assert.throws(SyntaxError, function() {
             eval("delete _11_4_1_5;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

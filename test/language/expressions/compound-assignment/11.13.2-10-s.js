@@ -6,15 +6,9 @@ es5id: 11.13.2-10-s
 description: >
     ReferenceError is thrown if the LeftHandSideExpression of a Compound
     Assignment operator(^=) evaluates to an unresolvable reference
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(ReferenceError, function() {
             eval("_11_13_2_10 ^= 1;");
-            return false;
-        } catch (e) {
-            return e instanceof ReferenceError;
-        }
-    }
-runTestCase(testcase);
+});

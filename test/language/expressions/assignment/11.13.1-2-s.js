@@ -8,10 +8,8 @@ description: >
     reference to an accessor property with the attribute value
     {[[Set]]:undefined} under strict mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         Object.defineProperty(obj, "prop", {
             get: function () {
@@ -21,12 +19,7 @@ function testcase() {
             enumerable: true,
             configurable: true
         });
-
-        try {
+assert.throws(TypeError, function() {
             obj.prop = 20;
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && obj.prop === 11;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(obj.prop, 11, 'obj.prop');

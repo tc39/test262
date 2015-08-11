@@ -5,16 +5,10 @@
 es5id: 11.4.4-2-1-s
 description: Strict Mode - SyntaxError is thrown for ++eval
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var blah = eval;
-        try {
+assert.throws(SyntaxError, function() {
             eval("++eval;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError && blah === eval;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(blah, eval, 'blah');

@@ -8,16 +8,9 @@ description: >
     the Identifier in a PropertySetParameterList of a
     PropertyAssignment  if its FunctionBody is strict code
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 
-        try {
+assert.throws(SyntaxError, function() {
             eval("var obj = {set _11_1_5_4_fun(arguments) {\"use strict\";}};");
-            return false;
-        } catch (e) {
-            return (e instanceof SyntaxError);
-        }
-    }
-runTestCase(testcase);
+});

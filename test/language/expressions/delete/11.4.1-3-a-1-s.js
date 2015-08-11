@@ -7,16 +7,9 @@ description: >
     Strict Mode - SyntaxError is thrown when deleting an un-resolvable
     reference
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 
-        try {
+assert.throws(SyntaxError, function() {
             eval("delete obj");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

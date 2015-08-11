@@ -5,17 +5,9 @@
 es5id: 11.4.1-5-a-8-s
 description: Strict Mode - SyntaxError is thrown when deleting a function object
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var funObj = function () { };
-
-        try {
+assert.throws(SyntaxError, function() {
             eval("delete funObj;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

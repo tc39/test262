@@ -10,16 +10,9 @@ description: >
     delete operator throws TypeError when deleting a non-configurable
     data property (Math.LN2) in strict mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  try {
+
+assert.throws(TypeError, function() {
     delete Math.LN2;
-    return false;
-  }
-  catch (e) {
-    return (e instanceof TypeError); 
-  }
- }
-runTestCase(testcase);
+});

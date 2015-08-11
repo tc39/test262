@@ -7,16 +7,10 @@ description: >
     Strict Mode - SyntaxError is thrown if the identifier eval appear
     as the LeftHandSideExpression of a Compound Assignment operator(-=)
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var blah = eval;
-        try {
+assert.throws(SyntaxError, function() {
             eval("eval -= 20;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError && blah === eval;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(blah, eval, 'blah');

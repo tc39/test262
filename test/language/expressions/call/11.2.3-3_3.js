@@ -6,19 +6,14 @@ es5id: 11.2.3-3_3
 description: >
     Call arguments are not evaluated before the check is made to see
     if the object is actually callable (undefined member)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
     var fooCalled = false;
     function foo(){ fooCalled = true; } 
     
     var o = { }; 
-    try {
+assert.throws(TypeError, function() {
         o.bar.gar( foo() );
         $ERROR("o.bar does not exist!");
-    } catch(e) {
-        return (e instanceof TypeError) && (fooCalled===false);
-    }
-}
-runTestCase(testcase);
+});
+assert.sameValue(fooCalled, false, 'fooCalled');

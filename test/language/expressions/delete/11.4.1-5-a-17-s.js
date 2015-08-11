@@ -7,16 +7,9 @@ description: >
     Strict Mode - SyntaxError is thrown when deleting a variable of
     type Arguments
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-       try {
-            eval("var argObj = (function (a, b) { delete arguments; }(1, 2));");
 
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+assert.throws(SyntaxError, function() {
+            eval("var argObj = (function (a, b) { delete arguments; }(1, 2));");
+});

@@ -8,10 +8,8 @@ description: >
     Compound Assignment operator(%=) is a reference to a data property
     with the attribute value {[[Writable]]:false}
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         Object.defineProperty(obj, "prop", {
             value: 10,
@@ -19,12 +17,7 @@ function testcase() {
             enumerable: true,
             configurable: true
         });
-
-        try {
+assert.throws(TypeError, function() {
             obj.prop %= 20;
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && obj.prop === 10;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(obj.prop, 10, 'obj.prop');
