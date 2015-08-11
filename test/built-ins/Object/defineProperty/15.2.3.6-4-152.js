@@ -8,21 +8,11 @@ description: >
     property of 'O',  test RangeError is thrown when the [[Value]]
     field of 'desc' is a positive non-integer values (15.4.5.1 step
     3.c)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
         var arrObj = [];
-
-        try {
+assert.throws(RangeError, function() {
             Object.defineProperty(arrObj, "length", {
                 value: 123.5
             });
-
-            return false;
-        } catch (e) {
-            return e instanceof RangeError;
-        }
-    }
-runTestCase(testcase);
+});

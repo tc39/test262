@@ -5,17 +5,11 @@
 es5id: 10.5-1-s
 description: Strict Mode - arguments object is immutable
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             (function fun() {
                 eval("arguments = 10");
             })(30);
-            return false;
-        } catch (e) {
-            return (e instanceof SyntaxError);
-        }
-    }
-runTestCase(testcase);
+});

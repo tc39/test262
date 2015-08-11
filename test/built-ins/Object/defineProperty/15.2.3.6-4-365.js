@@ -7,10 +7,8 @@ description: >
     ES5 Attributes - fail to update [[Enumerable]] attribute of data
     property ([[Writable]] is false, [[Enumerable]] is true,
     [[Configurable]] is false) to different value
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
@@ -21,16 +19,14 @@ function testcase() {
         });
         var propertyDefineCorrect = obj.hasOwnProperty("prop");
         var desc1 = Object.getOwnPropertyDescriptor(obj, "prop");
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperty(obj, "prop", {
                 enumerable: false
             });
-
-            return false;
-        } catch (e) {
+});
             var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-            return propertyDefineCorrect && desc1.enumerable === true && obj.prop === 2010 && desc2.enumerable === true && e instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+assert(propertyDefineCorrect, 'propertyDefineCorrect !== true');
+assert.sameValue(desc1.enumerable, true, 'desc1.enumerable');
+assert.sameValue(obj.prop, 2010, 'obj.prop');
+assert.sameValue(desc2.enumerable, true, 'desc2.enumerable');

@@ -4,15 +4,9 @@
 /*---
 es5id: 15.4.4.21-1-2
 description: Array.prototype.reduce applied to null
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(TypeError, function() {
             Array.prototype.reduce.call(null);
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
-runTestCase(testcase);
+});

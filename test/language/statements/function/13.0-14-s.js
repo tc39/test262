@@ -11,17 +11,10 @@ description: >
     the function body of a Function constructor contains a Strict
     Directive
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 
-        try {
+assert.throws(SyntaxError, function() {
             var _13_0_14_fun = new Function(" ", "'use strict'; eval = 42; ");
             _13_0_14_fun();
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

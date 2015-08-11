@@ -11,17 +11,10 @@ description: >
     the code of this FunctionDeclaration is contained in non-strict
     mode but the call to eval is a direct call in strict mode code
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 
-        try {
+assert.throws(SyntaxError, function() {
             eval("'use strict'; function _13_0_7_fun() {eval = 42;};");
             _13_0_7_fun();
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

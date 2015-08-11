@@ -6,10 +6,7 @@ es5id: 15.4.4.20-9-c-i-31
 description: >
     Array.prototype.filter - unnhandled exceptions happened in getter
     terminate iteration on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         function callbackfn(val, idx, obj) {
@@ -29,12 +26,7 @@ function testcase() {
             },
             configurable: true
         });
-
-        try {
+assert.throws(RangeError, function() {
             arr.filter(callbackfn);
-            return false;
-        } catch (ex) {
-            return (ex instanceof RangeError) && !accessed;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(accessed, false, 'accessed');

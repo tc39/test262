@@ -10,24 +10,14 @@ es5id: 15.2.3.6-3-11
 description: >
     Object.defineProperty throws TypeError if setter is not callable
     but not undefined (Boolean)(8.10.5 step 8.b)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
     var o = {};
     
     // dummy setter
     var setter = true;
     var desc = { set: setter };
-    
-    try {
+assert.throws(TypeError, function() {
       Object.defineProperty(o, "foo", desc);
-    }
-    catch (e) {
-      if (e instanceof TypeError &&
-          (o.hasOwnProperty("foo") === false)) {
-        return true;
-      }
-    }
- }
-runTestCase(testcase);
+});
+assert.sameValue(o.hasOwnProperty("foo"), false, 'o.hasOwnProperty("foo")');

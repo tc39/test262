@@ -7,16 +7,9 @@ description: >
     arguments - a function expr assigning into 'arguments' throws a
     SyntaxError in strict mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  try {
+
+assert.throws(SyntaxError, function() {
     eval('(function () {arguments = 42;})()');
-    return false;
-  }
-  catch (e) {
-    return (e instanceof SyntaxError);
-  }
-}
-runTestCase(testcase);
+});

@@ -7,25 +7,16 @@ description: >
     Object.defineProperties - TypeError is thrown if both 'get'
     property and 'writable' property of 'descObj' are present (8.10.5
     step 9.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var getFun = function () {};
 
         var obj = {};
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperties(obj, {
                 "prop": {
                     writable: true,
                     get: getFun
                 }
             });
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
-runTestCase(testcase);
+});

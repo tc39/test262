@@ -8,19 +8,9 @@ info: >
     step 4 in 11.2.2 should throw a TypeError exception.
 es5id: 15.12-0-2
 description: JSON must not support the [[Construct]] method
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var o = JSON;
-
-  try {
+assert.throws(TypeError, function() {
     var j = new JSON();
-  }
-  catch (e) {
-    if (e instanceof TypeError) {
-      return true;
-    }
-  }
- }
-runTestCase(testcase);
+});

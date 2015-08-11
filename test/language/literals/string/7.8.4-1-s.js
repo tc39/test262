@@ -6,18 +6,9 @@ es5id: 7.8.4-1-s
 description: >
     A directive preceeding an 'use strict' directive may not contain
     an OctalEscapeSequence
-includes: [runTestCase.js]
 ---*/
 
-function testcase()
-{
-  try 
-  {
+
+assert.throws(SyntaxError, function() {
     eval(' "asterisk: \\052" /* octal escape sequences forbidden in strict mode*/ ; "use strict";');
-    return false;
-  }
-  catch (e) {
-    return (e instanceof SyntaxError);
-  }
- }
-runTestCase(testcase);
+});

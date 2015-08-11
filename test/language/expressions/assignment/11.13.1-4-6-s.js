@@ -7,16 +7,9 @@ description: >
     simple assignment throws TypeError if LeftHandSide is a readonly
     property in strict mode (Function.length)
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  try {
+
+assert.throws(TypeError, function() {
     Function.length = 42;
-    return false;
-  }
-  catch (e) {
-    return (e instanceof TypeError);
-  }
- }
-runTestCase(testcase);
+});

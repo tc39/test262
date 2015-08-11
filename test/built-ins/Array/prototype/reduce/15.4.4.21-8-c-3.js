@@ -6,11 +6,8 @@ es5id: 15.4.4.21-8-c-3
 description: >
     Array.prototype.reduce throws TypeError when elements assigned
     values are deleted and initialValue is not present
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   function callbackfn(prevVal, curVal, idx, obj)
   {
   }
@@ -21,12 +18,6 @@ function testcase() {
   delete arr[2];
   delete arr[3];
   delete arr[4];
-  try {
+assert.throws(TypeError, function() {
     arr.reduce(callbackfn);
-  } 
-  catch(e) {
-    if(e instanceof TypeError)
-      return true;  
-  }
- }
-runTestCase(testcase);
+});

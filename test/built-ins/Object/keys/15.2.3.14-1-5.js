@@ -6,17 +6,9 @@ es5id: 15.2.3.14-1-5
 description: >
     Object.keys throws TypeError if type of first param is not Object
     (undefined)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  try {
+
+assert.throws(TypeError, function() {
     Object.keys(undefined);
-  }
-  catch (e) {
-    if (e instanceof TypeError) {
-      return true;
-    }
-  }
- }
-runTestCase(testcase);
+});

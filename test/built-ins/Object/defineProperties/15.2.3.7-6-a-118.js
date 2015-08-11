@@ -8,14 +8,10 @@ description: >
     property of 'O', the [[Value]] field of 'desc' is absent, test
     TypeError is thrown when 'desc' is accessor descriptor (15.4.5.1
     step 3.a.i)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
         var arr = [];
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperties(arr, {
                 length: {
                     get: function () {
@@ -23,10 +19,5 @@ function testcase() {
                     }
                 }
             });
-
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && arr.length === 0;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(arr.length, 0, 'arr.length');

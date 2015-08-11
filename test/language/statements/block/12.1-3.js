@@ -4,15 +4,9 @@
 /*---
 es5id: 12.1-3
 description: "12.1 - block '{ StatementListopt };' is not allowed: try-finally"
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("try{};finally{}");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

@@ -6,10 +6,8 @@ es5id: 15.4.4.21-5-8
 description: >
     Array.prototype.reduce throws TypeError if 'length' is 0
     (subclassed Array, length overridden with []), no initVal
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   foo.prototype = new Array(1, 2, 3);
   function foo() {}
   var f = new foo();
@@ -31,13 +29,6 @@ function testcase() {
   // or if its one element is not a number, the array converts to NaN.
 
   function cb(){}
-  try {
+assert.throws(TypeError, function() {
     f.reduce(cb);
-  }
-  catch (e) {
-    if (e instanceof TypeError) {
-      return true;
-    }
-  }
- }
-runTestCase(testcase);
+});

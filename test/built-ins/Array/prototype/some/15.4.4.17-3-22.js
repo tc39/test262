@@ -7,10 +7,7 @@ description: >
     Array.prototype.some throws TypeError exception when 'length' is
     an object with toString and valueOf methods that don�t return
     primitive values
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var callbackfnAccessed = false;
         var toStringAccessed = false;
@@ -36,12 +33,9 @@ function testcase() {
                 }
             }
         };
-
-        try {
+assert.throws(TypeError, function() {
             Array.prototype.some.call(obj, callbackfn);
-            return false;
-        } catch (ex) {
-            return (ex instanceof TypeError) && toStringAccessed && valueOfAccessed && !callbackfnAccessed;
-        }
-    }
-runTestCase(testcase);
+});
+assert(toStringAccessed, 'toStringAccessed !== true');
+assert(valueOfAccessed, 'valueOfAccessed !== true');
+assert.sameValue(callbackfnAccessed, false, 'callbackfnAccessed');

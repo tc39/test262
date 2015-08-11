@@ -6,10 +6,7 @@ es5id: 15.4.4.18-7-c-i-31
 description: >
     Array.prototype.forEach - unnhandled exceptions happened in getter
     terminate iteration on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -37,12 +34,7 @@ function testcase() {
             },
             configurable: true
         });
-
-        try {
+assert.throws(RangeError, function() {
             arr.forEach(callbackfn);
-            return false;
-        } catch (ex) {
-            return (ex instanceof RangeError) && !accessed;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(accessed, false, 'accessed');

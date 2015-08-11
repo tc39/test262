@@ -6,10 +6,8 @@ es5id: 15.4.4.17-4-15
 description: >
     Array.prototype.some - calling with no callbackfn is the same as
     passing undefined for callbackfn
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { };
         var lengthAccessed = false;
         var loopAccessed = false;
@@ -28,12 +26,8 @@ function testcase() {
             },
             configurable: true
         });
-
-        try {
+assert.throws(TypeError, function() {
             Array.prototype.some.call(obj);
-            return false;
-        } catch (ex) {
-            return (ex instanceof TypeError) && lengthAccessed && !loopAccessed;
-        }
-    }
-runTestCase(testcase);
+});
+assert(lengthAccessed, 'lengthAccessed !== true');
+assert.sameValue(loopAccessed, false, 'loopAccessed');

@@ -6,10 +6,8 @@ es5id: 15.4.4.20-4-15
 description: >
     Array.prototype.filter - calling with no callbackfn is the same as
     passing undefined for callbackfn
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { 10: 10 };
         var lengthAccessed = false;
         var loopAccessed = false;
@@ -27,12 +25,8 @@ function testcase() {
             },
             configurable: true
         });
-
-        try {
+assert.throws(TypeError, function() {
             Array.prototype.filter.call(obj);
-            return false;
-        } catch (ex) {
-            return (ex instanceof TypeError) && lengthAccessed && !loopAccessed;
-        }
-    }
-runTestCase(testcase);
+});
+assert(lengthAccessed, 'lengthAccessed !== true');
+assert.sameValue(loopAccessed, false, 'loopAccessed');

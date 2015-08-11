@@ -6,10 +6,7 @@ es5id: 15.4.4.20-9-c-ii-7
 description: >
     Array.prototype.filter - unhandled exceptions happened in
     callbackfn terminate iteration
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var called = 0;
 
@@ -22,12 +19,7 @@ function testcase() {
         }
 
         var obj = { 0: 11, 4: 10, 10: 8, length: 20 };
-
-        try {
+assert.throws(Error, function() {
             Array.prototype.filter.call(obj, callbackfn);
-            return false;
-        } catch (ex) {
-            return 1 === called && ex instanceof Error;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(called, 1, 'called');

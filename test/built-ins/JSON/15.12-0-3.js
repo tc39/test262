@@ -8,19 +8,9 @@ info: >
     step 5 in 11.2.3 should throw a TypeError exception.
 es5id: 15.12-0-3
 description: JSON must not support the [[Call]] method
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var o = JSON;
-
-  try {
+assert.throws(TypeError, function() {
     var j = JSON();
-  }
-  catch (e) {
-    if (e instanceof TypeError) {
-      return true;
-    }
-  }
- }
-runTestCase(testcase);
+});

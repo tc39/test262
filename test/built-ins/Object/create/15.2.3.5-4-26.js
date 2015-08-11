@@ -6,22 +6,13 @@ es5id: 15.2.3.5-4-26
 description: >
     Object.create - TypeError is thrown when own enumerable accessor
     property of 'Properties' without a get function (15.2.3.7 step 5.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var props = {};
         Object.defineProperty(props, "prop", {
             set: function () { },
             enumerable: true
         });
-        try {
+assert.throws(TypeError, function() {
             Object.create({}, props);
-
-            return false;
-        } catch (ex) {
-            return ex instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+});

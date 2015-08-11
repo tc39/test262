@@ -4,19 +4,9 @@
 /*---
 es5id: 15.4.4.20-4-6
 description: Array.prototype.filter throws TypeError if callbackfn is string
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
   var arr = new Array(10);
-  try {
-    arr.filter("abc");    
-  }
-  catch(e) {
-    if(e instanceof TypeError)
-      return true;  
-  }
-
- }
-runTestCase(testcase);
+assert.throws(TypeError, function() {
+    arr.filter("abc");
+});

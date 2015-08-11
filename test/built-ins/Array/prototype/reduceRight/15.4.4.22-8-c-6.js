@@ -6,10 +6,7 @@ es5id: 15.4.4.22-8-c-6
 description: >
     Array.prototype.reduceRight - side effects produced by step 3 are
     visible when an exception occurs
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
 
@@ -26,12 +23,7 @@ function testcase() {
             },
             configurable: true
         });
-
-        try {
+assert.throws(TypeError, function() {
             Array.prototype.reduceRight.call(obj, function () { });
-            return false;
-        } catch (ex) {
-            return (ex instanceof TypeError) && accessed;
-        }
-    }
-runTestCase(testcase);
+});
+assert(accessed, 'accessed !== true');

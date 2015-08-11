@@ -6,10 +6,7 @@ es5id: 15.4.4.17-7-c-ii-7
 description: >
     Array.prototype.some - unhandled exceptions happened in callbackfn
     terminate iteration
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -24,12 +21,7 @@ function testcase() {
         }
 
         var obj = { 0: 9, 1: 100, 10: 11, length: 20 };
-
-        try {
+assert.throws(Error, function() {
             Array.prototype.some.call(obj, callbackfn);
-            return false;
-        } catch (ex) {
-            return ex instanceof Error && !accessed;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(accessed, false, 'accessed');

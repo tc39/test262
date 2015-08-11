@@ -7,19 +7,12 @@ description: >
     Object.defineProperty - 'O' is an Array, 'name' is an array index
     named property, 'name' property doesn't exist in 'O', test
     TypeError is thrown when 'O' is not extensible (15.4.5.1 step 4.c)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var arrObj = [];
         Object.preventExtensions(arrObj);
-
-        try {
+assert.throws(TypeError, function() {
             var desc = { value: 1 };
             Object.defineProperty(arrObj, "0", desc);
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && (arrObj.hasOwnProperty("0") === false);
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(arrObj.hasOwnProperty("0"), false, 'arrObj.hasOwnProperty("0")');

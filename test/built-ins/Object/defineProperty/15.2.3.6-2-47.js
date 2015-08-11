@@ -7,10 +7,8 @@ description: >
     Object.defineProperty - TypeError exception is thrown  when 'P' is
     an object that neither toString nor valueOf returns a primitive
     value
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var toStringAccessed = false;
         var valueOfAccessed = false;
@@ -25,12 +23,8 @@ function testcase() {
                 return {};
             }
         };
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperty(obj, ownProp, {});
-            return false;
-        } catch (e) {
-            return valueOfAccessed && toStringAccessed && e instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+});
+assert(valueOfAccessed, 'valueOfAccessed !== true');
+assert(toStringAccessed, 'toStringAccessed !== true');

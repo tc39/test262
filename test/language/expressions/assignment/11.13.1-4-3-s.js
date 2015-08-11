@@ -7,18 +7,10 @@ description: >
     simple assignment throws TypeError if LeftHandSide is a readonly
     property in strict mode (Global.Infinity)
 flags: [onlyStrict]
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
 
-function testcase() {
-    try {
+
+assert.throws(TypeError, function() {
       fnGlobalObject().Infinity = 42;
-      return false;
-    }
-    catch (e) {
-      return (e instanceof TypeError);
-    }
- }
-runTestCase(testcase);
+});

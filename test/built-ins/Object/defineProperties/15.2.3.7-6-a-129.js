@@ -7,22 +7,14 @@ description: >
     Object.defineProperties - 'O' is an Array, 'name' is the length
     property of 'O', test the [[Value]] field of 'desc' is negative
     number (15.4.5.1 step 3.c)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
         var arr = [];
-
-        try {
+assert.throws(RangeError, function() {
             Object.defineProperties(arr, {
                 length: {
                     value: -9
                 }
             });
-            return false;
-        } catch (e) {
-            return e instanceof RangeError && arr.length === 0;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(arr.length, 0, 'arr.length');

@@ -11,16 +11,9 @@ description: >
     Strict Mode - SyntaxError is thrown if a function declaration has
     three identical parameters with a strict mode body
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 
-        try {
+assert.throws(SyntaxError, function() {
             eval("var _13_1_34_fun = function (param, param, param) { 'use strict'; };")
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

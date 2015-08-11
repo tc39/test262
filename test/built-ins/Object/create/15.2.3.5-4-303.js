@@ -7,22 +7,14 @@ description: >
     Object.create - TypeError is thrown if both 'get' property and
     'value' property of one property in 'Properties' are present
     (8.10.5 step 9.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 
-        try {
+assert.throws(TypeError, function() {
             Object.create({}, {
                 prop: {
                     get: function () { },
                     value: 100
                 }
             });
-
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
-runTestCase(testcase);
+});

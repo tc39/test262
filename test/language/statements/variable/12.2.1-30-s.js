@@ -5,16 +5,9 @@
 es5id: 12.2.1-30-s
 description: arguments as local var identifier throws SyntaxError in strict mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  try {
+
+assert.throws(SyntaxError, function() {
     eval('function foo() { var a = 42, arguments;}');
-    return false;
-  }
-  catch (e) {
-    return (e instanceof SyntaxError);
-  }
-}
-runTestCase(testcase);
+});

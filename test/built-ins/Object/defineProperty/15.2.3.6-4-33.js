@@ -7,25 +7,18 @@ description: >
     Object.defineProperty - 'O' is a Function object that uses
     Object's [[GetOwnProperty]] method to access the 'name' property
     (8.12.9 step 1)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var fun = function () { };
 
         Object.defineProperty(fun, "foo", {
             value: 12,
             configurable: false
         });
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperty(fun, "foo", {
                 value: 11,
                 configurable: true
             });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && fun.foo === 12;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(fun.foo, 12, 'fun.foo');

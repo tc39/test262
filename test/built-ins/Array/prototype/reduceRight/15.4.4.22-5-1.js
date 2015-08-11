@@ -6,19 +6,9 @@ es5id: 15.4.4.22-5-1
 description: >
     Array.prototype.reduceRight throws TypeError if 'length' is 0
     (empty array), no initVal
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   function cb(){}
-  
-  try {
+assert.throws(TypeError, function() {
     [].reduceRight(cb);
-  }
-  catch (e) {
-    if (e instanceof TypeError) {
-      return true;
-    }
-  }
- }
-runTestCase(testcase);
+});

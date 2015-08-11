@@ -7,18 +7,10 @@ description: >
     Strict Mode - TypeError is thrown if LeftHandSide is a reference
     to a non-existent property of an non-extensible object
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var _8_7_2_5 = {};
         Object.preventExtensions(_8_7_2_5);
-
-        try {
+assert.throws(TypeError, function() {
             _8_7_2_5.b = 11;
-            return false;
-        } catch (e) {
-            return e instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+});

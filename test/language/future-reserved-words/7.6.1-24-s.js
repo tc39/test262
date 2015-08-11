@@ -8,15 +8,9 @@ description: >
     Names in UTF8:
     \u0070\u0072\u006f\u0074\u0065\u0063\u0074\u0065\u0064 (protected)
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("var \u0070\u0072\u006f\u0074\u0065\u0063\u0074\u0065\u0064 = 123;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-}
-runTestCase(testcase);
+});

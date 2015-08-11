@@ -4,19 +4,9 @@
 /*---
 es5id: 15.4.4.21-4-6
 description: Array.prototype.reduce throws TypeError if callbackfn is string
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
   var arr = new Array(10);
-  try {
-    arr.reduce("abc");    
-  }
-  catch(e) {
-    if(e instanceof TypeError)
-      return true;  
-  }
-
- }
-runTestCase(testcase);
+assert.throws(TypeError, function() {
+    arr.reduce("abc");
+});

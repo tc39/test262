@@ -4,16 +4,8 @@
 /*---
 es5id: 15.2.3.7-1-3
 description: Object.defineProperties throws TypeError if 'O' is a boolean
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperties(true, {});
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
-runTestCase(testcase);
+});

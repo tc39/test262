@@ -6,10 +6,8 @@ es5id: 15.2.3.6-4-29
 description: >
     Object.defineProperty - 'name' is own accessor property that
     overrides an inherited accessor property (8.12.9 step 1)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var proto = {};
         Object.defineProperty(proto, "foo", {
             get: function () { },
@@ -23,14 +21,8 @@ function testcase() {
             get: function () { },
             configurable: false
         });
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperty(obj, "foo", {
                 configurable: true
             });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+});

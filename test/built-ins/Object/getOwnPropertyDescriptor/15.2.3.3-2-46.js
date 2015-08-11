@@ -7,10 +7,8 @@ description: >
     Object.getOwnPropertyDescriptor - TypeError exception was thrown
     when 'P' is an object that both toString and valueOf wouldn't
     return primitive value
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { "1": 1 };
         var toStringAccessed = false;
         var valueOfAccessed = false;
@@ -25,12 +23,8 @@ function testcase() {
                 return [1];
             }
         };
-
-        try {
+assert.throws(TypeError, function() {
             Object.getOwnPropertyDescriptor(obj, ownProp);
-            return false;
-        } catch (e) {
-            return toStringAccessed && valueOfAccessed && e instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+});
+assert(toStringAccessed, 'toStringAccessed !== true');
+assert(valueOfAccessed, 'valueOfAccessed !== true');

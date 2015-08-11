@@ -7,16 +7,9 @@ description: >
     eval - a function expr assigning into 'eval' throws a SyntaxError
     in strict mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  try {
+
+assert.throws(SyntaxError, function() {
     eval('(function () { eval = 42; })()');
-    return false;
-  }
-  catch (e) {
-    return (e instanceof SyntaxError);
-  }
- }
-runTestCase(testcase);
+});

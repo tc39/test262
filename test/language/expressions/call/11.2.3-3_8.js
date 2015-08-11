@@ -7,19 +7,12 @@ description: >
     Call arguments are evaluated before the check is made to see if
     the object is actually callable (global object)
 flags: [noStrict]
-includes:
-    - runTestCase.js
 ---*/
 
-function testcase() {
     var fooCalled = false;
     function foo(){ fooCalled = true; } 
-    
-    try {
+assert.throws(TypeError, function() {
         this.bar( foo() );
         $ERROR("this.bar does not exist!");
-    } catch(e) {
-        return (e instanceof TypeError) && (fooCalled===true);
-    }
-}
-runTestCase(testcase);
+});
+assert.sameValue(fooCalled, true, 'fooCalled');

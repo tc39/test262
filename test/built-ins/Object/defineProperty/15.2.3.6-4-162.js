@@ -8,24 +8,15 @@ description: >
     property of 'O', the [[Value]] field of 'desc' is greater than
     value of the length property, test TypeError is thrown when the
     length property is not writable (15.4.5.1 step 3.f.i)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arrObj = [];
 
         Object.defineProperty(arrObj, "length", {
             writable: false
         });
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperty(arrObj, "length", {
                 value: 12
             });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+});

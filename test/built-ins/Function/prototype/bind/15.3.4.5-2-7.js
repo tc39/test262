@@ -9,17 +9,9 @@ es5id: 15.3.4.5-2-7
 description: >
     Function.prototype.bind throws TypeError if the Target is not
     callable (JSON)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  try {
+
+assert.throws(TypeError, function() {
     JSON.bind();
-  }
-  catch (e) {
-    if (e instanceof TypeError) {
-      return true;
-    }
-  }
- }
-runTestCase(testcase);
+});

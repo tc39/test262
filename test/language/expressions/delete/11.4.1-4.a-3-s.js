@@ -10,21 +10,13 @@ description: >
     delete operator throws TypeError when deleting a non-configurable
     data property in strict mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var o = {};
   var desc = { value : 1 }; // all other attributes default to false
   Object.defineProperty(o, "foo", desc);
   
   // Now, deleting o.foo should throw TypeError because [[Configurable]] on foo is false.
-  try {
+assert.throws(TypeError, function() {
     delete o.foo;
-    return false;
-  }
-  catch (e) {
-    return (e instanceof TypeError);
-  }
- }
-runTestCase(testcase);
+});

@@ -4,15 +4,9 @@
 /*---
 es5id: 12.1-7
 description: "12.1 - block '{ StatementListopt };' is not allowed: do-while"
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("do{};while()");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

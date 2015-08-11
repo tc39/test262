@@ -4,16 +4,9 @@
 /*---
 es5id: 15.2.3.5-1-1
 description: Object.create throws TypeError if 'O' is undefined
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 
-        try {
+assert.throws(TypeError, function() {
             Object.create(undefined);
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
-runTestCase(testcase);
+});

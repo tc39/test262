@@ -7,17 +7,11 @@ description: >
     StrictMode - A TypeError is thrown when a code in strict mode
     tries to write to 'arguments' of function instances.
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(TypeError, function() {
             var foo = function () {
             }
             foo.arguments = 20;
-            return false;
-        } catch (ex) {
-            return ex instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+});

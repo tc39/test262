@@ -6,10 +6,7 @@ es5id: 15.4.4.18-7-c-ii-7
 description: >
     Array.prototype.forEach - unhandled exceptions happened in
     callbackfn terminate iteration
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -23,12 +20,7 @@ function testcase() {
         }
 
         var obj = { 0: 11, 4: 10, 10: 8, length: 20 };
-
-        try {
+assert.throws(Error, function() {
             Array.prototype.forEach.call(obj, callbackfn);
-            return false;
-        } catch (ex) {
-            return ex instanceof Error && !accessed;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(accessed, false, 'accessed');

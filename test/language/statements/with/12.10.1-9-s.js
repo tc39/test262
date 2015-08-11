@@ -7,11 +7,10 @@ description: >
     with statement in strict mode throws SyntaxError (strict function
     expression)
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  try {
+
+assert.throws(SyntaxError, function() {
     eval("\
           var f = function () {\
                 \'use strict\';\
@@ -19,10 +18,4 @@ function testcase() {
                 with (o) {}; \
               }\
         ");
-    return false;
-  }
-  catch (e) {
-    return (e instanceof SyntaxError) ;
-  }
- }
-runTestCase(testcase);
+});

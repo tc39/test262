@@ -6,10 +6,7 @@ es5id: 15.4.4.21-8-b-iii-1-33
 description: >
     Array.prototype.reduce - exception in getter terminates iteration
     on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var testResult = false;
@@ -28,12 +25,8 @@ function testcase() {
             },
             configurable: true
         });
-
-        try {
+assert.throws(RangeError, function() {
             arr.reduce(callbackfn);
-            return false;
-        } catch (ex) {
-            return (ex instanceof RangeError) && !accessed && !testResult;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(accessed, false, 'accessed');
+assert.sameValue(testResult, false, 'testResult');

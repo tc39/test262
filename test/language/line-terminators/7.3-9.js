@@ -6,15 +6,9 @@ es5id: 7.3-9
 description: >
     7.3 - ES5 recognizes the character <LS> (\u2028) as a
     NonEscapeCharacter
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("var prop = \\u2028;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

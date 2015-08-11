@@ -6,10 +6,8 @@ es5id: 15.2.3.7-6-a-190
 description: >
     Object.defineProperties - 'O' is an Array, 'P' is an array index
     named property, 'P' is own accessor property  (15.4.5.1 step 4.c)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var arr = [];
 
         Object.defineProperty(arr, "0", {
@@ -18,8 +16,7 @@ function testcase() {
             },
             configurable: false
         });
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperties(arr, {
                 "0": {
                     get: function () {
@@ -28,9 +25,5 @@ function testcase() {
                     configurable: true
                 }
             });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && arr[0] === 11;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(arr[0], 11, 'arr[0]');

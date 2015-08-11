@@ -12,15 +12,9 @@ description: >
     'strict mode' using a FunctionDeclaration and the function has two
     identical parameters
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("function _13_1_5_fun(param, param) { }");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

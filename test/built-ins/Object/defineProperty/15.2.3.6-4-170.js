@@ -11,14 +11,10 @@ description: >
     to a value greater than the non-deletable index by 1, writable
     attribute of length is set to false and TypeError exception is
     thrown (15.4.5.1 step 3.l.ii)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
         var arrObj = [0, 1];
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperty(arrObj, "1", {
                 configurable: false
             });
@@ -26,10 +22,6 @@ function testcase() {
             Object.defineProperty(arrObj, "length", {
                 value: 1
             });
-
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && arrObj.length === 2 && arrObj.hasOwnProperty("1");
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(arrObj.length, 2, 'arrObj.length');
+assert(arrObj.hasOwnProperty("1"), 'arrObj.hasOwnProperty("1") !== true');

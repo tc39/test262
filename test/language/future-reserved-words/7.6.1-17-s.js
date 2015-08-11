@@ -7,16 +7,9 @@ description: >
     7.6 - SyntaxError expected: reserved words used as Identifier
     Names in UTF8: implements (implements)
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 
-        try {
+assert.throws(SyntaxError, function() {
             eval("var \u0069mplements = 123;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

@@ -7,10 +7,8 @@ description: >
     Strict Mode - TypeError is thrown when deleting non-configurable
     accessor property
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         Object.defineProperty(obj, "prop", {
             get: function () {
@@ -18,12 +16,7 @@ function testcase() {
             },
             configurable: false
         });
-
-        try {
+assert.throws(TypeError, function() {
             delete obj.prop;
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && obj.prop === "abc";
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(obj.prop, "abc", 'obj.prop');

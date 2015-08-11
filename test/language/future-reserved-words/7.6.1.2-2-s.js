@@ -7,15 +7,9 @@ description: >
     Strict Mode - SyntaxError is thrown when FutureReservedWord 'let'
     occurs in strict mode code
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("var let = 1;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-}
-runTestCase(testcase);
+});

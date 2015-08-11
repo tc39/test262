@@ -7,10 +7,8 @@ description: >
     Object.defineProperties - 'P' is own accessor property without a
     get function that overrides an inherited accessor property (8.12.9
     step 1 )
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var proto = {};
         Object.defineProperty(proto, "prop", {
             get: function () {
@@ -27,17 +25,11 @@ function testcase() {
             set: function () { },
             configurable: false
         });
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperties(obj, {
                 prop: {
                     value: 12,
                     configurable: true
                 }
             });
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
-runTestCase(testcase);
+});

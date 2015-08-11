@@ -7,17 +7,9 @@ description: >
     Strict Mode - SyntaxError is thrown when deleting a variable of
     type Array
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var arrObj = [1,2,3];
-
-        try {
+assert.throws(SyntaxError, function() {
             eval("delete arrObj;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

@@ -6,15 +6,9 @@ es5id: 7.3-8
 description: >
     7.3 - ES5 recognizes the character <PS> (\u2029) as terminating
     regular expression literals
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("var regExp =  /[\u2029]/");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

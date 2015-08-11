@@ -6,10 +6,8 @@ es5id: 15.2.3.6-4-24
 description: >
     Object.defineProperty - 'name' is own data property that overrides
     an inherited data property (8.12.9 step 1)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var proto = {};
         Object.defineProperty(proto, "foo", {
             value: 12,
@@ -23,14 +21,9 @@ function testcase() {
             value: 11,
             configurable: false
         });
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperty(obj, "foo", {
                 configurable: true
             });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && obj.foo === 11;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(obj.foo, 11, 'obj.foo');

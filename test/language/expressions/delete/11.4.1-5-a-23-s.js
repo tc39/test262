@@ -7,15 +7,9 @@ description: >
     Strict Mode - SyntaxError is thrown when deleting a built-in
     (Number)
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("delete Number;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

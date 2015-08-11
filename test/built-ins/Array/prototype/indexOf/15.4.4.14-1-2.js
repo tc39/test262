@@ -4,16 +4,9 @@
 /*---
 es5id: 15.4.4.14-1-2
 description: Array.prototype.indexOf applied to null throws a TypeError
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  try {
+
+assert.throws(TypeError, function() {
      Array.prototype.indexOf.call(null);
-     return false;
-  }
-  catch (e) {
-     return e instanceof TypeError;
-     }
- }
-runTestCase(testcase);
+});

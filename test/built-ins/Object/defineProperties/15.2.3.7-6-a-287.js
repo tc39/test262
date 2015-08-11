@@ -9,10 +9,7 @@ description: >
     of 'O', test TypeError is thrown when updating the [[Set]]
     attribute value of 'P' which is defined as non-configurable (10.6
     [[DefineOwnProperty]] step 4)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arg;
 
@@ -34,18 +31,15 @@ function testcase() {
         function set_func(value) {
             arg.setVerifyHelpProp = value;
         }
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperties(arg, {
                 "0": {
                     set: set_func
                 }
             });
-
-            return false;
-        } catch (e) {
+});
             var desc = Object.getOwnPropertyDescriptor(arg, "0");
-            return e instanceof TypeError && desc.get === get_func && typeof desc.set === "undefined" &&
-                desc.enumerable === false && desc.configurable === false;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(desc.get, get_func, 'desc.get');
+assert.sameValue(typeof desc.set, "undefined", 'typeof desc.set');
+assert.sameValue(desc.enumerable, false, 'desc.enumerable');
+assert.sameValue(desc.configurable, false, 'desc.configurable');

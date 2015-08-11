@@ -7,17 +7,9 @@ description: >
     Strict Mode - SyntaxError is thrown when deleting a variable of
     type Boolean
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var boolObj = new Boolean(false);
-
-        try {
+assert.throws(SyntaxError, function() {
             eval("delete boolObj;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

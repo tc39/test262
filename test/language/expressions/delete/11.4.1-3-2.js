@@ -6,19 +6,9 @@ es5id: 11.4.1-3-2
 description: >
     delete operator throws ReferenceError when deleting an explicitly
     qualified yet unresolvable reference (base obj undefined)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   // just cooking up a long/veryLikely unique name
-  try
-  {
+assert.throws(ReferenceError, function() {
     var d = delete __ES3_1_test_suite_test_11_4_1_3_unique_id_2__.x;
-  }
-  catch(e)
-  {
-    if (e instanceof ReferenceError)
-      return true;
-  }
- }
-runTestCase(testcase);
+});

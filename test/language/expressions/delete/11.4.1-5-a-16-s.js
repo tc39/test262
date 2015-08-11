@@ -7,17 +7,9 @@ description: >
     Strict Mode - SyntaxError is thrown when deleting a variable of
     type Error
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var errObj = new Error();
-
-        try {
+assert.throws(SyntaxError, function() {
             eval("delete errObj;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

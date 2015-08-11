@@ -7,21 +7,14 @@ description: >
     Strict Mode - TypeError is thrown when deleting non-configurable
     data property
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         Object.defineProperty(obj, "prop", {
             value: "abc",
             configurable: false
         });
-
-        try {
+assert.throws(TypeError, function() {
             delete obj.prop;
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && obj.prop === "abc";
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(obj.prop, "abc", 'obj.prop');

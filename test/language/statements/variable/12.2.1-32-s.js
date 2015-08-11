@@ -7,16 +7,9 @@ description: >
     arguments as local var identifier defined twice and assigned once
     throws SyntaxError in strict mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  try {
+
+assert.throws(SyntaxError, function() {
     eval('function foo() { var arguments, arguments = 42;}');
-    return false;
-  }
-  catch (e) {
-    return (e instanceof SyntaxError);
-  }
-}
-runTestCase(testcase);
+});

@@ -7,15 +7,9 @@ description: >
     Strict Mode - SyntaxError is thrown when deleting a built-in
     (RegExp)
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("delete RegExp;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

@@ -6,19 +6,9 @@ es5id: 15.4.4.21-4-2
 description: >
     Array.prototype.reduce throws ReferenceError if callbackfn is
     unreferenced
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
   var arr = new Array(10);
-  try {
-    arr.reduce(foo);    
-  }
-  catch(e) {
-    if(e instanceof ReferenceError)
-      return true;  
-  }
-
- }
-runTestCase(testcase);
+assert.throws(ReferenceError, function() {
+    arr.reduce(foo);
+});

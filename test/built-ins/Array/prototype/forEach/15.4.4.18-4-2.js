@@ -6,19 +6,9 @@ es5id: 15.4.4.18-4-2
 description: >
     Array.prototype.forEach throws ReferenceError if callbackfn is
     unreferenced
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
   var arr = new Array(10);
-  try {
-    arr.forEach(foo);    
-  }
-  catch(e) {
-    if(e instanceof ReferenceError)
-      return true;  
-  }
-
- }
-runTestCase(testcase);
+assert.throws(ReferenceError, function() {
+    arr.forEach(foo);
+});

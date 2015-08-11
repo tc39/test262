@@ -7,17 +7,9 @@ description: >
     Accessing caller property of Arguments object throws TypeError in
     strict mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  try 
-  {
+
+assert.throws(TypeError, function() {
     arguments.caller;
-  }
-  catch (e) {
-    if(e instanceof TypeError)
-      return true;
-  }
- }
-runTestCase(testcase);
+});

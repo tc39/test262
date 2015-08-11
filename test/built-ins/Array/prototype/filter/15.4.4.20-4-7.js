@@ -6,19 +6,9 @@ es5id: 15.4.4.20-4-7
 description: >
     Array.prototype.filter throws TypeError if callbackfn is Object
     without [[Call]] internal method
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
   var arr = new Array(10);
-  try {
-    arr.filter(new Object());    
-  }
-  catch(e) {
-    if(e instanceof TypeError)
-      return true;  
-  }
-
- }
-runTestCase(testcase);
+assert.throws(TypeError, function() {
+    arr.filter(new Object());
+});

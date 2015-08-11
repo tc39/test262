@@ -4,18 +4,9 @@
 /*---
 es5id: 15.5.4.20-1-1
 description: String.prototype.trim throws TypeError when string is undefined
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  try
-  {
-    String.prototype.trim.call(undefined); 
-    return false; 
-  }
-  catch(e)
-  {
-    return e instanceof TypeError;
-  }
- }
-runTestCase(testcase);
+
+assert.throws(TypeError, function() {
+    String.prototype.trim.call(undefined);
+});

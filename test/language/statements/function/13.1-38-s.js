@@ -8,16 +8,9 @@ description: >
     Identifier of a FunctionExpression whose FunctionBody is contained
     in strict code
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var _13_1_38_s = {};
-        try {
+assert.throws(SyntaxError, function() {
             eval("_13_1_38_s.x = function eval() {'use strict'; };");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

@@ -5,15 +5,9 @@
 es5id: 11.4.1-5-a-24-s
 description: Strict Mode - SyntaxError is thrown when deleting a built-in (Date)
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("delete Date;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

@@ -10,10 +10,7 @@ description: >
     which is set to configurable: false, test that new length is set
     to a value greater than the non-deletable index by 1, and
     TypeError is thrown (15.4.5.1 step 3.l.i)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arrObj = [0, 1, 2];
 
@@ -24,14 +21,10 @@ function testcase() {
         Object.defineProperty(arrObj, "2", {
             configurable: true
         });
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperty(arrObj, "length", {
                 value: 1
             });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && arrObj.length === 2 && !arrObj.hasOwnProperty("2");
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(arrObj.length, 2, 'arrObj.length');
+assert.sameValue(arrObj.hasOwnProperty("2"), false, 'arrObj.hasOwnProperty("2")');

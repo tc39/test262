@@ -4,15 +4,9 @@
 /*---
 es5id: 15.2.3.4-1-2
 description: Object.getOwnPropertyNames throws TypeError if 'O' is undefined
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(TypeError, function() {
             Object.getOwnPropertyNames(undefined);
-            return false;
-        } catch (e) {
-            return e instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+});

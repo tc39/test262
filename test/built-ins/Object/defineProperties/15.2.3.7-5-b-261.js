@@ -7,24 +7,15 @@ description: >
     Object.defineProperties - TypeError is thrown if both 'set'
     property and 'value' property of 'descObj' are present (8.10.5
     step 9.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var setFun = function () {};
         var obj = {};
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperties(obj, {
                 prop: {
                     value: 12,
                     set: setFun
                 }
             });
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
-runTestCase(testcase);
+});

@@ -7,15 +7,9 @@ description: >
     7.6 - SyntaxError expected: reserved words used as Identifier
     Names in UTF8: privat\u0065 (private)
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("var privat\u0065 = 123;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-}
-runTestCase(testcase);
+});

@@ -7,15 +7,9 @@ description: >
     Strict Mode - TypeError is thrown when changing the value of a
     Value Property of the Global Object under strict mode (NaN)
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(TypeError, function() {
             NaN = 12;
-            return false;
-        } catch (e) {
-            return e instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+});

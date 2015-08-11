@@ -7,20 +7,12 @@ description: >
     Strict Mode - TypeError is thrown if LeftHandSide is a reference
     to a non-writable data property
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var _8_7_2_3 = {};
         Object.defineProperty(_8_7_2_3, "b", {
             writable: false
         });
-
-        try {
+assert.throws(TypeError, function() {
             _8_7_2_3.b = 11;
-            return false;
-        } catch (e) {
-            return e instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+});

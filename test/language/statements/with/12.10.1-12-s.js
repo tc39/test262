@@ -5,20 +5,13 @@
 es5id: 12.10.1-12-s
 description: with statement in strict mode throws SyntaxError (strict eval)
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  try {
+
+assert.throws(SyntaxError, function() {
     eval("\
           'use strict'; \
           var o = {}; \
           with (o) {}\
         ");
-    return false;
-  }
-  catch (e) {
-    return (e instanceof SyntaxError) ;
-  }
- }
-runTestCase(testcase);
+});

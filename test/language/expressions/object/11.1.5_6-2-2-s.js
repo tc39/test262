@@ -8,12 +8,10 @@ description: >
     reserved word or a future reserved word is made inside a strict
     mode FunctionBody of a PropertyAssignment
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 
-        try {
+assert.throws(SyntaxError, function() {
             eval("var obj = {\
                 get _11_1_5_6_2_2() {\
                    \"use strict\";\
@@ -22,9 +20,4 @@ function testcase() {
                 }\
             };\
             var _11_1_5_6_2_2 = obj._11_1_5_6_2_2;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

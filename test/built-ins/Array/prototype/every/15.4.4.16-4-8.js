@@ -6,10 +6,7 @@ es5id: 15.4.4.16-4-8
 description: >
     Array.prototype.every - side effects produced by step 2 are
     visible when an exception occurs
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = { 0: 11, 1: 12 };
 
@@ -22,12 +19,7 @@ function testcase() {
             },
             configurable: true
         });
-
-        try {
+assert.throws(TypeError, function() {
             Array.prototype.every.call(obj, null);
-            return false;
-        } catch (ex) {
-            return ex instanceof TypeError && accessed;
-        }
-    }
-runTestCase(testcase);
+});
+assert(accessed, 'accessed !== true');

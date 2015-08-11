@@ -7,10 +7,7 @@ description: >
     Array.prototype.reduce throws TypeError exception - 'length' is an
     object with toString and valueOf methods that don�t return
     primitive values
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var valueOfAccessed = false;
@@ -36,12 +33,9 @@ function testcase() {
                 }
             }
         };
-
-        try {
+assert.throws(TypeError, function() {
             Array.prototype.reduce.call(obj, callbackfn, 1);
-            return false;
-        } catch (ex) {
-            return (ex instanceof TypeError) && !accessed && toStringAccessed && valueOfAccessed;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(accessed, false, 'accessed');
+assert(toStringAccessed, 'toStringAccessed !== true');
+assert(valueOfAccessed, 'valueOfAccessed !== true');

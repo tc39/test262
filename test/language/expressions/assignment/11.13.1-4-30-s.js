@@ -8,16 +8,10 @@ description: >
     appears as the LeftHandSideExpression (PrimaryExpression) of
     simple assignment(=) under strict mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var blah = eval;
-        try {
+assert.throws(SyntaxError, function() {
             eval("(eval) = 20;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError && blah === eval;
-        }
-}
-runTestCase(testcase);
+});
+assert.sameValue(blah, eval, 'blah');

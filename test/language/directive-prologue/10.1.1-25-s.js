@@ -8,11 +8,10 @@ description: >
     contains Use Strict Directive which appears at the start of the
     block(getter)
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             var obj = {};
             Object.defineProperty(obj, "accProperty", {
                 get: function () {
@@ -22,9 +21,4 @@ function testcase() {
                 }
             });
             var temp = obj.accProperty === 11;
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

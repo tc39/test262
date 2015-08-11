@@ -4,15 +4,9 @@
 /*---
 es5id: 15.2.3.4-1-3
 description: Object.getOwnPropertyNames throws TypeError if 'O' is null
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(TypeError, function() {
             Object.getOwnPropertyNames(null);
-            return false;
-        } catch (e) {
-            return e instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+});

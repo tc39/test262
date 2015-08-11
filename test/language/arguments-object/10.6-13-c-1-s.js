@@ -7,17 +7,9 @@ description: >
     Accessing callee property of Arguments object throws TypeError in
     strict mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  try 
-  {
+
+assert.throws(TypeError, function() {
     arguments.callee;
-    return false;
-  }
-  catch (e) {
-    return (e instanceof TypeError);
-  }
- }
-runTestCase(testcase);
+});

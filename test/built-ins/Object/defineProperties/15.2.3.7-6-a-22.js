@@ -7,10 +7,8 @@ description: >
     Object.defineProperties - 'O' is the Arguments object which
     implements its own [[GetOwnProperty]] method to get 'P' (8.12.9
     step 1 )
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var arg = function () {
             return arguments;
         }();
@@ -19,17 +17,11 @@ function testcase() {
             value: 11,
             configurable: false
         });
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperties(arg, {
                 prop: {
                     value: 12,
                     configurable: true
                 }
             });
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
-runTestCase(testcase);
+});

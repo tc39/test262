@@ -7,11 +7,8 @@ description: >
     Array.prototype.reduce throws TypeError when elements assigned
     values are deleted by reducing array length and initialValue is
     not present
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   function callbackfn(prevVal, curVal, idx, obj)
   {
   }
@@ -19,12 +16,6 @@ function testcase() {
   var arr = new Array(10);
   arr[9] = 1;
   arr.length = 5;
-  try {
+assert.throws(TypeError, function() {
     arr.reduce(callbackfn);
-  } 
-  catch(e) {
-    if(e instanceof TypeError)
-      return true;  
-  }
- }
-runTestCase(testcase);
+});

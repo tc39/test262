@@ -8,11 +8,10 @@ description: >
     reserved word is made in  a strict FunctionBody of a
     PropertyAssignment
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("var data = \"data\";\
             var obj = {\
                 set _11_1_5_7_2_2(value) {\
@@ -21,9 +20,4 @@ function testcase() {
                 }\
             };\
             obj._11_1_5_7_2_2 = 1;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

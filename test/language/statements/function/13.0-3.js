@@ -6,16 +6,9 @@ es5id: 13.0-3
 description: >
     13.0 - property names in function definition is not allowed, add a
     new property into object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
-        try {
+assert.throws(SyntaxError, function() {
             eval("function obj.tt() {};");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

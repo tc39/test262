@@ -7,10 +7,7 @@ description: >
     Array.prototype.filter throws TypeError exception when 'length' is
     an object with toString and valueOf methods that don�t return
     primitive values
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var firstStepOccured = false;
@@ -36,12 +33,9 @@ function testcase() {
                 }
             }
         };
-
-        try {
+assert.throws(TypeError, function() {
             Array.prototype.filter.call(obj, callbackfn);
-            return false;
-        } catch (ex) {
-            return (ex instanceof TypeError) && !accessed && firstStepOccured && secondStepOccured;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(accessed, false, 'accessed');
+assert(firstStepOccured, 'firstStepOccured !== true');
+assert(secondStepOccured, 'secondStepOccured !== true');

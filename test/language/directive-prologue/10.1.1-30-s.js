@@ -8,16 +8,10 @@ description: >
     contains Use Strict Directive which appears at the start of the
     block
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             var funObj = new Function("a", "'use strict'; eval('public = 1;');");
             funObj();
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

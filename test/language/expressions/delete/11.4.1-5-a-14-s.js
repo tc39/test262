@@ -7,17 +7,9 @@ description: >
     Strict Mode - SyntaxError is thrown when deleting a variable of
     type Date
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var dateObj = new Date();
-
-        try {
+assert.throws(SyntaxError, function() {
             eval("delete dateObj;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

@@ -6,10 +6,7 @@ es5id: 15.4.4.15-8-b-i-30
 description: >
     Array.prototype.lastIndexOf terminates iteration on unhandled
     exception on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var arr = [];
@@ -28,13 +25,7 @@ function testcase() {
             },
             configurable: true
         });
-
-        try {
+assert.throws(TypeError, function() {
             arr.lastIndexOf(true);
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError) && !accessed;
-        }
-
-    }
-runTestCase(testcase);
+});
+assert.sameValue(accessed, false, 'accessed');

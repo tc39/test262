@@ -6,17 +6,9 @@ es5id: 13.2-14-s
 description: >
     StrictMode - writing a property named 'arguments' of function
     objects is not allowed outside the function
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var foo = new Function("'use strict';");
-        try {
+assert.throws(TypeError, function() {
             foo.arguments = 41;
-            return false;
-        }
-        catch (e) {
-            return e instanceof TypeError;
-        }
-}
-runTestCase(testcase);
+});

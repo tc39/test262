@@ -12,10 +12,8 @@ description: >
     Object.defineProperty throws TypeError when changing
     [[Enumerable]] from false to true on non-configurable data
     properties
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var o = {};
 
   // create a data valued property; all other attributes default to false.
@@ -25,20 +23,11 @@ function testcase() {
   // now, setting enumerable to true should fail, since [[Configurable]]
   // on the original property will be false.
   var desc = { value: 101, enumerable: true };
-
-  try {
+assert.throws(TypeError, function() {
     Object.defineProperty(o, "foo", desc);
-  }
-  catch (e) {
-    if (e instanceof TypeError) {
+});
       // the property should remain unchanged.
       var d2 = Object.getOwnPropertyDescriptor(o, "foo");
-      if (d2.value === 101 &&
-          d2.enumerable === false &&
-          d2.configurable === false) {
-        return true;
-      }
-    }
-  }
- }
-runTestCase(testcase);
+assert.sameValue(d2.value, 101, 'd2.value');
+assert.sameValue(d2.enumerable, false, 'd2.enumerable');
+assert.sameValue(d2.configurable, false, 'd2.configurable');

@@ -7,19 +7,11 @@ description: >
     Strict Mode - TypeError is thrown when accessing the [[Set]]
     attribute in 'callee' under strict mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var argObj = function () {
             return arguments;
         } ();
-
-        try {
+assert.throws(TypeError, function() {
             argObj.callee = {};
-            return false;
-        } catch (e) {
-            return e instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+});

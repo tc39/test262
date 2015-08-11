@@ -4,15 +4,9 @@
 /*---
 es5id: 12.1-5
 description: "12.1 - block '{ StatementListopt };' is not allowed: if-else-if"
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("if{};else if{}");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

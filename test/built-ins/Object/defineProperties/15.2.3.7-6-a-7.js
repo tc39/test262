@@ -6,10 +6,8 @@ es5id: 15.2.3.7-6-a-7
 description: >
     Object.defineProperties - 'P' is own accessor property that
     overrides an inherited data property (8.12.9 step 1 )
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var proto = {};
         Object.defineProperty(proto, "prop", {
             value: 11,
@@ -25,17 +23,12 @@ function testcase() {
             },
             configurable: false
         });
-
-        try {
+assert.throws(TypeError, function() {
             Object.defineProperties(obj, {
                 prop: {
                     value: 13,
                     configurable: true
                 }
             });
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError) && obj.prop === 12;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(obj.prop, 12, 'obj.prop');

@@ -6,15 +6,9 @@ es5id: 13.0-1
 description: >
     13.0 - multiple names in one function declaration is not allowed,
     two function names
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("function x, y() {}");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

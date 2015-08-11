@@ -7,17 +7,9 @@ description: >
     StrictMode - reading a property named 'caller' of function objects
     is not allowed outside the function
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var foo = Function("'use strict';");
-        try {
+assert.throws(TypeError, function() {
             var temp = foo.caller;
-            return false;
-        }
-        catch (e) {
-            return e instanceof TypeError;
-        }
-}
-runTestCase(testcase);
+});

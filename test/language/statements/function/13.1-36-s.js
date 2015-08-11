@@ -8,16 +8,9 @@ description: >
     function name of a FunctionDeclaration whose FunctionBody is in
     strict mode
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 
-        try {
+assert.throws(SyntaxError, function() {
             eval("function eval() { 'use strict'; };")
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

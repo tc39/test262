@@ -7,18 +7,9 @@ description: >
     Three OctalEscapeSequences in a String are not allowed in a String
     under Strict Mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase()
-{
-  try 
-  {
+
+assert.throws(SyntaxError, function() {
     eval('var x = "\\1\\2\\7";');
-    return false;
-  }
-  catch (e) {
-    return (e instanceof SyntaxError);
-  }
- }
-runTestCase(testcase);
+});

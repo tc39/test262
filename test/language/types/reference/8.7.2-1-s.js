@@ -7,15 +7,9 @@ description: >
     Strict Mode - ReferenceError is thrown if LeftHandSide evaluates
     to an unresolvable Reference
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(ReferenceError, function() {
             eval("_8_7_2_1 = 11;");
-            return false;
-        } catch (e) {
-            return e instanceof ReferenceError;
-        }
-    }
-runTestCase(testcase);
+});

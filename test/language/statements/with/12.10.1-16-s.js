@@ -7,15 +7,9 @@ description: >
     Strict Mode - SyntaxError is thrown when the RHS of an object
     indexer assignment utilizes WithStatement
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("var obj = {}; obj['get'] = function (a) { with(a){} };  ");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

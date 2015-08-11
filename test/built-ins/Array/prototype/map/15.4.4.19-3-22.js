@@ -7,10 +7,7 @@ description: >
     Array.prototype.map throws TypeError exception when 'length' is an
     object with toString and valueOf methods that don�t return
     primitive values
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return val > 10;
@@ -29,12 +26,6 @@ function testcase() {
                 }
             }
         };
-
-        try {
+assert.throws(TypeError, function() {
             Array.prototype.map.call(obj, callbackfn);
-            return false;
-        } catch (ex) {
-            return ex instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+});

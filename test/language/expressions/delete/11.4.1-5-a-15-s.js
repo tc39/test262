@@ -7,17 +7,9 @@ description: >
     Strict Mode - SyntaxError is thrown when deleting a variable of
     type RegExp
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var regObj = new RegExp();
-
-        try {
+assert.throws(SyntaxError, function() {
             eval("delete regObj;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

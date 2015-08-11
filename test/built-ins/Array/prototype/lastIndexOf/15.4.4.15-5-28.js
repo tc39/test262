@@ -6,10 +6,7 @@ es5id: 15.4.4.15-5-28
 description: >
     Array.prototype.lastIndexOf - side effects produced by step 1 are
     visible when an exception occurs
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var stepFiveOccurs = false;
         var fromIndex = {
@@ -18,12 +15,7 @@ function testcase() {
                 return 0;
             }
         };
-
-        try {
+assert.throws(TypeError, function() {
             Array.prototype.lastIndexOf.call(undefined, undefined, fromIndex);
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError) && !stepFiveOccurs;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(stepFiveOccurs, false, 'stepFiveOccurs');

@@ -7,16 +7,9 @@ description: >
     Strict Mode - SyntaxError is thrown when the getter of a literal
     object utilizes WithStatement
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
-            eval("var obj = { get(a) { with(a){} } }; ");
 
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+assert.throws(SyntaxError, function() {
+            eval("var obj = { get(a) { with(a){} } }; ");
+});
