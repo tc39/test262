@@ -9,22 +9,12 @@ es5id: 15.3.4.5-2-1
 description: >
     Function.prototype.bind throws TypeError if the Target is not
     callable (but an instance of Function)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   foo.prototype = Function.prototype;
   // dummy function
   function foo() {}
   var f = new foo();
-
-  try {
+assert.throws(TypeError, function() {
     f.bind();
-  }
-  catch (e) {
-    if (e instanceof TypeError) {
-      return true;
-    }
-  }
- }
-runTestCase(testcase);
+});

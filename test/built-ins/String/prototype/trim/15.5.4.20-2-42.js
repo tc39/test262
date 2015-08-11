@@ -7,10 +7,8 @@ description: >
     String.prototype.trim - TypeError exception was thrown  when
     'this' is an object that both toString and valueOf wouldn't return
     primitive value.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var toStringAccessed = false;
         var valueOfAccessed = false;
         var obj = {
@@ -23,11 +21,8 @@ function testcase() {
                 return {};
             }
         };
-        try {
+assert.throws(TypeError, function() {
             String.prototype.trim.call(obj);
-            return false;
-        } catch (e) {
-            return valueOfAccessed && toStringAccessed && (e instanceof TypeError);
-        }
-    }
-runTestCase(testcase);
+});
+assert(valueOfAccessed, 'valueOfAccessed !== true');
+assert(toStringAccessed, 'toStringAccessed !== true');

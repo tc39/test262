@@ -7,17 +7,9 @@ description: >
     Duplicate seperate parameter name in Function constructor throws
     SyntaxError in strict mode
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {   
-  try {
+   
+assert.throws(SyntaxError, function() {
     Function('a','a','"use strict";');
-    return false;
-  }
-  catch (e) {
-    return (e instanceof SyntaxError);
-  }
-  
- }
-runTestCase(testcase);
+});

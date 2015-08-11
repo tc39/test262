@@ -4,15 +4,9 @@
 /*---
 es5id: 15.3.4.5-2-14
 description: Function.prototype.bind throws TypeError if 'Target' is a string
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(TypeError, function() {
             Function.prototype.bind.call("abc");
-            return false;
-        } catch (e) {
-            return (e instanceof TypeError);
-        }
-    }
-runTestCase(testcase);
+});

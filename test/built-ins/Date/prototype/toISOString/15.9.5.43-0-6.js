@@ -6,16 +6,9 @@ es5id: 15.9.5.43-0-6
 description: >
     Date.prototype.toISOString - TypeError is thrown when this is any
     other objects instead of Date object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 
-        try {
+assert.throws(TypeError, function() {
             Date.prototype.toISOString.call([]);
-            return false;
-        } catch (ex) {
-            return ex instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+});

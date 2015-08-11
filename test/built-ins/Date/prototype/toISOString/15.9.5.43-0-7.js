@@ -6,16 +6,9 @@ es5id: 15.9.5.43-0-7
 description: >
     Date.prototype.toISOString - TypeError is thrown when this is any
     primitive values
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 
-        try {
+assert.throws(TypeError, function() {
             Date.prototype.toISOString.call(15);
-            return false;
-        } catch (ex) {
-            return ex instanceof TypeError;
-        }
-    }
-runTestCase(testcase);
+});

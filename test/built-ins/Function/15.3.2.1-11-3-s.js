@@ -7,18 +7,9 @@ description: >
     Function constructor having a formal parameter named 'eval' throws
     SyntaxError if function body is strict mode
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  
 
-  try {
+assert.throws(SyntaxError, function() {
     Function('eval', '"use strict";');
-	return false;
-  }
-  catch (e) {
-    return (e instanceof SyntaxError);
-  }
- }
-runTestCase(testcase);
+});
