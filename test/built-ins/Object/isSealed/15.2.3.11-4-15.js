@@ -4,13 +4,8 @@
 /*---
 es5id: 15.2.3.11-4-15
 description: Object.isSealed returns false for all built-in objects (Date)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var b = Object.isSealed(Date);
-  if (b === false) {
-    return true;
-  }
-  }
-runTestCase(testcase);
+
+assert.sameValue(b, false, 'b');

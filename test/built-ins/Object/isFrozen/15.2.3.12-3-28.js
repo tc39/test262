@@ -6,10 +6,7 @@ es5id: 15.2.3.12-3-28
 description: >
     Object.isFrozen returns true when all own properties of 'O' are
     not writable and not configurable, and 'O' is not extensible
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
 
@@ -33,7 +30,5 @@ function testcase() {
         });
 
         Object.preventExtensions(obj);
-        return Object.isFrozen(obj);
 
-    }
-runTestCase(testcase);
+assert(Object.isFrozen(obj), 'Object.isFrozen(obj) !== true');

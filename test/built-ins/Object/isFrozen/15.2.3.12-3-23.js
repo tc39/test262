@@ -6,13 +6,8 @@ es5id: 15.2.3.12-3-23
 description: >
     Object.isFrozen returns false for all built-in objects
     (ReferenceError)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var b = Object.isFrozen(ReferenceError);
-  if (b === false) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(b, false, 'b');

@@ -4,10 +4,7 @@
 /*---
 es5id: 15.2.3.12-2-a-12
 description: Object.isFrozen - 'O' is a String object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = new String("abc");
 
@@ -15,6 +12,4 @@ function testcase() {
 
         Object.preventExtensions(obj);
 
-        return !Object.isFrozen(obj);
-    }
-runTestCase(testcase);
+assert.sameValue(Object.isFrozen(obj), false, 'Object.isFrozen(obj)');

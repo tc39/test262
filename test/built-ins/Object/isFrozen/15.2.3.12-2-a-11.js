@@ -4,10 +4,7 @@
 /*---
 es5id: 15.2.3.12-2-a-11
 description: Object.isFrozen - 'O' is the Arguments object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arg;
 
@@ -16,6 +13,5 @@ function testcase() {
         }(1, 2, 3));
 
         Object.preventExtensions(arg);
-        return !Object.isFrozen(arg);
-    }
-runTestCase(testcase);
+
+assert.sameValue(Object.isFrozen(arg), false, 'Object.isFrozen(arg)');

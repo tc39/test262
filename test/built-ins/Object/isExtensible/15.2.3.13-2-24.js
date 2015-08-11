@@ -6,11 +6,8 @@ es5id: 15.2.3.13-2-24
 description: >
     Object.isExtensible returns true if O is extensible and has a
     prototype that is extensible
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-       
         var proto = {};
 
         var ConstructFun = function () { };
@@ -18,6 +15,4 @@ function testcase() {
 
         var obj = new ConstructFun();
 
-        return Object.isExtensible(obj);
-    }
-runTestCase(testcase);
+assert(Object.isExtensible(obj), 'Object.isExtensible(obj) !== true');

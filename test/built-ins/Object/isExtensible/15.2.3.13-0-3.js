@@ -9,14 +9,8 @@ es5id: 15.2.3.13-0-3
 description: >
     Object.isExtensible is true for objects created using the Object
     constructor
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var o = new Object();
 
-  if (Object.isExtensible(o) === true) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Object.isExtensible(o), true, 'Object.isExtensible(o)');

@@ -6,11 +6,6 @@ es5id: 15.2.3.11-1
 description: >
     Object.isSealed does not throw TypeError if type of first param is
     not Object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
     Object.isSealed(0);
-    return true;
-}
-runTestCase(testcase);

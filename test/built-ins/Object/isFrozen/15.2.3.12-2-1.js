@@ -6,10 +6,7 @@ es5id: 15.2.3.12-2-1
 description: >
     Object.isFrozen - inherited data property is not considered into
     the for each loop
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var proto = {};
         Object.defineProperty(proto, "Father", {
@@ -25,7 +22,4 @@ function testcase() {
 
         Object.preventExtensions(child);
 
-        return Object.isFrozen(child);
-
-    }
-runTestCase(testcase);
+assert(Object.isFrozen(child), 'Object.isFrozen(child) !== true');

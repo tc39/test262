@@ -4,12 +4,8 @@
 /*---
 es5id: 15.2.3.13-2-22
 description: Object.isExtensible returns true if 'O' is extensible
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
         var obj = {};
-        return Object.isExtensible(obj);
-    }
-runTestCase(testcase);
+
+assert(Object.isExtensible(obj), 'Object.isExtensible(obj) !== true');

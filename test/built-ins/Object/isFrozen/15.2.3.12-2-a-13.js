@@ -4,10 +4,7 @@
 /*---
 es5id: 15.2.3.12-2-a-13
 description: Object.isFrozen - 'O' is a Function object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = function () { };
         
@@ -19,6 +16,4 @@ function testcase() {
 
         Object.preventExtensions(obj);
 
-        return !Object.isFrozen(obj);
-    }
-runTestCase(testcase);
+assert.sameValue(Object.isFrozen(obj), false, 'Object.isFrozen(obj)');
