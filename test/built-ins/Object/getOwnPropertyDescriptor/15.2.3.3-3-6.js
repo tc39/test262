@@ -6,10 +6,7 @@ es5id: 15.2.3.3-3-6
 description: >
     Object.getOwnPropertyDescriptor - 'P' is inherited accessor
     property
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var proto = {};
         var fun = function () {
@@ -27,6 +24,4 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(child, "property");
 
-        return typeof desc === "undefined";
-    }
-runTestCase(testcase);
+assert.sameValue(typeof desc, "undefined", 'typeof desc');

@@ -7,10 +7,8 @@ description: >
     Object.getOwnPropertyDescriptor - uses inherited toString method
     when 'P' is an object with an own valueOf and inherited toString
     methods
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var proto = {};
         var valueOfAccessed = false;
         var toStringAccessed = false;
@@ -31,6 +29,6 @@ function testcase() {
         var obj = { "10": "length1", "test": "length2" };
         var desc = Object.getOwnPropertyDescriptor(obj, child);
 
-        return desc.value === "length2" && toStringAccessed && !valueOfAccessed;
-    }
-runTestCase(testcase);
+assert.sameValue(desc.value, "length2", 'desc.value');
+assert(toStringAccessed, 'toStringAccessed !== true');
+assert.sameValue(valueOfAccessed, false, 'valueOfAccessed');

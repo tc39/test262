@@ -6,16 +6,11 @@ es5id: 15.2.3.3-4-102
 description: >
     Object.getOwnPropertyDescriptor returns data desc for functions on
     built-ins (Math.cos)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var desc = Object.getOwnPropertyDescriptor(Math, "cos");
-  if (desc.value === Math.cos &&
-      desc.writable === true &&
-      desc.enumerable === false &&
-      desc.configurable === true) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(desc.value, Math.cos, 'desc.value');
+assert.sameValue(desc.writable, true, 'desc.writable');
+assert.sameValue(desc.enumerable, false, 'desc.enumerable');
+assert.sameValue(desc.configurable, true, 'desc.configurable');

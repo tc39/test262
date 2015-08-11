@@ -6,16 +6,11 @@ es5id: 15.2.3.3-4-120
 description: >
     Object.getOwnPropertyDescriptor returns data desc for functions on
     built-ins (Date.prototype.getFullYear)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var desc = Object.getOwnPropertyDescriptor(Date.prototype, "getFullYear");
-  if (desc.value === Date.prototype.getFullYear &&
-      desc.writable === true &&
-      desc.enumerable === false &&
-      desc.configurable === true) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(desc.value, Date.prototype.getFullYear, 'desc.value');
+assert.sameValue(desc.writable, true, 'desc.writable');
+assert.sameValue(desc.enumerable, false, 'desc.enumerable');
+assert.sameValue(desc.configurable, true, 'desc.configurable');

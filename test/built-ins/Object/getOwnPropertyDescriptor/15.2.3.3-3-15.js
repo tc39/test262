@@ -6,10 +6,7 @@ es5id: 15.2.3.3-3-15
 description: >
     Object.getOwnPropertyDescriptor applied to a Function object which
     implements its own property get method
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = function (a, b) {
             return a + b;
@@ -18,6 +15,4 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "1");
 
-        return desc.value === "ownProperty";
-    }
-runTestCase(testcase);
+assert.sameValue(desc.value, "ownProperty", 'desc.value');

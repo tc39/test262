@@ -6,10 +6,8 @@ es5id: 15.2.3.3-4-239
 description: >
     Object.getOwnPropertyDescriptor - ensure that 'get' property of
     returned object is data property with correct 'value' attribute
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var fun = function () {
             return "ownDataProperty";
@@ -21,6 +19,4 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "property");
 
-        return desc.get === fun;
-    }
-runTestCase(testcase);
+assert.sameValue(desc.get, fun, 'desc.get');

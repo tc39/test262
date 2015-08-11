@@ -6,14 +6,10 @@ es5id: 15.2.3.3-2-39
 description: >
     Object.getOwnPropertyDescriptor - argument 'P' is a String Object
     that converts to a string
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { "Hello": 1 };
 
         var desc = Object.getOwnPropertyDescriptor(obj, new String("Hello"));
 
-        return desc.value === 1;
-    }
-runTestCase(testcase);
+assert.sameValue(desc.value, 1, 'desc.value');

@@ -6,14 +6,9 @@ es5id: 15.2.3.3-2-1
 description: >
     Object.getOwnPropertyDescriptor returns undefined for undefined
     property name
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
     var o = {};
     var desc = Object.getOwnPropertyDescriptor(o, undefined);
-    if (desc === undefined) {
-      return true;
-    }
- }
-runTestCase(testcase);
+
+assert.sameValue(desc, undefined, 'desc');

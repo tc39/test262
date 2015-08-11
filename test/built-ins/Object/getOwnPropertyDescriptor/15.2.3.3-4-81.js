@@ -6,16 +6,11 @@ es5id: 15.2.3.3-4-81
 description: >
     Object.getOwnPropertyDescriptor returns data desc for functions on
     built-ins (String.prototype.localeCompare)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var desc = Object.getOwnPropertyDescriptor(String.prototype, "localeCompare");
-  if (desc.value === String.prototype.localeCompare &&
-      desc.writable === true &&
-      desc.enumerable === false &&
-      desc.configurable === true) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(desc.value, String.prototype.localeCompare, 'desc.value');
+assert.sameValue(desc.writable, true, 'desc.writable');
+assert.sameValue(desc.enumerable, false, 'desc.enumerable');
+assert.sameValue(desc.configurable, true, 'desc.configurable');

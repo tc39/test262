@@ -7,10 +7,8 @@ description: >
     Object.getOwnPropertyDescriptor - returned object contains the
     property 'set' if the value of property 'set' is not explicitly
     specified when defined by Object.defineProperty.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         Object.defineProperty(obj, "property", {
             get: function () { },
@@ -19,6 +17,4 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "property");
 
-        return "set" in desc;
-    }
-runTestCase(testcase);
+assert("set" in desc, '"set" in desc !== true');

@@ -4,10 +4,7 @@
 /*---
 es5id: 15.2.3.3-3-5
 description: Object.getOwnPropertyDescriptor - 'P' is own accessor property
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         var fun = function () {
@@ -20,6 +17,4 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "property");
 
-        return desc.get === fun;
-    }
-runTestCase(testcase);
+assert.sameValue(desc.get, fun, 'desc.get');

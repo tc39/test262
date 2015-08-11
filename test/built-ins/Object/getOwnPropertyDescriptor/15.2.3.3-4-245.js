@@ -7,10 +7,8 @@ description: >
     Object.getOwnPropertyDescriptor - ensure that 'set' property of
     returned object is data property with correct 'enumerable'
     attribute
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var fun = function () {
             return "ownSetProperty";
@@ -29,6 +27,4 @@ function testcase() {
             }
         }
 
-        return accessed;
-    }
-runTestCase(testcase);
+assert(accessed, 'accessed !== true');

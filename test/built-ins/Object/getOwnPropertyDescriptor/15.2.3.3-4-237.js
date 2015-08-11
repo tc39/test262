@@ -7,10 +7,8 @@ description: >
     Object.getOwnPropertyDescriptor - ensure that 'configurable'
     property of returned object is data property with correct
     'enumerable' attribute
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { "property": "ownDataProperty" };
 
         var desc = Object.getOwnPropertyDescriptor(obj, "property");
@@ -22,6 +20,4 @@ function testcase() {
             }
         }
 
-        return accessed;
-    }
-runTestCase(testcase);
+assert(accessed, 'accessed !== true');
