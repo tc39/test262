@@ -4,10 +4,8 @@
 /*---
 es5id: 15.2.3.14-4-1
 description: Object.keys - elements of the returned array start from index 0
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { prop1: 1001, prop2: 1002 };
 
         Object.defineProperty(obj, "prop3", {
@@ -26,6 +24,5 @@ function testcase() {
 
         var arr = Object.keys(obj);
 
-        return arr.hasOwnProperty(0) && arr[0] === "prop1";
-    }
-runTestCase(testcase);
+assert(arr.hasOwnProperty(0), 'arr.hasOwnProperty(0) !== true');
+assert.sameValue(arr[0], "prop1", 'arr[0]');

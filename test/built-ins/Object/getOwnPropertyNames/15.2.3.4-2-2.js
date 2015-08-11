@@ -4,13 +4,9 @@
 /*---
 es5id: 15.2.3.4-2-2
 description: Object.getOwnPropertyNames - returned array is an instance of Array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var result = Object.getOwnPropertyNames(obj);
 
-        return result instanceof Array;
-    }
-runTestCase(testcase);
+assert(result instanceof Array, 'result instanceof Array !== true');

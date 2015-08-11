@@ -6,10 +6,8 @@ es5id: 15.2.3.14-5-a-3
 description: >
     Object.keys - 'enumerable' attribute of element of returned array
     is correct
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { prop1: 100 };
 
         var array = Object.keys(obj);
@@ -21,6 +19,6 @@ function testcase() {
             }
         }
 
-        return result && desc.hasOwnProperty("enumerable") && desc.enumerable === true;
-    }
-runTestCase(testcase);
+assert(result, 'result !== true');
+assert(desc.hasOwnProperty("enumerable"), 'desc.hasOwnProperty("enumerable") !== true');
+assert.sameValue(desc.enumerable, true, 'desc.enumerable');

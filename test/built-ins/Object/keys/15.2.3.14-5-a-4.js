@@ -6,10 +6,8 @@ es5id: 15.2.3.14-5-a-4
 description: >
     Object.keys - Verify that 'configurable' attribute of element of
     returned array is correct
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { prop1: 100 };
 
         var array = Object.keys(obj);
@@ -17,6 +15,6 @@ function testcase() {
 
         delete array[0];
 
-        return typeof array[0] === "undefined" && desc.hasOwnProperty("configurable") && desc.configurable === true;
-    }
-runTestCase(testcase);
+assert.sameValue(typeof array[0], "undefined", 'typeof array[0]');
+assert(desc.hasOwnProperty("configurable"), 'desc.hasOwnProperty("configurable") !== true');
+assert.sameValue(desc.configurable, true, 'desc.configurable');

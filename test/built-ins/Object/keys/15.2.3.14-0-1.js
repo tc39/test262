@@ -4,13 +4,8 @@
 /*---
 es5id: 15.2.3.14-0-1
 description: Object.keys must exist as a function
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var f = Object.keys;
-  if (typeof(f) === "function") {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(typeof(f), "function", 'typeof(f)');

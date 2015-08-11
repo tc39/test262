@@ -6,12 +6,8 @@ es5id: 15.2.3.4-4-44
 description: >
     Object.getOwnPropertyNames - own index properties of String object
     are pushed into the returned Array
-includes:
-    - runTestCase.js
-    - compareArray.js
+includes: [compareArray.js]
 ---*/
-
-function testcase() {
 
   var str = new String("abc");
   str[5] = "de";
@@ -19,6 +15,4 @@ function testcase() {
   var expected = ["0", "1", "2", "5", "length"];
   var actual = Object.getOwnPropertyNames(str);
 
-  return compareArray(actual, expected);
-}
-runTestCase(testcase);
+assert(compareArray(actual, expected), 'compareArray(actual, expected) !== true');

@@ -6,10 +6,8 @@ es5id: 15.2.3.14-2-7
 description: >
     Object.keys - 'n' is 0 when 'O' doesn't contain own enumerable
     data or accessor properties
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop1", {
@@ -28,6 +26,4 @@ function testcase() {
 
         var arr = Object.keys(obj);
 
-        return arr.length === 0;
-    }
-runTestCase(testcase);
+assert.sameValue(arr.length, 0, 'arr.length');

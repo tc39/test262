@@ -6,12 +6,9 @@ es5id: 15.2.3.4-4-b-2
 description: >
   Object.getOwnPropertyNames - all own properties are pushed into
   the returned array
-includes:
-  - runTestCase.js
-  - compareArray.js
+includes: [compareArray.js]
 ---*/
 
-function testcase() {
   var obj = { "a": "a" };
 
   Object.defineProperty(obj, "b", {
@@ -39,6 +36,4 @@ function testcase() {
   var actual = Object.getOwnPropertyNames(obj);
   var expected = ["a", "b", "c", "d"];
 
-  return compareArray(actual, expected);
-}
-runTestCase(testcase);
+assert(compareArray(actual, expected), 'compareArray(actual, expected) !== true');

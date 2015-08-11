@@ -6,10 +6,8 @@ es5id: 15.2.3.14-5-1
 description: >
     Object.keys - own enumerable data property of 'O' is defined in
     returned array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { };
 
         Object.defineProperty(obj, "prop", {
@@ -20,6 +18,5 @@ function testcase() {
 
         var arr = Object.keys(obj);
 
-        return arr.hasOwnProperty(0) && arr[0] === "prop";
-    }
-runTestCase(testcase);
+assert(arr.hasOwnProperty(0), 'arr.hasOwnProperty(0) !== true');
+assert.sameValue(arr[0], "prop", 'arr[0]');

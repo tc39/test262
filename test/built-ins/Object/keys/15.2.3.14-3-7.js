@@ -6,10 +6,8 @@ es5id: 15.2.3.14-3-7
 description: >
     Object.keys - length of the returned array equals the number of
     own enumerable properties of 'O'
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { prop1: 1001, prop2: 1002 };
 
         Object.defineProperty(obj, "prop3", {
@@ -28,6 +26,4 @@ function testcase() {
 
         var arr = Object.keys(obj);
 
-        return arr.length === 3;
-    }
-runTestCase(testcase);
+assert.sameValue(arr.length, 3, 'arr.length');
