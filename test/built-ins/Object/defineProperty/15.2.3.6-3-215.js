@@ -6,10 +6,8 @@ es5id: 15.2.3.6-3-215
 description: >
     Object.defineProperty - 'get' property in 'Attributes' is own
     accessor property without a get function (8.10.5 step 7.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var attributes = {};
@@ -19,6 +17,5 @@ function testcase() {
 
         Object.defineProperty(obj, "property", attributes);
 
-        return typeof obj.property === "undefined" && obj.hasOwnProperty("property");
-    }
-runTestCase(testcase);
+assert.sameValue(typeof obj.property, "undefined", 'typeof obj.property');
+assert(obj.hasOwnProperty("property"), 'obj.hasOwnProperty("property") !== true');

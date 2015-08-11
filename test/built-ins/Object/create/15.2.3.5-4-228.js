@@ -6,12 +6,8 @@ es5id: 15.2.3.5-4-228
 description: >
     Object.create - 'writable' property of one property in
     'Properties' is the global object (8.10.5 step 6.b)
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
-
-function testcase() {
 
         var newObj = Object.create({}, {
             prop: {
@@ -22,6 +18,5 @@ function testcase() {
 
         newObj.prop = 121;
 
-        return hasProperty && newObj.prop === 121;
-    }
-runTestCase(testcase);
+assert(hasProperty, 'hasProperty !== true');
+assert.sameValue(newObj.prop, 121, 'newObj.prop');

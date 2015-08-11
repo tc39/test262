@@ -8,10 +8,7 @@ description: >
     accessor property of 'O' which is also defined in [[ParameterMap]]
     of 'O', and 'desc' is accessor descriptor, test updating multiple
     attribute values of 'P' (10.6 [[DefineOwnProperty]] step 3)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arg;
 
@@ -42,7 +39,8 @@ function testcase() {
         });
 
         var desc = Object.getOwnPropertyDescriptor(arg, "0");
-        return desc.get === get_func2 && typeof desc.set === "undefined" &&
-            desc.configurable === false && desc.enumerable === false;
-    }
-runTestCase(testcase);
+
+assert.sameValue(desc.get, get_func2, 'desc.get');
+assert.sameValue(typeof desc.set, "undefined", 'typeof desc.set');
+assert.sameValue(desc.configurable, false, 'desc.configurable');
+assert.sameValue(desc.enumerable, false, 'desc.enumerable');

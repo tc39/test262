@@ -6,17 +6,12 @@ es5id: 15.2.3.14-3-1
 description: >
     Object.keys returns the standard built-in Array containing own
     enumerable properties
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var o = { x: 1, y: 2};
 
   var a = Object.keys(o);
-  if (a.length === 2 &&
-      a[0] === 'x' &&
-      a[1] === 'y') {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(a.length, 2, 'a.length');
+assert.sameValue(a[0], 'x', 'a[0]');
+assert.sameValue(a[1], 'y', 'a[1]');

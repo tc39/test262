@@ -6,10 +6,7 @@ es5id: 15.2.3.7-5-b-8
 description: >
     Object.defineProperties - 'enumerable' property of 'descObj' is
     own data property (8.10.5 step 3.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         var accessed = false;
@@ -25,7 +22,5 @@ function testcase() {
                 accessed = true;
             }
         }
-        return accessed;
 
-    }
-runTestCase(testcase);
+assert(accessed, 'accessed !== true');

@@ -7,10 +7,8 @@ description: >
     Object.defineProperties - value of 'writable' property of
     'descObj' is  new Boolean(false) which is treated as true value
     (8.10.5 step 6.b)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperties(obj, {
@@ -21,6 +19,4 @@ function testcase() {
 
         obj.property = "isWritable";
 
-        return obj.property === "isWritable";
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "isWritable", 'obj.property');

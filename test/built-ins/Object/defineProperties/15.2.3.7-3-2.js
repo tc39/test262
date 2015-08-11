@@ -6,10 +6,7 @@ es5id: 15.2.3.7-3-2
 description: >
     Object.defineProperties - own data property of 'Properties' which
     is not enumerable is not defined in 'O'
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         var props = {};
@@ -21,6 +18,4 @@ function testcase() {
 
         Object.defineProperties(obj, props);
 
-        return !obj.hasOwnProperty("prop");
-    }
-runTestCase(testcase);
+assert.sameValue(obj.hasOwnProperty("prop"), false, 'obj.hasOwnProperty("prop")');

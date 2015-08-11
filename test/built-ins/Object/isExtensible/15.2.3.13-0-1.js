@@ -4,13 +4,8 @@
 /*---
 es5id: 15.2.3.13-0-1
 description: Object.isExtensible must exist as a function
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var f = Object.isExtensible ;
-  if (typeof(f) === "function") {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(typeof(f), "function", 'typeof(f)');

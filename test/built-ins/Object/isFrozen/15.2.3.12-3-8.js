@@ -4,13 +4,8 @@
 /*---
 es5id: 15.2.3.12-3-8
 description: Object.isFrozen returns false for all built-in objects (String)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var b = Object.isFrozen(String);
-  if (b === false) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(b, false, 'b');

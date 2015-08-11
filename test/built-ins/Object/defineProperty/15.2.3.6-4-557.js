@@ -7,10 +7,8 @@ description: >
     ES5 Attributes - [[Get]] attribute of accessor property ([[Get]]
     is a Function, [[Set]] is a Function, [[Enumerable]] is false,
     [[Configurable]] is false) is the expected function
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var getFunc = function () {
@@ -32,6 +30,6 @@ function testcase() {
         var propertyDefineCorrect = obj.hasOwnProperty("prop");
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return propertyDefineCorrect && desc.get === getFunc && obj.prop === 1001;
-    }
-runTestCase(testcase);
+assert(propertyDefineCorrect, 'propertyDefineCorrect !== true');
+assert.sameValue(desc.get, getFunc, 'desc.get');
+assert.sameValue(obj.prop, 1001, 'obj.prop');

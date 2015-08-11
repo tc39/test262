@@ -7,10 +7,8 @@ description: >
     Object.defineProperty - 'get' property in 'Attributes' is own
     accessor property(without a get function) that overrides an
     inherited accessor property (8.10.5 step 7.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var proto = {};
         Object.defineProperty(proto, "get", {
@@ -31,6 +29,5 @@ function testcase() {
 
         Object.defineProperty(obj, "property", child);
 
-        return obj.hasOwnProperty("property") && typeof obj.property === "undefined";
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("property"), 'obj.hasOwnProperty("property") !== true');
+assert.sameValue(typeof obj.property, "undefined", 'typeof obj.property');

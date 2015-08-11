@@ -4,10 +4,6 @@
 /*---
 es5id: 15.2.3.2-1
 description: Object.getPrototypeOf returns Number.prototype if 'O' is a number
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-    return Object.getPrototypeOf(0) === Number.prototype;
-}
-runTestCase(testcase);
+assert.sameValue(Object.getPrototypeOf(0), Number.prototype, 'Object.getPrototypeOf(0)');

@@ -6,10 +6,7 @@ es5id: 15.2.3.13-2-27
 description: >
     Object.isExtensible returns false if O is not extensible and has a
     prototype that is not extensible
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var proto = {};
         Object.preventExtensions(proto);
@@ -20,7 +17,4 @@ function testcase() {
         var obj = new ConstructFun();
         Object.preventExtensions(obj);
 
-        return !Object.isExtensible(obj);
-
-    }
-runTestCase(testcase);
+assert.sameValue(Object.isExtensible(obj), false, 'Object.isExtensible(obj)');

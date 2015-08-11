@@ -7,10 +7,8 @@ description: >
     ES5 Attributes - success to update the accessor property ([[Get]]
     is undefined, [[Set]] is a Function, [[Enumerable]] is false,
     [[Configurable]] is true) to a data property
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var verifySetFunc = "data";
@@ -31,6 +29,5 @@ function testcase() {
         });
         var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return desc1.hasOwnProperty("get") && desc2.hasOwnProperty("value");
-    }
-runTestCase(testcase);
+assert(desc1.hasOwnProperty("get"), 'desc1.hasOwnProperty("get") !== true');
+assert(desc2.hasOwnProperty("value"), 'desc2.hasOwnProperty("value") !== true');

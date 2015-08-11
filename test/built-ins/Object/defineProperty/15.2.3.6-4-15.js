@@ -10,10 +10,8 @@ es5id: 15.2.3.6-4-15
 description: >
     Object.defineProperty permits changing accessor property to data
     property for configurable properties
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var o = {};
 
   // define an accessor property
@@ -30,11 +28,7 @@ function testcase() {
   Object.defineProperty(o, "foo", desc);
   var d2 = Object.getOwnPropertyDescriptor(o, "foo");
 
-  if (d2.value === 101 &&
-      d2.writable === false &&
-      d2.enumerable === false &&
-      d2.configurable === true) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(d2.value, 101, 'd2.value');
+assert.sameValue(d2.writable, false, 'd2.writable');
+assert.sameValue(d2.enumerable, false, 'd2.enumerable');
+assert.sameValue(d2.configurable, true, 'd2.configurable');

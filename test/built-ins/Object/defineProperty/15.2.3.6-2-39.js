@@ -6,14 +6,9 @@ es5id: 15.2.3.6-2-39
 description: >
     Object.defineProperty - argument 'P' is an array that converts to
     a string
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         Object.defineProperty(obj, [1, 2], {});
 
-        return obj.hasOwnProperty("1,2");
-
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("1,2"), 'obj.hasOwnProperty("1,2") !== true');

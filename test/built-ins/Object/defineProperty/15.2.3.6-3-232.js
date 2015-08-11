@@ -6,10 +6,8 @@ es5id: 15.2.3.6-3-232
 description: >
     Object.defineProperty - value of 'get' property in 'Attributes' is
     a function (8.10.5 step 7.b)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "property", {
@@ -18,6 +16,5 @@ function testcase() {
             }
         });
 
-        return obj.hasOwnProperty("property") && obj.property === "getFunction";
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("property"), 'obj.hasOwnProperty("property") !== true');
+assert.sameValue(obj.property, "getFunction", 'obj.property');

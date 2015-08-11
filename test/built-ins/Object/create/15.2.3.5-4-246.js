@@ -7,10 +7,8 @@ description: >
     Object.create - one property in 'Properties' is a String object
     that uses Object's [[Get]] method to access the 'get' property
     (8.10.5 step 7.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var strObj = new String("abc");
 
         strObj.get = function () {
@@ -21,6 +19,4 @@ function testcase() {
             prop: strObj
         });
 
-        return newObj.prop === "VerifyStringObject";
-    }
-runTestCase(testcase);
+assert.sameValue(newObj.prop, "VerifyStringObject", 'newObj.prop');

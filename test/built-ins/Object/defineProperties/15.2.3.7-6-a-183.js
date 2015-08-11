@@ -8,10 +8,8 @@ description: >
     Array, 'P' is an array index named property, [[Writable]]
     attribute of the length property in 'O' is false, value of 'P' is
     less than value of the length property in'O'  (15.4.5.1 step 4.b)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var arr = [1, 2, 3];
 
         Object.defineProperty(arr, "length", {
@@ -24,6 +22,6 @@ function testcase() {
             }
         });
 
-        return arr[0] === 1 && arr[1] === "abc" && arr[2] === 3;
-    }
-runTestCase(testcase);
+assert.sameValue(arr[0], 1, 'arr[0]');
+assert.sameValue(arr[1], "abc", 'arr[1]');
+assert.sameValue(arr[2], 3, 'arr[2]');

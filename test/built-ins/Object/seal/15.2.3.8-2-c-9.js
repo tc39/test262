@@ -4,17 +4,12 @@
 /*---
 es5id: 15.2.3.8-2-c-9
 description: Object.seal - 'O' is an Arguments object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var argObj = (function () { return arguments; })();
 
         var preCheck = Object.isExtensible(argObj);
         Object.seal(argObj);
 
-        return preCheck && Object.isSealed(argObj);
-
-    }
-runTestCase(testcase);
+assert(preCheck, 'preCheck !== true');
+assert(Object.isSealed(argObj), 'Object.isSealed(argObj) !== true');

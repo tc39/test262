@@ -7,17 +7,12 @@ description: >
     Object.defineProperty - 'O' is an Array, 'name' is the length
     property of 'O', test the [[Value]] field of 'desc' is null
     (15.4.5.1 step 3.c)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arrObj = [0, 1];
 
         Object.defineProperty(arrObj, "length", {
             value: null
         });
-        return arrObj.length === 0;
 
-    }
-runTestCase(testcase);
+assert.sameValue(arrObj.length, 0, 'arrObj.length');

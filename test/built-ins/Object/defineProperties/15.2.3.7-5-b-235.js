@@ -7,10 +7,8 @@ description: >
     Object.defineProperties - 'set' property of 'descObj' is own
     accessor property that overrides an inherited accessor property
     (8.10.5 step 8.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var data1 = "data";
         var data2 = "data";
 
@@ -43,6 +41,6 @@ function testcase() {
 
         obj.prop = "overrideData";
 
-        return obj.hasOwnProperty("prop") && data2 === "overrideData" && data1 === "data";
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("prop"), 'obj.hasOwnProperty("prop") !== true');
+assert.sameValue(data2, "overrideData", 'data2');
+assert.sameValue(data1, "data", 'data1');

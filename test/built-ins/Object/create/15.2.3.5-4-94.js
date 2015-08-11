@@ -6,10 +6,7 @@ es5id: 15.2.3.5-4-94
 description: >
     Object.create - 'enumerable' property of one property in
     'Properties' is an Arguments object (8.10.5 step 3.b)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var argObj = (function () { return arguments; })();
@@ -24,6 +21,5 @@ function testcase() {
                 accessed = true;
             }
         }
-        return accessed;
-    }
-runTestCase(testcase);
+
+assert(accessed, 'accessed !== true');

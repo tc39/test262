@@ -6,10 +6,7 @@ es5id: 15.2.3.5-4-14
 description: >
     Object.create - argument 'Properties' is an Error object (15.2.3.7
     step 2)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var props = new Error("test");
         var result = false;
@@ -26,6 +23,6 @@ function testcase() {
             enumerable: true
         });
         var newObj = Object.create({}, props);
-        return result && newObj.hasOwnProperty("prop15_2_3_5_4_14");
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');
+assert(newObj.hasOwnProperty("prop15_2_3_5_4_14"), 'newObj.hasOwnProperty("prop15_2_3_5_4_14") !== true');

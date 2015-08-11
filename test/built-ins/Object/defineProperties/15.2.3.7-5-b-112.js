@@ -6,10 +6,8 @@ es5id: 15.2.3.7-5-b-112
 description: >
     Object.defineProperties - 'value' property of 'descObj' is present
     (8.10.5 step 5)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperties(obj, {
@@ -18,6 +16,4 @@ function testcase() {
             }
         });
 
-        return obj.property === 300;
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, 300, 'obj.property');

@@ -7,10 +7,8 @@ description: >
     Object.preventExtensions - [[Extensible]]: false on a prototype
     doesn't prevent adding properties to an instance that inherits
     from that prototype
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var proto = {};
         var preCheck = Object.isExtensible(proto);
         Object.preventExtensions(proto);
@@ -21,6 +19,5 @@ function testcase() {
 
         child.prop = 10;
 
-        return preCheck && child.hasOwnProperty("prop");
-    }
-runTestCase(testcase);
+assert(preCheck, 'preCheck !== true');
+assert(child.hasOwnProperty("prop"), 'child.hasOwnProperty("prop") !== true');

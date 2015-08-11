@@ -6,10 +6,8 @@ es5id: 15.2.3.6-4-588
 description: >
     ES5 Attributes - [[Get]] field of inherited property of
     [[Prototype]] internal property is correct (Object.create)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var appointment = {};
 
         var data1 = 1001;
@@ -48,8 +46,7 @@ function testcase() {
             !teamMeeting.hasOwnProperty("startTime") &&
             !teamMeeting.hasOwnProperty('conferenceCall');
 
-        return hasOwnProperty && teamMeeting.name === "NAME" &&
-            teamMeeting.startTime === 1001 &&
-            teamMeeting.conferenceCall === "In-person meeting";
-    }
-runTestCase(testcase);
+assert(hasOwnProperty, 'hasOwnProperty !== true');
+assert.sameValue(teamMeeting.name, "NAME", 'teamMeeting.name');
+assert.sameValue(teamMeeting.startTime, 1001, 'teamMeeting.startTime');
+assert.sameValue(teamMeeting.conferenceCall, "In-person meeting", 'teamMeeting.conferenceCall');

@@ -7,10 +7,7 @@ description: >
     Object.defineProperties - 'descObj' is an Array object which
     implements its own [[Get]] method to get 'set' property (8.10.5
     step 8.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var data = "data";
         var arr = [];
@@ -24,6 +21,6 @@ function testcase() {
         var obj = {};
         Object.defineProperties(obj, arr);
         obj.prop = "arrData";
-        return obj.hasOwnProperty("prop") && data === "arrData";
-    }
-runTestCase(testcase);
+
+assert(obj.hasOwnProperty("prop"), 'obj.hasOwnProperty("prop") !== true');
+assert.sameValue(data, "arrData", 'data');

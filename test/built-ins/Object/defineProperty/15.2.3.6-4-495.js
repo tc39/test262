@@ -7,10 +7,8 @@ description: >
     ES5 Attributes - [[Set]] attribute of accessor property ([[Get]]
     is a Function, [[Set]] is undefined, [[Enumerable]] is true,
     [[Configurable]] is true) is undefined
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var getFunc = function () {
@@ -27,6 +25,5 @@ function testcase() {
         var propertyDefineCorrect = obj.hasOwnProperty("prop");
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return propertyDefineCorrect && typeof desc.set === "undefined";
-    }
-runTestCase(testcase);
+assert(propertyDefineCorrect, 'propertyDefineCorrect !== true');
+assert.sameValue(typeof desc.set, "undefined", 'typeof desc.set');

@@ -6,10 +6,8 @@ es5id: 15.2.3.6-4-414
 description: >
     ES5 Attributes - Inherited property whose [[Enumerable]] attribute
     is set to true is enumerable (Object.create)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var appointment = new Object();
 
         Object.defineProperty(appointment, "startTime", {
@@ -54,6 +52,7 @@ function testcase() {
             !teamMeeting.hasOwnProperty("startTime") &&
             !teamMeeting.hasOwnProperty("conferenceCall");
 
-        return hasOwnProperty && verifyTimeProp && verifyNameProp && verifyCallProp;
-    }
-runTestCase(testcase);
+assert(hasOwnProperty, 'hasOwnProperty !== true');
+assert(verifyTimeProp, 'verifyTimeProp !== true');
+assert(verifyNameProp, 'verifyNameProp !== true');
+assert(verifyCallProp, 'verifyCallProp !== true');

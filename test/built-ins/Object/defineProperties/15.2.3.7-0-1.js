@@ -4,13 +4,8 @@
 /*---
 es5id: 15.2.3.7-0-1
 description: Object.defineProperties must exist as a function
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var f = Object.defineProperties;
-  if (typeof(f) === "function") {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(typeof(f), "function", 'typeof(f)');

@@ -7,10 +7,7 @@ description: >
     Object.defineProperties - 'O' is an Array, 'P' is the length
     property of 'O', test the [[Value]] field of 'desc' is an Object
     which has an own toString method (15.4.5.1 step 3.c)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [];
 
@@ -24,6 +21,4 @@ function testcase() {
             }
         });
 
-        return arr.length === 2;
-    }
-runTestCase(testcase);
+assert.sameValue(arr.length, 2, 'arr.length');

@@ -6,10 +6,8 @@ es5id: 15.2.3.6-3-79
 description: >
     Object.defineProperty - 'configurable' property in 'Attributes' is
     own accessor property (8.10.5 step 4.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { };
 
         var attr = {};
@@ -27,6 +25,5 @@ function testcase() {
 
         var afterDeleted = obj.hasOwnProperty("property");
 
-        return beforeDeleted === true && afterDeleted === false;
-    }
-runTestCase(testcase);
+assert.sameValue(beforeDeleted, true, 'beforeDeleted');
+assert.sameValue(afterDeleted, false, 'afterDeleted');

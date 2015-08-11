@@ -4,14 +4,10 @@
 /*---
 es5id: 15.2.3.9-2-d-3
 description: Object.freeze - 'O' is a String object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var strObj = new String("a");
 
         Object.freeze(strObj);
 
-        return Object.isFrozen(strObj);
-    }
-runTestCase(testcase);
+assert(Object.isFrozen(strObj), 'Object.isFrozen(strObj) !== true');

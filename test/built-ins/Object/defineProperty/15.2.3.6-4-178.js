@@ -8,10 +8,7 @@ description: >
     property of 'O', the [[Value]] field of 'desc' is less than value
     of  the length property, test the configurable large index named
     property of 'O' is deleted (15.4.5.1 step 3.l.ii)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arrObj = [0, 1];
 
@@ -19,6 +16,4 @@ function testcase() {
             value: 1
         });
 
-        return !arrObj.hasOwnProperty("1");
-    }
-runTestCase(testcase);
+assert.sameValue(arrObj.hasOwnProperty("1"), false, 'arrObj.hasOwnProperty("1")');

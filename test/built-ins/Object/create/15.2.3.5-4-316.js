@@ -6,10 +6,7 @@ es5id: 15.2.3.5-4-316
 description: >
     Object.create - enumerable properties of 'Properties' are given
     numerical names (15.2.3.7 step 7)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function getFunc() {
             return 20;
@@ -36,6 +33,7 @@ function testcase() {
                 configurable: true
             }
         });
-        return newObj[0] === 100 && newObj[1] === 20 && newObj[2] === 200;
-    }
-runTestCase(testcase);
+
+assert.sameValue(newObj[0], 100, 'newObj[0]');
+assert.sameValue(newObj[1], 20, 'newObj[1]');
+assert.sameValue(newObj[2], 200, 'newObj[2]');

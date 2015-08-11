@@ -4,12 +4,6 @@
 /*---
 es5id: 15.2.3.14-0-2
 description: Object.keys must exist as a function taking 1 parameter
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if (Object.keys.length === 1) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Object.keys.length, 1, 'Object.keys.length');

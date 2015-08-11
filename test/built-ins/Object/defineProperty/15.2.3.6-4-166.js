@@ -10,10 +10,7 @@ description: >
     length property is set to true after deleting properties with
     large index named if the [[Writable]] field of 'desc' is true
     (15.4.5.1 step 3.h)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arrObj = [0, 1];
 
@@ -26,6 +23,5 @@ function testcase() {
 
         arrObj.length = 10;
 
-        return indexDeleted && arrObj.length === 10;
-    }
-runTestCase(testcase);
+assert(indexDeleted, 'indexDeleted !== true');
+assert.sameValue(arrObj.length, 10, 'arrObj.length');

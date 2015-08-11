@@ -6,14 +6,9 @@ es5id: 15.2.3.6-2-11
 description: >
     Object.defineProperty - argument 'P' is a number that converts to
     a string (value is Infinity)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         Object.defineProperty(obj, Infinity, {});
 
-        return obj.hasOwnProperty("Infinity");
-
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("Infinity"), 'obj.hasOwnProperty("Infinity") !== true');

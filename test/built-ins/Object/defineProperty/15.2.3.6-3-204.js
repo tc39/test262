@@ -6,10 +6,8 @@ es5id: 15.2.3.6-3-204
 description: >
     Object.defineProperty - 'writable' property in 'Attributes' is
     treated as true when it is new Boolean(false) (8.10.5 step 6.b)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "property", { writable: new Boolean(false) });
@@ -20,6 +18,5 @@ function testcase() {
 
         var afterWrite = (obj.property === "isWritable");
 
-        return beforeWrite === true && afterWrite === true;
-    }
-runTestCase(testcase);
+assert.sameValue(beforeWrite, true, 'beforeWrite');
+assert.sameValue(afterWrite, true, 'afterWrite');

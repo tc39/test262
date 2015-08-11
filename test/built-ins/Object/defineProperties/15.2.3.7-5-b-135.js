@@ -7,10 +7,8 @@ description: >
     Object.defineProperties - 'descObj' is the Arguments object which
     implements its own [[Get]] method to get 'value' property (8.10.5
     step 5.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var func = function (a, b) {
@@ -23,6 +21,4 @@ function testcase() {
             return obj.property === "arguments";
         };
 
-        return func();
-    }
-runTestCase(testcase);
+assert(func(), 'func() !== true');

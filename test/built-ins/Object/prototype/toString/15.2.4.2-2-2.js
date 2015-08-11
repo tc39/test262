@@ -6,10 +6,6 @@ es5id: 15.2.4.2-2-2
 description: >
     Object.prototype.toString - '[object Null]' will be returned when
     'this' value is null
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        return Object.prototype.toString.apply(null, []) === "[object Null]";
-    }
-runTestCase(testcase);
+assert.sameValue(Object.prototype.toString.apply(null, []), "[object Null]", 'Object.prototype.toString.apply(null, [])');

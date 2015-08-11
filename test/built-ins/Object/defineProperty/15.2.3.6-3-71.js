@@ -7,10 +7,8 @@ description: >
     Object.defineProperty - value of 'enumerable' property in
     'Attributes' is treated as true when it is a string (value is
     'false') (8.10.5 step 3.b)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var accessed = false;
 
@@ -21,6 +19,5 @@ function testcase() {
                 accessed = true;
             }
         }
-        return accessed;
-    }
-runTestCase(testcase);
+
+assert(accessed, 'accessed !== true');

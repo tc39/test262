@@ -6,12 +6,6 @@ es5id: 15.2.3.2-2-18
 description: >
     Object.getPrototypeOf returns the [[Prototype]] of its parameter
     (JSON)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if (Object.getPrototypeOf(JSON) === Object.prototype) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Object.getPrototypeOf(JSON), Object.prototype, 'Object.getPrototypeOf(JSON)');

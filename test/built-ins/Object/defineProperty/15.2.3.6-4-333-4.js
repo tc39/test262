@@ -7,10 +7,8 @@ description: >
     Indexed property 'P' with attributes [[Writable]]: true,
     [[Enumerable]]:true, [[Configurable]]:false is writable using
     simple assignment, 'A' is an Array Object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = [];
 
         Object.defineProperty(obj, "0", {
@@ -22,6 +20,5 @@ function testcase() {
         var verifyValue = (obj[0] === 2010);
         obj[0] = 1001;
 
-        return verifyValue && obj[0] === 1001;
-    }
-runTestCase(testcase);
+assert(verifyValue, 'verifyValue !== true');
+assert.sameValue(obj[0], 1001, 'obj[0]');

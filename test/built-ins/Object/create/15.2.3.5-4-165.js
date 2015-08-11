@@ -7,10 +7,7 @@ description: >
     Object.create - one property in 'Properties' is a Function object
     which implements its own [[Get]] method to access the 'value'
     property (8.10.5 step 5.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var Func = function (a, b) {
             return a + b;
@@ -22,6 +19,5 @@ function testcase() {
         var newObj = Object.create({}, {
             prop: fun
         });
-        return newObj.prop === "FunValue";
-    }
-runTestCase(testcase);
+
+assert.sameValue(newObj.prop, "FunValue", 'newObj.prop');

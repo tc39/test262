@@ -6,10 +6,8 @@ es5id: 15.2.3.7-6-a-6
 description: >
     Object.defineProperties - 'P' is inherited accessor property
     (8.12.9 step 1 )
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var proto = {};
         Object.defineProperty(proto, "prop", {
             get: function () {
@@ -30,6 +28,6 @@ function testcase() {
                 configurable: true
             }
         });
-        return obj.hasOwnProperty("prop") && obj.prop === 12;
-    }
-runTestCase(testcase);
+
+assert(obj.hasOwnProperty("prop"), 'obj.hasOwnProperty("prop") !== true');
+assert.sameValue(obj.prop, 12, 'obj.prop');

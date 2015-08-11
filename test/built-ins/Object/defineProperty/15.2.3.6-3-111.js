@@ -6,10 +6,8 @@ es5id: 15.2.3.6-3-111
 description: >
     Object.defineProperty - 'configurable' property in 'Attributes' is
     a Function object (8.10.5 step 4.b)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "property", {
@@ -22,6 +20,5 @@ function testcase() {
 
         var afterDeleted = obj.hasOwnProperty("property");
 
-        return beforeDeleted === true && afterDeleted === false;
-    }
-runTestCase(testcase);
+assert.sameValue(beforeDeleted, true, 'beforeDeleted');
+assert.sameValue(afterDeleted, false, 'afterDeleted');

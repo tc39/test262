@@ -6,10 +6,8 @@ es5id: 15.2.3.6-4-32
 description: >
     Object.defineProperty - 'name' is an inherited accessor property
     without a get function (8.12.9 step 1)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var proto = {};
         Object.defineProperty(proto, "foo", {
             set: function () { },
@@ -23,6 +21,6 @@ function testcase() {
         Object.defineProperty(obj, "foo", {
             configurable: true
         });
-        return obj.hasOwnProperty("foo") && typeof obj.foo === "undefined";
-    }
-runTestCase(testcase);
+
+assert(obj.hasOwnProperty("foo"), 'obj.hasOwnProperty("foo") !== true');
+assert.sameValue(typeof obj.foo, "undefined", 'typeof obj.foo');

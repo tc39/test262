@@ -4,14 +4,9 @@
 /*---
 es5id: 15.2.3.6-2-33
 description: Object.defineProperty - argument 'P' is applied to an empty string
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         Object.defineProperty(obj, "", {});
 
-        return obj.hasOwnProperty("");
-
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty(""), 'obj.hasOwnProperty("") !== true');

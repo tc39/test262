@@ -6,13 +6,8 @@ es5id: 15.2.3.11-4-7
 description: >
     Object.isSealed returns false for all built-in objects
     (Array.prototype)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var b = Object.isSealed(Array.prototype);
-  if (b === false) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(b, false, 'b');

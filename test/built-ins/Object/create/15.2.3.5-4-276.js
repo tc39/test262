@@ -6,10 +6,8 @@ es5id: 15.2.3.5-4-276
 description: >
     Object.create - 'set' property of one property in 'Properties' is
     own accessor property without a get function (8.10.5 step 8.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var descObj = {};
         Object.defineProperty(descObj, "set", {
             set: function () { }
@@ -23,6 +21,5 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(newObj, "prop");
 
-        return hasProperty && typeof desc.set === "undefined";
-    }
-runTestCase(testcase);
+assert(hasProperty, 'hasProperty !== true');
+assert.sameValue(typeof desc.set, "undefined", 'typeof desc.set');

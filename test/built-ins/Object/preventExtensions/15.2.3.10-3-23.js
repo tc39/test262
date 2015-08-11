@@ -6,16 +6,13 @@ es5id: 15.2.3.10-3-23
 description: >
     Object.preventExtensions - properties can still be reassigned
     after extensions have been prevented
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { prop: 12 };
         var preCheck = Object.isExtensible(obj);
         Object.preventExtensions(obj);
 
         obj.prop = -1;
 
-        return preCheck && obj.prop === -1;
-    }
-runTestCase(testcase);
+assert(preCheck, 'preCheck !== true');
+assert.sameValue(obj.prop, -1, 'obj.prop');

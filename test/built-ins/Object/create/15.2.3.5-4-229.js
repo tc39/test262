@@ -7,10 +7,7 @@ description: >
     Object.create - 'writable' property of one property in
     'Properties' is a string (value is 'false') which is treated as
     the value true (8.10.5 step 6.b)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var newObj = Object.create({}, {
             prop: {
@@ -21,6 +18,5 @@ function testcase() {
 
         newObj.prop = 121;
 
-        return hasProperty && newObj.prop === 121;
-    }
-runTestCase(testcase);
+assert(hasProperty, 'hasProperty !== true');
+assert.sameValue(newObj.prop, 121, 'newObj.prop');

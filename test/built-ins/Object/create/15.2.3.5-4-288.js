@@ -7,10 +7,8 @@ description: >
     Object.create - one property in 'Properties' is an Error object
     that uses Object's [[Get]] method to access the 'set' property
     (8.10.5 step 8.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var errObj = new Error("error");
         var data = "data";
 
@@ -24,6 +22,5 @@ function testcase() {
 
         newObj.prop = "overrideData";
 
-        return newObj.hasOwnProperty("prop") && data === "overrideData";
-    }
-runTestCase(testcase);
+assert(newObj.hasOwnProperty("prop"), 'newObj.hasOwnProperty("prop") !== true');
+assert.sameValue(data, "overrideData", 'data');

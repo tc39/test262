@@ -4,14 +4,10 @@
 /*---
 es5id: 15.2.3.9-2-d-7
 description: Object.freeze - 'O' is a RegExp object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var regObj = new RegExp();
 
         Object.freeze(regObj);
 
-        return Object.isFrozen(regObj);
-    }
-runTestCase(testcase);
+assert(Object.isFrozen(regObj), 'Object.isFrozen(regObj) !== true');

@@ -6,14 +6,9 @@ es5id: 8.12.1-1_6
 description: >
     Properties - [[HasOwnProperty]] (non-writable, configurable,
     non-enumerable own value property)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
     var o = {};
     Object.defineProperty(o, "foo", {value: 42, configurable:true});
-    return o.hasOwnProperty("foo");
 
-}
-runTestCase(testcase);
+assert(o.hasOwnProperty("foo"), 'o.hasOwnProperty("foo") !== true');

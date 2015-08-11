@@ -8,10 +8,7 @@ description: >
     property of 'O', test the [[Value]] field of 'desc' which is less
     than value of the length property is defined into 'O' with
     deleting properties with large index named (15.4.5.1 step 3.f)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [0, 1];
 
@@ -20,6 +17,7 @@ function testcase() {
                 value: 1
             }
         });
-        return arr.length === 1 && !arr.hasOwnProperty("1") && arr[0] === 0;
-    }
-runTestCase(testcase);
+
+assert.sameValue(arr.length, 1, 'arr.length');
+assert.sameValue(arr.hasOwnProperty("1"), false, 'arr.hasOwnProperty("1")');
+assert.sameValue(arr[0], 0, 'arr[0]');

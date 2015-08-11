@@ -4,10 +4,8 @@
 /*---
 es5id: 15.2.3.6-4-398
 description: ES5 Attributes - [[Value]] attribute of data property is -Infinity
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
@@ -16,6 +14,5 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return obj.prop === -Infinity && desc.value === -Infinity;
-    }
-runTestCase(testcase);
+assert.sameValue(obj.prop, -Infinity, 'obj.prop');
+assert.sameValue(desc.value, -Infinity, 'desc.value');

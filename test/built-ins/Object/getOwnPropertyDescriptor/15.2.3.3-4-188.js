@@ -6,12 +6,9 @@ es5id: 15.2.3.3-4-188
 description: >
     Object.getOwnPropertyDescriptor returns undefined for non-existent
     properties on built-ins (Function (instance).name)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var f = Function('return 42;');
   var desc = Object.getOwnPropertyDescriptor(f, "functionNameHopefullyDoesNotExist");
-  return desc === undefined;
- }
-runTestCase(testcase);
+
+assert.sameValue(desc, undefined, 'desc');

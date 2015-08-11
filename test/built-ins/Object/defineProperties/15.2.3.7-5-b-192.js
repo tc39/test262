@@ -6,10 +6,8 @@ es5id: 15.2.3.7-5-b-192
 description: >
     Object.defineProperties - 'get' property of 'descObj' is not
     present (8.10.5 step 7)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var setter = function () { };
@@ -20,6 +18,5 @@ function testcase() {
             }
         });
 
-        return obj.hasOwnProperty("property") && typeof (obj.property) === "undefined";
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("property"), 'obj.hasOwnProperty("property") !== true');
+assert.sameValue(typeof (obj.property), "undefined", 'typeof (obj.property)');

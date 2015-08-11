@@ -4,11 +4,6 @@
 /*---
 es5id: 15.2.3.10-1-2
 description: Object.preventExtensions does not throw TypeError if 'O' is null
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
     Object.preventExtensions(null);
-    return true;
-}
-runTestCase(testcase);

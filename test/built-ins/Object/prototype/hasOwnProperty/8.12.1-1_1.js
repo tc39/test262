@@ -4,13 +4,8 @@
 /*---
 es5id: 8.12.1-1_1
 description: Properties - [[HasOwnProperty]] (property does not exist)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
     var o = {};
-    return o.hasOwnProperty("foo")===false;
 
-}
-runTestCase(testcase);
+assert.sameValue(o.hasOwnProperty("foo"), false, 'o.hasOwnProperty("foo")');

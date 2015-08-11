@@ -6,10 +6,8 @@ es5id: 15.2.3.3-4-3
 description: >
     Object.getOwnPropertyDescriptor returns an object representing an
     accessor desc for valid accessor properties
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
     var o = {};
 
     // dummy getter
@@ -19,11 +17,8 @@ function testcase() {
     Object.defineProperty(o, "foo", d);
 
     var desc = Object.getOwnPropertyDescriptor(o, "foo");
-    if (desc.get === getter &&
-        desc.set === undefined &&
-        desc.enumerable === false &&
-        desc.configurable === false) {
-      return true;
-    }
- }
-runTestCase(testcase);
+
+assert.sameValue(desc.get, getter, 'desc.get');
+assert.sameValue(desc.set, undefined, 'desc.set');
+assert.sameValue(desc.enumerable, false, 'desc.enumerable');
+assert.sameValue(desc.configurable, false, 'desc.configurable');

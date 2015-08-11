@@ -7,10 +7,8 @@ description: >
     Object.defineProperties - 'descObj' is a Boolean object which
     implements its own [[Get]] method to get 'get' property (8.10.5
     step 7.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var descObj = new Boolean(false);
@@ -23,6 +21,4 @@ function testcase() {
             property: descObj
         });
 
-        return obj.property === "Boolean";
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "Boolean", 'obj.property');

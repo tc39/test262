@@ -4,13 +4,8 @@
 /*---
 es5id: 15.2.3.8-0-1
 description: Object.seal must exist as a function
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var f = Object.seal;
-  if (typeof(f) === "function") {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(typeof(f), "function", 'typeof(f)');

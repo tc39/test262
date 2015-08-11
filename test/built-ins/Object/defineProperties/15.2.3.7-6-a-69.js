@@ -6,10 +6,7 @@ es5id: 15.2.3.7-6-a-69
 description: >
     Object.defineProperties - 'P' is data property and P.configurable
     is true, desc is accessor property (8.12.9 step 9.b.i)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
 
@@ -44,7 +41,8 @@ function testcase() {
         delete obj.foo;
         verifyConfigurable = obj.hasOwnProperty("foo");
 
-        return !verifyConfigurable && !verifyEnumerable && verifyValue &&
-            typeof desc.set === "undefined" && desc.get === get_Func;
-    }
-runTestCase(testcase);
+assert.sameValue(verifyConfigurable, false, 'verifyConfigurable');
+assert.sameValue(verifyEnumerable, false, 'verifyEnumerable');
+assert(verifyValue, 'verifyValue !== true');
+assert.sameValue(typeof desc.set, "undefined", 'typeof desc.set');
+assert.sameValue(desc.get, get_Func, 'desc.get');

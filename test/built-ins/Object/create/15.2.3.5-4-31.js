@@ -7,10 +7,7 @@ description: >
     Object.create - 'Properties' is a Boolean object that uses
     Object's [[Get]] method to access own enumerable property
     (15.2.3.7 step 5.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var props = new Boolean(false);
         props.prop = {
@@ -18,6 +15,5 @@ function testcase() {
             enumerable: true
         };
         var newObj = Object.create({}, props);
-        return newObj.hasOwnProperty("prop");
-    }
-runTestCase(testcase);
+
+assert(newObj.hasOwnProperty("prop"), 'newObj.hasOwnProperty("prop") !== true');

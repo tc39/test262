@@ -6,10 +6,8 @@ es5id: 15.2.3.4-4-b-6
 description: >
     Object.getOwnPropertyNames - elements of the returned array are
     configurable
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { "a": "a" };
 
         var result = Object.getOwnPropertyNames(obj);
@@ -18,6 +16,5 @@ function testcase() {
         delete result[0];
         var afterDeleted = (result.hasOwnProperty("0"));
 
-        return beforeDeleted && !afterDeleted;
-    }
-runTestCase(testcase);
+assert(beforeDeleted, 'beforeDeleted !== true');
+assert.sameValue(afterDeleted, false, 'afterDeleted');

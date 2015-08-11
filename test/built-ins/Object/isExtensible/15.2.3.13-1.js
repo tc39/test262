@@ -6,11 +6,6 @@ es5id: 15.2.3.13-1
 description: >
     Object.isExtensible does not throw TypeError if type of first
     param is not Object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
     Object.isExtensible(0);
-    return true;
-}
-runTestCase(testcase);

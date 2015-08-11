@@ -4,10 +4,7 @@
 /*---
 es5id: 15.2.3.7-2-12
 description: Object.defineProperties - argument 'Properties' is a Date object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         var props = new Date();
@@ -22,6 +19,5 @@ function testcase() {
         });
 
         Object.defineProperties(obj, props);
-        return result;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

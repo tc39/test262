@@ -7,10 +7,8 @@ description: >
     Object.create - one property in 'Properties' is an Error object
     that uses Object's [[Get]] method to access the 'get' property
     (8.10.5 step 7.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var errObj = new Error("error");
 
         errObj.get = function () {
@@ -21,6 +19,4 @@ function testcase() {
             prop: errObj 
         });
 
-        return newObj.prop === "VerifyErrorObject";
-    }
-runTestCase(testcase);
+assert.sameValue(newObj.prop, "VerifyErrorObject", 'newObj.prop');

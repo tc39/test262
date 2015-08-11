@@ -4,12 +4,8 @@
 /*---
 es5id: 15.2.3.5-4-2
 description: Object.create - 'Properties' is undefined
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
         var newObj = Object.create({}, undefined);
-        return (newObj instanceof Object);
-    }
-runTestCase(testcase);
+
+assert((newObj instanceof Object), '(newObj instanceof Object) !== true');

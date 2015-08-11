@@ -4,10 +4,8 @@
 /*---
 es5id: 15.2.3.8-2-3
 description: Object.seal - inherited accessor properties are ignored
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var proto = {};
 
         Object.defineProperty(proto, "Father", {
@@ -28,6 +26,6 @@ function testcase() {
         delete proto.Father;
         var afterDeleted = proto.hasOwnProperty("Father");
 
-        return preCheck && beforeDeleted && !afterDeleted;
-    }
-runTestCase(testcase);
+assert(preCheck, 'preCheck !== true');
+assert(beforeDeleted, 'beforeDeleted !== true');
+assert.sameValue(afterDeleted, false, 'afterDeleted');

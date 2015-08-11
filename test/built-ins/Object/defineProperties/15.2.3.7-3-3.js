@@ -6,10 +6,7 @@ es5id: 15.2.3.7-3-3
 description: >
     Object.defineProperties - enumerable inherited data property of
     'Properties' is not defined in 'O'
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
 
@@ -26,6 +23,4 @@ function testcase() {
 
         Object.defineProperties(obj, child);
 
-        return !obj.hasOwnProperty("prop");
-    }
-runTestCase(testcase);
+assert.sameValue(obj.hasOwnProperty("prop"), false, 'obj.hasOwnProperty("prop")');

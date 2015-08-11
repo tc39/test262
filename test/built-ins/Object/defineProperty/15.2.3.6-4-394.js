@@ -4,10 +4,8 @@
 /*---
 es5id: 15.2.3.6-4-394
 description: ES5 Attributes - [[Value]] attribute of data property is undefined
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
@@ -16,6 +14,6 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return obj.hasOwnProperty("prop") && typeof obj.prop === "undefined" && typeof desc.value === "undefined";
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("prop"), 'obj.hasOwnProperty("prop") !== true');
+assert.sameValue(typeof obj.prop, "undefined", 'typeof obj.prop');
+assert.sameValue(typeof desc.value, "undefined", 'typeof desc.value');

@@ -6,10 +6,7 @@ es5id: 15.2.3.5-4-184
 description: >
     Object.create - 'writable' property of one property in
     'Properties' is own accessor property (8.10.5 step 6.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var descObj = {};
 
@@ -29,6 +26,5 @@ function testcase() {
 
         var afterWrite = (newObj.prop === "isWritable");
 
-        return beforeWrite === true && afterWrite === true;
-    }
-runTestCase(testcase);
+assert.sameValue(beforeWrite, true, 'beforeWrite');
+assert.sameValue(afterWrite, true, 'afterWrite');

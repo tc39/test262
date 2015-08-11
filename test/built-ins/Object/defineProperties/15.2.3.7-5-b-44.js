@@ -6,10 +6,7 @@ es5id: 15.2.3.7-5-b-44
 description: >
     Object.defineProperties - value of 'enumerable' property of
     'descObj' is a Function object (8.10.5 step 3.b)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         var accessed = false;
@@ -24,6 +21,5 @@ function testcase() {
                 accessed = true;
             }
         }
-        return accessed;
-    }
-runTestCase(testcase);
+
+assert(accessed, 'accessed !== true');

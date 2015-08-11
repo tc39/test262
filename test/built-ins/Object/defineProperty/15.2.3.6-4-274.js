@@ -8,10 +8,7 @@ description: >
     named property, test the length property of 'O' is not changed if
     ToUint32('name') is less than value of the length property in 'O'
     (15.4.5.1 step 4.e)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arrObj = [];
         arrObj.length = 3; // default value of length: writable: true, configurable: false, enumerable: false
@@ -20,6 +17,5 @@ function testcase() {
             value: 14
         });
 
-        return arrObj.length === 3 && arrObj[1] === 14;
-    }
-runTestCase(testcase);
+assert.sameValue(arrObj.length, 3, 'arrObj.length');
+assert.sameValue(arrObj[1], 14, 'arrObj[1]');

@@ -6,10 +6,8 @@ es5id: 15.2.3.6-3-238
 description: >
     Object.defineProperty - 'set' property in 'Attributes' is an
     inherited data property (8.10.5 step 8.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var data = "data";
         var proto = {
@@ -27,6 +25,5 @@ function testcase() {
 
         obj.property = "overrideData";
 
-        return obj.hasOwnProperty("property") && data === "overrideData";
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("property"), 'obj.hasOwnProperty("property") !== true');
+assert.sameValue(data, "overrideData", 'data');

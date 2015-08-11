@@ -4,13 +4,8 @@
 /*---
 es5id: 15.2.3.13-2-11
 description: Object.isExtensible returns true for all built-in objects (Error)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var e = Object.isExtensible(Error);
-  if (e === true) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(e, true, 'e');

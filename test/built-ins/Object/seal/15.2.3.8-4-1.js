@@ -4,10 +4,7 @@
 /*---
 es5id: 15.2.3.8-4-1
 description: Object.seal - 'O' is sealed already
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
 
@@ -16,7 +13,6 @@ function testcase() {
         Object.seal(obj);
 
         Object.seal(obj);
-        return preCheck && Object.isSealed(obj);
 
-    }
-runTestCase(testcase);
+assert(preCheck, 'preCheck !== true');
+assert(Object.isSealed(obj), 'Object.isSealed(obj) !== true');

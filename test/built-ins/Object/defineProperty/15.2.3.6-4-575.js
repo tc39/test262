@@ -6,10 +6,8 @@ es5id: 15.2.3.6-4-575
 description: >
     ES5 Attributes - [[Set]] attribute is a function which contains
     global variable
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var globalVariable = 20;
         var setFunc = function () {
@@ -22,6 +20,6 @@ function testcase() {
         obj.prop = 10;
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return obj.hasOwnProperty("prop") && desc.set === setFunc && globalVariable === 2010;
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("prop"), 'obj.hasOwnProperty("prop") !== true');
+assert.sameValue(desc.set, setFunc, 'desc.set');
+assert.sameValue(globalVariable, 2010, 'globalVariable');

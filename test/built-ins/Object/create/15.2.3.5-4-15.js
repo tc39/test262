@@ -6,10 +6,7 @@ es5id: 15.2.3.5-4-15
 description: >
     Object.create - argument 'Properties' is the Aguments object
     (15.2.3.7 step 2)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var result = false;
 
@@ -24,6 +21,6 @@ function testcase() {
         });
 
         var newObj = Object.create({}, argObj);
-        return result && newObj.hasOwnProperty("prop");
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');
+assert(newObj.hasOwnProperty("prop"), 'newObj.hasOwnProperty("prop") !== true');

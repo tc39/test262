@@ -6,10 +6,8 @@ es5id: 15.2.3.6-4-393
 description: >
     ES5 Attributes - [[Value]] attribute of data property is a RegExp
     object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var regObj = new RegExp();
 
@@ -19,6 +17,5 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return obj.prop === regObj && desc.value === regObj;
-    }
-runTestCase(testcase);
+assert.sameValue(obj.prop, regObj, 'obj.prop');
+assert.sameValue(desc.value, regObj, 'desc.value');

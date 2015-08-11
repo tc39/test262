@@ -7,10 +7,8 @@ description: >
     Object.getOwnPropertyDescriptor - returned object contains the
     property 'value' if the value of property 'value' is not
     explicitly specified when defined by Object.defineProperty
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         Object.defineProperty(obj, "property", {
             writable: true,
@@ -19,6 +17,4 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "property");
 
-        return "value" in desc;
-    }
-runTestCase(testcase);
+assert("value" in desc, '"value" in desc !== true');

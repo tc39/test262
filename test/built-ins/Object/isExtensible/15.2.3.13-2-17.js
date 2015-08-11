@@ -6,13 +6,8 @@ es5id: 15.2.3.13-2-17
 description: >
     Object.isExtensible returns true for all built-in objects
     (Boolean.prototype)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var e = Object.isExtensible(Boolean.prototype);
-  if (e === true) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(e, true, 'e');

@@ -4,13 +4,8 @@
 /*---
 es5id: 15.2.3.10-0-1
 description: Object.preventExtensions must exist as a function
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var f = Object.preventExtensions;
-  if (typeof(f) === "function") {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(typeof(f), "function", 'typeof(f)');

@@ -7,10 +7,8 @@ description: >
     Object.defineProperty - 'Attributes' is a RegExp object that uses
     Object's [[Get]] method to access the 'get' property (8.10.5 step
     7.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var regObj = new RegExp();
@@ -21,6 +19,4 @@ function testcase() {
 
         Object.defineProperty(obj, "property", regObj);
 
-        return obj.property === "regExpGetProperty";
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "regExpGetProperty", 'obj.property');

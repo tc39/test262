@@ -6,10 +6,7 @@ es5id: 15.2.3.3-3-8
 description: >
     Object.getOwnPropertyDescriptor - 'P' is own accessor property
     that overrides an inherited accessor property
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var proto = {};
         Object.defineProperty(proto, "property", {
@@ -33,6 +30,4 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(child, "property");
 
-        return desc.get === fun;
-    }
-runTestCase(testcase);
+assert.sameValue(desc.get, fun, 'desc.get');

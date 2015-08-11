@@ -9,10 +9,8 @@ description: >
     [[ParameterMap]] of 'O', test 'name' is deleted if 'name' is
     configurable and 'desc' is accessor descriptor (10.6
     [[DefineOwnProperty]] step 5.a.i)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var argObj = (function (a, b, c) { return arguments; })(1, 2, 3);
         var accessed = false;
 
@@ -23,6 +21,5 @@ function testcase() {
             }
         });
 
-        return argObj[0] === 12 && accessed;
-    }
-runTestCase(testcase);
+assert.sameValue(argObj[0], 12, 'argObj[0]');
+assert(accessed, 'accessed !== true');

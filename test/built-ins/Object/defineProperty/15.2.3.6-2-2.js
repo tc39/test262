@@ -6,14 +6,9 @@ es5id: 15.2.3.6-2-2
 description: >
     Object.defineProperty - argument 'P' is null that converts to
     string 'null'
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         Object.defineProperty(obj, null, {});
 
-        return obj.hasOwnProperty("null");
-
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("null"), 'obj.hasOwnProperty("null") !== true');

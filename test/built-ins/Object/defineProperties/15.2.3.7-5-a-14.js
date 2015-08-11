@@ -6,10 +6,7 @@ es5id: 15.2.3.7-5-a-14
 description: >
     Object.defineProperties - 'Properties' is a RegExp object which
     implements its own [[Get]] method to get enumerable own property
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         var props = new RegExp();
@@ -22,6 +19,5 @@ function testcase() {
         });
         Object.defineProperties(obj, props);
 
-        return obj.hasOwnProperty("prop") && obj.prop === 14;
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("prop"), 'obj.hasOwnProperty("prop") !== true');
+assert.sameValue(obj.prop, 14, 'obj.prop');

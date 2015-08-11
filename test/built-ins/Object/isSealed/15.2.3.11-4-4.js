@@ -4,13 +4,8 @@
 /*---
 es5id: 15.2.3.11-4-4
 description: Object.isSealed returns false for all built-in objects (Function)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var b = Object.isSealed(Function);
-  if (b === false) {
-    return true;
-  }
-  }
-runTestCase(testcase);
+
+assert.sameValue(b, false, 'b');

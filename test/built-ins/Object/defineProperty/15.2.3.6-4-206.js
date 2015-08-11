@@ -8,10 +8,8 @@ description: >
     named property, 'name' property doesn't exist in 'O', test [[Set]]
     of 'name' property in 'Attributes' is set as undefined if [[Set]]
     is absent in accessor descriptor 'desc' (15.4.5.1 step 4.c)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var arrObj = [];
         var getFunc = function () { };
 
@@ -23,6 +21,6 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(arrObj, "0");
 
-        return arrObj.hasOwnProperty("0") && desc.hasOwnProperty("set") && typeof desc.set === "undefined";
-    }
-runTestCase(testcase);
+assert(arrObj.hasOwnProperty("0"), 'arrObj.hasOwnProperty("0") !== true');
+assert(desc.hasOwnProperty("set"), 'desc.hasOwnProperty("set") !== true');
+assert.sameValue(typeof desc.set, "undefined", 'typeof desc.set');

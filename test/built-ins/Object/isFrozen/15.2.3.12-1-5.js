@@ -4,11 +4,8 @@
 /*---
 es5id: 15.2.3.12-1-5
 description: Object.isFrozen applies to dense array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = Object.freeze([0, 1, 2]);
-        return Object.isFrozen(obj);
-    }
-runTestCase(testcase);
+
+assert(Object.isFrozen(obj), 'Object.isFrozen(obj) !== true');

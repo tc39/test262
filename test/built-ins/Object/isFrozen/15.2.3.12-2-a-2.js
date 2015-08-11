@@ -6,10 +6,7 @@ es5id: 15.2.3.12-2-a-2
 description: >
     Object.isFrozen - 'P' is own data property that overrides an
     inherited data property
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var proto = {};
 
@@ -30,6 +27,5 @@ function testcase() {
         });
 
         Object.preventExtensions(child);
-        return !Object.isFrozen(child);
-    }
-runTestCase(testcase);
+
+assert.sameValue(Object.isFrozen(child), false, 'Object.isFrozen(child)');

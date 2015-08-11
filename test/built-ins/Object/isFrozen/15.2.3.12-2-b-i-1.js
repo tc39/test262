@@ -6,10 +6,7 @@ es5id: 15.2.3.12-2-b-i-1
 description: >
     Object.isFrozen returns false if 'O' contains own writable data
     property
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         Object.defineProperty(obj, "foo", {
@@ -18,7 +15,5 @@ function testcase() {
             configurable: false
         });
         Object.preventExtensions(obj);
-        return !Object.isFrozen(obj);
 
-    }
-runTestCase(testcase);
+assert.sameValue(Object.isFrozen(obj), false, 'Object.isFrozen(obj)');

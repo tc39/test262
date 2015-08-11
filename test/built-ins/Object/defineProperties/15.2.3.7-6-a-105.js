@@ -6,10 +6,8 @@ es5id: 15.2.3.7-6-a-105
 description: >
     Object.defineProperties - 'P' is accessor property, P.[[Set]] is
     present and properties.[[Set]] is undefined (8.12.9 step 12)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         function get_func() {
             return 10;
@@ -50,6 +48,8 @@ function testcase() {
         delete obj.property;
         verifyConfigurable = obj.hasOwnProperty("property");
 
-        return hasProperty && verifyGet && verifySet && verifyEnumerable && !verifyConfigurable;
-    }
-runTestCase(testcase);
+assert(hasProperty, 'hasProperty !== true');
+assert(verifyGet, 'verifyGet !== true');
+assert(verifySet, 'verifySet !== true');
+assert(verifyEnumerable, 'verifyEnumerable !== true');
+assert.sameValue(verifyConfigurable, false, 'verifyConfigurable');

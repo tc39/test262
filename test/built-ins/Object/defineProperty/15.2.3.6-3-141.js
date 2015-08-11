@@ -7,10 +7,8 @@ description: >
     Object.defineProperty - 'Attributes' is a String object that uses
     Object's [[Get]] method to access the 'value' property  (8.10.5
     step 5.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { };
 
         var strObj = new String("abc");
@@ -19,6 +17,4 @@ function testcase() {
 
         Object.defineProperty(obj, "property", strObj);
 
-        return obj.property === "String";
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "String", 'obj.property');

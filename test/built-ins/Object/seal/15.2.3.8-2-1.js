@@ -6,16 +6,13 @@ es5id: 15.2.3.8-2-1
 description: >
     Object.seal - extensible of 'O' is set as false even if 'O' has no
     own property
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var preCheck = Object.isExtensible(obj);
 
         Object.seal(obj);
 
-        return preCheck && !Object.isExtensible(obj);
-    }
-runTestCase(testcase);
+assert(preCheck, 'preCheck !== true');
+assert.sameValue(Object.isExtensible(obj), false, 'Object.isExtensible(obj)');

@@ -6,10 +6,6 @@ es5id: 15.2.4.2-1-1
 description: >
     Object.prototype.toString - '[object Undefined]' will be returned
     when 'this' value is undefined
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        return Object.prototype.toString.call(undefined) === "[object Undefined]";
-    }
-runTestCase(testcase);
+assert.sameValue(Object.prototype.toString.call(undefined), "[object Undefined]", 'Object.prototype.toString.call(undefined)');

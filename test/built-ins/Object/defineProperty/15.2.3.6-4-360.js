@@ -7,10 +7,8 @@ description: >
     ES5 Attributes - success to update the data property ([[Writable]]
     is false, [[Enumerable]] is true, [[Configurable]] is true) to an
     accessor property
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
@@ -29,6 +27,5 @@ function testcase() {
         });
         var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return desc1.hasOwnProperty("value") && desc2.hasOwnProperty("get");
-    }
-runTestCase(testcase);
+assert(desc1.hasOwnProperty("value"), 'desc1.hasOwnProperty("value") !== true');
+assert(desc2.hasOwnProperty("get"), 'desc2.hasOwnProperty("get") !== true');

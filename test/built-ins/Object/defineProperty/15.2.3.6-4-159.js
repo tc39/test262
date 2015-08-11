@@ -7,10 +7,7 @@ description: >
     Object.defineProperty - 'O' is an Array, 'name' is the length
     property of 'O', set the [[Value]] field of 'desc' to a value
     greater than the existing value of length (15.4.5.1 step 3.f)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arrObj = [0, , 2];
 
@@ -18,8 +15,8 @@ function testcase() {
             value: 5
         });
 
-        return arrObj.length === 5 && arrObj[0] === 0 &&
-            !arrObj.hasOwnProperty("1") && arrObj[2] === 2 &&
-            !arrObj.hasOwnProperty("4");
-    }
-runTestCase(testcase);
+assert.sameValue(arrObj.length, 5, 'arrObj.length');
+assert.sameValue(arrObj[0], 0, 'arrObj[0]');
+assert.sameValue(arrObj.hasOwnProperty("1"), false, 'arrObj.hasOwnProperty("1")');
+assert.sameValue(arrObj[2], 2, 'arrObj[2]');
+assert.sameValue(arrObj.hasOwnProperty("4"), false, 'arrObj.hasOwnProperty("4")');

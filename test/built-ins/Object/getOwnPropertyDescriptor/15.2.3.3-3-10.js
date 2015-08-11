@@ -4,10 +4,7 @@
 /*---
 es5id: 15.2.3.3-3-10
 description: Object.getOwnPropertyDescriptor - 'P' is not an existing property
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {
             property: "ownDataProperty"
@@ -15,6 +12,4 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "propertyNonExist");
 
-        return typeof desc === "undefined";
-    }
-runTestCase(testcase);
+assert.sameValue(typeof desc, "undefined", 'typeof desc');

@@ -6,15 +6,10 @@ es5id: 15.2.3.3-3-14
 description: >
     Object.getOwnPropertyDescriptor applied to a String object which
     implements its own property get method
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var str = new String("123");
 
         var desc = Object.getOwnPropertyDescriptor(str, "2");
 
-        return desc.value === "3";
-    }
-runTestCase(testcase);
+assert.sameValue(desc.value, "3", 'desc.value');

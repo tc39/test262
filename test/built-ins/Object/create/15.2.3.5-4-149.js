@@ -6,12 +6,8 @@ es5id: 15.2.3.5-4-149
 description: >
     Object.create - 'configurable' property of one property in
     'Properties' is the global object (8.10.5 step 4.b)
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
-
-function testcase() {
 
         var newObj = Object.create({}, {
             prop: {
@@ -25,6 +21,5 @@ function testcase() {
 
         var afterDeleted = newObj.hasOwnProperty("prop");
 
-        return beforeDeleted === true && afterDeleted === false;
-    }
-runTestCase(testcase);
+assert.sameValue(beforeDeleted, true, 'beforeDeleted');
+assert.sameValue(afterDeleted, false, 'afterDeleted');

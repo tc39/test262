@@ -4,10 +4,8 @@
 /*---
 es5id: 15.2.3.6-4-396
 description: ES5 Attributes - [[Value]] attribute of data property is NaN
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
@@ -16,6 +14,5 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return obj.prop !== obj.prop && desc.value !== desc.value;
-    }
-runTestCase(testcase);
+assert(obj.prop !== obj.prop, 'obj.prop !== obj.prop !== true');
+assert(desc.value !== desc.value, 'desc.value !== desc.value !== true');

@@ -7,10 +7,8 @@ description: >
     Object.create - one property in 'Properties' is an Array object
     that uses Object's [[Get]] method to access the 'get' property
     (8.10.5 step 7.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var arrayObj = [1, 2, 3];
 
         arrayObj.get = function () {
@@ -21,6 +19,4 @@ function testcase() {
             prop: arrayObj
         });
 
-        return newObj.prop === "VerifyArrayObject";
-    }
-runTestCase(testcase);
+assert.sameValue(newObj.prop, "VerifyArrayObject", 'newObj.prop');

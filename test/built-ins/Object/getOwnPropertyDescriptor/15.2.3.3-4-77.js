@@ -6,16 +6,11 @@ es5id: 15.2.3.3-4-77
 description: >
     Object.getOwnPropertyDescriptor returns data desc for functions on
     built-ins (String.prototype.toUpperCase)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var desc = Object.getOwnPropertyDescriptor(String.prototype, "toUpperCase");
-  if (desc.value === String.prototype.toUpperCase &&
-      desc.writable === true &&
-      desc.enumerable === false &&
-      desc.configurable === true) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(desc.value, String.prototype.toUpperCase, 'desc.value');
+assert.sameValue(desc.writable, true, 'desc.writable');
+assert.sameValue(desc.enumerable, false, 'desc.enumerable');
+assert.sameValue(desc.configurable, true, 'desc.configurable');

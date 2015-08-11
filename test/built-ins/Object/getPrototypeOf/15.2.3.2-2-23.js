@@ -6,12 +6,8 @@ es5id: 15.2.3.2-2-23
 description: >
     Object.getPrototypeOf returns the [[Prototype]] of its parameter
     (Boolean object)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = new Boolean(true);
 
-        return Object.getPrototypeOf(obj) === Boolean.prototype;
-    }
-runTestCase(testcase);
+assert.sameValue(Object.getPrototypeOf(obj), Boolean.prototype, 'Object.getPrototypeOf(obj)');

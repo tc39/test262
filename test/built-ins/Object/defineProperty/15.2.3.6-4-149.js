@@ -7,10 +7,7 @@ description: >
     Object.defineProperty - 'O' is an Array, 'name' is the length
     property of 'O', test the [[Value]] field of 'desc' is an Object
     which has an own toString and valueOf method (15.4.5.1 step 3.c)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arrObj = [];
         var toStringAccessed = false;
@@ -29,7 +26,7 @@ function testcase() {
                 }
             }
         });
-        return arrObj.length === 3 && !toStringAccessed && valueOfAccessed;
 
-    }
-runTestCase(testcase);
+assert.sameValue(arrObj.length, 3, 'arrObj.length');
+assert.sameValue(toStringAccessed, false, 'toStringAccessed');
+assert(valueOfAccessed, 'valueOfAccessed !== true');

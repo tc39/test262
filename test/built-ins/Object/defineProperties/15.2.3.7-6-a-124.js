@@ -7,17 +7,12 @@ description: >
     Object.defineProperties - 'O' is an Array, 'name' is the length
     property of 'O', test the [[Value]] field of 'desc' is a boolean
     with value true (15.4.5.1 step 3.c)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [];
 
         Object.defineProperties(arr, {
             length: { value: true }
         });
-        return arr.length === 1;
 
-    }
-runTestCase(testcase);
+assert.sameValue(arr.length, 1, 'arr.length');

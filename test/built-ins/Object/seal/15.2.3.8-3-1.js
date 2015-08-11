@@ -4,15 +4,11 @@
 /*---
 es5id: 15.2.3.8-3-1
 description: Object.seal - returned object is not extensible
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         var preCheck = Object.isExtensible(obj);
         Object.seal(obj);
-        return preCheck && !Object.isExtensible(obj);
 
-    }
-runTestCase(testcase);
+assert(preCheck, 'preCheck !== true');
+assert.sameValue(Object.isExtensible(obj), false, 'Object.isExtensible(obj)');

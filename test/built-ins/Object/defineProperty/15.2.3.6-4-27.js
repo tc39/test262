@@ -6,10 +6,8 @@ es5id: 15.2.3.6-4-27
 description: >
     Object.defineProperty - 'name' is an inherited accessor property
     (8.12.9 step 1)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var proto = {};
         Object.defineProperty(proto, "property", {
             get: function () {
@@ -28,6 +26,6 @@ function testcase() {
             },
             configurable: true
         });
-        return obj.hasOwnProperty("property") && obj.property === 12;
-    }
-runTestCase(testcase);
+
+assert(obj.hasOwnProperty("property"), 'obj.hasOwnProperty("property") !== true');
+assert.sameValue(obj.property, 12, 'obj.property');

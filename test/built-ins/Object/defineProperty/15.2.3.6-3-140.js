@@ -7,10 +7,8 @@ description: >
     Object.defineProperty - 'Attributes' is an Array object that uses
     Object's [[Get]] method to access the 'value' property  (8.10.5
     step 5.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { };
 
         var arrObj = [1, 2, 3];
@@ -19,6 +17,4 @@ function testcase() {
 
         Object.defineProperty(obj, "property", arrObj);
 
-        return obj.property === "Array";
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "Array", 'obj.property');

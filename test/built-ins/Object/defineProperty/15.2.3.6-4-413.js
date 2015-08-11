@@ -7,10 +7,8 @@ description: >
     ES5 Attributes - Successfully add a property to an object when the
     object's prototype has a property with the same name and
     [[Writable]] set to true (Object.create)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var appointment = {};
 
         Object.defineProperty(appointment, "startTime", {
@@ -44,8 +42,7 @@ function testcase() {
             teamMeeting.hasOwnProperty("startTime") &&
             teamMeeting.hasOwnProperty('conferenceCall');
 
-        return hasOwnProperty && teamMeeting.name === "Team Meeting" &&
-            teamMeeting.startTime === dateObj &&
-            teamMeeting.conferenceCall === "4255551212";
-    }
-runTestCase(testcase);
+assert(hasOwnProperty, 'hasOwnProperty !== true');
+assert.sameValue(teamMeeting.name, "Team Meeting", 'teamMeeting.name');
+assert.sameValue(teamMeeting.startTime, dateObj, 'teamMeeting.startTime');
+assert.sameValue(teamMeeting.conferenceCall, "4255551212", 'teamMeeting.conferenceCall');

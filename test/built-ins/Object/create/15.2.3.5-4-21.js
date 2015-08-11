@@ -6,10 +6,7 @@ es5id: 15.2.3.5-4-21
 description: >
     Object.create - an enumerable inherited accessor property in
     'Properties' is not defined in 'obj' (15.2.3.7 step 3)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var proto = {};
 
@@ -26,6 +23,4 @@ function testcase() {
 
         var newObj = Object.create({}, child);
 
-        return !newObj.hasOwnProperty("prop");
-    }
-runTestCase(testcase);
+assert.sameValue(newObj.hasOwnProperty("prop"), false, 'newObj.hasOwnProperty("prop")');

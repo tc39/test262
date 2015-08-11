@@ -7,10 +7,8 @@ description: >
     Object.defineProperties - 'P' doesn't exist in 'O', test [[Value]]
     of 'P' is set as undefined value if absent in data descriptor
     'desc' (8.12.9 step 4.a.i)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperties(obj, {
@@ -21,9 +19,11 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return desc.hasOwnProperty("value") && typeof desc.value === "undefined" &&
-            desc.hasOwnProperty("writable") && desc.writable === true &&
-            desc.hasOwnProperty("configurable") && desc.configurable === false &&
-            desc.hasOwnProperty("enumerable") && desc.enumerable === false;
-    }
-runTestCase(testcase);
+assert(desc.hasOwnProperty("value"), 'desc.hasOwnProperty("value") !== true');
+assert.sameValue(typeof desc.value, "undefined", 'typeof desc.value');
+assert(desc.hasOwnProperty("writable"), 'desc.hasOwnProperty("writable") !== true');
+assert.sameValue(desc.writable, true, 'desc.writable');
+assert(desc.hasOwnProperty("configurable"), 'desc.hasOwnProperty("configurable") !== true');
+assert.sameValue(desc.configurable, false, 'desc.configurable');
+assert(desc.hasOwnProperty("enumerable"), 'desc.hasOwnProperty("enumerable") !== true');
+assert.sameValue(desc.enumerable, false, 'desc.enumerable');

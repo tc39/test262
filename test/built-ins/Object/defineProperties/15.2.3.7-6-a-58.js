@@ -6,10 +6,7 @@ es5id: 15.2.3.7-6-a-58
 description: >
     Object.defineProperties - desc.[[Get]] and P.[[Get]] are two
     objects which refer to the different objects (8.12.9 step 6)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
 
@@ -48,6 +45,8 @@ function testcase() {
         delete obj.foo;
         verifyConfigurable = obj.hasOwnProperty("foo");
 
-        return !verifyConfigurable && !verifyEnumerable && verifyValue && typeof (desc.set) === "undefined" && desc.get === get_Func2;
-    }
-runTestCase(testcase);
+assert.sameValue(verifyConfigurable, false, 'verifyConfigurable');
+assert.sameValue(verifyEnumerable, false, 'verifyEnumerable');
+assert(verifyValue, 'verifyValue !== true');
+assert.sameValue(typeof (desc.set), "undefined", 'typeof (desc.set)');
+assert.sameValue(desc.get, get_Func2, 'desc.get');

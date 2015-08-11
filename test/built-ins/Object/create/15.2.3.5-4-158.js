@@ -6,10 +6,7 @@ es5id: 15.2.3.5-4-158
 description: >
     Object.create - 'value' property of one property in 'Properties'
     is own accessor property (8.10.5 step 5.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var descObj = {};
 
@@ -23,6 +20,4 @@ function testcase() {
             prop: descObj
         });
 
-        return newObj.prop === "ownAccessorProperty";
-    }
-runTestCase(testcase);
+assert.sameValue(newObj.prop, "ownAccessorProperty", 'newObj.prop');

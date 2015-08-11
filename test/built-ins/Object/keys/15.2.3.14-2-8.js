@@ -6,10 +6,8 @@ es5id: 15.2.3.14-2-8
 description: >
     Object.keys - 'n' is the correct value when enumerable properties
     exist in 'O'
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {
             prop1: 1001,
             prop2: function () {
@@ -33,6 +31,6 @@ function testcase() {
 
         var arr = Object.keys(obj);
 
-        return (arr.length === 2) && (arr[0] === "prop1") && (arr[1] === "prop2");
-    }
-runTestCase(testcase);
+assert.sameValue(arr.length, 2, 'arr.length');
+assert.sameValue(arr[0], "prop1", 'arr[0]');
+assert.sameValue(arr[1], "prop2", 'arr[1]');

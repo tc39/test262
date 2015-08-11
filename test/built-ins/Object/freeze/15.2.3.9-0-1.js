@@ -4,13 +4,8 @@
 /*---
 es5id: 15.2.3.9-0-1
 description: Object.freeze must exist as a function
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var f = Object.freeze;
-  if (typeof(f) === "function") {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(typeof(f), "function", 'typeof(f)');

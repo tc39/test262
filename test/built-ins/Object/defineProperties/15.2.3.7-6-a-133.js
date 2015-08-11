@@ -7,10 +7,7 @@ description: >
     Object.defineProperties - 'O' is an Array, 'name' is the length
     property of 'O', test the [[Value]] field of 'desc' is a string
     containing a positive number (15.4.5.1 step 3.c)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [];
 
@@ -19,6 +16,5 @@ function testcase() {
                 value: "2"
             }
         });
-        return arr.length === 2;
-    }
-runTestCase(testcase);
+
+assert.sameValue(arr.length, 2, 'arr.length');

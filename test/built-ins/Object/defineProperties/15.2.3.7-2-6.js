@@ -6,10 +6,7 @@ es5id: 15.2.3.7-2-6
 description: >
     Object.defineProperties - argument 'Properties' is a Number object
     whose primitive value is any interesting number
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         var props = new Number(-12);
@@ -24,6 +21,5 @@ function testcase() {
         });
 
         Object.defineProperties(obj, props);
-        return result;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

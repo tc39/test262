@@ -4,14 +4,9 @@
 /*---
 es5id: 15.2.3.9-3-1
 description: Object.freeze - returned object is not extensible
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         Object.freeze(obj);
-        return !Object.isExtensible(obj);
 
-    }
-runTestCase(testcase);
+assert.sameValue(Object.isExtensible(obj), false, 'Object.isExtensible(obj)');

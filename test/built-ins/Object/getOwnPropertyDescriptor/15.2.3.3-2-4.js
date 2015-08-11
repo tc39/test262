@@ -6,14 +6,10 @@ es5id: 15.2.3.3-2-4
 description: >
     Object.getOwnPropertyDescriptor - argument 'P' is null that
     converts to string 'null'
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { "null": 1 };
 
         var desc = Object.getOwnPropertyDescriptor(obj, null);
 
-        return desc.value === 1;
-    }
-runTestCase(testcase);
+assert.sameValue(desc.value, 1, 'desc.value');

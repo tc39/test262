@@ -6,14 +6,9 @@ es5id: 15.2.3.4-2-3
 description: >
     Object.getOwnPropertyNames - length of returned array is
     initialized to 0
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         var result = Object.getOwnPropertyNames(obj);
 
-        return result.length === 0;
-    }
-runTestCase(testcase);
+assert.sameValue(result.length, 0, 'result.length');

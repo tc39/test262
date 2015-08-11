@@ -6,10 +6,7 @@ es5id: 15.2.3.6-3-20
 description: >
     Object.defineProperty - 'enumerable' property in 'Attributes' is
     present (8.10.5 step 3)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
 
@@ -23,6 +20,6 @@ function testcase() {
                 accessed = true;
             }
         }
-        return !accessed && obj.hasOwnProperty("property");
-    }
-runTestCase(testcase);
+
+assert.sameValue(accessed, false, 'accessed');
+assert(obj.hasOwnProperty("property"), 'obj.hasOwnProperty("property") !== true');

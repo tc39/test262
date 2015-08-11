@@ -4,10 +4,7 @@
 /*---
 es5id: 15.2.3.12-2-a-4
 description: Object.isFrozen - 'P' is own accessor property
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         Object.defineProperty(obj, "foo", {
@@ -18,6 +15,5 @@ function testcase() {
         });
 
         Object.preventExtensions(obj);
-        return !Object.isFrozen(obj);
-    }
-runTestCase(testcase);
+
+assert.sameValue(Object.isFrozen(obj), false, 'Object.isFrozen(obj)');

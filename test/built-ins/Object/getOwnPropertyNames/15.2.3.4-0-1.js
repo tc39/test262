@@ -4,12 +4,6 @@
 /*---
 es5id: 15.2.3.4-0-1
 description: Object.getOwnPropertyNames must exist as a function
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if (typeof(Object.getOwnPropertyNames) === "function") {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(typeof(Object.getOwnPropertyNames), "function", 'typeof(Object.getOwnPropertyNames)');

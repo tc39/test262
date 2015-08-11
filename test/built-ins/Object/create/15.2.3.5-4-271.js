@@ -7,10 +7,8 @@ description: >
     Object.create - 'set' property of one property in 'Properties' is
     own data property that overrides an inherited accessor property
     (8.10.5 step 8.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var data1 = "data";
         var data2 = "data";
 
@@ -40,6 +38,6 @@ function testcase() {
 
         newObj.prop = "overrideData";
 
-        return hasProperty && data1 === "overrideData" && data2 === "data";
-    }
-runTestCase(testcase);
+assert(hasProperty, 'hasProperty !== true');
+assert.sameValue(data1, "overrideData", 'data1');
+assert.sameValue(data2, "data", 'data2');

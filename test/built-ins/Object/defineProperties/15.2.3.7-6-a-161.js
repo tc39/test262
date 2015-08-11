@@ -10,10 +10,7 @@ description: >
     length property is set to true at last after deleting properties
     with large index named if the [[Writable]] field of 'desc' is
     absent (15.4.5.1 step 3.h)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [0, 1];
 
@@ -24,6 +21,7 @@ function testcase() {
         });
 
         arr.length = 10; //try to overwrite length value of arr
-        return !arr.hasOwnProperty("1") && arr.length === 10 && arr[0] === 0;
-    }
-runTestCase(testcase);
+
+assert.sameValue(arr.hasOwnProperty("1"), false, 'arr.hasOwnProperty("1")');
+assert.sameValue(arr.length, 10, 'arr.length');
+assert.sameValue(arr[0], 0, 'arr[0]');

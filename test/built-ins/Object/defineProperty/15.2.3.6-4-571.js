@@ -6,10 +6,8 @@ es5id: 15.2.3.6-4-571
 description: >
     ES5 Attributes - [[Get]] attribute is a function which involves
     'this' object into statement(s)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {
             len: 2010
         };
@@ -23,6 +21,6 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return obj.hasOwnProperty("prop") && obj.prop === obj && desc.get === getFunc;
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("prop"), 'obj.hasOwnProperty("prop") !== true');
+assert.sameValue(obj.prop, obj, 'obj.prop');
+assert.sameValue(desc.get, getFunc, 'desc.get');

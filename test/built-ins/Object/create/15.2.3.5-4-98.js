@@ -7,10 +7,7 @@ description: >
     Object.create - 'enumerable' property of one property in
     'Properties' is new Boolean(false), which is treated as the value
     true (8.10.5 step 3.b)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -24,6 +21,5 @@ function testcase() {
                 accessed = true;
             }
         }
-        return accessed;
-    }
-runTestCase(testcase);
+
+assert(accessed, 'accessed !== true');

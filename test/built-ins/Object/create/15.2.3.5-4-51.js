@@ -7,10 +7,7 @@ description: >
     Object.create - 'enumerable' property of one property in
     'Properties' is own data property that overrides an inherited
     accessor property (8.10.5 step 3.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var proto = {};
         var accessed = false;
@@ -38,6 +35,5 @@ function testcase() {
                 accessed = true;
             }
         }
-        return !accessed;
-    }
-runTestCase(testcase);
+
+assert.sameValue(accessed, false, 'accessed');

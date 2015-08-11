@@ -6,10 +6,8 @@ es5id: 15.2.3.3-2-42
 description: >
     Object.getOwnPropertyDescriptor - argument 'P' is an object which
     has an own toString method
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { "abc": 1 };
 
         var ownProp = {
@@ -20,6 +18,4 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, ownProp);
 
-        return desc.value === 1;
-    }
-runTestCase(testcase);
+assert.sameValue(desc.value, 1, 'desc.value');

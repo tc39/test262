@@ -7,10 +7,7 @@ description: >
     Object.create - one property in 'Properties' is a Boolean object
     that uses Object's [[Get]] method to access the 'value' property
     (8.10.5 step 5.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var booleanObj = new Boolean(false);
 
@@ -20,6 +17,4 @@ function testcase() {
             prop: booleanObj
         });
 
-        return newObj.prop === "BooleanValue";
-    }
-runTestCase(testcase);
+assert.sameValue(newObj.prop, "BooleanValue", 'newObj.prop');

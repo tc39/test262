@@ -6,10 +6,7 @@ es5id: 15.2.3.7-3-7
 description: >
     Object.defineProperties - no additional property is defined in 'O'
     when 'Properties' doesn't contain enumerable own property
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
 
@@ -29,6 +26,5 @@ function testcase() {
 
         Object.defineProperties(obj, props);
 
-        return !obj.hasOwnProperty("prop1") && !obj.hasOwnProperty("prop2");
-    }
-runTestCase(testcase);
+assert.sameValue(obj.hasOwnProperty("prop1"), false, 'obj.hasOwnProperty("prop1")');
+assert.sameValue(obj.hasOwnProperty("prop2"), false, 'obj.hasOwnProperty("prop2")');

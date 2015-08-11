@@ -6,19 +6,13 @@ es5id: 15.2.3.3-4-192
 description: >
     Object.getOwnPropertyDescriptor returns data desc (all false) for
     properties on built-ins (String (instance).length)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var s = new String("abc");
   var desc = Object.getOwnPropertyDescriptor(s, "length");
 
-  if (desc.writable === false &&
-      desc.enumerable === false &&
-      desc.configurable === false &&
-      desc.hasOwnProperty('get') === false &&
-      desc.hasOwnProperty('set') === false) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(desc.writable, false, 'desc.writable');
+assert.sameValue(desc.enumerable, false, 'desc.enumerable');
+assert.sameValue(desc.configurable, false, 'desc.configurable');
+assert.sameValue(desc.hasOwnProperty('get'), false, 'desc.hasOwnProperty("get")');
+assert.sameValue(desc.hasOwnProperty('set'), false, 'desc.hasOwnProperty("set")');

@@ -6,10 +6,8 @@ es5id: 15.2.3.3-4-243
 description: >
     Object.getOwnPropertyDescriptor - ensure that 'set' property of
     returned object is data property with correct 'value' attribute
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var fun = function () {
             return "ownSetProperty";
@@ -21,6 +19,4 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "property");
 
-        return desc.set === fun;
-    }
-runTestCase(testcase);
+assert.sameValue(desc.set, fun, 'desc.set');

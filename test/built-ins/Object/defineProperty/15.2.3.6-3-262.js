@@ -6,10 +6,8 @@ es5id: 15.2.3.6-3-262
 description: >
     Object.defineProperty - value of 'set' property in 'Attributes' is
     a function (8.10.5 step 8.b)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var data = "data";
 
@@ -20,6 +18,5 @@ function testcase() {
         });
         obj.property = "overrideData";
 
-        return obj.hasOwnProperty("property") && data === "overrideData";
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("property"), 'obj.hasOwnProperty("property") !== true');
+assert.sameValue(data, "overrideData", 'data');

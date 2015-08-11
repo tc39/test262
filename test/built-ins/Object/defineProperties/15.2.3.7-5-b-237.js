@@ -7,10 +7,7 @@ description: >
     Object.defineProperties - 'set' property of 'descObj' is own
     accessor property without a get function that overrides an
     inherited accessor property (8.10.5 step 8.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var fun = function () {
             return 10; 
@@ -42,6 +39,6 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return obj.hasOwnProperty("prop") && typeof (desc.set) === "undefined" && obj.prop === 10;
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("prop"), 'obj.hasOwnProperty("prop") !== true');
+assert.sameValue(typeof (desc.set), "undefined", 'typeof (desc.set)');
+assert.sameValue(obj.prop, 10, 'obj.prop');

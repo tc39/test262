@@ -6,10 +6,7 @@ es5id: 15.2.3.5-4-46
 description: >
     Object.create - 'enumerable' property of one property in
     'Properties' is true (8.10.5 step 3)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var newObj = Object.create({}, {
@@ -22,7 +19,5 @@ function testcase() {
                 accessed = true;
             }
         }
-        return accessed;
 
-    }
-runTestCase(testcase);
+assert(accessed, 'accessed !== true');

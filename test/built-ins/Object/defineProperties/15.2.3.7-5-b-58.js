@@ -7,10 +7,7 @@ description: >
     Object.defineProperties - value of 'enumerable' property of
     'descObj' is new Boolean(false) which is treated as true value
     (8.10.5 step 3.b)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         var accessed = false;
@@ -25,6 +22,5 @@ function testcase() {
                 accessed = true;
             }
         }
-        return accessed;
-    }
-runTestCase(testcase);
+
+assert(accessed, 'accessed !== true');

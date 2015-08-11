@@ -4,13 +4,8 @@
 /*---
 es5id: 8.12.1-1_20
 description: Properties - [[HasOwnProperty]] (literal own getter property)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
     var o = { get foo() { return 42;} };
-    return o.hasOwnProperty("foo");
 
-}
-runTestCase(testcase);
+assert(o.hasOwnProperty("foo"), 'o.hasOwnProperty("foo") !== true');

@@ -6,10 +6,8 @@ es5id: 15.2.3.7-5-b-122
 description: >
     Object.defineProperties - 'value' property of 'descObj' is own
     accessor property without a get function (8.10.5 step 5.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var descObj = {};
@@ -22,6 +20,5 @@ function testcase() {
             property: descObj
         });
 
-        return obj.hasOwnProperty("property") && typeof (obj.property) === "undefined";
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("property"), 'obj.hasOwnProperty("property") !== true');
+assert.sameValue(typeof (obj.property), "undefined", 'typeof (obj.property)');

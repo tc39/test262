@@ -6,10 +6,8 @@ es5id: 15.2.3.6-4-389
 description: >
     ES5 Attributes - [[Value]] attribute of data property is a Boolean
     Object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var boolObj = new Boolean();
 
@@ -19,6 +17,5 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return obj.prop === boolObj && desc.value === boolObj;
-    }
-runTestCase(testcase);
+assert.sameValue(obj.prop, boolObj, 'obj.prop');
+assert.sameValue(desc.value, boolObj, 'desc.value');

@@ -6,10 +6,7 @@ es5id: 15.2.3.3-3-13
 description: >
     Object.getOwnPropertyDescriptor applied to the Arguments object
     which implements its own property get method
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arg = (function () {
             return arguments;
@@ -17,6 +14,7 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(arg, "0");
 
-        return desc.value === "ownProperty" && desc.writable === true && desc.enumerable === true && desc.configurable === true;
-    }
-runTestCase(testcase);
+assert.sameValue(desc.value, "ownProperty", 'desc.value');
+assert.sameValue(desc.writable, true, 'desc.writable');
+assert.sameValue(desc.enumerable, true, 'desc.enumerable');
+assert.sameValue(desc.configurable, true, 'desc.configurable');

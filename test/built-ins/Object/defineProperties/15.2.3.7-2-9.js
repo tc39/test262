@@ -6,10 +6,7 @@ es5id: 15.2.3.7-2-9
 description: >
     Object.defineProperties - argument 'Properties' is a Function
     object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         var props = function () { };
@@ -24,6 +21,5 @@ function testcase() {
         });
 
         Object.defineProperties(obj, props);
-        return result;
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

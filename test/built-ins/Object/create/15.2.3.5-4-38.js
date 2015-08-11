@@ -7,10 +7,7 @@ description: >
     Object.create - 'Properties' is an Arguments object which
     implements its own [[Get]] method to access own enumerable
     property (15.2.3.7 step 5.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var argObj = (function () { return arguments; })();
 
@@ -21,6 +18,4 @@ function testcase() {
 
         var newObj = Object.create({}, argObj);
 
-        return newObj.hasOwnProperty("prop");
-    }
-runTestCase(testcase);
+assert(newObj.hasOwnProperty("prop"), 'newObj.hasOwnProperty("prop") !== true');

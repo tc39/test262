@@ -6,10 +6,8 @@ es5id: 15.2.3.7-5-b-186
 description: >
     Object.defineProperties - value of 'writable' property of
     'descObj' is the Argument object (8.10.5 step 6.b)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var func = function (a, b, c) {
@@ -24,6 +22,4 @@ function testcase() {
 
         obj.property = "isWritable";
 
-        return obj.property === "isWritable";
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "isWritable", 'obj.property');

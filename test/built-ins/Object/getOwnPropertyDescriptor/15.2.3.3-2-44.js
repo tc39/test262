@@ -7,10 +7,8 @@ description: >
     Object.getOwnPropertyDescriptor - argument 'P' is an object that
     has an own toString method that returns an object and toValue
     method that returns a primitive value
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { "abc": 1 };
         var valueOfAccessed = false;
         var toStringAccessed = false;
@@ -28,6 +26,6 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, ownProp);
 
-        return desc.value === 1 && valueOfAccessed && toStringAccessed;
-    }
-runTestCase(testcase);
+assert.sameValue(desc.value, 1, 'desc.value');
+assert(valueOfAccessed, 'valueOfAccessed !== true');
+assert(toStringAccessed, 'toStringAccessed !== true');

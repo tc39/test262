@@ -6,10 +6,8 @@ es5id: 15.2.3.6-2-43
 description: >
     Object.defineProperty - argument 'P' is an object that has an own
     toString method
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var ownProp = {
@@ -20,7 +18,4 @@ function testcase() {
 
         Object.defineProperty(obj, ownProp, {});
 
-        return obj.hasOwnProperty("abc");
-
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("abc"), 'obj.hasOwnProperty("abc") !== true');

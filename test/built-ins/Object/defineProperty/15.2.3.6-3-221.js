@@ -7,10 +7,8 @@ description: >
     Object.defineProperty - 'Attributes' is a Boolean object that uses
     Object's [[Get]] method to access the 'get' property (8.10.5 step
     7.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var boolObj = new Boolean(true);
@@ -21,6 +19,4 @@ function testcase() {
 
         Object.defineProperty(obj, "property", boolObj);
 
-        return obj.property === "booleanGetProperty";
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "booleanGetProperty", 'obj.property');

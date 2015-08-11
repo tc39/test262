@@ -7,10 +7,7 @@ description: >
     Object.defineProperties - 'Properties' is the Arguments object
     which implements its own [[Get]] method to get enumerable own
     property
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         var arg;
@@ -28,6 +25,5 @@ function testcase() {
 
         Object.defineProperties(obj, arg);
 
-        return obj.hasOwnProperty("prop") && obj.prop === 17;
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("prop"), 'obj.hasOwnProperty("prop") !== true');
+assert.sameValue(obj.prop, 17, 'obj.prop');

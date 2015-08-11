@@ -7,10 +7,8 @@ description: >
     Object.defineProperties - 'descObj' is a String object which
     implements its own [[Get]] method to get 'set' property (8.10.5
     step 8.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var data = "data";
         var descStr = new String();
         var setFun = function (value) {
@@ -24,6 +22,6 @@ function testcase() {
         var obj = {};
         Object.defineProperties(obj, descStr);
         obj.prop = "strData";
-        return obj.hasOwnProperty("prop") && data === "strData";
-    }
-runTestCase(testcase);
+
+assert(obj.hasOwnProperty("prop"), 'obj.hasOwnProperty("prop") !== true');
+assert.sameValue(data, "strData", 'data');

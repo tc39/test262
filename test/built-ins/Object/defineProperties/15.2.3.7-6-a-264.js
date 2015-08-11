@@ -8,10 +8,7 @@ description: >
     named property, test the length property of 'O' is set as
     ToUint32('P') + 1 if ToUint32('P') equals to value of the length
     property in 'O' (15.4.5.1 step 4.e.ii)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [];
 
@@ -22,6 +19,6 @@ function testcase() {
                 value: 26
             }
         });
-        return arr.length === 4 && arr[3] === 26;
-    }
-runTestCase(testcase);
+
+assert.sameValue(arr.length, 4, 'arr.length');
+assert.sameValue(arr[3], 26, 'arr[3]');

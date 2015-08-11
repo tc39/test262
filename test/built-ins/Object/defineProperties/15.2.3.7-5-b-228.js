@@ -6,10 +6,8 @@ es5id: 15.2.3.7-5-b-228
 description: >
     Object.defineProperties - 'set' property of 'descObj' is own data
     property (8.10.5 step 8.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var data = "data";
         var obj = {};
 
@@ -23,6 +21,5 @@ function testcase() {
 
         obj.descObj = "overrideData";
 
-        return obj.hasOwnProperty("descObj") && data === "overrideData";
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("descObj"), 'obj.hasOwnProperty("descObj") !== true');
+assert.sameValue(data, "overrideData", 'data');

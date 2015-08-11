@@ -7,10 +7,7 @@ description: >
     Object.create - own enumerable accessor property that overrides an
     enumerable inherited accessor property in 'Properties' is defined
     in 'obj' (15.2.3.7 step 5.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var proto = {};
         Object.defineProperty(proto, "prop", {
@@ -36,6 +33,5 @@ function testcase() {
         });
         var newObj = Object.create({}, child);
 
-        return newObj.hasOwnProperty("prop") && newObj.prop === 12;
-    }
-runTestCase(testcase);
+assert(newObj.hasOwnProperty("prop"), 'newObj.hasOwnProperty("prop") !== true');
+assert.sameValue(newObj.prop, 12, 'newObj.prop');

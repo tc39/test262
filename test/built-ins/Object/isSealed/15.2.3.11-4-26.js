@@ -4,13 +4,8 @@
 /*---
 es5id: 15.2.3.11-4-26
 description: Object.isSealed returns false for all built-in objects (URIError)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var b = Object.isSealed(URIError);
-  if (b === false) {
-    return true;
-  }
-  }
-runTestCase(testcase);
+
+assert.sameValue(b, false, 'b');

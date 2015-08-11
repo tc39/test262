@@ -6,10 +6,8 @@ es5id: 15.2.3.6-3-30
 description: >
     Object.defineProperty - 'enumerable' property in 'Attributes' is
     own accessor property without a get function (8.10.5 step 3.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var accessed = false;
 
@@ -25,6 +23,5 @@ function testcase() {
                 accessed = true;
             }
         }
-        return !accessed;
-    }
-runTestCase(testcase);
+
+assert.sameValue(accessed, false, 'accessed');

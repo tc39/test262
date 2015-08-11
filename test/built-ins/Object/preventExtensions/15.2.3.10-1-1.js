@@ -6,11 +6,6 @@ es5id: 15.2.3.10-1-1
 description: >
     Object.preventExtensions does not throw TypeError if 'O' is
     undefined
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
     Object.preventExtensions(undefined);
-    return true;
-}
-runTestCase(testcase);
