@@ -8,17 +8,10 @@ description: >
     occurs within strict code and the Identifier of the Catch
     production is arguments
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+assert.throws(SyntaxError, function() {
             eval("\
                    try {} catch (arguments) { }\
             ");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

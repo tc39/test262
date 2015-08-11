@@ -12,16 +12,9 @@ description: >
     a FunctionExpression whose FunctionBody is contained in strict
     code and the function has two identical parameters
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 
-        try {
+assert.throws(SyntaxError, function() {
             eval("var _13_1_30_fun = function (param, param) { 'use strict'; };");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

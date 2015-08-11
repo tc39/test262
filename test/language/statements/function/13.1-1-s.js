@@ -12,15 +12,9 @@ description: >
     appears within a FormalParameterList of a strict mode
     FunctionDeclaration
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("function _13_1_1_fun(eval) { }");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

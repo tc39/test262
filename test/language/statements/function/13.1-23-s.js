@@ -12,16 +12,9 @@ description: >
     a FunctionDeclaration that is contained in eval strict code and
     the function has two identical parameters
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 
-        try {
+assert.throws(SyntaxError, function() {
             eval("'use strict'; function _13_1_23_fun(param, param) { }");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

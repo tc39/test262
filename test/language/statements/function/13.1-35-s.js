@@ -7,16 +7,9 @@ description: >
     StrictMode - SyntaxError is thrown if 'eval' occurs as the
     function name of a FunctionDeclaration in strict eval code
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 
-        try {
+assert.throws(SyntaxError, function() {
             eval("'use strict'; function eval() { };")
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

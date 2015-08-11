@@ -8,20 +8,13 @@ description: >
     expression, where the container function is directly evaled from
     strict code)
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  try {
+
+assert.throws(SyntaxError, function() {
     eval("var f = function () {\
                 var o = {}; \
                 with (o) {}; \
              }\
         ");
-    return false;
-  }
-  catch (e) {
-    return (e instanceof SyntaxError);
-  }
- }
-runTestCase(testcase);
+});

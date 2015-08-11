@@ -7,16 +7,9 @@ description: >
     'for(var arguments = 42 in ...) {...}' throws SyntaxError in
     strict mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  try {
+
+assert.throws(SyntaxError, function() {
     eval('for (var arguments = 42 in null) {};');
-    return false;
-  }
-  catch (e) {
-    return (e instanceof SyntaxError);
-  }
- }
-runTestCase(testcase);
+});

@@ -5,16 +5,9 @@
 es5id: 12.2.1-34-s
 description: "'for(var eval in ...) {...}' throws SyntaxError in strict mode"
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  try {
+
+assert.throws(SyntaxError, function() {
     eval('for (var eval in null) {};');
-    return false;
-  }
-  catch (e) {
-    return (e instanceof SyntaxError);
-  }
- }
-runTestCase(testcase);
+});

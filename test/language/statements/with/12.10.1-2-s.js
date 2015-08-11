@@ -7,11 +7,10 @@ description: >
     with statement in strict mode throws SyntaxError (nested function
     where container is strict)
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  try {
+
+assert.throws(SyntaxError, function() {
     // wrapping it in eval since this needs to be a syntax error. The
     // exception thrown must be a SyntaxError exception.
     eval("\
@@ -23,10 +22,4 @@ function testcase() {
             }\
           }\
         ");
-    return false;
-  }
-  catch (e) {
-    return (e instanceof SyntaxError);
-  }
- }
-runTestCase(testcase);
+});

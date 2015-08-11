@@ -13,15 +13,9 @@ description: >
     identical parameters, which are separated by a unique parameter
     name
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("var _13_1_9_fun = function (param1, param2, param1) { };");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

@@ -7,16 +7,9 @@ description: >
     Strict Mode - SyntaxError is thrown when using WithStatement in
     strict mode code
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
-            eval("with ({}) { throw new Error();}");
 
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+assert.throws(SyntaxError, function() {
+            eval("with ({}) { throw new Error();}");
+});

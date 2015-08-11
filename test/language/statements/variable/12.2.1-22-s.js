@@ -6,19 +6,9 @@ es5id: 12.2.1-22-s
 description: >
     arguments as global var identifier throws SyntaxError in strict
     mode
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
     var indirectEval = eval;
-	
-    try {
+assert.throws(SyntaxError, function() {
 	    indirectEval("'use strict'; var arguments;");
-        return false;
-	}
-    catch (e) {
-        return (e instanceof SyntaxError);
-	}
-}
-runTestCase(testcase);
+});

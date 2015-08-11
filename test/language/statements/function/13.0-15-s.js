@@ -11,17 +11,10 @@ description: >
     a FunctionDeclaration is contained in strict mode code within eval
     code
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 
-        try {
+assert.throws(SyntaxError, function() {
             eval("'use strict'; function _13_0_15_fun() {eval = 42;};");
             _13_0_15_fun();
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

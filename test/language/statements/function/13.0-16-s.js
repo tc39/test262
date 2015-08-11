@@ -11,17 +11,10 @@ description: >
     a FunctionExpression is contained in strict mode code within eval
     code
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 
-        try {
+assert.throws(SyntaxError, function() {
             eval("'use strict'; var _13_0_16_fun = function () {eval = 42;};");
             _13_0_16_fun();
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

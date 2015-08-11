@@ -4,15 +4,9 @@
 /*---
 es5id: 12.1-1
 description: "12.1 - block '{ StatementListopt };' is not allowed: try-catch"
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("try{};catch(){}");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

@@ -8,11 +8,10 @@ description: >
     Catch occurs within strict code and the Identifier of the Catch
     production is EVAL but throws SyntaxError if it is eval
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-       try{ eval(" try { \
+assert.throws(SyntaxError, function() {
+ eval(" try { \
              throw new Error(\"...\");\
              return false;\
          } catch (EVAL) {\
@@ -24,9 +23,4 @@ function testcase() {
                  return EVAL instanceof Error;\
               }\
          }");
-         return false;
-        } catch(e) {
-             return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

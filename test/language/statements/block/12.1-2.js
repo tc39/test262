@@ -6,15 +6,9 @@ es5id: 12.1-2
 description: >
     12.1 - block '{ StatementListopt };' is not allowed:
     try-catch-finally
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("try{};catch{};finally{}");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

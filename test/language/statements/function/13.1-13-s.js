@@ -7,15 +7,9 @@ description: >
     StrictMode - SyntaxError is thrown if 'arguments' occurs as the
     function name of a FunctionDeclaration in strict mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("function arguments() { };")
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

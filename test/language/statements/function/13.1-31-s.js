@@ -13,16 +13,9 @@ description: >
     function has two identical parameters, which are separated by a
     unique parameter name
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 
-        try {
+assert.throws(SyntaxError, function() {
             eval("'use strict'; var _13_1_31_fun = function (param1, param2, param1) { };");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

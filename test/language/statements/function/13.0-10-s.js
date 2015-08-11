@@ -11,10 +11,7 @@ description: >
     the code of this FunctionBody with an inner function contains a
     Use Strict Directive
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function _13_0_10_fun() {
             function _13_0_10_inner() {
@@ -23,11 +20,6 @@ function testcase() {
             }
             _13_0_10_inner();
         };
-        try {
+assert.throws(SyntaxError, function() {
             _13_0_10_fun();
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

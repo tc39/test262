@@ -6,15 +6,9 @@ es5id: 12.1-6
 description: >
     12.1 - block '{ StatementListopt };' is not allowed:
     if-else-if-else
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(SyntaxError, function() {
             eval("if{};else if{};else{}");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

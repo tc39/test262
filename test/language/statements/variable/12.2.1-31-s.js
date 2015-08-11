@@ -7,16 +7,9 @@ description: >
     eval as local var identifier defined twice throws SyntaxError in
     strict mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  try {
+
+assert.throws(SyntaxError, function() {
     eval('function foo() { var eval, eval;}');
-    return false;
-  }
-  catch (e) {
-    return (e instanceof SyntaxError);
-  }
-}
-runTestCase(testcase);
+});

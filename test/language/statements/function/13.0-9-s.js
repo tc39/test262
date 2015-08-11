@@ -11,19 +11,12 @@ description: >
     a FunctionDeclaration that is contained in strict mode code has an
     inner function
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var _13_0_9_fun = function () {
             function _13_0_9_inner() { eval("eval = 42;"); }
             _13_0_9_inner();
         };
-        try {
+assert.throws(SyntaxError, function() {
             _13_0_9_fun();
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

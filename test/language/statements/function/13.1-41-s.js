@@ -7,16 +7,9 @@ description: >
     StrictMode - SyntaxError is thrown if 'arguments' occurs as the
     Identifier of a FunctionExpression in strict eval code
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var _13_1_41_s = {};
-        try {
+assert.throws(SyntaxError, function() {
             eval("'use strict'; _13_1_41_s.x = function arguments() {};");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});
