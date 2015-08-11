@@ -6,10 +6,8 @@ es5id: 15.2.3.6-4-386
 description: >
     ES5 Attributes - [[Value]] attribute of data property is an Array
     object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var arrObj = [];
 
@@ -19,6 +17,5 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return obj.prop === arrObj && desc.value === arrObj;
-    }
-runTestCase(testcase);
+assert.sameValue(obj.prop, arrObj, 'obj.prop');
+assert.sameValue(desc.value, arrObj, 'desc.value');

@@ -6,10 +6,8 @@ es5id: 15.2.3.6-4-391
 description: >
     ES5 Attributes - [[Value]] attribute of data property is an Error
     object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var errObj = new Error();
 
@@ -19,6 +17,5 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return obj.prop === errObj && desc.value === errObj;
-    }
-runTestCase(testcase);
+assert.sameValue(obj.prop, errObj, 'obj.prop');
+assert.sameValue(desc.value, errObj, 'desc.value');

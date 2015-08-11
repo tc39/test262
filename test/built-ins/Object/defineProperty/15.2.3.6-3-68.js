@@ -6,10 +6,8 @@ es5id: 15.2.3.6-3-68
 description: >
     Object.defineProperty - value of 'enumerable' property in
     'Attributes' is an Arguments Object (8.10.5 step 3.b)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var accessed = false;
         var argObj = (function () { return arguments; })(0, 1, 2);
@@ -21,6 +19,5 @@ function testcase() {
                 accessed = true;
             }
         }
-        return accessed;
-    }
-runTestCase(testcase);
+
+assert(accessed, 'accessed !== true');

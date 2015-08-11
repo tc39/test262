@@ -6,10 +6,8 @@ es5id: 15.2.3.6-3-197
 description: >
     Object.defineProperty - 'writable' property in 'Attributes' is a
     RegExp object (8.10.5 step 6.b)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "property", {
@@ -22,6 +20,5 @@ function testcase() {
 
         var afterWrite = (obj.property === "isWritable");
 
-        return beforeWrite && afterWrite;
-    }
-runTestCase(testcase);
+assert(beforeWrite, 'beforeWrite !== true');
+assert(afterWrite, 'afterWrite !== true');

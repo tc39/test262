@@ -6,10 +6,8 @@ es5id: 15.2.3.6-4-531-16
 description: >
     ES5 Attributes - Updating an indexed accessor property 'P' using
     simple assignment, 'O' is an Arguments object (8.12.5 step 5.b)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = (function () {
             return arguments;
         }());
@@ -33,6 +31,6 @@ function testcase() {
         var propertyDefineCorrect = obj.hasOwnProperty("0");
         var desc = Object.getOwnPropertyDescriptor(obj, "0");
 
-        return propertyDefineCorrect && desc.set === setFunc && obj[0] === "overrideData";
-    }
-runTestCase(testcase);
+assert(propertyDefineCorrect, 'propertyDefineCorrect !== true');
+assert.sameValue(desc.set, setFunc, 'desc.set');
+assert.sameValue(obj[0], "overrideData", 'obj[0]');

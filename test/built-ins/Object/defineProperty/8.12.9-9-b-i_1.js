@@ -6,10 +6,8 @@ es5id: 8.12.9-9-b-i_1
 description: >
     Redefine a configurable data property to be an accessor property
     on a newly non-extensible object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
     var o = {};
     Object.defineProperty(o, "foo", 
                           { value: "hello", 
@@ -18,6 +16,11 @@ function testcase() {
     Object.defineProperty(o, "foo", { get: function() { return 5;} });
 
     var fooDescrip = Object.getOwnPropertyDescriptor(o, "foo");
-    return o.foo===5 && fooDescrip.get!==undefined && fooDescrip.set===undefined && fooDescrip.value===undefined && fooDescrip.configurable===true && fooDescrip.enumerable===false && fooDescrip.writable===undefined;
-}
-runTestCase(testcase);
+
+assert.sameValue(o.foo, 5, 'o.foo');
+assert(fooDescrip.get!==undefined, 'fooDescrip.get!==undefined !== true');
+assert.sameValue(fooDescrip.set, undefined, 'fooDescrip.set');
+assert.sameValue(fooDescrip.value, undefined, 'fooDescrip.value');
+assert.sameValue(fooDescrip.configurable, true, 'fooDescrip.configurable');
+assert.sameValue(fooDescrip.enumerable, false, 'fooDescrip.enumerable');
+assert.sameValue(fooDescrip.writable, undefined, 'fooDescrip.writable');

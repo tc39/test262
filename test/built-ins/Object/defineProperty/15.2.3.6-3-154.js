@@ -6,10 +6,8 @@ es5id: 15.2.3.6-3-154
 description: >
     Object.defineProperty - 'writable' property in 'Attributes' is own
     data property  (8.10.5 step 6.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { };
 
         var attr = {
@@ -24,6 +22,5 @@ function testcase() {
 
         var afterWrite = (obj.property === "isWritable");
 
-        return beforeWrite === true && afterWrite === true;
-    }
-runTestCase(testcase);
+assert.sameValue(beforeWrite, true, 'beforeWrite');
+assert.sameValue(afterWrite, true, 'afterWrite');

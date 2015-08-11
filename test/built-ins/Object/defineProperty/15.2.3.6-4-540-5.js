@@ -7,10 +7,8 @@ description: >
     ES5 Attributes - Updating a named accessor property 'P' using
     simple assignment is successful, 'O' is an Arguments object
     (8.12.5 step 5.b)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = (function () {
             return arguments;
         }());
@@ -35,6 +33,6 @@ function testcase() {
         var propertyDefineCorrect = obj.hasOwnProperty("prop");
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return propertyDefineCorrect && desc.set === setFunc && obj.verifySetFunc === "overrideData";
-    }
-runTestCase(testcase);
+assert(propertyDefineCorrect, 'propertyDefineCorrect !== true');
+assert.sameValue(desc.set, setFunc, 'desc.set');
+assert.sameValue(obj.verifySetFunc, "overrideData", 'obj.verifySetFunc');

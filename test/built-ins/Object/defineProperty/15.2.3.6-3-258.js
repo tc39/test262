@@ -7,10 +7,8 @@ description: >
     Object.defineProperty - 'Attributes' is an Arguments object which
     implements its own [[Get]] method to access the 'set' property
     (8.10.5 step 8.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var data = "data";
         var argObj = (function () { return arguments; })();
@@ -21,6 +19,5 @@ function testcase() {
         Object.defineProperty(obj, "property", argObj);
         obj.property = "overrideData";
 
-        return obj.hasOwnProperty("property") && data === "overrideData";
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("property"), 'obj.hasOwnProperty("property") !== true');
+assert.sameValue(data, "overrideData", 'data');

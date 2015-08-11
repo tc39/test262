@@ -6,10 +6,8 @@ es5id: 15.2.3.6-4-387
 description: >
     ES5 Attributes - [[Value]] attribute of data property is a String
     object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var strObj = new String();
 
@@ -19,6 +17,5 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return obj.prop === strObj && desc.value === strObj;
-    }
-runTestCase(testcase);
+assert.sameValue(obj.prop, strObj, 'obj.prop');
+assert.sameValue(desc.value, strObj, 'desc.value');

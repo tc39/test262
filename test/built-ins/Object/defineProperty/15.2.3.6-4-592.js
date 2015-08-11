@@ -6,10 +6,8 @@ es5id: 15.2.3.6-4-592
 description: >
     ES5 Attributes - Inherited property is non-enumerable
     (Object.create)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var appointment = {};
 
         var data1 = 1001;
@@ -60,6 +58,7 @@ function testcase() {
             !teamMeeting.hasOwnProperty("startTime") &&
             !teamMeeting.hasOwnProperty('conferenceCall');
 
-        return hasOwnProperty && !verifyTimeProp && !verifyNameProp && !verifyCallProp;
-    }
-runTestCase(testcase);
+assert(hasOwnProperty, 'hasOwnProperty !== true');
+assert.sameValue(verifyTimeProp, false, 'verifyTimeProp');
+assert.sameValue(verifyNameProp, false, 'verifyNameProp');
+assert.sameValue(verifyCallProp, false, 'verifyCallProp');

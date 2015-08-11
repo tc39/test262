@@ -6,10 +6,8 @@ es5id: 15.2.3.6-4-333
 description: >
     ES5 Attributes - property ([[Writable]] is true, [[Enumerable]] is
     true, [[Configurable]] is false) is writable
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
@@ -21,6 +19,5 @@ function testcase() {
         var propertyDefineCorrect = (obj.prop === 2010);
         obj.prop = 1001;
 
-        return propertyDefineCorrect && obj.prop === 1001;
-    }
-runTestCase(testcase);
+assert(propertyDefineCorrect, 'propertyDefineCorrect !== true');
+assert.sameValue(obj.prop, 1001, 'obj.prop');

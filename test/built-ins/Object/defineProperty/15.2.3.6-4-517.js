@@ -8,10 +8,8 @@ description: >
     property ([[Get]] is a Function, [[Set]] is undefined,
     [[Enumerable]] is false, [[Configurable]] is true) to different
     value
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var getFunc = function () {
@@ -40,6 +38,7 @@ function testcase() {
         obj.prop = "overrideData";
         var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return typeof desc1.set === "undefined" && propertyDefineCorrect && desc2.set === setFunc && verifySetFunc === "overrideData";
-    }
-runTestCase(testcase);
+assert.sameValue(typeof desc1.set, "undefined", 'typeof desc1.set');
+assert(propertyDefineCorrect, 'propertyDefineCorrect !== true');
+assert.sameValue(desc2.set, setFunc, 'desc2.set');
+assert.sameValue(verifySetFunc, "overrideData", 'verifySetFunc');

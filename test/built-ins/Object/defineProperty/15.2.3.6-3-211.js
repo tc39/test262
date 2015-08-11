@@ -6,10 +6,8 @@ es5id: 15.2.3.6-3-211
 description: >
     Object.defineProperty - 'get' property in 'Attributes' is own
     accessor property (8.10.5 step 7.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var attributes = {};
@@ -23,6 +21,4 @@ function testcase() {
 
         Object.defineProperty(obj, "property", attributes);
 
-        return obj.property === "ownAccessorProperty";
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "ownAccessorProperty", 'obj.property');

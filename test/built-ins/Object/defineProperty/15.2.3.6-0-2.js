@@ -4,12 +4,6 @@
 /*---
 es5id: 15.2.3.6-0-2
 description: Object.defineProperty must exist as a function taking 3 parameters
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  if (Object.defineProperty.length === 3) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(Object.defineProperty.length, 3, 'Object.defineProperty.length');

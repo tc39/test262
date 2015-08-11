@@ -6,14 +6,9 @@ es5id: 15.2.3.6-2-41
 description: >
     Object.defineProperty - argument 'P' is a Boolean Object that
     converts to a string
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         Object.defineProperty(obj, new Boolean(false), {});
 
-        return obj.hasOwnProperty("false");
-
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("false"), 'obj.hasOwnProperty("false") !== true');

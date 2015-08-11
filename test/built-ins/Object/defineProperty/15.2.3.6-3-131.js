@@ -7,10 +7,8 @@ description: >
     Object.defineProperty - 'value' property in 'Attributes' is own
     data property that overrides an inherited accessor property
     (8.10.5 step 5.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { };
 
         var proto = {};
@@ -31,6 +29,4 @@ function testcase() {
 
         Object.defineProperty(obj, "property", child);
 
-        return obj.property === "ownDataProperty";
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "ownDataProperty", 'obj.property');

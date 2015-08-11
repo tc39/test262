@@ -8,10 +8,8 @@ description: >
     are [[Writable]]: false, [[Enumerable]]: true, [[Configurable]]:
     true to an accessor property, 'A' is an Array object (8.12.9 -
     step 9.b.i)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = [];
 
         Object.defineProperty(obj, "prop", {
@@ -30,8 +28,10 @@ function testcase() {
         });
         var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return desc1.hasOwnProperty("value") && desc2.hasOwnProperty("get") &&
-            desc2.enumerable === true && desc2.configurable === true &&
-            obj.prop === 20 && typeof desc2.set === "undefined" && desc2.get === getFunc;
-    }
-runTestCase(testcase);
+assert(desc1.hasOwnProperty("value"), 'desc1.hasOwnProperty("value") !== true');
+assert(desc2.hasOwnProperty("get"), 'desc2.hasOwnProperty("get") !== true');
+assert.sameValue(desc2.enumerable, true, 'desc2.enumerable');
+assert.sameValue(desc2.configurable, true, 'desc2.configurable');
+assert.sameValue(obj.prop, 20, 'obj.prop');
+assert.sameValue(typeof desc2.set, "undefined", 'typeof desc2.set');
+assert.sameValue(desc2.get, getFunc, 'desc2.get');

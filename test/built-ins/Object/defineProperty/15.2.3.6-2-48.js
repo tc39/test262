@@ -7,10 +7,8 @@ description: >
     Object.defineProperty - an inherited toString method  is invoked
     when 'P' is an object with an own valueOf and an inherited
     toString methods
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var toStringAccessed = false;
         var valueOfAccessed = false;
@@ -33,6 +31,6 @@ function testcase() {
 
         Object.defineProperty(obj, child, {});
 
-        return obj.hasOwnProperty("test") && !valueOfAccessed && toStringAccessed;
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("test"), 'obj.hasOwnProperty("test") !== true');
+assert.sameValue(valueOfAccessed, false, 'valueOfAccessed');
+assert(toStringAccessed, 'toStringAccessed !== true');

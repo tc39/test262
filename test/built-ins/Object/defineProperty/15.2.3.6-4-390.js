@@ -6,10 +6,8 @@ es5id: 15.2.3.6-4-390
 description: >
     ES5 Attributes - [[Value]] attribute of data property is a
     Function object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var funObj = function () { };
 
@@ -19,6 +17,5 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return obj.prop === funObj && desc.value === funObj;
-    }
-runTestCase(testcase);
+assert.sameValue(obj.prop, funObj, 'obj.prop');
+assert.sameValue(desc.value, funObj, 'desc.value');

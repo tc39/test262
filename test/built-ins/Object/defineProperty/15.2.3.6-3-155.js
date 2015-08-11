@@ -6,10 +6,8 @@ es5id: 15.2.3.6-3-155
 description: >
     Object.defineProperty - 'writable' property in 'Attributes' is an
     inherited data property  (8.10.5 step 6.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { };
 
         var proto = {
@@ -29,6 +27,5 @@ function testcase() {
 
         var afterWrite = (obj.property === "isWritable");
 
-        return beforeWrite === true && afterWrite === true;
-    }
-runTestCase(testcase);
+assert.sameValue(beforeWrite, true, 'beforeWrite');
+assert.sameValue(afterWrite, true, 'afterWrite');

@@ -6,10 +6,8 @@ es5id: 15.2.3.6-3-242
 description: >
     Object.defineProperty - 'set' property in 'Attributes' is an
     inherited accessor property (8.10.5 step 8.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var proto = {};
         var data = "data";
@@ -29,6 +27,5 @@ function testcase() {
         Object.defineProperty(obj, "property", child);
         obj.property = "inheritedAccessorProperty";
 
-        return obj.hasOwnProperty("property") && data === "inheritedAccessorProperty";
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("property"), 'obj.hasOwnProperty("property") !== true');
+assert.sameValue(data, "inheritedAccessorProperty", 'data');

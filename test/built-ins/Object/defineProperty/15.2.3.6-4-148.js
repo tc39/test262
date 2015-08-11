@@ -8,10 +8,7 @@ description: >
     property of 'O', test the [[Value]] field of 'desc' is an Object
     which has an own valueOf method that returns an object and
     toString method that returns a string (15.4.5.1 step 3.c)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arrObj = [];
         var toStringAccessed = false;
@@ -30,7 +27,7 @@ function testcase() {
                 }
             }
         });
-        return arrObj.length === 2 && toStringAccessed && valueOfAccessed;
 
-    }
-runTestCase(testcase);
+assert.sameValue(arrObj.length, 2, 'arrObj.length');
+assert(toStringAccessed, 'toStringAccessed !== true');
+assert(valueOfAccessed, 'valueOfAccessed !== true');

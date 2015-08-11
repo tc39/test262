@@ -11,10 +11,8 @@ es5id: 15.2.3.6-4-6
 description: >
     Object.defineProperty is no-op if current and desc are the same
     accessor desc
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   function sameAccessorDescriptorValues(d1, d2) {
     return (d1.get == d2.get &&
             d1.enumerable == d2.enumerable &&
@@ -43,8 +41,4 @@ function testcase() {
 
   var d2 = Object.getOwnPropertyDescriptor(o, "foo"); 
 
-  if (sameAccessorDescriptorValues(d1, d2) === true) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(sameAccessorDescriptorValues(d1, d2), true, 'sameAccessorDescriptorValues(d1, d2)');

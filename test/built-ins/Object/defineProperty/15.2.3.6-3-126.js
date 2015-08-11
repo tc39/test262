@@ -6,16 +6,12 @@ es5id: 15.2.3.6-3-126
 description: >
     Object.defineProperty - 'value' property in 'Attributes' is
     present  (8.10.5 step 5)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var attr = { value: 100 };
 
         Object.defineProperty(obj, "property", attr);
 
-        return obj.property === 100;
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, 100, 'obj.property');

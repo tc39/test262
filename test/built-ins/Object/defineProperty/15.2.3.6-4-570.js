@@ -6,10 +6,8 @@ es5id: 15.2.3.6-4-570
 description: >
     ES5 Attributes - [[Get]] attribute is a function which doesn't
     contains return statement
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var verifyExecute = false;
         var getFunc = function () {
@@ -22,6 +20,7 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return obj.hasOwnProperty("prop") && desc.get === getFunc && typeof obj.prop === "undefined" && verifyExecute;
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("prop"), 'obj.hasOwnProperty("prop") !== true');
+assert.sameValue(desc.get, getFunc, 'desc.get');
+assert.sameValue(typeof obj.prop, "undefined", 'typeof obj.prop');
+assert(verifyExecute, 'verifyExecute !== true');

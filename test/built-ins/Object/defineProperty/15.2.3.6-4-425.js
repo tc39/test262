@@ -7,10 +7,8 @@ description: >
     ES5 Attributes - property ([[Get]] is undefined, [[Set]] is
     undefined, [[Enumerable]] is true, [[Configurable]] is true) is
     deletable
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
@@ -25,6 +23,6 @@ function testcase() {
 
         delete obj.prop;
 
-        return propertyDefineCorrect && desc.configurable === true && !obj.hasOwnProperty("prop");
-    }
-runTestCase(testcase);
+assert(propertyDefineCorrect, 'propertyDefineCorrect !== true');
+assert.sameValue(desc.configurable, true, 'desc.configurable');
+assert.sameValue(obj.hasOwnProperty("prop"), false, 'obj.hasOwnProperty("prop")');

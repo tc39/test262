@@ -7,10 +7,8 @@ description: >
     Object.defineProperty - 'get' property in 'Attributes' is own
     accessor property that overrides an inherited data property
     (8.10.5 step 7.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var proto = {
             get: function () {
@@ -32,6 +30,4 @@ function testcase() {
 
         Object.defineProperty(obj, "property", child);
 
-        return obj.property === "ownAccessorProperty";
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "ownAccessorProperty", 'obj.property');

@@ -7,16 +7,14 @@ description: >
     Object.defineProperty - 'O' is an Array, 'name' is an array index
     named property, 'name' is boundary value 2^32 - 2 (15.4.5.1 step
     4.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var arrObj = [];
 
         Object.defineProperty(arrObj, 4294967294, {
             value: 100
         });
 
-        return arrObj.hasOwnProperty("4294967294") && arrObj.length === 4294967295 && arrObj[4294967294] === 100;
-    }
-runTestCase(testcase);
+assert(arrObj.hasOwnProperty("4294967294"), 'arrObj.hasOwnProperty("4294967294") !== true');
+assert.sameValue(arrObj.length, 4294967295, 'arrObj.length');
+assert.sameValue(arrObj[4294967294], 100, 'arrObj[4294967294]');

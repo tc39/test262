@@ -7,10 +7,8 @@ description: >
     Object.defineProperty - 'Attributes' is a RegExp object that uses
     Object's [[Get]] method to access the 'writable' property  (8.10.5
     step 6.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { };
 
         var regObj = new RegExp();
@@ -25,6 +23,5 @@ function testcase() {
 
         var afterWrite = (obj.property === "isWritable");
 
-        return beforeWrite === true && afterWrite === true;
-    }
-runTestCase(testcase);
+assert.sameValue(beforeWrite, true, 'beforeWrite');
+assert.sameValue(afterWrite, true, 'afterWrite');

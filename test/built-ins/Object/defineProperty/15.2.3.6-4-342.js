@@ -6,10 +6,8 @@ es5id: 15.2.3.6-4-342
 description: >
     ES5 Attributes - property ([[Writable]] is true, [[Enumerable]] is
     false, [[Configurable]] is true) is deletable
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
@@ -21,6 +19,6 @@ function testcase() {
         var beforeDelete = obj.hasOwnProperty("prop");
         delete obj.prop;
         var afterDelete = obj.hasOwnProperty("prop");
-        return beforeDelete && !afterDelete;
-    }
-runTestCase(testcase);
+
+assert(beforeDelete, 'beforeDelete !== true');
+assert.sameValue(afterDelete, false, 'afterDelete');

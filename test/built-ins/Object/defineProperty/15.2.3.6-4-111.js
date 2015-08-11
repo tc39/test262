@@ -7,10 +7,7 @@ description: >
     Object.defineProperty  - 'name' and 'desc' are accessor
     properties, name.[[Set]] is present and desc.[[Set]] is undefined
     (8.12.9 step 12)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
 
@@ -36,6 +33,6 @@ function testcase() {
 
 
         var desc = Object.getOwnPropertyDescriptor(obj, "foo");
-        return obj.hasOwnProperty("foo") && typeof (desc.set) === "undefined";
-    }
-runTestCase(testcase);
+
+assert(obj.hasOwnProperty("foo"), 'obj.hasOwnProperty("foo") !== true');
+assert.sameValue(typeof (desc.set), "undefined", 'typeof (desc.set)');

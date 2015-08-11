@@ -7,10 +7,8 @@ description: >
     Object.defineProperty - argument 'P' is an object whose toString
     method returns an object and whose valueOf method returns a
     primitive value
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var toStringAccessed = false;
         var valueOfAccessed = false;
@@ -28,6 +26,6 @@ function testcase() {
 
         Object.defineProperty(obj, ownProp, {});
 
-        return obj.hasOwnProperty("abc") && valueOfAccessed && toStringAccessed;
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("abc"), 'obj.hasOwnProperty("abc") !== true');
+assert(valueOfAccessed, 'valueOfAccessed !== true');
+assert(toStringAccessed, 'toStringAccessed !== true');

@@ -6,10 +6,8 @@ es5id: 15.2.3.6-4-388
 description: >
     ES5 Attributes - [[Value]] attribute of data property is a Number
     object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var numObj = new Number();
 
@@ -19,6 +17,5 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return obj.prop === numObj && desc.value === numObj;
-    }
-runTestCase(testcase);
+assert.sameValue(obj.prop, numObj, 'obj.prop');
+assert.sameValue(desc.value, numObj, 'desc.value');

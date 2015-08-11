@@ -7,10 +7,8 @@ description: >
     ES5 Attributes - indexed data property 'P' with attributes
     [[Writable]]: true, [[Enumerable]]: true, [[Configurable]]: false
     is writable using simple assignment, 'O' is an Arguments object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = (function () {
             return arguments;
         }());
@@ -24,6 +22,5 @@ function testcase() {
         var verifyValue = (obj[0] === 2010);
         obj[0] = 1001;
 
-        return verifyValue && obj[0] === 1001;
-    }
-runTestCase(testcase);
+assert(verifyValue, 'verifyValue !== true');
+assert.sameValue(obj[0], 1001, 'obj[0]');

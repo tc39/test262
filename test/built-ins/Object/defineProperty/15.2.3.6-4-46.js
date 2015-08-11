@@ -7,10 +7,8 @@ description: >
     Object.defineProperty - 'name' is defined as data property if
     'name' property doesn't exist in 'O' and 'desc' is generic
     descriptor (8.12.9 step 4.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "property", {
@@ -24,6 +22,5 @@ function testcase() {
             }
         }
 
-        return obj.hasOwnProperty("property") && isEnumerable;
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("property"), 'obj.hasOwnProperty("property") !== true');
+assert(isEnumerable, 'isEnumerable !== true');

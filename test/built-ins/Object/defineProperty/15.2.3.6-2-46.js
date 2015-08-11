@@ -6,10 +6,8 @@ es5id: 15.2.3.6-2-46
 description: >
     Object.defineProperty - argument 'P' is an object that has an own
     toString and valueOf method
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var toStringAccessed = false;
         var valueOfAccessed = false;
@@ -26,7 +24,6 @@ function testcase() {
         };
         Object.defineProperty(obj, ownProp, {});
 
-        return obj.hasOwnProperty("abc") && !valueOfAccessed && toStringAccessed;
-
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("abc"), 'obj.hasOwnProperty("abc") !== true');
+assert.sameValue(valueOfAccessed, false, 'valueOfAccessed');
+assert(toStringAccessed, 'toStringAccessed !== true');

@@ -6,10 +6,8 @@ es5id: 15.2.3.6-3-46
 description: >
     Object.defineProperty - value of 'enumerable' property in
     'Attributes' is undefined (8.10.5 step 3.b)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var accessed = false;
 
@@ -22,6 +20,5 @@ function testcase() {
                 accessed = true;
             }
         }
-        return !accessed;
-    }
-runTestCase(testcase);
+
+assert.sameValue(accessed, false, 'accessed');

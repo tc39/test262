@@ -7,16 +7,12 @@ description: >
     Object.defineProperty - 'O' is an Array, 'name' is the length
     property of 'O', test RangeError exception is not thrown when the
     [[Value]] field of 'desc' is a positive number (15.4.5.1 step 3.c)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arrObj = [];
 
         Object.defineProperty(arrObj, "length", {
             value: 12
         });
-        return arrObj.length === 12;
-    }
-runTestCase(testcase);
+
+assert.sameValue(arrObj.length, 12, 'arrObj.length');

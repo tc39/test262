@@ -6,14 +6,9 @@ es5id: 15.2.3.6-2-17
 description: >
     Object.defineProperty - argument 'P' is a number that converts to
     a string (value is 1e+20)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         Object.defineProperty(obj, 1e+20, {});
 
-        return obj.hasOwnProperty("100000000000000000000");
-
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("100000000000000000000"), 'obj.hasOwnProperty("100000000000000000000") !== true');

@@ -7,10 +7,8 @@ description: >
     Object.defineProperty - 'writable' property in 'Attributes' is
     treated as true when it is a string(value is 'false') (8.10.5 step
     6.b)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "property", { writable: "false" });
@@ -21,6 +19,5 @@ function testcase() {
 
         var afterWrite = (obj.property === "isWritable");
 
-        return beforeWrite === true && afterWrite === true;
-    }
-runTestCase(testcase);
+assert.sameValue(beforeWrite, true, 'beforeWrite');
+assert.sameValue(afterWrite, true, 'afterWrite');

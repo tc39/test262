@@ -4,10 +4,8 @@
 /*---
 es5id: 15.2.3.6-4-395
 description: ES5 Attributes - [[Value]] attribute of data property is null
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
@@ -16,6 +14,5 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return obj.prop === null && desc.value === null;
-    }
-runTestCase(testcase);
+assert.sameValue(obj.prop, null, 'obj.prop');
+assert.sameValue(desc.value, null, 'desc.value');

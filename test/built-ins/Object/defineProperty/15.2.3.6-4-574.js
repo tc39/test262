@@ -6,10 +6,8 @@ es5id: 15.2.3.6-4-574
 description: >
     ES5 Attributes - [[Set]] attribute is a function which has two
     arguments
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var firstArg = 12;
         var secondArg = 12;
@@ -24,6 +22,7 @@ function testcase() {
         obj.prop = 100;
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return obj.hasOwnProperty("prop") && desc.set === setFunc && firstArg === 100 && typeof secondArg === "undefined";
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("prop"), 'obj.hasOwnProperty("prop") !== true');
+assert.sameValue(desc.set, setFunc, 'desc.set');
+assert.sameValue(firstArg, 100, 'firstArg');
+assert.sameValue(typeof secondArg, "undefined", 'typeof secondArg');

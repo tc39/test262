@@ -7,10 +7,8 @@ description: >
     Object.defineProperty - 'Attributes' is a Number object that uses
     Object's [[Get]] method to access the 'value' property  (8.10.5
     step 5.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { };
 
         var numObj = new Number(-2);
@@ -19,6 +17,4 @@ function testcase() {
 
         Object.defineProperty(obj, "property", numObj);
 
-        return obj.property === "Number";
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "Number", 'obj.property');

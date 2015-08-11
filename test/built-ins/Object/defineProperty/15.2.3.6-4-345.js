@@ -7,10 +7,8 @@ description: >
     ES5 Attributes - success to update [[Configurable]] attribute of
     data property ([[Writable]] is true, [[Enumerable]] is false,
     [[Configurable]] is true) to different value
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
@@ -27,6 +25,7 @@ function testcase() {
         });
         var desc2 = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return propertyDefineCorrect && desc1.configurable === true && obj.prop === 2010 && desc2.configurable === false;
-    }
-runTestCase(testcase);
+assert(propertyDefineCorrect, 'propertyDefineCorrect !== true');
+assert.sameValue(desc1.configurable, true, 'desc1.configurable');
+assert.sameValue(obj.prop, 2010, 'obj.prop');
+assert.sameValue(desc2.configurable, false, 'desc2.configurable');

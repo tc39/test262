@@ -7,10 +7,8 @@ description: >
     Object.defineProperty - Named property 'P' with attributes
     [[Writable]]: true, [[Enumerable]]:true, [[Configurable]]:false is
     writable using simple assignment, 'A' is an Array Object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = [];
 
         Object.defineProperty(obj, "prop", {
@@ -22,6 +20,5 @@ function testcase() {
         var verifyValue = (obj.prop === 2010);
         obj.prop = 1001;
 
-        return verifyValue && obj.prop === 1001;
-    }
-runTestCase(testcase);
+assert(verifyValue, 'verifyValue !== true');
+assert.sameValue(obj.prop, 1001, 'obj.prop');

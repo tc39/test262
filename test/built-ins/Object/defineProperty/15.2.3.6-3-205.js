@@ -6,10 +6,8 @@ es5id: 15.2.3.6-3-205
 description: >
     Object.defineProperty - 'get' property in 'Attributes' is present
     (8.10.5 step 7)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "property", {
@@ -18,6 +16,4 @@ function testcase() {
             }
         });
 
-        return obj.property === "present";
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "present", 'obj.property');

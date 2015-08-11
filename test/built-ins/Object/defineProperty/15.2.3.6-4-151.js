@@ -8,10 +8,7 @@ description: >
     property of 'O', and the [[Value]] field of 'desc' is an Object
     with an own toString method and an inherited valueOf method
     (15.4.5.1 step 3.c), test that the inherited valueOf method is used
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arrObj = [];
         var toStringAccessed = false;
@@ -36,7 +33,7 @@ function testcase() {
         Object.defineProperty(arrObj, "length", {
             value: child
         });
-        return arrObj.length === 2 && !toStringAccessed && valueOfAccessed;
 
-    }
-runTestCase(testcase);
+assert.sameValue(arrObj.length, 2, 'arrObj.length');
+assert.sameValue(toStringAccessed, false, 'toStringAccessed');
+assert(valueOfAccessed, 'valueOfAccessed !== true');

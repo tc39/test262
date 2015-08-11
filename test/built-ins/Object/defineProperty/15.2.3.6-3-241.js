@@ -6,10 +6,8 @@ es5id: 15.2.3.6-3-241
 description: >
     Object.defineProperty - 'set' property in 'Attributes' is own
     accessor property (8.10.5 step 8.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var data = "data";
         var attributes = {};
@@ -24,6 +22,5 @@ function testcase() {
         Object.defineProperty(obj, "property", attributes);
         obj.property = "ownAccessorProperty";
 
-        return obj.hasOwnProperty("property") && data === "ownAccessorProperty";
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("property"), 'obj.hasOwnProperty("property") !== true');
+assert.sameValue(data, "ownAccessorProperty", 'data');

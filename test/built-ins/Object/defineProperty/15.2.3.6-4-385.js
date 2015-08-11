@@ -6,10 +6,8 @@ es5id: 15.2.3.6-4-385
 description: >
     ES5 Attributes - [[Value]] attribute of data property is a generic
     object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var tempObj = { testproperty: 100 };
 
@@ -19,6 +17,5 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return obj.prop === tempObj && desc.value === tempObj;
-    }
-runTestCase(testcase);
+assert.sameValue(obj.prop, tempObj, 'obj.prop');
+assert.sameValue(desc.value, tempObj, 'desc.value');

@@ -6,10 +6,8 @@ es5id: 15.2.3.6-4-392
 description: >
     ES5 Attributes - [[Value]] attribute of data property is a Date
     object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var dateObj = new Date();
 
@@ -19,6 +17,5 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-        return obj.prop === dateObj && desc.value === dateObj;
-    }
-runTestCase(testcase);
+assert.sameValue(obj.prop, dateObj, 'obj.prop');
+assert.sameValue(desc.value, dateObj, 'desc.value');

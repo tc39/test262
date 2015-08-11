@@ -7,10 +7,8 @@ description: >
     Object.defineProperty - 'Attributes' is a Function object which
     implements its own [[Get]] method to access the 'configurable'
     property (8.10.5 step 4.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var funObj = function (a, b) {
@@ -27,6 +25,5 @@ function testcase() {
 
         var afterDeleted = obj.hasOwnProperty("property");
 
-        return beforeDeleted === true && afterDeleted === false;
-    }
-runTestCase(testcase);
+assert.sameValue(beforeDeleted, true, 'beforeDeleted');
+assert.sameValue(afterDeleted, false, 'afterDeleted');

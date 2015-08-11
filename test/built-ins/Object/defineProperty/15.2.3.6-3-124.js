@@ -7,10 +7,8 @@ description: >
     Object.defineProperty - 'configurable' property in 'Attributes' is
     treated as true when it is a string (value is 'false')  (8.10.5
     step 4.b)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var attr = {
@@ -25,6 +23,5 @@ function testcase() {
 
         var afterDeleted = obj.hasOwnProperty("property");
 
-        return beforeDeleted === true && afterDeleted === false;
-    }
-runTestCase(testcase);
+assert.sameValue(beforeDeleted, true, 'beforeDeleted');
+assert.sameValue(afterDeleted, false, 'afterDeleted');

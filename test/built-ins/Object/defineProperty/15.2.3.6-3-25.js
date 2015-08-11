@@ -7,10 +7,8 @@ description: >
     Object.defineProperty - 'enumerable' property in 'Attributes' is
     own data property that overrides an inherited accessor property
     (8.10.5 step 3.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var accessed = false;
 
@@ -37,6 +35,4 @@ function testcase() {
             }
         }
 
-        return accessed;
-    }
-runTestCase(testcase);
+assert(accessed, 'accessed !== true');

@@ -11,10 +11,8 @@ es5id: 15.2.3.6-4-5
 description: >
     Object.defineProperty is no-op if current and desc are the same
     data desc
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   function sameDataDescriptorValues(d1, d2) {
     return (d1.value === d2.value &&
             d1.enumerable === d2.enumerable &&
@@ -39,8 +37,4 @@ function testcase() {
 
   var d2 = Object.getOwnPropertyDescriptor(o, "foo"); 
 
-  if (sameDataDescriptorValues(d1, d2) === true) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(sameDataDescriptorValues(d1, d2), true, 'sameDataDescriptorValues(d1, d2)');

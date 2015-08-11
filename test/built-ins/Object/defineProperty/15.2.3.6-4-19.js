@@ -10,10 +10,8 @@ es5id: 15.2.3.6-4-19
 description: >
     Object.defineProperty permits setting a setter (if absent) of
     non-configurable accessor properties(8.12.9 step 10.a.ii.1)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var o = {};
 
   // create an accessor property; all other attributes default to false.
@@ -29,11 +27,7 @@ function testcase() {
 
   var d2 = Object.getOwnPropertyDescriptor(o, "foo");
 
-  if (d2.get === getter &&
-	  d2.set === undefined &&
-	  d2.configurable === false &&
-	  d2.enumerable === false) {
-	return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(d2.get, getter, 'd2.get');
+assert.sameValue(d2.set, undefined, 'd2.set');
+assert.sameValue(d2.configurable, false, 'd2.configurable');
+assert.sameValue(d2.enumerable, false, 'd2.enumerable');

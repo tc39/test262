@@ -7,10 +7,7 @@ description: >
     Object.defineProperty - 'O' is an Array, 'name' is an array index
     named property, 'name' is available String values that convert to
     numbers (15.4.5.1 step 4.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arrObj = [];
 
@@ -18,6 +15,4 @@ function testcase() {
             value: 12
         });
 
-        return arrObj[0] === 12;
-    }
-runTestCase(testcase);
+assert.sameValue(arrObj[0], 12, 'arrObj[0]');
