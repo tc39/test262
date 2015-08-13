@@ -6,13 +6,10 @@ es5id: 15.3.4.5.2-4-5
 description: >
     [[Construct]] - length of parameters of 'target' is 0, length of
     'boundArgs' is 0, length of 'ExtraArgs' is 0, and with 'boundThis'
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { prop: "abc" };
 
-        try {
             Object.prototype.verifyThis = "verifyThis";
             var func = function () {
                 return new Boolean(arguments.length === 0 && Object.prototype.toString.call(this) === "[object Object]" &&
@@ -23,9 +20,4 @@ function testcase() {
 
             var newInstance = new NewFunc();
 
-            return newInstance.valueOf();
-        } finally {
-            delete Object.prototype.verifyThis;
-        }
-    }
-runTestCase(testcase);
+assert(newInstance.valueOf(), 'newInstance.valueOf() !== true');

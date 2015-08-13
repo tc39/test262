@@ -4,19 +4,12 @@
 /*---
 es5id: 15.3.4.5-6-2
 description: Function.prototype.bind - F can get inherited data property
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var foo = function () { };
 
         var obj = foo.bind({});
-        try {
+
             Function.prototype.property = 12;
-            return obj.property === 12;
-        } finally {
-            delete Function.prototype.property;
-        }
-    }
-runTestCase(testcase);
+
+assert.sameValue(obj.property, 12, 'obj.property');

@@ -8,17 +8,12 @@ description: >
     the Constructor Properties of the Global Object under strict mode
     (Object)
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var objBak = Object;
 
         try {
             Object = 12;
-            return true;
         } finally {
             Object = objBak;
         }
-    }
-runTestCase(testcase);

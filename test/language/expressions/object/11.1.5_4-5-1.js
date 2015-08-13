@@ -12,11 +12,8 @@ description: >
     Object initialization using PropertyNameAndValueList
     (PropertyNameAndValueList , PropertyAssignment) when property
     (read-only) exists in Object.prototype (Step 5)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
             Object.defineProperty(Object.prototype, "prop2", {
                 value: 100,
                 writable: false,
@@ -25,9 +22,4 @@ function testcase() {
 
             var obj = { prop1: 101, prop2: 12 };
 
-            return obj.hasOwnProperty("prop2");
-        } finally {
-            delete Object.prototype.prop2;
-        }
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("prop2"), 'obj.hasOwnProperty("prop2") !== true');

@@ -7,12 +7,10 @@ description: >
     Function Object has 'constructor' as its own property, it is not
     enumerable and does not invoke the setter defined on
     Function.prototype.constructor (Step 17)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var desc = Object.getOwnPropertyDescriptor(Object.prototype, "constructor");
-        try {
+
             var getFunc = function () {
                 return 100;
             };
@@ -48,9 +46,8 @@ function testcase() {
             delete fun.prototype.constructor;
             verifyConfigurable = fun.hasOwnProperty("constructor");
 
-            return verifyValue && verifyWritable && !verifyEnumerable && !verifyConfigurable && data === "data";
-        } finally {
-            Object.defineProperty(Object.prototype, "constructor", desc);
-        }
-    }
-runTestCase(testcase);
+assert(verifyValue, 'verifyValue !== true');
+assert(verifyWritable, 'verifyWritable !== true');
+assert.sameValue(verifyEnumerable, false, 'verifyEnumerable');
+assert.sameValue(verifyConfigurable, false, 'verifyConfigurable');
+assert.sameValue(data, "data", 'data');

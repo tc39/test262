@@ -7,26 +7,23 @@ description: >
     Exception object is a function which is a property of an object,
     when an exception parameter is called as a function in catch
     block, global object is passed as the this value
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 flags: [noStrict]
 ---*/
 
-function testcase() {
+var result;
+
+(function() {
         var obj = {};
         obj.test = function () {
             this._12_14_15_foo = "test";
         };
         try {
             throw obj.test;
-            return false;
         } catch (e) {
             e();
-            return  fnGlobalObject()._12_14_15_foo === "test";
+            result = fnGlobalObject()._12_14_15_foo;
         }
-        finally {
-            delete fnGlobalObject()._12_14_15_foo;
-        }
-    }
-runTestCase(testcase);
+})();
+
+assert.sameValue(result, "test", 'result');

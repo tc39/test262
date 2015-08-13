@@ -7,11 +7,8 @@ description: >
     In non-strict mode, arguments object should have its own 'callee'
     property defined (Step 13.a)
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
             Object.defineProperty(Object.prototype, "callee", {
                 value: 1,
                 writable: false,
@@ -38,9 +35,7 @@ function testcase() {
             delete argObj.callee;
             verifyConfigurable = argObj.hasOwnProperty("callee");
 
-            return verifyValue && verifyWritable && !verifyEnumerable && !verifyConfigurable;
-        } finally {
-            delete Object.prototype.callee;
-        }
-    }
-runTestCase(testcase);
+assert(verifyValue, 'verifyValue !== true');
+assert(verifyWritable, 'verifyWritable !== true');
+assert.sameValue(verifyEnumerable, false, 'verifyEnumerable');
+assert.sameValue(verifyConfigurable, false, 'verifyConfigurable');
