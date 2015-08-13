@@ -6,10 +6,8 @@ es5id: 15.4.4.17-7-b-13
 description: >
     Array.prototype.some - deleting own property with prototype
     property causes prototype index property to be visited on an Array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             if (idx === 1 && val === 1) {
                 return true;
@@ -27,11 +25,6 @@ function testcase() {
             configurable: true
         });
 
-        try {
             Array.prototype[1] = 1;
-            return arr.some(callbackfn);
-        } finally {
-            delete Array.prototype[1];
-        }
-    }
-runTestCase(testcase);
+
+assert(arr.some(callbackfn), 'arr.some(callbackfn) !== true');

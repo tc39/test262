@@ -4,10 +4,7 @@
 /*---
 es5id: 15.4.4.22-1-5
 description: Array.prototype.reduceRight applied to number primitive
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -16,13 +13,8 @@ function testcase() {
             return obj instanceof Number;
         }
 
-        try {
             Number.prototype[0] = 1;
             Number.prototype.length = 1;
-            return Array.prototype.reduceRight.call(2.5, callbackfn, 1) && accessed;
-        } finally {
-            delete Number.prototype[0];
-            delete Number.prototype.length;
-        }
-    }
-runTestCase(testcase);
+
+assert(Array.prototype.reduceRight.call(2.5, callbackfn, 1), 'Array.prototype.reduceRight.call(2.5, callbackfn, 1) !== true');
+assert(accessed, 'accessed !== true');

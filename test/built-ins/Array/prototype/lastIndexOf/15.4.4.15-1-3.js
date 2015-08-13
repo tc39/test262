@@ -4,19 +4,9 @@
 /*---
 es5id: 15.4.4.15-1-3
 description: Array.prototype.lastIndexOf applied to boolean primitive
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        try {
             Boolean.prototype[1] = true;
             Boolean.prototype.length = 2;
 
-            return 1 === Array.prototype.lastIndexOf.call(true, true);
-        } finally {
-            delete Boolean.prototype[1];
-            delete Boolean.prototype.length;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.call(true, true), 1, 'Array.prototype.lastIndexOf.call(true, true)');

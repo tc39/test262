@@ -6,10 +6,7 @@ es5id: 15.4.4.16-7-c-i-14
 description: >
     Array.prototype.every - element to be retrieved is own accessor
     property that overrides an inherited accessor property on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             if (idx === 0) {
@@ -20,7 +17,7 @@ function testcase() {
         }
 
         var arr = [];
-        try {
+
             Object.defineProperty(Array.prototype, "0", {
                 get: function () {
                     return 5;
@@ -35,9 +32,4 @@ function testcase() {
                 configurable: true
             });
 
-            return !arr.every(callbackfn);
-        } finally {
-            delete Array.prototype[0];
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(arr.every(callbackfn), false, 'arr.every(callbackfn)');

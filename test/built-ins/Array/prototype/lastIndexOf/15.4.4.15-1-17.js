@@ -4,21 +4,13 @@
 /*---
 es5id: 15.4.4.15-1-17
 description: Array.prototype.lastIndexOf applied to the global object
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
 
-function testcase() {
         var targetObj = ["global"];
-        try {
+
             var oldLen = fnGlobalObject().length;
             fnGlobalObject()[1] = targetObj;
             fnGlobalObject().length = 3;
-            return 1 === Array.prototype.lastIndexOf.call(fnGlobalObject(), targetObj);
-        } finally {
-            delete fnGlobalObject()[1];
-            fnGlobalObject().length = oldLen;
-        }
-    }
-runTestCase(testcase);
+
+assert.sameValue(Array.prototype.lastIndexOf.call(fnGlobalObject(), targetObj), 1, 'Array.prototype.lastIndexOf.call(fnGlobalObject(), targetObj)');

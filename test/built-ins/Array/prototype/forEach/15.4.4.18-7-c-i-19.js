@@ -7,10 +7,7 @@ description: >
     Array.prototype.forEach - element to be retrieved is own accessor
     property without a get function that overrides an inherited
     accessor property on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
 
@@ -27,7 +24,6 @@ function testcase() {
             configurable: true
         });
 
-        try {
             Object.defineProperty(Object.prototype, "1", {
                 get: function () {
                     return 10;
@@ -37,9 +33,4 @@ function testcase() {
 
             Array.prototype.forEach.call(obj, callbackfn);
 
-            return testResult;
-        } finally {
-            delete Object.prototype[1];
-        }
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');

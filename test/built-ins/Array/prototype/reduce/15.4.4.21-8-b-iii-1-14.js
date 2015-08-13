@@ -6,10 +6,7 @@ es5id: 15.4.4.21-8-b-iii-1-14
 description: >
     Array.prototype.reduce - element to be retrieved is own accessor
     property that overrides an inherited accessor property on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
         function callbackfn(prevVal, curVal, idx, obj) {
@@ -18,7 +15,6 @@ function testcase() {
             }
         }
 
-        try {
             Object.defineProperty(Array.prototype, "0", {
                 get: function () {
                     return 0;
@@ -35,9 +31,5 @@ function testcase() {
             });
 
             arr.reduce(callbackfn);
-            return testResult;
-        } finally {
-            delete Array.prototype[0];
-        }
-    }
-runTestCase(testcase);
+
+assert(testResult, 'testResult !== true');

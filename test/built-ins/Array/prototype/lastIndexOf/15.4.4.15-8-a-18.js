@@ -6,14 +6,10 @@ es5id: 15.4.4.15-8-a-18
 description: >
     Array.prototype.lastIndexOf -  decreasing length of array with
     prototype property causes prototype index property to be visited
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [0, 1, 2, 3, 4];
 
-        try {
             Object.defineProperty(Array.prototype, "2", {
                 get: function () {
                     return "prototype";
@@ -29,9 +25,4 @@ function testcase() {
                 configurable: true
             });
 
-            return 2 === arr.lastIndexOf("prototype");
-        } finally {
-            delete Array.prototype[2];
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(arr.lastIndexOf("prototype"), 2, 'arr.lastIndexOf("prototype")');

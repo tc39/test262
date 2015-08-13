@@ -6,10 +6,7 @@ es5id: 15.4.4.21-9-b-6
 description: >
     Array.prototype.reduce - properties added to prototype in step 8
     are visited on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
 
@@ -34,11 +31,6 @@ function testcase() {
             configurable: true
         });
 
-        try {
             Array.prototype.reduce.call(obj, callbackfn);
-            return testResult;
-        } finally {
-            delete Object.prototype[1];
-        }
-    }
-runTestCase(testcase);
+
+assert(testResult, 'testResult !== true');

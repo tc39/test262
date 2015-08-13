@@ -7,10 +7,7 @@ description: >
     Array.prototype.every - element to be retrieved is own accessor
     property without a get function that overrides an inherited
     accessor property on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -24,11 +21,8 @@ function testcase() {
             set: function () { },
             configurable: true
         });
-        try {
+
             Object.prototype[1] = 10;
-            return Array.prototype.every.call(obj, callbackfn) && accessed;
-        } finally {
-            delete Object.prototype[1];
-        }
-    }
-runTestCase(testcase);
+
+assert(Array.prototype.every.call(obj, callbackfn), 'Array.prototype.every.call(obj, callbackfn) !== true');
+assert(accessed, 'accessed !== true');

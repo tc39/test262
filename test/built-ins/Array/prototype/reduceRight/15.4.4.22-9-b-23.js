@@ -7,10 +7,7 @@ description: >
     Array.prototype.reduceRight - deleting property of prototype
     causes deleted index property not to be visited on an Array-like
     Object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var testResult = true;
@@ -32,12 +29,8 @@ function testcase() {
             configurable: true
         });
 
-        try {
             Object.prototype[3] = 1;
             Array.prototype.reduceRight.call(obj, callbackfn, "initialValue");
-            return testResult && accessed;
-        } finally {
-            delete Object.prototype[3];
-        }
-    }
-runTestCase(testcase);
+
+assert(testResult, 'testResult !== true');
+assert(accessed, 'accessed !== true');

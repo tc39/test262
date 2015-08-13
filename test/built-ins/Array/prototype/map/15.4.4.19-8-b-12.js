@@ -7,10 +7,8 @@ description: >
     Array.prototype.map - deleting own property with prototype
     property causes prototype index property to be visited on an
     Array-like object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             if (idx === 1 && val === 3) {
                 return false;
@@ -28,12 +26,7 @@ function testcase() {
             configurable: true
         });
 
-        try {
             Object.prototype[1] = 3;
             var testResult = Array.prototype.map.call(obj, callbackfn);
-            return testResult[1] === false; 
-        } finally {
-            delete Object.prototype[1];
-        }
-    }
-runTestCase(testcase);
+
+assert.sameValue(testResult[1], false, 'testResult[1]');

@@ -6,10 +6,7 @@ es5id: 15.4.4.20-2-12
 description: >
     Array.prototype.filter - 'length' is own accessor property without
     a get function that overrides an inherited accessor property
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         function callbackfn(val, idx, obj) {
@@ -17,7 +14,6 @@ function testcase() {
             return true;
         }
 
-        try {
             Object.defineProperty(Object.prototype, "length", {
                 get: function () {
                     return 2;
@@ -32,9 +28,6 @@ function testcase() {
             });
 
             var newArr = Array.prototype.filter.call(obj, callbackfn);
-            return newArr.length === 0 && !accessed;
-        } finally {
-            delete Object.prototype.length;
-        }
-    }
-runTestCase(testcase);
+
+assert.sameValue(newArr.length, 0, 'newArr.length');
+assert.sameValue(accessed, false, 'accessed');

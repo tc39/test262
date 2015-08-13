@@ -6,10 +6,8 @@ es5id: 15.4.4.20-9-b-13
 description: >
     Array.prototype.filter - deleting own property with prototype
     property causes prototype index property to be visited on an Array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             return val < 3 ? true : false;
         }
@@ -23,13 +21,8 @@ function testcase() {
             configurable: true
         });
 
-        try {
             Array.prototype[1] = 1;
             var newArr = arr.filter(callbackfn);
 
-            return newArr.length === 3 && newArr[1] === 1;
-        } finally {
-            delete Array.prototype[1];
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 3, 'newArr.length');
+assert.sameValue(newArr[1], 1, 'newArr[1]');

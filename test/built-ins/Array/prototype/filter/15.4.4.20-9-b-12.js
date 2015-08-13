@@ -7,10 +7,8 @@ description: >
     Array.prototype.filter - deleting own property with prototype
     property causes prototype index property to be visited on an
     Array-like object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             return true;
         }
@@ -24,13 +22,8 @@ function testcase() {
             configurable: true
         });
 
-        try {
             Object.prototype[1] = 1;
             var newArr = Array.prototype.filter.call(obj, callbackfn);
 
-            return newArr.length === 3 && newArr[1] === 1;
-        } finally {
-            delete Object.prototype[1];
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 3, 'newArr.length');
+assert.sameValue(newArr[1], 1, 'newArr[1]');

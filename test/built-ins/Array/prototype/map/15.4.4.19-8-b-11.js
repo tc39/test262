@@ -6,10 +6,8 @@ es5id: 15.4.4.19-8-b-11
 description: >
     Array.prototype.map - deleting property of prototype causes
     prototype index property not to be visited on an Array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             return idx === 1 && typeof val === "undefined";
         }
@@ -23,12 +21,8 @@ function testcase() {
             configurable: true
         });
 
-        try {
             Array.prototype[1] = 1;
             var testResult = arr.map(callbackfn);
-            return testResult.length === 3 && typeof testResult[1] === "undefined";
-        } finally {
-            delete Array.prototype[1];
-        }
-    }
-runTestCase(testcase);
+
+assert.sameValue(testResult.length, 3, 'testResult.length');
+assert.sameValue(typeof testResult[1], "undefined", 'typeof testResult[1]');

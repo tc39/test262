@@ -6,10 +6,8 @@ es5id: 15.4.4.19-8-b-6
 description: >
     Array.prototype.map - properties can be added to prototype after
     current position are visited on an Array-like object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             if (idx === 1 && val === 6.99) {
                 return false;
@@ -32,11 +30,7 @@ function testcase() {
             configurable: true
         });
 
-        try {
             var testResult = Array.prototype.map.call(obj, callbackfn);
-            return testResult[0] === true && testResult[1] === false;
-        } finally {
-            delete Object.prototype[1];
-        }
-    }
-runTestCase(testcase);
+
+assert.sameValue(testResult[0], true, 'testResult[0]');
+assert.sameValue(testResult[1], false, 'testResult[1]');

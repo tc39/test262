@@ -7,10 +7,7 @@ description: >
     Array.prototype.reduce - deleting own property with prototype
     property in step 8 causes prototype index property to be visited
     on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
 
@@ -29,12 +26,7 @@ function testcase() {
             configurable: true
         });
 
-        try {
             Array.prototype[1] = 1;
             arr.reduce(callbackfn);
-            return testResult;
-        } finally {
-            delete Array.prototype[1];
-        }
-    }
-runTestCase(testcase);
+
+assert(testResult, 'testResult !== true');

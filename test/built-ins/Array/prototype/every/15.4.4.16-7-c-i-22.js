@@ -6,10 +6,7 @@ es5id: 15.4.4.16-7-c-i-22
 description: >
     Array.prototype.every - element to be retrieved is inherited
     accessor property without a get function on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -18,16 +15,10 @@ function testcase() {
             return typeof val === "undefined";
         }
 
-        try {
             Object.defineProperty(Array.prototype, "0", {
                 set: function () { },
                 configurable: true
             });
 
-            return [, ].every(callbackfn) && accessed;
-        } finally {
-            delete Array.prototype[0];
-        }
-
-    }
-runTestCase(testcase);
+assert([, ].every(callbackfn), '[, ].every(callbackfn) !== true');
+assert(accessed, 'accessed !== true');

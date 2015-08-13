@@ -7,11 +7,8 @@ description: >
     Array.prototype.indexOf - 'length' is own accessor property
     without a get function that overrides an inherited accessor
     property
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
             Object.defineProperty(Object.prototype, "length", {
                 get: function () {
                     return 20;
@@ -25,9 +22,4 @@ function testcase() {
                 configurable: true
             });
 
-            return Array.prototype.indexOf.call(obj, 1) === -1;
-        } finally {
-            delete Object.prototype.length;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.indexOf.call(obj, 1), -1, 'Array.prototype.indexOf.call(obj, 1)');

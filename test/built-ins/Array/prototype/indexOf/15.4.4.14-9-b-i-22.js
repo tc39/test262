@@ -6,19 +6,11 @@ es5id: 15.4.4.14-9-b-i-22
 description: >
     Array.prototype.indexOf - element to be retrieved is inherited
     accessor property without a get function on an Array-like object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        try {
             Object.defineProperty(Object.prototype, "0", {
                 set: function () { },
                 configurable: true
             });
-            return 0 === Array.prototype.indexOf.call({ length: 1 }, undefined);
-        } finally {
-            delete Object.prototype[0];
-        }
-    }
-runTestCase(testcase);
+
+assert.sameValue(Array.prototype.indexOf.call({ length: 1 }, undefined), 0, 'Array.prototype.indexOf.call({ length: 1 }, undefined)');

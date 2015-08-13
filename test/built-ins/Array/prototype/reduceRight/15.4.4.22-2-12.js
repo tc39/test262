@@ -7,10 +7,7 @@ description: >
     Array.prototype.reduceRight - 'length' is own accessor property
     without a get function that overrides an inherited accessor
     property
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
@@ -19,7 +16,6 @@ function testcase() {
             return typeof obj.length === "undefined";
         }
 
-        try {
             Object.defineProperty(Object.prototype, "length", {
                 get: function () {
                     return 2;
@@ -33,9 +29,5 @@ function testcase() {
                 configurable: true
             });
 
-            return Array.prototype.reduceRight.call(obj, callbackfn, 11) === 11 && !accessed;
-        } finally {
-            delete Object.prototype.length;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.reduceRight.call(obj, callbackfn, 11), 11, 'Array.prototype.reduceRight.call(obj, callbackfn, 11)');
+assert.sameValue(accessed, false, 'accessed');

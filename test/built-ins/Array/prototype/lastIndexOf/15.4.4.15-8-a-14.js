@@ -6,10 +6,7 @@ es5id: 15.4.4.15-8-a-14
 description: >
     Array.prototype.lastIndexOf -  deleting property of prototype
     causes prototype index property not to be visited on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [0, , 2];
 
@@ -21,11 +18,6 @@ function testcase() {
             configurable: true
         });
 
-        try {
             Array.prototype[1] = 1;
-            return -1 === arr.lastIndexOf(1);
-        } finally {
-            delete Array.prototype[1];
-        }
-    }
-runTestCase(testcase);
+
+assert.sameValue(arr.lastIndexOf(1), -1, 'arr.lastIndexOf(1)');

@@ -6,10 +6,7 @@ es5id: 15.4.4.18-7-b-11
 description: >
     Array.prototype.forEach - deleting property of prototype causes
     prototype index property not to be visited on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var testResult = true;
@@ -31,12 +28,8 @@ function testcase() {
             configurable: true
         });
 
-        try {
             Array.prototype[1] = 1;
             arr.forEach(callbackfn);
-            return testResult && accessed;
-        } finally {
-            delete Array.prototype[1];
-        }
-    }
-runTestCase(testcase);
+
+assert(testResult, 'testResult !== true');
+assert(accessed, 'accessed !== true');

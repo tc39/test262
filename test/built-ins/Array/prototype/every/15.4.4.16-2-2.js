@@ -4,10 +4,8 @@
 /*---
 es5id: 15.4.4.16-2-2
 description: Array.prototype.every - 'length' is own data property on an Array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn1(val, idx, obj) {
             return val > 10;
         }
@@ -16,13 +14,7 @@ function testcase() {
             return val > 11;
         }
 
-        try {
             Array.prototype[2] = 9;
 
-            return [12, 11].every(callbackfn1) &&
-                ![12, 11].every(callbackfn2);
-        } finally {
-            delete Array.prototype[2];
-        }
-    }
-runTestCase(testcase);
+assert([12, 11].every(callbackfn1), '[12, 11].every(callbackfn1) !== true');
+assert.sameValue([12, 11].every(callbackfn2), false, '[12, 11].every(callbackfn2)');

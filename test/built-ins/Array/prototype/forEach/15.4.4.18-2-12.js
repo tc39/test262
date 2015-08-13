@@ -7,16 +7,13 @@ description: >
     Array.prototype.forEach - 'length' is own accessor property
     without a get function that overrides an inherited accessor
     property on an Array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var accessed = false;
         function callbackfn(val, idx, obj) {
             accessed = true;
         }
 
-        try {
             Object.defineProperty(Object.prototype, "length", {
                 get: function () {
                     return 2;
@@ -31,10 +28,5 @@ function testcase() {
             });
 
             Array.prototype.forEach.call(obj, callbackfn);
-            return !accessed;
-        } finally {
-            delete Object.prototype.length;
-        }
 
-    }
-runTestCase(testcase);
+assert.sameValue(accessed, false, 'accessed');
