@@ -7,15 +7,11 @@ description: >
     Calling code in strict mode - eval cannot instantiate variable in
     the global context
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
 var _10_4_2_3_c_3_s = 0;
 function testcase() {
-  function _10_4_2_3_c_3_sFunc() {
-     eval("var _10_4_2_3_c_3_s = 1");
-     return _10_4_2_3_c_3_s===0;
-  }
-  return _10_4_2_3_c_3_sFunc();
+  eval("var _10_4_2_3_c_3_s = 1");
+  assert.sameValue(_10_4_2_3_c_3_s, 0);
  }
-runTestCase(testcase);
+testcase();

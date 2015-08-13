@@ -6,7 +6,6 @@ es5id: 10.4.2-1-3
 description: >
     Indirect call to eval has context set to global context (catch
     block)
-includes: [runTestCase.js]
 ---*/
 
 var __10_4_2_1_3 = "str";
@@ -18,12 +17,8 @@ function testcase() {
             }
             catch (e) {
                 var __10_4_2_1_3 = "str2";
-                if (_eval("\'str\' === __10_4_2_1_3") === true &&  // indirect eval
-                    eval("\'str2\' === __10_4_2_1_3") === true) {  // direct eval
-                    return true;
-                } else {
-                    return false;
-                }
+                assert(_eval("\'str\' === __10_4_2_1_3"), 'indirect eval');
+                assert(eval("\'str2\' === __10_4_2_1_3"), 'direct eval');
             }
     }
-runTestCase(testcase);
+testcase();

@@ -6,7 +6,6 @@ es5id: 10.4.2-1-5
 description: >
     Indirect call to eval has context set to global context (inside
     another eval)
-includes: [runTestCase.js]
 ---*/
 
 var __10_4_2_1_5 = "str";
@@ -18,6 +17,6 @@ function testcase() {
                           _eval(\"\'str\' === __10_4_2_1_5 \") && \
                           eval(\"\'str2\' === __10_4_2_1_5\")\
                         ");
-            return r;
+            assert(r);
     }
-runTestCase(testcase);
+testcase();

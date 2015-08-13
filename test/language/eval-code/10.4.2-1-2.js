@@ -6,7 +6,6 @@ es5id: 10.4.2-1-2
 description: >
     Indirect call to eval has context set to global context (nested
     function)
-includes: [runTestCase.js]
 ---*/
 
 var __10_4_2_1_2 = "str";
@@ -15,13 +14,9 @@ function testcase() {
             var __10_4_2_1_2 = "str1";
             function foo() {
                 var __10_4_2_1_2 = "str2";
-                if(_eval("\'str\' === __10_4_2_1_2") === true &&  // indirect eval
-                    eval("\'str2\' === __10_4_2_1_2") === true) {   // direct eval
-                    return true;
-                } else {
-                    return false;
-                }
+                assert(_eval("\'str\' === __10_4_2_1_2"), 'indirect eval');
+                assert(eval("\'str2\' === __10_4_2_1_2"), 'direct eval');
             }
-            return foo();
+            foo();
     }
-runTestCase(testcase);
+testcase();

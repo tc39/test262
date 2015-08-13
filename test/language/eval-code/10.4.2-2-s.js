@@ -7,11 +7,10 @@ description: >
     Strict Mode - Strict mode eval code cannot instantiate functions
     in the variable environment of the caller to eval
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
         eval("function fun(x){ return x }");
-        return typeof (fun) === "undefined";
+        assert.sameValue(typeof (fun), "undefined");
     }
-runTestCase(testcase);
+testcase();

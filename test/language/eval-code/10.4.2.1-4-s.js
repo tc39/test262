@@ -6,11 +6,10 @@ es5id: 10.4.2.1-4-s
 description: >
     Strict Mode - Strict mode eval code cannot instantiate functions
     in the variable environment of the caller to eval.
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
         eval("'use strict'; function _10_4_2_1_4_fun(){}");
-        return typeof _10_4_2_1_4_fun === "undefined";
+        assert.sameValue(typeof _10_4_2_1_4_fun, "undefined");
     }
-runTestCase(testcase);
+testcase();
