@@ -6,10 +6,7 @@ es5id: 15.4.4.21-5-13
 description: >
     Array.prototype.reduce - the exception is not thrown if exception
     was thrown by step 3
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(prevVal, curVal, idx, obj) {
             return (curVal > 10);
@@ -21,19 +18,13 @@ function testcase() {
             get: function () {
                 return {
                     toString: function () {
-                        throw new SyntaxError();
+                        throw new Test262Error();
                     }
                 };
             },
             configurable: true
         });
 
-
-        try {
+assert.throws(Test262Error, function() {
             Array.prototype.reduce.call(obj, callbackfn);
-            return false;
-        } catch (ex) {
-            return !(ex instanceof TypeError);
-        }
-    }
-runTestCase(testcase);
+});

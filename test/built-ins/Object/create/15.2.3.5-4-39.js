@@ -7,10 +7,7 @@ description: >
     Object.create - ensure that side-effects of gets occur in the same
     order as they would for: for (P in props) props[P] (15.2.3.7 step
     5.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var props = {};
         props.prop1 = { value: 12, enumerable: true };
@@ -26,10 +23,5 @@ function testcase() {
         var newObj = Object.create({}, props);
         var index = 0;
         for (var q in newObj) {
-            if (tempArray[index++] !== q && newObj.hasOwnProperty(q)) {
-                return false;
-            }
+            assert.sameValue(tempArray[index++] !== q && newObj.hasOwnProperty(q), false, 'tempArray[index++] !== q && newObj.hasOwnProperty(q)');
         }
-        return true;         
-    }
-runTestCase(testcase);

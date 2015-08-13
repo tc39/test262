@@ -7,15 +7,9 @@ info: >
     and hence NaNs could be found using lastIndexOf *
 es5id: 15.4.4.15-8-10
 description: Array.prototype.lastIndexOf must return correct index (NaN)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var _NaN = NaN;
   var a = new Array("NaN",_NaN,NaN, undefined,0,false,null,{toString:function (){return NaN}},"false");
-  if (a.lastIndexOf(NaN) === -1)  // NaN matches nothing, not even itself
-  {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(a.lastIndexOf(NaN), -1, 'NaN matches nothing, not even itself');

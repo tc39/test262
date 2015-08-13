@@ -8,10 +8,7 @@ description: >
     property of 'O', the [[Value]] field of 'desc' equals to value of
     the length property, test TypeError wouldn't be thrown when the
     length property is not writable (15.4.5.1 step 3.f.i)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = [];
 
@@ -19,15 +16,10 @@ function testcase() {
             writable: false
         });
 
-        try {
             Object.defineProperties(arr, {
                 length: {
                     value: 0
                 }
             });
-            return true && arr.length === 0;
-        } catch (e) {
-            return false;
-        }
-    }
-runTestCase(testcase);
+
+assert.sameValue(arr.length, 0, 'arr.length');

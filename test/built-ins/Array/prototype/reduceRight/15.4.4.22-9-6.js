@@ -6,11 +6,8 @@ es5id: 15.4.4.22-9-6
 description: >
     Array.prototype.reduceRight visits deleted element in array after
     the call when same index is also present in prototype
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   function callbackfn(prevVal, curVal, idx, obj)  
   {
     delete arr[1];
@@ -22,8 +19,5 @@ function testcase() {
   var res = arr.reduceRight(callbackfn);
   delete Array.prototype[2];
 
-  if(res === "151" )    //one element deleted
-    return true;  
-  
- }
-runTestCase(testcase);
+//one element deleted
+assert.sameValue(res, "151", 'res');

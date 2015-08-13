@@ -8,16 +8,6 @@ description: >
     named 'eval' does not throws SyntaxError if function body is not
     strict mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-   try { 
      Function('eval', 'return;');
-	 return true;
-   } catch (e) {
-     return false;
-   }
-   
-  }
-runTestCase(testcase);

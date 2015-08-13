@@ -7,10 +7,8 @@ description: >
     Object.defineProperties - 'P' doesn't exist in 'O', test
     [[Enumerable]] of 'P' is set as false value if absent in data
     descriptor 'desc' (8.12.9 step 4.a.i)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperties(obj, {
@@ -19,11 +17,6 @@ function testcase() {
 
         for (var prop in obj) {
             if (obj.hasOwnProperty(prop)) {
-                if (prop === "prop") {
-                    return false;
-                }
+                assert.notSameValue(prop, "prop", 'prop');
             }
         }
-        return true;
-    }
-runTestCase(testcase);

@@ -4,15 +4,8 @@
 /*---
 es5id: 15.12.1.1-g2-2
 description: A JSONString may not be delimited by single quotes
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-    try {
-        if (JSON.parse("'abc'") ==='abc') return false;
-       }
-     catch (e) {
-        return true;
-        }
-  }
-runTestCase(testcase);
+assert.throws(SyntaxError, function() {
+  JSON.parse("'abc'");
+});

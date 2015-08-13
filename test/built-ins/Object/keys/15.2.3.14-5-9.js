@@ -7,10 +7,8 @@ description: >
     Object.keys - inherted enumerable accessor property that is
     over-ridden by non-enumerable own data property is not defined in
     returned array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var proto = {};
         Object.defineProperty(proto, "prop", {
             get: function () { },
@@ -30,11 +28,5 @@ function testcase() {
         var arr = Object.keys(obj);
 
         for (var p in arr) {
-            if (arr[p] === "prop") {
-                return false;
-            }
+            assert.notSameValue(arr[p], "prop", 'arr[p]');
         }
-
-        return true;
-    }
-runTestCase(testcase);

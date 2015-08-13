@@ -4,15 +4,8 @@
 /*---
 es5id: 15.11.4.3-1
 description: Error.prototype.message is not enumerable.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         for (var i in Error.prototype) {
-            if (i==="message") {
-                return false;
-            }
+            assert.notSameValue(i, "message", 'i');
         }
-        return true;
-}
-runTestCase(testcase);

@@ -4,13 +4,9 @@
 /*---
 es5id: 15.4.4.14-5-4
 description: Array.prototype.indexOf returns 0 if fromIndex is 'undefined'
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var a = [1,2,3];
-  if (a.indexOf(1,undefined) === 0) {    // undefined resolves to 0
-    return true;
-  }
- }
-runTestCase(testcase);
+
+// undefined resolves to 0
+assert.sameValue(a.indexOf(1,undefined), 0, 'a.indexOf(1,undefined)');

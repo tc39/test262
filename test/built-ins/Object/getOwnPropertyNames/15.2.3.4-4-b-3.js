@@ -6,20 +6,19 @@ es5id: 15.2.3.4-4-b-3
 description: >
     Object.getOwnPropertyNames - own property named empty('') is
     pushed into the returned array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
+var propertyFound = false;
+
         var obj = { "": "empty" };
 
         var result = Object.getOwnPropertyNames(obj);
 
         for (var p in result) {
             if (result[p] === "") {
-                return true;
+                propertyFound = true;
+                break;
             }
         }
 
-        return false;
-    }
-runTestCase(testcase);
+assert(propertyFound, 'Property not found');

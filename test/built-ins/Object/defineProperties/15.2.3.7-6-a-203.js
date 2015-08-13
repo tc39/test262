@@ -9,10 +9,8 @@ description: >
     [[Enumerable]] of 'P' property in 'Attributes' is set as false
     value if [[Enumerable]] is absent in accessor descriptor 'desc'
     (15.4.5.1 step 4.c)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var arr = [];
 
         Object.defineProperties(arr, {
@@ -24,10 +22,5 @@ function testcase() {
         });
 
         for (var i in arr) {
-            if (i === "0" && arr.hasOwnProperty("0")) {
-                return false;
-            }
+            assert.sameValue(i === "0" && arr.hasOwnProperty("0"), false, 'i === "0" && arr.hasOwnProperty("0")');
         }
-        return true;
-    }
-runTestCase(testcase);

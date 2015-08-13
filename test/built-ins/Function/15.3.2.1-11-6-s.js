@@ -7,17 +7,6 @@ description: >
     Duplicate combined parameter name allowed in Function constructor
     called in strict mode if body not strict
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase()
-{ 
-  try {
      Function('a,a','return a;');
-	 return true;
-  } catch (e) {
-     return false;
-  }
-  
- }
-runTestCase(testcase);

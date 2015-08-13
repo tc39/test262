@@ -6,10 +6,7 @@ es5id: 15.4.4.22-4-11
 description: >
     Array.prototype.reduceRight - the exception is not thrown if
     exception was thrown by step 3
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = { 0: 11, 1: 12 };
 
@@ -17,18 +14,13 @@ function testcase() {
             get: function () {
                 return {
                     toString: function () {
-                        throw new SyntaxError();
+                        throw new Test262Error();
                     }
                 };
             },
             configurable: true
         });
 
-        try {
+assert.throws(Test262Error, function() {
             Array.prototype.reduceRight.call(obj, undefined);
-            return false;
-        } catch (ex) {
-            return !(ex instanceof TypeError);
-        }
-    }
-runTestCase(testcase);
+});

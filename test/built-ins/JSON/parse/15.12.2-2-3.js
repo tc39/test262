@@ -6,12 +6,7 @@ es5id: 15.12.2-2-3
 description: >
     JSON.parse - parsing an object where property name ends with a
     null character
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
-
-        var result = true;
 
         var nullChars = new Array();
         nullChars[0] = '\"\u0000\"';
@@ -48,13 +43,7 @@ function testcase() {
         nullChars[31] = '\"\u001F\"';
 
         for (var index in nullChars) {
-            try {
+            assert.throws(SyntaxError, function() {
                 var obj = JSON.parse('{' + "name" + nullChars[index] + ' : "John" } ');
-                result = (result && false);
-            } catch (e) {
-                result = (result && (e instanceof SyntaxError));
-            }
+            });
         }
-        return result;
-    }
-runTestCase(testcase);

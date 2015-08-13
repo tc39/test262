@@ -6,10 +6,7 @@ es5id: 15.4.4.15-3-28
 description: >
     Array.prototype.lastIndexOf - value of 'length' is boundary value
     (2^32)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var targetObj = {};
         var obj = {
@@ -19,6 +16,4 @@ function testcase() {
             length: 4294967296
         };
 
-        return Array.prototype.lastIndexOf.call(obj, targetObj) === 4294967295; //verify length is 4294967296 finally
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.call(obj, targetObj), 4294967295, 'verify length is 4294967296 finally');

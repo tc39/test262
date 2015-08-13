@@ -6,10 +6,8 @@ es5id: 15.2.3.14-5-6
 description: >
     Object.keys - inherited enumerable accessor property of 'O' is not
     defined in returned array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var proto = {};
         Object.defineProperty(proto, "inheritedProp", {
             get: function () {
@@ -33,11 +31,5 @@ function testcase() {
         var arr = Object.keys(obj);
 
         for (var p in arr) {
-            if (arr[p] === "inheritedProp") {
-                return false;
-            }
+            assert.notSameValue(arr[p], "inheritedProp", 'arr[p]');
         }
-
-        return true;
-    }
-runTestCase(testcase);

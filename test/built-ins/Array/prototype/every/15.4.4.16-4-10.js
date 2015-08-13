@@ -6,25 +6,17 @@ es5id: 15.4.4.16-4-10
 description: >
     Array.prototype.every - the exception is not thrown if exception
     was thrown by step 2
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = { 0: 11, 1: 12 };
 
         Object.defineProperty(obj, "length", {
             get: function () {
-                throw new SyntaxError();
+                throw new Test262Error();
             },
             configurable: true
         });
 
-        try {
+assert.throws(Test262Error, function() {
             Array.prototype.every.call(obj, undefined);
-            return false;
-        } catch (ex) {
-            return !(ex instanceof TypeError);
-        }
-    }
-runTestCase(testcase);
+});

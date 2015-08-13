@@ -7,24 +7,17 @@ description: >
     Date.prototype.toISOString - RangeError is thrown when value of
     date is Date(1970, 0, 100000001, 0, 0, 0, 1), the time zone is
     UTC(0)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var timeZoneMinutes = new Date().getTimezoneOffset() * (-1);
         var date, dateStr;
-        try {
+
+assert.throws(RangeError, function() {
             if (timeZoneMinutes > 0) {
                 date = new Date(1970, 0, 100000001, 0, 0 + timeZoneMinutes + 60, 0, 1);
                 dateStr = date.toISOString();
-                return false;
             } else {
                 date = new Date(1970, 0, 100000001, 0, 0, 0, 1);
                 dateStr = date.toISOString();
-                return false;
             }
-        } catch (e) {
-            return e instanceof RangeError;
-        }
-    }
-runTestCase(testcase);
+});

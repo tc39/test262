@@ -4,12 +4,9 @@
 /*---
 es5id: 15.2.3.4-4-1
 description: Object.getOwnPropertyNames returns array of property names (Global)
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
 
-function testcase() {
         var result = Object.getOwnPropertyNames(fnGlobalObject());
         var expResult = ["NaN", "Infinity", "undefined", "eval", "parseInt", "parseFloat", "isNaN", "isFinite", "decodeURI", "decodeURIComponent", "encodeURI", "encodeURIComponent", "Object", "Function", "Array", "String", "Boolean", "Number", "Date", "Date", "RegExp", "Error", "EvalError", "RangeError", "ReferenceError", "SyntaxError", "TypeError", "URIError", "Math", "JSON"];
 
@@ -19,11 +16,5 @@ function testcase() {
         }
 
         for (var p1 in expResult) {
-            if (!result1[expResult[p1]]) {
-                return false;
-            }
+            assert(result1[expResult[p1]], 'result1[expResult[p1]] !== true');
         }
-
-        return true;
-    }
-runTestCase(testcase);

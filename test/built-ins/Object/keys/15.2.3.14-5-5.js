@@ -6,10 +6,8 @@ es5id: 15.2.3.14-5-5
 description: >
     Object.keys - inherited enumerable data property of 'O' is not
     defined in returned array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var proto = {};
         Object.defineProperty(proto, "inheritedProp", {
             value: 1003,
@@ -25,11 +23,5 @@ function testcase() {
         var arr = Object.keys(obj);
 
         for (var p in arr) {
-            if (arr[p] === "inheritedProp") {
-                return false;
-            }
+            assert.notSameValue(arr[p], "inheritedProp", 'arr[p]');
         }
-
-        return true;
-    }
-runTestCase(testcase);

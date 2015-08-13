@@ -6,10 +6,8 @@ es5id: 15.2.3.14-5-13
 description: >
     Object.keys - own enumerable indexed data property of sparse array
     'O' is defined in returned array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = [1, , 3, , 5];
 
         Object.defineProperty(obj, 5, {
@@ -29,16 +27,9 @@ function testcase() {
         var index;
         var initValue = 0;
         for (index = 0; index < 3; index++) {
-            if (arr[index] !== initValue.toString()) {
-                return false;
-            }
+            assert.sameValue(arr[index], initValue.toString(), 'Unexpected property at index: ' + index);
             initValue += 2;
         }
 
-        if (arr.length !== 4 || arr[3] !== "10000") {
-            return false;
-        }
-
-        return true;
-    }
-runTestCase(testcase);
+assert.sameValue(arr.length, 4, 'arr.length');
+assert.sameValue(arr[3], "10000", 'arr[3]');

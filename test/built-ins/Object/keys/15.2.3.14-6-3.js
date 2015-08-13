@@ -6,10 +6,8 @@ es5id: 15.2.3.14-6-3
 description: >
     Object.keys - the order of elements in returned array is the same
     with the order of properties in 'O' (String object)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var str = new String("abc");
 
         var tempArray = [];
@@ -22,10 +20,5 @@ function testcase() {
         var returnedArray = Object.keys(str);
 
         for (var index in returnedArray) {
-            if (tempArray[index] !== returnedArray[index]) {
-                return false;
-            }
+            assert.sameValue(tempArray[index], returnedArray[index], 'tempArray[index]');
         }
-        return true;
-    }
-runTestCase(testcase);

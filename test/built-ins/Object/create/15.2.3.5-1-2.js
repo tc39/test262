@@ -4,15 +4,6 @@
 /*---
 es5id: 15.2.3.5-1-2
 description: Object.create TypeError is not thrown if 'O' is null
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
             Object.create(null);
-            return true;
-        } catch (e) {
-            return false;
-        }
-    }
-runTestCase(testcase);

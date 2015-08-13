@@ -7,23 +7,16 @@ description: >
     Object.getOwnPropertyDescriptor - ensure that 'value' property of
     returned object is data property with correct 'configurable'
     attribute
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { "property": "ownDataProperty" };
 
         var desc = Object.getOwnPropertyDescriptor(obj, "property");
 
         var propDefined = "value" in desc;
 
-        try {
             delete desc.value;
             var propDeleted = "value" in desc;
 
-            return propDefined && !propDeleted;
-        } catch (e) {
-            return false;
-        }
-    }
-runTestCase(testcase);
+assert(propDefined, 'propDefined !== true');
+assert.sameValue(propDeleted, false, 'propDeleted');

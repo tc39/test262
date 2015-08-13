@@ -7,10 +7,10 @@ description: >
     ES5 Attributes - property ([[Get]] is undefined, [[Set]] is a
     Function, [[Enumerable]] is true, [[Configurable]] is false) is
     enumerable
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
+var propertyFound = false;
+
         var obj = {};
 
         var verifySetFunc = "data";
@@ -30,10 +30,11 @@ function testcase() {
 
         for (var p in obj) {
             if (p === "prop") {
-                return propertyDefineCorrect && desc.enumerable === true;
+                propertyFound = true;
+                break;
             }
         }
 
-        return false;
-    }
-runTestCase(testcase);
+assert(propertyFound, 'Property not found');
+assert(propertyDefineCorrect, 'propertyDefineCorrect !== true');
+assert.sameValue(desc.enumerable, true, 'desc.enumerable');

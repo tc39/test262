@@ -4,16 +4,8 @@
 /*---
 es5id: 15.12.1.1-0-1
 description: The JSON lexical grammar treats whitespace as a token seperator
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  
-  try {
+assert.throws(SyntaxError, function() {
     JSON.parse('12\t\r\n 34'); // should produce a syntax error as whitespace results in two tokens
-    }
-  catch (e) {
-      if (e.name === 'SyntaxError') return true;
-      }
-  }
-runTestCase(testcase);
+});

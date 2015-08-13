@@ -6,10 +6,8 @@ es5id: 15.2.3.14-6-1
 description: >
     Object.keys - the order of elements in returned array is the same
     with the order of properties in 'O' (dense array)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var denseArray = [1, 2, 3];
 
         var tempArray = [];
@@ -22,11 +20,5 @@ function testcase() {
         var returnedArray = Object.keys(denseArray);
 
         for (var index in returnedArray) {
-            if (tempArray[index] !== returnedArray[index]) {
-                return false;
-            }
+            assert.sameValue(tempArray[index], returnedArray[index], 'tempArray[index]');
         }
-        return true;
-
-    }
-runTestCase(testcase);

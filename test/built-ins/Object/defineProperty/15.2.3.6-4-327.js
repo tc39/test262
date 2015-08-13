@@ -6,10 +6,10 @@ es5id: 15.2.3.6-4-327
 description: >
     ES5 Attributes - property ([[Writable]] is true, [[Enumerable]] is
     true, [[Configurable]] is true) is enumerable
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
+var propertyFound = false;
+
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
@@ -22,9 +22,11 @@ function testcase() {
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
         for (var property in obj) {
             if (property === "prop") {
-                return propertyDefineCorrect && desc.enumerable === true;
+                propertyFound = true;
+                break;
             }
         }
-        return false;
-    }
-runTestCase(testcase);
+
+assert(propertyFound, 'Property not found');
+assert(propertyDefineCorrect, 'propertyDefineCorrect !== true');
+assert.sameValue(desc.enumerable, true, 'desc.enumerable');
