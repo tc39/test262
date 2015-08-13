@@ -7,13 +7,11 @@ description: >
     Strict Mode - checking 'this' (indirect eval includes strict
     directive prologue)
 flags: [noStrict]
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
 
 function testcase() {
 var my_eval = eval;
-return my_eval("\"use strict\";\nthis") === fnGlobalObject();
+assert.sameValue(my_eval("\"use strict\";\nthis"), fnGlobalObject());
 }
-runTestCase(testcase);
+testcase();

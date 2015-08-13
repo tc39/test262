@@ -10,13 +10,8 @@ description: >
     Strict mode should not ToObject thisArg if not an object.  Return
     type should be 'number'.
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase(){
   Object.defineProperty(Object.prototype, "x", { get: function () { return this; } }); 
-  if(!(typeof (5).x === "number")) return false;
-  return true;
-}
 
-runTestCase(testcase);
+assert.sameValue(typeof (5).x, "number", 'typeof (5).x');

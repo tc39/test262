@@ -7,14 +7,11 @@ description: >
     Strict Mode - checking 'this' (Anonymous FunctionExpression
     defined within an Anonymous FunctionExpression inside strict mode)
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-return (function () {
-    return ((function () {
+(function () {
+    assert.sameValue((function () {
         return typeof this;
-    })()==="undefined") && ((typeof this)==="undefined");
+    })(), "undefined");
+    assert.sameValue(typeof this, "undefined", 'typeof this');
 })();
-}
-runTestCase(testcase);

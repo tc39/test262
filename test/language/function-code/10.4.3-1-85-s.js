@@ -7,11 +7,7 @@ description: >
     Strict Mode - checking 'this' (non-strict function declaration
     called by strict Function.prototype.apply())
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 function f() { return this!==undefined;};
-return (function () {"use strict"; return f.apply();})();
-}
-runTestCase(testcase);
+assert((function () {"use strict"; return f.apply();})());

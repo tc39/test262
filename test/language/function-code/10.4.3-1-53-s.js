@@ -8,17 +8,13 @@ description: >
     strict directive prologue defined within an Anonymous
     FunctionExpression)
 flags: [noStrict]
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
 
-function testcase() {
-return (function () {
-    return ((function () {
+(function () {
+    assert.sameValue((function () {
         "use strict";
         return typeof this;
-    })()==="undefined") && (this===fnGlobalObject());
+    })(), "undefined");
+    assert.sameValue(this, fnGlobalObject(), 'this');
 })();
-}
-runTestCase(testcase);

@@ -7,11 +7,7 @@ description: >
     Strict Mode - checking 'this' (non-strict function declaration
     called by strict eval)
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
 function f() { return this!==undefined;};
-return (function () {"use strict"; return eval("f();");})();
-}
-runTestCase(testcase);
+assert((function () {"use strict"; return eval("f();");})());

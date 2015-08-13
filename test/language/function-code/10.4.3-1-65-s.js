@@ -6,13 +6,8 @@ es5id: 10.4.3-1-65-s
 description: >
     checking 'this' (strict function declaration called by non-strict new'ed
     Function constructor)
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
 
-function testcase() {
 fnGlobalObject().f = function()  { "use strict"; return this===undefined;};
-return (new Function("return f();"))();
-}
-runTestCase(testcase);
+assert((new Function("return f();"))());
