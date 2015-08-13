@@ -7,13 +7,10 @@ description: >
     Object.defineProperty - 'Attributes' is the Math object that uses
     Object's [[Get]] method to access the 'configurable' property
     (8.10.5 step 4.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
-        try {
             Math.configurable = true;
 
             Object.defineProperty(obj, "property", Math);
@@ -24,9 +21,5 @@ function testcase() {
 
             var afterDeleted = obj.hasOwnProperty("property");
 
-            return beforeDeleted === true && afterDeleted === false;
-        } finally {
-            delete Math.configurable;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(beforeDeleted, true, 'beforeDeleted');
+assert.sameValue(afterDeleted, false, 'afterDeleted');

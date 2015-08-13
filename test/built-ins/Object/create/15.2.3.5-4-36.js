@@ -7,20 +7,12 @@ description: >
     Object.create - 'Properties' is the JSON object that uses Object's
     [[Get]] method to access own enumerable property (15.2.3.7 step
     5.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        try {
             JSON.prop = {
                 value: 12,
                 enumerable: true
             };
             var newObj = Object.create({}, JSON);
-            return newObj.hasOwnProperty("prop");
-        } finally {
-            delete JSON.prop;
-        }
-    }
-runTestCase(testcase);
+
+assert(newObj.hasOwnProperty("prop"), 'newObj.hasOwnProperty("prop") !== true');

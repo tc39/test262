@@ -10,7 +10,6 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-try {
     Object.defineProperty(Object.prototype, "prop", {
         value: 1001,
         writable: false,
@@ -21,8 +20,3 @@ try {
     assert(!JSON.hasOwnProperty("prop"));
     verifyNotWritable(JSON, "prop", "noCheckOwnProp");
     assert.sameValue(JSON.prop, 1001);
-
-} finally {
-    delete Object.prototype.prop;
-}
-

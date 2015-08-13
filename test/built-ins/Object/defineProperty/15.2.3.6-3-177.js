@@ -7,15 +7,11 @@ description: >
     Object.defineProperty - 'Attributes' is the global object that
     uses Object's [[Get]] method to access the 'writable' property
     (8.10.5 step 6.a)
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
-        try {
             fnGlobalObject().writable = true;
 
             Object.defineProperty(obj, "property", fnGlobalObject());
@@ -26,9 +22,5 @@ function testcase() {
 
             var afterWrite = (obj.property === "isWritable");
 
-            return beforeWrite === true && afterWrite === true;
-        } finally {
-            delete fnGlobalObject().writable;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(beforeWrite, true, 'beforeWrite');
+assert.sameValue(afterWrite, true, 'afterWrite');

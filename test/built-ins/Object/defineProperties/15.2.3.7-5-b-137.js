@@ -7,24 +7,15 @@ description: >
     Object.defineProperties - 'descObj' is the global object which
     implements its own [[Get]] method to get 'value' property (8.10.5
     step 5.a)
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
-        try {
             fnGlobalObject().value = "global";
 
             Object.defineProperties(obj, {
                 property: fnGlobalObject()
             });
 
-            return obj.property === "global";
-        } finally {
-            delete fnGlobalObject().value;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "global", 'obj.property');

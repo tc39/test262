@@ -6,17 +6,14 @@ es5id: 15.2.3.6-4-603
 description: >
     ES5 Attributes - all attributes in Object.defineProperties are
     correct
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var desc = Object.getOwnPropertyDescriptor(Object, "defineProperties");
 
         var propertyAreCorrect = (desc.writable === true && desc.enumerable === false && desc.configurable === true);
 
         var temp = Object.defineProperties;
 
-        try {
             Object.defineProperties = "2010";
 
             var isWritable = (Object.defineProperties === "2010");
@@ -33,14 +30,7 @@ function testcase() {
 
             var isConfigurable = !Object.hasOwnProperty("defineProperties");
 
-            return propertyAreCorrect && isWritable && !isEnumerable && isConfigurable;
-        } finally {
-            Object.defineProperty(Object, "defineProperties", {
-                value: temp,
-                writable: true,
-                enumerable: false,
-                configurable: true
-            });
-        }
-    }
-runTestCase(testcase);
+assert(propertyAreCorrect, 'propertyAreCorrect !== true');
+assert(isWritable, 'isWritable !== true');
+assert.sameValue(isEnumerable, false, 'isEnumerable');
+assert(isConfigurable, 'isConfigurable !== true');

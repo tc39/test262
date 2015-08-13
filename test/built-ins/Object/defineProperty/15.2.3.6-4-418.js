@@ -7,12 +7,10 @@ description: >
     ES5 Attributes - Successfully add a property to an object when the
     object's prototype has a property with the same name and
     [[Writable]] set to true (Function.prototype.bind)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var foo = function () { };
-        try {
+
             Object.defineProperty(Function.prototype, "prop", {
                 value: 1001,
                 writable: true,
@@ -23,9 +21,5 @@ function testcase() {
             var obj = foo.bind({});
             obj.prop = 1002;
 
-            return obj.hasOwnProperty("prop") && obj.prop === 1002;
-        } finally {
-            delete Function.prototype.prop;
-        }
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("prop"), 'obj.hasOwnProperty("prop") !== true');
+assert.sameValue(obj.prop, 1002, 'obj.prop');

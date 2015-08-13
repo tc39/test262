@@ -6,12 +6,10 @@ es5id: 15.2.3.6-4-579
 description: >
     ES5 Attributes - Success to add property into object (Array
     instance)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var data = "data";
-        try {
+
             Object.defineProperty(Array.prototype, "prop", {
                 get: function () {
                     return data;
@@ -25,9 +23,6 @@ function testcase() {
             var arrObj = [];
             arrObj.prop = "myOwnProperty";
 
-            return !arrObj.hasOwnProperty("prop") && arrObj.prop === "myOwnProperty" && data === "myOwnProperty";
-        } finally {
-            delete Array.prototype.prop;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(arrObj.hasOwnProperty("prop"), false, 'arrObj.hasOwnProperty("prop")');
+assert.sameValue(arrObj.prop, "myOwnProperty", 'arrObj.prop');
+assert.sameValue(data, "myOwnProperty", 'data');

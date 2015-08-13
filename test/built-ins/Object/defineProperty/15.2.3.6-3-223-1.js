@@ -7,22 +7,14 @@ description: >
     Object.defineProperty - 'Attributes' is the Math object that uses
     Object's [[Get]] method to access the 'get' property of prototype
     object (8.10.5 step 7.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
-        try {
             Object.prototype.get = function () {
                 return "mathGetProperty";
             };
 
             Object.defineProperty(obj, "property", Math);
 
-            return obj.property === "mathGetProperty";
-        } finally {
-            delete Object.prototype.get;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "mathGetProperty", 'obj.property');

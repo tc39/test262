@@ -6,17 +6,14 @@ es5id: 15.2.3.6-4-614
 description: >
     ES5 Attributes - all attributes in Array.prototype.every are
     correct
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var desc = Object.getOwnPropertyDescriptor(Array.prototype, "every");
 
         var propertyAreCorrect = (desc.writable === true && desc.enumerable === false && desc.configurable === true);
 
         var temp = Array.prototype.every;
 
-        try {
             Array.prototype.every = "2010";
 
             var isWritable = (Array.prototype.every === "2010");
@@ -33,14 +30,7 @@ function testcase() {
 
             var isConfigurable = !Array.prototype.hasOwnProperty("every");
 
-            return propertyAreCorrect && isWritable && !isEnumerable && isConfigurable;
-        } finally {
-            Object.defineProperty(Array.prototype, "every", {
-                value: temp,
-                writable: true,
-                enumerable: false,
-                configurable: true
-            });
-        }
-    }
-runTestCase(testcase);
+assert(propertyAreCorrect, 'propertyAreCorrect !== true');
+assert(isWritable, 'isWritable !== true');
+assert.sameValue(isEnumerable, false, 'isEnumerable');
+assert(isConfigurable, 'isConfigurable !== true');

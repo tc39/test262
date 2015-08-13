@@ -7,20 +7,13 @@ description: >
     Object.defineProperty - 'Attributes' is a Number object that uses
     Object's [[Get]] method to access the 'value' property of
     prototype object  (8.10.5 step 5.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
-        try {
+
             Number.prototype.value = "Number";
             var numObj = new Number(-2);
 
             Object.defineProperty(obj, "property", numObj);
 
-            return obj.property === "Number";
-        } finally {
-            delete Number.prototype.value;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "Number", 'obj.property');

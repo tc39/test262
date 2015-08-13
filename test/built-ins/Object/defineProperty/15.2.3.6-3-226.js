@@ -7,22 +7,14 @@ description: >
     Object.defineProperty - 'Attributes' is the JSON object that uses
     Object's [[Get]] method to access the 'get' property (8.10.5 step
     7.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
-        try {
             JSON.get = function () {
                 return "jsonGetProperty";
             };
 
             Object.defineProperty(obj, "property", JSON);
 
-            return obj.property === "jsonGetProperty";
-        } finally {
-            delete JSON.get;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "jsonGetProperty", 'obj.property');

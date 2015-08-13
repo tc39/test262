@@ -6,17 +6,14 @@ es5id: 15.2.3.6-4-621
 description: >
     ES5 Attributes - all attributes in String.prototype.trim are
     correct
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var desc = Object.getOwnPropertyDescriptor(String.prototype, "trim");
 
         var propertyAreCorrect = (desc.writable === true && desc.enumerable === false && desc.configurable === true);
 
         var temp = String.prototype.trim;
 
-        try {
             String.prototype.trim = "2010";
 
             var isWritable = (String.prototype.trim === "2010");
@@ -33,14 +30,7 @@ function testcase() {
 
             var isConfigurable = !String.prototype.hasOwnProperty("trim");
 
-            return propertyAreCorrect && isWritable && !isEnumerable && isConfigurable;
-        } finally {
-            Object.defineProperty(String.prototype, "trim", {
-                value: temp,
-                writable: true,
-                enumerable: false,
-                configurable: true
-            });
-        }
-    }
-runTestCase(testcase);
+assert(propertyAreCorrect, 'propertyAreCorrect !== true');
+assert(isWritable, 'isWritable !== true');
+assert.sameValue(isEnumerable, false, 'isEnumerable');
+assert(isConfigurable, 'isConfigurable !== true');

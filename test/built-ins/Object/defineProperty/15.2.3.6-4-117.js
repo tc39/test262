@@ -7,14 +7,12 @@ description: >
     Object.defineProperty - 'O' is an Array, test the length property
     of 'O' is own data property that overrides an inherited data
     property (15.4.5.1 step 1)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var arrObj = [0, 1, 2];
         var arrProtoLen;
 
-        try {
+assert.throws(TypeError, function() {
             arrProtoLen = Array.prototype.length;
             Array.prototype.length = 0;
 
@@ -26,11 +24,6 @@ function testcase() {
             Object.defineProperty(arrObj, "length", {
                 value: 1
             });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && arrObj.length === 3 && Array.prototype.length === 0;
-        } finally {
-            Array.prototype.length = arrProtoLen;
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(arrObj.length, 3, 'arrObj.length');
+assert.sameValue(Array.prototype.length, 0, 'Array.prototype.length');

@@ -6,21 +6,14 @@ es5id: 15.2.3.7-5-a-15
 description: >
     Object.defineProperties - 'Properties' is the JSON object which
     implements its own [[Get]] method to get enumerable own property
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
-        try {
             JSON.prop = {
                 value: 15
             };
             Object.defineProperties(obj, JSON);
 
-            return obj.hasOwnProperty("prop") && obj.prop === 15;
-        } finally {
-            delete JSON.prop;
-        }
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("prop"), 'obj.hasOwnProperty("prop") !== true');
+assert.sameValue(obj.prop, 15, 'obj.prop');

@@ -7,13 +7,10 @@ description: >
     Object.create - one property in 'Properties' is the JSON object
     that uses Object's [[Get]] method to access the 'set' property
     (8.10.5 step 8.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var data = "data";
 
-        try {
             JSON.set = function (value) {
                 data = value;
             };
@@ -26,9 +23,5 @@ function testcase() {
 
             newObj.prop = "overrideData";
 
-            return hasProperty && data === "overrideData";
-        } finally {
-            delete JSON.set;
-        }
-    }
-runTestCase(testcase);
+assert(hasProperty, 'hasProperty !== true');
+assert.sameValue(data, "overrideData", 'data');

@@ -4,15 +4,11 @@
 /*---
 es5id: 15.2.3.7-2-14
 description: Object.defineProperties - argument 'Properties' is the JSON object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         var result = false;
 
-        try {
             Object.defineProperty(JSON, "prop", {
                 get: function () {
                     result = (this === JSON);
@@ -23,9 +19,5 @@ function testcase() {
             });
 
             Object.defineProperties(obj, JSON);
-            return result;
-        } finally {
-            delete JSON.prop;
-        }
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

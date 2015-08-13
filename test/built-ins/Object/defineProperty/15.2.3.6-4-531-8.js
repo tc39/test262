@@ -13,7 +13,7 @@ includes:
 ---*/
 
 var obj = fnGlobalObject();
-try {
+
     obj.verifySetFunc = "data";
     var getFunc = function () {
         return obj.verifySetFunc;
@@ -31,7 +31,3 @@ try {
     verifyNotWritable(obj, "prop");
     assert.sameValue(typeof desc.set, "undefined");
     assert.sameValue(obj.prop, "data");
-} finally {
-    delete obj.prop;
-    delete obj.verifySetFunc;
-}

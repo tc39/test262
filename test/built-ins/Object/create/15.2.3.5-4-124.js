@@ -7,14 +7,9 @@ description: >
     Object.create - one property in 'Properties' is the global object
     that uses Object's [[Get]] method to access the 'configurable'
     property (8.10.5 step 4.a)
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
 
-function testcase() {
-
-        try {
             fnGlobalObject().configurable = true;
 
             var newObj = Object.create({}, {
@@ -25,9 +20,5 @@ function testcase() {
             delete newObj.prop;
             var result2 = newObj.hasOwnProperty("prop");
 
-            return result1 === true && result2 === false;
-        } finally {
-            delete fnGlobalObject().configurable;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(result1, true, 'result1');
+assert.sameValue(result2, false, 'result2');

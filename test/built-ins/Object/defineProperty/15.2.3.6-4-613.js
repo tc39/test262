@@ -4,17 +4,14 @@
 /*---
 es5id: 15.2.3.6-4-613
 description: ES5 Attributes - all attributes in Object.lastIndexOf are correct
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var desc = Object.getOwnPropertyDescriptor(Array.prototype, "lastIndexOf");
 
         var propertyAreCorrect = (desc.writable === true && desc.enumerable === false && desc.configurable === true);
 
         var temp = Array.prototype.lastIndexOf;
 
-        try {
             Array.prototype.lastIndexOf = "2010";
 
             var isWritable = (Array.prototype.lastIndexOf === "2010");
@@ -31,14 +28,7 @@ function testcase() {
 
             var isConfigurable = !Array.prototype.hasOwnProperty("lastIndexOf");
 
-            return propertyAreCorrect && isWritable && !isEnumerable && isConfigurable;
-        } finally {
-            Object.defineProperty(Array.prototype, "lastIndexOf", {
-                value: temp,
-                writable: true,
-                enumerable: false,
-                configurable: true
-            });
-        }
-    }
-runTestCase(testcase);
+assert(propertyAreCorrect, 'propertyAreCorrect !== true');
+assert(isWritable, 'isWritable !== true');
+assert.sameValue(isEnumerable, false, 'isEnumerable');
+assert(isConfigurable, 'isConfigurable !== true');

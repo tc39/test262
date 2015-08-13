@@ -7,11 +7,10 @@ description: >
     Object.defineProperty - 'O' is an Array, 'name' is an array index
     named property, 'name' is own accessor property that overrides an
     inherited accessor property (15.4.5.1 step 4.c)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+
+assert.throws(TypeError, function() {
             Object.defineProperty(Array.prototype, "0", {
                 get: function () { },
                 configurable: true
@@ -26,11 +25,4 @@ function testcase() {
             Object.defineProperty(arrObj, "0", {
                 configurable: true
             });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError;
-        } finally {
-            delete Array.prototype[0];
-        }
-    }
-runTestCase(testcase);
+});

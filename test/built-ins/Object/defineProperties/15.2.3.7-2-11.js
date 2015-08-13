@@ -4,15 +4,11 @@
 /*---
 es5id: 15.2.3.7-2-11
 description: Object.defineProperties - argument 'Properties' is the Math object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         var result = false;
-       
-        try {
+
             Object.defineProperty(Math, "prop", {
                 get: function () {
                     result = (this === Math);
@@ -23,9 +19,5 @@ function testcase() {
             });
 
             Object.defineProperties(obj, Math);
-            return result;
-        } finally {
-            delete Math.prop;
-        }
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

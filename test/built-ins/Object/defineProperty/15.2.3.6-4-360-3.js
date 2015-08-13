@@ -14,7 +14,7 @@ includes:
 ---*/
 
 var obj = fnGlobalObject();
-try {
+
     Object.defineProperty(obj, "prop", {
         value: 2010,
         writable: false,
@@ -38,6 +38,3 @@ try {
     assert.sameValue(obj.prop, 20);
     assert.sameValue(typeof desc2.set, "undefined");
     assert.sameValue(desc2.get, getFunc);
-} finally {
-    delete obj.prop;
-}

@@ -4,17 +4,14 @@
 /*---
 es5id: 15.2.3.6-4-601
 description: ES5 Attributes - all attributes in Object.create are correct
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var desc = Object.getOwnPropertyDescriptor(Object, "create");
 
         var propertyAreCorrect = (desc.writable === true && desc.enumerable === false && desc.configurable === true);
 
         var temp = Object.create;
 
-        try {
             Object.create = "2010";
 
             var isWritable = (Object.create === "2010");
@@ -31,14 +28,7 @@ function testcase() {
 
             var isConfigurable = !Object.hasOwnProperty("create");
 
-            return propertyAreCorrect && isWritable && !isEnumerable && isConfigurable;
-        } finally {
-            Object.defineProperty(Object, "create", {
-                value: temp,
-                writable: true,
-                enumerable: false,
-                configurable: true
-            });
-        }
-    }
-runTestCase(testcase);
+assert(propertyAreCorrect, 'propertyAreCorrect !== true');
+assert(isWritable, 'isWritable !== true');
+assert.sameValue(isEnumerable, false, 'isEnumerable');
+assert(isConfigurable, 'isConfigurable !== true');

@@ -9,20 +9,14 @@ description: >
     of  the length property, test the [[Configurable]] attribute of an
     inherited data property with large index named in 'O' can't stop
     deleting index named properties (15.4.5.1 step 3.l.ii)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
         var arrObj = [0, 1];
-        try {
+
             Array.prototype[1] = 2; // Not setting the [[Configurable]] attribute of property "1" to false here, since Array.prototype is a global object, and non-configurbale property can't revert to configurable
             Object.defineProperty(arrObj, "length", {
                 value: 1
             });
-            return arrObj.length === 1 && !arrObj.hasOwnProperty("1");
-        } finally {
-            delete Array.prototype[1];
-        }
-    }
-runTestCase(testcase);
+
+assert.sameValue(arrObj.length, 1, 'arrObj.length');
+assert.sameValue(arrObj.hasOwnProperty("1"), false, 'arrObj.hasOwnProperty("1")');

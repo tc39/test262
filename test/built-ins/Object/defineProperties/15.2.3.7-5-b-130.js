@@ -7,22 +7,14 @@ description: >
     Object.defineProperties - 'descObj' is the Math object which
     implements its own [[Get]] method to get 'value' property (8.10.5
     step 5.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
-        try {
             Math.value = "Math";
 
             Object.defineProperties(obj, {
                 property: Math
             });
 
-            return obj.property === "Math";
-        } finally {
-            delete Math.value;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "Math", 'obj.property');

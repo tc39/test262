@@ -7,13 +7,10 @@ description: >
     Object.defineProperty - 'Attributes' is an Arguments object which
     implements its own [[Get]] method to access the 'configurable'
     property (8.10.5 step 4.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
-        try {
             Object.prototype.configurable = true;
             var argObj = (function () { return arguments; })();
 
@@ -25,9 +22,5 @@ function testcase() {
 
             var afterDeleted = obj.hasOwnProperty("property");
 
-            return beforeDeleted === true && afterDeleted === false;
-        } finally {
-            delete Object.prototype.configurable;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(beforeDeleted, true, 'beforeDeleted');
+assert.sameValue(afterDeleted, false, 'afterDeleted');

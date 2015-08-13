@@ -7,20 +7,13 @@ description: >
     Object.defineProperty - 'Attributes' is a String object that uses
     Object's [[Get]] method to access the 'value' property of
     prototype object  (8.10.5 step 5.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
-        try {
+
             String.prototype.value = "String";
             var strObj = new String("abc");
 
             Object.defineProperty(obj, "property", strObj);
 
-            return obj.property === "String";
-        } finally {
-            delete String.prototype.value;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "String", 'obj.property');

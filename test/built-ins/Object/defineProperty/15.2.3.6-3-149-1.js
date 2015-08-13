@@ -7,21 +7,14 @@ description: >
     Object.defineProperty - 'Attributes' is an Arguments object which
     implements its own [[Get]] method to access the 'value' property
     of prototype object (8.10.5 step 5.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
-        try {
+
             Object.prototype.value = "arguments";
             var argObj = (function () { return arguments; })();
 
 
             Object.defineProperty(obj, "property", argObj);
 
-            return obj.property === "arguments";
-        } finally {
-            delete Object.prototype.value;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "arguments", 'obj.property');

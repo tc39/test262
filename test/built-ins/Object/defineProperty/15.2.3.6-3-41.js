@@ -7,14 +7,11 @@ description: >
     Object.defineProperty - 'Attributes' is the JSON object that uses
     Object's [[Get]] method to access the 'enumerable' property
     (8.10.5 step 3.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var accessed = false;
 
-        try {
             JSON.enumerable = true;
 
             Object.defineProperty(obj, "property", JSON);
@@ -25,9 +22,4 @@ function testcase() {
                 }
             }
 
-            return accessed;
-        } finally {
-            delete JSON.enumerable;
-        }
-    }
-runTestCase(testcase);
+assert(accessed, 'accessed !== true');

@@ -7,12 +7,10 @@ description: >
     Object.defineProperty - 'Attributes' is a Function object which
     implements its own [[Get]] method to access the 'value' property
     of prototype object  (8.10.5 step 5.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
-        try {
+
             Function.prototype.value = "Function";
             var funObj = function (a, b) {
                 return a + b;
@@ -20,9 +18,4 @@ function testcase() {
 
             Object.defineProperty(obj, "property", funObj);
 
-            return obj.property === "Function";
-        } finally {
-            delete Function.prototype.value;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "Function", 'obj.property');

@@ -7,11 +7,8 @@ description: >
     ES5 Attributes - Successfully add a property to an object when the
     object's prototype has a property with same name and [[Writable]]
     attribute is set to true (Date instance)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
             Object.defineProperty(Date.prototype, "prop", {
                 value: 1001,
                 writable: true,
@@ -21,9 +18,5 @@ function testcase() {
             var dateObj = new Date();
             dateObj.prop = 1002;
 
-            return dateObj.hasOwnProperty("prop") && dateObj.prop === 1002;
-        } finally {
-            delete Date.prototype.prop;
-        }
-    }
-runTestCase(testcase);
+assert(dateObj.hasOwnProperty("prop"), 'dateObj.hasOwnProperty("prop") !== true');
+assert.sameValue(dateObj.prop, 1002, 'dateObj.prop');

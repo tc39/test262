@@ -7,13 +7,11 @@ description: >
     Object.defineProperty - 'Attributes' is an Arguments object which
     implements its own [[Get]] method to access the 'enumerable'
     property of prototype object (8.10.5 step 3.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var accessed = false;
-        try {
+
             Object.prototype.enumerable = true;
             var argObj = (function () { return arguments; })();
 
@@ -25,9 +23,4 @@ function testcase() {
                 }
             }
 
-            return accessed;
-        } finally {
-            delete Object.prototype.enumerable;
-        }
-    }
-runTestCase(testcase);
+assert(accessed, 'accessed !== true');

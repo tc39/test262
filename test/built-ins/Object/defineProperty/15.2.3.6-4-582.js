@@ -6,12 +6,10 @@ es5id: 15.2.3.6-4-582
 description: >
     ES5 Attributes - Inherited property is non-enumerable (Function
     instance)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var data = "data";
-        try {
+
             Object.defineProperty(Function.prototype, "prop", {
                 get: function () {
                     return data;
@@ -27,9 +25,5 @@ function testcase() {
                 }
             }
 
-            return !funObj.hasOwnProperty("prop") && !verifyEnumerable;
-        } finally {
-            delete Function.prototype.prop;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(funObj.hasOwnProperty("prop"), false, 'funObj.hasOwnProperty("prop")');
+assert.sameValue(verifyEnumerable, false, 'verifyEnumerable');

@@ -10,7 +10,7 @@ includes: [propertyHelper.js]
 ---*/
 
 var data = "data";
-try {
+
     Object.defineProperty(Object.prototype, "prop", {
         get: function () {
             return data;
@@ -23,6 +23,3 @@ try {
     assert(!JSON.hasOwnProperty("prop"));
     assert.sameValue(JSON.prop, "data");
     assert.sameValue(data, "data");
-} finally {
-    delete Object.prototype.prop;
-}

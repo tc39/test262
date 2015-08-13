@@ -11,7 +11,7 @@ includes: [propertyHelper.js]
 ---*/
 
 var foo = function () { };
-try {
+
     Object.defineProperty(Function.prototype, "prop", {
         value: 1001,
         writable: false,
@@ -22,7 +22,3 @@ try {
     var obj = foo.bind({});
     assert(!obj.hasOwnProperty("prop"));
     verifyNotWritable(foo, "prop", "noCheckOwnProp");
-} finally {
-    delete Function.prototype.prop;
-}
-

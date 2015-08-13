@@ -7,12 +7,10 @@ description: >
     Object.defineProperty - 'Attributes' is an Error object that uses
     Object's [[Get]] method to access the 'configurable' property
     (8.10.5 step 4.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
-        try {
+
             Error.prototype.configurable = true;
             var errObj = new Error();
 
@@ -24,9 +22,5 @@ function testcase() {
 
             var afterDeleted = obj.hasOwnProperty("property");
 
-            return beforeDeleted === true && afterDeleted === false;
-        } finally {
-            delete Error.prototype.configurable;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(beforeDeleted, true, 'beforeDeleted');
+assert.sameValue(afterDeleted, false, 'afterDeleted');

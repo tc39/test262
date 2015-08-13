@@ -4,17 +4,14 @@
 /*---
 es5id: 15.2.3.6-4-609
 description: ES5 Attributes - all attributes in Object.isExtensible are correct
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var desc = Object.getOwnPropertyDescriptor(Object, "isExtensible");
 
         var propertyAreCorrect = (desc.writable === true && desc.enumerable === false && desc.configurable === true);
 
         var temp = Object.isExtensible;
 
-        try {
             Object.isExtensible = "2010";
 
             var isWritable = (Object.isExtensible === "2010");
@@ -31,14 +28,7 @@ function testcase() {
 
             var isConfigurable = !Object.hasOwnProperty("isExtensible");
 
-            return propertyAreCorrect && isWritable && !isEnumerable && isConfigurable;
-        } finally {
-            Object.defineProperty(Object, "isExtensible", {
-                value: temp,
-                writable: true,
-                enumerable: false,
-                configurable: true
-            });
-        }
-    }
-runTestCase(testcase);
+assert(propertyAreCorrect, 'propertyAreCorrect !== true');
+assert(isWritable, 'isWritable !== true');
+assert.sameValue(isEnumerable, false, 'isEnumerable');
+assert(isConfigurable, 'isConfigurable !== true');

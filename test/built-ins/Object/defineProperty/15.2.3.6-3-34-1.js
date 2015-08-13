@@ -7,13 +7,11 @@ description: >
     Object.defineProperty - 'Attributes' is an Array object that uses
     Object's [[Get]] method to access the 'enumerable' property of
     prototype object (8.10.5 step 3.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var accessed = false;
-        try {
+
             Array.prototype.enumerable = true;
             var arrObj = [];
 
@@ -25,9 +23,4 @@ function testcase() {
                 }
             }
 
-            return accessed;
-        } finally {
-            delete Array.prototype.enumerable;
-        }
-    }
-runTestCase(testcase);
+assert(accessed, 'accessed !== true');

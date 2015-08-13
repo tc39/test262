@@ -13,7 +13,7 @@ includes:
 ---*/
 
 var obj = fnGlobalObject();
-try {
+
     Object.defineProperty(obj, "prop", {
         value: 2010,
         writable: false,
@@ -24,7 +24,3 @@ try {
     assert.sameValue(obj.prop, 2010);
     verifyNotWritable(obj, "prop");
     assert.sameValue(obj.prop, 2010);
-} finally {
-    delete obj.prop;
-}
-

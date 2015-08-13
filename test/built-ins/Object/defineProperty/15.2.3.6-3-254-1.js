@@ -7,13 +7,11 @@ description: >
     Object.defineProperty - 'Attributes' is a Date object that uses
     Object's [[Get]] method to access the 'set' property of prototype
     object (8.10.5 step 8.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var data = "data";
-        try {
+
             Date.prototype.set = function (value) {
                 data = value;
             };
@@ -22,9 +20,5 @@ function testcase() {
             Object.defineProperty(obj, "property", dateObj);
             obj.property = "overrideData";
 
-            return obj.hasOwnProperty("property") && data === "overrideData";
-        } finally {
-            delete Date.prototype.set;
-        }
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("property"), 'obj.hasOwnProperty("property") !== true');
+assert.sameValue(data, "overrideData", 'data');
