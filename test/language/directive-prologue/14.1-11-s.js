@@ -5,10 +5,7 @@
 es5id: 14.1-11-s
 description: comments may preceed 'use strict' directive
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
   function foo()
   {
@@ -19,6 +16,4 @@ function testcase() {
 
   }
 
-  return foo.call(undefined);
- }
-runTestCase(testcase);
+assert(foo.call(undefined));

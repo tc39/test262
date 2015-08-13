@@ -7,17 +7,11 @@ description: >
     Strict Mode - Use Strict Directive Prologue is ''use strict';'
     which appears twice in the directive prologue
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
+assert.throws(SyntaxError, function() {
         "use strict";
         "use strict";
-        try {
+
             eval("var public = 1;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

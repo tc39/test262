@@ -8,10 +8,8 @@ description: >
     contains Use Strict Directive which appears at the end of the
     block(setter)
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var data;
 
@@ -23,6 +21,5 @@ function testcase() {
             }
         });
         obj.accProperty = "overrideData";
-        return data==="overrideData";
-    }
-runTestCase(testcase);
+
+assert.sameValue(data, "overrideData", 'data');

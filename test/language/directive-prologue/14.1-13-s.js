@@ -5,10 +5,7 @@
 es5id: 14.1-13-s
 description: semicolon insertion works for'use strict' directive
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
   function foo()
   {
@@ -16,6 +13,4 @@ function testcase() {
      return (this === undefined);
   }
 
-  return foo.call(undefined);
- }
-runTestCase(testcase);
+assert(foo.call(undefined));

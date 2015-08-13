@@ -7,17 +7,10 @@ description: >
     Strict Mode - Use Strict Directive Prologue is ''use strict''
     which lost the last character ';'
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
+assert.throws(SyntaxError, function() {
         "use strict"
-        try {
-            eval("var public = 1;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
 
-    }
-runTestCase(testcase);
+            eval("var public = 1;");
+});

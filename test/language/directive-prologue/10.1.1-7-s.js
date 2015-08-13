@@ -7,12 +7,11 @@ description: >
     Strict Mode - Use Strict Directive Prologue is ''use strict';'
     which appears at the end of the block
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
         var public = 1;
-        return public === 1;
+        assert.sameValue(public, 1);
         "use strict";
     }
-runTestCase(testcase);
+testcase();

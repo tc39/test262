@@ -7,10 +7,7 @@ description: >
     'use strict' directive - not recognized if it follow an empty
     statement
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
   function foo()
   {
@@ -18,6 +15,4 @@ function testcase() {
      return (this !== undefined);
   }
 
-  return foo.call(undefined);
- }
-runTestCase(testcase);
+assert(foo.call(undefined));

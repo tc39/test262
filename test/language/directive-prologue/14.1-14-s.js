@@ -5,10 +5,7 @@
 es5id: 14.1-14-s
 description: semicolon insertion may come before 'use strict' directive
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
   function foo()
   {
@@ -17,6 +14,4 @@ function testcase() {
     return (this === undefined);
   }
 
-  return foo.call(undefined);
- }
-runTestCase(testcase);
+assert(foo.call(undefined));

@@ -8,14 +8,14 @@ description: >
     PropertyAssignment is in Strict Mode if Accessor
     PropertyAssignment is contained in use strict(setter)
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
+var data = "data";
+
+assert.throws(SyntaxError, function() {
         "use strict";
-        try {
+
             var obj = {};
-            var data = "data";
             Object.defineProperty(obj, "accProperty", {
                 set: function (value) {
                     eval("var public = 1;");
@@ -24,9 +24,6 @@ function testcase() {
             });
 
             obj.accProperty = "overrideData";
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError && data === "data";
-        }
-    }
-runTestCase(testcase);
+});
+
+assert.sameValue(data, "data", 'data unchanged');

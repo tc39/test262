@@ -7,13 +7,11 @@ description: >
     Strict Mode - The built-in Function constructor is contained in
     use strict code
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
         "use strict";
         var funObj = new Function("a", "eval('public = 1;');");
         funObj();
-        return true;
     }
-runTestCase(testcase);
+testcase();
