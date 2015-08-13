@@ -10,7 +10,6 @@ description: >
     delete operator returns false when deleting the declaration of the environment object
     inside 'with'
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
@@ -21,9 +20,9 @@ function testcase() {
   {
     d = delete o;
   }
-  if (d === false && typeof(o) === 'object' && o.x === 1) {
-    return true;
-  }
-  return false;
+
+  assert.sameValue(d, false, 'd');
+  assert.sameValue(typeof(o), 'object', 'typeof(o)');
+  assert.sameValue(o.x, 1, 'o.x');
  }
-runTestCase(testcase);
+testcase();

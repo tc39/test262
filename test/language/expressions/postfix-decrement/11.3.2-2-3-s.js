@@ -6,12 +6,11 @@ es5id: 11.3.2-2-3-s
 description: >
     SyntaxError is not thrown if the identifier 'arguments[...]' appears as a
     PostfixExpression(arguments--)
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
         arguments[1] = 7;
         arguments[1]--;
-        return arguments[1]===6;
+        assert.sameValue(arguments[1], 6, 'arguments[1]');
     }
-runTestCase(testcase);
+testcase();

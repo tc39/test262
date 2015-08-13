@@ -5,16 +5,13 @@
 es5id: 11.4.5-2-2-s
 description: Strict Mode - SyntaxError is thrown for --arguments
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
         var blah = arguments;
-        try {
+        assert.throws(SyntaxError, function() {
             eval("--arguments;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError && blah === arguments;
-        }
+        });
+        assert.sameValue(blah, arguments, 'blah');
     }
-runTestCase(testcase);
+testcase();

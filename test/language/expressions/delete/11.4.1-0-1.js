@@ -8,18 +8,14 @@ info: >
 es5id: 11.4.1-0-1
 description: delete operator as UnaryExpression
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
   var x = 1;
   var y = 2;
   var z = 3;
-  
-  if( (!delete x || delete y) &&
-      delete delete z)
-  {
-    return true;
-  }  
+
+  assert((!delete x || delete y), '(!delete x || delete y)');
+  assert(delete delete z, 'delete delete z');
  }
-runTestCase(testcase);
+testcase();

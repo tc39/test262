@@ -6,15 +6,11 @@ es5id: 8.12.5-3-b_1
 description: >
     Changing the value of a data property should not affect it's
     non-value property descriptor attributes.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-    var origReduce = Array.prototype.reduce;
     var origDesc = Object.getOwnPropertyDescriptor(Array.prototype, "reduce");
     var newDesc;
-    
-    try {
+
         Array.prototype.reduce = function () {;};
         newDesc = Object.getOwnPropertyDescriptor(Array.prototype, "reduce");
         var descArray = [origDesc, newDesc];
@@ -22,19 +18,10 @@ function testcase() {
         for (var j in descArray) {  //Ensure no attributes are magically added to newDesc
             for (var i in descArray[j]) {
                 if (i==="value") {
-                    if (origDesc[i]===newDesc[i]) {
-                        return false;
-                    }
+                    assert.notSameValue(origDesc[i], newDesc[i], 'origDesc[i]');
                 }
-                else if (origDesc[i]!==newDesc[i]) {
-                    return false;
+                else {
+                    assert.sameValue(origDesc[i], newDesc[i], 'origDesc[i]');
                 }
             }
         }
-        return true;        
-    
-    } finally {
-        Array.prototype.reduce = origReduce;
-    }
-}
-runTestCase(testcase);

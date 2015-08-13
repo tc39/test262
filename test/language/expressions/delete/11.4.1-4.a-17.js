@@ -7,17 +7,12 @@ info: >
     language provides no way to directly exercise [[Delete]], the tests are placed here.
 es5id: 11.4.1-4.a-17
 description: delete operator returns true on deleting a arguments element
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   function foo(a,b)
   {
     var d = delete arguments[0];
     return (d === true && arguments[0] === undefined);  
   }
 
-  if(foo(1,2) === true)
-    return true;
- }
-runTestCase(testcase);
+assert.sameValue(foo(1,2), true, 'foo(1,2)');

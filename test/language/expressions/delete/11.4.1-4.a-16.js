@@ -8,12 +8,10 @@ info: >
 es5id: 11.4.1-4.a-16
 description: delete operator returns false on deleting arguments object
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-
-  if(delete arguments === false && arguments !== undefined)
-    return true;
+  assert.sameValue(delete arguments, false, 'delete arguments');
+  assert.notSameValue(arguments, undefined, 'arguments');
  }
-runTestCase(testcase);
+testcase();

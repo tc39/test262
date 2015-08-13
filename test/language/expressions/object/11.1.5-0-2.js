@@ -7,25 +7,21 @@ info: >
     probably be replaced by some more targeted tests.  AllenWB
 es5id: 11.1.5-0-2
 description: Object literal - multiple get set properties
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var s1 = "First getter";
   var s2 = "First setter";
   var s3 = "Second getter";
   var o;
   eval("o = {get foo(){ return s1;},set foo(arg){return s2 = s3}, get bar(){ return s3}, set bar(arg){ s3 = arg;}};");
-  if(o.foo !== s1) 
-    return false;
+
+assert.sameValue(o.foo, s1, 'o.foo');
+
   o.foo = 10;
-  if(s2 !== s3) 
-    return false;
-  if(o.bar !== s3)
-    return false;
+
+assert.sameValue(s2, s3, 's2');
+assert.sameValue(o.bar, s3, 'o.bar');
+
   o.bar = "Second setter";
-  if(o.bar !== "Second setter")
-    return false;
-  return true;
- }
-runTestCase(testcase);
+
+assert.sameValue(o.bar, "Second setter", 'o.bar');
