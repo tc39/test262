@@ -5,18 +5,16 @@
 es5id: 10.6-13-b-3-s
 description: arguments.caller is non-configurable in strict mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
   var desc = Object.getOwnPropertyDescriptor(arguments,"caller");
-  
-  return (desc.configurable === false && 
-     desc.enumerable === false && 
-     desc.hasOwnProperty('value') == false  && 
-     desc.hasOwnProperty('writable') == false &&
-     desc.hasOwnProperty('get') == true && 
-     desc.hasOwnProperty('set') == true);                                     
-    
+
+  assert.sameValue(desc.configurable, false, 'desc.configurable');
+  assert.sameValue(desc.enumerable, false, 'desc.enumerable');
+  assert.sameValue(desc.hasOwnProperty('value'), false, 'desc.hasOwnProperty("value")');
+  assert.sameValue(desc.hasOwnProperty('writable'), false, 'desc.hasOwnProperty("writable")');
+  assert.sameValue(desc.hasOwnProperty('get'), true, 'desc.hasOwnProperty("get")');
+  assert.sameValue(desc.hasOwnProperty('set'), true, 'desc.hasOwnProperty("set")');
  }
-runTestCase(testcase);
+testcase();

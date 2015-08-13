@@ -6,10 +6,9 @@ es5id: 10.6-6-3
 description: >
     'length' property of arguments object for 0 argument function
     exists
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-	return (function () {return arguments.length !== undefined})();
+  assert.sameValue(arguments.length, 0);
  }
-runTestCase(testcase);
+testcase();

@@ -6,11 +6,9 @@ es5id: 10.6-5-1
 description: >
     [[Prototype]] property of Arguments is set to Object prototype
     object
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
-  if(Object.getPrototypeOf(arguments) === Object.getPrototypeOf({}))
-    return true;
+  assert.sameValue(Object.getPrototypeOf(arguments), Object.getPrototypeOf({}));
  }
-runTestCase(testcase);
+testcase();

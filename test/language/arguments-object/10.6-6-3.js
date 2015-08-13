@@ -7,11 +7,10 @@ description: >
     'length' property of arguments object for 0 argument function
     exists
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
       var arguments= undefined;
-	return (function () {return arguments.length !== undefined})();
+	(function () { assert.sameValue(arguments.length, 0); })();
  }
-runTestCase(testcase);
+testcase();
