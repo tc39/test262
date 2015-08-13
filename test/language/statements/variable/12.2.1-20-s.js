@@ -6,12 +6,7 @@ es5id: 12.2.1-20-s
 description: >
     Strict Mode: an indirect eval declaring a var named 'arguments'
     does not throw
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var s = eval;
   s('var arguments;');
-  return true;
-}
-runTestCase(testcase);

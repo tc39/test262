@@ -7,10 +7,8 @@ description: >
     catch doesn't change declaration scope - var initializer in catch
     with same name as catch parameter changes parameter
 features: [AnnexB]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   foo = "prior to throw";
   try {
     throw new Error();
@@ -18,7 +16,5 @@ function testcase() {
   catch (foo) {
     var foo = "initializer in catch";
   }
- return foo === "prior to throw";
-  
- }
-runTestCase(testcase);
+
+assert.sameValue(foo, "prior to throw");

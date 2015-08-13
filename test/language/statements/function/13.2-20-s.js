@@ -7,11 +7,7 @@ description: >
     StrictMode - enumerating over a function object looking for
     'arguments' fails inside the function
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-            var foo = Function("'use strict'; for (var tempIndex in this) {if (tempIndex===\"arguments\") {return false;}}; return true;");
-            return foo.call(foo);
-}
-runTestCase(testcase);
+            var foo = Function("'use strict'; for (var tempIndex in this) {assert.notSameValue(tempIndex, 'arguments', 'tempIndex');}");
+            foo.call(foo);

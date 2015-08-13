@@ -14,10 +14,8 @@ es5id: 12.14-8
 description: >
     catch introduces scope - scope removed when exiting catch block
     (properties)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var o = {foo: 42};
 
   try {
@@ -27,8 +25,4 @@ function testcase() {
     var foo = 1;
   }
 
-  if (o.foo === 42) {
-    return true;
-  }
- }
-runTestCase(testcase);
+assert.sameValue(o.foo, 42);

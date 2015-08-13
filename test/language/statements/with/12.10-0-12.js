@@ -4,11 +4,9 @@
 /*---
 es5id: 12.10-0-12
 description: with introduces scope - name lookup finds property
-includes: [runTestCase.js]
 flags: [noStrict]
 ---*/
 
-function testcase() {
   function f(o) {
 
     function innerf(o) {
@@ -19,9 +17,5 @@ function testcase() {
 
     return innerf(o);
   }
-  
-  if (f({x:42}) === 42) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(f({x:42}), 42);

@@ -4,10 +4,8 @@
 /*---
 es5id: 12.14-11
 description: catch introduces scope - name lookup finds inner variable
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   function f(o) {
 
     function innerf(o) {
@@ -23,9 +21,5 @@ function testcase() {
 
     return innerf(o);
   }
-  
-  if (f({}) === 42) {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(f({}), 42);

@@ -14,10 +14,8 @@ es5id: 12.14-6
 description: >
     catch introduces scope - block-local function expression must
     shadow outer function expression
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var o = {foo : function () { return 42;}};
 
   try {
@@ -25,9 +23,6 @@ function testcase() {
   }
   catch (e) {
     var foo = function () {};
-    if (foo() === undefined) {
-      return true;
-    }
   }
- }
-runTestCase(testcase);
+
+assert.sameValue(foo(), undefined);

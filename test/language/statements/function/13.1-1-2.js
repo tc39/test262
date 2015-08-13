@@ -6,17 +6,7 @@ es5id: 13.1-1-2
 description: >
     Duplicate identifier allowed in non-strict function expression
     parameter list
-includes: [runTestCase.js]
 flags: [noStrict]
 ---*/
 
-function testcase()
-{
-  try 
-  {
     eval('(function foo(a,a){})');
-    return true;
-  }
-  catch (e) { return false }
-  }
-runTestCase(testcase);

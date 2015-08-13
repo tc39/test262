@@ -12,10 +12,8 @@ info: >
     eval should use the appended object to the scope chain
 es5id: 12.14-4
 description: catch introduces scope - block-local vars must shadow outer vars
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var o = { foo : 42};
 
   try {
@@ -23,10 +21,6 @@ function testcase() {
   }
   catch (e) {
     var foo;
-
-    if (foo === undefined) {
-      return true;
-    }
   }
- }
-runTestCase(testcase);
+
+assert.sameValue(foo, undefined);

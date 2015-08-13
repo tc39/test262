@@ -6,17 +6,10 @@ es5id: 13.2-19-s
 description: >
     StrictMode - enumerating over a function object looking for
     'arguments' fails outside of the function
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var foo = Function("'use strict';");
         
         for (var tempIndex in foo) {
-            if (tempIndex === "arguments") {
-                return false;
-            }
+            assert.notSameValue(tempIndex, "arguments", 'tempIndex');
         }
-        return true;
-}
-runTestCase(testcase);

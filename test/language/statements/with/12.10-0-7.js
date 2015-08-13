@@ -4,11 +4,9 @@
 /*---
 es5id: 12.10-0-7
 description: with introduces scope - scope removed when exiting with statement
-includes: [runTestCase.js]
 flags: [noStrict]
 ---*/
 
-function testcase() {
   var o = {foo: 1};
 
   with (o) {
@@ -17,9 +15,8 @@ function testcase() {
 
   try {
     foo;
+    throw new Error();
   }
   catch (e) {
-     return true;
+    assert(e instanceof ReferenceError);
   }
- }
-runTestCase(testcase);

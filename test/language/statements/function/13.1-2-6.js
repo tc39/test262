@@ -6,13 +6,7 @@ es5id: 13.1-2-6
 description: >
     arguments allowed as formal parameter name of a non-strict
     function expression
-includes: [runTestCase.js]
 flags: [noStrict]
 ---*/
 
-function testcase()
-{
     eval("(function foo(arguments){});");
-    return true;
- }
-runTestCase(testcase);

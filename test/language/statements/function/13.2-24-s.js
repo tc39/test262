@@ -7,19 +7,13 @@ description: >
     StrictMode - enumerating over a function object looking for
     'caller' fails inside the function
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
             function foo () {
                 "use strict"; 
                 for (var tempIndex in this) {
-                    if (tempIndex==="caller") {
-                        return false;
-                    }
+                    assert.notSameValue(tempIndex, "caller", 'tempIndex');
                 } 
-                return true;
             }
-            return foo.call(foo);
-}
-runTestCase(testcase);
+
+foo.call(foo);

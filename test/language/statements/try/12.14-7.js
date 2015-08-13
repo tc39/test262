@@ -12,10 +12,8 @@ info: >
     eval should use the appended object to the scope chain
 es5id: 12.14-7
 description: catch introduces scope - scope removed when exiting catch block
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
       var o = {foo: 1};
       var catchAccessed = false;
       
@@ -25,13 +23,14 @@ function testcase() {
       catch (expObj) {
         catchAccessed = (expObj.foo == 1);
       }
+      assert(catchAccessed, '(expObj.foo == 1)');
 
+
+      catchAccessed = false;
       try {
         expObj;
       }
       catch (e) {
-        return catchAccessed && e instanceof ReferenceError
+        catchAccessed = e instanceof ReferenceError
       }
-      return false;
-    }
-runTestCase(testcase);
+      assert(catchAccessed, 'e instanceof ReferenceError');
