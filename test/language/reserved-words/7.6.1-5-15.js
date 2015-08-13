@@ -6,10 +6,8 @@ es5id: 7.6.1-5-15
 description: >
     Allow reserved words as property names at object initialization,
     accessed via indexing: package, protected, static
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var tokenCodes = {
             package: 0,
             protected: 1,
@@ -21,10 +19,5 @@ function testcase() {
             'static'
         ];  
         for (var i = 0; i < arr.length; i++) {
-            if (tokenCodes[arr[i]] !== i) {
-                return false;
-            };
+            assert.sameValue(tokenCodes[arr[i]], i, 'tokenCodes[arr[i]]');
         }
-        return true;
-    }
-runTestCase(testcase);

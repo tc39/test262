@@ -6,10 +6,8 @@ es5id: 7.6.1-5-1
 description: >
     Allow reserved words as property names at object initialization,
     accessed via indexing: null, true, false
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var tokenCodes  = { 
             null: 0,
             true: 1,
@@ -21,10 +19,5 @@ function testcase() {
             'false'
         ];  
         for (var i = 0; i < arr.length; i++) {
-            if (tokenCodes[arr[i]] !== i) {
-                return false;
-            };
+            assert.sameValue(tokenCodes[arr[i]], i, 'tokenCodes[arr[i]]');
         }
-        return true;
-    }
-runTestCase(testcase);

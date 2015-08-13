@@ -6,10 +6,8 @@ es5id: 7.6.1-7-10
 description: >
     Allow reserved words as property names by index assignment,
     accessed via indexing: in, try, class
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var tokenCodes = {};
         tokenCodes['in'] = 0;
         tokenCodes['try'] = 1;
@@ -20,10 +18,5 @@ function testcase() {
             'class'
         ];
         for (var i = 0; i < arr.length; i++) {
-            if (tokenCodes[arr[i]] !== i) {
-                return false;
-            };
+            assert.sameValue(tokenCodes[arr[i]], i, 'tokenCodes[arr[i]]');
         }
-        return true;
-    }
-runTestCase(testcase);

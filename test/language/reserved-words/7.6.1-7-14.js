@@ -6,10 +6,8 @@ es5id: 7.6.1-7-14
 description: >
     Allow reserved words as property names by index assignment,
     accessed via indexing: public, yield, interface
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var tokenCodes = {};
         tokenCodes['public'] = 0;
         tokenCodes['yield'] = 1;
@@ -20,10 +18,5 @@ function testcase() {
             'interface'
         ];
         for (var i = 0; i < arr.length; i++) {
-            if (tokenCodes[arr[i]] !== i) {
-                return false;
-            };
+            assert.sameValue(tokenCodes[arr[i]], i, 'tokenCodes[arr[i]]');
         }
-        return true;
-    }
-runTestCase(testcase);

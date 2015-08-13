@@ -6,10 +6,8 @@ es5id: 7.6.1-6-2
 description: >
     Allow reserved words as property names by dot operator assignment,
     accessed via indexing: break, case, do
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var tokenCodes = {};
         tokenCodes.break = 0;  	
         tokenCodes.case = 1;
@@ -20,10 +18,5 @@ function testcase() {
             'do'
          ];
          for (var i = 0; i < arr.length; i++) {
-            if (tokenCodes[arr[i]] !== i) {
-                return false;
-            };
+            assert.sameValue(tokenCodes[arr[i]], i, 'tokenCodes[arr[i]]');
         }
-        return true;
-    }
-runTestCase(testcase);

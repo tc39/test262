@@ -6,10 +6,8 @@ es5id: 7.6.1-6-16
 description: >
     Allow reserved words as property names by dot operator assignment,
     accessed via indexing: undefined, NaN, Infinity
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var tokenCodes  = {};
         tokenCodes.undefined = 0;
         tokenCodes.NaN = 1;
@@ -20,10 +18,5 @@ function testcase() {
             'Infinity'
          ];
          for (var i = 0; i < arr.length; i++) {
-            if (tokenCodes[arr[i]] !== i) {
-                return false;
-            };
+            assert.sameValue(tokenCodes[arr[i]], i, 'tokenCodes[arr[i]]');
         }
-        return true;
-    }
-runTestCase(testcase);

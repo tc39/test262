@@ -6,10 +6,8 @@ es5id: 7.6.1-8-13
 description: >
     Allow reserved words as property names by set function within an
     object, accessed via indexing: implements, let, private
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var test0 = 0, test1 = 1, test2 = 2;
         var tokenCodes  = {
             set implements(value){
@@ -37,10 +35,5 @@ function testcase() {
             'private'
         ];
         for (var i = 0; i < arr.length; i++) {
-            if (tokenCodes[arr[i]] !== i) {
-                return false;
-            };
+            assert.sameValue(tokenCodes[arr[i]], i, 'tokenCodes[arr[i]]');
         }
-        return true;
-    }
-runTestCase(testcase);

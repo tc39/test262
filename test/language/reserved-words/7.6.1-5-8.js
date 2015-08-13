@@ -6,10 +6,8 @@ es5id: 7.6.1-5-8
 description: >
     Allow reserved words as property names at object initialization,
     accessed via indexing: this, with, default
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var tokenCodes  = {       
             this: 0,  
             with: 1, 
@@ -21,10 +19,5 @@ function testcase() {
             'default'
         ]; 
         for (var i = 0; i < arr.length; i++) {
-            if (tokenCodes[arr[i]] !== i) {
-                return false;
-            };
+            assert.sameValue(tokenCodes[arr[i]], i, 'tokenCodes[arr[i]]');
         }
-        return true;
-    }
-runTestCase(testcase);
