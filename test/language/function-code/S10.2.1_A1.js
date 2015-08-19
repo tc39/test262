@@ -24,5 +24,5 @@ function f2(a, b, c){
   return (b === undefined) && (c === undefined);
 }
 if(!(f2(1) === true)){
-  $ERROR('#2: f2(1, 2) === true');
+  $ERROR('#2: f2(1) === true');
 }
