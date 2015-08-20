@@ -4,6 +4,7 @@
 es6id: 14.5
 description: >
     class strict mode: `with` disallowed
+flags: [onlyStrict]
 negative: SyntaxError
 ---*/
 
