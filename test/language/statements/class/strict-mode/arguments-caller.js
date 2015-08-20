@@ -4,7 +4,9 @@
 es6id: 14.5
 description: >
     class strict mode
+flags: [onlyStrict]
 ---*/
+
 var D = class extends function() {
   arguments.caller;
 } {};
