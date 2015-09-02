@@ -3,9 +3,16 @@
 
 /*---
 description: >
-    The GeneratorFunctionPrototype defines an `@@toStringTag` property.
+    `Symbol.toStringTag` property descriptor
+info: >
+    The initial value of the @@toStringTag property is the String value
+    "GeneratorFunction".
+
+    This property has the attributes { [[Writable]]: false, [[Enumerable]]:
+    false, [[Configurable]]: true }.
 es6id: 25.2.3.3
 includes: [propertyHelper.js]
+features: [Symbol.toStringTag]
 ---*/
 
 var GeneratorFunctionPrototype = Object.getPrototypeOf(function*() {});

@@ -2,12 +2,18 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-  description: >
-      `Object.prototype.getOwnPropertyDescriptor` should reflect the value and
-      writability of the @@toStringTag attribute.
-  includes: [propertyHelper.js]
-  es6id: 22.1.5.2.2
- ---*/
+description: >
+    `Symbol.toStringTag` property descriptor
+info: >
+    The initial value of the @@toStringTag property is the String value "Array
+    Iterator".
+
+    This property has the attributes { [[Writable]]: false, [[Enumerable]]:
+    false, [[Configurable]]: true }.
+features: [Symbol.iterator, Symbol.toStringTag]
+includes: [propertyHelper.js]
+es6id: 22.1.5.2.2
+---*/
 
 var ArrayIteratorProto = Object.getPrototypeOf([][Symbol.iterator]());
 
