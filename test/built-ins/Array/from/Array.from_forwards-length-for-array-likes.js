@@ -4,16 +4,31 @@
 /*---
 es6id: 22.1.2.1
 description: >
-    The Array.from() method creates a new Array instance
-    from an array-like or iterable object.
-    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
+  If this is a constructor, and items doesn't have an @@iterator,
+  returns a new instance of this
+info: >
+  22.1.2.1 Array.from ( items [ , mapfn [ , thisArg ] ] )
+
+  4. Let usingIterator be GetMethod(items, @@iterator).
+  ...
+  6. If usingIterator is not undefined, then
+  ...
+  12. If IsConstructor(C) is true, then
+    a. Let A be Construct(C, «len»).
+  13. Else,
+    a. Let A be ArrayCreate(len).
+  ...
+  19. Return A.
 ---*/
-var myCollectionCalled = false;
-function MyCollection(length) {
-  myCollectionCalled = true;
-  assert.sameValue(1, arguments.length);
-  assert.sameValue(5, length);
+
+var result;
+
+function MyCollection() {
+  this.args = arguments;
 }
 
-Array.from.call(MyCollection, {length: 5});
-assert(myCollectionCalled);
+result = Array.from.call(MyCollection, {length: 42});
+
+assert.sameValue(result.args.length, 1);
+assert.sameValue(result.args[0], 42);
+assert(result instanceof MyCollection);
