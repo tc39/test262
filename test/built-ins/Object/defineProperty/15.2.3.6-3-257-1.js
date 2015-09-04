@@ -7,14 +7,11 @@ description: >
     Object.defineProperty - 'Attributes' is an Error object that uses
     Object's [[Get]] method to access the 'set' property of prototype
     object (8.10.5 step 8.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var data = "data";
 
-        try {
             Error.prototype.set = function (value) {
                 data = value;
             };
@@ -23,9 +20,5 @@ function testcase() {
             Object.defineProperty(obj, "property", errObj);
             obj.property = "overrideData";
 
-            return obj.hasOwnProperty("property") && data === "overrideData";
-        } finally {
-            delete Error.prototype.set;
-        }
-    }
-runTestCase(testcase);
+assert(obj.hasOwnProperty("property"), 'obj.hasOwnProperty("property") !== true');
+assert.sameValue(data, "overrideData", 'data');

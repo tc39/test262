@@ -7,12 +7,10 @@ description: >
     Object.defineProperty - 'Attributes' is a Number object that uses
     Object's [[Get]] method to access the 'configurable' property
     (8.10.5 step 4.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
-        try {
+
             Number.prototype.configurable = true;
             var numObj = new Number(-2);
 
@@ -24,9 +22,5 @@ function testcase() {
 
             var afterDeleted = obj.hasOwnProperty("property");
 
-            return beforeDeleted === true && afterDeleted === false;
-        } finally {
-            delete Number.prototype.configurable;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(beforeDeleted, true, 'beforeDeleted');
+assert.sameValue(afterDeleted, false, 'afterDeleted');

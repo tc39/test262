@@ -7,10 +7,7 @@ description: >
     Array.prototype.some - element to be retrieved is own accessor
     property without a get function that overrides an inherited
     accessor property on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             if (idx === 0) {
@@ -26,11 +23,6 @@ function testcase() {
             configurable: true
         });
 
-        try {
             Array.prototype[0] = 100;
-            return arr.some(callbackfn);
-        } finally {
-            delete Array.prototype[0];
-        }
-    }
-runTestCase(testcase);
+
+assert(arr.some(callbackfn), 'arr.some(callbackfn) !== true');

@@ -6,16 +6,14 @@ es5id: 15.4.4.20-9-c-i-12
 description: >
     Array.prototype.filter - element to be retrieved is own accessor
     property that overrides an inherited data property on an Array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             return val === 111 && idx === 0;
         }
 
         var arr = [];
-        try {
+
             Array.prototype[0] = 10;
 
             Object.defineProperty(arr, "0", {
@@ -26,9 +24,5 @@ function testcase() {
             });
             var newArr = arr.filter(callbackfn);
 
-            return newArr.length === 1 && newArr[0] === 111;
-        } finally {
-            delete Array.prototype[0];
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 1, 'newArr.length');
+assert.sameValue(newArr[0], 111, 'newArr[0]');

@@ -7,10 +7,7 @@ description: >
     Array.prototype.reduceRight - element to be retrieved is own
     accessor property that overrides an inherited accessor property on
     an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
         function callbackfn(prevVal, curVal, idx, obj) {
@@ -19,7 +16,6 @@ function testcase() {
             }
         }
 
-        try {
             Object.defineProperty(Array.prototype, "1", {
                 get: function () {
                     return 11;
@@ -36,10 +32,5 @@ function testcase() {
                 configurable: true
             });
             arr.reduceRight(callbackfn, "initialValue");
-            return testResult;
 
-        } finally {
-            delete Array.prototype[1];
-        }
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');

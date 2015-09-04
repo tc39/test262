@@ -6,10 +6,7 @@ es5id: 15.4.4.18-7-b-15
 description: >
     Array.prototype.forEach - decreasing length of array with
     prototype property causes prototype index property to be visited
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
 
@@ -20,7 +17,6 @@ function testcase() {
         }
         var arr = [0, 1, 2];
 
-        try {
             Object.defineProperty(Array.prototype, "2", {
                 get: function () {
                     return "prototype";
@@ -38,9 +34,4 @@ function testcase() {
 
             arr.forEach(callbackfn);
 
-            return testResult;
-        } finally {
-            delete Array.prototype[2];
-        }
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');

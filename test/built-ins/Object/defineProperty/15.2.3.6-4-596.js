@@ -11,7 +11,7 @@ includes: [propertyHelper.js]
 
 var foo = function () { };
 var data = "data";
-try {
+
     Object.defineProperty(Function.prototype, "prop", {
         get: function () {
             return data;
@@ -25,6 +25,3 @@ try {
     assert(!obj.hasOwnProperty("prop"));
     verifyNotWritable(obj, "prop", "nocheck");
     assert.sameValue(obj.prop, "data");;
-} finally {
-    delete Function.prototype.prop;
-}

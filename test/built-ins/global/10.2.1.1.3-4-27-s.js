@@ -8,16 +8,11 @@ description: >
     the Constructor Properties of the Global Object under strict mode
     (Number)
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var numBak = Number;
         try {
             Number = 12;
-            return true;
         } finally {
             Number = numBak;
         }
-    }
-runTestCase(testcase);

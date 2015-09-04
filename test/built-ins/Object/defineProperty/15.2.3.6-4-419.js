@@ -6,12 +6,10 @@ es5id: 15.2.3.6-4-419
 description: >
     ES5 Attributes - Inherited property whose [[Enumerable]] attribute
     is set to true is enumerable (Function.prototype.bind)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var foo = function () { };
-        try {
+
             Object.defineProperty(Function.prototype, "prop", {
                 value: 1001,
                 writable: true,
@@ -27,9 +25,5 @@ function testcase() {
                 }
             }
 
-            return !obj.hasOwnProperty("prop") && verifyEnumerable;
-        } finally {
-            delete Function.prototype.prop;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(obj.hasOwnProperty("prop"), false, 'obj.hasOwnProperty("prop")');
+assert(verifyEnumerable, 'verifyEnumerable !== true');

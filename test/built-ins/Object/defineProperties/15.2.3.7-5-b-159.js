@@ -12,7 +12,6 @@ includes: [propertyHelper.js]
 
 var obj = {};
 
-try {
     JSON.writable = false;
 
     Object.defineProperties(obj, {
@@ -21,8 +20,3 @@ try {
 
     assert(obj.hasOwnProperty("property"));
     verifyNotWritable(obj, "property");
-
-} finally {
-    delete JSON.writable;
-}
-

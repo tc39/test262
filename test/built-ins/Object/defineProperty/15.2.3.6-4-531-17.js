@@ -7,14 +7,11 @@ description: >
     ES5 Attributes - Updating an indexed accessor property 'P' using
     simple assignment is successful, 'O' is the global object (8.12.5
     step 5.b)
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
 
-function testcase() {
         var obj = fnGlobalObject();
-        try {
+
             obj.verifySetFunc = "data";
             var setFunc = function (value) {
                 obj.verifySetFunc = value;
@@ -34,10 +31,6 @@ function testcase() {
             var propertyDefineCorrect = obj.hasOwnProperty("0");
             var desc = Object.getOwnPropertyDescriptor(obj, "0");
 
-            return propertyDefineCorrect && desc.set === setFunc && obj[0] === "overrideData";
-        } finally {
-            delete obj[0];
-            delete obj.verifySetFunc;
-        }
-    }
-runTestCase(testcase);
+assert(propertyDefineCorrect, 'propertyDefineCorrect !== true');
+assert.sameValue(desc.set, setFunc, 'desc.set');
+assert.sameValue(obj[0], "overrideData", 'obj[0]');

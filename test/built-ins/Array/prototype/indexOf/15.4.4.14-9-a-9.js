@@ -6,10 +6,7 @@ es5id: 15.4.4.14-9-a-9
 description: >
     Array.prototype.indexOf - properties can be added to prototype
     after current position are visited on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = { length: 2 };
 
@@ -26,10 +23,4 @@ function testcase() {
             configurable: true
         });
 
-        try {
-            return Array.prototype.indexOf.call(arr, 6.99) === 1;
-        } finally {
-            delete Object.prototype[1];
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.indexOf.call(arr, 6.99), 1, 'Array.prototype.indexOf.call(arr, 6.99)');

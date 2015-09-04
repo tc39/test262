@@ -6,22 +6,15 @@ es5id: 15.4.4.19-2-18
 description: >
     Array.prototype.map - applied to String object, which implements
     its own property get method
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             return parseInt(val, 10) > 1;
         }
 
         var str = new String("432");
-        try {
+
             String.prototype[3] = "1";
             var testResult = Array.prototype.map.call(str, callbackfn);
 
-            return 3 === testResult.length;
-        } finally {
-            delete String.prototype[3];
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(testResult.length, 3, 'testResult.length');

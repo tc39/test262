@@ -13,11 +13,8 @@ description: >
     Initialize array using ElementList (Elisionopt
     AssignmentExpression) when index property (read-only) exists in
     Array.prototype (step 5)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
             Object.defineProperty(Array.prototype, "0", {
                 value: 100,
                 writable: false,
@@ -25,9 +22,5 @@ function testcase() {
             });
             var arr = [101];
 
-            return arr.hasOwnProperty("0") && arr[0] === 101;
-        } finally {
-            delete Array.prototype[0];
-        }
-    }
-runTestCase(testcase);
+assert(arr.hasOwnProperty("0"), 'arr.hasOwnProperty("0") !== true');
+assert.sameValue(arr[0], 101, 'arr[0]');

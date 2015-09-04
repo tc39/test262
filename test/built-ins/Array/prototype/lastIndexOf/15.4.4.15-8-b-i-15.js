@@ -6,11 +6,8 @@ es5id: 15.4.4.15-8-b-i-15
 description: >
     Array.prototype.lastIndexOf - element to be retrieved is inherited
     accessor property on an Array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
             Object.defineProperty(Array.prototype, "0", {
                 get: function () {
                     return 10;
@@ -32,13 +29,6 @@ function testcase() {
                 configurable: true
             });
 
-            return 0 === [, , , ].lastIndexOf(10) &&
-                1 === [, , , ].lastIndexOf(20) &&
-                2 === [, , , ].lastIndexOf(30);
-        } finally {
-            delete Array.prototype[0];
-            delete Array.prototype[1];
-            delete Array.prototype[2];
-        }
-    }
-runTestCase(testcase);
+assert.sameValue([, , , ].lastIndexOf(10), 0, '[, , , ].lastIndexOf(10)');
+assert.sameValue([, , , ].lastIndexOf(20), 1, '[, , , ].lastIndexOf(20)');
+assert.sameValue([, , , ].lastIndexOf(30), 2, '[, , , ].lastIndexOf(30)');

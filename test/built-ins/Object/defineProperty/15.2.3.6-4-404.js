@@ -6,11 +6,8 @@ es5id: 15.2.3.6-4-404
 description: >
     ES5 Attributes - Inherited property whose [[Enumerable]] attribute
     is set to true is enumerable (Boolean instance)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
             Object.defineProperty(Boolean.prototype, "prop", {
                 value: 1001,
                 writable: true,
@@ -26,9 +23,5 @@ function testcase() {
                 }
             }
 
-            return !boolObj.hasOwnProperty("prop") && verifyEnumerable;
-        } finally {
-            delete Boolean.prototype.prop;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(boolObj.hasOwnProperty("prop"), false, 'boolObj.hasOwnProperty("prop")');
+assert(verifyEnumerable, 'verifyEnumerable !== true');

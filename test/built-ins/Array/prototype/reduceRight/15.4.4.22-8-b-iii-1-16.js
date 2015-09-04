@@ -6,10 +6,7 @@ es5id: 15.4.4.22-8-b-iii-1-16
 description: >
     Array.prototype.reduceRight - element to be retrieved is inherited
     accessor property on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
         function callbackfn(prevVal, curVal, idx, obj) {
@@ -18,7 +15,6 @@ function testcase() {
             }
         }
 
-        try {
             Object.defineProperty(Array.prototype, "2", {
                 get: function () {
                     return 2;
@@ -29,10 +25,5 @@ function testcase() {
             var arr = [0, 1, , ];
 
             arr.reduceRight(callbackfn);
-            return testResult;
 
-        } finally {
-            delete Array.prototype[2];
-        }
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');

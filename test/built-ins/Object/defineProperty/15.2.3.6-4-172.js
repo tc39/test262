@@ -10,13 +10,11 @@ description: >
     own data property with large index named in 'O' that overrides an
     inherited data property can stop deleting index named properties
     (15.4.5.1 step 3.l.ii)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
         var arrObj = [0, 1];
-        try {
+
+assert.throws(TypeError, function() {
             Object.defineProperty(arrObj, "1", {
                 configurable: false
             });
@@ -25,11 +23,6 @@ function testcase() {
             Object.defineProperty(arrObj, "length", {
                 value: 1
             });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && arrObj.length === 2 && arrObj.hasOwnProperty("1"); 
-        } finally {
-            delete Array.prototype[1];
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(arrObj.length, 2, 'arrObj.length');
+assert(arrObj.hasOwnProperty("1"), 'arrObj.hasOwnProperty("1") !== true');

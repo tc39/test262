@@ -6,16 +6,13 @@ es5id: 15.4.4.20-9-b-6
 description: >
     Array.prototype.filter - properties can be added to prototype
     after current position are visited on an Array-like object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             return true;
         }
         var obj = { length: 2 };
 
-        try {
             Object.defineProperty(obj, "0", {
                 get: function () {
                     Object.defineProperty(Object.prototype, "1", {
@@ -31,9 +28,5 @@ function testcase() {
 
             var newArr = Array.prototype.filter.call(obj, callbackfn);
 
-            return newArr.length === 2 && Array[1] === 6.99;
-        } finally {
-            delete Object.prototype[1];
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 2, 'newArr.length');
+assert.sameValue(Array[1], 6.99, 'Array[1]');

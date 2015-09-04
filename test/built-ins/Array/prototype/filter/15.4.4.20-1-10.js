@@ -4,22 +4,14 @@
 /*---
 es5id: 15.4.4.20-1-10
 description: Array.prototype.filter applied to the Math object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             return '[object Math]' === Object.prototype.toString.call(obj);
         }
 
-        try {
             Math.length = 1;
             Math[0] = 1;
             var newArr = Array.prototype.filter.call(Math, callbackfn);
-            return newArr[0] === 1;
-        } finally {
-            delete Math[0];
-            delete Math.length;
-        }
-    }
-runTestCase(testcase);
+
+assert.sameValue(newArr[0], 1, 'newArr[0]');

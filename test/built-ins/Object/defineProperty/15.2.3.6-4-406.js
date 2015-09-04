@@ -6,11 +6,8 @@ es5id: 15.2.3.6-4-406
 description: >
     ES5 Attributes - Inherited property whose [[Enumerable]] attribute
     is set to false is non-enumerable (Function instance)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
             Object.defineProperty(Function.prototype, "prop", {
                 value: 1001,
                 writable: false,
@@ -26,9 +23,5 @@ function testcase() {
                 }
             }
 
-            return !funObj.hasOwnProperty("prop") && !verifyEnumerable;
-        } finally {
-            delete Function.prototype.prop;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(funObj.hasOwnProperty("prop"), false, 'funObj.hasOwnProperty("prop")');
+assert.sameValue(verifyEnumerable, false, 'verifyEnumerable');

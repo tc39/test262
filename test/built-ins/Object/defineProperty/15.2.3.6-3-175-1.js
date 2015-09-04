@@ -7,12 +7,10 @@ description: >
     Object.defineProperty - 'Attributes' is an Arguments object which
     implements its own [[Get]] method to access the 'writable'
     property of prototype object (8.10.5 step 6.b)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
-        try {
+
             Object.prototype.writable = true;
 
             var argObj = (function () { return arguments; })();
@@ -25,9 +23,5 @@ function testcase() {
 
             var afterWrite = (obj.property === "isWritable");
 
-            return beforeWrite === true && afterWrite === true;
-        } finally {
-            delete Object.prototype.writable;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(beforeWrite, true, 'beforeWrite');
+assert.sameValue(afterWrite, true, 'afterWrite');

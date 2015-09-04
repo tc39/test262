@@ -6,10 +6,8 @@ es5id: 15.4.4.17-7-b-6
 description: >
     Array.prototype.some - properties can be added to prototype after
     current position are visited on an Array-like object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             if (idx === 1 && val === 6.99) {
                 return true;
@@ -32,10 +30,4 @@ function testcase() {
             configurable: true
         });
 
-        try {
-            return Array.prototype.some.call(arr, callbackfn);
-        } finally {
-            delete Object.prototype[1];
-        }
-    }
-runTestCase(testcase);
+assert(Array.prototype.some.call(arr, callbackfn), 'Array.prototype.some.call(arr, callbackfn) !== true');

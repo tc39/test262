@@ -6,18 +6,11 @@ es5id: 15.4.4.15-2-18
 description: >
     Array.prototype.lastIndexOf applied to String object which
     implements its own property get method
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
         var str = new String("012");
-        try {
+
             String.prototype[3] = "3";
-            return Array.prototype.lastIndexOf.call(str, "2") === 2 &&
-                Array.prototype.lastIndexOf.call(str, "3") === -1;
-        } finally {
-            delete String.prototype[3];
-        }
-    }
-runTestCase(testcase);
+
+assert.sameValue(Array.prototype.lastIndexOf.call(str, "2"), 2, 'Array.prototype.lastIndexOf.call(str, "2")');
+assert.sameValue(Array.prototype.lastIndexOf.call(str, "3"), -1, 'Array.prototype.lastIndexOf.call(str, "3")');

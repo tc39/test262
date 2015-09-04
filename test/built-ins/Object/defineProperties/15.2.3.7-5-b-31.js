@@ -7,17 +7,12 @@ description: >
     Object.defineProperties - 'descObj' is the global object which
     implements its own [[Get]] method to get 'enumerable' property
     (8.10.5 step 3.a)
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         var accessed = false;
 
-        try {
             fnGlobalObject().enumerable = true;
 
             Object.defineProperties(obj, {
@@ -28,9 +23,5 @@ function testcase() {
                     accessed = true;
                 }
             }
-            return accessed;
-        } finally {
-            delete fnGlobalObject().enumerable;
-        }
-    }
-runTestCase(testcase);
+
+assert(accessed, 'accessed !== true');

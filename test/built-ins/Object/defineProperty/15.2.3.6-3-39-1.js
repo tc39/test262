@@ -7,14 +7,11 @@ description: >
     Object.defineProperty - 'Attributes' is a Date object that uses
     Object's [[Get]] method to access the 'enumerable' property of
     prototype object (8.10.5 step 3.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var accessed = false;
 
-        try {
             Date.prototype.enumerable = true;
             var dateObj = new Date();
 
@@ -25,9 +22,5 @@ function testcase() {
                     accessed = true;
                 }
             }
-            return accessed;
-        } finally {
-            delete Date.prototype.enumerable;
-        }
-    }
-runTestCase(testcase);
+
+assert(accessed, 'accessed !== true');

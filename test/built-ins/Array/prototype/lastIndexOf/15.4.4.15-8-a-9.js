@@ -7,10 +7,7 @@ description: >
     Array.prototype.lastIndexOf -  properties can be added to
     prototype after current position are visited on an Array-like
     object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = { length: 9 };
 
@@ -27,10 +24,4 @@ function testcase() {
             configurable: true
         });
 
-        try {
-            return Array.prototype.lastIndexOf.call(arr, Infinity) === 1;
-        } finally {
-            delete Object.prototype[1];
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.lastIndexOf.call(arr, Infinity), 1, 'Array.prototype.lastIndexOf.call(arr, Infinity)');

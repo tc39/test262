@@ -6,10 +6,7 @@ es5id: 15.4.4.20-9-b-10
 description: >
     Array.prototype.filter - deleting property of prototype causes
     prototype index property not to be visited on an Array-like Object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return true;
@@ -24,13 +21,8 @@ function testcase() {
             configurable: true
         });
 
-        try {
             Object.prototype[1] = 1;
             var newArr = Array.prototype.filter.call(obj, callbackfn);
 
-            return newArr.length === 2 && newArr[1] !== 1;
-        } finally {
-            delete Object.prototype[1];
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 2, 'newArr.length');
+assert.notSameValue(newArr[1], 1, 'newArr[1]');

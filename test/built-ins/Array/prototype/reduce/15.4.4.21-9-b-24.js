@@ -6,10 +6,7 @@ es5id: 15.4.4.21-9-b-24
 description: >
     Array.prototype.reduce - deleting property of prototype causes
     deleted index property not to be visited on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         var testResult = true;
@@ -30,12 +27,8 @@ function testcase() {
             configurable: true
         });
 
-        try {
             Array.prototype[1] = 1;
             arr.reduce(callbackfn, "initialValue");
-            return testResult && accessed;
-        } finally {
-            delete Array.prototype[1];
-        }
-    }
-runTestCase(testcase);
+
+assert(testResult, 'testResult !== true');
+assert(accessed, 'accessed !== true');

@@ -7,16 +7,8 @@ description: >
     Array.prototype.indexOf - element to be retrieved is own data
     property that overrides an inherited data property on an
     Array-like object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        try {
             Object.prototype[0] = false;
-            return 0 === Array.prototype.indexOf.call({ 0: true, 1: 1, length: 2 }, true);
-        } finally {
-            delete Object.prototype[0];
-        }
-    }
-runTestCase(testcase);
+
+assert.sameValue(Array.prototype.indexOf.call({ 0: true, 1: 1, length: 2 }, true), 0, 'Array.prototype.indexOf.call({ 0: true, 1: 1, length: 2 }, true)');

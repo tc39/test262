@@ -6,10 +6,7 @@ es5id: 15.4.4.22-9-b-6
 description: >
     Array.prototype.reduceRight - properties added to prototype in
     step 8 visited on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
 
@@ -34,11 +31,6 @@ function testcase() {
             configurable: true
         });
 
-        try {
             Array.prototype.reduceRight.call(obj, callbackfn);
-            return testResult;
-        } finally {
-            delete Object.prototype[1];
-        }
-    }
-runTestCase(testcase);
+
+assert(testResult, 'testResult !== true');

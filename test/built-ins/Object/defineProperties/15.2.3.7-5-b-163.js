@@ -15,7 +15,6 @@ includes:
 
 var obj = {};
 
-try {
     fnGlobalObject().writable = false;
 
     Object.defineProperties(obj, {
@@ -24,9 +23,3 @@ try {
 
     assert(obj.hasOwnProperty("property"));
     verifyNotWritable(obj, "property");
-
-} finally {
-    delete fnGlobalObject().writable;
-}
-
-

@@ -7,10 +7,7 @@ description: >
     Array.prototype.lastIndexOf -  deleting own property with
     prototype property causes prototype index property to be visited
     on an Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var arr = { 0: 0, 1: 111, 2: 2, length: 10 };
         
@@ -22,11 +19,6 @@ function testcase() {
             configurable: true
         });
 
-        try {
             Object.prototype[1] = 1;
-            return 1 === Array.prototype.lastIndexOf.call(arr, 1);
-        } finally {
-            delete Object.prototype[1];
-        }
-    }
-runTestCase(testcase);
+
+assert.sameValue(Array.prototype.lastIndexOf.call(arr, 1), 1, 'Array.prototype.lastIndexOf.call(arr, 1)');

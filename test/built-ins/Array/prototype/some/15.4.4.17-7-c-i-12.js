@@ -6,10 +6,7 @@ es5id: 15.4.4.17-7-c-i-12
 description: >
     Array.prototype.some - element to be retrieved is own accessor
     property that overrides an inherited data property on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var kValue = "abc";
 
@@ -21,7 +18,7 @@ function testcase() {
         }
         
         var arr = [];
-        try {
+
             Array.prototype[1] = 100;
             Object.defineProperty(arr, "1", {
                 get: function () {
@@ -30,9 +27,4 @@ function testcase() {
                 configurable: true
             });
 
-            return arr.some(callbackfn);
-        } finally {
-            delete Array.prototype[1];
-        }
-    }
-runTestCase(testcase);
+assert(arr.some(callbackfn), 'arr.some(callbackfn) !== true');

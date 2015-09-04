@@ -6,11 +6,8 @@ es5id: 15.4.4.4-5-b-iii-3-b-1
 description: >
     Array.prototype.concat will concat an Array when index property
     (read-only) exists in Array.prototype (Step 5.b.iii.3.b)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
             Object.defineProperty(Array.prototype, "0", {
                 value: 100,
                 writable: false,
@@ -39,9 +36,7 @@ function testcase() {
             delete newArr[0];
             verifyConfigurable = newArr.hasOwnProperty("0");
 
-            return verifyValue && !verifyConfigurable && verifyEnumerable && verifyWritable;
-        } finally {
-            delete Array.prototype[0];
-        }
-    }
-runTestCase(testcase);
+assert(verifyValue, 'verifyValue !== true');
+assert.sameValue(verifyConfigurable, false, 'verifyConfigurable');
+assert(verifyEnumerable, 'verifyEnumerable !== true');
+assert(verifyWritable, 'verifyWritable !== true');

@@ -6,10 +6,8 @@ es5id: 15.4.4.17-7-b-10
 description: >
     Array.prototype.some - deleting property of prototype causes
     prototype index property not to be visited on an Array-like Object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var accessed = false;
         function callbackfn(val, idx, obj) {
             accessed = true;
@@ -25,11 +23,7 @@ function testcase() {
             configurable: true
         });
 
-        try {
             Object.prototype[1] = 1;
-            return !Array.prototype.some.call(arr, callbackfn) && accessed;
-        } finally {
-            delete Object.prototype[1];
-        }
-    }
-runTestCase(testcase);
+
+assert.sameValue(Array.prototype.some.call(arr, callbackfn), false, 'Array.prototype.some.call(arr, callbackfn)');
+assert(accessed, 'accessed !== true');

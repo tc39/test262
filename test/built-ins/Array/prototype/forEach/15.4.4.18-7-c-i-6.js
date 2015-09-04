@@ -6,10 +6,7 @@ es5id: 15.4.4.18-7-c-i-6
 description: >
     Array.prototype.forEach - element to be retrieved is own data
     property that overrides an inherited accessor property on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
 
@@ -19,7 +16,6 @@ function testcase() {
             }
         }
 
-        try {
             Object.defineProperty(Array.prototype, "0", {
                 get: function () {
                     return 9;
@@ -29,9 +25,4 @@ function testcase() {
 
             [11].forEach(callbackfn);
 
-            return testResult;
-        } finally {
-            delete Array.prototype[0];
-        }
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');

@@ -7,16 +7,11 @@ description: >
     Object.create - one property in 'Properties' is the global object
     that uses Object's [[Get]] method to access the 'enumerable'
     property (8.10.5 step 3.a)
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
-        try {
             fnGlobalObject().enumerable = true;
 
             var newObj = Object.create({}, {
@@ -27,9 +22,5 @@ function testcase() {
                     accessed = true;
                 }
             }
-            return accessed;
-        } finally {
-            delete fnGlobalObject().enumerable;
-        }
-    }
-runTestCase(testcase);
+
+assert(accessed, 'accessed !== true');

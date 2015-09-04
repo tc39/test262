@@ -6,12 +6,8 @@ es5id: 15.2.3.7-2-18
 description: >
     Object.defineProperties - argument 'Properties' is the global
     object
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         var result = false;
@@ -27,11 +23,11 @@ function testcase() {
             });
 
             Object.defineProperties(obj, fnGlobalObject());
-            return result;
         } catch (e) {
-            return (e instanceof TypeError);
+            if (!(e instanceof TypeError)) throw e;
+            result = true;
         } finally {
             delete fnGlobalObject().prop;
         }
-    }
-runTestCase(testcase);
+
+assert(result, 'result !== true');

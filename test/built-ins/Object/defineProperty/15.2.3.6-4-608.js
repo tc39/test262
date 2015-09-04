@@ -4,17 +4,14 @@
 /*---
 es5id: 15.2.3.6-4-608
 description: ES5 Attributes - all attributes in Object.isFrozen are correct
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var desc = Object.getOwnPropertyDescriptor(Object, "isFrozen");
 
         var propertyAreCorrect = (desc.writable === true && desc.enumerable === false && desc.configurable === true);
 
         var temp = Object.isFrozen;
 
-        try {
             Object.isFrozen = "2010";
 
             var isWritable = (Object.isFrozen === "2010");
@@ -31,14 +28,7 @@ function testcase() {
 
             var isConfigurable = !Object.hasOwnProperty("isFrozen");
 
-            return propertyAreCorrect && isWritable && !isEnumerable && isConfigurable;
-        } finally {
-            Object.defineProperty(Object, "isFrozen", {
-                value: temp,
-                writable: true,
-                enumerable: false,
-                configurable: true
-            });
-        }
-    }
-runTestCase(testcase);
+assert(propertyAreCorrect, 'propertyAreCorrect !== true');
+assert(isWritable, 'isWritable !== true');
+assert.sameValue(isEnumerable, false, 'isEnumerable');
+assert(isConfigurable, 'isConfigurable !== true');

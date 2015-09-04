@@ -7,14 +7,10 @@ description: >
     Object.create - one property in 'Properties' is the JSON object
     that uses Object's [[Get]] method to access the 'enumerable'
     property (8.10.5 step 3.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
 
-        try {
             JSON.enumerable = true;
 
             var newObj = Object.create({}, {
@@ -25,9 +21,5 @@ function testcase() {
                     accessed = true;
                 }
             }
-            return accessed;
-        } finally {
-            delete JSON.enumerable;
-        }
-    }
-runTestCase(testcase);
+
+assert(accessed, 'accessed !== true');

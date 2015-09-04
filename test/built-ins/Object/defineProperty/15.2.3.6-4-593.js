@@ -7,13 +7,11 @@ description: >
     ES5 Attributes - [[Get]] field of inherited property of
     [[Prototype]] internal property is correct
     (Function.prototype.bind)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var foo = function () { };
         var data = "data";
-        try {
+
             Object.defineProperty(Function.prototype, "prop", {
                 get: function () {
                     return data;
@@ -27,9 +25,5 @@ function testcase() {
 
             var obj = foo.bind({});
 
-            return !obj.hasOwnProperty("prop") && obj.prop === data;
-        } finally {
-            delete Function.prototype.prop;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(obj.hasOwnProperty("prop"), false, 'obj.hasOwnProperty("prop")');
+assert.sameValue(obj.prop, data, 'obj.prop');

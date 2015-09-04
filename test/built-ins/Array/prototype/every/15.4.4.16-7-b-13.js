@@ -6,10 +6,8 @@ es5id: 15.4.4.16-7-b-13
 description: >
     Array.prototype.every - deleting own property with prototype
     property causes prototype index property to be visited on an Array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             if (idx === 1 && val === 1) {
                 return false;
@@ -27,11 +25,6 @@ function testcase() {
             configurable: true
         });
 
-        try {
             Array.prototype[1] = 1;
-            return !arr.every(callbackfn);
-        } finally {
-            delete Array.prototype[1];
-        }
-    }
-runTestCase(testcase);
+
+assert.sameValue(arr.every(callbackfn), false, 'arr.every(callbackfn)');

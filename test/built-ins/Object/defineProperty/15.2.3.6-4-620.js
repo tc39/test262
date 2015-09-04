@@ -6,17 +6,14 @@ es5id: 15.2.3.6-4-620
 description: >
     ES5 Attributes - all attributes in Array.prototype.reduceRight are
     correct
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var desc = Object.getOwnPropertyDescriptor(Array.prototype, "reduceRight");
 
         var propertyAreCorrect = (desc.writable === true && desc.enumerable === false && desc.configurable === true);
 
         var temp = Array.prototype.reduceRight;
 
-        try {
             Array.prototype.reduceRight = "2010";
 
             var isWritable = (Array.prototype.reduceRight === "2010");
@@ -33,14 +30,7 @@ function testcase() {
 
             var isConfigurable = !Array.prototype.hasOwnProperty("reduceRight");
 
-            return propertyAreCorrect && isWritable && !isEnumerable && isConfigurable;
-        } finally {
-            Object.defineProperty(Array.prototype, "reduceRight", {
-                value: temp,
-                writable: true,
-                enumerable: false,
-                configurable: true
-            });
-        }
-    }
-runTestCase(testcase);
+assert(propertyAreCorrect, 'propertyAreCorrect !== true');
+assert(isWritable, 'isWritable !== true');
+assert.sameValue(isEnumerable, false, 'isEnumerable');
+assert(isConfigurable, 'isConfigurable !== true');

@@ -7,24 +7,15 @@ description: >
     Object.create - one property in 'Properties' is the global object
     that uses Object's [[Get]] method to access the 'get' property
     (8.10.5 step 7.a)
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
 
-function testcase() {
         fnGlobalObject().get = function () {
             return "VerifyGlobalObject";
         };
 
-        try {
             var newObj = Object.create({}, {
                 prop: fnGlobalObject()
             });
 
-            return newObj.prop === "VerifyGlobalObject";
-        } finally {
-            delete fnGlobalObject().get;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(newObj.prop, "VerifyGlobalObject", 'newObj.prop');

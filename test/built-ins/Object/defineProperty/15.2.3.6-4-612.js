@@ -6,17 +6,14 @@ es5id: 15.2.3.6-4-612
 description: >
     ES5 Attributes - all attributes in Array.prototype.indexOf are
     correct
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var desc = Object.getOwnPropertyDescriptor(Array.prototype, "indexOf");
 
         var propertyAreCorrect = (desc.writable === true && desc.enumerable === false && desc.configurable === true);
 
         var temp = Array.prototype.indexOf;
 
-        try {
             Array.prototype.indexOf = "2010";
 
             var isWritable = (Array.prototype.indexOf === "2010");
@@ -33,14 +30,7 @@ function testcase() {
 
             var isConfigurable = !Array.prototype.hasOwnProperty("indexOf");
 
-            return propertyAreCorrect && isWritable && !isEnumerable && isConfigurable;
-        } finally {
-            Object.defineProperty(Array.prototype, "indexOf", {
-                value: temp,
-                writable: true,
-                enumerable: false,
-                configurable: true
-            });
-        }
-    }
-runTestCase(testcase);
+assert(propertyAreCorrect, 'propertyAreCorrect !== true');
+assert(isWritable, 'isWritable !== true');
+assert.sameValue(isEnumerable, false, 'isEnumerable');
+assert(isConfigurable, 'isConfigurable !== true');

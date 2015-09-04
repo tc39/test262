@@ -7,21 +7,12 @@ description: >
     Object.create - one property in 'Properties' is the Math object
     that uses Object's [[Get]] method to access the 'value' property
     (8.10.5 step 5.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        try {
             Math.value = "MathValue";
 
             var newObj = Object.create({}, {
                 prop: Math
             });
 
-            return newObj.prop === "MathValue";
-        } finally {
-            delete Math.value;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(newObj.prop, "MathValue", 'newObj.prop');

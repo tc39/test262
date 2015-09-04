@@ -7,22 +7,14 @@ description: >
     Object.create - one property in 'Properties' is the JSON object
     that uses Object's [[Get]] method to access the 'get' property
     (8.10.5 step 7.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         JSON.get = function () {
             return "VerifyJSONObject";
         };
 
-        try {
             var newObj = Object.create({}, {
                 prop: JSON 
             });
 
-            return newObj.prop === "VerifyJSONObject";
-        } finally {
-            delete JSON.get;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(newObj.prop, "VerifyJSONObject", 'newObj.prop');

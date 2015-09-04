@@ -7,12 +7,10 @@ description: >
     Object.defineProperty - 'Attributes' is an Error object that uses
     Object's [[Get]] method to access the 'get' property of prototype
     object (8.10.5 step 7.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
-        try {
+
             Error.prototype.get = function () {
                 return "errorGetProperty";
             };
@@ -20,9 +18,4 @@ function testcase() {
 
             Object.defineProperty(obj, "property", errObj);
 
-            return obj.property === "errorGetProperty";
-        } finally {
-            delete Error.prototype.get;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "errorGetProperty", 'obj.property');

@@ -6,11 +6,8 @@ es5id: 15.4.4.21-8-b-iii-1-22
 description: >
     Array.prototype.reduce - element to be retrieved is inherited
     accessor property without a get function on an Array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-    
         var testResult = false;
         function callbackfn(prevVal, curVal, idx, obj) {
             if (idx === 1) {
@@ -18,7 +15,6 @@ function testcase() {
             }
         }
 
-        try {
             Object.defineProperty(Array.prototype, "0", {
                 set: function () { },
                 configurable: true
@@ -27,11 +23,5 @@ function testcase() {
             var arr = [, 1, 2];
 
             arr.reduce(callbackfn);
-            return testResult;
 
-        } finally {
-            delete Array.prototype[0];
-        }
-
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');

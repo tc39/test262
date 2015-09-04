@@ -7,16 +7,12 @@ description: >
     Object.defineProperty - 'Attributes' is the global object that
     uses Object's [[Get]] method to access the 'enumerable' property
     (8.10.5 step 3.a)
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var accessed = false;
 
-        try {
             fnGlobalObject().enumerable = true;
 
             Object.defineProperty(obj, "property", fnGlobalObject());
@@ -27,9 +23,4 @@ function testcase() {
                 }
             }
 
-            return accessed;
-        } finally {
-            delete fnGlobalObject().enumerable;
-        }
-    }
-runTestCase(testcase);
+assert(accessed, 'accessed !== true');

@@ -7,10 +7,7 @@ description: >
     Array.prototype.reduce - deleting own property with prototype
     property causes prototype index property to be visited on an
     Array-like object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
 
@@ -30,12 +27,7 @@ function testcase() {
             configurable: true
         });
 
-        try {
             Object.prototype[1] = 1;
             Array.prototype.reduce.call(obj, callbackfn, "initialValue");
-            return testResult;
-        } finally {
-            delete Object.prototype[1];
-        }
-    }
-runTestCase(testcase);
+
+assert(testResult, 'testResult !== true');

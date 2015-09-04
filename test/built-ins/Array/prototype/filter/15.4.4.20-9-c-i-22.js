@@ -6,25 +6,17 @@ es5id: 15.4.4.20-9-c-i-22
 description: >
     Array.prototype.filter - element to be retrieved is inherited
     accessor property without a get function on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         function callbackfn(val, idx, obj) {
             return undefined === val && idx === 0;
         }
 
-        try {
             Object.defineProperty(Array.prototype, "0", {
                 set: function () { },
                 configurable: true
             });
             var newArr = [, ].filter(callbackfn);
 
-            return newArr.length === 1 && newArr[0] === undefined;
-        } finally {
-            delete Array.prototype[0];
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(newArr.length, 1, 'newArr.length');
+assert.sameValue(newArr[0], undefined, 'newArr[0]');

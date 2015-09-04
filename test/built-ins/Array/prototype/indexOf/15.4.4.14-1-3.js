@@ -4,19 +4,11 @@
 /*---
 es5id: 15.4.4.14-1-3
 description: Array.prototype.indexOf applied to boolean primitive
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var targetObj = {};
-        try {
+
             Boolean.prototype[1] = targetObj;
             Boolean.prototype.length = 2;
 
-            return Array.prototype.indexOf.call(true, targetObj) === 1;
-        } finally {
-            delete Boolean.prototype[1];
-            delete Boolean.prototype.length;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.indexOf.call(true, targetObj), 1, 'Array.prototype.indexOf.call(true, targetObj)');

@@ -7,12 +7,10 @@ description: >
     Object.defineProperty - 'Attributes' is a Date object that uses
     Object's [[Get]] method to access the 'get' property of prototype
     object (8.10.5 step 7.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
-        try {
+
             Date.prototype.get = function () {
                 return "dateGetProperty";
             };
@@ -20,9 +18,4 @@ function testcase() {
 
             Object.defineProperty(obj, "property", dateObj);
 
-            return obj.property === "dateGetProperty";
-        } finally {
-            delete Date.prototype.get;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "dateGetProperty", 'obj.property');

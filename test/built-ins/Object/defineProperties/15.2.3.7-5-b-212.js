@@ -7,14 +7,10 @@ description: >
     Object.defineProperties - 'descObj' is the JSON object which
     implements its own [[Get]] method to get 'get' property (8.10.5
     step 7.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
 
-        try {
             JSON.get = function () {
                 return "JSON";
             };
@@ -23,9 +19,4 @@ function testcase() {
                 property: JSON
             });
 
-            return obj.property === "JSON";
-        } finally {
-            delete JSON.get;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(obj.property, "JSON", 'obj.property');

@@ -6,10 +6,7 @@ es5id: 15.4.4.17-7-c-i-8
 description: >
     Array.prototype.some - element to be retrieved is inherited data
     property on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var kValue = {};
 
@@ -20,12 +17,6 @@ function testcase() {
             return false;
         }
 
-        try {
             Array.prototype[0] = kValue;
 
-            return [, ].some(callbackfn);
-        } finally {
-            delete Array.prototype[0];
-        }
-    }
-runTestCase(testcase);
+assert([, ].some(callbackfn), '[, ].some(callbackfn) !== true');

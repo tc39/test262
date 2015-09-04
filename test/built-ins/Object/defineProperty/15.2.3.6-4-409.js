@@ -6,11 +6,8 @@ es5id: 15.2.3.6-4-409
 description: >
     ES5 Attributes - Inherited property whose [[Enumerable]] attribute
     is set to false is enumerable (RegExp instance)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
             Object.defineProperty(RegExp.prototype, "prop", {
                 value: 1001,
                 writable: true,
@@ -26,9 +23,5 @@ function testcase() {
                 }
             }
 
-            return !regObj.hasOwnProperty("prop") && verifyEnumerable;
-        } finally {
-            delete RegExp.prototype.prop;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(regObj.hasOwnProperty("prop"), false, 'regObj.hasOwnProperty("prop")');
+assert(verifyEnumerable, 'verifyEnumerable !== true');

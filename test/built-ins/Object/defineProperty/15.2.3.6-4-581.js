@@ -8,7 +8,7 @@ includes: [propertyHelper.js]
 ---*/
 
 var data = "data";
-try {
+
     Object.defineProperty(Number.prototype, "prop", {
         get: function () {
             return data;
@@ -23,6 +23,3 @@ try {
     assert(!numObj.hasOwnProperty("prop"));
     assert.sameValue(numObj.prop, "data");
     assert.sameValue(data, "data");
-} finally {
-    delete Number.prototype.prop;
-}

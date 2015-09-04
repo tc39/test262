@@ -6,10 +6,7 @@ es5id: 15.4.4.18-7-c-i-8
 description: >
     Array.prototype.forEach - element to be retrieved is inherited
     data property on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
 
@@ -19,14 +16,8 @@ function testcase() {
             }
         }
 
-        try {
             Array.prototype[1] = 13;
 
             [, , , ].forEach(callbackfn);
 
-            return testResult;
-        } finally {
-            delete Array.prototype[1];
-        }
-    }
-runTestCase(testcase);
+assert(testResult, 'testResult !== true');

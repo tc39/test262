@@ -4,17 +4,14 @@
 /*---
 es5id: 15.2.3.6-4-610
 description: ES5 Attributes - all attributes in Object.keys are correct
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var desc = Object.getOwnPropertyDescriptor(Object, "keys");
 
         var propertyAreCorrect = (desc.writable === true && desc.enumerable === false && desc.configurable === true);
 
         var temp = Object.keys;
 
-        try {
             Object.keys = "2010";
 
             var isWritable = (Object.keys === "2010");
@@ -31,14 +28,7 @@ function testcase() {
 
             var isConfigurable = !Object.hasOwnProperty("keys");
 
-            return propertyAreCorrect && isWritable && !isEnumerable && isConfigurable;
-        } finally {
-            Object.defineProperty(Object, "keys", {
-                value: temp,
-                writable: true,
-                enumerable: false,
-                configurable: true
-            });
-        }
-    }
-runTestCase(testcase);
+assert(propertyAreCorrect, 'propertyAreCorrect !== true');
+assert(isWritable, 'isWritable !== true');
+assert.sameValue(isEnumerable, false, 'isEnumerable');
+assert(isConfigurable, 'isConfigurable !== true');

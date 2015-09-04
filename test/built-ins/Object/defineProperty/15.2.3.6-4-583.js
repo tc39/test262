@@ -6,12 +6,10 @@ es5id: 15.2.3.6-4-583
 description: >
     ES5 Attributes - [[Get]] field of inherited property of
     [[Prototype]] internal property is correct (Error Instance)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var data = "data";
-        try {
+
             Object.defineProperty(Error.prototype, "prop", {
                 get: function () {
                     return data;
@@ -24,9 +22,5 @@ function testcase() {
             });
             var errObj = new Error();
 
-            return !errObj.hasOwnProperty("prop") && errObj.prop === "data";
-        } finally {
-            delete Error.prototype.prop;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(errObj.hasOwnProperty("prop"), false, 'errObj.hasOwnProperty("prop")');
+assert.sameValue(errObj.prop, "data", 'errObj.prop');

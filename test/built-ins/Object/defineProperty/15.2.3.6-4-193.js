@@ -10,11 +10,11 @@ description: >
     the [[Configurable]] attribute to true and value of
     [[Configurable]] attribute of original is false  (15.4.5.1 step
     4.c)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+var arrObj = [];
+
+assert.throws(TypeError, function() {
             Object.defineProperty(Array.prototype, "0", {
                 get: function () {
                     return 11;
@@ -22,7 +22,6 @@ function testcase() {
                 configurable: true
             });
 
-            var arrObj = [];
             Object.defineProperty(arrObj, "0", {
                 value: 12,
                 configurable: false
@@ -31,11 +30,6 @@ function testcase() {
             Object.defineProperty(arrObj, "0", {
                 configurable: true
             });
-            return false;
-        } catch (e) {
-            return e instanceof TypeError && Array.prototype[0] === 11 && arrObj[0] === 12;
-        } finally {
-            delete Array.prototype[0];
-        }
-    }
-runTestCase(testcase);
+});
+assert.sameValue(Array.prototype[0], 11, 'Array.prototype[0]');
+assert.sameValue(arrObj[0], 12, 'arrObj[0]');

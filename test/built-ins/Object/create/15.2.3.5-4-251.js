@@ -7,11 +7,8 @@ description: >
     Object.create - one property in 'Properties' is the Math object
     that uses Object's [[Get]] method to access the 'get' property
     (8.10.5 step 7.a)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
             Math.get = function () {
                 return "VerifyMathObject";
             };
@@ -20,9 +17,4 @@ function testcase() {
                 prop: Math 
             });
 
-            return newObj.prop === "VerifyMathObject";
-        } finally {
-            delete Math.get;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(newObj.prop, "VerifyMathObject", 'newObj.prop');

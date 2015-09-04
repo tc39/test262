@@ -6,10 +6,8 @@ es5id: 15.4.4.16-2-12
 description: >
     Array.prototype.every - 'length' is own accessor property without
     a get function that overrides an inherited accessor property
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var accessed = false;
 
         function callbackfn(val, idx, obj) {
@@ -17,7 +15,6 @@ function testcase() {
             return val > 10;
         }
 
-        try {
             Object.defineProperty(Object.prototype, "length", {
                 get: function () {
                     return 2;
@@ -31,10 +28,5 @@ function testcase() {
                 configurable: true
             });
 
-            return Array.prototype.every.call(obj, callbackfn) && !accessed;
-        } finally {
-            delete Object.prototype.length;
-        }
-
-    }
-runTestCase(testcase);
+assert(Array.prototype.every.call(obj, callbackfn), 'Array.prototype.every.call(obj, callbackfn) !== true');
+assert.sameValue(accessed, false, 'accessed');

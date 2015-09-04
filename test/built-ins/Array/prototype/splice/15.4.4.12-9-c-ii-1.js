@@ -7,11 +7,8 @@ description: >
     Array.prototype.splice will splice an array even when
     Array.prototype has index '0' set to read-only and 'fromPresent'
     less than 'actualDeleteCount (Step 9.c.ii)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
             var arr = ["a", "b", "c"];
             Array.prototype[0] = "test";
             var newArr = arr.splice(2, 1, "d");
@@ -35,9 +32,7 @@ function testcase() {
             delete newArr[0];
             verifyConfigurable = newArr.hasOwnProperty("0");
 
-            return verifyValue && !verifyConfigurable && verifyEnumerable && verifyWritable;
-        } finally {
-            delete Array.prototype[0];
-        }
-    }
-runTestCase(testcase);
+assert(verifyValue, 'verifyValue !== true');
+assert.sameValue(verifyConfigurable, false, 'verifyConfigurable');
+assert(verifyEnumerable, 'verifyEnumerable !== true');
+assert(verifyWritable, 'verifyWritable !== true');

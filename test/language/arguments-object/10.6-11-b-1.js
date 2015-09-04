@@ -7,11 +7,8 @@ description: >
     Arguments Object has index property '0' as its own property, it
     shoulde be writable, enumerable, configurable and does not invoke
     the setter defined on Object.prototype[0] (Step 11.b)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
             var data = "data";
             var getFunc = function () {
                 return data;
@@ -47,9 +44,8 @@ function testcase() {
             delete argObj[0];
             verifyConfigurable = argObj.hasOwnProperty("0");
 
-            return verifyValue && verifyWritable && verifyEnumerable && !verifyConfigurable && data === "data";
-        } finally {
-            delete Object.prototype[0];
-        }
-    }
-runTestCase(testcase);
+assert(verifyValue, 'verifyValue !== true');
+assert(verifyWritable, 'verifyWritable !== true');
+assert(verifyEnumerable, 'verifyEnumerable !== true');
+assert.sameValue(verifyConfigurable, false, 'verifyConfigurable');
+assert.sameValue(data, "data", 'data');

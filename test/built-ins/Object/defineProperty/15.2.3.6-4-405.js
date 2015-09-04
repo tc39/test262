@@ -10,7 +10,6 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-try {
     Object.defineProperty(Number.prototype, "prop", {
         value: 1001,
         writable: false,
@@ -22,7 +21,3 @@ try {
 
     assert(!numObj.hasOwnProperty("prop"));
     verifyNotWritable(numObj, "prop", "noCheckOwnProp");
-} finally {
-    delete Number.prototype.prop;
-}
-

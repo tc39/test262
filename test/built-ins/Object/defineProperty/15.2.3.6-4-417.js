@@ -6,12 +6,10 @@ es5id: 15.2.3.6-4-417
 description: >
     ES5 Attributes - [[Value]] attribute of inherited property of
     [[Prototype]] internal property is correct(Function.prototype.bind)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var foo = function () { };
-        try {
+
             Object.defineProperty(Function.prototype, "prop", {
                 value: 1001,
                 writable: true,
@@ -21,9 +19,5 @@ function testcase() {
 
             var obj = foo.bind({});
 
-            return !obj.hasOwnProperty("prop") && obj.prop === 1001;
-        } finally {
-            delete Function.prototype.prop;
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(obj.hasOwnProperty("prop"), false, 'obj.hasOwnProperty("prop")');
+assert.sameValue(obj.prop, 1001, 'obj.prop');

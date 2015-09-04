@@ -7,13 +7,10 @@ description: >
     Array.prototype.lastIndexOf - element to be retrieved is own
     accessor property that overrides an inherited accessor property on
     an Array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
         var arr = [];
-        try {
+
             Object.defineProperty(Array.prototype, "0", {
                 get: function () {
                     return false;
@@ -28,9 +25,4 @@ function testcase() {
                 configurable: true
             });
 
-            return 0 === arr.lastIndexOf(true);
-        } finally {
-            delete Array.prototype[0];
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(arr.lastIndexOf(true), 0, 'arr.lastIndexOf(true)');

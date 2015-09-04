@@ -6,10 +6,7 @@ es5id: 15.4.4.21-9-b-20
 description: >
     Array.prototype.reduce - properties can be added to prototype are
     visited on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var testResult = false;
 
@@ -34,11 +31,6 @@ function testcase() {
             configurable: true
         });
 
-        try {
             arr.reduce(callbackfn, "initialValue");
-            return testResult;
-        } finally {
-            delete Array.prototype[1];
-        }
-    }
-runTestCase(testcase);
+
+assert(testResult, 'testResult !== true');

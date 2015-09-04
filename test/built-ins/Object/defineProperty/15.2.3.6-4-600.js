@@ -6,17 +6,14 @@ es5id: 15.2.3.6-4-600
 description: >
     ES5 Attributes - all attributes in Object.getOwnPropertyNames are
     correct
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var desc = Object.getOwnPropertyDescriptor(Object, "getOwnPropertyNames");
 
         var propertyAreCorrect = (desc.writable === true && desc.enumerable === false && desc.configurable === true);
 
         var temp = Object.getOwnPropertyNames;
 
-        try {
             Object.getOwnPropertyNames = "2010";
 
             var isWritable = (Object.getOwnPropertyNames === "2010");
@@ -33,14 +30,7 @@ function testcase() {
 
             var isConfigurable = !Object.hasOwnProperty("getOwnPropertyNames");
 
-            return propertyAreCorrect && isWritable && !isEnumerable && isConfigurable;
-        } finally {
-            Object.defineProperty(Object, "getOwnPropertyNames", {
-                value: temp,
-                writable: true,
-                enumerable: false,
-                configurable: true
-            });
-        }
-    }
-runTestCase(testcase);
+assert(propertyAreCorrect, 'propertyAreCorrect !== true');
+assert(isWritable, 'isWritable !== true');
+assert.sameValue(isEnumerable, false, 'isEnumerable');
+assert(isConfigurable, 'isConfigurable !== true');

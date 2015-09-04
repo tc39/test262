@@ -7,15 +7,11 @@ description: >
     Object.defineProperties - 'descObj' is the Math object which
     implements its own [[Get]] method to get 'enumerable' property
     (8.10.5 step 3.a)
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = {};
         var accessed = false;
 
-        try {
             Math.enumerable = true;
 
             Object.defineProperties(obj, {
@@ -26,9 +22,5 @@ function testcase() {
                     accessed = true;
                 }
             }
-            return accessed;
-        } finally {
-            delete Math.enumerable;
-        }
-    }
-runTestCase(testcase);
+
+assert(accessed, 'accessed !== true');

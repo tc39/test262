@@ -6,10 +6,8 @@ es5id: 15.4.4.16-7-b-6
 description: >
     Array.prototype.every - properties can be added to prototype after
     current position are visited on an Array-like object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         function callbackfn(val, idx, obj) {
             if (idx === 1 && val === 6.99) {
                 return false;
@@ -32,10 +30,4 @@ function testcase() {
             configurable: true
         });
 
-        try {
-            return !Array.prototype.every.call(arr, callbackfn);
-        } finally {
-            delete Object.prototype[1];
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.every.call(arr, callbackfn), false, 'Array.prototype.every.call(arr, callbackfn)');
