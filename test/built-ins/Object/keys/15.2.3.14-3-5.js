@@ -4,15 +4,13 @@
 /*---
 es5id: 15.2.3.14-3-5
 description: Object.keys must return a fresh array on each invocation
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var literal = {a: 1};
   var keysBefore = Object.keys(literal);
-  if (keysBefore[0] != 'a') return false;
+  assert.sameValue(keysBefore[0], 'a', 'keysBefore[0]');
   keysBefore[0] = 'x';
   var keysAfter = Object.keys(literal);
-  return (keysBefore[0] == 'x') && (keysAfter[0] == 'a');
- }
-runTestCase(testcase);
+
+assert.sameValue(keysBefore[0], 'x', 'keysBefore[0]');
+assert.sameValue(keysAfter[0], 'a', 'keysAfter[0]');

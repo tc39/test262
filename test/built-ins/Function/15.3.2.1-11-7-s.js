@@ -8,16 +8,6 @@ description: >
     named arguments does not throws SyntaxError if function body is
     not strict mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-   try {
      Function('arguments', 'return;');
-     return true;
-	 
-   } catch (e) {
-     return false;
-   }
-  }
-runTestCase(testcase);

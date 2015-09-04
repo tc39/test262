@@ -6,10 +6,10 @@ es5id: 15.2.3.4-4-48
 description: >
     Object.getOwnPropertyNames - own accessor property of Array object
     'O' is pushed into the returned array.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
+var propertyFound = false;
+
         var arr = [0, 1, 2];
 
         Object.defineProperty(arr, "ownProperty", {
@@ -23,10 +23,9 @@ function testcase() {
 
         for (var p in result) {
             if (result[p] === "ownProperty") {
-                return true;
+                propertyFound = true;
+                break;
             }
         }
 
-        return false;
-    }
-runTestCase(testcase);
+assert(propertyFound, 'Property not found');

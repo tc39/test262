@@ -6,10 +6,8 @@ es5id: 15.2.3.14-5-3
 description: >
     Object.keys - non-enumerable own data property of 'O' is not
     defined in returned array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { prop1: 1001, prop2: 1002 };
 
         Object.defineProperty(obj, "prop3", {
@@ -28,12 +26,6 @@ function testcase() {
 
         for (var p in arr) {
             if (arr.hasOwnProperty(p)) {
-                if (arr[p] === "prop4") {
-                    return false;
-                }
+                assert.notSameValue(arr[p], "prop4", 'arr[p]');
             }
         }
-
-        return true;
-    }
-runTestCase(testcase);

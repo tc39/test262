@@ -6,15 +6,8 @@ es5id: 15.12.1.1-g5-3
 description: >
     A JSONStringCharacter UnicodeEscape may not include any non=hex
     characters
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-    try {
+assert.throws(SyntaxError, function() {
         JSON.parse('"\\u0X50"') 
-       }
-     catch (e) {
-        return e.name==='SyntaxError'
-        }
-  }
-runTestCase(testcase);
+});

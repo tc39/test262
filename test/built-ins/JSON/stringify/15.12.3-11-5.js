@@ -4,10 +4,6 @@
 /*---
 es5id: 15.12.3-11-5
 description: JSON.stringify correctly works on top level Boolean values.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  return JSON.stringify(true) === 'true';
-  }
-runTestCase(testcase);
+assert.sameValue(JSON.stringify(true), 'true', 'JSON.stringify(true)');

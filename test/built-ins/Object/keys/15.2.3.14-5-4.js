@@ -6,10 +6,8 @@ es5id: 15.2.3.14-5-4
 description: >
     Object.keys - non-enumerable own accessor property of 'O' is not
     defined in returned array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         Object.defineProperty(obj, "prop1", {
@@ -32,12 +30,6 @@ function testcase() {
 
         for (var p in arr) {
             if (arr.hasOwnProperty(p)) {
-                if (arr[p] === "prop2") {
-                    return false;
-                }
+                assert.notSameValue(arr[p], "prop2", 'arr[p]');
             }
         }
-
-        return true;
-    }
-runTestCase(testcase);

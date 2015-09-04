@@ -7,10 +7,8 @@ description: >
     Object.getOwnPropertyDescriptor - ensure that 'set' property of
     returned object is data property with correct 'configurable'
     attribute
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var fun = function () {
             return "ownSetProperty";
@@ -24,13 +22,8 @@ function testcase() {
 
         var propDefined = "set" in desc;
 
-        try {
             delete desc.set;
             var propDeleted = "set" in desc;
 
-            return propDefined && !propDeleted;
-        } catch (e) {
-            return false;
-        }
-    }
-runTestCase(testcase);
+assert(propDefined, 'propDefined !== true');
+assert.sameValue(propDeleted, false, 'propDeleted');

@@ -6,11 +6,6 @@ es5id: 15.4.4.15-5-17
 description: >
     Array.prototype.lastIndexOf - value of 'fromIndex' is a string
     containing -Infinity
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        return [true].lastIndexOf(true, "-Infinity") === -1;
-    }
-runTestCase(testcase);
+assert.sameValue([true].lastIndexOf(true, "-Infinity"), -1, '[true].lastIndexOf(true, "-Infinity")');

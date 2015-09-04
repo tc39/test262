@@ -6,12 +6,7 @@ es5id: 15.4.4.15-5-15
 description: >
     Array.prototype.lastIndexOf - value of 'fromIndex' is a string
     containing a negative number
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        return [0, "-2", 2].lastIndexOf("-2", "-2") === 1 &&
-            [0, 2, "-2"].lastIndexOf("-2", "-2") === -1;
-    }
-runTestCase(testcase);
+assert.sameValue([0, "-2", 2].lastIndexOf("-2", "-2"), 1, '[0, "-2", 2].lastIndexOf("-2", "-2")');
+assert.sameValue([0, 2, "-2"].lastIndexOf("-2", "-2"), -1, '[0, 2, "-2"].lastIndexOf("-2", "-2")');

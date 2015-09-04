@@ -6,10 +6,8 @@ es5id: 15.2.3.3-4-240
 description: >
     Object.getOwnPropertyDescriptor - ensure that 'get' property of
     returned object is data property with correct 'writable' attribute
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
         var fun = function () {
             return "ownGetProperty";
@@ -21,11 +19,6 @@ function testcase() {
 
         var desc = Object.getOwnPropertyDescriptor(obj, "property");
 
-        try {
             desc.get = "overwriteGetProperty";
-            return desc.get === "overwriteGetProperty";
-        } catch (e) {
-            return false;
-        }
-    }
-runTestCase(testcase);
+
+assert.sameValue(desc.get, "overwriteGetProperty", 'desc.get');

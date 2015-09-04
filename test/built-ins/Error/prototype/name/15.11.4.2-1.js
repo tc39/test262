@@ -4,15 +4,8 @@
 /*---
 es5id: 15.11.4.2-1
 description: Error.prototype.name is not enumerable.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         for (var i in Error.prototype) {
-            if (i==="name") {
-                return false;
-            }
+            assert.notSameValue(i, "name", 'i');
         }
-        return true;
-}
-runTestCase(testcase);

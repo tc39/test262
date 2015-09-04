@@ -7,10 +7,7 @@ description: >
     Array.prototype.lastIndexOf throws TypeError exception when value
     of 'fromIndex' is an object that both toString and valueOf methods
     than don't return primitive value
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var toStringAccessed = false;
         var valueOfAccessed = false;
@@ -27,11 +24,9 @@ function testcase() {
             }
         };
 
-        try {
+assert.throws(TypeError, function() {
             [0, null].lastIndexOf(null, fromIndex);
-            return false;
-        } catch (e) {
-            return toStringAccessed && valueOfAccessed;
-        }
-    }
-runTestCase(testcase);
+});
+
+assert(toStringAccessed, 'toStringAccessed');
+assert(valueOfAccessed, 'valueOfAccessed');

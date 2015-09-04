@@ -6,12 +6,8 @@ es5id: 15.2.3.5-4-306
 description: >
     Object.create - [[Value]] is set as undefined if it is absent in
     data descriptor of one property in 'Properties' (8.12.9 step 4.a.i)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        try {
             var newObj = Object.create({}, {
                 prop: {
                     writable: true,
@@ -19,9 +15,6 @@ function testcase() {
                     enumerable: true
                 }
             });
-            return newObj.hasOwnProperty("prop") && newObj.prop === undefined;
-        } catch (e) {
-            return false;
-        }
-    }
-runTestCase(testcase);
+
+assert(newObj.hasOwnProperty("prop"), 'newObj.hasOwnProperty("prop") !== true');
+assert.sameValue(newObj.prop, undefined, 'newObj.prop');

@@ -6,10 +6,8 @@ es5id: 15.2.3.14-5-16
 description: >
     Object.keys - own enumerable indexed accessor property of String
     object 'O' is defined in returned array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = new String("xyz");
         obj[-20] = -20;
         obj[20] = 20;
@@ -28,11 +26,5 @@ function testcase() {
         var arr = Object.keys(obj);
 
         for (var i = 0; i < arr.length; i++) {
-            if (!obj.hasOwnProperty(arr[i])) {
-                return false;
-            }
+            assert(obj.hasOwnProperty(arr[i]), 'obj.hasOwnProperty(arr[i]) !== true');
         }
-
-        return true;
-    }
-runTestCase(testcase);

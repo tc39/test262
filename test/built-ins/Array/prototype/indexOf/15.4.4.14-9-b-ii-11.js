@@ -6,14 +6,10 @@ es5id: 15.4.4.14-9-b-ii-11
 description: >
     Array.prototype.indexOf - both array element and search element
     are Object type, and they refer to the same object
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj1 = {};
         var obj2 = {};
         var obj3 = obj2;
-        return [{}, obj1, obj2].indexOf(obj3) === 2;
-    }
-runTestCase(testcase);
+
+assert.sameValue([{}, obj1, obj2].indexOf(obj3), 2, '[{}, obj1, obj2].indexOf(obj3)');

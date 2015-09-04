@@ -6,10 +6,6 @@ es5id: 15.12.3_2-3-a-3
 description: >
     JSON.stringify converts Boolean wrapper objects returned from
     replacer functions to literal numbers.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  return JSON.stringify([42], function(k,v) {return v===42? new Boolean(false):v}) === '[false]';
-  }
-runTestCase(testcase);
+assert.sameValue(JSON.stringify([42], function(k,v) {return v===42? new Boolean(false):v}), '[false]', 'JSON.stringify([42], function(k,v) {return v===42? new Boolean(false):v})');

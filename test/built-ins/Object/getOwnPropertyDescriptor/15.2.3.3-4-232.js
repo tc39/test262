@@ -7,19 +7,12 @@ description: >
     Object.getOwnPropertyDescriptor - ensure that 'enumerable'
     property of returned object is data property with correct
     'writable' attribute
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = { "property": "ownDataProperty" };
 
         var desc = Object.getOwnPropertyDescriptor(obj, "property");
 
-        try {
             desc.enumerable = "overwriteDataProperty";
-            return desc.enumerable === "overwriteDataProperty";
-        } catch (e) {
-            return false;
-        }
-    }
-runTestCase(testcase);
+
+assert.sameValue(desc.enumerable, "overwriteDataProperty", 'desc.enumerable');

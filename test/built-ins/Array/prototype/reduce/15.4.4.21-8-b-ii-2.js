@@ -6,10 +6,7 @@ es5id: 15.4.4.21-8-b-ii-2
 description: >
     Array.prototype.reduce - deleted properties in step 2 are visible
     here
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = { 1: "accumulator", 2: "another" };
 
@@ -21,6 +18,4 @@ function testcase() {
             configurable: true
         });
 
-        return "accumulator" !== Array.prototype.reduce.call(obj, function () { });
-    }
-runTestCase(testcase);
+assert.notSameValue(Array.prototype.reduce.call(obj, function () { }), "accumulator", 'Array.prototype.reduce.call(obj, function () { })');

@@ -4,20 +4,14 @@
 /*---
 es5id: 15.4.4.14-9-2
 description: Array.prototype.indexOf must return correct index (Number)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var obj = {toString:function (){return 0}};
   var one = 1;
   var _float = -(4/3);
   var a = new Array(false,undefined,null,"0",obj,-1.3333333333333, "str",-0,true,+0, one, 1,0, false, _float, -(4/3));
-  if (a.indexOf(-(4/3)) === 14 &&      // a[14]=_float===-(4/3)
-      a.indexOf(0) === 7      &&       // a[7] = +0, 0===+0
-      a.indexOf(-0) === 7      &&     // a[7] = +0, -0===+0
-      a.indexOf(1) === 10 )            // a[10] =one=== 1
-  {
-    return true;
-  }
- }
-runTestCase(testcase);
+
+assert.sameValue(a.indexOf(-(4/3)), 14, 'a[14]=_float===-(4/3)');
+assert.sameValue(a.indexOf(0), 7, 'a[7] = +0, 0===+0');
+assert.sameValue(a.indexOf(-0), 7, 'a[7] = +0, -0===+0');
+assert.sameValue(a.indexOf(1), 10, 'a[10] =one=== 1');

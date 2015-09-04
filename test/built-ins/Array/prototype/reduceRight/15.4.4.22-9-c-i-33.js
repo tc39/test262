@@ -6,10 +6,7 @@ es5id: 15.4.4.22-9-c-i-33
 description: >
     Array.prototype.reduceRight - unnhandled exceptions happened in
     getter terminate iteration on an Array
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var accessed = false;
         function callbackfn(prevVal, curVal, idx, obj) {
@@ -22,16 +19,13 @@ function testcase() {
 
         Object.defineProperty(arr, "1", {
             get: function () {
-                throw new RangeError("unhandle exception happened in getter");
+                throw new Test262Error("unhandle exception happened in getter");
             },
             configurable: true
         });
 
-        try {
+assert.throws(Test262Error, function() {
             arr.reduceRight(callbackfn, "initialValue");
-            return true;
-        } catch (ex) {
-            return (ex instanceof RangeError) && !accessed;
-        }
-    }
-runTestCase(testcase);
+});
+
+assert.sameValue(accessed, false, 'accessed');

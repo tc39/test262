@@ -4,10 +4,6 @@
 /*---
 es5id: 15.12.3-11-7
 description: JSON.stringify correctly works on top level Number objects.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  return JSON.stringify(new Number(42)) === '42';
-  }
-runTestCase(testcase);
+assert.sameValue(JSON.stringify(new Number(42)), '42', 'JSON.stringify(new Number(42))');

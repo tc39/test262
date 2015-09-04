@@ -6,11 +6,6 @@ es5id: 15.4.4.14-5-13
 description: >
     Array.prototype.indexOf - value of 'fromIndex' is a number (value
     is -Infinity)
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        return [true].indexOf(true, -Infinity) === 0;
-    }
-runTestCase(testcase);
+assert.sameValue([true].indexOf(true, -Infinity), 0, '[true].indexOf(true, -Infinity)');

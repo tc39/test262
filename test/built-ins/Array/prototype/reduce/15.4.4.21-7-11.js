@@ -4,12 +4,8 @@
 /*---
 es5id: 15.4.4.21-7-11
 description: Array.prototype.reduce - 'initialValue' is not present
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
         var str = "initialValue is not present";
-        return str === [str].reduce(function () { });
-    }
-runTestCase(testcase);
+
+assert.sameValue([str].reduce(function () { }), str, '[str].reduce(function () { })');

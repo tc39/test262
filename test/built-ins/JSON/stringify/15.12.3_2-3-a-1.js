@@ -6,10 +6,6 @@ es5id: 15.12.3_2-3-a-1
 description: >
     JSON.stringify converts string wrapper objects returned from
     replacer functions to literal strings.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  return JSON.stringify([42], function(k,v) {return v===42? new String('fortytwo'):v}) === '["fortytwo"]';
-  }
-runTestCase(testcase);
+assert.sameValue(JSON.stringify([42], function(k,v) {return v===42? new String('fortytwo'):v}), '["fortytwo"]', 'JSON.stringify([42], function(k,v) {return v===42? new String("fortytwo"):v})');

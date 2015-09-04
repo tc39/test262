@@ -4,10 +4,6 @@
 /*---
 es5id: 15.12.1.1-g2-1
 description: JSONStrings can be written using double quotes
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  return JSON.parse('"abc"')==="abc"; 
-  }
-runTestCase(testcase);
+assert.sameValue(JSON.parse('"abc"'), "abc", 'JSON.parse(\'"abc"\')');

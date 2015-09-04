@@ -6,10 +6,10 @@ es5id: 15.2.3.14-5-12
 description: >
     Object.keys - own enumerable indexed accessor property of dense
     array 'O' is defined in returned array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
+var propertyFound = false;
+
         var obj = [2, 3, 4, 5];
 
         Object.defineProperty(obj, "prop", {
@@ -25,11 +25,10 @@ function testcase() {
         for (var p in arr) {
             if (arr.hasOwnProperty(p)) {
                 if (arr[p] === "prop") {
-                    return true;
+                    propertyFound = true;
+                    break;
                 }
             }
         }
 
-        return false;
-    }
-runTestCase(testcase);
+assert(propertyFound, 'Property not found');

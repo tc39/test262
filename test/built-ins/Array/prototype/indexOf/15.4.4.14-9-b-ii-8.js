@@ -6,11 +6,6 @@ es5id: 15.4.4.14-9-b-ii-8
 description: >
     Array.prototype.indexOf - both array element and search element
     are Number, and they have same value
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        return [-1, 0, 1].indexOf(1) === 2;
-    }
-runTestCase(testcase);
+assert.sameValue([-1, 0, 1].indexOf(1), 2, '[-1, 0, 1].indexOf(1)');

@@ -4,13 +4,9 @@
 /*---
 es5id: 15.4.4.14-5-5
 description: Array.prototype.indexOf returns 0 if fromIndex is null
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var a = [1,2,3];
-  if (a.indexOf(1,null) === 0 ) {       // null resolves to 0
-    return true;
-  }
- }
-runTestCase(testcase);
+
+// null resolves to 0
+assert.sameValue(a.indexOf(1,null), 0, 'a.indexOf(1,null)');

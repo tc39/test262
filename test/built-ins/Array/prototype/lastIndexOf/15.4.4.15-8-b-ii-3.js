@@ -6,11 +6,6 @@ es5id: 15.4.4.15-8-b-ii-3
 description: >
     Array.prototype.lastIndexOf - both type of array element and type
     of search element are Null
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        return [null].lastIndexOf(null) === 0;
-    }
-runTestCase(testcase);
+assert.sameValue([null].lastIndexOf(null), 0, '[null].lastIndexOf(null)');

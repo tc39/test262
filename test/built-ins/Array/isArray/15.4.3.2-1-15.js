@@ -4,13 +4,7 @@
 /*---
 es5id: 15.4.3.2-1-15
 description: Array.isArray applied to the global object
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
 
-function testcase() {
-
-        return !Array.isArray(fnGlobalObject());
-    }
-runTestCase(testcase);
+assert.sameValue(Array.isArray(fnGlobalObject()), false, 'Array.isArray(fnGlobalObject())');

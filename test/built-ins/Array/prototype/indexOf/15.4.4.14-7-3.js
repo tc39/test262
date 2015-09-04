@@ -6,11 +6,6 @@ es5id: 15.4.4.14-7-3
 description: >
     Array.prototype.indexOf returns -1 when 'fromIndex' and 'length'
     are both 0
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        return [].indexOf(1, 0) === -1;
-    }
-runTestCase(testcase);
+assert.sameValue([].indexOf(1, 0), -1, '[].indexOf(1, 0)');

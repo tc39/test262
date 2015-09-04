@@ -5,17 +5,10 @@
 es5id: 15.1.1.3-1
 description: undefined is not writable, should not throw in non-strict mode
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase(){
-    undefined = 5;
-    if(typeof undefined !== "undefined") return false;
+undefined = 5;
+assert.sameValue(typeof undefined, "undefined", 'typeof undefined');
 
-    var nosuchproperty;
-    if(nosuchproperty !== undefined) return false;
-    
-    return true;
-}
-
-runTestCase(testcase);
+var nosuchproperty;
+assert.sameValue(nosuchproperty, undefined, 'nosuchproperty');

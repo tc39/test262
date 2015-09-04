@@ -6,10 +6,7 @@ es5id: 15.4.4.21-8-b-ii-1
 description: >
     Array.prototype.reduce - added properties in step 2 are visible
     here
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var obj = { };
 
@@ -21,6 +18,4 @@ function testcase() {
             configurable: true
         });
 
-        return Array.prototype.reduce.call(obj, function () { }) === "accumulator";
-    }
-runTestCase(testcase);
+assert.sameValue(Array.prototype.reduce.call(obj, function () { }), "accumulator", 'Array.prototype.reduce.call(obj, function () { })');

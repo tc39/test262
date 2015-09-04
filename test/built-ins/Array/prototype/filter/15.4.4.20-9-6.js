@@ -6,11 +6,8 @@ es5id: 15.4.4.20-9-6
 description: >
     Array.prototype.filter visits deleted element in array after the
     call when same index is also present in prototype
-includes: [runTestCase.js]
 ---*/
 
-function testcase() { 
- 
   function callbackfn(val, idx, obj)
   {
     delete srcArr[2];
@@ -25,8 +22,8 @@ function testcase() {
   var srcArr = [1,2,3,4,5];
   var resArr = srcArr.filter(callbackfn);
   delete Array.prototype[4];
-  if(resArr.length === 4 && resArr[0] === 1 && resArr[3] == 5)    // only one element deleted
-      return true;  
-  
- }
-runTestCase(testcase);
+
+// only one element deleted
+assert.sameValue(resArr.length, 4, 'resArr.length');
+assert.sameValue(resArr[0], 1, 'resArr[0]');
+assert.sameValue(resArr[3], 5, 'resArr[3]');

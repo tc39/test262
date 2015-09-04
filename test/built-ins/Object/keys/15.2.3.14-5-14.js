@@ -6,10 +6,10 @@ es5id: 15.2.3.14-5-14
 description: >
     Object.keys - own enumerable indexed accessor property of sparse
     array 'O' is defined in returned array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
+var propertyFound = false;
+
         var obj = [1, , 3, , 5];
 
         Object.defineProperty(obj, "10000", {
@@ -24,10 +24,9 @@ function testcase() {
 
         for (var p in arr) {
             if (arr[p] === "10000") {
-                return true;
+                propertyFound = true;
+                break;
             }
         }
 
-        return false;
-    }
-runTestCase(testcase);
+assert(propertyFound, 'Property not found');

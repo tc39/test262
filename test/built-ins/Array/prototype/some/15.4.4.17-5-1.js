@@ -5,10 +5,9 @@
 es5id: 15.4.4.17-5-1
 description: Array.prototype.some - thisArg is passed
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
+(function() {
         this._15_4_4_17_5_1 = false;
         var _15_4_4_17_5_1 = true;
 
@@ -16,6 +15,6 @@ function testcase() {
             return this._15_4_4_17_5_1;
         }
         var arr = [1];
-        return !arr.some(callbackfn);
-    }
-runTestCase(testcase);
+
+assert.sameValue(arr.some(callbackfn), false, 'arr.some(callbackfn)');
+})();

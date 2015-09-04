@@ -7,10 +7,6 @@ author: Ryan Lewis
 description: >
     Number.IsNaN should return false if called with a non-number
     Object.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  return Number.isNaN(new Object()) === false;
- }
-runTestCase(testcase);
+assert.sameValue(Number.isNaN(new Object()), false, 'Number.isNaN(new Object())');

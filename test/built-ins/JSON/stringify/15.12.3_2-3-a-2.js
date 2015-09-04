@@ -6,10 +6,6 @@ es5id: 15.12.3_2-3-a-2
 description: >
     JSON.stringify converts Number wrapper objects returned from
     replacer functions to literal numbers.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  return JSON.stringify([42], function(k,v) {return v===42? new Number(84):v}) === '[84]';
-  }
-runTestCase(testcase);
+assert.sameValue(JSON.stringify([42], function(k,v) {return v===42? new Number(84):v}), '[84]', 'JSON.stringify([42], function(k,v) {return v===42? new Number(84):v})');

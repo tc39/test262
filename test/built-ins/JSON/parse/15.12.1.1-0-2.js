@@ -6,16 +6,8 @@ es5id: 15.12.1.1-0-2
 description: >
     <VT> is not valid JSON whitespace as specified by the production
     JSONWhitespace.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  
-  try {
+assert.throws(SyntaxError, function() {
     JSON.parse('\u000b1234'); // should produce a syntax error 
-    }
-  catch (e) {
-      return true; // treat any exception as a pass, other tests ensure that JSON.parse throws SyntaxError exceptions
-      }
-  }
-runTestCase(testcase);
+});

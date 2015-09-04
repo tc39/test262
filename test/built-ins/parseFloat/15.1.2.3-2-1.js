@@ -6,10 +6,7 @@ es5id: 15.1.2.3-2-1
 description: >
     pareseFloat - 'trimmedString' is the empty string when inputString
     does not contain any such characters
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        return isNaN(parseFloat("")) && parseFloat("") !== parseFloat("");
-    }
-runTestCase(testcase);
+assert(isNaN(parseFloat("")), 'isNaN(parseFloat("")) !== true');
+assert.sameValue(parseFloat(""), NaN, 'parseFloat("")');

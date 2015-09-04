@@ -6,10 +6,8 @@ es5id: 15.2.3.14-5-11
 description: >
     Object.keys - own enumerable indexed data property of dense array
     'O' is defined in returned array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = [1, 2, 3, 4, 5];
 
         var arr = Object.keys(obj);
@@ -17,13 +15,7 @@ function testcase() {
         var initValue = 0;
         for (var p in arr) {
             if (arr.hasOwnProperty(p)) {
-                if (arr[p] !== initValue.toString()) {
-                    return false;
-                }
+                assert.sameValue(arr[p], initValue.toString(), 'arr[p]');
                 initValue++;
             }
         }
-
-        return true;
-    }
-runTestCase(testcase);

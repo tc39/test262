@@ -7,16 +7,6 @@ description: >
     Duplicate seperate parameter name in Function constructor called
     from strict mode allowed if body not strict
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase()
-{ 
-  try {
     Function('a','a','return;');
-    return true;
-  } catch (e) {
-    return false;
-  }
- }
-runTestCase(testcase);

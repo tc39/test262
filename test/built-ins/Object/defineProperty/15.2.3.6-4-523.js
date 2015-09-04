@@ -7,10 +7,8 @@ description: >
     ES5 Attributes - property ([[Get]] is a Function, [[Set]] is
     undefined, [[Enumerable]] is false, [[Configurable]] is false) is
     non-enumerable
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var obj = {};
 
         var getFunc = function () {
@@ -28,11 +26,8 @@ function testcase() {
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
         for (var p in obj) {
-            if (p === "prop") {
-                return false;
-            }
+            assert.notSameValue(p, "prop", 'p');
         }
 
-        return propertyDefineCorrect && desc.enumerable === false;
-    }
-runTestCase(testcase);
+assert(propertyDefineCorrect, 'propertyDefineCorrect !== true');
+assert.sameValue(desc.enumerable, false, 'desc.enumerable');

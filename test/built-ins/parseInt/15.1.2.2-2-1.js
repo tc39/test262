@@ -6,10 +6,7 @@ es5id: 15.1.2.2-2-1
 description: >
     pareseInt - 'S' is the empty string when inputString does not
     contain any such characters
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        return isNaN(parseInt("")) && parseInt("") !== parseInt("");
-    }
-runTestCase(testcase);
+assert(isNaN(parseInt("")), 'isNaN(parseInt("")) !== true');
+assert.sameValue(parseInt(""), NaN, 'parseInt("")');

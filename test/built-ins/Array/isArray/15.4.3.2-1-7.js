@@ -4,11 +4,6 @@
 /*---
 es5id: 15.4.3.2-1-7
 description: Array.isArray applied to Function object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        return !Array.isArray(function () { });
-    }
-runTestCase(testcase);
+assert.sameValue(Array.isArray(function () { }), false, 'Array.isArray(function () { })');

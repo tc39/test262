@@ -4,10 +4,6 @@
 /*---
 es5id: 11.4.6-2-1
 description: +"" should be zero
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  return +"" === 0;
- }
-runTestCase(testcase);
+assert.sameValue(+"", 0, '+""');

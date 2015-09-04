@@ -6,11 +6,6 @@ es5id: 15.4.4.15-6-4
 description: >
     Array.prototype.lastIndexOf returns -1 when 'fromIndex' and
     'length' are both 0
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        return [].lastIndexOf(1, 0) === -1;
-    }
-runTestCase(testcase);
+assert.sameValue([].lastIndexOf(1, 0), -1, '[].lastIndexOf(1, 0)');

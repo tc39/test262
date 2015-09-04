@@ -4,11 +4,6 @@
 /*---
 es5id: 15.4.3.2-1-9
 description: Array.isArray applied to Date object
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-
-        return !Array.isArray(new Date());
-    }
-runTestCase(testcase);
+assert.sameValue(Array.isArray(new Date()), false, 'Array.isArray(new Date())');

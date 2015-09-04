@@ -6,10 +6,10 @@ es5id: 15.2.3.4-4-42
 description: >
     Object.getOwnPropertyNames - own data property of String object
     'O' is pushed into the returned array
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
+var propertyFound = false;
+
         var str = new String("abc");
 
         Object.defineProperty(str, "ownProperty", {
@@ -21,10 +21,9 @@ function testcase() {
 
         for (var p in result) {
             if (result[p] === "ownProperty") {
-                return true;
+                propertyFound = true;
+                break;
             }
         }
 
-        return false;
-    }
-runTestCase(testcase);
+assert(propertyFound, 'Property not found');

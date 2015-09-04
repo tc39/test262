@@ -4,10 +4,6 @@
 /*---
 es5id: 15.12.3-11-8
 description: JSON.stringify correctly works on top level String objects.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  return JSON.stringify(new String('wrappered')) === '"wrappered"';
-  }
-runTestCase(testcase);
+assert.sameValue(JSON.stringify(new String('wrappered')), '"wrappered"', 'JSON.stringify(new String(\'wrappered\'))');

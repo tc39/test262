@@ -6,10 +6,8 @@ es5id: 15.4.4.14-5-27
 description: >
     Array.prototype.indexOf - side effects produced by step 3 are
     visible when an exception occurs
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var stepThreeOccurs = false;
         var stepFiveOccurs = false;
 
@@ -37,11 +35,7 @@ function testcase() {
             }
         };
 
-        try {
             Array.prototype.indexOf.call(obj, undefined, fromIndex);
-            return stepThreeOccurs && stepFiveOccurs;
-        } catch (ex) {
-            return false;
-        }
-    }
-runTestCase(testcase);
+
+assert(stepThreeOccurs, 'stepThreeOccurs !== true');
+assert(stepFiveOccurs, 'stepFiveOccurs !== true');

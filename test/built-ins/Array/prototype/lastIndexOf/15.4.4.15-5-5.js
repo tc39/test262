@@ -4,13 +4,10 @@
 /*---
 es5id: 15.4.4.15-5-5
 description: Array.prototype.lastIndexOf when fromIndex is null
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   var a = new Array(1,2,1);
-  if (a.lastIndexOf(2,null) === -1 && a.lastIndexOf(1,null) === 0) {       // null resolves to 0
-    return true;
-  }
- }
-runTestCase(testcase);
+
+// null resolves to 0
+assert.sameValue(a.lastIndexOf(2,null), -1, 'a.lastIndexOf(2,null)');
+assert.sameValue(a.lastIndexOf(1,null), 0, 'a.lastIndexOf(1,null)');

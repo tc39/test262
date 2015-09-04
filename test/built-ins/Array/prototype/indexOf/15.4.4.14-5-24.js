@@ -7,10 +7,7 @@ description: >
     Array.prototype.indexOf throws TypeError exception when value of
     'fromIndex' is an object with toString and valueOf methods that
     don�t return primitive values
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
         var toStringAccessed = false;
         var valueOfAccessed = false;
@@ -26,11 +23,9 @@ function testcase() {
             }
         };
 
-        try {
+assert.throws(TypeError, function() {
             [0, true].indexOf(true, fromIndex);
-            return false;
-        } catch (e) {
-            return toStringAccessed && valueOfAccessed;
-        }
-    }
-runTestCase(testcase);
+});
+
+assert(toStringAccessed, 'toStringAccessed');
+assert(valueOfAccessed, 'valueOfAccessed');
