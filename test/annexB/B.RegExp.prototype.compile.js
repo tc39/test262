@@ -6,16 +6,9 @@ es6id: B.2.5.1
 description: >
     Object.getOwnPropertyDescriptor returns data desc for functions on
     built-ins (RegExp.prototype.compile)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-  var desc = Object.getOwnPropertyDescriptor(RegExp.prototype, "compile");
-  if (desc.value === RegExp.prototype.compile &&
-      desc.writable === true &&
-      desc.enumerable === false &&
-      desc.configurable === true) {
-    return true;
-  }
- }
-runTestCase(testcase);
+verifyWritable(RegExp.prototype, "compile");
+verifyNotEnumerable(RegExp.prototype, "compile");
+verifyConfigurable(RegExp.prototype, "compile");

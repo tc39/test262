@@ -6,16 +6,10 @@ es5id: B.2.6
 description: >
     Object.getOwnPropertyDescriptor returns data desc for functions on
     built-ins (Date.prototype.toGMTString)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
+
 ---*/
 
-function testcase() {
-  var desc = Object.getOwnPropertyDescriptor(Date.prototype, "toGMTString");
-  if (desc.value === Date.prototype.toGMTString &&
-      desc.writable === true &&
-      desc.enumerable === false &&
-      desc.configurable === true) {
-    return true;
-  }
- }
-runTestCase(testcase);
+verifyWritable(Date.prototype, "toGMTString");
+verifyNotEnumerable(Date.prototype, "toGMTString");
+verifyConfigurable(Date.prototype, "toGMTString");

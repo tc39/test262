@@ -7,18 +7,12 @@ description: >
     Object.getOwnPropertyDescriptor returns data desc for functions on
     built-ins (Global.escape)
 includes:
-    - runTestCase.js
     - fnGlobalObject.js
+    - propertyHelper.js
 ---*/
 
-function testcase() {
-  var global = fnGlobalObject();
-  var desc = Object.getOwnPropertyDescriptor(global, "escape");
-  if (desc.value === global.escape &&
-      desc.writable === true &&
-      desc.enumerable === false &&
-      desc.configurable === true) {
-    return true;
-  }
- }
-runTestCase(testcase);
+var global = fnGlobalObject();
+
+verifyWritable(global, "escape");
+verifyNotEnumerable(global, "escape");
+verifyConfigurable(global, "escape");

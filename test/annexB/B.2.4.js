@@ -6,16 +6,9 @@ es5id: B.2.4
 description: >
     Object.getOwnPropertyDescriptor returns data desc for functions on
     built-ins (Date.prototype.getYear)
-includes: [runTestCase.js]
+includes: [propertyHelper.js]
 ---*/
 
-function testcase() {
-  var desc = Object.getOwnPropertyDescriptor(Date.prototype, "getYear");
-  if (desc.value === Date.prototype.getYear &&
-      desc.writable === true &&
-      desc.enumerable === false &&
-      desc.configurable === true) {
-    return true;
-  }
- }
-runTestCase(testcase);
+verifyWritable(Date.prototype, "getYear");
+verifyNotEnumerable(Date.prototype, "getYear");
+verifyConfigurable(Date.prototype, "getYear");
