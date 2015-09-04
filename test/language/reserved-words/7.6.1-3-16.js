@@ -6,10 +6,8 @@ es5id: 7.6.1-3-16
 description: >
     Allow reserved words as property names by index
     assignment,verified with hasOwnProperty: undefined, NaN, Infinity
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var tokenCodes  = {};
         tokenCodes['undefined'] = 0;
         tokenCodes['NaN'] = 1;
@@ -22,12 +20,7 @@ function testcase() {
         for(var p in tokenCodes) {       
             for(var p1 in arr) {                
                 if(arr[p1] === p) {
-                    if(!tokenCodes.hasOwnProperty(arr[p1])) {
-                        return false;
-                    };
+                    assert(tokenCodes.hasOwnProperty(arr[p1]), 'tokenCodes.hasOwnProperty(arr[p1]) !== true');
                 }
             }
         }
-        return true;
-    }
-runTestCase(testcase);

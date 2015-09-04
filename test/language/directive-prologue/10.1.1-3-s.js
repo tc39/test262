@@ -7,13 +7,12 @@ description: >
     Strict Mode - Use Strict Directive Prologue is '' use strict';'
     which the first character is space
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
         " use strict";
         var public = 1;
 
-        return public === 1;
+        assert.sameValue(public, 1);
     }
-runTestCase(testcase);
+testcase();

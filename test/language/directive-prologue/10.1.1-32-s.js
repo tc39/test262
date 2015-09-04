@@ -7,12 +7,11 @@ description: >
     Strict Mode - Function code of built-in Function constructor
     contains Use Strict Directive which appears at the end of the block
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
+
         var funObj = new Function("a", "eval('public = 1;'); anotherVariable = 2; 'use strict';");
         funObj();
-        return public === 1 && anotherVariable === 2;
-    }
-runTestCase(testcase);
+
+assert.sameValue(public, 1, 'public');
+assert.sameValue(anotherVariable, 2, 'anotherVariable');

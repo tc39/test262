@@ -5,10 +5,7 @@
 es5id: 14.1-7-s
 description: "'use strict' directive - not recognized if upper case"
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
   function foo()
   {
@@ -16,6 +13,4 @@ function testcase() {
      return (this !== undefined);
   }
 
-  return foo.call(undefined);
- }
-runTestCase(testcase);
+assert(foo.call(undefined));

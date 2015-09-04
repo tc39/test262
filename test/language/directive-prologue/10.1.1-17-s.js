@@ -8,12 +8,10 @@ description: >
     PropertyAssignment is in Strict Mode if Accessor
     PropertyAssignment is contained in use strict(getter)
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
+assert.throws(SyntaxError, function() {
         "use strict";
-        try {
             var obj = {};
             Object.defineProperty(obj, "accProperty", {
                 get: function () {
@@ -23,9 +21,4 @@ function testcase() {
             });
 
             var temp = obj.accProperty === 11;
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

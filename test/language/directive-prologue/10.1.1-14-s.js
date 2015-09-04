@@ -7,16 +7,10 @@ description: >
     Strict Mode - The call to eval function is contained in a Strict
     Mode block
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
+assert.throws(SyntaxError, function() {
         'use strict';
-        try {
+
             eval("var public = 1;");
-            return false;
-        } catch (e) {
-            return true;
-        }
-    }
-runTestCase(testcase);
+});

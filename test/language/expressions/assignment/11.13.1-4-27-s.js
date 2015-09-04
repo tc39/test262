@@ -6,20 +6,10 @@ es5id: 11.13.1-4-27-s
 description: >
     simple assignment throws TypeError if LeftHandSide is a readonly
     property in strict mode (Global.undefined)
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+flags: [onlyStrict]
+includes: [fnGlobalObject.js]
 ---*/
 
-function testcase() {
-    'use strict';
-
-    try {
+assert.throws(TypeError, function() {
       fnGlobalObject().undefined = 42;
-      return false;
-    }
-    catch (e) {
-      return (e instanceof TypeError);
-    }
- }
-runTestCase(testcase);
+});

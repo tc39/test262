@@ -14,17 +14,13 @@ es5id: 12.14-3
 description: >
     catch doesn't change declaration scope - var declaration are
     visible outside when name different from catch parameter
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
   try {
     throw new Error();
   }
   catch (e) {
     var foo = "declaration in catch";
   }
-  
-  return foo === "declaration in catch";
- }
-runTestCase(testcase);
+
+assert.sameValue(foo, "declaration in catch");

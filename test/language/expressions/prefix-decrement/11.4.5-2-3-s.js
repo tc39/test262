@@ -4,12 +4,11 @@
 /*---
 es5id: 11.4.5-2-3-s
 description: SyntaxError is not thrown for --arguments[...]
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
         arguments[1] = 7;
         --arguments[1];
-        return arguments[1]===6;
+        assert.sameValue(arguments[1], 6, 'arguments[1]');
     }
-runTestCase(testcase);
+testcase();

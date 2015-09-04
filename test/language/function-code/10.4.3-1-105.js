@@ -10,14 +10,9 @@ description: >
     Non strict mode should ToObject thisArg if not an object.  Return
     type should be object and strict equality should fail.
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase(){
   Object.defineProperty(Object.prototype, "x", { get: function () { return this; } }); 
-  if((5).x === 5) return false;
-  if(!(typeof (5).x === "object")) return false;
-  return true;
-}
 
-runTestCase(testcase);
+assert.sameValue((5).x === 5, false, '(5).x === 5');
+assert.sameValue(typeof (5).x, "object", 'typeof (5).x');

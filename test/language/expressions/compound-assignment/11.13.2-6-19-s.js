@@ -8,16 +8,17 @@ description: >
     appear as the LeftHandSideExpression of a Compound Assignment
     operator(>>>=)
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
+        var err = null;
         var blah = arguments;
         try {
             eval("arguments >>>= 20;");
-            return false;
         } catch (e) {
-            return e instanceof SyntaxError && blah === arguments;
+            err = e;
         }
-    }
-runTestCase(testcase);
+        assert(err instanceof SyntaxError, 'err instanceof SyntaxError');
+        assert.sameValue(blah, arguments, 'blah');
+}
+testcase();

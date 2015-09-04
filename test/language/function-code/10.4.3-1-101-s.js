@@ -7,12 +7,9 @@ description: >
     Strict Mode - checking 'this' (non-strict function passed as arg
     to String.prototype.replace from strict context)
 flags: [noStrict]
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
 
-function testcase() {
 var x = 3;
 
 function f() {
@@ -20,6 +17,5 @@ function f() {
     return "a";
 }
 
-return (function() {"use strict"; return "ab".replace("b", f)==="aa";}()) && (x===fnGlobalObject());
-}
-runTestCase(testcase);
+assert.sameValue(function() {"use strict"; return "ab".replace("b", f);}(), "aa");
+assert.sameValue(x, fnGlobalObject(), 'x');

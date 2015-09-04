@@ -7,17 +7,16 @@ description: >
     Strict Mode - Eval code is strict code with a Use Strict Directive
     at the beginning of the block
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
+var err = null;
+
         try {
             eval("'use strict'; var public = 1; var anotherVariableNotReserveWord = 2;");
-
-            return false;
         } catch (e) {
-            return e instanceof SyntaxError && typeof public === "undefined" &&
-                typeof anotherVariableNotReserveWord === "undefined";
+            err = e;
         }
-    }
-runTestCase(testcase);
+
+assert(err instanceof SyntaxError, 'err instanceof SyntaxError');
+assert.sameValue(typeof public, "undefined", 'typeof public');
+assert.sameValue(typeof anotherVariableNotReserveWord, "undefined", 'typeof anotherVariableNotReserveWord');

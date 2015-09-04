@@ -8,20 +8,16 @@ description: >
     is strict function code if FunctionDeclaration is contained in use
     strict
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
         "use strict";
         function fun() {
-            try {
-                eval("var public = 1;");
-                return false;
-            } catch (e) {
-                return e instanceof SyntaxError;
-            }
+            eval("var public = 1;");
         }
 
-        return fun();
+        assert.throws(SyntaxError, function() {
+            fun();
+        });
     }
-runTestCase(testcase);
+testcase();

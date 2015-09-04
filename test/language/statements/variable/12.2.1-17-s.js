@@ -8,12 +8,7 @@ description: >
     'arguments' will not throw any error if contained within strict
     mode and its body does not start with strict mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
     var f = Function('arguments = 42;');
     f();
-    return true;
-}
-runTestCase(testcase);

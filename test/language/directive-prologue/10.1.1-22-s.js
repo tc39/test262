@@ -7,18 +7,10 @@ description: >
     Strict Mode - Function code of a FunctionExpression contains Use
     Strict Directive which appears at the start of the block
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        return function () {
+assert.throws(SyntaxError, function () {
             "use strict";
-            try {
+
                 eval("var public = 1;");
-                return false;
-            } catch (e) {
-                return e instanceof SyntaxError;
-            }
-        } ();
-    }
-runTestCase(testcase);
+});

@@ -5,10 +5,7 @@
 es5id: 14.1-9-s
 description: "'use strict' directive - may occur multiple times"
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
   function foo()
   {
@@ -17,6 +14,4 @@ function testcase() {
      return (this === undefined);
   }
 
-  return foo.call(undefined);
- }
-runTestCase(testcase);
+assert(foo.call(undefined));

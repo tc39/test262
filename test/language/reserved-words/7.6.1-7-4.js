@@ -6,10 +6,8 @@ es5id: 7.6.1-7-4
 description: >
     Allow reserved words as property names by index assignment,
     accessed via indexing: new, var, catch
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         var tokenCodes = {};
         tokenCodes['new'] = 0;
         tokenCodes['var'] = 1;
@@ -20,10 +18,5 @@ function testcase() {
             'catch'
         ];
         for (var i = 0; i < arr.length; i++) {
-            if (tokenCodes[arr[i]] !== i) {
-                return false;
-            };
+            assert.sameValue(tokenCodes[arr[i]], i, 'tokenCodes[arr[i]]');
         }
-        return true;
-    }
-runTestCase(testcase);

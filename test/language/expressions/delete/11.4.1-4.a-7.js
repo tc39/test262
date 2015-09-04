@@ -8,15 +8,13 @@ info: >
 es5id: 11.4.1-4.a-7
 description: delete operator inside 'eval'
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
   var x = 1;
   var d = eval("delete x");
-  if (d === false && x === 1) {
-    return true;
-  }
-  return false;
+
+  assert.sameValue(d, false, 'd');
+  assert.sameValue(x, 1, 'x');
  }
-runTestCase(testcase);
+testcase();

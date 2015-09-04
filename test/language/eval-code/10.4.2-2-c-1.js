@@ -7,15 +7,14 @@ description: >
     Direct val code in non-strict mode - can instantiate variable in
     calling context
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
   var x = 0;
-  return function inner() {
+  function inner() {
      eval("var x = 1");
-     if (x === 1)
-        return true;
-     } ();
-   }
-runTestCase(testcase);
+     assert.sameValue(x, 1, "x");
+  }
+  inner();
+}
+testcase();

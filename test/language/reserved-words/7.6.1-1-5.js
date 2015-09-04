@@ -6,10 +6,8 @@ es5id: 7.6.1-1-5
 description: >
     Allow reserved words as property names at object initialization,
     verified with hasOwnProperty: finally, return, void
-includes: [runTestCase.js]
 ---*/
 
-function testcase(){      
         var tokenCodes  = { 
             finally: 0,
             return: 1,
@@ -23,12 +21,7 @@ function testcase(){
         for(var p in tokenCodes) {
             for(var p1 in arr) {
                 if(arr[p1] === p) {                     
-                    if(!tokenCodes.hasOwnProperty(arr[p1])) {
-                        return false;
-                    };
+                    assert(tokenCodes.hasOwnProperty(arr[p1]), 'tokenCodes.hasOwnProperty(arr[p1]) !== true');
                 }
             }
         }
-        return true;
-}
-runTestCase(testcase);

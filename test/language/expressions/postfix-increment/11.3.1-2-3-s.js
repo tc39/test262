@@ -7,12 +7,11 @@ description: >
     Strict Mode - SyntaxError is not thrown if the identifier
     'arguments[...]' appears as a PostfixExpression(arguments++)
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
         arguments[1] = 7;
         arguments[1]++;
-        return arguments[1]===8;
+        assert.sameValue(arguments[1], 8, 'arguments[1]');
     }
-runTestCase(testcase);
+testcase();

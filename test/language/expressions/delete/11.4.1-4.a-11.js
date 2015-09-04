@@ -10,7 +10,6 @@ description: >
     delete operator returns true on deleting arguments
     propterties(arguments.callee)
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
@@ -19,7 +18,8 @@ function testcase() {
     return (delete arguments.callee); 
   }
   var d = delete arguments.callee;
-  if(d === true && arguments.callee === undefined)
-    return true;
+
+  assert.sameValue(d, true, 'd');
+  assert.sameValue(arguments.callee, undefined, 'arguments.callee');
  }
-runTestCase(testcase);
+testcase();

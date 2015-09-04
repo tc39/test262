@@ -5,12 +5,11 @@
 es5id: 10.4.3-1-17-s
 description: Strict Mode - checking 'this' (eval used within strict mode)
 flags: [onlyStrict]
-includes:
-    - runTestCase.js
-    - fnGlobalObject.js
+includes: [fnGlobalObject.js]
 ---*/
 
 function testcase() {
-return (eval("typeof this") === "undefined") && (eval("this") !== fnGlobalObject());
+  assert.sameValue(eval("typeof this"), "undefined", 'eval("typeof this")');
+  assert.notSameValue(eval("this"), fnGlobalObject(), 'eval("this")');
 }
-runTestCase(testcase);
+testcase();

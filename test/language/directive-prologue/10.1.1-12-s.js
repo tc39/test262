@@ -7,11 +7,9 @@ description: >
     Strict Mode - Eval code is strict eval code with a Use Strict
     Directive in the middle of the block
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
         eval("var public = 1; 'use strict'; var anotherVariableNotReserveWord = 2;");
-        return public === 1 && anotherVariableNotReserveWord === 2;
-    }
-runTestCase(testcase);
+
+assert.sameValue(public, 1, 'public');
+assert.sameValue(anotherVariableNotReserveWord, 2, 'anotherVariableNotReserveWord');

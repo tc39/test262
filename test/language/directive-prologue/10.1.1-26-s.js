@@ -8,13 +8,12 @@ description: >
     contains Use Strict Directive which appears at the start of the
     block(setter)
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
+var data = "data";
+
+assert.throws(SyntaxError, function() {
             var obj = {};
-            var data = "data";
             Object.defineProperty(obj, "accProperty", {
                 set: function (value) {
                     "use strict";
@@ -24,10 +23,6 @@ function testcase() {
             });
 
             obj.accProperty = "overrideData";
+});
 
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError && data === "data";
-        }
-    }
-runTestCase(testcase);
+assert.sameValue(data, "data", 'data unchanged');

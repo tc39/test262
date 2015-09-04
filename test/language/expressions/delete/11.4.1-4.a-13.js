@@ -8,7 +8,6 @@ info: >
 es5id: 11.4.1-4.a-13
 description: delete operator returns false when deleting Array object
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
@@ -18,7 +17,7 @@ function testcase() {
 
   var d = delete a 
 
-  if(d === false && Array.isArray(a) === true)
-    return true;
+  assert.sameValue(d, false, 'd');
+  assert.sameValue(Array.isArray(a), true, 'Array.isArray(a)');
  }
-runTestCase(testcase);
+testcase();

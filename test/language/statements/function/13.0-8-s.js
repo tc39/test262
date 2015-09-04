@@ -10,19 +10,10 @@ description: >
     Strict Mode - SourceElements is evaluated as strict mode code when
     the code of this FunctionExpression is contained in non-strict
     mode but the call to eval is a direct call in strict mode code
-flags: [noStrict]
-includes: [runTestCase.js]
+flags: [onlyStrict]
 ---*/
 
-function testcase() {
-        "use strict";
-
-        try {
+assert.throws(SyntaxError, function() {
             eval("var _13_0_8_fun = function () {eval = 42;};");
             _13_0_8_fun();
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError;
-        }
-    }
-runTestCase(testcase);
+});

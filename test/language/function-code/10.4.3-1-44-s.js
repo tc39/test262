@@ -8,15 +8,12 @@ description: >
     defined within an Anonymous FunctionExpression with a strict
     directive prologue)
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-return (function () {
+(function () {
     "use strict";
-    return ((function () {
+    assert.sameValue((function () {
         return typeof this;
-    })()==="undefined") && ((typeof this)==="undefined");
+    })(), "undefined");
+    assert.sameValue(typeof this, "undefined", 'typeof this');
 })();
-}
-runTestCase(testcase);

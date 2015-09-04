@@ -7,13 +7,6 @@ description: >
     with statement allowed in nested Function even if its container
     Function is strict)
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-  
     Function("\'use strict\'; var f1 = Function( \"var o = {}; with (o) {};\")");
-    return true;
-  
- }
-runTestCase(testcase);

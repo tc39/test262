@@ -7,7 +7,6 @@ description: >
     Indirect call to eval has context set to global context (with
     block)
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
 var __10_4_2_1_4 = "str";
@@ -17,11 +16,8 @@ function testcase() {
             var _eval = eval;
             var __10_4_2_1_4 = "str1";
             with (o) {
-                if (_eval("\'str\' === __10_4_2_1_4") === true &&  // indirect eval
-                    eval("\'str2\' === __10_4_2_1_4") === true) {  // direct eval
-                    return true;
-                }
+                assert(_eval("\'str\' === __10_4_2_1_4"), 'indirect eval');
+                assert(eval("\'str2\' === __10_4_2_1_4"), 'direct eval');
             }
-            return false;
     }
-runTestCase(testcase);
+testcase();

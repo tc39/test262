@@ -4,17 +4,13 @@
 /*---
 es5id: 10.4.2-1-1
 description: Indirect call to eval has context set to global context
-includes: [runTestCase.js]
 ---*/
 
 var __10_4_2_1_1_1 = "str";
 function testcase() {
     var _eval = eval;
     var __10_4_2_1_1_1 = "str1";
-    if(_eval("\'str\' === __10_4_2_1_1_1") === true &&  // indirect eval
-       eval("\'str1\' === __10_4_2_1_1_1") === true) {   // direct eval
-       return true;
-    }
-    return false;
+    assert(_eval("\'str\' === __10_4_2_1_1_1"), 'indirect eval');
+    assert(eval("\'str1\' === __10_4_2_1_1_1"), 'direct eval');
 }
-runTestCase(testcase);
+testcase();

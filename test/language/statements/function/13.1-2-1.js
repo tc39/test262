@@ -6,17 +6,7 @@ es5id: 13.1-2-1
 description: >
     eval allowed as formal parameter name of a non-strict function
     declaration
-includes: [runTestCase.js]
 flags: [noStrict]
 ---*/
 
-function testcase()
-{
-  try 
-  {
     eval("function foo(eval){};");
-    return true;
-  }
-  catch (e) {  }
- }
-runTestCase(testcase);

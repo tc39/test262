@@ -6,34 +6,23 @@ es5id: 8.12.5-5-b_1
 description: >
     Changing the value of an accessor property should not affect it's
     property descriptor attributes.
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
     var tempObj = {};
     
     Object.defineProperty(tempObj, "reduce", { get: function() {return 456;}, enumerable:false, set: function() {;}});
-    var origReduce = tempObj.reduce;
     var origDesc = Object.getOwnPropertyDescriptor(tempObj, "reduce");
 
     var newDesc;
-    
-    try {
+
         tempObj.reduce = 123;
         newDesc = Object.getOwnPropertyDescriptor(tempObj, "reduce");
         var descArray = [origDesc, newDesc];
         
         for (var j in descArray) {
             for (var i in descArray[j]) {
-                if (origDesc[i]!==newDesc[i]) {
-                    return false;
-                }
+                assert.sameValue(origDesc[i], newDesc[i], 'origDesc[i]');
             }
         }
-        return tempObj.reduce===456;        
-    
-    } finally {
-        tempObj.reduce = origReduce;
-    }
-}
-runTestCase(testcase);
+
+assert.sameValue(tempObj.reduce, 456, 'tempObj.reduce');

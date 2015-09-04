@@ -7,13 +7,9 @@ description: >
     Strict Mode - checking 'this' (Anonymous FunctionExpression
     includes strict directive prologue)
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-return (function () {
+assert.sameValue((function () {
     "use strict";
     return typeof this;
-})() === "undefined";
-}
-runTestCase(testcase);
+})(), "undefined");

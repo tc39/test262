@@ -5,15 +5,15 @@
 es5id: 7.8.3-4-s
 description: Strict Mode - octal extension (06) is forbidden in strict mode
 flags: [onlyStrict]
-includes: [runTestCase.js]
 ---*/
 
-function testcase() {
-        try {
-            eval("var _7_8_3_4 = 06;");
-            return false;
-        } catch (e) {
-            return e instanceof SyntaxError && typeof _7_8_3_4 === "undefined";
-        }
-    }
-runTestCase(testcase);
+var err = null;
+
+try {
+  eval("var _7_8_3_4 = 06;");
+} catch (e) {
+  err = e;
+}
+
+assert(err instanceof SyntaxError);
+assert.sameValue(typeof _7_8_3_4, "undefined");

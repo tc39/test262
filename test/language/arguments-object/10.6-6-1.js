@@ -4,12 +4,11 @@
 /*---
 es5id: 10.6-6-1
 description: "'length property of arguments object exists"
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
   
   var desc = Object.getOwnPropertyDescriptor(arguments,"length");
-  return desc !== undefined
+  assert.notSameValue(desc, undefined);
  }
-runTestCase(testcase);
+testcase();

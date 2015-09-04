@@ -6,15 +6,14 @@ es5id: 10.4.2-3-c-1-s
 description: >
     Direct eval code in strict mode - cannot instantiate variable in
     the variable environment of the calling context
-includes: [runTestCase.js]
 ---*/
 
 function testcase() {
   var _10_4_2_3_c_1_s = 0;
   function _10_4_2_3_c_1_sFunc() {
      eval("'use strict';var _10_4_2_3_c_1_s = 1");
-     return _10_4_2_3_c_1_s===0;
+     assert.sameValue(_10_4_2_3_c_1_s, 0);
   } 
-  return _10_4_2_3_c_1_sFunc();
+  _10_4_2_3_c_1_sFunc();
  }
-runTestCase(testcase);
+testcase();

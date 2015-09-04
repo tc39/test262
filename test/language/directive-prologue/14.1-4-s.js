@@ -7,10 +7,7 @@ description: >
     'use strict' directive - not recognized if contains Line
     Continuation
 flags: [noStrict]
-includes: [runTestCase.js]
 ---*/
-
-function testcase() {
 
   function foo()
   {
@@ -19,6 +16,4 @@ ict';
      return (this !== undefined);
   }
 
-  return foo.call(undefined);
- }
-runTestCase(testcase);
+assert(foo.call(undefined));
