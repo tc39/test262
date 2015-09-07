@@ -4,6 +4,7 @@
 /*---
 info: "CharacterEscape :: c ControlLetter"
 es5id: 15.10.2.10_A2.1_T3
+es6id: B.1.4
 description: "ControlLetter :: RUSSIAN ALPHABET is incorrect"
 ---*/
 

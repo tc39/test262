@@ -8,6 +8,7 @@ description: >
     non-strict function (non-strict function declaration called by
     strict Function.prototype.apply(globalObject))
 flags: [noStrict]
+features: [caller]
 includes: [fnGlobalObject.js]
 ---*/
 

@@ -8,6 +8,7 @@ description: >
     non-strict function (indirect eval includes strict directive
     prologue)
 flags: [noStrict]
+features: [caller]
 ---*/
 
 var my_eval = eval;

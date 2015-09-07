@@ -11,12 +11,8 @@ description: "Tested string is \"~`!@#$%^&*()-+={[}]|\\\\:;'<,>./?\" + '\"'"
 
 //CHECK#1
 var non_ident = "~`!@#$%^&*()-+={[}]|\\:;'<,>./?" + '"';
-var k = -1;
-do {
-   k++;
-   var arr = new RegExp("\\" + non_ident[k], "g").exec(non_ident);   
-} while ((arr !== null) && (arr[0] === non_ident[k]))
-
-if (non_ident.length !== k) {
-   $ERROR('#1: IdentityEscapeSequence :: SourceCharacter but not IdentifierPart');
+for (var k = 0; k < non_ident.length; ++k) {
+  var arr = new RegExp("\\" + non_ident[k], "g").exec(non_ident);
+  assert.notSameValue(null, "No match for character: " + non_ident[k]);
+  assert.sameValue(arr[0], non_ident[k]);
 }
