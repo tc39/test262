@@ -8,6 +8,7 @@ description: >
     non-strict function (non-strict function declaration called by
     strict new'ed Function constructor)
 flags: [noStrict]
+features: [caller]
 ---*/
 
 function f() { return gNonStrict();};

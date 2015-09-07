@@ -5,6 +5,7 @@
 es5id: 10.6-13-a-3
 description: An indirect call to arguments.callee.caller should work
 flags: [noStrict]
+features: [caller]
 ---*/
 
     var called = false;

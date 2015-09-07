@@ -7,6 +7,7 @@ info: >
     evaluates by evaluating ClassRanges to obtain a CharSet and returning
     that CharSet and the boolean false
 es5id: 15.10.2.13_A1_T16
+es6id: B.1.4
 description: >
     Execute /[\d][\12-\14]{1,}[^\d]/.exec("line1\n\n\n\n\nline2") and
     check results

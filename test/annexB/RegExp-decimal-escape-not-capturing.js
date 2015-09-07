@@ -7,6 +7,7 @@ info: >
     matches the result of the nth set of capturing parentheses (see
     15.10.2.11)
 es5id: 15.10.2.9_A1_T4
+es6id: B.1.4
 description: >
     Execute /\b(\w+) \2\b/.test("do you listen the the band") and
     check results

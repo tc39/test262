@@ -7,6 +7,7 @@ description: >
     Strict mode - checking access to non-strict function caller from
     non-strict function (eval includes strict directive prologue)
 flags: [noStrict]
+features: [caller]
 ---*/
 
 eval("\"use strict\";\ngNonStrict();");
