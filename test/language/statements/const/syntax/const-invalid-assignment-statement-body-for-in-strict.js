@@ -3,9 +3,10 @@
 /*---
 es6id: 13.6.4.10_S1.a.i
 description: >
-    const: invalid assignment in Statement body
+    const: invalid assignment in Statement body throws TypeError in strict mode
+flags: [onlyStrict]
 ---*/
 
 assert.throws(TypeError, function() {
-  for (const x of [1, 2, 3]) { x++ }
+  for (const x in [1, 2, 3]) { x++ }
 });
