@@ -4,7 +4,6 @@
 /*---
 info: >
  Symbol.species is retained on subclassing
-es6id: 
 author: Sam Mikes
 description: Symbol.species is retained on subclassing
 includes: 

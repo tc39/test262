@@ -4,7 +4,7 @@
 /*---
 info: >
  ES6 spec 'get [Symbol.species]'
-es6id: 21.2.4.2, 22.1.2.5, 22.2.2.4, 23.1.2.2, 23.2.2.2
+es6id: 6.1.5.1
 author: Sam Mikes
 description: Symbol.species getters have defined names
 includes: 
