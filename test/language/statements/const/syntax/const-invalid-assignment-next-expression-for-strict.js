@@ -3,9 +3,16 @@
 /*---
 es6id: 13.6.3.7_S5.a.i
 description: >
-    const: invalid assignment in next expression
+    const: invalid assignment in next expression throws TypeError in strict mode
+flags: [onlyStrict]
 ---*/
 
 assert.throws(TypeError, function() {
-  for (const i = 0; i < 1; i++) {}
+  let hasRun = false;
+  for (const i = 0; i < 1; i++) {
+    if (hasRun) {
+      break;
+    }
+    hasRun = true;
+  }
 });
