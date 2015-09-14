@@ -4,7 +4,21 @@
 /*---
 info: The length property of the match method is 1
 es5id: 15.5.4.10_A11
+es6id: 21.1.3.11
 description: Checking String.prototype.match.length
+info: >
+    ES6 Section 17:
+    Every built-in Function object, including constructors, has a length
+    property whose value is an integer. Unless otherwise specified, this value
+    is equal to the largest number of named arguments shown in the subclause
+    headings for the function description, including optional parameters.
+
+    [...]
+
+    Unless otherwise specified, the length property of a built-in Function
+    object has the attributes { [[Writable]]: false, [[Enumerable]]: false,
+    [[Configurable]]: true }.
+includes: [propertyHelper.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////
@@ -22,3 +36,7 @@ if (String.prototype.match.length !== 1) {
 }
 //
 //////////////////////////////////////////////////////////////////////////////
+
+verifyNotEnumerable(String.prototype.match, 'length');
+verifyNotWritable(String.prototype.match, 'length');
+verifyConfigurable(String.prototype.match, 'length');
