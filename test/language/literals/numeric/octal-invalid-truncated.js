@@ -16,4 +16,4 @@ info: >
 negative: SyntaxError
 ---*/
 
-0b;
+0o;

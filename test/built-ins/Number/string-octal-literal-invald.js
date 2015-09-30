@@ -5,14 +5,14 @@
 es6id: 20.1.1.1
 description: Invalid octal literals yield NaN
 info: >
-    BinaryIntegerLiteral ::
-      0b BinaryDigits
-      0B BinaryDigits
-    BinaryDigits ::
-      BinaryDigit
-      BinaryDigits BinaryDigit
-    BinaryDigit :: one of
-      0 1
+    OctalIntegerLiteral ::
+      0o OctalDigits
+      0O OctalDigits
+    OctalDigits ::
+      OctalDigit
+      OctalDigits OctalDigit
+    OctalDigit :: one of
+      0 1 2 3 4 5 6 7
 ---*/
 
 assert.sameValue(Number('0o8'), NaN, 'invalid digit');
