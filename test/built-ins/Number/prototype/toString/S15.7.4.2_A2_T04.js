@@ -10,13 +10,8 @@ description: radix is 5
 ---*/
 
 //CHECK#1
-try {
-  Number.prototype.toString(5);
-  $ERROR('#1: "Number.prototype.toString(5);" lead to throwing exception. Actual: '+Number.prototype.toString(5));
-} catch (e) {
-  if (!(e instanceof TypeError)) {
-    $ERROR('#1.1: "Number.prototype.toString(5)" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
-  }
+if(Number.prototype.toString(5) !== "0"){
+  $ERROR('#1: Number.prototype.toString(5) === "0"');
 }
 
 //CHECK#2

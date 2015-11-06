@@ -10,13 +10,8 @@ description: radix is 19
 ---*/
 
 //CHECK#1
-try {
-  Number.prototype.toString(19);
-  $ERROR('#1: "Number.prototype.toString(19);" lead to throwing exception. Actual: '+Number.prototype.toString(19));
-} catch (e) {
-  if (!(e instanceof TypeError)) {
-    $ERROR('#1.1: "Number.prototype.toString(19)" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
-  }
+if(Number.prototype.toString(19) !== "0"){
+  $ERROR('#1: Number.prototype.toString(19) === "0"');
 }
 
 //CHECK#2

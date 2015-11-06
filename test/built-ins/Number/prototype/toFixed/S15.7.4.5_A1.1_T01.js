@@ -10,111 +10,62 @@ description: calling on Number prototype object
 ---*/
 
 //CHECK#1
-try {
-  Number.prototype.toFixed();
-  $ERROR('#1: "Number.prototype.toFixed();" lead to throwing exception. Actual: '+Number.prototype.toFixed());
-} catch (e) {
-  if (!(e instanceof TypeError)) {
-    $ERROR('#1.1: "Number.prototype.toFixed()" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
-  }
+if(Number.prototype.toFixed() !== "0"){
+  $ERROR('#1: Number.prototype.toFixed() === "0"');
 }
 
 //CHECK#2
-try {
-  Number.prototype.toFixed(0);
-  $ERROR('#2: "Number.prototype.toFixed(0);" lead to throwing exception. Actual: '+Number.prototype.toFixed(0));
-} catch (e) {
-  if (!(e instanceof TypeError)) {
-    $ERROR('#2.1: "Number.prototype.toFixed(0)" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
-  }
+if(Number.prototype.toFixed(0) !== "0"){
+  $ERROR('#2: Number.prototype.toFixed(0) === "0"');
 }
 
 //CHECK#3
-try {
-  Number.prototype.toFixed(1);
-  $ERROR('#3: "Number.prototype.toFixed(1);" lead to throwing exception. Actual: '+Number.prototype.toFixed(1));
-} catch (e) {
-  if (!(e instanceof TypeError)) {
-    $ERROR('#3.1: "Number.prototype.toFixed(1)" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
-  }
+if(Number.prototype.toFixed(1) !== "0.0"){
+  $ERROR('#3: Number.prototype.toFixed(1) === "0.0"');
 }
 
 //CHECK#4
-try {
-  Number.prototype.toFixed(1.1);
-  $ERROR('#4: "Number.prototype.toFixed(1.1);" lead to throwing exception. Actual: '+Number.prototype.toFixed(1.1));
-} catch (e) {
-  if (!(e instanceof TypeError)) {
-    $ERROR('#4.1: "Number.prototype.toFixed(1.1)" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
-  }
+if(Number.prototype.toFixed(1.1) !== "0.0"){
+  $ERROR('#4: Number.prototype.toFixed(1.1) === "0.0"');
 }
 
 //CHECK#5
-try {
-  Number.prototype.toFixed(0.9);
-  $ERROR('#5: "Number.prototype.toFixed(0.9);" lead to throwing exception. Actual: '+Number.prototype.toFixed(0.9));
-} catch (e) {
-  if (!(e instanceof TypeError)) {
-    $ERROR('#5.1: "Number.prototype.toFixed(0.9)" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
-  }
+if(Number.prototype.toFixed(0.9) !== "0"){
+  $ERROR('#5: Number.prototype.toFixed(0.9) === "0"');
 }
 
+
 //CHECK#6
-try {
-  Number.prototype.toFixed("1");
-  $ERROR('#6: "Number.prototype.toFixed("1");" lead to throwing exception. Actual: '+Number.prototype.toFixed("1"));
-} catch (e) {
-  if (!(e instanceof TypeError)) {
-    $ERROR('#6.1: "Number.prototype.toFixed("1")" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
-  }
+if(Number.prototype.toFixed("1") !== "0.0"){
+  $ERROR('#6: Number.prototype.toFixed("1") === "0.0"');
 }
 
 //CHECK#7
-try {
-  Number.prototype.toFixed("1.1");
-  $ERROR('#7: "Number.prototype.toFixed("1.1");" lead to throwing exception. Actual: '+Number.prototype.toFixed("1.1"));
-} catch (e) {
-  if (!(e instanceof TypeError)) {
-    $ERROR('#7.1: "Number.prototype.toFixed("1.1")" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
-  }
+if(Number.prototype.toFixed("1.1") !== "0.0"){
+  $ERROR('#7: Number.prototype.toFixed("1.1") === "0.0"');
 }
 
 //CHECK#8
-try {
-  Number.prototype.toFixed("0.9");
-  $ERROR('#8: "Number.prototype.toFixed("0.9");" lead to throwing exception. Actual: '+Number.prototype.toFixed("0.9"));
-} catch (e) {
-  if (!(e instanceof TypeError)) {
-    $ERROR('#8.1: "Number.prototype.toFixed("0.9")" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
-  }
+if(Number.prototype.toFixed("0.9") !== "0"){
+  $ERROR('#8: Number.prototype.toFixed("0.9") === "0"');
 }
 
 //CHECK#9
-try {
-  Number.prototype.toFixed(Number.NaN);
-  $ERROR('#9: "Number.prototype.toFixed(Number.NaN);" lead to throwing exception. Actual: '+Number.prototype.toFixed(Number.NaN));
-} catch (e) {
-  if (!(e instanceof TypeError)) {
-    $ERROR('#9.1: "Number.prototype.toFixed(Number.NaN)" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
-  }
+if(Number.prototype.toFixed(Number.NaN) !== "0"){
+  $ERROR('#9: Number.prototype.toFixed(Number.NaN) === "0"');
 }
 
 //CHECK#10
-try {
-  Number.prototype.toFixed("some string");
-  $ERROR('#10: "Number.prototype.toFixed("some string");" lead to throwing exception. Actual: '+Number.prototype.toFixed("some string"));
-} catch (e) {
-  if (!(e instanceof TypeError)) {
-    $ERROR('#10.1: "Number.prototype.toFixed("some string")" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
-  }
+if(Number.prototype.toFixed("some string") !== "0"){
+  $ERROR('#9: Number.prototype.toFixed("some string") === "0"');
 }
 
 //CHECK#11
-try {
-  Number.prototype.toFixed(-0.1);
-  $ERROR('#11: "Number.prototype.toFixed(-0.1);" lead to throwing exception. Actual: '+Number.prototype.toFixed(-0.1));
-} catch (e) {
-  if (!(e instanceof TypeError)) {
-    $ERROR('#11.1: "Number.prototype.toFixed(-0.1)" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
+try{
+  if(Number.prototype.toFixed(-0.1) !== "0"){
+    $ERROR('#10: Number.prototype.toFixed(-0.1) === "0"');
   }
+}
+catch(e){
+  $ERROR('#10: Number.prototype.toFixed(-0.1) should not throw '+e);
 }

@@ -15,17 +15,12 @@ if (typeof Boolean.prototype !== "object") {
 }
 
 //CHECK#2
-try {
-  (Boolean.prototype != false);
-  $ERROR('#2: "(Boolean.prototype != false);" lead to throwing exception. Actual: '+(Boolean.prototype != false));
-} catch (e) {
-  if (!(e instanceof TypeError)) {
-    $ERROR('#2.1: "(Boolean.prototype != false)" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
-  }
+if (Boolean.prototype != false) {
+  $ERROR('#2: Boolean.prototype == false');
 }
 
 delete Boolean.prototype.toString;
 
-if (Boolean.prototype.toString() !== "[object Object]") {
-  $ERROR('#3: The [[Class]] property of the Boolean prototype object is set to "Object"');
+if (Boolean.prototype.toString() !== "[object Boolean]") {
+  $ERROR('#3: The [[Class]] property of the Boolean prototype object is set to "Boolean"');
 }

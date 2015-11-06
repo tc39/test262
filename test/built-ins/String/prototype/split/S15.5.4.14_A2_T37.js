@@ -17,7 +17,7 @@ Number.prototype.split = String.prototype.split;
 
 var __split = __instance.split(1, -Math.pow(2,32)+1);
 
-var __expected = [];
+var __expected = [""];
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1

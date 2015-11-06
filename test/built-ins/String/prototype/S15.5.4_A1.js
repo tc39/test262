@@ -3,8 +3,7 @@
 
 /*---
 info: >
-    The String prototype object is itself not a String object (its [[Class]]
-    is "Object")
+    The String prototype object is itself a String object (its [[Class]] is "String")
 es5id: 15.5.4_A1
 description: >
     first we delete String.prototype.toString cause it overrides
@@ -16,8 +15,8 @@ delete String.prototype.toString;
 
 //////////////////////////////////////////////////////////////////////////////
 //CHECK#1
-if (String.prototype.toString() !== "[object "+"Object"+"]") {
-  $ERROR('#1: delete String.prototype.toString; String.prototype.toString() === "[object "+"Object"+"]". Actual: String.prototype.toString() ==='+String.prototype.toString() );
+if (String.prototype.toString() !== "[object "+"String"+"]") {
+  $ERROR('#1: delete String.prototype.toString; String.prototype.toString() === "[object "+"String"+"]". Actual: String.prototype.toString() ==='+String.prototype.toString() );
 }
 //
 //////////////////////////////////////////////////////////////////////////////

@@ -10,13 +10,8 @@ description: radix is 7
 ---*/
 
 //CHECK#1
-try {
-  Number.prototype.toString(7);
-  $ERROR('#1: "Number.prototype.toString(7);" lead to throwing exception. Actual: '+Number.prototype.toString(7));
-} catch (e) {
-  if (!(e instanceof TypeError)) {
-    $ERROR('#1.1: "Number.prototype.toString(7)" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
-  }
+if(Number.prototype.toString(7) !== "0"){
+  $ERROR('#1: Number.prototype.toString(7) === "0"');
 }
 
 //CHECK#2
