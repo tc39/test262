@@ -16,7 +16,7 @@ supreme=5;
 //CHECK#
 try {
 	var __evaluated =  eval("for(var count=0;;) {if (count===supreme)break;else count++; }");
-	if (__evaluated !== 4) {
+	if (__evaluated !== void 0) {
 		$ERROR('#1: __evaluated === 4. Actual:  __evaluated ==='+ __evaluated  );
 	}
 } catch (e) {
