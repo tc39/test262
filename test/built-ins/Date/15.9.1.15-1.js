@@ -10,7 +10,7 @@ description: >
 ---*/
 
         var result = false;
-        var expectedDateTimeStr = new Date(1970, 0, 1, 0, 0, 0, 0).toISOString();
+        var expectedDateTimeStr = "1970-01-01T00:00:00.000Z";
         var dateObj = new Date("1970");
         var dateStr = dateObj.toISOString();
         result = dateStr === expectedDateTimeStr;
