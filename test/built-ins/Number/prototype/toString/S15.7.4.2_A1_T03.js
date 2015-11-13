@@ -11,13 +11,8 @@ description: radix is undefined value
 ---*/
 
 //CHECK#1
-try {
-  Number.prototype.toString(undefined);
-  $ERROR('#1: "Number.prototype.toString(undefined);" lead to throwing exception. Actual: '+Number.prototype.toString(undefined));
-} catch (e) {
-  if (!(e instanceof TypeError)) {
-    $ERROR('#1.1: "Number.prototype.toString(undefined)" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
-  }
+if(Number.prototype.toString(undefined) !== "0"){
+  $ERROR('#1: Number.prototype.toString(undefined) === "0"');
 }
 
 //CHECK#2

@@ -11,13 +11,8 @@ description: no arguments
 ---*/
 
 //CHECK#1
-try {
-  (Boolean.prototype.toString() !== "false");
-  $ERROR('#1: "(Boolean.prototype.toString() !== "false");" lead to throwing exception. Actual: '+(Boolean.prototype.toString() !== "false"));
-} catch (e) {
-  if (!(e instanceof TypeError)) {
-    $ERROR('#1.1: "(Boolean.prototype.toString() !== "false")" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
-  }
+if(Boolean.prototype.toString() !== "false"){
+  $ERROR('#1: Boolean.prototype.toString() === "false"');
 }
 
 //CHECK#2

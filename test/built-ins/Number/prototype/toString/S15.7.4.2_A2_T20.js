@@ -10,13 +10,8 @@ description: radix is 22
 ---*/
 
 //CHECK#1
-try {
-  Number.prototype.toString(22);
-  $ERROR('#1: "Number.prototype.toString(22);" lead to throwing exception. Actual: '+Number.prototype.toString(22));
-} catch (e) {
-  if (!(e instanceof TypeError)) {
-    $ERROR('#1.1: "Number.prototype.toString(22)" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
-  }
+if(Number.prototype.toString(22) !== "0"){
+  $ERROR('#1: Number.prototype.toString(22) === "0"');
 }
 
 //CHECK#2

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: Number.prototype is itself not a Number object
+info: Number.prototype is itself Number object
 es5id: 15.7.3.1_A2_T2
 description: >
     Checking type of Number.prototype property - test based on
@@ -16,6 +16,6 @@ if (typeof Number.prototype !== "object") {
 
 Number.prototype.toString = Object.prototype.toString;
 
-if (Number.prototype.toString() !== "[object Object]") {
-  $ERROR('#3: The [[Class]] property of the Number prototype object is set to "Object"');
+if (Number.prototype.toString() !== "[object Number]") {
+  $ERROR('#3: The [[Class]] property of the Number prototype object is set to "Number"');
 }

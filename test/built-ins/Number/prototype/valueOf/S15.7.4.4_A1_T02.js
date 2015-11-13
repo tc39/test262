@@ -8,13 +8,8 @@ description: calling with argument
 ---*/
 
 //CHECK#1
-try {
-  Number.prototype.valueOf("argument");
-  $ERROR('#1: "Number.prototype.valueOf("argument");" lead to throwing exception. Actual: '+Number.prototype.valueOf("argument"));
-} catch (e) {
-  if (!(e instanceof TypeError)) {
-    $ERROR('#1.1: "Number.prototype.valueOf("argument")" lead to throwing exception. Exception is instance of TypeError. Actual: exception is '+e);
-  }
+if(Number.prototype.valueOf("argument") !== 0){
+  $ERROR('#1: Number.prototype.valueOf("argument") === 0');
 }
 
 //CHECK#2
