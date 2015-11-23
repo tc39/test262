@@ -3,6 +3,7 @@
 
 /*---
 description: Object.values sees a new element added by a getter that is hit during iteration
+es7id: pending
 author: Jordan Harband
 ---*/
 

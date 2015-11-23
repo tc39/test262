@@ -3,6 +3,7 @@
 
 /*---
 description: Object.values accepts boolean primitives.
+es7id: pending
 author: Jordan Harband
 ---*/
 

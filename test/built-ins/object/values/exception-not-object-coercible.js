@@ -3,6 +3,7 @@
 
 /*---
 description: Object.values should fail if given a null or undefined value
+es7id: pending
 author: Jordan Harband
 ---*/
 

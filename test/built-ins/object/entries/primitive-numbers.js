@@ -3,6 +3,7 @@
 
 /*---
 description: Object.entries accepts number primitives.
+es7id: pending
 author: Jordan Harband
 ---*/
 

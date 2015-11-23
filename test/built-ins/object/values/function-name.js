@@ -3,6 +3,7 @@
 
 /*---
 description: Object.values should have name property with value 'values'
+es7id: pending
 author: Jordan Harband
 includes: [propertyHelper.js]
 ---*/

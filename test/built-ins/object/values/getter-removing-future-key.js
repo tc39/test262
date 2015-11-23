@@ -3,6 +3,7 @@
 
 /*---
 description: Object.values does not see an element removed by a getter that is hit during iteration
+es7id: pending
 author: Jordan Harband
 ---*/
 

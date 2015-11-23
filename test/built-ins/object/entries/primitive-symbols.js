@@ -3,6 +3,7 @@
 
 /*---
 description: Object.entries accepts Symbol primitives.
+es7id: pending
 author: Jordan Harband
 features: [Symbol]
 ---*/

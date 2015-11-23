@@ -3,6 +3,7 @@
 
 /*---
 description: Object.values should be writable, non-enumerable, and configurable
+es7id: pending
 author: Jordan Harband
 includes: [propertyHelper.js]
 ---*/

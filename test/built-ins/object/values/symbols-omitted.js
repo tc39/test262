@@ -3,6 +3,7 @@
 
 /*---
 description: Object.values does not include Symbol keys.
+es7id: pending
 author: Jordan Harband
 features: [Symbol]
 ---*/

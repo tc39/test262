@@ -4,6 +4,7 @@
 /*---
 description: >
     Object.values should not have its behavior impacted by modifications to the global property Object
+es7id: pending
 author: Jordan Harband
 ---*/
 

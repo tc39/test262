@@ -3,6 +3,7 @@
 
 /*---
 description: Object.entries does not see an element made non-enumerable by a getter that is hit during iteration
+es7id: pending
 author: Jordan Harband
 ---*/
 

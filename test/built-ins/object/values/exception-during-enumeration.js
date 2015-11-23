@@ -3,6 +3,7 @@
 
 /*---
 description: Object.values should terminate if getting a value throws an exception
+es7id: pending
 includes: [Test262Error.js]
 author: Jordan Harband
 ---*/

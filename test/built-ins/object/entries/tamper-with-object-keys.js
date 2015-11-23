@@ -4,6 +4,7 @@
 /*---
 description: >
     Object.entries should not have its behavior impacted by modifications to Object.keys
+es7id: pending
 author: Jordan Harband
 ---*/
 

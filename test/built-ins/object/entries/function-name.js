@@ -3,6 +3,7 @@
 
 /*---
 description: Object.entries should have name property with value 'entries'
+es7id: pending
 author: Jordan Harband
 includes: [propertyHelper.js]
 ---*/

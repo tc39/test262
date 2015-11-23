@@ -3,6 +3,7 @@
 
 /*---
 description: Object.values does not see inherited properties.
+es7id: pending
 author: Jordan Harband
 ---*/
 
