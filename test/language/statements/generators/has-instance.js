@@ -10,4 +10,3 @@ es6id: 25.3
 function* g() {}
 
 assert(g() instanceof g, 'Instance created via function invocation');
-assert(new g() instanceof g, 'Instance created via constructor invocation');

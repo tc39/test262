@@ -3,23 +3,23 @@
 
 /*---
 description: >
-    Error thrown when retrieving `Symbol.species` property of the `this` value
+    Promise.race() does not retrieve `Symbol.species` property of the `this` value
 es6id: 25.4.4.3
 info: >
     1. Let C be the this value.
     2. If Type(C) is not Object, throw a TypeError exception.
-    3. Let S be Get(C, @@species).
-    4. ReturnIfAbrupt(S).
+    3. Let promiseCapability be ? NewPromiseCapability(C).
+    ...
 features: [Symbol.species]
 ---*/
 
-var C = {};
+function C(executor) {
+  executor(function(){}, function(){});
+}
 Object.defineProperty(C, Symbol.species, {
   get: function() {
-    throw new Test262Error();
+    $ERROR("Getter for Symbol.species called");
   }
 });
 
-assert.throws(Test262Error, function() {
-  Promise.race.call(C);
-});
+Promise.race.call(C, []);

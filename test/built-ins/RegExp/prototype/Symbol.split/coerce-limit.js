@@ -6,17 +6,17 @@ es6id: 21.2.5.11
 description: Length coercion of `limit` argument
 info: >
     [...]
-    17. If limit is undefined, let lim be 253–1; else let lim be
-        ToLength(limit).
+    17. If limit is undefined, let lim be 2^32-1; else let lim be ? ToUint32(limit).
     [...]
 features: [Symbol.split]
 ---*/
 
 var result;
 
+// ToUint32(-23) = 4294967273
 result = /./[Symbol.split]('abc', -23);
 assert(Array.isArray(result));
-assert.sameValue(result.length, 0);
+assert.sameValue(result.length, 4);
 
 result = /./[Symbol.split]('abc', 1.9);
 assert(Array.isArray(result));

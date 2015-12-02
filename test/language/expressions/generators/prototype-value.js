@@ -16,8 +16,3 @@ assert.sameValue(
   g.prototype,
   'Instance created via function invocation'
 );
-assert.sameValue(
-  Object.getPrototypeOf(new g()),
-  g.prototype,
-  'Instance created via constructor invocation'
-);
