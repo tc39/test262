@@ -3,13 +3,13 @@
 
 /*---
 description: >
-    Generator functions declared as methods may be used as constructors.
+    Generator functions declared as methods cannot be used as constructors.
 es6id: 14.4.13
 features: [generators]
 ---*/
 
 var method = { *method() {} }.method;
 
-var instance = new method();
-
-assert.sameValue(instance instanceof method, true);
+assert.throws(TypeError, function() {
+  var instance = new method();
+});
