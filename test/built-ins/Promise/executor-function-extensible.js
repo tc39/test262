@@ -13,7 +13,7 @@ info: >
 var executorFunction;
 function NotPromise(executor) {
   executorFunction = executor;
-  executor(() => {}, () => {});
+  executor(function(){}, function(){});
 }
 Promise.resolve.call(NotPromise);
 

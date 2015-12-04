@@ -9,6 +9,7 @@ author: Sam Mikes
 description: Promise[Symbol.species] exists per spec
 includes:
   - propertyHelper.js
+features: [Symbol.species]
 ---*/
 
 assert.sameValue(Promise[Symbol.species], Promise, "Promise[Symbol.species] is Promise");
