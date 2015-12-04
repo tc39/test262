@@ -20,6 +20,7 @@ info: >
     5. Set promiseCapability.[[Resolve]] to resolve.
     6. Set promiseCapability.[[Reject]] to reject.
     ...
+features: [class]
 ---*/
 
 var constructorFunction;
