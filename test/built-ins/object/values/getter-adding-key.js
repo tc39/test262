@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: Object.values sees a new element added by a getter that is hit during iteration
+description: Object.values does not see a new element added by a getter that is hit during iteration
 es7id: pending
 author: Jordan Harband
 ---*/
@@ -18,8 +18,7 @@ var bAddsC = {
 var result = Object.values(bAddsC);
 
 assert.sameValue(Array.isArray(result), true, 'result is an array');
-assert.sameValue(result.length, 3, 'result has 3 items');
+assert.sameValue(result.length, 2, 'result has 2 items');
 
 assert.sameValue(result[0], 'A', 'first value is "A"');
 assert.sameValue(result[1], 'B', 'second value is "B"');
-assert.sameValue(result[2], 'C', 'third value is "C"');
