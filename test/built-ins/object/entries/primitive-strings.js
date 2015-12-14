@@ -16,5 +16,5 @@ assert.sameValue(result[0][0], '0', 'first entry has key "0"');
 assert.sameValue(result[0][1], 'a', 'first entry has value "a"');
 assert.sameValue(result[1][0], '1', 'second entry has key "1"');
 assert.sameValue(result[1][1], 'b', 'second entry has value "b"');
-assert.sameValue(result[2][0], '2', 'second entry has key "2"');
-assert.sameValue(result[2][1], 'c', 'second entry has value "c"');
+assert.sameValue(result[2][0], '2', 'third entry has key "2"');
+assert.sameValue(result[2][1], 'c', 'third entry has value "c"');

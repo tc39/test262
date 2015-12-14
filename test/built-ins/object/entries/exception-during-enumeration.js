@@ -4,19 +4,18 @@
 /*---
 description: Object.entries should terminate if getting a value throws an exception
 es7id: pending
-includes: [Test262Error.js]
 author: Jordan Harband
 ---*/
 
 var trappedKey = {
     get a() {
-        throw new Test262Error('This error should be re-thrown');
+        throw new RangeError('This error should be re-thrown');
     },
     get b() {
         $ERROR('Should not try to get the second element');
     }
 };
 
-assert.throws(Test262Error, function () {
+assert.throws(RangeError, function () {
     Object.entries(trappedKey);
 });

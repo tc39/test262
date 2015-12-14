@@ -14,4 +14,4 @@ assert.sameValue(result.length, 3, 'result has 3 items');
 
 assert.sameValue(result[0], 'a', 'first value is "a"');
 assert.sameValue(result[1], 'b', 'second value is "b"');
-assert.sameValue(result[2], 'c', 'second value is "c"');
+assert.sameValue(result[2], 'c', 'third value is "c"');

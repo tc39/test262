@@ -22,4 +22,4 @@ var result = Object.values(obj);
 assert.sameValue(Array.isArray(result), true, 'result is an array');
 assert.sameValue(result.length, 1, 'result has 1 item');
 
-assert.sameValue(result[0][1], symValue, 'first value is `symValue`');
+assert.sameValue(result[0], symValue, 'first value is `symValue`');
