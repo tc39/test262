@@ -11,6 +11,7 @@ author: Jordan Harband
 function fakeObject() {
     $ERROR('The overriden version of Object was called!');
 }
+fakeObject.entries = Object.entries;
 
 var global = Function('return this;')();
 global.Object = fakeObject;
