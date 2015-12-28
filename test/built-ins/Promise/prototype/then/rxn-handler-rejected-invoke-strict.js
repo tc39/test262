@@ -3,12 +3,12 @@
 
 /*---
 info: >
-    Promise reaction jobs have predictable environment
-    'this' is global object in sloppy mode,
-    undefined in strict mode
+    [...]
+    6. Else, let handlerResult be Call(handler, undefined, «argument»).
 es6id: S25.4.2.1_A3.2_T2
 author: Sam Mikes
-description: onRejected gets default 'this'
+description: >
+    "rejected" handler invoked correctly in strict mode
 flags: [onlyStrict]
 ---*/
 
@@ -25,6 +25,11 @@ var p = Promise.reject(obj).then(function () {
 
     if (arg !== obj) {
         $DONE("Expected promise to be rejected with obj, actually " + arg);
+        return;
+    }
+
+    if (arguments.length !== 1) {
+        $DONE('Expected handler function to be called with exactly 1 argument.');
         return;
     }
 
