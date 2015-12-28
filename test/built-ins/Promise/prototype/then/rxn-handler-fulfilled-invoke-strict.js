@@ -15,9 +15,16 @@ var expectedThis = undefined,
 
 var p = Promise.resolve(obj).then(function(arg) {
     if (this !== expectedThis) {
-        $ERROR("'this' must be undefined, got " + this);
+        $DONE("'this' must be undefined, got " + this);
+        return;
     }
+
     if (arg !== obj) {
-        $ERROR("Expected promise to be fulfilled by obj, actually " + arg);
+        $DONE("Expected promise to be fulfilled by obj, actually " + arg);
+        return;
     }
-}).then($DONE, $DONE);
+
+    $DONE();
+}, function() {
+  $DONE('The promise should not be rejected.');
+});

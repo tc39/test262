@@ -16,13 +16,17 @@ var expectedThis = undefined,
     obj = {};
 
 var p = Promise.reject(obj).then(function () {
-    $ERROR("Unexpected fulfillment; expected rejection.");
+    $DONE("Unexpected fulfillment; expected rejection.");
 }, function(arg) {
     if (this !== expectedThis) {
-        $ERROR("'this' must be undefined, got " + this);
+        $DONE("'this' must be undefined, got " + this);
+        return;
     }
 
     if (arg !== obj) {
-        $ERROR("Expected promise to be rejected with obj, actually " + arg);
+        $DONE("Expected promise to be rejected with obj, actually " + arg);
+        return;
     }
-}).then($DONE, $DONE);
+
+    $DONE();
+});
