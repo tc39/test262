@@ -2,7 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 es6id: 22.1.1
-description: Subclass constructor calling super() creates an Exotic Array object
+description: >
+  Constructor calling super() with a single argument creates an Array object
 info: >
   22.1.1 The Array Constructor
 
@@ -11,15 +12,14 @@ info: >
   intend to inherit the exotic Array behaviour must include a super call to the
   Array constructor to initialize subclass instances that are exotic Array
   objects.
-includes: [compareArray.js]
 ---*/
 
 class Sub extends Array {
-  constructor(a, b) {
-    super(a, b);
+  constructor(a) {
+    super(a);
   }
 }
 
-var sub = new Sub(42, 'foo');
+var sub = new Sub(42);
 
-assert(compareArray(sub, [42, 'foo']));
+assert.sameValue(sub.length, 42);
