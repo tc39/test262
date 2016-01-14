@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 es6id: 25.4.5.3
-description: The return value of the `onRejected` method
+description: PerformPromiseThen on a rejected promise
 info: >
     7. Return PerformPromiseThen(promise, onFulfilled, onRejected,
        resultCapability).
@@ -15,19 +15,18 @@ info: >
        a. Let reason be the value of promise's [[PromiseResult]] internal slot.
        b. Perform EnqueueJob("PromiseJobs", PromiseReactionJob,
           «rejectReaction, reason»).
+    [...]
 ---*/
 
-var returnVal = {};
-var promise = new Promise(function(_, reject) {
-  reject();
-});
+var value = {};
+var p = new Promise(function(_, reject) { reject(value); });
 
-promise.then(null, function() {
-  return returnVal;
-}).then(function(result) {
-  assert.sameValue(result, returnVal);
-
-  $DONE();
-}, function() {
-  $DONE('The promise should not be rejected');
-});
+p.then(function() {
+    $DONE('The `onFulfilled` handler should not be invoked.');
+  }, function(x) {
+    if (x !== value) {
+      $DONE('The `onRejected` handler should be invoked with the promise result.');
+      return;
+    }
+    $DONE();
+  });

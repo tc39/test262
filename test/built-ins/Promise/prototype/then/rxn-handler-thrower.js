@@ -13,9 +13,11 @@ var obj = {};
 
 var p = Promise.reject(obj).then(/*Identity, Thrower*/)
         .then(function () {
-            $ERROR("Unexpected fulfillment - promise should reject.");
+            $DONE("Unexpected fulfillment - promise should reject.");
         }, function (arg) {
             if (arg !== obj) {
-                $ERROR("Expected reject reason to be obj, actually " + arg);
+                $DONE("Expected reject reason to be obj, actually " + arg);
+                return;
             }
-        }).then($DONE, $DONE);
+            $DONE();
+        });
