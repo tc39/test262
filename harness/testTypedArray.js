@@ -17,6 +17,11 @@ var typedArrayConstructors = [
 ];
 
 /**
+ * The %TypedArray% intrinsic constructor function.
+ */
+var TypedArray = Object.getPrototypeOf(Int8Array);
+
+/**
  * Callback for testing a typed array constructor.
  *
  * @callback typedArrayConstructorCallback
