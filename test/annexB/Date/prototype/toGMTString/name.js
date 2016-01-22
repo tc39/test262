@@ -19,7 +19,7 @@ info: >
 includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(Date.prototype.toGMTString.name, "toUTCString");
+assert.sameValue(Date.prototype.toGMTString.name, "toGMTString");
 
 verifyNotEnumerable(Date.prototype.toGMTString, "name");
 verifyNotWritable(Date.prototype.toGMTString, "name");
