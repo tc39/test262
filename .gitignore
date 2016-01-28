@@ -3,3 +3,4 @@
 *~
 *.pyc
 console/TestCases
+out/
