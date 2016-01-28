@@ -1,0 +1,25 @@
+language: python
+install: pip install pyyaml
+script: make
+after_success:
+  - openssl aes-256-cbc
+      -K $encrypted_7b3e5998334d_key
+      -iv $encrypted_7b3e5998334d_iv
+      -in github-deploy-key.enc
+      -out github-deploy-key
+      -d
+  - chmod 600 github-deploy-key
+  - eval "$(ssh-agent -s)"
+  - ssh-add github-deploy-key
+  - rm github-deploy-key
+  - git config --global user.email "contact@travis-ci.com"
+  - git config --global user.name "Travis CI"
+  # The repository on TravisCI is a shallow clone, so the `master` branch must
+  # be retrieved explicitly, and a local branch created from the `FETCH_HEAD`
+  # git reference
+  - git fetch origin master
+  - git branch master FETCH_HEAD
+  - make deploy
+branches:
+  only:
+    - dev

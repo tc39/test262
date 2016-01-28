@@ -2,6 +2,7 @@ OUT_DIR ?= out
 SRC_DIR ?= src
 PUBLISH_DIR ?= test
 UPSTREAM ?= git@github.com:tc39/test262.git
+MAINTAINER ?= goyakin@microsoft.com
 
 .PHONY: build
 build: build-static build-cases
@@ -35,3 +36,16 @@ deploy: clean build
 	git commit -m 'Re-build from source'
 	git push $(UPSTREAM) master
 	git checkout -
+
+# Generate a deploy key for use in a continuous integration system, allowing
+# for automated deployment in response to merge events.
+github-deploy-key:
+	ssh-keygen -t rsa -b 4096 -C $(MAINTAINER) -f github-deploy-key
+
+# Encrypt the deploy key so that it may be included in the repository (to be
+# decrypted by the continuous integration server during automated deployment)
+# This requires the "travis" Ruby gem
+# Source: https://docs.travis-ci.com/user/encrypting-files/
+github-deploy-key.enc: github-deploy-key
+	travis login
+	travis encrypt-file github-deploy-key
