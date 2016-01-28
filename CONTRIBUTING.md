@@ -45,6 +45,7 @@ Test262 supports the following tags:
  - [**negative**](#negative)
  - [**es5id**](#es5id)
  - [**es6id**](#es6id)
+ - [**id**](#id)
  - [**includes**](#includes)
  - [**timeout**](#timeout)
  - [**author**](#author)
@@ -88,6 +89,13 @@ When writing a new test for ES6, it is only necessary to include this tag when t
 **es6id**: [es6-test-id]
 
 This tag identifies the portion of the ECMAScript 6 standard that is tested by this test.
+
+#### id
+**id**: [spec-id]
+
+This tag identifies the portion of the ECMAScript draft which is most recent to the date the test was added. It represents the hash id found as anchors on the specs. E.g.: `id: sec-typedarray-length`. This tag might be used to replace a `es6id` or further.
+
+When writing a new test for a Stage 3+ spec not yet published on the draft, the `pending` value can be used while a hash id is not available.
 
 #### includes
 **includes**: [file-list]
