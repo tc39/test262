@@ -1,0 +1,26 @@
+/*---
+path: language/expressions/call/spread-
+name: CallExpression
+es6id: 12.3.4.1
+info: |
+    CallExpression : MemberExpression Arguments
+
+    [...]
+    9. Return EvaluateDirectCall(func, thisValue, Arguments, tailCall).
+
+    12.3.4.3 Runtime Semantics: EvaluateDirectCall
+
+    1. Let argList be ArgumentListEvaluation(arguments).
+    [...]
+    6. Let result be Call(func, thisValue, argList).
+    [...]
+---*/
+
+var callCount = 0;
+
+(function(/*{ params }*/) {
+  /*{ body }*/
+  callCount += 1;
+}(/*{ args }*/));
+
+assert.sameValue(callCount, 1);
