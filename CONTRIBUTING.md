@@ -93,9 +93,9 @@ This tag identifies the section number from the portion of the ECMAScript 6 stan
 #### id
 **id**: [spec-id]
 
-This tag identifies the hash id from the portion of the ECMAScript draft which is most recent to the date the test was added. It represents the anchors on the generated HTML version of the specs. E.g.: `id: sec-typedarray-length`. This tag might be used to replace a `es6id` or further.
+This tag identifies the hash ID from the portion of the ECMAScript draft which is most recent to the date the test was added. It represents the anchors on the generated HTML version of the specs. E.g.: `id: sec-typedarray-length`. This tag might be used to replace a `es6id` or further.
 
-When writing a new test for a Stage 3+ spec not yet published on the draft, the `pending` value can be used while a hash id is not available.
+When writing a new test for a Stage 3+ spec not yet published on the draft, the `pending` value can be used while a hash ID is not available.
 
 #### includes
 **includes**: [file-list]
