@@ -7,7 +7,9 @@ info: >
     LeftHandSideExpression is false.
 es6id: 12.14.1
 description: Compound "bitwise xor" assignment with non-simple target
-negative: ReferenceError
+negative:
+  phase: early
+  type: ReferenceError
 ---*/
 
 1 ^= 1;
