@@ -5,7 +5,9 @@
 es6id: 11.6
 description: >
     SyntaxError expected: reserved words used as Identifier
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 var continue = 123;

@@ -9,7 +9,9 @@ es5id: 12.14_A16_T15
 description: >
     Finally: "finally Block". Checking if passing argument to "try"
     statement fails
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 // CHECK#1

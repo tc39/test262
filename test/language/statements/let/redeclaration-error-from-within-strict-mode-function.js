@@ -4,7 +4,9 @@
 es6id: 13.1
 description: >
     Redeclaration error within strict mode function inside non-strict code.
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 flags: [noStrict]
 ---*/
 (function() { 'use strict'; { let f; var f; } })

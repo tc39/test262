@@ -5,7 +5,9 @@ es6id: 13.1
 description: >
     function declarations in statement position in strict mode:
     if ( Expression ) Statement
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 flags: [onlyStrict]
 ---*/
 if (true) function g() {}

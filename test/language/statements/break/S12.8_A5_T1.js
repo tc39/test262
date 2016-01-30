@@ -7,7 +7,9 @@ info: >
     crossing function boundaries) IterationStatement
 es5id: 12.8_A5_T1
 description: Checking if breaking another labeled loop fails
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 (function(){

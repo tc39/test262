@@ -7,7 +7,9 @@ es5id: 12.7_A1_T4
 description: >
     Checking if execution of "continue" with no IterationStatement,
     placed into a block, fails
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////

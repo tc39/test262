@@ -15,6 +15,8 @@ description: >
 
     ReservedWord : Keyword
 
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 var af = switch => 1;

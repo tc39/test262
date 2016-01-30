@@ -15,6 +15,8 @@ description: >
 
     ReservedWord : FutureReservedWord
 
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 var af = enum => 1;

@@ -15,6 +15,8 @@ info: >
     `void` UnaryExpression
     ...
 
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 void 1 ** 2;

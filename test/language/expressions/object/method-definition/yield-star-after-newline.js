@@ -6,7 +6,9 @@
       A newline may not precede the `*` token in a `yield` expression.
   features: [generators]
   es6id: 14.4
-  negative: SyntaxError
+  negative:
+    stage: early
+    type: SyntaxError
  ---*/
 
 var obj = {

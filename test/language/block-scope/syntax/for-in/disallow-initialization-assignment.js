@@ -5,7 +5,9 @@ es6id: 13.1
 description: >
     for declaration:
     disallow initialization assignment
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 for (let x = 3 in {}) { }
 

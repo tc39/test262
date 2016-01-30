@@ -6,7 +6,9 @@ description: >
     An AssignmentElement may not follow an AssignmentRestElement in an
     AssignmentElementList.
 es6id: 12.14.5
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 var x, y;

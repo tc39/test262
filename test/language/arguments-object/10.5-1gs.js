@@ -4,7 +4,9 @@
 /*---
 es5id: 10.5-1gs
 description: Strict Mode - arguments cannot be assigned to in a strict function
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 flags: [onlyStrict]
 ---*/
 

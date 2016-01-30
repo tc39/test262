@@ -6,7 +6,9 @@ es6id: 11.6
 description: >
     SyntaxError expected: reserved words used as Identifier
     Names in UTF8: class
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 var cla\u{73}s = 123;

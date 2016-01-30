@@ -6,7 +6,9 @@ description: >
     It is a Syntax Error if ContainsUndefinedContinueTarget of ModuleItemList
     with arguments « » and « » is true.
 flags: [module]
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 while (false) {

@@ -5,7 +5,9 @@
 info: The "extends" token can not be used as identifier
 es5id: 7.6.1.2_A1.11
 description: Checking if execution of "extends=1" fails
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 var extends = 1;

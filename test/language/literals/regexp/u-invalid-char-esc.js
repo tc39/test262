@@ -7,7 +7,9 @@ info: >
     An unterminated character escape produces a SyntaxError when the `u` flag
     is set (regardless of Annex B extensions--see ES6 section B.1.4).
 es6id: 21.2.1
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 /\c/u;

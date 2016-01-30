@@ -7,7 +7,9 @@ description: >
     semantics of the surrounding context.
     The SV of EscapeSequence :: HexEscapeSequence is the SV of the
     HexEscapeSequence.
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 flags: [onlyStrict]
 ---*/
 

@@ -5,6 +5,8 @@ es6id: 13.1
 description: >
     const declarations with initialisers in statement positions: 
     label: Statement
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 label: const x = 1;

@@ -15,6 +15,8 @@ info: >
     `typeof` UnaryExpression
     ...
 
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 typeof 1 ** 2;

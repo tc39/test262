@@ -6,7 +6,9 @@ es5id: 7.6-17
 description: >
     7.6 - SyntaxError expected: reserved words used as Identifier
     Names in UTF8: continue (continue)
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 var \u0063ontinue = 123;

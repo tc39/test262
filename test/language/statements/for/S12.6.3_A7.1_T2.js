@@ -9,7 +9,9 @@ es5id: 12.6.3_A7.1_T2
 description: >
     Checking if execution of "for(var index=0; index<10; index+=4;
     index++; index--)" fails
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////

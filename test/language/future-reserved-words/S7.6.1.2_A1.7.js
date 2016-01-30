@@ -5,7 +5,9 @@
 info: The "debugger" token can not be used as identifier
 es5id: 7.6.1.2_A1.7
 description: Checking if execution of "debugger=1" fails
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 var debugger = 1;

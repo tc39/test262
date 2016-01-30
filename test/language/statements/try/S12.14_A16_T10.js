@@ -7,7 +7,9 @@ info: >
     Catch Finally"
 es5id: 12.14_A16_T10
 description: "Catch: \"catch (Identifier ) Block\""
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 // CHECK#1

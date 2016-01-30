@@ -7,7 +7,9 @@ description: >
     ModuleItemList also occurs in the VarDeclaredNames of ModuleItemList.
 flags: [module]
 features: [let]
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 let x;

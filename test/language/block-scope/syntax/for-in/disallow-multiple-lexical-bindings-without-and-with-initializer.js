@@ -5,7 +5,9 @@ es6id: 13.1
 description: >
     for declaration:
     disallow multiple lexical bindings, without and with initializer
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 for (let x, y = 4 in {}) { }
 

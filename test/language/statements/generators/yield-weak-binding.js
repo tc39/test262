@@ -5,7 +5,9 @@
   description: >
       `yield` expressions bind weakly
   es6id: 14.4
-  negative: SyntaxError
+  negative:
+    stage: early
+    type: SyntaxError
  ---*/
 
 function* g() { yield 3 + yield 4; }

@@ -9,7 +9,9 @@ description: >
 
     (GeneratorMethod)
 
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 class A {
   * constructor() {}

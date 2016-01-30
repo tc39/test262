@@ -9,7 +9,9 @@ description: >
 
     (set)
 
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 class A {
   static set method(_) {

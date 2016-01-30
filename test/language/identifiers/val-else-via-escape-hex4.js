@@ -6,7 +6,9 @@ es5id: 7.6-9
 description: >
     7.6 - SyntaxError expected: reserved words used as Identifier
     Names in UTF8: else (else) (null)
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 var \u0065lse = 123;

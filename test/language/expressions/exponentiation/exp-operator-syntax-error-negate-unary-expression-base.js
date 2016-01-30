@@ -15,6 +15,8 @@ info: >
     `-` UnaryExpression
     ...
 
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 -3 ** 2;

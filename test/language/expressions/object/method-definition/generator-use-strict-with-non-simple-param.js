@@ -9,7 +9,9 @@ info: >
   Static Semantics: Early Errors
 
   It is a Syntax Error if ContainsUseStrict of GeneratorBody is true and IsSimpleParameterList of StrictFormalParameters is false.
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 var o = {

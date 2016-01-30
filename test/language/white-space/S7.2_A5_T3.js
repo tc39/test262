@@ -7,7 +7,9 @@ info: >
     of six characters, namely \u plus four hexadecimal digits
 es5id: 7.2_A5_T3
 description: Use FORM FEED (U+000C)
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 var\u000Cx;

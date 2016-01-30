@@ -7,7 +7,9 @@ info: >
     six characters, namely \u plus four hexadecimal digits
 es5id: 7.7_A2_T7
 description: Try to use + as a Unicode \u002B
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 1\u002B2;

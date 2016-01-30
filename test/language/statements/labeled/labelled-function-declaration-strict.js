@@ -6,7 +6,9 @@ description: >
     function declarations in statement position in strict mode:
     label: Statement
 flags: [onlyStrict]
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 label: function g() {}
 

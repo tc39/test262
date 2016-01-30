@@ -7,7 +7,9 @@ description: >
     contains any duplicate entries.
 flags: [module]
 features: [let, const]
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 let x;

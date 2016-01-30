@@ -9,7 +9,9 @@ info: >
     1. If A does not contain exactly one character or B does not contain
        exactly one character, throw a SyntaxError exception.
 es6id: 21.2.2.15.1
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 /[\w-a]/u;

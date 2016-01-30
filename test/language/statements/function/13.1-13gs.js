@@ -6,7 +6,9 @@ es5id: 13.1-13gs
 description: >
     StrictMode - SyntaxError is thrown if 'arguments' occurs as the
     Identifier of a FunctionDeclaration
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 flags: [onlyStrict]
 ---*/
 

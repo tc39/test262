@@ -6,7 +6,9 @@ description: >
     It is a Syntax Error if ContainsUndefinedBreakTarget of ModuleItemList with
     argument « » is true.
 flags: [module]
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 while (false) {

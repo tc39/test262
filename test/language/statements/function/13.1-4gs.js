@@ -7,7 +7,9 @@ description: >
     Strict Mode - SyntaxError is thrown if the identifier 'arguments'
     appears within a FormalParameterList of a strict mode
     FunctionExpression
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 flags: [onlyStrict]
 ---*/
 

@@ -5,6 +5,8 @@ es6id: B.3.3
 description: >
     redeclaration within block:
     attempt to redeclare function declaration with let
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 { function f() {} let f; }

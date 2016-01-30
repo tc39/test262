@@ -8,7 +8,9 @@ description: >
     an IdentifierReference.
 es6id: 12.14.5.4
 flags: [onlyStrict]
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 [ x[yield] ] = [];
