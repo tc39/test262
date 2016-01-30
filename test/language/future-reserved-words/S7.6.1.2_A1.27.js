@@ -5,7 +5,9 @@
 info: The "super" token can not be used as identifier
 es5id: 7.6.1.2_A1.27
 description: Checking if execution of "super=1" fails
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 var super = 1;

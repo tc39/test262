@@ -7,7 +7,9 @@ info: >
     IterationStatement yields SyntaxError
 es5id: 12.7_A6
 description: Using labaled "continue Identifier" within a function body
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 var x=0,y=0;

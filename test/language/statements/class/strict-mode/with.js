@@ -4,7 +4,9 @@
 es6id: 14.5
 description: >
     class strict mode: `with` disallowed
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 class C extends (function B() { with ({}); return B; }()) {}

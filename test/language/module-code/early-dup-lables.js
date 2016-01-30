@@ -6,7 +6,9 @@ description: >
     It is a Syntax Error if ContainsDuplicateLabels of ModuleItemList with
     argument « » is true.
 flags: [module]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 label: {

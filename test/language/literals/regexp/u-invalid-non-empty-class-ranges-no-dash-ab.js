@@ -22,7 +22,9 @@ info: |
        exactly one character, throw a SyntaxError exception.
 
     The `u` flag precludes the Annex B extension that enables this pattern.
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 /[\s-\d]/u;

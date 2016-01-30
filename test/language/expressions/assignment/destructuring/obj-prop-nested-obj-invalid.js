@@ -9,7 +9,9 @@ description: >
     parsed with no tokens left over using AssignmentPattern as
     the goal symbol.
 es6id: 12.14.5.1
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 ({ x: { get x() {} } } = { x: {} });

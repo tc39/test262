@@ -6,7 +6,9 @@ description: >
     It is a Syntax Error if the BoundNames of ImportDeclaration contains any
     duplicate entries.
 flags: [module]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 import { x, y as x } from 'z';

@@ -9,7 +9,9 @@ info: >
   Static Semantics: Early Errors
 
   It is a Syntax Error if ContainsUseStrict of FunctionBody is true and IsSimpleParameterList of PropertySetParameterList is false.
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 var o = {

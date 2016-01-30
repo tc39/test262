@@ -10,7 +10,9 @@ description: >
       2. If constructor is empty, return false.
       3. Return HasDirectSuper of constructor.
 
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 class A {
   constructor() {

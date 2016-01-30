@@ -5,7 +5,9 @@
 info: "RegularExpressionFirstChar :: LineTerminator is incorrect"
 es5id: 7.8.5_A1.3_T1
 description: Line Feed, without eval
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 //CHECK#1

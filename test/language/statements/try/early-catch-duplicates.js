@@ -6,7 +6,9 @@ es6id: 13.15.1
 description: >
     It is a Syntax Error if BoundNames of CatchParameter contains any duplicate
     elements.
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 $ERROR('This code should not be executed.');

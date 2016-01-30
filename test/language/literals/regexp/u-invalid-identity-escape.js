@@ -12,7 +12,9 @@ info: |
 
     The `u` flag precludes the use of characters in  UnicodeIDContinue
     irrespective of the presence of Annex B extensions.
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 /\M/u;

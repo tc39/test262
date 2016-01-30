@@ -7,7 +7,9 @@ description: >
 
     It is a Syntax Error if PrototypePropertyNameList of ClassElementList contains more than one occurrence of "constructor".
 
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 class A {
   constructor() {}

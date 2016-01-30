@@ -3,7 +3,9 @@
 /*---
 description: Statement cannot contain an `import` declaration
 esid: sec-modules
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 flags: [module]
 ---*/
 

@@ -10,7 +10,9 @@ description: >
 
     No parameter named "yield"
 
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 flags: [onlyStrict]
 ---*/
 var af = yield => 1;

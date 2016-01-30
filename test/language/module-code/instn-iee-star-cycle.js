@@ -18,7 +18,9 @@ info: |
     7. If exportStarSet contains module, return null.
     8. Append module to exportStarSet.
     [...]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 flags: [module]
 ---*/
 

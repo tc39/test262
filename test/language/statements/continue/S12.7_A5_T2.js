@@ -8,7 +8,9 @@ info: >
     IterationStatement
 es5id: 12.7_A5_T2
 description: Identifier is a function name
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 LABEL_OUT : var x=0, y=0;

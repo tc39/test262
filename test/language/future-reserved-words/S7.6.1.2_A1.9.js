@@ -5,7 +5,9 @@
 info: The "enum" token can not be used as identifier
 es5id: 7.6.1.2_A1.9
 description: Checking if execution of "enum=1" fails
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 var enum = 1;

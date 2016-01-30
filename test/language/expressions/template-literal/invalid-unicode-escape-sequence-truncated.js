@@ -6,7 +6,9 @@ description: Invalid unicode escape sequence
 info: >
     The TV of TemplateCharacter :: \ EscapeSequence is the SV of
     EscapeSequence.
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 `\u0`;

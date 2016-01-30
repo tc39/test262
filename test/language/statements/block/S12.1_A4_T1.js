@@ -5,7 +5,9 @@
 info: The production Block can't be inside of expression
 es5id: 12.1_A4_T1
 description: Checking if execution of "y={__func}()" fails
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 function __func(){};

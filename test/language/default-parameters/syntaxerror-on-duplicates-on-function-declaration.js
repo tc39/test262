@@ -10,7 +10,9 @@ info: >
   It is a Syntax Error if IsSimpleParameterList of FormalParameterList is false
   and BoundNames of FormalParameterList contains any duplicate elements.
 flags: [noStrict]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 function fn(a, a = 1) {}

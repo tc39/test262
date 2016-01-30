@@ -7,7 +7,9 @@ es5id: 12.7_A8_T1
 description: >
     Checking if execution of "continue Identifier" within catch Block
     fails
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 var x=0,y=0;

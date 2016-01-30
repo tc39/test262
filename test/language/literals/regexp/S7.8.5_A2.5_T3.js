@@ -5,7 +5,9 @@
 info: "RegularExpressionChar :: BackslashSequence :: \\LineTerminator is incorrect"
 es5id: 7.8.5_A2.5_T3
 description: Carriage Return, without eval
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 //CHECK#1

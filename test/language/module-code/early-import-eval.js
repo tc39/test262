@@ -18,7 +18,9 @@ info: |
     - It is a Syntax Error if the code matched by this production is contained
       in strict mode code and the StringValue of Identifier is "arguments" or
       "eval".
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 flags: [module]
 ---*/
 

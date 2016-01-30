@@ -5,6 +5,8 @@ es6id: 13.1
 description: >
     let declarations with initialisers in statement positions: 
     for ( ;;) Statement
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 for (;false;) let x = 1;

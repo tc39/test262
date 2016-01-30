@@ -6,7 +6,9 @@ description: >
     Block : { StatementList }
 
     It is a Syntax Error if the LexicallyDeclaredNames of StatementList contains any duplicate entries.
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 {
   class A {}

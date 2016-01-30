@@ -7,7 +7,9 @@ es5id: 7.8.4_A1.2_T1
 description: >
     SingleStringCharacter :: SourceCharacter but not single-quote ' or
     LineTerminator
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 //CHECK#1

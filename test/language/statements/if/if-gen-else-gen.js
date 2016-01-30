@@ -4,7 +4,9 @@
 description: Generator declaration not allowed in statement position
 esid: sec-if-statement
 es6id: 13.6
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 if (true) function* g() {  } else function* _g() {}
