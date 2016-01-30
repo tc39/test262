@@ -25,7 +25,9 @@ info: |
        Contains is used to detect new.target, this, and super usage within an
        ArrowFunction.
 features: [arrow-function]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 () => {

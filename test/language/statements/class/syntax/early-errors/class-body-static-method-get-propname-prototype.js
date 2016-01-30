@@ -9,7 +9,9 @@ description: >
 
     (get)
 
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 class A {
   static get prototype() {}

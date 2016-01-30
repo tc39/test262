@@ -5,7 +5,9 @@
 info: The "continue" token can not be used as identifier
 es5id: 7.6.1.1_A1.4
 description: Checking if execution of "contunue=1" fails
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 continue = 1;

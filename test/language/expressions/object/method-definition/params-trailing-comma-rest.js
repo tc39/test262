@@ -6,7 +6,9 @@ description: >
   object method parameter lists.
 info: http://jeffmo.github.io/es-trailing-function-commas/
 author: Jeff Morrison <lbljeffmo@gmail.com>
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 ({
   m(...[],) {}

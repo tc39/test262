@@ -6,7 +6,9 @@ description: >
     It is a Syntax Error if the ExportedNames of ModuleItemList contains any
     duplicate entries.
 flags: [module]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 var x;

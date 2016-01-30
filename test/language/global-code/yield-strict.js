@@ -15,7 +15,9 @@ info: |
   ScriptBody :
     StatementList[~Yield, ~Return]
 flags: [onlyStrict]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 yield;

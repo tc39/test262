@@ -14,6 +14,8 @@ description: >
 
     No duplicates, rest
 
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 var af = (x, ...x) => 1;

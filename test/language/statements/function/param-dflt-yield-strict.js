@@ -11,7 +11,9 @@ info: |
     function BindingIdentifier[?Yield] ( FormalParameters ) { FunctionBody }
 features: [generators, default-parameters]
 flags: [onlyStrict]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 function *g() {

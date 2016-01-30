@@ -9,7 +9,9 @@ description: >
 
     (set)
 
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 class A {
   set constructor(_) {}

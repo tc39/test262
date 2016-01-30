@@ -7,7 +7,9 @@ description: >
     StrictFormalParameters also occurs in the LexicallyDeclaredNames of
     FunctionBody.
 es6id: 14.3.1
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 var obj = {

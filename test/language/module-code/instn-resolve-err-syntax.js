@@ -10,7 +10,9 @@ info: |
        [...]
        b. Let requiredModule be ? HostResolveImportedModule(module, required).
     [...]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 flags: [module]
 ---*/
 

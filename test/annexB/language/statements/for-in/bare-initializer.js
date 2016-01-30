@@ -4,7 +4,9 @@
 esid: sec-initializers-in-forin-statement-heads
 description: >
     for-in heads prohibit AssignmentExpressions
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 var a;
 throw NotEarlyError;

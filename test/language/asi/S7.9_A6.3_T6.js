@@ -8,7 +8,9 @@ info: >
     Don`t use semicolons
 es5id: 7.9_A6.3_T6
 description: For header is (\n false \n false \n)
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 //CHECK#1

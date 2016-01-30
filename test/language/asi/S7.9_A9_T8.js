@@ -5,7 +5,9 @@
 info: Check Do-While Statement for automatic semicolon insertion
 es5id: 7.9_A9_T8
 description: Execute do {}; \n while(false)
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 //CHECK#1

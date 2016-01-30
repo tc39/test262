@@ -3,7 +3,9 @@
 /*---
 esid: sec-template-literal-lexical-components
 description: Invalid unicode escape sequence
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 `\u{10FFFFF}${'inner'}right`;

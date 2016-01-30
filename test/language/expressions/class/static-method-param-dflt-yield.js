@@ -10,7 +10,9 @@ info: |
 
     PropertyName[?Yield] ( StrictFormalParameters ) { FunctionBody }
 features: [generators, default-parameters]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 0, class {

@@ -5,7 +5,9 @@ description: Module code is always strict mode code.
 es6id: 10.2.1
 esid: sec-strict-mode-code
 flags: [module]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 $ERROR('This statement should not be executed.');

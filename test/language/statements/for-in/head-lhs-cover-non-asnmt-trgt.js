@@ -14,7 +14,9 @@ info: >
     LeftHandSideExpression. This rule is recursively applied.
 esid: sec-for-in-and-for-of-statements-static-semantics-early-errors
 es6id: 13.7.5
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 for ((this) in {}) {}

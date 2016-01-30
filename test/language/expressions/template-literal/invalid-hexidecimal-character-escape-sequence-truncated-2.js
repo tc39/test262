@@ -3,7 +3,9 @@
 /*---
 esid: sec-template-literal-lexical-components
 description: Invalid hexidecimal character escape sequence
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 `\x0G`;

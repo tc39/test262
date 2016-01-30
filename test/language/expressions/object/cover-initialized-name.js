@@ -22,7 +22,9 @@ info: |
   CoverInitializedName[Yield]:
 
     IdentifierReference[?Yield] Initializer[+In, ?Yield]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 ({ a = 1 });

@@ -2,7 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: The declaration may not contain a binding for `let`
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 info: |
     It is a Syntax Error if the BoundNames of ForDeclaration contains "let".
 flags: [noStrict]

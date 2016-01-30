@@ -15,6 +15,8 @@ info: >
     `+` UnaryExpression
     ...
 
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 +1 ** 2;

@@ -4,7 +4,9 @@
 description: AnnexB extension not honored in strict mode (IfStatement with a declaration in the first statement position in the global scope)
 es6id: B.3.4
 flags: [onlyStrict]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 info: >
     The following rules for IfStatement augment those in 13.6:
     

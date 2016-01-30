@@ -9,7 +9,9 @@ features: [generators]
 es6id: 14.4.1
 author: Sam Mikes
 description: GeneratorMethod error with lexical shadowing
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 var obj = {

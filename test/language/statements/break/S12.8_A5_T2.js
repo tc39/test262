@@ -9,7 +9,9 @@ es5id: 12.8_A5_T2
 description: >
     Checking if using function name as an Identifier appears to be
     invalid
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 (function(){

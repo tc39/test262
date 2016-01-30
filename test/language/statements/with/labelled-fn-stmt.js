@@ -16,7 +16,9 @@ info: |
 
   In the absence of Annex B.3.2, a SyntaxError should be produced due to the
   labelled function declaration itself.
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 with ({}) label1: label2: function test262() {}
