@@ -7,7 +7,9 @@ info: >
     UnaryExpression is false.
 es5id: 12.5.1
 description: Applied to a non-simple assignment target
-negative: ReferenceError
+negative:
+  stage: early
+  type: ReferenceError
 ---*/
 
 --1;
