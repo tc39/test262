@@ -6,7 +6,9 @@ author: Brian Terlson <brian.terlson@microsoft.com>
 esid: pending
 description: >
   await is not a simple assignment target and cannot be assigned to.
-negative: ReferenceError
+negative:
+  phase: early
+  type: ReferenceError
 ---*/
 
 async function foo() {

@@ -18,7 +18,9 @@ info: |
   new.target
 
   1. Return false.
-negative: ReferenceError
+negative:
+  phase: early
+  type: ReferenceError
 ---*/
 
 function f() {
