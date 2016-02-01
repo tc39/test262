@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: Object.getOwnPropertyDescriptors does not include Symbol keys.
-es7id: pending
+description: Object.getOwnPropertyDescriptors includes Symbol keys.
+esid: pending
 author: Jordan Harband
 features: [Symbol]
 ---*/

@@ -3,7 +3,7 @@
 
 /*---
 description: Object.getOwnPropertyDescriptors should be writable, non-enumerable, and configurable
-es7id: pending
+esid: pending
 author: Jordan Harband
 includes: [propertyHelper.js]
 ---*/

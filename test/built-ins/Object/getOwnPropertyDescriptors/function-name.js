@@ -3,7 +3,7 @@
 
 /*---
 description: Object.getOwnPropertyDescriptors should have name property with value 'getOwnPropertyDescriptors'
-es7id: pending
+esid: pending
 author: Jordan Harband
 includes: [propertyHelper.js]
 ---*/

@@ -3,7 +3,7 @@
 
 /*---
 description: Object.getOwnPropertyDescriptors should perform observable operations in the correct order
-es7id: pending
+esid: pending
 author: Jordan Harband
 features: [Proxy]
 ---*/
@@ -42,4 +42,4 @@ var check = {
 };
 var proxy = new Proxy(object, new Proxy(handler, check));
 var result = Object.getOwnPropertyDescriptors(proxy);
-assert.sameValue(log, "|ownKeys|getOwnPropertyDescriptor:a|getOwnPropertyDescriptor:b|getOwnPropertyDescriptor:c", log);
+assert.sameValue(log, "|ownKeys|getOwnPropertyDescriptor:a|getOwnPropertyDescriptor:b|getOwnPropertyDescriptor:c", 'log');
