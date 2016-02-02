@@ -3,7 +3,7 @@
 
 /*---
 description: Object.getOwnPropertyDescriptors includes Symbol keys.
-esid: pending
+id: pending
 author: Jordan Harband
 features: [Symbol]
 ---*/

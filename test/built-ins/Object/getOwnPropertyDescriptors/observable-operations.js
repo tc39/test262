@@ -3,7 +3,7 @@
 
 /*---
 description: Object.getOwnPropertyDescriptors should perform observable operations in the correct order
-esid: pending
+id: pending
 author: Jordan Harband
 features: [Proxy]
 ---*/

@@ -3,7 +3,7 @@
 
 /*---
 description: Object.getOwnPropertyDescriptors should have length 1
-esid: pending
+id: pending
 author: Jordan Harband
 includes: [propertyHelper.js]
 ---*/

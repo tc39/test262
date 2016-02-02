@@ -4,7 +4,7 @@
 /*---
 description: >
     Object.getOwnPropertyDescriptors should not have its behavior impacted by modifications to Object.getOwnPropertyDescriptor
-esid: pending
+id: pending
 author: Jordan Harband
 ---*/
 

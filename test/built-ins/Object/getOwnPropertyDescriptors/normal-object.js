@@ -3,7 +3,7 @@
 
 /*---
 description: Object.getOwnPropertyDescriptors should produce a normal object inheriting from Object.prototype
-esid: pending
+id: pending
 author: Jordan Harband
 ---*/
 

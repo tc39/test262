@@ -3,7 +3,7 @@
 
 /*---
 description: Object.getOwnPropertyDescriptors on a proxy with duplicate ownKeys should work
-esid: pending
+id: pending
 author: Jordan Harband
 features: [Proxy]
 ---*/

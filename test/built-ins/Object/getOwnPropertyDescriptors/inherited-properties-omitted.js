@@ -3,7 +3,7 @@
 
 /*---
 description: Object.getOwnPropertyDescriptors does not see inherited properties.
-esid: pending
+id: pending
 author: Jordan Harband
 ---*/
 
