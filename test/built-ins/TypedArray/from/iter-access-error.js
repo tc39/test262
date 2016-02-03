@@ -1,15 +1,18 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-es6id: 22.2.2.1.1
+id: sec-%typedarray%.from
 description: Returns error produced by accessing @@iterator
 info: >
-  22.2.2.1.1 Runtime Semantics: TypedArrayFrom( constructor, items, mapfn,
-  thisArg )
+  22.2.2.1 %TypedArray%.from ( source [ , mapfn [ , thisArg ] ] )
 
   ...
-  6. Let usingIterator be GetMethod(items, @@iterator).
-  7. ReturnIfAbrupt(usingIterator).
+  6. Let arrayLike be ? IterableToArrayLike(source).
+  ...
+
+  22.2.2.1.1 Runtime Semantics: IterableToArrayLike( items )
+
+  1. Let usingIterator be ? GetMethod(items, @@iterator).
   ...
 features: [Symbol.iterator]
 includes: [testTypedArray.js]
