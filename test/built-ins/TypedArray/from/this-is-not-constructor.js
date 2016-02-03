@@ -17,5 +17,5 @@ var from = TypedArray.from;
 var m = { m() {} }.m;
 
 assert.throws(TypeError, function() {
-  from.call(o.m, []);
+  from.call(m, []);
 });

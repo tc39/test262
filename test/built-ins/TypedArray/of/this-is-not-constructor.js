@@ -14,10 +14,8 @@ info: >
 includes: [testTypedArray.js]
 ---*/
 
-var o = {
-  m() {}
-};
+var m = { m() {} }.m;
 
 assert.throws(TypeError, function() {
-  TypedArray.of.call(o.m, []);
+  TypedArray.of.call(m, []);
 });
