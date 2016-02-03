@@ -13,5 +13,12 @@ includes: [testTypedArray.js]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
-  assert.sameValue(TA.from, TypedArray.from);
+  assert.sameValue(
+    TA.from, TypedArray.from,
+    "method is inherited %TypedArray%.from"
+  );
+  assert.sameValue(
+    TA.hasOwnProperty("from"), false,
+    "constructor does not define an own property named 'from'"
+  );
 });

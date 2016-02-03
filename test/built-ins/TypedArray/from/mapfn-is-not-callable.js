@@ -11,16 +11,51 @@ info: >
     a. If IsCallable(mapfn) is false, throw a TypeError exception.
   ...
 includes: [testTypedArray.js]
-features: [Symbol.iterator]
+features: [Symbol, Symbol.iterator]
 ---*/
 
+var getIterator = 0;
 var arrayLike = {};
 Object.defineProperty(arrayLike, Symbol.iterator, {
   get: function() {
-    throw new Test262Error();
+    getIterator++;
   }
 });
 
 assert.throws(TypeError, function() {
+  TypedArray.from(arrayLike, null);
+}, "mapfn is null");
+
+assert.throws(TypeError, function() {
   TypedArray.from(arrayLike, 42);
-});
+}, "mapfn is a number");
+
+assert.throws(TypeError, function() {
+  TypedArray.from(arrayLike, "");
+}, "mapfn is a string");
+
+assert.throws(TypeError, function() {
+  TypedArray.from(arrayLike, {});
+}, "mapfn is an ordinary object");
+
+assert.throws(TypeError, function() {
+  TypedArray.from(arrayLike, []);
+}, "mapfn is an array");
+
+assert.throws(TypeError, function() {
+  TypedArray.from(arrayLike, true);
+}, "mapfn is a boolean");
+
+var s = Symbol("1")
+assert.throws(TypeError, function() {
+  TypedArray.from(arrayLike, s);
+}, "mapfn is a symbol");
+
+assert.throws(TypeError, function() {
+  TypedArray.from(arrayLike, Int8Array);
+}, "mapfn is a TypedArray constructor (not callable)");
+
+assert.sameValue(
+  getIterator, 0,
+  "IsCallable(mapfn) check occurs before getting source[@@iterator]"
+);
