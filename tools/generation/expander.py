@@ -3,7 +3,8 @@ import re, os
 from case import Case
 from template import Template
 
-hashesFilenamePattern = re.compile(r'^[^\.].*\.hashes$')
+caseFilenamePattern = re.compile(r'^[^\.].*\.case$')
+templateFilenamePattern = re.compile(r'^[^\.].*\.template$')
 
 class Expander:
     def __init__(self, case_dir):
@@ -26,12 +27,12 @@ class Expander:
         return self.templates[template_class]
 
     def is_template_file(self, filename):
-      return re.match(hashesFilenamePattern, filename)
+      return re.match(templateFilenamePattern, filename)
 
     def list_cases(self):
         for name in os.listdir(self.case_dir):
             full = os.path.join(self.case_dir, name)
-            if os.path.isfile(full) and hashesFilenamePattern.match(name):
+            if os.path.isfile(full) and caseFilenamePattern.match(name):
                 yield full
 
     def expand(self, encoding, case_file = None):
