@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es7id: 14.1.19
+id: sec-function-definitions-runtime-semantics-iteratorbindinginitialization
 description: If a computed property key contains a direct eval call, a new declarative environment is created.
 info: >
   Runtime Semantics: IteratorBindingInitialization

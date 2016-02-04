@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+id: sec-object.entries
 description: Object.entries does not see an element removed by a getter that is hit during iteration
-es7id: pending
 author: Jordan Harband
 ---*/
 

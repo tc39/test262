@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+id: sec-object.entries
 description: Object.entries should fail if given a null or undefined value
-es7id: pending
 author: Jordan Harband
 ---*/
 

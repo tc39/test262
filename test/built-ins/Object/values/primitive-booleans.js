@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+id: sec-object.values
 description: Object.values accepts boolean primitives.
-es7id: pending
 author: Jordan Harband
 ---*/
 

@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+id: sec-object.values
 description: Object.values should terminate if getting a value throws an exception
-es7id: pending
 author: Jordan Harband
 ---*/
 
