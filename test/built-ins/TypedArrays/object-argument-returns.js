@@ -17,16 +17,28 @@ features: [Symbol]
 ---*/
 
 var obj = {
+  "0": null,
   "2": 42,
   "3": "7",
-  "4": Symbol("1"),
-  length: 4
+  "4": NaN,
+  "5": Symbol("1"),
+  length: 5
 };
 
 testWithTypedArrayConstructors(function(TA) {
   var typedArray = new TA(obj);
   assert.sameValue(typedArray.length, 4);
+  assert.sameValue(typedArray[0], 0);
   assert.sameValue(typedArray[2], 42);
   assert.sameValue(typedArray[3], 7);
+  assert.sameValue(typedArray[5], undefined);
   assert.sameValue(Object.getPrototypeOf(typedArray), TA.prototype);
+
+  if (TA === Float32Array || TA === Float64Array) {
+    assert.sameValue(typedArray[1], NaN);
+    assert.sameValue(typedArray[4], NaN);
+  } else {
+    assert.sameValue(typedArray[1], 0);
+    assert.sameValue(typedArray[4], 0);
+  }
 });
