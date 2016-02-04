@@ -97,11 +97,11 @@ class Template:
 
         return '\n'.join(lines)
 
-    def expand(self, case_filename, case_values, encoding):
+    def expand(self, case_filename, case_name, case_values, encoding):
         frontmatter = self._frontmatter(case_filename, case_values)
         body = self.expand_regions(self.source, case_values)
 
         return dict(
-            name = self.attribs['meta']['path'] + os.path.basename(case_filename[:-7]) + '.js',
+            name = self.attribs['meta']['path'] + case_name + '.js',
             source = codecs.encode(frontmatter + '\n' + body, encoding)
         )

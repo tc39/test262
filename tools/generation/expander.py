@@ -52,4 +52,4 @@ class Expander:
         templates = self.templates.get(template_class)
 
         for template in self._get_templates(template_class):
-            yield template.expand(file_name, case.attribs, encoding)
+            yield template.expand(file_name, os.path.basename(file_name[:-5]), case.attribs, encoding)
