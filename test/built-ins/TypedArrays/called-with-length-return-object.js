@@ -24,10 +24,10 @@ includes: [testTypedArray.js]
 
 testWithTypedArrayConstructors(function(TA) {
   var typedArray = new TA(4);
-  var bytesPerElement = TA.BYTES_PER_ELEMENT;
   var length = typedArray.length;
 
   assert.sameValue(length, 4, "length");
+  assert.sameValue(typedArray.constructor, TA);
   assert.sameValue(
     Object.getPrototypeOf(typedArray), TA.prototype,
     "Object.getPrototypeOf(typedArray)"

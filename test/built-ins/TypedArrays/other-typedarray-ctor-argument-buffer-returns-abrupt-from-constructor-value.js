@@ -32,58 +32,29 @@ var sample2 = new Int16Array();
 
 testWithTypedArrayConstructors(function(TA) {
   var sample = TA === Int8Array ? sample2 : sample1;
-  Object.defineProperty(sample.buffer, "constructor", {
-    get: function() {
-      return 1;
-    },
-    configurable: true
-  });
 
+  sample.buffer.constructor = 1;
   assert.throws(TypeError, function() {
     new TA(sample);
   });
 
-  Object.defineProperty(sample.buffer, "constructor", {
-    get: function() {
-      return true;
-    },
-    configurable: true
-  });
-
+  sample.buffer.constructor = true;
   assert.throws(TypeError, function() {
     new TA(sample);
   });
 
-  Object.defineProperty(sample.buffer, "constructor", {
-    get: function() {
-      return '';
-    },
-    configurable: true
-  });
-
+  sample.buffer.constructor = "";
   assert.throws(TypeError, function() {
     new TA(sample);
   });
 
-  Object.defineProperty(sample.buffer, "constructor", {
-    get: function() {
-      return null;
-    },
-    configurable: true
-  });
-
+  sample.buffer.constructor = null;
   assert.throws(TypeError, function() {
     new TA(sample);
   });
 
-  var s = Symbol('1');
-  Object.defineProperty(sample.buffer, "constructor", {
-    get: function() {
-      return s;
-    },
-    configurable: true
-  });
-
+  var s = Symbol("1");
+  sample.buffer.constructor = s;
   assert.throws(TypeError, function() {
     new TA(sample);
   });

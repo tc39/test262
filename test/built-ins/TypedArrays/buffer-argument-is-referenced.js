@@ -20,10 +20,12 @@ includes: [testTypedArray.js]
 testWithTypedArrayConstructors(function(TA) {
   var bpe = TA.BYTES_PER_ELEMENT;
 
-  var buffer = new ArrayBuffer(bpe * 4);
+  var buffer = new ArrayBuffer(bpe);
 
   var ta1 = new TA(buffer);
   var ta2 = new TA(buffer);
 
+  assert.sameValue(ta1.buffer, buffer);
+  assert.sameValue(ta2.buffer, buffer);
   assert.sameValue(ta1.buffer, ta2.buffer);
 });

@@ -12,7 +12,7 @@ info: >
   object has an [[ArrayBufferData]] internal slot.
 
   ...
-  9. If offset modulo elementSize ≠ 0, throw a RangeError exception.
+  10. If offset modulo elementSize ≠ 0, throw a RangeError exception.
   ...
 includes: [testTypedArray.js]
 ---*/

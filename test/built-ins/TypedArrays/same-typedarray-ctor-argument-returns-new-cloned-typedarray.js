@@ -25,5 +25,7 @@ testWithTypedArrayConstructors(function(TA) {
 
   assert.sameValue(typedArray.length, 7);
   assert.notSameValue(typedArray, sample);
+  assert.notSameValue(typedArray.buffer, sample.buffer);
+  assert.sameValue(typedArray.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(typedArray), TA.prototype);
 });

@@ -30,14 +30,16 @@ features: [Symbol.species]
 var sample1 = new Int8Array();
 var sample2 = new Int16Array();
 
+var ctor = function() {
+  throw new Test262Error();
+};
+var m = { m() {} }.m;
+ctor[Symbol.species] = m;
+
 testWithTypedArrayConstructors(function(TA) {
   var sample = TA === Int8Array ? sample2 : sample1;
-  var ctor = {};
-  var o = { m() {} };
 
   sample.buffer.constructor = ctor;
-
-  ctor[Symbol.species] = o.m;
 
   assert.throws(TypeError, function() {
     new TA(sample);

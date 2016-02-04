@@ -22,7 +22,6 @@ var typedArraySample = new Int8Array(length);
 
 testWithTypedArrayConstructors(function(TA) {
   var typedArray = new TA(typedArraySample);
-  var bytesPerElement = TA.BYTES_PER_ELEMENT;
 
   assert.notSameValue(typedArray, typedArraySample);
   assert.sameValue(typedArray.length, length);
