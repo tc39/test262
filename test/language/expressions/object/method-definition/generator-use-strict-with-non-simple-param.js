@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es7id: 14.4.1
+id: sec-generator-function-definitions-static-semantics-early-errors
 description: >
   A SyntaxError is thrown if a generator method contains a non-simple parameter list and a UseStrict directive.
 info: >

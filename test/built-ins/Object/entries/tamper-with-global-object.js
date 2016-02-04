@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+id: sec-object.entries
 description: >
     Object.entries should not have its behavior impacted by modifications to the global property Object
-es7id: pending
 author: Jordan Harband
 ---*/
 
