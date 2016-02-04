@@ -10,7 +10,7 @@ Take a look at these examples:
 - `Array.prototype.find` use with `Proxy`: `test/Array/prototype/find/Array.prototype.find_callable-Proxy-1.js`
 - `arguments` implements an `iterator` interface: `test/language/arguments-object/iterator-interface.js`
 
-**Note** The project is currently transitioning from a naming system based on specification section numbers. There remains a substantial number of tests that conform to this outdated convention; contributors should ignore that approach when introducing new tests and instead encode this information using the [es5id](#es5id) or [es6id](#es6id) frontmatter tags.
+**Note** The project is currently transitioning from a naming system based on specification section numbers. There remains a substantial number of tests that conform to this outdated convention; contributors should ignore that approach when introducing new tests and instead encode this information using the [id](#id) frontmatter tag.
 
 ## Test Case Style
 
