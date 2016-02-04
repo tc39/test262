@@ -1,6 +1,6 @@
 language: python
 install: pip install pyyaml
-script: make
+script: ./make.py
 after_success:
   - openssl aes-256-cbc
       -K $encrypted_7b3e5998334d_key
@@ -19,7 +19,7 @@ after_success:
   # git reference
   - git fetch origin master
   - git branch master FETCH_HEAD
-  - make deploy
+  - ./make.py deploy
 branches:
   only:
     - dev
