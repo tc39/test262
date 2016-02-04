@@ -1,19 +1,20 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-id: sec-typedarray-buffer-byteoffset-length
+id: sec-typedarray-object
 description: >
   Use prototype from %TypedArray% if newTarget's prototype is not an Object
 info: >
-  22.2.4.5 TypedArray ( buffer [ , byteOffset [ , length ] ] )
+  22.2.4.4 TypedArray ( object )
 
   This description applies only if the TypedArray function is called with at
   least one argument and the Type of the first argument is Object and that
-  object has an [[ArrayBufferData]] internal slot.
+  object does not have either a [[TypedArrayName]] or an [[ArrayBufferData]]
+  internal slot.
 
   ...
-  4. Let O be ? AllocateTypedArray(constructorName, NewTarget,
-  %TypedArrayPrototype%).
+  3. Let O be ? AllocateTypedArray(TypedArray.[[TypedArrayConstructorName]],
+  NewTarget, "%TypedArrayPrototype%").
   ...
 
   22.2.4.2.1 Runtime Semantics: AllocateTypedArray (constructorName, newTarget,
@@ -33,13 +34,13 @@ info: >
 includes: [testTypedArray.js]
 ---*/
 
-var buffer = new ArrayBuffer(8);
-
 function newTarget() {}
 newTarget.prototype = null;
+var o = [];
 
 testWithTypedArrayConstructors(function(TA) {
-  var ta = Reflect.construct(TA, [buffer], newTarget);
+  var ta = Reflect.construct(TA, [o], newTarget);
 
+  assert.sameValue(ta.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(ta), TA.prototype);
 });

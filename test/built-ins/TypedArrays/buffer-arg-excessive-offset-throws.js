@@ -3,7 +3,7 @@
 /*---
 id: sec-typedarray-buffer-byteoffset-length
 description: >
-  If offset + newByteLength > bufferByteLength, throw a RangeError exception.
+  Throws a RangeError if bufferByteLength - ToInteger(byteOffset) < 0
 info: >
   22.2.4.5 TypedArray ( buffer [ , byteOffset [ , length ] ] )
 
@@ -12,18 +12,23 @@ info: >
   object has an [[ArrayBufferData]] internal slot.
 
   ...
-  14. Else,
-    a. Let newLength be ? ToLength(length).
-    b. Let newByteLength be newLength × elementSize.
-    c. If offset+newByteLength > bufferByteLength, throw a RangeError exception.
+  13. If length is undefined, then
+    a. If bufferByteLength modulo elementSize ≠ 0, throw a RangeError exception.
+    b. Let newByteLength be bufferByteLength - offset.
+    c. If newByteLength < 0, throw a RangeError exception.
   ...
 includes: [testTypedArray.js]
 ---*/
 
-var buffer = new ArrayBuffer(8);
-
 testWithTypedArrayConstructors(function(TA) {
+  var bpe = TA.BYTES_PER_ELEMENT;
+  var buffer = new ArrayBuffer(bpe);
+
   assert.throws(RangeError, function() {
-    new TA(buffer, 0, 16);
+    new TA(buffer, bpe * 2);
+  });
+
+  assert.throws(RangeError, function() {
+    new TA(buffer, bpe * 2, undefined);
   });
 });

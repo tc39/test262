@@ -3,7 +3,7 @@
 /*---
 id: sec-typedarray-typedarray
 description: >
-  Use default ArrayBuffer constructor on undefined buffer.constructor.@@species
+  Return abrupt completion from typedArray argument's buffer.constructor's value
 info: >
   22.2.4.3 TypedArray ( typedArray )
 
@@ -26,24 +26,40 @@ info: >
   7.3.20 SpeciesConstructor ( O, defaultConstructor )
 
   ...
-  5. Let S be ? Get(C, @@species).
-  6. If S is either undefined or null, return defaultConstructor.
+  2. Let C be ? Get(O, "constructor").
+  ...
+  4. If Type(C) is not Object, throw a TypeError exception.
   ...
 includes: [testTypedArray.js]
-features: [Symbol.species]
+features: [Symbol]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA(4);
-  var ctor = {}
+  var sample = new TA();
 
-  sample.buffer.constructor = ctor;
+  sample.buffer.constructor = 1;
+  assert.throws(TypeError, function() {
+    new TA(sample);
+  });
 
-  ctor[Symbol.species] = undefined;
-  var a = new TA(sample);
-  assert.sameValue(
-    Object.getPrototypeOf(a.buffer),
-    ArrayBuffer.prototype,
-    "buffer ctor is not called when species is undefined"
-  );
+  sample.buffer.constructor = true;
+  assert.throws(TypeError, function() {
+    new TA(sample);
+  });
+
+  sample.buffer.constructor = '';
+  assert.throws(TypeError, function() {
+    new TA(sample);
+  });
+
+  sample.buffer.constructor = null;
+  assert.throws(TypeError, function() {
+    new TA(sample);
+  });
+
+  var s = Symbol('1');
+  sample.buffer.constructor = s;
+  assert.throws(TypeError, function() {
+    new TA(sample);
+  });
 });

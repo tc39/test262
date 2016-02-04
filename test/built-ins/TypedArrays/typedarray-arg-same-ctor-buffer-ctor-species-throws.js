@@ -3,7 +3,7 @@
 /*---
 id: sec-typedarray-typedarray
 description: >
-  Return abrupt completion from getting typedArray argument's buffer.constructor
+  Return abrupt from getting typedArray argument's buffer.constructor.@@species
 info: >
   22.2.4.3 TypedArray ( typedArray )
 
@@ -12,25 +12,33 @@ info: >
   object has a [[TypedArrayName]] internal slot.
 
   ...
-  18. Else,
-    a. Let bufferConstructor be ? SpeciesConstructor(srcData, %ArrayBuffer%).
+  17. If SameValue(elementType, srcType) is true, then
+    a. Let data be ? CloneArrayBuffer(srcData, srcByteOffset).
+  ...
+
+  24.1.1.4 CloneArrayBuffer ( srcBuffer, srcByteOffset [ , cloneConstructor ] )
+
+  ...
+  2. If cloneConstructor is not present, then
+    a. Let cloneConstructor be ? SpeciesConstructor(srcBuffer, %ArrayBuffer%).
   ...
 
   7.3.20 SpeciesConstructor ( O, defaultConstructor )
 
   ...
-  2. Let C be ? Get(O, "constructor").
+  5. Let S be ? Get(C, @@species).
   ...
 includes: [testTypedArray.js]
+features: [Symbol.species]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
-  var sample1 = Int8Array;
-  var sample2 = Int16Array;
-  var sample = new (TA === Int8Array ? sample2 : sample1);
+  var sample = new TA();
+  var ctor = {};
 
-  Object.defineProperty(sample.buffer, "constructor", {
-    get: function() {
+  sample.buffer.constructor = ctor;
+  Object.defineProperty(ctor, Symbol.species, {
+    get() {
       throw new Test262Error();
     }
   });

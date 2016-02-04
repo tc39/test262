@@ -3,7 +3,7 @@
 /*---
 id: sec-typedarray-typedarray
 description: >
-  Return abrupt from buffer.constructor.@@species.prototype
+  Use default ArrayBuffer constructor on undefined buffer.constructor.@@species
 info: >
   22.2.4.3 TypedArray ( typedArray )
 
@@ -29,7 +29,13 @@ info: >
   5. Let S be ? Get(C, @@species).
   6. If S is either undefined or null, return defaultConstructor.
   7. If IsConstructor(S) is true, return S.
-  8. Throw a TypeError exception.
+  ...
+
+  24.1.1.4 CloneArrayBuffer ( srcBuffer, srcByteOffset [ , cloneConstructor ] )
+
+  ...
+  8. Let targetBuffer be ? AllocateArrayBuffer(cloneConstructor, cloneLength).
+  ...
 includes: [testTypedArray.js]
 features: [Symbol.species]
 ---*/
@@ -37,13 +43,18 @@ features: [Symbol.species]
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA();
   var ctor = {};
-  var o = { m() {} };
+  var called = 0;
+  var custom = {};
 
   sample.buffer.constructor = ctor;
 
-  ctor[Symbol.species] = o.m;
+  ctor[Symbol.species] = function() {
+    called++;
+  };
 
-  assert.throws(TypeError, function() {
-    new TA(sample);
-  });
+  ctor[Symbol.species].prototype = custom;
+
+  var typedArray = new TA(sample);
+  assert.sameValue(Object.getPrototypeOf(typedArray.buffer), custom);
+  assert.sameValue(called, 0);
 });

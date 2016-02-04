@@ -3,7 +3,7 @@
 /*---
 id: sec-typedarray-buffer-byteoffset-length
 description: >
-  Return new typedArray from undefined defined offset
+  Return new typedArray from undefined offset and length
 info: >
   22.2.4.5 TypedArray ( buffer [ , byteOffset [ , length ] ] )
 
@@ -20,11 +20,13 @@ testWithTypedArrayConstructors(function(TA) {
   var ta1 = new TA(buffer1);
   assert.sameValue(ta1.length, 4);
   assert.sameValue(ta1.buffer, buffer1);
+  assert.sameValue(ta1.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(ta1), TA.prototype);
 
   var buffer2 = new ArrayBuffer(0);
   var ta2 = new TA(buffer2);
   assert.sameValue(ta2.length, 0);
   assert.sameValue(ta2.buffer, buffer2);
+  assert.sameValue(ta2.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(ta2), TA.prototype);
 });

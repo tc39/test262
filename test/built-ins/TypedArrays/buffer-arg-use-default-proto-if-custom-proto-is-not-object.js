@@ -3,7 +3,7 @@
 /*---
 id: sec-typedarray-buffer-byteoffset-length
 description: >
-  Use prototype from new target if it's an Object
+  Use prototype from %TypedArray% if newTarget's prototype is not an Object
 info: >
   22.2.4.5 TypedArray ( buffer [ , byteOffset [ , length ] ] )
 
@@ -30,18 +30,17 @@ info: >
   10. Set the [[Prototype]] internal slot of A to prototype.
   ...
   12. Return A.
-features: [Reflect]
 includes: [testTypedArray.js]
 ---*/
 
 var buffer = new ArrayBuffer(8);
 
 function newTarget() {}
-var proto = {};
-newTarget.prototype = proto;
+newTarget.prototype = null;
 
 testWithTypedArrayConstructors(function(TA) {
   var ta = Reflect.construct(TA, [buffer], newTarget);
 
-  assert.sameValue(Object.getPrototypeOf(ta), proto);
+  assert.sameValue(ta.constructor, TA);
+  assert.sameValue(Object.getPrototypeOf(ta), TA.prototype);
 });

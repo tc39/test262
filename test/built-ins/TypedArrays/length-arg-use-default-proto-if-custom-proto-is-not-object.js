@@ -3,7 +3,7 @@
 /*---
 id: sec-typedarray-length
 description: >
-  Use prototype from new target if it's an Object
+  Use prototype from %TypedArray% if newTarget's prototype is not an Object
 info: >
   22.2.4.2 TypedArray ( length )
 
@@ -28,16 +28,15 @@ info: >
   10. Set the [[Prototype]] internal slot of A to prototype.
   ...
   12. Return A.
-features: [Reflect]
 includes: [testTypedArray.js]
 ---*/
 
 function newTarget() {}
-var proto = {};
-newTarget.prototype = proto;
+newTarget.prototype = null;
 
 testWithTypedArrayConstructors(function(TA) {
   var ta = Reflect.construct(TA, [1], newTarget);
 
-  assert.sameValue(Object.getPrototypeOf(ta), proto);
+  assert.sameValue(ta.constructor, TA);
+  assert.sameValue(Object.getPrototypeOf(ta), TA.prototype);
 });

@@ -27,11 +27,12 @@ var obj = {
 
 testWithTypedArrayConstructors(function(TA) {
   var typedArray = new TA(obj);
-  assert.sameValue(typedArray.length, 4);
+  assert.sameValue(typedArray.length, 5);
   assert.sameValue(typedArray[0], 0);
   assert.sameValue(typedArray[2], 42);
   assert.sameValue(typedArray[3], 7);
   assert.sameValue(typedArray[5], undefined);
+  assert.sameValue(typedArray.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(typedArray), TA.prototype);
 
   if (TA === Float32Array || TA === Float64Array) {

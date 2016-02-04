@@ -46,7 +46,7 @@ testWithTypedArrayConstructors(function(TA) {
 
   ctor[Symbol.species].prototype = custom;
 
-  var tarray = new TA(sample);
-  assert.sameValue(Object.getPrototypeOf(tarray.buffer), custom);
+  var typedArray = new TA(sample);
+  assert.sameValue(Object.getPrototypeOf(typedArray.buffer), custom);
   assert.sameValue(called, 0);
 });

@@ -1,21 +1,18 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-id: sec-typedarray-object
+id: sec-typedarray
 description: >
   Use prototype from new target if it's an Object
 info: >
-  22.2.4.4 TypedArray ( object )
+  22.2.4.1 TypedArray( )
 
-  This description applies only if the TypedArray function is called with at
-  least one argument and the Type of the first argument is Object and that
-  object does not have either a [[TypedArrayName]] or an [[ArrayBufferData]]
-  internal slot.
+  This description applies only if the TypedArray function is called with no
+  arguments.
 
   ...
-  3. Let O be ? AllocateTypedArray(TypedArray.[[TypedArrayConstructorName]],
-  NewTarget, "%TypedArrayPrototype%").
-  ...
+  3. Return ? AllocateTypedArray(constructorName, NewTarget,
+  %TypedArrayPrototype%, 0).
 
   22.2.4.2.1 Runtime Semantics: AllocateTypedArray (constructorName, newTarget,
   defaultProto [ , length ])
@@ -42,5 +39,6 @@ newTarget.prototype = proto;
 testWithTypedArrayConstructors(function(TA) {
   var ta = Reflect.construct(TA, [], newTarget);
 
+  assert.sameValue(ta.constructor, Object);
   assert.sameValue(Object.getPrototypeOf(ta), proto);
 });

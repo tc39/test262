@@ -41,5 +41,6 @@ var sample = new Int8Array(8);
 testWithTypedArrayConstructors(function(TA) {
   var ta = Reflect.construct(TA, [sample], newTarget);
 
+  assert.sameValue(ta.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(ta), TA.prototype);
 });
