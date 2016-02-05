@@ -1,0 +1,21 @@
+/*---
+template: normal
+desc: foobar
+info: case info
+---*/
+
+Because this test appears before any "region" delimiters, it should not appear
+in the generated files.
+
+// - first
+this is not a valid region delimiter
+
+/* *//- first
+this is also not a valid region delimiter
+
+//- first
+First value
+//- second
+Second value
+//- third
+Third value

@@ -31,18 +31,20 @@ def find_comments(source):
             if source[idx] == '\n':
                 in_s_comment = False
                 yield dict(
-                    source=comment,
-                    firstchar=idx - len(comment) - 2,
+                    source=comment[1:],
+                    firstchar=idx - len(comment) - 1,
                     lastchar=idx,
                     lineno=lineno)
+                continue
         elif in_m_comment:
-            if source[idx] == '*' and source[idx + 1] == '/':
+            if source[idx - 1] == '*' and source[idx] == '/':
                 in_m_comment = False
                 yield dict(
-                    source=comment,
-                    firstchar=idx - len(comment) - 2,
-                    lastchar=idx + 2,
+                    source=comment[1:-1],
+                    firstchar=idx - len(comment) - 1,
+                    lastchar=idx + 1,
                     lineno=lineno)
+                continue
         elif in_string:
             if source[idx] == in_string and not follows_escape:
                 in_string = False
@@ -54,8 +56,8 @@ def find_comments(source):
             comment += source[idx]
             continue
 
-        in_m_comment = source[idx - 1] == '/' and source[idx] == '*'
-        in_s_comment = source[idx - 1] == '/' and source[idx] == '/'
+        in_m_comment = source[idx] == '/' and source[idx + 1] == '*'
+        in_s_comment = source[idx] == '/' and source[idx + 1] == '/'
 
         if in_m_comment or in_s_comment:
             comment = ''
