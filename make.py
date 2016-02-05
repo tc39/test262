@@ -49,7 +49,7 @@ def build_static():
 
 @target()
 def build_cases():
-    shell('tools/generation/compile.py',
+    shell(sys.executable, 'tools/generation/compile.py',
           '--no-clobber', STATIC_DIR,
           '--out', OUT_DIR,
           CASE_DIR)
