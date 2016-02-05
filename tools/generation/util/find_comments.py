@@ -5,7 +5,7 @@ def find_comments(source):
     Each dictionary defines the following attributes:
 
     - source: the source text of the comment
-    - firstchar: the zero-indexed position of the token that begins the coment
+    - firstchar: the zero-indexed position of the token that begins the comment
     - lastchar: the zero-indexed position of the token that closes the comment
     - lineno: the zero-indexed offset of the line on which the comment appears
     '''
