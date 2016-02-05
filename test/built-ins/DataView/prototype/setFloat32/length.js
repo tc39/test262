@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: id: sec-dataview.prototype.setfloat32
+id: sec-dataview.prototype.setfloat32
 description: >
   DataView.prototype.setFloat32.length is 2.
 info: >
