@@ -1,0 +1,26 @@
+// Fake copyright information (line 1)
+// Fake copyright information (line 2)
+/*---
+name: First template name
+path: normal/path1-
+es6id: 1.2.3
+info: template info
+---*/
+
+before-/*{ first }*/-between-/*{ third }*/-after
+
+before*/*{ second }*/*between*/*{ first }*/*after
+
+before/* " *//*{ third }*/after
+
+The following should not be expanded:
+
+/* */*{ first }*/
+/*
+*/*{ first }*/
+//*{ first }*/
+// /*{ first }*/
+"/*{ first }*/"
+'/*{ first }*/'
+`
+/*{ first }*/`

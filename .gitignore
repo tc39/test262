@@ -3,3 +3,6 @@
 *~
 *.pyc
 console/TestCases
+out/
+github-deploy-key
+github-deploy-key.pub
