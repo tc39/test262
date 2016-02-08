@@ -30,14 +30,28 @@ class Template:
 
         self._parse()
 
+    def _remove_comment(self, comment):
+        '''Create a region that is not intended to be referenced by any case,
+        ensuring that the comment is not emitted in the rendered file.'''
+        name = '__remove_comment_' + str(comment['firstchar']) + '__'
+        self.regions.insert(0, dict(name=name, **comment))
+
     def _parse(self):
         for comment in find_comments(self.source):
             meta = parse_yaml(comment['source'])
+
+            # Do not emit the template's frontmatter in generated files
+            # (file-specific frontmatter is generated as part of the rendering
+            # process)
             if meta:
                 self.attribs['meta'] = meta
-                # Create a region for the template's frontmatter comment so
-                # that it is removed during expansion.
-                self.regions.insert(0, dict(name='__yaml', **comment))
+                self._remove_comment(comment)
+                continue
+
+            # Do not emit license information in generated files (recognized as
+            # comments preceeding the YAML frontmatter)
+            if not self.attribs.get('meta'):
+                self._remove_comment(comment)
                 continue
 
             match = interpolatePattern.match(comment['source'])
