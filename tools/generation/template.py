@@ -34,6 +34,13 @@ class Template:
         '''Create a region that is not intended to be referenced by any case,
         ensuring that the comment is not emitted in the rendered file.'''
         name = '__remove_comment_' + str(comment['firstchar']) + '__'
+
+        # When a removed comment ends the line, the following newline character
+        # should also be removed from the generated file.
+        lastchar = comment['lastchar']
+        if self.source[lastchar] == '\n':
+            comment['lastchar'] = comment['lastchar'] + 1
+
         self.regions.insert(0, dict(name=name, **comment))
 
     def _parse(self):
