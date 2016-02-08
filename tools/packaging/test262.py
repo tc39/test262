@@ -18,6 +18,7 @@ import subprocess
 import sys
 import tempfile
 import time
+import threading
 import xml.dom.minidom
 import datetime
 import shutil
@@ -54,6 +55,8 @@ EXCLUDE_LIST = [x.getAttribute("id") for x in EXCLUDE_LIST]
 def BuildOptions():
   result = optparse.OptionParser()
   result.add_option("--command", default=None, help="The command-line to run")
+  result.add_option("-j", "--workers-count", type=int, default=max(1, GetCPUCount() - 1),
+                    help="Number of tests to run in parallel (default %default)")
   result.add_option("--tests", default=path.abspath('.'),
                     help="Path to the tests")
   result.add_option("--cat", default=False, action="store_true",
@@ -92,6 +95,35 @@ def IsWindows():
   p = platform.system()
   return (p == 'Windows') or (p == 'Microsoft')
 
+def GetCPUCount():
+    """
+    Guess at a reasonable parallelism count to set as the default for the
+    current machine and run.
+    """
+    # Python 2.6+
+    try:
+        import multiprocessing
+        return multiprocessing.cpu_count()
+    except (ImportError, NotImplementedError):
+        pass
+
+    # POSIX
+    try:
+        res = int(os.sysconf('SC_NPROCESSORS_ONLN'))
+        if res > 0:
+            return res
+    except (AttributeError, ValueError):
+        pass
+
+    # Windows
+    try:
+        res = int(os.environ['NUMBER_OF_PROCESSORS'])
+        if res > 0:
+            return res
+    except (KeyError, ValueError):
+        pass
+
+    return 1
 
 class TempFile(object):
 
@@ -526,7 +558,7 @@ class TestSuite(object):
       print
       result.ReportOutcome(False)
 
-  def Run(self, command_template, tests, print_summary, full_summary, logname, junitfile):
+  def Run(self, command_template, tests, print_summary, full_summary, logname, junitfile, workers_count):
     if not "{{path}}" in command_template:
       command_template += " {{path}}"
     cases = self.EnumerateTests(tests)
@@ -551,16 +583,41 @@ class TestSuite(object):
           SkipCaseElement.append(SkipElement)
           TestSuiteElement.append(SkipCaseElement)
 
+    if workers_count > 1:
+      pool_sem = threading.Semaphore(workers_count)
+      log_lock = threading.Lock()
+    else:
+      log_lock = None
+
     for case in cases:
-      result = case.Run(command_template)
-      if junitfile:
-        TestCaseElement = result.XmlAssemble(result)
-        TestSuiteElement.append(TestCaseElement)
-        if case == cases[len(cases)-1]:
-             xmlj.ElementTree(TestSuitesElement).write(junitfile, "UTF-8")
-      if logname:
-        self.WriteLog(result)
-      progress.HasRun(result)
+      def exec_case():
+        result = case.Run(command_template)
+
+        try:
+          if workers_count > 1:
+            log_lock.acquire()
+
+          if junitfile:
+            TestCaseElement = result.XmlAssemble(result)
+            TestSuiteElement.append(TestCaseElement)
+            if case == cases[len(cases)-1]:
+                 xmlj.ElementTree(TestSuitesElement).write(junitfile, "UTF-8")
+          if logname:
+            self.WriteLog(result)
+        finally:
+          if workers_count > 1:
+            log_lock.release()
+
+        progress.HasRun(result)
+      if workers_count == 1:
+        exec_case()
+      else:
+        pool_sem.acquire()
+        threading.Thread(target=exec_case).start()
+        pool_sem.release()
+
+    if workers_count > 1:
+      log_lock.acquire()
 
     if print_summary:
       self.PrintSummary(progress, logname)
@@ -570,6 +627,10 @@ class TestSuite(object):
         print
         print "Use --full-summary to see output from failed tests"
     print
+
+    if workers_count > 1:
+      log_lock.release()
+
     return progress.failed
 
   def WriteLog(self, result):
@@ -634,7 +695,8 @@ def Main():
                           options.summary or options.full_summary,
                           options.full_summary,
                           options.logname,
-                          options.junitname)
+                          options.junitname,
+                          options.workers_count)
   return code
 
 if __name__ == '__main__':
