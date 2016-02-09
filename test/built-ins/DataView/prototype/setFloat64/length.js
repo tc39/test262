@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es7id: pending
+id: sec-dataview.prototype.setfloat64
 description: >
   DataView.prototype.setFloat64.length is 2.
 info: >

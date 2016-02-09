@@ -1,7 +1,7 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-es7id: pending
+id: sec-if-statement-runtime-semantics-evaluation
 description: >
     Completion value when expression is true without an `else` clause and body
     returns an empty abrupt completion
