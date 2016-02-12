@@ -9,7 +9,6 @@ es5id: 13.2.2_A13
 description: >
     Calling a function as a constructor after it has been declared by
     eval
-includes: [Test262Error.js]
 ---*/
 
 function FACTORY(){

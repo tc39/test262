@@ -9,7 +9,6 @@ info: >
 
     8. Let trapResult be Call(trap, handler, «target»).
     9. ReturnIfAbrupt(trapResult).
-includes: [Test262Error.js]
 ---*/
 
 var x;

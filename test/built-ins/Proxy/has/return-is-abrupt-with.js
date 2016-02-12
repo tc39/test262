@@ -12,7 +12,6 @@ info: >
     10. ReturnIfAbrupt(booleanTrapResult).
     ...
 flags: [noStrict]
-includes: [Test262Error.js]
 ---*/
 
 var p = new Proxy({}, {

@@ -4,7 +4,6 @@
 es6id: 9.5.13
 description: >
     Return is an abrupt completion
-includes: [Test262Error.js]
 ---*/
 
 var target = function(a, b) { return a + b; };

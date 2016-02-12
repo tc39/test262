@@ -5,7 +5,6 @@
 info: "\"do-while\" Statement is evaluated without syntax checks"
 es5id: 12.6.1_A9
 description: Throwing system exception whithin a "do-while" loop
-includes: [Test262Error.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////

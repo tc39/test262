@@ -5,7 +5,6 @@
 info: "\"while\" Statement is evaluated without syntax checks"
 es5id: 12.6.2_A9
 description: Throwing system exception inside "while" loop
-includes: [Test262Error.js]
 ---*/
 
 //////////////////////////////////////////////////////////////////////////////

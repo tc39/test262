@@ -7,7 +7,6 @@ description: >
     Strict Mode - 'runtime' error is thrown before LeftHandSide
     evaluates to an unresolvable Reference
 flags: [onlyStrict]
-includes: [Test262Error.js]
 ---*/
 
 assert.throws(Test262Error, function() {

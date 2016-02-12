@@ -7,7 +7,6 @@ description: >
 info: >
     8. Let handlerProto be Call(trap, handler, «target»).
     9. ReturnIfAbrupt(handlerProto).
-includes: [Test262Error.js]
 ---*/
 
 var p = new Proxy({}, {

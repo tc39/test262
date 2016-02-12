@@ -5,8 +5,6 @@
 info: String.fromCharCode has not [[construct]] method
 es5id: 15.5.3.2_A4
 description: Checking if creating "new String.fromCharCode" fails
-includes:
-    - Test262Error.js
 ---*/
 
 var __fcc__func = String.fromCharCode;
