@@ -21,6 +21,8 @@ Object.defineProperty(arrayLike, Symbol.iterator, {
   }
 });
 
-assert.throws(TypeError, function() {
-  TypedArray.from(arrayLike, 42);
+testWithTypedArrayConstructors(function(TA) {
+  assert.throws(TypeError, function() {
+    TA.from(arrayLike, 42);
+  });
 });

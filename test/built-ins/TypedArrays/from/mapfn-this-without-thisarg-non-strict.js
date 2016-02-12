@@ -20,9 +20,7 @@ flags: [noStrict]
 ---*/
 
 var source = [42, 43];
-var global = (function() {
-  return this;
-})();
+var global = fnGlobalObject();
 
 testWithTypedArrayConstructors(function(TA) {
   var results = [];
