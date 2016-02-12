@@ -25,7 +25,6 @@ testWithTypedArrayConstructors(function(TA) {
   var results = [];
   var mapfn = function(kValue, k) {
     results.push(this);
-    return kValue;
   };
 
   TA.from(source, mapfn, thisArg);

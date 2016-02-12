@@ -21,13 +21,26 @@ var source = [42, 43, 44];
 testWithTypedArrayConstructors(function(TA) {
   var results = [];
   var mapfn = function(kValue, k) {
-    results[k] = kValue;
+    results.push({
+      kValue: kValue,
+      k: k,
+      argsLength: arguments.length
+    });
   };
 
   TA.from(source, mapfn);
 
-  assert.sameValue(results[0], 42);
-  assert.sameValue(results[1], 43);
-  assert.sameValue(results[2], 44);
   assert.sameValue(results.length, 3);
+
+  assert.sameValue(results[0].kValue, 42);
+  assert.sameValue(results[0].k, 0);
+  assert.sameValue(results[0].argsLength, 2);
+
+  assert.sameValue(results[1].kValue, 43);
+  assert.sameValue(results[1].k, 1);
+  assert.sameValue(results[1].argsLength, 2);
+
+  assert.sameValue(results[2].kValue, 44);
+  assert.sameValue(results[2].k, 2);
+  assert.sameValue(results[2].argsLength, 2);
 });
