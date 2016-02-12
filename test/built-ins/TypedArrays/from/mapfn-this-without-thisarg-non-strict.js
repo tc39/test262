@@ -15,7 +15,7 @@ info: >
     c. If mapping is true, then
       i. Let mappedValue be ? Call(mapfn, T, « kValue, k »).
   ...
-includes: [testTypedArray.js]
+includes: [testTypedArray.js, fnGlobalObject.js]
 flags: [noStrict]
 ---*/
 
