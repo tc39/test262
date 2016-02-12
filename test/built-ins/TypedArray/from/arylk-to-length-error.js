@@ -9,14 +9,15 @@ info: >
   ...
   7. Let len be ? ToLength(? Get(arrayLike, "length")).
   ...
-features: [Symbol.toPrimitive]
 includes: [testTypedArray.js]
 ---*/
 
 var arrayLike = { length: {} };
 
-arrayLike.length[Symbol.toPrimitive] = function() {
-  throw new Test262Error();
+arrayLike.length = {
+  valueOf: function() {
+    throw new Test262Error();
+  }
 };
 
 assert.throws(Test262Error, function() {
