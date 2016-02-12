@@ -25,6 +25,7 @@ info: >
     25.4.1.3.2 Promise Resolve Functions
     7. If Type(resolution) is not Object, then
        a. Return FulfillPromise(promise, resolution).
+flags: [async]
 ---*/
 
 var p1 = new Promise(function(resolve) { resolve(); });

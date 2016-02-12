@@ -16,6 +16,7 @@ info: >
        b. Append rejectReaction as the last element of the List that is the
           value of promise's [[PromiseRejectReactions]] internal slot.
     [...]
+flags: [async]
 ---*/
 
 var value = {};

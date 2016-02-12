@@ -9,7 +9,7 @@ es6id: S25.4.2.1_A3.2_T2
 author: Sam Mikes
 description: >
     "rejected" handler invoked correctly in strict mode
-flags: [onlyStrict]
+flags: [async, onlyStrict]
 ---*/
 
 var expectedThis = undefined,

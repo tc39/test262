@@ -24,6 +24,7 @@ info: >
       a. Let status be CreateDataProperty(array, ToString(n), e).
       b. Assert: status is true.
     ...
+flags: [async]
 ---*/
 
 Object.defineProperty(Array.prototype, 0, {

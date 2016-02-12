@@ -7,6 +7,7 @@ info: >
 es6id: S25.4.3.1_A2.3_T1
 author: Sam Mikes
 description: Promise.call(resolved Promise) throws TypeError
+flags: [async]
 ---*/
 
 var p = new Promise(function(resolve) { resolve(1); });

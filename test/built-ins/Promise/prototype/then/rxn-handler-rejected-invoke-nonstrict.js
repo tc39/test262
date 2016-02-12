@@ -9,7 +9,7 @@ es6id: S25.4.2.1_A3.2_T1
 author: Sam Mikes
 description: >
     "rejected" handler invoked correctly outside of strict mode
-flags: [noStrict]
+flags: [async, noStrict]
 includes: [fnGlobalObject.js]
 ---*/
 

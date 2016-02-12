@@ -9,7 +9,7 @@ es6id: S25.4.2.1_A3.1_T2
 author: Sam Mikes
 description: >
     "fulfilled" handler invoked correctly in strict mode
-flags: [onlyStrict]
+flags: [async, onlyStrict]
 ---*/
 
 var expectedThis = undefined,

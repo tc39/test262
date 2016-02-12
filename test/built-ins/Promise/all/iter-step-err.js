@@ -23,6 +23,7 @@ info: >
            true.
         c. ReturnIfAbrupt(next).
 features: [Symbol.iterator]
+flags: [async]
 ---*/
 
 var iterStepThrows = {};

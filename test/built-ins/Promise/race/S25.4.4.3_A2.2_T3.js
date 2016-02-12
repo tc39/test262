@@ -10,6 +10,7 @@ es6id: S25.4.4.3_A2.2_T3
 author: Sam Mikes
 description: Promise.race rejects if GetIterator throws
 features: [Symbol.iterator]
+flags: [async]
 ---*/
 
 var iterThrows = {};

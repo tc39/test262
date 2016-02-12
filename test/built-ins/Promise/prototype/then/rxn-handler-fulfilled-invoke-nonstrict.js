@@ -9,7 +9,7 @@ es6id: S25.4.2.1_A3.1_T1
 author: Sam Mikes
 description: >
     "fulfilled" handler invoked correctly outside of strict mode
-flags: [noStrict]
+flags: [async, noStrict]
 includes: [fnGlobalObject.js]
 ---*/
 

@@ -16,6 +16,7 @@ info: >
     8. Let then be Get(resolution, "then").
     9. If then is an abrupt completion, then
        a. Return RejectPromise(promise, then.[[value]]).
+flags: [async]
 ---*/
 
 var poisonedThen = {};

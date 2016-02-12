@@ -24,6 +24,7 @@ info: >
     3. Let alreadyResolved be the value of F's [[AlreadyResolved]] internal
        slot.
     4. If alreadyResolved.[[value]] is true, return undefined.
+flags: [async]
 ---*/
 
 var fulfiller = {

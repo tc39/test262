@@ -21,6 +21,7 @@ info: >
         [...]
         i. Let nextPromise be Invoke(constructor, "resolve", «nextValue»).
         j. ReturnIfAbrupt(nextPromise ).
+flags: [async]
 ---*/
 
 var error = new Test262Error();

@@ -14,6 +14,7 @@ info: >
     a. Let status be Call(resolvingFunctions.[[Reject]], undefined, «thenCallResult.[[value]]»)
     b. NextJob Completion(status).
   ...
+flags: [async]
 ---*/
 
 var thenable = {

@@ -20,6 +20,7 @@ info: >
     [...]
     7. If Type(resolution) is not Object, then
        a. Return FulfillPromise(promise, resolution).
+flags: [async]
 ---*/
 
 var thenable = {

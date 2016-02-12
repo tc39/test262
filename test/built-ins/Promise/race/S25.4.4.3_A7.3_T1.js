@@ -5,6 +5,7 @@
 es6id: S25.4.4.3_A7.3_T1
 author: Sam Mikes
 description: Promise.race([p1, p2]) settles when first settles
+flags: [async]
 ---*/
 
 var resolveP1, rejectP2,

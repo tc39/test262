@@ -25,6 +25,7 @@ info: >
     8. Let status be Call(promiseCapability.[[Resolve]], undefined,
        «handlerResult.[[value]]»).
     9. NextJob Completion(status).
+flags: [async]
 ---*/
 
 var value = {};

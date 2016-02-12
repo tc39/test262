@@ -21,6 +21,7 @@ info: >
         j. Let result be Invoke(nextPromise, "then",
            «promiseCapability.[[Resolve]], promiseCapability.[[Reject]]»).
         k. ReturnIfAbrupt(result).
+flags: [async]
 ---*/
 
 var promise = new Promise(function() {});

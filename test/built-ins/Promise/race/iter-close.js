@@ -20,6 +20,7 @@ info: >
        h. Let nextPromise be Invoke(C, "resolve", «nextValue»).
        i. ReturnIfAbrupt(nextPromise).
 features: [Symbol.iterator]
+flags: [async]
 ---*/
 
 var err = new Test262Error();

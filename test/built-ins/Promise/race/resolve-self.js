@@ -20,6 +20,7 @@ info: >
     6. If SameValue(resolution, promise) is true, then
        a. Let selfResolutionError be a newly created TypeError object.
        b. Return RejectPromise(promise, selfResolutionError).
+flags: [async]
 ---*/
 
 var self, resolve;

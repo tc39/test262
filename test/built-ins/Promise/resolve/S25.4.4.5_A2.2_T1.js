@@ -5,6 +5,7 @@
 es6id: S25.4.4.5_A2.2_T1
 author: Sam Mikes
 description: Promise.resolve passes through an unsettled promise w/ same Constructor
+flags: [async]
 ---*/
 
 var resolveP1,

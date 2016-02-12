@@ -31,6 +31,7 @@ info: >
     10. Let thenAction be then.[[value]].
     11. If IsCallable(thenAction) is false, then
         a. Return FulfillPromise(promise, resolution).
+flags: [async]
 ---*/
 
 var v1 = {};
