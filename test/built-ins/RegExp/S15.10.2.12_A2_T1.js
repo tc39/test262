@@ -61,7 +61,7 @@ if (i5.replace(/\S+/g, "") !== o5) {
 var i6 = "";
 for (var j = 6144; j < 7168; j++)
   i6 += String.fromCharCode(j);
-var o6 = "\u180E";
+var o6 = "";
 if (i6.replace(/\S+/g, "") !== o6) {
   $ERROR("#6: Error matching character class \S between character 1800 and 1bff");
 }
