@@ -37,6 +37,6 @@ testWithTypedArrayConstructors(function(TA) {
     TA.of(obj1, obj2, obj1);
   });
 
-  assert.sameValue(lastValue, obj2);
+  assert.sameValue(lastValue, "obj2");
 });
 
