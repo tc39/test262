@@ -23,6 +23,10 @@ Object.defineProperty(arrayLike, Symbol.iterator, {
 });
 
 assert.throws(TypeError, function() {
+  TypedArray.from(arrayLike, null);
+}, "mapfn is null");
+
+assert.throws(TypeError, function() {
   TypedArray.from(arrayLike, 42);
 }, "mapfn is a number");
 

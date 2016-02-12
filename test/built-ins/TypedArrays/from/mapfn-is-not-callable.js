@@ -24,6 +24,10 @@ Object.defineProperty(arrayLike, Symbol.iterator, {
 
 testWithTypedArrayConstructors(function(TA) {
   assert.throws(TypeError, function() {
+    TA.from(arrayLike, null);
+  }, "mapfn is null");
+
+  assert.throws(TypeError, function() {
     TA.from(arrayLike, 42);
   }, "mapfn is a number");
 
