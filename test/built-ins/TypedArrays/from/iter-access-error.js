@@ -25,6 +25,8 @@ Object.defineProperty(iter, Symbol.iterator, {
   }
 });
 
-assert.throws(Test262Error, function() {
-  TypedArray.from(iter);
+testWithTypedArrayConstructors(function(TA) {
+  assert.throws(Test262Error, function() {
+    TA.from(iter);
+  });
 });

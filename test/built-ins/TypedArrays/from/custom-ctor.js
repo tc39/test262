@@ -3,7 +3,7 @@
 /*---
 id: sec-%typedarray%.from
 description: >
-  "from" cannot be invoked as a method of %TypedArray%
+  Calls and return abrupt completion from custom constructor
 info: >
   22.2.2.1 %TypedArray%.from ( source [ , mapfn [ , thisArg ] ] )
 
@@ -18,6 +18,16 @@ info: >
 includes: [testTypedArray.js]
 ---*/
 
-assert.throws(TypeError, function() {
-  TypedArray.from([]);
+testWithTypedArrayConstructors(function(TA) {
+  var called = 0;
+  var ctor = function() {
+    called++;
+    throw new Test262Error();
+  };
+
+  assert.throws(Test262Error, function() {
+    TA.from.call(ctor, []);
+  });
+
+  assert.sameValue(called, 1);
 });

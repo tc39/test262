@@ -3,7 +3,7 @@
 /*---
 id: sec-%typedarray%.from
 description: >
-  "from" cannot be invoked as a method of %TypedArray%
+  Custom constructor needs to instantiate a TypedArray
 info: >
   22.2.2.1 %TypedArray%.from ( source [ , mapfn [ , thisArg ] ] )
 
@@ -14,10 +14,15 @@ info: >
   22.2.4.6 TypedArrayCreate ( constructor, argumentList )
 
   1. Let newTypedArray be ? Construct(constructor, argumentList).
+  2. Perform ? ValidateTypedArray(newTypedArray).
   ...
 includes: [testTypedArray.js]
 ---*/
 
-assert.throws(TypeError, function() {
-  TypedArray.from([]);
+testWithTypedArrayConstructors(function(TA) {
+  var ctor = function() {};
+
+  assert.throws(TypeError, function() {
+    TA.from.call(ctor, []);
+  });
 });

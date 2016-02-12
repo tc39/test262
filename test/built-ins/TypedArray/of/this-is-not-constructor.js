@@ -3,21 +3,19 @@
 /*---
 id: sec-%typedarray%.of
 description: >
-  "of" cannot be invoked as a method of %TypedArray%
+  Throws a TypeError exception if this is not a constructor
 info: >
   22.2.2.2 %TypedArray%.of ( ...items )
 
   ...
-  5. Let newObj be ? TypedArrayCreate(C, «len»).
-  ...
-
-  22.2.4.6 TypedArrayCreate ( constructor, argumentList )
-
-  1. Let newTypedArray be ? Construct(constructor, argumentList).
+  3. Let C be the this value.
+  4. If IsConstructor(C) is false, throw a TypeError exception.
   ...
 includes: [testTypedArray.js]
 ---*/
 
+var m = { m() {} }.m;
+
 assert.throws(TypeError, function() {
-  TypedArray.of();
+  TypedArray.of.call(m, []);
 });

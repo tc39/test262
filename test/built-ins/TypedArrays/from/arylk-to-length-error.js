@@ -20,6 +20,8 @@ arrayLike.length = {
   }
 };
 
-assert.throws(Test262Error, function() {
-  TypedArray.from(arrayLike);
+testWithTypedArrayConstructors(function(TA) {
+  assert.throws(Test262Error, function() {
+    TA.from(arrayLike);
+  });
 });

@@ -3,7 +3,7 @@
 /*---
 id: sec-%typedarray%.from
 description: >
-  "from" cannot be invoked as a function
+  Throws a TypeError exception if this is not a constructor
 info: >
   22.2.2.1 %TypedArray%.from ( source [ , mapfn [ , thisArg ] ] )
 
@@ -14,7 +14,8 @@ includes: [testTypedArray.js]
 ---*/
 
 var from = TypedArray.from;
+var m = { m() {} }.m;
 
 assert.throws(TypeError, function() {
-  from([]);
+  from.call(m, []);
 });

@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 id: sec-%typedarray%.from
-description: Returns error produced by interpreting length property as a length
+description: Returns error produced by accessing array-like's length
 info: >
   22.2.2.1 %TypedArray%.from ( source [ , mapfn [ , thisArg ] ] )
 
@@ -12,14 +12,16 @@ info: >
 includes: [testTypedArray.js]
 ---*/
 
-var arrayLike = { length: {} };
+var arrayLike = {};
 
-arrayLike.length = {
-  valueOf: function() {
+Object.defineProperty(arrayLike, "length", {
+  get: function() {
     throw new Test262Error();
   }
-};
+});
 
-assert.throws(Test262Error, function() {
-  TypedArray.from(arrayLike);
+testWithTypedArrayConstructors(function(TA) {
+  assert.throws(Test262Error, function() {
+    TA.from(arrayLike);
+  });
 });

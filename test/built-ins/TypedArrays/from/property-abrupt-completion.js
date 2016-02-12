@@ -2,24 +2,30 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 id: sec-%typedarray%.from
-description: Returns error produced by interpreting length property as a length
+description: >
+  Return abrupt from source property
 info: >
   22.2.2.1 %TypedArray%.from ( source [ , mapfn [ , thisArg ] ] )
 
   ...
-  7. Let len be ? ToLength(? Get(arrayLike, "length")).
+  10. Repeat, while k < len
+    ...
+    b. Let kValue be ? Get(arrayLike, Pk).
   ...
 includes: [testTypedArray.js]
 ---*/
 
-var arrayLike = { length: {} };
-
-arrayLike.length = {
-  valueOf: function() {
+var source = {
+  length: 2
+};
+Object.defineProperty(source, "0", {
+  get() {
     throw new Test262Error();
   }
-};
+});
 
-assert.throws(Test262Error, function() {
-  TypedArray.from(arrayLike);
+testWithTypedArrayConstructors(function(TA) {
+  assert.throws(Test262Error, function() {
+    TA.from(source);
+  });
 });

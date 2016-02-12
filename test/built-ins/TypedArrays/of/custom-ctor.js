@@ -3,7 +3,7 @@
 /*---
 id: sec-%typedarray%.of
 description: >
-  "of" cannot be invoked as a method of %TypedArray%
+  Calls and return abrupt from custom constructor
 info: >
   22.2.2.2 %TypedArray%.of ( ...items )
 
@@ -14,10 +14,21 @@ info: >
   22.2.4.6 TypedArrayCreate ( constructor, argumentList )
 
   1. Let newTypedArray be ? Construct(constructor, argumentList).
+  2. Perform ? ValidateTypedArray(newTypedArray).
   ...
 includes: [testTypedArray.js]
 ---*/
 
-assert.throws(TypeError, function() {
-  TypedArray.of();
+testWithTypedArrayConstructors(function(TA) {
+  var called = 0;
+  var ctor = function() {
+    called++;
+    throw new Test262Error();
+  };
+
+  assert.throws(Test262Error, function() {
+    TA.of.call(ctor, 42);
+  });
+
+  assert.sameValue(called, 1);
 });

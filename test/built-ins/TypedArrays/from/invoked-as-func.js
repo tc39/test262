@@ -13,8 +13,10 @@ info: >
 includes: [testTypedArray.js]
 ---*/
 
-var from = TypedArray.from;
+testWithTypedArrayConstructors(function(TA) {
+  var from = TA.from;
 
-assert.throws(TypeError, function() {
-  from([]);
+  assert.throws(TypeError, function() {
+    from([]);
+  });
 });
