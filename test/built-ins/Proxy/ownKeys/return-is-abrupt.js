@@ -14,7 +14,6 @@ info: >
 
         1. ReturnIfAbrupt(obj).
     ...
-includes: [Test262Error.js]
 ---*/
 
 var p = new Proxy({}, {
