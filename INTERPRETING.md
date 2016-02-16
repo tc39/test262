@@ -39,7 +39,15 @@ properties of the global scope prior to test execution.
 
 Unless configured otherwise (via the `noStrict`, `onlyStrict`, or `raw` flags),
 each test must be executed twice: once in ECMAScript's non-strict mode, and
-again in ECMAScript's strict mode.
+again in ECMAScript's strict mode. To run in strict mode, the test contents
+must be modified prior to execution--[a "use strict"
+directive](https://tc39.github.io/ecma262/#sec-directive-prologues-and-the-use-strict-directive)
+must be inserted as the initial character sequence of the file, followed by a
+semicolon (`;`) and newline character (`\n`):
+
+    "use strict";
+
+This must precede any additional text modifications described by test metadata.
 
 ## Test Results
 
