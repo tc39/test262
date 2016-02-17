@@ -1,7 +1,7 @@
-function throwTest262Error(msg) {
-    return function () { throw new Test262Error(msg); };
-}
 function allowProxyTraps(overrides) {
+    function throwTest262Error(msg) {
+        return function () { throw new Test262Error(msg); };
+    }
     if (!overrides) { overrides = {}; }
     var traps = {
         getPrototypeOf: overrides.getPrototypeOf || throwTest262Error('[[GetPrototypeOf]] trap called'),
