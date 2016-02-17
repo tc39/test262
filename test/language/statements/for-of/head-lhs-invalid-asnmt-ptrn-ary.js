@@ -13,5 +13,4 @@ es6id: 13.7
 negative: SyntaxError
 ---*/
 
-var x, y;
 for ([(x, y)] of []) {}

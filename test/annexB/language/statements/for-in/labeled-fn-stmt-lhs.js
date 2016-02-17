@@ -7,5 +7,4 @@ id: sec-labelled-function-declarations
 es6id: B.3.2
 ---*/
 
-var x;
 for (x in {}) label1: label2: function f() {}
