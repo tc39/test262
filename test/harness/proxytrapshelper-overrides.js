@@ -7,8 +7,7 @@ id: pending
 author: Jordan Harband
 includes: [proxyTrapsHelper.js]
 ---*/
-
-var traps = allowProxyTraps({
+var overrides = {
     getPrototypeOf: function () {},
     setPrototypeOf: function () {},
     isExtensible: function () {},
@@ -23,11 +22,15 @@ var traps = allowProxyTraps({
     ownKeys: function () {},
     apply: function () {},
     construct: function () {},
-});
+};
+var traps = allowProxyTraps(overrides);
 
 function assertTrapSucceeds(trap) {
     if (typeof traps[trap] !== 'function') {
         throw new Test262Error('trap ' + trap + ' is not a function');
+    }
+    if (traps[trap] !== overrides[trap]) {
+        throw new Test262Error('trap ' + trap + ' was not overriden in allowProxyTraps');
     }
     var threw = false;
     try {
