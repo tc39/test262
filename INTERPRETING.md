@@ -37,10 +37,10 @@ properties of the global scope prior to test execution.
 
 ### Strict Mode
 
-Unless configured otherwise (via the `noStrict`, `onlyStrict`, or `raw` flags),
-each test must be executed twice: once in ECMAScript's non-strict mode, and
-again in ECMAScript's strict mode. To run in strict mode, the test contents
-must be modified prior to execution--[a "use strict"
+Unless configured otherwise (via the `noStrict`, `onlyStrict`, `module`, or
+`raw` flags), each test must be executed twice: once in ECMAScript's non-strict
+mode, and again in ECMAScript's strict mode. To run in strict mode, the test
+contents must be modified prior to execution--[a "use strict"
 directive](https://tc39.github.io/ecma262/#sec-directive-prologues-and-the-use-strict-directive)
 must be inserted as the initial character sequence of the file, followed by a
 semicolon (`;`) and newline character (`\n`):
@@ -102,6 +102,8 @@ The `flags` attribute is an optional value that specifies one or more of the
 following strings:
 
 - **`onlyStrict`** The test must be executed just once--in strict mode, only.
+  This must be accomplished using the transformation described in the section
+  titled "Strict Mode".
 
   *Example*
 
@@ -117,6 +119,8 @@ following strings:
   ```
 
 - **`noStrict`** The test must be executed just once--in non-strict mode, only.
+  In other words, the transformation described by the section titled "Strict
+  Mode" must **not** be applied to these tests.
 
   *Example*
 
@@ -134,6 +138,10 @@ following strings:
 
 - **`module`** The test source code must be interpreted as [module
   code](http://www.ecma-international.org/ecma-262/6.0/#sec-types-of-source-code).
+  In addition, this flag negates the default requirement to execute the test
+  both in strict mode and in non-strict mode. In other words, the
+  transformation described by the section titled "Strict Mode" must **not** be
+  applied to these tests.
 
   *Example*
 
