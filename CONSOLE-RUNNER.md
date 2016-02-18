@@ -41,6 +41,7 @@ Name | Action
 -h, --help | displays a brief help message
 --command=COMMAND | **required** command which invokes javascript engine to be tested
 -j, --workers-count | Number of tests to run in parallel (defaults to number of cores - 1)
+--module_command | command which invokes the JavaScript engine to be tested for tests labeled as ES2015 modules
 --tests=TESTS | path to the test suite; default is current directory
 --cat | don't execute tests, just print code that would be run
 --summary | generate a summary at end of execution

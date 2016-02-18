@@ -78,6 +78,7 @@ def BuildOptions():
   result.add_option("--print-handle", default="print", help="Command to print from console")
   result.add_option("--list-includes", default=False, action="store_true",
                     help="List includes required by tests")
+  result.add_option("--module_command", default="", help="command which invokes the JavaScript engine to be tested for tests labeled as ES2015 modules")
   return result
 
 
@@ -177,20 +178,20 @@ class TestResult(object):
     mode = self.case.GetMode()
     if self.HasUnexpectedOutcome():
       if self.case.IsNegative():
-        print "=== %s was expected to fail in %s, but didn't ===" % (name, mode)
+        print "=== %s was expected to fail as a %s, but didn't ===" % (name, mode)
         print "--- expected error: %s ---\n" % self.case.GetNegative()
       else:
         if long_format:
-          print "=== %s failed in %s ===" % (name, mode)
+          print "=== %s failed as a %s ===" % (name, mode)
         else:
-          print "%s in %s: " % (name, mode)
+          print "%s as a %s: " % (name, mode)
       self.WriteOutput(sys.stdout)
       if long_format:
         print "==="
     elif self.case.IsNegative():
-      print "%s failed in %s as expected" % (name, mode)
+      print "%s failed as a %s as expected" % (name, mode)
     else:
-      print "%s passed in %s" % (name, mode)
+      print "%s passed as a %s" % (name, mode)
 
   def WriteOutput(self, target):
     out = self.stdout.strip()
@@ -288,10 +289,12 @@ class TestCase(object):
     return path.join(*self.name)
 
   def GetMode(self):
+    if self.IsModule():
+      return "module"
     if self.strict_mode:
-      return "strict mode"
+      return "strict mode script"
     else:
-      return "non-strict mode"
+      return "non-strict mode script"
 
   def GetPath(self):
     return self.name
@@ -307,6 +310,9 @@ class TestCase(object):
 
   def IsRaw(self):
     return 'raw' in self.testRecord
+
+  def IsModule(self):
+    return 'module' in self.testRecord
 
   def IsAsyncTest(self):
     return '$DONE' in self.test
@@ -504,18 +510,25 @@ class TestSuite(object):
             if EXCLUDE_LIST.count(basename) >= 1:
               print 'Excluded: ' + basename
             else:
+              if not self.strict_only:
+                non_strict_case = TestCase(self, name, full_path, False)
+
+                # Tests for module code should be run exactly one time
+                # (*without* the addition of a global "use strict" directive).
+                if non_strict_case.IsModule():
+                    cases.append(non_strict_case)
+                    continue
+
+                if not non_strict_case.IsOnlyStrict():
+                  if non_strict_case.IsNoStrict() or \
+                        self.unmarked_default in ['both', 'non_strict']:
+                    cases.append(non_strict_case)
               if not self.non_strict_only:
                 strict_case = TestCase(self, name, full_path, True)
                 if not strict_case.IsNoStrict():
                   if strict_case.IsOnlyStrict() or \
                         self.unmarked_default in ['both', 'strict']:
                     cases.append(strict_case)
-              if not self.strict_only:
-                non_strict_case = TestCase(self, name, full_path, False)
-                if not non_strict_case.IsOnlyStrict():
-                  if non_strict_case.IsNoStrict() or \
-                        self.unmarked_default in ['both', 'non_strict']:
-                    cases.append(non_strict_case)
     logging.info("Done listing tests")
     return cases
 
@@ -544,12 +557,12 @@ class TestSuite(object):
         print
         write("Failed Tests")
         for result in positive:
-          write("  %s in %s" % (result.case.GetName(), result.case.GetMode()))
+          write("  %s as a %s" % (result.case.GetName(), result.case.GetMode()))
       if len(negative) > 0:
         print
         write("Expected to fail but passed ---")
         for result in negative:
-          write("  %s in %s" % (result.case.GetName(), result.case.GetMode()))
+          write("  %s as a %s" % (result.case.GetName(), result.case.GetMode()))
 
   def PrintFailureOutput(self, progress, logfile):
     for result in progress.failed_tests:
@@ -558,9 +571,16 @@ class TestSuite(object):
       print
       result.ReportOutcome(False)
 
-  def Run(self, command_template, tests, print_summary, full_summary, logname, junitfile, workers_count):
-    if not "{{path}}" in command_template:
-      command_template += " {{path}}"
+  def PrepareCommandTemplate(self, command):
+      if not command:
+        return ""
+      if not "{{path}}" in command:
+        return command + " {{path}}"
+      return command
+
+  def Run(self, command_template, tests, print_summary, full_summary, logname, junitfile, workers_count, module_command):
+    command_template = self.PrepareCommandTemplate(command_template)
+    module_command = self.PrepareCommandTemplate(module_command)
     cases = self.EnumerateTests(tests)
     if len(cases) == 0:
       ReportError("No tests to run")
@@ -592,7 +612,11 @@ class TestSuite(object):
 
     for case in cases:
       def exec_case():
-        result = case.Run(command_template)
+        if case.IsModule() and module_command:
+          command = module_command
+        else:
+          command = command_template
+        result = case.Run(command)
 
         try:
           if workers_count > 1:
@@ -639,17 +663,17 @@ class TestSuite(object):
     mode = result.case.GetMode()
     if result.HasUnexpectedOutcome():
       if result.case.IsNegative():
-          self.logf.write("=== %s was expected to fail in %s, but didn't === \n" % (name, mode))
+          self.logf.write("=== %s was expected to fail as a %s, but didn't === \n" % (name, mode))
           self.logf.write("--- expected error: %s ---\n" % result.case.GetNegative())
           result.WriteOutput(self.logf)
       else:
-          self.logf.write("=== %s failed in %s === \n" % (name, mode))
+          self.logf.write("=== %s failed as a %s === \n" % (name, mode))
           result.WriteOutput(self.logf)
       self.logf.write("===\n")
     elif result.case.IsNegative():
-       self.logf.write("%s failed in %s as expected \n" % (name, mode))
+       self.logf.write("%s failed as a %s as expected \n" % (name, mode))
     else:
-       self.logf.write("%s passed in %s \n" % (name, mode))
+       self.logf.write("%s passed as a %s \n" % (name, mode))
 
   def Print(self, tests):
     cases = self.EnumerateTests(tests)
@@ -697,7 +721,8 @@ def Main():
                           options.full_summary,
                           options.logname,
                           options.junitname,
-                          options.workers_count)
+                          options.workers_count,
+                          options.module_command)
   return code
 
 if __name__ == '__main__':
