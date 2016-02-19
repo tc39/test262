@@ -606,11 +606,10 @@ class TestSuite(object):
           if logname:
             self.WriteLog(result)
         finally:
-          progress.HasRun(result)
-
           if workers_count > 1:
             log_lock.release()
 
+        progress.HasRun(result)
       if workers_count == 1:
         exec_case()
       else:
