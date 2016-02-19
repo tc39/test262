@@ -583,7 +583,6 @@ class TestSuite(object):
           SkipCaseElement.append(SkipElement)
           TestSuiteElement.append(SkipCaseElement)
 
-    threads = []
     if workers_count > 1:
       pool_sem = threading.Semaphore(workers_count)
       log_lock = threading.Lock()
@@ -614,13 +613,11 @@ class TestSuite(object):
         exec_case()
       else:
         pool_sem.acquire()
-        thread = threading.Thread(target=exec_case)
-        threads.append(thread)
-        thread.start()
+        threading.Thread(target=exec_case).start()
         pool_sem.release()
 
-    for thread in threads:
-      thread.join()
+    if workers_count > 1:
+      log_lock.acquire()
 
     if print_summary:
       self.PrintSummary(progress, logname)
@@ -630,6 +627,9 @@ class TestSuite(object):
         print
         print "Use --full-summary to see output from failed tests"
     print
+
+    if workers_count > 1:
+      log_lock.release()
 
     return progress.failed
 
