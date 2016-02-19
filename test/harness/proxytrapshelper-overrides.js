@@ -35,8 +35,9 @@ function assertTrapSucceeds(trap) {
     var threw = false;
     try {
         traps[trap]();
+    } catch (e) {
         threw = true;
-    } catch (e) {}
+    }
     if (threw) {
         throw new Test262Error('trap ' + trap + ' threw an error');
     }
