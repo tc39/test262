@@ -591,7 +591,7 @@ class TestSuite(object):
       log_lock = None
 
     for case in cases:
-      def exec_case():
+      def exec_case(case):
         result = case.Run(command_template)
 
         try:
@@ -615,7 +615,7 @@ class TestSuite(object):
         exec_case()
       else:
         pool_sem.acquire()
-        thread = threading.Thread(target=exec_case)
+        thread = threading.Thread(target=exec_case, args=(case,))
         threads.append(thread)
         thread.start()
         pool_sem.release()
