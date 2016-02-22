@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-applying-the-exp-operator
+esid: sec-applying-the-exp-operator
 description: >
     Checking if Math.pow(argument1, argument2) is approximately equals
     to its mathematical value on the set of 64 argument1 values and 64

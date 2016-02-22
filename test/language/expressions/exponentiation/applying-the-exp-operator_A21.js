@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-applying-the-exp-operator
+esid: sec-applying-the-exp-operator
 description: If base is −0 and exponent < 0 and exponent is an odd integer, the result is −∞.
 ---*/
 

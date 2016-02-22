@@ -3,7 +3,7 @@
 
 /*---
 author: Rick Waldron
-id: sec-update-expressions
+esid: sec-update-expressions
 description: >
   ExponentiationExpression :
     ...

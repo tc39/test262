@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-applying-the-exp-operator
+esid: sec-applying-the-exp-operator
 description: >
     If exponent is +0, the result is 1, even if base is NaN.
 ---*/

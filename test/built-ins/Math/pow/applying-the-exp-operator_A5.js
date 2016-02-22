@@ -3,7 +3,7 @@
 
 /*---
 description: If abs(base) > 1 and exponent is +∞, the result is +∞.
-id: sec-applying-the-exp-operator
+esid: sec-applying-the-exp-operator
 ---*/
 
 

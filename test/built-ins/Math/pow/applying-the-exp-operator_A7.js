@@ -3,7 +3,7 @@
 
 /*---
 description: If abs(base) is 1 and exponent is +∞, the result is NaN.
-id: sec-applying-the-exp-operator
+esid: sec-applying-the-exp-operator
 ---*/
 
 

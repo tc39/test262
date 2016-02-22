@@ -3,7 +3,7 @@
 
 /*---
 description: If base is −0 and exponent < 0 and exponent is an odd integer, the result is −∞.
-id: sec-applying-the-exp-operator
+esid: sec-applying-the-exp-operator
 ---*/
 
 

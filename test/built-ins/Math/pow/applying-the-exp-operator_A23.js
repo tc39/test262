@@ -3,7 +3,7 @@
 
 /*---
 description: If base < 0 and base is finite and exponent is finite and exponent is not an integer, the result is NaN.
-id: sec-applying-the-exp-operator
+esid: sec-applying-the-exp-operator
 ---*/
 
 

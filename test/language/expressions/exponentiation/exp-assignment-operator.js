@@ -3,7 +3,7 @@
 
 /*---
 author: Rick Waldron
-id: sec-assignment-operators-runtime-semantics-evaluation
+esid: sec-assignment-operators-runtime-semantics-evaluation
 description: >
     AssignmentExpression:
       LeftHandSideExpression AssignmentOperator AssignmentExpression

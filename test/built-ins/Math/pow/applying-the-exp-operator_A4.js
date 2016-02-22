@@ -3,7 +3,7 @@
 
 /*---
 description: If base is NaN and exponent is nonzero, the result is NaN.
-id: sec-applying-the-exp-operator
+esid: sec-applying-the-exp-operator
 ---*/
 
 

@@ -3,7 +3,7 @@
 
 /*---
 description: If base is +0 and exponent > 0, the result is +0.
-id: sec-applying-the-exp-operator
+esid: sec-applying-the-exp-operator
 ---*/
 
 

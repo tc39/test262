@@ -3,7 +3,7 @@
 
 /*---
 author: Rick Waldron, André Bargull
-id: sec-exp-operator-runtime-semantics-evaluation
+esid: sec-exp-operator-runtime-semantics-evaluation
 description: >
     ExponentiationExpression:
       UpdateExpression ** ExponentiationExpression

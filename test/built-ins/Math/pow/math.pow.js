@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-math.pow
+esid: sec-math.pow
 description: >
   Math.pow ( base, exponent )
 
