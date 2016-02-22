@@ -5,6 +5,8 @@
 esid: sec-math.pow
 description: >
   Math.pow.length is 2.
+info: >
+  Math.pow ( x, y )
 
   17 ECMAScript Standard Built-in Objects:
     Every built-in Function object, including constructors, has a length
