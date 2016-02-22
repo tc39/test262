@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-object.entries
+esid: sec-object.entries
 description: >
     Object.entries should not have its behavior impacted by modifications to Object.keys
 author: Jordan Harband

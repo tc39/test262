@@ -3,7 +3,7 @@
 
 /*---
 description: Object.getOwnPropertyDescriptors accepts Symbol primitives.
-id: pending
+esid: pending
 author: Jordan Harband
 features: [Symbol]
 ---*/

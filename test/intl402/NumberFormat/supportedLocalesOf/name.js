@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-Intl.NumberFormat.supportedLocalesOf
+esid: sec-Intl.NumberFormat.supportedLocalesOf
 description: >
   Intl.NumberFormat.supportedLocalesOf.name is "supportedLocalesOf".
 info: >

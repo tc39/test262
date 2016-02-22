@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-dataview.prototype.getuint32
+esid: sec-dataview.prototype.getuint32
 description: >
   DataView.prototype.getUint32.length is 1.
 info: >

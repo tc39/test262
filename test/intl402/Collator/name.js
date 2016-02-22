@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-Intl.Collator
+esid: sec-Intl.Collator
 description: >
   Intl.Collator.name is "Collator".
 info: >

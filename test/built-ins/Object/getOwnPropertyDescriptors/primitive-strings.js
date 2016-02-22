@@ -3,7 +3,7 @@
 
 /*---
 description: Object.getOwnPropertyDescriptors accepts string primitives.
-id: pending
+esid: pending
 author: Jordan Harband
 ---*/
 

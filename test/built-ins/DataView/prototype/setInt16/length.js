@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-dataview.prototype.setint16
+esid: sec-dataview.prototype.setint16
 description: >
   DataView.prototype.setInt16.length is 2.
 info: >

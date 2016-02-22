@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-Intl.NumberFormat.prototype.resolvedOptions
+esid: sec-Intl.NumberFormat.prototype.resolvedOptions
 description: >
   Intl.NumberFormat.prototype.resolvedOptions.name is "resolvedOptions".
 info: >

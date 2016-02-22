@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-dataview.prototype.setint8
+esid: sec-dataview.prototype.setint8
 description: >
   Index bounds checks are performed after value conversion.
 info: >

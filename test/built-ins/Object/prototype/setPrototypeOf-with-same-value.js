@@ -1,7 +1,7 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-id: sec-immutable-prototype-exotic-objects-setprototypeof-v
+esid: sec-immutable-prototype-exotic-objects-setprototypeof-v
 description: >
   Object.prototype's [[SetPrototypeOf]] returns true if value is same
 info: >

@@ -1,7 +1,7 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-id: sec-reflect-object
+esid: sec-reflect-object
 description: >
   Reflect.enumerate was removed and it's not a function anymore
 ---*/

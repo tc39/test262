@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-object.entries
+esid: sec-object.entries
 description: Object.entries should perform observable operations in the correct order
 author: Jordan Harband
 features: [Proxy]

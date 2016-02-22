@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-Intl.DateTimeFormat
+esid: sec-Intl.DateTimeFormat
 description: >
   Intl.DateTimeFormat.name is "DateTimeFormat".
 info: >

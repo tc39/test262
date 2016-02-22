@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-object.entries
+esid: sec-object.entries
 description: Object.entries does not see a new element added by a getter that is hit during iteration
 author: Jordan Harband
 ---*/

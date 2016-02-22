@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-dataview.prototype.setfloat32
+esid: sec-dataview.prototype.setfloat32
 description: >
   Throws a RangeError if the index is negative or non-integral number.
 info: >

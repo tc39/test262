@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-object.values
+esid: sec-object.values
 description: >
     Object.values should not have its behavior impacted by modifications to the global property Object
 author: Jordan Harband

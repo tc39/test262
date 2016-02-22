@@ -1,7 +1,7 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-id: sec-typedarray-object
+esid: sec-typedarray-object
 description: >
   Return abrupt from getting object property
 info: >

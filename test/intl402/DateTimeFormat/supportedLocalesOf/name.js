@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-Intl.DateTimeFormat.supportedLocalesOf
+esid: sec-Intl.DateTimeFormat.supportedLocalesOf
 description: >
   Intl.DateTimeFormat.supportedLocalesOf.name is "supportedLocalesOf".
 info: >

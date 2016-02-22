@@ -1,7 +1,7 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-id: sec-typedarray-typedarray
+esid: sec-typedarray-typedarray
 description: >
   Use default ArrayBuffer constructor on undefined buffer.constructor.@@species
 info: >

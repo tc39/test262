@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-Intl.Collator.prototype.resolvedOptions
+esid: sec-Intl.Collator.prototype.resolvedOptions
 description: >
   Intl.Collator.prototype.resolvedOptions.name is "resolvedOptions".
 info: >
