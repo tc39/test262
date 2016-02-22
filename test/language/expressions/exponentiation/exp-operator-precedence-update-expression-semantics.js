@@ -4,7 +4,8 @@
 /*---
 author: Rick Waldron
 esid: sec-update-expressions
-description: >
+description: Exponentiation Operator expression precedence of update operators
+info: >
   ExponentiationExpression :
     ...
     UpdateExpression `**` ExponentiationExpression

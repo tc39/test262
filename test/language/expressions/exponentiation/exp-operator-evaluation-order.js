@@ -4,7 +4,8 @@
 /*---
 author: Rick Waldron, André Bargull
 esid: sec-exp-operator-runtime-semantics-evaluation
-description: >
+description: Exponentiation Operator expression order of evaluation
+info: >
     ExponentiationExpression:
       UpdateExpression ** ExponentiationExpression
 
