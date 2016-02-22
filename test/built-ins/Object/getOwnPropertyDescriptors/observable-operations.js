@@ -3,7 +3,7 @@
 
 /*---
 description: Object.getOwnPropertyDescriptors should perform observable operations in the correct order
-id: pending
+esid: pending
 author: Jordan Harband
 features: [Proxy]
 includes: [proxyTrapsHelper.js]

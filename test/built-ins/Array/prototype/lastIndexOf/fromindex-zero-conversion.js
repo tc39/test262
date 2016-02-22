@@ -1,7 +1,7 @@
 // Copyright 2016 The V8 project authors. All rights reserved.
 // This code is governed by the license found in the LICENSE file.
 /*---
-id: sec-array.prototype.lastindexof
+esid: sec-array.prototype.lastindexof
 description: >
   Return +0 when fromIndex is -0 and return index refers to the first position
 info: >

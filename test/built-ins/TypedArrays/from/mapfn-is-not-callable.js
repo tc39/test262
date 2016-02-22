@@ -1,7 +1,7 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-id: sec-%typedarray%.from
+esid: sec-%typedarray%.from
 description: Throw a TypeError exception is mapfn is not callable
 info: >
   22.2.2.1 %TypedArray%.from ( source [ , mapfn [ , thisArg ] ] )

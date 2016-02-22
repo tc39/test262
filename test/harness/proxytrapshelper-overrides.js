@@ -3,7 +3,7 @@
 
 /*---
 description: allowProxyTraps helper should default throw on all the proxy trap named methods being invoked
-id: pending
+esid: pending
 author: Jordan Harband
 includes: [proxyTrapsHelper.js]
 ---*/

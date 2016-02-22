@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-Intl.Collator.prototype.compare
+esid: sec-Intl.Collator.prototype.compare
 description: >
   get Intl.Collator.prototype.compare.name is "get compare".
 info: >

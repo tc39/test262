@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: pending
+esid: pending
 description: >
   TypedArray's [[ByteOffset]] internal slot is always a positive number, test with negative zero.
 info: >

@@ -3,7 +3,7 @@
 
 /*---
 description: Object.getOwnPropertyDescriptors should fail if given a null or undefined value
-id: pending
+esid: pending
 author: Jordan Harband
 ---*/
 

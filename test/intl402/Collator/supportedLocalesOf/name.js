@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-Intl.Collator.supportedLocalesOf
+esid: sec-Intl.Collator.supportedLocalesOf
 description: >
   Intl.Collator.supportedLocalesOf.name is "supportedLocalesOf".
 info: >

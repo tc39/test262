@@ -4,7 +4,7 @@
 /*---
 description: >
     Object.getOwnPropertyDescriptors should not have its behavior impacted by modifications to the global property Object
-id: pending
+esid: pending
 author: Jordan Harband
 includes: [fnGlobalObject.js]
 ---*/

@@ -1,7 +1,7 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-id: sec-typedarray-buffer-byteoffset-length
+esid: sec-typedarray-buffer-byteoffset-length
 description: >
   If offset + newByteLength > bufferByteLength, throw a RangeError exception.
 info: >

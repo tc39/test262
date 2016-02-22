@@ -1,7 +1,7 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-id: sec-properties-of-the-object-prototype-object
+esid: sec-properties-of-the-object-prototype-object
 description: >
   Object.prototype is still extensible and may have extensions prevented
 info: >

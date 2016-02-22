@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-arrow-function-definitions-static-semantics-early-errors
+esid: sec-arrow-function-definitions-static-semantics-early-errors
 description: >
   A SyntaxError is thrown if an arrow function contains a non-simple parameter list and a UseStrict directive.
 info: >

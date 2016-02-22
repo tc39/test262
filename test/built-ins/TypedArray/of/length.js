@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-%typedarray%-of
+esid: sec-%typedarray%-of
 description: >
   %TypedArray%.of.length is 0.
 info: >

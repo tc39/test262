@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-Intl.DateTimeFormat.prototype.format
+esid: sec-Intl.DateTimeFormat.prototype.format
 description: >
   The bound DateTimeFormat format function is an anonymous function.
 info: >

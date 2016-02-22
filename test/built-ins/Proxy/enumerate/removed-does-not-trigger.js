@@ -1,7 +1,7 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-id: sec-proxy-object-internal-methods-and-internal-slots
+esid: sec-proxy-object-internal-methods-and-internal-slots
 description: >
   Enumerate trap was removed and it should not be triggered anymore.
 includes: [compareArray.js]

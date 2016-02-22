@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-Intl.NumberFormat.prototype.format
+esid: sec-Intl.NumberFormat.prototype.format
 description: >
   The bound NumberFormat format function is an anonymous function.
 info: >

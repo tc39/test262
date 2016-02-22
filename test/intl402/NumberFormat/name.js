@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-Intl.NumberFormat
+esid: sec-Intl.NumberFormat
 description: >
   Intl.NumberFormat.name is "NumberFormat".
 info: >

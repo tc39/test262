@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-id: sec-object.values
+esid: sec-object.values
 description: Object.values does not see an element made non-enumerable by a getter that is hit during iteration
 author: Jordan Harband
 ---*/
