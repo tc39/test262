@@ -28,4 +28,4 @@ var proxy = new Proxy({}, {
 var result = Object.getOwnPropertyDescriptors(proxy);
 assert.sameValue(result.hasOwnProperty('DUPLICATE'), true);
 assert.sameValue(result.DUPLICATE, undefined);
-assert.sameValue(log, 'ownKeys|getOwnPropertyDescriptor:DUPLICATE|getOwnPropertyDescriptor:DUPLICATE|getOwnPropertyDescriptor:DUPLICATE');
+assert.sameValue(log, 'ownKeys|getOwnPropertyDescriptor:DUPLICATE|getOwnPropertyDescriptor:DUPLICATE|getOwnPropertyDescriptor:DUPLICATE|');
