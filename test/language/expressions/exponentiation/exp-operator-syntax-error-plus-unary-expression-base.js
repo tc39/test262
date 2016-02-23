@@ -4,7 +4,8 @@
 /*---
 author: Rick Waldron
 esid: sec-unary-operators
-description: >
+description: Exponentiation Expression syntax error, `+` UnaryExpression
+info: >
   ExponentiationExpression :
     UnaryExpression
     ...

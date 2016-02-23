@@ -4,7 +4,7 @@
 /*---
 author: Rick Waldron
 esid: sec-exp-operator
-description: >
+info: >
     Performs exponential calculation on operands. Same algorithm as %MathPow%(base, exponent)
 ---*/
 
