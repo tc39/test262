@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es6id: 20.2.2.26
+esid: sec-math.pow
 description: >
   Math.pow.name is "pow".
 info: >
