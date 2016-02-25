@@ -1,5 +1,8 @@
 ## Using the Console Test Runner
 
+**Note** This utility has been deprecated. It will not be updated with new
+features; future changes will be limited to bug fixes only.
+
 The console test runner is used to test browserless implementations of ECMAScript, e.g., [v8](http://en.wikipedia.org/wiki/V8_(JavaScript_engine)), [node](http://en.wikipedia.org/wiki/Node.js), or [js24](http://packages.ubuntu.com/trusty/libmozjs-24-bin) 
 
 ### Requirements
@@ -40,7 +43,6 @@ Name | Action
 -----|-------
 -h, --help | displays a brief help message
 --command=COMMAND | **required** command which invokes javascript engine to be tested
--j, --workers-count | Number of tests to run in parallel (defaults to number of cores - 1)
 --tests=TESTS | path to the test suite; default is current directory
 --cat | don't execute tests, just print code that would be run
 --summary | generate a summary at end of execution
@@ -50,9 +52,9 @@ Name | Action
 --unmarked_default=MODE | mode to use for tests that are not marked **onlyStrict** or **noStrict** ; MODE can be `strict` or `non_strict` or `both`
 --logname=LOGNAME | write output to file (in addition to stdout)
 --junitname=JUNITNAME | write test results to file in JUnit XML format
---loglevel=LOGLEVEL | set log level, primarily useful for debugging `test262.py`
+--loglevel=LOGLEVEL | set log level, primarily useful for debugging `test262.py` 
 --print-handle=FUNC | enable async test logging via javascript function e.g., `console.log`
-
+ 
 ### Usage Notes
 
 Non-option arguments are used as filters to match test names.  If no filters are found, the whole test suite is run.
@@ -67,7 +69,7 @@ The COMMAND argument can be a quoted string.  This is useful when testing ECMASc
 
 ```
 $ test262.py --command="node --harmony" es6
-```
+``` 
 
 #### Async Tests
 
@@ -82,7 +84,7 @@ JavaScriptCore<sup>2</sup> | jsc | print
 
 ***Notes:***
 1. As of 2014-Jul-23, SpiderMonkey does not support Promise in the `js` executable ([see bug 911216](https://bugzilla.mozilla.org/show_bug.cgi?id=911216) )
-2. As of 2014-Jul-23, JavaScriptCore does not support Promise in the `jsc` executable
+2. As of 2014-Jul-23, JavaScriptCore does not support Promise in the `jsc` executable 
 
 
 ### Troubleshooting
