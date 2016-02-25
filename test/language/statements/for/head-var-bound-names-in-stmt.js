@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: The body may re-declare variables declared in the head
-id: sec-for-statement
+esid: sec-for-statement
 es6id: 13.7.4
 ---*/
 

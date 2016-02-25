@@ -3,7 +3,7 @@
 /*---
 description: It is a Syntax Error if IsLabelledFunction(Statement) is true.
 negative: SyntaxError
-id: sec-semantics-static-semantics-early-errors
+esid: sec-semantics-static-semantics-early-errors
 es6id: 13.7.1.1
 info: >
     Although Annex B describes an extension which permits labelled function
