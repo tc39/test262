@@ -3,8 +3,12 @@
 /*---
 description: It is a Syntax Error if IsLabelledFunction(Statement) is true.
 negative: SyntaxError
-id: sec-labelled-function-declarations
-es6id: B.3.2
+id: sec-semantics-static-semantics-early-errors
+es6id: 13.7.1.1
+info: >
+    Although Annex B describes an extension which permits labelled function
+    declarations outside of strict mode, this early error is applied regardless
+    of the language mode.
 ---*/
 
 for (var x in {}) label1: label2: function f() {}
