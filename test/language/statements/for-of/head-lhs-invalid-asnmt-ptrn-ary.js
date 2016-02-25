@@ -9,7 +9,7 @@ info: >
     LeftHandSideExpression cannot be parsed with no tokens left over using
     AssignmentPattern as the goal symbol.
 id: sec-for-in-and-for-of-statements-static-semantics-early-errors
-es6id: 13.7
+es6id: 13.7.5
 negative: SyntaxError
 ---*/
 

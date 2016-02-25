@@ -5,7 +5,7 @@
 description: >
     Head's AssignmentExpression may be CoverParenthesizedExpressionAndArrowParameterList
 id: sec-for-in-and-for-of-statements-static-semantics-early-errors
-es6id: 13.7
+es6id: 13.7.5
 ---*/
 
 var iterCount = 0;

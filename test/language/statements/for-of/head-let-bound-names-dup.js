@@ -7,7 +7,7 @@ info: |
     It is a Syntax Error if the BoundNames of ForDeclaration contains any
     duplicate entries.
 id: sec-for-in-and-for-of-statements-static-semantics-early-errors
-es6id: 13.7
+es6id: 13.7.5
 ---*/
 
 for (let [x, x] of []) {}

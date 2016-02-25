@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: The body may re-declare variables declared in the head
-id: sec-for-in-and-for-of-statements
-es6id: 13.7
+id: sec-for-statement
+es6id: 13.7.4
 ---*/
 
 var iterCount = 0;

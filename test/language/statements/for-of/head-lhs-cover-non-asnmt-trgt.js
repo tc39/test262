@@ -13,7 +13,7 @@ info: >
     to these rules if that production is substituted for
     LeftHandSideExpression. This rule is recursively applied.
 id: sec-for-in-and-for-of-statements-static-semantics-early-errors
-es6id: 13.7
+es6id: 13.7.5
 negative: SyntaxError
 ---*/
 
