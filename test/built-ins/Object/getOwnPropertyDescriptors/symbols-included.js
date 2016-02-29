@@ -18,8 +18,9 @@ obj[enumSym] = value;
 Object.defineProperty(obj, nonEnumSym, { enumerable: false, value: value });
 
 var result = Object.getOwnPropertyDescriptors(obj);
+var keys = Object.keys(result).concat(Object.getOwnPropertySymbols(result));
 
-assert.sameValue(Object.keys(result).length, 3, 'obj has 3 descriptors');
+assert.sameValue(keys.length, 3, 'obj has 3 descriptors');
 
 assert.sameValue(result.key.configurable, true, 'result.key is configurable');
 assert.sameValue(result.key.enumerable, true, 'result.key is enumerable');
