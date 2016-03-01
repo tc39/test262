@@ -18,8 +18,10 @@ var getter = Object.getOwnPropertyDescriptor(
   TypedArrayPrototype, Symbol.toStringTag
 ).get;
 
-assert.sameValue(getter.call(42), undefined);
-assert.sameValue(getter.call("foo"), undefined);
-assert.sameValue(getter.call(true), undefined);
-assert.sameValue(getter.call(false), undefined);
-assert.sameValue(getter.call(Symbol("s")), undefined);
+assert.sameValue(getter.call(undefined), undefined, "this is undefined");
+assert.sameValue(getter.call(42), undefined, "this is 42");
+assert.sameValue(getter.call("foo"), undefined, "this is a string");
+assert.sameValue(getter.call(true), undefined, "this is true");
+assert.sameValue(getter.call(false), undefined, "this is false");
+assert.sameValue(getter.call(Symbol("s")), undefined, "this is a Symbol");
+assert.sameValue(getter.call(null), undefined, "this is null");
