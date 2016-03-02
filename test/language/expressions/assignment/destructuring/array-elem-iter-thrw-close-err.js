@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: >
-    IteratorClose is called when reference evaluation produces an abrupt
+    IteratorClose is called when reference evaluation produces a "throw"
     completion
 info: |
     ArrayAssignmentPattern : [ AssignmentElementList ]

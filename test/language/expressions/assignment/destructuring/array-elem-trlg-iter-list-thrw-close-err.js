@@ -3,7 +3,7 @@
 /*---
 description: >
     IteratorClose is invoked when evaluation of AssignmentElementList returns
-    an abrupt completion and the iterator has not been marked as "done"
+    a "throw" completion and the iterator has not been marked as "done"
 info: |
     ArrayAssignmentPattern :
         [ AssignmentElementList , Elisionopt AssignmentRestElementopt ]
