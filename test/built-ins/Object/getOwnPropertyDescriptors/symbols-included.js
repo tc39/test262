@@ -15,11 +15,12 @@ var symValue = Symbol('value');
 
 var obj = { key: symValue };
 obj[enumSym] = value;
-Object.defineProperty(obj, nonEnumSym, { enumerable: false, value: value });
+Object.defineProperty(obj, nonEnumSym, { writable: true, enumerable: false, configurable: true, value: value });
 
 var result = Object.getOwnPropertyDescriptors(obj);
 
-assert.sameValue(Object.keys(result).length, 3, 'obj has 3 descriptors');
+assert.sameValue(Object.keys(result).length, 1, 'obj has 1 string-keyed descriptor');
+assert.sameValue(Object.getOwnPropertySymbols(result).length, 2, 'obj has 2 symbol-keyed descriptors');
 
 assert.sameValue(result.key.configurable, true, 'result.key is configurable');
 assert.sameValue(result.key.enumerable, true, 'result.key is enumerable');

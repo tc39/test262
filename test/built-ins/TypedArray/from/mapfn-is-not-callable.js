@@ -51,10 +51,6 @@ assert.throws(TypeError, function() {
   TypedArray.from(arrayLike, s);
 }, "mapfn is a symbol");
 
-assert.throws(TypeError, function() {
-  TypedArray.from(arrayLike, Int8Array);
-}, "mapfn is a TypedArray constructor (not callable)");
-
 assert.sameValue(
   getIterator, 0,
   "IsCallable(mapfn) check occurs before getting source[@@iterator]"
