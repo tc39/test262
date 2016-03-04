@@ -3,7 +3,6 @@
 
 /*---
 info: >
-
     Since LineTerminator(LT) between Postfix Increment/Decrement
     Operator(I/DO) and operand is not allowed, two IO(just as two DO
     and their combination) between two references separated by [LT]
