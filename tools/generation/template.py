@@ -96,8 +96,15 @@ class Template:
             '// - ' + self.filename,
             '/*---',
             'description: ' + description,
-            'es6id: ' + self.attribs['meta']['es6id']
         ]
+
+        esid = self.attribs['meta'].get('esid')
+        if esid:
+            lines.append('esid: ' + esid)
+
+        es6id = self.attribs['meta'].get('es6id')
+        if es6id:
+            lines.append('es6id: ' + es6id)
 
         features = []
         features += case_values['meta'].get('features', [])

@@ -3,7 +3,7 @@
 // - tools/generation/test/fixtures/normal/normal2.template
 /*---
 description: foobar (Second template name)
-es6id: 4.5.6
+esid: sec-a-generic-id
 info: >
     template info
 
