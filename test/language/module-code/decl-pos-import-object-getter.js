@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: Expression cannot contain an `import` declaration
-id: sec-modules
+esid: sec-modules
 negative: SyntaxError
 flags: [module]
 ---*/
