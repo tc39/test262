@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: The `export` declaration may not appear within eval code
-id: sec-scripts
+esid: sec-scripts
 flags: [module]
 info: |
      Eval code is the source text supplied to the built-in eval function. More

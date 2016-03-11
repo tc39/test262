@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: The `import` declaration may not appear within a ScriptBody
-id: sec-scripts
+esid: sec-scripts
 negative: SyntaxError
 info: |
      A.5 Scripts and Modules
