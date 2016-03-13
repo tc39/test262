@@ -117,19 +117,37 @@ structured as [YAML](http://yaml.org/).
 ### `negative`
 
 These tests are expected to generate an uncaught exception. The value of this
-attribute is the name of the constructor of the expected error. If a test
-configured with the `negative` attribute completes without throwing an
-exception, or if the name of the thrown exception's constructor does not match
-the specified constructor name, the test must be interpreted as "failing."
+attribute is a YAML dictonary with two keys:
+
+- `phase` - the stage of the test interpretation process that the error is
+  expected to be produced; either "early" (meaning, "prior to evaluation") or
+  "runtime" (meaning, "during evaluation"); in the case of "early", additional
+  test transformation may be required--see below
+- `type` - the name of the constructor of the expected error
+
+If a test configured with the `negative` attribute completes without throwing
+an exception, or if the name of the thrown exception's constructor does not
+match the specified constructor name, or if the error occurs at a phase that
+differs from the indicated phase, the test must be interpreted as "failing."
 
 *Example:*
 
 ```js
 /*---
-negative: ReferenceError
+negative:
+  phase: runtime
+  type: ReferenceError
 ---*/
 unresolvable;
 ```
+
+Consumers are free to assert the "early" phase as they see fit.
+
+For example, it is possible to insert a `throw` statement with a unique error
+type at the beginning of the test file. In this case, the statement should be
+inserted *after* the directive desribed in the section titled "Strict Mode"
+(where appropriate), though it must *not* be inserted for tests containing the
+"raw" flag.
 
 ### `includes`
 
