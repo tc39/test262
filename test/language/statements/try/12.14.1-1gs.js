@@ -13,5 +13,4 @@ negative:
 flags: [onlyStrict]
 ---*/
 
-throw NotEarlyError;
 try { } catch (eval) { }

@@ -26,7 +26,6 @@ negative:
   phase: early
   type: SyntaxError
 ---*/
-throw NotEarlyError;
 
 let  // start of a LexicalDeclaration, *not* an ASI opportunity
 let;
