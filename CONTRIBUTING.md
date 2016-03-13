@@ -157,12 +157,6 @@ assert.sameValue(actual, expected, message) | throw a new Test262Error instance 
 assert.notSameValue(actual, unexpected, message) | throw a new Test262Error instance if the first two arguments are [the same value](http://www.ecma-international.org/ecma-262/6.0/#sec-samevalue); accepts an optional string message for use in creating the error
 assert.throws(expectedErrorConstructor, fn) | throw a new Test262Error instance if the provided function does not throw an error, or if the constructor of the value thrown does not match the provided constructor
 
-The test harness also defines the following objects:
-
-Identifier | Purpose
------------|--------
-NotEarlyError | preconstructed error object used for testing syntax and other early errors; see Syntax Error & Early Error, below
-
 ```
 /// error class
 function Test262Error(message) {
@@ -178,8 +172,6 @@ function $ERROR(message) {
 function $DONE(arg) {
 //[omitted body]
 }
-
-var NotEarlyError = new Error(...);
 ```
 
 ## Handling Errors and Negative Test Cases
@@ -193,9 +185,6 @@ negative:
   type: SyntaxError
 ---*/
 
-// This `throw` statement guarantees that no code is executed in order to
-// trigger the SyntaxError.
-throw NotEarlyError;
 var var = var;
 ```
 
