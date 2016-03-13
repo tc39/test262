@@ -12,5 +12,4 @@ negative:
 flags: [onlyStrict]
 ---*/
 
-throw NotEarlyError;
 var implements = 1;

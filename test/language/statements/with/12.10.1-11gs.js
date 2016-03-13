@@ -10,5 +10,4 @@ negative:
 flags: [onlyStrict]
 ---*/
 
-throw NotEarlyError;
 with ({}) { }

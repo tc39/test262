@@ -12,5 +12,4 @@ negative:
 flags: [onlyStrict]
 ---*/
 
-throw NotEarlyError;
 var _13_1_8_fun = function (param, param) { };

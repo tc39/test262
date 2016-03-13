@@ -9,5 +9,4 @@ negative:
   type: SyntaxError
 ---*/
 
-throw NotEarlyError;
 var re = //;

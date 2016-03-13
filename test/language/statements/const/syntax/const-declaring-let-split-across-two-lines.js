@@ -12,7 +12,6 @@ negative:
   stage: early
   type: SyntaxError
 ---*/
-throw NotEarlyError;
 
 const
 let = "irrelevant initializer";
