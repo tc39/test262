@@ -70,13 +70,20 @@ Eg: Object.prototype.toString - '[object Null]' will be returned when
 'this' value is null
 
 #### negative
-**negative**: [regex]
+**negative**: [dictionary containing **phase** and **type**]
 
 This means the test is expected to throw an error of the given type.  If no error is thrown, a test failure is reported.
 
-If an error is thrown, it is implicitly converted to a string.  The second parameter is a regular expression that will be matched against this string.  If the match fails, a test failure is reported.  Thus the regular expression can match either the error name, or the message contents, or both.
+- **type**- If an error is thrown, it is implicitly converted to a string. In order for the test to pass, this value must match the name of the error constructor.
+- **phase** - Negative tests whose **phase** value is "early" must produce the specified error prior to executing code. The value "runtime" dictates that the error is expected to be produced as a result of executing the test code.
 
 For best practices on how to use the negative tag please see Handling Errors and Negative Test Cases, below.
+
+For example:
+
+    negative:
+      phase: early
+      type: ReferenceError
 
 #### es5id
 **es5id**: [es5-test-id]
@@ -181,7 +188,9 @@ Expectations for **parsing errors** should be declared using [the `negative` fro
 
 ```javascript
 /*---
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 // This `throw` statement guarantees that no code is executed in order to
