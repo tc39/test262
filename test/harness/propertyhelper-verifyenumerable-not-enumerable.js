@@ -2,8 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: >
-    Objects whose specified property is not enumerable do not satisfy the
+description: |
+    Objects whose specified string property is not enumerable do not satisfy the
     assertion.
 includes: [propertyHelper.js]
 ---*/
@@ -19,7 +19,7 @@ try {
 } catch(err) {
   threw = true;
   if (err.constructor !== Test262Error) {
-    $ERROR(
+    throw new Test262Error(
       'Expected a Test262Error, but a "' + err.constructor.name +
       '" was thrown.'
     );
@@ -27,5 +27,7 @@ try {
 }
 
 if (threw === false) {
-  $ERROR('Expected a Test262Error, but no error was thrown.');
+  throw new Test262Error(
+    'Expected a Test262Error, but no error was thrown for string key.'
+  );
 }
