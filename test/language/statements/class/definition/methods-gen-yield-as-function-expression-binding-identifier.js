@@ -7,7 +7,9 @@
       expression within classes.
   features: [generators]
   es6id: 14.1
-  negative: SyntaxError
+  negative:
+    stage: early
+    type: SyntaxError
  ---*/
 
 class A {

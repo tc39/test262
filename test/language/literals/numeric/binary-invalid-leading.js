@@ -13,7 +13,9 @@ info: >
       BinaryDigits BinaryDigit
     BinaryDigit :: one of
       0 1
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 00b0;

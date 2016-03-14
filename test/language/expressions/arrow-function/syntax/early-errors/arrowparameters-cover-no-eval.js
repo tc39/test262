@@ -14,7 +14,9 @@ description: >
 
     No parameters named "eval"
 
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 flags: [onlyStrict]
 ---*/
 var af = (eval) => 1;

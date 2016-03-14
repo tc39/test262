@@ -5,7 +5,9 @@
 description: >
     The AssignmentRestElement does not support an initializer.
 es6id: 12.14.5
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 var x;

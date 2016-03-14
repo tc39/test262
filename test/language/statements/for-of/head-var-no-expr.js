@@ -7,7 +7,9 @@ info: >
     IterationStatement :
         for ( var ForBinding of AssignmentExpression ) Statement
 es6id: 13.7
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 for (var x of [], []) {}

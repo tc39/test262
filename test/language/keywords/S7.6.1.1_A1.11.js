@@ -5,7 +5,9 @@
 info: The "function" token can not be used as identifier
 es5id: 7.6.1.1_A1.11
 description: Checking if execution of "function=1" fails
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 function = 1;

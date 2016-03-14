@@ -9,7 +9,9 @@ es5id: 12.14_A16_T13
 description: >
     Catch: "catch (Identifier ) Block". Checking if execution of "22"
     passes at the place of Identifier of "catch"
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 // CHECK#1

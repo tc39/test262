@@ -10,7 +10,9 @@ info: >
   It is a Syntax Error if IsSimpleParameterList of FormalParameterList is false
   and BoundNames of FormalParameterList contains any duplicate elements.
 flags: [noStrict]
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 var fn = function (a, a = 1) {};

@@ -6,7 +6,9 @@ description: >
     ArrayAssignmentPattern may not include elisions following an
     AssignmentRestElement in a AssignmentElementList.
 es6id: 12.14.5
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 [...x,] = [];

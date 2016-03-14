@@ -7,7 +7,9 @@ es5id: 7.8.4_A1.1_T2
 description: >
     DoubleStringCharacter :: SourceCharacter but not double-quote " or
     LineTerminator
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 //CHECK#1

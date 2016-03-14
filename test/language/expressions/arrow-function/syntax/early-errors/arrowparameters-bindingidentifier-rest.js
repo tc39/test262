@@ -7,6 +7,8 @@ description: >
 
     Includes ...rest
 
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 var af = ...x => x;

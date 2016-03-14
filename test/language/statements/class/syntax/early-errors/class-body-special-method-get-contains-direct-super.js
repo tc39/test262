@@ -9,7 +9,9 @@ description: >
 
     (get)
 
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 class A {
   get method() {

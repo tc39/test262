@@ -8,7 +8,9 @@ description: >
 es6id: 14.4
 features: [generators]
 flags: [noStrict]
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 (function*() {

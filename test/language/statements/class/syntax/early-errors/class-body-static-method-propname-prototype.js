@@ -7,7 +7,9 @@ description: >
 
     It is a Syntax Error if PropName of MethodDefinition is "prototype".
 
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 class A {
   static prototype() {}

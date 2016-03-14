@@ -5,6 +5,8 @@ es6id: 13.1
 description: >
     let declarations with initialisers in statement positions: 
     if ( Expression ) Statement
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 if (true) let x = 1;

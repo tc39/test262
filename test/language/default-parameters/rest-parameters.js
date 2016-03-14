@@ -4,7 +4,9 @@
 es6id: 14.1
 description: >
   Rest parameters can not have a default
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 function fn(...args = [1]) {}

@@ -8,7 +8,9 @@ info: >
     IterationStatement
 es5id: 12.7_A5_T3
 description: Identifier is within loop label
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 LABEL_OUT : var x=0, y=0;

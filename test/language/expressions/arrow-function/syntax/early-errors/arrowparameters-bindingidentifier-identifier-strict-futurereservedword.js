@@ -17,7 +17,9 @@ description: >
 
     Strict Mode
 
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 flags: [onlyStrict]
 ---*/
 var af = package => 1;

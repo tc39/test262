@@ -9,7 +9,9 @@ es5id: 12.14_A16_T6
 description: >
     Block: "{ StatementList }". Checking if execution of "try{
     catch{}{}" fails
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 // CHECK#1

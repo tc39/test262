@@ -8,7 +8,9 @@ description: >
 
     No parens around ArrowParameters
 
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 var af = x
 => {};

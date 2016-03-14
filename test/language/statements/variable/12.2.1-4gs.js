@@ -6,9 +6,10 @@ es5id: 12.2.1-4gs
 description: >
     Strict Mode - SyntaxError is thrown if a VariableDeclarationNoIn
     occurs within strict code and its Identifier is arguments
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 flags: [onlyStrict]
 ---*/
 
-throw NotEarlyError;
 var arguments;

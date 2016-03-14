@@ -146,7 +146,7 @@ class TestResult(object):
     if self.HasUnexpectedOutcome():
       if self.case.IsNegative():
         print "=== %s was expected to fail in %s, but didn't ===" % (name, mode)
-        print "--- expected error: %s ---\n" % self.case.GetNegative()
+        print "--- expected error: %s ---\n" % self.case.GetNegativeType()
       else:
         if long_format:
           print "=== %s failed in %s ===" % (name, mode)
@@ -246,11 +246,21 @@ class TestCase(object):
     self.validate()
 
   def NegativeMatch(self, stderr):
-    neg = re.compile(self.GetNegative())
+    neg = re.compile(self.GetNegativeType())
     return re.search(neg, stderr)
 
   def GetNegative(self):
-    return self.testRecord['negative']
+    if not self.IsNegative():
+        return None
+    return self.testRecord["negative"]
+
+  def GetNegativeType(self):
+    negative = self.GetNegative()
+    return negative and negative["type"]
+
+  def GetNegativeStage(self):
+    negative = self.GetNegative()
+    return negative and negative["stage"]
 
   def GetName(self):
     return path.join(*self.name)
@@ -303,6 +313,10 @@ class TestCase(object):
     source = source + \
         self.GetAdditionalIncludes() + \
         self.test + '\n'
+
+    if self.GetNegativeStage() == "early":
+        source = ("throw 'Expected an early error, but code was executed.';\n" +
+            source)
 
     if self.strict_mode:
       source = '"use strict";\nvar strict_mode = true;\n' + source
@@ -363,6 +377,10 @@ class TestCase(object):
 
   def validate(self):
     flags = self.testRecord.get("flags")
+    stage = self.GetNegativeStage()
+
+    if stage not in [None, "early", "runtime"]:
+        raise TypeError("Invalid value for negative stage: " + stage)
 
     if not flags:
         return
@@ -376,6 +394,8 @@ class TestCase(object):
         elif len(self.GetIncludeList()) > 0:
             raise TypeError(
                 "The `raw` flag is incompatible with the `includes` tag")
+        elif stage == 'early':
+            raise TypeError("Cannot assert early errors when the `raw` flag")
 
 class ProgressIndicator(object):
 
@@ -578,7 +598,7 @@ class TestSuite(object):
     if result.HasUnexpectedOutcome():
       if result.case.IsNegative():
           self.logf.write("=== %s was expected to fail in %s, but didn't === \n" % (name, mode))
-          self.logf.write("--- expected error: %s ---\n" % result.case.GetNegative())
+          self.logf.write("--- expected error: %s ---\n" % result.case.GetNegativeType())
           result.WriteOutput(self.logf)
       else:
           self.logf.write("=== %s failed in %s === \n" % (name, mode))

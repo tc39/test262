@@ -2,7 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: The head's declaration may not contain duplicate entries
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 info: |
     It is a Syntax Error if the BoundNames of ForDeclaration contains any
     duplicate entries.

@@ -5,7 +5,9 @@
 info: The "finally" token can not be used as identifier
 es5id: 7.6.1.1_A1.9
 description: Checking if execution of "finally=1" fails
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 finally = 1;

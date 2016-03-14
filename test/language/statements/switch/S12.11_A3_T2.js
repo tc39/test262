@@ -5,7 +5,9 @@
 info: Syntax constructions of switch statement
 es5id: 12.11_A3_T2
 description: Checking if execution of "switch {}" fails
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 function SwitchTest(value){

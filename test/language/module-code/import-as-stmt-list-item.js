@@ -6,7 +6,9 @@ description: >
     An ImportDeclaration is not a valid StatementListItem and is therefore
     restricted from appearing within statements in a ModuleBody.
 flags: [module]
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 {

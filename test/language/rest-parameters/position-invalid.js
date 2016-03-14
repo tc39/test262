@@ -4,6 +4,8 @@
 es6id: 14.1
 description: >
     Rest parameter cannot be followed by another named parameter
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 function f(a, ...b, c) {}

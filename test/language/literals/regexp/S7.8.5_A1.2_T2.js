@@ -5,7 +5,9 @@
 info: "RegularExpressionFirstChar :: * or \\ or / or [empty] is incorrect"
 es5id: 7.8.5_A1.2_T2
 description: \
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 //CHECK#1

@@ -6,7 +6,9 @@ es6id: 11.6
 description: >
     SyntaxError expected: reserved words used as Identifier
     Names in UTF8: while
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 var \u{77}\u{68}\u{69}\u{6c}\u{65} = 123;

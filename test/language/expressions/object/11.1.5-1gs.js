@@ -7,9 +7,10 @@ description: >
     Strict Mode - SyntaxError is thrown when 'eval' occurs as the
     Identifier in a PropertySetParameterList of a PropertyAssignment
     that is contained in strict code
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 flags: [onlyStrict]
 ---*/
 
-throw NotEarlyError;
 var obj = { set _11_1_5_1_fun(eval) {}};

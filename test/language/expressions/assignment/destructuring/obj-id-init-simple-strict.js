@@ -7,7 +7,9 @@ description: >
     IdentifierReference is false.
 es6id: 12.14.5.1
 flags: [onlyStrict]
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 ({ eval = 0 } = {});

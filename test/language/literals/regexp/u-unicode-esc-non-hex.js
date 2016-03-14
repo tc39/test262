@@ -5,7 +5,9 @@
 description: >
     Non-hexadecimal value within the delimiters of a UnicodeEscapeSequence
 es6id: 21.2.1
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 /\u{1,}/u;

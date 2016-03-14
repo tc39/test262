@@ -7,7 +7,9 @@ info: >
     character
 es5id: 7.3_A3.3_T1
 description: Insert LINE SEPARATOR (\u2028) into single line comment
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 // single line LS> ??? (invalid)

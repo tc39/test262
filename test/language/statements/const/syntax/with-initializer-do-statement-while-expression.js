@@ -5,6 +5,8 @@ es6id: 13.1
 description: >
     const declarations with initialisers in statement positions: 
     do Statement while ( Expression )
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 do const x = 1; while (false)

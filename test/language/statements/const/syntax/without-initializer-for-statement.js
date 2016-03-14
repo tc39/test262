@@ -5,6 +5,8 @@ es6id: 13.1
 description: >
     const declarations without initialisers in statement positions: 
     for ( ;;) Statement
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 for (;false;) const x;

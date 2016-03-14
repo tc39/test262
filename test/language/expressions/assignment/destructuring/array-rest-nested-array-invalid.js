@@ -8,7 +8,9 @@ description: >
     LeftHandSideExpression cannot be parsed with no tokens left over using
     AssignmentPattern as the goal symbol.
 es6id: 12.14.5.1
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 
 var x, y;

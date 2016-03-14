@@ -4,7 +4,9 @@
 es6id: 13.1
 description: >
     const declarations mixed: without, with initialiser
-negative: SyntaxError
+negative:
+  stage: early
+  type: SyntaxError
 ---*/
 const x, y = 1;
 
