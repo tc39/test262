@@ -52,8 +52,9 @@ assert.notSameValue = function (actual, unexpected, message) {
 };
 
 assert.throws = function (expectedErrorConstructor, func, message) {
-    if (func === undefined) {
-        $ERROR('assert.throws requires two arguments: the error constructor and a function to run');
+    if (typeof func !== "function") {
+        $ERROR('assert.throws requires two arguments: the error constructor ' +
+            'and a function to run');
         return;
     }
     if (message === undefined) {
