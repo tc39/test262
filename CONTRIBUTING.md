@@ -244,3 +244,37 @@ p.then(function () {
 ```
 
 As above, exceptions that are thrown from a `then` clause are passed to a later `$DONE` function and reported asynchronously.
+
+## Procedurally-generated tests
+
+Some language features are expressed through a number of distinct syntactic forms. Test262 maintains these tests as a set of "test cases" and "test templates" in order to ensure equivalent coverage across all forms. The sub-directories within the `src/` directory describe the various language features that benefit from this approach.
+
+Test cases and test templates specify meta-data using the same YAML frontmatter pattern as so-called "static" (i.e. non-generated) tests. The expected attributes differ between test cases and test templates:
+
+- test cases (`*.case`)
+  - `template` - name of the sub-directory to locate templates for this test
+  - `description` (see above)
+  - `info` (see above)
+  - `features` (see above; merged with value defined by test template)
+- test templates (`*.template`)
+  - `path` - location within the published test hierarchy to output files created from this template
+  - `name` - human-readable name of the syntactic form described by this template (used to generate the test file's `description` field)
+  - `esid` (see above)
+  - `es5id` (see above)
+  - `es6id` (see above)
+  - `info` (see above)
+  - `features` (see above; merged with value defined by test case)
+
+Generated files are managed using the `make.py` Python script located in the root of this repository.
+
+To create files:
+
+    make.py
+
+To remove all generated files:
+
+    make.py clean
+
+The executable located at `tools/generation/generator.py` offers additional control over the generation procedure.
+
+    ./tools/generation/generator.py --help
