@@ -282,3 +282,5 @@ To remove all generated files:
 The executable located at `tools/generation/generator.py` offers additional control over the generation procedure.
 
     ./tools/generation/generator.py --help
+
+Tests expressed with this convention are built automatically following the source files' acceptance into the project. Patches should **not** include assets built from these sources.
