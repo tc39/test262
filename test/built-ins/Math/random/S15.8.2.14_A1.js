@@ -15,6 +15,12 @@ description: >
 for (var i = 0; i < 100; i++)
 {
 	var val = Math.random();
+
+	assert.sameValue(
+		typeof val, 'number', 'should not produce a non-numeric value: ' + val
+	);
+	assert.notSameValue(val, NaN, 'should not produce NaN');
+
 	if (val < 0 || val >= 1)
 	{
 		$ERROR("#1: Math.random() = " + val);
