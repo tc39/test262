@@ -10,6 +10,7 @@ es6id: S25.4.4_A2.1_T3
 author: Sam Mikes
 description: Promise onResolved functions are called in predictable sequence
 includes: [PromiseHelper.js]
+flags: [async]
 ---*/
 
 var resolveP1, rejectP2, p1, p2,

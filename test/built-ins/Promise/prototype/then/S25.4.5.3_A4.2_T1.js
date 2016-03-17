@@ -8,6 +8,7 @@ info: >
 es6id: S25.4.5.3_A4.2_T1
 author: Sam Mikes
 description: Promise.prototype.then treats non-callable arg1, arg2 as undefined
+flags: [async]
 ---*/
 
 var obj = {};

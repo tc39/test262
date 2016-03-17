@@ -10,6 +10,7 @@ info: >
 es6id: S25.4.4.1_A3.1_T2
 author: Sam Mikes
 description: Promise.all(new Error()) returns Promise rejected with TypeError
+flags: [async]
 ---*/
 
 Promise.all(new Error("abrupt")).then(function () {

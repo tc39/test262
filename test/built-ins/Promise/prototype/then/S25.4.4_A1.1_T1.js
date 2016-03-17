@@ -9,6 +9,7 @@ es6id: S25.4.2.1_A3.2_T2
 author: Sam Mikes
 description: Promise onResolved functions are called in predictable sequence
 includes: [PromiseHelper.js]
+flags: [async]
 ---*/
 
 var sequence = [];

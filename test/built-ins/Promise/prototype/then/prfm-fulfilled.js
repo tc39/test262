@@ -16,6 +16,7 @@ info: >
        b. Perform EnqueueJob("PromiseJobs", PromiseReactionJob,
           «fulfillReaction, value»).
     [...]
+flags: [async]
 ---*/
 
 var value = {};

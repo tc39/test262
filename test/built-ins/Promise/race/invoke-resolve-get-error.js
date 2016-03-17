@@ -20,6 +20,7 @@ info: >
         [...]
         h. Let nextPromise be Invoke(C, "resolve", «nextValue»).
         i. ReturnIfAbrupt(nextPromise).
+flags: [async]
 ---*/
 
 var error = new Test262Error();

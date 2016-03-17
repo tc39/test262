@@ -6,6 +6,7 @@ es6id: S25.4.4.3_A7.1_T1
 author: Sam Mikes
 description: Promise.race([p1, p2]) settles when first settles
 includes: [PromiseHelper.js]
+flags: [async]
 ---*/
 
 var sequence = [];

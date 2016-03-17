@@ -16,6 +16,7 @@ info: >
     25.4.1.3.1 Promise Reject Functions
     [...]
     6. Return RejectPromise(promise, reason).
+flags: [async]
 ---*/
 
 var thenable = new Promise(function() {});

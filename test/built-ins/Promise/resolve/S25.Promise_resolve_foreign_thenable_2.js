@@ -8,6 +8,7 @@ es6id: S25.4.4.5
 author: Sam Mikes
 description: Promise.resolve delegates to foreign thenable
 includes: [PromiseHelper.js]
+flags: [async]
 ---*/
 
 var sequence = [];

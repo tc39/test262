@@ -8,6 +8,7 @@ es6id: S25.4.4.1_A8.1_T1
 author: Sam Mikes
 description: Promise.all() rejects when a promise in its array rejects
 includes: [PromiseHelper.js]
+flags: [async]
 ---*/
 
 var rejectP1,

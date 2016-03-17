@@ -9,6 +9,7 @@ es6id: S25.4.4.1_A5.1_T1
 author: Sam Mikes
 description: iterator.next throws, causing Promise.all to reject
 features: [Symbol.iterator]
+flags: [async]
 ---*/
 
 var iterThrows = {};

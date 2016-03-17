@@ -23,6 +23,7 @@ info: >
            true.
         g. ReturnIfAbrupt(nextValue).
 features: [Symbol.iterator]
+flags: [async]
 ---*/
 
 var iterNextValThrows = {};

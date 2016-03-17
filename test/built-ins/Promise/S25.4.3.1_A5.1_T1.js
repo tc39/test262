@@ -9,7 +9,7 @@ info: >
 es6id: S25.4.3.1_A5.1_T1
 author: Sam Mikes
 description: Promise executor gets default handling for 'this'
-flags: [noStrict]
+flags: [async, noStrict]
 includes: [fnGlobalObject.js]
 ---*/
 

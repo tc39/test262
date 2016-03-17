@@ -9,6 +9,7 @@ info: >
 es6id: 25.4.4.1_A3.1_T1
 author: Sam Mikes
 description: Promise.all(3) returns Promise rejected with TypeError
+flags: [async]
 ---*/
 
 var nonIterable = 3;

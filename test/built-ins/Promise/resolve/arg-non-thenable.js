@@ -18,6 +18,7 @@ info: >
     12. Perform EnqueueJob ("PromiseJobs", PromiseResolveThenableJob,
         «promise, resolution, thenAction»)
     13. Return undefined.
+flags: [async]
 ---*/
 
 var nonThenable = {

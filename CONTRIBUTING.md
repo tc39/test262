@@ -128,6 +128,8 @@ This tag is for boolean properties associated with the test.
 - **`raw`** - execute the test without any modification (no helpers will be
   available); necessary to test the behavior of directive prologue; implies
   `noStrict`
+- **`async`** - defer interpretation of test results until after the invocation
+  of the global $DONE` function
 
 #### features
 **features**: [list]
@@ -198,7 +200,7 @@ assert.throws(ReferenceError, function() {
 
 ## Writing Asynchronous Tests
 
-An asynchronous test is any test that includes the string `$DONE` anywhere in the test file.  The test runner checks for the presence of this string; if it is found, the runner expects that the `$DONE()` function will be called to signal test completion.
+An asynchronous test is any test that include the `async` frontmatter flag. When executing such tests, the runner expects that the global `$DONE()` function will be called to signal test completion.
 
  * If the argument to `$DONE` is omitted, is `undefined`, or is any other falsy value, the test is considered to have passed.
 

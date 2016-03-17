@@ -8,6 +8,7 @@ info: >
 es6id: S25.4.4.1_A6.1_T2
 author: Sam Mikes
 description: Promise.all([p1]) is resolved with a promise for a one-element array
+flags: [async]
 ---*/
 
 var p1 = Promise.resolve(3);

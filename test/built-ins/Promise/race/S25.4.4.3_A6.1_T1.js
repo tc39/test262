@@ -6,6 +6,7 @@ es6id: S25.4.4.3_A6.1_T1
 author: Sam Mikes
 description: Promise.race([1]) settles immediately
 includes: [PromiseHelper.js]
+flags: [async]
 ---*/
 
 var sequence = [];

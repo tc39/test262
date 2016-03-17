@@ -15,6 +15,7 @@ info: >
     a. Let status be Call(resolvingFunctions.[[Reject]], undefined, «completion.[[value]]»).
     b. ReturnIfAbrupt(status).
   ...
+flags: [async]
 ---*/
 
 var thenable = {

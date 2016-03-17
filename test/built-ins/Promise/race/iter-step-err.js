@@ -19,6 +19,7 @@ info: >
        b. If next is an abrupt completion, set iteratorRecord.[[done]] to true.
        c. ReturnIfAbrupt(next).
 features: [Symbol.iterator]
+flags: [async]
 ---*/
 
 var iterStepThrows = {};

@@ -13,6 +13,7 @@ info: >
 es6id: 25.4.4.4
 author: Sam Mikes
 description: Promise.reject creates a new settled promise
+flags: [async]
 ---*/
 
 var p = Promise.reject(3);

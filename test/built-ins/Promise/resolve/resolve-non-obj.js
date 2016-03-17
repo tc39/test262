@@ -13,6 +13,7 @@ info: >
     [...]
     7. If Type(resolution) is not Object, then
        a. Return FulfillPromise(promise, resolution).
+flags: [async]
 ---*/
 
 Promise.resolve(23).then(function(value) {

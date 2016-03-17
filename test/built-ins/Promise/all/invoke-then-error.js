@@ -22,6 +22,7 @@ info: >
         r. Let result be Invoke(nextPromise, "then", «resolveElement,
            resultCapability.[[Reject]]»).
         s. ReturnIfAbrupt(result).
+flags: [async]
 ---*/
 
 var promise = new Promise(function() {});
