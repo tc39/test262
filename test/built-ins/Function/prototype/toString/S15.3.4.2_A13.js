@@ -5,7 +5,7 @@
 es5id: 15.3.4.2_A13
 description: >
     The toString function is not generic; it throws a TypeError
-    exception if its this value is not a Function object.
+    exception if its this value is not a callable object.
 ---*/
 
 assert.throws(TypeError, function() {
