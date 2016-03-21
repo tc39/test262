@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es6id: 19.2.3.5
+esid: sec-generator-function-definitions-runtime-semantics-evaluation
 description: Function.prototype.toString on a generator function expression
 ---*/
 

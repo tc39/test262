@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es6id: 19.2.3.5
+esid: sec-function-definitions-runtime-semantics-instantiatefunctionobject
 description: Function.prototype.toString on a function declaration (block comments)
 ---*/
 
