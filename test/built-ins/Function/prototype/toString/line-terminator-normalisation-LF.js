@@ -3,7 +3,10 @@
 
 /*---
 esid: sec-function-definitions-runtime-semantics-instantiatefunctionobject
-description: Function.prototype.toString on a function declaration (line comments)
+description: Function.prototype.toString line terminator normalisation (LF)
+info: >
+  Function.prototype.toString should normalise line terminator sequences to Line Feed characters.
+  This file uses Line Feed characters as line terminators.
 ---*/
 
 // before

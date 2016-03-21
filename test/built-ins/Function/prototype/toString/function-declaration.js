@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-function-definitions-runtime-semantics-instantiatefunctionobject
-description: Function.prototype.toString on a function declaration (block comments)
+description: Function.prototype.toString on a function declaration
 ---*/
 
 /* before */function /* a */ f /* b */ ( /* c */ x /* d */ , /* e */ y /* f */ ) /* g */ { /* h */ ; /* i */ ; /* j */ }/* after */
