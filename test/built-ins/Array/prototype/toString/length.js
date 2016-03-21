@@ -1,12 +1,13 @@
-// Copyright (C) 2015 André Bargull. All rights reserved.
+// Copyright (C) 2016 The V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es6id: 22.2.3.28
+es6id: 22.1.3.27
+esid: sec-array.prototype.tostring
 description: >
-  %TypedArray%.prototype.toString.length is 0.
+  Array.prototype.toString.length is 0.
 info: >
-  %TypedArray%.prototype.toString ( )
+  Array.prototype.toString ( )
 
   17 ECMAScript Standard Built-in Objects:
     Every built-in Function object, including constructors, has a length
@@ -19,11 +20,11 @@ info: >
     Unless otherwise specified, the length property of a built-in Function
     object has the attributes { [[Writable]]: false, [[Enumerable]]: false,
     [[Configurable]]: true }.
-includes: [propertyHelper.js, testTypedArray.js]
+includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(TypedArray.prototype.toString.length, 0);
+assert.sameValue(Array.prototype.toString.length, 0);
 
-verifyNotEnumerable(TypedArray.prototype.toString, "length");
-verifyNotWritable(TypedArray.prototype.toString, "length");
-verifyConfigurable(TypedArray.prototype.toString, "length");
+verifyNotEnumerable(Array.prototype.toString, "length");
+verifyNotWritable(Array.prototype.toString, "length");
+verifyConfigurable(Array.prototype.toString, "length");
