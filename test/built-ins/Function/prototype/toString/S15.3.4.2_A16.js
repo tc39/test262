@@ -4,7 +4,7 @@
 /*---
 info: >
     The toString function is not generic; it throws a TypeError exception if
-    its this value is not a Function object.
+    its this value is not a callable object.
 es5id: 15.3.4.2_A16
 description: >
     The String constructor, given an object, should invoke that
