@@ -193,8 +193,8 @@ var var = var;
 Expectations for **runtime errors** should be defined using the `assert.throws` method and the appropriate JavaScript Error constructor function:
 
 ```javascript
-assert.throws(ReferenceError, function() {
-  1 += 1; // expect this to throw ReferenceError
+assert.throws(TypeError, function() {
+  null(); // expect this statement to throw a TypeError
 });
 ```
 
