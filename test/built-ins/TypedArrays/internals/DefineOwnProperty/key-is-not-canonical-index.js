@@ -51,9 +51,9 @@ testWithTypedArrayConstructors(function(TA) {
     );
 
     assert.sameValue(sample[key], 42, "value is set to [" + key + "]");
+    verifyNotEnumerable(sample, key);
     verifyWritable(sample, key);
     verifyConfigurable(sample, key);
-    verifyNotEnumerable(sample, key);
 
     assert.sameValue(
       Reflect.defineProperty(sample, key, acDesc),
@@ -62,9 +62,9 @@ testWithTypedArrayConstructors(function(TA) {
     );
 
     var desc = Object.getOwnPropertyDescriptor(sample, key);
+    verifyEnumerable(sample, key);
     assert.sameValue(desc.get, fnget, "accessor's get [" + key + "]");
     assert.sameValue(desc.set, fnset, "accessor's set [" + key + "]");
-    verifyEnumerable(sample, key);
     verifyNotConfigurable(sample, key);
 
     assert.sameValue(
