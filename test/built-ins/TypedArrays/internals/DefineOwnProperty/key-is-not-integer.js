@@ -32,7 +32,7 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(sample[0], 0, "'0.1' - does not change the value for [0]");
   assert.sameValue(
     sample["0.1"],
-    undefined, 
+    undefined,
     "'0.1' - does not define a value for ['0.1']"
   );
 
@@ -52,7 +52,7 @@ testWithTypedArrayConstructors(function(TA) {
   );
   assert.sameValue(
     sample["0.000001"],
-    undefined, 
+    undefined,
     "'0.000001' - does not define a value for ['0.000001']"
   );
 
@@ -69,7 +69,7 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(sample[1], 0, "'1.1' - does not change the value for [1]");
   assert.sameValue(
     sample["1.1"],
-    undefined, 
+    undefined,
     "'1.1' - does not define a value for ['1.1']"
   );
 
@@ -93,7 +93,7 @@ testWithTypedArrayConstructors(function(TA) {
   );
   assert.sameValue(
     sample["Infinity"],
-    undefined, 
+    undefined,
     "'Infinity' - does not define a value for ['Infinity']"
   );
 
@@ -117,7 +117,7 @@ testWithTypedArrayConstructors(function(TA) {
   );
   assert.sameValue(
     sample["-Infinity"],
-    undefined, 
+    undefined,
     "'-Infinity' - does not define a value for ['-Infinity']"
   );
 
