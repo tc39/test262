@@ -19,7 +19,7 @@ includes: [testTypedArray.js, detachArrayBuffer.js]
 ---*/
 
 var obj = {
-  valueOf() {
+  toString: function() {
     throw new Test262Error();
   }
 };

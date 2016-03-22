@@ -18,16 +18,10 @@ info: >
 includes: [testTypedArray.js, detachArrayBuffer.js]
 ---*/
 
-var searchElement = {
-  valueOf() {
-    throw new Test262Error();
-  }
-};
-
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA(1);
   $DETACHBUFFER(sample.buffer);
   assert.throws(TypeError, function() {
-    sample.lastIndexOf(searchElement);
+    sample.lastIndexOf(0);
   });
 });
