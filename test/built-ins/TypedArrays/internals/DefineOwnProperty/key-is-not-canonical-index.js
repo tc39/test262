@@ -42,36 +42,57 @@ var acDesc = {
 
 testWithTypedArrayConstructors(function(TA) {
   keys.forEach(function(key) {
-    var sample = new TA();
+    var sample1 = new TA();
 
     assert.sameValue(
-      Reflect.defineProperty(sample, key, dataDesc),
+      Reflect.defineProperty(sample1, key, dataDesc),
       true,
       "return true after defining data property [" + key + "]"
     );
 
-    assert.sameValue(sample[key], 42, "value is set to [" + key + "]");
-    verifyNotEnumerable(sample, key);
-    verifyWritable(sample, key);
-    verifyConfigurable(sample, key);
+    assert.sameValue(sample1[key], 42, "value is set to [" + key + "]");
+    verifyNotEnumerable(sample1, key);
+    verifyWritable(sample1, key);
+    verifyConfigurable(sample1, key);
+
+    assert.sameValue(sample1[0], undefined, "no value is set on sample1[0]");
+    assert.sameValue(sample1.length, 0, "length is still 0");
+
+    var sample2 = new TA();
 
     assert.sameValue(
-      Reflect.defineProperty(sample, key, acDesc),
+      Reflect.defineProperty(sample2, key, acDesc),
       true,
       "return true after defining accessors property [" + key + "]"
     );
 
-    var desc = Object.getOwnPropertyDescriptor(sample, key);
-    verifyEnumerable(sample, key);
+    var desc = Object.getOwnPropertyDescriptor(sample2, key);
+    verifyEnumerable(sample2, key);
     assert.sameValue(desc.get, fnget, "accessor's get [" + key + "]");
     assert.sameValue(desc.set, fnset, "accessor's set [" + key + "]");
-    verifyNotConfigurable(sample, key);
+    verifyNotConfigurable(sample2, key);
+
+    assert.sameValue(sample2[0], undefined,"no value is set on sample2[0]");
+    assert.sameValue(sample2.length, 0, "length is still 0");
+
+    var sample3 = new TA();
+    Object.preventExtensions(sample3);
 
     assert.sameValue(
-      sample[0], undefined,
-      "no value is set for a numeric index [0]"
+      Reflect.defineProperty(sample3, key, dataDesc),
+      false,
+      "return false defining property on a non-extensible sample"
     );
+    assert.sameValue(Object.getOwnPropertyDescriptor(sample3, key), undefined);
 
-    assert.sameValue(sample.length, 0, "length is still 0");
+    var sample4 = new TA();
+    Object.preventExtensions(sample4);
+
+    assert.sameValue(
+      Reflect.defineProperty(sample4, key, acDesc),
+      false,
+      "return false defining property on a non-extensible sample"
+    );
+    assert.sameValue(Object.getOwnPropertyDescriptor(sample4, key), undefined);
   });
 });
