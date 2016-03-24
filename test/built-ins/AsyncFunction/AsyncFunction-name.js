@@ -6,7 +6,11 @@ author: Brian Terlson <brian.terlson@microsoft.com>
 es7id: pending
 description: >
   %AsyncFunction% has a name of "AsyncFunction".
+includes: [propertyHelper.js]
 ---*/
 
 var AsyncFunction = async function foo() { }.constructor;
 assert.sameValue(AsyncFunction.name, "AsyncFunction");
+verifyNotWritable(AsyncFunction, "name");
+verifyNotEnumerable(AsyncFunction, "name");
+verifyConfigurable(AsyncFunction, "name");

@@ -5,11 +5,9 @@
 author: Brian Terlson <brian.terlson@microsoft.com>
 es7id: pending
 description: >
-  Async function method definitions return promises
+  %AsyncFunction% is not exposed as a global
 ---*/
-var obj = {
-  async method() {}
-}
-var p = obj.method();
-assert(p instanceof Promise, "async functions return promise instances");
 
+assert.throws(ReferenceError, function () {
+  AsyncFunction
+}, "AsyncFunction should not be present as a global");

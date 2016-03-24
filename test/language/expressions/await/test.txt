@@ -1,0 +1,88 @@
+On branch async-functions
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   ../../../built-ins/AsyncFunction/AsyncFunction-construct.js
+	new file:   ../../../built-ins/AsyncFunction/AsyncFunction-is-extensible.js
+	new file:   ../../../built-ins/AsyncFunction/AsyncFunction-is-subclass.js
+	new file:   ../../../built-ins/AsyncFunction/AsyncFunction-length.js
+	new file:   ../../../built-ins/AsyncFunction/AsyncFunction-name.js
+	new file:   ../../../built-ins/AsyncFunction/AsyncFunction-prototype.js
+	new file:   ../../../built-ins/AsyncFunction/AsyncFunction.js
+	new file:   ../../../built-ins/AsyncFunction/AsyncFunctionPrototype-is-extensible.js
+	new file:   ../../../built-ins/AsyncFunction/AsyncFunctionPrototype-prototype.js
+	new file:   ../../../built-ins/AsyncFunction/AsyncFunctionPrototype-to-string.js
+	new file:   ../async-arrow-function/arrow-returns-promise.js
+	new file:   ../async-arrow-function/early-errors-arrow-NSPL-with-USD.js
+	new file:   ../async-arrow-function/early-errors-arrow-arguments-in-formal-parameters.js
+	new file:   ../async-arrow-function/early-errors-arrow-await-in-formals-default.js
+	new file:   ../async-arrow-function/early-errors-arrow-await-in-formals.js
+	new file:   ../async-arrow-function/early-errors-arrow-body-contains-super-call.js
+	new file:   ../async-arrow-function/early-errors-arrow-body-contains-super-property.js
+	new file:   ../async-arrow-function/early-errors-arrow-duplicate-parameters.js
+	new file:   ../async-arrow-function/early-errors-arrow-eval-in-formal-parameters.js
+	new file:   ../async-arrow-function/early-errors-arrow-formals-body-duplicate.js
+	new file:   ../async-arrow-function/early-errors-arrow-formals-contains-super-call.js
+	new file:   ../async-arrow-function/early-errors-arrow-formals-contains-super-property.js
+	new file:   await-BindingIdentifier-in-global.js
+	new file:   await-BindingIdentifier-nested.js
+	new file:   await-awaits-thenable-not-callable.js
+	new file:   await-awaits-thenables-that-throw.js
+	new file:   await-awaits-thenables.js
+	new file:   await-in-function.js
+	new file:   await-in-generator.js
+	new file:   await-in-global.js
+	new file:   await-in-nested-function.js
+	new file:   await-in-nested-generator.js
+	new file:   await-throws-rejections.js
+	new file:   syntax-await-has-UnaryExpression-with-MultiplicativeExpression.js
+	new file:   syntax-await-has-UnaryExpression.js
+	new file:   ../../statements/async-function/declaration-returns-promise.js
+	new file:   ../../statements/async-function/early-errors-declaration-NSPL-with-USD.js
+	new file:   ../../statements/async-function/early-errors-declaration-arguments-in-formal-parameters.js
+	new file:   ../../statements/async-function/early-errors-declaration-await-in-formals-default.js
+	new file:   ../../statements/async-function/early-errors-declaration-await-in-formals.js
+	new file:   ../../statements/async-function/early-errors-declaration-binding-identifier-arguments.js
+	new file:   ../../statements/async-function/early-errors-declaration-binding-identifier-eval.js
+	new file:   ../../statements/async-function/early-errors-declaration-body-contains-super-call.js
+	new file:   ../../statements/async-function/early-errors-declaration-body-contains-super-property.js
+	new file:   ../../statements/async-function/early-errors-declaration-duplicate-parameters.js
+	new file:   ../../statements/async-function/early-errors-declaration-eval-in-formal-parameters.js
+	new file:   ../../statements/async-function/early-errors-declaration-formals-body-duplicate.js
+	new file:   ../../statements/async-function/early-errors-declaration-formals-contains-super-call.js
+	new file:   ../../statements/async-function/early-errors-declaration-formals-contains-super-property.js
+	new file:   ../../statements/async-function/syntax-declaration-line-terminators-allowed.js
+	new file:   ../../statements/async-function/syntax-declaration-no-line-terminator.js
+	new file:   ../../statements/async-function/syntax-declaration.js
+	new file:   ../../statements/class/definition/class-method-returns-promise.js
+	new file:   ../../statements/class/definition/early-errors-class-method-NSPL-with-USD.js
+	new file:   ../../statements/class/definition/early-errors-class-method-arguments-in-formal-parameters.js
+	new file:   ../../statements/class/definition/early-errors-class-method-await-in-formals-default.js
+	new file:   ../../statements/class/definition/early-errors-class-method-await-in-formals.js
+	new file:   ../../statements/class/definition/early-errors-class-method-body-contains-super-call.js
+	new file:   ../../statements/class/definition/early-errors-class-method-duplicate-parameters.js
+	new file:   ../../statements/class/definition/early-errors-class-method-eval-in-formal-parameters.js
+	new file:   ../../statements/class/definition/early-errors-class-method-formals-body-duplicate.js
+	new file:   ../../statements/class/definition/early-errors-class-method-formals-contains-super-call.js
+	new file:   ../../statements/class/definition/early-errors-object-method-NSPL-with-USD.js
+	new file:   ../../statements/class/definition/early-errors-object-method-arguments-in-formal-parameters.js
+	new file:   ../../statements/class/definition/early-errors-object-method-await-in-formals-default.js
+	new file:   ../../statements/class/definition/early-errors-object-method-await-in-formals.js
+	new file:   ../../statements/class/definition/early-errors-object-method-body-contains-super-call.js
+	new file:   ../../statements/class/definition/early-errors-object-method-duplicate-parameters.js
+	new file:   ../../statements/class/definition/early-errors-object-method-eval-in-formal-parameters.js
+	new file:   ../../statements/class/definition/early-errors-object-method-formals-body-duplicate.js
+	new file:   ../../statements/class/definition/early-errors-object-method-formals-contains-super-call.js
+	new file:   ../../statements/class/definition/object-method-returns-promise.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	../../../../cd
+	../../../../features.json
+	../../../../git
+	../../../../gvim
+	../../../../node_modules/
+	../../../../t262.config
+	test.txt
+

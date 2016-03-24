@@ -10,10 +10,10 @@ info: >
   This is different from generators which will throw the error out of the generator
   when it is called.
 ---*/
-async function foo(x = null++) {}
+var y = null;
+async function foo(x = y()) {}
 foo().then(function () {
-  $ERROR('promise should be rejected');
-  $DONE();
+  $DONE('promise should be rejected');
 }, function () {
   $DONE();
 });

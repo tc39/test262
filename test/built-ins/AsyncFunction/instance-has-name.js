@@ -5,8 +5,12 @@
 author: Brian Terlson <brian.terlson@microsoft.com>
 es7id: pending
 description: Async function declarations have a name property
+includes: [propertyHelper.js]
 ---*/
 
 async function foo () { };
 
 assert.sameValue(foo.name, "foo");
+verifyNotWritable(foo, "name");
+verifyNotEnumerable(foo, "name");
+verifyConfigurable(foo, "name");

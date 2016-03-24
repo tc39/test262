@@ -8,4 +8,4 @@ description: It is a syntax error if FormalParameters contains SuperCall is true
 negative: SyntaxError
 ---*/
 
-(async function foo (foo = super.foo) { let bar; });
+(async function foo (foo = super.foo) { var bar; });

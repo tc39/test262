@@ -5,11 +5,8 @@
 author: Brian Terlson <brian.terlson@microsoft.com>
 es7id: pending
 description: >
-  Async function method definitions return promises
+  Async generators are not a thing (yet)
+negative: SyntaxError
 ---*/
-var obj = {
-  async method() {}
-}
-var p = obj.method();
-assert(p instanceof Promise, "async functions return promise instances");
 
+async function* foo() { }

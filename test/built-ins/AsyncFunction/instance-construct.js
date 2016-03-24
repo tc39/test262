@@ -9,8 +9,8 @@ description: >
   [[Construct]] slot.
 ---*/
 
+async function foo() { }
 assert.throws(TypeError, function() {
-  async function foo() { }
   new foo();
 });
 

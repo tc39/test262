@@ -5,11 +5,13 @@
 author: Brian Terlson <brian.terlson@microsoft.com>
 es7id: pending
 description: >
-  Async function method definitions return promises
+  The this value from the caller is present in the async function body
 ---*/
-var obj = {
-  async method() {}
+
+
+async function foo(a) {
+  assert.sameValue(this, a)
 }
-var p = obj.method();
-assert(p instanceof Promise, "async functions return promise instances");
+var obj = {};
+foo.call(obj, obj).then($DONE, $DONE);
 

@@ -5,15 +5,13 @@
 author: Brian Terlson <brian.terlson@microsoft.com>
 es7id: pending
 description: >
-  Await can await any thenable. If the thenable's then is not callable,
-  await evaluates to the thenable
+  The this value is set to the global object when not passed in sloppy mode.
+flags: [noStrict]
 ---*/
 
+var glob = Function("return this;")();
 async function foo() {
-  var thenable = { then: 42 };
-  var res = await thenable;
-  assert.sameValue(res, thenable);
+  assert.sameValue(this, glob);
 }
 
 foo().then($DONE, $DONE);
-

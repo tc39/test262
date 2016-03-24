@@ -5,15 +5,10 @@
 author: Brian Terlson <brian.terlson@microsoft.com>
 es7id: pending
 description: >
-  Await can await any thenable. If the thenable's then is not callable,
-  await evaluates to the thenable
+  await is not a simple assignment target and cannot be assigned to.
+negative: ReferenceError
 ---*/
 
 async function foo() {
-  var thenable = { then: 42 };
-  var res = await thenable;
-  assert.sameValue(res, thenable);
+  (await 1) = 1;
 }
-
-foo().then($DONE, $DONE);
-

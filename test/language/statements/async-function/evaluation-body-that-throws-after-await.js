@@ -14,7 +14,7 @@ async function foo() {
 }
 
 foo().then(function () {
-  $ERROR("Should not be called");
+  $DONE("Should not be called");
 }, function (e) {
   assert.sameValue(e, 1);
   $DONE();

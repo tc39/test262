@@ -11,7 +11,7 @@ description: >
 let called;
 async function foo() {
   called = true;
-  await new promise();
+  await new Promise();
 }
 
 foo();

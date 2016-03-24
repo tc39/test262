@@ -7,7 +7,8 @@ es7id: pending
 description: Async function declarations cannot have a line break after `async`
 info: Reference error is thrown due to looking up async in strict mode
 flags: [onlyStrict]
-negative: ReferenceError
 ---*/
-async
-function foo() {}
+assert.throws(ReferenceError, function() {
+  async
+  function foo() {}
+});

@@ -8,4 +8,4 @@ description: It is a syntax error if FormalParameters contains SuperProperty is 
 negative: SyntaxError
 ---*/
 
-(async function foo (foo = super()) { let bar; });
+(async function foo (foo = super()) { var bar; });
