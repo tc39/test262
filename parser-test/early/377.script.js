@@ -1,0 +1,1 @@
+!{ get a(){ let b; var b; } };

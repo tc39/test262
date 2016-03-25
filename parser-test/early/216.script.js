@@ -1,0 +1,1 @@
+do b: function a(){} while (1)

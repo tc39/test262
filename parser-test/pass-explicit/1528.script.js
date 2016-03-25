@@ -1,0 +1,3 @@
+({get a() {
+  new.target;
+}});

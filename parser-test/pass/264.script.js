@@ -1,0 +1,2 @@
+{ throw a// Comment
+a; }

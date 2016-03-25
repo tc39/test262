@@ -1,0 +1,1 @@
+'use strict'; ({a: eval} = 1)

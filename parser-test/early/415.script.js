@@ -1,0 +1,1 @@
+'use strict'; const {a: eval} = 1;

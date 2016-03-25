@@ -1,0 +1,1 @@
+({a(yield){ 'use strict'; }})

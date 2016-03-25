@@ -1,0 +1,1 @@
+with(true) class a {}

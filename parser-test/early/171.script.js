@@ -1,0 +1,1 @@
+{ let a; const a = 1; }

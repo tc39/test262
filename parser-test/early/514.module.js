@@ -1,0 +1,1 @@
+var a; export class a {};

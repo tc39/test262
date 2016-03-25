@@ -1,0 +1,2 @@
+function*a(){yield
+a}

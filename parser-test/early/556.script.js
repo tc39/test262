@@ -1,0 +1,1 @@
+try {} catch(a) { for(var a of 1); }

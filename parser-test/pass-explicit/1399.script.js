@@ -1,0 +1,3 @@
+(class {
+  static constructor() {}
+});

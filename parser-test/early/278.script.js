@@ -1,0 +1,1 @@
+switch(1) { default: let a; case 2: var a; }

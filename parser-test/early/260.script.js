@@ -1,0 +1,1 @@
+while(1) { function a(){ break; } }

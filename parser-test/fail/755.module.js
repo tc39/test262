@@ -1,0 +1,1 @@
+import {a as function} from 'a';

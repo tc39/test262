@@ -1,0 +1,1 @@
+let a; export const a = 1;

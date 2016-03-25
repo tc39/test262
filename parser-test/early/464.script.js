@@ -1,0 +1,1 @@
+!function* (a){ super.b }

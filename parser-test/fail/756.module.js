@@ -1,0 +1,1 @@
+import {b,,c} from 'a';

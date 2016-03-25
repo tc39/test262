@@ -1,0 +1,1 @@
+import * As a from 'a'

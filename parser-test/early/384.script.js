@@ -1,0 +1,1 @@
+function a(){ b: if(1) b: ; }

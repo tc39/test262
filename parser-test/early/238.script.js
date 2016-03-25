@@ -1,0 +1,1 @@
+for(let a in 1) { var a; }
