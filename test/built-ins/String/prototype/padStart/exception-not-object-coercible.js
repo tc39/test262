@@ -20,9 +20,6 @@ assert.throws(TypeError, function () {
 var notCoercible = {
     toString: function () {
         throw new Test262Error('attempted toString');
-    },
-    valueOf: function () {
-        throw new Test262Error('attempted valueOf');
     }
 };
 

@@ -26,17 +26,17 @@ var receiver = createPrimitiveObserver('receiver', {}, 'abc');
 
 var fillString = createPrimitiveObserver('fillString', {}, 'def');
 
-var maxLength = createPrimitiveObserver('maxLength', {}, 11);
+var maxLength = createPrimitiveObserver('maxLength', 11, {});
 
-var result = String.prototype.padStart.call(receiver, fillString, maxLength);
+var result = String.prototype.padStart.call(receiver, maxLength, fillString);
 
 assert.sameValue(result, 'defdefdeabc');
 
 assert.sameValue(log, '|' + [
     'toString:receiver',
     'valueOf:receiver',
-    'toString:maxLength',
     'valueOf:maxLength',
+    'toString:maxLength',
     'toString:fillString',
     'valueOf:fillString'
 ].join('|'), log);
