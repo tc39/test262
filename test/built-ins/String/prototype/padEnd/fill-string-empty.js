@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-string.prototype.padend
-description: |
+description: >
   String#padEnd should return the string unchanged when
   an explicit empty string is provided
 author: Jordan Harband

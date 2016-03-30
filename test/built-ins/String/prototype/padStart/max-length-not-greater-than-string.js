@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-string.prototype.padstart
-description: |
+description: >
   String#padStart should return the string unchanged when an integer max
   length is not greater than the string length
 author: Jordan Harband

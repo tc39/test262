@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-string.prototype.padstart
-description: |
+description: >
   String#padStart should return the string unchanged when
   an explicit empty string is provided
 author: Jordan Harband

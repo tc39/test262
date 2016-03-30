@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-string.prototype.padend
-description: |
+description: >
   String#padEnd should return the string unchanged when an integer max
   length is not greater than the string length
 author: Jordan Harband
