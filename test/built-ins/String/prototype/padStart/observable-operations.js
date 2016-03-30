@@ -7,6 +7,8 @@ description: String#padStart should perform observable operations in the correct
 author: Jordan Harband
 ---*/
 
+var log = "";
+
 function createPrimitiveObserver(name, string, value) {
   return {
     toString: function () {
@@ -20,10 +22,9 @@ function createPrimitiveObserver(name, string, value) {
   };
 };
 
-var log = "";
-var receiver = createPrimitiveObserver('receiver', 'abc');
+var receiver = createPrimitiveObserver('receiver', {}, 'abc');
 
-var fillString = createPrimitiveObserver('fillString', 'def');
+var fillString = createPrimitiveObserver('fillString', {}, 'def');
 
 var maxLength = createPrimitiveObserver('maxLength', {}, 11);
 
@@ -31,4 +32,11 @@ var result = String.prototype.padStart.call(receiver, fillString, maxLength);
 
 assert.sameValue(result, 'defdefdeabc');
 
-assert.sameValue(log, "|toString:receiver|valueOf:maxLength|toString:fillString", log);
+assert.sameValue(log, '|' + [
+    'toString:receiver',
+    'valueOf:receiver',
+    'toString:maxLength',
+    'valueOf:maxLength',
+    'toString:fillString',
+    'valueOf:fillString'
+].join('|'), log);
