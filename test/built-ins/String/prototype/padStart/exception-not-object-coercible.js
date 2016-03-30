@@ -3,7 +3,9 @@
 
 /*---
 esid: sec-string.prototype.padstart
-description: String#padStart should fail if given a null or undefined value
+description: >
+  String#padStart should fail if given a null or undefined value,
+  or an object not coercible to a string.
 author: Jordan Harband
 ---*/
 
@@ -13,4 +15,17 @@ assert.throws(TypeError, function () {
 
 assert.throws(TypeError, function () {
     String.prototype.padStart.call(undefined);
+});
+
+var notCoercible = {
+    toString: function () {
+        throw new Test262Error('attempted toString');
+    },
+    valueOf: function () {
+        throw new Test262Error('attempted valueOf');
+    }
+};
+
+assert.throws(Test262Error, function () {
+    String.prototype.padStart.call(notCoercible);
 });
