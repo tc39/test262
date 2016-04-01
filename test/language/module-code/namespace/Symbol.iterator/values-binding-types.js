@@ -34,7 +34,7 @@ info: >
     the [[Exports]] list may still pass. A separate test is dedicated to sort
     order.
 flags: [module]
-features: [Symbol.iterator]
+features: [Symbol.iterator, let]
 ---*/
 
 import * as ns from './values-binding-types.js';
