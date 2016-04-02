@@ -1,7 +1,7 @@
 // Copyright (C) 2016 Jordan Harband. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: system
+esid: sec-system
 description: The System object is an ordinary object.
 info: >
   The System Object
