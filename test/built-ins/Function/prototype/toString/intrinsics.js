@@ -4,6 +4,7 @@
 /*---
 esid: sec-function.prototype.tostring
 description: Function.prototype.toString on well-known intrinsic function objects
+includes: [nativeFunctionMatcher.js]
 ---*/
 
 let intrinsics = {
@@ -13,8 +14,6 @@ let intrinsics = {
   Proxy, RangeError, ReferenceError, RegExp, Set, String, Symbol, SyntaxError, TypeError,
   Uint8Array, Uint8ClampedArray, Uint16Array, Uint32Array, URIError, WeakMap, WeakSet,
 };
-
-const NATIVE_FUNCTION_RE = /\bfunction\b[\s\S]+\b\w+\b[\s\S]*\([\s\S]*\)[\s\S]*\{[\s\S]*\[[\s\S]*\bnative\b[\s\S]+\bcode\b[\s\S]*\][\s\S]*\}/;
 
 for (let intrinsicName in intrinsics) {
   let intrinsic = intrinsics[intrinsicName];
