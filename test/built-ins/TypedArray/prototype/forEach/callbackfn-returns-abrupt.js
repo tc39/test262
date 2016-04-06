@@ -32,8 +32,4 @@ testWithTypedArrayConstructors(function(TA) {
       throw new Test262Error();
     });
   });
-
-  new TA().forEach(function() {
-    throw new Test262Error("Does not throw error from 0 length");
-  });
 });

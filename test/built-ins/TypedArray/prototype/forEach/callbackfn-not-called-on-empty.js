@@ -25,9 +25,11 @@ includes: [testTypedArray.js]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
+  var called = 0;
+
   var result1 = new TA().forEach(function() {
-    throw new Test262Error("Does not throw error from 0 length");
+    calls++;
   });
 
-  assert.sameValue(result1, undefined);
+  assert.sameValue(called, 0);
 });

@@ -49,7 +49,7 @@ testWithTypedArrayConstructors(function(TA) {
     results2.push(this);
   }, thisArg);
 
-  assert.sameValue(results2.length, 3, "resuts2");
+  assert.sameValue(results2.length, 3, "results2");
   assert.sameValue(results2[0], thisArg, "using thisArg - [0]");
   assert.sameValue(results2[1], thisArg, "using thisArg - [1]");
   assert.sameValue(results2[2], thisArg, "using thisArg - [2]");
