@@ -28,15 +28,15 @@ testWithTypedArrayConstructors(function(TA) {
   var loops = 0;
   var sample = new TA(2);
 
-  sample.forEach(function() {
-    if (loops === 0) {
+  assert.throws(TypeError, function() {
+    sample.forEach(function() {
+      if (loops === 1) {
+        throw new Test262Error("callbackfn called twice");
+      }
       $DETACHBUFFER(sample.buffer);
-    }
-    loops++;
+      loops++;
+    });
   });
 
-  assert.sameValue(loops, 2);
-  assert.throws(TypeError, function() {
-    sample[0];
-  }, "sample has a detached buffer");
+  assert.sameValue(loops, 1);
 });
