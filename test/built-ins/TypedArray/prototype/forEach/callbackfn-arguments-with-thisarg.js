@@ -24,9 +24,6 @@ info: >
 includes: [testTypedArray.js]
 ---*/
 
-var expected = (function() { return this; })();
-var thisArg = {};
-
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([42, 43, 44]);
 
