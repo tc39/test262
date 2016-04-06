@@ -20,8 +20,8 @@ testWithTypedArrayConstructors(function(TA) {
   var called = 0;
 
   new TA().map(function() {
-    return calls++;
+    called++;
   });
 
-  assert.sameValue(called, 0, "Does not throw error from 0 length");
+  assert.sameValue(called, 0);
 });

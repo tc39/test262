@@ -22,12 +22,13 @@ testWithTypedArrayConstructors(function(TA) {
 
   assert.throws(TypeError, function() {
     sample.map(function() {
-      loops++;
+      if (loops === 1) {
+        throw new Test262Error("callbackfn called twice");
+      }
       $DETACHBUFFER(sample.buffer);
-      return 1;
+      loops++;
     });
   });
 
   assert.sameValue(loops, 1, "callbackfn called only once");
-  assert.sameValue(loop[0], 0, "returned value is not set");
 });

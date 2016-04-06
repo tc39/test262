@@ -27,7 +27,13 @@ testWithTypedArrayConstructors(function(TA) {
   });
 
   assert.notSameValue(result, sample, "new typedArray object");
-  assert.sameValue(result.constructor, sample.constructor, "same constructor");
+  assert.sameValue(result.constructor, TA, "same constructor");
+  assert(result instanceof TA, "result is an instance of " + TA.name);
+  assert.sameValue(
+    Object.getPrototypeOf(result),
+    Object.getPrototypeOf(sample),
+    "result has the same prototype of sample"
+  );
   assert.sameValue(result.length, 0, "same length");
   assert.notSameValue(result.buffer, sample.buffer, "new buffer");
 });
