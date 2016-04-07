@@ -21,10 +21,11 @@ testWithTypedArrayConstructors(function(TA) {
 
   var results = [];
 
-  sample.map(function(v) {
+  sample.map(function() {
     results.push(arguments);
-    return v;
   });
+
+  assert.sameValue(results.length, 3, "results.length");
 
   assert.sameValue(results[0].length, 3, "results[0].length");
   assert.sameValue(results[0][0], 42, "results[0][0] - kValue");
