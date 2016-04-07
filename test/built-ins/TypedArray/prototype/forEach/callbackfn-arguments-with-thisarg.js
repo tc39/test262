@@ -28,10 +28,14 @@ testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([42, 43, 44]);
 
   var results = [];
+  var thisArg = ["test262", 0, "ecma262", 0];
 
   sample.forEach(function() {
     results.push(arguments);
-  }, ["test262", 0, "ecma262"]);
+  }, thisArg);
+
+  assert.sameValue(results.length, 3, "results.length");
+  assert.sameValue(thisArg.length, 4, "thisArg.length");
 
   assert.sameValue(results[0].length, 3, "results[0].length");
   assert.sameValue(results[0][0], 42, "results[0][0] - kValue");

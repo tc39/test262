@@ -33,6 +33,8 @@ testWithTypedArrayConstructors(function(TA) {
     results.push(arguments);
   });
 
+  assert.sameValue(results.length, 3, "results.length");
+
   assert.sameValue(results[0].length, 3, "results[0].length");
   assert.sameValue(results[0][0], 42, "results[0][0] - kValue");
   assert.sameValue(results[0][1], 0, "results[0][1] - k");
