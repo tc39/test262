@@ -1,7 +1,7 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
+esid: sec-date-constructor
 info: >
     The [[Value]] property of the newly constructed object
     is set by following steps:
@@ -14,56 +14,29 @@ info: >
     TimeClip(UTC(Result(11)))
 es5id: 15.9.3.1_A5_T4
 description: 5 arguments, (year, month, date, hours, minutes)
-includes:
-    - numeric_conversion.js
-    - Date_constants.js
-    - Date_library.js
+includes: [assertRelativeDateMs.js]
 ---*/
 
-if (-2208960060000 !== new Date(1899, 11, 31, 23, 59).valueOf()) {
-  $ERROR("#1: Incorrect value of Date");
-}
+assertRelativeDateMs(new Date(1899, 11, 31, 23, 59), -2208988860000);
 
-if (-2208960000000 !== new Date(1899, 12, 1, 0, 0).valueOf()) {
-  $ERROR("#2: Incorrect value of Date");
-}
+assertRelativeDateMs(new Date(1899, 12, 1, 0, 0), -2208988800000);
 
-if (-2208960000000 !== new Date(1900, 0, 1, 0, 0).valueOf()) {
-  $ERROR("#3: Incorrect value of Date");
-}
+assertRelativeDateMs(new Date(1900, 0, 1, 0, 0), -2208988800000);
 
-if (28740000 !== new Date(1969, 11, 31, 23, 59).valueOf()) {
-  $ERROR("#4: Incorrect value of Date");
-}
+assertRelativeDateMs(new Date(1969, 11, 31, 23, 59), -60000);
 
-if (28800000 !== new Date(1969, 12, 1, 0, 0).valueOf()) {
-  $ERROR("#5: Incorrect value of Date");
-}
+assertRelativeDateMs(new Date(1969, 12, 1, 0, 0), 0);
 
-if (28800000 !== new Date(1970, 0, 1, 0, 0).valueOf()) {
-  $ERROR("#6: Incorrect value of Date");
-}
+assertRelativeDateMs(new Date(1970, 0, 1, 0, 0), 0);
 
-if (946713540000 !== new Date(1999, 11, 31, 23, 59).valueOf()) {
-  $ERROR("#7: Incorrect value of Date");
-}
+assertRelativeDateMs(new Date(1999, 11, 31, 23, 59), 946684740000);
 
-if (946713600000 !== new Date(1999, 12, 1, 0, 0).valueOf()) {
-  $ERROR("#8: Incorrect value of Date");
-}
+assertRelativeDateMs(new Date(1999, 12, 1, 0, 0), 946684800000);
 
-if (946713600000 !== new Date(2000, 0, 1, 0, 0).valueOf()) {
-  $ERROR("#9: Incorrect value of Date");
-}
+assertRelativeDateMs(new Date(2000, 0, 1, 0, 0), 946684800000);
 
-if (4102473540000 !== new Date(2099, 11, 31, 23, 59).valueOf()) {
-  $ERROR("#10: Incorrect value of Date");
-}
+assertRelativeDateMs(new Date(2099, 11, 31, 23, 59), 4102444740000);
 
-if (4102473600000 !== new Date(2099, 12, 1, 0, 0).valueOf()) {
-  $ERROR("#11: Incorrect value of Date");
-}
+assertRelativeDateMs(new Date(2099, 12, 1, 0, 0), 4102444800000);
 
-if (4102473600000 !== new Date(2100, 0, 1, 0, 0).valueOf()) {
-  $ERROR("#12: Incorrect value of Date");
-}
+assertRelativeDateMs(new Date(2100, 0, 1, 0, 0), 4102444800000);
