@@ -15,7 +15,7 @@ testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([42, 43, 44]);
   var newVal = 0;
 
-  sample.forEach(function(val, i) {
+  sample.map(function(val, i) {
     if (i > 0) {
       assert.sameValue(
         sample[i - 1], newVal - 1,
