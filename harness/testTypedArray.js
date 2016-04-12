@@ -54,8 +54,6 @@ function testWithTypedArrayConstructors(f, selected) {
  * @param  {Function} fn - the function to call for each constructor and value.
  *                         will be called with the constructor, value and
  *                         expected value.
- * @return {[type]} - follows the return of testWithTypedArrayConstructors if
- *                    any.
  */
 function testTypedArrayConversions(fn) {
   var values = [
@@ -402,7 +400,7 @@ function testTypedArrayConversions(fn) {
     ]
   };
 
-  return testWithTypedArrayConstructors(function(TA) {
+  testWithTypedArrayConstructors(function(TA) {
     return values.forEach(function(value, index) {
       fn(TA, value, expected[TA.name][index]);
     });
