@@ -22,9 +22,7 @@ includes: [testTypedArray.js]
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA(0);
 
-  var result = sample.map(function(v) {
-    return v;
-  });
+  var result = sample.map(function() {});
 
   assert.notSameValue(result, sample, "new typedArray object");
   assert.sameValue(result.constructor, TA, "same constructor");

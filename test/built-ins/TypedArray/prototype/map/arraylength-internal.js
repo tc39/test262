@@ -34,7 +34,7 @@ testWithTypedArrayConstructors(function(TA) {
     }
   });
 
-  sample2.map(function(v) {
+  sample2.map(function() {
     loop++;
   });
   assert.sameValue(loop, 4, "accessor descriptor");
