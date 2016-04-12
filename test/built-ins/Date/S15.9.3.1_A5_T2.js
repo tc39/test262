@@ -1,7 +1,7 @@
 // Copyright 2009 the Sputnik authors.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
+esid: sec-date-constructor
 info: >
     The [[Value]] property of the newly constructed object
     is set by following steps:
