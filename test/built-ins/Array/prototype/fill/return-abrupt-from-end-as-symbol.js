@@ -5,7 +5,7 @@ es6id: 22.1.3.6
 description: >
   Return abrupt from ToInteger(end) as a Symbol.
 info: >
-  22.1.3.6 Array.prototype.fill (value [ , end [ , end ] ] )
+  22.1.3.6 Array.prototype.fill (value [ , start [ , end ] ] )
 
   ...
   8. If end is undefined, let relativeEnd be len; else let relativeEnd be
