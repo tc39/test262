@@ -19,7 +19,7 @@ testWithTypedArrayConstructors(function(TA) {
 
   Object.defineProperty(sample1, "length", {value: 1});
 
-  sample1.map(function(v) {
+  sample1.map(function() {
     loop++;
   });
   assert.sameValue(loop, 42, "data descriptor");
