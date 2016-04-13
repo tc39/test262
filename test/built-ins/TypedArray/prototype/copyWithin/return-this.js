@@ -20,7 +20,7 @@ info: >
   22.1.3.3 Array.prototype.copyWithin (target, start [ , end ] )
 
   13. Return O.
-includes: [compareArray.js, testTypedArray.js]
+includes: [testTypedArray.js]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
