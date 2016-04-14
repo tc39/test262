@@ -41,7 +41,13 @@ includes: [testTypedArray.js]
 ---*/
 
 testTypedArrayConversions(function(TA, value, expected) {
-  var sample = new TA(1);
+  var arg = 1;
+
+  if (expected === 0) {
+    arg = [1];
+  }
+
+  var sample = new TA(arg);
 
   var result = sample.map(function() {
     return value;
