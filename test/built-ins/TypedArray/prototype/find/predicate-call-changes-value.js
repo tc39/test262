@@ -30,14 +30,49 @@ includes: [compareArray.js, testTypedArray.js]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
-  var arr = [39, 2, 62];
-  var sample = new TA(3);
+  var arr = [1, 2, 3];
+  var sample;
+  var result;
 
-  sample.find(function(kValue, i) {
+  sample = new TA(3);
+  sample.find(function(val, i) {
     sample[i] = arr[i];
 
-    assert.sameValue(kValue, 0, "kValue argument is not mapped to instance");
+    assert.sameValue(val, 0, "value is not mapped to instance");
   });
-
   assert(compareArray(sample, arr), "values set during each predicate call");
+
+  sample = new TA(arr);
+  result = sample.find(function(val, i) {
+    if ( i === 0 ) {
+      sample[2] = 7;
+    }
+    return val === 7;
+  });
+  assert.sameValue(result, 7, "value found");
+
+  sample = new TA(arr);
+  result = sample.find(function(val, i) {
+    if ( i === 0 ) {
+      sample[2] = 7;
+    }
+    return val === 3;
+  });
+  assert.sameValue(result, undefined, "value not found");
+
+  sample = new TA(arr);
+  result = sample.find(function(val, i) {
+    if ( i > 0 ) {
+      sample[0] = 7;
+    }
+    return val === 7;
+  });
+  assert.sameValue(result, undefined, "value not found - changed after call");
+
+  sample = new TA(arr);
+  result = sample.find(function() {
+    sample[0] = 7;
+    return true;
+  });
+  assert.sameValue(result, 1, "find() returns previous found value");
 });
