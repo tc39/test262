@@ -31,7 +31,7 @@ includes: [compareArray.js, testTypedArray.js]
 
 testWithTypedArrayConstructors(function(TA) {
   var arr = [39, 2, 62];
-  var sample = new TA();
+  var sample = new TA(3);
 
   sample.find(function(kValue, i) {
     sample[i] = arr[i];
