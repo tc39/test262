@@ -40,7 +40,7 @@ testWithTypedArrayConstructors(function(TA) {
     results.push(arguments);
   });
 
-  assert.sameValue(results.length, 3, "predicated is called for each index");
+  assert.sameValue(results.length, 3, "predicate is called for each index");
 
   result = results[0];
   assert.sameValue(result[0], 39, "results[0][0] === 39, value");

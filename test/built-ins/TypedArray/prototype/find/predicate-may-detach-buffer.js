@@ -51,5 +51,5 @@ testWithTypedArrayConstructors(function(TA) {
     });
   }, "throws a TypeError getting a value from the detached buffer");
 
-  assert.sameValue(loops, 1, "predicated is called once");
+  assert.sameValue(loops, 1, "predicate is called once");
 });

@@ -53,6 +53,9 @@ testWithTypedArrayConstructors(function(TA) {
   result = sample.find(function(val) { return 0; });
   assert.sameValue(result, undefined, "ToBoolean(0)");
 
+  result = sample.find(function(val) { return -0; });
+  assert.sameValue(result, undefined, "ToBoolean(-0)");
+
   result = sample.find(function(val) { return NaN; });
   assert.sameValue(result, undefined, "ToBoolean(NaN)");
 });
