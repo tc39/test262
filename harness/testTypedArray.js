@@ -52,8 +52,9 @@ function testWithTypedArrayConstructors(f, selected) {
  * properties are indexed in order to match the respective value for each
  * TypedArray constructor
  * @param  {Function} fn - the function to call for each constructor and value.
- *                         will be called with the constructor, value and
- *                         expected value.
+ *                         will be called with the constructor, value, expected
+ *                         value, and a initial value that can be used to avoid
+ *                         a false positive with an equivalent expected value.
  */
 function testTypedArrayConversions(fn) {
   var values = [
