@@ -31,16 +31,21 @@ includes: [compareArray.js, testTypedArray.js]
 testWithTypedArrayConstructors(function(TA) {
   assert(
     compareArray(new TA([0, 0, 0]).fill(8, 1), [0, 8, 8]),
-    'Fill elements from custom start position'
+    "Fill elements from custom start position"
   );
 
   assert(
     compareArray(new TA([0, 0, 0]).fill(8, 4), [0, 0, 0]),
-    'start position is never higher than this.length'
+    "start position is never higher than length"
   );
 
   assert(
     compareArray(new TA([0, 0, 0]).fill(8, -1), [0, 0, 8]),
-    'negative start sets initial position to max((this.length + relativeStart),0)'
+    "start < 0 sets initial position to max((len + relativeStart), 0)"
+  );
+
+  assert(
+    compareArray(new TA([0, 0, 0]).fill(8, -5), [8, 8, 8]),
+    "start position is 0 when (len + relativeStart) < 0"
   );
 });

@@ -4,13 +4,13 @@
 esid: sec-%typedarray%.prototype.fill
 es6id: 22.2.3.8
 description: >
-  Fills all the elements from a with a custom start index.
+  Fills all the elements from a with a custom end index.
 info: >
   22.2.3.8 %TypedArray%.prototype.fill (value [ , start [ , end ] ] )
 
   %TypedArray%.prototype.fill is a distinct function that implements the same
   algorithm as Array.prototype.fill as defined in 22.1.3.6 except that the this
-  object's [[ArrayLength]] internal slot is accessed in place of performing a
+  object"s [[ArrayLength]] internal slot is accessed in place of performing a
   [[Get]] of "length". The implementation of the algorithm may be optimized with
   the knowledge that the this value is an object that has a fixed length and
   whose integer indexed properties are not sparse. However, such optimization
@@ -33,16 +33,21 @@ includes: [compareArray.js, testTypedArray.js]
 testWithTypedArrayConstructors(function(TA) {
   assert(
     compareArray(new TA([0, 0, 0]).fill(8, 0, 1), [8, 0, 0]),
-    'Fill elements from custom end position'
+    "Fill elements from custom end position"
   );
 
   assert(
     compareArray(new TA([0, 0, 0]).fill(8, 0, -1), [8, 8, 0]),
-    'negative end sets final position to max((this.length + relativeEnd), 0)'
+    "negative end sets final position to max((length + relativeEnd), 0)"
   );
 
   assert(
     compareArray(new TA([0, 0, 0]).fill(8, 0, 5), [8, 8, 8]),
-    'end position is never higher than of this.length'
+    "end position is never higher than of length"
+  );
+
+  assert(
+    compareArray(new TA([0, 0, 0]).fill(8, 0, -4), [0, 0, 0]),
+    "end position is 0 when (len + relativeEnd) < 0"
   );
 });
