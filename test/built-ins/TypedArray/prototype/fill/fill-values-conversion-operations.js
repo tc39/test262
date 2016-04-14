@@ -47,14 +47,8 @@ info: >
 includes: [testTypedArray.js]
 ---*/
 
-testTypedArrayConversions(function(TA, value, expected) {
-  var arg = 1;
-
-  if (expected === 0) {
-    arg = [1];
-  }
-
-  var sample = new TA(arg);
+testTypedArrayConversions(function(TA, value, expected, initial) {
+  var sample = new TA([initial]);
 
   sample.fill(value);
 

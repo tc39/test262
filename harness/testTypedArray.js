@@ -482,7 +482,12 @@ function testTypedArrayConversions(fn) {
 
   testWithTypedArrayConstructors(function(TA) {
     return values.forEach(function(value, index) {
-      fn(TA, value, expected[TA.name][index]);
+      var exp = expected[TA.name][index];
+      var initial = 0;
+      if (exp === 0) {
+        initial = 1;
+      }
+      fn(TA, value, exp, initial);
     });
   });
 }
