@@ -10,7 +10,7 @@ info: >
 
   %TypedArray%.prototype.fill is a distinct function that implements the same
   algorithm as Array.prototype.fill as defined in 22.1.3.6 except that the this
-  object"s [[ArrayLength]] internal slot is accessed in place of performing a
+  object's [[ArrayLength]] internal slot is accessed in place of performing a
   [[Get]] of "length". The implementation of the algorithm may be optimized with
   the knowledge that the this value is an object that has a fixed length and
   whose integer indexed properties are not sparse. However, such optimization
