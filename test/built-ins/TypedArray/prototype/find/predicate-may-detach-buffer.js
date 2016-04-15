@@ -43,13 +43,16 @@ includes: [testTypedArray.js, detachArrayBuffer.js]
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA(2);
   var loops = 0;
+  var completion = false;
 
   assert.throws(TypeError, function() {
     sample.find(function() {
       loops++;
       $DETACHBUFFER(sample.buffer);
+      completion = true;
     });
   }, "throws a TypeError getting a value from the detached buffer");
 
   assert.sameValue(loops, 1, "predicate is called once");
+  assert(completion, "abrupt completion does not come from DETACHBUFFER");
 });
