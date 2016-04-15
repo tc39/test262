@@ -6,18 +6,45 @@ description: >
     Provides a regex that makes a best-effort determination that the tested
     string matches the NativeFunction grammar production without requiring a
     correct tokeniser
-includes: [nativeFunctionHelper.js]
+includes: [nativeFunctionMatcher.js]
 ---*/
 
-if (!(
-  NATIVE_FUNCTION_RE.test('function(){[native function]}') &&
-  NATIVE_FUNCTION_RE.test('function(){ [native function] }') &&
-  NATIVE_FUNCTION_RE.test('function ( ) { [ native function ] }') &&
-  NATIVE_FUNCTION_RE.test('function a(){ [native function] }') &&
-  NATIVE_FUNCTION_RE.test('function a(){ /* } */ [native function] }') &&
-  !NATIVE_FUNCTION_RE.test('') &&
-  !NATIVE_FUNCTION_RE.test('native function') &&
-  !NATIVE_FUNCTION_RE.test('function(){}') &&
-  !NATIVE_FUNCTION_RE.test('function(){ "native function" }') &&
-  !NATIVE_FUNCTION_RE.test('function(){ [] native function }')
-)) $ERROR('NATIVE_FUNCTION_RE failed');
+if (!NATIVE_FUNCTION_RE.test('function(){[native code]}')) {
+  $ERROR('expected string to pass: "function(){[native code]}"');
+}
+
+if (!NATIVE_FUNCTION_RE.test('function(){ [native code] }')) {
+  $ERROR('expected string to pass: "function(){ [native code] }"');
+}
+
+if (!NATIVE_FUNCTION_RE.test('function ( ) { [ native code ] }')) {
+  $ERROR('expected string to pass: "function ( ) { [ native code ] }"');
+}
+
+if (!NATIVE_FUNCTION_RE.test('function a(){ [native code] }')) {
+  $ERROR('expected string to pass: "function a(){ [native code] }"');
+}
+
+if (!NATIVE_FUNCTION_RE.test('function a(){ /* } */ [native code] }')) {
+  $ERROR('expected string to pass: "function a(){ /* } */ [native code] }"');
+}
+
+if (NATIVE_FUNCTION_RE.test('')) {
+  $ERROR('expected string to fail: ""');
+}
+
+if (NATIVE_FUNCTION_RE.test('native code')) {
+  $ERROR('expected string to fail: "native code"');
+}
+
+if (NATIVE_FUNCTION_RE.test('function(){}')) {
+  $ERROR('expected string to fail: "function(){}"');
+}
+
+if (NATIVE_FUNCTION_RE.test('function(){ "native code" }')) {
+  $ERROR('expected string to fail: "function(){ "native code" }"');
+}
+
+if (NATIVE_FUNCTION_RE.test('function(){ [] native code }')) {
+  $ERROR('expected string to fail: "function(){ [] native code }"');
+}
