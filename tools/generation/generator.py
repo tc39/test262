@@ -12,15 +12,21 @@ from lib.test import Test
 def print_error(*values):
     print('ERROR:', *values, file=sys.stderr)
 
+# When a directory contains at least one file with a `.case` extension, it
+# should be interpreted as a "case directory"
+def is_case_dir(location):
+    for file_name in os.listdir(location):
+        if file_name.lower().endswith('.case'):
+            return True
+    return False
+
 def find_cases(location):
     # When a file is specified, return the file name and its containing
     # directory
     if os.path.isfile(location):
         return location, [os.path.dirname(location)]
 
-    # When a directory is specified, if that directory contains a sub-directory
-    # names "default" interpret it as a "case directory"
-    if (os.path.isdir(os.path.join(location, 'default'))):
+    if is_case_dir(location):
         return None, [location]
     else:
         return None, map(
