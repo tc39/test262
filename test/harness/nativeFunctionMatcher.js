@@ -3,9 +3,8 @@
 
 /*---
 description: >
-    Provides a regex that makes a best-effort determination that the tested
-    string matches the NativeFunction grammar production without requiring a
-    correct tokeniser
+    Ensure that the regular expression generally distinguishes between valid
+    and invalid forms of the NativeFunction grammar production.
 includes: [nativeFunctionMatcher.js]
 ---*/
 
