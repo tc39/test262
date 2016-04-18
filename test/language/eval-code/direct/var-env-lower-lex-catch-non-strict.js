@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-evaldeclarationinstantiation
+es6id: 18.2.1.2
 description: Variable collision with lexical binding in lower scope
 info: >
     Annex B extensions permit re-declarations from FunctionDeclaration,
