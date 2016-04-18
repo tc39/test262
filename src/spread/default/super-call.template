@@ -3,6 +3,7 @@
 /*---
 path: language/expressions/super/spread-
 name: SuperCall
+esid: sec-super-keyword-runtime-semantics-evaluation
 es6id: 12.3.5.1
 info: |
     SuperCall : super Arguments
