@@ -39,6 +39,12 @@ testWithTypedArrayConstructors(function(TA) {
   });
 
   assert.sameValue(result, T, "without thisArg, predicate this is the global");
+  
+  sample.findIndex(function() {
+    result = this;
+  }, undefined);
+
+  assert.sameValue(result, T, "predicate this is the global when thisArg is undefined");
 
   var o = {};
   sample.findIndex(function() {

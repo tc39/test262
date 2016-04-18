@@ -50,6 +50,9 @@ testWithTypedArrayConstructors(function(TA) {
   result = sample.findIndex(function(val) { return 0; });
   assert.sameValue(result, -1, "ToBoolean(0)");
 
+  result = sample.findIndex(function(val) { return -0; });
+  assert.sameValue(result, -1, "ToBoolean(-0)");
+
   result = sample.findIndex(function(val) { return NaN; });
   assert.sameValue(result, -1, "ToBoolean(NaN)");
 });

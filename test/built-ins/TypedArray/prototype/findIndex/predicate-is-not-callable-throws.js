@@ -39,7 +39,7 @@ testWithTypedArrayConstructors(function(TA) {
 
   assert.throws(TypeError, function() {
     sample.findIndex(false);
-  }, "true");
+  }, "false");
 
   assert.throws(TypeError, function() {
     sample.findIndex(true);
