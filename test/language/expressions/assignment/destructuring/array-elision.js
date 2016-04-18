@@ -3,8 +3,8 @@
 
 /*---
 description: >
-    A sparse ArrayAssignmentPattern without an AssignmentElementList requires
-    iterable values and throws for other values.
+    An ArrayAssignmentPattern containing only Elisions requires iterable values
+    and throws for other values.
 es6id: 12.14.5.2
 ---*/
 
