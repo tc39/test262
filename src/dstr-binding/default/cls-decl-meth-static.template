@@ -3,6 +3,7 @@
 /*---
 path: language/statements/class/dstr-meth-static-
 name: static class expression method
+esid: sec-runtime-semantics-bindingclassdeclarationevaluation
 es6id: 14.5.15
 info: |
     ClassDeclaration : class BindingIdentifier ClassTail
