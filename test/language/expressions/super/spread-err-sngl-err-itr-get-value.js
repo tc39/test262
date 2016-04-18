@@ -1,11 +1,11 @@
 // This file was procedurally generated from the following sources:
-// - src/spread/sngl-err-expr-throws.case
+// - src/spread/sngl-err-itr-get-value.case
 // - src/spread/error/super-call.template
 /*---
-description: Spread operator applied to the only argument when evaluation throws (SuperCall)
+description: Spread operator applied to the only argument when GetIterator fails (@@iterator function return value) (SuperCall)
 esid: sec-super-keyword-runtime-semantics-evaluation
 es6id: 12.3.5.1
-features: [generators]
+features: [Symbol.iterator]
 flags: [generated]
 info: |
     SuperCall : super Arguments
@@ -26,7 +26,17 @@ info: |
     3. Let spreadObj be GetValue(spreadRef).
     4. Let iterator be GetIterator(spreadObj).
     5. ReturnIfAbrupt(iterator).
+
+    7.4.1 GetIterator ( obj, method )
+
+    [...]
+    2. Let iterator be ? Call(method, obj).
+    3. If Type(iterator) is not Object, throw a TypeError exception.
 ---*/
+var iter = {};
+iter[Symbol.iterator] = function() {
+  return null;
+};
 
 class Test262ParentClass {
   constructor() {}
@@ -34,10 +44,10 @@ class Test262ParentClass {
 
 class Test262ChildClass extends Test262ParentClass {
   constructor() {
-    super(...function*() { throw new Test262Error(); }());
+    super(...iter);
   }
 }
 
-assert.throws(Test262Error, function() {
+assert.throws(TypeError, function() {
   new Test262ChildClass();
 });

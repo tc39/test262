@@ -1,11 +1,10 @@
 // This file was procedurally generated from the following sources:
-// - src/spread/sngl-err-expr-throws.case
-// - src/spread/error/call-expr.template
+// - src/spread/sngl-empty.case
+// - src/spread/default/call-expr.template
 /*---
-description: Spread operator applied to the only argument when evaluation throws (CallExpression)
+description: Spread operator applied to the only argument when no iteration occurs (CallExpression)
 esid: sec-function-calls-runtime-semantics-evaluation
 es6id: 12.3.4.1
-features: [generators]
 flags: [generated]
 info: |
     CallExpression : MemberExpression Arguments
@@ -29,8 +28,18 @@ info: |
     3. Let spreadObj be GetValue(spreadRef).
     4. Let iterator be GetIterator(spreadObj).
     5. ReturnIfAbrupt(iterator).
+    6. Repeat
+       a. Let next be IteratorStep(iterator).
+       b. ReturnIfAbrupt(next).
+       c. If next is false, return list.
+       [...]
 ---*/
 
-assert.throws(Test262Error, function() {
-  (function() {}(...function*() { throw new Test262Error(); }()));
-});
+var callCount = 0;
+
+(function() {
+  assert.sameValue(arguments.length, 0);
+  callCount += 1;
+}(...[]));
+
+assert.sameValue(callCount, 1);

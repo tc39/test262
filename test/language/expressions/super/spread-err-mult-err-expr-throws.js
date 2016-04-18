@@ -1,11 +1,10 @@
 // This file was procedurally generated from the following sources:
-// - src/spread/sngl-err-expr-throws.case
+// - src/spread/mult-err-expr-throws.case
 // - src/spread/error/super-call.template
 /*---
-description: Spread operator applied to the only argument when evaluation throws (SuperCall)
+description: Spread operator following other arguments when evaluation throws (SuperCall)
 esid: sec-super-keyword-runtime-semantics-evaluation
 es6id: 12.3.5.1
-features: [generators]
 flags: [generated]
 info: |
     SuperCall : super Arguments
@@ -19,13 +18,12 @@ info: |
 
     12.3.6.1 Runtime Semantics: ArgumentListEvaluation
 
-    ArgumentList : ... AssignmentExpression
+    ArgumentList : ArgumentList , ... AssignmentExpression
 
-    1. Let list be an empty List.
+    1. Let precedingArgs be the result of evaluating ArgumentList.
     2. Let spreadRef be the result of evaluating AssignmentExpression.
-    3. Let spreadObj be GetValue(spreadRef).
-    4. Let iterator be GetIterator(spreadObj).
-    5. ReturnIfAbrupt(iterator).
+    3. Let iterator be GetIterator(GetValue(spreadRef) ).
+    4. ReturnIfAbrupt(iterator).
 ---*/
 
 class Test262ParentClass {
@@ -34,7 +32,7 @@ class Test262ParentClass {
 
 class Test262ChildClass extends Test262ParentClass {
   constructor() {
-    super(...function*() { throw new Test262Error(); }());
+    super(0, ...function*() { throw new Test262Error(); }());
   }
 }
 
