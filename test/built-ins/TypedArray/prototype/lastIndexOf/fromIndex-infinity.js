@@ -26,6 +26,6 @@ includes: [testTypedArray.js]
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([42, 43, 43, 41]);
 
-  assert.sameValue(sample.lastIndexOf(43, Infinity), 2, "indexOf(43, Infinity)");
-  assert.sameValue(sample.lastIndexOf(43, -Infinity), -1, "indexOf(43, -Infinity)");
+  assert.sameValue(sample.lastIndexOf(43, Infinity), 2, "lastIndexOf(43, Infinity)");
+  assert.sameValue(sample.lastIndexOf(43, -Infinity), -1, "lastIndexOf(43, -Infinity)");
 });

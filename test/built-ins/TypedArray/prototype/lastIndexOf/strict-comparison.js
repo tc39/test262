@@ -26,15 +26,14 @@ includes: [testTypedArray.js]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([42, 0, 1]);
-
+  var sample = new TA([42, undefined, NaN, 0, 1]);
   assert.sameValue(sample.lastIndexOf("42"), -1, "'42'");
   assert.sameValue(sample.lastIndexOf([42]), -1, "[42]");
   assert.sameValue(sample.lastIndexOf(42.0), 0, "42.0");
-  assert.sameValue(sample.lastIndexOf(-0), 1, "-0");
+  assert.sameValue(sample.lastIndexOf(-0), 3, "-0");
   assert.sameValue(sample.lastIndexOf(true), -1, "true");
   assert.sameValue(sample.lastIndexOf(false), -1, "false");
-  assert.sameValue(sample.lastIndexOf(NaN), -1, "NaN");
+  assert.sameValue(sample.lastIndexOf(NaN), -1, "NaN === NaN is false");
   assert.sameValue(sample.lastIndexOf(null), -1, "null");
   assert.sameValue(sample.lastIndexOf(undefined), -1, "undefined");
   assert.sameValue(sample.lastIndexOf(""), -1, "empty string");
