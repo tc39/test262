@@ -26,5 +26,4 @@ testWithTypedArrayConstructors(function(TA) {
   sample = new TA(42);
   assert.sameValue(sample.indexOf(0, 42), -1);
   assert.sameValue(sample.indexOf(0, 43), -1);
-  assert.sameValue(sample.indexOf(0, Infinity), -1);
 });
