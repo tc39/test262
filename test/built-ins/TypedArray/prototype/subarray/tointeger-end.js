@@ -29,9 +29,12 @@ testWithTypedArrayConstructors(function(TA) {
   assert(compareArray(sample.subarray(0, null), []), "null");
   assert(compareArray(sample.subarray(0, undefined), [40, 41, 42, 43]), "undefined");
 
-  assert(compareArray(sample.subarray(0, 1.1), [40]), "1.1");
-  assert(compareArray(sample.subarray(0, 0.1), []), "0.1");
   assert(compareArray(sample.subarray(0, 0.6), []), "0.6");
+  assert(compareArray(sample.subarray(0, 1.1), [40]), "1.1");
+  assert(compareArray(sample.subarray(0, 1.5), [40]), "1.5");
+  assert(compareArray(sample.subarray(0, -0.6), []), "-0.6");
+  assert(compareArray(sample.subarray(0, -1.1), [40, 41, 42]), "-1.1");
+  assert(compareArray(sample.subarray(0, -1.5), [40, 41, 42]), "-1.5");
 
   assert(compareArray(sample.subarray(0, "3"), [40, 41, 42]), "string");
   assert(

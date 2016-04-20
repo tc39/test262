@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-%typedarray%.prototype.subarray
-description: Subarray may return a new empty instance
+description: Throws a TypeError creating a new instance with a detached buffer
 info: >
   22.2.3.27 %TypedArray%.prototype.subarray( begin , end )
 
@@ -56,7 +56,7 @@ testWithTypedArrayConstructors(function(TA) {
 
   $DETACHBUFFER(sample.buffer);
   assert.throws(TypeError, function() {
-    sample.subarray(o1, o1);
+    sample.subarray(o1, o2);
   });
 
   assert(begin, "observable ToInteger(begin)");

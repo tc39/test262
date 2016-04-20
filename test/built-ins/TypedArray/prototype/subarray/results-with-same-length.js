@@ -20,22 +20,6 @@ testWithTypedArrayConstructors(function(TA) {
     assert.sameValue(result[1], 41, msg + " & result[1] === 41");
     assert.sameValue(result[2], 42, msg + " & result[2] === 42");
     assert.sameValue(result[3], 43, msg + " & result[3] === 43");
-
-    assert.notSameValue(result, sample, msg + " & new typedArray object");
-    assert.sameValue(
-      Object.getPrototypeOf(result),
-      Object.getPrototypeOf(sample),
-      msg + " & prototype"
-    );
-    assert.sameValue(
-      result.constructor, sample.constructor,
-      msg + " & constructor"
-    );
-    assert(result instanceof TA, "instanceof");
-    assert(
-      compareArray(sample, [40, 41, 42, 43]),
-      msg + " & subarray does not change sample"
-    );
   }
 
   testRes(sample.subarray(0), "begin == 0");

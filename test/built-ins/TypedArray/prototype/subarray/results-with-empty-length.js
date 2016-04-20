@@ -21,22 +21,6 @@ testWithTypedArrayConstructors(function(TA) {
       false,
       msg + " & result.hasOwnProperty(0) === false"
     );
-
-    assert.notSameValue(result, sample, msg + " & new typedArray object");
-    assert.sameValue(
-      Object.getPrototypeOf(result),
-      Object.getPrototypeOf(sample),
-      msg + " & prototype"
-    );
-    assert.sameValue(
-      result.constructor, sample.constructor,
-      msg + " & constructor"
-    );
-    assert(result instanceof TA, "instanceof");
-    assert(
-      compareArray(sample, [40, 41, 42, 43]),
-      msg + " & subarray does not change sample"
-    );
   }
 
   testRes(sample.subarray(4), "begin == length");
