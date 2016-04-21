@@ -28,7 +28,7 @@ testWithTypedArrayConstructors(function(TA) {
   var called = 0;
 
   var result1 = new TA().forEach(function() {
-    calls++;
+    called++;
   });
 
   assert.sameValue(called, 0);
