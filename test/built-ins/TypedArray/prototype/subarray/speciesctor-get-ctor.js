@@ -27,6 +27,7 @@ includes: [testTypedArray.js]
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([40, 41, 42, 43]);
   var calls = 0;
+  var result;
 
   Object.defineProperty(sample, "constructor", {
     get: function() {
@@ -34,7 +35,18 @@ testWithTypedArrayConstructors(function(TA) {
     }
   });
 
-  sample.subarray(0);
+  result = sample.subarray(0);
 
-  assert.sameValue(calls, 1);
+  assert.sameValue(calls, 1, "called custom ctor get accessor once");
+
+  assert.sameValue(
+    Object.getPrototypeOf(result),
+    Object.getPrototypeOf(sample),
+    "use defaultCtor on an undefined return - getPrototypeOf check"
+  );
+  assert.sameValue(
+    result.constructor,
+    TA,
+    "use defaultCtor on an undefined return - .constructor check"
+  );
 });
