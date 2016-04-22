@@ -38,7 +38,7 @@ testWithTypedArrayConstructors(function(TA) {
   sample.constructor = "1";
   assert.throws(TypeError, function() {
     sample.subarray(0);
-  }, "'1");
+  }, "string");
 
   sample.constructor = null;
   assert.throws(TypeError, function() {

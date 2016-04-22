@@ -39,11 +39,12 @@ testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([40, 41, 42]);
   var calls = 0;
   var expectedOffset = TA.BYTES_PER_ELEMENT;
-  var result;
+  var result, ctorThis;
 
   sample.constructor = {};
   sample.constructor[Symbol.species] = function(buffer, offset, length) {
     result = arguments;
+    ctorThis = this;
     return new TA(buffer, offset, length);
   };;
 
@@ -53,4 +54,9 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(result[0], sample.buffer, "[0] is sample.buffer");
   assert.sameValue(result[1], expectedOffset, "[1] is the byte offset pos");
   assert.sameValue(result[2], 2, "[2] is expected length");
+
+  assert(
+    ctorThis instanceof sample.constructor[Symbol.species],
+    "`this` value in the @@species fn is an instance of the function itself"
+  );
 });

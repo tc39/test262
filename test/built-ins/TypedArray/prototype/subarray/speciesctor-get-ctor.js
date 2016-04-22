@@ -21,7 +21,7 @@ info: >
   2. Let C be ? Get(O, "constructor").
   3. If C is undefined, return defaultConstructor.
   ...
-includes: [testTypedArray.js, compareArray.js]
+includes: [testTypedArray.js]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
