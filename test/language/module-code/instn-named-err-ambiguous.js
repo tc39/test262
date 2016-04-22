@@ -39,4 +39,4 @@ negative: SyntaxError
 flags: [module]
 ---*/
 
-import { x } from './instn-named-err-ambiguous_.js';
+import { x } from './instn-named-err-ambiguous_FIXTURE.js';

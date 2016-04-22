@@ -22,4 +22,4 @@ negative: SyntaxError
 flags: [module]
 ---*/
 
-export { x } from './instn-iee-star-cycle-2_.js';
+export { x } from './instn-iee-star-cycle-2_FIXTURE.js';

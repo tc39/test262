@@ -14,4 +14,4 @@ negative: SyntaxError
 flags: [module]
 ---*/
 
-import './instn-resolve-err-syntax_.js';
+import './instn-resolve-err-syntax_FIXTURE.js';

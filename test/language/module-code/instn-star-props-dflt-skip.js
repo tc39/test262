@@ -31,8 +31,8 @@ info: |
 flags: [module]
 ---*/
 
-import * as named from './instn-star-props-dflt-skip-star-named_.js';
-import * as production from './instn-star-props-dflt-skip-star-prod_.js';
+import * as named from './instn-star-props-dflt-skip-star-named_FIXTURE.js';
+import * as production from './instn-star-props-dflt-skip-star-prod_FIXTURE.js';
 
 assert('namedOther' in named);
 assert.sameValue(

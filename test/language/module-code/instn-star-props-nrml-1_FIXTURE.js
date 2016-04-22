@@ -18,7 +18,7 @@ export function* localGenDecl() {}
 export class localClassDecl {}
 export { localBindingId };
 export { localBindingId as localIdName };
-export { indirectIdName } from './instn-star-props-nrml-indirect_.js';
-export { indirectIdName as indirectIdName2 } from './instn-star-props-nrml-indirect_.js';
+export { indirectIdName } from './instn-star-props-nrml-indirect_FIXTURE.js';
+export { indirectIdName as indirectIdName2 } from './instn-star-props-nrml-indirect_FIXTURE.js';
 
-export * from './instn-star-props-nrml-star_.js';
+export * from './instn-star-props-nrml-star_FIXTURE.js';

@@ -28,7 +28,7 @@ info: |
 flags: [module]
 ---*/
 
-import * as ns from './instn-star-ambiguous_.js';
+import * as ns from './instn-star-ambiguous_FIXTURE.js';
 
 assert('first' in ns, 'Non-ambiguous exports from first module are present');
 assert('second' in ns, 'Non-ambiguous exports from second module are present');

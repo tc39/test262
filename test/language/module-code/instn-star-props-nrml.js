@@ -27,7 +27,7 @@ info: |
 flags: [module]
 ---*/
 
-import * as ns from './instn-star-props-nrml-1_.js';
+import * as ns from './instn-star-props-nrml-1_FIXTURE.js';
 
 // Export entries defined by a directly-imported module
 assert('localVarDecl' in ns, 'localVarDecl');

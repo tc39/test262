@@ -26,4 +26,4 @@ negative: SyntaxError
 flags: [module]
 ---*/
 
-import * as ns from './instn-star-star-cycle-2_.js';
+import * as ns from './instn-star-star-cycle-2_FIXTURE.js';

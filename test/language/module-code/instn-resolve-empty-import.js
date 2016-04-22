@@ -39,4 +39,4 @@ negative: ReferenceError
 flags: [module]
 ---*/
 
-import {} from './instn-resolve-empty-import_.js';
+import {} from './instn-resolve-empty-import_FIXTURE.js';

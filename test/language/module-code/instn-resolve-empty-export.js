@@ -33,4 +33,4 @@ negative: ReferenceError
 flags: [module]
 ---*/
 
-export {} from './instn-resolve-empty-export_.js';
+export {} from './instn-resolve-empty-export_FIXTURE.js';

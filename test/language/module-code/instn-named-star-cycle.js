@@ -31,4 +31,4 @@ negative: SyntaxError
 flags: [module]
 ---*/
 
-import { x } from './instn-named-star-cycle-2_.js';
+import { x } from './instn-named-star-cycle-2_FIXTURE.js';

@@ -16,7 +16,7 @@ info: |
 flags: [module]
 ---*/
 
-import './instn-uniq-env-rec-other_.js'
+import './instn-uniq-env-rec-other_FIXTURE.js'
 var first = 1;
 let second = 2;
 const third = 3;

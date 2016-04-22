@@ -7,6 +7,6 @@ negative: ReferenceError
 flags: [module]
 ---*/
 
-import './instn-resolve-order-src-valid_.js';
-import './instn-resolve-order-src-reference_.js';
-import './instn-resolve-order-src-syntax_.js';
+import './instn-resolve-order-src-valid_FIXTURE.js';
+import './instn-resolve-order-src-reference_FIXTURE.js';
+import './instn-resolve-order-src-syntax_FIXTURE.js';

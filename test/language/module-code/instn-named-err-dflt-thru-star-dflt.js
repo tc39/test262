@@ -27,4 +27,4 @@ negative: SyntaxError
 flags: [module]
 ---*/
 
-import x from './instn-named-err-dflt-thru-star-int_.js';
+import x from './instn-named-err-dflt-thru-star-int_FIXTURE.js';

@@ -18,5 +18,5 @@ export function* starGenDecl() {}
 export class starClassDecl {}
 export { starBindingId };
 export { starBindingId as starIdName };
-export { starIndirectIdName } from './instn-star-props-nrml-indirect_.js';
-export { starIndirectIdName as starIndirectIdName2 } from './instn-star-props-nrml-indirect_.js';
+export { starIndirectIdName } from './instn-star-props-nrml-indirect_FIXTURE.js';
+export { starIndirectIdName as starIndirectIdName2 } from './instn-star-props-nrml-indirect_FIXTURE.js';

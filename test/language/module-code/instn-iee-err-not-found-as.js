@@ -22,4 +22,4 @@ negative: SyntaxError
 flags: [module]
 ---*/
 
-export { x as y } from './instn-iee-err-not-found-empty_.js';
+export { x as y } from './instn-iee-err-not-found-empty_FIXTURE.js';

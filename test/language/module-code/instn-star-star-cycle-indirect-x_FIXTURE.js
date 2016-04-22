@@ -3,5 +3,5 @@
 
 // This module should be visited exactly one time during resolution of the "x"
 // binding.
-export { y as x } from './instn-star-star-cycle-2_.js';
+export { y as x } from './instn-star-star-cycle-2_FIXTURE.js';
 export var y = 45;

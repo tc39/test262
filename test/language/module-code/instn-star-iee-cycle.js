@@ -37,19 +37,19 @@ info: |
 flags: [module]
 ---*/
 
-import * as ns from './instn-star-iee-cycle-2_.js';
-export { c as b } from './instn-star-iee-cycle-2_.js';
-export { e as d } from './instn-star-iee-cycle-2_.js';
-export { g as f } from './instn-star-iee-cycle-2_.js';
-export { i as h } from './instn-star-iee-cycle-2_.js';
-export { k as j } from './instn-star-iee-cycle-2_.js';
-export { m as l } from './instn-star-iee-cycle-2_.js';
-export { o as n } from './instn-star-iee-cycle-2_.js';
-export { q as p } from './instn-star-iee-cycle-2_.js';
-export { s as r } from './instn-star-iee-cycle-2_.js';
-export { u as t } from './instn-star-iee-cycle-2_.js';
-export { w as v } from './instn-star-iee-cycle-2_.js';
-export { y as x } from './instn-star-iee-cycle-2_.js';
+import * as ns from './instn-star-iee-cycle-2_FIXTURE.js';
+export { c as b } from './instn-star-iee-cycle-2_FIXTURE.js';
+export { e as d } from './instn-star-iee-cycle-2_FIXTURE.js';
+export { g as f } from './instn-star-iee-cycle-2_FIXTURE.js';
+export { i as h } from './instn-star-iee-cycle-2_FIXTURE.js';
+export { k as j } from './instn-star-iee-cycle-2_FIXTURE.js';
+export { m as l } from './instn-star-iee-cycle-2_FIXTURE.js';
+export { o as n } from './instn-star-iee-cycle-2_FIXTURE.js';
+export { q as p } from './instn-star-iee-cycle-2_FIXTURE.js';
+export { s as r } from './instn-star-iee-cycle-2_FIXTURE.js';
+export { u as t } from './instn-star-iee-cycle-2_FIXTURE.js';
+export { w as v } from './instn-star-iee-cycle-2_FIXTURE.js';
+export { y as x } from './instn-star-iee-cycle-2_FIXTURE.js';
 export var z = 23;
 
 assert.sameValue(ns.a, 23);

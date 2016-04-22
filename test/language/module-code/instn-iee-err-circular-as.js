@@ -23,4 +23,4 @@ negative: SyntaxError
 flags: [module]
 ---*/
 
-export { x as y } from './instn-iee-err-circular_.js';
+export { x as y } from './instn-iee-err-circular_FIXTURE.js';

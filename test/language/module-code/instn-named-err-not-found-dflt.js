@@ -27,4 +27,4 @@ negative: SyntaxError
 flags: [module]
 ---*/
 
-import x from './instn-named-err-not-found-empty_.js';
+import x from './instn-named-err-not-found-empty_FIXTURE.js';

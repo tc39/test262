@@ -7,5 +7,5 @@ negative: ReferenceError
 flags: [module]
 ---*/
 
-import './instn-resolve-order-depth-child_.js';
-import './instn-resolve-order-depth-syntax_.js';
+import './instn-resolve-order-depth-child_FIXTURE.js';
+import './instn-resolve-order-depth-syntax_FIXTURE.js';

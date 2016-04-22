@@ -14,4 +14,4 @@ negative: ReferenceError
 flags: [module]
 ---*/
 
-import './instn-resolve-err-reference_.js';
+import './instn-resolve-err-reference_FIXTURE.js';

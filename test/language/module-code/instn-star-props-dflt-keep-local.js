@@ -30,8 +30,8 @@ info: |
 flags: [module]
 ---*/
 
-import * as named from './instn-star-props-dflt-keep-local-named_.js';
-import * as production from './instn-star-props-dflt-keep-local-prod_.js';
+import * as named from './instn-star-props-dflt-keep-local-named_FIXTURE.js';
+import * as production from './instn-star-props-dflt-keep-local-prod_FIXTURE.js';
 
 assert.sameValue('default' in named, true, 'default specified via identifier');
 

@@ -42,19 +42,19 @@ info: |
 flags: [module]
 ---*/
 
-import { a } from './instn-named-iee-cycle-2_.js';
-export { c as b } from './instn-named-iee-cycle-2_.js';
-export { e as d } from './instn-named-iee-cycle-2_.js';
-export { g as f } from './instn-named-iee-cycle-2_.js';
-export { i as h } from './instn-named-iee-cycle-2_.js';
-export { k as j } from './instn-named-iee-cycle-2_.js';
-export { m as l } from './instn-named-iee-cycle-2_.js';
-export { o as n } from './instn-named-iee-cycle-2_.js';
-export { q as p } from './instn-named-iee-cycle-2_.js';
-export { s as r } from './instn-named-iee-cycle-2_.js';
-export { u as t } from './instn-named-iee-cycle-2_.js';
-export { w as v } from './instn-named-iee-cycle-2_.js';
-export { y as x } from './instn-named-iee-cycle-2_.js';
+import { a } from './instn-named-iee-cycle-2_FIXTURE.js';
+export { c as b } from './instn-named-iee-cycle-2_FIXTURE.js';
+export { e as d } from './instn-named-iee-cycle-2_FIXTURE.js';
+export { g as f } from './instn-named-iee-cycle-2_FIXTURE.js';
+export { i as h } from './instn-named-iee-cycle-2_FIXTURE.js';
+export { k as j } from './instn-named-iee-cycle-2_FIXTURE.js';
+export { m as l } from './instn-named-iee-cycle-2_FIXTURE.js';
+export { o as n } from './instn-named-iee-cycle-2_FIXTURE.js';
+export { q as p } from './instn-named-iee-cycle-2_FIXTURE.js';
+export { s as r } from './instn-named-iee-cycle-2_FIXTURE.js';
+export { u as t } from './instn-named-iee-cycle-2_FIXTURE.js';
+export { w as v } from './instn-named-iee-cycle-2_FIXTURE.js';
+export { y as x } from './instn-named-iee-cycle-2_FIXTURE.js';
 export var z = 23;
 
 assert.sameValue(a, 23);

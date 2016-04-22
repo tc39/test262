@@ -34,4 +34,4 @@ negative: SyntaxError
 flags: [module]
 ---*/
 
-export { x as y } from './instn-iee-err-ambiguous_.js';
+export { x as y } from './instn-iee-err-ambiguous_FIXTURE.js';

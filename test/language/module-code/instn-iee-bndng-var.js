@@ -51,5 +51,5 @@ assert.throws(TypeError, function() {
 
 assert.sameValue(y, undefined, 'binding value is immutable');
 
-import { y } from './instn-iee-bndng-var_.js';
+import { y } from './instn-iee-bndng-var_FIXTURE.js';
 export var x = 99;

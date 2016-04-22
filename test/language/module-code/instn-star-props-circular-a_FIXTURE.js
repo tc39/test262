@@ -1,4 +1,5 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
-export { default } from './instn-star-props-dflt-keep-indirect-def_.js';
+export * from './instn-star-props-circular-b_FIXTURE.js';
+export var fromA;
