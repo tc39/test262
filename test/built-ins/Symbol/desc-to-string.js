@@ -63,8 +63,10 @@ val = {
 calls = '';
 assert.throws(TypeError, function() {
   Symbol(val);
-});
-assert.sameValue(calls, 'valueOf');
+}, '`toString` is not callable, and `valueOf` returns a non-primitive value');
+assert.sameValue(
+  calls, 'valueOf', 'invocation pattern for non-callable `toString`'
+);
 
 val = {
   toString: function() {
@@ -80,9 +82,9 @@ val = {
 calls = '';
 assert.throws(TypeError, function() {
   Symbol(val);
-});
-assert.sameValue(calls, 'toStringvalueOf');
-
-assert.throws(TypeError, function() {
-  Symbol(Symbol('1'));
-});
+}, '`toString` nor `valueOf` both return non-primitive values');
+assert.sameValue(
+  calls,
+  'toStringvalueOf',
+  'invocation pattern for non-callable `toString` and `valueOf`'
+);
