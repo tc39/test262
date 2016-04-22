@@ -4,14 +4,18 @@
 /*---
 info: >
  RegExp has a property at `Symbol.species`
+esid: sec-get-regexp-@@species
 es6id: 21.2.4.2
 author: Sam Mikes
 description: RegExp[Symbol.species] exists per spec
-includes:
-  - propertyHelper.js
+includes: [propertyHelper.js]
+features: [Symbol.species]
 ---*/
 
-assert.sameValue(RegExp[Symbol.species], RegExp, "RegExp[Symbol.species] is RegExp");
+var desc = Object.getOwnPropertyDescriptor(RegExp, Symbol.species);
+
+assert.sameValue(desc.set, undefined);
+assert.sameValue(typeof desc.get, 'function');
 
 verifyNotWritable(RegExp, Symbol.species, Symbol.species);
 verifyNotEnumerable(RegExp, Symbol.species);
