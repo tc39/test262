@@ -1,9 +1,10 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
+
 /*---
 esid: sec-%typedarray%.prototype.every
 description: >
-  Returns false if any callbackfn call returns a coerced false.
+  Integer indexed values are not cached before interaction
 info: >
   22.2.3.7 %TypedArray%.prototype.every ( callbackfn [ , thisArg ] )
 
@@ -15,31 +16,27 @@ info: >
   22.1.3.5 Array.prototype.every ( callbackfn [ , thisArg ] )
 
   ...
-  7. Return true.
+  6. Repeat, while k < len
+    ..
+    c. If kPresent is true, then
+      i. Let kValue be ? Get(O, Pk).
+      ii. Let testResult be ToBoolean(? Call(callbackfn, T, « kValue, k, O »)).
+  ...
 includes: [testTypedArray.js]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA(42);
+  var sample = new TA([42, 43, 44]);
+  var calls = 0;
 
-  [
-    false,
-    "",
-    0,
-    -0,
-    NaN,
-    undefined,
-    null
-  ].forEach(function(val) {
-    var called = 0;
-    var result = sample.every(function() {
-      called++;
-      if (called === 1) {
-        return true;
-      }
-      return val;
-    });
-    assert.sameValue(called, 2, "callbackfn called until it returned " + val);
-    assert.sameValue(result, false, "result is false when it returned " + val);
+  sample.every(function(v, i) {
+    if (i < sample.length - 1) {
+      sample[i+1] = 42;
+    }
+
+    assert.sameValue(
+      v, 42, "method does not cache values before callbackfn calls"
+    );
+    return true;
   });
 });
