@@ -46,7 +46,7 @@ testWithTypedArrayConstructors(function(TA) {
   );
   assert.sameValue(
     result.constructor,
-    TA,
-    "use defaultCtor on an undefined return - .constructor check"
+    undefined,
+    "used defaultCtor but still checks the inherited .constructor"
   );
 });
