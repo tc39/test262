@@ -18,7 +18,7 @@ info: |
 flags: [module]
 ---*/
 
-import val from './eval-gtbndng-indirect-update-dflt_.js';
+import val from './eval-gtbndng-indirect-update-dflt_FIXTURE.js';
 
 assert.sameValue(val(), 1);
 assert.sameValue(val, 2);

@@ -20,7 +20,7 @@ includes: [fnGlobalObject.js]
 flags: [module]
 ---*/
 
-import { x } from './eval-gtbndng-indirect-update_.js';
+import { x } from './eval-gtbndng-indirect-update_FIXTURE.js';
 
 assert.sameValue(x, 1);
 

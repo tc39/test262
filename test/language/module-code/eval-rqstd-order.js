@@ -20,18 +20,18 @@ flags: [module]
 
 assert.sameValue(fnGlobalObject().test262, '12345678');
 
-import {} from './eval-rqstd-order-1_.js';
+import {} from './eval-rqstd-order-1_FIXTURE.js';
 
-import './eval-rqstd-order-2_.js';
+import './eval-rqstd-order-2_FIXTURE.js';
 
-import * as ns1 from './eval-rqstd-order-3_.js';
+import * as ns1 from './eval-rqstd-order-3_FIXTURE.js';
 
-import dflt1 from './eval-rqstd-order-4_.js';
+import dflt1 from './eval-rqstd-order-4_FIXTURE.js';
 
-export {} from './eval-rqstd-order-5_.js';
+export {} from './eval-rqstd-order-5_FIXTURE.js';
 
-import dflt2, {} from './eval-rqstd-order-6_.js';
+import dflt2, {} from './eval-rqstd-order-6_FIXTURE.js';
 
-export * from './eval-rqstd-order-7_.js';
+export * from './eval-rqstd-order-7_FIXTURE.js';
 
-import dflt3, * as ns from './eval-rqstd-order-8_.js';
+import dflt3, * as ns from './eval-rqstd-order-8_FIXTURE.js';
