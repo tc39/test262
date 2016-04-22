@@ -23,7 +23,7 @@ export var a_local1;
 var local2;
 export { local2 as b_renamed };
 export { a_local1 as e_indirect } from './own-property-keys-binding-types.js';
-export * from './own-property-keys-binding-types_.js';
+export * from './own-property-keys-binding-types_FIXTURE.js';
 
 var stringKeys = Object.getOwnPropertyNames(ns);
 
