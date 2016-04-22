@@ -6,11 +6,11 @@ es5id: 15.4.4.17-7-c-iii-26
 description: >
     Array.prototype.some - return value of callbackfn is the global
     object
-includes: [fnGlobalObject.js]
 ---*/
 
+var global = this;
         function callbackfn(val, idx, obj) {
-            return fnGlobalObject();
+            return global;
         }
 
 assert([11].some(callbackfn), '[11].some(callbackfn) !== true');

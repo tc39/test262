@@ -7,16 +7,15 @@ description: >
     Object.defineProperties - 'descObj' is the global object which
     implements its own [[Get]] method to get 'enumerable' property
     (8.10.5 step 3.a)
-includes: [fnGlobalObject.js]
 ---*/
 
         var obj = {};
         var accessed = false;
 
-            fnGlobalObject().enumerable = true;
+            this.enumerable = true;
 
             Object.defineProperties(obj, {
-                prop: fnGlobalObject()
+                prop: this
             });
             for (var property in obj) {
                 if (property === "prop") {

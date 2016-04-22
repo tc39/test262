@@ -7,18 +7,16 @@ description: >
     Object.defineProperties - 'descObj' is the global object which
     implements its own [[Get]] method to get 'writable' property
     (8.10.5 step 6.a)
-includes:
-    - propertyHelper.js
-    - fnGlobalObject.js
+includes: [propertyHelper.js]
 ---*/
 
 
 var obj = {};
 
-    fnGlobalObject().writable = false;
+    this.writable = false;
 
     Object.defineProperties(obj, {
-        property: fnGlobalObject()
+        property: this
     });
 
     assert(obj.hasOwnProperty("property"));

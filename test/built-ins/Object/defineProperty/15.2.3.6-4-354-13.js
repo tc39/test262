@@ -8,11 +8,11 @@ description: >
     property successfully when [[Configurable]] attribute is true and
     [[Writable]] attribute is false, 'O' is the global object (8.12.9
     - step Note)
-includes: [propertyHelper.js, fnGlobalObject.js]
+includes: [propertyHelper.js]
 ---*/
 
 
-var obj = fnGlobalObject();
+var obj = this;
 
 try {
     Object.defineProperty(obj, "0", {

@@ -7,7 +7,6 @@ description: >
     Strict Mode - checking 'this' (non-strict function passed as arg
     to String.prototype.replace from strict context)
 flags: [noStrict]
-includes: [fnGlobalObject.js]
 ---*/
 
 var x = 3;
@@ -17,6 +16,6 @@ function f() {
     return "a";
 }
 
-if ( (!(function() {"use strict"; return "ab".replace("b", f)==="aa";}())) || (x!==fnGlobalObject())) {
+if ( (!(function() {"use strict"; return "ab".replace("b", f)==="aa";}())) || (x!==this)) {
      throw "'this' had incorrect value!";
 }

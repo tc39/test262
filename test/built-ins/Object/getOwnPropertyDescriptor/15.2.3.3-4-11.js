@@ -6,10 +6,9 @@ es5id: 15.2.3.3-4-11
 description: >
     Object.getOwnPropertyDescriptor returns data desc for functions on
     built-ins (Global.encodeURIComponent)
-includes: [fnGlobalObject.js]
 ---*/
 
-  var global = fnGlobalObject();
+  var global = this;
   var desc = Object.getOwnPropertyDescriptor(global,  "encodeURIComponent");
 
 assert.sameValue(desc.value, global.encodeURIComponent, 'desc.value');

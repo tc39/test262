@@ -7,10 +7,9 @@ info: >
 es6id: S25.4.3.1_A1.1_T1
 author: Sam Mikes
 description: Promise === global.Promise
-includes: [fnGlobalObject.js]
 ---*/
 
-var global = fnGlobalObject();
+var global = this;
 
 if (Promise !== global.Promise) {
     $ERROR("Expected Promise === global.Promise.");

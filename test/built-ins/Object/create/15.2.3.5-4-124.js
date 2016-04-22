@@ -7,13 +7,12 @@ description: >
     Object.create - one property in 'Properties' is the global object
     that uses Object's [[Get]] method to access the 'configurable'
     property (8.10.5 step 4.a)
-includes: [fnGlobalObject.js]
 ---*/
 
-            fnGlobalObject().configurable = true;
+            this.configurable = true;
 
             var newObj = Object.create({}, {
-                prop: fnGlobalObject() 
+                prop: this 
             });
 
             var result1 = newObj.hasOwnProperty("prop");

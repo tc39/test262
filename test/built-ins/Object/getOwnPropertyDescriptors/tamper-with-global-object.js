@@ -6,7 +6,6 @@ description: >
     Object.getOwnPropertyDescriptors should not have its behavior impacted by modifications to the global property Object
 esid: pending
 author: Jordan Harband
-includes: [fnGlobalObject.js]
 ---*/
 
 function fakeObject() {
@@ -15,7 +14,7 @@ function fakeObject() {
 fakeObject.getOwnPropertyDescriptors = Object.getOwnPropertyDescriptors;
 fakeObject.keys = Object.keys;
 
-var global = fnGlobalObject();
+var global = this;
 global.Object = fakeObject;
 
 assert.sameValue(Object, fakeObject, 'Sanity check failed: could not modify the global Object');

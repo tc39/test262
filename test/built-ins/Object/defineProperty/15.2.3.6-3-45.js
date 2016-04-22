@@ -7,15 +7,14 @@ description: >
     Object.defineProperty - 'Attributes' is the global object that
     uses Object's [[Get]] method to access the 'enumerable' property
     (8.10.5 step 3.a)
-includes: [fnGlobalObject.js]
 ---*/
 
         var obj = {};
         var accessed = false;
 
-            fnGlobalObject().enumerable = true;
+            this.enumerable = true;
 
-            Object.defineProperty(obj, "property", fnGlobalObject());
+            Object.defineProperty(obj, "property", this);
 
             for (var prop in obj) {
                 if (prop === "property") {

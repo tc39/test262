@@ -5,10 +5,9 @@
 es5id: 15.1.1.3-2
 description: undefined is not writable, should throw TypeError in strict mode
 flags: [onlyStrict]
-includes: [fnGlobalObject.js]
 ---*/
 
-var global = fnGlobalObject();
+var global = this;
 
 assert.throws(TypeError, function() {
   global["undefined"] = 5;  // Should throw a TypeError as per 8.12.5

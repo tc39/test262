@@ -6,21 +6,21 @@ es5id: 15.4.4.22-2-15
 description: >
     Array.prototype.reduceRight - 'length' is property of the global
     object
-includes: [fnGlobalObject.js]
 ---*/
 
+var global = this;
         var accessed = false;
 
         function callbackfn(prevVal, curVal, idx, obj) {
             accessed = true;
-            return obj.length === fnGlobalObject().length;
+            return obj.length === global.length;
         }
 
-            var oldLen = fnGlobalObject().length;
-            fnGlobalObject()[0] = 12;
-            fnGlobalObject()[1] = 11;
-            fnGlobalObject()[2] = 9;
-            fnGlobalObject().length = 2;
+            var oldLen = this.length;
+            this[0] = 12;
+            this[1] = 11;
+            this[2] = 9;
+            this.length = 2;
 
-assert(Array.prototype.reduceRight.call(fnGlobalObject(), callbackfn, 111), 'Array.prototype.reduceRight.call(fnGlobalObject(), callbackfn, 111) !== true');
+assert(Array.prototype.reduceRight.call(this, callbackfn, 111), 'Array.prototype.reduceRight.call(this, callbackfn, 111) !== true');
 assert(accessed, 'accessed !== true');

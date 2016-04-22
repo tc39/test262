@@ -7,10 +7,10 @@ description: >
     Strict - checking 'this' from a global scope (non-strict function
     declaration called by strict Function.prototype.call(globalObject))
 flags: [noStrict]
-includes: [fnGlobalObject.js]
 ---*/
 
-function f() { return this===fnGlobalObject();};
-if (! ((function () {"use strict"; return f.call(fnGlobalObject());})())){
+var global = this;
+function f() { return this===global;};
+if (! ((function () {"use strict"; return f.call(global);})())){
     throw "'this' had incorrect value!";
 }

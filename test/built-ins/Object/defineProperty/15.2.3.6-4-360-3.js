@@ -8,12 +8,10 @@ description: >
     [[Writable]]: false, [[Enumerable]]: true, [[Configurable]]: true
     to an accessor property, 'O' is the global object (8.12.9 - step
     9.b.i)
-includes:
-    - propertyHelper.js
-    - fnGlobalObject.js
+includes: [propertyHelper.js]
 ---*/
 
-var obj = fnGlobalObject();
+var obj = this;
 
     Object.defineProperty(obj, "prop", {
         value: 2010,

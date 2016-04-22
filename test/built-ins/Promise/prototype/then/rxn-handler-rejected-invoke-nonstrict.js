@@ -10,10 +10,9 @@ author: Sam Mikes
 description: >
     "rejected" handler invoked correctly outside of strict mode
 flags: [async, noStrict]
-includes: [fnGlobalObject.js]
 ---*/
 
-var expectedThis = fnGlobalObject(),
+var expectedThis = this,
     obj = {};
 
 var p = Promise.reject(obj).then(function () {

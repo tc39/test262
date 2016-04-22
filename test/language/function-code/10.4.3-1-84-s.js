@@ -7,8 +7,7 @@ description: >
     Strict Mode - checking 'this' (non-strict function declaration
     called by strict new'ed Function constructor)
 flags: [noStrict]
-includes: [fnGlobalObject.js]
 ---*/
 
-fnGlobalObject().f = function()  { return this!==undefined;};
+this.f = function()  { return this!==undefined;};
 assert((function () {return new Function("\"use strict\";return f();")();})());

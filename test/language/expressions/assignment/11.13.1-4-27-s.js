@@ -7,9 +7,9 @@ description: >
     simple assignment throws TypeError if LeftHandSide is a readonly
     property in strict mode (Global.undefined)
 flags: [onlyStrict]
-includes: [fnGlobalObject.js]
 ---*/
 
+var global = this;
 assert.throws(TypeError, function() {
-      fnGlobalObject().undefined = 42;
+      global.undefined = 42;
 });

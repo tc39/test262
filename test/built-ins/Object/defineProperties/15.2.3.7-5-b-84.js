@@ -7,15 +7,14 @@ description: >
     Object.defineProperties - 'descObj' is the global object which
     implements its own [[Get]] method to get 'configurable' property
     (8.10.5 step 4.a)
-includes: [fnGlobalObject.js]
 ---*/
 
         var obj = {};
 
-            fnGlobalObject().configurable = true;
+            this.configurable = true;
 
             Object.defineProperties(obj, {
-                prop: fnGlobalObject()
+                prop: this
             });
 
             var result1 = obj.hasOwnProperty("prop");

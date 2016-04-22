@@ -7,9 +7,8 @@ description: >
     Strict Mode - checking 'this' (strict function declaration called
     by Function.prototype.bind(globalObject)())
 flags: [noStrict]
-includes: [fnGlobalObject.js]
 ---*/
 
 function f() { "use strict"; return this;};
 
-assert.sameValue(f.bind(fnGlobalObject())(), fnGlobalObject(), 'f.bind(fnGlobalObject())()');
+assert.sameValue(f.bind(this)(), this, 'f.bind(this)()');

@@ -6,12 +6,11 @@ es5id: 15.2.3.5-4-149
 description: >
     Object.create - 'configurable' property of one property in
     'Properties' is the global object (8.10.5 step 4.b)
-includes: [fnGlobalObject.js]
 ---*/
 
         var newObj = Object.create({}, {
             prop: {
-                configurable: fnGlobalObject()
+                configurable: this
             }
         });
 

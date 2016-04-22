@@ -4,7 +4,6 @@
 /*---
 es5id: 15.2.3.12-3-1
 description: Object.isFrozen returns false for all built-in objects (Global)
-includes: [fnGlobalObject.js]
 ---*/
 
-assert(!Object.isFrozen(fnGlobalObject()));
+assert(!Object.isFrozen(this));

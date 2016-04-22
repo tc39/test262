@@ -6,7 +6,6 @@ es5id: 15.4.4.16-7-c-i-23
 description: >
     Array.prototype.every - This object is an global object which
     contains index property
-includes: [fnGlobalObject.js]
 ---*/
 
         function callbackfn(val, idx, obj) {
@@ -17,8 +16,8 @@ includes: [fnGlobalObject.js]
             }
         }
 
-            var oldLen = fnGlobalObject().length;
-            fnGlobalObject()[0] = 11;
-            fnGlobalObject().length = 1;
+            var oldLen = this.length;
+            this[0] = 11;
+            this.length = 1;
 
-assert.sameValue(Array.prototype.every.call(fnGlobalObject(), callbackfn), false, 'Array.prototype.every.call(fnGlobalObject(), callbackfn)');
+assert.sameValue(Array.prototype.every.call(this, callbackfn), false, 'Array.prototype.every.call(this, callbackfn)');

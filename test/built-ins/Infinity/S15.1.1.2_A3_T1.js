@@ -5,14 +5,14 @@
 info: The Infinity is DontDelete
 es5id: 15.1.1.2_A3_T1
 description: Use delete
-includes: [propertyHelper.js, fnGlobalObject.js]
+includes: [propertyHelper.js]
 ---*/
 
 // CHECK#1
-verifyNotConfigurable(fnGlobalObject(), "Infinity");
+verifyNotConfigurable(this, "Infinity");
 
 try {
-  if (delete fnGlobalObject().Infinity !== false) {
+  if (delete this.Infinity !== false) {
     $ERROR('#1: delete Infinity === false.');
   }
 } catch (e) {

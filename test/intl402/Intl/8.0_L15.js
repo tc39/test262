@@ -8,10 +8,8 @@ description: >
     defined by the introduction of chapter 17 of the ECMAScript
     Language Specification.
 author: Norbert Lindenberg
-includes:
-    - fnGlobalObject.js
-    - testBuiltInObject.js
+includes: [testBuiltInObject.js]
 ---*/
 
-testBuiltInObject(fnGlobalObject().Intl, false, false, []);
+testBuiltInObject(this.Intl, false, false, []);
 testBuiltInObject(Intl, false, false, ["Collator", "NumberFormat", "DateTimeFormat"]);

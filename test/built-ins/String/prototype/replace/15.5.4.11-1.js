@@ -7,12 +7,12 @@ description: >
     'this' object used by the replaceValue function of a
     String.prototype.replace invocation
 flags: [noStrict]
-includes: [fnGlobalObject.js]
 ---*/
 
+var global = this;
   var retVal = 'x'.replace(/x/, 
                            function() { 
-                               if (this===fnGlobalObject()) {
+                               if (this===global) {
                                    return 'y';
                                } else {
                                    return 'z';

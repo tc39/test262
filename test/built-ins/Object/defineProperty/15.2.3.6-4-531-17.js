@@ -7,10 +7,9 @@ description: >
     ES5 Attributes - Updating an indexed accessor property 'P' using
     simple assignment is successful, 'O' is the global object (8.12.5
     step 5.b)
-includes: [fnGlobalObject.js]
 ---*/
 
-        var obj = fnGlobalObject();
+        var obj = this;
 
             obj.verifySetFunc = "data";
             var setFunc = function (value) {

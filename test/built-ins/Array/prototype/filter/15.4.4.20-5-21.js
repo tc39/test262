@@ -4,17 +4,18 @@
 /*---
 es5id: 15.4.4.20-5-21
 description: Array.prototype.filter - the global object can be used as thisArg
-includes: [fnGlobalObject.js]
 ---*/
+
+var global = this;
 
         var accessed = false;
 
         function callbackfn(val, idx, obj) {
             accessed = true;
-            return this === fnGlobalObject();
+            return this === global;
         }
 
-        var newArr = [11].filter(callbackfn, fnGlobalObject());
+        var newArr = [11].filter(callbackfn, global);
 
 assert.sameValue(newArr[0], 11, 'newArr[0]');
 assert(accessed, 'accessed !== true');

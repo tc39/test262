@@ -3,7 +3,6 @@
 
 /*---
 es6id: 8.1.1.4.1
-includes: [fnGlobalObject.js]
 description: >
     `Symbol.unscopables` is not referenced when finding bindings in global scope
 info: >
@@ -17,7 +16,7 @@ features: [Symbol.unscopables]
 ---*/
 
 var x = 86;
-fnGlobalObject()[Symbol.unscopables] = {
+this[Symbol.unscopables] = {
   x: true
 };
 assert.sameValue(x, 86);

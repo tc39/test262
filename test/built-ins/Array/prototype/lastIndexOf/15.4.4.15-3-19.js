@@ -6,7 +6,6 @@ es5id: 15.4.4.15-3-19
 description: >
     Array.prototype.lastIndexOf - value of 'length' is an Object which
     has an own toString method
-includes: [fnGlobalObject.js]
 ---*/
 
         // objects inherit the default valueOf() method from Object
@@ -15,7 +14,7 @@ includes: [fnGlobalObject.js]
         // to a number by calling its toString() method and converting the
         // resulting string to a number.
 
-        var targetObj = fnGlobalObject();
+        var targetObj = this;
         var obj = {
             1: targetObj,
             2: 2,
