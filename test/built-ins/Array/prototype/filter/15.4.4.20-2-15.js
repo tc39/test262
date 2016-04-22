@@ -6,16 +6,15 @@ es5id: 15.4.4.20-2-15
 description: Array.prototype.filter - 'length' is property of the global object
 ---*/
 
-var global = this;
         function callbackfn(val, idx, obj) {
             return  obj.length === 2;
         }
 
-            var oldLen = global.length;
-            global[0] = 12;
-            global[1] = 11;
-            global[2] = 9;
-            global.length = 2;
-            var newArr = Array.prototype.filter.call(global, callbackfn);
+            var oldLen = this.length;
+            this[0] = 12;
+            this[1] = 11;
+            this[2] = 9;
+            this.length = 2;
+            var newArr = Array.prototype.filter.call(this, callbackfn);
 
 assert.sameValue(newArr.length, 2, 'newArr.length');
