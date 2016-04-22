@@ -3,7 +3,7 @@
 /*---
 esid: sec-symbol-constructor
 es6id: 19.4.1
-description: The first argument is coerced to a String value
+description: The first argument is coerced to a String value (from an object)
 info: |
     1. If NewTarget is not undefined, throw a TypeError exception.
     2. If description is undefined, let descString be undefined.
