@@ -11,4 +11,4 @@ var global = this;
             return this === global;
         }
 
-assert([11].some(callbackfn, this), '[11].some(callbackfn, fnGlobalObject()) !== true');
+assert([11].some(callbackfn, this), '[11].some(callbackfn, global) !== true');

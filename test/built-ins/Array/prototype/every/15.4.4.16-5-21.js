@@ -14,5 +14,5 @@ var global = this;
             return this === global;
         }
 
-assert([11].every(callbackfn, global), '[11].every(callbackfn, fnGlobalObject()) !== true');
+assert([11].every(callbackfn, global), '[11].every(callbackfn, global) !== true');
 assert(accessed, 'accessed !== true');
