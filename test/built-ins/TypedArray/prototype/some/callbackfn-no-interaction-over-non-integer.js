@@ -26,15 +26,15 @@ testWithTypedArrayConstructors(function(TA) {
   sample.foo = 42;
   sample[Symbol("1")] = 43;
 
-  sample.some(function(v, i) {
-    results.push([v, i]);
+  sample.some(function() {
+    results.push(arguments);
   });
 
   assert.sameValue(results.length, 2, "results.length");
 
-  assert.sameValue(results[0][1], 0, "results[0][1] - k");
-  assert.sameValue(results[1][1], 1, "results[1][1] - k");
+  assert.sameValue(results[0][1], 0, "results[0][1] - key");
+  assert.sameValue(results[1][1], 1, "results[1][1] - key");
 
-  assert.sameValue(results[0][0], 7, "results[0][0] - kValue");
-  assert.sameValue(results[1][0], 8, "results[1][0] - kValue");
+  assert.sameValue(results[0][0], 7, "results[0][0] - value");
+  assert.sameValue(results[1][0], 8, "results[1][0] - value");
 });

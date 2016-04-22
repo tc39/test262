@@ -3,7 +3,7 @@
 /*---
 esid: sec-%typedarray%.prototype.some
 description: >
-  Returns true if some callbackfn returns a coerced true.
+  Returns false if every callbackfn calls returns a coerced false.
 info: >
   22.2.3.25 %TypedArray%.prototype.some ( callbackfn [ , thisArg ] )
 
@@ -15,46 +15,28 @@ info: >
   22.1.3.24 Array.prototype.some ( callbackfn [ , thisArg ] )
 
   ...
-  6. Repeat, while k < len
-    ...
-    c. If kPresent is true, then
-      i. Let kValue be ? Get(O, Pk).
-      ii. Let testResult be ToBoolean(? Call(callbackfn, T, « kValue, k, O »)).
-      iii. If testResult is true, return true.
-  ...
+  7. Return true.
 includes: [testTypedArray.js]
-features: [Symbol]
 ---*/
 
-var s = Symbol("1");
-
 testWithTypedArrayConstructors(function(TA) {
-  var called = 0;
   var sample = new TA(42);
-  var values = [
-    true,
-    1,
-    "test262",
-    s,
-    {},
-    [],
-    -1,
-    Infinity,
-    -Infinity,
-    0.1,
-    -0.1
+
+  [
+    false,
+    "",
+    0,
+    -0,
+    NaN,
+    undefined,
+    null
   ].forEach(function(val) {
     var called = 0;
     var result = sample.some(function() {
       called++;
-      if (called == 1) {
-        return false;
-      }
       return val;
     });
-    assert.sameValue(called, 2, "callbackfn called for each index property");
-
-    var msg = "result is true - " + (val === s ? "symbol" : val);
-    assert.sameValue(result, true, msg);
+    assert.sameValue(called, 42, "callbackfn called for each index property");
+    assert.sameValue(result, false, "result is false - " + val);
   });
 });
