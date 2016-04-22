@@ -26,8 +26,8 @@ testWithTypedArrayConstructors(function(TA) {
   sample.foo = 42;
   sample[Symbol("1")] = 43;
 
-  sample.map(function(v, i) {
-    results.push([v, i]);
+  sample.map(function() {
+    results.push(arguments);
   });
 
   assert.sameValue(results.length, 2, "results.length");
