@@ -6,11 +6,11 @@ es5id: 15.4.4.20-9-c-iii-28
 description: >
     Array.prototype.filter - return value of callbackfn is the global
     object
-includes: [fnGlobalObject.js]
 ---*/
 
+var global = this;
         function callbackfn(val, idx, obj) {
-            return fnGlobalObject();
+            return global;
         }
 
         var newArr = [11].filter(callbackfn);

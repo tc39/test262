@@ -4,7 +4,6 @@
 /*---
 es5id: 15.4.4.16-2-15
 description: Array.prototype.every - 'length' is property of the global object
-includes: [fnGlobalObject.js]
 ---*/
 
         function callbackfn1(val, idx, obj) {
@@ -15,11 +14,11 @@ includes: [fnGlobalObject.js]
             return val > 11;
         }
 
-            var oldLen = fnGlobalObject().length;
-            fnGlobalObject()[0] = 12;
-            fnGlobalObject()[1] = 11;
-            fnGlobalObject()[2] = 9;
-            fnGlobalObject().length = 2;
+            var oldLen = this.length;
+            this[0] = 12;
+            this[1] = 11;
+            this[2] = 9;
+            this.length = 2;
 
-assert(Array.prototype.every.call(fnGlobalObject(), callbackfn1), 'Array.prototype.every.call(fnGlobalObject(), callbackfn1) !== true');
-assert.sameValue(Array.prototype.every.call(fnGlobalObject(), callbackfn2), false, 'Array.prototype.every.call(fnGlobalObject(), callbackfn2)');
+assert(Array.prototype.every.call(this, callbackfn1), 'Array.prototype.every.call(this, callbackfn1) !== true');
+assert.sameValue(Array.prototype.every.call(this, callbackfn2), false, 'Array.prototype.every.call(this, callbackfn2)');

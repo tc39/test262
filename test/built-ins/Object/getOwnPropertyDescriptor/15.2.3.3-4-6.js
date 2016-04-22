@@ -6,10 +6,9 @@ es5id: 15.2.3.3-4-6
 description: >
     Object.getOwnPropertyDescriptor returns data desc for functions on
     built-ins (Global.parseFloat)
-includes: [fnGlobalObject.js]
 ---*/
 
-  var global = fnGlobalObject();
+  var global = this;
   var desc = Object.getOwnPropertyDescriptor(global, "parseFloat");
 
 assert.sameValue(desc.value, global.parseFloat, 'desc.value');

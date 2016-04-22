@@ -6,10 +6,9 @@ es5id: 15.2.3.3-4-5
 description: >
     Object.getOwnPropertyDescriptor returns data desc for functions on
     built-ins (Global.parseInt)
-includes: [fnGlobalObject.js]
 ---*/
 
-  var global = fnGlobalObject();
+  var global = this;
   var desc = Object.getOwnPropertyDescriptor(global,  "parseInt");
 
 assert.sameValue(desc.value, global.parseInt, 'desc.value');

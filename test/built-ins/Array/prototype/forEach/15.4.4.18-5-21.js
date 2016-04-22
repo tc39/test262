@@ -4,14 +4,14 @@
 /*---
 es5id: 15.4.4.18-5-21
 description: Array.prototype.forEach - the global object can be used as thisArg
-includes: [fnGlobalObject.js]
 ---*/
 
+var global = this;
         var result = false;
         function callbackfn(val, idx, obj) {
-            result = (this === fnGlobalObject());
+            result = (this === global);
         }
 
-        [11].forEach(callbackfn, fnGlobalObject());
+        [11].forEach(callbackfn, this);
 
 assert(result, 'result !== true');

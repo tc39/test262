@@ -5,14 +5,14 @@
 info: The NaN is DontDelete
 es5id: 15.1.1.2_A3_T1
 description: Use delete
-includes: [propertyHelper.js, fnGlobalObject.js]
+includes: [propertyHelper.js]
 ---*/
 
 // CHECK#1
-verifyNotConfigurable(fnGlobalObject(), "NaN");
+verifyNotConfigurable(this, "NaN");
 
 try {
-  if (delete fnGlobalObject().NaN !== false) {
+  if (delete this.NaN !== false) {
     $ERROR('#1: delete NaN === false.');
   }
 } catch (e) {

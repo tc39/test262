@@ -8,13 +8,14 @@ description: >
     strict directive prologue defined within an Anonymous
     FunctionExpression)
 flags: [noStrict]
-includes: [fnGlobalObject.js]
 ---*/
+
+var global = this;
 
 (function () {
     assert.sameValue((function () {
         "use strict";
         return typeof this;
     })(), "undefined");
-    assert.sameValue(this, fnGlobalObject(), 'this');
+    assert.sameValue(this, global, 'this');
 })();

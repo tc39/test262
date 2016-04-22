@@ -12,11 +12,9 @@ description: >
     No ReferenceError is thrown when 'x %= y' is in strict-mode code and the
     original binding is no longer present.
     Check operator is "x %= y".
-includes:
-    - fnGlobalObject.js
 ---*/
 
-Object.defineProperty(fnGlobalObject(), "x", {
+Object.defineProperty(this, "x", {
   configurable: true,
   get: function() {
     delete this.x;
@@ -29,6 +27,6 @@ Object.defineProperty(fnGlobalObject(), "x", {
   x %= 3;
 })();
 
-if (fnGlobalObject().x !== 2) {
-  $ERROR('#1: fnGlobalObject().x === 2. Actual: ' + (fnGlobalObject().x));
+if (this.x !== 2) {
+  $ERROR('#1: this.x === 2. Actual: ' + (this.x));
 }

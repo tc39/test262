@@ -4,7 +4,6 @@
 /*---
 es5id: 15.4.3.2-1-15
 description: Array.isArray applied to the global object
-includes: [fnGlobalObject.js]
 ---*/
 
-assert.sameValue(Array.isArray(fnGlobalObject()), false, 'Array.isArray(fnGlobalObject())');
+assert.sameValue(Array.isArray(this), false, 'Array.isArray(fnGlobalObject())');

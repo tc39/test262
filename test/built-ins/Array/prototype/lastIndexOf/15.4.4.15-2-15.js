@@ -6,19 +6,18 @@ es5id: 15.4.4.15-2-15
 description: >
     Array.prototype.lastIndexOf - 'length' is property of the global
     object
-includes: [fnGlobalObject.js]
 ---*/
 
         var targetObj = {};
 
-            var oldLen = fnGlobalObject().length;
-            fnGlobalObject().length = 2;
+            var oldLen = this.length;
+            this.length = 2;
 
-            fnGlobalObject()[1] = targetObj;
+            this[1] = targetObj;
 
-assert.sameValue(Array.prototype.lastIndexOf.call(fnGlobalObject(), targetObj), 1);
+assert.sameValue(Array.prototype.lastIndexOf.call(this, targetObj), 1);
 
-            fnGlobalObject()[1] = {};
-            fnGlobalObject()[2] = targetObj;
+            this[1] = {};
+            this[2] = targetObj;
 
-assert.sameValue(Array.prototype.lastIndexOf.call(fnGlobalObject(), targetObj), -1);
+assert.sameValue(Array.prototype.lastIndexOf.call(this, targetObj), -1);

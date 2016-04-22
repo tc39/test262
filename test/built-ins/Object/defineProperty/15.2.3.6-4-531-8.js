@@ -7,12 +7,10 @@ description: >
     ES5 Attributes - Updating a named accessor property 'P' without
     [[Set]] using simple assignment is failed, 'O' is the global
     object (8.12.5 step 5.b)
-includes:
-    - propertyHelper.js
-    - fnGlobalObject.js
+includes: [propertyHelper.js]
 ---*/
 
-var obj = fnGlobalObject();
+var obj = this;
 
     obj.verifySetFunc = "data";
     var getFunc = function () {

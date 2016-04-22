@@ -7,17 +7,16 @@ description: >
     Object.defineProperty - 'Attributes' is the global object that
     uses Object's [[Get]] method to access the 'set' property (8.10.5
     step 8.a)
-includes: [fnGlobalObject.js]
 ---*/
 
         var obj = {};
         var data = "data";
 
-            fnGlobalObject().set = function (value) {
+            this.set = function (value) {
                 data = value;
             };
 
-            Object.defineProperty(obj, "property", fnGlobalObject());
+            Object.defineProperty(obj, "property", this);
             obj.property = "overrideData";
 
 assert(obj.hasOwnProperty("property"), 'obj.hasOwnProperty("property") !== true');

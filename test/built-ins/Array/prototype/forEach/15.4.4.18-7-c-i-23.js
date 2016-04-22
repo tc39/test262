@@ -6,7 +6,6 @@ es5id: 15.4.4.18-7-c-i-23
 description: >
     Array.prototype.forEach - This object is an global object which
     contains index property
-includes: [fnGlobalObject.js]
 ---*/
 
         var testResult = false;
@@ -17,10 +16,10 @@ includes: [fnGlobalObject.js]
             }
         }
 
-            var oldLen = fnGlobalObject().length;
-            fnGlobalObject()[0] = 11;
-            fnGlobalObject().length = 1;
+            var oldLen = this.length;
+            this[0] = 11;
+            this.length = 1;
 
-            Array.prototype.forEach.call(fnGlobalObject(), callbackfn);
+            Array.prototype.forEach.call(this, callbackfn);
 
 assert(testResult, 'testResult !== true');

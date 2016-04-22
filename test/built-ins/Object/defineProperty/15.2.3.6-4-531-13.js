@@ -8,11 +8,11 @@ description: >
     of indexed accessor property 'P' successfully when
     [[Configurable]] attribute is true, 'O' is the global object
     (8.12.9 step 11)
-includes: [propertyHelper.js, fnGlobalObject.js]
+includes: [propertyHelper.js]
 ---*/
 
 
-var obj = fnGlobalObject();
+var obj = this;
 try {
     obj.verifySetFunction = "data";
     Object.defineProperty(obj, "0", {

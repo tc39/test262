@@ -6,9 +6,8 @@ es5id: 10.4.3-1-75-s
 description: >
     checking 'this' (strict function declaration called by
     Function.prototype.call(globalObject))
-includes: [fnGlobalObject.js]
 ---*/
 
 function f() { "use strict"; return this;};
 
-assert.sameValue(f.call(fnGlobalObject()), fnGlobalObject(), 'f.call(fnGlobalObject())');
+assert.sameValue(f.call(this), this, 'f.call(this)');

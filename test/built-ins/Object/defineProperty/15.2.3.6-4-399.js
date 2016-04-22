@@ -6,16 +6,15 @@ es5id: 15.2.3.6-4-399
 description: >
     ES5 Attributes - [[Value]] attribute of data property is the
     global object
-includes: [fnGlobalObject.js]
 ---*/
 
         var obj = {};
 
         Object.defineProperty(obj, "prop", {
-            value: fnGlobalObject()
+            value: this
         });
 
         var desc = Object.getOwnPropertyDescriptor(obj, "prop");
 
-assert.sameValue(obj.prop, fnGlobalObject(), 'obj.prop');
-assert.sameValue(desc.value, fnGlobalObject(), 'desc.value');
+assert.sameValue(obj.prop, this, 'obj.prop');
+assert.sameValue(desc.value, this, 'desc.value');

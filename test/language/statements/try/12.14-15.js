@@ -7,10 +7,10 @@ description: >
     Exception object is a function which is a property of an object,
     when an exception parameter is called as a function in catch
     block, global object is passed as the this value
-includes: [fnGlobalObject.js]
 flags: [noStrict]
 ---*/
 
+var global = this;
 var result;
 
 (function() {
@@ -22,7 +22,7 @@ var result;
             throw obj.test;
         } catch (e) {
             e();
-            result = fnGlobalObject()._12_14_15_foo;
+            result = global._12_14_15_foo;
         }
 })();
 

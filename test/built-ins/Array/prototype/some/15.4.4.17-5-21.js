@@ -4,11 +4,11 @@
 /*---
 es5id: 15.4.4.17-5-21
 description: Array.prototype.some - the global object can be used as thisArg
-includes: [fnGlobalObject.js]
 ---*/
 
+var global = this;
         function callbackfn(val, idx, obj) {
-            return this === fnGlobalObject();
+            return this === global;
         }
 
-assert([11].some(callbackfn, fnGlobalObject()), '[11].some(callbackfn, fnGlobalObject()) !== true');
+assert([11].some(callbackfn, this), '[11].some(callbackfn, fnGlobalObject()) !== true');

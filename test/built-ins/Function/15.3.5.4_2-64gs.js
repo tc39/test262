@@ -8,13 +8,13 @@ description: >
     non-strict function (strict function declaration called by
     Function.prototype.apply(globalObject))
 flags: [noStrict]
-includes: [fnGlobalObject.js]
 ---*/
 
+var global = this;
 function f() { "use strict"; gNonStrict();};
 
 assert.throws(TypeError, function() {
-    f.apply(fnGlobalObject());
+    f.apply(global);
 });
 
 function gNonStrict() {

@@ -6,14 +6,13 @@ es5id: 15.2.3.7-5-b-109
 description: >
     Object.defineProperties - value of 'configurable' property of
     'descObj' is  the global object (8.10.5 step 4.b)
-includes: [fnGlobalObject.js]
 ---*/
 
         var obj = {};
 
         Object.defineProperties(obj, {
             property: {
-                configurable: fnGlobalObject()
+                configurable: this
             }
         });
         var preCheck = obj.hasOwnProperty("property");

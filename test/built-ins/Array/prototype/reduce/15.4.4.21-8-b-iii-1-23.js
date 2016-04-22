@@ -6,7 +6,6 @@ es5id: 15.4.4.21-8-b-iii-1-23
 description: >
     Array.prototype.reduce - This object is the global object which
     contains index property
-includes: [fnGlobalObject.js]
 ---*/
 
         var testResult = false;
@@ -16,12 +15,12 @@ includes: [fnGlobalObject.js]
             }
         }
 
-            var oldLen = fnGlobalObject().length;
-            fnGlobalObject()[0] = 0;
-            fnGlobalObject()[1] = 1;
-            fnGlobalObject()[2] = 2;
-            fnGlobalObject().length = 3;
+            var oldLen = this.length;
+            this[0] = 0;
+            this[1] = 1;
+            this[2] = 2;
+            this.length = 3;
 
-            Array.prototype.reduce.call(fnGlobalObject(), callbackfn);
+            Array.prototype.reduce.call(this, callbackfn);
 
 assert(testResult, 'testResult !== true');

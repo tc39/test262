@@ -6,10 +6,9 @@ es5id: 15.2.3.3-4-7
 description: >
     Object.getOwnPropertyDescriptor returns data desc for functions on
     built-ins (Global.isNaN)
-includes: [fnGlobalObject.js]
 ---*/
 
-  var global = fnGlobalObject();
+  var global = this;
   var desc = Object.getOwnPropertyDescriptor(global,  "isNaN");
 
 assert.sameValue(desc.value, global.isNaN, 'desc.value');

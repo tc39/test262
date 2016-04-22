@@ -6,11 +6,10 @@ es5id: 15.2.3.3-4-180
 description: >
     Object.getOwnPropertyDescriptor returns data desc (all false) for
     properties on built-ins (Global.undefined)
-includes: [fnGlobalObject.js]
 ---*/
 
   // in non-strict mode, 'this' is bound to the global object.
-  var desc = Object.getOwnPropertyDescriptor(fnGlobalObject(),  "undefined");
+  var desc = Object.getOwnPropertyDescriptor(this,  "undefined");
 
 assert.sameValue(desc.writable, false, 'desc.writable');
 assert.sameValue(desc.enumerable, false, 'desc.enumerable');

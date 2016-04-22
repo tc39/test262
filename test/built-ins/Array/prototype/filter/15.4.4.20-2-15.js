@@ -4,18 +4,18 @@
 /*---
 es5id: 15.4.4.20-2-15
 description: Array.prototype.filter - 'length' is property of the global object
-includes: [fnGlobalObject.js]
 ---*/
 
+var global = this;
         function callbackfn(val, idx, obj) {
             return  obj.length === 2;
         }
 
-            var oldLen = fnGlobalObject().length;
-            fnGlobalObject()[0] = 12;
-            fnGlobalObject()[1] = 11;
-            fnGlobalObject()[2] = 9;
-            fnGlobalObject().length = 2;
-            var newArr = Array.prototype.filter.call(fnGlobalObject(), callbackfn);
+            var oldLen = global.length;
+            global[0] = 12;
+            global[1] = 11;
+            global[2] = 9;
+            global.length = 2;
+            var newArr = Array.prototype.filter.call(global, callbackfn);
 
 assert.sameValue(newArr.length, 2, 'newArr.length');

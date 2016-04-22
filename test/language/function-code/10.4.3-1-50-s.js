@@ -7,14 +7,15 @@ description: >
     Strict Mode - checking 'this' (Anonymous FunctionExpression with a
     strict directive prologue defined within a FunctionExpression)
 flags: [noStrict]
-includes: [fnGlobalObject.js]
 ---*/
+
+var global = this;
 
 var f1 = function () {
     return ((function () {
         "use strict";
         return typeof this;
-    })()==="undefined") && (this===fnGlobalObject());
+    })()==="undefined") && (this===global);
 }
 
 assert(f1(), 'f1() !== true');

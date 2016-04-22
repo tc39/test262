@@ -7,14 +7,13 @@ description: >
     Object.defineProperty - 'Attributes' is the global object that
     uses Object's [[Get]] method to access the 'writable' property
     (8.10.5 step 6.a)
-includes: [fnGlobalObject.js]
 ---*/
 
         var obj = {};
 
-            fnGlobalObject().writable = true;
+            this.writable = true;
 
-            Object.defineProperty(obj, "property", fnGlobalObject());
+            Object.defineProperty(obj, "property", this);
 
             var beforeWrite = obj.hasOwnProperty("property");
 

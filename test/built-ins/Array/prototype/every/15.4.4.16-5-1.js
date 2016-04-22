@@ -5,12 +5,13 @@
 es5id: 15.4.4.16-5-1
 description: Array.prototype.every - thisArg not passed
 flags: [noStrict]
-includes: [fnGlobalObject.js]
 ---*/
+
+var global = this;
 
   function callbackfn(val, idx, obj)
   {
-    return this === fnGlobalObject();
+    return this === global;
   }
 
   var arr = [1];

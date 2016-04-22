@@ -8,14 +8,14 @@ description: >
     attributes are [[Writable]]: false, [[Enumerable]]: true,
     [[Configurable]]: true to an accessor property, 'O' is the global
     object (8.12.9 - step 9.b.i)
-includes: [propertyHelper.js, fnGlobalObject.js]
+includes: [propertyHelper.js]
 ---*/
 
 function getFunc() {
         return 20;
     }
 
-var obj = fnGlobalObject();
+var obj = this;
 try {
     Object.defineProperty(obj, "0", {
         value: 2010,

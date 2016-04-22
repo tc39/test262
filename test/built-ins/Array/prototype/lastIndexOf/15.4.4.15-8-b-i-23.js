@@ -4,17 +4,16 @@
 /*---
 es5id: 15.4.4.15-8-b-i-23
 description: Array.prototype.lastIndexOf - This object is the global object
-includes: [fnGlobalObject.js]
 ---*/
 
         var targetObj = {};
 
-            var oldLen = fnGlobalObject().length;
-            fnGlobalObject()[0] = targetObj;
-            fnGlobalObject()[100] = "100";
-            fnGlobalObject()[200] = "200";
-            fnGlobalObject().length = 200;
+            var oldLen = this.length;
+            this[0] = targetObj;
+            this[100] = "100";
+            this[200] = "200";
+            this.length = 200;
 
-assert.sameValue(Array.prototype.lastIndexOf.call(fnGlobalObject(), targetObj), 0, 'Array.prototype.lastIndexOf.call(fnGlobalObject(), targetObj)');
-assert.sameValue(Array.prototype.lastIndexOf.call(fnGlobalObject(), "100"), 100, 'Array.prototype.lastIndexOf.call(fnGlobalObject(), "100")');
-assert.sameValue(Array.prototype.lastIndexOf.call(fnGlobalObject(), "200"), -1, 'Array.prototype.lastIndexOf.call(fnGlobalObject(), "200")');
+assert.sameValue(Array.prototype.lastIndexOf.call(this, targetObj), 0, 'Array.prototype.lastIndexOf.call(this, targetObj)');
+assert.sameValue(Array.prototype.lastIndexOf.call(this, "100"), 100, 'Array.prototype.lastIndexOf.call(this, "100")');
+assert.sameValue(Array.prototype.lastIndexOf.call(this, "200"), -1, 'Array.prototype.lastIndexOf.call(this, "200")');

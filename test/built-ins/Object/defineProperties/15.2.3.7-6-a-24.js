@@ -7,29 +7,29 @@ description: >
     Object.defineProperties - 'O' is the global object which
     implements its own [[GetOwnProperty]] method to get 'P' (8.12.9
     step 1 )
-includes: [propertyHelper.js, fnGlobalObject.js]
+includes: [propertyHelper.js]
 ---*/
 
 
-Object.defineProperty(fnGlobalObject(), "prop", {
+Object.defineProperty(this, "prop", {
 value: 11,
 writable: true,
 enumerable: true,
 configurable: true
 });
 
-Object.defineProperties(fnGlobalObject(), {
+Object.defineProperties(this, {
     prop: {
         value: 12
     }
 });
 
-verifyEqualTo(fnGlobalObject(), "prop", 12);
+verifyEqualTo(this, "prop", 12);
 
-verifyWritable(fnGlobalObject(), "prop");
+verifyWritable(this, "prop");
 
-verifyEnumerable(fnGlobalObject(), "prop");
+verifyEnumerable(this, "prop");
 
-verifyConfigurable(fnGlobalObject(), "prop");
+verifyConfigurable(this, "prop");
 
-delete fnGlobalObject().prop;
+delete this.prop;

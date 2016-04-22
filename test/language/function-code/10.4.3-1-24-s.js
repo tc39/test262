@@ -7,7 +7,6 @@ description: >
     Strict Mode - checking 'this' (New'ed object from
     FunctionExpression includes strict directive prologue)
 flags: [noStrict]
-includes: [fnGlobalObject.js]
 ---*/
 
 var f = function () {
@@ -15,5 +14,5 @@ var f = function () {
     return this;
 }
 
-assert.notSameValue((new f()), fnGlobalObject(), '(new f())');
+assert.notSameValue((new f()), this, '(new f())');
 assert.notSameValue(typeof (new f()), "undefined", 'typeof (new f())');

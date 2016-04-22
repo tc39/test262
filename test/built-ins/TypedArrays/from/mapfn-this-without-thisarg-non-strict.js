@@ -15,12 +15,12 @@ info: >
     c. If mapping is true, then
       i. Let mappedValue be ? Call(mapfn, T, « kValue, k »).
   ...
-includes: [testTypedArray.js, fnGlobalObject.js]
+includes: [testTypedArray.js]
 flags: [noStrict]
 ---*/
 
 var source = [42, 43];
-var global = fnGlobalObject();
+var global = this;
 
 testWithTypedArrayConstructors(function(TA) {
   var results = [];

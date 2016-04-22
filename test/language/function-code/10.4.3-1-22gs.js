@@ -7,13 +7,12 @@ description: >
     Strict - checking 'this' from a global scope (New'ed object from
     FunctionDeclaration includes strict directive prologue)
 flags: [noStrict]
-includes: [fnGlobalObject.js]
 ---*/
 
 function f() {
     "use strict";
     return this;
 }
-if (((new f()) === fnGlobalObject()) || (typeof (new f()) === "undefined")) {
+if (((new f()) === this) || (typeof (new f()) === "undefined")) {
     throw "'this' had incorrect value!";
 }

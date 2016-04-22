@@ -7,12 +7,10 @@ description: >
     ES5 Attributes - property 'P' with attributes [[Writable]]: false,
     [[Enumerable]]: true, [[Configurable]]: true is non-writable using
     simple assignment, 'O' is the global object
-includes:
-    - propertyHelper.js
-    - fnGlobalObject.js
+includes: [propertyHelper.js]
 ---*/
 
-var obj = fnGlobalObject();
+var obj = this;
 
     Object.defineProperty(obj, "prop", {
         value: 2010,
