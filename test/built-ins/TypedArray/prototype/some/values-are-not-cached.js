@@ -22,14 +22,13 @@ info: >
       ii. Let testResult be ToBoolean(? Call(callbackfn, T, « kValue, k, O »)).
   ...
 includes: [testTypedArray.js]
-features: [Reflect.set]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([42, 43, 44]);
   var calls = 0;
 
-  sample.map(function(v, i) {
+  sample.some(function(v, i) {
     if (i < sample.length - 1) {
       sample[i+1] = 42;
     }
