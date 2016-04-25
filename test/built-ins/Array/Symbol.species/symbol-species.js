@@ -4,14 +4,18 @@
 /*---
 info: >
  Array has a property at `Symbol.species`
+esid: sec-get-array-@@species
 es6id: 22.1.2.5
 author: Sam Mikes
 description: Array[Symbol.species] exists per spec
-includes:
-  - propertyHelper.js
+includes: [propertyHelper.js]
+features: [Symbol.species]
 ---*/
 
-assert.sameValue(Array[Symbol.species], Array, "Array[Symbol.species] is Array");
+var desc = Object.getOwnPropertyDescriptor(Array, Symbol.species);
+
+assert.sameValue(desc.set, undefined);
+assert.sameValue(typeof desc.get, 'function');
 
 verifyNotWritable(Array, Symbol.species, Symbol.species);
 verifyNotEnumerable(Array, Symbol.species);
