@@ -42,7 +42,5 @@ testWithTypedArrayConstructors(function(TA) {
   });
 
   assert.sameValue(getCalls, 0, "ignores length properties");
-
-  // Is that reachable or necessary? At least we know it worked.
   assert.sameValue(calls, 2, "interactions are not affected by custom length");
 });
