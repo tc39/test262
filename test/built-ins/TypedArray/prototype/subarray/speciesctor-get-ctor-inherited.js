@@ -49,4 +49,12 @@ testWithTypedArrayConstructors(function(TA) {
     undefined,
     "used defaultCtor but still checks the inherited .constructor"
   );
+
+  calls = 6;
+  result.constructor;
+  assert.sameValue(
+    calls,
+    7,
+    "result.constructor triggers the inherited accessor property"
+  );
 });
