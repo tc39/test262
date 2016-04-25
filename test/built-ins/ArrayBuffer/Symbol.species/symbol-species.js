@@ -4,18 +4,18 @@
 /*---
 info: >
  ArrayBuffer has a property at `Symbol.species`
+esid: sec-get-arraybuffer-@@species
 es6id: 24.1.3.3
 author: Sam Mikes
 description: ArrayBuffer[Symbol.species] exists per spec
 features: [ ArrayBuffer, Symbol.species ]
-includes:
-  - propertyHelper.js
+includes: [propertyHelper.js]
 ---*/
 
-assert.sameValue(ArrayBuffer[Symbol.species], ArrayBuffer, "ArrayBuffer[Symbol.species] is ArrayBuffer");
+var desc = Object.getOwnPropertyDescriptor(ArrayBuffer, Symbol.species);
 
-assert.sameValue(Object.getOwnPropertyDescriptor(ArrayBuffer, Symbol.species).get.name,
-                 "get [Symbol.species]");
+assert.sameValue(desc.set, undefined);
+assert.sameValue(typeof desc.get, 'function');
 
 verifyNotWritable(ArrayBuffer, Symbol.species, Symbol.species);
 verifyNotEnumerable(ArrayBuffer, Symbol.species);

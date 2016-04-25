@@ -4,14 +4,18 @@
 /*---
 info: >
  Map has a property at `Symbol.species`
+esid: sec-get-map-@@species
 es6id: 23.1.2.2
 author: Sam Mikes
 description: Map[Symbol.species] exists per spec
-includes:
-  - propertyHelper.js
+includes: [propertyHelper.js]
+features: [Symbol.species]
 ---*/
 
-assert.sameValue(Map[Symbol.species], Map, "Map[Symbol.species] is Map");
+var desc = Object.getOwnPropertyDescriptor(Map, Symbol.species);
+
+assert.sameValue(desc.set, undefined);
+assert.sameValue(typeof desc.get, 'function');
 
 verifyNotWritable(Map, Symbol.species, Symbol.species);
 verifyNotEnumerable(Map, Symbol.species);
