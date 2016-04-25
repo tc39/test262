@@ -4,10 +4,9 @@
 /*---
 es5id: 15.2.3.4-4-1
 description: Object.getOwnPropertyNames returns array of property names (Global)
-includes: [fnGlobalObject.js]
 ---*/
 
-        var result = Object.getOwnPropertyNames(fnGlobalObject());
+        var result = Object.getOwnPropertyNames(this);
         var expResult = ["NaN", "Infinity", "undefined", "eval", "parseInt", "parseFloat", "isNaN", "isFinite", "decodeURI", "decodeURIComponent", "encodeURI", "encodeURIComponent", "Object", "Function", "Array", "String", "Boolean", "Number", "Date", "Date", "RegExp", "Error", "EvalError", "RangeError", "ReferenceError", "SyntaxError", "TypeError", "URIError", "Math", "JSON"];
 
         var result1 = {};

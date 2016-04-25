@@ -6,14 +6,13 @@ es5id: 15.2.3.5-4-96
 description: >
     Object.create - 'enumerable' property of one property in
     'Properties' is the global object (8.10.5 step 3.b)
-includes: [fnGlobalObject.js]
 ---*/
 
         var accessed = false;
 
         var newObj = Object.create({}, {
             prop: {
-                enumerable: fnGlobalObject()
+                enumerable: this
             }
         });
         for (var property in newObj) {

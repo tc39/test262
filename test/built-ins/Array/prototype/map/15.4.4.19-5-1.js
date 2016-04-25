@@ -5,10 +5,9 @@
 es5id: 15.4.4.19-5-1
 description: Array.prototype.map - thisArg not passed
 flags: [noStrict]
-includes: [fnGlobalObject.js]
 ---*/
 
-    fnGlobalObject()._15_4_4_19_5_1 = true;
+    this._15_4_4_19_5_1 = true;
 
 (function() {
     var _15_4_4_19_5_1 = false;

@@ -6,14 +6,14 @@ es5id: 15.4.4.16-7-c-iii-27
 description: >
     Array.prototype.every - return value of callbackfn is the global
     object
-includes: [fnGlobalObject.js]
 ---*/
 
+var global = this;
         var accessed = false;
 
         function callbackfn(val, idx, obj) {
             accessed = true;
-            return fnGlobalObject();
+            return global;
         }
 
 assert([11].every(callbackfn), '[11].every(callbackfn) !== true');

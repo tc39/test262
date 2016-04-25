@@ -7,9 +7,8 @@ description: >
     Strict - checking 'this' from a global scope (eval used within
     strict mode)
 flags: [onlyStrict]
-includes: [fnGlobalObject.js]
 ---*/
 
-if (eval("this") !== fnGlobalObject()) {
+if (eval("this") !== this) {
     throw "'this' had incorrect value!";
 }

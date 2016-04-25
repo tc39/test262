@@ -8,10 +8,10 @@ description: >
     declaration called by strict
     Function.prototype.apply(globalObject))
 flags: [noStrict]
-includes: [fnGlobalObject.js]
 ---*/
 
+var global = this;
 function f() { return this;};
-if ((function () {"use strict"; return f.apply(fnGlobalObject());})() !== fnGlobalObject()){
+if ((function () {"use strict"; return f.apply(global);})() !== global){
     throw "'this' had incorrect value!";
 }

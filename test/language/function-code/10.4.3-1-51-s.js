@@ -7,8 +7,9 @@ description: >
     Strict Mode - checking 'this' (FunctionDeclaration with a strict
     directive prologue defined within an Anonymous FunctionExpression)
 flags: [noStrict]
-includes: [fnGlobalObject.js]
 ---*/
+
+var global = this;
 
 (function () {
     function f() {
@@ -16,5 +17,5 @@ includes: [fnGlobalObject.js]
         return typeof this;
     }
     assert.sameValue(f(), "undefined", 'f()');
-    assert.sameValue(this, fnGlobalObject(), 'this');
+    assert.sameValue(this, global, 'this');
 })();

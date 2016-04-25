@@ -7,12 +7,11 @@ description: >
     Strict - checking 'this' from a global scope (New'ed object from
     FunctionExpression defined within strict mode)
 flags: [onlyStrict]
-includes: [fnGlobalObject.js]
 ---*/
 
 var f = function () {
     return this;
 }
-if (((new f()) === fnGlobalObject()) || (typeof (new f()) === "undefined")) {
+if (((new f()) === this) || (typeof (new f()) === "undefined")) {
     throw "'this' had incorrect value!";
 }

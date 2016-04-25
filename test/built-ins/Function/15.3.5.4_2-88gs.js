@@ -9,11 +9,11 @@ description: >
     strict Function.prototype.call(globalObject))
 flags: [noStrict]
 features: [caller]
-includes: [fnGlobalObject.js]
 ---*/
 
+var global = this;
 function f() { return gNonStrict();};
-(function () {"use strict"; f.call(fnGlobalObject()); })();
+(function () {"use strict"; f.call(global); })();
 
 
 function gNonStrict() {

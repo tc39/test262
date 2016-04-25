@@ -7,13 +7,12 @@ description: >
     Object.defineProperty - 'Attributes' is the global object that
     uses Object's [[Get]] method to access the 'value' property
     (8.10.5 step 5.a)
-includes: [fnGlobalObject.js]
 ---*/
 
         var obj = {};
 
-            fnGlobalObject().value = "global";
+            this.value = "global";
 
-            Object.defineProperty(obj, "property", fnGlobalObject());
+            Object.defineProperty(obj, "property", this);
 
 assert.sameValue(obj.property, "global", 'obj.property');

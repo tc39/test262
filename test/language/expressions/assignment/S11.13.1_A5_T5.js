@@ -11,20 +11,19 @@ description: >
     created Reference even if the environment binding is no longer present.
     No ReferenceError is thrown when assignment is in strict-mode code and the
     original binding is no longer present.
-includes:
-    - fnGlobalObject.js
 ---*/
 
-Object.defineProperty(fnGlobalObject(), "x", {
+var global = this;
+Object.defineProperty(this, "x", {
   configurable: true,
   value: 1
 });
 
 (function() {
   "use strict";
-  x = (delete fnGlobalObject().x, 2);
+  x = (delete global.x, 2);
 })();
 
-if (fnGlobalObject().x !== 2) {
-  $ERROR('#1: fnGlobalObject().x === 2. Actual: ' + (fnGlobalObject().x));
+if (this.x !== 2) {
+  $ERROR('#1: this.x === 2. Actual: ' + (this.x));
 }

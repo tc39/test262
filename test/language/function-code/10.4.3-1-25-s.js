@@ -7,12 +7,11 @@ description: >
     Strict Mode - checking 'this' (New'ed object from Anonymous
     FunctionExpression defined within strict mode)
 flags: [onlyStrict]
-includes: [fnGlobalObject.js]
 ---*/
 
 var obj = new (function () {
     return this;
 });
 
-assert.notSameValue(obj, fnGlobalObject(), 'obj');
+assert.notSameValue(obj, this, 'obj');
 assert.notSameValue((typeof obj), "undefined", '(typeof obj)');

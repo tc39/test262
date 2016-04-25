@@ -8,7 +8,6 @@ description: >
     simple assignment creates property on the global object if
     LeftHandSide is an unresolvable reference
 flags: [noStrict]
-includes: [fnGlobalObject.js]
 ---*/
 
   function foo() {
@@ -16,7 +15,7 @@ includes: [fnGlobalObject.js]
   }
   foo();
 
-  var desc = Object.getOwnPropertyDescriptor(fnGlobalObject(), '__ES3_1_test_suite_test_11_13_1_unique_id_3__');
+  var desc = Object.getOwnPropertyDescriptor(this, '__ES3_1_test_suite_test_11_13_1_unique_id_3__');
 
 assert.sameValue(desc.value, 42, 'desc.value');
 assert.sameValue(desc.writable, true, 'desc.writable');

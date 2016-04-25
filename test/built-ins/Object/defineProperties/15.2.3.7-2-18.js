@@ -6,28 +6,28 @@ es5id: 15.2.3.7-2-18
 description: >
     Object.defineProperties - argument 'Properties' is the global
     object
-includes: [fnGlobalObject.js]
 ---*/
 
+var global = this;
         var obj = {};
         var result = false;
 
         try {
-            Object.defineProperty(fnGlobalObject(), "prop", {
+            Object.defineProperty(this, "prop", {
                 get: function () {
-                    result = (this === fnGlobalObject());
+                    result = (this === global);
                     return {};
                 },
                 enumerable: true,
 				configurable:true
             });
 
-            Object.defineProperties(obj, fnGlobalObject());
+            Object.defineProperties(obj, this);
         } catch (e) {
             if (!(e instanceof TypeError)) throw e;
             result = true;
         } finally {
-            delete fnGlobalObject().prop;
+            delete this.prop;
         }
 
 assert(result, 'result !== true');

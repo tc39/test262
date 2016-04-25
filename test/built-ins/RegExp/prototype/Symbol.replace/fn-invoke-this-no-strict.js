@@ -16,7 +16,6 @@ info: >
            iv. Let replValue be Call(replaceValue, undefined, replacerArgs).
            [...]
 flags: [noStrict]
-includes: [fnGlobalObject.js]
 features: [Symbol.replace]
 ---*/
 
@@ -27,4 +26,4 @@ var replacer = function() {
 
 /./[Symbol.replace]('x', replacer);
 
-assert.sameValue(thisVal, fnGlobalObject());
+assert.sameValue(thisVal, this);

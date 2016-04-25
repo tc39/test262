@@ -5,14 +5,14 @@
 info: The undefined is DontDelete
 es5id: 15.1.1.3_A3.1
 description: Use delete
-includes: [propertyHelper.js, fnGlobalObject.js]
+includes: [propertyHelper.js]
 ---*/
 
 // CHECK#1
-verifyNotConfigurable(fnGlobalObject(), "undefined");
+verifyNotConfigurable(this, "undefined");
 
 try {
-  if (delete fnGlobalObject().undefined !== false) {
+  if (delete this.undefined !== false) {
     $ERROR('#1: delete undefined === false.');
   }
 } catch (e) {

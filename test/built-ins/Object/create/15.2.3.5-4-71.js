@@ -7,15 +7,14 @@ description: >
     Object.create - one property in 'Properties' is the global object
     that uses Object's [[Get]] method to access the 'enumerable'
     property (8.10.5 step 3.a)
-includes: [fnGlobalObject.js]
 ---*/
 
         var accessed = false;
 
-            fnGlobalObject().enumerable = true;
+            this.enumerable = true;
 
             var newObj = Object.create({}, {
-                prop: fnGlobalObject()
+                prop: this
             });
             for (var property in newObj) {
                 if (property === "prop") {

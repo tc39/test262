@@ -8,7 +8,7 @@ description: >
     property 'P' successfully when [[Configurable]] attribute is true
     and [[Writable]] attribute is false, 'A' is an Array object
     (8.12.9 step - Note)
-includes: [propertyHelper.js, fnGlobalObject.js]
+includes: [propertyHelper.js]
 ---*/
 
 

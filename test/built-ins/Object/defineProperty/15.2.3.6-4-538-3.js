@@ -7,10 +7,10 @@ description: >
     ES5 Attributes - Updating a named accessor property 'P' whose
     [[Configurable]] attribute is true to a data property is
     successful, 'O' is the global object
-includes: [propertyHelper.js, fnGlobalObject.js]
+includes: [propertyHelper.js]
 ---*/
 
-var obj = fnGlobalObject();
+var obj = this;
 
 obj.verifySetFunc = "data";
 var getFunc = function () {

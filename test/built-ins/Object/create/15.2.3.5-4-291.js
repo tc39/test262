@@ -7,17 +7,16 @@ description: >
     Object.create - one property in 'Properties' is the global object
     that uses Object's [[Get]] method to access the 'set' property
     (8.10.5 step 8.a)
-includes: [fnGlobalObject.js]
 ---*/
 
         var data = "data";
 
-            fnGlobalObject().set = function (value) {
+            this.set = function (value) {
                 data = value;
             };
 
             var newObj = Object.create({}, {
-                prop: fnGlobalObject()
+                prop: this
             });
 
             var hasProperty = newObj.hasOwnProperty("prop");

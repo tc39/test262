@@ -7,13 +7,12 @@ description: >
     Object.create - one property in 'Properties' is the global object
     that uses Object's [[Get]] method to access the 'writable'
     property (8.10.5 step 6.a)
-includes: [fnGlobalObject.js]
 ---*/
 
-            fnGlobalObject().writable = true;
+            this.writable = true;
 
             var newObj = Object.create({}, {
-                prop: fnGlobalObject() 
+                prop: this 
             });
 
             var beforeWrite = (newObj.hasOwnProperty("prop") && typeof (newObj.prop) === "undefined");

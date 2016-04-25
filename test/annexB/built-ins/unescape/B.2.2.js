@@ -6,13 +6,9 @@ es5id: B.2.2
 description: >
     Object.getOwnPropertyDescriptor returns data desc for functions on
     built-ins (Global.unescape)
-includes:
-    - fnGlobalObject.js
-    - propertyHelper.js
+includes: [propertyHelper.js]
 ---*/
 
-var global = fnGlobalObject();
-
-verifyWritable(global, "unescape");
-verifyNotEnumerable(global, "unescape");
-verifyConfigurable(global, "unescape");
+verifyWritable(this, "unescape");
+verifyNotEnumerable(this, "unescape");
+verifyConfigurable(this, "unescape");

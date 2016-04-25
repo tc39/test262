@@ -7,8 +7,8 @@ description: >
     Strict Mode - checking 'this' (non-strict function declaration
     called by strict Function.prototype.call(globalObject))
 flags: [noStrict]
-includes: [fnGlobalObject.js]
 ---*/
 
-function f() { return this===fnGlobalObject();};
-assert((function () {"use strict"; return f.call(fnGlobalObject());})());
+var global = this;
+function f() { return this===global;};
+assert((function () {"use strict"; return f.call(global);})());

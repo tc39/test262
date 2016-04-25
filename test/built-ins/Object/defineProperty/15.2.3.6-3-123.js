@@ -6,13 +6,12 @@ es5id: 15.2.3.6-3-123
 description: >
     Object.defineProperty - 'configurable' property in 'Attributes' is
     the global object  (8.10.5 step 4.b)
-includes: [fnGlobalObject.js]
 ---*/
 
         var obj = {};
 
         var attr = {
-            configurable: fnGlobalObject()
+            configurable: this
         };
 
         Object.defineProperty(obj, "property", attr);

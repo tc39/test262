@@ -8,14 +8,15 @@ description: >
     FunctionExpression with a strict directive prologue defined within
     an Anonymous FunctionExpression)
 flags: [noStrict]
-includes: [fnGlobalObject.js]
 ---*/
+
+var global = this;
 
 if (! ((function () {
     return ((function () {
         "use strict";
         return typeof this;
-    })()==="undefined") && (this===fnGlobalObject());
+    })()==="undefined") && (this===global);
 })())) {
     throw "'this' had incorrect value!";
 }
