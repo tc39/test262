@@ -11,14 +11,8 @@ function isConfigurable(obj, name) {
 }
 
 function isEnumerable(obj, name) {
-    for (var prop in obj) {
-        if (Object.prototype.hasOwnProperty.call(obj, prop) && 
-            assert._isSameValue(prop, name)) {
-            return true;
-        }
-    }
-
-    return false;
+    return Object.prototype.hasOwnProperty.call(obj, name) &&
+        Object.prototype.propertyIsEnumerable.call(obj, name);
 }
 
 function isEqualTo(obj, name, expectedValue) {

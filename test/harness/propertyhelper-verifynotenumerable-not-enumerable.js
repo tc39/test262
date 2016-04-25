@@ -2,8 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: >
-    Objects whose specified property is not enumerable satisfy the assertion.
+description: |
+    Objects whose specified string property is not enumerable satisfy the
+    assertion.
 includes: [propertyHelper.js]
 ---*/
 
