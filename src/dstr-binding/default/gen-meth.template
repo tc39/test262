@@ -52,4 +52,4 @@ var obj = {
 };
 
 obj.method(/*{ vals }*/).next();
-assert.sameValue(callCount, 1);
+assert.sameValue(callCount, 1, 'generator method invoked exactly once');

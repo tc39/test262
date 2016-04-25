@@ -44,4 +44,4 @@ function* f(/*{ elems }*/) {
   callCount = callCount + 1;
 };
 f(/*{ vals }*/).next();
-assert.sameValue(callCount, 1);
+assert.sameValue(callCount, 1, 'generator function invoked exactly once');

@@ -45,4 +45,4 @@ function f(/*{ elems }*/) {
   callCount = callCount + 1;
 };
 f(/*{ vals }*/);
-assert.sameValue(callCount, 1);
+assert.sameValue(callCount, 1, 'function invoked exactly once');

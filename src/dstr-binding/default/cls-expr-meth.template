@@ -67,4 +67,4 @@ var C = class {
 };
 
 new C().method(/*{ vals }*/);
-assert.sameValue(callCount, 1);
+assert.sameValue(callCount, 1, 'method invoked exactly once');
