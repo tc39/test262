@@ -43,14 +43,15 @@ def create(args):
         for test in exp.expand('utf-8', caseFile):
             if args.out:
                 try:
-                    test.load(args.out)
+                    existing = Test(test.file_name)
+                    existing.load(args.out)
 
                     if args.no_clobber:
                         print_error(
                             'Refusing to overwrite file: ' + test.file_name)
                         exit(1)
 
-                    if not test.is_generated():
+                    if not existing.is_generated():
                         print_error(
                             'Refusing to overwrite non-generated file: ' +
                             test.file_name)
