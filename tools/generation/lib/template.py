@@ -119,7 +119,7 @@ class Template:
         features += case_values['meta'].get('features', [])
         features += self.attribs['meta'].get('features', [])
         if len(features):
-            lines += ['features: ' + yaml.dump(features)]
+            lines += ['features: ' + yaml.dump(features).strip()]
 
         flags = ['generated']
         flags += case_values['meta'].get('flags', [])
