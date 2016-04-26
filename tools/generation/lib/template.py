@@ -20,7 +20,11 @@ def indent(text, prefix = '    '):
     else:
         lines = text.split('\n')
 
-    return prefix + ('\n' + prefix).join(lines)
+    indented = map(
+        lambda line: line if len(line) == 0 else prefix + line,
+        lines)
+
+    return '\n'.join(indented)
 
 class Template:
     def __init__(self, filename):
@@ -119,7 +123,7 @@ class Template:
         features += case_values['meta'].get('features', [])
         features += self.attribs['meta'].get('features', [])
         if len(features):
-            lines += ['features: ' + yaml.dump(features)]
+            lines += ['features: ' + yaml.dump(features).strip()]
 
         flags = ['generated']
         flags += case_values['meta'].get('flags', [])
@@ -145,7 +149,7 @@ class Template:
             info.append(indent(case_values['meta']['info']))
 
         if len(info):
-            lines.append('info: >')
+            lines.append('info: |')
             lines += info
 
         lines.append('---*/')

@@ -5,26 +5,26 @@
 description: SingleNameBinding with normal value iteration (arrow function expression)
 es6id: 14.2.16
 flags: [generated]
-info: >
+info: |
     ArrowFunction : ArrowParameters => ConciseBody
-    
+
     [...]
     4. Let closure be FunctionCreate(Arrow, parameters, ConciseBody, scope, strict).
     [...]
-    
+
     9.2.1 [[Call]] ( thisArgument, argumentsList)
-    
+
     [...]
     7. Let result be OrdinaryCallEvaluateBody(F, argumentsList).
     [...]
-    
+
     9.2.1.3 OrdinaryCallEvaluateBody ( F, argumentsList )
-    
+
     1. Let status be FunctionDeclarationInstantiation(F, argumentsList).
     [...]
-    
+
     9.2.12 FunctionDeclarationInstantiation(func, argumentsList)
-    
+
     [...]
     23. Let iteratorRecord be Record {[[iterator]]:
         CreateListIterator(argumentsList), [[done]]: false}.
@@ -36,9 +36,9 @@ info: >
     [...]
 
     13.3.3.6 Runtime Semantics: IteratorBindingInitialization
-    
+
     SingleNameBinding : BindingIdentifier Initializeropt
-    
+
     [...]
     4. If iteratorRecord.[[done]] is false, then
        a. Let next be IteratorStep(iteratorRecord.[[iterator]]).
