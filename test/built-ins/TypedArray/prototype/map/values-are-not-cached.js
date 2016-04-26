@@ -12,7 +12,6 @@ includes: [testTypedArray.js]
 
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([42, 43, 44]);
-  var calls = 0;
 
   sample.map(function(v, i) {
     if (i < sample.length - 1) {
