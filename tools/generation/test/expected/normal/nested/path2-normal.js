@@ -6,7 +6,7 @@ description: foobar (Second template name)
 esid: sec-a-generic-id
 flags: [generated, a, b]
 includes: [foo.js, bar.js]
-info: >
+info: |
     template info
 
     case info

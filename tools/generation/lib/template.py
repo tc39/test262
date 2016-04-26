@@ -149,7 +149,7 @@ class Template:
             info.append(indent(case_values['meta']['info']))
 
         if len(info):
-            lines.append('info: >')
+            lines.append('info: |')
             lines += info
 
         lines.append('---*/')

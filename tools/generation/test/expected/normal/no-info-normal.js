@@ -6,7 +6,7 @@ description: foobar (First template name)
 es6id: 1.2.3
 flags: [generated, a, b]
 includes: [foo.js]
-info: >
+info: |
     case info
 ---*/
 
