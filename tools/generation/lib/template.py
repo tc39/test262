@@ -20,7 +20,11 @@ def indent(text, prefix = '    '):
     else:
         lines = text.split('\n')
 
-    return prefix + ('\n' + prefix).join(lines)
+    indented = map(
+        lambda line: line if len(line) == 0 else prefix + line,
+        lines)
+
+    return '\n'.join(indented)
 
 class Template:
     def __init__(self, filename):
