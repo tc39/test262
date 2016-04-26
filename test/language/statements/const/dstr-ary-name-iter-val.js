@@ -5,9 +5,9 @@
 description: SingleNameBinding with normal value iteration (`const` statement)
 es6id: 13.3.1.4
 flags: [generated]
-info: >
+info: |
     LexicalBinding : BindingPattern Initializer
-    
+
     1. Let rhs be the result of evaluating Initializer.
     2. Let value be GetValue(rhs).
     3. ReturnIfAbrupt(value).
@@ -16,9 +16,9 @@ info: >
        using value and env as the arguments.
 
     13.3.3.6 Runtime Semantics: IteratorBindingInitialization
-    
+
     SingleNameBinding : BindingIdentifier Initializeropt
-    
+
     [...]
     4. If iteratorRecord.[[done]] is false, then
        a. Let next be IteratorStep(iteratorRecord.[[iterator]]).

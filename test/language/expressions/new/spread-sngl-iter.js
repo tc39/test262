@@ -5,24 +5,23 @@
 description: Spread operator applied to the only argument with a valid iterator (`new` operator)
 es6id: 12.3.3.1
 features: [Symbol.iterator]
-
 flags: [generated]
-info: >
+info: |
     MemberExpression : new MemberExpression Arguments
-    
+
     1. Return EvaluateNew(MemberExpression, Arguments).
-    
+
     12.3.3.1.1 Runtime Semantics: EvaluateNew
-    
+
     6. If arguments is empty, let argList be an empty List.
     7. Else,
        a. Let argList be ArgumentListEvaluation of arguments.
        [...]
 
     12.3.6.1 Runtime Semantics: ArgumentListEvaluation
-    
+
     ArgumentList : ... AssignmentExpression
-    
+
     1. Let list be an empty List.
     2. Let spreadRef be the result of evaluating AssignmentExpression.
     3. Let spreadObj be GetValue(spreadRef).

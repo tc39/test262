@@ -5,9 +5,9 @@
 description: SingleNameBinding with normal value iteration (`var` statement)
 es6id: 13.3.2.4
 flags: [generated]
-info: >
+info: |
     VariableDeclaration : BindingPattern Initializer
-    
+
     1. Let rhs be the result of evaluating Initializer.
     2. Let rval be GetValue(rhs).
     3. ReturnIfAbrupt(rval).
@@ -15,9 +15,9 @@ info: >
        BindingPattern passing rval and undefined as arguments.
 
     13.3.3.6 Runtime Semantics: IteratorBindingInitialization
-    
+
     SingleNameBinding : BindingIdentifier Initializeropt
-    
+
     [...]
     4. If iteratorRecord.[[done]] is false, then
        a. Let next be IteratorStep(iteratorRecord.[[iterator]]).

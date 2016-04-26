@@ -5,11 +5,10 @@
 description: Spread operator applied to the only argument when evaluation throws (SuperCall)
 es6id: 12.3.5.1
 features: [generators]
-
 flags: [generated]
-info: >
+info: |
     SuperCall : super Arguments
-    
+
     1. Let newTarget be GetNewTarget().
     2. If newTarget is undefined, throw a ReferenceError exception.
     3. Let func be GetSuperConstructor().
@@ -18,9 +17,9 @@ info: >
     [...]
 
     12.3.6.1 Runtime Semantics: ArgumentListEvaluation
-    
+
     ArgumentList : ... AssignmentExpression
-    
+
     1. Let list be an empty List.
     2. Let spreadRef be the result of evaluating AssignmentExpression.
     3. Let spreadObj be GetValue(spreadRef).

@@ -5,10 +5,10 @@
 description: SingleNameBinding with normal value iteration (generator method)
 es6id: 14.4.13
 flags: [generated]
-info: >
+info: |
     GeneratorMethod :
         * PropertyName ( StrictFormalParameters ) { GeneratorBody }
-    
+
     1. Let propKey be the result of evaluating PropertyName.
     2. ReturnIfAbrupt(propKey).
     3. If the function code for this GeneratorMethod is strict mode code,
@@ -17,20 +17,20 @@ info: >
     5. Let closure be GeneratorFunctionCreate(Method,
        StrictFormalParameters, GeneratorBody, scope, strict).
     [...]
-    
+
     9.2.1 [[Call]] ( thisArgument, argumentsList)
-    
+
     [...]
     7. Let result be OrdinaryCallEvaluateBody(F, argumentsList).
     [...]
-    
+
     9.2.1.3 OrdinaryCallEvaluateBody ( F, argumentsList )
-    
+
     1. Let status be FunctionDeclarationInstantiation(F, argumentsList).
     [...]
-    
+
     9.2.12 FunctionDeclarationInstantiation(func, argumentsList)
-    
+
     [...]
     23. Let iteratorRecord be Record {[[iterator]]:
         CreateListIterator(argumentsList), [[done]]: false}.
@@ -42,9 +42,9 @@ info: >
     [...]
 
     13.3.3.6 Runtime Semantics: IteratorBindingInitialization
-    
+
     SingleNameBinding : BindingIdentifier Initializeropt
-    
+
     [...]
     4. If iteratorRecord.[[done]] is false, then
        a. Let next be IteratorStep(iteratorRecord.[[iterator]]).
