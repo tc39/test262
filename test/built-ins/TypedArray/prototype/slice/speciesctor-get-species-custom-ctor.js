@@ -42,10 +42,10 @@ testWithTypedArrayConstructors(function(TA) {
   var result;
 
   sample.constructor = {};
-  sample.constructor[Symbol.species] = function(buffer, offset, length) {
+  sample.constructor[Symbol.species] = function(count) {
     calls++;
-    return new TA(buffer, offset, length);
-  };;
+    return new TA(count);
+  };
 
   result = sample.slice(1);
 

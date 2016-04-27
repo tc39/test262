@@ -47,7 +47,7 @@ testWithTypedArrayConstructors(function(TA) {
     result = arguments;
     ctorThis = this;
     return new TA(count);
-  };;
+  };
 
   sample.slice(1);
 
