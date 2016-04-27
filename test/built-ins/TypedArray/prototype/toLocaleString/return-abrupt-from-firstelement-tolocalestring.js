@@ -24,7 +24,6 @@ includes: [testTypedArray.js]
 ---*/
 
 var calls;
-var separator = ["", ""].toLocaleString();
 
 Number.prototype.toLocaleString = function() {
   calls++;
