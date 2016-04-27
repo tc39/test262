@@ -11,7 +11,7 @@ info: >
   10. Let A be ? TypedArraySpeciesCreate(O, « captured »).
   ...
   13. Return A.
-includes: [testTypedArray.js, compareArray.js]
+includes: [testTypedArray.js]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
@@ -21,6 +21,6 @@ testWithTypedArrayConstructors(function(TA) {
   result = sample.filter(function() { return true; });
   assert.notSameValue(result.buffer, sample.buffer);
 
-  result = sample.filter(function() { return true; });
+  result = sample.filter(function() { return false; });
   assert.notSameValue(result.buffer, sample.buffer);
 });
