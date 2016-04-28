@@ -15,7 +15,7 @@ testWithTypedArrayConstructors(function(TA) {
   var ctor = function(len) {
     assert.sameValue(arguments.length, 1);
     called++;
-    return new TA(len)
+    return new TA(len);
   };
 
   var result = TA.from.call(ctor, source);

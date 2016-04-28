@@ -49,5 +49,5 @@ var length = Math.pow(2, 53);
 testWithTypedArrayConstructors(function(TA) {
   assert.throws(RangeError, function() {
     new TA(length);
-  })
+  });
 });

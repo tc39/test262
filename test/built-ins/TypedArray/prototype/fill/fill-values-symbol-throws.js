@@ -44,5 +44,5 @@ testWithTypedArrayConstructors(function(TA) {
 
   assert.throws(TypeError, function() {
     sample.fill(s);
-  })
+  });
 });

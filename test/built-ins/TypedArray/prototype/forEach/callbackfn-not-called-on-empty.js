@@ -27,7 +27,7 @@ includes: [testTypedArray.js]
 testWithTypedArrayConstructors(function(TA) {
   var called = 0;
 
-  var result1 = new TA().forEach(function() {
+  new TA().forEach(function() {
     called++;
   });
 

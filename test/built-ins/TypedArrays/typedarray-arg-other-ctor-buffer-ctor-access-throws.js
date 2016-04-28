@@ -25,9 +25,8 @@ includes: [testTypedArray.js]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
-  var sample1 = Int8Array;
-  var sample2 = Int16Array;
-  var sample = new (TA === Int8Array ? sample2 : sample1);
+  var OtherCtor = TA === Int8Array ? Int16Array : Int8Array;
+  var sample = new OtherCtor();
 
   Object.defineProperty(sample.buffer, "constructor", {
     get() {

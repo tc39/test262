@@ -29,9 +29,8 @@ features: [Symbol]
 var s = Symbol("1");
 
 testWithTypedArrayConstructors(function(TA) {
-  var called = 0;
   var sample = new TA(42);
-  var values = [
+  [
     true,
     1,
     "test262",

@@ -10,7 +10,6 @@ includes: [testTypedArray.js]
 var source = [42, 43, 42];
 
 testWithTypedArrayConstructors(function(TA) {
-  var lastValue;
   var mapfn = function(kValue) {
     return kValue * 2;
   };

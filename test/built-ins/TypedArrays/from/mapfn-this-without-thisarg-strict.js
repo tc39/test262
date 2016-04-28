@@ -23,7 +23,7 @@ var source = [42, 43];
 
 testWithTypedArrayConstructors(function(TA) {
   var results = [];
-  var mapfn = function(kValue, k) {
+  var mapfn = function() {
     results.push(this);
   };
 

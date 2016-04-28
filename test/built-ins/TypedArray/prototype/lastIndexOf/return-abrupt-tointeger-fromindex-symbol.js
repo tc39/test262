@@ -28,5 +28,5 @@ testWithTypedArrayConstructors(function(TA) {
 
   assert.throws(TypeError, function() {
     sample.lastIndexOf(7, fromIndex);
-  })
+  });
 });

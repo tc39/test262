@@ -18,6 +18,6 @@ var s = Symbol("1");
 
 testWithTypedArrayConstructors(function(TA) {
   assert.throws(TypeError, function() {
-    var result = TA.of(s);
+    TA.of(s);
   });
 });
