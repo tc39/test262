@@ -23,7 +23,7 @@ var length = {
   valueOf() {
     throw new Test262Error();
   }
-}
+};
 
 testWithTypedArrayConstructors(function(TA) {
   assert.throws(Test262Error, function() {

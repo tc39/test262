@@ -44,7 +44,7 @@ testWithTypedArrayConstructors(function(TA) {
   sample.constructor[Symbol.species] = function(buffer, offset, length) {
     calls++;
     return new TA(buffer, offset, length);
-  };;
+  };
 
   result = sample.subarray(1);
 

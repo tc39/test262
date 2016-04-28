@@ -46,7 +46,7 @@ assert.throws(TypeError, function() {
   TypedArray.from(arrayLike, true);
 }, "mapfn is a boolean");
 
-var s = Symbol("1")
+var s = Symbol("1");
 assert.throws(TypeError, function() {
   TypedArray.from(arrayLike, s);
 }, "mapfn is a symbol");

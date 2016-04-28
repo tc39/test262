@@ -31,5 +31,5 @@ testWithTypedArrayConstructors(function(TA) {
 
   assert.throws(Test262Error, function() {
     sample.lastIndexOf(7, fromIndex);
-  })
+  });
 });

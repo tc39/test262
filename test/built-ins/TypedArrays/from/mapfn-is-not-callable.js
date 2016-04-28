@@ -47,7 +47,7 @@ testWithTypedArrayConstructors(function(TA) {
     TA.from(arrayLike, true);
   }, "mapfn is a boolean");
 
-  var s = Symbol("1")
+  var s = Symbol("1");
   assert.throws(TypeError, function() {
     TA.from(arrayLike, s);
   }, "mapfn is a symbol");

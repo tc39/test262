@@ -22,5 +22,5 @@ testWithTypedArrayConstructors(function(TA) {
   $DETACHBUFFER(sample.buffer);
 
   assert.sameValue(Reflect.set(sample, "foo", "test262"), true);
-  assert.sameValue(sample["foo"], "test262");
+  assert.sameValue(sample.foo, "test262");
 });

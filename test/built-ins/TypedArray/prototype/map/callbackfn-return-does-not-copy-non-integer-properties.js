@@ -22,7 +22,7 @@ testWithTypedArrayConstructors(function(TA) {
   var bar = Symbol("1");
 
   sample.foo = 42;
-  sample[bar]
+  sample[bar] = 1;
 
   var result = sample.map(function() {
     return 0;

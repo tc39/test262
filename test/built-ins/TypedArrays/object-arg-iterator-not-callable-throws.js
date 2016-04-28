@@ -19,7 +19,7 @@ includes: [testTypedArray.js]
 features: [Symbol.iterator]
 ---*/
 
-var obj = function () {}
+var obj = function () {};
 
 testWithTypedArrayConstructors(function(TA) {
   obj[Symbol.iterator] = {};

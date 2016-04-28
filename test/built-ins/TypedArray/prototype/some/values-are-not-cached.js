@@ -26,7 +26,6 @@ includes: [testTypedArray.js]
 
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([42, 43, 44]);
-  var calls = 0;
 
   sample.some(function(v, i) {
     if (i < sample.length - 1) {

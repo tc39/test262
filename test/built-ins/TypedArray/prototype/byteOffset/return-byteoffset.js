@@ -24,7 +24,7 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(ta2.byteOffset, offset, "TA(buffer, offset)");
 
   var buffer2 = new ArrayBuffer(8 * TA.BYTES_PER_ELEMENT);
-  var sample = new TA(buffer2, offset)
+  var sample = new TA(buffer2, offset);
   var ta3 = new TA(sample);
   assert.sameValue(ta3.byteOffset, 0, "TA(typedArray)");
 });
