@@ -23,7 +23,6 @@ features: [Symbol.species]
 ---*/
 
 var a = [];
-var result;
 
 a.constructor = {};
 a.constructor[Symbol.species] = parseInt;
