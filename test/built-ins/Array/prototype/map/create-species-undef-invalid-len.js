@@ -40,7 +40,7 @@ var proxy = new Proxy(array, {
     }
     return array[name];
   },
-  set: function(_, name, value) {
+  set: function() {
     setCount += 1;
     return true;
   }
