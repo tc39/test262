@@ -24,9 +24,8 @@ testWithTypedArrayConstructors(function(TA) {
 
   sample.constructor = {};
   sample.constructor[Symbol.species] = function(count) {
-    var other = TA === Int8Array ? Uint8Array : Int8Array;
     $DETACHBUFFER(sample.buffer);
-    return new other(count);
+    return new TA(count);
   };
 
   assert.throws(TypeError, function() {

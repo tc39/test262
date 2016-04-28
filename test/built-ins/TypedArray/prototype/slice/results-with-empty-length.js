@@ -24,8 +24,8 @@ testWithTypedArrayConstructors(function(TA) {
   testRes(sample.slice(4, 4), "begin == length, end == length");
   testRes(sample.slice(5, 4), "begin > length, end == length");
 
-  testRes(sample.slice(4, 4), "begin == length, end > length");
-  testRes(sample.slice(5, 4), "begin > length, end > length");
+  testRes(sample.slice(4, 5), "begin == length, end > length");
+  testRes(sample.slice(5, 5), "begin > length, end > length");
 
   testRes(sample.slice(0, 0), "begin == 0, end == 0");
   testRes(sample.slice(-0, -0), "begin == -0, end == -0");

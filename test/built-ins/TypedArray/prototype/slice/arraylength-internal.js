@@ -9,7 +9,7 @@ info: >
   ...
   3. Let len be the value of O's [[ArrayLength]] internal slot.
   ...
-includes: [testTypedArray.js, compareArray.js]
+includes: [testTypedArray.js]
 ---*/
 
 var getCalls = 0;
@@ -32,8 +32,7 @@ testWithTypedArrayConstructors(function(TA) {
   var result = sample.slice();
 
   assert.sameValue(getCalls, 0, "ignores length properties");
-  assert(
-    compareArray(result, sample),
-    "result is not affected by custom length"
-  );
+  assert.sameValue(result[0], 42);
+  assert.sameValue(result[1], 43);
+  assert.sameValue(result.hasOwnProperty(2), false);
 });
