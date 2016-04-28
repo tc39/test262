@@ -26,11 +26,11 @@ info: |
 //- setup
 var iter = {};
 iter[Symbol.iterator] = function() {
-  var callCount = 0;
+  var nextCount = 0;
   return {
     next: function() {
-      callCount += 1;
-      return { done: callCount === 3, value: callCount };
+      nextCount += 1;
+      return { done: nextCount === 3, value: nextCount };
     }
   };
 };
