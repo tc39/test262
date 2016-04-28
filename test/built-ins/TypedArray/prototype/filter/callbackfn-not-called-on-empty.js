@@ -18,7 +18,7 @@ includes: [testTypedArray.js]
 testWithTypedArrayConstructors(function(TA) {
   var called = 0;
 
-  var result1 = new TA().filter(function() {
+  new TA().filter(function() {
     called++;
   });
 

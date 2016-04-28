@@ -40,7 +40,7 @@ testWithTypedArrayConstructors(function(TA) {
   result = sample.filter(function() { return true; });
   assert.sameValue(result.length, customCount, "length == count");
 
-  customCount = 5
+  customCount = 5;
   result = sample.filter(function() { return true; });
   assert.sameValue(result.length, customCount, "length > count");
 });

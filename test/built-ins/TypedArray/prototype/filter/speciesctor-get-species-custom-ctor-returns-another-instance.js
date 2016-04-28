@@ -38,7 +38,7 @@ features: [Symbol.species]
 
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([40]);
-  var other = new Int8Array([1, 0, 1]);
+  var other = new (TA === Int8Array ? Int16Array : Int8Array)([1, 0, 1]);
   var result;
 
   sample.constructor = {};
