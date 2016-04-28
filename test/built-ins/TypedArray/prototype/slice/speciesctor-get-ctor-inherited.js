@@ -52,7 +52,6 @@ testWithTypedArrayConstructors(function(TA) {
   );
 
   calls = 6;
-  result.constructor;
   assert.sameValue(
     calls,
     7,

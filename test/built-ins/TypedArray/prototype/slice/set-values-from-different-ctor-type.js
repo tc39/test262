@@ -35,7 +35,6 @@ var arr = [42, 43, 44];
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA(arr);
   var other = TA === Int8Array ? Uint8Array : Int8Array;
-  var calls = 0;
 
   sample.constructor = {};
   sample.constructor[Symbol.species] = other;

@@ -38,8 +38,6 @@ features: [Symbol.species]
 
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([40, 41, 42]);
-  var calls = 0;
-  var expectedOffset = TA.BYTES_PER_ELEMENT;
   var result, ctorThis;
 
   sample.constructor = {};

@@ -21,7 +21,6 @@ features: [Symbol.species]
 
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA();
-  var calls = 0;
 
   sample.constructor = {};
   sample.constructor[Symbol.species] = function(count) {
