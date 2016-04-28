@@ -24,7 +24,6 @@ Object.defineProperty(TypedArray.prototype, "length", desc);
 
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA([42, 43]);
-  getCalls = 0;
 
   Object.defineProperty(TA.prototype, "length", desc);
   Object.defineProperty(sample, "length", desc);
