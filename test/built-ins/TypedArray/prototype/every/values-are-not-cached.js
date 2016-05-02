@@ -4,7 +4,7 @@
 /*---
 esid: sec-%typedarray%.prototype.every
 description: >
-  Integer indexed values are not cached before interaction
+  Integer indexed values are not cached before iteration
 info: >
   22.2.3.7 %TypedArray%.prototype.every ( callbackfn [ , thisArg ] )
 
