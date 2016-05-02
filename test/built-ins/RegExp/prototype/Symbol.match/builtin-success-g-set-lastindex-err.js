@@ -27,14 +27,23 @@ info: >
 features: [Symbol.match]
 ---*/
 
-var r = /b/;
+var r = /b/g;
 var callCount = 0;
 
-Object.defineProperty(r, 'lastIndex', { writable: false });
-Object.defineProperty(r, 'global', {
+// Because this test speicifically concerns the behavior when setting
+// "lastIndex" following a match, care must be taken to avoid triggering a
+// similar error when `lastIndex` is initially set to `0` earlier in the
+// algorithm.
+//
+// Because the `lastIndex` property is non-configurable, this cannot be
+// accomplished with a simple "set" accessor function.
+//
+// Defer disabling modification of `lastIndex` until after the "this" value's
+// `exec` property has been accessed, ensuring that the resultant abrupt
+// completion originates  from the second property modification.
+Object.defineProperty(r, 'exec', {
   get: function() {
-    callCount += 1;
-    return callCount > 1;
+    Object.defineProperty(r, 'lastIndex', { writable: false });
   }
 });
 
