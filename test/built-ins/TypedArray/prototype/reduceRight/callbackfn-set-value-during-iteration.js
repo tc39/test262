@@ -37,13 +37,13 @@ testWithTypedArrayConstructors(function(TA) {
     assert.sameValue(
       Reflect.set(sample, i, newVal),
       true,
-      "set value during interaction"
+      "set value during iteration"
     );
 
     newVal++;
   }, 0);
 
-  assert.sameValue(sample[0], 2, "changed values after interaction [0] == 2");
-  assert.sameValue(sample[1], 1, "changed values after interaction [1] == 1");
-  assert.sameValue(sample[2], 7, "changed values after interaction [2] == 7");
+  assert.sameValue(sample[0], 2, "changed values after iteration [0] == 2");
+  assert.sameValue(sample[1], 1, "changed values after iteration [1] == 1");
+  assert.sameValue(sample[2], 7, "changed values after iteration [2] == 7");
 });

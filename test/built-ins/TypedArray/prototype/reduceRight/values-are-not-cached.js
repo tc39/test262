@@ -3,7 +3,7 @@
 /*---
 esid: sec-%typedarray%.prototype.reduceright
 description: >
-  Integer indexed values are not cached before interaction
+  Integer indexed values are not cached before iteration
 info: >
   22.2.3.21 %TypedArray%.prototype.reduceRight ( callbackfn [ , initialValue ] )
 

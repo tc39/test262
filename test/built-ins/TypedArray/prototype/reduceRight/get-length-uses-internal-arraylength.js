@@ -41,5 +41,5 @@ testWithTypedArrayConstructors(function(TA) {
   }, 0);
 
   assert.sameValue(getCalls, 0, "ignores length properties");
-  assert.sameValue(calls, 2, "interactions are not affected by custom length");
+  assert.sameValue(calls, 2, "iterations are not affected by custom length");
 });
