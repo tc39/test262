@@ -4,11 +4,10 @@
 /*---
 info: >
  GeneratorMethod can reference SuperProperty in arg
-features: [generators]
 es6id: 14.4.1
 author: Sam Mikes
 description: GeneratorMethod uses SuperProperty (allowed)
-features: [ default-arg, generator, super ]
+features: [ default-arg, generators, super ]
 ---*/
 
 var obj = {
