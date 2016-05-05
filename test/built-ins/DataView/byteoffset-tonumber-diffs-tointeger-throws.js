@@ -1,0 +1,43 @@
+// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+es6id: 24.2.2.1
+esid: sec-dataview-buffer-byteoffset-bytelength
+description: >
+  Throws a RangeError if ToNumber(byteOffset) diffs ToInteger(byteOffset)
+info: |
+  24.2.2.1 DataView (buffer, byteOffset, byteLength )
+
+  ...
+  4. Let numberOffset be ? ToNumber(byteOffset).
+  5. Let offset be ToInteger(numberOffset).
+  6. If numberOffset ≠ offset or offset < 0, throw a RangeError exception.
+  ...
+---*/
+
+var ab = new ArrayBuffer(42);
+
+assert.throws(RangeError, function() {
+  new DataView(ab, 1.1);
+}, "1.1");
+
+assert.throws(RangeError, function() {
+  new DataView(ab, 0.0000001);
+}, "0.0000001");
+
+assert.throws(RangeError, function() {
+  new DataView(ab, NaN);
+}, "NaN");
+
+assert.throws(RangeError, function() {
+  new DataView(ab, -1.1);
+}, "-1.1");
+
+assert.throws(RangeError, function() {
+  new DataView(ab, undefined);
+}, "undefined");
+
+assert.throws(RangeError, function() {
+  new DataView(ab);
+}, "no byteOffset arg");
