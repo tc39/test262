@@ -19,7 +19,7 @@ includes: [testTypedArray.js, detachArrayBuffer.js]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA(2);
+  var sample = new TA(4);
   var calls = 0;
   var comparefn = function() {
     if (calls > 0) {

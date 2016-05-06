@@ -20,12 +20,18 @@ testWithTypedArrayConstructors(function(TA) {
   var sample;
 
   sample = new TA([2, NaN, NaN, 0, 1]).sort();
-  assert(compareArray(sample.slice(0, 3), [0, 1, 2]), "case #1");
-  assert(Number.isNaN(sample[3]), "case #2");
-  assert(Number.isNaN(sample[4]), "case #3");
+  assert.sameValue(sample[0], 0, "#1 [0]");
+  assert.sameValue(sample[1], 1, "#1 [1]");
+  assert.sameValue(sample[2], 2, "#1 [2]");
+  assert(Number.isNaN(sample[3]), "#1 [3]");
+  assert(Number.isNaN(sample[4]), "#1 [4]");
 
   sample = new TA([3, NaN, NaN, Infinity, 0, -Infinity, 2]).sort();
-  assert(compareArray(sample.slice(0, 5), [-Infinity, 0, 2, 3, Infinity]), "case #4");
-  assert(Number.isNaN(sample[5]), "case #5");
-  assert(Number.isNaN(sample[6]), "case #6");
+  assert.sameValue(sample[0], -Infinity, "#2 [0]");
+  assert.sameValue(sample[1], 0, "#2 [1]");
+  assert.sameValue(sample[2], 2, "#2 [2]");
+  assert.sameValue(sample[3], 3, "#2 [3]");
+  assert.sameValue(sample[4], Infinity, "#2 [4]");
+  assert(Number.isNaN(sample[5]), "#2 [5]");
+  assert(Number.isNaN(sample[6]), "#2 [6]");
 }, [Float64Array, Float32Array]);

@@ -20,13 +20,7 @@ includes: [testTypedArray.js, compareArray.js]
 var origToString = Number.prototype.toString;
 
 testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA([4, 3, 2, 1]);
-
-  Number.prototype.toString = function() {
-    throw new Test262Error();
-  };
+  var sample = new TA([20, 100, 3]);
   var result = sample.sort();
-  Number.prototype.toString = origToString;
-
-  assert(compareArray(result, [1, 2, 3, 4]));
+  assert(compareArray(result, [3, 20, 100]));
 });
