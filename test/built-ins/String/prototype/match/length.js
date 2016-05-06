@@ -2,11 +2,12 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: The length property of the match method is 1
 es5id: 15.5.4.10_A11
 es6id: 21.1.3.11
 description: Checking String.prototype.match.length
 info: >
+    The length property of the match method is 1.
+
     ES6 Section 17:
     Every built-in Function object, including constructors, has a length
     property whose value is an integer. Unless otherwise specified, this value
