@@ -15,7 +15,7 @@ info: >
     ...
   24. Else, let srcByteIndex be srcByteOffset.
   ...
-  28. Else,
+  27. If SameValue(srcType, targetType) is true, then,
     a. NOTE: If srcType and targetType are the same, the transfer must be
     performed in a manner that preserves the bit-level encoding of the source
     data.
@@ -23,6 +23,7 @@ info: >
       i. Let value be GetValueFromBuffer(srcBuffer, srcByteIndex, "Uint8").
       ii. Perform SetValueInBuffer(targetBuffer, targetByteIndex, "Uint8",
       value).
+  ...
   29. Return undefined.
 includes: [testTypedArray.js, compareArray.js]
 ---*/

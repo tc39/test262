@@ -18,7 +18,9 @@ info: >
     have any observable side-effects.
     ...
   ...
-  27. If SameValue(srcType, targetType) is false, then
+  27. If SameValue(srcType, targetType) is true, then,
+    ...
+  28. Else,
     a. Repeat, while targetByteIndex < limit
       i. Let value be GetValueFromBuffer(srcBuffer, srcByteIndex, srcType).
       ii. Perform SetValueInBuffer(targetBuffer, targetByteIndex, targetType,

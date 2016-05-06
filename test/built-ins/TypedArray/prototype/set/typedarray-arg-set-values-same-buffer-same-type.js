@@ -18,7 +18,7 @@ info: >
     have any observable side-effects.
     ...
   ...
-  28. Else,
+  27. If SameValue(srcType, targetType) is true, then,
     a. NOTE: If srcType and targetType are the same, the transfer must be
     performed in a manner that preserves the bit-level encoding of the source
     data.
