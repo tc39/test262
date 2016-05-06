@@ -38,7 +38,7 @@ var arr = ["1", "", false, true, null, obj1, obj2, [], [1]];
 
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA(arr.length);
-  var expected = new TA(arr);
+  var expected = new TA([1, 0, 0, 1, 0, 42, 42, 0, 1]);
 
   sample.set(arr);
 

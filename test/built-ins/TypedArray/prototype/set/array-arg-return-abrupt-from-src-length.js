@@ -26,7 +26,7 @@ var obj1 = {
 
 var obj2 = {
   length: {
-    valueOf: function() {
+    toString: function() {
       throw new Test262Error();
     }
   }

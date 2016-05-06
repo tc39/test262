@@ -15,8 +15,18 @@ info: >
   slot.
   9. If IsDetachedBuffer(targetBuffer) is true, throw a TypeError exception.
   ...
+  15. Let src be ? ToObject(array).
+  16. Let srcLength be ? ToLength(? Get(src, "length")).
+  ...
 includes: [testTypedArray.js, detachArrayBuffer.js]
 ---*/
+
+var obj = {};
+Object.defineProperty(obj, "length", {
+  get: function() {
+    throw new Test262Error();
+  }
+});
 
 testWithTypedArrayConstructors(function(TA) {
   var sample = new TA(2);
@@ -24,5 +34,9 @@ testWithTypedArrayConstructors(function(TA) {
 
   assert.throws(TypeError, function() {
     sample.set([1]);
-  });
+  }, "regular check");
+
+  assert.throws(TypeError, function() {
+    sample.set(obj);
+  }, "IsDetachedBuffer happens before Get(src.length)");
 });
