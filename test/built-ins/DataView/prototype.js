@@ -15,10 +15,6 @@ info: >
 includes: [propertyHelper.js]
 ---*/
 
-var sample = new DataView(new ArrayBuffer(1), 0);
-
-assert.sameValue(Object.getPrototypeOf(sample), DataView.prototype);
-
 verifyNotEnumerable(DataView, "prototype");
 verifyNotWritable(DataView, "prototype");
 verifyNotConfigurable(DataView, "prototype");

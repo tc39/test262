@@ -29,6 +29,6 @@ info: |
 ---*/
 
 var buffer = new ArrayBuffer(8);
-var sample = new DataView(buffer);
+var sample = new DataView(buffer, 0);
 
 assert(Object.isExtensible(sample));

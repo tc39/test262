@@ -22,4 +22,3 @@ var dv2 = new DataView(buffer, 0);
 
 assert.sameValue(dv1.buffer, buffer);
 assert.sameValue(dv2.buffer, buffer);
-assert.sameValue(dv1.buffer, dv2.buffer);

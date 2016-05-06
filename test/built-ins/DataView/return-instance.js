@@ -22,12 +22,8 @@ ab = new ArrayBuffer(1);
 sample = new DataView(ab, 0);
 assert.sameValue(sample.constructor, DataView);
 assert.sameValue(Object.getPrototypeOf(sample), DataView.prototype);
-assert.sameValue(sample.byteLength, 1);
-assert.sameValue(sample.buffer, ab);
 
 ab = new ArrayBuffer(1);
 sample = new DataView(ab, 1);
 assert.sameValue(sample.constructor, DataView);
 assert.sameValue(Object.getPrototypeOf(sample), DataView.prototype);
-assert.sameValue(sample.byteLength, 0);
-assert.sameValue(sample.buffer, ab);
