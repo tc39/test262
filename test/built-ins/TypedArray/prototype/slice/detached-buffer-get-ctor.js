@@ -19,7 +19,7 @@ includes: [testTypedArray.js, detachArrayBuffer.js]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA();
+  var sample = new TA(1);
 
   Object.defineProperty(sample, "constructor", {
     get: function() {

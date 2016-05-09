@@ -10,17 +10,17 @@ info: >
   9. Let A be ? TypedArraySpeciesCreate(O, « count »).
   ...
   14. If SameValue(srcType, targetType) is false, then
-    a. Let n be 0.
-    b. Repeat, while k < final
-      i. Let Pk be ! ToString(k).
-      ii. Let kValue be ? Get(O, Pk).
+    ...
+  15. Else if count > 0, then
+    a. Let srcBuffer be the value of O's [[ViewedArrayBuffer]] internal slot.
+    b. If IsDetachedBuffer(srcBuffer) is true, throw a TypeError exception.
   ...
 includes: [testTypedArray.js, detachArrayBuffer.js]
 features: [Symbol.species]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
-  var sample = new TA();
+  var sample = new TA(1);
 
   sample.constructor = {};
   sample.constructor[Symbol.species] = function(count) {
