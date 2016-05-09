@@ -26,4 +26,3 @@ assert.throws(TypeError, function() {
 assert.throws(TypeError, function() {
   String.prototype.fontcolor.call(null);
 });
-assert.sameValue(String.prototype.fontcolor.length, 1);

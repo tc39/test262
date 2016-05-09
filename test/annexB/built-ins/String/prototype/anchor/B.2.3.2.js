@@ -24,4 +24,3 @@ assert.throws(TypeError, function() {
 assert.throws(TypeError, function() {
   String.prototype.anchor.call(null);
 });
-assert.sameValue(String.prototype.anchor.length, 1);

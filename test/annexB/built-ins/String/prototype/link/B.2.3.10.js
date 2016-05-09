@@ -7,7 +7,7 @@
 /*---
  description: >
      String.prototype.link returns a string of HTML describing a single HTML
-     anchor element. The element's content is the `this` value of the function
+     link element. The element's content is the `this` value of the function
      invocation, coerced to a string. If specified, the first argument will be
      coerced to a string, escaped, and set as the element's `href` attribute.
  es6id: B.2.3.10
@@ -24,4 +24,3 @@ assert.throws(TypeError, function() {
 assert.throws(TypeError, function() {
   String.prototype.link.call(null);
 });
-assert.sameValue(String.prototype.link.length, 1);

@@ -21,4 +21,3 @@ assert.throws(TypeError, function() {
 assert.throws(TypeError, function() {
   String.prototype.bold.call(null);
 });
-assert.sameValue(String.prototype.bold.length, 0);
