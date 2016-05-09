@@ -3,7 +3,7 @@
 /*---
 esid: sec-%typedarray%.prototype.slice
 description: >
-  Does not throw a TypeError if buffer is detached on custom constructor and 
+  Does not throw a TypeError if buffer is detached on custom constructor and
   `k >= final`. Using other targetType.
 info: >
   22.2.3.24 %TypedArray%.prototype.slice ( start, end )
