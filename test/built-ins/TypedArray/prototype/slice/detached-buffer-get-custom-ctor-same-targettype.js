@@ -30,5 +30,5 @@ testWithTypedArrayConstructors(function(TA) {
 
   assert.throws(TypeError, function() {
     sample.slice();
-  });
+  }, "step 15.b, IsDetachedBuffer(srcBuffer) is true");
 });
