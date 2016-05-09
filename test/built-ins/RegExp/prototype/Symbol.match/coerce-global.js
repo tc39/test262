@@ -3,66 +3,83 @@
 
 /*---
 description: Boolean coercion of `global` property
-es6id: 21.2.5.6
+esid: sec-regexp.prototype-@@match
 info: >
     21.2.5.6 RegExp.prototype [ @@match ] ( string )
 
     [...]
-    5. Let global be ToBoolean(Get(rx, "global")).
-    [...]
+    4. Let global be ToBoolean(? Get(rx, "global")).
+    5. If global is false, then
+       a. Return ? RegExpExec(rx, S).
+    6. Else global is true,
+       a. Let fullUnicode be ToBoolean(? Get(rx, "unicode")).
+       [...]
 features: [Symbol.match]
 ---*/
 
-var r = /a/;
-var result;
+var exec = function() {
+  execCount += 1;
+  if (execCount === 1) {
+    return [''];
+  }
+  return null;
+};
+var r, result, execCount;
+
+r = /a/g;
+r.exec = exec;
 Object.defineProperty(r, 'global', { writable: true });
 
+execCount = 0;
 r.global = undefined;
-result = r[Symbol.match]('aa');
-assert.notSameValue(result, null);
-assert.sameValue(result.length, 1);
+r[Symbol.match]('aa');
+assert.sameValue(execCount, 1, 'value: undefined');
 
+execCount = 0;
 r.global = null;
-result = r[Symbol.match]('aa');
-assert.notSameValue(result, null);
-assert.sameValue(result.length, 1);
+r[Symbol.match]('aa');
+assert.sameValue(execCount, 1, 'value: null');
+
+execCount = 0;
+r.global = false;
+r[Symbol.match]('aa');
+assert.sameValue(execCount, 1, 'value: false');
+
+execCount = 0;
+r.global = NaN;
+r[Symbol.match]('aa');
+assert.sameValue(execCount, 1, 'value: NaN');
+
+execCount = 0;
+r.global = 0;
+r[Symbol.match]('aa');
+assert.sameValue(execCount, 1, 'value: 0');
+
+execCount = 0;
+r.global = '';
+r[Symbol.match]('aa');
+assert.sameValue(execCount, 1, 'value: ""');
+
+r = /a/;
+r.exec = exec;
+Object.defineProperty(r, 'global', { writable: true });
 
 r.global = true;
-result = r[Symbol.match]('aa');
-assert.notSameValue(result, null);
-assert.notSameValue(result.length, 1);
-
-r.global = false;
-result = r[Symbol.match]('aa');
-assert.notSameValue(result, null);
-assert.sameValue(result.length, 1);
-
-r.global = NaN;
-result = r[Symbol.match]('aa');
-assert.notSameValue(result, null);
-assert.sameValue(result.length, 1);
-
-r.global = 0;
-result = r[Symbol.match]('aa');
-assert.notSameValue(result, null);
-assert.sameValue(result.length, 1);
-
-r.global = '';
-result = r[Symbol.match]('aa');
-assert.notSameValue(result, null);
-assert.sameValue(result.length, 1);
+execCount = 0;
+r[Symbol.match]('aa');
+assert.sameValue(execCount, 2, 'value: true');
 
 r.global = 86;
-result = r[Symbol.match]('aa');
-assert.notSameValue(result, null);
-assert.sameValue(result.length, 2);
+execCount = 0;
+r[Symbol.match]('aa');
+assert.sameValue(execCount, 2, 'value: 86');
 
 r.global = Symbol.match;
-result = r[Symbol.match]('aa');
-assert.notSameValue(result, null);
-assert.sameValue(result.length, 2);
+execCount = 0;
+r[Symbol.match]('aa');
+assert.sameValue(execCount, 2, 'value: Symbol.match');
 
 r.global = {};
-result = r[Symbol.match]('aa');
-assert.notSameValue(result, null);
-assert.sameValue(result.length, 2);
+execCount = 0;
+r[Symbol.match]('aa');
+assert.sameValue(execCount, 2, 'value: {}');
