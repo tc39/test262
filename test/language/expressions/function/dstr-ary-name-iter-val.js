@@ -3,7 +3,9 @@
 // - src/dstr-binding/default/func-expr.template
 /*---
 description: SingleNameBinding with normal value iteration (function expression)
+esid: sec-function-definitions-runtime-semantics-evaluation
 es6id: 14.1.20
+features: [destructuring-binding]
 flags: [generated]
 info: |
     FunctionExpression : function ( FormalParameters ) { FunctionBody }
@@ -67,4 +69,4 @@ f = function([x, y, z]) {
 };
 
 f([1, 2, 3]);
-assert.sameValue(callCount, 1);
+assert.sameValue(callCount, 1, 'function invoked exactly once');

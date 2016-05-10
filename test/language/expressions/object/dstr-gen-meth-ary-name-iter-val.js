@@ -3,7 +3,9 @@
 // - src/dstr-binding/default/gen-meth.template
 /*---
 description: SingleNameBinding with normal value iteration (generator method)
+esid: sec-generator-function-definitions-runtime-semantics-propertydefinitionevaluation
 es6id: 14.4.13
+features: [destructuring-binding]
 flags: [generated]
 info: |
     GeneratorMethod :
@@ -73,4 +75,4 @@ var obj = {
 };
 
 obj.method([1, 2, 3]).next();
-assert.sameValue(callCount, 1);
+assert.sameValue(callCount, 1, 'generator method invoked exactly once');

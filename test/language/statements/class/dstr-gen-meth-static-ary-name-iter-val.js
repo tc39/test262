@@ -3,7 +3,9 @@
 // - src/dstr-binding/default/cls-decl-gen-meth-static.template
 /*---
 description: SingleNameBinding with normal value iteration (static class expression generator method)
+esid: sec-runtime-semantics-bindingclassdeclarationevaluation
 es6id: 14.5.15
+features: [destructuring-binding]
 flags: [generated]
 info: |
     ClassDeclaration : class BindingIdentifier ClassTail
@@ -89,4 +91,4 @@ class C {
 };
 
 C.method([1, 2, 3]).next();
-assert.sameValue(callCount, 1);
+assert.sameValue(callCount, 1, 'method invoked exactly once');

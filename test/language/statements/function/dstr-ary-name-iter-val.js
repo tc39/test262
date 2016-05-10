@@ -3,7 +3,9 @@
 // - src/dstr-binding/default/func-decl.template
 /*---
 description: SingleNameBinding with normal value iteration (function declaration)
+esid: sec-function-definitions-runtime-semantics-instantiatefunctionobject
 es6id: 14.1.19
+features: [destructuring-binding]
 flags: [generated]
 info: |
     FunctionDeclaration :
@@ -66,4 +68,4 @@ function f([x, y, z]) {
   callCount = callCount + 1;
 };
 f([1, 2, 3]);
-assert.sameValue(callCount, 1);
+assert.sameValue(callCount, 1, 'function invoked exactly once');
