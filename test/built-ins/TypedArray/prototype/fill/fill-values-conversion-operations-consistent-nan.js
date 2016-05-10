@@ -63,7 +63,7 @@ function body(FloatArray) {
 
     sampleBytes = new Uint8Array(sample.buffer);
     controlBytes = new Uint8Array(control.buffer);
-    assert(compareArray(sampleBytes, controlBytes));
+    assert(compareArray(sampleBytes, controlBytes), 'NaN value #' + idx);
   }
 }
 
