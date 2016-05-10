@@ -7,6 +7,7 @@ description: Called on a value that is object-coercible but not an Object
 info: >
     1. Let O be ? RequireObjectCoercible(this value).
     2. If Type(proto) is neither Object nor Null, return undefined.
+    3. If Type(O) is not Object, return undefined.
 features: [Symbol]
 ---*/
 
