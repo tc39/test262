@@ -6,6 +6,7 @@ author: Brian Terlson <brian.terlson@microsoft.com>
 esid: pending
 description: >
   Await's operand is a UnaryExpression
+flags: [async]
 ---*/
 
 async function foo() {

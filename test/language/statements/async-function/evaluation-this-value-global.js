@@ -6,7 +6,7 @@ author: Brian Terlson <brian.terlson@microsoft.com>
 esid: pending
 description: >
   The this value is set to the global object when not passed in sloppy mode.
-flags: [noStrict]
+flags: [noStrict, async]
 ---*/
 
 var glob = this;

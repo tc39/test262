@@ -6,6 +6,7 @@ author: Brian Terlson <brian.terlson@microsoft.com>
 esid: pending
 description: >
   Await can await any thenable.
+flags: [async]
 ---*/
 
 var error = {};

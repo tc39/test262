@@ -6,6 +6,7 @@ author: Brian Terlson <brian.terlson@microsoft.com>
 esid: pending
 description: >
   Super calls work in the parameter list of async methods
+flags: [async]
 ---*/
 
 class A {

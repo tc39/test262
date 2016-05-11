@@ -7,7 +7,7 @@ esid: pending
 description: >
   Mapped arguments object is used when the async function has a
   simple parameter list.
-flags: [noStrict]
+flags: [noStrict, async]
 ---*/
 
 

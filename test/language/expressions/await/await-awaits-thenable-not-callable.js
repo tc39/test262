@@ -7,6 +7,7 @@ esid: pending
 description: >
   Await can await any thenable. If the thenable's then is not callable,
   await evaluates to the thenable
+flags: [async]
 ---*/
 
 async function foo() {

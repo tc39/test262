@@ -7,6 +7,7 @@ esid: pending
 description: >
   Unmapped arguments object is used when the async function doesn't have a
   simple parameter list.
+flags: [async]
 ---*/
 
 

@@ -9,6 +9,7 @@ description: >
 info: >
   This is different from generators which will throw the error out of the generator
   when it is called.
+flags: [async]
 ---*/
 var y = null;
 async function foo(x = y()) {}

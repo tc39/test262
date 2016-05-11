@@ -6,6 +6,7 @@ author: Brian Terlson <brian.terlson@microsoft.com>
 esid: pending
 description: >
   Async arrow functions return promises
+flags: [async]
 ---*/
 
 var p = (async () => await 1 + await 2)();
