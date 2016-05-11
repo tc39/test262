@@ -29,10 +29,18 @@ info: |
 features: [DataView.prototype.setFloat32]
 ---*/
 
-var buffer = new ArrayBuffer(4);
+var buffer = new ArrayBuffer(12);
 var sample = new DataView(buffer, 0);
 
-sample.setFloat32(0, NaN);
+sample.setFloat32(0, 39);
+sample.setFloat32(4, NaN);
+sample.setFloat32(8, 42);
 
-assert.sameValue(sample.getFloat32(0), NaN);
-assert.sameValue(sample.getFloat32(0, false), NaN);
+assert.sameValue(sample.getFloat32(0), 39);
+assert.sameValue(sample.getFloat32(0, false), 39);
+
+assert.sameValue(sample.getFloat32(4), NaN);
+assert.sameValue(sample.getFloat32(4, false), NaN);
+
+assert.sameValue(sample.getFloat32(8), 42);
+assert.sameValue(sample.getFloat32(8, false), 42);
