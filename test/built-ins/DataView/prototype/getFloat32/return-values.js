@@ -24,11 +24,6 @@ info: |
   ] )
 
   ...
-  7. If isLittleEndian is not present, set isLittleEndian to either true or
-  false. The choice is implementation dependent and should be the alternative
-  that is most efficient for the implementation. An implementation must use the
-  same value each time this step is executed and the same value must be used for
-  the corresponding step in the SetValueInBuffer abstract operation.
   8. If isLittleEndian is false, reverse the order of the elements of rawValue.
   ...
 features: [DataView.prototype.setUint8]
