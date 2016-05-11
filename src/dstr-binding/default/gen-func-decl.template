@@ -3,7 +3,9 @@
 /*---
 path: language/statements/generators/dstr-
 name: generator function declaration
+esid: sec-generator-function-definitions-runtime-semantics-instantiatefunctionobject
 es6id: 14.4.12
+features: [destructuring-binding]
 info: |
     GeneratorDeclaration : function * ( FormalParameters ) { GeneratorBody }
 
@@ -42,4 +44,4 @@ function* f(/*{ elems }*/) {
   callCount = callCount + 1;
 };
 f(/*{ vals }*/).next();
-assert.sameValue(callCount, 1);
+assert.sameValue(callCount, 1, 'generator function invoked exactly once');

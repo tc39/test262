@@ -3,7 +3,9 @@
 // - src/dstr-binding/default/arrow-function.template
 /*---
 description: SingleNameBinding with normal value iteration (arrow function expression)
+esid: sec-arrow-function-definitions-runtime-semantics-evaluation
 es6id: 14.2.16
+features: [destructuring-binding]
 flags: [generated]
 info: |
     ArrowFunction : ArrowParameters => ConciseBody
@@ -66,4 +68,4 @@ f = ([x, y, z]) => {
 };
 
 f([1, 2, 3]);
-assert.sameValue(callCount, 1);
+assert.sameValue(callCount, 1, 'arrow function invoked exactly once');

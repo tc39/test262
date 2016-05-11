@@ -3,7 +3,9 @@
 // - src/dstr-binding/default/meth.template
 /*---
 description: SingleNameBinding with normal value iteration (method)
+esid: sec-runtime-semantics-definemethod
 es6id: 14.3.8
+features: [destructuring-binding]
 flags: [generated]
 info: |
     MethodDefinition : PropertyName ( StrictFormalParameters ) { FunctionBody }
@@ -70,4 +72,4 @@ var obj = {
 };
 
 obj.method([1, 2, 3]);
-assert.sameValue(callCount, 1);
+assert.sameValue(callCount, 1, 'method invoked exactly once');

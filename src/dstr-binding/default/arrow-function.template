@@ -3,7 +3,9 @@
 /*---
 path: language/expressions/arrow-function/dstr-
 name: arrow function expression
+esid: sec-arrow-function-definitions-runtime-semantics-evaluation
 es6id: 14.2.16
+features: [destructuring-binding]
 info: |
     ArrowFunction : ArrowParameters => ConciseBody
 
@@ -43,4 +45,4 @@ f = (/*{ elems }*/) => {
 };
 
 f(/*{ vals }*/);
-assert.sameValue(callCount, 1);
+assert.sameValue(callCount, 1, 'arrow function invoked exactly once');

@@ -3,7 +3,9 @@
 /*---
 path: language/expressions/object/dstr-gen-meth-
 name: generator method
+esid: sec-generator-function-definitions-runtime-semantics-propertydefinitionevaluation
 es6id: 14.4.13
+features: [destructuring-binding]
 info: |
     GeneratorMethod :
         * PropertyName ( StrictFormalParameters ) { GeneratorBody }
@@ -50,4 +52,4 @@ var obj = {
 };
 
 obj.method(/*{ vals }*/).next();
-assert.sameValue(callCount, 1);
+assert.sameValue(callCount, 1, 'generator method invoked exactly once');

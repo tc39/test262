@@ -3,7 +3,9 @@
 // - src/dstr-binding/default/gen-func-expr.template
 /*---
 description: SingleNameBinding with normal value iteration (generator function expression)
+esid: sec-generator-function-definitions-runtime-semantics-evaluation
 es6id: 14.4.14
+features: [destructuring-binding]
 flags: [generated]
 info: |
     GeneratorExpression : function * ( FormalParameters ) { GeneratorBody }
@@ -67,4 +69,4 @@ f = function*([x, y, z]) {
 };
 
 f([1, 2, 3]).next();
-assert.sameValue(callCount, 1);
+assert.sameValue(callCount, 1, 'generator function invoked exactly once');

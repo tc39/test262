@@ -3,7 +3,9 @@
 /*---
 path: language/statements/class/dstr-gen-meth-
 name: class expression method
+esid: sec-class-definitions-runtime-semantics-evaluation
 es6id: 14.5.16
+features: [destructuring-binding]
 info: |
     ClassDeclaration : class BindingIdentifier ClassTail
 
@@ -66,4 +68,4 @@ class C {
 };
 
 new C().method(/*{ vals }*/).next();
-assert.sameValue(callCount, 1);
+assert.sameValue(callCount, 1, 'method invoked exactly once');
