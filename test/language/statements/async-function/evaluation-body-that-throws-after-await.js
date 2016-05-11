@@ -3,7 +3,7 @@
 
 /*---
 author: Brian Terlson <brian.terlson@microsoft.com>
-es7id: pending
+esid: pending
 description: >
   Errors thrown from the async function body reject the returned promise
 ---*/

@@ -3,7 +3,7 @@
 
 /*---
 author: Brian Terlson <brian.terlson@microsoft.com>
-es7id: pending
+esid: pending
 description: >
   Async generators are not a thing (yet)
 negative: SyntaxError

@@ -3,7 +3,7 @@
 
 /*---
 author: Brian Terlson <brian.terlson@microsoft.com>
-es7id: pending
+esid: pending
 description: Async function declarations have a name property
 includes: [propertyHelper.js]
 ---*/

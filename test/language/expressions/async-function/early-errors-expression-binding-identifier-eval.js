@@ -3,7 +3,7 @@
 
 /*---
 author: Brian Terlson <brian.terlson@microsoft.com>
-es7id: pending
+esid: pending
 description: >
   If the source code matching this production is strict code, it is a Syntax Error if BindingIdentifier is the IdentifierName eval. 
 negative: SyntaxError

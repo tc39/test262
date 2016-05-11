@@ -3,7 +3,7 @@
 
 /*---
 author: Brian Terlson <brian.terlson@microsoft.com>
-es7id: pending
+esid: pending
 description: >
   Async functions have a length property that is the number of expected
   arguments.

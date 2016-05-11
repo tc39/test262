@@ -3,7 +3,7 @@
 
 /*---
 author: Brian Terlson <brian.terlson@microsoft.com>
-es7id: pending
+esid: pending
 description: It is a SyntaxError if FormalParameters contains await
 negative: SyntaxError
 ---*/

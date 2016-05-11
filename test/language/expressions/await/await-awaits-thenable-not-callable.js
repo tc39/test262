@@ -3,7 +3,7 @@
 
 /*---
 author: Brian Terlson <brian.terlson@microsoft.com>
-es7id: pending
+esid: pending
 description: >
   Await can await any thenable. If the thenable's then is not callable,
   await evaluates to the thenable

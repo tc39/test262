@@ -3,7 +3,7 @@
 
 /*---
 author: Brian Terlson <brian.terlson@microsoft.com>
-es7id: pending
+esid: pending
 description: It is a syntax error if FormalParameters contains SuperCall is true
 negative: SyntaxError
 ---*/

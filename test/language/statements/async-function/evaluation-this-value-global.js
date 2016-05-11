@@ -3,7 +3,7 @@
 
 /*---
 author: Brian Terlson <brian.terlson@microsoft.com>
-es7id: pending
+esid: pending
 description: >
   The this value is set to the global object when not passed in sloppy mode.
 flags: [noStrict]

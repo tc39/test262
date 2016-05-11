@@ -3,7 +3,7 @@
 
 /*---
 author: Brian Terlson <brian.terlson@microsoft.com>
-es7id: pending
+esid: pending
 description: AsyncFunction.prototype has a [[prototype]] of Function.prototype
 ---*/
 var AsyncFunction = async function foo() { }.constructor;

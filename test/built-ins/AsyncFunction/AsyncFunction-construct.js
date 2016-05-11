@@ -3,7 +3,7 @@
 
 /*---
 author: Brian Terlson <brian.terlson@microsoft.com>
-es7id: pending
+esid: pending
 description: >
   %AsyncFunction% creates functions with or without new and handles arguments
   similarly to functions.

@@ -3,7 +3,7 @@
 
 /*---
 author: brian terlson <brian.terlson@microsoft.com>
-es7id: pending
+esid: pending
 description: >
   async function bodies are executed immediately (unlike generators)
 ---*/

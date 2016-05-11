@@ -3,7 +3,7 @@
 
 /*---
 author: Brian Terlson <brian.terlson@microsoft.com>
-es7id: pending
+esid: pending
 description: It is a SyntaxError if FormalParameters contains arguments in strict mode
 negative: SyntaxError
 flags: [onlyStrict]

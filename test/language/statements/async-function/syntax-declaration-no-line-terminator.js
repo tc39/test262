@@ -3,7 +3,7 @@
 
 /*---
 author: Brian Terlson <brian.terlson@microsoft.com>
-es7id: pending
+esid: pending
 description: Async function declarations cannot have a line break after `async`
 info: Reference error is thrown due to looking up async in strict mode
 flags: [onlyStrict]

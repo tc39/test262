@@ -3,7 +3,7 @@
 
 /*---
 author: Brian Terlson <brian.terlson@microsoft.com>
-es7id: pending
+esid: pending
 description: AsyncFunction has a prototype property with writable false, enumerable false, configurable false.
 includes: [propertyHelper.js]
 ---*/

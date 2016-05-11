@@ -3,7 +3,7 @@
 
 /*---
 author: Brian Terlson <brian.terlson@microsoft.com>
-es7id: pending
+esid: pending
 description: >
   %AsyncFunctionPrototype% has a [[Extensible]] of true
 ---*/
