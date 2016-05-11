@@ -1,9 +1,11 @@
 // Copyright (C) 2015 André Bargull. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
+esid: sec-__proto__-property-names-in-object-initializers
 es6id: B.3.1
-description: The value of the `__proto__` property key is assigned to the [[Prototype]] internal slot.
+description: >
+  The value of the `__proto__` property key is assigned to the [[Prototype]]
+  internal slot (Object value)
 info: >
   __proto__ Property Names in Object Initializers
 
@@ -22,3 +24,6 @@ var object = {
 };
 
 assert.sameValue(Object.getPrototypeOf(object), proto);
+assert.sameValue(
+  Object.getOwnPropertyDescriptor(object, '__proto__'), undefined
+);
