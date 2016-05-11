@@ -9,7 +9,7 @@ description: >
 flags: [noStrict]
 ---*/
 
-var glob = Function("return this;")();
+var glob = this;
 async function foo() {
   assert.sameValue(this, glob);
 }
