@@ -26,16 +26,20 @@ info: |
   ...
   8. If isLittleEndian is false, reverse the order of the elements of rawValue.
   ...
-features: [DataView.prototype.setFloat32]
+features: [DataView.prototype.setUint8]
 ---*/
 
 var buffer = new ArrayBuffer(8);
 var sample = new DataView(buffer, 0);
 
-sample.setFloat32(0, Infinity);
-sample.setFloat32(4, -Infinity);
+sample.setUint8(0, 127);
+sample.setUint8(1, 128);
+sample.setUint8(2, 0);
+sample.setUint8(3, 0);
+sample.setUint8(4, 255);
+sample.setUint8(5, 128);
+sample.setUint8(6, 0);
+sample.setUint8(7, 0);
 
 assert.sameValue(sample.getFloat32(0), Infinity);
-assert.sameValue(sample.getFloat32(0, false), Infinity);
 assert.sameValue(sample.getFloat32(4), -Infinity);
-assert.sameValue(sample.getFloat32(4, false), -Infinity);
