@@ -16,8 +16,7 @@ class A {
 
 class B extends A {
   async method(x = super.method()) {
-    var y = await super.method();
-    assert.sameValue(y, 'sup');
+    assert.sameValue(x, 'sup');
   }
 }
 var child = new B();
