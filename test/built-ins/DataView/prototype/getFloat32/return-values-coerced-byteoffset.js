@@ -41,11 +41,6 @@ sample.setUint8(5, 75);
 sample.setUint8(6, 76);
 sample.setUint8(7, 76);
 
-assert.sameValue(sample.getFloat32(0, false), 13323340, "0, false");
-assert.sameValue(sample.getFloat32(1, false), 13388875, "1, false");
-assert.sameValue(sample.getFloat32(0, true), 53554476, "0, true");
-assert.sameValue(sample.getFloat32(1, true), 13388875, "1, true");
-
 assert.sameValue(sample.getFloat32("", false), 13323340, "'', false");
 assert.sameValue(sample.getFloat32("", true), 53554476, "'', true");
 

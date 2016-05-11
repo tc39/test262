@@ -38,6 +38,7 @@ sample.setUint8(2, 76);
 sample.setUint8(3, 76);
 
 // False
+assert.sameValue(sample.getFloat32(0), 13323340, "no arg");
 assert.sameValue(sample.getFloat32(0, undefined), 13323340, "undefined");
 assert.sameValue(sample.getFloat32(0, null), 13323340, "null");
 assert.sameValue(sample.getFloat32(0, 0), 13323340, "0");
