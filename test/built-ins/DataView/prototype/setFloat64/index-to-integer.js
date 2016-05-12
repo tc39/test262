@@ -17,7 +17,7 @@ info: >
     ...
 ---*/
 
-var dataView = new DataView(new ArrayBuffer(16));
+var dataView = new DataView(new ArrayBuffer(16), 0);
 
 dataView.setFloat64(+0, 1);
 assert.sameValue(dataView.getFloat64(0), 1, "setFloat64(+0, 1)");
