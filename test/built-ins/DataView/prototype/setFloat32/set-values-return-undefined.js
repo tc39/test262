@@ -1,0 +1,161 @@
+// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-dataview.prototype.setfloat32
+es6id: 24.2.4.13
+description: >
+  Set values and return undefined
+info: |
+  24.2.4.13 DataView.prototype.setFloat32 ( byteOffset, value [ , littleEndian ] )
+
+  1. Let v be the this value.
+  2. If littleEndian is not present, let littleEndian be false.
+  3. Return ? SetViewValue(v, byteOffset, littleEndian, "Float32", value).
+
+  24.2.1.2 SetViewValue ( view, requestIndex, isLittleEndian, type, value )
+
+  ...
+  15. Let bufferIndex be getIndex + viewOffset.
+  16. Return SetValueInBuffer(buffer, bufferIndex, type, numberValue, isLittleEndian).
+
+  24.1.1.6 SetValueInBuffer ( arrayBuffer, byteIndex, type, value [ , isLittleEndian ] )
+
+  ...
+  8. If type is "Float32", then
+    a. Set rawBytes to a List containing the 4 bytes that are the result of
+    converting value to IEEE 754-2008 binary32 format using “Round to nearest,
+    ties to even” rounding mode. If isLittleEndian is false, the bytes are
+    arranged in big endian order. Otherwise, the bytes are arranged in little
+    endian order. If value is NaN, rawValue may be set to any implementation
+    chosen IEEE 754-2008 binary32 format Not-a-Number encoding. An
+    implementation must always choose the same encoding for each implementation
+    distinguishable NaN value.
+  ...
+  11. Store the individual bytes of rawBytes into block, in order, starting at
+  block[byteIndex].
+  12. Return NormalCompletion(undefined).
+features: [DataView.prototype.getFloat32]
+---*/
+
+var buffer = new ArrayBuffer(4);
+var sample = new DataView(buffer, 0);
+
+var values = [
+  0,
+  127,         // 2 ** 7 - 1
+  128,         // 2 ** 7
+  32767,       // 2 ** 15 - 1
+  32768,       // 2 ** 15
+  2147483647,  // 2 ** 31 - 1
+  2147483648,  // 2 ** 31
+  255,         // 2 ** 8 - 1
+  256,         // 2 ** 8
+  65535,       // 2 ** 16 - 1
+  65536,       // 2 ** 16
+  4294967295,  // 2 ** 32 - 1
+  4294967296,  // 2 ** 32
+  9007199254740991, // 2 ** 53 - 1
+  9007199254740992, // 2 ** 53
+  1.1,
+  0.1,
+  0.5,
+  0.50000001,
+  0.6,
+  0.7,
+  undefined,
+  -1,
+  -0,
+  -0.1,
+  -1.1,
+  NaN,
+  -127,        // - ( 2 ** 7 - 1 )
+  -128,        // - ( 2 ** 7 )
+  -32767,      // - ( 2 ** 15 - 1 )
+  -32768,      // - ( 2 ** 15 )
+  -2147483647, // - ( 2 ** 31 - 1 )
+  -2147483648, // - ( 2 ** 31 )
+  -255,        // - ( 2 ** 8 - 1 )
+  -256,        // - ( 2 ** 8 )
+  -65535,      // - ( 2 ** 16 - 1 )
+  -65536,      // - ( 2 ** 16 )
+  -4294967295, // - ( 2 ** 32 - 1 )
+  -4294967296, // - ( 2 ** 32 )
+  Infinity,
+  -Infinity
+];
+
+var expectedValues = [
+  0,
+  127,                  // 127
+  128,                  // 128
+  32767,                // 32767
+  32768,                // 32768
+  2147483648,           // 2147483647
+  2147483648,           // 2147483648
+  255,                  // 255
+  256,                  // 256
+  65535,                // 65535
+  65536,                // 65536
+  4294967296,           // 4294967295
+  4294967296,           // 4294967296
+  9007199254740992,     // 9007199254740991
+  9007199254740992,     // 9007199254740992
+  1.100000023841858,    // 1.1
+  0.10000000149011612,  // 0.1
+  0.5,                  // 0.5
+  0.5,                  // 0.50000001,
+  0.6000000238418579,   // 0.6
+  0.699999988079071,    // 0.7
+  NaN,                  // undefined
+  -1,                   // -1
+  -0,                   // -0
+  -0.10000000149011612, // -0.1
+  -1.100000023841858,   // -1.1
+  NaN,                  // NaN
+  -127,                 // -127
+  -128,                 // -128
+  -32767,               // -32767
+  -32768,               // -32768
+  -2147483648,          // -2147483647
+  -2147483648,          // -2147483648
+  -255,                 // -255
+  -256,                 // -256
+  -65535,               // -65535
+  -65536,               // -65536
+  -4294967296,          // -4294967295
+  -4294967296,          // -4294967296
+  Infinity,             // Infinity
+  -Infinity             // -Infinity
+];
+
+values.forEach(function(value, i) {
+  var result;
+  var expected = expectedValues[i];
+
+  result = sample.setFloat32(0, value, false);
+
+  assert.sameValue(
+    sample.getFloat32(0),
+    expected,
+    "littleEndian is false, value: " + value
+  );
+  assert.sameValue(
+    result,
+    undefined,
+    "littleEndian is false, return is undefined, value: " + value
+  );
+
+  result = sample.setFloat32(0, value, true);
+
+  assert.sameValue(
+    sample.getFloat32(0, true),
+    expected,
+    "littleEndian is true, value: " + value
+  );
+  assert.sameValue(
+    result,
+    undefined,
+    "littleEndian is true, return is undefined, value: " + value
+  );
+});
