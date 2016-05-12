@@ -42,7 +42,6 @@ var buffer = new ArrayBuffer(4);
 var sample = new DataView(buffer, 0);
 
 var values = [
-  0,
   127,         // 2 ** 7 - 1
   128,         // 2 ** 7
   32767,       // 2 ** 15 - 1
@@ -82,11 +81,11 @@ var values = [
   -4294967295, // - ( 2 ** 32 - 1 )
   -4294967296, // - ( 2 ** 32 )
   Infinity,
-  -Infinity
+  -Infinity,
+  0,
 ];
 
 var expectedValues = [
-  0,
   127,                  // 127
   128,                  // 128
   32767,                // 32767
@@ -126,7 +125,8 @@ var expectedValues = [
   -4294967296,          // -4294967295
   -4294967296,          // -4294967296
   Infinity,             // Infinity
-  -Infinity             // -Infinity
+  -Infinity,            // -Infinity
+  0
 ];
 
 values.forEach(function(value, i) {
