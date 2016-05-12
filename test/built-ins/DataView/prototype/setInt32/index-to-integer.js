@@ -17,7 +17,7 @@ info: >
     ...
 ---*/
 
-var dataView = new DataView(new ArrayBuffer(8));
+var dataView = new DataView(new ArrayBuffer(8), 0);
 
 dataView.setInt32(+0, 1);
 assert.sameValue(dataView.getInt32(0), 1, "setInt32(+0, 1)");
