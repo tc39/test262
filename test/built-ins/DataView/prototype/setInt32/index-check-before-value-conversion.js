@@ -4,25 +4,27 @@
 /*---
 esid: sec-dataview.prototype.setint32
 description: >
-  Throws a RangeError if the index is negative or non-integral number.
+  RangeError exception for negative or non-integral index is thrown before
+  the value conversion.
 info: >
   ...
   3. Return SetViewValue(v, byteOffset, littleEndian, "Int32", value).
 
   24.2.1.2 SetViewValue ( view, requestIndex, isLittleEndian, type, value )
-    ...
-    3. Let numberIndex be ToNumber(requestIndex).
-    4. Let getIndex be ? ToInteger(numberIndex).
-    5. If numberIndex ≠ getIndex or getIndex < 0, throw a RangeError exception.
-    6. Let numberValue be ? ToNumber(value).
-    ...
+
+  ...
+  4. Let numberIndex be ToNumber(requestIndex).
+  5. Let getIndex be ? ToInteger(numberIndex).
+  6. If numberIndex ≠ getIndex or getIndex < 0, throw a RangeError exception.
+  7. Let numberValue be ? ToNumber(value).
+  ...
 ---*/
 
-var dataView = new DataView(new ArrayBuffer(8));
+var dataView = new DataView(new ArrayBuffer(8), 0);
 
 var poisoned = {
   valueOf: function() {
-    $ERROR("valueOf called");
+    throw new Test262Error("valueOf called");
   }
 };
 
