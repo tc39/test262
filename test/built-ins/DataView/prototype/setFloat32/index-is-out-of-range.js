@@ -86,5 +86,5 @@ assert.throws(RangeError, function() {
 
 sample = new DataView(buffer, 0);
 assert.sameValue(sample.getFloat32(0), 0, "[0] no value was set");
-assert.sameValue(sample.getFloat32(1), 0, "[1] no value was set");
-assert.sameValue(sample.getFloat32(2), 0, "[2] no value was set");
+assert.sameValue(sample.getFloat32(4), 0, "[1] no value was set");
+assert.sameValue(sample.getFloat32(8), 0, "[2] no value was set");
