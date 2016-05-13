@@ -21,10 +21,10 @@ info: >
       i. Let value be GetValueFromBuffer(srcBuffer, srcByteIndex, srcType).
       ii. Perform SetValueInBuffer(targetBuffer, targetByteIndex, targetType,
       value).
-includes: [testTypedArray.js]
+includes: [byteConversionValues.js, testTypedArray.js]
 ---*/
 
-testTypedArrayConversions(function(TA, value, expected, initial) {
+testTypedArrayConversions(byteConversionValues, function(TA, value, expected, initial) {
   if (TA === Float64Array) {
     return;
   }

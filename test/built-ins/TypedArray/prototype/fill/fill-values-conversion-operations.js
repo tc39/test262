@@ -44,10 +44,10 @@ info: >
       ...
     e. Else,
       ...
-includes: [testTypedArray.js]
+includes: [byteConversionValues.js, testTypedArray.js]
 ---*/
 
-testTypedArrayConversions(function(TA, value, expected, initial) {
+testTypedArrayConversions(byteConversionValues, function(TA, value, expected, initial) {
   var sample = new TA([initial]);
 
   sample.fill(value);
