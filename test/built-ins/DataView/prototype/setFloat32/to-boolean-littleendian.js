@@ -49,10 +49,10 @@ assert.sameValue(sample.getFloat32(0), 5, "the empty string");
 
 // True
 sample.setFloat32(0, 6, {});
-assert.sameValue(sample.getFloat32(0, true), 6, "{}");
+assert.sameValue(sample.getFloat32(0), 6.89663052202102e-41, "{}");
 sample.setFloat32(0, 7, Symbol("1"));
-assert.sameValue(sample.getFloat32(0, true), 7, "symbol");
+assert.sameValue(sample.getFloat32(0), 8.04457422399591e-41, "symbol");
 sample.setFloat32(0, 8, 1);
-assert.sameValue(sample.getFloat32(0, true), 8, "1");
+assert.sameValue(sample.getFloat32(0), 9.10844001811131e-44, "1");
 sample.setFloat32(0, 9, "string");
-assert.sameValue(sample.getFloat32(0, true), 9, "string");
+assert.sameValue(sample.getFloat32(0), 5.830802910055564e-42, "string");
