@@ -53,24 +53,11 @@ values.forEach(function(value, i) {
   assert.sameValue(
     sample.getFloat32(0),
     expected,
-    "littleEndian is false, value: " + value
+    "value: " + value
   );
   assert.sameValue(
     result,
     undefined,
-    "littleEndian is false, return is undefined, value: " + value
-  );
-
-  result = sample.setFloat32(0, value, true);
-
-  assert.sameValue(
-    sample.getFloat32(0, true),
-    expected,
-    "littleEndian is true, value: " + value
-  );
-  assert.sameValue(
-    result,
-    undefined,
-    "littleEndian is true, return is undefined, value: " + value
+    "return is undefined, value: " + value
   );
 });
