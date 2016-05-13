@@ -10,9 +10,9 @@ includes: [byteConversionValues.js]
 var values = byteConversionValues.values;
 var expected = byteConversionValues.expected;
 
-assert.sameValue(values.length > 0);
+assert(values.length > 0);
 assert.sameValue(values.length, expected.Float32.length, "Float32");
-assert.sameValue(values.length, expected.Float364.length, "Float364");
+assert.sameValue(values.length, expected.Float64.length, "Float64");
 assert.sameValue(values.length, expected.Int8.length, "Int8");
 assert.sameValue(values.length, expected.Int16.length, "Int16");
 assert.sameValue(values.length, expected.Int32.length, "Int32");
