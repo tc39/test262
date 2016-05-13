@@ -42,10 +42,10 @@ info: >
       ...
     e. Else,
       ...
-includes: [byteConversionValues, testTypedArray.js]
+includes: [byteConversionValues.js, testTypedArray.js]
 ---*/
 
-testTypedArrayConversions(function(TA, value, expected) {
+testTypedArrayConversions(byteConversionValues, function(TA, value, expected) {
   var sample = new TA([value]);
 
   assert.sameValue(sample[0], expected, value + " converts to " + expected);

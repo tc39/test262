@@ -56,10 +56,7 @@ function testWithTypedArrayConstructors(f, selected) {
  *                         value, and a initial value that can be used to avoid
  *                         a false positive with an equivalent expected value.
  */
-function testTypedArrayConversions(fn) {
-  if (!byteConversionValues) {
-    throw new Test262Error("harness/byteConversionValues.js is required");
-  }
+function testTypedArrayConversions(byteConversionValues, fn) {
   var values = byteConversionValues.values;
   var expected = byteConversionValues.expected;
 
