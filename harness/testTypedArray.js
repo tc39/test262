@@ -61,8 +61,10 @@ function testTypedArrayConversions(byteConversionValues, fn) {
   var expected = byteConversionValues.expected;
 
   testWithTypedArrayConstructors(function(TA) {
+    var name = TA.name.slice(0, -5);
+
     return values.forEach(function(value, index) {
-      var exp = expected[TA.name + "Array"][index];
+      var exp = expected[name][index];
       var initial = 0;
       if (exp === 0) {
         initial = 1;
