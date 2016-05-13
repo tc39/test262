@@ -44,7 +44,7 @@ info: >
       ...
     e. Else,
       ...
-includes: [testTypedArray.js]
+includes: [byteConversionValues.js, testTypedArray.js]
 ---*/
 
 testTypedArrayConversions(function(TA, value, expected, initial) {

@@ -21,7 +21,7 @@ info: >
       i. Let value be GetValueFromBuffer(srcBuffer, srcByteIndex, srcType).
       ii. Perform SetValueInBuffer(targetBuffer, targetByteIndex, targetType,
       value).
-includes: [testTypedArray.js]
+includes: [byteConversionValues, testTypedArray.js]
 ---*/
 
 testTypedArrayConversions(function(TA, value, expected, initial) {

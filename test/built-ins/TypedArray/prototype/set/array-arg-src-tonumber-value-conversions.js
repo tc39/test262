@@ -18,7 +18,7 @@ info: >
     d. Perform SetValueInBuffer(targetBuffer, targetByteIndex, targetType,
     kNumber).
   ...
-includes: [testTypedArray.js]
+includes: [byteConversionValues, testTypedArray.js]
 ---*/
 
 testTypedArrayConversions(function(TA, value, expected, initial) {
