@@ -22,28 +22,26 @@ info: >
     ...
 ---*/
 
-var dataView = new DataView(new ArrayBuffer(8));
-
-function DummyError() { }
+var dataView = new DataView(new ArrayBuffer(8), 0);
 
 var poisoned = {
   valueOf: function() {
-    throw new DummyError();
+    throw new Test262Error();
   }
 };
 
-assert.throws(DummyError, function() {
+assert.throws(Test262Error, function() {
   dataView.setUint32(Infinity, poisoned);
 }, "setUint32(Infinity, poisoned)");
 
-assert.throws(DummyError, function() {
+assert.throws(Test262Error, function() {
   dataView.setUint32(100, poisoned);
 }, "setUint32(100, poisoned)");
 
-assert.throws(DummyError, function() {
+assert.throws(Test262Error, function() {
   dataView.setUint32('Infinity', poisoned);
 }, "setUint32('Infinity', poisoned)");
 
-assert.throws(DummyError, function() {
+assert.throws(Test262Error, function() {
   dataView.setUint32('100', poisoned);
 }, "setUint32('100', poisoned)");
