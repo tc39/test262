@@ -17,7 +17,7 @@ info: >
     ...
 ---*/
 
-var dataView = new DataView(new ArrayBuffer(8));
+var dataView = new DataView(new ArrayBuffer(8), 0);
 
 dataView.setUint16(+0, 1);
 assert.sameValue(dataView.getUint16(0), 1, "setUint16(+0, 1)");
