@@ -32,21 +32,21 @@ features: [DataView.prototype.setUint8]
 var buffer = new ArrayBuffer(8);
 var sample = new DataView(buffer, 0);
 
-sample.setUint8(0, 39);
+sample.setUint8(0, 0);
 sample.setUint8(1, 2);
 sample.setUint8(2, 6);
 sample.setUint8(3, 2);
-sample.setUint8(4, 0);
+sample.setUint8(4, 128);
 sample.setUint8(5, 42);
-sample.setUint8(6, 1);
-sample.setUint8(7, 0);
+sample.setUint8(6, 128);
+sample.setUint8(7, 39);
 
 sample = new DataView(buffer, 4);
 
-assert.sameValue(sample.getInt16(0, false), 42, "0, false");
-assert.sameValue(sample.getInt16(1, false), 10753, "1, false");
-assert.sameValue(sample.getInt16(2, false), 256, "2, false");
+assert.sameValue(sample.getInt16(0, false), -32726, "0, false");
+assert.sameValue(sample.getInt16(1, false), 10880, "1, false");
+assert.sameValue(sample.getInt16(2, false), -32729, "2, false");
 
-assert.sameValue(sample.getInt16(0, true), 10752, "0, true");
-assert.sameValue(sample.getInt16(1, true), 298, "1, true");
-assert.sameValue(sample.getInt16(2, true), 1, "2, true");
+assert.sameValue(sample.getInt16(0, true), 10880, "0, true");
+assert.sameValue(sample.getInt16(1, true), -32726, "1, true");
+assert.sameValue(sample.getInt16(2, true), 10112, "2, true");
