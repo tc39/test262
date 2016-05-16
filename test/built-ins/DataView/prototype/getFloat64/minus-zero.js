@@ -42,5 +42,4 @@ sample.setUint8(6, 0);
 sample.setUint8(7, 0);
 
 var result = sample.getFloat64(0);
-assert.sameValue(result, 0);
-assert.sameValue(1 / result, -Infinity);
+assert.sameValue(result, -0);
