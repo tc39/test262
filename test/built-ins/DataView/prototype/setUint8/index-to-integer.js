@@ -15,30 +15,33 @@ info: >
     4. Let getIndex be ToInteger(numberIndex).
     5. ReturnIfAbrupt(getIndex).
     ...
+features: [Uint8Array]
 ---*/
 
-var dataView = new DataView(new ArrayBuffer(8));
+var buffer = new ArrayBuffer(2);
+var dataView = new DataView(buffer, 0);
+var typedArray = new Uint8Array(buffer, 0);
 
 dataView.setUint8(+0, 1);
-assert.sameValue(dataView.getUint8(0), 1, "setUint8(+0, 1)");
+assert.sameValue(typedArray[0], 1, "setUint8(+0, 1)");
 
 dataView.setUint8(-0, 2);
-assert.sameValue(dataView.getUint8(0), 2, "setUint8(-0, 2)");
+assert.sameValue(typedArray[0], 2, "setUint8(-0, 2)");
 
 dataView.setUint8(1, 3);
-assert.sameValue(dataView.getUint8(1), 3, "setUint8(1, 3)");
+assert.sameValue(typedArray[1], 3, "setUint8(1, 3)");
 
 dataView.setUint8(null, 4);
-assert.sameValue(dataView.getUint8(0), 4, "setUint8(null, 4)");
+assert.sameValue(typedArray[0], 4, "setUint8(null, 4)");
 
 dataView.setUint8(false, 5);
-assert.sameValue(dataView.getUint8(0), 5, "setUint8(false, 5)");
+assert.sameValue(typedArray[0], 5, "setUint8(false, 5)");
 
 dataView.setUint8(true, 6);
-assert.sameValue(dataView.getUint8(1), 6, "setUint8(true, 6)");
+assert.sameValue(typedArray[1], 6, "setUint8(true, 6)");
 
 dataView.setUint8("", 7);
-assert.sameValue(dataView.getUint8(0), 7, "setUint8('', 7)");
+assert.sameValue(typedArray[0], 7, "setUint8('', 7)");
 
 // Math.pow(2, 31) = 2147483648
 assert.throws(RangeError, function() {
@@ -56,4 +59,4 @@ var obj = {
   }
 };
 dataView.setUint8(obj, 10);
-assert.sameValue(dataView.getUint8(1), 10, "setUint8(obj, 10)");
+assert.sameValue(typedArray[1], 10, "setUint8(obj, 10)");

@@ -4,7 +4,8 @@
 /*---
 esid: sec-dataview.prototype.setuint8
 description: >
-  Throws a RangeError if the index is negative or non-integral number.
+  RangeError exception for negative or non-integral index is thrown before
+  the value conversion.
 info: >
   ...
   3. Return SetViewValue(v, byteOffset, littleEndian, "Uint8", value).
@@ -18,11 +19,11 @@ info: >
     ...
 ---*/
 
-var dataView = new DataView(new ArrayBuffer(8));
+var dataView = new DataView(new ArrayBuffer(8), 0);
 
 var poisoned = {
   valueOf: function() {
-    $ERROR("valueOf called");
+    throw new Test262Error("valueOf called");
   }
 };
 
