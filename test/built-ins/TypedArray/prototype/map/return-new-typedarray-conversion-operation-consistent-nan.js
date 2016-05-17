@@ -46,9 +46,10 @@ includes: [nans.js, testTypedArray.js, compareArray.js]
 function body(FloatArray) {
   var sample = new FloatArray(distinctNaNs);
   var sampleBytes, resultBytes;
+  var i = 0;
 
-  var result = sample.map(function(value) {
-    return value;
+  var result = sample.map(function() {
+    return distinctNaNs[i++];
   });
 
   sampleBytes = new Uint8Array(sample.buffer);
