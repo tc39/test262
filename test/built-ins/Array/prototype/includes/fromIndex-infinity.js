@@ -25,10 +25,10 @@ info: |
 assert.sameValue(
   sample.includes(43, Infinity),
   false,
-  "indexOf(43, Infinity)"
+  "includes(43, Infinity)"
 );
 assert.sameValue(
   sample.includes(43, -Infinity),
   true,
-  "indexOf(43, -Infinity)"
+  "includes(43, -Infinity)"
 );
