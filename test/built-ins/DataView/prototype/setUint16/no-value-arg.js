@@ -31,6 +31,8 @@ features: [DataView.prototype.getUint16]
 var buffer = new ArrayBuffer(8);
 var sample = new DataView(buffer, 0);
 
+sample.setUint16(0, 42);
+
 var result = sample.setUint16(0);
 
 assert.sameValue(sample.getUint16(0), 0);
