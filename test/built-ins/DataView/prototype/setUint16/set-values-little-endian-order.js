@@ -26,7 +26,6 @@ info: |
   block[byteIndex].
   12. Return NormalCompletion(undefined).
 features: [DataView.prototype.getUint16]
-includes: [byteConversionValues.js]
 ---*/
 
 var buffer = new ArrayBuffer(8);
