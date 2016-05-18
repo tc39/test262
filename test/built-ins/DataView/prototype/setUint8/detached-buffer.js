@@ -7,7 +7,7 @@ es6id: 24.2.4.18
 description: >
   Throws a TypeError if buffer is detached
 info: |
-  24.2.4.15 DataView.prototype.setUint8 ( byteOffset, value )
+  24.2.4.18 DataView.prototype.setUint8 ( byteOffset, value )
 
   1. Let v be the this value.
   2. Return ? SetViewValue(v, byteOffset, true, "Uint8", value).

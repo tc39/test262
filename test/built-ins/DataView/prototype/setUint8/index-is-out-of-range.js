@@ -7,7 +7,7 @@ es6id: 24.2.4.18
 description: >
   Throws a RangeError if getIndex + elementSize > viewSize
 info: |
-  24.2.4.15 DataView.prototype.setUint8 ( byteOffset, value )
+  24.2.4.18 DataView.prototype.setUint8 ( byteOffset, value )
 
   1. Let v be the this value.
   2. Return ? SetViewValue(v, byteOffset, true, "Uint8", value).
@@ -57,7 +57,6 @@ assert.throws(RangeError, function() {
   sample.setUint8(1, 39);
 }, "1 + 1 > 1 (offset+length)");
 
-sample = new DataView(buffer, 0);
 assert.sameValue(typedArray[0], 0, "[0] no value was set");
 assert.sameValue(typedArray[1], 0, "[1] no value was set");
 assert.sameValue(typedArray[2], 0, "[2] no value was set");
