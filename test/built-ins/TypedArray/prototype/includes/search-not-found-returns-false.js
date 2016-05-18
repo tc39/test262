@@ -32,10 +32,10 @@ testWithTypedArrayConstructors(function(TA) {
   var sample;
 
   sample = new TA([42, 43, 42, 41]);
-  assert.sameValue(sample.includes(44), false, "indexOf(44)");
-  assert.sameValue(sample.includes(43, 2), false, "indexOf(43, 2)");
-  assert.sameValue(sample.includes(42, 3), false, "indexOf(42, 3)");
-  assert.sameValue(sample.includes(44, -4), false, "indexOf(44, -4)");
-  assert.sameValue(sample.includes(44, -5), false, "indexOf(44, -5)");
-  assert.sameValue(sample.includes(42, -1), false, "indexOf(42, -1)");
+  assert.sameValue(sample.includes(44), false, "includes(44)");
+  assert.sameValue(sample.includes(43, 2), false, "includes(43, 2)");
+  assert.sameValue(sample.includes(42, 3), false, "includes(42, 3)");
+  assert.sameValue(sample.includes(44, -4), false, "includes(44, -4)");
+  assert.sameValue(sample.includes(44, -5), false, "includes(44, -5)");
+  assert.sameValue(sample.includes(42, -1), false, "includes(42, -1)");
 });
