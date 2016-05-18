@@ -34,10 +34,26 @@ var sample = new DataView(buffer, 0);
 
 var result;
 
-result = sample.setInt16(0, 42, true);
+result = sample.setInt16(0, -1870724872, true);
 assert.sameValue(result, undefined, "returns undefined #1");
-assert.sameValue(sample.getInt16(0), 10752);
+assert.sameValue(sample.getInt16(0), -2048);
 
-result = sample.setInt16(0, 10752, true);
+result = sample.setInt16(0, -134185072, true);
 assert.sameValue(result, undefined, "returns undefined #2");
-assert.sameValue(sample.getInt16(0), 42);
+assert.sameValue(sample.getInt16(0), -28545);
+
+result = sample.setInt16(0, 1870724872, true);
+assert.sameValue(result, undefined, "returns undefined #3");
+assert.sameValue(sample.getInt16(0), 2303);
+
+result = sample.setInt16(0, 150962287, true);
+assert.sameValue(result, undefined, "returns undefined #4");
+assert.sameValue(sample.getInt16(0), 28544);
+
+result = sample.setInt16(0, 4160782224, true);
+assert.sameValue(result, undefined, "returns undefined #5");
+assert.sameValue(sample.getInt16(0), -28545);
+
+result = sample.setInt16(0, 2424242424, true);
+assert.sameValue(result, undefined, "returns undefined #6");
+assert.sameValue(sample.getInt16(0), -2048);
