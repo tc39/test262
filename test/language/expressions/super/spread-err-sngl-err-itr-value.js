@@ -1,11 +1,11 @@
 // This file was procedurally generated from the following sources:
-// - src/spread/sngl-err-expr-throws.case
+// - src/spread/sngl-err-itr-value.case
 // - src/spread/error/super-call.template
 /*---
-description: Spread operator applied to the only argument when evaluation throws (SuperCall)
+description: Spread operator applied to the only argument when IteratorValue fails (SuperCall)
 esid: sec-super-keyword-runtime-semantics-evaluation
 es6id: 12.3.5.1
-features: [generators]
+features: [Symbol.iterator]
 flags: [generated]
 info: |
     SuperCall : super Arguments
@@ -26,7 +26,36 @@ info: |
     3. Let spreadObj be GetValue(spreadRef).
     4. Let iterator be GetIterator(spreadObj).
     5. ReturnIfAbrupt(iterator).
+    6. Repeat
+       a. Let next be IteratorStep(iterator).
+       b. ReturnIfAbrupt(next).
+       c. If next is false, return list.
+       d. Let nextArg be IteratorValue(next).
+       e. ReturnIfAbrupt(nextArg).
+
+    7.4.4 IteratorValue ( iterResult )
+
+    1. Assert: Type(iterResult) is Object.
+    2. Return Get(iterResult, "value").
+
+    7.3.1 Get (O, P)
+
+    [...]
+    3. Return O.[[Get]](P, O).
 ---*/
+var iter = {};
+var poisonedValue = Object.defineProperty({}, 'value', {
+  get: function() {
+    throw new Test262Error();
+  }
+});
+iter[Symbol.iterator] = function() {
+  return {
+    next: function() {
+      return poisonedValue;
+    }
+  };
+};
 
 class Test262ParentClass {
   constructor() {}
@@ -34,7 +63,7 @@ class Test262ParentClass {
 
 class Test262ChildClass extends Test262ParentClass {
   constructor() {
-    super(...function*() { throw new Test262Error(); }());
+    super(...iter);
   }
 }
 

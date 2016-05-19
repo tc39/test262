@@ -1,11 +1,11 @@
 // This file was procedurally generated from the following sources:
-// - src/spread/sngl-err-expr-throws.case
+// - src/spread/sngl-err-itr-get-get.case
 // - src/spread/error/member-expr.template
 /*---
-description: Spread operator applied to the only argument when evaluation throws (`new` operator)
+description: Spread operator applied to the only argument when GetIterator fails (@@iterator property access) (`new` operator)
 esid: sec-new-operator-runtime-semantics-evaluation
 es6id: 12.3.3.1
-features: [generators]
+features: [Symbol.iterator]
 flags: [generated]
 info: |
     MemberExpression : new MemberExpression Arguments
@@ -28,8 +28,19 @@ info: |
     3. Let spreadObj be GetValue(spreadRef).
     4. Let iterator be GetIterator(spreadObj).
     5. ReturnIfAbrupt(iterator).
+
+    7.4.1 GetIterator ( obj, method )
+
+    1. If method was not passed, then
+       a. Let method be ? GetMethod(obj, @@iterator).
 ---*/
+var iter = {};
+Object.defineProperty(iter, Symbol.iterator, {
+  get: function() {
+    throw new Test262Error();
+  }
+});
 
 assert.throws(Test262Error, function() {
-  new function() {}(...function*() { throw new Test262Error(); }());
+  new function() {}(...iter);
 });

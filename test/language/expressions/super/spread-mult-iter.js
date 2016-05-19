@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
-// - src/spread/sngl-iter.case
+// - src/spread/mult-iter.case
 // - src/spread/default/super-call.template
 /*---
-description: Spread operator applied to the only argument with a valid iterator (SuperCall)
+description: Spread operator following other arguments with a valid iterator (SuperCall)
 esid: sec-super-keyword-runtime-semantics-evaluation
 es6id: 12.3.5.1
 features: [Symbol.iterator]
@@ -36,11 +36,11 @@ info: |
 ---*/
 var iter = {};
 iter[Symbol.iterator] = function() {
-  var nextCount = 0;
+  var nextCount = 3;
   return {
     next: function() {
       nextCount += 1;
-      return { done: nextCount === 3, value: nextCount };
+      return { done: nextCount === 6, value: nextCount };
     }
   };
 };
@@ -49,16 +49,19 @@ var callCount = 0;
 
 class Test262ParentClass {
   constructor() {
-    assert.sameValue(arguments.length, 2);
+    assert.sameValue(arguments.length, 5);
     assert.sameValue(arguments[0], 1);
     assert.sameValue(arguments[1], 2);
+    assert.sameValue(arguments[2], 3);
+    assert.sameValue(arguments[3], 4);
+    assert.sameValue(arguments[4], 5);
     callCount += 1;
   }
 }
 
 class Test262ChildClass extends Test262ParentClass {
   constructor() {
-    super(...iter);
+    super(1, 2, 3, ...iter);
   }
 }
 

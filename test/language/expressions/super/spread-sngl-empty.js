@@ -1,11 +1,10 @@
 // This file was procedurally generated from the following sources:
-// - src/spread/sngl-err-expr-throws.case
-// - src/spread/error/super-call.template
+// - src/spread/sngl-empty.case
+// - src/spread/default/super-call.template
 /*---
-description: Spread operator applied to the only argument when evaluation throws (SuperCall)
+description: Spread operator applied to the only argument when no iteration occurs (SuperCall)
 esid: sec-super-keyword-runtime-semantics-evaluation
 es6id: 12.3.5.1
-features: [generators]
 flags: [generated]
 info: |
     SuperCall : super Arguments
@@ -26,18 +25,27 @@ info: |
     3. Let spreadObj be GetValue(spreadRef).
     4. Let iterator be GetIterator(spreadObj).
     5. ReturnIfAbrupt(iterator).
+    6. Repeat
+       a. Let next be IteratorStep(iterator).
+       b. ReturnIfAbrupt(next).
+       c. If next is false, return list.
+       [...]
 ---*/
 
+var callCount = 0;
+
 class Test262ParentClass {
-  constructor() {}
+  constructor() {
+    assert.sameValue(arguments.length, 0);
+    callCount += 1;
+  }
 }
 
 class Test262ChildClass extends Test262ParentClass {
   constructor() {
-    super(...function*() { throw new Test262Error(); }());
+    super(...[]);
   }
 }
 
-assert.throws(Test262Error, function() {
-  new Test262ChildClass();
-});
+new Test262ChildClass();
+assert.sameValue(callCount, 1);

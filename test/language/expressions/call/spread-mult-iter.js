@@ -1,23 +1,24 @@
 // This file was procedurally generated from the following sources:
-// - src/spread/sngl-iter.case
-// - src/spread/default/member-expr.template
+// - src/spread/mult-iter.case
+// - src/spread/default/call-expr.template
 /*---
-description: Spread operator applied to the only argument with a valid iterator (`new` operator)
-esid: sec-new-operator-runtime-semantics-evaluation
-es6id: 12.3.3.1
+description: Spread operator following other arguments with a valid iterator (CallExpression)
+esid: sec-function-calls-runtime-semantics-evaluation
+es6id: 12.3.4.1
 features: [Symbol.iterator]
 flags: [generated]
 info: |
-    MemberExpression : new MemberExpression Arguments
+    CallExpression : MemberExpression Arguments
 
-    1. Return EvaluateNew(MemberExpression, Arguments).
+    [...]
+    9. Return EvaluateDirectCall(func, thisValue, Arguments, tailCall).
 
-    12.3.3.1.1 Runtime Semantics: EvaluateNew
+    12.3.4.3 Runtime Semantics: EvaluateDirectCall
 
-    6. If arguments is empty, let argList be an empty List.
-    7. Else,
-       a. Let argList be ArgumentListEvaluation of arguments.
-       [...]
+    1. Let argList be ArgumentListEvaluation(arguments).
+    [...]
+    6. Let result be Call(func, thisValue, argList).
+    [...]
 
     12.3.6.1 Runtime Semantics: ArgumentListEvaluation
 
@@ -38,22 +39,25 @@ info: |
 ---*/
 var iter = {};
 iter[Symbol.iterator] = function() {
-  var nextCount = 0;
+  var nextCount = 3;
   return {
     next: function() {
       nextCount += 1;
-      return { done: nextCount === 3, value: nextCount };
+      return { done: nextCount === 6, value: nextCount };
     }
   };
 };
 
 var callCount = 0;
 
-new function() {
-  assert.sameValue(arguments.length, 2);
+(function() {
+  assert.sameValue(arguments.length, 5);
   assert.sameValue(arguments[0], 1);
   assert.sameValue(arguments[1], 2);
+  assert.sameValue(arguments[2], 3);
+  assert.sameValue(arguments[3], 4);
+  assert.sameValue(arguments[4], 5);
   callCount += 1;
-}(...iter);
+}(1, 2, 3, ...iter));
 
 assert.sameValue(callCount, 1);
