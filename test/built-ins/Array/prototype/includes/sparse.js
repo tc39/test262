@@ -20,6 +20,18 @@ info: |
   ...
 ---*/
 
+assert.sameValue(
+  [ , , , ].includes(undefined),
+  true,
+  "[ , , , ].includes(undefined)"
+);
+
+assert.sameValue(
+  [ , , , 42, ].includes(undefined, 4),
+  false,
+  "[ , , , 42, ].includes(undefined, 4)"
+);
+
 var sample = [ , , , 42, , ];
 
 assert.sameValue(
@@ -31,11 +43,6 @@ assert.sameValue(
   sample.includes(undefined, 4),
   true,
   "sample.includes(undefined, 4)"
-);
-assert.sameValue(
-  [ , , , 42, ].includes(undefined, 4),
-  false,
-  "[ , , , 42, ].includes(undefined, 4)"
 );
 assert.sameValue(
   sample.includes(42, 3),

@@ -20,7 +20,7 @@ info: |
   8. Return false.
 ---*/
 
-  var sample = [42, 43, 43, 41];
+var sample = [42, 43, 43, 41];
 
 assert.sameValue(
   sample.includes(43, Infinity),
