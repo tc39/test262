@@ -13,16 +13,15 @@ info: |
   ...
 ---*/
 
+var calls = 0;
 var fromIndex = {
   valueOf: function() {
-    throw new Test262Error();
+    calls++;
   }
 };
 
 var sample = [];
 assert.sameValue(sample.includes(0), false, "returns false");
 assert.sameValue(sample.includes(), false, "returns false - no arg");
-assert.sameValue(
-  sample.includes(0, fromIndex), false,
-  "length is checked before ToInteger(fromIndex)"
-);
+assert.sameValue(sample.includes(0, fromIndex), false, "using fromIndex");
+assert.sameValue(calls, 0, "length is checked before ToInteger(fromIndex)");

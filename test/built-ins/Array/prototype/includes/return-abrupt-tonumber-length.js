@@ -29,9 +29,9 @@ var obj2 = {
 };
 
 assert.throws(Test262Error, function() {
-  [].includes.call(obj1, 7);
+  [].includes.call(obj1);
 }, "valueOf");
 
 assert.throws(Test262Error, function() {
-  [].includes.call(obj2, 7);
+  [].includes.call(obj2);
 }, "toString");

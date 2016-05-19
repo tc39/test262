@@ -18,6 +18,7 @@ info: |
     b. If SameValueZero(searchElement, elementK) is true, return true.
     c. Increase k by 1.
   8. Return false.
+features: [Symbol]
 ---*/
 
 assert.sameValue([42].includes(43), false, "43");
