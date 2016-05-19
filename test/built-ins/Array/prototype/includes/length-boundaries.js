@@ -39,15 +39,44 @@ assert.sameValue([].includes.call(obj, "a"), false, "-0.1");
 obj.length = -Infinity;
 assert.sameValue([].includes.call(obj, "a"), false, "-Infinity");
 
-obj.length = 9007199254740991;
-assert.sameValue([].includes.call(obj, "c"), true, "2**53-1, found value at 2**53-2");
+var fromIndex = 9007199254740990;
 
 obj.length = 9007199254740991;
-assert.sameValue([].includes.call(obj, "d"), false, "2**53-1, not found value at 2**53-1");
+assert.sameValue(
+  [].includes.call(obj, "c", fromIndex),
+  true,
+  "2**53-1, found value at 2**53-2"
+);
+
+obj.length = 9007199254740991;
+assert.sameValue(
+  [].includes.call(obj, "d", fromIndex),
+  false,
+  "2**53-1, not found value at 2**53-1"
+);
 
 obj.length = 9007199254740992;
-assert.sameValue([].includes.call(obj, "d"), true, "2**53, found value at 2**53-1");
+assert.sameValue(
+  [].includes.call(obj, "d", fromIndex),
+  true,
+  "2**53, found value at 2**53-1"
+);
+
+obj.length = 9007199254740993;
+assert.sameValue(
+  [].includes.call(obj, "e", fromIndex),
+  false,
+  "2**53+1, ignores indexes >= 2**53"
+);
 
 obj.length = Infinity;
-assert.sameValue([].includes.call(obj, "d"), true, "Infinity, found item");
-assert.sameValue([].includes.call(obj, "e"), false, "Infinity, ignores indexes >= 2**53");
+assert.sameValue(
+  [].includes.call(obj, "d", fromIndex),
+  true,
+  "Infinity, found item"
+);
+assert.sameValue(
+  [].includes.call(obj, "e", fromIndex),
+  false,
+  "Infinity, ignores indexes >= 2**53"
+);
