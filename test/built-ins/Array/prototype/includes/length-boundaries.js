@@ -52,31 +52,31 @@ obj.length = 9007199254740991;
 assert.sameValue(
   [].includes.call(obj, "d", fromIndex),
   false,
-  "2**53-1, not found value at 2**53-1"
+  "2**53-1, ignores indexes >= 2**53-1"
 );
 
 obj.length = 9007199254740992;
 assert.sameValue(
   [].includes.call(obj, "d", fromIndex),
-  true,
-  "2**53, found value at 2**53-1"
+  false,
+  "2**53, ignores indexes >= 2**53-1"
 );
 
 obj.length = 9007199254740993;
 assert.sameValue(
-  [].includes.call(obj, "e", fromIndex),
+  [].includes.call(obj, "d", fromIndex),
   false,
-  "2**53+1, ignores indexes >= 2**53"
+  "2**53+1, ignores indexes >= 2**53-1"
 );
 
 obj.length = Infinity;
 assert.sameValue(
-  [].includes.call(obj, "d", fromIndex),
+  [].includes.call(obj, "c", fromIndex),
   true,
   "Infinity, found item"
 );
 assert.sameValue(
-  [].includes.call(obj, "e", fromIndex),
+  [].includes.call(obj, "d", fromIndex),
   false,
-  "Infinity, ignores indexes >= 2**53"
+  "Infinity, ignores indexes >= 2**53-1"
 );
