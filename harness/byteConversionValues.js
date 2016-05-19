@@ -6,7 +6,7 @@
  * conversions.
  * This helper is mostly used on tests for TypedArray and DataView, and each
  * array from the expected values must match the original values array on every
- * index containing it's original value.
+ * index containing its original value.
  */
 var byteConversionValues = {
   values: [
