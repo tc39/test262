@@ -20,16 +20,8 @@ function getCleanObj() {
     get: function() {
       Object.defineProperty(obj, "0", {
         get: function() {
-          Object.defineProperty(obj, "1", {
-            get: function() {
-              return "ecma262";
-            }
-          });
-          Object.defineProperty(obj, "2", {
-            get: function() {
-              return "cake";
-            }
-          });
+          obj[1] = "ecma262";
+          obj[2] = "tc39";
           return "tc39";
         }
       });
