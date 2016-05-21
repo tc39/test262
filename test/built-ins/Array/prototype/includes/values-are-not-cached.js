@@ -21,7 +21,7 @@ function getCleanObj() {
       Object.defineProperty(obj, "0", {
         get: function() {
           obj[1] = "ecma262";
-          obj[2] = "tc39";
+          obj[2] = "cake";
           return "tc39";
         }
       });
