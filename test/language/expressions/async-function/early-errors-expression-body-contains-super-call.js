@@ -4,7 +4,7 @@
 /*---
 author: Brian Terlson <brian.terlson@microsoft.com>
 esid: pending
-description: It is a syntax error if AsyncFunctionBody contains SuperProperty is true
+description: It is a syntax error if AsyncFunctionBody contains SuperCall is true
 negative: SyntaxError
 ---*/
 

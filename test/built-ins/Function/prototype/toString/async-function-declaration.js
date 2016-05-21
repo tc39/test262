@@ -4,7 +4,7 @@
 /*---
 author: Brian Terlson <brian.terlson@microsoft.com>
 esid: pending
-description: Function.prototype.toString on a function declaration
+description: Function.prototype.toString on an async function declaration
 features: [async-functions]
 ---*/
 
