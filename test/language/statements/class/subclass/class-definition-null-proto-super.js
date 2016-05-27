@@ -4,11 +4,8 @@
 esid: sec-runtime-semantics-classdefinitionevaluation
 description: >
   The `this` value of a null-extending class is automatically initialized,
-  obviating the need for an explicit return value in the constructor.
+  preventing the use of `super` from within the constructor.
 info: |
-  The behavior under test was introduced in the "ES2017" revision of the
-  specification and conflicts with prior editions.
-
   Runtime Semantics: ClassDefinitionEvaluation
 
   [...]
@@ -31,13 +28,40 @@ info: |
      a. Let thisArgument be ? OrdinaryCreateFromConstructor(newTarget,
         "%ObjectPrototype%").
   [...]
-  15. Return ? envRec.GetThisBinding().
+
+  12.3.5.1 Runtime Semantics: Evaluation
+
+  SuperCall : super Arguments
+
+  [...]
+  6. Let result be ? Construct(func, argList, newTarget).
+  7. Let thisER be GetThisEnvironment( ).
+  8. Return ? thisER.BindThisValue(result).
+
+  8.1.1.3.1 BindThisValue
+
+  [...]
+  3. If envRec.[[ThisBindingStatus]] is "initialized", throw a ReferenceError
+     exception.
+  4. Set envRec.[[ThisValue]] to V.
+  5. Set envRec.[[ThisBindingStatus]] to "initialized".
+  [...]
 ---*/
 
-class Foo extends null {
-  constructor() {}
+var unreachable = 0;
+var reachable = 0;
+
+class C extends null {
+  constructor() {
+    reachable += 1;
+    super();
+    unreachable += 1;
+  }
 }
 
-var foo = new Foo();
+assert.throws(TypeError, function() {
+  new C();
+});
 
-assert.sameValue(Object.getPrototypeOf(foo), Foo);
+assert.sameValue(reachable, 1);
+assert.sameValue(unreachable, 0);

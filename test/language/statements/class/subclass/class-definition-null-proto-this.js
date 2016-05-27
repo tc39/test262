@@ -3,8 +3,7 @@
 /*---
 esid: sec-runtime-semantics-classdefinitionevaluation
 description: >
-  The `this` value of a null-extending class is automatically initialized,
-  obviating the need for an explicit return value in the constructor.
+  The `this` value of a null-extending class is automatically initialized
 info: |
   The behavior under test was introduced in the "ES2017" revision of the
   specification and conflicts with prior editions.
@@ -31,13 +30,17 @@ info: |
      a. Let thisArgument be ? OrdinaryCreateFromConstructor(newTarget,
         "%ObjectPrototype%").
   [...]
-  15. Return ? envRec.GetThisBinding().
 ---*/
 
-class Foo extends null {
-  constructor() {}
+var thisVal, instance;
+
+class C extends null {
+  constructor() {
+    thisVal = this;
+  }
 }
 
-var foo = new Foo();
+instance = new C();
 
-assert.sameValue(Object.getPrototypeOf(foo), Foo);
+assert.sameValue(instance instanceof C, true);
+assert.sameValue(instance, thisVal);
