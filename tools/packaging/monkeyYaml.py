@@ -43,7 +43,7 @@ def load(str):
     return dict
 
 def myReadValue(lines, value):
-    if value == ">":
+    if value == ">" or value == "|":
         (lines, value) = myMultiline(lines, value)
         value = value + "\n"
         return (lines, value)

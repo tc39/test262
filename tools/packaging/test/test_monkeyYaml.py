@@ -81,6 +81,11 @@ class TestMonkeyYAMLParsing(unittest.TestCase):
         self.assertEqual(lines, ["  other: 42"])
         self.assertEqual(value, "foo bar")
 
+    def test_Multiline_5(self):
+        lines = ["info: |", "  attr: this is a string (not nested yaml)", ""]
+        y = "\n".join(lines)
+        self.assertEqual(monkeyYaml.load(y), yaml.load(y))
+
     def test_myLeading(self):
         self.assertEqual(2, monkeyYaml.myLeadingSpaces("  foo"))
         self.assertEqual(2, monkeyYaml.myLeadingSpaces("  "))
