@@ -29,7 +29,9 @@ info: |
         { }
         { ExportsList }
         { ExportsList , }
-negative: ReferenceError
+negative:
+  phase: early
+  type: ReferenceError
 flags: [module]
 ---*/
 
