@@ -7,7 +7,9 @@ esid: sec-generator-function-definitions-runtime-semantics-instantiatefunctionob
 es6id: 14.4.12
 features: [destructuring-binding]
 flags: [generated]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 info: |
     GeneratorDeclaration : function * ( FormalParameters ) { GeneratorBody }
 

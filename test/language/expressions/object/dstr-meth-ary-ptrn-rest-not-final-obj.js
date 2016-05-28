@@ -7,7 +7,9 @@ esid: sec-runtime-semantics-definemethod
 es6id: 14.3.8
 features: [destructuring-binding]
 flags: [generated]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 info: |
     MethodDefinition : PropertyName ( StrictFormalParameters ) { FunctionBody }
 

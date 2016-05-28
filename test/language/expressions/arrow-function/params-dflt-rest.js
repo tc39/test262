@@ -7,7 +7,9 @@ esid: sec-arrow-function-definitions-runtime-semantics-evaluation
 es6id: 14.2.16
 features: [default-parameters]
 flags: [generated]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 info: |
     ArrowFunction : ArrowParameters => ConciseBody
 

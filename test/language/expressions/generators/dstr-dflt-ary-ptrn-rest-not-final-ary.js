@@ -7,7 +7,9 @@ esid: sec-generator-function-definitions-runtime-semantics-evaluation
 es6id: 14.4.14
 features: [destructuring-binding, default-parameters]
 flags: [generated]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 info: |
     GeneratorExpression : function * ( FormalParameters ) { GeneratorBody }
 

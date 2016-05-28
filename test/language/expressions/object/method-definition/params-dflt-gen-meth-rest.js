@@ -7,7 +7,9 @@ esid: sec-generator-function-definitions-runtime-semantics-propertydefinitioneva
 es6id: 14.4.13
 features: [default-parameters]
 flags: [generated]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 info: |
     GeneratorMethod :
         * PropertyName ( StrictFormalParameters ) { GeneratorBody }
