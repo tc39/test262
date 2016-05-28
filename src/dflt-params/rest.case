@@ -20,7 +20,9 @@ info: |
 
     ...BindingIdentifier[?Yield]
     ...BindingPattern[?Yield]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 //- params
