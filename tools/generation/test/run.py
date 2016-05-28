@@ -54,5 +54,10 @@ class TestGeneration(unittest.TestCase):
         self.assertEqual(result['returncode'], 0)
         self.compareTrees('normal')
 
+    def test_negative(self):
+        result = self.fixture('negative.case')
+        self.assertEqual(result['returncode'], 0)
+        self.compareTrees('negative')
+
 if __name__ == '__main__':
     unittest.main()
