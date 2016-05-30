@@ -3,7 +3,7 @@
 
 /*---
 description: Object.getOwnPropertyDescriptors accepts boolean primitives.
-esid: pending
+esid: sec-object.getownpropertydescriptors
 author: Jordan Harband
 ---*/
 
