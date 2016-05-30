@@ -3,7 +3,7 @@
 
 /*---
 description: Object.getOwnPropertyDescriptors should have length 1
-esid: pending
+esid: sec-object.getownpropertydescriptors
 author: Jordan Harband
 includes: [propertyHelper.js]
 ---*/
