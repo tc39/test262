@@ -1,20 +1,23 @@
 // Copyright (C) 2015 Mike Pennisi. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-es6id: 22.1.3.31
+esid: sec-array.prototype-@@unscopables
 description: >
     Initial value of `Symbol.unscopables` property
-info: >
-    1. Let blackList be ObjectCreate(null).
-    2. Perform CreateDataProperty(blackList, "copyWithin", true).
-    3. Perform CreateDataProperty(blackList, "entries", true).
-    4. Perform CreateDataProperty(blackList, "fill", true).
-    5. Perform CreateDataProperty(blackList, "find", true).
-    6. Perform CreateDataProperty(blackList, "findIndex", true).
-    7. Perform CreateDataProperty(blackList, "keys", true).
-    8. Perform CreateDataProperty(blackList, "values", true).
-    9. Assert: Each of the above calls will return true.
-    10. Return blackList.
+info: |
+    22.1.3.32 Array.prototype [ @@unscopables ]
+
+    1. Let unscopableList be ObjectCreate(null).
+    2. Perform CreateDataProperty(unscopableList, "copyWithin", true).
+    3. Perform CreateDataProperty(unscopableList, "entries", true).
+    4. Perform CreateDataProperty(unscopableList, "fill", true).
+    5. Perform CreateDataProperty(unscopableList, "find", true).
+    6. Perform CreateDataProperty(unscopableList, "findIndex", true).
+    7. Perform CreateDataProperty(unscopableList, "includes", true).
+    8. Perform CreateDataProperty(unscopableList, "keys", true).
+    9. Perform CreateDataProperty(unscopableList, "values", true).
+    10. Assert: Each of the above calls will return true.
+    11. Return unscopableList.
 includes: [propertyHelper.js]
 features: [Symbol.unscopables]
 ---*/
@@ -47,6 +50,11 @@ assert.sameValue(unscopables.findIndex, true, '`findIndex` property value');
 verifyEnumerable(unscopables, 'findIndex');
 verifyWritable(unscopables, 'findIndex');
 verifyConfigurable(unscopables, 'findIndex');
+
+assert.sameValue(unscopables.includes, true, '`includes` property value');
+verifyEnumerable(unscopables, 'includes');
+verifyWritable(unscopables, 'includes');
+verifyConfigurable(unscopables, 'includes');
 
 assert.sameValue(unscopables.keys, true, '`keys` property value');
 verifyEnumerable(unscopables, 'keys');
