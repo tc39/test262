@@ -43,9 +43,21 @@ properties of the global scope prior to test execution.
     DetachArrayBuffer abstract
     operation](https://tc39.github.io/ecma262/2016/#sec-detacharraybuffer)
   - **`evalScript`** - a function which accepts a string value as its first
-    argument and performs
-    [ScriptEvaluation](https://tc39.github.io/ecma262/2016/#sec-runtime-semantics-scriptevaluation)
-    on that value, using the current Realm as the argument.
+    argument and executes is as [an ECMAScript
+    script](https://tc39.github.io/ecma262/2016/#sec-scripts) according to the
+    following algorithm:
+
+        1. Let hostDefined be any host-defined values for the provided
+           sourceText (obtained in an implementation dependent manner)
+        2. Let realm be the current Realm Record.
+        3. Let s be ParseScript(sourceText, realm, hostDefined).
+        4. If s is a List of errors, then
+           a. Let error be the first element of s.
+           b. Return
+              Completion{[[Type]]: throw, [[Value]]: error, [[Target]]: empty}.
+        5. Let status be ScriptEvaluation(s).
+        6. Return Completion(status).
+
   - **`global`** - a reference to the global `this` value on which `$` was
     initially defined
 
