@@ -36,15 +36,15 @@ properties of the global scope prior to test execution.
   tests (via the `async` flag, described below).
 - **`$`** An ordinary object with the following properties:
   - **`createRealm`** - a function which creates a new [ECMAScript
-    Realm](http://www.ecma-international.org/ecma-262/6.0/#sec-code-realms),
+    Realm](https://tc39.github.io/ecma262/2016/#sec-code-realms),
     defines this API on the new realm's global `this` value, and returns the
     `$` property of the new realm's global `this` value
   - **`detachArrayBuffer`** - a function which implements [the
     DetachArrayBuffer abstract
-    operation](http://www.ecma-international.org/ecma-262/6.0/#sec-detacharraybuffer)
+    operation](https://tc39.github.io/ecma262/2016/#sec-detacharraybuffer)
   - **`evalScript`** - a function which accepts a string value as its first
     argument and performs
-    [ScriptEvaluation](http://www.ecma-international.org/ecma-262/6.0/#sec-runtime-semantics-scriptevaluation)
+    [ScriptEvaluation](https://tc39.github.io/ecma262/2016/#sec-runtime-semantics-scriptevaluation)
     on that value, using the current Realm as the argument.
   - **`global`** - a reference to the global `this` value on which `$` was
     initially defined
