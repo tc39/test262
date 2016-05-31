@@ -25,9 +25,10 @@ The following should not be expanded:
 */*{ first }*/
 //*{ first }*/
 // /*{ first }*/
-"/*{ first }*/"
-'/*{ first }*/'
+Quote characters: " ' `
+"Quote characters: ' ' `"
+'Quote characters: " " `'
 `
-/*{ first }*/`
+Quote characters: " ' '`
 
 'This is "teardown" code.';

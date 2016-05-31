@@ -82,6 +82,13 @@ class Template:
         for region in self.regions:
             whitespace = indentPattern.match(lines[region['lineno']]).group(1)
             value = context['regions'].get(region['name'], '')
+
+            str_char = region.get('in_string')
+            if str_char:
+                safe_char = '"' if str_char == '\'' else '\''
+                value = value.replace(str_char, safe_char)
+                value = value.replace('\n', '\\\n')
+
             source = source[:region['firstchar']] + \
                 indent(value, whitespace).lstrip() + \
                 source[region['lastchar']:]

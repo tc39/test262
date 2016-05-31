@@ -4,6 +4,7 @@
 def find_comments(source):
     '''Parse input string describing JavaScript source and yield dictionaries
     describing the JavaScript comments in the order they appear in the source.
+    This includes comment patterns within string literals.
 
     Each dictionary defines the following attributes:
 
@@ -11,6 +12,9 @@ def find_comments(source):
     - firstchar: the zero-indexed position of the token that begins the comment
     - lastchar: the zero-indexed position of the token that closes the comment
     - lineno: the zero-indexed offset of the line on which the comment appears
+    - in_string: `False` if the comment is a true JavaScript comment, one of
+                 '\'' (single quote), '"' (double quote), or '`' (back tick) if
+                 the comment pattern appears within a string literal.
     '''
     in_string = False
     in_s_comment = False
@@ -37,6 +41,7 @@ def find_comments(source):
                     source=comment[1:],
                     firstchar=idx - len(comment) - 1,
                     lastchar=idx,
+                    in_string=in_string,
                     lineno=lineno)
                 continue
         elif in_m_comment:
@@ -46,6 +51,7 @@ def find_comments(source):
                     source=comment[1:-1],
                     firstchar=idx - len(comment) - 1,
                     lastchar=idx + 1,
+                    in_string=in_string,
                     lineno=lineno)
                 continue
         elif in_string:
@@ -53,7 +59,6 @@ def find_comments(source):
                 in_string = False
             elif source[idx] == '\n' and in_string != '`' and not follows_escape:
                 in_string = False
-            continue
 
         if in_m_comment or in_s_comment:
             comment += source[idx]

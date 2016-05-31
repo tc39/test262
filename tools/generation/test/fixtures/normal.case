@@ -23,5 +23,7 @@ First value
 Second value
 //- third
 Third value
+//- fourth
+Quote characters: " ' `
 //- teardown
 'This is "teardown" code.';

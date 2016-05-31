@@ -21,7 +21,8 @@ The following should not be expanded:
 */*{ first }*/
 //*{ first }*/
 // /*{ first }*/
-"/*{ first }*/"
-'/*{ first }*/'
+/*{ fourth }*/
+"/*{ fourth }*/"
+'/*{ fourth }*/'
 `
-/*{ first }*/`
+/*{ fourth }*/`
