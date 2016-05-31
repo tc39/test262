@@ -5,7 +5,9 @@ es6id: B.3.3
 description: >
     redeclaration within block:
     attempt to redeclare var binding with let
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 { var f; let f; }
 

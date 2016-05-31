@@ -5,7 +5,9 @@
 info: The "return" token can not be used as identifier
 es5id: 7.6.1.1_A1.16
 description: Checking if execution of "return=1" fails
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 return = 1;

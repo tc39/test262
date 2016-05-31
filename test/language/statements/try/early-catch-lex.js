@@ -6,7 +6,9 @@ es6id: 13.15.1
 description: >
     It is a Syntax Error if any element of the BoundNames of CatchParameter
     also occurs in the LexicallyDeclaredNames of Block.
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 features: [let]
 ---*/
 

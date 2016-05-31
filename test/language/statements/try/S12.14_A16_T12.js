@@ -7,7 +7,9 @@ info: >
     Catch Finally"
 es5id: 12.14_A16_T12
 description: Embedded "try" statements followed by two "catch" statements
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 // CHECK#1

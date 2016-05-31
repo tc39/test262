@@ -9,7 +9,9 @@ es5id: 12.8_A5_T3
 description: >
     Checking if using internal loop label as an Identifier appears to
     be invalid
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 (function(){

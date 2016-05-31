@@ -5,7 +5,9 @@
 info: Check Postfix Increment Operator for automatic semicolon insertion
 es5id: 7.9_A5.1_T1
 description: Try use Variable \n ++ construction
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 //CHECK#1

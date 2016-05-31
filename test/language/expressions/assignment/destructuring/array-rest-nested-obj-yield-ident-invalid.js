@@ -8,7 +8,9 @@ description: >
     should behave as an IdentifierExpression.
 es6id: 12.14.5.3
 flags: [onlyStrict]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 var value = [{}];

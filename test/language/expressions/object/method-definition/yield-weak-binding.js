@@ -6,7 +6,9 @@
       `yield` expressions bind weakly
   features: [generators]
   es6id: 14.4
-  negative: SyntaxError
+  negative:
+    phase: early
+    type: SyntaxError
  ---*/
 
 var obj = {

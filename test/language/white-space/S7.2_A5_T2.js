@@ -7,7 +7,9 @@ info: >
     of six characters, namely \u plus four hexadecimal digits
 es5id: 7.2_A5_T2
 description: Use VERTICAL TAB (U+000B)
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 var\u000Bx;

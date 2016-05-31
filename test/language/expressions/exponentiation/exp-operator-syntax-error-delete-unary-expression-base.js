@@ -15,6 +15,8 @@ info: >
     `delete` UnaryExpression
     ...
 
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 delete o.p ** 2;

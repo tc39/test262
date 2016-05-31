@@ -7,7 +7,9 @@ description: >
 
     It is a Syntax Error if HasDirectSuper of MethodDefinition is true.
 
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 class A {
   static method() {

@@ -8,7 +8,9 @@ description: >
     IdentifierReference.
 es6id: 12.14.5.4
 flags: [onlyStrict]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 var x;

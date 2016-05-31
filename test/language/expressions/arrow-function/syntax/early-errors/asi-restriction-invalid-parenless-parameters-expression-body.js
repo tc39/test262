@@ -6,7 +6,9 @@ description: >
     ArrowFunction[In, Yield] :
       ArrowParameters[?Yield] [no LineTerminator here] => ConciseBody[?In]
 
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 var af = x
 => x;

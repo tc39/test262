@@ -10,7 +10,9 @@ info: |
 
     Term[U] ::
          [~U] ExtendedAtom
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 /{/u;

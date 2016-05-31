@@ -4,8 +4,9 @@
 /*---
 es5id: 7.8.5-1gs
 description: Empty literal RegExp should result in a SyntaxError
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
-throw NotEarlyError;
 var re = //;

@@ -19,7 +19,9 @@ info: |
           SameValue(exportName, r.[[ExportName]]) is true, then
           i. Assert: this is a circular import request.
           ii. Return null.
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 flags: [module]
 ---*/
 

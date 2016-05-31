@@ -7,7 +7,9 @@ info: >
     LeftHandSideExpression is false.
 es6id: 12.4.1
 description: Applied to a non-simple assignment target
-negative: ReferenceError
+negative:
+  phase: early
+  type: ReferenceError
 ---*/
 
 1++;

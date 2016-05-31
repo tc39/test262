@@ -5,7 +5,9 @@ es6id: 13.1
 description: >
     function declarations in statement position in strict mode:
     for ( ;;) Statement
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 flags: [onlyStrict]
 ---*/
 for (;false;) function g() {}

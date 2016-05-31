@@ -7,7 +7,9 @@ es5id: 12.8_A8_T1
 description: >
     Checking if using "break Identifier" from within catch Block
     appears to be invalid
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 var x=0,y=0;
