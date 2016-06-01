@@ -9,9 +9,6 @@ info: |
 ---*/
 
 var noop = function() {};
-var thrower = function() {
-  throw new Test262Error();
-};
 var subject = Object.preventExtensions({ existing: null });
 
 subject.__defineSetter__('existing', noop);
