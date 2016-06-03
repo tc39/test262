@@ -31,18 +31,20 @@ info: |
   [...]
 ---*/
 
+assert.sameValue(
+  NaN.toPrecision(undefined),
+  "NaN",
+  "step 2: If precision is undefined, return ! ToString(x)"
+);
+
+var calls = 0;
+
 var p = {
   valueOf: function() {
     calls++;
     return Infinity;
   }
 };
-
-assert.sameValue(
-  NaN.toPrecision(undefined),
-  "NaN",
-  "step 2: If precision is undefined, return ! ToString(x)"
-);
 
 assert.sameValue(NaN.toPrecision(p), "NaN", "value");
 assert.sameValue(calls, 1, "NaN is checked after ToInteger(precision)");
