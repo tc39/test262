@@ -5,7 +5,7 @@
 es6id: 20.1.3.5
 esid: sec-number.prototype.toprecision
 description: >
-  Return string values using 0x0065
+  Return string values using exponential character
 info: |
   Number.prototype.toPrecision ( precision )
 

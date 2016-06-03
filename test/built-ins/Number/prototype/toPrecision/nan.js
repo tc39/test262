@@ -34,23 +34,20 @@ info: |
 var p = {
   valueOf: function() {
     calls++;
-    return 1;
+    return Infinity;
   }
 };
 
-var calls = 0;
-assert.sameValue(NaN.toPrecision(p), "NaN", "NaN value");
+assert.sameValue(
+  NaN.toPrecision(undefined),
+  "NaN",
+  "step 2: If precision is undefined, return ! ToString(x)"
+);
+
+assert.sameValue(NaN.toPrecision(p), "NaN", "value");
 assert.sameValue(calls, 1, "NaN is checked after ToInteger(precision)");
 
 var n = new Number(NaN);
 calls = 0;
-assert.sameValue(n.toPrecision(p), "NaN", "Number NaN");
+assert.sameValue(n.toPrecision(p), "NaN", "object");
 assert.sameValue(calls, 1, "Number NaN is checked after ToInteger(precision)");
-
-calls = 0;
-assert.sameValue(NaN.toPrecision(undefined), "NaN");
-assert.sameValue(
-  calls,
-  0,
-  "returned before ToInteger(precision) if precision is undefined"
-);

@@ -20,35 +20,10 @@ info: |
   [...]
 ---*/
 
-var p = {
-  valueOf: function() {
-    calls++;
-    return 1;
-  }
-};
-
-var calls = 0;
-assert.sameValue((+Infinity).toPrecision(p), "Infinity", "Infinity value");
-assert.sameValue(calls, 1, "Infinity is checked after ToInteger(precision)");
-
-calls = 0;
+assert.sameValue((+Infinity).toPrecision(1000), "Infinity", "Infinity value");
 var n = new Number(+Infinity);
-assert.sameValue(n.toPrecision(p), "Infinity", "Number Infinity");
-assert.sameValue(
-  calls,
-  1,
-  "Number Infinity is checked after ToInteger(precision)"
-);
+assert.sameValue(n.toPrecision(1000), "Infinity", "Number Infinity");
 
-calls = 0;
-assert.sameValue((-Infinity).toPrecision(p), "-Infinity", "-Infinity value");
-assert.sameValue(calls, 1, "-Infinity is checked after ToInteger(precision)");
-
-calls = 0;
+assert.sameValue((-Infinity).toPrecision(1000), "-Infinity", "-Infinity value");
 var n = new Number(-Infinity);
-assert.sameValue(n.toPrecision(p), "-Infinity", "Number -Infinity");
-assert.sameValue(
-  calls,
-  1,
-  "Number -Infinity is checked after ToInteger(precision)"
-);
+assert.sameValue(n.toPrecision(1000), "-Infinity", "Number -Infinity");
