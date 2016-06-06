@@ -28,9 +28,6 @@ var buffer = new ArrayBuffer(12);
 var sample = new DataView(buffer, 0);
 
 $DETACHBUFFER(buffer);
-assert.throws(RangeError, function() {
-  sample.setInt8(1.1, 0);
-});
 
 assert.throws(RangeError, function() {
   sample.setInt8(-1, 0);

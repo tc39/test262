@@ -3,7 +3,7 @@
 /*---
 esid: sec-typedarray-buffer-byteoffset-length
 description: >
-  Return new typedArray from negative defined length
+  Throws RangeError for negative ToInteger(length)
 info: >
   22.2.4.5 TypedArray ( buffer [ , byteOffset [ , length ] ] )
 
@@ -14,31 +14,14 @@ info: >
 includes: [testTypedArray.js]
 ---*/
 
+var buffer = new ArrayBuffer(16);
+
 testWithTypedArrayConstructors(function(TA) {
-  var bpe = TA.BYTES_PER_ELEMENT;
-  var buffer = new ArrayBuffer(bpe * 2);
+  assert.throws(RangeError, function() {
+    new TA(buffer, 0, -1);
+  });
 
-  var ta1 = new TA(buffer, 0, -1);
-  assert.sameValue(ta1.length, 0);
-  assert.sameValue(ta1.buffer, buffer);
-  assert.sameValue(ta1.constructor, TA);
-  assert.sameValue(Object.getPrototypeOf(ta1), TA.prototype);
-
-  var ta2 = new TA(buffer, 0, -Infinity);
-  assert.sameValue(ta2.length, 0);
-  assert.sameValue(ta2.buffer, buffer);
-  assert.sameValue(ta2.constructor, TA);
-  assert.sameValue(Object.getPrototypeOf(ta2), TA.prototype);
-
-  var ta3 = new TA(buffer, bpe, -1);
-  assert.sameValue(ta3.length, 0);
-  assert.sameValue(ta3.buffer, buffer);
-  assert.sameValue(ta3.constructor, TA);
-  assert.sameValue(Object.getPrototypeOf(ta3), TA.prototype);
-
-  var ta4 = new TA(buffer, bpe, -Infinity);
-  assert.sameValue(ta4.length, 0);
-  assert.sameValue(ta4.buffer, buffer);
-  assert.sameValue(ta4.constructor, TA);
-  assert.sameValue(Object.getPrototypeOf(ta4), TA.prototype);
+  assert.throws(RangeError, function() {
+    new TA(buffer, 0, -Infinity);
+  });
 });

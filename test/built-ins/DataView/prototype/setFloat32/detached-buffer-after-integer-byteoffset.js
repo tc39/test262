@@ -29,9 +29,6 @@ var buffer = new ArrayBuffer(8);
 var sample = new DataView(buffer, 0);
 
 $DETACHBUFFER(buffer);
-assert.throws(RangeError, function() {
-  sample.setFloat32(1.1, 0);
-});
 
 assert.throws(RangeError, function() {
   sample.setFloat32(-1, 0);

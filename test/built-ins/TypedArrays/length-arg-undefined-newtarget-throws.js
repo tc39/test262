@@ -14,10 +14,7 @@ info: >
   2. If NewTarget is undefined, throw a TypeError exception.
   ...
 includes: [testTypedArray.js]
-features: [Symbol]
 ---*/
-
-var s = Symbol('1');
 
 testWithTypedArrayConstructors(function(TA) {
   assert.throws(TypeError, function() {
@@ -25,26 +22,6 @@ testWithTypedArrayConstructors(function(TA) {
   });
 
   assert.throws(TypeError, function() {
-    TA(NaN);
-  });
-
-  assert.throws(TypeError, function() {
-    TA("");
-  });
-
-  assert.throws(TypeError, function() {
-    TA(true);
-  });
-
-  assert.throws(TypeError, function() {
-    TA(null);
-  });
-
-  assert.throws(TypeError, function() {
-    TA(undefined);
-  });
-
-  assert.throws(TypeError, function() {
-    TA(s);
+    TA(Infinity);
   });
 });

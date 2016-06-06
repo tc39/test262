@@ -29,9 +29,6 @@ var buffer = new ArrayBuffer(8);
 var sample = new DataView(buffer, 0);
 
 $DETACHBUFFER(buffer);
-assert.throws(RangeError, function() {
-  sample.getInt16(1.1);
-});
 
 assert.throws(RangeError, function() {
   sample.getInt16(-1);

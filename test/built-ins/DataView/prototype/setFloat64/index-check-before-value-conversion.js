@@ -13,10 +13,7 @@ info: >
   24.2.1.2 SetViewValue ( view, requestIndex, isLittleEndian, type, value )
 
   ...
-  4. Let numberIndex be ToNumber(requestIndex).
-  5. Let getIndex be ? ToInteger(numberIndex).
-  6. If numberIndex ≠ getIndex or getIndex < 0, throw a RangeError exception.
-  7. Let numberValue be ? ToNumber(value).
+  4. Let getIndex be ? ToIndex(requestIndex).
   ...
 ---*/
 
@@ -29,14 +26,6 @@ var poisoned = {
 };
 
 assert.throws(RangeError, function() {
-  dataView.setFloat64(NaN, poisoned);
-}, "setFloat64(NaN, poisoned)");
-
-assert.throws(RangeError, function() {
-  dataView.setFloat64(1.5, poisoned);
-}, "setFloat64(1.5, poisoned)");
-
-assert.throws(RangeError, function() {
   dataView.setFloat64(-1.5, poisoned);
 }, "setFloat64(-1.5, poisoned)");
 
@@ -47,40 +36,3 @@ assert.throws(RangeError, function() {
 assert.throws(RangeError, function() {
   dataView.setFloat64(-Infinity, poisoned);
 }, "setFloat64(-Infinity, poisoned)");
-
-assert.throws(RangeError, function() {
-  dataView.setFloat64(undefined, poisoned);
-}, "setFloat64(undefined, poisoned)");
-
-assert.throws(RangeError, function() {
-  dataView.setFloat64('invalid', poisoned);
-}, "setFloat64('invalid', poisoned)");
-
-assert.throws(RangeError, function() {
-  dataView.setFloat64('NaN', poisoned);
-}, "setFloat64('NaN', poisoned)");
-
-assert.throws(RangeError, function() {
-  dataView.setFloat64('1.5', poisoned);
-}, "setFloat64('1.5', poisoned)");
-
-assert.throws(RangeError, function() {
-  dataView.setFloat64('-1.5', poisoned);
-}, "setFloat64('-1.5', poisoned)");
-
-assert.throws(RangeError, function() {
-  dataView.setFloat64('-1', poisoned);
-}, "setFloat64('-1', poisoned)");
-
-assert.throws(RangeError, function() {
-  dataView.setFloat64('-Infinity', poisoned);
-}, "setFloat64('-Infinity', poisoned)");
-
-var obj = {
-  valueOf: function() {
-    return 1.41421;
-  }
-};
-assert.throws(RangeError, function() {
-  dataView.setFloat64(obj, poisoned);
-}, "setFloat64(obj, poisoned)");
