@@ -10,6 +10,9 @@ info: |
   24.2.2.1 DataView (buffer, byteOffset, byteLength )
 
   ...
+  8. If byteLength is either not present or undefined, then
+    a. Let viewByteLength be bufferByteLength - offset.
+  ...
   17. Return O.
 ---*/
 

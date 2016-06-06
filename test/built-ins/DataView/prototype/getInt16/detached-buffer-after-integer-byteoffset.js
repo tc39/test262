@@ -17,10 +17,10 @@ info: |
   24.2.1.1 GetViewValue ( view, requestIndex, isLittleEndian, type )
 
   ...
-  6. If numberIndex ≠ getIndex or getIndex < 0, throw a RangeError exception.
+  4. Let getIndex be ? ToIndex(requestIndex).
   ...
-  8. Let buffer be the value of view's [[ViewedArrayBuffer]] internal slot.
-  9. If IsDetachedBuffer(buffer) is true, throw a TypeError exception.
+  7. Let buffer be view.[[ViewedArrayBuffer]].
+  8. If IsDetachedBuffer(buffer) is true, throw a TypeError exception.
   ...
 includes: [detachArrayBuffer.js]
 ---*/
@@ -29,9 +29,6 @@ var buffer = new ArrayBuffer(8);
 var sample = new DataView(buffer, 0);
 
 $DETACHBUFFER(buffer);
-assert.throws(RangeError, function() {
-  sample.getInt16(1.1);
-});
 
 assert.throws(RangeError, function() {
   sample.getInt16(-1);

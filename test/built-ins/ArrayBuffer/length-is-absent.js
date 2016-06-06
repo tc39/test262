@@ -1,21 +1,18 @@
-// Copyright (C) 2015 André Bargull. All rights reserved.
+// Copyright (C) 2016 The V8 Project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es6id: 24.1.2.1
+esid: sec-arraybuffer-length
 description: >
-  The `length` parameter must be a positive, numeric integral value.
-info: >
+  Returns an empty instance if length is absent
+info: |
   ArrayBuffer( length )
 
-  ...
-  2. Let numberLength be ToNumber(length).
-  3. Let byteLength be ToLength(numberLength).
-  4. ReturnIfAbrupt(byteLength).
-  5. If SameValueZero(numberLength, byteLength) is false, throw a RangeError exception.
-  ...
+  1. If NewTarget is undefined, throw a TypeError exception.
+  2. Let byteLength be ? ToIndex(length).
+  3. Return ? AllocateArrayBuffer(NewTarget, byteLength).
 ---*/
 
-assert.throws(RangeError, function() {
-  new ArrayBuffer();
-}, "`length` parameter absent");
+var buffer = new ArrayBuffer();
+
+assert.sameValue(buffer.byteLength, 0);
