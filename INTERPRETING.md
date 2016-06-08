@@ -26,10 +26,23 @@ global scope prior to test execution:
 1. `harness/assert.js`
 2. `harness/sta.js`
 
-### Host-Defined Functions
+### Host-Defined Behaviors
 
-The following values must be defined as writable, configurable, non-enumerable
-properties of the global scope prior to test execution.
+ECMA262 includes features which are open to definition/extension by the host
+environment. In order to consistently assert the semantics of operations built
+on these extension points, Test262 tests assumes the host conforms to the
+semantics defined in this section.
+
+**Global "this" Value** The "this" value of every global [Environment
+Record](https://tc39.github.io/ecma262/#sec-environment-records) must be the
+global object itself (as may be implemented by setting `thisValue` to
+`undefined` in the
+[InitializeHostDefinedRealm](https://tc39.github.io/ecma262/#sec-initializehostdefinedrealm)
+abstract operation).
+
+**Global Bindings** The following values must be defined as writable,
+configurable, non-enumerable properties of the global scope prior to test
+execution.
 
 - **`print`** A function that exposes the string value of its first argument to
   the test runner. This is used as a communication mechanism for asynchronous
