@@ -36,7 +36,7 @@ y[Symbol.toPrimitive] = function() {
   args = arguments;
 };
 
-0 == y;
+new Date(y);
 
 assert.sameValue(callCount, 1, 'method invoked exactly once');
 assert.sameValue(thisVal, y, '`this` value is the object being compared');
