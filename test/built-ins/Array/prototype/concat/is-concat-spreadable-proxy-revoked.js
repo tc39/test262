@@ -3,7 +3,9 @@
 /*---
 esid: sec-isconcatspreadable
 es6id: 22.1.3.1.1
-description: Revoked proxy value produces a TypeError
+description: >
+  Revoked proxy value produces a TypeError during access of
+  `Symbol.isConcatSpreadable` property
 info: |
   [...]
   5. Repeat, while items is not empty
@@ -19,18 +21,17 @@ info: |
 
   1. If Type(O) is not Object, return false.
   2. Let spreadable be ? Get(O, @@isConcatSpreadable).
-  3. If spreadable is not undefined, return ToBoolean(spreadable).
-  4. Return ? IsArray(O).
 
-  7.2.2 IsArray
+  7.3.1 Get
 
   [...]
-  3. If argument is a Proxy exotic object, then
-     a. If the value of the [[ProxyHandler]] internal slot of argument is null,
-        throw a TypeError exception.
-     b. Let target be the value of the [[ProxyTarget]] internal slot of
-        argument.
-     c. Return ? IsArray(target).
+  3. Return ? O.[[Get]](P, O).
+
+  9.5.8 [[Get]]
+
+  [...]
+  2. Let handler be O.[[ProxyHandler]].
+  3. If handler is null, throw a TypeError exception.
 features: [Proxy]
 ---*/
 

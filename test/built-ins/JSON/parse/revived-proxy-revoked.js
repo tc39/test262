@@ -32,18 +32,15 @@ features: [Proxy]
 ---*/
 
 var handle = Proxy.revocable([], {});
-var callCount = 0;
 var returnCount = 0;
 
 handle.revoke();
 
 assert.throws(TypeError, function() {
   JSON.parse('[null, null]', function() {
-    callCount += 1;
     this[1] = handle.proxy;
     returnCount += 1;
   });
 });
 
-assert.sameValue(callCount, 1, 'reviver is invoked exactly once');
 assert.sameValue(returnCount, 1, 'invocation returns normally');
