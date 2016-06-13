@@ -26,13 +26,13 @@ var sample = new DataView(buffer, 0);
 
 var obj1 = {
   valueOf: function() {
-    return 1;
+    return 3;
   }
 };
 
 var obj2 = {
   toString: function() {
-    return 1;
+    return 4;
   }
 };
 
@@ -40,13 +40,13 @@ sample.setUint32(0, 0);
 sample.setUint32(-0, 42);
 assert.sameValue(sample.getUint32(0), 42, "-0");
 
-sample.setUint32(0, 0);
+sample.setUint32(3, 0);
 sample.setUint32(obj1, 42);
-assert.sameValue(sample.getUint32(1), 42, "object's valueOf");
+assert.sameValue(sample.getUint32(3), 42, "object's valueOf");
 
-sample.setUint32(0, 0);
+sample.setUint32(4, 0);
 sample.setUint32(obj2, 42);
-assert.sameValue(sample.getUint32(1), 42, "object's toString");
+assert.sameValue(sample.getUint32(4), 42, "object's toString");
 
 sample.setUint32(0, 0);
 sample.setUint32("", 42);
@@ -56,11 +56,11 @@ sample.setUint32(0, 0);
 sample.setUint32("0", 42);
 assert.sameValue(sample.getUint32(0), 42, "string '0'");
 
-sample.setUint32(0, 0);
-sample.setUint32("1", 42);
-assert.sameValue(sample.getUint32(1), 42, "string '1'");
+sample.setUint32(2, 0);
+sample.setUint32("2", 42);
+assert.sameValue(sample.getUint32(2), 42, "string '2'");
 
-sample.setUint32(0, 0);
+sample.setUint32(1, 0);
 sample.setUint32(true, 42);
 assert.sameValue(sample.getUint32(1), 42, "true");
 
@@ -84,11 +84,11 @@ sample.setUint32(0, 0);
 sample.setUint32(0.9, 42);
 assert.sameValue(sample.getUint32(0), 42, "0.9");
 
-sample.setUint32(0, 0);
+sample.setUint32(1, 0);
 sample.setUint32(1.1, 42);
 assert.sameValue(sample.getUint32(1), 42, "1.1");
 
-sample.setUint32(0, 0);
+sample.setUint32(1, 0);
 sample.setUint32(1.9, 42);
 assert.sameValue(sample.getUint32(1), 42, "1.9");
 

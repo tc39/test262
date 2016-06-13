@@ -20,7 +20,7 @@ info: |
 features: [DataView.prototype.setUint8]
 ---*/
 
-var buffer = new ArrayBuffer(5);
+var buffer = new ArrayBuffer(8);
 var sample = new DataView(buffer, 0);
 
 sample.setUint8(0, 127);
@@ -28,25 +28,27 @@ sample.setUint8(1, 255);
 sample.setUint8(2, 255);
 sample.setUint8(3, 255);
 sample.setUint8(4, 128);
+sample.setUint8(5, 255);
+sample.setUint8(6, 128);
 
 var obj1 = {
   valueOf: function() {
-    return 1;
+    return 2;
   }
 };
 
 var obj2 = {
   toString: function() {
-    return 1;
+    return 3;
   }
 };
 
 assert.sameValue(sample.getUint32(-0), 2147483647, "-0");
-assert.sameValue(sample.getUint32(obj1), 4294967168, "object's valueOf");
-assert.sameValue(sample.getUint32(obj2), 4294967168, "object's toString");
+assert.sameValue(sample.getUint32(obj1), 4294934783, "object's valueOf");
+assert.sameValue(sample.getUint32(obj2), 4286644096, "object's toString");
 assert.sameValue(sample.getUint32(""), 2147483647, "the Empty string");
 assert.sameValue(sample.getUint32("0"), 2147483647, "string '0'");
-assert.sameValue(sample.getUint32("1"), 4294967168, "string '1'");
+assert.sameValue(sample.getUint32("2"), 4294934783, "string '2'");
 assert.sameValue(sample.getUint32(true), 4294967168, "true");
 assert.sameValue(sample.getUint32(false), 2147483647, "false");
 assert.sameValue(sample.getUint32(NaN), 2147483647, "NaN");

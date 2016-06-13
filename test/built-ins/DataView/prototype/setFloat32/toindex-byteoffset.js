@@ -20,18 +20,18 @@ info: |
 features: [DataView.prototype.getFloat32]
 ---*/
 
-var buffer = new ArrayBuffer(5);
+var buffer = new ArrayBuffer(8);
 var sample = new DataView(buffer, 0);
 
 var obj1 = {
   valueOf: function() {
-    return 1;
+    return 3;
   }
 };
 
 var obj2 = {
   toString: function() {
-    return 1;
+    return 4;
   }
 };
 
@@ -39,13 +39,13 @@ sample.setFloat32(0, 0);
 sample.setFloat32(-0, 42);
 assert.sameValue(sample.getFloat32(0), 42, "-0");
 
-sample.setFloat32(0, 0);
+sample.setFloat32(3, 0);
 sample.setFloat32(obj1, 42);
-assert.sameValue(sample.getFloat32(1), 42, "object's valueOf");
+assert.sameValue(sample.getFloat32(3), 42, "object's valueOf");
 
-sample.setFloat32(0, 0);
+sample.setFloat32(4, 0);
 sample.setFloat32(obj2, 42);
-assert.sameValue(sample.getFloat32(1), 42, "object's toString");
+assert.sameValue(sample.getFloat32(4), 42, "object's toString");
 
 sample.setFloat32(0, 0);
 sample.setFloat32("", 42);
@@ -55,11 +55,11 @@ sample.setFloat32(0, 0);
 sample.setFloat32("0", 42);
 assert.sameValue(sample.getFloat32(0), 42, "string '0'");
 
-sample.setFloat32(0, 0);
-sample.setFloat32("1", 42);
-assert.sameValue(sample.getFloat32(1), 42, "string '1'");
+sample.setFloat32(2, 0);
+sample.setFloat32("2", 42);
+assert.sameValue(sample.getFloat32(2), 42, "string '2'");
 
-sample.setFloat32(0, 0);
+sample.setFloat32(1, 0);
 sample.setFloat32(true, 42);
 assert.sameValue(sample.getFloat32(1), 42, "true");
 
@@ -83,11 +83,11 @@ sample.setFloat32(0, 0);
 sample.setFloat32(0.9, 42);
 assert.sameValue(sample.getFloat32(0), 42, "0.9");
 
-sample.setFloat32(0, 0);
+sample.setFloat32(1, 0);
 sample.setFloat32(1.1, 42);
 assert.sameValue(sample.getFloat32(1), 42, "1.1");
 
-sample.setFloat32(0, 0);
+sample.setFloat32(1, 0);
 sample.setFloat32(1.9, 42);
 assert.sameValue(sample.getFloat32(1), 42, "1.9");
 

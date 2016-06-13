@@ -19,30 +19,32 @@ info: |
 features: [DataView.prototype.setUint8]
 ---*/
 
-var buffer = new ArrayBuffer(2);
+var buffer = new ArrayBuffer(4);
 var sample = new DataView(buffer, 0);
 
 sample.setUint8(0, 39);
 sample.setUint8(1, 42);
+sample.setUint8(2, 7);
+sample.setUint8(3, 77);
 
 var obj1 = {
   valueOf: function() {
-    return 1;
+    return 2;
   }
 };
 
 var obj2 = {
   toString: function() {
-    return 1;
+    return 3;
   }
 };
 
 assert.sameValue(sample.getInt8(-0), 39, "-0");
-assert.sameValue(sample.getInt8(obj1), 42, "object's valueOf");
-assert.sameValue(sample.getInt8(obj2), 42, "object's toString");
+assert.sameValue(sample.getInt8(obj1), 7, "object's valueOf");
+assert.sameValue(sample.getInt8(obj2), 77, "object's toString");
 assert.sameValue(sample.getInt8(""), 39, "the Empty string");
 assert.sameValue(sample.getInt8("0"), 39, "string '0'");
-assert.sameValue(sample.getInt8("1"), 42, "string '1'");
+assert.sameValue(sample.getInt8("2"), 7, "string '2'");
 assert.sameValue(sample.getInt8(true), 42, "true");
 assert.sameValue(sample.getInt8(false), 39, "false");
 assert.sameValue(sample.getInt8(NaN), 39, "NaN");

@@ -49,7 +49,7 @@ assert.sameValue(sample.getFloat32(obj1), 53292336, "object's valueOf");
 assert.sameValue(sample.getFloat32(obj2), 53554476, "object's toString");
 assert.sameValue(sample.getFloat32(""), 13323340, "the Empty string");
 assert.sameValue(sample.getFloat32("0"), 13323340, "string '0'");
-assert.sameValue(sample.getFloat32("1"), 13388875, "string '1'");
+assert.sameValue(sample.getFloat32("2"), 53554476, "string '2'");
 assert.sameValue(sample.getFloat32(true), 13388875, "true");
 assert.sameValue(sample.getFloat32(false), 13323340, "false");
 assert.sameValue(sample.getFloat32(NaN), 13323340, "NaN");

@@ -21,7 +21,7 @@ info: |
 features: [DataView.prototype.setUint8]
 ---*/
 
-var buffer = new ArrayBuffer(9);
+var buffer = new ArrayBuffer(12);
 var sample = new DataView(buffer, 0);
 
 sample.setUint8(0, 67);
@@ -33,25 +33,28 @@ sample.setUint8(5, 67);
 sample.setUint8(6, 68);
 sample.setUint8(7, 68);
 sample.setUint8(8, 67);
+sample.setUint8(9, 68);
+sample.setUint8(10, 68);
+sample.setUint8(11, 68);
 
 var obj1 = {
   valueOf: function() {
-    return 1;
+    return 2;
   }
 };
 
 var obj2 = {
   toString: function() {
-    return 1;
+    return 3;
   }
 };
 
 assert.sameValue(sample.getFloat64(-0), 10846169068898440, "-0");
-assert.sameValue(sample.getFloat64(obj1), 11409110432516230, "object's valueOf");
-assert.sameValue(sample.getFloat64(obj2), 11409110432516230, "object's toString");
+assert.sameValue(sample.getFloat64(obj1), 747563348316297600000, "{}.valueOf");
+assert.sameValue(sample.getFloat64(obj2), 710670423110275600000, "{}.toString");
 assert.sameValue(sample.getFloat64(""), 10846169068898440, "the Empty string");
 assert.sameValue(sample.getFloat64("0"), 10846169068898440, "string '0'");
-assert.sameValue(sample.getFloat64("1"), 11409110432516230, "string '1'");
+assert.sameValue(sample.getFloat64("2"), 747563348316297600000, "string '2'");
 assert.sameValue(sample.getFloat64(true), 11409110432516230, "true");
 assert.sameValue(sample.getFloat64(false), 10846169068898440, "false");
 assert.sameValue(sample.getFloat64(NaN), 10846169068898440, "NaN");

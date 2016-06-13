@@ -26,13 +26,13 @@ var sample = new DataView(buffer, 0);
 
 var obj1 = {
   valueOf: function() {
-    return 1;
+    return 3;
   }
 };
 
 var obj2 = {
   toString: function() {
-    return 1;
+    return 4;
   }
 };
 
@@ -40,13 +40,13 @@ sample.setFloat64(0, 0);
 sample.setFloat64(-0, 42);
 assert.sameValue(sample.getFloat64(0), 42, "-0");
 
-sample.setFloat64(0, 0);
+sample.setFloat64(3, 0);
 sample.setFloat64(obj1, 42);
-assert.sameValue(sample.getFloat64(1), 42, "object's valueOf");
+assert.sameValue(sample.getFloat64(3), 42, "object's valueOf");
 
-sample.setFloat64(0, 0);
+sample.setFloat64(4, 0);
 sample.setFloat64(obj2, 42);
-assert.sameValue(sample.getFloat64(1), 42, "object's toString");
+assert.sameValue(sample.getFloat64(4), 42, "object's toString");
 
 sample.setFloat64(0, 0);
 sample.setFloat64("", 42);
@@ -56,11 +56,11 @@ sample.setFloat64(0, 0);
 sample.setFloat64("0", 42);
 assert.sameValue(sample.getFloat64(0), 42, "string '0'");
 
-sample.setFloat64(0, 0);
-sample.setFloat64("1", 42);
-assert.sameValue(sample.getFloat64(1), 42, "string '1'");
+sample.setFloat64(2, 0);
+sample.setFloat64("2", 42);
+assert.sameValue(sample.getFloat64(2), 42, "string '2'");
 
-sample.setFloat64(0, 0);
+sample.setFloat64(1, 0);
 sample.setFloat64(true, 42);
 assert.sameValue(sample.getFloat64(1), 42, "true");
 
@@ -84,11 +84,11 @@ sample.setFloat64(0, 0);
 sample.setFloat64(0.9, 42);
 assert.sameValue(sample.getFloat64(0), 42, "0.9");
 
-sample.setFloat64(0, 0);
+sample.setFloat64(1, 0);
 sample.setFloat64(1.1, 42);
 assert.sameValue(sample.getFloat64(1), 42, "1.1");
 
-sample.setFloat64(0, 0);
+sample.setFloat64(1, 0);
 sample.setFloat64(1.9, 42);
 assert.sameValue(sample.getFloat64(1), 42, "1.9");
 

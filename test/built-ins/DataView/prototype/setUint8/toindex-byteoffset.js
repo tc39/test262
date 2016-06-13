@@ -26,13 +26,13 @@ var typedArray = new Uint8Array(buffer, 0);
 
 var obj1 = {
   valueOf: function() {
-    return 1;
+    return 3;
   }
 };
 
 var obj2 = {
   toString: function() {
-    return 1;
+    return 4;
   }
 };
 
@@ -40,13 +40,13 @@ sample.setUint8(0, 0);
 sample.setUint8(-0, 42);
 assert.sameValue(typedArray[0], 42, "-0");
 
-sample.setUint8(0, 0);
+sample.setUint8(3, 0);
 sample.setUint8(obj1, 42);
-assert.sameValue(typedArray[1], 42, "object's valueOf");
+assert.sameValue(typedArray[3], 42, "object's valueOf");
 
-sample.setUint8(0, 0);
+sample.setUint8(4, 0);
 sample.setUint8(obj2, 42);
-assert.sameValue(typedArray[1], 42, "object's toString");
+assert.sameValue(typedArray[4], 42, "object's toString");
 
 sample.setUint8(0, 0);
 sample.setUint8("", 42);
@@ -56,11 +56,11 @@ sample.setUint8(0, 0);
 sample.setUint8("0", 42);
 assert.sameValue(typedArray[0], 42, "string '0'");
 
-sample.setUint8(0, 0);
-sample.setUint8("1", 42);
-assert.sameValue(typedArray[1], 42, "string '1'");
+sample.setUint8(2, 0);
+sample.setUint8("2", 42);
+assert.sameValue(typedArray[2], 42, "string '2'");
 
-sample.setUint8(0, 0);
+sample.setUint8(1, 0);
 sample.setUint8(true, 42);
 assert.sameValue(typedArray[1], 42, "true");
 
@@ -84,11 +84,11 @@ sample.setUint8(0, 0);
 sample.setUint8(0.9, 42);
 assert.sameValue(typedArray[0], 42, "0.9");
 
-sample.setUint8(0, 0);
+sample.setUint8(1, 0);
 sample.setUint8(1.1, 42);
 assert.sameValue(typedArray[1], 42, "1.1");
 
-sample.setUint8(0, 0);
+sample.setUint8(1, 0);
 sample.setUint8(1.9, 42);
 assert.sameValue(typedArray[1], 42, "1.9");
 
