@@ -37,8 +37,8 @@ properties of the global scope prior to test execution.
 - **`$`** An ordinary object with the following properties:
   - **`createRealm`** - a function which creates a new [ECMAScript
     Realm](https://tc39.github.io/ecma262/2016/#sec-code-realms),
-    defines this API on the new realm's global `this` value, and returns the
-    `$` property of the new realm's global `this` value
+    defines this API on the new realm's global object, and returns the `$`
+    property of the new realm's global object
   - **`detachArrayBuffer`** - a function which implements [the
     DetachArrayBuffer abstract
     operation](https://tc39.github.io/ecma262/2016/#sec-detacharraybuffer)
@@ -58,8 +58,8 @@ properties of the global scope prior to test execution.
         5. Let status be ScriptEvaluation(s).
         6. Return Completion(status).
 
-  - **`global`** - a reference to the global `this` value on which `$` was
-    initially defined
+  - **`global`** - a reference to the global object on which `$` was initially
+    defined
 
 ### Strict Mode
 
