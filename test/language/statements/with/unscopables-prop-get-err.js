@@ -2,22 +2,30 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-es6id: 8.1.1.2.1
+esid: sec-getidentifierreference
+es6id: 8.1.2.1
 description: >
-    Behavior when accessing property of `Symbol.unscopables` property throws an error
-info: >
-    [...]
-    6. If the withEnvironment flag of envRec is false, return true.
-    7. Let unscopables be Get(bindings, @@unscopables).
-    8. ReturnIfAbrupt(unscopables).
-    9. If Type(unscopables) is Object, then
-       a. Let blocked be ToBoolean(Get(unscopables, N)).
-       b. ReturnIfAbrupt(blocked).
+  Behavior when accessing property of `Symbol.unscopables` property throws an
+  error
+info: |
+  [...]
+  2. Let envRec be lex's EnvironmentRecord.
+  3. Let exists be ? envRec.HasBinding(name).
 
-    ES6: 13.11.7 (The `with` Statement) Runtime Semantics: Evaluation
-    [...]
-    6. Set the withEnvironment flag of newEnv’s EnvironmentRecord to true.
-    [...]
+  8.1.1.2.1 HasBinding
+
+  [...]
+  5. If the withEnvironment flag of envRec is false, return true.
+  6. Let unscopables be ? Get(bindings, @@unscopables).
+  7. If Type(unscopables) is Object, then
+     a. Let blocked be ToBoolean(? Get(unscopables, N)).
+     b. If blocked is true, return false.
+
+  13.11.7 (The `with` Statement) Runtime Semantics: Evaluation
+
+  [...]
+  5. Set the withEnvironment flag of newEnv’s EnvironmentRecord to true.
+  [...]
 flags: [noStrict]
 features: [Symbol.unscopables]
 ---*/
@@ -33,6 +41,6 @@ Object.defineProperty(env[Symbol.unscopables], 'x', {
 
 with (env) {
   assert.throws(Test262Error, function() {
-    void x;
+    x;
   });
 }
