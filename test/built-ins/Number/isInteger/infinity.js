@@ -7,4 +7,5 @@ author: Ryan Lewis
 description: Number.isInteger should return false if called with Infinity.
 ---*/
 
-assert.sameValue(Number.isInteger(Infinity), false, 'Number.isInteger(Infinity)');
+assert.sameValue(Number.isInteger(Infinity), false, 'Infinity');
+assert.sameValue(Number.isInteger(-Infinity), false, '-Infinity');
