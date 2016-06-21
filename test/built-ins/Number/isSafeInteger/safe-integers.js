@@ -1,4 +1,4 @@
-// Copyright (c) 2014 Ryan Lewis. All rights reserved.
+// Copyright (c) 2016 The V8 Project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
