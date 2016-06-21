@@ -7,23 +7,6 @@ es5id: 15.8.2.3_A3
 description: Checking if Math.asin(x) is NaN, where x is less than -1
 ---*/
 
-// CHECK#1
-var x = -1.000000000000001;
-if (!isNaN(Math.asin(x)))
-{
-	$ERROR("#1: 'var x = -1.000000000000001; isNaN(Math.asin(x)) === false'");
-}
-
-// CHECK#2
-x = -2;
-if (!isNaN(Math.asin(x)))
-{
-	$ERROR("#2: 'x = -2; isNaN(Math.asin(x)) === false'");
-}
-
-// CHECK#3
-x = -Infinity;
-if (!isNaN(Math.asin(x)))
-{
-	$ERROR("#3: 'x = -Infinity; isNaN(Math.asin(x)) === false'");
-}
+assert.sameValue(Math.asin(-1.000000000000001), NaN, "-1.000000000000001");
+assert.sameValue(Math.asin(-2), NaN, "-2");
+assert.sameValue(Math.asin(-Infinity), NaN, "-Infinity");

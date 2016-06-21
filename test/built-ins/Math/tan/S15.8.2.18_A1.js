@@ -7,9 +7,4 @@ es5id: 15.8.2.18_A1
 description: Checking if Math.tan(NaN) is NaN
 ---*/
 
-// CHECK#1
-var x = NaN;
-if (!isNaN(Math.tan(x)))
-{
-	$ERROR("#1: 'var x=NaN; isNaN(Math.tan(x)) === false'");
-}
+assert.sameValue(Math.tan(NaN), NaN);

@@ -28,9 +28,10 @@ for (var i = 0; i < 2; i++)
 	for (var j = 0; j < valnum; j++)
 	{
 		args[1-i] = vals[j];
-		if (!isNaN(Math.atan2(args[0], args[1])))
-		{
-			$ERROR("#1: isNaN(Math.atan2(" + args[0] + ", " + args[1] + ")) === false'");
-		}
+		assert.sameValue(
+			Math.atan2(args[0], args[1]),
+			NaN,
+			"(" + args[0] + ", " + args[1] + ")"
+		);
 	}
 }

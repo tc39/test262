@@ -20,7 +20,9 @@ bases[8] = NaN;
 
 
 for (var i = 0; i < bases.length; i++) {
-  if (!isNaN(bases[i] ** exponent)) {
-    $ERROR("isNaN(" + bases[i] + " ** " + exponent + ") === false");
-  }
+  assert.sameValue(
+    bases[i] ** exponent,
+    NaN,
+    bases[i] + " ** " + exponent
+  );
 }

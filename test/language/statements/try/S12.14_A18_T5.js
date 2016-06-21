@@ -64,7 +64,7 @@ try{
   throw NaN;
 }
 catch(e){
-  if (!isNaN(e)) $ERROR('#7: Exception is NaN');
+  assert.sameValue(e, NaN, "e is NaN");
 }
 
 // CHECK#8

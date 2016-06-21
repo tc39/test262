@@ -7,9 +7,4 @@ es5id: 15.8.2.7_A4
 description: Checking if Math.cos(+Infinity) is NaN
 ---*/
 
-// CHECK#1
-var x = +Infinity;
-if (!isNaN(Math.cos(x)))
-{
-	$ERROR("#1: 'var x = +Infinity; isNaN(Math.cos(x)) === false'");
-}
+assert.sameValue(Math.cos(Infinity), NaN);

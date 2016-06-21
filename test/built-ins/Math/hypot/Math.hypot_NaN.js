@@ -9,4 +9,4 @@ description: >
     NaN.
 ---*/
 
-assert(Number.isNaN(Math.hypot(NaN, 3)), 'Number.isNaN(Math.hypot(NaN, 3)) !== true');
+assert.sameValue(Math.hypot(NaN, 3), NaN);

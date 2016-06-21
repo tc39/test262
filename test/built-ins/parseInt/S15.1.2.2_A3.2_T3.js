@@ -18,9 +18,7 @@ if (parseInt("11", 4294967296) !== parseInt("11", 10)) {
 }
 
 //CHECK#3
-if (isNaN(parseInt("11", -2147483650)) !== true) {
-  $ERROR('#3: parseInt("11", 2147483650) === Not-a-Number. Actual: ' + (parseInt("11", 2147483650)));
-}
+assert.sameValue(parseInt("11", -2147483650), NaN, "-2147483650");
 
 //CHECK#4
 if (parseInt("11", -4294967294) !== parseInt("11", 2)) {

@@ -9,9 +9,7 @@ description: If Type(value) is Object, evaluate ToPrimitive(value, String)
 
 //CHECK#1
 var object = {valueOf: function() {return 1}};
-if (isNaN(parseInt(object)) !== true) {
-  $ERROR('#1: var object = {valueOf: function() {return 1}}; parseInt(object) === Not-a-Number. Actual: ' + (parseInt(object)));
-}
+assert.sameValue(parseInt(object), NaN, "{valueOf: function() {return 1}}");
 
 //CHECK#2
 var object = {valueOf: function() {return 1}, toString: function() {return 0}};

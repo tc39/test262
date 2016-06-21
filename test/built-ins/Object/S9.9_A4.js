@@ -132,9 +132,7 @@ if (Object(Number.NEGATIVE_INFINITY).constructor.prototype !== Number.prototype)
 }
 
 // CHECK#25
-if (isNaN(Object(Number.NaN).valueOf()) !== true){
-  $ERROR('#25: Object(Number.NaN).valueOf() === Not-a-Number. Actual: ' + (Object(Number.NaN).valueOf()));
-}
+assert.sameValue(Object(NaN).valueOf(), NaN, "Object(NaN).valueOf()");
 
 // CHECK#26
 if (typeof Object(Number.NaN) !== "object"){

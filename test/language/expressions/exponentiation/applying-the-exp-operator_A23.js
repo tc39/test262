@@ -25,9 +25,11 @@ exponents[7] = Math.PI;
 
 for (var i = 0; i < bases.length; i++) {
   for (var j = 0; j < exponents.length; j++) {
-    if (!isNaN(bases[i] ** exponents[j])) {
-      $ERROR("isNaN(" + bases[i] + " **  " + exponents[j] + ") === false");
-    }
+    assert.sameValue(
+      bases[i] ** exponents[j],
+      NaN,
+      bases[i] + " ** " + exponents[j]
+    );
   }
 }
 

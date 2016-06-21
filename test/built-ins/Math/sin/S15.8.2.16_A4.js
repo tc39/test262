@@ -7,9 +7,4 @@ es5id: 15.8.2.16_A4
 description: Checking if Math.sin(+Infinity) is NaN
 ---*/
 
-// CHECK#1
-var x = +Infinity;
-if (!isNaN(Math.sin(x)))
-{
-	$ERROR("#1: 'var x = +Infinity; isNaN(Math.sin(x)) === false'");
-}
+assert.sameValue(Math.sin(Infinity), NaN);

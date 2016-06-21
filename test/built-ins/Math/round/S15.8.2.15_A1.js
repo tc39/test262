@@ -7,9 +7,4 @@ es5id: 15.8.2.15_A1
 description: Checking if Math.round(x) is NaN, where x is NaN
 ---*/
 
-// CHECK#1
-var x = NaN;
-if (!isNaN(Math.round(x)))
-{
-	$ERROR("#1: 'var x=NaN; isNaN(Math.round(x)) === false'");
-}
+assert.sameValue(Math.round(NaN), NaN);

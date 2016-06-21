@@ -19,9 +19,7 @@ if (obj.join() !== "") {
 }
 
 //CHECK#2
-if (isNaN(obj.length) !== true) {
-  $ERROR('#2: var obj = {}; obj.length = NaN; obj.join = Array.prototype.join; obj.join(); obj.length === Not-a-Number. Actual: ' + (obj.length));
-}
+assert.sameValue(obj.length, NaN, "obj.length is NaN");
 
 //CHECK#5
 obj.length = Number.NEGATIVE_INFINITY;

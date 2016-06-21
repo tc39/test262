@@ -7,9 +7,4 @@ es5id: 15.8.2.1_A1
 description: Checking if Math.abs(NaN) is NaN
 ---*/
 
-// CHECK#1
-var x = NaN;
-if (!isNaN(Math.abs(x)))
-{
-	$ERROR("#1: 'var x=NaN; isNaN(Math.abs(x)) === false'");
-}
+assert.sameValue(Math.abs(NaN), NaN);

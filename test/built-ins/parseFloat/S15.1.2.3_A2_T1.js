@@ -33,6 +33,4 @@ if (parseFloat("			\u0009			\u0009-1.1") !== parseFloat("-1.1")) {
 }
 
 //CHECK#6
-if (isNaN(parseFloat("\u0009")) !== true) {
-  $ERROR('#6: parseFloat("\\u0009") === Not-a-Number. Actual: ' + (parseFloat("\u0009")));
-}
+assert.sameValue(parseFloat("\u0009"), NaN, "'\u0009'");

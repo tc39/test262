@@ -7,4 +7,4 @@ author: Ryan Lewis
 description: Math.fround should return NaN if called with NaN.
 ---*/
 
-assert(Number.isNaN(Math.fround(NaN)), 'Number.isNaN(Math.fround(NaN)) !== true');
+assert.sameValue(Math.fround(NaN), NaN);

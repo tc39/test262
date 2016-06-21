@@ -7,9 +7,4 @@ es5id: 15.8.2.3_A1
 description: Checking if Math.asin(NaN) is NaN
 ---*/
 
-// CHECK#1
-var x = NaN;
-if (!isNaN(Math.asin(x)))
-{
-	$ERROR("#1: 'var x=NaN; isNaN(Math.asin(x)) === false'");
-}
+assert.sameValue(Math.asin(NaN), NaN, "NaN");

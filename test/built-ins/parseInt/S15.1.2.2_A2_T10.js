@@ -8,6 +8,7 @@ description: "StrWhiteSpaceChar :: USP"
 ---*/
 
 //CHECK#
+var n;
 var count = 0;
 var errorCount = 0;
 var uspU = ["\u1680", "\u180E", "\u2000", "\u2001", "\u2002", "\u2003", "\u2004", "\u2005", "\u2006", "\u2007", "\u2008", "\u2009", "\u200A", "\u202F", "\u205F", "\u3000"];
@@ -15,6 +16,7 @@ var uspS = ["1680", "180E", "2000", "2001", "2002", "2003", "2004", "2005", "200
 
 for (var index = 0; index < uspU.length; index++) {
   var result = true;
+  n = false;
   if (parseInt(uspU[index] + "1") !== parseInt("1")) {
     $ERROR('#1.' +  uspS[index] + ' ');
     result = false;
@@ -23,7 +25,8 @@ for (var index = 0; index < uspU.length; index++) {
     $ERROR('#2.' +  uspS[index] + ' ');
     result = false;
   }
-  if (isNaN(parseInt(uspU[index])) !== true) {
+  n = parseInt(uspU[index]);
+  if (!(n !== n)) {
     $ERROR('#3.' +  uspS[index] + ' ');
     result = false;
   }

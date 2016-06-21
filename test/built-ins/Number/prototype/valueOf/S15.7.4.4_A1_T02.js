@@ -33,9 +33,11 @@ if((new Number(1)).valueOf("argument") !== 1){
 }
 
 //CHECK#6
-if(!isNaN((new Number(Number.NaN)).valueOf("argument"))){
-  $ERROR('#6: (new Number(Number.NaN)).valueOf("argument") === NaN');
-}
+assert.sameValue(
+  new Number(NaN).valueOf("argument"),
+  NaN,
+  "NaN"
+);
 
 //CHECK#7
 if((new Number(Number.POSITIVE_INFINITY)).valueOf("argument") !== Number.POSITIVE_INFINITY){

@@ -18,6 +18,4 @@ if (parseInt("\u000D\u000D-1") !== parseInt("-1")) {
 }
 
 //CHECK#3
-if (isNaN(parseInt("\u000D")) !== true) {
-  $ERROR('#3: parseInt("\\u000D") === Not-a-Number. Actual: ' + (parseInt("\u000D")));
-}
+assert.sameValue(parseInt("\u000D"), NaN);

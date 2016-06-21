@@ -7,9 +7,4 @@ es5id: 15.8.2.9_A1
 description: Checking if Math.floor(NaN) is NaN
 ---*/
 
-// CHECK#1
-var x = NaN;
-if (!isNaN(Math.floor(x)))
-{
-	$ERROR("#1: 'var x=NaN; isNaN(Math.floor(x)) === false'");
-}
+assert.sameValue(Math.floor(NaN), NaN);

@@ -13,21 +13,15 @@ description: >
 
 // CHECK#1
 var d1 = new Date(Number.NaN);
-if (!isNaN(d1.valueOf())) {
-  $ERROR('#1: var d1 = new Date(Number.NaN); d1.valueOf() === Number.NaN;');
-}
+assert.sameValue(d1.valueOf(), NaN, "NaN");
 
 // CHECK#2
 var d2 = new Date(Infinity);
-if (!isNaN(d2.valueOf())) {
-  $ERROR('#2: var d2 = new Date(Infinity); d2.valueOf() === Number.NaN;');
-}
+assert.sameValue(d2.valueOf(), NaN, "Infinity");
 
 // CHECK#3
 var d3 = new Date(-Infinity);
-if (!isNaN(d3.valueOf())) {
-  $ERROR('#3: var d3 = new Date(-Infinity); d3.valueOf() === Number.NaN;');
-}
+assert.sameValue(d3.valueOf(), NaN, "-Infinity");
 
 // CHECK#4
 var d4 = new Date(0);

@@ -7,4 +7,4 @@ author: Ryan Lewis
 description: Math.trunc should return NaN when called with NaN.
 ---*/
 
-assert(Number.isNaN(Math.trunc(NaN)), 'Number.isNaN(Math.trunc(NaN)) !== true');
+assert.sameValue(Math.trunc(NaN), NaN);

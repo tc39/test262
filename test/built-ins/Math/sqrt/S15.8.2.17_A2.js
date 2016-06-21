@@ -7,23 +7,6 @@ es5id: 15.8.2.17_A2
 description: Checking if Math.sqrt(x) is NaN, where x is less than 0
 ---*/
 
-// CHECK#1
-var x = -0.000000000000001;
-if (!isNaN(Math.sqrt(x)))
-{
-	$ERROR("#1: 'var x=-0.000000000000001; isNaN(Math.sqrt(x)) === false'");
-}
-
-// CHECK#2
-var x = -1;
-if (!isNaN(Math.sqrt(x)))
-{
-	$ERROR("#2: 'var x=-1; isNaN(Math.sqrt(x)) === false'");
-}
-
-// CHECK#3
-var x = -Infinity;
-if (!isNaN(Math.sqrt(x)))
-{
-	$ERROR("#3: 'var x=-Infinity; isNaN(Math.sqrt(x)) === false'");
-}
+assert.sameValue(Math.sqrt(-0.000000000000001), NaN, "-0.000000000000001");
+assert.sameValue(Math.sqrt(-1), NaN, "-1");
+assert.sameValue(Math.sqrt(-Infinity), NaN, "-Infinity");
