@@ -70,7 +70,6 @@ function* g() {
   }
 }
 var iter = g();
-var result, caught;
 
 iter.next();
 assert.sameValue(callCount, 0, 'access count (first iteration)');
