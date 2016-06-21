@@ -6,7 +6,6 @@ es5id: 15.4.4.14-1-17
 description: Array.prototype.indexOf applied to the global object
 ---*/
 
-            var oldLen = this.length;
             this[1] = true;
             this.length = 2;
 

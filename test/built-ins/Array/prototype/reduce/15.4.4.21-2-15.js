@@ -10,7 +10,6 @@ description: Array.prototype.reduce - 'length' is property of the global object
             return (obj.length === 2);
         }
 
-            var oldLen = this.length;
             this[0] = 12;
             this[1] = 11;
             this[2] = 9;

@@ -8,7 +8,6 @@ description: Array.prototype.lastIndexOf - This object is the global object
 
         var targetObj = {};
 
-            var oldLen = this.length;
             this[0] = targetObj;
             this[100] = "100";
             this[200] = "200";

@@ -14,7 +14,6 @@ description: Array.prototype.every - 'length' is property of the global object
             return val > 11;
         }
 
-            var oldLen = this.length;
             this[0] = 12;
             this[1] = 11;
             this[2] = 9;

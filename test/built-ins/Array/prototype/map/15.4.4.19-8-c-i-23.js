@@ -17,7 +17,6 @@ description: >
             return false;
         }
 
-            var oldLen = this.length;
             this[0] = kValue;
             this.length = 2;
 
