@@ -20,29 +20,30 @@ info: |
 negative: Test262Error
 ---*/
 
+
 var counter = 0;
-/*
+0/*
 */-->
 counter += 1;
 
-/*
+0/*
 */-->the comment extends to these characters
 counter += 1;
 
-/* optional FirstCommentLine
+0/* optional FirstCommentLine
 */-->the comment extends to these characters
 counter += 1;
 
-/*
+0/*
 optional
 MultiLineCommentChars */-->the comment extends to these characters
 counter += 1;
 
-/*
+0/*
 */ /* optional SingleLineDelimitedCommentSequence */-->the comment extends to these characters
 counter += 1;
 
-/*
+0/*
 */ /**/ /* second optional SingleLineDelimitedCommentSequence */-->the comment extends to these characters
 counter += 1;
 
