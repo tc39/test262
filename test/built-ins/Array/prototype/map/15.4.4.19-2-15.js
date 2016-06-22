@@ -12,7 +12,6 @@ description: >
             return val > 10;
         }
 
-            var oldLen = this.length;
             this[0] = 12;
             this[1] = 11;
             this[2] = 9;

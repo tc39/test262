@@ -16,7 +16,6 @@ description: >
             }
         }
 
-            var oldLen = this.length;
             this[0] = 11;
             this.length = 1;
 

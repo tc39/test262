@@ -10,7 +10,6 @@ description: >
 
         var targetObj = {};
 
-            var oldLen = this.length;
             this.length = 2;
 
             this[1] = targetObj;

@@ -8,7 +8,6 @@ description: Array.prototype.indexOf - 'length' is property of the global object
 
         var targetObj = {};
 
-            var oldLen = this.length;
             this.length = 2;
 
             this[1] = targetObj;

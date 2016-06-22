@@ -12,7 +12,6 @@ description: >
             return idx === 0 && val === 11;
         }
 
-            var oldLen = this.length;
             this[0] = 11;
             this.length = 1;
             var newArr = Array.prototype.filter.call(this, callbackfn);

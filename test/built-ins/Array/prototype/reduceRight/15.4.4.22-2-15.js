@@ -16,7 +16,6 @@ var global = this;
             return obj.length === global.length;
         }
 
-            var oldLen = this.length;
             this[0] = 12;
             this[1] = 11;
             this[2] = 9;

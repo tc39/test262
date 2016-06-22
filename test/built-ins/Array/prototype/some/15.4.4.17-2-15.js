@@ -14,7 +14,6 @@ description: Array.prototype.some - 'length' is property of the global object
             return val > 11;
         }
 
-            var oldLen = this.length;
             this[0] = 9;
             this[1] = 11;
             this[2] = 12;
