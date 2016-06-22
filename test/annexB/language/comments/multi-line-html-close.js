@@ -20,7 +20,6 @@ info: |
 negative: Test262Error
 ---*/
 
-
 var counter = 0;
 0/*
 */-->
