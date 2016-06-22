@@ -6,5 +6,6 @@ description: >
     redeclaration outermost:
     allowed to redeclare function declaration with function declaration
 ---*/
-function f() {} function f() {}
+function f() { return 1; } function f() { return 2; }
 
+assert.sameValue(f(), 2);
