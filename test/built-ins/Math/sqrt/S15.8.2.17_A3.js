@@ -7,9 +7,4 @@ es5id: 15.8.2.17_A3
 description: Checking if Math.sqrt(+0) equals to +0
 ---*/
 
-// CHECK#1
-var x = +0;
-if (Math.sqrt(x) !== +0)
-{
-	$ERROR("#1: 'var x=+0; Math.sqrt(x) !== +0'");
-}
+assert.sameValue(Math.sqrt(0), 0);

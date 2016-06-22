@@ -7,9 +7,4 @@ es5id: 15.8.2.3_A4
 description: Checking if Math.asin(+0) equals +0
 ---*/
 
-// CHECK#1
-var x = +0;
-if (Math.asin(x) !== +0)
-{
-	$ERROR("#1: 'var x = +0; Math.asin(x) !== +0'");
-}
+assert.sameValue(Math.asin(0), 0);

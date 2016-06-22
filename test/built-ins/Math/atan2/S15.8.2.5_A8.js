@@ -17,6 +17,9 @@ var xnum = 3;
 
 for (var i = 0; i < xnum; i++)
 {
-	if (Math.atan2(y,x[i]) !== -0)
-		$ERROR("#1: Math.atan2(" + y + ", " + x[i] + ") !== -0");
+  assert.sameValue(
+    Math.atan2(y, x[i]),
+    -0,
+    "(-0, " + x[i] + ")"
+  );
 }

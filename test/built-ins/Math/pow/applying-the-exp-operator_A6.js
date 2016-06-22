@@ -19,8 +19,5 @@ var basenum = 6;
 
 for (var i = 0; i < basenum; i++)
 {
-	if (Math.pow(base[i],exponent) !== +0)
-	{
-		$ERROR("#1: Math.pow(" + base[i] + ", " + exponent + ") !== +0");
-	}
+  assert.sameValue(Math.pow(base[i], exponent), 0, base[i]);
 }

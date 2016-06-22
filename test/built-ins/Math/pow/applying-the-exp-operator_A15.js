@@ -16,8 +16,5 @@ var exponentnum = 3;
 
 for (var i = 0; i < exponentnum; i++)
 {
-	if (Math.pow(base,exponent[i]) !== -0)
-	{
-		$ERROR("#1: Math.pow(" + base + ", " + exponent[i] + ") !== -0");
-	}
+  assert.sameValue(Math.pow(base, exponent[i]), -0, exponent[i]);
 }

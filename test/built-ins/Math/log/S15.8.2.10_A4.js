@@ -7,9 +7,4 @@ es5id: 15.8.2.10_A4
 description: Checking if Math.log(1) equals to +0
 ---*/
 
-// CHECK#1
-var x = 1;
-if (Math.log(x) !== +0)
-{
-	$ERROR("#1: 'var x=1; Math.log(x) !== +0'");
-}
+assert.sameValue(Math.log(1), 0);

@@ -7,9 +7,4 @@ es5id: 15.8.2.2_A4
 description: Checking if Math.acos(1) equals to +0
 ---*/
 
-// CHECK#1
-var x = 1;
-if (Math.acos(x) !== +0)
-{
-	$ERROR("#1: 'var x = 1; Math.acos(x) !== +0'");
-}
+assert.sameValue(Math.acos(1), 0);

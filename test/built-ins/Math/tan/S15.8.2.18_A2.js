@@ -7,9 +7,4 @@ es5id: 15.8.2.18_A2
 description: Checking if Math.tan(+0) equals to +0
 ---*/
 
-// CHECK#1
-var x = +0;
-if (Math.tan(x) !== +0)
-{
-	$ERROR("#1: 'var x=+0; Math.tan(x) !== +0'");
-}
+assert.sameValue(Math.tan(0), 0);

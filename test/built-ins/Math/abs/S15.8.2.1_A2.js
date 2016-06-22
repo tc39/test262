@@ -7,9 +7,4 @@ es5id: 15.8.2.1_A2
 description: Checking if Math.abs(-0) equals to +0
 ---*/
 
-// CHECK#1
-var x = -0;
-if (Math.abs(x) !== +0)
-{
-	$ERROR("#1: 'var x=-0; Math.abs(x) !== +0'");
-}
+assert.sameValue(Math.abs(-0), 0);
