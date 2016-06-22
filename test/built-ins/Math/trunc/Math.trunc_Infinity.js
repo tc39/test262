@@ -4,7 +4,8 @@
 /*---
 es6id: 20.2.2.35
 author: Ryan Lewis
-description: Math.trunc should return Infinity when called with Infinity.
+description: Return arg when called with Infinity or -Infinity.
 ---*/
 
-assert.sameValue(Math.trunc(.9), 0, 'Math.trunc(.9)');
+assert.sameValue(Math.trunc(Infinity), Infinity, 'Math.trunc(Infinity)');
+assert.sameValue(Math.trunc(-Infinity), -Infinity, 'Math.trunc(-Infinity)');
