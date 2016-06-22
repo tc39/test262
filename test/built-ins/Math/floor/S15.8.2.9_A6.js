@@ -9,23 +9,6 @@ description: >
     less than 1
 ---*/
 
-// CHECK#1
-var x = 0.000000000000001;
-if (Math.floor(x) !== +0)
-{
-	$ERROR("#1: 'var x = 0.000000000000001; Math.floor(x) !==  +0'");
-}
-
-// CHECK#2
-var x = 0.999999999999999;
-if (Math.floor(x) !== +0)
-{
-	$ERROR("#2: 'var x = 0.999999999999999; Math.ceil(x) !== +0'");
-}
-
-// CHECK#3
-var x = 0.5;
-if (Math.floor(x) !== +0)
-{
-	$ERROR("#3: 'var x = 0.5; Math.ceil(x) !== +0'");
-}
+assert.sameValue(Math.floor(0.000000000000001), 0, "0.000000000000001");
+assert.sameValue(Math.floor(0.999999999999999), 0, "0.999999999999999");
+assert.sameValue(Math.floor(0.5), 0, "0.5");

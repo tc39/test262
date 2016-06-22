@@ -7,9 +7,4 @@ es5id: 15.8.2.4_A2
 description: Checking if Math.atan(+0) equals to +0
 ---*/
 
-// CHECK#1
-var x = +0;
-if (Math.atan(x) !== +0)
-{
-	$ERROR("#1: 'var x = +0; Math.atan(x) !== +0'");
-}
+assert.sameValue(Math.atan(0), 0);

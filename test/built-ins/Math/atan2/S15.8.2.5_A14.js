@@ -19,6 +19,5 @@ var ynum = 3;
 
 for (var i = 0; i < ynum; i++)
 {
-	if (Math.atan2(y[i],x) !== +0)
-		$ERROR("#1: Math.atan2(" + y[i] + ", " + x + ") !== +0");
+  assert.sameValue(Math.atan2(y[i], x), 0, y[i]);
 }
