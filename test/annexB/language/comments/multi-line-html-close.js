@@ -21,6 +21,36 @@ negative: Test262Error
 ---*/
 
 var counter = 0;
+/*
+*/-->
+counter += 1;
+
+/*
+*/-->the comment extends to these characters
+counter += 1;
+
+/* optional FirstCommentLine
+*/-->the comment extends to these characters
+counter += 1;
+
+/*
+optional
+MultiLineCommentChars */-->the comment extends to these characters
+counter += 1;
+
+/*
+*/ /* optional SingleLineDelimitedCommentSequence */-->the comment extends to these characters
+counter += 1;
+
+/*
+*/ /**/ /* second optional SingleLineDelimitedCommentSequence */-->the comment extends to these characters
+counter += 1;
+
+// The V8 engine exhibited a bug where HTMLCloseComment was not recognized
+// within MultiLineComment in cases where MultiLineComment was not the first
+// token on the line of source text. The following tests demonstrate the same
+// productions listed above with the addition of such a leading token.
+
 0/*
 */-->
 counter += 1;
@@ -53,6 +83,6 @@ counter += 1;
 // Express the intended behavior by intentionally throwing an error; this
 // guarantees that test runners will only consider the test "passing" if
 // executable sequences are correctly interpreted as such.
-if (counter === 6) {
+if (counter === 12) {
   throw new Test262Error();
 }
