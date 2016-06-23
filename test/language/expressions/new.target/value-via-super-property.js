@@ -14,35 +14,21 @@ info: |
 features: [class]
 ---*/
 
-var baseNewTarget = null;
-var parentNewTarget = null;
+var newTarget = null;
 
-class Base {
-  get fromBase() {
-    baseNewTarget = new.target;
-  }
-}
-
-class Parent extends Base {
-  get fromParent() {
-    parentNewTarget = new.target;
+class Parent {
+  get attr() {
+    newTarget = new.target;
   }
 }
 
 class Child extends Parent {
   constructor() {
-    super.fromParent;
-    super.fromBase;
+    super();
+    super.attr;
   }
 }
 
-// When the "construct" invocation completes and the "this" value is
-// uninitialized, the specification dictates that a ReferenceError must be
-// thrown. That behavior is tested elsewhere, so the error is ignored (if it is
-// produced at all).
-try {
-  new Child();
-} catch (_) {}
+new Child();
 
-assert.sameValue(parentNewTarget, undefined, 'within "parent" method');
-assert.sameValue(baseNewTarget, undefined, 'witin "base" method');
+assert.sameValue(newTarget, undefined);
