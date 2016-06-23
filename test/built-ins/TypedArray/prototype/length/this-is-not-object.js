@@ -18,23 +18,32 @@ var getter = Object.getOwnPropertyDescriptor(
   TypedArrayPrototype, "length"
 ).get;
 
+
+assert.throws(TypeError, function() {
+  getter.call(undefined);
+}, "undefined");
+
+assert.throws(TypeError, function() {
+  getter.call(null);
+}, "null");
+
 assert.throws(TypeError, function() {
   getter.call(42);
-});
+}, "number");
 
 assert.throws(TypeError, function() {
   getter.call("1");
-});
+}, "string");
 
 assert.throws(TypeError, function() {
   getter.call(true);
-});
+}, "true");
 
 assert.throws(TypeError, function() {
   getter.call(false);
-});
+}, "false");
 
 var s = Symbol("s");
 assert.throws(TypeError, function() {
   getter.call(s);
-});
+}, "symbol");
