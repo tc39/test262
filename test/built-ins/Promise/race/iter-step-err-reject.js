@@ -3,9 +3,10 @@
 
 /*---
 description: >
-    Error when advancing the provided iterable
+  Error when advancing the provided iterable (rejecting promise)
+esid: sec-promise.race
 es6id: 25.4.4.3
-info: >
+info: |
     [...]
     11. Let result be PerformPromiseRace(iteratorRecord, promiseCapability, C).
     12. If result is an abrupt completion, then

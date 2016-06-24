@@ -2,11 +2,13 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-promise.all
+es6id: 25.4.4.1
 description: >
-    Error when accessing an iterator result's `value` property
-es6id: 25.4.4.3
-info: >
-    11. Let result be PerformPromiseRace(iteratorRecord, C, promiseCapability).
+  Error when accessing an iterator result's `value` property (rejecting
+  promise)
+info: |
+    11. Let result be PerformPromiseAll(iteratorRecord, C, promiseCapability).
     12. If result is an abrupt completion,
         a. If iteratorRecord.[[done]] is false, let result be
            IteratorClose(iterator, result).
@@ -14,9 +16,10 @@ info: >
 
     [...]
 
-    25.4.4.3.1 Runtime Semantics: PerformPromiseRace
+    25.4.4.1.1 Runtime Semantics: PerformPromiseAll
 
-    1. Repeat
+    [...]
+    6. Repeat
         [...]
         e. Let nextValue be IteratorValue(next).
         f. If nextValue is an abrupt completion, set iteratorRecord.[[done]] to
@@ -44,7 +47,7 @@ iterNextValThrows[Symbol.iterator] = function() {
   };
 };
 
-Promise.race(iterNextValThrows).then(function() {
+Promise.all(iterNextValThrows).then(function() {
   $ERROR('The promise should be rejected.');
 }, function(reason) {
   assert.sameValue(reason, error);

@@ -1,11 +1,11 @@
-// Copyright (C) 2015 the V8 project authors. All rights reserved.
+// Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
 description: >
-    Error thrown when invoking the instance's `then` method
+  Error thrown when invoking the instance's `then` method (closing iterator)
+esid: sec-performpromiseall
 es6id: 25.4.4.1
-info: >
+info: |
     11. Let result be PerformPromiseAll(iteratorRecord, C, promiseCapability).
     12. If result is an abrupt completion,
         a. If iteratorRecord.[[done]] is false, let result be
@@ -22,18 +22,28 @@ info: >
         r. Let result be Invoke(nextPromise, "then", «resolveElement,
            resultCapability.[[Reject]]»).
         s. ReturnIfAbrupt(result).
-flags: [async]
+features: [Symbol.iterator]
 ---*/
 
 var promise = new Promise(function() {});
-var error = new Test262Error();
-
-promise.then = function() {
-  throw error;
+var returnCount = 0;
+var iter = {};
+iter[Symbol.iterator] = function() {
+  return {
+    next: function() {
+      return { done: false, value: promise };
+    },
+    return: function() {
+      returnCount += 1;
+      return {};
+    }
+  };
 };
 
-Promise.all([promise]).then(function() {
-  $ERROR('The promise should be rejected');
-}, function(reason) {
-  assert.sameValue(reason, error);
-}).then($DONE, $DONE);
+promise.then = function() {
+  throw new Test262Error();
+};
+
+Promise.all(iter);
+
+assert.sameValue(returnCount, 1);

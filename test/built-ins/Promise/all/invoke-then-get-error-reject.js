@@ -1,11 +1,11 @@
-// Copyright (C) 2015 the V8 project authors. All rights reserved.
+// Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
 description: >
-    Error when accessing an iterator result's `value` property
+  Error thrown when accessing the instance's `then` method (rejecting Promise)
+esid: sec-performpromiseall
 es6id: 25.4.4.1
-info: >
+info: |
     11. Let result be PerformPromiseAll(iteratorRecord, C, promiseCapability).
     12. If result is an abrupt completion,
         a. If iteratorRecord.[[done]] is false, let result be
@@ -19,34 +19,23 @@ info: >
     [...]
     6. Repeat
         [...]
-        e. Let nextValue be IteratorValue(next).
-        f. If nextValue is an abrupt completion, set iteratorRecord.[[done]] to
-           true.
-        g. ReturnIfAbrupt(nextValue).
-features: [Symbol.iterator]
+        r. Let result be Invoke(nextPromise, "then", «resolveElement,
+           resultCapability.[[Reject]]»).
+        s. ReturnIfAbrupt(result).
 flags: [async]
 ---*/
 
-var iterNextValThrows = {};
-var poisonedVal = {
-  done: false
-};
+var promise = new Promise(function() {});
 var error = new Test262Error();
-Object.defineProperty(poisonedVal, 'value', {
+
+Object.defineProperty(promise, 'then', {
   get: function() {
     throw error;
   }
 });
-iterNextValThrows[Symbol.iterator] = function() {
-  return {
-    next: function() {
-      return poisonedVal;
-    }
-  };
-};
 
-Promise.all(iterNextValThrows).then(function() {
-  $ERROR('The promise should be rejected.');
+Promise.all([promise]).then(function() {
+  $ERROR('The promise should be rejected');
 }, function(reason) {
   assert.sameValue(reason, error);
 }).then($DONE, $DONE);
