@@ -8,8 +8,9 @@ description: >
     state.
 ---*/
 
+var bodyCount = 0;
 function* G() {
-  yield 1;
+  bodyCount += 1;
 }
 var iter = G();
 var result;
@@ -18,8 +19,14 @@ result = iter.return(56);
 
 assert.sameValue(result.value, 56);
 assert.sameValue(result.done, true);
+assert.sameValue(
+  bodyCount, 0, 'body not evaluated during processing of `return` method'
+);
 
 result = iter.next();
 
 assert.sameValue(result.value, undefined, 'Result `value`');
 assert.sameValue(result.done, true, 'Result `done` flag');
+assert.sameValue(
+  bodyCount, 0, 'body not evaluated when "completed" generator is advanced'
+);

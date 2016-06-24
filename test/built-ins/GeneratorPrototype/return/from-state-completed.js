@@ -13,9 +13,12 @@ var iter, result;
 iter = G();
 iter.next();
 
-iter.return(33);
+result = iter.return(33);
+
+assert.sameValue(result.value, 33, 'return: result `value`');
+assert.sameValue(result.done, true, 'return: result `done` flag');
 
 result = iter.next();
 
-assert.sameValue(result.value, undefined, 'Result `value`');
-assert.sameValue(result.done, true, 'Result `done` flag');
+assert.sameValue(result.value, undefined, 'next: result `value`');
+assert.sameValue(result.done, true, 'next: result `done` flag');
