@@ -23,6 +23,7 @@ info: >
         «promise, resolution, thenAction»)
 ---*/
 
+var returnValue = null;
 var value = {};
 var resolve;
 var thenable = new Promise(function(resolve) { resolve(); });
@@ -45,4 +46,6 @@ promise.then(function(val) {
     $DONE('The promise should not be rejected.');
   });
 
-resolve(thenable);
+returnValue = resolve(thenable);
+
+assert.sameValue(returnValue, undefined, '"resolve" return value');
