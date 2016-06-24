@@ -5,11 +5,18 @@ es6id: 13.6.4.13 S5.g
 description: >
     If `nextValue` is an abrupt completion as per IteratorValue (ES6 7.4.4),
     return the completion.
+info: |
+  [...]
+  5. Repeat
+     a. Let nextResult be ? IteratorStep(iterator).
+     b. If nextResult is false, return NormalCompletion(V).
+     c. Let nextValue be ? IteratorValue(nextResult).
 features: [Symbol.iterator]
 ---*/
 
 var iterable = {};
 var iterationCount = 0;
+var returnCount = 0;
 
 iterable[Symbol.iterator] = function() {
   return {
@@ -20,6 +27,10 @@ iterable[Symbol.iterator] = function() {
           throw new Test262Error();
         }
       };
+    },
+    return: function() {
+      returnCount += 1;
+      return {};
     }
   };
 };
@@ -31,3 +42,4 @@ assert.throws(Test262Error, function() {
 });
 
 assert.sameValue(iterationCount, 0, 'The loop body is not evaluated');
+assert.sameValue(returnCount, 0, 'Iterator is not closed.');
