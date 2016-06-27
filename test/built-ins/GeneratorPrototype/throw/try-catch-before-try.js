@@ -19,7 +19,7 @@ function* g() {
   }
   yield 3;
 }
-var iter, result, exception;
+var iter, result;
 
 iter = g();
 

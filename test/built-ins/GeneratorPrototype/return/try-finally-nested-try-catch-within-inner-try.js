@@ -28,7 +28,6 @@ function* g() {
   unreachable += 1;
 }
 var iter = g();
-var exception = new Error();
 var result;
 
 iter.next();
