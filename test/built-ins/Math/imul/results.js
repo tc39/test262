@@ -7,14 +7,12 @@ esid: sec-math.imul
 description: >
   Return results
 info: |
-  Math.fround ( x )
+  Math.imul ( x, y )
 
-  [...]
-  3. Let x32 be the result of converting x to a value in IEEE 754-2008 binary32
-  format using roundTiesToEven.
-  4. Let x64 be the result of converting x32 to a value in IEEE 754-2008
-  binary64 format.
-  5. Return the ECMAScript Number value corresponding to x64.
+  1. Let a be ToUint32(x).
+  2. Let b be ToUint32(y).
+  3. Let product be (a × b) modulo 232.
+  4. If product ≥ 231, return product - 232; otherwise return product.
 ---*/
 
 assert.sameValue(Math.imul(2, 4), 8, "(2, 4)");
