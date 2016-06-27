@@ -105,4 +105,4 @@ assert.sameValue(sample.getFloat32(0), 42, "undefined");
 
 sample.setFloat32(0, 7);
 sample.setFloat32();
-assert.sameValue(sample.getFloat32(0), 0, "no arg");
+assert.sameValue(sample.getFloat32(0), NaN, "no arg");

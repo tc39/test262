@@ -106,4 +106,4 @@ assert.sameValue(sample.getFloat64(0), 42, "undefined");
 
 sample.setFloat64(0, 7);
 sample.setFloat64();
-assert.sameValue(sample.getFloat64(0), 0, "no arg");
+assert.sameValue(sample.getFloat64(0), NaN, "no arg");
