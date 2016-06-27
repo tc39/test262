@@ -16,18 +16,6 @@ info: >
 includes: [testTypedArray.js]
 ---*/
 
-var obj1 = {
-  valueOf: function() {
-    return 3;
-  }
-};
-
-var obj2 = {
-  toString: function() {
-    return 4;
-  }
-};
-
 var items = [
   [-0, 0, "-0"],
   ["", 0, "the Empty string"],
@@ -43,9 +31,7 @@ var items = [
   [1.1, 1, "1.1"],
   [1.9, 1, "1.9"],
   [-0.1, 0, "-0.1"],
-  [-0.99999, 0, "-0.99999"],
-  [obj1, 3, "object's valueOf"],
-  [obj2, 4, "object's toString"]
+  [-0.99999, 0, "-0.99999"]
 ];
 
 testWithTypedArrayConstructors(function(TA) {
