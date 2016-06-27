@@ -24,14 +24,6 @@ includes: [propertyHelper.js]
 ---*/
 
 assert.sameValue(typeof Math, "object", "no [[Call]]");
-
-var obj = Object.defineProperty({}, "length", {
-  get: function() {
-    throw new Test262Error(
-      "Should throw a TypeError if target has no [[Construct]]"
-    );
-  }
-});
 assert.throws(TypeError, function() {
   new Math();
 }, "no [[Construct]]");
