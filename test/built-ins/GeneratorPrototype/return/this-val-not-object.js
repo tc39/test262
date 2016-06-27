@@ -4,8 +4,8 @@
 esid: sec-generator.prototype.return
 es6id: 25.3.1.3
 description: >
-    A TypeError should be thrown from GeneratorValidate (25.3.3.2) if the
-    context of `return` does not define the [[GeneratorState]] internal slot.
+  A TypeError should be thrown from GeneratorValidate (25.3.3.2) if the "this"
+  value of `return` is not an object.
 info: |
   [...]
   3. Return ? GeneratorResumeAbrupt(g, C).

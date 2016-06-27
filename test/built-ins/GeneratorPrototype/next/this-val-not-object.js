@@ -4,8 +4,8 @@
 esid: sec-generator.prototype.next
 es6id: 25.3.1.2
 description: >
-    A TypeError should be thrown from GeneratorValidate (25.3.3.2) if the
-    context of `next` does not define the [[GeneratorState]] internal slot.
+  A TypeError should be thrown from GeneratorValidate (25.3.3.2) if the "this"
+  value of `next` is not an object.
 info: |
   1. Let g be the this value.
   2. Return GeneratorResume(g, value).
