@@ -24,8 +24,3 @@ var sliced = ab.slice(0, 1);
 
 assert(sliced instanceof AB);
 assert(sliced instanceof ArrayBuffer);
-assert.notSameValue(ab, sliced);
-
-assert.throws(RangeError, function() {
-  new AB();
-});
