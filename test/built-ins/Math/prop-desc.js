@@ -21,7 +21,6 @@ info: |
   has the attributes { [[Writable]]: true, [[Enumerable]]: false,
   [[Configurable]]: true } unless otherwise specified.
 includes: [propertyHelper.js]
-features: [Reflect.construct]
 ---*/
 
 assert.sameValue(typeof Math, "object", "no [[Call]]");
@@ -34,7 +33,7 @@ var obj = Object.defineProperty({}, "length", {
   }
 });
 assert.throws(TypeError, function() {
-  Reflect.construct(Math, obj);
+  new Math();
 }, "no [[Construct]]");
 
 verifyNotEnumerable(this, "Math");
