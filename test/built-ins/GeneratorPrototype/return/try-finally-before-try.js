@@ -8,23 +8,32 @@ description: >
     that location in the function body.
 ---*/
 
+var unreachable = 0;
 function* g() {
   yield;
+  unreachable += 1;
   try {
-    $ERROR('This code is unreachable (within `try` block)');
   } finally {
-    $ERROR('This code is unreachable (within `finally` block)');
   }
-  $ERROR('This code is unreachable (following `try` statement)');
 }
 var iter = g();
 var result;
 
 iter.next();
+assert.sameValue(
+  unreachable,
+  0,
+  'statement following `yield` not executed (paused at yield)'
+);
 
 result = iter.return(45);
 assert.sameValue(result.value, 45, 'Result `value` following `return`');
 assert.sameValue(result.done, true, 'Result `done` flag following `return`');
+assert.sameValue(
+  unreachable,
+  0,
+  'statement following `yield` not executed (following `return`)'
+);
 
 result = iter.next();
 assert.sameValue(
@@ -32,4 +41,7 @@ assert.sameValue(
 );
 assert.sameValue(
   result.done, true, 'Result `done` flag is `true` when complete'
+);
+assert.sameValue(
+  unreachable, 0, 'statement following `yield` not executed (once "completed")'
 );

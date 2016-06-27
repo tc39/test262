@@ -8,27 +8,36 @@ description: >
     location in the function body.
 ---*/
 
-var afterCatch = false;
+var afterCatch = 0;
+var unreachable = 0;
 function* g() {
   try {
     throw new Error();
   } catch (e) {}
-  afterCatch = true;
+  afterCatch += 1;
   yield;
-  $ERROR('This code is unreachable');
+  unreachable += 1;
 }
 var iter = g();
 var result;
 
 result = iter.next();
 
-assert.sameValue(afterCatch, true);
+assert.sameValue(afterCatch, 1);
+assert.sameValue(
+  unreachable, 0, 'statement following `yield` not executed (paused at yield)'
+);
 
 result = iter.return(45);
 assert.sameValue(
   result.value, 45, 'Result `value` following `return`'
 );
 assert.sameValue(result.done, true, 'Result `done` flag following `return`');
+assert.sameValue(
+  unreachable,
+  0,
+  'statement following `yield` not executed (following `return`)'
+);
 
 result = iter.next();
 assert.sameValue(
@@ -36,4 +45,7 @@ assert.sameValue(
 );
 assert.sameValue(
   result.done, true, 'Result `done` flag is `true` when complete'
+);
+assert.sameValue(
+  unreachable, 0, 'statement following `yield` not executed (once "completed")'
 );

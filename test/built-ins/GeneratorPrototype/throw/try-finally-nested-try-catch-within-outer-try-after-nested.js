@@ -9,6 +9,7 @@ description: >
     function body.
 ---*/
 
+var unreachable = 0;
 function* g() {
   try {
     yield 1;
@@ -19,6 +20,7 @@ function* g() {
       yield e;
     }
     yield 3;
+    unreachable += 1;
   } finally {
     yield 4;
   }
@@ -48,6 +50,12 @@ result = iter.throw(new Test262Error());
 assert.sameValue(result.value, 4, 'Fifth result `value`');
 assert.sameValue(result.done, false, 'Fifth result `done` flag');
 
+assert.sameValue(
+  unreachable,
+  0,
+  'statement following `yield` not executed (following `throw`)'
+);
+
 assert.throws(Test262Error, function() { iter.next(); });
 
 result = iter.next();
@@ -55,5 +63,8 @@ assert.sameValue(
   result.value, undefined, 'Result `value` is undefined when done'
 );
 assert.sameValue(result.done, true, 'Result `done` flag is `true` when done');
+assert.sameValue(
+  unreachable, 0, 'statement following `yield` not executed (once "completed")'
+);
 
 iter.next();

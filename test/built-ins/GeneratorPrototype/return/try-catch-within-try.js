@@ -8,27 +8,33 @@ description: >
     statement had appeared at that location in the function body.
 ---*/
 
-var inTry = false;
+var inTry = 0;
+var unreachable = 0;
 function* g() {
   try {
-    inTry = true;
+    inTry += 1;
     yield;
-    $ERROR('This code is unreachable (within `try` block)');
+    unreachable += 1;
   } catch (e) {
     throw e;
   }
-  $ERROR('This code is unreachable (following `try` statement)');
+  unreachable += 1;
 }
 var iter = g();
 var result;
 
 result = iter.next();
 
-assert.sameValue(inTry, true);
+assert.sameValue(inTry, 1);
 
 result = iter.return(44);
 assert.sameValue(result.value, 44, 'Result `value` following `return`');
 assert.sameValue(result.done, true, 'Result `done` flag following `return`');
+assert.sameValue(
+  unreachable,
+  0,
+  'statement following `yield` not executed (following `return`)'
+);
 
 result = iter.next();
 assert.sameValue(
@@ -36,4 +42,7 @@ assert.sameValue(
 );
 assert.sameValue(
   result.done, true, 'Result `done` flag is `true` when complete'
+);
+assert.sameValue(
+  unreachable, 0, 'statement following `yield` not executed (once "completed")'
 );
