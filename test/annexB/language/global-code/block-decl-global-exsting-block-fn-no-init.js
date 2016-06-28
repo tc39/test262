@@ -6,9 +6,9 @@ description: Does not re-initialize binding created by similar forms (Block stat
 esid: sec-web-compat-globaldeclarationinstantiation
 es6id: B.3.3.2
 flags: [generated, noStrict]
-info: >
+info: |
     B.3.3.2 Changes to GlobalDeclarationInstantiation
-    
+
     [...]
     b. If declaredFunctionOrVarNames does not contain F, then
        i. Perform ? envRec.CreateGlobalFunctionBinding(F, undefined, false).

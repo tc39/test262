@@ -6,9 +6,9 @@ description: Does not re-initialize binding created by similar forms (Block stat
 esid: sec-web-compat-functiondeclarationinstantiation
 es6id: B.3.3.1
 flags: [generated, noStrict]
-info: >
+info: |
     B.3.3.1 Changes to FunctionDeclarationInstantiation
-    
+
     [...]
     2. If instantiatedVarNames does not contain F, then
     [...]
@@ -17,7 +17,7 @@ var init;
 
 (function() {
   init = f;
-  
+
   {
     function f() {}
   }

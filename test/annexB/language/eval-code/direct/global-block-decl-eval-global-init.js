@@ -7,14 +7,14 @@ esid: sec-web-compat-evaldeclarationinstantiation
 es6id: B.3.3.3
 flags: [generated, noStrict]
 includes: [fnGlobalObject.js, propertyHelper.js]
-info: >
+info: |
     B.3.3.3 Changes to EvalDeclarationInstantiation
-    
+
     [...]
     i. If varEnvRec is a global Environment Record, then
        i. Perform ? varEnvRec.CreateGlobalFunctionBinding(F, undefined, true).
     [...]
-    
+
 ---*/
 
 eval(
@@ -24,5 +24,5 @@ eval(
   verifyEnumerable(global, "f");\
   verifyWritable(global, "f");\
   verifyConfigurable(global, "f");\
-  { function f() {  } }'
+{ function f() {  } }'
 );

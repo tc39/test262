@@ -6,18 +6,18 @@ description: A block-scoped binding is created (IfStatement with a declaration i
 esid: sec-functiondeclarations-in-ifstatement-statement-clauses
 es6id: B.3.3
 flags: [generated, noStrict]
-info: >
+info: |
     The following rules for IfStatement augment those in 13.6:
-    
+
     IfStatement[Yield, Return]:
         if ( Expression[In, ?Yield] ) FunctionDeclaration[?Yield] else Statement[?Yield, ?Return]
         if ( Expression[In, ?Yield] ) Statement[?Yield, ?Return] else FunctionDeclaration[?Yield]
         if ( Expression[In, ?Yield] ) FunctionDeclaration[?Yield] else FunctionDeclaration[?Yield]
         if ( Expression[In, ?Yield] ) FunctionDeclaration[?Yield]
-    
+
 
     13.2.14 Runtime Semantics: BlockDeclarationInstantiation
-    
+
     [...]
     4. For each element d in declarations do
        a. For each element dn of the BoundNames of d do
@@ -25,7 +25,7 @@ info: >
              [...]
           ii. Else,
               2. Perform ! envRec.CreateMutableBinding(dn, false).
-    
+
        b. If d is a GeneratorDeclaration production or a FunctionDeclaration
           production, then
           i. Let fn be the sole element of the BoundNames of d.

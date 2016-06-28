@@ -6,9 +6,9 @@ description: Does not re-initialize binding created by similar forms (Block stat
 esid: sec-web-compat-evaldeclarationinstantiation
 es6id: B.3.3.3
 flags: [generated, noStrict]
-info: >
+info: |
     B.3.3.3 Changes to EvalDeclarationInstantiation
-    
+
     [...]
     a. If declaredFunctionOrVarNames does not contain F, then
     [...]

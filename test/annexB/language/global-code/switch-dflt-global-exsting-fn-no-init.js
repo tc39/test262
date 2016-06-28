@@ -6,9 +6,9 @@ description: Existing variable binding is not modified (Funtion declaration in t
 esid: sec-web-compat-globaldeclarationinstantiation
 es6id: B.3.3.2
 flags: [generated, noStrict]
-info: >
+info: |
     B.3.3.2 Changes to GlobalDeclarationInstantiation
-    
+
     [...]
     1. Let fnDefinable be ? envRec.CanDeclareGlobalFunction(F).
     2. If fnDefinable is true, then

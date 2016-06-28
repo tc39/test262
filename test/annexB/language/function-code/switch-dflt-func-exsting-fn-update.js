@@ -6,9 +6,9 @@ description: Variable-scoped binding is updated following evaluation (Funtion de
 esid: sec-web-compat-functiondeclarationinstantiation
 es6id: B.3.3.1
 flags: [generated, noStrict]
-info: >
+info: |
     B.3.3.1 Changes to FunctionDeclarationInstantiation
-    
+
     [...]
     3. When the FunctionDeclaration f is evaluated, perform the following steps
        in place of the FunctionDeclaration Evaluation algorithm provided in
@@ -32,7 +32,7 @@ var after;
   }
 
   after = f;
-  
+
   function f() {
     return 'outer declaration';
   }

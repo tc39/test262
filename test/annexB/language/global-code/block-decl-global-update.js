@@ -6,9 +6,9 @@ description: Variable binding value is updated following evaluation (Block state
 esid: sec-web-compat-globaldeclarationinstantiation
 es6id: B.3.3.2
 flags: [generated, noStrict]
-info: >
+info: |
     B.3.3.2 Changes to GlobalDeclarationInstantiation
-    
+
     [...]
     e. When the FunctionDeclaration f is evaluated, perform the following steps
        in place of the FunctionDeclaration Evaluation algorithm provided in
