@@ -27,7 +27,7 @@ from packagerConfig import *
 
 __parser = argparse.ArgumentParser(description= \
                                    'Tool used to generate the test262 website')
-__parser.add_argument('version', action='store',
+__parser.add_argument('--version', action='store', required=True,
                       help='Version of the test suite.')
 __parser.add_argument('--type', action='store', default=DEFAULT_TESTCASE_TEMPLATE,
                       help='Type of test case runner to generate.')
