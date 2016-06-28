@@ -7,12 +7,12 @@ esid: sec-web-compat-evaldeclarationinstantiation
 es6id: B.3.3.3
 flags: [generated, noStrict]
 info: |
-    B.3.3.2 Changes to GlobalDeclarationInstantiation
+    B.3.3.3 Changes to EvalDeclarationInstantiation
 
     [...]
-    b. If replacing the FunctionDeclaration f with a VariableStatement that has
-       F as a BindingIdentifier would not produce any Early Errors for script,
-       then
+    ii. If replacing the FunctionDeclaration f with a VariableStatement that
+        has F as a BindingIdentifier would not produce any Early Errors for
+        body, then
     [...]
 ---*/
 assert.throws(ReferenceError, function() {
