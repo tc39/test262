@@ -3,9 +3,9 @@
 
 /*---
 description: Invoked on an object without an [[OriginalFlags]] internal slot
-es6id: 21.2.5.12
+es6id: 21.2.5.15
 info: >
-    21.2.5.12 get RegExp.prototype.sticky
+    21.2.5.15 get RegExp.prototype.unicode
 
     1. Let R be the this value.
     2. If Type(R) is not Object, throw a TypeError exception.
@@ -13,8 +13,16 @@ info: >
        exception.
 ---*/
 
-var sticky = Object.getOwnPropertyDescriptor(RegExp.prototype, 'sticky').get;
+var unicode = Object.getOwnPropertyDescriptor(RegExp.prototype, 'unicode').get;
 
 assert.throws(TypeError, function() {
-  sticky.call({});
-});
+  unicode.call({});
+}, 'ordinary object');
+
+assert.throws(TypeError, function() {
+  unicode.call([]);
+}, 'array exotic object');
+
+assert.throws(TypeError, function() {
+  unicode.call(arguments);
+}, 'arguments object');
