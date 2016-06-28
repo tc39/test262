@@ -25,6 +25,10 @@ info: |
 ---*/
 
 //- before
+assert.sameValue(
+  f, undefined, 'Initialized binding created prior to evaluation'
+);
+
 try {
   throw null;
 } catch (f) {
