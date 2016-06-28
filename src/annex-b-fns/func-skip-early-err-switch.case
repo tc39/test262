@@ -6,12 +6,12 @@ desc: >
   early error (switch statement)
 template: func
 info: |
-    B.3.3.2 Changes to GlobalDeclarationInstantiation
+    B.3.3.1 Changes to FunctionDeclarationInstantiation
 
     [...]
-    b. If replacing the FunctionDeclaration f with a VariableStatement that has
-       F as a BindingIdentifier would not produce any Early Errors for script,
-       then
+    ii. If replacing the FunctionDeclaration f with a VariableStatement that
+        has F as a BindingIdentifier would not produce any Early Errors for
+        func and F is not an element of BoundNames of argumentsList, then
     [...]
 ---*/
 
