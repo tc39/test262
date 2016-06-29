@@ -16,14 +16,13 @@ info: |
 includes: [nans.js, compareArray.js, testTypedArray.js]
 ---*/
 
-var distinctNaNsDouble = new Array(distinctNaNs.length * 2);
-
-distinctNaNs.forEach(function(v, i) {
-  distinctNaNsDouble[i] = v;
-});
-
 function body(FloatArray) {
-  var subject = new FloatArray(distinctNaNsDouble);
+  var subject = new FloatArray(distinctNaNs.length * 2);
+
+  distinctNaNs.forEach(function(v, i) {
+    subject[i] = v;
+  });
+
   var originalBytes, copiedBytes;
   var length = distinctNaNs.length * FloatArray.BYTES_PER_ELEMENT;
 
