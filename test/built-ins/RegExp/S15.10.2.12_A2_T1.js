@@ -11,7 +11,7 @@ description: WhiteSpace
 ---*/
 
 var i0 = "";
-for (var j = 0; j < 1024; j++)
+for (var j = 0x0000; j < 0x0400; j++)
   i0 += String.fromCharCode(j);
 var o0 = "\u0009\u000A\u000B\u000C\u000D\u0020\u00A0";
 if (i0.replace(/\S+/g, "") !== o0) {
@@ -19,7 +19,7 @@ if (i0.replace(/\S+/g, "") !== o0) {
 }
 
 var i1 = "";
-for (var j = 1024; j < 2048; j++)
+for (var j = 0x0400; j < 0x0800; j++)
   i1 += String.fromCharCode(j);
 var o1 = "";
 if (i1.replace(/\S+/g, "") !== o1) {
@@ -27,7 +27,7 @@ if (i1.replace(/\S+/g, "") !== o1) {
 }
 
 var i2 = "";
-for (var j = 2048; j < 3072; j++)
+for (var j = 0x0800; j < 0x0C00; j++)
   i2 += String.fromCharCode(j);
 var o2 = "";
 if (i2.replace(/\S+/g, "") !== o2) {
@@ -35,7 +35,7 @@ if (i2.replace(/\S+/g, "") !== o2) {
 }
 
 var i3 = "";
-for (var j = 3072; j < 4096; j++)
+for (var j = 0x0C00; j < 0x1000; j++)
   i3 += String.fromCharCode(j);
 var o3 = "";
 if (i3.replace(/\S+/g, "") !== o3) {
@@ -43,7 +43,7 @@ if (i3.replace(/\S+/g, "") !== o3) {
 }
 
 var i4 = "";
-for (var j = 4096; j < 5120; j++)
+for (var j = 0x1000; j < 0x1400; j++)
   i4 += String.fromCharCode(j);
 var o4 = "";
 if (i4.replace(/\S+/g, "") !== o4) {
@@ -51,7 +51,7 @@ if (i4.replace(/\S+/g, "") !== o4) {
 }
 
 var i5 = "";
-for (var j = 5120; j < 6144; j++)
+for (var j = 0x1400; j < 0x1800; j++)
   i5 += String.fromCharCode(j);
 var o5 = "\u1680";
 if (i5.replace(/\S+/g, "") !== o5) {
@@ -59,15 +59,15 @@ if (i5.replace(/\S+/g, "") !== o5) {
 }
 
 var i6 = "";
-for (var j = 6144; j < 7168; j++)
+for (var j = 0x1800; j < 0x1C00; j++)
   i6 += String.fromCharCode(j);
-var o6 = "\u180E";
+var o6 = "";
 if (i6.replace(/\S+/g, "") !== o6) {
   $ERROR("#6: Error matching character class \S between character 1800 and 1bff");
 }
 
 var i7 = "";
-for (var j = 7168; j < 8192; j++)
+for (var j = 0x1C00; j < 0x2000; j++)
   i7 += String.fromCharCode(j);
 var o7 = "";
 if (i7.replace(/\S+/g, "") !== o7) {
@@ -75,7 +75,7 @@ if (i7.replace(/\S+/g, "") !== o7) {
 }
 
 var i8 = "";
-for (var j = 8192; j < 9216; j++)
+for (var j = 0x2000; j < 0x2400; j++)
   i8 += String.fromCharCode(j);
 var o8 = "\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u2028\u2029\u202F\u205F";
 if (i8.replace(/\S+/g, "") !== o8) {
@@ -83,7 +83,7 @@ if (i8.replace(/\S+/g, "") !== o8) {
 }
 
 var i9 = "";
-for (var j = 9216; j < 10240; j++)
+for (var j = 0x2400; j < 0x2800; j++)
   i9 += String.fromCharCode(j);
 var o9 = "";
 if (i9.replace(/\S+/g, "") !== o9) {
@@ -91,7 +91,7 @@ if (i9.replace(/\S+/g, "") !== o9) {
 }
 
 var i10 = "";
-for (var j = 10240; j < 11264; j++)
+for (var j = 0x2800; j < 0x2C00; j++)
   i10 += String.fromCharCode(j);
 var o10 = "";
 if (i10.replace(/\S+/g, "") !== o10) {
@@ -99,7 +99,7 @@ if (i10.replace(/\S+/g, "") !== o10) {
 }
 
 var i11 = "";
-for (var j = 11264; j < 12288; j++)
+for (var j = 0x2C00; j < 0x3000; j++)
   i11 += String.fromCharCode(j);
 var o11 = "";
 if (i11.replace(/\S+/g, "") !== o11) {
@@ -107,7 +107,7 @@ if (i11.replace(/\S+/g, "") !== o11) {
 }
 
 var i12 = "";
-for (var j = 12288; j < 13312; j++)
+for (var j = 0x3000; j < 0x3400; j++)
   i12 += String.fromCharCode(j);
 var o12 = "\u3000";
 if (i12.replace(/\S+/g, "") !== o12) {
@@ -115,7 +115,7 @@ if (i12.replace(/\S+/g, "") !== o12) {
 }
 
 var i13 = "";
-for (var j = 13312; j < 14336; j++)
+for (var j = 0x3400; j < 0x3800; j++)
   i13 += String.fromCharCode(j);
 var o13 = "";
 if (i13.replace(/\S+/g, "") !== o13) {
@@ -123,7 +123,7 @@ if (i13.replace(/\S+/g, "") !== o13) {
 }
 
 var i14 = "";
-for (var j = 14336; j < 15360; j++)
+for (var j = 0x3800; j < 0x3C00; j++)
   i14 += String.fromCharCode(j);
 var o14 = "";
 if (i14.replace(/\S+/g, "") !== o14) {
@@ -131,7 +131,7 @@ if (i14.replace(/\S+/g, "") !== o14) {
 }
 
 var i15 = "";
-for (var j = 15360; j < 16384; j++)
+for (var j = 0x3C00; j < 0x4000; j++)
   i15 += String.fromCharCode(j);
 var o15 = "";
 if (i15.replace(/\S+/g, "") !== o15) {
@@ -139,7 +139,7 @@ if (i15.replace(/\S+/g, "") !== o15) {
 }
 
 var i16 = "";
-for (var j = 16384; j < 17408; j++)
+for (var j = 0x4000; j < 0x4400; j++)
   i16 += String.fromCharCode(j);
 var o16 = "";
 if (i16.replace(/\S+/g, "") !== o16) {
@@ -147,7 +147,7 @@ if (i16.replace(/\S+/g, "") !== o16) {
 }
 
 var i17 = "";
-for (var j = 17408; j < 18432; j++)
+for (var j = 0x4400; j < 0x4800; j++)
   i17 += String.fromCharCode(j);
 var o17 = "";
 if (i17.replace(/\S+/g, "") !== o17) {
@@ -155,7 +155,7 @@ if (i17.replace(/\S+/g, "") !== o17) {
 }
 
 var i18 = "";
-for (var j = 18432; j < 19456; j++)
+for (var j = 0x4800; j < 0x4C00; j++)
   i18 += String.fromCharCode(j);
 var o18 = "";
 if (i18.replace(/\S+/g, "") !== o18) {
@@ -163,7 +163,7 @@ if (i18.replace(/\S+/g, "") !== o18) {
 }
 
 var i19 = "";
-for (var j = 19456; j < 20480; j++)
+for (var j = 0x4C00; j < 0x5000; j++)
   i19 += String.fromCharCode(j);
 var o19 = "";
 if (i19.replace(/\S+/g, "") !== o19) {
@@ -171,7 +171,7 @@ if (i19.replace(/\S+/g, "") !== o19) {
 }
 
 var i20 = "";
-for (var j = 20480; j < 21504; j++)
+for (var j = 0x5000; j < 0x5400; j++)
   i20 += String.fromCharCode(j);
 var o20 = "";
 if (i20.replace(/\S+/g, "") !== o20) {
@@ -179,7 +179,7 @@ if (i20.replace(/\S+/g, "") !== o20) {
 }
 
 var i21 = "";
-for (var j = 21504; j < 22528; j++)
+for (var j = 0x5400; j < 0x5800; j++)
   i21 += String.fromCharCode(j);
 var o21 = "";
 if (i21.replace(/\S+/g, "") !== o21) {
@@ -187,7 +187,7 @@ if (i21.replace(/\S+/g, "") !== o21) {
 }
 
 var i22 = "";
-for (var j = 22528; j < 23552; j++)
+for (var j = 0x5800; j < 0x5C00; j++)
   i22 += String.fromCharCode(j);
 var o22 = "";
 if (i22.replace(/\S+/g, "") !== o22) {
@@ -195,7 +195,7 @@ if (i22.replace(/\S+/g, "") !== o22) {
 }
 
 var i23 = "";
-for (var j = 23552; j < 24576; j++)
+for (var j = 0x5C00; j < 0x6000; j++)
   i23 += String.fromCharCode(j);
 var o23 = "";
 if (i23.replace(/\S+/g, "") !== o23) {
@@ -203,7 +203,7 @@ if (i23.replace(/\S+/g, "") !== o23) {
 }
 
 var i24 = "";
-for (var j = 24576; j < 25600; j++)
+for (var j = 0x6000; j < 0x6400; j++)
   i24 += String.fromCharCode(j);
 var o24 = "";
 if (i24.replace(/\S+/g, "") !== o24) {
@@ -211,7 +211,7 @@ if (i24.replace(/\S+/g, "") !== o24) {
 }
 
 var i25 = "";
-for (var j = 25600; j < 26624; j++)
+for (var j = 0x6400; j < 0x6800; j++)
   i25 += String.fromCharCode(j);
 var o25 = "";
 if (i25.replace(/\S+/g, "") !== o25) {
@@ -219,7 +219,7 @@ if (i25.replace(/\S+/g, "") !== o25) {
 }
 
 var i26 = "";
-for (var j = 26624; j < 27648; j++)
+for (var j = 0x6800; j < 0x6C00; j++)
   i26 += String.fromCharCode(j);
 var o26 = "";
 if (i26.replace(/\S+/g, "") !== o26) {
@@ -227,7 +227,7 @@ if (i26.replace(/\S+/g, "") !== o26) {
 }
 
 var i27 = "";
-for (var j = 27648; j < 28672; j++)
+for (var j = 0x6C00; j < 0x7000; j++)
   i27 += String.fromCharCode(j);
 var o27 = "";
 if (i27.replace(/\S+/g, "") !== o27) {
@@ -235,7 +235,7 @@ if (i27.replace(/\S+/g, "") !== o27) {
 }
 
 var i28 = "";
-for (var j = 28672; j < 29696; j++)
+for (var j = 0x7000; j < 0x7400; j++)
   i28 += String.fromCharCode(j);
 var o28 = "";
 if (i28.replace(/\S+/g, "") !== o28) {
@@ -243,7 +243,7 @@ if (i28.replace(/\S+/g, "") !== o28) {
 }
 
 var i29 = "";
-for (var j = 29696; j < 30720; j++)
+for (var j = 0x7400; j < 0x7800; j++)
   i29 += String.fromCharCode(j);
 var o29 = "";
 if (i29.replace(/\S+/g, "") !== o29) {
@@ -251,7 +251,7 @@ if (i29.replace(/\S+/g, "") !== o29) {
 }
 
 var i30 = "";
-for (var j = 30720; j < 31744; j++)
+for (var j = 0x7800; j < 0x7C00; j++)
   i30 += String.fromCharCode(j);
 var o30 = "";
 if (i30.replace(/\S+/g, "") !== o30) {
@@ -259,7 +259,7 @@ if (i30.replace(/\S+/g, "") !== o30) {
 }
 
 var i31 = "";
-for (var j = 31744; j < 32768; j++)
+for (var j = 0x7C00; j < 0x8000; j++)
   i31 += String.fromCharCode(j);
 var o31 = "";
 if (i31.replace(/\S+/g, "") !== o31) {
@@ -267,7 +267,7 @@ if (i31.replace(/\S+/g, "") !== o31) {
 }
 
 var i32 = "";
-for (var j = 32768; j < 33792; j++)
+for (var j = 0x8000; j < 0x8400; j++)
   i32 += String.fromCharCode(j);
 var o32 = "";
 if (i32.replace(/\S+/g, "") !== o32) {
@@ -275,7 +275,7 @@ if (i32.replace(/\S+/g, "") !== o32) {
 }
 
 var i33 = "";
-for (var j = 33792; j < 34816; j++)
+for (var j = 0x8400; j < 0x8800; j++)
   i33 += String.fromCharCode(j);
 var o33 = "";
 if (i33.replace(/\S+/g, "") !== o33) {
@@ -283,7 +283,7 @@ if (i33.replace(/\S+/g, "") !== o33) {
 }
 
 var i34 = "";
-for (var j = 34816; j < 35840; j++)
+for (var j = 0x8800; j < 0x8C00; j++)
   i34 += String.fromCharCode(j);
 var o34 = "";
 if (i34.replace(/\S+/g, "") !== o34) {
@@ -291,7 +291,7 @@ if (i34.replace(/\S+/g, "") !== o34) {
 }
 
 var i35 = "";
-for (var j = 35840; j < 36864; j++)
+for (var j = 0x8C00; j < 0x9000; j++)
   i35 += String.fromCharCode(j);
 var o35 = "";
 if (i35.replace(/\S+/g, "") !== o35) {
@@ -299,7 +299,7 @@ if (i35.replace(/\S+/g, "") !== o35) {
 }
 
 var i36 = "";
-for (var j = 36864; j < 37888; j++)
+for (var j = 0x9000; j < 0x9400; j++)
   i36 += String.fromCharCode(j);
 var o36 = "";
 if (i36.replace(/\S+/g, "") !== o36) {
@@ -307,7 +307,7 @@ if (i36.replace(/\S+/g, "") !== o36) {
 }
 
 var i37 = "";
-for (var j = 37888; j < 38912; j++)
+for (var j = 0x9400; j < 0x9800; j++)
   i37 += String.fromCharCode(j);
 var o37 = "";
 if (i37.replace(/\S+/g, "") !== o37) {
@@ -315,7 +315,7 @@ if (i37.replace(/\S+/g, "") !== o37) {
 }
 
 var i38 = "";
-for (var j = 38912; j < 39936; j++)
+for (var j = 0x9800; j < 0x9C00; j++)
   i38 += String.fromCharCode(j);
 var o38 = "";
 if (i38.replace(/\S+/g, "") !== o38) {
@@ -323,7 +323,7 @@ if (i38.replace(/\S+/g, "") !== o38) {
 }
 
 var i39 = "";
-for (var j = 39936; j < 40960; j++)
+for (var j = 0x9C00; j < 0xA000; j++)
   i39 += String.fromCharCode(j);
 var o39 = "";
 if (i39.replace(/\S+/g, "") !== o39) {
@@ -331,7 +331,7 @@ if (i39.replace(/\S+/g, "") !== o39) {
 }
 
 var i40 = "";
-for (var j = 40960; j < 41984; j++)
+for (var j = 0xA000; j < 0xA400; j++)
   i40 += String.fromCharCode(j);
 var o40 = "";
 if (i40.replace(/\S+/g, "") !== o40) {
@@ -339,7 +339,7 @@ if (i40.replace(/\S+/g, "") !== o40) {
 }
 
 var i41 = "";
-for (var j = 41984; j < 43008; j++)
+for (var j = 0xA400; j < 0xA800; j++)
   i41 += String.fromCharCode(j);
 var o41 = "";
 if (i41.replace(/\S+/g, "") !== o41) {
@@ -347,7 +347,7 @@ if (i41.replace(/\S+/g, "") !== o41) {
 }
 
 var i42 = "";
-for (var j = 43008; j < 44032; j++)
+for (var j = 0xA800; j < 0xAC00; j++)
   i42 += String.fromCharCode(j);
 var o42 = "";
 if (i42.replace(/\S+/g, "") !== o42) {
@@ -355,7 +355,7 @@ if (i42.replace(/\S+/g, "") !== o42) {
 }
 
 var i43 = "";
-for (var j = 44032; j < 45056; j++)
+for (var j = 0xAC00; j < 0xB000; j++)
   i43 += String.fromCharCode(j);
 var o43 = "";
 if (i43.replace(/\S+/g, "") !== o43) {
@@ -363,7 +363,7 @@ if (i43.replace(/\S+/g, "") !== o43) {
 }
 
 var i44 = "";
-for (var j = 45056; j < 46080; j++)
+for (var j = 0xB000; j < 0xB400; j++)
   i44 += String.fromCharCode(j);
 var o44 = "";
 if (i44.replace(/\S+/g, "") !== o44) {
@@ -371,7 +371,7 @@ if (i44.replace(/\S+/g, "") !== o44) {
 }
 
 var i45 = "";
-for (var j = 46080; j < 47104; j++)
+for (var j = 0xB400; j < 0xB800; j++)
   i45 += String.fromCharCode(j);
 var o45 = "";
 if (i45.replace(/\S+/g, "") !== o45) {
@@ -379,7 +379,7 @@ if (i45.replace(/\S+/g, "") !== o45) {
 }
 
 var i46 = "";
-for (var j = 47104; j < 48128; j++)
+for (var j = 0xB800; j < 0xBC00; j++)
   i46 += String.fromCharCode(j);
 var o46 = "";
 if (i46.replace(/\S+/g, "") !== o46) {
@@ -387,7 +387,7 @@ if (i46.replace(/\S+/g, "") !== o46) {
 }
 
 var i47 = "";
-for (var j = 48128; j < 49152; j++)
+for (var j = 0xBC00; j < 0xC000; j++)
   i47 += String.fromCharCode(j);
 var o47 = "";
 if (i47.replace(/\S+/g, "") !== o47) {
@@ -395,7 +395,7 @@ if (i47.replace(/\S+/g, "") !== o47) {
 }
 
 var i48 = "";
-for (var j = 49152; j < 50176; j++)
+for (var j = 0xC000; j < 0xC400; j++)
   i48 += String.fromCharCode(j);
 var o48 = "";
 if (i48.replace(/\S+/g, "") !== o48) {
@@ -403,7 +403,7 @@ if (i48.replace(/\S+/g, "") !== o48) {
 }
 
 var i49 = "";
-for (var j = 50176; j < 51200; j++)
+for (var j = 0xC400; j < 0xC800; j++)
   i49 += String.fromCharCode(j);
 var o49 = "";
 if (i49.replace(/\S+/g, "") !== o49) {
@@ -411,7 +411,7 @@ if (i49.replace(/\S+/g, "") !== o49) {
 }
 
 var i50 = "";
-for (var j = 51200; j < 52224; j++)
+for (var j = 0xC800; j < 0xCC00; j++)
   i50 += String.fromCharCode(j);
 var o50 = "";
 if (i50.replace(/\S+/g, "") !== o50) {
@@ -419,7 +419,7 @@ if (i50.replace(/\S+/g, "") !== o50) {
 }
 
 var i51 = "";
-for (var j = 52224; j < 53248; j++)
+for (var j = 0xCC00; j < 0xD000; j++)
   i51 += String.fromCharCode(j);
 var o51 = "";
 if (i51.replace(/\S+/g, "") !== o51) {
@@ -427,7 +427,7 @@ if (i51.replace(/\S+/g, "") !== o51) {
 }
 
 var i52 = "";
-for (var j = 53248; j < 54272; j++)
+for (var j = 0xD000; j < 0xD400; j++)
   i52 += String.fromCharCode(j);
 var o52 = "";
 if (i52.replace(/\S+/g, "") !== o52) {
@@ -435,7 +435,7 @@ if (i52.replace(/\S+/g, "") !== o52) {
 }
 
 var i53 = "";
-for (var j = 54272; j < 55296; j++)
+for (var j = 0xD400; j < 0xD800; j++)
   i53 += String.fromCharCode(j);
 var o53 = "";
 if (i53.replace(/\S+/g, "") !== o53) {
@@ -443,7 +443,7 @@ if (i53.replace(/\S+/g, "") !== o53) {
 }
 
 var i54 = "";
-for (var j = 55296; j < 56320; j++)
+for (var j = 0xD800; j < 0xDC00; j++)
   i54 += String.fromCharCode(j);
 var o54 = "";
 if (i54.replace(/\S+/g, "") !== o54) {
@@ -451,7 +451,7 @@ if (i54.replace(/\S+/g, "") !== o54) {
 }
 
 var i55 = "";
-for (var j = 56320; j < 57344; j++)
+for (var j = 0xDC00; j < 0xE000; j++)
   i55 += String.fromCharCode(j);
 var o55 = "";
 if (i55.replace(/\S+/g, "") !== o55) {
@@ -459,7 +459,7 @@ if (i55.replace(/\S+/g, "") !== o55) {
 }
 
 var i56 = "";
-for (var j = 57344; j < 58368; j++)
+for (var j = 0xE000; j < 0xE400; j++)
   i56 += String.fromCharCode(j);
 var o56 = "";
 if (i56.replace(/\S+/g, "") !== o56) {
@@ -467,7 +467,7 @@ if (i56.replace(/\S+/g, "") !== o56) {
 }
 
 var i57 = "";
-for (var j = 58368; j < 59392; j++)
+for (var j = 0xE400; j < 0xE800; j++)
   i57 += String.fromCharCode(j);
 var o57 = "";
 if (i57.replace(/\S+/g, "") !== o57) {
@@ -475,7 +475,7 @@ if (i57.replace(/\S+/g, "") !== o57) {
 }
 
 var i58 = "";
-for (var j = 59392; j < 60416; j++)
+for (var j = 0xE800; j < 0xEC00; j++)
   i58 += String.fromCharCode(j);
 var o58 = "";
 if (i58.replace(/\S+/g, "") !== o58) {
@@ -483,7 +483,7 @@ if (i58.replace(/\S+/g, "") !== o58) {
 }
 
 var i59 = "";
-for (var j = 60416; j < 61440; j++)
+for (var j = 0xEC00; j < 0xF000; j++)
   i59 += String.fromCharCode(j);
 var o59 = "";
 if (i59.replace(/\S+/g, "") !== o59) {
@@ -491,7 +491,7 @@ if (i59.replace(/\S+/g, "") !== o59) {
 }
 
 var i60 = "";
-for (var j = 61440; j < 62464; j++)
+for (var j = 0xF000; j < 0xF400; j++)
   i60 += String.fromCharCode(j);
 var o60 = "";
 if (i60.replace(/\S+/g, "") !== o60) {
@@ -499,7 +499,7 @@ if (i60.replace(/\S+/g, "") !== o60) {
 }
 
 var i61 = "";
-for (var j = 62464; j < 63488; j++)
+for (var j = 0xF400; j < 0xF800; j++)
   i61 += String.fromCharCode(j);
 var o61 = "";
 if (i61.replace(/\S+/g, "") !== o61) {
@@ -507,7 +507,7 @@ if (i61.replace(/\S+/g, "") !== o61) {
 }
 
 var i62 = "";
-for (var j = 63488; j < 64512; j++)
+for (var j = 0xF800; j < 0xFC00; j++)
   i62 += String.fromCharCode(j);
 var o62 = "";
 if (i62.replace(/\S+/g, "") !== o62) {
@@ -515,8 +515,8 @@ if (i62.replace(/\S+/g, "") !== o62) {
 }
 
 var i63 = "";
-for (var j = 64512; j < 65536; j++) {
-  if (j===65279) { continue;} //Ignore BOM
+for (var j = 0xFC00; j < 0x10000; j++) {
+  if (j === 0xFEFF) { continue; } //Ignore BOM
   i63 += String.fromCharCode(j);
 }
 var o63 = "";
@@ -524,7 +524,7 @@ if (i63.replace(/\S+/g, "") !== o63) {
   $ERROR("#63: Error matching character class \S between character fc00 and ffff");
 }
 
-var i64 = String.fromCharCode(65279);
+var i64 = String.fromCharCode(0xFEFF);
 if (i64.replace(/\S/g, "") === "") {
   $ERROR("#64: Error matching character class \S for BOM (feff)");
 }
