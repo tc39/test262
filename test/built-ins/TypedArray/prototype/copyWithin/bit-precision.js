@@ -23,17 +23,20 @@ distinctNaNs.forEach(function(v, i) {
 });
 
 function body(FloatArray) {
-  var originalValues = new FloatArray(distinctNaNs);
   var subject = new FloatArray(distinctNaNsDouble);
-
   var originalBytes, copiedBytes;
+  var length = distinctNaNs.length * FloatArray.BYTES_PER_ELEMENT;
 
-  originalBytes = new Uint8Array(originalValues.buffer);
+  originalBytes = new Uint8Array(
+    subject.buffer,
+    0,
+    length
+  );
 
   subject.copyWithin(distinctNaNs.length, 0);
   copiedBytes = new Uint8Array(
     subject.buffer,
-    distinctNaNs.length * FloatArray.BYTES_PER_ELEMENT
+    length
   );
 
   assert(compareArray(originalBytes, copiedBytes));
