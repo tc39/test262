@@ -17,11 +17,9 @@ includes: [testTypedArray.js]
 ---*/
 
 testWithTypedArrayConstructors(function(TA) {
-  var Other = TA === Int8Array ? Uint8Array : Int8Array;
-  var custom = new Other(1);
   var ctor = function() {
-    return custom;
-  }
+    return new TA(1);
+  };
 
   assert.throws(TypeError, function() {
     TypedArray.of.call(ctor, 1, 2);

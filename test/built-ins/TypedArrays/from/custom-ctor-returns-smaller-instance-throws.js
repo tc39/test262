@@ -28,10 +28,9 @@ var sourceObj = {
 };
 
 testWithTypedArrayConstructors(function(TA) {
-  var custom = new TA(1);
   var ctor = function() {
-    return custom;
-  }
+    return new TA(1);
+  };
   assert.throws(TypeError, function() {
     TA.from.call(ctor, sourceItor);
   }, "source is using iterator");
