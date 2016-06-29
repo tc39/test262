@@ -19,8 +19,7 @@ includes: [testTypedArray.js]
 
 testWithTypedArrayConstructors(function(TA) {
   var result;
-  var Other = TA === Int8Array ? Uint8Array : Int8Array;
-  var custom = new Other(3);
+  var custom = new TA(3);
   var ctor = function() {
     return custom;
   };

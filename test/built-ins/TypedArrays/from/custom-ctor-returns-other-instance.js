@@ -30,8 +30,7 @@ var sourceObj = {
 
 testWithTypedArrayConstructors(function(TA) {
   var result;
-  var Other = TA === Int8Array ? Uint8Array : Int8Array;
-  var custom = new Other(2);
+  var custom = new TA(2);
   var ctor = function() {
     return custom;
   };
@@ -42,7 +41,7 @@ testWithTypedArrayConstructors(function(TA) {
   result = TypedArray.from.call(ctor, sourceObj);
   assert.sameValue(result, custom, "not using iterator, same length");
 
-  custom = new Other(3);
+  custom = new TA(3);
 
   result = TypedArray.from.call(ctor, sourceItor);
   assert.sameValue(result, custom, "using iterator, higher length");
