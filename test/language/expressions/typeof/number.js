@@ -11,29 +11,29 @@ description: typeof (number value) === "number"
 assert.sameValue(
   typeof 1,
   "number",
-  '#1: typeof 1 === "number". Actual: ' + (typeof 1)
+  'typeof 1 === "number". Actual: ' + (typeof 1)
 );
 
 assert.sameValue(
-  typeof Number.NaN,
+  typeof NaN,
   "number",
-  '#2: typeof NaN === "number". Actual: ' + (typeof NaN)
+  'typeof NaN === "number". Actual: ' + (typeof NaN)
 );
 
 assert.sameValue(
-  typeof Number.POSITIVE_INFINITY,
+  typeof Infinity,
   "number",
-  '#3: typeof Infinity === "number". Actual: ' + (typeof Infinity)
+  'typeof Infinity === "number". Actual: ' + (typeof Infinity)
 );
 
 assert.sameValue(
-  typeof Number.NEGATIVE_INFINITY,
+  typeof -Infinity,
   "number",
-  '#4: typeof -Infinity === "number". Actual: ' + (typeof -Infinity)
+  'typeof -Infinity === "number". Actual: ' + (typeof -Infinity)
 );
 
 assert.sameValue(
   typeof Math.PI,
   "number",
-  '#5: typeof Math.PI === "number". Actual: ' + (typeof Math.PI)
+  'typeof Math.PI === "number". Actual: ' + (typeof Math.PI)
 );
