@@ -78,9 +78,10 @@ info: |
 
 var callCount = 0;
 var C = class {
-  *method([cls = class {}, xCls = class X {}]) {
+  *method([cls = class {}, xCls = class X {}, xCls2 = class { static name() {} }]) {
     assert.sameValue(cls.name, 'cls');
     assert.notSameValue(xCls.name, 'xCls');
+    assert.notSameValue(xCls2.name, 'xCls2');
     callCount = callCount + 1;
   }
 };

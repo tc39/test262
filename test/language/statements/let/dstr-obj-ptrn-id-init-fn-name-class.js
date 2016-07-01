@@ -31,7 +31,8 @@ info: |
                bindingId).
 ---*/
 
-let { cls = class {}, xCls = class X {} } = {};
+let { cls = class {}, xCls = class X {}, xCls2 = class { static name() {} } } = {};
 
 assert.sameValue(cls.name, 'cls');
 assert.notSameValue(xCls.name, 'xCls');
+assert.notSameValue(xCls2.name, 'xCls2');

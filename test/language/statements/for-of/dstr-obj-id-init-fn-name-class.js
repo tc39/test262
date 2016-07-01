@@ -35,12 +35,13 @@ info: |
           iii. If hasNameProperty is false, perform SetFunctionName(v, P).
 
 ---*/
-var xCls, cls;
+var xCls, cls, xCls2;
 
 var counter = 0;
 
-for ({ xCls = class x {}, cls = class {} } of [{}]) {
+for ({ xCls = class x {}, cls = class {}, xCls2 = class { static name() {} } } of [{}]) {
   assert.notSameValue(xCls.name, 'xCls');
+  assert.notSameValue(xCls2.name, 'xCls2');
 
   assert.sameValue(cls.name, 'cls');
   verifyNotEnumerable(cls, 'name');
