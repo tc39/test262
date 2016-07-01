@@ -8,26 +8,37 @@ description: >
     that location in the function body.
 ---*/
 
-var afterFinally = false;
+var afterFinally = 0;
+var unreachable = 0;
 function* g() {
   try {
   } finally {}
-  afterFinally = true;
+  afterFinally += 1;
   yield;
+  unreachable += 1;
 }
 var iter = g();
 var result;
 
 iter.next();
 
-assert.sameValue(afterFinally, true);
+assert.sameValue(afterFinally, 1);
 
 result = iter.return(45);
 assert.sameValue(result.value, 45, 'Result `value` following `return`');
 assert.sameValue(result.done, true, 'Result `done` flag following `return`');
+
+assert.sameValue(
+  unreachable,
+  0,
+  'statement following `yield` not executed (following `return`)'
+);
 
 result = iter.next();
 assert.sameValue(
   result.value, undefined, 'Result `value` is undefined when done'
 );
 assert.sameValue(result.done, true, 'Result `done` flag is `true` when done');
+assert.sameValue(
+  unreachable, 0, 'statement following `yield` not executed (once "completed")'
+);

@@ -9,35 +9,42 @@ description: >
     the function body.
 ---*/
 
-var inTry = false;
-var inFinally = false;
+var inTry = 0;
+var inFinally = 0;
+var unreachable = 0;
 function* g() {
   try {
-    inTry = true;
+    inTry += 1;
     yield;
     try {
-      $ERROR('This code is unreachable (within nested `try` block)');
+      unreachable += 1;
     } catch (e) {
       throw e;
     }
-    $ERROR('This code is unreacahable (following nested `try` statement)');
+    unreachable += 1;
   } finally {
-    inFinally = true;
+    inFinally += 1;
   }
-  $ERROR('This codeis unreachable (following outer `try` statement)');
+  unreachable += 1;
 }
 var iter = g();
 var result;
 
 iter.next();
 
-assert.sameValue(inTry, true, '`try` code path executed');
-assert.sameValue(inFinally, false, '`finally` code path not executed');
+assert.sameValue(inTry, 1, '`try` code path executed');
+assert.sameValue(inFinally, 0, '`finally` code path not executed');
 
 result = iter.return(45);
 assert.sameValue(result.value, 45, 'Second result `value`');
 assert.sameValue(result.done, true, 'Second result `done` flag');
-assert.sameValue(inFinally, true, '`finally` code path executed');
+assert.sameValue(inFinally, 1, '`finally` code path executed');
+
+assert.sameValue(
+  unreachable,
+  0,
+  'statement following `yield` not executed (following `return`)'
+);
 
 result = iter.next();
 assert.sameValue(
@@ -45,4 +52,7 @@ assert.sameValue(
 );
 assert.sameValue(
   result.done, true, 'Result `done` flag is `true` when complete'
+);
+assert.sameValue(
+  unreachable, 0, 'statement following `yield` not executed (once "completed")'
 );

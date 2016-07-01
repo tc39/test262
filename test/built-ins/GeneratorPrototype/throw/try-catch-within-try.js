@@ -8,10 +8,12 @@ description: >
     had appeared at that location in the function body.
 ---*/
 
+var unreachable = 0;
 function* g() {
   yield 1;
   try {
     yield 2;
+    unreachable += 1;
   } catch (e) {
     yield e;
   }
@@ -34,14 +36,28 @@ result = iter.throw(exception);
 assert.sameValue(result.value, exception, 'Third result `value`');
 assert.sameValue(result.done, false, 'Third result `done` flag');
 
+assert.sameValue(
+  unreachable,
+  0,
+  'statement following `yield` not executed (following `throw`)'
+);
+
 result = iter.next();
 assert.sameValue(result.value, 3, 'Fourth result `done` flag');
 assert.sameValue(result.done, false, 'Fourth result `value`');
+assert.sameValue(
+  unreachable,
+  0,
+  'statement following `yield` not executed (following `catch`)'
+);
 
 result = iter.next();
 assert.sameValue(
   result.value, undefined, 'Result `value` is undefined when done'
 );
 assert.sameValue(result.done, true, 'Result `done` flag is `true` when done');
+assert.sameValue(
+  unreachable, 0, 'statement following `yield` not executed (once "completed")'
+);
 
 iter.next();
