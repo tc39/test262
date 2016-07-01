@@ -5,7 +5,7 @@
 esid: sec-proxy-object-internal-methods-and-internal-slots-setprototypeof-v
 description: >
   Return false if ToBoolean(trap result) is false, without checking
-  target.[[isExtensible]]
+  target.[[IsExtensible]]
 info: |
   [[SetPrototypeOf]] (V)
 
