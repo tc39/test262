@@ -5,7 +5,7 @@
 esid: sec-isnan-number
 es6id: 18.2.3
 description: >
-  The DataView Constructor
+  Property descriptor for isNaN
 includes: [propertyHelper.js]
 ---*/
 
