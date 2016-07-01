@@ -5,7 +5,7 @@
 esid: sec-isfinite-number
 es6id: 18.2.2
 description: >
-  The DataView Constructor
+  Property descriptor for isFinite
 includes: [propertyHelper.js]
 ---*/
 
