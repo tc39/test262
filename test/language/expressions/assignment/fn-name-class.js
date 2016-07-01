@@ -22,12 +22,14 @@ includes: [propertyHelper.js]
 features: [class]
 ---*/
 
-var xCls, cls;
+var xCls, cls, xCls2;
 
 xCls = class x {};
 cls = class {};
+xCls2 = class { static name() {} };
 
-assert(xCls.name !== 'xCls');
+assert.notSameValue(xCls.name, 'xCls');
+assert.notSameValue(xCls2.name, 'xCls2');
 
 assert.sameValue(cls.name, 'cls');
 verifyNotEnumerable(cls, 'name');

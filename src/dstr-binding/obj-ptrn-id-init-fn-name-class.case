@@ -19,9 +19,10 @@ info: |
 ---*/
 
 //- elems
-{ cls = class {}, xCls = class X {} }
+{ cls = class {}, xCls = class X {}, xCls2 = class { static name() {} } }
 //- vals
 {}
 //- body
 assert.sameValue(cls.name, 'cls');
 assert.notSameValue(xCls.name, 'xCls');
+assert.notSameValue(xCls2.name, 'xCls2');
