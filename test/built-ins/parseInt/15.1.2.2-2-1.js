@@ -8,5 +8,4 @@ description: >
     contain any such characters
 ---*/
 
-assert(isNaN(parseInt("")), 'isNaN(parseInt("")) !== true');
 assert.sameValue(parseInt(""), NaN, 'parseInt("")');

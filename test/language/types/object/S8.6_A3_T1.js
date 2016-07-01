@@ -13,9 +13,6 @@ var __map={foo:'bar'};
 //CHECK#1
 
 ++__map.foo;
-if (!isNaN(__map.foo)) {
-  $ERROR('#1:  var __map={foo:"bar"}; ++__map.foo; __map.foo === Not-a-Number. Actual: ' + (__map.foo));
-}
-
+assert.sameValue(__map.foo, NaN);
 //
 //////////////////////////////////////////////////////////////////////////////

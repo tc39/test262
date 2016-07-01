@@ -24,7 +24,7 @@ Object.defineProperty(obj, "foo", {
     configurable: false
 });
 
-assert(isNaN(obj.foo)); 
+assert.sameValue(obj.foo, NaN);
 
 verifyNotWritable(obj, "foo");
 

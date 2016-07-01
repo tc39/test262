@@ -8,5 +8,4 @@ description: >
     does not contain any such characters
 ---*/
 
-assert(isNaN(parseFloat("")), 'isNaN(parseFloat("")) !== true');
 assert.sameValue(parseFloat(""), NaN, 'parseFloat("")');

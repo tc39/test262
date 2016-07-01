@@ -9,7 +9,5 @@ description: Complex test. R in [2, 36]
 
 //CHECK#
 for (var i = 2; i <= 36; i++) {
-  if (isNaN(parseInt("$string", i)) !== true) {
-    $ERROR('#' + i + ': parseInt("$string", i) === Not-a-Number. Actual: ' + (parseInt("$string", i)));
-  }
+  assert.sameValue(parseInt("$string", i), NaN);
 }

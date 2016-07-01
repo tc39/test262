@@ -118,9 +118,7 @@ if(!(st_parseInt === parseInt)){
   $ERROR('#11: st_parseInt === parseInt. Actual:  st_parseInt ==='+ st_parseInt  );
 }
 
-if(!isNaN(st_NaN)){
-  $ERROR('#12: st_NaN === NaN. Actual:  st_NaN ==='+ st_NaN  );
-}
+assert.sameValue(st_NaN, NaN, "st_NaN is NaN");
 
 if(!(st_Infinity === Infinity)){
   $ERROR('#13: st_Infinity === Infinity. Actual:  st_Infinity ==='+ st_Infinity  );

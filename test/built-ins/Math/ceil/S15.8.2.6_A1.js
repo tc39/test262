@@ -7,9 +7,4 @@ es5id: 15.8.2.6_A1
 description: Checking if Math.ceil(NaN) is NaN
 ---*/
 
-// CHECK#1
-var x = NaN;
-if (!isNaN(Math.ceil(x)))
-{
-	$ERROR("#1: 'var x=NaN; isNaN(Math.ceil(x)) === false'");
-}
+assert.sameValue(Math.ceil(NaN), NaN);

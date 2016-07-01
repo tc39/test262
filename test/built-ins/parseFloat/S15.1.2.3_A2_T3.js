@@ -18,6 +18,4 @@ if (parseFloat("\u00A0\u00A0-1.1") !== parseFloat("-1.1")) {
 }
 
 //CHECK#3
-if (isNaN(parseFloat("\u00A0")) !== true) {
-  $ERROR('#3: parseFloat("\\u00A0") === Not-a-Number. Actual: ' + (parseFloat("\u00A0")));
-}
+assert.sameValue(parseFloat("\u00A0"), NaN);

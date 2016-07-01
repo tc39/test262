@@ -20,8 +20,9 @@ var exponentnum = 7;
 
 for (var i = 0; i < exponentnum; i++)
 {
-	if (!isNaN(Math.pow(base,exponent[i])))
-	{
-		$ERROR("#1: isNaN(Math.pow(" + base + ", " + exponent[i] + ")) === false");
-	}
+  assert.sameValue(
+    Math.pow(base, exponent[i]),
+    NaN,
+    "(" + base + ", " + exponent[i] + ")"
+  );
 }

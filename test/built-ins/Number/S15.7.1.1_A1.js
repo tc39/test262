@@ -30,11 +30,4 @@ if( typeof Number(new Object(10)) !== "number" ) {
 }
 
 //CHECK #5
-if( typeof Number("abc") !== "number" ) {
-  $ERROR('#5: typeof Number("abc") should be "number", actual is "'+typeof Number("abc")+'"');
-}
-
-//CHECK #6
-if( !isNaN(Number("abc"))) {
-	$ERROR('#6: Number("abc")) should be NaN');
-}
+assert.sameValue(Number("abc"), NaN, "Number('abc')");

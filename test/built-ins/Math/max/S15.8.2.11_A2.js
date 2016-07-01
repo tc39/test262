@@ -9,11 +9,7 @@ description: >
     function where at least one of the arguments is NaN
 ---*/
 
-// CHECK#1
-if (!isNaN(Math.max(NaN)))
-{
-	$ERROR("#1: 'isNaN(Math.max(NaN)) === false");
-}
+assert.sameValue(Math.max(NaN), NaN, "NaN");
 
 // CHECK#2
 var vals = new Array();
@@ -33,10 +29,11 @@ for (var i = 0; i <= 1; i++)
 	for (var j = 0; j < valnum; j++)
 	{
 		args[1-i] = vals[j];
-		if (!isNaN(Math.max(args[0], args[1])))
-		{
-			$ERROR("#2: 'isNaN(Math.max(" + args[0] + ", " + args[1] + ")) === false");
-		}	
+		assert.sameValue(
+			Math.max(args[0], args[1]),
+			NaN,
+			"max(" + args[0] + ", " + args[1] + ")"
+		);
 	}
 }
 
@@ -59,10 +56,11 @@ for (var i = 0; i <= 2; i++)
 		{
 			args[k] = vals[j];
 			args[l] = vals[jj];
-			if (!isNaN(Math.max(args[0], args[1], args[2])))
-			{
-				$ERROR("#3: 'isNaN(Math.max(" + args[0] + ", " + args[1] + ", " + args[2] + ")) === false");
-			}	
+			assert.sameValue(
+				Math.max(args[0], args[1], args[2]),
+				NaN,
+				"max(" + args[0] + ", " + args[1] + ", " + args[2] + ")"
+			);
 		}
 	}
 }

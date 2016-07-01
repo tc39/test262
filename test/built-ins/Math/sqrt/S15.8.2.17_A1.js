@@ -7,9 +7,4 @@ es5id: 15.8.2.17_A1
 description: Checking if Math.sqrt(NaN) is NaN
 ---*/
 
-// CHECK#1
-var x = NaN;
-if (!isNaN(Math.sqrt(x)))
-{
-	$ERROR("#1: 'var x=NaN; isNaN(Math.sqrt(x)) === false'");
-}
+assert.sameValue(Math.sqrt(NaN), NaN);

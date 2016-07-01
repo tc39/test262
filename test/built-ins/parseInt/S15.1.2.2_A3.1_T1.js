@@ -13,6 +13,4 @@ if (parseInt("11", false) !== parseInt("11", 10)) {
 }
 
 //CHECK#2
-if (isNaN(parseInt("11", true)) !== true) {
-  $ERROR('#2: parseInt("11", true) === Not-a-Number. Actual: ' + (parseInt("11", true)));
-}
+assert.sameValue(parseInt("11", true), NaN);

@@ -7,9 +7,4 @@ es5id: 15.8.2.10_A1
 description: Checking if Math.log(NaN) is NaN
 ---*/
 
-// CHECK#1
-var x = NaN;
-if (!isNaN(Math.log(x)))
-{
-	$ERROR("#1: 'var x=NaN; isNaN(Math.log(x)) === false'");
-}
+assert.sameValue(Math.log(NaN), NaN);

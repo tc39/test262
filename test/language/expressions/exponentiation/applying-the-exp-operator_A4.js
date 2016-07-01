@@ -18,7 +18,9 @@ exponents[5] = +Infinity;
 exponents[6] = NaN;
 
 for (var i = 0; i < exponents.length; i++) {
-  if (!isNaN(base ** exponents[i])) {
-    $ERROR("isNaN(" + base + " **  " + exponents[i] + ") === false");
-  }
+  assert.sameValue(
+    base ** exponents[i],
+    NaN,
+    base + " ** " + exponents[i]
+  );
 }

@@ -7,9 +7,4 @@ es5id: 15.8.2.18_A5
 description: Checking if Math.tan(-Infinity) is NaN
 ---*/
 
-// CHECK#1
-var x = -Infinity;
-if (!isNaN(Math.tan(x)))
-{
-	$ERROR("#1: 'var x=-Infinity; isNaN(Math.tan(x)) === false'");
-}
+assert.sameValue(Math.tan(-Infinity), NaN);

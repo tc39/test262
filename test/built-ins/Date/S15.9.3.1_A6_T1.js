@@ -13,50 +13,39 @@ function DateValue(year, month, date, hours, minutes, seconds, ms){
   return new Date(year, month, date, hours, minutes, seconds, ms).valueOf();
 }
 
-if (!isNaN(DateValue(1899, 11))) {
-  $ERROR("#1: The value should be NaN");
-}
+var x;
+x = DateValue(1899, 11);
+assert.sameValue(x, NaN, "(1899, 11)");
 
-if (!isNaN(DateValue(1899, 12))) {
-  $ERROR("#2: The value should be NaN");
-}
+x = DateValue(1899, 12);
+assert.sameValue(x, NaN, "(1899, 12)");
 
-if (!isNaN(DateValue(1900, 0))) {
-  $ERROR("#3: The value should be NaN");
-}
+x = DateValue(1900, 0);
+assert.sameValue(x, NaN, "(1900, 0)");
 
-if (!isNaN(DateValue(1969, 11))) {
-  $ERROR("#4: The value should be NaN");
-}
+x = DateValue(1969, 11);
+assert.sameValue(x, NaN, "(1969, 11)");
 
-if (!isNaN(DateValue(1969, 12))) {
-  $ERROR("#5: The value should be NaN");
-}
+x = DateValue(1969, 12);
+assert.sameValue(x, NaN, "(1969, 12)");
 
-if (!isNaN(DateValue(1970, 0))) {
-  $ERROR("#6: The value should be NaN");
-}
+x = DateValue(1970, 0);
+assert.sameValue(x, NaN, "(1970, 0)");
 
-if (!isNaN(DateValue(1999, 11))) {
-  $ERROR("#7: The value should be NaN");
-}
+x = DateValue(1999, 11);
+assert.sameValue(x, NaN, "(1999, 11)");
 
-if (!isNaN(DateValue(1999, 12))) {
-  $ERROR("#8: The value should be NaN");
-}
+x = DateValue(1999, 12);
+assert.sameValue(x, NaN, "(1999, 12)");
 
-if (!isNaN(DateValue(2000, 0))) {
-  $ERROR("#9: The value should be NaN");
-}
+x = DateValue(2000, 0);
+assert.sameValue(x, NaN, "(2000, 0)");
 
-if (!isNaN(DateValue(2099, 11))) {
-  $ERROR("#10: The value should be NaN");
-}
+x = DateValue(2099, 11);
+assert.sameValue(x, NaN, "(2099, 11)");
 
-if (!isNaN(DateValue(2099, 12))) {
-  $ERROR("#11: The value should be NaN");
-}
+x = DateValue(2099, 12);
+assert.sameValue(x, NaN, "(2099, 12)");
 
-if (!isNaN(DateValue(2100, 0))) {
-  $ERROR("#12: The value should be NaN");
-}
+x = DateValue(2100, 0);
+assert.sameValue(x, NaN, "(2100, 0)");

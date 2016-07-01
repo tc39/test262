@@ -7,9 +7,4 @@ es5id: 15.8.2.16_A1
 description: Checking if Math.sin(NaN) is NaN
 ---*/
 
-// CHECK#1
-var x = NaN;
-if (!isNaN(Math.sin(x)))
-{
-	$ERROR("#1: 'var x=NaN; isNaN(Math.sin(x)) === false'");
-}
+assert.sameValue(Math.sin(NaN), NaN);
