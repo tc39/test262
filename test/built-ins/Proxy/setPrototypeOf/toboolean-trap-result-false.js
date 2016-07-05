@@ -56,10 +56,6 @@ result = Reflect.setPrototypeOf(p, { attr: undefined });
 assert.sameValue(result, false, "undefined");
 assert.sameValue(called, 0, "undefined - isExtensible is not called");
 
-result = Reflect.setPrototypeOf(p, { attr: false });
-assert.sameValue(result, false, "false");
-assert.sameValue(called, 0, "false - isExtensible is not called");
-
 result = Reflect.setPrototypeOf(p, { attr: NaN });
 assert.sameValue(result, false, "NaN");
 assert.sameValue(called, 0, "NaN - isExtensible is not called");
