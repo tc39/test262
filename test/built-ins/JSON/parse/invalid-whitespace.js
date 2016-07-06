@@ -13,6 +13,10 @@ assert.throws(SyntaxError, function() {
 }, '\\u1680');
 
 assert.throws(SyntaxError, function() {
+  JSON.parse('\u180e1');
+}, '\\u180e');
+
+assert.throws(SyntaxError, function() {
   JSON.parse('\u20001');
 }, '\\u2000');
 
