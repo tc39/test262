@@ -2,6 +2,8 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-json.parse
+es6id: 24.3.1
 es5id: 15.12.1.1-0-7
 description: >
     other category z spaces are not valid JSON whitespace as specified
