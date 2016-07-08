@@ -5,7 +5,7 @@
 es6id: 20.1.3.2
 esid: sec-number.prototype.toexponential
 description: >
-  Handle undefined fractionDigits when this is no 0
+  Handle undefined fractionDigits, not only casting it to 0
 info: |
   Number.prototype.toExponential ( fractionDigits )
 
@@ -26,12 +26,8 @@ info: |
 
 assert.sameValue((123.456).toExponential(undefined), "1.23456e+2", "undefined");
 assert.sameValue((123.456).toExponential(), "1.23456e+2", "no arg");
+assert.sameValue((123.456).toExponential(0), "1e+2", "0");
 
-assert.sameValue((-123.456).toExponential(undefined), "-1.23456e+2", "undefined");
-assert.sameValue((-123.456).toExponential(), "-1.23456e+2", "no arg");
-
-assert.sameValue((0.0001).toExponential(undefined), "1e-4", "undefined");
-assert.sameValue((0.0001).toExponential(), "1e-4", "no arg");
-
-assert.sameValue((0.9999).toExponential(undefined), "9.999e-1", "undefined");
-assert.sameValue((0.9999).toExponential(), "9.999e-1", "no arg");
+assert.sameValue((1.1e-32).toExponential(undefined), "1.1e-32", "undefined");
+assert.sameValue((1.1e-32).toExponential(), "1.1e-32", "no arg");
+assert.sameValue((1.1e-32).toExponential(0), "1e-32", "0");
