@@ -1,14 +1,16 @@
 // Copyright (C) 2014 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
+esid: sec-class-definitions
 es6id: 14.5
-description: >
-    class setters
+description: Class methods - "set" accessors
+includes: [propertyHelper.js]
 ---*/
+
 function assertSetterDescriptor(object, name) {
   var descr = Object.getOwnPropertyDescriptor(object, name);
-  assert.sameValue(descr.configurable, true, "The value of `descr.configurable` is `true`");
-  assert.sameValue(descr.enumerable, false, "The value of `descr.enumerable` is `false`");
+  verifyNotEnumerable(object, name);
+  verifyConfigurable(object, name);
   assert.sameValue(typeof descr.set, 'function', "`typeof descr.set` is `'function'`");
   assert.sameValue('prototype' in descr.set, false, "The result of `'prototype' in descr.set` is `false`");
   assert.sameValue(descr.get, undefined, "The value of `descr.get` is `undefined`");
@@ -22,11 +24,6 @@ class C {
   static set staticY(v) { staticY = v; }
 }
 
-assertSetterDescriptor(C.prototype, 'x');
-assertSetterDescriptor(C.prototype, 'y');
-assertSetterDescriptor(C, 'staticX');
-assertSetterDescriptor(C, 'staticY');
-
 assert.sameValue(new C().x = 1, 1, "`new C().x = 1` is `1`");
 assert.sameValue(x, 1, "The value of `x` is `1`");
 assert.sameValue(C.staticX = 2, 2, "`C.staticX = 2` is `2`");
@@ -35,3 +32,8 @@ assert.sameValue(new C().y = 3, 3, "`new C().y = 3` is `3`");
 assert.sameValue(y, 3, "The value of `y` is `3`");
 assert.sameValue(C.staticY = 4, 4, "`C.staticY = 4` is `4`");
 assert.sameValue(staticY, 4, "The value of `staticY` is `4`");
+
+assertSetterDescriptor(C.prototype, 'x');
+assertSetterDescriptor(C.prototype, 'y');
+assertSetterDescriptor(C, 'staticX');
+assertSetterDescriptor(C, 'staticY');
