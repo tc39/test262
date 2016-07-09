@@ -27,14 +27,15 @@ info: |
           GetReferencedName(lref)).
 
 ---*/
-var xCls, cls;
+var xCls, cls, xCls2;
 
 var result;
 var vals = {};
 
-result = { x: xCls = class x {}, x: cls = class {} } = vals;
+result = { x: xCls = class x {}, x: cls = class {}, x: xCls2 = class { static name() {} } } = vals;
 
 assert.notSameValue(xCls.name, 'xCls');
+assert.notSameValue(xCls2.name, 'xCls2');
 
 assert.sameValue(cls.name, 'cls');
 verifyNotEnumerable(cls, 'name');
