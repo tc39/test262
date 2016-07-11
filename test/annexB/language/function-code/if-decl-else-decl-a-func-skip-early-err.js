@@ -6,18 +6,18 @@ description: Extension not observed when creation of variable binding would prod
 esid: sec-functiondeclarations-in-ifstatement-statement-clauses
 es6id: B.3.4
 flags: [generated, noStrict]
-info: >
+info: |
     The following rules for IfStatement augment those in 13.6:
-    
+
     IfStatement[Yield, Return]:
         if ( Expression[In, ?Yield] ) FunctionDeclaration[?Yield] else Statement[?Yield, ?Return]
         if ( Expression[In, ?Yield] ) Statement[?Yield, ?Return] else FunctionDeclaration[?Yield]
         if ( Expression[In, ?Yield] ) FunctionDeclaration[?Yield] else FunctionDeclaration[?Yield]
         if ( Expression[In, ?Yield] ) FunctionDeclaration[?Yield]
-    
+
 
     B.3.3.1 Changes to FunctionDeclarationInstantiation
-    
+
     [...]
     ii. If replacing the FunctionDeclaration f with a VariableStatement that
         has F as a BindingIdentifier would not produce any Early Errors for

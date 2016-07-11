@@ -6,9 +6,9 @@ description: Extension observed when there is a formal parameter with the same n
 esid: sec-web-compat-evaldeclarationinstantiation
 es6id: B.3.3.3
 flags: [generated, noStrict]
-info: >
+info: |
     B.3.3.3 Changes to EvalDeclarationInstantiation
-    
+
     [...]
     ii. If replacing the FunctionDeclaration f with a VariableStatement that
         has F as a BindingIdentifier would not produce any Early Errors for

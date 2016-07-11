@@ -6,9 +6,9 @@ description: A block-scoped binding is created (Function declaration in the `cas
 esid: sec-web-compat-functiondeclarationinstantiation
 es6id: B.3.3.1
 flags: [generated, noStrict]
-info: >
+info: |
     13.2.14 Runtime Semantics: BlockDeclarationInstantiation
-    
+
     [...]
     4. For each element d in declarations do
        a. For each element dn of the BoundNames of d do
@@ -16,7 +16,7 @@ info: >
              [...]
           ii. Else,
               2. Perform ! envRec.CreateMutableBinding(dn, false).
-    
+
        b. If d is a GeneratorDeclaration production or a FunctionDeclaration
           production, then
           i. Let fn be the sole element of the BoundNames of d.

@@ -6,18 +6,18 @@ description: Variable-scoped binding is updated following evaluation (IfStatemen
 esid: sec-functiondeclarations-in-ifstatement-statement-clauses
 es6id: B.3.4
 flags: [generated, noStrict]
-info: >
+info: |
     The following rules for IfStatement augment those in 13.6:
-    
+
     IfStatement[Yield, Return]:
         if ( Expression[In, ?Yield] ) FunctionDeclaration[?Yield] else Statement[?Yield, ?Return]
         if ( Expression[In, ?Yield] ) Statement[?Yield, ?Return] else FunctionDeclaration[?Yield]
         if ( Expression[In, ?Yield] ) FunctionDeclaration[?Yield] else FunctionDeclaration[?Yield]
         if ( Expression[In, ?Yield] ) FunctionDeclaration[?Yield]
-    
+
 
     B.3.3.1 Changes to FunctionDeclarationInstantiation
-    
+
     [...]
     3. When the FunctionDeclaration f is evaluated, perform the following steps
        in place of the FunctionDeclaration Evaluation algorithm provided in
@@ -38,7 +38,7 @@ var after;
   if (false) function _f() {} else function f() { return 'inner declaration'; }
 
   after = f;
-  
+
   function f() {
     return 'outer declaration';
   }

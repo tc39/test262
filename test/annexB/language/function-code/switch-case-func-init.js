@@ -6,9 +6,9 @@ description: Variable binding is initialized to `undefined` in outer scope (Func
 esid: sec-web-compat-functiondeclarationinstantiation
 es6id: B.3.3.1
 flags: [generated, noStrict]
-info: >
+info: |
     B.3.3.1 Changes to FunctionDeclarationInstantiation
-    
+
     [...]
     2. If instantiatedVarNames does not contain F, then
        a. Perform ! varEnvRec.CreateMutableBinding(F, false).

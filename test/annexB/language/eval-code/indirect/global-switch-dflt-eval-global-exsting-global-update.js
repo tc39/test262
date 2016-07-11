@@ -7,9 +7,9 @@ esid: sec-web-compat-evaldeclarationinstantiation
 es6id: B.3.3.3
 flags: [generated, noStrict]
 includes: [fnGlobalObject.js]
-info: >
+info: |
     B.3.3.3 Changes to EvalDeclarationInstantiation
-    
+
     [...]
     b. When the FunctionDeclaration f is evaluated, perform the following steps
        in place of the FunctionDeclaration Evaluation algorithm provided in
@@ -21,7 +21,7 @@ info: >
        v. Let fobj be ! benvRec.GetBindingValue(F, false).
        vi. Perform ? genvRec.SetMutableBinding(F, fobj, false).
        vii. Return NormalCompletion(empty). 
-    
+
 ---*/
 Object.defineProperty(fnGlobalObject(), 'f', {
   value: function() { return 'Another function'; },

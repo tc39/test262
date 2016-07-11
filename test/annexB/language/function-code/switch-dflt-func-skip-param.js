@@ -6,9 +6,9 @@ description: Extension not observed when there is a formal parameter with the sa
 esid: sec-web-compat-functiondeclarationinstantiation
 es6id: B.3.3.1
 flags: [generated, noStrict]
-info: >
+info: |
     B.3.3.1 Changes to FunctionDeclarationInstantiation
-    
+
     [...]
     ii. If replacing the FunctionDeclaration f with a VariableStatement that
         has F as a BindingIdentifier would not produce any Early Errors for

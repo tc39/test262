@@ -7,25 +7,25 @@ esid: sec-functiondeclarations-in-ifstatement-statement-clauses
 es6id: B.3.3
 flags: [generated, noStrict]
 includes: [fnGlobalObject.js, propertyHelper.js]
-info: >
+info: |
     The following rules for IfStatement augment those in 13.6:
-    
+
     IfStatement[Yield, Return]:
         if ( Expression[In, ?Yield] ) FunctionDeclaration[?Yield] else Statement[?Yield, ?Return]
         if ( Expression[In, ?Yield] ) Statement[?Yield, ?Return] else FunctionDeclaration[?Yield]
         if ( Expression[In, ?Yield] ) FunctionDeclaration[?Yield] else FunctionDeclaration[?Yield]
         if ( Expression[In, ?Yield] ) FunctionDeclaration[?Yield]
-    
+
 
     B.3.3.3 Changes to EvalDeclarationInstantiation
-    
+
     [...]
     i. If varEnvRec is a global Environment Record, then
        i. Perform ? varEnvRec.CreateGlobalFunctionBinding(F, undefined, true).
     [...]
-    
+
     8.1.1.4.18 CreateGlobalFunctionBinding
-    
+
     [...]
     5. If existingProp is undefined or existingProp.[[Configurable]] is true,
        then
@@ -33,7 +33,7 @@ info: >
     6. Else,
        a. Let desc be the PropertyDescriptor{[[Value]]: V }.
     [...]
-    
+
 ---*/
 Object.defineProperty(fnGlobalObject(), 'f', {
   value: 'x',

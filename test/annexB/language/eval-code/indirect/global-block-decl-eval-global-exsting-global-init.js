@@ -7,16 +7,16 @@ esid: sec-web-compat-evaldeclarationinstantiation
 es6id: B.3.3.3
 flags: [generated, noStrict]
 includes: [fnGlobalObject.js, propertyHelper.js]
-info: >
+info: |
     B.3.3.3 Changes to EvalDeclarationInstantiation
-    
+
     [...]
     i. If varEnvRec is a global Environment Record, then
        i. Perform ? varEnvRec.CreateGlobalFunctionBinding(F, undefined, true).
     [...]
-    
+
     8.1.1.4.18 CreateGlobalFunctionBinding
-    
+
     [...]
     5. If existingProp is undefined or existingProp.[[Configurable]] is true,
        then
@@ -24,7 +24,7 @@ info: >
     6. Else,
        a. Let desc be the PropertyDescriptor{[[Value]]: V }.
     [...]
-    
+
 ---*/
 Object.defineProperty(fnGlobalObject(), 'f', {
   value: 'x',
