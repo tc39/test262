@@ -6,6 +6,9 @@ es6id: 24.3.1.1
 description: >
   Abrupt completion from array "length" property access while reviving
 info: |
+  JSON.parse ( text [ , reviver ] )
+
+  [...]
   7. If IsCallable(reviver) is true, then
      [...]
      e. Return ? InternalizeJSONProperty(root, rootName).

@@ -6,6 +6,9 @@ es6id: 24.3.1.1
 description: >
   Abrupt completion from coercing array "length" property to a number value
 info: |
+  JSON.parse ( text [ , reviver ] )
+
+  [...]
   7. If IsCallable(reviver) is true, then
      [...]
      e. Return ? InternalizeJSONProperty(root, rootName).
