@@ -2,16 +2,15 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: sec-dataview.prototype.setuint8
-es6id: 24.2.4.18
+esid: sec-dataview.prototype.setint16
 description: >
-  Detached buffer is checked after checking If numberIndex ≠ getIndex or
-  getIndex < 0
+  Detached buffer is only checked after ToIndex(requestIndex)
 info: |
-  24.2.4.18 DataView.prototype.setUint8 ( byteOffset, value )
+  24.2.4.16 DataView.prototype.setInt16 ( byteOffset, value [ , littleEndian ] )
 
   1. Let v be the this value.
-  2. Return ? SetViewValue(v, byteOffset, true, "Uint8", value).
+  2. If littleEndian is not present, let littleEndian be false.
+  3. Return ? SetViewValue(v, byteOffset, littleEndian, "Int16", value).
 
   24.2.1.2 SetViewValue ( view, requestIndex, isLittleEndian, type, value )
 
@@ -29,6 +28,10 @@ var sample = new DataView(buffer, 0);
 
 $DETACHBUFFER(buffer);
 
+assert.throws(TypeError, function() {
+  sample.setInt16(Infinity, 0);
+}, "Infinity");
+
 assert.throws(RangeError, function() {
-  sample.setUint8(-1, 0);
+  sample.setInt16(-1, 0);
 });
