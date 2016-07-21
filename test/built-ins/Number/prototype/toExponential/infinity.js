@@ -5,7 +5,7 @@
 es6id: 20.1.3.2
 esid: sec-number.prototype.toexponential
 description: >
-  Return "NaN" if this is NaN
+  Return signed Infinity string if this is Infinity
 info: |
   Number.prototype.toExponential ( fractionDigits )
 
