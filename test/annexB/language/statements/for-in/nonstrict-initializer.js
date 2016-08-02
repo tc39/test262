@@ -33,7 +33,7 @@ flags: [noStrict]
   for (var a = (++effects, -1) in stored = a, {a: 0, b: 1, c: 2}) {
     ++iterations;
   }
-  assert.sameValue(stored, -1);
-  assert.sameValue(effects, 1);
-  assert.sameValue(iterations, 3);
+  assert.sameValue(stored, -1, "Initialized value should be available to RHS");
+  assert.sameValue(effects, 1, "Initializer should only be executed once");
+  assert.sameValue(iterations, 3, "Loop body should be executed the appropriate number of times");
 })();
