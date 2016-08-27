@@ -6,7 +6,6 @@ es6id: 20.3.4.27
 description: >
   Behavior when the "this" value is a Date object describing an invald date
 info: |
-info: |
   1. Perform ? thisTimeValue(this value).
   2. Let t be ? ToNumber(time).
   3. Let v be TimeClip(t).
