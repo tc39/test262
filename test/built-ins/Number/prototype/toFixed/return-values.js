@@ -1,4 +1,4 @@
-// Copyright (C) 2016 The V8 Project authors. All rights reserved.
+// Copyright (C) 2016 Anonymous Contributor. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -8,5 +8,4 @@ description: >
   Return regular string values
 ---*/
 
-// a bug in IE ? - Edge 14
-assert.sameValue((1.255).toFixed(2), "1.25");
+assert.sameValue((1.25499999999999989342).toFixed(2), "1.25");
