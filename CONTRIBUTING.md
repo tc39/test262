@@ -233,7 +233,7 @@ p.then(function () {
 
     return "Expected exception to be thrown";
 }).then($DONE, function (e) {
-   if (!e instanceof TypeError) {
+   if (!(e instanceof TypeError)) {
       $ERROR("Expected TypeError but got " + e);
    }
 
