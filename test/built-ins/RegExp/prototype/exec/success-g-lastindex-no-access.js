@@ -29,4 +29,5 @@ var result = r.exec('abc');
 assert.sameValue(result.length, 1);
 assert.sameValue(result[0], 'a');
 assert.sameValue(r.lastIndex, 1);
+assert.sameValue(lastIndexReads, 1);
 

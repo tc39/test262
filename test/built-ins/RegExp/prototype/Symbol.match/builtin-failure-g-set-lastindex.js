@@ -30,8 +30,6 @@ info: >
 features: [Symbol.match]
 ---*/
 
-// TODO: Update the comment.
-
 var r = /a/g;
 r.lastIndex = 3;
 
