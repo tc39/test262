@@ -129,7 +129,7 @@ This tag is for boolean properties associated with the test.
   available); necessary to test the behavior of directive prologue; implies
   `noStrict`
 - **`async`** - defer interpretation of test results until after the invocation
-  of the global $DONE` function
+  of the global `$DONE` function
 
 #### features
 **features**: [list]
