@@ -20,18 +20,17 @@ info: >
 
     [...]
     3. Let length be the number of code units in S.
-    4. Let lastIndex be ToLength(Get(R,"lastIndex")).
     [...]
-    14. Let matchSucceeded be false.
-    15. Repeat, while matchSucceeded is false
+    11. Let matchSucceeded be false.
+    12. Repeat, while matchSucceeded is false
         a. If lastIndex > length, then
-           i. Let setStatus be Set(R, "lastIndex", 0, true).
-           ii. ReturnIfAbrupt(setStatus).
-           iii. Return null.
+           i. If global is true or sticky is true, then
+              1. Perform ? Set(R, "lastIndex", 0, true).
+           ii. Return null.
 features: [Symbol.match]
 ---*/
 
-var r = /a/;
+var r = /a/g;
 r.lastIndex = 3;
 
 r[Symbol.match]('b');
