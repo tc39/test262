@@ -1,7 +1,7 @@
 // Copyright (C) 2016 Michael Ficarra. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: sec-object-initializer-runtime-semantics-propertydefinitionevaluation
+es6id: 12.2.6
 description: >
     Evaluation of PropertyDefinitionList occurs in order, and each
     PropertyDefinition's PropertyName is evaluated before its
