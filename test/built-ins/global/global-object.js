@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-other-properties-of-the-global-object-global
-description: `global` should be the global object
+description: "'global' should be the global object"
 author: Jordan Harband
 includes: [propertyHelper.js]
 ---*/
