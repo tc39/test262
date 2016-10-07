@@ -3,7 +3,7 @@
 
 /*---
 esid: sec-other-properties-of-the-global-object-global
-description: `global` should be writable, non-enumerable, and configurable
+description: "'global' should be writable, non-enumerable, and configurable"
 author: Jordan Harband
 includes: [propertyHelper.js]
 ---*/
