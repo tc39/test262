@@ -43,7 +43,7 @@ export var a_local1;
 var local2;
 export { local2 as b_renamed };
 export { a_local1 as e_indirect } from './values-binding-types.js';
-export * from './values-binding-types_.js';
+export * from './values-binding-types_FIXTURE.js';
 
 var iter = ns[Symbol.iterator]();
 var result;
