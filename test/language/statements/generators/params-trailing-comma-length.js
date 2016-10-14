@@ -8,8 +8,8 @@ info: http://jeffmo.github.io/es-trailing-function-commas/
 author: Jeff Morrison <lbljeffmo@gmail.com>
 ---*/
 
-function one*(a,) {}
-function two*(a,b,) {}
+function* one(a,) {}
+function* two(a,b,) {}
 
 assert.sameValue(
   one.length,
