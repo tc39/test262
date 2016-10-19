@@ -9,7 +9,7 @@ description: Checking use hasOwnProperty, delete
 
 //CHECK#1
 if (Array.prototype.sort.hasOwnProperty('length') !== true) {
-  $ERROR('#1: Array.sort.prototype.hasOwnProperty(\'length\') === true. Actual: ' + (Array.sort.prototype.hasOwnProperty('length')));
+  $ERROR('#1: Array.prototype.sort.hasOwnProperty(\'length\') === true. Actual: ' + (Array.prototype.sort.hasOwnProperty('length')));
 }
 
 delete Array.prototype.sort.length;
