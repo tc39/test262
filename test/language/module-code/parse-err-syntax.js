@@ -3,7 +3,9 @@
 /*---
 description: Early SyntaxError resulting from module parsing
 esid: sec-parsemodule
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 info: |
     [...]
     2. Parse sourceText using Module as the goal symbol and analyze the parse

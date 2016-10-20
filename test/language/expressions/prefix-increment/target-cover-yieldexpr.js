@@ -22,7 +22,9 @@ info: |
 
   1. Return false.
 features: [generators]
-negative: ReferenceError
+negative:
+  phase: early
+  type: ReferenceError
 ---*/
 
 function* g() {

@@ -18,6 +18,8 @@ description: >
 
     No duplicates
 
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 var af = ({y: x, x}) => 1;

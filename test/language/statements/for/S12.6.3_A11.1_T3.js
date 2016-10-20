@@ -8,7 +8,9 @@ info: >
     "var-loop" breaks
 es5id: 12.6.3_A11.1_T3
 description: Trying to continue non-existent label
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 __str="";

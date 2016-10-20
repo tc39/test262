@@ -6,7 +6,9 @@ es6id: 14.1.2
 description: Parameters may not contain a "super" call
 info: >
   It is a Syntax Error if FormalParameters Contains SuperProperty is true.
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 0, function(x = super()) {};

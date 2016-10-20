@@ -5,7 +5,9 @@
 info: The "static" token can not be used as identifier in strict code
 es5id: 7.6.1.2_A1.26
 description: Checking if execution of "static=1" fails in strict code
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 flags: [onlyStrict]
 ---*/
 

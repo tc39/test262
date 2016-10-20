@@ -8,7 +8,9 @@ info: >
     Use one semicolon
 es5id: 7.9_A6.2_T6
 description: For header is (false semicolon \n false)
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 //CHECK#1

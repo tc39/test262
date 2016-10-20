@@ -5,7 +5,9 @@ desc: >
   It is a Syntax Error if BoundNames of FormalParameters contains any duplicate
   elements.
 template: syntax
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 info: |
   14.1.2 Static Semantics: Early Errors
 

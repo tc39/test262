@@ -3,7 +3,9 @@
 /*---
 description: Early ReferenceError resulting from module parsing
 esid: sec-parsemodule
-negative: ReferenceError
+negative:
+  phase: early
+  type: ReferenceError
 info: |
     [...]
     2. Parse sourceText using Module as the goal symbol and analyze the parse

@@ -7,7 +7,9 @@
       not be used as a label.
   features: [generators]
   es6id: 12.1.1
-  negative: SyntaxError
+  negative:
+    phase: early
+    type: SyntaxError
  ---*/
 
 var obj = {

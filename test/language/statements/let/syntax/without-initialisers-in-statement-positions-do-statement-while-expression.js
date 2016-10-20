@@ -5,6 +5,8 @@ es6id: 13.1
 description: >
     let declarations without initialisers in statement positions: 
     do Statement while ( Expression )
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 do let x; while (false)

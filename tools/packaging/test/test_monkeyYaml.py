@@ -185,6 +185,27 @@ es6id:  19.1.2.1
 """
         self.assertEqual(monkeyYaml.load(y), yaml.load(y))
 
+    def test_nested_1(self):
+        y = """
+es61d: 19.1.2.1
+negative:
+    stage: early
+    type: ReferenceError
+description: foo
+"""
+        self.assertEqual(monkeyYaml.load(y), yaml.load(y))
+
+    def test_nested_2(self):
+        y = """
+es61d: 19.1.2.1
+first:
+    second_a:
+        third: 1
+    second_b: 3
+description: foo
+"""
+        self.assertEqual(monkeyYaml.load(y), yaml.load(y))
+
 
 if __name__ == '__main__':
     unittest.main()

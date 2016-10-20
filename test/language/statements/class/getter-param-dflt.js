@@ -13,7 +13,9 @@ info: |
 
     get PropertyName[?Yield] ( ) { FunctionBody }
 features: [default-parameters]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 class C { get a(param = null) {} }

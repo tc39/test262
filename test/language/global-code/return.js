@@ -12,7 +12,9 @@ info: |
 
   ScriptBody :
     StatementList[~Yield, ~Return]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 return;

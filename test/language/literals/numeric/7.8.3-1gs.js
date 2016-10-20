@@ -4,9 +4,10 @@
 /*---
 es5id: 7.8.3-1gs
 description: Strict Mode - octal extension(010) is forbidden in strict mode
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 flags: [onlyStrict]
 ---*/
 
-throw NotEarlyError;
 var y = 010;

@@ -5,6 +5,8 @@ es6id: B.3.3
 description: >
     redeclaration within block:
     attempt to redeclare function declaration with var
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 { function f() {} var f; }

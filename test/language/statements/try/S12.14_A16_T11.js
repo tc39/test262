@@ -9,7 +9,9 @@ es5id: 12.14_A16_T11
 description: >
     Catch and Finally are placed into the Block of "try" (whitle
     expected outside)
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 // CHECK#1

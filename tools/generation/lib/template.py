@@ -144,7 +144,10 @@ class Template:
             lines += ['includes: ' + yaml.dump(includes).strip()]
 
         if case_values['meta'].get('negative'):
-            lines += ['negative: ' + case_values['meta'].get('negative')]
+            lines += ['negative:']
+            as_yaml = yaml.dump(case_values['meta'].get('negative'),
+                                default_flow_style=False)
+            lines += indent(as_yaml.strip(), '  ').split('\n')
 
         info = []
 

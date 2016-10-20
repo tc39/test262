@@ -12,7 +12,9 @@ info: |
     ArrowParameters[?Yield] [no LineTerminator here] => ConciseBody[?In]
 features: [default-parameters]
 flags: [onlyStrict]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 var yield = 23;

@@ -5,7 +5,9 @@
 author: Brian Terlson <brian.terlson@microsoft.com>
 esid: pending
 description: It is a SyntaxError if AsyncFunctionBody contains SuperCall is true
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 class Foo {
   async foo () { super() }

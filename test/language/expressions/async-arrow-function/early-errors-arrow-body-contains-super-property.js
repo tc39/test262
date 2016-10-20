@@ -5,7 +5,9 @@
 author: Brian Terlson <brian.terlson@microsoft.com>
 esid: pending
 description: It is a syntax error if AsyncFunctionBody contains SuperProperty is true
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 async(foo) => { super.prop };

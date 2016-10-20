@@ -4,7 +4,9 @@
 esid: sec-initializers-in-forin-statement-heads
 description: >
     for-in initializers with ObjectBindingPattern are always prohibited
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 throw NotEarlyError;
 for (var {a} = 0 in {});

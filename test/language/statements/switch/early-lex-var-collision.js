@@ -9,7 +9,9 @@ description: >
 info: >
   It is a Syntax Error if any element of the LexicallyDeclaredNames of
   CaseClauses also occurs in the VarDeclaredNames of CaseClauses.
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 features: [let]
 ---*/
 

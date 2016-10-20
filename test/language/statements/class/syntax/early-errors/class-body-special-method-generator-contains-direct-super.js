@@ -9,7 +9,9 @@ description: >
 
     (GeneratorMethod)
 
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 class A {
   * method() {

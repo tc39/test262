@@ -6,7 +6,9 @@ description: >
   arguments in arrow function argument lists.
 info: http://jeffmo.github.io/es-trailing-function-commas/
 author: Jeff Morrison <lbljeffmo@gmail.com>
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 ((...a,) => {})

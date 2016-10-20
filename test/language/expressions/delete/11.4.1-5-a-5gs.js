@@ -6,10 +6,11 @@ es5id: 11.4.1-5-a-5gs
 description: >
     Strict Mode - SyntaxError is thrown when deleting a variable which
     is primitive type(boolean)
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 flags: [onlyStrict]
 ---*/
 
 var _11_4_1_5 = 7;
-throw NotEarlyError;
 delete _11_4_1_5;

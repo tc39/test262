@@ -6,7 +6,9 @@ es6id: 11.6
 description: >
     SyntaxError expected: reserved words used as Identifier
     Names in UTF8: instanceof
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 var insta\u{6e}ceof = 123;

@@ -6,7 +6,9 @@ author: Brian Terlson <brian.terlson@microsoft.com>
 esid: pending
 description: >
   If the source code matching this production is strict code, it is a Syntax Error if BindingIdentifier is the IdentifierName arguments. 
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 flags: [onlyStrict]
 ---*/
 async function arguments () {  }

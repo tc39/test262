@@ -9,7 +9,9 @@ info: >
   Static Semantics: Early Errors
 
   It is a Syntax Error if ContainsUseStrict of FunctionBody is true and IsSimpleParameterList of FormalParameters is false.
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 function f(a = 0) {

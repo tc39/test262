@@ -16,7 +16,9 @@ info: |
     NewExpression[?Yield]
     CallExpression[?Yield]
 features: [generators]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 function* g() {

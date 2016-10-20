@@ -6,7 +6,9 @@ author: Brian Terlson <brian.terlson@microsoft.com>
 esid: pending
 description: >
   Async function expressions are not a simple assignment target.
-negative: ReferenceError
+negative:
+  phase: early
+  type: ReferenceError
 ---*/
 
 (async function foo() { } = 1)

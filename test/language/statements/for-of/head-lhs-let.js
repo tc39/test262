@@ -15,7 +15,9 @@ info: |
 
     for ( ForDeclaration[?Yield] of AssignmentExpression[+In, ?Yield] )
       Statement[?Yield, ?Return]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 for ( let of [] ) ;

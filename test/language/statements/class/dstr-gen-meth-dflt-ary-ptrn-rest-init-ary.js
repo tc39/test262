@@ -7,7 +7,9 @@ esid: sec-class-definitions-runtime-semantics-evaluation
 es6id: 14.5.16
 features: [destructuring-binding, default-parameters]
 flags: [generated]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 info: |
     ClassDeclaration : class BindingIdentifier ClassTail
 

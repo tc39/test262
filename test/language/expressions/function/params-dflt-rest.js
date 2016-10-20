@@ -7,7 +7,9 @@ esid: sec-function-definitions-runtime-semantics-evaluation
 es6id: 14.1.20
 features: [default-parameters]
 flags: [generated]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 info: |
     FunctionExpression : function ( FormalParameters ) { FunctionBody }
 

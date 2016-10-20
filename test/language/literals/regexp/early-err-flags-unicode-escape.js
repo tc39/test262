@@ -7,7 +7,9 @@ description: >
   RegularExpressionFlags :: RegularExpressionFlags IdentifierPart
 
   - It is a Syntax Error if IdentifierPart contains a Unicode escape sequence.
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 /./\u0067;

@@ -9,7 +9,9 @@ desc: >
     AssignmentPattern as the goal symbol.
 template: syntax
 es6id: 12.14.5.1
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 //- elems

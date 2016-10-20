@@ -15,7 +15,9 @@ info: |
   function because any expressions that are part of FormalParameters are
   evaluated before the resulting generator object is in a resumable state.
 features: [generators, default-parameters]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 class C {

@@ -20,7 +20,9 @@ info: >
     Other category “Zs” code points
 
   General Category of U+180E is “Cf” (Format).
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 // U+180E between "var" and "foo"; UTF8(0x180E) = 0xE1 0xA0 0x8E

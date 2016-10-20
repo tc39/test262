@@ -6,7 +6,9 @@ author: Brian Terlson <brian.terlson@microsoft.com>
 esid: pending
 description: >
   Await is not allowed as an identifier in functions nested in async functions
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 async function foo() {

@@ -16,7 +16,9 @@ info: |
 
   - It is a Syntax Error if ArrowParameters Contains YieldExpression is true. 
 features: [generators, default-parameters]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 function *g() {

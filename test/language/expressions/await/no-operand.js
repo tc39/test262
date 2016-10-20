@@ -6,7 +6,9 @@ author: Brian Terlson <brian.terlson@microsoft.com>
 esid: pending
 description: >
   await requries an operand.
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 async function foo() {

@@ -9,7 +9,9 @@ description: >
 
     No parameter named "arguments"
 
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 flags: [onlyStrict]
 ---*/
 var af = arguments => 1;

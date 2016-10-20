@@ -13,7 +13,9 @@ info: |
   2. Let newLabelSet be a copy of labelSet with label appended.
   3. Return ContainsUndefinedContinueTarget of LabelledItem with arguments
      iterationSet and newLabelSet. negative: SyntaxError
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 do {

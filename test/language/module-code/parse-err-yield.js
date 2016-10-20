@@ -22,7 +22,9 @@ info: |
     ExportDeclaration
     StatementListItem[~Yield, ~Return]
 flags: [module]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 yield;

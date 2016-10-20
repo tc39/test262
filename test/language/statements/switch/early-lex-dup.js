@@ -7,7 +7,9 @@ description: Syntax error from duplicate lexical variables
 info: >
   It is a Syntax Error if the LexicallyDeclaredNames of CaseBlock contains any
   duplicate entries.
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 features: [let, const]
 ---*/
 
