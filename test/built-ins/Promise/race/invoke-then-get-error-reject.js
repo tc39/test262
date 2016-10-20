@@ -1,11 +1,11 @@
-// Copyright (C) 2015 the V8 project authors. All rights reserved.
+// Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
-
 /*---
 description: >
-    Error retrieving the constructor's `resolve` method
+  Error thrown when accessing the instance's `then` method (rejecting promise)
+esid: sec-promise.race
 es6id: 25.4.4.3
-info: >
+info: |
     11. Let result be PerformPromiseRace(iteratorRecord, C, promiseCapability).
     12. If result is an abrupt completion,
         a. If iteratorRecord.[[done]] is false, let result be
@@ -18,19 +18,22 @@ info: >
 
     1. Repeat
         [...]
-        h. Let nextPromise be Invoke(C, "resolve", «nextValue»).
-        i. ReturnIfAbrupt(nextPromise).
+        j. Let result be Invoke(nextPromise, "then",
+           «promiseCapability.[[Resolve]], promiseCapability.[[Reject]]»).
+        k. ReturnIfAbrupt(result).
 flags: [async]
 ---*/
 
+var promise = new Promise(function() {});
 var error = new Test262Error();
-Object.defineProperty(Promise, 'resolve', {
-  get: function() { 
+
+Object.defineProperty(promise, 'then', {
+  get: function() {
     throw error;
   }
 });
 
-Promise.race([new Promise(function() {})]).then(function() {
+Promise.race([promise]).then(function() {
   $ERROR('The promise should be rejected');
 }, function(reason) {
   assert.sameValue(reason, error);

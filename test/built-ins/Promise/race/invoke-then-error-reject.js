@@ -3,10 +3,11 @@
 
 /*---
 description: >
-    Error retrieving the constructor's `resolve` method
-es6id: 25.4.4.1
-info: >
-    11. Let result be PerformPromiseAll(iteratorRecord, C, promiseCapability).
+  Error thrown when invoking the instance's `then` method (rejecting promise)
+esid: sec-promise.race
+es6id: 25.4.4.3
+info: |
+    11. Let result be PerformPromiseRace(iteratorRecord, C, promiseCapability).
     12. If result is an abrupt completion,
         a. If iteratorRecord.[[done]] is false, let result be
            IteratorClose(iterator, result).
@@ -14,24 +15,24 @@ info: >
 
     [...]
 
-    25.4.4.1.1 Runtime Semantics: PerformPromiseAll
+    25.4.4.3.1 Runtime Semantics: PerformPromiseRace
 
-    [...]
-    6. Repeat
+    1. Repeat
         [...]
-        i. Let nextPromise be Invoke(constructor, "resolve", «nextValue»).
-        j. ReturnIfAbrupt(nextPromise ).
+        j. Let result be Invoke(nextPromise, "then",
+           «promiseCapability.[[Resolve]], promiseCapability.[[Reject]]»).
+        k. ReturnIfAbrupt(result).
 flags: [async]
 ---*/
 
+var promise = new Promise(function() {});
 var error = new Test262Error();
-Object.defineProperty(Promise, 'resolve', {
-  get: function() { 
-    throw error;
-  }
-});
 
-Promise.all([new Promise(function() {})]).then(function() {
+promise.then = function() {
+  throw error;
+};
+
+Promise.race([promise]).then(function() {
   $ERROR('The promise should be rejected');
 }, function(reason) {
   assert.sameValue(reason, error);

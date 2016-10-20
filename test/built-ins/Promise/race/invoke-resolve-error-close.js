@@ -3,9 +3,11 @@
 
 /*---
 description: >
-    Explicit iterator closing in response to error
+  Explicit iterator closing in response to error from `Promise.resolve`
+esid: sec-promise.race
 es6id: 25.4.4.3
-info: >
+info: |
+    [...]
     11. Let result be PerformPromiseRace(iteratorRecord, promiseCapability, C).
     12. If result is an abrupt completion, then
         a. If iteratorRecord.[[done]] is false, let result be
@@ -20,36 +22,26 @@ info: >
        h. Let nextPromise be Invoke(C, "resolve", «nextValue»).
        i. ReturnIfAbrupt(nextPromise).
 features: [Symbol.iterator]
-flags: [async]
 ---*/
 
-var err = new Test262Error();
 var iterDoneSpy = {};
-var callCount = 0;
-var CustomPromise = function(executor) {
-  return new Promise(executor);
-};
+var returnCount = 0;
 iterDoneSpy[Symbol.iterator] = function() {
   return {
     next: function() {
       return { value: null, done: false };
     },
     return: function() {
-      callCount += 1;
+      returnCount += 1;
+      return {};
     }
   };
 };
 
-CustomPromise.resolve = function() {
+Promise.resolve = function() {
   throw err;
 };
 
-Promise.race.call(CustomPromise, iterDoneSpy)
-  .then(function() {
-    $ERROR('The promise should be rejected.');
-  }, function(reason) {
-    assert.sameValue(reason, err);
-    $DONE();
-  });
+Promise.race(iterDoneSpy);
 
-assert.sameValue(callCount, 1);
+assert.sameValue(returnCount, 1);

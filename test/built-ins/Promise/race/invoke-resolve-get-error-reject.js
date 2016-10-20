@@ -3,9 +3,10 @@
 
 /*---
 description: >
-    Error thrown when invoking the instance's `then` method
+  Error retrieving the constructor's `resolve` method (promise rejection)
+esid: sec-promise.race
 es6id: 25.4.4.3
-info: >
+info: |
     11. Let result be PerformPromiseRace(iteratorRecord, C, promiseCapability).
     12. If result is an abrupt completion,
         a. If iteratorRecord.[[done]] is false, let result be
@@ -18,20 +19,19 @@ info: >
 
     1. Repeat
         [...]
-        j. Let result be Invoke(nextPromise, "then",
-           «promiseCapability.[[Resolve]], promiseCapability.[[Reject]]»).
-        k. ReturnIfAbrupt(result).
+        h. Let nextPromise be Invoke(C, "resolve", «nextValue»).
+        i. ReturnIfAbrupt(nextPromise).
 flags: [async]
 ---*/
 
-var promise = new Promise(function() {});
 var error = new Test262Error();
+Object.defineProperty(Promise, 'resolve', {
+  get: function() {
+    throw error;
+  }
+});
 
-promise.then = function() {
-  throw error;
-};
-
-Promise.race([promise]).then(function() {
+Promise.race([new Promise(function() {})]).then(function() {
   $ERROR('The promise should be rejected');
 }, function(reason) {
   assert.sameValue(reason, error);

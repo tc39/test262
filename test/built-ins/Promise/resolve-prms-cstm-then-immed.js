@@ -23,6 +23,7 @@ info: >
         «promise, resolution, thenAction»)
 ---*/
 
+var returnValue = null;
 var value = {};
 var lateCallCount = 0;
 var thenable = new Promise(function(resolve) { resolve(); });
@@ -32,8 +33,10 @@ thenable.then = function(resolve) {
 };
 
 var promise = new Promise(function(resolve) {
-  resolve(thenable);
+  returnValue = resolve(thenable);
 });
+
+assert.sameValue(returnValue, undefined, '"resolve" return value');
 
 thenable.then = function() {
   lateCallCount += 1;

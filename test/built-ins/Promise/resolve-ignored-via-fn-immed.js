@@ -2,9 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: >
-    Resolved promises ignore rejections through immediate invocation of the
-    provided resolving function
-es6id: 25.4.3.1
+    Rejected promises ignore resolution after immediate invocation of the
+    provided reject function
+esid: sec-promise-executor
+es6id: 25.4.3.3
 info: >
     [...]
     9. Let completion be Call(executor, undefined,
@@ -13,25 +14,25 @@ info: >
         [...]
     11. Return promise.
 
-    25.4.1.3.1 Promise Reject Functions
+    25.4.1.3.2 Promise Resolve Functions
+
     [...]
-    3. Let alreadyResolved be the value of F's [[AlreadyResolved]] internal
-       slot.
-    4. If alreadyResolved.[[value]] is true, return undefined.
+    3. Let alreadyResolved be F.[[AlreadyResolved]].
+    4. If alreadyResolved.[[Value]] is true, return undefined.
 flags: [async]
 ---*/
 
 var returnValue = null;
 var thenable = new Promise(function() {});
 var p = new Promise(function(resolve, reject) {
-  resolve();
-  returnValue = reject(thenable);
+  reject(thenable);
+  returnValue = resolve();
 });
 
 assert.sameValue(returnValue, undefined, '"reject" function return value');
 
 p.then(function() {
-    $DONE();
+    $DONE('The promise should not be fulfilled.');
   }, function() {
-    $DONE('The promise should not be rejected.');
+    $DONE();
   });
