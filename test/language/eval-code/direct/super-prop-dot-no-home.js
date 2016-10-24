@@ -3,8 +3,7 @@
 /*---
 esid: sec-performeval
 description: >
-  A direct eval in the functon code of a non-ArrowFunction may not contain
-  SuperCall
+  SuperProperty may may only occur in eval code for direct eval within a method
 info: |
   [...]
   4. Let inMethod be false.
@@ -31,13 +30,18 @@ info: |
 features: [super]
 ---*/
 
-var executed = false;
+var caught;
 function f() {
-  eval('executed = true; super();');
+  // Early errors restricting the usage of SuperProperty necessitate the use of
+  // `eval`.
+  try {
+    eval('super.x;');
+  } catch (err) {
+    caught = err;
+  }
 }
 
-assert.throws(SyntaxError, function() {
-  f();
-});
+f();
 
-assert.sameValue(executed, false);
+assert.sameValue(typeof caught, 'object');
+assert.sameValue(caught.constructor, SyntaxError);
