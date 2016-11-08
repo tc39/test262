@@ -24,7 +24,6 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(
     Reflect.defineProperty(sample, "-1", {
       value: 42,
-      configurable: true,
       enumerable: true,
       writable: true
     }),
