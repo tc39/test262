@@ -6,6 +6,6 @@ info: http://jeffmo.github.io/es-trailing-function-commas/
 author: Jeff Morrison <lbljeffmo@gmail.com>
 ---*/
 class C {
-  one(a,) {},
-  two(a,b,) {},
+  one(a,) {}
+  two(a,b,) {}
 }
