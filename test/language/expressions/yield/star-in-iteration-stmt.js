@@ -10,7 +10,9 @@ info: |
   Syntax
 
   yield [no LineTerminator here] * AssignmentExpression[?In, +Yield]
-negative: SyntaxError
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 function* g() {
