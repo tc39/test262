@@ -16,7 +16,7 @@ class C {
       "Class method called with 1 arg + trailing comma reports " +
       "invalid arguments.length!"
     );
-  },
+  }
 
   f2() {
     assert.sameValue(
