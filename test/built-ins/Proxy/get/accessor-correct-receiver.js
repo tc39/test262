@@ -1,0 +1,21 @@
+// Copyright (C) 2016 Aleksey Shvayka. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+es6id: 9.5.8
+description: >
+    [[Get]] (P, Receiver)
+
+    7. If trap is undefined, then
+        a. Return ? target.[[Get]](P, Receiver).
+---*/
+
+var target = {
+    get attr() {
+        return this;
+    }
+};
+var p = new Proxy(target, {});
+assert.sameValue(p.attr, p);
+
+var pHerit = new Proxy(Object.create(target), {});
+assert.sameValue(pHerit.attr, pHerit);
