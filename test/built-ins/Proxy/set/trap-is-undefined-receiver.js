@@ -16,13 +16,9 @@ var target = {
     }
 };
 
-var p = new Proxy(target, { set: undefined });
+var p = new Proxy(target, { set: null });
 p.attr = 1;
 assert.sameValue(context, p);
-
-var pHerit = new Proxy(Object.create(target), { set: null });
-pHerit.attr = 2;
-assert.sameValue(context, pHerit);
 
 var pParent = Object.create(new Proxy(target, {}));
 pParent.attr = 3;
