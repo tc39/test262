@@ -2,6 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 es6id: 9.5.8
+esid: sec-proxy-object-internal-methods-and-internal-slots-get-p-receiver
 description: >
     [[Get]] (P, Receiver)
 
