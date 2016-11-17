@@ -19,3 +19,6 @@ assert.sameValue(p.attr, p);
 
 var pHerit = new Proxy(Object.create(target), {});
 assert.sameValue(pHerit.attr, pHerit);
+
+var pParent = Object.create(new Proxy(target, {}));
+assert.sameValue(pParent.attr, pParent);
