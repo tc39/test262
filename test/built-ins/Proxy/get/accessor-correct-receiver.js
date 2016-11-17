@@ -14,10 +14,11 @@ var target = {
         return this;
     }
 };
-var p = new Proxy(target, {});
+
+var p = new Proxy(target, { get: undefined });
 assert.sameValue(p.attr, p);
 
-var pHerit = new Proxy(Object.create(target), {});
+var pHerit = new Proxy(Object.create(target), { get: null });
 assert.sameValue(pHerit.attr, pHerit);
 
 var pParent = Object.create(new Proxy(target, {}));
