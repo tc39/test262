@@ -4,7 +4,7 @@
 es6id: 9.5.9
 esid: sec-proxy-object-internal-methods-and-internal-slots-set-p-v-receiver
 description: >
-	Pass to target's [[Set]] correct receiver if trap is missing
+    Pass to target's [[Set]] correct receiver if trap is missing
 info: >
     [[Set]] (P, V, Receiver)
 
