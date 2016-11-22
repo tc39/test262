@@ -17,12 +17,12 @@ esid: sec-template-literal-lexical-components
 
 (strs => {
   assert.sameValue(strs[0], undefined, 'Cooked template value should be undefined for illegal escape sequences');
-  assert.sameValue(strs.raw[0], '\\1');
+  assert.sameValue(strs.raw[0], '\\xg');
 })`\xg`;
 
 (strs => {
   assert.sameValue(strs[0], undefined, 'Cooked template value should be undefined for illegal escape sequences');
-  assert.sameValue(strs.raw[0], '\\1');
+  assert.sameValue(strs.raw[0], '\\xAg');
 })`\xAg`;
 
 (strs => {
