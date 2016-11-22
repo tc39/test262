@@ -235,7 +235,7 @@ following strings:
   's'.p = null;
   ```
 
-- **`async`** The file `harness/donePrintHandle.js` must be evaluated in the
+- **`async`** The file `harness/doneprintHandle.js` must be evaluated in the
   test realm's global scope prior to test execution. The test must not be
   considered complete until the implementation-defined `print` function has
   been invoked or some length of time has passed without any such invocation.
