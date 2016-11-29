@@ -16,3 +16,4 @@ There are a number of volunteer-maintained projects that may be used to execute 
 
 - https://github.com/bterlson/test262-harness (platform: Node.js)
 - https://github.com/test262-utils/test262-harness-py (platform: Python)
+- https://bakkot.github.io/test262-web-runner/ (platform: web)
