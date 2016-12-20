@@ -2,11 +2,12 @@
 /// This code is governed by the BSD license found in the LICENSE file.
 
 function Test262Error(message) {
+    this.name = "Test262Error";
     this.message = message || "";
 }
 
 Test262Error.prototype.toString = function () {
-    return "Test262Error: " + this.message;
+    return this.name + ": " + this.message;
 };
 
 var $ERROR;
