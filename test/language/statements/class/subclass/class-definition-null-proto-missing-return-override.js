@@ -16,11 +16,9 @@ info: |
      [...]
   6. Else,
      [...]
-     e. If superclass is null, then
-        i. Let protoParent be null.
-        ii. Let constructorParent be the intrinsic object %FunctionPrototype%.
+     b. Let superclass be the result of evaluating ClassHeritage.
   [...]
-  15. If ClassHeritageopt is present and protoParent is not null, then set F's
+  15. If ClassHeritageopt is present and superclass is not null, then set F's
       [[ConstructorKind]] internal slot to "derived".
   [...]
 

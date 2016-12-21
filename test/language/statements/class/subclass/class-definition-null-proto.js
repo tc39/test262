@@ -16,15 +16,13 @@ info: |
      [...]
   6. Else,
      [...]
-     e. If superclass is null, then
-        i. Let protoParent be null.
-        ii. Let constructorParent be the intrinsic object %FunctionPrototype%.
+     b. Let superclass be the result of evaluating ClassHeritage.
      [...]
   7. Let proto be ObjectCreate(protoParent).
   8. If ClassBodyopt is not present, let constructor be empty.
   9. Else, let constructor be ConstructorMethod of ClassBody.
   10. If constructor is empty, then
-      a. If ClassHeritageopt is present and protoParent is not null, then
+      a. If ClassHeritageopt is present and superclass is not null, then
          [...]
       b. Else,
          i. Let constructor be the result of parsing the source text
