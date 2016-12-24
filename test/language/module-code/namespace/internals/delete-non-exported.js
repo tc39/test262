@@ -10,7 +10,7 @@ info: |
     3. If P is an element of exports, return false.
     4. Return true.
 flags: [module]
-features: [Reflect, Symbol, Symbol.iterator, Symbol.toStringTag]
+features: [Reflect, Symbol, Symbol.toStringTag]
 ---*/
 
 import * as ns from './delete-non-exported.js';
@@ -22,12 +22,6 @@ assert(Reflect.deleteProperty(ns, 'undef'), 'Reflect.deleteProperty: undef');
 assert(delete ns.default, 'delete: default');
 assert(
   Reflect.deleteProperty(ns, 'default'), 'Reflect.deleteProperty: default'
-);
-
-assert(delete ns[Symbol.iterator], 'delete: Symbol.iterator');
-assert(
-  Reflect.deleteProperty(ns, Symbol.iterator),
-  'Reflect.deleteProperty: Symbol.iterator'
 );
 
 assert(delete ns[Symbol.toStringTag], 'delete: Symbol.toStringTag');
