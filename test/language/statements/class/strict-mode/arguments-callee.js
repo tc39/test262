@@ -6,7 +6,7 @@ description: >
     class strict mode
 ---*/
 var D = class extends function() {
-  arguments.caller;
+  arguments.callee;
 } {};
 assert.throws(TypeError, function() {
   Object.getPrototypeOf(D).arguments;
