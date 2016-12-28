@@ -7,7 +7,7 @@ description: >
 info: |
     1. Return false.
 flags: [module]
-features: [Reflect, Symbol.iterator, Symbol.toStringTag]
+features: [Reflect, Symbol, Symbol.toStringTag]
 ---*/
 
 import * as ns from './define-own-property.js';
@@ -61,15 +61,6 @@ assert.sameValue(
 assert.throws(TypeError, function() {
   Object.defineProperty(ns, 'default', {});
 }, 'Object.defineProperty: default');
-
-assert.sameValue(
-  Reflect.defineProperty(ns, Symbol.iterator, {}),
-  false,
-  'Reflect.defineProperty: Symbol.iterator'
-);
-assert.throws(TypeError, function() {
-  Object.defineProperty(ns, Symbol.iterator, {});
-}, 'Object.defineProperty: Symbol.iterator');
 
 assert.sameValue(
   Reflect.defineProperty(ns, Symbol.toStringTag, {}),

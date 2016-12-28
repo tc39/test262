@@ -5,21 +5,12 @@ esid: sec-module-namespace-exotic-objects-getownproperty-p
 description: >
     Behavior of the [[GetOwnProperty]] internal method with a Symbol argument
 flags: [module]
-features: [Symbol, Symbol.iterator, Symbol.toStringTag]
+features: [Symbol, Symbol.toStringTag]
 ---*/
 
 import * as ns from './get-own-property-sym.js';
 var notFound = Symbol('test262');
 var desc;
-
-assert.sameValue(
-  Object.prototype.hasOwnProperty.call(ns, Symbol.iterator), true
-);
-desc = Object.getOwnPropertyDescriptor(ns, Symbol.iterator);
-assert.sameValue(desc.value, ns[Symbol.iterator]);
-assert.sameValue(desc.enumerable, false, 'Symbol.iterator enumerable');
-assert.sameValue(desc.writable, true, 'Symbol.iterator writable');
-assert.sameValue(desc.configurable, true, 'Symbol.iterator configurable');
 
 assert.sameValue(
   Object.prototype.hasOwnProperty.call(ns, Symbol.toStringTag), true
