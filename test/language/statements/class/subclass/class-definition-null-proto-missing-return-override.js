@@ -38,4 +38,4 @@ class Foo extends null {
 
 var foo = new Foo();
 
-assert.sameValue(Object.getPrototypeOf(foo), Foo);
+assert.sameValue(Object.getPrototypeOf(foo), Foo.prototype);
