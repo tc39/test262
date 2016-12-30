@@ -2,6 +2,10 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
+esid: sec-intl-pluralrules-constructor
+description: >
+    Tests that objects constructed by Intl.PluralRules have the specified
+    internal properties.
 author: Zibi Braniecki
 ---*/
 

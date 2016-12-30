@@ -2,6 +2,10 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
+esid: sec-Intl.PluralRules.supportedLocalesOf
+description: >
+    Tests that Intl.PluralRules has a supportedLocalesOf property, and
+    it works as planned.
 author: Zibi Braniecki
 ---*/
 

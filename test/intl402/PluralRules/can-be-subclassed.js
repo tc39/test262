@@ -2,11 +2,13 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
+esid: sec-intl-pluralrules-constructor
+description: Tests that Intl.PluralRules can be subclassed.
 author: Zibi Braniecki
 includes: [testIntl.js]
 ---*/
 
-// get a date-time format and have it format an array of dates for comparison with the subclass
+// get a plural-rules and have it format an array of dates for comparison with the subclass
 var locales = ["tlh", "id", "en"];
 var a = [1, 5, 12];
 

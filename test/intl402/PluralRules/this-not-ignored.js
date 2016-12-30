@@ -2,6 +2,8 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
+esid: sec-Intl.PluralRules
+description: Tests that the this-value is ignored in PluralRules
 author: Zibi Braniecki
 includes: [testIntl.js]
 ---*/

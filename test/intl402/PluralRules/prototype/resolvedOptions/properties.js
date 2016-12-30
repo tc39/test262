@@ -2,6 +2,11 @@
 // This code is governed by the license found in the LICENSE file.
 
 /*---
+esid: sec-Intl.PluralRules.prototype.resolvedOptions
+description: >
+    Tests that the object returned by
+    Intl.PluralRules.prototype.resolvedOptions  has the right
+    properties.
 author: Zibi Braniecki
 includes: [testIntl.js]
 ---*/
