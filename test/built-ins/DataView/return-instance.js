@@ -18,12 +18,16 @@ info: |
 
 var ab, sample;
 
-ab = new ArrayBuffer(1);
+for ( let Buffer of [ ArrayBuffer, SharedArrayBuffer ] ) {
+
+ab = new Buffer(1);
 sample = new DataView(ab, 0);
 assert.sameValue(sample.constructor, DataView);
 assert.sameValue(Object.getPrototypeOf(sample), DataView.prototype);
 
-ab = new ArrayBuffer(1);
+ab = new Buffer(1);
 sample = new DataView(ab, 1);
 assert.sameValue(sample.constructor, DataView);
 assert.sameValue(Object.getPrototypeOf(sample), DataView.prototype);
+
+}

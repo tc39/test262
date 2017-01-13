@@ -16,7 +16,12 @@ info: >
 includes: [testTypedArray.js]
 ---*/
 
+for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
+
 testWithTypedArrayConstructors(function(TAConstructor) {
-  var typedArray = new TAConstructor(new ArrayBuffer(8), -0);
+  var typedArray = new TAConstructor(new Buffer(8), -0);
   assert.sameValue(typedArray.byteOffset, +0);
 });
+
+}
+

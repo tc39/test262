@@ -16,8 +16,13 @@ features: [Symbol]
 ---*/
 
 var s = Symbol("1");
-var ab = new ArrayBuffer(0);
+
+for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
+
+var ab = new Buffer(0);
 
 assert.throws(TypeError, function() {
   new DataView(ab, s);
 });
+
+}

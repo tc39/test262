@@ -25,7 +25,10 @@ info: |
 ---*/
 
 var sample;
-var buffer = new ArrayBuffer(12);
+
+for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
+
+var buffer = new Buffer(12);
 
 sample = new DataView(buffer, 0);
 
@@ -82,3 +85,5 @@ sample = new DataView(buffer, 4, 3);
 assert.throws(RangeError, function() {
   sample.getInt32(0);
 }, "0 + 4 > 3 (offset+length)");
+
+}

@@ -29,7 +29,9 @@ info: |
 features: [DataView.prototype.setUint8]
 ---*/
 
-var buffer = new ArrayBuffer(12);
+for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
+
+var buffer = new Buffer(12);
 var sample = new DataView(buffer, 0);
 
 sample.setUint8(0, 39);
@@ -56,3 +58,5 @@ assert.sameValue(sample.getInt32(0, true), 25165952, "0, true");
 assert.sameValue(sample.getInt32(1, true), 2130804736, "1, true");
 assert.sameValue(sample.getInt32(2, true), 8323456, "2, true");
 assert.sameValue(sample.getInt32(3, true), 2130738945, "3, true");
+
+}

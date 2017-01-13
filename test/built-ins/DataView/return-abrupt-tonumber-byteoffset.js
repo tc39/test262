@@ -20,8 +20,12 @@ var obj = {
   }
 };
 
-var ab = new ArrayBuffer(0);
+for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
+
+var ab = new Buffer(0);
 
 assert.throws(Test262Error, function() {
   new DataView(ab, obj);
 });
+
+}

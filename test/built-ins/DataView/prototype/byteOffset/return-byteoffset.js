@@ -14,7 +14,9 @@ info: |
   8. Return offset.
 ---*/
 
-var buffer = new ArrayBuffer(12);
+for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
+
+var buffer = new Buffer(12);
 
 var sample1 = new DataView(buffer, 0);
 var sample2 = new DataView(buffer, 4);
@@ -27,3 +29,5 @@ assert.sameValue(sample2.byteOffset, 4);
 assert.sameValue(sample3.byteOffset, 6);
 assert.sameValue(sample4.byteOffset, 12);
 assert.sameValue(sample5.byteOffset, 0);
+
+}

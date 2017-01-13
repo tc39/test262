@@ -17,10 +17,12 @@ info: >
 includes: [testTypedArray.js]
 ---*/
 
+for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
+
 testWithTypedArrayConstructors(function(TA) {
   var bpe = TA.BYTES_PER_ELEMENT;
 
-  var buffer = new ArrayBuffer(bpe);
+  var buffer = new Buffer(bpe);
 
   var ta1 = new TA(buffer);
   var ta2 = new TA(buffer);
@@ -29,3 +31,5 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(ta2.buffer, buffer);
   assert.sameValue(ta1.buffer, ta2.buffer);
 });
+
+}

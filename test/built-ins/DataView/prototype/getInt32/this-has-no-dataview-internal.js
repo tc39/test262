@@ -32,10 +32,14 @@ assert.throws(TypeError, function() {
   getInt32.call([]);
 }, "[]");
 
-var ab = new ArrayBuffer(1);
+for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
+
+var ab = new Buffer(1);
 assert.throws(TypeError, function() {
   getInt32.call(ab);
 }, "ArrayBuffer");
+
+}
 
 var ta = new Int8Array();
 assert.throws(TypeError, function() {

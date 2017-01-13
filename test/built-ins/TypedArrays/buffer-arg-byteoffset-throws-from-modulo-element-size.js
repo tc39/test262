@@ -17,7 +17,9 @@ info: >
 includes: [testTypedArray.js]
 ---*/
 
-var buffer = new ArrayBuffer(8);
+for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
+
+var buffer = new Buffer(8);
 
 testWithTypedArrayConstructors(function(TA) {
   if (TA.BYTES_PER_ELEMENT === 1) {
@@ -29,3 +31,5 @@ testWithTypedArrayConstructors(function(TA) {
     new TA(buffer, 7);
   });
 });
+
+}

@@ -29,10 +29,14 @@ assert.throws(TypeError, function() {
   getter.call([]);
 }, "[]");
 
-var ab = new ArrayBuffer(8);
+for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
+
+var ab = new Buffer(8);
 assert.throws(TypeError, function() {
   getter.call(ab);
 }, "ArrayBuffer");
+
+}
 
 var ta = new Int8Array();
 assert.throws(TypeError, function() {

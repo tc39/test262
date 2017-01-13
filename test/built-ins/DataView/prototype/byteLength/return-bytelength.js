@@ -14,7 +14,9 @@ info: |
   8. Return size.
 ---*/
 
-var buffer = new ArrayBuffer(12);
+for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
+
+var buffer = new Buffer(12);
 
 var sample1 = new DataView(buffer, 0);
 var sample2 = new DataView(buffer, 4);
@@ -25,3 +27,5 @@ assert.sameValue(sample1.byteLength, 12);
 assert.sameValue(sample2.byteLength, 8);
 assert.sameValue(sample3.byteLength, 4);
 assert.sameValue(sample4.byteLength, 0);
+
+}

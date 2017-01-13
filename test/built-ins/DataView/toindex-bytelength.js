@@ -41,8 +41,10 @@ var obj2 = {
   }
 };
 
+for ( let Buffer of [ ArrayBuffer, SharedArrayBuffer ] ) {
+
 var sample;
-var ab = new ArrayBuffer(42);
+var ab = new Buffer(42);
 
 sample = new DataView(ab, 0, -0);
 assert.sameValue(sample.byteLength, 0, "-0");
@@ -91,3 +93,5 @@ assert.sameValue(sample.byteLength, 0, "-0.1");
 
 sample = new DataView(ab, 0, -0.99999);
 assert.sameValue(sample.byteLength, 0, "-0.99999");
+
+}

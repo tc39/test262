@@ -18,7 +18,9 @@ info: >
 includes: [testTypedArray.js]
 ---*/
 
-var buffer = new ArrayBuffer(8);
+for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
+
+var buffer = new Buffer(8);
 var length = {
   valueOf() {
     throw new Test262Error();
@@ -30,3 +32,5 @@ testWithTypedArrayConstructors(function(TA) {
     new TA(buffer, 0, length);
   });
 });
+
+}

@@ -34,7 +34,9 @@ features: [Reflect]
 includes: [testTypedArray.js]
 ---*/
 
-var buffer = new ArrayBuffer(8);
+for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
+
+var buffer = new Buffer(8);
 
 function newTarget() {}
 var proto = {};
@@ -46,3 +48,5 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(ta.constructor, Object);
   assert.sameValue(Object.getPrototypeOf(ta), proto);
 });
+
+}

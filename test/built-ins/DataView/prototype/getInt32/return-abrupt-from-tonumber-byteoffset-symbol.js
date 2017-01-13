@@ -21,7 +21,9 @@ info: |
 features: [Symbol]
 ---*/
 
-var buffer = new ArrayBuffer(1);
+for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
+
+var buffer = new Buffer(1);
 var sample = new DataView(buffer, 0);
 
 var s = Symbol("1");
@@ -29,3 +31,5 @@ var s = Symbol("1");
 assert.throws(TypeError, function() {
   sample.getInt32(s);
 });
+
+}

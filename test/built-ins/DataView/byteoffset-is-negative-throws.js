@@ -16,7 +16,9 @@ info: |
   ...
 ---*/
 
-var ab = new ArrayBuffer(42);
+for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
+
+var ab = new Buffer(42);
 
 assert.throws(RangeError, function() {
   new DataView(ab, -1);
@@ -25,3 +27,5 @@ assert.throws(RangeError, function() {
 assert.throws(RangeError, function() {
   new DataView(ab, -Infinity);
 }, "-Infinity");
+
+}

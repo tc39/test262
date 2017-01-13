@@ -28,9 +28,13 @@ info: >
 includes: [testTypedArray.js]
 ---*/
 
+for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
+
 testWithTypedArrayConstructors(function(TA) {
-  var buffer = new ArrayBuffer(8);
+  var buffer = new Buffer(8);
   var sample = new TA(buffer);
 
   assert(Object.isExtensible(sample));
 });
+
+}

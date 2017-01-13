@@ -17,9 +17,13 @@ info: >
 includes: [testTypedArray.js]
 ---*/
 
+for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
+
 testWithTypedArrayConstructors(function(TA) {
-  var buffer = new ArrayBuffer(4);
+  var buffer = new Buffer(4);
   assert.throws(TypeError, function() {
     TA(buffer);
   });
 });
+
+}

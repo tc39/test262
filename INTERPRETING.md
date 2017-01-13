@@ -60,6 +60,33 @@ properties of the global scope prior to test execution.
 
   - **`global`** - a reference to the global object on which `$` was initially
     defined
+  - **`agent`** - an ordinary object with the following properties:
+    - **`start`** - a function that takes a script source string and runs
+      the script in a concurrent agent.  Will block until that agent is
+      running.  The agent has no representation.  The agent script will be
+      run in an environment that has an object `$` with a property `agent`
+      with the following properties:
+      - **`receiveBroadcast`** - a function that takes a function and 
+        calls the function when it has received a broadcast from the parent,
+        passing it the broadcast as two arguments, a SharedArrayBuffer and
+        an Int32.  This function may return before a broadcast is received
+        (eg to return to an event loop to await a message) and no code should
+        follow the call to this function.
+      - **`report`** - a function that takes a string and places it in a
+        transmit queue whence the parent will retrieve it.  Messages
+        should be short.
+      - **`sleep`** - a function that takes a millisecond argument and
+        sleeps the agent for approximately that duration.
+      - **`leaving`** - a function that signals that the agent is done and
+        may be terminated (if possible).
+    - **`broadcast`** - a function that takes a SharedArrayBuffer and an Int32
+        and broadcasts the two values to all concurrent agents.  The function
+        blocks until all agents have retrieved the message.  Note, this assumes
+        that all agents that were started are still running.
+    - **`getReport`** - a function that reads an incoming string from any agent,
+      and returns it if it exists, or returns `null` otherwise.
+    - **`sleep`** - a function that takes a millisecond argument and
+        sleeps the execution for approximately that duration.
 
 ### Strict Mode
 

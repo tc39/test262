@@ -20,7 +20,9 @@ info: |
   ...
 ---*/
 
-var buffer = new ArrayBuffer(1);
+for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
+
+var buffer = new Buffer(1);
 var sample = new DataView(buffer, 0);
 
 var bo1 = {
@@ -42,3 +44,5 @@ assert.throws(Test262Error, function() {
 assert.throws(Test262Error, function() {
   sample.getInt32(bo2);
 }, "toString");
+
+}

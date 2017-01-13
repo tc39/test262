@@ -22,7 +22,9 @@ info: |
     ...
 ---*/
 
-var buffer = new ArrayBuffer(2);
+for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
+
+var buffer = new Buffer(2);
 
 assert.throws(RangeError, function() {
   new DataView(buffer, -1);
@@ -31,3 +33,5 @@ assert.throws(RangeError, function() {
 assert.throws(RangeError, function() {
   new DataView(buffer, -Infinity);
 }, "new DataView(buffer, -Infinity);");
+
+}
