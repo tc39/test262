@@ -34,7 +34,7 @@ properties of the global scope prior to test execution.
 - **`print`** A function that exposes the string value of its first argument to
   the test runner. This is used as a communication mechanism for asynchronous
   tests (via the `async` flag, described below).
-- **`$`** An ordinary object with the following properties:
+- **`$262`** An ordinary object with the following properties:
   - **`createRealm`** - a function which creates a new [ECMAScript
     Realm](https://tc39.github.io/ecma262/2016/#sec-code-realms),
     defines this API on the new realm's global object, and returns the `$`
@@ -58,8 +58,7 @@ properties of the global scope prior to test execution.
         5. Let status be ScriptEvaluation(s).
         6. Return Completion(status).
 
-  - **`global`** - a reference to the global object on which `$` was initially
-    defined
+  - **`global`** - a reference to the global object on which `$262` was initially defined
 
 ### Strict Mode
 

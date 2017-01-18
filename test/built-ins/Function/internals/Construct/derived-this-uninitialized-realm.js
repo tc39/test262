@@ -18,7 +18,7 @@ info: |
 features: [class]
 ---*/
 
-var C = $.createRealm().global.eval(
+var C = $262.createRealm().global.eval(
   'class C extends Object {' +
   '  constructor() {}' +
   '}'
