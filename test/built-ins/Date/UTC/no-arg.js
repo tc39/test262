@@ -3,7 +3,7 @@
 /*---
 esid: sec-date.utc
 es6id: 20.3.3.4
-description: NaN value handling
+description: Tests for non optional arguments
 info: |
   1. Let y be ? ToNumber(year).
   2. Let m be ? ToNumber(month).
@@ -17,11 +17,4 @@ info: |
   9. Return TimeClip(MakeDate(MakeDay(yr, m, dt), MakeTime(h, min, s, milli))).
 ---*/
 
-assert.sameValue(Date.UTC(NaN), NaN, 'year');
-assert.sameValue(Date.UTC(NaN, 0), NaN, 'year');
-assert.sameValue(Date.UTC(1970, NaN), NaN, 'month');
-assert.sameValue(Date.UTC(1970, 0, NaN), NaN, 'date');
-assert.sameValue(Date.UTC(1970, 0, 1, NaN), NaN, 'hours');
-assert.sameValue(Date.UTC(1970, 0, 1, 0, NaN), NaN, 'minutes');
-assert.sameValue(Date.UTC(1970, 0, 1, 0, 0, NaN), NaN, 'seconds');
-assert.sameValue(Date.UTC(1970, 0, 1, 0, 0, 0, NaN), NaN, 'ms');
+assert.sameValue(Date.UTC(), NaN, 'missing non-optional year argument');
