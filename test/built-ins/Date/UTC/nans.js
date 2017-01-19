@@ -17,6 +17,7 @@ info: |
   9. Return TimeClip(MakeDate(MakeDay(yr, m, dt), MakeTime(h, min, s, milli))).
 ---*/
 
+assert.sameValue(Date.UTC(NaN), NaN, 'year');
 assert.sameValue(Date.UTC(NaN, 0), NaN, 'year');
 assert.sameValue(Date.UTC(1970, NaN), NaN, 'month');
 assert.sameValue(Date.UTC(1970, 0, NaN), NaN, 'date');
