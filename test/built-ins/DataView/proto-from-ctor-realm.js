@@ -25,13 +25,8 @@ features: [Reflect]
 var other = $.createRealm().global;
 var C = new other.Function();
 C.prototype = null;
-
-for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
-
-var buffer = new Buffer(0);
+var buffer = new ArrayBuffer(0);
 
 var o = Reflect.construct(DataView, [buffer, 0], C);
 
 assert.sameValue(Object.getPrototypeOf(o), other.DataView.prototype);
-
-}

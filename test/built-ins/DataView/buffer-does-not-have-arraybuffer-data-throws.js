@@ -36,11 +36,7 @@ assert.throws(TypeError, function() {
   new DataView(ta, obj);
 }, "typedArray instance");
 
-for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
-
-var other = new DataView(new Buffer(1), 0);
+var other = new DataView(new ArrayBuffer(1), 0);
 assert.throws(TypeError, function() {
   new DataView(other, obj);
 }, "dataView instance");
-
-}

@@ -25,9 +25,7 @@ info: |
     ...
 ---*/
 
-for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
-
-var buffer = new Buffer(2);
+var buffer = new ArrayBuffer(2);
 
 assert.throws(RangeError, function() {
   new DataView(buffer, 0, -1);
@@ -44,5 +42,3 @@ assert.throws(RangeError, function() {
 assert.throws(RangeError, function() {
   new DataView(buffer, 2, -Infinity);
 }, "new DataView(buffer, 2, -Infinity);");
-
-}

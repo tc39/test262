@@ -17,10 +17,7 @@ info: |
 ---*/
 
 var sample;
-
-for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
-
-var buffer = new Buffer(4);
+var buffer = new ArrayBuffer(4);
 
 sample = new DataView(buffer, 0, undefined);
 assert.sameValue(sample.byteLength, 4, "sample.byteLength");
@@ -56,5 +53,3 @@ assert.sameValue(sample.byteOffset, 4, "sample.byteOffset");
 assert.sameValue(sample.buffer, buffer);
 assert.sameValue(sample.constructor, DataView);
 assert.sameValue(Object.getPrototypeOf(sample), DataView.prototype);
-
-}

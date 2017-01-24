@@ -35,9 +35,7 @@ info: |
 features: [Reflect.construct]
 ---*/
 
-for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
-
-var buffer = new Buffer(8);
+var buffer = new ArrayBuffer(8);
 
 function newTarget() {}
 var proto = {};
@@ -47,5 +45,3 @@ var sample = Reflect.construct(DataView, [buffer, 0], newTarget);
 
 assert.sameValue(sample.constructor, Object);
 assert.sameValue(Object.getPrototypeOf(sample), proto);
-
-}

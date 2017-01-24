@@ -18,13 +18,9 @@ info: |
 features: [Symbol]
 ---*/
 
-for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
-
-var buffer = new Buffer(8);
+var buffer = new ArrayBuffer(8);
 var length = Symbol("1");
 
 assert.throws(TypeError, function() {
   new DataView(buffer, 0, length);
 });
-
-}

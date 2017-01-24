@@ -14,11 +14,7 @@ info: |
   6. Return buffer.
 ---*/
 
-for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
-
-var buffer = new Buffer(1);
+var buffer = new ArrayBuffer(1);
 var dv = new DataView(buffer, 0);
 
 assert.sameValue(dv.buffer, buffer);
-
-}

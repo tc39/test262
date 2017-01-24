@@ -15,14 +15,10 @@ info: |
   17. Return O.
 ---*/
 
-for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
-
-var buffer = new Buffer(8);
+var buffer = new ArrayBuffer(8);
 
 var dv1 = new DataView(buffer, 0);
 var dv2 = new DataView(buffer, 0);
 
 assert.sameValue(dv1.buffer, buffer);
 assert.sameValue(dv2.buffer, buffer);
-
-}

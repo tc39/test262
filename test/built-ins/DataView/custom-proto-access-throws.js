@@ -31,9 +31,7 @@ info: |
 features: [Reflect.construct]
 ---*/
 
-for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
-
-var buffer = new Buffer(8);
+var buffer = new ArrayBuffer(8);
 
 var newTarget = function() {}.bind(null);
 Object.defineProperty(newTarget, "prototype", {
@@ -45,5 +43,3 @@ Object.defineProperty(newTarget, "prototype", {
 assert.throws(Test262Error, function() {
   Reflect.construct(DataView, [buffer, 0], newTarget);
 });
-
-}

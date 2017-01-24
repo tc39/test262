@@ -17,9 +17,7 @@ info: |
   ...
 ---*/
 
-for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
-
-var buffer = new Buffer(8);
+var buffer = new ArrayBuffer(8);
 
 var obj1 = {
   valueOf: function() {
@@ -40,5 +38,3 @@ assert.throws(Test262Error, function() {
 assert.throws(Test262Error, function() {
   new DataView(buffer, 0, obj2);
 }, "toString");
-
-}

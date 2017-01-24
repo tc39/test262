@@ -20,9 +20,7 @@ info: |
   ...
 ---*/
 
-for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
-
-var buffer = new Buffer(12);
+var buffer = new ArrayBuffer(12);
 var sample = new DataView(buffer, 0);
 
 assert.throws(RangeError, function() {
@@ -32,5 +30,3 @@ assert.throws(RangeError, function() {
 assert.throws(RangeError, function() {
   sample.getInt32(-Infinity);
 }, "-Infinity");
-
-}

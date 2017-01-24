@@ -28,9 +28,7 @@ info: |
   ...
 ---*/
 
-for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
-
-var buffer = new Buffer(8);
+var buffer = new ArrayBuffer(8);
 var sample = new DataView(buffer, 0);
 
 assert.sameValue(sample.getInt32(0, true), 0, "sample.getInt32(0, true)");
@@ -43,5 +41,3 @@ assert.sameValue(sample.getInt32(1, false), 0, "sample.getInt32(1, false)");
 assert.sameValue(sample.getInt32(2, false), 0, "sample.getInt32(2, false)");
 assert.sameValue(sample.getInt32(3, false), 0, "sample.getInt32(3, false)");
 assert.sameValue(sample.getInt32(4, false), 0, "sample.getInt32(4, false)");
-
-}

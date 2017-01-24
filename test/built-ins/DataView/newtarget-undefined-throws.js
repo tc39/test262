@@ -19,12 +19,8 @@ var obj = {
   }
 };
 
-for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
-
-var buffer = new Buffer(1);
+var buffer = new ArrayBuffer(1);
 
 assert.throws(TypeError, function() {
   DataView(buffer, obj);
 });
-
-}
