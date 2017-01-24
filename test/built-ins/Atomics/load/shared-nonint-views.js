@@ -4,6 +4,7 @@
 /*---
 description: >
   Test Atomics.load on shared non-integer TypedArrays
+includes: [testTypedArray.js]
 ---*/
 
 var sab = new SharedArrayBuffer(1024);

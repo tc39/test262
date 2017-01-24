@@ -4,6 +4,7 @@
 /*---
 description: >
   Test Atomics.add on non-shared integer TypedArrays
+includes: [testTypedArray.js]
 ---*/
 
 var ab = new ArrayBuffer(16);
