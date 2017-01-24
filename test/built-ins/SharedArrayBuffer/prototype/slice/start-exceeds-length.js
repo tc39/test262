@@ -9,15 +9,13 @@ info: >
 ---*/
 
 var arrayBuffer = new SharedArrayBuffer(8);
+var result;
 
-var start = 10, end = 8;
-var result = arrayBuffer.slice(start, end);
+result = arrayBuffer.slice(10, 8);
 assert.sameValue(result.byteLength, 0, "slice(10, 8)");
 
-var start = 0x100000000, end = 7;
-var result = arrayBuffer.slice(start, end);
+result = arrayBuffer.slice(0x100000000, 7);
 assert.sameValue(result.byteLength, 0, "slice(0x100000000, 7)");
 
-var start = +Infinity, end = 6;
-var result = arrayBuffer.slice(start, end);
+result = arrayBuffer.slice(+Infinity, 6);
 assert.sameValue(result.byteLength, 0, "slice(+Infinity, 6)");
