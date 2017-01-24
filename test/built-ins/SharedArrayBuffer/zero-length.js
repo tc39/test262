@@ -3,6 +3,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-sharedarraybuffer-length
 description: >
   The `length` parameter can be zero.
 info: >
