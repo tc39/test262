@@ -5,6 +5,7 @@
 description: >
   Test that Atomics.wait returns the right result when it timed out and that
   the time to time out is reasonable.
+includes: [atomicsHelper.js]
 ---*/
 
 $.agent.start(
@@ -22,7 +23,7 @@ var ia = new Int32Array(new SharedArrayBuffer(Int32Array.BYTES_PER_ELEMENT));
 
 $.agent.broadcast(ia.buffer);
 assert.sameValue(getReport(), "timed-out");
-assert.sameValue(Math.abs((getReport()|0) - 500) < 100, true);
+assert.sameValue(Math.abs((getReport()|0) - 500) < $ATOMICS_MAX_TIME_EPSILON, true);
 
 function getReport() {
     var r;

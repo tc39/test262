@@ -5,6 +5,7 @@
 description: >
   Test that Atomics.wait actually waits and does not spuriously wake
   up when the memory value is changed.
+includes: [atomicsHelper.js]
 ---*/
 
 $.agent.start(
@@ -26,7 +27,7 @@ $.agent.sleep(500);                // Give the agent a chance to wait
 Atomics.store(ia, 0, 1);        // Change the value, should not wake the agent
 $.agent.sleep(500);                // Wait some more so that we can tell
 Atomics.wake(ia, 0);                // Really wake it up
-assert.sameValue(Math.abs((getReport()|0) - 1000) < 100, true);
+assert.sameValue(Math.abs((getReport()|0) - 1000) < $ATOMICS_MAX_TIME_EPSILON, true);
 
 function getReport() {
     var r;
