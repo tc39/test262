@@ -2,7 +2,6 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 description: Throws a TypeError exception when `this` is not Object
-features: [Symbol]
 ---*/
 
 var getter = Object.getOwnPropertyDescriptor(
