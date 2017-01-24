@@ -8,6 +8,7 @@ description: >
 negative:
   phase: early
   type: SyntaxError
+flags: [onlyStrict]
 ---*/
 { function f() {} function f() {} }
 
