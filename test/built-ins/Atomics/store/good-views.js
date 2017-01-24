@@ -3,6 +3,7 @@
 
 /*---
 description: Test Atomics.store on arrays that allow atomic operations.
+includes: [testAtomics.js, testTypedArray.js]
 ---*/
 
 var sab = new SharedArrayBuffer(1024);
@@ -10,14 +11,7 @@ var ab = new ArrayBuffer(16);
 
 var int_views = [Int8Array, Uint8Array, Int16Array, Uint16Array, Int32Array, Uint32Array];
 
-var good_indices = [ (view) => 0/-1, // -0
-                     (view) => '-0',
-                     (view) => view.length - 1,
-                     (view) => ({ valueOf: () => 0 }),
-                     (view) => ({ toString: () => '0', valueOf: false }) // non-callable valueOf triggers invocation of toString
-                   ];
-
-for ( let View of int_views ) {
+testWithTypedArrayConstructors(function(View) {
     // Make it interesting - use non-zero byteOffsets and non-zero indexes.
 
     var view = new View(sab, 32, 20);
@@ -32,22 +26,21 @@ for ( let View of int_views ) {
                       { valueOf: () => 33 },
                       undefined] )
     {
-        // Atomics.store returns its third argument converted to Integer, not
-        // the input value nor the value that was stored.
-        assert.sameValue(Atomics.store(view, 3, val), ToInteger(val));
+        assert.sameValue(Atomics.store(view, 3, val), ToInteger(val),
+                         "Atomics.store returns its third argument (" + val + ") converted to Integer, not the input value nor the value that was stored");
 
         control[0] = val;
         assert.sameValue(view[3], control[0]);
     }
 
     // In-bounds boundary cases for indexing
-    for ( let IdxGen of good_indices ) {
+    testWithAtomicsInBoundsIndices(function(IdxGen) {
         let Idx = IdxGen(view);
         view.fill(0);
         Atomics.store(view, Idx, 37);
         assert.sameValue(Atomics.load(view, Idx), 37);
-    }
-}
+    });
+}, int_views);
 
 function ToInteger(v) {
     v = +v;

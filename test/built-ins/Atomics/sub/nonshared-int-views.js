@@ -10,8 +10,8 @@ var ab = new ArrayBuffer(16);
 
 var int_views = [Int8Array, Uint8Array, Int16Array, Uint16Array, Int32Array, Uint32Array];
 
-for ( var View of int_views ) {
+testWithTypedArrayConstructors(function(View) {
     var view = new View(ab);
 
     assert.throws(TypeError, (() => Atomics.sub(view, 0, 0)));
-}
+}, int_views);

@@ -4,39 +4,9 @@
 /*---
 description: >
   Test Atomics.compareExchange on view values other than TypedArrays
+includes: [testAtomics.js]
 ---*/
 
-var values = [null,
-              undefined,
-              true,
-              false,
-              new Boolean(true),
-              10,
-              3.14,
-              new Number(4),
-              "Hi there",
-              new Date,
-              /a*utomaton/g,
-              { password: "qumquat" },
-              new DataView(new ArrayBuffer(10)),
-              new ArrayBuffer(128),
-              new SharedArrayBuffer(128),
-              new Error("Ouch"),
-              [1,1,2,3,5,8],
-              ((x) => -x),
-              new Map(),
-              new Set(),
-              new WeakMap(),
-              new WeakSet(),
-              this.Promise ? new Promise(() => "done") : undefined,
-              Symbol("halleluja"),
-              // TODO: Proxy?
-              Object,
-              Int32Array,
-              Date,
-              Math,
-              Atomics ];
-
-for ( var view of values ) {
+testWithAtomicsNonViewValues(function(view) {
     assert.throws(TypeError, (() => Atomics.compareExchange(view, 0, 0, 0)));
-}
+});

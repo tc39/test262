@@ -10,8 +10,8 @@ var sab = new SharedArrayBuffer(1024);
 
 var other_views = [Uint8ClampedArray, Float32Array, Float64Array];
 
-for ( var View of other_views ) {
+testWithTypedArrayConstructors(function(View) {
     var view = new View(sab);
 
     assert.throws(TypeError, (() => Atomics.sub(view, 0, 0)));
-}
+}, other_views);
