@@ -33,9 +33,7 @@ info: >
 includes: [testTypedArray.js]
 ---*/
 
-for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
-
-var buffer = new Buffer(8);
+var buffer = new ArrayBuffer(8);
 
 function newTarget() {}
 newTarget.prototype = null;
@@ -46,5 +44,3 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(ta.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(ta), TA.prototype);
 });
-
-}

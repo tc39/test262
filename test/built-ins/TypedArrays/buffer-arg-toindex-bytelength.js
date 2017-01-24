@@ -20,9 +20,7 @@ info: |
 includes: [testTypedArray.js]
 ---*/
 
-for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
-
-var buffer = new Buffer(16);
+var buffer = new ArrayBuffer(16);
 
 var obj1 = {
   valueOf: function() {
@@ -71,5 +69,3 @@ testWithTypedArrayConstructors(function(TA) {
     );
   });
 });
-
-}

@@ -20,15 +20,11 @@ info: >
 includes: [testTypedArray.js]
 ---*/
 
-for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
-
 testWithTypedArrayConstructors(function(TA) {
   var bpe = TA.BYTES_PER_ELEMENT;
-  var buffer = new Buffer(bpe);
+  var buffer = new ArrayBuffer(bpe);
 
   assert.throws(RangeError, function() {
     new TA(buffer, 0, bpe * 2);
   });
 });
-
-}

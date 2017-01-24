@@ -14,9 +14,7 @@ info: >
 includes: [testTypedArray.js]
 ---*/
 
-for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
-
-var buffer = new Buffer(16);
+var buffer = new ArrayBuffer(16);
 
 testWithTypedArrayConstructors(function(TA) {
   assert.throws(RangeError, function() {
@@ -27,5 +25,3 @@ testWithTypedArrayConstructors(function(TA) {
     new TA(buffer, 0, -Infinity);
   });
 });
-
-}

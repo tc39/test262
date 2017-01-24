@@ -30,12 +30,8 @@ var other = $.createRealm().global;
 var C = new other.Function();
 C.prototype = null;
 
-for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
-
 testWithTypedArrayConstructors(function(TA) {
   var ta = Reflect.construct(TA, [new ArrayBuffer(8)], C);
 
   assert.sameValue(Object.getPrototypeOf(ta), other[TA.name].prototype);
 });
-
-}

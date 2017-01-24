@@ -13,11 +13,9 @@ info: >
 includes: [testTypedArray.js]
 ---*/
 
-for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
-
 testWithTypedArrayConstructors(function(TA) {
   var offset = TA.BYTES_PER_ELEMENT;
-  var buffer = new Buffer(3 * offset);
+  var buffer = new ArrayBuffer(3 * offset);
 
   var ta1 = new TA(buffer, offset, 2);
   assert.sameValue(ta1.length, 2, "ta1.length");
@@ -31,5 +29,3 @@ testWithTypedArrayConstructors(function(TA) {
   assert.sameValue(ta2.constructor, TA);
   assert.sameValue(Object.getPrototypeOf(ta2), TA.prototype);
 });
-
-}

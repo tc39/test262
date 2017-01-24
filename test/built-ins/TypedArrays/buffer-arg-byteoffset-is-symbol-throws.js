@@ -18,15 +18,11 @@ includes: [testTypedArray.js]
 features: [Symbol]
 ---*/
 
-for ( let Buffer of [ArrayBuffer, SharedArrayBuffer] ) {
-
 var byteOffset = Symbol("1");
-var buffer = new Buffer(8);
+var buffer = new ArrayBuffer(8);
 
 testWithTypedArrayConstructors(function(TA) {
   assert.throws(TypeError, function() {
     new TA(buffer, byteOffset);
   });
 });
-
-}
