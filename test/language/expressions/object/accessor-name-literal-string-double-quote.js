@@ -28,11 +28,11 @@ info: |
 
 var stringSet;
 var obj = {
-  get ["singleQuote"]() { return 'get string'; },
-  set ["singleQuote"](param) { stringSet = param; }
+  get ["doubleQuote"]() { return 'get string'; },
+  set ["doubleQuote"](param) { stringSet = param; }
 };
 
-assert.sameValue(obj["singleQuote"], 'get string');
+assert.sameValue(obj["doubleQuote"], 'get string');
 
-obj["singleQuote"] = 'set string';
+obj["doubleQuote"] = 'set string';
 assert.sameValue(stringSet, 'set string');

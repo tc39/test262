@@ -29,11 +29,11 @@ info: |
 var stringSet;
 
 var C = class {
-  static get "singleQuote"() { return 'get string'; }
-  static set "singleQuote"(param) { stringSet = param; }
+  static get "doubleQuote"() { return 'get string'; }
+  static set "doubleQuote"(param) { stringSet = param; }
 };
 
-assert.sameValue(C["singleQuote"], 'get string');
+assert.sameValue(C["doubleQuote"], 'get string');
 
-C["singleQuote"] = 'set string';
+C["doubleQuote"] = 'set string';
 assert.sameValue(stringSet, 'set string');
