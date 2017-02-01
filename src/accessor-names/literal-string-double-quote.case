@@ -16,6 +16,6 @@ info: |
 ---*/
 
 //- declareWith
-"singleQuote"
+"doubleQuote"
 //- referenceWith
-"singleQuote"
+"doubleQuote"
