@@ -5,7 +5,6 @@
 /*---
 description: >
   Throws a TypeError if `this` does not have an [[ArrayBufferData]] internal slot.
-info: >
 ---*/
 
 assert.throws(TypeError, function() {
