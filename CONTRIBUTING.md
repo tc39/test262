@@ -17,7 +17,7 @@ Take a look at these examples:
 A test file has three sections: Copyright, Frontmatter, and Body.  A test looks roughly like this:
 
 ```javascript
-// Copyright (C) 2015 [Contributor Name]. All rights reserved.
+// Copyright (C) 2017 [Contributor Name]. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -33,6 +33,8 @@ A test file has three sections: Copyright, Frontmatter, and Body.  A test looks 
 ### Copyright
 
 The copyright block must be the first section of the test.  The copyright block must use `//` style comments.
+
+If the copyright is not provided, the file copyrights will follow the BSD license found in the [LICENSE](https://github.com/tc39/test262/blob/master/LICENSE) file.
 
 ### Frontmatter
 
