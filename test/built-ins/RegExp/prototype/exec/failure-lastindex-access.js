@@ -2,13 +2,14 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: lastIndex is not accessed when global and sticky are unset.
+description: lastIndex is read but not written when global and sticky are unset.
 es6id: 21.2.5.2.2
 info: >
     21.2.5.2.2 Runtime Semantics: RegExpBuiltinExec ( R, S )
 
+    4. Let lastIndex be ? ToLength(? Get(R, "lastIndex")).
     [...]
-    7. If global is false and sticky is false, let lastIndex be 0.
+    8. If global is false and sticky is false, let lastIndex be 0.
     [...]
     12. Repeat, while matchSucceeded is false
         [...]
@@ -18,16 +19,18 @@ info: >
               2. Return null.
 ---*/
 
-var thrower = {
+var gets = 0;
+var counter = {
   valueOf: function() {
-    throw new Test262Error();
+    gets++;
+    return 0;
   }
 };
 
 var r = /a/;
-r.lastIndex = thrower;
+r.lastIndex = counter;
 
 var result = r.exec('nbc');
 assert.sameValue(result, null);
-assert.sameValue(r.lastIndex, thrower);
-
+assert.sameValue(r.lastIndex, counter);
+assert.sameValue(gets, 1);
