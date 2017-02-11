@@ -21,5 +21,5 @@ async function f() {
 }
 
 f().then($DONE, function(value) {
-  assert.sameValue(value, "override", "Aaited rejection in finally block");
+  assert.sameValue(value, "override", "Awaited rejection in finally block");
 }).then($DONE, $DONE);
