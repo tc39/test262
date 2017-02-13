@@ -34,5 +34,16 @@ var init, after;
   after = f;
 }(123));
 
-assert.sameValue(init, 123, 'binding is not initialized to `undefined`');
-assert.sameValue(after, 123, 'value is not updated following evaluation');
+assert.sameValue(init, 123, 'binding is not initialized to `undefined` (without default expr)');
+assert.sameValue(after, 123, 'value is not updated following evaluation (without default expr)');
+
+(function(f = 123) {
+  init = f;
+
+  if (true) function f() {  } else ;
+
+  after = f;
+}());
+
+assert.sameValue(init, 123, 'binding is not initialized to `undefined` (with default expr)');
+assert.sameValue(after, 123, 'value is not updated following evaluation (with default expr)');
