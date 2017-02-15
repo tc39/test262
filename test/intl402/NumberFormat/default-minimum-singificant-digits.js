@@ -3,6 +3,7 @@
 
 /*---
 description: Tests that the default value of minimumSignificantDigits is 1.
+esid: sec-setnfdigitoptions
 ---*/
 
 // maximumSignificantDigits needs to be in range from minimumSignificantDigits
@@ -14,4 +15,4 @@ assert.throws(RangeError, function() {
 
 // For similar reasons, the following statement is checking that
 // minimumSignificantDigits is at most 1.
-Intl.NumberFormat(undefined, {maximumSignificantDigits: 1});
+assert.notSameValue(Intl.NumberFormat(undefined, {maximumSignificantDigits: 1}), undefined);
