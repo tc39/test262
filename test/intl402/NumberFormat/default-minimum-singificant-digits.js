@@ -13,6 +13,9 @@ assert.throws(RangeError, function() {
   Intl.NumberFormat(undefined, {maximumSignificantDigits: 0});
 });
 
-// For similar reasons, the following statement is checking that
-// minimumSignificantDigits is at most 1.
-assert.notSameValue(Intl.NumberFormat(undefined, {maximumSignificantDigits: 1}), undefined);
+// If nothing is thrown, check that the options are resolved appropriately.
+var res = Intl.NumberFormat(undefined, {maximumSignificantDigits: 1})
+
+assert.sameValue(Object.getPrototypeOf(res), Intl.NumberFormat.prototype, 'result is an instance of NumberFormat')
+assert.sameValue(res.resolvedOptions().minimumSignificantDigits, 1, 'default minimumSignificantDigits')
+assert.sameValue(res.resolvedOptions().maximumSignificantDigits, 1, 'sets maximumSignificantDigits')
