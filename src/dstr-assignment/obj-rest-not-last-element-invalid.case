@@ -1,0 +1,21 @@
+// Copyright (C) 2017 Caio Lima. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    Object rest element needs to be the last AssignmenProperty
+    in ObjectAssignmentPattern.
+template: syntax
+esid: pending
+negative:
+  phase: early
+  type: SyntaxError
+---*/
+
+//- setup
+var rest, b;
+//- elems
+{...rest, b}
+//- vals
+{}
+
