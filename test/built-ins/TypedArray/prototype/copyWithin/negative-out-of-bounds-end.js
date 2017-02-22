@@ -41,7 +41,7 @@ testWithTypedArrayConstructors(function(TA) {
     compareArray(
       new TA([1, 2, 3, 4, 5]).copyWithin(0, 1, -Infinity),
       [1, 2, 3, 4, 5]
-    )
+    ),
     '[1, 2, 3, 4, 5].copyWithin(0, 1, -Infinity) -> [1, 2, 3, 4, 5]'
   );
 
@@ -57,7 +57,7 @@ testWithTypedArrayConstructors(function(TA) {
     compareArray(
       new TA([1, 2, 3, 4, 5]).copyWithin(0, -2, -Infinity),
       [1, 2, 3, 4, 5]
-    )
+    ),
     '[1, 2, 3, 4, 5].copyWithin(0, -2, -Infinity) -> [1, 2, 3, 4, 5]'
   );
 
@@ -73,7 +73,7 @@ testWithTypedArrayConstructors(function(TA) {
     compareArray(
       new TA([1, 2, 3, 4, 5]).copyWithin(0, -9, -Infinity),
       [1, 2, 3, 4, 5]
-    )
+    ),
     '[1, 2, 3, 4, 5].copyWithin(0, -9, -Infinity) -> [1, 2, 3, 4, 5]'
   );
 
@@ -89,7 +89,7 @@ testWithTypedArrayConstructors(function(TA) {
     compareArray(
       new TA([1, 2, 3, 4, 5]).copyWithin(-3, -2, -Infinity),
       [1, 2, 3, 4, 5]
-    )
+    ),
     '[1, 2, 3, 4, 5].copyWithin(-3, -2, -Infinity) -> [1, 2, 3, 4, 5]'
   );
 
@@ -105,7 +105,7 @@ testWithTypedArrayConstructors(function(TA) {
     compareArray(
       new TA([1, 2, 3, 4, 5]).copyWithin(-7, -8, -Infinity),
       [1, 2, 3, 4, 5]
-    )
+    ),
     '[1, 2, 3, 4, 5].copyWithin(-7, -8, -Infinity) -> [1, 2, 3, 4, 5]'
   );
 });
