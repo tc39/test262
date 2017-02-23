@@ -13,13 +13,8 @@ function testWithAtomicsOutOfBoundsIndices(f) {
         (view) => -1,
         (view) => view.length,
         (view) => view.length*2,
-        (view) => undefined,
-        (view) => Number.NaN,
         (view) => Number.POSITIVE_INFINITY,
         (view) => Number.NEGATIVE_INFINITY,
-        (view) => '3.5',
-        (view) => 3.5,
-        (view) => { password: "qumquat" },
         (view) => ({ valueOf: () => 125 }),
         (view) => ({ toString: () => '125', valueOf: false }) // non-callable valueOf triggers invocation of toString
     ];
@@ -44,6 +39,11 @@ function testWithAtomicsInBoundsIndices(f) {
     var good_indices = [
         (view) => 0/-1, // -0
         (view) => '-0',
+        (view) => undefined, // 0
+        (view) => Number.NaN, // 0
+        (view) => 3.5,
+        (view) => '3.5',
+        (view) => ({ password: "qumquat" }),
         (view) => view.length - 1,
         (view) => ({ valueOf: () => 0 }),
         (view) => ({ toString: () => '0', valueOf: false }) // non-callable valueOf triggers invocation of toString
