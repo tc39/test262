@@ -10,6 +10,6 @@ info: >
 features: [Symbol.species]
 ---*/
 
-var OSymbol = $.createRealm().global.Symbol;
+var OSymbol = $262.createRealm().global.Symbol;
 
 assert.sameValue(Symbol.species, OSymbol.species);
