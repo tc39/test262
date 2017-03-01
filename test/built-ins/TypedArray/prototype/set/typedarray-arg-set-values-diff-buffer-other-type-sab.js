@@ -69,7 +69,7 @@ testWithTypedArrayConstructors(function(TA) {
   assert(compareArray(sample, [1, 2, 42, 43]), "sample is SAB-backed, offset: 2, result: " + sample);
   assert.sameValue(result, undefined, "returns undefined");
 
-  var sab1 = new SharedArrayBuffer(2 * TA.BYTES_PER_ELEMENT);
+  var sab1 = new SharedArrayBuffer(2 * other.BYTES_PER_ELEMENT);
   src = new other(sab1);
   src[0] = 42;
   src[1] = 43;
