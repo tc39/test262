@@ -4,7 +4,7 @@
 /*---
 esid: sec-Intl.PluralRules.prototype.select
 description: Tests that select function returns "other" for non finite values.
-info:
+info: |
   1.1.4. ResolvePlural (pluralRules, n)
   (...)
   1.1.4_3. If isFinite(n) is false, then

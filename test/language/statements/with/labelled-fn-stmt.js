@@ -3,7 +3,7 @@
 /*---
 esid: sec-with-statement-static-semantics-early-errors
 es6id: 13.11.1
-description:
+description: >
   A labelled function declaration is never permitted in the Statement position
 info: |
   WithStatementa: with ( Expression ) Statement
