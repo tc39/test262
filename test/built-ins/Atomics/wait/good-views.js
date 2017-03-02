@@ -10,7 +10,7 @@ description: >
 // Let's assume 'wait' is not allowed on the main thread,
 // even in the shell.
 
-$.agent.start(
+$262.agent.start(
 `
 var sab = new SharedArrayBuffer(1024);
 var ab = new ArrayBuffer(16);
@@ -25,8 +25,8 @@ var good_indices = [ (view) => 0/-1, // -0
 var view = new Int32Array(sab, 32, 20);
 
 view[0] = 0;
-$.agent.report("A " + Atomics.wait(view, 0, 0, 0))
-$.agent.report("B " + Atomics.wait(view, 0, 37, 0));
+$262.agent.report("A " + Atomics.wait(view, 0, 0, 0))
+$262.agent.report("B " + Atomics.wait(view, 0, 37, 0));
 
 // In-bounds boundary cases for indexing
 for ( let IdxGen of good_indices ) {
@@ -35,11 +35,11 @@ for ( let IdxGen of good_indices ) {
     // Atomics.store() computes an index from Idx in the same way as other
     // Atomics operations, not quite like view[Idx].
     Atomics.store(view, Idx, 37);
-    $.agent.report("C " + Atomics.wait(view, Idx, 0));
+    $262.agent.report("C " + Atomics.wait(view, Idx, 0));
 }
 
-$.agent.report("done");
-$.agent.leaving();
+$262.agent.report("done");
+$262.agent.leaving();
 `)
 
 assert.sameValue(getReport(), "A timed-out");
@@ -50,7 +50,7 @@ while ((r = getReport()) != "done")
 
 function getReport() {
     var r;
-    while ((r = $.agent.getReport()) == null)
-        $.agent.sleep(100);
+    while ((r = $262.agent.getReport()) == null)
+        $262.agent.sleep(100);
     return r;
 }
