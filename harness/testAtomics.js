@@ -33,16 +33,20 @@ function testWithAtomicsOutOfBoundsIndices(f) {
  * Calls the provided function for each good index that should not throw when
  * passed to an Atomics method on a SAB-backed view.
  *
+ * The view must have length greater than zero.
+ *
  * @param f - the function to call for each good index.
  */
 function testWithAtomicsInBoundsIndices(f) {
+    // Most of these are eventually coerced to +0 by ToIndex.
     var good_indices = [
-        (view) => 0/-1, // -0
+        (view) => 0/-1,
         (view) => '-0',
-        (view) => undefined, // 0
-        (view) => Number.NaN, // 0
-        (view) => 3.5,
-        (view) => '3.5',
+        (view) => undefined,
+        (view) => NaN,
+        (view) => 0.5,
+        (view) => '0.5',
+        (view) => -0.9,
         (view) => ({ password: "qumquat" }),
         (view) => view.length - 1,
         (view) => ({ valueOf: () => 0 }),
