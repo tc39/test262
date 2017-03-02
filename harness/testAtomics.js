@@ -13,13 +13,8 @@ function testWithAtomicsOutOfBoundsIndices(f) {
         (view) => -1,
         (view) => view.length,
         (view) => view.length*2,
-        (view) => undefined,
-        (view) => Number.NaN,
         (view) => Number.POSITIVE_INFINITY,
         (view) => Number.NEGATIVE_INFINITY,
-        (view) => '3.5',
-        (view) => 3.5,
-        (view) => { password: "qumquat" },
         (view) => ({ valueOf: () => 125 }),
         (view) => ({ toString: () => '125', valueOf: false }) // non-callable valueOf triggers invocation of toString
     ];
@@ -38,12 +33,21 @@ function testWithAtomicsOutOfBoundsIndices(f) {
  * Calls the provided function for each good index that should not throw when
  * passed to an Atomics method on a SAB-backed view.
  *
+ * The view must have length greater than zero.
+ *
  * @param f - the function to call for each good index.
  */
 function testWithAtomicsInBoundsIndices(f) {
+    // Most of these are eventually coerced to +0 by ToIndex.
     var good_indices = [
-        (view) => 0/-1, // -0
+        (view) => 0/-1,
         (view) => '-0',
+        (view) => undefined,
+        (view) => NaN,
+        (view) => 0.5,
+        (view) => '0.5',
+        (view) => -0.9,
+        (view) => ({ password: "qumquat" }),
         (view) => view.length - 1,
         (view) => ({ valueOf: () => 0 }),
         (view) => ({ toString: () => '0', valueOf: false }) // non-callable valueOf triggers invocation of toString
