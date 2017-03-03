@@ -20,7 +20,7 @@ info: |
           i. Assert: this is a circular import request.
           ii. Return null.
 negative:
-  phase: early
+  phase: runtime
   type: SyntaxError
 flags: [module]
 ---*/

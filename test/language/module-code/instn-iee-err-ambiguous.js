@@ -31,7 +31,7 @@ info: |
                   SameValue(resolution.[[BindingName]],
                   starResolution.[[BindingName]]) is false, return "ambiguous".
 negative:
-  phase: early
+  phase: runtime
   type: SyntaxError
 flags: [module]
 ---*/
