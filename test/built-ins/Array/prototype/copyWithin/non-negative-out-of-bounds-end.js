@@ -43,8 +43,24 @@ assert(
 
 assert(
   compareArray(
+    [0, 1, 2, 3].copyWithin(0, 1, Infinity),
+    [1, 2, 3, 3]
+  ),
+  '[0, 1, 2, 3].copyWithin(0, 1, Infinity) -> [1, 2, 3, 3]'
+);
+
+assert(
+  compareArray(
     [0, 1, 2, 3, 4, 5].copyWithin(1, 3, 6),
     [0, 3, 4, 5, 4, 5]
   ),
   '[0, 1, 2, 3, 4, 5].copyWithin(1, 3, 6) -> [0, 3, 4, 5, 4, 5]'
+);
+
+assert(
+  compareArray(
+    [0, 1, 2, 3, 4, 5].copyWithin(1, 3, Infinity),
+    [0, 3, 4, 5, 4, 5]
+  ),
+  '[0, 1, 2, 3, 4, 5].copyWithin(1, 3, Infinity) -> [0, 3, 4, 5, 4, 5]'
 );
