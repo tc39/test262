@@ -1,9 +1,11 @@
-// Copyright (C) 2016 the V8 project authors. All rights reserved.
-// This code is governed by the BSD license found in the LICENSE file.
+// This file was procedurally generated from the following sources:
+// - src/accessor-names/literal-string-line-continuation.case
+// - src/accessor-names/default/obj.template
 /*---
-description: Computed values as accessor property names (string literal containing a line terminator) (Object initializer)
+description: Computed values as accessor property names (string literal containing LineContinuation) (Object initializer)
 esid: sec-object-initializer-runtime-semantics-evaluation
 es6id: 12.2.6.8
+flags: [generated]
 info: |
     ObjectLiteral :
       { PropertyDefinitionList }
@@ -27,14 +29,12 @@ info: |
 var stringSet;
 var obj = {
   get ['line\
-Terminator'
-]() { return 'get string'; },
+Continuation']() { return 'get string'; },
   set ['line\
-Terminator'
-](param) { stringSet = param; }
+Continuation'](param) { stringSet = param; }
 };
 
-assert.sameValue(obj['lineTerminator'], 'get string');
+assert.sameValue(obj['lineContinuation'], 'get string');
 
-obj['lineTerminator'] = 'set string';
+obj['lineContinuation'] = 'set string';
 assert.sameValue(stringSet, 'set string');

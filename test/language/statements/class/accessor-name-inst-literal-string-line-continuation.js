@@ -1,9 +1,11 @@
-// Copyright (C) 2017 Mike Pennisi. All rights reserved.
-// This code is governed by the BSD license found in the LICENSE file.
+// This file was procedurally generated from the following sources:
+// - src/accessor-names/literal-string-line-continuation.case
+// - src/accessor-names/default/cls-decl-inst.template
 /*---
-description: Computed values as accessor property names (string literal containing a line terminator) (Class expression, instance method)
+description: Computed values as accessor property names (string literal containing LineContinuation) (Class declaration, instance method)
 esid: sec-runtime-semantics-classdefinitionevaluation
 es6id: 14.5.14
+flags: [generated]
 info: |
     [...]
     21. For each ClassElement m in order from methods
@@ -24,16 +26,14 @@ info: |
 
 var stringSet;
 
-var C = class {
+class C {
   get 'line\
-Terminator'
-() { return 'get string'; }
+Continuation'() { return 'get string'; }
   set 'line\
-Terminator'
-(param) { stringSet = param; }
-};
+Continuation'(param) { stringSet = param; }
+}
 
-assert.sameValue(C.prototype['lineTerminator'], 'get string');
+assert.sameValue(C.prototype['lineContinuation'], 'get string');
 
-C.prototype['lineTerminator'] = 'set string';
+C.prototype['lineContinuation'] = 'set string';
 assert.sameValue(stringSet, 'set string');
