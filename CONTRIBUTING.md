@@ -137,6 +137,10 @@ This tag is for boolean properties associated with the test.
   `noStrict`
 - **`async`** - defer interpretation of test results until after the invocation
   of the global `$DONE` function
+- **`generated`** - informative flag used to denote test files that were
+  created procedurally using the project's test generation tool; refer to the
+  section titled "Procedurally-generated tests" for more information on this
+  process
 
 #### features
 **features**: [list]

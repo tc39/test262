@@ -284,3 +284,7 @@ following strings:
         print('Error: ' + reason);
       });
   ```
+
+- **`generated`** The test file was created procedurally using the project's
+  test generation tool. This flag is specified for informational purposes only
+  and has no bearing on how the test should be interpreted.
