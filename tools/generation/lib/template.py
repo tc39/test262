@@ -11,18 +11,40 @@ from test import Test
 indentPattern = re.compile(r'^(\s*)')
 interpolatePattern = re.compile(r'\{\s*(\S+)\s*\}')
 
-def indent(text, prefix = '    '):
+def indent(text, prefix = '    ', js_value = False):
     '''Prefix a block of text (as defined by the "line break" control
-    character) with some character sequence.'''
+    character) with some character sequence.
+
+    :param prefix: String value to insert before each line
+    :param js_value: If True, the text will be interpreted as a JavaScript
+        value, meaning that indentation will not occur for lines that would
+        effect the runtime value; defaults to False
+    '''
 
     if isinstance(text, list):
         lines = text
     else:
         lines = text.split('\n')
 
-    indented = map(
-        lambda line: line if len(line) == 0 else prefix + line,
-        lines)
+    indented = [prefix + lines[0]]
+    str_char = None
+
+    for line in lines[1:]:
+        # Determine if the beginning of the current line is part of some
+        # previously-opened literal value.
+        if js_value:
+            for char in indented[-1]:
+                if char == str_char:
+                    str_char = None
+                elif str_char is None and char in '\'"`':
+                    str_char = char
+
+        # Do not indent the current line if it is a continuation of a literal
+        # value or if it is empty.
+        if str_char or len(line) == 0:
+            indented.append(line)
+        else:
+            indented.append(prefix + line)
 
     return '\n'.join(indented)
 
@@ -90,7 +112,7 @@ class Template:
                 value = value.replace('\n', '\\\n')
 
             source = source[:region['firstchar']] + \
-                indent(value, whitespace).lstrip() + \
+                indent(value, whitespace, True).lstrip() + \
                 source[region['lastchar']:]
 
         setup = context['regions'].get('setup')

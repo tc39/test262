@@ -59,5 +59,14 @@ class TestGeneration(unittest.TestCase):
         self.assertEqual(result['returncode'], 0)
         self.compareTrees('negative')
 
+    def test_indentation(self):
+        result = self.fixture('indent-code.case')
+        self.assertEqual(result['returncode'], 0)
+        result = self.fixture('indent-string-continuation.case')
+        self.assertEqual(result['returncode'], 0)
+        result = self.fixture('indent-string-template.case')
+        self.assertEqual(result['returncode'], 0)
+        self.compareTrees('indentation')
+
 if __name__ == '__main__':
     unittest.main()
