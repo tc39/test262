@@ -1,0 +1,33 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/expressions/class/gen-method-
+name: Generator method as a ClassElement
+esid: prod-GeneratorMethod
+info: |
+  ClassElement[Yield, Await]:
+    MethodDefinition[?Yield, ?Await]
+
+  MethodDefinition[Yield, Await]:
+    GeneratorMethod[?Yield, ?Await]
+
+  14.4 Generator Function Definitions
+
+  GeneratorMethod[Yield, Await]:
+    * PropertyName[?Yield, ?Await] ( UniqueFormalParameters[+Yield, ~Await] ) { GeneratorBody }
+---*/
+
+var callCount = 0;
+
+class C { *gen() {
+    callCount += 1;
+    /*{ body }*/
+}}
+
+var gen = C.prototype.gen;
+
+var iter = gen();
+
+/*{ assertions }*/
+
+assert.sameValue(callCount, 1);
