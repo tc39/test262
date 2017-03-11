@@ -32,6 +32,14 @@ assert.sameValue(obj.c, 3);
 assert.sameValue(obj.d, 4);
 assert.sameValue(Object.keys(obj).length, 4);
 
+verifyEnumerable(obj, "a");
+verifyWritable(obj, "a");
+verifyConfigurable(obj, "a");
+
+verifyEnumerable(obj, "b");
+verifyWritable(obj, "b");
+verifyConfigurable(obj, "b");
+
 verifyEnumerable(obj, "c");
 verifyWritable(obj, "c");
 verifyConfigurable(obj, "c");

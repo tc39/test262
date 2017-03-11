@@ -4,6 +4,7 @@
 desc: Object Spread operator following other arguments with null, undefined and empty object
 template: default
 esid: pending
+includes: [compareArray.js]
 info: |
     Pending Runtime Semantics: PropertyDefinitionEvaluation
 
@@ -18,7 +19,7 @@ info: |
 ---*/
 
 //- args
-{a: 1, ...null, b: 2, ...undefined, c: 3, ...{}, d: 4}
+{a: 1, ...null, b: 2, ...undefined, c: 3, ...{}, ...{...{}}, d: 4}
 //- params
 obj
 //- body
@@ -26,4 +27,4 @@ assert.sameValue(obj.a, 1);
 assert.sameValue(obj.b, 2);
 assert.sameValue(obj.c, 3);
 assert.sameValue(obj.d, 4);
-assert.sameValue(Object.keys(obj).length, 4);
+assert(compareArray(Object.keys(obj), ['a', 'b', 'c', 'd']));

@@ -18,8 +18,10 @@ info: |
 ---*/
 
 //- setup
+let symbol = Symbol('foo');
 let o = {};
-o[Symbol('foo')] = 1;
+o[symbol] = 1;
+
 
 //- args
 {...o, c: 4, d: 5}
@@ -27,7 +29,7 @@ o[Symbol('foo')] = 1;
 obj
 //- body
 
-assert.sameValue(obj[Symbol('foo')], 1);
+assert.sameValue(obj[symbol], 1);
 assert.sameValue(obj.c, 4);
 assert.sameValue(obj.d, 5);
-assert.sameValue(Object.keys(obj).length, 3);
+assert.sameValue(Object.keys(obj).length, 2);

@@ -4,6 +4,7 @@
 desc: Spread operation with getter results in data property descriptor
 template: default
 esid: pending
+includes: [propertyHelper.js]
 info: |
     Pending Runtime Semantics: PropertyDefinitionEvaluation
 
@@ -34,3 +35,7 @@ assert.sameValue(Object.getOwnPropertyDescriptor(obj, "a").value, 42);
 assert.sameValue(obj.c, 4);
 assert.sameValue(obj.d, 5);
 assert.sameValue(Object.keys(obj).length, 3);
+
+verifyEnumerable(obj, "a");
+verifyWritable(obj, "a");
+verifyConfigurable(obj, "a");
