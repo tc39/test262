@@ -17,7 +17,7 @@ if ((new MyFunction()).THIS.toString() !== "[object Object]") {
 }
 
 //CHECK#2
-function MyFunction() {this.THIS = eval("this")}
-if ((new MyFunction()).THIS.toString() !== "[object Object]") {
-  $ERROR('#2: function MyFunction() {this.THIS = eval("this")} (new MyFunction()).THIS.toString() !== "[object Object]". Actual: ' + ((new MyFunction()).THIS.toString()));
+function MyFunction2() {this.THIS = eval("this")}
+if ((new MyFunction2()).THIS.toString() !== "[object Object]") {
+  $ERROR('#2: function MyFunction2() {this.THIS = eval("this")} (new MyFunction2()).THIS.toString() !== "[object Object]". Actual: ' + ((new MyFunction2()).THIS.toString()));
 }

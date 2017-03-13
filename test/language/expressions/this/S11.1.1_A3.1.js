@@ -17,7 +17,7 @@ if (MyFunction() !== this) {
 }
 
 //CHECK#2
-function MyFunction() {return eval("this")}
-if (MyFunction() !== this) {
-  $ERROR('#2: function MyFunction() {return eval("this")} MyFunction() === this. Actual: ' + (MyFunction()));
+function MyFunction2() {return eval("this")}
+if (MyFunction2() !== this) {
+  $ERROR('#2: function MyFunction2() {return eval("this")} MyFunction2() === this. Actual: ' + (MyFunction2()));
 }
