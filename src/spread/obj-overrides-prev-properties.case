@@ -18,8 +18,7 @@ info: |
 ---*/
 
 //- setup
-
-let o = {a: 2, b: 3}
+let o = {a: 2, b: 3};
 
 //- args
 {a: 1, b: 7, ...o}

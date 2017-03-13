@@ -22,7 +22,6 @@ let symbol = Symbol('foo');
 let o = {};
 o[symbol] = 1;
 
-
 //- args
 {...o, c: 4, d: 5}
 //- params

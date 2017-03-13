@@ -27,4 +27,4 @@ assert.sameValue(obj.a, 1);
 assert.sameValue(obj.b, 2);
 assert.sameValue(obj.c, 3);
 assert.sameValue(obj.d, 4);
-assert(compareArray(Object.keys(obj), ['a', 'b', 'c', 'd']));
+assert(compareArray(Object.keys(obj), ["a", "b", "c", "d"]));
