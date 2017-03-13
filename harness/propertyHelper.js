@@ -11,7 +11,22 @@ function isConfigurable(obj, name) {
 }
 
 function isEnumerable(obj, name) {
-    return Object.prototype.hasOwnProperty.call(obj, name) &&
+    var stringCheck;
+    
+    if (typeof name === "string") {
+        for (var x in obj) {
+            if (x === name) {
+                stringCheck = true;
+                break;
+            }
+        }
+    } else {
+        // skip it if name is not string, works for Symbol names.
+        stringCheck = true;
+    }
+
+    return stringCheck &&
+        Object.prototype.hasOwnProperty.call(obj, name) &&
         Object.prototype.propertyIsEnumerable.call(obj, name);
 }
 
