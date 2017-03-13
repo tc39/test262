@@ -5,6 +5,10 @@
 author: Caitlin Potter <caitp@igalia.com>
 esid: pending
 description: >
+  Thrown generator suspended in a yield position resumes execution within
+  the associated finally block and throws an error and suspendeds execution
+  again
+info: |
   AsyncGeneratorResumeNext:
   If completion.[[Type]] is throw, and generator.[[AsyncGeneratorState]] is
   "suspendedYield", and generator is resumed within a try-block with an

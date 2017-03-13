@@ -5,6 +5,9 @@
 author: Caitlin Potter <caitp@igalia.com>
 esid: pending
 description: >
+  Generator is not resumed after a throw completion with a non-promise arg
+  before start
+info: |
   AsyncGeneratorResumeNext:
   If completion.[[Type]] is throw, and generator.[[AsyncGeneratorState]] is
   "suspendedStart", generator is closed without being resumed.

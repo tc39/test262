@@ -5,6 +5,8 @@
 author: Caitlin Potter <caitp@igalia.com>
 esid: pending
 description: >
+  Generator is not resumed after a throw completion with a promise arg
+info: |
   AsyncGeneratorResumeNext:
   If completion.[[Type]] is throw, and generator.[[AsyncGeneratorState]] is
   "suspendedYield", generator is resumed and immediately and

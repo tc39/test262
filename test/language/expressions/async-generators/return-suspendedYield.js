@@ -5,6 +5,9 @@
 author: Caitlin Potter <caitp@igalia.com>
 esid: pending
 description: >
+  Returned generator suspended in a yield position does not resume execution
+  without an associated finally.
+info: |
   AsyncGeneratorResumeNext:
   If completion.[[Type]] is return, and generator.[[AsyncGeneratorState]] is
   "suspendedYield", generator is resumed and immediately closes the generator

@@ -5,6 +5,9 @@
 author: Caitlin Potter <caitp@igalia.com>
 esid: pending
 description: >
+  Generator is not resumed after a return type completion.
+  Returning promise before start
+info: |
   AsyncGeneratorResumeNext:
   If completion.[[Type]] is return, and generator.[[AsyncGeneratorState]] is
   "suspendedStart", generator is closed without being resumed.
