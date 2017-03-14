@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/dflt-params/ref-prior.case
-// - src/dflt-params/default/arrow-function.template
+// - src/params/dflt-ref-prior.case
+// - src/params/default/arrow-function.template
 /*---
 description: Referencing a parameter that occurs earlier in the ParameterList (arrow function expression)
 esid: sec-arrow-function-definitions-runtime-semantics-evaluation

@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/dflt-params/abrupt.case
-// - src/dflt-params/error/func-decl.template
+// - src/params/dflt-abrupt.case
+// - src/params/error/func-decl.template
 /*---
 description: Abrupt completion returned by evaluation of initializer (function declaration)
 esid: sec-function-definitions-runtime-semantics-instantiatefunctionobject

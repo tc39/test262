@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/dflt-params/ref-self.case
-// - src/dflt-params/error/func-decl.template
+// - src/params/dflt-ref-self.case
+// - src/params/error/func-decl.template
 /*---
 description: Referencing a parameter from within its own initializer (function declaration)
 esid: sec-function-definitions-runtime-semantics-instantiatefunctionobject

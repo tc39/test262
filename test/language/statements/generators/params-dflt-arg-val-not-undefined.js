@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/dflt-params/arg-val-not-undefined.case
-// - src/dflt-params/default/gen-func-decl.template
+// - src/params/dflt-arg-val-not-undefined.case
+// - src/params/default/gen-func-decl.template
 /*---
 description: Use of intializer when argument value is not `undefined` (generator function declaration)
 esid: sec-generator-function-definitions-runtime-semantics-instantiatefunctionobject

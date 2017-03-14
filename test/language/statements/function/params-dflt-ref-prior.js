@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/dflt-params/ref-prior.case
-// - src/dflt-params/default/func-decl.template
+// - src/params/dflt-ref-prior.case
+// - src/params/default/func-decl.template
 /*---
 description: Referencing a parameter that occurs earlier in the ParameterList (function declaration)
 esid: sec-function-definitions-runtime-semantics-instantiatefunctionobject

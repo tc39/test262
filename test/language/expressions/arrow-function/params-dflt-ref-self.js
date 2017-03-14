@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/dflt-params/ref-self.case
-// - src/dflt-params/error/arrow-function.template
+// - src/params/dflt-ref-self.case
+// - src/params/error/arrow-function.template
 /*---
 description: Referencing a parameter from within its own initializer (arrow function expression)
 esid: sec-arrow-function-definitions-runtime-semantics-evaluation
