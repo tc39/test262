@@ -1,10 +1,9 @@
 // This file was procedurally generated from the following sources:
-// - src/dflt-params/ref-later.case
-// - src/dflt-params/error/gen-func-expr.template
+// - src/params/dflt-ref-later.case
+// - src/params/error/gen-func-expr.template
 /*---
 description: Referencing a parameter that occurs later in the ParameterList (generator function expression)
 esid: sec-generator-function-definitions-runtime-semantics-evaluation
-es6id: 14.4.14
 features: [default-parameters]
 flags: [generated]
 info: |
@@ -47,6 +46,7 @@ info: |
     2. ReturnIfAbrupt(status).
     3. Return the result of performing IteratorBindingInitialization for
        FormalParameter using iteratorRecord and environment as the arguments.
+
 ---*/
 var x = 0;
 

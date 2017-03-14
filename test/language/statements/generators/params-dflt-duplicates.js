@@ -1,10 +1,9 @@
 // This file was procedurally generated from the following sources:
-// - src/dflt-params/duplicates.case
-// - src/dflt-params/syntax/gen-func-decl.template
+// - src/params/dflt-duplicates.case
+// - src/params/syntax/gen-func-decl.template
 /*---
 description: It is a Syntax Error if BoundNames of FormalParameters contains any duplicate elements. (generator function declaration)
 esid: sec-generator-function-definitions-runtime-semantics-instantiatefunctionobject
-es6id: 14.4.12
 features: [default-parameters]
 flags: [generated]
 negative:
@@ -53,6 +52,7 @@ info: |
     - It is a Syntax Error if IsSimpleParameterList of FormalParameterList is
       false and BoundNames of FormalParameterList contains any duplicate
       elements.
+
 ---*/
 
 function* f(x = 0, x) {

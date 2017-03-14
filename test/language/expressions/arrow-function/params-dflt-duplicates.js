@@ -1,10 +1,9 @@
 // This file was procedurally generated from the following sources:
-// - src/dflt-params/duplicates.case
-// - src/dflt-params/syntax/arrow-function.template
+// - src/params/dflt-duplicates.case
+// - src/params/syntax/arrow-function.template
 /*---
 description: It is a Syntax Error if BoundNames of FormalParameters contains any duplicate elements. (arrow function expression)
 esid: sec-arrow-function-definitions-runtime-semantics-evaluation
-es6id: 14.2.16
 features: [default-parameters]
 flags: [generated]
 negative:
@@ -52,6 +51,7 @@ info: |
     - It is a Syntax Error if IsSimpleParameterList of FormalParameterList is
       false and BoundNames of FormalParameterList contains any duplicate
       elements.
+
 ---*/
 
 0, (x = 0, x) => {

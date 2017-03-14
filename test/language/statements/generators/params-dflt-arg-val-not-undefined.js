@@ -1,10 +1,9 @@
 // This file was procedurally generated from the following sources:
-// - src/dflt-params/arg-val-not-undefined.case
-// - src/dflt-params/default/gen-func-decl.template
+// - src/params/dflt-arg-val-not-undefined.case
+// - src/params/default/gen-func-decl.template
 /*---
 description: Use of intializer when argument value is not `undefined` (generator function declaration)
 esid: sec-generator-function-definitions-runtime-semantics-instantiatefunctionobject
-es6id: 14.4.12
 features: [default-parameters]
 flags: [generated]
 info: |
@@ -51,6 +50,7 @@ info: |
         a. Perform ? IteratorBindingInitialization for formals with
            iteratorRecord and env as arguments.
     [...]
+
 ---*/
 var obj = {};
 var falseCount = 0;
@@ -61,7 +61,8 @@ var nullCount = 0;
 var objCount = 0;
 
 var callCount = 0;
-function* f(aFalse = falseCount +=1, aString = stringCount += 1, aNaN = nanCount += 1, a0 = zeroCount += 1, aNull = nullCount += 1, aObj = objCount +=1) {
+// Stores a reference `ref` for case evaluation
+function* ref(aFalse = falseCount +=1, aString = stringCount += 1, aNaN = nanCount += 1, a0 = zeroCount += 1, aNull = nullCount += 1, aObj = objCount +=1) {
   assert.sameValue(aFalse, false);
   assert.sameValue(aString, '');
   assert.sameValue(aNaN, NaN);
@@ -71,7 +72,7 @@ function* f(aFalse = falseCount +=1, aString = stringCount += 1, aNaN = nanCount
   callCount = callCount + 1;
 }
 
-f(false, '', NaN, 0, null, obj).next();
+ref(false, '', NaN, 0, null, obj).next();
 
 assert.sameValue(callCount, 1, 'generator function invoked exactly once');
 

@@ -1,10 +1,9 @@
 // This file was procedurally generated from the following sources:
-// - src/dflt-params/ref-prior.case
-// - src/dflt-params/default/gen-func-decl.template
+// - src/params/dflt-ref-prior.case
+// - src/params/default/gen-func-decl.template
 /*---
 description: Referencing a parameter that occurs earlier in the ParameterList (generator function declaration)
 esid: sec-generator-function-definitions-runtime-semantics-instantiatefunctionobject
-es6id: 14.4.12
 features: [default-parameters]
 flags: [generated]
 info: |
@@ -47,17 +46,19 @@ info: |
     2. ReturnIfAbrupt(status).
     3. Return the result of performing IteratorBindingInitialization for
        FormalParameter using iteratorRecord and environment as the arguments.
+
 ---*/
 var x = 0;
 
 var callCount = 0;
-function* f(x, y = x, z = y) {
+// Stores a reference `ref` for case evaluation
+function* ref(x, y = x, z = y) {
   assert.sameValue(x, 3, 'first argument value');
   assert.sameValue(y, 3, 'second argument value');
   assert.sameValue(z, 3, 'third argument value');
   callCount = callCount + 1;
 }
 
-f(3).next();
+ref(3).next();
 
 assert.sameValue(callCount, 1, 'generator function invoked exactly once');

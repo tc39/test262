@@ -1,10 +1,9 @@
 // This file was procedurally generated from the following sources:
-// - src/dflt-params/ref-later.case
-// - src/dflt-params/error/arrow-function.template
+// - src/params/dflt-ref-later.case
+// - src/params/error/arrow-function.template
 /*---
 description: Referencing a parameter that occurs later in the ParameterList (arrow function expression)
 esid: sec-arrow-function-definitions-runtime-semantics-evaluation
-es6id: 14.2.16
 features: [default-parameters]
 flags: [generated]
 info: |
@@ -46,6 +45,7 @@ info: |
     2. ReturnIfAbrupt(status).
     3. Return the result of performing IteratorBindingInitialization for
        FormalParameter using iteratorRecord and environment as the arguments.
+
 ---*/
 var x = 0;
 

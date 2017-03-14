@@ -1,10 +1,9 @@
 // This file was procedurally generated from the following sources:
-// - src/dflt-params/arg-val-undefined.case
-// - src/dflt-params/default/func-decl.template
+// - src/params/dflt-arg-val-undefined.case
+// - src/params/default/func-decl.template
 /*---
 description: Use of intializer when argument value is `undefined` (function declaration)
 esid: sec-function-definitions-runtime-semantics-instantiatefunctionobject
-es6id: 14.1.19
 features: [default-parameters]
 flags: [generated]
 info: |
@@ -52,16 +51,18 @@ info: |
         a. Perform ? IteratorBindingInitialization for formals with
            iteratorRecord and env as arguments.
     [...]
+
 ---*/
 
 var callCount = 0;
-function f(fromLiteral = 23, fromExpr = 45, fromHole = 99) {
+// Stores a reference `ref` for case evaluation
+function ref(fromLiteral = 23, fromExpr = 45, fromHole = 99) {
   assert.sameValue(fromLiteral, 23);
   assert.sameValue(fromExpr, 45);
   assert.sameValue(fromHole, 99);
   callCount = callCount + 1;
 }
 
-f(undefined, void 0);
+ref(undefined, void 0);
 
 assert.sameValue(callCount, 1, 'function invoked exactly once');

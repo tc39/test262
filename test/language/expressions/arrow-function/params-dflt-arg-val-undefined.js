@@ -1,10 +1,9 @@
 // This file was procedurally generated from the following sources:
-// - src/dflt-params/arg-val-undefined.case
-// - src/dflt-params/default/arrow-function.template
+// - src/params/dflt-arg-val-undefined.case
+// - src/params/default/arrow-function.template
 /*---
 description: Use of intializer when argument value is `undefined` (arrow function expression)
 esid: sec-arrow-function-definitions-runtime-semantics-evaluation
-es6id: 14.2.16
 features: [default-parameters]
 flags: [generated]
 info: |
@@ -50,16 +49,18 @@ info: |
         a. Perform ? IteratorBindingInitialization for formals with
            iteratorRecord and env as arguments.
     [...]
+
 ---*/
 
 var callCount = 0;
-var f;
-f = (fromLiteral = 23, fromExpr = 45, fromHole = 99) => {
+// Stores a reference `ref` for case evaluation
+var ref;
+ref = (fromLiteral = 23, fromExpr = 45, fromHole = 99) => {
   assert.sameValue(fromLiteral, 23);
   assert.sameValue(fromExpr, 45);
   assert.sameValue(fromHole, 99);
   callCount = callCount + 1;
 };
 
-f(undefined, void 0);
+ref(undefined, void 0);
 assert.sameValue(callCount, 1, 'arrow function invoked exactly once');

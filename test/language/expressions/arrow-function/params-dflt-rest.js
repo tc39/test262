@@ -1,10 +1,9 @@
 // This file was procedurally generated from the following sources:
-// - src/dflt-params/rest.case
-// - src/dflt-params/syntax/arrow-function.template
+// - src/params/dflt-rest.case
+// - src/params/syntax/arrow-function.template
 /*---
 description: RestParameter does not support an initializer (arrow function expression)
 esid: sec-arrow-function-definitions-runtime-semantics-evaluation
-es6id: 14.2.16
 features: [default-parameters]
 flags: [generated]
 negative:

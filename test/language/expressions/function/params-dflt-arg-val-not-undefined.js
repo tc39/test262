@@ -1,10 +1,9 @@
 // This file was procedurally generated from the following sources:
-// - src/dflt-params/arg-val-not-undefined.case
-// - src/dflt-params/default/func-expr.template
+// - src/params/dflt-arg-val-not-undefined.case
+// - src/params/default/func-expr.template
 /*---
 description: Use of intializer when argument value is not `undefined` (function expression)
 esid: sec-function-definitions-runtime-semantics-evaluation
-es6id: 14.1.20
 features: [default-parameters]
 flags: [generated]
 info: |
@@ -51,6 +50,7 @@ info: |
         a. Perform ? IteratorBindingInitialization for formals with
            iteratorRecord and env as arguments.
     [...]
+
 ---*/
 var obj = {};
 var falseCount = 0;
@@ -61,8 +61,9 @@ var nullCount = 0;
 var objCount = 0;
 
 var callCount = 0;
-var f;
-f = function(aFalse = falseCount +=1, aString = stringCount += 1, aNaN = nanCount += 1, a0 = zeroCount += 1, aNull = nullCount += 1, aObj = objCount +=1) {
+// Stores a reference `ref` for case evaluation
+var ref;
+ref = function(aFalse = falseCount +=1, aString = stringCount += 1, aNaN = nanCount += 1, a0 = zeroCount += 1, aNull = nullCount += 1, aObj = objCount +=1) {
   assert.sameValue(aFalse, false);
   assert.sameValue(aString, '');
   assert.sameValue(aNaN, NaN);
@@ -72,7 +73,7 @@ f = function(aFalse = falseCount +=1, aString = stringCount += 1, aNaN = nanCoun
   callCount = callCount + 1;
 };
 
-f(false, '', NaN, 0, null, obj);
+ref(false, '', NaN, 0, null, obj);
 
 assert.sameValue(callCount, 1, 'function invoked exactly once');
 

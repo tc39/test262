@@ -1,10 +1,9 @@
 // This file was procedurally generated from the following sources:
-// - src/dflt-params/abrupt.case
-// - src/dflt-params/error/func-decl.template
+// - src/params/dflt-abrupt.case
+// - src/params/error/func-decl.template
 /*---
 description: Abrupt completion returned by evaluation of initializer (function declaration)
 esid: sec-function-definitions-runtime-semantics-instantiatefunctionobject
-es6id: 14.1.19
 features: [default-parameters]
 flags: [generated]
 info: |
@@ -48,6 +47,7 @@ info: |
     2. ReturnIfAbrupt(status).
     3. Return the result of performing IteratorBindingInitialization for
        FormalParameter using iteratorRecord and environment as the arguments.
+
 ---*/
 
 var callCount = 0;
