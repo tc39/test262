@@ -60,8 +60,9 @@ var nullCount = 0;
 var objCount = 0;
 
 var callCount = 0;
-var f;
-f = (aFalse = falseCount +=1, aString = stringCount += 1, aNaN = nanCount += 1, a0 = zeroCount += 1, aNull = nullCount += 1, aObj = objCount +=1) => {
+// Stores a reference `ref` for case evaluation
+var ref;
+ref = (aFalse = falseCount +=1, aString = stringCount += 1, aNaN = nanCount += 1, a0 = zeroCount += 1, aNull = nullCount += 1, aObj = objCount +=1) => {
   assert.sameValue(aFalse, false);
   assert.sameValue(aString, '');
   assert.sameValue(aNaN, NaN);
@@ -71,7 +72,7 @@ f = (aFalse = falseCount +=1, aString = stringCount += 1, aNaN = nanCount += 1, 
   callCount = callCount + 1;
 };
 
-f(false, '', NaN, 0, null, obj);
+ref(false, '', NaN, 0, null, obj);
 assert.sameValue(callCount, 1, 'arrow function invoked exactly once');
 
 assert.sameValue(falseCount, 0, 'initializer not evaluated: false');

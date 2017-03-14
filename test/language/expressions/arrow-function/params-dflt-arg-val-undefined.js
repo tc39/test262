@@ -53,13 +53,14 @@ info: |
 ---*/
 
 var callCount = 0;
-var f;
-f = (fromLiteral = 23, fromExpr = 45, fromHole = 99) => {
+// Stores a reference `ref` for case evaluation
+var ref;
+ref = (fromLiteral = 23, fromExpr = 45, fromHole = 99) => {
   assert.sameValue(fromLiteral, 23);
   assert.sameValue(fromExpr, 45);
   assert.sameValue(fromHole, 99);
   callCount = callCount + 1;
 };
 
-f(undefined, void 0);
+ref(undefined, void 0);
 assert.sameValue(callCount, 1, 'arrow function invoked exactly once');

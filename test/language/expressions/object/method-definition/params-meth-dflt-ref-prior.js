@@ -64,4 +64,7 @@ var obj = {
 
 obj.method(3);
 
+// Stores a reference `ref` for case evaluation
+var ref = obj.method;
+
 assert.sameValue(callCount, 1, 'method invoked exactly once');

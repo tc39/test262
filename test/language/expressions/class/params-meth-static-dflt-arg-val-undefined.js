@@ -85,4 +85,7 @@ var C = class {
 
 C.method(undefined, void 0);
 
+// Stores a reference `ref` for case evaluation
+var ref = C.method;
+
 assert.sameValue(callCount, 1, 'method invoked exactly once');

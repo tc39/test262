@@ -70,4 +70,7 @@ var obj = {
 
 obj.method(undefined, void 0).next();
 
+// Stores a reference `ref` for case evaluation
+var ref = obj.method;
+
 assert.sameValue(callCount, 1, 'generator method invoked exactly once');

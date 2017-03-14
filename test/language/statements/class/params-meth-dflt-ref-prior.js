@@ -81,4 +81,7 @@ class C {
 
 C.prototype.method(3);
 
+// Stores a reference `ref` for case evaluation
+var ref = C.prototype.method;
+
 assert.sameValue(callCount, 1, 'method invoked exactly once');

@@ -94,6 +94,9 @@ class C {
 
 C.prototype.method(false, '', NaN, 0, null, obj);
 
+// Stores a reference `ref` for case evaluation
+var ref = C.prototype.method;
+
 assert.sameValue(callCount, 1, 'method invoked exactly once');
 
 assert.sameValue(falseCount, 0, 'initializer not evaluated: false');

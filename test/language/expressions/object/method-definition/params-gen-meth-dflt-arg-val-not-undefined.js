@@ -80,6 +80,9 @@ var obj = {
 
 obj.method(false, '', NaN, 0, null, obj).next();
 
+// Stores a reference `ref` for case evaluation
+var ref = obj.method;
+
 assert.sameValue(callCount, 1, 'generator method invoked exactly once');
 
 assert.sameValue(falseCount, 0, 'initializer not evaluated: false');

@@ -61,7 +61,8 @@ var nullCount = 0;
 var objCount = 0;
 
 var callCount = 0;
-function* f(aFalse = falseCount +=1, aString = stringCount += 1, aNaN = nanCount += 1, a0 = zeroCount += 1, aNull = nullCount += 1, aObj = objCount +=1) {
+// Stores a reference `ref` for case evaluation
+function* ref(aFalse = falseCount +=1, aString = stringCount += 1, aNaN = nanCount += 1, a0 = zeroCount += 1, aNull = nullCount += 1, aObj = objCount +=1) {
   assert.sameValue(aFalse, false);
   assert.sameValue(aString, '');
   assert.sameValue(aNaN, NaN);
@@ -71,7 +72,7 @@ function* f(aFalse = falseCount +=1, aString = stringCount += 1, aNaN = nanCount
   callCount = callCount + 1;
 }
 
-f(false, '', NaN, 0, null, obj).next();
+ref(false, '', NaN, 0, null, obj).next();
 
 assert.sameValue(callCount, 1, 'generator function invoked exactly once');
 
