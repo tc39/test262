@@ -17,6 +17,7 @@ info: |
         a. Perform ? IteratorBindingInitialization for formals with
            iteratorRecord and env as arguments.
     [...]
+features: [default-parameters]
 ---*/
 
 //- params

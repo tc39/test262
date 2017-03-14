@@ -4,8 +4,6 @@
 path: language/expressions/class/params-meth-
 name: class expression method
 esid: sec-class-definitions-runtime-semantics-evaluation
-es6id: 14.5.16
-features: [default-parameters]
 info: |
     ClassExpression : class BindingIdentifieropt ClassTail
 

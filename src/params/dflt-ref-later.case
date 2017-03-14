@@ -13,6 +13,7 @@ info: |
   2. ReturnIfAbrupt(status).
   3. Return the result of performing IteratorBindingInitialization for
      FormalParameter using iteratorRecord and environment as the arguments.
+features: [default-parameters]
 ---*/
 
 //- setup
