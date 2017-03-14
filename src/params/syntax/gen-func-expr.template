@@ -1,7 +1,7 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-path: language/expressions/generators/params-dflt-
+path: language/expressions/generators/params-
 name: generator function expression
 esid: sec-generator-function-definitions-runtime-semantics-evaluation
 es6id: 14.4.14
