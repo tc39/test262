@@ -4,7 +4,6 @@
 /*---
 description: Use of intializer when argument value is `undefined` (generator method)
 esid: sec-generator-function-definitions-runtime-semantics-propertydefinitionevaluation
-es6id: 14.4.13
 features: [default-parameters]
 flags: [generated]
 info: |
@@ -56,6 +55,7 @@ info: |
         a. Perform ? IteratorBindingInitialization for formals with
            iteratorRecord and env as arguments.
     [...]
+
 ---*/
 
 var callCount = 0;

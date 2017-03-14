@@ -4,7 +4,6 @@
 /*---
 description: Referencing a parameter from within its own initializer (generator method)
 esid: sec-generator-function-definitions-runtime-semantics-propertydefinitionevaluation
-es6id: 14.4.13
 features: [default-parameters]
 flags: [generated]
 info: |
@@ -52,6 +51,7 @@ info: |
     2. ReturnIfAbrupt(status).
     3. Return the result of performing IteratorBindingInitialization for
        FormalParameter using iteratorRecord and environment as the arguments.
+
 ---*/
 var x = 0;
 

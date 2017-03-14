@@ -4,7 +4,6 @@
 /*---
 description: It is a Syntax Error if BoundNames of FormalParameters contains any duplicate elements. (class expression method)
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation
-es6id: 14.5.15
 features: [default-parameters]
 flags: [generated]
 negative:
@@ -72,6 +71,7 @@ info: |
     - It is a Syntax Error if IsSimpleParameterList of FormalParameterList is
       false and BoundNames of FormalParameterList contains any duplicate
       elements.
+
 ---*/
 
 class C {

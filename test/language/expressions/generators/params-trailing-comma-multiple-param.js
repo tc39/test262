@@ -4,8 +4,6 @@
 /*---
 description: A trailing comma should not increase the respective length, using multiple parameters (generator function expression)
 esid: sec-generator-function-definitions-runtime-semantics-evaluation
-es6id: 14.4.14
-features: [default-parameters]
 flags: [generated]
 info: |
     GeneratorExpression : function * ( FormalParameters ) { GeneratorBody }

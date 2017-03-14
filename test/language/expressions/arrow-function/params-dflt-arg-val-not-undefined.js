@@ -4,7 +4,6 @@
 /*---
 description: Use of intializer when argument value is not `undefined` (arrow function expression)
 esid: sec-arrow-function-definitions-runtime-semantics-evaluation
-es6id: 14.2.16
 features: [default-parameters]
 flags: [generated]
 info: |
@@ -50,6 +49,7 @@ info: |
         a. Perform ? IteratorBindingInitialization for formals with
            iteratorRecord and env as arguments.
     [...]
+
 ---*/
 var obj = {};
 var falseCount = 0;

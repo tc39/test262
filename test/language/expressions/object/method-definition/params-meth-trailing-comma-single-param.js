@@ -4,8 +4,6 @@
 /*---
 description: A trailing comma should not increase the respective length, using a single parameter (method)
 esid: sec-runtime-semantics-definemethod
-es6id: 14.3.8
-features: [default-parameters]
 flags: [generated]
 info: |
     MethodDefinition : PropertyName ( StrictFormalParameters ) { FunctionBody }

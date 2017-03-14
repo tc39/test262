@@ -4,7 +4,6 @@
 /*---
 description: Referencing a parameter that occurs earlier in the ParameterList (function expression)
 esid: sec-function-definitions-runtime-semantics-evaluation
-es6id: 14.1.20
 features: [default-parameters]
 flags: [generated]
 info: |
@@ -47,6 +46,7 @@ info: |
     2. ReturnIfAbrupt(status).
     3. Return the result of performing IteratorBindingInitialization for
        FormalParameter using iteratorRecord and environment as the arguments.
+
 ---*/
 var x = 0;
 

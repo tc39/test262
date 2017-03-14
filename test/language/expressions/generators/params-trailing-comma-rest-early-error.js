@@ -4,8 +4,6 @@
 /*---
 description: It's a syntax error if a FunctionRestParameter is followed by a trailing comma (generator function expression)
 esid: sec-generator-function-definitions-runtime-semantics-evaluation
-es6id: 14.4.14
-features: [default-parameters]
 flags: [generated]
 negative:
   phase: early

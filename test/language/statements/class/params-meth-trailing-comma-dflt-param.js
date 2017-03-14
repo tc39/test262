@@ -4,8 +4,6 @@
 /*---
 description: A trailing comma should not increase the respective length, using default parameters (class expression method)
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation
-es6id: 14.5.15
-features: [default-parameters]
 flags: [generated]
 info: |
     ClassDeclaration : class BindingIdentifier ClassTail

@@ -4,7 +4,6 @@
 /*---
 description: RestParameter does not support an initializer (generator method)
 esid: sec-generator-function-definitions-runtime-semantics-propertydefinitionevaluation
-es6id: 14.4.13
 features: [default-parameters]
 flags: [generated]
 negative:

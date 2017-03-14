@@ -4,7 +4,6 @@
 /*---
 description: RestParameter does not support an initializer (function expression)
 esid: sec-function-definitions-runtime-semantics-evaluation
-es6id: 14.1.20
 features: [default-parameters]
 flags: [generated]
 negative:

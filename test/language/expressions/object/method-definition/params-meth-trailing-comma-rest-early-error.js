@@ -4,8 +4,6 @@
 /*---
 description: It's a syntax error if a FunctionRestParameter is followed by a trailing comma (method)
 esid: sec-runtime-semantics-definemethod
-es6id: 14.3.8
-features: [default-parameters]
 flags: [generated]
 negative:
   phase: early

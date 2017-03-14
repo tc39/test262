@@ -4,7 +4,6 @@
 /*---
 description: Use of intializer when argument value is `undefined` (class expression method)
 esid: sec-class-definitions-runtime-semantics-evaluation
-es6id: 14.5.16
 features: [default-parameters]
 flags: [generated]
 info: |
@@ -72,6 +71,7 @@ info: |
         a. Perform ? IteratorBindingInitialization for formals with
            iteratorRecord and env as arguments.
     [...]
+
 ---*/
 
 var callCount = 0;

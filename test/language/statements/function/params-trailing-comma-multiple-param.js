@@ -4,8 +4,6 @@
 /*---
 description: A trailing comma should not increase the respective length, using multiple parameters (function declaration)
 esid: sec-function-definitions-runtime-semantics-instantiatefunctionobject
-es6id: 14.1.19
-features: [default-parameters]
 flags: [generated]
 info: |
     FunctionDeclaration :

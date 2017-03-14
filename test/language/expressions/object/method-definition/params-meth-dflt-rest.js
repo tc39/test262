@@ -4,7 +4,6 @@
 /*---
 description: RestParameter does not support an initializer (method)
 esid: sec-runtime-semantics-definemethod
-es6id: 14.3.8
 features: [default-parameters]
 flags: [generated]
 negative:

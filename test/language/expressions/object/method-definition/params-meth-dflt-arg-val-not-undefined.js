@@ -4,7 +4,6 @@
 /*---
 description: Use of intializer when argument value is not `undefined` (method)
 esid: sec-runtime-semantics-definemethod
-es6id: 14.3.8
 features: [default-parameters]
 flags: [generated]
 info: |
@@ -53,6 +52,7 @@ info: |
         a. Perform ? IteratorBindingInitialization for formals with
            iteratorRecord and env as arguments.
     [...]
+
 ---*/
 var obj = {};
 var falseCount = 0;

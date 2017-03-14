@@ -4,7 +4,6 @@
 /*---
 description: It is a Syntax Error if BoundNames of FormalParameters contains any duplicate elements. (generator method)
 esid: sec-generator-function-definitions-runtime-semantics-propertydefinitionevaluation
-es6id: 14.4.13
 features: [default-parameters]
 flags: [generated]
 negative:
@@ -58,6 +57,7 @@ info: |
     - It is a Syntax Error if IsSimpleParameterList of FormalParameterList is
       false and BoundNames of FormalParameterList contains any duplicate
       elements.
+
 ---*/
 
 0, {

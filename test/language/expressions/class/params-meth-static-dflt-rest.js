@@ -4,7 +4,6 @@
 /*---
 description: RestParameter does not support an initializer (static class expression method)
 esid: sec-class-definitions-runtime-semantics-evaluation
-es6id: 14.5.16
 features: [default-parameters]
 flags: [generated]
 negative:
