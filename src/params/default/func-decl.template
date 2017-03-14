@@ -40,11 +40,12 @@ info: |
 ---*/
 
 var callCount = 0;
-function f(/*{ params }*/) {
+// Stores a reference `ref` for case evaluation
+function ref(/*{ params }*/) {
   /*{ body }*/
   callCount = callCount + 1;
 }
 
-f(/*{ args }*/);
+ref(/*{ args }*/);
 
 assert.sameValue(callCount, 1, 'function invoked exactly once');

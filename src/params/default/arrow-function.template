@@ -38,11 +38,12 @@ info: |
 ---*/
 
 var callCount = 0;
-var f;
-f = (/*{ params }*/) => {
+// Stores a reference `ref` for case evaluation
+var ref;
+ref = (/*{ params }*/) => {
   /*{ body }*/
   callCount = callCount + 1;
 };
 
-f(/*{ args }*/);
+ref(/*{ args }*/);
 assert.sameValue(callCount, 1, 'arrow function invoked exactly once');

@@ -39,12 +39,13 @@ info: |
 ---*/
 
 var callCount = 0;
-var f;
-f = function*(/*{ params }*/) {
+// Stores a reference `ref` for case evaluation
+var ref;
+ref = function*(/*{ params }*/) {
   /*{ body }*/
   callCount = callCount + 1;
 };
 
-f(/*{ args }*/).next();
+ref(/*{ args }*/).next();
 
 assert.sameValue(callCount, 1, 'generator function invoked exactly once');
