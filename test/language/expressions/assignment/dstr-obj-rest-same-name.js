@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
-// - src/dstr-assignment/obj-rest-obj-own-property.case
+// - src/dstr-assignment/obj-rest-same-name.case
 // - src/dstr-assignment/default/assignment-expr.template
 /*---
-description: Rest object contains just source object's own properties (AssignmentExpression)
+description: Proper setting in the values for rest name equal to a property name. (AssignmentExpression)
 esid: sec-variable-statement-runtime-semantics-evaluation
 es6id: 13.3.2.4
 features: [destructuring-binding]
@@ -16,19 +16,27 @@ info: |
     4. Return the result of performing BindingInitialization for
        BindingPattern passing rval and undefined as arguments.
 ---*/
-var o = Object.create({ x: 1, y: 2 });
-o.z = 3;
+var o = {
+    x: 42,
+    y: 39,
+    z: 'cheeseburger'
+};
 
 var x, y, z;
 
 var result;
 var vals = o;
 
-result = { x, ...{y , z} } = vals;
+result = { x, ...z } = vals;
 
-assert.sameValue(x, 1);
+assert.sameValue(x, 42);
 assert.sameValue(y, undefined);
-assert.sameValue(z, 3);
+assert.sameValue(z.y, 39);
+assert.sameValue(z.z, 'cheeseburger');
 
+var keys = Object.keys(z);
+assert.sameValue(keys.length, 2);
+assert.sameValue(keys[0], 'y');
+assert.sameValue(keys[1], 'z');
 
 assert.sameValue(result, vals);

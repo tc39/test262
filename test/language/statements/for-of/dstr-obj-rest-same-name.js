@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
-// - src/dstr-assignment/obj-rest-obj-own-property.case
+// - src/dstr-assignment/obj-rest-same-name.case
 // - src/dstr-assignment/default/for-of.template
 /*---
-description: Rest object contains just source object's own properties (For..of statement)
+description: Proper setting in the values for rest name equal to a property name. (For..of statement)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
 es6id: 13.7.5.11
 features: [destructuring-binding]
@@ -25,18 +25,26 @@ info: |
           lhs using AssignmentPattern as the goal symbol.
     [...]
 ---*/
-var o = Object.create({ x: 1, y: 2 });
-o.z = 3;
+var o = {
+    x: 42,
+    y: 39,
+    z: 'cheeseburger'
+};
 
 var x, y, z;
 
 var counter = 0;
 
-for ({ x, ...{y , z} } of [o]) {
-  assert.sameValue(x, 1);
+for ({ x, ...z } of [o]) {
+  assert.sameValue(x, 42);
   assert.sameValue(y, undefined);
-  assert.sameValue(z, 3);
+  assert.sameValue(z.y, 39);
+  assert.sameValue(z.z, 'cheeseburger');
 
+  var keys = Object.keys(z);
+  assert.sameValue(keys.length, 2);
+  assert.sameValue(keys[0], 'y');
+  assert.sameValue(keys[1], 'z');
   counter += 1;
 }
 
