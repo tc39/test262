@@ -2,13 +2,13 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 path: language/expressions/generators/
-name: Generator expression
+name: Unnamed generator expression
 esid: prod-GeneratorExpression
 info: |
   14.4 Generator Function Definitions
 
   GeneratorExpression:
-    function * BindingIdentifier[+Yield, ~Await]opt ( FormalParameters[+Yield, ~Await] ) { GeneratorBody }
+    function * BindingIdentifier opt ( FormalParameters ) { GeneratorBody }
 ---*/
 
 var callCount = 0;
