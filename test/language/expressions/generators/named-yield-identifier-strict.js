@@ -1,9 +1,9 @@
 // This file was procedurally generated from the following sources:
 // - src/generators/yield-identifier-strict.case
-// - src/generators/default/declaration.template
+// - src/generators/default/expression-named.template
 /*---
-description: It's an early error if the generator body has another function body with yield as an identifier in strict mode. (Generator Function declaration)
-esid: prod-GeneratorDeclaration
+description: It's an early error if the generator body has another function body with yield as an identifier in strict mode. (Named generator expression)
+esid: prod-GeneratorExpression
 flags: [generated, onlyStrict]
 negative:
   phase: early
@@ -11,19 +11,19 @@ negative:
 info: |
     14.4 Generator Function Definitions
 
-    GeneratorDeclaration :
-      function * BindingIdentifier ( FormalParameters ) { GeneratorBody }
+    GeneratorExpression:
+      function * BindingIdentifier opt ( FormalParameters ) { GeneratorBody }
 ---*/
 
 var callCount = 0;
 
-function *gen() {
+var gen = function *g() {
   callCount += 1;
   (function() {
       var yield;
       throw new Test262Error();
     }())
-}
+};
 
 var iter = gen();
 

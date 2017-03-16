@@ -1,15 +1,15 @@
 // This file was procedurally generated from the following sources:
 // - src/generators/yield-spread-obj.case
-// - src/generators/default/class-expr-method.template
+// - src/generators/default/class-expr-static-method.template
 /*---
-description: Use yield value in a object spread position (Generator method as a ClassExpression element)
+description: Use yield value in a object spread position (Static generator method as a ClassExpression element)
 esid: prod-GeneratorMethod
 features: [object-spread]
 flags: [generated]
 includes: [compareArray.js]
 info: |
     ClassElement :
-      MethodDefinition
+      static MethodDefinition
 
     MethodDefinition :
       GeneratorMethod
@@ -29,7 +29,7 @@ info: |
 
 var callCount = 0;
 
-var C = class {*gen() {
+var C = class { static *gen() {
     callCount += 1;
     yield {
         ...yield,
@@ -38,7 +38,7 @@ var C = class {*gen() {
       };
 }}
 
-var gen = C.prototype.gen;
+var gen = C.gen;
 
 var iter = gen();
 

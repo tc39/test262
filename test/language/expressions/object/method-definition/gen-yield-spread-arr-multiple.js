@@ -1,16 +1,16 @@
 // This file was procedurally generated from the following sources:
 // - src/generators/yield-spread-arr-multiple.case
-// - src/generators/default/declaration.template
+// - src/generators/default/obj-method.template
 /*---
-description: Use yield value in a array spread position (Generator Function declaration)
-esid: prod-GeneratorDeclaration
+description: Use yield value in a array spread position (Generator method)
+esid: prod-GeneratorMethod
 flags: [generated]
 includes: [compareArray.js]
 info: |
     14.4 Generator Function Definitions
 
-    GeneratorDeclaration :
-      function * BindingIdentifier ( FormalParameters ) { GeneratorBody }
+    GeneratorMethod[Yield, Await]:
+      * PropertyName[?Yield, ?Await] ( UniqueFormalParameters[+Yield, ~Await] ) { GeneratorBody }
 
     Array Initializer
 
@@ -23,10 +23,12 @@ var item;
 
 var callCount = 0;
 
-function *gen() {
-  callCount += 1;
-  yield [...yield yield];
-}
+var gen = {
+  *method() {
+    callCount += 1;
+    yield [...yield yield];
+  }
+}.method;
 
 var iter = gen();
 

@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
 // - src/generators/yield-identifier-spread-strict.case
-// - src/generators/default/expression.template
+// - src/generators/default/expression-named.template
 /*---
-description: It's an early error if the AssignmentExpression is a function body with yield as an identifier in strict mode. (Unnamed generator expression)
+description: It's an early error if the AssignmentExpression is a function body with yield as an identifier in strict mode. (Named generator expression)
 esid: prod-GeneratorExpression
 features: [object-spread]
 flags: [generated, onlyStrict]
@@ -25,7 +25,7 @@ info: |
 
 var callCount = 0;
 
-var gen = function *() {
+var gen = function *g() {
   callCount += 1;
   return {
        ...(function() {

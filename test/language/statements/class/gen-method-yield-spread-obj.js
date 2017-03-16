@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
 // - src/generators/yield-spread-obj.case
-// - src/generators/default/class-expr-method.template
+// - src/generators/default/class-decl-method.template
 /*---
-description: Use yield value in a object spread position (Generator method as a ClassExpression element)
+description: Use yield value in a object spread position (Geenerator method as a ClassDeclaration element)
 esid: prod-GeneratorMethod
 features: [object-spread]
 flags: [generated]
@@ -29,7 +29,7 @@ info: |
 
 var callCount = 0;
 
-var C = class {*gen() {
+class C { *gen() {
     callCount += 1;
     yield {
         ...yield,

@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/generators/yield-spread-arr-single.case
-// - src/generators/default/method-definition.template
+// - src/generators/default/obj-method.template
 /*---
 description: Use yield value in a array spread position (Generator method)
 esid: prod-GeneratorMethod

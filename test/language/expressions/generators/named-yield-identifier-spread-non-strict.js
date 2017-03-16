@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
 // - src/generators/yield-identifier-spread-non-strict.case
-// - src/generators/non-strict/expression.template
+// - src/generators/non-strict/expression-named.template
 /*---
-description: Mixed use of object spread and yield as a valid identifier in a function body inside a generator body in non strict mode (Generator expression - valid for non-strict only cases)
+description: Mixed use of object spread and yield as a valid identifier in a function body inside a generator body in non strict mode (Generator named expression - valid for non-strict only cases)
 esid: prod-GeneratorExpression
 features: [object-spread]
 flags: [generated, noStrict]
@@ -22,7 +22,7 @@ info: |
 
 var callCount = 0;
 
-var gen = function *() {
+var gen = function *g() {
   callCount += 1;
   yield {
        ...yield yield,

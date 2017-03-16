@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
 // - src/generators/yield-identifier-non-strict.case
-// - src/generators/non-strict/expression.template
+// - src/generators/non-strict/expression-named.template
 /*---
-description: Use of yield as a valid identifier in a function body inside a generator body in non strict mode (Generator expression - valid for non-strict only cases)
+description: Use of yield as a valid identifier in a function body inside a generator body in non strict mode (Generator named expression - valid for non-strict only cases)
 esid: prod-GeneratorExpression
 flags: [generated, noStrict]
 info: |
@@ -14,7 +14,7 @@ info: |
 
 var callCount = 0;
 
-var gen = function *() {
+var gen = function *g() {
   callCount += 1;
   return (function(arg) {
       var yield = arg + 1;

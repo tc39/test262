@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
 // - src/generators/yield-identifier-spread-strict.case
-// - src/generators/default/class-expr-method.template
+// - src/generators/default/class-decl-method.template
 /*---
-description: It's an early error if the AssignmentExpression is a function body with yield as an identifier in strict mode. (Generator method as a ClassExpression element)
+description: It's an early error if the AssignmentExpression is a function body with yield as an identifier in strict mode. (Geenerator method as a ClassDeclaration element)
 esid: prod-GeneratorMethod
 features: [object-spread]
 flags: [generated, onlyStrict]
@@ -31,7 +31,7 @@ info: |
 
 var callCount = 0;
 
-var C = class {*gen() {
+class C { *gen() {
     callCount += 1;
     return {
          ...(function() {

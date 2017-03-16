@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/generators/yield-identifier-spread-non-strict.case
-// - src/generators/non-strict/method-definition.template
+// - src/generators/non-strict/obj-method.template
 /*---
 description: Mixed use of object spread and yield as a valid identifier in a function body inside a generator body in non strict mode (Generator method - valid for non-strict only cases)
 esid: prod-GeneratorMethod
@@ -10,7 +10,7 @@ info: |
     14.4 Generator Function Definitions
 
     GeneratorMethod[Yield, Await]:
-      * PropertyName[?Yield, ?Await] ( UniqueFormalParameters[+Yield, ~Await] ) { GeneratorBody }
+      * PropertyName ( UniqueFormalParameters ) { GeneratorBody }
 
     Spread Properties
 
