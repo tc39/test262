@@ -20,6 +20,7 @@ info: |
       ...AssignmentExpression[In, ?Yield]
 
 ---*/
+var s = Symbol('s');
 
 
 var callCount = 0;
@@ -42,8 +43,8 @@ var iter = gen();
 
 iter.next();
 iter.next();
-iter.next({ x: 10, a: 0, b: 0 });
-iter.next({ y: 20, a: 1, b: 1 });
+iter.next({ x: 10, a: 0, b: 0, [s]: 1 });
+iter.next({ y: 20, a: 1, b: 1, [s]: 42 });
 var item = iter.next({ z: 30, b: 2 });
 
 item.then(({ done, value }) => {
@@ -53,7 +54,9 @@ item.then(({ done, value }) => {
   assert.sameValue(value.z, 30);
   assert.sameValue(value.a, 1);
   assert.sameValue(value.b, 2);
+  assert.sameValue(value[s], 42);
   assert.sameValue(Object.keys(value).length, 5);
+  assert(Object.hasOwnProperty.call(value, s));
 }).then($DONE, $DONE);
 
 assert.sameValue(callCount, 1);

@@ -5,7 +5,6 @@
 description: Use yield value in a array spread position (Async generator method as a ClassExpression element)
 esid: prod-AsyncGeneratorMethod
 flags: [generated, async]
-includes: [compareArray.js]
 info: |
     ClassElement :
       MethodDefinition
@@ -39,10 +38,15 @@ var gen = C.prototype.gen;
 var iter = gen();
 
 iter.next(false);
-var item = iter.next(['a', 'b', 'c']);
+var item = iter.next(arr);
 
 item.then(({ done, value }) => {
-  assert(compareArray(value, arr));
+  assert.notSameValue(value, arr, 'value is a new array');
+  assert(Array.isArray(value), 'value is an Array exotic object');
+  assert.sameValue(value.length, 3)
+  assert.sameValue(value[0], 'a');
+  assert.sameValue(value[1], 'b');
+  assert.sameValue(value[2], 'c');
   assert.sameValue(done, false);
 }).then($DONE, $DONE);
 
