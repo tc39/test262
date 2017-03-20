@@ -3,10 +3,9 @@
 
 /*---
 desc: >
-    Rest object contains just soruce object's own properties
+    Rest object contains just source object's own properties
 template: default
 esid: pending
-includes: [propertyHelper.js]
 ---*/
 
 //- setup
