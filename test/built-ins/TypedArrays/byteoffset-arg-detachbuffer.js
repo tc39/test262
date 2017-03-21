@@ -7,7 +7,7 @@ info: >
   22.2.4.5 TypedArray ( buffer [ , byteOffset [ , length ] ] )
 
   ...
-  8. If IsDetachedBuffer(buffer) is true, throw a TypeError exception.
+  9. If IsDetachedBuffer(buffer) is true, throw a TypeError exception.
   ...
 includes: [testTypedArray.js, detachArrayBuffer.js]
 ---*/
