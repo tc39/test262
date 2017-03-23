@@ -1,5 +1,6 @@
 
 function isConfigurable(obj, name) {
+    var desc = Object.getOwnPropertyDescriptor(obj, name);
     try {
         delete obj[name];
     } catch (e) {
@@ -7,7 +8,12 @@ function isConfigurable(obj, name) {
             $ERROR("Expected TypeError, got " + e);
         }
     }
-    return !Object.prototype.hasOwnProperty.call(obj, name);
+    var result = !Object.prototype.hasOwnProperty.call(obj, name);
+    if (result) {
+        // Put things back the way we found them.
+        Object.defineProperty(obj, name, desc);
+    }
+    return result;
 }
 
 function isEnumerable(obj, name) {
