@@ -4,6 +4,7 @@
 /*---
 description: Use yield value in a array spread position (Async Generator method as a ClassDeclaration element)
 esid: prod-AsyncGeneratorMethod
+features: [async-iteration]
 flags: [generated, async]
 includes: [compareArray.js]
 info: |
@@ -17,6 +18,7 @@ info: |
 
     AsyncGeneratorMethod :
       async [no LineTerminator here] * PropertyName ( UniqueFormalParameters ) { AsyncGeneratorBody }
+
 
     Array Initializer
 

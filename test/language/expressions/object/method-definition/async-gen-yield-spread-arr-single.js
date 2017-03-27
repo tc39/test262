@@ -4,12 +4,14 @@
 /*---
 description: Use yield value in a array spread position (Async generator method)
 esid: prod-AsyncGeneratorMethod
+features: [async-iteration]
 flags: [generated, async]
 info: |
     Async Generator Function Definitions
 
     AsyncGeneratorMethod :
       async [no LineTerminator here] * PropertyName ( UniqueFormalParameters ) { AsyncGeneratorBody }
+
 
     Array Initializer
 

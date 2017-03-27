@@ -4,13 +4,14 @@
 /*---
 description: Mixed use of object spread and yield as a valid identifier in a function body inside a generator body in non strict mode (Generator method - valid for non-strict only cases)
 esid: prod-AsyncGeneratorMethod
-features: [object-spread]
+features: [object-spread, async-iteration]
 flags: [generated, noStrict, async]
 info: |
     Async Generator Function Definitions
 
     AsyncGeneratorMethod :
       async [no LineTerminator here] * PropertyName ( UniqueFormalParameters ) { AsyncGeneratorBody }
+
 
     Spread Properties
 

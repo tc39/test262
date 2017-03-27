@@ -4,6 +4,7 @@
 /*---
 description: Use of yield as a valid identifier in a function body inside a generator body in non strict mode (Async generator function declaration - valid for non-strict only cases)
 esid: prod-AsyncGeneratorDeclaration
+features: [async-iteration]
 flags: [generated, noStrict, async]
 info: |
     Async Generator Function Definitions
@@ -11,6 +12,7 @@ info: |
     AsyncGeneratorDeclaration:
       async [no LineTerminator here] function * BindingIdentifier ( FormalParameters ) {
         AsyncGeneratorBody }
+
 ---*/
 
 

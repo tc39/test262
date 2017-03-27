@@ -4,7 +4,7 @@
 /*---
 description: Use yield value in a object spread position (Unnamed async generator expression)
 esid: prod-AsyncGeneratorExpression
-features: [object-spread]
+features: [object-spread, async-iteration]
 flags: [generated, async]
 includes: [compareArray.js]
 info: |
@@ -13,6 +13,7 @@ info: |
     AsyncGeneratorExpression :
       async [no LineTerminator here] function * BindingIdentifier ( FormalParameters ) {
         AsyncGeneratorBody }
+
 
     Spread Properties
 

@@ -4,7 +4,7 @@
 /*---
 description: It's an early error if the AssignmentExpression is a function body with yield as an identifier in strict mode. (Async Generator method as a ClassDeclaration element)
 esid: prod-AsyncGeneratorMethod
-features: [object-spread]
+features: [object-spread, async-iteration]
 flags: [generated, onlyStrict]
 negative:
   phase: early
@@ -20,6 +20,7 @@ info: |
 
     AsyncGeneratorMethod :
       async [no LineTerminator here] * PropertyName ( UniqueFormalParameters ) { AsyncGeneratorBody }
+
 
     Spread Properties
 

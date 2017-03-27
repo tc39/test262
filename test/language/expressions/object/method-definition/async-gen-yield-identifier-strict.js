@@ -4,6 +4,7 @@
 /*---
 description: It's an early error if the generator body has another function body with yield as an identifier in strict mode. (Async generator method)
 esid: prod-AsyncGeneratorMethod
+features: [async-iteration]
 flags: [generated, onlyStrict]
 negative:
   phase: early
@@ -13,6 +14,7 @@ info: |
 
     AsyncGeneratorMethod :
       async [no LineTerminator here] * PropertyName ( UniqueFormalParameters ) { AsyncGeneratorBody }
+
 ---*/
 
 var callCount = 0;

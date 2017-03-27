@@ -4,6 +4,7 @@
 /*---
 description: It's an early error if the generator body has another function body with yield as an identifier in strict mode. (Async generator Function declaration)
 esid: prod-AsyncGeneratorDeclaration
+features: [async-iteration]
 flags: [generated, onlyStrict]
 negative:
   phase: early
@@ -14,6 +15,7 @@ info: |
     AsyncGeneratorDeclaration:
       async [no LineTerminator here] function * BindingIdentifier ( FormalParameters ) {
         AsyncGeneratorBody }
+
 ---*/
 
 

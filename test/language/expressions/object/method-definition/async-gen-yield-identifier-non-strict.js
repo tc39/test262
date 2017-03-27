@@ -4,12 +4,14 @@
 /*---
 description: Use of yield as a valid identifier in a function body inside a generator body in non strict mode (Generator method - valid for non-strict only cases)
 esid: prod-AsyncGeneratorMethod
+features: [async-iteration]
 flags: [generated, noStrict, async]
 info: |
     Async Generator Function Definitions
 
     AsyncGeneratorMethod :
       async [no LineTerminator here] * PropertyName ( UniqueFormalParameters ) { AsyncGeneratorBody }
+
 ---*/
 
 

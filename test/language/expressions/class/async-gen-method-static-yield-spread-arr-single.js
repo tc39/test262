@@ -4,6 +4,7 @@
 /*---
 description: Use yield value in a array spread position (Static async generator method as a ClassExpression element)
 esid: prod-AsyncGeneratorMethod
+features: [async-iteration]
 flags: [generated, async]
 info: |
     ClassElement :
@@ -16,6 +17,7 @@ info: |
 
     AsyncGeneratorMethod :
       async [no LineTerminator here] * PropertyName ( UniqueFormalParameters ) { AsyncGeneratorBody }
+
 
     Array Initializer
 
