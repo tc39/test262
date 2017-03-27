@@ -1,15 +1,15 @@
 // This file was procedurally generated from the following sources:
 // - src/async-generators/yield-star-sync-next.case
-// - src/async-generators/default/async-declaration.template
+// - src/async-generators/default/async-expression-named.template
 /*---
-description: execution order for yield* with sync iterator and next() (Async generator Function declaration)
-esid: prod-AsyncGeneratorDeclaration
+description: execution order for yield* with sync iterator and next() (Named async generator expression)
+esid: prod-AsyncGeneratorExpression
 features: [async-iteration, Symbol.asyncIterator, async-iteration]
 flags: [generated, async]
 info: |
     Async Generator Function Definitions
 
-    AsyncGeneratorDeclaration:
+    AsyncGeneratorExpression :
       async [no LineTerminator here] function * BindingIdentifier ( FormalParameters ) {
         AsyncGeneratorBody }
 
@@ -149,7 +149,7 @@ var obj = {
 
 var callCount = 0;
 
-async function *gen() {
+var gen = async function *g() {
   callCount += 1;
   log.push({ name: "before yield*" });
     var v = yield* obj;
@@ -159,7 +159,7 @@ async function *gen() {
     });
     return "return-value";
 
-}
+};
 
 var iter = gen();
 
