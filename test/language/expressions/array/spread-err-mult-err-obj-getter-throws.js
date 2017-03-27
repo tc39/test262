@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/spread/mult-err-obj-getter-throws.case
-// - src/spread/Error/array.template
+// - src/spread/error/array.template
 /*---
 description: Object Spread operator results in error when there is an getter that throws an exception (Array initializer)
 esid: sec-runtime-semantics-arrayaccumulation

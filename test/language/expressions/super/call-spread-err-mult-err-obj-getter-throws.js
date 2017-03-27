@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/spread/mult-err-obj-getter-throws.case
-// - src/spread/Error/super-call.template
+// - src/spread/error/super-call.template
 /*---
 description: Object Spread operator results in error when there is an getter that throws an exception (SuperCall)
 esid: sec-super-keyword-runtime-semantics-evaluation
