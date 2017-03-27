@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/spread/mult-err-obj-getter-throws.case
-// - src/spread/Error/call-expr.template
+// - src/spread/error/call-expr.template
 /*---
 description: Object Spread operator results in error when there is an getter that throws an exception (CallExpression)
 esid: sec-function-calls-runtime-semantics-evaluation

@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
 // - src/spread/mult-err-obj-getter-throws.case
-// - src/spread/Error/member-expr.template
+// - src/spread/error/member-expr.template
 /*---
 description: Object Spread operator results in error when there is an getter that throws an exception (`new` operator)
 esid: sec-new-operator-runtime-semantics-evaluation
