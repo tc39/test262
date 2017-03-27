@@ -6,6 +6,7 @@ desc: >
     Rest deconstruction doesn't happen if getter return is abrupt
 template: error
 esid: pending
+features: [object-rest]
 ---*/
 
 //- setup

@@ -7,6 +7,7 @@ desc: >
     used by CopyDataProperties
 template: error
 esid: pending
+features: [object-rest]
 ---*/
 
 //- error

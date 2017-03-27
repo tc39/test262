@@ -8,6 +8,7 @@ desc: >
     assignment.
 template: default
 esid: pending
+features: [object-rest]
 ---*/
 
 //- setup

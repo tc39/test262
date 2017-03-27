@@ -4,6 +4,7 @@
 desc: Getter in object literal is not evaluated
 template: default
 esid: pending
+features: [object-spread]
 ---*/
 
 //- setup

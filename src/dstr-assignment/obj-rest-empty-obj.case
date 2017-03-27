@@ -6,6 +6,7 @@ desc: >
     RestBindingInitialization creates a new object even if lhs is an empty object
 template: default
 esid: pending
+features: [object-rest]
 ---*/
 
 //- setup

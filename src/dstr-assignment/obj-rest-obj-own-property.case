@@ -6,6 +6,7 @@ desc: >
     Rest object contains just source object's own properties
 template: default
 esid: pending
+features: [object-rest]
 ---*/
 
 //- setup

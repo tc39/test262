@@ -6,6 +6,7 @@ desc: >
     RestBindingInitialization creats an object with indexes as property name
 template: default
 esid: pending
+features: [object-rest]
 ---*/
 
 //- setup

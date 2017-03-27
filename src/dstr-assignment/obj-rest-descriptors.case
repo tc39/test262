@@ -8,6 +8,7 @@ desc: >
 template: default
 esid: pending
 includes: [propertyHelper.js]
+features: [object-rest]
 ---*/
 
 //- setup

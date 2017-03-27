@@ -5,6 +5,7 @@ desc: Object Spread overriding immutable properties
 template: default
 esid: pending
 includes: [propertyHelper.js]
+features: [object-spread]
 ---*/
 
 //- setup
