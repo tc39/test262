@@ -5,6 +5,7 @@
 description: Object Spread operator following other arguments with null, undefined and empty object (SuperCall)
 esid: sec-super-keyword-runtime-semantics-evaluation
 es6id: 12.3.5.1
+features: [object-spread]
 flags: [generated]
 includes: [compareArray.js]
 info: |

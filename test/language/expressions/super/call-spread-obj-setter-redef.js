@@ -5,6 +5,7 @@
 description: Setter are not executed when redefined in Object Spread (SuperCall)
 esid: sec-super-keyword-runtime-semantics-evaluation
 es6id: 12.3.5.1
+features: [object-spread]
 flags: [generated]
 info: |
     SuperCall : super Arguments

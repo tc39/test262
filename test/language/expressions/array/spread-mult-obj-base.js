@@ -5,6 +5,7 @@
 description: Object Spread operator following other arguments (Array initializer)
 esid: sec-runtime-semantics-arrayaccumulation
 es6id: 12.2.5.2
+features: [object-spread]
 flags: [generated]
 includes: [propertyHelper.js]
 info: |
