@@ -11,6 +11,7 @@ info: |
   AsyncGeneratorDeclaration:
     async [no LineTerminator here] function * BindingIdentifier ( FormalParameters ) {
       AsyncGeneratorBody }
+features: [async-iteration]
 ---*/
 
 var callCount = 0;

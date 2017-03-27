@@ -10,6 +10,7 @@ info: |
 
   AsyncGeneratorMethod :
     async [no LineTerminator here] * PropertyName ( UniqueFormalParameters ) { AsyncGeneratorBody }
+features: [async-iteration]
 ---*/
 
 var callCount = 0;
