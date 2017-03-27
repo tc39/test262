@@ -1,8 +1,11 @@
+// Copyright 2017 Tooru Fujisawa. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
 /*---
- author: Tooru Fujisawa [:arai] <arai_a@mac.com>
- esid: pending
- description: execution order for yield* with async iterator and return()
- info: >
+author: Tooru Fujisawa [:arai] <arai_a@mac.com>
+esid: pending
+description: execution order for yield* with async iterator and return()
+info: |
     YieldExpression: yield * AssignmentExpression
 
     ...
@@ -33,7 +36,8 @@
       c. Return ! AsyncGeneratorResolve(generator, value, done).
     ...
 
- flags: [async]
+flags: [async]
+features: [async-iteration]
 ---*/
 
 var log = [];
