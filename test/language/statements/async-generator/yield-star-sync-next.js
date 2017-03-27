@@ -1,8 +1,11 @@
+// Copyright 2017 Tooru Fujisawa. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
 /*---
- author: Tooru Fujisawa [:arai] <arai_a@mac.com>
- esid: pending
- description: execution order for yield* with sync iterator and next()
- info: >
+author: Tooru Fujisawa [:arai] <arai_a@mac.com>
+esid: pending
+description: execution order for yield* with sync iterator and next()
+info: |
     YieldExpression: yield * AssignmentExpression
 
     ...
@@ -56,7 +59,8 @@
 
     1. Return ! CreateIterResultObject(value, F.[[Done]]).
 
- flags: [async]
+flags: [async]
+features: [async-iteration]
 ---*/
 
 var log = [];
