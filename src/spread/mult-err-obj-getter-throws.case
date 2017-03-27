@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 desc: Object Spread operator results in error when there is an getter that throws an exception
-template: Error
+template: error
 esid: pending
 info: |
     Pending Runtime Semantics: PropertyDefinitionEvaluation
