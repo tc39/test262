@@ -6,6 +6,7 @@ desc: >
     RestBindingInitialization creates a new object if lhs is a Symbol
 template: default
 esid: pending
+features: [object-rest]
 ---*/
 
 //- setup

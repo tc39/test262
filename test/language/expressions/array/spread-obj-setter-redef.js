@@ -5,6 +5,7 @@
 description: Setter are not executed when redefined in Object Spread (Array initializer)
 esid: sec-runtime-semantics-arrayaccumulation
 es6id: 12.2.5.2
+features: [object-spread]
 flags: [generated]
 info: |
     SpreadElement : ...AssignmentExpression

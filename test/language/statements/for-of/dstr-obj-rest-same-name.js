@@ -5,7 +5,7 @@
 description: Proper setting in the values for rest name equal to a property name. (For..of statement)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
 es6id: 13.7.5.11
-features: [destructuring-binding]
+features: [object-rest, destructuring-binding]
 flags: [generated]
 info: |
     IterationStatement :

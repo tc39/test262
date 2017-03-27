@@ -4,6 +4,7 @@
 desc: Setter are not executed when redefined in Object Spread
 template: default
 esid: pending
+features: [object-spread]
 ---*/
 
 //- setup

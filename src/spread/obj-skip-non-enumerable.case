@@ -4,6 +4,7 @@
 desc: Object Spread doesn't copy non-enumerable properties
 template: default
 esid: pending
+features: [object-spread]
 ---*/
 
 //- setup

@@ -6,6 +6,7 @@ desc: >
     Proper setting in the values for rest name equal to a property name.
 template: default
 esid: pending
+features: [object-rest]
 ---*/
 
 //- setup

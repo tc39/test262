@@ -5,6 +5,7 @@
 description: Object Spread operator following other arguments with null, undefined and empty object (`new` operator)
 esid: sec-new-operator-runtime-semantics-evaluation
 es6id: 12.3.3.1
+features: [object-spread]
 flags: [generated]
 includes: [compareArray.js]
 info: |

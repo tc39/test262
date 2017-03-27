@@ -6,7 +6,7 @@ desc: >
     The object rest deconstruction assignment target should obey `const` semantics.
 template: error
 esid: pending
-features: [const]
+features: [object-rest]
 ---*/
 
 //- setup
