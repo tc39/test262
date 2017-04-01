@@ -6,7 +6,6 @@ es5id: 12.10-0-1
 description: >
     with does not change declaration scope - vars in with are visible
     outside
-flags: [noStrict]
 ---*/
 
   var o = {};

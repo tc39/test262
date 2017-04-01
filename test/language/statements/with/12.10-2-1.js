@@ -4,7 +4,6 @@
 /*---
 es5id: 12.10-2-1
 description: with - expression being Number
-flags: [noStrict]
 ---*/
 
   var o = 2;

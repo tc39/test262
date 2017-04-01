@@ -9,7 +9,6 @@ es5id: 12.10_A3.8_T2
 description: >
     Declaring function constructor within "with" statement, leading to
     normal completion by "return"
-flags: [noStrict]
 ---*/
 
 this.p1 = 1;

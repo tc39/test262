@@ -9,7 +9,6 @@ es5id: 12.10_A3.12_T2
 description: >
     Calling a function without "with" statement declared within the
     statement, leading to normal completion by "return"
-flags: [noStrict]
 ---*/
 
 this.p1 = 1;

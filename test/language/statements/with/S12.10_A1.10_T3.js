@@ -10,7 +10,6 @@ description: >
     Using iteration statment withing "with" statement leading to
     completion by exception  iteration statement inside with statement
     - exception completion
-flags: [noStrict]
 ---*/
 
 this.p1 = 1;

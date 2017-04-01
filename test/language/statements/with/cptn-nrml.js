@@ -12,7 +12,6 @@ info: >
     10. If C.[[type]] is normal and C.[[value]] is empty, return
         NormalCompletion(undefined).
     11. Return Completion(C).
-flags: [noStrict]
 ---*/
 
 assert.sameValue(eval('1; with({}) { }'), undefined);

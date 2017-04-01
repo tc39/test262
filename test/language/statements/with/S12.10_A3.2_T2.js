@@ -9,7 +9,6 @@ es5id: 12.10_A3.2_T2
 description: >
     Declaring "with" statement within a function body, leading to
     normal completion by "return"
-flags: [noStrict]
 ---*/
 
 this.p1 = 1;

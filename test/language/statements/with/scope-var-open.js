@@ -10,7 +10,6 @@ info: |
     5. Set the withEnvironment flag of newEnv's EnvironmentRecord to true.
     6. Set the running execution context's LexicalEnvironment to newEnv.
     7. Let C be the result of evaluating Statement.
-flags: [noStrict]
 ---*/
 
 var x = 0;

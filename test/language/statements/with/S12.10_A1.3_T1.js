@@ -9,7 +9,6 @@ es5id: 12.10_A1.3_T1
 description: >
     Using "with" statement within function constructor, leading to
     normal completition
-flags: [noStrict]
 ---*/
 
 this.p1 = 1;

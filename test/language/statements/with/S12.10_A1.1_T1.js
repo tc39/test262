@@ -7,7 +7,6 @@ info: >
     scope chain of the current execution context
 es5id: 12.10_A1.1_T1
 description: Using "with" inside of global context leading to normal completion
-flags: [noStrict]
 ---*/
 
 this.p1 = 1;

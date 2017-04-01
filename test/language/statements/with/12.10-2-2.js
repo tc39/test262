@@ -4,7 +4,6 @@
 /*---
 es5id: 12.10-2-2
 description: with - expression being Boolean
-flags: [noStrict]
 ---*/
 
   var o = true;

@@ -11,7 +11,6 @@ info: >
     7. Let C be the result of evaluating Statement.
     8. Set the running execution context's LexicalEnvironment to oldEnv.
     9. Return Completion(UpdateEmpty(C, undefined)).
-flags: [noStrict]
 ---*/
 
 assert.sameValue(

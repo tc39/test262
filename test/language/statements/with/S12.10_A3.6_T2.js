@@ -9,7 +9,6 @@ es5id: 12.10_A3.6_T2
 description: >
     Using "with" statement within another "with" statement, leading to
     completion by exception
-flags: [noStrict]
 ---*/
 
 this.p1 = 1;

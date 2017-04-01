@@ -4,12 +4,9 @@
 /*---
 es5id: 12.10.1-16-s
 description: >
-    Strict Mode - SyntaxError is thrown when the RHS of an object
+    Strict Mode - SyntaxError is not thrown when the RHS of an object
     indexer assignment utilizes WithStatement
-flags: [onlyStrict]
 ---*/
 
 
-assert.throws(SyntaxError, function() {
             eval("var obj = {}; obj['get'] = function (a) { with(a){} };  ");
-});

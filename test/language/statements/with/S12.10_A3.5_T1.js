@@ -9,7 +9,6 @@ es5id: 12.10_A3.5_T1
 description: >
     Using "with" statement within "for-in" statement, leading to
     normal completion
-flags: [noStrict]
 ---*/
 
 this.p1 = 1;

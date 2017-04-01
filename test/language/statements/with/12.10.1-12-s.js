@@ -3,15 +3,12 @@
 
 /*---
 es5id: 12.10.1-12-s
-description: with statement in strict mode throws SyntaxError (strict eval)
-flags: [noStrict]
+description: with statement in strict mode doesnot throw SyntaxError (strict eval)
 ---*/
 
 
-assert.throws(SyntaxError, function() {
     eval("\
           'use strict'; \
           var o = {}; \
           with (o) {}\
         ");
-});

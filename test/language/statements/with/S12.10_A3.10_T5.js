@@ -9,7 +9,6 @@ es5id: 12.10_A3.10_T5
 description: >
     Using iteration statement within "with" statement, leading
     completion be break
-flags: [noStrict]
 ---*/
 
 this.p1 = 1;

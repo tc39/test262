@@ -5,7 +5,6 @@
 info: Changing property using "eval" statement containing "with" statement
 es5id: 12.10_A4_T1
 description: Changing string property
-flags: [noStrict]
 ---*/
 
 this.p1 = 1;

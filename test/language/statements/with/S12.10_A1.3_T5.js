@@ -9,7 +9,6 @@ es5id: 12.10_A1.3_T5
 description: >
     Using "with" statement within function constructor, leading to
     completition by exception
-flags: [noStrict]
 ---*/
 
 this.p1 = 1;

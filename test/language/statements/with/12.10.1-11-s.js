@@ -4,12 +4,9 @@
 /*---
 es5id: 12.10.1-11-s
 description: >
-    Strict Mode - SyntaxError is thrown when using WithStatement in
+    Strict Mode - SyntaxError is not thrown when using WithStatement in
     strict mode code
-flags: [onlyStrict]
 ---*/
 
 
-assert.throws(SyntaxError, function() {
             eval("with ({}) { throw new Error();}");
-});

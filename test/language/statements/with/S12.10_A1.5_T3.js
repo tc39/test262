@@ -9,7 +9,6 @@ es5id: 12.10_A1.5_T3
 description: >
     Using "with" statement within "for-in" statement, leading to
     completion by exception
-flags: [noStrict]
 ---*/
 
 this.p1 = 1;

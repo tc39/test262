@@ -5,7 +5,6 @@
 info: ToObject conversion from null value must throw TypeError
 es5id: 12.10-2-5
 description: Trying to convert null to Object
-flags: [noStrict]
 ---*/
 
 try{
