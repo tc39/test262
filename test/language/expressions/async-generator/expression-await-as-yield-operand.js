@@ -7,6 +7,7 @@ esid: 14.4
 description: >
   AwaitExpressions are valid operands to yield expressions.
 flags: [async]
+features: [async-iteration]
 ---*/
 
 var iter = (async function*() {

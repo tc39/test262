@@ -12,6 +12,7 @@ info: |
   "suspendedYield", generator is resumed and immediately and
   closes the generator and returns completion.
 flags: [async]
+features: [async-iteration]
 ---*/
 
 var error = new Error('boop');

@@ -14,6 +14,7 @@ info: |
 
   AsyncGeneratorResolve will unwrap Promise values (steps 6-10)
 flags: [async]
+features: [async-iteration]
 ---*/
 
 var g = async function*() {
