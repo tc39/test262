@@ -7,6 +7,7 @@ esid: 14.4
 description: >
   The right-hand side of a `yield *` expression may appear on a new line.
 flags: [async]
+features: [async-iteration]
 ---*/
 
 var g = async function*() {};

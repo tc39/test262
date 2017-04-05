@@ -13,6 +13,7 @@ info: |
   "suspendedYield", generator is resumed and immediately closes the generator
   and returns completion.
 flags: [async]
+features: [async-iteration]
 ---*/
 
 var g = async function*() {

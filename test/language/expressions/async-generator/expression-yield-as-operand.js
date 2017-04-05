@@ -8,6 +8,7 @@ description: >
   `yield` expressions may be used as the right-hand-side of other `yield`
   expressions.
 flags: [async]
+features: [async-iteration]
 ---*/
 
 var g = async function*() {

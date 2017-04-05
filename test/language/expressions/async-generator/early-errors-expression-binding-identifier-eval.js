@@ -11,6 +11,7 @@ negative:
   phase: early
   type: SyntaxError
 flags: [onlyStrict]
+features: [async-iteration]
 ---*/
 
 (async function* eval() { });

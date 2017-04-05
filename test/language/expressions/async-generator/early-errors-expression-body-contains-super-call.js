@@ -9,6 +9,7 @@ description: >
 negative:
   phase: early
   type: SyntaxError
+features: [async-iteration]
 ---*/
 
 (async function*() { super(); });

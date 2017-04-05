@@ -9,6 +9,7 @@ description: >
 negative:
   phase: early
   type: ReferenceError
+features: [async-iteration]
 ---*/
 
 (async function*() { } = 1);

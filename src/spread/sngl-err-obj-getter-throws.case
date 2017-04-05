@@ -15,6 +15,7 @@ info: |
     4. Let excludedNames be a new empty List.
     5. Return CopyDataProperties(object, fromValue, excludedNames).
 
+features: [object-spread]
 ---*/
 
 //- error

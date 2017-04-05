@@ -7,6 +7,7 @@ esid: 14.4
 description: >
   Newlines terminate `yield` expressions.
 flags: [async]
+features: [async-iteration]
 ---*/
 
 var g = async function*() {
