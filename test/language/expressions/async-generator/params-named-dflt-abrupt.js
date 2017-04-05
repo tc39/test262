@@ -5,7 +5,7 @@
 description: Abrupt completion returned by evaluation of initializer (async generator named function expression)
 esid: sec-asyncgenerator-definitions-evaluation
 features: [default-parameters, async-iteration]
-flags: [generated, async]
+flags: [generated]
 info: |
     AsyncGeneratorExpression : async [no LineTerminator here] function * BindingIdentifier
         ( FormalParameters ) { AsyncGeneratorBody }

@@ -5,7 +5,7 @@
 description: Referencing a parameter that occurs later in the ParameterList (async generator named function expression)
 esid: sec-asyncgenerator-definitions-evaluation
 features: [default-parameters, async-iteration]
-flags: [generated, async]
+flags: [generated]
 info: |
     AsyncGeneratorExpression : async [no LineTerminator here] function * BindingIdentifier
         ( FormalParameters ) { AsyncGeneratorBody }
