@@ -15,6 +15,6 @@ includes: [testTypedArray.js, detachArrayBuffer.js]
 testWithTypedArrayConstructors(function(TA) {
   var offset = TA.BYTES_PER_ELEMENT;
   var buffer = new ArrayBuffer(3 * offset);
-  var byteOffset = { valueOf() { $DETACHBUFFER(buffer); return 1; } };
+  var byteOffset = { valueOf() { $DETACHBUFFER(buffer); return offset; } };
   assert.throws(TypeError, () => new TA(buffer, byteOffset));
 });
