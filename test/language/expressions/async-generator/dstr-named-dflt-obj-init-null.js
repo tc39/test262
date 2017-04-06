@@ -24,7 +24,7 @@ info: |
 
 
 var f;
-f = async function* g({} = null) {
+f = async function* h({} = null) {
   
 };
 

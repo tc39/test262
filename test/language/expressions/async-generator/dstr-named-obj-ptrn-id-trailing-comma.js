@@ -27,7 +27,7 @@ info: |
 
 var callCount = 0;
 var f;
-f = async function* g({ x, }) {
+f = async function* h({ x, }) {
   assert.sameValue(x, 23);
   callCount = callCount + 1;
 };

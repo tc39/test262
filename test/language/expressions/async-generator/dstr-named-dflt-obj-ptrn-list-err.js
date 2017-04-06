@@ -30,7 +30,7 @@ function thrower() {
 
 
 var f;
-f = async function* g({ a, b = thrower(), c = ++initCount } = {}) {
+f = async function* h({ a, b = thrower(), c = ++initCount } = {}) {
   
 };
 

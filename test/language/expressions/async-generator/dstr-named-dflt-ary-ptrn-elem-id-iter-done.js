@@ -31,7 +31,7 @@ info: |
 
 var callCount = 0;
 var f;
-f = async function* g([_, x] = []) {
+f = async function* h([_, x] = []) {
   assert.sameValue(x, undefined);
   callCount = callCount + 1;
 };

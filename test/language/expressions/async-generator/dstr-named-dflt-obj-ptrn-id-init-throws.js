@@ -31,7 +31,7 @@ function thrower() {
 
 
 var f;
-f = async function* g({ x = thrower() } = {}) {
+f = async function* h({ x = thrower() } = {}) {
   
 };
 

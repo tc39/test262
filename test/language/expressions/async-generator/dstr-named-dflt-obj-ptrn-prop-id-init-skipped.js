@@ -32,7 +32,7 @@ function counter() {
 
 var callCount = 0;
 var f;
-f = async function* g({ s: t = counter(), u: v = counter(), w: x = counter(), y: z = counter() } = { s: null, u: 0, w: false, y: '' }) {
+f = async function* h({ s: t = counter(), u: v = counter(), w: x = counter(), y: z = counter() } = { s: null, u: 0, w: false, y: '' }) {
   assert.sameValue(t, null);
   assert.sameValue(v, 0);
   assert.sameValue(x, false);

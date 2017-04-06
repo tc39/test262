@@ -43,7 +43,7 @@ iter[Symbol.iterator] = function() {
 
 var callCount = 0;
 var f;
-f = async function* g([x]) {
+f = async function* h([x]) {
   assert.sameValue(doneCallCount, 0);
   callCount = callCount + 1;
 };

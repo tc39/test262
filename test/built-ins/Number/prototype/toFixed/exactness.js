@@ -15,5 +15,5 @@ info: >
 ---*/
 
 // Test from a note in the specification
-assert.sameValue((1000000000000000128).toString(0), "1000000000000000100");
+assert.sameValue((1000000000000000128).toString(), "1000000000000000100");
 assert.sameValue((1000000000000000128).toFixed(0), "1000000000000000128");

@@ -17,7 +17,7 @@ info: |
 ---*/
 
 var f;
-f = async function* g(/*{ elems }*/ = /*{ vals }*/) {
+f = async function* h(/*{ elems }*/ = /*{ vals }*/) {
   /*{ body }*/
 };
 

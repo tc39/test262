@@ -47,7 +47,7 @@ function* g() {
 
 var callCount = 0;
 var f;
-f = async function* g([,] = g()) {
+f = async function* h([,] = g()) {
   assert.sameValue(first, 1);
   assert.sameValue(second, 0);
   callCount = callCount + 1;

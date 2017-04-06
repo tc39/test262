@@ -35,7 +35,7 @@ info: |
 
 
 var f;
-f = async function* g({ x = unresolvableReference } = {}) {
+f = async function* h({ x = unresolvableReference } = {}) {
   
 };
 

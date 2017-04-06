@@ -30,7 +30,7 @@ var iter = (function*() { throw new Test262Error(); })();
 
 
 var f;
-f = async function* g([, ...x] = iter) {
+f = async function* h([, ...x] = iter) {
   
 };
 

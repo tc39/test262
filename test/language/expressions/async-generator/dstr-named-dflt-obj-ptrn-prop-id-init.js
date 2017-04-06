@@ -27,7 +27,7 @@ info: |
 
 var callCount = 0;
 var f;
-f = async function* g({ x: y = 33 } = { }) {
+f = async function* h({ x: y = 33 } = { }) {
   assert.sameValue(y, 33);
   assert.throws(ReferenceError, function() {
     x;

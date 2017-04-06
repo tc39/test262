@@ -40,7 +40,7 @@ info: |
 
 var callCount = 0;
 var f;
-f = async function* g([x, y, z] = [1, 2, 3]) {
+f = async function* h([x, y, z] = [1, 2, 3]) {
   assert.sameValue(x, 1);
   assert.sameValue(y, 2);
   assert.sameValue(z, 3);
