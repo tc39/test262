@@ -1,26 +1,11 @@
-// Copyright (C) 2016 the V8 project authors. All rights reserved.
 // Copyright (C) 2016 the Apple Inc. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-object.prototype.tostring
 es6id: 19.1.3.6
-description: Proxy of an array/function is treated as an array/function
+description: Proxy of an function is treated as an function
 info: |
   [...]
-  3. Let O be ToObject(this value).
-  4. Let isArray be ? IsArray(O).
-  5. If isArray is true, let builtinTag be "Array".
-  [...]
-
-  7.2.2 IsArray
-
-  [...]
-  3. If argument is a Proxy exotic object, then
-     a. If the value of the [[ProxyHandler]] internal slot of argument is null,
-        throw a TypeError exception.
-     b. Let target be the value of the [[ProxyTarget]] internal slot of
-        argument.
-     c. Return ? IsArray(target).
 
   9.5.14 ProxyCreate(target, handler)
 
@@ -32,23 +17,7 @@ info: |
 features: [Proxy]
 ---*/
 
-var objectProxy = new Proxy({}, {});
-var arrayProxy = new Proxy([], {});
-var arrayProxyProxy = new Proxy(arrayProxy, {});
-
-assert.sameValue(
-  Object.prototype.toString.call(objectProxy), '[object Object]'
-);
-assert.sameValue(
-  Object.prototype.toString.call(arrayProxy), '[object Array]', 'array proxy'
-);
-assert.sameValue(
-  Object.prototype.toString.call(arrayProxyProxy),
-  '[object Array]',
-  'proxy for array proxy'
-);
-
-var functionProxy = new Proxy(function() { }, {});
+var functionProxy = new Proxy(function() {}, {});
 var functionProxyProxy = new Proxy(functionProxy, {});
 
 assert.sameValue(
@@ -60,7 +29,7 @@ assert.sameValue(
   'proxy for function proxy'
 );
 
-var arrowProxy = new Proxy(() => { }, {});
+var arrowProxy = new Proxy(() => {}, {});
 var arrowProxyProxy = new Proxy(arrowProxy, {});
 
 assert.sameValue(
@@ -72,7 +41,7 @@ assert.sameValue(
   'proxy for arrow function proxy'
 );
 
-var generatorProxy = new Proxy(function*() { }, {});
+var generatorProxy = new Proxy(function*() {}, {});
 var generatorProxyProxy = new Proxy(generatorProxy, {});
 
 assert.sameValue(
@@ -84,7 +53,7 @@ assert.sameValue(
   'proxy for generator function proxy'
 );
 
-delete generatorProxy.__proto__[Symbol.toStringTag];
+delete generatorProxy.constructor.prototype[Symbol.toStringTag];
 
 assert.sameValue(
   Object.prototype.toString.call(generatorProxy), '[object Function]', 'generator function proxy without Symbol.toStringTag'
