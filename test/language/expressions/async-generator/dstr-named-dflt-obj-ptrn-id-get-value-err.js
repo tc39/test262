@@ -31,7 +31,7 @@ var poisonedProperty = Object.defineProperty({}, 'poisoned', {
 
 
 var f;
-f = async function* g({ poisoned } = poisonedProperty) {
+f = async function* h({ poisoned } = poisonedProperty) {
   
 };
 

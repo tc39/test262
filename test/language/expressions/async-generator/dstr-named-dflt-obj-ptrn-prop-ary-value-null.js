@@ -26,7 +26,7 @@ info: |
 
 
 var f;
-f = async function* g({ w: [x, y, z] = [4, 5, 6] } = { w: null }) {
+f = async function* h({ w: [x, y, z] = [4, 5, 6] } = { w: null }) {
   
 };
 

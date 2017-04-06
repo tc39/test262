@@ -35,7 +35,7 @@ var initCount = 0;
 
 var callCount = 0;
 var f;
-f = async function* g([[...x] = function() { initCount += 1; }()]) {
+f = async function* h([[...x] = function() { initCount += 1; }()]) {
   assert(Array.isArray(x));
   assert.sameValue(x[0], 2);
   assert.sameValue(x[1], 1);

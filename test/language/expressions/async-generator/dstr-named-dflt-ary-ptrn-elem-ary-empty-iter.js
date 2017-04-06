@@ -34,7 +34,7 @@ var initCount = 0;
 
 var callCount = 0;
 var f;
-f = async function* g([[] = function() { initCount += 1; }()] = [[23]]) {
+f = async function* h([[] = function() { initCount += 1; }()] = [[23]]) {
   assert.sameValue(initCount, 0);
   callCount = callCount + 1;
 };

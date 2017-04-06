@@ -24,7 +24,7 @@ info: |
 
 
 var f;
-f = async function* g({} = undefined) {
+f = async function* h({} = undefined) {
   
 };
 

@@ -30,7 +30,7 @@ info: |
 
 var callCount = 0;
 var f;
-f = async function* g({ w: { x, y, z } = { x: 4, y: 5, z: 6 } } = { w: undefined }) {
+f = async function* h({ w: { x, y, z } = { x: 4, y: 5, z: 6 } } = { w: undefined }) {
   assert.sameValue(x, 4);
   assert.sameValue(y, 5);
   assert.sameValue(z, 6);

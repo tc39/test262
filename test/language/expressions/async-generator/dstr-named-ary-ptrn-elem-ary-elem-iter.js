@@ -33,7 +33,7 @@ info: |
 
 var callCount = 0;
 var f;
-f = async function* g([[x, y, z] = [4, 5, 6]]) {
+f = async function* h([[x, y, z] = [4, 5, 6]]) {
   assert.sameValue(x, 7);
   assert.sameValue(y, 8);
   assert.sameValue(z, 9);

@@ -28,7 +28,7 @@ var values = [1, 2, 3];
 
 var callCount = 0;
 var f;
-f = async function* g([...x] = values) {
+f = async function* h([...x] = values) {
   assert(Array.isArray(x));
   assert.sameValue(x.length, 3);
   assert.sameValue(x[0], 1);

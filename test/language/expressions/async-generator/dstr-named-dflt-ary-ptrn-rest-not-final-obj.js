@@ -29,7 +29,7 @@ info: |
 
 var callCount = 0;
 var f;
-f = async function* g([...{ x }, y] = [1, 2, 3]) {
+f = async function* h([...{ x }, y] = [1, 2, 3]) {
   
   callCount = callCount + 1;
 };

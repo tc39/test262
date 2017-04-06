@@ -23,7 +23,7 @@ o.z = 3;
 
 var callCount = 0;
 var f;
-f = async function* g({ x, ...{y , z} } = o) {
+f = async function* h({ x, ...{y , z} } = o) {
   assert.sameValue(x, 1);
   assert.sameValue(y, undefined);
   assert.sameValue(z, 3);

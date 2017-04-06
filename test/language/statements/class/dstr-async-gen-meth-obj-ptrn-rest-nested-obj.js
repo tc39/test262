@@ -54,6 +54,6 @@ class C {
   }
 };
 
-new C().method({a: 1, b: 2, c: 3, d: 4, e: 5}).then(() => {
+new C().method({a: 1, b: 2, c: 3, d: 4, e: 5}).next().then(() => {
     assert.sameValue(callCount, 1, 'invoked exactly once');    
 }).then($DONE, $DONE);

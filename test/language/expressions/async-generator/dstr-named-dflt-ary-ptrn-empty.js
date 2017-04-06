@@ -31,7 +31,7 @@ var iter = function*() {
 
 var callCount = 0;
 var f;
-f = async function* g([] = iter) {
+f = async function* h([] = iter) {
   assert.sameValue(iterations, 0);
   callCount = callCount + 1;
 };

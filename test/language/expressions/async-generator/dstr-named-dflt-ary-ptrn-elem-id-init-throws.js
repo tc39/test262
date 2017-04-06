@@ -28,7 +28,7 @@ info: |
 
 
 var f;
-f = async function* g([x = (function() { throw new Test262Error(); })()] = [undefined]) {
+f = async function* h([x = (function() { throw new Test262Error(); })()] = [undefined]) {
   
 };
 

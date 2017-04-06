@@ -23,7 +23,7 @@ Object.defineProperty(o, "x", { value: 4, enumerable: false });
 
 var callCount = 0;
 var f;
-f = async function* g({...rest} = o) {
+f = async function* h({...rest} = o) {
   assert.sameValue(rest.a, 3);
   assert.sameValue(rest.b, 4);
   assert.sameValue(rest.x, undefined);

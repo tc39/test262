@@ -21,7 +21,7 @@ var obj = {a: 3, b: 4};
 
 var callCount = 0;
 var f;
-f = async function* g({a, b, ...{c, e}}) {
+f = async function* h({a, b, ...{c, e}}) {
   assert.sameValue(a, 1);
   assert.sameValue(b, 2);
   assert.sameValue(c, 3);

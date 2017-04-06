@@ -43,7 +43,7 @@ iter[Symbol.iterator] = function() {
 
 
 var f;
-f = async function* g([...x] = iter) {
+f = async function* h([...x] = iter) {
   
 };
 

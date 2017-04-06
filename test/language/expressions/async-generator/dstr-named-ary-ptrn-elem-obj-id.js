@@ -32,7 +32,7 @@ info: |
 
 var callCount = 0;
 var f;
-f = async function* g([{ x, y, z } = { x: 44, y: 55, z: 66 }]) {
+f = async function* h([{ x, y, z } = { x: 44, y: 55, z: 66 }]) {
   assert.sameValue(x, 11);
   assert.sameValue(y, 22);
   assert.sameValue(z, 33);

@@ -34,7 +34,7 @@ info: |
 
 var callCount = 0;
 var f;
-f = async function* g([gen = function* () {}, xGen = function* x() {}]) {
+f = async function* h([gen = function* () {}, xGen = function* x() {}]) {
   assert.sameValue(gen.name, 'gen');
   assert.notSameValue(xGen.name, 'xGen');
   callCount = callCount + 1;
