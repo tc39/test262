@@ -4,7 +4,7 @@
 /*---
 description: Getter is called when obj is being deconstructed to a rest Object (class expression async generator method (default parameter))
 esid: sec-class-definitions-runtime-semantics-evaluation
-features: [async-iteration]
+features: [object-rest, async-iteration]
 flags: [generated, async]
 includes: [propertyHelper.js]
 info: |

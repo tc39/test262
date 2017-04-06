@@ -7,6 +7,7 @@ esid: 14.4
 description: >
   `yield` is a valid statement within async generator function bodies.
 flags: [async]
+features: [async-iteration]
 ---*/
 
 var g1 = async function*() { yield; };

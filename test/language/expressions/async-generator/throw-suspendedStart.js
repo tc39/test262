@@ -12,6 +12,7 @@ info: |
   If completion.[[Type]] is throw, and generator.[[AsyncGeneratorState]] is
   "suspendedStart", generator is closed without being resumed.
 flags: [async]
+features: [async-iteration]
 ---*/
 
 var error = new Error('boop');

@@ -14,6 +14,7 @@ info: |
 
   AsyncGeneratorReject will not unwrap Promise values
 flags: [async]
+features: [async-iteration]
 ---*/
 
 var g = async function*() {

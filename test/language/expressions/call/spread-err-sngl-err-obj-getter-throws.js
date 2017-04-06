@@ -5,6 +5,7 @@
 description: Object Spread operator results in error when there is an getter that throws an exception (CallExpression)
 esid: sec-function-calls-runtime-semantics-evaluation
 es6id: 12.3.4.1
+features: [object-spread]
 flags: [generated]
 info: |
     CallExpression : MemberExpression Arguments

@@ -14,6 +14,7 @@ info: |
   "suspendedYield", and generator is resumed within a try-block with an
   associated finally block, resume execution within finally.
 flags: [async]
+features: [async-iteration]
 ---*/
 
 var error = new Error('boop');

@@ -12,6 +12,7 @@ info: |
   If completion.[[Type]] is return, and generator.[[AsyncGeneratorState]] is
   "suspendedStart", generator is closed without being resumed.
 flags: [async]
+features: [async-iteration]
 ---*/
 
 var g = async function*() {

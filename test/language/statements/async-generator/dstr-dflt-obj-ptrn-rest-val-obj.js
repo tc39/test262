@@ -4,7 +4,7 @@
 /*---
 description: Rest object contains just unextracted data (async generator function declaration (default parameter))
 esid: sec-asyncgenerator-definitions-instantiatefunctionobject
-features: [async-iteration]
+features: [object-rest, async-iteration]
 flags: [generated, async]
 includes: [propertyHelper.js]
 info: |

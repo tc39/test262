@@ -5,6 +5,7 @@
 description: Object Spread operator results in error when there is an getter that throws an exception (`new` operator)
 esid: sec-new-operator-runtime-semantics-evaluation
 es6id: 12.3.3.1
+features: [object-spread]
 flags: [generated]
 info: |
     MemberExpression : new MemberExpression Arguments
