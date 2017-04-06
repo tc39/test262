@@ -7,7 +7,7 @@ import os, shutil, subprocess, sys
 OUT_DIR = os.environ.get('OUT_DIR') or 'test'
 SRC_DIR = os.environ.get('SRC_DIR') or 'src'
 UPSTREAM = os.environ.get('UPSTREAM') or 'git@github.com:tc39/test262.git'
-MAINTAINER = os.environ.get('MAINTAINER') or 'goyakin@microsoft.com'
+MAINTAINER = os.environ.get('MAINTAINER') or 'test262@ecma-international.org'
 
 def shell(*args):
     sp = subprocess.Popen(list(args), stdout=subprocess.PIPE)
