@@ -10,4 +10,4 @@ negative:
 ---*/
 
 async
-(foo,bar) => { }
+(foo) => { }

@@ -9,7 +9,7 @@ negative:
   type: SyntaxError
 ---*/
 
-{
+!{
   async
-  foo () { }
+  foo() { }
 }

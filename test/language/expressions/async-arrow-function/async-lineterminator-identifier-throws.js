@@ -4,10 +4,9 @@
 /*---
 esid: prod-AsyncArrowFunction
 description: async arrows cannot have a line terminator between "async" and the AsyncArrowBindingIdentifier
-negative:
-  phase: early
-  type: ReferenceError
 ---*/
 
-async
-foo => { }
+assert.throws(ReferenceError, function() {
+  async
+  identifier => {}
+});
