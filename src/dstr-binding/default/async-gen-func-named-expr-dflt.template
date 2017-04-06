@@ -19,7 +19,7 @@ flags: [async]
 
 var callCount = 0;
 var f;
-f = async function* g(/*{ elems }*/ = /*{ vals }*/) {
+f = async function* h(/*{ elems }*/ = /*{ vals }*/) {
   /*{ body }*/
   callCount = callCount + 1;
 };
