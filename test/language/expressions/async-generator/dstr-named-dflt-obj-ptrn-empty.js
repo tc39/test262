@@ -32,7 +32,7 @@ var obj = Object.defineProperty({}, 'attr', {
 
 var callCount = 0;
 var f;
-f = async function* g({} = obj) {
+f = async function* h({} = obj) {
   assert.sameValue(accessCount, 0);
   callCount = callCount + 1;
 };

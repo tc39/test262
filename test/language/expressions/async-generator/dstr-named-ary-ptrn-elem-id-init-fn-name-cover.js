@@ -34,7 +34,7 @@ info: |
 
 var callCount = 0;
 var f;
-f = async function* g([cover = (function () {}), xCover = (0, function() {})]) {
+f = async function* h([cover = (function () {}), xCover = (0, function() {})]) {
   assert.sameValue(cover.name, 'cover');
   assert.notSameValue(xCover.name, 'xCover');
   callCount = callCount + 1;

@@ -53,7 +53,7 @@ info: |
 
 var callCount = 0;
 var f;
-f = async function* g([...[x, y, z]]) {
+f = async function* h([...[x, y, z]]) {
   assert.sameValue(x, 3);
   assert.sameValue(y, 4);
   assert.sameValue(z, 5);

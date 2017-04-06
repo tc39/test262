@@ -35,7 +35,7 @@ var iter = function*() { iterCount += 1; }();
 
 var callCount = 0;
 var f;
-f = async function* g([[] = function() { initCount += 1; return iter; }()] = []) {
+f = async function* h([[] = function() { initCount += 1; return iter; }()] = []) {
   assert.sameValue(initCount, 1);
   assert.sameValue(iterCount, 0);
   callCount = callCount + 1;

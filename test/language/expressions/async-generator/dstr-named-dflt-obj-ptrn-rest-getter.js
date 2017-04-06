@@ -22,7 +22,7 @@ var count = 0;
 
 var callCount = 0;
 var f;
-f = async function* g({...x} = { get v() { count++; return 2; } }) {
+f = async function* h({...x} = { get v() { count++; return 2; } }) {
   assert.sameValue(x.v, 2);
   assert.sameValue(count, 1);
 

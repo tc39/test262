@@ -28,7 +28,7 @@ info: |
 
 var callCount = 0;
 var f;
-f = async function* g({ w: { x, y, z } = { x: 4, y: 5, z: 6 } } = { w: { x: undefined, z: 7 } }) {
+f = async function* h({ w: { x, y, z } = { x: 4, y: 5, z: 6 } } = { w: { x: undefined, z: 7 } }) {
   assert.sameValue(x, undefined);
   assert.sameValue(y, undefined);
   assert.sameValue(z, 7);

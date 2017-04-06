@@ -34,7 +34,7 @@ function counter() {
 
 var callCount = 0;
 var f;
-f = async function* g([w = counter(), x = counter(), y = counter(), z = counter()] = [null, 0, false, '']) {
+f = async function* h([w = counter(), x = counter(), y = counter(), z = counter()] = [null, 0, false, '']) {
   assert.sameValue(w, null);
   assert.sameValue(x, 0);
   assert.sameValue(y, false);

@@ -41,7 +41,7 @@ var iter =function* () {
 
 
 var f;
-f = async function* g([,] = iter) {
+f = async function* h([,] = iter) {
   
 };
 

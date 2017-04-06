@@ -31,7 +31,7 @@ info: |
 
 var callCount = 0;
 var f;
-f = async function* g([, , ...x]) {
+f = async function* h([, , ...x]) {
   assert(Array.isArray(x));
   assert.sameValue(x.length, 0);
   callCount = callCount + 1;

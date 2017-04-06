@@ -33,7 +33,7 @@ info: |
 
 var callCount = 0;
 var f;
-f = async function* g([...{ length }]) {
+f = async function* h([...{ length }]) {
   assert.sameValue(length, 3);
   callCount = callCount + 1;
 };

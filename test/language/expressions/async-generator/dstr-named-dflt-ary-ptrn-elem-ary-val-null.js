@@ -37,7 +37,7 @@ info: |
 
 
 var f;
-f = async function* g([[x]] = [null]) {
+f = async function* h([[x]] = [null]) {
   
 };
 

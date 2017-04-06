@@ -63,6 +63,6 @@ class C {
   }
 };
 
-new C().method([{ x: 11, y: 22, z: 33 }]).then(() => {
+new C().method([{ x: 11, y: 22, z: 33 }]).next().then(() => {
     assert.sameValue(callCount, 1, 'invoked exactly once');    
 }).then($DONE, $DONE);

@@ -36,7 +36,7 @@ g[Symbol.iterator] = function() {
 
 
 var f;
-f = async function* g([x] = g) {
+f = async function* h([x] = g) {
   
 };
 
