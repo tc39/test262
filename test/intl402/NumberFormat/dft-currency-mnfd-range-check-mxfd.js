@@ -17,5 +17,5 @@ assert.throws(RangeError, () => new Intl.NumberFormat('en', {
 assert.throws(RangeError, () => new Intl.NumberFormat('en', {
     style: 'currency',
     currency: 'CLF',
-    maximumFractionDigits: 4
-}), 'CurrencyDigits(CLF) == 4');
+    maximumFractionDigits: 3
+}), 'CurrencyDigits(CLF) == 3');
