@@ -15,7 +15,6 @@ info: |
     5. Let received be NormalCompletion(undefined).
     6. Repeat
       a. If received.[[Type]] is normal, then
-        i. Let innerResult be ? IteratorNext(iterator, received.[[Value]]).
         ii. Let innerResult be ? Invoke(iterator, "next",
             « received.[[Value]] »).
         iii. If generatorKind is async, then set innerResult to
