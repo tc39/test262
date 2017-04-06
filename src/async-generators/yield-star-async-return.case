@@ -1,19 +1,10 @@
-// This file was procedurally generated from the following sources:
-// - src/async-generators/yield-star-async-return.case
-// - src/async-generators/default/async-declaration.template
+// Copyright 2017 Tooru Fujisawa. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
 /*---
-description: execution order for yield* with async iterator and return() (Async generator Function declaration)
-esid: prod-AsyncGeneratorDeclaration
-features: [async-iteration, Symbol.asyncIterator, async-iteration]
-flags: [generated, async]
+template: default
+desc: execution order for yield* with async iterator and return()
 info: |
-    Async Generator Function Definitions
-
-    AsyncGeneratorDeclaration:
-      async [no LineTerminator here] function * BindingIdentifier ( FormalParameters ) {
-        AsyncGeneratorBody }
-
-
     YieldExpression: yield * AssignmentExpression
 
     ...
@@ -44,7 +35,11 @@ info: |
       c. Return ! AsyncGeneratorResolve(generator, value, done).
     ...
 
+flags: [async]
+features: [async-iteration, Symbol.asyncIterator]
 ---*/
+
+//- setup
 var log = [];
 var obj = {
   [Symbol.asyncIterator]() {
@@ -150,19 +145,11 @@ var obj = {
   }
 };
 
-
-
-var callCount = 0;
-
-async function *gen() {
-  callCount += 1;
+//- body
   log.push({ name: "before yield*" });
-    yield* obj;
+  yield* obj;
 
-}
-
-var iter = gen();
-
+//- assertions
 assert.sameValue(log.length, 0, "log.length");
 
 iter.next().then(v => {
@@ -238,5 +225,3 @@ iter.next().then(v => {
     }).then($DONE, $DONE);
   }).catch($DONE);
 }).catch($DONE);
-
-assert.sameValue(callCount, 1);

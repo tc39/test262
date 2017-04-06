@@ -1,19 +1,10 @@
-// This file was procedurally generated from the following sources:
-// - src/async-generators/yield-star-sync-next.case
-// - src/async-generators/default/async-declaration.template
+// Copyright 2017 Tooru Fujisawa. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
 /*---
-description: execution order for yield* with sync iterator and next() (Async generator Function declaration)
-esid: prod-AsyncGeneratorDeclaration
-features: [async-iteration, Symbol.asyncIterator, async-iteration]
-flags: [generated, async]
+template: default
+desc: execution order for yield* with sync iterator and next()
 info: |
-    Async Generator Function Definitions
-
-    AsyncGeneratorDeclaration:
-      async [no LineTerminator here] function * BindingIdentifier ( FormalParameters ) {
-        AsyncGeneratorBody }
-
-
     YieldExpression: yield * AssignmentExpression
 
     ...
@@ -67,7 +58,11 @@ info: |
 
     1. Return ! CreateIterResultObject(value, F.[[Done]]).
 
+flags: [async]
+features: [async-iteration, Symbol.asyncIterator]
 ---*/
+
+//- setup
 var log = [];
 var obj = {
   get [Symbol.iterator]() {
@@ -145,24 +140,16 @@ var obj = {
   }
 };
 
-
-
-var callCount = 0;
-
-async function *gen() {
-  callCount += 1;
+//- body
   log.push({ name: "before yield*" });
-    var v = yield* obj;
-    log.push({
-      name: "after yield*",
-      value: v
-    });
-    return "return-value";
+  var v = yield* obj;
+  log.push({
+    name: "after yield*",
+    value: v
+  });
+  return "return-value";
 
-}
-
-var iter = gen();
-
+//- assertions
 assert.sameValue(log.length, 0, "log.length");
 
 iter.next("next-arg-1").then(v => {
@@ -220,5 +207,3 @@ iter.next("next-arg-1").then(v => {
     assert.sameValue(log.length, 13, "log.length");
   }).then($DONE, $DONE);
 }).catch($DONE);
-
-assert.sameValue(callCount, 1);

@@ -1,17 +1,22 @@
 // This file was procedurally generated from the following sources:
 // - src/async-generators/yield-star-sync-throw.case
-// - src/async-generators/default/async-declaration.template
+// - src/async-generators/default/async-class-decl-method.template
 /*---
-description: execution order for yield* with sync iterator and throw() (Async generator Function declaration)
-esid: prod-AsyncGeneratorDeclaration
+description: execution order for yield* with sync iterator and throw() (Async Generator method as a ClassDeclaration element)
+esid: prod-AsyncGeneratorMethod
 features: [async-iteration, async-iteration]
 flags: [generated, async]
 info: |
+    ClassElement :
+      MethodDefinition
+
+    MethodDefinition :
+      AsyncGeneratorMethod
+
     Async Generator Function Definitions
 
-    AsyncGeneratorDeclaration:
-      async [no LineTerminator here] function * BindingIdentifier ( FormalParameters ) {
-        AsyncGeneratorBody }
+    AsyncGeneratorMethod :
+      async [no LineTerminator here] * PropertyName ( UniqueFormalParameters ) { AsyncGeneratorBody }
 
 
     YieldExpression: yield * AssignmentExpression
@@ -127,17 +132,19 @@ var obj = {
 
 var callCount = 0;
 
-async function *gen() {
-  callCount += 1;
-  log.push({ name: "before yield*" });
-    var v = yield* obj;
-    log.push({
-      name: "after yield*",
-      value: v
-    });
-    return "return-value";
+class C { async *gen() {
+    callCount += 1;
+    log.push({ name: "before yield*" });
+      var v = yield* obj;
+      log.push({
+        name: "after yield*",
+        value: v
+      });
+      return "return-value";
 
-}
+}}
+
+var gen = C.prototype.gen;
 
 var iter = gen();
 
