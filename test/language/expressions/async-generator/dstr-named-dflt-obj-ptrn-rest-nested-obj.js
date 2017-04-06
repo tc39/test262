@@ -4,7 +4,7 @@
 /*---
 description: When DestructuringAssignmentTarget is an object literal, it should be parsed parsed as a DestructuringAssignmentPattern and evaluated as a destructuring assignment. (async generator named function expression (default parameter))
 esid: sec-asyncgenerator-definitions-evaluation
-features: [async-iteration]
+features: [object-rest, async-iteration]
 flags: [generated, async]
 info: |
     AsyncGeneratorExpression : async [no LineTerminator here] function * BindingIdentifier

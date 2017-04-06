@@ -4,7 +4,7 @@
 /*---
 description: Rest object contains just soruce object's own properties (async generator function declaration)
 esid: sec-asyncgenerator-definitions-instantiatefunctionobject
-features: [async-iteration]
+features: [object-rest, async-iteration]
 flags: [generated, async]
 includes: [propertyHelper.js]
 info: |

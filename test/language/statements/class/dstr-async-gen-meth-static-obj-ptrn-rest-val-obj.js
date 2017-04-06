@@ -4,7 +4,7 @@
 /*---
 description: Rest object contains just unextracted data (static class expression async generator method)
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation
-features: [async-iteration]
+features: [object-rest, async-iteration]
 flags: [generated, async]
 includes: [propertyHelper.js]
 info: |

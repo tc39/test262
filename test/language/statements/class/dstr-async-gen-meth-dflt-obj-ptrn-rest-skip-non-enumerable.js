@@ -4,7 +4,7 @@
 /*---
 description: Rest object doesn't contain non-enumerable properties (class expression async generator method (default parameters))
 esid: sec-class-definitions-runtime-semantics-evaluation
-features: [async-iteration]
+features: [object-rest, async-iteration]
 flags: [generated, async]
 includes: [propertyHelper.js]
 info: |
