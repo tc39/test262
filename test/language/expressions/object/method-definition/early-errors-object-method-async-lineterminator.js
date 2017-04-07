@@ -14,7 +14,7 @@ negative:
   type: SyntaxError
 ---*/
 
-!{
+({
   async
   foo() { }
-}
+})
