@@ -2,14 +2,14 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: prod-annexB-ClassEscape
+esid: prod-annexB-ClassAtomNoDash
 description: >
   Character classes containing an invalid control escape behave like [\\c]
 info: >
-  ClassEscape :: [~U] `c`
+  ClassAtomNoDash :: `\`
 
-  The production ClassEscape :: `c` evaluates as follows:
-    1. Return the CharSet containing the characters `\` and `c`.
+  The production ClassAtomNoDash :: `\` evaluates as follows:
+    1. Return the CharSet containing the single character `\`.
 ---*/
 
 function* invalidControls() {
