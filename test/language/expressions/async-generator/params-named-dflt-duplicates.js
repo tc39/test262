@@ -5,7 +5,7 @@
 description: It is a Syntax Error if BoundNames of FormalParameters contains any duplicate elements. (async generator named function expression)
 esid: sec-asyncgenerator-definitions-evaluation
 features: [default-parameters, async-iteration]
-flags: [generated, async]
+flags: [generated]
 negative:
   phase: early
   type: SyntaxError
