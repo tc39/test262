@@ -5,7 +5,7 @@
 description: It's a syntax error if a FunctionRestParameter is followed by a trailing comma (async generator named function expression)
 esid: sec-asyncgenerator-definitions-evaluation
 features: [async-iteration]
-flags: [generated, async]
+flags: [generated]
 negative:
   phase: early
   type: SyntaxError
