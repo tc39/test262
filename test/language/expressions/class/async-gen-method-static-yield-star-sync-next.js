@@ -192,11 +192,11 @@ iter.next("next-arg-1").then(v => {
   assert.sameValue(log[5].args.length, 1, "next args.length");
   assert.sameValue(log[5].args[0], undefined, "next args[0]");
 
-  assert.sameValue(log[6].name, "get next value (1)");
-  assert.sameValue(log[6].thisValue.name, "next-result-1", "get next value thisValue");
+  assert.sameValue(log[6].name, "get next done (1)");
+  assert.sameValue(log[6].thisValue.name, "next-result-1", "get next done thisValue");
 
-  assert.sameValue(log[7].name, "get next done (1)");
-  assert.sameValue(log[7].thisValue.name, "next-result-1", "get next done thisValue");
+  assert.sameValue(log[7].name, "get next value (1)");
+  assert.sameValue(log[7].thisValue.name, "next-result-1", "get next value thisValue");
 
   assert.sameValue(v.value, "next-value-1");
   assert.sameValue(v.done, false);
@@ -212,11 +212,11 @@ iter.next("next-arg-1").then(v => {
     assert.sameValue(log[9].args.length, 1, "next args.length");
     assert.sameValue(log[9].args[0], "next-arg-2", "next args[0]");
 
-    assert.sameValue(log[10].name, "get next value (2)");
-    assert.sameValue(log[10].thisValue.name, "next-result-2", "get next value thisValue");
+    assert.sameValue(log[10].name, "get next done (2)");
+    assert.sameValue(log[10].thisValue.name, "next-result-2", "get next done thisValue");
 
-    assert.sameValue(log[11].name, "get next done (2)");
-    assert.sameValue(log[11].thisValue.name, "next-result-2", "get next done thisValue");
+    assert.sameValue(log[11].name, "get next value (2)");
+    assert.sameValue(log[11].thisValue.name, "next-result-2", "get next value thisValue");
 
     assert.sameValue(log[12].name, "after yield*");
     assert.sameValue(log[12].value, "next-value-2");
