@@ -4,5 +4,5 @@ script:
   - echo The test generation tool should be working.
   - ./tools/generation/test/run.py
   - sh ./tools/scripts/ci.sh
-deploy:
+after_success:
   - sh ./tools/scripts/deploy.sh
