@@ -3,7 +3,6 @@ install: pip install pyyaml
 script:
   - echo The test generation tool should be working.
   - ./tools/generation/test/run.py
-  - echo "PULL_REQUEST: ${TRAVIS_PULL_REQUEST}"
   - sh ./tools/scripts/ci.sh
 deploy:
   - sh ./tools/scripts/deploy.sh
