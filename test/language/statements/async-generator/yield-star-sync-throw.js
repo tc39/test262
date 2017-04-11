@@ -162,11 +162,11 @@ iter.next().then(v => {
     assert.sameValue(log[3].args.length, 1, "throw args.length");
     assert.sameValue(log[3].args[0], "throw-arg-1", "throw args[0]");
 
-    assert.sameValue(log[4].name, "get throw value (1)");
-    assert.sameValue(log[4].thisValue.name, "throw-result-1", "get throw value thisValue");
+    assert.sameValue(log[4].name, "get throw done (1)");
+    assert.sameValue(log[4].thisValue.name, "throw-result-1", "get throw done thisValue");
 
-    assert.sameValue(log[5].name, "get throw done (1)");
-    assert.sameValue(log[5].thisValue.name, "throw-result-1", "get throw done thisValue");
+    assert.sameValue(log[5].name, "get throw value (1)");
+    assert.sameValue(log[5].thisValue.name, "throw-result-1", "get throw value thisValue");
 
     assert.sameValue(v.value, "throw-value-1");
     assert.sameValue(v.done, false);
@@ -182,11 +182,11 @@ iter.next().then(v => {
       assert.sameValue(log[7].args.length, 1, "throw args.length");
       assert.sameValue(log[7].args[0], "throw-arg-2", "throw args[0]");
 
-      assert.sameValue(log[8].name, "get throw value (2)");
-      assert.sameValue(log[8].thisValue.name, "throw-result-2", "get throw value thisValue");
+      assert.sameValue(log[8].name, "get throw done (2)");
+      assert.sameValue(log[8].thisValue.name, "throw-result-2", "get throw done thisValue");
 
-      assert.sameValue(log[9].name, "get throw done (2)");
-      assert.sameValue(log[9].thisValue.name, "throw-result-2", "get throw done thisValue");
+      assert.sameValue(log[9].name, "get throw value (2)");
+      assert.sameValue(log[9].thisValue.name, "throw-result-2", "get throw value thisValue");
 
       assert.sameValue(log[10].name, "after yield*");
       assert.sameValue(log[10].value, "throw-value-2");

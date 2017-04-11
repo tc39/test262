@@ -166,11 +166,11 @@ iter.next().then(v => {
     assert.sameValue(log[3].args.length, 1, "return args.length");
     assert.sameValue(log[3].args[0], "return-arg-1", "return args[0]");
 
-    assert.sameValue(log[4].name, "get return value (1)");
-    assert.sameValue(log[4].thisValue.name, "return-result-1", "get return value thisValue");
+    assert.sameValue(log[4].name, "get return done (1)");
+    assert.sameValue(log[4].thisValue.name, "return-result-1", "get return done thisValue");
 
-    assert.sameValue(log[5].name, "get return done (1)");
-    assert.sameValue(log[5].thisValue.name, "return-result-1", "get return done thisValue");
+    assert.sameValue(log[5].name, "get return value (1)");
+    assert.sameValue(log[5].thisValue.name, "return-result-1", "get return value thisValue");
 
     assert.sameValue(v.value, "return-value-1");
     assert.sameValue(v.done, false);
@@ -186,11 +186,11 @@ iter.next().then(v => {
       assert.sameValue(log[7].args.length, 1, "return args.length");
       assert.sameValue(log[7].args[0], "return-arg-2", "return args[0]");
 
-      assert.sameValue(log[8].name, "get return value (2)");
-      assert.sameValue(log[8].thisValue.name, "return-result-2", "get return value thisValue");
+      assert.sameValue(log[8].name, "get return done (2)");
+      assert.sameValue(log[8].thisValue.name, "return-result-2", "get return done thisValue");
 
-      assert.sameValue(log[9].name, "get return done (2)");
-      assert.sameValue(log[9].thisValue.name, "return-result-2", "get return done thisValue");
+      assert.sameValue(log[9].name, "get return value (2)");
+      assert.sameValue(log[9].thisValue.name, "return-result-2", "get return value thisValue");
 
       assert.sameValue(v.value, "return-value-2");
       assert.sameValue(v.done, true);
