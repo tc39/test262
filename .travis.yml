@@ -1,7 +1,17 @@
 language: python
 install: pip install pyyaml
-script: ./make.py
-after_success: |
+script: |
+  if [ $TRAVIS_PULL_REQUEST != "false" ]; then
+    ./make.py clean
+  fi
+  ./make.py
+  if [ -n "$(git status --porcelain)" -a $TRAVIS_PULL_REQUEST != "false" ]; then
+    echo New changes were found after re-generating the tests.
+    echo Please, read the documentation on procedurally generated tests
+    echo 'https://github.com/tc39/test262/blob/master/CONTRIBUTING.md#procedurally-generated-tests'
+    exit 1
+  fi
+deploy: |
   if [ $TRAVIS_EVENT_TYPE != "push" -o $TRAVIS_BRANCH != "master" ]; then
     echo This job is not running against a commit that has been merged to master.
     echo Skipping deployment.
