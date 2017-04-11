@@ -4,6 +4,7 @@ script: |
   if [ $TRAVIS_PULL_REQUEST != "false" ]; then
     ./make.py clean
   fi
+  echo "PULL_REQUEST: '${TRAVIS_PULL_REQUEST}'"
   ./make.py
   if [ -n "$(git status --porcelain)" -a $TRAVIS_PULL_REQUEST != "false" ]; then
     echo New changes were found after re-generating the tests.
