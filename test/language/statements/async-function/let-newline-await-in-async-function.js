@@ -5,19 +5,18 @@
 author: Jeff Walden <jwalden+code@mit.edu>
 esid: sec-let-and-const-declarations
 description: >
-  `await` must not be considered a permissible binding name in
-  LexicalDeclaration as used in async functions.
+  `let await` does not permit ASI in between, as `await` is a BindingIdentifier
 info: >
-  LexicalDeclaration is parametrized to indicate whether `async` is permitted as
-  binding name.  In async functions `await` is excluded from LexicalDeclaration
-  as a binding name.  Therefore ASI *can* apply between `let` (where a
-  LexicalDeclaration is permitted) and `await`, so a subsequent `0` forms part
-  of an AwaitExpression and there is no syntax error.
+  `await` is a perfectly cromulent binding name in any context grammatically, just
+  prohibited by static semantics in some contexts.  Therefore ASI can never apply
+  between `let` (where a LexicalDeclaration is permitted) and `await`,
+  so a subsequent `0` where `=` was expected is a syntax error.
+negative:
+  phase: early
+  type: SyntaxError
 ---*/
 
 async function f() {
     let
     await 0;
 }
-
-assert(f instanceof Function);
