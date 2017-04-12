@@ -3,11 +3,9 @@
 /*---
 es6id: 12.2.8
 description: Template caching using distinct expressions within `eval`
-info: |
-    Previously-created template objects should be retrieved from the internal
-    template registry when their source is identical but their expressions
-    evaluate to different values and the tagged template is being evaluated in
-    an `eval` context.
+info: >
+    Templates are cached by source location; different locations will
+    have different template objects.
 ---*/
 function tag(templateObject) {
   previousObject = templateObject;
@@ -23,4 +21,4 @@ assert(firstObject !== null);
 previousObject = null;
 
 eval('tag`head${b}tail`');
-assert.sameValue(previousObject, firstObject);
+assert.notSameValue(previousObject, firstObject);

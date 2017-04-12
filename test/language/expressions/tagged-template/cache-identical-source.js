@@ -3,9 +3,9 @@
 /*---
 es6id: 12.2.8
 description: Template caching using identical expressions
-info: |
-    Previously-created template objects should be retrieved from the internal
-    template registry when their source is identical.
+info: >
+    Templates are cached by source location; different locations will
+    have different template objects.
 ---*/
 function tag(templateObject) {
   previousObject = templateObject;
@@ -20,8 +20,8 @@ assert(firstObject !== null);
 previousObject = null;
 
 tag`head${a}tail`;
-assert.sameValue(
+assert.notSameValue(
   previousObject,
   firstObject,
-  'The realm\'s template cache is used when tagged templates are executed in the source code directly'
+  'The realm\'s template cache is by site, not string contents'
 );

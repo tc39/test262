@@ -3,10 +3,9 @@
 /*---
 es6id: 12.2.8
 description: Template caching using identical expressions within `new Function`
-info: |
-    Previously-created template objects should be retrieved from the internal
-    template registry when their source is identical and the tagged template is
-    being evaluated in a `new Function` context.
+info: >
+    Templates are cached by source location; different locations will
+    have different template objects.
 ---*/
 function tag(templateObject) {
   previousObject = templateObject;
@@ -21,4 +20,4 @@ assert(firstObject !== null);
 previousObject = null;
 
 (new Function('tag', 'a', 'b', 'return tag`head${b}tail`;'))(tag, 1, 2);
-assert.sameValue(previousObject, firstObject);
+assert.notSameValue(previousObject, firstObject);

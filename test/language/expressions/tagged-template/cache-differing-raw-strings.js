@@ -2,10 +2,10 @@
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 es6id: 12.2.8
-description: Templates are cached according to their "raw" representation
-info: |
-    The internal template registry should be queried according to the "raw"
-    strings of the tagged template.
+description: Templates are cached according to their site
+info: >
+    Templates are cached by source location; different locations will
+    have different template objects.
 ---*/
 var previousObject = null;
 var firstObject = null;
