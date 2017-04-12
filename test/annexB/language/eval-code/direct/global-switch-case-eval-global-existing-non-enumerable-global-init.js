@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
-// - src/annex-b-fns/eval-global-existing-global-init.case
+// - src/annex-b-fns/eval-global-existing-non-enumerable-global-init.case
 // - src/annex-b-fns/eval-global/direct-switch-case.template
 /*---
-description: Variable binding is left in place by legacy function hoisting (Function declaration in the `case` clause of a `switch` statement in eval code)
+description: Variable binding is left in place by legacy function hoisting. CreateGlobalVariableBinding leaves the binding as non-enumerable even if it has the chance to change it to be enumerable. (Function declaration in the `case` clause of a `switch` statement in eval code)
 esid: sec-web-compat-evaldeclarationinstantiation
 es6id: B.3.3.3
 flags: [generated, noStrict]
@@ -18,9 +18,9 @@ info: |
 ---*/
 Object.defineProperty(fnGlobalObject(), 'f', {
   value: 'x',
-  enumerable: true,
+  enumerable: false,
   writable: true,
-  configurable: false
+  configurable: true
 });
 
 eval(
@@ -28,9 +28,9 @@ eval(
   assert.sameValue(f, "x", "binding is not reinitialized");\
   \
   verifyProperty(global, "f", {\
-    enumerable: true,\
+    enumerable: false,\
     writable: true,\
-    configurable: false\
+    configurable: true\
   }, { restore: true });switch (1) {' +
   '  case 1:' +
   '    function f() {  }' +
@@ -39,8 +39,8 @@ eval(
 );
 
 assert.sameValue(typeof f, "function");
-verifyProperty(global, "f", {
-  enumerable: true,
+verifyProperty(global, 'f', {
+  enumerable: false,
   writable: true,
-  configurable: false
+  configurable: true
 });
