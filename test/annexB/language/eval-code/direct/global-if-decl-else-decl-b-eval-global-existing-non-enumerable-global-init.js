@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
-// - src/annex-b-fns/eval-global-existing-global-init.case
-// - src/annex-b-fns/eval-global/direct-if-decl-else-stmt.template
+// - src/annex-b-fns/eval-global-existing-non-enumerable-global-init.case
+// - src/annex-b-fns/eval-global/direct-if-decl-else-decl-b.template
 /*---
-description: Variable binding is left in place by legacy function hoisting (IfStatement with a declaration in the first statement position in eval code)
+description: Variable binding is left in place by legacy function hoisting. CreateGlobalVariableBinding leaves the binding as non-enumerable even if it has the chance to change it to be enumerable. (IfStatement with a declaration in both statement positions in eval code)
 esid: sec-functiondeclarations-in-ifstatement-statement-clauses
 es6id: B.3.4
 flags: [generated, noStrict]
@@ -27,9 +27,9 @@ info: |
 ---*/
 Object.defineProperty(fnGlobalObject(), 'f', {
   value: 'x',
-  enumerable: true,
+  enumerable: false,
   writable: true,
-  configurable: false
+  configurable: true
 });
 
 eval(
@@ -37,15 +37,15 @@ eval(
   assert.sameValue(f, "x", "binding is not reinitialized");\
   \
   verifyProperty(global, "f", {\
-    enumerable: true,\
+    enumerable: false,\
     writable: true,\
-    configurable: false\
-  }, { restore: true });if (true) function f() {  } else ;'
+    configurable: true\
+  }, { restore: true });if (false) function _f() {} else function f() {  }'
 );
 
 assert.sameValue(typeof f, "function");
-verifyProperty(global, "f", {
-  enumerable: true,
+verifyProperty(global, 'f', {
+  enumerable: false,
   writable: true,
-  configurable: false
+  configurable: true
 });
