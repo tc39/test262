@@ -1,8 +1,8 @@
 // This file was procedurally generated from the following sources:
-// - src/annex-b-fns/eval-global-existing-global-init.case
-// - src/annex-b-fns/eval-global/direct-if-decl-else-stmt.template
+// - src/annex-b-fns/global-existing-global-init.case
+// - src/annex-b-fns/global/if-decl-no-else.template
 /*---
-description: Variable binding is left in place by legacy function hoisting (IfStatement with a declaration in the first statement position in eval code)
+description: Variable binding is left in place by legacy function hoisting. CreateGlobalVariableBinding leaves the binding as non-enumerable even if it has the chance to change it to be enumerable. (IfStatement without an else clause in the global scope)
 esid: sec-functiondeclarations-in-ifstatement-statement-clauses
 es6id: B.3.4
 flags: [generated, noStrict]
@@ -17,35 +17,40 @@ info: |
         if ( Expression[In, ?Yield] ) FunctionDeclaration[?Yield]
 
 
-    B.3.3.3 Changes to EvalDeclarationInstantiation
+    B.3.3.3 Changes to GlobalDeclarationInstantiation
 
     [...]
-    i. If varEnvRec is a global Environment Record, then
-       i. Perform ? varEnvRec.CreateGlobalVarBinding(F, true).
+    Perform ? varEnvRec.CreateGlobalVarBinding(F, true).
     [...]
 
 ---*/
-Object.defineProperty(fnGlobalObject(), 'f', {
+var global = fnGlobalObject();
+Object.defineProperty(global, 'f', {
   value: 'x',
   enumerable: true,
   writable: true,
   configurable: false
 });
 
-eval(
-  'var global = fnGlobalObject();\
-  assert.sameValue(f, "x", "binding is not reinitialized");\
-  \
-  verifyProperty(global, "f", {\
-    enumerable: true,\
-    writable: true,\
-    configurable: false\
-  }, { restore: true });if (true) function f() {  } else ;'
-);
+$262.evalScript(`
+assert.sameValue(f, 'x');
+verifyProperty(global, 'f', {
+  enumerable: true,
+  writable: true,
+  configurable: false
+}, { restore: true });
+`);
 
-assert.sameValue(typeof f, "function");
-verifyProperty(global, "f", {
+$262.evalScript(`
+
+if (true) function f() { return 'inner declaration'; }
+
+`);
+
+$262.evalScript(`
+verifyProperty(global, 'f', {
   enumerable: true,
   writable: true,
   configurable: false
 });
+`);
