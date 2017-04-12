@@ -1,7 +1,10 @@
-// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// Copyright (C) 2017 Igalia, S. L. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-desc: Variable binding is left in place by legacy function hoisting
+desc: >
+  Variable binding is left in place by legacy function hoisting.
+  CreateGlobalVariableBinding leaves the binding as non-enumerable even
+  if it has the chance to change it to be enumerable.
 template: eval-global
 info: |
     B.3.3.3 Changes to EvalDeclarationInstantiation
@@ -17,23 +20,23 @@ includes: [fnGlobalObject.js, propertyHelper.js]
 //- setup
 Object.defineProperty(fnGlobalObject(), 'f', {
   value: 'x',
-  enumerable: true,
+  enumerable: false,
   writable: true,
-  configurable: false
+  configurable: true
 });
 //- before
 var global = fnGlobalObject();
 assert.sameValue(f, 'x', "binding is not reinitialized");
 
-verifyProperty(global, "f", {
-  enumerable: true,
+verifyProperty(global, 'f', {
+  enumerable: false,
   writable: true,
-  configurable: false
+  configurable: true
 }, { restore: true });
 //- teardown
 assert.sameValue(typeof f, "function");
-verifyProperty(global, "f", {
-  enumerable: true,
+verifyProperty(global, 'f', {
+  enumerable: false,
   writable: true,
-  configurable: false
+  configurable: true
 });
