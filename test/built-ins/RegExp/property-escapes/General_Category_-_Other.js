@@ -764,7 +764,6 @@ const nonMatchSymbols = buildString({
     0x01F9C0
   ],
   ranges: [
-    [0x00DC00, 0x00DFFF],
     [0x000020, 0x00007E],
     [0x0000A0, 0x0000AC],
     [0x0000AE, 0x000377],
