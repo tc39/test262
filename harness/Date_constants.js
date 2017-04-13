@@ -35,49 +35,50 @@ var $LocalTZ,
     $DST_end_minutes;
 
 (function () {
-    /**
-      * Finds the first date, starting from |start|, where |predicate|
-      * holds.
-      */
-    var findNearestDateBefore = function(start, predicate) {
-        var current = start;
-        var month = 1000 * 60 * 60 * 24 * 30;
-        for (var step = month; step > 0; step = Math.floor(step / 3)) {
-            if (!predicate(current)) {
-                while (!predicate(current))
-                    current = new Date(current.getTime() + step);
-                    current = new Date(current.getTime() - step);
-                }
-        }
+  /**
+    * Finds the first date, starting from |start|, where |predicate|
+    * holds.
+    */
+  var findNearestDateBefore = function(start, predicate) {
+    var current = start;
+    var month = 1000 * 60 * 60 * 24 * 30;
+    for (var step = month; step > 0; step = Math.floor(step / 3)) {
+      if (!predicate(current)) {
         while (!predicate(current)) {
-            current = new Date(current.getTime() + 1);
+          current = new Date(current.getTime() + step);
+          current = new Date(current.getTime() - step);
         }
-        return current;
-    };
+      }
+    }
+    while (!predicate(current)) {
+      current = new Date(current.getTime() + 1);
+    }
+    return current;
+  };
 
-    var juneDate = new Date(2000, 5, 20, 0, 0, 0, 0);
-    var decemberDate = new Date(2000, 11, 20, 0, 0, 0, 0);
-    var juneOffset = juneDate.getTimezoneOffset();
-    var decemberOffset = decemberDate.getTimezoneOffset();
-    var isSouthernHemisphere = (juneOffset > decemberOffset);
-    var winterTime = isSouthernHemisphere ? juneDate : decemberDate;
-    var summerTime = isSouthernHemisphere ? decemberDate : juneDate;
+  var juneDate = new Date(2000, 5, 20, 0, 0, 0, 0);
+  var decemberDate = new Date(2000, 11, 20, 0, 0, 0, 0);
+  var juneOffset = juneDate.getTimezoneOffset();
+  var decemberOffset = decemberDate.getTimezoneOffset();
+  var isSouthernHemisphere = (juneOffset > decemberOffset);
+  var winterTime = isSouthernHemisphere ? juneDate : decemberDate;
+  var summerTime = isSouthernHemisphere ? decemberDate : juneDate;
 
-    var dstStart = findNearestDateBefore(winterTime, function (date) {
-        return date.getTimezoneOffset() == summerTime.getTimezoneOffset();
-    });
-    $DST_start_month = dstStart.getMonth();
-    $DST_start_sunday = dstStart.getDate() > 15 ? '"last"' : '"first"';
-    $DST_start_hour = dstStart.getHours();
-    $DST_start_minutes = dstStart.getMinutes();
+  var dstStart = findNearestDateBefore(winterTime, function (date) {
+    return date.getTimezoneOffset() == summerTime.getTimezoneOffset();
+  });
+  $DST_start_month = dstStart.getMonth();
+  $DST_start_sunday = dstStart.getDate() > 15 ? '"last"' : '"first"';
+  $DST_start_hour = dstStart.getHours();
+  $DST_start_minutes = dstStart.getMinutes();
 
-    var dstEnd = findNearestDateBefore(summerTime, function (date) {
-        return date.getTimezoneOffset() == winterTime.getTimezoneOffset();
-    });
-    $DST_end_month = dstEnd.getMonth();
-    $DST_end_sunday = dstEnd.getDate() > 15 ? '"last"' : '"first"';
-    $DST_end_hour = dstEnd.getHours();
-    $DST_end_minutes = dstEnd.getMinutes();
+  var dstEnd = findNearestDateBefore(summerTime, function (date) {
+    return date.getTimezoneOffset() == winterTime.getTimezoneOffset();
+  });
+  $DST_end_month = dstEnd.getMonth();
+  $DST_end_sunday = dstEnd.getDate() > 15 ? '"last"' : '"first"';
+  $DST_end_hour = dstEnd.getHours();
+  $DST_end_minutes = dstEnd.getMinutes();
 
-    return;
+  return;
 })();
