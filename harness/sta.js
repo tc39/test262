@@ -13,7 +13,3 @@ var $ERROR;
 $ERROR = function $ERROR(message) {
   throw new Test262Error(message);
 };
-
-function testFailed(message) {
-  $ERROR(message);
-}
