@@ -131,7 +131,7 @@ This tag is for boolean properties associated with the test.
 - **`onlyStrict`** - only run the test in strict mode
 - **`noStrict`** - only run the test in "sloppy" mode
 - **`module`** - interpret the source text as [module
-  code](http://www.ecma-international.org/ecma-262/6.0/#sec-modules)
+  code](https://tc39.github.io/ecma262/#sec-modules)
 - **`raw`** - execute the test without any modification (no helpers will be
   available); necessary to test the behavior of directive prologue; implies
   `noStrict`
@@ -157,8 +157,8 @@ Test262Error(message) | constructor for an error object that indicates a test fa
 $ERROR(message) | construct a Test262Error object and throw it
 $DONE(arg) | see Writing Asynchronous Tests, below
 assert(value, message) | throw a new Test262Error instance if the specified value is not strictly equal to the JavaScript `true` value; accepts an optional string message for use in creating the error
-assert.sameValue(actual, expected, message) | throw a new Test262Error instance if the first two arguments are not [the same value](http://www.ecma-international.org/ecma-262/6.0/#sec-samevalue); accepts an optional string message for use in creating the error
-assert.notSameValue(actual, unexpected, message) | throw a new Test262Error instance if the first two arguments are [the same value](http://www.ecma-international.org/ecma-262/6.0/#sec-samevalue); accepts an optional string message for use in creating the error
+assert.sameValue(actual, expected, message) | throw a new Test262Error instance if the first two arguments are not [the same value](https://tc39.github.io/ecma262/#sec-samevalue); accepts an optional string message for use in creating the error
+assert.notSameValue(actual, unexpected, message) | throw a new Test262Error instance if the first two arguments are [the same value](https://tc39.github.io/ecma262/#sec-samevalue); accepts an optional string message for use in creating the error
 assert.throws(expectedErrorConstructor, fn) | throw a new Test262Error instance if the provided function does not throw an error, or if the constructor of the value thrown does not match the provided constructor
 
 ```
@@ -169,7 +169,7 @@ function Test262Error(message) {
 
 /// helper function that throws
 function $ERROR(message) {
-    throw new Test262Error(message);
+  throw new Test262Error(message);
 }
 
 /// helper function for asynchronous tests
@@ -214,9 +214,9 @@ A common idiom when writing asynchronous tests is the following:
 var p = new Promise(function () { /* some test code */ });
 
 p.then(function checkAssertions(arg) {
-    if (!expected_condition) {
-      $ERROR("failure message");
-    }
+  if (!expected_condition) {
+    $ERROR("failure message");
+  }
 
 }).then($DONE, $DONE);
 ```
@@ -231,17 +231,17 @@ This idiom can be extended to check for specific exception types or messages:
 
 ```js
 p.then(function () {
-    // some code that is expected to throw a TypeError
+  // some code that is expected to throw a TypeError
 
-    return "Expected exception to be thrown";
+  return "Expected exception to be thrown";
 }).then($DONE, function (e) {
-   if (!(e instanceof TypeError)) {
-      $ERROR("Expected TypeError but got " + e);
-   }
+ if (!(e instanceof TypeError)) {
+  $ERROR("Expected TypeError but got " + e);
+ }
 
-   if (!/expected message/.test(e.message)) {
-      $ERROR("Expected message to contain 'expected message' but found " + e.message);
-   }
+ if (!/expected message/.test(e.message)) {
+  $ERROR("Expected message to contain 'expected message' but found " + e.message);
+ }
 
 }).then($DONE, $DONE);
 
