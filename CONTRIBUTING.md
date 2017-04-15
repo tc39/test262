@@ -249,6 +249,19 @@ p.then(function () {
 
 As above, exceptions that are thrown from a `then` clause are passed to a later `$DONE` function and reported asynchronously.
 
+## Linting
+
+Some of the expectations documented here are enforced via a "linting" script. This script is used to validate patches automatically at submission time, but it may also be invoked locally via the following command:
+
+    python tools/lint/lint.py --whitelist lint.whitelist [paths to tests]
+
+...where `[paths to tests]` is a list of one or more paths to test files or directories containing test files.
+
+In some cases, it may be necessary for a test to intentionally violate the rules enforced by the linting tool. Such violations can be allowed by including the path of the test(s) in the `lint.whitelist` file. Each path must appear on a dedicated line in that file, and a space-separated list of rules to ignore must follow each path. Lines beginning with the pound sign (`#`) will be ignored. For example:
+
+    # This file documents authorship information and is not itself a test
+    test/built-ins/Simd/AUTHORS FRONTMATTER LICENSE
+
 ## Procedurally-generated tests
 
 Some language features are expressed through a number of distinct syntactic forms. Test262 maintains these tests as a set of "test cases" and "test templates" in order to ensure equivalent coverage across all forms. The sub-directories within the `src/` directory describe the various language features that benefit from this approach.
