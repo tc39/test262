@@ -1,4 +1,74 @@
 
+function verifyProperty(obj, name, desc, options) {
+  assert(
+    arguments.length > 2,
+    'verifyProperty should receive at least 3 arguments: obj, name, and descriptor'
+  );
+
+  var originalDesc = Object.getOwnPropertyDescriptor(obj, name);
+  var nameStr = String(name);
+
+  // Allows checking for undefined descriptor if it's explicitly given.
+  if (desc === undefined) {
+    assert.sameValue(
+      originalDesc,
+      undefined,
+      `obj['${nameStr}'] descriptor should be undefined`
+    );
+
+    // desc and originalDesc are both undefined, problem solved;
+    return true;
+  }
+
+  assert(
+    Object.prototype.hasOwnProperty.call(obj, name),
+    `obj should have an own property ${nameStr}`
+  );
+
+  assert.notSameValue(
+    desc,
+    null,
+    `The desc argument should be an object or undefined, null`
+  );
+
+  assert.sameValue(
+    typeof desc,
+    "object",
+    `The desc argument should be an object or undefined, ${String(desc)}`
+  );
+
+  var failures = [];
+
+  if (Object.prototype.hasOwnProperty.call(desc, 'enumerable')) {
+    if (desc.enumerable !== originalDesc.enumerable ||
+        desc.enumerable !== isEnumerable(obj, name)) {
+      failures.push(`descriptor should ${desc.enumerable ? '' : 'not '}be enumerable`);
+    }
+  }
+
+  if (Object.prototype.hasOwnProperty.call(desc, 'writable')) {
+    if (desc.writable !== originalDesc.writable ||
+        desc.writable !== isWritable(obj, name)) {
+      failures.push(`descriptor should ${desc.writable ? '' : 'not '}be writable`);
+    }
+  }
+
+  if (Object.prototype.hasOwnProperty.call(desc, 'configurable')) {
+    if (desc.configurable !== originalDesc.configurable ||
+        desc.configurable !== isConfigurable(obj, name)) {
+      failures.push(`descriptor should ${desc.configurable ? '' : 'not '}be configurable`);
+    }
+  }
+
+  assert.sameValue(failures.length, 0, failures.join('; '));
+
+  if (options && options.restore) {
+    Object.defineProperty(obj, name, originalDesc);
+  }
+
+  return true;
+}
+
 function isConfigurable(obj, name) {
   try {
     delete obj[name];
@@ -11,7 +81,7 @@ function isConfigurable(obj, name) {
 }
 
 function isEnumerable(obj, name) {
-  var stringCheck;
+  var stringCheck = false;
 
   if (typeof name === "string") {
     for (var x in obj) {
