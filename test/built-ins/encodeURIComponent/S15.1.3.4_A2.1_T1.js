@@ -24,7 +24,7 @@ for (var index = 0x0000; index <= 0x007F; index++) {
     if (uriUnescaped[indexC] === str) continue l;
   }    
   try {
-    if (encodeURIComponent(str).toUpperCase() === "%" + decimalToHexString(index).substring(2)) continue l; 
+    if (encodeURIComponent(str).toUpperCase() === "%" + decimalToHex2String(index)) continue l;
   } catch(e) {}     
   if (indexO === 0) { 
     indexO = index;

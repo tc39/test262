@@ -17,17 +17,17 @@ var indexP;
 var indexO = 0;
 
 for (var indexB1 = 0xE0; indexB1 <= 0xEF; indexB1++) {
-  var hexB1 = decimalToHexString(indexB1);
+  var hexB1 = decimalToHex2String(indexB1);
   for (var indexB2 = 0x80; indexB2 <= 0xBF; indexB2++) {
     if ((indexB1 === 0xE0) && (indexB2 <= 0x9F)) continue;
     if ((indexB1 === 0xED) && (0xA0 <= indexB2)) continue;         
-    var hexB2 = decimalToHexString(indexB2);
+    var hexB2 = decimalToHex2String(indexB2);
     for (var indexB3 = 0x80; indexB3 <= 0xBF; indexB3++) {
       count++;
-      var hexB3 = decimalToHexString(indexB3);
+      var hexB3 = decimalToHex2String(indexB3);
       var index = (indexB1 & 0x0F) * 0x1000 + (indexB2 & 0x3F) * 0x40 + (indexB3 & 0x3F);  
       try {
-        if (decodeURIComponent("%" + hexB1.substring(2) + "%" + hexB2.substring(2) + "%" + hexB3.substring(2)) === String.fromCharCode(index)) continue;
+        if (decodeURIComponent("%" + hexB1 + "%" + hexB2 + "%" + hexB3) === String.fromCharCode(index)) continue;
       } catch (e) {
         if (e instanceof Test262Error) throw e;
       }

@@ -14,3 +14,8 @@ function decimalToHexString(n) {
   }
   return s;
 }
+
+function decimalToHex2String(n) {
+  var hex = "0123456789ABCDEF";
+  return hex[(n >> 4) & 0xf] + hex[n & 0xf];
+}

@@ -29,7 +29,7 @@ for (var index = 0x0000; index <= 0x007F; index++) {
   }    
   if ("#" === str) continue l; 
   try {
-    if (encodeURI(str).toUpperCase() === "%" + decimalToHexString(index).substring(2)) continue l; 
+    if (encodeURI(str).toUpperCase() === "%" + decimalToHex2String(index)) continue l;
   } catch(e) {}     
   if (indexO === 0) { 
     indexO = index;

@@ -17,21 +17,21 @@ var indexP;
 var indexO = 0;
 
 for (var indexB1 = 0xF0; indexB1 <= 0xF4; indexB1++) {
-  var hexB1 = decimalToHexString(indexB1);
+  var hexB1 = decimalToHex2String(indexB1);
   for (var indexB2 = 0x80; indexB2 <= 0xBF; indexB2++) {
     if ((indexB1 === 0xF0) && (indexB2 <= 0x9F)) continue;            
     if ((indexB1 === 0xF4) && (indexB2 >= 0x90)) continue;
-    var hexB2 = decimalToHexString(indexB2);
+    var hexB2 = decimalToHex2String(indexB2);
     for (var indexB3 = 0x80; indexB3 <= 0xBF; indexB3++) {
-      var hexB3 = decimalToHexString(indexB3);
+      var hexB3 = decimalToHex2String(indexB3);
       for (var indexB4 = 0x80; indexB4 <= 0xBF; indexB4++) {
-        var hexB4 = decimalToHexString(indexB4);
+        var hexB4 = decimalToHex2String(indexB4);
         count++;
         var index = (indexB1 & 0x07) * 0x40000 + (indexB2 & 0x3F) * 0x1000 + (indexB3 & 0x3F) * 0x40 + (indexB4 & 0x3F);
         var L = ((index - 0x10000) & 0x03FF) + 0xDC00;
         var H = (((index - 0x10000) >> 10) & 0x03FF) + 0xD800;  
         try {
-          if (decodeURIComponent("%" + hexB1.substring(2) + "%" + hexB2.substring(2) + "%" + hexB3.substring(2) + "%" + hexB4.substring(2)) === String.fromCharCode(H) + String.fromCharCode(L)) continue;
+          if (decodeURIComponent("%" + hexB1 + "%" + hexB2 + "%" + hexB3 + "%" + hexB4) === String.fromCharCode(H) + String.fromCharCode(L)) continue;
         } catch (e) {
           if (e instanceof Test262Error) throw e;
         }   

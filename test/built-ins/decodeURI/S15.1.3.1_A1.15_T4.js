@@ -17,12 +17,12 @@ var indexO = 0;
 
 for (var indexB = 0xF0; indexB <= 0xF7; indexB++) {
   count++; 
-  var hexB = decimalToHexString(indexB); 
+  var hexB = decimalToHex2String(indexB);
   var result = true;
   for (var indexC = 0xC0; indexC <= 0xFF; indexC++) {
-    var hexC = decimalToHexString(indexC);  
+    var hexC = decimalToHex2String(indexC);
     try {
-      decodeURI("%" + hexB.substring(2) + "%" + hexC.substring(2) + "%A0%A0");
+      decodeURI("%" + hexB + "%" + hexC + "%A0%A0");
     } catch (e) { 
       if ((e instanceof URIError) === true) continue;                
     }
