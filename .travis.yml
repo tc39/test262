@@ -1,5 +1,5 @@
 language: python
-install: pip install pyyaml
+install: pip install --requirement tools/generation/requirements.txt
 script:
   - echo The test generation tool should be working.
   - ./tools/generation/test/run.py
