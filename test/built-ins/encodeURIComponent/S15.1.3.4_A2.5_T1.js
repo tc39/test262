@@ -20,9 +20,8 @@ for (var index = 0xE000; index <= 0xFFFF; index++) {
   var hex2 = decimalToPercentHexString(0x0080 + (index & 0x0FC0) / 0x0040);
   var hex3 = decimalToPercentHexString(0x00E0 + (index & 0xF000) / 0x1000);
   var str = String.fromCharCode(index);
-  try {
-    if (encodeURIComponent(str).toUpperCase() === hex3 + hex2 + hex1) continue;
-  } catch(e) {}      
+  if (encodeURIComponent(str).toUpperCase() === hex3 + hex2 + hex1) continue;
+
   if (indexO === 0) { 
     indexO = index;
   } else {

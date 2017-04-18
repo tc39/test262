@@ -23,9 +23,8 @@ for (var index = 0x0000; index <= 0x007F; index++) {
     for (var indexC = 0; indexC < uriUnescaped.length; indexC++) {
     if (uriUnescaped[indexC] === str) continue l;
   }    
-  try {
-    if (encodeURIComponent(str).toUpperCase() === decimalToPercentHexString(index)) continue l;
-  } catch(e) {}     
+  if (encodeURIComponent(str).toUpperCase() === decimalToPercentHexString(index)) continue l;
+
   if (indexO === 0) { 
     indexO = index;
   } else {

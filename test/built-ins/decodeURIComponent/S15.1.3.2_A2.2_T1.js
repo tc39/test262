@@ -16,11 +16,9 @@ for (var indexB1 = 0x00; indexB1 <= 0x7F; indexB1++) {
   count++;
   var hexB1 = decimalToPercentHexString(indexB1);
   var index = indexB1;  
-  try {
-    var hex = String.fromCharCode(index);
-    if (decodeURIComponent(hexB1) === hex) continue;
-  } catch (e) {
-  }   
+  var hex = String.fromCharCode(index);
+  if (decodeURIComponent(hexB1) === hex) continue;
+
   if (indexO === 0) { 
     indexO = index;
   } else {

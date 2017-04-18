@@ -30,10 +30,8 @@ for (var indexB1 = 0xF0; indexB1 <= 0xF4; indexB1++) {
         var index = (indexB1 & 0x07) * 0x40000 + (indexB2 & 0x3F) * 0x1000 + (indexB3 & 0x3F) * 0x40 + (indexB4 & 0x3F);
         var L = ((index - 0x10000) & 0x03FF) + 0xDC00;
         var H = (((index - 0x10000) >> 10) & 0x03FF) + 0xD800;  
-        try {
-          if (decodeURIComponent(hexB1_B2_B3_B4) === String.fromCharCode(H, L)) continue;
-        } catch (e) {
-        }   
+        if (decodeURIComponent(hexB1_B2_B3_B4) === String.fromCharCode(H, L)) continue;
+
         if (indexO === 0) { 
           indexO = index;
         } else {

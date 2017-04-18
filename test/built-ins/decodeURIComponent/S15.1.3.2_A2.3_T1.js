@@ -21,10 +21,8 @@ for (var indexB1 = 0xC2; indexB1 <= 0xDF; indexB1++) {
     count++;
     var hexB1_B2 = hexB1 + decimalToPercentHexString(indexB2);
     var index = (indexB1 & 0x1F) * 0x40 + (indexB2 & 0x3F);  
-    try {
-      if (decodeURIComponent(hexB1_B2) === String.fromCharCode(index)) continue;
-    } catch (e) {
-    }   
+    if (decodeURIComponent(hexB1_B2) === String.fromCharCode(index)) continue;
+
     if (indexO === 0) { 
       indexO = index;
     } else {

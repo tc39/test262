@@ -27,11 +27,9 @@ for (var index = 0xD800; index <= 0xDBFF; index++) {
     var hex3 = decimalToPercentHexString(0x0080 + (index1 & 0x3F000) / 0x1000);
     var hex4 = decimalToPercentHexString(0x00F0 + (index1 & 0x1C0000) / 0x40000);
     var str = String.fromCharCode(index, chars[indexC]);
-    try {
-      if (encodeURI(str).toUpperCase() !== hex4 + hex3 + hex2 + hex1) {
-        res = false;
-      }
-    } catch(e) {res = false}    
+    if (encodeURI(str).toUpperCase() === hex4 + hex3 + hex2 + hex1) continue;
+
+    res = false;
   }
   if (res !== true) {  
     if (indexO === 0) { 
