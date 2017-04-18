@@ -26,7 +26,6 @@ for (var indexB1 = 0x00; indexB1 <= 0x7F; indexB1++) {
     if (hex === "#") continue l;
     if (decodeURI(hexB1) === hex) continue;
   } catch (e) {
-    if (e instanceof Test262Error) throw e;
   }   
   if (indexO === 0) { 
     indexO = index;

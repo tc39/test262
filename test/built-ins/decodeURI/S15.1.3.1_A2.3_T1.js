@@ -23,8 +23,7 @@ for (var indexB1 = 0xC2; indexB1 <= 0xDF; indexB1++) {
     var index = (indexB1 & 0x1F) * 0x40 + (indexB2 & 0x3F);  
     try {
       if (decodeURI(hexB1_B2) === String.fromCharCode(index)) continue;
-  } catch (e) {
-      if (e instanceof Test262Error) throw e;
+    } catch (e) {
     }   
     if (indexO === 0) { 
       indexO = index;

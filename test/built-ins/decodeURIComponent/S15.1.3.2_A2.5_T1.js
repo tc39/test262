@@ -33,7 +33,6 @@ for (var indexB1 = 0xF0; indexB1 <= 0xF4; indexB1++) {
         try {
           if (decodeURIComponent(hexB1_B2_B3_B4) === String.fromCharCode(H, L)) continue;
         } catch (e) {
-          if (e instanceof Test262Error) throw e;
         }   
         if (indexO === 0) { 
           indexO = index;

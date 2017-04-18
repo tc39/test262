@@ -20,7 +20,6 @@ for (var indexB1 = 0x00; indexB1 <= 0x7F; indexB1++) {
     var hex = String.fromCharCode(index);
     if (decodeURIComponent(hexB1) === hex) continue;
   } catch (e) {
-    if (e instanceof Test262Error) throw e;
   }   
   if (indexO === 0) { 
     indexO = index;

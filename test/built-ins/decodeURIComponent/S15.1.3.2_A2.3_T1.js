@@ -24,7 +24,6 @@ for (var indexB1 = 0xC2; indexB1 <= 0xDF; indexB1++) {
     try {
       if (decodeURIComponent(hexB1_B2) === String.fromCharCode(index)) continue;
     } catch (e) {
-      if (e instanceof Test262Error) throw e;
     }   
     if (indexO === 0) { 
       indexO = index;
