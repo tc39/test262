@@ -31,7 +31,7 @@ for (var indexB1 = 0xF0; indexB1 <= 0xF4; indexB1++) {
         var L = ((index - 0x10000) & 0x03FF) + 0xDC00;
         var H = (((index - 0x10000) >> 10) & 0x03FF) + 0xD800;  
         try {
-          if (decodeURI(hexB1 + hexB2 + hexB3 + hexB4) === String.fromCharCode(H) + String.fromCharCode(L)) continue;
+          if (decodeURI(hexB1 + hexB2 + hexB3 + hexB4) === String.fromCharCode(H, L)) continue;
         } catch (e) {
           if (e instanceof Test262Error) throw e;
         }   
