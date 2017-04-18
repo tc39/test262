@@ -17,11 +17,11 @@ var indexO = 0;
 l:
 for (var index = 0x0080; index <= 0x07FF; index++) {
   count++;  
-  var hex1 = decimalToHex2String(0x0080 + (index & 0x003F));
-  var hex2 = decimalToHex2String(0x00C0 + (index & 0x07C0) / 0x0040);
+  var hex1 = decimalToPercentHexString(0x0080 + (index & 0x003F));
+  var hex2 = decimalToPercentHexString(0x00C0 + (index & 0x07C0) / 0x0040);
   var str = String.fromCharCode(index);
   try {
-    if (encodeURIComponent(str).toUpperCase() === "%" + hex2 + "%" + hex1) continue;
+    if (encodeURIComponent(str).toUpperCase() === hex2 + hex1) continue;
   } catch(e) {}  
   if (indexO === 0) { 
     indexO = index;

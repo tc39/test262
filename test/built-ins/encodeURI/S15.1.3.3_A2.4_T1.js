@@ -22,13 +22,13 @@ for (var index = 0xD800; index <= 0xDBFF; index++) {
   var res = true;
   for (var indexC = 0; indexC < chars.length; indexC++) {
     var index1 = (index - 0xD800) * 0x400 + (chars[indexC] - 0xDC00) + 0x10000;
-    var hex1 = decimalToHex2String(0x0080 + (index1 & 0x003F));
-    var hex2 = decimalToHex2String(0x0080 + (index1 & 0x0FC0) / 0x0040);
-    var hex3 = decimalToHex2String(0x0080 + (index1 & 0x3F000) / 0x1000);
-    var hex4 = decimalToHex2String(0x00F0 + (index1 & 0x1C0000) / 0x40000);
+    var hex1 = decimalToPercentHexString(0x0080 + (index1 & 0x003F));
+    var hex2 = decimalToPercentHexString(0x0080 + (index1 & 0x0FC0) / 0x0040);
+    var hex3 = decimalToPercentHexString(0x0080 + (index1 & 0x3F000) / 0x1000);
+    var hex4 = decimalToPercentHexString(0x00F0 + (index1 & 0x1C0000) / 0x40000);
     var str = String.fromCharCode(index, chars[indexC]);
     try {
-      if (encodeURI(str).toUpperCase() !== "%" + hex4 + "%" + hex3 + "%" + hex2 + "%" + hex1) {
+      if (encodeURI(str).toUpperCase() !== hex4 + hex3 + hex2 + hex1) {
         res = false;
       }
     } catch(e) {res = false}    

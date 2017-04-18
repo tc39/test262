@@ -14,11 +14,11 @@ var indexP;
 var indexO = 0;
 for (var indexB1 = 0x00; indexB1 <= 0x7F; indexB1++) {
   count++;
-  var hexB1 = decimalToHex2String(indexB1);
+  var hexB1 = decimalToPercentHexString(indexB1);
   var index = indexB1;  
   try {
     var hex = String.fromCharCode(index);
-    if (decodeURIComponent("%" + hexB1) === hex) continue;
+    if (decodeURIComponent(hexB1) === hex) continue;
   } catch (e) {
     if (e instanceof Test262Error) throw e;
   }   

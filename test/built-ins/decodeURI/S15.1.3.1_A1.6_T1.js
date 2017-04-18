@@ -18,9 +18,9 @@ for (var index = 0xF0; index <= 0xF7; index++) {
   var str = "";
   var result = true;
   for (var len = 0; len < 9; len++) {
-    var hex = decimalToHex2String(index);
+    var hex = decimalToPercentHexString(index);
     try {
-      decodeURI("%" + hex + str);
+      decodeURI(hex + str);
     } catch (e) { 
       if ((e instanceof URIError) === true) continue;                
     }

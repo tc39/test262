@@ -16,12 +16,12 @@ var indexP;
 var indexO = 0; 
 for (var index = 0xE000; index <= 0xFFFF; index++) {
   count++;  
-  var hex1 = decimalToHex2String(0x0080 + (index & 0x003F));
-  var hex2 = decimalToHex2String(0x0080 + (index & 0x0FC0) / 0x0040);
-  var hex3 = decimalToHex2String(0x00E0 + (index & 0xF000) / 0x1000);
+  var hex1 = decimalToPercentHexString(0x0080 + (index & 0x003F));
+  var hex2 = decimalToPercentHexString(0x0080 + (index & 0x0FC0) / 0x0040);
+  var hex3 = decimalToPercentHexString(0x00E0 + (index & 0xF000) / 0x1000);
   var str = String.fromCharCode(index);
   try {
-    if (encodeURI(str).toUpperCase() === "%" + hex3 + "%" + hex2 + "%" + hex1) continue;
+    if (encodeURI(str).toUpperCase() === hex3 + hex2 + hex1) continue;
   } catch(e) {}      
   if (indexO === 0) { 
     indexO = index;
