@@ -19,7 +19,7 @@ features: [async-iteration]
 
 var callCount = 0;
 // Stores a reference `ref` for case evaluation
-async function* ref(/*{ params }*/) {
+async function* ref() {
   /*{ body }*/
   callCount = callCount + 1;
 }

@@ -23,7 +23,7 @@ features: [async-iteration]
 
 var callCount = 0;
 var obj = {
-  async *method(/*{ params }*/) {
+  async *method() {
     /*{ body }*/
     callCount = callCount + 1;
   }

@@ -43,7 +43,7 @@ features: [async-iteration]
 
 var callCount = 0;
 var C = class {
-  async *method(/*{ params }*/) {
+  async *method() {
     /*{ body }*/
     callCount = callCount + 1;
   }

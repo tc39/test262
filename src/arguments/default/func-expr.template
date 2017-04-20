@@ -16,7 +16,7 @@ info: |
 var callCount = 0;
 // Stores a reference `ref` for case evaluation
 var ref;
-ref = function(/*{ params }*/) {
+ref = function() {
   /*{ body }*/
   callCount = callCount + 1;
 };
