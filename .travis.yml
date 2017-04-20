@@ -3,6 +3,6 @@ install: pip install --requirement tools/generation/requirements.txt
 script:
   - echo The test generation tool should be working.
   - ./tools/generation/test/run.py
+  - ./make.py clean
+  - ./make.py
   - sh ./tools/scripts/ci.sh
-after_success:
-  - sh ./tools/scripts/deploy.sh

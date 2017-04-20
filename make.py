@@ -6,8 +6,6 @@ import os, shutil, subprocess, sys
 
 OUT_DIR = os.environ.get('OUT_DIR') or 'test'
 SRC_DIR = os.environ.get('SRC_DIR') or 'src'
-UPSTREAM = os.environ.get('UPSTREAM') or 'git@github.com:tc39/test262.git'
-MAINTAINER = os.environ.get('MAINTAINER') or 'test262@ecma-international.org'
 
 def shell(*args):
     sp = subprocess.Popen(list(args), stdout=subprocess.PIPE)
@@ -47,32 +45,6 @@ def build():
 @target()
 def clean():
     shell(sys.executable, 'tools/generation/generator.py', 'clean', OUT_DIR)
-
-@target('clean', 'build')
-def deploy():
-    shell('git', 'add', '--all', OUT_DIR)
-    shell('git', 'commit', '--message', '"Re-build from source"')
-    shell('git', 'push', UPSTREAM, 'master')
-    shell('git', 'checkout', '-')
-
-# Generate a deploy key for use in a continuous integration system, allowing
-# for automated deployment in response to merge events.
-@target()
-def github_deploy_key():
-    shell('ssh-keygen',
-          '-t', 'rsa',
-          '-b', '4096',
-          '-C', MAINTAINER,
-          '-f', 'github-deploy-key')
-
-# Encrypt the deploy key so that it may be included in the repository (to be
-# decrypted by the continuous integration server during automated deployment)
-# This requires the "travis" Ruby gem
-# Source: https://docs.travis-ci.com/user/encrypting-files/
-@target('github_deploy_key')
-def github_deploy_key_enc():
-    shell('travis', 'login')
-    shell('travis', 'encrypt-file', 'github-deploy-key')
 
 if len(sys.argv) == 1:
     targets['build']()
