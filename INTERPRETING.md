@@ -37,7 +37,7 @@ properties of the global scope prior to test execution.
 - **`$262`** An ordinary object with the following properties:
   - **`createRealm`** - a function which creates a new [ECMAScript
     Realm](https://tc39.github.io/ecma262/2016/#sec-code-realms),
-    defines this API on the new realm's global object, and returns the `$`
+    defines this API on the new realm's global object, and returns the `$262`
     property of the new realm's global object
   - **`detachArrayBuffer`** - a function which implements [the
     DetachArrayBuffer abstract
@@ -63,7 +63,7 @@ properties of the global scope prior to test execution.
     - **`start`** - a function that takes a script source string and runs
       the script in a concurrent agent.  Will block until that agent is
       running.  The agent has no representation.  The agent script will be
-      run in an environment that has an object `$` with a property `agent`
+      run in an environment that has an object `$262` with a property `agent`
       with the following properties:
       - **`receiveBroadcast`** - a function that takes a function and 
         calls the function when it has received a broadcast from the parent,
