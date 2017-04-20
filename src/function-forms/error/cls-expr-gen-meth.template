@@ -1,7 +1,7 @@
 // Copyright (C) 2016 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-path: language/expressions/class/params-gen-meth-
+path: language/expressions/class/gen-meth-
 name: class expression method
 esid: sec-class-definitions-runtime-semantics-evaluation
 info: |

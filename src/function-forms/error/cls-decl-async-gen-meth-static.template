@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-path: language/statements/class/params-async-gen-meth-static-
+path: language/statements/class/async-gen-meth-static-
 name: static class expression generator method
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation
 info: |
