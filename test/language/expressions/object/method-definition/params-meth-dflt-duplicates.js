@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-duplicates.case
-// - src/params/syntax/meth.template
+// - src/function-forms/dflt-duplicates.case
+// - src/function-forms/syntax/meth.template
 /*---
 description: It is a Syntax Error if BoundNames of FormalParameters contains any duplicate elements. (method)
 esid: sec-runtime-semantics-definemethod

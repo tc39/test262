@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-ref-prior.case
-// - src/params/default/gen-meth.template
+// - src/function-forms/dflt-ref-prior.case
+// - src/function-forms/default/gen-meth.template
 /*---
 description: Referencing a parameter that occurs earlier in the ParameterList (generator method)
 esid: sec-generator-function-definitions-runtime-semantics-propertydefinitionevaluation

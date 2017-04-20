@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-ref-self.case
-// - src/params/error/meth.template
+// - src/function-forms/dflt-ref-self.case
+// - src/function-forms/error/meth.template
 /*---
 description: Referencing a parameter from within its own initializer (method)
 esid: sec-runtime-semantics-definemethod

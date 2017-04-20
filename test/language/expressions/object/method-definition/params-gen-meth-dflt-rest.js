@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-rest.case
-// - src/params/syntax/gen-meth.template
+// - src/function-forms/dflt-rest.case
+// - src/function-forms/syntax/gen-meth.template
 /*---
 description: RestParameter does not support an initializer (generator method)
 esid: sec-generator-function-definitions-runtime-semantics-propertydefinitionevaluation

@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/trailing-comma-rest-early-error.case
-// - src/params/syntax/func-expr.template
+// - src/function-forms/trailing-comma-rest-early-error.case
+// - src/function-forms/syntax/func-expr.template
 /*---
 description: It's a syntax error if a FunctionRestParameter is followed by a trailing comma (function expression)
 esid: sec-function-definitions-runtime-semantics-evaluation

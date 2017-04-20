@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/trailing-comma-dflt-param.case
-// - src/params/default/cls-decl-async-gen-meth.template
+// - src/function-forms/trailing-comma-dflt-param.case
+// - src/function-forms/default/cls-decl-async-gen-meth.template
 /*---
 description: A trailing comma should not increase the respective length, using default parameters (class expression method)
 esid: sec-class-definitions-runtime-semantics-evaluation

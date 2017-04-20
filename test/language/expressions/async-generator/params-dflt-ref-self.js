@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-ref-self.case
-// - src/params/error/async-gen-func-expr.template
+// - src/function-forms/dflt-ref-self.case
+// - src/function-forms/error/async-gen-func-expr.template
 /*---
 description: Referencing a parameter from within its own initializer (async generator function expression)
 esid: sec-asyncgenerator-definitions-evaluation

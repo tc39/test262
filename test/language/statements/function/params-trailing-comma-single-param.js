@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/trailing-comma-single-param.case
-// - src/params/default/func-decl.template
+// - src/function-forms/trailing-comma-single-param.case
+// - src/function-forms/default/func-decl.template
 /*---
 description: A trailing comma should not increase the respective length, using a single parameter (function declaration)
 esid: sec-function-definitions-runtime-semantics-instantiatefunctionobject

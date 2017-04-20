@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/trailing-comma-multiple-param.case
-// - src/params/default/gen-meth.template
+// - src/function-forms/trailing-comma-multiple-param.case
+// - src/function-forms/default/gen-meth.template
 /*---
 description: A trailing comma should not increase the respective length, using multiple parameters (generator method)
 esid: sec-generator-function-definitions-runtime-semantics-propertydefinitionevaluation

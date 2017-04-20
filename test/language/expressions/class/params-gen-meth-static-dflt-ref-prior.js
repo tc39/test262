@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-ref-prior.case
-// - src/params/default/cls-expr-gen-meth-static.template
+// - src/function-forms/dflt-ref-prior.case
+// - src/function-forms/default/cls-expr-gen-meth-static.template
 /*---
 description: Referencing a parameter that occurs earlier in the ParameterList (static class expression generator method)
 esid: sec-class-definitions-runtime-semantics-evaluation

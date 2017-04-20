@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-ref-self.case
-// - src/params/error/gen-meth.template
+// - src/function-forms/dflt-ref-self.case
+// - src/function-forms/error/gen-meth.template
 /*---
 description: Referencing a parameter from within its own initializer (generator method)
 esid: sec-generator-function-definitions-runtime-semantics-propertydefinitionevaluation

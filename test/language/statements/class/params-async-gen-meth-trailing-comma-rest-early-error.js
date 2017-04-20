@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/trailing-comma-rest-early-error.case
-// - src/params/syntax/cls-decl-async-gen-meth.template
+// - src/function-forms/trailing-comma-rest-early-error.case
+// - src/function-forms/syntax/cls-decl-async-gen-meth.template
 /*---
 description: It's a syntax error if a FunctionRestParameter is followed by a trailing comma (class expression method)
 esid: sec-class-definitions-runtime-semantics-evaluation

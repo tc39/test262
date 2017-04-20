@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-ref-prior.case
-// - src/params/default/meth.template
+// - src/function-forms/dflt-ref-prior.case
+// - src/function-forms/default/meth.template
 /*---
 description: Referencing a parameter that occurs earlier in the ParameterList (method)
 esid: sec-runtime-semantics-definemethod

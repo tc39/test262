@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-abrupt.case
-// - src/params/error/async-gen-func-decl.template
+// - src/function-forms/dflt-abrupt.case
+// - src/function-forms/error/async-gen-func-decl.template
 /*---
 description: Abrupt completion returned by evaluation of initializer (async generator function declaration)
 esid: sec-asyncgenerator-definitions-instantiatefunctionobject

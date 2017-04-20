@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-rest.case
-// - src/params/syntax/cls-expr-async-gen-meth-static.template
+// - src/function-forms/dflt-rest.case
+// - src/function-forms/syntax/cls-expr-async-gen-meth-static.template
 /*---
 description: RestParameter does not support an initializer (static class expression async generator method)
 esid: sec-class-definitions-runtime-semantics-evaluation

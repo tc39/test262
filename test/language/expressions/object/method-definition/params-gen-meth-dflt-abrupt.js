@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-abrupt.case
-// - src/params/error/gen-meth.template
+// - src/function-forms/dflt-abrupt.case
+// - src/function-forms/error/gen-meth.template
 /*---
 description: Abrupt completion returned by evaluation of initializer (generator method)
 esid: sec-generator-function-definitions-runtime-semantics-propertydefinitionevaluation

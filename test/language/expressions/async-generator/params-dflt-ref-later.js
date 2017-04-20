@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-ref-later.case
-// - src/params/error/async-gen-func-expr.template
+// - src/function-forms/dflt-ref-later.case
+// - src/function-forms/error/async-gen-func-expr.template
 /*---
 description: Referencing a parameter that occurs later in the ParameterList (async generator function expression)
 esid: sec-asyncgenerator-definitions-evaluation

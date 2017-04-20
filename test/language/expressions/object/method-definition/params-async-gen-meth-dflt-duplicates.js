@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-duplicates.case
-// - src/params/syntax/async-gen-meth.template
+// - src/function-forms/dflt-duplicates.case
+// - src/function-forms/syntax/async-gen-meth.template
 /*---
 description: It is a Syntax Error if BoundNames of FormalParameters contains any duplicate elements. (async generator method)
 esid: sec-asyncgenerator-definitions-propertydefinitionevaluation

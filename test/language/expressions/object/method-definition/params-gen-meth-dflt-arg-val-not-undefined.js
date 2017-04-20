@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-arg-val-not-undefined.case
-// - src/params/default/gen-meth.template
+// - src/function-forms/dflt-arg-val-not-undefined.case
+// - src/function-forms/default/gen-meth.template
 /*---
 description: Use of intializer when argument value is not `undefined` (generator method)
 esid: sec-generator-function-definitions-runtime-semantics-propertydefinitionevaluation

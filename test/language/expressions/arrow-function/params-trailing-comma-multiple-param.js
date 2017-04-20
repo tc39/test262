@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/trailing-comma-multiple-param.case
-// - src/params/default/arrow-function.template
+// - src/function-forms/trailing-comma-multiple-param.case
+// - src/function-forms/default/arrow-function.template
 /*---
 description: A trailing comma should not increase the respective length, using multiple parameters (arrow function expression)
 esid: sec-arrow-function-definitions-runtime-semantics-evaluation

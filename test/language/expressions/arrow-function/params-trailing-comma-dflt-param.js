@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/trailing-comma-dflt-param.case
-// - src/params/default/arrow-function.template
+// - src/function-forms/trailing-comma-dflt-param.case
+// - src/function-forms/default/arrow-function.template
 /*---
 description: A trailing comma should not increase the respective length, using default parameters (arrow function expression)
 esid: sec-arrow-function-definitions-runtime-semantics-evaluation

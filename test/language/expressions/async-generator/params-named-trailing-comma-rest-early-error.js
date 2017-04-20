@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/trailing-comma-rest-early-error.case
-// - src/params/syntax/async-gen-named-func-expr.template
+// - src/function-forms/trailing-comma-rest-early-error.case
+// - src/function-forms/syntax/async-gen-named-func-expr.template
 /*---
 description: It's a syntax error if a FunctionRestParameter is followed by a trailing comma (async generator named function expression)
 esid: sec-asyncgenerator-definitions-evaluation

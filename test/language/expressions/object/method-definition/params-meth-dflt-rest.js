@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-rest.case
-// - src/params/syntax/meth.template
+// - src/function-forms/dflt-rest.case
+// - src/function-forms/syntax/meth.template
 /*---
 description: RestParameter does not support an initializer (method)
 esid: sec-runtime-semantics-definemethod

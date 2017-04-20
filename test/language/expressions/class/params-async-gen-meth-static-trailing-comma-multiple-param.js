@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/trailing-comma-multiple-param.case
-// - src/params/default/cls-expr-async-gen-meth-static.template
+// - src/function-forms/trailing-comma-multiple-param.case
+// - src/function-forms/default/cls-expr-async-gen-meth-static.template
 /*---
 description: A trailing comma should not increase the respective length, using multiple parameters (static class expression async generator method)
 esid: sec-class-definitions-runtime-semantics-evaluation

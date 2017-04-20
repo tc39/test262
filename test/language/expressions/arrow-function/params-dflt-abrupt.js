@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-abrupt.case
-// - src/params/error/arrow-function.template
+// - src/function-forms/dflt-abrupt.case
+// - src/function-forms/error/arrow-function.template
 /*---
 description: Abrupt completion returned by evaluation of initializer (arrow function expression)
 esid: sec-arrow-function-definitions-runtime-semantics-evaluation

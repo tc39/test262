@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-ref-prior.case
-// - src/params/default/cls-expr-async-gen-meth.template
+// - src/function-forms/dflt-ref-prior.case
+// - src/function-forms/default/cls-expr-async-gen-meth.template
 /*---
 description: Referencing a parameter that occurs earlier in the ParameterList (class expression async generator method)
 esid: sec-class-definitions-runtime-semantics-evaluation

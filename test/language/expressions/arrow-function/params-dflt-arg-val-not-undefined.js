@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-arg-val-not-undefined.case
-// - src/params/default/arrow-function.template
+// - src/function-forms/dflt-arg-val-not-undefined.case
+// - src/function-forms/default/arrow-function.template
 /*---
 description: Use of intializer when argument value is not `undefined` (arrow function expression)
 esid: sec-arrow-function-definitions-runtime-semantics-evaluation

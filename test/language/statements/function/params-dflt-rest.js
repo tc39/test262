@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-rest.case
-// - src/params/syntax/func-decl.template
+// - src/function-forms/dflt-rest.case
+// - src/function-forms/syntax/func-decl.template
 /*---
 description: RestParameter does not support an initializer (function declaration)
 esid: sec-function-definitions-runtime-semantics-instantiatefunctionobject

@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-arg-val-undefined.case
-// - src/params/default/async-gen-named-func-expr.template
+// - src/function-forms/dflt-arg-val-undefined.case
+// - src/function-forms/default/async-gen-named-func-expr.template
 /*---
 description: Use of intializer when argument value is `undefined` (async generator named function expression)
 esid: sec-asyncgenerator-definitions-evaluation

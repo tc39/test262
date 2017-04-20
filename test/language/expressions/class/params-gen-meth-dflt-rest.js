@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-rest.case
-// - src/params/syntax/cls-expr-gen-meth.template
+// - src/function-forms/dflt-rest.case
+// - src/function-forms/syntax/cls-expr-gen-meth.template
 /*---
 description: RestParameter does not support an initializer (class expression method)
 esid: sec-class-definitions-runtime-semantics-evaluation

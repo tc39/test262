@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/trailing-comma-multiple-param.case
-// - src/params/default/func-expr.template
+// - src/function-forms/trailing-comma-multiple-param.case
+// - src/function-forms/default/func-expr.template
 /*---
 description: A trailing comma should not increase the respective length, using multiple parameters (function expression)
 esid: sec-function-definitions-runtime-semantics-evaluation

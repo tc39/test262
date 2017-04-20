@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/trailing-comma-single-param.case
-// - src/params/default/gen-func-expr.template
+// - src/function-forms/trailing-comma-single-param.case
+// - src/function-forms/default/gen-func-expr.template
 /*---
 description: A trailing comma should not increase the respective length, using a single parameter (generator function expression)
 esid: sec-generator-function-definitions-runtime-semantics-evaluation

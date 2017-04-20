@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-ref-self.case
-// - src/params/error/cls-decl-async-gen-meth-static.template
+// - src/function-forms/dflt-ref-self.case
+// - src/function-forms/error/cls-decl-async-gen-meth-static.template
 /*---
 description: Referencing a parameter from within its own initializer (static class expression generator method)
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation

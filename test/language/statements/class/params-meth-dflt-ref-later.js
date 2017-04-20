@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-ref-later.case
-// - src/params/error/cls-decl-meth.template
+// - src/function-forms/dflt-ref-later.case
+// - src/function-forms/error/cls-decl-meth.template
 /*---
 description: Referencing a parameter that occurs later in the ParameterList (class expression method)
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation

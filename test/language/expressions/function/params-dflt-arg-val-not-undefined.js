@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-arg-val-not-undefined.case
-// - src/params/default/func-expr.template
+// - src/function-forms/dflt-arg-val-not-undefined.case
+// - src/function-forms/default/func-expr.template
 /*---
 description: Use of intializer when argument value is not `undefined` (function expression)
 esid: sec-function-definitions-runtime-semantics-evaluation

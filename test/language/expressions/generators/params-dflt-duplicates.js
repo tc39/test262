@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-duplicates.case
-// - src/params/syntax/gen-func-expr.template
+// - src/function-forms/dflt-duplicates.case
+// - src/function-forms/syntax/gen-func-expr.template
 /*---
 description: It is a Syntax Error if BoundNames of FormalParameters contains any duplicate elements. (generator function expression)
 esid: sec-generator-function-definitions-runtime-semantics-evaluation

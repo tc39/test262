@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-ref-later.case
-// - src/params/error/arrow-function.template
+// - src/function-forms/dflt-ref-later.case
+// - src/function-forms/error/arrow-function.template
 /*---
 description: Referencing a parameter that occurs later in the ParameterList (arrow function expression)
 esid: sec-arrow-function-definitions-runtime-semantics-evaluation

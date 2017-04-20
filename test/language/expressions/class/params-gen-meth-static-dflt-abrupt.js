@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-abrupt.case
-// - src/params/error/cls-expr-gen-meth-static.template
+// - src/function-forms/dflt-abrupt.case
+// - src/function-forms/error/cls-expr-gen-meth-static.template
 /*---
 description: Abrupt completion returned by evaluation of initializer (static class expression generator method)
 esid: sec-class-definitions-runtime-semantics-evaluation

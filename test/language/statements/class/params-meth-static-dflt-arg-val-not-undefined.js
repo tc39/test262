@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-arg-val-not-undefined.case
-// - src/params/default/cls-decl-meth-static.template
+// - src/function-forms/dflt-arg-val-not-undefined.case
+// - src/function-forms/default/cls-decl-meth-static.template
 /*---
 description: Use of intializer when argument value is not `undefined` (static class expression method)
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation

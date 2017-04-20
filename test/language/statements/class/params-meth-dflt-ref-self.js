@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-ref-self.case
-// - src/params/error/cls-decl-meth.template
+// - src/function-forms/dflt-ref-self.case
+// - src/function-forms/error/cls-decl-meth.template
 /*---
 description: Referencing a parameter from within its own initializer (class expression method)
 esid: sec-runtime-semantics-bindingclassdeclarationevaluation

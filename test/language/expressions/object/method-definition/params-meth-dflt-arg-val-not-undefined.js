@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/params/dflt-arg-val-not-undefined.case
-// - src/params/default/meth.template
+// - src/function-forms/dflt-arg-val-not-undefined.case
+// - src/function-forms/default/meth.template
 /*---
 description: Use of intializer when argument value is not `undefined` (method)
 esid: sec-runtime-semantics-definemethod
