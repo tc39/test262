@@ -15,7 +15,7 @@ info: |
 
 var callCount = 0;
 var C = class {
-  static *method(/*{ params }*/) {
+  static *method() {
     /*{ body }*/
     callCount = callCount + 1;
   }
