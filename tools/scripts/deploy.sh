@@ -5,8 +5,8 @@ if [ $TRAVIS_EVENT_TYPE != "push" -o $TRAVIS_BRANCH != "master" ]; then
   exit 0
 fi
 openssl aes-256-cbc \
-  -K $encrypted_7b3e5998334d_key \
-  -iv $encrypted_7b3e5998334d_iv \
+  -K $encrypted_4c3763264a8a_key \
+  -iv $encrypted_4c3763264a8a_iv \
   -in github-deploy-key.enc \
   -out github-deploy-key \
   -d
