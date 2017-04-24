@@ -9,8 +9,11 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-var global = this;
+assert.sameValue(typeof this.escape, "function");
+assert.sameValue(typeof this["escape"], "function");
 
-verifyWritable(global, "escape");
-verifyNotEnumerable(global, "escape");
-verifyConfigurable(global, "escape");
+verifyProperty(this, "escape", {
+  writable: true,
+  enumerable: false,
+  configurable: true
+});

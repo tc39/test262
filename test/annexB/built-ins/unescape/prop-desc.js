@@ -9,6 +9,11 @@ description: >
 includes: [propertyHelper.js]
 ---*/
 
-verifyWritable(this, "unescape");
-verifyNotEnumerable(this, "unescape");
-verifyConfigurable(this, "unescape");
+assert.sameValue(typeof this.unescape, "function");
+assert.sameValue(typeof this["unescape"], "function");
+
+verifyProperty(this, "unescape", {
+  writable: true,
+  enumerable: false,
+  configurable: true
+});
