@@ -7,5 +7,5 @@ function getPrecision(num) {
 
 	var log2num = Math.log(Math.abs(num)) / Math.LN2;
 	var pernum = Math.ceil(log2num);
-	return 2 * Math.pow(2, -52 + pernum);
+	return Math.pow(2, -53 + pernum);
 }

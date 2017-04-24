@@ -156,7 +156,7 @@ var val;
 for (var i = 0; i < vnum; i++)
 {
 	val = Math.sqrt(x[i]);
-	if (!isEqual(val, y[i]))
+	if (val !== y[i])
 	{
 		$ERROR("\nx = " + x[i] + "\nlibc.sqrt(x) = " + y[i] + "\nMath.sqrt(x) = " + Math.sqrt(x[i]) + "\nMath.abs(libc.sqrt(x) - Math.sqrt(x)) > " + prec + "\n\n"); 
 	}
