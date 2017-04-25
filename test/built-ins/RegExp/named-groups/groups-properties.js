@@ -32,4 +32,4 @@ assert.sameValue("a", /(?<__proto__>a)/u.exec("a").groups.__proto__);
 // The prototype of the groups object is null
 groups = /(?<x>)/.exec("").groups;
 assert.sameValue("", groups.x);
-assert.sameValue(null, groups.__proto__);
+assert.sameValue(null, Object.getPrototypeOf(groups));
