@@ -13,3 +13,17 @@ function compareArray(a, b) {
   return true;
 }
 
+assert.compareArray = function(actual, expected, message) {
+  if (compareArray(actual, expected)) return;
+
+
+  if (message === undefined) {
+    message = '';
+  } else {
+    message += ' ';
+  }
+
+  message += 'Expected SameValue(«' + String(actual) + '», «' + String(expected) + '») to be true';
+
+  $ERROR(`${message}${message === undefined ? '' : ' '}Expected the arrays [${actual}] to have the same contents as [${expected}]`);
+}
