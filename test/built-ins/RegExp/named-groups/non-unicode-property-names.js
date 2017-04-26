@@ -13,12 +13,12 @@ assert.throws(SyntaxError, () => eval('/(?<\\u{03C0}>a)/'), "\\u{} escapes allow
 assert.sameValue("a", /(?<π>a)/.exec("bab").groups.\u03C0);
 assert.sameValue("a", /(?<$>a)/.exec("bab").groups.$);
 assert.sameValue("a", /(?<_>a)/.exec("bab").groups._);
-assert.sameValue("a", /(?<$𐒤>a)/.exec("bab").groups.$𐒤);
+assert.throws(SyntaxError, () => eval('/(?<$𐒤>a)/'), "Individual surrogates not in ID_Continue);
 assert.sameValue("a", /(?<_\u200C>a)/.exec("bab").groups._\u200C);
 assert.sameValue("a", /(?<_\u200D>a)/.exec("bab").groups._\u200D);
 assert.sameValue("a", /(?<ಠ_ಠ>a)/.exec("bab").groups.ಠ_ಠ);
 assert.throws(SyntaxError, () => eval('/(?<❤>a)/'));
-assert.throws(SyntaxError, () => eval('/(?<𐒤>a)/'), "ID_Continue but not ID_Start."); 
+assert.throws(SyntaxError, () => eval('/(?<𐒤>a)/'), "Individual surrogate not in ID_Start.");
 
 // Unicode escapes in capture names.
 assert.throws(SyntaxError, () => eval("/(?<a\\uD801\uDCA4>.)/"));
