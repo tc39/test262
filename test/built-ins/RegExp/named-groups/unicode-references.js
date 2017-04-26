@@ -3,7 +3,20 @@
 
 /*---
 description: Named backreferences in Unicode RegExps
-esid: pending
+esid: sec-atomescape
+info: >
+  The production AtomEscape :: [+N] k GroupName evaluates as follows:
+
+    1. Search the enclosing RegExp for an instance of a GroupSpecifier for an
+       RegExpIdentifierName which has a StringValue equal to the StringValue
+       of the RegExpIdentifierName contained in GroupName.
+    2. Assert: A unique such GroupSpecifier is found.
+    3. Let parenIndex be the number of left capturing parentheses in the entire
+       regular expression that occur to the left of the located GroupSpecifier.
+       This is the total number of times the Atom::(GroupSpecifierDisjunction)
+       production is expanded prior to that production's Term plus the total
+       number of Atom :: (GroupSpecifierDisjunction) productions enclosing this Term.
+    4. Call BackreferenceMatcher(parenIndex) and return its Matcher result.
 features: [regexp-named-groups]
 includes: [compareArray.js]
 ---*/
