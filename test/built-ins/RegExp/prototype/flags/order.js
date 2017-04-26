@@ -1,7 +1,7 @@
 // Copyright (C) 2017 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-es6id: 21.2.5.3
+esid: sec-get-regexp.prototype.flags
 description: >
   RegExp.prototype.flags come in a single order, independent of source order
 info: >

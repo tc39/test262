@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: Without the dotAll flag, . does not match newlines
+description: Test the characters included by . in dotAll and non-unicode mode
 info: |
   21.2.2.8 Atom
   The production Atom::. evaluates as follows:
@@ -15,39 +15,21 @@ esid: sec-atom
 features: [regexp-dotall]
 ---*/
 
-// DotAll '.' behavior.
-{
-  let re = /^.$/s;
-  assert.sameValue(true, re.test("a"));
-  assert.sameValue(true, re.test("3"));
-  assert.sameValue(true, re.test("π"));
-  assert.sameValue(true, re.test("\u2027"));
-  assert.sameValue(true, re.test("\u0085"));
-  assert.sameValue(true, re.test("\v"));
-  assert.sameValue(true, re.test("\f"));
-  assert.sameValue(true, re.test("\u180E"));
-  assert.sameValue(false, re.test("\u{10300}"));  // Supplementary plane.
-  assert.sameValue(true, re.test("\n"));
-  assert.sameValue(true, re.test("\r"));
-  assert.sameValue(true, re.test("\u2028"));
-  assert.sameValue(true, re.test("\u2029"));
+// The behavior is the same regardless of the m flag
+for (let re of [/^.$/s, /^.$/sm]) {
+  assert(re.test("a"));
+  assert(re.test("3"));
+  assert(re.test("π"));
+  assert(re.test("\u2027"));
+  assert(re.test("\u0085"));
+  assert(re.test("\v"));
+  assert(re.test("\f"));
+  assert(re.test("\u180E"));
+  assert(!re.test("\u{10300}"), "Supplementary plane not matched by a single .");
+  assert(re.test("\n"));
+  assert(re.test("\r"));
+  assert(re.test("\u2028"));
+  assert(re.test("\u2029"));
+  assert(re.test("\uD800"));
+  assert(re.test("\uDFFF"));
 }
-
-// DotAll '.' behavior (unicode).
-{
-  let re = /^.$/su;
-  assert.sameValue(true, re.test("a"));
-  assert.sameValue(true, re.test("3"));
-  assert.sameValue(true, re.test("π"));
-  assert.sameValue(true, re.test("\u2027"));
-  assert.sameValue(true, re.test("\u0085"));
-  assert.sameValue(true, re.test("\v"));
-  assert.sameValue(true, re.test("\f"));
-  assert.sameValue(true, re.test("\u180E"));
-  assert.sameValue(true, re.test("\u{10300}"));  // Supplementary plane.
-  assert.sameValue(true, re.test("\n"));
-  assert.sameValue(true, re.test("\r"));
-  assert.sameValue(true, re.test("\u2028"));
-  assert.sameValue(true, re.test("\u2029"));
-}
-

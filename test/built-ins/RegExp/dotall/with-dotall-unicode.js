@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-description: Without the dotAll flag, . does not match newlines
+description: Test the characters included by . in dotAll and unicode mode
 info: |
   21.2.2.8 Atom
   The production Atom::. evaluates as follows:
@@ -12,10 +12,11 @@ info: |
     3. Call CharacterSetMatcher(A, false) and return its Matcher result.
 
 esid: sec-atom
+features: [regexp-dotall]
 ---*/
 
 // The behavior is the same regardless of the m flag
-for (let re of [/^.$/, /^.$/m]) {
+for (let re of [/^.$/su, /^.$/sum]) {
   assert(re.test("a"));
   assert(re.test("3"));
   assert(re.test("π"));
@@ -24,11 +25,11 @@ for (let re of [/^.$/, /^.$/m]) {
   assert(re.test("\v"));
   assert(re.test("\f"));
   assert(re.test("\u180E"));
-  assert(!re.test("\u{10300}"), "Supplementary plane matched by a single .");
-  assert(!re.test("\n"));
-  assert(!re.test("\r"));
-  assert(!re.test("\u2028"));
-  assert(!re.test("\u2029"));
+  assert(re.test("\u{10300}"), "Supplementary plane matched by a single .");
+  assert(re.test("\n"));
+  assert(re.test("\r"));
+  assert(re.test("\u2028"));
+  assert(re.test("\u2029"));
   assert(re.test("\uD800"));
   assert(re.test("\uDFFF"));
 }
