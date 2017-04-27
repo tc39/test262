@@ -13,3 +13,7 @@ function compareArray(a, b) {
   return true;
 }
 
+assert.compareArray = function(actual, expected, message) {
+  assert(compareArray(actual, expected),
+         `Expected [${actual.join(", ")}] and [${expected.join(", ")}] to have the same contents. ${message}`);
+}
