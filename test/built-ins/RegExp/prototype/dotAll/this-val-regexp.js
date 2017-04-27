@@ -23,7 +23,7 @@ assert.sameValue(/./m.dotAll, false, "/./m.dotAll");
 assert.sameValue(/./s.dotAll, true, "/./s.dotAll");
 assert.sameValue(/./is.dotAll, true, "/./is.dotAll");
 assert.sameValue(/./sg.dotAll, true, "/./sg.dotAll");
-assert.sameValue(/./is.dotAll, true, "/./is.dotAll");
+assert.sameValue(/./sy.dotAll, true, "/./sy.dotAll");
 assert.sameValue(/./ms.dotAll, true, "/./ms.dotAll");
 
 assert.sameValue(new RegExp(".", "").dotAll, false, "new RegExp('.', '').dotAll");
@@ -35,5 +35,5 @@ assert.sameValue(new RegExp(".", "m").dotAll, false, "new RegExp('.', 'm').dotAl
 assert.sameValue(new RegExp(".", "s").dotAll, true, "new RegExp('.', 's').dotAll");
 assert.sameValue(new RegExp(".", "is").dotAll, true, "new RegExp('.', 'is').dotAll");
 assert.sameValue(new RegExp(".", "sg").dotAll, true, "new RegExp('.', 'sg').dotAll");
-assert.sameValue(new RegExp(".", "is").dotAll, true, "new RegExp('.', 'is').dotAll");
+assert.sameValue(new RegExp(".", "sy").dotAll, true, "new RegExp('.', 'sy').dotAll");
 assert.sameValue(new RegExp(".", "ms").dotAll, true, "new RegExp('.', 'ms').dotAll");
