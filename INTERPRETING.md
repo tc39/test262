@@ -16,7 +16,7 @@ Each test must be executed in a new [ECMAScript
 realm](https://tc39.github.io/ecma262/#sec-code-realms) dedicated to that test.
 Unless configured otherwise (via the `module` flag), source text must be
 interpreted as [global
-code](http://www.ecma-international.org/ecma-262/6.0/#sec-types-of-source-code).
+code](https://tc39.github.io/ecma262/#sec-types-of-source-code).
 
 ### Test262-Defined Bindings
 
@@ -36,15 +36,15 @@ properties of the global scope prior to test execution.
   tests (via the `async` flag, described below).
 - **`$262`** An ordinary object with the following properties:
   - **`createRealm`** - a function which creates a new [ECMAScript
-    Realm](https://tc39.github.io/ecma262/2016/#sec-code-realms),
+    Realm](https://tc39.github.io/ecma262/#sec-code-realms),
     defines this API on the new realm's global object, and returns the `$262`
     property of the new realm's global object
   - **`detachArrayBuffer`** - a function which implements [the
     DetachArrayBuffer abstract
-    operation](https://tc39.github.io/ecma262/2016/#sec-detacharraybuffer)
+    operation](https://tc39.github.io/ecma262/#sec-detacharraybuffer)
   - **`evalScript`** - a function which accepts a string value as its first
     argument and executes is as [an ECMAScript
-    script](https://tc39.github.io/ecma262/2016/#sec-scripts) according to the
+    script](https://tc39.github.io/ecma262/#sec-scripts) according to the
     following algorithm:
 
         1. Let hostDefined be any host-defined values for the provided
@@ -65,7 +65,7 @@ properties of the global scope prior to test execution.
       running.  The agent has no representation.  The agent script will be
       run in an environment that has an object `$262` with a property `agent`
       with the following properties:
-      - **`receiveBroadcast`** - a function that takes a function and 
+      - **`receiveBroadcast`** - a function that takes a function and
         calls the function when it has received a broadcast from the parent,
         passing it the broadcast as two arguments, a SharedArrayBuffer and
         an Int32.  This function may return before a broadcast is received
@@ -231,7 +231,7 @@ following strings:
   ```
 
 - **`module`** The test source code must be interpreted as [module
-  code](http://www.ecma-international.org/ecma-262/6.0/#sec-types-of-source-code).
+  code](https://tc39.github.io/ecma262/#sec-types-of-source-code).
   In addition, this flag negates the default requirement to execute the test
   both in strict mode and in non-strict mode. In other words, the
   transformation described by the section titled "Strict Mode" must **not** be
