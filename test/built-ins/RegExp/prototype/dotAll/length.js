@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: pending
+esid: sec-get-regexp.prototype.dotall
 description: >
   get RegExp.prototype.dotAll.length is 0.
 info: >

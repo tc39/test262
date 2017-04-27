@@ -2,9 +2,9 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
+esid: sec-get-regexp.prototype.dotall
 description: >
     `dotAll` accessor function invoked on a RegExp instance
-esid: pending
 info: >
     21.2.5.12 get RegExp.prototype.dotAll
 
