@@ -27,6 +27,8 @@ var desc = Object.getOwnPropertyDescriptor(RegExp.prototype, "dotAll");
 
 assert.sameValue(desc.get.length, 0);
 
-verifyNotEnumerable(desc.get, "length");
-verifyNotWritable(desc.get, "length");
-verifyConfigurable(desc.get, "length");
+verifyProperty(desc.get, "length", {
+  enumerable: false,
+  writable: false,
+  configurable: true,
+});

@@ -13,28 +13,28 @@ info: >
 features: [Symbol, regexp-dotall]
 ---*/
 
-var dotAll = Object.getOwnPropertyDescriptor(RegExp.prototype, 'dotAll').get;
+var dotAll = Object.getOwnPropertyDescriptor(RegExp.prototype, "dotAll").get;
 
 assert.throws(TypeError, function() {
   dotAll.call(undefined);
-});
+}, "undefined");
 
 assert.throws(TypeError, function() {
   dotAll.call(null);
-});
+}, "null");
 
 assert.throws(TypeError, function() {
   dotAll.call(true);
-});
+}, "true");
 
 assert.throws(TypeError, function() {
-  dotAll.call('string');
-});
+  dotAll.call("string");
+}, "string");
 
 assert.throws(TypeError, function() {
-  dotAll.call(Symbol('s'));
-});
+  dotAll.call(Symbol("s"));
+}, "symbol");
 
 assert.throws(TypeError, function() {
   dotAll.call(4);
-});
+}, "number");

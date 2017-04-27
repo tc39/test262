@@ -14,26 +14,26 @@ info: >
 features: [regexp-dotall]
 ---*/
 
-assert.sameValue(/./.dotAll, false);
-assert.sameValue(/./i.dotAll, false);
-assert.sameValue(/./g.dotAll, false);
-assert.sameValue(/./y.dotAll, false);
-assert.sameValue(/./m.dotAll, false);
+assert.sameValue(/./.dotAll, false, "/./.dotAll");
+assert.sameValue(/./i.dotAll, false, "/./i.dotAll");
+assert.sameValue(/./g.dotAll, false, "/./g.dotAll");
+assert.sameValue(/./y.dotAll, false, "/./y.dotAll");
+assert.sameValue(/./m.dotAll, false, "/./m.dotAll");
 
-assert.sameValue(/./s.dotAll, true);
-assert.sameValue(/./is.dotAll, true);
-assert.sameValue(/./sg.dotAll, true);
-assert.sameValue(/./is.dotAll, true);
-assert.sameValue(/./ms.dotAll, true);
+assert.sameValue(/./s.dotAll, true, "/./s.dotAll");
+assert.sameValue(/./is.dotAll, true, "/./is.dotAll");
+assert.sameValue(/./sg.dotAll, true, "/./sg.dotAll");
+assert.sameValue(/./is.dotAll, true, "/./is.dotAll");
+assert.sameValue(/./ms.dotAll, true, "/./ms.dotAll");
 
-assert.sameValue(new RegExp(".", "").dotAll, false);
-assert.sameValue(new RegExp(".", "i").dotAll, false);
-assert.sameValue(new RegExp(".", "g").dotAll, false);
-assert.sameValue(new RegExp(".", "y").dotAll, false);
-assert.sameValue(new RegExp(".", "m").dotAll, false);
+assert.sameValue(new RegExp(".", "").dotAll, false, "new RegExp('.', '').dotAll");
+assert.sameValue(new RegExp(".", "i").dotAll, false, "new RegExp('.', 'i').dotAll");
+assert.sameValue(new RegExp(".", "g").dotAll, false, "new RegExp('.', 'g').dotAll");
+assert.sameValue(new RegExp(".", "y").dotAll, false, "new RegExp('.', 'y').dotAll");
+assert.sameValue(new RegExp(".", "m").dotAll, false, "new RegExp('.', 'm').dotAll");
 
-assert.sameValue(new RegExp(".", "s").dotAll, true);
-assert.sameValue(new RegExp(".", "is").dotAll, true);
-assert.sameValue(new RegExp(".", "sg").dotAll, true);
-assert.sameValue(new RegExp(".", "is").dotAll, true);
-assert.sameValue(new RegExp(".", "ms").dotAll, true);
+assert.sameValue(new RegExp(".", "s").dotAll, true, "new RegExp('.', 's').dotAll");
+assert.sameValue(new RegExp(".", "is").dotAll, true, "new RegExp('.', 'is').dotAll");
+assert.sameValue(new RegExp(".", "sg").dotAll, true, "new RegExp('.', 'sg').dotAll");
+assert.sameValue(new RegExp(".", "is").dotAll, true, "new RegExp('.', 'is').dotAll");
+assert.sameValue(new RegExp(".", "ms").dotAll, true, "new RegExp('.', 'ms').dotAll");
