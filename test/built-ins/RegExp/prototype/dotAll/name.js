@@ -1,7 +1,7 @@
 // Copyright (C) 2017 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-esid: pending
+esid: sec-get-regexp.prototype.dotall
 description: >
   RegExp.prototype.dotAll name
 info: >
@@ -13,13 +13,15 @@ includes: [propertyHelper.js]
 features: [regexp-dotall]
 ---*/
 
-var descriptor = Object.getOwnPropertyDescriptor(RegExp.prototype, 'dotAll');
+var desc = Object.getOwnPropertyDescriptor(RegExp.prototype, "dotAll");
 
 assert.sameValue(
-  descriptor.get.name,
-  'get dotAll'
+  desc.get.name,
+  "get dotAll"
 );
 
-verifyNotEnumerable(descriptor.get, 'name');
-verifyNotWritable(descriptor.get, 'name');
-verifyConfigurable(descriptor.get, 'name');
+verifyProperty(desc.get, "name", {
+  enumerable: false,
+  writable: false,
+  configurable: true,
+});

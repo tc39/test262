@@ -2,7 +2,7 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-esid: pending
+esid: sec-get-regexp.prototype.dotall
 description: >
   get RegExp.prototype.dotAll.length is 0.
 info: >
@@ -27,6 +27,8 @@ var desc = Object.getOwnPropertyDescriptor(RegExp.prototype, "dotAll");
 
 assert.sameValue(desc.get.length, 0);
 
-verifyNotEnumerable(desc.get, "length");
-verifyNotWritable(desc.get, "length");
-verifyConfigurable(desc.get, "length");
+verifyProperty(desc.get, "length", {
+  enumerable: false,
+  writable: false,
+  configurable: true,
+});

@@ -1,7 +1,8 @@
 // Copyright (C) 2017 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
+
 /*---
-esid: pending
+esid: sec-get-regexp.prototype.dotall
 description: >
   Return value of `undefined` when the "this" value is the RegExp prototype
   object
@@ -13,6 +14,6 @@ info: |
 features: [regexp-dotall]
 ---*/
 
-var get = Object.getOwnPropertyDescriptor(RegExp.prototype, 'dotAll').get;
+var get = Object.getOwnPropertyDescriptor(RegExp.prototype, "dotAll").get;
 
 assert.sameValue(get.call(RegExp.prototype), undefined);
