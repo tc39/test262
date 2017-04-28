@@ -3,7 +3,7 @@
 
 /*---
 description: Named groups can be used in conjunction with lookbehind
-esid: pending
+esid: prod-GroupSpecifier
 features: [regexp-named-groups, regexp-lookbehind]
 includes: [compareArray.js]
 ---*/

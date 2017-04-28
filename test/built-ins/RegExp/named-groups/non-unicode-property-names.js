@@ -3,7 +3,7 @@
 
 /*---
 description: Exotic named group names in non-Unicode RegExps
-esid: pending
+esid: prod-GroupSpecifier
 features: [regexp-named-groups]
 includes: [compareArray.js]
 ---*/
@@ -13,7 +13,7 @@ assert.throws(SyntaxError, () => eval('/(?<\\u{03C0}>a)/'), "\\u{} escapes allow
 assert.sameValue("a", /(?<π>a)/.exec("bab").groups.\u03C0);
 assert.sameValue("a", /(?<$>a)/.exec("bab").groups.$);
 assert.sameValue("a", /(?<_>a)/.exec("bab").groups._);
-assert.throws(SyntaxError, () => eval('/(?<$𐒤>a)/'), "Individual surrogates not in ID_Continue);
+assert.throws(SyntaxError, () => eval('/(?<$𐒤>a)/'), "Individual surrogates not in ID_Continue");
 assert.sameValue("a", /(?<_\u200C>a)/.exec("bab").groups._\u200C);
 assert.sameValue("a", /(?<_\u200D>a)/.exec("bab").groups._\u200D);
 assert.sameValue("a", /(?<ಠ_ಠ>a)/.exec("bab").groups.ಠ_ಠ);

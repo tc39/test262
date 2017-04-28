@@ -3,7 +3,7 @@
 
 /*---
 description: Basic matching cases with Unicode groups
-esid: pending
+esid: prod-GroupSpecifier
 features: [regexp-named-groups]
 includes: [compareArray.js]
 ---*/
