@@ -1,7 +1,7 @@
 // Copyright (C) 2017 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
-path: language/statements/for-await-of/dstr-const-
+path: language/statements/for-await-of/async-func-dstr-let-
 name: for-await-of statement
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
 features: [destructuring-binding, async-iteration]
@@ -39,7 +39,7 @@ info: |
 var iterCount = 0;
 
 async function fn() {
-  for await (const /*{ elems }*/ of [/*{ vals }*/]) {
+  for await (let /*{ elems }*/ of [/*{ vals }*/]) {
     /*{ body }*/
 
     iterCount += 1;
@@ -49,3 +49,4 @@ async function fn() {
 fn()
   .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
   .then($DONE, $DONE);
+
