@@ -30,7 +30,6 @@ assert.throws(SyntaxError, () => eval("/(?<a\\u{10FFFF}>.)/"));
 assert.throws(SyntaxError, () => eval("/(?<a\uD801>.)/"), "Lea");
 assert.throws(SyntaxError, () => eval("/(?<a\uDCA4>.)/"), "Trai");
 assert(RegExp("(?<\u{0041}>.)").test("a"), "Non-surrogate");
-assert(RegExp("(?<a\u{104A4}>.)").test("a"), "Surrogate, ID_Continue");
 
 // Bracketed escapes are not allowed;
 // 4-char escapes must be the proper ID_Start/ID_Continue
