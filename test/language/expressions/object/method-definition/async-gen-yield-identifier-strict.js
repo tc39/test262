@@ -16,6 +16,7 @@ info: |
       async [no LineTerminator here] * PropertyName ( UniqueFormalParameters ) { AsyncGeneratorBody }
 
 ---*/
+throw "Test262: This statement should not be evaluated.";
 
 var callCount = 0;
 

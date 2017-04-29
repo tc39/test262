@@ -14,6 +14,7 @@ info: |
     GeneratorMethod[Yield, Await]:
       * PropertyName[?Yield, ?Await] ( UniqueFormalParameters[+Yield, ~Await] ) { GeneratorBody }
 ---*/
+throw "Test262: This statement should not be evaluated.";
 
 var callCount = 0;
 
