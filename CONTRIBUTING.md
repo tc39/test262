@@ -187,7 +187,7 @@ function $DONE(arg) {
 
 ## Handling Errors and Negative Test Cases
 
-Expectations for **parsing errors** should be declared using [the `negative` frontmatter flag](#negative):
+Expectations for **parsing errors** should be declared using [the `negative` frontmatter flag](#negative). They must also include the exact `throw` statement specified in this example (in order to guarantee that implementations do not execute the code):
 
 ```javascript
 /*---
@@ -195,6 +195,8 @@ negative:
   phase: early
   type: SyntaxError
 ---*/
+
+throw "Test262: This statement should not be evaluated.";
 
 var var = var;
 ```

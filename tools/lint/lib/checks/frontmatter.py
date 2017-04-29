@@ -29,14 +29,3 @@ class CheckFrontmatter(Check):
         unrecognized = fields - _VALID_FIELDS
         if len(unrecognized) > 0:
             return 'Unrecognized fields: %s' % ', '.join(list(unrecognized))
-
-        if 'negative' in meta:
-            negative = meta['negative']
-            if not isinstance(negative, dict):
-                return '"negative" must be a dictionary with fields "type" and "phase"'
-
-            if not 'type' in negative:
-                return '"negative" must specify a "type" field'
-
-            if not 'phase' in negative:
-                return '"negative" must specify a "phase" field'
