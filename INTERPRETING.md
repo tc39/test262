@@ -147,8 +147,7 @@ attribute is a YAML dictonary with two keys:
 
 - `phase` - the stage of the test interpretation process that the error is
   expected to be produced; either "early" (meaning, "prior to evaluation") or
-  "runtime" (meaning, "during evaluation"); in the case of "early", additional
-  test transformation may be required--see below
+  "runtime" (meaning, "during evaluation")
 - `type` - the name of the constructor of the expected error
 
 If a test configured with the `negative` attribute completes without throwing
@@ -166,14 +165,6 @@ negative:
 ---*/
 unresolvable;
 ```
-
-Consumers are free to assert the "early" phase as they see fit.
-
-For example, it is possible to insert a `throw` statement with a unique error
-type at the beginning of the test file. In this case, the statement should be
-inserted *after* the directive desribed in the section titled "Strict Mode"
-(where appropriate), though it must *not* be inserted for tests containing the
-"raw" flag.
 
 ### `includes`
 
