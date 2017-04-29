@@ -20,5 +20,7 @@ info: |
         FormalParameterList[?Yield, ?Await] , FunctionRestParameter[?Yield, ?Await]
 ---*/
 
+//- setup
+throw "Test262: This statement should not be evaluated.";
 //- params
 ...a,
