@@ -9,6 +9,9 @@ def collect_files(path):
         yield path
         return
 
+    if not os.path.isdir(path):
+        raise ValueError('Not found: "%s"' % path)
+
     for root, dirs, file_names in os.walk(path):
         for file_name in file_names:
             if file_name.startswith('.'):
