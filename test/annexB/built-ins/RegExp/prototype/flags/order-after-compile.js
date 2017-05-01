@@ -4,8 +4,16 @@
 /*---
 esid: sec-get-regexp.prototype.flags
 description: >
-  RegExp.prototype.flags come in a single order, independent of source order
-info: >
+  The flags come in the same order in a new instance produced by RegExp.prototype.compile
+info: |
+  B.2.5.1 RegExp.prototype.compile ( pattern, flags )
+
+  ...
+  5. Return ? RegExpInitialize(O, P, F).
+
+  21.2.5.3 get RegExp.prototype.flags
+
+  ...
   4. Let global be ToBoolean(? Get(R, "global")).
   5. If global is true, append "g" as the last code unit of result.
   6. Let ignoreCase be ToBoolean(? Get(R, "ignoreCase")).
@@ -18,8 +26,10 @@ info: >
   13. If unicode is true, append "u" as the last code unit of result.
   14. Let sticky be ToBoolean(? Get(R, "sticky")).
   15. If sticky is true, append "y" as the last code unit of result.
+  14. Return result.
 features: [regexp-dotall]
 ---*/
 
-assert.sameValue(new RegExp("", "gimsuy").flags, "gimsuy", "gimsuy => gimsuy");
-assert.sameValue(new RegExp("", "yusmig").flags, "gimsuy", "yusmig => gimsuy");
+let re = /(?:)/;
+re.compile("(?:)", "imsuyg");
+assert.sameValue(re.flags, "gimsuy");

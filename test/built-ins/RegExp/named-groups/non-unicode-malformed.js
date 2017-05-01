@@ -5,7 +5,7 @@
 description: >
   Named groups in Unicode RegExps have some syntax errors and some
   compatibility escape fallback behavior.
-esid: pending
+esid: prod-GroupSpecifier
 features: [regexp-named-groups, regexp-lookbehind]
 includes: [compareArray.js]
 ---*/

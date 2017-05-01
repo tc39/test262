@@ -3,7 +3,7 @@
 
 /*---
 description: Exotic named group names in Unicode RegExps
-esid: pending
+esid: prod-GroupSpecifier
 features: [regexp-named-groups]
 ---*/
 

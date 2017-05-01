@@ -3,7 +3,7 @@
 
 /*---
 description: Various syntax errors for Unicode RegExps containing named groups
-esid: pending
+esid: prod-GroupSpecifier
 features: [regexp-named-groups]
 ---*/
 

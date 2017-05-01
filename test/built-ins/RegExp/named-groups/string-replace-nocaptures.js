@@ -18,7 +18,7 @@ info: >
 // @@replace with a string replacement argument (no named captures).
 
 let source = "(.)(.)|(x)";
-for (let flags of ["", "u", "g", "gu"]) {
+for (let flags of ["", "u"]) {
   let re = new RegExp(source, flags);
   assert.sameValue("$<snd>$<fst>cd", "abcd".replace(re, "$<snd>$<fst>"));
   assert.sameValue("bacd", "abcd".replace(re, "$2$1"));

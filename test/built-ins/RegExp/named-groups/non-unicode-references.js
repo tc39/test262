@@ -3,7 +3,7 @@
 
 /*---
 description: Named backreferences in non-Unicode RegExps
-esid: pending
+esid: prod-GroupSpecifier
 features: [regexp-named-groups]
 includes: [compareArray.js]
 ---*/
