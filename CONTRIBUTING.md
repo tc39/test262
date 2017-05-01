@@ -159,7 +159,8 @@ $DONE(arg) | see Writing Asynchronous Tests, below
 assert(value, message) | throw a new Test262Error instance if the specified value is not strictly equal to the JavaScript `true` value; accepts an optional string message for use in creating the error
 assert.sameValue(actual, expected, message) | throw a new Test262Error instance if the first two arguments are not [the same value](https://tc39.github.io/ecma262/#sec-samevalue); accepts an optional string message for use in creating the error
 assert.notSameValue(actual, unexpected, message) | throw a new Test262Error instance if the first two arguments are [the same value](https://tc39.github.io/ecma262/#sec-samevalue); accepts an optional string message for use in creating the error
-assert.throws(expectedErrorConstructor, fn) | throw a new Test262Error instance if the provided function does not throw an error, or if the constructor of the value thrown does not match the provided constructor
+assert.throws(expectedErrorConstructor, fn, message) | throw a new Test262Error instance if the provided function does not throw an error, or if the constructor of the value thrown does not match the provided constructor
+assert.throws.early(expectedErrorConstructor, fn) | throw a new Test262Error instance if the provided function does not throw an early error, or if the constructor of the value thrown does not match the provided constructor. This assertion catches only errors that will be parsed through `Function(code)`.
 
 ```
 /// error class
