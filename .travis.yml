@@ -1,8 +1,9 @@
 language: python
 install: pip install --requirement tools/generation/requirements.txt
 script:
-  - echo The test generation tool should be working.
+  - ./tools/scripts/ci_build.sh
   - ./tools/generation/test/run.py
-  - sh ./tools/scripts/ci.sh
+  - ./tools/lint/test/run.py
+  - ./tools/scripts/ci_lint.sh
 after_success:
-  - sh ./tools/scripts/deploy.sh
+  - ./tools/scripts/deploy.sh
