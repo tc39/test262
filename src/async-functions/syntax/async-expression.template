@@ -1,0 +1,18 @@
+// Copyright (C) 2017 André Bargull. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/async-function/
+name: Unnamed async function expression
+esid: prod-AsyncFunctionExpression
+info: |
+  Async Function Definitions
+
+  AsyncFunctionExpression :
+    async [no LineTerminator here] function ( FormalParameters ) { AsyncFunctionBody }
+features: [async-functions]
+---*/
+
+var fn = async function () {
+  /*{ body }*/
+};

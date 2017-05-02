@@ -1,0 +1,21 @@
+// Copyright (C) 2017 André Bargull. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+esid: sec-identifiers-static-semantics-early-errors
+desc: >
+  await is a reserved keyword within generator function bodies and may not be
+  used as a label identifier.
+info: |
+  LabelIdentifier : Identifier
+
+  It is a Syntax Error if this production has a [Await] parameter and
+  StringValue of Identifier is "await".
+negative:
+  phase: early
+  type: SyntaxError
+template: syntax
+---*/
+
+//- body
+  await: ;

@@ -1,0 +1,22 @@
+// Copyright (C) 2017 André Bargull. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/async-arrow-function/
+name: Async arrow function
+esid: prod-AsyncArrowFunction
+info: |
+  Async Arrow Function Definitions
+
+  AsyncArrowFunction[In, Yield, Await]:
+    async [no LineTerminator here] AsyncArrowBindingIdentifier[?Yield] [no LineTerminator here] => AsyncConciseBody[?In]
+    CoverCallExpressionAndAsyncArrowHead[?Yield, ?Await] [no LineTerminator here] => AsyncConciseBody[?In]
+
+  AsyncConciseBody[In]:
+    { AsyncFunctionBody }
+features: [async-functions]
+---*/
+
+async() => {
+  /*{ body }*/
+};

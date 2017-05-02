@@ -1,0 +1,24 @@
+// Copyright (C) 2017 André Bargull. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/statements/class/async-method-
+name: Async method as a ClassDeclaration element
+esid: prod-AsyncMethod
+info: |
+  ClassElement :
+    MethodDefinition
+
+  MethodDefinition :
+    AsyncMethod
+
+  Async Function Definitions
+
+  AsyncMethod :
+    async [no LineTerminator here] PropertyName ( UniqueFormalParameters ) { AsyncFunctionBody }
+features: [async-functions]
+---*/
+
+class C { async method() {
+    /*{ body }*/
+}}
