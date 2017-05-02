@@ -2,9 +2,14 @@
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
-info: The "break" token can not be used as identifier
+esid: sec-identifiers-static-semantics-early-errors
 es5id: 7.6.1.1_A1.1
 description: Checking if execution of "break=1" fails
+info: |
+  Identifier : IdentifierName but not ReservedWord
+
+  It is a Syntax Error if StringValue of IdentifierName is the same String
+  value as the StringValue of any ReservedWord except for yield.
 negative:
   phase: early
   type: SyntaxError
