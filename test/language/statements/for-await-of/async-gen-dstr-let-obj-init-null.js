@@ -49,5 +49,5 @@ async function * gen() {
 }
 
 gen().next()
-  .then(_ => throw new Test262Error("Expected async function to reject, but resolved."), ({ constructor }) => assert.sameValue(constructor, TypeError))
+  .then(_ => { throw new Test262Error("Expected async function to reject, but resolved."); }, ({ constructor }) => assert.sameValue(constructor, TypeError))
   .then($DONE, $DONE);
