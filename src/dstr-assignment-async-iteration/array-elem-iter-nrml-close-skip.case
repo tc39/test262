@@ -1,0 +1,47 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: >
+    IteratorClose is not called when assignment evaluation has exhausted the
+    iterator
+info: |
+    ArrayAssignmentPattern : [ AssignmentElementList ]
+
+    [...]
+    5. If iteratorRecord.[[done]] is false, return IteratorClose(iterator, result).
+    6. Return result.
+features: [Symbol.iterator]
+template: default
+esid: sec-runtime-semantics-destructuringassignmentevaluation
+---*/
+
+//- setup
+var nextCount = 0;
+var returnCount = 0;
+var _;
+var iterable = {};
+var iterator = {
+  next: function() {
+    nextCount += 1;
+    return { done: true };
+  },
+  return: function() {
+    returnCount += 1;
+    return {};
+  }
+};
+iterable[Symbol.iterator] = function() {
+  return iterator;
+};
+//- elems
+[ _ ]
+//- vals
+iterable
+//- body
+assert.sameValue(nextCount, 1);
+assert.sameValue(returnCount, 0);
+
+//- teardown
+promise
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);
