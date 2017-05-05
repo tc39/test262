@@ -17,11 +17,11 @@ if (!(Function.prototype.call.hasOwnProperty('length'))) {
 }
 
 //CHECK#1
-if (!delete Function.prototype.call.length) {
-  $ERROR('#1: The Function.prototype.call.length property does not have the attributes DontDelete');
+if (delete Function.prototype.call.length) {
+  $ERROR('#1: The Function.prototype.call.length property does have the attributes DontDelete');
 }
 
 //CHECK#2
-if (Function.prototype.call.hasOwnProperty('length')) {
-  $ERROR('#2: The Function.prototype.call.length property does not have the attributes DontDelete');
+if (!(Function.prototype.call.hasOwnProperty('length'))) {
+  $ERROR('#2: The Function.prototype.call has length property');
 }
