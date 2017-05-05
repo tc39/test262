@@ -4,7 +4,7 @@
 /*---
 description: execution order for yield* with sync iterator and return() (Async generator Function declaration)
 esid: prod-AsyncGeneratorDeclaration
-features: [async-iteration, Symbol.asyncIterator, async-iteration]
+features: [async-iteration, Symbol.asyncIterator]
 flags: [generated, async]
 info: |
     Async Generator Function Definitions
