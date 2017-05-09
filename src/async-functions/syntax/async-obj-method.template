@@ -1,0 +1,20 @@
+// Copyright (C) 2017 André Bargull. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+path: language/expressions/object/method-definition/async-
+name: Async method
+esid: prod-AsyncMethod
+info: |
+  Async Function Definitions
+
+  AsyncMethod :
+    async [no LineTerminator here] PropertyName ( UniqueFormalParameters ) { AsyncFunctionBody }
+features: [async-functions]
+---*/
+
+var obj = {
+  async method() {
+    /*{ body }*/
+  }
+};

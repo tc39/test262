@@ -1,0 +1,16 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/statements/generators/
+name: Generator Function declaration
+esid: prod-GeneratorDeclaration
+info: |
+  14.4 Generator Function Definitions
+
+  GeneratorDeclaration :
+    function * BindingIdentifier ( FormalParameters ) { GeneratorBody }
+---*/
+
+function *gen() {
+  /*{ body }*/
+}
