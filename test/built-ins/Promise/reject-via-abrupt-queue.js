@@ -36,7 +36,7 @@ info: |
 flags: [async]
 ---*/
 
-var thenable = new Promise(function() {});
+var thenable = Promise.resolve();
 var p = new Promise(function() {
   throw thenable;
 });
