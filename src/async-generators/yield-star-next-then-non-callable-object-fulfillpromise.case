@@ -63,4 +63,4 @@ var obj = {
 iter.next().then(({ value, done }) => {
   assert.sameValue(value, 42);
   assert.sameValue(done, false);
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);
