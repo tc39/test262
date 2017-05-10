@@ -4,8 +4,7 @@
 es6id: 22.1.3.23
 esid: sec-array.prototype.slice
 description: >
-    An undefined value for the @@species constructor triggers the creation  of
-    an Array exotic object
+    Ensure a RangeError is thrown when a proxied array returns an invalid array length.
 info: |
     [...]
     8. Let A be ? ArraySpeciesCreate(O, count).
@@ -14,17 +13,16 @@ info: |
     9.4.2.3 ArraySpeciesCreate
 
     [...]
+    3. Let isArray be ? IsArray(originalArray).
+    [...]
     5. Let C be ? Get(originalArray, "constructor").
     [...]
-    7. If Type(C) is Object, then
-       a. Let C be ? Get(C, @@species).
-       b. If C is null, let C be undefined.
-    8. If C is undefined, return ? ArrayCreate(length).
+    10. Return ? Construct(C, « length »).
 
     9.4.2.2 ArrayCreate
 
     [...]
-    3. If length>232-1, throw a RangeError exception.
+    3. If length>2^32-1, throw a RangeError exception.
 features: [Proxy]
 ---*/
 
