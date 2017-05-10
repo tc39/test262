@@ -18,6 +18,8 @@ info: |
        [...]
 ---*/
 
+//- setup
+let length = "outer";
 //- elems
 [...{ 0: v, 1: w, 2: x, 3: y, length: z }]
 //- vals
@@ -29,6 +31,4 @@ assert.sameValue(x, 9);
 assert.sameValue(y, undefined);
 assert.sameValue(z, 3);
 
-assert.throws(ReferenceError, function() {
-  length;
-});
+assert.sameValue(length, "outer", "the length prop is not set as a binding name");
