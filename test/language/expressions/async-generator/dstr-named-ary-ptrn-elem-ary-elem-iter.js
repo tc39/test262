@@ -42,4 +42,4 @@ f = async function* h([[x, y, z] = [4, 5, 6]]) {
 
 f([[7, 8, 9]]).next().then(() => {
     assert.sameValue(callCount, 1, 'invoked exactly once');
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);

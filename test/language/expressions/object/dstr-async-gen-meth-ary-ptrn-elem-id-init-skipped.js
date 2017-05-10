@@ -51,4 +51,4 @@ var obj = {
 
 obj.method([null, 0, false, '']).next().then(() => {
     assert.sameValue(callCount, 1, 'invoked exactly once');
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);

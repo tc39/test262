@@ -37,4 +37,4 @@ async function* f([, , ...x] = [1, 2]) {
 };
 f().next().then(() => {
     assert.sameValue(callCount, 1, 'invoked exactly once');
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);

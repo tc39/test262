@@ -54,6 +54,6 @@ item.then(({ done, value }) => {
   assert.sameValue(value.y, 39);
   assert.sameValue(Object.keys(value).length, 2);
   assert.sameValue(done, false);
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);
 
 assert.sameValue(callCount, 1);

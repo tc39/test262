@@ -57,6 +57,6 @@ var ref = C.method;
 
 ref(42, 39).then(() => {
   assert.sameValue(callCount, 1, 'method invoked exactly once');
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);
 
 assert.sameValue(ref.length, 1, 'length is properly set');

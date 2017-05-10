@@ -61,4 +61,4 @@ var ref = C.prototype.method;
 
 ref(42, undefined,).next().then(() => {
     assert.sameValue(callCount, 1, 'method invoked exactly once');
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);

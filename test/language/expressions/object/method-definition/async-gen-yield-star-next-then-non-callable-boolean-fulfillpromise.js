@@ -77,6 +77,6 @@ var iter = gen();
 iter.next().then(({ value, done }) => {
   assert.sameValue(value, 42);
   assert.sameValue(done, false);
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);
 
 assert.sameValue(callCount, 1);

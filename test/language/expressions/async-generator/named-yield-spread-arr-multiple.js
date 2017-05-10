@@ -43,7 +43,7 @@ item.then(({ done, value }) => {
   item.then(({ done, value }) => {
     assert(compareArray(value, arr));
     assert.sameValue(done, false);
-  }).then($DONE, $DONE);
+  }, $DONE).then($DONE, $DONE);
 }).catch($DONE);
 
 assert.sameValue(callCount, 1);

@@ -43,6 +43,6 @@ item.then(({ done, value }) => {
   assert.sameValue(value[1], 'b');
   assert.sameValue(value[2], 'c');
   assert.sameValue(done, false);
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);
 
 assert.sameValue(callCount, 1);
