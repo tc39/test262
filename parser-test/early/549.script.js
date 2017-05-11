@@ -1,0 +1,1 @@
+'use strict'; b: function a(){}

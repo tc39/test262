@@ -1,0 +1,1 @@
+!{ *a(eval){ 'use strict'; } };

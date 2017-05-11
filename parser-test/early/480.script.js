@@ -1,0 +1,1 @@
+class a extends b { static c() { super(); } }

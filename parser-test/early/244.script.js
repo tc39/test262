@@ -1,0 +1,1 @@
+for(let {a, a} of 1);

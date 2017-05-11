@@ -1,0 +1,1 @@
+for(let a;;) c: function b(){}

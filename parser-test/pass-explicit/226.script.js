@@ -1,0 +1,3 @@
+try {} finally {
+  a(b);
+}

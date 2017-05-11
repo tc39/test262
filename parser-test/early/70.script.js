@@ -1,0 +1,1 @@
+"use strict"; (a, a) => 1

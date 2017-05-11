@@ -1,0 +1,1 @@
+var a; export {b as a};

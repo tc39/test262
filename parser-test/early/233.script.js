@@ -1,0 +1,1 @@
+for(const a = 1;;) { var a; }

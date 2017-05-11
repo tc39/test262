@@ -1,0 +1,1 @@
+a: while (true) { a: while (true) { } }

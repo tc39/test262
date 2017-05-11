@@ -1,0 +1,1 @@
+for(var a = 0 of b);

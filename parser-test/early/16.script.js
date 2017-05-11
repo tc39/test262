@@ -1,0 +1,1 @@
+function a() {'use strict'; eval = 1; }

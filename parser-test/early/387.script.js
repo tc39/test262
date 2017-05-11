@@ -1,0 +1,1 @@
+function a(){ while(1) continue b; }

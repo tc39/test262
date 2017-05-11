@@ -1,0 +1,1 @@
+import a, {b as a} from "module";
