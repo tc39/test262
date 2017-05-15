@@ -1,0 +1,47 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+path: language/statements/for-await-of/async-gen-dstr-var-
+name: for-await-of statement
+esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
+features: [destructuring-binding, async-iteration]
+flags: [async]
+info: |
+    IterationStatement :
+        for await ( var ForBinding of AssignmentExpression ) Statement
+
+    [...]
+    2. Return ? ForIn/OfBodyEvaluation(ForBinding, Statement, keyResult,
+        varBinding, labelSet, async).
+
+    13.7.5.13 Runtime Semantics: ForIn/OfBodyEvaluation
+
+    [...]
+    4. Let destructuring be IsDestructuring of lhs.
+    [...]
+    6. Repeat
+       [...]
+       j. If destructuring is false, then
+          [...]
+       k. Else
+          i. If lhsKind is assignment, then
+             [...]
+          ii. Else if lhsKind is varBinding, then
+              1. Assert: lhs is a ForBinding.
+              2. Let status be the result of performing BindingInitialization
+                 for lhs passing nextValue and undefined as the arguments.
+          [...]
+---*/
+
+async function* fn() {
+  for await (var /*{ elems }*/ of [/*{ iter }*/]) {
+    return;
+  }
+}
+
+fn()
+  .next()
+  .then(() => {
+    /*{ assertions }*/
+  })
+  .then($DONE, $DONE);
