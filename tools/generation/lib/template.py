@@ -3,6 +3,7 @@
 
 import os, re
 import codecs, yaml
+from collections import OrderedDict
 
 from util.find_comments import find_comments
 from util.parse_yaml import parse_yaml
@@ -151,23 +152,33 @@ class Template:
         features = []
         features += case_values['meta'].get('features', [])
         features += self.attribs['meta'].get('features', [])
+        features = list(OrderedDict.fromkeys(features))
         if len(features):
             lines += ['features: ' + yaml.dump(features).strip()]
 
         flags = ['generated']
         flags += case_values['meta'].get('flags', [])
         flags += self.attribs['meta'].get('flags', [])
+        flags = list(OrderedDict.fromkeys(flags))
         lines += ['flags: ' + yaml.dump(flags).strip()]
 
         includes = []
         includes += case_values['meta'].get('includes', [])
         includes += self.attribs['meta'].get('includes', [])
+        includes = list(OrderedDict.fromkeys(includes))
         if len(includes):
             lines += ['includes: ' + yaml.dump(includes).strip()]
 
         if case_values['meta'].get('negative'):
+            if self.attribs['meta'].get('negative'):
+                raise Exception('Cannot specify negative in case and template file')
+            negative = case_values['meta'].get('negative')
+        else:
+            negative = self.attribs['meta'].get('negative')
+
+        if negative:
             lines += ['negative:']
-            as_yaml = yaml.dump(case_values['meta'].get('negative'),
+            as_yaml = yaml.dump(negative,
                                 default_flow_style=False)
             lines += indent(as_yaml.strip(), '  ').split('\n')
 
