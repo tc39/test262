@@ -5,7 +5,7 @@
 desc: >
   redeclaration with AsyncGeneratorDeclaration
 template: redeclare
-flags: [async-iteration]
+features: [async-iteration]
 ---*/
 
 //- body

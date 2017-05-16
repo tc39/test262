@@ -4,7 +4,8 @@
 /*---
 description: redeclaration with AsyncGeneratorDeclaration (AsyncFunctionDeclaration in SwitchStatement)
 esid: sec-switch-statement-static-semantics-early-errors
-flags: [generated, async-iteration, async-functions]
+features: [async-iteration, async-functions]
+flags: [generated]
 negative:
   phase: early
   type: SyntaxError

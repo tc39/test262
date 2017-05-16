@@ -13,7 +13,7 @@ info: |
 negative:
   phase: early
   type: SyntaxError
-flags: [async-functions]
+features: [async-functions]
 ---*/
 
 switch (0) { case 1: async function f() {} default: /*{ body }*/ }

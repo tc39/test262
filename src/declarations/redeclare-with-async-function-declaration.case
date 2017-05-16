@@ -5,7 +5,7 @@
 desc: >
   redeclaration with AsyncFunctionDeclaration
 template: redeclare
-flags: [async-functions]
+features: [async-functions]
 ---*/
 
 //- body

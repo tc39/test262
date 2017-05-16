@@ -4,7 +4,8 @@
 /*---
 description: redeclaration with AsyncFunctionDeclaration (LexicalDeclaration (let) in SwitchStatement)
 esid: sec-switch-statement-static-semantics-early-errors
-flags: [generated, async-functions]
+features: [async-functions]
+flags: [generated]
 negative:
   phase: early
   type: SyntaxError
