@@ -9,7 +9,7 @@ template: default
 ---*/
 
 //- setup
-var x = {};
+let x = {};
 //- elems
 [x.y]
 //- vals

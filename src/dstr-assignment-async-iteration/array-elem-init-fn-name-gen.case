@@ -11,16 +11,14 @@ info: >
     7. If Initializer is present and value is undefined and
        IsAnonymousFunctionDefinition(Initializer) and IsIdentifierRef of
        DestructuringAssignmentTarget are both true, then
-       a. Let hasNameProperty be HasOwnProperty(v, "name").
-       b. ReturnIfAbrupt(hasNameProperty).
-       c. If hasNameProperty is false, perform SetFunctionName(v,
-          GetReferencedName(lref)).
+       a. Let hasNameProperty be ? HasOwnProperty(v, "name").
+       b. If hasNameProperty is false, perform SetFunctionName(v, GetReferencedName(lref)).
 includes: [propertyHelper.js]
 features: [generators]
 ---*/
 
 //- setup
-var xGen, gen;
+let xGen, gen;
 //- elems
 [ xGen = function* x() {}, gen = function*() {} ]
 //- vals

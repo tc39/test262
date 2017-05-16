@@ -1,4 +1,4 @@
-// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 desc: Iterator is closed without iterating
@@ -9,10 +9,10 @@ info: |
     2. ReturnIfAbrupt(iterator).
     3. Return IteratorClose(iterator, NormalCompletion(empty)).
 
-    7.4.6 IteratorClose( iterator, completion )
+    7.4.6 IteratorClose ( iterator, completion )
 
     [...]
-    6. Let innerResult be Call(return, iterator, « »).
+    5. Let innerResult be Call(return, iterator, « »).
     [...]
 features: [Symbol.iterator]
 template: async-generator
@@ -20,11 +20,11 @@ esid: sec-runtime-semantics-destructuringassignmentevaluation
 ---*/
 
 //- setup
-var nextCount = 0;
-var returnCount = 0;
-var thisValue = null;
-var args = null;
-var iterator = {
+let nextCount = 0;
+let returnCount = 0;
+let thisValue = null;
+let args = null;
+let iterator = {
   next() {
     nextCount += 1;
     return { done: true };
@@ -36,7 +36,7 @@ var iterator = {
     return {};
   }
 };
-var iterable = {
+let iterable = {
   [Symbol.iterator]() {
     return iterator;
   }

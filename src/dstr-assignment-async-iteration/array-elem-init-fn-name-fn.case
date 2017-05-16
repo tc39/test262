@@ -1,4 +1,4 @@
-// Copyright (C) 2015 the V8 project authors. All rights reserved.
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -11,27 +11,25 @@ info: >
     7. If Initializer is present and value is undefined and
        IsAnonymousFunctionDefinition(Initializer) and IsIdentifierRef of
        DestructuringAssignmentTarget are both true, then
-       a. Let hasNameProperty be HasOwnProperty(v, "name").
-       b. ReturnIfAbrupt(hasNameProperty).
-       c. If hasNameProperty is false, perform SetFunctionName(v,
-          GetReferencedName(lref)).
+       a. Let hasNameProperty be ? HasOwnProperty(v, "name").
+       b. If hasNameProperty is false, perform SetFunctionName(v, GetReferencedName(lref)).
 includes: [propertyHelper.js]
 features: [class]
 ---*/
 
 //- setup
-var xFn, fn;
+let xFnexp, fnexp;
 //- elems
-[ xFn = function x() {}, fn = function() {} ]
+[ xFnexp = function x() {}, fnexp = function() {} ]
 //- vals
 []
 //- body
-assert(xFn.name !== 'xFn');
+assert(xFnexp.name !== 'xFnexp');
 
-assert.sameValue(fn.name, 'fn');
-verifyNotEnumerable(fn, 'name');
-verifyNotWritable(fn, 'name');
-verifyConfigurable(fn, 'name');
+assert.sameValue(fnexp.name, 'fnexp');
+verifyNotEnumerable(fnexp, 'name');
+verifyNotWritable(fnexp, 'name');
+verifyConfigurable(fnexp, 'name');
 
 //- teardown
 promise

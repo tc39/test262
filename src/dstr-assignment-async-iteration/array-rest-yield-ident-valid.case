@@ -1,4 +1,4 @@
-// Copyright (C) 2015 the V8 project authors. All rights reserved.
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -11,8 +11,8 @@ flags: [noStrict]
 ---*/
 
 //- setup
-var yield = 'prop';
-var x = {};
+let yield = 'prop';
+let x = {};
 //- elems
 [...x[yield]]
 //- vals
@@ -22,3 +22,9 @@ assert.sameValue(x.prop.length, 3);
 assert.sameValue(x.prop[0], 33);
 assert.sameValue(x.prop[1], 44);
 assert.sameValue(x.prop[2], 55);
+
+
+//- teardown
+promise
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);

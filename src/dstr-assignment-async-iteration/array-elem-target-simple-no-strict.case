@@ -11,7 +11,7 @@ flags: [noStrict]
 ---*/
 
 //- setup
-var argument, eval;
+let argument, eval;
 //- elems
 [arguments, eval]
 //- vals

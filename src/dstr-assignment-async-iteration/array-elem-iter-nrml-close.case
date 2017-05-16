@@ -8,14 +8,13 @@ info: |
     ArrayAssignmentPattern : [ AssignmentElementList ]
 
     [...]
-    5. If iteratorRecord.[[done]] is false, return IteratorClose(iterator,
-       result).
-    6. Return result.
+    4. If iteratorRecord.[[Done]] is false, return ? IteratorClose(iterator, result).
+    5. Return result.
 
-    7.4.6 IteratorClose( iterator, completion )
+    7.4.6 IteratorClose ( iterator, completion )
 
     [...]
-    6. Let innerResult be Call(return, iterator, « »).
+    5. Let innerResult be Call(return, iterator, « »).
     [...]
 features: [Symbol.iterator]
 template: default
@@ -23,20 +22,20 @@ esid: sec-runtime-semantics-destructuringassignmentevaluation
 ---*/
 
 //- setup
-var nextCount = 0;
-var returnCount = 0;
-var thisValue = null;
-var args = null;
-var _;
-var iterable = {};
-var iterator = {
-  next: function() {
+let nextCount = 0;
+let returnCount = 0;
+let thisValue = null;
+let args = null;
+let _;
+let iterable = {};
+let iterator = {
+  next() {
     nextCount += 1;
     // Set an upper-bound to limit unnecessary iteration in non-conformant
     // implementations
     return { done: nextCount > 10 };
   },
-  return: function() {
+  return() {
     returnCount += 1;
     thisValue = this;
     args = arguments;

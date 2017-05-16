@@ -1,0 +1,26 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    When a `yield` token appears within the Initializer of a nested
+    destructuring assignment and outside of a generator function body, it
+    should behave as an IdentifierReference.
+template: async-function
+es6id: 12.14.5.4
+flags: [noStrict]
+---*/
+
+//- setup
+let yield = 2;
+let result, x;
+//- elems
+{ x: { x = yield } }
+//- vals
+{ x: {} }
+//- body
+assert.sameValue(x, 2);
+//- teardown
+promise
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);

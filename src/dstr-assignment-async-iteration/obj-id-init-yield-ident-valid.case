@@ -1,0 +1,27 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    When a `yield` token appears within the Initializer of an
+    AssignmentProperty and outside of a generator function body, it should
+    behave as an IdentifierReference.
+template: async-function
+es6id: 12.14.5
+flags: [noStrict]
+---*/
+
+//- setup
+let yield = 3;
+let x;
+//- elems
+{ x = yield }
+//- vals
+{}
+//- body
+assert.sameValue(x, 3);
+
+//- teardown
+promise
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);

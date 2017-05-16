@@ -1,0 +1,23 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    The Initializer in an AssignmentElement may be an `in` expression.
+template: default
+es6id: 12.14.5
+---*/
+
+//- setup
+let prop;
+//- elems
+{ x: prop = 'x' in {} }
+//- vals
+{}
+//- body
+assert.sameValue(prop, false);
+
+//- teardown
+promise
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);

@@ -11,8 +11,8 @@ flags: [noStrict]
 ---*/
 
 //- setup
-var yield = 'prop';
-var x = {};
+let yield = 'prop';
+let x = {};
 //- elems
 [ x[yield] ]
 //- vals

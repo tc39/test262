@@ -11,9 +11,9 @@ features: [generators]
 ---*/
 
 //- setup
-var value = [33];
-var x = {};
-var iterationResult;
+let value = [33];
+let x = {};
+let iterationResult;
 
 //- elems
 [ x[yield] ]
@@ -27,8 +27,6 @@ iter.next().then(iterationResult => {
   assert.sameValue(iterationResult.done, false);
   assert.sameValue(x.prop, undefined);
 
-  // TODO add iterCount
-  //
   iter.next('prop').then(iterationResult => {
     assert.sameValue(iterationResult.value, undefined);
     assert.sameValue(iterationResult.done, true);

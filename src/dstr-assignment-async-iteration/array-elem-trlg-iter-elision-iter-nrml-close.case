@@ -1,4 +1,4 @@
-// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 desc: IteratorClose invoked when elision does not exhaust the iterator
@@ -7,19 +7,21 @@ info: |
         [ AssignmentElementList , Elisionopt AssignmentRestElementopt ]
 
     [...]
-    6. If Elision is present, then
+    5. If Elision is present, then
        a. Let status be the result of performing
           IteratorDestructuringAssignmentEvaluation of Elision with
           iteratorRecord as the argument.
        b. If status is an abrupt completion, then
-          [...]
-    8. If iteratorRecord.[[done]] is false, return IteratorClose(iterator,
-       status).
-
-    7.4.6 IteratorClose( iterator, completion )
 
     [...]
-    6. Let innerResult be Call(return, iterator, « »).
+
+    7. If iteratorRecord.[[done]] is false, return IteratorClose(iterator,
+       status).
+
+    7.4.6 IteratorClose ( iterator, completion )
+
+    [...]
+    5. Let innerResult be Call(return, iterator, « »).
     [...]
 features: [Symbol.iterator]
 template: async-generator
@@ -27,12 +29,12 @@ esid: sec-runtime-semantics-destructuringassignmentevaluation
 ---*/
 
 //- setup
-var nextCount = 0;
-var returnCount = 0;
-var thisValue = null;
-var args = null;
-var x;
-var iterator = {
+let nextCount = 0;
+let returnCount = 0;
+let thisValue = null;
+let args = null;
+let x;
+let iterator = {
   next() {
     nextCount += 1;
 
@@ -47,7 +49,7 @@ var iterator = {
     return {};
   }
 };
-var iterable = {
+let iterable = {
   [Symbol.iterator]() {
     return iterator;
   }

@@ -10,7 +10,7 @@ template: async-generator
 ---*/
 
 //- setup
-var x;
+let x;
 
 
 //- elems
@@ -18,14 +18,14 @@ var x;
 //- vals
 [{}]
 //- teardown
-iter.next().then(iterationResult => {
-  assert.sameValue(iterationResult.value, undefined);
-  assert.sameValue(iterationResult.done, false);
+iter.next().then(result => {
+  assert.sameValue(result.value, undefined);
+  assert.sameValue(result.done, false);
   assert.sameValue(x, undefined);
 
-  iter.next(4).then(iterationResult => {
-    assert.sameValue(iterationResult.value, undefined);
-    assert.sameValue(iterationResult.done, true);
+  iter.next(4).then(result => {
+    assert.sameValue(result.value, undefined);
+    assert.sameValue(result.done, true);
     assert.sameValue(x, 4);
   }, $DONE).then($DONE, $DONE);
 }, $DONE).catch($DONE);

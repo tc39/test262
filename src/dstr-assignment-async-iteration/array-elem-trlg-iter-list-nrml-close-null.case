@@ -1,0 +1,65 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: >
+    IteratorClose throws a TypeError when `return` returns a non-Object value
+info: |
+    ArrayAssignmentPattern :
+        [ AssignmentElementList , Elisionopt AssignmentRestElementopt ]
+
+    [...]
+    2. Let iteratorRecord be Record {[[Iterator]]: iterator, [[Done]]: false}.
+    3. Let status be the result of performing
+       IteratorDestructuringAssignmentEvaluation of AssignmentElementList using
+       iteratorRecord as the argument.
+    4. If status is an abrupt completion, then
+       a. If iteratorRecord.[[Done]] is false, return ? IteratorClose(iterator, status).
+       b. Return Completion(status).
+
+    7.4.6 IteratorClose( iterator, completion )
+
+    [...]
+    5. Let innerResult be Call(return, iterator, « »).
+    6. If completion.[[type]] is throw, return Completion(completion).
+    7. If innerResult.[[type]] is throw, return Completion(innerResult).
+    8. If Type(innerResult.[[value]]) is not Object, throw a TypeError
+       exception.
+
+features: [Symbol.iterator]
+template: async-generator
+es6id: 12.14.5.2
+esid: sec-runtime-semantics-destructuringassignmentevaluation
+---*/
+
+//- setup
+let x;
+let nextCount = 0;
+let iterator = {
+  next() {
+    nextCount += 1;
+    // Set an upper-bound to limit unnecessary iteration in non-conformant
+    // implementations
+    return { done: nextCount > 10 };
+  },
+  return() {
+    return null;
+  }
+};
+let iterable = {
+  [Symbol.iterator]() {
+    return iterator;
+  }
+};
+
+//- error
+TypeError
+//- elems
+[ x , ]
+//- vals
+iterable
+//- teardown
+iter.return().then(() => $DONE('Promise incorrectly fulfilled.'), ({ constructor }) => {
+  assert.sameValue(iterCount, 0);
+  assert.sameValue(constructor, TypeError);
+}).then($DONE, $DONE);
+

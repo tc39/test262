@@ -6,14 +6,18 @@ desc: >
     When DestructuringAssignmentTarget is an array literal, it should be parsed
     parsed as a DestructuringAssignmentPattern and evaluated as a destructuring
     assignment.
-template: default
+template: async-function
 ---*/
 
 //- setup
-var x;
+let x;
 //- elems
 [[x]]
 //- vals
 [[1]]
 //- body
 assert.sameValue(x, 1);
+//- teardown
+promise
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);

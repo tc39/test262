@@ -1,4 +1,4 @@
-// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 desc: >
@@ -7,16 +7,17 @@ desc: >
 info: |
     ArrayAssignmentPattern : [ Elision ]
 
-    1. Let iterator be GetIterator(value).
-    [...]
-    5. If iteratorRecord.[[done]] is false, return IteratorClose(iterator,
-       result).
-    [...]
-
-    7.4.6 IteratorClose( iterator, completion )
+    1. Let iterator be ? GetIterator(value).
 
     [...]
-    6. Let innerResult be Call(return, iterator, « »).
+
+    4. If iteratorRecord.[[Done]] is false, return ? IteratorClose(iterator, result)..
+    [...]
+
+    7.4.6 IteratorClose ( iterator, completion )
+
+    [...]
+    5. Let innerResult be Call(return, iterator, « »).
     [...]
 features: [Symbol.iterator]
 template: async-generator
@@ -24,11 +25,11 @@ esid: sec-runtime-semantics-destructuringassignmentevaluation
 ---*/
 
 //- setup
-var nextCount = 0;
-var returnCount = 0;
-var thisValue = null;
-var args = null;
-var iterator = {
+let nextCount = 0;
+let returnCount = 0;
+let thisValue = null;
+let args = null;
+let iterator = {
   next() {
     nextCount += 1;
     // Set an upper-bound to limit unnecessary iteration in non-conformant
@@ -42,7 +43,7 @@ var iterator = {
     return {};
   }
 };
-var iterable = {
+let iterable = {
   [Symbol.iterator]() {
     return iterator;
   }

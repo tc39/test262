@@ -9,7 +9,7 @@ template: default
 ---*/
 
 //- setup
-var x, setValue;
+let x, setValue;
 x = {
   get y() {
     $ERROR('The property should not be accessed.');

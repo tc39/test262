@@ -8,8 +8,8 @@ template: default
 ---*/
 
 //- setup
-var flag1 = false, flag2 = false;
-var _;
+let flag1 = false, flag2 = false;
+let _;
 //- elems
 [ _ = flag1 = true, _ = flag2 = true ]
 //- vals

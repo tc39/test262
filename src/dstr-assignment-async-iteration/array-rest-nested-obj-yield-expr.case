@@ -11,7 +11,7 @@ features: [generators]
 ---*/
 
 //- setup
-var x;
+let x;
 
 //- elems
 [...{ x = yield }]
@@ -23,8 +23,6 @@ iter.next().then(iterationResult => {
   assert.sameValue(iterationResult.done, false);
   assert.sameValue(x, undefined);
 
-  // TODO add iterCount
-  //
   iter.next(4).then(iterationResult => {
     assert.sameValue(iterationResult.value, undefined);
     assert.sameValue(iterationResult.done, true);

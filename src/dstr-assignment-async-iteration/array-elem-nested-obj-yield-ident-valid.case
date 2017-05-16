@@ -11,8 +11,8 @@ flags: [noStrict]
 ---*/
 
 //- setup
-var yield = 2;
-var x;
+let yield = 2;
+let x;
 //- elems
 [{ x = yield }]
 //- vals

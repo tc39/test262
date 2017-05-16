@@ -8,30 +8,31 @@ info: |
     ArrayAssignmentPattern : [ AssignmentElementList ]
 
     [...]
-    5. If iteratorRecord.[[done]] is false, return IteratorClose(iterator, result).
-    6. Return result.
+    4. If iteratorRecord.[[Done]] is false, return ? IteratorClose(iterator, result).
+    5. Return result.
 features: [Symbol.iterator]
-template: default
+template: async-generator
 esid: sec-runtime-semantics-destructuringassignmentevaluation
 ---*/
 
 //- setup
-var nextCount = 0;
-var returnCount = 0;
-var _;
-var iterable = {};
-var iterator = {
-  next: function() {
+let nextCount = 0;
+let returnCount = 0;
+let _;
+let iterator = {
+  next() {
     nextCount += 1;
     return { done: true };
   },
-  return: function() {
+  return() {
     returnCount += 1;
     return {};
   }
 };
-iterable[Symbol.iterator] = function() {
-  return iterator;
+let iterable = {
+  [Symbol.iterator]() {
+    return iterator;
+  }
 };
 //- elems
 [ _ ]
@@ -42,6 +43,6 @@ assert.sameValue(nextCount, 1);
 assert.sameValue(returnCount, 0);
 
 //- teardown
-promise
-  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
-  .then($DONE, $DONE);
+iter.next().then(() => {
+  assert.sameValue(iterCount, 1);
+}).then($DONE, $DONE);

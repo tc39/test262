@@ -1,0 +1,27 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    Any error raised as a result of setting the value should be forwarded to
+    the runtime.
+template: default
+es6id: 12.14.5.3
+---*/
+
+//- setup
+let x = {
+  set y(val) {
+    throw new Test262Error();
+  }
+};
+//- elems
+[x.y]
+//- vals
+[23]
+
+//- teardown
+promise.then(() => $DONE('Promise incorrectly fulfilled.'), ({ constructor }) => {
+  assert.sameValue(iterCount, 0);
+  assert.sameValue(constructor, Test262Error);
+}).then($DONE, $DONE);

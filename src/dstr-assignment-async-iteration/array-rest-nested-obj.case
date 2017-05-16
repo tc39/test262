@@ -1,4 +1,4 @@
-// Copyright (C) 2015 the V8 project authors. All rights reserved.
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -10,10 +10,14 @@ template: default
 ---*/
 
 //- setup
-var x;
+let x;
 //- elems
 [...{ 1: x }]
 //- vals
 [1, 2, 3]
 //- body
 assert.sameValue(x, 2);
+//- teardown
+promise
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);

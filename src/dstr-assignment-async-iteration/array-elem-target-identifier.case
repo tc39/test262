@@ -10,7 +10,7 @@ template: async-function
 ---*/
 
 //- setup
-var x, y, z;
+let x, y, z;
 //- elems
 [x, y, z]
 //- vals

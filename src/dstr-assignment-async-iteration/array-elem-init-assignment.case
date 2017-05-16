@@ -9,7 +9,7 @@ template: default
 ---*/
 
 //- setup
-var v2, vNull, vHole, vUndefined, vOob;
+let v2, vNull, vHole, vUndefined, vOob;
 //- elems
 [v2 = 10, vNull = 11, vHole = 12, vUndefined = 13, vOob = 14]
 //- vals

@@ -8,8 +8,8 @@ template: default
 ---*/
 
 //- setup
-var x = 0;
-var a, b;
+let x = 0;
+let a, b;
 //- elems
 [ a = x += 1, b = x *= 2 ]
 //- vals

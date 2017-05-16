@@ -1,4 +1,4 @@
-// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 desc: >
@@ -9,11 +9,11 @@ info: |
         [ AssignmentElementList , Elisionopt AssignmentRestElementopt ]
 
     [...]
-    3. Let iteratorRecord be Record {[[iterator]]: iterator, [[done]]: false}.
-    4. Let status be the result of performing
+    2. Let iteratorRecord be Record {[[iterator]]: iterator, [[done]]: false}.
+    3. Let status be the result of performing
        IteratorDestructuringAssignmentEvaluation of AssignmentElementList using
        iteratorRecord as the argument.
-    5. If status is an abrupt completion, then
+    4. If status is an abrupt completion, then
        a. If iteratorRecord.[[done]] is false, return IteratorClose(iterator,
           status).
        b. Return Completion(status).
@@ -23,13 +23,13 @@ esid: sec-runtime-semantics-destructuringassignmentevaluation
 ---*/
 
 //- setup
-var nextCount = 0;
-var returnCount = 0;
-var thrower = function() {
+let nextCount = 0;
+let returnCount = 0;
+let thrower = function() {
   throw new Test262Error();
 };
-var x;
-var iterator = {
+let x;
+let iterator = {
   next() {
     nextCount += 1;
     return { done: true };
@@ -38,7 +38,7 @@ var iterator = {
     returnCount += 1;
   }
 };
-var iterable = {
+let iterable = {
   [Symbol.iterator]() {
     return iterator;
   }

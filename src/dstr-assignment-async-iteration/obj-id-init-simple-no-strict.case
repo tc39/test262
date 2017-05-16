@@ -1,0 +1,24 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    Evaluation of DestructuringAssignmentTarget.
+template: default
+es6id: 12.14.5.4
+flags: [noStrict]
+---*/
+
+//- setup
+let eval, arguments;
+//- elems
+{ eval = 3, arguments = 4 }
+//- vals
+{}
+//- body
+assert.sameValue(eval, 3);
+assert.sameValue(arguments, 4);
+//- teardown
+promise
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);

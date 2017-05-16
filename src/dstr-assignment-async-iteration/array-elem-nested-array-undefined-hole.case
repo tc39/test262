@@ -1,0 +1,24 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+    When DestructuringAssignmentTarget is an array literal and the value is a
+    "hole", a TypeError should be thrown.
+template: default
+es6id: 12.14.5.3
+---*/
+
+//- setup
+let _;
+
+//- elems
+[[ _ ]]
+//- vals
+[ , ]
+//- teardown
+promise.then(() => $DONE('Promise incorrectly fulfilled.'), ({ constructor }) => {
+  assert.sameValue(iterCount, 0);
+  assert.sameValue(constructor, TypeError);
+}).then($DONE, $DONE);
+

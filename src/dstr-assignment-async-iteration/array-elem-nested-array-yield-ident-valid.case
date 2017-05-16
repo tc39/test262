@@ -6,16 +6,20 @@ desc: >
     When a `yield` token appears within the DestructuringAssignmentTarget of a
     nested destructuring assignment outside of strict mode, it behaves as an
     IdentifierReference.
-template: default
+template: async-function
 flags: [noStrict]
 ---*/
 
 //- setup
-var yield = 'prop';
-var x = {};
+let yield = 'prop';
+let x = {};
 //- elems
 [[x[yield]]]
 //- vals
 [[22]]
 //- body
 assert.sameValue(x.prop, 22);
+//- teardown
+promise
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);

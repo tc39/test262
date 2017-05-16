@@ -1,0 +1,32 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: Abrupt completion returned from GetIterator
+info: |
+    ArrayAssignmentPattern : [ AssignmentElementList ]
+
+    1. Let iterator be ? GetIterator(value).
+
+features: [Symbol.iterator]
+template: async-generator
+es6id: 12.14.5.2
+esid: sec-runtime-semantics-destructuringassignmentevaluation
+---*/
+
+//- setup
+let iterable = {
+  [Symbol.iterator]() {
+    throw new Test262Error();
+  }
+};
+let _;
+
+//- elems
+[ _ ]
+//- vals
+iterable
+//- teardown
+iter.next().then(() => $DONE('Promise incorrectly fulfilled.'), ({ constructor }) => {
+  assert.sameValue(constructor, Test262Error);
+}).then($DONE, $DONE);
+

@@ -1,0 +1,25 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+desc: >
+  If the Initializer is present and v is undefined, the Initializer should be
+  evaluated and the result assigned to the target reference (no corresponding
+  property defined).
+template: default
+es6id: 12.14.5.4
+---*/
+
+//- setup
+let x;
+//- elems
+{ x = 1 }
+//- vals
+{}
+//- body
+assert.sameValue(x, 1);
+
+//- teardown
+promise
+  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+  .then($DONE, $DONE);
