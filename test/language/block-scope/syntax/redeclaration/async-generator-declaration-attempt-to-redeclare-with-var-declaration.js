@@ -4,7 +4,8 @@
 /*---
 description: redeclaration with VariableDeclaration (AsyncGeneratorDeclaration in BlockStatement)
 esid: sec-block-static-semantics-early-errors
-flags: [generated, async-iteration]
+features: [async-iteration]
+flags: [generated]
 negative:
   phase: early
   type: SyntaxError
