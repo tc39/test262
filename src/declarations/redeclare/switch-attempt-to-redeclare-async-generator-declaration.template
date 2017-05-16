@@ -13,7 +13,7 @@ info: |
 negative:
   phase: early
   type: SyntaxError
-flags: [async-iteration]
+features: [async-iteration]
 ---*/
 
 switch (0) { case 1: async function* f() {} default: /*{ body }*/ }
