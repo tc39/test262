@@ -2,6 +2,8 @@
 
 Test262 tests conformance to the continually maintained draft future ECMAScript standard found at http://tc39.github.io/ecma262/ , together with any Stage 3 or later TC39 proposals. It is maintained by Tom Care (@tcare) and Leo Balter (@leobalter) with significant contributions from many in the ECMAScript community.
 
+This project is also described by the [Ecma Technical Report 104](http://ecma-international.org/publications/techreports/E-TR-104.htm).
+
 ### Contributing to Test262
 > See [CONTRIBUTING.md](./CONTRIBUTING.md)
 
