@@ -1,2 +1,9 @@
-# This file documents authorship information and is not itself a test
-test/built-ins/Simd/AUTHORS FRONTMATTER LICENSE
+# Tests that intentionally violate the project's linting rules (along with a
+# space-separated list of the specific rules they violate) should be specified
+# in this file.
+#
+# Example:
+#
+# test/language/made-up-file.js FRONTMATTER LICENSE
+#
+# Note that lines prefixed with the "hash" symbol (#) will be ignored.
