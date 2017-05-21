@@ -86,3 +86,77 @@ assert.throws.early = function(err, code) {
 
   assert.throws(err, () => { Function(wrappedCode); }, `Function: ${code}`);
 };
+
+(function() {
+  function classOf(object) {
+    // Argument must not be null or undefined.
+    var string = Object.prototype.toString.call(object);
+    // String has format [object <ClassName>].
+    return string.substring(8, string.length - 1);
+  }
+
+  function deepObjectEquals(a, b) {
+    var aProps = [];
+    var bProps = [];
+
+    for (key in a) {
+      if (Object.hasOwnProperty.call(a, key)) {
+        aProps.push(key);
+      }
+    }
+    aProps.sort();
+
+    for (key in b) {
+      if (Object.hasOwnProperty.call(b, key)) {
+        bProps.push(key);
+      }
+    }
+    bProps.sort();
+
+    if (!deepEquals(aProps, bProps)) {
+      return false;
+    }
+    for (var i = 0; i < aProps.length; i++) {
+      if (!deepEquals(a[aProps[i]], b[aProps[i]])) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function deepEquals(a, b) {
+    if (assert._isSameValue(a, b)) {
+      return true;
+    }
+    if (typeof a !== typeof b) return false;
+    if (typeof a !== "object" && typeof a !== "function") return false;
+    // Neither a nor b is primitive.
+    var objectClass = classOf(a);
+    if (objectClass !== classOf(b)) return false;
+    if (objectClass === "RegExp") {
+      // For RegExp, just compare pattern and flags using its toString.
+      return (a.toString() === b.toString());
+    }
+    // Functions are only identical to themselves.
+    if (objectClass === "Function") return false;
+    if (objectClass === "Array") {
+      var elementCount = 0;
+      if (a.length !== b.length) {
+        return false;
+      }
+      for (var i = 0; i < a.length; i++) {
+        if (!deepEquals(a[i], b[i])) return false;
+      }
+      return true;
+    }
+    if (objectClass === "String" || objectClass === "Number" ||
+      objectClass === "Boolean" || objectClass === "Date") {
+      if (!assert._isSameValue(a.valueOf(), b.valueOf())) return false;
+    }
+    return deepObjectEquals(a, b);
+  }
+
+  assert.deepEquals = function (actual, expected, message) {
+    assert(deepEquals(actual, expected), message);
+  };
+}());
