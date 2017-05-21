@@ -145,7 +145,7 @@ This tag is for boolean properties associated with the test.
 #### features
 **features**: [list]
 
-Some tests require the use of language features that are not directly described by the test file's location in the directory structure. These features should be formally listed here.
+Some tests require the use of language features that are not directly described by the test file's location in the directory structure. These features should be specified with this tag. See the `features.txt` file for a complete list of available values.
 
 ## Test Environment
 
