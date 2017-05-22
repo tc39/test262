@@ -4,17 +4,14 @@
 /*---
 es5id: 12.10.1-7-s
 description: >
-    with statement in strict mode throws SyntaxError (function
+    with statement in strict mode does not throw SyntaxError (function
     expression, where the container function is directly evaled from
     strict code)
-flags: [onlyStrict]
 ---*/
 
 
-assert.throws(SyntaxError, function() {
     eval("var f = function () {\
                 var o = {}; \
                 with (o) {}; \
              }\
         ");
-});

@@ -4,15 +4,11 @@
 /*---
 es5id: 12.10.1-2-s
 description: >
-    with statement in strict mode throws SyntaxError (nested function
+    with statement in strict mode does not throw SyntaxError (nested function
     where container is strict)
-flags: [noStrict]
 ---*/
 
 
-assert.throws(SyntaxError, function() {
-    // wrapping it in eval since this needs to be a syntax error. The
-    // exception thrown must be a SyntaxError exception.
     eval("\
           function foo() {\
             \'use strict\'; \
@@ -22,4 +18,3 @@ assert.throws(SyntaxError, function() {
             }\
           }\
         ");
-});

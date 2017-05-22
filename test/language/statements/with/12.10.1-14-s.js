@@ -4,12 +4,9 @@
 /*---
 es5id: 12.10.1-14-s
 description: >
-    Strict Mode - SyntaxError is thrown when the getter of a literal
+    Strict Mode - SyntaxError is not thrown when the getter of a literal
     object utilizes WithStatement
-flags: [onlyStrict]
 ---*/
 
 
-assert.throws(SyntaxError, function() {
             eval("var obj = { get(a) { with(a){} } }; ");
-});

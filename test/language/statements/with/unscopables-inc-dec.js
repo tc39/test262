@@ -16,7 +16,6 @@ info: |
   HasBinding ( N )
   [...]
   6. Let unscopables be ? Get(bindings, @@unscopables).
-flags: [noStrict]
 features: [Symbol.unscopables]
 ---*/
 

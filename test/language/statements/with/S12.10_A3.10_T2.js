@@ -9,7 +9,6 @@ es5id: 12.10_A3.10_T2
 description: >
     Using iteration statement within "with" statement, leading
     completion by exception
-flags: [noStrict]
 ---*/
 
 this.p1 = 1;

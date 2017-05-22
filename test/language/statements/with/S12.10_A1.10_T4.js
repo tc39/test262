@@ -10,7 +10,6 @@ description: >
     Using iteration statement witthin "with" staement leading to
     completion by break  iteration statement inside with statement -
     break completion
-flags: [noStrict]
 ---*/
 
 this.p1 = 1;

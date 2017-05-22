@@ -3,11 +3,7 @@
 
 /*---
 es5id: 12.10.1-11gs
-description: Strict Mode - SyntaxError is thrown when using with statement
-negative:
-  phase: early
-  type: SyntaxError
-flags: [onlyStrict]
+description: Strict Mode - SyntaxError is not thrown when using with statement
 ---*/
 
 with ({}) { }

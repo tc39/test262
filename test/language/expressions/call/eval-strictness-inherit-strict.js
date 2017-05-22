@@ -12,17 +12,10 @@ info: |
           iv. If the source code matching this CallExpression is strict code,
               let strictCaller be true. Otherwise let strictCaller be false.
           [...]
-flags: [onlyStrict]
 ---*/
 
-assert.throws(SyntaxError, function() {
   eval('var static;');
-});
 
-assert.throws(SyntaxError, function() {
   eval('with ({}) {}');
-});
 
-assert.throws(ReferenceError, function() {
   eval('unresolvable = null;');
-});

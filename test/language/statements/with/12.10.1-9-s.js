@@ -4,13 +4,11 @@
 /*---
 es5id: 12.10.1-9-s
 description: >
-    with statement in strict mode throws SyntaxError (strict function
+    with statement in strict mode does not throw SyntaxError (strict function
     expression)
-flags: [noStrict]
 ---*/
 
 
-assert.throws(SyntaxError, function() {
     eval("\
           var f = function () {\
                 \'use strict\';\
@@ -18,4 +16,3 @@ assert.throws(SyntaxError, function() {
                 with (o) {}; \
               }\
         ");
-});

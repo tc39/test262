@@ -9,7 +9,6 @@ es5id: 12.10_A1.1_T3
 description: >
     Using "with" inside of global context leading to completion by
     exception
-flags: [noStrict]
 ---*/
 
 this.p1 = 1;

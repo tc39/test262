@@ -10,7 +10,6 @@ description: >
     Calling a function without "with" statement when the statement
     itself is declared within the function declaration, leading to
     completion by exception
-flags: [noStrict]
 ---*/
 
 this.p1 = 1;

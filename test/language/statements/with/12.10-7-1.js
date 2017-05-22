@@ -4,7 +4,6 @@
 /*---
 es5id: 12.10-7-1
 description: with introduces scope - restores the earlier environment on exit
-flags: [noStrict]
 ---*/
 
   var a = 1;
