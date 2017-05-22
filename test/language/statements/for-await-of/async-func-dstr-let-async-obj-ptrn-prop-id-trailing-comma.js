@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/dstr-binding/obj-ptrn-prop-id-trailing-comma.case
-// - src/dstr-binding/default/for-await-of-async-func-let-async.template
+// - src/dstr-binding-for-await/obj-ptrn-prop-id-trailing-comma.case
+// - src/dstr-binding-for-await/default/for-await-of-async-func-let-async.template
 /*---
 description: Trailing comma is allowed following BindingPropertyList (for-await-of statement)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation

@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/dstr-binding/obj-ptrn-rest-getter.case
-// - src/dstr-binding/default/for-await-of-async-gen-const-async.template
+// - src/dstr-binding-for-await/obj-ptrn-rest-getter.case
+// - src/dstr-binding-for-await/default/for-await-of-async-gen-const-async.template
 /*---
 description: Getter is called when obj is being deconstructed to a rest Object (for-await-of statement)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation

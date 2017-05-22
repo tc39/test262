@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/dstr-binding/ary-ptrn-elision-iter-close.case
-// - src/dstr-binding/iter-close/for-await-of-async-gen-let.template
+// - src/dstr-binding-for-await/ary-ptrn-elision-iter-close.case
+// - src/dstr-binding-for-await/iter-close/for-await-of-async-gen-let.template
 /*---
 description: The iterator is properly consumed by the destructuring pattern (for-await-of statement)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation

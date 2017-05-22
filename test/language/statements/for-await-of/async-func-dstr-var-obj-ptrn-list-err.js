@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/dstr-binding/obj-ptrn-list-err.case
-// - src/dstr-binding/error/for-await-of-async-func-var.template
+// - src/dstr-binding-for-await/obj-ptrn-list-err.case
+// - src/dstr-binding-for-await/error/for-await-of-async-func-var.template
 /*---
 description: Binding property list evaluation is interrupted by an abrupt completion (for-await-of statement)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
@@ -55,7 +55,10 @@ async function fn() {
 }
 
 fn()
-  .then(_ => { throw new Test262Error("Expected async function to reject, but resolved."); }, ({ constructor }) => assert.sameValue(constructor, Test262Error))
+  .then(_ => {
+    throw new Test262Error("Expected async function to reject, but resolved.");
+  }, ({ constructor }) => {
+    assert.sameValue(constructor, Test262Error);
+    
+  })
   .then($DONE, $DONE);
-
-assert.sameValue(initCount, 0);

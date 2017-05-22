@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/dstr-binding/ary-ptrn-elision.case
-// - src/dstr-binding/default/for-await-of-async-func-const.template
+// - src/dstr-binding-for-await/ary-ptrn-elision.case
+// - src/dstr-binding-for-await/default/for-await-of-async-func-const.template
 /*---
 description: Elision advances iterator (for-await-of statement)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation

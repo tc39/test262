@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/dstr-binding/ary-ptrn-rest-not-final-ary.case
-// - src/dstr-binding/default/for-await-of-async-gen-const-async.template
+// - src/dstr-binding-for-await/ary-ptrn-rest-not-final-ary.case
+// - src/dstr-binding-for-await/default/for-await-of-async-gen-const-async.template
 /*---
 description: Rest element (array binding pattern) may not be followed by any element (for-await-of statement)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation

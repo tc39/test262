@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/dstr-binding/ary-ptrn-elision-step-err.case
-// - src/dstr-binding/error/for-await-of-async-func-var.template
+// - src/dstr-binding-for-await/ary-ptrn-elision-step-err.case
+// - src/dstr-binding-for-await/error/for-await-of-async-func-var.template
 /*---
 description: Elision advances iterator and forwards abrupt completions (for-await-of statement)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
@@ -54,7 +54,7 @@ info: |
 
 ---*/
 var following = 0;
-var iter =function* () {
+var iter = function* () {
   throw new Test262Error();
   following += 1;
 }();
@@ -66,8 +66,10 @@ async function fn() {
 }
 
 fn()
-  .then(_ => { throw new Test262Error("Expected async function to reject, but resolved."); }, ({ constructor }) => assert.sameValue(constructor, Test262Error))
+  .then(_ => {
+    throw new Test262Error("Expected async function to reject, but resolved.");
+  }, ({ constructor }) => {
+    assert.sameValue(constructor, Test262Error);
+    assert.sameValue(following, 0, "iterator is properly closed");
+  })
   .then($DONE, $DONE);
-
-iter.next();
-assert.sameValue(following, 0, 'Iterator was properly closed.');

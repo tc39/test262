@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/dstr-binding/ary-ptrn-elision-exhausted.case
-// - src/dstr-binding/default/for-await-of-async-gen-let.template
+// - src/dstr-binding-for-await/ary-ptrn-elision-exhausted.case
+// - src/dstr-binding-for-await/default/for-await-of-async-gen-let.template
 /*---
 description: Elision accepts exhausted iterator (for-await-of statement)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation

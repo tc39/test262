@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/dstr-binding/obj-ptrn-rest-obj-nested-rest.case
-// - src/dstr-binding/default/for-await-of-async-func-var.template
+// - src/dstr-binding-for-await/obj-ptrn-rest-obj-nested-rest.case
+// - src/dstr-binding-for-await/default/for-await-of-async-func-var.template
 /*---
 description: When DestructuringAssignmentTarget is an object literal, it should be parsed parsed as a DestructuringAssignmentPattern and evaluated as a destructuring assignment and object rest desconstruction is allowed in that case. (for-await-of statement)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
