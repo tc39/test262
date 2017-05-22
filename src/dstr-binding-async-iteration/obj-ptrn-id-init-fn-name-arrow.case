@@ -6,7 +6,7 @@ template: default
 info: |
     13.3.3.7 Runtime Semantics: KeyedBindingInitialization
 
-    SingleNameBinding : BindingIdentifier Initializeropt
+    SingleNameBinding : BindingIdentifier Initializer_opt
 
     [...]
     6. If Initializer is present and v is undefined, then

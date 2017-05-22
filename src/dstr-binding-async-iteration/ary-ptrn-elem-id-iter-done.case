@@ -6,14 +6,14 @@ template: default
 info: |
     13.3.3.6 Runtime Semantics: IteratorBindingInitialization
 
-    SingleNameBinding : BindingIdentifier Initializeropt
+    SingleNameBinding : BindingIdentifier Initializer_opt
 
     [...]
-    4. If iteratorRecord.[[done]] is false, then
+    3. If iteratorRecord.[[done]] is false, then
        [...]
-    5. If iteratorRecord.[[done]] is true, let v be undefined.
+    4. If iteratorRecord.[[done]] is true, let v be undefined.
     [...]
-    8. Return InitializeReferencedBinding(lhs, v).
+    7. Return InitializeReferencedBinding(lhs, v).
 ---*/
 
 //- elems

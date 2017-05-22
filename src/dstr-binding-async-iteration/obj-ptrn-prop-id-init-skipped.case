@@ -6,7 +6,7 @@ template: default
 info: |
     13.3.3.7 Runtime Semantics: KeyedBindingInitialization
 
-    BindingElement : BindingPattern Initializeropt
+    BindingElement : BindingPattern Initializer_opt
 
     [...]
     3. If Initializer is present and v is undefined, then

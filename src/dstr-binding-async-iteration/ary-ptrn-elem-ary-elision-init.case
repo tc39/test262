@@ -6,7 +6,7 @@ template: default
 info: |
     13.3.3.6 Runtime Semantics: IteratorBindingInitialization
 
-    BindingElement : BindingPatternInitializer opt
+    BindingElement : BindingPattern Initializer_opt
 
     [...]
     2. If iteratorRecord.[[done]] is true, let v be undefined.

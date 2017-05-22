@@ -6,7 +6,7 @@ template: default
 info: |
     13.3.3.6 Runtime Semantics: IteratorBindingInitialization
 
-    BindingElement : BindingPatternInitializer opt
+    BindingElement : BindingPattern Initializer_opt
 
     1. If iteratorRecord.[[done]] is false, then
        a. Let next be IteratorStep(iteratorRecord.[[iterator]]).

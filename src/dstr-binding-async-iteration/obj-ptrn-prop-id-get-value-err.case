@@ -6,7 +6,7 @@ template: error
 info: |
     13.3.3.7 Runtime Semantics: KeyedBindingInitialization
 
-    BindingElement : BindingPattern Initializeropt
+    BindingElement : BindingPattern Initializer_opt
 
     1. Let v be GetV(value, propertyName).
     2. ReturnIfAbrupt(v).

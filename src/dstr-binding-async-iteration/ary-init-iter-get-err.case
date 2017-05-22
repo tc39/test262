@@ -8,8 +8,7 @@ info: |
 
     BindingPattern : ArrayBindingPattern
 
-    1. Let iterator be GetIterator(value).
-    2. ReturnIfAbrupt(iterator).
+    1. Let iterator be ? GetIterator(value).
 features: [Symbol.iterator]
 ---*/
 

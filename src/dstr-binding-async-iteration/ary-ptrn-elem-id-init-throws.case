@@ -6,13 +6,12 @@ template: error
 info: |
     13.3.3.6 Runtime Semantics: IteratorBindingInitialization
 
-    SingleNameBinding : BindingIdentifier Initializeropt
+    SingleNameBinding : BindingIdentifier Initializer_opt
 
     [...]
-    6. If Initializer is present and v is undefined, then
+    5. If Initializer is present and v is undefined, then
        a. Let defaultValue be the result of evaluating Initializer.
-       b. Let v be GetValue(defaultValue).
-       c. ReturnIfAbrupt(v).
+       b. Set v to ? GetValue(defaultValue).
 ---*/
 
 //- elems

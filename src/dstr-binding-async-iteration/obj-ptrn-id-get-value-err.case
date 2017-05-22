@@ -6,7 +6,7 @@ desc: Error thrown when accessing the corresponding property of the value object
 info: |
     13.3.3.7 Runtime Semantics: KeyedBindingInitialization
 
-    SingleNameBinding : BindingIdentifier Initializeropt
+    SingleNameBinding : BindingIdentifier Initializer_opt
 
     [...]
     4. Let v be GetV(value, propertyName).

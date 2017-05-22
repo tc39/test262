@@ -6,10 +6,10 @@ desc: Binding as specified via property name, identifier, and initializer
 info: |
     13.3.3.7 Runtime Semantics: KeyedBindingInitialization
 
-    SingleNameBinding : BindingIdentifier Initializeropt
+    SingleNameBinding : BindingIdentifier Initializer_opt
 
     [...]
-    8. Return InitializeReferencedBinding(lhs, v).
+    7. Return InitializeReferencedBinding(lhs, v).
 ---*/
 
 //- elems

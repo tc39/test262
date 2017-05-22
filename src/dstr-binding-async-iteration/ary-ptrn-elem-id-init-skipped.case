@@ -6,13 +6,13 @@ template: default
 info: |
     13.3.3.6 Runtime Semantics: IteratorBindingInitialization
 
-    SingleNameBinding : BindingIdentifier Initializeropt
+    SingleNameBinding : BindingIdentifier Initializer_opt
 
     [...]
     6. If Initializer is present and v is undefined, then
        [...]
     7. If environment is undefined, return PutValue(lhs, v).
-    8. Return InitializeReferencedBinding(lhs, v).
+    7. Return InitializeReferencedBinding(lhs, v).
 ---*/
 
 //- setup

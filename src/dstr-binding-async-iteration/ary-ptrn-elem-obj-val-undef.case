@@ -6,7 +6,7 @@ template: error
 info: |
     13.3.3.6 Runtime Semantics: IteratorBindingInitialization
 
-    BindingElement : BindingPattern Initializeropt
+    BindingElement : BindingPattern Initializer_opt
 
     1. If iteratorRecord.[[done]] is false, then
        [...]
