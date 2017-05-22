@@ -1,4 +1,4 @@
-// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 template: error
@@ -31,7 +31,7 @@ var poisonedValue = Object.defineProperty({}, 'value', {
 var iter = {};
 iter[Symbol.iterator] = function() {
   return {
-    next: function() {
+    next() {
       return poisonedValue;
     }
   };

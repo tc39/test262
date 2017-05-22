@@ -1,4 +1,4 @@
-// Copyright (C) 2016 the V8 project authors. All rights reserved.
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 desc: Iterator is not closed when exhausted by pattern evaluation
@@ -20,10 +20,10 @@ var doneCallCount = 0;
 var iter = {};
 iter[Symbol.iterator] = function() {
   return {
-    next: function() {
+    next() {
       return { value: null, done: true };
     },
-    return: function() {
+    return() {
       doneCallCount += 1;
       return {};
     }
