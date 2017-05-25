@@ -1,0 +1,28 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: SingleNameBinding assigns `name` to "anonymous" classes
+template: default
+info: |
+    13.3.3.6 Runtime Semantics: IteratorBindingInitialization
+
+    SingleNameBinding : BindingIdentifier Initializer_opt
+
+    [...]
+    5. If Initializer is present and v is undefined, then
+       a. Let defaultValue be the result of evaluating Initializer.
+       b. Set v to ? GetValue(defaultValue).
+       c. If IsAnonymousFunctionDefinition(Initializer) is true, then
+          [...]
+    6. If environment is undefined, return PutValue(lhs, v).
+    7. Return InitializeReferencedBinding(lhs, v).
+---*/
+
+//- elems
+[cls = class {}, xCls = class X {}, xCls2 = class { static name() {} }]
+//- vals
+[]
+//- body
+assert.sameValue(cls.name, 'cls');
+assert.notSameValue(xCls.name, 'xCls');
+assert.notSameValue(xCls2.name, 'xCls2');

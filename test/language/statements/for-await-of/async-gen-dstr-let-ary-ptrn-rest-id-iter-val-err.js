@@ -1,6 +1,6 @@
 // This file was procedurally generated from the following sources:
-// - src/dstr-binding/ary-ptrn-rest-id-iter-val-err.case
-// - src/dstr-binding/error/for-await-of-async-gen-let.template
+// - src/dstr-binding-for-await/ary-ptrn-rest-id-iter-val-err.case
+// - src/dstr-binding-for-await/error/for-await-of-async-gen-let.template
 /*---
 description: Error forwarding when IteratorValue returns an abrupt completion (for-await-of statement)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
@@ -55,7 +55,7 @@ var poisonedValue = Object.defineProperty({}, 'value', {
 var iter = {};
 iter[Symbol.iterator] = function() {
   return {
-    next: function() {
+    next() {
       return poisonedValue;
     }
   };
@@ -68,5 +68,10 @@ async function * gen() {
 }
 
 gen().next()
-  .then(_ => { throw new Test262Error("Expected async function to reject, but resolved."); }, ({ constructor }) => assert.sameValue(constructor, Test262Error))
+  .then(_ => {
+    throw new Test262Error("Expected async function to reject, but resolved.");
+  }, ({ constructor }) => {
+    assert.sameValue(constructor, Test262Error);
+    
+  })
   .then($DONE, $DONE);

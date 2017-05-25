@@ -1,0 +1,21 @@
+// Copyright (C) 2017 Mozilla Corporation. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+template: iter-close
+desc: >
+  The iterator is properly consumed by the destructuring pattern
+---*/
+
+//- setup
+const iter = (function* () {
+  yield;
+  yield;
+})();
+
+//- elems
+[...x]
+//- iter
+iter
+//- assertions
+assert.sameValue(iter.next().done, true, 'iteration occurred as expected');

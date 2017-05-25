@@ -1,0 +1,27 @@
+// Copyright (C) 2017 the V8 project authors. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+/*---
+desc: SingleNameBinding does assign name to "anonymous" functions "through" cover grammar
+template: default
+info: |
+    13.3.3.6 Runtime Semantics: IteratorBindingInitialization
+
+    SingleNameBinding : BindingIdentifier Initializer_opt
+
+    [...]
+    5. If Initializer is present and v is undefined, then
+       a. Let defaultValue be the result of evaluating Initializer.
+       b. Set v to ? GetValue(defaultValue).
+       c. If IsAnonymousFunctionDefinition(Initializer) is true, then
+          [...]
+    6. If environment is undefined, return PutValue(lhs, v).
+    7. Return InitializeReferencedBinding(lhs, v).
+---*/
+
+//- elems
+[cover = (function () {}), xCover = (0, function() {})]
+//- vals
+[]
+//- body
+assert.sameValue(cover.name, 'cover');
+assert.notSameValue(xCover.name, 'xCover');
