@@ -43,4 +43,4 @@ ref = async function(fromLiteral = 23, fromExpr = 45, fromHole = 99) {
 
 ref(undefined, void 0).then(() => {
     assert.sameValue(callCount, 1, 'function invoked exactly once');
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);

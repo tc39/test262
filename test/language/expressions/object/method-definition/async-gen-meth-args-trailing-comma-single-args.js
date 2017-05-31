@@ -42,4 +42,4 @@ var ref = obj.method;
 
 ref(42,).next().then(() => {
     assert.sameValue(callCount, 1, 'generator method invoked exactly once');
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);

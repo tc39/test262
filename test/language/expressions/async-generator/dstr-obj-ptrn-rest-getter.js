@@ -35,4 +35,4 @@ f = async function*({...x}) {
 
 f({ get v() { count++; return 2; } }).next().then(() => {
     assert.sameValue(callCount, 1, 'invoked exactly once');
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);

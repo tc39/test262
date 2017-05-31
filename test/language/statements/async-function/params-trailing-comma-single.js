@@ -30,6 +30,6 @@ async function ref(a,) {
 
 ref(42, 39).then(() => {
     assert.sameValue(callCount, 1, 'function invoked exactly once');
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);
 
 assert.sameValue(ref.length, 1, 'length is properly set');

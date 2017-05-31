@@ -58,6 +58,6 @@ item.then(({ done, value }) => {
   assert.sameValue(value[s], 42);
   assert.sameValue(Object.keys(value).length, 5);
   assert(Object.hasOwnProperty.call(value, s));
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);
 
 assert.sameValue(callCount, 1);

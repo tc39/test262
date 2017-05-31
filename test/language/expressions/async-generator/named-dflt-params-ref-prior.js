@@ -42,4 +42,4 @@ ref = async function* g(x, y = x, z = y) {
 
 ref(3).next().then(() => {
     assert.sameValue(callCount, 1, 'generator function invoked exactly once');
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);

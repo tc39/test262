@@ -46,6 +46,6 @@ var ref = async (a, b,) => {
 
 ref(42, 39, 1).then(() => {
   assert.sameValue(callCount, 1, 'async arrow function invoked exactly once')
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);
 
 assert.sameValue(ref.length, 2, 'length is properly set');

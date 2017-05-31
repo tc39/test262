@@ -41,6 +41,6 @@ item = iter.next(42);
 item.then(({ done, value }) => {
   assert.sameValue(done, true);
   assert.sameValue(value, 43);
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);
 
 assert.sameValue(callCount, 1);

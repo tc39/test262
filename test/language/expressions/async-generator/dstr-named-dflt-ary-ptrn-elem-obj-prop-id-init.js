@@ -51,4 +51,4 @@ f = async function* h([{ u: v, w: x, y: z } = { u: 444, w: 555, y: 666 }] = []) 
 
 f().next().then(() => {
     assert.sameValue(callCount, 1, 'invoked exactly once');
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);

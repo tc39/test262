@@ -70,7 +70,7 @@ iter.next().then(() => {
   iter.next().then(({ done, value }) => {
     assert.sameValue(done, true, 'the iterator is completed');
     assert.sameValue(value, undefined, 'value is undefined');
-  }).then($DONE, $DONE);
+  }, $DONE).then($DONE, $DONE);
 }).catch($DONE);
 
 assert.sameValue(callCount, 1);

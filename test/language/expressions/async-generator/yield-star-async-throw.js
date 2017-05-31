@@ -235,7 +235,7 @@ iter.next().then(v => {
       assert.sameValue(v.done, true);
 
       assert.sameValue(log.length, 15, "log.length");
-    }).then($DONE, $DONE);
+    }, $DONE).then($DONE, $DONE);
   }).catch($DONE);
 }).catch($DONE);
 

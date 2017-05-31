@@ -42,4 +42,4 @@ f = async function*({ cls = class {}, xCls = class X {}, xCls2 = class { static 
 
 f().next().then(() => {
     assert.sameValue(callCount, 1, 'invoked exactly once');
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);

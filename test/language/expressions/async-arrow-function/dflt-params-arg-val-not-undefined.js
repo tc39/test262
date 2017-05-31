@@ -67,7 +67,7 @@ var ref = async (aFalse = falseCount +=1, aString = stringCount += 1, aNaN = nan
 
 ref(false, '', NaN, 0, null, obj).then(() => {
   assert.sameValue(callCount, 1, 'async arrow function invoked exactly once')
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);
 
 assert.sameValue(falseCount, 0, 'initializer not evaluated: false');
 assert.sameValue(stringCount, 0, 'initializer not evaluated: string');

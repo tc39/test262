@@ -24,4 +24,4 @@ ref = async function ref(/*{ params }*/) {
 
 ref(/*{ args }*/).then(() => {
     assert.sameValue(callCount, 1, 'function invoked exactly once');
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);

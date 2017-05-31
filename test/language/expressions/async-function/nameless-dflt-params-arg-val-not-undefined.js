@@ -53,7 +53,7 @@ ref = async function(aFalse = falseCount +=1, aString = stringCount += 1, aNaN =
 
 ref(false, '', NaN, 0, null, obj).then(() => {
     assert.sameValue(callCount, 1, 'function invoked exactly once');
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);
 
 assert.sameValue(falseCount, 0, 'initializer not evaluated: false');
 assert.sameValue(stringCount, 0, 'initializer not evaluated: string');

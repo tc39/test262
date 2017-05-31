@@ -42,4 +42,4 @@ var ref = __obj.method;
 
 ref(3).then(() => {
     assert.sameValue(callCount, 1, 'async method invoked exactly once');
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);

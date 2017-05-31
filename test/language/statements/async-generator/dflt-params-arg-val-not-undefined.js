@@ -54,7 +54,7 @@ async function* ref(aFalse = falseCount +=1, aString = stringCount += 1, aNaN = 
 
 ref(false, '', NaN, 0, null, obj).next().then(() => {
     assert.sameValue(callCount, 1, 'generator function invoked exactly once');
-}).then($DONE, $DONE);
+}, $DONE).then($DONE, $DONE);
 
 assert.sameValue(falseCount, 0, 'initializer not evaluated: false');
 assert.sameValue(stringCount, 0, 'initializer not evaluated: string');
