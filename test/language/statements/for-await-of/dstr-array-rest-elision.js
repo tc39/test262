@@ -1,11 +1,11 @@
 // This file was procedurally generated from the following sources:
-// - src/dstr-assignment-for-await/array-elem-target-simple-no-strict.case
-// - src/dstr-assignment-for-await/async-generator/async-gen-decl.template
+// - src/dstr-assignment/array-rest-elision.case
+// - src/dstr-assignment/default/for-await-of.template
 /*---
-description: Identifiers that appear as the DestructuringAssignmentTarget in an AssignmentElement should take on the iterated value corresponding to their position in the ArrayAssignmentPattern. (for-await-of statement in an async generator declaration)
+description: ArrayAssignmentPattern may include elisions at any position preceeding a AssignmentRestElement in a AssignmentElementList. (for-await-of statement)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
 features: [destructuring-binding, async-iteration]
-flags: [generated, noStrict, async]
+flags: [generated, async]
 info: |
     IterationStatement :
       for await ( LeftHandSideExpression of AssignmentExpression ) Statement
@@ -24,21 +24,20 @@ info: |
           lhs using AssignmentPattern as the goal symbol.
     [...]
 ---*/
-let argument, eval;
+var x, y;
 
-let iterCount = 0;
-async function * fn() {
-  for await ([arguments, eval] of [[2, 3]]) {
-    assert.sameValue(arguments, 2);
-    assert.sameValue(eval, 3);
+var counter = 0;
 
-
-    iterCount += 1;
+async function fn() {
+  for await ([, , x, , ...y] of [[1, 2, 3, 4, 5, 6]]) {
+    assert.sameValue(x, 3);
+    assert.sameValue(y.length, 2);
+    assert.sameValue(y[0], 5);
+    assert.sameValue(y[1], 6);
+    counter += 1;
   }
 }
 
-let iter = fn();
-
-iter.next()
-  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+fn()
+  .then(() => assert.sameValue(counter, 1, 'iteration occurred as expected'), $DONE)
   .then($DONE, $DONE);

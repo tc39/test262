@@ -1,10 +1,10 @@
 // This file was procedurally generated from the following sources:
-// - src/dstr-assignment-for-await/array-elem-target-yield-expr.case
-// - src/dstr-assignment-for-await/async-generator/async-gen-decl.template
+// - src/dstr-assignment-for-await/array-elem-put-prop-ref-user-err.case
+// - src/dstr-assignment-for-await/default/async-gen-decl.template
 /*---
-description: When a `yield` token appears within the DestructuringAssignmentTarget of an AssignmentElement within a generator function body, it behaves as a YieldExpression. (for-await-of statement in an async generator declaration)
+description: Any error raised as a result of setting the value should be forwarded to the runtime. (for-await-of statement in an async generator declaration)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
-features: [generators, destructuring-binding, async-iteration]
+features: [destructuring-binding, async-iteration]
 flags: [generated, async]
 info: |
     IterationStatement :
@@ -24,31 +24,24 @@ info: |
           lhs using AssignmentPattern as the goal symbol.
     [...]
 ---*/
-let value = [33];
-let x = {};
-let iterationResult;
-
+let x = {
+  set y(val) {
+    throw new Test262Error();
+  }
+};
 
 let iterCount = 0;
 async function * fn() {
-  for await ([ x[yield] ] of [[33]
-
+  for await ([x.y] of [[23]
 ]) {
     
     iterCount += 1;
   }
 }
 
-let iter = fn();
+let promise = fn().next();
 
-iter.next().then(iterationResult => {
-  assert.sameValue(iterationResult.value, undefined);
-  assert.sameValue(iterationResult.done, false);
-  assert.sameValue(x.prop, undefined);
-
-  iter.next('prop').then(iterationResult => {
-    assert.sameValue(iterationResult.value, undefined);
-    assert.sameValue(iterationResult.done, true);
-    assert.sameValue(x.prop, 33);
-  }).then($DONE, $DONE);
-});
+promise.then(() => $DONE('Promise incorrectly fulfilled.'), ({ constructor }) => {
+  assert.sameValue(iterCount, 0);
+  assert.sameValue(constructor, Test262Error);
+}).then($DONE, $DONE);

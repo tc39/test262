@@ -1,11 +1,11 @@
 // This file was procedurally generated from the following sources:
-// - src/dstr-assignment-for-await/array-elem-target-simple-no-strict.case
-// - src/dstr-assignment-for-await/async-generator/async-gen-decl.template
+// - src/dstr-assignment/obj-rest-symbol-val.case
+// - src/dstr-assignment/default/for-await-of.template
 /*---
-description: Identifiers that appear as the DestructuringAssignmentTarget in an AssignmentElement should take on the iterated value corresponding to their position in the ArrayAssignmentPattern. (for-await-of statement in an async generator declaration)
+description: RestBindingInitialization creates a new object if lhs is a Symbol (for-await-of statement)
 esid: sec-for-in-and-for-of-statements-runtime-semantics-labelledevaluation
-features: [destructuring-binding, async-iteration]
-flags: [generated, noStrict, async]
+features: [object-rest, destructuring-binding, async-iteration]
+flags: [generated, async]
 info: |
     IterationStatement :
       for await ( LeftHandSideExpression of AssignmentExpression ) Statement
@@ -24,21 +24,21 @@ info: |
           lhs using AssignmentPattern as the goal symbol.
     [...]
 ---*/
-let argument, eval;
-
-let iterCount = 0;
-async function * fn() {
-  for await ([arguments, eval] of [[2, 3]]) {
-    assert.sameValue(arguments, 2);
-    assert.sameValue(eval, 3);
+var rest;
 
 
-    iterCount += 1;
+var counter = 0;
+
+async function fn() {
+  for await ({...rest} of [Symbol("foo")]) {
+    assert.notSameValue(rest, undefined);
+    assert.notSameValue(rest, null);
+    assert(rest instanceof Object);
+
+    counter += 1;
   }
 }
 
-let iter = fn();
-
-iter.next()
-  .then(() => assert.sameValue(iterCount, 1, 'iteration occurred as expected'), $DONE)
+fn()
+  .then(() => assert.sameValue(counter, 1, 'iteration occurred as expected'), $DONE)
   .then($DONE, $DONE);
